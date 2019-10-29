@@ -32,7 +32,7 @@ If you want to use <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn>, yo
 
 This behavior occurs without the need for any modification to the login page itself. This is a simple two step process:
 
-1. Enable SSO for the application in the [Dashboard](${manage_url}) (Go to the Application's Settings, then scroll down to the **Use Auth0 instead of the IdP to do Single Sign-on** setting and toggle it on.
+1. Enable SSO for the application in the [Dashboard](${manage_url}) (Go to the Application's Settings, then scroll down to the **Use Auth0 instead of the IdP to do Single Sign-on** setting (legacy tenants only) and toggle it on.
 1. Use the [authorize endpoint](/api/authentication#authorization-code-grant) with `?prompt=none` for [silent SSO](/api-auth/tutorials/silent-authentication).
 
 ::: note

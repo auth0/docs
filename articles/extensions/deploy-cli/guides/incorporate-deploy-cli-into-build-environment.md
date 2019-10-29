@@ -30,7 +30,7 @@ We recommend that you have a separate Auth0 tenant/account for each environment 
 
 ### Your deploy configuration repository
 
-Your configuration repository should continue a specific set of files based on how you've chosen to import/export your tenant configuration information:
+Your configuration repository should contain a specific set of files based on how you've chosen to import/export your tenant configuration information:
 
 * [Directory Structure](/extensions/deploy-cli/guides/import-export-directory-structure)
 * [YAML File](/extensions/deploy-cli/guides/import-export-yaml-file)
@@ -52,7 +52,7 @@ Your CI server should have a different deploy task and config for each environme
 
 The deploy task should do the following:
 
- 1.  Update the local repo to include latest the latest changes (each environment should have its own branch of the repository that can later be merged with other branches)
+ 1.  Update the local repo to include the latest changes (each environment should have its own branch of the repository that can later be merged with other branches)
  1.  If there are changes, call `a0deploy`.
  1.  Run a suite of tests to confirm configuration is working.
  1.  (Optional) Merge to next branch (e.g. `development` to `uat` or `uat` to `staging`.

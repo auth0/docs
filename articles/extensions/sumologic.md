@@ -60,6 +60,8 @@ Once you have provided this information, click the **Install** button to finish 
 
 The integration between Auth0 and Sumo Logic is now in place!
 
+<%= include('./_includes/_batch-size') %>
+
 ## How to view the results
 
 The integration you just setup, created a scheduled job that will be responsible to export the logs.

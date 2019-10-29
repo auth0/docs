@@ -10,7 +10,7 @@ useCase: extensibility-hooks
 ---
 # Implement Custom Actions Using Post-User Registration Extensibility Points
 
-For [Database Connections](/connections/database), the `post-user-registration` extensibility point allows you to implement custom actions that execute after a new user registers and is added to the database.
+For [Database Connections](/connections/database) and [Passwordless Connections](/connections/passwordless), the `post-user-registration` extensibility point allows you to implement custom actions that execute after a new user registers and is added to the database.
 
 [Hooks](/hooks) associated with the `post-user-registration` extensibility point execute asynchronously from the actions that are a part of the Auth0 authentication process.
 
@@ -25,7 +25,7 @@ The parameters listed in the comment at the top of the code indicate the Auth0 o
 ```js
 /**
 @param {object} user - The user being created
-@param {string} user.id - user id
+@param {string} user.id - user id (user GUID without "auth0|" database prefix)
 @param {string} user.tenant - Auth0 tenant name
 @param {string} user.username - user name
 @param {string} user.email - email

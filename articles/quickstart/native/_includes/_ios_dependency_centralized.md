@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD002 MD041 -->
+
 ## Install Dependencies
 
 ### Carthage
@@ -5,7 +7,7 @@
 If you are using Carthage, add the following to your `Cartfile`:
 
 ```ruby
-github "auth0/Auth0.swift" ~> 1.13
+github "auth0/Auth0.swift" ~> 1.18
 ```
 
 Then, run `carthage bootstrap`.
@@ -20,7 +22,7 @@ If you are using [Cocoapods](https://cocoapods.org/), add the following to your 
 
 ```ruby
 use_frameworks!
-pod 'Auth0', '~> 1.13'
+pod 'Auth0', '~> 1.18'
 ```
 
 Then, run `pod install`.

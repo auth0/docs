@@ -1,7 +1,6 @@
 ---
 title: Best Practices for Tokens
 description: Learn about the best practices when using tokens in authentication and authorization.
-toc: true
 topics:
   - tokens
   - jwt

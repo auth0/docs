@@ -31,7 +31,7 @@ You have a few options for using auth0-spa-js in your project:
 From the CDN:
 
 ```html
-<script src="https://cdn.auth0.com/js/auth0-spa-js/1.0/auth0-spa-js.production.js"></script>
+<script src="${auth0spajs_url}"></script>
 ```
 
 Using [npm](https://npmjs.org):
@@ -46,20 +46,26 @@ Using [yarn](https://yarnpkg.com):
 yarn add @auth0/auth0-spa-js
 ```
 
+::: note
+If you use NPM or Yarn to install auth0-spa-js, don't forget to import the package to your project: `import auth0-spa-js from 'auth0-spa-js'`.
+:::
+
 ## Getting Started
 
 ### Create the client
 
-First, you'll need to create a new instance of `Auth0Client` client object. Create the `Auth0Client` instance before rendering or initializing your application. You should only have one instance of the client.
+First, you'll need to create a new instance of `Auth0Client` client object. Create the `Auth0Client` instance before rendering or initializing your application. You can do this using either the async/await method, or with promises. You should only create one instance of the client.
 
 ```js
-// with async/await
+// either with async/await
 const auth0 = await createAuth0Client({
   domain: '${account.namespace}',
   client_id: '${account.clientId}'
 });
+```
 
-// with promises
+```js
+// or with promises
 createAuth0Client({
   domain: '${account.namespace}',
   client_id: '${account.clientId}'
@@ -68,7 +74,7 @@ createAuth0Client({
 });
 ```
 
-### Login and Get User Info
+### Login and get user info
 
 Next, create a button users can click to start logging in.
 
@@ -79,17 +85,23 @@ Next, create a button users can click to start logging in.
 Listen for click events on the button you created. When the event occurs, use the desired login method to authenticate the user (`loginWithPopup()` in this example). After the user is authenticated, you can retrieve the user profile with the `getUser()` method.
 
 ```js
-//with async/await
+// either with async/await
 document.getElementById('login').addEventListener('click', async () => {
-  await auth0.loginWithPopup();
+  await auth0.loginWithRedirect({
+    redirect_uri: 'http://localhost:3000/'
+  });
   //logged in. you can get the user profile like this:
   const user = await auth0.getUser();
   console.log(user);
 });
+```
 
-//with promises
+```js
+// or with promises
 document.getElementById('login').addEventListener('click', () => {
-  auth0.loginWithPopup().then(token => {
+  auth0.loginWithRedirect({
+    redirect_uri: 'http://localhost:3000/'
+  }).then(token => {
     //logged in. you can get the user profile like this:
     auth0.getUser().then(user => {
       console.log(user);
@@ -107,7 +119,7 @@ To call your API, start by getting the user's Access Token. Then use the Access 
 ```
 
 ```js
-//with async/await
+// either with async/await
 document.getElementById('callApi').addEventListener('click', async () => {
   const accessToken = await auth0.getTokenSilently();
   const result = await fetch('https://exampleco.com/api', {
@@ -119,8 +131,10 @@ document.getElementById('callApi').addEventListener('click', async () => {
   const data = await result.json();
   console.log(data);
 });
+```
 
-//with promises
+```js
+// or with promises
 document.getElementById('callApi').addEventListener('click', () => {
   auth0
     .getTokenSilently()
@@ -153,11 +167,11 @@ document.getElementById('logout').addEventListener('click', () => {
 });
 ```
 
-## Usage
+## Usage 
 
-jQuery is used in the following examples.
+Below are examples of usage for various methods in the SDK. Note that jQuery is used in these examples.
 
-### Login with Popup
+### Login with popup
 
 ```js
 $('#loginPopup').click(async () => {
@@ -165,7 +179,7 @@ $('#loginPopup').click(async () => {
 });
 ```
 
-### Login with Redirect
+### Login with redirect
 
 ```js
 $('#loginRedirect').click(async () => {
@@ -175,7 +189,9 @@ $('#loginRedirect').click(async () => {
 });
 ```
 
-### Login with Redirect Callback
+Redirect to the `/authorize` endpoint at Auth0, starting the [Universal Login](/universal-login) flow.
+
+### Login with redirect callback
 
 ```js
 $('#loginRedirectCallback').click(async () => {
@@ -191,7 +207,9 @@ $('#getToken').click(async () => {
 });
 ```
 
-### Get Access Token with Popup
+The `getTokenSilently()` method requires you to have **Allow Skipping User Consent** enabled in your [API Settings in the Dashboard](${manage_url}/#/apis). Additionally, user consent [cannot be skipped on 'localhost'](/api-auth/user-consent#skipping-consent-for-first-party-applications).
+
+### Get Access Token with popup
 
 ```js
 $('#getTokenPopup').click(async () => {
@@ -215,7 +233,7 @@ $('#getToken_audience').click(async () => {
 });
 ```
 
-### Get User
+### Get user
 
 ```js
 $('#getUser').click(async () => {
@@ -223,11 +241,14 @@ $('#getUser').click(async () => {
 });
 ```
 
-### Get ID Token Claims
+### Get ID Token claims
 
 ```js
 $('#getIdTokenClaims').click(async () => {
   const claims = await auth0.getIdTokenClaims();
+  // if you need the raw id_token, you can access it
+  // using the __raw property
+  const id_token = claims.__raw;
 });
 ```
 
@@ -241,7 +262,7 @@ $('#logout').click(async () => {
 });
 ```
 
-### Logout with no Client ID
+### Logout with no client ID
 
 ```js
 $('#logoutNoClientId').click(async () => {

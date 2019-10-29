@@ -12,7 +12,7 @@ useCase:
 
 # Multi-factor Authentication API
 
-The <dfn data-key="multifactor-authentication">Multi-factor Authentication (MFA)</dfn> API endpoints allow you to enforce MFA when users interact with [the Token endpoints](/api/authentication#get-token), as well enroll and manage user authenticators.
+The <dfn data-key="multifactor-authentication">Multi-factor Authentication (MFA)</dfn> API endpoints allow you to enforce MFA when users interact with [the Token endpoints](/api/authentication#get-token), as well enroll and manage MFA factors.
 
 ## Multi-factor authentication with the Token endpoint
 
@@ -45,5 +45,5 @@ If you are using the MFA API in conjunction with the [Token endpoint](/api/authe
 
 * The MFA API is designed to work with SMS, Push via Guardian, Email, and OTP factors. It does not currently support enrolling with Duo or with the legacy 'google-authenticator' factor (which can be enrolled using the OTP factor).
 
-* Support for authenticator selection is currently limited to the Token Endpoint. Auth0 is working to extend support to  [Hosted MFA Pages](/hosted-pages/guardian). If users have more than one authenticator enrolled, the most-recently enrolled option will be used by the Hosted MFA Pages.
+-  Support for factor selection is currently limited to the Token Endpoint and the [New Universal Login Experience](/universal-login/new). If users have more than one factor enrolled, the [Classic Universal Login Experience](/universal-login/new) will display the most secure factor.
 

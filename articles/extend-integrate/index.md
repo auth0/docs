@@ -40,7 +40,7 @@ useCase:
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-292"></i><a href="/integrations/analytics">Analytics Integrations</a>
+    <i class="icon icon-budicon-292"></i><a href="/analytics">Analytics Integrations</a>
     <p>
         Learn how to set up analytics integrations with Auth0.
     </p>

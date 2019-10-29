@@ -44,11 +44,13 @@ For database connections, Auth0 limits the number of repeat login attempts per u
 
 If you have an existing user store, or wish to store user credentials on your own server, Auth0 enables you to connect to a [custom database](/connections/database/custom-db) or repository and use it as the identity provider.
 
-![](/media/articles/connections/database/custom-database.png)
+![Custom Database Configuration](/media/articles/dashboard/connections/database/connections-db-settings-custom-1.png)
 
-In this scenario, you provide the login script to authenticate the user that will execute each time a user attempts to log in. Optionally, you can create [scripts](/connections/database/custom-db/templates) for sign-up, email verification, password reset and delete user functionality.
+In this scenario, you provide the login script to authenticate the user that will execute each time a user attempts to log in. Optionally, you can create [scripts](/connections/database/custom-db/templates) for sign-up, email verification, password reset, and delete user functionality.
 
 The scripts are `Node.js` code that run in the tenant's [Webtask](https://webtask.io/) environment. Auth0 provides [templates](/connections/database/custom-db/templates) for most common databases, such as: **ASP.NET Membership Provider**, **MongoDB**, **MySQL**, **Oracle**, **PostgreSQL**, **SQL Server**, **Windows Azure SQL Database**, and for a web service accessed by **Basic Auth**. Essentially, you can connect to any kind of database or web service with a custom script.
+
+<%= include('../../_includes/_webtask') %>
 
 ### Migrating to Auth0 from a custom user store
 

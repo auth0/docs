@@ -183,7 +183,7 @@ https://${account.namespace}/authorize
 
 ## Pass Extra Headers
 
-In some instances you will need to pass extra headers to the Authorization endpoint of an OAuth 2.0 provider. To configure extra headers, open the Settings for the Connection and in the **Custom Headers** field, specify a JSON object with the custom headers as key-value pairs:
+In some instances you will need to pass extra headers to the Token endpoint of an OAuth 2.0 provider. To configure extra headers, open the Settings for the Connection and in the **Custom Headers** field, specify a JSON object with the custom headers as key-value pairs:
 
 ```json
 {

@@ -9,7 +9,7 @@ topics:
   - permissions
   - policies
   - rules
-contentType: 
+contentType:
     - concept
 useCase:
   - build-an-app
@@ -22,7 +22,7 @@ Let's take a look at an example of why you might need and how you could use [rol
 
 Let's say you are a business who provides business-to-business software-as-a-service to non-profit organizations. Your product allows non-profits to create, manage, and market products to potential donors. Your application contains several different modules, two of which are:
 
-* a gift shop point of sale (POS) module that enables non-profits to effectively create pop-up teeshirt shops and manage their sales. 
+* a gift shop point of sale (POS) module that enables non-profits to effectively create pop-up t-shirt shops and manage their sales.
 * a marketing module that allows non-profits to create and distribute newsletters to their donors.
 
 You want to use Auth0 to control the access of your non-profit customers to different parts of your application. Without RBAC, all non-profit employees and volunteers will have access to all features of your application, which is not ideal, especially since one of them is an animal rescue who has a variety of volunteers with knowledge of only the area in which they volunteer.
@@ -45,8 +45,8 @@ Similarly, you [create permissions](/dashboard/guides/apis/add-permissions-apis)
 
 And you [create a role](/dashboard/guides/roles/create-roles) called `Newsletter Admin` and [add these permissions to that role](/dashboard/guides/roles/add-permissions-roles).
 
-Now, when your animal rescue brings in their volunteer, Astrid, to run their pop-up teeshirt shop, Astrid can be [assigned the role](/dashboard/guides/users/assign-roles-users) of `Gift Shop Manager`. When you assign this <dfn data-key="role">role</dfn> to Astrid, she is granted all the permissions that you assigned to the role. Since Astrid knows nothing about publishing newsletters (and isn't the best with email), you never assigned her the `Newsletter Admin` role, so she never has access to the marketing module.
- 
+Now, when your animal rescue brings in their volunteer, Astrid, to run their pop-up t-shirt shop, Astrid can be [assigned the role](/dashboard/guides/users/assign-roles-users) of `Gift Shop Manager`. When you assign this <dfn data-key="role">role</dfn> to Astrid, she is granted all the permissions that you assigned to the role. Since Astrid knows nothing about publishing newsletters (and isn't the best with email), you never assigned her the `Newsletter Admin` role, so she never has access to the marketing module.
+
 From a more technical perspective, when Astrid logs into your product, Auth0 authenticates and authorizes her and includes the permissions in the returned <dfn data-key="access-token">Access Token</dfn>. Then, your product inspects the token to learn which module to display to Astrid.
 
 By using Auth0's RBAC, you avoid building and maintaining separate authorization systems; instead, you use the token you already receive during authorization. And when Astrid moves away or decides she is tired of running the gift shop and would rather coordinate the foster program, you can easily [remove the `Gift Shop Manager` role](/dashboard/guides/users/remove-user-roles) from her and [assign her a new role](/dashboard/guides/users/assign-roles-users).

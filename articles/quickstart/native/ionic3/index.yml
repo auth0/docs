@@ -30,7 +30,7 @@ github:
   repo: auth0-ionic3-samples
 requirements:
   - Ionic 3.x
-  - Angular 4+
+  - Angular 5+
 next_steps:
   - path: 01-login
     list:

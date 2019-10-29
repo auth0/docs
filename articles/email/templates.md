@@ -13,7 +13,7 @@ toc: true
 You must setup your own email provider using a [third-party service](/email/providers) ([Amazon SES](https://aws.amazon.com/ses/), [Mandrill](https://www.mandrill.com/signup/) or [SendGrid](https://sendgrid.com/pricing)) or a [custom provider](/email/custom) to be able to customize your emails.
 :::
 
-The [Emails](${manage_url}/#/emails) dashboard allows you to customize your emails, including templating with some contextual attributes [using Liquid syntax](/email/liquid-syntax). This can include references to the context of the current application or user.
+Auth0 provides an [Emails](${manage_url}/#/emails) dashboard that allows you to customize your HTML-based emails, including templating with some contextual attributes [using Liquid syntax](/email/liquid-syntax). This can include references to the context of the current application or user.
 
 ![](/media/articles/email/index/emails-fields.png)
 
@@ -21,6 +21,8 @@ The [Emails](${manage_url}/#/emails) dashboard allows you to customize your emai
 ::: note
 Only one template can be used for each template type (for example, only one template for verify emails).
 :::
+
+At this time, Auth0 does not support plaintext/text-based emails.
 
 ## Configuring email templates
 
@@ -33,7 +35,7 @@ You can access the following common variables when using Liquid Syntax in the **
 * The `application` object, with access to the standard client properties like
   * `application.name`
   * `application.clientID`
-* `connection.name` (except in the **Guardian Enrollment Email**)
+* `connection.name` (except in the **Multi-factor Enrollment Email**)
 * The `user` object, with access to the following properties:
   * `user.email`
   * `user.email_verified`
@@ -57,7 +59,7 @@ Hello {{ user.name }}. Welcome to {{ application.name }} from {{ friendly_name }
 Note that the attributes available for the `user` object will depend on the type of connection being used.
 
 ::: note
-Individual email templates define addtional variables that are appropriate for the specific template. Be sure to check out the [individual templates descriptions](#individual-templates-descriptions) below.
+Individual email templates define additional variables that are appropriate for the specific template. Be sure to check out the [individual templates descriptions](#individual-templates-descriptions) below.
 :::
 
 For those emails where the user needs to follow a link to take action, you can also configure the **URL Lifetime** and **Redirect To** URL destination after the action is completed. Liquid Syntax is also supported in the **Redirect To** URL field, but only two variables are supported:
@@ -292,14 +294,14 @@ This email type is sent whenever Auth0 detects that the user is trying to access
 
 Learn more about [Breached Password Detection](/anomaly-detection#breached-password-detection)
 
-### Guardian Enrollment Email
+### Multi-factor Authentication Enrollment Email
 
-This email will be generated when an Guardian MFA enrollment invitation is sent. The message will contain a link that, when visited, will show the MFA enrollment experience.
+This email will be generated when an multi-factor authentication enrollment invitation is sent. The message will contain a link that, when visited, will show the MFA enrollment experience.
 
 Besides the [common variables](#common-variables) available for all email templates, the `link` variable is available in this email type, containing the URL that you will use to construct the link for this action, as in this example:
 
 ```html
-<a href="{{ url }}">Enroll your MFA device</a>
+<a href="{{ link }}">Enroll your MFA device</a>
 ```
 
 Do note that, unlike other email templates, the correct variable name is `link` and not `url`. Also, the `connection.name` variable is not available on this email template type.
@@ -338,7 +340,7 @@ The default template uses the above variables to do something like this:
   <!-- Signup email content -->
   {% if send == 'link' or send == 'link_ios' or send == 'link_android' %}
     <p>Click and confirm that you want to sign in to {{ application.name }}. This link will expire in five minutes.</p>
-    <a href="{{ link }}">Sign in to {{ application.name }</a>
+    <a href="{{ link }}">Sign in to {{ application.name }}</a>
     {% elsif send == 'code' %}
     <p>Your verification code is: <b>{{ code }}</b></p>
   {% endif %}

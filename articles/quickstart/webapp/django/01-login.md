@@ -89,7 +89,8 @@ Set the `SOCIAL_AUTH_AUTH0_SCOPE` variable with the scopes the application will 
 
 SOCIAL_AUTH_AUTH0_SCOPE = [
     'openid',
-    'profile'
+    'profile',
+    'email'
 ]
 ```
 
@@ -120,8 +121,10 @@ class Auth0(BaseOAuth2):
     name = 'auth0'
     SCOPE_SEPARATOR = ' '
     ACCESS_TOKEN_METHOD = 'POST'
+    REDIRECT_STATE = False
     EXTRA_DATA = [
-        ('picture', 'picture')
+        ('picture', 'picture'),
+        ('email', 'email')
     ]
 
     def authorization_url(self):
@@ -145,7 +148,8 @@ class Auth0(BaseOAuth2):
         return {'username': payload['nickname'],
                 'first_name': payload['name'],
                 'picture': payload['picture'],
-                'user_id': payload['sub']}
+                'user_id': payload['sub'],
+                'email': payload['email']}
 ```
 
 ::: note
@@ -174,13 +178,19 @@ LOGIN_REDIRECT_URL = '/dashboard'
 
 ## Trigger Authentication
 
-Add a handler for the `index` view in your `views.py` to render the `index.html`
+Add a handler for the "index" view in your `views.py` to render the `index.html` if the user needs to log in. If the user is already logged in, the "dashboard" view will be shown instead.
 
 ```python
 # auth0login/views.py
 
+from django.shortcuts import render, redirect
+
 def index(request):
-    return render(request, 'index.html')
+    user = request.user
+    if user.is_authenticated:
+        return redirect(dashboard)
+    else:
+        return render(request, 'index.html')
 ```
 
 Add a link to `/login/auth0` in the `index.html` template.
@@ -198,12 +208,12 @@ Add a link to `/login/auth0` in the `index.html` template.
 
 ## Display User Information
 
-After the user is logged in, you can access the user information from the `request.user` property. Add a handler for the `/dashboard` endpoint in the `views.py` file.
+After the user is logged in, you can access the user information from the `request.user` property. Add a handler for the `/dashboard` endpoint in the `views.py` file. This same "dashboard" view will be displayed when a user that is already logged in tries to visit the "index" view. 
 
 ```python
 # auth0login/views.py
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 import json
 
@@ -214,7 +224,8 @@ def dashboard(request):
     userdata = {
         'user_id': auth0user.uid,
         'name': user.first_name,
-        'picture': auth0user.extra_data['picture']
+        'picture': auth0user.extra_data['picture'],
+        'email': auth0user.extra_data['email'],
     }
 
     return render(request, 'dashboard.html', {
@@ -302,6 +313,5 @@ python manage.py runserver 3000
 ```
 
 The application will be accessible on [http://localhost:3000](http://localhost:3000). Follow the Log In link to log in or sign up to your Auth0 tenant. Upon successful login or signup, you should be redirected to the user's profile page.
-
 
 ![login page](/media/articles/web/hosted-login.png)

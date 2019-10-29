@@ -6,7 +6,7 @@ Native mobile applications (and desktop applications) should use the system brow
 
 As discussed, we've found that most of our customers use <dfn data-key="openid">[OpenID Connect (OIDC)](/protocols/oidc)</dfn> as the industry-standard protocol when it comes to their customer-facing applications. Figuring out which [OIDC flow](/api-auth/intro) to use is your first task, and you will want to start by reviewing the our [grant mapping](/applications/reference/grant-types-auth0-mapping) guidance in the first instance.  
 
-If you want to allow anonymous users access to any part of our application then you need to determine if you will be redirecting right away or prompting your users to redirect only when required (or perhaps some combination of both; see [Redirect Users After Login](/users/guides/redirect-users-after-login) for further discussion). If users can [deep link](#deep-linking-to-protected-endpoints) to a protected version (or area) of your site then you will need to determine the links to your application that will result in an automatic redirect to Auth0. 
+If you want to allow anonymous users access to any part of our application then you need to determine if you will be redirecting right away or prompting your users to redirect only when required (or perhaps some combination of both; see [Redirect Users After Login Authentication](/users/guides/redirect-users-after-login) for further discussion). If users can [deep link](#deep-linking-to-protected-endpoints) to a protected version (or area) of your site then you will need to determine the links to your application that will result in an automatic redirect to Auth0. 
 
 ### Anonymous access
 
@@ -39,8 +39,8 @@ Most modern authentication frameworks support middleware for redirecting to an a
 
 Authentication is the process of determining user identity. The result of authentication in an OIDC context is an ID Token. This token contains information about the user and should only be able to be obtained if the user authenticates using one or more factors as defined by the authorization server (the most common form being [user ID and password](#username-and-password-authentication)). There are a few things you may also need to consider in addition to obtaining an ID Token:
 
-* Do we also need an [Access Token](/tokens/overview-access-tokens) in order to call a shared API?
-* Is your application a single-page application and only requires an [ID Token](/tokens/id-token)? See [Implicit Grant](/api-auth/tutorials/implicit-grant) for more information. 
+* Do we also need an [Access Token](/tokens/access-tokens) in order to call a shared API?
+* Is your application a single-page application and only requires an [ID Token](/tokens/id-tokens)? See [Implicit Grant](/api-auth/tutorials/implicit-grant) for more information. 
 * Is your application a native application (mobile or desktop) and/or do you need a [Refresh Token](/tokens/refresh-token/current)? See [Authorization Code Grant with PKCE](/api-auth/tutorials/authorization-code-grant-pkce) for more information. 
 
 ::: warning

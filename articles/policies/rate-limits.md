@@ -46,6 +46,8 @@ If you exceed the provided rate limit for a given API endpoint, you will receive
 
 Actions such as rapidly updating configuration settings, aggressive polling, or making highly concurrent API calls may result in your app being rate limited.
 
+Please note that usage of the Management API for free and trial tenants is restricted to **two requests per second** (with bursts of up to **ten (10) requests**). Exceeding these values will also trigger the HTTP 429 error, but the error message states, "Global limit has been reached." These are in addition to those indicated in the rate limit response headers.
+
 If your app triggers the rate limit, please refrain from making additional requests until the appropriate amount of time has elapsed.
 
 ::: warning How to Handle Rate Limits when calling Auth0 APIs
@@ -77,7 +79,7 @@ The rate limits for this API differ depending on whether your tenant is free or 
 
 The following rate limits apply:
 
-- For all __free tenants__, usage of the Management API is restricted to 2 requests per second (and bursts up to 10 requests).
+- For all __free tenants__, usage of the Management API is restricted to 2 requests per second (and bursts up to 10 requests). This category also includes __trial tenants__.
 - For __non-production tenants__ of enterprise customers, usage of the Management API is restricted to 2 requests per second (and bursts up to 10 requests).
 - For __paid__ tenants, usage of the Management API is restricted to 15 requests per second (and bursts up to 50 requests).
 
@@ -198,10 +200,6 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
 
 The following Auth0 Authentication API endpoints return rate limit-related headers.
 
-::: note
-For all endpoints, Enterprise subscribers are limited to 100 requests per second.
-:::
-
 <table class="table">
   <thead>
     <tr>
@@ -309,7 +307,7 @@ For all endpoints, Enterprise subscribers are limited to 100 requests per second
 </table>
 
 :::note
-(*) In all instances above, **Free** includes tenants on the Free plan, as well as the non-production tenants of enterprise customers.
+(*) In all instances above, **Free** includes tenants on the Free plan, including those with an ongoing trial. It also includes non-production tenants of enterprise customers.
 :::
 
 ## Limits on Database Logins
@@ -318,4 +316,37 @@ For database connections, Auth0 limits certain types of repeat login attempts de
 
 ## Limits on SMS Messages for MFA
 
-There's a limit of 10 SMS messages/hour per user for multi-factor authentication. For more information, see [Configuring Twilio for Guardian SMS](/multifactor-authentication/twilio-configuration).
+There's a limit of 10 SMS messages/hour per user for multi-factor authentication. For more information, see [Configuring Twilio for SMS](/multifactor-authentication/twilio-configuration).
+
+## Limits on Native Social Logins 
+
+Limits are only applied to requests related to the Native Social Login flows, which are identified based on the body of the requests with the following initial criteria:
+
+* `grant_type`: `urn:ietf:params:oauth:grant-type:token-exchange` 
+* `subject_token_type`: `http://auth0.com/oauth/token-type/apple-authz-code`
+
+<table class="table">
+  <thead>
+    <tr>
+        <th><strong>Endpoint</strong></th>
+        <th><strong>Path</strong></th>
+        <th><strong>Limited By</strong></th>
+        <th><strong>Affected Tenants</strong></th>
+        <th><strong>Rate Limit</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td rowspan="3">Get Token</td>
+    <td rowspan="3">/oauth/token</td>
+    <td>Any Native Social Login request</td>
+    <td>Free</td>
+    <td>30 requests per minute</td>
+  </tr>
+  <tr>
+    <td>Native Social Login request and IP</td>
+    <td>Paid</td>
+    <td>50 requests per minute with bursts of up to 500 requests</td>
+  </tr>
+  </tbody>
+</table>

@@ -2,6 +2,7 @@
 title: Connect your app to Microsoft Office 365 (Deprecated)
 connection: Office 365 (Deprecated)
 image: /media/connections/office-365.png
+public: false
 alias:
   - office365
 seo_alias: o365-deprecated

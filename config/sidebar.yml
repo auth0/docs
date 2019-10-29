@@ -14,6 +14,9 @@ articles:
     url: "/getting-started"
     children:
 
+      - title: "Auth0 Overview"
+        url: "/getting-started/overview"
+
       - title: "Learn the Basics"
         url: "/getting-started/the-basics"
 
@@ -22,7 +25,7 @@ articles:
 
       - title: "Create a Tenant"
         url: "/getting-started/create-tenant"
-      
+
       - title: "Set Up An App"
         url: "/getting-started/set-up-app"
         children:
@@ -59,7 +62,7 @@ articles:
 
       - title: "Universal Login"
         url: "/universal-login"
-        children: 
+        children:
 
           - title: "New Experience"
             url: "/universal-login/new"
@@ -70,9 +73,12 @@ articles:
           - title: "Password Reset"
             url: "/universal-login/password-reset"
 
-          - title: "Guardian"
-            url: "/universal-login/guardian"
+          - title: "Multi-factor Authentication"
+            url: "/universal-login/multifactor-authentication"
 
+          - title: "Passwordless"
+            url: "/dashboard/guides/universal-login/configure-login-page-passwordless"
+            
           - title: "Error Pages"
             url: "/universal-login/error-pages"
 
@@ -94,7 +100,7 @@ articles:
 
           - title: Auth0.js
             url: /libraries/auth0js/v9
-          
+
           - title: Cross-Origin Authentication
             url: /cross-origin-authentication
 
@@ -110,32 +116,37 @@ articles:
 
           - title: Native App
             url: /flows/guides/auth-code-pkce/add-login-auth-code-pkce
-            
+
       - title: Multi-Factor Authentication
         url: /multifactor-authentication
-        children: 
+        children:
 
           - title: Overview
             url: /multifactor-authentication
 
           - title: Factors
             url: /multifactor-authentication/factors
-            children: 
+            children:
 
               - title: Push
                 url: /multifactor-authentication/factors/push
+                hidden: true
 
               - title: OTP
                 url: /multifactor-authentication/factors/otp
+                hidden: true
 
               - title: SMS
                 url: /multifactor-authentication/factors/sms
+                hidden: true
 
               - title: Duo
                 url: /multifactor-authentication/factors/duo
+                hidden: true
 
               - title: Email
                 url: /multifactor-authentication/factors/email
+                hidden: true
 
           - title: Custom
             url: /multifactor-authentication/custom
@@ -149,22 +160,28 @@ articles:
 
               - title: "Trigger MFA"
                 url: "/multifactor-authentication/api/challenges"
+                hidden: true
 
               - title: "One-Time Password Challenge"
                 url: "/multifactor-authentication/api/otp"
+                hidden: true
 
               - title: "SMS Message Challenge"
                 url: "/multifactor-authentication/api/oob"
+                hidden: true
 
               - title: "Email Authenticator"
                 url: "/multifactor-authentication/api/email"
+                hidden: true
 
               - title: "Manage Authenticators"
                 url: "/multifactor-authentication/api/manage"
+                hidden: true
 
               - title: "FAQ"
                 url: "/multifactor-authentication/api/faq"
-        
+                hidden: true
+
       - title: Silent Authentication
         url: /api-auth/tutorials/silent-authentication
 
@@ -173,7 +190,7 @@ articles:
 
       - title: Logout
         url: /logout
-        children: 
+        children:
 
             - title: Apps
               url: /logout/guides/logout-applications
@@ -194,22 +211,19 @@ articles:
 ## Identity Providers / Connections
 ## ------------------------------------------------------------
 
-  - title: Connections (Identity Providers)
+  - title: Connections
     url: /connections
     children:
 
       - title: Social Identity Providers
-        url: "/connections#social"
-        hidden: true
+        url: "/connections/identity-providers-social"
 
       - title: Enterprise Identity Providers
-        url: "/connections#enterprise"
-        hidden: true
+        url: "/connections/identity-providers-enterprise"
 
       - title: Legal Identity Providers
-        url: "/connections#legal-identities"
-        hidden: true
-      
+        url: "/connections/identity-providers-legal"
+
       - title: Database
         url: /connections/database
         children:
@@ -219,7 +233,7 @@ articles:
 
           - title: Your User Store
             url: /connections/database/custom-db
-            children: 
+            children:
 
               - title: Overview
                 url: /connections/database/custom-db/overview-custom-db-connections
@@ -227,7 +241,7 @@ articles:
 
               - title: Create Connections
                 url: /connections/database/custom-db/create-db-connections
-                hidden: true 
+                hidden: true
 
               - title: Scripts
                 url: /connections/database/custom-db/templates
@@ -242,21 +256,37 @@ articles:
       - title: SAML Identity Providers
         url: /protocols/saml/identity-providers/
 
-      - title: Passwordless Authentication
+      - title: Passwordless
         url: /connections/passwordless
         children:
 
+          - title: Implement Passwordless
+            url: /connections/passwordless/guides/implement-passwordless
+
+          - title: Sample Use Case - Rules
+            url: /connections/passwordless/concepts/sample-use-cases-rules
+
+          - title: Relevant API Endpoints
+            url: /connections/passwordless/reference/relevant-api-endpoints
+
+          - title: Troubleshooting
+            url: /connections/passwordless/reference/troubleshoot
+
           - title: Native Passwordless
             url: /connections/passwordless/native-passwordless-universal
+            hidden: true
 
           - title: Using Email
             url: /connections/passwordless/email
+            hidden: true
 
           - title: Using SMS
             url: /connections/passwordless/sms
+            hidden: true
 
           - title: FAQ
             url: /connections/passwordless/faq
+            hidden: true
 
       - title: Pass Parameters to Identity Providers
         url: /connections/pass-parameters-to-idps
@@ -291,6 +321,7 @@ articles:
 
               - title: Mitigate Replay Attacks
                 url: /api-auth/tutorials/nonce
+                hidden: true
 
       - title: "Role-based Access Control (RBAC)"
         url: "/authorization/concepts/rbac"
@@ -313,7 +344,7 @@ articles:
       - title: "How to Configure Core RBAC"
         url: "/authorization/guides/how-to"
         children:
-          
+
           - title: "Manage Roles"
             url: "/authorization/guides/manage-roles"
 
@@ -412,8 +443,18 @@ articles:
         url: /sso/current
         children:
 
+          - title: Inbound SSO
+            url: /sso/current/inbound
+
+          - title: Outbound SSO
+            url: /sso/current/outbound
+
+          - title: Relevant API Endpoints
+            url: /sso/current/relevant-api-endpoints
+
           - title: Single Sign-On with Auth0
             url: /sso/current/sso-auth0
+            hidden: true
 
       - title: "Anomaly Detection"
         url: "/anomaly-detection"
@@ -476,7 +517,7 @@ articles:
 
           - title: Deprovision Users
             url: /protocols/saml/saml-configuration/deprovision-users
-            
+
           - title: SAML Configurations for SSO Integrations
             url: /protocols/saml/saml-apps
 
@@ -511,13 +552,13 @@ articles:
 
       - title: Progressive Profiling
         url: /users/concepts/overview-progressive-profiling
-      
+
       - title: Using the Dashboard
         url: /users/guides/manage-users-using-the-dashboard
 
       - title: Using the API
         url: /users/guides/manage-users-using-the-management-api
-      
+
       - title: Link User Accounts
         url: /extensions/account-link
 
@@ -635,13 +676,13 @@ articles:
   - title: Extend & Integrate
     url: /extend-integrate
     children:
-      
+
       - title: Rules
         url: /rules
         children:
 
           - title: Create a New Rule
-            url: /rules/guides/create
+            url: /dashboard/guides/rules/create-rules
 
           - title: Store Configuration for Rules
             url: /rules/guides/configuration
@@ -681,7 +722,7 @@ articles:
 
           - title: Deploy Rules with Github
             url: /extensions/github-deploy
-      
+
       - title: Hooks
         url: /hooks
         children:
@@ -692,12 +733,15 @@ articles:
 
               - title: Credentials Exchange
                 url: /hooks/concepts/credentials-exchange-extensibility-point
+                hidden: true
 
               - title: Pre-User Registration
                 url: /hooks/concepts/pre-user-registration-extensibility-point
+                hidden: true
 
               - title: Post-User Registration
                 url: /hooks/concepts/post-user-registration-extensibility-point
+                hidden: true
 
           - title: Using the Auth0 CLI
             url: /hooks/guides/create-hooks-using-cli
@@ -705,18 +749,23 @@ articles:
 
               - title: Create Hooks
                 url: /hooks/guides/create-hooks-using-cli
+                hidden: true
 
               - title: Edit Hooks
                 url: /hooks/guides/edit-hooks-using-cli
+                hidden: true
 
               - title: Delete Hooks
                 url: /hooks/guides/delete-hooks-using-cli
+                hidden: true
 
               - title: Enable/Disable Hooks
                 url: /hooks/guides/enable-disable-hooks-using-cli
+                hidden: true
 
               - title: Get Log Info
                 url: /hooks/guides/logging-hooks-using-cli
+                hidden: true
 
           - title: Using the Dashboard
             url: /hooks/guides/create-hooks-using-dashboard
@@ -724,21 +773,32 @@ articles:
 
               - title: Create Hooks
                 url: /hooks/guides/create-hooks-using-dashboard
+                hidden: true
 
               - title: Edit Hooks
                 url: /hooks/guides/edit-hooks-using-dashboard
+                hidden: true
 
               - title: Delete Hooks
                 url: /hooks/guides/delete-hooks-using-dashboard
+                hidden: true
 
               - title: Enable/Disable Hooks
                 url: /hooks/guides/enable-disable-hooks-using-dashboard
+                hidden: true
 
       - title: Extensions
         url: /extensions
-      
-      - title: Analytics Integrations
-        url: /analytics/integrations
+
+      - title: Analytics
+        url: /analytics
+        children:
+
+          - title: Facebook Analytics
+            url: /analytics/guides/facebook-analytics
+            
+          - title: Google Analytics
+            url: /analytics/guides/google-analytics
 
       - title: Single Sign-On Integrations
         url: /integrations/sso
@@ -752,7 +812,7 @@ articles:
 ## ------------------------------------------------------------
 ## Monitor
 ## ------------------------------------------------------------
-  
+
   - title: Monitoring
     url: /monitoring
     children:
@@ -820,7 +880,7 @@ articles:
     children:
       - title: Deployment Options
         url: /getting-started/deployment-models
-      
+
       - title: Deploy Checklist
         url: /deploy/checklist
 
@@ -833,7 +893,7 @@ articles:
 
           - title: "Pre-Launch Tips"
             url: "/pre-deployment/prelaunch-tips"
-      
+
       - title: "Deploy CLI Tool"
         url: "/extensions/deploy-cli"
         children:
@@ -876,7 +936,7 @@ articles:
 
       - title: Basics
         url: /troubleshoot/basics
-      
+
       - title: Common Authentication Errors
         url: /libraries/error-messages
         children:
@@ -890,7 +950,7 @@ articles:
 
           - title: Authorization Extension
             url: /extensions/authorization-extension/v2/troubleshooting
-      
+
       - title: Multi-factor Authentication
         url: /multifactor-authentication/troubleshooting
 
@@ -903,7 +963,7 @@ articles:
       - title: Issues with...
         url: /troubleshoot/issues
 
-      - title: HTTP Archive (HAR) 
+      - title: HTTP Archive (HAR)
         url: /troubleshoot/har
 
       - title: Custom Databases
@@ -1174,7 +1234,7 @@ articles:
   #       url: "/api-auth/dynamic-client-registration"
 
   #     - title: "Verify Access Tokens"
-  #       url: "/api-auth/tutorials/verify-access-token"
+  #       url: "/tokens/guides/access-token/validate-access-token"
 
   - title: "Private Cloud Deployments"
     url: "/private-cloud"
@@ -1192,6 +1252,10 @@ articles:
 
       - title: Managed Private Cloud
         url: /private-cloud/managed-private-cloud
+        children:
+
+          - title: Managed Private Cloud Zones
+            url: /private-cloud/managed-private-cloud/zones
 
       - title: Add-Ons for Private Cloud Deployments
         url: /private-cloud/add-ons
@@ -1235,7 +1299,7 @@ articles:
 
   - title: "Product Lifecycle"
     url: "/product-lifecycle"
-    children:        
+    children:
       - title: "Overview"
         url: "/product-lifecycle"
 
@@ -1444,10 +1508,10 @@ articles:
 
   #     - title: Overview
   #       url: /about-auth0/overview
-      
+
   #     - title: The Basics
   #       url: /about-auth0/the-basics
-      
+
   #     - title: Auth0 & Data Privacy
   #       url: /about-auth0/auth0-and-data-privacy
 
@@ -1561,9 +1625,6 @@ libraries:
       - title: "Internationalization"
         url: "/libraries/lock-ios/v2/internationalization"
 
-      - title: "Passwordless"
-        url: "/libraries/lock-ios/v2/passwordless"
-
       - title: "Migration Guide"
         url: "/libraries/lock-ios/v2/migration"
 
@@ -1591,9 +1652,6 @@ libraries:
 
       - title: "Migration v1 to v2"
         url: "/libraries/lock-android/v2/migration-guide"
-
-      - title: "Passwordless Auth"
-        url: "/libraries/lock-android/v2/passwordless"
 
       - title: "Internationalization"
         url: "/libraries/lock-android/v2/internationalization"
@@ -1624,9 +1682,6 @@ libraries:
       - title: "User Management"
         url: "/libraries/auth0-swift/user-management"
 
-      - title: "Passwordless Authentication"
-        url: "/libraries/auth0-swift/passwordless"
-
       - title: "Refresh Tokens"
         url: "/libraries/auth0-swift/save-and-refresh-jwt-tokens"
 
@@ -1648,9 +1703,6 @@ libraries:
 
       - title: "User Management"
         url: "/libraries/auth0-android/user-management"
-
-      - title: "Passwordless"
-        url: "/libraries/auth0-android/passwordless"
 
       - title: "Refresh Tokens"
         url: "/libraries/auth0-android/save-and-refresh-tokens"
@@ -1716,3 +1768,58 @@ videos:
 
       - title: "Logout"
         url: "/videos/get-started/10-logout"
+
+## ------------------------------------------------------------
+## Identity Labs
+## ------------------------------------------------------------
+
+identity-labs:
+  - title: Digital Identity Labs
+    url: "/identity-labs"
+    children:
+
+      - title: "Lab 1: Web Sign-In"
+        url: "/identity-labs/01-web-sign-in"
+        children:
+
+          - title: "Exercise 1"
+            url: "/identity-labs/01-web-sign-in/exercise-01"
+
+          - title: "Exercise 2"
+            url: "/identity-labs/01-web-sign-in/exercise-02"
+
+      - title: "Lab 2: Calling an API"
+        url: "/identity-labs/02-calling-an-api"
+        children:
+
+          - title: "Exercise 1"
+            url: "/identity-labs/02-calling-an-api/exercise-01"
+
+          - title: "Exercise 2"
+            url: "/identity-labs/02-calling-an-api/exercise-02"
+
+          - title: "Exercise 3"
+            url: "/identity-labs/02-calling-an-api/exercise-03"
+
+      - title: "Lab 3: Mobile Native App"
+        url: "/identity-labs/03-mobile-native-app"
+        children:
+
+          - title: "Exercise 1"
+            url: "/identity-labs/03-mobile-native-app/exercise-01"
+
+          - title: "Exercise 2"
+            url: "/identity-labs/03-mobile-native-app/exercise-02"
+
+          - title: "Exercise 3"
+            url: "/identity-labs/03-mobile-native-app/exercise-03"
+
+      - title: "Lab 4: Single Page App"
+        url: "/identity-labs/04-single-page-app"
+        children:
+
+          - title: "Exercise 1"
+            url: "/identity-labs/04-single-page-app/exercise-01"
+
+          - title: "Exercise 2"
+            url: "/identity-labs/04-single-page-app/exercise-02"

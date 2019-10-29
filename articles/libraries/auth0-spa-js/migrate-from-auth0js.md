@@ -28,6 +28,7 @@ Not all auth0.js functionality can be directly migrated to auth0-spa-js. Scenari
 - [get user with the Management API](https://auth0.github.io/auth0.js/global.html#getUser)
 - [update user attributes with the Management API](https://auth0.github.io/auth0.js/global.html#patchUserAttributes)
 - [update user metadata with the Management API](https://auth0.github.io/auth0.js/global.html#patchUserMetadata)
+- There are also some options that are configurable in Auth0.js that do not have a counterpart in the auth0-spa-js. An example of this is `responseType`. There is a reason that there is not a direct 1:1 mapping for each option. In this case, `responseType` is unnecessary, because the SDK is only for use in SPAs, and so one would not need to change the response type.
 
 ## Authentication Parameters are not modified anymore
 
@@ -187,7 +188,7 @@ document.getElementById('login').addEventListener('click', () => {
 
 ### auth0-spa-js
 
-The Auth0 SPA SDK handles token refresh for you. Every time you call `getTokenSilently`, you'll either get a valid token or an error if there's no session at Auth0.
+The Auth0 SPA SDK handles Access Token refresh for you. Every time you call `getTokenSilently`, you'll either get a valid Access Token or an error if there's no session at Auth0.
 
 * [Auth0Client.getTokenSilently()](https://auth0.github.io/auth0-spa-js/classes/auth0client.html#gettokensilently)
 
@@ -216,7 +217,7 @@ document.getElementById('login').addEventListener('click', () => {
 
 ### auth0-spa-js
 
-The Auth0 SPA SDK handles token refresh for you. Every time you call `getTokenSilently`, you'll either get a valid token or an error if there's no session at Auth0.
+The Auth0 SPA SDK handles Access Token refresh for you. Every time you call `getTokenSilently`, you'll either get a valid Access Token or an error if there's no session at Auth0.
 
 * [Auth0Client.getTokenSilently()](https://auth0.github.io/auth0-spa-js/classes/auth0client.html#gettokensilently)
 * [GetTokenSilentlyOptions](https://auth0.github.io/auth0-spa-js/interfaces/gettokensilentlyoptions.html)

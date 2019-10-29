@@ -61,7 +61,7 @@ The following is a sample login using Lock:
 <button onclick="javascript:login()">Login</button>
 ```
 
-In the typical SPA login, the callback is handled client-side by the same page and a JWT is received after successful authentication. You can refer to the [Single-Page Apps Quickstarts](/quickstart/spa) for more details. You can also see the [Passwordless for Single-Page Apps](/connections/passwordless/spa) tutorials for examples of <dfn data-key="passwordless">passwordless</dfn> login.
+In the typical SPA login, the callback is handled client-side by the same page and a JWT is received after successful authentication. You can refer to the [Single-Page Apps Quickstarts](/quickstart/spa) for more details. You can also see the [Implement Passwordless](/connections/passwordless/guides/implement-passwordless) tutorial for examples of <dfn data-key="passwordless">passwordless</dfn> login.
 
 ## 2. User initiates account linking
 

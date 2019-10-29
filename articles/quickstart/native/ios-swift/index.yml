@@ -28,7 +28,7 @@ articles:
   - 07-linking-accounts
   - 08-touch-id-authentication
 next_steps:
-  - path: 08-touch-id-authentication
+  - path: 09-sign-in-with-apple
     list:
     - text: Configure other identity providers
       icon: 345

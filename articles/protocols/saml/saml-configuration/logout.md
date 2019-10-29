@@ -28,7 +28,7 @@ When Auth0 is acting as a [SAML Identity Provider](/protocols/saml/saml-idp-gene
 
 After determining that your service provider supports SAML SLO, configure the service provider to call `https://${account.namespace}/samlp/CLIENT_ID/logout` (also listed in the SAML IdP metadata). 
 
-When a logout request is triggered by the service provider, a logout request is sent to this endpoint. Auth0 starts the SAML SLO flow by notifying the existing session participants using a frontend channel.
+When a logout request is triggered by the service provider, a SAML logout request is sent to this endpoint. Auth0 starts the SAML SLO flow by notifying the existing session participants using a frontend channel.
 
 1. Log into the [Management Dashboard](${manage_url})
 
@@ -48,7 +48,7 @@ When a logout request is triggered by the service provider, a logout request is 
 
 5. Click **Save**.
 
-For SAML-compliant endpoints, Auth0 uses this URL to send logout requests or logout responses (the exact choice depends on whether the service provider initiated the session or not). If you don't want to notify the service provider about a session termination, you can set the `slo_enabled` key inside logout to `false`:
+For SAML-compliant endpoints, Auth0 uses this URL to send SAML logout requests or logout responses (the exact choice depends on whether the service provider initiated the session or not). If you don't want to notify the service provider about a session termination, you can set the `slo_enabled` key inside logout to `false`:
 
 ```json
 "logout": {

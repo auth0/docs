@@ -21,8 +21,8 @@ There are several Auth0 features than can help you achieve these goals, like acc
 To limit the amount of personal information in the Auth0 user profile, you can:
 
 - Minimize (or avoid) saving personal information in the metadata section of the user profile
-- If you use [enterprise directories](/identityproviders#enterprise), configure them to return only the minimum information needed
-- If you use [social providers](/identityproviders#social), configure them to return only the minimum information needed
+- If you use [enterprise directories](/connections/identity-providers-enterprise), configure them to return only the minimum information needed
+- If you use [social providers](/connections/identity-providers-social), configure them to return only the minimum information needed
 - [Blacklist the user attributes](/security/blacklisting-attributes) that you do not want to persist in the Auth0 databases
 
 ## Encrypt user profile information

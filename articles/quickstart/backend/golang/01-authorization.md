@@ -199,15 +199,24 @@ type CustomClaims struct {
 }
 
 func checkScope(scope string, tokenString string) bool {
-	token, _ := jwt.ParseWithClaims(tokenString, &CustomClaims{}, nil)
+	token, _ := jwt.ParseWithClaims(tokenString, &CustomClaims{}, func (token *jwt.Token) (interface{}, error) {
+		cert, err := getPemCert(token)
+		if err != nil {
+			return nil, err
+		}
+		result, _ := jwt.ParseRSAPublicKeyFromPEM([]byte(cert))
+		return result, nil
+	})
 
-	claims, _ := token.Claims.(*CustomClaims)
+	claims, ok := token.Claims.(*CustomClaims)
 
 	hasScope := false
-	result := strings.Split(claims.Scope, " ")
-	for i := range result {
-		if result[i] == scope {
-			hasScope = true
+	if ok && token.Valid {
+		result := strings.Split(claims.Scope, " ")
+		for i := range result {
+			if result[i] == scope {
+				hasScope = true
+			}
 		}
 	}
 

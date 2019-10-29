@@ -136,7 +136,7 @@ In this page you can find a list of resources that can help you secure your APIs
   <li>
     <i class="icon icon-budicon-715"></i><a href="/api-auth/why-use-access-tokens-to-secure-apis">Why you should always use Access Tokens to secure an API</a>
     <p>
-      Learn about the differences between Αccess Τoken and ID Τoken and why the latter should never be used to secure an API.
+      Learn about the differences between Access Token and ID Token and why the latter should never be used to secure an API.
     </p>
   </li>
   <li>
@@ -146,7 +146,7 @@ In this page you can find a list of resources that can help you secure your APIs
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/api-auth/tutorials/verify-access-token">Verify Access Tokens</a>
+    <i class="icon icon-budicon-715"></i><a href="/tokens/guides/access-token/validate-access-token">Validate an Access Token</a>
     <p>
       Learn what an API has to do in order to verify a Bearer Access Token.
     </p>

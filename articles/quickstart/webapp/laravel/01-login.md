@@ -13,6 +13,9 @@ useCase: quickstart
 github:
     path: 00-Starter-Seed
 ---
+
+<!-- markdownlint-disable MD002 -->
+
 <%= include('../_includes/_getting_started', { library: 'Laravel', callback: 'http://localhost:3000/auth0/callback' }) %>
 
 <%= include('../../../_includes/_logout_url', { returnTo: 'http://localhost:3000' }) %>
@@ -35,7 +38,7 @@ By the end of those 2 sections, you should have a Laravel application up and run
 
 ### Install the Auth0 plugin and its dependencies
 
-${snippet(meta.snippets.dependencies)}
+To install this plugin run `composer require auth0/login`
 
 ::: note
 **[Composer](https://getcomposer.org/)** is a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you. See Composer's [getting started](https://getcomposer.org/doc/00-intro.md) doc for information on how to use it.
@@ -50,7 +53,14 @@ This will install:
 
 First, we need to add the Auth0 Services to the list of Providers in `config/app.php`:
 
-${snippet(meta.snippets.setup)}
+```php
+// config/app.php
+
+'providers' => array(
+    // ...
+    Auth0\Login\LoginServiceProvider::class,
+);
+```
 
 If you want to use an `Auth0` facade, add an alias in the same file (not required, [more information on facades here](http://laravel.com/docs/5.7/facades)):
 
@@ -174,9 +184,10 @@ class Auth0IndexController extends Controller
         \Auth::logout();
         $logoutUrl = sprintf(
             'https://%s/v2/logout?client_id=%s&returnTo=%s',
-            env('AUTH0_DOMAIN'),
-            env('AUTH0_CLIENT_ID'),
-            env('APP_URL'));
+            config('laravel-auth0.domain'),
+            config('laravel-auth0.client_id'),
+            url('/')
+        );
         return  \Redirect::intended($logoutUrl);
     }
 }
@@ -316,23 +327,11 @@ class CustomUserRepository extends Auth0UserRepository
      *
      * @return User
      */
-    protected function upsertUser( $profile ) {
-
-        // See if we have a user that matches the Auth0 user_id
-        $user = User::where( 'sub', $profile['sub'] )->first();
-
-        // In not, add them to the database
-        if ( ! $user ) {
-            $user = new User();
-
-            // All are required, no default set
-            $user->setAttribute( 'email', $profile['email'] );
-            $user->setAttribute( 'sub', $profile['sub'] );
-            $user->setAttribute( 'name', isset( $profile['name'] ) ? $profile['name'] : '' );
-
-            $user->save();
-        }
-        return $user;
+    protected function upsertUser( $profile ) {  
+        return User::firstOrCreate(['sub' => $profile['sub']], [
+            'email' => $profile['email'] ?? '',
+            'name' => $profile['name'] ?? '',
+        ]);
     }
 
     /**

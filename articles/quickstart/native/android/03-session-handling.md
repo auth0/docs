@@ -15,8 +15,8 @@ useCase: quickstart
 
 You need the `Credentials` class to handle users' credentials. The class is composed of these elements:
 
-* `accessToken`: Access Tokens used by the Auth0 API. To learn more, see the [Access Tokens](/tokens/overview-access-tokens).
-* `idToken`: Identity Token that proves the identity of the user. To learn more, see the [ID Token documentation](/tokens/id-token).
+* `accessToken`: Access Tokens used by the Auth0 API. To learn more, see the [Access Tokens](/tokens/access-tokens).
+* `idToken`: Identity Token that proves the identity of the user. To learn more, see the [ID Token documentation](/tokens/id-tokens).
 * `refreshToken`: Refresh Token that can be used to request new tokens without signing in again. To learn more, see the [Refresh Token documentation](/tokens/refresh-token/current).
 * `tokenType`: The type of tokens issued by the server.
 * `expiresIn`: The number of seconds before the tokens expire.
@@ -152,31 +152,10 @@ The `SecureCredentialsManager` can prompt the user for local device authenticati
 
 ## Log the User Out
 
-To log the user out, it is normally enough to remove their credentials and navigate them back to the login screen. When using a Credentials Manager you do that calling `clearCredentials`. In addition, you could ask the `WebAuthProvider` to remove the cookie set by the Browser at authentication time, so that the users are forced to re-enter their credentials the next time they try to authenticate. The sample combines these two strategies.
-
-Check in the LoginActivity if a boolean extra is present in the Intent at the Activity launch. This scenario triggered by the MainActivity dictates that the user wants to log out.
+To log the user out, it is normally enough to remove their credentials and navigate them back to the login screen. When using a Credentials Manager you do that calling `clearCredentials`. In addition, as you did previously for the login step, use the `WebAuthProvider` to remove the cookie set by the Browser at authentication time, so that the users are forced to re-enter their credentials the next time they try to authenticate. The sample combines these two strategies.
 
 ```java
-// app/src/main/java/com/auth0/samples/MainActivity.java
-
-private void logout() {
-    Intent intent = new Intent(this, LoginActivity.class);
-    intent.putExtra(LoginActivity.EXTRA_CLEAR_CREDENTIALS, true);
-    startActivity(intent);
-    finish();
-}
-
 // app/src/main/java/com/auth0/samples/LoginActivity.java
-
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-    // ...
-
-    if (getIntent().getBooleanExtra(EXTRA_CLEAR_CREDENTIALS, false)) {
-        doLogout();
-        return;
-    }
-}
 
 private void doLogout() {
     WebAuthProvider.logout(auth0)
@@ -206,10 +185,3 @@ The logout is achieved by using the `WebAuthProvider` class. This call will open
 ::: note
 If you are not using our Credentials Manager classes, you are responsible for ensuring that the user's credentials have been removed.
 :::
-
-
-As you did previously for the login step, you will need to whitelist as well this logout URL in the dashboard.
-
-<%= include('../../../_includes/_logout_url', { returnTo: 'demo://' + account.namespace + '/android/YOUR_APP_PACKAGE_NAME/callback' }) %>
-
-Replace `YOUR_APP_PACKAGE_NAME` with your application's package name, available as the `applicationId` attribute in the `app/build.gradle` file.

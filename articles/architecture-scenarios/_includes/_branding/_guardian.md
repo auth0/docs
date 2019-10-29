@@ -1,1 +1,3 @@
-The [Guardian Multi-factor](/universal-login/guardian) page is used whenever multi-factor authentication is enabled with Auth0 Guardian as the second factor and, as with the login page, you can [customize the Guardian page](/universal-login/guardian#guardian-login-page-html-editor) to reflect your organization's particular branding requirements. 
+The Multi-factor Authentication pages can be customized by adjusting the Universal Login branding options in the [Universal Login Settings](${manage_url}/#/login_settings) section.
+
+If you need further customization, you can also customize [the full HTML content](/universal-login/multifactor-authentication#customizing-the-html-for-the-mfa-page) to reflect your organization's particular UX requirements. 

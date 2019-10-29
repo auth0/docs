@@ -108,6 +108,18 @@ Besides the limitation of 100 logs per request to retrieve logs, you may only pa
 
 If you get the error `414 Request-URI Too Large` this means that your query string is larger than the supported length. In this case, refine your search.
 
+::: panel Private Cloud Users
+For Private Cloud users searching tenant logs, note that only the following fields are searchable at this time: 
+
+* `user`
+* `connection`
+* `application`
+* `type`
+* `ip`
+
+Use double quotes for exact searches (e.g., `application:"test"` will search for all log entries specific to the application named `test`, but `application:test` will search log entries for applications with test in their name.
+:::
+
 ## Other log endpoints
 
 As an alternative or complement to retrieving logs by checkpoint or search criteria using the [/api/v2/logs](/api/v2#!/Logs/get_logs) endpoint, you can also use the following endpoints to look for logs:
@@ -176,7 +188,7 @@ The following table lists the codes associated with the appropriate log events.
 | `gd_send_sms` | SMS Sent | SMS for MFA sent successfully sent. | [Using SMS for MFA](/multifactor-authentication/factors/sms) |
 | `gd_start_auth` | Second factor started | Second factor authentication event started for MFA. | [Multi-factor Authentication](/multifactor-authentication) |
 | `gd_start_enroll` | Enroll started | Multi-factor authentication enroll has started. | [Multi-factor Authentication](/multifactor-authentication) |
-| `gd_tenant_update` | Guardian tenant update | | [Hosted MFA Page](/hosted-pages/guardian) |
+| `gd_tenant_update` | Guardian tenant update | | [Hosted MFA Page](/universal-login/multifactor-authentication) |
 | `gd_unenroll` | Unenroll device account | Device used for second factor authentication has been unenrolled. | [Multi-factor Authentication](/multifactor-authentication) |
 | `gd_update_device_account` | Update device account | Device used for second factor authentication has been updated. | [Multi-factor Authentication](/multifactor-authentication) |
 | `gd_user_delete` | User delete | Deleted multi-factor user account. | [User Profile](/users/concepts/overview-user-profile) |

@@ -23,7 +23,7 @@ You have already configured and verified your custom domain. If not, see [How to
 |-|-|
 | You use [Universal Login](/hosted-pages/login) and you have customized the login page | [Universal Login](#universal-login) |
 | You use Lock embedded in your application | [Embedded Lock](#embedded-lock) |
-| You use Auth0.js or other Auth0 SDKs | [Auth0.js and other SDKs](#auth0-js-and-other-sdks) |
+| You use Auth0 SPA SDK, Auth0.js or other Auth0 SDKs | [Auth0 SPA SDK, Auth0.js and other SDKs](#auth0-spa-sdk-auth0-js-and-other-sdks) |
 | You want to use your custom domain with Auth0 emails | [Use custom domains in emails](#use-custom-domains-in-emails) |
 | You want to use social identity providers with your custom domain | [Configure social identity providers](#configure-social-identity-providers) |
 | You want to use G Suite connections with your custom domain | [Configure G Suite connections](#configure-g-suite-connections) |
@@ -37,7 +37,7 @@ You have already configured and verified your custom domain. If not, see [How to
 
 ## Universal Login
 
-If you use [Universal Login](/hosted-pages/login) and you have customized the login page, you must update the code to use your custom domain. 
+If you use [Universal Login](/hosted-pages/login) and you have customized the login page, you must update the code to use your custom domain. If you use the **default** login page without customization, you do not need to make any changes.
 
 If you are using [Lock](/libraries/lock), the additional values required in the initialization can be seen in the following sample script:
 
@@ -68,8 +68,6 @@ var webAuth = new auth0.WebAuth({
 });
 ```
 
-If you use the **default** login page without customization, you do not need to make any changes.
-
 ::: note
 For most, the Auth0.js and Lock libraries get the tenant name (required for `/usernamepassword/login`) and the issuer (required for `id_token` validation) from the domain. However, if you're a Private Cloud customer who uses a proxy or a custom domain name where the domain name is different from the tenant/issuer, you can use `__tenant` and `__token_issuer` to provide your unique values.
 :::
@@ -88,9 +86,9 @@ var lock = new Auth0Lock('${account.clientId}', 'YOUR_CUSTOM_DOMAIN', {
 
 The CDN URL varies by region. For regions outside of the US, use `https://cdn.[eu|au].auth0.com` (`eu` for Europe or `au` for Australia).
 
-## Auth0.js and other SDKs
+## Auth0 SPA SDK, Auth0.js and other SDKs
 
-If you use [Auth0.js](/libraries/auth0js) or [other SDKs](/support/matrix#auth0-sdks), you will have to initialize the SDK using your custom domain. For example, if you are using the auth0.js SDK, you need to set the following.
+If you use the [Auth0 SPA SDK](/libraries/auth0-spa-js), [Auth0.js](/libraries/auth0js) or [other SDKs](/support/matrix#auth0-sdks), you will have to initialize the SDK using your custom domain. For example, if you are using the auth0.js SDK, you need to set the following.
 
 ```js
 webAuth = new auth0.WebAuth({
@@ -99,7 +97,18 @@ webAuth = new auth0.WebAuth({
 });
 ```
 
+And for the Auth0 SPA SDK:
+
+```js
+const auth0 = await createAuth0Client({
+  domain: 'YOUR_CUSTOM_DOMAIN',
+  client_id: '${account.clientId}'
+});
+```
+
+::: note
 Note that the Management API only accepts Auth0 domains. If you use a custom domain and also intend to perform [Management API actions with Auth0.js](/libraries/auth0js/v9#user-management), you must instantiate a new copy of `webAuth` using your Auth0 domain.
+:::
 
 ## Use custom domains in emails
 
@@ -114,7 +123,7 @@ Go to [Dashboard > Tenant Settings > Custom Domains](${manage_url}/#/tenant/cust
 If you want to use social identity providers with your custom domain, you must update the [Allowed Callback URLs](${manage_url}/#/applications/${account.clientId}/settings) to include your custom domain (such as `https://login.northwind.com/login/callback`).
 
 ::: warning
-You cannot use [Auth0 developer keys](/connections/social/devkeys) with custom domains.
+You cannot use [Auth0 developer keys](/connections/social/devkeys) with custom domains unless you are using the [New Universal Login Experience](/universal-login/new).
 :::
   
 ## Configure G Suite connections

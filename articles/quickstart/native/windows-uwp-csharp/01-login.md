@@ -23,12 +23,6 @@ For UWP applications, the callback URL needs to be in the format **ms-app://SID*
 
 Alternatively - or if you have not associated your application with the Store yet - you can obtain the value by calling the `Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri()` method. So for example, in the `OnLaunched` method of your application, you can add the following line of code:
 
-<%= include('../../../_includes/_logout_url') %>
-
-::: note
-If you are following along with the sample project you downloaded from the top of this page, the logout URL you need to whitelist in the Allowed Logout URLs field is the same as the callback URL.
-:::
-
 ```csharp
 // App.xaml.cs
 
@@ -46,6 +40,10 @@ protected override void OnLaunched(LaunchActivatedEventArgs e)
 ```
 
 This will print out the callback URL to your Debug window in Visual Studio. This is a bit of a painful process to obtain this URL, but it is important to use this URL otherwise the authentication process will not function correctly.
+
+<%= include('../../../_includes/_logout_url') %>
+
+The logout URL you need to whitelist in the **Allowed Logout URLs** field is the same as the callback URL obtained in the previous step. For more information check Web authenticator broker [documentation](https://docs.microsoft.com/en-us/windows/uwp/security/web-authentication-broker#connecting-with-single-sign-on-sso).
 
 ## Integrate Auth0 in your Application
 

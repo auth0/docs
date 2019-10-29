@@ -89,8 +89,8 @@ This relationship between Auth0 and the identity provider is referred to as a **
 Connections are sources of users and they can be of the following types:
 
 - [Database connections](/connections/database): Users log in with username and passwords, stored either in the Auth0 cloud or your own database
-- [Social logins](/identityproviders#social): Google, Facebook, Twitter, and more
-- [Enterprise directories](/identityproviders#enterprise): LDAP, G Suite, Office 365, ADFS, AD, <dfn data-key="security-assertion-markup-language">SAML-P</dfn>, WS-Federation, and more
+- [Social logins](/connections/identity-providers-social): Google, Facebook, Twitter, and more
+- [Enterprise directories](/connections/identity-providers-enterprise): LDAP, G Suite, Office 365, ADFS, AD, <dfn data-key="security-assertion-markup-language">SAML-P</dfn>, WS-Federation, and more
 - <dfn data-key="passwordless">[Passwordless systems](/connections/passwordless)</dfn>: Users log in with one-time codes, sent via SMS or email
 
 Each connection can be shared among multiple applications. You can configure any number of connections, and then choose which of them to enable for each application.

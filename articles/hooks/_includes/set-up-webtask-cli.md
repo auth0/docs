@@ -1,6 +1,4 @@
-::: warning
-Tenants created after **July 16, 2018** will not have access to the underlying Webtask Sandbox via the Webtask CLI. Please contact [Auth0](https://auth0.com/?contact=true) to request access.
-:::
+<%= include('../../_includes/_webtask') %>
 
 ::: panel Prerequisite: Set up the Webtask CLI
 

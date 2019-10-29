@@ -224,6 +224,57 @@ OmniAuth.config.on_failure = Proc.new { |env|
 }
 ```
 
+## Logout
+
+Use the following command to create the controller that will handle user logout:
+
+```bash
+rails generate controller logout
+```
+
+To clear out all the objects stored within the session, call the `reset_session` method within the `logout_controller/logout` method. [Learn more about reset_session here](http://api.rubyonrails.org/classes/ActionController/Base.html#M000668).
+
+```ruby
+# app/controllers/logout_controller.rb
+
+class LogoutController < ApplicationController
+  include LogoutHelper
+  def logout
+    reset_session
+    redirect_to logout_url.to_s
+  end
+end
+```
+
+In `logout_helper.rb` file add the methods to generate the logout URL.
+
+```ruby
+# app/helpers/logout_helper.rb
+
+module LogoutHelper
+  def logout_url
+    domain = Rails.application.secrets.auth0_domain
+    client_id = Rails.application.secrets.auth0_client_id
+    request_params = {
+      returnTo: root_url,
+      client_id: client_id
+    }
+
+    URI::HTTPS.build(host: domain, path: '/v2/logout', query: to_query(request_params))
+  end
+
+  private
+
+  def to_query(hash)
+    hash.map { |k, v| "#{k}=#{URI.escape(v)}" unless v.nil? }.reject(&:nil?).join('&')
+  end
+end
+```
+
+::: note
+The final destination URL (the `returnTo` value) needs to be in the list of `Allowed Logout URLs`. See the [logout documentation](/logout/guides/redirect-users-after-logout) for more.
+:::
+
 ## Troubleshooting
 
 ### Using a reverse proxy
@@ -240,6 +291,23 @@ end
 ```
 
 [See this StackOverflow thread for more information](https://stackoverflow.com/a/7135029/728480). 
+
+### ActionController::InvalidAuthenticityToken
+
+This is likely caused by a missing CSRF token needed to POST the login request. If you inspect the login button in your browser, you should see something like this:
+
+```html
+<a data-method="post" href="auth/auth0">Login</a>
+```
+
+... and in the `<head>` element for the page, you should have CSRF meta tags like these:
+
+```html
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="UY2XpKwxzwBWalxFVJ8yKsao/33it7If09BnZewpHifVPSpFJd2LrA7xgQn6VQrhZNGjgZoLI3kV+bkQHtr+Rw==">
+```
+
+With those elements in place, Rails will convert the login link to POST the CSRF token to the backend to verify it before redirecting to login.
 
 ### ActionDispatch::Cookies::CookieOverflow
 
@@ -266,7 +334,7 @@ Under some configurations, Ruby may not be able to find certification authority 
 Download the CA certs bundle to the project directory:
 
 ```bash
-curl -o lib/ca-bundle.crt http://curl.haxx.se/ca/ca-bundle.crt
+curl -L -o lib/ca-bundle.crt http://curl.haxx.se/ca/ca-bundle.crt
 ```
 
 Add this initializer to `config/initializers/fix_ssl.rb`:

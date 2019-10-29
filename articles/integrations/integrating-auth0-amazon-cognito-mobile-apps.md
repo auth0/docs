@@ -12,7 +12,7 @@ useCase: integrate-saas-sso
 
 **Amazon Cognito** is a backend as a service that lets you focus on writing a fantastic user experience for your application (native or web).
 
-This document will explain how you can integrate your app with two solutions: Auth0 to get authentication with either [Social Providers](/identityproviders#social) (Facebook, Twitter, and so on), [Enterprise providers](/identityproviders#enterprise) or regular Username and Password, and [Amazon Cognito](http://aws.amazon.com/cognito/), to get a backend for your app without writing a line of code.
+This document will explain how you can integrate your app with two solutions: Auth0 to get authentication with either [Social Providers](/connections/identity-providers-social) (Facebook, Twitter, and so on), [Enterprise providers](/connections/identity-providers-enterprise) or regular Username and Password, and [Amazon Cognito](http://aws.amazon.com/cognito/), to get a backend for your app without writing a line of code.
 
 ## Configure Amazon Web Services
 

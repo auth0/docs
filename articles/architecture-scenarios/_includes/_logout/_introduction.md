@@ -1,7 +1,7 @@
 [Logout](/logout) is the act of terminating an authenticated session when it's no longer needed, thus minimizing the likelihood that unauthorized parties can "take over" the session. This is typically achieved by provisioning a logout option on the user interface you provide to your users. Multiple types of sessions can be created when a user logs in (e.g., local application sessions, Auth0 session, third-party Identity Provider sessions), and you will need to determine which of these sessions need to be terminated when the user clicks any **Logout** option.
 
 ::: panel Best Practice
-Your logout behavior should make it clear to a user which session(s) are being terminated, and ideally, will display a visual confirmation of logout afterward. 
+Your logout behavior should make it clear to a user which session(s) are being terminated, and ideally, will display a visual confirmation of logout afterward.
 :::
 
 When configuring logout behavior, you'll need to consider:
@@ -22,7 +22,7 @@ If the logout feature in one application terminates an Auth0 SSO session that is
 
 ## Where to send users after logout
 
-Once your user logs out, they will be redirected to a specific location of your choosing. This location is specified as the **logout redirect URL**, and you can [define this as a parameter](/logout/guides/redirect-users-after-logout) via the Auth0 Dashboard. 
+Once your user logs out, they will be redirected to a specific location of your choosing. This location is specified as the **logout redirect URL**, and you can [define this as a parameter](/logout/guides/redirect-users-after-logout) via the Auth0 Dashboard.
 
 The URL(s) you use to redirect users after logging out must be [whitelisted in the Dashboard](/logout#redirect-users-after-logout) to mitigate open-redirect security vulnerabilities. You can whitelist them at the tenant or application levels.
 
@@ -32,10 +32,10 @@ If the user logs out and you redirect them back to the application, and the appl
 
 ## Automatic termination of sessions
 
-Not all users will trigger the logout process manually, so Auth0 also provides **session timeout** to prevent overly long-lived sessions. This setting is [available and configurable via the Auth0 Dashboard](/dashboard/dashboard-tenant-settings#session-timeout).
+Not all users will trigger the logout process manually, so Auth0 also provides **session timeout** to prevent overly long-lived sessions. This setting is [available and configurable via the Auth0 Dashboard](/dashboard/reference/settings-tenant#login-session-management).
 
 <% if (platform === "b2b") { %>
- [Federated User Logout](/logout/guides/logout-idps) may be something that you need to consider for your application.  If you or your customers will be using a third-party IdP (i.e., something other than a [Database Identity Provider](/connections/database)) then the question of whether you need to log the user out of the IdP when they log out of your application is something you will need to answer. The answer depends on what your users would expect. If the applicaiton and/or IdP you use is tied closely to a customer organization and a central part of day-to-day operations, then it may be frustrating for users to get logged out of their IdP when they log out of your application. If not, then being logged out of the IdP may be expected, or in some cases even desired. In most B2B scenarios, our customers find that it is preferable *not* to perform federated logout for a user. 
+ [Federated User Logout](/logout/guides/logout-idps) may be something that you need to consider for your application.  If you or your customers will be using a third-party IdP (i.e., something other than a [Database Identity Provider](/connections/database)) then the question of whether you need to log the user out of the IdP when they log out of your application is something you will need to answer. The answer depends on what your users would expect. If the application and/or IdP you use is tied closely to a customer organization and a central part of day-to-day operations, then it may be frustrating for users to get logged out of their IdP when they log out of your application. If not, then being logged out of the IdP may be expected, or in some cases even desired. In most B2B scenarios, our customers find that it is preferable *not* to perform federated logout for a user.
 <%  } %>
 
 ::: panel Get Started with Auth0 Video

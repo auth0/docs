@@ -358,6 +358,10 @@ module.exports = [
     to: '/connections/enterprise/azure-active-directory/v1'
   },
   {
+    from: '/connections/enterprise/samlp',
+    to: '/connections/enterprise/saml'
+  },
+  {
     from: '/dwolla-clientid',
     to: '/connections/social/dwolla'
   },
@@ -523,6 +527,10 @@ module.exports = [
   {
     from: '/applications/application-grant-types',
     to: '/applications/concepts/application-grant-types'
+  },
+  {
+    from: '/applications/concepts/signing-algorithms',
+    to: '/tokens/concepts/signing-algorithms'
   },
   {
     from: '/clients/client-types',
@@ -1149,6 +1157,26 @@ module.exports = [
     to: '/tokens/id-token'
   },
   {
+    from: '/tokens/add-custom-claims',
+    to: '/scopes/current/sample-use-cases#add-custom-claims-to-a-token'
+  },
+  {
+    from: '/tokens/guides/update-signing-algorithm-application',
+    to: '/dashboard/guides/applications/update-signing-algorithm'
+  },
+  {
+    from: '/scopes/current/custom-claims',
+    to: '/tokens/jwt-claims#custom-claims'
+  },
+  {
+    from: '/tokens/guides/jwt/verify-jwt-signature-using-jwks',
+    to: '/tokens/guides/jwt/use-jwks'
+  },
+  {
+    from: '/tokens/guides/jwt/parse-validate-jwt-programmatically',
+    to: '/tokens/guides/jwt/validate-jwt'
+  },
+  {
     from: '/connections',
     to: '/identityproviders'
   },
@@ -1410,7 +1438,11 @@ module.exports = [
   },
   {
     from: '/hosted-pages/guardian',
-    to: '/universal-login/guardian'
+    to: '/universal-login/multifactor-authentication'
+  },
+  {
+    from: '/universal-login/guardian',
+    to: '/universal-login/multifactor-authentication'
   },
   {
     from: '/hosted-pages/password-reset',
@@ -1531,6 +1563,10 @@ module.exports = [
   {
     from: '/tutorials/dashboard-tenant-settings',
     to: '/dashboard/dashboard-tenant-settings',
+  },
+  {
+    from: '/dashboard/dashboard-tenant-settings',
+    to: '/dashboard/reference/settings-tenant',  
   },
   {
     from: '/tutorials/manage-dashboard-admins',
@@ -1675,6 +1711,18 @@ module.exports = [
   {
     from: '/integrations/zoom',
     to: '/sso/current/integrations/zoom'
+  },
+  {
+    from: '/analytics/integrations',
+    to: '/analytics',
+  },
+  {
+    from: '/analytics/integrations/facebook-analytics',
+    to: '/analytics/guides/facebook-analytics',
+  },
+  {
+    from: '/analytics/integrations/google-analytics',
+    to: '/analytics/guides/google-analytics',
   },
   {
     from: '/clients/how-to-update-client-secret',
@@ -1913,8 +1961,16 @@ module.exports = [
      to: '/troubleshoot/har'
    },
    {
-     from: ['/tokens/access-token','/tokens/access_token'],
-     to: '/tokens/overview-access-tokens'
+     from: ['/tokens/overview-access-tokens','/tokens/access-token','/tokens/access_token'],
+     to: '/tokens/access-tokens'
+   },
+   {
+    from: ['/tokens/overview-id-tokens','/tokens/id-token'],
+    to: '/tokens/id-tokens'
+  },
+   {
+     from: '/api-auth/tutorials/verify-access-token',
+     to: '/tokens/guides/access-token/validate-access-token'
    },
    {
      from: '/user-profile',
@@ -2134,20 +2190,12 @@ module.exports = [
      to: '/rules/guides/redirect'
     },
     {
-     from: ['/tokens/set-access-token-format','/tokens/access-token-formats'],
-     to: '/tokens/reference/access-token/access-token-formats'
-    },
-    {
       from: '/integrations/using-auth0-as-an-identity-provider-with-github-enterprise',
       to: '/protocols/saml/saml-apps/github-server'
     },
     {
       from: '/tokens/get-access-tokens',
       to: '/tokens/guides/access-token/get-access-tokens'
-    },
-    {
-      from: '/tokens/set-access-token-lifetime',
-      to: '/tokens/guides/access-token/set-access-token-lifetime'
     },
     {
       from: '/tokens/use-access-tokens',
@@ -2186,6 +2234,10 @@ module.exports = [
       to: '/glossary'
     },
     {
+      from: '/topics/extensibility',
+      to: '/extend-integrate'
+    },
+    {
       from: '/private-saas-deployment/managed-private-cloud', 
       to: '/private-cloud/managed-private-cloud'
     },
@@ -2220,5 +2272,41 @@ module.exports = [
     {
       from: '/private-saas-deployment/custom-domain-migration', 
       to: '/private-cloud/custom-domain-migration'
+    },
+    {
+      from: '/connections/passwordless/sms-gateway',
+      to: '/connections/passwordless/guides/use-sms-gateway-passwordless'
+    },
+    {
+      from: '/policies/requests',
+      to: '/policies/unsupported-requests'
+    },
+    {
+      from: '/rules/guides/create',
+      to: '/dashboard/guides/rules/create-rules'
+    },
+    {
+      from: '/connections/apple-setup',
+      to: '/connections/apple-siwa/set-up-apple'
+    },
+    {
+      from: '/connections/passwordless/email',
+      to: '/connections/passwordless/guides/implement-passwordless'
+    },
+    {
+      from: '/connections/passwordless/sms',
+      to: '/connections/passwordless/guides/implement-passwordless'
+    },
+    {
+      from: '/connections/passwordless/spa',
+      to: '/connections/passwordless/guides/implement-passwordless'
+    },
+    {
+      from: '/connections/passwordless/regular-web-app',
+      to: '/connections/passwordless/guides/implement-passwordless'
+    },
+    {
+      from: '/connections/passwordless/faq',
+      to: '/connections/passwordless/reference/troubleshoot'
     }
 ];

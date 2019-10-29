@@ -9,6 +9,10 @@ How to obtain and use access and refresh tokens for delegated authorization in a
 
 <div class="video-wrapper" data-video="yw6hmdhnft"></div>
 
+## Related Identity Lab
+
+[<i class="icon icon-budicon-529"></i> Lab 2: Calling an API](/identity-labs/02-calling-an-api)
+
 ## Jump to Section
 
 Jump to a section in the video for explanation on a specific topic.

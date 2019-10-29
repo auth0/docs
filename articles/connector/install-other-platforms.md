@@ -22,7 +22,9 @@ For most platforms, you will need to run the required commands with root privile
 
 1. Download the <a class="download-github" href=""></a> package to `/tmp`:
 
+    ```
     <code class="curl-example"></code>
+    ```
 
 2. Expand the <a class="download-github" href=""></a> package and install its dependencies:
 
@@ -75,17 +77,19 @@ For most platforms, you will need to run the required commands with root privile
     ExecStart=/usr/bin/node server.js
     ```
 
-<script type="text/javascript">
-  $.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {
-    $('.download-github')
-        .attr('href', 'https://github.com/auth0/ad-ldap-connector/releases/tag/v' + data.version)
-        .text('adldap-' + data.version);
+    ```text
+    <script type="text/javascript">
+      $.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {
+       $('.download-github')
+            .attr('href', 'https://github.com/auth0/ad-ldap-connector/releases/tag/v' + data.version)
+            .text('adldap-' + data.version);
 
-    $('.curl-example')
-      .text('curl -Lo /tmp/adldap.tar.gz https://github.com/auth0/ad-ldap-connector/archive/v' + data.version + '.tar.gz');
-  })
-</script>
-
+        $('.curl-example')
+          .text('curl -Lo /tmp/adldap.tar.gz https://github.com/auth0/ad-ldap-connector/archive/v' + data.version + '.tar.gz');
+      })
+    </script>
+    ```
+    
 7. Run `node admin/server.js` to access the admin UI -- the admin UI will be running and available on `http://localhost:8357`.
 
 ::: note

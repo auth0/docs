@@ -20,9 +20,9 @@ Please note that rules also run during the [token refresh](/tokens/refresh-token
 ![Rule Flow](/media/articles/rules/flow.png)
 
 1. An app initiates an authentication request to Auth0.
-1. Auth0 routes the request to an Identity Provider through a configured connection.
-1. The user authenticates successfully.
-1. The [ID Token](/tokens/id-token) and/or <dfn data-key="access-token">Access Token</dfn> is passed through the Rules pipeline, then sent to the app.
+2. Auth0 routes the request to an Identity Provider through a configured connection.
+3. The user authenticates successfully.
+4. The [ID Token](/tokens/id-tokens) and/or <dfn data-key="access-token">Access Token</dfn> is passed through the Rules pipeline, then sent to the app.
 
 ## What can I use Rules for?
 
@@ -47,7 +47,7 @@ For rules that call Auth0 APIs, you should always handle rate limiting by checki
 
 A Rule is a function with the following arguments:
 
-* `user`: the user object as it comes from the identity provider. Check out the [User Object in Rules](/rules/references/user-object) page for a list of the available user properties.
+* `user`: the user object as it comes from the identity provider. See [User Object in Rules](/rules/references/user-object) for a list of the available user properties. (However, if you execute the rule in the context of a call made to the delegation endpoint, the `user` object will also include the original JSON Web Token (JWT) claims.)
 
 * `context`: an object containing contextual information of the current authentication transaction, such as the user's IP address, application, or location. Check out the [Context Object in Rules](/rules/references/context-object) page for a list of the available context properties.
 

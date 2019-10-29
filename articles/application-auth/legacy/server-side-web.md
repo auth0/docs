@@ -6,7 +6,7 @@ topics:
   - oauth2
   - authentication
   - server-side-apps
-contentType: 
+contentType:
     - concept
     - how-to
 useCase:
@@ -77,7 +77,7 @@ This endpoint supports the following query string parameters:
   Be sure to add the **redirect_uri** URL to the list of **Allowed Callback URLs** in the **Settings** tab of your Application inside the [Auth0 Dashboard](${manage_url}).
 :::
 
-## Exhange the `access_code` for an ID Token
+## Exchange the `access_code` for an ID Token
 
 After the user has authenticated, Auth0 will call back to the URL specified in the `redirect_uri` query string parameter which was passed to the `/authorize` endpoint. When calling back to this URL, Auth0 will pass along an `access_token` in the `code` query string parameter of the URL, such as
 

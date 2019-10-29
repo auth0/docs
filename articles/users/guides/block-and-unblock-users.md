@@ -31,7 +31,7 @@ Blocking does not expire. You must unblock the user to allow the user to have ac
 
 ## Unblock a user
 
-To reinsate a user's access to your apps, you can unblock the user in the Dashboard:
+To reinstate a user's access to your apps, you can unblock the user in the Dashboard:
 
 1. Go to the [Users](${manage_url}/#/users) page in the Dashboard. 
 2. Click the name of the user you want to unblock. 

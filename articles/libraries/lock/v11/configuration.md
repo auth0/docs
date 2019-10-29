@@ -299,8 +299,8 @@ var options = {
 
 ### rememberLastLogin {Boolean}
 
-Determines whether or not to show a screen that allows you to quickly log in with the account you used the last time. Defaults to true.
-Request for <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> data and enable **Last time you signed in with[...]** message. Defaults to `true`.
+Determines whether or not to show a screen that allows you to quickly log in with the account you used the last time.
+Requests <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> data and enables a **Last time you signed in with[...]** message. Defaults to `true`. This information comes from the user's Auth0 session, so this ability will last as long as their Auth0 session would (which is [configurable](/dashboard/reference/settings-tenant#login-session-management).
 
 ```js
 var options = {

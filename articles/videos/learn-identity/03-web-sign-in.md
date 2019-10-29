@@ -9,6 +9,10 @@ Authentication for web applications using OpenID Connect.
 
 <div class="video-wrapper" data-video="k4rwcky3p5"></div>
 
+## Related Identity Lab
+
+[<i class="icon icon-budicon-529"></i> Lab 1: Web Sign-On](/identity-labs/01-web-sign-in)
+
 ## Jump to Section
 
 Jump to a section in the video for explanation on a specific topic.

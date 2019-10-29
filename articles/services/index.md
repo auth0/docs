@@ -108,6 +108,12 @@ These packaged offerings generally fall into two categories: Design and Implemen
 * Expires in 180 days
 * Terms and Conditions apply
 
+#### [Custom Implementation Package](/media/articles/services/Auth0-Services-Custom-Implementation.pdf)
+* 15 or more days of services
+* Remote only
+* Expires in 180 days
+* Terms and Conditions apply
+
 ### Maintain and Improve packages
 
 #### [Implementation HealthCheck Package](/media/articles/services/Auth0-Services-HealthCheck.pdf)

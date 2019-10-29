@@ -1,5 +1,6 @@
 ---
-description: This page explains the basics of Auth0's Management and Authentication APIs.
+title: Auth0 APIs
+description: Learn about Auth0's Management and Authentication APIs.
 section: apis
 crews: crew-2
 topics:
@@ -9,22 +10,22 @@ topics:
 contentType: reference
 useCase: invoke-api
 ---
-
 # Auth0 APIs
 
-Auth0 exposes two APIs for developers to consume in their applications:
-
-* **Authentication**: Handles identity-related tasks;
-* **Management**: Handles management of your Auth0 account, including functions related to (but not limited to):
-
-    * Applications;
-    * Connections;
-    * Emails;
-    * Users.
+Auth0 exposes the following APIs for developers to consume in their applications.
 
 ## Authentication API
 
-The Authentication API exposes Auth0 identity functionality, as well as those of supported identity protocols (such as <dfn data-key="openid">OpenID Connect</dfn>, OAuth, and <dfn data-key="security-assertion-markup-language">SAML</dfn>). Typically, you consume this API through one of the Auth0 SDKs, such as [Auth0.js](/libraries/auth0js) or a library like [Lock](/libraries/lock). If you are building your authentication UI manually, you will need to interface directly with the Authentication API.
+The Authentication API exposes identity functionality for Auth0 and supported identity protocols (including <dfn data-key="openid">OpenID Connect</dfn>, OAuth, and <dfn data-key="security-assertion-markup-language">SAML</dfn>). 
+
+Typically, you should consume this API through one of the Auth0 SDKs, such as [Auth0.js](/libraries/auth0js), or a library like [Lock](/libraries/lock). However, if you are building your authentication UI manually, you will need to call the Authentication API directly.
+
+Some example tasks include:
+
+* getting [tokens](/tokens) during authentication
+* requesting a user's profile using an [Access Token](/tokens/access-tokens)
+* exchanging [Refresh Tokens](/tokens/refresh-token) for new Access Tokens
+* requesting a challenge for [multi-factor authentication (MFA)](/multifactor-authentication)
 
 <div class="api-info-wrapper">
   <div class="block-links">
@@ -34,7 +35,7 @@ The Authentication API exposes Auth0 identity functionality, as well as those of
           <div class="wrapper-left">
             <a href="/auth-api" class="illustration i-apiexplorer"></a>
             <h4>API Explorer</h4>
-            <p>Learn about and use the Auth0 Authentication API in the browser.</p>
+            <p>Explore the requests and responses for Auth0 Authentication API endpoints in your browser.</p>
             <p><a href="/auth-api">Open API Explorer</a></p>
           </div>
         </div>
@@ -54,7 +55,14 @@ The Authentication API exposes Auth0 identity functionality, as well as those of
 
 ## Management API v2
 
-The Management API allows you to manage every aspect of your Auth0 account. For example, you can use the Management API to automate the configuration of your user environments or for runtime tasks such as user creation.
+The Management API allows you to manage your Auth0 account programmatically, so you can automate configuration of your environment. Most of the tasks you can perform in the Auth0 Management Dashboard can also be performed programmatically by using this API.
+
+Some example tasks include:
+
+* registering your applications and APIs with Auth0
+* setting up [connections](/connections) with which your users can authenticate
+* [managing users](/users)
+* [linking user accounts](/link-accounts)
 
 <div class="api-info-wrapper">
   <div class="block-links">
@@ -84,4 +92,4 @@ The Management API allows you to manage every aspect of your Auth0 account. For 
 
 ### Management API v1 - DEPRECATED
 
-The Management API v1 is deprecated and should not be used for new projects. If your existing application uses Management API v1, refer to the [Management API v1 documentation](/api/management/v1).
+The Management API v1 is deprecated and should not be used for new projects. If your existing application uses Management API v1, please see the [Management API v1 documentation](/api/management/v1).

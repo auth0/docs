@@ -29,6 +29,8 @@ The [Real-time Webtask Logs](/extensions/realtime-webtask-logs) extension displa
 
 ## Debug Rule CLI
 
+<%= include('../../_includes/_webtask') %>
+
 Similar to the above, the **DEBUG RULE** button displays instructions for installing, configuring, and running the [webtask CLI](https://github.com/auth0/wt-cli) for debugging Rules. Paste these commands into a terminal to see the `console.log` output and any unhandled exceptions that occur during Rule execution.
 
 For example:

@@ -1,4 +1,10 @@
-<%= include('../../_includes/_getting_started', { library: 'Swift') %>
+<!-- markdownlint-disable MD002 MD041 -->
+
+## Before you Start
+
+This tutorial demonstrates how to add user login to a Swift application using Web Authentication with Auth0. Alternatively, check out the [iOS Swift - Sign In With Apple tutorial](/quickstart/native/ios-swift-siwa).
+
+<%= include('../../_includes/_getting_started', { library: 'Swift' }) %>
 
 Add your credentials in the `Auth0.plist` file. If the file does not exist in your project yet, create it:
 
@@ -102,4 +108,33 @@ After the user authenticates, their information is returned in a `credentials` o
 
 ::: note
 To learn more about the `credentials` object, read the [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift) article.
+:::
+
+<%= include('../../../../_includes/_logout_url') %>
+
+## Implement logout
+To clear the session on the server side you need to invoke the `clearSession` method. Add the following snippet:
+```swift
+// HomeViewController.swift
+@swift
+Auth0
+    .webAuth()
+    .clearSession(federated:false){
+        switch $0{
+            case true:
+                ...
+            case false:
+                ...
+        }
+    }
+```
+Go to your [Dashboard Settings](${manage_url}/#/applications/${account.clientId}/settings) and make sure that the **Allowed Logout URL** field contains the following logout callback URL:
+
+```text
+{PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
+```
+After the call, the callback will receive a BOOL with the logout status.
+
+::: note
+Replace `{PRODUCT_BUNDLE_IDENTIFIER}` with your application's Bundle Identifier , available as the `Bundle Identifier` attribute inside the `identity`, on your `app project` properties.
 :::

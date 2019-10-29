@@ -25,7 +25,7 @@ useCase:
 
 ![Show Advanced Settings](/media/articles/applications/advanced-settings.png)
 
-3. Select the **Mobile Settings** tab, provide the [App Package Name](https://developer.android.com/studio/build/application-id.html) and the SHA256 fingerprints of your app’s signing certificate for your Android application, and click **Save Changes**.
+3. Select the **Device Settings** tab, provide the [App Package Name](https://developer.android.com/studio/build/application-id.html) and the SHA256 fingerprints of your app’s signing certificate for your Android application, and click **Save Changes**.
 
 You can use the following command to generate the fingerprint using the Java keytool in your terminal:
 
@@ -37,7 +37,7 @@ keytool -list -v -keystore my-release-key.keystore
 For more info about signing certificates, see Android's [Sign Your App](https://developer.android.com/studio/publish/app-signing.html) developer doc.
 :::
 
-![Add Mobile Settings](/media/articles/applications/mobile-settings.png)
+![Add Device Settings](/media/articles/applications/device-settings.png)
 
 
 ## Test Your App Link

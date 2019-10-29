@@ -1,6 +1,6 @@
 ---
-title: Auth0 Dashboard Application Settings
-description: Learn about the Application Settings available through the Auth0 Dashboard.
+title: Application Settings
+description: Learn about the settings related to applications available in the Auth0 Dashboard.
 topics:
   - api-authentication
   - oidc
@@ -10,10 +10,9 @@ contentType: reference
 useCase:
   - add-login
 ---
-
 # Application Settings
 
-In the [Application](${manage_url}/#/applications) section, locate your Application, and click on its *Settings* to review the available settings.
+On the [Applications](${manage_url}/#/applications) page of the [Auth0 Dashboard](${manage_url}/), locate your Application and click its name to view the available settings.
 
 ## Basic Settings
 
@@ -55,13 +54,13 @@ You can provide up to 100 URLs in the **Allowed Callback URLs**, **Allowed Web O
 
 - **JWT Expiration (seconds)**: The amount of time (in seconds) before the Auth0 ID Token expires. The default value is `36000`, which maps to 10 hours.
 
-- **Use Auth0 instead of the IdP to do Single Sign-on**: If enabled, this setting prevents Auth0 from redirecting authenticated users with valid sessions to the identity provider (such as Facebook or ADFS).
+- **Use Auth0 instead of the IdP to do Single Sign-on**: If enabled, this setting prevents Auth0 from redirecting authenticated users with valid sessions to the identity provider (such as Facebook or ADFS). **Legacy tenants only.**
 
 ## Advanced Settings
 
 The **Advanced Settings** section allows you to:
 
-* Manage or add Application Metadata, Mobile, OAuth, and WS-Federation settings 
+* Manage or add Application Metadata, Device, OAuth, and WS-Federation settings 
 * Obtain certificates and token endpoint information
 * Set the grant type(s) for the Application
 
@@ -73,7 +72,7 @@ Application metadata are custom string keys and values (each of which has a char
 
 You can create up to 10 sets of metadata.
 
-### Mobile Settings
+### Device Settings
 
 If you're developing a mobile application, you can provide the necessary iOS/Android parameters here.
 
@@ -87,7 +86,7 @@ Set the OAuth-related settings on this tab:
 
 * By default, all apps/APIs can make a delegation request, but if you want to explicitly grant permissions to selected apps/APIs, you can do so in **Allowed Apps/APIs**.
 
-* Set the algorithm used (**HS256** or **RS256**) for signing your JSON Web Tokens. For more info, see [Signing Algorithms](/applications/concepts/signing-algorithms).
+* Set the algorithm used (**HS256** or **RS256**) for signing your JSON Web Tokens. For more info, see [Signing Algorithms](/tokens/concepts/signing-algorithms).
 
 * Toggle the **Trust Token Endpoint IP Header** setting; if this is enabled, the `auth0-forwarded-for` is set as trusted and used as a source of end user IP information for protection against brute-force attacks on the token endpoint. This setting is only available for Regular Web Apps and M2M Apps.
 

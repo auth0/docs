@@ -48,9 +48,9 @@ Configure the custom database connection.
 
 ## Scenario 2: Migrate Users from Okta to Auth0
 
-1. On the **Settings** page for your database connection, enable the **Import Users to Auth0** option:
+1. Navigate to the  **Settings** page for your database connection, and enable the **Import Users to Auth0** option:
 
-![Dashboard Import Users Option](/media/articles/users/migrations/import-users.png)
+![Enable Import Users](/media/articles/dashboard/connectionsdatabase/connections-db-settings-main-2.png)
 
 2. Create the [Login script](/connections/database/custom-db/templates/login). The **Login** script is executed when a user attempts to log in, but their account is not found in the Auth0 database. You will need to create a script which will call the Okta [Primary Authentication](https://developer.okta.com/docs/api/resources/authn.html#primary-authentication) endpoint, passing the email and password as the `username` and `password` parameters.
 
@@ -164,9 +164,9 @@ Click the **Try** button above the script to test and see whether the script wor
 
 ## Scenario 3: Migrate users from Stormpath to Auth0
 
-1. On the **Settings** page for your database connection, enable the **Import Users to Auth0** option:
+1. Navigate to the **Settings** page for your database connection, and enable the **Import Users to Auth0** option:
 
-   ![Dashboard Import Users Option](/media/articles/users/migrations/import-users.png)
+   ![Enable Import Users](/media/articles/dashboard/connectionsdatabase/connections-db-settings-main-2.png)
 
 2. Navigate to the **Applications** tab of your database connection. Here you can choose the applications which will use the database connection.
 

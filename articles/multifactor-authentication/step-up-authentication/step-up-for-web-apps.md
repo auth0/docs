@@ -1,11 +1,10 @@
 ---
 title: Step-up Authentication for Web Apps
-description: Describes how to check if a user has logged in your web app with Multi-factor Authentication by examining their ID Token
+description: Learn how to check if a user has logged in your web app with Multi-factor Authentication by examining their ID Token.
 topics:
   - mfa
   - step-up-authentication
   - web-apps
-toc: true
 contentType:
   - how-to
   - concept
@@ -14,34 +13,36 @@ useCase:
 ---
 # Step-up Authentication for Web Apps
 
-With Step-up Authentication, applications that allow access to different types of resources can require users to authenticate with a stronger mechanism to access sensitive information or perform certain transactions.
+With step-up authentication, applications that allow access to different types of resources can require users to authenticate with a stronger mechanism to access sensitive information or perform certain transactions.
 
 For instance, a user may be allowed to access views with sensitive data or reset their password only after confirming their identity using <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn>.
 
-When a user logs in you can get an [ID Token](/tokens/id-token) which is a <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn> that contains information relevant to the user's session, in the form of claims.
+To accomplish step-up authentication for your web app, you will create a rule that challenges the user to authenticate with MFA when the web app asks for it, check the ID Token claims for MFA if the user tries to access a restricted page, and then challenge the user if MFA is not included in the claim. 
 
-The claim that is relevant to this scenario is `amr`. If it contains the value `mfa` then you know that the user has authenticated using MFA. Note the following:
-- `amr` **must** be present in the ID Token's payload (if you log in with username/password the claim will not be included in the payload)
-- `amr` **must** contain the value `mfa` (`amr` can contain claims other than `mfa`, so its existence is not a sufficient test, its contents must be examined for the value `mfa`)
+## How it works
 
-If the token shows that the user has not authenticated with MFA, then you can trigger again authentication, and using a rule, trigger MFA. Once the user provides the second factor, a new ID Token, that contains the `amr` claim, is generated and sent to the app.
+When a user logs in, you retrieve an [ID Token](/tokens/id-tokens), which is a <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn> that contains information relevant to the user's session in the form of claims. For this scenario, the relevant claim is `amr`, which indicates the authentication method used during login; it **must** be present in the ID Token's payload and **must** contain the value `mfa`. Because it can contain claims other than `mfa`, when validating you must both test for its existence and examine its contents for a value of `mfa`.
 
-## How to check the ID Token for MFA
+::: panel Authentication Methods Reference
+The `amr` claim is a JSON array of strings that indicates the authentication method used during login. Its values may include any of the pre-defined [Authentication Method Reference Values](https://tools.ietf.org/html/rfc8176). For example, the `amr` claim may contains the pre-defined value `mfa`, which indicates that the user has authenticated using MFA. 
+:::
 
-In order to check if a user logged in with MFA follow these steps:
+If a user attempts to access a restricted page and the token shows that the user has **not** authenticated with MFA, then you can retrigger authentication, which you have configured to trigger MFA using a rule. Once the user provides the second factor, a new ID Token that contains the `amr` claim is generated and sent to the app.
 
-1. Retrieve the ID Token
-1. Verify the token's signature. The signature is used to verify that the sender of the token is who it says it is and to ensure that the message wasn't changed along the way.
-1. Validate the standard claims: `exp` (when the token expires), `iss` (who issued the token), `aud` (who is the intended recipient of the token)
-1. Verify that the token contains the `amr` claim.
-  - If `amr` **is not** in the payload or it does not contain the value `mfa`, the user did not log in with MFA
-  - If `amr` **is** in the payload and it contains the value `mfa`, then the user logged in with MFA
+## Validate ID Tokens for MFA
 
-For more information on the signature verification and claims validation, see [ID Token](/tokens/id-token).
+1. Retrieve the ID Token.
+2. Verify the token's signature, which is used to verify that the sender of the token is who it says it is and to ensure that the message wasn't changed along the way.
+3. Validate the following claims: 
 
-## Sample payloads
+    | Claim | Description |
+    | --- | --- |
+    | `exp` | Token expiration |
+    | `iss` | Token issuer |
+    | `aud` | Intended recipient of the token |
+    | `amr` | If `amr` does not exist in the payload or does not contain the value `mfa`, the user did not log in with MFA. If `amr` exists in the payload and contains the value `mfa`, then the user did log in with MFA. |
 
-In the snippet below you can see how an ID Token's payload is if the user has authenticated with MFA, and how it is if they have not.
+    In the example below, you can compare the potential values included in an ID Token's payload when a user has authenticated with MFA versus when they have not.
 
 <div class="code-picker">
   <div class="languages-bar">
@@ -55,15 +56,15 @@ In the snippet below you can see how an ID Token's payload is if the user has au
       <pre class="text hljs">
         <code>
 {
-  "iss": "https://${account.namespace}/",
-  "sub": "auth0|1a2b3c4d5e6f7g8h9i",
-  "aud": "${account.clientId}",
-  "iat": 1522838054,
-  "exp": 1522874054,
-  "acr": "http://schemas.openid.net/pape/policies/2007/06/multi-factor",
-  "amr": [
-    "mfa"
-  ]
+    "iss": "https://${account.namespace}/",
+    "sub": "auth0|1a2b3c4d5e6f7g8h9i",
+    "aud": "${account.clientId}",
+    "iat": 1522838054,
+    "exp": 1522874054,
+    "acr": "http://schemas.openid.net/pape/policies/2007/06/multi-factor",
+    "amr": [
+        "mfa"
+    ]
 }
         </code>
       </pre>
@@ -72,11 +73,11 @@ In the snippet below you can see how an ID Token's payload is if the user has au
       <pre class="text hljs">
         <code>
 {
-  "iss": "https://${account.namespace}/",
-  "sub": "auth0|1a2b3c4d5e6f7g8h9i",
-  "aud": "${account.clientId}",
-  "iat": 1522838197,
-  "exp": 1522874197
+    "iss": "https://${account.namespace}/",
+    "sub": "auth0|1a2b3c4d5e6f7g8h9i",
+    "aud": "${account.clientId}",
+    "iat": 1522838054,
+    "exp": 1522874054
 }
         </code>
       </pre>
@@ -84,104 +85,83 @@ In the snippet below you can see how an ID Token's payload is if the user has au
   </div>
 </div>
 
-## Example
+## Sample scenario
 
-Let's say that you have a web app that authenticates users with username and password. When a user wants to access a specific screen with sensitive information, for example, one that displays salary data, you want the user to authenticate with another factor, for example [Guardian push notifications](/multifactor-authentication#mfa-using-push-notifications-auth0-guardian-).
+In the following scenario, a web app authenticates users with username and password. When users want to access a specific screen with sensitive information, such as salary data, they must authenticate with another factor, such as [Guardian push notifications](/multifactor-authentication#mfa-using-push-notifications-auth0-guardian-).
 
-### Before you start
+For this example, we assume that we have already done the following:
 
-This tutorial assumes that you have already done the following:
+- [Registered an application](/applications/concepts/app-types-auth0). For this example, we'll use a regular web app.
+- [Created a database connection](${manage_url}/#/connections/database).
+- [Enabled Multi-factor Authentication](/multifactor-authentication) using [push notifications](/multifactor-authentication/factors/push).
 
-- [Register an application](/applications/concepts/app-types-auth0). For the purposes of this example we'll be using a regular web app
-- [Create a database connection](${manage_url}/#/connections/database)
-- [Enable Multi-factor Authentication](/multifactor-authentication). For the purposes of this example we'll be using [push notifications](/multifactor-authentication/factors/push)
+1. Create a rule that challenges the user to authenticate with MFA when the web app requests it. Navigate to [Rules](${manage_url}/#/rules), and create a rule that contains the following content:
 
-### 1. Create the rule
+    ```js
+    function(user, context, callback) {
 
-First we will create a rule that will challenge the user to authenticate with MFA when the web app asks for it.
+      var CLIENTS_WITH_MFA = ['${account.clientId}'];
+      // run only for the specified clients
+      if (CLIENTS_WITH_MFA.indexOf(context.clientID) !== -1) {
+        // ask for MFA only if the web app said so in the authentication request
+        if (context.request.query.acr_values === 'http://schemas.openid.net/pape/policies/2007/06/multi-factor'){
+          context.multifactor = {
+            provider: 'any',
+            allowRememberBrowser: false
+          };
+        }
+      }
 
-Go to [Dashboard > Multi-factor Auth](${manage_url}/#/guardian) and modify the script as follows.
-
-```js
-function (user, context, callback) {
-
-  var CLIENTS_WITH_MFA = ['${account.clientId}'];
-  // run only for the specified clients
-  if (CLIENTS_WITH_MFA.indexOf(context.clientID) !== -1) {
-    // ask for MFA only if the web app said so in the authentication request
-    if (context.request.query.acr_values === 'http://schemas.openid.net/pape/policies/2007/06/multi-factor'){
-      context.multifactor = {
-        provider: 'any',
-        allowRememberBrowser: false
-      };
+      callback(null, user, context);
     }
-  }
+    ```
 
-  callback(null, user, context);
-}
-```
+    - The `CLIENTS_WITH_MFA` variable holds the Client IDs of all the applications you want to use this rule. (You can remove this (and the `if` statement that follows) if you don't need it.)
 
-The `CLIENTS_WITH_MFA` variable holds the Client IDs of all the applications you want to use this rule. You can remove this (and the `if` statement that follows) if you don't need it.
+    - The `context.request.query.acr_values` property contains the context class that the Authorization Server is being requested to use when processing requests from the application. It only exists when the application includes it in the authentication request. In this example, our web app will include it in the authentication request, but only when a user who has not already authenticated ith MFA tries to access salary information. When our web app includes it, it will set a value of `http://schemas.openid.net/pape/policies/2007/06/multi-factor`, which indicates that we want the Authorization Server to require MFA, and the `context.multifactor` property value that we set in our code will specify MFA via [Push notification](/multifactor-authentication/factors/push).
 
-The `context.request.query.acr_values` property exists only if the web app included it in the authentication request, using the request parameter `acr_values=http://schemas.openid.net/pape/policies/2007/06/multi-factor`. The web app will only include this parameter in the authentication request (as we will see in a while) if the user tries to access salary information and has not authenticated with MFA. In this case we ask for MFA using [Push](/multifactor-authentication/factors/push) by setting the `context.multifactor` property to the appropriate value.
+2. Configure the app to check that the user has authenticated using MFA when a user tries to acces the restricted salary information page. (When a user has authenticated with MFA, the ID Token claims contain the `amr` claim with a value of `mfa`). If the user has already authenticated with MFA, then the web app will display the restricted page; otherwise, the web app will send a new authentication request that includes the `acr_values` parameter with a value of `http://schemas.openid.net/pape/policies/2007/06/multi-factor`, which will trigger our rule. 
 
-### 2. Configure your application
+    The web app in this scenario uses the [Authorization Code Flow](/flows/concepts/auth-code) to authenticate, so the request is as follows:
 
-If the user tries to access the salary information screen, then the web app must check the ID Token claims for MFA. If the user has already authenticated with MFA, then the screen is displayed, otherwise the web app sends a new authentication request to Auth0. This time the request parameter `acr_values` is included so the rule we saw in the previous paragraph triggers MFA. Once the user authenticates, a new token is sent to the app.
+    ```text
+    https://${account.namespace}/authorize?
+        audience=https://${account.namespace}/userinfo&
+        scope=openid&
+        response_type=code&
+        client_id=${account.clientId}&
+        redirect_uri=${account.callback}&
+        state=YOUR_OPAQUE_VALUE&
+        acr_values=http://schemas.openid.net/pape/policies/2007/06/multi-factor
+    ```
 
-#### Check the ID Token
+    Once the user authenticates with MFA, the web app receives the authorization code, which must be exchanged for the new ID Token, which should now contain the `amr` claim with a value of `mfa`. To learn how to exchange the code for an ID Token, see [Add Login Using the Authorization Code Flow: Request Tokens](/flows/guides/auth-code/add-login-auth-code#request-tokens). 
 
-The web app must validate the token as described in [How to check the ID Token for MFA](#how-to-check-the-id-token-for-mfa).
+3. Validate the incoming ID Token using the steps described in the [Validate ID Tokens for MFA](#validate-id-tokens-for-mfa) section. In this scenario, we perform these validations using the [JSON Web Token Sample Code](https://github.com/auth0/node-jsonwebtoken), which verifies the token's signature (`jwt.verify`), decodes the token, checks whether the payload contains `amr`, and if so, logs the results in the console.
 
-In this example, we do these validations, using the [JSON Web Token Sample Code](https://github.com/auth0/node-jsonwebtoken).
+    ```js
+    const AUTH0_CLIENT_SECRET = '${account.clientSecret}';
+    const jwt = require('jsonwebtoken')
 
-The code verifies the token's signature (`jwt.verify`), decodes the token, and checks whether the payload contains `amr` and if it does whether it contains the value `mfa`. The results are logged in the console.
+    jwt.verify(id_token, AUTH0_CLIENT_SECRET, { algorithms: ['HS256'] }, function(err, decoded) {
+      if (err) {
+        console.log('invalid token');
+        return;
+      }
 
-```js
-const AUTH0_CLIENT_SECRET = '${account.clientSecret}';
-const jwt = require('jsonwebtoken')
+      if (Array.isArray(decoded.amr) && decoded.amr.indexOf('mfa') >= 0) {
+        console.log('You used mfa');
+        return;
+      }
 
-jwt.verify(id_token, AUTH0_CLIENT_SECRET, { algorithms: ['HS256'] }, function(err, decoded) {
-   if (err) {
-     console.log('invalid token');
-     return;
-   }
-
-   if (Array.isArray(decoded.amr) && decoded.amr.indexOf('mfa') >= 0) {
-     console.log('You used mfa');
-     return;
-   }
-
-   console.log('you are not using mfa');
- });
-```
-
-#### Ask for MFA
-
-If the output of the previous validations is that the user has not authenticated with MFA, then you must trigger authentication again. The request will include the `acr_values=http://schemas.openid.net/pape/policies/2007/06/multi-factor` parameter, which as a result will trigger the rule we wrote at [the first step](#1-create-the-rule).
-
-Our web app uses the [Authorization Code Flow](/flows/concepts/auth-code) to authenticate, so the request is as follows.
-
-```text
-https://${account.namespace}/authorize?
-    audience=https://${account.namespace}/userinfo&
-    scope=openid&
-    response_type=code&
-    client_id=${account.clientId}&
-    redirect_uri=${account.callback}&
-    state=YOUR_OPAQUE_VALUE&
-    acr_values=http://schemas.openid.net/pape/policies/2007/06/multi-factor
-```
-
-Once the user authenticates with Guardian, the web app receives in the response the authorization code which must be exchanged for the new ID Token, using the [Token endpoint](/api/authentication#authorization-code). For more details, and sample requests, see our tutorial, [Add Login Using the Authorization Code Flow: Request Tokens](/flows/guides/auth-code/add-login-auth-code#request-tokens).
-
-That's it, you are done!
+      console.log('you are not using mfa');
+    });
+    ```
 
 ## Keep reading
 
-::: next-steps
-* [Overview of ID Tokens](/tokens/id-token)
-* [Overview of JSON Web Tokens](/jwt)
+* [ID Tokens](/tokens/id-tokens)
+* [Rules](/rules)
+* [JSON Web Tokens](/jwt)
 * [OpenID Connect (OIDC) specification](http://openid.net/specs/openid-connect-core-1_0.html)
 * [Step-up Authentication for APIs](/multifactor-authentication/developer/step-up-authentication/step-up-for-apis)
-:::

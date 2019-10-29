@@ -21,9 +21,9 @@ You should use this flow **only if** the following apply:
 
 ## Before you start
 
-* Check that your application's [grant type property](/applications/concepts/application-grant-types) is set appropriately
-* [Register the API](/apis#how-to-configure-an-api-in-auth0) with Auth0
-* Check that the [Default Audience and/or Default Directory](/dashboard/dashboard-tenant-settings#api-authorization-settings) has been set appropriately
+* Check that your application's [grant type property](/applications/concepts/application-grant-types) is set appropriately.
+* [Register the API](/apis#how-to-configure-an-api-in-auth0) with Auth0.
+* Check that the [Default Audience and/or Default Directory](/dashboard/reference/settings-tenant#api-authorization-settings) has been set appropriately.
 * Update or disable any [rules](/rules), such as rules that deny access based on an email domain whitelist, so they only impact specific connections. If you get an `'access_denied'` error when testing the Password Grant, this could be due to an access control rule.
 
 ## Configure your tenant
@@ -112,7 +112,7 @@ In these cases, the `scope` parameter will be included in the response, listing 
 :::
 
 ::: panel How to get the user's claims
-If you need the user's claims you can include the scope `openid` to your request. If the API uses `RS256` as the signing algorithm, the Access Token will now also include `/userinfo` as a valid <dfn data-key="audience">audience</dfn>. You can use this Access Token to invoke the [/userinfo endpoint](/api/authentication#get-user-info) and retrieve the user's claims.
+If you need the user's claims you can include the scope `openid` to your request. If the API uses `RS256` as the [signing algorithm](/tokens/concepts/signing-algorithms), the Access Token will now also include `/userinfo` as a valid <dfn data-key="audience">audience</dfn>. You can use this Access Token to invoke the [/userinfo endpoint](/api/authentication#get-user-info) and retrieve the user's claims.
 :::
 
 ### Realm Support
@@ -195,7 +195,7 @@ Once the Access Token has been obtained it can be used to make calls to the Reso
 
 Once your API receives a request with a Bearer Access Token, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
 
-For details on the validations that should be performed by the API, refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
+For details on the validations that should be performed by the API, refer to [Validate an Access Token](/tokens/guides/access-token/validate-access-token).
 
 ## Optional: Customize the Tokens
 

@@ -11,7 +11,7 @@ useCase: strategize
 
 # Using Auth0 to Secure Your Multi-Tenant Applications
 
-This article provides a high-level overview of how Auth0 can help you your multi-tenant applications.
+This article provides a high-level overview of how Auth0 can help you manage your multi-tenant applications.
 
 ## What is multi-tenancy
 

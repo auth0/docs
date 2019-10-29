@@ -1,7 +1,5 @@
 <!-- markdownlint-disable MD002 MD041 MD034 -->
 
-<%= include('../../_includes/_login_preamble', { library: 'React' }) %>
-
 ## Create a Sample Application
 
 ::: note
@@ -20,15 +18,16 @@ cd my-app
 
 (npx comes with npm 5.2+ and higher, see [instructions for older npm versions](https://gist.github.com/gaearon/4064d3c23a77c74a3614c498a8bb1c5f))
 
-### Install initial dependencies
+### Install dependencies
 
-After creating a new React app using `create-react-app` install `react-router`, which doesn't come as standard with the boilerplate project. The [Auth0 Client SDK](https://github.com/auth0/auth0-spa-js) should also be added.
-
-Install these two packages using the following command in the terminal:
+Install the following packages using `npm` in the terminal:
 
 ```bash
 npm install react-router-dom @auth0/auth0-spa-js
 ```
+
+- [`@auth0/auth0-spa-js`](https://github.com/auth0/auth0-spa-js) - Auth0's JavaScript SDK for Single Page Applications
+- [`react-router-dom`](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom) - React's router package for the browser. This will allow users to navigate between different pages with ease
 
 ### Create react-router's `history` instance
 
@@ -45,10 +44,10 @@ export default createBrowserHistory();
 
 ### Install the Auth0 React wrapper
 
-Create a new file in the `src` directory called `react-auth0-wrapper.js` and populate it with the following content:
+Create a new file in the `src` directory called `react-auth0-spa.js` and populate it with the following content:
 
 ```js
-// src/react-auth0-wrapper.js
+// src/react-auth0-spa.js
 import React, { useState, useEffect, useContext } from "react";
 import createAuth0Client from "@auth0/auth0-spa-js";
 
@@ -143,17 +142,17 @@ The next few sections will integrate these hooks into the various components tha
 
 <%= include('../../_includes/_silent-auth-social-idp') %>
 
-### Create the Navbar component
+### Create the NavBar component
 
 Create a new folder inside the `src` folder called `components`. This is where you will house all the components for this application.
 
-Create a new component in the `components` folder called `Navbar.js`. This component will be responsible for showing the login and logout buttons:
+Create a new component in the `components` folder called `NavBar.js`. This component will be responsible for showing the login and logout buttons:
 
 ```jsx
 // src/components/NavBar.js
 
 import React from "react";
-import { useAuth0 } from "../react-auth0-wrapper";
+import { useAuth0 } from "../react-auth0-spa";
 
 const NavBar = () => {
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
@@ -189,7 +188,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import { Auth0Provider } from "./react-auth0-wrapper";
+import { Auth0Provider } from "./react-auth0-spa";
 import config from "./auth_config.json";
 import history from "./utils/history";
 
@@ -242,7 +241,7 @@ Next, open the `App.js` file in the `src` folder, populate it with the following
 
 import React from "react";
 import NavBar from "./components/NavBar";
-import { useAuth0 } from "./react-auth0-wrapper";
+import { useAuth0 } from "./react-auth0-spa";
 
 function App() {
   const { loading } = useAuth0();
@@ -265,8 +264,11 @@ export default App;
 
 This replaces the default content created by `create-react-app` and simply shows the `NavBar` component you created earlier.
 
-> **Checkpoint**: At this point, you should be able to go through a complete authentication cycle, logging in and loggin out. Start the application from the terminal using `yarn start` and browse to http://localhost:3000 (if the application does not open automatically). From there, clicking the **Log in** button should redirect you to the Auth0 Login Page where you will be given the opportunity to log in.
-> Once you are logged in, control returns to your application and you should see that the **Log out** button is now visible. Clicking this should log you out of the application and return you to an unauthenticated state.
+:::panel Checkpoint
+At this point, you should be able to go through the complete authentication flow: logging in and logging out. Start the application from the terminal using `yarn start` and browse to [localhost:3000](http://localhost:3000) (if the application does not open automatically). From there, clicking the **Log in** button should redirect you to the Auth0 login page where you will be given the opportunity to log in.
+
+Once you are logged in, control returns to your application and you should see that the **Log out** button is now visible. Clicking this should log you out of the application and return you to an unauthenticated state.
+:::
 
 ## Read the User Profile
 
@@ -277,8 +279,8 @@ To display this information to the user, create a new file called `Profile.js` i
 ```jsx
 // src/components/Profile.js
 
-import React from "react";
-import { useAuth0 } from "../react-auth0-wrapper";
+import React, { Fragment } from "react";
+import { useAuth0 } from "../react-auth0-spa";
 
 const Profile = () => {
   const { loading, user } = useAuth0();
@@ -288,13 +290,13 @@ const Profile = () => {
   }
 
   return (
-    <>
+    <Fragment>
       <img src={user.picture} alt="Profile" />
 
       <h2>{user.name}</h2>
       <p>{user.email}</p>
       <code>{JSON.stringify(user, null, 2)}</code>
-    </>
+    </Fragment>
   );
 };
 
@@ -340,7 +342,7 @@ export default App;
 
 Notice that a `BrowserRouter` component has been included, and that two routes have been defined — one for the home page, and another for the profile page.
 
-To complete this step, open the `Navbar.js` file and modify the navigation bar's UI to include a link to the profile page. In addition, import the `Link` component at the top of the file.
+To complete this step, open the `NavBar.js` file and modify the navigation bar's UI to include a link to the profile page. In addition, import the `Link` component at the top of the file.
 
 The `NavBar` component should now look something like this:
 
@@ -374,7 +376,9 @@ const NavBar = () => {
 export default NavBar;
 ```
 
-> **Checkpoint**: Go ahead and run the project one more time. Now if the user is authenticated and you navigate to the `/profile` page, you will see their profile data. See how this content disappears when you log out.
+:::panel Checkpoint
+Go ahead and run the project one more time. Now if the user is authenticated and you navigate to the `/profile` page, you will see their profile data. See how this content disappears when you log out.
+:::
 
 ## Secure the Profile Page
 
@@ -389,7 +393,7 @@ Start by creating a new component `components/PrivateRoute.js` that can wrap ano
 
 import React, { useEffect } from "react";
 import { Route } from "react-router-dom";
-import { useAuth0 } from "../react-auth0-wrapper";
+import { useAuth0 } from "../react-auth0-spa";
 
 const PrivateRoute = ({ component: Component, path, ...rest }) => {
   const { loading, isAuthenticated, loginWithRedirect } = useAuth0();
@@ -445,4 +449,6 @@ function App() {
 export default App;
 ```
 
-> **Checkpoint**: Run the project again. Now if the user is not authenticated and you navigate to the `/profile` page through the URL bar in the browser, you will be sent through the authentication flow, and will see the Profile page upon your return.
+:::panel Checkpoint
+Run the project again. Now if the user is not authenticated and you navigate to the `/profile` page through the URL bar in the browser, you will be sent through the authentication flow, and will see the Profile page upon your return.
+:::

@@ -232,7 +232,7 @@ Use the `requires_scope` decorator in the methods that require specific scopes g
 @api_view(['GET'])
 @requires_scope('read:messages')
 def private_scoped(request):
-    return JsonResponse("Hello from a private endpoint! You need to be authenticated and have a scope of read:messages to see this.")
+    return JsonResponse({'message': 'Hello from a private endpoint! You need to be authenticated and have a scope of read:messages to see this.')
 ```
 
 ### Add URL mappings

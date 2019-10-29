@@ -15,15 +15,21 @@ useCase:
 
 <%= include('./_includes/_panel-feature-availability') %>
 
+<%= include('../../../_includes/_webtask') %>
+
 Use a custom database connection when you want to provide access to your own independent (legacy) identity data store for the following purposes:
 
 * **Authentication**: Use your database as an identity provider in Auth0 to authenticate users. (Refered to as *legacy authentication*.)
 * **Import Users**: Use automatic migration (*trickle* or *lazy* migration)
 * **Proxy access to an Auth0 tenant**: Use Auth0 multi-tenant architecture. 
 
-You typically create and configure custom database connections in the [Auth0 dashboard](${manage_url}). You create a database connection and then toggle **Use my own database** to enable database action script editing. Alternatively, you can create and configure a custom database connection using the Auth0 [Management API](/api/management/v2#!/Connections/post_connections) with the `auth0` strategy. 
+You can create and configure a custom database connection by doing one of the following tasks:
 
-![Custom Database Connections Dashboard](/media/articles/connections/database/custom-database.png)
+1. Use the [Create connections](/api/management/v2#!/Connections/post_connections) Management API endpoint with the `auth0` strategy.
+
+2. Navigate to the [Connections > Database](${manage_url}/#/connections/database) page in the [Auth0 Dashboard](${manage_url}/), create the connection, and then enable the **Use my own database** option to allow database action script editing. 
+
+![Enable Custom Database Use My Own Database Option](/media/articles/dashboard/connections/database/connections-db-settings-custom-1.png)
 
 ## How it works
 

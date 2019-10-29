@@ -106,7 +106,7 @@ Database Connections enable the typical username and password login seen on most
 
 ### Social Connection setup
 
-See [Social Connections](/identityproviders#social) for detailed information on how to activate and configure these login methods.
+See [Social Connections](/connections/identity-providers-social) for detailed information on how to activate and configure these login methods.
 
 ### Update Auth0 settings in WordPress
 
