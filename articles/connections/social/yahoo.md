@@ -26,6 +26,7 @@ To begin, you need a Yahoo User ID. If you don’t have one, you can create one 
 Once you have a login, go to [Yahoo Developer Apps](https://developer.yahoo.com/apps/) and click on the **Create an App** button to launch the app-creation screen. You will be asked for the following parameters:
 
 | **Parameter** | **Value** |
+| - | - |
 | **Application Name** | A friendly-name for your application |
 | **Application Type** | `Web Application` |
 | **Redirect URI(s)** | `https://${account.namespace}` |
