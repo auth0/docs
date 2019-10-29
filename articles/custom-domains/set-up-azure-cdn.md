@@ -24,9 +24,7 @@ This feature requires a paid subscription to the **Enterprise** plan (see [Prici
 |---------|-------|
 | Name | We recommend naming your CDN endpoint like your custom domain name, replacing dots with dashes. For example: **login-mydomain-com.azureedge.net**. |
 | Origin type | Select **Custom Origin** |
-| Origin hostname | Enter **${account.tenant}.custom_domain_id.edge.tenants.auth0.com**. If your tenants are not in the US region you have to use one of the following:
-* EU: **${account.tenant}.custom_domain_id.edge.tenants.eu.auth0.com**
-* AU: **${account.tenant}.custom_domain_id.edge.tenants.au.auth0.com** |
+| Origin hostname | Enter **${account.tenant}.custom_domain_id.edge.tenants.auth0.com**. If your tenants are not in the US region you have to use one of the following: <ul><li>EU: **${account.tenant}.custom_domain_id.edge.tenants.eu.auth0.com**</li><li>AU: **${account.tenant}.custom_domain_id.edge.tenants.au.auth0.com**</li></ul> |
 | Origin path | Leave this blank. |
 | Origin host header | Use the name you provided for the Origin hostname. |
 | Protocol | Disable HTTP so only HTTPS is enabled. |
