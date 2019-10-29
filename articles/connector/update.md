@@ -38,7 +38,7 @@ The updater script will update the AD/LDAP Connector from the command line by ru
 
  To run the updater script execute the following statement in the command line:
 
- ```
+ ```text
  @powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://cdn.auth0.com/connector/windows/update-connector.ps1'))"
  ```
 
@@ -112,7 +112,7 @@ Copy all the files from __Step 2__ into `%Program Files(x86)%\Auth0\AD LDAP Conn
 
 Restart the **"Auth0 AD LDAP"** service from the service console.
 
-<script type="text/javascript">
+```js
   $.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {
     $('.download-link').attr('href', data.url)
                        .text(data.url.split('/').pop())
@@ -123,4 +123,4 @@ Restart the **"Auth0 AD LDAP"** service from the service console.
         .attr('href', 'https://github.com/auth0/ad-ldap-connector/releases/tag/v' + data.version)
         .text('adldap-' + data.version);
   })
-</script>
+```
