@@ -39,7 +39,7 @@ import Auth0
 // UserIdentitiesViewController.swift
 
 Auth0
-    .users(token: idToken)
+    .users(token: accessToken)
     .link(id, withOtherUserToken: otherUserToken)
     .start { result in
         switch result {
@@ -84,10 +84,10 @@ Unlink the accounts:
 // UserIdentitiesViewController.swift
 
 let id = ... // the user id. (See profile.sub)
-let idToken = ... // the user idToken
+let accessToken = ... // the user accessToken
 let identity: Identity = ... // the identity (account) you want to unlink from the user
 Auth0
-    .users(token: idToken)
+    .users(token: accessToken)
     .unlink(identityId: identity.identifier, provider: identity.provider, fromUserId: id)
     .start { result in
             switch result {
