@@ -5,7 +5,7 @@ topics: managed-private-cloud
 contentType: concept
 useCase: private-cloud
 ---
-# Managed Private Cloud Differences and RACI
+# Customer-Hosted Differences and RACI
 
 The customer-hosted Managed Private Cloud provides you with everything you need to run Auth0 in your Amazon Web Services environment.
 
