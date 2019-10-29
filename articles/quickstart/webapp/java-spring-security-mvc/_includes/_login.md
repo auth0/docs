@@ -99,19 +99,21 @@ protected void configure(HttpSecurity http) throws Exception {
 }
 ```
 
-Now create the `AuthenticationController` instance that will create the Authorize URLs and handle the request received in the callback. Do that by defining a method that returns the Bean in the same `AppConfig` class. Any customization on the behavior of the component should be done here, such as requesting a different response type or using a different signature verification algorithm.
+Now create the `AuthenticationController` instance that will create the Authorize URLs and handle the request received in the callback. Do that by defining a method that returns the Bean in the same `AppConfig` class. The sample below shows how to configure the component for use with tokens signed using the RS256 asymmetric signing algorithm, by specifying a `JwkProvider` to fetch the public key used to verify the token's signature. See the [jwks-rsa-java repository](https://github.com/auth0/jwks-rsa-java) to learn about additional configuration options. If you are using HS256, there is no need to configure the `jwkProvider`. 
 
 ```java
 // src/main/java/com/auth0/example/security/AppConfig.java
 
 @Bean
 public AuthenticationController authenticationController() throws UnsupportedEncodingException {
+    JwkProvider jwkProvider = new JwkProviderBuilder(domain).build();
     return AuthenticationController.newBuilder(domain, clientId, clientSecret)
+            .withJwkProvider(jwkProvider)
             .build();
 }
 ```
 
-To authenticate the users you will redirect them to the login page which uses [Universal Login](https://auth0.com/docs/universal-login). This page is accessible from what we call the "Authorize URL". By using this library you can generate it with a simple method call. It will require a `HttpServletRequest` to store the call context in the session and the URI to redirect the authentication result to. This URI is normally the address where your app is running plus the path where the result will be parsed, which happens to be also the "Callback URL" whitelisted before. We also request the "User Info" *audience* in order to obtain an Open ID Connect compliant response. Finally, request the scopes `"openid profile email"` to get back user profile information in the ID token upon login. After you create the Authorize URL, you redirect the request there so the user can enter their credentials. The following code snippet is located on the `LoginController` class of our sample.
+To authenticate the users you will redirect them to the login page which uses [Universal Login](https://auth0.com/docs/universal-login). This page is accessible from what we call the "Authorize URL". By using this library you can generate it with a simple method call. It will require a `HttpServletRequest` to store the call context in the session and the URI to redirect the authentication result to. This URI is normally the address where your app is running plus the path where the result will be parsed, which happens to be also the "Callback URL" whitelisted before. Finally, request the scopes `"openid profile email"` to get back user profile information in the ID token upon login. After you create the Authorize URL, you redirect the request there so the user can enter their credentials. The following code snippet is located on the `LoginController` class of our sample.
 
 ```java
 // src/main/java/com/auth0/example/mvc/LoginController.java
@@ -125,14 +127,15 @@ protected String login(final HttpServletRequest req) {
     redirectUri += "/callback";
 
     String authorizeUrl = controller.buildAuthorizeUrl(req, redirectUri)
-            .withAudience(String.format("https://%s/userinfo", appConfig.getDomain()))
             .withScope("openid profile email")
             .build();
     return "redirect:" + authorizeUrl;
 }
 ```
 
-After the user logs in the result will be received in our `CallbackController`, either via a GET or a POST Http method. The request holds the call context that the library have previously set by generating the Authorize URL with the controller. When you pass it to the controller, you get back either a valid `Tokens` instance or an Exception indicating what went wrong. In the case of a successful call, you need to create a new `TokenAuthentication` instance with the *ID Token* and set it to the `SecurityContextHolder`. You can modify this class to accept an *Access Token* as well, but this is not covered in this tutorial. If an exception is raised instead, you need to clear any existing Authentication from the `SecurityContextHolder`.
+After the user logs in, the result will be received in our `CallbackController` via either a GET or POST HTTP request. Because we are using the Authorization Code Flow (the default), a GET request will be sent. If you have configured the library for the Implicit Flow, a POST request will be sent instead.
+
+The request holds the call context that the library previously set by generating the Authorize URL with the controller. When you pass it to the controller, you get back either a valid `Tokens` instance or an Exception indicating what went wrong. In the case of a successful call, you need to create a new `TokenAuthentication` instance with the *ID Token* and set it to the `SecurityContextHolder`. You can modify this class to accept an *Access Token* as well, but this is not covered in this tutorial. If an exception is raised instead, you need to clear any existing Authentication from the `SecurityContextHolder`.
 
 ```java
 // src/main/java/com/auth0/example/mvc/CallbackController.java
