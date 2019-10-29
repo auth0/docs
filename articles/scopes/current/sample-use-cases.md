@@ -196,7 +196,7 @@ function(user, context, callback) {
 ```
 
 ::: note
-This example shows a custom claim being added to an ID Token, which uses the `context.idToken` property. To add to an Access Token, use the `context.accessToken` property instead.
+This example shows a custom claim being added to an ID Token, which uses the `context.idToken` property. To add to an Access Token, use the `context.accessToken` property instead. For more information, see [Context Object in Rules](/rules/references/context-object).
 :::
 
 ::: warning
