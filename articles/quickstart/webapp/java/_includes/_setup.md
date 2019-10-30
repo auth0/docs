@@ -56,16 +56,9 @@ Your Java App needs some information in order to authenticate against your Auth0
 </context-param>
 ```
 
-The library we're using has this default behavior:
-- Request the scope `openid`, needed to call the `/userinfo` endpoint later to verify the User's identity.
-- Request the `code` Response Type and later perform a Code Exchange to obtain the tokens.
-- Use the `HS256` Algorithm along with the Client Secret to verify the tokens.
+By default, the **auth0-java-mvc-commons** library will execute the [Open ID Connect](https://openid.net/specs/openid-connect-core-1_0-final.html) Authorization Code Flow and verify the ID token using the **HS256 symmetric algorithm**. This article will demonstrate how to configure the library for use with the **RS256 asymmetric algorithm**, which is the recommended signing algorithm.
 
-But it also allows us to customize its behavior:
-* To use the `RS256` Algorithm along with the Public Key obtained dynamically from the Auth0 hosted JWKs file, pass a `JwkProvider` instance to the `AuthenticationController` builder.
-* To use a different Response Type, set the desired value in the `AuthenticationController` builder. Any combination of `code token id_token` is allowed.
-* To request a different `scope`, set the desired value in the `AuthorizeUrl` received after calling `AuthenticationController#buildAuthorizeUrl()`.
-* To specify the `audience`, set the desired value in the `AuthorizeUrl` received after calling `AuthenticationController#buildAuthorizeUrl()`.
+To learn more about the library, including its various configuration options, see the [README](https://github.com/auth0/auth0-java-mvc-common/blob/master/README.md) of the library.
 
 
 ::: panel Check populated attributes
