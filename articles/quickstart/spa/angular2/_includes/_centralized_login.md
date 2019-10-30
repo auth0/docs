@@ -26,6 +26,8 @@ ng new auth0-angular-demo
 
 When asked _"Would you like to use Angular routing?"_, select **y** (yes).
 
+When prompted _"Which stylesheet format would you like to use?"_, select **CSS**.
+
 Once the project has been created, open the `auth0-angular-demo` folder in your favorite code editor.
 
 By default, the Angular CLI serves your app on port `4200`. This should run on port `3000` so that it matches the Auth0 URLs configured above. Open the `package.json` file and modify the `start` script to:
@@ -79,7 +81,7 @@ export class AuthService {
     createAuth0Client({
       domain: "${account.namespace}",
       client_id: "${account.clientId}",
-      redirect_uri: `<%= "${window.location.origin}" %>/callback`
+      redirect_uri: `<%= "${window.location.origin}" %>`
     })
   ) as Observable<Auth0Client>).pipe(
     shareReplay(1), // Every subscription receives the same shared value
@@ -127,11 +129,7 @@ export class AuthService {
         return of(loggedIn);
       })
     );
-    checkAuth$.subscribe((response: { [key: string]: any } | boolean) => {
-      // If authenticated, response will be user object
-      // If not authenticated, response will be 'false'
-      this.loggedIn = !!response;
-    });
+    checkAuth$.subscribe();
   }
 
   login(redirectPath: string = '/') {
@@ -141,36 +139,38 @@ export class AuthService {
     this.auth0Client$.subscribe((client: Auth0Client) => {
       // Call method to log in
       client.loginWithRedirect({
-        redirect_uri: `<%= "${window.location.origin}" %>/callback`,
+        redirect_uri: `<%= "${window.location.origin}" %>`,
         appState: { target: redirectPath }
       });
     });
   }
 
   handleAuthCallback() {
-    // Only the callback component should call this method
     // Call when app reloads after user logs in with Auth0
-    let targetRoute: string; // Path to redirect to after login processsed
-    const authComplete$ = this.handleRedirectCallback$.pipe(
-      // Have client, now call method to handle auth callback redirect
-      tap(cbRes => {
-        // Get and set target redirect route from callback results
-        targetRoute = cbRes.appState && cbRes.appState.target ? cbRes.appState.target : '/';
-      }),
-      concatMap(() => {
-        // Redirect callback complete; get user and login status
-        return combineLatest(
-          this.getUser$(),
-          this.isAuthenticated$
-        );
-      })
-    );
-    // Subscribe to authentication completion observable
-    // Response will be an array of user and login status
-    authComplete$.subscribe(([user, loggedIn]) => {
-      // Redirect to target route after callback processing
-      this.router.navigate([targetRoute]);
-    });
+    const params = window.location.search;
+    if (params.includes('code=') && params.includes('state=')) {
+      let targetRoute: string; // Path to redirect to after login processsed
+      const authComplete$ = this.handleRedirectCallback$.pipe(
+        // Have client, now call method to handle auth callback redirect
+        tap(cbRes => {
+          // Get and set target redirect route from callback results
+          targetRoute = cbRes.appState && cbRes.appState.target ? cbRes.appState.target : '/';
+        }),
+        concatMap(() => {
+          // Redirect callback complete; get user and login status
+          return combineLatest([
+            this.getUser$(),
+            this.isAuthenticated$
+          ]);
+        })
+      );
+      // Subscribe to authentication completion observable
+      // Response will be an array of user and login status
+      authComplete$.subscribe(([user, loggedIn]) => {
+        // Redirect to target route after callback processing
+        this.router.navigate([targetRoute]);
+      });
+    }
   }
 
   logout() {
@@ -205,15 +205,15 @@ The service provides these methods:
 Auth0 is currently building an Angular module that will abstract this reactive functionality into an importable wrapper. This will get you up and running even faster while using the most idiomatic approach for the Angular framework, and will greatly simplify the authentication service.
 :::
 
-## Restore Login State When App Reloads
+## Handle Auth When App Loads
 
 In a Single Page Application, when the user reloads the page anything stored in app memory is cleared. We don't want the application to force the user to log in again if they did not log out, and still have an active session with the authorization server.
 
 We also [should not store sensitive session data in browser storage due to lack of security](https://cheatsheetseries.owasp.org/cheatsheets/HTML5_Security_Cheat_Sheet.html#local-storage).
 
-In order to restore local authentication status after a refresh, we'll call the `localAuthSetup()` method when the app initializes. 
+In order to restore local authentication status after a refresh, we'll call the `localAuthSetup()` method when the app initializes.
 
-Open the `src/app/app.component.ts` file and add the following:
+We also need to handle the authentication callback when our app loads if the user has just logged in. To do both of these things, open the `src/app/app.component.ts` file and add the following:
 
 ```ts
 import { Component, OnInit } from '@angular/core';
@@ -230,6 +230,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.auth.localAuthSetup();
+    this.auth.handleAuthCallback();
   }
 
 }
@@ -240,6 +241,15 @@ We've imported the [`OnInit` lifecycle hook](https://angular.io/api/core/OnInit)
 The `localAuthSetup()` method uses the `auth0-spa-js` SDK to check if the user is still logged in with the authorization server. If they are, their authentication state is restored in the front end when they return to the app after refreshing or leaving, without having to log in again.
 
 <%= include('../../_includes/_silent-auth-social-idp') %>
+
+We also need to handle login redirects when the application loads. In the authentication service, `handleAuthCallback()` does several things:
+
+* Checks to see if the necessary query parameters (`code` and `state`) are present, and if they are:
+* Stores the application route to redirect back to after login processing is complete
+* Calls the JS SDK's `handleRedirectCallback` method
+* Gets and sets the user's profile data
+* Updates application login state
+* After the callback has been processed, redirects the user to their intended route
 
 ## Create a Navigation Bar Component
 
@@ -290,72 +300,7 @@ To display this component, open the `src/app/app.component.html` file and replac
 <router-outlet></router-outlet>
 ```
 
-> **Checkpoint**: Run the application now using `npm start`. The login button should be visible, and you should be able to click it to be redirected to Auth0 to authenticate. If you log in and are redirected back to the app, you'll see an error in the console about a missing route. We'll set up the callback redirection route next.
-
-## Handle Login Redirects
-
-To authenticate the user, the redirect from Auth0 should be handled so that a proper login state can be achieved. To do this, the `handleAuthCallback()` auth service method must be called when Auth0 redirects back to your application. This can be done in a component dedicated to this purpose.
-
-Use the Angular CLI to create a new component called `Callback`:
-
-```bash
-ng generate component callback
-```
-
-Open the `src/app/callback/callback.component.ts` file and replace its contents with the following:
-
-```js
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth.service';
-
-@Component({
-  selector: 'app-callback',
-  templateUrl: './callback.component.html',
-  styleUrls: ['./callback.component.css']
-})
-export class CallbackComponent implements OnInit {
-
-  constructor(private auth: AuthService) { }
-
-  ngOnInit() {
-    this.auth.handleAuthCallback();
-  }
-
-}
-```
-
-The `AuthService` class is injected so that the `handleAuthCallback()` method can be called on initialization of the component.
-
-In the authentication service, `handleAuthCallback()` does several things:
-
-* Stores the application route to redirect back to after login processing is complete
-* Calls the JS SDK's `handleRedirectCallback` method
-* Gets and sets the user's profile data
-* Updates application login state
-* After the callback has been processed, redirects the user to their intended route
-
-Next, add the `/callback` route to the app's routing module `src/app/app-routing.module.ts`:
-
-```js
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { CallbackComponent } from './callback/callback.component';
-
-const routes: Routes = [
-  {
-    path: 'callback',
-    component: CallbackComponent
-  }
-];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
-```
-
-> **Checkpoint**: You should now be able to log in and have the application handle the callback appropriately, sending you back to the default route. The logout button should now be visible. Click the logout button to verify that it works.
+> **Checkpoint**: Run the application now using `npm start`. The login button should be visible, and you should be able to click it to be redirected to Auth0 to authenticate. After logging in with Auth0, the application should handle the callback appropriately and send you back to the default route. The logout button should now be visible. Click the logout button to verify that it works.
 
 ## Show Profile Information
 
