@@ -72,6 +72,38 @@ The following [JSON schema](http://json-schema.org) describes valid users:
             "type": "string",
             "description":"Hashed password for the user. Passwords should be hashed using bcrypt $2a$ or $2b$ and have 10 saltRounds."
         },
+        "custom_password_hash": {
+            "type": "object",
+            "description": "A more generalized way to provide the users password hash. This can be used in lieu of password_hash when the users password hash was created with an alternate algorithm. Note that this field and password_hash are mutually exclusive.",
+            "properties": {
+                "algorithm": {
+                    "type": "string",
+                    "enum": ["md5", "sha1", "sha256", "sha512"],
+                    "description": "The algorithm that was used to hash the password."
+                },
+                "hash": {
+                    "type": "string",
+                    "description": "The password hash."
+                },
+                "encoding": {
+                    "type": "string",
+                    "enum": ["hex", "base64"],
+                    "description": "The hash encoding. Note that both upper and lower case hex variants are supported, as well as url-encoded base64."
+                },
+                "salt_prefix": {
+                    "type": "string",
+                    "default": "",
+                    "description": "The salt value to be appended to the beginning of the password."
+                },
+                "salt_suffix": {
+                    "type": "string",
+                    "default": "",
+                    "description": "The salt value to be appended to the end of the password."
+                }
+            },
+            "required": ["algorithm", "hash", "encoding"],
+            "additionalProperties": false
+        },
         "app_metadata": {
             "type": "object",
             "description": "Data related to the user that does affect the application's core functionality."
