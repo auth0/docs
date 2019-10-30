@@ -27,15 +27,12 @@ Once you have a login, go to [Yahoo Developer Apps](https://developer.yahoo.com/
 
 | **Parameter** | **Value** |
 | - | - |
-| **Application Name** | A friendly-name for your application |
+| **Application Name** | A friendly name for your application. |
 | **Application Type** | `Web Application` |
 | **Redirect URI(s)** | `https://${account.namespace}` |
+| **API Permissions** | `Profiles (Social Directory)` (and its subset of available app permissions, e.g., read, read/write). You may select additional API permissions, but you must include this option to ensure that Yahoo returns the user's email address. |
 
 <%= include('../_find-auth0-domain-redirects') %>
-
-For the **API Permissions**, select **Profiles (Social Directory)**. You may select additional API Permissions, but you need the **Profiles (Social Directory)** option at the very least (otherwise, Yahoo doesn't return the user's email address).
-
-For each API Permission that you allow, you can choose the specific subset of permissions available to the app (e.g., read-only, read/write).
 
 When done, click **Create App** to proceed. Once the application is created, Yahoo will show you your **Client ID** (Consumer Key) and **Client Secret** (Consumer Secret). Copy these values, because you will use them to set up the connection in Auth0.
 
