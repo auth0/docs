@@ -1,0 +1,32 @@
+---
+description: Best practices for custom database action script size.
+classes: topic-page
+topics:
+  - best-practices
+  - custom-database
+  - extensibility
+  - database-action-scripts
+  - custom-database-connections
+  - scripts
+contentType: reference
+useCase:
+  - best-practices
+  - custom-database
+  - database-action-scripts
+---
+# Custom Database Action Script Size
+
+As a best practice, we recommend that the total size of any action script  not exceed 100 kB. The larger the size the more latency is introduced due to the packaging and transport process employed by the Auth0 serverless Webtask platform, and this will have an impact on the performance of your system. Note that the 100 kB limit does not include any `npm` modules that may be referenced as part of any `require` statements.
+
+## Keep reading
+
+<%= include('../../_includes/_topic-links', { links: [
+  'best-practices/custom-db-connections/environment',
+  'best-practices/custom-db-connections/execution',
+  'best-practices/custom-db-connections/error-handling',
+  'best-practices/custom-db-connections/debugging',
+  'best-practices/custom-db-connections/testing',
+  'best-practices/custom-db-connections/deployment',
+  'best-practices/custom-db-connections/performance',
+  'best-practices/custom-db-connections/security'
+] }) %>
