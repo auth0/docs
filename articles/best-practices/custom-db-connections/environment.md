@@ -54,10 +54,10 @@ Each time a Webtask container is recycled, or for each instantiation of a new We
 
 <%= include('../../_includes/_topic-links', { links: [
   'best-practices/custom-db-connections/execution',
-  'best-practices/custom-db-connections/error-handling',
-  'best-practices/custom-db-connections/debugging',
-  'best-practices/custom-db-connections/testing',
-  'best-practices/custom-db-connections/deployment',
-  'best-practices/custom-db-connections/performance',
+  'best-practices/error-handling',
+  'best-practices/debugging',
+  'best-practices/testing',
+  'best-practices/deployment',
+  'best-practices/performance',
   'best-practices/custom-db-connections/security'
 ] }) %>
