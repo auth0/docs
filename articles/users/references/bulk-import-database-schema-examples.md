@@ -74,7 +74,7 @@ The following [JSON schema](http://json-schema.org) describes valid users:
         },
         "custom_password_hash": {
             "type": "object",
-            "description": "A more generalized way to provide the users password hash. This can be used in lieu of password_hash when the users password hash was created with an alternate algorithm. Note that this field and password_hash are mutually exclusive.",
+            "description": "A more generic way to provide the users password hash. This can be used in lieu of the password_hash field when the users password hash was created with an alternate algorithm. Note that this field and password_hash are mutually exclusive.",
             "properties": {
                 "algorithm": {
                     "type": "string",
