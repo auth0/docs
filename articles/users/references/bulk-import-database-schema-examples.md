@@ -93,12 +93,12 @@ The following [JSON schema](http://json-schema.org) describes valid users:
                 "salt_prefix": {
                     "type": "string",
                     "default": "",
-                    "description": "The salt value to be appended to the beginning of the password."
+                    "description": "The salt value (prefix) used to generate the hash."
                 },
                 "salt_suffix": {
                     "type": "string",
                     "default": "",
-                    "description": "The salt value to be appended to the end of the password."
+                    "description": "The salt value (suffix) used to generate the hash."
                 }
             },
             "required": ["algorithm", "hash", "encoding"],
@@ -148,7 +148,7 @@ The `app_metadata` stores information that can impact how an application functio
 
 ## Supported hash algorithms
 
-As described above, the supported hash algorithms are
+As described above, the supported hash algorithms are:
 * [`bcrypt`](https://auth0.com/blog/hashing-in-action-understanding-bcrypt/)
 * [`md5`](https://tools.ietf.org/html/rfc1321)
 * [`sha1`](https://tools.ietf.org/html/rfc3174)
