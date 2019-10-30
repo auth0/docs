@@ -1421,6 +1421,42 @@ articles:
 
       - title: "Custom Databases and Scripts"
         url: "/best-practices/custom-db-connections"
+        children:
+          - title: "Custom Database Connection Anatomy"
+            url: "/best-practices/custom-db-connections/anatomy"
+            hidden: true 
+
+          - title: "Custom Database Action Script Size"
+            url: "/best-practices/custom-db-connections/size"
+            hidden: true 
+
+          - title: "Custom Database Action Script Environment"
+            url: "/best-practices/custom-db-connections/environment"
+            hidden: true 
+
+          - title: "Error Handling"
+            url: "/best-practices/error-handling"
+            hidden: true 
+
+          - title: "Debugging"
+            url: "/best-practices/debugging"
+            hidden: true 
+
+          - title: "Testing"
+            url: "/best-practices/testing"
+            hidden: true 
+
+          - title: "Deployment"
+            url: "/best-practices/deployment"
+            hidden: true 
+
+          - title: "Performance"
+            url: "/best-practices/performance"
+            hidden: true 
+
+          - title: "Security"
+            url: "/best-practices/custom-db-connections/security"
+            hidden: true 
 
       - title: "Rules"
         url: "/best-practices/rules"
