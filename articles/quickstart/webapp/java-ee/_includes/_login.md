@@ -119,7 +119,7 @@ public class Auth0JwtIdentityStore implements IdentityStore {
 
 If the `credential` is an `Auth0Credential`, the calling user is authenticated and valid, so a `CredentialValidationResult` created with the credential is returned to indicate success. If it is not an `Auth0Credential`, return `CredentialValidationResult.NOT_VALIDATED_RESULT`.
 
-Before implementing the `HttpAuthenticationMechanism` interface that will use all these collaborators, create a bean that will provide a configured instance of the `AuthenticationController` from the Auth0 Java MVC SDK, used to build the authorize URLs and handle the token exchange to authenticate users:
+Before implementing the `HttpAuthenticationMechanism` interface that will use all these collaborators, create a bean that will provide a configured instance of the `AuthenticationController` from the Auth0 Java MVC SDK, used to build the authorize URLs and handle the token exchange to authenticate users.  The sample below shows how to configure the component for use with tokens signed using the RS256 asymmetric signing algorithm, by specifying a `JwkProvider` to fetch the public key used to verify the token's signature. See the [jwks-rsa-java repository](https://github.com/auth0/jwks-rsa-java) to learn about additional configuration options. If you are using HS256, there is no need to configure the `jwkProvider`. 
 
 ```java
 // src/main/java/com/auth0/example/security/Auth0AuthenticationProvider.java
@@ -129,7 +129,9 @@ public class Auth0AuthenticationProvider {
 
     @Produces
     public AuthenticationController authenticationController(Auth0AuthenticationConfig config) {
+        JwkProvider jwkProvider = new JwkProviderBuilder(config.getDomain()).build();
         return AuthenticationController.newBuilder(config.getDomain(), config.getClientId(), config.getClientSecret())
+                .withJwkProvider(jwkProvider)
                 .build();
     }
 }
@@ -218,7 +220,6 @@ public class LoginServlet extends HttpServlet {
 
         // Create the authorization URL to redirect the user to, to begin the authentication flow.
         String authURL = authenticationController.buildAuthorizeUrl(request, callbackUrl)
-                .withAudience("https://" + config.getDomain() + "/userinfo")
                 .withScope(config.getScope())
                 .build();
 
