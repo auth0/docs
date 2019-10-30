@@ -29,10 +29,10 @@ Go to [Yahoo Developer Apps](https://developer.yahoo.com/apps/) and click on the
 
 | **Parameter** | **Value** |
 | - | - |
-| **Application Name** | A friendly name for your application. |
-| **Application Type** | `Web Application` |
-| **Redirect URI(s)** | `https://${account.namespace}` |
-| **API Permissions** | `Profiles (Social Directory)` (and its subset of available app permissions, e.g., read, read/write). You may select additional API permissions, but you must include this option to ensure that Yahoo returns the user's email address. |
+| **Application&nbsp;Name** | A friendly name for your application. |
+| **Application&nbsp;Type** | `Web Application` |
+| **Redirect&nbsp;URI(s)** | `https://${account.namespace}` |
+| **API&nbsp;Permissions** | `Profiles (Social Directory)` (and its subset of available app permissions, e.g., read, read/write). You may select additional API permissions, but you must include this option to ensure that Yahoo returns the user's email address. |
 
 <%= include('../_find-auth0-domain-redirects') %>
 
