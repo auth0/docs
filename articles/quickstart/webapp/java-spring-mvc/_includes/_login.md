@@ -61,7 +61,7 @@ public class AppConfig {
 }
 ```
 
-Now create the `AuthenticationController` instance that will create the Authorize URLs and handle the request received in the callback. Any customization on the behavior of the component should be done here, such as requesting a different scope or using a different signature verification algorithm.
+Now create the `AuthenticationController` instance that will create the Authorize URLs and handle the request received in the callback. The sample below shows how to configure the component for use with tokens signed using the RS256 asymmetric signing algorithm, by specifying a `JwkProvider` to fetch the public key used to verify the token's signature. See the [jwks-rsa-java repository](https://github.com/auth0/jwks-rsa-java) to learn about additional configuration options. If you are using HS256, there is no need to configure the `jwkProvider`. 
 
 ```java
 // src/main/java/com/auth0/example/AuthController.java
@@ -69,13 +69,13 @@ Now create the `AuthenticationController` instance that will create the Authoriz
 @Component
 public class AuthController {
     private final AuthenticationController controller;
-    private final String userInfoAudience;
 
     @Autowired
     public AuthController(AppConfig config) {
+        JwkProvider jwkProvider = new JwkProviderBuilder(config.getDomain()).build();
         controller = AuthenticationController.newBuilder(config.getDomain(), config.getClientId(), config.getClientSecret())
+                .withJwkProvider(jwkProvider)
                 .build();
-        userInfoAudience = String.format("https://%s/userinfo", config.getDomain());
     }
 
     public Tokens handle(HttpServletRequest request) throws IdentityVerificationException {
@@ -84,14 +84,12 @@ public class AuthController {
 
     public String buildAuthorizeUrl(HttpServletRequest request, String redirectUri) {
         return controller.buildAuthorizeUrl(request, redirectUri)
-                .withAudience(userInfoAudience)
                 .build();
     }
 }
 ```
-
-
-To authenticate the users we will redirect them to the **Auth0 Login Page** which uses the best version available of [Lock](/lock). This page is what we call the "Authorize URL". By using this library we can generate it with a simple method call. It will require a `HttpServletRequest` to store the call context in the session and the URI to redirect the authentication result to. This URI is normally the address where our app is running plus the path where the result will be parsed, which happens to be also the "Callback URL" whitelisted before. Finally, we will request the "User Info" *audience* in order to obtain an Open ID Connect compliant response. After we create the Authorize URL, we redirect the request there so the user can enter their credentials. The following code snippet is located on the `LoginController` class of our sample.
+ 
+To authenticate the users you will redirect them to the login page which uses [Universal Login](https://auth0.com/docs/universal-login). This page is what we call the "Authorize URL". By using this library we can generate it with a simple method call. It will require a `HttpServletRequest` to store the call context in the session and the URI to redirect the authentication result to. This URI is normally the address where our app is running plus the path where the result will be parsed, which happens to be also the "Callback URL" whitelisted before. After we create the Authorize URL, we redirect the request there so the user can enter their credentials. The following code snippet is located on the `LoginController` class of our sample.
 
 ```java
 // src/main/java/com/auth0/example/LoginController.java
@@ -104,7 +102,9 @@ protected String login(final HttpServletRequest req) {
 }
 ```
 
-After the user logs in the result will be received in our `CallbackController`, either via a GET or a POST Http method. The request holds the call context that we've previously set by generating the Authorize URL with the controller. When we pass it to the controller, we get back either a valid `Tokens` instance or an Exception indicating what went wrong. In the case of a successful call, we need to save the credentials somewhere we can access them later. We will use again the `HttpSession` of the request. A helper class called `SessionUtils` is included in the library to set and read values from a request's session.
+After the user logs in, the result will be received in our `CallbackController` via either a GET or POST HTTP request. Because we are using the Authorization Code Flow (the default), a GET request will be sent. If you have configured the library for the Implicit Flow, a POST request will be sent instead.
+
+The request holds the call context that the library previously set by generating the Authorize URL with the controller. When passed to the controller, you get back either a valid `Tokens` instance or an Exception indicating what went wrong. In the case of a successful call, you need to save the credentials somewhere to access them later. You can use the `HttpSession` of the request by using the `SessionsUtils` class included in the library.
 
 ```java
 // src/main/java/com/auth0/example/CallbackController.java
