@@ -15,8 +15,6 @@ useCase: enable-mobile-auth
 
 <dfn data-key="passwordless">Passwordless</dfn> can be done via email or via SMS, and either by sending the user a code, or sending them a link which contains a code. All of these methods of Passwordless authentication will require two steps - requesting the code, and then inputting the code for verification. Auth0 recommends that you use one of the above linked methods to implement native passwordless authentication.
 
-Note that Passwordless authentication as described in the below steps **cannot be used** with the [OIDC Conformant Mode](/api-auth/intro) enabled.
-
 ## 1. Request the code
 
 In this example, requesting the code is done by calling `passwordlessWithEmail` with the user's email, `PasswordlessType.CODE`, and the name of the connection as parameters. On success, you may wish to display a notice to the user that their code is on the way, and perhaps route them to the view where they will input that code.

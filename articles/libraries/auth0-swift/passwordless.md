@@ -13,7 +13,7 @@ useCase: enable-mobile-auth
 
 <%= include('../../_includes/_native_passwordless_warning') %>
 
-<dfn data-key="passwordless">Passwordless authentication</dfn> allows users to login using only an email address or phone number, reducing the friction that occurs when a user must remember a password. Passwordless authentication can be done via email or via SMS, and either by sending the user a code, or sending them a link which contains a code.
+<dfn data-key="passwordless">Passwordless</dfn> can be done via email or via SMS, and either by sending the user a code, or sending them a link which contains a code. All of these methods of Passwordless authentication will require two steps - requesting the code, and then inputting the code for verification. Auth0 recommends that you use one of the above linked methods to implement native passwordless authentication.
 
 ## How Passwordless works
 
