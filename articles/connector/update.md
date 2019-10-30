@@ -114,9 +114,9 @@ Restart the **"Auth0 AD LDAP"** service from the service console.
 
 <script type="text/javascript">
   $.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {
-    $('.download-link').attr('href', data.url)
-                       .text(data.url.split('/').pop());
-    $('.checksum').text(data.checksum);
+    //$('.download-link').attr('href', data.url)
+    //                   .text(data.url.split('/').pop());
+    //$('.checksum').text(data.checksum);
     $('.version').text(data.version);
 
     $('.download-github')
