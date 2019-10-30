@@ -1420,7 +1420,7 @@ articles:
         url: "/best-practices/connection-settings"
 
       - title: "Custom Databases and Scripts"
-        url: "/best-practices/custom-db-connections-scripts"
+        url: "/best-practices/custom-db-connections"
 
       - title: "Rules"
         url: "/best-practices/rules"

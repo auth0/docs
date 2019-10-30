@@ -37,10 +37,18 @@ Auth0 serverless Webtask containers are provisioned from a pool that's associate
 This means that the global object can be used to cache expensive resources, as long as those resources are not user-specific. For example, an Access Token for a third-party (e.g., logging) API that provides non user-specific functionality could be stored. Or it could be used to store an Access Token to your own non user-specific API defined in Auth0 and obtained via use of Client Credentials flow.
 
 ::: warning
-An action script may execute in any of the container instances already running, or in a newly created container instance (which may subsequently be added to the pool). There is no container affinity per-se for action script execution in Auth0. This means that you should avoid storing any user-specific information in the global object, and should always ensure that any declaration made within the global object provides for initialization too.
+An action script may execute in any of the container instances already running, or in a newly created container instance (which may subsequently be added to the pool). There is no container affinity *per-se* for action script execution in Auth0. This means that you should avoid storing any user-specific information in the global object, and should always ensure that any declaration made within the global object provides for initialization too.
 :::
 
 Each time a Webtask container is recycled, or for each instantiation of a new Webtask container, the global object it defines is reset. Thus any declaration of assignment within the global object associated with a container should also include provision for initialization too. To provide performance flexibility, serverless Webtask containers are provisioned in Auth0 on an ad-hoc basis and are also subject to various re-cycle policies. In general, we recommend that you do not consider the life of a global object to be anything more than 20 minutes.
+
+## Custom database connection environment checklist
+
+* Make sure that your database has the appropriate fields to store user profiles attributes, such as **id**, **nickname**, **email**, and **password**. See [Normalized User Profile](/users/normalized) for details on Auth0's user profile schema and the expected fields. Also, see [Update User Profile Using Your Database](/users/guides/update-user-profiles-using-your-database) for more information.
+* You can use return errors resulting from your custom database connection for troubleshooting purposes. See [Custom Database Error Handling and Troubleshooting](/connections/database/custom-db/error-handling) for  basic troubleshooting steps.
+* The `id` (or alternatively `user_id`) property in the returned user profile will be used by Auth0 to identify the user. If you are using multiple custom database connections, then **id** value **must be unique across all the custom database connections** to avoid **user ID** collisions. Our recommendation is to prefix the value of **id** with the connection name (omitting any whitespace). See [Identify Users](/users/normalized/auth0/identify-users) for more information on user IDs.
+* Latency will be greater compared to Auth0-hosted user stores.
+* The database or service must be reachable from the Auth0 servers. You will need to configure inbound connections if your store is behind a firewall.
 
 ## Keep reading
 
