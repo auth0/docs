@@ -166,6 +166,10 @@ Passwordless connections have several limitations:
     - support TLS 1.0 or higher
     - use a certificate signed by a public certificate authority (CA)
 
+### Limitations of One-Time Passwords
+
+<%= include('../_otp-limitations') %>
+
 ## Best practices
 
 * Use the [Universal Login](/universal-login) [Classic Experience](/universal-login/classic) with the Lock (passwordless) template for your login page.
