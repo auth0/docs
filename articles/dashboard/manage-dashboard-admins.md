@@ -22,7 +22,7 @@ You can add, edit, and remove tenant administrators from the Dashboard by going 
 
 To add an administrator, enter their email and select the applications to which you would like this user to have administrative access in the **Application** box. Click **ADD**.
 
-When the recipient opens and accepts the invite, the current Auth0 account in the browser will be added as a Dashboard Admin (the user should use the same email as the one the invitation was sent to). If there is no current session, the recipient will be prompted to log in or create an Auth0 account.
+When the recipient opens and accepts the invitation, the current Auth0 account in the browser will be added as a Dashboard Admin (as long as the user is logged in with an account linked to the email address to which the invitation was sent; if not, the user will be prompted to log in with an account linked to the invitation email address). If there is no current session, the recipient will be prompted to log in or create an Auth0 account.
 
 ::: note
 If the invited administrator has not created an Auth0 admin user account, they will need to do so in order to be able to accept the invitation and log into the Management Dashboard. Auth0 admin users are managed separately from tenant users; accounts can be created by following the invitation URL or signing up through [auth0.com/signup](https://auth0.com/signup).
