@@ -17,8 +17,42 @@ useCase:
 # Custom Database Connection and Action Script Best Practices
 
 ::: panel Feature availability
-Only **Enterprise** subscription plans include the ability to use a custom database for authentication requests. For more information refer to [Auth0 pricing plans](https://auth0.com/pricing).
+Only **Enterprise** subscription plans include the ability to use a custom database for authentication requests. For more information, see [Auth0 pricing plans](https://auth0.com/pricing).
 :::
+
+[Extensibility](/extend-integrate) provides the capability to add custom login in Auth0 as a mechanism for building out last mile solutions for Identity and Access Management (IdAM). Auth0 extensibility comes in several forms:
+
+- [Rules](/rules): Run when artifacts for user authenticity are generated, for example:
+   - An [ID Token](tokens/id-token) in <dfn data-key="openid">OpenID Connect (OIDC)</dfn>
+   - An <dfn data-key="access-token">Access Token</dfn> in [OAuth 2.0](/protocols/oauth2)
+   - An [assertion in SAML](/protocols/saml/saml-configuration/saml-assertions#use-rules)
+- [Hooks](/hooks): Provide additional extensibility when there is an exchange of non-user related artifacts and when user identities are created such as pre-user registration and post-user registration.
+- Scripts for both [Custom Database Connections](/connections/database#using-your-own-user-store) and [Migrations](/connections/database#migrating-to-auth0-from-a-custom-user-store): Used to [integrate with an existing user identity store](/connections/database/custom-db) or where [automatic user migration](https://auth0.com/learn/migrate-user-database-auth0/) from an independent or *legacy* identity store are required. 
+
+Each extensibility type uses Node.js running on the Auth0 platform in an Auth0 tenant.
+
+Whatever the use case, Auth0 extensibility provides comprehensive and sophisticated capability to tailor IdAM operations to your exact requirements. However, if not utilized in the right way, this can open up the potential for improper or unintended use which can lead to problematic situations down the line. In an attempt to address matters ahead of time, this document provides best practice guidance to both designers and implementers, and we recommend reading it in its entirety at least once, even if you've already started your journey with Auth0. 
+
+## Custom database connections
+
+You typically use a [custom database connection](/connections/database/custom-db) to provide access to your own legacy identity store for authentication (sometimes referred to as *legacy authentication*) or user import through [automatic migration](//users/guides/configure-automatic-migration) (referred to as *trickle* or *lazy* migration).
+
+::: note
+You can also use custom database connections to proxy access to an Auth0 tenant in scenarios where you use Auth0 multi-tenant architecture. For more information, see [Using Auth0 to Secure Your Multi-Tenant Applications](/design/using-auth0-with-multi-tenant-apps). 
+:::
+
+You typically create and configure custom database connections using the [Auth0 Dashboard](/connections/database/custom-db/create-db-connection#step-1-create-and-configure-a-custom-database-connection). You create a database connection and then toggle **Use my own database** to enable editing of the database action scripts. A custom database connection can also be created and configured with the Auth0 [Management API](/api/management/v2#!/Connections/post_connections) and the `auth0` strategy. 
+
+![Enable Use Own Database Option](/media/articles/dashboard/connections/database/connections-db-settings-custom-1.png)
+
+## Anatomy
+
+As shown below, you use custom database connections as part of the Universal Login workflow to obtain user identity information from your own legacy identity store. 
+
+
+
+
+
 
 ## Custom database connection best practices
 
