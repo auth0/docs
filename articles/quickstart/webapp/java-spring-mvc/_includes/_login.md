@@ -61,7 +61,16 @@ public class AppConfig {
 }
 ```
 
-Now create the `AuthenticationController` instance that will create the Authorize URLs and handle the request received in the callback. The sample below shows how to configure the component for use with tokens signed using the RS256 asymmetric signing algorithm, by specifying a `JwkProvider` to fetch the public key used to verify the token's signature. See the [jwks-rsa-java repository](https://github.com/auth0/jwks-rsa-java) to learn about additional configuration options. If you are using HS256, there is no need to configure the `jwkProvider`. 
+Create a Component that will generate the Authorize URLs and handle the callback request to obtain the tokens for the authenticated user. 
+
+* If your Auth0 Application is configured to use the **RS256 signing algorithm** (the default when creating a new Auth0 Application), you need to configure a `JwkProvider` to fetch the public key used to verify the token's signature. See the [jwks-rsa-java repository](https://github.com/auth0/jwks-rsa-java) to learn about additional configuration options.
+* If your Auth0 Application is configured to use the **HS256 signing algorithm**, there is no need to configure the `JwkProvider`.
+
+::: note
+To learn more about the available signing algorithms, refer to the [documentation](https://auth0.com/docs/tokens/concepts/signing-algorithms).
+:::
+
+The sample below hows to configure the `AuthenticationController` for use with the **RS256 signing algorithm**:
 
 ```java
 // src/main/java/com/auth0/example/AuthController.java
@@ -88,16 +97,16 @@ public class AuthController {
     }
 }
 ```
- 
-To authenticate the users you will redirect them to the login page which uses [Universal Login](https://auth0.com/docs/universal-login). This page is what we call the "Authorize URL". By using this library we can generate it with a simple method call. It will require a `HttpServletRequest` to store the call context in the session and the URI to redirect the authentication result to. This URI is normally the address where our app is running plus the path where the result will be parsed, which happens to be also the "Callback URL" whitelisted before. After we create the Authorize URL, we redirect the request there so the user can enter their credentials. The following code snippet is located on the `LoginController` class of our sample.
+
+To enable users to login, your application will redirect them to the [Universal Login](https://auth0.com/docs/universal-login) page. Using the `AuthenticationController` instance, you can generate the redirect URL by calling the `buildAuthorizeUrl(HttpServletRequest request, String redirectUrl)` method. The redirect URL must be the URL that was added to the **Allowed Callback URLs** of your Auth0 Application.
 
 ```java
 // src/main/java/com/auth0/example/LoginController.java
 
 @RequestMapping(value = "/login", method = RequestMethod.GET)
 protected String login(final HttpServletRequest req) {
-    String redirectUri = req.getScheme() + "://" + req.getServerName() + ":" + req.getServerPort() + "/callback";
-    String authorizeUrl = controller.buildAuthorizeUrl(req, redirectUri);
+    String redirectUrl = req.getScheme() + "://" + req.getServerName() + ":" + req.getServerPort() + "/callback";
+    String authorizeUrl = controller.buildAuthorizeUrl(req, redirectUrl);
     return "redirect:" + authorizeUrl;
 }
 ```
