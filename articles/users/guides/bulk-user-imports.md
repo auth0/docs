@@ -20,7 +20,7 @@ useCase:
 If you already have a user database, you can use the [`POST /api/v2/jobs/users/post_users_imports`](/api/management/v2#!/Jobs/post_users_imports) endpoint to populate a database connection with this information. The user data should first be exported in JSON format. You can then import that file using our API. To see database file schema and examples, visit [Bulk Import Database Schema and Example](/users/references/bulk-import-database-schema-examples).
 
 ::: note
-Unless your passwords are compatibly hashed using one of the [supported algorithms](https://auth0.com/docs/users/references/bulk-import-database-schema-examples#supported-hash-algorithms), each affected user will need to reset their password when they log in for the first time after the bulk import.
+Unless your passwords are compatibly hashed using one of the [supported algorithms](/users/references/bulk-import-database-schema-examples#supported-hash-algorithms), each affected user will need to reset their password when they log in for the first time after the bulk import.
 :::
 
 For a list of user profile fields that can be inserted and updated during import, see [User Profile Attributes](/users/references/user-profile-structure#user-profile-attributes).

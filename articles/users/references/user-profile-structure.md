@@ -62,9 +62,10 @@ If there are user fields that should not be stored by Auth0 due to privacy reaso
 | `username` | text | (unique) The user's username. | Y | Y | Y | N | Y |
 
 ::: note
-Two other fields are not technically part of the user profile, but may be of interest when importing users:
+Three other fields are not technically part of the user profile, but may be of interest when importing users:
 
-* `password_hash` (text): Hashed password for the user's connection. When users are created, Auth0 uses [bcrypt](https://auth0.com/blog/hashing-in-action-understanding-bcrypt/) to secure the password. Importing compatible hashed passwords allows users to retain their passwords, thereby providing a smoother experience. Compatible passwords should be hashed using bcrypt $2a$ or $2b$ and have 10 saltRounds.
+* `password_hash` (text): Hashed password for the user's connection. When users are created, Auth0 uses [bcrypt](https://auth0.com/blog/hashing-in-action-understanding-bcrypt/) to secure the password. Importing compatible hashed passwords allows users to retain their passwords, thereby providing a smoother experience. Compatible passwords should be hashed using bcrypt $2a$ or $2b$ and have 10 saltRounds. Note that this field can only be provided when the user is first imported — it can not be updated later.
+* `custom_password_hash` (object): A more generic way to provide the users password hash. This can be used in lieu of the password_hash field when the users password hash was created with an alternate algorithm. Note that this field can only be provided when the user is first imported — it can not be updated later.
 * `password_set_date` (date time): Timestamp indicating when the password for the user's connection was set. At user creation, this field exists, and `last_password_reset` does not. If the user has reset their password, this field and `last_password_reset` are identical.
 :::
 
