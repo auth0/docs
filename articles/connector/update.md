@@ -117,10 +117,10 @@ Restart the **"Auth0 AD LDAP"** service from the service console.
     //$('.download-link').attr('href', data.url)
     //                   .text(data.url.split('/').pop());
     //$('.checksum').text(data.checksum);
-    $('.version').text(data.version);
+    //$('.version').text(data.version);
 
-    $('.download-github')
-        .attr('href', 'https://github.com/auth0/ad-ldap-connector/releases/tag/v' + data.version)
-        .text('adldap-' + data.version);
+    //$('.download-github')
+    //    .attr('href', 'https://github.com/auth0/ad-ldap-connector/releases/tag/v' + data.version)
+    //    .text('adldap-' + data.version);
   })
 </script>
