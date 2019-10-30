@@ -56,11 +56,9 @@ Your Java App needs some information in order to authenticate against your Auth0
 </context-param>
 ```
 
-By default, the **auth0-java-mvc-commons** library will execute the [Open ID Connect](https://openid.net/specs/openid-connect-core-1_0-final.html) Authorization Code Flow and verify the ID token using the **HS256 symmetric algorithm**. This article will demonstrate how to configure the library for use with the **RS256 asymmetric algorithm**, which is the recommended signing algorithm.
-
-To learn more about the library, including its various configuration options, see the [README](https://github.com/auth0/auth0-java-mvc-common/blob/master/README.md) of the library.
+This information will be used to configure the **auth0-java-mvc-commons** library to enable users to login to your application. To learn more about the library, including its various configuration options, see the [README](https://github.com/auth0/auth0-java-mvc-common/blob/master/README.md) of the library.
 
 
 ::: panel Check populated attributes
-If you download the seed using our **Download Sample** button then the `domain`, `clientId` and `clientSecret` attributes will be populated for you, unless you are not logged in or you do not have at least one registered application. In any case, you should verify that the values are correct if you have multiple applications in your account and you might want to use another than the one we set the information for.
+If you downloaded this sample using the **Download Sample** button, the `domain`, `clientId` and `clientSecret` attributes will be populated for you. You should verify that the values are correct, especially if you have multiple Auth0 applications in your account.
 :::
