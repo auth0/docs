@@ -146,6 +146,14 @@ Additionally, the `app_metadata` should **not** contain any of these properties:
 The `app_metadata` stores information that can impact how an application functions or what the user can access (for example, a user's support plan or <dfn data-key="role">roles</dfn> and access groups). For more information, refer to [User Metadata](/metadata).
 :::
 
+## Supported hash algorithms
+
+As described above, the supported hash algorithms are
+* [`bcrypt`](https://auth0.com/blog/hashing-in-action-understanding-bcrypt/)
+* [`md5`](https://tools.ietf.org/html/rfc1321)
+* [`sha1`](https://tools.ietf.org/html/rfc3174)
+* [`sha256` and `sha512`](https://tools.ietf.org/html/rfc4634)
+
 ## File example
 
 A file with the following contents is valid:
