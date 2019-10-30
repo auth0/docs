@@ -61,5 +61,5 @@ We recommend that you mark legacy store user identities once they have been migr
   'best-practices/testing',
   'best-practices/deployment',
   'best-practices/performance',
-  'best-practices//custom-db-connections/security'
+  'best-practices/custom-db-connections/security'
 ] }) %>
