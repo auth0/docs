@@ -100,3 +100,5 @@ contentType:
 <div class="api-section" data-section="errors">
  <%= include('./errors/_passwordless-start') %>
 </div>
+
+<script type="text/javascript" src="https://my.hellobar.com/0a0898d29aca1681ebd408f7a9ba5c3c16a44862.js"></script>
