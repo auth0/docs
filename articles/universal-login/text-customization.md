@@ -74,7 +74,7 @@ If you want to change the **description** field for the `login` prompt so that i
 	"queryString": [],
 	"postData": {
 		"mimeType": "application/json",
-		"text": "{ \"reset-password-success\": { \"description\": \"Please enter your credentials\" }, \"login\": { \"pageTitle\": \"Log in to the website\" }}"
+		"text": "{ \"login\": { \"description\": \"Login to ACME's Website\" } }"
 	},
 	"headersSize": -1,
 	"bodySize": -1,
