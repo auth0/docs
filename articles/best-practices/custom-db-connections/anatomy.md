@@ -16,7 +16,7 @@ useCase:
 ---
 # Custom Database Connection Anatomy
 
-You typically use a [custom database connection](/connections/database/custom-db) to provide access to your own legacy identity store for authentication (sometimes referred to as *legacy authentication*) or user import through [automatic migration](//users/guides/configure-automatic-migration) (referred to as *trickle* or *lazy* migration).
+You typically use a [custom database connection](/connections/database/custom-db) to provide access to your own legacy identity store for authentication (sometimes referred to as *legacy authentication*) or perform user import through [automatic migration](//users/guides/configure-automatic-migration) - often referred to as *trickle* or *lazy* migration).
 
 ::: note
 You can also use custom database connections to proxy access to an Auth0 tenant in scenarios where you use Auth0 multi-tenant architecture. For more information, see [Using Auth0 to Secure Your Multi-Tenant Applications](/design/using-auth0-with-multi-tenant-apps). 
