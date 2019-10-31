@@ -25,8 +25,8 @@ We strongly encourage you to enable **Change Password flow v2**. To learn more a
 :::
 
 There are two basic methods of changing a password:
-- an [interactive password reset flow](#interactive-password-reset-flow) where the user receives an email with a link that opens an Auth0 hosted page to enter the new password.
-- [directly setting the new password](#directly-setting-the-new-password) either using the Management API v2 or the Dashboard.
+- an [interactive password reset flow](#trigger-an-interactive-password-reset-flow) where the user receives an email with a link that opens an Auth0 hosted page to enter the new password.
+- [directly setting the new password](#directly-set-the-new-password) either using the Management API v2 or the Dashboard.
 
 ::: note
 You can only change passwords for users signing in using database connections. Users signing in using social or enterprise connections need to reset their passwords with the appropriate system.
@@ -36,8 +36,8 @@ You can only change passwords for users signing in using database connections. U
 
 An interactive password reset flow can be triggered in two ways:
 
-+ [**Authentication API**](#using-the-authentication-api): Send a `POST` call to the Authentication API to send a password reset email to the user.
-+ [**Lock**](#using-lock): The user uses the Lock login screen to trigger a password reset email.
++ [**Authentication API**](#use-the-authentication-api): Send a `POST` call to the Authentication API to send a password reset email to the user.
++ [**Lock**](#use-lock): The user uses the Lock login screen to trigger a password reset email.
 
 ### Use the Authentication API
 
@@ -117,7 +117,7 @@ If you are using Lock version 8, the user will be asked, immediately after click
 However, this flow is not considered safe. We recommend that you upgrade to Lock 9 or later to utilize a more secure flow. To learn more about migrating to Lock, see [Vulnerable Password Flow](/migrations/past-migrations#vulnerable-password-flow).
 :::
 
-The user will receive an email containing a link to reset the password, and the flow continues exactly as if the [Authentication API method](#using-the-authentication-api) was used.
+The user will receive an email containing a link to reset the password, and the flow continues exactly as if the [Authentication API method](#use-the-authentication-api) was used.
 
 ## Directly set the new password
 
