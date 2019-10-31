@@ -59,7 +59,6 @@ Before beginning this tutorial, you'll need to [sign up for an AWS account](http
 
 <%= include('./__aws-dev-guide-link') %>
 
-
 ## Next steps
 
 * [API Authorization](/api-auth)
