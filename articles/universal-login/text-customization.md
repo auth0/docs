@@ -18,22 +18,24 @@ Auth0 provides an API that you can use to customize all the text displayed in th
 The API is defined with the following structure:
 
 ```
-PUT '/api/v2/prompts/PROMPT/custom-text',
+PUT '/api/v2/prompts/PROMPT/custom-text/LANGUAGE',
 {
- "SCREEN": {
-   "TEXT1_ID": {
-     "<LANGUAGE1_ID>": "text1 in language1",
-     "<LANGUAGE2_ID>": "text1 in language2"    }
+ "SCREEN1": {
+   "TEXT1_ID": "text1 in language"
+ },
+ "SCREEN2": {
+   "TEXT2_ID": "text2 in language"
  }
+}
  ```
  
-You need to provide the proper values to the `prompt`, `screen`, `text id`, and `language id` fields.
+You need to provide the proper values to the `prompt`, `language`, `screen`, `text id` fields.
 
 * The term `prompt` is used to refer to a specific step in the login flow. The available `prompt` values are:
 	<%= include('text-customization-prompts/_prompts') %>
+* You can find the list of available languages on the [Universal Login Internationalization page](/universal-login/i18n).
 * Each `prompt` can have one or more screens. For example, the [Login](/universal-login/text-customization-prompts/login) prompt has a single screen, but the [Reset Password](/universal-login/text-customization-prompts/reset-password) prompt has many screens.
 * Each screen has a set of `text id`s. 
-* You can find the list of available languages on the [Universal Login Internationalization page](/universal-login/i18n).
 
 ## Available variables 
 
@@ -60,14 +62,15 @@ If you want to change the **description** field for the `login` prompt so that i
 
 ```har
 {
-	"method": "POST",
-	"url": "https://${account.namespace}/api/v2/prompts/login/custom-text",
+	"method": "PATCH",
+	"url": "https://${account.namespace}/api/v2/prompts/login/custom-text/en",
 	"httpVersion": "HTTP/1.1",
 	"cookies": [],
-	"headers": [{
-		"name": "Authorization",
-		"value": "Bearer MGMT_API_ACCESS_TOKEN"
-	}],
+	"headers": 
+	[
+	    { "name": "Content-Type", "value": "application/json" },
+		{ "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" }
+	],
 	"queryString": [],
 	"postData": {
 		"mimeType": "application/json",
@@ -83,14 +86,15 @@ If you want to delete all custom text for the `login` prompt you can send an emp
 
 ```har
 {
-	"method": "POST",
-	"url": "https://${account.namespace}/api/v2/prompts/login/custom-text",
+	"method": "PUT",
+	"url": "https://${account.namespace}/api/v2/prompts/login/custom-text/en",
 	"httpVersion": "HTTP/1.1",
 	"cookies": [],
-	"headers": [{
-		"name": "Authorization",
-		"value": "Bearer MGMT_API_ACCESS_TOKEN"
-	}],
+	"headers": 
+	[
+	    { "name": "Content-Type", "value": "application/json" },
+		{ "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" }
+	],
 	"queryString": [],
 	"postData": {
 		"mimeType": "application/json",
