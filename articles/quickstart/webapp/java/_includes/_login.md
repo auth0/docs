@@ -37,7 +37,7 @@ Lastly, the project defines a helper class: the `AuthenticationControllerProvide
 
 ## Trigger Authentication
 
-To enable users to authenticate, create an instance of the `AuthenticationController` provided by the `auth0-java-mvc-commons` SDK using the `domain`, `clientId`, and `clientSecret`.  The sample below shows how to configure the component for use with tokens signed using the RS256 asymmetric signing algorithm, by specifying a `JwkProvider` to fetch the public key used to verify the token's signature. See the [jwks-rsa-java repository](https://github.com/auth0/jwks-rsa-java) to learn about additional configuration options. If you are using HS256, there is no need to configure the `jwkProvider`. 
+To enable users to authenticate, create an instance of the `AuthenticationController` provided by the `auth0-java-mvc-commons` SDK using the `domain`, `clientId`, and `clientSecret`.  The sample below shows how to configure the component for use with tokens signed using the RS256 asymmetric signing algorithm, by specifying a `JwkProvider` to fetch the public key used to verify the token's signature. See the [jwks-rsa-java repository](https://github.com/auth0/jwks-rsa-java) to learn about additional configuration options. If you are using HS256, there is no need to configure the `JwkProvider`. 
 
 ```java
 // src/main/java/com/auth0/example/AuthenticationControllerProvider.java
