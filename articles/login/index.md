@@ -18,13 +18,11 @@ Auth0 provides two ways to implement authentication for your applications:
 * Universal Login: users login to your application through a page hosted by Auth0.
 * Embedded Login: users login to your application through a page you host.
 
-For most use cases, we recommend Universal Login. It's safe and easy to implement. But if Universal Login doesn't work for your use case, then Embedded Login is also an option.
-
-Check out [our comparison guide](/guides/login/universal-vs-embedded) for more on the differences between Universal Login and Embedded Login within your application.
+For the vast majority use cases, we recommend Universal Login. It's safe and easy to implement. Check out [our comparison guide](/guides/login/universal-vs-embedded) for more on the differences between Universal Login and Embedded Login within your application.
 
 ## Universal Login
 
-When using Universal Login, users are redirected from your application to a login page hosted by Auth0. Auth0 then authenticates the user and returns them to your application. Since login and authentication take place on the same domain, credentials are not sent across origins, increasing security and protecting against attacks such as phishing and man-in-the-middle.
+Universal Login is Auth0's implementation of the login flow, which is the key feature of an Authorization Server. With Universal Login, users are redirected from your application to a login page hosted by Auth0. Auth0 then authenticates the user and returns them to your application. Since login and authentication take place on the same domain, credentials are not sent across origins, increasing security and protecting against attacks such as phishing and man-in-the-middle.
 
 Universal Login functionality and features are driven from web pages served by Auth0, so you can adjust the login experience in real-time without changing your application code. Universal Login page appearance and behavior is customizable right from the [Dashboard](${manage_url}).
 
@@ -45,6 +43,16 @@ To learn more about each experience and their differences, check out the followi
 * [New Universal Login Experience](/universal-login/new)
 * [New Universal Login Limitations](/universal-login/new-experience-limitations)
 
+### Implementing Universal Login
+
+In addition to configuring Universal Login for your tenant's applications, you will also need to complete a few other steps:
+
+1. Set up a connection(s) in the [Dashboard](${manage_url}) (Choose **Connections** in the Dashboard's sidebar, then choose a type and pick one to configure, such as a database or a social login provider). 
+1. Set up your application in the [Dashboard](${manage_url}/#/applications). 
+1. Configure your application's code to call Auth0's [`/authorize`](/api/authentication#login) endpoint in order to trigger Universal Login, and then to deal with the response. You can either do this directly, or use one of our SDKs to make the process easier.
+
+For step by step instructions on setting up your application to use Universal Login, check out our [Quickstart guides](/quickstarts).
+
 ### Simple Customization
 
 ![Customization Settings for Login Page](/media/articles/universal-login/settings.png)
@@ -61,18 +69,6 @@ These settings, once changed, will take effect on all your Universal Login pages
 
 If you select the New Universal Login Experience, you can also configure the favicon URL and a custom font URL using [the Branding API](/api/management/v2#!/Branding).
 
-### Implementing Universal Login
-
-In addition to configuring Universal Login for your tenant's applications, you will also need to complete a few other steps:
-
-1. Set up a connection(s) in the [Dashboard](${manage_url}) (Choose **Connections** in the Dashboard's sidebar, then choose a type and pick one to configure, such as a database or a social login provider). 
-1. Set up your application in the [Dashboard](${manage_url}/#/applications). 
-1. Configure your application's code to call Auth0's [`/authorize`](/api/authentication#login) endpoint in order to trigger Universal Login, and then to deal with the response. You can either do this directly, or use one of our SDKs to make the process easier.
-
-For step by step instructions on setting up your application to use Universal Login, check out our [Quickstart guides](/quickstarts).
-
 ## Embedded Login
 
-Embedded Login refers to implementations where users login on a page hosted by your application, and credentials are sent to Auth0. There are security concerns with this approach since login and authentication take place on the different domains. In particular, if you do not use the [Custom Domains](/custom-domains) feature at Auth0, this potentially opens your application up to [cross-origin authentication](/cross-origin-authentication) issues.
-
-If you need to implement Embedded Login, you need to have a custom domain set up, so that this can be mitigated. You can then use one of our libraries (Such as the [Lock Widget](/libraries/lock) or [auth0.js SDK](/libraries/auth0js)) to implement login in your application, or do it via our [API](/api/authentication).
+Embedded Login refers to implementations where users login on a page hosted by your application, and credentials are sent to Auth0. There are security concerns with this approach since login and authentication take place on the different domains. If you need to implement Embedded Login, you need to have a [custom domain](/custom-domains) set up, so that this can be mitigated. You can then use one of our libraries (Such as the [Lock Widget](/libraries/lock) or [auth0.js SDK](/libraries/auth0js)) to implement login in your application, or do it via our [API](/api/authentication).
