@@ -30,7 +30,7 @@ As shown below, you use custom database connections as part of the Universal Log
 
 ![Custom Database Connections Flow](/media/articles/connections/database/custom-database-connections.png)
 
-In addition to artifacts common for all database connections types, a custom database connection allows you to configure action scripts (custom code used when interfacing with legacy identity stores). The scripts you choose to configure depend on whether you are creating a connection for legacy authentication or for automatic migration. 
+In addition to artifacts common for all database connections types, a custom database connection allows you to configure action scripts - custom code used when interfacing with legacy identity stores. The scripts you choose to configure depend on whether you are creating a connection for legacy authentication or for automatic migration (see [Custom Database Action Script Execution](/best-practices/custom-db-connections/execution) for further details). 
 
 ::: panel Best Practice
 You can use action scripts as anonymous functions, however anonymous functions make it hard to debug when it comes to interpreting the call-stack generated as a result of any exceptional error conditions. For convenience, we recommend providing a function name for each action script and have supplied some [recommended names](/best-practices/custom-db-connections/exeution#recommended-script-names).
