@@ -113,7 +113,7 @@ Copy all the files from __Step 2__ into `%Program Files(x86)%\Auth0\AD LDAP Conn
 Restart the **"Auth0 AD LDAP"** service from the service console.
 
 <script type="text/javascript">
-  $.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {
+  //$.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {
     //$('.download-link').attr('href', data.url)
     //                   .text(data.url.split('/').pop());
     //$('.checksum').text(data.checksum);
@@ -122,5 +122,5 @@ Restart the **"Auth0 AD LDAP"** service from the service console.
     //$('.download-github')
     //    .attr('href', 'https://github.com/auth0/ad-ldap-connector/releases/tag/v' + data.version)
     //    .text('adldap-' + data.version);
-  })
+  //})
 </script>
