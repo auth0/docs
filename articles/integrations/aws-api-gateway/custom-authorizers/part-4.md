@@ -17,7 +17,7 @@ In [part 1](/integrations/aws-api-gateway/custom-authorizers/part-1), you config
 
 Log in to AWS and navigate to the [API Gateway Console](http://console.aws.amazon.com/apigateway).
 
-<%= include('../__aws-dev-guide-link') %>
+<%= include('./__aws-dev-guide-link') %>
 
 ![](/media/articles/integrations/aws-api-gateway-2/part-3/pt3-1.png)
 
