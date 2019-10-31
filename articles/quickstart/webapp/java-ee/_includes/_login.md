@@ -119,7 +119,7 @@ public class Auth0JwtIdentityStore implements IdentityStore {
 
 If the `credential` is an `Auth0Credential`, the calling user is authenticated and valid, so a `CredentialValidationResult` created with the credential is returned to indicate success. If it is not an `Auth0Credential`, return `CredentialValidationResult.NOT_VALIDATED_RESULT`.
 
-Before implementing the `HttpAuthenticationMechanism` interface that will use all these collaborators, create a bean that will provide a configured instance of the `AuthenticationController` from the Auth0 Java MVC SDK. The `AuthenticationController` is used to build the authorize URL where users will login, and handle the token exchange to authenticate users. 
+Before implementing the `HttpAuthenticationMechanism` interface that will use all these collaborators, create a bean that will provide a configured instance of the `AuthenticationController` from the Auth0 Java MVC SDK. The `AuthenticationController` is used to build the authorization URL where users will login, and handle the token exchange to authenticate users.
 
 * If your Auth0 Application is configured to use the **RS256 signing algorithm** (the default when creating a new Auth0 Application), you need to configure a `JwkProvider` to fetch the public key used to verify the token's signature. See the [jwks-rsa-java repository](https://github.com/auth0/jwks-rsa-java) to learn about additional configuration options.
 * If your Auth0 Application is configured to use the **HS256 signing algorithm**, there is no need to configure the `JwkProvider`.
@@ -128,7 +128,7 @@ Before implementing the `HttpAuthenticationMechanism` interface that will use al
 To learn more about the available signing algorithms, refer to the [documentation](https://auth0.com/docs/tokens/concepts/signing-algorithms).
 :::
 
-The sample below hows to configure the `AuthenticationController` for use with the **RS256 signing algorithm**:
+The sample below shows how to configure the `AuthenticationController` for use with the **RS256 signing algorithm**:
 
 ```java
 // src/main/java/com/auth0/example/security/Auth0AuthenticationProvider.java
