@@ -62,7 +62,7 @@ If you want to change the **description** field for the `login` prompt so that i
 
 ```har
 {
-	"method": "PATCH",
+	"method": "PUT",
 	"url": "https://${account.namespace}/api/v2/prompts/login/custom-text/en",
 	"httpVersion": "HTTP/1.1",
 	"cookies": [],
@@ -74,7 +74,7 @@ If you want to change the **description** field for the `login` prompt so that i
 	"queryString": [],
 	"postData": {
 		"mimeType": "application/json",
-		"text": "{ \"reset-password-success\": { \"description\": {   \"en\": \"Please enter your credentials\",\"es\": \"Ingrese sus credenciales\"}}}"
+		"text": "{ \"reset-password-success\": { \"description\": \"Please enter your credentials\" }, \"login\": { \"pageTitle\": \"Log in to the website\" }}"
 	},
 	"headersSize": -1,
 	"bodySize": -1,
