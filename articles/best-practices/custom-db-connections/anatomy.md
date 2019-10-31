@@ -33,13 +33,13 @@ As shown below, you use custom database connections as part of the Universal Log
 In addition to artifacts common for all database connections types, a custom database connection allows you to configure action scripts - custom code used when interfacing with legacy identity stores. The scripts you choose to configure depend on whether you are creating a connection for legacy authentication or for automatic migration (see [Custom Database Action Script Execution](/best-practices/custom-db-connections/execution) for further details). 
 
 ::: panel Best Practice
-You can use action scripts as anonymous functions, however anonymous functions make it hard to debug when it comes to interpreting the call-stack generated as a result of any exceptional error conditions. For convenience, we recommend providing a function name for each action script and have supplied some [recommended names](/best-practices/custom-db-connections/exeution#recommended-script-names).
+Action scripts can be implemented as anonymous functions, however anonymous functions make it hard to debug when it comes to interpreting the call-stack generated as a result of any exceptional error conditions. For convenience, we recommend providing a function name for each action script and have supplied some [recommended names](/best-practices/custom-db-connections/exeution#recommended-script-names).
 :::
 
 In a legacy authentication scenario, no new user record is created; the user remains in the legacy identity store and Aut0 uses the identity it contains when authenticating the user.
 
 ::: note
-Custom database connections are also used outside of the Universal Login workflow. For example, a connection's [`changePassword` action script](#change-password) is called when a password change operation occurs for a user that resides in a legacy identity store.
+Custom database connections are also used outside of the Universal Login workflow. For example, a connection's [`changePassword`](#change-password) action script is called when a password change operation occurs for a user that resides in a legacy identity store.
 :::
 
 ## Automatic migration
