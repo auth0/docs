@@ -57,6 +57,8 @@ For a valid policy, API caches the returned policy, associating it with the inco
 
 Before beginning this tutorial, you'll need to [sign up for an AWS account](https://portal.aws.amazon.com/gp/aws/developer/registration/index.html). This grants you access to all of the AWS features we'll use in this tutorial, including API Gateway and Lambda. All new members receive twelve months of free tier access to AWS.
 
+<%= include('./_aws-dev-guide-link') %>
+
 ## Next steps
 
 * [API Authorization](/api-auth)
