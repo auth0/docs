@@ -11,7 +11,7 @@ useCase: extensibility-hooks
 ---
 # Hooks
 
-Hooks are secure, self-contained functions running on Auth0's serverless environment associated with specific extensibility points of the Auth0 platform; they allow you to customize the behavior of Auth0 with custom code using Node.js. When using [Database Connections](/connections/database) or [Passwordless Connections](/connections/passwordless), Auth0 invokes the Hooks at runtime to execute custom logic.
+Hooks are secure, self-contained functions running on Auth0's serverless environment and associated with specific extensibility points of the Auth0 platform; they allow you to customize the behavior of Auth0 with custom code using Node.js. When using [Database Connections](/connections/database) or [Passwordless Connections](/connections/passwordless), Auth0 invokes the Hooks at runtime to execute custom logic.
 
 When using either of the two supported connection types ([Database Connections](/connections/database) and [Passwordless Connections](/connections/passwordless)), Hooks allow you to customize the behavior of Auth0 using Node.js code that executes against extensibility points (which are comparable to webhooks that come with a server). Hooks allow you modularity when configuring your Auth0 implementation and extend the functionality of base Auth0 features.
 
