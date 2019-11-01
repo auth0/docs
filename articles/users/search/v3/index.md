@@ -17,7 +17,7 @@ useCase:
 # User Search
 
 ::: warning
-User Search v3 is not yet available for the Private Cloud; Private Cloud users may still use User Search v2.
+User search v3 is not yet available for the Private Cloud; Private Cloud users may still use user search v2.
 :::
 
 User search allows you to retrieve user profile details using Auth0's [Management API](/api/management/v2). Search results can be [viewed](/users/search/v3/view-search-results-by-page), [sorted](/users/search/v3/sort-search-results), and [exported](/users/guides/bulk-user-exports).
