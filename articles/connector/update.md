@@ -61,24 +61,51 @@ The tooltip will indicate the current status and the installed version.
 
 ### 2. Download the latest version
 
-The latest released version of the connector is <span class="version">x</span>.
+Download the Windows Installer from:
 
-Download the Windows Installer from <a class="download-link" href="">x</a>. The sha1 checksum is:
+<div class="platform-selector">
+  <div class="installers"  style="display: block; margin: auto;">
+    <ul>
+      <li>
+        <a class="download-link" href="https://cdn.auth0.com/adldap.msi">
+          Auth0 Active Directory/LDAP Connector for Windows<br />
+          <small class="download-version"></small><br />
+        </a>
+        <span class="hash"></span>
+      </li>
+    </ul>
+  </div>
 
-<pre><code class="checksum">x</code></pre>
+The latest released version of the connector is <span class="version"></span>.
 
-Use the GitHub repository for other platforms: <a class="download-github" href="">x</a>.
+Download the Windows Installer from <a class="download-link" href=""></a>. The sha1 checksum is:
+
+<pre><code class="checksum"></code></pre>
+
+Use the GitHub repository for other platforms: 
+
+<div class="platform-selector">
+  <div class="installers"  style="display: block; margin: auto;">
+    <ul>
+      <li>
+        <a class="download-github" href="https://github.com/auth0/ad-ldap-connector/releases/">
+          Auth0 Active Directory/LDAP Connector for Other Platforms<br />
+          <small class="download-version"></small>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+<a class="download-github" href=""></a>.
 
 <script type="text/javascript">
   $.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {
-    $('.download-link').attr('href', data.url)
-                       .text(data.url.split('/').pop());
+    $('.download-link').attr('href', data.url);
     $('.checksum').text(data.checksum);
-    $('.version').text(data.version);
+    $('.download-version').text(data.version);
 
     $('.download-github')
-        .attr('href', 'https://github.com/auth0/ad-ldap-connector/releases/tag/v' + data.version)
-        .text('adldap-' + data.version);
+        .attr('href', 'https://github.com/auth0/ad-ldap-connector/releases/tag/v' + data.version);
   })
 </script>
 
