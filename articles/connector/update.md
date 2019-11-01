@@ -61,6 +61,7 @@ The tooltip will indicate the current status and the installed version.
 
 ### 2. Download the latest version
 
+The latest released version of the connector is <span class="version"></span>.
 
 
 ::: note
