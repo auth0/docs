@@ -63,6 +63,11 @@ The tooltip will indicate the current status and the installed version.
 
 The latest released version of the connector is <span class="version"></span>.
 
+Download the Windows Installer from <a class="download-link" href=""></a>. The sha1 checksum is:
+
+<pre><code class="checksum"></code></pre>
+
+Use the GitHub repository for other platforms: <a class="download-github" href=""></a>.
 
 ::: note
 Always verify the checksum of the downloaded installer as explained [here](/checksum).
