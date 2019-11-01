@@ -26,8 +26,6 @@ For most platforms, you will need to run the required commands with root privile
 
 <script type="text/javascript">
   $.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {
-    $('.download-version').text('Current version: ' + data.version);
-
     $('.download-github').attr('href', 'https://github.com/auth0/ad-ldap-connector/releases/tag/v' + data.version);
 
     $('.curl-example').text('curl -Lo /tmp/adldap.tar.gz https://github.com/auth0/ad-ldap-connector/archive/v' + data.version + '.tar.gz');

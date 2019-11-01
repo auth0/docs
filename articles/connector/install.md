@@ -23,7 +23,7 @@ The Connector is packaged as a standard Microsoft Installer file (__MSI__). Down
           <img src="//cdn.auth0.com/docs/img/node-windows.png" alt="">
           Auth0 Active Directory/LDAP Connector for Windows - <small class="download-version"></small><br />
         </a>
-        <span class="hash"></span>
+        <span class="checksum"></span>
       </li>
     </ul>
   </div>
@@ -33,7 +33,7 @@ The Connector is packaged as a standard Microsoft Installer file (__MSI__). Down
   $.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {
     $('.download-link').attr('href', data.url);
     $('.download-version').text('Current version: ' + data.version);
-    $('.hash').text('Checksum (SHA1): ' + data.checksum);
+    $('.checksum').text('Checksum (SHA1): ' + data.checksum);
   })
 </script>
 
