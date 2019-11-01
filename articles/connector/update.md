@@ -69,8 +69,7 @@ Download the Windows Installer from:
       <li>
         <a class="download-link" href="https://cdn.auth0.com/adldap.msi">
           <img src="//cdn.auth0.com/docs/img/node-windows.png" alt="">
-          Auth0 Active Directory/LDAP Connector for Windows<br />
-          <small class="download-version"></small><br />
+          Auth0 Active Directory/LDAP Connector for Windows - <small class="download-version"></small><br />
         </a>
         <span class="checksum"></span>
       </li>
@@ -78,11 +77,11 @@ Download the Windows Installer from:
   </div>
 </div>
 
-The latest released version of the connector is <span class="version"></span>.
+::: note
+Always verify the checksum of the downloaded installer as explained [here](/checksum).
+:::
 
-Download the Windows Installer from <a class="download-link" href=""></a>. The sha1 checksum is:
-
-<pre><code class="checksum"></code></pre>
+OR
 
 Use the GitHub repository for other platforms: 
 
@@ -91,30 +90,22 @@ Use the GitHub repository for other platforms: 
     <ul>
       <li>
         <a class="download-github" href="https://github.com/auth0/ad-ldap-connector/releases/">
-          Auth0 Active Directory/LDAP Connector for Other Platforms<br />
-          <small class="download-version"></small>
+          Auth0 Active Directory/LDAP Connector for Other Platforms - <small class="download-version"></small>
         </a>
       </li>
     </ul>
   </div>
 </div>
 
-<a class="download-github" href=""></a>.
+<script type="text/javascript">
+  $.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {
+    $('.download-link').attr('href', data.url);
+    $('.download-version').text('Current version: ' + data.version);
+    $('.checksum').text('Checksum (SHA1): ' + data.checksum);
 
-<script type="text/javascript">
-  $.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {
-    $('.download-link').attr('href', data.url);
-    $('.checksum').text('Checksum (SHA1): ' + data.checksum);
-    $('.download-version').text('Current version: ' + data.version);
-
-    $('.download-github')
-        .attr('href', 'https://github.com/auth0/ad-ldap-connector/releases/tag/v' + data.version);
-  })
+    $('.download-github').attr('href', 'https://github.com/auth0/ad-ldap-connector/releases/tag/v' + data.version);
+  })
 </script>
-
-::: note
-Always verify the checksum of the downloaded installer as explained [here](/checksum).
-:::
 
 ### 3. Backup your current config
 

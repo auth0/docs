@@ -20,22 +20,22 @@ Prior to installing the AD/LDAP Connector, please ensure that you have already i
 For most platforms, you will need to run the required commands with root privileges.
 :::
 
-1. Download the <a class="download-github" href=""></a> package to `/tmp`:
+1. Download the package to `/tmp` from the <a class="download-github" href="https://github.com/auth0/ad-ldap-connector/releases/">Github repository</a>:
 
-    <code class="curl-example"></code>
-
-2. Expand the <a class="download-github" href=""></a> package and install its dependencies:
+<code class="curl-example"></code>
 
 <script type="text/javascript">
   $.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {
-    $('.download-github')
-        .attr('href', 'https://github.com/auth0/ad-ldap-connector/releases/tag/v' + data.version)
-        .text('adldap-' + data.version);
+    $('.download-version').text('Current version: ' + data.version);
 
-    $('.curl-example')
-      .text('curl -Lo /tmp/adldap.tar.gz https://github.com/auth0/ad-ldap-connector/archive/v' + data.version + '.tar.gz');
+    $('.download-github').attr('href', 'https://github.com/auth0/ad-ldap-connector/releases/tag/v' + data.version);
+
+    $('.curl-example').text('curl -Lo /tmp/adldap.tar.gz https://github.com/auth0/ad-ldap-connector/archive/v' + data.version + '.tar.gz');
   })
 </script>
+
+
+2. Expand the package and install its dependencies:
 
     ```bash
     mkdir /opt/auth0-adldap
