@@ -68,6 +68,7 @@ Download the Windows Installer from:
     <ul>
       <li>
         <a class="download-link" href="https://cdn.auth0.com/adldap.msi">
+          <img src="//cdn.auth0.com/docs/img/node-windows.png" alt="">
           Auth0 Active Directory/LDAP Connector for Windows<br />
           <small class="download-version"></small><br />
         </a>
@@ -75,6 +76,7 @@ Download the Windows Installer from:
       </li>
     </ul>
   </div>
+</div>
 
 The latest released version of the connector is <span class="version"></span>.
 
@@ -95,6 +97,7 @@ Use the GitHub repository for other platforms: 
       </li>
     </ul>
   </div>
+</div>
 
 <a class="download-github" href=""></a>.
 

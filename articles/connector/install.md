@@ -28,6 +28,7 @@ The Connector is packaged as a standard Microsoft Installer file (__MSI__). Down
       </li>
     </ul>
   </div>
+</div>
 
 <script type="text/javascript">
   $.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {
