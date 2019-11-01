@@ -61,13 +61,26 @@ The tooltip will indicate the current status and the installed version.
 
 ### 2. Download the latest version
 
-The latest released version of the connector is <span class="version"></span>.
+The latest released version of the connector is <span class="version">x</span>.
 
-Download the Windows Installer from <a class="download-link" href=""></a>. The sha1 checksum is:
+Download the Windows Installer from <a class="download-link" href="">x</a>. The sha1 checksum is:
 
-<pre><code class="checksum"></code></pre>
+<pre><code class="checksum">x</code></pre>
 
-Use the GitHub repository for other platforms: <a class="download-github" href=""></a>.
+Use the GitHub repository for other platforms: <a class="download-github" href="">x</a>.
+
+<script type="text/javascript">
+  $.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {
+    $('.download-link').attr('href', data.url)
+                       .text(data.url.split('/').pop());
+    $('.checksum').text(data.checksum);
+    $('.version').text(data.version);
+
+    $('.download-github')
+        .attr('href', 'https://github.com/auth0/ad-ldap-connector/releases/tag/v' + data.version)
+        .text('adldap-' + data.version);
+  })
+</script>
 
 ::: note
 Always verify the checksum of the downloaded installer as explained [here](/checksum).
@@ -110,5 +123,3 @@ If the configuration was exported from the Admin Console as a .zip file, it can 
 Copy all the files from __Step 2__ into `%Program Files(x86)%\Auth0\AD LDAP Connector\`.
 
 Restart the **"Auth0 AD LDAP"** service from the service console.
-
-
