@@ -71,7 +71,7 @@ Download the Windows Installer from:
           Auth0 Active Directory/LDAP Connector for Windows<br />
           <small class="download-version"></small><br />
         </a>
-        <span class="hash"></span>
+        <span class="checksum"></span>
       </li>
     </ul>
   </div>
