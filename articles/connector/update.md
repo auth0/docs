@@ -104,8 +104,8 @@ Use the GitHub repository for other platforms: 
 <script type="text/javascript">
   $.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {
     $('.download-link').attr('href', data.url);
-    $('.checksum').text(data.checksum);
-    $('.download-version').text(data.version);
+    $('.checksum').text('Checksum (SHA1): ' + data.checksum);
+    $('.download-version').text('Current version: ' + data.version);
 
     $('.download-github')
         .attr('href', 'https://github.com/auth0/ad-ldap-connector/releases/tag/v' + data.version);
