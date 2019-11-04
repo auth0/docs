@@ -165,7 +165,7 @@ You can also send a test email using the **Send Test Email** button.
 ::: note
 SparkPost only allows sending emails from verified domains. To verify a custom domain, go to the [Sending Domains page](https://app.sparkpost.com/account/sending-domains) and add your custom domain.
 
-Alternatively, you can send test emails from the `sparpostbox.com` domain, but this is limited to only five test emails. For details, see the [relevant SparkPost docs](https://developers.sparkpost.com/api/transmissions.html#header-the-sandbox-domain).
+Alternatively, you can send test emails from the `sparkpostbox.com` domain, but this is limited to only five test emails. For details, see the [relevant SparkPost docs](https://developers.sparkpost.com/api/transmissions.html#header-the-sandbox-domain).
 :::
 
 If you don't receive an email after a few minutes, please check your [dashboard logs](${manage_url}/#/logs) for any failures.
