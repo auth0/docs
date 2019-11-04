@@ -30,13 +30,13 @@ Customers buy software to solve a business problem. The longer it takes to integ
 Professional Services offerings that are designed to optimize our customers' investments in Auth0 by helping design, deploy, implement, and maintain solutions based on proven best practices - avoiding common pitfalls and reducing risk.
     <ul>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/services/solution-design">Solution Design</a>: Professional Services that can help you design and architect your Auth0 solution
+        <i class="icon icon-budicon-695"></i><a href="/services/solution-design">Solution Design</a>: Services to help you design and architect your Auth0 solution
       </li>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/services/custom-implementation">Custom Implementation</a>: Professional Services that can help you implement your Auth0 solution
+        <i class="icon icon-budicon-695"></i><a href="/services/custom-implementation">Custom Implementation</a>: Services to help you implement your Auth0 solution
       </li>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/services/maintain-and-improve">Maintain and Improve</a>: Professional Services designed to help you maintain and improve on your Auth0 investment.
+        <i class="icon icon-budicon-695"></i><a href="/services/maintain-and-improve">Maintain and Improve</a>: Services to help you maintain and improve on your Auth0 investment.
       </li>
     </ul>
   </li>
