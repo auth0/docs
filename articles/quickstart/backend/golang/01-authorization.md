@@ -24,10 +24,10 @@ useCase: quickstart
 The [**dgrijalva/jwt-go**](https://github.com/dgrijalva/jwt-go) package can be used to verify incoming JWTs. The [**auth0/go-jwt-middleware**](https://github.com/auth0/go-jwt-middleware) library can be used alongside it to fetch your Auth0 public key and complete the verification process. Finally, we'll use the [**gorilla/mux**](https://github.com/gorilla/mux) package to handle our routes and [**codegangsta/negroni**](https://github.com/urfave/negroni) for HTTP middleware.
 
 ```bash
-go get "github.com/auth0/go-jwt-middleware"
-go get "github.com/dgrijalva/jwt-go"
-go get "github.com/codegangsta/negroni"
-go get "github.com/gorilla/mux"
+go get -d github.com/auth0/go-jwt-middleware
+go get -d github.com/dgrijalva/jwt-go
+go get -d github.com/codegangsta/negroni
+go get -d github.com/gorilla/mux
 ```
 
 ### Create a middleware to validate Access Tokens
@@ -53,7 +53,6 @@ import (
 	"github.com/auth0/go-jwt-middleware"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gorilla/mux"
-	"github.com/joho/godotenv"
 )
 
 type Response struct {
