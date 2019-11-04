@@ -30,11 +30,13 @@ The Connector is packaged as a standard Microsoft Installer file (__MSI__). Down
 </div>
 
 <script type="text/javascript">
-  $.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {
-    $('.download-link').attr('href', data.url);
-    $('.download-version').text('Current version: ' + data.version);
-    $('.checksum').text('Checksum (SHA1): ' + data.checksum);
-  })
+  $(window).load(function() {
+    $.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {
+      $('.download-link').attr('href', data.url);
+      $('.download-version').text('Current version: ' + data.version);
+      $('.checksum').text('Checksum (SHA1): ' + data.checksum);
+    });
+  });
 </script>
 
 ## Run the installer
