@@ -57,6 +57,7 @@ Once you have the credentials you need from your Apple Developer account, you ne
     * **Key ID**
 
     ![Application Connection Settings](/media/articles/connections/social/apple/apple-connection.png)
+1. Click the **Applications** tab to enable this connection for your application.
 1. Click **Save**.
 
 ::: note
