@@ -98,13 +98,15 @@ Use the GitHub repository for other platforms: 
 </div>
 
 <script type="text/javascript">
-  $.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {
-    $('.download-link').attr('href', data.url);
-    $('.download-version').text('Current version: ' + data.version);
-    $('.checksum').text('Checksum (SHA1): ' + data.checksum);
+  $(window).load(function() {
+    $.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {
+      $('.download-link').attr('href', data.url);
+      $('.download-version').text('Current version: ' + data.version);
+      $('.checksum').text('Checksum (SHA1): ' + data.checksum);
 
-    $('.download-github').attr('href', 'https://github.com/auth0/ad-ldap-connector/releases/tag/v' + data.version);
-  })
+      $('.download-github').attr('href', 'https://github.com/auth0/ad-ldap-connector/releases/tag/v' + data.version);
+    });
+  });
 </script>
 
 ### 3. Backup your current config
