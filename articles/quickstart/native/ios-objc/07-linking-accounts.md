@@ -82,9 +82,9 @@ Unlink the accounts:
 ```objc
 // ProfileViewController.m
 NSString *id = ... // the id of the user, available in profile.sub
-NSString *idToken = ... // the user idToken
+NSString *accessToken = ... // the user accessToken
 A0Identity *identity = ... // the identity (account) you want to unlink from the user
-[auth unlinkUserAccountWithIdToken:idToken userId:id identity:identity callback:^(NSError * _Nullable error, NSArray<NSDictionary<NSString *,id> *> * _Nullable payload) {
+[auth unlinkUserAccountWithAccessToken:accessToken userId:id identity:identity callback:^(NSError * _Nullable error, NSArray<NSDictionary<NSString *,id> *> * _Nullable payload) {
     if (error) {
         // Handle Error
     } else {
