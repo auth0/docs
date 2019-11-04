@@ -109,7 +109,7 @@ Click **Save**.
 
 ## Step 5: Test Your Integration
 
-While logged in to the Azure Portal, open up your instance of the API Management Service. Click **Developer Portal** to launch the developer-facing side of your APIs.
+While logged in to the Azure Portal, open up your instance of the API Management Service. Click **Developer Console** to launch the developer-facing side of your APIs.
 
 Go to APIs > Basic Calculator (or the API you've created for this tutorial). This opens up to the page where you can make a `GET` call that allows you to add two integers.
 
@@ -123,6 +123,12 @@ If you were able to successfully sign in, you'll see a message appear with the e
 
 Scroll to the bottom, and click **Send** to send your request. If successful, you'll see a message containing the `HTTP 200` response at the bottom of the page.
 
+## Configure a JWT validation policy for Access Tokens
+
+In the previous step, the user is prompted to sign in when they try to make a call from the Developer Console. The Developer Console attempts to obtain an Access Token on behalf of the user to be included in the API request. All Access Tokens will be passed to the API via the `Authorization` header.
+
+If you want to validate the Access Token included with each request, you can do so by using the [Validate JWT](https://docs.microsoft.com/en-us/azure/api-management/api-management-access-restriction-policies#ValidateJWT) policy. Please refer to Microsoft's documentation on [setting an API Management policy](https://docs.microsoft.com/en-us/azure/api-management/set-edit-policies).
+
 ## Summary
 
 In this tutorial, you:
@@ -130,7 +136,7 @@ In this tutorial, you:
 1. Configured your Auth0 tenant to act as an OAuth 2.0 server.
 2. Set up an API Management Service in Azure.
 3. Imported an API that's managed by Azure's API Management Service.
-4. Secured your API using Auth0.
+4. Secured your API using Auth0 and (optionally) verified the Access Token.
 
 <%= include('./_stepnav', {
  prev: ["1. Configure Auth0", "/integrations/azure-api-management/configure-auth0"]
