@@ -1462,6 +1462,12 @@ articles:
       - title: "Overview"
         url: "/services"
 
+      - title: "Packages"
+        url: "/services/packages"
+
+      - title: "Gallery"
+        url: "/services/gallery"
+
       - title: "Architectural Design Sessions"
         url: "/services/architectural-design"
         hidden: true

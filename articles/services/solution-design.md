@@ -1,6 +1,6 @@
 ---
 title: Solution Design
-description: How Auth0 Professional Services can help you design and architect your solution
+description: Professional Services that can help you design and architect your Auth0 solution
 toc: true
 topics:
     - ps
@@ -10,7 +10,7 @@ contentType: concept
 useCase:
   - solution-design
 ---
-## IAM solution design & architecture
+## IAM solution design & architecture with Auth0
 
 The first step in a successful implementation is designing and architecting your Identity and Access Management solution. We work together with your product and engineering teams to **architect an Identity solution** for your environment and build an **incremental Go-Live plan** that solves the most-pressing identity problems early. Auth0 Professional Services help your project reach success quickly and address your business objectives in a pragmatic, step-by-step manner. 
 

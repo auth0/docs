@@ -1,6 +1,6 @@
 ---
 title: Custom Implementation
-description: How Auth0 Professional Services can help you implement your solution
+description: Professional Services that can help you implement your Auth0 solution
 toc: true
 topics:
     - ps
@@ -10,14 +10,11 @@ contentType: concept
 useCase:
   - custom-implementation
 ---
+## Accelerate your integration with Auth0
 
-## Accelerate your implementation
+In addition to enablement activities, Professional Services provides **custom implementation services**. Auth0 is a unique service that offers developers unrivaled flexibility and extensibility. Our expert Professional Services team know how to extend Auth0 in ways that are the most optimal for the platform and for your environment.
 
-Auth0 is a unique service that offers developers unrivaled flexibility and extensibility. Our expert Professional Services team knows how to extend Auth0 in the ways that are most optimal for the platform and for your environment.
-
-In addition to enablement activities, Professional Services provides **custom implementation services**.
-
-Solutions that Professional Services can deliver to help you achieve the product functionality, service connectivity, operational readiness, and/or quality assurance you require to get to production include: 
+Professional Services can provide a wide range of custom implementation to help you achieve the product functionality, service connectivity, operational readiness, and/or quality assurance you require to get to production. This includes: 
 
 * **Custom rules, hooks, DB scripts, login pages, and email templates:** Solve a user experience, 3rd-party service integration, or other logical problem within a customer’s Auth0 authentication and authorization workflow. These customizations happen in-product and do not require additional infrastructure to deploy.
 
@@ -27,4 +24,10 @@ Solutions that Professional Services can deliver to help you achieve the product
 
 * **Custom code samples:** Demonstrate how a developer integrates with Auth0 using a specific language or technology stack. Used primarily for education.
 
+## Keep reading
+
+* [Solution Design](/services/solution-design)
+* [Maintain and Improve](/services/maintain-and-improve)
+* [Packages](/services/packages)
+* [Gallery](/services/gallery)
 
