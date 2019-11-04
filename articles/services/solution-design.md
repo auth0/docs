@@ -10,13 +10,13 @@ contentType: concept
 useCase:
   - solution-design
 ---
-## IAM solution design & architecture with help from Auth0 Professional Services
+# IAM solution design & architecture with help from Auth0 Professional Services
 
 The first step in a successful implementation is designing and architecting your Identity and Access Management solution. We work together with your product and engineering teams to **architect an Identity solution** for your environment and build an **incremental Go-Live plan** that solves the most-pressing identity problems early. Auth0 Professional Services help your project reach success quickly and address your business objectives in a pragmatic, step-by-step manner. 
 
 PS Solutions Architects have decades of combined industry expertise and Auth0-specific training. We have delivered **thousands of successful IAM projects and integrations**. Let us help you steer clear of costly security pitfalls and build a solid foundation for your identity needs, while reducing risk.
 
-### Get to production faster
+## Get to production faster
 
 We can consolidate all the enablement activities leading to a successful adoption into three major milestones or phases; the goal of a Professional Services engagement being to identify, document, and build consensus with you on these milestones as the path to successful Auth0 adoption: 
 
