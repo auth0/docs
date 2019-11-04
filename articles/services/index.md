@@ -23,9 +23,26 @@ useCase:
 
 Customers buy software to solve a business problem. The longer it takes to integrate with that software, the longer the business problem remains unsolved. If integration stalls or fails, it’s a lost opportunity and a major additional cost both for you and for Auth0; at worst, it can become an even bigger security issue or legal nightmare. That's why it's of the utmost importance to plan, design, and implement your IAM solution securely, effectively, and expediently, and this is where Auth0 Professional Services (PS) come in. 
 
-<%= include('../_includes/_topic-links', { links: [
-  'services/packages',
-  'services/solution-design',
-  'services/custom-implementation',
-] }) %>
+<ul class="topic-links">
+  <li>
+    <i class="icon icon-budicon-715"></i><a href="/services/packages">Packages</a>
 
+Professional Services offerings that are designed to optimize our customers' investments in Auth0 by helping design, deploy, implement, and maintain solutions based on proven practices, avoiding common pitfalls and reducing risk.
+    <ul>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/services/solution-design">Solution Design</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/services/custom-implementation">Custom Implementation</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="#">Maintian and Improve</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+      <i class="icon icon-budicon-715"></i><a href="/services/gallery">Gallery</a>
+
+Blah, Blah, Blah!
+  </li>
+</ul>
