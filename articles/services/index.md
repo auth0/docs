@@ -26,7 +26,6 @@ Customers buy software to solve a business problem. The longer the implementatio
 <%= include('../_includes/_topic-links', { links: [
   'services/solution-design',
   'services/custom-implementation',
-  'services/packages',
-  'services/gallery'
+  'services/packages'
 ] }) %>
 
