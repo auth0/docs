@@ -1,6 +1,6 @@
 ---
 title: Packages
-description: How to get Auth0 Professional Services help through oneof our many packages
+description: How to get Auth0 Professional Services help through one of our many packages
 toc: true
 topics:
     - ps
@@ -8,8 +8,6 @@ topics:
 contentType: concept
 useCase:
   - packages
----
-
 ---
 
 We provide packaged Professional Services offerings that are designed to optimize our customers' investments in Auth0 by helping design, deploy, implement, and maintain solutions based on proven practices, avoiding common pitfalls and reducing risk.

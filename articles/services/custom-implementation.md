@@ -10,7 +10,8 @@ contentType: concept
 useCase:
   - custom-implementation
 ---
-## Accelerate your implementation
+
+### Accelerate your implementation
 
 Auth0 is a unique service that offers developers unrivaled flexibility and extensibility. Our expert Professional Services team knows how to extend Auth0 in the ways that are most optimal for the platform and for your environment.
 
