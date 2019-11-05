@@ -16,7 +16,7 @@ contentType:
 
 In this exercise, you will sign up for your application (which will also log you in) while exploring some of the relevant network traces of the authentication process.
 
-1. Using Chrome, open **Developer Tools**. Switch to the **Network** tab, and navigate to your localhost application.
+1. Using Chrome, open **Developer Tools**. Switch to the **Network** tab then open your local application. You should immediately be redirected to Auth0 to login.
 
 2. The first request you should see is a GET request to your application homepage:
 
@@ -34,7 +34,9 @@ https://${account.namespace}/authorize
 &redirect_uri=${account.callback}
 &response_mode=form_post
 ```
+
 ---
+
 The middleware sends several parameters. The important ones for this lab are:
 
 - `client_id`: the unique identifier of your app at the authorization server
