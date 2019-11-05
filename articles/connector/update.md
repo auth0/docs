@@ -135,6 +135,7 @@ Copy all the files from __Step 2__ into `%Program Files(x86)%\Auth0\AD LDAP Conn
 
 Restart the **"Auth0 AD LDAP"** service from the service console.
 
+<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
   $(document).ready(function() {
     $.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {

@@ -88,6 +88,7 @@ Test 4: Attempts to establish a connection to the Auth0 server.
 
 If Test 4 fails, check network connectivity and firewall settings that might prevent such a connection.
 
+<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
   $(document).ready(function() {
     $.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {
