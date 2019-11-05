@@ -19,7 +19,7 @@ If you came to this page directly, go to the [first page of this lab](/identity-
 In this exercise, you will learn how to add sign-in to an app using:
 
 - Node.js + Express.js
-- The [`express-openid-connect`](https://github.com/auth0/express-openid-connect) middleware that wraps around the `openid-client` library
+- An Express middleware to handle checking authentication and redirecting to login
 - Auth0 as our Authorization Server
 
 A simple Node.js Express application has been created to get you started. This is a web application with two pages. The first page, served under the root path `/`, shows “Hello World” and a link (“Expenses”) to the second page. The second page, served at `/expenses`, shows a table with expenses. At this point, these expenses are hard-coded; you will learn how to consume them from an API secured with Auth0 in the next lab.
@@ -28,14 +28,17 @@ A simple Node.js Express application has been created to get you started. This i
 
 The following steps will show you how to set up and run the web application that you will be securing:
 
-1. Go to the `/lab-01/begin` folder in your local copy of the [identity exercise repo](https://github.com/auth0/identity-102-exercises/).
+1. Open your Terminal app, clone the [identity exercise repo](https://github.com/auth0/identity-102-exercises/), then go to the `/lab-01/begin` folder:
 
-::: note
-If you've never cloned a repo before, please see [GitHub's instructions ](https://help.github.com/en/articles/cloning-a-repository).
-:::
+```bash
+❯ git clone git@github.com:auth0/identity-102-exercises.git
+Cloning into 'identity-102-exercises'...
 
-2. Review the `server.js` code. This is a generic Node.js HTTP server that uses `body-parser` to parse the JSON, buffer, string, and URL-encoded data received. It also includes `morgan` to log HTTP requests.
-3. The `.env-sample` file will be used for the environment variables you need for this lab. It’s populated with `PORT` (the port number where the app will run). You will set the rest of the values later on in the lab. For now, create a copy of the file in the same folder and name it `.env`. Run the following commands in your terminal:
+❯ cd identity-102-exercises/lab-01/begin
+```
+
+2. Open a code editor like VS Code or Atom in the same directory (File > Open) and review the `server.js` code. This is a generic Node.js HTTP server that uses Express's built-in `urlencoded` to parse the JSON, buffer, string, and URL-encoded data received. It also includes `morgan` to log HTTP requests.
+3. The `.env-sample` file will be used for the environment variables you need for this lab. It’s populated with a `PORT` (the port number where the app will run) and a `COOKIE_SECRET` (value used to encrypt the cookie data). You will set the rest of the values later on in the lab. For now, create a copy of the file in the same folder and name it `.env`. Run the following commands in your terminal (or copy, paste, and rename the sample file in your editor):
 
 ```bash
 # Make sure we're in the right directory
@@ -45,10 +48,6 @@ If you've never cloned a repo before, please see [GitHub's instructions ](https:
 # Copy the .env-sample file to a new .env file that the app will use
 ❯ cp .env-sample .env
 ```
-
-::: note
-If you don’t see the `.env-sample` file, you need to enable the display of hidden files. On a Mac, press `[Shift]` + `⌘` + `.` together. On Windows, follow [these instructions](https://support.microsoft.com/en-us/help/14201/windows-show-hidden-files).
-:::
 
 4. In your terminal, use `npm` install all the dependencies and start the application:
 
@@ -165,7 +164,7 @@ PORT=3000
 ```
 
 ::: note
-Mac users can enter the following in Terminal to get a random string suitable for  `COOKIE_SECRET`: `openssl rand -base64 16`. This value is used by the session handler in Express to generate opaque session cookies.
+Mac users can enter the following in Terminal to get a random string suitable for  `COOKIE_SECRET`: `openssl rand -base64 32`. This value is used by the session handler in Express to generate opaque session cookies.
 :::
 
 17. Save the changes to `.env` and restart the server as before, but do not open it in a browser yet.
