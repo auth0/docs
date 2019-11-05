@@ -85,5 +85,5 @@ See the [cross-origin auth sample](https://github.com/auth0/lock/blob/master/sup
 
 The following browsers can use cross-origin authentication when third-party cookies are disabled:
 
-* Windows Internet Explorer
-* Windows Edge
+* Microsoft Internet Explorer
+* Microsoft Edge
