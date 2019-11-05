@@ -1459,11 +1459,17 @@ articles:
   - title: "Professional Services"
     url: "/services"
     children:
-      - title: "Overview"
-        url: "/services"
-
       - title: "Packages"
         url: "/services/packages"
+        children:
+          - title: "Solution Design"
+            url: "/services/solution-design"
+
+          - title: "Custom Implementation"
+            url: "/services/custom-implementation"
+
+          - title: "Maintain and Improve"
+            url: "/services/maintain-and-improve"
 
       - title: "Gallery"
         url: "/services/gallery"
