@@ -308,7 +308,7 @@ var options = {
 };
 ```
 ::: note
-Newer tenants have automatically have seamless sso enabled (https://auth0.com/docs/dashboard/guides/tenants/enable-sso-tenant). If seamless sso is enabled, the rememberLastLogin will not be relevant because if there is a session in place then the hosted login page will not be displayed at all. Using seamless sso is highly recommended because it provides a better experience for users. Users will have a seamless authentication experience: they login once and won’t have to enter credentials again when they navigate either through the applications you have built and/or third party apps. If the user is not logged in, it will redirect the user to the login screen which is expected. So, when seamless sso is enabled, users will not be prompted to confirm log in before SSO redirection.
+New tenants [automatically have Seamless SSO enabled](https://auth0.com/docs/dashboard/guides/tenants/enable-sso-tenant). With this enabled, the `rememberLastLogin` option will not be relevant because if there is a session in place then the hosted login page will not be displayed at all. Using Seamless SSO is highly recommended because it provides a seamless authentication experience: users log in once and won’t have to enter credentials again when they navigate either through the applications you have built, or third party apps. If the user is not logged in they will be redirected to the login screen, as expected.
 :::
 
 ::: note
