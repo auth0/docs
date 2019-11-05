@@ -10,9 +10,9 @@ contentType: concept
 useCase:
   - custom-implementation
 ---
-# Accelerate your integration with help from Auth0 Professional Services
+# Custom Implementation
 
-In addition to enablement activities, Professional Services provides **custom implementation services**. Auth0 is a unique service that offers developers unrivaled flexibility and extensibility. Our expert Professional Services team know how to extend Auth0 in ways that are the most optimal for the platform and for your environment.
+In addition to enablement activities, Professional Services provides **custom implementation services** to help you excelerate your integration with Auth0. Auth0 is a unique service that offers developers unrivaled flexibility and extensibility, and our expert Professional Services team know how to extend Auth0 in ways that are the most optimal for the platform and for your environment.
 
 Professional Services can provide a wide range of custom implementation to help you achieve the product functionality, service connectivity, operational readiness, and/or quality assurance you require to get to production. This includes: 
 
@@ -23,6 +23,10 @@ Professional Services can provide a wide range of custom implementation to help 
 * **Custom utilities:** Solve a quality assurance or operations problem that is out-of-band from extending core product functionality, such as performance testing or deployment scripts.
 
 * **Custom code samples:** Demonstrate how a developer integrates with Auth0 using a specific language or technology stack. Used primarily for education.
+
+::: note
+We provide continuous education and knowledge transfer throughout any engagement. If any part of your project requires more specialized attention and implementation assistance from an Auth0 Solution Architect, then we'd be happy to help you understand how additional Professional Services can help you reach your goal.
+:::
 
 ## Keep reading
 
