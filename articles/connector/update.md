@@ -97,18 +97,6 @@ Use the GitHub repository for other platforms: 
   </div>
 </div>
 
-<script type="text/javascript">
-  $(window).load(function() {
-    $.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {
-      $('.download-link').attr('href', data.url);
-      $('.download-version').text('Current version: ' + data.version);
-      $('.checksum').text('Checksum (SHA1): ' + data.checksum);
-
-      $('.download-github').attr('href', 'https://github.com/auth0/ad-ldap-connector/releases/tag/v' + data.version);
-    });
-  });
-</script>
-
 ### 3. Backup your current config
 
 #### From the Admin Console
@@ -146,3 +134,15 @@ If the configuration was exported from the Admin Console as a .zip file, it can 
 Copy all the files from __Step 2__ into `%Program Files(x86)%\Auth0\AD LDAP Connector\`.
 
 Restart the **"Auth0 AD LDAP"** service from the service console.
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {
+      $('.download-link').attr('href', data.url);
+      $('.download-version').text('Current version: ' + data.version);
+      $('.checksum').text('Checksum (SHA1): ' + data.checksum);
+
+      $('.download-github').attr('href', 'https://github.com/auth0/ad-ldap-connector/releases/tag/v' + data.version);
+    });
+  });
+</script>

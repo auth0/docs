@@ -29,16 +29,6 @@ The Connector is packaged as a standard Microsoft Installer file (__MSI__). Down
   </div>
 </div>
 
-<script type="text/javascript">
-  $(window).load(function() {
-    $.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {
-      $('.download-link').attr('href', data.url);
-      $('.download-version').text('Current version: ' + data.version);
-      $('.checksum').text('Checksum (SHA1): ' + data.checksum);
-    });
-  });
-</script>
-
 ## Run the installer
 
 Run the installer and follow the instructions:
@@ -97,3 +87,13 @@ If Test 3 fails, check the privileges of the username in the target directory.
 Test 4: Attempts to establish a connection to the Auth0 server.
 
 If Test 4 fails, check network connectivity and firewall settings that might prevent such a connection.
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {
+      $('.download-link').attr('href', data.url);
+      $('.download-version').text('Current version: ' + data.version);
+      $('.checksum').text('Checksum (SHA1): ' + data.checksum);
+    });
+  });
+</script>

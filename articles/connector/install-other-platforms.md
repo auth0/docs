@@ -24,17 +24,6 @@ For most platforms, you will need to run the required commands with root privile
 
 <code class="curl-example"></code>
 
-<script type="text/javascript">
-  $(window).load(function() {
-    $.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {
-      $('.download-github').attr('href', 'https://github.com/auth0/ad-ldap-connector/releases/tag/v' + data.version);
-
-      $('.curl-example').text('curl -Lo /tmp/adldap.tar.gz https://github.com/auth0/ad-ldap-connector/archive/v' + data.version + '.tar.gz');
-    });
-  });
-</script>
-
-
 2. Expand the package and install its dependencies:
 
     ```bash
@@ -91,3 +80,13 @@ For most platforms, you will need to run the required commands with root privile
 ::: note
 If you get an `Invalid Ticket` message when configuring the Connector for the first time, the most likely cause is a network issue (for example, you have the Connector running behind a proxy). Try troubleshooting by connecting to `https://YOUR_TENANT.auth0.com/testall` with a browser other than Internet Explorer.
 :::
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {
+      $('.download-github').attr('href', 'https://github.com/auth0/ad-ldap-connector/releases/tag/v' + data.version);
+
+      $('.curl-example').text('curl -Lo /tmp/adldap.tar.gz https://github.com/auth0/ad-ldap-connector/archive/v' + data.version + '.tar.gz');
+    });
+  });
+</script>
