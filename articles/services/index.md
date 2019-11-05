@@ -19,7 +19,7 @@ useCase:
   </p>
 </div>
 
-## How Professional Services can help you with your project
+## How Professional Services can help with your project
 
 Customers buy software to solve a business problem. The longer it takes to integrate with that software, the longer the business problem remains unsolved. If integration stalls or fails, it’s a lost opportunity and a major additional cost both for you and for Auth0; at worst, it can become an even bigger security issue or legal nightmare. That's why it's of the utmost importance to plan, design, and implement your IAM solution securely, effectively, and expediently. This is where Auth0 Professional Services (PS) come in. 
 
