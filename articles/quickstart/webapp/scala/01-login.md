@@ -39,13 +39,12 @@ import play.api.libs.json.JsValue
 import play.api.libs.json.Json
 import play.api.libs.json.Json.toJsFieldJsValueWrapper
 import play.api.libs.ws._
-import play.api.mvc.Action
-import play.api.mvc.Controller
+import play.api.mvc.{Action, AnyContent, Controller}
 import helpers.Auth0Config
 
 class Callback @Inject() (cache: CacheApi, ws: WSClient) extends Controller {
 
-  def callback(codeOpt: Option[String] = None, stateOpt: Option[String] = None) = Action.async { request =>
+  def callback(codeOpt: Option[String] = None, stateOpt: Option[String] = None): Action[AnyContent] = Action.async { request =>
     val sessionId = request.session.get("id").get
     if (stateOpt == cache.get(sessionId + "state")) {
       (for {
@@ -129,11 +128,11 @@ import java.util.UUID.randomUUID
 
 class Application @Inject() (cache: CacheApi) extends Controller {
 
-  def index = Action {
+  def index: Action[AnyContent] = Action {
     Ok(views.html.index())
   }
 
-  def login = Action {
+  def login: Action[AnyContent] = Action {
     // Generate random state parameter
     object RandomUtil {
       private val random = new SecureRandom()
@@ -181,8 +180,7 @@ You can access the user information from the `cache`.
 package controllers
 
 import javax.inject.Inject
-import play.api.mvc._
-import play.api.mvc.{Action, Controller}
+import play.api.mvc.{Action, AnyContent, Controller, Request, Result}
 import play.api.libs.json._
 import play.api.cache._
 
@@ -200,7 +198,7 @@ class User @Inject() (cache: CacheApi) extends Controller {
     }
   }
 
-  def index = AuthenticatedAction { request =>
+  def index: Action[AnyContent] = AuthenticatedAction { request =>
     val id = request.session.get("id").get
     val profile = cache.get[JsValue](id + "profile").get
     Ok(views.html.user(profile))
@@ -234,12 +232,18 @@ class Application @Inject() (cache: CacheApi) extends Controller {
 
   //...
 
-  def logout = Action {
-    val config = Auth0Config.get()
+  def logout: Action[AnyContent] = Action { request =>
+    val host = request.host
+    var scheme = "http"
+    if (request.secure) {
+      scheme = "https"
+    }
+    val returnTo = scheme + "://" + host
     Redirect(String.format(
-      "https://%s/v2/logout?client_id=%s&returnTo=http://localhost:3000",
-      "${account.namespace}",
-      "${account.clientId}")
+      "https://%s/v2/logout?client_id=%s&returnTo=%s",
+      config.domain,
+      config.clientId,
+      returnTo)
     ).withNewSession
   }
 }
@@ -276,7 +280,7 @@ def AuthenticatedAction(f: Request[AnyContent] => Result): Action[AnyContent] = 
   }
 }
 
-def index = AuthenticatedAction { request =>
+def index: Action[AnyContent] = AuthenticatedAction { request =>
   val id = request.session.get("id").get
   val profile = cache.getAs[JsValue](id + "profile").get
   Ok(views.html.user(profile))
