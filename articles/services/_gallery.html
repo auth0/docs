@@ -1,6 +1,6 @@
 <% var terminated = false; %>
 <div class="connections-container">
-<% var i=0; _.forEach(workflows, function(article) { %>
+<% var i=0; _.forEach(gallery, function(article) { %>
   <% if (article.connection) { %>
     <% if (article.public !== false) { %>
     <a class="connection connection-public" href="<%- article.url %>">
@@ -21,4 +21,4 @@
   <% } %>
 <% }); %>
 </div>
-<% workflows = []; %>
+<% gallery = []; %>
