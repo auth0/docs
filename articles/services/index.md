@@ -43,6 +43,6 @@ Professional Services offerings that are designed to optimize our customers' inv
   <li>
       <i class="icon icon-budicon-715"></i><a href="/services/gallery">Gallery</a>
 
-Professional Services designed and built extensibility, leveraging the power of the Auth0 platform to offer customized functionality based on proven Identity and Access Management (IdAM) workflow processes.
+Professional Services designed and built extensibility, leveraging the power of the Auth0 platform to offer customized functionality based on proven Identity and Access Management (IdAM) workflows.
   </li>
 </ul>

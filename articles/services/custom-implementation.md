@@ -25,7 +25,7 @@ Professional Services can provide a wide range of custom implementation to help 
 * **Custom code samples:** Demonstrate how a developer integrates with Auth0 using a specific language or technology stack. Used primarily for education.
 
 ::: note
-We provide continuous education and knowledge transfer throughout any engagement. If any part of your project requires more specialized attention and implementation assistance from an Auth0 Solution Architect, then we'd be happy to help you understand how additional Professional Services can help you reach your goal.
+We provide continuous education and knowledge transfer throughout any engagement. If any part of your project requires more specialized attention and/or implementation assistance from an Auth0 Solution Architect, then we'd be happy to help you understand how additional Professional Services can fuether help you to reach your goal.
 :::
 
 ## Keep reading

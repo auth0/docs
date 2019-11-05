@@ -12,3 +12,6 @@ useCase:
 # Gallery
 
 Blah. Blah. Blah.
+
+<% var workflows = cache.find('articles/services/gallery', {sort: 'index'}); %>
+<%= include('./_gallery', { gallery: workflows }) %>

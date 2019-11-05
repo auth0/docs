@@ -12,7 +12,7 @@ useCase:
 ---
 # Solution Design
 
-The first step in a successful implementation is designing and architecting your Identity and Access Management solution and our Solution Design services are here to help. We work together with your product and engineering teams to **architect an Identity solution** for your environment and build an **incremental Go-Live plan** that solves the most-pressing identity problems early. Auth0 Professional Services help your project reach success quickly and address your business objectives in a pragmatic, step-by-step manner. 
+The first step in a successful implementation is designing and architecting your Identity and Access Management solution, and our Solution Design services are here to help. We work together with your product and engineering teams to **architect an Identity solution** for your environment and build an **incremental Go-Live plan** that solves the most-pressing identity problems early. Auth0 Professional Services help your project reach success quickly and address your business objectives in a pragmatic, step-by-step manner. 
 
 PS Solutions Architects have decades of combined industry expertise and Auth0-specific training. We have delivered **thousands of successful IAM projects and integrations**. Let us help you steer clear of costly security pitfalls and build a solid foundation for your identity needs, while reducing risk.
 
@@ -31,7 +31,7 @@ The initial Go-Live milestone is designed to be impactful enough to make materia
 The last milestone, Advanced Go-Live, can be broken into multiple sub-milestones, especially if you have multiple applications or development teams. This helps manage the complexity of a large project and achieves incremental and steady progress. 
 
 ::: note
-We provide continuous education and knowledge transfer throughout any engagement. If any part of your project requires more specialized attention and implementation assistance from an Auth0 Solution Architect, then we'd be happy to help you understand how additional Professional Services can help you reach your goal.
+We provide continuous education and knowledge transfer throughout any engagement. If any part of your project requires more specialized attention and/or implementation assistance from an Auth0 Solution Architect, then we'd be happy to help you understand how additional Professional Services can further help you to reach your goal.
 :::
 
 ## Keep reading

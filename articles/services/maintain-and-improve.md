@@ -17,7 +17,7 @@ Once implementation is complete, we'll work with your teams to review your Ident
 To help support this effort, we recommend scheduling an annual HealthCheck engagement with Professional Services. For our larger customers, we also provide our post-implementation consulting service: Auth0’s “Premier Success” offering assigns a dedicated Solutions Architect to meet with your team on a weekly, bi-weekly, or monthly basis to help maintain and improve your Auth0 solution. 
  
 ::: note
-We provide continuous education and knowledge transfer throughout any engagement. If any part of your project requires more specialized attention and implementation assistance from an Auth0 Solution Architect, then we'd be happy to help you understand how additional Professional Services can help you reach your goal.
+We provide continuous education and knowledge transfer throughout any engagement. If any part of your project requires more specialized attention and/or implementation assistance from an Auth0 Solution Architect, then we'd be happy to help you understand how additional Professional Services can further help you to reach your goal.
 :::
 
 ## Keep reading
