@@ -2,7 +2,7 @@
 title: Add Google Login to Your App
 connection: Google
 index: 1
-image: /media/connections/google.png
+image: /media/services/gallery/verified-email-address-change.png
 description: Learn how to add login functionality to your app with Google. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
 alias:
  - gmail
