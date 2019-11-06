@@ -83,6 +83,7 @@ If you get an `Invalid Ticket` message when configuring the Connector for the fi
 
 <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
+setTimeout(function() {
   $(document).ready(function() {
     $.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {
       var dhLink = $('.download-github');
@@ -95,4 +96,5 @@ If you get an `Invalid Ticket` message when configuring the Connector for the fi
       }
     });
   });
+}, 500);
 </script>
