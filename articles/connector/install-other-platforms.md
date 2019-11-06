@@ -86,9 +86,9 @@ If you get an `Invalid Ticket` message when configuring the Connector for the fi
 setTimeout(function() {
   $(document).ready(function() {
     $.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {
-      var dhLink = $('.download-github');
-      if(dhLink) { 
-        dhLink.attr('href', 'https://github.com/auth0/ad-ldap-connector/releases/tag/v' + data.version); 
+      var dhGithub = $('.download-github');
+      if(dhGithub) { 
+        dhGithub.attr('href', 'https://github.com/auth0/ad-ldap-connector/releases/tag/v' + data.version); 
       }
       var curlExample = $('.curl-example')
       if(curlExample) { 
