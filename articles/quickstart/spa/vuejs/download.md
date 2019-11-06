@@ -15,7 +15,7 @@ http://localhost:3000
 ```
 4) Make sure [Node.JS LTS](https://nodejs.org/en/download/) is installed and execute the following commands in the sample's directory:
 ```bash
-npm install && npm run dev
+npm install && npm run serve
 ```
 You can also run it from a [Docker](https://www.docker.com) image with the following commands:
 

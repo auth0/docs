@@ -149,7 +149,7 @@ passport.deserializeUser(function (user, done) {
 
 ## Implement login, user profile and logout
 
-In this example, following routes are implemented:
+In this example, the following routes are implemented:
 
 * `/login` triggers the authentication by calling Passport's `authenticate` method. The user is then redirected to the tenant login page hosted by Auth0.
 * `/callback` is the route the user is returned to by Auth0 after authenticating. It redirects the user to the profile page (`/user`).
