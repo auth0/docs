@@ -2,11 +2,9 @@
 
 <%= include('../../_includes/_getting_started', { library: 'Swift' }) %>
 
-Add your credentials in the `Auth0.plist` file. If the file does not exist in your project yet, create it:
+Add your credentials in the `Auth0.plist` file. If the file does not exist in your project yet, create one with the information below ([Apple documentation on Property List Files](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html)):
 
 ```xml
-<!-- Auth0.plist -->
-
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">

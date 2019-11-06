@@ -17,7 +17,7 @@ In this tutorial, we will work through a sample setup for the fictional company,
 
 ExampleCo is a multi-tenant SaaS solution offering cloud-based analytics. Customers purchasing licenses send ExampleCo lists of users whom they want to access the application.
 
-You can handle this requirement in Auth0 using an [Enterprise Connection](/identityproviders#enterprise) (using federation) with the individual customers using ADFS, <dfn data-key="security-assertion-markup-language">SAML-P</dfn>, and so on. This allows the customer to authenticate users with their own Active Directory specifying who gets access to the app.
+You can handle this requirement in Auth0 using an [Enterprise Connection](/connections/identity-providers-enterprise) (using federation) with the individual customers using ADFS, <dfn data-key="security-assertion-markup-language">SAML-P</dfn>, and so on. This allows the customer to authenticate users with their own Active Directory specifying who gets access to the app.
 
 The invite-only authorization flow includes the following steps:
 

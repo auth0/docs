@@ -49,5 +49,5 @@ This guide will show you how to set root attributes for a user during sign-up us
 | `PICTURE_VALUE` | URL of the picture for the user to be created. |
 
 ::: note
-If you are using Lock or the [public signup endpoint](/api/authentication#signup) for user sign-up, you can set root attributes using the same method. However, be aware that Lock itself does not support the given name, family name, name, nickname, and picture fields; only the endpoint supports it.
+If you are using Lock or the [public signup endpoint](/api/authentication#signup) for user sign-up, you can set root attributes using the same method.
 :::

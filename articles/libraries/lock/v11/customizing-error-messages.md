@@ -42,23 +42,9 @@ var lock = new Auth0Lock(
 );
 ```
 
-If you are returning custom error codes from a [rule](/rules) or a [custom database script](/connections/database/custom-db#error-handling), you can also add the error messages in the dictionary:
+## Custom errors in Rules
 
-```js
-//custom database script: getUser
-function getByEmail (email, callback) {
-  callback(new ValidationError('custom-error-code', 'Some custom message'));
-}
-```
+If you are returning custom error codes from a [rule](/rules) or a [custom database script](/connections/database/custom-db#error-handling), you can handle custom errors:
 
-```js
-languageDictionary: {
-  error: {
-    forgotPassword: {
-      "custom-error-code": "Your custom error message"
-    }
-  }
-}
-```
-
-These errors will be shown on the widget header.
+* In your application's redirect URL by reading the `error` and `error_mesage` query string parameters.
+* By redirecting the user back to your hosted pages with a custom error message and displaying the message with a [flash message](/libraries/lock/v11/api#flashmessage).

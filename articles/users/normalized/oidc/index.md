@@ -42,7 +42,13 @@ The following is a [non-normative example of such a response](https://openid.net
    "locale": "",
    "phone_number": "",
    "phone_number_verified": false,
-   "address": "",
+   "address": {
+      "street_address": "",
+      "locality": "",
+      "region": "",
+      "postal_code": "",
+      "country": ""
+   },
    "updated_at": "",
   }
 ```

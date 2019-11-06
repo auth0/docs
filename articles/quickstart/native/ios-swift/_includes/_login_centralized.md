@@ -6,7 +6,7 @@ This tutorial demonstrates how to add user login to a Swift application using We
 
 <%= include('../../_includes/_getting_started', { library: 'Swift' }) %>
 
-Add your credentials in the `Auth0.plist` file. If the file does not exist in your project yet, create it:
+Add your credentials in `Auth0.plist`. If the file does not exist in your project yet, create one with the information below ([Apple documentation on Property List Files](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html)):
 
 ```xml
 <!-- Auth0.plist -->
@@ -114,6 +114,7 @@ To learn more about the `credentials` object, read the [Credentials](https://git
 
 ## Implement logout
 To clear the session on the server side you need to invoke the `clearSession` method. Add the following snippet:
+
 ```swift
 // HomeViewController.swift
 @swift
@@ -128,11 +129,13 @@ Auth0
         }
     }
 ```
+
 Go to your [Dashboard Settings](${manage_url}/#/applications/${account.clientId}/settings) and make sure that the **Allowed Logout URL** field contains the following logout callback URL:
 
 ```text
 {PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
 ```
+
 After the call, the callback will receive a BOOL with the logout status.
 
 ::: note

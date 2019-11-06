@@ -34,14 +34,14 @@ If you don’t need to know ahead of time (for example, all of your users are in
 
 ### Application driven HRD
 
-A common and effective way for determining which realm a user belongs to is when an application is branded for each organization.  The organization has its own instance of the application.  This copy or instance can be physically isolated (running on a separate set of servers) or virtually isolated (running on shared servers, but presented as if it could be isolated), and is generally denoted through either a custom hostname (companyA.application1.yourcompany.com) or path (application1.yourcompany.com/companyA).
+A common and effective way for determining which realm a user belongs to is when an application is branded for each organization.  The organization has its own instance of the application.  This copy or instance can be physically isolated (running on a separate set of servers) or virtually isolated (running on shared servers, but presented as if it could be isolated), and is generally denoted through either a custom hostname (`companyA.application1.yourcompany.com`) or path (`application1.yourcompany.com/companyA`).
 
 ::: warning
 This method will only work if you are not sharing users between organizations.  If you are sharing users within organizations, then you must support [Home Realm Discovery on the Universal Login Page](#hrd-through-universal-login)
 :::
 
 ::: panel Best practice
-If your application already knows what connection (IdP) the user needs, then pass that along when you redirect the user to /authorize using the connection query parameter.
+If your application already knows what connection (IdP) the user needs, then pass that along when you redirect the user to `/authorize` using the connection query parameter.
 :::
 
 If this is the case for your application(s) then home realm discovery is a simple matter of storing the Auth0 connection name with the organization specific application configuration and sending that connection name as a parameter when redirecting the user for Universal Login. Sending the connection parameter can be achieved by adding it as a query parameter when you redirect them to the authorize endpoint. For more information see the [Authentication API docs](/api/authentication#authorization-code-flow); however, you will generally accomplish this using the SDK for whichever language your application is written in.
@@ -94,7 +94,7 @@ The other simple option is to allow your users to choose from a list, if you don
 
 ## Enterprise Login
 
-The “bring your own identity” scenario has become a must-have for almost all B2B applications.  Most enterprise companies expect to be able to integrate their IdP into your application so their employees don't need to store another set of credentials.  This is a valuable way of simplifying the user authentication experience without compromising security, and using [Universal Login](#universal-login) makes it easy to start adding support for [Enterprise Connections](https://auth0.com/docs/identityproviders#enterprise) with minimal disruption.
+The “bring your own identity” scenario has become a must-have for almost all B2B applications.  Most enterprise companies expect to be able to integrate their IdP into your application so their employees don't need to store another set of credentials.  This is a valuable way of simplifying the user authentication experience without compromising security, and using [Universal Login](#universal-login) makes it easy to start adding support for [Enterprise Connections](/connections/identity-providers-enterprise) with minimal disruption.
 
 ::: panel Best Practice
 Once you start supporting enterprise connections for users, you must do some form of [Home Realm Discovery](#home-realm-discovery) so that you can determine which connection to send the user to for authentication.
@@ -103,7 +103,7 @@ Once you start supporting enterprise connections for users, you must do some for
 With enterprise connection support, user identities and credentials are managed by the identity provider of your customers' organization, as well as certain identity claims - which Auth0 will use to populate the user [profile](/architecture-scenarios/implementation/b2b/b2b-profile-mgmt).
 
 ::: panel Best Practice
-"Bring your own identity" is a great feature to provide, but if you don't support this from day one, and sometimes even if you do, you may have an organization that wants to switch to their own IdP after already having used the application for a while.  You will need a way to [Link User Accounts](https://auth0.com/docs/link-accounts) (a.k.a. Account Linking) to provide an effective way of associating the new identity with the old database identity.
+"Bring your own identity" is a great feature to provide, but if you don't support this from day one, and sometimes even if you do, you may have an organization that wants to switch to their own IdP after already having used the application for a while.  You will need a way to [Link User Accounts](/link-accounts) (a.k.a. Account Linking) to provide an effective way of associating the new identity with the old database identity.
 :::
 
 ## Multi-factor authentication (MFA)

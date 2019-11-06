@@ -1,0 +1,8 @@
+changed:
+  -
+    title: "Passwordless connections with hooks"
+    tags:
+      - hooks
+      - passwordless
+    description: |
+      Updated documentation to reflect that passwordless connections now work with the pre-user-registration and post-user-registration hooks.

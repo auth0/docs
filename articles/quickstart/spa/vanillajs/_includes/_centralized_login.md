@@ -392,6 +392,6 @@ const updateUI = async () => {
 // ..
 ```
 
-Note that calls to the SDK instance can throw an exception if the authentication fails, if there is no user currently authenticated, or if the token needs to be refreshed and that request fails. You will need to put a try/catch block around them to correctly handle any errors. These error checks are not shown in the article but they are available on the final sample app that you can download.
+Note that calls to the SDK instance can throw an exception if the authentication fails, if there is no user currently authenticated, or if the access token needs to be refreshed and that request fails. You will need to put a try/catch block around them to correctly handle any errors. These error checks are not shown on the article but they are available on the final sample app that you can download.
 
 > **Checkpoint:** Go ahead and run the project for the last time. Now if the user is authenticated you will get to see their access token and profile data. See how this content disappears when you log out.

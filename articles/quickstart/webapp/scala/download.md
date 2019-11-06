@@ -15,7 +15,7 @@ http://localhost:3000
 3) Make sure [Scala](https://www.scala-lang.org/download/) is installed and execute the following commands in the sample's directory:
 
 ```bash
-sbt run
+sbt "run 3000"
 ```
 
 You can also run it from a [Docker](https://www.docker.com) image with the following commands:

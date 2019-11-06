@@ -108,6 +108,18 @@ Besides the limitation of 100 logs per request to retrieve logs, you may only pa
 
 If you get the error `414 Request-URI Too Large` this means that your query string is larger than the supported length. In this case, refine your search.
 
+::: panel Private Cloud Users
+For Private Cloud users searching tenant logs, note that only the following fields are searchable at this time: 
+
+* `user`
+* `connection`
+* `application`
+* `type`
+* `ip`
+
+Use double quotes for exact searches (e.g., `application:"test"` will search for all log entries specific to the application named `test`, but `application:test` will search log entries for applications with test in their name.
+:::
+
 ## Other log endpoints
 
 As an alternative or complement to retrieving logs by checkpoint or search criteria using the [/api/v2/logs](/api/v2#!/Logs/get_logs) endpoint, you can also use the following endpoints to look for logs:

@@ -53,7 +53,7 @@ When users are isolated to the organization, this can provide a nice clean barri
 You need to provision those users at the IdP level.  Each of the organizations will have its own IdP for accomplishing this.  This IdP will come in one of three flavors:
 
 * **Your Auth0 Tenant is the IdP**: A Database Connection in your main tenant dedicated to this organization.
-* **Organizations bring their own IdP**: You setup an Enterprise Connection for them.
+* **Organizations bring their own IdP**: You set up an Enterprise Connection for them.
 * **Organizations with more than one IdP**: This situation is a little more tricky, you have multiple options for approaching this situation, here they are in decending order of complexity:
     * You convince them to (or find that they already have) one master IdP that can route to their individual IdPs
     * You create separate Organizations (e.g. customerorg-department1 and customerorg-department2) in your applications

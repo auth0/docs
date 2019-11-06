@@ -180,7 +180,7 @@ Use this endpoint for API-based (active) authentication. Given the user credenti
 | `password` <br/><span class="label label-danger">Required</span> | Password of the user to login |
 | `connection` <br/><span class="label label-danger">Required</span> | The name of the connection to use for login |
 | <dfn data-key="scope">`scope`</dfn> | Set to `openid` to retrieve also an ID Token, leave null to get only an Access Token |
-| `grant_type` <br/><span class="label label-danger">Required</span> | Set to `password` to authenticate using username/password or `urn:ietf:params:oauth:grant-type:jwt-bearer` to authenticate using an ID Token (used to [Authenticate users with Touch ID](/connections/passwordless/ios-touch-id-swift)) |
+| `grant_type` <br/><span class="label label-danger">Required</span> | Set to `password` to authenticate using username/password or `urn:ietf:params:oauth:grant-type:jwt-bearer` to authenticate using an ID Token instead of username/password, in [Touch ID](/libraries/lock-ios/touchid-authentication) scenarios. |
 | `device` | String value. Required when `grant_type` is `urn:ietf:params:oauth:grant-type:jwt-bearer` |
 | `id_token` | Used to authenticate using a token instead of username/password, in [Touch ID](/libraries/lock-ios/touchid-authentication) scenarios. Required when `grant_type` is `urn:ietf:params:oauth:grant-type:jwt-bearer` |
 
@@ -219,5 +219,3 @@ For the complete error code reference for this endpoint, refer to [Errors > POST
 - [Rate Limits on User/Password Authentication](/connections/database/rate-limits)
 
 - [Active Directory/LDAP Connector](/connector)
-
-- [Authenticate users with Touch ID](/connections/passwordless/ios-touch-id-swift)

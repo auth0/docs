@@ -58,13 +58,9 @@ For more information on how this flow works and how to implement it, refer to [A
 
 ### Implicit Grant
 
-In this case, instead of getting an authorization code that needs to be exchanged for an Access Token, the Application directly retrieves an Access Token. On the plus side, this is more efficient since it reduces the number of round trips required to get an Access Token. However, a security consideration is that **the Access Token is exposed on the client side**. Also, note that this flow does not return a Refresh Token because the browser cannot keep it private (read the __SPAs and Refresh Tokens__ panel for a workaround).
+In this case, instead of getting an authorization code that needs to be exchanged for an Access Token, the Application directly retrieves an Access Token. On the plus side, this is more efficient since it reduces the number of round trips required to get an Access Token. However, a security consideration is that **the Access Token is exposed on the client side**. Also, note that this flow does not return a Refresh Token because the browser cannot keep it private. 
 
 For more information on how this flow works and how to implement it, refer to [Implicit Flow](/flows/concepts/implicit).
-
-::: panel SPAs and Refresh Tokens
-While SPAs using the Implicit Grant cannot use [Refresh Tokens](/tokens/refresh-token), they can take advantage of other mechanics that provide the same function. A workaround to improve user experience is to use `prompt=none` when you invoke [the /authorize endpoint](/api/authentication#implicit-grant). This will not display the login dialog or the consent dialog. For more information on this, refer to [Silent Authentication](/api-auth/tutorials/silent-authentication). In addition, if you call `/authorize` from a hidden iframe and extract the new [Access Token](/tokens/access-tokens) from the parent frame, then the user will not see the redirects happening.
-:::
 
 ## Is the Client a Native/Mobile App?
 

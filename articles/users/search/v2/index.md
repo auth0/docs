@@ -16,7 +16,7 @@ useCase:
 # User Search
 
 ::: version-warning
-User search v2 has reached its end of life as of **June 30, 2019**. For information on migrating from user search v2 to v3, see [Migrate from search engine v2 to v3](/users/search/v3/migrate-search-v2-v3).
+For all deployment models except Private Cloud, user search v2 has reached its end of life as of **June 30, 2019**. For information on migrating from user search v2 to v3, see [Migrate from search engine v2 to v3](/users/search/v3/migrate-search-v2-v3).
 :::
 
 Auth0 allows you, as an administrator, to search for users using [Lucene Query Syntax](http://www.lucenetutorial.com/lucene-query-syntax.html).

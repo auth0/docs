@@ -11,9 +11,9 @@ useCase: extensibility-hooks
 ---
 # Hooks
 
-Hooks are Webtasks associated with specific extensibility points of the Auth0 platform, which allow you to customize the behavior of Auth0 with custom code using Node.js. When using [Database Connections](/connections/database), Auth0 invokes the Hooks at runtime to execute custom logic.
+Hooks are secure, self-contained functions running on Auth0's serverless environment and associated with specific extensibility points of the Auth0 platform; they allow you to customize the behavior of Auth0 with custom code using Node.js. When using [Database Connections](/connections/database) or [Passwordless Connections](/connections/passwordless), Auth0 invokes the Hooks at runtime to execute custom logic.
 
-When using [Database Connections](/connections/database), Hooks allow you to customize the behavior of Auth0 using Node.js code that executes against extensibility points (which are comparable to webhooks that come with a server). Hooks allow you modularity when configuring your Auth0 implementation, and extend the functionality of base Auth0 features.
+When using either of the two supported connection types ([Database Connections](/connections/database) and [Passwordless Connections](/connections/passwordless)), Hooks allow you to customize the behavior of Auth0 using Node.js code that executes against extensibility points (which are comparable to webhooks that come with a server). Hooks allow you modularity when configuring your Auth0 implementation and extend the functionality of base Auth0 features.
 
 ::: warning How to Handle Rate Limits when calling Auth0 APIs
 For scripts that call Auth0 APIs, you should always handle rate limiting by checking the X-RateLimit-Remaining header and acting appropriately when the number returned nears 0. You should also add logic to handle cases in which you exceed the provided rate limits and receive the HTTP Status Code 429 (Too Many Requests); in this case, if a re-try is needed, it is best to allow for a back-off to avoid going into an infinite re-try loop. For more information about rate limits, see [Rate Limit Policy For Auth0 APIs](/policies/rate-limits).

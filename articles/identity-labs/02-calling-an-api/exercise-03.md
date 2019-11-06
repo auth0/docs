@@ -55,7 +55,7 @@ app.get('/expenses', requiresAuth(), async (req, res, next) => {
 
     // ... with this 👇
     let tokenSet = req.openid.tokens;
-    if(tokenSet.expired()) {
+    if (tokenSet.expired()) {
       tokenSet = await req.openid.client.refresh(tokenSet);
       tokenSet.refresh_token = req.openid.tokens.refresh_token;
       req.openid.tokens = tokenSet;

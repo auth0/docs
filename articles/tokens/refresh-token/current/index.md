@@ -352,3 +352,5 @@ For information on using Refresh Tokens with our mobile SDKs, see:
 ## Next steps
 
 * [Refresh Tokens: When to use them and how they interact with JWTs](https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/)
+
+<script type="text/javascript" src="https://my.hellobar.com/0a0898d29aca1681ebd408f7a9ba5c3c16a44862.js"></script>

@@ -39,7 +39,7 @@ When using OIDC applications, the best option is to have the users start the log
 
 To setup IdP-Initiated SSO, go to the [Enterprise Connections](${manage_url}/#/connections/enterprise) section of the dashboard and choose **SAMLP Identity Provider**. Under the **Settings** section you can see the configuration for IdP-Initiated SSO.
 
-![](/media/articles/protocols/saml/idp-init-sso.png)
+![Configure SAML Idp-Initiated SSO Settings](/media/articles/dashboard/connections/enterprise/conn-enterprise-saml-idp-initiated-sso.png)
 
 **Default Application:** When the IdP initiated login succeeds this is the application where users are routed. This setting shows available applications enabled for this connection. Select the application from the dropdown that you want the users to login with IdP initiated. Only one application can be selected for an IdP-initiated login per SAML connection.
 

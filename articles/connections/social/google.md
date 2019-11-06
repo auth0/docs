@@ -46,7 +46,7 @@ While setting up your app, make sure you use the following settings:
 If your application requests sensitive OAuth <dfn data-key="scope">scopes</dfn>, it may be [subject to review by Google](https://developers.google.com/apps-script/guides/client-verification).
 :::
 
-## 2. Enable the **Google Admin SDK Service**
+## 2. Enable the Admin SDK Service
 
 To learn how, follow Google's [Enable and disable APIs](https://support.google.com/googleapi/answer/6158841) doc.
 

@@ -232,12 +232,15 @@ Use the following command to create the controller that will handle user logout:
 rails generate controller logout
 ```
 
+To clear out all the objects stored within the session, call the `reset_session` method within the `logout_controller/logout` method. [Learn more about reset_session here](http://api.rubyonrails.org/classes/ActionController/Base.html#M000668).
+
 ```ruby
 # app/controllers/logout_controller.rb
 
 class LogoutController < ApplicationController
   include LogoutHelper
   def logout
+    reset_session
     redirect_to logout_url.to_s
   end
 end

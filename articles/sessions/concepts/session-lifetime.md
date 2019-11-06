@@ -33,7 +33,7 @@ If you redirect the user back to the application after logout and the applicatio
 
 In the case a user has not taken any actions that would cause the Auth0 session to be updated it is recommended that warning be raised to the user to choose to explicitly continue their session.
 
-The intent of this approach allows the session to go inactive if the user is no longer present, but otherwise provides a means to trigger the silent token refresh so that the can continue their session without the need to be prompted again for credentials.
+The intent of this approach allows the session to go inactive if the user is no longer present, but otherwise provides a means to trigger the silent token refresh so that they can continue their session without the need to be prompted again for credentials.
 
 * **Inactivity Timer**: A rolling timer should be added to the React SDK wrapper that aligns with the maximum idle lifetime of the Auth0 session.  Each time a token is returned to the application the timer should be reset.
 

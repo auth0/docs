@@ -17,7 +17,7 @@ The Auth0 Authentication API Webhooks Extension is a scheduled job that allows y
 To complete installation of this extension, click on the Auth0 Authentication API Webhooks box in the list of provided extensions on the Extensions page of the Management Portal. In the "Install Extension" window that then pops open, you will be asked to provide the following configuration variables:
 
 - __Schedule__: The frequency with which the job runs
-- __Batch_Size__: The amount of logs the extension will attempt to read and send on each execution. Extension could send multiple batches per run, depending on amount of time necessary to process.
+- __Batch_Size__: The amount of logs the extension will attempt to read and send on each execution. Extension could send multiple batches per run, depending on amount of time necessary to process. Maximum batch size is 100.
 - __Webhook_URL__: The URL of your webhook
 - __Authorization__: String to be added as `Authorization` header.
 - __Send_as_Batch__: If enabled, the extension will send the whole batch of logs to the webhook in a single request. Otherwise, extension sends logs one-by-one to webhook. Only disable if your webhook does not support batched messages.
