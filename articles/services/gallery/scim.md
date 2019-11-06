@@ -34,13 +34,6 @@ While setting up your app, make sure you use the following settings:
 * On the **OAuth consent screen**, under **Authorized domains**, add `auth0.com`.
 * When asked to select an application type, choose **Web application** and set the following parameters:
 
-| Field | Description |
-| - | - |
-| Name | The name of your application. |
-| Authorized JavaScript origins | `https://${account.namespace}` |
-| Authorized redirect URIs | `https://${account.namespace}/login/callback` |
-
-<%= include('../_find-auth0-domain-redirects') %>
 
 ::: warning
 If your application requests sensitive OAuth <dfn data-key="scope">scopes</dfn>, it may be [subject to review by Google](https://developers.google.com/apps-script/guides/client-verification).
@@ -58,10 +51,3 @@ To learn how, follow Google's [Enable and disable APIs](https://support.google.c
 
 You're ready to [test your connection](/dashboard/guides/connections/test-connections-social).
 
-## Access Google's API.
-
-<%= include('../_call-api', {
-  "idp": "Google"
-}) %>
-
-<%= include('../_quickstart-links.md') %>
