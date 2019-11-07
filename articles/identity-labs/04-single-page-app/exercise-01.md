@@ -215,7 +215,7 @@ You are now making use of the `isAuthenticated()` method provided by the SPA SDK
   // Add the code below 👇
   logInButton.onclick = async () => {
     await auth0Client.loginWithRedirect({
-      redirect_uri: '${account.callback}'
+      redirect_uri: 'http://localhost:5000/#callback'
     });
   };
 
@@ -236,7 +236,7 @@ The `redirect_uri` property passed to the `loginWithRedirect()` method defines t
   // Add the code below 👇
   logOutButton.onclick = () => {
     auth0Client.logout({
-      returnTo: 'http://localhost:5000/#callback'
+      returnTo: 'http://localhost:5000'
     });
   };
 
