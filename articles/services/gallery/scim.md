@@ -3,7 +3,7 @@ title: System for Cross-domain Identity Management (SCIM)
 connection: SCIM
 index: 1
 image: /media/articles/services/gallery/scim.png
-description: add SCIM functionality to your solution with Professional Services custom extensibility.
+description: Add SCIM functionality to your solution with Professional Services custom extensibility.
 alias:
  - SCIM
 seo_alias: SCIM
