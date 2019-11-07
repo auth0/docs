@@ -30,9 +30,7 @@ The initial Go-Live milestone is designed to be impactful enough to make materia
 
 The last milestone, Advanced Go-Live, can be broken into multiple sub-milestones, especially if you have multiple applications or development teams. This helps manage the complexity of a large project and achieves incremental and steady progress. 
 
-::: note
-We provide continuous education and knowledge transfer throughout any engagement. If any part of your project requires more specialized attention and/or implementation assistance from an Auth0 Solution Architect, then we'd be happy to help you understand how additional Professional Services can further help you to reach your goal.
-:::
+<%= include('./_includes/_further-help.md') %>
 
 ## Keep reading
 
