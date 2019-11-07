@@ -1,6 +1,6 @@
 ---
 title: System for Cross-domain Identity Management (SCIM)
-connection: System for Cross-domain Identity Management
+connection: SCIM
 index: 1
 image: /media/articles/services/gallery/scim.png
 description: add SCIM functionality to your solution with Professional Services custom extensibility.

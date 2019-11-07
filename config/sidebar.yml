@@ -1473,6 +1473,15 @@ articles:
 
       - title: "Gallery"
         url: "/services/gallery"
+        children:
+          - title: "SCIM"
+            url: "/services/gallery/scim"
+
+          - title: "Verified Email Address Change"
+            url: "/services/gallery custom-implementation"
+
+          - title: "Maintain and Improve"
+            url: "/services/maintain-and-improve"
 
       - title: "Architectural Design Sessions"
         url: "/services/architectural-design"

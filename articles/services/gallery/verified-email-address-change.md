@@ -1,7 +1,7 @@
 ---
 title: Verified Email Address Change
 connection: Verified Email Address Change
-index: 1
+index: 2
 image: /media/articles/services/gallery/verified-email-address-change.png
 description: Learn how to add login functionality to your app with Google. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
 alias:
