@@ -1,53 +1,34 @@
 ---
-title: Add Google Login to Your App
-connection: Google
+title: System for Cross-domain Identity Management (SCIM)
+workflow: SCIM
 index: 1
 image: /media/articles/services/gallery/scim.png
-description: Learn how to add login functionality to your app with Google. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
+description: add SCIM functionality to your solution with Professional Services custom extensibility.
 alias:
- - gmail
- - google-oauth
- - google-oauth2
-seo_alias: google
+ - SCIM
+seo_alias: SCIM
 toc: true
 topics:
-  - authentication
-  - connections
-  - social
-  - google
+  - SCIM
 contentType: how-to
 useCase:
-    - add-login
-    - customize-connections
-    - add-idp
+    - PS
+    - custom-extensibility
+    - SCIM
 ---
-# Add Google Login to Your App
+# System for Cross-domain Identity Management (SCIM)
 
-This guide will show you how to add functionality to your web app that allows your users to log in with Google. Along the way, you will also learn how to get an <dfn data-key="access-token">Access Token</dfn> that will allow you to access the Google API.
+SCIM - the System for Cross-domain Identity Management - is a standardized protocol and schema for provisioning, deprovisioning, and managing user identity-related information across systems. If you're developing a cloud application or service that is intended to be used by one or more enterprise organizations, SCIM provides a standardized way for these organizations to programmatically provision, deprovision, and manage user account records in your application. 
 
-## 1. Set up your app in Google
+Customized extensibility provided by the Auth0 Professional Services allows you to protoype and deploy to production, SCIM 2.0 based user provisioning, deprovisioning, and management for any application using Auth0 as its user identity front end. It works by implementing an a SCIM 2.0 server that translates all SCIM messages into the format required by your identity API.
 
-To learn how, follow Google's [Setting up OAuth 2.0](https://support.google.com/googleapi/answer/6158849) doc. During this process, Google will generate a **Client ID** and **Client Secret** for your application; make note of these.
+## SCIM protocol operations supported
+* Create users via HTTP POST, as described in RFC7644 Section 3.3
+* Retrieve users via HTTP GET, as described in RFC7644 Section 3.4.1
+* Update users via HTTP PATCH, as described in RFC7644 Section 3.5.2
+* Partial implementation of searching for users via HTTP GET, as described in RFC7644 Section 3.4.2. 
 
-While setting up your app, make sure you use the following settings:
-
-* On the **OAuth consent screen**, under **Authorized domains**, add `auth0.com`.
-* When asked to select an application type, choose **Web application** and set the following parameters:
-
-
-::: warning
-If your application requests sensitive OAuth <dfn data-key="scope">scopes</dfn>, it may be [subject to review by Google](https://developers.google.com/apps-script/guides/client-verification).
-:::
-
-## 2. Enable the Admin SDK Service
-
-To learn how, follow Google's [Enable and disable APIs](https://support.google.com/googleapi/answer/6158841) doc.
-
-## 3. Create and enable a connection in Auth0
-
-[Set up the Google social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **Client ID** and **Client Secret** generated in Step 1.
-
-## 4. Test the connection
-
-You're ready to [test your connection](/dashboard/guides/connections/test-connections-social).
+## SCIM schemas supported
+* Core schema for user resources, as defined in RFC Sections 3.1, 4.1, 4.1.1, and 4.1.2
+* Enterprise schema for user resources, as defined in RFC Section 4.3
 

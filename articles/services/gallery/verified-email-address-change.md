@@ -1,8 +1,8 @@
 ---
-title: Add Google Login to Your App
-connection: Google
+title: Verified Email Address Change
+workflow: Verified Email Address Change
 index: 1
-image: /media/services/gallery/verified-email-address-change.png
+image: /media/articles/services/gallery/verified-email-address-change.png
 description: Learn how to add login functionality to your app with Google. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
 alias:
  - gmail

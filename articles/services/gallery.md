@@ -2,10 +2,11 @@
 title: Professional Services Gallery
 description: Gallery of Professional Services extensions.
 topics:
-  - gallery
-  - extension
+	- gallery
+	- extension
 contentType: 
-    - reference
+    - index
+    - concept
 useCase:
   - ps-extensions
 ---
