@@ -21,35 +21,9 @@ useCase:
     - customize-connections
     - add-idp
 ---
-# Add Google Login to Your App
+# Verified Email Address Change
 
-This guide will show you how to add functionality to your web app that allows your users to log in with Google. Along the way, you will also learn how to get an <dfn data-key="access-token">Access Token</dfn> that will allow you to access the Google API.
+Self-service typically provides users with the ability to change one or more aspects of their user profile. Commonly referred to as MyAccount or MyProfile functionality, this often includes the capability for a user to change his/her email address in cases where an existing email address is no longer valid or preferred. Self-service email address change without the proper controls however can lead to various account management issues, and/or expose security vulnerabilities which can be exploited. Verified Email Address Change workflow is provided by Auth0 Professional Services as a customized extensibility solution, which leverages Auth0 functionality to address the problems that can occur in unverified email address change scenarios. 
 
-## 1. Set up your app in Google
-
-To learn how, follow Google's [Setting up OAuth 2.0](https://support.google.com/googleapi/answer/6158849) doc. During this process, Google will generate a **Client ID** and **Client Secret** for your application; make note of these.
-
-While setting up your app, make sure you use the following settings:
-
-* On the **OAuth consent screen**, under **Authorized domains**, add `auth0.com`.
-* When asked to select an application type, choose **Web application** and set the following parameters:
-
-
-::: warning
-If your application requests sensitive OAuth <dfn data-key="scope">scopes</dfn>, it may be [subject to review by Google](https://developers.google.com/apps-script/guides/client-verification).
-:::
-
-## 2. Enable the Admin SDK Service
-
-To learn how, follow Google's [Enable and disable APIs](https://support.google.com/googleapi/answer/6158841) doc.
-
-## 3. Create and enable a connection in Auth0
-
-[Set up the Google social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **Client ID** and **Client Secret** generated in Step 1.
-
-## 4. Test the connection
-
-You're ready to [test your connection](/dashboard/guides/connections/test-connections-social).
-
-## Access Google's API.
+<%= include('./_includes/_further-help.md') %>
 
