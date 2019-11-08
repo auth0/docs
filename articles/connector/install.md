@@ -88,12 +88,24 @@ Test 4: Attempts to establish a connection to the Auth0 server.
 
 If Test 4 fails, check network connectivity and firewall settings that might prevent such a connection.
 
+<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
+setTimeout(function() {
   $(document).ready(function() {
     $.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {
-      $('.download-link').attr('href', data.url);
-      $('.download-version').text('Current version: ' + data.version);
-      $('.checksum').text('Checksum (SHA1): ' + data.checksum);
+      var dhLink = $('.download-link');
+      if(dhLink) { 
+        dhLink.attr('href', data.url); 
+      }
+      var dhVersion = $('.download-version');
+      if(dhVersion) { 
+        dhVersion.text('Current version: ' + data.version);
+      }
+      var dhChecksum = $('.checksum');
+      if(dhChecksum) { 
+        dhChecksum.text('Checksum (SHA1): ' + data.checksum);
+      }
     });
   });
+}, 500);
 </script>

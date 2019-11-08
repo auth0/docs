@@ -64,7 +64,7 @@ The tooltip will indicate the current status and the installed version.
 Download the Windows Installer from:
 
 <div class="platform-selector">
-  <div class="installers"  style="display: block; margin: auto;">
+  <div class="installers" style="display: block; margin: auto;">
     <ul>
       <li>
         <a class="download-link" href="https://cdn.auth0.com/adldap.msi">
@@ -86,7 +86,7 @@ OR
 Use the GitHub repository for other platforms: 
 
 <div class="platform-selector">
-  <div class="installers"  style="display: block; margin: auto;">
+  <div class="installers" style="display: block; margin: auto;">
     <ul>
       <li>
         <a class="download-github" href="https://github.com/auth0/ad-ldap-connector/releases/">
@@ -142,21 +142,22 @@ setTimeout(function() {
     $.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {
       var dhLink = $('.download-link');
       if(dhLink) { 
-        dhLink.attr('href', data.url);
+        dhLink.attr('href', data.url); 
       }
       var dhVersion = $('.download-version');
       if(dhVersion) { 
-        dhVersion.attr('text', 'Current version: ' + data.version); 
+        dhVersion.text('Current version: ' + data.version);
       }
       var dhChecksum = $('.checksum');
       if(dhChecksum) { 
-        dhChecksum.attr('text', 'Checksum (SHA1): ' + data.checksum); 
+        dhChecksum.text('Checksum (SHA1): ' + data.checksum);
       }
+
       var dhGithub = $('.download-github');
       if(dhGithub) { 
-        dhGithub.attr('href', 'https://github.com/auth0/ad-ldap-connector/releases/tag/v' + data.version); 
+        dhGithub.attr('href', 'https://github.com/auth0/ad-ldap-connector/releases/tag/v' + data.version); 
       }
     });
   });
-  }, 500);
+}, 500);
 </script>

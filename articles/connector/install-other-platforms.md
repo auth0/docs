@@ -90,7 +90,7 @@ setTimeout(function() {
       if(dhGithub) { 
         dhGithub.attr('href', 'https://github.com/auth0/ad-ldap-connector/releases/tag/v' + data.version); 
       }
-      var curlExample = $('.curl-example')
+      var curlExample = $('.curl-example');
       if(curlExample) { 
         curlExample.text('curl -Lo /tmp/adldap.tar.gz https://github.com/auth0/ad-ldap-connector/archive/v' + data.version + '.tar.gz'); 
       }
