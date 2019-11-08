@@ -13,7 +13,7 @@ v2: true
 
 For [Database Connections](/connections/database) and [Passwordless Connections](/connections/passwordless), the Pre-User Registration extensibility point allows you to add custom data points to a newly-created user's profile.
 
-This allows you to implement scenarios such as setting conditional information (in the form of [metadata](/users/concepts/overview-user-metadata) on users that do not exist yet.
+This allows you to implement scenarios such as setting conditional information (in the form of [metadata](/users/concepts/overview-user-metadata) on users that do not exist yet).
 
 Implement a [Hook](/hooks) using this extensibility point with either the [Dashboard](/hooks/guides/create-hooks-using-dashboard) or the [Command Line Interface](/hooks/guides/create-hooks-using-cli). 
 
