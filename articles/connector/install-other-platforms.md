@@ -81,7 +81,7 @@ For most platforms, you will need to run the required commands with root privile
 If you get an `Invalid Ticket` message when configuring the Connector for the first time, the most likely cause is a network issue (for example, you have the Connector running behind a proxy). Try troubleshooting by connecting to `https://YOUR_TENANT.auth0.com/testall` with a browser other than Internet Explorer.
 :::
 
-<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
 setTimeout(function() {
   $(document).ready(function() {
@@ -97,4 +97,5 @@ setTimeout(function() {
     });
   });
 }, 500);
+//# sourceURL=test3.js
 </script>
