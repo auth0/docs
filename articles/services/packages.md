@@ -19,7 +19,8 @@ Auth0 Professional Services provide packaged offerings are designed to optimize 
 
 <h3 class="anchor-heading">
 	<span class="anchor"><i class="icon icon-budicon-345"></i></span>
-	<a data-trackOutbound href="/media/articles/services/Auth0-Services-Discovery-Workshop.pdf">Discovery Workshop</a>
+	<a data-trackOutbound href="/media/articles/services/Auth0-Services-Discovery-Workshop.pdf">
+		<img src="/media/articles/services/file_type_icons-04.png" alt="">&nbsp;Discovery Workshop</a>
 </h3>
 
 * 2 days of services
@@ -27,19 +28,34 @@ Auth0 Professional Services provide packaged offerings are designed to optimize 
 * Expires in 90 days
 * Terms and Conditions apply
 
-### [Basic Package](/media/articles/services/Auth0-Services-Basic.pdf)
+<h3 class="anchor-heading">
+	<span class="anchor"><i class="icon icon-budicon-345"></i></span>
+	<a data-trackOutbound href="/media/articles/services/Auth0-Services-Basic.pdf">
+		<img src="/media/articles/services/file_type_icons-04.png" alt="">&nbsp;Basic Package</a>
+</h3>
+
 * 5 days of services
 * Remote only
 * Expires in 90 days
 * Terms and Conditions apply
 
-### [Standard Package](/media/articles/services/Auth0-Services-Standard.pdf)
+<h3 class="anchor-heading">
+	<span class="anchor"><i class="icon icon-budicon-345"></i></span>
+	<a data-trackOutbound href="/media/articles/services/Auth0-Services-Standard.pdf">
+		<img src="/media/articles/services/file_type_icons-04.png" alt="">&nbsp;Standard Package</a>
+</h3>
+
 * 12 days of services
 * Remote/on-site, as mutually agreed
 * Expires in 180 days
 * Terms and Conditions apply
 
-### [Advanced Package](/media/articles/services/Auth0-Services-Advanced.pdf)
+<h3 class="anchor-heading">
+	<span class="anchor"><i class="icon icon-budicon-345"></i></span>
+	<a data-trackOutbound href="/media/articles/services/Auth0-Services-Advanced.pdf">
+		<img src="/media/articles/services/file_type_icons-04.png" alt="">&nbsp;Advanced Package</a>
+</h3>
+
 * 25 days of services
 * On-site
 * Expires in 180 days
