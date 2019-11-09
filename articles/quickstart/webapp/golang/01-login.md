@@ -20,7 +20,7 @@ github:
 
 ### Add Dependencies
 
-This example uses Go Modules and will download automatically all the needed dependencies during build process.
+This example uses Go Modules and will download automatically all the needed dependencies during the build process.
 
 ::: note
 This example uses `mux` for routing but you can use whichever router you want.
@@ -291,7 +291,7 @@ For information about the userinfo hash, see [User Profile](/users/concepts/over
 
 ## Logout
 
-To log the user out, you have to clear the data from the session, and redirect the user to the Auth0 logout endpoint. You can find more information about this in the [logout documentation](/logout).
+To log the user out, you have to clear the data from the session and redirect the user to the Auth0 logout endpoint. You can find more information about this in the [logout documentation](/logout).
 
 Create a file called `logout.go` in the folder `/routes/logout/logout.go`, and add the function `LogoutHandler` to redirect the user to Auth0's logout endpoint.
 
@@ -369,7 +369,7 @@ This sample is using [js.cookie](https://github.com/js-cookie/js-cookie/tree/lat
 
 #### Checking if the User is Authenticated
 
-We can use [Negroni](https://github.com/codegangsta/negroni) to create a Middleware that will check if the user is Authenticated or not.
+We can use [Negroni](https://github.com/codegangsta/negroni) to create a Middleware that will check if the user is authenticated or not.
 
 We should create a middleware that will check if the `profile` is in the session:
 

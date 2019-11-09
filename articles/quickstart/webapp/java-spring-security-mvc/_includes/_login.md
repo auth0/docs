@@ -7,35 +7,38 @@ The Login project sample has the following structure:
 ├── settings.gradle
 └── src
     ├── main
-    │   ├── java
-    │   │   └── com
-    │   │       └── auth0
-    │   │           └── example
-    │   │               ├── App.java
-    │   │               ├── mvc
-    │   │               │   ├── CallbackController.java
-    │   │               │   ├── ErrorController.java
-    │   │               │   ├── HomeController.java
-    │   │               │   ├── LoginController.java
-    │   │               │   ├── LogoutController.java
-    │   │               │   └── ProfileController.java
-    │   │               ├── security
-    │   │               │   ├── AppConfig.java
-    │   │               │   └── TokenAuthentication.java
-    │   │               └── util
-    │   │                   └── TokenUtils.java
-    │   └── resources
-    │       ├── application.properties
-    │       ├── auth0.properties
-    │       └── templates
-    │           ├── fragments
-    │           │   ├── footer.html
-    │           │   ├── header.html
-    │           │   └── navbar.html
-    │           ├── index.html
-    │           ├── layouts
-    │           │   └── default.html
-    │           └── profile.html
+    │   ├── java
+    │   │   └── com
+    │   │       └── auth0
+    │   │           └── example
+    │   │               ├── App.java
+    │   │               ├── mvc
+    │   │               │   ├── CallbackController.java
+    │   │               │   ├── ErrorController.java
+    │   │               │   ├── HomeController.java
+    │   │               │   ├── LoginController.java
+    │   │               │   ├── LogoutController.java
+    │   │               │   └── ProfileController.java
+    │   │               ├── security
+    │   │               │   ├── AppConfig.java
+    │   │               │   └── TokenAuthentication.java
+    │   │               └── util
+    │   │                   └── TokenUtils.java
+    │   └── resources
+    │       ├── application.properties
+    │       ├── auth0.properties
+    │       ├── public
+    │       │   └── logo.png
+    │       └── templates
+    │           ├── fragments
+    │           │   ├── footer.html
+    │           │   ├── header.html
+    │           │   ├── navbar.html
+    │           │   └── scripts.html
+    │           ├── index.html
+    │           ├── layouts
+    │           │   └── default.html
+    │           └── profile.html
 ```
 
 The application uses [Thymeleaf](https://www.thymeleaf.org/) for view rendering. The two views in our application are:
@@ -45,7 +48,7 @@ The application uses [Thymeleaf](https://www.thymeleaf.org/) for view rendering.
 The access control is handled by the Spring Security framework. A few rules in the `AppConfig.java` class will suffice to check for existing tokens before giving the user access to our protected `/profile` path. If the tokens don't exist, the request will be redirected by the `ErrorController` to the `LoginController`.
 
 The project contains six Controllers:
-- `LoginController.java`: Invoked when the user attempts to login. The controller uses the `client_id` and `domain` parameters to create a valid Authorize URL and redirects the user there.
+- `LoginController.java`: Invoked when the user attempts to log in. The controller uses the `client_id` and `domain` parameters to create a valid Authorize URL and redirects the user there.
 - `CallbackController.java`: Captures requests to our Callback URL and processes the data to obtain the credentials. After a successful login, the credentials are then saved to the request's HttpSession.
 - `HomeController.java`: Renders the `index.html` resource. If the user is logged in, it sets the user's profile information on the Model so the view can display information about the authenticated user.
 - `ProfileController.java`: Sets the authenticated user's profile information on the Model and renders the `profile.html` resource.
@@ -113,7 +116,7 @@ public AuthenticationController authenticationController() throws UnsupportedEnc
 }
 ```
 
-To authenticate the users you will redirect them to the login page which uses [Universal Login](https://auth0.com/docs/universal-login). This page is accessible from what we call the "Authorize URL". By using this library you can generate it with a simple method call. It will require a `HttpServletRequest` to store the call context in the session and the URI to redirect the authentication result to. This URI is normally the address where your app is running plus the path where the result will be parsed, which happens to be also the "Callback URL" whitelisted before. Finally, request the scopes `"openid profile email"` to get back user profile information in the ID token upon login. After you create the Authorize URL, you redirect the request there so the user can enter their credentials. The following code snippet is located on the `LoginController` class of our sample.
+To authenticate the users you will redirect them to the login page which uses [Universal Login](https://auth0.com/docs/universal-login). This page is accessible from what we call the "Authorize URL". By using this library you can generate it with a simple method call. It will require a `HttpServletRequest` to store the call context in the session and the URI to redirect the authentication result. This URI is normally the address where your app is running plus the path where the result will be parsed, which happens to be also the "Callback URL" whitelisted before. Finally, request the scopes `"openid profile email"` to get back user profile information in the ID token upon login. After you create the Authorize URL, you redirect the request there so the user can enter their credentials. The following code snippet is located on the `LoginController` class of our sample.
 
 ```java
 // src/main/java/com/auth0/example/mvc/LoginController.java

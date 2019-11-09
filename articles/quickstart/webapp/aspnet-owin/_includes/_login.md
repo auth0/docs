@@ -24,7 +24,7 @@ There is a bug in Microsoft's OWIN implementation for System.Web, which can caus
 Install-Package Kentor.OwinCookieSaver
 ```
 
-Now go to the `Configuration` method of your `Startup` class and configure the cookie middleware as well as the Auth0 middleware. Also be sure to register the [Kentor OWIN Cookie saver middleware](https://github.com/KentorIT/owin-cookie-saver) which must be added *before* any cookie handling middleware.
+Now go to the `Configuration` method of your `Startup` class and configure the cookie middleware as well as the Auth0 middleware. Also, be sure to register the [Kentor OWIN Cookie saver middleware](https://github.com/KentorIT/owin-cookie-saver) which must be added *before* any cookie handling middleware.
 
 ```cs
 // Startup.cs
@@ -110,7 +110,7 @@ In the code snippet above, note that the `AuthenticationType` is set to **Auth0*
 
 Next, you will need to add `Login` and `Logout` actions to the `AccountController`.
 
-The `Login` action will challenge the OpenID Connect middleware to start the authentication flow. For the `Logout` action you will need to sign the user out of the cookie middleware (which will clear the local application session), as well as the OpenID Connect middleware. For more information, you can refer to the Auth0 [Logout](/logout) documentation.
+The `Login` action will challenge the OpenID Connect middleware to start the authentication flow. For the `Logout` action, you will need to sign the user out of the cookie middleware (which will clear the local application session), as well as the OpenID Connect middleware. For more information, you can refer to the Auth0 [Logout](/logout) documentation.
 
 ```cs
 // Controllers/AccountController.cs
