@@ -31,7 +31,7 @@ The following steps will show you how to set up and run the web application that
 1. Open your Terminal app, clone the [identity exercise repo](https://github.com/auth0/identity-102-exercises/), then go to the `/lab-01/begin` folder:
 
 ```bash
-❯ git clone git@github.com:auth0/identity-102-exercises.git
+❯ git clone https://github.com/auth0/identity-102-exercises.git
 Cloning into 'identity-102-exercises'...
 
 ❯ cd identity-102-exercises/lab-01/begin

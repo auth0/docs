@@ -85,7 +85,6 @@ Create a `browser_action.html` file in `src/browser_action` and provide a view f
           <h5 class="name"></h5>
         </div>
         <hr />
-        <button class="btn btn-danger logout-button">Log Out</button>
       </div>
     </div>
     <div class="loading hidden">
@@ -126,25 +125,6 @@ function isLoggedIn(token) {
   return jwt_decode(token).exp > Date.now() / 1000;
 }
 
-function logout() {
-  // Remove the idToken from storage
-  localStorage.clear();
-  let logoutUrl = new URL('https://${account.namespace}/v2/logout');
-  const params = {
-    client_id: env.AUTH0_CLIENT_ID,
-    returnTo: chrome.identity.getRedirectURL() + 'auth0'
-  };
-  logoutUrl.search = new URLSearchParams(params);
-  chrome.identity.launchWebAuthFlow({
-      'url': logoutUrl.toString()
-    },
-    function(responseUrl) {
-      console.log(responseUrl);
-    }
-  );
-  main();
-}
-
 // Minimal jQuery
 const $$ = document.querySelectorAll.bind(document);
 const $  = document.querySelector.bind(document);
@@ -170,7 +150,6 @@ function renderProfileView(authResult) {
     });
     $('.loading').classList.add('hidden');
     $('.profile').classList.remove('hidden');
-    $('.logout-button').addEventListener('click', logout);
   }).catch(logout);
 }
 
@@ -257,6 +236,51 @@ When the `authenticate` message is received, an `Auth0Chrome` instance is create
 The `Auth0Chrome` constructor takes the **domain** and **client ID** for your application, and the `authenticate` method takes an `options` object which allows you to customize the authentication flow. The `authenticate` method returns a promise and the result from the authentication process can be retrieved when it resolves. In this example, the result is saved in local storage immediately for future use and a Chrome notification is created to let the user know they have successfully logged in.
 
 ![hosted-lock](/media/articles/native-platforms/chrome/02-hosted-lock.png)
+
+## Logout
+
+On the user profile area add a logout button.
+
+```html
+<!-- src/browser_action/browser_action.html -->
+<div id="mainPopup">
+  <div class="profile hidden">
+    ...
+    <button class="btn btn-danger logout-button">Log Out</button>
+  </div>
+  ...
+</div>
+```
+
+Then, create `logout` function to clear the data stored on local storage and log the user out from Auth0 backend.
+
+```js
+// src/browser_action/browser_action.js
+
+function logout() {
+  // Remove the idToken from storage
+  localStorage.clear();
+  let logoutUrl = new URL('https://${account.namespace}/v2/logout');
+  const params = {
+    client_id: env.AUTH0_CLIENT_ID,
+    returnTo: chrome.identity.getRedirectURL() + 'auth0'
+  };
+  logoutUrl.search = new URLSearchParams(params);
+  chrome.identity.launchWebAuthFlow({
+      'url': logoutUrl.toString()
+    },
+    function(responseUrl) {
+      console.log(responseUrl);
+    }
+  );
+  main();
+}
+
+function renderProfileView(authResult) {
+  // ...
+  $('.logout-button').addEventListener('click', logout);
+}
+```
 
 ## Configure Auth0 Application Settings
 
