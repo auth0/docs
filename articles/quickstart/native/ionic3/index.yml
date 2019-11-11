@@ -31,6 +31,7 @@ github:
 requirements:
   - Ionic 3.x
   - Angular 5+
+  - Nodejs 10.17.x
 next_steps:
   - path: 01-login
     list:

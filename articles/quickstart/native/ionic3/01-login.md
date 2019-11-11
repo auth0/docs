@@ -40,11 +40,13 @@ If you are following along with the sample project you downloaded from the top o
 YOUR_PACKAGE_ID://${account.namespace}/cordova/YOUR_PACKAGE_ID/callback
 ```
 
-Add `file` as an allowed origin to the **Allowed Origins (CORS)** box.
+To be able to make requests from your application to Auth0. Set the following origins in your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
 
 ```bash
-file://*
+http://localhost, ionic://localhost, http://localhost:8100
 ```
+
+the origins `http://localhost` and `ionic://localhost` are needed for Android and iOS respectively, and `http://localhost:8100` is needed you're running your application with `livereaload` option.
 
 Lastly, be sure that the **Application Type** for your application is set to **Native** in the application settings.
 
@@ -197,6 +199,7 @@ export class AuthService {
     // Authorize login request with Auth0: open login page and get auth results
     this.Client.authorize(options, (err, authResult) => {
       if (err) {
+        this.zone.run(() => this.loading = false);
         throw err;
       }
       // Set Access Token
