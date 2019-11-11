@@ -126,4 +126,4 @@ Before you test your integration, make sure that you've completed the following 
 ## Keep reading
 
 * [Troubleshooting SAML Configuration](/protocols/saml/saml-configuration/troubleshoot)
-* [How SAML Authentication Works](/https://auth0.com/blog/how-saml-authentication-works/)
+* [How SAML Authentication Works](https://auth0.com/blog/how-saml-authentication-works/)
