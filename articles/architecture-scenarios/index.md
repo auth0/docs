@@ -34,6 +34,18 @@ The goal of these scenarios is to walk you through the implementation process fr
 
 <ul class="topic-links">
   <li>
+    <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/b2b">Business to Business Identity and Access Management</a>
+    <p>SaaS applications with users associated with third-party companies registered as tenants of the SaaS app.</p>
+  </li>
+  <li>
+    <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/b2c">Business to Consumer Identity and Access Management</a>
+    <p>SaaS/eCommerce apps with customers as end users using the OpenID Connect protocol.</p>
+  </li>
+  <li>
+    <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/b2e">Business to Employee Identity Scenarios</a>
+    <p>Enterprise directory services using federation to allow employees to log in to applications using their existing enterprise credentials.</p>
+  </li>
+  <li>
     <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/web-app-sso">Single Sign-On for Regular Web Apps</a>
     <p>Traditional web application which needs to authenticate users using <dfn data-key="openid">OpenID Connect (OIDC)</dfn>.</p>
   </li>
@@ -48,18 +60,6 @@ The goal of these scenarios is to walk you through the implementation process fr
   <li>
     <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/mobile-api">Mobile + API</a>
     <p>Mobile Application which talks to an API. The application will use OpenID Connect with the Authorization Code Grant using Proof Key for Code Exchange (PKCE) to authenticate users.</p>
-  </li>
-  <li>
-    <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/b2b">Business to Business Identity and Access Management</a>
-    <p>SaaS applications with users associated with third-party companies registered as tenants of the SaaS app.</p>
-  </li>
-  <li>
-    <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/b2c">Business to Consumer Identity and Access Management</a>
-    <p>SaaS/eCommerce apps with customers as end users using the OpenID Connect protocol.</p>
-  </li>
-  <li>
-    <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios/b2e">Business to Employee Identity Scenarios</a>
-    <p>Enterprise directory services using federation to allow employees to log in to applications using their existing enterprise credentials.</p>
   </li>
 </ul>
 

@@ -979,65 +979,6 @@ articles:
     url: /architecture-scenarios
 
     children:
-      - title: SSO for Regular Web Apps
-        url: /architecture-scenarios/web-app-sso
-        children:
-           - title: Solution Overview
-             url: /architecture-scenarios/web-app-sso/part-1
-
-           - title: Configuration
-             url: /architecture-scenarios/web-app-sso/part-2
-
-           - title: Implementation
-             url: /architecture-scenarios/web-app-sso/part-3
-
-           - title: Conclusion
-             url: /architecture-scenarios/web-app-sso/part-4
-
-      - title: Server Application + API
-        url: /architecture-scenarios/server-api
-        children:
-           - title: Solution Overview
-             url: /architecture-scenarios/server-api/part-1
-
-           - title: Configuration
-             url: /architecture-scenarios/server-api/part-2
-
-           - title: Implementation
-             url: /architecture-scenarios/server-api/part-3
-
-           - title: Conclusion
-             url: /architecture-scenarios/server-api/part-4
-
-      - title: SPA + API
-        url: /architecture-scenarios/spa-api
-        children:
-           - title: Solution Overview
-             url: /architecture-scenarios/spa-api/part-1
-
-           - title: Configuration
-             url: /architecture-scenarios/spa-api/part-2
-
-           - title: Implementation
-             url: /architecture-scenarios/spa-api/part-3
-
-           - title: Conclusion
-             url: /architecture-scenarios/spa-api/part-4
-
-      - title: Mobile + API
-        url: /architecture-scenarios/mobile-api
-        children:
-           - title: Solution Overview
-             url: /architecture-scenarios/mobile-api/part-1
-
-           - title: Configuration
-             url: /architecture-scenarios/mobile-api/part-2
-
-           - title: Implementation
-             url: /architecture-scenarios/mobile-api/part-3
-
-           - title: Conclusion
-             url: /architecture-scenarios/mobile-api/part-4
 
       - title: Business to Consumer
         url: /architecture-scenarios/b2c
@@ -1053,6 +994,9 @@ articles:
 
             - title: Branding
               url: /architecture-scenarios/implementation/b2c/b2c-branding
+
+            - title: Launch Preparation
+              url: /architecture-scenarios/implementation/b2c/b2c-launch
 
             - title: Deployment Automation
               url: /architecture-scenarios/implementation/b2c/b2c-deployment
@@ -1115,6 +1059,66 @@ articles:
 
       # - title: B2E
       #   url: /architecture-scenarios/b2e
+
+      - title: SSO for Regular Web Apps
+        url: /architecture-scenarios/web-app-sso
+        children:
+           - title: Solution Overview
+             url: /architecture-scenarios/web-app-sso/part-1
+
+           - title: Configuration
+             url: /architecture-scenarios/web-app-sso/part-2
+
+           - title: Implementation
+             url: /architecture-scenarios/web-app-sso/part-3
+
+           - title: Conclusion
+             url: /architecture-scenarios/web-app-sso/part-4
+
+      - title: Server Application + API
+        url: /architecture-scenarios/server-api
+        children:
+           - title: Solution Overview
+             url: /architecture-scenarios/server-api/part-1
+
+           - title: Configuration
+             url: /architecture-scenarios/server-api/part-2
+
+           - title: Implementation
+             url: /architecture-scenarios/server-api/part-3
+
+           - title: Conclusion
+             url: /architecture-scenarios/server-api/part-4
+
+      - title: SPA + API
+        url: /architecture-scenarios/spa-api
+        children:
+           - title: Solution Overview
+             url: /architecture-scenarios/spa-api/part-1
+
+           - title: Configuration
+             url: /architecture-scenarios/spa-api/part-2
+
+           - title: Implementation
+             url: /architecture-scenarios/spa-api/part-3
+
+           - title: Conclusion
+             url: /architecture-scenarios/spa-api/part-4
+
+      - title: Mobile + API
+        url: /architecture-scenarios/mobile-api
+        children:
+           - title: Solution Overview
+             url: /architecture-scenarios/mobile-api/part-1
+
+           - title: Configuration
+             url: /architecture-scenarios/mobile-api/part-2
+
+           - title: Implementation
+             url: /architecture-scenarios/mobile-api/part-3
+
+           - title: Conclusion
+             url: /architecture-scenarios/mobile-api/part-4
 
       - title: Implementation Checklists
         url: /architecture-scenarios/checklists

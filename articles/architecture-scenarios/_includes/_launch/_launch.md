@@ -1,5 +1,3 @@
-# Launch Day Preparation
-
 ## Notifications / announcements
 
 It helps a launch go smoothly if all stakeholders are aware of the impending launch and understand the launch plan as well as their role and responsibilities. In addition to notifying teams that will be actively involved, it can help to notify teams that might be needed if anything goes wrong. Having someone on standby during a launch can help expedite response. Be sure to identify and notify any team that might need to answer questions from customers, including on social media.
