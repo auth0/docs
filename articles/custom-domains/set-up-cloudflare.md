@@ -1,5 +1,5 @@
 ---
-name: Setup Cloudeflare as a Reverse Proxy for Custom Domains
+name: Setup Cloudflare as a Reverse Proxy for Custom Domains
 description: How to set up Cloudflare for use as the custom domain proxy for Auth0
 topics:
   - custom-domains
@@ -24,14 +24,14 @@ To set up Cloudflare as a reverse proxy, a Cloudflare Enterprise Plan with the f
 
 ## Configure Cloudflare
 
-1. Complete the steps on [Configure Custom Domains with Self-Managed Certificates](/custom-domains/self-managed-certificates) if you haven't already. Make note of the **Origin Domain Name** and **cname-api-key**, you'll need these later.
+1. Complete the steps on [Configure Custom Domains with Self-Managed Certificates](/custom-domains/self-managed-certificates) if you haven't already. Make note of the **Origin Domain Name** and **cname-api-key** values since you'll need these later.
 2. [Configure a CNAME setup](https://support.cloudflare.com/hc/en-us/articles/360020615111-Configuring-a-CNAME-setup) with Cloudflare.
-3. Once Cloudflare has verified your domain, login to the [Cloudflare Dashboard](https://dash.cloudflare.com/login).
+3. Once Cloudflare has verified your domain, log in to the [Cloudflare Dashboard](https://dash.cloudflare.com/login).
 4. [Create a new Cloudflare Page Rule](https://support.cloudflare.com/hc/en-us/articles/200172336-Creating-Page-Rules) with the following settings:
 
 | Setting | Value |
 |---------|-------|
-| Host Header Override | Enter `${account.tenant}.<CUSTOM_DOMAIN_ID>.edge.tenants.auth0.com`, replacing `<CUSTOM_DOMAIN_ID>` with the custom domain ID from the **Origin Domain Name** you received from Auth0. If your tenants are not in the US region you have to use one of the following: <ul><li>EU: `${account.tenant}.<CUSTOM_DOMAIN_ID>.edge.tenants.eu.auth0.com`</li><li>AU: `${account.tenant}.<CUSTOM_DOMAIN_ID>.edge.tenants.au.auth0.com`</li></ul> |
+| Host Header Override | Enter `${account.tenant}.<CUSTOM_DOMAIN_ID>.edge.tenants.auth0.com`, replacing `<CUSTOM_DOMAIN_ID>` with the custom domain ID from the **Origin Domain Name** you received from Auth0. If your tenants are not in the US region, use one of the following: <ul><li>EU: `${account.tenant}.<CUSTOM_DOMAIN_ID>.edge.tenants.eu.auth0.com`</li><li>AU: `${account.tenant}.<CUSTOM_DOMAIN_ID>.edge.tenants.au.auth0.com`</li></ul> |
 | True-Client-IP | Select **Enable**. |
 
 5. Next, create and deploy a new [Cloudflare Worker](https://developers.cloudflare.com/workers/) for the configured CNAME using the following script. Replace `<CNAME_API_KEY_VALUE>` below with the **cname-api-key** you received from Auth0:
@@ -50,6 +50,4 @@ async function handleRequest(request) {
 
 ## Configure Auth0
 
-Once you've configured Cloudflare, you'll need to [contact Auth0](https://support.auth0.com/) to enable your tenant to accept the True-Client-IP header as the remote client IP address.
-
-
+Once you've configured Cloudflare, you'll need to [contact Auth0](https://support.auth0.com/). Auth0 will enable your tenant to accept the **True-Client-IP** header as the remote client IP address.
