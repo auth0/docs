@@ -15,8 +15,8 @@ useCase: customize-hosted-pages
 
 Auth0 provides two ways to implement authentication for your applications: 
 
-* Universal Login: users login to your application through a page hosted by Auth0.
-* Embedded Login: users login to your application through a page you host.
+* Universal Login: users log in to your application through a page hosted by Auth0.
+* Embedded Login: users log in to your application through a page you host.
 
 For the vast majority use cases, we recommend Universal Login. It's safe and easy to implement. Check out [our comparison guide](/guides/login/universal-vs-embedded) for more on the differences between Universal Login and Embedded Login within your application.
 
@@ -49,7 +49,7 @@ In addition to configuring Universal Login for your tenant's applications, you w
 
 1. Set up a connection(s) in the [Dashboard](${manage_url}) (Choose **Connections** in the Dashboard's sidebar, then choose a type and pick one to configure, such as a database or a social login provider). 
 1. Set up your application in the [Dashboard](${manage_url}/#/applications). 
-1. Configure your application's code to call Auth0's [`/authorize`](/api/authentication#login) endpoint in order to trigger Universal Login, and then to deal with the response. You can either do this directly, or use one of our SDKs to make the process easier.
+1. Configure your application's code to call Auth0's [`/authorize`](/api/authentication#login) endpoint in order to trigger Universal Login, and then to deal with the response. You can either do this directly or use one of our SDKs to make the process easier.
 
 For step by step instructions on setting up your application to use Universal Login, check out our [Quickstart guides](/quickstarts).
 
@@ -71,4 +71,4 @@ If you select the New Universal Login Experience, you can also configure the fav
 
 ## Embedded Login
 
-Embedded Login refers to implementations where users login on a page hosted by your application, and credentials are sent to Auth0. There are security concerns with this approach since login and authentication take place on the different domains. If you need to implement Embedded Login, you need to have a [custom domain](/custom-domains) set up, so that this can be mitigated. You can then use one of our libraries (Such as the [Lock Widget](/libraries/lock) or [auth0.js SDK](/libraries/auth0js)) to implement login in your application, or do it via our [API](/api/authentication).
+Embedded Login refers to implementations where users log in on a page hosted by your application, and credentials are sent to Auth0. There are security concerns with this approach since login and authentication take place on the different domains. If you need to implement Embedded Login, you need to have a [custom domain](/custom-domains) set up, so that this can be mitigated. You can then use one of our libraries (Such as the [Lock Widget](/libraries/lock) or [auth0.js SDK](/libraries/auth0js)) to implement login in your application, or do it via our [API](/api/authentication).
