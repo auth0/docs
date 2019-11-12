@@ -44,9 +44,7 @@ From a functional perspective, it has much better support for [Localization](/un
 
 - In the Classic Experience you can [configure a url](/email/templates#redirect-to-results-for-the-change-password-email-template) to redirect users after completing the password reset. The URL will receive a success indicator and a message. The New Experience will redirect the users to the [default login route](/universal-login/default-login-url) when it succeeds, and will handle the error cases as part of the Universal Login flow. The Redirect URL in the email template will be ignored.  
 
-::note
-An Application Login URI under application settings will have to be configured for the redirect to successfully work.
-::
+Please note that you must provide an **Application Login URI** under [Application Settings](/dashboard/reference/settings-application) for the redirect URLs to work.
 
 - A 'show password' icon will be displayed next to the password fields.
 
