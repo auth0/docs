@@ -12,7 +12,7 @@ useCase:
   - saml-adfs
 ---
 
-# Setup an ADFS SAML Connection
+# Set Up an ADFS SAML Connection
 
 Create a custom <dfn data-key="security-assertion-markup-language">SAML</dfn> connection to Microsoft's Active Directory Federation Services (ADFS) to get more flexibility when configuring your mappings. 
 
