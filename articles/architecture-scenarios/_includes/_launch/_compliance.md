@@ -2,28 +2,27 @@ There are several requirements related to privacy and compliance. Auth0 cannot p
 
 ## Publish privacy policy and obtain user consent 
 
-If you collect or process personal data about users, you should have published a privacy policy and have established procedures to ensure your operations abide by the contents of the policy. You also need to obtain a user’s consent for the collection and processing of information. Auth0 provides options for [displaying a link to your privacy policy storing user consent](https://auth0.com/docs/compliance/gdpr/features-aiding-compliance#conditions-for-consent).
+If you collect or process personal data about users, you should have published a privacy policy and have established procedures to ensure your operations abide by the contents of the policy. You also need to obtain a user’s consent for the collection and processing of information. Auth0 provides options for [displaying a link to your privacy policy storing user consent](/compliance/gdpr/features-aiding-compliance#conditions-for-consent).
 
 ## Provide access to view, correct and erase data
 
-Privacy legislation often requires that users have the right to view and correct any data held about them. If you are a data controller, you should  provide a mechanism for this. Auth0 customers can [build a self-service feature to access and correct data via the management API](https://auth0.com/docs/compliance/gdpr/features-aiding-compliance#right-to-access-correct-and-erase-data).
+Privacy legislation often requires that users have the right to view and correct any data held about them. If you are a data controller, you should  provide a mechanism for this. Auth0 customers can [build a self-service feature to access and correct data via the management API](/compliance/gdpr/features-aiding-compliance#right-to-access-correct-and-erase-data).
 
 ## Provide access to data portability
 
-If you are a data controller, you may be obligated to provide users a means to export their data from your system in a transportable format. Auth0 provides [user data portability mechanisms](https://auth0.com/docs/compliance/gdpr/features-aiding-compliance#data-portability) to help you satisfy this obligation via both manual export capabilities and the management api which enables you to implement a self-service feature for users.
+If you are a data controller, you may be obligated to provide users a means to export their data from your system in a transportable format. Auth0 provides [user data portability mechanisms](/compliance/gdpr/features-aiding-compliance#data-portability) to help you satisfy this obligation via both manual export capabilities and the management api which enables you to implement a self-service feature for users.
 
 ## Take steps to minimize personal data
 
-You should have reviewed the personal data you collect about users to ensure it is legitimately required for the purposes of the processing covered in the privacy policy and consent. You should also confirm you have [minimized the data you collect](https://auth0.com/docs/compliance/gdpr/features-aiding-compliance#data-minimization), and established a data retention policy. You can optionally elect to encrypt data you store in user metadata for additional protection. 
+You should have reviewed the personal data you collect about users to ensure it is legitimately required for the purposes of the processing covered in the privacy policy and consent. You should also confirm you have [minimized the data you collect](/compliance/gdpr/features-aiding-compliance#data-minimization), and established a data retention policy. You can optionally elect to encrypt data you store in user metadata for additional protection. 
 
 ## Data retention policy enforcement automated
 
-You should have a published data retention policy and automate the enforcement of it. The Auth0 management API or the Auth0 dashboard can be used to facilitate [erasure of user accounts](https://auth0.com/docs/compliance/gdpr/features-aiding-compliance/right-to-access-data).
+You should have a published data retention policy and automate the enforcement of it. The Auth0 management API or the Auth0 dashboard can be used to facilitate [erasure of user accounts](/compliance/gdpr/features-aiding-compliance/right-to-access-data).
 
 ## Protect personal data
 
-Regardless of whether you are a data controller or a data processor, you have obligations to protect the personal data you hold about users. This includes use of encryption where possible, and implementing reasonable security measures to protect user accounts. Prior to launch, you should check if you are using all the security features available from Auth0 to help with this such as Brute Force Detection, Multi-Factor Authentication (for both users and administrators), strong password policy if using passwords. You should also ensure you have a process ready to respond to Brute Force attacks.
-https://auth0.com/docs/compliance/gdpr/features-aiding-compliance#protect-and-secure-user-data
+Regardless of whether you are a data controller or a data processor, you have obligations to protect the personal data you hold about users. This includes use of encryption where possible, and implementing reasonable security measures to protect user accounts. Prior to launch, you should check if you are using all the security features available from Auth0 to help with this such as Brute Force Detection, Multi-Factor Authentication (for both users and administrators), strong password policy if using passwords. You should also ensure you have a process ready to respond to [Brute Force attacks](/compliance/gdpr/features-aiding-compliance#protect-and-secure-user-data).
 
 ## Supplier evaluation 
 
@@ -34,5 +33,5 @@ Another common compliance obligation is to perform due diligence review of the s
 Additional resurces that may be useful for your compliance requirements include:
 * [Auth0 Privacy Policy](https://auth0.com/privacy)
 * [Security and Compliance](https://auth0.com/security/)
-* [GDPR and Compliance Frameworks](https://auth0.com/docs/compliance)
-* [Auth0 support for customer requirements](https://auth0.com/docs/compliance/gdpr/features-aiding-compliance)
+* [GDPR and Compliance Frameworks](/compliance)
+* [Auth0 support for customer requirements](/compliance/gdpr/features-aiding-compliance)

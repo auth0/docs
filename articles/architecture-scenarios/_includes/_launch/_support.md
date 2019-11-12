@@ -1,13 +1,12 @@
 ## Review Auth0 Policies
 
-When starting to prepare for your launch, be sure to read through [Auth0 Policies](https://auth0.com/docs/policies) and prepare your production operations accordingly for any required lead times or responsibilities on your part, according to the policies. 
+When starting to prepare for your launch, be sure to read through [Auth0 Policies](/policies) and prepare your production operations accordingly for any required lead times or responsibilities on your part, according to the policies. 
 
 ## Review your Support plan, SLAs, Severity definitions and Support center documentation
 
-You should review the specifics of the [support plan](https://auth0.com/docs/support#support-center) you’ve purchased and the [Service Level Agreements](https://auth0.com/docs/support#defect-responses) associated with it, to ensure it is adequate for your needs. If you haven’t already done so, explore the [support center](https://support.auth0.com/) and familiarize yourself with support features such as viewing suggested solutions to common issues and [filing tickets](https://auth0.com/docs/support/tickets) and viewing your quota usage. It will be helpful to review the [severity level definitions](https://auth0.com/docs/support#defect-resolution-procedures) for support tickets so that you file tickets with the correct severity. One important note is that it is not possible today in the Support Center to increase the severity of a support ticket. If you file a ticket for a medium-grade issue which later becomes a high severity issue, you should file a new urgent, high severity ticket that explains anything new that triggers the urgency and references the original ticket for details.
+You should review the specifics of the [support plan](/support#support-center) you’ve purchased and the [Service Level Agreements](/support#defect-responses) associated with it, to ensure it is adequate for your needs. If you haven’t already done so, explore the [support center](https://support.auth0.com/) and familiarize yourself with support features such as viewing suggested solutions to common issues and [filing tickets](/support/tickets) and viewing your quota usage. It will be helpful to review the [severity level definitions](/support#defect-resolution-procedures) for support tickets so that you file tickets with the correct severity. One important note is that it is not possible today in the Support Center to increase the severity of a support ticket. If you file a ticket for a medium-grade issue which later becomes a high severity issue, you should file a new urgent, high severity ticket that explains anything new that triggers the urgency and references the original ticket for details.
 
 You should also ensure your development and support teams are familiar with the [Auth0 community forum](https://community.auth0.com/), discussed further below. Customers can often find answers there right away to common issues, avoiding the need to file a ticket, so it should be your first stop for technical questions.
-
 
 ## Review the Auth0 community forum
 
@@ -20,8 +19,7 @@ It’s a good idea to check out the Auth0 Community on a regular basis, not just
 
 ## Review the Auth0 troubleshooting tips, info needed for tickets
 
-We recommend your support team become familiar with some [troubleshooting tips](https://auth0.com/docs/troubleshoot/basics) specific to identity protocols and Auth0. This includes the [questions to research and information to collect](https://auth0.com/docs/troubleshoot/issues) before posting a question on the Auth0 forum or filing a support ticket. Authentication transactions often span multiple systems so there are some specialized troubleshooting techniques that are helpful to learn.
-
+We recommend your support team become familiar with some [troubleshooting tips](/troubleshoot/basics) specific to identity protocols and Auth0. This includes the [questions to research and information to collect](/troubleshoot/issues) before posting a question on the Auth0 forum or filing a support ticket. Authentication transactions often span multiple systems so there are some specialized troubleshooting techniques that are helpful to learn.
 
 ## Have troubleshooting tools ready
 
@@ -29,12 +27,11 @@ Your team will doubtless have already done some troubleshooting during the devel
 
 ### Capture a HAR file
 
-A HAR file captures a sequence of browser interactions and is a commonly used tool when debugging authentication issues. The process of authenticating a user often involves redirecting the user’s browser from an application to Auth0, and possibly to another remote Identity Provider, depending on the type of connection used.  This redirection and the responses can be [captured in a HAR file](https://auth0.com/docs/troubleshoot/har) and analyzed to find clues about the cause of an issue.
+A HAR file captures a sequence of browser interactions and is a commonly used tool when debugging authentication issues. The process of authenticating a user often involves redirecting the user’s browser from an application to Auth0, and possibly to another remote Identity Provider, depending on the type of connection used.  This redirection and the responses can be [captured in a HAR file](/troubleshoot/har) and analyzed to find clues about the cause of an issue.
 
 ### Analyze a HAR file 
 
-A [HAR file can be analyzed](https://auth0.com/docs/troubleshoot/har#analyze-a-har-file) to obtain a wealth of valuable troubleshooting information. This will show the sequence of browser redirects involved in an authentication transaction, along with the parameters used. The HAR file will show if the authentication process stopped mid-stream and if so where, helping to pinpoint the possible location of the issue. The HAR file will contain tokens returned to the application front-end, and these can be pasted into appropriate viewers to see if they contain the expected contents.
-
+A [HAR file can be analyzed](/troubleshoot/har#analyze-a-har-file) to obtain a wealth of valuable troubleshooting information. This will show the sequence of browser redirects involved in an authentication transaction, along with the parameters used. The HAR file will show if the authentication process stopped mid-stream and if so where, helping to pinpoint the possible location of the issue. The HAR file will contain tokens returned to the application front-end, and these can be pasted into appropriate viewers to see if they contain the expected contents.
 
 ### View a JWT
 
@@ -46,8 +43,7 @@ There are many SAML decoders available. The [samltool.io](https://samltool.io) d
 
 ## Review the Auth0 support matrix
 
-One potential cause of issues is using out of date versions of SDKs or libraries. We strongly recommend your team check your software stack, browsers, SDKs and libraries against the [Auth0 support matrix](https://auth0.com/docs/support/matrix) to ensure you are running on up-to-date, supported versions. In the event of an issue, the Auth0 support team may ask you to upgrade to a supported version. To avoid slowing down progress on issue resolution, be sure you are on up-to-date versions.
-
+One potential cause of issues is using out of date versions of SDKs or libraries. We strongly recommend your team check your software stack, browsers, SDKs and libraries against the [Auth0 support matrix](/support/matrix) to ensure you are running on up-to-date, supported versions. In the event of an issue, the Auth0 support team may ask you to upgrade to a supported version. To avoid slowing down progress on issue resolution, be sure you are on up-to-date versions.
 
 ## Use the Auth0 feedback portal
 
@@ -55,7 +51,7 @@ Auth0 welcomes feedback and ideas from Auth0 customers. If you have a suggestion
 
 ## Prepare the real-time webtask log extension 
 
-For debugging and supporting custom code in Auth0, including Rules, Hooks, Custom DB Scripts, and Custom OAuth Connections, knowledge of the [Realtime Webtask Log](https://auth0.com/docs/extensions/realtime-webtask-logs) is essential. This enables you to view output from your custom code, including output from console.log statements. 
+For debugging and supporting custom code in Auth0, including Rules, Hooks, Custom DB Scripts, and Custom OAuth Connections, knowledge of the [Realtime Webtask Log](/extensions/realtime-webtask-logs) is essential. This enables you to view output from your custom code, including output from console.log statements. 
 
 ::: panel Best Practice 
 We recommend installing the real-time webtask log extension and getting familiar with using it to view log output from your custom code as a debugging and support tool. 
@@ -63,4 +59,4 @@ We recommend installing the real-time webtask log extension and getting familiar
 
 ## Troubleshooting
 
-You should prepare to [troubleshoot issues](https://auth0.com/docs/troubleshoot/basics) both during your development as well as after your application or API goes live.  Make sure your development and support teams are prepared with knowledge of troubleshooting tools, and the list of common issues to check when troubleshooting an issue.
+You should prepare to [troubleshoot issues](/troubleshoot/basics) both during your development as well as after your application or API goes live.  Make sure your development and support teams are prepared with knowledge of troubleshooting tools, and the list of common issues to check when troubleshooting an issue.

@@ -73,7 +73,6 @@ It’s also helpful to have identified criteria which could trigger a “no-go�
 * Condition identified that could lead to data corruption
 * High severity security issue discovered
 
-
 ## Rollback
 
 It is always wise to have a plan for how to rollback or revert a launch, just in case something unforeseeable occurs which cannot be resolved. Reviewing the launch plan for every step which involves a change can help identify the tasks or changes requires to revert a launch or cutover.
@@ -99,7 +98,7 @@ For example - if one element of the success criteria is the number of sign-ups o
 
 You’ll want statistics to be able to trumpet the success of your launch. You don’t want to find out after the launch that you didn’t capture any data to quantify all the hard work your team put into the launch.
 
-## Risks & Mitigations plan
+## Risks & mitigations plan
 
 It’s no fun to think of things that could go wrong, but if anything happens, you’ll be glad you did as having a plan can expedite response. A few examples to plan for include:
 

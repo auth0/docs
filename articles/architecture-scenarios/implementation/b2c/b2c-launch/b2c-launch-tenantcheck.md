@@ -14,9 +14,13 @@ useCase:
 # Tenant configuration check
 
 <%= include('../../../_includes/_launch/_tenant-check.md', { platform: 'b2c' }) %>
+
 # Project Planning Guide
+
 <%= include('../../../_includes/_planning.md', { platform: 'b2c' }) %>
+
 # Keep reading
+
 * [Architecture](/architecture-scenarios/implementation/b2c/b2c-architecture)
 * [Provisioning](/architecture-scenarios/implementation/b2c/b2c-provisioning)
 * [Authentication](/architecture-scenarios/implementation/b2c/b2c-authentication)
