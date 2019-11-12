@@ -17,6 +17,8 @@ useCase:
 
 With AWS Session Tags, you can tag resources and assign users key/value pairs, which allows you to implement role-based access control (RBAC) for AWS APIs and Resources.
 
+In the example included in this guide, we will tag our AWS resources with AWS Session Tags, then create a policy for an AWS IAM role that will allow users with this role and the appropriate tags to perform specific actions on our AWS resources. We will then create a rule in Auth0 that will attach our AWS IAM role and appropriate AWS Session Tags to an Auth0 user and pass them through SAML assertions in the token. This example builds on the example provided in our [Configure Single-Sign-on (SSO) with the AWS Console](/integrations/aws/sso) guide.
+
 ::: panel Amazon Web Services (AWS) Account
 Before proceeding, you will need a valid [Amazon Web Services (AWS) account](https://portal.aws.amazon.com/billing/signup#/start) for which you are an administrator.
 :::
@@ -45,9 +47,9 @@ For the example in this guide, you should have created three instances. Add the 
 
 | Instance | Tags |
 | -------- | ---- |
-| 1        | Key: `cost_center`, Value: `marketing`.<br />Key: `project`, Value: `website`. |
-| 2        | Key: `cost_center`, Value: `engineering`.<br />Key: `project`, Value: `management_dashboard`. |
-| 3        | Key: `cost_center`, Value: `marketing`.<br />Key: `project`, Value: `community_site`. |
+| 1        | Key: `CostCenter`, Value: `marketing`.<br />Key: `Project`, Value: `website`. |
+| 2        | Key: `CostCenter`, Value: `engineering`.<br />Key: `Project`, Value: `management_dashboard`. |
+| 3        | Key: `CostCenter`, Value: `marketing`.<br />Key: `Project`, Value: `community_site`. |
 
 ### Create a specialized AWS IAM role
 
@@ -83,7 +85,7 @@ When asked to **Attach permissions policies**, create a policy with the followin
             "Resource": "*",
             "Condition": {
                 "StringEquals": {
-                    "ec2:ResourceTag/CostCenter": "{aws:PrincipalTag/CostCenter}"
+                    "ec2:ResourceTag/CostCenter": "<%= "${aws:PrincipalTag/CostCenter}" %>"
                 }
             }
         }
@@ -102,10 +104,12 @@ When reviewing your settings, make sure you use the following parameters:
 
 ### Create an Auth0 rule
 
-To map the AWS role and tags to a user, you'll need to create a [rule](/rules) in Auth0. For the example in this guide, [create the following rule](/dashboard/guides/rules/create-rules). 
+To map the AWS role and tags to a user, you'll need to create a [rule](/rules) in Auth0. These values will then be passed through the SAML assertions in the token. 
+
+For the example in this guide, [create the following rule](/dashboard/guides/rules/create-rules): 
 
 ::: note
-Notice that you'll need to replace the `awsAccount` variable with your own account number.
+Notice that you'll need to replace the `awsAccount` variable value with your own account number.
 :::
 
 ```js
@@ -116,15 +120,15 @@ function(user, context, callback) {
 
   user.awsRole = rolePrefix + `:role/AccessByCostCenter,` + samlIdP;
   user.awsRoleSession = user.email;
-  user.awsTagKeys = ['cost_center', 'project'];
-  user.cost_center = 'marketing';
-  user.project = 'website';
+  user.awsTagKeys = ['CostCenter', 'Project'];
+  user.CostCenter = 'marketing';
+  user.Project = 'website';
 
   context.samlConfiguration.mappings = {
     'https://aws.amazon.com/SAML/Attributes/Role': 'awsRole',
     'https://aws.amazon.com/SAML/Attributes/RoleSessionName': 'awsRoleSession',
-    'https://aws.amazon.com/SAML/Attributes/PrincipalTag:cost_center': 'cost_center',
-    'https://aws.amazon.com/SAML/Attributes/PrincipalTag:project': "project"
+    'https://aws.amazon.com/SAML/Attributes/PrincipalTag:CostCenter': 'CostCenter',
+    'https://aws.amazon.com/SAML/Attributes/PrincipalTag:Project': 'Project'
   };
 
   callback(null, user, context);
@@ -143,6 +147,6 @@ To log in, you will need the SSO login for the AWS Console. To find it:
 
 3. Click the **Usage** tab, and locate **Identity Provider Login URL**. Navigate to the indicated URL.
 
-Once you have signed in, from **EC2**, select **Instances**. Click one of the instances tagged with a `cost_center` of `marketing`, and click **Actions** > **Instance State** > **Stop**. Notice that the action completes successfully.
+Once you have signed in, from **EC2**, select **Instances**. Click one of the instances tagged with a `CostCenter` of `marketing`, and click **Actions** > **Instance State** > **Stop**. Notice that the action completes successfully.
 
-Next, click the instance tagged with a `cost_center` of `engineering`, and click **Actions** > **Instance State** > **Stop**. Notice that the action fails with an error.
+Next, click the instance tagged with a `CostCenter` of `engineering`, and click **Actions** > **Instance State** > **Stop**. Notice that the action fails with an error.
