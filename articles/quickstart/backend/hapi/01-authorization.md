@@ -119,7 +119,7 @@ server.route({
   }
 });
 
-// This route need authentication
+// This route needs authentication
 server.route({
   method: 'GET',
   path: '/api/private',
