@@ -141,7 +141,7 @@ function (user, context, callback) {
 }
 ```
 
-The code above will ensure that all Access Tokens will only contain the scopes which are valid according to a user's permissions. Once you are done you can click on the **Save** button.
+The code above will ensure that all Access Tokens will only contain the properly-formatted scopes (e.g., `action:area` or `delete:timesheets`) which are valid according to a user's permissions. Once you are done you can click on the **Save** button.
 
 Rules execute in the order they are displayed on the Rules page, so ensure that the new rule you created is positioned below the rule for the Authorization Extension, so it executes after the Authorization Extension rule:
 

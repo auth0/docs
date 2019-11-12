@@ -30,6 +30,7 @@ The following properties are available for the `user` object.
 | `user.multifactor` | array (text) | List of <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> providers with which the user is enrolled. This array is updated when the user logs in with MFA successfully for the first time, and is not updated when enrollment is completed or when an administrator resets a user's MFA. |
 | `user.name` | text | The user's full name. |
 | `user.nickname` | text | The user's nickname. |
+| `user.permissions` | text | The permissions assigned to the user's ID token |
 | `user.phone_number` | text  | The user's phone number. Only valid for users with SMS connections. |
 | `user.phone_verified` | boolean | Indicates whether the user has been verified their phone number. Only valid for users with SMS connections. |
 | `user.picture` | text | URL pointing to [the user's profile picture](/user-profile/user-picture). |
