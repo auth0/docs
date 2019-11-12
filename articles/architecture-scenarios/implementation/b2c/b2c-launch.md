@@ -21,8 +21,10 @@ useCase:
   'architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-support',
   'architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-launch'
  ] }) %>
+
 ## Project Planning Guide
 <%= include('../../_includes/_planning.md', { platform: 'b2c' }) %>
+
 ## Keep reading
 * [Architecture](/architecture-scenarios/implementation/b2c/b2c-architecture)
 * [Provisioning](/architecture-scenarios/implementation/b2c/b2c-provisioning)
