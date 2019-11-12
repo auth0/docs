@@ -84,7 +84,7 @@ Additionally, the User Profile section of our [QuickStarts](/quickstarts) return
 | `gender` | gender of the user |
 | `birthdate` | birthday of the user |
 | `zoneinfo` | time zone in which the user is located |
-| `locale` | location where the user is located |
+| `locale` | two-part code representing the end user's language and location (e.g., `fr-CA` for a user located in Canada and working in French) |
 | `phone_number` | preferred telephone number for the user |
 | `phone_number_verified` <br/><span class="label label-primary">Boolean</span> | `true` if user's phone number is verified; else, `false` |
 | `address` <br/><span class="label label-primary">JSON Object</span> | preferred postal address of the user |
