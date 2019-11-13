@@ -25,7 +25,6 @@ development process at your organization. Engaging with Auth0 Professional Servi
 
 Guiding you through your use case scenarios, our Scenario Guidance services help you navigate the possible paths through your discovered use cases. Covering topics such as OpenID Connect (OIDC) flows, Authorization server capabilities, session management, Single Sign On (SSO), etc, engaging with the Auth0 Professional Services team provides visibility into the things you need to prepare you for addressing and implementation what's required.
 
-
 ## Keep reading
 
 * [Implement](/services/implement)
