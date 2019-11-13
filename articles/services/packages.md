@@ -61,7 +61,12 @@ Auth0 Professional Services provide packaged offerings are designed to optimize 
 * Expires in 180 days
 * Terms and Conditions apply
 
-### [Custom Implementation Package](/media/articles/services/Auth0-Services-Custom-Implementation.pdf)
+<h3 class="anchor-heading">
+	<span class="anchor"><i class="icon icon-budicon-345"></i></span>
+	<a data-trackOutbound href="/media/articles/services/Auth0-Services-Custom-Implementation.pdf">
+		<img src="/media/articles/services/file_type_icons-04.png" alt="">&nbsp;Custom Implementation Package</a>
+</h3>
+
 * 15 or more days of services
 * Remote only
 * Expires in 180 days
@@ -69,13 +74,23 @@ Auth0 Professional Services provide packaged offerings are designed to optimize 
 
 ## Maintain and Improve packages
 
-### [Implementation HealthCheck Package](/media/articles/services/Auth0-Services-HealthCheck.pdf)
+<h3 class="anchor-heading">
+	<span class="anchor"><i class="icon icon-budicon-345"></i></span>
+	<a data-trackOutbound href="/media/articles/services/Auth0-Services-HealthCheck.pdf">
+		<img src="/media/articles/services/file_type_icons-04.png" alt="">&nbsp;Implementation HealthCheck Package</a>
+</h3>
+
  * 3 days of services
  * Remote/on-site, as mutually agreed
  * Expires in 365 days
  * Terms and Conditions apply
 
-### [Premier Success Package](/media/articles/services/Auth0-Services-Premier-Success.pdf)
+<h3 class="anchor-heading">
+	<span class="anchor"><i class="icon icon-budicon-345"></i></span>
+	<a data-trackOutbound href="/media/articles/services/Auth0-Services-Premier-Success.pdf">
+		<img src="/media/articles/services/file_type_icons-04.png" alt="">&nbsp;Premier Success Package</a>
+</h3>
+
 * 24 days of services
 * On-site
 * Expires in 365 days
