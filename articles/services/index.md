@@ -30,19 +30,14 @@ Customers buy software to solve a business problem. The longer it takes to integ
 Professional Services offerings that are designed to optimize our customers' investments in Auth0 by helping design, deploy, implement, and maintain solutions based on proven best practices - avoiding common pitfalls and reducing risk. Pagkages are designed to help you utilize our expertise in a manner that best fits your requirements, and are typically comprised of a number of service offerings
     <ul>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/services/solution-design">Solution Design</a>
+        <i class="icon icon-budicon-695"></i><a href="/services/design">Design</a>
       </li>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/services/custom-implementation">Custom Implementation</a>
+        <i class="icon icon-budicon-695"></i><a href="/services/implement">Implement</a>
       </li>
       <li>
         <i class="icon icon-budicon-695"></i><a href="/services/maintain-and-improve">Maintain and Improve</a>
       </li>
     </ul>
-  </li>
-  <li>
-      <i class="icon icon-budicon-715"></i><a href="/services/gallery">Gallery</a>
-
-Professional Services designed and built extensibility, leveraging the power of the Auth0 platform to offer customized functionality based on proven Identity and Access Management (IdAM) workflows.
   </li>
 </ul>

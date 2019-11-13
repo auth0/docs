@@ -1459,26 +1459,17 @@ articles:
   - title: "Professional Services"
     url: "/services"
     children:
+      - title: "Design"
+        url: "/services/design"
+
+      - title: "Implement"
+        url: "/services/implement"
+
+      - title: "Maintain and Improve"
+        url: "/services/maintain-and-improve"
+        
       - title: "Packages"
         url: "/services/packages"
-        children:
-          - title: "Solution Design"
-            url: "/services/solution-design"
-
-          - title: "Custom Implementation"
-            url: "/services/custom-implementation"
-
-          - title: "Maintain and Improve"
-            url: "/services/maintain-and-improve"
-
-      - title: "Gallery"
-        url: "/services/gallery"
-        children:
-          - title: "SCIM"
-            url: "/services/gallery/scim"
-
-          - title: "Verified Email Address Change"
-            url: "/services/gallery/verified-email-address-change"
 
       - title: "Architectural Design Sessions"
         url: "/services/architectural-design"
