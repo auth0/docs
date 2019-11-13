@@ -16,16 +16,18 @@ The first stage in a successful implementation involves discovering, designing a
 
 ## Architectural Dicovery
 
+
+
 ## Scenario Guidance
+
 
 
 <%= include('./_includes/_further-help.md') %>
 
 ## Keep reading
 
-* [Custom Implementation](/services/custom-implementation)
+* [Implement](/services/implement)
 * [Maintain and Improve](/services/maintain-and-improve)
 * [Packages](/services/packages)
-* [Gallery](/services/gallery)
 
 

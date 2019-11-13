@@ -37,7 +37,7 @@ We can help consolidate all the enablement activities leading to a successful ad
   <li>
     <i class="icon icon-budicon-715"></i><a href="/services/packages">Packages</a>
 
-Designed to help optimize our customers' investment in Auth0 by providing packaged Professional Services, helping you avoid common pitfalls and reducing risk. Our packages are designed so you can engage with our experts in a manner that best fits your requirements, and are typically comprised of a number of service offerings - all based on proven best practices
+These are designed to optimize our customers' investment in Auth0, by providing packaged Professional Services to help you avoid common pitfalls and reducing risk. Our packages are structured to help you engage with our experts in a manner that best fits your requirements, and are typically comprised of a number of service offerings - all based on proven best practices:
     <ul>
       <li>
         <i class="icon icon-budicon-695"></i><a href="/services/discover-and-design">Discover & Design</a>
@@ -51,3 +51,10 @@ Designed to help optimize our customers' investment in Auth0 by providing packag
     </ul>
   </li>
 </ul>
+
+## Keep reading
+
+* [Discovery & Design](/services/discover-and-design)
+* [Implement](/services/implement)
+* [Maintain and Improve](/services/maintain-and-improve)
+* [Packages](/services/packages)
