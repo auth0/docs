@@ -137,7 +137,7 @@ To use this variation you will have to change the following request parameters:
     "params": [
         {
           "name": "grant_type",
-          "value": "password"
+          "value": "http://auth0.com/oauth/grant-type/password-realm"
         },
         {
           "name": "username",
