@@ -146,6 +146,10 @@ Additionally, the `app_metadata` should **not** contain any of these properties:
 The `app_metadata` stores information that can impact how an application functions or what the user can access (for example, a user's support plan or <dfn data-key="role">roles</dfn> and access groups). For more information, refer to [User Metadata](/metadata).
 :::
 
+::: note
+The `encoding`, `salt_prefix`, and `salt_suffix` fields of `custom_password_hash` are not applicable for `bcrypt`, `argon2`, or `pbkdf2`. These fields should be omitted when providing hashes that were generated using one of these algorithms.
+:::
+
 ## Supported hash algorithms
 
 As described above, the supported hash algorithms are:
