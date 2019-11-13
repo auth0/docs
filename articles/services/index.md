@@ -54,7 +54,7 @@ These are designed to optimize our customers' investment in Auth0, by providing 
 
 ## Keep reading
 
-* [Discovery & Design](/services/discover-and-design)
+* [Discover & Design](/services/discover-and-design)
 * [Implement](/services/implement)
 * [Maintain and Improve](/services/maintain-and-improve)
 * [Packages](/services/packages)
