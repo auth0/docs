@@ -10,61 +10,58 @@ contentType: how-to
 useCase: customize-domains
 ---
 # Configure AWS CloudFront for Use as Reverse Proxy
-In this article, we will show you how to configure AWS CloudFront for use as the reverse proxy with custom domain names for your Auth0 tenant.
 
-::: warning
-This feature requires a paid subscription to the **Enterprise** plan (see [Pricing](https://auth0.com/pricing)).
-:::
+<%= include('../_subscription') %>
 
-Log in to AWS, and navigate to [CloudFront](https://console.aws.amazon.com/cloudfront).
+You can configure AWS CloudFront for use as the reverse proxy with custom domain names for your Auth0 tenant.
 
-![](/media/articles/custom-domains/aws/cloudfront.png)
+1. Log in to AWS, and navigate to [CloudFront](https://console.aws.amazon.com/cloudfront).
 
-Click **Create Distribution**.
+  ![](/media/articles/custom-domains/aws/cloudfront.png)
 
-You can choose the delivery method for your content. Click **Get Started** under the **Web** section.
+2. Click **Create Distribution**.
 
-![](/media/articles/custom-domains/aws/delivery-method.png)
+3. You can choose the delivery method for your content. Click **Get Started** under the **Web** section.
 
-Next, configure your distribution settings. 
+  ![](/media/articles/custom-domains/aws/delivery-method.png)
 
-Under **Origin Settings**, here are the values you'll need to change:
+4. Configure your distribution settings. Under **Origin Settings**, here are the values you'll need to change:
 
-| Parameter | Value |
-| - | - |
-| Origin Domain Name | Set this to the **Origin Domain Name** value obtained from the Auth0 Dashboard during the Custom Domains setup process |
-| Origin ID | A description for the origin. This value lets you distinguish between multiple origins in the same distribution and therefore must be unique. |
-| Origin Protocol Policy | Set to `HTTPS Only` |
-| Alternate Domain Names (CNAMEs) | Set to your custom domain name (the same one your configured in the Auth0 Dashboard) |
+  | Parameter | Value |
+  | - | - |
+  | Origin Domain Name | Set this to the **Origin Domain Name** value obtained from the Auth0 Dashboard during the Custom Domains setup process |
+  | Origin ID | A description for the origin. This value lets you distinguish between multiple origins in the same distribution and therefore must be unique. |
+  | Origin Protocol Policy | Set to `HTTPS Only` |
+  | Alternate Domain Names (CNAMEs) | Set to your custom domain name (the same one your configured in the Auth0 Dashboard) |
 
-![](/media/articles/custom-domains/aws/create-distribution.png)
+  ![](/media/articles/custom-domains/aws/create-distribution.png)
 
-You'll also need to provide information on the **Origin Custom Headers** (the **Header Name** and **Value** fields appear only after you've provided an **Origin Domain Name**):
+5. Provide information on the **Origin Custom Headers** (the **Header Name** and **Value** fields appear only after you've provided an **Origin Domain Name**):
 
-| Parameter | Value |
-| - | - |
-| Header Name | Set to `cname-api-key` |
-| Value | Set to the CNAME API Key value that you were given immediately after you verified ownership of your domain name with Auth0 |
+  | Parameter | Value |
+  | - | - |
+  | Header Name | Set to `cname-api-key` |
+  | Value | Set to the CNAME API Key value that you were given immediately after you verified ownership of your domain name with Auth0 |
 
-![](/media/articles/custom-domains/aws/origin-custom-headers.png)
+  ![](/media/articles/custom-domains/aws/origin-custom-headers.png)
 
-Next, you'll configure the **Default Cache Behavior Settings**. Here are the values you'll need to change:
+6. Configure the **Default Cache Behavior Settings**. Here are the values you'll need to change:
 
-| Parameter | Value |
-| - | - |
-| Viewer Protocol Policy | Select **Redirect HTTP to HTTPS** |
-| Allowed HTTP Methods | Select **GET, HEAD, OPTIONS, PUT, POST, PATCH, DELETE** |
-| Cache Based on Selected Request Headers | Select **Whitelist** |
-| Whitelist Headers | Enter `User-Agent` and click **Add Custom >>** to add the custom whitelist header. Do the same for `Origin` and `Referer` headers. |
-| Forward Cookies | Select **All** |
-| Query String Forwarding and Caching | Select **Forward all, cache based on all** |
+  | Parameter | Value |
+  | - | - |
+  | Viewer Protocol Policy | Select **Redirect HTTP to HTTPS** |
+  | Allowed HTTP Methods | Select **GET, HEAD, OPTIONS, PUT, POST, PATCH, DELETE** |
+  | Cache Based on Selected Request Headers | Select **Whitelist** |
+  | Whitelist Headers | Enter `User-Agent` and click **Add Custom >>** to add the custom whitelist header. Do the same for `Origin` and `Referer` headers. |
+  | Forward Cookies | Select **All** |
+  | Query String Forwarding and Caching | Select **Forward all, cache based on all** |
 
-Scroll to the bottom of the page and click **Create Distribution**.
+7. Scroll to the bottom of the page and click **Create Distribution**.
 
-You'll see your newly-created distribution in your CloudFront Distributions list. Note that the Status will reflect `In progress` until the distribution is Deployed.
+  You'll see your newly-created distribution in your CloudFront Distributions list. Note that the Status will reflect `In progress` until the distribution is Deployed.
 
-![](/media/articles/custom-domains/aws/distributions.png)
+  ![](/media/articles/custom-domains/aws/distributions.png)
 
-Finally, add a new CNAME record to your DNS for your custom domain pointing to the CloudFront Domain Name for your Distribution. This can be found by clicking on your Distribution ID, under the General tab, Domain Name (for example, `e2zwy42nt1feu7.cloudfront.net`).
+8. Add a new CNAME record to your DNS for your custom domain pointing to the CloudFront Domain Name for your Distribution. This can be found by clicking on your Distribution ID, under the General tab, Domain Name (for example, `e2zwy42nt1feu7.cloudfront.net`).
 
-Your CloudFront setup is now ready for use!
+  Your CloudFront setup is now ready for use!

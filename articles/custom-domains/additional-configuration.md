@@ -1,5 +1,5 @@
 ---
-title: Additional Configuration for Custom Domains
+title: Configure Custom Domains for Specific Features
 description: Describes the configuration steps you might need to follow in order to set up custom domains, depending on the Auth0 features you are using
 toc: true
 topics:
@@ -7,9 +7,9 @@ topics:
 contentType: how-to
 useCase: customize-domains
 ---
-# Additional Configuration for Custom Domains
+# Configure Custom Domains for Specific Features
 
-In order to set up custom domains, and depending on the Auth0 features you are using, there might be additional configuration steps you must follow. This article lists the required configuration you must do per feature.
+In order to configure custom domains, and depending on the Auth0 features you are using, there might be additional configuration steps you must follow. This article lists the required configuration you must do per feature.
 
 If you have been using Auth0 for some time and decide to enable a custom domain, you will have to migrate your existing apps and update the settings as described below. Note that existing sessions created at `${account.namespace}` will no longer be valid once you start using your custom domain, so users will have to login again.
 

@@ -1,17 +1,22 @@
 ---
 title: Configure Custom Domains with Self-Managed Certificates
-description: How to create custom domains with self-managed certificates
-toc: true
+description: Learn how to configure custom domains where you are responsible for SSL/TLS certificates, the reverse proxy to handle SSL termination, and forwarding requests to Auth0. 
 topics:
   - custom-domains
   - certificates
+  - reverse-proxy
+  - SSL/TLS-certificates
 contentType: how-to
-useCase: customize-domains
+useCase: 
+  - configure-customize-domains
+  - forward-requests-to-auth0
+  - configure-reverse-proxy
+  - configure-self-managed-certificates
 ---
-# Custom Domains with Self-Managed Certificates
+# Configure Custom Domains with Self-Managed Certificates
 
-::: warning
-Custom Domains with the **Self-Managed Certificates** option is available for enterprise customers only.
+::: note
+Custom Domains with the **Self-Managed Certificates** option is available for Aut0 Enterprise customers only.
 :::
 
 You can choose to manage the certificates for your custom domains yourself, which means that you are responsible for managing your SSL/TLS certificates and configuring a reverse proxy to handle SSL termination and forwarding requests to Auth0. 
@@ -21,28 +26,15 @@ Choose this option if:
 * You want to have more control of your certificates (such as choosing your own CA or certificate expiration)
 * You want to enable additional monitoring over your API calls to Auth0
 
-## Prerequisites
-
+::: note
 You'll need to register and own the domain name to which you're mapping your Auth0 domain.
+:::
 
-## How to Configure Custom Domains with Self-Managed Certificates
+To set up your custom domain using self-managed certificates, you need to provide your domain name to Auth0, verify that you own that domain, configure the reverse proxy, and then complete additional configuration for the Auth0 features you are using.
 
-Setting up your custom domain with Self-managed certificates requires you to do the following steps:
+<%= include('../_provide-domain-name') %>
 
-1. Provide your domain name to Auth0
-1. Verify ownership
-1. Configure the reverse proxy
-1. Complete feature-specific setup
-
-### Step 1: Provide Your Domain Name to Auth0
-
-Log in to the Dashboard and go to [Tenant Settings](${manage_url}/#/tenant). Click over to the **Custom Domains** tab.
-
-![](/media/articles/custom-domains/custom-domains-self-managed.png)
-
-Enter your custom domain in the provided box and select **Self-managed certificates**. Click **Add Domain**.
-
-### Step 2: Verify Ownership
+## Verify ownership
 
 Before you can use this domain, you'll need to verify that you own your domain. To do this, you will need to add the TXT verification record listed in the Dashboard to your domain's DNS record.
 
@@ -81,11 +73,16 @@ This means the verification process is complete and within 1 to 2 minutes, your 
 If you are unable to complete the verification process within three days, you'll need to start over.
 :::
 
-### Step 3: Configure the Reverse Proxy
+## Configure the reverse proxy
 
-Next you will need  to set up your reverse proxy. In this example, we will walk through [how to do so using AWS CloudFront](/custom-domains/set-up-cloudfront).
+Configure your reverse proxy. **Writer's Note: need more here**
 
-### Step 4: Complete Feature-Specific Setup
+See [Configure AWS CloudFront for Use as Reverse Proxy](/custom-domains/set-up-cloudfront) for an example.
 
-There are additional steps you must complete depending on which Auth0 features you are using. Refer to our [custom domains documentation](/custom-domains#step-3-complete-feature-specific-setup) for more details.
+## Additional steps for specific Auth0 features
 
+There are additional configuration steps you must complete depending on which Auth0 features you are using. See the [Configure Custom Domains for Specific Features](/custom-domains/additional-configuration) document for more information.
+
+## Keep reading
+
+* 
