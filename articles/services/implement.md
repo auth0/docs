@@ -18,11 +18,11 @@ To help you excelerate your integration with Auth0, we provide a wide range of i
 
 ## Programming Advisory
 
-Focused on accelerating your development team’s understanding of Auth0 SDKs, APIs, extensibility and integration points, our Programming Advisory services give you the oppertunity to engage with our team to get best practice guidance on a wide range of topics. Delivered as part of a number of our Discover & Design packages, Programming Advisory will help you to integrate with Auth0 faster and more effectively, whatever your chosen technology stack.   
+Focused on accelerating your development team’s understanding of Auth0 SDKs, APIs, extensibility and integration points, our Programming Advisory services give you the oppertunity to engage with our team to get best practice guidance on a wide range of topics. Delivered as part of a number of our [Discover & Design packages](/services/packages#design-and-implement-packages), Programming Advisory will help you to integrate with Auth0 faster and more effectively, whatever your chosen technology stack.   
 
 ## Custom Implementation
 
-In addition, our Custom Implementation services provide a wide range of customized implementation to help you excelerate your integration with Auth0. Again, delivered as part of one of our Discover & Design packages, Custom Implementation gives you the opeertunity to leverage our implementation services in cases where you need more than the standard out-of-box functionality: 
+In addition, our Custom Implementation services provide a wide range of customized implementation to help you excelerate your integration with Auth0. Again, delivered as part of a number of our [Discover & Design packages](/services/packages#design-and-implement-packages), Custom Implementation gives you the opeertunity to leverage our implementation services in cases where you need more than the standard out-of-box functionality: 
 
 * **Custom rules, hooks, DB scripts, login pages, and email templates:** Solve a user experience, 3rd-party service integration, or other logical problem within a customer’s Auth0 authentication and authorization workflow. These customizations happen in-product and do not require additional infrastructure to deploy.
 
@@ -34,7 +34,7 @@ In addition, our Custom Implementation services provide a wide range of customiz
 
 ## Keep reading
 
-* [Discovery & Design](/services/discover-and-design)
+* [Discover & Design](/services/discover-and-design)
 * [Maintain and Improve](/services/maintain-and-improve)
 * [Packages](/services/packages)
 
