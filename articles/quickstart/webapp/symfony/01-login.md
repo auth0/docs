@@ -140,7 +140,7 @@ hwi_oauth:
             base_url:            https://${account.namespace}
             client_id:           ${account.clientId}
             client_secret:       YOUR_CLIENT_SECRET
-            redirect_uri:        http://yourUrl/auth0/callback
+            redirect_uri:        https://yourUrl/auth0/callback
             scope:               "openid profile"
 ```
 
