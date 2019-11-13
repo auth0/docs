@@ -219,7 +219,7 @@ auth0
     .then(credentials =>
       // Successfully authenticated
       // Store the accessToken
-      this.setState({ accessToken: credentials.accessToken });
+      this.setState({ accessToken: credentials.accessToken })
     )
     .catch(error => console.log(error));
 ```
