@@ -1459,8 +1459,8 @@ articles:
   - title: "Professional Services"
     url: "/services"
     children:
-      - title: "Design"
-        url: "/services/design"
+      - title: "Discover & Design"
+        url: "/services/discover-and-design"
 
       - title: "Implement"
         url: "/services/implement"

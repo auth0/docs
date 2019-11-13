@@ -44,7 +44,7 @@ The last milestone, Advanced Go-Live, can be broken into multiple sub-milestones
 Professional Services offerings that are designed to optimize our customers' investments in Auth0 by helping design, deploy, implement, and maintain solutions based on proven best practices - avoiding common pitfalls and reducing risk. Pagkages are designed to help you utilize our expertise in a manner that best fits your requirements, and are typically comprised of a number of service offerings
     <ul>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/services/design">Design</a>
+        <i class="icon icon-budicon-695"></i><a href="/services/discover-and-design">Discover & Design</a>
       </li>
       <li>
         <i class="icon icon-budicon-695"></i><a href="/services/implement">Implement</a>
