@@ -78,7 +78,7 @@ The following [JSON schema](http://json-schema.org) describes valid users:
             "properties": {
                 "algorithm": {
                     "type": "string",
-                    "enum": ["md5", "sha1", "sha256", "sha512"],
+                    "enum": ["md5", "sha1", "sha256", "sha512", "bcrypt", "argon2", "pbkdf2"],
                     "description": "The algorithm that was used to hash the password."
                 },
                 "hash": {
@@ -101,7 +101,7 @@ The following [JSON schema](http://json-schema.org) describes valid users:
                     "description": "The salt value (suffix) used to generate the hash."
                 }
             },
-            "required": ["algorithm", "hash", "encoding"],
+            "required": ["algorithm", "hash"],
             "additionalProperties": false
         },
         "app_metadata": {
@@ -153,6 +153,8 @@ As described above, the supported hash algorithms are:
 * [`md5`](https://tools.ietf.org/html/rfc1321)
 * [`sha1`](https://tools.ietf.org/html/rfc3174)
 * [`sha256` and `sha512`](https://tools.ietf.org/html/rfc4634)
+* [argon2](https://github.com/p-h-c/phc-winner-argon2)
+* [pbkdf2](https://tools.ietf.org/html/rfc2898#section-5.2)
 
 ## File example
 
