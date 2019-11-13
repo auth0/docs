@@ -13,9 +13,9 @@ useCase:
 ---
 # Professional Service Packages
 
-Auth0 Professional Services provide packaged offerings are designed to optimize our customers' investments in Auth0 by helping design, deploy, implement, and maintain solutions based on proven practices - avoiding common pitfalls and reducing risk. Packaged offerings generally fall into two main categories: Design and Implement packages, and Maintain and Improve packages. See below for further details. To get more information and to order any of these service offerings, please contact your Auth0 Account Representative.
+Auth0 Professional Services provide packaged offerings are designed to optimize our customers' investments in Auth0 by helping design, deploy, implement, and maintain solutions based on proven practices - avoiding common pitfalls and reducing risk. Packaged offerings generally fall into two main categories: Discover, Design and Implement packages, and Maintain and Improve packages. See below for further details. To get more information and to order any of these service offerings, please contact your Auth0 Account Representative.
 
-## Design and Implement packages
+## Discover, Design and Implement packages
 
 <h3 class="anchor-heading">
 	<span class="anchor"><i class="icon icon-budicon-345"></i></span>

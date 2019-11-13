@@ -4,7 +4,6 @@ description: Professional Services that can help you implement your Auth0 soluti
 toc: true
 topics:
     - ps
-    - custom
     - implementation
 contentType: concept
 useCase:
@@ -18,11 +17,11 @@ To help you excelerate your integration with Auth0, we provide a wide range of i
 
 ## Programming Advisory
 
-Focused on accelerating your development team’s understanding of Auth0 SDKs, APIs, extensibility and integration points, our Programming Advisory services give you the oppertunity to engage with our team to get best practice guidance on a wide range of topics. Delivered as part of a number of our [Discover & Design packages](/services/packages#design-and-implement-packages), we can provide your development teams with code samples and programming guidance that will help you integrate with Auth0 faster and more effectively, whatever your chosen language or technology stack.   
+Focused on accelerating your development team’s understanding of Auth0 SDKs, APIs, extensibility and integration points, our Programming Advisory services give you the oppertunity to engage with our team to get best practice guidance on a wide range of topics. Delivered through a number of our [Discover, Design & Implement packages](/services/packages#discover-design-and-implement-packages), we can provide your development teams with code samples and programming guidance that will help you integrate with Auth0 faster and more effectively, whatever your chosen language or technology stack.   
 
 ## Custom Implementation
 
-In addition, our Custom Implementation services provide a wide range of customized implementation to help you excelerate your integration with Auth0. Again, delivered as part of a number of our [Discover & Design packages](/services/packages#design-and-implement-packages), Custom Implementation gives you the opeertunity to leverage our implementation services in cases where you need more than the standard out-of-box functionality: 
+In addition, our Custom Implementation services provide a wide range of customized implementation to help you excelerate your integration with Auth0. Again, delivered as part of a number of our [Discover, Design & Implement packages](/services/packages#discover-design-and-implement-packages), Custom Implementation gives you the opertunity to leverage our implementation services in cases where you need more than the standard out-of-box functionality: 
 
 * **Custom rules, hooks, DB scripts, login pages, and email templates:** to solve user experience, 3rd-party service integration, or other logical problem within a customer’s Auth0 authentication and authorization workflow. These customizations happen in-product and do not require additional infrastructure to deploy.
 
