@@ -11,7 +11,7 @@ useCase:
 ---
 # Implement
 
-To help you excelerate your integration with Auth0, we provide a wide range of implementation services that you can leverage to achieve the product functionality, service connectivity, operational readiness, and/or quality assurance required to get you into production. Auth0 is a unique service that offers developers unrivaled flexibility and extensibility, and our expert Professional Services team know how to integrate with Auth0 in ways that are the most optimal for the platform and for your environment.
+To help you excelerate your integration with Auth0, we provide a wide range of implementation services that you can leverage to achieve the product functionality, service connectivity, operational readiness, and/or quality assurance required to get you into production. Auth0 is a unique service that offers developers unrivaled flexibility and extensibility, and our expert Professional Services team knows how to integrate with Auth0 in ways that are the most optimal for the platform and for your environment.
 
 <%= include('./_includes/_further-help.md') %>
 
