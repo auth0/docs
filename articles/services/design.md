@@ -1,5 +1,5 @@
 ---
-title: Solution Design
+title: Design
 description: Professional Services that can help you design and architect your Auth0 solution
 toc: true
 topics:
@@ -10,17 +10,17 @@ contentType: concept
 useCase:
   - solution-design
 ---
-# Solution Design
+# Design
 
-The first step in a successful implementation is designing and architecting your Identity and Access Management solution, and our Solution Design services are here to help. We work together with your product and engineering teams to **architect an Identity solution** for your environment and build an **incremental Go-Live plan** that solves the most-pressing identity problems early. Auth0 Professional Services help your project reach success quickly and address your business objectives in a pragmatic, step-by-step manner. 
-
-PS Solutions Architects have decades of combined industry expertise and Auth0-specific training. We have delivered **thousands of successful IAM projects and integrations**. Let us help you steer clear of costly security pitfalls and build a solid foundation for your identity needs, while reducing risk.
+The first step in a successful implementation is designing and architecting your Identity and Access Management solution, and our Design services are here to help. We work together with your product and engineering teams to **architect an Identity solution** for your environment and build an **incremental Go-Live plan** that solves the most-pressing identity problems early. Auth0 Professional Services help your project reach success quickly and address your business objectives in a pragmatic, step-by-step manner. 
 
 ## Get to production faster
 
 We can consolidate all the enablement activities leading to a successful adoption into three major milestones or phases; the goal of a Professional Services engagement being to identify, document, and build consensus with you on these milestones as the path to successful Auth0 adoption: 
 
-* Solution discovery and architectural design
+PS Solutions Architects have decades of combined industry expertise and Auth0-specific training. We have delivered **thousands of successful IAM projects and integrations**. Let us help you steer clear of costly security pitfalls and build a solid foundation for your identity needs, while reducing risk.
+
+* Discovery and architectural design
 * Initial Go-Live
 * Advanced Go-Live
 

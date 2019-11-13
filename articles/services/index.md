@@ -23,6 +23,20 @@ useCase:
 
 Customers buy software to solve a business problem. The longer it takes to integrate with that software, the longer the business problem remains unsolved. If integration stalls or fails, it’s a lost opportunity and a major additional cost both for you and for Auth0; at worst, it can become an even bigger security issue or legal nightmare. That's why it's of the utmost importance to plan, design, and implement your IAM solution securely, effectively, and expediently. This is where Auth0 Professional Services (PS) come in. 
 
+### Get to production faster
+
+We can consolidate all the enablement activities leading to a successful adoption into three major milestones; the goal of a Professional Services engagement being to identify, document, and build consensus with you on these milestones as the path to successful Auth0 adoption: 
+
+* Discovery and Design
+* Initial Go-Live
+* Advanced Go-Live
+
+During Discovery and Design, our Solution Architects will work with your teams to identify the core goals, features, and functionality that constitute your successful IAM implementation. We'll also help you uncover any legacy architectural issues or design requirements that may need more careful consideration.
+
+The initial Go-Live milestone is designed to be impactful enough to make material differences in your overall Identity project. At the same time, it's limited enough that it can be reached quickly&mdash;ideally within 30 days of the project start&mdash;to keep the positive momentum. Initial Go-Live typically includes migration off a legacy IDP, must-have features, and possibly a subset of all your applications.
+
+The last milestone, Advanced Go-Live, can be broken into multiple sub-milestones, especially if you have multiple applications or development teams. This helps manage the complexity of a large project and achieves incremental and steady progress. 
+
 <ul class="topic-links">
   <li>
     <i class="icon icon-budicon-715"></i><a href="/services/packages">Packages</a>
