@@ -25,11 +25,11 @@ You can confirm the configuration of your CNAME record using:
 * A tool like [Mxtoolbox](https://mxtoolbox.com/CNAMELookup.aspx) or [Google](https://dns.google.com)
 * The `dig` command in your terminal
 
-Please remember that it can take up to 48 hours for the DNS to be propagated.
+It can take up to 48 hours for the DNS to be propagated.
 
-## CNAME flattening
+## Cloudflare CNAME Flattening
 
-Cloudflare has a service called CNAME Flattening. During the verification process, turn off the CNAME flattening process until the domain verification steps are complete to prevent IP address confusion.
+CNAME Flattening affects the Auth0 verification and certificate renewal processes due to the way it handles DNS records. We recommend turning off CNAME Flattening unless it's strictly necessary, according to the [Cloudflare documentation](https://support.cloudflare.com/hc/en-us/articles/200169056-Understand-and-configure-CNAME-Flattening).
 
 ## "You should not be hitting this endpoint"
 If you see this error when configuring a custom domain, you must perform [additional configuration](/custom-domains/additional-configuration), which varies depending on your setup.

@@ -77,6 +77,10 @@ The reverse proxy server retrieves resources on behalf of your client from one o
 
 You can use a service such as Cloudflare, Azure CDN, or AWS Cloudfront and configure settings for your custom domain. You will add the new CNAME value to your DNS for your custom domain pointing to the reverse proxy server domain name for distribution. 
 
+::: note
+Cloudflare has a feature called CNAME Flattening which affects the Auth0 verification and certificate renewal processes due to the way it handles DNS records. We recommend turning off CNAME Flattening unless it's strictly necessary, according to the [Cloudflare documentation](https://support.cloudflare.com/hc/en-us/articles/200169056-Understand-and-configure-CNAME-Flattening).
+:::
+
 The way you configure the proxy server will vary depending on the service you use. You will likely need to configure the following types of settings:
 
 * [Distribution](#distribution-settings)
