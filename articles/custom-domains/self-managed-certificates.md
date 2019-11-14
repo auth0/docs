@@ -28,31 +28,6 @@ Choose this option if:
 
 To set up your custom domain using self-managed certificates, you need to provide your domain name to Auth0, verify that you own that domain, configure the reverse proxy, and then complete additional configuration for the Auth0 features you are using.
 
-## Create a new domain record (if you haven't already done so)
-
-Configure a domain with your chosen domain management service, such as GoDaddy or Goggle Domains. 
-
-The following steps may vary for your domain host provider.
-
-1. Log in to your domain management service.
-
-2. Create a new record:
-
-  * For the record type, indicate **TXT**
-  * For the **Name** field, enter your custom domain name (such as **login.travel0.com**)
-  * Leave the **Time to Live (TTL)** field set to the default value
-  * In the **Value** field, paste in the TXT value provided by the Auth0 Dashboard
-
-3. When done, save your record.
-
-  If Auth0 was able to verify your domain name, you'll see a confirmation window. 
-
-  ![](/media/articles/custom-domains/api-key.png)
-
-  This means the verification process is complete and within 1 to 2 minutes, your custom domain should be ready to use.
-
-4. Save the information provided in this pop-up, especially the `cname-api-key` value, since this is the **only** time you'll see this value.
-
 <%= include('./_provide-domain-name') %>
 
 ## Verify ownership
@@ -67,7 +42,32 @@ Before you can use the domain with Auth0, you'll need to verify that you own it.
 
   It may take a few minutes before Auth0 can verify your TXT record, depending on your DNS settings.
 
+::: panel Add the TXT verification record to your domain's DNS record
+The following steps may vary for your domain host provider.
+
+1. Log in to your domain management service.
+
+2. Create a new record:
+
+  | Parameter | Value |
+  | -- | -- |
+  | **Record type** | **TXT** |
+  | **Name** | Enter your custom domain name (such as **login.travel0.com**). |
+  | **Time to Live (TTL)** | Use default value |
+  | **Value** | Paste in the **TXT** value provided by the Auth0 Dashboard for your domain's DNS record. |
+
+3. When done, save your record.
+:::
+
+  If Auth0 was able to verify your domain name, you'll see a confirmation window. 
+
+    ::: note
+  Save the information provided in this window, specifically the `cname-api-key` value, since this is the **only** time you'll see this value.
+  :::
+
   ![](/media/articles/custom-domains/api-key.png)
+
+  The verification process is complete and within 1 to 2 minutes, your custom domain should be ready to use.
 
 <%= include('./_warning-repeat-steps') %>
 
