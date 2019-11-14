@@ -11,7 +11,7 @@ useCase: customize-domains
 ---
 # Configure AWS CloudFront for Use as Reverse Proxy
 
-<%= include('../_subscription') %>
+<%= include('./_subscription') %>
 
 You can configure AWS CloudFront for use as the reverse proxy with custom domain names for your Auth0 tenant.
 
