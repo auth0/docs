@@ -83,7 +83,11 @@ If you are unable to complete the verification process within three days, you'll
 
 ### Step 3: Configure the Reverse Proxy
 
-Next you will need  to set up your reverse proxy. In this example, we will walk through [how to do so using AWS CloudFront](/custom-domains/set-up-cloudfront).
+Next you will need  to set up your reverse proxy. Here are some examples:
+
+* [Configure AWS CloudFront for Use as Reverse Proxy](/custom-domains/set-up-cloudfront)
+* [Setup Azure CDN as a Reverse Proxy for Custom Domains](/custom-domains/set-up-azure-cdn)
+* [Setup Cloudflare as a Reverse Proxy for Custom Domains](/custom-domains/set-up-cloudflare)
 
 ### Step 4: Complete Feature-Specific Setup
 
