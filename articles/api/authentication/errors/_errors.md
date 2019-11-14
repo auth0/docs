@@ -7,7 +7,7 @@ The Authentication API may return the following HTTP Status Codes:
       <tr>
         <th width="20%">Status</th>
         <th width="20%">Description</th>
-        <th width="60%">Messages</th>
+        <th width="60%">Message</th>
       </tr>
     </thead>
     <tbody>
