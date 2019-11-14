@@ -641,8 +641,22 @@ articles:
         url: /custom-domains
         children:
 
-          - title: Custom Domains with Self-Managed Certificates
+          - title: Auth0-Managed Certificates
+            url: /custom-domains/auth0-managed-certificates
+
+          - title: Self-Managed Certificates
             url: /custom-domains/self-managed-certificates
+            children:
+
+              - title: Reverse Proxy Example
+                url: /custom-domains/set-up-cloudfront
+                hidden: true 
+
+          - title: Specific Features
+            url: /custom-domains/additional-configuration
+
+          - title: Troubleshooting
+            url: /custom-domains/troubleshoot-custom-domains
 
       - title: Email
         url: /email
@@ -937,6 +951,9 @@ articles:
       - title: Basics
         url: /troubleshoot/basics
 
+      - title: Issues with...
+        url: /troubleshoot/issues
+
       - title: Common Authentication Errors
         url: /libraries/error-messages
         children:
@@ -960,14 +977,14 @@ articles:
       - title: Deprecation Errors
         url: /errors/deprecation-errors
 
-      - title: Issues with...
-        url: /troubleshoot/issues
-
       - title: HTTP Archive (HAR)
         url: /troubleshoot/har
 
       - title: Custom Databases
         url: /connections/database/custom-db/error-handling
+
+      - title: Custom Domains
+        url: /custom-domains/troubleshoot-custom-domains
 
       - title: Deploy CLI
         url: /extensions/deploy-cli/references/troubleshooting
