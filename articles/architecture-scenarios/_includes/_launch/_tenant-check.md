@@ -85,7 +85,7 @@ You should double check the [API access token expiration settings](/dashboard/re
 
 #### API offline access
 
-If your application does not request access tokens, this should be off.
+If your application does not request refresh tokens, this should be off.
 
 #### Access token signing algorithm
 
