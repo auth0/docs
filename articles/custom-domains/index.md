@@ -45,7 +45,7 @@ You can use either your `${account.namespace}` domain to access Auth0 or your cu
 
 ## Auth0 features that use custom domains
 
-The following Auth0 features can use custom domains:
+The following Auth0 features can use custom domains. See [Configure Custom Domains for Specific Features](/custom-domains/additional-configuration) for details. 
 
 ::: note
 Features not in the list are **not supported** by Auth0 with custom domains.

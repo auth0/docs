@@ -9,31 +9,31 @@ useCase: customize-domains
 ---
 # Configure Custom Domains for Specific Features
 
-In order to configure custom domains, and depending on the Auth0 features you are using, there might be additional configuration steps you must follow. This article lists the required configuration you must do per feature.
+In order to configure custom domains, and depending on the Auth0 features you are using, there might be additional configuration steps you must follow. 
 
 If you have been using Auth0 for some time and decide to enable a custom domain, you will have to migrate your existing apps and update the settings as described below. Note that existing sessions created at `${account.namespace}` will no longer be valid once you start using your custom domain, so users will have to login again.
 
-## Prerequisites
+## Prerequisite
 
-You have already configured and verified your custom domain. If not, see [How to configure custom domains](/custom-domains#how-to-configure-custom-domains).
+You have already configured and verified your custom domain. See [Verify ownership](/custom-domains/auth-managed-certificates#verify-ownership).
 
-## Which section is relevant to me?
+## Features
 
 | **Feature** | **Section to read** |
 |-|-|
-| You use [Universal Login](/hosted-pages/login) and you have customized the login page | [Universal Login](#universal-login) |
-| You use Lock embedded in your application | [Embedded Lock](#embedded-lock) |
-| You use Auth0 SPA SDK, Auth0.js or other Auth0 SDKs | [Auth0 SPA SDK, Auth0.js and other SDKs](#auth0-spa-sdk-auth0-js-and-other-sdks) |
-| You want to use your custom domain with Auth0 emails | [Use custom domains in emails](#use-custom-domains-in-emails) |
-| You want to use social identity providers with your custom domain | [Configure social identity providers](#configure-social-identity-providers) |
-| You want to use G Suite connections with your custom domain | [Configure G Suite connections](#configure-g-suite-connections) |
-| You issue Access Tokens for your APIs or you access the Auth0 APIs from your application | [APIs](#apis) |
-| You want to use <dfn data-key="security-assertion-markup-language">SAML</dfn> identity providers with your custom domain| [Configure SAML identity providers](#configure-saml-identity-providers) |
-| You want to use SAML applications with your custom domain | [Configure your SAML applications](#configure-your-saml-applications) |
-| You want to use WS-Fed Clients with your custom domain | [Configure your WS-Fed Clients](#configure-your-ws-fed-clients) |
-| You want to use Azure AD connections with your custom domain | [Configure Azure AD connections](#configure-azure-ad-connections) |
-| You want to use ADFS connections with your custom domain | [Configure ADFS connections](#configure-adfs-connections) |
-| You want to use AD/LAP connections with Kerberos support with your custom domain | [Configure AD/LAP connections](#configure-ad-ldap-connections) |
+| [Universal Login](/hosted-pages/login) and you have customized the login page | [Universal Login](#universal-login) |
+| Lock embedded in your application | [Embedded Lock](#embedded-lock) |
+| Auth0 SPA SDK, Auth0.js or other Auth0 SDKs | [Auth0 SPA SDK, Auth0.js and other SDKs](#auth0-spa-sdk-auth0-js-and-other-sdks) |
+| Custom domain with Auth0 emails | [Use custom domains in emails](#use-custom-domains-in-emails) |
+| Social identity providers | [Configure social identity providers](#configure-social-identity-providers) |
+| G Suite connections with your custom domain | [Configure G Suite connections](#configure-g-suite-connections) |
+| Issue Access Tokens for your APIs or you access the Auth0 APIs from your application | [APIs](#apis) |
+| <dfn data-key="security-assertion-markup-language">SAML</dfn> identity providers | [Configure SAML identity providers](#configure-saml-identity-providers) |
+| SAML applications | [Configure your SAML applications](#configure-your-saml-applications) |
+| WS-Fed Clients | [Configure your WS-Fed Clients](#configure-your-ws-fed-clients) |
+| Azure AD connections | [Configure Azure AD connections](#configure-azure-ad-connections) |
+| ADFS connections | [Configure ADFS connections](#configure-adfs-connections) |
+| AD/LAP connections with Kerberos support | [Configure AD/LAP connections](#configure-ad-ldap-connections) |
 
 ## Universal Login
 
@@ -187,3 +187,9 @@ If Kerberos support is not needed, AD/LDAP connections should not require furthe
 In order to use AD/LDAP connections with Kerberos support, you will need to update the ticket endpoint to work with the custom domain. As mentioned in the [Auth0 AD/LDAP connector documentation](/connector/modify#point-an-ad-ldap-connector-to-a-new-connection), the `config.json` file needs to be modified, with the `PROVISIONING_TICKET` value changed from this format `https://<TENANT>.auth0.com/p/ad/jUG0dN0R/info` to `https://<CUSTOM DOMAIN>/p/ad/jUG0dN0R/info`.
 
 Once this change is saved, be sure to restart the AD/LDAP Connector service.
+
+## Keep reading
+
+* [Configure Custom Domains with Auth0-Managed Certificates](/custom-domains/auth0-managed-certificates)
+* [Configure Custom Domains with Self-Managed Certificates](/custom-domains/self-managed-certificates)
+* [Troubleshooting Custom Domains](/custom-domains/troubleshoot-custom-domains)
