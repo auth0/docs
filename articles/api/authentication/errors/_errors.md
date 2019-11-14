@@ -14,32 +14,52 @@ The Authentication API may return the following HTTP Status Codes:
       <tr>
         <td><span class="badge badge-danger">400</span></td>
         <td>Bad Request</td>
-        <td>invalid_request; invalid_scope; Scope must be an array or a string</td>
+        <td><code>{"error": "invalid_request", "error_description": "..."}</code></td>
+      </tr>        
+      <tr>
+        <td><span class="badge badge-danger">400</span></td>
+        <td>Bad Request</td>
+        <td><code>{"error": "invalid_scope", "error_description": "..."}</code></td>
+      </tr>          
+      <tr>
+        <td><span class="badge badge-danger">400</span></td>
+        <td>Bad Request</td>
+        <td><code>{"error": "invalid_scope", "error_description": "Scope must be an array or a string"}</code></td>
       </tr>
       <tr>
         <td><span class="badge badge-danger">401</span></td>
         <td>Unauthorized</td>
-        <td>invalid_client</td>
+        <td><code>{"error": "invalid_client", "error_description": "..."}</code></td>
       </tr>
       <tr>
         <td><span class="badge badge-danger">403</span></td>
         <td>Forbidden</td>
-        <td>unauthorized_client; access_denied; Unknown or invalid refresh token</td>
+        <td><code>{"error": "unauthorized_client", "error_description": "..."}</code></td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-danger">403</span></td>
+        <td>Forbidden</td>
+        <td><code>{"error": "access_denied", "error_description": "..."}</code></td>
+      </tr>        
+      <tr>
+        <td><span class="badge badge-danger">403</span></td>
+        <td>Forbidden</td>
+        <td><code>{"error": "access_denied", "error_description": "Unknown or invalid refresh token"}</code></td>
       </tr>
       <tr>
         <td><span class="badge badge-danger">404</span></td>
         <td>Not Found</td>
-        <td>endpoint_disabled</td>
+        <td><code>{"error": "endpoint_disabled", "error_description": "..."}</code></td>
       </tr>
       <tr>
         <td><span class="badge badge-danger">405</span></td>
         <td>Method Not Allowed</td>
-        <td>&nbsp;</td>
+        <td><code>{"error": "method_not_allowed", "error_description": "..."}</code></td>
       </tr>
       <tr>
         <td><span class="badge badge-danger">429</span></td>
         <td>Too Many Requests</td>
-        <td>&nbsp;</td>
+        <td><code>{"error": "too_many_requests", "error_description": "..."}</code></td>
       </tr>
       <tr>
         <td><span class="badge badge-danger">500</span></td>
@@ -49,12 +69,12 @@ The Authentication API may return the following HTTP Status Codes:
       <tr>
         <td><span class="badge badge-danger">501</span></td>
         <td>Not Implemented</td>
-        <td>unsupported_response_type</td>
+        <td><code>{"error": "unsupported_response_type", "error_description": "..."}</code></td>
       </tr>
       <tr>
         <td><span class="badge badge-danger">503</span></td>
         <td>Service Unavailable</td>
-        <td>temporarily_unavailable</td>
+        <td><code>{"error": "temporarily_unavailable", "error_description": "..."}</code></td>
       </tr>
     </tbody>
   </table>
