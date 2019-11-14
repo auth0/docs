@@ -70,18 +70,6 @@ Authorization: Bearer {token}
 ```
 
 <div class="row api-explorer-row api-get">
-  <div class="span8 col-sm-8 api-method"><span class="verb get">GET</span> /api/users/{user_id}/devices</div>
-  <div class="span4 col-sm-4 api-description" style="text-align:right">Gets all user's devices</div>
-</div>
-
-Gets all devices/<dfn data-key="refresh-token">Refresh Tokens</dfn> being used by the user.
-
-```text
-GET /api/users/{user_id}/devices
-Authorization: Bearer {token}
-```
-
-<div class="row api-explorer-row api-get">
   <div class="span8 col-sm-8 api-method"><span class="verb get">GET</span> /api/connections/{connection}/users</div>
   <div class="span4 col-sm-4 api-description" style="text-align:right">Gets all users from an enterprise directory</div>
 </div>
