@@ -15,6 +15,8 @@ useCase:
 
 <%= include('./_subscription') %>
 
+If you choose to have Auth0 manage the certificates for your custom domain, it requires only that you add a CNAME record on the domain. Auth0 validates the record and the generates the certificate on Auth0 servers using Let’s Encrypt. These certificates are renewed automatically every three months. You can configure this easily and you won't have to maintain the certificates yourself. 
+
 To set up your custom domain using Auth0-managed certificates, you need to provide your domain name to Auth0, verify that you own that domain, and then complete additional configuration for the Auth0 features you are using.
 
 <%= include('./_provide-domain-name') %>

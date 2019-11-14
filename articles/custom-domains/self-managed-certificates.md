@@ -19,7 +19,7 @@ useCase:
 Custom Domains with the **Self-Managed Certificates** option is available for Auth0 Enterprise customers only.
 :::
 
-You can choose to manage the certificates for your custom domains yourself, which means that you are responsible for managing your SSL/TLS certificates and configuring a reverse proxy to handle SSL termination and forwarding requests to Auth0. 
+If you choose to manage the certificates for your custom domains yourself, it requires multiple DNS records on the domain. You have to purchase or provide the certificates from any known Certificate Authority and manage the renewals yourself. You will also need a reverse proxy, where the certificate will be installed. Once the domain is verified, we will accept traffic from the proxy.
 
 Choose this option if:
 
