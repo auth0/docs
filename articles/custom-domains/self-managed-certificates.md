@@ -61,7 +61,7 @@ The following steps may vary for your domain host provider.
 
   If Auth0 was able to verify your domain name, you'll see a confirmation window. 
 
-    ::: note
+  ::: note
   Save the information provided in this window, specifically the `cname-api-key` value, since this is the **only** time you'll see this value.
   :::
 
@@ -79,11 +79,19 @@ You can use a service such as Cloudflare, Azure CDN, or AWS Cloudfront and confi
 
 The way you configure the proxy server will vary depending on the service you use. You will likely need to configure the following types of settings:
 
-* Distribution
-* Origin custom headers
-* Default cache behaviour
+* [Distribution](#distribution-settings)
+* [Origin custom headers](#origin-custom-header-settings)
+* [Default cache behaviour](#default-cache-behavior-settings)
 
-1. Distribution settings: 
+After you've created the reverse proxy settings on your service, go to [Dashboard > Tenant Settings](${manage_url}/#/tenant) **Custom Domains** tab, add a new CNAME record to your DNS for your custom domain pointing to the service (such as Cloudfront) domain name for your distribution. You can usually find this by looking for the **Distribution ID** on your reverse proxy server configuration. 
+
+::: warning
+Once added, the CNAME record must be present at all times to avoid issues during certificate renewal.
+:::
+
+See [Configure AWS CloudFront for Use as Reverse Proxy](/custom-domains/set-up-cloudfront) for an example.
+
+### Distribution settings
 
  | Parameter | Value |
   | - | - |
@@ -92,14 +100,14 @@ The way you configure the proxy server will vary depending on the service you us
   | Origin Protocol Policy | Set to `HTTPS Only` |
   | Alternate Domain Names (CNAMEs) | Set to your custom domain name (the same one your configured in the Auth0 Dashboard) |
 
-2. Origin custom header settings: 
+### Origin custom header settings
 
   | Parameter | Value |
   | -- | -- |
   | Header Name | Set to `cname-api-key` |
   | Value | Set to the CNAME API Key value that you were given immediately after you verified ownership of your domain name with Auth0 |
 
-3. Default cache behavior settings:
+### Default cache behavior settings
 
  | Parameter | Value |
   | - | - |
@@ -109,16 +117,6 @@ The way you configure the proxy server will vary depending on the service you us
   | Whitelist Headers | Enter `User-Agent` and click **Add Custom >>** to add the custom whitelist header. Do the same for `Origin` and `Referer` headers. |
   | Forward Cookies | Select **All** |
   | Query String Forwarding and Caching | Select **Forward all, cache based on all** |
-
-4. After you've created the reverse proxy settings on your service, go to [Dashboard > Tenant Settings](${manage_url}/#/tenant) **Custom Domains** tab, add a new CNAME record to your DNS for your custom domain pointing to the service (such as Cloudfront) domain name for your distribution. You can usually find this by looking for the **Distribution ID** on your reverse proxy server configuration. 
-
-  ::: warning
-  Once added, the CNAME record must be present at all times to avoid issues during certificate renewal.
-  :::
-
-  https://docs-content-staging-pr-8492.herokuapp.com/docs/media/articles/custom-domains/auth0-managed.png
-
-See [Configure AWS CloudFront for Use as Reverse Proxy](/custom-domains/set-up-cloudfront) for an example.
 
 <%= include('./_additional-steps') %>
 
