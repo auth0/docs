@@ -32,7 +32,7 @@ You'll need to register and own the domain name to which you're mapping your Aut
 
 To set up your custom domain using self-managed certificates, you need to provide your domain name to Auth0, verify that you own that domain, configure the reverse proxy, and then complete additional configuration for the Auth0 features you are using.
 
-<%= include('../_provide-domain-name') %>
+<%= include('./_provide-domain-name') %>
 
 ## Verify ownership
 

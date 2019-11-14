@@ -8,7 +8,7 @@ useCase: customize-domains
 ---
 # Custom Domains
 
-<%= include('../_subscription') %>
+<%= include('./_subscription') %>
 
 Auth0 allows you to map the domain for your tenant to **one custom domain** of your choosing. This allows you to maintain a consistent experience for your users by keeping them on your domain instead of redirecting or using Auth0's domain. You must register and own the domain name to which you are mapping your Auth0 domain. For example, if your Auth0 domain is **travel0.auth0.com**, you can have your users to see, use, and remain on **login.travel0.com**.
 

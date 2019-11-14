@@ -13,11 +13,11 @@ useCase:
 
 # Configure Custom Domains with Auth0-Managed Certificates
 
-<%= include('../_subscription') %>
+<%= include('./_subscription') %>
 
 To set up your custom domain using Auth0-managed certificates, you need to provide your domain name to Auth0, verify that you own that domain, and then complete additional configuration for the Auth0 features you are using.
 
-<%= include('../_provide-domain-name') %>
+<%= include('./_provide-domain-name') %>
 
 ## Verify ownership
 
