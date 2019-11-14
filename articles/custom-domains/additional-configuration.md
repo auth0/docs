@@ -21,7 +21,7 @@ You have already configured and verified your custom domain. See [Verify ownersh
 
 | **Feature** | **Section to read** |
 |-|-|
-| [Universal Login](/hosted-pages/login) and you have customized the login page | [Universal Login](#universal-login) |
+| <dfn data-key="universal-login">Universal Login</dfn> and you have customized the login page | [Universal Login](#universal-login) |
 | Lock embedded in your application | [Embedded Lock](#embedded-lock) |
 | Auth0 SPA SDK, Auth0.js or other Auth0 SDKs | [Auth0 SPA SDK, Auth0.js and other SDKs](#auth0-spa-sdk-auth0-js-and-other-sdks) |
 | Custom domain with Auth0 emails | [Use custom domains in emails](#use-custom-domains-in-emails) |

@@ -1,6 +1,6 @@
 ## Provide your domain name to Auth0
 
-1. Log in to the Dashboard and go to [Tenant Settings](${manage_url}/#/tenant). 
+1. Go to [Dashboard > Tenant Settings](${manage_url}/#/tenant). 
 
 2. Select the **Custom Domains** tab.
 

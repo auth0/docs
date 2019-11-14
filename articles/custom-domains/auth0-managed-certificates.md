@@ -17,9 +17,9 @@ useCase:
 
 To set up your custom domain using Auth0-managed certificates, you need to provide your domain name to Auth0, verify that you own that domain, and then complete additional configuration for the Auth0 features you are using.
 
-## Create domain record (if you haven't already done so)
+## Create a new domain record (if you haven't already done so)
 
-Before you can use this domain with Auth0, you'll need to verify that you own your domain. To do that, you will need to configure your domain with your chosen domain management service, such as GoDaddy or Goggle Domains. 
+Configure a domain with your chosen domain management service, such as GoDaddy or Goggle Domains. 
 
 The following steps may vary for your domain host provider.
 
@@ -42,7 +42,9 @@ The following steps may vary for your domain host provider.
 
 ## Verify ownership
 
-1. In the Auth0 Dashboard, under **Tenant Settings**, add the CNAME verification record listed in the Dashboard to your domain's DNS record.
+Before you can use the domain with Auth0, you'll need to verify that you own it. 
+
+1. Go to [Dashboard > Tenant Settings](${manage_url}/#/tenant), add the CNAME verification record listed in the Dashboard to your domain's DNS record.
 
   ![](/media/articles/custom-domains/auth0-managed.png)
 

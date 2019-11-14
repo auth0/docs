@@ -28,9 +28,9 @@ Choose this option if:
 
 To set up your custom domain using self-managed certificates, you need to provide your domain name to Auth0, verify that you own that domain, configure the reverse proxy, and then complete additional configuration for the Auth0 features you are using.
 
-## Create domain record (if you haven't already done so)
+## Create a new domain record (if you haven't already done so)
 
-Before you can use this domain with Auth0, you'll need to verify that you own your domain. To do that, you will need to configure your domain with your chosen domain management service, such as GoDaddy or Goggle Domains. 
+Configure a domain with your chosen domain management service, such as GoDaddy or Goggle Domains. 
 
 The following steps may vary for your domain host provider.
 
@@ -57,7 +57,9 @@ The following steps may vary for your domain host provider.
 
 ## Verify ownership
 
-1. In the Auth0 Dashboard, under **Tenant Settings**, add the TXT verification record listed in the Dashboard to your domain's DNS record.
+Before you can use the domain with Auth0, you'll need to verify that you own it. 
+
+1. Go to [Dashboard > Tenant Settings](${manage_url}/#/tenant), add the TXT verification record listed in the Dashboard to your domain's DNS record.
 
   ![](/media/articles/custom-domains/self-managed.png)
 
@@ -108,7 +110,7 @@ The way you configure the proxy server will vary depending on the service you us
   | Forward Cookies | Select **All** |
   | Query String Forwarding and Caching | Select **Forward all, cache based on all** |
 
-4. After you've created the reverse proxy settings on your service, add a new CNAME record in the Auth0 Dashboard to your DNS for your custom domain pointing to the service (such as Cloudfront) domain name for your distribution. You can usually find this by looking for the **Distribution ID**. 
+4. After you've created the reverse proxy settings on your service, go to [Dashboard > Tenant Settings](${manage_url}/#/tenant) **Custom Domains** tab, add a new CNAME record to your DNS for your custom domain pointing to the service (such as Cloudfront) domain name for your distribution. You can usually find this by looking for the **Distribution ID** on your reverse proxy server configuration. 
 
   ::: warning
   Once added, the CNAME record must be present at all times to avoid issues during certificate renewal.

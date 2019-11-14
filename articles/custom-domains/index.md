@@ -59,7 +59,7 @@ Features not in the list are **not supported** by Auth0 with custom domains.
 | Emails | Links included in the emails use your custom domain |
 | Connections | Database, social, G Suite, Azure AD, ADFS, AD/LDAP |
 | <dfn data-key="lock">Lock</dfn> | Version 11 with cross-origin authentication |
-| <dfn data-key="passwordless">Passwordless</dfn> | With Universal Login (The email link sent using the custom domain if the option is enabled in **Tenant Settings > Custom Domains**.) |
+| <dfn data-key="passwordless">Passwordless</dfn> | With Universal Login (The email link sent using the custom domain if the option is enabled in **Dashboard > Tenant Settings > Custom Domains**.) |
 | <dfn data-key="security-assertion-markup-language">SAML</dfn> | Connections and applications |
 | WS-Federation | Auth0 as identity provider using WS-Fed add-on |
 | OAuth 2.0/OIDC-Compliant flows | Using the [`/authorize`](/api/authentication#authorize-application) and [`/oauth/token`](/api/authentication#get-token) endpoints |
