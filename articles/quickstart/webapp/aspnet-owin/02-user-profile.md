@@ -57,9 +57,9 @@ public void Configuration(IAppBuilder app)
 }
 ```
 
-You may also want to create a user profile page which will display a user's name, email address and profile image.
+You may also want to create a user profile page which will display a user's name, email address, and profile image.
 
-First, create a view model which will contain the basic user profile information, such as a `Name`, `EmailAddress` and `ProfileImage`:
+First, create a view model which will contain the basic user profile information, such as a `Name`, `EmailAddress`, and `ProfileImage`:
 
 ```csharp
 // ViewModels/UserProfileViewModel.cs

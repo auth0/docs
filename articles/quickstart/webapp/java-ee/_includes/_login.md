@@ -4,7 +4,7 @@ The Java EE 8 Security API introduced the `HttpAuthenticationMechanism` interfac
 
 To authenticate with Auth0, provide custom implementations of the following interfaces:
 
-- `HttpAuthenticationMechanism`: Responsible for obtaining an user's credentials and notifying the container of successful (or not) login status ([JavaDoc](https://javaee.github.io/javaee-spec/javadocs/javax/security/enterprise/authentication/mechanism/http/HttpAuthenticationMechanism.html)).
+- `HttpAuthenticationMechanism`: Responsible for obtaining a user's credentials and notifying the container of successful (or not) login status ([JavaDoc](https://javaee.github.io/javaee-spec/javadocs/javax/security/enterprise/authentication/mechanism/http/HttpAuthenticationMechanism.html)).
 - `IdentityStore`: Responsible for validating the user's credentials ([JavaDoc](https://javaee.github.io/javaee-spec/javadocs/javax/security/enterprise/identitystore/IdentityStore.html)).
 - `CallerPrincipal`: Represents the caller principal of the current HTTP request ([JavaDoc](https://javaee.github.io/javaee-spec/javadocs/javax/security/enterprise/CallerPrincipal.html)).
 - `Credential`: Represents the credential the caller will use to authenticate ([JavaDoc](https://javaee.github.io/javaee-spec/javadocs/javax/security/enterprise/credential/Credential.html)).
@@ -149,6 +149,8 @@ public class Auth0AuthenticationProvider {
 Finally, implement a custom `HttpAuthenticationMechanism`
 
 ```java
+// src/main/java/com/auth0/example/security/Auth0AuthenticationMechanism.java
+
 @ApplicationScoped
 @AutoApplySession
 public class Auth0AuthenticationMechanism implements HttpAuthenticationMechanism {
@@ -201,7 +203,7 @@ Finally, note that the `@AutoApplySession` annotation has been added to allow th
 
 ## Trigger authentication
 
-To enable a user to login, create a Servlet that will handle requests to the `/login` path:
+To enable a user to log in, create a Servlet that will handle requests to the `/login` path:
 
 ```java
 // src/main/java/com/auth0/example/web/LoginServlet.java

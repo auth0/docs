@@ -23,12 +23,12 @@ The Login project sample has the following structure:
 - build.gradle
 ```
 
-The project contains a single JSP: the `home.jsp` which will display the tokens associated to the user after a successful login and provide the option to logout.
+The project contains a single JSP: the `home.jsp` which will display the tokens associated with the user after a successful login and provide the option to logout.
 
 The project contains a WebFilter: the `Auth0Filter.java` which will check for existing tokens before giving the user access to our protected `/portal/*` path. If the tokens don't exist, the request will be redirected to the `LoginServlet`.
 
 The project contains also four servlets:
-- `LoginServlet.java`: Invoked when the user attempts to login. The servlet uses the `client_id` and `domain` parameters to create a valid Authorize URL and redirects the user there.
+- `LoginServlet.java`: Invoked when the user attempts to log in. The servlet uses the `client_id` and `domain` parameters to create a valid Authorize URL and redirects the user there.
 - `CallbackServlet.java`: The servlet captures requests to our Callback URL and processes the data to obtain the credentials. After a successful login, the credentials are then saved to the request's HttpSession.
 - `HomeServlet.java`: The servlet reads the previously saved tokens and shows them on the `home.jsp` resource.
 - `LogoutServlet.java`: Invoked when the user clicks the logout link. The servlet invalidates the user session and redirects the user to the login page, handled by the `LoginServlet`.
@@ -103,7 +103,7 @@ private void handle(HttpServletRequest req, HttpServletResponse res) throws IOEx
 ```
 
 ::: note
-It is recommended to store the time in which we requested the tokens and the received `expiresIn` value, so that the next time when we are going to use the token we can check if it has already expired or if it's still valid. For the sake of this sample we will skip that validation.
+It is recommended to store the time in which we requested the tokens and the received `expiresIn` value, so that the next time when we are going to use the token we can check if it has already expired or if it's still valid. For the sake of this sample, we will skip that validation.
 :::
 
 ## Display the Home Page
@@ -171,7 +171,7 @@ After a few seconds, the application will be accessible on `http://localhost:300
 
 ![Login using Lock](/media/articles/java/login-with-lock.png)
 
-After a successful authentication you'll be able to see the home page contents.
+After a successful authentication, you'll be able to see the home page contents.
 
 ![Display Token](/media/articles/java/display-token.png)
 

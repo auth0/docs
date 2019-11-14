@@ -27,12 +27,12 @@ The Login project sample has the following structure:
 - build.gradle
 ```
 
-The project contains a single JSP: the `home.jsp` which will display the tokens associated to the user after a successful login and provide the option to logout.
+The project contains a single JSP: the `home.jsp` which will display the tokens associated with the user after a successful login and provide the option to logout.
 
 The project contains a Filter: the `Auth0Filter.java` which will check for existing tokens before giving the user access to our protected `/portal/*` path. If the tokens don't exist, the request will be redirected to the `LoginController`. This Filter is set on the `AppConfig.java` class.
 
 The project contains also five Controllers:
-- `LoginController.java`: Invoked when the user attempts to login. The controller uses the `client_id` and `domain` parameters to create a valid Authorize URL and redirects the user there.
+- `LoginController.java`: Invoked when the user attempts to log in. The controller uses the `client_id` and `domain` parameters to create a valid Authorize URL and redirects the user there.
 - `CallbackController.java`: The controller captures requests to our Callback URL and processes the data to obtain the credentials. After a successful login, the credentials are then saved to the request's HttpSession.
 - `HomeController.java`: The controller reads the previously saved tokens and shows them on the `home.jsp` resource.
 - `LogoutController.java`: Invoked when the user clicks the logout link. The controller invalidates the user session and redirects the user to the login page, handled by the `LoginController`.
@@ -42,7 +42,7 @@ Lastly, the project defines a helper class: the `AuthController.java` which will
 
 ## Trigger Authentication
 
-Let's begin by making your Auth0 credentials available on the App. In the `AppConfig` class we tell Spring to map the properties defined in the `auth0.properties` file to the corresponding fields by using the `@Configuration` and `@Value` annotations. We also define the class as a `@Component` so we can later autowire it to make it available on other classes:
+Let's begin by making your Auth0 credentials available on the App. In the `AppConfig` class, we tell Spring to map the properties defined in the `auth0.properties` file to the corresponding fields by using the `@Configuration` and `@Value` annotations. We also define the class as a `@Component` so we can later autowire it to make it available on other classes:
 
 ```java
 // src/main/java/com/auth0/example/AppConfig.java
@@ -132,7 +132,7 @@ protected void getCallback(final HttpServletRequest req, final HttpServletRespon
 ```
 
 ::: note
-It it's recommended to store the time in which we requested the tokens and the received `expiresIn` value, so that the next time when we are going to use the token we can check if it has already expired or if it's still valid. For the sake of this sample we will skip that validation.
+It it's recommended to store the time in which we requested the tokens and the received `expiresIn` value, so that the next time when we are going to use the token we can check if it has already expired or if it's still valid. For the sake of this sample, we will skip that validation.
 :::
 
 ## Display the Home Page
@@ -199,7 +199,7 @@ After a few seconds, the application will be accessible on `http://localhost:300
 
 ![Login using Lock](/media/articles/java/login-with-lock.png)
 
-After a successful authentication you'll be able to see the home page contents.
+After a successful authentication, you'll be able to see the home page contents.
 
 ![Display Token](/media/articles/java/display-token.png)
 

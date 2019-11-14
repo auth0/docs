@@ -39,7 +39,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Next, in the `Configure` method of the `Startup` class add the cookie middleware and the OpenID Connect middleware. Middleware executes in the order they are registered so it is important to register the cookie middleware first, and then the OIDC middleware.
+Next, in the `Configure` method of the `Startup` class add the cookie middleware and the OpenID Connect middleware. Middleware executes in the order they are registered so it is important to register the cookie middleware first and then the OIDC middleware.
 
 Both of these middleware should be registered before your MVC middleware in order for your controllers to be protected. The OIDC middleware is required in order to authenticate the user with Auth0. Once the user has authenticated they will be signed into the Cookie middleware which will be used to authenticate all subsequent requests.
 
@@ -107,11 +107,11 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 }
 ```
 
-Also note above that the list of scopes is cleared and only the `openid` scope is requested. By default the OIDC middleware will request both the `openid` and the `profile` scopes and can result in a large ID Token being returned. It is suggested that you be more explicit about the scopes you want to be returned and not ask for the entire profile to be returned. Requesting additional scopes is discussed later in the [User Profile step](/quickstart/webapp/aspnet-core/02-user-profile).
+Also note above that the list of scopes is cleared and only the `openid` scope is requested. By default, the OIDC middleware will request both the `openid` and the `profile` scopes and can result in a large ID Token being returned. It is suggested that you be more explicit about the scopes you want to be returned and not ask for the entire profile to be returned. Requesting additional scopes is discussed later in the [User Profile step](/quickstart/webapp/aspnet-core/02-user-profile).
 
 ### Obtaining an Access Token for calling an API
 
-You may want to call an API from your MVC application, in which case you need to obtain an Access Token which was issued for the particular API you want to call. In this case you will need to pass an extra `audience` parameter containing the API Identifier to the Auth0 authorization endpoint.
+You may want to call an API from your MVC application, in which case you need to obtain an Access Token which was issued for the particular API you want to call. In this case, you will need to pass an extra `audience` parameter containing the API Identifier to the Auth0 authorization endpoint.
 
 If you want to do this, simply handle the `OnRedirectToIdentityProvider` event when configuring the `OpenIdConnectOptions` object, and add the `audience` parameter to the `ProtocolMessage`.
 
@@ -204,7 +204,7 @@ var options = new OpenIdConnectOptions("Auth0")
 
 This will ensure that when `SignOutAsync` is called for the OIDC Middleware, that the `/v2/logout` endpoint of the Auth0 Authentication API is called to log the user out of Auth0.
 
-It will also pass along the Redirect URL (when specified) in the `returnTo` parameter. You must therefore ensure that you have specified this URL in the **Allowed Logout URLs** for your application in the Auth0 Dashboard.
+It will also pass along the Redirect URL (when specified) in the `returnTo` parameter. You must, therefore, ensure that you have specified this URL in the **Allowed Logout URLs** for your application in the Auth0 Dashboard.
 
 ### Add Login and Logout Links
 
@@ -251,11 +251,11 @@ Now, when you run the application you can select the Login link to log into the 
 
 1. The user clicks on the Login link and is directed to the `Login` route.
 2. This returns a `ChallengeResult` which instructs the ASP.NET Authentication middleware to issue a challenge to the Authentication middleware which is registered with the `authenticationScheme` of `Auth0`. (When we created the instance of `OpenIdConnectOptions` in the `Startup` class we passed a value of **Auth0** to the constructor. This is the authentication scheme, so that is why the authentication middleware knows to challenge this OIDC middleware to authenticate the user).
-3. At this point the OIDC middleware is challenged, and it will redirect the user to the Auth0 `/authorize` endpoint, which will display Lock and require the user to log in - whether it be with username/password, social provider or any other Identity Provider.
+3. At this point, the OIDC middleware is challenged, and it will redirect the user to the Auth0 `/authorize` endpoint, which will display Lock and require the user to log in - whether it be with username/password, social provider or any other Identity Provider.
 4. Once the user has logged in, Auth0 will call back to the `/callback` endpoint in your application and pass along an authorization code.
 5. The OIDC middleware will "listen" for any request made to the `/callback` path and intercept it. It will look for the authorization code which Auth0 sent in the query string and then call the `/oauth/token` endpoint to exchange the authorization code for an ID Token and Access Token.
 6. The OIDC middleware will look at the ID Token and extract the user information from the claims on the token.
-7. Finally the OIDC middleware will return a successful authentication response, which will result in a cookie being stored indicating that the user is authenticated, and the cookie will also contain claims with the user's information. This means that on all subsequent requests the cookie middleware will automatically authenticate the user, and no further requests will be made to the OIDC middleware (unless explicitly challenged).
+7. Finally, the OIDC middleware will return a successful authentication response, which will result in a cookie being stored indicating that the user is authenticated, and the cookie will also contain claims with the user's information. This means that on all subsequent requests the cookie middleware will automatically authenticate the user, and no further requests will be made to the OIDC middleware (unless explicitly challenged).
 :::
 
 ### Storing the Tokens
