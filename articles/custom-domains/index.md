@@ -15,7 +15,7 @@ useCase: customize-domains
 
 <%= include('./_subscription') %>
 
-Auth0 allows you to map the domain for your tenant to **one custom domain** of your choosing. This allows you to maintain a consistent experience for your users by keeping them on your domain instead of redirecting or using Auth0's domain. You must register and own the domain name to which you are mapping your Auth0 domain. For example, if your Auth0 domain is **travel0.auth0.com**, you can have your users to see, use, and remain on **login.travel0.com**.
+Auth0 allows you to map the domain for your tenant to **one custom domain** of your choosing. This allows you to maintain a consistent experience for your users by keeping them on your domain instead of redirecting or using Auth0's domain. You must register and own the domain name to which you are mapping your Auth0 domain. For example, if your Auth0 domain is **northwind.auth0.com**, you can have your users to see, use, and remain on **login.northwind.com**.
 
 We recommend that you use custom domains with Universal Login for the most seamless and secure experience for your users. See [Universal Login](/hosted-pages/login) to determine if your use case requires custom domains. 
 
@@ -25,8 +25,8 @@ Auth0 issues tokens with the **iss** claim of whichever domain you used with the
 
 | If you use | **iss** claim value with custom domain |
 | -- | -- |
-| `https://travel0.auth0.com/authorize...` | `https://travel0.auth0.com/` |
-| `https://login.travel0.com/authorize...` | `https://login.travel0.com/` |
+| `https://northwind.auth0.com/authorize...` | `https://northwind.auth0.com/` |
+| `https://login.northwind.com/authorize...` | `https://login.northwind.com/` |
 
 ::: note
 If you get an Access Token for the [Management API](/api/management/v2) using an authorization flow with your custom domain, you **must** call the Management API using the custom domain (your token will be considered invalid otherwise).

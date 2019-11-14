@@ -43,7 +43,7 @@ The following steps may vary for your domain host provider.
   | Parameter | Value |
   | -- | -- |
   | **Record type** | **CNAME** |
-  | **Name** | Enter your custom domain name (such as **login.travel0.com**). |
+  | **Name** | Enter your custom domain name (such as **login.northwind.com**). |
   | **Time to Live (TTL)** | Use default value |
   | **Value** | Paste in the **CNAME** value provided by the Auth0 Dashboard for your domain's DNS record. |
 
