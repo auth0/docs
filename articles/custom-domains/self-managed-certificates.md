@@ -108,7 +108,13 @@ The way you configure the proxy server will vary depending on the service you us
   | Forward Cookies | Select **All** |
   | Query String Forwarding and Caching | Select **Forward all, cache based on all** |
 
-4. After you've created the reverse proxy settings on your service, add a new CNAME record to your DNS for your custom domain pointing to the service (such as Cloudfront) domain name for your distribution. You can usually find this by looking for the **Distribution ID**. 
+4. After you've created the reverse proxy settings on your service, add a new CNAME record in the Auth0 Dashboard to your DNS for your custom domain pointing to the service (such as Cloudfront) domain name for your distribution. You can usually find this by looking for the **Distribution ID**. 
+
+  ::: warning
+  Once added, the CNAME record must be present at all times to avoid issues during certificate renewal.
+  :::
+
+  https://docs-content-staging-pr-8492.herokuapp.com/docs/media/articles/custom-domains/auth0-managed.png
 
 See [Configure AWS CloudFront for Use as Reverse Proxy](/custom-domains/set-up-cloudfront) for an example.
 
