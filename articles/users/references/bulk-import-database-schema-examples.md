@@ -144,7 +144,6 @@ Additionally, the `app_metadata` should **not** contain any of these properties:
 * `updated_at`
 * `user_id`
 
-
 ---
 **NOTE**
 
@@ -176,7 +175,40 @@ As described above, the supported hash algorithms are:
 * [`sha1`](https://tools.ietf.org/html/rfc3174)
 * [`sha256` and `sha512`](https://tools.ietf.org/html/rfc4634)
 * [`argon2`](https://github.com/p-h-c/phc-winner-argon2)
-* [`pbkdf2`](https://tools.ietf.org/html/rfc2898#section-5.2)
+* [`pbkdf2`](https://tools.ietf.org/html/rfc2898#section-5.2) with any of the following digests
+  * `RSA-MD4`
+  * `RSA-MD5`
+  * `RSA-MDC2`
+  * `RSA-RIPEMD160`
+  * `RSA-SHA1`
+  * `RSA-SHA1-2`
+  * `RSA-SHA224`
+  * `RSA-SHA256`
+  * `RSA-SHA384`
+  * `RSA-SHA512`
+  * `md4`
+  * `md4WithRSAEncryption`
+  * `md5`
+  * `md5WithRSAEncryption`
+  * `mdc2`
+  * `mdc2WithRSA`
+  * `ripemd`
+  * `ripemd160`
+  * `ripemd160WithRSA`
+  * `rmd160`
+  * `sha1`
+  * `sha1WithRSAEncryption`
+  * `sha224`
+  * `sha224WithRSAEncryption`
+  * `sha256`
+  * `sha256WithRSAEncryption`
+  * `sha384`
+  * `sha384WithRSAEncryption`
+  * `sha512`
+  * `sha512WithRSAEncryption`
+  * `ssl3-md5`
+  * `ssl3-sha1`
+  * `whirlpool`
 
 ## File example
 
