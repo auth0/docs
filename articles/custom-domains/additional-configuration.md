@@ -192,4 +192,4 @@ Once this change is saved, be sure to restart the AD/LDAP Connector service.
 
 * [Configure Custom Domains with Auth0-Managed Certificates](/custom-domains/auth0-managed-certificates)
 * [Configure Custom Domains with Self-Managed Certificates](/custom-domains/self-managed-certificates)
-* [Troubleshooting Custom Domains](/custom-domains/troubleshoot-custom-domains)
+* [Troubleshooting Custom Domains](/custom-domains/troubleshoot)

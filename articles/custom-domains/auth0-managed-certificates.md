@@ -62,5 +62,5 @@ If Auth0 was able to verify your domain name, you'll see a confirmation window. 
 
 ## Keep reading
 
-* [Troubleshooting Custom Domains](/custom-domains/troubleshoot-custom-domains)
+* [Troubleshooting Custom Domains](/custom-domains/troubleshoot)
 * [Configure Custom Domains with Self-Managed Certificates](/custom-domains/self-managed-certificates)

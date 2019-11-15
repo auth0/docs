@@ -648,15 +648,19 @@ articles:
             url: /custom-domains/self-managed-certificates
             children:
 
-              - title: Reverse Proxy Example
+              - title: Cloudfront Reverse Proxy
                 url: /custom-domains/set-up-cloudfront
+                hidden: true 
+
+              - title: Azure CDN Reverse Proxy
+                url: /custom-domains/set-up-azure-cdn
                 hidden: true 
 
           - title: Specific Features
             url: /custom-domains/additional-configuration
 
           - title: Troubleshooting
-            url: /custom-domains/troubleshoot-custom-domains
+            url: /custom-domains/troubleshoot
 
       - title: Email
         url: /email
@@ -984,7 +988,7 @@ articles:
         url: /connections/database/custom-db/error-handling
 
       - title: Custom Domains
-        url: /custom-domains/troubleshoot-custom-domains
+        url: /custom-domains/troubleshoot
 
       - title: Deploy CLI
         url: /extensions/deploy-cli/references/troubleshooting

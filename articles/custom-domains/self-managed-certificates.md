@@ -75,7 +75,7 @@ The following steps may vary for your domain host provider.
 
 The reverse proxy server retrieves resources on behalf of your client from one or more servers. These resources are then returned to the client, appearing as if they originated from the proxy server itself.
 
-You can use a service such as Cloudflare, Azure CDN, or AWS Cloudfront and configure settings for your custom domain. You will add the new CNAME value to your DNS for your custom domain pointing to the reverse proxy server domain name for distribution. 
+You can use a service such as Cloudflare, [Azure CDN](/custom-domains/set-up-azure-cdn), or [AWS Cloudfront](/custom-domains/set-up-cloudfront) and configure settings for your custom domain. You will add the new CNAME value to your DNS for your custom domain pointing to the reverse proxy server domain name for distribution. 
 
 ::: note
 Cloudflare has a feature called CNAME Flattening which affects the Auth0 verification and certificate renewal processes due to the way it handles DNS records. We recommend turning off CNAME Flattening unless it's strictly necessary, according to the [Cloudflare documentation](https://support.cloudflare.com/hc/en-us/articles/200169056-Understand-and-configure-CNAME-Flattening).
@@ -92,8 +92,6 @@ After you've created the reverse proxy settings on your service, go to [Dashboar
 ::: warning
 Once added, the CNAME record must be present at all times to avoid issues during certificate renewal.
 :::
-
-See [Configure AWS CloudFront for Use as Reverse Proxy](/custom-domains/set-up-cloudfront) for an example.
 
 ### Distribution settings
 
@@ -126,5 +124,7 @@ See [Configure AWS CloudFront for Use as Reverse Proxy](/custom-domains/set-up-c
 
 ## Keep reading
 
-* [Troubleshooting Custom Domains](/custom-domains/troubleshoot-custom-domains)
+* [Troubleshooting Custom Domains](/custom-domains/troubleshoot)
+* [Configure AWS CloudFront for Use as Reverse Proxy](/custom-domains/set-up-cloudfront)
+* [Configure Azure CDN for Use as Reverse Proxy](/custom-domains/set-up-azure-cdn)
 * [Configure Custom Domains with Auth0-Managed Certificates](/custom-domains/auth0-managed-certificates)
