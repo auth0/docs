@@ -36,7 +36,7 @@ Before you can use the domain with Auth0, you'll need to verify that you own it.
 
 1. Go to [Dashboard > Tenant Settings](${manage_url}/#/tenant), add the TXT verification record listed in the Dashboard to your domain's DNS record.
 
-  ![](/media/articles/custom-domains/self-managed.png)
+  ![DSN Record](/media/articles/custom-domains/self-managed.png)
 
 2. Click **Verify** to proceed.
 
@@ -65,7 +65,7 @@ The following steps may vary for your domain host provider.
   Save the information provided in this window, specifically the `cname-api-key` value, since this is the **only** time you'll see this value.
   :::
 
-  ![](/media/articles/custom-domains/api-key.png)
+  ![Domain Verification](/media/articles/custom-domains/api-key.png)
 
   The verification process is complete and within 1 to 2 minutes, your custom domain should be ready to use.
 

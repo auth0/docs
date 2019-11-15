@@ -27,7 +27,7 @@ Before you can use the domain with Auth0, you'll need to verify that you own it.
 
 1. Go to [Dashboard > Tenant Settings](${manage_url}/#/tenant), add the CNAME verification record listed in the Dashboard to your domain's DNS record.
 
-  ![](/media/articles/custom-domains/auth0-managed.png)
+  ![DSN Record](/media/articles/custom-domains/auth0-managed.png)
 
 2. Click **Verify** to proceed.
 
@@ -54,7 +54,7 @@ The following steps may vary for your domain host provider.
 
 If Auth0 was able to verify your domain name, you'll see a confirmation window. This means the verification process is complete and within 1 to 2 minutes, your custom domain should be ready to use.
 
-  ![](/media/articles/custom-domains/domain-verification.png)
+  ![Domain Verification](/media/articles/custom-domains/domain-verification.png)
 
 <%= include('./_warning-repeat-steps') %>
 
