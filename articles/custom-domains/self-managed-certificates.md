@@ -15,9 +15,7 @@ useCase:
 ---
 # Configure Custom Domains with Self-Managed Certificates
 
-::: note
-Custom Domains with the **Self-Managed Certificates** option is available for Auth0 Enterprise customers only.
-:::
+<%= include('./_subscription') %>
 
 If you choose to manage the certificates for your custom domains yourself, it requires multiple DNS records on the domain. You have to purchase or provide the certificates from any known Certificate Authority and manage the renewals yourself. You will also need a reverse proxy, where the certificate will be installed. Once the domain is verified, we will accept traffic from the proxy.
 

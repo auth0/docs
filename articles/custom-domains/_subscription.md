@@ -1,3 +1,3 @@
-::: note
-Auth0 custom domains are not available with free subscriptions. To configure a custom domain for your tenant, you have to [upgrade your account to any paid subscription](${manage_url}/#/tenant/billing/subscription).
+::: panel Feature availability
+Auth0 custom domains are available with any paid [subscription plan](${manage_url}/#/tenant/billing/subscription). If you want to manage the SSL/TLS certificates yourself, you will need an **Enterprise** subscription. For more information refer to [Auth0 pricing plans](https://auth0.com/pricing).  
 :::
