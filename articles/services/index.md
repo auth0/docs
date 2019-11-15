@@ -35,9 +35,9 @@ We can help consolidate all the enablement activities leading to a successful ad
 
 <ul class="topic-links">
   <li>
-    <i class="icon icon-budicon-715"></i>Services
+    <i class="icon icon-budicon-715"></i><a href="#">Services</a>
 
-Designed to optimize our customers' investment in Auth0, our service offerings provide the proven, best practice assistance, required to avoid common pitfalls and reducing risk when tackling the range of activities involved as part of integrating with Auth0:
+Designed to optimize our customers' investment in Auth0, our service offerings provide the proven best practice assistance required to avoid common pitfalls, and reduce risk, when tackling the range of activities involved as part of integrating with Auth0:
     <ul>
       <li>
         <i class="icon icon-budicon-695"></i><a href="/services/discover-and-design">Discover & Design</a>
@@ -57,7 +57,7 @@ Designed to optimize our customers' investment in Auth0, our service offerings p
   <li>
     <i class="icon icon-budicon-715"></i><a href="/services/packages">Packages</a>
 
-Our packages provide our customers' with the combination of the services they need, and in a structured manner to help them engage with our experts in a way that best fits their requirements. Click [here](/services/packages) to see a full list of the packages we offer and see which of them would be a best fit for you. 
+Our packages provide our customers' with the services they need, in manner structured to help them engage with our experts in a way that best suites their requirements. Click [here](/services/packages) to see a full list of the packages we offer and to see which of them would be a good fit for you. 
   </li>
 </ul>
 
