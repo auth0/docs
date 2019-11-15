@@ -62,7 +62,7 @@ Authorization: Bearer {token}
   <div class="span4 col-sm-4 api-description" style="text-align:right">Gets an user by id</div>
 </div>
 
-Gets an user who have logged in through any of your connections that has a given id.
+Gets a user who has logged in through any of your connections that has a given id.
 
 ```text
 GET /api/users/{user_id}
