@@ -24,30 +24,22 @@ This guide will show you how to implement [passwordless authentication](/connect
 * [Register your Application with Auth0](/getting-started/set-up-app). 
   * Select the appropriate **Application Type**.
   * Add an **Allowed Callback URL**.
-  * If you have chosen to use [embedded login](/login/embedded), [set up Cross-Origin Resource Sharing (CORS)](/dashboard/guides/applications/set-up-cors).
 
-## Steps
+## Passwordless authentication with Universal Login
 
 1. [Set up the passwordless connection](#set-up-the-passwordless-connection): Set up the passwordless connection with which users can authenticate.
-
-2. [Configure the login page](#configure-the-login-screen): Configure your login page to work with passwordless.
-
-3. [Configure your application](#configure-your-application): Configure your application to call the login page. 
+1. [Configure the Universal Login page](#configure-the-universal-login-page): Configure your login page to work with passwordless.
+1. [Configure your application to use Universal Login](#configure-your-application-to-use-universal-login): Configure your application to call the login page. 
 
 Optional: [Explore Sample Use Cases](/connections/passwordless/concepts/sample-use-cases-rules)
 
-
-## Set up the passwordless connection
+### Set up the passwordless connection
 
 Set up the passwordless connection. This includes choosing the authentication method (SMS or email), customizing message text, and selecting code options.
 
 To learn how, see [Set Up Passwordless Connections](/dashboard/guides/connections/set-up-connections-passwordless).
 
-## Configure the login page
-
-Configure your login page to work with passwordless. This includes setting up the passwordless fields on your login page and selecting user interface options.
-
-### Universal Login
+### Configure the Universal Login page
 
 The best option is to use Auth0's Universal Login feature, which allows you to handle the various flavors of authentication without having to do any integration work. Better yet, your application will inherit all improvements Auth0 makes to its login flow without you needing to change a single line of code.
 
@@ -65,31 +57,74 @@ You can use Universal Login with Passwordless authentication in two ways:
 
 To learn how to configure your login page for passwordless using Universal Login, see [Configure Universal Login with Passwordless](/dashboard/guides/universal-login/configure-login-page-passwordless).
 
-### Embedded Login
-
-An alternative option is to use an embedded login form with the Lock (with Passwordless) widget. Using [Embedded Login](/login/embedded) with any application type leaves your application vulnerable to cross-origin resource sharing (CORS) attacks and requires the use of [Auth0 Custom Domains](/custom-domains), which is a paid feature. 
-
-::: warning
-If you are building a Native application, which uses device-specific hardware and software,Embedded Login is not a viable option. In this case, to provide passwordless authentication to your users, you must use Universal Login.
-:::
-
-To learn how to configure an embedded login page for use with passwordless, see [Configure Login Page for Passwordless: Embedded + Lock (with Passwordless)](/connections/passwordless/guides/configure-login-page-embedded).
-
-## Configure your application
+### Configure your application to use Universal Login
 
 Set up your application to call the login page and handle the authentication callback. To do this, use our Quickstarts for your selected application type:
 
-### Regular Web Applications
+#### Regular Web Applications
 
 Use any [Regular Web App Quickstart](/quickstart/webapp) to learn how to call the login page and handle the server-side authentication callback.
 
-### Single-Page Applications
+#### Single-Page Applications
 
 Use any [Single-Page App Quickstart](/quickstarts/spa) and follow only the **Login** step to learn how to call the login page, handle the callback, and acquire your user's information.
 
-### Native Applications
+#### Native Applications
 
 Use one of the following QuickStarts and follow only the **Login** step to learn how to call the login page with Universal Login:
 
 * [iOS (Swift) Quickstart](/quickstart/native/ios-swift/00-login)
 * [Android Quickstart](/quickstart/native/android/00-login)
+
+## Passwordless authentication with /oauth/token
+
+An alternative option is to call the passwordless endpoints yourself. This is **not an option for Single-Page Applications**, which should use Universal Login, but is available for Native Apps or for Regular Web Apps. First, you must turn on the **Passwordless OTP** grant in your [Dashboard > Applications > (YOUR APPLICATION) > Settings > Advanced Settings > Grant Types](${manage_url}). Once this is done, you call the `passwordless/start` endpoint:
+
+```json
+POST https://YOUR_AUTH0_DOMAIN/passwordless/start
+Content-Type: application/json
+{
+"client_id": "${account.clientid}",
+“client_secret”: “YOUR_CLIENT_SECRET”, // only required for Web Apps as Native apps don’t have a client secret
+"connection": "email", // accepts "email" or "sms"
+"email": "EMAIL", // Value should be the user's email for connection=email; for sms, use "phone_number": "PHONE_NUMBER"
+"send": "code",
+"authParams": { // any authentication parameters that you would like to add
+   "scope": "openid",
+   "state": "YOUR_STATE" // Fill in your unique state here
+   }
+}
+```
+
+The user will then receive the OTP code (either by email or sms, whichever you chose). Your application will prompt the user for that code to complete the authentication flow. When the user enters the code, you can complete the authentication flow by calling the `/oauth/token` endpoint with the following parameters:
+
+```json
+POST https://YOUR_AUTH0_DOMAIN/oauth/token
+Content-Type: application/json
+{
+  “grant_type” : “http://auth0.com/oauth/grant-type/passwordless/otp”
+  "client_id": "${manage_url}",
+  "client_secret": "YOUR_CLIENT_SECRET", // only for web apps, native apps don’t have a client secret
+  "otp": "CODE",
+  “audience” : “api-audience”,
+  "realm": "email", // or "sms" 
+  “username”:”<email address>”, // or "<phone number>"
+  "scopes": "openid profile email"
+}
+```
+
+If all went well, Auth0 will return a response similar to the following:
+
+```json
+HTTP/1.1 200 OK
+Content-Type: application/json
+{
+"access_token":"eyJz93a...k4laUWw",
+"refresh_token":"GEbRxBN...edjnXbL",
+"id_token":"eyJ0XAi...4faeEoQ",
+"token_type":"Bearer",
+"expires_in":86400
+}
+```
+
+You can then decode the ID Token to get information about the user, or use the Access Token to call your API as normal.

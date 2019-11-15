@@ -23,10 +23,6 @@ The Classic login page uses the <dfn data-key="lock">Lock Widget</dfn> by defaul
 * The [Auth0 SDK for Web](/libraries/auth0js) with your custom designed interface
 * Or, a custom user interface that you have created which directly ties into the [Authentication API](/auth-api).
 
-::: note
-<dfn data-key="passwordless">Passwordless authentication</dfn> from native mobile apps currently must use Universal Login - there is no native passwordless option at this time.
-:::
-
 ## When to Implement Lock vs. a Custom UI
 
 **Lock** is a drop-in authentication widget that provides a standard set of behaviors and a customizable user interface.  
