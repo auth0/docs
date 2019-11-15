@@ -12,7 +12,7 @@ useCase:
 ---
 # Discover & Design
 
-The first stage in a successful implementation involves discovering, designing and architecting your Identity and Access Management solution, and our Discover & Design services are here to help. We work together with your product and engineering teams to **architect an Identity solution** for your environment and build an **incremental Go-Live plan** that solves the most-pressing identity problems early. Delivered as part of our [Discover, Design & Implement packages](/services/packages#discover-design-and-implement-packages), Auth0 Professional Services help your project reach success quickly and address your business objectives in a pragmatic, step-by-step manner. 
+The first stage in a successful implementation involves discovering, designing and architecting your Identity and Access Management solution, and our Discover & Design services are here to help. We work together with your product and engineering teams to **architect an Identity solution** for your environment and build an **incremental Go-Live plan** that solves the most-pressing identity problems early. Delivered as part of our [Discover, Design & Implement packages](/services/packages#discover-design-and-implement-packages), Auth0 Professional Services help your projects reach success quickly by addressing your business objectives in a pragmatic, step-by-step manner. 
 
 <%= include('./_includes/_further-help.md') %>
 
@@ -22,7 +22,7 @@ Focused on discovering the optimum design based on your requirements, Architectu
 
 ## Scenario Guidance
 
-Guiding you through your use case scenarios, our Scenario Guidance services help you navigate the possible paths through your discovered use cases in a best practice manner. Covering topics such as OpenID Connect (OIDC) flows, Authorization server capabilities, session management, Single Sign On (SSO), etc, engaging with the Auth0 Professional Services team provides visibility into the things you need to prepare you for addressing and implementation what's required.
+Guiding you through your use case scenarios, our Scenario Guidance services help you navigate the possible paths through your discovered use cases in a best practice manner. Covering topics such as OpenID Connect (OIDC) flows, Authorization server capabilities, session management, Single Sign On (SSO), etc, engaging with the Auth0 Professional Services team provides visibility into the things you need to prepare you for addressing what's required.
 
 ## Keep reading
 
