@@ -66,11 +66,13 @@ Features not in the list are **not supported** by Auth0 with custom domains.
 
 ## Certificate management options
 
-Auth0 offers two certificate management options that you can configure:
+### Auth0-managed certificates
 
-* [Auth0-managed certificates](/custom-domains/auth0-managed-certificates) where Auth0 manages the creation and renewal of the certificates for your custom domain. This is the simplest custom domains deployment option.
+With the [Auth0-managed certificate approach](/custom-domains/auth0-managed-certificates), Auth0 uses **Let’s Encrypt** to get certificates for your domain and then manages the SSL handshake directly with the client.
 
-* [Self-managed certificates](/custom-domains/self-managed-certificates) are available for Auth0 Enterprise customers only. This option means that you are responsible for managing SSL/TLS certificates and configuring a reverse proxy to handle SSL termination and forwarding requests to Auth0.
+### Self-managed certificates
+
+With the [self-managed certificate approach](/custom-domains/self-managed-certificates), you are completely responsible for handling the SSL certificates and setting up and managing a reverse proxy for content to be sent to Auth0. Auth0 does not negotiate SSL with the end user’s client, but with the proxy. The proxy in turn negotiates SSL with the end user. To prevent someone from trying to use your Auth0 account from a domain you don’t own, Auth0 needs to validate that the domain belongs to you. Therefore, you need to send Auth0 a header (`cname-api-key`) to validate. You must be an **Enterprise** customer to use this option.
 
 ## Keep reading
 
