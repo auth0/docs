@@ -10,7 +10,7 @@ Privacy legislation often requires that users have the right to view and correct
 
 ## Provide access to data portability
 
-If you are a data controller, you may be obligated to provide users a means to export their data from your system in a transportable format. Auth0 provides [user data portability mechanisms](/compliance/gdpr/features-aiding-compliance#data-portability) to help you satisfy this obligation via both manual export capabilities and the management api which enables you to implement a self-service feature for users.
+If you are a data controller, you may be obligated to provide users a means to export their data from your system in a transportable format. Auth0 provides [user data portability mechanisms](/compliance/gdpr/features-aiding-compliance#data-portability) to help you satisfy this obligation via both manual export capabilities and the Management API which enables you to implement a self-service feature for users.
 
 ## Take steps to minimize personal data
 
@@ -22,7 +22,7 @@ You should have a published data retention policy and automate the enforcement o
 
 ## Protect personal data
 
-Regardless of whether you are a data controller or a data processor, you have obligations to protect the personal data you hold about users. This includes use of encryption where possible, and implementing reasonable security measures to protect user accounts. Prior to launch, you should check if you are using all the security features available from Auth0 to help with this such as Brute Force Detection, Multi-Factor Authentication (for both users and administrators), strong password policy if using passwords. You should also ensure you have a process ready to respond to [Brute Force attacks](/compliance/gdpr/features-aiding-compliance#protect-and-secure-user-data).
+Regardless of whether you are a data controller or a data processor, you have obligations to protect the personal data you hold about users. This includes use of encryption where possible, and implementing reasonable security measures to protect user accounts. Prior to launch, you should check if you are using all the security features available from Auth0 to help with this such as Brute Force Detection, Multi-Factor Authentication (for both users and administrators), and a strong password policy if using passwords. You should also ensure you have a process ready to respond to [Brute Force attacks](/compliance/gdpr/features-aiding-compliance#protect-and-secure-user-data).
 
 ## Supplier evaluation 
 
