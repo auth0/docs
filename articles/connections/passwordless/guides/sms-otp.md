@@ -2,7 +2,6 @@
 title: Passwordless Authentication with SMS
 description: Learn about passwordless connections, Auth0-supported passwordless methods of authentication, and how to implement passwordless authentication with Auth0.
 toc: true
-url: /connections/passwordless
 topics:
     - connections
     - passwordless
