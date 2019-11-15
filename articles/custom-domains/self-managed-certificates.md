@@ -111,7 +111,7 @@ Once added, the CNAME record must be present at all times to avoid issues during
 
 ### Default cache behavior settings
 
- | Parameter | Value |
+  | Parameter | Value |
   | - | - |
   | Viewer Protocol Policy | Select **Redirect HTTP to HTTPS** |
   | Allowed HTTP Methods | Select **GET, HEAD, OPTIONS, PUT, POST, PATCH, DELETE** |
