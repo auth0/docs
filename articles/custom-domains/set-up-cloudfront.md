@@ -5,8 +5,11 @@ topics:
   - custom-domains
   - aws
   - cloudfront
+  - reverse-proxy
 contentType: how-to
-useCase: customize-domains
+useCase: 
+  - customize-domains
+  - self-managed-certificates
 ---
 # Configure AWS CloudFront for Use as Reverse Proxy
 
@@ -26,7 +29,7 @@ You can configure AWS CloudFront for use as the reverse proxy with custom domain
 
 4. Configure your distribution settings. Under **Origin Settings**, here are the values you'll need to change:
 
-  | Parameter | Value |
+  | Setting | Value |
   | - | - |
   | Origin Domain Name | Set this to the **Origin Domain Name** value obtained from the Auth0 Dashboard during the Custom Domains setup process |
   | Origin ID | A description for the origin. This value lets you distinguish between multiple origins in the same distribution and therefore must be unique. |
@@ -37,7 +40,7 @@ You can configure AWS CloudFront for use as the reverse proxy with custom domain
 
 5. Provide information on the **Origin Custom Headers** (the **Header Name** and **Value** fields appear only after you've provided an **Origin Domain Name**):
 
-  | Parameter | Value |
+  | Setting | Value |
   | - | - |
   | Header Name | Set to `cname-api-key` |
   | Value | Set to the CNAME API Key value that you were given immediately after you verified ownership of your domain name with Auth0 |
@@ -46,7 +49,7 @@ You can configure AWS CloudFront for use as the reverse proxy with custom domain
 
 6. Configure the **Default Cache Behavior Settings**. Here are the values you'll need to change:
 
-  | Parameter | Value |
+  | Setting | Value |
   | - | - |
   | Viewer Protocol Policy | Select **Redirect HTTP to HTTPS** |
   | Allowed HTTP Methods | Select **GET, HEAD, OPTIONS, PUT, POST, PATCH, DELETE** |
@@ -63,4 +66,7 @@ You can configure AWS CloudFront for use as the reverse proxy with custom domain
 
 8. Add a new CNAME record to your DNS for your custom domain pointing to the CloudFront Domain Name for your Distribution. This can be found by clicking on your Distribution ID, under the General tab, Domain Name (for example, `e2zwy42nt1feu7.cloudfront.net`).
 
-  Your CloudFront setup is now ready for use!
+## Keep reading
+
+* [Troubleshooting Custom Domains](/custom-domains/troubleshoot)
+* [Configure Custom Domains with Self-Managed Certificates](/custom-domains/self-managed-certificates)

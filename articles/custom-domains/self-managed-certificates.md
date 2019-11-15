@@ -95,7 +95,7 @@ Once added, the CNAME record must be present at all times to avoid issues during
 
 ### Distribution settings
 
- | Parameter | Value |
+  | Setting | Value |
   | - | - |
   | Origin Domain Name | Set this to the **Origin Domain Name** value obtained from the Auth0 Dashboard during the Custom Domains setup process |
   | Origin ID | A description for the origin. This value lets you distinguish between multiple origins in the same distribution and therefore must be unique. |
@@ -104,14 +104,14 @@ Once added, the CNAME record must be present at all times to avoid issues during
 
 ### Origin custom header settings
 
-  | Parameter | Value |
+  | Setting | Value |
   | -- | -- |
   | Header Name | Set to `cname-api-key` |
   | Value | Set to the CNAME API Key value that you were given immediately after you verified ownership of your domain name with Auth0 |
 
 ### Default cache behavior settings
 
-  | Parameter | Value |
+  | Setting | Value |
   | - | - |
   | Viewer Protocol Policy | Select **Redirect HTTP to HTTPS** |
   | Allowed HTTP Methods | Select **GET, HEAD, OPTIONS, PUT, POST, PATCH, DELETE** |
