@@ -34,9 +34,10 @@ We can help consolidate all the enablement activities leading to a successful ad
 * **Advanced Go-Live:** which can be easily broken into multiple sub-milestones - especially if you have multiple applications or development teams. This helps manage the complexity of a large project and is designed to help you achieve incremental and steady progress. 
 
 <ul class="topic-links">
-  <li>Services
+  <li>
+    <i class="icon icon-budicon-715"></i>Services
 
-These are designed to optimize our customers' investment in Auth0, by providing packaged Professional Services to help you avoid common pitfalls and reducing risk. Our packages are structured to help you engage with our experts in a manner that best fits your requirements, and are typically comprised of a number of service offerings - all based on proven best practices:
+Designed to optimize our customers' investment in Auth0, our service offerings provide the proven, best practice assistance, required to avoid common pitfalls and reducing risk when tackling the range of activities involved as part of integrating with Auth0:
     <ul>
       <li>
         <i class="icon icon-budicon-695"></i><a href="/services/discover-and-design">Discover & Design</a>
@@ -56,7 +57,7 @@ These are designed to optimize our customers' investment in Auth0, by providing 
   <li>
     <i class="icon icon-budicon-715"></i><a href="/services/packages">Packages</a>
 
-These are designed to optimize our customers' investment in Auth0, by providing packaged Professional Services to help you avoid common pitfalls and reducing risk. Our packages provide you with a combination of the services we offer, in a structured manner to help you engage with our experts in a way that best fits your requirements. Click [here](/services/packages) to see a full list of the packages we offer. 
+Our packages provide you with a combination of the services we offer, in a structured manner to help you engage with our experts in a way that best fits your requirements. Click [here](/services/packages) to see a full list of the packages we offer. 
   </li>
 </ul>
 
