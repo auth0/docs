@@ -37,7 +37,7 @@ We can help consolidate all the enablement activities leading to a successful ad
   <li>
     <i class="icon icon-budicon-715"></i><a href="#">Services</a>
 
-Designed to optimize our customers' investment in Auth0, our service offerings provide the proven best practice assistance required to avoid common pitfalls, and reduce risk, when tackling the range of activities involved as part of integrating with Auth0:
+Designed to optimize our customers' investment in Auth0, our service offerings provide the proven best practice assistance required to help avoid common pitfalls and reduce risk when tackling the range of activities involved as part of integrating with Auth0:
     <ul>
       <li>
         <i class="icon icon-budicon-695"></i><a href="/services/discover-and-design">Discover & Design</a>
