@@ -15,7 +15,7 @@ If you have been using Auth0 for some time and decide to enable a custom domain,
 
 ## Prerequisite
 
-You have already configured and verified your custom domain. See [Verify ownership](/custom-domains/auth-managed-certificates#verify-ownership).
+You have already configured and verified your custom domain. See [Verify ownership](/custom-domains/auth0-managed-certificates#verify-ownership).
 
 ## Features
 
