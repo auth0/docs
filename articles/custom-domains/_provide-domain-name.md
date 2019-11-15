@@ -4,7 +4,13 @@
 
 2. Select the **Custom Domains** tab.
 
+  <% if (platform === "auth0") { %>
   ![](/media/articles/custom-domains/custom-domains.png)
+  <%  } %>
+
+  <% if (platform === "self") { %>
+  ![](/media/articles/custom-domains/custom-domains-self-managed.png)
+  <% } %>
 
 3. Enter your custom domain in the provided box and select **Auth0-managed certificates**. 
 

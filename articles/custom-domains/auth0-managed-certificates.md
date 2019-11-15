@@ -19,7 +19,7 @@ If you choose to have Auth0 manage the certificates for your custom domain, it r
 
 To set up your custom domain using Auth0-managed certificates, you need to provide your domain name to Auth0, verify that you own that domain, and then complete additional configuration for the Auth0 features you are using.
 
-<%= include('./_provide-domain-name') %>
+<%= include('./_provide-domain-name', { platform: 'auth0' }) %>
 
 ## Verify ownership
 
