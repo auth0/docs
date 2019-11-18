@@ -29,14 +29,3 @@ Self-service typically provides users with the ability to change one or more asp
   <a href="https://youtu.be/Qkfa_aDw_8k"><img src="/media/articles/services/gallery/veachange/verified-email-address-change.png" alt="Verified Email Address Change workflow"></a>
 </div>
 
-## Design
-
-## Walkthrough
-
-<div align="center">
-  <a href="https://youtu.be/RMza7El7IwE"><img src="/media/articles/services/gallery/veachange/verified-email-address-change.png" alt="Verified Email Address Change workflow"></a>
-</div>
-
-## Implementation
-
-
