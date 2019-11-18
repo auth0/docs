@@ -11,41 +11,62 @@ useCase: customize-connections
 
 When working with Passwordless Connections, the following API endpoints will be helpful to you.
 
-## Authentication API
-
-### POST /passwordless/start
+## POST /passwordless/start
 
 The [POST /passwordless/start](/api/authentication#get-code-or-link) endpoint can be called to begin the Passwordless authentication process. Depending on the parameters provided to the endpoint, Auth0 begins the user verification process by sending one of the following:
 
 * A single-use code via email or SMS message
 * A single-use link via email
 
-## Management API
+## /oauth/token
 
-The Management API features several endpoints designed to help you manage your connections, including your Passwordless ones.
+An alternative option is to call the passwordless endpoints yourself. This is **not an option for Single-Page Applications**, which should use Universal Login, but is available for Native Apps or for Regular Web Apps. First, you must turn on the **Passwordless OTP** grant in your [Dashboard > Applications > (YOUR APPLICATION) > Settings > Advanced Settings > Grant Types](${manage_url}). Once this is done, you call the `passwordless/start` endpoint:
 
-To call any of the Management API endpoints, you will need to [obtain an Access Token](/api/management/v2/tokens).
+```json
+POST https://YOUR_AUTH0_DOMAIN/passwordless/start
+Content-Type: application/json
+{
+"client_id": "${account.clientid}",
+“client_secret”: “YOUR_CLIENT_SECRET”, // only required for Web Apps as Native apps don’t have a client secret
+"connection": "email", // accepts "email" or "sms"
+"email": "EMAIL", // Value should be the user's email for connection=email; for sms, use "phone_number": "PHONE_NUMBER"
+"send": "code",
+"authParams": { // any authentication parameters that you would like to add
+   "scope": "openid",
+   "state": "YOUR_STATE" // Fill in your unique state here
+   }
+}
+```
 
-### Get all connections
+The user will then receive the OTP code (either by email or sms, whichever you chose). Your application will prompt the user for that code to complete the authentication flow. When the user enters the code, you can complete the authentication flow by calling the `/oauth/token` endpoint with the following parameters:
 
-The [GET /api/v2/connections](/api/management/v2#!/Connections/get_connections) endpoint retrieves all connections for your tenant that match the parameters you provide. You can use this endpoint to obtain the connection ID for your Passwordless connection (indicated by the `strategy = sms` parameter), which you'll need to make changes to the connection.
+```json
+POST https://YOUR_AUTH0_DOMAIN/oauth/token
+Content-Type: application/json
+{
+  “grant_type” : “http://auth0.com/oauth/grant-type/passwordless/otp”
+  "client_id": "${manage_url}",
+  "client_secret": "YOUR_CLIENT_SECRET", // only for web apps, native apps don’t have a client secret
+  "otp": "CODE",
+  “audience” : “api-audience”,
+  "realm": "email", // or "sms" 
+  “username”:”<email address>”, // or "<phone number>"
+  "scopes": "openid profile email"
+}
+```
 
-### Create a connection
+If all went well, Auth0 will return a response similar to the following:
 
-The [POST /api/v2/connections](/api/management/v2#!/Connections/post_connections) endpoint allows you to create new Passwordless connections.
+```json
+HTTP/1.1 200 OK
+Content-Type: application/json
+{
+"access_token":"eyJz93a...k4laUWw",
+"refresh_token":"GEbRxBN...edjnXbL",
+"id_token":"eyJ0XAi...4faeEoQ",
+"token_type":"Bearer",
+"expires_in":86400
+}
+```
 
-### Get a connection
-
-The [GET /api/v2/connections/{id}](/api/management/v2#!/Connections/get_connections_by_id) endpoint allows you to return information about a connection based on the connection ID you provided.
-
-### Delete a connection
-
-The [DELETE /api/v2/connections/{id}](/api/management/v2#!/Connections/delete_connections_by_id) endpoint  allows you to delete the connection associated with the ID you provided.
-
-### Update a connection
-
-The [PATCH /api/v2/connections/{id}](/api/management/v2#!/Connections/patch_connections_by_id) endpoint allows you to update the connection associated with the ID you provide.
-
-### Delete a user from a connection
-
-The [DELETE /api/v2/connections/{id}/users](/api/management/v2#!/Connections/delete_users_by_email) endpoint allows you to delete a user (identified using the email address you provide) from the connection associated with the ID you include with your call.
+You can then decode the ID Token to get information about the user, or use the Access Token to call your API as normal.
