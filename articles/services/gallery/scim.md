@@ -24,15 +24,5 @@ Customized extensibility provided by the Auth0 Professional Services team allows
 
 <%= include('./_includes/_further-help.md') %>
 
-### SCIM protocol operations supported
-* Create users via HTTP POST, as described in RFC7644 Section 3.3
-* Retrieve users via HTTP GET, as described in RFC7644 Section 3.4.1
-* Update users via HTTP PATCH, as described in RFC7644 Section 3.5.2
-* Partial implementation of searching for users via HTTP GET, as described in RFC7644 Section 3.4.2. 
-
-### SCIM schemas supported
-* Core schema for user resources, as defined in RFC Sections 3.1, 4.1, 4.1.1, and 4.1.2
-* Enterprise schema for user resources, as defined in RFC Section 4.3
-
 ## Demo
 
