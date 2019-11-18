@@ -1,5 +1,5 @@
 ---
-title: Relevant API Endpoints for Passwordless Connections
+title: Using Passwordless APIs
 topics:
     - connections
     - passwordless
@@ -91,3 +91,14 @@ You can then decode the ID Token to get information about the user, or use the A
 
 When implementing Passwordless Authentication in Single Page Applications or in a custom login page, you should use Auth0.js [`passwordlessLogin`](/https://auth0.com/docs/libraries/auth0js/v9#verify-passwordless) method. The implementation is complex, so we recommend that you use the library instead of calling the APIs directly.
 
+## Rate Limiting in Passwordless Endpoints
+
+Auth0 rate limits and anomaly detection features consider the IP from the machine that is making the API call. When the API call is made from a backend server, you usually want Auth0 to consider the IP from the end user, not the one from the server.
+
+Auth0 supports specifying an `auth0-forwarded-for` header in API calls, but it's only considered when:
+
+- The call is made for a confidential application
+- The API call includes the client secret
+- The 'Trust Token Endpoint IP Header' toggle is ON
+
+For a complete explanation check [this document](/api-auth/tutorials/using-resource-owner-password-from-server-side#configuring-the-auth0-application-to-receive-and-trust-the-ip-sent-by-your-server).
