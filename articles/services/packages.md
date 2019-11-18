@@ -45,7 +45,7 @@ Auth0 Professional Services provide packaged offerings are designed to optimize 
   * [Architectural Discovery](/services/discover-and-design#architectural-discovery)
   * [Scenario Guidance](/services/discover-and-design#scenario-guidance)
   * [Programming Advisory](/services/implement#programming-advisory)
-
+  * [Deployment Preparation](/services/implement#deployment-preparation)
 
 <h3 class="anchor-heading">
 	<span class="anchor"><i class="icon icon-budicon-345"></i></span>
@@ -62,6 +62,7 @@ Auth0 Professional Services provide packaged offerings are designed to optimize 
   * [Scenario Guidance](/services/discover-and-design#scenario-guidance)
   * [Programming Advisory](/services/implement#programming-advisory)
   * [Deployment Preparation](/services/implement#deployment-preparation)
+  * Some [Custom Implementation](/services/implement#custom-implementation)
 
 <h3 class="anchor-heading">
 	<span class="anchor"><i class="icon icon-budicon-345"></i></span>
@@ -78,6 +79,7 @@ Auth0 Professional Services provide packaged offerings are designed to optimize 
   * [Scenario Guidance](/services/discover-and-design#scenario-guidance)
   * [Programming Advisory](/services/implement#programming-advisory)
   * [Deployment Preparation](/services/implement#deployment-preparation)
+  * [Custom Implementation](/services/implement#custom-implementation)
 
 <h3 class="anchor-heading">
 	<span class="anchor"><i class="icon icon-budicon-345"></i></span>
@@ -89,7 +91,7 @@ Auth0 Professional Services provide packaged offerings are designed to optimize 
 * Remote only
 * Expires in 180 days
 * Terms and Conditions apply
-* Providing a full range of [Custom Implementation](/services/implement#custom-implementation) services, including:
+* Full range of [Custom Implementation](/services/implement#custom-implementation) services, including:
   * [Architectural Discovery](/services/discover-and-design#architectural-discovery), 
   * [Scenario Guidance](/services/discover-and-design#scenario-guidance) and 
   * [Programming Advisory](/services/implement#programming-advisory)
@@ -106,7 +108,7 @@ Auth0 Professional Services provide packaged offerings are designed to optimize 
 * Remote/on-site, as mutually agreed
 * Expires in 365 days
 * Terms and Conditions apply
-* Providing a wide range of [maintain and improve](/services/maintain-and-improve) services
+* Wide range of [maintain and improve](/services/maintain-and-improve) services
  
 
 <h3 class="anchor-heading">
@@ -119,7 +121,7 @@ Auth0 Professional Services provide packaged offerings are designed to optimize 
 * On-site
 * Expires in 365 days
 * Terms and Conditions apply
-* Providing the full range of [maintain and improve](/services/maintain-and-improve) services
+* Full range of [maintain and improve](/services/maintain-and-improve) services
 
 
 ## Keep reading
