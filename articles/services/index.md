@@ -25,6 +25,8 @@ Customers buy software to solve a business problem. The longer it takes to integ
 
 ### Get to production faster
 
+<ul class="topic-links">
+
 We can help consolidate all the enablement activities leading to a successful adoption into three major milestones; the goal of a Professional Services engagement being to identify, document, and build consensus with you on these milestones as the path to successful Auth0 adoption: 
 
 * **Discovery and Design:** where our Solution Architects will work with your teams to identify the core goals, features, and functionality that constitute your successful IAM implementation. We'll also help you uncover any legacy architectural issues or design requirements that may need more careful consideration.
@@ -33,11 +35,13 @@ We can help consolidate all the enablement activities leading to a successful ad
 
 * **Advanced Go-Live:** which can be easily broken into multiple sub-milestones - especially if you have multiple applications or development teams. This helps manage the complexity of a large project and is designed to help you achieve incremental and steady progress. 
 
+</ul>
+
 <ul class="topic-links">
   <li>
     <i class="icon icon-budicon-715"></i><a href="#">Services</a>
 
-Designed to optimize our customers' investment in Auth0, our service offerings provide the proven best practice assistance required to avoid common pitfalls, and reduce risk, when tackling the range of activities involved as part of integrating with Auth0:
+Designed to optimize our customers' investment in Auth0, our service offerings provide the proven best practice assistance required to help avoid common pitfalls and reduce risk when tackling the range of activities involved as part of integrating with Auth0:
     <ul>
       <li>
         <i class="icon icon-budicon-695"></i><a href="/services/discover-and-design">Discover & Design</a>
@@ -51,7 +55,6 @@ Designed to optimize our customers' investment in Auth0, our service offerings p
     </ul>
   </li>
 </ul>
-
 
 <ul class="topic-links">
   <li>
