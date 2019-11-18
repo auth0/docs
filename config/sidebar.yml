@@ -1474,8 +1474,23 @@ articles:
       - title: "Gallery"
         url: "/services/gallery"
         children:
+          - title: "Anonymous Browsing"
+            url: "/services/gallery/anonymous-browsing"
+
+          - title: "Continuous Integration"
+            url: "/services/gallery/continuous-integration"
+
+          - title: "Continuous Deployment"
+            url: "/services/gallery/continuous-deployment"
+
           - title: "SCIM"
             url: "/services/gallery/scim"
+
+          - title: "Sign-up by Invitation"
+            url: "/services/gallery/scim"
+
+          - title: "SwissID"
+            url: "/services/gallery/swissid"
 
           - title: "Verified Email Address Change"
             url: "/services/gallery/verified-email-address-change"

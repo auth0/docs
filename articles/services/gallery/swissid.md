@@ -1,19 +1,19 @@
 ---
-title: BYOI SwissID
-connection: BYOI SwissID
+title: SwissID
+connection: SwissID
 index: 7
-image: /media/articles/services/gallery/byoi-swissid.png
+image: /media/articles/services/gallery/swissid.png
 description: Add a SwissID as a BYOI workflow to your solution with Professional Services custom extensibility.
 alias:
- - byoi-swissid
-seo_alias: BYOI SwissID  
+ - swissid
+seo_alias: SwissID  
 toc: true
 topics:
   - BYOI
   - SwissID
 contentType: how-to
 useCase:
-    - byoi-swissid
+    - swissid
 ---
 # SwissID Bring Your Own Identity
 
