@@ -13,28 +13,40 @@ useCase:
 
 # Migration Guide: Use of /passwordless/start from Confidential Applications
 
-Auth0 is deprecating the use of the `/passwordless/start` endpoint from confidential applications when no client secret is included in the request. Most applications which are not Single Page Applications (SPA) or Native apps are "confidential applications".
+Auth0 is deprecating the use of the `/passwordless/start` endpoint from confidential applications when no client secret is included in the request. 
+
+OAuth uses the term 'confidential' for applications that can store secrets. In Auth0, those are 'Regular Web Applications', which serve web pages from a backend app. Single Page Applications and Native Applications are considered 'public' applications, and are not affected by this change.
 
 ## Does this affect me?
 
-If your applications currently call the `/passwordless/start` endpoint directly to begin passwordless transactions, or you use the Auth0.js library to do so, and you are calling the endpoint from a confidential client (not a SPA or a Native App) and not including your client secret, this deprecation does affect you.
+If your applications currently calls the `/passwordless/start` endpoint directly to begin passwordless authentication from a Web Application, this deprecation does affect you.
 
-## How to perform passwordless authentication from confidential applications
+You can verify if that is the case by checking the [tenant logs](${manage_url}/#/logs), filtering by "Deprecation Notice" and check for logs saying "Enforce client authentication for passwordless connections".
 
-The migration path is fairly straightforward. There are three primary use casese that might be affected:
+## What do I need to do?
+
+If you are using the `/passwordless/start` endpoint from confidential applications you should:
+
+- Follow the instructions described below to adjust the code to properly call `/passwordless/start`.
+- Check your [tenant logs](${manage_url}/#/logs) to verify the change was made correctly and no deprecation logs are being generated for "Enforce client authentication for passwordless connections".
+- In the 'Migrations' section of Advanced Tenant Settings, turn on the **Enforce client authentication for passwordless connections** toggle.
+
+## How I need to change my code?
+
+The migration path is fairly straightforward, but there are a few use cases that might be affected:
 
 ### 1. API calls from your backend
 
-For any sucapi calls from your backend to the `/passwordless/start` endpoint, in order to become compliant, your call must simply include the client secret as an attribute.
+For any calls from your backend to the `/passwordless/start` endpoint, your call must include the client secret as an attribute.
 
-If making a POST request directly to `/passwordless/start`, it might resemble this example, being sure to include the `client_secret` attribute: 
+If making a POST request directly to `/passwordless/start`, include the `client_secret` as part of the payload: 
 
 ```js
 POST https://YOUR_AUTH0_DOMAIN/passwordless/start
 Content-Type: application/json
 {
 "client_id": "${manage_url}",
-“client_secret”: “YOUR_CLIENT_SECRET”,
+"client_secret": "YOUR_CLIENT_SECRET",
 "connection": "email",
 "email": "EMAIL",
 "send": "code",
@@ -45,14 +57,34 @@ Content-Type: application/json
 }
 ```
 
+If you are using an SDK, add the parameter to the method that initiates the passwordless flow. This is different for each SDK, and not all SDKs have been updated yet. If you are using an SDK that was not updated, you can make the HTTP call directly until that work is completed.
+
 ### 2. Using Auth0.js or Lock.js in the Universal Login page
 
+If the Universal Login page is used for Passwordless Authentication for a Web Application, it will be making calls to the `/passwordless/start` endpoint, by either using Lock.js or Auth0.js.
 
+Given you can't store a client secret in a web page, the way to authenticate the call is by forwarding the `state` parameter that is received in the Universal Login page to the `/passwordless/start` endpoint. That parameter is stored in the `config.internalOptions' field in the custom login page. 
+
+The default templates for customizing the login page use it in the following way when initializing Lock.js or auth0.js:
+
+```
+ var lock = new Auth0Lock(config.clientID, config.auth0Domain, {
+      auth: {
+        // .. other fields set
+        params: config.internalOptions
+      })
+```
+
+```
+var params = Object.assign({
+        /// .. some fields set
+}, config.internalOptions);
+
+var webAuth = new auth0.WebAuth(params);
+```
+
+Please check in your custom page implementation to verify that you have not removed that code.
 
 ### 3. Calling /passwordless/start from the client in a web application
 
-The solution here is to initiate the passwordless transaction (call /passwordless/start) from your backend/server instead of from the client, and to include the client secret in the call from your backend.
-
-### Verifying your migration
-
-Once you have changed your calls to `/passwordless/start` to include client secrets where necessary, you can check your [Dashboard](${manage_url}/#/logs) for any logs related to this to ensure that you've changed everything you needed to. Once this is done, you can turn on the setting **Enforce client authentication for passwordless connections** in your Advanced tenant settings to prevent any future issues.
+We found that some customers are calling the `/passwordless/start` endpoint from a webpage using Javascript (e.g with auth0.js) from Regular Web Applications. This will not be possible, as you can't specify a client secret in a call made using Javascript. If that's the case, you will need to change your applications so `/passwordless/start` is called from the backend of your web application,.
