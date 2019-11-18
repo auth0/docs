@@ -1483,6 +1483,12 @@ articles:
           - title: "Continuous Deployment"
             url: "/services/gallery/continuous-deployment"
 
+          - title: "GDPR"
+            url: "/services/gallery/gdpr"
+
+          - title: "Progressive Profiling"
+            url: "/services/gallery/progressive-profiling"
+
           - title: "SCIM"
             url: "/services/gallery/scim"
 
