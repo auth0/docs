@@ -63,7 +63,7 @@ If you are using an SDK, add the parameter to the method that initiates the pass
 
 If the Universal Login page is used for Passwordless Authentication for a Web Application, it will be making calls to the `/passwordless/start` endpoint, by either using Lock.js or Auth0.js.
 
-Given you can't store a client secret in a web page, the way to authenticate the call is by forwarding the `state` parameter that is received in the Universal Login page to the `/passwordless/start` endpoint. That parameter is stored in the `config.internalOptions' field in the custom login page. 
+Given you can't store a client secret in a web page, the way to authenticate the call is by forwarding the `state` parameter that is received in the Universal Login page to the `/passwordless/start` endpoint. That parameter is stored in the `config.internalOptions` field in the custom login page. 
 
 The default templates for customizing the login page use it in the following way when initializing Lock.js or auth0.js:
 
