@@ -37,7 +37,7 @@ The migration path is fairly straightforward, but there are a few use cases that
 
 ### 1. API calls from your backend
 
-For any calls from your backend to the `/passwordless/start` endpoint, your call must include the client secret as an attribute.
+For any calls from your backend to the `/passwordless/start` endpoint, your call must include the client secret as a parameter.
 
 If making a POST request directly to `/passwordless/start`, include the `client_secret` as part of the payload: 
 
@@ -45,11 +45,12 @@ If making a POST request directly to `/passwordless/start`, include the `client_
 POST https://YOUR_AUTH0_DOMAIN/passwordless/start
 Content-Type: application/json
 {
-"client_id": "${manage_url}",
+"client_id": "YOUR_CLIENT_ID",
 "client_secret": "YOUR_CLIENT_SECRET",
-"connection": "email",
-"email": "EMAIL",
-"send": "code",
+"connection": "email|sms",
+ "email": "EMAIL", //set for connection=email
+"phone_number": "PHONE_NUMBER", //set for connection=sms
+"send": "link|code",
 "authParams": { 
    "scope": "openid",
    "state": "YOUR_STATE"
