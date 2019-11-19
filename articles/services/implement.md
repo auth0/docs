@@ -17,13 +17,11 @@ To help you excelerate your integration with Auth0, we provide a wide range of i
 
 ## Programming Advisory
 
-Focused on accelerating your development team’s understanding of Auth0 SDKs, APIs, extensibility and integration points, our Programming Advisory services give you the oppertunity to engage with our team to get best practice guidance on a wide range of topics. We can provide your development teams with code samples and programming guidance that will help you integrate with Auth0 faster and more effectively, whatever your chosen language or technology stack. Delivered through a number of our:
-  * [Discover, Design & Implement packages](/services/packages#discover-design-and-implement-packages)    
+Focused on accelerating your development team’s understanding of Auth0 SDKs, APIs, extensibility and integration points, our Programming Advisory services give you the oppertunity to engage with our team to get best practice guidance on a wide range of topics. We can provide your development teams with code samples and programming guidance that will help you integrate with Auth0 faster and more effectively, whatever your chosen language or technology stack. Delivered through a number of our [Discover, Design & Implement packages](/services/packages#discover-design-and-implement-packages).    
 
 ## Deployment Preparation
 
-Provides for validation on an implemented solution, typically prior to go-live. Our Deployment Preparation services primarily focus on review of integration - including usage of the Auth0 SDKs, APIs and extensibility - as well as setup configuration of and Auth0 Auth0 Tenant. We can provide you with the peace of mind that the systems you deploy will be safe and secure; delivered via a number of our:
-  * [Discover, Design & Implement packages](/services/packages#discover-design-and-implement-packages), 
+Provides for validation on an implemented solution, typically prior to go-live. Our Deployment Preparation services primarily focus on review of integration - including usage of the Auth0 SDKs, APIs and extensibility - as well as setup configuration of and Auth0 Auth0 Tenant. We can provide you with the peace of mind that the systems you deploy will be safe and secure. Delivered via a number of our [Discover, Design & Implement packages](/services/packages#discover-design-and-implement-packages). 
 
 ## Custom Implementation
 

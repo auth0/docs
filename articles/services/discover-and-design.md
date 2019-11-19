@@ -18,13 +18,11 @@ The first stage in a successful implementation involves discovering, designing a
 
 ## Architectural Discovery
 
-Focused on discovering the optimum design based on your requirements, Architectural Discovery services provide best practice guidance on topics such as requirements determination, Auth0 Tenant deployment strategies, your use cases, and integration with the software development process in your organization. Engaging with Auth0 Professional Services will help to provide you with a clear understanding of what you need to tackle, and when, in order to fulfill your particular needs. Delivered as part of our:
-    * [Discover, Design & Implement packages](/services/packages#discover-design-and-implement-packages)
+Focused on discovering the optimum design based on your requirements, Architectural Discovery services provide best practice guidance on topics such as requirements determination, Auth0 Tenant deployment strategies, your use cases, and integration with the software development process in your organization. Engaging with Auth0 Professional Services will help to provide you with a clear understanding of what you need to tackle, and when, in order to fulfill your particular needs. Delivered as part of our [Discover, Design & Implement packages](/services/packages#discover-design-and-implement-packages).
 
 ## Scenario Guidance
 
-Guiding you through your use case scenarios, our Scenario Guidance services help you navigate the possible paths through your discovered use cases in a best practice manner. Covering topics such as OpenID Connect (OIDC) flows, Authorization server capabilities, session management, Single Sign On (SSO), etc, engaging with the Auth0 Professional Services team provides visibility into the things you need to prepare you for addressing what's required. Delivered as part of our:
-    * [Discover, Design & Implement packages](/services/packages#discover-design-and-implement-packages)
+Guiding you through your use case scenarios, our Scenario Guidance services help you navigate the possible paths through your discovered use cases in a best practice manner. Covering topics such as OpenID Connect (OIDC) flows, Authorization server capabilities, session management, Single Sign On (SSO), etc, engaging with the Auth0 Professional Services team provides visibility into the things you need to prepare you for addressing what's required. Delivered as part of our [Discover, Design & Implement packages](/services/packages#discover-design-and-implement-packages).
 
 ## Keep reading
 
