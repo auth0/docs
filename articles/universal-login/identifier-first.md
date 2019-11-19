@@ -1,10 +1,11 @@
 ---
-description: Identifier-First
+description: Identifier-First Authentication
+
 topics:
   - universal-login
 toc: true
 ---
-# Identifier-First
+# Identifier-First Authentication
 
 An identifier-first authentication flow prompts users for their identifier and their authentication factor in two separate steps.
 
