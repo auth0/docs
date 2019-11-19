@@ -40,4 +40,6 @@ In addition, our Custom Implementation services - delivered as part of a number 
 * [Discover & Design](/services/discover-and-design)
 * [Maintain and Improve](/services/maintain-and-improve)
 * [Packages](/services/packages)
+* [Gallery](/services/gallery)
+
 

@@ -129,3 +129,5 @@ Auth0 Professional Services provide packaged offerings are designed to optimize 
 * [Discover & Design](/services/discover-and-design)
 * [Implement](/services/implement)
 * [Maintain and Improve](/services/maintain-and-improve)
+* [Gallery](/services/gallery)
+
