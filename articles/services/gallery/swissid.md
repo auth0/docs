@@ -17,11 +17,12 @@ useCase:
 ---
 # SwissID Bring Your Own Identity
 
-Blah. Blah. Blah.
+T.B.D.
 
 <%= include('./_includes/_further-help.md') %>
 
 ## Demo
 
+T.B.D.
 
 
