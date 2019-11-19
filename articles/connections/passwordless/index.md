@@ -158,7 +158,7 @@ Passwordless connections have several limitations:
 
 * Native applications, which use device-specific hardware and software, **must** use [Universal Login](/universal-login).
 *  Only the [Universal Login](/universal-login) [Classic Experience](/universal-login/classic) currently supports passwordless.
-* Using [Embedded Login](/login/embedded) with any application type leaves your application vulnerable to cross-origin resource sharing (CORS) attacks and requires the use of [Auth0 Custom Domains](/custom-domains), which is a paid feature.
+* Using [Embedded Login](/login/embedded) with any application type leaves your application vulnerable to cross-origin resource sharing (CORS) attacks and requires the use of [Custom Domains](/custom-domains), which is a paid feature.
 * Since you can't force users to use the same mobile phone number or email address every time they authenticate, users may end up with multiple user profiles in the Auth0 datastore; you can link multiple user profiles through [account linking](/extensions/account-link).
 * With magic link transactions, both the initial request and its response must take place in the same browser or the transaction will fail. This is particularly relevant for iOS users, who cannot change their default web browser. For example, the user makes the request using Chrome, but iOS opens the magic link received via email using Safari. If this happens, the transaction fails.
 * To use a custom SMTP email provider, the SMTP server must:

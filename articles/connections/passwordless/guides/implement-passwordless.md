@@ -67,7 +67,7 @@ To learn how to configure your login page for passwordless using Universal Login
 
 ### Embedded Login
 
-An alternative option is to use an embedded login form with the Lock (with Passwordless) widget. Using [Embedded Login](/login/embedded) with any application type leaves your application vulnerable to cross-origin resource sharing (CORS) attacks and requires the use of [Auth0 Custom Domains](/custom-domains), which is a paid feature. 
+An alternative option is to use an embedded login form with the Lock (with Passwordless) widget. Using [Embedded Login](/login/embedded) with any application type leaves your application vulnerable to cross-origin resource sharing (CORS) attacks and requires the use of [Custom Domains](/custom-domains), which is a paid feature. 
 
 ::: warning
 If you are building a Native application, which uses device-specific hardware and software,Embedded Login is not a viable option. In this case, to provide passwordless authentication to your users, you must use Universal Login.
