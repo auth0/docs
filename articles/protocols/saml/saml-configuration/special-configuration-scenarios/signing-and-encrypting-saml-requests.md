@@ -147,8 +147,8 @@ function (user, context, callback) {
   }
 
 	// provide your own private key and certificate here  
-  context.samlConfiguration.cert = "-----BEGIN CERTIFICATE-----\nMIIE[...]TxmAIvXa\n-----END CERTIFICATE-----\n";
-  context.samlConfiguration.key = "-----BEGIN PRIVATE KEY-----\nMIIJ[...]s=\n-----END PRIVATE KEY-----\n";
+  context.samlConfiguration.cert = "-----BEGIN CERTIFICATE-----\nnMIIC8jCCAdqgAwIBAgIJObB6jmhG0QIEMA0GCSqGSIb3DQEBBQUAMCAxHjAcBgNV[..all the other lines..]-----END CERTIFICATE-----\n";
+  context.samlConfiguration.key = "-----BEGIN PRIVATE KEY-----\nnMIIC8jCCAdqgAwIBAgIJObB6jmhG0QIEMA0GCSqGSIb3DQEBBQUAMCAxHjAcBgNV[..all the other lines..]-----END PRIVATE KEY-----\n";
       
   callback(null, user, context);
 }
@@ -160,14 +160,14 @@ Take a look at [Working with certificates as strings](#working-with-certificates
 
 If Auth0 is the SAML **identity provider**, it can received requests signed with the service provider's private key. Auth0 will then use the service providers' public key/certificate to validate the signature.
 
-To configure signature validation, you'll need to download the service provider's public key and store the value in the `signingCert` key. You can find the `signingCert` field in the [Management Dashboard](${manage_url}) by going to **Applications** > **Addons** > **SAML2 WEB APP** > **Settings**.
+To configure signature validation, you'll need to download the service provider's certificate with the public key and store the value in the `signingCert` key of the SAML Web App Addon `options` JSON object. You can find the `options` JSON object field in the [Management Dashboard](${manage_url}) by going to **Applications** > **Addons** > **SAML2 WEB APP** > **Settings**.
 
 The configuration should look like this:
 
 ```json
 {
   [...], // other settings
-  "signingCert": "-----BEGIN PUBLIC KEY-----\nMIGf...bpP/t3\n+JGNGIRMj1hF1rnb6QIDAQAB\n-----END PUBLIC KEY-----\n"
+  "signingCert": "-----BEGIN CERTIFICATE-----\nMIIC8jCCAdqgAwIBAgIJObB6jmhG0QIEMA0GCSqGSIb3DQEBBQUAMCAxHjAcBgNV\n[..all the other lines..]-----END CERTIFICATE-----\n"
 }
 ```
 
@@ -188,8 +188,8 @@ function (user, context, callback) {
   // this rule sets a specific public key to encrypt the SAML assertion generated from Auth0 
   if (context.clientID === 'THE_CLIENT_ID_OF_THE_APP_WITH_THE_SAML_APP_ADDON') {
 	  context.samlConfiguration = (context.samlConfiguration || {});
-    context.samlConfiguration.encryptionPublicKey = "-----BEGIN PUBLIC KEY-----\nMIGf...bpP/t3\n+JGNGIRMj1hF1rnb6QIDAQAB\n-----END PUBLIC KEY-----\n";
-    context.samlConfiguration.encryptionCert = "-----BEGIN CERTIFICATE-----\nMII...u84\n-----END CERTIFICATE-----\n";
+    context.samlConfiguration.encryptionPublicKey = "-----BEGIN PUBLIC KEY-----\nnMIIC8jCCAdqgAwIBAgIJObB6jmhG0QIEMA0GCSqGSIb3DQEBBQUAMCAxHjAcBgNV\n[..all the other lines..]-----END PUBLIC KEY-----\n";
+    context.samlConfiguration.encryptionCert = "-----BEGIN CERTIFICATE-----\nnnMIIC8jCCAdqgAwIBAgIJObB6jmhG0QIEMA0GCSqGSIb3DQEBBQUAMCAxHjAcBgNV\n[..all the other lines..]-----END CERTIFICATE-----\n";
 	}
   callback(null, user, context);
 }
