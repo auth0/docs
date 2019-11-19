@@ -11,12 +11,14 @@ useCase: customize-connections
 
 Passwordless APIs can be used in two scenarios:
 
-- When implementing Universal Login, and you want to build your own user interface, using auth0.js to interact with Auth0. 
-- When you want to embed the login flow in your application. 
+* When implementing Universal Login, and you want to build your own user interface, using auth0.js to interact with Auth0. 
+* When you want to embed the login flow in your application. 
 
 If you decide to embed login, please make sure you understand the [security implications](/guides/login/universal-vs-embedded).
 
-## POST /passwordless/start
+## Passwordless endpoints
+
+### POST /passwordless/start
 
 The [POST /passwordless/start](/api/authentication#get-code-or-link) endpoint can be called to begin the Passwordless authentication process, for both Universal Login or Embedded Login.
 
@@ -44,13 +46,13 @@ Content-Type: application/json
 }
 ```
 
-If you use a magic link, Auth0 will redirect the user to the application after the link is clicked, and the user will be logged-in.
+If you use a magic link, Auth0 will redirect the user to the application after the link is clicked, and the user will be logged in.
 
-If you use a code, your application will need to prompt for that code, and then you should use `oauth/token` or Auth0.js' `passwordlessLogin` method to exchange that code for authentication tokens.
+If you use a code, your application will need to prompt for that code, and then you should use the `/oauth/token` endpoint, or the `passwordlessLogin` method in the Auth0.js SDK to exchange that code for authentication tokens.
 
-## /oauth/token
+### POST /oauth/token
 
-If you are implementing passwordless for Native applications or Regular Web Applications, you need to use `/oauth/token` to exchange the OTP code for authentication tokens. You can't use this endpoint from Single Page Applications.
+If you are implementing passwordless for Native Applications or Regular Web Applications, you need to use `/oauth/token` to exchange the OTP code for authentication tokens. You cannot use this endpoint from Single Page Applications.
 
 To achieve this you first need to enable the **Passwordless OTP** grant for your application in [Dashboard > Applications > (YOUR APPLICATION) > Settings > Advanced Settings > Grant Types](${manage_url}). 
 
@@ -89,16 +91,16 @@ You can then decode the ID Token to get information about the user, or use the A
 
 ## Using Auth0.js
 
-When implementing Passwordless Authentication in Single Page Applications or in a custom login page, you should use Auth0.js [`passwordlessLogin`](/https://auth0.com/docs/libraries/auth0js/v9#verify-passwordless) method. The implementation is complex, so we recommend that you use the library instead of calling the APIs directly.
+When implementing Passwordless Authentication in Single Page Applications or in a customized Universal Login page, you should use Auth0.js and the included [`passwordlessLogin`](/libraries/auth0js/v9#verify-passwordless) method. The implementation is complex, so we recommend that you use the library instead of calling the APIs directly.
 
 ## Rate Limiting in Passwordless Endpoints
 
-Auth0 rate limits and anomaly detection features consider the IP from the machine that is making the API call. When the API call is made from a backend server, you usually want Auth0 to consider the IP from the end user, not the one from the server.
+Auth0 rate limits and anomaly detection features only consider the IP from the machine that is making the API call. When the API call is made from a backend server, you usually want Auth0 to consider the IP from the end user, not the one from the server.
 
-Auth0 supports specifying an `auth0-forwarded-for` header in API calls, but it's only considered when:
+Auth0 supports specifying an `auth0-forwarded-for` header in API calls, but it is only considered when:
 
-- The call is made for a confidential application
-- The API call includes the client secret
-- The 'Trust Token Endpoint IP Header' toggle is ON
+* The API call is made for a confidential application
+* The API call includes the client secret
+* The **Trust Token Endpoint IP Header** toggle is ON
 
-For a complete explanation check [this document](/api-auth/tutorials/using-resource-owner-password-from-server-side#configuring-the-auth0-application-to-receive-and-trust-the-ip-sent-by-your-server).
+For a complete explanation, see this tutorial on [configuring your application to receive and trust the IP sent by your server](/api-auth/tutorials/using-resource-owner-password-from-server-side#configuring-the-auth0-application-to-receive-and-trust-the-ip-sent-by-your-server).
