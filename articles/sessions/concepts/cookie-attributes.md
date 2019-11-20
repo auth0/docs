@@ -14,11 +14,13 @@ useCase:
   - use-samesite-cookie-attribute
   - maintain-browser-compatiblity
 ---
-# Cookie Attributes Best Practices
+# Cookie Attribute Considerations
 
-If you using a web application with sessions (e.g. for saving user preferences, shopping carts, etc.), and you allow users to sign in using identity providers such as Google, Apple or Auth0, then you rely on cookies to achieve that functionality. There are browser cookie behavior changes that may break your user experience. Google Chrome, for example, is going to be the first browser vendor to roll out a change that might not be compatible with your web application.
+You can secure cookies, primarily used for authentication and maintaining sessions, by setting cookie attributes.  
 
 ## Google Chrome sameSite attribute changes
+
+If you using a web application with sessions (e.g. for saving user preferences, shopping carts, etc.), and you allow users to sign in using identity providers such as Google, Apple or Auth0, then you rely on cookies to achieve that functionality. There are browser cookie behavior changes that may break your user experience. Google Chrome, for example, is going to be the first browser vendor to roll out a change that might not be compatible with your web application.
 
 You may notice that the Chrome spec for setting sameSite to undefined has changed from sameSite defaulting to `none` to `lax` instead. 
 
@@ -28,4 +30,11 @@ As an example, you are building a new UI and have several services that you prox
 
 Previously, in Auth0, sameSite attribute options were listed as `true`, `false`, `strict` or `lax`. If you did not set the attribute, the default would be `false`. Now, we have also added the ability for you to set the attribute to `none`.
 
-## 
+## Keep reading
+
+* [Web Apps vs Web APIs/Cookies vs Tokens](/design/web-apps-vs-web-apis-cookies-vs-tokens)
+* [Cross-Origin Authentication](/cross-origin-authentication)
+* [Manage Users](/users)
+* [Session Layers](/sessions/concepts/session-layers)
+* [Session Use Cases](/sessions/references/sample-use-cases-sessions)
+* [Security](/security)
