@@ -1,12 +1,13 @@
 ---
-title: Connect Your App to Active Directory
-connection: Active Directory
+title: Connect Your App to Active Directory using LDAP
+connection: Active Directory / LDAP
 image: /media/connections/ad.png
 public: true
 alias:
   - ad
+  - ldap
 seo_alias: active-directory
-description: Learn how to connect your app to Active Directory (AD) using an enterprise connection.
+description: Learn how to connect your app to Active Directory (AD) using Lightweight Directory Access Protocol (LDAP) through an enterprise connection.
 crews: crew-2
 topics:
     - connections
@@ -14,19 +15,20 @@ topics:
     - azure
     - active-directory
     - microsoft
+    - ldap
 contentType: how-to
 useCase:
     - customize-connections
     - add-idp
 ---
 
-# Connect Your App to Active Directory
+# Connect Your App to Active Directory using LDAP
 
-Auth0 integrates with Active Directory (AD) through an **Active Directory/LDAP Connector** that you install on your network.
+Auth0 integrates with Active Directory (AD)  using Lightweight Directory Access Protocol (LDAP) through an **Active Directory/LDAP Connector** that you install on your network.
 
-The **AD/LDAP Connector** (1), is a bridge between your **Active Directory** (2) and the **Auth0 Service** (3). This bridge is necessary because AD is typically restricted to your internal network, and Auth0 is a cloud service running in a completely different context.
+The **AD/LDAP Connector** (1), is a bridge between your **Active Directory/LDAP** (2) and the **Auth0 Service** (3). This bridge is necessary because AD/LDAP is typically restricted to your internal network, and Auth0 is a cloud service running in a completely different context.
 
-![Overview Diagram of AD/LDAP Connector](/media/articles/connections/enterprise/active-directory/ldap-connect.png)
+![Overview Diagram of AD/LDAP Connector](/media/articles/connections/enterprise/active-directory-ldap/ldap-connect.png)
 
 For [high availability and load balancing](/connector/high-availability), you can install multiple instances of the connector. All connections are outbound from the connector to the Auth0 Server, so changes to your firewall are generally unnecessary.
 
@@ -41,7 +43,7 @@ For [high availability and load balancing](/connector/high-availability), you ca
 
 ## Steps
 
-To connect your application to Active Directory, you must:
+To connect your application to Active Directory/LDAP, you must:
 
 1. [Create an enterprise connection in Auth0](#create-an-enterprise-connection-in-auth0) and download the installer.
 2. [Install the connector on your network](#install-the-connector-on-your-network).

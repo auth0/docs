@@ -90,7 +90,7 @@ You can run your VM on any cloud platform, but this guide will walk through how 
 
 ## Install and Configure the AD/LDAP Connector
 
-1. Using the [Auth0 Management Dashboard](${manage_url}), create a new **Active Directory/LDAP** connection with the name `auth0-test-ad` by following [these steps](/connections/enterprise/active-directory).
+1. Using the [Auth0 Management Dashboard](${manage_url}), create a new **Active Directory/LDAP** connection with the name `auth0-test-ad` by following [these steps](/connections/enterprise/active-directory-ldap).
     ::: note
     Be sure to copy the **Ticket URL** that is generated at the end of those instructions.
     :::

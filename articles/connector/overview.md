@@ -12,7 +12,7 @@ useCase:
 
 # AD/LDAP Connector Overview
 
-Auth0 [integrates with Active Directory/LDAP](/connections/enterprise/active-directory) through an **AD/LDAP Connector** installed on your network.
+Auth0 [integrates with Active Directory/LDAP](/connections/enterprise/active-directory-ldap) through an **AD/LDAP Connector** installed on your network.
 
 The **AD/LDAP Connector** acts as a bridge between your **Active Directory (AD)** service and Auth0, which is required because AD typically runs and is accessible in your internal network while Auth0 is a cloud service (and therefore runs in a different context than your AD service).
 
