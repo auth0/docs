@@ -1381,6 +1381,7 @@ articles:
             hidden: true
       - title: "Tokens"
         url: "/tokens"
+        children:
 
         - title: "Where to Store Tokens"
           url: "/security/store-tokens"
