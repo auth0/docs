@@ -104,7 +104,13 @@ export class AuthService {
   // Create a local property for login status
   loggedIn: boolean = null;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+    // On initial load, check authentication state with authorization server
+    // Set up local auth streams if user is already authenticated
+    this.localAuthSetup();
+    // Handle redirect from Auth0 login
+    this.handleAuthCallback();
+  }
 
   // When calling, options can be passed if desired
   // https://auth0.github.io/auth0-spa-js/classes/auth0client.html#getuser
@@ -115,7 +121,7 @@ export class AuthService {
     );
   }
 
-  localAuthSetup() {
+  private localAuthSetup() {
     // This should only be called on app initialization
     // Set up local authentication streams
     const checkAuth$ = this.isAuthenticated$.pipe(
@@ -145,7 +151,7 @@ export class AuthService {
     });
   }
 
-  handleAuthCallback() {
+  private handleAuthCallback() {
     // Call when app reloads after user logs in with Auth0
     const params = window.location.search;
     if (params.includes('code=') && params.includes('state=')) {
@@ -191,54 +197,17 @@ This service provides the properties and methods necessary to manage authenticat
 
 Note that the `redirect_uri` property is configured to indicate where Auth0 should redirect to once authentication is complete. For login to work, this URL must be specified as an **Allowed Callback URL** in your [application settings](${manage_url}/#/applications/${account.clientId}/settings).
 
-The service provides these methods:
+The service provides some basic methods, such as:
 
 * `getUser$(options)` - Requests user data from the SDK and accepts an options parameter, then makes the user profile data available in a local RxJS stream
-* `localAuthSetup()` - On app initialization, manage authentication data in Angular; the session with Auth0 is checked to see if the user has logged in previously, and if so, they are re-authenticated on refresh without being prompted to log in again
 * `login()` - Log in with Auth0
-* `handleAuthCallback()` - Process the response from the authorization server when returning to the app after login
 * `logout()` - Log out of Auth0
-
-:::note
-**Why is there so much RxJS in the authentication service?** `auth0-spa-js` is a promise-based library built using async/await, providing an agnostic approach for the highest volume of JavaScript apps. The Angular framework, on the other hand, [uses reactive programming and observable streams](https://angular.io/guide/rx-library). In order for the async/await library to work seamlessly with Angular’s stream-based approach, we are converting the async/await functionality to observables for you in the service.
-
-Auth0 is currently building an Angular module that will abstract this reactive functionality into an importable wrapper. This will get you up and running even faster while using the most idiomatic approach for the Angular framework, and will greatly simplify the authentication service.
-:::
-
-## Handle Auth When App Loads
 
 In a Single Page Application, when the user reloads the page anything stored in app memory is cleared. We don't want the application to force the user to log in again if they did not log out, and still have an active session with the authorization server.
 
 We also [should not store sensitive session data in browser storage due to lack of security](https://cheatsheetseries.owasp.org/cheatsheets/HTML5_Security_Cheat_Sheet.html#local-storage).
 
-In order to restore local authentication status after a refresh, we'll call the `localAuthSetup()` method when the app initializes.
-
-We also need to handle the authentication callback when our app loads if the user has just logged in. To do both of these things, open the `src/app/app.component.ts` file and add the following:
-
-```ts
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from './auth.service';
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
-export class AppComponent implements OnInit {
-
-  constructor(private auth: AuthService) {}
-
-  ngOnInit() {
-    this.auth.localAuthSetup();
-    this.auth.handleAuthCallback();
-  }
-
-}
-```
-
-We've imported the [`OnInit` lifecycle hook](https://angular.io/api/core/OnInit), implemented the interface in our `AppComponent` class, provided the `AuthService` in the constructor, and called `localAuthSetup()` when the app component initializes.
-
-The `localAuthSetup()` method uses the `auth0-spa-js` SDK to check if the user is still logged in with the authorization server. If they are, their authentication state is restored in the front end when they return to the app after refreshing or leaving, without having to log in again.
+The `localAuthSetup()` method uses the `auth0-spa-js` SDK to check if the user is still logged in with the authorization server. If they are, their authentication state is restored in the front end when they return to the app after refreshing or leaving, without having to log in again. We can call this method from the `constructor` since our authentication service is a singleton.
 
 <%= include('../../_includes/_silent-auth-social-idp') %>
 
@@ -250,6 +219,14 @@ We also need to handle login redirects when the application loads. In the authen
 * Gets and sets the user's profile data
 * Updates application login state
 * After the callback has been processed, redirects the user to their intended route
+
+We can also call `handleAuthCallback()` from the `constructor`.
+
+:::note
+**Why is there so much RxJS in the authentication service?** `auth0-spa-js` is a promise-based library built using async/await, providing an agnostic approach for the highest volume of JavaScript apps. The Angular framework, on the other hand, [uses reactive programming and observable streams](https://angular.io/guide/rx-library). In order for the async/await library to work seamlessly with Angular’s stream-based approach, we are converting the async/await functionality to observables for you in the service. This improves the developer experience for interoperability between the SDK and the Angular platform.
+
+Auth0 is currently building an Angular module that will abstract this reactive functionality away into an importable wrapper. This will get you up and running even faster while using the most idiomatic approach for the Angular framework, and will simplify the authentication service.
+:::
 
 ## Create a Navigation Bar Component
 
