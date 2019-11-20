@@ -60,6 +60,7 @@ Auth0 maintains a login session for any user who authenticates via an applicatio
 
 ## Keep reading
 
+* [Auth0 Privacy & Cookie Policy](https://auth0.com/privacy)
 * [Sessions](/sessions)
 * [Session Layers](/sessions/concepts/session-layers)
 * [Logout](/logout)

@@ -55,6 +55,7 @@ Stateless cookies are self-contained; they include all session information that 
 
 ## Keep reading
 
+* [Auth0 Privacy & Cookie Policy](https://auth0.com/privacy)
 * [Sessions](/sessions)
 * [Session Layers](/sessions/concepts/session-layers)
 * [Session Lifetime](/sessions/concepts/session-lifetime)
