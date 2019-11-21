@@ -3,13 +3,13 @@ title: Touch ID Authentication
 description: This tutorial will show you how to use Touch ID and the Credentials Manager.
 budicon: 345
 topics:
-  - quickstarts
-  - native
-  - ios
-  - swift
-  - touch-id
+    - quickstarts
+    - native
+    - ios
+    - swift
+    - touch-id
 github:
-  path: 08-Credentials-TouchID
+    path: 08-Credentials-TouchID
 contentType: tutorial
 useCase: quickstart
 ---
@@ -17,13 +17,13 @@ useCase: quickstart
 ## Before You Start
 
 Before you continue with this tutorial, make sure that you have completed the previous tutorials. This tutorial assumes that:
-* You have integrated [Auth0.swift](https://github.com/auth0/Auth0.swift/) as a dependency in your project. 
+* You have integrated [Auth0.swift](https://github.com/auth0/Auth0.swift/) as a dependency in your project.
 * You are familiar with presenting the login screen. To learn more, see the [Login](/quickstart/native/ios-swift/00-login) tutorial.
 * You know how to renew a user's credentials with a Refresh Token. To learn more, see the [User Sessions](/quickstart/native/ios-swift/03-user-sessions) tutorial.
 
 ## Apply Touch ID Authentication
 
-This tutorial shows you how to renew the user's credentials without presenting the user with the login page. Additionally, the guide shows you how to use Touch ID to validate the renewal. 
+This tutorial shows you how to renew the user's credentials without presenting the user with the login page. Additionally, the guide shows you how to use Touch ID to validate the renewal.
 
 This tutorial covers how to use the [credentials manager](https://github.com/auth0/Auth0.swift/blob/master/Auth0/CredentialsManager.swift) utility in [Auth0.swift](https://github.com/auth0/Auth0.swift/) to streamline the management of user credentials and Touch ID.
 
@@ -76,7 +76,7 @@ When the user logs in, the credentials object is encrypted and stored securely i
 
 ## Renew the User's Credentials
 
-To automatically renew the user's credentials, use the [credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/CredentialsManager.swift#L98) method in the credentials manager. 
+To automatically renew the user's credentials, use the [credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/CredentialsManager.swift#L98) method in the credentials manager.
 
 The credentials manager retrieves stored credentials from the keychain and checks if the Access Token is still valid:
 * If the current credentials are still valid, the credentials manager returns them
@@ -100,14 +100,14 @@ self.credentialsManager.credentials { error, credentials in
 After the line that initialized the credentials manager, add a line that enables Touch ID:
 
 ```swift
-self.credentialsManager.enableTouchAuth(withTitle: "Touch to Authenticate")
+self.credentialsManager.enableBiometrics(withTitle: "Touch to Authenticate")
 ```
 
 Next time you call the `credentials` method, the user will be prompted for their Touch ID with a "Touch to Authenticate" message.
 
 ## Improve the User Experience
 
-If the user has logged out and you have cleared the credentials from the credentials manager, for example, with the following: 
+If the user has logged out and you have cleared the credentials from the credentials manager, for example, with the following:
 
 ```swift
 self.credentialsManager.clear()
