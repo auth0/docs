@@ -1,9 +1,10 @@
 ::: note
-Previously, in Auth0, `sameSite` attribute options were listed as `true`, `false`, `strict` or `lax`. If you do not set the attribute, the default will be `false`. Now, we have also added the ability for you to set the attribute to `none`. Effective February 2020, Google Chrome (v80) will change its cookie handling. Two things are changing with this planned release:
+Previously in Auth0, the [`samesite` cookie attribute](/sessions/concepts/cookie-attributes) options were `true`, `false`, `strict` or `lax`. If you didn't set the attribute manually, Auth0 would use the default value of `false`.
 
-* Cookies set without `sameSite` attribute will be defaulted to `lax` instead of the current implicit value `none`.
+Effective February 202, Google Chrome v80 will change the way it handles cookies. To that end, Auth0 plans on implementing the following changes to how it handles cookies:
 
-* Cookies set with `sameSite=none` must also be secure or they’ll be rejected to be saved in the browser’s cookie jar. 
+* Cookies without the `samesite` attribute set will be set to `lax`
+* Cookies with `sameSite=none` must be secured, otherwise they cannot be saved in the browser's cookie jar
 
-The reason for this change is to improve default security and prevent CSRF attacks. For more information, see [sameSite Cookie Attributes](/sessions/concepts/cookie-attributes).
+The goal of these changes are to improve security and help mitigate CSRF attacks.
 :::
