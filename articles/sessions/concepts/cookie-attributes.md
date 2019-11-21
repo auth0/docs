@@ -35,9 +35,9 @@ Other cookie attributes you are already familiar include:
 
 Aside from cookies set by the browser’s javascript context, these options are provided by the server with its HTTP responses as part of the set-cookie headers, the browser, upon receipt of the responses parses these and maintains its cookie jar according to them.
 
-## `sameSite` attributes changes
+## sameSite attributes changes
 
-Effective around February 2020, Google Chrome (v80) will change its cookie handling. Two things are changing with this planned release:
+Effective February 2020, Google Chrome (v80) will change its cookie handling. Two things are changing with this planned release:
 
 * Cookies set without `sameSite` attribute will be defaulted to `lax` instead of the current implicit value `none`.
 
