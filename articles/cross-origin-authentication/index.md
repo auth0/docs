@@ -88,4 +88,4 @@ The following browsers can use cross-origin authentication when third-party cook
 * Microsoft Internet Explorer
 * Microsoft Edge
 
-<%= include('../../_includes/_samesite_none') %>
+<%= include('../_includes/_samesite_none') %>

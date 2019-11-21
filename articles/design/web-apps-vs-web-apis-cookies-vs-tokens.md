@@ -29,4 +29,4 @@ Before moving forward, you might want to read this article for more context: [10
 
 * Finally, you can **mix token-based authentication** with **cookie-based authentication**. Take into account that cookies will work just fine if the web app and the API are served from the same domain, so you might not need token based authentication. Now, if you need to, we also return a JWT on the web app flow. Each of our SDKs will do it differently. If you want to call your APIs from JavaScript (instead of using the existing cookie), then somehow you have to set the ID Token in your webpage. One way of doing it is by setting it on your layout/master page--something like `window.token = ${"<%= id_token %>;"}`--and then getting it from anywhere in your JavaScript code.
 
-<%= include('../../_includes/_samesite_none') %>
+<%= include('../_includes/_samesite_none') %>
