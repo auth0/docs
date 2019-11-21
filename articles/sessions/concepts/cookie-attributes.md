@@ -17,74 +17,85 @@ useCase:
 ---
 # sameSite Cookie Attributes
 
-Cookies, primarily used for authentication and maintaining sessions, can be secured by setting cookie attributes. [Auth0 cookies](https://auth0.com/privacy#cookie-policy) are secured by setting certain attributes. Auth0 uses cookies across origins for many reasons: 
+Cookies, which are used for authentication and the maintenance of sessions, can be secured by setting its attributes.
+
+Auth0 uses cookies for the following:
 
 * OIDC Enterprise with `form_post`
 * SAML HTTP-POST Binding
 * Web message (aka `checkSession`)
 
-`sameSite` is a cookie attribute that acts as a restriction for the browser’s cookie jar telling it to omit sending the associated cookie key+value pair based on the type of interaction that triggered the HTTP request.
+## The `sameSite` attribute
 
-Other cookie attributes you are already familiar include:
+The `sameSite` cookie attribute restricts browser behavior. It may prevent the browser from sending the cookie's key-value pair based on the type of interaction that triggered the HTTP request.
 
-* `httpOnly` - makes a cookie only be sent with HTTP Requests and not readable using javascript’s document.cookie.
-
-* `secure` - makes the browser only send the cookie to a secure context, “secure” is defined per browser vendor but in reality it means HTTP over TLS (https).
-
-* `max-age / expires` - controls whether the cookie is “session” cookie /dropped when your browser terminates the browsing session/, or one that is “persistent” /persists browsing session termination/.
-
-Aside from cookies set by the browser’s javascript context, these options are provided by the server with its HTTP responses as part of the set-cookie headers, the browser, upon receipt of the responses parses these and maintains its cookie jar according to them.
-
-## sameSite attributes changes
-
-Effective February 2020, Google Chrome (v80) will change its cookie handling. Two things are changing with this planned release:
-
-* Cookies set without `sameSite` attribute will be defaulted to `lax` instead of the current implicit value `none`.
-
-* Cookies set with `sameSite=none` must also be secure or they’ll be rejected to be saved in the browser’s cookie jar. 
-
-The reason for this change is to improve default security and prevent CSRF attacks. 
-
-### Changes Auth0 has made
-
-Auth0 has made changes to the following cookies: 
-
-* `auth0`: User session
-* `auth0-mf`: Multi-Factor information
-* `did`: Device/User agent identifier
-
-For all the cookies: 
-* We will set the `sameSite=None` attribute and the cookie will always require to use HTTPS regardless of the environment.
-* We will set fallback cookies for each cookie to be used by legacy browsers that do not support `sameSite=none`. The name of the new cookies are `auth0_compat`, `auth0-mf_compat` and `did_compat`.
-
-### Changes You Need to Make
-To be ready for this change, you should ensure the following: 
-
-* Review the list of [currently unsupported browsers](https://www.chromium.org/updates/same-site/incompatible-client.)
-* If your application uses `response_mode=form_post` when interacting with Auth0, you must also use `sameSite=none` running on `https://` - no exceptions are being made by Chrome for `localhost`.
-* Whenever a cookie `sameSite` attribute has an explicit value set to `none`, it must also be set as secure with an attribute otherwise it will be rejected by the browser. If you use `http://` Callback URLs, these will break if you use those cookies for binding the authorization request state/nonce. These must either be changed to use TLS or use `sameSite=lax`.
-
-## How it works
-
-The diagram below shows what happens during a fresh interaction The end user requests a page they have not visited before. The server wishes to change the way it renders the next time so it sets a *seen* cookie. The grey part of the set-cookie header is the actual cookie key+value, the red part are all cookie attributes the browser stores internally in its cookie jar to be able to decide later on if it includes the cookie key+value pair in its requests.
-
-![Fresh Interaction](/media/articles/sessions/cookie-fresh-interaction.png)
-
-Now let’s make that request again in the same browsing session.
-
-In the next diagram, a request is being made to the same server and since the cookie attributes do not prohibit the *seen* cookie to be sent it is automatically included as a cookie header in the request. The server can now respond differently based on the fact that such cookie has been received.
-
-![Fresh Interaction](/media/articles/sessions/cookie-return-interaction.png)
-
-The following table describes the `sameSite` attribute values.
+Accepted attribute values are as follows:
 
 | Attribute | Description |
 | -- | -- |
-| `strict` | Only send the cookie if the user is navigating within the website origin bounds it came from. |
-| `lax` | Only send the cookie if the user is navigating within the website origin bounds it came from or if he’s being redirected to it. |
-| None | (No sameSite attribute provided option) Unless other conditions (such as other options or  third-party cookies blocked) disqualify the cookie from being sent. |
+| `strict` | Send the cookie if the user is navigating within the website origin bounds it came from |
+| `lax` | Send the cookie if the user is navigating within the website origin bounds it came from or if they're being redirected to it |
+| `None` | Option indicating that no `sameSite` attribute value was provided. Unless other conditions are present (i.e., third-party cookies are blocked), do not send the cookie |
 
-## Affects 
+### Additional cookie attributes
+
+Some of the cookie attributes you may be familiar with include:
+
+| Attribute | Description |
+| - | - |
+| `httpOnly` | Allows a cookie to be sent only with HTTP requests; not readable using Javascript's `document.cookie` |
+| `secure` | Allows the browser to send the cookie only to a secure context; whether the context is considered secure or not is browser-dependent, but this typically requires the use of HTTPS |
+| `max-age / expires` | Controls whether the cookie is a **session** cookie (e.g., dropped when your browser terminates its session) or **persistent** (e.g., the cookie persists beyond the browser session) |
+
+Please note that these attributes can also be provided by the server using the `set-cookie` headers included with HTTP responses. The browser, upon receipt, parses the headers and updates its cookie jar accordingly.
+
+## `sameSite` attributes changes
+
+Effective February 202, Google Chrome v80 will change the way it handles cookies. To that end, Auth0 plans on implementing the following changes to how it handles cookies:
+
+* Cookies without the `samesite` attribute set will be set to `lax`
+* Cookies with `sameSite=none` must be secured, otherwise they cannot be saved in the browser's cookie jar
+
+The goal of these changes are to improve security and help mitigate CSRF attacks.
+
+## Changes made by Auth0
+
+Auth0 has made the following changes to the following cookies:
+
+* `auth0` (handles user sessions)
+* `auth0-mf` (handles information relevant to multi-factor authentication)
+* `did` (the identifier for a device/user agent)
+
+For these cookies, Auth0 will:
+
+* Set the `sameSite` attribute to `None`, with the cookie requiring the user of HTTPS (regardless of environment)
+* Set fallback cookies in the event that a legacy browser does not support `sameSite` being set to `None`. These fallback cookies are `auth0_compat`, `auth0-mf_compat` and `did_compat`.
+
+## Changes you need to make
+
+To prepare for this change, you should:
+
+* Review the list of [unsupported browsers](https://www.chromium.org/updates/same-site/incompatible-client.)
+
+* Set your application to use `sameSite=none` if it uses `response_mode=form_post` when interacting with Auth0 (note that Chrome makes no exceptions, even for `localhost`)
+
+* Set your cookie as secure if its `sameSite` attribute equals `None`, otherwise it will be rejected by the browser. If you use HTTP for your Callback URLs, these will break if you use such cookies for binding the authorization request state/nonce. Therefore, you must either use HTTPS or set `sameSite=lax`.
+
+## How this works
+
+The diagram below shows what happens during a fresh interaction.
+
+The end user requests a page they have not visited before. The server wishes to change the way it renders when the visitor returns so it sets a *seen* cookie. The grey part of the `set-cookie` header is the actual cookie key-value, the red portion are the cookie attributes the browser stores in its cookie jar to decide later if it should include the cookie key+value pair in its requests.
+
+![Fresh Interaction](/media/articles/sessions/cookie-fresh-interaction.png)
+
+The following diagram shows what happens if you make the same request using the same browsing session.
+
+The request goes to the same server, and because the cookie attributes don't prohibit the *seen* cookie to be sent, it is automatically included as a cookie header in the request. The server will now respond differently based on the fact that it received this cookie.
+
+![Fresh Interaction](/media/articles/sessions/cookie-return-interaction.png)
+
+## Effect of the changes to the `sameSite` cookie attribute
 
 The table below shows how the `sameSite` attribute changes may affect your apps.
 
@@ -100,7 +111,7 @@ If you are using a web app with sessions (e.g. for saving user preferences, shop
 
 You may notice that the Google Chrome and Microsoft Edge specs for setting `sameSite` to undefined has changed from `sameSite` defaulting to `none` to `lax` instead. 
 
-As an example, you are building a new UI and have several services that you proxy to via an Auth0 gateway. At this gateway, you create a cookie session. If you make a cross-origin request, you may see this warning in the js console:
+For example, let's say you are building a new UI and have several services that you proxy to via an Auth0 gateway. At this gateway, you create a cookie session. If you make a cross-origin request, you may see this warning in the Javascript console:
 
 ``` text
 A cookie associated with a cross-site resource (URL) was set without the SameSite attribute. 
@@ -110,8 +121,6 @@ Application>Storage>Cookies and see more details at
 https://www.chromestatus.com/feature/5088147346030592 and 
 https://www.chromestatus.com/feature/5633521622188032
 ```
-
-Previously, in Auth0, `sameSite` attribute options were listed as `true`, `false`, `strict` or `lax`. If you did not set the attribute, the default would be `false`. Now, we have also added the ability for you to set the attribute to `none`.
 
 ## Keep reading
 
