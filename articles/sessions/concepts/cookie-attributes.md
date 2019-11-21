@@ -66,7 +66,7 @@ To be ready for this change, you should ensure the following:
 
 ## How it works
 
-The diagram below shows what happens during a fresh interaction, the end user requests a page they have not visited before. The server wishes to change the way it renders the next time so it sets a *seen* cookie. The grey part of the set-cookie header is the actual cookie key+value, the red part are all cookie attributes the browser stores internally in its cookie jar to be able to decide later on if it includes the cookie key+value pair in its requests.
+The diagram below shows what happens during a fresh interaction The end user requests a page they have not visited before. The server wishes to change the way it renders the next time so it sets a *seen* cookie. The grey part of the set-cookie header is the actual cookie key+value, the red part are all cookie attributes the browser stores internally in its cookie jar to be able to decide later on if it includes the cookie key+value pair in its requests.
 
 ![Fresh Interaction](/media/articles/sessions/cookie-fresh-interaction.png)
 
