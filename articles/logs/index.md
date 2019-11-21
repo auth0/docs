@@ -161,6 +161,7 @@ The following table lists the codes associated with the appropriate log events.
 | `feacft` | Failed Exchange | Failed to exchange authorization code for <dfn data-key="access-token">Access Token</dfn> | [Call API Using the Authorization Code Flow](/flows/guides/auth-code/call-api-auth-code)
 | `feccft` | Failed Exchange | Failed exchange of Access Token for a Client Credentials Grant | [Asking for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens) |
 | `fede`    | Failed Exchange | Failed to exchange Device Code for Access Token | [Device Authorization Flow](/flows/concepts/device-auth) |
+| `fens` | Failed Exchange | Failed exchange for Native Social Login | |
 | `feoobft` | Failed Exchange | Failed exchange of Password and OOB Challenge for Access Token | |
 | `feotpft` | Failed Exchange | Failed exchange of Password and OTP Challenge for Access Token | |
 | `fepft` | Failed Exchange | Failed exchange of Password for Access Token | |
@@ -210,6 +211,7 @@ The following table lists the codes associated with the appropriate log events.
 | `seacft` | Success Exchange | Successful exchange of authorization code for Access Token | [Call API Using the Authorization Code Flow](/flows/guides/auth-code/call-api-auth-code) |
 | `seccft` | Success Exchange | Successful exchange of Access Token for a Client Credentials Grant | [Asking for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens) |
 | `sede`     | Success Exchange | Successful exchange of device code for Access Token | [Device Authorization Flow](/flows/concepts/device-auth) |
+| `sens` | Success Exchange | Native Social Login | |
 | `seoobft` | Success Exchange | Successful exchange of Password and OOB Challenge for Access Token | |
 | `seotpft` | Success Exchange | Successful exchange of Password and OTP Challenge for Access Token | |
 | `sepft` | Success Exchange | Successful exchange of Password for Access Token | |
