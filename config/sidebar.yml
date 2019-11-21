@@ -1379,12 +1379,14 @@ articles:
           - title: "CVE 2017-17068"
             url: "/security/bulletins/cve-2017-17068"
             hidden: true
+
       - title: "Tokens"
         url: "/tokens"
         children:
 
-        - title: "Where to Store Tokens"
-          url: "/security/store-tokens"
+          - title: "Where to Store Tokens"
+            url: "/security/store-tokens"
+            hidden: true 
 
       - title: "Cookies"
         url: "/sessions/concepts/cookies"
