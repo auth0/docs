@@ -55,13 +55,13 @@ Auth0 has made changes to the following cookies:
 
 For all the cookies: 
 * We will set the `sameSite=None` attribute and the cookie will always require to use HTTPS regardless of the environment.
-* We will set a fallback cookie `*_compat` for legacy browsers.
+* We will set fallback cookies for each cookie to be used by legacy browsers that do not support `sameSite=none`. The name of the new cookies are `auth0_compat`, `auth0-mf_compat` and `did_compat`.
 
 ### Changes You Need to Make
 To be ready for this change, you should ensure the following: 
 
 * Review the list of [currently unsupported browsers](https://www.chromium.org/updates/same-site/incompatible-client.)
-* If you use `form_post`, you must also use `sameSite=none` running on `https://` - no exceptions are being made by Chrome for `localhost`.
+* If your application uses `response_mode=form_post` when interacting with Auth0, you must also use `sameSite=none` running on `https://` - no exceptions are being made by Chrome for `localhost`.
 * Whenever a cookie `sameSite` attribute has an explicit value set to `none`, it must also be set as secure with an attribute otherwise it will be rejected by the browser. If you use `http://` Callback URLs, these will break if you use those cookies for binding the authorization request state/nonce. These must either be changed to use TLS or use `sameSite=lax`.
 
 ## How it works
@@ -93,7 +93,7 @@ The table below shows how the `sameSite` attribute changes may affect your apps.
 | Cookies set as `sameSite=nome` while the website is not `https://` | Yes |
 | Cookies don't have explicit `sameSite` attribute value set and are required in a cross-origin context (such as HTTP Form Post, embedding an iframe) | Yes |
 | Native apps (everything not cookies + web based) | No (M2M) |
-| Already setting an excplicit `sameSite` cookie attribute value | No |
+| Already setting an explicit `sameSite` cookie attribute value | No |
 | Different subdomain on the same eTLD+1 (app is on the same eTLD+1 as the custom domain Auth0 tenant) | Potentially |
 
 If you are using a web app with sessions (e.g. for saving user preferences, shopping carts, etc.), and you allow users to sign in using identity providers such as Google, Apple or Auth0, then you rely on cookies to achieve that functionality. There are browser cookie behavior changes that may break your user experience. Google Chrome, for example, is going to be the first browser vendor to roll out a change that might not be compatible with your web application.
