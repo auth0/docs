@@ -59,7 +59,7 @@ Stateless cookies are self-contained; they include all session information that 
 * [Sessions](/sessions)
 * [Session Layers](/sessions/concepts/session-layers)
 * [Session Lifetime](/sessions/concepts/session-lifetime)
-* [SameSite Cookie Attributes](/sessions/concepts/cookie-attributes)
+* [sameSite Cookie Attributes](/sessions/concepts/cookie-attributes)
 * [Logout](/logout)
 * [Session Use Cases](/sessions/references/sample-use-cases-sessions)
 * [Example: Short-lived session management workflow](/sessions/references/example-short-lived-session-mgmt)

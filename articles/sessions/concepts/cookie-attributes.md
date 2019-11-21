@@ -118,7 +118,6 @@ Previously, in Auth0, `sameSite` attribute options were listed as `true`, `false
 * [Auth0 Privacy & Cookie Policy](https://auth0.com/privacy)
 * [Web Apps vs Web APIs/Cookies vs Tokens](/design/web-apps-vs-web-apis-cookies-vs-tokens)
 * [Cross-Origin Authentication](/cross-origin-authentication)
-* [Manage Users](/users)
 * [Session Layers](/sessions/concepts/session-layers)
 * [Session Use Cases](/sessions/references/sample-use-cases-sessions)
 * [Security](/security)
