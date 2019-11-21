@@ -550,6 +550,9 @@ articles:
       - title: Metadata
         url: /users/concepts/overview-user-metadata
 
+      - title: Sessions & Cookies
+        url: /sessions
+
       - title: Progressive Profiling
         url: /users/concepts/overview-progressive-profiling
 
@@ -1397,17 +1400,23 @@ articles:
           - title: "CVE 2017-17068"
             url: "/security/bulletins/cve-2017-17068"
             hidden: true
-      - title: "Where to Store Tokens"
-        url: "/security/store-tokens"
-        hidden: true
+
+      - title: "Tokens"
+        url: "/tokens"
+        children:
+
+          - title: "Where to Store Tokens"
+            url: "/security/store-tokens"
+            hidden: true 
+
+      - title: "Cookies"
+        url: "/sessions/concepts/cookies"
 
       - title: "Common Threats"
         url: "/security/common-threats"
-        hidden: true
 
       - title: "Blacklist User Attributes"
         url: "/security/blacklisting-attributes"
-        hidden: true
 
   - title: "Data Privacy"
     url: "/compliance"
