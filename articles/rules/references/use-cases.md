@@ -26,7 +26,7 @@ useCase: extensibility-rules
         <i class="icon icon-budicon-715"></i><a href="/flows/guides/auth-code/includes/sample-use-cases-call-api#customize-tokens">Change the returned scopes of the Access Token and/or add claims to it (and the ID Token)</a>
     </li>
     <li>
-        <i class="icon icon-budicon-715"></i><a href="articles/api-auth/blacklists-vs-grants#blacklists">Set the JWT ID (JTI) of an Access Token</a>
+        <i class="icon icon-budicon-715"></i><a href="/api-auth/blacklists-vs-grants#blacklists">Set the JWT ID (JTI) of an Access Token</a>
     </li>
     <li>
         <i class="icon icon-budicon-715"></i><a href="/api-auth/restrict-access-api">Restrict users from calling an API or accessing an application</a>
@@ -93,7 +93,7 @@ useCase: extensibility-rules
                 <i class="icon icon-budicon-695"></i><a href="/extensions/github-deploy#deploy-rules">GitHub</a>
             </li>
             <li>
-                <i class="icon icon-budicon-695"></i><a href="/extensions/gitlab-deploy#deploy-rules">GitLAB</a>
+                <i class="icon icon-budicon-695"></i><a href="/extensions/gitlab-deploy#deploy-rules">Gitlab</a>
             </li>
             <li>
                 <i class="icon icon-budicon-695"></i><a href="/extensions/visual-studio-team-services-deploy#deploy-rules">Visual Studio Team Services</a>
