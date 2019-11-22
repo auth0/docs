@@ -26,7 +26,7 @@ To use a custom SMTP email provider, the SMTP server must:
     * use a certificate signed by a public certificate authority (CA)
 :::
 
-#### Customization
+## Customization
 
 For emails, you can customize the following properties:
 
