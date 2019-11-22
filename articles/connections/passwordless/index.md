@@ -32,7 +32,7 @@ The benefits of using Passwordless authentication include:
 
 * Improved user experience, particularly on mobile applications, because users only need an email address or mobile phone number to sign up.
 
-* Enhanced security: Passwords are a major vulnerability as users reuse passwords and are able to share them with others. Passwords are the biggest attack vector and are responsible for a significant percentage of breaches, they also lead to attacks such as credentials stuffing, corporate account takeover, brute force attack.
+* Enhanced security: Passwords are a major vulnerability as users reuse passwords and are able to share them with others. Passwords are the biggest attack vector and are responsible for a significant percentage of breaches. They also lead to attacks such as credentials stuffing, corporate account takeover, and brute force attacks.
 
 * Reduces the total cost of ownership, as managing passwords is expensive (implementing password complexity policies, password expiration, password reset processes, password hashing and storing, breached password detection).
 
