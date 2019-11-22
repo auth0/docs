@@ -11,13 +11,14 @@ contentType:
     - concept
 useCase: customize-connections
 ---
+# Passwordless Authentication with SMS
 
-Send one-time-use codes to users' entered mobile phone number using:
+Send one-time-use codes to the user's entered mobile phone number using:
 
-* <a href="/dashboard/guides/connections/configure-passwordess-sms">Twilio</a>
-* <a href="/connections/passwordless/guides/use-sms-gateway-passwordless">your own SMS gateway</a>
+* [Twilio](/dashboard/guides/connections/configure-passwordess-sms)
+* [Your Own SMS Gateway](/connections/passwordless/guides/use-sms-gateway-passwordless)
 
-#### Customization
+## Customization
 
 For SMS, you can customize the following properties:
 
@@ -25,8 +26,8 @@ For SMS, you can customize the following properties:
 * Message language
 * One-time-use code length
 * One-time-use code expiration period
-* Whether to allow user sign-up via passwordless
+* Whether to allow users to sign up via passwordless
 
-### Limitations of One-Time Passwords
+## Limitations of One-Time Passwords
 
 <%= include('../../_otp-limitations') %>
