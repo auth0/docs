@@ -19,11 +19,11 @@ With AWS Session Tags, you can tag resources and assign users key/value pairs, w
 
 In the example included in this guide, we will tag our AWS resources with AWS Session Tags, then create a policy for an AWS IAM role that will allow users with this role and the appropriate tags to perform specific actions on our AWS resources. We will then create a rule in Auth0 that will attach our AWS IAM role and appropriate AWS Session Tags to an Auth0 user and pass them through SAML assertions in the token. This example builds on the example provided in our [Configure Single-Sign-on (SSO) with the AWS Console](/integrations/aws/sso) guide.
 
+## Prerequisites
+
 ::: panel Amazon Web Services (AWS) Account
 Before proceeding, you will need a valid [Amazon Web Services (AWS) account](https://portal.aws.amazon.com/billing/signup#/start) for which you are an administrator.
 :::
-
-## Prerequisites
 
 **Before beginning this guide:**
 
