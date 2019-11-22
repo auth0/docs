@@ -35,9 +35,7 @@ Accepted attribute values are as follows:
 | -- | -- |
 | `strict` | Send the cookie if the user is navigating within the website origin bounds it came from |
 | `lax` | Send the cookie if the user is navigating within the website origin bounds it came from or if they're being redirected to it |
-| `None` | Option indicating that no `sameSite` attribute value was provided. Unless other conditions are present (i.e., third-party cookies are blocked), do not send the cookie |
-
-### Additional cookie attributes
+| `none` | Send the cookie with requests crossing the website origin bounds. Unless other conditions are present (i.e., third-party cookies are blocked), do not send the cookie. |
 
 Some of the cookie attributes you may be familiar with include:
 
@@ -49,18 +47,16 @@ Some of the cookie attributes you may be familiar with include:
 
 Please note that these attributes can also be provided by the server using the `set-cookie` headers included with HTTP responses. The browser, upon receipt, parses the headers and updates its cookie jar accordingly.
 
-## `sameSite` attributes changes
+## Changes Auth0 is making
 
-Effective February 202, Google Chrome v80 will change the way it handles cookies. To that end, Auth0 plans on implementing the following changes to how it handles cookies:
+Effective February 2020, Google Chrome v80 will change the way it handles cookies. To that end, Auth0 plans on implementing the following changes to how it handles cookies:
 
 * Cookies without the `samesite` attribute set will be set to `lax`
 * Cookies with `sameSite=none` must be secured, otherwise they cannot be saved in the browser's cookie jar
 
 The goal of these changes are to improve security and help mitigate CSRF attacks.
 
-## Changes made by Auth0
-
-Auth0 has made the following changes to the following cookies:
+These changes affect the following cookies:
 
 * `auth0` (handles user sessions)
 * `auth0-mf` (handles information relevant to multi-factor authentication)
@@ -68,7 +64,7 @@ Auth0 has made the following changes to the following cookies:
 
 For these cookies, Auth0 will:
 
-* Set the `sameSite` attribute to `None`, with the cookie requiring the user of HTTPS (regardless of environment)
+* Set the `sameSite` attribute to `none`, with the cookie requiring the use of HTTPS (regardless of environment).
 * Set fallback cookies in the event that a legacy browser does not support `sameSite` being set to `None`. These fallback cookies are `auth0_compat`, `auth0-mf_compat` and `did_compat`.
 
 ## Changes you need to make
