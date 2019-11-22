@@ -173,7 +173,7 @@ To use this variation you will have to change the following request parameters:
 ```
 
 ::: panel Auth0 Connections as Realms
-You can configure Auth0 Connections as realms, as long as they support active authentication. This includes [Database](/connections/database), <dfn data-key="passwordless">[Passwordless](/connections/passwordless)</dfn>, [Active Directory/LDAP](/connections/enterprise/active-directory), [Windows Azure AD](/connections/enterprise/azure-active-directory) and [ADFS](/connections/enterprise/adfs) connections.
+You can configure Auth0 Connections as realms, as long as they support active authentication. This includes [Database](/connections/database), <dfn data-key="passwordless">[Passwordless](/connections/passwordless)</dfn>, [Active Directory/LDAP](/connections/enterprise/active-directory-ldap), [Windows Azure AD](/connections/enterprise/azure-active-directory) and [ADFS](/connections/enterprise/adfs) connections.
 :::
 
 ## Use the token
