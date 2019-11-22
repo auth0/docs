@@ -6,11 +6,10 @@ topics:
   - extensibility
 contentType:
   - reference
-  - how-to
 useCase: extensibility-rules
 ---
 
-# Rules
+# Rules (Legacy)
 
 ::: version-warning
 This document covers an outdated version of the Auth0 authentication pipeline and the way rules can be used. We recommend you use the latest version. For more on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).

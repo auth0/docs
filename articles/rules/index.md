@@ -60,3 +60,11 @@ Rules execute in the order shown on the Auth0 Dashboard. If a rule depends on th
 ## Available modules
 
 <%= include('./_includes/_supported-modules.md') %> 
+
+## Keep reading
+
+* [Context Object in Rules](/rules/references/context-object)
+* [User Object in Rules](/rules/references/user-object)
+* [Node.js Modules Available in Rules](/rules/references/modules)
+* [Sample Rules](/rules/references/samples)
+* [Rules (Legacy)](/rules/references/legacy)
