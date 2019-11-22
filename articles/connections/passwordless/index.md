@@ -99,7 +99,7 @@ When using passwordless authentication with email, users:
 
 To implement passwordless you'll need to make two key decisions:
 
-- Which authentication factor you want to use (SMS, Email with OTP. Email with Magic Link)
+- Which authentication factor you want to use (SMS, Email with OTP, Email with Magic Link)
 - If you are going to implement authentication using *Embedded Login* or *Universal Login*.
 
 ### Authentication Factor
@@ -128,4 +128,3 @@ The industry is aligned in that Universal Login is the proper way to implement a
  * [API Documentation](/connections/passwordless/reference/relevant-api-endpoints)
  * [Migrating from deprecated Passwordless endpoints]()
  * [Sample Use Cases: Rules with Passwordless](/connections/passwordless/concepts/sample-use-cases-rules)
-
