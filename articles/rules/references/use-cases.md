@@ -1,5 +1,6 @@
 ---
 description: Rules use cases for Auth0
+title: Rules Use Cases
 classes: topic-page
 toc: true
 topics:
@@ -13,9 +14,9 @@ useCase: extensibility-rules
 
 <div class="topic-page-header">
   <div data-name="example" class="topic-page-badge"></div>
-  <h1>Rules Uses Cases</h1>
+  <h1>Rules Use Cases</h1>
   <p>The following is a list of Rules for implementing a variety of functionality in Auth0.</p>
-  <p>Before proceeding, please review our [best practice](/best-practices/rules) recommendations for working with Rules. See also our [security bulletin](/security/bulletins/2019-01-10_rules) regarding vulnerable patterns when working with custom rules code.</p>
+  <p>Before proceeding, please review our <a href="/best-practices/rules">best practice</a> recommendations for working with Rules. See also our <a href="/security/bulletins/2019-01-10_rules">security bulletin</a> regarding vulnerable patterns when working with custom rules code.</p>
 </div>
 
 <h2>API Authorization</h2>
@@ -28,10 +29,10 @@ useCase: extensibility-rules
         <i class="icon icon-budicon-715"></i><a href="articles/api-auth/blacklists-vs-grants#blacklists">Set the JWT ID (JTI) of an Access Token</a>
     </li>
     <li>
-        <i class="icon icon-budicon-715"></i> Restrict users from <a href="/api-auth/restrict-access-api">calling an API or accessing an application</a>
+        <i class="icon icon-budicon-715"></i><a href="/api-auth/restrict-access-api">Restrict users from calling an API or accessing an application</a>
     </li>
     <li>
-        <i class="icon icon-budicon-715"></i> Define a <a href="/api-auth/tutorials/adoption/scope-custom-claims#custom-claims">non-standard ID Token claim</a>
+        <i class="icon icon-budicon-715"></i><a href="/api-auth/tutorials/adoption/scope-custom-claims#custom-claims">Define a non-standard ID Token claim</a>
     </li>
 </ul>
 
@@ -66,7 +67,7 @@ useCase: extensibility-rules
 
 <ul class="topic-links">
     <li>
-        <i class="icon icon-budicon-715"></i> Send an email to users that prompts them to <a href="/email/custom#verification-email">verify the provided email</a>
+        <i class="icon icon-budicon-715"></i><a href="/email/custom#verification-email">Send a verification email</a>
     </li>
     <li>
         <i class="icon icon-budicon-715"></i><a href="/email/custom#welcome-email">Send a welcome email</a>
@@ -77,13 +78,13 @@ useCase: extensibility-rules
 
 <ul class="topic-links">
     <li>
-        <i class="icon icon-budicon-715"></i><a href="/extensions/authorization-extension/v2/rules">Rules</a> for use with the Authorization Extension
+        <i class="icon icon-budicon-715"></i><a href="/extensions/authorization-extension/v2/rules">Rules for use with the Authorization Extension</a>
     </li>
     <li>
-        <i class="icon icon-budicon-715"></i><a href="/extensions/delegated-admin/v3#set-user-roles-via-rules">Set user roles</a> using the Delegated Administration extension
+        <i class="icon icon-budicon-715"></i><a href="/extensions/delegated-admin/v3#set-user-roles-via-rules">Set user roles using the Delegated Administration extension</a>
     </li>
     <li>
-        <i class="icon icon-budicon-715"></i> The version control deployment extensions offer deploy rules.
+        <i class="icon icon-budicon-715"></i> The version control deployment extensions offer deploy rules:
         <ul>
             <li>
                 <i class="icon icon-budicon-695"></i><a href="/extensions/bitbucket-deploy#deploy-rules">Bitbucket</a>
@@ -105,13 +106,13 @@ useCase: extensibility-rules
 
 <ul class="topic-links">
     <li>
-        <i class="icon icon-budicon-715"></i> Map an <a href="/integrations/aws/sso#map-the-aws-role-to-a-user">AWS role to an IAM policy that enforces access rules</a> for AWS resources
+        <i class="icon icon-budicon-715"></i><a href="/integrations/aws/sso#map-the-aws-role-to-a-user"> Map an AWS role to an IAM policy that enforces access rules for AWS resources</a>
     </li>
     <li>
         <i class="icon icon-budicon-715"></i><a href="/integrations/office-365-custom-provisioning#azure-ad-provisioning-rule">Provision/Log In Users from Azure Active Directory</a>
     </li>
     <li>
-        <i class="icon icon-budicon-715"></i> Modify the SAML configuration to <a href="/integrations/sharepoint#authorization">store the user's group memberships</a> in their profile's groups attribute
+        <i class="icon icon-budicon-715"></i><a href="/integrations/sharepoint#authorization">Modify the SAML configuration to store the user's group memberships in their profile's groups attribute</a>
     </li>
 </ul>
 
@@ -135,19 +136,19 @@ useCase: extensibility-rules
 
 <ul class="topic-links">
     <li>
-        <i class="icon icon-budicon-715"></i><a href="/monitoring/guides/send-events-to-keenio#record-a-sign-up-event-in-keen">Record <code>signup</code> events for your Auth0 apps in Keen</a>
+        <i class="icon icon-budicon-715"></i><a href="/monitoring/guides/send-events-to-keenio#record-a-sign-up-event-in-keen">Record sign up events for your Auth0 apps in Keen</a>
     </li>
     <li>
-        <i class="icon icon-budicon-715"></i><a href="/monitoring/guides/send-events-to-segmentio#2-record-sign-up-and-log-in-events-in-segment">Record <code>signup</code> and <code>login</code> events for your Auth0 apps in Segment</a>
+        <i class="icon icon-budicon-715"></i><a href="/monitoring/guides/send-events-to-segmentio#2-record-sign-up-and-log-in-events-in-segment">Record signup and login events for your Auth0 apps in Segment</a>
     </li>
     <li>
-        <i class="icon icon-budicon-715"></i><a href="/monitoring/guides/send-events-to-splunk#record-sign-up-or-log-in-event-in-splunk">Record <code>signup</code> and <code>login</code> events for your Auth0 apps in Splunk</a>
+        <i class="icon icon-budicon-715"></i><a href="/monitoring/guides/send-events-to-splunk#record-sign-up-or-log-in-event-in-splunk">Record signup and login events for your Auth0 apps in Splunk</a>
     </li>
     <li>
-        <i class="icon icon-budicon-715"></i> Track new leads in Salesforce by gathering TowerData information and <a href="/monitoring/guides/track-leads-salesforce#1-enrich-user-profile-with-towerdata">adding it to user profiles</a>, then <a href="/monitoring/guides/track-leads-salesforce#2-create-new-lead-in-salesforce">recording the sign up as a new lead in Salesforce</a>
+        <i class="icon icon-budicon-715"></i><a href="/monitoring/guides/track-leads-salesforce">Track new leads in Salesforce by gathering TowerData information and adding it to user profiles, then recording the sign up as a new lead in Salesforce</a>
     </li>
     <li>
-        <i class="icon icon-budicon-715"></i> Track new sign ups in Salesforce by <a href="/monitoring/guides/track-signups-salesforce#1-record-sign-up-event-in-mixpanel">recording a sign up event in MixPanel</a>, <a href="/monitoring/guides/track-signups-salesforce#2-enrich-user-profile-with-fullcontact">augmenting user profiles with information from FullContact</a>, and <a href="/monitoring/guides/track-signups-salesforce#3-create-new-lead-in-salesforce">recording the sign up as a new lead in Salesforce</a>.
+        <i class="icon icon-budicon-715"></i><a href="/monitoring/guides/track-signups-salesforce">Track new sign ups in Salesforce by recording a sign up event in MixPanel, augmenting user profiles with information from FullContact, and recording the sign up as a new lead in Salesforce</a>.
     </li>
 </ul>
 
@@ -197,12 +198,12 @@ useCase: extensibility-rules
         <i class="icon icon-budicon-715"></i><a href="/link-accounts#properties-from-secondary-identities">Add missing user profile information from secondary identities</a>
     </li>
     <li>
-        <i class="icon icon-budicon-715"></i><a href="/users/guides/change-user-pictures">Update a user profile metadata data field</a> with information available via the ID Token (you can also do this for <a href="/users/guides/change-user-pictures#change-the-default-picture-for-all-users">multiple users</a> simultaneously)
+        <i class="icon icon-budicon-715"></i><a href="/users/guides/change-user-pictures">Update a user profile metadata data field with information available via the ID Token</a>
     </li>
     <li>
         <i class="icon icon-budicon-715"></i><a href="/users/references/user-data-storage-scenario#user-metadata">Update user metadata</a>
     </li>
     <li>
-        <i class="icon icon-budicon-715"></i><a href="Update user permissions">/users/references/user-data-storage-scenario#user-data-permission-rules</a>
+        <i class="icon icon-budicon-715"></i><a href="/users/references/user-data-storage-scenario#user-data-permission-rules">Update user permissions</a>
     </li>
 </ul>
