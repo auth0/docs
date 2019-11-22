@@ -684,6 +684,9 @@ articles:
           - title: Create a New Rule
             url: /dashboard/guides/rules/create-rules
 
+          - title: Rules Use Cases
+            url: /rules/references/use-cases
+
           - title: Store Configuration for Rules
             url: /rules/guides/configuration
 
