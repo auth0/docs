@@ -7,8 +7,9 @@ topics:
     - passwordless
     - authentication
 ---
+# Passwordless Authentication with Email
 
-Send users one-time-use codes using:
+You may configure Auth0 to send users one-time codes using:
 
 * [Mandrill](/email/providers#configure-mandrill)
 * [AWS](/email/providers#configure-amazon-ses)
@@ -16,13 +17,14 @@ Send users one-time-use codes using:
 * [SparkPost](/email/providers#configure-sparkpost)
 * [your own custom SMTP email provider](/email/providers#configure-a-custom-smtp-server)
 
+::: note
+To use a custom SMTP email provider, the SMTP server must:
+    * support LOGIN authentication
+    * support TLS 1.0 or higher
+    * use a certificate signed by a public certificate authority (CA)
+:::
 
-* To use a custom SMTP email provider, the SMTP server must:
-    - support LOGIN authentication
-    - support TLS 1.0 or higher
-    - use a certificate signed by a public certificate authority (CA)
-
-#### Customization
+## Customization
 
 For emails, you can customize the following properties:
 
@@ -33,7 +35,6 @@ For emails, you can customize the following properties:
 * One-time-use code expiration period
 * Whether to allow user sign-up via passwordless
 
-
-### Limitations of One-Time Passwords
+## Limitations of One-Time Passwords
 
 <%= include('../../_otp-limitations') %>
