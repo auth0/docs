@@ -51,7 +51,7 @@ Please note that these attributes can also be provided by the server using the `
 
 ## `sameSite` attributes changes
 
-Effective February 202, Google Chrome v80 will change the way it handles cookies. To that end, Auth0 plans on implementing the following changes to how it handles cookies:
+Effective February 2020, Google Chrome v80 will change the way it handles cookies. To that end, Auth0 plans on implementing the following changes to how it handles cookies:
 
 * Cookies without the `samesite` attribute set will be set to `lax`
 * Cookies with `sameSite=none` must be secured, otherwise they cannot be saved in the browser's cookie jar
@@ -68,7 +68,7 @@ Auth0 has made the following changes to the following cookies:
 
 For these cookies, Auth0 will:
 
-* Set the `sameSite` attribute to `None`, with the cookie requiring the user of HTTPS (regardless of environment)
+* Set the `sameSite` attribute to `None`, with the cookie requiring the use of HTTPS (regardless of environment)
 * Set fallback cookies in the event that a legacy browser does not support `sameSite` being set to `None`. These fallback cookies are `auth0_compat`, `auth0-mf_compat` and `did_compat`.
 
 ## Changes you need to make
