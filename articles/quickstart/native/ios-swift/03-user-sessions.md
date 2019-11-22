@@ -165,7 +165,7 @@ You will need to update the original login scopes to include `read:current_user`
 
 ### Audience
 
-You will also need to change your audience to the [API Audience identifier](https://manage.auth0.com/#/apis) for the Management API.
+You will also need to change your audience to the [API Identifier](https://manage.auth0.com/#/apis) for the Management API.
 The default identifier is `https://${account.namespace}/api/v2/`
 
 ### Login
