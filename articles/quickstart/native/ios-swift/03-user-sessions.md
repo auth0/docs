@@ -199,7 +199,7 @@ You can add custom user information in the user metadata section by performing a
 ```swift
 // ProfileViewController.swift
 
-let accessToken = ... // You will need the accessToken from your credentials instance 'credentials.accessToken'
+let accessToken = ... // the user-scoped accessToken from your credentials instance 'credentials.accessToken'
 let profile = ... // the Profile instance you obtained accessing the `/userinfo` endpoint.
 
 Auth0
@@ -226,7 +226,7 @@ Retrieving the `user_metadata` dictionary:
 ```swift
 // ProfileViewController.swift
 
-let accessToken = ... // You will need the accessToken from your credentials instance 'credentials.accessToken'
+let accessToken = ... // the user-scoped accessToken from your credentials instance 'credentials.accessToken'
 let profile = ... // the Profile instance you obtained accessing the `/userinfo` endpoint.
 
 Auth0
