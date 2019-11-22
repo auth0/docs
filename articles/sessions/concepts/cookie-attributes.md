@@ -71,7 +71,7 @@ For these cookies, Auth0 will:
 
 To prepare for this change, you should:
 
-* Review the list of [unsupported browsers](https://www.chromium.org/updates/same-site/incompatible-client.)
+* Review the list of [unsupported browsers](https://www.chromium.org/updates/same-site/incompatible-clients).
 
 * Set your application to use `sameSite=none` if it uses `response_mode=form_post` when interacting with Auth0 (note that Chrome makes no exceptions, even for `localhost`)
 
