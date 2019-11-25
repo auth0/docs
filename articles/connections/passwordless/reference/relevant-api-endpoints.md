@@ -40,8 +40,8 @@ Content-Type: application/json
   "phone_number": "PHONE_NUMBER", //set for connection=sms
   "send": "link|code", //if left null defaults to link
   "authParams": { // any authentication parameters that you would like to add
-    "scope": "openid",
-    "state": "YOUR_STATE"
+    "scope": "openid",     // used when asking for a magic link
+    "state": "YOUR_STATE"  // used when asking for a magic link, or from the custom login page
   }
 }
 ```
@@ -65,10 +65,10 @@ Content-Type: application/json
   "grant_type" : "http://auth0.com/oauth/grant-type/passwordless/otp",
   "client_id": "YOUR_CLIENT_ID",
   "client_secret": "YOUR_CLIENT_SECRET", // only for web apps, native apps don’t have a client secret
-  "otp": "CODE",
-  "audience" : "your-api-audience", // in case you need an access token for a specific API
-  "realm": "email", // or "sms" 
   "username":"<email address>", // or "<phone number>"
+  "otp": "CODE",
+  "realm": "email", // or "sms" 
+  "audience" : "your-api-audience", // in case you need an access token for a specific API
   "scopes": "openid profile email" // whatever scopes you need
 }
 ```

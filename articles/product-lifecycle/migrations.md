@@ -24,6 +24,22 @@ We are actively migrating customers to new behaviors for all **Deprecations** li
   </thead>
   <tbody>
     <tr>
+      <td><a href="/migrations/guides/passwordless-start">Deprecation of unauthenticated calls to <code>/passwordless/start</code> from confidential clients</a></td>
+      <td>1 December 2019</td>
+      <td>
+        TBD
+      </td>
+      <td>We improved the security of our Passwordless implementation by adding client authentication to <code>/passwordless/start</code>.</td>
+    </tr>
+    <tr>
+      <td><a href="/migrations/guides/migration-oauthro-oauthtoken-pwdless"><code>/oauth/ro</code> deprecation for Passwordless Connections</a></td>
+      <td>8 June 2017</td>
+      <td>
+        TBD
+      </td>
+      <td>On June 8th 2017 we deprecated the <code>/oauth/ro</code> endpoint for passwordless connections. You can now implement the same functionality using  <a href="/migrations/guides/migration-oauthro-oauthtoken-pwdless">'oauth/token' endpoint</a> </td>
+    </tr>
+    <tr>
       <td><a href="/users/search/v3/migrate-search-v2-v3">User Search v2</a></td>
       <td>6 June 2018</td>
       <td>30 June 2019</td>
@@ -42,6 +58,7 @@ We are actively migrating customers to new behaviors for all **Deprecations** li
       </td>
       <td>On April 30th 2019, Facebook deprecated the use of the <a href="https://developers.facebook.com/docs/graph-api/changelog/4-30-2019-endpoint-deprecations">'Social Context’ field</a> for new applications.</td>
     </tr>
+    
     <tr>
       <td><a href="/logs/migrate-logs-v2-v3">Tenant Logs Search v2</a></td>
       <td>21 May 2019</td>
