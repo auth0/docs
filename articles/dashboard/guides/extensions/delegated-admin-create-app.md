@@ -10,7 +10,7 @@ useCase:
   - extensibility-extensions
   - create-delegated-admin-application
 ---
-# Create a Delegated Admin Application
+# Create Delegated Admin Applications
 
 Use the [Delegated Admin Extension](/extensions/delegated-admin), which allows you to expose the Users section of the Auth0 Dashboard to a select group of users without allowing them access to the rest of the Dashboard.
 
