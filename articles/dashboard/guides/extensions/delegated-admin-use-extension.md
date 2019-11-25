@@ -27,6 +27,6 @@ Before you can use the Delegated Admin extension, you need to [create a Delegate
 
     Because we disabled signups for the database connection while configuring it, the login screen will not display a Sign Up option.
 
-    Once you provide valid credentials, you will be directed to your custom **Delegated Administration Dashboard** page, which will have the **TITLE** you provided at the top of the page, and if you provided a custom CSS file that styling will be applied.
+    Once you provide valid credentials, you will be directed to your custom **Delegated Administration Dashboard** page, which will have the **TITLE** you provided at the top of the page, and if you provided a custom CSS file, that styling will be applied.
 
     ![](/media/articles/extensions/delegated-admin/standard-dashboard.png)
