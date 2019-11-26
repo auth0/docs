@@ -97,7 +97,7 @@ The table below shows how the `sameSite` attribute changes may affect your apps.
 
 | App Behavior | Affected by Change |
 | -- | -- |
-| Cookies set as `sameSite=nome` while the website is not `https://` | Yes |
+| Cookies set as `sameSite=none` while the website is not `https://` | Yes |
 | Cookies don't have explicit `sameSite` attribute value set and are required in a cross-origin context (such as HTTP Form Post, embedding an iframe) | Yes |
 | Native apps (everything not cookies + web based) | No (M2M) |
 | Already setting an explicit `sameSite` cookie attribute value | No |
