@@ -10,15 +10,15 @@ useCase:
 ---
 # Migration Guide for Resource Owner Passwordless Credentials Exchange
 
-Support for Resource Owner Password was added to [oauth/token](/api/authentication#authorization-code). Usage of the [oauth/ro](/api/authentication#resource-owner) endpoint was deprecated on July 08, 2017. This endpoint was used to exchange an OTP received by the end-user by email or SMS with for an `id_token` and an `access_token`.
+Support for Resource Owner Password was added to [/oauth/token](/api/authentication#authorization-code). Usage of the [/oauth/ro](/api/authentication#resource-owner) endpoint was deprecated on July 08, 2017. This endpoint was used to exchange an OTP received by the end-user by email or SMS with for an `id_token` and an `access_token`.
 
 ## Does this affect me ?
 
-This guide is for users who use the resource owner passwordless credentials exchange, and call /oauth/ro directly, without the use of any Auth0 libraries or SDKs. 
+This guide is for users who use the resource owner passwordless credentials exchange, and call `/oauth/ro` directly, without the use of any Auth0 libraries or SDKs. 
 
 ## Changes to requests
 
-Previously, the payload of a request to /oauth/ro looked similar to this:
+Previously, the payload of a request to `/oauth/ro` looked similar to this:
 
 ```json
 {
@@ -32,14 +32,14 @@ Previously, the payload of a request to /oauth/ro looked similar to this:
 }
 ```
 
-* The endpoint to execute token exchanges is now /oauth/token
+* The endpoint to execute token exchanges is now `/oauth/token`
 * [Auth0's own grant type](/api-auth/tutorials/password-grant#realm-support) is used to authenticate users from a specific connection (or `realm`). 
 * Auth0 supports the [standard OIDC scopes](/scopes/current/oidc-scopes), along with the <dfn data-key="scope">scopes</dfn> which you have defined in your [custom API](/api-auth/apis).
-* A scope that doesn't fit in one of these categories, such as the above `favorite_color`, is no longer a valid scope.
+* A scope that does not fit in one of these categories, such as the above `favorite_color`, is no longer a valid scope.
 * The `device` parameter is removed.
 * The <dfn data-key="audience">`audience`</dfn> parameter is optional.
 
-Here is an example of the payload of a request to /oauth/token:
+Here is an example of the payload of a request to `/oauth/token`:
 
 ```json
 {
@@ -55,16 +55,16 @@ Here is an example of the payload of a request to /oauth/token:
 ```
 
 * The grant type is specified here as `http://auth0.com/oauth/grant-type/passwordless/otp`
-* The parameters `client_id`, `username` are unchanged. 
+* The parameters `client_id` and `username` are unchanged.
 * The `client_secret` needs to be specified for confidential clients (e.g. regular web apps).
-* The OTP needs to be send in the `otp` parameter instead of the `password` one.
-* The `realm` is included because we are using Password Realm grant type, and replaces the `connection` parameter from previous calls. 
-* The `scope` parameter is mostly the same, but does not accept non-OIDC values. 
+* The one-time password needs to be sent in the `otp` parameter instead of the `password` parameter.
+* The `realm` is included because we are using Password Realm grant type, and replaces the `connection` parameter from previous calls.
+* The `scope` parameter is mostly the same, but does not accept non-OIDC values.
 * The `audience` parameter can be added, indicating the API audience the token will be intended for.
 
 ## Changes to responses
 
-Responses from `oauth/ro` were similar in format to the following:
+Responses from `/oauth/ro` were similar in format to the following:
 
 ```json
 {
@@ -80,7 +80,7 @@ Responses from `oauth/ro` were similar in format to the following:
 * The ID Token will be forcibly signed using RS256 if requested by a [public client](/clients/client-types#public-clients).
 * A <dfn data-key="refresh-token">Refresh Token</dfn> will be returned only if the `offline_access` scope was granted and the API has **Allow offline access** set.
 
-Here is an example of the response from `oauth/token`:
+Here is an example of the response from `/oauth/token`:
 
 ```json
 {
@@ -94,7 +94,7 @@ Here is an example of the response from `oauth/token`:
 
 ### Verifying your migration
 
-Once you have migrated your codebase, if you would like to be sure that your applications are no longer calling the legacy endpoint, you can go to the [Dashboard](${manage_url}/#/tenant/advanced) under **Tenant Settings > Advanced** then scroll down to **Migrations** and toggle off the Legacy /oauth/ro Endpoint switch. Turning off this switch will disable the deprecated endpoint for your tenant, preventing it from being used at all.
+Once you have migrated your codebase, if you would like to be sure that your applications are no longer calling the legacy endpoint, you can go to the [Dashboard](${manage_url}/#/tenant/advanced) under **Tenant Settings > Advanced** then scroll down to **Migrations** and toggle off the Legacy `/oauth/ro` Endpoint switch. Turning off this switch will disable the deprecated endpoint for your tenant, preventing it from being used at all.
 
 ![Legacy Migration Toggles](/media/articles/libraries/lock/migration-toggles.png)
 
