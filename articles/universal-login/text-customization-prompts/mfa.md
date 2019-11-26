@@ -9,16 +9,16 @@
 |Text|Key|
 |----------|----------|
 |Secure your Account|`pageTitle`|
-|Enrolled|`enrolledTitle`|
-|You are now enrolled in Multifactor Authentication|`enrolledDescription`|
+|You're All Set!|`enrolledTitle`|
+|You have successfully added a new authentication factor.|`enrolledDescription`|
 |Invalid Link|`invalidTicketTitle`|
-|The link is invalid or has expired.|`invalidTicketDescription`|
+|This link is invalid or expired.|`invalidTicketDescription`|
 |Expired Link|`expiredTicketTitle`|
-|The link has expired.|`expiredTicketDescription`|
+|This link is expired.|`expiredTicketDescription`|
 |Already used|`alreadyUsedTitle`|
-|This link has already been used. Please get a new link to enroll MFA.|`alreadyUsedDescription`|
-|Already enrolled|`alreadyEnrolledTitle`|
-|You are already enrolled in Multifactor Authentication. You will need to reset your MFA before being able to re-enroll.|`alreadyEnrolledDescription`|
+|This link has already been used. Please get a new link to enroll with Multi-factor Authentication.|`alreadyUsedDescription`|
+|Factor Already Exists|`alreadyEnrolledTitle`|
+|Two-factor verification has already been enabled.|`alreadyEnrolledDescription`|
 
 ## Screen: mfa-login-options
 

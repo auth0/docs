@@ -29,6 +29,7 @@
 |Scan the QR Code below using the <%= "${appName}" %> app on your mobile device.|`description`|
 |Try another method|`pickAuthenticatorText`|
 |Continue|`buttonText`|
+|You must scan the QR code with the <%= "${appName}" %> app on your mobile device.|`enrollment-transaction-pending`|
 
 ## Screen: mfa-push-challenge-push
 
@@ -49,6 +50,14 @@
 |Didn't receive a notification?|`resendText`|
 |Manually Enter Code|`enterOtpCode`|
 |OR|`separatorText`|
+|You must accept the notification via the <%= "${appName}" %> app on your mobile device.|`challenge-transaction-pending`|
+|We have not received a confirmation, please slow down.|`polling-interval-exceeded`|
+|We have received too many notification requests. Wait a few minutes and try again.|`too-many-push`|
+|Your enrollment transaction expired, you will need to start again.|`transaction-not-found`|
+|We have not received a confirmation, please try scanning the code again.|`mfa-push-verify-transaction-pending`|
+|We couldn't verify the enrollment. Please try again later.|`mfa-push-verify-authenticator-error`|
+|We couldn't send the notification. Please try again later.|`mfa-push-challenge-authenticator-error`|
+|Notification rejected|`transaction-rejected`|
 
 ## Screen: mfa-push-challenge-code
 
@@ -66,6 +75,14 @@
 |Enter the one-time code|`placeholder`|
 |Remember this device for 30 days|`rememberMeText`|
 |Verify Your Identity|`title`|
+|OTP Code must have 6 numeric characters|`invalid-otp-code-format`|
+|The code you entered is invalid|`invalid-code`|
+|Invalid or expired user code|`invalid-expired-code`|
+|We couldn't verify the code. Please try again later.|`authenticator-error`|
+|Notification was not sent. Try resending the code.|`no-transaction-in-progress`|
+|Too many failed codes. Wait for some minutes before retrying.|`too-many-failures`|
+|Your enrollment transaction expired, you will need to start again.|`transaction-not-found`|
+|We couldn't verify the enrollment. Please try again later.|`mfa-push-verify-authenticator-error`|
 
 ## Screen: mfa-push-list
 

@@ -16,6 +16,16 @@
 |Enter your username and we will send you instructions to reset your password.|`descriptionUsername`|
 |Email address|`placeholderEmail`|
 |Username|`placeholderUsername`|
+|Email is not valid.|`invalid-email-format`|
+|This ticket was expired.|`auth0-users-expired-ticket`|
+|Something went wrong, please try again later.|`custom-script-error-code`|
+|This ticket was already used.|`auth0-users-used-ticket`|
+|Something went wrong, please try again later|`auth0-users-validation`|
+|We had a problem sending the email, please try again later.|`reset-password-error`|
+|You have exceeded the amount of emails. Wait a few minutes and try again.|`too-many-email`|
+|You have exceeded the amount of emails. Wait a few minutes and try again.|`too-many-requests`|
+|Please enter an email address|`no-email`|
+|Username is required|`no-username`|
 
 ## Screen: reset-password-email
 
@@ -47,6 +57,11 @@
 |New password|`passwordPlaceholder`|
 |Re-enter new password|`reEnterpasswordPlaceholder`|
 |Your password must contain:|`passwordSecurityText`|
+|This ticket was expired.|`auth0-users-expired-ticket`|
+|Something went wrong, please try again later.|`custom-script-error-code`|
+|This ticket was already used.|`auth0-users-used-ticket`|
+|Something went wrong, please try again later|`auth0-users-validation`|
+|New password confirmation is missing|`no-re-enter-password`|
 
 ## Screen: reset-password-success
 
@@ -77,3 +92,8 @@
 |Link Expired|`eventTitleExpired`|
 |Invalid Link|`eventTitleGeneric`|
 |Invalid Link|`eventTitleUsed`|
+|This ticket was expired.|`auth0-users-expired-ticket`|
+|Something went wrong, please try again later.|`custom-script-error-code`|
+|This ticket was already used.|`auth0-users-used-ticket`|
+|Something went wrong, please try again later|`auth0-users-validation`|
+|We had a problem sending the email, please try again later.|`reset-password-error`|

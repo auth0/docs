@@ -18,6 +18,14 @@
 |Resend|`resendActionText`|
 |Didn't receive an email?|`resendText`|
 |Verify Your Identity|`title`|
+|OTP Code must have 6 numeric characters|`invalid-otp-code-format`|
+|The code you entered is invalid|`invalid-code`|
+|Invalid or expired user code|`invalid-expired-code`|
+|We couldn't verify the code. Please try again later.|`authenticator-error`|
+|Notification was not sent. Try resending the code.|`no-transaction-in-progress`|
+|You have exceeded the amount of emails. Wait a few minutes and try again.|`too-many-email`|
+|Your enrollment transaction expired, you will need to start again.|`transaction-not-found`|
+|We couldn't send the email. Please try again later.|`mfa-email-challenge-authenticator-error`|
 
 ## Screen: mfa-email-list
 

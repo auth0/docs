@@ -16,3 +16,7 @@
 |User account does not exist or the verification code is invalid.|`invalidAccountOrCodeDescription`|
 |Your email address could not be verified.|`unknownErrorDescription`|
 |Back to <%= "${clientName}" %>|`buttonText`|
+|This ticket was expired.|`auth0-users-expired-ticket`|
+|Something went wrong, please try again later.|`custom-script-error-code`|
+|This ticket was already used.|`auth0-users-used-ticket`|
+|Something went wrong, please try again later|`auth0-users-validation`|
