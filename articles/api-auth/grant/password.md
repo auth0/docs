@@ -12,14 +12,12 @@ useCase:
 ---
 # Call APIs from Highly Trusted Applications
 
-Highly trusted applications can use this flow to access APIs. In this flow the end-user is asked to fill in credentials (username/password), typically using an interactive form. This information is sent to the backend and from there to Auth0.
+<%= include('../_includes/_ropg-warning') %>
 
-You should use this flow **only if** the following apply:
-- The application is absolutely trusted with the user's credentials. For [Single-Page Applications](/flows/concepts/implicit) and [Native/Mobile Apps](/flows/concepts/auth-code-pkce) we recommend using web flows instead.
-- Using a redirect-based flow is not possible. If this is not the case and redirects are possible in your application, you should use the [Authorization Code Flow](/flows/concepts/auth-code) instead.
+If your situation meets the criteria above, use the ROPG flow for your highly trusted applications to access APIs. In this flow the end-user is asked to fill in credentials (username/password), typically using an interactive form. This information is sent to the backend and from there to Auth0.
 
 ::: note
-If you need a refresher on the OAuth 2.0 protocol, you can go through our [OAuth 2.0](/protocols/oauth2) article.
+If you need a refresher on the OAuth 2.0 protocol, see [OAuth 2.0](/protocols/oauth2).
 :::
 
 ## Overview
