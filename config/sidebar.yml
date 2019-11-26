@@ -1012,90 +1012,69 @@ articles:
         children:
             - title: Architecture
               url: /architecture-scenarios/implementation/b2c/b2c-architecture
-              hidden: true 
 
             - title: Provisioning
               url: /architecture-scenarios/implementation/b2c/b2c-provisioning
-              hidden: true 
 
             - title: Authentication
               url: /architecture-scenarios/implementation/b2c/b2c-authentication
-              hidden: true 
 
             - title: Branding
               url: /architecture-scenarios/implementation/b2c/b2c-branding
-              hidden: true 
 
             - title: Launch Preparation
-              url: /architecture-scenarios/implementation/b2c/b2c-launch
-              hidden: true 
+              url: /architecture-scenarios/implementation/b2c/b2c-launch 
 
             - title: Deployment Automation
               url: /architecture-scenarios/implementation/b2c/b2c-deployment
-              hidden: true 
 
             - title: Quality Assurance
               url: /architecture-scenarios/implementation/b2c/b2c-qa
-              hidden: true 
 
             - title: Profile Management
               url: /architecture-scenarios/implementation/b2c/b2c-profile-mgmt
-              hidden: true 
 
             - title: Authorization
               url: /architecture-scenarios/implementation/b2c/b2c-authorization
-              hidden: true 
 
             - title: Logout
               url: /architecture-scenarios/implementation/b2c/b2c-logout
-              hidden: true 
 
             - title: Operations
               url: /architecture-scenarios/implementation/b2c/b2c-operations
-              hidden: true 
 
       - title: Business to Business
         url: /architecture-scenarios/b2b
         children:
             - title: Architecture
               url: /architecture-scenarios/implementation/b2b/b2b-architecture
-              hidden: true 
 
             - title: Provisioning
               url: /architecture-scenarios/implementation/b2b/b2b-provisioning
-              hidden: true 
 
             - title: Authentication
               url: /architecture-scenarios/implementation/b2b/b2b-authentication
-              hidden: true 
 
             - title: Branding
               url: /architecture-scenarios/implementation/b2b/b2b-branding
-              hidden: true 
 
             - title: Deployment Automation
               url: /architecture-scenarios/implementation/b2b/b2b-deployment
-              hidden: true 
 
             - title: Quality Assurance
               url: /architecture-scenarios/implementation/b2b/b2b-qa
-              hidden: true 
 
             - title: Profile Management
               url: /architecture-scenarios/implementation/b2b/b2b-profile-mgmt
-              hidden: true 
 
             - title: Authorization
               url: /architecture-scenarios/implementation/b2b/b2b-authorization
-              hidden: true 
 
             - title: Logout
               url: /architecture-scenarios/implementation/b2b/b2b-logout
-              hidden: true 
 
             - title: Operations
               url: /architecture-scenarios/implementation/b2b/b2b-operations
-              hidden: true 
 
       - title: Business to Employees
         url: /architecture-scenarios/b2e
@@ -1113,76 +1092,60 @@ articles:
         children:
             - title: Solution Overview
               url: /architecture-scenarios/web-app-sso/part-1
-              hidden: true 
 
             - title: Configuration
               url: /architecture-scenarios/web-app-sso/part-2
-              hidden: true 
 
             - title: Implementation
               url: /architecture-scenarios/web-app-sso/part-3
-              hidden: true 
 
             - title: Conclusion
               url: /architecture-scenarios/web-app-sso/part-4
-              hidden: true 
 
       - title: Server Application + API
         url: /architecture-scenarios/server-api
         children:
             - title: Solution Overview
               url: /architecture-scenarios/server-api/part-1
-              hidden: true 
 
             - title: Configuration
               url: /architecture-scenarios/server-api/part-2
-              hidden: true 
 
             - title: Implementation
               url: /architecture-scenarios/server-api/part-3
-              hidden: true 
 
             - title: Conclusion
               url: /architecture-scenarios/server-api/part-4
-              hidden: true 
 
       - title: SPA + API
         url: /architecture-scenarios/spa-api
         children:
             - title: Solution Overview
               url: /architecture-scenarios/spa-api/part-1
-              hidden: true 
 
             - title: Configuration
               url: /architecture-scenarios/spa-api/part-2
-              hidden: true 
 
             - title: Implementation
               url: /architecture-scenarios/spa-api/part-3
-              hidden: true 
 
             - title: Conclusion
               url: /architecture-scenarios/spa-api/part-4
-              hidden: true 
 
       - title: Mobile + API
         url: /architecture-scenarios/mobile-api
         children:
             - title: Solution Overview
               url: /architecture-scenarios/mobile-api/part-1
-              hidden: true 
 
             - title: Configuration
               url: /architecture-scenarios/mobile-api/part-2
-              hidden: true 
 
             - title: Implementation
               url: /architecture-scenarios/mobile-api/part-3
-              hidden: true 
 
             - title: Conclusion
               url: /architecture-scenarios/mobile-api/part-4
-              hidden: true 
 
       - title: Implementation Checklists
         url: /architecture-scenarios/checklists

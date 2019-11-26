@@ -35,6 +35,7 @@ useCase:
   'architecture-scenarios/implementation/b2c/b2c-provisioning',
   'architecture-scenarios/implementation/b2c/b2c-authentication',
   'architecture-scenarios/implementation/b2c/b2c-branding',
+  'architecture-scenarios/implementation/b2c/b2c-launch',
   'architecture-scenarios/implementation/b2c/b2c-deployment',
   'architecture-scenarios/implementation/b2c/b2c-qa',
   'architecture-scenarios/implementation/b2c/b2c-profile-mgmt',
