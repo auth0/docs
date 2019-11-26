@@ -272,6 +272,10 @@ __my-client-api.json__
 }
 ```
 
+::: note
+The deployment extension accepts an application name instead of the client ID in the `client_id` property. It will try to match the name to an existing application before creating the Client Grant.
+:::
+
 ### Deploy Resource Servers
 
 To deploy a resource server, you must create a JSON file under the `resource-servers` directory of your Visual Studio Team Services project. Example:
