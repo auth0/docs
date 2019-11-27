@@ -148,7 +148,7 @@ __facebook.json__
 }
 ```
 
-<%= include('../_includes/_embedded-clients-array') %>
+<%= include('./_includes/_embedded-clients-array') %>
 
 _This will work only for non-Auth0 connections (`strategy !== auth0`); for Auth0 connections, use `database-connections`._
 
@@ -266,7 +266,7 @@ __my-client-api.json__
 }
 ```
 
-<%= include('../_includes/_deployment-extension') %>
+<%= include('./_includes/_deployment-extension') %>
 
 ### Deploy Resource Servers
 
