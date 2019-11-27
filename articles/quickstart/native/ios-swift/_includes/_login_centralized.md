@@ -104,10 +104,10 @@ ${snippet(meta.snippets.use)}
 
 This adds the `profile` scope to enable [retrieving the User Profile](/quickstart/native/ios-swift/03-user-sessions#fetch-the-user-profile).
 
-After the user authenticates, their information is returned in a `credentials` object.
+After the user authenticates, their information is returned in a `Credentials` object.
 
 ::: note
-To learn more about the `credentials` object, read the [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift) article.
+To learn more about the `Credentials` object, read the [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift) article.
 :::
 
 <%= include('../../../../_includes/_logout_url') %>

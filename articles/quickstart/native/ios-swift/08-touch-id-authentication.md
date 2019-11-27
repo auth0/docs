@@ -113,7 +113,7 @@ If the user has logged out and you have cleared the credentials from the credent
 self.credentialsManager.clear()
 ```
 
-The user is still prompted for their touch ID. This returns an error in the `credentials` closure because there are no credentials to renew from.
+The user is still prompted for their Touch ID. This returns an error in the `credentials` closure because there are no credentials to renew from.
 
 The credentials manager has a `hasValid()` method that lets you know if there are valid credentials that can be returned directly or renewed and returned.
 

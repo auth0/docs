@@ -112,7 +112,7 @@ credentialsManager.revoke { error in
 
 ## Retrieve the User Profile
 
-To get the user's profile, you need a valid Access Token. You can find the token in the `credentials` object returned by the credentials manager.
+To get the user's profile, you need a valid Access Token. You can find the token in the `Credentials` object returned by the credentials manager.
 
 ```swift
 // SessionManager.swift
