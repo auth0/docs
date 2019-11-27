@@ -14,17 +14,9 @@ useCase:
 
 <%= include('../_includes/_ropg-warning') %>
 
-If your situation meets the criteria above, use the ROPG flow for your highly trusted applications to access APIs. In this flow the end-user is asked to fill in credentials (username/password), typically using an interactive form. This information is sent to the backend and from there to Auth0.
+You can use the ROPG flow for your highly trusted applications to access APIs. In this flow the end-user is asked to fill in credentials (username/password), typically using an interactive form. This information is sent to the backend and from there to Auth0. 
 
-::: note
-If you need a refresher on the OAuth 2.0 protocol, see [OAuth 2.0](/protocols/oauth2).
-:::
-
-## Overview
-
-The **Resource Owner Password Grant** (defined in [RFC 6749, section 4.3](https://tools.ietf.org/html/rfc6749#section-4.3)) can be used directly as an authorization grant to obtain an <dfn data-key="access-token">Access Token</dfn>, and optionally a <dfn data-key="refresh-token">Refresh Token</dfn>. This grant should only be used when there is a high degree of trust between the user and the application and when other authorization flows are not available.
-
-This grant type can eliminate the need for the application to store the user credentials for future use, by exchanging the credentials with a long-lived Access Token or Refresh Token.
+ROPG (defined in [RFC 6749, section 4.3](https://tools.ietf.org/html/rfc6749#section-4.3)) can be used directly as an authorization grant to store the user credentials for future use, by exchanging the credentials for an <dfn data-key="access-token">Access Token</dfn>, and optionally a <dfn data-key="refresh-token">Refresh Token</dfn>. 
 
 ![Resource Owner Password Grant](/media/articles/api-auth/password-grant.png)
 
@@ -39,7 +31,7 @@ In OAuth 2.0 terms, the web app is the Client, the end user the Resource Owner, 
 
 ## How to implement the flow
 
-For details on how to implement this using Auth0, refer to [Execute the Resource Owner Password Grant](/api-auth/tutorials/password-grant).
+For details on how to implement this using Auth0, see [Implement the Resource Owner Password Grant](/api-auth/tutorials/password-grant).
 
 ## Realm Support
 
@@ -69,9 +61,7 @@ For details on how to implement <dfn data-key="multifactor-authentication">multi
 
 ## Keep reading
 
-::: next-steps
-* [How to Execute a Resource Owner Password Grant](/api-auth/tutorials/password-grant)
-* [How to use MFA with Resource Owner Password Grant](/api-auth/tutorials/multifactor-resource-owner-password)
+* [Implement the Resource Owner Password Grant](/api-auth/tutorials/password-grant)
+* [Multi-factor Authentication and the Resource Owner Password Grant](/api-auth/tutorials/multifactor-resource-owner-password)
 * [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
-* [How to use Resource Owner Password Grant from the server side together with Anomaly Detection](/api-auth/tutorials/using-resource-owner-password-from-server-side)
-:::
+* [Use Resource Owner Password Grant From the Server Side](/api-auth/tutorials/using-resource-owner-password-from-server-side)
