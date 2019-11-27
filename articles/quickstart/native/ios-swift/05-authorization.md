@@ -15,7 +15,7 @@ useCase: quickstart
 
 Many identity providers supply access claims which contain, for example, user roles or groups. You can request the access claims in your token with `.scope("openid roles")` or `.scope("openid groups")`.
 
-If an identity provider does not supply this information, you can create a rule for assigning roles to users.
+If an identity provider does not supply this information, you can [create a Rule](https://auth0.com/docs/rules) for assigning roles to users.
 
 ## Create a Rule to Assign Roles
 
