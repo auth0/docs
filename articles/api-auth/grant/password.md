@@ -33,7 +33,7 @@ In OAuth 2.0 terms, the web app is the Client, the end user the Resource Owner, 
 
 For details on how to implement this using Auth0, see [Implement the Resource Owner Password Grant](/api-auth/tutorials/password-grant).
 
-## Realm Support
+## Realm support
 
 A extension grant that offers similar functionality with the **Resource Owner Password Grant**, including the ability to indicate a specific realm, is the `http://auth0.com/oauth/grant-type/password-realm`.
 
@@ -53,15 +53,15 @@ Due to the implied trust in these grants (a user providing his or her password t
 
 If you wish to execute special logic unique to the Password exchange, you can look at the `context.protocol` property in your rule. If the value is `oauth2-password`, then the rule is running during the password exchange.
 
-For details on how to implement this, refer to [Execute the Resource Owner Password Grant: Customize the Tokens](/api-auth/tutorials/password-grant#optional-customize-the-tokens).
+For details on how to implement this, see [Customize the Tokens](/api-auth/tutorials/password-grant#optional-customize-the-tokens).
 
-## MFA Support
+## MFA support and anomaly detection
 
 For details on how to implement <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn>, refer to [Multi-factor Authentication and Resource Owner Password](/api-auth/tutorials/multifactor-resource-owner-password).
+
+When using this flow from server-side applications, some anomaly detection features might fail because of the particularities of this scenario. For details on how to implement this, while avoiding some common issues, refer to [Using Resource Owner Password from Server side](/api-auth/tutorials/using-resource-owner-password-from-server-side).
 
 ## Keep reading
 
 * [Implement the Resource Owner Password Grant](/api-auth/tutorials/password-grant)
-* [Multi-factor Authentication and the Resource Owner Password Grant](/api-auth/tutorials/multifactor-resource-owner-password)
 * [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
-* [Use Resource Owner Password Grant From the Server Side](/api-auth/tutorials/using-resource-owner-password-from-server-side)
