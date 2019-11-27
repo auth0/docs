@@ -30,12 +30,11 @@ This guide will show you how to implement [passwordless authentication](/connect
 
 1. [Set up the passwordless connection](#set-up-the-passwordless-connection): Set up the passwordless connection with which users can authenticate.
 
-2. [Configure the login page](#configure-the-login-screen): Configure your login page to work with passwordless.
+2. [Configure the login page](#configure-the-login-page): Configure your login page to work with passwordless.
 
 3. [Configure your application](#configure-your-application): Configure your application to call the login page. 
 
 Optional: [Explore Sample Use Cases](/connections/passwordless/concepts/sample-use-cases-rules)
-
 
 ## Set up the passwordless connection
 
