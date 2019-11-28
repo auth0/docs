@@ -19,7 +19,7 @@ useCase:
 ---
 # Verified Email Address Change
 
-Self-service typically provides users with the ability to change one or more aspects of their user profile. Commonly referred to as MyAccount or MyProfile functionality, this often includes the capability for a user to change his/her email address in cases where an existing email address is no longer valid or preferred. Self-service email address change without the proper controls however can lead to various account management issues, and/or expose security vulnerabilities which can be exploited. Verified Email Address Change workflow is provided by Auth0 Professional Services as a customized extensibility solution, which leverages Auth0 functionality to address the problems that can occur in unverified email address change scenarios. 
+Self-service typically provides users with the ability to change one or more aspects of their user profile. Commonly referred to as MyAccount or MyProfile functionality, this often includes the capability for a user to change his/her email address in cases where an existing email address is no longer valid or preferred. Self-service email address change without the proper controls, however, can lead to various account management issues and/or expose security vulnerabilities that can be exploited. Auth0 Professional Services provides Verified Email Address Change workflow as a customized extensibility solution, which leverages Auth0 functionality to address the problems that can occur in unverified email address change scenarios. 
 
 <%= include('./_includes/_further-help.md') %>
 
