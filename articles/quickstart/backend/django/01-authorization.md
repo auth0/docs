@@ -157,7 +157,7 @@ def jwt_decode_token(token):
     if public_key is None:
         raise Exception('Public key not found.')
 
-    issuer = 'https://{}/'.format(auth0_domain)
+    issuer = 'https://{}/'.format('${account.namespace}')
     return jwt.decode(token, public_key, audience='${apiIdentifier}', issuer=issuer, algorithms=['RS256'])
 ```
 
