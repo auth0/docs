@@ -13,7 +13,7 @@ contentType: tutorial
 useCase: quickstart
 ---
 
-Auth0 provides a set of tools for protecting your resources with end-to-end authentication in your application. 
+Auth0 provides a set of tools for protecting your resources with end-to-end authentication in your application.
 
 This tutorial shows you how to get an Access Token, attach it to a request with an authorization header and call an API. We recommend you use this method for the best security and compliance with RFC standards.
 
@@ -29,21 +29,20 @@ Before you continue with this tutorial, make sure that you have completed the pr
 
 To retrieve an Access Token that is authorized to access your API, you need to specify the **API Identifier** value you created in the [Auth0 APIs Dashboard](https://manage.auth0.com/#/apis).
 
-Present the Hosted Login Page:
+Present the login page:
 
 ```objc
 // HomeViewController.m
 
 HybridAuth *auth = [[HybridAuth alloc] init];
-[auth showLoginWithScope:@"openid profile" connection:nil audience:"API_IDENTIFIER" callback:^(NSError * _Nullable error, A0Credentials * _Nullable credentials) {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (error) {
-            NSLog(@"Error: %@", error);
-        } else if (credentials) {
-          // Do something with credentials such as save them.
-          // Auth0 will dismiss itself automatically by default.
-        }
-    });
+
+[auth showLoginWithScope:@"openid profile" connection:nil audience:@"API_IDENTIFIER" callback:^(NSError * _Nullable error, A0Credentials * _Nullable credentials) {
+    if (error) {
+        NSLog(@"Error: %@", error);
+    } else if (credentials) {
+        // Do something with credentials such as save them.
+        // Auth0 will dismiss itself automatically by default.
+    }
 }];
 ```
 
@@ -60,12 +59,13 @@ To attach an Access Token to a request:
 ```objc
 // ProfileViewController.m
 
-NSString* token = ... // The accessToken you stored after authentication
+NSString *token = ... // The accessToken you stored after authentication
 NSString *url = @"https://localhost/api"; // Set to your Protected API URL
 NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
 // Configure your request here (method, body, and so on)
 
 [request addValue:[NSString stringWithFormat:@"Bearer %@", token] forHTTPHeaderField:@"Authorization"];
+
 [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
     // Parse the response
 }] resume];
@@ -73,7 +73,7 @@ NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL U
 
 ### Sample project configuration
 
-When you are testing the sample project, configure your URL request in the `ProfileViewController.swift` file:
+When you are testing the sample project, configure your URL request in the `ProfileViewController.m` file:
 
 ```objc
 // ProfileViewController.m
