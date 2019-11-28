@@ -23,13 +23,12 @@ The PSaaS Appliance is a managed service, which means that Auth0 is responsible 
 
 However, the deployment option you choose affects the scope of what Auth0 can do when it comes to *monitoring* the PSaaS Appliance. Currently, Auth0 supports the following deployment options:
 
-* The subscriber's on-premise data center
-* The subscriber's cloud data center (e.g., Amazon Web Services, Azure)
-* An Auth0-controlled data center (e.g., Amazon Web Services)
+* The subscriber's Amazon Web Services cloud environment
+* An Auth0-controlled data center
 
 If you choose to deploy the PSaaS Appliance to an Auth0-controlled data center, we have control over every aspect involved (DNS, certificates, infrastructure, Auth0 software stack). This level of control allows us to assist you in monitoring the health of the PSaaS Appliance and acting to prevent or remediate issues.
 
-However, if you choose to deploy the PSaaS Appliance to your on-premise data center or a cloud data center you own/subscribe to, **you are responsible for monitoring the deployment. Auth0 is unable to monitor such environments.**
+However, if you choose to deploy the PSaaS Appliance to AWS, **you are responsible for monitoring the deployment. Auth0 is unable to monitor such environments.**
 
 ::: note
 Please review [PSaaS Appliance: Roles and Responsibilities](https://auth0.com/docs/appliance/raci) for information on who is responsible for various activities related to managing and monitoring the PSaaS Appliance.

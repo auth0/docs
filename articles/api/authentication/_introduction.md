@@ -64,7 +64,7 @@ You can test the endpoints using either the [Authentication API Debugger](/exten
 
 The [Authentication API Debugger](/extensions/authentication-api-debugger) is an Auth0 extension you can use to test several endpoints of the Authentication API. 
 
-If it's the first time you use it, you have to install it using the [dashboard](https://${manage_url}/#/extensions). Once you do, you are ready to configure your app's settings and run your tests. 
+If it's the first time you use it, you have to install it using the [dashboard](${manage_url}/#/extensions). Once you do, you are ready to configure your app's settings and run your tests. 
 
 Note that its URL varies according to your tenant's region:
 - <a href="https://${account.tenant}.us.webtask.io/auth0-authentication-api-debugger" target="_blank">US West</a>

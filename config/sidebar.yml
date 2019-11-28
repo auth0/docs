@@ -550,6 +550,9 @@ articles:
       - title: Metadata
         url: /users/concepts/overview-user-metadata
 
+      - title: Sessions & Cookies
+        url: /sessions
+
       - title: Progressive Profiling
         url: /users/concepts/overview-progressive-profiling
 
@@ -641,8 +644,26 @@ articles:
         url: /custom-domains
         children:
 
-          - title: Custom Domains with Self-Managed Certificates
+          - title: Auth0-Managed Certificates
+            url: /custom-domains/auth0-managed-certificates
+
+          - title: Self-Managed Certificates
             url: /custom-domains/self-managed-certificates
+            children:
+
+              - title: Cloudfront Reverse Proxy
+                url: /custom-domains/set-up-cloudfront
+                hidden: true 
+
+              - title: Azure CDN Reverse Proxy
+                url: /custom-domains/set-up-azure-cdn
+                hidden: true 
+
+          - title: Specific Features
+            url: /custom-domains/additional-configuration
+
+          - title: Troubleshooting
+            url: /custom-domains/troubleshoot
 
       - title: Email
         url: /email
@@ -683,6 +704,9 @@ articles:
 
           - title: Create a New Rule
             url: /dashboard/guides/rules/create-rules
+
+          - title: Rules Use Cases
+            url: /rules/references/use-cases
 
           - title: Store Configuration for Rules
             url: /rules/guides/configuration
@@ -937,6 +961,9 @@ articles:
       - title: Basics
         url: /troubleshoot/basics
 
+      - title: Issues with...
+        url: /troubleshoot/issues
+
       - title: Common Authentication Errors
         url: /libraries/error-messages
         children:
@@ -960,14 +987,14 @@ articles:
       - title: Deprecation Errors
         url: /errors/deprecation-errors
 
-      - title: Issues with...
-        url: /troubleshoot/issues
-
       - title: HTTP Archive (HAR)
         url: /troubleshoot/har
 
       - title: Custom Databases
         url: /connections/database/custom-db/error-handling
+
+      - title: Custom Domains
+        url: /custom-domains/troubleshoot
 
       - title: Deploy CLI
         url: /extensions/deploy-cli/references/troubleshooting
@@ -979,65 +1006,6 @@ articles:
     url: /architecture-scenarios
 
     children:
-      - title: SSO for Regular Web Apps
-        url: /architecture-scenarios/web-app-sso
-        children:
-           - title: Solution Overview
-             url: /architecture-scenarios/web-app-sso/part-1
-
-           - title: Configuration
-             url: /architecture-scenarios/web-app-sso/part-2
-
-           - title: Implementation
-             url: /architecture-scenarios/web-app-sso/part-3
-
-           - title: Conclusion
-             url: /architecture-scenarios/web-app-sso/part-4
-
-      - title: Server Application + API
-        url: /architecture-scenarios/server-api
-        children:
-           - title: Solution Overview
-             url: /architecture-scenarios/server-api/part-1
-
-           - title: Configuration
-             url: /architecture-scenarios/server-api/part-2
-
-           - title: Implementation
-             url: /architecture-scenarios/server-api/part-3
-
-           - title: Conclusion
-             url: /architecture-scenarios/server-api/part-4
-
-      - title: SPA + API
-        url: /architecture-scenarios/spa-api
-        children:
-           - title: Solution Overview
-             url: /architecture-scenarios/spa-api/part-1
-
-           - title: Configuration
-             url: /architecture-scenarios/spa-api/part-2
-
-           - title: Implementation
-             url: /architecture-scenarios/spa-api/part-3
-
-           - title: Conclusion
-             url: /architecture-scenarios/spa-api/part-4
-
-      - title: Mobile + API
-        url: /architecture-scenarios/mobile-api
-        children:
-           - title: Solution Overview
-             url: /architecture-scenarios/mobile-api/part-1
-
-           - title: Configuration
-             url: /architecture-scenarios/mobile-api/part-2
-
-           - title: Implementation
-             url: /architecture-scenarios/mobile-api/part-3
-
-           - title: Conclusion
-             url: /architecture-scenarios/mobile-api/part-4
 
       - title: Business to Consumer
         url: /architecture-scenarios/b2c
@@ -1053,6 +1021,9 @@ articles:
 
             - title: Branding
               url: /architecture-scenarios/implementation/b2c/b2c-branding
+
+            - title: Launch Preparation
+              url: /architecture-scenarios/implementation/b2c/b2c-launch 
 
             - title: Deployment Automation
               url: /architecture-scenarios/implementation/b2c/b2c-deployment
@@ -1115,6 +1086,66 @@ articles:
 
       # - title: B2E
       #   url: /architecture-scenarios/b2e
+
+      - title: SSO for Regular Web Apps
+        url: /architecture-scenarios/web-app-sso
+        children:
+            - title: Solution Overview
+              url: /architecture-scenarios/web-app-sso/part-1
+
+            - title: Configuration
+              url: /architecture-scenarios/web-app-sso/part-2
+
+            - title: Implementation
+              url: /architecture-scenarios/web-app-sso/part-3
+
+            - title: Conclusion
+              url: /architecture-scenarios/web-app-sso/part-4
+
+      - title: Server Application + API
+        url: /architecture-scenarios/server-api
+        children:
+            - title: Solution Overview
+              url: /architecture-scenarios/server-api/part-1
+
+            - title: Configuration
+              url: /architecture-scenarios/server-api/part-2
+
+            - title: Implementation
+              url: /architecture-scenarios/server-api/part-3
+
+            - title: Conclusion
+              url: /architecture-scenarios/server-api/part-4
+
+      - title: SPA + API
+        url: /architecture-scenarios/spa-api
+        children:
+            - title: Solution Overview
+              url: /architecture-scenarios/spa-api/part-1
+
+            - title: Configuration
+              url: /architecture-scenarios/spa-api/part-2
+
+            - title: Implementation
+              url: /architecture-scenarios/spa-api/part-3
+
+            - title: Conclusion
+              url: /architecture-scenarios/spa-api/part-4
+
+      - title: Mobile + API
+        url: /architecture-scenarios/mobile-api
+        children:
+            - title: Solution Overview
+              url: /architecture-scenarios/mobile-api/part-1
+
+            - title: Configuration
+              url: /architecture-scenarios/mobile-api/part-2
+
+            - title: Implementation
+              url: /architecture-scenarios/mobile-api/part-3
+
+            - title: Conclusion
+              url: /architecture-scenarios/mobile-api/part-4
 
       - title: Implementation Checklists
         url: /architecture-scenarios/checklists
@@ -1335,17 +1366,23 @@ articles:
           - title: "CVE 2017-17068"
             url: "/security/bulletins/cve-2017-17068"
             hidden: true
-      - title: "Where to Store Tokens"
-        url: "/security/store-tokens"
-        hidden: true
+
+      - title: "Tokens"
+        url: "/tokens"
+        children:
+
+          - title: "Where to Store Tokens"
+            url: "/security/store-tokens"
+            hidden: true 
+
+      - title: "Cookies"
+        url: "/sessions/concepts/cookies"
 
       - title: "Common Threats"
         url: "/security/common-threats"
-        hidden: true
 
       - title: "Blacklist User Attributes"
         url: "/security/blacklisting-attributes"
-        hidden: true
 
   - title: "Data Privacy"
     url: "/compliance"

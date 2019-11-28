@@ -271,7 +271,7 @@ webAuth.passwordlessStart({
 );
 ```
 
-### Verify passwordless
+### Passwordless Login
 
 If sending a code, you will then need to prompt the user to enter that code. You will process the code, and authenticate the user, with the `passwordlessLogin` method, which has several parameters which can be sent in its `options` object:
 

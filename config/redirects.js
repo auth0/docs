@@ -495,7 +495,15 @@ module.exports = [
   },
   {
     from: '/ad',
-    to: '/connections/enterprise/active-directory'
+    to: '/connections/enterprise/active-directory-ldap'
+  },
+  {
+    from: '/connections/enterprise/ldap',
+    to: '/connections/enterprise/active-directory-ldap'
+  },
+    {
+    from: '/connections/enterprise/active-directory',
+    to: '/connections/enterprise/active-directory-ldap'
   },
   {
     from: '/adfs',

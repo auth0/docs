@@ -93,6 +93,7 @@ See [Application-specific logout URLs](/sessions/concepts/session-lifetime#appli
 * [Sessions](/sessions)
 * [Session Layers](/sessions/concepts/session-layers)
 * [Cookies](/sessions/concepts/cookies)
+* [sameSite Cookie Attributes](/sessions/concepts/cookie-attributes)
 * [Session Lifetime](/sessions/concepts/session-lifetime)
 * [Logout](/logout)
 * [Session Use Cases](/sessions/references/sample-use-cases-sessions)

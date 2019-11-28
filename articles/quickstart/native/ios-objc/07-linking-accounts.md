@@ -39,9 +39,9 @@ To link accounts:
 // ProfileViewController.m
 
 NSString *id = ... // the id of the user, available in profile.sub
-NSString *idToken = ... // the user's idToken
+NSString *accessToken = ... // the user's accessToken
 NSString *otherUserToken = ... // the idToken from the account you want to link the user with
-[auth linkUserAccountWithIdToken:idToken userId:id otherAccountToken:otherUserToken
+[auth linkUserAccountWithAccessToken:accessToken userId:id otherAccountToken:otherUserToken
       callback:^(NSError * _Nullable error, NSArray<NSDictionary<NSString *,id> *> * _Nullable payload) {
           if (error) {
               // Handler Error
@@ -82,9 +82,9 @@ Unlink the accounts:
 ```objc
 // ProfileViewController.m
 NSString *id = ... // the id of the user, available in profile.sub
-NSString *idToken = ... // the user idToken
+NSString *accessToken = ... // the user accessToken
 A0Identity *identity = ... // the identity (account) you want to unlink from the user
-[auth unlinkUserAccountWithIdToken:idToken userId:id identity:identity callback:^(NSError * _Nullable error, NSArray<NSDictionary<NSString *,id> *> * _Nullable payload) {
+[auth unlinkUserAccountWithAccessToken:accessToken userId:id identity:identity callback:^(NSError * _Nullable error, NSArray<NSDictionary<NSString *,id> *> * _Nullable payload) {
     if (error) {
         // Handle Error
     } else {

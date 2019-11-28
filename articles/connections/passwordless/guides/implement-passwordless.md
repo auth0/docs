@@ -30,12 +30,11 @@ This guide will show you how to implement [passwordless authentication](/connect
 
 1. [Set up the passwordless connection](#set-up-the-passwordless-connection): Set up the passwordless connection with which users can authenticate.
 
-2. [Configure the login page](#configure-the-login-screen): Configure your login page to work with passwordless.
+2. [Configure the login page](#configure-the-login-page): Configure your login page to work with passwordless.
 
 3. [Configure your application](#configure-your-application): Configure your application to call the login page. 
 
 Optional: [Explore Sample Use Cases](/connections/passwordless/concepts/sample-use-cases-rules)
-
 
 ## Set up the passwordless connection
 
@@ -67,7 +66,7 @@ To learn how to configure your login page for passwordless using Universal Login
 
 ### Embedded Login
 
-An alternative option is to use an embedded login form with the Lock (with Passwordless) widget. Using [Embedded Login](/login/embedded) with any application type leaves your application vulnerable to cross-origin resource sharing (CORS) attacks and requires the use of [Auth0 Custom Domains](/custom-domains), which is a paid feature. 
+An alternative option is to use an embedded login form with the Lock (with Passwordless) widget. Using [Embedded Login](/login/embedded) with any application type leaves your application vulnerable to cross-origin resource sharing (CORS) attacks and requires the use of [Custom Domains](/custom-domains), which is a paid feature. 
 
 ::: warning
 If you are building a Native application, which uses device-specific hardware and software,Embedded Login is not a viable option. In this case, to provide passwordless authentication to your users, you must use Universal Login.

@@ -18,6 +18,12 @@ useCase: customize-connections
 
 When a user authenticates via Passwordless, the user is attached to the connection using Auth0 as the Identity Provider (IdP). Since you can't force users to use the same mobile phone number or email address every time they authenticate, users may end up with multiple user profiles in the Auth0 datastore; you can link multiple user profiles through [account linking](/extensions/account-link).
 
+A passwordless connection is another type of connection separate from any existing database, social, or Enterprise connections. Even though a user from an Auth0 user database or social provider might share the same email address, the identity associated with their passwordless connection is distinct. As with linking multiple email addresses or mobile phone numbers used for the passwordless connection, [account linking](/extensions/account-link) can also be used to associate a passwordless identity with identities from other types of connections.
+
+::: note
+You cannot create passwordless users from the Dashboard. Create then directly from the [Management API](/api/management/v2#!/Users/post_users) if signup is disabled. In the **Connection** field, use **email** for passwordless users using an email address and **sms** for passwordless users using a mobile phone number.
+:::
+
 Passwordless differs from Multi-factor Authentication (MFA) in that only one factor is used to authenticate a user&mdash;the one-time code or link received by the user. If you want to require that users log in with a one-time code or link **in addition** to another factor (e.g., username/password or a social Identity Provider, such as Google), see [Multi-factor Authentication (MFA)](/multifactor-authentication).
 
 ## Benefits
@@ -158,7 +164,7 @@ Passwordless connections have several limitations:
 
 * Native applications, which use device-specific hardware and software, **must** use [Universal Login](/universal-login).
 *  Only the [Universal Login](/universal-login) [Classic Experience](/universal-login/classic) currently supports passwordless.
-* Using [Embedded Login](/login/embedded) with any application type leaves your application vulnerable to cross-origin resource sharing (CORS) attacks and requires the use of [Auth0 Custom Domains](/custom-domains), which is a paid feature.
+* Using [Embedded Login](/login/embedded) with any application type leaves your application vulnerable to cross-origin resource sharing (CORS) attacks and requires the use of [Custom Domains](/custom-domains), which is a paid feature.
 * Since you can't force users to use the same mobile phone number or email address every time they authenticate, users may end up with multiple user profiles in the Auth0 datastore; you can link multiple user profiles through [account linking](/extensions/account-link).
 * With magic link transactions, both the initial request and its response must take place in the same browser or the transaction will fail. This is particularly relevant for iOS users, who cannot change their default web browser. For example, the user makes the request using Chrome, but iOS opens the magic link received via email using Safari. If this happens, the transaction fails.
 * To use a custom SMTP email provider, the SMTP server must:

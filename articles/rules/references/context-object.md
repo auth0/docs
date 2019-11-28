@@ -1,6 +1,6 @@
 ---
 title: Context Object in Rules
-description: Available properties of the context object in Rules.
+description: Describes the properties of the context object in Rules that stores information about users' IP addresses, applications, and location. 
 topics:
   - rules
   - extensibility
@@ -12,11 +12,11 @@ useCase: extensibility-rules
 
 The `context` object stores contextual information about the current authentication transaction, such as the user's IP address, application, or location.
 
-## Properties of the `context` object
+## Properties
 
 The following properties are available for the `context` object.
 
-| | |
+| Property | Description |
 |-|-|
 | `context.tenant` | A string containing the name of the tenant |
 | `context.clientID` | The client id of the application the user is logging in to. |

@@ -48,7 +48,7 @@ Before permitting access to the API using this token, the API must [validate the
 Once the Access Token has been successfully validated, the API can be sure that:
 
 * The token was issued by Auth0.
-* The token was issued to an application being ued by a user with an identifier of `usr_123`.
+* The token was issued to an application being used by a user with an identifier of `usr_123`.
 * The user granted the application access to read from and write to their calendar.
 
 The API can now process the request, allowing the application to read from and write to user `usr_123`'s calendar.

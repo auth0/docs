@@ -94,19 +94,23 @@ The names of the roles you create must match the names of the [pre-defined DAE r
 
 2. [Assign the DAE roles you created to the appropriate users](/dashboard/guides/users/assign-roles-users) using the Authorization core feature set.
 
-3. Add user roles to the DAE namespace in the ID Token. To do so, [create the following rule](/dashboard/guides/rules/create-rules):
+3. Add user roles to the DAE namespace in the ID Token. To do so, [create the following rule](/dashboard/guides/rules/create-rules), remembering to replace the `CLIENT_ID` placeholder value with your application's Client ID:
 
 ```js
 function (user, context, callback) {
-  const IDTOKEN_ROLES_PROPERTY = 'https://demozero.net/auth0-delegated-admin';
-
-  context.idToken[IDTOKEN_ROLES_PROPERTY] = {
-    roles: (context.authorization || {}).roles
-  };
-
-  callback(null, user, context);
+    if (context.clientID === 'CLIENT_ID') {
+        const namespace = 'https://example.com/auth0-delegated-admin';
+        context.idToken[namespace] = {
+            roles: (context.authorization || {}).roles
+        };
+    }
+    callback(null, user, context);
 }
 ```
+
+::: note
+Your claim should be [namespaced](/tokens/concepts/claims-namespacing).
+:::
 
 ## Keep reading
 
