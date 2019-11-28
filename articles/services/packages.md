@@ -92,8 +92,8 @@ Auth0 Professional Services provide packaged offerings are designed to optimize 
 * Expires in 180 days
 * Terms and Conditions apply
 * Full range of [Custom Implementation](/services/implement#custom-implementation) services, including:
-  * [Architectural Discovery](/services/discover-and-design#architectural-discovery), 
-  * [Scenario Guidance](/services/discover-and-design#scenario-guidance) and 
+  * [Architectural Discovery](/services/discover-and-design#architectural-discovery) 
+  * [Scenario Guidance](/services/discover-and-design#scenario-guidance)
   * [Programming Advisory](/services/implement#programming-advisory)
   
 ## Maintain and Improve packages
