@@ -43,8 +43,8 @@ func setupProviderLoginView() {
   // Add Callback on Touch
   authorizationButton.addTarget(self, action: #selector(handleAuthorizationAppleIDButtonPress), for: .touchUpInside)
 
-  //Add button to the UIStackView
-  self.loginProviderStackView.addArrangedSubview(authorizationButton)
+  // Add button to the UIStackView
+  loginProviderStackView.addArrangedSubview(authorizationButton)
 }
 ```
 
@@ -97,7 +97,7 @@ Add the following to the end of the `ViewController.swift` file. This enables th
 ```swift
 extension ViewController: ASAuthorizationControllerPresentationContextProviding {
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
-        return self.view.window!
+        return view.window!
     }
 }
 ```
@@ -106,6 +106,7 @@ Next, add a stub delegate for the `ASAuthorizationController` to the end of the 
 
 ```swift
 extension ViewController: ASAuthorizationControllerDelegate {
+
 }
 ```
 
@@ -123,13 +124,12 @@ Start the application and click the **Sign In With Apple** button. You should se
 
 ## Process the Authorization Response
 
-Add the following to the end of your `ViewController.swift` file.
+Add the following methods to the `ASAuthorizationControllerDelegate` delegate stub at the end of your `ViewController.swift` file.
 
 ```swift
 extension ViewController: ASAuthorizationControllerDelegate {
     // Handle authorization success
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-
         if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
             // Success
         }
@@ -165,24 +165,22 @@ Now that you have a successful authorization response, you can use the `authoriz
 ```swift
 if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
     // Convert Data -> String
-    guard let authorizationCode = appleIDCredential.authorizationCode, let authCode = String(data: authorizationCode, encoding: .utf8) else
-    {
-        print("Problem with the authorizationCode")
-        return
+    guard let authorizationCode = appleIDCredential.authorizationCode,
+        let authCode = String(data: authorizationCode, encoding: .utf8) else {
+            print("Problem with the authorizationCode")
+            return
     }
 
     // Auth0 Token Exchange
     Auth0
         .authentication()
         .tokenExchange(withAppleAuthorizationCode: authCode).start { result in
-            switch(result) {
+            switch result {
             case .success(let credentials):
                 print("Auth0 Success: \(credentials)")
-
             case .failure(let error):
                 print("Exchange Failed: \(error)")
             }
-
     }
 }
 ```
@@ -207,7 +205,13 @@ The credentials manager retrieves stored credentials from the keychain and check
 * If the current credentials are still valid, the credentials manager returns them
 * If the Access Token has expired, the credentials manager renews them using the Refresh Token and returns them
 
-At the top of `ViewController.swift`, add a `CredentialsManager` and `SimpleKeychain` as follows:
+First, import the `SimpleKeychain` Framework into your `ViewController.swift` file:
+
+```swift
+import SimpleKeychain
+```
+
+Then, add a `CredentialsManager` and `SimpleKeychain` instance as follows:
 
 ```swift
 let credentialsManager = CredentialsManager(authentication: Auth0.authentication())
@@ -223,9 +227,8 @@ Next, modify the token exchange call you added earlier to store credentials when
 Auth0
     .authentication()
     .tokenExchange(withAppleAuthorizationCode: authCode).start { result in
-        switch(result) {
+        switch result {
         case .success(let credentials):
-
             // NEW - store the user ID in the keychain
             self.keychain.setString(appleIDCredential.user, forKey: "userId")
 
@@ -234,7 +237,6 @@ Auth0
 
             // NEW - store the credentials in the credentials manager
             self.credentialsManager.store(credentials: credentials)
-
         case .failure(let error):
             print("Exchange Failed: \(error)")
         }
@@ -248,7 +250,7 @@ Add a function that tries to renew the user's login session. Here, `getCredentia
 ```swift
 func tryRenewAuth(_ callback: @escaping (Credentials?, Error?) -> ()) {
     let provider = ASAuthorizationAppleIDProvider()
-        
+
     // Try to fetch the user ID
     guard let userID = keychain.string(forKey: "userId") else {
         return callback(nil, nil)
@@ -265,17 +267,16 @@ func tryRenewAuth(_ callback: @escaping (Credentials?, Error?) -> ()) {
                 }
 
                 self.credentials = credentials
-                
+
                 callback(credentials, nil)
             }
-            
         default:
             // User is not authorized
             self.keychain.deleteEntry(forKey: "userId")
 
             // Remove their credentials from the store
             self.credentialsManager.clear()
-            
+
             callback(nil, error)
         }
     }
