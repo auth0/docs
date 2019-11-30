@@ -13,29 +13,36 @@ contentType: tutorial
 useCase: quickstart
 ---
 
-Many identity providers supply access claims which contain, for example, user roles or groups. You can request the access claims in your token with `scope: openid roles` or `scope: openid groups`.
+Many identity providers supply access claims which contain, for example, user roles or groups. You can request the access claims in your token with `showLoginWithScope:@"openid roles"` or `showLoginWithScope:@"openid groups"`.
 
-If an identity provider does not supply this information, you can create a rule for assigning roles to users. 
+If an identity provider does not supply this information, you can [create a Rule](https://auth0.com/docs/rules)  for assigning roles to users.
 
 ## Create a Rule to Assign Roles
 
-Create a rule that assigns the following access roles to your user: 
+Create a rule that assigns the following access roles to your user:
 * An admin role
 * A regular user role
 
-To assign roles, go to the [New rule](${manage_url}/#/rules/new) page. In the **Access Control** section, select the **Set roles to a user** template. 
+To assign roles, go to the [New rule](${manage_url}/#/rules/new) page. In the **Access Control** section, select the **Set roles to a user** template.
 
-Edit the following line from the default script to match the conditions that fit your needs:
+Edit the following lines from the default script to match the conditions that fit your needs:
 
+```js
+const addRolesToUser = function (user) {
+    const endsWith = '@example.com';
+
+    if (user.email && (user.email.substring(user.email.length - endsWith.length, user.email.length) === endsWith)) {
+      return ['admin'];
+    }
+    return ['user'];
+};
 ```
-if (user.email.indexOf('@example.com') > -1)
-```
 
-The rule is checked every time a user attempts to authenticate. 
+The rule is checked every time a user attempts to authenticate.
 
 * If the user has a valid email and the domain is `@example.com`, the user gets the admin role.
 * If the email contains anything else, the user gets the regular user role.
- 
+
 ::: note
 Depending on your needs, you can define roles other than admin and user. Read about the names you give your claims in the [Rules documentation](/rules#hello-world).
 :::
@@ -47,21 +54,23 @@ ${snippet(meta.snippets.setup)}
 ```objc
 // ProfileViewController.m
 
-NSString *userId = ... // the id of the user, available in profile.sub
+NSString *accessToken = ... // the user accessToken
+NSString *userId = ... // the id of the user, available in 'profile.sub'
 HybridAuth *auth = [[HybridAuth alloc] init];
-[auth userProfileWithIdToken:idToken userId:userId callback:^(NSError * _Nullable error, NSDictionary<NSString *, id> * _Nullable user) {
-  if (error) {
-    // Handle error
-  } else {
-     NSDictionary *metaData = [user objectForKey:@"app_metadata"];
-     NSArray *roles = [metaData objectForKey:@"roles"];
-     if (![roles containsObject:@"admin"]) {
-        // Not an admin user, access denied.
-     } else {
-        // Admin user, grant access
-        [self performSegueWithIdentifier:@"AdminSegue" sender:nil];
-     }
-   }
+
+[auth userProfileWithAccessToken:accessToken userId:userId callback:^(NSError * _Nullable error, NSDictionary<NSString *, id> * _Nullable user) {
+    if (error) {
+        // Handle error
+    } else {
+        NSDictionary *metaData = [user objectForKey:@"app_metadata"];
+        NSArray *roles = [metaData objectForKey:@"roles"];
+
+        if (![roles containsObject:@"admin"]) {
+            // Not an admin user, access denied.
+        } else {
+            // Admin user, grant access
+        }
+    }
 }];
 ```
 

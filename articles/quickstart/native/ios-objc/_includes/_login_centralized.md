@@ -56,7 +56,7 @@ Go to your [Dashboard Settings](${manage_url}/#/applications/${account.clientId}
 [Universal Login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features.
 
 ::: note
-You can also embed the login dialog directly in your application using the [Lock widget](/lock). If you use this method, some features, such as single sign-on, will not be accessible. 
+You can also embed the login dialog directly in your application using the [Lock widget](/lock). If you use this method, some features, such as single sign-on, will not be accessible.
 To learn how to embed the Lock widget in your application, follow the [Embedded Login sample](https://github.com/auth0-samples/auth0-ios-objc-sample/tree/embedded-login/01-Embedded-Login).
 :::
 
@@ -72,13 +72,9 @@ Read the [Browser-Based vs. Native Login Flows on Mobile Devices](/tutorials/bro
 
 # Add the Callback
 
-For Auth0 to handle the authentication callback, update your `AppDelegate` file. 
+For Auth0 to handle the authentication callback, update your `AppDelegate` file. Add the following `UIApplicationDelegate` method:
 
-${snippet(meta.snippets.setup)}
-
-Then, add the following `UIApplicationDelegate` method:
-
-```swift
+```objc
 // AppDelegate.m
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
@@ -88,44 +84,42 @@ Then, add the following `UIApplicationDelegate` method:
 
 # Implement Login
 
-${snippet(meta.snippets.setup)}
-
-Then, present the hosted login screen:
+Create a new `HybridAuth` instance. Then, present the login page:
 
 ```objc
 // HomeViewController.m
 
 HybridAuth *auth = [[HybridAuth alloc] init];
+
 [auth showLoginWithScope:@"openid" connection:nil callback:^(NSError * _Nullable error, A0Credentials * _Nullable credentials) {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (error) {
-            NSLog(@"Error: %@", error);
-        } else if (credentials) {
-          // Do something with credentials, such as save them.
-          // Auth0 will dismiss itself automatically by default.
-        }
-    });
+    if (error) {
+        NSLog(@"Error: %@", error);
+    } else if (credentials) {
+        // Do something with credentials, such as save them.
+        // Auth0 will dismiss itself automatically by default.
+    }
 }];
 ```
 
-After the user authenticates, their information is returned in a `credentials` object.
+After the user authenticates, their information is returned in a `Credentials` object.
 
 ::: note
-To learn more about the `credentials` object, read the [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift) article.
+To learn more about the `Credentials` object, read the [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift) article.
 :::
 
 <%= include('../../../../_includes/_logout_url') %>
 
-## Implement logout
+## Implement Logout
 To clear the session on the server side you need to invoke the `clearSession` method. Add the following snippet:
 
 ```swift
 // HybridAuth.swift
+
 @objc
-func logOutUser(callback: @escaping(Bool) -> Void){
+func logOutUser(callback: @escaping(Bool) -> Void) {
     Auth0
         .webAuth()
-        .clearSession(federated: true){
+        .clearSession(federated: true) {
             callback($0)
         }
 }

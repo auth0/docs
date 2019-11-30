@@ -17,63 +17,30 @@ useCase: quickstart
 
 Before you continue with this tutorial, make sure that you are using the Swift wrapper and the Auth0 library to handle login. For more information, read the [Login](/quickstart/native/ios-objc/00-login) guide.
 
-## Add the SimpleKeychain Dependency
-
-Integrate the [SimpleKeychain](https://github.com/auth0/SimpleKeychain) library for managing user credentials.
-
-### Carthage
-
-If you are using Carthage, add the following to your `Cartfile`:
-
-```ruby
-github "auth0/SimpleKeychain"
-```
-
-Then, run `carthage bootstrap`.
-
-::: note
-For more information on how to use Carthage, read [their official documentation](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
-:::
-
-### Cocoapods
-
-If you are using [Cocoapods](https://cocoapods.org/), add the following to your `Podfile`:
-
-```ruby
-pod 'SimpleKeychain', '~> 0.7'
-```
-
-Then, run `pod install`.
-
-::: note
-For more information on how to use Cocoapods, read the [Cocoapods documentation](http://guides.cocoapods.org/using/getting-started.html).
-:::
-
 ## Save User Credentials When They Log in
 
 When your users log in successfully, save their credentials. You can then log them in automatically when they open your application again.
 
 ${snippet(meta.snippets.setup)}
 
-Then, present the hosted login screen:
+Then, present the login page:
 
 ```objc
 // HomeViewController.m
 
 HybridAuth *auth = [[HybridAuth alloc] init];
+
 [auth showLoginWithScope:@"openid profile" connection:nil callback:^(NSError * _Nullable error, A0Credentials * _Nullable credentials) {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (error) {
-            NSLog(@"Error: %@", error);
-        } else if (credentials) {
-          // Do something with credentials such as save them.
-          // Auth0 will dismiss itself automatically by default.
-        }
-    });
+    if (error) {
+        NSLog(@"Error: %@", error);
+    } else if (credentials) {
+        // Do something with credentials such as save them.
+        // Auth0 will dismiss itself automatically by default.
+    }
 }];
 ```
 
-You need a valid Access Token. You can find the token in the `credentials` object. To save the Access Token, use an `A0SimpleKeychain` instance. `SimpleKeychain` can be a key-value storage.
+You need a valid Access Token. You can find the token in the `Credentials` object. To save the Access Token, use an `A0SimpleKeychain` instance. `SimpleKeychain` can be a key-value storage.
 
 ```objc
 // HomeViewController.m
@@ -92,7 +59,8 @@ First, retrieve the Access Token value from the `accessToken` key in the keychai
 // HomeViewController.m
 
 A0SimpleKeychain *keychain = [[A0SimpleKeychain alloc] initWithService:@"Auth0"];
-NSString* accessToken = [keychain stringForKey:@"access_token"];
+NSString *accessToken = [keychain stringForKey:@"access_token"];
+
 if (accessToken) {
     // accessToken exists
     // You still need to validate it!
@@ -101,18 +69,18 @@ if (accessToken) {
 
 ## Validate the Access Token
 
-Check if the user's Access Token is still valid. Use `Auth0` to fetch the user's profile:
+Check if the user's Access Token is still valid. Use the `HybridAuth` instance to fetch the user's profile:
 
 ```objc
 // HomeViewController.m
 
-[auth userInfoWithAccessToken:accessToken callback:^(NSError * _Nullable error, UserInfo * _Nullable profile) {
-        if (error) {
-            // accessToken has expired or no longer valid
-        } else {
-            // The accessToken is still valid and you have the user's profile
-            // This would be a good time to store the profile
-        }
+[auth userInfoWithAccessToken:accessToken callback:^(NSError * _Nullable error, A0UserInfo * _Nullable profile) {
+    if (error) {
+        // accessToken has expired or no longer valid
+    } else {
+        // The accessToken is still valid and you have the user's profile
+        // This would be a good time to store the profile
+    }
 }];
 ```
 
@@ -120,12 +88,13 @@ Check if the user's Access Token is still valid. Use `Auth0` to fetch the user's
 
 Decide how to deal with a non-valid Access Token. You can choose between two options:
 * Ask users to re-enter their credentials.
-* Use `.renew(withRefreshToken: refreshToken)` with a [Refresh Token](/refresh-token) to obtain a new valid Access Token.
+* Use `renewWithRefreshToken:scope:callback:` with a [Refresh Token](/refresh-token) to obtain a new valid Access Token.
 
 If you want to ask your users to re-enter their credentials, clear all the values stored in the keychain:
 
 ```objc
 // HomeViewController.m
+
 A0SimpleKeychain *keychain = [[A0SimpleKeychain alloc] initWithService:@"Auth0"];
 [keychain clearAll];
 ```
@@ -150,21 +119,23 @@ To get a new Access Token, you need to first save the Refresh Token after the us
 // HomeViewController.m
 
 HybridAuth *auth = [[HybridAuth alloc] init];
+
 [auth showLoginWithScope:@"openid profile offline_access" connection:nil callback:^(NSError * _Nullable error, A0Credentials * _Nullable credentials) {
-       if (error) {
-           // Handle the error
-       } else {
-           [auth userInfoWithAccessToken:accessToken callback:^(NSError * _Nullable error, UserInfo * _Nullable profile) {
-               if (error) {
-                     NSLog(@"Error: %@", error.localizedDescription);
-               } else {
-                     A0SimpleKeychain *keychain = [[A0SimpleKeychain alloc] initWithService:@"Auth0"];
-                     [keychain setString:[credentials accessToken] forKey:@"access_token"];
-                     [keychain setString:[credentials refreshToken] forKey:@"refresh_token"];
-               }
-           }];
-       }
-   }];
+    if (error) {
+        // Handle the error
+    } else {
+        [auth userInfoWithAccessToken:accessToken callback:^(NSError * _Nullable error, A0UserInfo * _Nullable profile) {
+            if (error) {
+                NSLog(@"Error: %@", error.localizedDescription);
+            } else {
+                A0SimpleKeychain *keychain = [[A0SimpleKeychain alloc] initWithService:@"Auth0"];
+
+                [keychain setString:[credentials accessToken] forKey:@"access_token"];
+                [keychain setString:[credentials refreshToken] forKey:@"refresh_token"];
+            }
+        }];
+    }
+}];
 ```
 
 ### Use the Refresh Token to obtain a new Access Token
@@ -175,25 +146,22 @@ Now, you can use the saved Refresh Token to obtain a new Access Token:
 // HomeViewController.m
 
 A0SimpleKeychain *keychain = [[A0SimpleKeychain alloc] initWithService:@"Auth0"];
-NSString* refreshToken = [keychain stringForKey:@"refresh_token"];
-if (!refreshToken) {
-    [keychain clearAll];
-}
-
+NSString *refreshToken = [keychain stringForKey:@"refresh_token"];
 HybridAuth *auth = [[HybridAuth alloc] init];
+
 [auth renewWithRefreshToken:[keychain stringForKey:@"refresh_token"] scope:nil callback:^(NSError * _Nullable error, A0Credentials * _Nullable credentials) {
-              if (error) {
-                  // refreshToken is no longer valid (for example, it has been revoked)
-                  // Cleaning stored values since they are no longer valid
-                  [keychain clearAll];
-                  // At this point, you should ask the user to enter their credentials again!
-              } else {
-                  // Just got a new accessToken!
-                  // Don't forget to store it...
-                  [keychain setString:[credentials accessToken] forKey:@"access_token"];
-                  // At this point, you can log the user into your app, for example, by navigating to the corresponding screen
-              }
-      }];
+    if (error) {
+        // refreshToken is no longer valid (for example, it has been revoked)
+        // Cleaning stored values since they are no longer valid
+        [keychain clearAll];
+        // At this point, you should ask the user to enter their credentials again!
+    } else {
+        // Just got a new accessToken!
+        // Don't forget to store it...
+        [keychain setString:[credentials accessToken] forKey:@"access_token"];
+        // At this point, you can log the user into your app, for example, by navigating to the corresponding screen
+    }
+}];
 ```
 
 ## Clear the Keychain When the User Logs Out
@@ -217,18 +185,18 @@ We recommend that you download the sample project from this tutorial and look at
 
 To get the user profile, you need a valid Access Token.
 
-From the `Auth0` module, call the `userInfo` method that allows you to get the user profile:
+From the `HybridAuth` instance, call the `userInfoWithAccessToken:callback:` method that allows you to get the user profile:
 
 ```objc
 // HomeViewController.m
 
 // Retrieve profile
-[auth userInfoWithAccessToken:accessToken callback:^(NSError * _Nullable error, UserInfo * _Nullable profile) {
-        if (error) {
-            // Handle the error
-        } else {
-            // You have the user's profile
-        }
+[auth userInfoWithAccessToken:accessToken callback:^(NSError * _Nullable error, A0UserInfo * _Nullable profile) {
+    if (error) {
+        // Handle the error
+    } else {
+        // You have the user's profile
+    }
 }];
 ```
 
@@ -240,6 +208,7 @@ To show the information contained in the user profile, access its properties, fo
 
 ```objc
 // ProfileViewController.m
+
 NSURL *pictureURL = self.userProfile.picture;
 NSString *name = self.userProfile.name;
 ```
@@ -258,10 +227,12 @@ You store additional user information in the user metadata. Perform a `patch`:
 
 ```objc
 // ProfileViewController.m
-NSString *idToken = ... // You will need the idToken from your credentials instance 'credentials.idToken'
-UserInfo *profile = ... // the Profile instance you obtained before
+
+NSString *accessToken = // the accessToken from your credentials instance 'credentials.accessToken'
+A0UserInfo *profile = ... // the Profile instance you obtained before
 HybridAuth *auth = [[HybridAuth alloc] init];
-[auth patchProfileWithIdToken:idToken userId:profile.sub metaData:@{@"first_name": @"John", @"last_name": @"Doe", @"country": @"USA"} callback:^(NSError * _Nullable error, NSDictionary<NSString *, id> * _Nullable user) {
+
+[auth patchProfileWithAccessToken:accessToken userId:profile.sub metaData:@{@"first_name": @"John", @"last_name": @"Doe", @"country": @"USA"} callback:^(NSError * _Nullable error, NSDictionary<NSString *, id> * _Nullable user) {
     if (error) {
         // Handle the error
     } else {
@@ -280,8 +251,12 @@ Retrieve the `user_metadata` dictionary:
 
 ```objc
 // HomeViewController.m
+
+NSString *accessToken = ... // the accessToken from your credentials instance 'credentials.accessToken'
+A0UserInfo *profile = ... // the Profile instance you obtained before
 HybridAuth *auth = [[HybridAuth alloc] init];
-[auth userProfileWithIdToken:idToken userId:profile.sub callback:^(NSError * _Nullable error, NSDictionary<NSString *, id> * _Nullable user) {
+
+[auth userProfileWithAccessToken:accessToken userId:profile.sub callback:^(NSError * _Nullable error, NSDictionary<NSString *, id> * _Nullable user) {
     if (error) {
         // Deal with error
     } else {
@@ -295,7 +270,8 @@ Access the user's metadata. You can choose the key names and types for the `user
 
 ```objc
 // ProfileViewController.m
-NSString* firstName = [metaData objectForKey:@"first_name"];
-NSString* lastName = [metaData objectForKey:@"last_name"];
-NSString* country = [metaData objectForKey:@"country"];
+
+NSString *firstName = [metaData objectForKey:@"first_name"];
+NSString *lastName = [metaData objectForKey:@"last_name"];
+NSString *country = [metaData objectForKey:@"country"];
 ```
