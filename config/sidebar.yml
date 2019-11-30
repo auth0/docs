@@ -1496,8 +1496,17 @@ articles:
   - title: "Professional Services"
     url: "/services"
     children:
-      - title: "Overview"
-        url: "/services"
+      - title: "Discover & Design"
+        url: "/services/discover-and-design"
+
+      - title: "Implement"
+        url: "/services/implement"
+
+      - title: "Maintain and Improve"
+        url: "/services/maintain-and-improve"
+        
+      - title: "Packages"
+        url: "/services/packages"
 
       - title: "Architectural Design Sessions"
         url: "/services/architectural-design"
