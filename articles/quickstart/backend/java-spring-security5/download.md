@@ -7,7 +7,7 @@ Linux / macOS:
 
 Windows:
 ```bash
-gradlew.cmd clean bootRun
+gradlew.bat clean bootRun
 ```
 
 The application will be served from `http://localhost:3010/`.

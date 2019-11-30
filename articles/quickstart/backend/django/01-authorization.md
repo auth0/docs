@@ -72,7 +72,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 ```
 
-Create `utils.py` file in your application's folder and define a function that maps the `sub` field from the `access_token` to the username. Then, the [authenticate](https://docs.djangoproject.com/en/2.2/ref/contrib/auth/#django.contrib.auth.backends.RemoteUserBackend.authenticate) method from [RemoteUserBackend](https://docs.djangoproject.com/en/2.2/ref/contrib/auth/#django.contrib.auth.backends.RemoteUserBackend) will create a remote user in Django authentication system and return a User object for the username.
+Create `utils.py` file in your application's folder and define a function that maps the `sub` field from the `access_token` to the username. Then, the [authenticate](https://docs.djangoproject.com/en/2.2/ref/contrib/auth/#django.contrib.auth.backends.RemoteUserBackend.authenticate) method from [RemoteUserBackend](https://docs.djangoproject.com/en/2.2/ref/contrib/auth/#django.contrib.auth.backends.RemoteUserBackend) will create a remote user in the Django authentication system and return a User object for the username.
 
 ```python
 # auth0authorization/utils.py
@@ -119,7 +119,21 @@ REST_FRAMEWORK = {
 
 Configure the [Django REST Framework JWK](https://github.com/Styria-Digital/django-rest-framework-jwt/) by setting the JWT_AUTH variable.
 
-Set the `JWT_AUDIENCE` to your API identifier and the `JWT_ISSUER` to your Auth0 domain.
+```python
+# apiexample/settings.py
+import textwrap
+
+jsonurl = request.urlopen("https://${account.namespace}/.well-known/jwks.json")
+jwks = json.loads(jsonurl.read())
+cert = '-----BEGIN CERTIFICATE-----\n' + textwrap.fill(jwks['keys'][0]['x5c'][0], 64) + '\n-----END CERTIFICATE-----'
+
+certificate = load_pem_x509_certificate(str.encode(cert), default_backend())
+publickey = certificate.public_key()
+```
+
+Configure the [Django REST Framework JWK](http://getblimp.github.io/django-rest-framework-jwt/) by setting the JWT_AUTH variable. 
+
+Set the `JWT_AUDIENCE` to your API identifier and the `JWT_ISSUER` to your Auth0 domain. By default, those values will be retrieved from the `.env` file.
 
 ```python
 # apiexample/settings.py
@@ -241,7 +255,7 @@ def private_scoped(request):
 
 ### Add URL mappings
 
-In previous steps we added methods to the `views.py` file. We need to map those methods to URLs.
+In previous steps, we added methods to the `views.py` file. We need to map those methods to URLs.
 
 Django has a [URL dispatcher](https://docs.djangoproject.com/en/2.2/topics/http/urls/) that lets you map URL patterns to views.
 

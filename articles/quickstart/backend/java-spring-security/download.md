@@ -4,7 +4,7 @@ To run it from the command line:
 # In Linux / macOS
 ./gradlew clean bootRun
 # In Windows
-gradlew clean bootRun
+gradlew.bat clean bootRun
 ```
 
 The sample includes a [Docker](https://www.docker.com) image ready to run with the following command:

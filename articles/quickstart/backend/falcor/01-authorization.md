@@ -97,7 +97,7 @@ app.get('/api/private', checkJwt, async function(req, res) {
 ```
 
 ::: note
-If you are following along with the sample project you downloaded from the top of this page, base URL for Falcor's model should be set to http://localhost:3000.
+If you are following along with the sample project you downloaded from the top of this page, the base URL for Falcor's model should be set to http://localhost:3000.
 :::
 
 Individual routes can be configured to look for a particular `scope` by setting up another middleware with the **express-jwt-authz** package. To do so, provide an array of required scopes and apply the middleware to any routes you wish to add authorization to.
