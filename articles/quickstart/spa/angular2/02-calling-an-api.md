@@ -262,7 +262,7 @@ Open `src/app/external-api/external-api.component.ts` and add this code:
 
 ```ts
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from './../api.service';
+import { ApiService } from 'src/app/api.service';
 
 @Component({
   selector: 'app-external-api',
