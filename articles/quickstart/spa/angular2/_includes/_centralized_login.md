@@ -287,7 +287,7 @@ Create a new component called "Profile" using the Angular CLI:
 ng generate component profile
 ```
 
-Open `src/app/pages/profile/profile.component.ts` and replace its contents with the following:
+Open `src/app/profile/profile.component.ts` and replace its contents with the following:
 
 ```js
 import { Component, OnInit } from '@angular/core';
