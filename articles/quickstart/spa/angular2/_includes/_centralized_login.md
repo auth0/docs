@@ -48,9 +48,9 @@ While in the project folder, install the SDK using `npm` in the terminal (or use
 npm install @auth0/auth0-spa-js --save
 ```
 
-## Add an Authentication Service
+## Add the Authentication Service
 
-To manage authentication with Auth0 throughout the application, create an authentication service. This way, authentication logic is consolidated in one place and can be injected easily.
+To manage authentication with Auth0 throughout the application, create an authentication service file and then copy the following code. This ensures that authentication logic is consolidated in one place and can be injected easily. Methods for interoperating between Angular with RxJS and the Auth0 SPA SDK are provided for you in the service.
 
 Use the CLI to generate a new service called `AuthService`:
 
@@ -58,7 +58,7 @@ Use the CLI to generate a new service called `AuthService`:
 ng generate service auth
 ```
 
-Open the `src/app/auth.service.ts` file inside your code editor and add the following content:
+Open the `src/app/auth.service.ts` file inside your code editor and copy the following content:
 
 :::note
 Make sure that the domain and client ID values are correct for the application that you want to connect with. 
@@ -223,9 +223,7 @@ We also need to handle login redirects when the application loads. In the authen
 We can also call `handleAuthCallback()` from the `constructor`.
 
 :::note
-**Why is there so much RxJS in the authentication service?** `auth0-spa-js` is a promise-based library built using async/await, providing an agnostic approach for the highest volume of JavaScript apps. The Angular framework, on the other hand, [uses reactive programming and observable streams](https://angular.io/guide/rx-library). In order for the async/await library to work seamlessly with Angular’s stream-based approach, we are converting the async/await functionality to observables for you in the service. This improves the developer experience for interoperability between the SDK and the Angular platform.
-
-Auth0 is currently building an Angular module that will abstract this reactive functionality away into an importable wrapper. This will get you up and running even faster while using the most idiomatic approach for the Angular framework, and will simplify the authentication service.
+**Angular and the Auth0 SPA JS SDK:** `auth0-spa-js` is a promise-based library built using async/await, providing an agnostic approach for the highest volume of JavaScript apps. The Angular platform manages asynchronous code by [using reactive programming and observable streams with RxJS](https://angular.io/guide/rx-library). To enable the async/await library to work seamlessly with Angular’s stream-based approach, we have converted the async/await functionality to observables for you in this service. This improves the developer experience for interoperability between the SDK and the Angular platform.
 :::
 
 ## Create a Navigation Bar Component
