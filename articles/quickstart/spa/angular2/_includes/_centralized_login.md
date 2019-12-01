@@ -58,7 +58,7 @@ Use the CLI to generate a new service called `AuthService`:
 ng generate service auth
 ```
 
-Open the `src/app/auth/auth.service.ts` file inside your code editor and add the following content:
+Open the `src/app/auth.service.ts` file inside your code editor and add the following content:
 
 :::note
 Make sure that the domain and client ID values are correct for the application that you want to connect with. 
@@ -236,7 +236,7 @@ If you do not already have a logical place to house login and logout buttons wit
 ng generate component nav-bar
 ```
 
-Open the `src/app/components/nav-bar/nav-bar.component.ts` file and replace its contents with the following:
+Open the `src/app/nav-bar/nav-bar.component.ts` file and replace its contents with the following:
 
 ```js
 import { Component, OnInit } from '@angular/core';
@@ -259,7 +259,7 @@ export class NavbarComponent implements OnInit {
 
 The `AuthService` class you created in the previous section is being provided in the component in the constructor. It is `public` to enable use of its methods in the component _template_.
 
-Next, configure the UI for the `navbar` component by opening the `src/app/components/nav-bar/nav-bar.component.html` file and replacing its contents with the following:
+Next, configure the UI for the `navbar` component by opening the `src/app/nav-bar/nav-bar.component.html` file and replacing its contents with the following:
 
 ```html
 <header>
@@ -310,7 +310,7 @@ export class ProfileComponent implements OnInit {
 
 All we need to do here is publicly inject the `AuthService` so that it can be used in the template.
 
-Next, open `src/app/pages/profile/profile.component.html` and replace its contents with the following:
+Next, open `src/app/profile/profile.component.html` and replace its contents with the following:
 
 ```html
 <pre *ngIf="auth.userProfile$ | async as profile">
@@ -336,7 +336,7 @@ const routes: Routes = [
 ...
 ```
 
-Finally, the navigation bar should be updated to include navigation links. Open `src/app/components/nav-bar/nav-bar.component.html` and add route links below the login/logout buttons:
+Finally, the navigation bar should be updated to include navigation links. Open `src/app/nav-bar/nav-bar.component.html` and add route links below the login/logout buttons:
 
 ```html
 <header>
@@ -361,7 +361,7 @@ ng generate guard auth
 
 You will receive this prompt: "Which interfaces would you like to implement?" Select **CanActivate**.
 
-Open the `src/app/auth/auth.guard.ts` file and replace its contents with the following:
+Open the `src/app/auth.guard.ts` file and replace its contents with the following:
 
 ```ts
 import { Injectable } from '@angular/core';
