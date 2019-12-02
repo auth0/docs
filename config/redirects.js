@@ -758,8 +758,8 @@ module.exports = [
     ],
     to: '/multifactor-authentication'
   },
-    {
-    from: '/multifactor-authentication/google-auth/user-guide#troubleshooting',
+  {
+    from: '/multifactor-authentication/google-auth/user-guide',
     to: '/multifactor-authentication/troubleshooting'
   },
   {
