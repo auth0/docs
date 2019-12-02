@@ -100,8 +100,6 @@ When a valid JWT Access Token is received at an endpoint, the `scope`s from the 
 
 The configuration that is set up above for the **hapi-auth-jwt2** plugin specifies `required` as the third argument to the `strategy`. This means that all routes will require authentication by default. If you'd like to make a route public, you can simply pass `auth: false` to the route's `config`. To protect a route requiring a valid JWT you can pass `auth: 'jwt'`.
 
-<%= include('../_includes/_api_endpoints') %>
-
 ```js
 // server.js
 

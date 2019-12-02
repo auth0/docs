@@ -8,7 +8,7 @@ This document will help you troubleshoot your JWT middleware configuration.
 
 In terms of validating a JWT, there are various things to consider:
 
-1. **Is the token well formed?** In other words is this token conforming to the structure of a JSON Web Token (JWT)? To get more information on the structure of a JWT, please refer to [this section on the structure of a JWT](/jwt#what-is-the-json-web-token-structure-)
+1. **Is the token well-formed?** In other words, is this token conforming to the structure of a JSON Web Token (JWT)? To get more information on the structure of a JWT, please refer to [this section on the structure of a JWT](/jwt#what-is-the-json-web-token-structure-)
 
 2. **Has the token been tampered with?** The last part of a JWT is the signature. The signature is used to verify that the token was in fact signed by the sender and not altered in any way.
 
@@ -24,13 +24,13 @@ In terms of validating a JWT, there are various things to consider:
 
 ## Inspecting a token
 
-A quick way to inspect a JWT is by using the [JWT.io](https://jwt.io/) website. It has a handy debugger which allows you to quickly check that a JWT is well formed, and also inspect the values of the various claims.
+A quick way to inspect a JWT is by using the [JWT.io](https://jwt.io/) website. It has a handy debugger which allows you to quickly check that a JWT is well-formed, and also inspect the values of the various claims.
 
 ![Debugging a JWT on JWT.io](/media/articles/server-apis/aspnet-core-webapi/jwt-io-debugger-rs256.png)
 
 In the screenshot above you can see that the token was signed using the **RS256** algorithm. The **Issuer** of the token is **https://jerrie.auth0.com/**, and the **Audience** is **https://rs256.test.api**.
 
-So in other words these values in your JWT validation configuration registration must match **exactly** - including the trailing slash for the Issuer, such as
+So, in other words, these values in your JWT validation configuration registration must match **exactly** - including the trailing slash for the Issuer, such as
 
 ```
 audience = "https://rs256.test.api",

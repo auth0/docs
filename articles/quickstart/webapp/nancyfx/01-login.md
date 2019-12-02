@@ -13,7 +13,7 @@ github:
 contentType: tutorial
 useCase: quickstart
 ---
-<%= include('../_includes/_getting_started', { library: 'Nancy FX', callback: 'http://localhost:3000/callback' }) %>
+<%= include('../_includes/_getting_started', { library: 'Nancy FX', callback: 'http://localhost:3579/login-callback' }) %>
 
 ## Configure your application to use Auth0 
 

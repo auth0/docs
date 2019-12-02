@@ -63,7 +63,7 @@ return [
 
 In more detail:
 
-* `authorized_issuers` is an array of allowed token issuers. In this case it would simply be an array with just your tenant URL.
+* `authorized_issuers` is an array of allowed token issuers. In this case, it would simply be an array with just your tenant URL.
 * `api_identifier` is the **Identifier** field of the API [created above](#configure-auth0-apis).
 * `supported_algs` is the **Signing Algorithm** field of the API [created above](#configure-auth0-apis). This value should be an array but only have a single value, `RS256`.
 

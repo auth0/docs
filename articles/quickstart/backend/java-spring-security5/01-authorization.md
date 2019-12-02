@@ -1,7 +1,7 @@
 ---
 title: Authorization
 name: How to secure your API using Spring Security 5 and Auth0
-description: This tutorial demonstrates how to add authorization to a an API using Spring Security 5.
+description: This tutorial demonstrates how to add authorization to an API using Spring Security 5.
 budicon: 500
 topics:
     - quickstart
@@ -43,7 +43,7 @@ spring:
 | Attribute | Description|
 | --- | --- |
 | `auth0.audience` | The unique identifier for your API. If you are following the steps in this tutorial it would be `https://quickstarts/api`. |
-| `spring.security.oauth2.resourceserver.jwt.issuer-uri` | The issuer URI of the resource server, which will be the value of the `iss` claim in the JWT issued by Auth0. Spring Security will use this property to discover the authorization server's public keys and validate the JWT signature. The value will be your Auth0 domain with a `https://` prefix and a `/` suffix (the trailing slash is important). |
+| `spring.security.oauth2.resourceserver.jwt.issuer-uri` | The issuer URI of the resource server, which will be the value of the `iss` claim in the JWT issued by Auth0. Spring Security will use this property to discover the authorization server's public keys and validate the JWT signature. The value will be your Auth0 domain with an `https://` prefix and a `/` suffix (the trailing slash is important). |
 
 ## Validate Access Tokens
 
@@ -109,7 +109,7 @@ If you are using Maven, add the Spring dependencies to your `pom.xml` file:
 To configure the application as a Resource Server and validate the JWTs, create a class that extends `WebSecurityConfigurerAdapter`, add the `@EnableWebSecurity` annotation, and override the `configure` method:
 
 ```java
-// src/main/java/auth0/example/security/SecurityConfig.java
+// src/main/java/com/auth0/example/security/SecurityConfig.java
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -126,7 +126,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 In addition to validating the JWT, you also need to validate that the JWT is intended for your API by checking the `aud` claim of the JWT. Create a new class named `AudienceValidator` that implements the `OAuth2TokenValidator` interface:
 
 ```java
-// src/main/java/auth0/example/security/AudienceValidator.java
+// src/main/java/com/auth0/example/security/AudienceValidator.java
 
 class AudienceValidator implements OAuth2TokenValidator<Jwt> {
     private final String audience;
@@ -264,7 +264,7 @@ Linux or macOS:
 Windows:
 
 ```bash
-gradlew.cmd bootRun
+gradlew.bat bootRun
 ```
 
 If you are configuring your own application using Maven and the [Spring Boot Maven Plugin](https://docs.spring.io/spring-boot/docs/current/reference/html/build-tool-plugins-maven-plugin.html), you can execute the `spring-boot:run` goal.

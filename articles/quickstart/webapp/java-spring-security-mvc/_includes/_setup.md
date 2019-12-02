@@ -10,7 +10,9 @@ If you are using Gradle, add it to your `build.gradle`:
 ```java
 // build.gradle
 
-compile 'com.auth0:mvc-auth-commons:1.+'
+dependencies {
+    implementation 'com.auth0:mvc-auth-commons:1.+'
+}
 ```
 
 If you are using Maven, add it to your `pom.xml`:
