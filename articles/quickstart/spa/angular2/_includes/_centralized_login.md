@@ -48,9 +48,9 @@ While in the project folder, install the SDK using `npm` in the terminal (or use
 npm install @auth0/auth0-spa-js --save
 ```
 
-## Add an Authentication Service
+## Add the Authentication Service
 
-To manage authentication with Auth0 throughout the application, create an authentication service. This way, authentication logic is consolidated in one place and can be injected easily.
+To manage authentication with Auth0 throughout the application, create an authentication service file and then copy the following code. This ensures that authentication logic is consolidated in one place and can be injected easily. Methods for interoperating between Angular with RxJS and the Auth0 SPA SDK are provided for you in the service.
 
 Use the CLI to generate a new service called `AuthService`:
 
@@ -58,7 +58,7 @@ Use the CLI to generate a new service called `AuthService`:
 ng generate service auth
 ```
 
-Open the `src/app/auth/auth.service.ts` file inside your code editor and add the following content:
+Open the `src/app/auth.service.ts` file inside your code editor and copy the following content:
 
 :::note
 Make sure that the domain and client ID values are correct for the application that you want to connect with. 
@@ -223,9 +223,7 @@ We also need to handle login redirects when the application loads. In the authen
 We can also call `handleAuthCallback()` from the `constructor`.
 
 :::note
-**Why is there so much RxJS in the authentication service?** `auth0-spa-js` is a promise-based library built using async/await, providing an agnostic approach for the highest volume of JavaScript apps. The Angular framework, on the other hand, [uses reactive programming and observable streams](https://angular.io/guide/rx-library). In order for the async/await library to work seamlessly with Angular’s stream-based approach, we are converting the async/await functionality to observables for you in the service. This improves the developer experience for interoperability between the SDK and the Angular platform.
-
-Auth0 is currently building an Angular module that will abstract this reactive functionality away into an importable wrapper. This will get you up and running even faster while using the most idiomatic approach for the Angular framework, and will simplify the authentication service.
+**Angular and the Auth0 SPA JS SDK:** `auth0-spa-js` is a promise-based library built using async/await, providing an agnostic approach for the highest volume of JavaScript apps. The Angular platform manages asynchronous code by [using reactive programming and observable streams with RxJS](https://angular.io/guide/rx-library). To enable the async/await library to work seamlessly with Angular’s stream-based approach, we have converted the async/await functionality to observables for you in this service. This improves the developer experience for interoperability between the SDK and the Angular platform.
 :::
 
 ## Create a Navigation Bar Component
@@ -236,7 +234,7 @@ If you do not already have a logical place to house login and logout buttons wit
 ng generate component nav-bar
 ```
 
-Open the `src/app/components/nav-bar/nav-bar.component.ts` file and replace its contents with the following:
+Open the `src/app/nav-bar/nav-bar.component.ts` file and replace its contents with the following:
 
 ```js
 import { Component, OnInit } from '@angular/core';
@@ -259,7 +257,7 @@ export class NavbarComponent implements OnInit {
 
 The `AuthService` class you created in the previous section is being provided in the component in the constructor. It is `public` to enable use of its methods in the component _template_.
 
-Next, configure the UI for the `navbar` component by opening the `src/app/components/nav-bar/nav-bar.component.html` file and replacing its contents with the following:
+Next, configure the UI for the `navbar` component by opening the `src/app/nav-bar/nav-bar.component.html` file and replacing its contents with the following:
 
 ```html
 <header>
@@ -287,7 +285,7 @@ Create a new component called "Profile" using the Angular CLI:
 ng generate component profile
 ```
 
-Open `src/app/pages/profile/profile.component.ts` and replace its contents with the following:
+Open `src/app/profile/profile.component.ts` and replace its contents with the following:
 
 ```js
 import { Component, OnInit } from '@angular/core';
@@ -310,7 +308,7 @@ export class ProfileComponent implements OnInit {
 
 All we need to do here is publicly inject the `AuthService` so that it can be used in the template.
 
-Next, open `src/app/pages/profile/profile.component.html` and replace its contents with the following:
+Next, open `src/app/profile/profile.component.html` and replace its contents with the following:
 
 ```html
 <pre *ngIf="auth.userProfile$ | async as profile">
@@ -336,7 +334,7 @@ const routes: Routes = [
 ...
 ```
 
-Finally, the navigation bar should be updated to include navigation links. Open `src/app/components/nav-bar/nav-bar.component.html` and add route links below the login/logout buttons:
+Finally, the navigation bar should be updated to include navigation links. Open `src/app/nav-bar/nav-bar.component.html` and add route links below the login/logout buttons:
 
 ```html
 <header>
@@ -361,7 +359,7 @@ ng generate guard auth
 
 You will receive this prompt: "Which interfaces would you like to implement?" Select **CanActivate**.
 
-Open the `src/app/auth/auth.guard.ts` file and replace its contents with the following:
+Open the `src/app/auth.guard.ts` file and replace its contents with the following:
 
 ```ts
 import { Injectable } from '@angular/core';
