@@ -8,6 +8,3 @@ If the user is new, their user profile is created for the `email` connection bef
 
 ![New User Flow](/media/articles/connections/passwordless/passwordless-create-user-flow.png)
 
-<% if (isMobile) { %>
-On mobile platforms, your app will receive an ID Token, the user profile, and optionally, a <dfn data-key="refresh-token">Refresh Token</dfn>.
-<% } %>

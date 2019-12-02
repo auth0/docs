@@ -7,7 +7,3 @@ If the phone number attached to the code matches an existing user, Auth0 authent
 If the user is new, their user profile is created for the `sms` connection before they are authenticated by Auth0.
 
 ![New User Flow](/media/articles/connections/passwordless/passwordless-create-user-flow.png)
-
-<% if (isMobile) { %>
-On mobile platforms, your app will receive an ID Token, the user profile, and optionally, a <dfn data-key="refresh-token">Refresh Token</dfn>.
-<% } %>

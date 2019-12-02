@@ -13,21 +13,6 @@ useCase: customize-connections
 ---
 # Passwordless Authentication with SMS
 
-Send one-time-use codes to the user's entered mobile phone number using:
+<%= include('../_introduction-sms') %>
 
-* [Twilio](/dashboard/guides/connections/configure-passwordess-sms)
-* [Your Own SMS Gateway](/connections/passwordless/guides/use-sms-gateway-passwordless)
-
-## Customization
-
-For SMS, you can customize the following properties:
-
-* Message text and syntax (Markdown or [Liquid](/email/liquid-syntax))
-* Message language
-* One-time-use code length
-* One-time-use code expiration period
-* Whether to allow users to sign up via passwordless
-
-## Limitations of One-Time Passwords
-
-<%= include('../../_otp-limitations') %>
+<%= include('../_setup-sms') %>
