@@ -758,6 +758,10 @@ module.exports = [
     ],
     to: '/multifactor-authentication'
   },
+    {
+    from: '/multifactor-authentication/google-auth/user-guide#troubleshooting',
+    to: '/multifactor-authentication/troubleshooting'
+  },
   {
     from: '/multi-factor-authentication/yubikey',
     to: '/multifactor-authentication/yubikey'
