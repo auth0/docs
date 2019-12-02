@@ -1,14 +1,15 @@
-### Open an account with Twilio
 
-You will need a [Twilio Account SID](https://www.twilio.com/help/faq/twilio-basics/what-is-an-application-sid) and a [Twilio Auth Token](https://www.twilio.com/help/faq/twilio-basics/what-is-the-auth-token-and-how-can-i-change-it). These are the Twilio API credentials that Auth0 will use to send an SMS to the user.
-
-### Configure the connection
-
-1. Navigate to the [Connections > Passwordless](${manage_url}/#/connections/passwordless) page in the [Auth0 Dashboard](${manage_url}/), and enable the SMS toggle.
+Navigate to the [Connections > Passwordless](${manage_url}/#/connections/passwordless) page in the [Auth0 Dashboard](${manage_url}/), and enable the SMS toggle.
 
 ![Enable SMS Passwordless](/media/articles/connections/passwordless/connections-passwordless-list.png)
 
-2. Enter your **Twilio Account SID** and **Twilio Auth Token**.
+To send the SMS, you can either use Twilio, or a Custom SMS Gateway.
+
+### Configure Twilio Settings
+
+You will need a [Twilio Account SID](https://www.twilio.com/help/faq/twilio-basics/what-is-an-application-sid) and a [Twilio Auth Token](https://www.twilio.com/help/faq/twilio-basics/what-is-the-auth-token-and-how-can-i-change-it). These are the Twilio API credentials that Auth0 will use to send an SMS to the user.
+
+1. Enter your **Twilio Account SID** and **Twilio Auth Token**.
 
 ::: note
 To learn how to find your Twilio SID and Auth Token, see Twilio docs: [How to create an Application SID](https://www.twilio.com/help/faq/twilio-basics/what-is-an-application-sid) and [Auth Tokens and how to change them](https://www.twilio.com/help/faq/twilio-basics/what-is-the-auth-token-and-how-can-i-change-it).
@@ -16,23 +17,31 @@ To learn how to find your Twilio SID and Auth Token, see Twilio docs: [How to cr
 
 ![Configure SMS Passwordless](/media/articles/connections/passwordless/connections-passwordless-sms.png)
 
-3. Select your **SMS Source** and depending on your selection, enter either your **Twilio Messaging Service SID** or a **From** phone number. Users will see what you enter as the sender of the SMS.
+2. Select your **SMS Source** and depending on your selection, enter either your **Twilio Messaging Service SID** or a **From** phone number. Users will see what you enter as the sender of the SMS.
 
 ::: note
 To learn about using Twilio Copilot, see Twilio docs: [Sending Messages with Copilot](https://www.twilio.com/docs/api/rest/sending-messages-copilot).
 :::
 
-4. In **Message**, enter the body text of the SMS.
+### Configure a Custom SMS Gateway
+
+If you would like to use your own SMS gateway, you will need to create the passwordless connection and then modify it using our Management API. To learn how to modify the connection to use your own SMS gateway, see [Configure SMS Gateway for Passwordless Connections](/connections/passwordless/guides/use-sms-gateway-passwordless).
+
+### Configure Passwordless SMS Settings
+
+1. In **Message**, enter the body text of the SMS.
 
 ::: note
 The `@@password@@` placeholder will automatically be replaced with the one-time password that is sent to the user.
 :::
 
-5. Adjust settings for your **OTP Expiry** and **OTP Length**, and click **SAVE**.
+2. Adjust settings for your **OTP Expiry** and **OTP Length**.
 
-::: warning
-If you choose to extend the amount of time it takes for your one-time password to expire, you should also extend the length of the one-time password code. Otherwise, an attacker has a larger window of time to attempt to guess a short code.
-:::
+<%= include('../../_otp-limitations') %>
+
+3. Decide if you want to **Disable Signups**. You can enable passwordless access just for existing users by enabling this setting.
+
+4. Click **SAVE**.
 
 #### Multi-language support
 

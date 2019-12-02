@@ -38,3 +38,5 @@ If a user does not receive the requested email or SMS message, here are some thi
 ## One-Time Password Limitations
 
 <%= include('../../_otp-limitations') %>
+
+The one-time password expiration time can be altered in the passwordless connection settings in the [Dashboard](${manage_url}/#/connections/passwordless).
