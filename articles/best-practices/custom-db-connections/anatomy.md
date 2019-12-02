@@ -26,9 +26,9 @@ You typically create and configure custom database connections using the [Auth0 
 
 ![Enable Use Own Database Option](/media/articles/dashboard/connections/database/connections-db-settings-custom-1.png)
 
-As shown below, you use custom database connections as part of the Universal Login workflow to obtain user identity information from your own legacy identity store for authentication or user import, referred to as *legacy authentiation*.
+As shown below, you use custom database connections as part of a login workflow to obtain user identity information from your own legacy identity store for authentication or user import, referred to as *legacy authentiation*.
 
-![Custom Database Connections Flow](/media/articles/connections/database/custom-database-connections.png)
+![Custom Database Connections Flow](/media/articles/connections/database/custom-database-connections.png#center)
 
 In addition to artifacts common for all database connections types, a custom database connection allows you to configure action scripts - custom code used when interfacing with legacy identity stores. The scripts you choose to configure depend on whether you are creating a connection for legacy authentication or for automatic migration (see [Custom Database Action Script Execution](/best-practices/custom-db-connections/execution) for further details). 
 
@@ -47,7 +47,13 @@ Custom database connections are also used outside of the Universal Login workflo
 During automatic migration, Auth0 creates a new user in an identity store (database) managed by Auth0. Auth0 uses the identity in the Auth0 managed identity store when authenticating the user. For this to occur, Auth0 first requires the user be authenticated against the legacy identity store and only if this succeeds, will the new user be created in the Auth0 managed database. Auth0 creates the new user using the same id and password that was supplied during authentication. 
 
 ::: Best Practice
-We recommend that you mark legacy store user identities once they have been migrated to Auth0 to prevent the unintentional re-creation of intentionally deleted users.
+User creation in an automatic migration scenario typically occurs after the **Login** action script completes. We recommend that you **do not attempt** to delete users from a legacy identity store as an inline operation within the **Login** script, but instead as an independent process. This prevents accidental user deletion should an error condition occur during migration. 
+:::
+
+With automatic migration, users remain in the legacy identity store and can be deleted or archived if required. A side-effect can occur where a user is deleted from Auth0 but remains in the legacy data store. In this case, a login made by the deleted user could result in either the **Login** or **Get User** script executing and the user again migrating from the legacy identity store. 
+
+::: Best Practice
+We recommend marking legacy store user identities as *migrated* before either **Login** or **Get User** scripts complete and prior to any eventual legacy store deletion to prevent the unintentional re-creation of intentionally deleted users.
 :::
 
 ## Keep reading
