@@ -20,11 +20,11 @@ Auth0 can authenticate calls to `/passwordless/start` when they include a `clien
 
 ## Does this affect me?
 
-If your applications currently calls the `/passwordless/start` endpoint directly to begin passwordless authentication from a Web Application, and you are not sending the `client_secret` as a parameter, this deprecation does affect you. 
+If any of your applications currently call the `/passwordless/start` endpoint directly to begin passwordless authentication from a Web Application, and you are not sending the `client_secret` as a parameter, this deprecation does affect you. 
 
-If you are implementing Passwordless Authentication through the Universal Login page and you changed the default way Auth0 libraries are initialized, it might also affect you too.
+If you are implementing passwordless authentication through the Universal Login page and you changed the default way Auth0 libraries are initialized, it might also affect you too.
 
-You can verify if that is the case by checking the [tenant logs](${manage_url}/#/logs), filtering by "Deprecation Notice" and check for logs saying "Enforce client authentication for passwordless connections".
+You can verify whether you are affected by checking the [tenant logs](${manage_url}/#/logs), filtering by "Deprecation Notice" and check for logs saying "Enforce client authentication for passwordless connections". You can also perform this search directly with the following query: `type:depnote AND description:*passwordless*`.
 
 ## What do I need to do?
 
