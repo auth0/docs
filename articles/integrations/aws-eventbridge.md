@@ -20,7 +20,7 @@ To send Auth0 events to AWS EventBridge, you will need:
 
 1. A partner event source (in this case, this is Auth0)
 2. A partner event bus, which matches incoming events with the routes to which they should be targeted
-3. A rule, which route the incoming events to your choice of AWS service.
+3. A rule, which route the incoming events to your choice of AWS service
 
 You can send events from Auth0 to AWS once you have [matched your partner event source to the partner event bus](https://docs.aws.amazon.com/eventbridge/latest/userguide/create-partner-event-bus.html).
 
