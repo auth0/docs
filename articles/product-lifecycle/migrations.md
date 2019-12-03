@@ -24,12 +24,12 @@ We are actively migrating customers to new behaviors for all **Deprecations** li
   </thead>
   <tbody>
     <tr>
-      <td><a href="/migrations/guides/passwordless-start">Deprecation of unauthenticated calls to <code>/passwordless/start</code> from confidential clients</a></td>
+      <td><a href="/migrations/guides/passwordless-start">Deprecation of unauthenticated calls to the <code>/passwordless/start</code> endpoint from confidential clients</a></td>
       <td>1 December 2019</td>
       <td>
         TBD
       </td>
-      <td>We improved the security of our Passwordless implementation by adding client authentication to <code>/passwordless/start</code>.</td>
+      <td>We improved the security of our Passwordless implementation by adding client authentication to the <code>/passwordless/start</code> endpoint.</td>
     </tr>
     <tr>
       <td><a href="/migrations/guides/migration-oauthro-oauthtoken-pwdless"><code>/oauth/ro</code> deprecation for Passwordless Connections</a></td>
@@ -37,7 +37,7 @@ We are actively migrating customers to new behaviors for all **Deprecations** li
       <td>
         TBD
       </td>
-      <td>On June 8th 2017 we deprecated the <code>/oauth/ro</code> endpoint for passwordless connections. You can now implement the same functionality using  <a href="/migrations/guides/migration-oauthro-oauthtoken-pwdless">'oauth/token' endpoint</a> </td>
+      <td>On June 8th 2017 we deprecated the <code>/oauth/ro</code> endpoint for passwordless connections. You can now implement the same functionality using the <a href="/migrations/guides/migration-oauthro-oauthtoken-pwdless">/oauth/token endpoint</a>.</td>
     </tr>
     <tr>
       <td><a href="/users/search/v3/migrate-search-v2-v3">User Search v2</a></td>
