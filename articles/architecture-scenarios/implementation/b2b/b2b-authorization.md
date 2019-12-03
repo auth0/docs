@@ -22,6 +22,12 @@ useCase:
 
 <%= include('../../_includes/_authorization/_api-integration.md', { platform: 'b2b' }) %>
 
+## Role Based Access Control (RBAC)
+
+<%= include('../../_includes/_authorization/_rbac.md', { platform: 'b2b' }) %>
+
+The core RBAC feature can be used in many multi-organization scenarios.  See [Organization Data in an Access Tokens](#organization-data-in-an-access-token) for more information on how to ensure your setup can support your RBAC needs.
+
 ## Machine-to-Machine (M2M) authorization
 
 <%= include('../../_includes/_authorization/_m2m.md', { platform: 'b2b' }) %>
@@ -34,7 +40,7 @@ If you have a separate API from your application in your system that supports yo
 2. Will you be allowing any Machine-to-Machine (M2M) access to your API?
 3. If you are allowing Machine-to-Machine (M2M) access to your API, Will you have any developers who need a single client ID and secret to access multiple organizations (but not *all* organizations)?
 
-If End Users are isolated to a single organization and you will either not be allowing M2M access to your API or you will have a separate client ID/secret for each organization that needs access, then the simplest approach is to just create a custom claim in the access token [using rules for the user based tokens](#access-token-claims) and [using the client credentials hook for M2M calls](#machine-to-machine-m2m-authorization).
+If End Users are isolated to a single organization and you will either not be allowing M2M access to your API or you will have a separate client ID/secret for each organization that needs access, then the simplest approach is to just create a custom claim in the access token [using rules for the user based tokens](#access-token-claims) and [using the client credentials hook for M2M calls](#machine-to-machine-m2m-authorization).  RBAC will work out of the box for this approach as well as long as each End User can only belong to one organization.
 
 If End Users have more than one organization they can belong to or you might give a single developer a client ID and secret for M2M calls to more than one organization, then you will be best served by creating a separate audience (a separate API instance in your Auth0 tenant) for each organization.  This gives you a few nice abilities:
 1.  First, it allows you to pass the audience as a first-class parameter to Auth0 without having to create a custom parameter.  The benefit of this is that Auth0 will help enforce the existence of the audience, and it will pass it to your rules.  It will also ensure that an issued refresh token will only work for the specific audience it was originally issued to.
