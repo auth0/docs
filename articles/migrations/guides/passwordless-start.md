@@ -91,10 +91,10 @@ Please check in your custom page implementation to verify that you have not remo
 
 ### 3. Calling /passwordless/start from the client in a web application
 
-We found that some customers are calling the `/passwordless/start` endpoint from a webpage using JavaScript (for example, they might be using auth0.js on the page) from Regular Web Applications. This will not be possible, as you cannot specify a client secret in a call made using JavaScript. If this is currently the case for your application, you will need to change your applications so that `/passwordless/start` is called from the backend of your web application, rather than from the frontend.
+We found that some customers are calling the `/passwordless/start` endpoint from a page using JavaScript (for example, they might be using auth0.js on the page) from Regular Web Applications. This will not be possible, as you cannot specify a client secret in a call made using JavaScript. If this is currently the case for your application, you will need to change your applications so that `/passwordless/start` is called from the backend of your web application, rather than from the frontend.
 
 ## Rate Limits
 
 A consequence of adding client authentication to `/passwordless/start` is that Auth0 can trust the headers sent with the request. Auth0 takes into account the `auth0-forwarded-for` header when enforcing rate limits. If you set that header with the end user's IP address when making the call from the server, Auth0 will rate limit the endpoint based on the end user's IP, instead of the server IP.
 
-You can read more in [this document](/connections/passwordless/reference/relevant-api-endpoints#rate-limiting-in-passwordless-endpoints).
+You can read more about this in the [passwordless endpoints](/connections/passwordless/reference/relevant-api-endpoints#rate-limiting-in-passwordless-endpoints) documentation.
