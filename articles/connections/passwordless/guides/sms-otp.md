@@ -15,4 +15,4 @@ useCase: customize-connections
 
 <%= include('../_includes/_introduction-sms') %>
 
-<%= include('../_includes/_setup-sms') %>
+<%= include('../_includes/_setup-sms-twilio') %>
