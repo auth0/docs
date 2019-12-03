@@ -9,7 +9,7 @@ topics:
 ---
 # Passwordless Authentication with Email
 
-<%= include('../_introduction-email') %>
+<%= include('../_includes/_introduction-email') %>
 
-<%= include('../_setup-email') %>
+<%= include('../_includes/_setup-email') %>
 
