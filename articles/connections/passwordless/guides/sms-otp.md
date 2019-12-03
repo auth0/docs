@@ -13,6 +13,6 @@ useCase: customize-connections
 ---
 # Passwordless Authentication with SMS
 
-<%= include('../_introduction-sms') %>
+<%= include('../_includes/_introduction-sms') %>
 
-<%= include('../_setup-sms') %>
+<%= include('../_includes/_setup-sms') %>
