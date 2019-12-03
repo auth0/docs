@@ -59,7 +59,7 @@ A single rule can route to one or more targets (if there are more than one, AWS 
 
 To create a rule:
 
-1. First, go to the [EventBridge page](https://console.aws.amazon.com/events/home?region=us-east-1#/) and click on `Create rule`
+1. Go to the [EventBridge page](https://console.aws.amazon.com/events/home?region=us-east-1#/) and click **Create rule**
 
 2. Provide the name of the AWS Event Bus and specify your targets
 
