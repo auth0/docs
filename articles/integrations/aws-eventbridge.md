@@ -40,7 +40,7 @@ Go to AWS to complete the final steps of the integration.
 1. Go to the [AWS EventBridge partners tab](https://console.aws.amazon.com/events/home?region=us-east-1#/partners) in your AWS account and make sure you are in the **AWS Region** where the event source was created.
 
 2. Paste the **Event Source Name** in the event source search box to find the newly created AWS Event Source and click on it to associate it with an Event Bus.
-``Note: The AWS Event Source will remain in pending state until it gets associated with an Event Bus and all the events sent to that Event Source will be dropped.``
+**Note**: The AWS Event Source will remain in pending state until it gets associated with an Event Bus and all the events sent to that Event Source will be dropped.
 
 3. Once you click in the Event Source, click on the `Associate with Event Bus` button.
 
