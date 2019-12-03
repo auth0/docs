@@ -11,24 +11,14 @@ v2: true
 
 # Metadata
 
-Auth0 provides you with **metadata** fields to store individual user information that did not originate with an identity provider. Auth0 distinguishes between two types of metadata:
+In addition to the Normalized User Profile information, metadata can be stored in an Auth0 user profile. Metadata provides a way to store information that did not originate from an identity provider, or a way to store information that overrides what an identity provider supplies.
+
+Auth0 distinguishes between two types of metadata:
 
 * **User metadata**: used to store user attributes (e.g., user preferences) that do *not* impact a user's core functionality;
 * **App metadata**: used to store information (e.g., a user's support plan, security <dfn data-key="role">roles</dfn>, or access control groups) that can impact a user's core functionality, such as how an application functions or what the user can access.
 
-::: note
-An authenticated user can modify data in their profile's `user_metadata`, but not in their `app_metadata`.
-:::
-
-You can read, create, and edit user metadata using Rules, Auth0 APIs, and Lock.
-
-### Metadata Best Practices
-
-* Both `app_metadata` and `user_metadata` are limited to a size of 16mb each. However, we recommend against using these properties like a database. They should be used for identity related information. Additionally, at some point we may put a more strict size limit on these properties. Please also be aware that using Rules and/or the Management Dashboard may further limit the amount of metadata you can store.
-
-* An authenticated user can perform actions that modify data in their profile's **user_metadata**, but they can't do anything that modifies their **app_metadata**.
-
-* Use a consistent datatype each time you create or update a given metadata field. Using `user.user_metadata.age = "23"` for one user and `user.user_metadata.age = 23` for another user will cause issues when retrieving the data.
+You can read, create, and edit user metadata using Rules and Auth0 APIs.
 
 ## Rules
 
@@ -38,15 +28,17 @@ For more information and examples refer to [User Metadata in Rules](/rules/curre
 
 ## Auth0 APIs
 
-When you use the [Authentication API](/api/authentication), you can use the [Signup](/api/authentication?shell#signup) endpoint to set the `user_metadata` for a user. **This endpoint only works for database connections.**
+If you have a [custom database connection](/connections/database#using-your-own-user-store), you can use the [Authentication API](/api/authentication) [Signup](/api/authentication?shell#signup) endpoint to set the `user_metadata` for a user. 
 
 For an example of working with metadata during a custom signup process, see [Custom Signup > Using the API](/libraries/custom-signup#using-the-api).
 
 :::note
-You can also use the [GET /userinfo endpoint](/api/authentication#get-user-info) in order to get a user's `user_metadata`. To do so, you first have to [write a Rule to copy `user_metadata` properties to the ID Token](/rules#copy-user-metadata-to-id-token).
+You can also use the [GET /userinfo endpoint](/api/authentication#get-user-info) to get a user's `user_metadata`. You must first [write a Rule](/rules#copy-user-metadata-to-id-token) to copy `user_metadata` properties to the ID Token.
 :::
 
-You can use the [Management API](/api/management/v2) in order to retrieve, create, or update both the `user_metadata` and `app_metadata` fields at any point.
+### API endpoints
+
+You can use the following [Management API](/api/management/v2) endpoints to retrieve, create, and update both the `user_metadata` and `app_metadata` fields.
 
 | **Endpoint** | **Description** |
 |--|--|
@@ -57,10 +49,10 @@ You can use the [Management API](/api/management/v2) in order to retrieve, creat
 | [Update User](/api/management/v2#!/Users/patch_users_by_id) | Update a user using a JSON object. For example requests see [PATCH /api/v2/users/{id}](/api/management/v2#!/Users/patch_users_by_id).| 
 
 :::note
-For examples and more information, see [Manage User Metadata](/users/guides/manage-user-metadata).
+For more information, see [Manage User Metadata](/users/guides/manage-user-metadata).
 :::
 
-## Metadata usage
+### Example
 
 Suppose the following metadata is stored for a user with the email address `jane.doe@example.com`:
 
@@ -129,5 +121,6 @@ Instead, you would use this:
 * [Manage User Metadata](/users/guides/manage-user-metadata)
 * [User Metadata in Rules](/rules/current/metadata-in-rules)
 * [User Data Storage Best Practices](/best-practices/user-data-storage-best-practices)
+* [Metadata Best Practices](/best-practices/metadata)
 * [User Data Storage Scenario](/users/references/user-data-storage-scenario)
 * [Change User Pictures](/users/guides/change-user-pictures)
