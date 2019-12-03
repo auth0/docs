@@ -28,7 +28,9 @@ You typically create and configure custom database connections using the [Auth0 
 
 As shown below, you use custom database connections as part of a login workflow to obtain user identity information from your own legacy identity store for authentication or user import, referred to as *legacy authentiation*.
 
-![Custom Database Connections Flow](/media/articles/connections/database/custom-database-connections.png#center)
+<p align="center"> 
+    <img src="/media/articles/connections/database/custom-database-connections.png" alt="Custom Database Connection Flow">
+ </p>
 
 In addition to artifacts common for all database connections types, a custom database connection allows you to configure action scripts - custom code used when interfacing with legacy identity stores. The scripts you choose to configure depend on whether you are creating a connection for legacy authentication or for automatic migration (see [Custom Database Action Script Execution](/best-practices/custom-db-connections/execution) for further details). 
 
