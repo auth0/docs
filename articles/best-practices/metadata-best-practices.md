@@ -3,35 +3,46 @@ description: Best practices for metadata in Auth0.
 topics:
     - best-practices
     - metadata
-contentType: 
-    - reference
+contentType: reference
 useCase:
+    - manage users
     - best-practices
     - metadata
 ---
 
 # Metadata Best Practices
 
-Any data you store in Auth0 that's *not* already a part of the user profile should go into one of the two provided [metadata](/users/concepts/overview-user-metadata) types:
+## App metadata and custom databases
 
-* `app_metadata`
-* `user_metadata`
+If you are using a [custom database](/connections/database#using-your-own-user-store), the **app_metadata** field should be referred to as **metadata** in the scripts you run to manage your metadata.
 
-These fields contain JSON snippets and can be used during the Auth0 authentication process.
+For example, you would *not* use this:
 
-You can store data points that are read-only to the user in `app_metadata`. Three common types of data for the `app_metadata` field:
+```json
+{
+    "emails": "jane.doe@example.com",
+    "user_metadata": {
+        "hobby": "surfing"
+    },
+    "app_metadata": {
+        "plan": "full"
+    }
+}
+```
 
-* **Permissions**: privileges granted to certain users allowing them rights within the Application that others do not have;
-* **Plan information**: settings that cannot be changed by the user without confirmation from someone with the appropriate authority;
-* **External IDs**: identifying information used to associate users with external accounts.
+Instead, you would use this:
 
-When determining where you should store specific pieces of data about your user, here are the general rules of thumb:
-
-| Case | Storage Location |
-| --- | --- |
-| Data that should be **read-only** to the user | `app_metadata` |
-| Data that should be **editable** by the user | `user_metadata` |
-| Data unrelated to user authentication | External database |
+```json
+{
+    "emails": "jane.doe@example.com",
+    "user_metadata": {
+        "hobby": "surfing"
+    },
+    "metadata": {
+        "plan": "full"
+    }
+}
+```
 
 ## `user_metadata` modifications
 

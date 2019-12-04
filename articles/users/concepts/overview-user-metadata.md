@@ -18,6 +18,8 @@ Auth0 distinguishes between two types of metadata:
 * **User metadata**: used to store user attributes (e.g., user preferences) that do *not* impact a user's core functionality;
 * **App metadata**: used to store information (e.g., a user's support plan, security <dfn data-key="role">roles</dfn>, or access control groups) that can impact a user's core functionality, such as how an application functions or what the user can access.
 
+## User metadata
+
 You can read, create, and edit user metadata using Rules and Auth0 APIs.
 
 ## Rules
@@ -84,37 +86,21 @@ console.log(user.app_metadata.plan); // "full"
 With Management APIv1, all metadata was stored in the `metadata` field. Data stored in this field is now available under `app_metadata`.
 :::
 
-## Metadata and custom databases
+## App metadata
 
-If you are using a [custom database](/connections/database#using-your-own-user-store), the **app_metadata** field should be referred to as **metadata** in the scripts you run to manage your metadata.
+You can store data points that are read-only to the user in `app_metadata`. Three common types of data for the `app_metadata` field:
 
-For example, you would *not* use this:
+* **Permissions**: privileges granted to certain users allowing them rights within the Application that others do not have;
+* **Plan information**: settings that cannot be changed by the user without confirmation from someone with the appropriate authority;
+* **External IDs**: identifying information used to associate users with external accounts.
 
-```json
-{
-    "emails": "jane.doe@example.com",
-    "user_metadata": {
-        "hobby": "surfing"
-    },
-    "app_metadata": {
-        "plan": "full"
-    }
-}
-```
+When determining where you should store specific pieces of data about your user, here are the general rules of thumb:
 
-Instead, you would use this:
-
-```json
-{
-    "emails": "jane.doe@example.com",
-    "user_metadata": {
-        "hobby": "surfing"
-    },
-    "metadata": {
-        "plan": "full"
-    }
-}
-```
+| Case | Storage Location |
+| --- | --- |
+| Data that should be **read-only** to the user | `app_metadata` |
+| Data that should be **editable** by the user | `user_metadata` |
+| Data unrelated to user authentication | External database |
 
 ## Keep reading
 
