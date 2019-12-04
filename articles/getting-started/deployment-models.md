@@ -150,12 +150,6 @@ The following tables describe operational and feature differences between these 
     </thead>
     <tbody>
         <tr>
-            <th class="info"><strong>User Search</strong></th>
-            <td><a href="/users/search/v3">v3</a></td>
-            <td><a href="/users/search/v3">v3</a></td>
-            <td><a href="/users/search/v3">v3</a></td>
-        </tr>
-        <tr>
             <th class="info"><strong>Tenant Log Search</strong></th>
             <td><a href="/logs/query-syntax#search-engine-v3-breaking-changes">v3</a></td>
             <td><a href="/logs/query-syntax">v1</a></td>
