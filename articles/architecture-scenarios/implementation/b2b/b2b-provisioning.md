@@ -1,6 +1,6 @@
 ---
 title: Provisioning
-description: User provisioning functionality and considerations for your B2B IAM implementation. 
+description: User provisioning functionality and considerations for your B2B IAM implementation.
 toc: true
 topics:
     - b2b
@@ -33,6 +33,17 @@ When provisioning organizations you need to consider the following:
     * Add an enterprise connection for this organization
         * This will include working with the organization to either update their existing configuration or add configuration for your Auth0 tenant if they are not a legacy organization.
     * Provision an administrator for the organization
+* To avoid mistakes, you may want to create an [Organization Admin Portal](#organization-admin-portal) to make it easier to provision new organizations.
+
+### Organization Admin Portal
+An organization admin portal is a portal that allows your administrators to create, modify, and remove organizations. There are multiple activities that need to be done both in your own system and your Auth0 tenant.  This portal will likely need to exist in your own system so it has access to your datastores and configuration.  However, Auth0 provides the [**Auth0 Management API**](/api/management/v2) so that you can incorporate changes to your Auth0 tenant at the same time that you create the changes in your own system.
+
+There are two main approaches that can be taken for creating a new organization.  The one you choose depends highly on your tolerance for how long it would take to deploy a new organization.
+* **Live Updates to your Auth0 Tenant**: If you want to be able to create new organizations in real-time, then you will likely want to make the changes directly to your Auth0 tenant using the Auth0 Management API.  This allows the changes to take place in real-time and allow the addition of a new organization to take effect immediately.
+
+::: warning
+  Live Updates do come with some things to consider.  There are certain operations that must be done in serial to avoid issues.  Enabling clients on a connection, adding callback URL's to an Application are two examples.  Any operation in the Management API where you must retrieve an entire list and re-submit the entire list with the new value added to it are operations that must be done in serial to avoid two parallel operations overwriting one of the values.
+:::
 
 ## User migration
 
@@ -40,7 +51,7 @@ When provisioning organizations you need to consider the following:
 
 ## Provisioning organization users
 
-An organization should map directly to one of your business customers/partners.  Each business/partner that you are working with has users who will be logging in. We call those end users *organization users*.  
+An organization should map directly to one of your business customers/partners.  Each business/partner that you are working with has users who will be logging in. We call those end users *organization users*.
 There are two different approaches to how to store your organization users:
 
 * **Isolated to the organization**: Every user *belongs* to exactly one organization.  It would not make sense for that user to be a part of more than one organization, and even if they were, it would make sense for them to have a separate “identity” for that other organization. See [Provisioning Users Isolated to the Organization](#provisioning-users-isolated-to-the-organization) for more information.  For example, a retail employee that works part time at two different stores has two different logins for each of those stores even if the stores both use the SaaS application.
@@ -48,7 +59,7 @@ There are two different approaches to how to store your organization users:
 
 ### Provisioning users isolated to the organization
 
-When users are isolated to the organization, this can provide a nice clean barrier between organizations.  If there are never any users that need to access more than one organization (or you would rather force them to create multiple accounts), then this is an attractive approach. 
+When users are isolated to the organization, this can provide a nice clean barrier between organizations.  If there are never any users that need to access more than one organization (or you would rather force them to create multiple accounts), then this is an attractive approach.
 
 You need to provision those users at the IdP level.  Each of the organizations will have its own IdP for accomplishing this.  This IdP will come in one of three flavors:
 
@@ -68,7 +79,7 @@ If you can keep a main Auth0 tenant with a one-to-one mapping between organizati
 
 ### Provisioning users shared between organizations
 
-When sharing users between organizations, you will need a way to authorize access. Since you won’t know where a user might belong when authenticating, we typically recommend storing your users in a single domain and then figuring out which organizations they can access through the use of user app metadata. Because of this, provisioning will often be done by starting with a User Invite workflow for the single database connection, and then app metadata will be used to authorize access. 
+When sharing users between organizations, you will need a way to authorize access. Since you won’t know where a user might belong when authenticating, we typically recommend storing your users in a single domain and then figuring out which organizations they can access through the use of user app metadata. Because of this, provisioning will often be done by starting with a User Invite workflow for the single database connection, and then app metadata will be used to authorize access.
 User app metadata allows information to be stored in a user’s profile that can impact a user's capabilities but which a user cannot change. Let’s say I’m a doctor and I belong to Clinic A and Clinic B. I might have an organizations object in my app metadata that looks like: `{ “organizations”: [“clinicA”,”clinicB”] }`, and then when attempting to log into the app for Clinic B, a rule can check that Clinic B is in the `organizations` array.
 
 ::: panel Best Practice
@@ -90,8 +101,8 @@ There are three different personas who might be [inviting users](/design/creatin
 * There may be another system responsible for creating users and that system may then create a user in Auth0.
 Regardless of the audience, the technique can be similar, with the exception of the third option which would require the use of the management API and could not be done using the Delegated Administration Extension. The rest is a matter of using the right authorization model for the application.
 User invite can be accomplished in a few ways:
-* Using the [Delegated Administration Extension](/extensions/delegated-admin/v3) 
-* Updating a pre-existing user administration system that you’ve already created to use the [Management API](/api/management/v2) 
+* Using the [Delegated Administration Extension](/extensions/delegated-admin/v3)
+* Updating a pre-existing user administration system that you’ve already created to use the [Management API](/api/management/v2)
 * Creating a new application to do this using the Management API.
 
 ::: panel Best Practice
@@ -111,12 +122,16 @@ A nice advantage of allowing your customers to use their own IdP is that they ca
 :::
 
 ::: warning
-  If mapping isn't enough and you must put some metadata in your system, keep in mind that Auth0 will not create the user until they log into the system the first time.  Therefore you will need to use rule extensibility to pull the initial information from somewhere else, or force users to log in the first time before you can add the metadata.  
+  If mapping isn't enough and you must put some metadata in your system, keep in mind that Auth0 will not create the user until they log into the system the first time.  Therefore you will need to use rule extensibility to pull the initial information from somewhere else, or force users to log in the first time before you can add the metadata.
 :::
 
 ## Project Planning Guide
 
 <%= include('../../_includes/_planning.md', { platform: 'b2b' }) %>
+
+## Multiple Organization Architecture (Multitenancy)
+
+<%= include('../../_includes/_multitenancy.md', { platform: 'b2b' }) %>
 
 ## Keep reading
 

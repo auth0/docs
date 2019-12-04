@@ -24,7 +24,6 @@ By default, there is one user profile created for each user identity, and there 
 * What should a user do if they want to change their password?
 <% if (platform === "b2b") { %>
 * How do you provide an administrator from a third-party organization with the ability to manage their users?
-* How do you create new organizations within your application?
 <%  } %>
 
 Auth0 provides for the storage of [Metadata](#metadata) against a user’s profile, which allows for the capture of additional information, such as preference for language and/or accessibility in order to enhance the user experience. Metadata can be used to store both information that a user can change, and also information they can’t; the latter giving you the capability of associating, for example, a user profile with records in your existing systems without modifying existing implementation.
@@ -43,8 +42,6 @@ Alternatively, you can use the Auth0 Dashboard to [manage aspects of a user’s 
 
 <% if (platform === "b2b") { %>
 If you need to provide a way for your customers to have an administrator manage their own users when they are storing those credentials in your system, you can either build something yourself or use an Auth0 Extension. See [Admin Portal](#admin-portal) for more information.
-
-If you have an application with multiple organizations, in addition to administering the users within an organization, it will be necessary to create entirely new organizations and decommission old organizations. See [Organization Admin Porta](/#organization-admin-portal) for some options to accomplish this.
 <%  } %>
 
 ::: panel Get Started with Auth0 Video

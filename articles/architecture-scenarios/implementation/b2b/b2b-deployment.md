@@ -19,6 +19,10 @@ useCase:
 
 <%= include('../../_includes/_planning.md', { platform: 'b2b' }) %>
 
+## Multiple Organization Architecture (Multitenancy)
+
+<%= include('../../_includes/_multitenancy.md', { platform: 'b2b' }) %>
+
 ## Keep reading
 
 * [Architecture](/architecture-scenarios/implementation/b2b/b2b-architecture)
