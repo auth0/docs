@@ -1,5 +1,5 @@
 ---
-description: How to work with app metadata, user metadata, and client metadata in Rules.
+description: Learn how to work with app metadata, user metadata, and client metadata in Rules.
 toc: true
 topics:
   - rules
@@ -11,9 +11,9 @@ useCase: extensibility-rules
 
 # Metadata in Rules
 
-This article explains how to read, update and delete [metadata](/metadata) using [Rules](/rules).
+You can read, update and delete [metadata](/metadata) using [Rules](/rules).
 
-Each sample rule in this article assumes that the user and their information is represented by the following JSON snippet:
+In the following sections, we will refer to this example where the user and their information is represented by the following JSON snippet:
 
 ```json
 {
@@ -48,8 +48,6 @@ function(user, context, callback){
 }
 ```
 
-### Read `user_metadata`
-
 Similarly, you can use the color preference:
 
 ```js
@@ -62,37 +60,7 @@ function(user, context, callback){
 }
 ```
 
-### Read `client_metadata`
-
-`clientMetadata` is an optional, top-level property of the context object. Existing applications will have no value for this property.
-
-```js
-function(user, context, callback){
-  context.clientMetadata = context.clientMetadata || {};
-  if (context.clientMetadata.usersuppliedkey1 === 'black'){
-    // this code would not be executed for the user
-  }
-  ...
-}
-```
-
-#### Read `client_metadata` with the Management API
-
-`client_metadata` is included amongst in the response to the `GET /api/v2/clients` and `GET /api/v2/client/{id}` endpoints
-
-#### Create applications with `client_metadata` properties
-
-A `client_metadata` object can be included when creating a new application via the `POST /api/v2/` applications endpoint.
-
-#### Create `client_metadata` properties in the dashboard
-
-`client_metadata` key value pairs can also be added in [the dashboard](${manage_url}/#/applications), by going to **Applications**. Then select the settings(the gear icon) of the application you wish to edit.
-
-Scroll down and click the link **Show Advanced Settings**. Then you will be in the **Application Metadata** section, enter the key and value then click **CREATE**.
-
-![Create application metadata](/media/articles/rules/adv-settings-create.png)
-
-## Update Metadata
+## Update metadata
 
 All rules include an `auth0` object (which is an instance of the [node-auth0 SDK](https://github.com/auth0/node-auth0)) that is capable of calling the [Auth0 Management API v2](/api/management/v2). The `auth0` object is preconfigured with the necessary permissions to update users.
 
@@ -226,7 +194,30 @@ This results in the following JSON representation of the user profile details:
 }
 ```
 
-### Update `client_metadata`
+## Manage `client_metadata`
+
+`clientMetadata` is an optional, top-level property of the context object. Existing applications will have no value for this property.
+
+```js
+function(user, context, callback){
+  context.clientMetadata = context.clientMetadata || {};
+  if (context.clientMetadata.usersuppliedkey1 === 'black'){
+    // this code would not be executed for the user
+  }
+  ...
+}
+```
+
+You can read and add to the `client_metadata` using either the Management API or the Dashboard. 
+
+* In the Management API, the `client_metadata` is included in the response to the `GET /api/v2/clients` and `GET /api/v2/client/{id}` endpoints. A `client_metadata` object can be included when creating a new application via the `POST /api/v2/` endpoint.
+
+* In the Dashboard, you can add the `client_metadata` key value pairs in [Applications](${manage_url}/#/applications). 
+  * Select the settings (the gear icon) of the application you wish to edit. 
+  * Scroll down and click the link **Show Advanced Settings**. 
+  * In the **Application Metadata** section, enter the key and value then click **CREATE**.
+
+![Create application metadata](/media/articles/rules/adv-settings-create.png)
 
 Application metadata can be updated using the [`PATCH /api/v2/clients/{id}`](/api/management/v2#!/Users/patch_users_by_id) endpoint, supplying an application object with the `client_metadata property`, whose value is an object containing the metadata you'd like to change.
 

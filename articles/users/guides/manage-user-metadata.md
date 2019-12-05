@@ -47,9 +47,7 @@ The Auth0 Management APIv2 token is required to call the Auth0 Management API. L
 
 ## Lock library
 
-You can define, add, read, and update the `user_metadata` using Auth0's [Lock](/libraries/lock) library. 
-
-For information on adding `user_metadata` on signup, please see [Additional Signup Fields](/libraries/lock/v10/customization#additionalsignupfields-array-)
+You can define, add, read, and update the `user_metadata` using Auth0's [Lock](/libraries/lock) library. For information on adding `user_metadata` on signup, see [Additional Signup Fields](/libraries/lock/v10/customization#additionalsignupfields-array-).
 
 When using Lock, you can read the user's `user_metadata` properties the same way you would for any other user profile property. For example, the following code snippet retrieves the value associated with `user_metadata.hobby` and assigns it to an element on the page:
 

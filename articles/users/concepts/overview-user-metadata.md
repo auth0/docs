@@ -35,8 +35,6 @@ In the following example, the user `jane.doe@example.com` has the following meta
 }
 ```
 
-You can [search](/users/search/v3/query-syntax), view, create, and edit metadata using Rules and Auth0 API enpoints.
-
 In the above example metadata, within a [Rule](/rules) or via a [call to the Management API](/users/guides/read-metadata), you could reference specific items from the data set as follows:
 
 ```js
