@@ -475,10 +475,10 @@ articles:
           - title: "Customize Emails"
             url: "/anomaly-detection/guides/customize-blocked-account-emails"
 
-          - title: "Enable and Disable Brute Force Protection"
+          - title: "Enable/Disable Brute Force Protection"
             url: "/anomaly-detection/guides/enable-disable-brute-force-protection"
 
-          - title: "Breached Password Detection Triggers"
+          - title: "Breached Password Triggers"
             url: "/anomaly-detection/references/breached-password-detection-triggers-actions"
 
           - title: "Brute-Force Protection Triggers"
