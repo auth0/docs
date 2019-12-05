@@ -13,6 +13,6 @@ When implementing passwordless authentication with "magic links", the user is se
 
 With magic link transactions, both the initial request and its response **must take place in the same browser or the transaction will fail**. This is particularly relevant for iOS users, who cannot change their default web browser. For example, the user might make the initial request using the Chrome browser, but when the user opens the magic link in their email, iOS automatically opens it in Safari (the default browser). If this happens, the transaction will fail.
 
-<%= include('../_includes/_introduction-email') %>
+<%= include('../_includes/_introduction-email-magic-link') %>
 
 <%= include('../_includes/_setup-email') %>
