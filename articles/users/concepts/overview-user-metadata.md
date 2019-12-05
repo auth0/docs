@@ -1,26 +1,33 @@
 ---
-description: Understand how metadata works with Auth0.
+description: Understand how user metadata and app metadata can be used to store information that does not originate from an identity provider.
 topics: 
    - metadata
    - rules
    - endpoints
 contentType: concept
 useCase: manage-users
-v2: true
 ---
 
 # Metadata
 
-In addition to the Normalized User Profile information, metadata can be stored in an Auth0 user profile. Metadata provides a way to store information that did not originate from an identity provider, or a way to store information that overrides what an identity provider supplies.
+::: note
+All metadata was previously (in Management API v1) stored in the `metadata` field. That data is now stored in the `app_metadata` field.
+:::
 
-Auth0 distinguishes between two types of metadata:
+In addition to the Normalized User Profile information, you can use metadata to store information that does not originate from an identity provider, or a way to store information that overrides what an identity provider supplies.
 
-* **User metadata**: used to store user attributes (e.g., user preferences) that do *not* impact a user's core functionality;
-* **App metadata**: used to store information (e.g., a user's support plan, security <dfn data-key="role">roles</dfn>, or access control groups) that can impact a user's core functionality, such as how an application functions or what the user can access.
+Auth0 distinguishes between two types of metadata, intended to store specific kinds of information:
+
+* **User metadata**: stores user attributes such as preferences that do *not* impact a user's core functionality. Data stored in `user_metadata` can be editable by users if you build a form for them to use. 
+* **App metadata**: stores information (such as, support plan subscriptions, security <dfn data-key="role">roles</dfn>, or access control groups) that can impact a user's core functionality, such as how an application functions or what the user can access. Data stored in `app_metadata` cannot be edited by users. 
+
+::: note
+Data unrelated to user authentication should always be stored in an external database and not in the user profile metadata. 
+:::
 
 ## User metadata
 
-You can read, create, and edit user metadata using Rules and Auth0 APIs.
+You can read, create, and edit user metadata using Rules and Auth0 API enpoints.
 
 ### Rules
 
@@ -48,9 +55,17 @@ You can use the following [Management API](/api/management/v2) endpoints to retr
 | [Create User](/api/management/v2#!/Users/post_users) | Create a new user and (optionally) set metadata. For a body sample see [POST /api/v2/users](/api/management/v2#!/Users/post_users). |
 | [Update User](/api/management/v2#!/Users/patch_users_by_id) | Update a user using a JSON object. For example requests see [PATCH /api/v2/users/{id}](/api/management/v2#!/Users/patch_users_by_id). | 
 
-### Metadata example
+## App metadata
 
-For example, the following metadata is stored for a user with the email address `jane.doe@example.com`:
+You can store data points that are read-only to the user in `app_metadata`. Three common types of data for the `app_metadata` field:
+
+* **Permissions**: privileges granted to certain users allowing them rights within the Application that others do not have;
+* **Plan information**: settings that cannot be changed by the user without confirmation from someone with the appropriate authority;
+* **External IDs**: identifying information used to associate users with external accounts.
+
+## Metadata example
+
+In the following example, the user `jane.doe@example.com` also has the following metadata stored with their profile. 
 
 ```json
 {
@@ -71,26 +86,6 @@ console.log(user.email); // "jane.doe@example.com"
 console.log(user.user_metadata.hobby); // "surfing"
 console.log(user.app_metadata.plan); // "full"
 ```
-
-::: note
-All metadata was previously (in Management API v1) stored in the `metadata` field. That data is now stored in the `app_metadata` field.
-:::
-
-## App metadata
-
-You can store data points that are read-only to the user in `app_metadata`. Three common types of data for the `app_metadata` field:
-
-* **Permissions**: privileges granted to certain users allowing them rights within the Application that others do not have;
-* **Plan information**: settings that cannot be changed by the user without confirmation from someone with the appropriate authority;
-* **External IDs**: identifying information used to associate users with external accounts.
-
-When determining where you should store specific pieces of data about your user, here are the general rules of thumb:
-
-| Case | Storage Location |
-| --- | --- |
-| Data that should be **read-only** to the user | `app_metadata` |
-| Data that should be **editable** by the user | `user_metadata` |
-| Data unrelated to user authentication | External database |
 
 ## Keep reading
 
