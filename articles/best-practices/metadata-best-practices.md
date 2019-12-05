@@ -79,7 +79,7 @@ Instead, you would use this:
 
 * [Metadata](/users/concepts/overview-user-metadata)
 * [Metadata Field Name Rules](/users/references/metadata-field-name-rules) 
-* [Update Metadata Properties with the Management API](/users/guides/update-metadata-properties-with-management-api)
+* [Update Metadata with the Management API](/users/guides/update-metadata-properties-with-management-api)
 * [Manage User Metadata](/users/guides/manage-user-metadata)
 * [User Metadata in Rules](/rules/current/metadata-in-rules)
 * [User Data Storage Best Practices](/best-practices/user-data-storage-best-practices)

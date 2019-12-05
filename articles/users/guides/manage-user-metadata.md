@@ -22,7 +22,6 @@ When you use the Authentication API's [Signup endpoint](/api/authentication?shel
 
 <%= include('../../_includes/_metadata_on_signup_warning') %>
 
-
 ## With the Management API
 
 Using [Auth0's Management APIv2](/api/management/v2), you can create a user and set both their `app_metadata` and `user_metadata` fields. You can also update these two fields.
@@ -31,7 +30,7 @@ Using [Auth0's Management APIv2](/api/management/v2), you can create a user and 
 The Auth0 Management APIv2 token is required to call the Auth0 Management API. Learn more about [Access Tokens for the Management API](/api/management/v2/tokens).
 :::
 
-## With the Lock Library
+::: panel Lock Library
 
 You can define, add, read, and update the `user_metadata` using Auth0's [Lock](/libraries/lock) library. 
 
@@ -47,6 +46,8 @@ lock.getUserInfo(accessToken, function(error, profile) {
   }
 });
 ```
+:::
+
 ## Metadata and custom databases
 
 If you are using a [custom database](/connections/database#using-your-own-user-store), the **app_metadata** field should be referred to as **metadata** in the scripts you run to manage your metadata.
@@ -81,10 +82,10 @@ Instead, you would use this:
 
 ## Keep reading
 
-* [Metadata Overview](/users/concepts/overview-user-metadata)
+* [Metadata](/users/concepts/overview-user-metadata)
 * [Read Metadata](/users/guides/read-metadata)
 * [Set Metadata Properties on Creation](/users/guides/set-metadata-properties-on-creation)
-* [Update Metadata Properties with the Management API](/users/guides/update-metadata-properties-with-management-api)
+* [Update Metadata with the Management API](/users/guides/update-metadata-properties-with-management-api)
 * [Metadata Field Name Rules](/users/references/metadata-field-name-rules)
 * [User Data Storage Best Practices](/best-practices/user-data-storage-best-practices)
 * [User Data Storage Scenario](/users/references/user-data-storage-scenario)

@@ -42,7 +42,7 @@ Search&nbsp;Field | Data&nbsp;Type | Description
 `blocked` | boolean | The `true/false` value indicating if the user has been blocked.
 `email.domain` | text | The domain part of the user's email.
 
-[User metadata](/users/concepts/overview-user-metadata) fields may be used with:
+[Metadata](/users/concepts/overview-user-metadata) fields may be used with:
     
 * Boolean
 * Numeric: (integer or double)

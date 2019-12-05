@@ -236,7 +236,7 @@ Furthermore, all of your job-related data is automatically deleted after 24 hour
 ## Keep reading
 
 * [User Import/Export Extension](/extensions/user-import-export)
-* [User Metadata](/users/concepts/overview-user-metadata)
+* [Metadata](/users/concepts/overview-user-metadata)
 * [Sort Search Results](/users/search/v3/sort-search-results)
 * [User Search Query Syntax](/users/search/v3/query-syntax)
 * [Normalized User Profile Schema](/users/normalized/auth0/normalized-user-profile-schema)
