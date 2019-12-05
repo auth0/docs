@@ -87,7 +87,7 @@ When you create your job, you'll need to provide:
 
 ### CSV format
 
-If you export user data in CSV format and want to include metadata information, specify each [metadata field](/users/references/metadata-field-name-rules) that you want to include. 
+If you export user data in CSV format and want to include metadata information, specify each metadata field that you want to include. 
 
 For example, for metadata structured like this:
 

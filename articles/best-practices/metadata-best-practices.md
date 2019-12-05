@@ -3,6 +3,7 @@ description: Best practices for metadata in Auth0.
 topics:
     - best-practices
     - metadata
+toc: true
 contentType: reference
 useCase:
     - manage users
@@ -12,18 +13,79 @@ useCase:
 
 # Metadata Best Practices
 
-## Metadata field names and types
+There are three types of data typically stored in the `app_metadata` field:
 
-For field names, observe the following guidelines:
+* **Permissions**: privileges granted to certain users allowing them rights within the application that others do not have.
+* **Plan information**: settings that cannot be changed by the user without confirmation from someone with the appropriate authority.
+* **External IDs**: identifying information used to associate users with external accounts. 
 
-* [Avoid periods and ellipses](/users/references/metadata-field-name-rules#avoid-periods-and-ellipses)
-* [Avoid dynamic field names](/users/references/metadata-field-name-rules#avoid-dynamic-field-names)
+## Metadata field names
 
-For a list of fields that can *not* be stored within `app_metadata`, see [Field Restrictions](/users/references/metadata-field-name-rules#field-restrictions). 
+For field names, avoid periods and ellipses and dynamic field names.
 
-Use a consistent datatype each time you create or update a given metadata field. Using `user.user_metadata.age = "23"` for one user and `user.user_metadata.age = 23` for another user will cause issues when retrieving the data.
+### Avoid periods and ellipses
 
-User credentials such as Access Tokens, Refresh Tokens, and additional passwords should not be stored in `app_metadata`, as these will be visible to any Auth0 Dashboard administrator.
+Metadata field **names** must not contain a dot. For example, use of the following field name would return a Bad Request (400) error:
+
+```json
+{
+    "preference.color": "pink"
+}
+```
+
+One way of handling this limitation is to nest attributes:
+
+```json
+{
+    "preference": {
+        "color": "pink"
+    }
+}
+```
+
+Alternately, you can use any delimiter that is not  `.` or `$`.
+
+However, the usage of the `.` delimiter is acceptable in the data **values** such as in the below example:
+
+```json
+{
+    "preference": "light.blue"
+}
+```
+
+### Avoid dynamic field names
+
+Do not use dynamic field names. For example, instead of using the following structure:
+
+```json
+"participants": {
+    "Alice" : {
+        "role": "sender"
+    },
+    "Bob" : {
+        "role": "receiver"
+    }
+}
+```
+
+Use this:
+
+```json
+"participants": [
+    {
+        "name": "Alice",
+        "role": "sender"
+    },
+    {
+        "name" : "Bob",
+        "role": "receiver"
+    }
+]
+```
+
+## Metadata data types
+
+Use a consistent data type each time you create or update a given metadata field. For example, if you use `user.user_metadata.age = "23"` for one user and `user.user_metadata.age = 23` for another user, it will cause issues when retrieving the data.
 
 ## Metadata storage and size limits
 
@@ -34,10 +96,6 @@ Auth0 limits the total size of your user metadata to 16 MB. However, when using 
 When setting the `user_metadata` field with the Authentication API Signup endpoint, your metadata is limited to a maximum of 10 fields and 500 characters per field. The 500 character limit includes the name of the field.
 
 When setting the `user_metadata` field using the [Authentication API's Signup endpoint](/api/authentication?javascript#signup), you are limited to a maximum of 10 `String` fields and 500 characters. For an example of working with metadata during a custom signup process, see [Custom Signup > Using the API](/libraries/custom-signup#using-the-api).
-
-## User metadata updates by users
-
-An authenticated user can perform actions that modify data in their profile's `user_metadata` if you build a form for them to use with the [Auth0 Management API](/api/management/v2), however, they cannot modify their `app_metadata`. 
 
 ## Customize emails with metadata
 
@@ -75,11 +133,37 @@ Instead, you would use this:
 }
 ```
 
+## App metadata restrictions
+
+::: warning
+User credentials such as Access Tokens, Refresh Tokens, and additional passwords should not be stored in `app_metadata`, as these will be visible to any Auth0 Dashboard administrator.
+:::
+
+The `app_metadata` field should **not** contain any of these properties:
+
+* `__tenant`
+* `_id`
+* `blocked`
+* `clientID`
+* `created_at`
+* `email_verified`
+* `email`
+* `globalClientID`
+* `global_client_id`
+* `identities`
+* `lastIP`
+* `lastLogin`
+* `loginsCount`
+* `metadata`
+* `multifactor_last_modified`
+* `multifactor`
+* `updated_at`
+* `user_id`
+
 ## Keep reading
 
 * [Metadata](/users/concepts/overview-user-metadata)
-* [Metadata Field Name Rules](/users/references/metadata-field-name-rules) 
-* [Update Metadata with the Management API](/users/guides/update-metadata-properties-with-management-api)
 * [Manage User Metadata](/users/guides/manage-user-metadata)
+* [Update Metadata with the Management API](/users/guides/update-metadata-properties-with-management-api)
 * [User Metadata in Rules](/rules/current/metadata-in-rules)
 * [User Data Storage Best Practices](/best-practices/user-data-storage-best-practices)

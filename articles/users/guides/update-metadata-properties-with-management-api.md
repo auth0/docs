@@ -144,10 +144,10 @@ Similarly, this clears out `user_metadata`:
   "user_metadata": {}
 }
 ```
+
 ## Keep reading
 
 * [Access Tokens for the Management API](/api/management/v2/concepts/tokens)
 * [Manage User Metadata](/users/guides/manage-user-metadata)
 * [Read Metadata](/users/guides/read-metadata)
 * [Set Metadata Properties on Creation](/users/guides/set-metadata-properties-on-creation)
-* [Metadata Field Name Rules](/users/references/metadata-field-name-rules)

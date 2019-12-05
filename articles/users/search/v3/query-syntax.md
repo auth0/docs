@@ -163,5 +163,4 @@ Range and wildcard searches are not available on user metadata fields.
 * [Sort Search Results](/users/search/v3/sort-search-results)
 * [View Search Results by Page](/users/search/v3/view-search-results-by-page)
 * [Bulk User Exports](/users/guides/bulk-user-exports)
-* [Metadata Field Name Rules](/users/references/metadata-field-name-rules)
 * [Search Best Practices](/best-practices/search-best-practices)

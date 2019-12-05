@@ -576,12 +576,6 @@ articles:
           - title: Update Metadata with the Management API
             url: /users/guides/update-metadata-properties-with-management-api
 
-          - title: Metadata Field Names
-            url: /users/references/metadata-field-name-rules
-
-          - title: App Metadata Restrictions
-            url: /users/references/app_metadata-restrictions
-
           - title: Metadata Best Practices
             url: /best-practices/metadata-best-practices
 
