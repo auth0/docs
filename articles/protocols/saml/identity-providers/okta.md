@@ -18,15 +18,10 @@ This article walks you through configuring Okta for use as an identity provider.
 
 ## Configure Okta
 
-Sign in to the [Okta Developer Console](https://login.okta.com). If you don't already have an Okta account, you will need to create one. 
- 
-First, use the [App Integration Wizard](https://help.okta.com/en/prod/Content/Topics/Apps/Apps_App_Integration_Wizard.htm) to add an application for use with Auth0. 
-
-Next, use Okta's [SAML App Wizard](https://help.okta.com/en/prod/Content/Topics/Apps/Apps_App_Integration_Wizard.htm#SAMLWizard) to create your <dfn data-key="security-assertion-markup-language">SAML</dfn> integration.
-
-You'll be directed to the **Sign On** page for your newly-created app. Click on **View Setup Instructions** to complete the process.
-
-Take note of the **Identity Provider Single Sign-On URL**, and download a copy of the X.509 certificate.
+1. Sign in to the [Okta Developer Console](https://login.okta.com). If you don't already have an Okta account, you will need to create one. 
+2. Use the [App Integration Wizard](https://help.okta.com/en/prod/Content/Topics/Apps/Apps_App_Integration_Wizard.htm) to add an application for use with Auth0. 
+3. Use Okta's [SAML App Wizard](https://help.okta.com/en/prod/Content/Topics/Apps/Apps_App_Integration_Wizard.htm#SAMLWizard) to create your <dfn data-key="security-assertion-markup-language">SAML</dfn> integration. When done, you'll be directed to the **Sign On** page for your newly-created app. Click on **View Setup Instructions** to complete the process.
+4. Take note of the **Identity Provider Single Sign-On URL**, and download a copy of the X.509 certificate.
 
 ## Configure Auth0
 
