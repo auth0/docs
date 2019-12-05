@@ -1,5 +1,6 @@
 ---
-description: Best practices for writing and managing Auth0 Rules.
+title: Rules Best Practices
+description: Learn about best practices for writing and managing Auth0 Rules.
 toc: true
 topics:
   - best-practices
@@ -32,7 +33,7 @@ A rule is essentially an anonymous JavaScript function that is passed 3 paramete
  ```
 
 ::: note
-**Do not** be tempted to add a trailing semicolon at the end of the function declaration as this will break rule execution. Also, anonymous functions make it hard in [debugging](#debugging) situations to interpret the call-stack generated as a result of any [exceptional error](#exceptions) condition. For convenience, consider providing a function name using some compact and unique naming convention to assist with diagnostic analysis (e.g., `function MyRule1 (user, context, callback) {...}`).
+**Do not** be tempted to add a trailing semicolon at the end of the function declaration as this will break rule execution. Also, anonymous functions make it hard in [debugging](/best-practices/debugging) situations to interpret the call-stack generated as a result of any [exceptional error]((/best-practices/error-handling#exceptions) condition. For convenience, consider providing a function name using some compact and unique naming convention to assist with diagnostic analysis (e.g., `function MyRule1 (user, context, callback) {...}`).
 :::
 
 Rules execute in the pipeline associated with the generation of artifacts for authenticity that forms part of the overall [Auth0 engine](https://cdn.auth0.com/blog/auth0-raises-100m-to-fuel-the-growth/inside-the-auth0-engine-high-res.jpg). When a pipeline is executed, all enabled rules are packaged together in the order in which they are listed and sent as one code blob to be executed as an Auth0 serverless Webtask.
@@ -45,7 +46,7 @@ As a best practice, we recommend that the total size of implementation for all e
 
 ## Order
 
-The order in which rules are displayed in the [Auth0 Dashboard](/dashboard) (see image above) dictates the order in which the rules will be executed. This is important because one rule may make one or more definitions within the [environment](#environment) associated with execution that another rule may depend upon. In this case, the rule making the definition(s) should execute before the rule that makes use of it.
+The order in which rules are displayed in the [Auth0 Dashboard](/dashboard) (see image above) dictates the order in which the rules will be executed. This is important because one rule may make one or more definitions within the [environment](/best-practices/custom-db-connections/environment) associated with execution that another rule may depend upon. In this case, the rule making the definition(s) should execute before the rule that makes use of it.
 
 ::: panel Best Practice
 As a recommended best practice, run expensive rules (i.e., rules that call out to APIs, including the Auth0 Management API) as late as possible. If you have other, less expensive rules that could cause an `unauthorized` access determination, then you should have these run first.
@@ -62,12 +63,12 @@ Auth0 serverless Webtask containers can make use of a wide range of [`npm`](http
 By default, a large list of publicly available npm modules are [supported out-of-the-box](https://auth0-extensions.github.io/canirequire/). This list has been compiled and vetted for any potential security concerns. If you require an npm module that is not supported out-of-the-box, then a request can be made via the [Auth0 support](https://support.auth0.com/) portal or via your Auth0 representative. Auth0 will evaluate your request to determine suitability. There is currently no support in Auth0 for the use of npm modules from private repositories.
 
 ::: panel Best Practice
-When using `npm` modules to access external services, it’s recommended best practice to [keep API requests to a minimum](#minimize-api-requests), [avoid excessive calls to paid services](#limit-calls-to-paid-services), and avoid potential security exposure by [limiting what is sent](#don-t-send-entire-context-object-to-external-services). For more information, see the [performance](#performance) and [security](#security) sections below.
+When using `npm` modules to access external services, it’s recommended best practice to [keep API requests to a minimum](/best-practices/performance#minimize-api-requests), [avoid excessive calls to paid services](/best-practices/performance#limit-calls-to-paid-services), and avoid potential security exposure by [limiting what is sent](#do-not-send-entire-context-object-to-external-services). For more information, see [Performance Best Practices](/best-practices/performance) and [Security Best Practices](/best-practices/custom-db-connections/security) sections below.
 :::
 
 ### Environment variables
 
-The Auth0 rule ecosystem supports the notion of environment variables, accessed via what is defined as the globally available [configuration](/rules/guides/configuration) object. Configuration should be treated as read-only and should be used for [storing sensitive information](/best-practices/rules#store-sensitive-values-in-settings), such as credentials or API keys for external service access. This mitigates having security-sensitive values hard coded in a rule.
+The Auth0 rule ecosystem supports the notion of environment variables, accessed via what is defined as the globally available [configuration](/rules/guides/configuration) object. Configuration should be treated as read-only and should be used for [storing sensitive information](#store-security-sensitive-values-in-rules-settings), such as credentials or API keys for external service access. This mitigates having security-sensitive values hard coded in a rule.
 
 It can also be used to support whatever [Software Development Life Cycle (SDLC)](/dev-lifecycle/setting-up-env) best practice strategies you employ by allowing you to define variables that have tenant-specific values. This mitigates hard code values in a rule which may change depending upon which tenant is executing it.
 
@@ -111,10 +112,10 @@ As well as being restricted (i.e., supporting a limited number of `ManagementCli
 Alternative access to the Management API from within a rule is typically achieved by instantiating an independant instance of the [`ManagementClient`](https://github.com/auth0/node-auth0#management-api-client). This will give you access to all current capabilities, including logic like automatic retries on `429` errors as a result of [rate limiting policy](/policies/rate-limits). In addition, if you only require the default scopes, then you can even initialize the new instance using the Access Token associated with the `auth0` object.
 :::
 
-Like the [`context`](#context-object) object (described below), the `auth0` object contains security-sensitive information, so you should not pass it to any external or third-party service. Further, the Auth0 Management API is both [rate limited](/policies/rate-limits#management-api-v2) and subject to latency, so you should be judicious regarding [how often calls are made](#minimize-api-requests).
+Like the [`context`](#context-object) object (described below), the `auth0` object contains security-sensitive information, so you should not pass it to any external or third-party service. Further, the Auth0 Management API is both [rate limited](/policies/rate-limits#management-api-v2) and subject to latency, so you should be judicious regarding [how often calls are made](/best-practices/performance#minimize-api-requests).
 
 ::: panel Best Practice
-It’s recommended best practice to make use of the `auth0` object (and any other mechanisms for calling the Auth0 Management API) sparingly and to always make sure that adequate [exception](#exceptions) and [error](#error-handling) handling is employed to prevent unexpected interruption of pipeline execution.
+It’s recommended best practice to make use of the `auth0` object (and any other mechanisms for calling the Auth0 Management API) sparingly and to always make sure that adequate [exception](/best-practices/error-handling#exceptions) and [error](/best-practices/error-handling) handling is employed to prevent unexpected interruption of pipeline execution.
 :::
 
 ## Execution
@@ -133,7 +134,7 @@ Asynchronous execution will result in a (JavaScript) callback being executed aft
 
 ### `context` object
 
-The [`context`](/rules/references/context-object) object provides information about the context in which a rule is run (such as client identifier, connection name, session identifier, request context, protocol, etc). Using the context object, a rule can determine the reason for execution. For example, as illustrated in the sample fragment below, [`context.clientID`](/rules/references/context-object#properties-of-the-context-object) as well as [`context.protocol`](/rules/references/context-object#properties-of-the-context-object) can be used to implement conditional processing to determine when rule logic is executed. The sample also shows some best practices for [exception handling](#exceptions), use of [`npm` modules](#npm-modules) (for `Promise` style processing), and the [`callback`](#callback-object) object.
+The [`context`](/rules/references/context-object) object provides information about the context in which a rule is run (such as client identifier, connection name, session identifier, request context, protocol, etc). Using the context object, a rule can determine the reason for execution. For example, as illustrated in the sample fragment below, [`context.clientID`](/rules/references/context-object#properties-of-the-context-object) as well as [`context.protocol`](/rules/references/context-object#properties-of-the-context-object) can be used to implement conditional processing to determine when rule logic is executed. The sample also shows some best practices for [exception handling](/best-practices/error-handling#exceptions), use of [`npm` modules](/best-practices/custom-db-connections/environment#npm-modules) (for `Promise` style processing), and the [`callback`](#callback-object) object.
 
 ```js
   switch (context.protocol) {
@@ -176,14 +177,14 @@ The [`context`](/rules/references/context-object) object provides information ab
 ```
 
 ::: warning
-We highly recommended reviewing best practices when [using contextual bypass logic for Multi-Factor Authentication checking](#contextual-bypass-for-multi-factor-authentication-mfa-). For example, **serious security flaws** can surface if use of MFA is predicated on `context.request.query.prompt === 'none'`. In addition, the content of the `context` object is **security sensitive**, so you should [**not** directly pass the object to any external or third-party service](#don-t-send-entire-context-object-to-external-services).
+We highly recommended reviewing best practices when [using contextual bypass logic for Multi-Factor Authentication checking](#contextual-bypass-for-multi-factor-authentication-mfa-). For example, **serious security flaws** can surface if use of MFA is predicated on `context.request.query.prompt === 'none'`. In addition, the content of the `context` object is **security sensitive**, so you should [**not** directly pass the object to any external or third-party service](#do-not-send-entire-context-object-to-external-services).
 :::
 
 #### Redirection
 
 [Redirect from rule](/rules/guides/redirect) provides the ability for implementing custom authentication flows that require additional user interaction (i.e., beyond the standard login form) and is triggered via use of [context.redirect](/rules/references/context-object#properties-of-the-context-object). Redirect from rule can only be used when calling the [`/authorize`](/api/authentication#login) endpoint.
 
-Redirection to your own hosted user interface is performed before a pipeline completes and can be triggered *only once* per `context.clientID` context. Redirection should only [use HTTPS](#use-https) when executed in a production environment, and additional parameters should be kept to a minimum to help mitigate [common security threats](/security/common-threats). Preferably, the Auth0-supplied `state` is the only parameter supplied.
+Redirection to your own hosted user interface is performed before a pipeline completes and can be triggered *only once* per `context.clientID` context. Redirection should only [use HTTPS](#always-use-https) when executed in a production environment, and additional parameters should be kept to a minimum to help mitigate [common security threats](/security/common-threats). Preferably, the Auth0-supplied `state` is the only parameter supplied.
 
 Once redirected, your own hosted user interface will execute in a user authenticated context, and can obtain authenticity artifacts by the virtue of Auth0 SSO. Obtaining these artifacts&mdash;e.g., an ID Token in [OpenID Connect (OIDC)](/protocols/oidc), and/or an <dfn data-key="access-token">Access Token</dfn> in [OAuth 2.0](/protocols/oauth2)&mdash;is achieved by using a `context.clientID` context **that is not** the one which triggered redirect. To do this, you would typically redirect to the `/authorize` endpoint; in the case of a SPA for example, this can be achieved seamlessly via use of [silent authentication](/libraries/auth0js/v9#using-checksession-to-acquire-new-tokens). This will create a new pipeline that will cause all rules to execute again, and you can use the `context` object within a rule to perform conditional processing (as discussed above).
 
@@ -245,7 +246,7 @@ Failure to call the function will result in a stall of pipeline execution, and u
 As can be seen in the example above, the `callback` function can be called with up to three parameters. The first parameter is mandatory and provides an indication of the status of rule operation. The second and third parameters are optional and represent the user and the context to be supplied to the next rule in the pipeline. If these are specified, then it is a recommended best practice to pass the [`user`](#user-object) and [`context`](#context-object) object (respectively) as supplied to the rule.
 
 ::: panel Best Practice
-While it can be acceptable to modify certain contents of either the `user` or the `context` object for certain situations, as a recommended best practice you should refrain from passing a newly-created instance of either the `user` or the `context` object. Passing anything other than a `user` or `context` object will have unpredictable results and may lead to an [exception](#exceptions) or [error](#error-handling) condition.
+While it can be acceptable to modify certain contents of either the `user` or the `context` object for certain situations, as a recommended best practice you should refrain from passing a newly-created instance of either the `user` or the `context` object. Passing anything other than a `user` or `context` object will have unpredictable results and may lead to an [exception](/best-practices/error-handling#exceptions) or [error](/best-practices/error-handling) condition.
 :::
 
 The status parameter should be passed as either `null`, an instance of an `Error` object, or an instance of an `UnauthorizedError` object. Specifying null will permit the continuation of pipeline processing, while any of the other values will terminate the pipeline; an `UnauthorizedError` signals [denial of access and allows information to be returned to the originator of the authentication operation](/rules/references/legacy#deny-access-based-on-a-condition) regarding the reason why access is denied. Passing any other value for any of these parameters will have unpredictable results and may lead to an exception or error condition.
@@ -256,7 +257,7 @@ As authentication has already occurred, any early exit of the pipeline with an (
 Any call to the [`/logout`](/api/authentication#logout) endpoint could be interrupted, so explicit Auth0 session termination is not guaranteed. This is important, as any explicit condition that caused an `unauthorized` error must be re-checked in any subsequent rule pipeline execution, and it should not be possible to bypass these condition check(s) through any other conditions (such as [`prompt===none`](/api-auth/tutorials/silent-authentication)).
 :::
 
-The example provided above also demonstrates best practice use of both [early exit](#exit-early) as well as [email address verification](#check-if-an-email-is-verified), as described in the [Performance](#performance) and [Security](#security) sections below. Note: the `getRoles` function used is implemented elsewhere within the rule, as a wrapper function to a third-party API.
+The example provided above also demonstrates best practice use of both [early exit](/best-practices/performance#exit-early) as well as [email address verification](#check-if-an-email-is-verified), as described in [Performance Best Practices](/best-practices/performance) and [Security Best Practices](/best-practices/custom-db-connections/security). Note: the `getRoles` function used is implemented elsewhere within the rule, as a wrapper function to a third-party API.
 
 ## Security
 
@@ -278,7 +279,7 @@ Instead, prefer to store (secret) information so that it's accessible via the [`
 const myApiKey = configuration.myApiKey;
 ```
 
-### Don’t send entire [`context`](#context-object) object to external services
+### Do not send entire `context` object to external services
 
 For rules that send information to an external service, make sure you are not sending the entire [context](#context-object) object, since this object may contain tokens or other sensitive data. For rules that send information to external services, you should only send a *subset* of the less sensitive attributes from the `context` object when and where necessary.
 

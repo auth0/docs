@@ -1,4 +1,5 @@
 ---
+title: Best Practices
 description: Learn the best practices to consider when using Auth0.
 classes: topic-page
 topics:

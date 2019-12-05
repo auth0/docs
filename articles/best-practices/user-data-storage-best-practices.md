@@ -1,5 +1,6 @@
 ---
-description: Recommendations for using Auth0 storage mechanisms.
+title: User Data Storage Best Practices
+description: Learn about recommendations for using Auth0 storage mechanisms.
 topics:
     - users
     - user-management
@@ -12,7 +13,6 @@ topics:
 contentType: reference
 useCase: manage-users
 ---
-
 # User Data Storage Best Practices
 
 Auth0 stores user information for your tenant in a hosted cloud database, or you can choose to store user data in your own custom external database. 
