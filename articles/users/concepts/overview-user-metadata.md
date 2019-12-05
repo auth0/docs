@@ -10,10 +10,6 @@ useCase: manage-users
 
 # Metadata
 
-::: note
-All metadata was previously (in Management API v1) stored in the `metadata` field. That data is now stored in the `app_metadata` field.
-:::
-
 In addition to the Normalized User Profile information, you can use metadata to store information that does not originate from an identity provider, or a way to store information that overrides what an identity provider supplies.
 
 Auth0 distinguishes between two types of metadata, intended to store specific kinds of information:
@@ -65,7 +61,7 @@ You can store data points that are read-only to the user in `app_metadata`. Thre
 
 ## Metadata example
 
-In the following example, the user `jane.doe@example.com` also has the following metadata stored with their profile. 
+In the following example, the user `jane.doe@example.com` has the following metadata stored with their profile. 
 
 ```json
 {
@@ -86,6 +82,10 @@ console.log(user.email); // "jane.doe@example.com"
 console.log(user.user_metadata.hobby); // "surfing"
 console.log(user.app_metadata.plan); // "full"
 ```
+
+::: note
+All metadata was previously (in Management API v1) stored in the `metadata` field. That data is now stored in the `app_metadata` field. However, if you are using a [custom database](/connections/database#using-your-own-user-store), the `app_metadata` field should be referred to as `metadata` in the scripts you run to manage your metadata.
+:::
 
 ## Keep reading
 
