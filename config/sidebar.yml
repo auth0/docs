@@ -1459,6 +1459,9 @@ articles:
       - title: "Custom Databases and Scripts"
         url: "/best-practices/custom-db-connections-scripts"
 
+      - title: "Metadata"
+        url: "/best-practices/metadata-best-practices"
+
       - title: "Rules"
         url: "/best-practices/rules"
 

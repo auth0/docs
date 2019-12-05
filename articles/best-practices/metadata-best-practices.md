@@ -12,10 +12,6 @@ useCase:
 
 # Metadata Best Practices
 
-## User updates to `user_metadata`
-
-An authenticated user can perform actions that modify data in their profile's **user_metadata** if you build form  for them to use with the [Management API](/api/management/v2), however, they cannot modify their **app_metadata**. 
-
 ## Metadata field names and types
 
 For field names, observe the following guidelines:
@@ -39,11 +35,15 @@ When setting the `user_metadata` field with the Authentication API Signup endpoi
 
 When setting the `user_metadata` field using the [Authentication API's Signup endpoint](/api/authentication?javascript#signup), you are limited to a maximum of 10 `String` fields and 500 characters. For an example of working with metadata during a custom signup process, see [Custom Signup > Using the API](/libraries/custom-signup#using-the-api).
 
+## User metadata updates by users
+
+An authenticated user can perform actions that modify data in their profile's `user_metadata` if you build a form for them to use with the [Auth0 Management API](/api/management/v2), however, they cannot modify their `app_metadata`. 
+
 ## Customize emails with metadata
 
 Store any information that you want use to customize Auth0 emails in metadata and preferably `user_metadata` if the user is allowed to change it, such as information used to determine the language for an email.
 
-## Use `metadata` instead of `app_metadata` with custom databases
+## Use `metadata` with custom database scripts
 
 If you are using a [custom database](/connections/database#using-your-own-user-store), the `app_metadata` field should be referred to as `metadata` in the scripts you run to manage your metadata.
 

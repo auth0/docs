@@ -96,7 +96,7 @@ When determining where you should store specific pieces of data about your user,
 
 * [Manage User Metadata](/users/guides/manage-user-metadata)
 * [User Metadata in Rules](/rules/current/metadata-in-rules)
+* [Metadata Best Practices](/best-practices/metadata-best-practices)
 * [User Data Storage Best Practices](/best-practices/user-data-storage-best-practices)
-* [Metadata Best Practices](/best-practices/metadata)
 * [User Data Storage Scenario](/users/references/user-data-storage-scenario)
 * [Change User Pictures](/users/guides/change-user-pictures)
