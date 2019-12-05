@@ -654,6 +654,9 @@ articles:
             url: /custom-domains/self-managed-certificates
             children:
 
+              - title: Cloudflare Reverse Proxy
+                url: /custom-domains/set-up-cloudflare
+
               - title: Cloudfront Reverse Proxy
                 url: /custom-domains/set-up-cloudfront
 
