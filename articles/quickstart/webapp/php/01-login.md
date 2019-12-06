@@ -46,9 +46,7 @@ $auth0 = new Auth0([
   'client_id' => '${account.clientId}',
   'client_secret' => 'YOUR_CLIENT_SECRET',
   'redirect_uri' => '${account.callback}',
-  'persist_id_token' => true,
-  'persist_access_token' => true,
-  'persist_refresh_token' => true,
+  'scope' => 'openid profile email',
 ]);
 ```
 
