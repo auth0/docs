@@ -223,7 +223,6 @@ In addition to the constraints described by the above schema, please consider th
     - `ssl3-sha1`
     - `whirlpool`
 
-
 ### Supported hash algorithms
 
 As described above, the supported hash algorithms are:
