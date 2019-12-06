@@ -22,7 +22,7 @@ From a functional perspective, it has much better support for [Localization](/un
 
     - <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> and Silent Authentication will work properly, which does not happen in the Classic Experience.
 
-    - Users will see a warning in the login page mentioning that the tenant is configured with [Development Keys](docs/connections/social/devkeys).
+    - Users will see a warning in the login page mentioning that the tenant is configured with [Development Keys](/connections/social/devkeys).
 
 - A button will be rendered for each social and enterprise connection. 
 
