@@ -14,7 +14,7 @@ useCase:
 
 # Configure Okta as an Identity Provider
 
-This article walks you through configuring Okta for use as an identity provider.
+In this article, we will cover how you can configure Okta for use with Auth0 as a <dfn data-key="security-assertion-markup-language">SAML</dfn> Identity Provider.
 
 ## Configure Okta
 

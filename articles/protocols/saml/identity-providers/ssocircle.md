@@ -11,9 +11,9 @@ contentType:
 useCase:
   - add-idp
 ---
-# SAML Single Sign-on with SSOCircle as an Identity Provider
+# Configure SSOCircle as an Identity Provider
 
-This tutorial will create a sample application that uses Auth0 for <dfn data-key="security-assertion-markup-language">SAML</dfn> <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn>, authenticating users against identity provider **SSOCircle**.
+In this article, we will cover how you can configure SSOCircle for use with Auth0 as a <dfn data-key="security-assertion-markup-language">SAML</dfn> Identity Provider.
 
 ::: warning
 As of July 8, 2016, SSOCircle supports integration via [manual configuration using public settings](http://www.ssocircle.com/en/idp-tips-tricks/public-idp-configuration/). If you have previously used account-specific metadata, your integration will still function, though this usage is now deprecated.
@@ -23,17 +23,11 @@ As of July 8, 2016, SSOCircle supports integration via [manual configuration usi
 
 Navigate to [SSOCircle's IDP page](https://idp.ssocircle.com/) to see the metadata required for integration. You will be shown an XML file.
 
-![Metadata XML Display](/media/articles/saml/identity-providers/ssocircle/metadata-xml.png)
-
 From this page, you will need to save the following attributes (you will use these values for Step 2 of this tutorial):
 
 1. The Location URL for the `SingleSignOnService` attribute with an `HTTP-Redirect` type.
 
-![HTTP Redirect URL for Sign On](/media/articles/saml/identity-providers/ssocircle/metadata-snippet1.png)
-
 2. The Location URL for the `SingleLogoutService` attribute with an `HTTP-Redirect` type.
-
-![HTTP Redirect URL for Logout](/media/articles/saml/identity-providers/ssocircle/metadata-snippet2.png)
 
 [Download](http://www.ssocircle.com/en/idp-tips-tricks/public-idp-configuration) and save the SSOCircle CA Certificate. You will also use this in Step 2.
 
@@ -75,11 +69,7 @@ In this step, you will configure the integration from the SSOCircle side.
 
 Log in to your [SSOCircle](http://ssocircle.com) account. You will be directed to your user profile, and to the left of that is a navigation bar.
 
-![SSOCircle User Profile](/media/articles/saml/identity-providers/ssocircle/user-profile.png)
-
 In the navigation bar, click **Manage Metadata**.
-
-![Manage Metadata Screen](/media/articles/saml/identity-providers/ssocircle/manage-provider-metadata.png)
 
 Select **Add New Service Provider**, and provide the following information to configure the new service provider (which, in this case, is Auth0):
 
@@ -87,11 +77,7 @@ Select **Add New Service Provider**, and provide the following information to co
 * **Attributes to send in assertion:** check the box for `EmailAddress`
 * **Insert your metadata information:** paste in the XML metadata that you downloaded after you configured your Auth0 Connection (the file begins with `<EntityDescriptor`...)
 
-![Configure Service Provider Screen](/media/articles/saml/identity-providers/ssocircle/config-service-provider.png)
-
 Click **“Submit”** to complete the configuration of the IDP.
-
-![Popup Indicating Successful Import of Metadata](/media/articles/saml/identity-providers/ssocircle/metadata-success.png)
 
 ## 4. Create an Auth0 Application to Test the Connection
 
@@ -99,14 +85,10 @@ In this step, you will create an application in Auth0 that uses your SSOCircle S
 
 While logged in to the [Auth0 Management Dashboard](${manage_url}), click **+ New Application** near the top right of the page.
 
-![Dashboard Homepage](/media/articles/saml/identity-providers/ssocircle/create-new-client.png)
-
 You will be prompted to provide some basic information about your new Application:
 
 * **Name**: enter a name like for your Application;
 * **Choose an Application Type**: select **Regular Web Applications**.
-
-![](/media/articles/saml/identity-providers/ssocircle/set-up-client.png)
 
 Click **Create** to finish configuration and begin the Application creation process.
 
@@ -114,15 +96,11 @@ You will be directed to the dashboard landing page for your Application. Click o
 
 In the **Allowed Callback URL** field, enter `http://jwt.io`. The list of allowed <dfn data-key="callback">callback URLs</dfn> includes those to which users will be redirected after authentication. The URL(s) entered here must match the **callback URL** in the HTML code you will create in a later step. Normally, you would enter a URL for your Application, but to keep this example simple, users will simply be sent to the Auth0 JWT Tool.
 
-![Allowed Callback URLS field](/media/articles/saml/identity-providers/ssocircle/allowed-callback-urls.png)
-
 Click **SAVE CHANGES**.
 
 Returning to the top of **Settings**, click on  **Connections**.
 
 Scroll down to the section with the **Enterprise** heading. Find the row for the SAML Connection you created above and click the on/off toggle to enable the SAML Connection.
-
-![](/media/articles/saml/identity-providers/ssocircle/enable-connection.png)
 
 ## 5. Test the Auth0-SSOCircle Connection
 
@@ -178,8 +156,6 @@ Open the `hello-saml.html` file with a web browser. You should see a white page 
 ![Test Homepage](/media/articles/saml/identity-providers/ssocircle/hello-saml.png)
 
 Click **Login**. The **Auth0 Lock** Widget will appear.
-
-![](/media/articles/saml/identity-providers/ssocircle/lock.png)
 
 ::: note
 If you are prompted to enter an email address, make sure the domain for the email address you enter is listed under **Settings** for the Auth0 Application you previously configured.

@@ -12,6 +12,8 @@ useCase:
 ---
 # Configure PingFederate as an Identity Provider
 
+In this article, we will cover how you can configure PingFederate for use with Auth0 as a <dfn data-key="security-assertion-markup-language">SAML</dfn> Identity Provider.
+
 PingFederate is a federation server that provides identity management, single sign-on, and API security for the enterprise. To configure Auth0 to use PingFederate as an identity provider, you will use primarily the default values and your Auth0 tenant metadata file to upload the required configuration parameter values for your Auth0 tenant. If the metadata upload fails for some reason, these are the most important configuration parameters:
 
 * __EntityID:__ `urn:auth0:${account.tenant}:YOUR_CONNECTION_NAME`
