@@ -81,27 +81,53 @@ The following [JSON schema](http://json-schema.org) describes valid users:
             "properties": {
                 "algorithm": {
                     "type": "string",
-                    "enum": ["md5", "sha1", "sha256", "sha512", "bcrypt", "argon2", "pbkdf2"],
+                    "enum": ["argon2", "bcrypt", "ldap", "md4", "md5", "sha1", "sha256", "sha512", "pbkdf2"],
                     "description": "The algorithm that was used to hash the password."
                 },
                 "hash": {
-                    "type": "string",
-                    "description": "The password hash."
+                    "type": "object",
+                    "properties": {
+                        "value": {
+                            "type": "string",
+                            "description": "The password hash."
+                        },
+                        "encoding": {
+                            "type": "string",
+                            "enum": ["base64", "hex", "utf8"],
+                            "description": "The encoding of the provided hash. Note that both upper and lower case hex variants are supported, as well as url-encoded base64."
+                        }
+                    }
                 },
-                "encoding": {
-                    "type": "string",
-                    "enum": ["hex", "base64"],
-                    "description": "The hash encoding. Note that both upper and lower case hex variants are supported, as well as url-encoded base64."
+                "salt": {
+                    "type": "object",
+                    "properties": {
+                        "value": {
+                            "type": "string",
+                            "description": "The salt value used to generate the hash."
+                        },
+                        "encoding": {
+                            "type": "string",
+                            "enum": ["base64", "hex", "utf8"],
+                            "default": "utf8",
+                            "description": "The encoding of the provided salt. Note that both upper and lower case hex variants are supported, as well as url-encoded base64."
+                        },
+                        "position": {
+                            "type": "string",
+                            "enum": ["prefix", "suffix"],
+                            "description": "The position of the salt when the hash was calculated."
+                        }
+                    },
+                    "required": ["value", "hash"]
                 },
-                "salt_prefix": {
-                    "type": "string",
-                    "default": "",
-                    "description": "The salt value (prefix) used to generate the hash."
-                },
-                "salt_suffix": {
-                    "type": "string",
-                    "default": "",
-                    "description": "The salt value (suffix) used to generate the hash."
+                "password": {
+                    "type": "object",
+                    "properties": {
+                        "encoding": {
+                            "type": "string",
+                            "enum": ["ascii", "utf8", "utf16le", "ucs2", "latin1", "binary"],
+                            "description": "The encoding of the password used to generate the hash. On login, the user-provided password will be transcoded before being checked against the provided hash."
+                        }
+                    }
                 }
             },
             "required": ["algorithm", "hash"],
@@ -151,66 +177,68 @@ The `app_metadata` stores information that can impact how an application functio
 
 ---
 
----
-**NOTE**
+## `custom_password_hash` schema
 
-The `encoding`, `salt_prefix`, and `salt_suffix` fields of `custom_password_hash` are not applicable for `bcrypt`, `argon2`, or `pbkdf2`. These fields should be omitted when providing hashes that were generated using one of these algorithms.
+In addition to the constraints described by the above schema, please consider the following when providing a `custom_password_hash`.
 
----
+- `hash.encoding` must be `utf8` when `algorithm` is one of `bcrypt|argon2|pbkdf2|ldap`
+- `hash.encoding` must be either `hex` or `base64` when `algorithm` is in either of the `md*` or `sha*` family of algorithms.
+- `salt` is not allowed when `algorithm` is any of `bcrypt|argon2|pbkdf2|ldap`
+- When `algorithm` is `ldap`, `hash.value` must adhere to the format outlined in [`RFC-2307 section-5.3`](https://tools.ietf.org/html/rfc2307#section-5.3). The scheme should be one of `md5|smd5|sha*|ssha*` — see [here](https://www.openldap.org/faq/data/cache/347.html) for more info.
+  - Note that the [`crypt`](https://www.openldap.org/faq/data/cache/344.html) scheme is **not supported** due to system/implementation dependent behavior. See also [Open LDAP Admin Guide - 14.4.2. CRYPT password storage scheme](https://www.openldap.org/doc/admin24/guide.html#CRYPT%20password%20storage%20scheme).
+- When the `algorithm` is either `argon2` or `pbkdf2`, `hash.value` field should be in [PHC string format](https://github.com/P-H-C/phc-string-format/blob/master/phc-sf-spec.md).
+  - For `argon2`, the hash value should conform to the requirements described [here](https://github.com/auth0/magic#magicpasswordhash--magicverifypassword).
+  - For `pbkdf2`, the hash value should include `i` (iterations) and `l` (keylen) parameters. If these parameters are omitted, they will default to `i=100000` and `l=64`. The `id` should be in a `pbkdf2-${digest}` format (e.g `pbkdf2-sha512`, `pbkdf2-md5`, etc). The supported digests are:
+    - `RSA-MD4`
+    - `RSA-MD5`
+    - `RSA-MDC2`
+    - `RSA-RIPEMD160`
+    - `RSA-SHA1`
+    - `RSA-SHA1-2`
+    - `RSA-SHA224`
+    - `RSA-SHA256`
+    - `RSA-SHA384`
+    - `RSA-SHA512`
+    - `md4`
+    - `md4WithRSAEncryption`
+    - `md5`
+    - `md5WithRSAEncryption`
+    - `mdc2`
+    - `mdc2WithRSA`
+    - `ripemd`
+    - `ripemd160`
+    - `ripemd160WithRSA`
+    - `rmd160`
+    - `sha1`
+    - `sha1WithRSAEncryption`
+    - `sha224`
+    - `sha224WithRSAEncryption`
+    - `sha256`
+    - `sha256WithRSAEncryption`
+    - `sha384`
+    - `sha384WithRSAEncryption`
+    - `sha512`
+    - `sha512WithRSAEncryption`
+    - `ssl3-md5`
+    - `ssl3-sha1`
+    - `whirlpool`
 
----
-**NOTE**
 
-When the `custom_password_hash` was generated by either `argon2` or `pbkdf2`, the `hash` field should be in [PHC string format](https://github.com/P-H-C/phc-string-format/blob/master/phc-sf-spec.md).
-- For `argon2`, the hash should conform to the requirements described [here](https://github.com/auth0/magic#magicpasswordhash--magicverifypassword)
-- For `pbkdf2`, the hash should include `i` (iterations) and `l` (keylen) parameters. If these parameters are omitted, they will default to `i=100000` and `l=64`. The `id` should be in a `pbkdf2-${digest}` format (e.g `pbkdf2-sha512`, `pbkdf2-md5`, etc).
-
----
-
-## Supported hash algorithms
+### Supported hash algorithms
 
 As described above, the supported hash algorithms are:
+* [`argon2`](https://github.com/p-h-c/phc-winner-argon2)
 * [`bcrypt`](https://auth0.com/blog/hashing-in-action-understanding-bcrypt/)
+* [`ldap`](https://tools.ietf.org/html/rfc2307#section-5.3) (`RFC-2307 "userPassword"`)
+* [`md4`](https://tools.ietf.org/html/rfc1320)
 * [`md5`](https://tools.ietf.org/html/rfc1321)
 * [`sha1`](https://tools.ietf.org/html/rfc3174)
 * [`sha256` and `sha512`](https://tools.ietf.org/html/rfc4634)
-* [`argon2`](https://github.com/p-h-c/phc-winner-argon2)
-* [`pbkdf2`](https://tools.ietf.org/html/rfc2898#section-5.2) with any of the following digests
-  * `RSA-MD4`
-  * `RSA-MD5`
-  * `RSA-MDC2`
-  * `RSA-RIPEMD160`
-  * `RSA-SHA1`
-  * `RSA-SHA1-2`
-  * `RSA-SHA224`
-  * `RSA-SHA256`
-  * `RSA-SHA384`
-  * `RSA-SHA512`
-  * `md4`
-  * `md4WithRSAEncryption`
-  * `md5`
-  * `md5WithRSAEncryption`
-  * `mdc2`
-  * `mdc2WithRSA`
-  * `ripemd`
-  * `ripemd160`
-  * `ripemd160WithRSA`
-  * `rmd160`
-  * `sha1`
-  * `sha1WithRSAEncryption`
-  * `sha224`
-  * `sha224WithRSAEncryption`
-  * `sha256`
-  * `sha256WithRSAEncryption`
-  * `sha384`
-  * `sha384WithRSAEncryption`
-  * `sha512`
-  * `sha512WithRSAEncryption`
-  * `ssl3-md5`
-  * `ssl3-sha1`
-  * `whirlpool`
+* [`pbkdf2`](https://tools.ietf.org/html/rfc2898#section-5.2)
 
-## File example
+## Examples
+
+### Basic
 
 A file with the following contents is valid:
 
@@ -227,6 +255,113 @@ A file with the following contents is valid:
         "theme": "light"
     }
   }
+]
+```
+
+### Custom Password Hash
+
+Some example users with hashes provided:
+
+```json
+[
+    {
+        "email": "antoinette@contoso.com",
+        "email_verified": false,
+        "custom_password_hash": {
+            "algorithm": "md4",
+            "hash": {
+                "value": "AbuUujgF0pPPkJPSFRTpmA==",
+                "encoding": "base64"
+            }
+        }
+    },
+    {
+        "email": "mary@contoso.com",
+        "email_verified": false,
+        "custom_password_hash": {
+            "algorithm": "sha256",
+            "hash": {
+                "value": "d24e794fce503c3ddb1cd1ba1dd5d9b250cf9917336a0316fefd87fecf79200f",
+                "encoding": "hex"
+            },
+            "salt": {
+                "value": "abc123",
+                "encoding": "utf8",
+                "position": "prefix"
+            }
+        }
+    },
+    
+    {
+        "email": "velma@contoso.com",
+        "email_verified": false,
+        "custom_password_hash": {
+            "algorithm": "bcrypt",
+            "hash": {
+                "value": "$2b$10$C9hB01.YxRSTcn/ZOOo4j.TW7xCKKFKBSF.C7E0xiUwumqIDqWUXG",
+                "encoding": "utf8"
+            },
+            "password": {
+                "encoding": "utf8"
+            }
+        }
+    },
+    {
+        "email": "edward@contoso.com",
+        "email_verified": false,
+        "custom_password_hash": {
+            "algorithm": "argon2",
+            "hash": {
+                "value": "$argon2id$v=19$m=65536,t=2,p=1$J6Q/82PCyaNpYKRELJyTZg$m04qUAB8rexWDR4+/0f+SFB+4XMFxt7YAvAq2UycYos",
+                "encoding": "utf8"
+            },
+            "password": {
+                "encoding": "utf8"
+            }
+        }
+    },
+    {
+        "email": "terrell@contoso.com",
+        "email_verified": false,
+        "custom_password_hash": {
+            "algorithm": "pbkdf2",
+            "hash": {
+                "value": "$pbkdf2-md4$i=100000,l=64$+N375B8q0Fw$fp2R9KAM4hK/votGHC5Fu+jhqbxUD8+Nic/EMSGvNC3UP/k7wSHI0uXluHRSkZfl/BOheYqNOemayG90ZaSSQw",
+                "encoding": "utf8"
+            },
+            "password": {
+                "encoding": "utf8"
+            }
+        }
+    },
+    {
+        "email": "cecil@contoso.com",
+        "email_verified": false,
+        "custom_password_hash": {
+            "algorithm": "pbkdf2",
+            "hash": {
+                "value": "$pbkdf2-sha512$i=100000,l=64$KNyFsA2rWoE$I2CQGI9H0JxdDf3kERRI97kPCGxh0KWBIV3MxyaS191gDGfzVBGyS4BibhgqWQ0/ails8mHuU9ckASxHOOq58w",
+                "encoding": "utf8"
+            },
+            "password": {
+                "encoding": "utf8"
+            }
+        }
+    },
+    {
+        "email": "sean@contoso.com",
+        "email_verified": false,
+        "custom_password_hash": {
+            "algorithm": "ldap",
+            "hash": {
+                "value": "{SSHA384}/cgEjdoZh85DhurDeOQEMO1rMlAur93SVPbYe5XSD4lF7nNuvrBju5hUeg9A6agRemgSXGl5YuE=",
+                "encoding": "utf8"
+            },
+            "password": {
+                "encoding": "utf8"
+            }
+        }
+    }
 ]
 ```
 
