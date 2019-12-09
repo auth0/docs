@@ -10,8 +10,30 @@ contentType:
 useCase:
   - add-idp
 ---
-<!-- markdownlint-disable MD002 MD041 -->
-<%= include('./_header') %>
+
+---
+title: Configure Auth0 as a SAML Identity Provider for Litmos
+description: Learn how to configure Auth0 to be a SAML Identity Provider for Litmos.
+topics:
+    - saml
+    - identity-providers
+    - litmos
+contentType:
+  - how-to
+useCase:
+  - add-idp
+---
+
+# Configure Auth0 as a SAML Identity Provider for Litmos
+
+On this page, you'll find steps on configuring Auth0 as a SAML Identity Provider for [Litmos](https://www.litmos.com/).
+
+<%= include('./_configure-saml-addon', {
+  saml_app_name: "Litmos"
+}) %>
+
+- **Application Callback URL:** `https://<YOUR_LITMOS_DOMAIN>.litmos.com/integration/samllogin`
+- **Settings (JSON):**
 
 ```json
 {
@@ -27,7 +49,7 @@ useCase:
  "mapIdentities":        false,
  "signatureAlgorithm":   "rsa-sha1",
  "digestAlgorithm":      "sha1",
- "destination":          "https://{YOUR DOMAIN}.litmos.com/integration/samllogin",
+ "destination":          "https://<YOUR_LITMOS_DOMAIN>.litmos.com/integration/samllogin",
  "lifetimeInSeconds":    3600,
  "signResponse":         false,
  "nameIdentifierFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
@@ -36,8 +58,6 @@ useCase:
  ]
 }
 ```
-
-The **<dfn data-key="callback">Callback URL</dfn>** is `https://{YOUR DOMAIN}.litmos.com/integration/samllogin`.
 
 ## Sample SAML
 

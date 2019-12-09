@@ -1,17 +1,26 @@
 ---
-title: Tableau Server SAML Configuration
-description: Tableau Server SAML Configuration
+title: Configure Auth0 as a SAML Identity Provider for Tableau Server
+description: Learn how to configure Auth0 to be a SAML Identity Provider for Tableau Server.
 topics:
     - saml
     - identity-providers
-    - tableau
+    - tableau-server
 contentType:
   - how-to
 useCase:
   - add-idp
 ---
 
-<%= include('./_header') %>
+# Configure Auth0 as a SAML Identity Provider for Tableau Server
+
+On this page, you'll find steps on configuring Auth0 as a SAML Identity Provider for [Tableau Server](https://www.tableau.com/products/server).
+
+<%= include('./_configure-saml-addon', {
+  saml_app_name: "TableauServer"
+}) %>
+
+- **Application Callback URL:** `http://{YOUR_TABLEAU_SERVER}/wg/saml/SSO/index.html`
+- **Settings (JSON):**
 
 ```json
 {
@@ -35,5 +44,3 @@ useCase:
  ]
 }
 ```
-
-The **<dfn data-key="callback">Callback URL</dfn>** is `http://{YOUR TABLEAU SERVER}/wg/saml/SSO/index.html`.

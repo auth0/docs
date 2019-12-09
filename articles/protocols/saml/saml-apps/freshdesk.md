@@ -1,6 +1,6 @@
 ---
-title: Freshdesk SAML Configuration
-description: Freshdesk SAML Configuration
+title: Configure Auth0 as a SAML Identity Provider for Freshdesk
+description: Learn how to configure Auth0 to be a SAML Identity Provider for Freshdesk.
 topics:
     - saml
     - identity-providers
@@ -11,11 +11,20 @@ useCase:
   - add-idp
 ---
 
-<%= include('./_header') %>
+# Configure Auth0 as a SAML Identity Provider for Freshdesk
+
+On this page, you'll find steps on configuring Auth0 as a SAML Identity Provider for [Freshdesk](https://freshdesk.com/).
+
+<%= include('./_configure-saml-addon', {
+  saml_app_name: "Freshdesk"
+}) %>
+
+- **Application Callback URL:** `https://<YOUR_FRESHDESK_DOMAIN>.freshdesk.com/login/saml`
+- **Settings (JSON):**
 
 ```json
 {
-   "audience":      "https://{FD Domain}.freshdesk.com",
+   "audience":      "https://<YOUR_FRESHDESK_DOMAIN>.freshdesk.com",
    "mappings": {
      "email":       "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress",
      "given_name":  "User.FirstName",
@@ -31,5 +40,3 @@ useCase:
    ]
 }
 ```
-
-The **<dfn data-key="callback">Callback URL</dfn>** is `https://{FD Domain}.freshdesk.com/login/saml`.

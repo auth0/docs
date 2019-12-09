@@ -1,17 +1,26 @@
 ---
-title: Tableau Online SAML Configuration
-description: Tableau Online SAML Configuration
+title: Configure Auth0 as a SAML Identity Provider for Tableau Online
+description: Learn how to configure Auth0 to be a SAML Identity Provider for Tableau Online.
 topics:
     - saml
     - identity-providers
-    - tableau
+    - tableau-online
 contentType:
   - how-to
 useCase:
   - add-idp
 ---
 
-<%= include('./_header') %>
+# Configure Auth0 as a SAML Identity Provider for Tableau Online
+
+On this page, you'll find steps on configuring Auth0 as a SAML Identity Provider for [Tableau Online](https://online.tableau.com/).
+
+<%= include('./_configure-saml-addon', {
+  saml_app_name: "TableauOnline"
+}) %>
+
+- **Application Callback URL:** `https://sso.online.tableau.com/public/sp/SSO?alias=<YOUR_TABLEAU_ALIAS>`
+- **Settings (JSON):**
 
 ```json
 {
@@ -35,7 +44,5 @@ useCase:
  ]
 }
 ```
-
-The **<dfn data-key="callback">Callback URL</dfn>** is `https://sso.online.tableau.com/public/sp/SSO?alias={YOUR TABLEAU ALIAS}`.
 
 See [https://onlinehelp.tableau.com/current/online/en-us/saml_config_site.htm](https://onlinehelp.tableau.com/current/online/en-us/saml_config_site.htm) for more information.

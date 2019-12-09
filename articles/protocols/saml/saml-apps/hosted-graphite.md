@@ -1,6 +1,6 @@
 ---
-title: Hosted Graphite SAML Configuration
-description: Hosted Graphite SAML Configuration
+title: Configure Auth0 as a SAML Identity Provider for Hosted Graphite
+description: Learn how to configure Auth0 to be a SAML Identity Provider for Hosted Graphite.
 topics:
     - saml
     - identity-providers
@@ -11,7 +11,16 @@ useCase:
   - add-idp
 ---
 
-<%= include('./_header') %>
+# Configure Auth0 as a SAML Identity Provider for Hosted Graphite
+
+On this page, you'll find steps on configuring Auth0 as a SAML Identity Provider for [Hosted Graphite](https://www.hostedgraphite.com/).
+
+<%= include('./_configure-saml-addon', {
+  saml_app_name: "HostedGraphite"
+}) %>
+
+- **Application Callback URL:** `https://www.hostedgraphite.com/complete/saml/<YOUR-USER-ID>/`
+- **Settings (JSON):**
 
 ```json
 {
@@ -22,5 +31,3 @@ useCase:
   ]
 }
 ```
-
-The **<dfn data-key="callback">Callback URL</dfn>** is `https://www.hostedgraphite.com/complete/saml/{YOUR-USER-ID}/`.
