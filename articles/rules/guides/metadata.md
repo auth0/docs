@@ -11,7 +11,7 @@ useCase: extensibility-rules
 
 # Metadata in Rules
 
-You can read, update and delete [metadata](/metadata) using [Rules](/rules).
+You can read, update, and delete [metadata](/metadata) using [Rules](/rules).
 
 In the following sections, we will refer to this example where the user and their information is represented by the following JSON snippet:
 
@@ -196,7 +196,19 @@ This results in the following JSON representation of the user profile details:
 
 ## Manage `client_metadata`
 
-`clientMetadata` is an optional, top-level property of the context object. Existing applications will have no value for this property.
+`client_metadata` is a multi-purpose key/value hash to store information about an application (i.e. a “client” in OIDC/OAuth2 lingo). You might store, for example, the URL for the application’s home page (a field that Auth0 doesn’t provide by default in the application settings).
+
+You get or set `client_metadata` either using the [clients API](/api/v2/clients/{client_id}) or in the Dashboard, in the application’s advanced settings. The `client_metadata` is stored as part of the application (client) properties.
+
+::: panel Where to store a secret to be returned in a JWT
+Where to store the secret depends on the scope of the secret:
+
+* Is it just one secret per application? Then `client_metadata` would be a good place. But if this is the case, you should consider storing the secret directly in the application instead, to avoid putting the secret in the ID token.
+* Is it the same secret for the whole system (i.e. for all application, or many)? Then the rule’s configuration values might be a better choice
+* Is it a different secret for each user? Then `app_metadata` might be better.
+:::
+
+`clientMetadata` is an optional, top-level property of the `context` object. Existing applications will have no value for this property.
 
 ```js
 function(user, context, callback){
@@ -207,6 +219,10 @@ function(user, context, callback){
   ...
 }
 ```
+
+::: warning
+Claims in the ID Token are not encrypted, so depending on the flow that you use the user might be able to get the token and inspect the contents. Auth0 does **not** recommend storing a secret in that way. 
+:::
 
 You can read and add to the `client_metadata` using either the Management API or the Dashboard. 
 
