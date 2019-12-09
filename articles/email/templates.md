@@ -62,9 +62,10 @@ Note that the attributes available for the `user` object will depend on the type
 Individual email templates define additional variables that are appropriate for the specific template. Be sure to check out the [individual templates descriptions](#individual-templates-descriptions) below.
 :::
 
-For those emails where the user needs to follow a link to take action, you can also configure the **URL Lifetime** and **Redirect To** URL destination after the action is completed. Liquid Syntax is also supported in the **Redirect To** URL field, but only two variables are supported:
+For those emails where the user needs to follow a link to take action, you can also configure the **URL Lifetime** and **Redirect To** URL destination after the action is completed. Liquid Syntax is also supported in the **Redirect To** URL field, but only three variables are supported:
 
 * `application.name`
+* `application.clientID`
 * `application.callback_domain`
 
 See [Configuring the Redirect To URL](#configuring-the-redirect-to-url) for more details.
@@ -145,9 +146,10 @@ With the Classic Experience, you can provide a URL to which users are redirected
 With the New Experience, Auth0 redirects users to the default log in route when the user succeeds in resetting the password. If not, Auth0 handles the errors as part of the Universal Login flow and ignores the redirect URL provided in the email template.
 :::
 
-**Only the following two variables** are available on the **Redirect To** URL:
+**Only the following three variables** are available on the **Redirect To** URL:
 
 * `application.name` (or its synonym `client.name`)
+* `application.clientID`
 * `application.callback_domain` (or its synonym `client.callback_domain`)
   
 The `application.callback_domain` variable will contain the domain of the **first** URL listed in the application's **Allowed <dfn data-key="callback">Callback URL</dfn>** list. This lets you redirect users to a path of the application that triggered the action by using a syntax like this:
