@@ -548,8 +548,8 @@ The <dfn data-key="access-token">[Access Token](#get-an-access-token)</dfn> shou
 | Parameter        | Description |
 |:-----------------|:------------|
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{user_id}` <br/><span class="label label-danger">Required</span> |  |
 | `{client_id}` <br/><span class="label label-danger">Required</span> |  |
-| `connectionName` | The connection name the user logged in with |
+| `connectionName` <br/><span class="label label-danger">Required</span> | The name of the connection with which the user logged in |
 | `groups` | List of group names received from the IdP (AD, ADFS, and so on) |
