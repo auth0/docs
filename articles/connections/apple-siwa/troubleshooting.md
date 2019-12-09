@@ -45,7 +45,6 @@ The following errors may be returned from the Apple IdP.  Auth0 will relay both 
 ## Apple nuances
 Many identity providers have their own unique idiosyncrasies, and Apple is no exception.  When integrating, be mindful of a few of its particular choices in implementation.
 
-- **Requested Scopes Only Appear in the ID Token on First Authentication**: Apple has chosen to only return scopes like `email` the first time a user authenticates against and app and grants consent.  This means that if the token is consulted on any subsequent login attempt, it will not have this information.  However, Auth0 users have no need to fear: information will be stored in standard Auth0 user fields, and can be used at any time.
 - **Users are Unique Per Apple Development Account**: User identifiers in the Apple world are guaranteed to be both unique and persistent _per Apple Development Account_.  If Apple user identifiers are sourced from more than one development account, know that the same user will be represented by different identifiers.
 - **Users can Choose Which Email to Share**: When users have multiple email addresses, they may choose which one is shared.  Additionally, in the case of re-authentication, users may not pick the same email address.  This means that the User ID should be used exclusively as the identifier, and account linking operations should use care.
 
