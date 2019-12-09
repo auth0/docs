@@ -2,40 +2,37 @@
 description: How to configure a Custom Social Connection to your Auth0 app.
 toc: true
 topics:
-  - extensions
-  - custom-social-connections
+ - extensions
+ - custom-social-connections
 contentType:
-  - how-to
+ - how-to
 useCase: extensibility-extensions
 ---
 
 # Auth0 Extension: Custom Social Connections
 
-The Custom Social Connections extension allows you to easily manage multiple social connections.
+The Custom Social Connections extension allows you to manage multiple social connections easily.
 
-## Set Up a New Social Connection
+## Set Up a New Social Connection Extension
 
-To install the Custom Social Connection app, click on the **Custom Social Connections** box on the main [Extensions](${manage_url}/#/extensions) page of the Management Portal. You will be prompted to install the app.
 
-![](/media/articles/extensions/installing-custom-social-connections.png)
+To install the Custom Social Connections extension, log in to the Dashboard and go to [Extensions](${manage_url}/#/extensions). Click the **Custom Social Connections** box. You will be prompted to install the app.
 
-At this point, you will see the app listed under the **Installed Extensions** tab.
+When the extension has been installed, you'll be redirected to a page that lists your extension under **Installed Extensions** tab.
 
-![](/media/articles/extensions/installed-custom-social-extension.png)
+## Configure the Social Connection Extension settings
 
 Once you have installed the app, you will need to configure it to work with whichever social providers you require. To do so, click on the **Custom Social Connections** link listed under **Installed Extensions**.
 
 You will be asked to authorize the Custom Social Connections app. After you do so, the **New Connection** window will open.
 
-![](/media/articles/extensions/custom-social-connections.png)
+Click the slider next to the social provider(s) you want to set up. The slider will turn from grey to green, indicating that a connection to that provider exists.
 
-Click the slider next to the social provider you want to set up. The slider will turn from grey to green, indicating that a connection to that provider exists. For additional information on how each individual provider handles authentication, see that provider's documentation.
+For information on how each provider handles authentication, see that provider's documentation.
 
-### Configure the Social Connection Settings
+### Settings configuration
 
-The **New Connection** window contains two tabs: **Settings** and **Apps**:
-
-![](/media/articles/extensions/new-custom-social-connection.png)
+As soon as you enable a specific social connection, Auth0 displays a pop-up **New Connection** window that contains two tabs: **Settings** and **Apps**. You will need to update these tabs accordingly so that your connection works as expected.
 
 #### New Connection: Settings
 
@@ -52,9 +49,9 @@ The Settings page is used to provide the information required to set up the soci
 
 ```
 {
-    "Header1" : "Value",
-    "Header2" : "Value"
-    // ...
+ "Header1" : "Value",
+ "Header2" : "Value"
+ // ...
 }
 ```
 
@@ -64,18 +61,18 @@ After you have provided values for the required fields, click **Save**.
 
 Once you have successfully configured the connection, you will be presented with a list of apps associated with your Auth0 tenant under the **Apps** tab of the **New Connection** window.
 
-Using the slider, enable this social connection for the apps that you want to use it with.
+Using the slider, enable this social connection for the apps that you want to use it with. **If you do not enable *any* of the listed apps, you will not be able to use the connection.**
 
 Once you have enabled/disabled the appropriate apps, click **Save**.
 
 ### Provide your Callback URL to the Identity Provider
 
-The callback URL is the URL that is invoked by the provider after the authentication request has finished.
+The callback URL is the URL that is invoked by the provider after the authentication request has finished. Your provider will ask you to provide this URL at some point during the setup process.
 
 Use this value for the **Callback URL**:
 `https://${account.namespace}/login/callback`
 
-Depending on the provider, this field can be referred to by different names. Sometimes called a **Redirect URI** the callback URL may also be be referred to as: "Valid OAuth redirect URI", "Authorized redirect URI", "Allowed Return URL" or something similar.
+Depending on the provider, this field can be referred to by different names. Sometimes called a **Redirect URI**, the callback URL may also be referred to as: "Valid OAuth redirect URI," "Authorized redirect URI," "Allowed Return URL," or something similar.
 
 ## Use your new connection
 
@@ -91,13 +88,13 @@ Lock does not currently support displaying buttons for custom social connections
 
 ## Optional: Set up Basic Authentication
 
-By default, when invoking the __Token URL__ to exchange the authentication code for an Access Token, Auth0 will provide the `client ID` and `client secret` as part of the body of the POST. Some identity providers require [HTTP Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication), which involves providing those same credentials in a HTTP header.
+By default, when invoking the __Token URL__ to exchange the authentication code for an Access Token, Auth0 will provide the `client ID` and `client secret` as part of the body of the POST. Some identity providers require [HTTP Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication), which involves providing those same credentials in an HTTP header.
 
-If the identity provider requires Basic Authentication, you can be use the __Custom Headers__ setting with a JSON object like this:
+If the identity provider requires Basic Authentication, you can use the __Custom Headers__ setting with a JSON object like this:
 
 ```
 {
-    "Authorization" : "Basic xxxxxxxx"
+ "Authorization" : "Basic xxxxxxxx"
 }
 ```
 
@@ -105,10 +102,10 @@ If the identity provider requires Basic Authentication, you can be use the __Cus
 
 ```
 {
-    "Authorization" : "Basic MTIzNDU2OmFiY2RlZg=="
+ "Authorization" : "Basic MTIzNDU2OmFiY2RlZg=="
 }
 ```
 
 ## Additional Steps
 
-Depending on which social providers you are you using, there may be additional steps in the provider configuration to enable the connection.
+Depending on which social providers you are you using, there may be additional steps in the provider configuration to enable the connection. Please refer to the provider-specific documentation for clarifying details.
