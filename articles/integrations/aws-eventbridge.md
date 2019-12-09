@@ -46,7 +46,6 @@ Go to AWS to complete the final steps of the integration.
 
 4. Name the AWS Event Bus the same name as the AWS Event Source. At this point, you can specify permission for this Event Bus or simply associate it.
 
-
 ## Create your rules
 
 At this point, the events that you send will be made available on your event bus. However, before you can use the data you send to AWS services, you will need to [create rules](https://docs.aws.amazon.com/eventbridge/latest/userguide/create-event-bus.html) that map those events to specific targets.
@@ -59,14 +58,14 @@ A single rule can route to one or more targets (if there are more than one, AWS 
 
 To create a rule:
 
-1. Go to the [EventBridge page](https://console.aws.amazon.com/events/home?region=us-east-1#/) and click **Create rule**
+1. Go to the [EventBridge page](https://console.aws.amazon.com/events/home?region=us-east-1#/), and click **Create rule**
 
 2. Provide the name of the AWS Event Bus and specify your targets
 
 ## Testing
 
-At this point, your EventBridge workflow should be fully complete. As soon as Auth0 writes the next tenant log, you should be able to go to your Target (as defined in your EventBridge rule) to find a copy of the log Auth0 has written in JSON format.
+At this point, your EventBridge workflow should be complete. As soon as Auth0 writes the next tenant log, you should be able to go to your Target (as defined in your EventBridge rule) to find a copy of the log Auth0 has written in JSON format.
 
 ## Delivery attempts and retries
 
-Auth0 event are delivered to AWS via a streaming mechanism that sends each event as it is triggered in our system. If EventBridge is unable to receive the event, we will retry up to three times to deliver the event, otherwise, we will log the failure to deliver in our system.
+Auth0 events are delivered to AWS via a streaming mechanism that sends each event as it is triggered in our system. If EventBridge is unable to receive the event, we will retry up to three times to deliver the event; otherwise, we will log the failure to deliver in our system.
