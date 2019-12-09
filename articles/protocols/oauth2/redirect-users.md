@@ -18,7 +18,7 @@ Use the `state` parameter to lookup and restore the previous state of your appli
 ::: warning
 Passing URLs in plaintext or in any predictable way is unsafe. State should always be opaque to ensure that:
 
-* `state` can be used for defense agains CSRF attacks
+* `state` can be used for defense against CSRF attacks
 * your app is not vulnerable to open redirect exploits, which can lead to phishing attacks
 :::
 
