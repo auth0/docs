@@ -475,17 +475,14 @@ articles:
           - title: "Customize Emails"
             url: "/anomaly-detection/guides/customize-blocked-account-emails"
 
-          - title: "Enable and Disable Brute Force Protection"
+          - title: "Enable/Disable Brute Force Protection"
             url: "/anomaly-detection/guides/enable-disable-brute-force-protection"
-            hidden: true
 
-          - title: "Breached Password Detection Triggers"
+          - title: "Breached Password Triggers"
             url: "/anomaly-detection/references/breached-password-detection-triggers-actions"
-            hidden: true
 
           - title: "Brute-Force Protection Triggers"
             url: "/anomaly-detection/references/brute-force-protection-triggers-actions"
-            hidden: true
 
           - title: "Restrictions and Limitations"
             url: "/anomaly-detection/references/anomaly-detection-restrictions-limitations"
@@ -657,13 +654,14 @@ articles:
             url: /custom-domains/self-managed-certificates
             children:
 
+              - title: Cloudflare Reverse Proxy
+                url: /custom-domains/set-up-cloudflare
+
               - title: Cloudfront Reverse Proxy
                 url: /custom-domains/set-up-cloudfront
-                hidden: true 
 
               - title: Azure CDN Reverse Proxy
                 url: /custom-domains/set-up-azure-cdn
-                hidden: true 
 
           - title: Specific Features
             url: /custom-domains/additional-configuration
