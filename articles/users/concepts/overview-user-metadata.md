@@ -12,6 +12,12 @@ useCase: manage-users
 
 In addition to the [Normalized User Profile](/users/normalized) information, you can use metadata to store information that does not originate from an identity provider, or that overrides what an identity provider supplies.
 
+There are three types of data typically stored in the `app_metadata` field:
+
+* **Permissions**: privileges granted to certain users allowing them rights within the application that others do not have.
+* **Plan information**: settings that cannot be changed by the user without confirmation from someone with the appropriate authority.
+* **External IDs**: identifying information used to associate users with external accounts. 
+
 Auth0 distinguishes between two types of metadata used to store specific kinds of information:
 
 * **User metadata**: stores user attributes such as preferences that do *not* impact a user's core functionality. Logged in users can edit their data stored in `user_metadata` if you build a form for them using the Management API [`PATCH` endpoint](/api/management/v2#!/Users/patch_users_by_id) with the scope `update:current_user_metadata`. 

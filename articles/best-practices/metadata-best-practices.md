@@ -13,75 +13,63 @@ useCase:
 
 # Metadata Best Practices
 
-There are three types of data typically stored in the `app_metadata` field:
-
-* **Permissions**: privileges granted to certain users allowing them rights within the application that others do not have.
-* **Plan information**: settings that cannot be changed by the user without confirmation from someone with the appropriate authority.
-* **External IDs**: identifying information used to associate users with external accounts. 
-
 ## Metadata field names
 
-For field names, avoid periods and ellipses and dynamic field names.
+* Avoid periods, ellipses, and dynamic metadata field names.
 
-### Avoid periods and ellipses
+* Metadata field **names** must not contain a dot. For example, use of the following field name would return a Bad Request (400) error:
 
-Metadata field **names** must not contain a dot. For example, use of the following field name would return a Bad Request (400) error:
-
-```json
-{
-    "preference.color": "pink"
-}
-```
-
-One way of handling this limitation is to nest attributes:
-
-```json
-{
-    "preference": {
-        "color": "pink"
-    }
-}
-```
-
-Alternately, you can use any delimiter that is not  `.` or `$`.
-
-However, the usage of the `.` delimiter is acceptable in the data **values** such as in the below example:
-
-```json
-{
-    "preference": "light.blue"
-}
-```
-
-### Avoid dynamic field names
-
-Do not use dynamic field names. For example, instead of using the following structure:
-
-```json
-"participants": {
-    "Alice" : {
-        "role": "sender"
-    },
-    "Bob" : {
-        "role": "receiver"
-    }
-}
-```
-
-Use this:
-
-```json
-"participants": [
+    ```json
     {
-        "name": "Alice",
-        "role": "sender"
-    },
-    {
-        "name" : "Bob",
-        "role": "receiver"
+        "preference.color": "pink"
     }
-]
-```
+    ```
+
+    One way of handling this limitation is to nest attributes:
+
+    ```json
+    {
+        "preference": {
+            "color": "pink"
+        }
+    }
+    ```
+
+* Alternately, you can use any delimiter that is not  `.` or `$`. However, you can the `.` delimiter in the data **values** such as in the below example:
+
+    ```json
+    {
+        "preference": "light.blue"
+    }
+    ```
+
+* Do not use dynamic field names. For example, instead of using the following structure:
+
+    ```json
+    "participants": {
+        "Alice" : {
+            "role": "sender"
+        },
+        "Bob" : {
+            "role": "receiver"
+        }
+    }
+    ```
+
+    Use this:
+
+    ```json
+    "participants": [
+        {
+            "name": "Alice",
+            "role": "sender"
+        },
+        {
+            "name" : "Bob",
+            "role": "receiver"
+        }
+    ]
+    ```
 
 ## Metadata data types
 
