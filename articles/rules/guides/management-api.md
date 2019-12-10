@@ -1,5 +1,6 @@
 ---
-description: How to use the Management API in rules.
+title: Use the Management API with Rules
+description: Learn how to use the Management API with rules.
 toc: true
 topics:
   - rules
@@ -8,15 +9,14 @@ topics:
 contentType: how-to
 useCase: extensibility-rules
 ---
-
 # Use the Management API in Rules
 
-When you write [Rules](/rules), you can use the `auth0` object to update a user's `app_metadata` or `user_metadata` (for details on how to do this, see [Metadata in Rules](/rules/guides/metadata)).
+From within any [Rules](/rules) you write, you can update a user's `app_metadata` or `user_metadata` using the `auth0` object. To learn more, see [Metadata in Rules](/rules/guides/metadata).
 
-If you wish to access more [Management API](/api/management/v2) endpoints inside Rules, you have to use another version of the library.
+However, to access additional [Management API](/api/management/v2) endpoints from inside Rules, you have to use another version of the library.
 
 :::warning
-[Searching for users](/best-practices/search-best-practices) inside Rules may affect the performance of your logins, and we advise against it. 
+[Searching for users](/best-practices/search-best-practices) from inside Rules may affect the performance of your logins; we advise against it. 
 :::
 
 ## Access a newer version of the library
