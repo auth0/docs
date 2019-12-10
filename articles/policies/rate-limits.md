@@ -1,6 +1,6 @@
 ---
 title: Rate Limit Policy For Auth0 APIs
-description: This page details Auth0's Rate Limit Policy with hitting Auth0 API endpoints.
+description: This page details Auth0's Rate Limit Policy When Working with Auth0 API endpoints.
 toc: true
 topics:
     - auth0-policies
@@ -62,6 +62,12 @@ API requests to selected [Authentication](/api/authentication) or [Management AP
 * **X-RateLimit-Remaining**: The number of remaining requests in the current time frame.
 * **X-RateLimit-Reset**: A [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) of the expected time when the rate limit will reset.
 
+## Tenant Types
+
+Auth0's rate limits vary based on the tenant type you have. The tenants that have no credit card associated in the [Dashboard](${manage_url}/#/tenant/billing/payment) are free.
+
+There are also variations in terms of paid tenant types (e.g., non-production, production). To set an environment for your tenant (development, staging or production), go to [Support Center > Tenants](${env.DOMAIN_URL_SUPPORT}/tenants/public), find your tenant, select __Assign Environment Tag__, set the environment and save changes.
+
 ## Endpoints with Rate Limits
 
 ::: note
@@ -72,24 +78,15 @@ If you are using an API endpoint **not** listed below and you receive rate limit
 
 The rate limits for this API differ depending on whether your tenant is free or paid, production or not.
 
-::: note
-- The tenants that have no credit card associated in the [Dashboard](${manage_url}/#/tenant/billing/payment) are free.
-- To set an environment for your tenant (development, staging or production), go to [Support Center > Tenants](${env.DOMAIN_URL_SUPPORT}/tenants/public), find your tenant, select __Assign Environment Tag__, set the environment and save changes.
-:::
+| Tenant Type | Limit |
+| - | - |
+| Free or Trial | 2 requests per second (and bursts up to 10 requests) |
+| Non-Production (Paid) | 2 requests per second (and bursts up to 10 requests) |
+| Production (Paid) | 15 requests per second (and bursts up to 50 requests) |
 
-The following rate limits apply:
-
-- For all __free tenants__, usage of the Management API is restricted to 2 requests per second (and bursts up to 10 requests). This category also includes __trial tenants__.
-- For __non-production tenants__ of enterprise customers, usage of the Management API is restricted to 2 requests per second (and bursts up to 10 requests).
-- For __paid__ tenants, usage of the Management API is restricted to 15 requests per second (and bursts up to 50 requests).
-
-The aforementioned rate limits include calls made via [Rules](/rules).
-
-Note, that the limit is set by tenant and not by endpoint.
+The aforementioned rate limits include calls made via [Rules](/rules) and are set **by tenant** and not by endpoint.
 
 The following Auth0 Management API endpoints return rate limit-related headers. For additional information about these endpoints, please consult the [Management API explorer](/api/management/v2).
-
-<!-- markdownlint-disable MD033 -->
 
 <table class="table">
   <thead>
@@ -196,123 +193,147 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
   </tbody>
 </table>
 
-### Access tokens for SPAs
+#### Access tokens for SPAs
 
 If you obtain Access Tokens for your SPAs, note that there are rate limits that are applicable when working with the available `current_user`-related [scopes and endpoints](/api/management/v2/get-access-tokens-for-spas#available-scopes-and-endpoints). You are allowed a maximum of **10 requests per minute per user**.
 
 ### Authentication API
 
-The following Auth0 Authentication API endpoints return rate limit-related headers.
+#### Production Tenants for Enterprise Users
 
 <table class="table">
-  <thead>
     <tr>
-        <th><strong>Endpoint</strong></th>
-        <th><strong>Path</strong></th>
-        <th><strong>Limited By</strong></th>
-        <th><strong>Affected Tenants</strong></th>
-        <th><strong>Rate Limit</strong></th>
+        <th>Endpoint</th>
+        <th>Path</th>
+        <th>Limited By</th>
+        <th>Rate Limit</th>
     </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td rowspan="3">Authentication and authorization</td>
-    <td rowspan="3">/authorize</td>
-    <td>IP</td>
-    <td>Non-Free (*)</td>
-    <td>500 requests per minute</td>
-  </tr>
-  <tr>
-    <td>(any request)</td>
-    <td>Free (*)</td>
-    <td>300 requests per minute</td>
-  </tr>
-  <tr>
-    <td>Session</td>
-    <td>All</td>
-    <td>10 requests per second</td>
-  </tr>
-  <tr>
-    <td rowspan="2">User Profile</td>
-    <td>/tokeninfo (legacy)</td>
-    <td>IP</td>
-    <td>All</td>
-    <td>800 requests per minute</td>
-  </tr>
-  <tr>
-    <td>/userinfo</td>
-    <td>User ID</td>
-    <td>All</td>
-    <td>5 requests per minute with bursts of up to 10 requests</td>
-  </tr>
-  <tr>
-    <td rowspan="2">Delegated Authentication (legacy)</td>
-    <td rowspan="2">/delegation</td>
-    <td>User ID and IP</td>
-    <td>All</td>
-    <td>1 request per minute with bursts of up to 10 requests</td>
-  </tr>
-  <tr>
-    <td>(any request)</td>
-    <td>Free (*)</td>
-    <td>10 requests per second</td>
-  </tr>
-  <tr>
+    <tr>
+        <td>All Endpoints</td>
+        <td><a href="/docs/api/authentication">All Authentication API endpoints</a></td>
+        <td>Sum of all combined requests to any Authentication API endpoint</td>
+        <td>100 requests per second</td>
+    </tr>
+    <tr>
+        <td rowspan="2">Authentication and authorization</td>
+        <td rowspan="2"><code>/authorize</code></td>
+        <td>IP Address</td>
+        <td>500 requests per minute</td>
+    </tr>
+    <tr>
+        <td>Sessions</td>
+        <td>10 requests per second</td>
+    </tr>
+    <tr>
+        <td rowspan="2">User Profile</td>
+        <td><code>/tokeninfo</code> (Legacy)</td>
+        <td>IP Address</td>
+        <td>800 requests per minute</td>
+    </tr>
+    <tr>
+        <td><code>/userinfo</code></td>
+        <td>User ID</td>
+        <td>5 requests per minute with bursts of up to 10 requests</td>
+    </tr>
+    <tr>
+        <td>Delegation</td>
+        <td><code>/delegation</code></td>
+        <td>User ID, IP Address</td>
+        <td>10 requests per second</td>
+    </tr>
+    <tr>
     <td>Change Password</td>
-    <td>/dbconnections/change_password</td>
-    <td>User Email and IP</td>
-    <td>All</td>
+    <td><code>/dbconnections/change_pass</code></td>
     <td>1 request per minute with bursts of up to 10 requests</td>
   </tr>
   <tr>
     <td>Get Passwordless Code or Link</td>
-    <td>/passwordless/start</td>
+    <td><code>/passwordless/start</code></td>
+    <td>IP Address</td>
+    <td>50 requests per hour</td>
+  </tr>
+</table>
+
+#### Free Tenants and Non-Production Tenants for Enterprise Users
+
+<table class="table">
+    <tr>
+        <th>Endpoint</th>
+        <th>Path</th>
+        <th>Limited By</th>
+        <th>Rate Limit</th>
+    </tr>
+    <tr>
+        <td rowspan="2">Authentication and authorization</td>
+        <td rowspan="2"><code>/authorize</code></td>
+        <td>IP Address</td>
+        <td>300 requests per minute</td>
+    </tr>
+    <tr>
+        <td>Sessions</td>
+        <td>10 requests per minute</td>
+    </tr>
+    <tr>
+        <td rowspan="2">User Profile</td>
+        <td><code>/tokeninfo</code> (Legacy)</td>
+        <td>IP Address</td>
+        <td>800 requests per minute</td>
+    </tr>
+    <tr>
+        <td><code>/userinfo</code></td>
+        <td>User ID</td>
+        <td>5 requests per minute with bursts of up to 10 requests</td>
+    </tr>
+    <tr>
+        <td>Delegation</td>
+        <td><code>/delegation</code></td>
+        <td>User ID, IP Address</td>
+        <td>10 requests per second</td>
+    </tr>
+    <tr>
+    <td>Change Password</td>
+    <td><code>/dbconnections/change_password</code></td>
+    <td>User Email and IP</td>
+    <td>1 request per minute with bursts of up to 10 requests</td>
+  </tr>
+  <tr>
+    <td>Get Passwordless Code or Link</td>
+    <td><code>/passwordless/start</code></td>
     <td>IP</td>
-    <td>All</td>
     <td>50 requests per hour</td>
   </tr>
   <tr>
     <td>Get Token</td>
-    <td>/oauth/token</td>
-    <td>(any request)</td>
-    <td>Free</td>
+    <td><code>/oauth/token</code></td>
+    <td>Any Request</td>
     <td>30 requests per second</td>
   </tr>
   <tr>
     <td>Cross Origin Authentication</td>
-    <td>/co/authenticate</td>
-    <td>(any request)</td>
-    <td>Free</td>
+    <td><code>/co/authenticate</code></td>
+    <td>Any Request</td>
     <td>5 requests per second</td>
   </tr>
 
   <tr>
     <td>Authentication</td>
-    <td>/usernamepassword/login</td>
-    <td>(any request)</td>
-    <td>Free</td>
+    <td><code>usernamepassword/login</code></td>
+    <td>Any Request</td>
     <td>5 requests per second</td>
   </tr>
   <tr>
     <td>Resource Owner (legacy)</td>
-    <td>/oauth/ro</td>
-    <td>(any request)</td>
-    <td>Free</td>
+    <td><code>/oauth/ro</code></td>
+    <td>Any Request</td>
     <td>10 requests per second</td>
   </tr>
   <tr>
     <td>JSON Web Token Keys</td>
-    <td>/.well-known/jwks.json</td>
-    <td>(any request)</td>
-    <td>Free</td>
+    <td><code>/.well-known/jwks.json</code></td>
+    <td>Any Request</td>
     <td>20 requests per second</td>
   </tr>
-  </tbody>
 </table>
-
-:::note
-(*) In all instances above, **Free** includes tenants on the Free plan, including those with an ongoing trial. It also includes non-production tenants of enterprise customers.
-:::
 
 ## Limits on Database Logins
 
@@ -322,12 +343,14 @@ For database connections, Auth0 limits certain types of repeat login attempts de
 
 There's a limit of 10 SMS messages/hour per user for multi-factor authentication. For more information, see [Configuring Twilio for SMS](/multifactor-authentication/twilio-configuration).
 
-## Limits on Native Social Logins 
+## Limits on Native Social Logins
 
 Limits are only applied to requests related to the Native Social Login flows, which are identified based on the body of the requests with the following initial criteria:
 
 * `grant_type`: `urn:ietf:params:oauth:grant-type:token-exchange` 
 * `subject_token_type`: `http://auth0.com/oauth/token-type/apple-authz-code`
+
+### Limits for Production Tenants for Enterprise Users
 
 <table class="table">
   <thead>
@@ -335,22 +358,36 @@ Limits are only applied to requests related to the Native Social Login flows, wh
         <th><strong>Endpoint</strong></th>
         <th><strong>Path</strong></th>
         <th><strong>Limited By</strong></th>
-        <th><strong>Affected Tenants</strong></th>
         <th><strong>Rate Limit</strong></th>
     </tr>
   </thead>
   <tbody>
-  <tr>
-    <td rowspan="3">Get Token</td>
-    <td rowspan="3">/oauth/token</td>
-    <td>Any Native Social Login request</td>
-    <td>Free</td>
-    <td>30 requests per minute</td>
-  </tr>
-  <tr>
-    <td>Native Social Login request and IP</td>
-    <td>Paid</td>
-    <td>50 requests per minute with bursts of up to 500 requests</td>
-  </tr>
+    <tr>
+        <td>Get Token</td>
+        <td>/oauth/token</td>
+        <td>Any Native Social Login request</td>
+        <td>50 requests per minute with bursts of up to 500 requests</td>
+    </tr>
+  </tbody>
+</table>
+
+### Limits for Free Tenants and Non-Production Tenants for Enterprise Users
+
+<table class="table">
+  <thead>
+    <tr>
+        <th><strong>Endpoint</strong></th>
+        <th><strong>Path</strong></th>
+        <th><strong>Limited By</strong></th>
+        <th><strong>Rate Limit</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td>Get Token</td>
+        <td>/oauth/token</td>
+        <td>Native Social Login request and IP</td>
+        <td>30 requests per minute</td>
+    </tr>
   </tbody>
 </table>
