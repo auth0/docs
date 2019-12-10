@@ -162,7 +162,7 @@ Note that while the variable is called `callback_domain`, it is really an *origi
 
 If your application has multiple **Allowed Callback URLs** configured, Auth0 will use the first URL listed. You can also provide a default origin using Liquid syntax:
 
-```
+```text
 { application.callback_domain | default: "https://my-default-domain.com" }}/result_page
 ```
 
