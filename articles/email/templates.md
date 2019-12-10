@@ -152,13 +152,19 @@ With the New Experience, Auth0 redirects users to the default log in route when 
 * `application.clientID`
 * `application.callback_domain` (or its synonym `client.callback_domain`)
   
-The `application.callback_domain` variable will contain the domain of the **first** URL listed in the application's **Allowed <dfn data-key="callback">Callback URL</dfn>** list. This lets you redirect users to a path of the application that triggered the action by using a syntax like this:
+The `application.callback_domain` variable will contain the origin of the **first** URL listed in the application's **Allowed <dfn data-key="callback">Callback URL</dfn>** list. This lets you redirect users to a path of the application that triggered the action by using a syntax like this:
 
 ```text
 {{ application.callback_domain }}/result_page
 ```
 
-If your application has multiple **Allowed Callback URLs** configured, Auth0 will use the first URL listed.
+Note that while the variable is called `callback_domain`, it is really an *origin*, so it includes the protocol in addition to the domain, e.g. `https://myapp.com`.
+
+If your application has multiple **Allowed Callback URLs** configured, Auth0 will use the first URL listed. You can also provide a default origin using Liquid syntax:
+
+```
+{ application.callback_domain | default: "https://my-default-domain.com" }}/result_page
+```
 
 #### Dynamic Redirect To URLs
 
