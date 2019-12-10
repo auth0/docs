@@ -87,6 +87,8 @@ For Private Cloud (search_engine:v2), use `q=identities.connection:"connection_n
 | [POST /api/rules](/api/v1#!#post--api-rules) | None. | [POST /api/v2/rules](/api/v2#!/Rules/post_rules-) |
 | [PUT /api/rules/{rule-name}](/api/v1#!#put--api-rules--rule-name-) | Uses `{id}` instead of `rule-name`. | [PATCH /api/v2/rules/{id}](/api/v2#!/Rules/patch_rules_by_id) |
 | [DELETE /api/rules/{rule-name}](/api/v1#!#delete--api-rules--rule-name-) | Uses `{id}` instead of `rule-name`. | [DELETE /api/v2/rules/{id}](/api/v2#!/Rules/delete_rules_by_id) |
+| [GET /api/rules-configs](/api/v1) | None. | [GET /api/v2/rules-configs](/api/v2#!/Rules_Configs/get_rules_configs) |
+| [POST /api/rules-configs](/api/v1) | Not available, perform one call per variable to update. | [PUT /api/v2/rules-configs/{key}](/api/v2#!/Rules_Configs/put_rules_configs_by_key) |
 
 ### Logs endpoints
 
@@ -97,6 +99,13 @@ Logs endpoints in Management API v2 are described at [Search Log Events](https:/
 | [GET /logs](/api/v1#logs) | Syntax Changes, described at [Breaking Changes](https://auth0.com/docs/logs/query-syntax#search-engine-v3-breaking-changes) | [GET /api/v2/logs](/api/v2#!/Logs/get_logs) |
 | [GET /logs/{id}](/api/v1#logs) | None. | [GET /api/v2/logs/{id}](/api/v2#!/Logs/get_logs_by_id) |
 
+### Email Templates endpoints
+
+| v1 Endpoint | Change | v2 Endpoint |
+| ----------- | ------ | ----------- |
+| [GET /api/emails/{email-template-name}](/api/v1#email-templates) | `disabled` renamed to `enabled` | [GET	/api/v2/email-templates/{templateName}](/api/v2#!/Email_Templates/get_email_templates_by_templateName) |
+| [POST /api/emails](/api/v1#email-templates) | `disabled` renamed to `enabled` | [POST	/api/v2/email-templates](https://auth0.com/docs/api/management/v2#!/Email_Templates/post_email_templates) |
+| [PUT /api/emails/{email-template-name}](/api/v1#email-templates) | `disabled` renamed to `enabled` | [PUT	/api/v2/email-templates/{templateName}](https://auth0.com/docs/api/management/v2#!/Email_Templates/put_email_templates_by_templateName) |
 
 ## Authentication mechanism
 
