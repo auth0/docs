@@ -27,7 +27,7 @@ The alternative is to create a simple (custom) API&mdash;protected via use of an
 
 By default, Auth0 will give you a token for any API if you authenticate successfully and include the appropriate audience. Restricting access to the legacy identity store API by restricting access token allocation via use of a Rule will prevent unauthorized usage and will mitigate a number of attack vector scenarios, such as where redirect to `/authorize` is intercepted and the audience to the API is added.
 
-::: important
+::: warning
 Restricting access to the API via Rule will mitigate attack vector scenarios, such as where redirect to `/authorize` is intercepted and the audience to the API is added, and will ensure that only access using specific client credentials is granted.
 :::
 
