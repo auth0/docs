@@ -1,5 +1,5 @@
 ---
-description: How to implement a user redirect using rules, and actions after redirecting.
+description: Learn how to customize authentication flows, such as MFA, privacy policy acceptance, and gathering user data, by redirecting users from rules.
 toc: true
 topics:
   - rules
@@ -169,7 +169,7 @@ function(user, context, callback) {
 ## Progressive profiling example
 
 ::: warning
-This example hosts a User Profile webpage using a [Webtask](https://webtask.io) that you can modify, provision, and use in your webtask tenant. However, using webtasks is just one way of implementing and deploying the webpage; any HTTP server that provides the same behavior will suffice.
+This example hosts a User Profile webpage using a [Webtask](https://webtask.io) that you can modify, provision, and use in your webtask tenant. However, using webtasks is just one way of implementing and deploying the webpage; any HTTP server that provides the same behavior will work.
 :::
 
 <%= include('../../_includes/_webtask') %>
@@ -260,5 +260,5 @@ In this example a JWT is only required for the redirect from the `redirect-to-up
 ## Keep reading
 
 * [Progressive Profiling](/users/concepts/overview-progressive-profiling)
-* [How Rules Handle the Data](https://github.com/auth0/rules/blob/master/redirect-rules/progressive-profiling/continue-from-update-profile-website.js)
+* [Sample Code for Progressive Profiling Redirect Rule](https://github.com/auth0/rules/blob/master/redirect-rules/progressive-profiling/continue-from-update-profile-website.js)
 * [Resume Authentication](/rules/guides/redirect#resume-authentication)
