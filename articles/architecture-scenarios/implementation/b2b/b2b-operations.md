@@ -41,7 +41,8 @@ useCase:
 <%= include('../../_includes/_operations/_notifications.md', { platform: 'b2b' }) %>
 
 ## Organization Admin Portal
-An organization admin portal is a portal that allows your administrators to create, modify, and remove organizations. There are multiple activities that need to be done both in your own system and your Auth0 tenant.  This portal will likely need to exist in your own system so it has access to your datastores and configuration.  However, Auth0 provides the [**Auth0 Management API**](/api/management/v2) so that you can incorporate changes to your Auth0 tenant at the same time that you create the changes in your own system.
+The new organizations can be created as part of self-service sign up for new customers or can be manually provisioned by your admin staff as part of new customer on-boarding. 
+An organization admin portal is a portal that allows your administrators or new business's administrator to create, modify, and configure an organization. There are multiple activities that need to be done both in your own system and your Auth0 tenant.  This portal will likely need to exist in your own system so it has access to your datastores and configuration.  However, Auth0 provides the [**Auth0 Management API**](/api/management/v2) so that you can incorporate changes to your Auth0 tenant at the same time that you create the changes in your own system.
 
 There are two main approaches that can be taken for creating a new organization.  The one you choose depends highly on your tolerance for how long it would take to deploy a new organization.
 * **Live Updates to your Auth0 Tenant**: If you want to be able to create new organizations in real-time, then you will likely want to make the changes directly to your Auth0 tenant using the Auth0 Management API.  This allows the changes to take place in real-time and allow the addition of a new organization to take effect immediately.

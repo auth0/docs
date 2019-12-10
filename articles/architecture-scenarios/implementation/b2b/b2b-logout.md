@@ -28,7 +28,7 @@ There are two main approaches you can take to Single Logout:
 
 This is by far the simplest approach to Single Logout.  Each application enforces a short time that a user can use the system (5-10 minutes) and then on each action by that user if the time has expired, it will either redirect to Auth0 (for regular web apps), or use [Silent Authentication](https://auth0.com/docs/api-auth/tutorials/silent-authentication) for client side tokens.  This will ensure that eventually (within a minute or two) all other applications will fail to get their refreshed token because the SSO session has been removed through logout.
 
-::: best practice
+::: panel Best Practice
 You want to avoid making too many calls to your Auth0 tenant to avoid rate limiting and poor performance.  A best practice is to only request new tokens if tokens have expired and a user takes an action.  This will avoid applications that are simply open, but not in use, from continually polling for new tokens.
 :::
 
