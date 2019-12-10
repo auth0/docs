@@ -407,7 +407,7 @@ function create (user, callback) {
 
 ```sql
 function create(user, callback) {
-  var connection = mysql({
+  var connection = mysql.createConnection({
     host: 'localhost',
     user: 'me',
     password: 'secret',

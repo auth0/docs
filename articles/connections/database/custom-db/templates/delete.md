@@ -186,7 +186,7 @@ function remove (id, callback) {
 ```
 function remove (id, callback) {
 
-  var connection = mysql({
+  var connection = mysql.createConnection({
     host     : 'localhost',
     user     : 'me',
     password : 'secret',

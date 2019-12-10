@@ -325,7 +325,7 @@ function changePassword(email, newPassword, callback) {
 
 ```sql
 function changePassword (email, newPassword, callback) {
-  var connection = mysql({
+  var connection = mysql.createConnection({
     host     : 'localhost',
     user     : 'me',
     password : 'secret',
