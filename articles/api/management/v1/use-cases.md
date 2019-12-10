@@ -15,11 +15,7 @@ Currently, there are API features and functionality that are only available in t
 The features only available in Management API v1 include:
 
 * [Active Directory Connector Monitoring](#active-directory-connector-monitoring)
-* [Application Users](#application-users)
-* [Email](#email)
 * [Enterprise Users/Directory Searching](#enterprise-users/directory-searching)
-* [Rules Configuration](#rules-configuration)
-* [Searching via the PSaaS Appliance](#searching-via-the-auth0-appliance)
 
 ## Active Directory Connector Monitoring
 
