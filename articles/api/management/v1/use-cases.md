@@ -14,14 +14,7 @@ If your business process or configuration requires these features, you can conti
 
 The features that are not being deprecated at the moment are:
 
-* [Active Directory Connector Monitoring](#active-directory-connector-monitoring)
 * [Enterprise Users/Directory Searching](#enterprise-users/directory-searching)
-
-## Active Directory Connector Monitoring
-
-The following endpoint allows you to monitor the status of your Active Directory Connector. It is not currently available on the [Management API v2](/api/v2).
-
-GET `/api/connections/{AUTH0_CONNECTION}/socket`
 
 ## Enterprise Users/Directory Searching
 
