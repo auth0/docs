@@ -1,17 +1,4 @@
 ---
-title: Litmos SAML Configuration
-description: Litmos SAML Configuration
-topics:
-    - saml
-    - identity-providers
-    - litmos
-contentType:
-  - how-to
-useCase:
-  - add-idp
----
-
----
 title: Configure Auth0 as a SAML Identity Provider for Litmos
 description: Learn how to configure Auth0 to be a SAML Identity Provider for Litmos.
 topics:
