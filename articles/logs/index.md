@@ -69,7 +69,7 @@ To store log data longer than the time period offered by your subscription plan,
 You can use the Management API v2 to retrieve your logs using the [/api/v2/logs](/api/v2#!/Logs/get_logs) endpoint, which suports two types of consumption: [by checkpoint](/logs#get-logs-by-checkpoint) or [by search criteria](#get-logs-by-search-criteria).
 
 ::: note
-We highly recommend using [the checkpoint approach](/logs#get-logs-by-checkpoint) to export logs to the external system of your choice and perform any search or analysis there, as logs stored in our system are subject to [the retention period](/logs#how-long-is-log-file-data-available). You can use any of the [Export Auth0 logs to an external service](/extensions#export-auth0-logs-to-an-external-service) extensions to export the logs to the system of your choice (like Sumo Logic, Splunk or Loggly).
+We highly recommend using [the checkpoint approach](/logs#get-logs-by-checkpoint) to export logs to the external system of your choice and perform any search or analysis there, as logs stored in our system are subject to the retention period. You can use any of the [Export Auth0 logs to an external service](/extensions#export-auth0-logs-to-an-external-service) extensions to export the logs to the system of your choice (like Sumo Logic, Splunk or Loggly).
 :::
 
 If you would like to perform a search for specific events you can also use the [search criteria approach](/logs#get-logs-by-search-criteria), which is also the one used by the Management Dashboard.
