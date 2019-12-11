@@ -41,7 +41,7 @@ If you are operating your service as an administrator, there are many helpful me
  The deeper the analysis, the more you can learn about your customers and your business.
 
 ::: note
-Auth0 recommends that you [Use Tenant Log Data for Anomaly Detection](/anomaly-detection/guides/use-tenant-data-for-anomaly-detection).
+Auth0 recommends that you [create reports using tenant traffic data to see anomaly detection events](/anomaly-detection/guides/use-tenant-data-for-anomaly-detection).
 :::
 
 ### Log data for developers

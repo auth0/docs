@@ -24,7 +24,7 @@ A **shield** specifies the **action** you wish to take given a specific **trigge
 Customize the actions in the **Anomaly Detection** section on the [Dashboard](${manage_url}/#/anomaly).
 
 ::: note
-Auth0 recommends that you [Use Tenant Log Data for Anomaly Detection](/anomaly-detection/guides/use-tenant-data-for-anomaly-detection).
+Auth0 recommends that you [create reports using tenant traffic data to see anomaly detection events](/anomaly-detection/guides/use-tenant-data-for-anomaly-detection).
 :::
 
 ## Brute-force protection
