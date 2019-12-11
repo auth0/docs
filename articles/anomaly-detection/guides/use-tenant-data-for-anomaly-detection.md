@@ -9,7 +9,7 @@ useCase: tenant-logs
 
 # View Anomaly Detection Events
 
-The tenant logs contains useful data that you can use to build charts to look at the profile of the traffic going through your tenant. This is helpful when evaluating anomaly detection activity. 
+The tenant logs contain useful data that you can use to build charts to look at the profile of the traffic going through your tenant. This is helpful when evaluating anomaly detection activity. 
 
 ## Authentication failure events
 
