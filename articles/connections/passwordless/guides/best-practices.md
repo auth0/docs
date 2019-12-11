@@ -15,8 +15,13 @@ When a user authenticates via Passwordless, the user is attached to the connecti
 
 ## Implementing MFA with Passwordless
 
-Passwordless differs from Multi-factor Authentication (MFA) in that only one factor is used to authenticate a user&mdash;the one-time code or link received by the user. If you want to require that users log in with a one-time code or link **in addition** to another factor (e.g., username/password or a social Identity Provider, such as Google), see [Multi-factor Authentication (MFA)](/multifactor-authentication).
+Passwordless differs from Multi-factor Authentication (MFA) in that only one factor is used to authenticate the user is the one-time code or link received by the user. 
+
+If you want to require that users log in with a one-time code  **in addition** to another factor (e.g., username/password or a social Identity Provider, such as Google), see [Multi-factor Authentication (MFA)](/multifactor-authentication).
 
 ## Implementing Login
 
 Use the [Universal Login](/universal-login) [Classic Experience](/universal-login/classic) with the Lock (passwordless) template for your login page.
+
+
+<%= include('../_includes/_rate_limit_server_side') %>

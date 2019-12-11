@@ -8,10 +8,14 @@ topics:
     - authentication
 ---
 
+If you have strong reasons to not to use Universal Login, you can embed the login user interface in your application by using our SDKs to implement passwordless authentication. 
 
-[Embedded Passwordless Login in Single Page Applications](/connections/passwordless/guides/configure-login-page-embedded)
+<%= include('../../../_includes/_embedded_login_warning') %>
 
-[Embedded Passwordless Login in Web Applications Applications]()
+Depending on the kind of application you want to build, you'll need to implement it differently.
 
-[Embedded Passwordless Login in Native Applications Applications]()
+For Single Page Applications (e.g. Angular / React), refer to [Embedded Passwordless Login in Single Page Applications](/connections/passwordless/guides/embedded-login-spa)
 
+For Native applications (iOS, Android, desktop applications) refer to [Embedded Passwordless Login in Native Applications](/connections/passwordless/guides/embedded-login-native). 
+
+For Regular Web Applications (NodeJS, Java, Rails, .NET) please check [Embedded Passwordless Login in Regular Web Applications](/connections/passwordless/guides/embedded-login-webapps).

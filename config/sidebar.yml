@@ -265,29 +265,26 @@ articles:
       - title: Passwordless
         url: /connections/passwordless
         children:
-
-          - title: Implement Passwordless
-            url: /connections/passwordless/guides/implement-passwordless
-
-          - title: Sample Use Case - Rules
-            url: /connections/passwordless/concepts/sample-use-cases-rules
-
           - title: Relevant API Endpoints
             url: /connections/passwordless/reference/relevant-api-endpoints
 
           - title: Troubleshooting
             url: /connections/passwordless/reference/troubleshoot
+          
+          - title: Universal Login
+            url: /connections/passwordless/guides/universal-login
+            hidden: true
 
-          - title: Native Passwordless
-            url: /connections/passwordless/native-passwordless-universal
+          - title: Embedded Login
+            url: /connections/passwordless/guides/embedded-login
             hidden: true
 
           - title: Using Email
-            url: /connections/passwordless/email
+            url: /connections/passwordless/email-otp
             hidden: true
 
           - title: Using SMS
-            url: /connections/passwordless/sms
+            url: /connections/passwordless/sms-otp
             hidden: true
 
           - title: FAQ
