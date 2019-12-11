@@ -37,7 +37,11 @@ Below we list a few code snippets that can be used to call these API endpoints f
   }],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"client_id\": \"${account.clientId}\", \"connection\": \"email", \"email\": \"USER_EMAIL\", \"send\": \"code\"
+    "text": "{
+        \"client_id\": \"${account.clientId}\", 
+        \"connection\": \"email\", 
+        \"email\": \"USER_EMAIL\", 
+        \"send\": \"code\"
   }
 }
 ```
@@ -54,7 +58,11 @@ Below we list a few code snippets that can be used to call these API endpoints f
   }],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"client_id\": \"${account.clientId}\", \"connection\": \"email", \"email\": \"USER_EMAIL\", \"send\": \"link\"
+    "text": "{
+        \"client_id\": \"${account.clientId}\", 
+        \"connection\": \"email\", 
+        \"email\": \"USER_EMAIL\", 
+        \"send\": \"link\"
   }
 }
 ```
@@ -71,7 +79,11 @@ Below we list a few code snippets that can be used to call these API endpoints f
   }],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"client_id\": \"${account.clientId}\", \"connection\": \"sms", \"phone_number\": \"USER_PHONE_NUMBER\", \"send\": \"code\"
+    "text": "{
+        \"client_id\": \"${account.clientId}\", 
+        \"connection\": \"sms\", 
+        \"phone_number\": \"USER_PHONE_NUMBER\", 
+        \"send\": \"code\"
   }
 }
 ```
@@ -91,9 +103,9 @@ Below we list a few code snippets that can be used to call these API endpoints f
     "text": "{
         \"grant_type\": \"http://auth0.com/oauth/grant-type/passwordless/otp\", 
         \"client_id\": \"${account.clientId}\", 
-        \"username\": \"USER_PHONE_NUMBER", 
-        \"otp\": \"code", 
-        \"realm\": \"sms", 
+        \"username\": \"USER_PHONE_NUMBER\", 
+        \"otp\": \"code\", 
+        \"realm\": \"sms\", 
         \"audience\": \"your-api-audience\", 
         \"scope\": \"opend profile email\"
   }
@@ -115,9 +127,9 @@ Below we list a few code snippets that can be used to call these API endpoints f
     "text": "{
         \"grant_type\": \"http://auth0.com/oauth/grant-type/passwordless/otp\", 
         \"client_id\": \"${account.clientId}\", 
-        \"username\": \"USER_EMAIL", 
-        \"otp\": \"code", 
-        \"realm\": \"email", 
+        \"username\": \"USER_EMAIL\", 
+        \"otp\": \"code\", 
+        \"realm\": \"email\", 
         \"audience\": \"your-api-audience\", 
         \"scope\": \"opend profile email\"
   }
