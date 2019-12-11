@@ -48,9 +48,7 @@ Auth0 recommends that you [create reports using tenant traffic data to see anoma
 
 When debugging an issue, or setting up an integrations, logs are as good as gold. You can utilize the logs as a history of events to see where a flow may be broken, or where customers are getting confused. You can also detect nefarious behavior, or verify that Auth0 anomaly detection is being triggered during questionable behavior. We support searching the logs for specific events using our Dashboard or Management API directly, but also support exporting logs to your existing log processing systems, like Splunk or Sumo Logic, for deeper analysis over time.
 
-## Frequently Asked Questions
-
-### How long is log file data available?
+## Data retention and export
 
 The length of time log data is stored varies depending on your plan.
 
@@ -61,11 +59,9 @@ Developer | 2 days
 Developer Pro | 10 days
 Enterprise | 30 days
 
-### How do I view or export log file data?
+To store log data longer than the time period offered by your subscription plan, we recommend you use the [Management API feature that allows you to retrieve the relevant data](api/management/v2#!/Logs/get_logs). Once you've retrieved your data, you can:
 
-If you would like to store log data longer than the time period offered by your subscription plan, we recommend you use the [Management API feature that allows you to retrieve the relevant data](api/management/v2#!/Logs/get_logs). Once you've retrieved your data, you can:
-
-* Store the data yourself
+* Store the data yourself.
 * Send the data to an external service. You can install and configure an Auth0 Extension in order to export logs automatically to another provider, like Sumo Logic or Loggly. For a list of available providers and detailed steps to configure each, see [Export Auth0 logs to an external service](/extensions#export-auth0-logs-to-an-external-service).
 
 ## Retrieving logs from the Management API

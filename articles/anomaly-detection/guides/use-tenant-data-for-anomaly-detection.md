@@ -1,5 +1,5 @@
 ---
-description: Learn how to use tenant logs to build charts for anomaly detection on the traffic going through your tenant. 
+description: Learn how to use tenant traffic log data to view anomaly detection events. 
 topics:
     - security
     - anomaly-detection
@@ -7,7 +7,7 @@ contentType: how-to
 useCase: tenant-logs
 ---
 
-# Use Tenant Traffic Data to View Anomaly Detection Events
+# View Anomaly Detection Events
 
 The tenant logs contains useful data that you can use to build charts to look at the profile of the traffic going through your tenant. This is helpful when evaluating anomaly detection activity. 
 
