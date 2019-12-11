@@ -23,7 +23,7 @@ Auth0 categorizes applications in three ways:
 
 * **Confidential versus public**: According to the [OAuth 2.0 spec](https://tools.ietf.org/html/rfc6749#section-2.1), applications can be classified as either public or confidential depending on whether or not the application is able to hold credentials securely. Confidential applications can hold credentials securely, while public applications cannot. For more info, see [Application Types: Confidential vs. Public](/applications/concepts/app-types-confidential-public).
 
-* **First-party versus third-party**: First-party and third-party refer to the ownership of the application. First-party applications are those controlled by the same organization or person who owns the Auth0 domain. Third-party applications enable external parties or partners to securely access protected resources behind your API. For more info, see [Application Types: First-party vs. Third-party](/applications/concepts/app-types-first-third-party).
+* **First-party versus third-party**: First-party and third-party refer to the ownership of the application. First-party applications are those controlled by the same organization or person who owns the Auth0 domain. Third-party applications enable external parties or partners to securely access protected resources behind your API. See [Enable Third-Party Applications](/applications/guides/enable-third-party-apps) for details.
 
   
 ## Keep reading
@@ -34,7 +34,7 @@ Auth0 categorizes applications in three ways:
 
 * Auth0 allows you to programmatically create applications, as described in the [OpenID Connect (OIDC) Dynamic Client Registration 1.0 specification](https://openid.net/specs/openid-connect-registration-1_0.html). See [Dynamic Client Registration](/api-auth/dynamic-client-registration).
 
-* For guidance on setting up a more complex configuration that involves two separate domains or allows users to log in differently for different applications, see [Multiple Tenants](/applications/concepts/multiple-tenants).
+* For guidance on setting up a more complex configuration that involves two separate domains or allows users to log in differently for different applications, see [Using Auth0 to Secure Your Multi-Tenant Applications](/design/using-auth0-with-multi-tenant-apps) and [Create Multiple Tenants](/dashboard/guides/tenants/create-multiple-tenants.md).
 
 * Learn how to [remove an application using the Auth0 Dashboard](/dashboard/guides/applications/remove-app) or the [Management API](/api/management/guides/applications/remove-app).
 

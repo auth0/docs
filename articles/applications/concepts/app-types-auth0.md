@@ -22,9 +22,10 @@ To add authentication to your application, you must first register it with Auth0
 
 - **Machine-to-Machine (M2M) Apps**: Non-interactive applications, such as command-line tools, daemons, IoT devices, or services running on your back-end. Typically, you use this option if you have a service that requires access to an API. Learn to [register your M2M App using the Dashboard](/dashboard/guides/applications/register-app-m2m).
 
-
 ## Keep reading
 
-- After creating your first application, you should [set the environment for your tenant](/dev-lifecycle/setting-up-env#set-the-environment). Options include development, staging, or production.
+* [View Application Ownership](/api/management/guides/applications/view-ownership)
+* [Application Types: Confidential vs. Public](/applications/concepts/app-types-confidential-public)
+* [Enable Third-Party Applications](/applications/guides/enable-third-party-apps)
+* [Auth0 Grant Types Mapping](/applications/reference/grant-types-auth0-mapping)
 
-- Learn about other application categories, such as [public vs. confidential](/applications/concepts/app-types-confidential-public) and [first-party vs. third-party](/applications/concepts/app-types-first-third-party).

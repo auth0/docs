@@ -27,7 +27,7 @@ Make sure the correct [application type](/applications/concepts/app-types-auth0)
 
 ## Flag third-party applications
 
-You should flag [first-party and third-party applications](/applications/concepts/app-types-first-third-party). First-party applications can be configured from the [Applications page](${manage_url}/#/applications) of the Auth0 dashboard. Third-party applications must be created using the Auth0 Management API and have the `is_first_party` attribute set to false.
+You should flag first-party and third-party applications. First-party applications can be configured from the [Applications](${manage_url}/#/applications) page of the Auth0 Dashboard. Third-party applications must be created using the Auth0 Management API and have the `is_first_party` attribute set to false.
 
 ## Set JWT token expiration
 
