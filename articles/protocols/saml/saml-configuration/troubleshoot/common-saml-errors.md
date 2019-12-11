@@ -41,13 +41,15 @@ This message indicates that the Application doesn't have an active Connection as
 }
 ```
 
-This error appears if you haven't provided the necessary information to support IdP-initiated login flows.
+The cause for this is because the ACS URL configured in the IdP used the default Auth0 tenant domain, whereas the authentication transaction was started by calling the custom domain `/authorize` endpoint.
+
+The ACS URL should use the same domain as the initial authentication request. If using custom domains, this should use the custom domain callback URL.
 
 ### How to Fix
 
 1. Navigate to [Connections > Enterprise](${manage_url}/#/connections/enterprise).
 2. Find your Connection, and click on **Settings**.
-3. Switch to the *IdP-Initiated* tab.
+3. Switch to the **IdP-Initiated** tab.
 4. Select the **Default Application** and the **Response Protocol** used by that Application, and (optionally) specify any additional parameters you want passed to the Application.
 
 ::: panel SP-Initiated Login

@@ -23,6 +23,10 @@ A **shield** specifies the **action** you wish to take given a specific **trigge
 
 Customize the actions in the **Anomaly Detection** section on the [Dashboard](${manage_url}/#/anomaly).
 
+::: note
+Auth0 recommends that you [Use Tenant Log Data for Anomaly Detection](/anomaly-detection/guides/use-tenant-data-for-anomaly-detection).
+:::
+
 ## Brute-force protection
 
 Brute-force protection is [enabled by default](/anomaly-detection/guides/enable-disable-brute-force-protection) for all connections. There are two different [triggers](/anomaly-detection/references/brute-force-protection-triggers-actions) for the brute-force protection shield, for two slightly different attack scenarios.

@@ -20,7 +20,7 @@ Using the [Dashboard](${manage_url}/#/logs) or the [Management API logs endpoint
 Auth0 does not provide real-time logs for your tenant. While we do our best to index events as they arrive, you may see some delays.
 :::
 
-## How to view log data
+## View log data
 
 The **Logs** page of the [Dashboard](${manage_url}/#/logs) displays all events that occur, including user authentication and administrative actions such as adding/updating Applications, Connections, and Rules.
 
@@ -28,9 +28,7 @@ The **Logs** page of the [Dashboard](${manage_url}/#/logs) displays all events t
 
 Please note that administrative actions will show up in the logs as `API Operation` events.
 
-## What can I use logs for?
-
-### As an administrator
+### Log data for administrators
 
 If you are operating your service as an administrator, there are many helpful metrics and bits of information you can gather from the Logs. If a customer has raised a support ticket that they are unable to sign in to your service or application, you can verify in the logs that they have indeed tried, and are attempting in the manner they say they are. They may think it's a password issue, but you may discover they never completed setting up their <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn>. Additionally, Logs can help expose some business metrics you may not have had available before. These could include:
 
@@ -42,7 +40,11 @@ If you are operating your service as an administrator, there are many helpful me
 
  The deeper the analysis, the more you can learn about your customers and your business.
 
-### As a developer
+::: note
+Auth0 recommends that you [Use Tenant Log Data for Anomaly Detection](/anomaly-detection/guides/use-tenant-data-for-anomaly-detection).
+:::
+
+### Log data for developers
 
 When debugging an issue, or setting up an integrations, logs are as good as gold. You can utilize the logs as a history of events to see where a flow may be broken, or where customers are getting confused. You can also detect nefarious behavior, or verify that Auth0 anomaly detection is being triggered during questionable behavior. We support searching the logs for specific events using our Dashboard or Management API directly, but also support exporting logs to your existing log processing systems, like Splunk or Sumo Logic, for deeper analysis over time.
 
