@@ -41,7 +41,7 @@ This message indicates that the Application doesn't have an active Connection as
 }
 ```
 
-The cause for this is because the ACS URL configured in the IdP used the default Auth0 tenant domain, whereas the authentication transaction was started by calling the custom domain `/authorize` endpoint.
+This error typically occurs because the ACS URL configured in the IdP used the default Auth0 tenant domain, whereas the authentication transaction was started by calling the custom domain `/authorize` endpoint.
 
 The ACS URL should use the same domain as the initial authentication request. If using custom domains, this should use the custom domain callback URL.
 
