@@ -69,7 +69,7 @@ Content-Type: application/json
   "otp": "CODE",
   "realm": "email", // or "sms" 
   "audience" : "your-api-audience", // in case you need an access token for a specific API
-  "scopes": "openid profile email" // whatever scopes you need
+  "scope": "openid profile email" // whatever scopes you need
 }
 ```
 
