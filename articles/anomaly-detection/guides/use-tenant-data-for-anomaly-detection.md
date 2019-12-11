@@ -1,5 +1,4 @@
 ---
-title: Use Tenant Traffic Data for Anomaly Detection
 description: Learn how to use tenant logs to build charts for anomaly detection on the traffic going through your tenant. 
 topics:
     - security
@@ -8,13 +7,13 @@ contentType: how-to
 useCase: tenant-logs
 ---
 
-# Use Tenant Traffic Data for Anomaly Detection
+# Use Tenant Traffic Data to View Anomaly Detection Events
 
-The tenant logs contain a number of useful data that you can use to build charts to look at the profile of the traffic going through your tenant.  
+The tenant logs contains useful data that you can use to build charts to look at the profile of the traffic going through your tenant. This is helpful when evaluating anomaly detection activity. 
 
-## Use event log data to see failure events
+## Authentication failure events
 
-You can use the log data `event` field to view the tenant traffic data. We recommend building a daily histogram of failure events, those of the following types:
+You can use the log data `event` field to view the tenant traffic data. We recommend building a daily histogram of failure events of the following types:
 
 | Event Code | Event |
 | -- | -- |
@@ -32,11 +31,11 @@ The following example shows a credential stuffing attack on 11/20, with a large 
 
 ![Traffic Failure Trends](/media/articles/anomaly-detection/traffic-failure-trends.png)
 
-## Use `ip` to see failure events from distinct IPs 
+## Authenticaton failure events from distinct IPs 
 
 You can use the `ip` event to see the number of distinct IPs that your failure traffic is coming from, in this case, the number of distinct IPs that correspond to your `fu` event traffic.
 
-## Use event log data to see anomaly detection events
+## Anomaly detection events
 
 You can perform the same type of analysis with the events corresponding to anomaly detection events to see how many times they are triggered. Use the following log events which correspond to brute force detection with many accounts, one account, and breached password detection:
 
@@ -53,3 +52,4 @@ Here's an example of what that data might look like.
 ## Keep reading
 
 * [Log data event listing](/logs#log-data-event-listing)
+* [Logs Search Query Syntax](/logs/query-syntax)
