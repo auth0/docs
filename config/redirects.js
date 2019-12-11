@@ -554,7 +554,7 @@ module.exports = [
   },
   {
     from: '/clients/connections',
-    to: '/applications/connections'
+    to: '/connections'
   },
   {
     from: '/applications/connections',
