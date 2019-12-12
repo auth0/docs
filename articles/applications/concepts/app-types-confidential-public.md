@@ -1,5 +1,4 @@
 ---
-title: Application Types - Confidential vs. Public
 description: Understand the difference between confidential and public application types.
 toc: true
 topics:
@@ -9,7 +8,7 @@ contentType: concept
 useCase:
   - build-an-app
 ---
-# Application Types: Confidential vs. Public
+# Confidential and Public Applications
 
 According to the [OAuth 2.0 spec](https://tools.ietf.org/html/rfc6749#section-2.1), applications can be classified as either confidential or public. The main difference relates to whether or not the application is able to hold credentials (such as a client ID and secret) securely.
 
@@ -61,5 +60,5 @@ Because public applications are unable to hold secrets, [ID Tokens](/tokens/id-t
 
 * [View Application Type: Confidential or Public](/dashboard/guides/applications/view-app-type-confidential-public).
 * [Auth0 Application Types](/applications/concepts/app-types-auth0)
-* [Enable Third-Party Applications](/applications/guides/enable-third-party-apps)
+* [First-Party and Third-Party Applications](/applications/concepts/app-types-first-third-party))
 * [Auth0 Grant Types Mapping](/applications/reference/grant-types-auth0-mapping)

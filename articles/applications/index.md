@@ -19,9 +19,9 @@ Auth0 categorizes applications in three ways:
 
 * **Auth0 application type**: To add authentication to your application, you must first register it with Auth0 and select an application type. Auth0 recognizes four application types: Regular Web App, Single-Page App, Native App, and Machine-to-Machine (M2M) App. See [Auth0 Application Types](/applications/concepts/app-types-auth0) for details.
 
-* **Confidential versus public**: According to the [OAuth 2.0 spec](https://tools.ietf.org/html/rfc6749#section-2.1), applications can be classified as either public or confidential depending on whether or not the application is able to hold credentials securely. Confidential applications can hold credentials securely, while public applications cannot. See [Application Types: Confidential vs. Public](/applications/concepts/app-types-confidential-public) for details.
+* **Confidential versus public**: According to the [OAuth 2.0 spec](https://tools.ietf.org/html/rfc6749#section-2.1), applications can be classified as either public or confidential depending on whether or not the application is able to hold credentials securely. Confidential applications can hold credentials securely, while public applications cannot. See [Confidential and Public Applications](/applications/concepts/app-types-confidential-public) for details.
 
-* **First-party versus third-party**: First-party and third-party refer to the ownership of the application. First-party applications are those controlled by the same organization or person who owns the Auth0 domain. Third-party applications enable external parties or partners to securely access protected resources behind your API. See [Enable Third-Party Applications](/applications/guides/enable-third-party-apps) for details.
+* **First-party versus third-party**: First-party and third-party refer to the ownership of the application. First-party applications are those controlled by the same organization or person who owns the Auth0 domain. Third-party applications enable external parties or partners to securely access protected resources behind your API. See [First-Party and Third-Party Applications](/applications/concepts/app-types-first-third-party) for details.
 
 ## Set up applications
 

@@ -58,4 +58,4 @@ Trusted first-party applications have the same `grant_types` enabled as confiden
 If you are using the [Dashboard](${manage_url}) to enable or disable these grant types, be aware that all the Password and MFA grant types are enabled when you add the `Password` or `MFA` grant type to your Application. You cannot select them individually.
 :::
 
-For more info about first-party and third-party applications, see [Enable Third-Party Applications](/applications/guides/enable-third-party-apps).
+For more info about first-party and third-party applications, see [First-Party and Third-Party Applications](/applications/concepts/app-types-first-third-party).

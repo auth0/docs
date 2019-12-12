@@ -25,7 +25,7 @@ To add authentication to your application, you must first register it with Auth0
 ## Keep reading
 
 * [View Application Ownership](/api/management/guides/applications/view-ownership)
-* [Application Types: Confidential vs. Public](/applications/concepts/app-types-confidential-public)
-* [Enable Third-Party Applications](/applications/guides/enable-third-party-apps)
+* [Confidential and Public Applications](/applications/concepts/app-types-confidential-public)
+* [First-Party and Third-Party Applications](/applications/concepts/app-types-first-third-party)
 * [Auth0 Grant Types Mapping](/applications/reference/grant-types-auth0-mapping)
 
