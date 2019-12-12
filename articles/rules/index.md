@@ -55,7 +55,17 @@ A Rule is a function with the following arguments:
 
 ## Execution order
 
-Rules execute in the order shown on the Auth0 Dashboard. If a rule depends on the execution of another rule, move the dependent rule lower in the list.
+Rules execute in the order shown on the Auth0 Dashboard. Only when a rule has finished executing (indicated by the calling of the rule's `callback` function) will Auth0 move onto the next. If a rule depends on the execution of another rule, move the dependent rule lower in the list.
+
+Rule execution supports the asynchronous nature of JavaScript, and constructs such as [`Promise`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) objects and the like can be used.
+
+If a rule is making use of asynchronous processing, then a call to the Auth0-supplied [`callback`](#callback-function) function must be deferred to the point where asynchronous processing completes and must be the final thing called. The `callback` function must be called exactly once; calling the function more than once within a rule will lead to unpredictable results and/or errors.
+
+We recommend running "expensive" rules (i.e., rules that call out to APIs, including the Auth0 Management API) as late as possible, assuming there are not earlier rules that could cause an `unauthorized` access determination.
+
+## Size
+
+We recommend that the total size of implementation for all enabled rules not exceed 100 KB (excluding any [`npm`](https://www.npmjs.com/) modules that may be referenced as part of any [`require`](https://nodejs.org/api/modules.html#modules_require_id) statements).
 
 ## Available modules
 
@@ -63,8 +73,11 @@ Rules execute in the order shown on the Auth0 Dashboard. If a rule depends on th
 
 ## Keep reading
 
+* [Rules Environments](/rules/references/environment)
+* [The Callback Function](/rules/references/environment)
 * [Context Object in Rules](/rules/references/context-object)
 * [User Object in Rules](/rules/references/user-object)
 * [Node.js Modules Available in Rules](/rules/references/modules)
 * [Sample Rules](/rules/references/samples)
+* [Security](/rules/references/environment)
 * [Rules (Legacy)](/rules/references/legacy)

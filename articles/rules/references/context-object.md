@@ -10,7 +10,51 @@ useCase: extensibility-rules
 
 # Context Object in Rules
 
-The `context` object stores contextual information about the current authentication transaction, such as the user's IP address, application, or location.
+The [`context`](/rules/references/context-object) object provides information about the context in which a rule is run (such as client identifier, connection name, session identifier, request context, protocol, etc).
+
+Using the context object, a rule can determine the reason for execution. 
+
+For example, as illustrated in the sample fragment below, [`context.clientID`](/rules/references/context-object#properties-of-the-context-object) as well as [`context.protocol`](/rules/references/context-object#properties-of-the-context-object) can be used to implement conditional processing to determine when rule logic is executed. The sample also shows some best practices for [exception handling](/best-practices/error-handling#exceptions), use of [`npm` modules](/best-practices/custom-db-connections/environment#npm-modules) (for `Promise` style processing), and the [`callback`](#callback-object) object.
+
+```js
+  switch (context.protocol) {
+    case 'redirect-callback':
+      return callback(null, user, context);
+    	break;
+
+    default: {
+      user.app_metadata = user.app_metadata || {};
+      switch(context.clientID) {
+        case configuration.PROFILE_CLIENT: {
+          user.user_metadata = user.user_metadata || {};
+          Promise.resolve(new
+            Promise(function (resolve, reject) {
+              switch (context.request.query.audience) {
+                case configuration.PROFILE_AUDIENCE: {
+                  switch (context.connection) {
+                      .
+                      .
+                  }
+                } break;
+              .
+              .
+            })
+          )
+          .then(function () {
+              .
+              .
+          })
+          .catch(function (error) {
+            return callback(new UnauthorizedError(“unauthorized”), user, context);
+          });
+        } break;
+
+        default:
+          return callback(null, user, context);
+          break;
+
+    } break;
+```
 
 ## Properties
 
