@@ -1,6 +1,6 @@
 ---
 title: Rate Limit Policy For Auth0 APIs
-description: This page details Auth0's Rate Limit Policy When Working with Auth0 API endpoints.
+description: This page details Auth0's rate limit policy when working with Auth0 API endpoints.
 toc: true
 topics:
     - auth0-policies
