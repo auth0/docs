@@ -23,7 +23,7 @@ Confirm your application code uses the correct Client ID. You can find the Clien
 
 ## Correct application type
 
-Make sure the correct [application type](/applications/concepts/app-types-auth0) is set in your application settings. Setting the correct application type helps Auth0 check for certain security risks.
+Make sure the correct [application type](/applications) is set in your application settings. Setting the correct application type helps Auth0 check for certain security risks.
 
 ## Flag third-party applications
 

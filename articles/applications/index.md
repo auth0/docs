@@ -15,11 +15,11 @@ Applications are primarily meant for human interaction as opposed to APIs, which
 
 Auth0 categorizes apps based on these three characteristics:
 
-* **What type of app it is**: To add authentication to your app, you must register it in the Auth0 Dashboard and select from one of the following [app types](/applications/concepts/app-types-auth0): 
-  - [Regular web app](/dashboard/guides/applications/register-app-regular-web)
-  - [Single-page app (SPA)](/dashboard/guides/applications/register-app-spa)
-  - [Native app](/dashboard/guides/applications/register-app-native)
-  - [Machine-to-machine (M2M) app](/dashboard/guides/applications/register-app-m2m) 
+* **What type of app it is**: To add authentication to your app, you must register it in the Auth0 Dashboard and select from one of the following app types: 
+  - [Regular web app](/dashboard/guides/applications/register-app-regular-web): Traditional web applications that perform most of their application logic on the server (such as Express.js or ASP.NET).
+  - [Single-page app (SPA)](/dashboard/guides/applications/register-app-spa): JavaScript applications that perform most of their user interface logic in a web browser, communicating with a web server primarily using APIs (such as AngularJS + Node.js or React).
+  - [Native app](/dashboard/guides/applications/register-app-native): Mobile or Desktop apps that run natively in a device (such as iOS or Android).
+  - [Machine-to-machine (M2M) app](/dashboard/guides/applications/register-app-m2m): Non-interactive applications, such as command-line tools, daemons, IoT devices, or services running on your back-end. Typically, you use this option if you have a service that requires access to an API.
 
 * **Whether the app can securely hold credentials**: According to the [OAuth 2.0 spec](https://tools.ietf.org/html/rfc6749#section-2.1), apps can be classified as either *public* or *confidential*. Confidential apps can hold credentials securely, while public apps cannot. See [Confidential and Public Applications](/applications/concepts/app-types-confidential-public) for details.
 

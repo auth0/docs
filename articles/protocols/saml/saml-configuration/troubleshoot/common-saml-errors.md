@@ -31,7 +31,7 @@ This message indicates that the Application doesn't have an active Connection as
 1. Navigate to [Connections > Enterprise](${manage_url}/#/connections/enterprise).
 2. Find your Connection, and click on **Settings**.
 3. Switch to the *Applications* tab.
-4. Enable at least one Application (if you don't see any in the list, you will need to [create an application](/applications/concepts/app-types-auth0) before proceeding).
+4. Enable at least one Application (if you don't see any in the list, you will need to [create an application](/applications) before proceeding).
 
 ## Error: IdP-Initiated Default App Not Configured
 

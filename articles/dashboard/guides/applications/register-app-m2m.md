@@ -14,7 +14,7 @@ useCase:
 ---
 # Register Machine-to-Machine Applications
 
-To integrate Auth0 with a [machine-to-machine (M2M) application](/applications/concepts/app-types-auth0), you must first register your app with Auth0. This guide will show you how to register an M2M application using Auth0's Dashboard.
+To integrate Auth0 with a [machine-to-machine (M2M) application](/applications), you must first register your app with Auth0. This guide will show you how to register an M2M application using Auth0's Dashboard.
 
 ::: note
 M2M applications are linked to an API and its [scopes](/scopes/current/api-scopes), which are selected from pre-defined values. Make sure you have already [registered the associated API](/apis#how-to-configure-an-api-in-auth0) with Auth0 and [defined scopes for the API](scopes/current#define-scopes-using-the-dashboard) before beginning this guide. 

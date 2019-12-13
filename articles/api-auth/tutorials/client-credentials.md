@@ -110,9 +110,6 @@ This is a series of tutorials that describe a scenario for a fictitious company 
 
 ## Keep reading
 
-::: next-steps
-- [Auth0 Application Types](/applications/concepts/app-types-auth0)
-- [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
-- [How to change the scopes and add custom claims to the tokens using Hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
-- [Tokens used by Auth0](/tokens)
-:::
+- [WWhy You Should Always Use Access Tokens to Secure APIs](/api-auth/why-use-access-tokens-to-secure-apis)
+- [Use Hooks with Client Credentials Grant](/api-auth/tutorials/client-credentials/customize-with-hooks)
+- [Tokens](/tokens)

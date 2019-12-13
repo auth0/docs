@@ -171,7 +171,7 @@ if __name__ == '__main__':
 
 ## Keep reading
 
-- [Auth0 Application Types](/applications/concepts/app-types-auth0)
+- [Applications](/applications)
 * [Management API Explorer](/api/management/v2#!)
 * [Management API Access Tokens FAQs](/api/management/v2/faq-management-api-access-tokens)
 

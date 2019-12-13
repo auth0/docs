@@ -1,5 +1,6 @@
 ---
 title: User consent and third-party applications
+description: Decouple APIs from applications that consume them and define third-party apps that you don't control or may not trust. 
 topics:
   - api-authentication
   - oidc
@@ -79,7 +80,7 @@ To set the **use_scope_descriptions_for_consent** flag, you will need to make th
 }
 ```
 
-## Handling rejected permissions
+## Handle rejected permissions
 
 If a user decides to reject consent to the application, they will be redirected to the `redirect_uri` specified in the request with an `access_denied` error:
 
@@ -90,7 +91,7 @@ Location: https://fabrikam.com/contoso_social#
     &state=...
 ```
 
-## Skipping consent for first-party applications
+## Skip consent for first-party applications
 
 Only first-party applications can skip the consent dialog, assuming the resource server they are trying to access on behalf of the user has the "Allow Skipping User Consent" option enabled.
 
@@ -106,7 +107,7 @@ Similarly, you **cannot** skip consent (even for first-party applications) if `l
 
 Since third-party applications are assumed to be untrusted, they are not able to skip consent dialogs.
 
-## Revoking Consent
+## Revoke Consent
 
 If a user has provided consent, but you would like to revoke it, you can do so via [Dashboard > Users](${manage_url}/#/users). Select the user in which you are interested, and switch over to the **Authorized Applications** tab.
 
@@ -117,17 +118,16 @@ Click **Revoke** next to the appropriate application.
 When performing a [Resource Owner Password Credentials exchange](/api-auth/grant/password), there is no consent dialog involved.
 During a password exchange, the user provides their password to the application directly, which is equivalent to granting the application full access to the user's account.
 
-### Forcing users to provide consent
+### Force users to provide consent
 
 When redirecting to /authorize, the `prompt=consent` parameter will force users to provide consent, even if they have an existing user grant for that application and requested scopes.
 
-### Customizing the consent dialog
+### Customize the consent dialog
 
 The consent dialog UI cannot be customized or set to a custom domain.
 
 ## Keep reading
 
-* [Auth0 Application Types](/applications/concepts/app-types-auth0)
 * [First-Party and Third-Party Applications](/applications/concepts/app-types-first-third-party)
 * [View Application Ownership](/api/management/guides/applications/view-ownership)
 * [Confidential and Public Applications](/applications/concepts/app-types-confidential-public)

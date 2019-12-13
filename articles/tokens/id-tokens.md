@@ -17,7 +17,7 @@ useCase:
 
 ID Tokens are used in token-based authentication to cache user profile information and provide it to a client application, thereby providing better performance and experience. The application receives an ID Token after a user successfully authenticates, then consumes the ID Token and extracts user information from it, which it can then use to personalize the user's experience.
 
-For example, let's say you have built a [regular web application](/applications/concepts/app-types-auth0), [registered it with Auth0](/dashboard/guides/applications/register-app-regular-web), and have [configured it to allow a user to log in using Google](/connections/social/google). Once a user logs in to your app, you can use the ID Token to gather information, such as name and email address, which you can then use to auto-generate and send a personalized welcome email.
+For example, let's say you have built a [regular web application](/applications), [registered it with Auth0](/dashboard/guides/applications/register-app-regular-web), and have [configured it to allow a user to log in using Google](/connections/social/google). Once a user logs in to your app, you can use the ID Token to gather information, such as name and email address, which you can then use to auto-generate and send a personalized welcome email.
 
 ## ID Token Structure
 

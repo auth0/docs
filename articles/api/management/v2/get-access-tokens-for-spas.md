@@ -20,7 +20,7 @@ To call any of the endpoints in the Management API, you must authenticate using 
 
 ## Limitations
 
-Because single-page applications (SPAs) are public clients and therefore cannot securely store sensitive information (such as a **Client Secret**), they must retrieve Management API Tokens from the frontend, unlike other [application types](/applications/concepts/app-types-auth0).
+Because single-page applications (SPAs) are public clients and therefore cannot securely store sensitive information (such as a **Client Secret**), they must retrieve Management API Tokens from the frontend, unlike other [application types](/applications).
 
 This means that Management API Tokens for SPAs have special limitations. Specifically, they will be issued in the context of the user who is currently signed in to Auth0, which limits updates to only the logged-in user's data.  Although this restricts use of the Management API, it can still be used to perform actions related to updating the logged-in user's user profile.
 

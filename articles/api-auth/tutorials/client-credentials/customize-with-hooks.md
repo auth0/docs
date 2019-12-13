@@ -15,15 +15,11 @@ useCase:
   - extensibility-hooks
 ---
 
-# Using Hooks with Client Credentials Grant
+# Use Hooks with Client Credentials Grant
 
 You can now add [Hooks](/hooks) into your [client credentials](/api-auth/grant/client-credentials) flow. This way you can change the <dfn data-key="scope">scopes</dfn> and add custom claims to the tokens issued by Auth0.
 
-## Overview
-
-Hooks allow you to customize the behavior of Auth0 using Node.js code.
-
-They are actually [Webtasks](https://webtask.io/), associated with specific extensibility points of the Auth0 platform (like the Client Credentials grant). Auth0 invokes the Hooks at runtime to execute your custom logic.
+Hooks allow you to customize the behavior of Auth0 using Node.js code.They are actually [Webtasks](https://webtask.io/), associated with specific extensibility points of the Auth0 platform (like the Client Credentials grant). Auth0 invokes the Hooks at runtime to execute your custom logic.
 
 You can manage Hooks using the [Auth0 Dashboard](/hooks/dashboard) or the [Auth0 Command Line Interface (CLI)](/hooks/cli). In this article we will see how you can do either.
 
@@ -32,7 +28,7 @@ You can manage Hooks using the [Auth0 Dashboard](/hooks/dashboard) or the [Auth0
 Please ensure that:
 
 - You have created an [API defined with the appropriate scopes](${manage_url}/#/apis)
-- You have created a [machine to machine application](/applications/concepts/app-types-auth0) that is authorized to use the API created in the previous step
+- You have created a [machine-to-machine application](/applications) that is authorized to use the API created in the previous step
 
 If you haven't done these yet, refer to these docs for details:
 - How to set up a Client Grant:

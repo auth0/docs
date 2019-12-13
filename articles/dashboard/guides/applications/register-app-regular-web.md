@@ -14,7 +14,7 @@ useCase:
 ---
 # Register Regular Web Applications
 
-To integrate Auth0 with a [regular web app](/applications/concepts/app-types-auth0), you must first register your app with Auth0. This guide will show you how to register a regular web application using Auth0's Dashboard.
+To integrate Auth0 with a [regular web app](/applications), you must first register your app with Auth0. This guide will show you how to register a regular web application using Auth0's Dashboard.
 
 <%= include('./_includes/_register-app-part1', { application_type: 'regular web', application_type_create: 'Regular Web App' }) %>
  

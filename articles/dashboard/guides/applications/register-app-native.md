@@ -15,7 +15,7 @@ useCase:
 ---
 # Register Native Applications
 
-To integrate Auth0 with a [native application](/applications/concepts/app-types-auth0), you must first register your app with Auth0. This guide will show you how to register a native application using Auth0's Dashboard.
+To integrate Auth0 with a [native application](/applications), you must first register your app with Auth0. This guide will show you how to register a native application using Auth0's Dashboard.
 
 <%= include('./_includes/_register-app-part1', { application_type: 'native', application_type_create: 'Native App' }) %>
 

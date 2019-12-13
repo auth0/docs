@@ -36,7 +36,7 @@ Third-party applications have the following unique characteristics:
 ## Keep reading
 
 * [View Application Ownership](/api/management/guides/applications/view-ownership)
-* [Auth0 Application Types](/applications/concepts/app-types-auth0)
+* [Applications](/applications)
 * [Confidential and Public Applications](/applications/concepts/app-types-confidential-public)
 * [Auth0 Grant Types Mapping](/applications/reference/grant-types-auth0-mapping)
 * [User consent and third-party applications](/api-auth/user-consent)

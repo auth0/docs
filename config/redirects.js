@@ -546,11 +546,15 @@ module.exports = [
   },
  {
     from: '/applications/application-types',
-    to: '/applications/concepts/app-types-auth0'
+    to: '/applications'
   },
   {
     from: '/applications/machine-to-machine',
-    to: '/applications/concepts/app-types-auth0'
+    to: '/applications'
+  },
+  {
+    from: '/applications/concepts/app-types-auth0',
+    to: '/applications'
   },
   {
     from: '/clients/connections',
