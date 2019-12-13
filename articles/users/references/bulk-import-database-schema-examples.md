@@ -125,6 +125,7 @@ The following [JSON schema](http://json-schema.org) describes valid users:
                         "encoding": {
                             "type": "string",
                             "enum": ["ascii", "utf8", "utf16le", "ucs2", "latin1", "binary"],
+                            "default": "utf8",
                             "description": "The encoding of the password used to generate the hash. On login, the user-provided password will be transcoded before being checked against the provided hash."
                         }
                     }
@@ -181,7 +182,7 @@ The `app_metadata` stores information that can impact how an application functio
 
 In addition to the constraints described by the above schema, please consider the following when providing a `custom_password_hash`.
 
-- `hash.encoding` must be `utf8` when `algorithm` is one of `bcrypt|argon2|pbkdf2|ldap`
+- `hash.encoding` must be `utf8` when `algorithm` is one of `bcrypt|argon2|pbkdf2|ldap`.
 - `hash.encoding` must be either `hex` or `base64` when `algorithm` is in either of the `md*` or `sha*` family of algorithms.
 - `salt` is not allowed when `algorithm` is any of `bcrypt|argon2|pbkdf2|ldap`
 - When `algorithm` is `ldap`, `hash.value` must adhere to the format outlined in [`RFC-2307 section-5.3`](https://tools.ietf.org/html/rfc2307#section-5.3). The scheme should be one of `md5|smd5|sha*|ssha*` — see [here](https://www.openldap.org/faq/data/cache/347.html) for more info.
