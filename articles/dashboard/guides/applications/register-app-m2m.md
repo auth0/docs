@@ -1,6 +1,6 @@
 ---
-title: Register a Machine-to-Machine Application
-description: Learn to register and configure a machine-to-machine (M2M) application using the Auth0 Management Dashboard. These may include non-interactive applications, such as command-line tools, daemons, IoT devices, or services running on your back-end.
+title: Register Machine-to-Machine Applications
+description: Learn how to register and configure a machine-to-machine (M2M) application using the Auth0 Management Dashboard. These may include non-interactive applications, such as command-line tools, daemons, IoT devices, or services running on your back-end.
 topics:
   - applications
   - m2m
@@ -12,7 +12,7 @@ useCase:
   - add-login
   - call-api
 ---
-# Register a Machine-to-Machine Application
+# Register Machine-to-Machine Applications
 
 To integrate Auth0 with a [machine-to-machine (M2M) application](/applications/concepts/app-types-auth0), you must first register your app with Auth0. This guide will show you how to register an M2M application using Auth0's Dashboard.
 
