@@ -187,7 +187,7 @@ In addition to the constraints described by the above schema, please consider th
 - `salt` is not allowed when `algorithm` is any of `bcrypt|argon2|pbkdf2|ldap`
 - When `algorithm` is `ldap`, `hash.value` must adhere to the format outlined in [`RFC-2307 section-5.3`](https://tools.ietf.org/html/rfc2307#section-5.3). The scheme should be one of `md5|smd5|sha*|ssha*` — see [here](https://www.openldap.org/faq/data/cache/347.html) for more info.
   - Note that the [`crypt`](https://www.openldap.org/faq/data/cache/344.html) scheme is **not supported** due to system/implementation dependent behavior. See also [Open LDAP Admin Guide - 14.4.2. CRYPT password storage scheme](https://www.openldap.org/doc/admin24/guide.html#CRYPT%20password%20storage%20scheme).
-- When the `algorithm` is either `argon2` or `pbkdf2`, `hash.value` field should be in [PHC string format](https://github.com/P-H-C/phc-string-format/blob/master/phc-sf-spec.md).
+- When the `algorithm` is either `argon2` or `pbkdf2`, `hash.value` field should be in [PHC string format](https://github.com/P-H-C/phc-string-format/blob/master/phc-sf-spec.md). Note that for these algorithms, `hash.value` must include the base64 encoded salt (as specified in the `PHC` documentation).
   - For `argon2`, the hash value should conform to the requirements described [here](https://github.com/auth0/magic#magicpasswordhash--magicverifypassword).
   - For `pbkdf2`, the hash value should include `i` (iterations) and `l` (keylen) parameters. If these parameters are omitted, they will default to `i=100000` and `l=64`. The `id` should be in a `pbkdf2-${digest}` format (e.g `pbkdf2-sha512`, `pbkdf2-md5`, etc). The supported digests are:
     - `RSA-MD4`
