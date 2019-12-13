@@ -27,7 +27,7 @@ Auth0 categorizes applications in three ways:
 
 Learn how to set up an application in the Auth0 Dashboard. You can set up the following app types: 
 
-<%= include('../../_includes/_topic-links', { links: [
+<%= include('../_includes/_topic-links', { links: [
   'dashboard/guides/applications/register-app-regular-web',
   'dashboard/guides/applications/register-app-native',
   'dashboard/guides/applications/register-app-spa',
