@@ -14,15 +14,15 @@ To use the Embedded Passwordless APIs in Regular Web Applications, make sure you
 
 Passwordless authentication for Regular Web Applications consist of two steps:
 
-- Capture the user identifier in your application (the user's email or phone number) and invoke the `/passwordless/start` endpoint to initiate the passwordless flow. The user will get an email, an SMS with a one-time password or a magic link.
+- Capture the user identifier in your application (the user's email or phone number) and invoke the `/passwordless/start` endpoint to initiate the passwordless flow. The user will get an email, an SMS with a one-time-use code or a magic link.
 
-- If you did not send a magic link, you need to prompt the user for the one-time password, and call the `/oauth/token` endpoint to get authentication tokens.
+- If you did not send a magic link, you need to prompt the user for the one-time-use code, and call the `/oauth/token` endpoint to get authentication tokens.
 
 Note that when using magic links, you don't need to call `/oauth/token`. The user will click the magic link and it will be redirected to the application's callback URL.
 
 Below we list a few code snippets that can be used to call these API endpoints for different scenarios. Auth0 SDKs for backend technologies (Java, .NET, Ruby, PHP, Python, Node JS) haven't been updated yet to support these endpoints, so you will need to invoke them directly.
 
-**Send a One-Time password via Email**
+**Send a one-time-use code via Email**
 
 ```har
 {
@@ -39,7 +39,7 @@ Below we list a few code snippets that can be used to call these API endpoints f
 }
 ```
 
-**Send a One-Time password via SMS**
+**Send a one-time-use password via SMS**
 
 ```har
 {

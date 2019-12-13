@@ -16,7 +16,7 @@ Passwordless authentication for Native applications consist of two steps:
 
 - Capture the user identifier in your application (the user's email or phone number) and invoke the `/passwordless/start` endpoint to initiate the passwordless flow. The user will get an email or an SMS with a one-time password.
 
-- Prompt the user for the one-time password, and call the `/oauth/token` endpoint to get authentication tokens.
+- Prompt the user for the one-time-use, and call the `/oauth/token` endpoint to get authentication tokens.
 
 Below we list a few code snippets that can be used to call these API endpoints for different scenarios. Auth0 SDKs for native technologies (Android, iOS) have been updated to support these endpoints:
 
@@ -25,7 +25,7 @@ Below we list a few code snippets that can be used to call these API endpoints f
 - [Auth0.Swift Passwordless](libraries/auth0-swift/passwordless)
 - [Auth0.Android Passwordless](libraries/auth0-android/passwordless)
 
-**Send a One-Time password via Email**
+**Send a one-time-use password via Email**
 
 ```har
 {
@@ -58,7 +58,7 @@ Below we list a few code snippets that can be used to call these API endpoints f
 }
 ```
 
-**Send a One-Time password via SMS**
+**Send a one-time-use password via SMS**
 
 ```har
 {

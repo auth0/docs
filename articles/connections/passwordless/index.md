@@ -90,7 +90,7 @@ To implement passwordless you'll need to make two key decisions:
 
 ### Authentication Factor
 
-The main driver for picking the authentication factor is user experience, and that depends on your application and its target audience. If the application that will run on mobile phones, it is highly likely that users will be able to receive SMS messages. If it's an internal web application that is used in an environment where users cannot have their mobile phones with them, Email would be the only choice.
+The main driver for picking the authentication factor is user experience, and that depends on your application and its target audience. If the application will run on mobile phones, it is highly likely that users will be able to receive SMS messages. If it's an internal web application that is used in an environment where users cannot have their mobile phones with them, Email would be the only choice.
 
 If you decide to use Email, then you need to decide between an OTP or a magic link. We recommend using OTP as the login flow is more predictable for end users. To learn more refer to the following documents:
 
@@ -104,8 +104,8 @@ Auth0 supports two way of implementing authentication: *Embedded Login* and *Uni
 
 The industry is aligned in that Universal Login is the proper way to implement authentication in all apps, but in the case of Native Applications, sometimes customers prefer to implement Embedded Login for UX reasons. 
 
-  - [Implementing Passwordless Authentication with Universal Login](/dashboard/guides/universal-login/configure-login-page-passwordless).
-  - [Implementing Passwordless Authentication with Embedded Login](/connections/passwordless/guides/embedded-login)
+  - [Passwordless Authentication with Universal Login](/dashboard/guides/universal-login/configure-login-page-passwordless).
+  - [Passwordless Authentication with Embedded Login](/connections/passwordless/guides/embedded-login)
 
 ## Keep reading
 
