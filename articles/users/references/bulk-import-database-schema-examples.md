@@ -185,6 +185,7 @@ In addition to the constraints described by the above schema, please consider th
 - `hash.encoding` must be `utf8` when `algorithm` is one of `bcrypt|argon2|pbkdf2|ldap`.
 - `hash.encoding` must be either `hex` or `base64` when `algorithm` is in either of the `md*` or `sha*` family of algorithms.
 - `salt` is not allowed when `algorithm` is any of `bcrypt|argon2|pbkdf2|ldap`
+- When `algorithm` is `bcrypt` the hash must be prefixed with either `$2a$` or `$2b$`. Other prefixes such as `$2$`, `$sha1$`, `$2x$`, etc. are not supported at this time.
 - When `algorithm` is `ldap`, `hash.value` must adhere to the format outlined in [`RFC-2307 section-5.3`](https://tools.ietf.org/html/rfc2307#section-5.3). The scheme should be one of `md5|smd5|sha*|ssha*` — see [here](https://www.openldap.org/faq/data/cache/347.html) for more info.
   - Note that the [`crypt`](https://www.openldap.org/faq/data/cache/344.html) scheme is **not supported** due to system/implementation dependent behavior. See also [Open LDAP Admin Guide - 14.4.2. CRYPT password storage scheme](https://www.openldap.org/doc/admin24/guide.html#CRYPT%20password%20storage%20scheme).
 - When the `algorithm` is either `argon2` or `pbkdf2`, `hash.value` field should be in [PHC string format](https://github.com/P-H-C/phc-string-format/blob/master/phc-sf-spec.md). Note that for these algorithms, `hash.value` must include the base64 encoded salt (as specified in the `PHC` documentation).
