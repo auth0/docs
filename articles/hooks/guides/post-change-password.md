@@ -117,7 +117,7 @@ module.exports = function (user, context, cb) {
       subject: 'Your password was changed',
       content: [{
         type: 'text/plain',
-        value: `The password for your ${context.connection.name} account (${user.email}) was recently changed.`
+        value: 'The password for your ${context.connection.name} account (${user.email}) was recently changed.'
       }]
     }
   }, function (err, resp, body) {
