@@ -92,4 +92,40 @@ Once you've modified the sample code, you can test Hooks using the Runner. The r
 }
 ```
 
-## Example: ...
+## Example: Use SendGrid to send a password change notification email
+
+```js
+module.exports = function (user, context, cb) {
+
+  const request = require('request');
+
+  // https://sendgrid.api-docs.io/v3.0/mail-send
+  request.post({
+    url: 'https://api.sendgrid.com/v3/mail/send',
+    headers: {
+      'Authorization': 'Bearer YOUR_API_KEY'
+    },
+    json: {
+      personalizations: [{
+        to: [{
+          email: user.email
+        }]
+      }],
+      from: {
+        email: 'admin@example.com'
+      },
+      subject: 'Your password was changed',
+      content: [{
+        type: 'text/plain',
+        value: `The password for your ${context.connection.name} account (${user.email}) was recently changed.`
+      }]
+    }
+  }, function (err, resp, body) {
+    if (err || resp.statusCode !== 202) {
+      return cb(err || new Error(body.message));
+    }
+
+    cb();
+  });
+};
+```
