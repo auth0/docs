@@ -65,14 +65,14 @@ public void ConfigureServices(IServiceCollection services)
     {
         options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
         options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-          NameClaimType = ClaimTypes.NameIdentifier
-        };
     }).AddJwtBearer(options =>
     {
         options.Authority = domain;
         options.Audience = Configuration["Auth0:ApiIdentifier"];
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+          NameClaimType = ClaimTypes.NameIdentifier
+        };
     });
 }
 ```

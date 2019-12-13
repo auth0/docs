@@ -340,7 +340,7 @@ function App() {
 export default App;
 ```
 
-Notice that a `BrowserRouter` component has been included, and that two routes have been defined — one for the home page, and another for the profile page.
+Notice that a `Router` component has been included, and that two routes have been defined — one for the home page, and another for the profile page.
 
 To complete this step, open the `NavBar.js` file and modify the navigation bar's UI to include a link to the profile page. In addition, import the `Link` component at the top of the file.
 
