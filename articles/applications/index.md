@@ -13,29 +13,23 @@ useCase:
 
 Applications are primarily meant for human interaction as opposed to APIs, which provide data to applications through a standardized messaging system.
 
-The term _application_ or *app* does not imply any particular implementation characteristics. For example, your application could be a native app that executes on a mobile device, a single-page app that executes on a browser, or a regular web app that executes on a server.
+Auth0 categorizes apps based on these three characteristics:
 
-Auth0 categorizes applications in based on three characteristics:
-
-* **App type**: To add authentication to your app, you must register it in the Auth0 Dashboard and select an app type: 
+* **What type of app it is**: To add authentication to your app, you must register it in the Auth0 Dashboard and select from one of the following [app types](/applications/concepts/app-types-auth0): 
   - [Regular web app](/dashboard/guides/applications/register-app-regular-web)
   - [Single-page app (SPA)](/dashboard/guides/applications/register-app-spa)
   - [Native app](/dashboard/guides/applications/register-app-native)
   - [Machine-to-machine (M2M) app](/dashboard/guides/applications/register-app-m2m) 
-  
-  See [Auth0 Application Types](/applications/concepts/app-types-auth0) for details.
 
-* **Confidential or public**: According to the [OAuth 2.0 spec](https://tools.ietf.org/html/rfc6749#section-2.1), apps can be classified as either *public* or *confidential*. Confidential apps can hold credentials securely, while public apps cannot. See [Confidential and Public Applications](/applications/concepts/app-types-confidential-public) for details.
+* **Whether the app can securely hold credentials**: According to the [OAuth 2.0 spec](https://tools.ietf.org/html/rfc6749#section-2.1), apps can be classified as either *public* or *confidential*. Confidential apps can hold credentials securely, while public apps cannot. See [Confidential and Public Applications](/applications/concepts/app-types-confidential-public) for details.
 
-* **First- or third-party**: Whether an app is classified as first- and third-party depends on the app ownership and control. First-party apps are controlled by the same organization or person that owns the Auth0 domain. Third-party apps enable external parties or partners to securely access protected resources behind your API. See [First-Party and Third-Party Applications](/applications/concepts/app-types-first-third-party) for details.
+* **Who owns the app**: Whether an app is classified as first- and third-party depends on the app ownership and control. First-party apps are controlled by the same organization or person that owns the Auth0 domain. Third-party apps enable external parties or partners to securely access protected resources behind your API. See [First-Party and Third-Party Applications](/applications/concepts/app-types-first-third-party) for details.
+
+In addition to setting up apps in the Dashboard, you can also set up apps programmatically as described in the [OpenID Connect (OIDC) Dynamic Client Registration 1.0 specification](https://openid.net/specs/openid-connect-registration-1_0.html). See [Dynamic Client Registration](/api-auth/dynamic-client-registration) for details.
 
 ::: panel Multi-Tenancy
 You can set up up a more complex configuration that allows users to log in differently for different apps. See [Using Auth0 to Secure Your Multi-Tenant Applications](/design/using-auth0-with-multi-tenant-apps) and [Create Multiple Tenants](/dashboard/guides/tenants/create-multiple-tenants).
 :::
-
-In addition to setting up apps in the Dashboard, you can also set up apps programmatically as described in the [OpenID Connect (OIDC) Dynamic Client Registration 1.0 specification](https://openid.net/specs/openid-connect-registration-1_0.html). 
-
-See [Dynamic Client Registration](/api-auth/dynamic-client-registration) for details.
 
 ## Monitor apps
 
@@ -49,4 +43,8 @@ You can [remove an application using the Auth0 Dashboard](/dashboard/guides/appl
 
 ## Manage client secrets
 
-You can [rotate an app's Client Secret](/dashboard/guides/applications/rotate-client-secret)  using the Auth0 Dashboard or the [Management API](/api/management/guides/applications/rotate-client-secret).
+You can [rotate an app's Client Secret](/dashboard/guides/applications/rotate-client-secret)  using the Auth0 Dashboard or the [Management API](/api/management/guides/applications/rotate-client-secret)
+
+## Grant types
+
+Auth0 provides many different authentication and authorization grant types or *flows* and allows you to indicate which grant types are appropriate based on the `grant_types` property of your Auth0-registered app. See [Application Grant Types](/applications/concepts/application-grant-types) for more details.
