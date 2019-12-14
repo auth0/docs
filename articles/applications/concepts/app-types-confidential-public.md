@@ -58,6 +58,6 @@ Because public applications are unable to hold secrets, [ID Tokens](/tokens/id-t
 
 ## Keep reading
 
-* [View Application Type](/dashboard/guides/applications/view-app-type-confidential-public).
+* [View Application Type](/dashboard/guides/applications/view-app-type-confidential-public)
 * [First-Party and Third-Party Applications](/applications/concepts/app-types-first-third-party)
 * [Auth0 Grant Types Mapping](/applications/reference/grant-types-auth0-mapping)
