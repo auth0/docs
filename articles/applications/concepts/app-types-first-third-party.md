@@ -13,7 +13,7 @@ Applications can be classified as either first-party or third-party, which refer
 
 ## First-party applications
 
-First-party applicationsare those controlled by the same organization or person who owns the Auth0 domain. For example, let's say you created both a Contoso API and an application that logs into `contoso.com` and consumes the Contoso API. You would register both the API and application under the same Auth0 domain, and the application would be a first-party application. By default, all applications created via the [Auth0 Dashboard](${manage_url}/#/applications) are first-party applications.
+First-party applications are those controlled by the same organization or person who owns the Auth0 domain. For example, let's say you created both a Contoso API and an application that logs into `contoso.com` and consumes the Contoso API. You would register both the API and application under the same Auth0 domain, and the application would be a first-party application. By default, all applications created via the [Auth0 Dashboard](${manage_url}/#/applications) are first-party applications.
 
 ## Third-party applications
 
