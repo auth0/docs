@@ -114,7 +114,7 @@ The following [JSON schema](http://json-schema.org) describes valid users:
                         "position": {
                             "type": "string",
                             "enum": ["prefix", "suffix"],
-                            "description": "The position of the salt when the hash was calculated."
+                            "description": "The position of the salt when the hash was calculated. For example; MD5('salt' + 'password') = '67A1E09BB1F83F5007DC119C14D663AA' would have \"position\":\"prefix\"."
                         }
                     },
                     "required": ["value", "hash"]
@@ -126,7 +126,7 @@ The following [JSON schema](http://json-schema.org) describes valid users:
                             "type": "string",
                             "enum": ["ascii", "utf8", "utf16le", "ucs2", "latin1", "binary"],
                             "default": "utf8",
-                            "description": "The encoding of the password used to generate the hash. On login, the user-provided password will be transcoded before being checked against the provided hash."
+                            "description": "The encoding of the password used to generate the hash. On login, the user-provided password will be transcoded from utf8 before being checked against the provided hash. For example; if your hash was generated from a ucs2 encoded string, then you would supply \"encoding\":\"ucs2\"."
                         }
                     }
                 }
@@ -184,8 +184,8 @@ In addition to the constraints described by the above schema, please consider th
 
 - `hash.encoding` must be `utf8` when `algorithm` is one of `bcrypt|argon2|pbkdf2|ldap`.
 - `hash.encoding` must be either `hex` or `base64` when `algorithm` is in either of the `md*` or `sha*` family of algorithms.
-- `salt` is not allowed when `algorithm` is any of `bcrypt|argon2|pbkdf2|ldap`
-- When `algorithm` is `bcrypt` the hash must be prefixed with either `$2a$` or `$2b$`. Other prefixes such as `$2$`, `$sha1$`, `$2x$`, etc. are not supported at this time.
+- `salt` is not allowed when `algorithm` is any of `bcrypt|argon2|pbkdf2|ldap`.
+- When `algorithm` is `bcrypt` the hash must be prefixed with either `$2a$` or `$2b$`. Other prefixes such as `$2$`, `$sha1$`, `$2x$`, etc. are not supported at this time. For instance, `$2b$10$nFguVi9LsCAcvTZFKQlRKeLVydo8ETv483lkNsSFI/Wl1Rz1Ypo1K` was generated from the string `hello` using with a cost parameter of 10.
 - When `algorithm` is `ldap`, `hash.value` must adhere to the format outlined in [`RFC-2307 section-5.3`](https://tools.ietf.org/html/rfc2307#section-5.3). The scheme should be one of `md5|smd5|sha*|ssha*` — see [here](https://www.openldap.org/faq/data/cache/347.html) for more info.
   - Note that the [`crypt`](https://www.openldap.org/faq/data/cache/344.html) scheme is **not supported** due to system/implementation dependent behavior. See also [Open LDAP Admin Guide - 14.4.2. CRYPT password storage scheme](https://www.openldap.org/doc/admin24/guide.html#CRYPT%20password%20storage%20scheme).
 - When the `algorithm` is either `argon2` or `pbkdf2`, `hash.value` field should be in [PHC string format](https://github.com/P-H-C/phc-string-format/blob/master/phc-sf-spec.md). Note that for these algorithms, `hash.value` must include the base64 encoded salt (as specified in the `PHC` documentation).
@@ -287,7 +287,6 @@ Some example users with hashes provided:
             },
             "salt": {
                 "value": "abc123",
-                "encoding": "utf8",
                 "position": "prefix"
             }
         }
@@ -299,11 +298,7 @@ Some example users with hashes provided:
         "custom_password_hash": {
             "algorithm": "bcrypt",
             "hash": {
-                "value": "$2b$10$C9hB01.YxRSTcn/ZOOo4j.TW7xCKKFKBSF.C7E0xiUwumqIDqWUXG",
-                "encoding": "utf8"
-            },
-            "password": {
-                "encoding": "utf8"
+                "value": "$2b$10$C9hB01.YxRSTcn/ZOOo4j.TW7xCKKFKBSF.C7E0xiUwumqIDqWUXG"
             }
         }
     },
@@ -313,11 +308,7 @@ Some example users with hashes provided:
         "custom_password_hash": {
             "algorithm": "argon2",
             "hash": {
-                "value": "$argon2id$v=19$m=65536,t=2,p=1$J6Q/82PCyaNpYKRELJyTZg$m04qUAB8rexWDR4+/0f+SFB+4XMFxt7YAvAq2UycYos",
-                "encoding": "utf8"
-            },
-            "password": {
-                "encoding": "utf8"
+                "value": "$argon2id$v=19$m=65536,t=2,p=1$J6Q/82PCyaNpYKRELJyTZg$m04qUAB8rexWDR4+/0f+SFB+4XMFxt7YAvAq2UycYos"
             }
         }
     },
@@ -329,9 +320,6 @@ Some example users with hashes provided:
             "hash": {
                 "value": "$pbkdf2-md4$i=100000,l=64$+N375B8q0Fw$fp2R9KAM4hK/votGHC5Fu+jhqbxUD8+Nic/EMSGvNC3UP/k7wSHI0uXluHRSkZfl/BOheYqNOemayG90ZaSSQw",
                 "encoding": "utf8"
-            },
-            "password": {
-                "encoding": "utf8"
             }
         }
     },
@@ -341,11 +329,7 @@ Some example users with hashes provided:
         "custom_password_hash": {
             "algorithm": "pbkdf2",
             "hash": {
-                "value": "$pbkdf2-sha512$i=100000,l=64$KNyFsA2rWoE$I2CQGI9H0JxdDf3kERRI97kPCGxh0KWBIV3MxyaS191gDGfzVBGyS4BibhgqWQ0/ails8mHuU9ckASxHOOq58w",
-                "encoding": "utf8"
-            },
-            "password": {
-                "encoding": "utf8"
+                "value": "$pbkdf2-sha512$i=100000,l=64$KNyFsA2rWoE$I2CQGI9H0JxdDf3kERRI97kPCGxh0KWBIV3MxyaS191gDGfzVBGyS4BibhgqWQ0/ails8mHuU9ckASxHOOq58w"
             }
         }
     },
@@ -356,9 +340,6 @@ Some example users with hashes provided:
             "algorithm": "ldap",
             "hash": {
                 "value": "{SSHA384}/cgEjdoZh85DhurDeOQEMO1rMlAur93SVPbYe5XSD4lF7nNuvrBju5hUeg9A6agRemgSXGl5YuE=",
-                "encoding": "utf8"
-            },
-            "password": {
                 "encoding": "utf8"
             }
         }
