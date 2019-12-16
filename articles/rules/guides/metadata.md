@@ -1,5 +1,6 @@
 ---
-description: How to work with app metadata, user metadata, and client metadata in Rules.
+title: Use Metadata in Rules
+description: Learn how to work with app metadata, user metadata, and client metadata from within Rules.
 toc: true
 topics:
   - rules
@@ -9,9 +10,9 @@ contentType: how-to
 useCase: extensibility-rules
 ---
 
-# Metadata in Rules
+# Use Metadata in Rules
 
-This article explains how to read, update and delete [metadata](/metadata) using [Rules](/rules).
+This article explains how to read, update, and delete [metadata](/metadata) using [Rules](/rules).
 
 Each sample rule in this article assumes that the user and their information is represented by the following JSON snippet:
 
@@ -36,7 +37,7 @@ To read the available metadata, you will need to access the correct user propert
 
 ### Read `app_metadata`
 
-Make a decision based on the user's <dfn data-key="role">roles</dfn>:
+Using rules, you can make a decision based on the user's <dfn data-key="role">roles</dfn>:
 
 ```js
 function(user, context, callback){
@@ -50,7 +51,7 @@ function(user, context, callback){
 
 ### Read `user_metadata`
 
-Similarly, you can use the color preference:
+Similarly, you can base decisions on specific preferences, such as a color preference:
 
 ```js
 function(user, context, callback){
@@ -78,7 +79,7 @@ function(user, context, callback){
 
 #### Read `client_metadata` with the Management API
 
-`client_metadata` is included amongst in the response to the `GET /api/v2/clients` and `GET /api/v2/client/{id}` endpoints
+`client_metadata` is included in the response to the `GET /api/v2/clients` and `GET /api/v2/client/{id}` endpoints
 
 #### Create applications with `client_metadata` properties
 

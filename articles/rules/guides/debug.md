@@ -1,5 +1,6 @@
 ---
-description: How to debug your Auth0 Rules.
+title: Debug Rules
+description: Learn how to debug your Auth0 rules.
 toc: true
 topics:
   - rules
@@ -8,14 +9,13 @@ topics:
 contentType: how-to
 useCase: extensibility-rules
 ---
-
 # Debug Rules
 
-You can use `console.log` in Rules code for debugging. There are several ways to see the `console.log` output.
+To debug any [Rule](/rules) you have created in Auth0, you can use `console.log` from within your rule code. You can see `console.log` output by using the [**Try this Rule** feature](#try-this-rule), viewing the logs available with the [Real-time Webtask Logs extension](#real-time-logs-extension), or for legacy clients, using the [Debug Rule CLI](#debug-rule-cli).
 
 ## Try this Rule
 
-**TRY THIS RULE** in the [Rules Editor](${manage_url}/#/rules/create) lets you run a Rule in isolation with mock **user** and **context** objects. Clicking **TRY** will run the Rule with those two objects as input, and any `console.log` output will be displayed too.
+In the [Rules Editor](${manage_url}/#/rules/create)], the **TRY THIS RULE** button lets you run a Rule in isolation with mock **user** and **context** objects. Clicking **TRY** will run the Rule with those two objects as input and will display any `console.log` output.
 
 ![Try this Rule](/media/articles/rules/try-rule.png)
 
@@ -25,13 +25,13 @@ The **TRY THIS RULE** feature functions outside a specific client context. When 
 
 ## Real-time logs extension
 
-The [Real-time Webtask Logs](/extensions/realtime-webtask-logs) extension displays all logs, in real-time, for all custom code in your account. This includes all `console.log` output and exceptions.
+The [Real-time Webtask Logs](/extensions/realtime-webtask-logs) extension displays all logs in real-time for all custom code in your account, which includes all `console.log` output and exceptions.
 
 ## Debug Rule CLI
 
 <%= include('../../_includes/_webtask') %>
 
-Similar to the above, the **DEBUG RULE** button displays instructions for installing, configuring, and running the [webtask CLI](https://github.com/auth0/wt-cli) for debugging Rules. Paste these commands into a terminal to see the `console.log` output and any unhandled exceptions that occur during Rule execution.
+In the [Rules Editor](${manage_url}/#/rules/create)], the **DEBUG RULE** button displays instructions for installing, configuring, and running the [webtask CLI](https://github.com/auth0/wt-cli) for debugging Rules. Paste these commands into a terminal to see the `console.log` output and any unhandled exceptions that occur during Rule execution.
 
 For example:
 
