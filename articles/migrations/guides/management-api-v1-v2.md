@@ -16,13 +16,12 @@ Auth0’s Management API v1 was deprecated 2016 and replaced with the [Auth0 Man
 
 Affected customers are those who meet all of the following criteria:
 * Created before {UPDATE}
-* Actively making requests to Auth0 endpoints directly under the `/api/` path (excluding those listed in https://auth0.com/docs/api/management/v1/use-cases)
+* Actively making requests to Auth0 endpoints directly under the `/api/` path.
 
 The following tenants are NOT affected:
 * Tenants created after {UPDATE}
 * Exclusively using the Auth0 Management API v2 endpoints 
 * The Authentication API is not affected by this deprecation
-* Only using endpoints with no API v2 alternative. See https://auth0.com/docs/api/management/v1/use-cases for more information.
   
 ## How can I check to see if I've migrated all my requests?
 
@@ -65,6 +64,5 @@ If you need help with the migration, contact us using the [Support Center](https
 
 ## Keep reading
 * [Complete list of breaking changes](https://auth0.com/docs/api/management/v2/changes)
-* [Unaffected API v1 endpoints](https://auth0.com/docs/api/management/v1/use-cases)
 * [Management APIv1 documentation](https://auth0.com/docs/api/management/v1)
 * [Management APIv2 documentation](https://auth0.com/docs/api/management/v2)
