@@ -62,7 +62,7 @@ The other available views for your API are:
 
 - **Scopes**: here you can define the scopes for this API, by setting a name and a description.
 
-- **Machine to Machine Applications**: lists all applications for which the **Client Credentials** grant is **enabled**. By default, this grant is **enabled* for [Regular Web Applications and Machine to Machine Applications](/applications). You can authorize any of these applications to request Access Tokens for your API. Optionally, you can select a subset of the defined scopes to  limit your authorized application's access. 
+- **Machine to Machine Applications**: lists all applications for which the **Client Credentials** grant is **enabled**. By default, this grant is **enabled** for [Regular Web Applications and Machine to Machine Applications](/applications). You can authorize any of these applications to request Access Tokens for your API. Optionally, you can select a subset of the defined scopes to limit your authorized application's access. 
 
 - **Test**: from this view, you can execute a sample Client Credentials flow with any of your authorized applications to check that everything is working as expected.
 
