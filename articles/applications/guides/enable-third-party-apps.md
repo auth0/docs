@@ -18,7 +18,7 @@ You can enable third-party applications for your tenant. See [First-Party and Th
 
     Third-party applications can only authenticate users from [connections](/connections) flagged as domain-level connections. Domain-level connections can be enabled for selected first-party applications while also being open to all third-party application users for authentication.
     
-2. Update your application's login page (if you use [Lock](/libraries/lock/v11) in the [Hosted Login Page](/hosted-pages/login), you must also:
+2. Update your application's login page. If you use [Lock](/libraries/lock/v11) in the [Universal Login Page](/universal-login/classic), you must also:
 
   - Upgrade to Lock version 11 or later
   - Set the `__useTenantInfo: config.isThirdPartyClient` flag when instantiating Lock
