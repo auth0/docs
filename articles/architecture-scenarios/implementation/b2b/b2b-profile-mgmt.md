@@ -43,12 +43,6 @@ An admin portal is an application where you can create new users, edit a user’
 If you are providing your own way for an administrator to manage users, you should only allow administrators to send users a change password link through email rather than allowing administrators to set passwords directly. If you must go against this recommendation and allow your administrators to set someone’s password, you should force the user to change their password at their next login so that only they know the password (and not an administrator as well).
 :::
 
-* **Change the Repository and Re-deploy**: If you are taking advantage of the Deploy CLI (or a custom CLI) as part of your [CI/CD pipeline]( /architecture-scenarios/implementation/b2b/b2b-deployment), you may prefer to push your changes directly to your repository and then kickoff a new deployment instead.  This can take a little more time, but it has benefits associated with version history and the ability to backout a change by re-deploying the previous version.
-
-::: panel Best Practice
-You may want to have a separate repository just for the items that the organizations need so that you don't have to re-deploy other common components and risk making an error.
-:::
-
 ## Project Planning Guide
 
 <%= include('../../_includes/_planning.md', { platform: 'b2b' }) %>

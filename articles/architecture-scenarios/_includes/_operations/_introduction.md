@@ -23,5 +23,7 @@ Out-of-box, Auth0 provides email delivery services to help you accelerate your i
 You may also need to make changes to [infrastructure](#infrastructure) configuration in order to support integration with Auth0 and to support use of Auth0 extensibility. For example, if you need to provide callbacks to your internal or even external infrastructure (e.g., if you need to make external API calls in Rules or Hooks, or via custom database scripts if you need to leverage existing legacy identity storage), then you may need to configure your Firewall settings.
 
 <% if (platform === "b2b") { %>
+Once you know how you want organizations to be represented in your system, you will want too consider how you are going to provision the organization itself.  See [Provisioning organizations](#provisioning-organizations) for more information.
+
 In addition, many of our customers have developed one or more self-service portals for use by their customers' organization admins to provide self-service capabilities for configuring their own [IdPs](#self-service-idp-provisioning).
 <%  } %>
