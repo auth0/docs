@@ -45,7 +45,7 @@ You can [remove an application using the Auth0 Dashboard](/dashboard/guides/appl
 
 ## Manage client secrets
 
-You can [rotate an app's Client Secret](/dashboard/guides/applications/rotate-client-secret)  using the Auth0 Dashboard or the [Management API](/api/management/guides/applications/rotate-client-secret)
+You can [rotate an app's Client Secret](/dashboard/guides/applications/rotate-client-secret) using the Auth0 Dashboard or the [Management API](/api/management/guides/applications/rotate-client-secret)
 
 ## Grant types
 
