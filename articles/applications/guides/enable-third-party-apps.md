@@ -22,7 +22,7 @@ You can enable third-party applications for your tenant. See [First-Party and Th
 
   - Upgrade to Lock version 11 or later
   - Set the `__useTenantInfo: config.isThirdPartyClient` flag when instantiating Lock
-  - *For [Private Cloud](/private-cloud) users only*: Set the [`configurationBaseUrl` option](https://github.com/auth0/lock#other-options) to `https://{config.auth0Domain}/` when instantiating Lock
+  - *For [Private Cloud](/private-cloud) users only*: Set the [`configurationBaseUrl` option](https://auth0.com/docs/libraries/lock/v11/configuration#configurationbaseurl-string-) to `https://{config.auth0Domain}/` when instantiating Lock
 
 ## Access Token `current_user_*` scopes 
 
