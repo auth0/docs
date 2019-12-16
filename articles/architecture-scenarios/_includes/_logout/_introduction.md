@@ -11,11 +11,11 @@ When configuring logout behavior, you'll need to consider:
 * Where should users be redirected to after logout completes?
 * How long do you want sessions to last in the event that users do not trigger the logout process?
 <% if (platform === "b2b") { %>
-* Should the End User be logged out of all of their application sessions when they log out of one of their applications?
-* Should the session at the organization's IDP also be terminated at logout?
+* Should the End User be logged out of all of their application sessions when they log out of one?
+* Should the session with an organization's IDP also be terminated at logout?
 <% } %>
 
-Given the varying types of sessions that can be created whenever a user logs in, there are several types of logout possible. Local application logout ends the session with the application, whereas Auth0 logout [terminates the Auth0 session](/logout/guides/logout-auth0). [Federated logout](/logout/guides/logout-idps) terminates the Auth0 session and also propagates the logout request to a remote, third-party Identity Provider. Global, or [Single Logout](/logout/guides/logout-applications) (SLO), ends the Auth0 session and also sends a logout request/notice to applications relying on the Auth0 session.
+Given the varying types of sessions that can be created whenever a user logs in, there are several types of logout possible. Local application logout ends the session with the application, whereas Auth0 logout [terminates the Auth0 session](/logout/guides/logout-auth0). If you have organizations that are using their own IDP, you may want to consider a [Federated Logout](#federated-logout) strategy and implement accordingly. Global, or [Single Logout](/logout/guides/logout-applications) (SLO), ends the Auth0 session and also sends a logout request/notice to applications relying on the Auth0 session.
 
 The functionality provided by your application, as well as your use of features like <dfn data-key="single-sign-on">[Single Sign-on (SSO)](/sso)</dfn>, will inform your decision as to what type of logout is required and what visual confirmation you'll need to provide to your users. Regardless of which option you choose, the logout process you implement should make it clear to the user which sessions are being terminated, and also when the logout process has completed.
 
@@ -24,9 +24,8 @@ If the logout feature in one application terminates an Auth0 SSO session that is
 :::
 
 <% if (platform === "b2b") { %>
-In some situations, a user may expect to be logged out of all of their applications when they log out of a single application in your system.  This is something that can add complexity to a system, but if you have sensitive data and are concerned that a user may leave themselves open after logging out because they didn't realize they had to log out of all of their applications, you will need to review [Single Logout](#single-logout).
+In some situations, a user may be expected to logout of all associated applications when they log out of any one of the applications you provide. This is something that can add complexity. However if you have concerns that users could leave themselves vulnerable (perhaps due to data sensitivity or the like), then you will likely need to review [Single Logout](#single-logout) and implement accordingly.
 
-If you have organizations that are using their own IDP, you may want to consider [Federated Logout](#federated-logout)
 <%  } %>
 
 ## Where to send users after logout

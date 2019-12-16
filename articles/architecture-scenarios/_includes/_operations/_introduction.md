@@ -12,7 +12,7 @@ Establishing effective operational behaviors is something that successful custom
 *	What email services should you use to support production volumes of email messages to users? Can I use Auth0's out-of-box email provider in my production environment?
 *	Do you need to configure your firewall and what firewall ports will you need to open for internal services that need to receive communications from Auth0 (such as custom databases, web services, and email servers)?
 <% if (platform === "b2b") { %>
-* How will you need to provision new organizations?
+* How will you provision new organizations?
 * Do you need to provide self-service provisioning for your customer so that they can configure their own organizational IdPs?
 <%  } %>
 

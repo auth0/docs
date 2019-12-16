@@ -1,4 +1,4 @@
-Let's start by taking a step back and talking about Access Control.  There isn't one clear cut definition of Access Control in the industry, but if you spend some time searching and reading you'll see that most authoritative sources agree that it is the umbrella concept that puts all of Authentication, Authorization, Consent, and Policy Enforcement together to ensure that only the right people and services have access to your applications and APIs.  Next, let's look more closely into the distinctions between Authentication, Authorization, Consent, and Policy Enforcement. Your Auth0 tenant (your Authorization Server) is typically responsible for Authentication and Consent, and some or all of Authorization and Policy Enforcement. Additionally, an Application or API itself almost always is the primary enforcer of policies, especially where contextual access is required:
+Let's start by taking a step back and talking about Access Control. There isn't one clear cut definition of Access Control in the industry, but if you spend some time searching and reading you'll see that most authoritative sources agree that it is the umbrella concept that puts all of Authentication, Authorization, Consent, and Policy Enforcement together to ensure that only the right people and services have access to your applications and APIs.  Next, let's look more closely into the distinctions between Authentication, Authorization, Consent, and Policy Enforcement. Your Auth0 tenant (your Authorization Server) is typically responsible for Authentication and Consent, and some or all of Authorization and Policy Enforcement. Additionally, an Application or API itself almost always is the primary enforcer of policies, especially where contextual access is required:
 
 * **Authentication**: the process of determining if a principal (a user or application) is who or what they say they are.
 * **Authorization**: the process of determining what is allowed, based on the principal, what permissions they have been given, and/or the set of contextually specific access criteria.
@@ -21,7 +21,7 @@ In addition, Role-based Access Control (RBAC) and Attribute-based Access Control
 * Will your application be calling a third-party API?
 * Should your applications and/or APIs be enforcing access control based on user claims?
 <% if (platform === "b2b") { %>
-* What if I want to know which organization my access token applies to?
+* What if I need to know which organization an access token or id token is associated with?
 <%  } %>
 
 Auth0 supports access restriction for either applications or APIs based on certain conditions. In certain scenarios, you may want to create a [Rule](/rules) that returns an `UnauthorizedError` when, for example, a user attempts access to an application or an API at an incorrect time (as described in this [example](/authorization/concepts/sample-use-cases-rules#allow-access-only-on-weekdays-for-a-specific-application)) - or if the user doesn’t have the right claim(s) contained in their [`app_metadata`](/users/concepts/overview-user-metadata). For an _application_ using <dfn data-key="openid">[OpenID Connect (OIDC)](/protocols/oidc)</dfn>, this would prevent the allocation of the [ID Token](/tokens/id-tokens) used to authorize access. Similarly, for an _API_, allocation of any OAuth2 <dfn data-key="Access Token">[Access Token](/tokens/access-tokens)</dfn> (used when [calling the API](/api-auth/why-use-access-tokens-to-secure-apis)), could be prevented as described in this [example](/api-auth/restrict-access-api#example-deny-access-to-anyone-calling-the-api).
@@ -43,5 +43,5 @@ When deciding whether you should use permissions through custom claims or scopes
 :::
 
 <% if (platform === "b2b") { %>
-For many multi-organization applications, it is important to know which organization an access token applies to. Taking care to follow the [best practices](#Organization-Data-in-an-Access-Token) can save you time and effort.
+For multi-organization scenarios, it can often be important to know which organization an access token (or even an ID token) applies to. Taking care to follow the [best practices](#organization-data-in-an-access-token) can save you time and effort. 
 <% } %>
