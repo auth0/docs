@@ -32,14 +32,14 @@ type:depnote AND description:*APIv1*
 ```
 ![](/media/articles/migrations/apiv1-log-query.png)
 
-To help identify the source of the request logs will include the Client ID used to make the request.
+To help identify the Application making requests, logs will include the `client_id` used to make the request. You can also find the endpoint being used in the logs `details.path` field.
 
 ![](/media/articles/migrations/apiv1-log-example.png)
 
 ::: note
-Auth0 generates only one log of the same **type** and **description** every 60 minutes. No matter how many calls you make using deprecated features to the impacted endpoints, you will still see a single log for *each* deprecated feature each hour.
+Auth0 generates only one log for each `client_id` and `details.path` combination every 60 minutes. No matter how many calls you make to the deprecated endpoints, you will still see a single log for *each* deprecated endpoint an application is call per hour.
 
-If you implement changes to your requests, you'll need to allow 60 minutes to elapse before you can conclusively determine that the lack of new `depnote` logs means the deprecated behavior has been removed from your code.
+If you implement changes to your requests, you'll need to allow 60 minutes to elapse before you can conclusively determine that the lack of new `depnote` logs means the deprecated endpoints have been removed from your code.
 :::
 
 ## What’s changing?
