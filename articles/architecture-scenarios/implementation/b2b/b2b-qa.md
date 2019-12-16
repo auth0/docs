@@ -19,17 +19,21 @@ useCase:
 
 <%= include('../../_includes/_qa/_unit-testing.md', { platform: 'b2b' }) %>
 
-## Integration testing 
+## Integration testing
 
 <%= include('../../_includes/_qa/_integration-testing.md', { platform: 'b2b' }) %>
 
-## Mock testing 
+## Mock testing
 
 <%= include('../../_includes/_qa/_mock-testing.md', { platform: 'b2b' }) %>
 
 ## Project Planning Guide
 
 <%= include('../../_includes/_planning.md', { platform: 'b2b' }) %>
+
+## Multiple Organization Architecture (Multitenancy)
+
+<%= include('../../_includes/_multitenancy.md', { platform: 'b2b' }) %>
 
 ## Keep reading
 

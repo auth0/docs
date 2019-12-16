@@ -1,6 +1,6 @@
 ---
 title: Profile Management
-description: User profile management planning considerations for your B2B IAM implementation. 
+description: User profile management planning considerations for your B2B IAM implementation.
 toc: true
 topics:
     - b2b
@@ -27,7 +27,7 @@ useCase:
 
 <%= include('../../_includes/_profile-mgmt/_account-verification.md', { platform: 'b2b' }) %>
 
-## Blocking users 
+## Blocking users
 
 <%= include('../../_includes/_profile-mgmt/_blocking-users.md', { platform: 'b2b' }) %>
 
@@ -46,6 +46,10 @@ If you are providing your own way for an administrator to manage users, you shou
 ## Project Planning Guide
 
 <%= include('../../_includes/_planning.md', { platform: 'b2b' }) %>
+
+## Multiple Organization Architecture (Multitenancy)
+
+<%= include('../../_includes/_multitenancy.md', { platform: 'b2b' }) %>
 
 ## Keep reading
 
