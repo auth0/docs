@@ -46,9 +46,9 @@ See [OAuth 2.0 for Native Apps: Loopback Interface Redirection](https://tools.ie
 
 See [OAuth 2.0 for Native Apps: Private-Use URI Scheme Redirection](https://tools.ietf.org/html/bcp212#section-7.1).
 
-## Redirect URI estrictions
+## Redirect URI restrictions
 
-* Fragments will not be allowed in registration of URIs. For example: `https://example.com#fragment=true` amd `https://tools.ietf.org/html/rfc6749`.
+* Fragments will not be allowed in registration of URIs. For example: `https://example.com#fragment=true` and `https://tools.ietf.org/html/rfc6749`.
 
 * Query string and path components are evaluated as an exact match if a URI is registered with such components. 
 
