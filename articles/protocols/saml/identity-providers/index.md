@@ -12,6 +12,8 @@ useCase: customize-connections
 
 # SAML Identity Providers
 
+The following articles will cover how you can configure these tools for use with Auth0 as <dfn data-key="security-assertion-markup-language">SAML</dfn> Identity Providers.
+
 <%= include('../../../_includes/_topic-links', { links: [
   'protocols/saml/identity-providers/okta',
   'protocols/saml/identity-providers/onelogin',
