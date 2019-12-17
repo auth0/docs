@@ -6,7 +6,7 @@ Native mobile applications (and desktop applications) should use the system brow
 
 As discussed, we've found that most of our customers use <dfn data-key="openid">[OpenID Connect (OIDC)](/protocols/oidc)</dfn> as the industry-standard protocol when it comes to their customer-facing applications. Figuring out which [OIDC flow](/api-auth/intro) to use is your first task, and you will want to start by reviewing the our [grant mapping](/applications/reference/grant-types-auth0-mapping) guidance in the first instance.  
 
-If you want to allow anonymous users access to any part of our application then you need to determine if you will be redirecting right away or prompting your users to redirect only when required (or perhaps some combination of both; see [Redirect Users After Login Authentication](/users/guides/redirect-users-after-login) for further discussion). If users can [deep link](#deep-linking-to-protected-endpoints) to a protected version (or area) of your site then you will need to determine the links to your application that will result in an automatic redirect to Auth0. 
+If you want to allow anonymous users access to any part of our application then you need to determine if you will be redirecting right away or prompting your users to redirect only when required (or perhaps some combination of both; see [Redirect Users After Login Authentication](/users/concepts/redirect-users-after-login) for further discussion). If users can [deep link](#deep-linking-to-protected-endpoints) to a protected version (or area) of your site then you will need to determine the links to your application that will result in an automatic redirect to Auth0. 
 
 ### Anonymous access
 
@@ -25,7 +25,7 @@ Checking for a login session by redirecting to Auth0 can be really helpful for y
 
 ### Deep linking to protected endpoints
 
-There are a variety of reasons why someone might link directly to a particular page within your application that is only accessible by authenticated users. If this is possible for your application you should automatically redirect your user to Auth0 if they are not authenticated. Once they authenticate and the authorization server returns them to your application, you can [redirect them](/users/guides/redirect-users-after-login) to where they intended to go in the first place.
+There are a variety of reasons why someone might link directly to a particular page within your application that is only accessible by authenticated users. If this is possible for your application you should automatically redirect your user to Auth0 if they are not authenticated. Once they authenticate and the authorization server returns them to your application, you can [redirect them](/users/concepts/redirect-users-after-login) to where they intended to go in the first place.
 
 ::: panel Best Practice
 Most modern authentication frameworks support middleware for redirecting to an authorization server such as Auth0. Ensure yours:
