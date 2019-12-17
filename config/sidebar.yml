@@ -549,15 +549,41 @@ articles:
 
       - title: User Profiles
         url: /users/concepts/overview-user-profile
+        children:
+
+          - title: Normalized User Profile
+            url: /users/normalized
+
+          - title: Update Profiles Using Your Database
+            url: /users/guides/update-user-profiles-using-your-database
+
+          - title: Progressive Profiling
+            url: /users/concepts/overview-progressive-profiling
+
+          - title: User Profile Structure
+            url: /users/references/user-profile-structure
 
       - title: Metadata
         url: /users/concepts/overview-user-metadata
+        children:
+
+          - title: Manage User Metadata
+            url: /users/guides/manage-user-metadata
+
+          - title: Read Metadata
+            url: /users/guides/read-metadata
+
+          - title: Set Metadata Properties on Creation
+            url: /users/guides/set-metadata-properties-on-creation
+
+          - title: Update Metadata with the Management API
+            url: /users/guides/update-metadata-properties-with-management-api
+
+          - title: Metadata Best Practices
+            url: /best-practices/metadata-best-practices
 
       - title: Sessions & Cookies
         url: /sessions
-
-      - title: Progressive Profiling
-        url: /users/concepts/overview-progressive-profiling
 
       - title: Using the Dashboard
         url: /users/guides/manage-users-using-the-dashboard
@@ -1495,6 +1521,9 @@ articles:
           - title: "Security"
             url: "/best-practices/custom-db-connections/security"
             hidden: true 
+
+      - title: "Metadata"
+        url: "/best-practices/metadata-best-practices"
 
       - title: "Rules"
         url: "/best-practices/rules"

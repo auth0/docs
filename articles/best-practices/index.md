@@ -19,6 +19,7 @@ Our best practice guides have information on how to configure and use Auth0. We'
   'best-practices/operations',
   'best-practices/application-settings',
   'best-practices/connection-settings',
+  'best-practices/metadata-best-practices',
   'best-practices/custom-db-connections',
   'best-practices/rules',
   'best-practices/search-best-practices',
