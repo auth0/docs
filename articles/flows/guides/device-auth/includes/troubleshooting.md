@@ -17,7 +17,7 @@
 To use the Device Authorization Flow, devices must:
 
 * Support Server Name Indication (SNI) when [Custom Domains](/custom-domains) are used
-* Have an [Auth0 application type](/applications/concepts/app-types-auth0) of **Native**
+* Have an [Auth0 application type](/applications) of **Native**
 * Have the [**Token Endpoint Authentication Method**](/dashboard/reference/settings-application) set to **None**
 * Be [OIDC-conformant](/dashboard/reference/settings-application#oauth)
 * Not be created through [Dynamic Client Registration](/api-auth/dynamic-client-registration)

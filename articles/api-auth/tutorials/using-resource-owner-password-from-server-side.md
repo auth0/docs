@@ -39,10 +39,9 @@ To prevent this, you may send the end-user's IP address to Auth0 along with the 
 <strong>Warning!</strong> Authenticated applications must only be used from protected resources, typically server-side. Do not use them from native applications or SPAs, as they are not capable of storing secrets.
 :::
 
+### Configure the Auth0 Application to receive and trust the IP sent by your server
 
-### Configuring the Auth0 Application to receive and trust the IP sent by your server
-
-1. Navigate to your [dashboard](${manage_url}) and [configure a regular web application or machine to machine application](/applications/concepts/app-types-auth0).
+1. Navigate to your [dashboard](${manage_url}) and [configure a regular web application or machine-to-machine application](/applications).
 
 2. Choose a __Token Endpoint Authentication Method__ other than `None` under the [Settings](/dashboard/reference/settings-application) section.
 

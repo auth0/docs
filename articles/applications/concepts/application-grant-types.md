@@ -1,7 +1,6 @@
 ---
 title: Application Grant Types
 description: Learn about the concept of grant types and how they relate to applications.
-toc: true
 topics:
   - applications
   - grant-types
@@ -26,7 +25,8 @@ Not sure which grant type is appropriate for your use case? Refer to [Which OAut
 
 ## Keep Reading
 
-* To learn which grant types are available in Auth0, see [Available Grant Types](/applications/reference/grant-types-available).
-* To learn which grant types are available based to different application types, see [Auth0 Grant Types Mapping](/applications/reference/grant-types-auth0-mapping)
-* Learn how to [update an application's grant types using the Auth0 Dashboard](/dashboard/guides/applications/update-grant-types) or the [Management API](/api/management/guides/applications/update-grant-types).
-* For info on working with legacy grant types and their alternatives, see [Legacy Grant Types](/applications/concepts/grant-types-legacy)
+* [Available Grant Types](/applications/reference/grant-types-available)
+* [Auth0 Grant Types Mapping](/applications/reference/grant-types-auth0-mapping)
+* [Update Grant Types Using the Dashboard](/dashboard/guides/applications/update-grant-types)
+* [Update Grant Types Using the Management API](/api/management/guides/applications/update-grant-types)
+* [Legacy Grant Types](/applications/concepts/grant-types-legacy)

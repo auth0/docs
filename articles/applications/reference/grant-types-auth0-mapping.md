@@ -15,7 +15,7 @@ useCase:
 
 When registered, Auth0 Applications have access to different grant types based on [application](/applications) type. The biggest deciding factor is whether the application is [confidential or public](/applications/concepts/app-types-confidential-public).
 
-Additionally, trusted [first-party applications](/applications/concepts/app-types-first-third-party) have access to additional grant types.
+Additionally, trusted first-party applications have access to additional grant types.
 
 ## Public Applications
 
@@ -58,4 +58,4 @@ Trusted first-party applications have the same `grant_types` enabled as confiden
 If you are using the [Dashboard](${manage_url}) to enable or disable these grant types, be aware that all the Password and MFA grant types are enabled when you add the `Password` or `MFA` grant type to your Application. You cannot select them individually.
 :::
 
-For more info about first-party and third-party applications, see [Application Types: First-party vs. Third-party](/applications/concepts/app-types-first-third-party).
+For more info about first-party and third-party applications, see [First-Party and Third-Party Applications](/applications/concepts/app-types-first-third-party).

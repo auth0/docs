@@ -1,7 +1,6 @@
 ---
-title: Register a Regular Web Application
-description: Learn to register and configure a regular web application using the Auth0 Management Dashboard. These may include traditional web applications that perform most of their application logic on the server (e.g., Express.js, ASP.NET).
-toc: true
+title: Register Regular Web Applications
+description: Learn how to register and configure a regular web application using the Auth0 Management Dashboard. These may include traditional web applications that perform most of their application logic on the server (e.g., Express.js, ASP.NET).
 topics:
   - applications
   - regular-web-app
@@ -13,9 +12,9 @@ useCase:
   - add-login
   - call-api
 ---
-# Register a Regular Web Application
+# Register Regular Web Applications
 
-To integrate Auth0 with a [regular web app](/applications/concepts/app-types-auth0), you must first register your app with Auth0. This guide will show you how to register a regular web application using Auth0's Dashboard.
+To integrate Auth0 with a [regular web app](/applications), you must first register your app with Auth0. This guide will show you how to register a regular web application using Auth0's Dashboard.
 
 <%= include('./_includes/_register-app-part1', { application_type: 'regular web', application_type_create: 'Regular Web App' }) %>
  

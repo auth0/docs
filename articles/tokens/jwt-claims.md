@@ -41,7 +41,7 @@ There are two types of <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn>
 
 ### Reserved claims
 
-The JWT specification defines seven reserved claims that are not required, but are recommended to allow interoperability with [third-party applications](/applications/concepts/app-types-first-third-party#third-party-applications). These are:
+The JWT specification defines seven reserved claims that are not required, but are recommended to allow interoperability with [third-party applications](/applications/guides/enable-third-party-apps). These are:
 
 * iss (issuer): Issuer of the JWT
 * sub (subject): Subject of the JWT (the user)
