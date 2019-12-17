@@ -19,7 +19,7 @@ Auth0 categorizes apps based on these characteristics:
   - [Native app](/dashboard/guides/applications/register-app-native): Mobile or Desktop apps that run natively in a device (such as iOS or Android).
   - [Machine-to-machine (M2M) app](/dashboard/guides/applications/register-app-m2m): Non-interactive apps, such as command-line tools, daemons, IoT devices, or services running on your back-end. Typically, you use this option if you have a service that requires access to an API.
 
-* **Can the app can securely hold credentials?**: According to the [OAuth 2.0 spec](https://tools.ietf.org/html/rfc6749#section-2.1), apps can be classified as either *public* or *confidential*. Confidential apps can hold credentials securely, while public apps cannot. See [Confidential and Public Applications](/applications/concepts/app-types-confidential-public) for details.
+* **Can the app securely hold credentials?**: According to the [OAuth 2.0 spec](https://tools.ietf.org/html/rfc6749#section-2.1), apps can be classified as either *public* or *confidential*; confidential apps can hold credentials securely, while public apps cannot. See [Confidential and Public Applications](/applications/concepts/app-types-confidential-public) for details.
 
 * **Who owns the app?**: Whether an app is classified as first- or third-party depends on the app ownership and control. First-party apps are controlled by the same organization or person that owns the Auth0 domain. Third-party apps enable external parties or partners to securely access protected resources behind your API. See [First-Party and Third-Party Applications](/applications/concepts/app-types-first-third-party) for details.
 
