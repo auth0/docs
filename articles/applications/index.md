@@ -37,9 +37,7 @@ By default, Auth0 enables all connections associated with your tenant when you c
 
 ## Monitor apps
 
-You can [monitor apps](/monitoring/guides/monitor-applications) and perform end-to-end testing using your own tests. 
-
-Auth0 stores [log data](/logs) for Dashboard administrator actions, successful and failed user authentications, and password change requests. You can use Auth0 [Extensions](/extensions) to export your log data and use tools like Sumo Logic, Splunk, or Loggly to analyze and store your log data. 
+You can [monitor apps](/monitoring/guides/monitor-applications) and perform end-to-end testing using your own tests. Auth0 stores [log data](/logs) including Dashboard administrator actions, successful and failed user authentications, and password change requests. You can use Auth0 [Extensions](/extensions) to export your log data and use tools like Sumo Logic, Splunk, or Loggly to analyze and store your log data. 
 
 ## Remove apps
 
@@ -47,7 +45,7 @@ You can [remove an application using the Auth0 Dashboard](/dashboard/guides/appl
 
 ## Manage client secrets
 
-You can [rotate an app's Client Secret](/dashboard/guides/applications/rotate-client-secret) using the Auth0 Dashboard or the [Management API](/api/management/guides/applications/rotate-client-secret)
+You can [rotate an app's Client Secret](/dashboard/guides/applications/rotate-client-secret) using the Auth0 Dashboard or the [Management API](/api/management/guides/applications/rotate-client-secret).
 
 ## Grant types
 
