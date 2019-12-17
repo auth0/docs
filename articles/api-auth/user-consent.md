@@ -1,5 +1,4 @@
 ---
-title: User consent and third-party applications
 description: Decouple APIs from applications that consume them and define third-party apps that you don't control or may not trust. 
 topics:
   - api-authentication
