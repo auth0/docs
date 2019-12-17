@@ -33,6 +33,8 @@ In addition to setting up apps in the Dashboard, you can also set up apps progra
 You can set up up a more complex configuration that allows users to log in differently for different apps. See [Using Auth0 to Secure Your Multi-Tenant Applications](/design/using-auth0-with-multi-tenant-apps) and [Create Multiple Tenants](/dashboard/guides/tenants/create-multiple-tenants).
 :::
 
+By default, Auth0 enables all connections associated with your tenant when you create a new application. To change this, [update application connections](/dashboard/guides/applications/update-app-connections) in the Application Settings in the Dashboard.
+
 ## Monitor apps
 
 You can [monitor apps](/monitoring/guides/monitor-applications) and perform end-to-end testing using your own tests. 

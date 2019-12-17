@@ -544,9 +544,13 @@ module.exports = [
     from: '/clients/client-types',
     to: '/applications/application-types'
   },
- {
+  {
     from: '/applications/application-types',
     to: '/applications'
+  },
+  {
+    from: '/applications/concepts/connections',
+    to: '/connections'
   },
   {
     from: '/applications/machine-to-machine',

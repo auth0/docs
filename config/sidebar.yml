@@ -1167,9 +1167,6 @@ articles:
   #     - title: "Available Grant Types"
   #       url: "/applications/reference/grant-types-available"
 
-  #     - title: "Multiple Tenants"
-  #       url: "/applications/concepts/multiple-tenants"
-
   # - title: "Authentication"
   #   url: "/application-auth/current"
   #   children:
