@@ -1,5 +1,5 @@
 ---
-title: Configuring Custom Multi-factor Authentication
+title: Customize Multi-Factor Authentication
 url: /multifactor-authentication/custom
 description: Examples for configuring custom MFA implementations.
 topics:
@@ -11,15 +11,15 @@ contentType:
 useCase:
   - customize-mfa
 ---
-# Configuring Custom MFA
+# Customize Multi-Factor Authentication
 
-You may configure a [rule](/rules) from your [Dashboard > Rules](${manage_url}/#/rules) for custom <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> processes, which allow you to define the conditions that will trigger additional authentication challenges. Rules can be used to force MFA for users of certain applications, or for users with particular user metadata or IP ranges, among other triggers.
+You can configure a [rule](/rules) in  [Dashboard > Rules](${manage_url}/#/rules) for custom <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> processes, which allow you to define the conditions that will trigger additional authentication challenges. Rules can be used to force MFA for users of certain applications, or for users with particular user metadata or IP ranges, among other triggers.
 
 ::: note
 The MFA settings defined in rules will always take precedence over the toggles in the Multi-factor Auth section of the Dashboard.
 :::
 
-## The provider setting
+## `provider` setting
 
 The `provider` setting is a way to specify whether to force MFA. It can be set to allow MFA from any enabled factor, or from a specific factor.If the `provider` value is manually set, it overrides the toggles in the [Dashboard > MFA](${manage_url}/#/mfa). 
 
@@ -43,7 +43,7 @@ function (user, context, callback) {
 }
 ```
 
-## Implementing contextual MFA
+## Implement contextual MFA
 
 The exact requirements for configuring Contextual MFA will vary. Below are sample snippets you might consider using as you customize your specific solution.
 
@@ -78,14 +78,14 @@ More specifically, you will uncomment and populate the following line of the rul
 
 By setting `allowRememberBrowser: false`, the user will always be prompted for MFA when they login. This prevents the browser cookie from saving the credentials and helps make logins more secure, especially from untrusted machines. 
 
-### Change the frequency of authentication requests
+### Change authentication request frequency
 
 In some scenarios you may want to avoid prompting the user for MFA each time they log in from the same browser. The default behavior is:
 
 - The user will be prompted for MFA every 30 days when `provider` is set to `google-authenticator` or `duo`
 - The user will be able to decide if they want to skip MFA for the next 30 days when `provider` is set to other values.
 
-You can alter that behavior by using the ‘allowRememberBrowser’ property:
+You can alter that behavior by using the `allowRememberBrowser` property:
 
 ```JS
 function (user, context, callback) {
@@ -134,8 +134,15 @@ function (user, context, callback) {
 }
 ```
 
-## Additional Notes
+## MFA with database connections
 
-* A tutorial is available on using MFA with the [Resource Owner](/api-auth/tutorials/multifactor-resource-owner-password) endpoint.
-* If you are using MFA for database connections that use Popup Mode, and you are using <dfn data-key="lock">Lock</dfn> or [Auth0.js](/libraries/auth0js/v9), set `sso` to `true` when defining the options object. If you fail to do this, users will be able to log in without MFA.
-* If you are using MFA after an authentication with one or more social providers, you need to use your own application `ID` and `Secret` in the connection to the provider's site in place of the default Auth0 development credentials. For instructions on how to get the credentials for each social provider, select your particular from the list at: [Identity Providers](/identityproviders). In production usage, you should always use your own credentials instead of [Auth0 devkeys](/connections/social/devkeys).
+If you are using MFA for database connections that use Popup Mode, and you are using <dfn data-key="lock">Lock</dfn> or [Auth0.js](/libraries/auth0js/v9), set `sso` to `true` when defining the options object. If you fail to do this, users will be able to log in without MFA.
+
+## MFA with social connections
+
+If you are using MFA after an authentication with one or more social providers, you need to use your own application `ID` and `Secret` in the connection to the provider's site in place of the default Auth0 development credentials. For instructions on how to get the credentials for each social provider, select your particular from the list at: [Identity Providers](/identityproviders). In production usage, you should always use your own credentials instead of [Auth0 devkeys](/connections/social/devkeys).
+
+## Keep reading
+
+* [Resource Owner](/api-auth/tutorials/multifactor-resource-owner-password)
+* [Set Up Silent Authentication](/api-auth/tutorials/silent-authentication)

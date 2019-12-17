@@ -8,7 +8,7 @@ The steps in this guide are valid for Active Directory Rights Management Service
 :::
 <% } %>
 
-The ${service} <dfn data-key="single-sign-on">[Single Sign-on (SSO)](/sso)</dfn> Integration lets you create a client application that Auth0 for authentication and provides SSO capabilities. Your users log in to ${service} with Auth0 [identity providers](/identityproviders), which means they perform the identity credentials verification.
+The ${service} <dfn data-key="single-sign-on">[Single Sign-on (SSO)](/sso)</dfn> Integration lets you create a client application that uses Auth0 for authentication and provides SSO capabilities. Your users log in to ${service} with Auth0 [identity providers](/identityproviders), which means they perform the identity credentials verification.
 
 ## Create an SSO Integration
 

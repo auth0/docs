@@ -9,7 +9,7 @@ contentType: how-to
 useCase: extensibility-rules
 ---
 
-# Metadata in Rules
+# Use Metadata in Rules
 
 You can read, update, and delete [metadata](/metadata) using [Rules](/rules).
 
@@ -36,7 +36,7 @@ To read the available metadata, you will need to access the correct user propert
 
 ### Read `app_metadata`
 
-Make a decision based on the user's <dfn data-key="role">roles</dfn>:
+Using rules, you can make a decision based on the user's <dfn data-key="role">roles</dfn>:
 
 ```js
 function(user, context, callback){
@@ -48,7 +48,9 @@ function(user, context, callback){
 }
 ```
 
-Similarly, you can use the color preference:
+### Read `user_metadata`
+
+Similarly, you can base decisions on specific preferences, such as a color preference:
 
 ```js
 function(user, context, callback){
@@ -61,6 +63,36 @@ function(user, context, callback){
 ```
 
 ## Update metadata
+
+### Read `client_metadata`
+
+`clientMetadata` is an optional, top-level property of the context object. Existing applications will have no value for this property.
+
+```js
+function(user, context, callback){
+  context.clientMetadata = context.clientMetadata || {};
+  if (context.clientMetadata.usersuppliedkey1 === 'black'){
+    // this code would not be executed for the user
+  }
+  ...
+}
+```
+
+#### Read `client_metadata` with the Management API
+
+`client_metadata` is included in the response to the `GET /api/v2/clients` and `GET /api/v2/client/{id}` endpoints
+
+#### Create applications with `client_metadata` properties
+
+A `client_metadata` object can be included when creating a new application via the `POST /api/v2/` applications endpoint.
+
+#### Create `client_metadata` properties in the dashboard
+
+`client_metadata` key value pairs can also be added in [the dashboard](${manage_url}/#/applications), by going to **Applications**. Then select the settings(the gear icon) of the application you wish to edit.
+
+Scroll down and click the link **Show Advanced Settings**. Then you will be in the **Application Metadata** section, enter the key and value then click **CREATE**.
+
+![Create application metadata](/media/articles/rules/adv-settings-create.png)
 
 All rules include an `auth0` object (which is an instance of the [node-auth0 SDK](https://github.com/auth0/node-auth0)) that is capable of calling the [Auth0 Management API v2](/api/management/v2). The `auth0` object is preconfigured with the necessary permissions to update users.
 

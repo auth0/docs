@@ -1,6 +1,6 @@
 ---
-name: User Search Best Practices
-description: Best practices when searching for users in Auth0
+title: User Search Best Practices
+description: Learn about best practices when searching for users in Auth0
 topics:
   - users
   - user-management
@@ -9,7 +9,6 @@ contentType: reference
 useCase:
   - manage-users
 ---
-
 # User Search Best Practices
 
 When running user searches:

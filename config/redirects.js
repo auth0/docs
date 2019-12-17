@@ -2320,5 +2320,9 @@ module.exports = [
     {
       from: '/connections/passwordless/faq',
       to: '/connections/passwordless/reference/troubleshoot'
+    },
+    {
+    from: '/best-practices/custom-db-connections-scripts',
+    to: '/best-practices/custom-db-connections'
     }
 ];

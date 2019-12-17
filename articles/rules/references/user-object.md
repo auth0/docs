@@ -11,7 +11,7 @@ useCase: extensibility-rules
 
 # User Object in Rules
 
-The `user` object stores information about the logged in user, returned by the identity provider.
+The `user` object stores information about the logged in user, returned by the identity provider. It is generated when a user authenticates, before rules run.
 
 ## Properties
 

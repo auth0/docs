@@ -1,5 +1,6 @@
 ---
-description: Recommended application settings in Auth0.
+title: Application Settings Best Practices
+description: Learn about recommended application settings in Auth0.
 topics:
   - best-practices
   - configuration
@@ -12,7 +13,6 @@ useCase:
   - application
   - application-settings
 ---
-
 # Application Settings Best Practices
 
 Here are some best practices for configuring [applications](/applications).

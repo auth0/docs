@@ -21,7 +21,7 @@ useCase:
 
 ## Home realm discovery
 
-Home realm discovery (HRD) is the process of identifying which identity provider (or which connection in Auth0) the user belongs to *before* authenticating them. There are two ways HRD can occur: 
+Home realm discovery (HRD) is the process of identifying which identity provider (or which connection in Auth0) the user belongs to *before* authenticating them. There are two ways HRD can occur:
 
 * Provide a way for the decision to be made at the application
 * Have Home Realm Discovery happen on the Universal Login page
@@ -47,7 +47,7 @@ If your application already knows what connection (IdP) the user needs, then pas
 If this is the case for your application(s) then home realm discovery is a simple matter of storing the Auth0 connection name with the organization specific application configuration and sending that connection name as a parameter when redirecting the user for Universal Login. Sending the connection parameter can be achieved by adding it as a query parameter when you redirect them to the authorize endpoint. For more information see the [Authentication API docs](/api/authentication#authorization-code-flow); however, you will generally accomplish this using the SDK for whichever language your application is written in.
 
 ::: panel Best practice
-If an organization needs more than one IdP, then you will have to do a second round of Home Realm Discovery once identifying their organization.  This can be achieved with Auth0 through creating a dedicated Auth0 tenant for that organization and creating an enterprise connection to that tenant. 
+If an organization needs more than one IdP, then you will have to do a second round of Home Realm Discovery once identifying their organization.  This can be achieved with Auth0 through creating a dedicated Auth0 tenant for that organization and creating an enterprise connection to that tenant.
 :::
 
 ### HRD through Universal Login
@@ -92,6 +92,10 @@ The other simple option is to allow your users to choose from a list, if you don
 
 <%= include('../../_includes/_authentication/_anomaly-detection.md', { platform: 'b2b' }) %>
 
+## SSO with legacy systems
+
+<%= include('../../_includes/_authentication/_sso-legacy.md', { platform: 'b2b' }) %>
+
 ## Enterprise Login
 
 The “bring your own identity” scenario has become a must-have for almost all B2B applications.  Most enterprise companies expect to be able to integrate their IdP into your application so their employees don't need to store another set of credentials.  This is a valuable way of simplifying the user authentication experience without compromising security, and using [Universal Login](#universal-login) makes it easy to start adding support for [Enterprise Connections](/connections/identity-providers-enterprise) with minimal disruption.
@@ -113,6 +117,10 @@ With enterprise connection support, user identities and credentials are managed 
 ## Project Planning Guide
 
 <%= include('../../_includes/_planning.md', { platform: 'b2b' }) %>
+
+## Multiple Organization Architecture (Multitenancy)
+
+<%= include('../../_includes/_multitenancy.md', { platform: 'b2b' }) %>
 
 ## Keep reading
 
