@@ -56,7 +56,6 @@ Below we list a few code snippets that can be used to call these API endpoints f
 }
 ```
 
-
 **Authenticate an SMS user**
 
 ```har
