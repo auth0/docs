@@ -25,6 +25,8 @@ Most identity provider connections have a **TRY** button to see if the connectio
 1. If your authentication uses external services, like social identity providers, and it suddenly stops working, make sure the external service is working.
 2. If a connection is not working, even with the **TRY** button, check the connection.
 
+<%= include('../_includes/_log_events_link') %>
+
 ## Keep reading
 
 * 

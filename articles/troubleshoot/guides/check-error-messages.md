@@ -43,6 +43,8 @@ You can put `console.log()` statements into Rules, Hooks, Custom DB scripts, and
 * In the Allowed Origin field no wildcards are allowed at all.
 * Check if you are getting a message on the list of common authentication errors
 
+<%= include('../_includes/_log_events_link') %>
+
 ## Keep reading
 
 * 

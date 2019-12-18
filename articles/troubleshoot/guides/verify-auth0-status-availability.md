@@ -31,6 +31,8 @@ Did something stop working that previously worked? Check the Auth0 status page f
 * If there's an outage listed on the status page, you do not need to file a ticket. Auth0 is already working on the issue.
 * Subscribe to the status page to get alerted if there is any outage with the Auth0 service.
 
+<%= include('../_includes/_log_events_link') %>
+
 ## Keep reading
 
 * 

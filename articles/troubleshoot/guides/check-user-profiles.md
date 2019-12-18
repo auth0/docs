@@ -17,6 +17,8 @@ useCase: troubleshooting
 6. Check if you called `/userinfo` endpoint properly. You should pass an access token. You should call this endpoint with the default Auth0 domain even if the tenant has a custom domain enabled.  
 7. Check if you specified the correct [scope](/scopes) to get an Access Token.
 
+<%= include('../_includes/_log_events_link') %>
+
 ## Keep reading
 
 * 

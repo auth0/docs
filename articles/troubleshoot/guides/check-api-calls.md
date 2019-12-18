@@ -26,6 +26,7 @@ useCase: troubleshooting
 * Make sure your [API can validate the Access Token](/tokens/guides/access-token/validate-access-token).  It should validate the audience, issuer, client (if any), signature algorithm, signature, claims and permissions.
 * If you experience errors with Access Token expiration, they could be caused by [clock skew differences manifested across different systems](/connector/troubleshooting#clock-skew) or even different language libraries, such as Java and Node.js.  This can be handled by running NTP on servers and configuring a clock skew tolerance in libraries used to validate tokens such as [jwt.verify](https://github.com/auth0/node-jsonwebtoken#jwtverifytoken-secretorpublickey-options-callback).
 
+<%= include('../_includes/_log_events_link') %>
 
 ## Keep reading
 

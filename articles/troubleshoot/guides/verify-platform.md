@@ -77,6 +77,8 @@ Testing on different browsers, platforms, locations, and users can help narrow d
 * Check Auth0 change log - any recent configuration changes related to your issue?
 * Check if any component in the technology stack has been updated or patched recently?
 
+<%= include('../_includes/_log_events_link') %>
+
 ## Keep reading
 
 * 

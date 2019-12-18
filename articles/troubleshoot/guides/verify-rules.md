@@ -18,4 +18,6 @@ Failures in a rule can often cause authentication issues. Perform the following 
 5. Click **Debug Rule** in the Dashboard to view the output from your `console.log` statements.
 6. View the output in the Real-time Webtask Logs to get more information about your rules’ execution.
 
+<%= include('../_includes/_log_events_link') %>
+
 ## Keep reading

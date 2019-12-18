@@ -78,6 +78,8 @@ Here are things to check to help you narrow down where issues are occurring duri
 * Make sure that the logout redirect URL is different from the login callback URL.
 * Make the logout redirect URL an anonymous page (not protected by login) so that redirects to the logout redirect URL do not immediately trigger a login, which may confuse users.
 
+<%= include('../_includes/_log_events_link') %>
+
 ## Keep reading
 
 * 

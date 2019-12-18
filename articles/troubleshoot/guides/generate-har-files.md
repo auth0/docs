@@ -59,6 +59,8 @@ For example:
 * Then there should be a redirect back to Auth0 `/login/callback` (`https://login.auth0.com/login/callback`).
 * Then there should be a redirect back to your application’s callback URL.
 
+<%= include('../_includes/_log_events_link') %>
+
 ## Keep reading
 
 * 
