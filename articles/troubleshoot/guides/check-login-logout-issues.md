@@ -54,18 +54,17 @@ Here are things to check to help you narrow down where issues are occurring duri
 
 ### If you decode the token or assertion does it have information you expect?
 
-* JSON Web Tokens (JWT) can be viewed with [JWT.io](http://jwt.io)
-* <dfn data-key="security-assertion-markup-language">SAML</dfn> assertions can be viewed with [SAMLTool.io](http://samltool.io)
+* View JWTs with [JWT.io](http://jwt.io).
+* View <dfn data-key="security-assertion-markup-language">SAML</dfn> assertions with [SAMLTool.io](http://samltool.io).
 
 ### If the logged in user cannot access another application with Single Sign-on
 
-* Is the user trying to login to the second application from the same browser as their initial login?
-* Go to your [Tenant Settings > Advanced Settings](${manage_url}/#/tenant/advanced) and check the **Log In Session Management** settings.
-    - Was the second login attempt within the timeout periods?
-* Check the value passed as the `prompt` parameter in `/authorize` call.
-* Is the connection used to log in to the first application enabled for the second application?
-* Did the second application receive all the necessary user profile information?
-* If using a mobile device, you'll need to use a browser-based flow. For more information, check out [Browser-Based vs. Native Login Flows on Mobile Devices](/design/browser-based-vs-native-experience-on-mobile).
+1. Is the user trying to login to the second application from the same browser as their initial login?
+2. Go to your [Tenant Settings > Advanced Settings](${manage_url}/#/tenant/advanced) and check the **Log In Session Management** settings. Was the second login attempt within the timeout periods?
+3. Check the value passed as the `prompt` parameter in `/authorize` call.
+4. Is the connection used to log in to the first application enabled for the second application?
+5. Did the second application receive all the necessary user profile information?
+6. If using a mobile device, you'll need to use a browser-based flow. For more information, see [Browser-Based vs. Native Login Flows on Mobile Devices](/design/browser-based-vs-native-experience-on-mobile).
 
 ### Check application logs
 
@@ -78,7 +77,6 @@ Here are things to check to help you narrow down where issues are occurring duri
 * If you need federated logout, did you append the `?federated` parameter to the logout call?
 * Make sure that the logout redirect URL is different from the login callback URL.
 * Make the logout redirect URL an anonymous page (not protected by login) so that redirects to the logout redirect URL do not immediately trigger a login, which may confuse users.
-
 
 ## Keep reading
 
