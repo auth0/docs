@@ -20,6 +20,11 @@ Passwordless authentication for Native applications consists of two steps:
 
 Below we list a few code snippets that can be used to call these API endpoints for different scenarios.
 
+- [Lock Android Passwordless](/libraries/lock-android/passwordless)
+- [Lock iOS Passwordless](libraries/lock-ios/passwordless)
+- [Auth0.Swift Passwordless](/libraries/auth0-swift/passwordless)
+- [Auth0.Android Passwordless](libraries/auth0-android/passwordless)
+
 **Send a one-time-use password via Email**
 
 ```har
@@ -104,12 +109,3 @@ Below we list a few code snippets that can be used to call these API endpoints f
 }
 ```
 Auth0's SDKs for mobile platforms (Android, iOS) have been updated to support these endpoints:
-
-- [Lock Android Passwordless](/libraries/lock-android/passwordless)
-- [Lock iOS Passwordless](libraries/lock-ios/passwordless)
-- [Auth0.Swift Passwordless](libraries/auth0-swift/passwordless)
-- [Auth0.Android Passwordless](libraries/auth0-android/passwordless)
-
-## Migrating from Legacy Implementations
-
-In the past, you could implement this scenario by using the `/oauth/ro` endpoint to exchange the one-time-use code for authentication tokens. Check the [migration guide](/migrations/guides/migration-oauthro-oauthtoken-pwdless) to learn how to update your code.
