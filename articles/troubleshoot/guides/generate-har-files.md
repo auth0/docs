@@ -1,19 +1,17 @@
 ---
-description: How to troubleshoot with HAR files and steps to generate a HAR file.
+title: Generate HTTP Archive (HAR) Files
+description: Learn how to troubleshoot with HAR files and steps to generate a HAR file.
 topics:
   - troubleshoot
   - har-files
   - http-archive
-contentType:
-  - how-to
-  - reference
-useCase:
-  - troubleshoot
+contentType: how-to
+useCase: troubleshoot
 ---
 
-# Troubleshooting with HAR files
+# Generate HTTP Archive (HAR) Files
 
-An [HTTP Archive (HAR)](https://en.wikipedia.org/wiki/.har) is a JSON formatted log of a web browser's interactions with a web server. If authentication isn't working as expected, you can generate and analyze HAR files to find issues. Including a HAR file in your [support requests](${env.DOMAIN_URL_SUPPORT}) can help speed up the troubleshooting process.
+An [HTTP Archive (HAR)](https://en.wikipedia.org/wiki/.har) file shows the sequence of redirects that happen during a login transaction. It's an excellent tool for debugging authentication issues, as it can identify where things get stuck. A HAR file is a JSON formatted log of a web browser's interactions with a web server. If authentication isn't working as expected, you can generate and analyze HAR files to find issues. Including a HAR file in your [support requests](${env.DOMAIN_URL_SUPPORT}) can help speed up the troubleshooting process.
 
 ::: warning
 HAR files may contain sensitive data such as cookies, passwords, or client secrets. Obfuscate any sensitive data (using a text editor) before sending HAR files to support.
@@ -61,3 +59,6 @@ For example:
 * Then there should be a redirect back to Auth0 `/login/callback` (`https://login.auth0.com/login/callback`).
 * Then there should be a redirect back to your application’s callback URL.
 
+## Keep reading
+
+* 
