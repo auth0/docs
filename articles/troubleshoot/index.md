@@ -16,19 +16,16 @@ useCase:
 
 *add intro text here*
 
-* [**Support Center**](https://support.auth0.com/): View and manage your subscription and tenants, file and view support requests, run automated production checks on a tenant, and view compliance information. Paid subscribers will find the support center a valuable resource if an issue or question cannot be solved by documentation or by searching the forum.
+* [Support Center](https://support.auth0.com/)
 
-  * [**Create support cases**](/support/tickets): Create and file a support case if you need help.
-  
-  * [**Support Plans and Service Level Agreements**](/support#defect-responses): Learn about multiple levels of support available for purchase.
+  * [Create support cases](/support/tickets)  
+  * [Support Plans and Service Level Agreements](/support#defect-responses)
+  * [Troubleshooting tips](/onboarding/enterprise-support#what-to-check-before-logging-an-issue)
+  * [Information to include in your support case](/onboarding/enterprise-support#information-to-provide-when-logging-an-issue)
 
-  * [**Troubleshooting tips**](/onboarding/enterprise-support#what-to-check-before-logging-an-issue) and [**Information to include in your support case**](/onboarding/enterprise-support#information-to-provide-when-logging-an-issue): Get advice to help your development and support teams analyze issues.
-
-* [**Supported versions**](/support/matrix): Understand which versions of SDKs, browsers, and languages are supported. Architects and developers should review this to ensure your project employs languages, libraries, and SDKs that will allow your implementation to work with Auth0.
-
-* [**Feedback Portal**](https://auth0.com/feedback): Make product suggestions. (You can also do this via the Support Center if you want better visibility into what you’ve filed over time.) Architects and developers can use this site to provide feedback on the Auth0 product for consideration as enhancements in the future.
-
-* [**Professional Services**](/services): Engage our world-wide professional services team to help speed your project to success. Project owners will find this useful for learning how Auth0 identity experts can help accelerate your project or fill in any temporary skill gaps.
+* [Supported versions](/support/matrix)
+* [Feedback Portal](https://auth0.com/feedback)
+* [Professional Services](/services)
 
 ## Troubleshooting basics
 
@@ -53,6 +50,7 @@ useCase:
   'universal-login/error-pages',
   'authorization/concepts/troubleshooting',
   'multifactor-authentication/troubleshooting',
+  'libraries/error-messages',
   'protocols/saml/saml-configuration/troubleshoot'
 ] }) %>
 
