@@ -13,7 +13,7 @@ If you have strong reasons to not to use Universal Login, you can embed the logi
 
 Depending on the kind of application you want to build, you'll need to implement it differently.
 
-For Single Page Applications (e.g. Angular / React), refer to [Embedded Passwordless Login in Single Page Applications](/connections/passwordless/guides/embedded-login-spa)
+For Single Page Applications (e.g. Angular / React), refer to [Embedded Passwordless Login in Single Page Applications](/connections/passwordless/guides/embedded-login-spa).
 
 For Native applications (iOS, Android, desktop applications) refer to [Embedded Passwordless Login in Native Applications](/connections/passwordless/guides/embedded-login-native). 
 
