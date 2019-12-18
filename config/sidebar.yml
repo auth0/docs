@@ -984,22 +984,40 @@ articles:
 ## Troubleshooting
 ## ------------------------------------------------------------
 
-  - title: Troubleshooting
+  - title: Troubleshoot
     url: /troubleshoot
     children:
 
-      - title: Basics
-        url: /troubleshoot/basics
+      - title: Verify Status and Availability
+        url: /troubleshoot/guides/verify-auth0-status-availability
 
-      - title: Issues with...
-        url: /troubleshoot/issues
+      - title: Verify Platform
+        url: /troubleshoot/guides/verify-platform
 
-      - title: Common Authentication Errors
-        url: /libraries/error-messages
+      - title: Verify Connections
+        url: /troubleshoot/guides/verify-connections
+
+      - title: Verify Domain
+        url: /troubleshoot/guides/verify-domain
+
+      - title: Verify Rules
+        url: /troubleshoot/guides/verify-rules
+
+      - title: Check Error Messages
+        url: /troubleshoot/guides/check-error messages
         children:
 
-          - title: Standard Error Messages
+          - title: Common Authentication Errors
+            url: /libraries/error-messages
+
+          - title: Standard Errors
             url: "/api/authentication#standard-error-responses"
+
+          - title: Deprecation Errors
+            url: "/errors/deprecation-errors"
+
+      - title: Generate HTTP Archive (HAR) Files
+        url: /troubleshoot/guidesn/generate-har-files
 
       - title: Roles-Based Authorization
         url: /authorization/concepts/troubleshooting
@@ -1014,11 +1032,8 @@ articles:
       - title: SAML
         url: /protocols/saml/saml-configuration/troubleshoot
 
-      - title: Deprecation Errors
-        url: /errors/deprecation-errors
-
-      - title: HTTP Archive (HAR)
-        url: /troubleshoot/har
+      - title: Sign in With Apple
+        url: "/connections/apple-siwa/troubleshooting"
 
       - title: Custom Databases
         url: /connections/database/custom-db/error-handling
