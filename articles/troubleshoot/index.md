@@ -40,7 +40,8 @@ useCase:
   'troubleshoot/guides/verify-rules',
   'troubleshoot/guides/check-error-messages',
   'errors/deprecation-errors',
-  'troubleshoot/guides/generate-har-files'
+  'troubleshoot/guides/generate-har-files',
+  'tokens/guides/jwt/validate-jwt'
 ] }) %>
 
 ## Authentication and authorization issues
@@ -60,7 +61,7 @@ useCase:
 <%= include('../_includes/_topic-links', { links: [
   'cms/wordpress/troubleshoot',
   'cms/wordpress/invalid-state',
-  'connections/how-to-test-partner-connection'
+  'connections/how-to-test-partner-connection',
   'connections/passwordless/reference/troubleshoot',
   'connections/database/custom-db/error-handling',
   'connections/apple-siwa/troubleshooting',

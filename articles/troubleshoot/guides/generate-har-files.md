@@ -17,7 +17,7 @@ An [HTTP Archive (HAR)](https://en.wikipedia.org/wiki/.har) file shows the seque
 HAR files may contain sensitive data such as cookies, passwords, or client secrets. Obfuscate any sensitive data (using a text editor) before sending HAR files to support.
 :::
 
-## Generate a HAR file
+## Generate HAR files with browsers
 
 ### Firefox
 
@@ -48,7 +48,7 @@ HAR files may contain sensitive data such as cookies, passwords, or client secre
 1. When complete, go back to the __Network__ tab, click __Export__ and save the HAR file.
 1. Before sending the HAR file to us, make sure to obfuscate any sensitive information using a text editor (such as removing passwords, client secrets, and so on).
 
-## Analyze a HAR file
+## Analyze HAR files
 
 To view the HAR file, you can use a tool such as [Google's HAR Analyzer](https://toolbox.googleapps.com/apps/har_analyzer/). Analyze the list of web requests captured in the HAR file. In particular, check the sequence of redirects to see how far you get in the authentication process. This helps identify where the issue is happening. Compare the sequence of redirects to the expected sequence for your authentication flow.
 
