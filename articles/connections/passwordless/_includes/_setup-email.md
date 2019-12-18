@@ -55,7 +55,6 @@ The following parameters are available when defining the message template:
 
 Click the **Apps** tab, and enable the apps for which you would like to use Passwordless Email.
 
-
 ## Email Providers
 
 By default, Auth0 sends the email from its own SMTP provider. Auth0's built-in email infrastructure should be used for testing-level emails only. You can [configure your own email provider](/email/providers) to better monitor and troubleshoot the email service as well as be able to fully customize the emails.
