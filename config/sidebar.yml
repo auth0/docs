@@ -662,10 +662,10 @@ articles:
             hidden: true
 
 ## ------------------------------------------------------------
-## Branding & Customization
+## Brand & Customize
 ## ------------------------------------------------------------
 
-  - title: Branding & Customization
+  - title: Brand and Customize
     url: /branding-customization
     children:
 
@@ -867,7 +867,7 @@ articles:
 ## Monitor
 ## ------------------------------------------------------------
 
-  - title: Monitoring
+  - title: Monitor
     url: /monitoring
     children:
 
