@@ -10,16 +10,16 @@ useCase:
 
 # Migrate from Management API v1 to v2
 
-Auth0’s Management API v1 was deprecated 2016 and replaced with the [Auth0 Management API v2](https://auth0.com/docs/api/management/v2/). Management API v1 will reach its End Of Life on **July 6th, 2020**. Requests will begin failing with a `410` HTTP status code on or after that date.
+Auth0’s Management API v1 was deprecated 2016 and replaced with the [Auth0 Management API v2](https://auth0.com/docs/api/management/v2/). Management API v1 will reach its End Of Life in the Public Cloud on **July 6th, 2020**. Requests will begin failing with a `410` HTTP status code on or after that date. Private Cloud releases will continue to support Management API v1 until the November 2020 monthly release.
 
 ## Am I affected by the migration?
 
 Affected customers are those who meet all of the following criteria:
-* Created before {UPDATE}
+* Created before December 26, 2019
 * Actively making requests to Auth0 endpoints directly under the `/api/` path.
 
 The following tenants are NOT affected:
-* Tenants created after {UPDATE}
+* Tenants created after December 26, 2019
 * Exclusively using the Auth0 Management API v2 endpoints 
 * The Authentication API is not affected by this deprecation
   
@@ -57,7 +57,7 @@ By migrating your requests to API v2 and disabling API v1 as soon as possible, y
 ![](/media/articles/migrations/apiv1-toggle.png)
 
 ::: note
-Note that tenants created after {UPDATE} will not have access to API v1. If you need API v1 enabled on a tenant for testing your migration please open a ticket in our [Support Center](https://support.auth0.com/tickets).
+Note that tenants created after December 26, 2019 will not have access to API v1. If you need API v1 enabled on a tenant for testing your migration please open a ticket in our [Support Center](https://support.auth0.com/tickets).
 :::
  
 If you need help with the migration, contact us using the [Support Center](https://support.auth0.com/) or our [Community Site](https://community.auth0.com/c/auth0-community/Migrations).
