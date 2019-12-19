@@ -1004,7 +1004,7 @@ articles:
         url: /troubleshoot/guides/verify-rules
 
       - title: Check Error Messages
-        url: /troubleshoot/guides/check-error messages
+        url: /troubleshoot/guides/check-error-messages
         children:
 
           - title: Common Authentication Errors
@@ -1016,8 +1016,8 @@ articles:
           - title: Deprecation Errors
             url: "/errors/deprecation-errors"
 
-      - title: Generate HTTP Archive (HAR) Files
-        url: /troubleshoot/guidesn/generate-har-files
+      - title: Generate and Analyze HAR Files
+        url: /troubleshoot/guides/generate-har-files
 
       - title: Roles-Based Authorization
         url: /authorization/concepts/troubleshooting

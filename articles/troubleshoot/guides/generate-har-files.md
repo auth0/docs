@@ -9,47 +9,47 @@ contentType: how-to
 useCase: troubleshoot
 ---
 
-# Generate and Analyze HTTP Archive (HAR) Files
+# Generate and Analyze HAR Files
 
-An [HTTP Archive (HAR)](https://en.wikipedia.org/wiki/.har) file shows the sequence of redirects that happen during a login transaction. It's an excellent tool for debugging authentication issues, as it can identify where things get stuck. A HAR file is a JSON formatted log of a web browser's interactions with a web server. If authentication isn't working as expected, you can generate and analyze HAR files to find issues. Including a HAR file in your [support requests](${env.DOMAIN_URL_SUPPORT}) can help speed up the troubleshooting process.
+A [HAR](https://en.wikipedia.org/wiki/.har) (HTTP Archive) file shows the sequence of redirects that happen during a login transaction. It's an excellent tool for debugging authentication issues, as it can identify where things get stuck. A HAR file is a JSON formatted log of a web browser's interactions with a web server. If authentication isn't working as expected, you can generate and analyze HAR files to find issues. Including a HAR file in your [support requests](${env.DOMAIN_URL_SUPPORT}) can help speed up the troubleshooting process.
 
 ::: warning
-HAR files may contain sensitive data such as cookies, passwords, or client secrets. Obfuscate any sensitive data (using a text editor) before sending HAR files to support.
+Before sending the HAR file to Auth0, ensure that you remove or obfuscate any sensitive information (such as passwords and client secrets) using a text editor. 
 :::
 
 ## Generate HAR files with browsers
+
+### Google Chrome
+
+1. Close all __incognito__ windows in Google Chrome.
+2. Open a __new incognito__ window in Google Chrome.
+3. Go to **View > Developer > Developers Tools**.
+4. In the Developer Tools pane, choose the **Network** tab. 
+5. Check the __Preserve Log__ checkbox to record all interactions.
+6. Visit the page and complete the steps that trigger the issue.
+7. Choose the __Network__ tab.
+8. Click the down arrow to export the HAR file.
+9. Save the HAR file. 
+
+### Safari
+
+1. Ensure that **Show Develop menu in menu bar** checkbox is checked under **Safari > Preferences > Advanced**.
+2. Choose **File > Open New Private Window**.
+3. Visit the web page where the issue occurs. 
+4. Choose **Develop > Show Web Inspector**. The Web Inspector window appears.
+5. Complete the steps on the page that trigger the issue.
+6. Select the **Network** tab.
+7. Click **Export** on the upper right side of the pane. 
+8. Save the HAR file. 
 
 ### Firefox
 
 1. Close all __private__ windows in Firefox.
 1. Open a __new private__ window in Firefox.
-2. Go to __Tools > Web Developer > Network__
+2. Go to __Tools > Developer > Network__ or **ctrl-shift-E**.
 1. Visit the page and complete the steps that trigger the issue.
-1. When complete, go back to the __Network__ tab, right click and then select **Save All As Har**.
-1. Before sending the HAR file to us, make sure to obfuscate any sensitive information using a text editor (such as removing passwords, client secrets, and so on).
-
-### Google Chrome
-
-1. Close all __incognito__ windows in Google Chrome.
-1. Open a __new incognito__ window in Google Chrome.
-1. Go to __Developers Tools > Network__.
-1. Check the __Preserve Log__ option to record all interactions.
-1. Visit the page and complete the steps that trigger the issue.
-1. When complete, go back to the __Network__ tab, right click and then select **Save as HAR with Content**. 
-
-  ![Google Dev Tools](/media/articles/tutorials/save-as-har-with-content.png)
-
-1. Before sending the HAR file to us, make sure to obfuscate any sensitive information using a text editor (such as removing passwords, client secrets, and so on).
-
-### Safari
-
-1. Close all __private__ windows in Safari.
-1. Open a __new private__ window in Safari.
-1. Go to __Developer > Inspector > Network__
-1. Check the __Preserve Log__ option to record all interactions.
-1. Visit the page and complete the steps that trigger the issue.
-1. When complete, go back to the __Network__ tab, click __Export__ and save the HAR file.
-1. Before sending the HAR file to us, make sure to obfuscate any sensitive information using a text editor (such as removing passwords, client secrets, and so on).
+1. Choose the __Network__ tab and right click and then select **Save All As Har**.
+1. Save the HAR file.
 
 ## Analyze HAR files
 

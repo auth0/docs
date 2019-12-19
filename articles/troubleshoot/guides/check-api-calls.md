@@ -1,6 +1,6 @@
 ---
 title: Check API Calls
-description: 
+description: Learn how to check API calls to troubleshoot issues. 
 topics:
   - management-api-calls
   - api-calls
@@ -17,7 +17,7 @@ useCase: troubleshooting
 * Did the Access Token contain the scopes needed for the call you made?
 * If a rule adjusts the scopes in the Access Token or checks whether specific users are allowed to have the scopes, have you checked the rule to make sure it is executing correctly?  
 * Get the Access Token from a [HAR file](/troubleshoot/guides/generate-har-files) and test it in the [Auth0 Management API Explorer](/api/management/v2/) to see if it works there.
-* If you are calling the Auth0 Management API from an application that authenticates with Client Credentials flow, note that rules are not executed in this context. The Client Credentials Exchange Hook can be used in this context instead, for functionality similar to a rule.
+* If you are calling the Auth0 Management API from an application that authenticates with [Client Credentials flow](/flows/guides/client-credentials/call-api-client-credentials), note that rules are not executed in this context. The Client Credentials Exchange Hook can be used in this context instead, for functionality similar to a rule.
 
 ## Check other API calls
 
@@ -30,4 +30,17 @@ useCase: troubleshooting
 
 ## Keep reading
 
-* 
+* [Learn Identity Video: Calling an API](/videos/learn-identity/04-calling-an-api)
+* [Best Practices: Minimize API requests](/best-practices/performance#minimize-api-requests)
+* [Best Practices: Consider use of explicit timeouts when making API calls](/best-practices/performance#consider-use-of-explicit-timeouts-when-making-api-calls)
+* [Call APIs Using the Implicit Flow](/flows/guides/implicit/call-api-implicit)
+* [Call APIs Using the Client Credentials Flow](/flows/guides/client-credentials/call-api-client-credentials)
+* [Call APIs Using the Authorization Code Flow](/flows/guides/auth-code/call-api-auth-code)
+* [Call APIs Using Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/call-api-auth-code-pkce)
+* [Call APIs Using Device Authorization Flow](/flows/guides/device-auth/call-api-device-auth)
+* [Call APIs Using Hybrid Flow](/api-auth/grant/hybrid)
+* [Call Identity Provider APIs](/connections/calling-an-external-idp-api)
+* [Call APIs with Auth0 Tokens](/api-auth/tutorials/adoption/api-tokens)
+* [Call APIs from Highly Trusted Applications](/api-auth/grant/password)
+* [Call APIs from Machine-to-Machine Applications](/microsites/call-api/call-api-m2m-app)
+* [Call AWS APIs and Resources Securely with Tokens](/integrations/aws/tokens)

@@ -8,26 +8,21 @@ topics:
   - errors
 contentType:
   - index
-  - reference
 useCase:
   - troubleshooting
 ---
 # Troubleshoot
 
-*add intro text here*
-
-* [Support Center](https://support.auth0.com/)
-
-  * [Create support cases](/support/tickets)  
-  * [Support Plans and Service Level Agreements](/support#defect-responses)
-  * [Troubleshooting tips](/onboarding/enterprise-support#what-to-check-before-logging-an-issue)
-  * [Information to include in your support case](/onboarding/enterprise-support#information-to-provide-when-logging-an-issue)
+Before submitting a ticket to Auth0 [Support Center](https://support.auth0.com/), review the following troubleshooting guides to identify and possibly fix the issue. If you still cannot address the issue, you can create a support ticket. For more details, see the following information: 
 
 * [Supported versions](/support/matrix)
-* [Feedback Portal](https://auth0.com/feedback)
+* [Support Plans and Service Level Agreements](/support#defect-responses)
+* [Items to check before submitting a support ticket](/onboarding/enterprise-support#what-to-check-before-logging-an-issue)
+* [Information to include in your support case](/onboarding/enterprise-support#information-to-provide-when-logging-an-issue)
+* [Open and Manage Support Tickets](/support/tickets)  
 * [Professional Services](/services)
 
-## Troubleshooting basics
+## Basics
 
 <%= include('../_includes/_topic-links', { links: [
   'troubleshoot/guides/verify-auth0-status-availability',
@@ -66,6 +61,7 @@ useCase:
   'connector/troubleshooting',
   'custom-domains/troubleshoot',
   'extensions/troubleshoot',
+  'extensions/authentication-api-debugger',
   'extensions/authorization-extension/v2/troubleshooting',
   'extensions/deploy-cli/references/troubleshooting', 
   'libraries/auth0-php/troubleshooting'
