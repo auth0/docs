@@ -1,6 +1,6 @@
 ---
 title: Check Login and Logoout Issues
-description: 
+description: Learn how to check login and logout to troubleshoot issues. 
 topics:
   - login-issues
 contentType: how-to
@@ -9,7 +9,7 @@ useCase: troubleshooting
 
 # Check Login and Logout Issues
 
-Here are things to check to help you narrow down where issues are occurring during login.
+Here are things to check to help you narrow down when issues occur during login and logout.
 
 ## Login Issues
 
@@ -49,7 +49,7 @@ Here are things to check to help you narrow down where issues are occurring duri
 
 ### Does the HAR file show a token or assertion returned to application?
 
-* Look in the HAR file for the call to your application callback URL.
+* Look in the [HAR file](/troubleshoot/guides/generate-har-files) for the call to your application callback URL.
 * Find the ID Token (`id_token`) and check if it has the information needed by the application.
 
 ### If you decode the token or assertion does it have information you expect?
@@ -71,14 +71,14 @@ Here are things to check to help you narrow down where issues are occurring duri
 * Do your application logs show any errors?
 * Did the application receive all the information it needs, such as groups or user profile attributes?
 
+<%= include('../_includes/_log_events_link') %>
+
 ## Logout issues
 
 * Did you whitelist your logout redirect URLs? If you are using a redirect URL in a logout call it must be registered in either the tenant or application settings.
 * If you need federated logout, did you append the `?federated` parameter to the logout call?
 * Make sure that the logout redirect URL is different from the login callback URL.
 * Make the logout redirect URL an anonymous page (not protected by login) so that redirects to the logout redirect URL do not immediately trigger a login, which may confuse users.
-
-<%= include('../_includes/_log_events_link') %>
 
 ## Keep reading
 
