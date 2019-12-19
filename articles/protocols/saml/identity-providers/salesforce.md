@@ -129,9 +129,9 @@ The **Try** button only works for users logged into the Auth0 dashboard.
 
 ## 6. Troubleshooting
 
-When troubleshooting SSO, it is often helpful to capture an HTTP trace of the interaction and save it in a .har file. See: [Troubleshooting with HAR files](/har).
+When troubleshooting SSO, it is often helpful to capture an HTTP trace of the interaction and save it in a HAR file. See [Generate and Analyze HAR Files](/troubleshoot/guides/generate-har-files) for details.
 
-Once you have an http trace tool, capture the login sequence from start to finish and analyze the trace for the sequence of GETs. You should see a redirect from your original site to the IDP, a post of credentials if you had to log in, and then a redirect back to the <dfn data-key="callback">callback URL</dfn>. The .har file will also contain the SAML response.
+Once you have an http trace tool, capture the login sequence from start to finish and analyze the trace for the sequence of GETs. You should see a redirect from your original site to the IDP, a post of credentials if you had to log in, and then a redirect back to the <dfn data-key="callback">callback URL</dfn>. The HAR file will also contain the SAML response.
 
 Make sure that cookies and JavaScript are enabled for your browser.
 

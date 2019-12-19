@@ -1,5 +1,5 @@
 ---
-title: Generate HTTP Archive (HAR) Files
+title: Generate and Analyze HTTP Archive (HAR) Files
 description: Learn how to troubleshoot with HAR files and steps to generate a HAR file.
 topics:
   - troubleshoot
@@ -9,7 +9,7 @@ contentType: how-to
 useCase: troubleshoot
 ---
 
-# Generate HTTP Archive (HAR) Files
+# Generate and Analyze HTTP Archive (HAR) Files
 
 An [HTTP Archive (HAR)](https://en.wikipedia.org/wiki/.har) file shows the sequence of redirects that happen during a login transaction. It's an excellent tool for debugging authentication issues, as it can identify where things get stuck. A HAR file is a JSON formatted log of a web browser's interactions with a web server. If authentication isn't working as expected, you can generate and analyze HAR files to find issues. Including a HAR file in your [support requests](${env.DOMAIN_URL_SUPPORT}) can help speed up the troubleshooting process.
 
@@ -35,7 +35,10 @@ HAR files may contain sensitive data such as cookies, passwords, or client secre
 1. Go to __Developers Tools > Network__.
 1. Check the __Preserve Log__ option to record all interactions.
 1. Visit the page and complete the steps that trigger the issue.
-1. When complete, go back to the __Network__ tab, right click and then select **Save as HAR with Content**: ![Google Dev Tools](/media/articles/tutorials/save-as-har-with-content.png)
+1. When complete, go back to the __Network__ tab, right click and then select **Save as HAR with Content**. 
+
+  ![Google Dev Tools](/media/articles/tutorials/save-as-har-with-content.png)
+
 1. Before sending the HAR file to us, make sure to obfuscate any sensitive information using a text editor (such as removing passwords, client secrets, and so on).
 
 ### Safari
@@ -50,14 +53,16 @@ HAR files may contain sensitive data such as cookies, passwords, or client secre
 
 ## Analyze HAR files
 
-To view the HAR file, you can use a tool such as [Google's HAR Analyzer](https://toolbox.googleapps.com/apps/har_analyzer/). Analyze the list of web requests captured in the HAR file. In particular, check the sequence of redirects to see how far you get in the authentication process. This helps identify where the issue is happening. Compare the sequence of redirects to the expected sequence for your authentication flow.
+1. To view the HAR file, use a tool such as [Google's HAR Analyzer](https://toolbox.googleapps.com/apps/har_analyzer/). 
+2. Analyze the list of web requests captured in the HAR file. In particular, check the sequence of redirects to see how far you get in the authentication process. This helps identify where the issue is happening. 
+3. Compare the sequence of redirects to the expected sequence for your authentication flow.
 
-For example:
+    For example:
 
-* There should be a call to the `/authorize` endpoint to start the authentication flow.
-* There may be redirects to remote identity providers to prompt the user to log in.
-* Then there should be a redirect back to Auth0 `/login/callback` (`https://login.auth0.com/login/callback`).
-* Then there should be a redirect back to your application’s callback URL.
+    * There should be a call to the `/authorize` endpoint to start the authentication flow.
+    * There may be redirects to remote identity providers to prompt the user to log in.
+    * Then there should be a redirect back to Auth0 `/login/callback` (`https://login.auth0.com/login/callback`).
+    * Then there should be a redirect back to your application’s callback URL.
 
 <%= include('../_includes/_log_events_link') %>
 
