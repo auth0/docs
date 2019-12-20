@@ -37,15 +37,13 @@ Before you configure Native Facebook login for your native app via Auth0, you mu
 
 ## Implementation details
 
-### Setup in your application
+As above, the process to authenticate a user profile using Native Facebook login is a four-step one, from your application's perspective:
 
-As above, the process to log in Auth0 using Native Facebook login is a three step one, from your application's perspective:
-
-#### Step 1
+### Step 1
 
 The application authenticates a user via the Facebook SDK. It will obtain an Access Token from Facebook.
 
-#### Step 2
+### Step 2
 
 The application uses the Access Token to request a [Facebook Session Info Access Token](https://developers.facebook.com/docs/facebook-login/access-tokens/session-info-access-token).
 
@@ -68,7 +66,7 @@ and the response:
 }
 ```
 
-#### Step 3
+### Step 3
 
 The application needs to retrieve the user profile from Facebook using the Facebook SDK, which will end in a request similar to the following:
 
@@ -76,7 +74,7 @@ The application needs to retrieve the user profile from Facebook using the Faceb
 GET https://graph.facebook.com/v5.0/<facebook user id>?access_token=<facebook access token>&fields=email,name 
 ```
 
-#### Step 4
+### Step 4
 
 The application can then use the session info Access Token and the Facebook user profile to authenticate with Auth0 by calling Auth0's `/oauth/token` endpoint using the Token Exchange flow with the `facebook-session-access-token` token type. If all goes well, Auth0 will return a normal response from the exchange, with the addition of the user profile.
 
@@ -105,17 +103,10 @@ and the response from Auth0:
 ```
 
 ::: note
-Auth0 will return the user profile as part of the token exchange payload. This is because the Facebook Session Access Token cannot be used to directly retrieve the profile, and the Facebook access token cannot be sent directly to the server, because of Apple’s policies. Therefore, it must be retrieved in the client and sent to Auth0 in this fashion.
+Auth0 needs the user profile as part of the Token Exchange payload. This is because the Facebook Session Access Token cannot be used to directly retrieve the profile, and the Facebook Access Token cannot be sent directly to the server, because of Apple’s policies. Therefore, it must be retrieved in the client and sent to Auth0 in this fashion.
 :::
 
-### How Auth0 interacts with Facebook
-
-As part of the token exchange implementation, Auth0 will make two calls to Facebook in the backend:
-
-1. It will call the `graph.facebook.com/debug_token` endpoint with the token sent in the `/oauth/token` call to cofirm that the token is valid and that we can authenticate the user.
-1. It will call a new endpoint that Facebook will be creating (for the sake of this dialogue, we will call it `graph.facebook.com/verify_email`),  where Auth0 will send the same Session Access Token plus the email provided in the Auth0 user profile and Facebook is going to validate if the email belongs to that user whose token it is. This will let us flag the email as verified in the Auth0 profile.
-
-### Logout
+## Logout
 
 Since the native login implementation does not make use of standard browser-based flows, application owners must also take care to perform logout appropriately. When an application needs to perform a logout, it should also [Revoke the Auth0 Refresh Token](/api/authentication#revoke-refresh-token).
 
