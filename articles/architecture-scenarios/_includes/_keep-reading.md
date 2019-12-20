@@ -1,78 +1,37 @@
-<% if (platform === "b2b") { %>
 <!-- Exclude current page from keep reading section -->
 <% if (self !== "architecture") { %>
-* [Architecture](/architecture-scenarios/implementation/b2b/b2b-architecture)
+* [Architecture](/architecture-scenarios/implementation/${platform}/${platform}-architecture)
 <% } %>
 <% if (self !== "provisioning") { %>
-* [Provisioning](/architecture-scenarios/implementation/b2b/b2b-provisioning)
+* [Provisioning](/architecture-scenarios/implementation/${platform}/${platform}-provisioning)
 <% } %>
 <% if (self !== "authentication") { %>
-* [Authentication](/architecture-scenarios/implementation/b2b/b2b-authentication)
+* [Authentication](/architecture-scenarios/implementation/${platform}/${platform}-authentication)
 <% } %>
 <% if (self !== "branding") { %>
-* [Branding](/architecture-scenarios/implementation/b2b/b2b-branding)
+* [Branding](/architecture-scenarios/implementation/${platform}/${platform}-branding)
 <% } %>
 <% if (self !== "deployment") { %>
-* [Deployment Automation](/architecture-scenarios/implementation/b2b/b2b-deployment)
+* [Deployment Automation](/architecture-scenarios/implementation/${platform}/${platform}-deployment)
 <% } %>
 <% if (self !== "qa") { %>
-* [Quality Assurance](/architecture-scenarios/implementation/b2b/b2b-qa)
+* [Quality Assurance](/architecture-scenarios/implementation/${platform}/${platform}-qa)
 <% } %>
 <% if (self !== "profile-mgmt") { %>
-* [Profile Management](/architecture-scenarios/implementation/b2b/b2b-profile-mgmt)
+* [Profile Management](/architecture-scenarios/implementation/${platform}/${platform}-profile-mgmt)
 <% } %>
 <% if (self !== "authorization") { %>
-* [Authorization](/architecture-scenarios/implementation/b2b/b2b-authorization)
+* [Authorization](/architecture-scenarios/implementation/${platform}/${platform}-authorization)
 <% } %>
 <% if (self !== "operations") { %>
-* [Operations](/architecture-scenarios/implementation/b2b/b2b-operations)
+* [Operations](/architecture-scenarios/implementation/${platform}/${platform}-operations)
 <% } %>
 <% if (self !== "logout") { %>
-* [Logout](/architecture-scenarios/implementation/b2b/b2b-logout)
+* [Logout](/architecture-scenarios/implementation/${platform}/${platform}-logout)
 <% } %>
 <% if (self !== "operations") { %>
-* [Operations](/architecture-scenarios/implementation/b2b/b2b-operations)
+* [Operations](/architecture-scenarios/implementation/${platform}/${platform}-operations)
 <% } %>
 <% if (self !== "launch") { %>
-* [Launch Preparation](/architecture-scenarios/implementation/b2b/b2b-launch)
+* [Launch Preparation](/architecture-scenarios/implementation/${platform}/${platform}-launch)
 <% } %>
-<%  } %>
-
-<% if (platform === "b2c") { %>
-<!-- Exclude current page from keep reading section -->
-<% if (self !== "architecture") { %>
-* [Architecture](/architecture-scenarios/implementation/b2c/b2c-architecture)
-<% } %>
-<% if (self !== "provisioning") { %>
-* [Provisioning](/architecture-scenarios/implementation/b2c/b2c-provisioning)
-<% } %>
-<% if (self !== "authentication") { %>
-* [Authentication](/architecture-scenarios/implementation/b2c/b2c-authentication)
-<% } %>
-<% if (self !== "branding") { %>
-* [Branding](/architecture-scenarios/implementation/b2c/b2c-branding)
-<% } %>
-<% if (self !== "deployment") { %>
-* [Deployment Automation](/architecture-scenarios/implementation/b2c/b2c-deployment)
-<% } %>
-<% if (self !== "qa") { %>
-* [Quality Assurance](/architecture-scenarios/implementation/b2c/b2c-qa)
-<% } %>
-<% if (self !== "profile-mgmt") { %>
-* [Profile Management](/architecture-scenarios/implementation/b2c/b2c-profile-mgmt)
-<% } %>
-<% if (self !== "authorization") { %>
-* [Authorization](/architecture-scenarios/implementation/b2c/b2c-authorization)
-<% } %>
-<% if (self !== "logout") { %>
-* [Logout](/architecture-scenarios/implementation/b2c/b2c-logout)
-<% } %>
-<% if (self !== "operations") { %>
-* [Operations](/architecture-scenarios/implementation/b2c/b2c-operations)
-<% } %>
-<% if (self !== "launch") { %>
-* [Launch Preparation](/architecture-scenarios/implementation/b2c/b2c-launch)
-<% } %>
-
-<%  } %>
-
