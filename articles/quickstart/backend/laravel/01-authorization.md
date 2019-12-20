@@ -43,10 +43,10 @@ $ composer require auth0/login
 The **laravel-auth0** plugin comes with a configuration file that can be generated using [Artisan](https://laravel.com/docs/5.7/artisan). First, generate the configuration file from the command line:
 
 ```bash
-$ php artisan vendor:publish
+$ php artisan vendor:publish --provider "Auth0\Login\LoginServiceProvider"
 ```
 
-Select the `Auth0\Login\LoginServiceProvider` option. After the file is generated, it will be located at `config/laravel-auth0.php`. Edit this file to add the configuration values needed to verify incoming tokens:
+After the file is generated, it will be located at `config/laravel-auth0.php`. Edit this file to add the configuration values needed to verify incoming tokens:
 
 ```php
 // config/laravel-auth0.php
