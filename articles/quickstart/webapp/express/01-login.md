@@ -40,6 +40,18 @@ Your application will need the following packages:
 npm install express express-openid-connect express-session
 ```
 
+### Handling server responses
+Your application will need to parse URL-encoded data sent back from the Auth0 server.  Express provides a middleware for this called `express.urlencoded`. If you are integrating an existing application that uses `urlencoded` from the `body-parser`module, that will work as well.
+
+```js
+const express = require('express');
+const app = express();
+
+app.use(express.urlencoded({
+  extended: false
+}));
+```
+
 ### Configure Router
 The Express OpenID Connect library provides the `auth` router in order to attach authentication routes to your application.  This router requires session middleware in order to keep the user logged across multiple requests.  In this quickstart you will use the `express-session` middleware to support it.
 
@@ -50,11 +62,8 @@ You will need to configure the router with the following Auth0 application keys
 Here is an example configuration using this router. For additional configuration options visit the [API documentation](https://github.com/auth0/express-openid-connect/blob/master/API.md).
 
 ```js
-const express = require('express');
 const session = require('express-session');
 const { auth } = require('express-openid-connect');
-
-const app = express();
 
 app.use(session({
   secret: 'use a secure environment variable in production',
