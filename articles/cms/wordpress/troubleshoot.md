@@ -12,9 +12,9 @@ useCase:
   - secure-an-api
   - manage-users  
 ---
-# Troubleshooting/FAQ
+# Troubleshoot WordPress Plugin
 
-In this page, we have collected some of the common troubleshooting questions we encounter. If the items below do not solve your issue, then consider the following alternatives:
+Here are some common troubleshooting questions. If the items below do not solve your issue, then consider the following alternatives:
 
 * If you're setting up the plugin for the first time or having problems with users logging in, please review the [configuration](/cms/wordpress/configuration) page in this section.
 * If you found a bug in the plugin code [submit an issue](https://github.com/auth0/wp-auth0/issues) or [create a pull request](https://github.com/auth0/wp-auth0/pulls) on GitHub.
@@ -23,7 +23,7 @@ In this page, we have collected some of the common troubleshooting questions we 
 
 ## I'm seeing the error message "Invalid state" that prevents me from logging in
 
-State validation is a security feature added in [version 3.6.0](https://github.com/auth0/wp-auth0/releases/tag/3.6.0). A cached callback URL usually causes this error message (see your Application settings for the callback URLs that should not be cached). If this is not the issue or you need more information, please see our detailed [troubleshooting guide](/cms/wordpress/invalid-state).
+State validation is a security feature added in [version 3.6.0](https://github.com/auth0/wp-auth0/releases/tag/3.6.0). A cached callback URL usually causes this error message (see your Application settings for the callback URLs that should not be cached). If this is not the issue or you need more information, please see [Troubleshoot WordPress Plugin Invalid State Errors](/cms/wordpress/invalid-state).
 
 ## I'm having an issue logging in or changing email/password using a custom database
 

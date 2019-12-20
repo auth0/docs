@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Sign in With Apple
-description: General troubleshooting steps for web and native apps using the Apple connection
+description: Describes troubleshooting steps for web and native apps using the Apple connection.
 topics:
   - troubleshooting
   - errors
@@ -9,7 +9,7 @@ topics:
   - social
   - apple
 contentType:
-  - how-to
+  - reference
 useCase: 
   - troubleshooting
 ---

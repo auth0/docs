@@ -1,6 +1,5 @@
 ---
 description: Explore solutions to common issues experienced when implementing role-based access control (RBAC) using the Authorization Core feature set.
-toc: true
 topics:
   - authorization
   - rbac
@@ -15,7 +14,7 @@ useCase:
   - call-api
   - secure-api
 ---
-# Troubleshooting: Role-Based Access Control and Authorization
+# Troubleshoot Role-Based Access Control and Authorization
 
 Here are some solutions to common issues experienced when implementing [role-based access control (RBAC)](/authorization/concepts/rbac) using the Authorization Core feature set.
 

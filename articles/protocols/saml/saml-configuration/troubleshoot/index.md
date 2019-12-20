@@ -1,5 +1,5 @@
 ---
-description: How to troubleshoot SAML-related configuration issues
+description: Describes troubleshooting for SAML configuration issues.
 toc: true
 topics:
   - saml
@@ -11,7 +11,7 @@ useCase:
   - add-idp
 ---
 
-# Troubleshooting SAML Configuration
+# Troubleshoot SAML Configuration
 
 This guide serves to help you troubleshoot any issues that may arise during the <dfn data-key="security-assertion-markup-language">SAML</dfn> configuration process. It is not intended to be an exhaustive guide, but one that covers the most commonly encountered issues during setup.
 

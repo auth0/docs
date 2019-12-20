@@ -1,12 +1,12 @@
 ---
 section: libraries
-description: Troubleshooting the Auth0-PHP SDK
+description: Describes troubleshooting the Auth0-PHP SDK.
 topics:
   - libraries
   - php
-contentType: how-to
+contentType: reference
 ---
-# Troubleshooting Issues When Using the Auth0-PHP Library
+# Troubleshoot Auth0-PHP Library
 
 The following is a list of issues you might see when using the Auth0-PHP library and how you might troubleshoot these issues.
 
@@ -29,12 +29,10 @@ This is a common issue with the latest PHP versions under **Windows OS** (it is 
 
 This SDK uses Composer for maintaining dependencies (required external PHP libraries). If Composer is not allowed or installed on your host, install Composer locally, follow the installation instructions there, then upload your entire application, vendor folder included, to your host.
 
-### Read more
+## Keep reading
 
-::: next-steps
 * [Auth0-PHP Introduction](/libraries/auth0-php)
 * [Auth0-PHP Basic Use](/libraries/auth0-php/basic-use)
 * [Auth0-PHP Authentication API](/libraries/auth0-php/authentication-api)
 * [Auth0-PHP Management API](/libraries/auth0-php/management-api)
 * [Auth0-PHP JWT Validation](/libraries/auth0-php/jwt-validation)
-:::

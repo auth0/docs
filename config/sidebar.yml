@@ -976,7 +976,7 @@ articles:
           - title: "What's New in v2"
             url: "/extensions/deploy-cli/references/whats-new-v2"
 
-          - title: "Troubleshooting Deploy CLI"
+          - title: "Troubleshoot Deploy CLI"
             url: "/extensions/deploy-cli/references/troubleshooting"
             hidden: true
 
@@ -1033,12 +1033,8 @@ articles:
         url: /extensions/authentication-api-debugger
 
       - title: Authentication Issues
-        url: /troubleshoot/guides/auth-issues
+        url: /troubleshoot/concepts/auth-issues
         children:
-
-          - title: Common Errors
-            url: /libraries/error-messages
-            hidden: true 
 
           - title: API Calls
             url: /troubleshoot/guides/check-api-calls
@@ -1052,20 +1048,8 @@ articles:
             url: /troubleshoot/guides/check-user-profiles
             hidden: true 
 
-          - title: Universal Login
-            url: /universal-login/error-pages
-            hidden: true 
-
-          - title: Passwordless Login
-            url: /connections/passwordless/reference/troubleshoot
-            hidden: true 
-
           - title: RBAC
             url: /authorization/concepts/troubleshooting
-            hidden: true 
-
-          - title: Authorization Extension
-            url: /extensions/authorization-extension/v2/troubleshooting
             hidden: true 
 
           - title: MFA
@@ -1080,24 +1064,16 @@ articles:
             url: /extensions/authorization-extension/v2/troubleshooting
             hidden: true 
 
-          - title: WordPress Plugin Issues
-            url: /cms/wordpress/troubleshoot
-            hidden: true 
-
-          - title: Wordpress Plugin Invalid State
-            url: /cms/wordpress/invalid-state
-            hidden: true 
-
       - title: Integration and Extensibility Issues
         url: /troubleshoot/concepts/integration-extensibility-issues
         children:
 
-          - title: Sign in With Apple
-            url: "/connections/apple-siwa/troubleshooting"
+          - title: Test Partner Connections
+            url: /connections/how-to-test-partner-connection
             hidden: true 
 
-          - title: Partner Connections
-            url: /connections/how-to-test-partner-connection
+          - title: Sign in With Apple
+            url: "/connections/apple-siwa/troubleshooting"
             hidden: true 
 
           - title: Custom Databases
@@ -1108,7 +1084,7 @@ articles:
             url: /custom-domains/troubleshoot
             hidden: true 
 
-          - title: AD/LDAP Connector
+          - title: Active Directory/LDAP Connector
             url: /connector/troubleshooting
             hidden: true 
 

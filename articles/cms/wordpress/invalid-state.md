@@ -13,7 +13,7 @@ useCase:
   - manage-users  
 ---
 
-# Invalid State Errors
+# Troubleshoot WordPress Plugin Invalid State Errors
 
 We added state validation to the WordPress plugin in [version 3.6.0](https://github.com/auth0/wp-auth0/releases/tag/3.6.0). This security measure helps mitigate CSRF attacks by ensuring that the response belongs to a request initiated by the same user For more information, see [State Parameter](/protocols/oauth2/oauth-state).
 
@@ -44,7 +44,7 @@ Check to see if your server’s time is not set properly. The `BeforeValidExcept
 
 If that does not solve the issue, continue with the troubleshooting steps below. 
 
-### Cached cookies and URL parameters. 
+### Cached cookies and URL parameters 
 
 If you're on a managed host like WP-Engine, you may need to contact their support team for additional assistance. We've had reports of issues accessing required cookies on the callback URL, as well as problems with checking authentication on the final page that users see after logging in. Specifically, ask to have cache exclusions added for:
 
@@ -120,7 +120,7 @@ If none of the steps above resolve the issue, please collect the results of the 
 - WordPress version
 - Auth0 plugin version
 - Browser and OS used to test
-- A [HAR file](https://support.zendesk.com/hc/en-us/articles/204410413-Generating-a-HAR-file-for-troubleshooting) recording the entire process from loading the page with the login form all the way through the "Invalid state" message.
+- A [HAR file](/troubleshoot/guides/generate-har-files) recording the entire process from loading the page with the login form all the way through the "Invalid state" message.
 
 ## Related posts:
 
