@@ -1415,9 +1415,6 @@ articles:
   - title: "Product Lifecycle"
     url: "/product-lifecycle"
     children:
-      - title: "Overview"
-        url: "/product-lifecycle"
-
       - title: "Deprecation and End Of Life"
         url: "/product-lifecycle/deprecation-eol"
 
