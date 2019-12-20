@@ -22,8 +22,7 @@ For more details, see the following information:
 
 * [Supported versions](/support/matrix)
 * [Support Plans and Service Level Agreements](/support#defect-responses)
-* [Items to check before submitting a support ticket](/onboarding/enterprise-support#what-to-check-before-logging-an-issue)
-* [Information to include in your support case](/onboarding/enterprise-support#information-to-provide-when-logging-an-issue)
+* [Operational Policies](/policies)
 * [Open and Manage Support Tickets](/support/tickets)  
 * [Professional Services](/services)
 
