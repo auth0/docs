@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Authentication Issues
-description: Learn where to look for steps to troubleshoot authentication and authorization issues. 
+description: Learn where to look for steps to troubleshoot authentication and authorization issues such as API calls, login, logout, user profiles, MFA and SAML. 
 classes: topic-page
 topics:
   - troubleshooting
@@ -13,7 +13,7 @@ useCase:
 
 # Troubleshoot Authentication Issues
 
-<%= include('../_includes/_topic-links', { links: [
+<%= include('../../_includes/_topic-links', { links: [
   'libraries/error-messages',
   'troubleshoot/guides/check-api-calls',
   'troubleshoot/guides/check-login-logout-issues',

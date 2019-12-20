@@ -1,6 +1,6 @@
 ---
 title: Basic Troubleshooting
-description: Learn where to look for basic troubleshooting steps to eliminate common problems. 
+description: Learn where to look for basic troubleshooting steps to eliminate common problems such as Auth0 status, platform, connections, rules, domains, and how to generate HAR files and validate JWTs. 
 classes: topic-page
 topics:
   - troubleshooting
@@ -13,7 +13,7 @@ useCase:
 
 # Basic Troubleshooting
 
-<%= include('../_includes/_topic-links', { links: [
+<%= include('../../_includes/_topic-links', { links: [
   'troubleshoot/guides/verify-auth0-status-availability',
   'troubleshoot/guides/verify-platform',
   'troubleshoot/guides/verify-connections',
