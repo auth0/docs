@@ -14,7 +14,7 @@ useCase:
 ---
 # Add Facebook Login to Native Apps
 
-You can add functionality to your native application to allow your users to authenticate using Facebook natively, within the application. This does not require redirection via a web browser.
+You can add functionality to your native application to allow your users to authenticate using Facebook natively, within the application. This does not require redirection via a web browser and will let mobile applications comply with [Facebook Developer Policy](https://developers.facebook.com/policy/) which requires that mobile applications use their SDK to authenticate.
 
 ## How it works
 
