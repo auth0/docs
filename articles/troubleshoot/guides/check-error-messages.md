@@ -52,6 +52,5 @@ You can put `console.log()` statements into Rules, Hooks, Custom DB scripts, and
 * [Standard Error Responses](/api/authentication#standard-error-responses)
 * [Auth0.js Error Codes and Descriptions](/libraries/auth0js/v9#error-codes-and-descriptions)
 * [Common Authentication Errors](/libraries/error-messages)
-* [Errors with Code `invalid_token`](/errors/libraries/auth0-js/invalid-token)
-* [Self Change Password Errors](/errors/dbconnections/self_change_password)
-* [Deprecation Error Reference](/errors/deprecation-errors)
+* [Errors with Code `invalid_token`](/troubleshoot/references/invalid-token)
+* [Deprecation Error Reference](/troubleshoot/references/deprecation-errors)

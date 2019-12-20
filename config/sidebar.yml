@@ -552,7 +552,7 @@ articles:
         children:
 
           - title: Normalized User Profile
-            url: /users/normalized
+            url: /users/normalized/auth0
 
           - title: Update Profiles Using Your Database
             url: /users/guides/update-user-profiles-using-your-database
@@ -1020,7 +1020,7 @@ articles:
                 hidden: true 
 
               - title: Deprecation Errors
-                url: "/errors/deprecation-errors"
+                url: "/troubleshoot/references/deprecation-errors"
                 hidden: true 
 
       - title: Generate and Analyze HAR Files

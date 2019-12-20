@@ -20,7 +20,7 @@ useCase:
   'troubleshoot/guides/verify-domain',
   'troubleshoot/guides/verify-rules',
   'troubleshoot/guides/check-error-messages',
-  'errors/deprecation-errors',
+  'troubleshoot/references/deprecation-errors',
   'troubleshoot/guides/generate-har-files',
   'tokens/guides/jwt/validate-jwt'
 ] }) %>
