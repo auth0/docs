@@ -11,7 +11,7 @@ useCase: troubleshooting
 
 # Verify Platform
 
-Technology is constantly evolving. It’s a good idea to make sure you are on current versions of your technology stack. If you're using an older version of a programming language or library consider updating to the current version.
+Ensure that you are on current versions of your technology stack. If you're using an older version of a programming language or library consider updating to the current version.
 
 * Check the [Auth0 support matrix](/support/matrix) to see if the language or library versions you're using is supported.
 * If there's a problem in one environment (such as development) but not another (such as production), compare the versions of the technology stack across the two environments.
@@ -56,7 +56,7 @@ Testing on different browsers, platforms, locations, and users can help narrow d
 
 ## Issues that affect only one or a few users
 
-* Check the user's profile, browser, or device for any issues.
+* [Check the user's profile](/troubleshoot/guides/verify-user-profiles), browser, or device for any issues.
 * Check to see if it happens in all browsers for the affected users (indicating a data issue) or just certain types of browsers (indicating a browser-specific issue).
 * Check to see if the browser has enabled JavaScript and cookies.
 * Check that the caps lock key is disabled.

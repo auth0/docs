@@ -1,5 +1,5 @@
 ---
-title: Generate and Analyze HTTP Archive (HAR) Files
+title: Generate and Analyze HAR Files
 description: Learn how to troubleshoot with HAR files and steps to generate a HAR file.
 topics:
   - troubleshoot
