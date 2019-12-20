@@ -1,5 +1,5 @@
 ---
-title: Check Login and Logoout Issues
+title: Check Login and Logout Issues
 description: Learn how to check login and logout to troubleshoot issues. 
 topics:
   - login-issues
