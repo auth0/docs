@@ -22,7 +22,8 @@ The Native Facebook login flow works as follows:
 
 * **Step 1**: The application authenticates a user via the Facebook SDK and acquires an Access Token.
 * **Step 2**: The application uses that Access Token to request a special [Facebook Session Info Access Token](https://developers.facebook.com/docs/facebook-login/access-tokens/session-info-access-token).
-* **Step 3**: The application can then use the Facebook Session Info token to request a user profile from Auth0.
+* **Step 3**: Use the Facebook SDK to retrieve the users's profile
+* **Step 4**: The application can then use the Facebook Session Info token to authenticate with Auth0.
 
 ## Prerequisites
 
@@ -38,10 +39,15 @@ Before you configure Native Facebook login for your native app via Auth0, you mu
 
 ### Setup in your application
 
-As above, the process to acquire a user profile from Auth0 using Native Facebook login is a three step one, from your application's perspective:
+As above, the process to log in Auth0 using Native Facebook login is a three step one, from your application's perspective:
 
-* **Step 1**: The application authenticates a user via the Facebook SDK. It will obtain an Access Token from Facebook, and will now need to request the user profile.
-* **Step 2**: The application uses the Access Token to request a [Facebook Session Info Access Token](https://developers.facebook.com/docs/facebook-login/access-tokens/session-info-access-token).
+#### Step 1
+
+The application authenticates a user via the Facebook SDK. It will obtain an Access Token from Facebook.
+
+#### Step 2
+
+The application uses the Access Token to request a [Facebook Session Info Access Token](https://developers.facebook.com/docs/facebook-login/access-tokens/session-info-access-token).
 
 This request will look similar to the following:
 
@@ -62,7 +68,17 @@ and the response:
 }
 ```
 
-* **Step 3**: The application can then use this token to request a user profile from Auth0 by calling Auth0’s `/oauth/token` endpoint using the [client credentials exchange flow](/flows/concepts/client-credentials), with the `facebook-session-access-token` token type. If all goes well, Auth0 will return a normal response from the exchange, with the addition of the user profile.
+#### Step 3
+
+The application needs to retrieve the user profile from Facebook using the Facebook SDK, which will end in a request similar to the following:
+
+```
+GET https://graph.facebook.com/v5.0/<facebook user id>?access_token=<facebook access token>&fields=email,name 
+```
+
+#### Step 4
+
+The application can then use the session info Access Token and the Facebook user profile to authenticate with Auth0 by calling Auth0's `/oauth/token` endpoint using the Token Exchange flow with the `facebook-session-access-token` token type. If all goes well, Auth0 will return a normal response from the exchange, with the addition of the user profile.
 
 ```
 POST https://${account.namespace}/oauth/token
@@ -89,12 +105,12 @@ and the response from Auth0:
 ```
 
 ::: note
-Auth0 will return the user profile as part of the Client Credentials Exchange payload. This is because the Facebook Session Access Token cannot be used to directly retrieve the profile, and the Facebook access token cannot be sent directly to the server, because of Apple’s policies. Therefore, it must be retrieved in the client and sent to Auth0 in this fashion.
+Auth0 will return the user profile as part of the token exchange payload. This is because the Facebook Session Access Token cannot be used to directly retrieve the profile, and the Facebook access token cannot be sent directly to the server, because of Apple’s policies. Therefore, it must be retrieved in the client and sent to Auth0 in this fashion.
 :::
 
 ### How Auth0 interacts with Facebook
 
-As part of the client credentials exchange implementation, Auth0 will make two calls to Facebook in the backend:
+As part of the token exchange implementation, Auth0 will make two calls to Facebook in the backend:
 
 1. It will call the `graph.facebook.com/debug_token` endpoint with the token sent in the `/oauth/token` call to cofirm that the token is valid and that we can authenticate the user.
 1. It will call a new endpoint that Facebook will be creating (for the sake of this dialogue, we will call it `graph.facebook.com/verify_email`),  where Auth0 will send the same Session Access Token plus the email provided in the Auth0 user profile and Facebook is going to validate if the email belongs to that user whose token it is. This will let us flag the email as verified in the Auth0 profile.
