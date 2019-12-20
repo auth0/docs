@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting the Authorization Extension
+title: Troubleshoot the Authorization Extension
 description: How to troubleshoot the Authorization Extension
 topics:
   - extensions
@@ -10,7 +10,7 @@ contentType:
 useCase: extensibility-extensions
 ---
 
-# Authorization Extension: Troubleshoot Issues
+# Troubleshoot the Authorization Extension
 
 ::: note
 <%= include('../../../_includes/_rbac_methods') %>
