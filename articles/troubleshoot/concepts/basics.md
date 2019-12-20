@@ -14,13 +14,11 @@ useCase:
 # Basic Troubleshooting
 
 <%= include('../../_includes/_topic-links', { links: [
-  'troubleshoot/guides/verify-auth0-status-availability',
+  'monitoring/guides/check-status',
   'troubleshoot/guides/verify-platform',
   'troubleshoot/guides/verify-connections',
   'troubleshoot/guides/verify-domain',
   'troubleshoot/guides/verify-rules',
   'troubleshoot/guides/check-error-messages',
-  'troubleshoot/references/deprecation-errors',
-  'troubleshoot/guides/generate-har-files',
-  'tokens/guides/jwt/validate-jwt'
-] }) %>
+  'monitoring/guides/monitor-applications'
+  ] }) %>

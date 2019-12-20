@@ -10,3 +10,6 @@ useCase: error-management
 ---
 
 # OAuth Errors
+
+<%= include('../../_includes/_co_authenticate_errors', { library : 'Lock v11'}) %>
+

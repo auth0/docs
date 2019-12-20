@@ -1,6 +1,6 @@
 ---
 title: Verify Connections
-description: Verify connection transactions and external service dependencies to troubleshoot issues. 
+description: Learn how to verify connection transactions and external service dependencies to troubleshoot issues. 
 topics:
   - connections
 contentType: how-to
@@ -22,11 +22,17 @@ Most identity provider connections have a **TRY** button to see if the connectio
 
 ## Verify external service dependencies
 
-1. If your authentication uses external services, like social identity providers, and it suddenly stops working, make sure the external service is working.
+1. If your authentication uses external services, like social identity providers, and it suddenly stops working, [check external services status](/monitoring/guides/check-external-services).
 2. If a connection is not working, even with the **TRY** button, check the connection.
 
 <%= include('../_includes/_log_events_link') %>
 
 ## Keep reading
 
-* 
+* [Verify Platform](/troubleshoot/guides/verify-platform)
+* [Verify Domain](/troubleshoot/guides/verify-domain)
+* [Verify Rules](/troubleshoot/verify/rules)
+* [Check Auth0 Status](/monitoring/guides/check-status)
+* [Check Supporting Services Status](/monitoring/guides/test-testall-endpoints)
+* [Monitor Applications](/monitoring/guides/monitor-applications)
+* [Monitor Using System Center Operations Manager](/monitoring/guides/monitor-using-SCOM)

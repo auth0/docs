@@ -14,6 +14,7 @@ useCase:
 # Troubleshoot Authentication Issues
 
 <%= include('../../_includes/_topic-links', { links: [
+  'monitoring/guides/test-testall-endpoints',
   'troubleshoot/guides/check-api-calls',
   'troubleshoot/guides/check-login-logout-issues',
   'troubleshoot/guides/check-user-profiles',

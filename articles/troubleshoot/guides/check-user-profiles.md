@@ -1,6 +1,6 @@
 ---
 title: Check User Profiles
-description: 
+description: Learn how to check user profiles to troubleshoot issues. 
 topics:
   - login-issues
 contentType: how-to
@@ -21,4 +21,6 @@ useCase: troubleshooting
 
 ## Keep reading
 
-* 
+* [User Profiles Overview](/users/concepts/overview-user-profile)
+* [Normalized User Profiles](/users/normalized/auth0)
+* [User Profile Structure](/users/references/user-profile-structure)

@@ -12,7 +12,13 @@ useCase:
 
 # Troubleshoot
 
-Before submitting a ticket to Auth0 [Support Center](https://support.auth0.com/), review the following troubleshooting guides to identify and possibly fix the issue. If you still cannot address the issue, you can create a support ticket. For more details, see the following information: 
+::: note
+Follow [@auth0status](https://twitter.com/auth0status) on Twitter to get the latest status updates. 
+:::
+
+Before submitting a ticket to Auth0 [Support Center](https://support.auth0.com/), review the following troubleshooting guides to identify and possibly fix the issue. If you still cannot address the issue, you can create a support ticket. 
+
+For more details, see the following information: 
 
 * [Supported versions](/support/matrix)
 * [Support Plans and Service Level Agreements](/support#defect-responses)

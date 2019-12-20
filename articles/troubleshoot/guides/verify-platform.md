@@ -1,6 +1,6 @@
 ---
 title: Verify Platform
-description: 
+description: Learn how to verify your platform to troubleshoot issues.
 topics:
   - platform
   - language
@@ -81,4 +81,11 @@ Testing on different browsers, platforms, locations, and users can help narrow d
 
 ## Keep reading
 
-* 
+* [Verify Connections](/troubleshoot/guides/verify-connections)
+* [Verify Domain](/troubleshoot/guides/verify-domain)
+* [Verify Rules](/troubleshoot/guides/verify-rules)
+* [Check Auth0 Status](/monitoring/guides/check-status)
+* [Check Supporting Services Status](/monitoring/guides/test-testall-endpoints)
+* [Check External Services Status](/monitoring/guides/check-external-services)
+* [Monitor Applications](/monitoring/guides/monitor-applications)
+* [Monitor Using System Center Operations Manager](/monitoring/guides/monitor-using-SCOM)

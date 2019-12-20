@@ -1,6 +1,6 @@
 ---
 title: Verify Rules
-description: 
+description: Learn how to verify rules to troubleshoot issues. 
 topics:
   - rules
 contentType: how-to
@@ -21,3 +21,12 @@ Failures in a rule can often cause authentication issues. Perform the following 
 <%= include('../_includes/_log_events_link') %>
 
 ## Keep reading
+
+* [Verify Connections](/troubleshoot/guides/verify-connections)
+* [Verify Platform](/troubleshoot/guides/verify-platform)
+* [Verify Domain](/troubleshoot/guides/verify-domain)
+* [Check Auth0 Status](/monitoring/guides/check-status)
+* [Check Supporting Services Status](/monitoring/guides/test-testall-endpoints)
+* [Check External Services Status](/monitoring/guides/check-external-services)
+* [Monitor Applications](/monitoring/guides/monitor-applications)
+* [Monitor Using System Center Operations Manager](/monitoring/guides/monitor-using-SCOM)

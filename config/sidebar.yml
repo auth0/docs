@@ -992,8 +992,8 @@ articles:
         url: /troubleshoot/concepts/basics
         children:
 
-          - title: Verify Status and Availability
-            url: /troubleshoot/guides/verify-auth0-status-availability
+          - title: Verify Auth0 Status
+            url: /monitoring/guides/check-status
 
           - title: Verify Platform
             url: /troubleshoot/guides/verify-platform
@@ -1038,31 +1038,24 @@ articles:
 
           - title: API Calls
             url: /troubleshoot/guides/check-api-calls
-            hidden: true 
 
           - title: Login and Logout Issues
             url: /troubleshoot/guides/check-login-logout-issues
-            hidden: true 
 
           - title: User Profiles
             url: /troubleshoot/guides/check-user-profiles
-            hidden: true 
 
           - title: RBAC
             url: /authorization/concepts/troubleshooting
-            hidden: true 
 
           - title: MFA
             url: /multifactor-authentication/troubleshooting
-            hidden: true 
 
           - title: SAML
             url: /protocols/saml/saml-configuration/troubleshoot
-            hidden: true 
 
           - title: Authorization Extension
             url: /extensions/authorization-extension/v2/troubleshooting
-            hidden: true 
 
       - title: Integration and Extensibility Issues
         url: /troubleshoot/concepts/integration-extensibility-issues
@@ -1070,35 +1063,27 @@ articles:
 
           - title: Test Partner Connections
             url: /connections/how-to-test-partner-connection
-            hidden: true 
 
           - title: Sign in With Apple
             url: "/connections/apple-siwa/troubleshooting"
-            hidden: true 
 
           - title: Custom Databases
             url: /connections/database/custom-db/error-handling
-            hidden: true 
 
           - title: Custom Domains
             url: /custom-domains/troubleshoot
-            hidden: true 
 
           - title: Active Directory/LDAP Connector
             url: /connector/troubleshooting
-            hidden: true 
 
           - title: Extensions
             url: /extensions/troubleshoot
-            hidden: true 
 
           - title: Deploy CLI
             url: /extensions/deploy-cli/references/troubleshooting
-            hidden: true 
 
           - title: Auth0 PHP SDK
             url: /libraries/auth0-php/troubleshooting
-            hidden: true 
 
 ## ------------------------------------------------------------
 ## Architecture Scenarios
