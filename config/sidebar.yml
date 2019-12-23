@@ -1020,7 +1020,7 @@ articles:
                 hidden: true 
 
               - title: Deprecation Errors
-                url: "/troubleshoot/references/deprecation-errors"
+                url: "/troubleshoot/guides/check-deprecation-errors"
                 hidden: true 
 
       - title: Generate and Analyze HAR Files

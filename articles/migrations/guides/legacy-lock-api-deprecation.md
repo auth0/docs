@@ -177,6 +177,4 @@ The solution for the Kerberos case is to [migrate to Universal Login](#1-migrate
 
 ## Troubleshooting
 
-### How to tell if you have deprecated usage
-
-Please take a look at the [Deprecation Error Reference](/troubleshoot/references/deprecation-errors) to assist with verifying that your application does, or does not, use deprecated features.
+See [Check Deprecation Errors](/troubleshoot/guides/check-deprecation-errors) for more information on deprecation-related errors.

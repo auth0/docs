@@ -2335,7 +2335,7 @@ module.exports = [
     },
     {
       from: '/errors/deprecation-errors',
-      to: '/troubleshoot/references/deprecation-errors'
+      to: '/troubleshoot/guides/check-deprecation-errors'
     },
     {
       from: '/errors/libraries/auth0-js/invalid-token',

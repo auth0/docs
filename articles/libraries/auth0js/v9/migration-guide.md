@@ -51,4 +51,4 @@ Legacy Lock API: This feature is being deprecated. Please refer to our documenta
 
 These deprecation notices most likely originate from a user visiting the <dfn data-key="universal-login">Universal Login</dfn> [page](/hosted-pages/login) directly without initiating the authentication flow from your app. This can happen if a user bookmarks the login page directly. After August 6, 2018, these users will not be able to log in. 
 
-Check out the [Deprecation Error Reference](/troubleshoot/references/deprecation-errors) for more information on deprecation related errors.
+See [Check Deprecation Errors](/troubleshoot/guides/check-deprecation-errors) for more information on deprecation-related errors.
