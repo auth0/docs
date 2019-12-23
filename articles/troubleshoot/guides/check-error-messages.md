@@ -17,6 +17,10 @@ Check for error messages displayed in any of the following locations:
 * HTML page responses
 * Authorization Server responses
 
+## Check browser errors
+
+A HAR file is a JSON formatted log of a web browser's interactions with a web server. If authentication isn't working as expected, you can [generate and analyze HAR files](/troubleshoot/guides/generate-har-files) to find issues.
+
 ## Check login screen
 
 The Lock login widget shows error messages for certain types of issues, such as an incorrect username or password. Check the **More Information** link if you're using Auth0's standard error page.
@@ -25,7 +29,6 @@ The Lock login widget shows error messages for certain types of issues, such as 
 
 Auth0 stores [log data](/logs) including Dashboard administrator actions, successful and failed user authentications, and password change requests. You can view the logs in the [Dashboard](${manage_url}/#/logs).
 
-Auth0 provides extensive capability when it comes to the logging of events, and also in the scanning of logs in order to identify event anomalies. The standard log retention period for is determined by subscription level with the shortest period is 2 days and the longest period is 30 days. 
 
 ::: note
 Some types of errors do not appear in the logs. For example, if an error occurs at a remote Identity Provider, where authentication doesn’t complete and the user is never returned to Auth0, there won’t be any entry in logs. 
