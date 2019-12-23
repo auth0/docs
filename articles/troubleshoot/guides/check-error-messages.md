@@ -11,11 +11,10 @@ useCase: troubleshooting
 
 Check for error messages displayed in any of the following locations:
 
-* Browsers
-* Developer tools network tabs
-* Developer tools console tabs
-* HTML page responses
+* Browsers and HTML page responses
+* Developer tools network and console tabs
 * Authorization Server responses
+* Deprecation errors
 
 ## Check browser errors
 
@@ -29,7 +28,6 @@ The Lock login widget shows error messages for certain types of issues, such as 
 
 Auth0 stores [log data](/logs) including Dashboard administrator actions, successful and failed user authentications, and password change requests. You can view the logs in the [Dashboard](${manage_url}/#/logs).
 
-
 ::: note
 Some types of errors do not appear in the logs. For example, if an error occurs at a remote Identity Provider, where authentication doesn’t complete and the user is never returned to Auth0, there won’t be any entry in logs. 
 :::
@@ -40,7 +38,7 @@ You can export [Auth0 logs](/logs) and either store them yourself or automatical
 
 You can also use the Management API to export logs and store them. There are the two available endpoints, each providing slightly different information.
 
-### Search all logs endpoint
+### Search all logs `/get_logs` endpoint
 
 The [Search log events endpoint](/api/management/v2#!/Logs/get_logs) retrieves log entries that match the search criteria you provided. If you do not provide any search criteria, you will get a list of all available entries. 
 
@@ -74,7 +72,7 @@ This sample request retrieves all logs for successful logins (the event acronym 
 
 For details on the search criteria you can use and a list with the event acronyms, see the [Search log events endpoint](/api/management/v2#!/Logs/get_logs).
 
-### Get a single log entry endpoint
+### Get a single log entry `/get_logs_by_id` endpoint
 
 The [Get a log event by ID endpoint](/api/management/v2#!/Logs/get_logs_by_id) retrieves the log entry associated with the provided ID.
 
@@ -92,6 +90,10 @@ This sample request retrieves a single log entry with the ID `900201801291708508
 }
 ```
 
+## Check logs for deprecation errors
+
+When Auth0 features are deprecated, there may be errors or notices in the tenant logs that show up to indicate that your applications are using the deprecated features. You can [search the logs for specific deprecation entries](/troubleshoot/guides/check-deprecation-errors) that may indicate that a feature has been deprecated. 
+
 ## Rate limits and other errors
 
 Auth0 provides a unique error code for errors reported when the [rate limit is exceeded](/policies/rate-limits#exceeding-the-rate-limit). You should set up automatic scanning of logs to check for rate limit errors so you can proactively address activity that hits rate limits before it causes too much trouble for your users. Auth0 also publishes error codes for other types of errors, and you will find it helpful to scan logs for [authentication errors](/libraries/error-messages) as well as errors from Auth0 Management API calls (Management API error codes are shown below each call in the [Management API Explorer](/api/management/v2)).
@@ -104,17 +106,8 @@ Calling the Management API to retrieve user profile information from within a Ru
 
 You can put `console.log()` statements into Rules, Hooks, Custom DB scripts, and Webtasks. The output from those statements is viewable in the Realtime Web Log. If you install the Real-time Webtask Logs extension, you can initiate a view of this log console from the **Debug** buttons underneath the Rules, Hooks, and custom DB script editor windows, or from the webtask console for webtasks.
 
-## Check for common errors
-
-* Are your client application’s callback URL(s) registered in Auth0 client settings?
-* If you are making cross-origin calls, is the origin in client settings? 
-* In a callback URL, only the subdomain can contain a wildcard.
-* In the Allowed Origin field no wildcards are allowed at all.
-* Check if you are getting a message on the list of common authentication errors
-
 ## Keep reading
 
 * [Standard Error Responses](/api/authentication#standard-error-responses)
 * [Auth0.js Error Codes and Descriptions](/libraries/auth0js/v9#error-codes-and-descriptions)
 * [Errors with Code `invalid_token`](/troubleshoot/references/invalid-token)
-* [Check Deprecation Errors](/troubleshoot/guides/check-deprecation-errors)
