@@ -18,7 +18,28 @@ Follow [@auth0status](https://twitter.com/auth0status) on Twitter to get the lat
 
 Before submitting a ticket to Auth0 [Support Center](https://support.auth0.com/), review the following troubleshooting guides to identify and possibly fix the issue. If you still cannot address the issue, you can create a support ticket. 
 
-For more details, see the following information: 
+## Basic areas to check and verify first
+
+There are a few [basic](/troubleshoot/concepts/basics) areas to check and verify before you submit a support ticket. These areas include Auth0 system status, your platform, connections, domain, rules, and deprecations.  
+
+## Tools
+
+Here are some helpful tools to help you troubleshoot issues:
+
+* [Auth0 Logs](/logs)
+* [HAR files](/troubleshoot/guides/generate-har-files)
+* [JWT Validator](/tokens/guides/jwt/validate-jwt)
+* [Authentication API Debugger](/extensions/authorization-extension/v2/troubleshooting)
+
+## Authentication & authorization issues
+
+We provide checklists and guidelines for checking [authentication and authorization](/troubleshoot/concepts/auth-issues) issues with API calls, login, user profiles, MFA, and SAML. 
+
+## Integration & extensibility issues
+
+We provide troubleshooting tips for issues you may have pertaining to [integrations and extensibility](/troubleshoot/concepts/integration-extensibility-issues) such as partner connections, custom databases, and custom domains. 
+
+## Keep reading
 
 * [Supported versions](/support/matrix)
 * [Support Plans and Service Level Agreements](/support#defect-responses)
@@ -26,18 +47,3 @@ For more details, see the following information:
 * [Open and Manage Support Tickets](/support/tickets)  
 * [Professional Services](/services)
 
-## Basic areas to check and verify first
-
-There are a few [basic](/troubleshoot/concepts/basics) areas to check and verify before you submit a support ticket. These areas include Auth0 system status, your platform, connections, domain, rules, and deprecations.  
-
-## Troubleshooting tools
-
-You should use [Auth0 Logs](/logs) and [HAR Files](/troubleshoot/guides/generate-har-files) to help track down the causes for issues. You can also [validate JSON Web Tokens](/tokens/guides/jwt/validate-jwt). The [Authentication API Debugger](/extensions/authorization-extension/v2/troubleshooting) extension allows you to test various endpoints of the Auth0 Authentication API.
-
-## Troubleshooting authentication and authorization issues
-
-We provide checklists and guidelines for checking [authentication](/troubleshoot/concepts/auth-issues) issues with API calls, login, user profiles, MFA, and SAML. 
-
-## Troubleshooting integration and extensibility issues
-
-We provide troubleshooting tips for issues you may have pertaining to [integrations and extensibility](/troubleshoot/concepts/integration-extensibility-issues) such as partner connections, custom databases and domains. 
