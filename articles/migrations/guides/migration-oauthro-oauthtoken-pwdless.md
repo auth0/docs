@@ -94,10 +94,11 @@ Here is an example of the response from `/oauth/token`:
 
 ### Verifying your migration
 
-Once you have migrated your codebase, if you would like to be sure that your applications are no longer calling the legacy endpoint, you can go to the [Dashboard](${manage_url}/#/tenant/advanced) under **Tenant Settings > Advanced** then scroll down to **Migrations** and toggle off the Legacy `/oauth/ro` Endpoint switch. Turning off this switch will disable the deprecated endpoint for your tenant, preventing it from being used at all.
+Once you have migrated your codebase, if you would like to be sure that your applications are no longer calling the legacy endpoint.
+
+You can verify whether you are still using the deprecated endpoint by checking the [tenant logs](${manage_url}/#/logs), filtering by "Deprecation Notice" and check for logs saying "oauth/ro passwordless: This feature is being deprecated". You can also perform this search directly with the following query: `type:depnote AND description:*passwordless*`.
+
+Once you made sure your applications are not calling the endpoint, you can go to the [Dashboard](${manage_url}/#/tenant/advanced) under **Tenant Settings > Advanced** then scroll down to **Migrations** and toggle off the Legacy `/oauth/ro` Endpoint switch. Turning off this switch will disable the deprecated endpoint for your tenant, preventing it from being used at all.
 
 ![Legacy Migration Toggles](/media/articles/libraries/lock/migration-toggles.png)
 
-If turning this switch off results in failed logins, this is a sign that you have yet to completely remove all instances of legacy code from your applications.
-
-Once migrations have been successfully performed in production environments, the switch can be toggled off and left off, to ensure that the deprecated features can no longer be used.
