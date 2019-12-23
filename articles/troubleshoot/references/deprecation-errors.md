@@ -1,21 +1,17 @@
 ---
-title: Deprecation Error Reference
-description: A listing of errors and descriptions relating to deprecations.
-toc: true
+title: Check Deprecation Errors
+description: Learn how to search logs for deprecation errors. 
 topics:
     - errors
     - deprecation
-contentType:
-  - reference
-  - concept
-  - how-to
+contentType: how-to
 useCase: error-management
 ---
-# Deprecation Error Reference
+# Check Deprecation Errors
 
 When Auth0 features are deprecated, there may be errors or notices in the tenant logs that show up to indicate that your applications are using the deprecated features. This guide will provide assistance with searching your logs for deprecation related messages as well as explanations of potential causes and resolutions for particular items.
 
-## How to search logs for deprecation warnings
+## Search logs for deprecation warnings
 
 There are two different ways to search for warning messages showing usage of deprecated features: The Dashboard or the Management API. Note that in either case, the [log retention period](/logs#how-long-is-log-file-data-available-) is governed by the subscription level of your account.
 

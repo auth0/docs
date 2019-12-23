@@ -2332,5 +2332,25 @@ module.exports = [
     {
     from: '/best-practices/custom-db-connections-scripts',
     to: '/best-practices/custom-db-connections'
+    },
+    {
+      from: '/errors/deprecation-errors',
+      to: '/troubleshoot/references/deprecation-errors'
+    },
+    {
+      from: '/errors/libraries/auth0-js/invalid-token',
+      to: '/troubleshoot/references/invalid-token'
+    },
+    {
+      from: '/troubleshoot/har',
+      to: '/troubleshoot/guides/generate-har-files'
+    },
+    {
+      from: '/troubleshoot/basics',
+      to: '/troubleshoot/concepts/basics'
+    },
+    {
+      from: '/troubleshoot/issues',
+      to: '/troubleshoot'
     }
 ];
