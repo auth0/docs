@@ -40,18 +40,18 @@ private void login() {
             .start(MainActivity.this, new AuthCallback() {
                 @Override
                 public void onFailure(@NonNull Dialog dialog) {
-                // Show error Dialog to user
+                    // Show error Dialog to user
                 }
 
                 @Override
                 public void onFailure(AuthenticationException exception) {
-                // Show error to user
+                    // Show error to user
                 }
 
                 @Override
                 public void onSuccess(@NonNull Credentials credentials) {
-                // Store credentials
-                // Navigate to your main activity
+                    // Store credentials
+                    // Navigate to your main activity
                 }
         });
 }
