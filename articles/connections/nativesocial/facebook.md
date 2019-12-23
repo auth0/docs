@@ -103,7 +103,7 @@ and the response from Auth0:
 ```
 
 ::: note
-Auth0 needs the user profile as part of the Token Exchange payload. This is because the Facebook Session Access Token cannot be used to directly retrieve the profile, and the Facebook Access Token cannot be sent directly to the server, because of Apple’s policies. Therefore, it must be retrieved in the client and sent to Auth0 in this fashion.
+Auth0 needs the user profile as part of the Token Exchange payload. This is because the Facebook Session Access Token cannot be used to directly retrieve the profile, and the Facebook Access Token cannot be sent directly to the server, because of [Apple's AppStore Review Guidelines](https://developer.apple.com/app-store/review/guidelines) policies. Therefore, it must be retrieved in the client and sent to Auth0 in this fashion.
 :::
 
 ## Logout
