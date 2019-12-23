@@ -21,22 +21,27 @@ The MFA settings defined in rules will always take precedence over the toggles i
 
 ## `provider` setting
 
-The `provider` setting is a way to specify whether to force MFA. It can be set to allow MFA from any enabled factor, or from a specific factor.If the `provider` value is manually set, it overrides the toggles in the [Dashboard > MFA](${manage_url}/#/mfa). 
+The `provider` setting is a way to specify whether to force MFA, and which factor to you use. The behavior is different depending if you use the Classic or the New Universal Login experience:
 
-Setting the `provider` value to `any` will force MFA for all users, but allow them to use any of the factors which have been enabled in the Dashboard. You can also set the `provider` to any of these specific legacy options, which are still valid to ensure backwards compatibility:
+| Provider             | Classic Experience      | New Experience          |
+|----------------------|:-----------------------:|------------------------:|
+| any                  |  Push, SMS or OTP using | Push, SMS, OTP or Email |
+| guardian             |  Push, SMS or OTP using | Push, SMS, OTP or Email |
+| google-authenticator |  Google Authenticator   | Push, SMS, OTP or Email |
+| duo                  |  Duo                    | Duo                     |
 
-* `guardian` = uses SMS or Push via Guardian
-* `google-authenticator` = forces you to use a UI which is specific to Google Authenticator
-* `duo` = forces you to use Duo
+If you are using the New Experience you can get the behavior of the Classic experience if you enable customization of the MFA login page.
+
+The `guardian` and `google-authenticator` options are legacy settings that are kept for backwards compability reasons, and should not be used moving forward. We recommend using `any`.  The 'google-authenticator' option does not let users enroll a recovery code.
 
 Setting the `provider` to a specific option manually will override the enabled/disabled toggles in the Dashboard, and is not the recommended way to control which factors are used.
 
 ```js
 function (user, context, callback) {
 
-  // Forcing the provider to Guardian programmatically
+  // Forcing the provider to Duo programmatically
   context.multifactor = {
-    provider: 'guardian'
+    provider: 'duo'
   };
 
   callback(null, user, context);
@@ -49,7 +54,7 @@ The exact requirements for configuring Contextual MFA will vary. Below are sampl
 
 ### Customize MFA for select users
 
-You may customize MFA to run only for users who are authenticating against specific applications in your tenant, or only for users who are marked to use MFA.
+You may customize MFA to run only for users who are authenticating against specific applications in your tenant, or only for users who are marked to use MFA. To enable this behavior you need to have the "Always require Multi-factor Authentication" toggle turned off, and enable MFA using a rule for specific users or applications.
 
 ```js
 function (user, context, callback) {
