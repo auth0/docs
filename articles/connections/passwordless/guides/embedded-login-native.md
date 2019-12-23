@@ -12,18 +12,13 @@ topics:
 
 To use the Embedded Passwordless APIs in Native applications, make sure you enable the **Passwordless OTP** grant in [Dashboard > Applications > (YOUR APPLICATION) > Settings > Advanced Settings > Grant Types](${manage_url}).
 
-Passwordless authentication for Native applications consist of two steps:
+Passwordless authentication for Native applications consists of two steps:
 
 - Capture the user identifier in your application (the user's email or phone number) and invoke the `/passwordless/start` endpoint to initiate the passwordless flow. The user will get an email or an SMS with a one-time password.
 
-- Prompt the user for the one-time-use, and call the `/oauth/token` endpoint to get authentication tokens.
+- Prompt the user for the one-time-use code, and call the `/oauth/token` endpoint to get authentication tokens.
 
-Below we list a few code snippets that can be used to call these API endpoints for different scenarios. Auth0 SDKs for native technologies (Android, iOS) have been updated to support these endpoints:
-
-- [Lock Android Passwordless](/libraries/lock-android/passwordless)
-- [Lock iOS Passwordless](libraries/lock-ios/passwordless)
-- [Auth0.Swift Passwordless](libraries/auth0-swift/passwordless)
-- [Auth0.Android Passwordless](libraries/auth0-android/passwordless)
+Below we list a few code snippets that can be used to call these API endpoints for different scenarios.
 
 **Send a one-time-use password via Email**
 
@@ -108,4 +103,13 @@ Below we list a few code snippets that can be used to call these API endpoints f
   }
 }
 ```
+Auth0's SDKs for mobile platforms (Android, iOS) have been updated to support these endpoints:
 
+- [Lock Android Passwordless](/libraries/lock-android/passwordless)
+- [Lock iOS Passwordless](libraries/lock-ios/passwordless)
+- [Auth0.Swift Passwordless](libraries/auth0-swift/passwordless)
+- [Auth0.Android Passwordless](libraries/auth0-android/passwordless)
+
+## Migrating from Legacy Implementations
+
+In the past, you could implement this scenario by using the `/oauth/ro` endpoint to exchange the one-time-use code for authentication tokens. Check the [migration guide](/migrations/guides/migration-oauthro-oauthtoken-pwdless) to learn how to update your code.

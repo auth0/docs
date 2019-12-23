@@ -7,10 +7,9 @@ topics:
     - passwordless
     - authentication
 ---
+# Passwordless Authentication with Embedded Login
 
 If you have strong reasons to not to use Universal Login, you can embed the login user interface in your application by using our SDKs to implement passwordless authentication. 
-
-<%= include('../../../_includes/_embedded_login_warning') %>
 
 Depending on the kind of application you want to build, you'll need to implement it differently.
 

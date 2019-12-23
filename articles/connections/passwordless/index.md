@@ -104,7 +104,7 @@ Auth0 supports two way of implementing authentication: *Embedded Login* and *Uni
 
 The industry is aligned in that Universal Login is the proper way to implement authentication in all apps, but in the case of Native Applications, sometimes customers prefer to implement Embedded Login for UX reasons. 
 
-  - [Passwordless Authentication with Universal Login](/dashboard/guides/universal-login/configure-login-page-passwordless).
+  - [Passwordless Authentication with Universal Login](/connections/passwordless/guides/universal-login).
   - [Passwordless Authentication with Embedded Login](/connections/passwordless/guides/embedded-login)
 
 ## Keep reading

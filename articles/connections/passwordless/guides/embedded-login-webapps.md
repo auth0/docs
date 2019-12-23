@@ -12,7 +12,7 @@ topics:
 
 To use the Embedded Passwordless APIs in Regular Web Applications, make sure you enable the **Passwordless OTP** grant in [Dashboard > Applications > (YOUR APPLICATION) > Settings > Advanced Settings > Grant Types](${manage_url}).
 
-Passwordless authentication for Regular Web Applications consist of two steps:
+Passwordless authentication for Regular Web Applications consists of two steps:
 
 - Capture the user identifier in your application (the user's email or phone number) and invoke the `/passwordless/start` endpoint to initiate the passwordless flow. The user will get an email, an SMS with a one-time-use code or a magic link.
 
@@ -91,3 +91,10 @@ Below we list a few code snippets that can be used to call these API endpoints f
 ```
 
 <%= include('../_includes/_rate_limit_server_side') %>
+
+## Migrating from Legacy Implementations
+
+In the past, you could implement this scenario by using features that we now deprecated:
+
+- Unauthenticated calls to `/passwordless/start`. Check the [migration guide](/migrations/guides/passwordless-start).
+- Use the `/oauth/ro` endpoint to exchange the one-time-use code for authentication tokens. Check the [migration guide](/migrations/guides/migration-oauthro-oauthtoken-pwdless).
