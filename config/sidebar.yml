@@ -988,7 +988,7 @@ articles:
     url: /troubleshoot
     children:
 
-      - title: Basics
+      - title: Basic Issues
         url: /troubleshoot/concepts/basics
         children:
 
@@ -1022,15 +1022,6 @@ articles:
               - title: Deprecation Errors
                 url: "/troubleshoot/guides/check-deprecation-errors"
                 hidden: true 
-
-      - title: Generate and Analyze HAR Files
-        url: /troubleshoot/guides/generate-har-files
-
-      - title: Validate JSON Web Tokens
-        url: /tokens/guides/jwt/validate-jwt
-
-      - title: Authentication API Debugger
-        url: /extensions/authentication-api-debugger
 
       - title: Authentication Issues
         url: /troubleshoot/concepts/auth-issues
@@ -1084,6 +1075,15 @@ articles:
 
           - title: Auth0 PHP SDK
             url: /libraries/auth0-php/troubleshooting
+
+      - title: Generate and Analyze HAR Files
+        url: /troubleshoot/guides/generate-har-files
+
+      - title: Validate JSON Web Tokens
+        url: /tokens/guides/jwt/validate-jwt
+
+      - title: Authentication API Debugger
+        url: /extensions/authentication-api-debugger
 
 ## ------------------------------------------------------------
 ## Architecture Scenarios

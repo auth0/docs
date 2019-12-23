@@ -22,6 +22,14 @@ Before submitting a ticket to Auth0 [Support Center](https://support.auth0.com/)
 
 There are a few [basic](/troubleshoot/concepts/basics) areas to check and verify before you submit a support ticket. These areas include Auth0 system status, your platform, connections, domain, rules, and deprecations.  
 
+## Authentication & authorization issues
+
+We provide checklists and guidelines for checking [authentication and authorization](/troubleshoot/concepts/auth-issues) issues with API calls, login, user profiles, MFA, and SAML. 
+
+## Integration & extensibility issues
+
+We provide troubleshooting tips for issues you may have pertaining to [integrations and extensibility](/troubleshoot/concepts/integration-extensibility-issues) such as partner connections, custom databases, and custom domains. 
+
 ## Tools
 
 Here are some helpful tools to help you troubleshoot issues:
@@ -30,14 +38,6 @@ Here are some helpful tools to help you troubleshoot issues:
 * [HAR files](/troubleshoot/guides/generate-har-files)
 * [JWT Validator](/tokens/guides/jwt/validate-jwt)
 * [Authentication API Debugger](/extensions/authorization-extension/v2/troubleshooting)
-
-## Authentication & authorization issues
-
-We provide checklists and guidelines for checking [authentication and authorization](/troubleshoot/concepts/auth-issues) issues with API calls, login, user profiles, MFA, and SAML. 
-
-## Integration & extensibility issues
-
-We provide troubleshooting tips for issues you may have pertaining to [integrations and extensibility](/troubleshoot/concepts/integration-extensibility-issues) such as partner connections, custom databases, and custom domains. 
 
 ## Keep reading
 
