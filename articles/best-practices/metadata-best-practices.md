@@ -85,38 +85,6 @@ Use a consistent data type each time you create or update a given metadata field
 
 Store any information that you want use to customize Auth0 emails in metadata and preferably `user_metadata` if the user is allowed to change it, such as information used to determine the language for an email.
 
-## Use `metadata` with custom database scripts
-
-If you are using a [custom database](/connections/database#using-your-own-user-store), the `app_metadata` field should be referred to as `metadata` in the scripts you run to manage your metadata.
-
-For example, you would *not* use this:
-
-```json
-{
-    "emails": "jane.doe@example.com",
-    "user_metadata": {
-        "hobby": "surfing"
-    },
-    "app_metadata": {
-        "plan": "full"
-    }
-}
-```
-
-Instead, you would use this:
-
-```json
-{
-    "emails": "jane.doe@example.com",
-    "user_metadata": {
-        "hobby": "surfing"
-    },
-    "metadata": {
-        "plan": "full"
-    }
-}
-```
-
 ## App metadata restrictions
 
 ::: warning
