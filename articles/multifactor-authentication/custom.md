@@ -34,7 +34,7 @@ If you are using the New Experience you can get the behavior of the Classic expe
 
 The `guardian` and `google-authenticator` options are legacy settings that are kept for backwards compability reasons, and should not be used moving forward. We recommend using `any`.  The 'google-authenticator' option does not let users enroll a recovery code.
 
-Setting the `provider` to a specific option manually will override the enabled/disabled toggles in the Dashboard, and is not the recommended way to control which factors are used.
+Setting the `provider` to a specific option manually will override the enabled/disabled toggles in the Dashboard. The following rule will prompt the user to enroll for Duo even if other factor are enabled in the Dashboard:
 
 ```js
 function (user, context, callback) {
