@@ -54,11 +54,11 @@ Use the Management API to search through logs for deprecation messages by lookin
 
 ## Deprecation log messages 
 
-### `up-idp-initiated`
+### Legacy Lock API
 
-![Management API - Legacy Lock Results](/media/articles/errors/depnotes-mgt-api-legacy-lock.png)
+**Log entry**: `up-idp-initiated`
 
-**Error Description:** "Legacy Lock API: This feature is being deprecated. Please refer to our documentation to learn how to migrate your application."
+**Error Message:** "Legacy Lock API: This feature is being deprecated. Please refer to our documentation to learn how to migrate your application."
 
 | Cause | Resolution |
 | --- | --- |
@@ -67,16 +67,14 @@ Use the Management API to search through logs for deprecation messages by lookin
 | Automatic monitoring tools making requests to login page | If you have an automatic monitoring tool making requests to the login page, the tool will likely not preserve state correctly and will cause the Legacy Lock API error to occur in your logs. Use of the tool should either be discontinued, or accounted for when considering causes of the log notices. |
 | Coding errors in a customized [Universal Login Page](/hosted-pages/login) | Make sure the `state` and `_csrf` fields are passed to Lock or Auth0.js in your customized login page. They are by default included in the `config.internalOptions` object, but if this is removed during customization, the error occurs. |
 
-### `ssodata`
-
-![Management API - getSSOData Results](/media/articles/errors/depnotes-mgt-api-ssodata.png)
-
-**Error Description:** "SSOdata endpoint: This feature is being deprecated. Please refer to our documentation to learn how to migrate your application."
-
-| Cause | Resolution |
-| --- | --- |
-| Either calling the /ssodata directly or using old versions of embedded Lock or Auth0.js SDK to call a function which called the /ssodata endpoint. | [Migrate to Universal Login](/guides/login/migration-embedded-universal) or [migrate to Lock v11 or Auth0.js v9](/migrations#introducing-lock-v11-and-auth0-js-v9). |
-
-::: panel Legacy Lock API
 Tenant log entries regarding the Legacy Lock API may include the referrer and information about the SDK used. This information can be used to see if any of your applications use outdated libraries.
-:::
+
+### SSOdata endpoint
+
+**Log entry**: `ssodata`
+
+**Error Message:** "SSOdata endpoint: This feature is being deprecated. Please refer to our documentation to learn how to migrate your application."
+
+**Cause**: Either calling the `/ssodata` endpoint directly or using old versions of embedded Lock or Auth0.js SDK to call a function which called the `/ssodata` endpoint. 
+
+**Resolution**: [Migrate to Universal Login](/guides/login/migration-embedded-universal) or [migrate to Lock v11 or Auth0.js v9](/migrations#introducing-lock-v11-and-auth0-js-v9).
