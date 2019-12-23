@@ -71,8 +71,6 @@ Here are things to check to help you narrow down when issues occur during login 
 * Do your application logs show any errors?
 * Did the application receive all the information it needs, such as groups or user profile attributes?
 
-<%= include('../_includes/_log_events_link') %>
-
 ## Logout issues
 
 * Did you whitelist your logout redirect URLs? If you are using a redirect URL in a logout call it must be registered in either the tenant or application settings.
