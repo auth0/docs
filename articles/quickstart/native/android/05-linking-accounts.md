@@ -26,18 +26,17 @@ We recommend that you read the [Linking Accounts](/link-accounts) documentation 
 
 As seen previously in the [User Profile](/quickstart/native/android/04-user-profile) tutorial, you need to request the Management API audience and the corresponding scopes to be able to read the full user profile and edit their identities, since they are not part of the OIDC specification. Each identity in the user profile represents details from the authentication provider used to log in. e.g. the user's Facebook account details.
 
-Find the snippet in which you initialize the `WebAuthProvider` class. To that snippet, add the line `withScope("openid profile email offline_access read:current_user update:current_user_identities")` and `withAudience(String.format("https://%s/api/v2/", getString(R.string.com_auth0_domain)))`.
-
 ```java
 // app/src/main/java/com/auth0/samples/activities/LoginActivity.java
 
 Auth0 auth0 = new Auth0(this);
 auth0.setOIDCConformant(true);
+
 WebAuthProvider.login(auth0)
-    .withScheme("demo")
-    .withAudience(String.format("https://%s/api/v2/", getString(R.string.com_auth0_domain)))
-    .withScope("openid profile email offline_access read:current_user update:current_user_identities")
-    .start(this, callback);
+        .withScheme("demo")
+        .withScope("openid profile email offline_access read:current_user update:current_user_identities")
+        .withAudience(String.format("https://%s/api/v2/", getString(R.string.com_auth0_domain)))
+        .start(this, callback);
 ```
 
 ::: note
@@ -49,7 +48,7 @@ Note that the Management API audience value ends in `/` in contrast to the User 
 
 Your users may want to link their other accounts to the account they are logged in to.
 
-To achieve this, you need to store the user ID for the logged user in the Intent, along with the ID Token and Access Token provided by the LoginActivity at launch, which are already available in the intent extras. 
+To achieve this, you need to store the user ID for the logged user in the Intent, along with the ID Token and Access Token provided by the LoginActivity at launch, which are already available in the intent extras.
 
 ```java
 // app/src/main/java/com/auth0/samples/activities/MainActivity.java
@@ -60,6 +59,7 @@ private void linkAccount() {
     linkAccounts.putExtras(getIntent().getExtras());
     linkAccounts.putExtra(LoginActivity.EXTRA_LINK_ACCOUNTS, true);
     linkAccounts.putExtra(LoginActivity.EXTRA_PRIMARY_USER_ID, userProfile.getId());
+
     startActivity(linkAccounts);
 }
 ```
@@ -97,7 +97,7 @@ protected void onCreate(Bundle savedInstanceState) {
     // Require device authentication before obtaining the credentials
     // credentialsManager.requireAuthentication(this, CODE_DEVICE_AUTHENTICATION, getString(R.string.request_credentials_title), null);
 
-    //Check if the activity was launched to log the user out
+    // Check if the activity was launched to log the user out
     if (getIntent().getBooleanExtra(EXTRA_CLEAR_CREDENTIALS, false)) {
         doLogout();
         return;
@@ -135,13 +135,13 @@ In the login response, based on the boolean flag set in the first step, decide i
 private final AuthCallback loginCallback = new AuthCallback() {
     @Override
     public void onFailure(@NonNull final Dialog dialog) {
-        // Show error message 
+        // Show error message
         // If currently linking accounts, finish.
     }
 
     @Override
     public void onFailure(AuthenticationException exception) {
-        // Show error message 
+        // Show error message
         // If currently linking accounts, finish.
     }
 
@@ -175,42 +175,43 @@ Now, you can link the accounts. To do this, you need the logged-in user's ID and
 private void performLink(final String secondaryIdToken) {
     UsersAPIClient client = new UsersAPIClient(auth0, getIntent().getExtras().getString(EXTRA_ACCESS_TOKEN));
     String primaryUserId = getIntent().getExtras().getString(EXTRA_PRIMARY_USER_ID);
-    client.link(primaryUserId, secondaryIdToken)
-        .start(new BaseCallback<List<UserIdentity>, ManagementException>() {
-            @Override
-            public void onSuccess(List<UserIdentity> userIdentities) {
-                // Accounts linked
-            }
 
-            @Override
-            public void onFailure(ManagementException error) {
-                // Linking failed
-            }
-        });
+    client.link(primaryUserId, secondaryIdToken)
+            .start(new BaseCallback<List<UserIdentity>, ManagementException>() {
+                @Override
+                public void onSuccess(List<UserIdentity> userIdentities) {
+                    // Accounts linked
+                }
+
+                @Override
+                public void onFailure(ManagementException error) {
+                    // Linking failed
+                }
+            });
 }
 ```
 
 ## Retrieve the Linked Accounts
 
-The updated list of identities is returned in the `link` method response. Alternatively, obtain the user's full profile, use the user's ID to call the `getProfile` method in the `UsersAPIClient` class. The profile includes the linked accounts as the `UserIdentities` array.
+The updated list of identities is returned in the `link` method response. Alternatively, obtain the user's full profile, use the user's ID to call the `getProfile` method in the `UsersAPIClient` class. The profile includes the linked accounts as the `UserIdentity` array.
 
 ```java
 // app/src/main/java/com/auth0/samples/activities/MainActivity.java
 
 private void fetchProfile() {
-    //..
+    // ...
     usersClient.getProfile(userInfo.getId())
-        .start(new BaseCallback<UserProfile, ManagementException>() {
-            @Override
-            public void onSuccess(UserProfile fullProfile) {
-                // Display the updated user profile
-            }
+            .start(new BaseCallback<UserProfile, ManagementException>() {
+                @Override
+                public void onSuccess(UserProfile fullProfile) {
+                    // Display the updated user profile
+                }
 
-            @Override
-            public void onFailure(ManagementException error) {
-                // Show error
-            }
-        });
+                @Override
+                public void onFailure(ManagementException error) {
+                    // Show error
+                }
+            });
 }
 ```
 
@@ -232,16 +233,16 @@ To instantiate the `UsersAPIClient` client, use the Access Token for the main ac
 
 private void unlink(UserIdentity secondaryAccountIdentity) {
     usersClient.unlink(userProfile.getId(), secondaryAccountIdentity.getId(), secondaryAccountIdentity.getProvider())
-        .start(new BaseCallback<List<UserIdentity>, ManagementException>() {
-            @Override
-            public void onSuccess(List<UserIdentity> userIdentities) {
-                // Accounts unlinked
-            }
+            .start(new BaseCallback<List<UserIdentity>, ManagementException>() {
+                @Override
+                public void onSuccess(List<UserIdentity> userIdentities) {
+                    // Accounts unlinked
+                }
 
-            @Override
-            public void onFailure(ManagementException error) {
-                // Accounts unlink failed
-            }
-        });
+                @Override
+                public void onFailure(ManagementException error) {
+                    // Accounts unlink failed
+                }
+            });
 }
 ```
