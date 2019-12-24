@@ -53,7 +53,7 @@ Representing each of your tenants with an application allows you to configure ea
 
 ### Store tenant details in app_metadata
 
-Storing tenant details in the tenant [metadata](/users/concepts/overview-user-metadata#metadata-usage) is the simplest of the implementation scenarios we cover in this article.
+Storing tenant details in the user [metadata](/users/concepts/overview-user-metadata#metadata-usage) is the simplest of the implementation scenarios we cover in this article.
 
 Using the identifier of your choice (e.g., `"tenant": "customer_12345"`), you can store tenant related details in the `app_metadata`. Doing so allows all of your users, regardless of which tenant to which they belong, to log in using one uniform method.
 
