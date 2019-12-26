@@ -11,13 +11,28 @@ useCase: enable-mobile-auth
 ---
 # Auth0.Android Passwordless Authentication
 
-<%= include('../../_includes/_native_passwordless_warning') %>
-
 <dfn data-key="passwordless">Passwordless</dfn> can be done via email or via SMS, and either by sending the user a code, or sending them a link which contains a code. All of these methods of Passwordless authentication will require two steps - requesting the code, and then inputting the code for verification. 
 
-Note that Passwordless authentication **cannot be used** with the [OIDC Conformant Mode](/api-auth/intro) enabled.
+## Configure Auth0 and the Android SDK
 
-## 1. Request the code
+### Enable the Passwordless OTP Grant for the Application
+
+In order to be able to use the Passwordless API from a Native client, you first need to enable the Passwordless OTP grant for your application in **Dashboard > Applications > (YOUR APPLICATION) > Settings > Advanced Settings > Grant Types**.
+
+### Initialize the Android SDK 
+
+Using the Passwordless API requires setting the Android SDK to work in OIDC conformant mode, which can be achieved by setting the `ODICConformant` property to `true`:
+
+```java
+Auth0 account = new Auth0("{YOUR_CLIENT_ID}", "{YOUR_DOMAIN}");
+//Configure the account in OIDC conformant mode
+account.setOIDCConformant(true);
+//Use the account in the API clients
+```
+
+## Implement Passwordless Authentication Steps
+
+## Request the code
 
 In this example, requesting the code is done by calling `passwordlessWithEmail` with the user's email, `PasswordlessType.CODE`, and the name of the connection as parameters. On success, you may wish to display a notice to the user that their code is on the way, and perhaps route them to the view where they will input that code.
 
@@ -37,7 +52,9 @@ authentication
     });
 ```
 
-## 2. Input the code
+You can use the `passwordlessWithSms` method to send the code using SMS. 
+
+## Input the code
 
 Once the user has a code, they can input it. Call the `loginWithEmail` method, and pass in the user's email, the code they received, and the name of the connection in question. Upon success, you will receive a Credentials object in the response.
 
@@ -56,6 +73,8 @@ authentication
         }
     });
 ```
+
+You can use the `loginWithSms` method to send the code received by SMS and authenticate the user.
 
 ::: note
 The default <dfn data-key="scope">scope</dfn> used is `openid`.
