@@ -419,7 +419,7 @@ const PrivateRoute = ({ component: Component, path, ...rest }) => {
 export default PrivateRoute;
 ```
 
-This component takes another component as one of its arguments. It makes use of the [`useEffect` hook](https://reactjs.org/docs/hooks-effect.html) to redirect to the user to the login page if they are not yet authenticated.
+This component takes another component as one of its arguments. It makes use of the [`useEffect` hook](https://reactjs.org/docs/hooks-effect.html) to redirect the user to the login page if they are not yet authenticated.
 
 If the user is authenticated, the redirect will not take place and the component that was specified as the argument will be rendered instead. In this way, components that require the user to be logged in can be protected simply by wrapping the component using `PrivateRoute`.
 
