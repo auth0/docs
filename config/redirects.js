@@ -2324,5 +2324,9 @@ module.exports = [
     {
     from: '/api/v1/use-cases',
     to: '/migrations/guides/management-api-v1-v2'
+    },
+    {
+    from: '/api/management/v1/use-cases',
+    to: '/migrations/guides/management-api-v1-v2'
     }
 ];
