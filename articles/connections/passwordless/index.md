@@ -85,7 +85,7 @@ When using passwordless authentication with email, users:
 
 To implement passwordless you'll need to make two key decisions:
 
-- Which authentication factor you want to use (SMS, Email with OTP, Email with Magic Link)
+- Which authentication factor you want to use (SMS, Email with OTP, Email with Magic Link).
 - If you are going to implement authentication using *Embedded Login* or *Universal Login*.
 
 ### Authentication Factor
@@ -104,7 +104,7 @@ Auth0 supports two way of implementing authentication: *Embedded Login* and *Uni
 
 The industry is aligned in that Universal Login is the proper way to implement authentication in all apps, but in the case of Native Applications, sometimes customers prefer to implement Embedded Login for UX reasons. 
 
-  - [Passwordless Authentication with Universal Login](/connections/passwordless/guides/universal-login).
+  - [Passwordless Authentication with Universal Login](/connections/passwordless/guides/universal-login)
   - [Passwordless Authentication with Embedded Login](/connections/passwordless/guides/embedded-login)
 
 ## Keep reading
