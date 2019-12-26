@@ -28,7 +28,13 @@
 ## Grant type: password
 
 <table class="table">
-    <thead>
+  <thead>
+    <tr>
+      <th width="20%">Status</th>
+      <th width="80%">Description</th>
+    </tr>
+  </thead>
+  <tbody>
       <tr>
         <td><span class="badge badge-danger">400</span></td>
         <td><code>{"error": "invalid_request", "error_description": "scope parameter must be a string"}</code></br>Incorrect scope formatting; each scope must be separated by whitespace</td>
@@ -73,6 +79,8 @@
       <tr>
         <td><span class="badge badge-danger">400</span></td>
         <td><code>{"error": "invalid_request", "error_description": "missing client_id parameter"}</code></td>
+      </tr>
+      <tr>
         <td><span class="badge badge-danger">400</span></td>
         <td><code>{"error": "invalid_request", "error_description": "the connection was disabled"}</code></br>Check the connection in the dashboard, you may have turned it off for the provided <code>client_id</code></td>
       </tr>
@@ -83,12 +91,16 @@
       <tr>
         <td><span class="badge badge-danger">400</span></td>
         <td><code>{"error": "invalid_request", "error_description": "the connection was not found for tenant..."}</code></br>The connection does not belong to the tenant; check your base url</td>
+      </tr>
+      <tr>
         <td><span class="badge badge-danger">400</span></td>
         <td><code>{"error": "invalid_request", "error_description": "Fields with "." are not allowed, please remove all dotted fields..."}</code></br>If you are using rules, some field name contains dots</td>
       </tr>
       <tr>
         <td><span class="badge badge-danger">403</span></td>
         <td><code>{"error": "unauthorized_client", "error_description": "invalid client"}</code></br>The provided <code>client_id</code> is not valid</td>
+      </tr>
+      <tr>
         <td><span class="badge badge-danger">403</span></td>
         <td><code>{"error": "access_denied", "error_description": "..."}</code></br>Validation of specific points raised an access issue</td>
       </tr>
