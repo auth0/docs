@@ -268,7 +268,7 @@ articles:
       - title: Passwordless
         url: /connections/passwordless
         children:
-          - title: Passwordless Methods
+          - title: Authentication Factors
             url: /connections/passwordless
             children:
               - title: Email
@@ -279,7 +279,6 @@ articles:
                 url: /connections/passwordless/guides/sms-otp
           - title: Universal Login
             url: /connections/passwordless/guides/universal-login
-            hidden: true
           - title: Embedded Login
             url: /connections/passwordless/guides/embedded-login
             children:
