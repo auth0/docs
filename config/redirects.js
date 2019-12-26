@@ -2320,5 +2320,9 @@ module.exports = [
     {
     from: '/best-practices/custom-db-connections-scripts',
     to: '/best-practices/custom-db-connections'
+    },
+    {
+    from: '/api/v1/use-cases',
+    to: '/migrations/guides/management-api-v1-v2'
     }
 ];
