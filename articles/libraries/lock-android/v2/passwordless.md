@@ -15,8 +15,6 @@ useCase:
 ---
 # Lock Android: Passwordless
 
-<%= include('../../../_includes/_native_passwordless_warning') %>
-
 <dfn data-key="lock">Lock</dfn> <dfn data-key="passwordless">Passwordless</dfn> authenticates users by sending them an Email or SMS with a one-time password that the user must enter and confirm to be able to log in, similar to how WhatsApp authenticates you. This article will explain how to send a **CODE** using the `Lock.Android` library.
 
 ::: note
@@ -25,7 +23,7 @@ You can achieve a similar result by sending a **LINK** that the user can click t
 
 In order to be able to authenticate the user, your application must have the Email/SMS connection enabled and configured in your [Auth0 Dashboard](${manage_url}/#/connections/passwordless).
 
-Note that Passwordless Lock *cannot be used* with the [OIDC Conformant Mode](/libraries/lock-android/index#oidc-conformant-mode) set to `true`. For more information, please see the [OIDC adoption guide](api-auth/tutorials/adoption).
+To use Passwordless Authentication with Lock, you need to use Lock Android v2.17 or greater, and it needs to be configured with [OIDC Conformant Mode](/libraries/lock-android#oidc-conformant-mode) set to `true`. 
 
 ## Implementing CODE Passwordless
 
@@ -135,6 +133,8 @@ public class MainActivity extends Activity {
     super.onCreate(savedInstanceState);
     // Your own Activity code
     Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
+    auth0.setOIDCConformant(true);
+
     lock = PasswordlessLock.newBuilder(auth0, callback)
       .useCode()
       .build(this);

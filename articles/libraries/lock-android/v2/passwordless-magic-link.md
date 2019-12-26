@@ -16,8 +16,6 @@ useCase:
 ---
 # Lock Android: Passwordless with Magic Link
 
-<%= include('../../../_includes/_native_passwordless_warning') %>
-
 In order to avoid asking the user to input the one-time password sent for <dfn data-key="passwordless">passwordless</dfn> authentication in Android apps, we introduced the ability to send a link that the user can tap to login without any manual input involved.
 
 These links include the same code that would be used in the traditional passwordless flow, but with the correct configuration they will be handled automatically by the Android system and delivered to our application.
@@ -30,7 +28,6 @@ Go to your [application settings](${manage_url}/#/applications/${account.clientI
 - **Key Hashes**: This is an array of the SHA256 fingerprints of our android app’s signing certificates. This is an arbitrary length array, it can include all the fingerprints we want, so for example we could add both our release and debug fingerprints. An example would be `DE:1A:5B:75:27:AA:48:D5:A6:72:2F:76:43:95:9B:79:C6:86:1A:5B:75:27:AA:48:D5:A6:73:FE`.
 
 After you set the values make sure to click the "Save Changes" button. Next we'll have to configure either the SMS or Email connection.
-
 
 ### Getting your Signing Certificates Fingerprint
 
@@ -174,9 +171,7 @@ startActivity(lock.newIntent(this));
 
 Depending on which passwordless connections are enabled, Lock will send the LINK in an Email or SMS. The 'email' connection is selected first if available.
 
-
 After requesting the magic link from Auth0, via SMS or Email, the next screen will indicate that in order to log in, the user should tap it. We also offer a backup option to enter the code manually, just in case the links don't work.
-
 
 ## Optional: Use Android App Links
 
