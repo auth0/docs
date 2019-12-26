@@ -10,7 +10,9 @@ useCase:
 ---
 # Migration Guide for Resource Owner Passwordless Credentials Exchange
 
-Support for Resource Owner Password was added to [/oauth/token](/api/authentication#authorization-code). Usage of the [/oauth/ro](/api/authentication#resource-owner) endpoint was deprecated on July 08, 2017. This endpoint was used to exchange an OTP received by the end-user by email or SMS with for an `id_token` and an `access_token`.
+Support for Resource Owner Password was added to [/oauth/token](/api/authentication#authorization-code). Usage of the [/oauth/ro](/api/authentication#resource-owner) endpoint was deprecated on July 08, 2017. This endpoint was used to exchange an OTP received by the end-user by email or SMS with for an `id_token` and an `access_token`. 
+
+We have implemented a new API that replaces `oauth/ro` for this use case, and we recommend customers to migrate to the new implementation.
 
 ## Does this affect me ?
 
@@ -31,6 +33,8 @@ Previously, the payload of a request to `/oauth/ro` looked similar to this:
   "device": "my-device-name"
 }
 ```
+
+These are the changes for the new implementation:
 
 * The endpoint to execute token exchanges is now `/oauth/token`
 * [Auth0's own grant type](/api-auth/tutorials/password-grant#realm-support) is used to authenticate users from a specific connection (or `realm`). 
@@ -58,7 +62,7 @@ Here is an example of the payload of a request to `/oauth/token`:
 * The parameters `client_id` and `username` are unchanged.
 * The `client_secret` needs to be specified for confidential clients (e.g. regular web apps).
 * The one-time password needs to be sent in the `otp` parameter instead of the `password` parameter.
-* The `realm` is included because we are using Password Realm grant type, and replaces the `connection` parameter from previous calls.
+* The `realm` is used to identify the connection, and replaces the `connection` parameter from previous calls.
 * The `scope` parameter is mostly the same, but does not accept non-OIDC values.
 * The `audience` parameter can be added, indicating the API audience the token will be intended for.
 
