@@ -272,11 +272,11 @@ articles:
             url: /connections/passwordless
             children:
               - title: Email
-                url: /connections/passwordless/email-otp
+                url: /connections/passwordless/guides/email-otp
               - title: Magic Link
-                url: /connections/passwordless/email-magic-link
+                url: /connections/passwordless/guides/email-magic-link
               - title: SMS
-                url: /connections/passwordless/sms-otp
+                url: /connections/passwordless/guides/sms-otp
           - title: Universal Login
             url: /connections/passwordless/guides/universal-login
             hidden: true
@@ -288,9 +288,9 @@ articles:
               - title: Native Apps
                 url: /connections/passwordless/guides/embedded-login-native
               - title: Web Apps
-                url: /connections/passwordless/guides/embedded-webapps
+                url: /connections/passwordless/guides/embedded-login-webapps
               - title: SPAs
-                url: /connections/passwordless/guides/embedded-spa
+                url: /connections/passwordless/guides/embedded-login-spa
 
           - title: FAQ
             url: /connections/passwordless/reference/troubleshoot
