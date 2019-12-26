@@ -25,9 +25,11 @@ Using the Passwordless API requires the Auth0 Android SDK version 1.20 or higher
 
 ```java
 Auth0 account = new Auth0("{YOUR_CLIENT_ID}", "{YOUR_DOMAIN}");
-//Configure the account in OIDC conformant mode
+// Configure the account in OIDC conformant mode
 account.setOIDCConformant(true);
-//Use the account in the API clients
+
+// Use the account in the API clients
+AuthenticationAPIClient authentication = new AuthenticationAPIClient(account);
 ```
 
 ## Implement Passwordless Authentication Steps
