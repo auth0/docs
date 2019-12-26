@@ -88,7 +88,7 @@ For Private Cloud (search_engine:v2), use `q=identities.connection:"connection_n
 | [PUT /api/rules/{rule-name}](/api/v1#!#put--api-rules--rule-name-) | Uses `{id}` instead of `rule-name`. | [PATCH /api/v2/rules/{id}](/api/v2#!/Rules/patch_rules_by_id) |
 | [DELETE /api/rules/{rule-name}](/api/v1#!#delete--api-rules--rule-name-) | Uses `{id}` instead of `rule-name`. | [DELETE /api/v2/rules/{id}](/api/v2#!/Rules/delete_rules_by_id) |
 | [GET /api/rules-configs](/api/v1) | None. | [GET /api/v2/rules-configs](/api/v2#!/Rules_Configs/get_rules_configs) |
-| [POST /api/rules-configs](/api/v1) | Not available, perform one call per variable to update. | [PUT /api/v2/rules-configs/{key}](/api/v2#!/Rules_Configs/put_rules_configs_by_key) |
+| [POST /api/rules-configs](/api/v1) | Not available; perform one call per variable to update. | [PUT /api/v2/rules-configs/{key}](/api/v2#!/Rules_Configs/put_rules_configs_by_key) |
 
 ### Logs endpoints
 
@@ -103,9 +103,9 @@ Logs endpoints in Management API v2 are described at [Search Log Events](https:/
 
 | v1 Endpoint | Change | v2 Endpoint |
 | ----------- | ------ | ----------- |
-| [GET /api/emails/{email-template-name}](/api/v1#email-templates) | `disabled` renamed to `enabled` | [GET	/api/v2/email-templates/{templateName}](/api/v2#!/Email_Templates/get_email_templates_by_templateName) |
-| [POST /api/emails](/api/v1#email-templates) | `disabled` renamed to `enabled` | [POST	/api/v2/email-templates](https://auth0.com/docs/api/management/v2#!/Email_Templates/post_email_templates) |
-| [PUT /api/emails/{email-template-name}](/api/v1#email-templates) | `disabled` renamed to `enabled` | [PUT	/api/v2/email-templates/{templateName}](https://auth0.com/docs/api/management/v2#!/Email_Templates/put_email_templates_by_templateName) |
+| [GET /api/emails/{email-template-name}](/api/v1#email-templates) | `disabled` renamed to `enabled`. | [GET	/api/v2/email-templates/{templateName}](/api/v2#!/Email_Templates/get_email_templates_by_templateName) |
+| [POST /api/emails](/api/v1#email-templates) | `disabled` renamed to `enabled`. | [POST	/api/v2/email-templates](https://auth0.com/docs/api/management/v2#!/Email_Templates/post_email_templates) |
+| [PUT /api/emails/{email-template-name}](/api/v1#email-templates) | `disabled` renamed to `enabled`. | [PUT	/api/v2/email-templates/{templateName}](https://auth0.com/docs/api/management/v2#!/Email_Templates/put_email_templates_by_templateName) |
 
 ## Authentication mechanism
 
@@ -129,7 +129,7 @@ So, for example, if the Access Token contains the scope `update:current_user_met
 
 ## User metadata
 
-In the Management API v1, [`user.metadata`](/api/v1#!#patch--api-users--user_id--metadata) provides additional information about a user which is not part of the default user claims. When working with rules and other API endpoints, `metadata` is merged into the root user. For example, if the following data is stored for a user with `email` "jane.doe@gmail.com":
+In the Management API v1, [`user.metadata`](/api/v1#!#patch--api-users--user_id--metadata) provides additional user information that is not part of the default user claims. When working with rules and other API endpoints, `metadata` is merged into the root user. For example, if the following data is stored for a user with `email` "jane.doe@gmail.com":
 
 ```javascript
 {
@@ -139,7 +139,7 @@ In the Management API v1, [`user.metadata`](/api/v1#!#patch--api-users--user_id-
 }
 ```
 
-when working with rules or retrieving the user from the API you would get:
+when working with rules or retrieving the user from the API, you would get:
 
 ```javascript
 console.log(user.email); // "jane.doe@gmail.com"
