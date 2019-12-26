@@ -271,9 +271,9 @@ articles:
           - title: Passwordless Methods
             children:
               - title: Email
-                  url: /connections/passwordless/email-otp
+                url: /connections/passwordless/email-otp
               - title: Magic Link
-                  url: /connections/passwordless/email-magic-link
+                url: /connections/passwordless/email-magic-link
               - title: SMS
                 url: /connections/passwordless/sms-otp
           - title: Universal Login
