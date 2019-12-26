@@ -23,5 +23,4 @@ If you want to require that users log in with a one-time-use code  **in addition
 
 Use the [Universal Login](/universal-login) [Classic Experience](/universal-login/classic) with the Lock (passwordless) template for your login page.
 
-
 <%= include('../_includes/_rate_limit_server_side') %>
