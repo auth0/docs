@@ -269,6 +269,7 @@ articles:
         url: /connections/passwordless
         children:
           - title: Passwordless Methods
+            url: /connections/passwordless
             children:
               - title: Email
                 url: /connections/passwordless/email-otp
