@@ -110,6 +110,5 @@ The industry is aligned in that Universal Login is the proper way to implement a
 ## Keep reading
 
  * [Best practices for Passwordless Authentication](connections/passwordless/guides/best-practices)
- * [Troubleshooting Passwordless Authentication](/connections/passwordless/reference/troubleshoot)
  * [API Documentation](/connections/passwordless/reference/relevant-api-endpoints)
  * [Migrating from deprecated Passwordless endpoints](/migrations/guides/migration-oauthro-oauthtoken-pwdless)

@@ -8,19 +8,57 @@ topics:
     - authentication
     - concept
 ---
+# Passwordless Connections Best Practices
+
+## Implementing Login 
+
+You can implement Passwordless Authentication by redirecting to Auth0's [Universal Login](/connections/passwordless/guides/universal-login) or by [Embedding Login](/connections/passwordless/guides/universal-login) in your application.
+
+## SMS and Email as Authentication Factors
+
+Auth0's Passwordless implementation enables authenticating users with a single factor, which can be one-time-use code sent by email or sms, or a magic link sent by email.
+
+Even if using email or SMS can be more secure than a weak password, they have known issues:
+
+-  Phone numbers are not sufficient for user authentication. The SS7 phone routing system used by cellular networks [has verified weaknesses](https://thehackernews.com/2017/05/ss7-vulnerability-bank-hacking.html) which have led to it not being recommended as an authentication factor. There are many attack vectors available, from the use of social engineering, to swapping sim cards and buying access to the SS7 network. 
+
+- Having an email address is not sufficient for user authentication (aliases, forwarding, multiple users in one account are all examples). Email providers vary in their security practices and some do not require any establishment of a user’s identity. SMTP is a very old protocol, and many providers still route SMTP traffic unencrypted leading to an increased chance of an interception attack. 
+
+We recommend that if you use passwordless authentication, you also implement [Multi-factor Authentication (MFA)](/multifactor-authentication) with a different factor when the user performs a security-sensitive operation.
+
+## Preventing Phishing Attacks
+
+A possible phishing attack could look like:
+
+- The user clicks a link in a malicious email or website
+- The user lands in the attacker's site, where they are prompted for their phone number to authenticate
+- The user enters the phone number, and the attacker enters the same phone number in the legitimate application
+- The legitimate application sends and SMS to the user
+- The user types the one-time-use code in the attacker's website
+- The attacker can now login to the legitimate website
+
+To decrease the chances of success for this attack, the should expect that the SMS they receive clearly identifies the application. You should configure the SMS template so it mentions the tenant name or the Application Name:
+
+```
+Your verification code for accessing's Acme @@application.name@@ is @@password@@
+```
+
+If the message says that, the user should realize that is not the application they are intending to authenticate with.
+
+## Preventing Brute Force Attacks 
+
+Auth0 has the following protections against brute force attacks:
+
+* Only the last one-time password (or link) issued will be accepted. Once the latest one is issued, any others are invalidated. Once used, the latest one is also invalidated.
+* Only three failed attempts to input the one-time password are allowed. After this, a new code will need to be requested.
+* The one-time password issued will be valid for three minutes (by default) before it expires. 
+
+If you choose to extend the amount of time it takes for your one-time password to expire, you should also extend the length of the one-time password code. Otherwise, an attacker has a larger window of time to attempt to guess a short code.
+
+The one-time password expiration time can be altered in the passwordless connection settings in the [Dashboard](${manage_url}/#/connections/passwordless).
 
 ##  Linking Accounts
 
-When a user authenticates via Passwordless, the user is attached to the connection using Auth0 as the Identity Provider (IdP). Since you can't force users to use the same mobile phone number or email address every time they authenticate, users may end up with multiple user profiles in the Auth0 datastore; you can link multiple user profiles through [account linking](/link-accounts).
-
-## Implementing MFA with Passwordless
-
-Passwordless differs from Multi-factor Authentication (MFA) in that only one factor is used to authenticate the user is the one-time-use code or link received by the user. 
-
-If you want to require that users log in with a one-time-use code  **in addition** to another factor (e.g., username/password or a social Identity Provider, such as Google), see [Multi-factor Authentication (MFA)](/multifactor-authentication).
-
-## Implementing Login
-
-Use the [Universal Login](/universal-login) [Classic Experience](/universal-login/classic) with the Lock (passwordless) template for your login page.
+Users might want to authenticate using different passwordless factors during their lifetime. For example, they could initially sign up with an SMS, and later start authenticating with an email. You can achieve that by enablign them to link their different profiles.using [account linking](/link-accounts).
 
 <%= include('../_includes/_rate_limit_server_side') %>

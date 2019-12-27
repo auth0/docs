@@ -112,8 +112,7 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 ### More Information
 
 - [Passwordless Authentication](/connections/passwordless)
-- [Authenticate Users with Passwordless Authentication](/connections/passwordless/guides/implement-passwordless)
-- [Passwordless Troubleshooting](/connections/passwordless/reference/troubleshoot)
+- [Passwordless Best Practices](/connections/passwordless/guides/best-practices)
 
 ## Authenticate User
 
@@ -230,5 +229,4 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 ### More Information
 
 - [Passwordless Authentication](/connections/passwordless)
-- [Authenticate Users with Passwordless Authentication](/connections/passwordless/guides/implement-passwordless)
-- [Passwordless Troubleshooting](/connections/passwordless/reference/troubleshoot)
+- [Passwordless Best Practices](/connections/passwordless/guides/best-practices)
