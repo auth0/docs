@@ -14,6 +14,8 @@ topics:
 
 You can implement Passwordless Authentication by redirecting to Auth0's [Universal Login](/connections/passwordless/guides/universal-login) or by [Embedding Login](/connections/passwordless/guides/universal-login) in your application.
 
+We always recommend that [you implement Universal Login](guides/login/universal-vs-embedded).
+
 ## SMS and Email as Authentication Factors
 
 Auth0's Passwordless implementation enables authenticating users with a single factor, which can be one-time-use code sent by email or sms, or a magic link sent by email.
@@ -30,16 +32,16 @@ We recommend that if you use passwordless authentication, you also implement [Mu
 
 A possible phishing attack could look like:
 
-- The user clicks a link in a malicious email or website
-- The user lands in the attacker's site, where they are prompted for their phone number to authenticate
-- The user enters the phone number, and the attacker enters the same phone number in the legitimate application
-- The legitimate application sends and SMS to the user
-- The user types the one-time-use code in the attacker's website
-- The attacker can now login to the legitimate website
+1. The user clicks a link in a malicious email or website.
+1. The user lands in the attacker's site, where they are prompted to enter their phone number to authenticate.
+3. The user enters the phone number, and the attacker enters the same phone number in the legitimate application.
+4. The legitimate application sends an SMS to the user.
+5. The user types the one-time-use code in the attacker's website.
+6. The attacker can now login to the legitimate website.
 
-To decrease the chances of success for this attack, the should expect that the SMS they receive clearly identifies the application. You should configure the SMS template so it mentions the tenant name or the Application Name:
+To decrease the chances of success for this attack, the user should expect that the SMS clearly identifies the application. You should configure the SMS template so it mentions the tenant name and/or the Application Name:
 
-```
+```text
 Your verification code for accessing's Acme @@application.name@@ is @@password@@
 ```
 

@@ -290,7 +290,6 @@ articles:
                 url: /connections/passwordless/guides/embedded-login-webapps
               - title: SPAs
                 url: /connections/passwordless/guides/embedded-login-spa
-
           - title: Best Practices
             url: /connections/passwordless/guides/best-practices
 
