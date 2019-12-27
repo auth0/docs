@@ -85,16 +85,16 @@ When using passwordless authentication with email, users:
 
 To implement passwordless you'll need to make two key decisions:
 
-- Which authentication factor you want to use (SMS, Email with OTP, Email with Magic Link).
+- Which authentication factor you want to use (SMS or Email with one-time-use code, Email with Magic Link).
 - If you are going to implement authentication using *Embedded Login* or *Universal Login*.
 
 ### Authentication Factor
 
 The main driver for picking the authentication factor is user experience, and that depends on your application and its target audience. If the application will run on mobile phones, it is highly likely that users will be able to receive SMS messages. If it's an internal web application that is used in an environment where users cannot have their mobile phones with them, Email would be the only choice.
 
-If you decide to use Email, then you need to decide between an OTP or a magic link. We recommend using OTP as the login flow is more predictable for end users. To learn more refer to the following documents:
+If you decide to use Email, then you need to decide between an one-time-use code or a magic link. We recommend using one-time-use code as the login flow is more predictable for end users. To learn more refer to the following documents:
 
-  - [Passwordless using Email and OTP](/connections/passwordless/guides/email-otp)
+  - [Passwordless using Email and one-time-use code](/connections/passwordless/guides/email-otp)
   - [Passwordless Passwordless using Email and Magic Links](/connections/passwordless/guides/email-magic-link)
   - [Passwordless Passwordless using SMS](/connections/passwordless/guides/sms-otp)
 
