@@ -24,7 +24,7 @@ Even if using email or SMS can be more secure than a weak password, they have kn
 
 -  Phone numbers are not sufficient for user authentication. The SS7 phone routing system used by cellular networks [has verified weaknesses](https://thehackernews.com/2017/05/ss7-vulnerability-bank-hacking.html) which have led to it not being recommended as an authentication factor. There are many attack vectors available, from the use of social engineering, to swapping sim cards and buying access to the SS7 network. 
 
-- Having an email address is not sufficient for user authentication (aliases, forwarding, multiple users in one account are all examples). Email providers vary in their security practices and some do not require any establishment of a user’s identity. SMTP is a very old protocol, and many providers still route SMTP traffic unencrypted leading to an increased chance of an interception attack. 
+- Having an email address is not sufficient for user authentication (aliases, forwarding, multiple users in one account are all examples). Email providers vary in their security practices and some do not require any establishment of a user's identity. SMTP is a very old protocol, and many providers still route SMTP traffic unencrypted leading to an increased chance of an interception attack. 
 
 We recommend that if you use passwordless authentication, you also implement [Multi-factor Authentication (MFA)](/multifactor-authentication) with a different factor when the user performs a security-sensitive operation.
 
@@ -59,6 +59,6 @@ The one-time password expiration time can be altered in the passwordless connect
 
 ##  Linking Accounts
 
-Users might want to authenticate using different passwordless factors during their lifetime. For example, they could initially sign up with an SMS, and later start authenticating with an email. You can achieve that by enablign them to link their different profiles.using [account linking](/link-accounts).
+Users might want to authenticate using different passwordless factors during their lifetime. For example, they could initially sign up with an SMS, and later start authenticating with an email. You can achieve that by enabling them to link their different profiles using [account linking](/link-accounts).
 
 <%= include('../_includes/_rate_limit_server_side') %>
