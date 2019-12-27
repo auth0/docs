@@ -45,8 +45,6 @@ To decrease the chances of success for this attack, the user should expect that 
 Your verification code for accessing's Acme @@application.name@@ is @@password@@
 ```
 
-If the message says that, the user should realize that is not the application they are intending to authenticate with.
-
 ## Preventing Brute Force Attacks 
 
 Auth0 has the following protections against brute force attacks:
