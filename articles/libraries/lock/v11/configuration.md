@@ -577,7 +577,7 @@ If you don't specify a `validator` the text field will be **required**. If you w
 ```js
 var options = {
   additionalSignUpFields: [{
-    name: "favorite color",
+    name: "favorite_color",
     placeholder: "Enter your favorite color (optional)",
     validator: function() { 
       return true;
