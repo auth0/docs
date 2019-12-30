@@ -1,15 +1,15 @@
 ---
-public: true
+title: Invalid Token Errors
+description: Describes how to troubleshoot invalid token errors. 
 topics:
   - errors
   - tokens
 contentType:
   - reference
-  - how-to
 useCase: error-management
 ---
 
-# Errors with code 'invalid_token'
+# Invalid Token Errors
 
 ## Parsing an HS256-Signed ID Token Without an Access Token
 

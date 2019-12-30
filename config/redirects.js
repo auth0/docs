@@ -2326,15 +2326,35 @@ module.exports = [
       to: '/connections/passwordless/reference/troubleshoot'
     },
     {
-    from: '/best-practices/custom-db-connections-scripts',
-    to: '/best-practices/custom-db-connections'
+      from: '/best-practices/custom-db-connections-scripts',
+      to: '/best-practices/custom-db-connections'
     },
     {
-    from: '/api/v1/use-cases',
-    to: '/migrations/guides/management-api-v1-v2'
+      from: '/errors/deprecation-errors',
+      to: '/troubleshoot/guides/check-deprecation-errors'
     },
     {
-    from: '/api/management/v1/use-cases',
-    to: '/migrations/guides/management-api-v1-v2'
+      from: '/errors/libraries/auth0-js/invalid-token',
+      to: '/troubleshoot/references/invalid-token'
+    },
+    {
+      from: '/troubleshoot/har',
+      to: '/troubleshoot/guides/generate-har-files'
+    },
+    {
+      from: '/troubleshoot/basics',
+      to: '/troubleshoot/concepts/basics'
+    },
+    {
+      from: '/troubleshoot/issues',
+      to: '/troubleshoot'
+    },
+    {    
+      from: '/api/v1/use-cases',
+      to: '/migrations/guides/management-api-v1-v2'
+    },
+    {
+      from: '/api/management/v1/use-cases',
+      to: '/migrations/guides/management-api-v1-v2'
     }
 ];

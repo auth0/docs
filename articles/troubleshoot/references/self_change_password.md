@@ -19,10 +19,9 @@ Error messages are returned in the standard format:
 {
   "error": "error_code",
   "error_description": "the description of the error.",
-  "error_uri": "https://auth0.com/docs/errors/dbconnections/self_change_password"
+  "error_uri": "https://auth0.com/docs/troubleshoot/references/errors/self_change_password"
 }
 ```
-
 
 ## Error Codes
 
