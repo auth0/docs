@@ -17,12 +17,12 @@ Auth0’s Management API v1 was deprecated in 2016 and replaced with the [Auth0 
 
 Affected tenants are those who meet all of the following criteria:
 
-* Created before December 26, 2019
+* Created before January 2, 2020
 * Actively making requests to Auth0 endpoints directly under the `/api/` path.
 
 The following tenants are NOT affected:
 
-* Created after December 26, 2019
+* Created after January 2, 2020
 * Exclusively using the Auth0 Management API v2 endpoints 
 * Using the Authentication API exclusively. (The Authentication API is not affected by this deprecation.)
   
@@ -61,7 +61,7 @@ You can disable API v1 by going **Tenant Settings** > **Advanced** > **Migration
 ![Toggle Management API Version](/media/articles/migrations/apiv1-toggle.png)
 
 ::: note
-Note that tenants created after December 26, 2019 will not have access to API v1. If you need API v1 enabled on a tenant for testing your migration, please open a ticket in our [Support Center](https://support.auth0.com/tickets).
+Note that tenants created after January 2, 2020 will not have access to API v1. If you need API v1 enabled on a tenant for testing your migration, please open a ticket in our [Support Center](https://support.auth0.com/tickets).
 :::
  
 If you need help with the migration, contact us using the [Support Center](https://support.auth0.com/) or our [Community Site](https://community.auth0.com/c/auth0-community/Migrations).
