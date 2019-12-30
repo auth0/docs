@@ -35,7 +35,7 @@ You need to provide the proper values to the `prompt`, `language`, `screen`, `te
 	<%= include('text-customization-prompts/_prompts') %>
 * You can find the list of available languages on the [Universal Login Internationalization page](/universal-login/i18n).
 * Each `prompt` can have one or more screens. For example, the [Login](/universal-login/text-customization-prompts/login) prompt has a single screen, but the [Reset Password](/universal-login/text-customization-prompts/reset-password) prompt has many screens.
-* Each screen has a set of `text id`s. 
+* Each screen has a set of `text id`s, which are listed in the documentation for each prompt linked above.
 
 ## Available variables 
 

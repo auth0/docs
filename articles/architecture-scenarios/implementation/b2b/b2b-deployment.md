@@ -23,14 +23,6 @@ useCase:
 
 <%= include('../../_includes/_multitenancy.md', { platform: 'b2b' }) %>
 
-## Keep reading
+# Keep reading
 
-* [Architecture](/architecture-scenarios/implementation/b2b/b2b-architecture)
-* [Provisioning](/architecture-scenarios/implementation/b2b/b2b-provisioning)
-* [Authentication](/architecture-scenarios/implementation/b2b/b2b-authentication)
-* [Branding](/architecture-scenarios/implementation/b2b/b2b-branding)
-* [Quality Assurance](/architecture-scenarios/implementation/b2b/b2b-qa)
-* [Profile Management](/architecture-scenarios/implementation/b2b/b2b-profile-mgmt)
-* [Authorization](/architecture-scenarios/implementation/b2b/b2b-authorization)
-* [Logout](/architecture-scenarios/implementation/b2b/b2b-logout)
-* [Operations](/architecture-scenarios/implementation/b2b/b2b-operations)
+<%= include('../../_includes/_keep-reading.md', { platform: 'b2b', self: 'deployment' }) %>

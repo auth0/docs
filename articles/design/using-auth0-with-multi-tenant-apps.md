@@ -49,11 +49,11 @@ To implement this, you can call `/authorize` with a connection specified for the
 
 You can represent each of your tenants with a separate application in Auth0. 
 
-Representing each of your tenants with an application allows you to configure each one differently. You can also enable/disable [connections](/connections) for individual applications if your tenants have varying requirements. Doing so, however, requires you to track the tenants to which your users belong within your application. Then, when they log in, you will need to specify the connection they are to use.
+Representing each of your tenants with an application allows you to configure each one differently. You can also enable/disable [connections](/connections) for individual applications if your tenants have varying requirements. Doing so, however, requires you to track the tenants to which your users belong within your application. Then, when they log in, you will need to specify the application they are to use.
 
 ### Store tenant details in app_metadata
 
-Storing tenant details in the tenant [metadata](/users/concepts/overview-user-metadata#metadata-usage) is the simplest of the implementation scenarios we cover in this article.
+Storing tenant details in the user [metadata](/users/concepts/overview-user-metadata#metadata-usage) is the simplest of the implementation scenarios we cover in this article.
 
 Using the identifier of your choice (e.g., `"tenant": "customer_12345"`), you can store tenant related details in the `app_metadata`. Doing so allows all of your users, regardless of which tenant to which they belong, to log in using one uniform method.
 
