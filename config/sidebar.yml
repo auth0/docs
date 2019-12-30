@@ -1109,9 +1109,6 @@ articles:
             - title: Branding
               url: /architecture-scenarios/implementation/b2c/b2c-branding
 
-            - title: Launch Preparation
-              url: /architecture-scenarios/implementation/b2c/b2c-launch 
-
             - title: Deployment Automation
               url: /architecture-scenarios/implementation/b2c/b2c-deployment
 
@@ -1129,6 +1126,9 @@ articles:
 
             - title: Operations
               url: /architecture-scenarios/implementation/b2c/b2c-operations
+
+            - title: Launch Preparation
+              url: /architecture-scenarios/implementation/b2c/b2c-launch 
 
       - title: Business to Business
         url: /architecture-scenarios/b2b
@@ -1162,6 +1162,9 @@ articles:
 
             - title: Operations
               url: /architecture-scenarios/implementation/b2b/b2b-operations
+              
+            - title: Launch Preparation
+              url: /architecture-scenarios/implementation/b2b/b2b-launch 
 
       - title: Business to Employees
         url: /architecture-scenarios/b2e

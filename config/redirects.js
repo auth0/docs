@@ -738,10 +738,6 @@ module.exports = [
     to: '/api/management/v1/reference'
   },
   {
-    from: '/api/v1/use-cases',
-    to: '/api/management/v1/use-cases'
-  },
-  {
     from: ['/apiv2', '/api/v2'],
     to: '/api/management/v2'
   },
@@ -2330,8 +2326,8 @@ module.exports = [
       to: '/connections/passwordless/reference/troubleshoot'
     },
     {
-    from: '/best-practices/custom-db-connections-scripts',
-    to: '/best-practices/custom-db-connections'
+      from: '/best-practices/custom-db-connections-scripts',
+      to: '/best-practices/custom-db-connections'
     },
     {
       from: '/errors/deprecation-errors',
@@ -2352,5 +2348,13 @@ module.exports = [
     {
       from: '/troubleshoot/issues',
       to: '/troubleshoot'
+    },
+    {    
+      from: '/api/v1/use-cases',
+      to: '/migrations/guides/management-api-v1-v2'
+    },
+    {
+      from: '/api/management/v1/use-cases',
+      to: '/migrations/guides/management-api-v1-v2'
     }
 ];

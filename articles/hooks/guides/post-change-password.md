@@ -15,14 +15,9 @@ v2: true
 
 The Post Change Password Hook allows custom actions to be executed after a successful user password change; when a user updates their password or after a tenant administrator updates a user's password. This hook executes asynchronously with the rest of the Auth0 pipeline and its outcome does not affect the Auth0 transaction.
 
-With the Post Change Password Hook, you can do things like:
+With the Post Change Password Hook, you can do things like send an email to a user letting them know their password has been changed.
 
-* Send an email to a user letting them know their password has been changed.
-* Logout a user so they have to login with their new password.
-
-The Post Change Password Hook is only available for [Database Connections](/connections/database).
-
-You can create a new Post Change Password hook using the [Dashboard](/hooks/guides/create-hooks-using-dashboard) or the [Command Line Interface](/hooks/guides/create-hooks-using-cli).
+The Post Change Password Hook is only available for [Database Connections](/connections/database). You can create a new Post Change Password hook using the [Dashboard](/hooks/guides/create-hooks-using-dashboard) or the [Command Line Interface](/hooks/guides/create-hooks-using-cli).
 
 ## Starter code and parameters
 
@@ -43,11 +38,11 @@ The parameters listed in the comment at the top of the code indicate the Auth0 o
 @param {object} context.connection.name - connection name
 @param {object} context.connection.tenant - connection tenant
 @param {object} context.webtask - webtask context
-@param {function} cb - function (error, response)
+@param {function} cb - function (error)
 **/
 module.exports = function (user, context, cb) {
-// Perform any asynchronous actions, e.g. send notification to Slack.
-cb();
+  // Perform any asynchronous actions, e.g. send notification to Slack.
+  cb();
 };
 ```
 
@@ -55,7 +50,7 @@ The callback function `cb` at the end of the sample code is used to signal compl
 
 ### Response
 
-The Post Change Password Hook ignores any response object.
+The Post Change Password Hook ignores any response object. If an error is returned a tenant log entry is created, but this does not affect the Auth0 transaction.
 
 ## Testing Hooks
 
@@ -63,26 +58,17 @@ The Post Change Password Hook ignores any response object.
 Executing the code using the Runner requires a save, which means that the original code will be overwritten.
 :::
 
-Once you've modified the sample code, you can test Hooks using the Runner. The runner simulates a call to the Hook with the appropriate user information body/payload. The following is the sample body that populates the Runner by default (these are the same objects/parameters detailed in the comment at the top of the sample Hook code):
+You can test Hooks using the Runner. The runner simulates a call to the Hook with the appropriate user information body/payload. The following is the sample body that populates the Runner by default (these are the same objects/parameters detailed in the comment at the top of the sample Hook code):
 
 ```json
 {
   "user": {
-    "tenant": "my-tenant",
+    "id": "abc123",
     "username": "user1",
     "email": "user1@foo.com",
-    "emailVerified": true,
-    "phoneNumber": "1-000-000-0000",
-    "phoneNumberVerified": true,
-    "user_metadata": {
-      "hobby": "surfing"
-    },
-    "app_metadata": {
-      "plan": "full"
-    }
+    "last_password_reset": "2019-02-27T14:14:29.206Z"
   },
   "context": {
-    "requestLanguage": "en-us",
     "connection": {
       "id": "con_xxxxxxxxxxxxxxxx",
       "name": "Username-Password-Authentication",
@@ -122,7 +108,7 @@ module.exports = function (user, context, cb) {
     }
   }, function (err, resp, body) {
     if (err || resp.statusCode !== 202) {
-      return cb(err || new Error(body.message));
+      return cb(err || new Error(body.errors[0].message));
     }
 
     cb();

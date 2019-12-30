@@ -7,10 +7,10 @@ In your app's `build.gradle` dependencies section, add the following:
 ```groovy
 apply plugin: 'com.android.application'
 android {
-  //...
+  // ...
 }
 dependencies {
-  //Add the Auth0 Android SDK
+  // Add the Auth0 Android SDK
   implementation 'com.auth0.android:auth0:1.+'
 }
 ```

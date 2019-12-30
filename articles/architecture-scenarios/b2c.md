@@ -35,13 +35,13 @@ useCase:
   'architecture-scenarios/implementation/b2c/b2c-provisioning',
   'architecture-scenarios/implementation/b2c/b2c-authentication',
   'architecture-scenarios/implementation/b2c/b2c-branding',
-  'architecture-scenarios/implementation/b2c/b2c-launch',
   'architecture-scenarios/implementation/b2c/b2c-deployment',
   'architecture-scenarios/implementation/b2c/b2c-qa',
   'architecture-scenarios/implementation/b2c/b2c-profile-mgmt',
   'architecture-scenarios/implementation/b2c/b2c-authorization',
   'architecture-scenarios/implementation/b2c/b2c-logout',
-  'architecture-scenarios/implementation/b2c/b2c-operations'
+  'architecture-scenarios/implementation/b2c/b2c-operations',
+  'architecture-scenarios/implementation/b2c/b2c-launch'
 ] }) %>
 
 ## Implementation planning checklists

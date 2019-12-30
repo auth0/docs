@@ -35,31 +35,33 @@ To retrieve an Access Token that is authorized to access your API, you need to s
 
 ```java
 // app/src/main/java/com/auth0/samples/LoginActivity.java
+
 private static final String API_URL = "localhost:8080/secure";
 private static final String API_IDENTIFIER = "https://api.mysite.com";
 
 private void login() {
     Auth0 auth0 = new Auth0(this);
     auth0.setOIDCConformant(true);
+
     WebAuthProvider.login(auth0)
-        .withScheme("demo")
-        .withAudience(API_IDENTIFIER)
-        .start(LoginActivity.this, new AuthCallback() {
-            @Override
-            public void onFailure(@NonNull Dialog dialog) {
-                // Show error Dialog to user
-            }
+            .withScheme("demo")
+            .withAudience(API_IDENTIFIER)
+            .start(LoginActivity.this, new AuthCallback() {
+                @Override
+                public void onFailure(@NonNull Dialog dialog) {
+                    // Show error Dialog to user
+                }
 
-            @Override
-            public void onFailure(AuthenticationException exception) {
-                // Show error to user
-            }
+                @Override
+                public void onFailure(AuthenticationException exception) {
+                    // Show error to user
+                }
 
-            @Override
-            public void onSuccess(@NonNull Credentials credentials) {
-                // Verify tokens and Store credentials
-            }
-    });
+                @Override
+                public void onSuccess(@NonNull Credentials credentials) {
+                    // Verify tokens and Store credentials
+                }
+        });
 }
 ```
 
@@ -87,10 +89,10 @@ Depending on the standards in your API, you configure the authorization header d
 
 OkHttpClient client = new OkHttpClient();
 Request request = new Request.Builder()
-    .get()
-    .url(API_URL)
-    .addHeader("Authorization", "Bearer " + accessToken)
-    .build();
+        .get()
+        .url(API_URL)
+        .addHeader("Authorization", "Bearer " + accessToken)
+        .build();
 ```
 
 ## Send the Request
@@ -102,16 +104,16 @@ Tell the client to create a new `Call` with the request you created. Call the `e
 
 client.newCall(request).enqueue(new Callback() {
     @Override
-    public void onFailure(Request request, IOException e) {
-        //show error
+    public void onFailure(Request request, final IOException e) {
+        // Show error
     }
 
     @Override
     public void onResponse(final Response response) throws IOException {
         if (response.isSuccessful()) {
-            //API call success
+            // API call success
         } else {
-            //API call failed. Check http error code and message
+            // API call failed. Check http error code and message
         }
     }
 });
