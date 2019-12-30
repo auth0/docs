@@ -14,7 +14,6 @@ useCase:
 # Basic Troubleshooting
 
 <%= include('../../_includes/_topic-links', { links: [
-  'monitoring/guides/check-status',
   'troubleshoot/guides/verify-platform',
   'troubleshoot/guides/verify-connections',
   'troubleshoot/guides/verify-domain',

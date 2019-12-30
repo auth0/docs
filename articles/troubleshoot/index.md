@@ -20,7 +20,7 @@ Before submitting a ticket to Auth0 [Support Center](https://support.auth0.com/)
 
 ## Basic areas to check and verify first
 
-There are a few [basic](/troubleshoot/concepts/basics) areas to check and verify before you submit a support ticket. These areas include Auth0 system status, your platform, connections, domain, rules, and deprecations.  
+There are a few [basic](/troubleshoot/concepts/basics) areas to check and verify before you submit a support ticket. These areas include platform, connections, domain, rules, and deprecations.  
 
 ## Authentication & authorization issues
 
@@ -41,9 +41,9 @@ Here are some helpful tools to help you troubleshoot issues:
 
 ## Keep reading
 
+* [Check Auth0 Status](/monitoring/guides/check-status)
 * [Supported versions](/support/matrix)
 * [Support Plans and Service Level Agreements](/support#defect-responses)
 * [Operational Policies](/policies)
 * [Open and Manage Support Tickets](/support/tickets)  
 * [Professional Services](/services)
-

@@ -992,9 +992,6 @@ articles:
         url: /troubleshoot/concepts/basics
         children:
 
-          - title: Verify Auth0 Status
-            url: /monitoring/guides/check-status
-
           - title: Verify Platform
             url: /troubleshoot/guides/verify-platform
 
@@ -1010,14 +1007,6 @@ articles:
           - title: Check Error Messages
             url: /troubleshoot/guides/check-error-messages
             children:
-
-              - title: Common Authentication Errors
-                url: /libraries/error-messages
-                hidden: true 
-
-              - title: Standard Errors
-                url: "/api/authentication#standard-error-responses"
-                hidden: true 
 
               - title: Deprecation Errors
                 url: "/troubleshoot/guides/check-deprecation-errors"
@@ -1061,17 +1050,11 @@ articles:
           - title: Custom Databases
             url: /connections/database/custom-db/error-handling
 
-          - title: Custom Domains
-            url: /custom-domains/troubleshoot
-
           - title: Active Directory/LDAP Connector
             url: /connector/troubleshooting
 
           - title: Extensions
             url: /extensions/troubleshoot
-
-          - title: Deploy CLI
-            url: /extensions/deploy-cli/references/troubleshooting
 
           - title: Auth0 PHP SDK
             url: /libraries/auth0-php/troubleshooting

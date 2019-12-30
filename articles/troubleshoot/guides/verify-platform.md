@@ -21,6 +21,8 @@ Ensure that you are on current versions of your technology stack. If you're usin
 
 Testing on different browsers, platforms, locations, and users can help narrow down the source of a problem when it occurs. Perform the following tests and review the [logs in your Auth0 dashboard](${manage_url}/#/logs) after each test for more information.
 
+<%= include('../_includes/_log_events_link') %>
+
 ### Test with different browsers
 
 * Does the issue happen with all browsers or just some?
@@ -77,14 +79,12 @@ Testing on different browsers, platforms, locations, and users can help narrow d
 * Check Auth0 change log - any recent configuration changes related to your issue?
 * Check if any component in the technology stack has been updated or patched recently?
 
-<%= include('../_includes/_log_events_link') %>
-
 ## Keep reading
 
+* [Check Auth0 Status](/monitoring/guides/check-status)
 * [Verify Connections](/troubleshoot/guides/verify-connections)
 * [Verify Domain](/troubleshoot/guides/verify-domain)
 * [Verify Rules](/troubleshoot/guides/verify-rules)
-* [Check Auth0 Status](/monitoring/guides/check-status)
 * [Check Supporting Services Status](/monitoring/guides/test-testall-endpoints)
 * [Check External Services Status](/monitoring/guides/check-external-services)
 * [Monitor Applications](/monitoring/guides/monitor-applications)
