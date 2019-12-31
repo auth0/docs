@@ -1,6 +1,6 @@
 ---
-title: Logs Search Query Syntax
-description: Learn about how to search for Auth0's logs.
+title: Log Search Query Syntax
+description: Describes search query syntax using a subset of the Lucene query syntax to refine Auth0 log searches.
 toc: true
 topics:
   - logs
@@ -12,7 +12,7 @@ contentType:
 useCase:
   - manage-logs
 ---
-# Logs Search Query Syntax
+# Log Search Query Syntax
 
 When searching for logs, you can create queries using a subset of [Lucene query syntax](http://www.lucenetutorial.com/lucene-query-syntax.html) to refine your search.
 
@@ -97,21 +97,16 @@ Search for all logs from January 1, 2019 at 1AM, until, but not including Januar
 
 ## Limitations
 
-When you query for logs with the [list or search logs](/api/v2#!/Logs/get_logs) endpoint, you can retrieve a maximium of 100 logs per request. Additionally, you may only paginate through up to 1,000 search results. If would like to receive more logs, please retrieve your logs [by checkpoint](/logs#get-logs-by-checkpoint) retrieval.
+* If you get the error `414 Request-URI Too Large` this means that your query string is larger than the supported length. In this case, refine your search.
+* Log fields are not tokenized , so `description:rule` will not match a description with value `Create a rule` nor `Update a rule`. Instead, use `description:*rule`. See [wildcards](#wildcards) and [exact matching](#exact-matching).
+* The `.raw` field extension is not supported. Fields match the whole value that is provided and are not tokenized.
+* To search for a specific value nested in the `details` field, use the path to the field (i.e., `details.request.channel:"https://manage.auth0.com/"`). Bare searches like `details:"https://manage.auth0.com/"` do not work.
 
-If you get the error `414 Request-URI Too Large` this means that your query string is larger than the supported length. In this case, refine your search.
-
-## Search engine migration
-
-We are currently migrating our logs search engine to provide customers with the most scalable, robust and fastest search experience. All tenants in the cloud US region were migrated to the latest engine (v3) starting November 15, 2018. Tenants in other cloud regions are still on the previous engine (v2) and will be migrated soon. Tenants whose search queries are incompatible with v3 will be notified.
-
-### Search engine v3 breaking changes
-
-#### Pagination
+## Pagination
 
 When calling the [GET /api/v2/logs](/api/v2#!/Logs/get_logs) or [GET /api/v2/users/{user_id}/logs](/api/v2#!/Users/get_logs_by_user) endpoints using the `include_totals` parameter, the result is a JSON object containing a summary of the results **and** the requested logs. The JSON object looks something like:
 
-```
+```js
 {
   "length": 5,
   "limit": 5,
@@ -121,13 +116,8 @@ When calling the [GET /api/v2/logs](/api/v2#!/Logs/get_logs) or [GET /api/v2/use
 }
 ```
 
-When searching for logs using search engine v2, the `totals` field in your results tells you the number of logs that match the query you provided. However, in v3, the `totals` field tells you how many logs are returned in the page (similar to what the `length` field returns). If your application relies on the `totals` field for pagination purposes, please update your logic to handle this change appropriately.
+When searching for logs, the `totals` field tells you how many logs are returned in the page (similar to what the `length` field returns). 
 
+## Keep reading
 
-#### Query Syntax
-
-While the query syntax described in this article is compliant with both the old and new engines, there are some special queries that behave different in v2 and v3:
-
-* Log fields are not tokenized like in v2, so `description:rule` will not match a description with value `Create a rule` nor `Update a rule` like in v2. Instead, use `description:*rule`. See [wildcards](/logs/query-syntax#wildcards) and [exact matching](/logs/query-syntax#exact-matching).
-* The .raw field extension is no longer supported and must be removed. In v3, fields match the whole value that is provided and are not tokenized as they were in v2 without the .raw suffix.
-* To search for a specific value nested in the `details` field, use the path to the field (i.e., `details.request.channel:"https://manage.auth0.com/"`). Bare searches like `details:"https://manage.auth0.com/"` do not work.
+* 

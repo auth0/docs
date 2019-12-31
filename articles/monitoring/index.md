@@ -29,11 +29,12 @@ You can monitor your Auth0 implementation and Auth0 status and services, as well
 
 Need to analyze logs or store them long-term? Auth0 provides extensions to [export logs to external tools](/logs) for analysis and retention. You can also retrieve log data with the Management API. Auth0 only retains logs for a limited period of time, governed by the type of subscription purchased. If your required data retention period is longer than the retention period for your subscription,export logs so you can keep them as long as you wish.
 
-* [What to Use Logs For](/logs#what-can-i-use-logs-for-)
-* [View Logging Data](/logs#how-to-view-log-data)
-* [Retrieve Log Events](/logs#retrieving-logs-from-the-management-api)
-* [Log Event Data List](/logs#log-data-event-listing)
-* [Log Search Query Syntax](/logs/query-syntax)
+* [Administrator and Developer Log Usage Examples](/logs/concepts/logs-admins-devs)
+* [Log Data Retention](/logs/references/log-data-retention)
+* [View Log Data in the Dashboard](/logs/guides/view-log-data-dashboard)
+* [Retrieve Logs Using the Management API](/logs/guides/retrieve-logs-mgmt-api)
+* [Log Event Data](/logs/references/log-event-data)
+* [Log Search Query Syntax](/logs/references/query-syntax)
 * [Send Logging Events to Keen](/monitoring/guides/send-events-to-keenio)
 * [Send Logging Events to Segment](/monitoring/guides/send-events-to-segmentio)
 * [Send Logging Events to Splunk](/monitoring/guides/send-events-to-splunk)
