@@ -1,6 +1,6 @@
 ---
 title: Log Event Filters
-description: Describes how long log data is stored depending on your Auth0 plan.
+description: Lists the log filters for errors, warnings, and success events. 
 topics:
   - logs
   - log-data
@@ -137,3 +137,12 @@ You can filter logs for errors, warnings, and success events in the [Dashboard](
 | Update device account | Device used for second factor authentication has been updated |
 | User delete | Deleted multi-factor user account |
 | Users import | Successfully imported users |
+
+## Keep reading
+
+* [Administrator and Developer Log Usage Examples](/logs/concepts/logs-admins-devs)
+* [View Log Data in the Dashboard](/logs/guides/view-log-data-dashboard)
+* [Retrieve Logs Using the Management API](/logs/guides/retrieve-logs-mgmt-api)
+* [Log Event Data](/logs/references/log-event-data)
+* [Log Search Query Syntax](/logs/references/query-syntax)
+* [Integrate AWS EventBridge with Auth0](/integrations/aws-eventbridge)

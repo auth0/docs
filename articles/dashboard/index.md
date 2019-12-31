@@ -28,7 +28,7 @@ useCase: manage-accounts
     <p>Learn how to add and manage user accounts with admin privileges.</p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/logs">Manage Logs</a>
+    <i class="icon icon-budicon-715"></i><a href="/logs">Logs</a>
     <p>Learn how to view log data and understand log event types.</p>
   </li>
     <li>

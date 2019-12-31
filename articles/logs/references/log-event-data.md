@@ -1,6 +1,6 @@
 ---
 title: Log Event Data
-description: Describes how long log data is stored depending on your Auth0 plan.
+description: Lists the event codes associated with log events. 
 topics:
   - logs
   - log-data
@@ -11,7 +11,7 @@ useCase:
 ---
 # Log Event Data
 
-The following table lists the codes associated with the appropriate log events.
+The following table lists the codes associated with the each log event.
 
 | **Event Code** | **Event** | **Event Description** | **Additional Info** |
 | --- | --- | --- | --- |
@@ -111,3 +111,12 @@ The following table lists the codes associated with the appropriate log events.
 | `sys_update_start` | Auth0 Update Started | | |
 | `ublkdu` | User login block released | User block setup by anomaly detection has been released | |
 | `w` | Warnings During Login | | |
+
+## Keep reading
+
+* [Administrator and Developer Log Usage Examples](/logs/concepts/logs-admins-devs)
+* [View Log Data in the Dashboard](/logs/guides/view-log-data-dashboard)
+* [Retrieve Logs Using the Management API](/logs/guides/retrieve-logs-mgmt-api)
+* [Log Search Query Syntax](/logs/references/query-syntax)
+* [Log Event Filters](/logs/references/log-event-filters)
+* [Integrate AWS EventBridge with Auth0](/integrations/aws-eventbridge)

@@ -875,17 +875,17 @@ articles:
         url: /logs
         children:
 
-          - title: Administrator and Developer Log Usage Examples
-            url: /logs/concepts/logs-admins-devs
-
-          - title: Retrieve Logs Using the Management API
-            url: /logs/guides/retrieve-logs-mgmt-api
+          - title: Log Data Retention
+            url: /logs/references/log-data-retention
 
           - title: View Log Data in the Dashboard
             url: /logs/guides/view-log-data-dashboard
 
-          - title: Log Data Retention
-            url: /logs/references/log-data-retention
+          - title: Log Event Filters
+            url: /logs/references/log-event-filters
+
+          - title: Retrieve Logs Using the Management API
+            url: /logs/guides/retrieve-logs-mgmt-api
 
           - tite: Log Event Data
             url: /logs/references/log-event-data
@@ -893,8 +893,8 @@ articles:
           - title: Log Search Query Syntax
             url: /logs/references/query-syntax
 
-          - title: Log Event Filters
-            url: /logs/references/log-event-filters
+          - title: Log Usage Examples
+            url: /logs/concepts/logs-admins-devs
 
           - title: Migrate from Logs Search v2 to v3
             url: /monitor/logs/migrate-logs-v2-v3

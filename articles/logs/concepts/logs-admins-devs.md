@@ -1,5 +1,5 @@
 ---
-description: Understand how logs are used if you are an administrator or a developer. 
+description: Examples of how logs are used if you are an administrator or a developer. 
 topics:
   - logs
 contentType: concept
@@ -27,5 +27,10 @@ When debugging an issue, or setting up an integrations, logs are as good as gold
 
 ## Keep reading
 
+* [Log Data Retention](/logs/references/log-data-retention)
+* [View Log Data in the Dashboard](/logs/guides/view-log-data-dashboard)
+* [Retrieve Logs Using the Management API](/logs/guides/retrieve-logs-mgmt-api)
+* [Log Event Data](/logs/references/log-event-data)
+* [Log Search Query Syntax](/logs/references/query-syntax)
+* [Log Event Filters](/logs/references/log-event-filters)
 * [Integrate AWS EventBridge with Auth0](/integrations/aws-eventbridge)
-* 
