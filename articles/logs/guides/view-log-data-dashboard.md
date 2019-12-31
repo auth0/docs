@@ -11,9 +11,15 @@ useCase:
 
 The **Logs** page of the [Dashboard](${manage_url}/#/logs) displays all events that occur, including user authentication and administrative actions such as adding/updating Applications, Connections, and Rules.
 
-![](/media/articles/logs/dashboard-logs.png)
+![Log Search](/media/articles/logs/dashboard-logs.png)
 
 Please note that administrative actions will show up in the logs as `API Operation` events.
+
+## Event type filters
+
+You can choose a [filter](/logs/references/log-event-filters) for log error, warning, and success events. For example, you can choose the **Deprecation Notice** warning to filter logs related to deprecation warnings.
+
+![Log Event Filter](/media/articles/logs/log-event-filter.png)
 
 ## Keep reading
 
