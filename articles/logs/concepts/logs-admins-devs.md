@@ -27,4 +27,5 @@ When debugging an issue, or setting up an integrations, logs are as good as gold
 
 ## Keep reading
 
+* [Integrate AWS EventBridge with Auth0](/integrations/aws-eventbridge)
 * 

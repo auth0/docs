@@ -20,8 +20,8 @@ Auth0 does not provide real-time logs for your tenant. While we do our best to i
 <%= include('../../_includes/_topic-links', { links: [
   'logs/concepts/logs-admins-devs',
   'logs/guides/retrieve-logs-mgmt-api',
-  'logs/guides/migrate-logs-v2-v3',
   'logs/references/log-data-retention',
   'logs/references/log-event-data',
-  'logs/references/query-syntax'
+  'logs/references/query-syntax',
+  'integrations/aws-eventbridge'
 ] }) %>

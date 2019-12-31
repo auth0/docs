@@ -867,7 +867,7 @@ articles:
 ## Monitor
 ## ------------------------------------------------------------
 
-  - title: Monitoring
+  - title: Monitor
     url: /monitoring
     children:
 
@@ -875,8 +875,23 @@ articles:
         url: /logs
         children:
 
-          - title: Query Syntax
-            url: /logs/query-syntax
+          - title: Administrator and Developer Log Usage Examples
+            url: /logs/concepts/logs-admins-devs
+
+          - title: Retrieve Logs Using the Management API
+            url: /logs/guides/retrieve-logs-mgmt-api
+
+          - title: View Log Data in the Dashboard
+            url: /logs/guides/view-log-data-dashboard
+
+          - title: Log Data Retention
+            url: /logs/references/log-data-retention
+
+          - tite: Log Event Data
+            url: /logs/references/log-event-data
+
+          - title: Log Search Query Syntax
+            url: /logs/references/query-syntax
 
           - title: Migrate from Logs Search v2 to v3
             url: /monitor/logs/migrate-logs-v2-v3
