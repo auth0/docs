@@ -17,7 +17,7 @@ Using the [Dashboard](${manage_url}/#/logs) or the [Management API logs endpoint
 Auth0 does not provide real-time logs for your tenant. While we do our best to index events as they arrive, you may see some delays.
 :::
 
-<%= include('../../_includes/_topic-links', { links: [
+<%= include('../_includes/_topic-links', { links: [
   'logs/concepts/logs-admins-devs',
   'logs/guides/retrieve-logs-mgmt-api',
   'logs/references/log-data-retention',
