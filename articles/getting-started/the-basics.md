@@ -25,7 +25,7 @@ We will use a very simple example: A company named `Example-Co` wants to use Aut
 
 If you haven't already [signed up](https://auth0.com/signup) for an Auth0 **account**, do so (it's free). You can either use username and password or log in with a social provider (such as Facebook, Google, or Apple).
 
-Once you create your account you will be asked to create a tenant. In Auth0, a tenant is a **logical isolation unit**. The term is borrowed from *software multitenancy* and it refers to an architecture where a single instance of the software serves multiple tenants. No tenant can access the instance of another tenant, even though the software might be running on the same machine (hence the logical isolation).
+Once you create your account you will be asked to create a tenant. *Tenant* is a term borrowed from [software multitenancy](https://en.wikipedia.org/wiki/Multitenancy). It refers to an architecture where a single software instance serves multiple tenants. In Auth0, a tenant is logically isolated. No tenant can access the data of another tenant, even though multiple tenants might be running on the same machine.
 
 Tenant characteristics:
 
