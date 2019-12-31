@@ -12,7 +12,7 @@ topics:
 
 ## Implementing Login 
 
-You can implement Passwordless Authentication by redirecting to Auth0's [Universal Login](/connections/passwordless/guides/universal-login) or by [Embedding Login](/connections/passwordless/guides/universal-login) in your application.
+You can implement Passwordless Authentication by redirecting to Auth0's [Universal Login](/connections/passwordless/guides/universal-login) or by [Embedding Login](/connections/passwordless/guides/embedded-login) in your application.
 
 We always recommend that [you implement Universal Login](guides/login/universal-vs-embedded).
 
