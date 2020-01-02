@@ -484,6 +484,9 @@ articles:
           - title: "Brute-Force Protection Triggers"
             url: "/anomaly-detection/references/brute-force-protection-triggers-actions"
 
+          - title: "View Anomaly Detection Events"
+            url: "/anomaly-detection/guides/use-tenant-data-for-anomaly-detection"
+
           - title: "Restrictions and Limitations"
             url: "/anomaly-detection/references/anomaly-detection-restrictions-limitations"
 

@@ -20,7 +20,7 @@ Using the [Dashboard](${manage_url}/#/logs) or the [Management API logs endpoint
 Auth0 does not provide real-time logs for your tenant. While we do our best to index events as they arrive, you may see some delays.
 :::
 
-## How to view log data
+## View log data
 
 The **Logs** page of the [Dashboard](${manage_url}/#/logs) displays all events that occur, including user authentication and administrative actions such as adding/updating Applications, Connections, and Rules.
 
@@ -28,9 +28,7 @@ The **Logs** page of the [Dashboard](${manage_url}/#/logs) displays all events t
 
 Please note that administrative actions will show up in the logs as `API Operation` events.
 
-## What can I use logs for?
-
-### As an administrator
+### Log data for administrators
 
 If you are operating your service as an administrator, there are many helpful metrics and bits of information you can gather from the Logs. If a customer has raised a support ticket that they are unable to sign in to your service or application, you can verify in the logs that they have indeed tried, and are attempting in the manner they say they are. They may think it's a password issue, but you may discover they never completed setting up their <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn>. Additionally, Logs can help expose some business metrics you may not have had available before. These could include:
 
@@ -42,13 +40,15 @@ If you are operating your service as an administrator, there are many helpful me
 
  The deeper the analysis, the more you can learn about your customers and your business.
 
-### As a developer
+::: note
+Auth0 recommends that you [create reports using tenant traffic data to see anomaly detection events](/anomaly-detection/guides/use-tenant-data-for-anomaly-detection).
+:::
+
+### Log data for developers
 
 When debugging an issue, or setting up an integrations, logs are as good as gold. You can utilize the logs as a history of events to see where a flow may be broken, or where customers are getting confused. You can also detect nefarious behavior, or verify that Auth0 anomaly detection is being triggered during questionable behavior. We support searching the logs for specific events using our Dashboard or Management API directly, but also support exporting logs to your existing log processing systems, like Splunk or Sumo Logic, for deeper analysis over time.
 
-## Frequently Asked Questions
-
-### How long is log file data available?
+## Data retention and export
 
 The length of time log data is stored varies depending on your plan.
 
@@ -59,11 +59,9 @@ Developer | 2 days
 Developer Pro | 10 days
 Enterprise | 30 days
 
-### How do I view or export log file data?
+To store log data longer than the time period offered by your subscription plan, we recommend you use the [Management API feature that allows you to retrieve the relevant data](api/management/v2#!/Logs/get_logs). Once you've retrieved your data, you can:
 
-If you would like to store log data longer than the time period offered by your subscription plan, we recommend you use the [Management API feature that allows you to retrieve the relevant data](api/management/v2#!/Logs/get_logs). Once you've retrieved your data, you can:
-
-* Store the data yourself
+* Store the data yourself.
 * Send the data to an external service. You can install and configure an Auth0 Extension in order to export logs automatically to another provider, like Sumo Logic or Loggly. For a list of available providers and detailed steps to configure each, see [Export Auth0 logs to an external service](/extensions#export-auth0-logs-to-an-external-service).
 
 ## Retrieving logs from the Management API
@@ -71,7 +69,7 @@ If you would like to store log data longer than the time period offered by your 
 You can use the Management API v2 to retrieve your logs using the [/api/v2/logs](/api/v2#!/Logs/get_logs) endpoint, which suports two types of consumption: [by checkpoint](/logs#get-logs-by-checkpoint) or [by search criteria](#get-logs-by-search-criteria).
 
 ::: note
-We highly recommend using [the checkpoint approach](/logs#get-logs-by-checkpoint) to export logs to the external system of your choice and perform any search or analysis there, as logs stored in our system are subject to [the retention period](/logs#how-long-is-log-file-data-available). You can use any of the [Export Auth0 logs to an external service](/extensions#export-auth0-logs-to-an-external-service) extensions to export the logs to the system of your choice (like Sumo Logic, Splunk or Loggly).
+We highly recommend using [the checkpoint approach](/logs#get-logs-by-checkpoint) to export logs to the external system of your choice and perform any search or analysis there, as logs stored in our system are subject to the retention period. You can use any of the [Export Auth0 logs to an external service](/extensions#export-auth0-logs-to-an-external-service) extensions to export the logs to the system of your choice (like Sumo Logic, Splunk or Loggly).
 :::
 
 If you would like to perform a search for specific events you can also use the [search criteria approach](/logs#get-logs-by-search-criteria), which is also the one used by the Management Dashboard.
