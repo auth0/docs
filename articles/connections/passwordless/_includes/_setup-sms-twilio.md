@@ -5,7 +5,7 @@ Navigate to the [Connections > Passwordless](${manage_url}/#/connections/passwor
 
 To send the SMS, you can either use Twilio, or a Custom SMS Gateway.
 
-### Configure Twilio Settings
+### Configure Twilio settings
 
 You will need a [Twilio Account SID](https://www.twilio.com/help/faq/twilio-basics/what-is-an-application-sid) and a [Twilio Auth Token](https://www.twilio.com/help/faq/twilio-basics/what-is-the-auth-token-and-how-can-i-change-it). These are the Twilio API credentials that Auth0 will use to send an SMS to the user.
 
@@ -23,11 +23,11 @@ To learn how to find your Twilio SID and Auth Token, see Twilio docs: [How to cr
 To learn about using Twilio Copilot, see Twilio docs: [Sending Messages with Copilot](https://www.twilio.com/docs/api/rest/sending-messages-copilot).
 :::
 
-### Configure a Custom SMS Gateway
+### Configure a custom SMS gateway
 
 If you would like to use your own SMS gateway, you will need to create the passwordless connection and then modify it using our Management API. To learn how to modify the connection to use your own SMS gateway, see [Configure SMS Gateway for Passwordless Connections](/connections/passwordless/guides/use-sms-gateway-passwordless).
 
-### Configure Passwordless SMS Settings
+### Configure passwordless SMS settings
 
 1. In **Message**, enter the body text of the SMS.
 
