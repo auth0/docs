@@ -22,7 +22,7 @@ Developer | 2 days
 Developer Pro | 10 days
 Enterprise | 30 days
 
-You can implement am Auth0 log data export extension to send log data to an external log analytics service. For example, you can use log files for troubleshooting and detecting intermittent errors that may be hard to find with quality assurance testing. You may also want log data in case forensic data is ever needed for security purposes. Log data can also provide comprehensive analytics to help you see patterns in usage trends and anomaly detection triggers.
+You can implement an Auth0 log data export extension to send log data to an external log analytics service. For example, you can use log files for troubleshooting and detecting intermittent errors that may be hard to find with quality assurance testing. You may also want log data in case forensic data is ever needed for security purposes. Log data can also provide comprehensive analytics to help you see patterns in usage trends and anomaly detection triggers.
 
 Auth0 extensions support following third-party services:
 
