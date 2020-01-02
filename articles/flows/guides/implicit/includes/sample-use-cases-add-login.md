@@ -31,7 +31,7 @@ https://${account.namespace}/authorize?
     nonce=NONCE
 ```
 
-Now, your ID Token will contain the requested name and picture claims. When you [decode the ID Token](/tokens/id-tokens#id-token-payload), it will look similar to:
+Now, your ID Token will contain the requested name and picture claims. When you [decode the ID Token](/tokens/concepts/id-tokens#id-token-payload), it will look similar to:
 
 ```json
 {
@@ -62,7 +62,7 @@ https://${account.namespace}/authorize?
     connection=github
 ```
 
-Now, your ID Token will contain a `sub` claim with the user's unique ID returned from GitHub. When you [decode the ID Token](/tokens/id-tokens#id-token-payload), it will look similar to:
+Now, your ID Token will contain a `sub` claim with the user's unique ID returned from GitHub. When you [decode the ID Token](/tokens/concepts/id-tokens#id-token-payload), it will look similar to:
 
 ```json
 {

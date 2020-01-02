@@ -25,7 +25,7 @@ Host​: api.example.com
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2V4YW1wbGUuYXV0aDAuY29tLyIsImF1ZCI6Imh0dHBzOi8vYXBpLmV4YW1wbGUuY29tL2NhbGFuZGFyL3YxLyIsInN1YiI6InVzcl8xMjMiLCJpYXQiOjE0NTg3ODU3OTYsImV4cCI6MTQ1ODg3MjE5Nn0.CA7eaHjIHz5NxeIJoFK9krqaeZrPLwmMmgI_XiQiIkQ
 ```
 
-In this example, the Access Token is a [JSON Web Token (JWT)](/jwt) that decodes to the following [claims](/tokens/jwt-claims):
+In this example, the Access Token is a [JSON Web Token (JWT)](/jwt) that decodes to the following [claims](/tokens/concepts/jwt-claims):
 
 ```json
 {
@@ -55,11 +55,11 @@ The API can now process the request, allowing the application to read from and w
 
 ## Read more
 
-* [Access Tokens](/tokens/access-token)
+* [Access Tokens](/tokens/concepts/access-tokens)
 * [Get an Access Token](/tokens/guides/access-token/get-access-tokens)
 * [Validate an Access Token](/tokens/guides/access-token/validate-access-token)
 * [JSON Web Token](/jwt)
-* [JSON Web Token Claims](/tokens/jwt-claims)
+* [JSON Web Token Claims](/tokens/concepts/jwt-claims)
 * [Token Best Practices](/best-practices/token-best-practices)
 * [Quickstarts](/quickstarts)
 * [Authentication and Authorization Flows](/flows)

@@ -28,7 +28,7 @@ The **General** tab contains settings that are typically set for tenants. Use th
 
 ### API Authorization Settings
 
-* **Default Audience**: API Identifier that should be the default audience when using [API Authorization](/api-auth) flows. If you enter a value, all [Access Tokens](/tokens/access-token) issued by Auth0 will specify this API Identifier as an audience.
+* **Default Audience**: API Identifier that should be the default audience when using [API Authorization](/api-auth) flows. If you enter a value, all [Access Tokens](/tokens/concepts/access-tokens) issued by Auth0 will specify this API Identifier as an audience.
 
 ::: note
 Setting the Default Audience is equivalent to appending this audience to every authorization request made to your tenant for every application. This will cause new behavior that might result in breaking changes for some of your applications. Please contact support if you require assistance.

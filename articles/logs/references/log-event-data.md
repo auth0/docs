@@ -35,7 +35,7 @@ The following table lists the codes associated with the each log event.
 | `fcpr` | Failed Change Password Request | | [Changing a User's Password](/connections/database/password-change) |
 | `fcpro` | Failed Connector Provisioning | Failed to provision a AD/LDAP connector | [Active Directory/LDAP Connector](/connector) |
 | `fcu` | Failed Change Username | Failed to change username | [User Profile](/users/concepts/overview-user-profile) |
-| `fd` | Failed Delegation | Failed to generate delegation token | [Delegation Tokens](/tokens/delegation) |	
+| `fd` | Failed Delegation | Failed to generate delegation token | [Delegation Tokens](/tokens/guides/get-delegation-token) |	
 | `fdeac`   | Failed Device Activation | Failed to activate device. | [Device Authorization Flow](/flows/concepts/device-auth) |
 | `fdeaz`    | Failed Device Authorization Request | Device authorization request failed. | [Device Authorization Flow](/flows/concepts/device-auth) |
 | `fdecc`    | User Canceled Device Confirmation | User did not confirm device. | [Device Authorization Flow](/flows/concepts/device-auth) |
@@ -88,7 +88,7 @@ The following table lists the codes associated with the each log event.
 | `scpn` | Success Change Phone Number | | |
 | `scpr` | Success Change Password Request | | |
 | `scu` | Success Change Username | | |
-| `sd` | Success Delegation | | [Delegation Tokens](/tokens/delegation) |
+| `sd` | Success Delegation | | [Delegation Tokens](/tokens/guides/get-delegation-token) |
 | `sdu` | Success User Deletion | User successfully deleted | [User Profile](/users/concepts/overview-user-profile) |
 | `seacft` | Success Exchange | Successful exchange of authorization code for Access Token | [Call API Using the Authorization Code Flow](/flows/guides/auth-code/call-api-auth-code) |
 | `seccft` | Success Exchange | Successful exchange of Access Token for a Client Credentials Grant | [Asking for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens) |

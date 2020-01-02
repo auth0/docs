@@ -209,7 +209,7 @@ You will still have access to the Identity Provider Access Token in the `user` a
 
 You are affected by the change only if you are using the Identity Provider Access Token (`identities[0].access_token` in the user profile) outside of rules to call other services from the Identity Provider (such as Facebook Graph API, Google APIs, and so on).
 
-For more information on how to obtain an Access Token, see: [Call an Identity Provider API](/what-to-do-once-the-user-is-logged-in/calling-an-external-idp-api) and [Identity Provider Access Tokens](/tokens/overview-idp-access-tokens).
+For more information on how to obtain an Access Token, see: [Call an Identity Provider API](/what-to-do-once-the-user-is-logged-in/calling-an-external-idp-api) and [Identity Provider Access Tokens](/tokens/concepts/idp-access-tokens).
 
 ::: note
 If your tenant was created after the change, this update will be applied automatically.

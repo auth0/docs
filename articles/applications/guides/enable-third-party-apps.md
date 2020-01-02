@@ -26,7 +26,7 @@ You can enable third-party applications for your tenant. See [First-Party and Th
 
 ## Access Token `current_user_*` scopes 
 
-Neither first- nor third-party applications can use [ID Tokens](/tokens/id-tokens) to invoke [Management API](/api/management/v2) endpoints. Instead, they should get [Access Tokens](/api/management/v2/tokens) with the following `current_user_*` scopes required by each endpoint:
+Neither first- nor third-party applications can use [ID Tokens](/tokens/concepts/id-tokens) to invoke [Management API](/api/management/v2) endpoints. Instead, they should get [Access Tokens](/api/management/v2/tokens) with the following `current_user_*` scopes required by each endpoint:
 
 | Scope | Endpoint |
 | - | - |

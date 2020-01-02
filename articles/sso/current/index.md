@@ -52,7 +52,7 @@ With SAML or WS-Fed:
 
 ### OpenID Connect
 
-[OpenID Connect (OIDC)](/protocols/oidc) is an authentication protocol commonly used in consumer-facing SSO implementations. The OIDC protocol handles authentication through [JSON Web Tokens (JWTs)](/tokens/jwt) and a central identity provider.
+[OpenID Connect (OIDC)](/protocols/oidc) is an authentication protocol commonly used in consumer-facing SSO implementations. The OIDC protocol handles authentication through [JSON Web Tokens (JWTs)](/tokens/concepts/jwt) and a central identity provider.
 
 With OIDC:
 

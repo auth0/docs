@@ -17,7 +17,7 @@ useCase:
 
 Auth0 issues Access Tokens in two formats: opaque and <dfn data-key="json-web-token">[JSON Web Token (JWT)](/jwt)</dfn>.
 
-In addition, if you have chosen to allow users to log in through an [Identity Provider (IdP)](/identityproviders), such as Facebook, the IdP will issue its own Access Token to allow your application to call the IDP's API. For example, if your user authenticates using Facebook, the Access Token issued by Facebook can be used to call the Facebook Graph API. These tokens are controlled by the IdP and can be issued in any format. To learn more, see [Identity Provider (IdP) Access Tokens](/tokens/overview-idp-access-tokens). 
+In addition, if you have chosen to allow users to log in through an [Identity Provider (IdP)](/identityproviders), such as Facebook, the IdP will issue its own Access Token to allow your application to call the IDP's API. For example, if your user authenticates using Facebook, the Access Token issued by Facebook can be used to call the Facebook Graph API. These tokens are controlled by the IdP and can be issued in any format. To learn more, see [Identity Provider (IdP) Access Tokens](/tokens/concepts/id-access-tokens). 
 
 ### Opaque Access Tokens
 
@@ -27,7 +27,7 @@ To learn more about getting an opaque Access Token for the `userinfo` endpoint, 
 
 ### JSON Web Token Access Tokens
 
-Access Tokens issued for the [Auth0 Management API](/api/info) and Access Tokens issued for any custom API that you have registered with Auth0 will follow the <dfn data-key="json-web-token">[JSON Web Token (JWT)](/jwt)</dfn> standard, which means that their basic structure conforms to the typical [JWT Structure](/tokens/reference/jwt/jwt-structure), and they contain standard [JWT Claims](/tokens/jwt-claims) asserted about the token itself.
+Access Tokens issued for the [Auth0 Management API](/api/info) and Access Tokens issued for any custom API that you have registered with Auth0 will follow the <dfn data-key="json-web-token">[JSON Web Token (JWT)](/jwt)</dfn> standard, which means that their basic structure conforms to the typical [JWT Structure](/tokens/references/jwt-structure), and they contain standard [JWT Claims](/tokens/concepts/jwt-claims) asserted about the token itself.
 
 To learn more about getting a JWT Access Token for the Management API or your own custom API, see [Get Access Tokens](/tokens/guides/access-token/get-access-tokens).
 

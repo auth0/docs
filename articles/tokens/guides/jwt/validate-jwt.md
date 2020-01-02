@@ -63,7 +63,7 @@ Most JWT libraries will take care of JWT validation for you, so be sure to visit
 
 ## Check that the JWT is well-formed
 
-Before doing anything else, make sure the JWT conforms to the [structure of a JWT](/tokens/reference/jwt/jwt-structure). If this fails, the token is considered invalid, and the request must be rejected.
+Before doing anything else, make sure the JWT conforms to the [structure of a JWT](/tokens/references/jwt-structure). If this fails, the token is considered invalid, and the request must be rejected.
 
 The basic steps include:
 
@@ -132,9 +132,8 @@ If any of these checks fail, the token is considered invalid, and the request mu
 
 ## Read more
 
-* [JSON Web Token](/jwt)
-* [Why Use JSON Web Token](/tokens/concepts/why-use-jwt)
-* [JSON Web Token Structure](/tokens/reference/jwt/jwt-structure)
-* [JSON Web Token Claims](/tokens/jwt-claims)
-* [Best Practices for Tokens](/best-practices/token-best-practices)
-* [JSON Web Key Set](/jwks)
+* [JSON Web Token](/tokens/concepts/jwt)
+* [JSON Web Token Structure](/tokens/references/jwt-structure)
+* [JSON Web Token Claims](/tokens/concepts/jwt-claims)
+* [Token Best Practices](/best-practices/token-best-practices)
+* [JSON Web Key Set](/tokens/concepts/jwks)

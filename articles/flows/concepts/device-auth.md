@@ -54,7 +54,7 @@ The easiest way to implement the Device Authorization Flow is to follow our tuto
 
 ## Force device reauthorization
 
-To force the user to reauthorize a device, you must revoke the [Refresh Token](/tokens/refresh-token/current#revoke-a-refresh-token) assigned to the device. To learn how, see [Unlink Devices from Users](/dashboard/guides/users/unlink-user-devices). Note that the device will not be forced to reauthorize until the current Access Token expires and the application tries to use the revoked Refresh Token.
+To force the user to reauthorize a device, you must revoke the [Refresh Token](/tokens/concepts/refresh-token/current#revoke-a-refresh-token) assigned to the device. To learn how, see [Unlink Devices from Users](/dashboard/guides/users/unlink-user-devices). Note that the device will not be forced to reauthorize until the current Access Token expires and the application tries to use the revoked Refresh Token.
 
 ## Keep reading
 

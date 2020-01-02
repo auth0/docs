@@ -11,7 +11,7 @@ An Access Token (also referred to as `access_token`) is an opaque string represe
 
 It is quite common for Access Tokens to be implemented as [JSON Web Tokens](/jwt).
 
-For more information on Auth0 Access Tokens refer to [Access Token](/tokens/access-tokens).
+For more information on Auth0 Access Tokens refer to [Access Token](/tokens/concepts/access-tokens).
 :::
 
 An API can enforce fine-grained control over who can access the various endpoints exposed by the API. These permissions are expressed as scopes.

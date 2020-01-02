@@ -35,7 +35,7 @@ Currently, Auth0 only supports a single JWK for signing; however, it is importan
 
 ## Keep reading
 
-* [JSON Web Key Set Properties](/tokens/reference/jwt/jwks-properties)
+* [JSON Web Key Set Properties](/tokens/references/jwks-properties)
 * [Verify a JSON Web Token's Signature using the JSON Web Key Set Endpoint](/tokens/guides/jwt/use-jwks)
 * [Validate a JSON Web Token](/tokens/guides/jwt/validate-jwt)
 

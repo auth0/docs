@@ -21,7 +21,7 @@ You can use the Auth0 Authentication API to create server-side web applications 
 
 Auth0 exposes endpoints that you can use to authenticate users and get their authorization. 
 
-You can redirect the user from your web application to these endpoints in the web browser. Auth0 will handle the authentication of the user, and then redirect the user back to a pre-configured callback URL, returning an authorization code in the query string parameters of the callback URL. This code can then be exchanged for an [ID Token](/tokens/id-tokens) (which contains information about the identity of the user) and an [Access Token](/tokens/access-tokens).
+You can redirect the user from your web application to these endpoints in the web browser. Auth0 will handle the authentication of the user, and then redirect the user back to a pre-configured callback URL, returning an authorization code in the query string parameters of the callback URL. This code can then be exchanged for an [ID Token](/tokens/concepts/id-tokens) (which contains information about the identity of the user) and an [Access Token](/tokens/concepts/access-tokens).
 
 ## The Authentication Flow
 
@@ -29,12 +29,12 @@ The OAuth 2.0 Authorization Framework allows for different kinds of authorizatio
 
 The Authorization Code flow is initiated by redirecting the user in the web browser to the Auth0 `/authorize` endpoint. Auth0 will then display the Auth0 Lock dialog, allowing the user to enter their credentials or alternatively sign in with any other configured [Identity Provider](/identityproviders).
 
-After the user has authenticated, Auth0 will redirect the browser back to the **Redirect URI** (also called **Callback URL**), passing along a `code` parameter in the query string of the Callback URL. This `code` can then be exchanged for an [ID Token](/tokens/id-tokens) by making a request to the `/oauth/token` endpoint.
+After the user has authenticated, Auth0 will redirect the browser back to the **Redirect URI** (also called **Callback URL**), passing along a `code` parameter in the query string of the Callback URL. This `code` can then be exchanged for an [ID Token](/tokens/concepts/id-tokens) by making a request to the `/oauth/token` endpoint.
 
 The ID Token is a [JSON Web Token (JWT)](/jwt) and contains various attributes regarding the user, such as the user's name, email address, profile picture and so on. These attributes are referred to as **Claims** and they can be extracted from the ID Token and used in your application (for example, to display a user's name and profile image).
 
 ::: note
-You will also receive an [Access Token](/tokens/access-tokens) which you can use to call the [Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info) or your own APIs. For more information on calling APIs web apps running on the server, see [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code)
+You will also receive an [Access Token](/tokens/concepts/access-tokens) which you can use to call the [Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info) or your own APIs. For more information on calling APIs web apps running on the server, see [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code)
 :::
 
 ![Authentication flow for server-side web apps](/media/articles/client-auth/server-side-web/server-side-web-flow.png)

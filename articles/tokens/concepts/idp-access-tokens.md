@@ -25,7 +25,7 @@ The contents of third-party Access Tokens will vary depending on the issuing ide
 
 There is no standard way to renew IdP Access Tokens through Auth0. The mechanism for renewing IdP Access Tokens varies for each provider.
 
-For certain identity providers, Auth0 can store a <dfn data-key="refresh-token">[Refresh Token](/tokens/refresh-token)</dfn>, which you can use to obtain a new Access Token for the IdP. Currently this is supported for the following identity providers:
+For certain identity providers, Auth0 can store a <dfn data-key="refresh-token">[Refresh Token](/tokens/concepts/refresh-token)</dfn>, which you can use to obtain a new Access Token for the IdP. Currently this is supported for the following identity providers:
 
 * BitBucket
 * Google OAuth 2.0 (you need to pass the parameter `access_type=offline` when calling the Auth0 `/authorize` endpoint)
@@ -41,7 +41,7 @@ If you have received an Access Token from an [Identity Provider (IdP)](/identity
 
 ## Keep reading
 
-* [Access Tokens](/tokens/access-tokens)
+* [Access Tokens](/tokens/concepts/access-tokens)
 * [Identity Providers Supported by Auth0](/identityproviders)
 * [Access Tokens for the Management API](/api/management/v2/tokens)
 * [Scopes](/scopes)

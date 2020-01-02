@@ -1,6 +1,6 @@
 ## Refresh Tokens
 
-You have already received a [Refresh Token](/tokens/refresh-token/current) if you've been following this tutorial and completed the following:
+You have already received a [Refresh Token](/tokens/concepts/refresh-token/current) if you've been following this tutorial and completed the following:
 
 * configured your API to allow offline access
 * included the `offline_access` scope when you initiated the authentication request through the [authorize](/api/authentication/reference#authorize-application) endpoint

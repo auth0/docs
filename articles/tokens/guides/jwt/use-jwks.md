@@ -26,7 +26,7 @@ When [validating a JWT](/tokens/guides/jwt/validate-jwt) using a JWKS, you will 
 
 For an example that uses JWKS to verify a JWT's signature, see [Navigating RS256 and JWKS](https://auth0.com/blog/navigating-rs256-and-jwks/) (uses Node.js), or check out our [Backend/API Quickstarts](/quickstart/backend).
 
-For more info about the structure of a JWT, see [JSON Web Token Structure](/tokens/reference/jwt/jwt-structure).
+For more info about the structure of a JWT, see [JSON Web Token Structure](/tokens/references/jwt-structure).
 
 ## How many signing keys should I expect?
 
@@ -38,9 +38,9 @@ You can cache your signing keys to improve application performance and avoid run
 
 ## Read more
 
-* [JSON Web Key Set](/tokens/jwks)
-* [JSON Web Key Set Properties](/tokens/reference/jwt/jwks-properties)
-* [JSON Web Token Structure](/tokens/reference/jwt/jwt-structure)
+* [JSON Web Key Set](/tokens/concepts/jwks)
+* [JSON Web Key Set Properties](/tokens/references/jwks-properties)
+* [JSON Web Token Structure](/tokens/references/jwt-structure)
 * [Validate a JSON Web Token](/tokens/guides/jwt/validate-jwt)
 
 Sample implementations:

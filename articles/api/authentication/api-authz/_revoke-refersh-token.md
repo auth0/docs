@@ -72,4 +72,4 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 
 ### More Information
 
-- [Refresh Token](/tokens/refresh-token)
+- [Refresh Token](/tokens/concepts/refresh-token)

@@ -581,7 +581,7 @@ Use this endpoint to refresh an <dfn data-key="access-token">Access Token</dfn> 
 
 ### More Information
 
-- [Refresh Token](/tokens/refresh-token)
+- [Refresh Token](/tokens/concepts/refresh-token)
 
 ## Token Exchange for Native Social
 

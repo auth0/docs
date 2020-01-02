@@ -109,7 +109,7 @@ Replace these values:
 
 ::: panel Where do I find the User ID?
 - For testing purposes, you can find a user ID at [Dashboard > Users](${manage_url}/#/users/). Select a user and copy the value of the **user_id** field.
-- For your implementation, you can either extract this information from the [ID Token](/tokens/id-tokens) (get the value of the claim **sub**), or call the [/userinfo endpoint of the Authentication API](/api/authentication#get-user-info) (get the value of the response property **user_id**).
+- For your implementation, you can either extract this information from the [ID Token](/tokens/concepts/id-tokens) (get the value of the claim **sub**), or call the [/userinfo endpoint of the Authentication API](/api/authentication#get-user-info) (get the value of the response property **user_id**).
 :::
 
 
@@ -118,7 +118,7 @@ Replace these values:
 Within the user's `identities` array, there will be an Access Token that you can extract and use to make calls to the IdP's API: `user.identities[0].access_token`.
 
 ::: note
-For certain Identity Providers, Auth0 will store a <dfn data-key="refresh-token">Refresh Token</dfn> which you can use to obtain a new Access Token for the IdP. This works for: BitBucket, Google (OAuth 2.0), OAuth 2.0, SharePoint, Azure AD. For more information, refer to [Identity Provider Access Tokens](/tokens/overview-idp-access-tokens).
+For certain Identity Providers, Auth0 will store a <dfn data-key="refresh-token">Refresh Token</dfn> which you can use to obtain a new Access Token for the IdP. This works for: BitBucket, Google (OAuth 2.0), OAuth 2.0, SharePoint, Azure AD. For more information, refer to [Identity Provider Access Tokens](/tokens/concepts/idp-access-tokens).
 :::
 
 In most cases, the user will only have one identity, but if you have used the [account linking feature](/link-accounts), there may be more.

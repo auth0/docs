@@ -64,7 +64,7 @@ Or, to use our API endpoints, you can follow our tutorial: [Call Your API Using 
 :::
 
 ::: concepts  
-  * [Access Tokens](/tokens/access-tokens)
+  * [Access Tokens](/tokens/concepts/access-tokens)
   * [Where to store tokens](/security/store-tokens)
 :::
 

@@ -97,7 +97,7 @@ When your application receives the ID Token, it will verify and decode it in ord
 }
 ```
 
-For more information on the ID Token, refer to [ID Token](/tokens/id-tokens).
+For more information on the ID Token, refer to [ID Token](/tokens/concepts/id-tokens).
 
 ::: note
 Properties added in a Rule are __not persisted__ in the Auth0 user store. Persisting properties requires calling the Auth0 Management API.

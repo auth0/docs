@@ -50,7 +50,7 @@ Your API will receive a request including an Access Token: 
 :::
 
 ::: concepts  
-  * [Access Tokens](/tokens/access-tokens)
+  * [Access Tokens](/tokens/concepts/access-tokens)
   * [Scopes](/scopes)
   * [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
   * [Dynamic client registration](/api-auth/dynamic-client-registration)

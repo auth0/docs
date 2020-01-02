@@ -24,7 +24,7 @@ Auth0 makes it easy for your app to implement the Authorization Code Flow with P
 * [Auth0 Mobile SDKs](/libraries#auth0-sdks): The easiest way to implement the flow, which will do most of the heavy-lifting for you. Our [Mobile Quickstarts](/quickstart/native) will walk you through the process.
 * Authentication API: If you prefer to roll your own, keep reading to learn how to call our API directly.
 
-Following successful login, your application will have access to the user's [ID Token](/tokens/id-tokens) and [Access Token](/tokens/access-tokens). The ID Token will contain basic user profile information, and the Access Token can be used to call the Auth0 /userinfo endpoint or your own protected APIs.
+Following successful login, your application will have access to the user's [ID Token](/tokens/concepts/id-tokens) and [Access Token](/tokens/concepts/access-tokens). The ID Token will contain basic user profile information, and the Access Token can be used to call the Auth0 /userinfo endpoint or your own protected APIs.
 
 ## Prerequisites
 

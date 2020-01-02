@@ -95,7 +95,7 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 
 - [Call an Identity Provider API](/tutorials/calling-an-external-idp-api)
 
-- [Identity Provider Access Tokens](/tokens/overview-idp-access-tokens)
+- [Identity Provider Access Tokens](/tokens/concepts/idp-access-tokens)
 
 - [Add scopes/permissions to call Identity Provider's APIs](/tutorials/adding-scopes-for-an-external-idp)
 

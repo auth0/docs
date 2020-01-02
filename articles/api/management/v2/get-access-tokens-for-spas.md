@@ -73,7 +73,7 @@ Notice:
 
 #### Response
 
-When we receive our Management API Token, it will be in [JSON Web Token format](/tokens/reference/jwt/jwt-structure). Decoding it and reviewing its contents will reveal the following:
+When we receive our Management API Token, it will be in [JSON Web Token format](/tokens/references/jwt-structure). Decoding it and reviewing its contents will reveal the following:
 
 ```text
 {

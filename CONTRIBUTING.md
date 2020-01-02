@@ -181,8 +181,8 @@ Try to keep the list length to a minimum (up to 5 links).
 
 ```
 ::: next-steps
-* [Access Token](/tokens/access-token)
-* [ID Token](/tokens/id-token)
+* [Access Token](/tokens/concepts/access-tokens)
+* [ID Token](/tokens/concepts/id-tokens)
 * [OpenID Connect Overview](/protocols/oidc)
 :::
 ```

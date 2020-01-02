@@ -896,8 +896,8 @@ module.exports = [
     to: '/multifactor-authentication/step-up-authentication'
   },
   {
-    from: ['/refresh-token', '/tokens/refresh_token'],
-    to: '/tokens/refresh-token'
+    from: ['/refresh-token', '/tokens/refresh_token', '/tokens/refresh-token'],
+    to: '/tokens/concepts/refresh-token'
   },
   {
     from: '/update-client-secret',
@@ -1170,7 +1170,7 @@ module.exports = [
   },
   {
     from: '/tokens/id_token',
-    to: '/tokens/id-token'
+    to: '/tokens/concepts/id-tokens'
   },
   {
     from: '/tokens/add-custom-claims',
@@ -1182,7 +1182,7 @@ module.exports = [
   },
   {
     from: '/scopes/current/custom-claims',
-    to: '/tokens/jwt-claims#custom-claims'
+    to: '/tokens/concepts/jwt-claims#custom-claims'
   },
   {
     from: '/tokens/guides/jwt/verify-jwt-signature-using-jwks',
@@ -1977,12 +1977,12 @@ module.exports = [
      to: '/troubleshoot/har'
    },
    {
-     from: ['/tokens/overview-access-tokens','/tokens/access-token','/tokens/access_token'],
-     to: '/tokens/access-tokens'
+     from: ['/tokens/overview-access-tokens','/tokens/access-tokens','/tokens/access_token'],
+     to: '/tokens/concepts/access-tokens'
    },
    {
     from: ['/tokens/overview-id-tokens','/tokens/id-token'],
-    to: '/tokens/id-tokens'
+    to: '/tokens/concepts/id-tokens'
   },
    {
      from: '/api-auth/tutorials/verify-access-token',

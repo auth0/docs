@@ -29,7 +29,7 @@ Third-party applications have the following unique characteristics:
 
 - **User Consent**: You must require user consent when consuming APIs because anyone can create an application. Requiring the user to provide consent improves security.
 
-- **ID Tokens**: [ID Tokens](/tokens/id-tokens) generated for third-party applications hold only minimum user profile information.
+- **ID Tokens**: [ID Tokens](/tokens/concepts/id-tokens) generated for third-party applications hold only minimum user profile information.
 
 - **Connections**: You can only use tenant-level connections or *domain connections*. For more informations, see [Enable Third-party Applications](/applications/guides/enable-third-party-apps).
 

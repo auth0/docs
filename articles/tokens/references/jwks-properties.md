@@ -55,10 +55,6 @@ For an example that uses JWKS to verify a JWT's signature, see [Navigating RS256
 
 ## Read more
 
-* [JSON Web Key Set](/tokens/jwks)
+* [JSON Web Key Set](/tokens/concepts/jwks)
 * [Verify a JSON Web Token's Signature using the JSON Web Key Set Endpoint](/tokens/guides/jwt/use-jwks)
 * [Validate a JSON Web Token](/tokens/guides/jwt/validate-jwt)
-
-Sample implementations:
-* [Backend/API Quickstarts](/quickstart/backend)
-* [Navigating RS256 and JWKS](https://auth0.com/blog/navigating-rs256-and-jwks/) (uses Node.js)

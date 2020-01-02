@@ -95,5 +95,5 @@ In many cases, you might find it useful to retrieve additional user information 
 
 ## Keep reading
 
-* [Obtaining and Using Access Tokens](/tokens/access-tokens)
-* [Obtaining and Using ID Tokens](/tokens/id-tokens)
+* [Obtaining and Using Access Tokens](/tokens/concepts/access-tokens)
+* [Obtaining and Using ID Tokens](/tokens/concepts/id-tokens)

@@ -25,7 +25,7 @@ Only **Enterprise** subscription plans include the ability to use a custom datab
 [Extensibility](/extend-integrate) provides the capability to add custom login in Auth0 as a mechanism for building out last-mile solutions for Identity and Access Management (IdAM). Auth0 extensibility comes in several forms:
 
 - [Rules](/rules): Run when artifacts for user authenticity are generated. For example:
-   - An [ID Token](/tokens/id-token) in <dfn data-key="openid">OpenID Connect (OIDC)</dfn>
+   - An [ID Token](/tokens/concepts/id-tokens) in <dfn data-key="openid">OpenID Connect (OIDC)</dfn>
    - An <dfn data-key="access-token">Access Token</dfn> in [OAuth 2.0](/protocols/oauth2)
    - An [assertion in SAML](/protocols/saml/saml-configuration/saml-assertions#use-rules)
 - [Hooks](/hooks): Provide additional extensibility when there is an exchange of non-user-related artifacts and when user identities are created such as pre-user registration and post-user registration.

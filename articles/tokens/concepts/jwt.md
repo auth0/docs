@@ -28,22 +28,35 @@ JSON Web Token (JWT), pronounced "jot", is an open standard ([RFC 7519](https://
 * **Self-contained**: A JWT contains all the required information about an entity to avoid querying a database more than once. The recipient of a JWT also does not need to call a server to validate the token.
 
 ::: note
-For info about why to use JWT over other token formats, including Simple Web Tokens (SWT) and <dfn data-key="security-assertion-markup-language">SAML</dfn> tokens, see [Why Use JSON Web Token](/tokens/concepts/why-use-jwt).
+For info about why to use JWT over other token formats, including Simple Web Tokens (SWT) and <dfn data-key="security-assertion-markup-language">SAML</dfn> tokens, see [JSON Web Tokens](/tokens/concepts/jwt).
 :::
 
 ## Use of JWTs
 
 JWT is a standard, which means that **all JWTs are tokens, but not all tokens are JWTs**. JWTs can be used in varying ways:
 
-- **Authentication**: When a user successfully logs in using their credentials, an [ID Token](/tokens/id-tokens) is returned. According to the <dfn data-key="openid">[OpenID Connect (OIDC) specs](https://openid.net/specs/openid-connect-core-1_0.html#IDToken)</dfn>, an ID Token is always a JWT. To learn more about how to get and validate an ID Token using Auth0, see [ID Tokens](/tokens/id-tokens).
+- **Authentication**: When a user successfully logs in using their credentials, an [ID Token](/tokens/concepts/id-tokens) is returned. According to the <dfn data-key="openid">[OpenID Connect (OIDC) specs](https://openid.net/specs/openid-connect-core-1_0.html#IDToken)</dfn>, an ID Token is always a JWT. To learn more about how to get and validate an ID Token using Auth0, see [ID Tokens](/tokens/concepts/id-tokens).
 
-- **Authorization**: Once a user is successfully logged in, an application may request to access routes, services, or resources (e.g., APIs) on behalf of that user. To do so, in every request, it must pass an <dfn data-key="access-token">Access Token</dfn>, which *may* be in the form of a JWT. <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> widely uses JWT because of the small overhead of the format, and its ability to easily be used across different domains. To learn more about how to use Access Tokens with Auth0, see [Access Tokens](/tokens/access-tokens).
+- **Authorization**: Once a user is successfully logged in, an application may request to access routes, services, or resources (e.g., APIs) on behalf of that user. To do so, in every request, it must pass an <dfn data-key="access-token">Access Token</dfn>, which *may* be in the form of a JWT. <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> widely uses JWT because of the small overhead of the format, and its ability to easily be used across different domains. To learn more about how to use Access Tokens with Auth0, see [Access Tokens](/tokens/concepts/access-tokens).
 
 - **Information Exchange**: JWTs are a good way of securely transmitting information between parties because they can be signed, which means you can be sure that the senders are who they say they are. Additionally, the structure of a JWT allows you to verify that the content hasn't been tampered with.
 
 ::: warning
 However you use JWTs, be sure to follow [best practices for tokens](/best-practices/token-best-practices) and make sure you [verify the signature](/tokens/guides/id-token/validate-id-token#verify-the-signature) before storing and using a JWT. For more information on how to implement JWT, see [Validate a JSON Web Token](/tokens/guides/jwt/validate-jwt).
 :::
+
+Let's talk about the benefits of **<dfn data-key="json-web-token">JSON Web Token (JWT)</dfn>** when compared to **Simple Web Token (SWT)** and **<dfn data-key="security-assertion-markup-language">Security Assertion Markup Language (SAML)</dfn> tokens**.
+
+* **More compact**: JSON is less verbose than XML, so when it is encoded, a JWT is smaller than a SAML token. This makes JWT a good choice to be passed in HTML and HTTP environments.
+
+    ![Comparing the length of an encoded JWT and an encoded SAML](/media/articles/jwt/comparing-jwt-vs-saml2.png)
+    _Comparison of the length of an encoded JWT and an encoded SAML_
+
+* **More secure**: JWT can use a public/private key pair in the form of an X.509 certificate for signing. A JWT can also be symmetrically signed by a shared secret using the HMAC algorithm. And while SAML tokens can use public/private key pairs like JWT, signing XML with XML Digital Signature without introducing obscure security holes is very difficult when compared to the simplicity of signing JSON. Read more about JWT [signing algorithms](/tokens/concepts/signing-algorithms) in our [blog](https://auth0.com/blog/json-web-token-signing-algorithms-overview/).
+
+* **More common**: JSON parsers are common in most programming languages because they map directly to objects. Conversely, XML doesn't have a natural document-to-object mapping. This makes it easier to work with JWT than SAML assertions.
+
+* **Easier to process**: JWT is used at internet scale. This means that it is easier to process on user's devices, especially mobile.
 
 ## Security
 
@@ -56,9 +69,8 @@ Before a received JWT is used, it should be [properly validated using its signat
 ## Next steps
 
 ::: next-steps
-* [Why Use JSON Web Token](/tokens/concepts/why-use-jwt)
-* [JSON Web Token Structure](/tokens/reference/jwt/jwt-structure)
-* [JSON Web Token Claims](/tokens/jwt-claims)
+* [JSON Web Token Structure](/tokens/references/jwt-structure)
+* [JSON Web Token Claims](/tokens/concepts/jwt-claims)
 * [Validate a JSON Web Token](/tokens/guides/jwt/validate-jwt)
 * [Token Best Practices](/best-practices/token-best-practices)
 :::

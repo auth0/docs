@@ -19,7 +19,7 @@ useCase: extensibility-extensions
 
 You can use [rules](/rules) with the Authorization Extension to do things like:
 
-* Add [custom claims](/tokens/jwt-claims#custom-claims) to the issued token
+* Add [custom claims](/tokens/concepts/jwt-claims#custom-claims) to the issued token
 * Determining the user's group membership, <dfn data-key="role">roles</dfn> and permissions
 * Storing the user's groups, roles and permissions info as [part of the `app_metadata`](/extensions/authorization-extension/v2/configuration#persistence)
 * Adding the user's groups, roles and permissions to the [outgoing token](/extensions/authorization-extension/v2/configuration#token-contents) (which can be requested via the `openid groups permissions roles` scope)

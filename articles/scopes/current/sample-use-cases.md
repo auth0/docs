@@ -41,7 +41,7 @@ Notice that in this example:
 
 2. After the user consents (if necessary) and Auth0 redirects back to your app, request tokens. (For details, refer to [Add Login to Regular Web Applications: Request Tokens](/flows/guides/auth-code/add-login-auth-code#request-tokens).)
 
-3. Extract the ID Token from the response and [decode it](/tokens/id-tokens#id-token-payload).
+3. Extract the ID Token from the response and [decode it](/tokens/concepts/id-tokens#id-token-payload).
 
 You should see the following claims:
 
@@ -134,7 +134,7 @@ Notice that in this example:
 
 2. As in the previous examples, after the user consents (if necessary) and Auth0 redirects back to your app, request tokens. (For details, refer to [Add Login to Regular Web Applications: Request Tokens](/flows/guides/auth-code/add-login-auth-code#request-tokens).)
 
-3. Extract the ID Token from the response, [decode it](/tokens/id-tokens#id-token-payload), and retrieve the user attributes and use them to personalize your UI.
+3. Extract the ID Token from the response, [decode it](/tokens/concepts/id-tokens#id-token-payload), and retrieve the user attributes and use them to personalize your UI.
 
 4. Extract the Access Token from the response, and call the API using the Access Token as credentials.
 
@@ -184,7 +184,7 @@ Notice that in this example:
  * the `sub` claim contains the value of the `user_id` property
  * neither the `favorite_color` or `user_metadata` properties are present because OpenID Connect (OIDC) does not define standard claims that represent `favorite_color` or `user_metadata`
  
-To receive the custom data, create a rule to customize the token with [namespaced](/tokens/concepts/claims-namespacing) [custom claims](/tokens/jwt-claims#custom-claims) that represent these properties from the user profile:
+To receive the custom data, create a rule to customize the token with [namespaced](/tokens/concepts/claims-namespacing) [custom claims](/tokens/concepts/jwt-claims#custom-claims) that represent these properties from the user profile:
 
 ```js
 function(user, context, callback) {
@@ -207,7 +207,7 @@ When creating your rule, make sure to set some logic that determines when to inc
 
 - [Scopes](/scopes)
 - [OpenID Connect (OIDC) Scopes](/scopes/current/oidc-scopes)
-- [Custom Claims](/tokens/jwt-claims#custom-claims)
+- [Custom Claims](/tokens/concepts/jwt-claims#custom-claims)
 - [API Scopes](/scopes/current/api-scopes)
 - [Add API Permissions (Scopes)](/dashboard/guides/apis/add-permissions-apis)
 - [Customize the Consent Prompt](/scopes/current/guides/customize-consent-prompt)

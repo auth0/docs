@@ -17,7 +17,7 @@ useCase:
 ---
 # Signing Algorithms
 
-The algorithm used to sign tokens issued for your application or API. A [signature](/tokens/reference/jwt/jwt-structure#signature) is part of a [JSON Web Token (JWT)](/docs/jwt) and is used to verify that the sender of the token is who it says it is and to ensure that the message wasn't changed along the way.
+The algorithm used to sign tokens issued for your application or API. A [signature](/tokens/references/jwt-structure#signature) is part of a [JSON Web Token (JWT)](/docs/jwt) and is used to verify that the sender of the token is who it says it is and to ensure that the message wasn't changed along the way.
 
 You can select from the following signing algorithms:
 

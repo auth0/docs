@@ -54,8 +54,8 @@ For security in SPAs, Auth0 uses the [Implicit Flow](/flows/concepts/implicit).
 
 ::: concepts  
   * [Universal vs. Embedded Login](/guides/login/universal-vs-embedded)
-  * [ID Tokens](/tokens/id-tokens)
-  * [Access Tokens](/tokens/access-tokens)
+  * [ID Tokens](/tokens/concepts/id-tokens)
+  * [Access Tokens](/tokens/concepts/access-tokens)
   * [Where to store tokens](/security/store-tokens)
 :::
 

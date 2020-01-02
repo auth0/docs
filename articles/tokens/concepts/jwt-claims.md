@@ -20,7 +20,7 @@ useCase:
 This page describes the standard types of claims available when using the JSON Web Token (JWT) standard. To learn about OpenID Connect (OIDC) standard claims, see [OpenID Connect Scopes: Standard Claims](/scopes/current/oidc-scopes#standard-claims).
 :::
 
-[JSON Web Token (JWT)](/jwt) claims are pieces of information asserted about a subject. For example, an [ID Token](/tokens/id-tokens) (which is always a JWT) may contain a claim called `name` that asserts that the name of the user authenticating is "John Doe".
+[JSON Web Token (JWT)](/jwt) claims are pieces of information asserted about a subject. For example, an [ID Token](/tokens/concepts/id-tokens) (which is always a JWT) may contain a claim called `name` that asserts that the name of the user authenticating is "John Doe".
 
 In a JWT, a claim appears as a name/value pair where the name is always a string and the value can be any JSON value. Generally, when we talk about a claim in the context of a JWT, we are referring to the name (or *key*). For example, the following JSON object contains three claims (`sub`, `name`, `admin`):
 
@@ -53,11 +53,11 @@ The JWT specification defines seven reserved claims that are not required, but a
 
 You can see a full list of reserved claims at the [IANA JSON Web Token Claims Registry](https://www.iana.org/assignments/jwt/jwt.xhtml#claims). 
 
-Note that [OpenID Connect (OIDC) standard claims](/scopes/current/oidc-scopes#standard-claims) returned in [ID Tokens](/tokens/id-tokens) are reserved claims. For an example showing how to add OIDC standard claims to a token, see [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases#authenticate-a-user-and-request-standard-claims).
+Note that [OpenID Connect (OIDC) standard claims](/scopes/current/oidc-scopes#standard-claims) returned in [ID Tokens](/tokens/concepts/id-tokens) are reserved claims. For an example showing how to add OIDC standard claims to a token, see [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases#authenticate-a-user-and-request-standard-claims).
 
 ### Custom claims
 
-For your specific use case, you can define your own [custom claims](/tokens/jwt-claims#custom-claims), which you control and can add to a token using a [rule](/rules). For example, you may want to add a user's email address to an Access Token and use that to uniquely identify the user, or you may want to add custom information stored in an Auth0 user profile to an ID Token. As long as your rule is in place, the custom claims it adds will appear in new tokens issued when using a <dfn data-key="refresh-token">[Refresh Token](/tokens/refresh-token)</dfn>.
+For your specific use case, you can define your own [custom claims](/tokens/concepts/jwt-claims#custom-claims), which you control and can add to a token using a [rule](/rules). For example, you may want to add a user's email address to an Access Token and use that to uniquely identify the user, or you may want to add custom information stored in an Auth0 user profile to an ID Token. As long as your rule is in place, the custom claims it adds will appear in new tokens issued when using a <dfn data-key="refresh-token">[Refresh Token](/tokens/concepts/refresh-token)</dfn>.
 
 You can name a custom claim anything that is not already listed in the [IANA JSON Web Token Claims Registry](https://www.iana.org/assignments/jwt/jwt.xhtml#claims), and you should use collision-resistant names, such as through [namespacing](/tokens/concepts/claims-namespacing) (which Auth0 requires).
 
@@ -83,8 +83,7 @@ According to the JWT standard, you *should* name private claims cautiously to av
 
 ::: next-steps
 * [JSON Web Tokens](/jwt)
-* [Why Use JSON Web Token](/tokens/concepts/why-use-jwt)
-* [JSON Web Token Structure](/tokens/reference/jwt/jwt-structure)
+* [JSON Web Token Structure](/tokens/references/jwt-structure)
 * [Validate a JSON Web Token](/tokens/guides/jwt/validate-jwt)
 * [Best Practices for Tokens](/best-practices/token-best-practices)
 * [OpenID Connect Scopes: Standard Claims](/docs/scopes/current/oidc-scopes#standard-claims)

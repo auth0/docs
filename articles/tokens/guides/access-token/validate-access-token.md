@@ -20,7 +20,7 @@ useCase:
 This document discusses validation of Access Tokens issued by Auth0. If you have received an Access Token from an [Identity Provider (IdP)](/identityproviders), in general, you don't need to validate it. You can pass it to the issuing IdP, and the IdP takes care of the rest.
 :::
 
-An Access Token is a credential that can be used by an application to access an API. Before you can validate an [Access Token](/tokens/access-tokens), you first need to know the format of the token. Auth0 issues Access Tokens in two formats: opaque and <dfn data-key="json-web-token">[JSON Web Token (JWT)](/jwt)</dfn>.
+An Access Token is a credential that can be used by an application to access an API. Before you can validate an [Access Token](/tokens/concepts/access-tokens), you first need to know the format of the token. Auth0 issues Access Tokens in two formats: opaque and <dfn data-key="json-web-token">[JSON Web Token (JWT)](/jwt)</dfn>.
 
 ::: warning
 Remember that an Access Token is meant for an API and should be validated only by the API for which it was intended. Client applications should not depend on the Access Token to be any specific format, and instead treat it as if it is opaque (regardless of whether it actually is).
@@ -62,7 +62,7 @@ Because the Access Token is a JWT, you will first need to perform the standard J
 
 #### Check additional standard claims
 
-If you've performed the standard JWT validation, you have already decoded the [JWT's Payload](/tokens/reference/jwt/jwt-structure#payload) and looked at its standard claims. Some additional claims to verify for Access Tokens include:
+If you've performed the standard JWT validation, you have already decoded the [JWT's Payload](/tokens/references/jwt-structure#payload) and looked at its standard claims. Some additional claims to verify for Access Tokens include:
 
 * **Token audience** (`aud`, array of strings): Depending on the initial token request, the `aud` field could contain both an audience corresponding to your custom API and an audience corresponding to the `userinfo`endpoint. At least one of the audience values for the token must match the unique identifier of the target API as defined in your [API's Settings](${manage_url}/#/apis) in the **Identifier** field. To learn more about getting Access Tokens with multiple audiences, see [Get an Access Token](/tokens/guides/access-token/get-access-tokens).
 

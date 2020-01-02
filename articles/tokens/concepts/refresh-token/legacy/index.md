@@ -14,7 +14,7 @@ useCase:
 # Refresh Token
 
 ::: version-warning
-This document covers an outdated version of the Auth0 authentication pipeline and the way <dfn data-key="refresh-token">Refresh Tokens</dfn> are used. We recommend you use <a href="/tokens/refresh-token">the latest version</a>.
+This document covers an outdated version of the Auth0 authentication pipeline and the way <dfn data-key="refresh-token">Refresh Tokens</dfn> are used. We recommend you use <a href="/tokens/concepts/refresh-token">the latest version</a>.
 :::
 
 A **Refresh Token** is a special kind of token that is used to authenticate a user without them needing to re-authenticate. This is primarily useful for mobile applications that are installed on a device.
