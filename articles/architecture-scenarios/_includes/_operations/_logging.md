@@ -4,7 +4,7 @@ Auth0 provides extensive capability when it comes to the logging of events, and 
 You should leverage one of the Auth0 logs extensions to send log data to an external log analytics service. This will enable keeping data for longer periods of time and provide advanced analytics on the log data.
 :::
 
-You should review the log data [retention period](/logs#how-long-is-log-file-data-available-) for your subscription level, and implement a log data export extension to send log data to an external log analytics service. Development teams can use log files for troubleshooting and detecting intermittent errors that may be hard to find via QA tests. Security teams will probably want log data in case forensic data is ever needed. Exporting log files to services that provide comprehensive analytics can help you see patterns such as usage trends and anomaly detection triggers. 
+You should review the log data [retention period](/logs/references/log-data-retention) for your subscription level, and implement a log data export extension to send log data to an external log analytics service. Development teams can use log files for troubleshooting and detecting intermittent errors that may be hard to find via QA tests. Security teams will probably want log data in case forensic data is ever needed. Exporting log files to services that provide comprehensive analytics can help you see patterns such as usage trends and anomaly detection triggers. 
 
 ### Rate limits and other errors
 

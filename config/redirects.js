@@ -2334,27 +2334,11 @@ module.exports = [
       to: '/troubleshoot/guides/check-deprecation-errors'
     },
     {
-      from: '/errors/libraries/auth0-js/invalid-token',
-      to: '/troubleshoot/references/invalid-token'
+    from: '/api/management/v1/use-cases',
+    to: '/migrations/guides/management-api-v1-v2'
     },
     {
-      from: '/troubleshoot/har',
-      to: '/troubleshoot/guides/generate-har-files'
-    },
-    {
-      from: '/troubleshoot/basics',
-      to: '/troubleshoot/concepts/basics'
-    },
-    {
-      from: '/troubleshoot/issues',
-      to: '/troubleshoot'
-    },
-    {    
-      from: '/api/v1/use-cases',
-      to: '/migrations/guides/management-api-v1-v2'
-    },
-    {
-      from: '/api/management/v1/use-cases',
-      to: '/migrations/guides/management-api-v1-v2'
+      from: '/logs/query-syntax',
+      to: '/logs/references/query-syntax'
     }
 ];

@@ -61,9 +61,6 @@ Breaking changes are related to:
 * The query syntax when using the `q` parameter in the `GET /api/v2/logs` has minor changes that need to be taken into account. When your tenant is migrated to logs v3 this validation will be enforced resulting in this query returning an error. To avoid any potential disruption, you should review your queries to make sure they comply with the supported query syntax.
 * The `q` parameter includes an invalid field. When your tenant is migrated to logs v3 this validation will be enforced resulting in this call returning an error. To avoid any potential disruption, you should review your queries to make sure that only searchable fields are included. 
 
-
-For more details on these changes, see [Logs Search Query Syntax](/logs/query-syntax#search-engine-v3-breaking-changes). 
-
 ## How to Migrate?
 
 After reviewing your queries, you can opt-in to Tenant Logs Search Engine v3 via the Dashboard. Go to *Tenant Settings > Advanced*, then scroll down to *Migrations*. Toggle the *Legacy Logs Search V2* switch to off. 
@@ -78,5 +75,5 @@ If you do not see the **Legacy Logs Search V2** toggle, you've already been migr
 If you need help with the migration, contact us using the [Support Center](https://support.auth0.com/).
 
 ## Keep reading
-* [Tenant Logs Overview](/logs)
-* [Query Syntax](/logs/query-syntax)
+
+* [Logs](/logs)

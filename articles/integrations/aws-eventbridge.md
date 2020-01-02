@@ -1,6 +1,6 @@
 ---
-title: Integrating AWS EventBridge with Auth0
-description: How to send Auth0 logging data using AWS EventBridge
+title: Integrate AWS EventBridge with Auth0
+description: Learn how to create an event-driven workflow using AWS EventBridge to send your tenant logs to the targers of your choice such as AWS EC2 instances, Lambda functions, Kinesis streams, and ECS tasks.
 toc: true
 topics:
  - integrations
@@ -8,11 +8,11 @@ topics:
  - eventbridge
 contentType: how-to
 ---
-# Integrating AWS EventBridge with Auth0
+# Integrate AWS EventBridge with Auth0
 
 Amazon Web Services' EventBridge is a serverless event bus that acts as an intermediary allowing you to send data from your applications to AWS services.
 
-This tutorial will cover how to create an event-driven workflow using EventBridge to send your Auth0 tenant logs to the targets of your choice (e.g., AWS EC2 instances, Lambda functions, Kinesis streams, ECS tasks).
+You can create an event-driven workflow using EventBridge to send your Auth0 tenant logs to the targets of your choice (e.g., AWS EC2 instances, Lambda functions, Kinesis streams, and ECS tasks).
 
 ## Send events from Auth0 to AWS EventBridge
 
