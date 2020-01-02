@@ -86,7 +86,7 @@ According to the JWT standard, you *should* name private claims cautiously to av
 * [Why Use JSON Web Token](/tokens/concepts/why-use-jwt)
 * [JSON Web Token Structure](/tokens/reference/jwt/jwt-structure)
 * [Validate a JSON Web Token](/tokens/guides/jwt/validate-jwt)
-* [Best Practices for Tokens](/tokens/concepts/token-best-practices)
+* [Best Practices for Tokens](/best-practices/token-best-practices)
 * [OpenID Connect Scopes: Standard Claims](/docs/scopes/current/oidc-scopes#standard-claims)
 * [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases#add-custom-claims-to-a-token)
 :::

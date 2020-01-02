@@ -136,5 +136,5 @@ If any of these checks fail, the token is considered invalid, and the request mu
 * [Why Use JSON Web Token](/tokens/concepts/why-use-jwt)
 * [JSON Web Token Structure](/tokens/reference/jwt/jwt-structure)
 * [JSON Web Token Claims](/tokens/jwt-claims)
-* [Best Practices for Tokens](/tokens/concepts/token-best-practices)
+* [Best Practices for Tokens](/best-practices/token-best-practices)
 * [JSON Web Key Set](/jwks)

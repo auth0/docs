@@ -5,14 +5,14 @@ topics:
   - tokens
   - jwt
 contentType:
-  - concept
+  - reference
 useCase:
   - invoke-api
   - secure-api
   - add-login
 ---
 
-# Best Practices for Tokens
+# Token Best Practicess
 
 * **Keep it secret. Keep it safe.** The signing key should be treated like any other credentials and revealed only to services that need it.
 
