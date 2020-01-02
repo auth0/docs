@@ -1,8 +1,6 @@
 ---
-title: MFA Troubleshooting for End-Users
-description: Basic troubleshooting of MFA issues for end-users.
-url: /multifactor-authentication/troubleshooting
-toc: true
+title: Troubleshoot Multi-Factor Authentication for End Users
+description: Describes basic troubleshooting of MFA issues for end-users.
 topics:
     - mfa
 contentType:
@@ -10,7 +8,7 @@ contentType:
 useCase:
   - customize-mfa
 ---
-# MFA Troubleshooting
+# Troubleshoot Multi-Factor Authentication for End Users
 
 This guide serves as a troubleshooting reference if you have end-users unable to log in with <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn>.
 

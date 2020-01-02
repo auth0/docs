@@ -1622,7 +1622,7 @@ module.exports = [
   },
   {
     from: '/tutorials/redirecting-users',
-    to: '/users/guides/redirect-users-after-login',
+    to: '/users/concepts/redirect-users-after-login',
   },
   {
     from: '/tutorials/get-user-information-with-unbounce-landing-pages',
@@ -2161,8 +2161,8 @@ module.exports = [
     to: '/hooks'
    },
    {
-     from: '/users/redirecting-users',
-     to: '/users/guides/redirect-users-after-login'
+     from: '/users/guides/redirect-users-after-login',
+     to: '/users/concepts/redirect-users-after-login'
    },
    {
      from: '/applications/spa',
@@ -2326,12 +2326,12 @@ module.exports = [
       to: '/connections/passwordless/reference/troubleshoot'
     },
     {
-    from: '/best-practices/custom-db-connections-scripts',
-    to: '/best-practices/custom-db-connections'
+      from: '/best-practices/custom-db-connections-scripts',
+      to: '/best-practices/custom-db-connections'
     },
     {
-    from: '/api/v1/use-cases',
-    to: '/migrations/guides/management-api-v1-v2'
+      from: '/errors/deprecation-errors',
+      to: '/troubleshoot/guides/check-deprecation-errors'
     },
     {
     from: '/api/management/v1/use-cases',

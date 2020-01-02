@@ -1,16 +1,16 @@
 ---
-title: Troubleshooting Custom Domains
+title: Troubleshoot Custom Domains
 description: Learn how to troubleshoot issues with custom domains. 
 topics:
   - custom-domains
   - certificates
-contentType: how-to
+contentType: reference
 useCase: 
   - configure-customize-domains
   - configure-auth0-managed-certificates
 ---
 
-# Troubleshooting Custom Domains
+# Troubleshoot Custom Domains
 
 If you are seeing errors, take a look at this video on common issues with Custom Domains, or refer to the below sections for troubleshooting steps for specific scenarios.
 

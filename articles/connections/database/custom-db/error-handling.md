@@ -1,5 +1,5 @@
 ---
-description: Learn how to handle errors when using your database as an identity provider.
+description: Describes how to handle errors and troubleshoot when using your database as an identity provider.
 topics:
     - connections
     - custom-database
@@ -9,7 +9,7 @@ useCase:
     - customize-connections
     - troubleshooting
 ---
-# Custom Database Error Handling and Troubleshooting
+# Troubleshoot Custom Databases
 
 You can use return errors resulting from your custom database connection for troubleshooting purposes. We will also cover some basic troubleshooting steps for your scripts.
 

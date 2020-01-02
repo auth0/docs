@@ -1,5 +1,5 @@
 ---
-title: Monitoring Auth0 Implementations
+title: Monitor Auth0 Implementations
 description: Understand how to monitor your Auth0 implementation and track your Auth0 usage, as well as how to send events and logs to external tools.
 topics:
   - monitoring
@@ -11,7 +11,7 @@ useCase:
   - analyze-logs
   - integrate-analytics
 ---
-# Monitoring Auth0 Implementations
+# Monitor Auth0 Implementations
 
 You can monitor your Auth0 implementation and Auth0 status and services, as well as send logging event data to third-party tools.
 

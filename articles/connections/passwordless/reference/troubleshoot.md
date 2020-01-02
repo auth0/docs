@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Issues With Passwordless Authentication
+title: Troubleshoot Passwordless Authentication
 topics:
     - connections
     - passwordless
@@ -12,7 +12,7 @@ useCase:
     - troubleshooting
 ---
 
-# Troubleshooting Issues With Passwordless Authentication
+# Troubleshoot Passwordless Authentication
 
 In this guide, you'll find some information for troubleshooting passwordless authentication. If these tips don't outright solve your issue, they can at least narrow down a possible cause and help Auth0 support resolve your issue faster.
 

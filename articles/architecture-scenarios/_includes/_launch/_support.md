@@ -16,40 +16,39 @@ Important notices are posted to the community forum to help you stay abreast of 
 
 It’s a good idea to check out the Auth0 Community on a regular basis, not just when you have questions. While you are there, if you see a question you’ve already solved, please contribute your wisdom to help others!
 
+## Gather Auth0 troubleshooting information needed for support tickets
 
-## Review the Auth0 troubleshooting tips, info needed for tickets
-
-We recommend your support team become familiar with some [troubleshooting tips](/troubleshoot/basics) specific to identity protocols and Auth0. This includes the [questions to research and information to collect](/troubleshoot/issues) before posting a question on the Auth0 forum or filing a support ticket. Authentication transactions often span multiple systems so there are some specialized troubleshooting techniques that are helpful to learn.
+We recommend your support team become familiar with our [troubleshooting guides](/troubleshoot) specific to identity protocols and Auth0. This includes the questions to research and information to collect before posting a question on the Auth0 forum or filing a support ticket. Authentication transactions often span multiple systems so there are some specialized troubleshooting techniques that are helpful to learn.
 
 ## Have troubleshooting tools ready
 
 Your team will doubtless have already done some troubleshooting during the development of your application, but we recommend making sure your support team is also familiar with any tools below relevant to your project. If you need to file a ticket, the Auth0 support team may ask for a HAR (HTTP Archive) file to help analyze the issue so it’s helpful for your support staff to be familiar with how to do this.
 
-### Capture a HAR file
+### Capture HAR file
 
-A HAR file captures a sequence of browser interactions and is a commonly used tool when debugging authentication issues. The process of authenticating a user often involves redirecting the user’s browser from an application to Auth0, and possibly to another remote Identity Provider, depending on the type of connection used.  This redirection and the responses can be [captured in a HAR file](/troubleshoot/har) and analyzed to find clues about the cause of an issue.
+A [HAR file](/troubleshoot/guides/generate-har-files) captures a sequence of browser interactions and is a commonly used tool when debugging authentication issues. The process of authenticating a user often involves redirecting the user’s browser from an application to Auth0, and possibly to another remote Identity Provider, depending on the type of connection used.  You can capture the redirection and the responses and analyze it to find clues about the cause of an issue.
 
-### Analyze a HAR file 
+### Analyze HAR file 
 
-A [HAR file can be analyzed](/troubleshoot/har#analyze-a-har-file) to obtain a wealth of valuable troubleshooting information. This will show the sequence of browser redirects involved in an authentication transaction, along with the parameters used. The HAR file will show if the authentication process stopped mid-stream and if so where, helping to pinpoint the possible location of the issue. The HAR file will contain tokens returned to the application front-end, and these can be pasted into appropriate viewers to see if they contain the expected contents.
+Analyze the [HAR file](/troubleshoot/guides/generate-har-files#analyze-har-files) to obtain valuable troubleshooting information. It shows the sequence of browser redirects involved in an authentication transaction, along with the parameters used. The HAR file also shows if the authentication process stopped mid-stream and if so where, which helps to pinpoint the location of the issue. The HAR file contains tokens returned to the application front-end, and these can be pasted into appropriate viewers to see if they contain the expected contents.
 
-### View a JWT
+### View JWT
 
 The [jwt.io](https://jwt.io) tool was written by Auth0 and allows you to view the contents of a JWT-formatted token. Applications that delegate authentication to Auth0 via OIDC will receive an ID Token from Auth0. Depending on your type of application, the ID Token may be captured in a HAR file. The ID Token is in JWT format and can be pasted into jwt.io to view the contents of the ID Token.
 
-### View a SAML request/response
+### View SAML request/response
 
 There are many SAML decoders available. The [samltool.io](https://samltool.io) decoder was written by Auth0 and allows you to view the contents of a SAML Request or Response. Applications that delegate authentication to Auth0 via SAML or use a SAML type of connection in Auth0 will use SAML Requests and Responses. These SAML Requests and Responses may be captured in a HAR file. The requests and responses can be pasted into samltool.io or other SAML decoders to view the contents of the SAML Request or Response.
 
-## Review the Auth0 support matrix
+## Review Auth0 support matrix
 
 One potential cause of issues is using out of date versions of SDKs or libraries. We strongly recommend your team check your software stack, browsers, SDKs and libraries against the [Auth0 support matrix](/support/matrix) to ensure you are running on up-to-date, supported versions. In the event of an issue, the Auth0 support team may ask you to upgrade to a supported version. To avoid slowing down progress on issue resolution, be sure you are on up-to-date versions.
 
-## Use the Auth0 feedback portal
+## Use Auth0 feedback portal
 
 Auth0 welcomes feedback and ideas from Auth0 customers. If you have a suggestion for our product team, you can submit product feedback directly on the [Product Feedback portal](https://auth0.com/feedback). The [product feedback blog post](https://auth0.com/blog/improve-auth0-new-feedback-page/) explains the feedback process.
 
-## Prepare the real-time webtask log extension 
+## Prepare real-time webtask log extension 
 
 For debugging and supporting custom code in Auth0, including Rules, Hooks, Custom DB Scripts, and Custom OAuth Connections, knowledge of the [Realtime Webtask Log](/extensions/realtime-webtask-logs) is essential. This enables you to view output from your custom code, including output from console.log statements. 
 

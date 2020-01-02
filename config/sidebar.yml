@@ -7,10 +7,10 @@
 articles:
 
 ## ------------------------------------------------------------
-## Getting Started
+## Get Started
 ## ------------------------------------------------------------
 
-  - title: "Getting Started"
+  - title: "Get Started"
     url: "/getting-started"
     children:
 
@@ -192,7 +192,7 @@ articles:
         url: /api-auth/tutorials/silent-authentication
 
       - title: Redirect After Login
-        url: /users/guides/redirect-users-after-login
+        url: /users/concepts/redirect-users-after-login
 
       - title: Logout
         url: /logout
@@ -484,6 +484,9 @@ articles:
           - title: "Brute-Force Protection Triggers"
             url: "/anomaly-detection/references/brute-force-protection-triggers-actions"
 
+          - title: "View Anomaly Detection Events"
+            url: "/anomaly-detection/guides/use-tenant-data-for-anomaly-detection"
+
           - title: "Restrictions and Limitations"
             url: "/anomaly-detection/references/anomaly-detection-restrictions-limitations"
 
@@ -552,7 +555,7 @@ articles:
         children:
 
           - title: Normalized User Profile
-            url: /users/normalized
+            url: /users/normalized/auth0
 
           - title: Update Profiles Using Your Database
             url: /users/guides/update-user-profiles-using-your-database
@@ -662,10 +665,10 @@ articles:
             hidden: true
 
 ## ------------------------------------------------------------
-## Branding & Customization
+## Brand & Customize
 ## ------------------------------------------------------------
 
-  - title: Branding & Customization
+  - title: Brand & Customize
     url: /branding-customization
     children:
 
@@ -994,61 +997,101 @@ articles:
           - title: "What's New in v2"
             url: "/extensions/deploy-cli/references/whats-new-v2"
 
-          - title: "Troubleshooting Deploy CLI"
+          - title: "Troubleshoot Deploy CLI"
             url: "/extensions/deploy-cli/references/troubleshooting"
             hidden: true
 
 ## ------------------------------------------------------------
-## Troubleshooting
+## Troubleshoot
 ## ------------------------------------------------------------
 
-  - title: Troubleshooting
+  - title: Troubleshoot
     url: /troubleshoot
     children:
 
-      - title: Basics
-        url: /troubleshoot/basics
-
-      - title: Issues with...
-        url: /troubleshoot/issues
-
-      - title: Common Authentication Errors
-        url: /libraries/error-messages
+      - title: Basic Issues
+        url: /troubleshoot/concepts/basics
         children:
 
-          - title: Standard Error Messages
-            url: "/api/authentication#standard-error-responses"
+          - title: Verify Platform
+            url: /troubleshoot/guides/verify-platform
 
-      - title: Roles-Based Authorization
-        url: /authorization/concepts/troubleshooting
+          - title: Verify Connections
+            url: /troubleshoot/guides/verify-connections
+
+          - title: Verify Domain
+            url: /troubleshoot/guides/verify-domain
+
+          - title: Verify Rules
+            url: /troubleshoot/guides/verify-rules
+
+          - title: Check Error Messages
+            url: /troubleshoot/guides/check-error-messages
+            children:
+
+              - title: Deprecation Errors
+                url: "/troubleshoot/guides/check-deprecation-errors"
+                hidden: true 
+
+      - title: Authentication Issues
+        url: /troubleshoot/concepts/auth-issues
         children:
+
+          - title: API Calls
+            url: /troubleshoot/guides/check-api-calls
+
+          - title: Login and Logout Issues
+            url: /troubleshoot/guides/check-login-logout-issues
+
+          - title: User Profiles
+            url: /troubleshoot/guides/check-user-profiles
+
+          - title: RBAC
+            url: /authorization/concepts/troubleshooting
+
+          - title: MFA
+            url: /multifactor-authentication/troubleshooting
+
+          - title: SAML
+            url: /protocols/saml/saml-configuration/troubleshoot
 
           - title: Authorization Extension
             url: /extensions/authorization-extension/v2/troubleshooting
 
-      - title: Multi-factor Authentication
-        url: /multifactor-authentication/troubleshooting
+      - title: Integration and Extensibility Issues
+        url: /troubleshoot/concepts/integration-extensibility-issues
+        children:
 
-      - title: SAML
-        url: /protocols/saml/saml-configuration/troubleshoot
+          - title: Test Partner Connections
+            url: /connections/how-to-test-partner-connection
 
-      - title: Deprecation Errors
-        url: /errors/deprecation-errors
+          - title: Sign in With Apple
+            url: "/connections/apple-siwa/troubleshooting"
 
-      - title: HTTP Archive (HAR)
-        url: /troubleshoot/har
+          - title: Custom Databases
+            url: /connections/database/custom-db/error-handling
 
-      - title: Custom Databases
-        url: /connections/database/custom-db/error-handling
+          - title: Active Directory/LDAP Connector
+            url: /connector/troubleshooting
 
-      - title: Custom Domains
-        url: /custom-domains/troubleshoot
+          - title: Extensions
+            url: /extensions/troubleshoot
 
-      - title: Deploy CLI
-        url: /extensions/deploy-cli/references/troubleshooting
+          - title: Auth0 PHP SDK
+            url: /libraries/auth0-php/troubleshooting
 
-      - title: AD/LDAP Connector
-        url: /connector/troubleshooting
+      - title: Generate and Analyze HAR Files
+        url: /troubleshoot/guides/generate-har-files
+
+      - title: Validate JSON Web Tokens
+        url: /tokens/guides/jwt/validate-jwt
+
+      - title: Authentication API Debugger
+        url: /extensions/authentication-api-debugger
+
+## ------------------------------------------------------------
+## Architecture Scenarios
+## ------------------------------------------------------------
 
   - title: Architecture Scenarios
     url: /architecture-scenarios
@@ -1379,9 +1422,6 @@ articles:
   - title: "Product Lifecycle"
     url: "/product-lifecycle"
     children:
-      - title: "Overview"
-        url: "/product-lifecycle"
-
       - title: "Deprecation and End Of Life"
         url: "/product-lifecycle/deprecation-eol"
 
