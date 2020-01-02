@@ -117,6 +117,7 @@ The following table lists the codes associated with the each log event.
 * [Administrator and Developer Log Usage Examples](/logs/concepts/logs-admins-devs)
 * [View Log Data in the Dashboard](/logs/guides/view-log-data-dashboard)
 * [Retrieve Logs Using the Management API](/logs/guides/retrieve-logs-mgmt-api)
+* [Anomaly Detection](/anomaly-detection)
 * [Log Search Query Syntax](/logs/references/query-syntax)
 * [Log Event Filters](/logs/references/log-event-filters)
 * [Integrate AWS EventBridge with Auth0](/integrations/aws-eventbridge)

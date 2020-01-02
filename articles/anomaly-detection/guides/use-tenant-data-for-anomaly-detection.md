@@ -51,7 +51,7 @@ Here's an example of what that data might look like.
 
 ## Keep reading
 
-* [Log data event listing](/logs#log-data-event-listing)
-* [Logs Search Query Syntax](/logs/query-syntax)
+* [Log Event Data](/logs/references/log-events-data)
+* [Log Search Query Syntax](/logs/references/query-syntax)
 * [Export Log Data to External Services](/extensions#Monitor)
-* [Search Log Events with the Management API](/api/management/v2#!/Logs/get_logs)
+* [Retrieve Logs Using the Management API](/logs/guides/retrieve-logs-mgmt-api)

@@ -82,6 +82,7 @@ As an alternative or complement to retrieving logs by checkpoint or search crite
 * [Log Event Data](/logs/references/log-event-data)
 * [Log Search Query Syntax](/logs/references/query-syntax)
 * [View Log Data in the Dashboard](/logs/guides/view-log-data-dashboard)
+* [View Anomaly Detection Events](/anomaly-detection/guides/use-tenant-data-for-anomaly-detection)
 * [Log Event Filters](/logs/references/log-event-filters)
 * [Integrate AWS EventBridge with Auth0](/integrations/aws-eventbridge)
 * [GDPR: Data Minimization](/compliance/gdpr/features-aiding-compliance/data-minimization)
