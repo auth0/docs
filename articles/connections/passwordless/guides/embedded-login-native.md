@@ -112,9 +112,9 @@ Below we list a few code snippets that can be used to call these API endpoints f
 If you prefer, you can use the Android or iOS SDKs, which wrap this APIs in a platform-friendly way:
 
 - [Lock Android Passwordless](/libraries/lock-android/passwordless)
-- [Lock iOS Passwordless](libraries/lock-ios/passwordless)
-- [Auth0.Android Passwordless](libraries/auth0-android/passwordless)
-- [Auth0.Swift Passwordless](libraries/auth0-swift/passwordless)
+- [Lock iOS Passwordless](/libraries/lock-ios/passwordless)
+- [Auth0.Android Passwordless](/libraries/auth0-android/passwordless)
+- [Auth0.Swift Passwordless](/libraries/auth0-swift/passwordless)
 
 ## Migrating from Legacy Implementations
 
