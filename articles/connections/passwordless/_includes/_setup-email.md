@@ -21,7 +21,7 @@ You must change the **From** value to a non **@auth0.com** address for your cust
 
 5. Decide if you want to **Disable Signups**. You can enable passwordless access just for existing users by enabling this setting.
 
-### Multi-Language Support
+### Multi-language support
 
 The **Message** area supports multiple languages.
 
