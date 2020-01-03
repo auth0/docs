@@ -2332,5 +2332,9 @@ module.exports = [
     {
       from: '/logs/query-syntax',
       to: '/logs/references/query-syntax'
+    },
+    {
+      from: '/logs/references/log-event-data',
+      to: '/logs/references/log-event-types-codes'
     }
 ];
