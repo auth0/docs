@@ -1596,6 +1596,9 @@ articles:
         url: "/best-practices/tenant-settings"
         hidden: true
 
+      - title: "Tokens"
+        url: "/best-practices/token-best-practices"
+
       - title: "User Data Storage"
         url: "/best-practices/user-data-storage-best-practices"
 
