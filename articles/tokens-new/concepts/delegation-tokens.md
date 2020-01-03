@@ -12,7 +12,7 @@ useCase:
 
 # Delegation Tokens
 
-<%= include('../_includes/_uses-delegation') %>
+<%= include('../../_includes/_uses-delegation') %>
 
 A delegation token should be obtained and used when an application needs to call the API of an Application Add-on, such as Firebase or SAP, registered and configured in Auth0, in the same tenant as the calling program.
 
