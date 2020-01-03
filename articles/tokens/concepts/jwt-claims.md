@@ -79,14 +79,12 @@ You can create private custom claims to share information specific to your appli
 
 According to the JWT standard, you *should* name private claims cautiously to avoid collision, such as through [namespacing](/tokens/concepts/claims-namespacing) (which Auth0 still requires). Private claims should not share names with reserved or public claims.
 
-## Read more
+## Keep reading
 
-::: next-steps
 * [JSON Web Tokens](/jwt)
 * [JSON Web Token Structure](/tokens/references/jwt-structure)
-* [Validate a JSON Web Token](/tokens/guides/jwt/validate-jwt)
-* [Best Practices for Tokens](/best-practices/token-best-practices)
+* [Validate JSON Web Tokens](/tokens/guides/jwt/validate-jwt)
+* [Token Best Practicess](/best-practices/token-best-practices)
 * [OpenID Connect Scopes: Standard Claims](/docs/scopes/current/oidc-scopes#standard-claims)
 * [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases#add-custom-claims-to-a-token)
-:::
 

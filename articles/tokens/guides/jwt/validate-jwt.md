@@ -1,5 +1,5 @@
 ---
-title: Validate a JSON Web Token
+title: Validate JSON Web Tokens
 description: Learn how to parse and validate a JSON Web Token (JWT).
 toc: true
 topics:
@@ -13,7 +13,7 @@ useCase:
   - secure-api
   - add-login
 ---
-# Validate a JSON Web Token
+# Validate JSON Web Tokens
 
 ::: note
 This document is intended for developers implementing a regular web, native, or SPA application. All of our [backend API quickstarts](/quickstart/backend) use SDKs that perform JWT validation and parsing for you.
@@ -130,7 +130,7 @@ Additional checks are required depending on whether the JWT you are validating i
 
 If any of these checks fail, the token is considered invalid, and the request must be rejected.
 
-## Read more
+## Keep reading
 
 * [JSON Web Token](/tokens/concepts/jwt)
 * [JSON Web Token Structure](/tokens/references/jwt-structure)

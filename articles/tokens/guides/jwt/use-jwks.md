@@ -1,5 +1,5 @@
 ---
-title: How to Use the JSON Web Key Set Endpoint
+title: Verify JSON Web Token Signatures
 description: Learn how to use the JSON Web Keys (JWKs) discovered by using the JSON Web Key Set (JWKS) endpoint.
 topics:
   - tokens
@@ -12,9 +12,9 @@ useCase:
   - secure-api
   - add-login
 ---
-# How to Use the JSON Web Key Set Endpoint
+# Verify JSON Web Token Signatures
 
-Auth0 exposes a discovery endpoint, which exists at `https://${account.namespace}/.well-known/openid-configuration`. You can use this endpoint to configure your application or API to automatically locate the [JSON Web Key Set (JWKS)](/jwks) endpoint (`jwks_uri`), which contains the JWKS used to sign all Auth0-issued <dfn data-key="json-web-token">JSON Web Tokens (JWTs)</dfn> signed with the RS256 [signing algorithm](/tokens/concepts/signing-algorithms).
+Auth0 exposes a discovery endpoint which exists at `https://${account.namespace}/.well-known/openid-configuration`. You can use this endpoint to configure your application or API to automatically locate the [JSON Web Key Set (JWKS)](/jwks) endpoint (`jwks_uri`), which contains the JWKS used to sign all Auth0-issued <dfn data-key="json-web-token">JSON Web Tokens (JWTs)</dfn> signed with the RS256 [signing algorithm](/tokens/concepts/signing-algorithms).
 
 When [validating a JWT](/tokens/guides/jwt/validate-jwt) using a JWKS, you will need to:
 
@@ -36,12 +36,12 @@ It's good practice to assume that multiple signing keys could be present in your
 
 You can cache your signing keys to improve application performance and avoid running into [rate limits](/policies/rate-limits), but you will want to make sure that if decoding a token fails, you invalidate the cache and retrieve new signing keys before trying **only one** more time.
 
-## Read more
+## Keep reading
 
 * [JSON Web Key Set](/tokens/concepts/jwks)
 * [JSON Web Key Set Properties](/tokens/references/jwks-properties)
 * [JSON Web Token Structure](/tokens/references/jwt-structure)
-* [Validate a JSON Web Token](/tokens/guides/jwt/validate-jwt)
+* [Validate JSON Web Tokens](/tokens/guides/jwt/validate-jwt)
 
 Sample implementations:
 * [Backend/API Quickstarts](/quickstart/backend)

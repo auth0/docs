@@ -1435,6 +1435,34 @@ articles:
       - title: "Bulletins"
         url: "/security/bulletins"
         children:
+          - title: "2019-09-05_scopes"
+            url: "/security/bulletins/2019-09-05_scopes"
+            hidden: true
+
+          - title: "2019-01-10_rules"
+            url: "/security/bulletins/2019-01-10_rules"
+            hidden: true
+
+          - title: "CVE 2019-16929"
+            url: "/security/bulletins/cve-2019-16929"
+            hidden: true
+
+          - title: "CVE 2019-13483"
+            url: "/security/bulletins/cve-2019-13483"
+            hidden: true
+
+          - title: "CVE 2019-7644"
+            url: "/security/bulletins/cve-2019-7644"
+            hidden: true
+
+          - title: "CVE 2018-15121"
+            url: "/security/bulletins/cve-2018-15121"
+            hidden: true
+
+          - title: "CVE 2018-11537"
+            url: "/security/bulletins/cve-2018-11537"
+            hidden: true
+
           - title: "CVE 2018-6874"
             url: "/security/bulletins/cve-2018-6874"
             hidden: true
@@ -1459,9 +1487,100 @@ articles:
         url: "/tokens"
         children:
 
-          - title: "Where to Store Tokens"
+          - title: "ID Tokens"
+            url: "/tokens/concepts/id-tokens"
+            children: 
+
+              - title: "Get ID Tokens"
+                url: "/tokens/guides/id-token/get-id-tokens"
+                hidden: true 
+
+              - title: "Validate ID Tokens"
+                url: "/tokens/guides/id-token/validate-id-token"
+                hidden: true 
+
+          - title: "Access Tokens"
+            url: "/tokens/concepts/access-tokens"
+            children:
+
+              - title: "Get Access Tokens"
+                url: "/tokens/guides/access-token/get-access-tokens"
+                hidden: true 
+
+              - title: "Use Access Tokens"
+                url: "/tokens/guides/access-token/use-access-tokens"
+                hidden: true 
+
+              - title: "Validate Access Tokens"
+                url: "/tokens/guides/access-token/validate-access-token"
+                hidden: true 
+
+          - title: "IdP Access Tokens"
+            url: "/tokens/concepts/idp-access-tokens"
+
+          - title: "Refresh Tokens"
+            url: "/tokens/concepts/refresh-token"
+            children:
+
+              - title: "Get Refresh Tokens"
+                url: "/tokens/guides/refresh-token/get-refresh-tokens"
+                hidden: true 
+
+              - title: "Revoke Refresh Tokens"
+                url: "/tokens/guides/refresh-token/revoke-refresh-tokens"
+                hidden: true 
+
+              - title: "Use Refresh Tokens"
+                url: "/tokens/guides/refresh-token/use-refresh-tokens"
+                hidden: true 
+
+          - title: "Management API Tokens"
+            url: "/api/v2/tokens"
+
+          - title: "JSON Web Tokens"
+            url: "/tokens/concepts/jwt"
+            children:
+
+              - title: "JSON Web Token Claims"
+                url: "/tokens/concepts/jwt-claims"
+                hidden: true 
+
+              - title: "Namespace Custom Claims"
+                url: "/tokens/concepts/claims-namespacing"
+                hidden: true 
+
+              - title: "JSON Web Key Set"
+                url: "/tokens/concepts/jwks"
+                hidden: true 
+
+              - title: "Signing Algorithms"
+                url: "/tokens/concepts/signing-algorithms"
+                hidden: true 
+
+              - title: "Verify JSON Web Token Signatures"
+                url: "/tokens/guides/jwt/use-jwks"
+                hidden: true 
+
+              - title: "Validate JSON Web Tokens"
+                url: "/tokens/guides/jwt/validate-jwt"
+                hidden: true 
+
+              - title: "JSON Web Key Set Properties"
+                url: "/tokens/references/jwks-properties"
+                hidden: true 
+
+              - title: "JSON Web Token Structure"
+                url: "/tokens/references/jwt-structure"
+
+          - title: "Store Tokens"
             url: "/security/store-tokens"
+
+          - title: "Get Delegation Tokens"
+            url: "/tokens/guides/get-delegation-token"
             hidden: true 
+
+          - title: "Revoke Tokens"
+            url: "/tokens/guides/revoke-tokens"
 
       - title: "Cookies"
         url: "/sessions/concepts/cookies"

@@ -1,18 +1,17 @@
 ---
-description: In this guide we outline how to store tokens used in token-based authentication.
-toc: true
+description: Understand how to store tokens used in token-based authentication.
 topics:
   - security
   - security-bulletins
   - tokens
   - token storage
 contentType:
-  - reference
+  - concept
 useCase:
   - development
 ---
 
-# Where to Store Tokens
+# Store Tokens
 
 Not sure where to store [tokens](/tokens)? This guide outlines how to securely store tokens used in token-based authentication.
 

@@ -16,11 +16,7 @@ useCase:
   - invoke-api
   - secure-api
 ---
-# JSON Web Token
-
-::: note
-This doc describes the general use of JSON Web Tokens (JWTs). Understanding the general use, structure, and format of JWTs will make it easier to understand how most tokens are used with Auth0. If you already know about JWTs and want more info on the different types of tokens used with Auth0, see [Tokens](/tokens).
-:::
+# JSON Web Tokens
 
 JSON Web Token (JWT), pronounced "jot", is an open standard ([RFC 7519](https://tools.ietf.org/html/rfc7519)) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object.
 
@@ -28,7 +24,7 @@ JSON Web Token (JWT), pronounced "jot", is an open standard ([RFC 7519](https://
 * **Self-contained**: A JWT contains all the required information about an entity to avoid querying a database more than once. The recipient of a JWT also does not need to call a server to validate the token.
 
 ::: note
-For info about why to use JWT over other token formats, including Simple Web Tokens (SWT) and <dfn data-key="security-assertion-markup-language">SAML</dfn> tokens, see [JSON Web Tokens](/tokens/concepts/jwt).
+Understanding the general use, structure, and format of JWTs will make it easier to understand how most tokens are used with Auth0. If you already know about JWTs and want to know more about the different types of tokens used with Auth0, see [Tokens](/tokens).
 :::
 
 ## Use of JWTs
@@ -66,17 +62,12 @@ In general, JWTs can be signed using a secret (with the **HMAC** algorithm) or a
 
 Before a received JWT is used, it should be [properly validated using its signature](/tokens/guides/id-token/validate-id-token#verify-the-signature). Note that a successfully validated token only means that the information contained within the token has not been modified by anyone else. This doesn't mean that others weren't able to see the content, which is stored in plain text. Because of this, you should never store sensitive information inside a JWT and should take other steps to ensure that JWTs are not intercepted, such as by sending JWTs only over HTTPS, following [best practices](/best-practices/token-best-practices), and using only secure and up-to-date libraries.
 
-## Next steps
-
-::: next-steps
-* [JSON Web Token Structure](/tokens/references/jwt-structure)
-* [JSON Web Token Claims](/tokens/concepts/jwt-claims)
-* [Validate a JSON Web Token](/tokens/guides/jwt/validate-jwt)
-* [Token Best Practices](/best-practices/token-best-practices)
-:::
-
 ## Keep reading
 
+* [JSON Web Token Structure](/tokens/references/jwt-structure)
+* [JSON Web Token Claims](/tokens/concepts/jwt-claims)
+* [Validate JSON Web Tokens](/tokens/guides/jwt/validate-jwt)
+* [Token Best Practices](/best-practices/token-best-practices)
 * [JWT Handbook](https://auth0.com/resources/ebooks/jwt-handbook)
 * [Web Apps vs Web APIs / Cookies vs Tokens](/design/web-apps-vs-web-apis-cookies-vs-tokens)
 * [10 Things You Should Know About Tokens](https://auth0.com/blog/ten-things-you-should-know-about-tokens-and-cookies/)

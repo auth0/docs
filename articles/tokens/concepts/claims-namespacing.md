@@ -1,7 +1,6 @@
 ---
-title: Namespacing Claims
+title: Namespace Custom Claims
 description: Learn about creating collision-resistant names for custom claims by using namespacing.
-toc: false
 topics:
   - tokens
   - jwt
@@ -12,7 +11,7 @@ useCase:
   - invoke-api
   - secure-api
 ---
-# Namespacing Claims
+# Namespace Custom Claims
 
 To keep your custom claims from colliding with any [reserved claims](/tokens/concepts/jwt-claims#reserved-claims) or claims from other resources, you must give them a globally unique name using a namespaced format.
 
