@@ -58,6 +58,8 @@ After replacing all calls to the Management API v1 with their [Management API v2
 
 You can disable API v1 by going **Tenant Settings** > **Advanced** > **Migration** in the [Auth0 Dashboard](http://manage.auth0.com/). This will simulate the expected behavior after the End of Life date, causing calls to API v1 to fail with a `410` HTTP status code. You will be able to re-enable API v1 any time before the End of Life date.
 
+By migrating your requests to API v2 and disabling API v1 as soon as possible, you will ensure that your systems will continue to operate uninterrupted after the **July 13th, 2020** End of Life date, at which time the option to enable API v1 will be removed.
+
 ![Toggle Management API Version](/media/articles/migrations/apiv1-toggle.png)
 
 ::: note
