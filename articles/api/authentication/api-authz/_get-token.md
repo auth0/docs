@@ -579,9 +579,7 @@ Use this endpoint to refresh an <dfn data-key="access-token">Access Token</dfn> 
 
 1. At the *OAuth2 / OIDC* tab, set the field **Refresh Token** to the Refresh Token you have. Click **OAuth2 Refresh Token Exchange**.
 
-### More Information
-
-- [Refresh Token](/tokens/refresh-token)
+See [Refresh Tokens](/tokens/concepts/refresh-token) for more details.
 
 ## Token Exchange for Native Social
 

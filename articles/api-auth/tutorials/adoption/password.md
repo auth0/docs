@@ -40,7 +40,7 @@ Content-Type: application/json
   "device": "my-device-name"
 }</code></pre>
     <ul>
-        <li>The <code>device</code> parameter is only needed if <a href="/tokens/refresh-token">requesting a <dfn data-key="refresh-token">Refresh Token</dfn></a> by passing the <code>offline_access</code> <dfn data-key="scope">scope</dfn>.</li>
+        <li>The <code>device</code> parameter is only needed if <a href="/tokens/concepts/refresh-token">requesting a <dfn data-key="refresh-token">Refresh Token</dfn></a> by passing the <code>offline_access</code> <dfn data-key="scope">scope</dfn>.</li>
     </ul>
     </div>
     <div id="request-oidc" class="tab-pane">

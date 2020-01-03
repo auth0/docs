@@ -121,7 +121,7 @@ The response contains the `access_token`, `refresh_token`, `id_token`, and `toke
 }
 ```
 
-Note that `refresh_token` will only be present in the response if you included the `offline_access` scope AND enabled __Allow Offline Access__ for your API in the Dashboard. For more information about Refresh Tokens and how to use them, see [our documentation](/tokens/refresh-token).
+Note that `refresh_token` will only be present in the response if you included the `offline_access` scope AND enabled __Allow Offline Access__ for your API in the Dashboard. See [Refresh Tokens](/tokens/concepts/refresh-token) for more details.
 
 ::: panel-warning Security Warning
 It is important to understand that the Authorization Code flow should only be used in cases such as a Regular Web Application where the Client Secret can be safely stored. In cases such as a Single-Page Application, the Client Secret is available to the application (in the web browser), so the integrity of the Client Secret cannot be maintained. That is why the [Implicit Grant flow](/api-auth/grant/implicit) is more appropriate in that case.
@@ -157,7 +157,7 @@ If you wish to execute special logic unique to the Authorization Code grant, you
 ## Keep Reading
 
 ::: next-steps
-- [How to refresh a token](/tokens/refresh-token)
+- [How to refresh a token](/tokens/concepts/refresh-token)
 - [How to configure an API in Auth0](/apis)
 - [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
 - [Application Authentication for Server-side Web Apps](/application-auth/server-side-web)

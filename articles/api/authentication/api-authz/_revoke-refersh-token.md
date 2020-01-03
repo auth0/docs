@@ -70,6 +70,4 @@ Each revocation request invalidates not only the specific token, but all other t
 
 For the complete error code reference for this endpoint refer to [Errors > POST /oauth/revoke](#post-oauth-revoke).
 
-### More Information
-
-- [Refresh Token](/tokens/refresh-token)
+See [Refresh Tokens](/tokens/concepts/refresh-token) for more details. 
