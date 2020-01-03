@@ -31,7 +31,7 @@ When debugging an issue, or setting up an integrations, logs are as good as gold
 * [View Log Data in the Dashboard](/logs/guides/view-log-data-dashboard)
 * [Retrieve Logs Using the Management API](/logs/guides/retrieve-logs-mgmt-api)
 * [View Anomaly Detection Events](/anomaly-detection/guides/use-tenant-data-for-anomaly-detection)
-* [Log Event Data](/logs/references/log-event-data)
+* [Log Event Type Codes](/logs/references/log-event-type-codes)
 * [Log Search Query Syntax](/logs/references/query-syntax)
 * [Log Event Filters](/logs/references/log-event-filters)
 * [Integrate AWS EventBridge with Auth0](/integrations/aws-eventbridge)

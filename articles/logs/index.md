@@ -22,7 +22,7 @@ Auth0 does not provide real-time logs for your tenant. While we do our best to i
   'logs/guides/view-log-data-dashboard',
   'logs/references/log-event-filters',
   'logs/guides/retrieve-logs-mgmt-api',
-  'logs/references/log-event-data',
+  'logs/references/log-event-type-codes',
   'logs/references/query-syntax',
   'logs/concepts/logs-admins-devs'
 ] }) %>
