@@ -956,8 +956,8 @@ module.exports = [
     to: '/tutorials/web-apps-vs-web-apis-cookies-vs-tokens'
   },
   {
-    from: ['/har', '/tutorials/troubleshootings-with-har-files'],
-    to: '/tutorials/troubleshooting-with-har-files'
+    from: ['/har', '/tutorials/troubleshooting-with-har-files', '/troubleshoot/har', '/support/troubleshooting-with-har-files'],
+    to: '/troubleshoot/guides/generate-har-files'
   },
   {
     from: '/hrd',
@@ -1547,10 +1547,6 @@ module.exports = [
   {
     from: '/tutorials/reset-account-password',
     to: '/support/reset-account-password',
-  },
-  {
-    from: '/tutorials/troubleshooting-with-har-files',
-    to: '/support/troubleshooting-with-har-files',
   },
   {
     from: '/tutorials/delete-reset-tenant',
