@@ -56,17 +56,11 @@ When using passwordless authentication with SMS, users:
 
 1. Provide a mobile phone number instead of a username/password combination.
 
- ![Provide Mobile Phone Number](/media/articles/connections/passwordless/passwordless-sms-enter-phone-web.png)
+ ![Provide Mobile Phone Number](/media/articles/connections/passwordless/passwordless-sms.png)
 
 2. Receive a one-time-use code via SMS.
 
-<div class="phone-mockup">
-  <img src="/media/articles/connections/passwordless/passwordless-sms-receive-code-web.png" alt="Receive Code via SMS"/>
-</div>
-
 3. Enter the one-time-use code on the login screen to access the application.
-
-![Enter Code for SMS](/media/articles/connections/passwordless/passwordless-sms-enter-code-web.png)
 
 </div>
     <div id="email" class="tab-pane">
@@ -77,27 +71,9 @@ When using passwordless authentication with email, users:
 
 1. Provide an email address instead of a username/password combination.
 
-![Provide Email Address](/media/articles/connections/passwordless/passwordless-email-request-web.png)
+![Provide Email Address](/media/articles/connections/passwordless/passwordless-email.png)
 
 2. Depending on how you have configured your passwordless connection, receive either a one-time-use code or magic link via email.
-
-<div class="code-picker">
-  <div class="languages-bar">
-    <ul>
-      <li><a href="#code" data-toggle="tab">Code</a></li>
-      <li><a href="#link" data-toggle="tab">Magic link</a></li>
-    </ul>
-  </div>
-  <div class="tab-content">
-    <div id="code" class="tab-pane active">
-
-![Receive Code via Email](/media/articles/connections/passwordless/passwordless-email-receive-code-web.png)
-    </div>
-    <div id="link" class="tab-pane">
-      ![Receive Magic Link via Email](/media/articles/connections/passwordless/passwordless-email-receive-link.png)
-    </div>
-  </div>
-</div>
 
 3. Enter the one-time-use code on the login screen (or click the magic link in the email) to access the application.
 
