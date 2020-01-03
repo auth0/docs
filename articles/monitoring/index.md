@@ -33,7 +33,7 @@ Need to analyze logs or store them long-term? Auth0 provides extensions to [expo
 * [Log Data Retention](/logs/references/log-data-retention)
 * [View Log Data in the Dashboard](/logs/guides/view-log-data-dashboard)
 * [Retrieve Logs Using the Management API](/logs/guides/retrieve-logs-mgmt-api)
-* [Log Event Data](/logs/references/log-event-data)
+* [Log Event Type Codes](/logs/references/log-event-type-codes)
 * [Log Search Query Syntax](/logs/references/query-syntax)
 * [Send Logging Events to Keen](/monitoring/guides/send-events-to-keenio)
 * [Send Logging Events to Segment](/monitoring/guides/send-events-to-segmentio)

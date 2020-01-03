@@ -64,5 +64,5 @@ Optional: [Troubleshooting](#troubleshooting)
 - [The OAuth 2.0 protocol](/protocols/oauth2)
 - [The OpenID Connect protocol](/protocols/oidc)
 - [Tokens used by Auth0](/tokens)
-- [Tenant Logs for Devices](/logs/references/log-event-data)
+- [Tenant Logs for Devices](/logs)
 :::
