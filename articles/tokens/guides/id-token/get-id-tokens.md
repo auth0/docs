@@ -28,7 +28,7 @@ You control which claims about the authenticated user are included in the ID Tok
 You can also create [custom claims](/tokens/jwt-claims#custom-claims), which are claims that you define, control, and add to a token using a rule. 
 :::
 
-As with any other [JWTs](/tokens/jwt#security), you should follow [token best practices](/tokens/concepts/token-best-practices) when using ID Tokens and [validate an ID Token](/tokens/guides/id-token/validate-id-token) before assuming that its contents can be trusted.
+As with any other [JWTs](/tokens/jwt#security), you should follow [token best practices](/best-practices/token-best-practices) when using ID Tokens and [validate an ID Token](/tokens/guides/id-token/validate-id-token) before assuming that its contents can be trusted.
 
 ## Renew an ID Token
 
@@ -43,6 +43,6 @@ After an ID Token has expired, you may want to renew your ID Token. To renew the
 * [JSON Web Token](/jwt)
 * [JSON Web Token Claims](/tokens/jwt-claims)
 * [OpenID Connect Scopes](/scopes/oidc-scopes)
-* [Token Best Practices](/tokens/concepts/token-best-practices)
+* [Token Best Practices](/best-practices/token-best-practices)
 * [Quickstarts](/quickstarts)
 * [Authentication and Authorization Flows](/flows)

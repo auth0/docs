@@ -41,7 +41,7 @@ You can also create [custom claims](/tokens/jwt-claims#custom-claims), which are
 
 ## ID Token Security
 
-As with any other [JWTs](/tokens/jwt#security), you should follow [token best practices](/tokens/concepts/token-best-practices) when using ID Tokens and [validate an ID Token](/tokens/guides/id-token/validate-id-token) before assuming that its contents can be trusted.
+As with any other [JWTs](/tokens/jwt#security), you should follow [token best practices](/best-practices/token-best-practices) when using ID Tokens and [validate an ID Token](/tokens/guides/id-token/validate-id-token) before assuming that its contents can be trusted.
 
 ## ID Token Lifetime
 

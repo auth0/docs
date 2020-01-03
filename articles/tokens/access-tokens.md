@@ -33,7 +33,7 @@ To learn more about getting a JWT Access Token for the Management API or your ow
 
 ## Access Token Security
 
-You should follow [token best practices](/tokens/concepts/token-best-practices) when using Access Tokens, and for [JWTs](/jwt#security), make sure that you [validate an Access Token](/tokens/guides/access-token/validate-access-token) before assuming that its contents can be trusted.
+You should follow [token best practices](/best-practices/token-best-practices) when using Access Tokens, and for [JWTs](/jwt#security), make sure that you [validate an Access Token](/tokens/guides/access-token/validate-access-token) before assuming that its contents can be trusted.
 
 ## Access Token Lifetime
 
