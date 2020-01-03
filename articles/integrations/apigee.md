@@ -48,7 +48,7 @@ Once you've requested and received an Access Token from Auth0, you'll be able to
 
 When you [use your Access Token](https://docs.apigee.com/api-platform/security/oauth/using-access-tokens.html), the first thing Apigee Edge will do is [verify the token](https://docs.apigee.com/api-platform/security/oauth/using-access-tokens.html#addingaverifyaccesstokenpolicy). 
 
-Auth0 Access Tokens are [JSON Web Tokens (JWTs)](/tokens/concepts/jwt), so you can take advantage of Apigee Edge's [Verify JWT policy](https://docs.apigee.com/api-platform/reference/policies/verify-jwt-policy#verify-a-jwt-signed-with-the-rs256-algorithm) to do this.
+Auth0 Access Tokens are [JSON Web Tokens (JWTs)](/jwt), so you can take advantage of Apigee Edge's [Verify JWT policy](https://docs.apigee.com/api-platform/reference/policies/verify-jwt-policy#verify-a-jwt-signed-with-the-rs256-algorithm) to do this.
 
 Apigee Edge will verify the token before anything else happens; if the token is rejected, then all processing will stop and Edge will return an error to the client.
 

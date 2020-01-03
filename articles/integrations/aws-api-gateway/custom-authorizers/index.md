@@ -26,9 +26,9 @@ This tutorial will show you how to set up your API with API Gateway, create and 
 
 More specifically, the custom authorizers will:
 
-1. Confirm that the Access Token has been passed via the `authorization` header of the request to access the API.
-2. Verify the [RS256 signature](/apis#signing-algorithms) of the Access Token using a public key obtained via a [JWKS endpoint](/tokens/concepts/jwks).
-3. Ensure the Access Token has the required Issuer `iss` and <dfn data-key="audience">Audience</dfn> `aud` claims.
+1. Confirm that the Access Token has been passed via the `authorization` header of the request to access the API
+2. Verify the [RS256 signature](/apis#signing-algorithms) of the Access Token using a public key obtained via a [JWKS endpoint](/jwks)
+3. Ensure the Access Token has the required Issuer `iss` and <dfn data-key="audience">Audience</dfn> `aud` claims
 
 ::: note
 New to OAuth 2.0? Check out our [introduction to OAuth 2.0](/protocols/oauth2).
@@ -49,7 +49,7 @@ Whenever someone (or some program) attempts to call your API, API Gateway checks
 
 If **there is a custom authorizer for the API**, API Gateway calls the custom authorizer and provides the authorization token extracted from the request header received.
 
-You can use the custom authorizer to implement different types of authorization strategies, including [JWT](/tokens/concepts/jwt) verification, to return IAM policies authorizing the request. If the policy returned is invalid or if the permissions are denied, the API call fails.
+You can use the custom authorizer to implement different types of authorization strategies, including [JWT](/jwt) verification, to return IAM policies authorizing the request. If the policy returned is invalid or if the permissions are denied, the API call fails.
 
 For a valid policy, API caches the returned policy, associating it with the incoming token and using it for the current and subsequent requests. You can configure the amount of time for which the policy is cached. The default value is `300` seconds, and the maximum length of caching is `3600` seconds (you can also set the value to 0 to disable caching).
 
@@ -63,7 +63,7 @@ Before beginning this tutorial, you'll need to [sign up for an AWS account](http
 
 * [API Authorization](/api-auth)
 * [Get Access Tokens](/tokens/guides/access-token/get-access-tokens)
-* [JSON Web Key Set](/tokens/concepts/jwks)
+* [JSON Web Key Sets (JWKS)](/jwks)
 
 <%= include('./_stepnav', {
  next: ["Configure the Auth0 API", "/integrations/aws-api-gateway/custom-authorizers/part-1"]

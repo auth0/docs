@@ -51,7 +51,7 @@ Depending on your needs, you can define roles other than admin and user. Read ab
 
 ## Test the Rule in Your Project
 
-The claim with the roles you set is stored in the user's ID Token. It is a [JSON Web Token (JWT)](/tokens/concepts/jwt) that holds claims. You can use a JWT decoding library to obtain the roles and perform access control. You can use the [JWTDecode](https://github.com/auth0/JWTDecode.swift) library.
+The claim with the roles you set is stored in the user's ID Token. It is a [JSON Web Token (JWT)](/jwt) that holds claims. You can use a JWT decoding library to obtain the roles and perform access control. You can use the [JWTDecode](https://github.com/auth0/JWTDecode.swift) library.
 
 ```swift
 import JWTDecode

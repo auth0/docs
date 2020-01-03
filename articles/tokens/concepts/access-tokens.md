@@ -15,7 +15,7 @@ useCase:
 
 ## Access Token Structure
 
-Auth0 issues Access Tokens in two formats: opaque and <dfn data-key="json-web-token">[JSON Web Token (JWT)](/tokens/concepts/jwt)</dfn>.
+Auth0 issues Access Tokens in two formats: opaque and <dfn data-key="json-web-token">[JSON Web Token (JWT)](/jwt)</dfn>.
 
 In addition, if you have chosen to allow users to log in through an [Identity Provider (IdP)](/identityproviders), such as Facebook, the IdP will issue its own Access Token to allow your application to call the IDP's API. For example, if your user authenticates using Facebook, the Access Token issued by Facebook can be used to call the Facebook Graph API. These tokens are controlled by the IdP and can be issued in any format. To learn more, see [Identity Provider (IdP) Access Tokens](/tokens/concepts/id-access-tokens). 
 
@@ -27,13 +27,13 @@ To learn more about getting an opaque Access Token for the `userinfo` endpoint, 
 
 ### JSON Web Token Access Tokens
 
-Access Tokens issued for the [Auth0 Management API](/api/info) and Access Tokens issued for any custom API that you have registered with Auth0 will follow the <dfn data-key="json-web-token">[JSON Web Token (JWT)](/tokens/concepts/jwt)</dfn> standard, which means that their basic structure conforms to the typical [JWT Structure](/tokens/references/jwt-structure), and they contain standard [JWT Claims](/tokens/concepts/jwt-claims) asserted about the token itself.
+Access Tokens issued for the [Auth0 Management API](/api/info) and Access Tokens issued for any custom API that you have registered with Auth0 will follow the <dfn data-key="json-web-token">[JSON Web Token (JWT)](/jwt)</dfn> standard, which means that their basic structure conforms to the typical [JWT Structure](/tokens/references/jwt-structure), and they contain standard [JWT Claims](/tokens/concepts/jwt-claims) asserted about the token itself.
 
 To learn more about getting a JWT Access Token for the Management API or your own custom API, see [Get Access Tokens](/tokens/guides/access-token/get-access-tokens).
 
 ## Access Token Security
 
-You should follow [token best practices](/best-practices/token-best-practices) when using Access Tokens, and for [JWTs](/tokens/concepts/jwt#security), make sure that you [validate an Access Token](/tokens/guides/access-token/validate-access-token) before assuming that its contents can be trusted.
+You should follow [token best practices](/best-practices/token-best-practices) when using Access Tokens, and for [JWTs](/jwt#security), make sure that you [validate an Access Token](/tokens/guides/access-token/validate-access-token) before assuming that its contents can be trusted.
 
 ## Access Token Lifetime
 
@@ -60,5 +60,5 @@ Access Tokens issued strictly for the purpose of accessing the <dfn data-key="op
 * [Add Custom Claims to a Token](/scopes/current/sample-use-cases#add-custom-claims-to-a-token)
 * [Use an Access Token](/tokens/guides/access-token/use-access-tokens)
 * [Validate an Access Token](/tokens/guides/access-token/validate-access-token)
-* [JSON Web Token](/tokens/concepts/jwt)
+* [JSON Web Token](/jwt)
 :::

@@ -198,7 +198,7 @@ Once you've decoded the ID Token, you can extract user information from it. The 
 }
 ```
 
-For additional details, see [ID Tokens](/tokens/concepts/id-tokens).
+For additional details, please see our docs [on the ID Token and its claims](/tokens/concepts/id-tokens#id-token-payload).
 
 ::: note
 For a list of libraries you can use to verify and decode tokens refer to [JWT.io](https://jwt.io/#libraries-io).

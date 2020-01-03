@@ -205,7 +205,7 @@ The user's unique identifier is their [user_id](/users/normalized#storing-user-d
 The Node.js backend authenticates requests to the URI associated with getting the user’s personal data from the database by validating a JSON Web Token.
 
 ::: note
-[Learn about token-based authentication and how to implement JWT in your Applications.](/tokens/concepts/jwt)
+[Learn about token-based authentication and how to implement JWT in your Applications.](/jwt)
 :::
 
 Here is the code implementing JWT validation from the [Node.js seed project](/quickstart/backend/nodejs):

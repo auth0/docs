@@ -1,6 +1,6 @@
 ---
-title: Verify JSON Web Token Signing Keys
-description: Learn how to use retrieve the JWKS signing key using the JSON Web Key Set (JWKS) endpoint.
+title: Verify JSON Web Token Signatures
+description: Learn how to use the JSON Web Keys (JWKs) discovered by using the JSON Web Key Set (JWKS) endpoint.
 topics:
   - tokens
   - jwks
@@ -12,9 +12,9 @@ useCase:
   - secure-api
   - add-login
 ---
-# Verify JSON Web Token Signing Keys
+# Verify JSON Web Token Signatures
 
-Auth0 exposes a discovery endpoint which exists at `https://${account.namespace}/.well-known/openid-configuration`. You can use this endpoint to configure your application or API to automatically locate the [JSON Web Key Set](/tokens/concepts/jwks) endpoint (`jwks_uri`), which contains the JWKS used to sign all Auth0-issued <dfn data-key="json-web-token">JSON Web Tokens (JWTs)</dfn> signed with the RS256 [signing algorithm](/tokens/concepts/signing-algorithms).
+Auth0 exposes a discovery endpoint which exists at `https://${account.namespace}/.well-known/openid-configuration`. You can use this endpoint to configure your application or API to automatically locate the [JSON Web Key Set (JWKS)](/jwks) endpoint (`jwks_uri`), which contains the JWKS used to sign all Auth0-issued <dfn data-key="json-web-token">JSON Web Tokens (JWTs)</dfn> signed with the RS256 [signing algorithm](/tokens/concepts/signing-algorithms).
 
 When [validating a JWT](/tokens/guides/jwt/validate-jwt) using a JWKS, you will need to:
 

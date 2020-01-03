@@ -70,7 +70,7 @@ The `<%= "${saml:sub}" %>` will be automatically mapped from the authenticated u
 
 ### Get the AWS Token for an Authenticated User
 
-When a user successfully authenticates, Auth0 returns an ID Token, which is a [JWT](/tokens/concepts/jwt)). This ID Token is then used to request an Auth0 and AWS token using the delegation endpoint.
+When a user successfully authenticates, Auth0 returns an ID Token, which is a [JWT](/jwt)). This ID Token is then used to request an Auth0 and AWS token using the delegation endpoint.
 
 Here is a sample request on the delegation endpoint:
 

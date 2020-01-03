@@ -41,7 +41,7 @@ The [ID Token](/tokens/id_token) is a <dfn data-key="json-web-token">JSON Web To
 
 ### Claims
 
-JWT Tokens contain [claims](/tokens/concepts/jwt-claims), which are statements (such as name or email address) about an entity (typically, the user) and additional metadata.
+JWT Tokens contain [claims](/jwt#payload), which are statements (such as name or email address) about an entity (typically, the user) and additional metadata.
 
 The [OpenID Connect specification](https://openid.net/specs/openid-connect-core-1_0.html) defines a set of [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). The set of standard claims include name, email, gender, birth date, and so on. However, if you want to capture information about a user and there currently isn't a standard claim that best reflects this piece of information, you can create [custom claims and add them to your tokens](/scopes/current/sample-use-cases#add-custom-claims-to-a-token).
 

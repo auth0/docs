@@ -162,6 +162,6 @@ For this example, we assume that we have already done the following:
 
 * [ID Tokens](/tokens/concepts/id-tokens)
 * [Rules](/rules)
-* [JSON Web Tokens](/tokens/concepts/jwt)
+* [JSON Web Tokens](/jwt)
 * [OpenID Connect (OIDC) specification](http://openid.net/specs/openid-connect-core-1_0.html)
 * [Step-up Authentication for APIs](/multifactor-authentication/developer/step-up-authentication/step-up-for-apis)

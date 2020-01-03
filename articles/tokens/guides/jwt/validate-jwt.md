@@ -107,7 +107,7 @@ To verify that the signature is correct, you need to generate a new Base64url-en
 ::: panel Where can I find my secret or public key?
 
 For RS256:
-[Retrieve the public key](/tokens/guides/jwt/use-jwks) from the [JSON Web Key Set](/tokens/concepts/jwks) located by using your Auth0 discovery endpoint.
+[Retrieve the public key](/tokens/guides/jwt/use-jwks) from the [JSON Web Key Set (JWKS)](/jwks) located by using your Auth0 discovery endpoint.
 
 For debugging purposes, you can visually inspect your token at [jwt.io](jwt.io); for this purpose, you can also locate your public key in the Auth0 Dashboard. Look in **Applications**>**Settings**>**Advanced Settings**>**Certificates** and locate the **Signing Certificate** field.
 

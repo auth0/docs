@@ -34,7 +34,7 @@ Let's say that you grant access to your API to anyone in possession of the appro
 Please see the Auth0 blog for an in-depth treatment on [Blacklisting JSON Web Token API Keys](https://auth0.com/blog/blacklist-json-web-token-api-keys/).
 :::
 
-Auth0-issued tokens are [JWTs](/tokens/concepts/jwt), so you can set the JWT ID, or `jti`, for the token by including it in the token payload's `jwtid` field. With the `jti` in hand, you can make the appropriate `POST` call to the Management API's [blacklist a token endpoint](/api/management/v2#!/Blacklists/post_tokens). You'll need to provide the JWT's `aud` and `jti` claims. 
+Auth0-issued tokens are [JWTs](/jwt), so you can set the JWT ID, or `jti`, for the token by including it in the token payload's `jwtid` field. With the `jti` in hand, you can make the appropriate `POST` call to the Management API's [blacklist a token endpoint](/api/management/v2#!/Blacklists/post_tokens). You'll need to provide the JWT's `aud` and `jti` claims. 
 
 ::: panel Add a JWT ID
 You can add `jti` via a [rule](/rules). Here's a simple example using UUID:

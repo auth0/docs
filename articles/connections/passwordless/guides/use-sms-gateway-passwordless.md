@@ -116,7 +116,7 @@ If your SMS Gateway accepts authenticated requests that are token-based, you can
 }
 ```
 
-When you include `gateway_authentication` in your **options** object, Auth0 adds a [JSON Web Token](/tokens/concepts/jwt) to the `Authorization` header whenever it sends requests to your SMS gateway. The token contains the `gateway_authentication.subject` and `gateway_authentication.audience` values, and is signed with `gateway_authentication.secret`.
+When you include `gateway_authentication` in your **options** object, Auth0 adds a [JSON Web Token](/jwt) to the `Authorization` header whenever it sends requests to your SMS gateway. The token contains the `gateway_authentication.subject` and `gateway_authentication.audience` values, and is signed with `gateway_authentication.secret`.
 
 If your secret is base64-url-encoded, set `secret_base64_encoded` to `true`.
 

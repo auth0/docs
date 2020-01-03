@@ -19,7 +19,7 @@ This document will help you troubleshoot your JWT middleware configuration.
 
 In terms of validating a JWT, there are various things to consider:
 
-1. **Is the token well-formed?** In other words, is this token conforming to the structure of a JSON Web Token (JWT)? To get more information on the structure of a JWT, see [JSON Web Token Structure](/tokens/references/jwt-structure).
+1. **Is the token well-formed?** In other words, is this token conforming to the structure of a JSON Web Token (JWT)? To get more information on the structure of a JWT, please refer to [this section on the structure of a JWT](/jwt#what-is-the-json-web-token-structure-)
 
 2. **Has the token been tampered with?** The last part of a JWT is the signature. The signature is used to verify that the token was in fact signed by the sender and not altered in any way.
 
