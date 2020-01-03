@@ -27,7 +27,7 @@ We are actively migrating customers to new behaviors for all **Deprecations** li
       <td><a href="/migrations/guides/management-api-v1-v2">Management API v1</a></td>
       <td>October 2016</td>
       <td>
-        <strong>Public Cloud</strong>: 6 July 2020<br>
+        <strong>Public Cloud</strong>: 13 July 2020<br>
         <strong>Private Cloud</strong>: November 2020 release<br>
       </td>
       <td>Management API v1 will reach its End of Life on July 6, 2020. You may be required to take action before that date to ensure no interruption to your service. A <a href="/migrations/guides/management-api-v1-v2">migration guide</a> is available to walk you through the steps required. Notifications have been and will continue to be sent to customers that need to complete this migration.<br>Useful Resources:<br>
