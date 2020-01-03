@@ -2332,5 +2332,9 @@ module.exports = [
     {
       from: '/logs/query-syntax',
       to: '/logs/references/query-syntax'
+    },
+    {
+      from: '/tokens/concepts/token-best-practices',
+      to: '/best-practices/token-best-practices'
     }
 ];
