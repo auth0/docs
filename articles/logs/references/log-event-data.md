@@ -1,5 +1,5 @@
 ---
-title: Log Event Data
+title: Log Event Type Codes
 description: Lists the event codes associated with log events. 
 topics:
   - logs
@@ -9,7 +9,7 @@ contentType:
 useCase:
   - manage-logs
 ---
-# Log Event Data
+# Log Event Type Codes
 
 The following table lists the codes associated with the each log event.
 
