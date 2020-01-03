@@ -11,7 +11,7 @@ useCase:
 
 # Get Delegation Tokens
 
-<%= include('../_includes/_uses-delegation') %>
+<%= include('../../_includes/_uses-delegation') %>
 
 A delegation token should be obtained and used when an application needs to call the API of an Application Add-on, such as Firebase or SAP, registered and configured in Auth0, in the same tenant as the calling program. Given an existing token, this endpoint will generate a new token signed with the `target` application's secret. This is used to flow the identity of the user from the application to an API. The type of the delegation token will vary depending on the by provider. For example, if issued for Azure Blob Storage, it will be an SAS (Shared Access Signature). If it is for the Firebase Add-on, it will be a JWT.
 
