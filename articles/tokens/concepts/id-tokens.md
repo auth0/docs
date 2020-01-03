@@ -19,9 +19,9 @@ ID Tokens are used in token-based authentication to cache user profile informati
 
 For example, let's say you have built a [regular web application](/applications), [registered it with Auth0](/dashboard/guides/applications/register-app-regular-web), and have [configured it to allow a user to log in using Google](/connections/social/google). Once a user logs in to your app, you can use the ID Token to gather information, such as name and email address, which you can then use to auto-generate and send a personalized welcome email.
 
-## ID Token Structure
+## ID Token structure
 
-ID Tokens follow the <dfn data-key="json-web-token">[JSON Web Token (JWT)](/jwt)</dfn> standard, which means that their basic structure conforms to the typical [JWT Structure](/tokens/references/jwt-structure), and they contain standard [JWT Claims](/tokens/concepts/jwt-claims) asserted about the token itself.
+ID Tokens follow the <dfn data-key="json-web-token">[JSON Web Token (JWT)](/tokens/concepts/jwt)</dfn> standard, which means that their basic structure conforms to the typical [JWT Structure](/tokens/references/jwt-structure), and they contain standard [JWT Claims](/tokens/concepts/jwt-claims) asserted about the token itself.
 
 However, beyond what is required for JWT, ID Tokens also contain claims asserted about the authenticated user, which are pre-defined by the [OpenID Connect (OIDC)](/protocols/oidc) protocol, and are thus known as standard OIDC claims. Some standard OIDC claims include:
 
@@ -39,20 +39,18 @@ You control which OIDC claims are included in the ID Token consumed by your appl
 You can also create [custom claims](/tokens/concepts/jwt-claims#custom-claims), which are claims that you define, control, and add to a token using a rule. 
 :::
 
-## ID Token Security
+## ID Token security
 
 As with any other [JWTs](/tokens/concepts/jwt#security), you should follow [token best practices](/best-practices/token-best-practices) when using ID Tokens and [validate an ID Token](/tokens/guides/id-token/validate-id-token) before assuming that its contents can be trusted.
 
-## ID Token Lifetime
+## ID Token lifetime
 
 By default, an ID Token is valid for 36000 seconds (10 hours). If there are security concerns, you can shorten the time period before the token expires, but remember that one of the purposes of this token is to improve performance by caching user information. 
 
 To learn how to change the ID Token expiration time, see [Update ID Token Lifetime](/dashboard/guides/applications/update-token-lifetime).
 
-## Next Steps
+## Keep reading
 
-::: next-steps
-* [Get an ID Token](/tokens/guides/id-token/get-id-tokens)
-* [Validate an ID Token](/tokens/guides/id-token/validate-id-token)
-* [JSON Web Token](/jwt)
-:::
+* [Get ID Tokens](/tokens/guides/id-token/get-id-tokens)
+* [Validate ID Tokens](/tokens/guides/id-token/validate-id-token)
+* [JSON Web Tokens](/tokens/concepts/jwt)

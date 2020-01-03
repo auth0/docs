@@ -40,7 +40,7 @@ After an ID Token has expired, you may want to renew your ID Token. To renew the
 
 * [ID Tokens](/tokens/concepts/id-tokens)
 * [Validate an ID Token](/tokens/guides/id-token/validate-id-token)
-* [JSON Web Token](/jwt)
+* [JSON Web Token](/tokens/concepts/jwt)
 * [JSON Web Token Claims](/tokens/concepts/jwt-claims)
 * [OpenID Connect Scopes](/scopes/oidc-scopes)
 * [Token Best Practices](/best-practices/token-best-practices)

@@ -16,7 +16,7 @@ See [Setting Up Multiple Environments](/dev-lifecycle/setting-up-env) for inform
 
 ## Use JSON Web Tokens (JWT) with client-side applications
 
-Because [JSON Web Tokens (JWT)](/jwt) are stateless (that is, the app that consumes them cares only about its contents, not any of its previous states), this is one of the easiest scenarios to test locally.
+Because [JSON Web Tokens (JWT)](/tokens/concepts/jwt) are stateless (that is, the app that consumes them cares only about its contents, not any of its previous states), this is one of the easiest scenarios to test locally.
 
 You can obtain JWTs for testing using any of the following methods:
 

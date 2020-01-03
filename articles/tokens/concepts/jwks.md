@@ -1,8 +1,6 @@
 ---
-url: /jwks
 title: JSON Web Key Set
 description: A JSON Web Key set is a JSON object which represents a set of JSON Web Keys (a JSON object that represents a cryptographic key).
-toc: false
 topics:
   - tokens
   - jwks
@@ -36,8 +34,8 @@ Currently, Auth0 only supports a single JWK for signing; however, it is importan
 ## Keep reading
 
 * [JSON Web Key Set Properties](/tokens/references/jwks-properties)
-* [Verify a JSON Web Token's Signature using the JSON Web Key Set Endpoint](/tokens/guides/jwt/use-jwks)
-* [Validate a JSON Web Token](/tokens/guides/jwt/validate-jwt)
+* [Verify JSON Web Token Signing Keys](/tokens/guides/jwt/use-jwks)
+* [Validate JSON Web Token](/tokens/guides/jwt/validate-jwt)
 
 Sample implementations:
 * [Backend/API Quickstarts](/quickstart/backend)

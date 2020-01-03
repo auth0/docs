@@ -134,7 +134,7 @@ Some changes were introduced in the implementation of Authorization Code grant:
 
 - The `device` request parameter has been removed.
 - The `audience` request parameter has been introduced. This denotes the target API for which the token should be issued.
-- The returned Access Token is a [JWT](/jwt), valid for calling the [/userinfo endpoint](/api/authentication#get-user-info) and the API specified by the `audience` parameter.
+- The returned Access Token is a [JWT](/tokens/concepts/jwt), valid for calling the [/userinfo endpoint](/api/authentication#get-user-info) and the API specified by the `audience` parameter.
 - A <dfn data-key="refresh-token">Refresh Token</dfn> will be returned only if the `offline_access` scope was granted.
 
 ::: note
@@ -150,7 +150,7 @@ Some changes were introduced in the implementation of Implicit grant:
 - The `response_type` request parameter indicates whether we want to receive both an Access Token and ID Token. If using `response_type=id_token`, we will return only an ID Token.
 - Refresh Tokens are not allowed. [Use `prompt=none` instead](/api-auth/tutorials/silent-authentication).
 - The <dfn data-key="nonce">`nonce`</dfn> request parameter must be a [cryptographically-secure random string](/api-auth/tutorials/nonce). After validating the ID Token, the application must [validate the nonce to mitigate replay attacks](/api-auth/tutorials/nonce). Requests made without a `nonce` parameter will be rejected.
-- The returned Access Token is a [JWT](/jwt), valid for calling the [/userinfo endpoint](/api/authentication#get-user-info) and the API specified by the `audience` parameter.
+- The returned Access Token is a [JWT](/tokens/concepts/jwt), valid for calling the [/userinfo endpoint](/api/authentication#get-user-info) and the API specified by the `audience` parameter.
 - ID Tokens will be signed asymmetrically using `RS256`.
 
 ::: note
@@ -165,7 +165,7 @@ Some changes were introduced in the implementation of Resource Owner Password gr
 - The `audience` request parameter has been introduced. This denotes the target API for which the token should be issued.
 - The endpoint to execute token exchanges is [/oauth/token](/api/authentication#resource-owner-password).
 - [Auth0's own grant type](/api-auth/tutorials/password-grant#realm-support) is used to authenticate users from a specific connection (`realm`). The [standard OIDC password grant](/api-auth/tutorials/password-grant) is also supported, but it does not accept Auth0-specific parameters such as `realm`.
-- The returned Access Token is a [JWT](/jwt), valid for calling the [/userinfo endpoint](/api/authentication#get-user-info) and the API specified by the `audience` parameter.
+- The returned Access Token is a [JWT](/tokens/concepts/jwt), valid for calling the [/userinfo endpoint](/api/authentication#get-user-info) and the API specified by the `audience` parameter.
 - The ID Token will be forcibly signed using `RS256` if requested by a [public application](/applications/concepts/app-types-confidential-public#public-applications).
 - A Refresh Token will be returned only if the `offline_access` scope was granted.
 

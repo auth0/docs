@@ -27,8 +27,8 @@ You may configure your tenant to always include a [default audience](/dashboard/
 | Token Use | Format | Requested Audience | Requested Scope |
 |-----------|--------|--------------------|-------|
 | [/userinfo endpoint](/api/authentication#get-user-info) | [Opaque](/tokens/concepts/access-tokens#opaque-access-tokens) | tenant name (`${account.namespace}`), no value for `audience` parameter, no `audience` parameter passed | `openid` |
-| Auth0 Management API | [JWT](/jwt) | Management API v2 identifier (`https://{tenant}.auth0.com/api/v2/`) |  |
-| Your own custom API | [JWT](/jwt) | The API Identifier for your custom API registered in the Auth0 Dashboard |  |
+| Auth0 Management API | [JWT](/tokens/concepts/jwt) | Management API v2 identifier (`https://{tenant}.auth0.com/api/v2/`) |  |
+| Your own custom API | [JWT](/tokens/concepts/jwt) | The API Identifier for your custom API registered in the Auth0 Dashboard |  |
 
 ::: panel Multiple Audiences
 Access Tokens can have multiple target audiences as long as your custom API's [signing algorithm](/tokens/concepts/signing-algorithms) is set to **RS256**. 
@@ -53,7 +53,7 @@ After an Access Token has expired, you may want to renew your Access Token. To r
 * [Access Tokens](/tokens/concepts/access-tokens)
 * [Use an Access Token](/tokens/guides/access-token/use-access-tokens)
 * [Validate an Access Token](/tokens/guides/access-token/validate-access-token)
-* [JSON Web Token](/jwt)
+* [JSON Web Token](/tokens/concepts/jwt)
 * [JSON Web Token Claims](/tokens/concepts/jwt-claims)
 * [Token Best Practices](/best-practices/token-best-practices)
 * [Quickstarts](/quickstarts)

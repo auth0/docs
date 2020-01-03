@@ -60,14 +60,14 @@ Click on the **Settings** tab of your [API](${manage_url}/#/apis) to review the 
 
 - **Allow Offline Access**: If this setting is enabled, Auth0 will allow applications to ask for Refresh Tokens for this API.
 
-- **Signing Algorithm**: The algorithm to sign the tokens with. The available values are `HS256` and `RS256`. When selecting `RS256` (recommended) the token will be signed with the tenant's private key. This value is set upon API creation and cannot be modified afterwards. For more details on the signing algorithms see the [Signing Algorithms paragraph](#signing-algorithms) below.
+- **Signing Algorithm**: The algorithm to sign the tokens with. The available values are `HS256` and `RS256`. When selecting `RS256` (recommended) the token will be signed with the tenant's private key. This value is set upon API creation and cannot be modified afterwards. For more details on the signing algorithms see [Signing Algorithms](#signing-algorithms) below.
 
 ## Signing algorithms
 
 When you create an API you have to select the algorithm your tokens will be signed with. The signature is used to verify that the sender of the JWT is who it says it is and to ensure that the message wasn't changed along the way.
 
 ::: note
-The signature is part of a JWT. If you are not familiar with the JWT structure, please see [JSON Web Tokens (JWTs) in Auth0](/jwt#what-is-the-json-web-token-structure-).
+The signature is part of a JWT. If you are not familiar with the JWT structure, see [JSON Web Token Structure](/tokens/references/jwt-structure).
 :::
 
 To create the signature part you have to take the encoded header, the encoded payload, a secret, the algorithm specified in the header, and sign that. That algorithm, which is part of the JWT header, is the one you select for your API: `HS256` or `RS256`.
@@ -91,7 +91,7 @@ Go to [Dashboard > Applications](${manage_url}/#/applications). Open the **Setti
 
 If you want to use the Public Key to verify a JWT signature on [JWT.io](https://jwt.io/), you can copy the Public Key and paste it in the **Public Key or Certificate** field under the **Verify Signature** section on the [JWT.io](https://jwt.io/) website.
 
-If you want to verify the signature of a token from one of your applications, we recommend that you get the Public Key from your tenant's [JSON Web Key Set (JWKS)](/jwks). Your tenant's JWKS is `https://${account.namespace}/.well-known/jwks.json`.
+If you want to verify the signature of a token from one of your applications, we recommend that you get the Public Key from your tenant's [JSON Web Key Set (JWKS)](/tokens/concepts/jwks). Your tenant's JWKS is `https://${account.namespace}/.well-known/jwks.json`.
 :::
 
 For a more detailed overview of the JWT signing algorithms, see [JSON Web Token (JWT) Signing Algorithms Overview](https://auth0.com/blog/json-web-token-signing-algorithms-overview/).

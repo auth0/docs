@@ -1,5 +1,5 @@
 ---
-title: Validate an ID Token
+title: Validate ID Tokens
 description: Learn how to validate an ID Token.
 toc: true
 topics:
@@ -8,19 +8,19 @@ topics:
   - oidc
   - id-tokens
 contentType:
-  - tutorial
+  - how-to
 useCase:
   - add-login
   - development
 ---
-# Validate an ID Token 
+# Validate ID Tokens 
 
-An [ID Token](/tokens/concepts/id-tokens), which contains user profile attributes, is consumed by an Application and typically used for user interface display. Auth0 issues all ID Tokens in <dfn data-key="json-web-token">[JSON Web Token (JWT)](/jwt)</dfn> format.
+An [ID Token](/tokens/concepts/id-tokens), which contains user profile attributes, is consumed by an Application and typically used for user interface display. Auth0 issues all ID Tokens in <dfn data-key="json-web-token">[JSON Web Token (JWT)](/tokens/concepts/jwt)</dfn> format.
 
 To validate an ID Token, you will need to:
 
-1. Perform standard JWT validation
-2. Check additional standard claims
+1. Perform standard JWT validation.
+2. Check additional standard claims.
 
 If any of these checks fail, the token is considered invalid, and the request must be rejected.
 
@@ -37,7 +37,7 @@ If you've performed the standard JWT validation, you have already decoded the [J
 
 If any of these checks fail, the token is considered invalid, and the request must be rejected.
 
-## Read more
+## Keep reading
 
 * [ID Tokens](/tokens/concepts/id-tokens)
-* [Get an ID Token](/tokens/guides/id-token/get-id-tokens)
+* [Get ID Tokens](/tokens/guides/id-token/get-id-tokens)

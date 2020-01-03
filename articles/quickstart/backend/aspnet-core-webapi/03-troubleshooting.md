@@ -21,7 +21,7 @@ This document will help you troubleshoot your JWT middleware configuration.
 There are 5 criteria for validating a JWT token. 
 
 1. **Is the token formed properly?**
-Check if the structure of the token matches the structure of a JSON Web Token. Read more about the [JSON Web Token structure](/jwt#what-is-the-json-web-token-structure-).
+Check if the structure of the token matches the structure of a JSON Web Token. Read more about the [JSON Web Token structure](/tokens/references/jwt-structure).
 
 2. **Has the token been tampered with?** 
 The last part of a JWT is the signature. The signature is used to verify that the token was signed by the sender and not altered in any way.

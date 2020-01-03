@@ -1557,7 +1557,7 @@ articles:
                 url: "/tokens/concepts/signing-algorithms"
                 hidden: true 
 
-              - title: "Verify JSON Web Token Signatures"
+              - title: "Verify JSON Web Token Signing Keys"
                 url: "/tokens/guides/jwt/use-jwks"
                 hidden: true 
 

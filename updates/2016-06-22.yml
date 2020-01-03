@@ -4,7 +4,7 @@ changed:
     tags:
       - jwt
     description: |
-      Updated [JWT doc](/jwt) with info on signing algorithms.
+      Updated [JWT doc](/tokens/concepts/jwt) with info on signing algorithms.
   -
     title: "Updated Java landing page"
     tags:

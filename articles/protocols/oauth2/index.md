@@ -106,7 +106,7 @@ The request parameters of the Authorization endpoint are:
 This endpoint is used by the **Authorization Code** and the **Implicit** [grant types](#authorization-grant-types). The authorization server needs to know which grant type the application wants to use, since it affects the kind of credential it will issue: for **Authorization Code** grant it will issue an authorization code  (which later can be exchanged with an Access Token), while for **Implicit** grant it will issue an **Access Token**.
 
 ::: panel Authorization Code vs Access Token
-An authorization code is an opaque string, meant to be exchanged with an Access Token at the [token endpoint](#token-endpoint). An Access Token is an opaque string (or a [JWT](/jwt) in Auth0 implementation) that denotes who has authorized which permissions (scopes) to which application.
+An authorization code is an opaque string, meant to be exchanged with an Access Token at the [token endpoint](#token-endpoint). An Access Token is an opaque string (or a [JWT](/tokens/concepts/jwt) in Auth0 implementation) that denotes who has authorized which permissions (scopes) to which application.
 :::
 
 In order to inform the authorization server which grant type to use, the `response_type` request parameter is used:
