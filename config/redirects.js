@@ -956,7 +956,7 @@ module.exports = [
     to: '/tutorials/web-apps-vs-web-apis-cookies-vs-tokens'
   },
   {
-    from: ['/har', '/tutorials/troubleshooting-with-har-files', '/troubleshoot/har', '/support/troubleshooting-with-har-files'],
+    from: ['/har', '/tutorials/troubleshootings-with-har-files', '/troubleshoot/har', '/support/troubleshooting-with-har-files', ],
     to: '/troubleshoot/guides/generate-har-files'
   },
   {
@@ -1967,10 +1967,6 @@ module.exports = [
    {
      from: '/protocols/saml/saml-configuration/selecting-between-multiple-idp',
      to: '/hrd'
-   },
-   {
-     from: '/support/troubleshooting-with-har-files',
-     to: '/troubleshoot/har'
    },
    {
      from: ['/tokens/overview-access-tokens','/tokens/access-tokens','/tokens/access_token'],
