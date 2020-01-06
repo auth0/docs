@@ -28,7 +28,7 @@ There is no standard way to renew IdP Access Tokens through Auth0. The mechanism
 For certain identity providers, Auth0 can store a <dfn data-key="refresh-token">[Refresh Token](/tokens/refresh-token)</dfn>, which you can use to obtain a new Access Token for the IdP. Currently this is supported for the following identity providers:
 
 * BitBucket
-* Google OAuth 2.0 (you need to pass the parameter `access_type=offline` when calling the Auth0 `/authorize` endpoint)
+* Google OAuth 2.0 (pass the parameter `access_type=offline`, as well the `connection_scope` parameter with required scopes, when calling the Auth0 `/authorize` endpoint)
 * Any other OAuth 2.0 IdP
 * SharePoint
 * Azure AD
