@@ -25,7 +25,7 @@ We are actively migrating customers to new behaviors for all **Deprecations** li
   <tbody>
     <tr>
       <td><a href="/migrations/guides/passwordless-start">Deprecation of unauthenticated calls to the <code>/passwordless/start</code> endpoint from confidential clients</a></td>
-      <td>1 December 2019</td>
+      <td>6 January 2020</td>
       <td>
         TBD
       </td>
