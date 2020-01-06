@@ -20,5 +20,5 @@ There are five primary tokens used in Auth0's token-based authentication scenari
   'tokens-new/concepts/access-tokens',
   'tokens-new/concepts/idp-access-tokens',
   'tokens-new/concepts/refresh-tokens',
-  'api/v2/tokens'
+  'api/management/v2/tokens'
 ] }) %>
