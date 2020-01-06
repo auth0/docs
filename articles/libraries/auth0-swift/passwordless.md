@@ -53,7 +53,7 @@ Auth0
        email: "support@auth0.com", 
        code: "123456", 
        audience: "https://myapi.com/api",
-       scope: "openid email",
+       scope: "openid email"
        )
    .start { result in
        switch result {
@@ -75,7 +75,7 @@ Auth0
        phoneNumber: "+4591131761367", 
        code: "123456", 
        audience: "https://myapi.com/api",
-       scope: "openid email",
+       scope: "openid email"
        )
    .start { result in
        switch result {
