@@ -15,8 +15,6 @@ useCase:
 ---
 # Lock Passwordless for iOS
 
-<%= include('../../../_includes/_native_passwordless_warning') %>
-
 <dfn data-key="lock">Lock</dfn> Passwordless handles <dfn data-key="passwordless">passwordless authentication</dfn> using email and sms connections.
 
 To show Lock, add the following snippet in your `UIViewController`.
