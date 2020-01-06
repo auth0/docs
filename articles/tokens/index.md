@@ -16,9 +16,9 @@ useCase:
 There are five primary tokens used in Auth0's token-based authentication scenarios:
 
 <%= include('../_includes/_topic-links', { links: [
-  'tokens-new/concepts/id-tokens',
-  'tokens-new/concepts/access-tokens',
-  'tokens-new/concepts/idp-access-tokens',
-  'tokens-new/concepts/refresh-tokens',
+  'tokens/concepts/id-tokens',
+  'tokens/concepts/access-tokens',
+  'tokens/concepts/idp-access-tokens',
+  'tokens/concepts/refresh-tokens',
   'api/management/v2/tokens'
 ] }) %>
