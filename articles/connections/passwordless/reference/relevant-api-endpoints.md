@@ -11,10 +11,16 @@ useCase: customize-connections
 
 Passwordless APIs can be used in two scenarios:
 
-* When implementing Universal Login, and you want to build your own user interface, using auth0.js to interact with Auth0. 
+* When implementing Universal Login and you want to customize the login page using auth0.js to interact with Auth0. 
 * When you want to embed the login flow in your application. 
 
-If you decide to embed login, please make sure you understand the [security implications](/guides/login/universal-vs-embedded).
+If you decide to embed login, please make sure you understand the [security implications](/guides/login/universal-vs-embedded). 
+
+You can learn more about how to implement Passwordless for Universal Login and Embedded login for different scenarios in these documents:
+
+- [Passwordless Authentication with Universal Login](/connections/passwordless/guides/universal-login)
+- [Passwordless Authentication with Embedded Login](/connections/passwordless/guides/embedded-login)
+
 
 ## Passwordless endpoints
 
