@@ -13,7 +13,7 @@ Auth0 supports two way of implementing authentication: *Embedded Login* and *Uni
 
 The industry is aligned in that redirecting to the [Universal Login](/connections/passwordless/guides/universal-login) page is the proper way to implement authentication in all apps, but in the case of Native Applications, sometimes customers prefer to implement Embedded Login for UX reasons. 
 
-If you need to embed the login user interface in your application, you can do it by using our [Embedded Passwordless API](/connections/passwordless/guides/relevant-api-endpoints) or our SDKs. 
+If you need to embed the login user interface in your application, you can do it by using our [Embedded Passwordless API](/connections/passwordless/reference/relevant-api-endpoints) or our SDKs. 
 
 Depending on the kind of application you want to build, you'll need to implement it differently:
 
