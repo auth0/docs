@@ -8,19 +8,19 @@ With this resource, you can manage Auth0 tenants, including setting logos and su
 resource "auth0_tenant" "tenant" {
   change_password {
     enabled = true
-    html    = "${file("./password_reset.html")}"
+    html    = <%="${file("./password_reset.html")}"%>
   }
 
   guardian_mfa_page {
     enabled = true
-    html    = "${file("./guardian_multifactor.html")}"
+    html    = <%="${file("./guardian_multifactor.html")}"%>
   }
 
   default_audience  = "<client_id>"
   default_directory = "Connection-Name"
 
   error_page {
-    html          = "${file("./error.html")}"
+    html          = <%="${file("./error.html")}"%>
     show_log_link = true
     url           = "http://mysite/errors"
   }
