@@ -27,14 +27,14 @@ resource "auth0_user" "my_user" {
   password = "passpass$12$12"
   nickname = "testnick"
   username = "testnick"
-  roles = [ "${auth0_role.my_role.id}" ]
+  roles = [ <%="${auth0_role.my_role.id}"%> ]
 }
 resource "auth0_role" "my_role" {
   name = "My Role - (Managed by Terraform)"
   description = "Role Description..."
 
   permissions {
-    resource_server_identifier = "${auth0_resource_server.my_resource_server.identifier}"
+    resource_server_identifier = "<%=${auth0_resource_server.my_resource_server.identifier}%>"
     name = "read:something"
   }
 }

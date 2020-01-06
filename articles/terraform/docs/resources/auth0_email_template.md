@@ -26,7 +26,7 @@ resource "auth0_email_template" "my_email_template" {
   url_lifetime_in_seconds = 3600
   enabled = true
 
-  depends_on = [ "${auth0_email.my_email_provider}" ]
+  depends_on = [ <%= "${auth0_email.my_email_provider}" %> ]
 }
 ```
 
