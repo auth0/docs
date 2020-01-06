@@ -62,8 +62,12 @@ Auth0 serverless Webtask containers can make use of a wide range of [`npm`](http
 
 By default, a large list of publicly available npm modules are [supported out-of-the-box](https://auth0-extensions.github.io/canirequire/). This list has been compiled and vetted for any potential security concerns. If you require an npm module that is not supported out-of-the-box, then a request can be made via the [Auth0 support](https://support.auth0.com/) portal or via your Auth0 representative. Auth0 will evaluate your request to determine suitability. There is currently no support in Auth0 for the use of npm modules from private repositories.
 
+New packages are typically added on a 1 or 2 week cycle when requested. Existing packages are rarely removed as this would cause breaking changes in rules. Keep in mind, Auth0 packages and versions are stored on an internal registry and are not in sync with npm.
+
 ::: panel Best Practice
 When using `npm` modules to access external services, it’s recommended best practice to [keep API requests to a minimum](/best-practices/performance#minimize-api-requests), [avoid excessive calls to paid services](/best-practices/performance#limit-calls-to-paid-services), and avoid potential security exposure by [limiting what is sent](#do-not-send-entire-context-object-to-external-services). For more information, see [Performance Best Practices](/best-practices/performance) and [Security Best Practices](/best-practices/custom-db-connections/security) sections below.
+
+When requiring a module in a rule, if the version is not specified the package manager will use the first version it finds on the internal list. It's recommended to only specify the version if that package contains specific logic needed in the rule. 
 :::
 
 ### Environment variables
