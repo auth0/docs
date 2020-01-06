@@ -2336,5 +2336,8 @@ module.exports = [
     {
       from: '/tokens/concepts/token-best-practices',
       to: '/best-practices/token-best-practices'
+    },
+      from: '/logs/references/log-event-data',
+      to: '/logs/references/log-event-types-codes'
     }
 ];

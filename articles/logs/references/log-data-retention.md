@@ -52,7 +52,7 @@ Auth0 provides a unique error code for errors reported when the [rate limit is e
 * [Administrator and Developer Log Usage Examples](/logs/concepts/logs-admins-devs)
 * [View Log Data in the Dashboard](/logs/guides/view-log-data-dashboard)
 * [Retrieve Logs Using the Management API](/logs/guides/retrieve-logs-mgmt-api)
-* [Log Event Data](/logs/references/log-event-data)
+* [Log Event Type Codes](/logs/references/log-event-type-codes)
 * [Log Search Query Syntax](/logs/references/query-syntax)
 * [Log Event Filters](/logs/references/log-event-filters)
 * [Integrate AWS EventBridge with Auth0](/integrations/aws-eventbridge)

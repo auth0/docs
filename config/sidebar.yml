@@ -890,8 +890,8 @@ articles:
           - title: Retrieve Logs Using the Management API
             url: /logs/guides/retrieve-logs-mgmt-api
 
-          - tite: Log Event Data
-            url: /logs/references/log-event-data
+          - tite: Log Event Type Codes
+            url: /logs/references/log-event-type-codes
 
           - title: Log Search Query Syntax
             url: /logs/references/query-syntax
