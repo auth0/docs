@@ -14,7 +14,7 @@ useCase:
 
 There are five primary tokens used in Auth0's token-based authentication scenarios:
 
-<%= include('../../_includes/_topic-links', { links: [
+<%= include('../_includes/_topic-links', { links: [
   'tokens/concepts/id-tokens',
   'tokens/concepts/access-tokens',
   'tokens/concepts/idp-access-tokens',
