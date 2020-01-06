@@ -21,15 +21,13 @@ In order to be able to use the Passwordless API from a Native client, you first 
 
 ### Initialize the Android SDK 
 
-Using the Passwordless API requires the Auth0 Android SDK version 1.20 or higher, configured to work in OIDC conformant mode. This can be achieved by setting the `OIDCConformant` property to `true`:
+Using the Passwordless API requires setting using the Auth0 Android SDK version 1.20 or higher, configured to work in OIDC conformant mode. This can be achieved by setting the `ODICConformant` property to `true`:
 
 ```java
 Auth0 account = new Auth0("{YOUR_CLIENT_ID}", "{YOUR_DOMAIN}");
-// Configure the account in OIDC conformant mode
+//Configure the account in OIDC conformant mode
 account.setOIDCConformant(true);
-
-// Use the account in the API clients
-AuthenticationAPIClient authentication = new AuthenticationAPIClient(account);
+//Use the account in the API clients
 ```
 
 ## Implement Passwordless Authentication Steps
