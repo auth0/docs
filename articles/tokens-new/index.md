@@ -5,8 +5,9 @@ classes: topic-page
 topics:
   - tokens
   - jwt
+  - access-tokens
 contentType:
-  - reference
+  - index
 useCase:
   - tokens
 ---
@@ -15,9 +16,9 @@ useCase:
 There are five primary tokens used in Auth0's token-based authentication scenarios:
 
 <%= include('../_includes/_topic-links', { links: [
-  'tokens/concepts/id-tokens',
-  'tokens/concepts/access-tokens',
-  'tokens/concepts/idp-access-tokens',
-  'tokens/concepts/refresh-tokens',
+  'tokens-new/concepts/id-tokens',
+  'tokens-new/concepts/access-tokens',
+  'tokens-new/concepts/idp-access-tokens',
+  'tokens-new/concepts/refresh-tokens',
   'api/v2/tokens'
 ] }) %>
