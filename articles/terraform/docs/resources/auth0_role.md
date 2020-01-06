@@ -34,7 +34,7 @@ resource "auth0_role" "my_role" {
   description = "Role Description..."
 
   permissions {
-    resource_server_identifier = "<%=${auth0_resource_server.my_resource_server.identifier}%>"
+    resource_server_identifier = <%="${auth0_resource_server.my_resource_server.identifier}"%>
     name = "read:something"
   }
 }
