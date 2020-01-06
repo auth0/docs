@@ -19,17 +19,23 @@ resource "auth0_email" "my_email_provider" {
 
 ## Argument Reference
 
+Arguments accepted by this resource include:
+
 * `name` - (Required) String. Name of the email provider. Options include `mailgun`, `mandrill`, `sendgrid`, `ses`, `smtp`, and `sparkpost`.
 * `enabled` - (Optional) Boolean. Indicates whether or not the email provider is enabled.
 * `default_from_address` - (Required) String. Email address to use as the sender when no other "from" address is specified.
-* `credentials` - (Required) List(Resource). Configuration settings for the credentials for the email provider. Maximum of one nested object with the following structure:
-    **Arguments**
-    * `api_user` - (Optional) String. API User for your email service.
-    * `api_key` - (Optional) String, Case-sensitive. API Key for your email service. Will always be encrypted in our database.
-    * `access_key_id` - (Optional) String, Case-sensitive. AWS Access Key ID. Used only for AWS.
-    * `secret_access_key` - (Optional) String, Case-sensitive. AWS Secret Key. Will always be encrypted in our database. Used only for AWS.
-    * `region` - (Optional) String. Default region. Used only for AWS, Mailgun, and SparkPost.
-    * `smtp_host` - (Optional) String. Hostname or IP address of your SMTP server. Used only for SMTP.
-    * `smtp_port` - (Optional) Integer. Port used by your SMTP server. Please avoid using port 25 if possible because many providers have limitations on this port. Used only for SMTP.
-    * `smtp_user` - (Optional) String. SMTP username. Used only for SMTP.
-    * `smtp_pass` - (Optional) String, Case-sensitive. SMTP password. Used only for SMTP.
+* `credentials` - (Required) List(Resource). Configuration settings for the credentials for the email provider. For details, see [Credentials](#credentials).
+
+### Credentials
+
+`credentials` supports the following arguments:
+
+* `api_user` - (Optional) String. API User for your email service.
+* `api_key` - (Optional) String, Case-sensitive. API Key for your email service. Will always be encrypted in our database.
+* `access_key_id` - (Optional) String, Case-sensitive. AWS Access Key ID. Used only for AWS.
+* `secret_access_key` - (Optional) String, Case-sensitive. AWS Secret Key. Will always be encrypted in our database. Used only for AWS.
+* `region` - (Optional) String. Default region. Used only for AWS, Mailgun, and SparkPost.
+* `smtp_host` - (Optional) String. Hostname or IP address of your SMTP server. Used only for SMTP.
+* `smtp_port` - (Optional) Integer. Port used by your SMTP server. Please avoid using port 25 if possible because many providers have limitations on this port. Used only for SMTP.
+* `smtp_user` - (Optional) String. SMTP username. Used only for SMTP.
+* `smtp_pass` - (Optional) String, Case-sensitive. SMTP password. Used only for SMTP.

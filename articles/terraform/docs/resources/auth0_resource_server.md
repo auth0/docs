@@ -30,12 +30,11 @@ resource "auth0_resource_server" "my_resource_server" {
 
 ## Argument Reference
 
+Arguments accepted by this resource include:
+
 * `name` - (Optional) String. Friendly name for the resource server. Cannot include `<` or `>` characters.
 * `identifier` - (Optional) String. Unique identifier for the resource server. Used as the audience parameter for authorization calls. Can not be changed once set.
-* `scopes` - (Optional) Set(Resource).  List of permissions (scopes) used by this resource server. Nested object with the following structure:
-    **Arguments**
-    * `value` - (Optional) String. Name of the permission (scope). Examples include `read:appointments` or `delete:appointments`.
-    * `description` - (Optional) String. Description of the permission (scope).
+* `scopes` - (Optional) Set(Resource).  List of permissions (scopes) used by this resource server. For details, see [Scopes](#scopes).
 * `signing_alg` - (Optional) String. Algorithm used to sign JWTs. Options include `HS256` and `RS256`.
 * `signing_secret` - (Optional) String. Secret used to sign tokens when using symmetric algorithms (HS256).
 * `allow_offline_access` - (Optional) Boolean. Indicates whether or not refresh tokens can be issued for this resource server.
@@ -47,7 +46,16 @@ resource "auth0_resource_server" "my_resource_server" {
 * `enforce_policies` - (Optional) Boolean. Indicates whether or not authorization polices are enforced.
 * `token_dialect` - (Optional) String. Dialect of access tokens that should be issued for this resource server. Options include `access_token` or `access_token_authz` (includes permissions).
 
+### Scopes
+
+ `scopes` supports the following arguments:
+
+* `value` - (Optional) String. Name of the permission (scope). Examples include `read:appointments` or `delete:appointments`.
+* `description` - (Optional) String. Description of the permission (scope).
+
 ## Attribute Reference
+
+Attributes exported by this resource include:
 
 * `signing_alg` - String. Algorithm used to sign JWTs. Options include `HS256` and `RS256`.
 * `signing_secret` - String. Secret used to sign tokens when using symmetric algorithms (HS256).

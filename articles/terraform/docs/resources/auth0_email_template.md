@@ -32,7 +32,9 @@ resource "auth0_email_template" "my_email_template" {
 
 ## Argument Reference
 
-* `template` - (Required) String. Template name. Options include `verify_email`, `reset_email`, `welcome_email`, `blocked_account`, `stolen_credentials`, `enrollment_email`, `mfa_oob_code`, `change_password` (legacy), or `password_reset` (legacy).
+Arguments accepted by this resource include:
+
+* `template` - (Required) String. Template name. Options include `verify_email`, `reset_email`, `welcome_email`, `blocked_account`, `stolen_credentials`, `enrollment_email`, `mfa_oob_code`, `change_password` (legacy), and `password_reset` (legacy).
 * `body` - (Required) String. Body of the email template. You can include [common variables](https://auth0.com/docs/email/templates#common-variables).
 * `from` - (Required) String. Email address to use as the sender. You can include [common variables](https://auth0.com/docs/email/templates#common-variables).
 * `result_url` - (Required) String. URL to redirect the user to after a successful action. [Learn more](https://auth0.com/docs/email/templates#configuring-the-redirect-to-url).

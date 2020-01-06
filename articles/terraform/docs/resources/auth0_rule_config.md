@@ -23,5 +23,7 @@ resource "auth0_rule_config" "my_rule_config" {
 
 ## Argument Reference
 
+Arguments accepted by this resource include:
+
 * `key` - (Required) String. Key for a rules configuration variable.
 * `value` - (Required) String, Case-sensitive. Value for a rules configuration variable.

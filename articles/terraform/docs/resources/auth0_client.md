@@ -79,14 +79,7 @@ Arguments accepted by this resource include:
 * `grant_types` - (Optional) List(String). Types of grants that this client is authorized to use.
 * `allowed_origins` - (Optional) List(String). URLs that represent valid origins for cross-origin resource sharing. By default, all your callback URLs will be allowed.
 * `web_origins` - (Optional) List(String). URLs that represent valid web origins for use with web message response mode.
-* `jwt_configuration` - (Optional) List(Resource). Configuration settings for the JWTs issued for this client. Minimum and maximum of one nested object with the following structure:
-    **Arguments**
-    * `lifetime_in_seconds` - (Optional) Integer. Number of seconds during which the JWT will be valid.
-    * `secret_encoded` - (Optional) Boolean. Indicates whether or not the client secret is base64 encoded.
-    * `scopes` - (Optional) Map(String). Permissions (scopes) included in JWTs.
-    * `alg` - (Optional) String. Algorithm used to sign JWTs.
-    **Attributes**
-    * `secret_encoded` - Boolean.
+* `jwt_configuration` - (Optional) List(Resource). Configuration settings for the JWTs issued for this client. For details, see [JWT Configuration](#jwt-configuration).
 * `encryption_key` - (Optional) Map(String).
 * `sso` - (Optional) Boolean. Indicates whether or not the client should use Auth0 rather than the IdP to perform Single Sign-On (SSO). True = Use Auth0.
 * `sso_disabled` - (Optional) Boolean. Indicates whether or not SSO is disabled.
@@ -96,70 +89,104 @@ Arguments accepted by this resource include:
 * `custom_login_page` - (Optional) String. Content of the custom login page.
 * `custom_login_page_preview` - (Optional) String.
 * `form_template` - (Optional) String. Form template for WS-Federation protocol.
-* `addons` - (Optional) List(Resource). Configuration settings for add-ons for this client. Maximum of one nested object with the following structure:
-    **Arguments**
-    * `aws` - (Optional) String
-    * `azure_blob` - (Optional) String
-    * `azure_sb` - (Optional) String
-    * `rms` - (Optional) String
-    * `mscrm` - (Optional) String
-    * `slack` - (Optional) String
-    * `sentry` - (Optional) String
-    * `box` - (Optional) String
-    * `cloudbees` - (Optional) String
-    * `concur` - (Optional) String
-    * `dropbox`- (Optional) String
-    * `echosign`- (Optional) String
-    * `egnyte`- (Optional) String
-    * `firebase`- (Optional) String
-    * `newrelic`- (Optional) String
-    * `office365`- (Optional) String
-    * `salesforce`- (Optional) String
-    * `salesforce_api`- (Optional) String
-    * `salesforce_sandbox_api`- (Optional) String
-    * `layer`- (Optional) String
-    * `sap_api`- (Optional) String
-    * `sharepoint`- (Optional) String
-    * `springcm`- (Optional) String
-    * `wams`- (Optional) String
-    * `wsfed`- (Optional) String
-    * `zendesk`- (Optional) String
-    * `zoom`- (Optional) String
-    * `samlp` - (Optional) List(Resource). Configuration settings for a SAML-P add-on. Maximum of one nested object with the following structure:
-        **Arguments**
-        * `audience` - (Optional) String. Audience of the SAML Assertion. Default will be the Issuer on SAMLRequest.
-        * `recipient` - (Optional) String. Recipient of the SAML Assertion (SubjectConfirmationData). Default is AssertionConsumerUrl on SAMLRequest or Callback URL if no SAMLRequest was sent.
-        * `create_upn_claim` - (Optional) Boolean, (Default=true) Indicates whether or not a UPN claim should be created.
-        * `passthrough_claims_with_no_mapping` - (Optional) Boolean, (Default=true). Indicates whether or not to passthrough claims that are not mapped to the common profile in the output assertion.
-        * `map_unknown_claims_as_is` - (Optional) Boolean, (Default=false). Indicates whether or not to add a prefix of `http://schema.auth0.com` to any claims that are not mapped to the common profile when passed through in the output assertion.
-        * `map_identities` - (Optional) Boolean, (Default=true). Indicates whether or not to add additional identity information in the token, such as the provider used and the access_token, if available.
-        * `signature_algorithm` - (Optional) String, (Default=`rsa-sha1`). Algorithm used to sign the SAML Assertion or response. Options include `rsa-sha1` and `rsa-sha256`.
-        * `digest_algorithm` - (Optional) String, (Default=`sha1`). Algorithm used to calculate the digest of the SAML Assertion or response. Options include `defaultsha1` and `sha256`.
-        * `destination` - (Optional) String. Destination of the SAML Response. If not specified, it will be AssertionConsumerUrlof SAMLRequest or Callback URL if there was no SAMLRequest.
-        * `lifetime_in_seconds` - (Optional) Integer, (Default=3600). Number of seconds during which the token is valid.
-        * `sign_response` - (Optional) Boolean. Indicates whether or not the SAML Response should be signed instead of the SAML Assertion.
-        * `typed_attributes` - (Optional) Boolean, (Default=true). Indicates whether or not we should infer the `xs:type` of the element. Types include `xs:string`, `xs:boolean`, `xs:double`, and `xs:anyType`. When set to false, all `xs:type` are `xs:anyType`.
-        * `include_attribute_name_format` - (Optional) Boolean,(Default=true). Indicates whether or not we should infer the NameFormat based on the attribute name. If set to false, the attribute NameFormat is not set in the assertion.
-        * `name_identifier_format` - (Optional) String, (Default=`urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`). Format of the name identifier.
-        * `authn_context_class_ref` - (Optional) String. Class reference of the authentication context.
-        * `binding` - (Optional) String. Protocol binding used for SAML logout responses.
-        * `mappings` - (Optional) Map(String). Mappings between the Auth0 user profile property name (`name`) and the output attributes on the SAML attribute in the assertion (`value`).
-        * `logout` - (Optional) Map(Resource). Configuration settings for logout. Nested object with the following structure:
-            **Arguments**
-            * `callback` - (Optional) String. Service provider's Single Logout Service URL, to which Auth0 will send logout requests and responses.
-            * `slo_enabled` - (Optional) Boolean. Indicates whether or not Auth0 should notify service providers of session termination.
-        * `name_identifier_probes` - (Optional) List(String). Attributes that can be used for Subject/NameID. Auth0 will try each of the attributes of this array in order and use the first value it finds.
+* `addons` - (Optional) List(Resource). Configuration settings for add-ons for this client. For details, see [Add-ons](#add-ons).
 * `token_endpoint_auth_method` - (Optional) String. Defines the requested authentication method for the token endpoint. Options include `none` (public client without a client secret), `client_secret_post` (client uses HTTP POST parameters), `client_secret_basic` (client uses HTTP Basic).
 * `client_metadata` - (Optional) Map(String)
-* `mobile` - (Optional) List(Resource). Configuration settings for mobile. Maximum of one nested object with the following structure:
-    * `android` (Optional) List(Resource). Configuration settings for Android native apps. Maximum of one nested object with the following structure:
-        **Arguments**
-        * `app_package_name` (Optional) String
-        * `sha256_cert_fingerprints` (Optional) List(String)
-    * `ios` (Optional) List(Resource). Configuration settings for i0S native apps. Maximum of one nested object with the following structure:
-        **Arguments**
-        * `team_id` - (Optional) String
-        * `app_bundle_identifier` - (Optional) String
+* `mobile` - (Optional) List(Resource). Configuration settings for mobile native applications. For details, see [Mobile](#mobile).
+
+### JWT Configuration
+
+`jwt_configuration` supports the following arguments:
+
+* `lifetime_in_seconds` - (Optional) Integer. Number of seconds during which the JWT will be valid.
+* `secret_encoded` - (Optional) Boolean. Indicates whether or not the client secret is base64 encoded.
+* `scopes` - (Optional) Map(String). Permissions (scopes) included in JWTs.
+* `alg` - (Optional) String. Algorithm used to sign JWTs.
+
+### Add-ons
+
+`addons` supports the following arguments:
+
+* `aws` - (Optional) String
+* `azure_blob` - (Optional) String
+* `azure_sb` - (Optional) String
+* `box` - (Optional) String
+* `cloudbees` - (Optional) String
+* `concur` - (Optional) String
+* `dropbox`- (Optional) String
+* `echosign`- (Optional) String
+* `egnyte`- (Optional) String
+* `firebase`- (Optional) String
+* `mscrm` - (Optional) String
+* `newrelic`- (Optional) String
+* `office365`- (Optional) String
+* `rms` - (Optional) String
+* `salesforce`- (Optional) String
+* `salesforce_api`- (Optional) String
+* `salesforce_sandbox_api`- (Optional) String
+* `samlp` - (Optional) List(Resource). Configuration settings for a SAML add-on. For details, see [SAML](#saml).
+* `layer`- (Optional) String
+* `sap_api`- (Optional) String
+* `sentry` - (Optional) String
+* `sharepoint`- (Optional) String
+* `slack` - (Optional) String
+* `springcm`- (Optional) String
+* `wams`- (Optional) String
+* `wsfed`- (Optional) String
+* `zendesk`- (Optional) String
+* `zoom`- (Optional) String
+    
+### SAML
+
+`samlp` supports the following arguments:
+
+* `audience` - (Optional) String. Audience of the SAML Assertion. Default will be the Issuer on SAMLRequest.
+* `recipient` - (Optional) String. Recipient of the SAML Assertion (SubjectConfirmationData). Default is AssertionConsumerUrl on SAMLRequest or Callback URL if no SAMLRequest was sent.
+* `create_upn_claim` - (Optional) Boolean, (Default=true) Indicates whether or not a UPN claim should be created.
+* `passthrough_claims_with_no_mapping` - (Optional) Boolean, (Default=true). Indicates whether or not to passthrough claims that are not mapped to the common profile in the output assertion.
+* `map_unknown_claims_as_is` - (Optional) Boolean, (Default=false). Indicates whether or not to add a prefix of `http://schema.auth0.com` to any claims that are not mapped to the common profile when passed through in the output assertion.
+* `map_identities` - (Optional) Boolean, (Default=true). Indicates whether or not to add additional identity information in the token, such as the provider used and the access_token, if available.
+* `signature_algorithm` - (Optional) String, (Default=`rsa-sha1`). Algorithm used to sign the SAML Assertion or response. Options include `rsa-sha1` and `rsa-sha256`.
+* `digest_algorithm` - (Optional) String, (Default=`sha1`). Algorithm used to calculate the digest of the SAML Assertion or response. Options include `defaultsha1` and `sha256`.
+* `destination` - (Optional) String. Destination of the SAML Response. If not specified, it will be AssertionConsumerUrlof SAMLRequest or Callback URL if there was no SAMLRequest.
+* `lifetime_in_seconds` - (Optional) Integer, (Default=3600). Number of seconds during which the token is valid.
+* `sign_response` - (Optional) Boolean. Indicates whether or not the SAML Response should be signed instead of the SAML Assertion.
+* `typed_attributes` - (Optional) Boolean, (Default=true). Indicates whether or not we should infer the `xs:type` of the element. Types include `xs:string`, `xs:boolean`, `xs:double`, and `xs:anyType`. When set to false, all `xs:type` are `xs:anyType`.
+* `include_attribute_name_format` - (Optional) Boolean,(Default=true). Indicates whether or not we should infer the NameFormat based on the attribute name. If set to false, the attribute NameFormat is not set in the assertion.
+* `name_identifier_format` - (Optional) String, (Default=`urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`). Format of the name identifier.
+* `authn_context_class_ref` - (Optional) String. Class reference of the authentication context.
+* `binding` - (Optional) String. Protocol binding used for SAML logout responses.
+* `mappings` - (Optional) Map(String). Mappings between the Auth0 user profile property name (`name`) and the output attributes on the SAML attribute in the assertion (`value`).
+* `logout` - (Optional) Map(Resource). Configuration settings for logout. For details, see [Logout](#logout).
+* `name_identifier_probes` - (Optional) List(String). Attributes that can be used for Subject/NameID. Auth0 will try each of the attributes of this array in order and use the first value it finds.
+
+#### Logout
+
+`logout` supports the following options:
+
+* `callback` - (Optional) String. Service provider's Single Logout Service URL, to which Auth0 will send logout requests and responses.
+* `slo_enabled` - (Optional) Boolean. Indicates whether or not Auth0 should notify service providers of session termination.
+
+### Mobile
+
+`mobile` supports the following arguments:
+
+* `android` (Optional) List(Resource). Configuration settings for Android native apps. For details, see [Android](#android).
+* `ios` (Optional) List(Resource). Configuration settings for i0S native apps. For details, see [iOS](#ios).
+
+#### Android
+
+`android` supports the following arguments:
+
+* `app_package_name` (Optional) String
+* `sha256_cert_fingerprints` (Optional) List(String)
+
+#### iOS
+
+`ios` supports the following arguments:
+
+* `team_id` - (Optional) String
+* `app_bundle_identifier` - (Optional) String
 
 ## Attribute Reference
 

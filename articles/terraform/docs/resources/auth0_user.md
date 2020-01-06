@@ -24,6 +24,8 @@ resource "auth0_role" "admin" {
 
 ## Argument Reference
 
+Arguments accepted by this resource include:
+
 * `user_id` - (Optional) String. ID of the user.
 * `connection_name` - (Required) String. Name of the connection from which the user information was sourced.
 * `username` - (Optional) String. Username of the user. Only valid if the connection requires a username.

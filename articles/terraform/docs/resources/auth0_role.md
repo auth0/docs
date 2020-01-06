@@ -42,15 +42,23 @@ resource "auth0_role" "my_role" {
 
 ## Argument Reference
 
+Arguments accepted by this resource include:
+
 * `role_id` - (Optional) String. ID for this role.
 * `name` - (Required) String. Name for this role.
 * `description` - (Optional) String. Description of the role.
 * `user_ids` - (Optional) List(String). IDs of the users to which the role is assigned.
-* `permissions` - (Optional) Set(Resource). Configuration settings for permissions (scopes) attached to the role. Nested object with the following structure:
-    **Arguments**
-    * `name` - (Required) String. Name of the permission (scope).
-    * `resource_server_identifier` - (Required) String. Unique identifier for the resource server.
+* `permissions` - (Optional) Set(Resource). Configuration settings for permissions (scopes) attached to the role. For details, see [Permissions](#permissions).
+
+### Permissions
+
+`permissions` supports the following arguments:
+
+* `name` - (Required) String. Name of the permission (scope).
+* `resource_server_identifier` - (Required) String. Unique identifier for the resource server.
 
 ## Attribute Reference
+
+Attributes exported by this resource include:
 
 * `role_id` - String. ID for the role.

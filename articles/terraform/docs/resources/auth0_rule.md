@@ -23,11 +23,15 @@ resource "auth0_rule_config" "my_rule_config" {
 
 ## Argument Reference
 
+Arguments accepted by this resource include:
+
 * `name` - (Required) String. Name of the rule. May only contain alphanumeric characters, spaces, and hyphens. May neither start nor end with hyphens or spaces.
 * `script` - (Required) String. Code to be executed when the rule runs.
 * `order` - (Optional) Integer. Order in which the rule executes relative to other rules. Lower-valued rules execute first.
 * `enabled` - (Optional) Boolean. Indicates whether the rule is enabled.
 
 ## Attribute Reference
+
+Attributes exported by this resource include:
 
 * `order` - Integer. Order in which the rule executes relative to other rules. Lower-valued rules execute first.

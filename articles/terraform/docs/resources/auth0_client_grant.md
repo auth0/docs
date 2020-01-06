@@ -33,6 +33,8 @@ resource "auth0_client_grant" "my_client_grant" {
 
 ## Argument Reference
 
+Arguments accepted by this resource include:
+
 * `client_id` - (Required) String. ID of the client for this grant.
 * `audience` - (Required) String. Audience or API Identifier for this grant.
 * `scope` - (Required) List(String). Permissions (scopes) included in this grant.
