@@ -100,4 +100,4 @@ For a more detailed overview of the JWT signing algorithms, see [JSON Web Token 
 
 - [API Authorization Overview](/api-auth)
 - [Which OAuth Flow to Use](/api-auth/which-oauth-flow-to-use)
-- [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
+- [Tokens](/tokens)

@@ -59,8 +59,7 @@ For details on how to implement this using Auth0, refer to [Execute the Hybrid F
 ::: next-steps
 - [Execute the Hybrid Flow](/api-auth/tutorials/hybrid-flow)
 - [How to configure an API in Auth0](/apis)
-- [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
+- [Tokens](/tokens)
 - [Application authentication for regular web apps](/flows/concepts/auth-code)
 - [Application authentication for single-page apps](/flows/concepts/implicit)
-- [Tokens used by Auth0](/tokens)
 :::

@@ -212,5 +212,4 @@ When using this flow from server-side applications, some anomaly detection featu
 
 * [Call APIs from Highly Trusted Applications](/api-auth/grant/password)
 * [How to configure an API in Auth0](/apis)
-* [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
-* [Tokens used by Auth0](/tokens)
+* [Tokens](/tokens)

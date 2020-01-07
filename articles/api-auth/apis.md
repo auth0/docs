@@ -89,5 +89,5 @@ Click on the *Settings* tab of your [API](${manage_url}/#/apis) to review the av
 ::: next-steps
 - [API Authorization landing page](/api-auth)
 - [Identify the proper OAuth 2.0 flow for your use case](/api-auth/which-oauth-flow-to-use)
-- [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
+- [Tokens](/tokens)
 :::

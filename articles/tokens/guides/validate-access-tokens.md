@@ -90,7 +90,6 @@ For an example using a simple timesheet API in Node.js, see [Architecture Scenar
 - [RFC 7519 - JSON Web Token (JWT)](https://tools.ietf.org/html/rfc7519)
 - [JSON Web Tokens (JWT)](/jwt)
 - [APIs in Auth0](/apis)
-- [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
-- [Tokens used by Auth0](/tokens)
+- [Tokens](/tokens)
 - [Architecture Scenarios: Server Client + API - Node.js API Implementation](/architecture-scenarios/application/server-api/api-implementation-nodejs#check-the-application-permissions)
 - [How to implement API authentication and authorization scenarios](/api-auth)

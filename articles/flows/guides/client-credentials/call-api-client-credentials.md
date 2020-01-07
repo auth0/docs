@@ -47,15 +47,10 @@ Optional: [Explore Sample Use Cases](#sample-use-cases)
 
 <%= include('./includes/sample-use-cases') %>
 
-
 Once your API receives a request with an Access Token, it will need to validate the token. For details, see [Validate an Access Token](/tokens/guides/access-token/validate-access-token).
-
 
 ## Keep reading
 
-::: next-steps
-- [Why you should always use Access Tokens to secure APIs](/api-auth/why-use-access-tokens-to-secure-apis)
 - [How to change scopes and add custom claims to tokens using Hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
 - [OpenID Connect (OIDC) protocol](/protocols/oidc)
-- [Tokens used by Auth0](/tokens)
-:::
+- [Tokens](/tokens)

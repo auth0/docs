@@ -151,6 +151,5 @@ This is a series of tutorials that describe a scenario for a fictitious company.
 
 - [How to protect your SPA against replay attacks](/api-auth/tutorials/nonce)
 - [How to configure an API in Auth0](/apis)
-- [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
 - [Application Authentication for Client-side Web Apps](/application-auth/client-side-web)
-- [Tokens used by Auth0](/tokens)
+- [Tokens](/tokens)

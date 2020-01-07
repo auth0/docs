@@ -64,7 +64,7 @@ For more information on the Client Credentials grant, refer to [How to Implement
 
 ### Calling APIs with Access Tokens
 
-Historically, protecting resources on your API has been accomplished using ID Tokens issued to your users after they authenticate in your applications. From now on, you should only use Access Tokens when calling APIs. ID Tokens should only be used by the application to verify that the user is authenticated and get basic user information. The main reason behind this change is security. For details, refer to [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis).
+Historically, protecting resources on your API has been accomplished using ID Tokens issued to your users after they authenticate in your applications. From now on, you should only use Access Tokens when calling APIs. ID Tokens should only be used by the application to verify that the user is authenticated and get basic user information. The main reason behind this change is security. For details, refer to [Tokens](/tokens).
 
 ::: note
 For more information, refer to [Calling your APIs with Auth0 tokens](/api-auth/tutorials/adoption/api-tokens).
@@ -327,6 +327,5 @@ should be used instead with <code>"grant_type": "refresh_token"</code></td>
 
 ::: next-steps
 * [API Authorization index](/api-auth)
-* [Why you should use Access Tokens to secure APIs?](/api-auth/why-use-access-tokens-to-secure-apis)
-* [Tokens used by Auth0](/tokens)
+* [Tokens](/tokens)
 :::

@@ -1,5 +1,5 @@
 ---
-title: Calling your APIs with Auth0 tokens
+title: Call APIs with Auth0 Tokens
 description: The OIDC-conformant pipeline and how this affects your use of Auth0 tokens with external APIs
 topics:
   - tokens
@@ -13,11 +13,11 @@ useCase:
   - secure-api
   - call-api
 ---
-# Call your APIs with Auth0 tokens
+# Call APIs with Auth0 Tokens
 
 <%= include('./_about.md') %>
 
-With the OIDC-conformant pipeline, [all APIs should be secured with Access Tokens, not ID Tokens](/api-auth/why-use-access-tokens-to-secure-apis). In this article, we discuss what this means and what you need to do if you're using Auth0 tokens with your APIs.
+With the OIDC-conformant pipeline, all APIs should be secured with Access Tokens, not ID Tokens. In this article, we discuss what this means and what you need to do if you're using Auth0 tokens with your APIs.
 
 ## OIDC-conformant pipeline and tokens
 

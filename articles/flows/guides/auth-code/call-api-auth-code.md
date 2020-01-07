@@ -61,12 +61,8 @@ Optional: [Explore Sample Use Cases](#sample-use-cases)
 
 <%= include('./includes/sample-use-cases-call-api') %>
 
+## Keep reading
 
-## Keep Reading
-
-::: next-steps
-- [Why you should always use Access Tokens to secure APIs](/api-auth/why-use-access-tokens-to-secure-apis)
 - [OAuth 2.0 framework](/protocols/oauth2)
 - [OpenID Connect (OIDC) protocol](/protocols/oidc)
-- [Tokens used by Auth0](/tokens)
-:::
+- [Tokens](/tokens)

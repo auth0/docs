@@ -110,6 +110,5 @@ This is a series of tutorials that describe a scenario for a fictitious company 
 
 ## Keep reading
 
-- [WWhy You Should Always Use Access Tokens to Secure APIs](/api-auth/why-use-access-tokens-to-secure-apis)
 - [Use Hooks with Client Credentials Grant](/api-auth/tutorials/client-credentials/customize-with-hooks)
 - [Tokens](/tokens)

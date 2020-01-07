@@ -42,5 +42,5 @@ To change the application signature algorithm to RS256 instead of HS256:
     1. Open up the **OAuth** tab. Change the value of **JsonWebToken Signature Algorithm** to **RS256**
     1. Scroll to the bottom of the page and click **Save Changes**
 
-    If you proceed with this option and you are using the ID Token to call your APIs, be sure to change your server code so that it validates tokens using the RS256 algorithm instead of HS256. Note that using ID Tokens to call APIs [is not recommended](/api-auth/why-use-access-tokens-to-secure-apis).
+    If you proceed with this option and you are using the ID Token to call your APIs, be sure to change your server code so that it validates tokens using the RS256 algorithm instead of HS256. Note that using ID Tokens to call APIs [is not recommended](/tokens).
 

@@ -284,9 +284,8 @@ This is a series of tutorials that describe a scenario for a fictitious company.
 ## Keep reading
 
 ::: next-steps
-- [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
+- [Tokens](/tokens)
 - [Application Authentication for Mobile & Desktop Apps](/Application-auth/mobile-desktop)
 - [The OAuth 2.0 protocol](/protocols/oauth2)
 - [The OpenID Connect protocol](/protocols/oidc)
-- [Tokens used by Auth0](/tokens)
 :::

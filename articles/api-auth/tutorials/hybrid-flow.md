@@ -201,10 +201,9 @@ For details on the validations that should be performed refer to [Validate an Ac
 ## Keep Reading
 
 ::: next-steps
-- [How to refresh a token](/tokens/refresh-token)
-- [How to configure an API in Auth0](/apis)
-- [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
+- [Tokens](/tokens)
+- [Refresh Tokens](/tokens/concepts/refresh-token)
+- [Configure an API in Auth0](/apis)
 - [Authorization Code Flow](/flows/concepts/auth-code)
 - [Implicit Flow](/flows/concepts/implicit)
-- [Tokens used by Auth0](/tokens)
 :::

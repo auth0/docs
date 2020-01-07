@@ -134,9 +134,9 @@ In this page you can find a list of resources that can help you secure your APIs
     </ul>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/api-auth/why-use-access-tokens-to-secure-apis">Why you should always use Access Tokens to secure an API</a>
+    <i class="icon icon-budicon-715"></i><a href="/tokens">Tokens</a>
     <p>
-      Learn about the differences between Access Token and ID Token and why the latter should never be used to secure an API.
+      Learn about the types of tokens related to identity and authentication and how they are used by Auth0.
     </p>
   </li>
   <li>

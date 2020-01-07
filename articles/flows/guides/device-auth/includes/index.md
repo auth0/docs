@@ -57,12 +57,9 @@ Optional: [Troubleshooting](#troubleshooting)
 
 <%= include('./troubleshooting') %>
 
-## Keep Reading
+## Keep reading
 
-::: next-steps
-- [Why you should always use Access Tokens to secure APIs](/api-auth/why-use-access-tokens-to-secure-apis)
 - [The OAuth 2.0 protocol](/protocols/oauth2)
 - [The OpenID Connect protocol](/protocols/oidc)
-- [Tokens used by Auth0](/tokens)
+- [Tokens](/tokens)
 - [Tenant Logs for Devices](/logs)
-:::

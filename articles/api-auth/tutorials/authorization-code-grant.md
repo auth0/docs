@@ -157,9 +157,8 @@ If you wish to execute special logic unique to the Authorization Code grant, you
 ## Keep Reading
 
 ::: next-steps
-- [How to refresh a token](/tokens/refresh-token)
+- [Refresh Toekns](/tokens/concepts/refresh-token)
 - [How to configure an API in Auth0](/apis)
-- [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
 - [Application Authentication for Server-side Web Apps](/application-auth/server-side-web)
-- [Tokens used by Auth0](/tokens)
+- [Tokens](/tokens)
 :::

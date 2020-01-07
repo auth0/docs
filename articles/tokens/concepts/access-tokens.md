@@ -52,6 +52,5 @@ Access Tokens issued strictly for the purpose of accessing the <dfn data-key="op
 
 * [Get Access Tokens](/tokens/guides/get-access-tokens)
 * [Use Access Tokens](/tokens/guides/use-access-tokens)
-* [Use Access Tokens to Secure APIs](/api-auth/why-use-access-tokens-to-secure-apis)
 * [Validate Access Tokens](/tokens/guides/validate-access-tokens)
 * [JSON Web Token Claims](/tokens/concepts/jwt-claims)
