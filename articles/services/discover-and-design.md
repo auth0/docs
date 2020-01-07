@@ -18,7 +18,7 @@ The first stage in a successful implementation involves discovering, designing, 
 
 ## Architectural Discovery
 
-Focused on discovering the optimum design based on your requirements, Architectural Discovery services provide best practice guidance on topics such as requirements determination, Auth0 Tenant deployment strategies, your use cases, and integration with the software development process in your organization. Engaging with Auth0 Professional Services will help to provide you with a clear understanding of what you need to tackle, and when, in order to fulfill your particular needs. Delivered as part of our [Discover, Design & Implement packages](/services/packages#discover-design-and-implement-packages).
+Focused on discovering the optimum design based on your requirements, Architectural Discovery services provide best practice guidance on topics such as requirements determination, Auth0 Tenant deployment strategies, your use cases, and integration with the software development process in your organization. Engaging with Auth0 Professional Services will help to provide you with a clear understanding of what you need to tackle, and when, in order to fulfill your particular needs. Delivered as part of our [Discover, Design, & Implement packages](/services/packages#discover-design-and-implement-packages).
 
 ## Scenario Guidance
 

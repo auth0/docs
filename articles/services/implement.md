@@ -5,7 +5,6 @@ toc: true
 topics:
     - ps
     - implementation
-    - solution
 contentType: concept
 useCase:
   - implementation
