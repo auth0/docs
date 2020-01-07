@@ -22,7 +22,7 @@ For example, let's say you have built a [regular web application](/applications)
 
 As with any other [JWTs](/tokens/concepts/jwts#security), you should follow [token best practices](/best-practices/token-best-practices) when using ID Tokens.
 
-<%= include('../../_includes/_validate-id-token') %>
+<%= include('../_includes/_validate-id-token') %>
 
 ## ID Token lifetime
 

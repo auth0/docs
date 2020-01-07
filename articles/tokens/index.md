@@ -14,19 +14,27 @@ useCase:
 ---
 # Tokens
 
-There are basically two types of tokens that are related to identity:
+There are basically two types of tokens that are related to identity: ID Tokens and Access Tokens. 
 
-* The **ID Token** is a <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn>, and it is meant for use by the application only. For example, if there's an app that uses Google to log in users and to sync their calendars, Google sends an ID Token to the app that includes information about the user. The app then parses [the token's contents](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) and uses the information (including details like name and profile picture) to customize the user experience.
+## ID Tokens
 
-  <%= include('../_includes/_validate-id-token') %>
+ID Tokens are a <dfn data-key="json-web-token">JSON Web Tokens (JWTs)</dfn> meant for use by the application only. For example, if there's an app that uses Google to log in users and to sync their calendars, Google sends an ID Token to the app that includes information about the user. The app then parses the [token's contents](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) and uses the information (including details like name and profile picture) to customize the user experience.
 
-* **Access Tokens** (which aren't always a JWT) are used to inform an API that the bearer of the token has been authorized to access the API and perform a predetermined set of actions (specified by the <dfn data-key="scope">**scopes**</dfn> granted). 
+<%= include('../_includes/_validate-id-token') %>
 
-  In the Google example above, Google sends an Access Token to the app after the user logs in and provides consent for the app to read or write to their Google Calendar. Whenever the app wants to write to Google Calendar, it sends a request to the Google Calendar API, including the Access Token in the HTTP **Authorization** header.
+ID Tokens should *not* be used to gain access to an API. Each token contains information for the intended <dfn data-key="audience">audience</dfn> (which is usually the recipient). Per the OpenID Connect specification, the audience of the ID Token (indicated by the **aud** claim) must be the **client ID** of the application making the authentication request. If this is not the case, you should not trust the token. Conversely, an API expects a token with the **aud** value to equal the API's unique identifier. Therefore, unless you maintain control over both the application and the API, sending an ID Token to an API will generally not work. Since the ID Token is not signed by the API, the API would have no way of knowing if the application had modified the token (e.g., adding more scopes) if it were to accept the ID Token.
 
-  ::: note
-  Your applications should treat Access Tokens as opaque strings since they are meant for APIs. Your application should *not* attempt to decode them or expect to receive tokens in a particular format.
-  :::
+## Access Tokens
+
+Access Tokens (which aren't always a JWT) are used to inform an API that the bearer of the token has been authorized to access the API and perform a predetermined set of actions (specified by the <dfn data-key="scope">**scopes**</dfn> granted). 
+
+In the Google example above, Google sends an Access Token to the app after the user logs in and provides consent for the app to read or write to their Google Calendar. Whenever the app wants to write to Google Calendar, it sends a request to the Google Calendar API, including the Access Token in the HTTP **Authorization** header.
+
+Access Tokens must *never* be used for authentication**. Access Tokens cannot tell if the user has authenticated. The only user information the Access Token possesses is the user ID, located in the **sub** claim.
+
+::: note
+Your applications should treat Access Tokens as opaque strings since they are meant for APIs. Your application should *not* attempt to decode them or expect to receive tokens in a particular format.
+:::
 
 ## Token examples
 
@@ -85,11 +93,3 @@ There are five primary tokens used in Auth0's token-based authentication scenari
   'tokens/concepts/refresh-tokens',
   'api/management/v2/tokens'
 ] }) %>
-
-## Restrictions and limitations
-
-Now that we've seen some ways in which we can use tokens, let's talk about when they should **not** be used.
-
-* **Access Tokens must never be used for authentication.** Access Tokens cannot tell us if the user has authenticated. The only user information the Access Token possesses is the user ID, located in the **sub** claim.
-
-* **ID Tokens should not be used to gain access to an API**. Each token contains information for the intended <dfn data-key="audience">audience</dfn> (which is usually the recipient). Per the OpenID Connect specification, the audience of the ID Token (indicated by the **aud** claim) must be the **client ID** of the application making the authentication request. If this is not the case, you should not trust the token. Conversely, an API expects a token with the **aud** value to equal the API's unique identifier. Therefore, unless you maintain control over both the application and the API, sending an ID Token to an API will generally not work. Since the ID Token is not signed by the API, the API would have no way of knowing if the application had modified the token (e.g., adding more scopes) if it were to accept the ID Token.
