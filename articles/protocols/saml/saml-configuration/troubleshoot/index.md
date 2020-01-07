@@ -1,5 +1,5 @@
 ---
-description: How to troubleshoot SAML-related configuration issues
+description: Describes troubleshooting for SAML configuration issues.
 toc: true
 topics:
   - saml
@@ -11,7 +11,7 @@ useCase:
   - add-idp
 ---
 
-# Troubleshooting SAML Configuration
+# Troubleshoot SAML Configuration
 
 This guide serves to help you troubleshoot any issues that may arise during the <dfn data-key="security-assertion-markup-language">SAML</dfn> configuration process. It is not intended to be an exhaustive guide, but one that covers the most commonly encountered issues during setup.
 
@@ -78,7 +78,7 @@ If the troubleshooting steps listed above don't solve the issue you're seeing, p
 7. The name of the Connection involved
 8. Whether or not you're using the <dfn data-key="lock">Auth0 Lock widget</dfn> (if so, what version?)
 9. Is a customized version of Lock used?
-10. An HTTP trace of the SSO interaction in [a .har file](/har)
+10. An HTTP trace of the SSO interaction in [a .har file](/troubleshoot/guides/generate-har-files)
 11. An Auth0 log entry for the failed authentication
 12. An authentication log file from any third-party applications (such as Sharepoint) involved
 

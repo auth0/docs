@@ -495,7 +495,15 @@ module.exports = [
   },
   {
     from: '/ad',
-    to: '/connections/enterprise/active-directory'
+    to: '/connections/enterprise/active-directory-ldap'
+  },
+  {
+    from: '/connections/enterprise/ldap',
+    to: '/connections/enterprise/active-directory-ldap'
+  },
+    {
+    from: '/connections/enterprise/active-directory',
+    to: '/connections/enterprise/active-directory-ldap'
   },
   {
     from: '/adfs',
@@ -536,17 +544,25 @@ module.exports = [
     from: '/clients/client-types',
     to: '/applications/application-types'
   },
- {
+  {
     from: '/applications/application-types',
-    to: '/applications/concepts/app-types-auth0'
+    to: '/applications'
+  },
+  {
+    from: '/applications/concepts/connections',
+    to: '/connections'
   },
   {
     from: '/applications/machine-to-machine',
-    to: '/applications/concepts/app-types-auth0'
+    to: '/applications'
+  },
+  {
+    from: '/applications/concepts/app-types-auth0',
+    to: '/applications'
   },
   {
     from: '/clients/connections',
-    to: '/applications/connections'
+    to: '/connections'
   },
   {
     from: '/applications/connections',
@@ -722,10 +738,6 @@ module.exports = [
     to: '/api/management/v1/reference'
   },
   {
-    from: '/api/v1/use-cases',
-    to: '/api/management/v1/use-cases'
-  },
-  {
     from: ['/apiv2', '/api/v2'],
     to: '/api/management/v2'
   },
@@ -749,6 +761,10 @@ module.exports = [
       '/multifactor-authentication/custom-provider'
     ],
     to: '/multifactor-authentication'
+  },
+  {
+    from: '/multifactor-authentication/google-auth/user-guide',
+    to: '/multifactor-authentication/troubleshooting'
   },
   {
     from: '/multi-factor-authentication/yubikey',
@@ -940,8 +956,8 @@ module.exports = [
     to: '/tutorials/web-apps-vs-web-apis-cookies-vs-tokens'
   },
   {
-    from: ['/har', '/tutorials/troubleshootings-with-har-files'],
-    to: '/tutorials/troubleshooting-with-har-files'
+    from: ['/har', '/tutorials/troubleshooting-with-har-files', '/troubleshoot/har', '/support/troubleshooting-with-har-files'],
+    to: '/troubleshoot/guides/generate-har-files'
   },
   {
     from: '/hrd',
@@ -1533,10 +1549,6 @@ module.exports = [
     to: '/support/reset-account-password',
   },
   {
-    from: '/tutorials/troubleshooting-with-har-files',
-    to: '/support/troubleshooting-with-har-files',
-  },
-  {
     from: '/tutorials/delete-reset-tenant',
     to: '/support/delete-reset-tenant',
   },
@@ -1606,7 +1618,7 @@ module.exports = [
   },
   {
     from: '/tutorials/redirecting-users',
-    to: '/users/guides/redirect-users-after-login',
+    to: '/users/concepts/redirect-users-after-login',
   },
   {
     from: '/tutorials/get-user-information-with-unbounce-landing-pages',
@@ -1957,10 +1969,6 @@ module.exports = [
      to: '/hrd'
    },
    {
-     from: '/support/troubleshooting-with-har-files',
-     to: '/troubleshoot/har'
-   },
-   {
      from: ['/tokens/overview-access-tokens','/tokens/access-token','/tokens/access_token'],
      to: '/tokens/access-tokens'
    },
@@ -2145,8 +2153,8 @@ module.exports = [
     to: '/hooks'
    },
    {
-     from: '/users/redirecting-users',
-     to: '/users/guides/redirect-users-after-login'
+     from: '/users/guides/redirect-users-after-login',
+     to: '/users/concepts/redirect-users-after-login'
    },
    {
      from: '/applications/spa',
@@ -2291,22 +2299,42 @@ module.exports = [
     },
     {
       from: '/connections/passwordless/email',
-      to: '/connections/passwordless/guides/implement-passwordless'
+      to: '/connections/passwordless/guides/email-otp'
     },
     {
       from: '/connections/passwordless/sms',
-      to: '/connections/passwordless/guides/implement-passwordless'
+      to: '/connections/passwordless/guides/sms-otp'
     },
     {
       from: '/connections/passwordless/spa',
-      to: '/connections/passwordless/guides/implement-passwordless'
+      to: '/connections/passwordless/guides/universal-login'
     },
     {
       from: '/connections/passwordless/regular-web-app',
-      to: '/connections/passwordless/guides/implement-passwordless'
+      to: '/connections/passwordless/guides/universal-login'
     },
     {
       from: '/connections/passwordless/faq',
       to: '/connections/passwordless/reference/troubleshoot'
+    },
+    {
+      from: '/best-practices/custom-db-connections-scripts',
+      to: '/best-practices/custom-db-connections'
+    },
+    {
+      from: '/errors/deprecation-errors',
+      to: '/troubleshoot/guides/check-deprecation-errors'
+    },
+    {
+    from: '/api/management/v1/use-cases',
+    to: '/migrations/guides/management-api-v1-v2'
+    },
+    {
+      from: '/logs/query-syntax',
+      to: '/logs/references/query-syntax'
+    },
+    {
+      from: '/logs/references/log-event-data',
+      to: '/logs/references/log-event-types-codes'
     }
 ];

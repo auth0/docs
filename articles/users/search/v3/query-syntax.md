@@ -42,7 +42,7 @@ Search&nbsp;Field | Data&nbsp;Type | Description
 `blocked` | boolean | The `true/false` value indicating if the user has been blocked.
 `email.domain` | text | The domain part of the user's email.
 
-[User metadata](/users/concepts/overview-user-metadata) fields may be used with:
+[Metadata](/users/concepts/overview-user-metadata) fields may be used with:
     
 * Boolean
 * Numeric: (integer or double)
@@ -163,5 +163,4 @@ Range and wildcard searches are not available on user metadata fields.
 * [Sort Search Results](/users/search/v3/sort-search-results)
 * [View Search Results by Page](/users/search/v3/view-search-results-by-page)
 * [Bulk User Exports](/users/guides/bulk-user-exports)
-* [Metadata Field Name Rules](/users/references/metadata-field-name-rules)
 * [Search Best Practices](/best-practices/search-best-practices)

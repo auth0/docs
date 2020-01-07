@@ -87,7 +87,7 @@ When you create your job, you'll need to provide:
 
 ### CSV format
 
-If you export user data in CSV format and want to include metadata information, specify each [metadata field](/users/references/metadata-field-name-rules) that you want to include. 
+If you export user data in CSV format and want to include metadata information, specify each metadata field that you want to include. 
 
 For example, for metadata structured like this:
 
@@ -236,7 +236,7 @@ Furthermore, all of your job-related data is automatically deleted after 24 hour
 ## Keep reading
 
 * [User Import/Export Extension](/extensions/user-import-export)
-* [User Metadata](/users/concepts/overview-user-metadata)
+* [Metadata](/users/concepts/overview-user-metadata)
 * [Sort Search Results](/users/search/v3/sort-search-results)
 * [User Search Query Syntax](/users/search/v3/query-syntax)
 * [Normalized User Profile Schema](/users/normalized/auth0/normalized-user-profile-schema)

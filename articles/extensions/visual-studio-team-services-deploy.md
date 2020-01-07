@@ -153,6 +153,8 @@ __facebook.json__
 }
 ```
 
+<%= include('./_includes/_embedded-clients-array') %>
+
 _This will work only for non-Auth0 connections (`strategy !== auth0`), for Auth0 connections, use `database-connections`._
 
 See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Connections/post_connections) for more info on allowed attributes for Connections.
@@ -267,6 +269,8 @@ __my-client-api.json__
     ]
 }
 ```
+
+<%= include('./_includes/_deployment-extension') %>
 
 ### Deploy Resource Servers
 

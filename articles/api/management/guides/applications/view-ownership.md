@@ -13,7 +13,7 @@ useCase:
 ---
 # View Application Ownership
 
-This guide will show you how to use Auth0's Management API to check whether an application is registered with Auth0 as a [first-party or third-party application](/applications/concepts/app-types-first-third-party).
+This guide will show you how to use Auth0's Management API to check whether an application is registered with Auth0 as a first-party or third-party application.
 
 1. Make a `GET` call to the [Get a Client endpoint](/api/management/v2#!/Clients/get_clients_by_id). Be sure to replace `YOUR_CLIENT_ID` and `MGMT_API_ACCESS_TOKEN` placeholder values with your client ID and Management API Access Token, respectively.
 

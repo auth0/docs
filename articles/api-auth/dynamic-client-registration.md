@@ -13,11 +13,9 @@ useCase:
 
 # Dynamic Client Registration
 
-Dynamic Client Registration enables you to register [third-party applications](/applications/concepts/app-types-first-third-party) dynamically.
+Dynamic Client Registration enables you to register [third-party applications](/applications/guides/enable-third-party-apps) dynamically.
 
 This feature is based on the [OpenID Connect Dynamic Client Registration specification](https://openid.net/specs/openid-connect-registration-1_0.html) and in this article we will see how you can enable and use it.
-
-<%= include('../_includes/_enable-third-party-apps-info') %>
 
 ## Enable dynamic registration
 

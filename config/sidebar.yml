@@ -7,10 +7,10 @@
 articles:
 
 ## ------------------------------------------------------------
-## Getting Started
+## Get Started
 ## ------------------------------------------------------------
 
-  - title: "Getting Started"
+  - title: "Get Started"
     url: "/getting-started"
     children:
 
@@ -81,6 +81,12 @@ articles:
             
           - title: "Error Pages"
             url: "/universal-login/error-pages"
+
+          - title: "Text Customization"
+            url: "/universal-login/text-customization"
+
+          - title: "Internationalization"
+            url: "/universal-login/i18n"
 
           - title: "Default Login URL"
             url: "/universal-login/default-login-url"
@@ -186,7 +192,7 @@ articles:
         url: /api-auth/tutorials/silent-authentication
 
       - title: Redirect After Login
-        url: /users/guides/redirect-users-after-login
+        url: /users/concepts/redirect-users-after-login
 
       - title: Logout
         url: /logout
@@ -256,40 +262,36 @@ articles:
       - title: SAML Identity Providers
         url: /protocols/saml/identity-providers/
 
+      - title: Pass Parameters to Identity Providers
+        url: /connections/pass-parameters-to-idps
+
       - title: Passwordless
         url: /connections/passwordless
         children:
-
-          - title: Implement Passwordless
-            url: /connections/passwordless/guides/implement-passwordless
-
-          - title: Sample Use Case - Rules
-            url: /connections/passwordless/concepts/sample-use-cases-rules
-
-          - title: Relevant API Endpoints
-            url: /connections/passwordless/reference/relevant-api-endpoints
-
-          - title: Troubleshooting
-            url: /connections/passwordless/reference/troubleshoot
-
-          - title: Native Passwordless
-            url: /connections/passwordless/native-passwordless-universal
-            hidden: true
-
-          - title: Using Email
-            url: /connections/passwordless/email
-            hidden: true
-
-          - title: Using SMS
-            url: /connections/passwordless/sms
-            hidden: true
-
-          - title: FAQ
-            url: /connections/passwordless/faq
-            hidden: true
-
-      - title: Pass Parameters to Identity Providers
-        url: /connections/pass-parameters-to-idps
+          - title: Authentication Factors
+            url: /connections/passwordless
+            children:
+              - title: Email
+                url: /connections/passwordless/guides/email-otp
+              - title: Magic Link
+                url: /connections/passwordless/guides/email-magic-link
+              - title: SMS
+                url: /connections/passwordless/guides/sms-otp
+          - title: Universal Login
+            url: /connections/passwordless/guides/universal-login
+          - title: Embedded Login
+            url: /connections/passwordless/guides/embedded-login
+            children:
+              - title: Passwordless APIs
+                url: /connections/passwordless/reference/relevant-api-endpoints
+              - title: Native Apps
+                url: /connections/passwordless/guides/embedded-login-native
+              - title: Web Apps
+                url: /connections/passwordless/guides/embedded-login-webapps
+              - title: SPAs
+                url: /connections/passwordless/guides/embedded-login-spa
+          - title: Best Practices
+            url: /connections/passwordless/guides/best-practices
 
 ## ------------------------------------------------------------
 ## Authorization
@@ -469,17 +471,17 @@ articles:
           - title: "Customize Emails"
             url: "/anomaly-detection/guides/customize-blocked-account-emails"
 
-          - title: "Enable and Disable Brute Force Protection"
+          - title: "Enable/Disable Brute Force Protection"
             url: "/anomaly-detection/guides/enable-disable-brute-force-protection"
-            hidden: true
 
-          - title: "Breached Password Detection Triggers"
+          - title: "Breached Password Triggers"
             url: "/anomaly-detection/references/breached-password-detection-triggers-actions"
-            hidden: true
 
           - title: "Brute-Force Protection Triggers"
             url: "/anomaly-detection/references/brute-force-protection-triggers-actions"
-            hidden: true
+
+          - title: "View Anomaly Detection Events"
+            url: "/anomaly-detection/guides/use-tenant-data-for-anomaly-detection"
 
           - title: "Restrictions and Limitations"
             url: "/anomaly-detection/references/anomaly-detection-restrictions-limitations"
@@ -546,12 +548,41 @@ articles:
 
       - title: User Profiles
         url: /users/concepts/overview-user-profile
+        children:
+
+          - title: Normalized User Profile
+            url: /users/normalized/auth0
+
+          - title: Update Profiles Using Your Database
+            url: /users/guides/update-user-profiles-using-your-database
+
+          - title: Progressive Profiling
+            url: /users/concepts/overview-progressive-profiling
+
+          - title: User Profile Structure
+            url: /users/references/user-profile-structure
 
       - title: Metadata
         url: /users/concepts/overview-user-metadata
+        children:
 
-      - title: Progressive Profiling
-        url: /users/concepts/overview-progressive-profiling
+          - title: Manage User Metadata
+            url: /users/guides/manage-user-metadata
+
+          - title: Read Metadata
+            url: /users/guides/read-metadata
+
+          - title: Set Metadata Properties on Creation
+            url: /users/guides/set-metadata-properties-on-creation
+
+          - title: Update Metadata with the Management API
+            url: /users/guides/update-metadata-properties-with-management-api
+
+          - title: Metadata Best Practices
+            url: /best-practices/metadata-best-practices
+
+      - title: Sessions & Cookies
+        url: /sessions
 
       - title: Using the Dashboard
         url: /users/guides/manage-users-using-the-dashboard
@@ -630,10 +661,10 @@ articles:
             hidden: true
 
 ## ------------------------------------------------------------
-## Branding & Customization
+## Brand & Customize
 ## ------------------------------------------------------------
 
-  - title: Branding & Customization
+  - title: Brand & Customize
     url: /branding-customization
     children:
 
@@ -641,8 +672,27 @@ articles:
         url: /custom-domains
         children:
 
-          - title: Custom Domains with Self-Managed Certificates
+          - title: Auth0-Managed Certificates
+            url: /custom-domains/auth0-managed-certificates
+
+          - title: Self-Managed Certificates
             url: /custom-domains/self-managed-certificates
+            children:
+
+              - title: Cloudflare Reverse Proxy
+                url: /custom-domains/set-up-cloudflare
+
+              - title: Cloudfront Reverse Proxy
+                url: /custom-domains/set-up-cloudfront
+
+              - title: Azure CDN Reverse Proxy
+                url: /custom-domains/set-up-azure-cdn
+
+          - title: Specific Features
+            url: /custom-domains/additional-configuration
+
+          - title: Troubleshooting
+            url: /custom-domains/troubleshoot
 
       - title: Email
         url: /email
@@ -683,6 +733,9 @@ articles:
 
           - title: Create a New Rule
             url: /dashboard/guides/rules/create-rules
+
+          - title: Rules Use Cases
+            url: /rules/references/use-cases
 
           - title: Store Configuration for Rules
             url: /rules/guides/configuration
@@ -813,7 +866,7 @@ articles:
 ## Monitor
 ## ------------------------------------------------------------
 
-  - title: Monitoring
+  - title: Monitor
     url: /monitoring
     children:
 
@@ -821,8 +874,26 @@ articles:
         url: /logs
         children:
 
-          - title: Query Syntax
-            url: /logs/query-syntax
+          - title: Log Data Retention
+            url: /logs/references/log-data-retention
+
+          - title: View Log Data in the Dashboard
+            url: /logs/guides/view-log-data-dashboard
+
+          - title: Log Event Filters
+            url: /logs/references/log-event-filters
+
+          - title: Retrieve Logs Using the Management API
+            url: /logs/guides/retrieve-logs-mgmt-api
+
+          - tite: Log Event Type Codes
+            url: /logs/references/log-event-type-codes
+
+          - title: Log Search Query Syntax
+            url: /logs/references/query-syntax
+
+          - title: Log Usage Examples
+            url: /logs/concepts/logs-admins-devs
 
           - title: Migrate from Logs Search v2 to v3
             url: /monitor/logs/migrate-logs-v2-v3
@@ -922,122 +993,106 @@ articles:
           - title: "What's New in v2"
             url: "/extensions/deploy-cli/references/whats-new-v2"
 
-          - title: "Troubleshooting Deploy CLI"
+          - title: "Troubleshoot Deploy CLI"
             url: "/extensions/deploy-cli/references/troubleshooting"
             hidden: true
 
 ## ------------------------------------------------------------
-## Troubleshooting
+## Troubleshoot
 ## ------------------------------------------------------------
 
-  - title: Troubleshooting
+  - title: Troubleshoot
     url: /troubleshoot
     children:
 
-      - title: Basics
-        url: /troubleshoot/basics
-
-      - title: Common Authentication Errors
-        url: /libraries/error-messages
+      - title: Basic Issues
+        url: /troubleshoot/concepts/basics
         children:
 
-          - title: Standard Error Messages
-            url: "/api/authentication#standard-error-responses"
+          - title: Verify Platform
+            url: /troubleshoot/guides/verify-platform
 
-      - title: Roles-Based Authorization
-        url: /authorization/concepts/troubleshooting
+          - title: Verify Connections
+            url: /troubleshoot/guides/verify-connections
+
+          - title: Verify Domain
+            url: /troubleshoot/guides/verify-domain
+
+          - title: Verify Rules
+            url: /troubleshoot/guides/verify-rules
+
+          - title: Check Error Messages
+            url: /troubleshoot/guides/check-error-messages
+            children:
+
+              - title: Deprecation Errors
+                url: "/troubleshoot/guides/check-deprecation-errors"
+                hidden: true 
+
+      - title: Authentication Issues
+        url: /troubleshoot/concepts/auth-issues
         children:
+
+          - title: API Calls
+            url: /troubleshoot/guides/check-api-calls
+
+          - title: Login and Logout Issues
+            url: /troubleshoot/guides/check-login-logout-issues
+
+          - title: User Profiles
+            url: /troubleshoot/guides/check-user-profiles
+
+          - title: RBAC
+            url: /authorization/concepts/troubleshooting
+
+          - title: MFA
+            url: /multifactor-authentication/troubleshooting
+
+          - title: SAML
+            url: /protocols/saml/saml-configuration/troubleshoot
 
           - title: Authorization Extension
             url: /extensions/authorization-extension/v2/troubleshooting
 
-      - title: Multi-factor Authentication
-        url: /multifactor-authentication/troubleshooting
+      - title: Integration and Extensibility Issues
+        url: /troubleshoot/concepts/integration-extensibility-issues
+        children:
 
-      - title: SAML
-        url: /protocols/saml/saml-configuration/troubleshoot
+          - title: Test Partner Connections
+            url: /connections/how-to-test-partner-connection
 
-      - title: Deprecation Errors
-        url: /errors/deprecation-errors
+          - title: Sign in With Apple
+            url: "/connections/apple-siwa/troubleshooting"
 
-      - title: Issues with...
-        url: /troubleshoot/issues
+          - title: Custom Databases
+            url: /connections/database/custom-db/error-handling
 
-      - title: HTTP Archive (HAR)
-        url: /troubleshoot/har
+          - title: Active Directory/LDAP Connector
+            url: /connector/troubleshooting
 
-      - title: Custom Databases
-        url: /connections/database/custom-db/error-handling
+          - title: Extensions
+            url: /extensions/troubleshoot
 
-      - title: Deploy CLI
-        url: /extensions/deploy-cli/references/troubleshooting
+          - title: Auth0 PHP SDK
+            url: /libraries/auth0-php/troubleshooting
 
-      - title: AD/LDAP Connector
-        url: /connector/troubleshooting
+      - title: Generate and Analyze HAR Files
+        url: /troubleshoot/guides/generate-har-files
+
+      - title: Validate JSON Web Tokens
+        url: /tokens/guides/jwt/validate-jwt
+
+      - title: Authentication API Debugger
+        url: /extensions/authentication-api-debugger
+
+## ------------------------------------------------------------
+## Architecture Scenarios
+## ------------------------------------------------------------
 
   - title: Architecture Scenarios
     url: /architecture-scenarios
 
     children:
-      - title: SSO for Regular Web Apps
-        url: /architecture-scenarios/web-app-sso
-        children:
-           - title: Solution Overview
-             url: /architecture-scenarios/web-app-sso/part-1
-
-           - title: Configuration
-             url: /architecture-scenarios/web-app-sso/part-2
-
-           - title: Implementation
-             url: /architecture-scenarios/web-app-sso/part-3
-
-           - title: Conclusion
-             url: /architecture-scenarios/web-app-sso/part-4
-
-      - title: Server Application + API
-        url: /architecture-scenarios/server-api
-        children:
-           - title: Solution Overview
-             url: /architecture-scenarios/server-api/part-1
-
-           - title: Configuration
-             url: /architecture-scenarios/server-api/part-2
-
-           - title: Implementation
-             url: /architecture-scenarios/server-api/part-3
-
-           - title: Conclusion
-             url: /architecture-scenarios/server-api/part-4
-
-      - title: SPA + API
-        url: /architecture-scenarios/spa-api
-        children:
-           - title: Solution Overview
-             url: /architecture-scenarios/spa-api/part-1
-
-           - title: Configuration
-             url: /architecture-scenarios/spa-api/part-2
-
-           - title: Implementation
-             url: /architecture-scenarios/spa-api/part-3
-
-           - title: Conclusion
-             url: /architecture-scenarios/spa-api/part-4
-
-      - title: Mobile + API
-        url: /architecture-scenarios/mobile-api
-        children:
-           - title: Solution Overview
-             url: /architecture-scenarios/mobile-api/part-1
-
-           - title: Configuration
-             url: /architecture-scenarios/mobile-api/part-2
-
-           - title: Implementation
-             url: /architecture-scenarios/mobile-api/part-3
-
-           - title: Conclusion
-             url: /architecture-scenarios/mobile-api/part-4
 
       - title: Business to Consumer
         url: /architecture-scenarios/b2c
@@ -1072,6 +1127,9 @@ articles:
             - title: Operations
               url: /architecture-scenarios/implementation/b2c/b2c-operations
 
+            - title: Launch Preparation
+              url: /architecture-scenarios/implementation/b2c/b2c-launch 
+
       - title: Business to Business
         url: /architecture-scenarios/b2b
         children:
@@ -1104,6 +1162,9 @@ articles:
 
             - title: Operations
               url: /architecture-scenarios/implementation/b2b/b2b-operations
+              
+            - title: Launch Preparation
+              url: /architecture-scenarios/implementation/b2b/b2b-launch 
 
       - title: Business to Employees
         url: /architecture-scenarios/b2e
@@ -1115,6 +1176,66 @@ articles:
 
       # - title: B2E
       #   url: /architecture-scenarios/b2e
+
+      - title: SSO for Regular Web Apps
+        url: /architecture-scenarios/web-app-sso
+        children:
+            - title: Solution Overview
+              url: /architecture-scenarios/web-app-sso/part-1
+
+            - title: Configuration
+              url: /architecture-scenarios/web-app-sso/part-2
+
+            - title: Implementation
+              url: /architecture-scenarios/web-app-sso/part-3
+
+            - title: Conclusion
+              url: /architecture-scenarios/web-app-sso/part-4
+
+      - title: Server Application + API
+        url: /architecture-scenarios/server-api
+        children:
+            - title: Solution Overview
+              url: /architecture-scenarios/server-api/part-1
+
+            - title: Configuration
+              url: /architecture-scenarios/server-api/part-2
+
+            - title: Implementation
+              url: /architecture-scenarios/server-api/part-3
+
+            - title: Conclusion
+              url: /architecture-scenarios/server-api/part-4
+
+      - title: SPA + API
+        url: /architecture-scenarios/spa-api
+        children:
+            - title: Solution Overview
+              url: /architecture-scenarios/spa-api/part-1
+
+            - title: Configuration
+              url: /architecture-scenarios/spa-api/part-2
+
+            - title: Implementation
+              url: /architecture-scenarios/spa-api/part-3
+
+            - title: Conclusion
+              url: /architecture-scenarios/spa-api/part-4
+
+      - title: Mobile + API
+        url: /architecture-scenarios/mobile-api
+        children:
+            - title: Solution Overview
+              url: /architecture-scenarios/mobile-api/part-1
+
+            - title: Configuration
+              url: /architecture-scenarios/mobile-api/part-2
+
+            - title: Implementation
+              url: /architecture-scenarios/mobile-api/part-3
+
+            - title: Conclusion
+              url: /architecture-scenarios/mobile-api/part-4
 
       - title: Implementation Checklists
         url: /architecture-scenarios/checklists
@@ -1131,9 +1252,6 @@ articles:
 
   #     - title: "Available Grant Types"
   #       url: "/applications/reference/grant-types-available"
-
-  #     - title: "Multiple Tenants"
-  #       url: "/applications/concepts/multiple-tenants"
 
   # - title: "Authentication"
   #   url: "/application-auth/current"
@@ -1300,9 +1418,6 @@ articles:
   - title: "Product Lifecycle"
     url: "/product-lifecycle"
     children:
-      - title: "Overview"
-        url: "/product-lifecycle"
-
       - title: "Deprecation and End Of Life"
         url: "/product-lifecycle/deprecation-eol"
 
@@ -1335,17 +1450,23 @@ articles:
           - title: "CVE 2017-17068"
             url: "/security/bulletins/cve-2017-17068"
             hidden: true
-      - title: "Where to Store Tokens"
-        url: "/security/store-tokens"
-        hidden: true
+
+      - title: "Tokens"
+        url: "/tokens"
+        children:
+
+          - title: "Where to Store Tokens"
+            url: "/security/store-tokens"
+            hidden: true 
+
+      - title: "Cookies"
+        url: "/sessions/concepts/cookies"
 
       - title: "Common Threats"
         url: "/security/common-threats"
-        hidden: true
 
       - title: "Blacklist User Attributes"
         url: "/security/blacklisting-attributes"
-        hidden: true
 
   - title: "Data Privacy"
     url: "/compliance"
@@ -1420,7 +1541,46 @@ articles:
         url: "/best-practices/connection-settings"
 
       - title: "Custom Databases and Scripts"
-        url: "/best-practices/custom-db-connections-scripts"
+        url: "/best-practices/custom-db-connections"
+        children:
+          - title: "Custom Database Connection Anatomy"
+            url: "/best-practices/custom-db-connections/anatomy"
+            hidden: true 
+
+          - title: "Custom Database Action Script Size"
+            url: "/best-practices/custom-db-connections/size"
+            hidden: true 
+
+          - title: "Custom Database Action Script Environment"
+            url: "/best-practices/custom-db-connections/environment"
+            hidden: true 
+
+          - title: "Error Handling"
+            url: "/best-practices/error-handling"
+            hidden: true 
+
+          - title: "Debugging"
+            url: "/best-practices/debugging"
+            hidden: true 
+
+          - title: "Testing"
+            url: "/best-practices/testing"
+            hidden: true 
+
+          - title: "Deployment"
+            url: "/best-practices/deployment"
+            hidden: true 
+
+          - title: "Performance"
+            url: "/best-practices/performance"
+            hidden: true 
+
+          - title: "Security"
+            url: "/best-practices/custom-db-connections/security"
+            hidden: true 
+
+      - title: "Metadata"
+        url: "/best-practices/metadata-best-practices"
 
       - title: "Rules"
         url: "/best-practices/rules"

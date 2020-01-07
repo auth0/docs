@@ -60,7 +60,7 @@ Designed to optimize our customers' investment in Auth0, our service offerings p
   <li>
     <i class="icon icon-budicon-715"></i><a href="/services/packages">Packages</a>
 
-Our packages provide our customers' with the services they need, in manner structured to help them engage with our experts in a way that best suites their requirements. Click [here](/services/packages) to see a full list of the packages we offer and to see which of them would be a good fit for you. 
+Our packages provide our customers with the services they need, in a manner structured to help them engage with our experts in a way that best suits their requirements. [See a full list of the packages we offer](/services/packages) and discover which of them would be a good fit for you.
   </li>
 </ul>
 
@@ -71,4 +71,3 @@ Our packages provide our customers' with the services they need, in manner struc
 * [Maintain and Improve](/services/maintain-and-improve)
 * [Packages](/services/packages)
 * [Gallery](/services/gallery)
-

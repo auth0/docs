@@ -144,21 +144,29 @@ The [Email Activity](https://sendgrid.com/logs/index) page in SendGrid will now 
 
 ## Configure SparkPost
 
-::: note
-You must create your SparkPost account in the US region; Auth0 does not currently support EU-based SparkPost accounts.
-:::
-
-1. Sign up for a [SparkPost](https://www.sparkpost.com/) account, or login. Go to the [Account API Keys page](https://app.sparkpost.com/account/credentials) and click **New API key**. Save this key value. The key must have `Transmissions: Read/Write` access.
+1. Sign up for a [SparkPost](https://www.sparkpost.com/) account or log in. Go to the [Account API Keys page](https://app.sparkpost.com/account/credentials) and click **New API key**. Save this key value. The key must have `Transmissions: Read/Write` access.
 
     ![](/media/articles/email/providers/sparkpost-api-key-creation.png)
 
-2. Go to the [Custom Email Provider](${manage_url}/#/emails/provider) page of the Auth0 dashboard. Click **Use my own Email Provider** and click the **SparkPost** logo.
+2. Navigate to the [Custom Email Provider](${manage_url}/#/emails/provider) page of the Auth0 dashboard. Enable the **Use my own Email Provider** toggle, and click the **SparkPost** logo.
 
-3. Enter your previously obtained SparkPost `API Key`:
+    ![Select Email Provider](/media/articles/dashboard/emails/providers/emails-providers-list.png)
 
-    ![](/media/articles/email/providers/sparkpost-set-key.png)
+3. Enter your previously obtained SparkPost **API Key**, select your **Region**, and then click **Save**.
 
-Now you can send a test email using the **SEND TEST EMAIL** button on the [Custom Email Provider](${manage_url}/#/emails/provider) page of the Auth0 dashboard. Note that SparkPost only allows sending emails from verified domains. To verify a custom domain go to the [Sending Domains page](https://app.sparkpost.com/account/sending-domains) and add your custom domain. Alternatively, you can send test emails from the `sparpostbox.com` domain, but this is limited to only five test emails. See the [relevant SparkPost docs](https://developers.sparkpost.com/api/transmissions.html#header-the-sandbox-domain) for details.
+    ![Configure Email Provider](/media/articles/dashboard/emails/providers/emails-providers-settings-sparkpost.png)
+
+::: warning
+If your account was already configured for the US region and you are changing to the EU region, you must replace the **API Key** in Auth0 with a Sparkpost EU API Key.
+:::
+
+You can also send a test email using the **Send Test Email** button.
+
+::: note
+SparkPost only allows sending emails from verified domains. To verify a custom domain, go to the [Sending Domains page](https://app.sparkpost.com/account/sending-domains) and add your custom domain.
+
+Alternatively, you can send test emails from the `sparkpostbox.com` domain, but this is limited to only five test emails. For details, see the [relevant SparkPost docs](https://developers.sparkpost.com/api/transmissions.html#header-the-sandbox-domain).
+:::
 
 If you don't receive an email after a few minutes, please check your [dashboard logs](${manage_url}/#/logs) for any failures.
 

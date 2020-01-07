@@ -97,6 +97,7 @@ If the session on the Authorization Server has expired or the user logs out, the
 * [Sessions](/sessions)
 * [Session Layers](/sessions/concepts/session-layers)
 * [Cookies](/sessions/concepts/cookies)
+* [sameSite Cookie Attributes](/sessions/concepts/cookie-attributes)
 * [Session Lifetime](/sessions/concepts/session-lifetime)
 * [Logout](/logout)
 * [Example: Application Sessions and SSO Sessions Workflow](/sessions/references/example-short-lived-session-mgmt)

@@ -62,9 +62,10 @@ Note that the attributes available for the `user` object will depend on the type
 Individual email templates define additional variables that are appropriate for the specific template. Be sure to check out the [individual templates descriptions](#individual-templates-descriptions) below.
 :::
 
-For those emails where the user needs to follow a link to take action, you can also configure the **URL Lifetime** and **Redirect To** URL destination after the action is completed. Liquid Syntax is also supported in the **Redirect To** URL field, but only two variables are supported:
+For those emails where the user needs to follow a link to take action, you can also configure the **URL Lifetime** and **Redirect To** URL destination after the action is completed. Liquid Syntax is also supported in the **Redirect To** URL field, but only three variables are supported:
 
 * `application.name`
+* `application.clientID`
 * `application.callback_domain`
 
 See [Configuring the Redirect To URL](#configuring-the-redirect-to-url) for more details.
@@ -139,18 +140,31 @@ http://myapplication.com/my_page/?email=john%contoso.com&message=Access%20expire
 
 The **Redirect To** URL is an optional destination to redirect the user to after the relevant action (verify account, reset password, unblock account) was performed.
 
-**Only the following two variables** are available on the **Redirect To** URL:
+::: panel Redirect URLs
+With the Classic Experience, you can provide a URL to which users are redirected after they reset their password. Auth0 sends a success indicator and a message to the URL.
+
+With the New Experience, Auth0 redirects users to the default log in route when the user succeeds in resetting the password. If not, Auth0 handles the errors as part of the Universal Login flow and ignores the redirect URL provided in the email template.
+:::
+
+**Only the following three variables** are available on the **Redirect To** URL:
 
 * `application.name` (or its synonym `client.name`)
+* `application.clientID`
 * `application.callback_domain` (or its synonym `client.callback_domain`)
   
-The `application.callback_domain` variable will contain the domain of the **first** URL listed in the application's **Allowed <dfn data-key="callback">Callback URL</dfn>** list. This lets you redirect users to a path of the application that triggered the action by using a syntax like this:
+The `application.callback_domain` variable will contain the origin of the **first** URL listed in the application's **Allowed <dfn data-key="callback">Callback URL</dfn>** list. This lets you redirect users to a path of the application that triggered the action by using a syntax like this:
 
 ```text
 {{ application.callback_domain }}/result_page
 ```
 
-If your application has multiple **Allowed Callback URLs** configured, Auth0 will use the first URL listed.
+Note that while the variable is called `callback_domain`, it is really an *origin*, so it includes the protocol in addition to the domain, e.g. `https://myapp.com`.
+
+If your application has multiple **Allowed Callback URLs** configured, Auth0 will use the first URL listed. You can also provide a default origin using Liquid syntax:
+
+```text
+{{ application.callback_domain | default: "https://my-default-domain.com" }}/result_page
+```
 
 #### Dynamic Redirect To URLs
 

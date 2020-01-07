@@ -18,7 +18,7 @@ The OIDC middleware extracts the user's information from the ID Token and adds i
 
 The seed project contains a controller action and view which display the claims associated with a user. Once a user has logged in, you can go to `/Account/Claims` to see these claims.
 
-You can create a custom user profile page for displaying a user's name, email address and profile image.
+You can create a custom user profile page for displaying a user's name, email address, and profile image.
 
 Create a view model containing the basic user profile information:
 

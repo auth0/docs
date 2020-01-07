@@ -7,7 +7,7 @@
 If you are using Carthage, add the following to your `Cartfile`:
 
 ```ruby
-github "auth0/Auth0.swift" ~> 1.18
+github "auth0/Auth0.swift" ~> 1.19
 ```
 
 Then, run `carthage bootstrap`.
@@ -22,7 +22,7 @@ If you are using [Cocoapods](https://cocoapods.org/), add the following to your 
 
 ```ruby
 use_frameworks!
-pod 'Auth0', '~> 1.18'
+pod 'Auth0', '~> 1.19'
 ```
 
 Then, run `pod install`.

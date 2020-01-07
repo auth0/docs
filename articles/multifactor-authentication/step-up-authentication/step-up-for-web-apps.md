@@ -91,7 +91,7 @@ In the following scenario, a web app authenticates users with username and passw
 
 For this example, we assume that we have already done the following:
 
-- [Registered an application](/applications/concepts/app-types-auth0). For this example, we'll use a regular web app.
+- [Registered an application](/applications). For this example, we'll use a regular web app.
 - [Created a database connection](${manage_url}/#/connections/database).
 - [Enabled Multi-factor Authentication](/multifactor-authentication) using [push notifications](/multifactor-authentication/factors/push).
 

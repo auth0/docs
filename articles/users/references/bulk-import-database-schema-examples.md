@@ -38,7 +38,7 @@ The following [JSON schema](http://json-schema.org) describes valid users:
         },
         "user_id": {
             "type": "string",
-            "description": "The user's unique identifier."
+            "description": "The user's unique identifier. This will be prepended by the connection strategy."
         },
         "username": {
             "type": "string",
@@ -84,54 +84,6 @@ The following [JSON schema](http://json-schema.org) describes valid users:
     "required": ["email"],
     "additionalProperties": false
 }
-```
-
-## User `app_metadata` schema
-
-Additionally, the `app_metadata` should **not** contain any of these properties:
-
-* `__tenant`
-* `_id`
-* `blocked`
-* `clientID`
-* `created_at`
-* `email_verified`
-* `email`
-* `globalClientID`
-* `global_client_id`
-* `identities`
-* `lastIP`
-* `lastLogin`
-* `loginsCount`
-* `metadata`
-* `multifactor_last_modified`
-* `multifactor`
-* `updated_at`
-* `user_id`
-
-
-::: note
-The `app_metadata` stores information that can impact how an application functions or what the user can access (for example, a user's support plan or <dfn data-key="role">roles</dfn> and access groups). For more information, refer to [User Metadata](/metadata).
-:::
-
-## File example
-
-A file with the following contents is valid:
-
-```json
-[
-  {
-    "email": "john.doe@contoso.com",
-    "email_verified": false,
-    "app_metadata": {
-        "roles": ["admin"],
-        "plan": "premium"
-    },
-    "user_metadata": {
-        "theme": "light"
-    }
-  }
-]
 ```
 
 ::: note

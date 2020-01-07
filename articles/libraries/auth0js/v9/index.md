@@ -13,7 +13,7 @@ useCase: add-login
 ---
 # auth0.js v9 Reference
 
-auth0.js is a client-side library for Auth0. It is recommended for use in single-page apps, and auth0.js in your SPA makes it easier to do authentication and authorization with Auth0.
+auth0.js is a client-side library for Auth0. It is recommended for use in single-page apps, preferably in conjunction with [Universal Login](/universal-login), which should be used whenever possible. Using auth0.js in your SPA makes it easier to do authentication and authorization with Auth0.
 
 The full API documentation for the library is [here](https://auth0.github.io/auth0.js/index.html).
 
@@ -271,7 +271,7 @@ webAuth.passwordlessStart({
 );
 ```
 
-### Verify passwordless
+### Passwordless Login
 
 If sending a code, you will then need to prompt the user to enter that code. You will process the code, and authenticate the user, with the `passwordlessLogin` method, which has several parameters which can be sent in its `options` object:
 

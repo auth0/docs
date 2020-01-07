@@ -1,6 +1,6 @@
 ---
 title: Professional Service Packages
-description: How to get Auth0 Professional Services help through one of our many packaged offerings
+description: Learn how to get Auth0 Professional Services help through one of our many packaged offerings
 toc: true
 topics:
     - ps
@@ -13,7 +13,7 @@ useCase:
 ---
 # Professional Service Packages
 
-Auth0 Professional Services provide packaged offerings are designed to optimize our customers' investments in Auth0 by helping design, deploy, implement, and maintain solutions based on proven practices - avoiding common pitfalls and reducing risk. Packaged offerings generally fall into two main categories: Discover, Design and Implement packages, and Maintain and Improve packages. See below for further details. To get more information and to order any of these service offerings, please contact your Auth0 Account Representative.
+Auth0 Professional Services provides packaged offerings designed to optimize our customers' investments in Auth0 by helping design, deploy, implement, and maintain solutions based on proven practices, which allows our customers to avoid common pitfalls and reduces risk. Packaged offerings generally fall into two main categories: Discover, Design, and Implement packages, and Maintain and Improve packages. To get more information and to order any of these service offerings, please contact your Auth0 Account Representative.
 
 ## Discover, Design, and Implement packages
 
@@ -92,8 +92,8 @@ Auth0 Professional Services provide packaged offerings are designed to optimize 
 * Expires in 180 days
 * Terms and Conditions apply
 * Full range of [Custom Implementation](/services/implement#custom-implementation) services, including:
-  * [Architectural Discovery](/services/discover-and-design#architectural-discovery) 
-  * [Scenario Guidance](/services/discover-and-design#scenario-guidance)
+  * [Architectural Discovery](/services/discover-and-design#architectural-discovery), 
+  * [Scenario Guidance](/services/discover-and-design#scenario-guidance) and 
   * [Programming Advisory](/services/implement#programming-advisory)
   
 ## Maintain and Improve packages
@@ -130,4 +130,3 @@ Auth0 Professional Services provide packaged offerings are designed to optimize 
 * [Implement](/services/implement)
 * [Maintain and Improve](/services/maintain-and-improve)
 * [Gallery](/services/gallery)
-

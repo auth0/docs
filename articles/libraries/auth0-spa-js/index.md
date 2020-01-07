@@ -57,6 +57,8 @@ If you use NPM or Yarn to install auth0-spa-js, don't forget to import the packa
 First, you'll need to create a new instance of `Auth0Client` client object. Create the `Auth0Client` instance before rendering or initializing your application. You can do this using either the async/await method, or with promises. You should only create one instance of the client.
 
 ```js
+import createAuth0Client from '@auth0/auth0-spa-js';
+
 // either with async/await
 const auth0 = await createAuth0Client({
   domain: '${account.namespace}',

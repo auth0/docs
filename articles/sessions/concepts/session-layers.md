@@ -56,6 +56,8 @@ Alternatively you may desire to also [log the users out of the Identity Provider
 
 ## Keep reading
 
+* [Auth0 Privacy & Cookie Policy](https://auth0.com/privacy)
+* [sameSite Cookie Attributes](/sessions/concepts/cookie-attributes)
 * [Session Use Cases](/sessions/references/sample-use-cases-sessions)
 * [Example: Short-lived session management workflow](/sessions/references/example-short-lived-session-mgmt)
 * [Auth0 Ruby on Rails SDK Quickstarts: Session Handling](/quickstart/webapp/rails/02-session-handling)

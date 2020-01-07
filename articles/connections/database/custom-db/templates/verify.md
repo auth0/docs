@@ -265,7 +265,7 @@ function verify (email, callback) {
 
 ```
 function verify (email, callback) {
-  var connection = mysql({
+  var connection = mysql.createConnection({
     host     : 'localhost',
     user     : 'me',
     password : 'secret',

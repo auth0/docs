@@ -16,13 +16,7 @@ Auth0's normalized user profile consists of a few different components:
 
 * **Details**: Core User Profile object, which contains basic info, such as name, email, and timestamp of the user's latest login, in pre-defined attributes. This object may also contain info from a user's source [connection](/connections). Most of the user attributes are root attributes (attributes stored at the first, or root, level of the `user` object), and some of these are editable.
 
-* **Metadata**: Two sub-objects that operate as secondary storage to store additional user info in customizable attributes.
-
-  * `user_metadata`: Intended to store attributes that do not impact what the user can access, such as work address, home address, or user preferences. 
-
-  * `app_metadata`: Intended to store attributes that can impact what the user can access or how an application functions, such as support plan, security <dfn data-key="role">roles</dfn> (if not using the Authorization Core feature set), or access control groups.
-
-  [Learn more](/users/concepts/overview-user-metadata) about metadata, including when to use `app_metadata` and `user_metadata`, and best practices.
+* **Metadata**: Two sub-objects that operate as secondary storage to store additional user info in customizable attributes: `user_metadata` and `app_metadata`. See [Metadata](/users/concepts/overview-user-metadata) for more information, including when to use `app_metadata` and `user_metadata`.
 
 ## User profile attributes
 
@@ -72,10 +66,9 @@ Two other fields are not technically part of the user profile, but may be of int
 
 To view the user profile, navigate to [Users](${manage_url}/#/users) in the [Auth0 Dashboard](${manage_url}), and then click a user you want to view.
 
-
 ## Keep reading
 
 * [Normalized User Profiles](/users/normalized)
-* [User Metadata](/users/concepts/overview-user-metadata)
+* [Metadata](/users/concepts/overview-user-metadata)
 * [View Users](/users/guides/view-users)
 * [Update User Profiles Using Your Database](/users/guides/update-user-profiles-using-your-database)

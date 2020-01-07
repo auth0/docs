@@ -68,7 +68,7 @@ added XX packages in X.XXs
 ❯ cp .env-sample .env
 ```
 
-6. Update the `.env` file you just created with the same values as you used in lab 1. If you did not do lab 1 first, follow steps 9 through 15 [on this page](/identity-labs/01-web-sign-in/exercise-01) to create and configure an application with Auth0 and update the `.env` file.
+6. Update the web application `.env` file you just created with the same values as you used in lab 1. If you did not do lab 1 first, follow steps 9 through 15 [on this page](/identity-labs/01-web-sign-in/exercise-01) to create and configure an application with Auth0 and update the `.env` file.
 
 ```text
 ISSUER_BASE_URL=https://YOUR_DOMAIN
@@ -97,20 +97,20 @@ listening on http://localhost:3000
 
 Right now, even though the application requires authentication, the API does not. That is, you are calling the API from the Web app, without any authentication information. If you browse to the API's URL at [localhost:3001](http://localhost:3001) without logging in, you will see the expenses. In the following steps, you will update your application to call the API with a token.
 
-9. Open `webapp/server.js` in your code editor and replace this code:
+9. Open `webapp/server.js` in your code editor and make the following change:
 
 ```js
 // webapp/server.js
 
+// Replace this code ❌
+/*
 app.use(auth({
   required: false,
   auth0Logout: true
 }));
-```
+*/
 
-... with this:
-
-```js
+// ... with this 👇
 app.use(auth({
   required: false,
   auth0Logout: true,
@@ -124,7 +124,7 @@ app.use(auth({
 
 This change updates the configuration object passed to `auth()` and defines how you want the `express-openid-connect` library to behave. In this case, you configured the library with a new property called `authorizationParams` and passed in an object with three properties:
 
-- `response_type` - setting this field to `id_token code` indicates that you no longer want the middleware to fetch just an ID token (which is the default behavior for this package). Instead, you are specifying that you want an ID token *and* an authorization code. When you configure the `express-openid-connect` library to fetch an authorization code, the middleware automatically exchanges this code for an access token (this process is known as the Authorization Code Grant flow). Later, you will use the access token to call the API.
+- `response_type` - setting this field to `code id_token` indicates that you no longer want the middleware to fetch just an ID token (which is the default behavior for this package). Instead, you are specifying that you want an ID token *and* an authorization code. When you configure the `express-openid-connect` library to fetch an authorization code, the middleware automatically exchanges this code for an access token (this process is known as the Authorization Code Grant flow). Later, you will use the access token to call the API.
 - `audience` - this tells the middleware that you want access tokens valid for a specific resource server (your API, in this case). As you will see soon, you will configure an `API_AUDIENCE` environment variable to point to the identifier of an API that you will register with Auth0.
 - `scope` - securing your API uses a delegated authorization mechanism where an application (your web app) requests access to resources controlled by the user (the resource owner) and hosted by an API (the resource server). Scopes, in this case, are the permissions that the access token grants to the application on behalf of the user. In your case, you are defining four scopes: the first three (`openid`, `profile`, and `email`) are scopes related to the user profile (part of OpenID Connect specification). The last one, `read:reports`, is a custom scope that will be used to determine whether the caller is authorized to retrieve the expenses report from the API on behalf of a user.
 

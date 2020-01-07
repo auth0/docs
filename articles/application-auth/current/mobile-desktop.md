@@ -46,7 +46,7 @@ Instead of following this tutorial, you can use any of Auth0's client libraries.
 
 ## Register your application
 
-If you haven't already created a new [Application](/applications/concepts/app-types-auth0) in Auth0, you'll need to do so before implementing your authentication flow. The Auth0 Application maps to your application and allows your application to use Auth0 for authentication purposes.
+If you haven't already created a new [application](/applications) in Auth0, you'll need to do so before implementing your authentication flow. The Auth0 Application maps to your application and allows your application to use Auth0 for authentication purposes.
 
 Go to the [Auth0 Dashboard](${manage_url}) and click on [Applications](${manage_url}/#/applications) in the left-hand navigation bar. Click **Create Application**.
 

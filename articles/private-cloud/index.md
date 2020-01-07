@@ -38,15 +38,23 @@ Here is how the two Private Cloud deployment options compare to each other, as w
 | Updates | Choice of update frequency to be coordinated with Auth0. Update cycle begins with the Pre-Production Environment | Automatic Monthly Updates | Automatic Updates |
 | Uptime Guarantee | 99.95% SLA with optional upgrade to 99.99% | 99.95% SLA with optional upgrade to 99.99% | 99.90% (no upgrade option available) |
 | Requests per Second | 500 requests per second with optional upgrade to 1500 requests per second | 500 requests per second with optional upgrade to 1500 requests per second | See [Rate Limit Policy for Auth0 APIs](/policies/rate-limits) |
-| [Data Residency](#data-residency) | Region of Choice | Region of Choice | Not applicable |
+| [Data Residency](#data-residency) | Region of Choice | Region of Choice | Varies based on tenant location |
 | PCI Certified | Add-on available | Add-on available | No |
 | Geographic High Availability (GEOHA) | Add-on available | No | No |
 
 ## Data residency
 
-Private Cloud customers can choose the region where their data is stored. All data will remain in that region. This is crucial in instances where regulations prevent data from being sent outside the origin region.
+Private Cloud customers can choose the region where their data is stored -- any region with three (3) availability zones can be used for the Private Cloud. All data will remain and be stored in the chosen region. This is crucial in instances where regulations prevent data from being sent outside the origin region.
 
-If you are a **Private Cloud** customer with data sovereignty requirements, Auth0 supports Private Cloud deployments in the following regions: USA, Europe, Australia, Canada, and Japan. Otherwise, the Private Cloud can be supported in other regions (except China).
+For Auth0-hosted Private Cloud customers:
+
+* Backups will be processed and stored in the US
+* Service logs will be processed in the region closest to where the customer hosts their Private Cloud; the current options include Japan, Germany, United Kingdom, United States, Canada, or Australia.
+
+If you are a **Private Cloud** customer with data sovereignty requirements, Auth0 supports Private Cloud deployments in the following regions: USA, Europe, Australia, Canada, and Japan. Otherwise, the Private Cloud can be supported in other regions (except China). Furthermore, Auth0 can:
+
+* Deploy backups to AWS' S3 service in the same region that hosts the Private Cloud
+* Send service logs to Japan, Germany, United Kingdom, United States, Canada, or Australia (regardless of which region you've chosen to host the Private Cloud). You may also opt to not send any service logs
 
 We are currently unable to offer deployments to China.
 

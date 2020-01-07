@@ -10,9 +10,9 @@ useCase:
 ---
 # Change Email Script
 
-The **Change Email** script implements the function executed when a change in the email address, or the email address status, for a user occurs. We recommend naming this function `changeEmail`. Typically the script is executed when a change in either email address and/or email address status is actioned via the Auth0 Dashboard or the Auth0 Management API. The script is only used in a legacy authentication scenario, and must be implemented if support is required for email address/status change via Auth0.
+The **Change Email** script implements the function executed when a change in the email address, or the email address verification status, for a user occurs. We recommend naming this function `changeEmail`. Typically the script is executed when a change in either email address and/or email address verification status is actioned via the Auth0 Dashboard or the Auth0 Management API. The script is only used in a legacy authentication scenario, and must be implemented if support is required for email address/status change via Auth0.
 
-The change email script is not configurable via the Auth0 Dashboard. There are no script templates available. You can use the Auth0 [Deploy CLI Tool](/extensions/deploy-cli) to either create or update the change email script (or use the Auth0 [Management API](/api/management/v2#!/Connections). 
+The change email script is not configurable via the Auth0 Dashboard. There are no script templates available. You can use either the Auth0 [Deploy CLI Tool](/extensions/deploy-cli) or the Auth0 [Management API](/api/management/v2#!/Connections) to create or update the change email script. 
 
 The changeEmail function should be defined as follows:
 

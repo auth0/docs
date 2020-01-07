@@ -4,7 +4,7 @@ To run the sample follow these steps:
 
 1) Set the **Allowed Callback URLs** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) to
 ```text
-http://localhost:3000/callback
+http://localhost:3000
 ```
 2) Set **Allowed Web Origins** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) to
 ```text

@@ -307,6 +307,9 @@ var options = {
   rememberLastLogin: false
 };
 ```
+::: note
+New tenants [automatically have Seamless SSO enabled](https://auth0.com/docs/dashboard/guides/tenants/enable-sso-tenant). With this enabled, the `rememberLastLogin` option will not be relevant because if there is a session in place then the hosted login page will not be displayed at all. Using Seamless SSO is highly recommended because it provides a seamless authentication experience: users log in once and won’t have to enter credentials again when they navigate either through the applications you have built, or third party apps. If the user is not logged in they will be redirected to the login screen, as expected.
+:::
 
 ::: note
 The **Last time you signed in with [...]** message will not be available under the following circumstances:
@@ -574,7 +577,7 @@ If you don't specify a `validator` the text field will be **required**. If you w
 ```js
 var options = {
   additionalSignUpFields: [{
-    name: "favorite color",
+    name: "favorite_color",
     placeholder: "Enter your favorite color (optional)",
     validator: function() { 
       return true;

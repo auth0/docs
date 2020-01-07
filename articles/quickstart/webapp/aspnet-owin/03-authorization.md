@@ -1,6 +1,6 @@
 ---
 title: Authorization
-description: This tutorial demonstrates how assign roles to your users, and use those roles to authorize or deny a user to access certain routes in the app.
+description: This tutorial demonstrates how to assign roles to your users, and use those roles to authorize or deny a user to access certain routes in the app.
 budicon: 500
 topics:
   - quickstarts

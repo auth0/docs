@@ -24,7 +24,7 @@ In this exercise, you will register the API with Auth0 so that tokens can be iss
 
 4. In your terminal, restart your web application with `[CTRL]` + `[c]`, then `npm start`.
 
-5. Log out of the web application by going to [localhost:3000/logout](http://localhost:3000/logout), then login again. When logging in, you will see a consent screen where Auth0 mentions that the web application is requesting access to the read:reports scope:
+5. Log out of the web application by clicking [logout](http://localhost:3000/logout), then log in again. When logging in, you will see a consent screen where Auth0 mentions that the web application is requesting access to the read:reports scope:
 
 ![API consent screen on the authorization server](/media/articles/identity-labs/lab-02-api-consent-initial.png)
 
@@ -50,7 +50,7 @@ As mentioned earlier, the expenses API is still not secure. The next steps will 
 ❯ npm install express-oauth2-bearer
 # Ignore any warnings
 
-+ express-oauth2-bearer@0.3.0
++ express-oauth2-bearer@0.X.X
 added XX packages in X.XXs
 ```
 

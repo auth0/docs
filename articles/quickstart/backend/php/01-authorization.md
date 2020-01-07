@@ -21,7 +21,7 @@ useCase: quickstart
 
 ### Install dependencies
 
-In this example token validation is done in the `JWTVerifier` class from the **auth0-PHP** library which can be applied to any endpoints you wish to protect. 
+In this example, token validation is done in the `JWTVerifier` class from the **auth0-PHP** library which can be applied to any endpoints you wish to protect. 
 
 The **router** library can be used to create simple routes. 
 

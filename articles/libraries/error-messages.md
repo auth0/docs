@@ -1,6 +1,6 @@
 ---
 section: libraries
-description: Common errors that you might get when you authenticate users using Auth0 libraries
+description: Describes common sign up and login errors that you might see when you authenticate users using Auth0 libraries.
 topics:
   - libraries
   - lock
@@ -12,9 +12,9 @@ useCase:
   - add-login
   - enable-mobile-auth
 ---
-# Common Authentication Errors
+# Common Auth0 Library Authentication Errors
 
-The actions or input data of your users, during the sign up or the log in processes, might trigger errors. This article lists the most common errors that you might get, if you use any of the Auth0 libraries for authentication.
+The actions or input data of your users, during the sign up or the log in processes, might trigger errors. Here is a list of the most common errors that you might get if you use any of the Auth0 libraries for authentication.
 
 ## Sign up
 

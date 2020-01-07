@@ -149,7 +149,7 @@ All sites in a WordPress multi-site network will use the same constant value mak
 
 * **Domain:** The Domain copied from the Application settings in your dashboard. Option name is `domain`.
 
-* **Custom Domain:** The Custom Domain for your tenant, if one is configured. More information on Custom Domains [here](/custom-domains). Option name is `custom_domain`.
+* **Custom Domain:** The Custom Domain for your tenant, if one is configured. See [Custom Domains](/custom-domains) for more information. Option name is `custom_domain`.
 
 * **Client ID:** The Client ID copied from the Application settings in your dashboard. Option name is `client_id`.
 

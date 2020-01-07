@@ -18,19 +18,13 @@ Use the [SSO Dashboard Extension](/extensions/sso-dashboard) to manage SSO login
 
 Before you [add the SSO Dashboard extension](/dashboard/guides/extensions/sso-dashboard-install-extension), you need to create the SSO Dashboard application in Auth0. 
 
-1. Go to [Dashboard > Applications](${manage_url}/#/applications).
+1. Navigate to the [Applications](${manage_url}/#/applications) page in the [Auth0 Dashboard](${manage_url}/), and click **+Create Application**. 
 
-2. Click **+Create Application**. 
-
-3. Enter a name for the application (for example *SSO Dashboard*).
-
-4. Select the **Single-Page Web Applications** application type. 
-
-5. Click **Create**.
+2. Enter a descriptive name for your Application (for example, *SSO Dashboard*), select an application type of **Single-Page Web Application**, and click **Create**.
 
   ![](/media/articles/extensions/sso-dashboard/create-client.png)
 
-6. Select the **Settings** tab and set the **Allowed Callback URLs** based on your location.
+3. On the **Settings** tab, set the **Allowed Callback URLs** based on your location.
 
     For **Admins**:
 
@@ -48,15 +42,15 @@ Before you [add the SSO Dashboard extension](/dashboard/guides/extensions/sso-da
     | Europe | `https://${account.tenant}.eu8.webtask.io/auth0-sso-dashboard/login` |
     | Australia | `https://${account.tenant}.au8.webtask.io/auth0-sso-dashboard/login` |
 
-7. Select and copy the **Client ID** value.
+4. Select and copy the **Client ID** value.
 
-8. At the bottom of the page, click **Show Advanced Settings**. 
+5. Scroll to the bottom of the page, and click **Show Advanced Settings**. 
 
-9. Select the **OAuth** tab and paste the **Client ID** value that you copied previously into the **Allowed APPs / APIs** field.
+6. Click the **OAuth** tab, and paste the **Client ID** value into the **Allowed APPs / APIs** field.
 
-10. Make sure that the **JsonWebToken Signature Algorithm** is set to **RS256**.
+7. Make sure that the **JsonWebToken Signature Algorithm** is set to **RS256**.
 
-11. Click **Save Changes**. 
+8. Click **Save Changes**. 
 
   Next, you will need to [install the SSO Dashboard Extension](/dashboard/guides/extensions/sso-dashboard-install-extension) and [add applications](/dashboard/guides/extensions/sso-dashboard-add-apps) to the dashboard.
 

@@ -4,7 +4,7 @@ By default, the URL associated with your tenant will include its name and possib
 Only one custom Domain Name can be applied per Auth0 Tenant, so if you absolutely must have independent domain name branding then you will require an [architecture](/architecture-scenarios/implementation/${platform}/${platform}-architecture) where multiple Auth0 Tenants are deployed to production.
 :::
 
-In addition, Custom Domain functionality offers you complete control over the [certificate management](/custom-domains#certificate-management) process. By default, Auth0 provides standard SSL certificates, but if you configure a custom domain, you can use Extra Validation (EV) SSL certificates or similar to provide the visual, browser-based cues that offer your visitors additional peace of mind.
+In addition, Custom Domain functionality offers you complete control over the [certificate management](/custom-domains#certificate-management) process. By default, Auth0 provides standard SSL certificates, but if you configure a custom domain, you can use Extended Validation (EV) SSL certificates or similar to provide the visual, browser-based cues that offer your visitors additional peace of mind.
 
 In general, we see customers having the most success when they use a centralized domain for authentication - this is especially the case if the company offers multiple products or service brands. By using a centralized domain, you can provide end users with a consistent user experience while also minimizing the need to maintain multiple production tenants in Auth0.
 

@@ -142,7 +142,7 @@ First, we'll add our route and controller to `routes/web.php`. The route used he
 Route::get( '/auth0/callback', '\Auth0\Login\Auth0Controller@callback' )->name( 'auth0-callback' );
 ```
 
-If you load this callback URL now, you should be immediately redirected back to the homepage rather than getting a 404 error. This tells us that the route is setup and being handled.
+If you load this callback URL now, you should be immediately redirected back to the homepage rather than getting a 404 error. This tells us that the route is set up and being handled.
 
 Now we need to add this URL to the **Allowed Callback URLs** field in the Application settings screen for the Application used with this app. This should be your Laravel app's `APP_URL` followed by `/auth0/callback`. If you downloaded a sample from this quickstart, you may have already configured this above.
 

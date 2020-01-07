@@ -1,7 +1,6 @@
 ---
-title: Register a Native Application
-description: Learn to register and configure a native application using the Auth0 Management Dashboard. These may include mobile, desktop, or hybrid apps running natively in a device (e.g., i0S, Android).
-toc: true
+title: Register Native Applications
+description: Learn how to register and configure a native application using the Auth0 Management Dashboard. These may include mobile, desktop, or hybrid apps running natively in a device (e.g., i0S, Android).
 topics:
   - applications
   - native-app
@@ -14,9 +13,9 @@ useCase:
   - add-login
   - call-api
 ---
-# Register a Native Application
+# Register Native Applications
 
-To integrate Auth0 with a [native application](/applications/concepts/app-types-auth0), you must first register your app with Auth0. This guide will show you how to register a native application using Auth0's Dashboard.
+To integrate Auth0 with a [native application](/applications), you must first register your app with Auth0. This guide will show you how to register a native application using Auth0's Dashboard.
 
 <%= include('./_includes/_register-app-part1', { application_type: 'native', application_type_create: 'Native App' }) %>
 

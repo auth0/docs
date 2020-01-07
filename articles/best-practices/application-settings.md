@@ -1,5 +1,6 @@
 ---
-description: Recommended application settings in Auth0.
+title: Application Settings Best Practices
+description: Learn about recommended application settings in Auth0.
 topics:
   - best-practices
   - configuration
@@ -12,7 +13,6 @@ useCase:
   - application
   - application-settings
 ---
-
 # Application Settings Best Practices
 
 Here are some best practices for configuring [applications](/applications).
@@ -23,11 +23,11 @@ Confirm your application code uses the correct Client ID. You can find the Clien
 
 ## Correct application type
 
-Make sure the correct [application type](/applications/concepts/app-types-auth0) is set in your application settings. Setting the correct application type helps Auth0 check for certain security risks.
+Make sure the correct [application type](/applications) is set in your application settings. Setting the correct application type helps Auth0 check for certain security risks.
 
 ## Flag third-party applications
 
-You should flag [first-party and third-party applications](/applications/concepts/app-types-first-third-party). First-party applications can be configured from the [Applications page](${manage_url}/#/applications) of the Auth0 dashboard. Third-party applications must be created using the Auth0 Management API and have the `is_first_party` attribute set to false.
+You should flag first-party and third-party applications. First-party applications can be configured from the [Applications](${manage_url}/#/applications) page of the Auth0 Dashboard. Third-party applications must be created using the Auth0 Management API and have the `is_first_party` attribute set to false.
 
 ## Set JWT token expiration
 
