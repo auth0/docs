@@ -2,11 +2,12 @@
 title: Tokens
 description: Learn about the types of tokens related to identity and authentication and how they are used by Auth0.
 classes: topic-page
-toc: true 
 topics:
   - tokens
-  - jwt
   - access-tokens
+  - id-tokens
+  - idp-access-tokens
+  - managment-api-tokens
 contentType:
   - index
 useCase:
@@ -18,7 +19,7 @@ There are basically two main types of tokens that are related to identity: ID To
 
 ## ID Tokens
 
-ID Tokens are a <dfn data-key="json-web-token">JSON Web Tokens (JWTs)</dfn> meant for use by the application only. For example, if there's an app that uses Google to log in users and to sync their calendars, Google sends an ID Token to the app that includes information about the user. The app then parses the [token's contents](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) and uses the information (including details like name and profile picture) to customize the user experience.
+ID Tokens are <dfn data-key="json-web-token">JSON Web Tokens (JWTs)</dfn> meant for use by the application only. For example, if there's an app that uses Google to log in users and to sync their calendars, Google sends an ID Token to the app that includes information about the user. The app then parses the [token's contents](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) and uses the information (including details like name and profile picture) to customize the user experience.
 
 <%= include('./_includes/_validate-id-token') %>
 

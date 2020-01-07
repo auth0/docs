@@ -130,11 +130,10 @@ Additional checks are required depending on whether the JWT you are validating i
 
 If any of these checks fail, the token is considered invalid, and the request must be rejected.
 
-## Read more
+## Keep reading
 
-* [JSON Web Token](/jwt)
-* [Why Use JSON Web Token](/tokens/concepts/why-use-jwt)
-* [JSON Web Token Structure](/tokens/reference/jwt/jwt-structure)
-* [JSON Web Token Claims](/tokens/jwt-claims)
-* [Best Practices for Tokens](/tokens/concepts/token-best-practices)
-* [JSON Web Key Set](/jwks)
+* [JSON Web Tokens](/tokens/concepts/jwts)
+* [JSON Web Token Structure](/tokens/reference/jwt-structure)
+* [JSON Web Token Claims](/tokens/concepts/jwt-claims)
+* [Token Best Practices](/best-practices/token-best-practices)
+* [JSON Web Key Set](/tokens/concepts/jwks)
