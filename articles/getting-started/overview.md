@@ -12,9 +12,7 @@ useCase:
 ---
 # Auth0 Overview
 
-Auth0 provides authentication and authorization as a service.
-
-We are here to give developers and companies the building blocks they need to secure their applications without having to become security experts.
+Auth0 is a flexible, drop-in solution to add authentication and authorization services to your applications. Your team and organization can avoid the cost, time, and risk that comes with building your own solution to authenticate and authorize users. 
 
 You can connect any application (written in any language or on any stack) to Auth0 and define the identity providers you want to use (how you want your users to log in). 
 
