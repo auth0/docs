@@ -64,4 +64,8 @@ You're ready to [test your connection](/dashboard/guides/connections/test-connec
   "idp": "Google"
 }) %>
 
+For Google OAuth 2.0 connections, Auth0 can store a <dfn data-key="refresh-token">[Refresh Token](/tokens/refresh-token/current#get-a-refresh-token)</dfn> you can use to obtain a new Access Token. To request a refresh token, include the `access_type=offline` parameter when calling the Auth0 `/authorize` endpoint. [Additional scopes can be included in the /authorize request](/connections/adding-scopes-for-an-external-idp) using the `connection_scope` parameter.
+
+For more information, check out [Identity Provider Access Tokens](/tokens/overview-idp-access-tokens) and review the [restrictions on using Refresh Tokens](/tokens/refresh-token/current#restrictions-on-refresh-token-usage).
+
 <%= include('../_quickstart-links.md') %>
