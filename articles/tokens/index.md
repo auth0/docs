@@ -39,7 +39,7 @@ Your applications should treat Access Tokens as *opaque strings* since they are 
 
 To better clarify the concepts we covered above, let's look at the contents of some sample ID and Access Tokens.
 
-The (decoded) contents of our sample ID Token look like the following:
+The decoded contents of a sample ID Token looks like the following:
 
 ```json
 {
@@ -58,7 +58,7 @@ The (decoded) contents of our sample ID Token look like the following:
 }
 ```
 
-This token is meant to **authenticate the user to the application**. The audience (the **aud** claim) of the token is set to the application's identifier, which means that only this specific application should consume this token.
+This token **authenticates the user to the application**. The audience (the **aud** claim) of the token is set to the application's identifier, which means that only this specific application should consume this token.
 
 For comparison, let's look at the contents of an Access Token:
 

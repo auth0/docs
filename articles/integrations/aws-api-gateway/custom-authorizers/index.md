@@ -49,7 +49,7 @@ Whenever someone (or some program) attempts to call your API, API Gateway checks
 
 If **there is a custom authorizer for the API**, API Gateway calls the custom authorizer and provides the authorization token extracted from the request header received.
 
-You can use the custom authorizer to implement different types of authorization strategies, including [JWT](/jwt) verification, to return IAM policies authorizing the request. If the policy returned is invalid or if the permissions are denied, the API call fails.
+You can use the custom authorizer to implement different types of authorization strategies, including [JWT](/tokens/concepts/jwts) verification, to return IAM policies authorizing the request. If the policy returned is invalid or if the permissions are denied, the API call fails.
 
 For a valid policy, API caches the returned policy, associating it with the incoming token and using it for the current and subsequent requests. You can configure the amount of time for which the policy is cached. The default value is `300` seconds, and the maximum length of caching is `3600` seconds (you can also set the value to 0 to disable caching).
 

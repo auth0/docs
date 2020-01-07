@@ -15,7 +15,7 @@ useCase:
 ---
 # Get an ID Token
 
-To get an [ID Token](/tokens/id-tokens), you need to request one when [authenticating](/application-auth) a user. Auth0 makes it easy for your app to authenticate users using:
+To get an [ID Token](/tokens/concepts/id-tokens), you need to request one when [authenticating](/application-auth) a user. Auth0 makes it easy for your app to authenticate users using:
 
 * [Quickstarts](/quickstarts): The easiest way to implement authentication, which can show you how to use dfn data-key="universal-login">[Universal Login](/universal-login)</dfn>, the <dfn data-key="lock">[Lock widget](/lock)</dfn>, and Auth0's language and framework-specific [SDKs](/libraries#sdks). Our [Lock documentation](/libraries/lock) and [Auth0.js documentation](/libraries/auth0js) both provide specifics about retrieving an ID Token after authentication.
 * [Authentication API](/api/authentication): If you prefer to roll your own, you can call our API directly. First, you need to know [which flow to use](/api-auth/which-oauth-flow-to-use) before following the appropriate [flow tutorial](/flows).
@@ -38,9 +38,9 @@ After an ID Token has expired, you may want to renew your ID Token. To renew the
 
 ## Read more
 
-* [ID Tokens](/tokens/id-tokens)
+* [ID Tokens](/tokens/concepts/id-tokens)
 * [Validate an ID Token](/tokens/guides/id-token/validate-id-token)
-* [JSON Web Token](/jwt)
+* [JSON Web Token](/tokens/concepts/jwts)
 * [JSON Web Token Claims](/tokens/jwt-claims)
 * [OpenID Connect Scopes](/scopes/oidc-scopes)
 * [Token Best Practices](/tokens/concepts/token-best-practices)

@@ -15,7 +15,7 @@ useCase:
 ---
 # Validate an ID Token 
 
-An [ID Token](/tokens/id-tokens), which contains user profile attributes, is consumed by an Application and typically used for user interface display. Auth0 issues all ID Tokens in <dfn data-key="json-web-token">[JSON Web Token (JWT)](/jwt)</dfn> format.
+An [ID Token](/tokens/concepts/id-tokens), which contains user profile attributes, is consumed by an Application and typically used for user interface display. Auth0 issues all ID Tokens in <dfn data-key="json-web-token">[JSON Web Token (JWT)](/tokens/concepts/jwts)</dfn> format.
 
 To validate an ID Token, you will need to:
 
@@ -39,5 +39,5 @@ If any of these checks fail, the token is considered invalid, and the request mu
 
 ## Read more
 
-* [ID Tokens](/tokens/id-tokens)
+* [ID Tokens](/tokens/concepts/id-tokens)
 * [Get an ID Token](/tokens/guides/id-token/get-id-tokens)

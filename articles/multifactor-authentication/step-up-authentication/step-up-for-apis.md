@@ -210,7 +210,7 @@ For this example, we assume that we have already done the following:
 
 ## Keep reading
 
-* [Access Tokens](/tokens/access-tokens)
+* [Access Tokens](/tokens/concepts/access-tokens)
 * [Rules](/rules)
 * [Scopes](/scopes)
 * [Validate an Access Token](/tokens/guides/access-token/validate-access-token)

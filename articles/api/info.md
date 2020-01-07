@@ -23,7 +23,7 @@ Typically, you should consume this API through one of the Auth0 SDKs, such as [A
 Some example tasks include:
 
 * getting [tokens](/tokens) during authentication
-* requesting a user's profile using an [Access Token](/tokens/access-tokens)
+* requesting a user's profile using an [Access Token](/tokens/concepts/access-tokens)
 * exchanging [Refresh Tokens](/tokens/refresh-token) for new Access Tokens
 * requesting a challenge for [multi-factor authentication (MFA)](/multifactor-authentication)
 
