@@ -60,6 +60,6 @@ The API can now process the request, allowing the application to read from and w
 * [Validate an Access Token](/tokens/guides/access-token/validate-access-token)
 * [JSON Web Token](/jwt)
 * [JSON Web Token Claims](/tokens/jwt-claims)
-* [Token Best Practices](/tokens/concepts/token-best-practices)
+* [Token Best Practices](/best-practices/token-best-practices)
 * [Quickstarts](/quickstarts)
 * [Authentication and Authorization Flows](/flows)

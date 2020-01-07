@@ -24,5 +24,6 @@ Our best practice guides have information on how to configure and use Auth0. We'
   'best-practices/rules',
   'best-practices/search-best-practices',
   'best-practices/tenant-settings',
+  'best-practices/token-best-practices',
   'best-practices/user-data-storage-best-practices'
 ] }) %>
