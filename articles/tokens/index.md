@@ -20,7 +20,7 @@ There are basically two types of tokens that are related to identity: ID Tokens 
 
 ID Tokens are a <dfn data-key="json-web-token">JSON Web Tokens (JWTs)</dfn> meant for use by the application only. For example, if there's an app that uses Google to log in users and to sync their calendars, Google sends an ID Token to the app that includes information about the user. The app then parses the [token's contents](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) and uses the information (including details like name and profile picture) to customize the user experience.
 
-<%= include('../_includes/_validate-id-token') %>
+<%= include('./_includes/_validate-id-token') %>
 
 ID Tokens should *not* be used to gain access to an API. Each token contains information for the intended <dfn data-key="audience">audience</dfn> (which is usually the recipient). Per the OpenID Connect specification, the audience of the ID Token (indicated by the **aud** claim) must be the **client ID** of the application making the authentication request. If this is not the case, you should not trust the token. Conversely, an API expects a token with the **aud** value to equal the API's unique identifier. Therefore, unless you maintain control over both the application and the API, sending an ID Token to an API will generally not work. Since the ID Token is not signed by the API, the API would have no way of knowing if the application had modified the token (e.g., adding more scopes) if it were to accept the ID Token.
 
