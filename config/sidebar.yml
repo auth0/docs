@@ -262,40 +262,36 @@ articles:
       - title: SAML Identity Providers
         url: /protocols/saml/identity-providers/
 
+      - title: Pass Parameters to Identity Providers
+        url: /connections/pass-parameters-to-idps
+
       - title: Passwordless
         url: /connections/passwordless
         children:
-
-          - title: Implement Passwordless
-            url: /connections/passwordless/guides/implement-passwordless
-
-          - title: Sample Use Case - Rules
-            url: /connections/passwordless/concepts/sample-use-cases-rules
-
-          - title: Relevant API Endpoints
-            url: /connections/passwordless/reference/relevant-api-endpoints
-
-          - title: Troubleshooting
-            url: /connections/passwordless/reference/troubleshoot
-
-          - title: Native Passwordless
-            url: /connections/passwordless/native-passwordless-universal
-            hidden: true
-
-          - title: Using Email
-            url: /connections/passwordless/email
-            hidden: true
-
-          - title: Using SMS
-            url: /connections/passwordless/sms
-            hidden: true
-
-          - title: FAQ
-            url: /connections/passwordless/faq
-            hidden: true
-
-      - title: Pass Parameters to Identity Providers
-        url: /connections/pass-parameters-to-idps
+          - title: Authentication Factors
+            url: /connections/passwordless
+            children:
+              - title: Email
+                url: /connections/passwordless/guides/email-otp
+              - title: Magic Link
+                url: /connections/passwordless/guides/email-magic-link
+              - title: SMS
+                url: /connections/passwordless/guides/sms-otp
+          - title: Universal Login
+            url: /connections/passwordless/guides/universal-login
+          - title: Embedded Login
+            url: /connections/passwordless/guides/embedded-login
+            children:
+              - title: Passwordless APIs
+                url: /connections/passwordless/reference/relevant-api-endpoints
+              - title: Native Apps
+                url: /connections/passwordless/guides/embedded-login-native
+              - title: Web Apps
+                url: /connections/passwordless/guides/embedded-login-webapps
+              - title: SPAs
+                url: /connections/passwordless/guides/embedded-login-spa
+          - title: Best Practices
+            url: /connections/passwordless/guides/best-practices
 
 ## ------------------------------------------------------------
 ## Authorization
@@ -890,8 +886,8 @@ articles:
           - title: Retrieve Logs Using the Management API
             url: /logs/guides/retrieve-logs-mgmt-api
 
-          - tite: Log Event Data
-            url: /logs/references/log-event-data
+          - tite: Log Event Type Codes
+            url: /logs/references/log-event-type-codes
 
           - title: Log Search Query Syntax
             url: /logs/references/query-syntax

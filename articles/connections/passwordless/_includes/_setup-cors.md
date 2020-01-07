@@ -6,8 +6,4 @@ For security purposes, your app's origin URL must be listed as an approved URL. 
 
 2. Click the name of your application to see its settings.
 
-![View Application Settings](/media/articles/clients/change-client-secret/clients.png)
-
-3. Scroll to **Allowed Origins (CORS)**, enter your app's origin URL, then click **Save Changes**.
-
-![Enter Allowed Origin URL](/media/articles/clients/change-client-secret/client-settings.png)
+3. Scroll to **Allowed Origins (CORS)**, enter your app's [origin URL](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin), then click **Save Changes**.

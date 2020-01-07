@@ -79,7 +79,7 @@ As an alternative or complement to retrieving logs by checkpoint or search crite
 
 * [Administrator and Developer Log Usage Examples](/logs/concepts/logs-admins-devs)
 * [Log Data Retention](/logs/references/log-data-retention)
-* [Log Event Data](/logs/references/log-event-data)
+* [Log Event Type Codes](/logs/references/log-event-type-codes)
 * [Log Search Query Syntax](/logs/references/query-syntax)
 * [View Log Data in the Dashboard](/logs/guides/view-log-data-dashboard)
 * [View Anomaly Detection Events](/anomaly-detection/guides/use-tenant-data-for-anomaly-detection)
