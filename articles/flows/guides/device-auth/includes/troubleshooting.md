@@ -1,6 +1,6 @@
 # Troubleshooting
 
-[Tenant logs](/logs/references/log-event-data) are created for any interaction that takes place and can be used to troubleshoot issues.
+[Tenant logs](/logs) are created for any interaction that takes place and can be used to troubleshoot issues.
 
 ## Error codes
 

@@ -36,6 +36,7 @@ Various grant types are valid when registering Auth0 Applications. These can be 
 | `http://auth0.com/oauth/grant-type/mfa-oob` | [Multi-factor Authentication OOB Grant Request](/api-auth/tutorials/multifactor-resource-owner-password#mfa-oob-grant-request) |
 | `http://auth0.com/oauth/grant-type/mfa-otp` | [Multi-factor Authentication OTP Grant Request](/api-auth/tutorials/multifactor-resource-owner-password#mfa-otp-grant-request) |
 | `http://auth0.com/oauth/grant-type/mfa-recovery-code` | [Multi-factor Authentication Recovery Grant Request](/api-auth/tutorials/multifactor-resource-owner-password#mfa-recovery-grant-request) |
+| `http://auth0.com/oauth/grant-type/passwordless/otp` | [Embedded Passwordless Login Grant Request](/connections/passwordless#implementing-login) |
 
 ## Auth0 legacy grants
 
