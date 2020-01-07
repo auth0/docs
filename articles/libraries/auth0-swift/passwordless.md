@@ -53,8 +53,7 @@ Auth0
        email: "support@auth0.com", 
        code: "123456", 
        audience: "https://myapi.com/api",
-       scope: "openid email"
-       )
+       scope: "openid email")
    .start { result in
        switch result {
        case .success(let credentials):
@@ -75,8 +74,7 @@ Auth0
        phoneNumber: "+4591131761367", 
        code: "123456", 
        audience: "https://myapi.com/api",
-       scope: "openid email"
-       )
+       scope: "openid email")
    .start { result in
        switch result {
        case .success(let credentials):
@@ -108,4 +106,4 @@ or
 | `email` | required | (String) Either `email` or `phoneNumber` is required (not both), depending on which will be used. |
 | `phoneNumber` | required | (String) Either `email` or `phoneNumber` is required (not both), depending on which will be used. |
 | `type` | optional | (String)  The type of Passwordless transaction to use, either `.Code` or `.iOSLink`. Defaults to `.Code`. |
-| `connection` | optional | (String)  The name of the connection to use for the Passwordless authentication. Defaults to `sms` for the SMS overload or to 'email' for the email overload |
+| `connection` | optional | (String)  The name of the connection to use for the Passwordless authentication. Defaults to `sms` for the SMS overload or to `email` for the email overload |
