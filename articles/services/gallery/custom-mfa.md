@@ -1,21 +1,20 @@
 ---
-title: Sign-Up by Invitation
-connection: Sign-Up by Invitation
-index: 3
+title: Custom MFA
+connection: Custom MFA
+index: 10
 image: /media/articles/services/gallery/sign-up-by-invitation.png
-description: Add a Sign-Up by Invitation workflow to your solution with Professional Services custom extensibility.
+description: Blah blah blah.
 alias:
  - sign-up-by-invitation
 seo_alias: invited sign-up 
 toc: true
 topics:
-  - sign-up
-  - invitation
+  - mfa
 contentType: how-to
 useCase:
-    - sign-up-by-invitation
+    - custom-mfa
 ---
-# Sign-up by Invitation
+# Custom MFA
 
 T.B.D.
 
