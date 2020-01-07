@@ -1,6 +1,6 @@
 ---
 title: Access Tokens
-description: Learn what Access Tokens are and how you can use them with Auth0.
+description: Understand how Access Tokens are used in token-based authentication to allow an application to access an API after a user successfully authenticates and authorizes access.
 topics:
   - tokens
   - access-tokens
@@ -11,7 +11,7 @@ useCase:
 ---
 # Access Tokens
 
-<dfn data-key="access-token">Access Tokens</dfn> are used in token-based authentication to allow an application to access an API. The application receives an Access Token after a user successfully authenticates and authorizes access, then passes the Access Token as a credential when it calls the target API. The passed token informs the API that the bearer of the token has been authorized to access the API and perform specific actions specified by the <dfn data-key="scope">[**scope**](/scopes)</dfn> that was granted during authorization.
+Access Tokens are used in token-based authentication to allow an application to access an API. The application receives an Access Token after a user successfully authenticates and authorizes access, then passes the Access Token as a credential when it calls the target API. The passed token informs the API that the bearer of the token has been authorized to access the API and perform specific actions specified by the <dfn data-key="scope">[**scope**](/scopes)</dfn> that was granted during authorization.
 
 In addition, if you have chosen to allow users to log in through an [Identity Provider (IdP)](/identityproviders), such as Facebook, the IdP will issue its own Access Token to allow your application to call the IDP's API. For example, if your user authenticates using Facebook, the Access Token issued by Facebook can be used to call the Facebook Graph API. These tokens are controlled by the IdP and can be issued in any format. To learn more, see [Identity Provider Access Tokens](/tokens/concepts/idp-access-tokens). 
 
@@ -29,7 +29,7 @@ Access Tokens issued for the [Auth0 Management API](/api/info) and Access Tokens
 
 ## Access Token security
 
-You should follow [token best practices](/best-practices/token-best-practices) when using Access Tokens, and for [JWTs](/tokens/concepts/jwts#security), make sure that you [validate an Access Token](/tokens/guides/validate-access-token) before assuming that its contents can be trusted.
+You should follow [token best practices](/best-practices/token-best-practices) when using Access Tokens, and for [JWTs](/tokens/concepts/jwts#security), make sure that you [validate an Access Token](/tokens/guides/validate-access-tokens) before assuming that its contents can be trusted.
 
 ## Access Token Lifetime
 
@@ -50,8 +50,8 @@ Access Tokens issued strictly for the purpose of accessing the <dfn data-key="op
 
 ## Keep reading
 
-* [Get Access Tokens](/tokens/guides/access-token/get-access-tokens)
-* [Use Access Tokens](/tokens/guides/access-token/use-access-tokens)
+* [Get Access Tokens](/tokens/guides/get-access-tokens)
+* [Use Access Tokens](/tokens/guides/use-access-tokens)
 * [Use Access Tokens to Secure APIs](/api-auth/why-use-access-tokens-to-secure-apis)
-* [Validate Access Tokena](/tokens/guides/access-token/validate-access-token)
+* [Validate Access Tokens](/tokens/guides/validate-access-tokens)
 * [JSON Web Token Claims](/tokens/concepts/jwt-claims)

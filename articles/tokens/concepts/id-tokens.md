@@ -1,7 +1,6 @@
 ---
 title: ID Tokens
-description: ID Tokens are JSON Web Tokens (JWT) that contain user profile information and are received after a user successfully authenticates. They are primarily used by the client appliation. Learn how to get, use, validate, and renew ID Tokens.
-toc: false
+description: Understand how ID Tokens are used in token-based authentication to cache user profile information and provide it to a client application.  
 topics:
   - tokens
   - api-authentication
@@ -11,7 +10,7 @@ contentType:
   - concept
 useCase:
   - add-login
-  - development
+  - authentication
 ---
 # ID Tokens
 
@@ -21,11 +20,13 @@ For example, let's say you have built a [regular web application](/applications)
 
 ## ID Token security
 
-As with any other [JWTs](/tokens/jwt#security), you should follow [token best practices](/tokens/concepts/token-best-practices) when using ID Tokens and [validate an ID Token](/tokens/guides/id-token/validate-id-token) before assuming that its contents can be trusted.
+As with any other [JWTs](/tokens/concepts/jwts#security), you should follow [token best practices](/best-practices/token-best-practices) when using ID Tokens.
+
+<%= include('../../_includes/_validate-id-token') %>
 
 ## ID Token lifetime
 
-By default, an ID Token is valid for 36000 seconds (10 hours). If there are security concerns, you can shorten the time period before the token expires, but remember that one of the purposes of this token is to improve performance by caching user information. 
+By default, an ID Token is valid for 36000 seconds (10 hours). If there are security concerns, you can shorten the time period before the token expires, keeping in mind that one of the purposes of the token is to improve user experience by caching user information. 
 
 To learn how to change the ID Token expiration time, see [Update ID Token Lifetime](/dashboard/guides/applications/update-token-lifetime).
 
