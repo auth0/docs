@@ -54,20 +54,18 @@ To validate a JWT, your application needs to:
 2. Check the signature.
 3. Check the standard claims.
 
-If any of these steps fail, then the associated request **must** be rejected.
+If any of these steps fail, then the associated request must be rejected.
 
 ::: note
-Most JWT libraries will take care of JWT validation for you, so be sure to visit [JWT.io](https://jwt.io/#libraries-io) to find a JWT library for your platform and programming language.
+Most JWT libraries take care of JWT validation for you, so be sure to visit [JWT.io](https://jwt.io/#libraries-io) to find a JWT library for your platform and programming language.
 :::
 
 ## Check that the JWT is well-formed
 
-Before doing anything else, make sure the JWT conforms to the [structure of a JWT](/tokens/references/jwt-structure). If this fails, the token is considered invalid, and the request must be rejected.
-
-The basic steps include:
+Ensure that the JWT conforms to the [structure of a JWT](/tokens/references/jwt-structure). If this fails, the token is considered invalid, and the request must be rejected.
 
 1. Verify that the JWT contains three segments, separated by two period ('.') characters.
-2. Parse the JWT to extract its components. The first segment is the Header, the second is the Payload, and the third is the Signature. Each segment is base64url encoded.
+2. Parse the JWT using [JWT.io](https://jwt.io/) to extract its components. The first segment is the Header, the second is the Payload, and the third is the Signature. Each segment is base64url encoded.
 3. Base64url-decode the Header, ensuring that no line breaks, whitespace, or other additional characters have been used, and verify that the decoded Header is a valid JSON object.
 4. Base64url-decode the Payload, ensuring that no line breaks, whitespace, or other additional characters have been used, and verify that the decoded Payload is a valid JSON object.
 5. Base64url-decode the Signature, ensuring that no line breaks, whitespace, or other additional characters have been used, and verify that the decoded Signature is a valid JSON object.
@@ -79,44 +77,34 @@ The last segment of a JWT is the Signature, which is used to verify that the tok
 To verify the signature, you will need to:
 
 1. Check the signing algorithm.
-2. Confirm that the token is correctly signed using the proper key.
 
-### Check the signing algorithm
+    1. Retrieve the `alg` property from the decoded Header.
+    2. Ensure that it is an allowed algorithm. Specifically, to avoid certain attacks, make sure you disallow `none`.
+    3. Check that it matches the algorithm you selected when you [registered your Application](/getting-started/set-up-app) or [API](/getting-started/set-up-api) with Auth0.
+2. Confirm that the token is correctly signed using the proper key. Check the Signature to verify that the sender of the JWT is who it says it is and that the message wasn't changed along the way.
 
-To check the signing algorithm:
+    Remember that the Signature is created using the Header and Payload segments, a [signing algorithm](/tokens/concepts/signing-algorithms), and a secret or public key (depending on the chosen signing algorithm).
 
-1. Retrieve the `alg` property from the decoded Header.
-2. Ensure that it is an allowed algorithm. Specifically, to avoid certain attacks, make sure you disallow `none`.
-3. Check that it matches the algorithm you selected when you [registered your Application](/getting-started/set-up-app) or [API](/getting-started/set-up-api) with Auth0.
+    To verify that the signature is correct, you need to generate a new Base64url-encoded signature using the public key (RS256) or secret (HS256) and verify that it matches the original Signature included with the JWT:
 
-If this fails, the token is considered invalid, and the request must be rejected.
+    1. Take the original Base64url-encoded Header and original Base64url-encoded Payload segments (Base64url-encoded Header + "." + Base64url-encoded Payload), and hash them with SHA-256.
+    2. Encrypt using either HMAC or RSA (depending on your selected signing algorithm) and the appropriate key.
+    3. Base64url-encode the result.
 
-### Confirm that the token is correctly signed using the proper key
+    ::: panel Locate Public Key
 
-Check the Signature to verify that the sender of the JWT is who it says it is and that the message wasn't changed along the way.
+    For RS256:
+    Retrieve the public key from the [JWKS](/tokens/concepts/jwks) located by using your [Auth0 discovery endpoint](/tokens/guides/locate-jwks).
 
-Remember that the Signature is created using the Header and Payload segments, a [signing algorithm](/tokens/concepts/signing-algorithms), and a secret or public key (depending on the chosen signing algorithm).
+    For debugging purposes, you can visually inspect your token at [jwt.io](jwt.io); for this purpose, you can also locate your public key in the Auth0 Dashboard. Look in **Applications**>**Settings**>**Advanced Settings**>**Certificates** and locate the **Signing Certificate** field.
 
-To verify that the signature is correct, you need to generate a new Base64url-encoded signature using the public key (RS256) or secret (HS256) and verify that it matches the original Signature included with the JWT:
+    For HS256:
+    Retrieve the `client_secret` from Auth0's Management API using the [Get a Client endpoint](/api/management/v2/#!/Clients/get_clients_by_id). 
 
-1. Take the original Base64url-encoded Header and original Base64url-encoded Payload segments (Base64url-encoded Header + "." + Base64url-encoded Payload), and hash them with SHA-256.
-2. Encrypt using either HMAC or RSA (depending on your selected signing algorithm) and the appropriate key.
-3. Base64url-encode the result.
+    For debugging purposes, you can visually inspect your token at [jwt.io](jwt.io); for this purpose, you can also locate your secret in the Auth0 Dashboard. For applications, look in **Settings** and locate the **Client Secret** field. For APIs, look in **Settings** and locate the **Signing Secret** field. (Note that this field is only displayed for APIs using the HS256 [signing algorithm](/tokens/concepts/signing-algorithms).)
+    :::
 
-::: panel Locate Public Key
-
-For RS256:
-Retrieve the public key from the [JWKS](/tokens/concepts/jwks) located by using your [Auth0 discovery endpoint](/tokens/guides/locate-jwks).
-
-For debugging purposes, you can visually inspect your token at [jwt.io](jwt.io); for this purpose, you can also locate your public key in the Auth0 Dashboard. Look in **Applications**>**Settings**>**Advanced Settings**>**Certificates** and locate the **Signing Certificate** field.
-
-For HS256:
-Retrieve the `client_secret` from Auth0's Management API using the [Get a Client endpoint](/api/management/v2/#!/Clients/get_clients_by_id). 
-
-For debugging purposes, you can visually inspect your token at [jwt.io](jwt.io); for this purpose, you can also locate your secret in the Auth0 Dashboard. For applications, look in **Settings** and locate the **Client Secret** field. For APIs, look in **Settings** and locate the **Signing Secret** field. (Note that this field is only displayed for APIs using the HS256 [signing algorithm](/tokens/concepts/signing-algorithms).)
-:::
-
-If the generated signature does not match the original Signature included with the JWT, the token is considered invalid, and the request must be rejected.
+    If the generated signature does not match the original Signature included with the JWT, the token is considered invalid, and the request must be rejected.
 
 ## Check standard claims
 
@@ -127,8 +115,6 @@ Before using the token, you should retrieve the following standard claims from t
 
 Additional checks are required depending on whether the JWT you are validating is an ID Token or an Access Token. To learn about the additional requirements, see [Validate ID Tokens](/tokens/guides/validate-id-tokens) or [Validate Access Tokens](/tokens/guides/validate-access-tokens).
 
-If any of these checks fail, the token is considered invalid, and the request must be rejected.
-
 ## Keep reading
 
 * [JSON Web Tokens](/tokens/concepts/jwts)
@@ -136,3 +122,4 @@ If any of these checks fail, the token is considered invalid, and the request mu
 * [JSON Web Token Claims](/tokens/concepts/jwt-claims)
 * [Token Best Practices](/best-practices/token-best-practices)
 * [JSON Web Key Set](/tokens/concepts/jwks)
+* [JWT Handbook](https://auth0.com/resources/ebooks/jwt-handbook)

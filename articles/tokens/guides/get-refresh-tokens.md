@@ -1,6 +1,6 @@
 ---
 title: Get Refresh Tokens
-description: Learn how to get a Refresh Token when you initiate a request through the /authorize endpoint.
+description: Learn how to get a Refresh Token when you initiate a request using the Authorize endpoint.
 topics:
   - access-tokens
   - api-authentication

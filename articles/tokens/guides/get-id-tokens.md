@@ -1,6 +1,6 @@
 ---
 title: Get ID Tokens
-description: Learn how to get an ID Token.
+description: Learn how to request an ID Token when authenticating users that includes claims about the user by including OIDC scopes.
 toc: true
 topics:
   - tokens
@@ -20,7 +20,7 @@ To get an [ID Token](/tokens/concepts/id-tokens), you need to request one when [
 * [Quickstarts](/quickstarts): The easiest way to implement authentication, which can show you how to use dfn data-key="universal-login">[Universal Login](/universal-login)</dfn>, the <dfn data-key="lock">[Lock widget](/lock)</dfn>, and Auth0's language and framework-specific [SDKs](/libraries#sdks). Our [Lock documentation](/libraries/lock) and [Auth0.js documentation](/libraries/auth0js) both provide specifics about retrieving an ID Token after authentication.
 * [Authentication API](/api/authentication): If you prefer to roll your own, you can call our API directly. First, you need to know [which flow to use](/api-auth/which-oauth-flow-to-use) before following the appropriate [flow tutorial](/flows).
 
-## Control ID Token Contents
+## Control ID Token contents
 
 You control which claims about the authenticated user are included in the ID Token consumed by your application by including specific [OpenID Connect Scopes](/scopes/current/oidc-scopes) in the `scope` parameter when you request tokens while authenticating users.
 

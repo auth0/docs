@@ -37,3 +37,11 @@ The most secure practice, and our recommendation, is to use **RS256** because:
 
 For a more detailed look at JWT signing algorithms, see our blog post: [JSON Web Token (JWT) Signing Algorithms Overview](https://auth0.com/blog/json-web-token-signing-algorithms-overview/).
 
+## Keep reading
+
+* [JSON Web Tokens](/tokens/concepts/jwts)
+* [JSON Web Token Structure](/tokens/references/jwt-structure)
+* [JSON Web Token Claims](/tokens/concepts/jwt-claims)
+* [Token Best Practices](/best-practices/token-best-practices)
+* [JSON Web Key Set](/tokens/concepts/jwks)
+* [JWT Handbook](https://auth0.com/resources/ebooks/jwt-handbook)

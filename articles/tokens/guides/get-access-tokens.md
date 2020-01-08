@@ -1,6 +1,6 @@
 ---
-title: Get an Access Token
-description: Learn how to get an Access Token.
+title: Get Access Tokens
+description: Learn how to request Access Tokens using the Authorize endpoint when authenticating users and include the target audience and scope of access requested by the app and granted by the user.
 topics:
   - tokens
   - access-tokens
@@ -9,7 +9,7 @@ contentType:
 useCase:
   - invoke-api
 ---
-# Get an Access Token
+# Get Access Tokens
 
 To get an [Access Token](/tokens/concepts/access-tokens), you need to request one when [authenticating](/application-auth) a user.
 
@@ -46,7 +46,7 @@ For an Access Token with the target audience of the [Auth0 Management API](/api/
 
 By default, an Access Token for a Custom API is valid for 86400 seconds (24 hours). If there are security concerns, you can [shorten the time period before the token expires](/dashboard/guides/apis/update-token-lifetime). 
 
-After an Access Token has expired, you may want to renew your Access Token. To renew the Access Token, you can either reauthenticate the user using Auth0, or use a <dfn data-key="refresh-token">[Refresh Token](/tokens/concepts/refresh-tokens)</dfn>.
+After an Access Token has expired, you may want to renew your Access Token. To renew the Access Token, you can either reauthenticate the user using Auth0, or use a <dfn data-key="refresh-token">[Refresh Tokens](/tokens/concepts/refresh-tokens)</dfn>.
 
 ## Read more
 

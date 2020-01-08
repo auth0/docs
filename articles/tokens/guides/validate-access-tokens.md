@@ -1,5 +1,5 @@
 ---
-title: Validate an Access Token
+title: Validate Access Token
 description: Learn how to validate an Access Token.
 toc: true
 topics:
@@ -14,7 +14,7 @@ useCase:
   - secure-api
   - call-api
 ---
-# Validate an Access Token
+# Validate Access Tokens
 
 ::: note
 This document discusses validation of Access Tokens issued by Auth0. If you have received an Access Token from an [Identity Provider (IdP)](/identityproviders), in general, you don't need to validate it. You can pass it to the issuing IdP, and the IdP takes care of the rest.
@@ -30,7 +30,7 @@ Remember that an Access Token is meant for an API and should be validated only b
 
 Opaque Access Tokens can be used with the [`/userinfo` endpoint](/api/authentication#get-user-info) to return a user's profile. If you receive an opaque Access Token, you don't need to validate it. You can use it with the `/userinfo` endpoint, and Auth0 takes care of the rest. 
 
-To learn more about getting an opaque Access Token for the `userinfo` endpoint, see [Get an Access Token: Opaque Access Tokens](/tokens/guides/access-token/get-access-tokens#opaque-access-tokens).
+To learn more about getting an opaque Access Token for the `userinfo` endpoint, see [Get Access Tokens](/tokens/guides/get-access-tokens#opaque-access-tokens).
 
 ## JSON Web Token (JWT) Access Tokens
 

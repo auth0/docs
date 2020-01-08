@@ -89,3 +89,12 @@ HMACSHA256(
 ::: warning
 How ever you use a JWT, you must [check its signature](/tokens/guides/validate-jwts) before storing and using it.
 :::
+
+## Keep reading
+
+* [JSON Web Tokens](/tokens/concepts/jwts)
+* [Validate JSON Web Tokens](/tokens/guides/validate-jwts)
+* [Locate JSON Web Token Key Sets](/tokens/guides/locate-jwks)
+* [JSON Web Key Sets](/tokens/concepts/jwks)
+* [JSON Web Key Set Properties](/tokens/references/jwkw-properties)
+* [JWT Handbook](https://auth0.com/resources/ebooks/jwt-handbook)

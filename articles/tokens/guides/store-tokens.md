@@ -68,3 +68,4 @@ If you have a single-page app (SPA) with no corresponding backend server, your S
 * [Access Tokens](/tokens/concepts/access-tokens)
 * [Refresh Tokens](/tokens/concepts/refresh-tokens)
 * [Token Best Practices](/best-practices/token-best-practices)
+* [JWT Handbook](https://auth0.com/resources/ebooks/jwt-handbook)

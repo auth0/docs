@@ -1,6 +1,6 @@
 ---
 title: Locate JSON Web Key Sets
-description: Learn how to use the JSON Web Keys (JWKs) discovered by using the JSON Web Key Set (JWKS) endpoint to verify a JWT signature.
+description: Learn how to use the JSON Web Keys (JWKs) discovered using the JSON Web Key Set (JWKS) endpoint to verify a JWT signature.
 topics:
   - tokens
   - jwks

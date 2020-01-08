@@ -1,6 +1,6 @@
 ---
-title: Use an Access Token
-description: Learn how to use Access Tokens to call an API.
+title: Use Access Tokens
+description: Learn how to use Access Tokens to call APIs.
 topics:
   - tokens
   - access-tokens
@@ -10,7 +10,7 @@ useCase:
   - invoke-api
 ---
 
-# Use an Access Token
+# Use Access Tokens
 
 <dfn data-key="access-token">Access Tokens</dfn> are used in token-based authentication to allow an application to access an API. For example, a Calendar application needs access to a Calendar API in the cloud so that it can read the user's scheduled events and create new events.
 
@@ -53,7 +53,7 @@ Once the Access Token has been successfully validated, the API can be sure that:
 
 The API can now process the request, allowing the application to read from and write to user `usr_123`'s calendar.
 
-## Read more
+## Keep reading
 
 * [Access Tokens](/tokens/concepts/access-token)
 * [Get Access Tokens](/tokens/guides/get-access-tokens)
