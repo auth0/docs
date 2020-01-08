@@ -1,7 +1,6 @@
 ---
-title: Validate a JSON Web Token
+title: Validate JSON Web Tokens
 description: Learn how to parse and validate a JSON Web Token (JWT).
-toc: true
 topics:
   - jwt
   - tokens
@@ -13,7 +12,7 @@ useCase:
   - secure-api
   - add-login
 ---
-# Validate a JSON Web Token
+# Validate JSON Web Tokens
 
 ::: note
 This document is intended for developers implementing a regular web, native, or SPA application. All of our [backend API quickstarts](/quickstart/backend) use SDKs that perform JWT validation and parsing for you.
@@ -23,9 +22,9 @@ If you'd like to visually inspect a JWT, visit [JWT.io](https://jwt.io/) or use 
 
 To parse and validate a <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn>, you can:
 
-* Use any existing [middleware](#middleware) for your web framework
-* Choose a [third-party library](#third-party-libraries) from [JWT.io](https://jwt.io/#libraries-io)
-* [Manually implement the checks](#manually-implement-the-checks) described in [specification RFC 7519 > 7.2 Validating a JWT](https://tools.ietf.org/html/rfc7519#section-7.2)
+* Use any existing [middleware](#middleware) for your web framework.
+* Choose a [third-party library](#third-party-libraries) from [JWT.io](https://jwt.io/#libraries-io).
+* [Manually implement the checks](#manually-implement-the-checks) described in [specification RFC 7519 > 7.2 Validating a JWT](https://tools.ietf.org/html/rfc7519#section-7.2).
 
 ::: warning
 We strongly recommend that you use middleware or one of the existing open source third-party libraries to parse and validate JWTs. At [JWT.io](https://jwt.io/#libraries-io), you can find libraries for various platforms and languages, such as .NET, Python, Java, Ruby, Objective-C, Swift, and PHP.
