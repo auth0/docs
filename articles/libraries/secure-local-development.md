@@ -19,7 +19,7 @@ Testing locally on non-secure channels `http` is generally safe for servers that
 - Cookies using secure or [same-site](https://auth0.com/blog/browser-behavior-changes-what-developers-need-to-know/) will not be sent to local `http` disrupting authentication and other functionality.
 
 ## How to set up a secure local server
-When your web browser visits a secure web page (https) the browser verifies the SSL certificate supplied by the server with a Certificate Authority.
+When you visit a secure web page (served over https), your browser will verify the SSL certificate supplied by the server with a Certificate Authority. When loading a secure web page from a local server, you can create an authority just for your machine and generate certificates that only your browser will trust.
 
 The process to do this is:
 
