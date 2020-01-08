@@ -24,7 +24,7 @@ When your web browser visits a secure web page (https) the browser verifies the 
 This can be handled locally in 3 easy steps:
 
 1. Install a local Certificate Authority
-2. Generate SSL certificate for the address/domain (ie. localhost)
+2. Generate an SSL certificate for the domain being used (ie. localhost) using this new Authority.
 3. Serve the SSL certificate from your web application
 
 To get started, download [Mkcert](https://github.com/FiloSottile/mkcert) and follow the [installation instructions](https://github.com/FiloSottile/mkcert#installation) for your specific operating system.
