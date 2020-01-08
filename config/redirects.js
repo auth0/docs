@@ -1182,7 +1182,7 @@ module.exports = [
   },
   {
     from: ['/scopes/current/custom-claims', '/tokens/jwt-claims#custom-claims'],
-    to: '/tokens/concepts/jwt-claims#custom-claims'
+    to: '/tokens/concepts/jwt-claims'
   },
   {
     from: ['/tokens/guides/jwt/verify-jwt-signature-using-jwks', '/tokens/guides/jwt/use-jwks'],

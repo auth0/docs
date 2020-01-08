@@ -57,7 +57,7 @@ Note that [OpenID Connect (OIDC) standard claims](/scopes/current/oidc-scopes#st
 
 ### Custom claims
 
-For your specific use case, you can define your own [custom claims](/tokens/concepts/jwt-claims#custom-claims), which you control and can add to a token using a [rule](/rules). For example, you may want to add a user's email address to an Access Token and use that to uniquely identify the user, or you may want to add custom information stored in an Auth0 user profile to an ID Token. As long as your rule is in place, the custom claims it adds will appear in new tokens issued when using a <dfn data-key="refresh-token">[Refresh Token](/tokens/concepts/refresh-tokens)</dfn>.
+For your specific use case, you can define your own custom claims, which you control and can add to a token using a [rule](/rules). For example, you may want to add a user's email address to an Access Token and use that to uniquely identify the user, or you may want to add custom information stored in an Auth0 user profile to an ID Token. As long as your rule is in place, the custom claims it adds will appear in new tokens issued when using a <dfn data-key="refresh-token">[Refresh Token](/tokens/concepts/refresh-tokens)</dfn>.
 
 You can name a custom claim anything that is not already listed in the [IANA JSON Web Token Claims Registry](https://www.iana.org/assignments/jwt/jwt.xhtml#claims), and you should use collision-resistant names, such as through [namespacing](/tokens/guides/create-namespaced-custom-claims) (which Auth0 requires).
 
