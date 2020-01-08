@@ -1,7 +1,6 @@
 ---
 title: Validate Access Token
 description: Learn how to validate an Access Token.
-toc: true
 topics:
   - tokens
   - api-authentication
@@ -32,9 +31,9 @@ Opaque Access Tokens can be used with the [`/userinfo` endpoint](/api/authentica
 
 To learn more about getting an opaque Access Token for the `userinfo` endpoint, see [Get Access Tokens](/tokens/guides/get-access-tokens#opaque-access-tokens).
 
-## JSON Web Token (JWT) Access Tokens
+## JWT Access Tokens
 
-Access Tokens issued for the Auth0 Management API and Access Tokens issued for any custom API that you have registered with Auth0 will always be [JSON Web Tokens (JWTs)](/tokens/concepts/jwts).
+Access Tokens issued for the Auth0 Management API and Access Tokens issued for any custom API that you have registered with Auth0 will always be [JSON Web Tokens](/tokens/concepts/jwts).
 
 ### Auth0 Management API Access Tokens
 

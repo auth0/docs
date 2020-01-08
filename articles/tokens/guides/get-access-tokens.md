@@ -42,13 +42,13 @@ Auth0 issues tokens with an issuer (`iss` claim) of whichever domain you used wh
 For an Access Token with the target audience of the [Auth0 Management API](/api/management/v2), if you have requested an Access Token from your custom domain, then you **must** call the Management API from your custom domain or else your Access Token will be considered invalid.
 :::
 
-## Renew an Access Token
+## Renew Access Tokens
 
 By default, an Access Token for a Custom API is valid for 86400 seconds (24 hours). If there are security concerns, you can [shorten the time period before the token expires](/dashboard/guides/apis/update-token-lifetime). 
 
 After an Access Token has expired, you may want to renew your Access Token. To renew the Access Token, you can either reauthenticate the user using Auth0, or use a <dfn data-key="refresh-token">[Refresh Tokens](/tokens/concepts/refresh-tokens)</dfn>.
 
-## Read more
+## Keep reading
 
 * [Access Tokens](/tokens/concepts/access-tokens)
 * [Use Access Tokens](/tokens/guides/use-access-tokens)

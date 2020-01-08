@@ -38,11 +38,9 @@ You can cache your signing keys to improve application performance and avoid run
 
 ## Keep reading
 
-* [JSON Web Key Set](/tokens/jwks)
+* [JSON Web Key Sets](/tokens/concepts/jwks)
 * [JSON Web Key Set Properties](/tokens/references/jwks-properties)
 * [JSON Web Token Structure](/tokens/references/jwt-structure)
 * [Validate a JSON Web Token](/tokens/guides/validate-jwt)
-
-Sample implementations:
 * [Backend/API Quickstarts](/quickstart/backend)
 * [Navigating RS256 and JWKS](https://auth0.com/blog/navigating-rs256-and-jwks/) (uses Node.js)

@@ -1,7 +1,6 @@
 ---
 title: Get ID Tokens
 description: Learn how to request an ID Token when authenticating users that includes claims about the user by including OIDC scopes.
-toc: true
 topics:
   - tokens
   - api-authentication
@@ -30,7 +29,7 @@ You can also create [custom claims](/tokens/concepts/jwt-claims#custom-claims), 
 
 As with any other [JWTs](/tokens/concepts/jwts#security), you should follow [token best practices](/best-practices/token-best-practices) when using ID Tokens and [validate an ID Token](/tokens/guides/validate-id-tokens) before assuming that its contents can be trusted.
 
-## Renew an ID Token
+## Renew ID Tokens
 
 By default, an ID Token is valid for 36000 seconds (10 hours). If there are security concerns, you can [shorten the time period before the token expires](/dashboard/guides/applications/update-token-lifetime), but remember that one of the purposes of this token is to improve performance by caching user information. 
 

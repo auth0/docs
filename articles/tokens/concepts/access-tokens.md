@@ -31,7 +31,7 @@ Access Tokens issued for the [Auth0 Management API](/api/info) and Access Tokens
 
 You should follow [token best practices](/best-practices/token-best-practices) when using Access Tokens, and for [JWTs](/tokens/concepts/jwts#security), make sure that you [validate an Access Token](/tokens/guides/validate-access-tokens) before assuming that its contents can be trusted.
 
-## Access Token Lifetime
+## Access Token lifetime
 
 ### Custom APIs
 

@@ -1,7 +1,6 @@
 ---
 title: ID Token Structure
 description: Describes how ID Tokens conform to the JWT standard and contain JWT claims asserted about the token itself, standard OIDC claims about the authenticated user, and custom claims that you define, control, and add to a token using a rule.
-toc: true
 topics:
   - tokens
 contentType:
