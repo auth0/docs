@@ -67,7 +67,7 @@ Click on the **"CONTINUE"** button.
 
 In the window that appears, metadata about this SAML service provider is displayed. You will need to use the information from this screen to configure the Identity Provider.
 
-The first bullet is the post-back URL or Assertion Consumer Service (ACS) URL. This is the URL the Identity Provider will send Authentication Assertions after authenticating a user.  Enter this value where the Identity Provider asks for Assertion Consumer Service URL.  It may just call this a Service Provider URL.
+The first bullet is the post-back URL or Assertion Consumer Service (ACS) URL. This is the URL the Identity Provider will send Authentication Assertions to after authenticating a user.  Enter this value where the Identity Provider asks for Assertion Consumer Service URL.  It may just call this a Service Provider URL.
 
 The second bullet tells you the **"Entity ID"**.  It will be of the form __urn:auth0:${account.tenant}:YOUR_CONNECTION_NAME__.
 
