@@ -1458,12 +1458,15 @@ articles:
 
               - title: "Get ID Tokens"
                 url: "/tokens/guides/get-id-tokens"
+                hidden: true 
 
               - title: "Validate ID Tokens"
                 url: "/tokens/guides/validate-id-tokens"
+                hidden: true 
 
               - title: "ID Token Structure"
                 url: "/tokens/references/id-token-structure"
+                hidden: true 
 
           - title: "Access Tokens"
             url: "/tokens/concepts/access-tokens"
@@ -1471,15 +1474,19 @@ articles:
 
               - title: "IDP Access Tokens"
                 url: "/tokens/concepts/idp-access-tokens"
+                hidden: true 
 
               - title: "Get Access Tokens"
                 url: "/tokens/guides/get-access-tokens"
+                hidden: true 
 
               - title: "Use Access Tokens"
                 url: "/tokens/guides/use-access-tokens"
+                hidden: true 
 
               - title: "Validate Access Tokens"
                 url: "/tokens/guides/validate-access-tokens"
+                hidden: true 
 
           - title: "Refresh Tokens"
             url: "/tokens/concepts/refresh-tokens"
@@ -1487,12 +1494,15 @@ articles:
 
               - title: "Get Refresh Tokens"
                 url: "/tokens/guides/get-refresh-tokens"
+                hidden: true 
 
               - title: "Use Refresh Tokens"
                 url: "/tokens/guides/use-refresh-tokens"
+                hidden: true 
 
               - title: "Revoke Refresh Tokens"
                 url: "/tokens/guides/revoke-refresh-tokens"
+                hidden: true 
 
           - title: "Delegation Tokens"
             url: "/tokens/concepts/delegation-tokens"
@@ -1500,13 +1510,16 @@ articles:
 
           - title: "JSON Web Tokens"
             url: "/tokens/concepts/jwts"
+            hidden: true 
             children:
 
               - title: "Validate JSON Web Tokens"
                 url: "/tokens/guides/validate-jwts"
+                hidden: true 
 
               - title: "JSON Web Key Sets"
                 url: "/tokens/concepts/jwks"
+                hidden: true 
                 children:
 
                   - title: "Locate JSON Web Key Sets"
@@ -1519,6 +1532,7 @@ articles:
 
               - title: "JSON Web Token Claims"
                 url: "/tokens/concepts/jwt-claims"
+                hidden: true 
                 children:
 
                   - title: "Create Namespaced Custom Claims"
@@ -1527,9 +1541,11 @@ articles:
 
               - title: "Signing Algorithms"
                 url: "/tokens/concepts/signing-algorithms"
+                hidden: true 
 
               - title: "JSON Web Token Structure"
                 url: "/tokens/references/jwt-structure"
+                hidden: true 
 
           - title: "Store Tokens"
             url: "/tokens/guides/store-tokens"
