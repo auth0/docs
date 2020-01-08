@@ -59,7 +59,7 @@ function (user, context, callback) {
 
 Update the code to check for your own email domain, or match the condition according to your needs. Notice that you can also set more roles other than `admin` and `user`, or customize the whole rule as you please.
 
-This quickstart uses `https://schemas.quickstarts.com/roles` for the claim [namespace](/tokens/concepts/claims-namespacing), but it is suggested that you use a namespace related to your own Auth0 tenant for your claims, e.g. `https://schemas.YOUR_TENANT_NAME.com`.
+This quickstart uses `https://schemas.quickstarts.com/roles` for the claim [namespace](/tokens/guides/create-namespaced-custom-claims), but it is suggested that you use a namespace related to your own Auth0 tenant for your claims, e.g. `https://schemas.YOUR_TENANT_NAME.com`.
 
 ## Restrict an action based on a user's roles
 

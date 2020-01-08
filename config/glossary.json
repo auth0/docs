@@ -86,7 +86,7 @@
   },
   "refresh-token": {
     "title": "Refresh Token",
-    "definition": "A special kind of token that can be used to obtain a renewed Access Token. It is useful for renewing expiring Access Tokens without forcing the user to log in again. Using the Refresh Token, you can request a new Access Token at any time until the Refresh Token is blacklisted. See <a href='/docs/tokens/refresh-token'>Refresh Tokens</a>.",
+    "definition": "A special kind of token that can be used to obtain a renewed Access Token. It is useful for renewing expiring Access Tokens without forcing the user to log in again. Using the Refresh Token, you can request a new Access Token at any time until the Refresh Token is blacklisted. See <a href='/tokens/concepts/refresh-tokens'>Refresh Tokens</a>.",
     "short": "A token used to obtain a renewed Access Token without forcing users to log in again."
   },
   "role": {

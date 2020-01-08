@@ -54,7 +54,7 @@ The validations that the API should perform are:
 
 Part of the validation process is to also check the Application permissions (scopes), but we will address this separately in the next paragraph of this document.
 
-For more information on validating Access Tokens, refer to [Validate an Access Token](/tokens/guides/access-token/validate-access-token).
+For more information on validating Access Tokens, see [Validate Access Tokens](/tokens/guides/validate-access-tokens).
 
 ::: note
 See the implementation in [Node.js](/architecture-scenarios/application/spa-api/api-implementation-nodejs#2-secure-the-api-endpoints)

@@ -25,7 +25,7 @@ function (user, context, callback) {
 }
 ```
 
-Note that the claim is [namespaced](/tokens/concepts/claims-namespacing): we named it `http://mynamespace/hello` instead of just `hello`. This is what you have to do in order to add arbitrary claims to an ID Token or <dfn data-key="access-token">Access Token</dfn>.
+Note that the claim is [namespaced](/tokens/guides/create-namespaced-custom-claims): we named it `http://mynamespace/hello` instead of just `hello`. This is what you have to do in order to add arbitrary claims to an ID Token or <dfn data-key="access-token">Access Token</dfn>.
 
 ::: panel Namespace Identifiers
 Any non-Auth0 HTTP or HTTPS URL can be used as a namespace identifier, and any number of namespaces can be used. Exceptions are `webtask.io` and `webtask.run`, which are Auth0 domains and therefore cannot be used. The namespace URL does not have to point to an actual resource; it's only used as an identifier and will not be called by Auth0. For more information, refer to [User profile claims and scope](/api-auth/tutorials/adoption/scope-custom-claims).

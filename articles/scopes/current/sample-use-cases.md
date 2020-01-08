@@ -141,7 +141,7 @@ Notice that in this example:
 
 ## Add custom claims to a token
 
-In this example, we add a user's favorite color and preferred contact method to the ID Token. To do this, we create a [rule](/rules) to customize the token by adding these claims using a [namespaced format](/tokens/concepts/claims-namespacing). Once added, we will also be able to obtain the custom claims when calling the `/userinfo` endpoint (though the rule will run only during the authentication process).
+In this example, we add a user's favorite color and preferred contact method to the ID Token. To do this, we create a [rule](/rules) to customize the token by adding these claims using a [namespaced format](/tokens/guides/create-namespaced-custom-claims). Once added, we will also be able to obtain the custom claims when calling the `/userinfo` endpoint (though the rule will run only during the authentication process).
 
 <%= include('../../_includes/_enforce-claim-namespacing') %>
 

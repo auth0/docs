@@ -69,7 +69,7 @@ You should validate your tokens before saving them. To learn how, see [Validate 
 
 [ID Tokens](/tokens/concepts/id-tokens) contain user information that must be [decoded and extracted](/tokens/concepts/id-tokens#id-token-payload). 
 
-[Access Tokens](/tokens/concepts/access-token) are used to call the [Auth0 Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info) or another API. If you are calling your own API, the first thing your API will need to do is [verify the Access Token](/tokens/guides/validate-access-token).
+[Access Tokens](/tokens/concepts/access-token) are used to call the [Auth0 Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info) or another API. If you are calling your own API, the first thing your API will need to do is [verify the Access Token](/tokens/guides/validate-access-tokens).
 
 <dfn data-key="refresh-token">[Refresh Tokens](/tokens/concepts/refresh-tokens)</dfn> are used to obtain a new Access Token or ID Token after the previous one has expired. The `refresh_token` will only be present in the response if you included the `offline_access` scope and enabled __Allow Offline Access__ for your API in the Dashboard.
 

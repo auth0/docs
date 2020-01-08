@@ -62,7 +62,7 @@ Before beginning this tutorial, you'll need to [sign up for an AWS account](http
 ## Next steps
 
 * [API Authorization](/api-auth)
-* [Get Access Tokens](/tokens/guides/access-token/get-access-tokens)
+* [Get Access Tokens](/tokens/guides/get-access-tokens)
 * [JSON Web Key Sets (JWKS)](/tokens/concepts/jwks)
 
 <%= include('./_stepnav', {

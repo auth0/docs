@@ -235,7 +235,7 @@ function (user, context, callback) {
 }
 ```
 
-The `namespace` is used to ensure the claim has a unique name and does not clash with the names of any of the standard OIDC claims. For more info on namespaced claims, refer to [Namespacing Claims](/tokens/concepts/claims-namespacing).
+The `namespace` is used to ensure the claim has a unique name and does not clash with the names of any of the standard OIDC claims. For more info on namespaced claims, refer to [Namespacing Claims](/tokens/guides/create-namespaced-custom-claims).
 
 Now, inside your API, you can retrieve the value of the claim from `req.user`, and use that as the unique user identity which you can associate with timesheet entries.
 

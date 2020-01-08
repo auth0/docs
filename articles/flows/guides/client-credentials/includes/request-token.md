@@ -59,6 +59,6 @@
 
 
 ::: warning
-You should validate your token before saving it. To learn how, see [Validate an Access Token](/tokens/guides/access-token/validate-access-token).
+You should validate your token before saving it. To learn how, see [Validate Access Tokens](/tokens/guides/validate-access-tokens).
 :::
 

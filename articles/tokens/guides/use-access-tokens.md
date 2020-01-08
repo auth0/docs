@@ -43,7 +43,7 @@ In this example, the Access Token is a [JSON Web Token (JWT)](/tokens/concepts/j
 }
 ```
 
-Before permitting access to the API using this token, the API must [validate the Access Token](/tokens/guides/access-token/validate-access-token).
+Before permitting access to the API using this token, the API must [validate the Access Token](/tokens/guides/validate-access-tokens).
 
 Once the Access Token has been successfully validated, the API can be sure that:
 

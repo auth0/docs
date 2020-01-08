@@ -37,7 +37,7 @@ In a JWT, a claim appears as a name/value pair where the name is always a string
 There are two types of <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn> claims:
 
 * **[Reserved](#reserved-claims)**: Claims defined by the [JWT specification](https://tools.ietf.org/html/rfc7519) to ensure interoperability with third-party, or external, applications. [OpenID Connect (OIDC) standard claims](/scopes/current/oidc-scopes#standard-claims) are reserved claims.
-* **[Custom](#custom-claims)**: Claims that you define yourself. Name these claims carefully, such as through [namespacing](/tokens/concepts/claims-namespacing) (which Auth0 requires), to avoid collision with reserved claims or other custom claims. It can be challenging to deal with two claims of the same name that contain differing information.
+* **[Custom](#custom-claims)**: Claims that you define yourself. Name these claims carefully, such as through [namespacing](/tokens/guides/create-namespaced-custom-claims) (which Auth0 requires), to avoid collision with reserved claims or other custom claims. It can be challenging to deal with two claims of the same name that contain differing information.
 
 ### Reserved claims
 

@@ -41,7 +41,7 @@ Your API will receive a request including an Access Token: 
 ::: guides
   * [Configure an API](/apis#how-to-configure-an-api-in-auth0)
   * [Auth0 Backend/API Quickstarts](/quickstart/backend)
-  * [Validate an Access Token for custom APIs](/tokens/guides/access-token/validate-access-token)
+  * [Validate an Access Token for custom APIs](/tokens/guides/validate-access-tokens)
 :::
 
 ::: references

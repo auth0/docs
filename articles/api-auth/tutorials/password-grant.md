@@ -192,7 +192,7 @@ Once the Access Token has been obtained it can be used to make calls to the Reso
 
 Once your API receives a request with a Bearer Access Token, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
 
-For details on the validations that should be performed by the API, refer to [Validate an Access Token](/tokens/guides/access-token/validate-access-token).
+For details on the validations that should be performed by the API, see [Validate Access Tokens](/tokens/guides/validate-access-tokens).
 
 ## Optional: Customize the Tokens
 
