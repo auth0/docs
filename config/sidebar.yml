@@ -1455,9 +1455,20 @@ articles:
         url: "/tokens"
         children:
 
-          - title: "Where to Store Tokens"
-            url: "/security/store-tokens"
-            hidden: true 
+          - title: "ID Tokens"
+            url: "/tokens/concepts/id-tokens"
+
+          - title: "Access Tokens"
+            url: "/tokens/concepts/access-tokens"
+
+          - title: "Refresh Tokens"
+            url: "/tokens/concepts/refresh-tokens"
+
+          - title: "Store Tokens"
+            url: "/tokens/guides/store-tokens"
+
+          - title: "Revoke Tokens"
+            url: "/tokens/guides/revoke-tokens"
 
       - title: "Cookies"
         url: "/sessions/concepts/cookies"

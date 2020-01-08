@@ -34,6 +34,7 @@ To learn how to change the ID Token expiration time, see [Update ID Token Lifeti
 
 * [Get ID Tokens](/tokens/guides/get-id-tokens)
 * [Validate ID Tokens](/tokens/guides/validate-id-tokens)
+* [Invalid Token Errors](/troubleshoot/references/invalid-token)
 * [JSON Web Tokens](/tokens/concepts/jwts)
 * [ID Token Structure](/tokens/references/id-token-structure)
 * [Scopes](/scopes)

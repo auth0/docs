@@ -49,6 +49,7 @@ Or, to use our API endpoints, you can follow our tutorial: [Call Your API Using 
   * [Auth0 Backend/API Quickstarts](/quickstart/backend)
   * [Call Your API Using the Client Credentials Flow](/flows/guides/client-credentials/call-api-client-credentials)
   * [Change scopes and add custom claims to tokens using hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
+  * [Store Tokens](/tokens/guides/store-tokens)
 :::
 
 ::: references
@@ -59,7 +60,6 @@ Or, to use our API endpoints, you can follow our tutorial: [Call Your API Using 
 
 ::: concepts  
   * [Access Tokens](/tokens/concepts/access-tokens)
-  * [Where to store tokens](/security/store-tokens)
 :::
 
 ::::

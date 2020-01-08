@@ -45,6 +45,7 @@ For security in SPAs, Auth0 uses the [Implicit Flow](/flows/concepts/implicit).
   * [Auth0 Single-Page App Quickstarts](/quickstart/spa)
   * [Add login using the Implicit Flow](/flows/guides/implicit/add-login-implicit)
   * [Customize the hosted login page](/hosted-pages/login#how-to-customize-your-login-page)
+  * [Store Tokens](/tokens/guides/store-tokens)
 :::
 
 ::: references
@@ -56,7 +57,6 @@ For security in SPAs, Auth0 uses the [Implicit Flow](/flows/concepts/implicit).
   * [Universal vs. Embedded Login](/guides/login/universal-vs-embedded)
   * [ID Tokens](/tokens/concepts/id-tokens)
   * [Access Tokens](/tokens/concepts/access-tokens)
-  * [Where to store tokens](/security/store-tokens)
 :::
 
 ::::

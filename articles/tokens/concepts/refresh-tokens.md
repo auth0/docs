@@ -11,7 +11,7 @@ useCase:
 
 Auth0 issues an <dfn data-key="access-token">[Access Token](/tokens/concepts/access-tokens)</dfn> or an [ID Token](/tokens/concepts/id-tokens) in response to an [authentication request](/api-auth). You can use Access Tokens to make authenticated calls to a secured API, while the ID Token contains user profile attributes represented in the form of *claims*. Both are [JWTs](/tokens/concepts/jwts) and therefore have expiration dates indicated using the `exp` claim, as well as security measures, like signatures. Typically, a user needs a new Access Token when gaining access to a resource for the first time, or after the previous Access Token granted to them expires.
 
-A Refresh Token is a special kind of token that can be used to obtain a renewed access token. You are able to request new access tokens until the Refresh Token is blacklisted. It’s important that refresh tokens are [stored securely](/security/store-tokens) by the application because they essentially allow a user to remain authenticated forever.
+A Refresh Token is a special kind of token that can be used to obtain a renewed access token. You are able to request new access tokens until the Refresh Token is blacklisted. It’s important that refresh tokens are [stored securely](/tokens/guides/store-tokens) by the application because they essentially allow a user to remain authenticated forever.
 
 For native applications, refresh tokens improve the authentication experience significantly. The user has to authenticate only once, through the web authentication process. Subsequent re-authentication can take place without user interaction, using the Refresh Token.
 

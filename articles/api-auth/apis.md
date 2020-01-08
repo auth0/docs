@@ -23,11 +23,7 @@ When an application wants to access an API's protected resources it must provide
 
 Each API has a set of defined permissions. Applications can request a subset of those defined permissions when they execute the authorization flow, and include them in the Access Token as part of the <dfn data-key="scope">**scope**</dfn> request parameter.
 
-For example, an API that holds a user's appointments, may accept two different levels of authorization: read only (scope `read:appointments`) or write (scope `write:appointments`). When an application asks the API to list a user's appointments, then the Access Token should contain the `read:appointments` scope. In order to edit an existing appointment or create a new one, the Access Token should contain the `write:appointments` scope.
-
-::: note
-For more information on tokens please refer to: [Tokens used by Auth0](/tokens).
-:::
+For example, an API that holds a user's appointments, may accept two different levels of authorization: read only (scope `read:appointments`) or write (scope `write:appointments`). When an application asks the API to list a user's appointments, then the Access Token should contain the `read:appointments` scope. In order to edit an existing appointment or create a new one, the Access Token should contain the `write:appointments` scope. See [Tokens](/tokens) for more information. 
 
 ## How to configure an API in Auth0
 
@@ -84,10 +80,8 @@ Click on the *Settings* tab of your [API](${manage_url}/#/apis) to review the av
 
 - **Signing Algorithm**: The algorithm to sign the tokens with. The available values are `HS256` and `RS256`. When selecting `RS256` (recommended) the token will be signed with the tenant's private key. This value is set upon API creation and cannot be modified afterwards. To learn more about signing algorithms, see [Signing Algorithms](/tokens/concepts/signing-algorithms).
 
-## Keep Reading
+## Keep reading
 
-::: next-steps
 - [API Authorization landing page](/api-auth)
 - [Identify the proper OAuth 2.0 flow for your use case](/api-auth/which-oauth-flow-to-use)
 - [Tokens](/tokens)
-:::

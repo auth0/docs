@@ -74,7 +74,7 @@ There are three other types of tokens that can be returned during authentication
 * Third-party provider Access Token
 * <dfn data-key="refresh-token">Refresh Token</dfn>
 
-For more information on tokens and claims see the [Tokens](/tokens).
+For more information on tokens and claims see [Tokens](/tokens).
 
 ## User profile data modification
 

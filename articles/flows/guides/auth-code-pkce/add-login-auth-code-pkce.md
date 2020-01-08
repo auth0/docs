@@ -60,10 +60,8 @@ Optional: [Explore Sample Use Cases](#sample-use-cases)
 
 <%= include('./includes/sample-use-cases-add-login') %>
 
-## Keep Reading
+## Keep reading
 
-::: next-steps
 - [OAuth 2.0 framework](/protocols/oauth2)
 - [OpenID Connect (OIDC) protocol](/protocols/oidc)
-- [Tokens used by Auth0](/tokens)
-:::
+- [Tokens](/tokens)

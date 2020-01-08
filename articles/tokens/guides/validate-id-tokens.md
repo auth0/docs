@@ -40,3 +40,4 @@ If any of these checks fail, the token is considered invalid, and the request mu
 
 * [ID Tokens](/tokens/concepts/id-tokens)
 * [Get ID Tokens](/tokens/guides/get-id-tokens)
+* [Invalid Token Errors](/troubleshoot/references/invalid-token)
