@@ -104,6 +104,8 @@ The Identity Provider will need to know where to send the SAML assertions after 
 https://${account.namespace}/login/callback?connection=YOUR_CONNECTION_NAME
 ```
 
+The `connection` URL parameter is required for identity provider-initiated flows.
+
 Note that if you have [custom domains](/custom-domains) set up, you should use the custom domain based URL rather than your Auth0 domain. So, it should be in the format of `https://YOUR_CUSTOM_COMAIN/login/callback?connection=YOUR_CONNECTION_NAME`.
 
 If the Identity Provider has a field called "Audience" or "Entity ID", you should enter into that field the **Entity ID** from Auth0:
