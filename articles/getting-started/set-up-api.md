@@ -91,7 +91,7 @@ Go to [Dashboard > Applications](${manage_url}/#/applications). Open the **Setti
 
 If you want to use the Public Key to verify a JWT signature on [JWT.io](https://jwt.io/), you can copy the Public Key and paste it in the **Public Key or Certificate** field under the **Verify Signature** section on the [JWT.io](https://jwt.io/) website.
 
-If you want to verify the signature of a token from one of your applications, we recommend that you get the Public Key from your tenant's [JSON Web Key Set (JWKS)](/jwks). Your tenant's JWKS is `https://${account.namespace}/.well-known/jwks.json`.
+If you want to verify the signature of a token from one of your applications, we recommend that you get the Public Key from your tenant's [JSON Web Key Set (JWKS)](/tokens/concepts/jwks). Your tenant's JWKS is `https://${account.namespace}/.well-known/jwks.json`.
 :::
 
 For a more detailed overview of the JWT signing algorithms, see [JSON Web Token (JWT) Signing Algorithms Overview](https://auth0.com/blog/json-web-token-signing-algorithms-overview/).

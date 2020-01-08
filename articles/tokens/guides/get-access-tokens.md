@@ -11,14 +11,14 @@ useCase:
 ---
 # Get an Access Token
 
-To get an [Access Token](/tokens/access-token), you need to request one when [authenticating](/application-auth) a user.
+To get an [Access Token](/tokens/concepts/access-tokens), you need to request one when [authenticating](/application-auth) a user.
 
 Auth0 makes it easy for your app to authenticate users using:
 
 * [Quickstarts](/quickstarts): The easiest way to implement authentication, which can show you how to use <dfn data-key="universal-login">[Universal Login](/universal-login)</dfn>, the <dfn data-key="lock">[Lock widget](/lock)</dfn>, and Auth0's language and framework-specific [SDKs](/libraries#sdks). Our [Lock documentation](/libraries/lock) and [Auth0.js documentation](/libraries/auth0js) both provide specifics about retrieving an Access Token after authentication.
 * [Authentication API](/api/authentication): If you prefer to roll your own, you can call our API directly. First, you need to know [which flow to use](/api-auth/which-oauth-flow-to-use) before following the appropriate [flow tutorial](/flows).
 
-## Control Access Token Audience 
+## Control Access Token audience 
 
 When a user authenticates, you request an Access Token and include the target audience and scope of access in your request. This access is both requested by the application and granted by the user during authentication using the [Authorize endpoint](/api/authentication#authorize-application).
 
@@ -26,7 +26,7 @@ You may configure your tenant to always include a [default audience](/dashboard/
 
 | Token Use | Format | Requested Audience | Requested Scope |
 |-----------|--------|--------------------|-------|
-| [/userinfo endpoint](/api/authentication#get-user-info) | [Opaque](/tokens/access-tokens#opaque-access-tokens) | tenant name (`${account.namespace}`), no value for `audience` parameter, no `audience` parameter passed | `openid` |
+| [/userinfo endpoint](/api/authentication#get-user-info) | [Opaque](/tokens/concepts/access-tokens#opaque-access-tokens) | tenant name (`${account.namespace}`), no value for `audience` parameter, no `audience` parameter passed | `openid` |
 | Auth0 Management API | [JWT](/tokens/concepts/jwts) | Management API v2 identifier (`https://{tenant}.auth0.com/api/v2/`) |  |
 | Your own custom API | [JWT](/tokens/concepts/jwts) | The API Identifier for your custom API registered in the Auth0 Dashboard |  |
 
@@ -46,15 +46,15 @@ For an Access Token with the target audience of the [Auth0 Management API](/api/
 
 By default, an Access Token for a Custom API is valid for 86400 seconds (24 hours). If there are security concerns, you can [shorten the time period before the token expires](/dashboard/guides/apis/update-token-lifetime). 
 
-After an Access Token has expired, you may want to renew your Access Token. To renew the Access Token, you can either reauthenticate the user using Auth0, or use a <dfn data-key="refresh-token">[Refresh Token](/tokens/refresh-token)</dfn>.
+After an Access Token has expired, you may want to renew your Access Token. To renew the Access Token, you can either reauthenticate the user using Auth0, or use a <dfn data-key="refresh-token">[Refresh Token](/tokens/concepts/refresh-tokens)</dfn>.
 
 ## Read more
 
 * [Access Tokens](/tokens/access-token)
-* [Use an Access Token](/tokens/guides/access-token/use-access-tokens)
-* [Validate an Access Token](/tokens/guides/access-token/validate-access-token)
+* [Use Access Tokens](/tokens/guides/use-access-tokens)
+* [Validate Access Tokens](/tokens/guides/validate-access-tokens)
 * [JSON Web Token](/tokens/concepts/jwts)
-* [JSON Web Token Claims](/tokens/jwt-claims)
-* [Token Best Practices](/tokens/concepts/token-best-practices)
+* [JSON Web Token Claims](/tokens/concepts/jwt-claims)
+* [Token Best Practices](/best-practices/token-best-practices)
 * [Quickstarts](/quickstarts)
 * [Authentication and Authorization Flows](/flows)

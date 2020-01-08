@@ -26,7 +26,7 @@ When [validating a JWT](/tokens/guides/validate-jwts) using a JWKS, you will nee
 
 For an example that uses JWKS to verify a JWT's signature, see [Navigating RS256 and JWKS](https://auth0.com/blog/navigating-rs256-and-jwks/) (uses Node.js), or check out our [Backend/API Quickstarts](/quickstart/backend).
 
-For more info about the structure of a JWT, see [JSON Web Token Structure](/tokens/reference/jwt/jwt-structure).
+For more info about the structure of a JWT, see [JSON Web Token Structure](/tokens/references/jwt-structure).
 
 ::: note
 It's good practice to assume that multiple signing keys could be present in your JWKS. This may seem unnecessary since the Auth0 JWKS endpoint typically contains a single signing key; however, multiple keys can be found in the JWKS when rotating signing certificates.

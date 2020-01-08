@@ -57,15 +57,15 @@ Note that [OpenID Connect (OIDC) standard claims](/scopes/current/oidc-scopes#st
 
 ### Custom claims
 
-For your specific use case, you can define your own [custom claims](/tokens/jwt-claims#custom-claims), which you control and can add to a token using a [rule](/rules). For example, you may want to add a user's email address to an Access Token and use that to uniquely identify the user, or you may want to add custom information stored in an Auth0 user profile to an ID Token. As long as your rule is in place, the custom claims it adds will appear in new tokens issued when using a <dfn data-key="refresh-token">[Refresh Token](/tokens/refresh-token)</dfn>.
+For your specific use case, you can define your own [custom claims](/tokens/concepts/jwt-claims#custom-claims), which you control and can add to a token using a [rule](/rules). For example, you may want to add a user's email address to an Access Token and use that to uniquely identify the user, or you may want to add custom information stored in an Auth0 user profile to an ID Token. As long as your rule is in place, the custom claims it adds will appear in new tokens issued when using a <dfn data-key="refresh-token">[Refresh Token](/tokens/concepts/refresh-tokens)</dfn>.
 
-You can name a custom claim anything that is not already listed in the [IANA JSON Web Token Claims Registry](https://www.iana.org/assignments/jwt/jwt.xhtml#claims), and you should use collision-resistant names, such as through [namespacing](/tokens/concepts/claims-namespacing) (which Auth0 requires).
+You can name a custom claim anything that is not already listed in the [IANA JSON Web Token Claims Registry](https://www.iana.org/assignments/jwt/jwt.xhtml#claims), and you should use collision-resistant names, such as through [namespacing](/tokens/guides/create-namespaced-custom-claims) (which Auth0 requires).
 
 For an example showing how to add custom claims to a token, see [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases#add-custom-claims-to-a-token).
 
 #### Public claims
 
-You can create custom claims for public consumption, which might contain generic information like "name" and "email". If you create public claims, you *must* either register them or use collision-resistant names through [namespacing](/tokens/concepts/claims-namespacing) (which Auth0 requires) and take reasonable precautions to make sure you are in control of the namespace you use.
+You can create custom claims for public consumption, which might contain generic information like "name" and "email". If you create public claims, you *must* either register them or use collision-resistant names through [namespacing](/tokens/guides/create-namespaced-custom-claims) (which Auth0 requires) and take reasonable precautions to make sure you are in control of the namespace you use.
 
 In the [IANA JSON Web Token Claims Registry](https://www.iana.org/assignments/jwt/jwt.xhtml#claims), you can see some examples of public claims registered by <dfn data-key="openid">OpenID Connect (OIDC)</dfn>: 
 
@@ -77,13 +77,13 @@ In the [IANA JSON Web Token Claims Registry](https://www.iana.org/assignments/jw
 
 You can create private custom claims to share information specific to your application. For example, while a public claim might contain generic information like "name" and "email", private claims would be more specific, such as "employee ID" and "department name".
 
-According to the JWT standard, you *should* name private claims cautiously to avoid collision, such as through [namespacing](/tokens/concepts/claims-namespacing) (which Auth0 still requires). Private claims should not share names with reserved or public claims.
+According to the JWT standard, you *should* name private claims cautiously to avoid collision, such as through [namespacing](/tokens/guides/create-namespaced-custom-claims) (which Auth0 still requires). Private claims should not share names with reserved or public claims.
 
 ## Keep reading
 
 * [JSON Web Tokens](/tokens/concepts/jwts)
-* [JSON Web Token Structure](/tokens/reference/jwt-structure)
-* [Validate JSON Web Tokens](/tokens/guides/validate-jwt)
+* [JSON Web Token Structure](/tokens/references/jwt-structure)
+* [Validate JSON Web Tokens](/tokens/guides/validate-jwts)
 * [Token Best Practices](/best-practices/token-best-practices)
-* [OpenID Connect Scopes: Standard Claims](/docs/scopes/current/oidc-scopes#standard-claims)
+* [OpenID Connect Scopes: Standard Claims](/scopes/current/oidc-scopes#standard-claims)
 * [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases#add-custom-claims-to-a-token)

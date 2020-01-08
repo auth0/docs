@@ -25,7 +25,7 @@ Opaque Access Tokens are tokens whose format you cannot access. Opaque Access To
 
 JSON Web Token (JWT) Access Tokens conform to the [JSON Web Token standard](https://tools.ietf.org/html/rfc7519) and contain information about an entity in the form of claims. They are self-contained in that it is not necessary for the recipient to call a server to validate the token.
 
-Access Tokens issued for the [Auth0 Management API](/api/info) and Access Tokens issued for any custom API that you have registered with Auth0 will follow the <dfn data-key="json-web-token">[JSON Web Token (JWT)](/tokens/concepts/jwts)</dfn> standard, which means that their basic structure conforms to the typical [JWT Structure](/tokens/reference/jwt-structure), and they contain standard [JWT Claims](/tokens/concepts/jwt-claims) asserted about the token itself.
+Access Tokens issued for the [Auth0 Management API](/api/info) and Access Tokens issued for any custom API that you have registered with Auth0 will follow the <dfn data-key="json-web-token">[JSON Web Token (JWT)](/tokens/concepts/jwts)</dfn> standard, which means that their basic structure conforms to the typical [JWT Structure](/tokens/references/jwt-structure), and they contain standard [JWT Claims](/tokens/concepts/jwt-claims) asserted about the token itself.
 
 ## Access Token security
 

@@ -30,7 +30,7 @@ Here are some things you should know before you create a redirect Rule:
 - Redirect Rules won't work with:
   - [Resource Owner endpoint](/api/authentication/reference#resource-owner)
   - [Password exchange](/api-auth/grant/password)
-  - [Refresh Token exchange](/tokens/refresh-token#rules).
+  - [Refresh Token exchange](/tokens/concepts/refresh-token#rules).
 - You can detect the above cases by checking `context.protocol`:
   - For Password exchange: `context.protocol === 'oauth2-password'`
   - For Refresh Token exchange: `context.protocol === 'oauth2-refresh-token'`

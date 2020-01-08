@@ -160,7 +160,7 @@ This was previously done with `getSSOData()`. The `getSSOData()` function perfor
 
 In "web applications", the backend typically has a session for the user. Over time, the application session may expire, in which case the application should renew the session. The application backend should invoke a call to the [/authorize](/api/authentication#authorize-application) endpoint to get a new token. If the Authorization Server (Auth0 in this case) still has a session for the user, the user will not have to re-enter their credentials to log in again. If Auth0 no longer has a session for the user, the user has to log in again.
 
-Customers with web applications which call the API from their backend should use this approach. Specifically, they should [call /oauth/token](/tokens/refresh-token/current#use-a-refresh-token) to renew their token.
+Customers with web applications which call the API from their backend should use this approach. Specifically, they should [call /oauth/token](/tokens/guides/use-refresh-tokens) to renew their token.
 
 ### How to log users out
 

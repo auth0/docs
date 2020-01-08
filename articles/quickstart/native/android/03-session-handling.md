@@ -17,7 +17,7 @@ You need the `Credentials` class to handle users' credentials. The class is comp
 
 * `accessToken`: Access Tokens used by the Auth0 API. To learn more, see the [Access Tokens](/tokens/concepts/access-tokens).
 * `idToken`: Identity Token that proves the identity of the user. To learn more, see the [ID Token documentation](/tokens/concepts/id-tokens).
-* `refreshToken`: Refresh Token that can be used to request new tokens without signing in again. To learn more, see the [Refresh Token documentation](/tokens/refresh-token/current).
+* `refreshToken`: Refresh Token that can be used to request new tokens without signing in again. To learn more, see the [Refresh Tokens](/tokens/concepts/refresh-tokens).
 * `tokenType`: The type of tokens issued by the server.
 * `expiresIn`: The number of seconds before the tokens expire.
 * `expiresAt`: The date when the tokens expire.

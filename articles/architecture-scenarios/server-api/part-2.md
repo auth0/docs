@@ -37,7 +37,7 @@ Fill in the required information, and click the **Create** button.
 When you create an API, you must select the algorithm with which your tokens will be signed. The signature is used to verify that the sender of the JWT is who it says it is and to ensure that the message wasn't changed along the way.
 
 ::: note
-The signature is part of a JWT. If you are unfamiliar with JWT structure, please see [JSON Web Token Structure](/tokens/reference/jwt/jwt-structure).
+The signature is part of a JWT. If you are unfamiliar with JWT structure, please see [JSON Web Token Structure](/tokens/references/jwt-structure).
 :::
 
 To create the signature, you must take the encoded header, the encoded payload, a secret, the algorithm specified in the header, and sign that. That algorithm, which is part of the JWT header, is the one you select for your API: `HS256` or `RS256`.

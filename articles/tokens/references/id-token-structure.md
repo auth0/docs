@@ -13,7 +13,7 @@ useCase:
 ---
 # ID Token Structure
 
-ID Tokens follow the <dfn data-key="json-web-token">[JSON Web Token (JWT)](/tokens/concepts/jwt)</dfn> standard, which means that their basic structure conforms to the typical [JWT Structure](/tokens/reference/jwt-structure), and they contain standard [JWT Claims](/tokens/concepts/jwt-claims) asserted about the token itself.
+ID Tokens follow the <dfn data-key="json-web-token">[JSON Web Token (JWT)](/tokens/concepts/jwts)</dfn> standard, which means that their basic structure conforms to the typical [JWT Structure](/tokens/references/jwt-structure), and they contain standard [JWT Claims](/tokens/concepts/jwt-claims) asserted about the token itself.
 
 However, beyond what is required for JWT, ID Tokens also contain claims asserted about the authenticated user, which are pre-defined by the [OpenID Connect (OIDC)](/protocols/oidc) protocol, and are thus known as standard OIDC claims. Some standard OIDC claims include:
 

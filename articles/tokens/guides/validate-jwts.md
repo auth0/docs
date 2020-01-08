@@ -50,9 +50,9 @@ All Auth0-issued JSON Web Tokens (JWTs) are JSON Web Signatures (JWS), meaning t
 
 To validate a JWT, your application needs to:
 
-1. Check that the JWT is well formed
-2. Check the signature
-3. Check the standard claims
+1. Check that the JWT is well formed.
+2. Check the signature.
+3. Check the standard claims.
 
 If any of these steps fail, then the associated request **must** be rejected.
 
@@ -62,7 +62,7 @@ Most JWT libraries will take care of JWT validation for you, so be sure to visit
 
 ## Check that the JWT is well-formed
 
-Before doing anything else, make sure the JWT conforms to the [structure of a JWT](/tokens/reference/jwt/jwt-structure). If this fails, the token is considered invalid, and the request must be rejected.
+Before doing anything else, make sure the JWT conforms to the [structure of a JWT](/tokens/references/jwt-structure). If this fails, the token is considered invalid, and the request must be rejected.
 
 The basic steps include:
 
@@ -78,8 +78,8 @@ The last segment of a JWT is the Signature, which is used to verify that the tok
 
 To verify the signature, you will need to:
 
-1. Check the signing algorithm
-2. Confirm that the token is correctly signed using the proper key
+1. Check the signing algorithm.
+2. Confirm that the token is correctly signed using the proper key.
 
 ### Check the signing algorithm
 
@@ -103,10 +103,10 @@ To verify that the signature is correct, you need to generate a new Base64url-en
 2. Encrypt using either HMAC or RSA (depending on your selected signing algorithm) and the appropriate key.
 3. Base64url-encode the result.
 
-::: panel Where can I find my secret or public key?
+::: panel Locate Public Key
 
 For RS256:
-[Retrieve the public key](/tokens/guides/jwt/use-jwks) from the [JSON Web Key Set (JWKS)](/jwks) located by using your Auth0 discovery endpoint.
+Retrieve the public key from the [JWKS](/tokens/concepts/jwks) located by using your [Auth0 discovery endpoint](/tokens/guides/locate-jwks).
 
 For debugging purposes, you can visually inspect your token at [jwt.io](jwt.io); for this purpose, you can also locate your public key in the Auth0 Dashboard. Look in **Applications**>**Settings**>**Advanced Settings**>**Certificates** and locate the **Signing Certificate** field.
 
@@ -118,21 +118,21 @@ For debugging purposes, you can visually inspect your token at [jwt.io](jwt.io);
 
 If the generated signature does not match the original Signature included with the JWT, the token is considered invalid, and the request must be rejected.
 
-## Check the standard claims
+## Check standard claims
 
 Before using the token, you should retrieve the following standard claims from the decoded Payload and perform the following checks:
 
 * **Token expiration** (`exp`, Unix timestamp): The expiration date/time must be after the current date/time and should match what you set for your token lifetime.
 * **Token issuer** (`iss`, string): The issuing authority inside the token must match the issuing authority (`issuer`) identified in your Auth0 tenant's discovery document, which exists at `https://${account.namespace}/.well-known/openid-configuration`.
 
-Additional checks are required depending on whether the JWT you are validating is an ID Token or an Access Token. To learn about the additional requirements, see [Validate an ID Token](/tokens/guides/id-token/validate-id-token) or [Validate an Access Token](/tokens/guides/access-token/validate-access-token).
+Additional checks are required depending on whether the JWT you are validating is an ID Token or an Access Token. To learn about the additional requirements, see [Validate ID Tokens](/tokens/guides/validate-id-tokens) or [Validate Access Tokens](/tokens/guides/validate-access-tokens).
 
 If any of these checks fail, the token is considered invalid, and the request must be rejected.
 
 ## Keep reading
 
 * [JSON Web Tokens](/tokens/concepts/jwts)
-* [JSON Web Token Structure](/tokens/reference/jwt-structure)
+* [JSON Web Token Structure](/tokens/references/jwt-structure)
 * [JSON Web Token Claims](/tokens/concepts/jwt-claims)
 * [Token Best Practices](/best-practices/token-best-practices)
 * [JSON Web Key Set](/tokens/concepts/jwks)

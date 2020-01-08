@@ -32,7 +32,7 @@ Auth0 makes it easy for your app to implement the Authorization Code Flow using:
   * Select an **Application Type** of **Regular Web Apps**.
   * Add an **Allowed Callback URL** of **`${account.callback}`**.
   * Make sure your Application's **[Grant Types](/dashboard/guides/applications/update-grant-types)** include **Authorization Code**.
-  * If you want your Application to be able to use [Refresh Tokens](/tokens/refresh-token), make sure the Application's **[Grant Types](/dashboard/guides/applications/update-grant-types)** include **Refresh Token**.
+  * If you want your Application to be able to use [Refresh Tokens](/tokens/concepts/refresh-tokens), make sure the Application's **[Grant Types](/dashboard/guides/applications/update-grant-types)** include **Refresh Token**.
 
 * [Register your API with Auth0](/architecture-scenarios/mobile-api/part-2#create-the-api)
   * If you want your API to receive <dfn data-key="refresh-token">Refresh Tokens</dfn> to allow it to obtain new tokens when the previous ones expire, enable **Allow Offline Access**.

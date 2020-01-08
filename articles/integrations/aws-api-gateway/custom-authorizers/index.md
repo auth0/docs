@@ -27,7 +27,7 @@ This tutorial will show you how to set up your API with API Gateway, create and 
 More specifically, the custom authorizers will:
 
 1. Confirm that the Access Token has been passed via the `authorization` header of the request to access the API
-2. Verify the [RS256 signature](/apis#signing-algorithms) of the Access Token using a public key obtained via a [JWKS endpoint](/jwks)
+2. Verify the [RS256 signature](/apis#signing-algorithms) of the Access Token using a public key obtained via a [JWKS endpoint](/tokens/concepts/jwks)
 3. Ensure the Access Token has the required Issuer `iss` and <dfn data-key="audience">Audience</dfn> `aud` claims
 
 ::: note
@@ -63,7 +63,7 @@ Before beginning this tutorial, you'll need to [sign up for an AWS account](http
 
 * [API Authorization](/api-auth)
 * [Get Access Tokens](/tokens/guides/access-token/get-access-tokens)
-* [JSON Web Key Sets (JWKS)](/jwks)
+* [JSON Web Key Sets (JWKS)](/tokens/concepts/jwks)
 
 <%= include('./_stepnav', {
  next: ["Configure the Auth0 API", "/integrations/aws-api-gateway/custom-authorizers/part-1"]

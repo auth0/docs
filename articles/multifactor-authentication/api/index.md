@@ -18,7 +18,7 @@ The <dfn data-key="multifactor-authentication">Multi-factor Authentication (MFA)
 
 We have expanded MFA support on the Token endpoints to cover the following use cases:
 
-* Use MFA with the [password](/api-auth/grant/password), [password-realm](/api-auth/grant/password#realm-support), and [refresh-token](/tokens/refresh-token/current#use-a-refresh-token) grants.
+* Use MFA with the [password](/api-auth/grant/password), [password-realm](/api-auth/grant/password#realm-support), and [refresh-token](/tokens/guides/use-refresh-tokens) grants.
 * Completion of first-time enrollment by users during authentication.
 * Selection of the desired MFA authenticator by the user before they execute the MFA challenge.
 

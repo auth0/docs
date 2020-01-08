@@ -15,7 +15,7 @@ useCase: extensibility-rules
 
 Rules are JavaScript functions that execute when a user authenticates to your application. They run once the authentication process is complete, and you can use them to customize and extend Auth0's capabilities. For security reasons, your Rules code executes isolated from the code of other Auth0 tenants in a sandbox.
 
-Please note that rules also run during the [token refresh](/tokens/refresh-token/current) flow.
+Please note that rules also run during the [token refresh](/tokens/concepts/refresh-tokens) flow.
 
 ![Rule Flow](/media/articles/rules/flow.png)
 

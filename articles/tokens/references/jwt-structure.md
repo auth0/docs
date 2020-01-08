@@ -22,8 +22,8 @@ All Auth0-issued JSON Web Tokens (JWTs) are JSON Web Signatures (JWS), meaning t
 A well-formed <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn> consists of three concatenated Base64url-encoded strings, separated by dots (`.`): 
 
 - **Header**: contains metadata about the type of token and the cryptographic algorithms used to secure its contents.
-- **Payload** (set of [claims](/tokens/jwt-claims)): contains verifiable security statements, such as the identity of the user and the permissions they are allowed.
-- **Signature**: used to validate that the token is trustworthy and has not been tampered with. You must [verify this signature](/tokens/guides/id-token/validate-id-token#verify-the-signature) before storing and using a JWT.
+- **Payload** (set of [claims](/tokens/concepts/jwt-claims)): contains verifiable security statements, such as the identity of the user and the permissions they are allowed.
+- **Signature**: used to validate that the token is trustworthy and has not been tampered with. You must [verify this signature](/tokens/guides/validate-id-tokens#verify-the-signature) before storing and using a JWT.
 
 A JWT typically looks like this:
 ![Encoded JWT](/media/articles/jwt/encoded-jwt3.png)
@@ -56,7 +56,7 @@ The header *typically* consists of two parts: the hashing algorithm being used (
 
 ## Payload
 
-The payload contains statements about the entity (typically, the user) and additional entity attributes, which are called [claims](/tokens/jwt-claims). In this example, our entity is a user.
+The payload contains statements about the entity (typically, the user) and additional entity attributes, which are called [claims](/tokens/concepts/jwt-claims). In this example, our entity is a user.
 
 ```
 {
@@ -67,7 +67,7 @@ The payload contains statements about the entity (typically, the user) and addit
 ```
 
 ::: note
-When working with [JWT claims](https://tools.ietf.org/html/rfc7519#section-4), you should be aware of the different [claim types and naming rules](/tokens/jwt-claims). 
+When working with [JWT claims](https://tools.ietf.org/html/rfc7519#section-4), you should be aware of the different [claim types and naming rules](/tokens/concepts/jwt-claims). 
 :::
 
 
@@ -87,5 +87,5 @@ HMACSHA256(
 ```
 
 ::: warning
-However you use a JWT, you must [check its signature](/tokens/guides/jwt/validate-jwt#check-the-signature) before storing and using it.
+How ever you use a JWT, you must [check its signature](/tokens/guides/validate-jwts) before storing and using it.
 :::

@@ -1,5 +1,5 @@
 ---
-title: Get an ID Token
+title: Get ID Tokens
 description: Learn how to get an ID Token.
 toc: true
 topics:
@@ -13,7 +13,7 @@ useCase:
   - add-login
   - development
 ---
-# Get an ID Token
+# Get ID Tokens
 
 To get an [ID Token](/tokens/concepts/id-tokens), you need to request one when [authenticating](/application-auth) a user. Auth0 makes it easy for your app to authenticate users using:
 
@@ -25,24 +25,24 @@ To get an [ID Token](/tokens/concepts/id-tokens), you need to request one when [
 You control which claims about the authenticated user are included in the ID Token consumed by your application by including specific [OpenID Connect Scopes](/scopes/current/oidc-scopes) in the `scope` parameter when you request tokens while authenticating users.
 
 ::: note 
-You can also create [custom claims](/tokens/jwt-claims#custom-claims), which are claims that you define, control, and add to a token using a rule. 
+You can also create [custom claims](/tokens/concepts/jwt-claims#custom-claims), which are claims that you define, control, and add to a token using a rule. 
 :::
 
-As with any other [JWTs](/tokens/jwt#security), you should follow [token best practices](/tokens/concepts/token-best-practices) when using ID Tokens and [validate an ID Token](/tokens/guides/id-token/validate-id-token) before assuming that its contents can be trusted.
+As with any other [JWTs](/tokens/concepts/jwts#security), you should follow [token best practices](/best-practices/token-best-practices) when using ID Tokens and [validate an ID Token](/tokens/guides/validate-id-tokens) before assuming that its contents can be trusted.
 
 ## Renew an ID Token
 
 By default, an ID Token is valid for 36000 seconds (10 hours). If there are security concerns, you can [shorten the time period before the token expires](/dashboard/guides/applications/update-token-lifetime), but remember that one of the purposes of this token is to improve performance by caching user information. 
 
-After an ID Token has expired, you may want to renew your ID Token. To renew the ID Token, you can either reauthenticate the user using Auth0, or use a <dfn data-key="refresh-token">[Refresh Token](/tokens/refresh-token)</dfn>.
+After an ID Token has expired, you may want to renew your ID Token. To renew the ID Token, you can either reauthenticate the user using Auth0, or use a <dfn data-key="refresh-token">[Refresh Token](/tokens/concepts/refresh-tokens)</dfn>.
 
-## Read more
+## Keep reading
 
 * [ID Tokens](/tokens/concepts/id-tokens)
-* [Validate an ID Token](/tokens/guides/id-token/validate-id-token)
-* [JSON Web Token](/tokens/concepts/jwts)
-* [JSON Web Token Claims](/tokens/jwt-claims)
+* [Validate ID Tokens](/tokens/guides/validate-id-tokens)
+* [JSON Web Tokens](/tokens/concepts/jwts)
+* [JSON Web Token Claims](/tokens/concepts/jwt-claims)
 * [OpenID Connect Scopes](/scopes/oidc-scopes)
-* [Token Best Practices](/tokens/concepts/token-best-practices)
+* [Token Best Practices](/best-practices/token-best-practices)
 * [Quickstarts](/quickstarts)
 * [Authentication and Authorization Flows](/flows)

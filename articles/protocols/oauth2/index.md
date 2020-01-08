@@ -166,7 +166,7 @@ The [OAuth 2.0 Multiple Response Type Encoding Practices](https://openid.net/spe
 
 ### Token endpoint
 
-The Token endpoint is used by the application in order to get an [Access Token](/tokens/concepts/access-tokens) or a <dfn data-key="refresh-token">[Refresh Token](/tokens/refresh-token)</dfn>. It is used by all flows, except for the [Implicit Flow](/flows/concepts/implicit) (since an Access Token is issued directly).
+The Token endpoint is used by the application in order to get an [Access Token](/tokens/concepts/access-tokens) or a <dfn data-key="refresh-token">[Refresh Token](/tokens/concepts/refresh-tokens)</dfn>. It is used by all flows, except for the [Implicit Flow](/flows/concepts/implicit) (since an Access Token is issued directly).
 
 In the [Authorization Code Flow](/flows/concepts/auth-code), the application exchanges the authorization code it got from the Authorization endpoint for an Access Token.
 

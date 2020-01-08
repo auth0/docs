@@ -41,7 +41,7 @@ Authentication is the process of determining user identity. The result of authen
 
 * Do we also need an [Access Token](/tokens/concepts/access-tokens) in order to call a shared API?
 * Is your application a single-page application and only requires an [ID Token](/tokens/concepts/id-tokens)? See [Implicit Grant](/api-auth/tutorials/implicit-grant) for more information. 
-* Is your application a native application (mobile or desktop) and/or do you need a [Refresh Token](/tokens/refresh-token/current)? See [Authorization Code Grant with PKCE](/api-auth/tutorials/authorization-code-grant-pkce) for more information. 
+* Is your application a native application (mobile or desktop) and/or do you need a [Refresh Token](/tokens/concepts/refresh-tokens)? See [Authorization Code Grant with PKCE](/api-auth/tutorials/authorization-code-grant-pkce) for more information. 
 
 ::: warning
 Before you go live, you should ensure that **only** the grants that you are using for each application are enabled in your [configuration for your Application](/dashboard/guides/applications/update-grant-types).
@@ -52,7 +52,7 @@ Before you go live, you should ensure that **only** the grants that you are usin
 If all your application needs is the ID Token and the application is browser-based, then you can always use the [implicit grant](/api-auth/tutorials/implicit-grant) to get your ID Token. This is a simple authentication flow and should be supported by your SDK (depending on the language you are developing in).
 
 ::: warning
-If you need a [Refresh Token](/tokens/refresh-token/current) so that you can obtain a new Access Token or ID Token without having to re-authenticate the user, then you must use the [authorization code grant](/api-auth/tutorials/authorization-code-grant).
+If you need a [Refresh Token](/tokens/concepts/refresh-tokens) so that you can obtain a new Access Token or ID Token without having to re-authenticate the user, then you must use the [authorization code grant](/api-auth/tutorials/authorization-code-grant).
 :::
 
 ### Authorization code grant (with or without PKCE)

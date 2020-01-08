@@ -17,11 +17,11 @@ useCase:
 ---
 # Signing Algorithms
 
-The algorithm used to sign tokens issued for your application or API. A [signature](/tokens/reference/jwt/jwt-structure#signature) is part of a [JSON Web Token (JWT)](/docs/jwt) and is used to verify that the sender of the token is who it says it is and to ensure that the message wasn't changed along the way.
+The algorithm used to sign tokens issued for your application or API. A [signature](/tokens/references/jwt-structure#signature) is part of a [JSON Web Token (JWT)](/tokens/concepts/jwts) and is used to verify that the sender of the token is who it says it is and to ensure that the message wasn't changed along the way.
 
 You can select from the following signing algorithms:
 
-- **RS256** (RSA Signature with SHA-256): An [asymmetric algorithm](https://en.wikipedia.org/wiki/Public-key_cryptography), which means that there are two keys: one public key and one private key that must be kept secret. Auth0 has the private key used to generate the signature, and the consumer of the JWT [retrieves a public key from the metadata endpoints provided by Auth0](/tokens/guides/jwt/use-jwks) and uses it to [validate the JWT signature](/tokens/guides/jwt/validate-jwt#check-the-signature).
+- **RS256** (RSA Signature with SHA-256): An [asymmetric algorithm](https://en.wikipedia.org/wiki/Public-key_cryptography), which means that there are two keys: one public key and one private key that must be kept secret. Auth0 has the private key used to generate the signature, and the consumer of the JWT retrieves a public key from the metadata endpoints provided by Auth0 and uses it to [validate the JWT signature](/tokens/guides/validate-jwts).
 
 - **HS256** (HMAC with SHA-256): A [symmetric algorithm](https://en.wikipedia.org/wiki/Symmetric-key_algorithm), which means that there is only one private key that must be kept secret, and it is shared between the two parties. Since the same key is used both to generate the signature and to validate it, care must be taken to ensure that the key is not compromised. This private key (or secret) is created when you [register your Application](/getting-started/set-up-app) (**Client Secret**) or [API](/getting-started/set-up-api) (**Signing Secret**) and choose the HS256 signing algorithm.
 

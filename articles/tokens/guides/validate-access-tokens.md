@@ -45,7 +45,7 @@ To learn more about getting an Access Token for the Auth0 Management API, see [A
 ### Custom API Access Tokens
 
 ::: warning
-If validation of your Custom API Access Token fails, make sure it was issued with your custom API as the `audience`. To learn more about getting an Access Token for your Custom API, see [Get an Access Token: Control Access Token Audience](/tokens/guides/access-token/get-access-tokens#control-access-token-audience).
+If validation of your Custom API Access Token fails, make sure it was issued with your custom API as the `audience`. To learn more about getting an Access Token for your Custom API, see [Get an Access Token: Control Access Token Audience](/tokens/guides/get-access-tokens#control-access-token-audience).
 :::
 
 To validate a JWT issued for a custom API that you have registered with Auth0, you will need to:
@@ -58,13 +58,13 @@ If any of these checks fail, the token is considered invalid, and the request mu
 
 #### Perform standard JWT validation
 
-Because the Access Token is a JWT, you will first need to perform the standard JWT validation steps. To learn about JWT validation, see [Validate a JSON Web Token](/tokens/guides/jwt/validate-jwt).
+Because the Access Token is a JWT, you will first need to perform the standard JWT validation steps. To learn about JWT validation, see [Validate JSON Web Tokens](/tokens/guides/validate-jwts).
 
 #### Check additional standard claims
 
-If you've performed the standard JWT validation, you have already decoded the [JWT's Payload](/tokens/reference/jwt/jwt-structure#payload) and looked at its standard claims. Some additional claims to verify for Access Tokens include:
+If you've performed the standard JWT validation, you have already decoded the [JWT's Payload](/tokens/references/jwt-structure#payload) and looked at its standard claims. Some additional claims to verify for Access Tokens include:
 
-* **Token audience** (`aud`, array of strings): Depending on the initial token request, the `aud` field could contain both an audience corresponding to your custom API and an audience corresponding to the `userinfo`endpoint. At least one of the audience values for the token must match the unique identifier of the target API as defined in your [API's Settings](${manage_url}/#/apis) in the **Identifier** field. To learn more about getting Access Tokens with multiple audiences, see [Get an Access Token](/tokens/guides/access-token/get-access-tokens).
+* **Token audience** (`aud`, array of strings): Depending on the initial token request, the `aud` field could contain both an audience corresponding to your custom API and an audience corresponding to the `userinfo`endpoint. At least one of the audience values for the token must match the unique identifier of the target API as defined in your [API's Settings](${manage_url}/#/apis) in the **Identifier** field. To learn more about getting Access Tokens with multiple audiences, see [Get an Access Token](/tokens/guides/get-access-tokens).
 
 If this check fails, the token is considered invalid, and the request must be rejected.
 
@@ -84,11 +84,10 @@ In this case, if an Application requests to access the `/create` endpoint, but t
 
 For an example using a simple timesheet API in Node.js, see [Architecture Scenarios: Server Client + API - Node.js API Implementation](/architecture-scenarios/application/server-api/api-implementation-nodejs#check-the-client-permissions), an implementation of a Client Credentials grant for a hypothetical scenario. To see the complete solution, visit [Architecture Scenarios: Server Client + API](/architecture-scenarios/application/server-api).
 
-
-## Read more
+## Keep reading
 
 - [RFC 7519 - JSON Web Token (JWT)](https://tools.ietf.org/html/rfc7519)
-- [JSON Web Tokens (JWT)](/tokens/concepts/jwts)
+- [JSON Web Tokens](/tokens/concepts/jwts)
 - [APIs in Auth0](/apis)
 - [Tokens](/tokens)
 - [Architecture Scenarios: Server Client + API - Node.js API Implementation](/architecture-scenarios/application/server-api/api-implementation-nodejs#check-the-application-permissions)
