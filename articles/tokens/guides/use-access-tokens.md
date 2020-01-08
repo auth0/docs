@@ -55,7 +55,7 @@ The API can now process the request, allowing the application to read from and w
 
 ## Keep reading
 
-* [Access Tokens](/tokens/concepts/access-token)
+* [Access Tokens](/tokens/concepts/access-tokens)
 * [Get Access Tokens](/tokens/guides/get-access-tokens)
 * [Validate Access Tokens](/tokens/guides/validate-access-tokens)
 * [JSON Web Tokens](/tokens/concepts/jwts)

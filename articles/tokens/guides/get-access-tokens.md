@@ -50,7 +50,7 @@ After an Access Token has expired, you may want to renew your Access Token. To r
 
 ## Read more
 
-* [Access Tokens](/tokens/access-token)
+* [Access Tokens](/tokens/concepts/access-tokens)
 * [Use Access Tokens](/tokens/guides/use-access-tokens)
 * [Validate Access Tokens](/tokens/guides/validate-access-tokens)
 * [JSON Web Token](/tokens/concepts/jwts)
