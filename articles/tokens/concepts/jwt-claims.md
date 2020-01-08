@@ -17,7 +17,7 @@ useCase:
 # JSON Web Token Claims
 
 ::: note
-This page describes the standard types of claims available when using the JSON Web Token (JWT) standard. To learn about OpenID Connect (OIDC) standard claims, see [OpenID Connect Scopes: Standard Claims](/scopes/current/oidc-scopes#standard-claims).
+This page describes the standard types of claims available when using the JSON Web Token (JWT) standard. To learn about OpenID Connect (OIDC) standard claims, see [OpenID Connect Scopes: Standard Claims](/scopes/current/oidc-scopes#standard-claims) and [OpenID Connect Standard Claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims).
 :::
 
 [JSON Web Token (JWT)](/tokens/concepts/jwts) claims are pieces of information asserted about a subject. For example, an [ID Token](/tokens/concepts/id-tokens) (which is always a JWT) may contain a claim called `name` that asserts that the name of the user authenticating is "John Doe".
