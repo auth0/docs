@@ -21,7 +21,7 @@ Testing locally on non-secure channels `http` is generally safe for servers that
 ## How to set up a secure local server
 When your web browser visits a secure web page (https) the browser verifies the SSL certificate supplied by the server with a Certificate Authority.
 
-This can be handled locally in 3 easy steps:
+The process to do this is:
 
 1. Create and install a local Certificate Authority
 2. Generate an SSL certificate for the domain being used (ie. localhost) using this new Authority.
