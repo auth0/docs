@@ -1,25 +1,28 @@
 ---
-description: The pre-user-registration extensibility point for use with Hooks
+description: Learn about the Pre User Registration Hook available for Database Connections and Passwordless Connections.
 beta: true
+toc: true
 topics:
     - hooks
     - extensibility-points
+    - pre-user-registration
 contentType:
   - how-to
 useCase: extensibility-hooks
 v2: true
 ---
-# Implement Custom Actions Using Pre-User Registration Extensibility Points
 
-For [Database Connections](/connections/database) and [Passwordless Connections](/connections/passwordless), the Pre-User Registration extensibility point allows you to add custom data points to a newly-created user's profile.
+# Pre User Registration Hook
 
-This allows you to implement scenarios such as setting conditional information (in the form of [metadata](/users/concepts/overview-user-metadata)) on users that do not exist yet.
+The Pre User Registration Hook allows custom actions to be executed when a new user is created.
 
-Implement a [Hook](/hooks) using this extensibility point with either the [Dashboard](/hooks/guides/create-hooks-using-dashboard) or the [Command Line Interface](/hooks/guides/create-hooks-using-cli). 
+With the Pre User Registration Hook, you can do things like adding custom `app_metadata` or `user_metadata` to a newly created user or even prevent the creation of a user in the database.
+
+The Pre User Registration Hook is available for both [Database Connections](/connections/database) and [Passwordless Connections](/connections/passwordless). You can create a new Pre User Registration Hook using the [Dashboard](/hooks/create) or the [Command Line Interface](/hooks/create).
 
 ## Starter code and parameters
 
-After you've created a new Hook that uses the Pre-User Registration extensibility point, open up the Hook and edit it using the Webtask Editor embedded in the Dashboard. 
+After you've created a new Hook that uses the Pre User Registration extensibility point, open up the Hook and edit it using the Webtask Editor embedded in the Dashboard. 
 
 The parameters listed in the comment at the top of the code indicate the Auth0 objects (and the parameters within the objects) that can be passed into and used by the Hook's function.
 
@@ -95,7 +98,7 @@ Metadata property names must not start with the `$` character or contain the `.`
 Executing the code using the Runner requires a save, which means that your original code will be overwritten.
 :::
 
-Once you've modified the sample code with the specific <dfn data-key="scope">scopes</dfn> of additional claims you'd like added to your <dfn data-key="access-token">Access Tokens</dfn>, test your Hook using the Runner. The runner simulates a call to the Hook with the appropriate user information body/payload. The following is the sample body that populates the Runner by default (these are the same objects/parameters detailed in the comment at the top of the sample Hook code):
+Once you've modified the sample code, you can test your Hook using the Runner. The runner simulates a call to the Hook with the appropriate user information body/payload. The following is the sample body that populates the Runner by default (these are the same objects/parameters detailed in the comment at the top of the sample Hook code):
 
 ```json
 {

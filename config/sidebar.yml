@@ -780,65 +780,32 @@ articles:
         url: /hooks
         children:
 
-          - title: Extensibility Points
-            url: /hooks/concepts/extensibility-points
-            children:
+          - title: Create Hooks
+            url: /hooks/create
 
-              - title: Credentials Exchange
-                url: /hooks/concepts/credentials-exchange-extensibility-point
-                hidden: true
+          - title: Update Hooks
+            url: /hooks/update
 
-              - title: Pre-User Registration
-                url: /hooks/concepts/pre-user-registration-extensibility-point
-                hidden: true
+          - title: Delete Hooks
+            url: /hooks/delete
 
-              - title: Post-User Registration
-                url: /hooks/concepts/post-user-registration-extensibility-point
-                hidden: true
+          - title: Enable/Disable Hooks
+            url: /hooks/enable-disable
 
-          - title: Using the Auth0 CLI
-            url: /hooks/guides/create-hooks-using-cli
-            children:
+          - title: Client Credentials Exchange
+            url: /hooks/client-credentials-exchange
 
-              - title: Create Hooks
-                url: /hooks/guides/create-hooks-using-cli
-                hidden: true
+          - title: Post Change Password
+            url: /hooks/post-change-password
 
-              - title: Edit Hooks
-                url: /hooks/guides/edit-hooks-using-cli
-                hidden: true
+          - title: Post User Registration
+            url: /hooks/post-user-registration
 
-              - title: Delete Hooks
-                url: /hooks/guides/delete-hooks-using-cli
-                hidden: true
+          - title: Pre User Registration
+            url: /hooks/pre-user-registration
 
-              - title: Enable/Disable Hooks
-                url: /hooks/guides/enable-disable-hooks-using-cli
-                hidden: true
-
-              - title: Get Log Info
-                url: /hooks/guides/logging-hooks-using-cli
-                hidden: true
-
-          - title: Using the Dashboard
-            url: /hooks/guides/create-hooks-using-dashboard
-            children:
-
-              - title: Create Hooks
-                url: /hooks/guides/create-hooks-using-dashboard
-                hidden: true
-
-              - title: Edit Hooks
-                url: /hooks/guides/edit-hooks-using-dashboard
-                hidden: true
-
-              - title: Delete Hooks
-                url: /hooks/guides/delete-hooks-using-dashboard
-                hidden: true
-
-              - title: Enable/Disable Hooks
-                url: /hooks/guides/enable-disable-hooks-using-dashboard
-                hidden: true
+          - title: Get Log Info
+            url: /hooks/logs
 
       - title: Extensions
         url: /extensions

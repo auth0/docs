@@ -2340,5 +2340,66 @@ module.exports = [
     {
       from: '/logs/references/log-event-data',
       to: '/logs/references/log-event-types-codes'
+    },
+    {
+      from: [
+        '/hooks/concepts/credentials-exchange-extensibility-point',
+        '/hooks/guides/use-the-credentials-exchange-extensibility-point'
+      ],
+      to: '/hooks/client-credentials-exchange'
+    },
+    {
+      from: [
+        '/hooks/concepts/post-user-registration-extensibility-point',
+        '/hooks/guides/use-the-post-user-registration-extensibility-point'
+      ],
+      to: '/hooks/post-user-registration'
+    },
+    {
+      from: [
+        '/hooks/concepts/pre-user-registration-extensibility-point',
+        '/hooks/guides/use-the-pre-user-registration-extensibility-point'
+      ],
+      to: '/hooks/pre-user-registration'
+    },
+    {
+      from: '/hooks/guides/post-change-password',
+      to: '/hooks/post-change-password'
+    },
+    {
+      from: '/hooks/concepts/extensibility-points',
+      to: '/hooks'
+    },
+    {
+      from: [
+        '/hooks/guides/create-hooks-using-cli',
+        '/hooks/guides/create-hooks-using-dashboard'
+      ],
+      to: '/hooks/create'
+    },
+    {
+      from: [
+        '/hooks/guides/delete-hooks-using-cli',
+        '/hooks/guides/delete-hooks-using-dashboard'
+      ],
+      to: '/hooks/delete'
+    },
+    {
+      from: [
+        '/hooks/guides/edit-hooks-using-cli',
+        '/hooks/guides/edit-hooks-using-dashboard'
+      ],
+      to: '/hooks/update'
+    },
+    {
+      from: [
+        '/hooks/guides/enable-disable-hooks-using-cli',
+        '/hooks/guides/enable-disable-hooks-using-dashboard'
+      ],
+      to: '/hooks/enable-disable'
+    },
+    {
+      from: '/hooks/guides/logging-hooks-using-cli',
+      to: '/hooks/logs'
     }
 ];

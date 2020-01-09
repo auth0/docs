@@ -1,10 +1,11 @@
 ---
 description: Learn about the Post Change Password Hook available for Database Connections.
 beta: true
+toc: true
 topics:
     - hooks
     - extensibility-points
-    - post-password-change
+    - post-change-password
 contentType:
     - how-to
 useCase: extensibility-hooks
@@ -17,7 +18,7 @@ The Post Change Password Hook allows custom actions to be executed after a succe
 
 With the Post Change Password Hook, you can do things like send an email to a user letting them know their password has been changed.
 
-The Post Change Password Hook is only available for [Database Connections](/connections/database). You can create a new Post Change Password hook using the [Dashboard](/hooks/guides/create-hooks-using-dashboard) or the [Command Line Interface](/hooks/guides/create-hooks-using-cli).
+The Post Change Password Hook is only available for [Database Connections](/connections/database). You can create a new Post Change Password Hook using the [Dashboard](/hooks/guides/create-hooks-using-dashboard) or the [Command Line Interface](/hooks/guides/create-hooks-using-cli).
 
 ## Starter code and parameters
 

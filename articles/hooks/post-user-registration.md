@@ -1,22 +1,26 @@
 ---
-description: How to use the post-user-registration extensibility point
+description: Learn about the Post User Registration Hook available for Database Connections and Passwordless Connections.
 beta: true
+toc: true
 topics:
     - hooks
-    - extensibility-points   
+    - extensibility-points
+    - post-user-registration
 contentType:
   - how-to
 useCase: extensibility-hooks
+v2: true
 ---
-# Implement Custom Actions Using Post-User Registration Extensibility Points
 
-For [Database Connections](/connections/database) and [Passwordless Connections](/connections/passwordless), the `post-user-registration` extensibility point allows you to implement custom actions that execute after a new user registers and is added to the database.
+# Post User Registration Hook
 
-[Hooks](/hooks) associated with the `post-user-registration` extensibility point execute asynchronously from the actions that are a part of the Auth0 authentication process.
+The Post User Registration Hook allows custom actions to be executed after a new user registers an account and is added to the database. This hook executes asynchronously with the rest of the Auth0 pipeline and its outcome does not affect the Auth0 transaction.
 
-Implement a [Hook](/hooks) using this extensibility point with either the [Dashboard](/hooks/guides/create-hooks-using-dashboard) or the [Command Line Interface](/hooks/guides/create-hooks-using-cli). 
+With the Post User Registration Hook, you can do things like send a chat notification about the user's new account or create a new record in a customer relationship management system.
 
-### Starter code and parameters
+The Post User Registration Hook is available for both [Database Connections](/connections/database) and [Passwordless Connections](/connections/passwordless). You can create a new Post User Registration Hook using the [Dashboard](/hooks/create) or the [Command Line Interface](/hooks/create).
+
+## Starter code and parameters
 
 After you've created a new Hook that uses the Post-User Registration extensibility point, open up the Hook and edit it using the Webtask Editor embedded in the Dashboard. 
 
@@ -51,11 +55,11 @@ module.exports = function (user, context, cb) {
 
 The callback function `cb` at the end of the sample code is used to signal completion and must not be omitted (even though the extensibility point ignores response objects).
 
-#### Response
+### Response
 
 The Post-User Registration extensibility point ignores any response object.
 
-### Testing Hooks
+## Testing Hooks
 
 ::: note
 Executing the code using the Runner requires a save, which means that the original code will be overwritten.
@@ -90,7 +94,7 @@ Once you've modified the sample code with the specific <dfn data-key="scope">sco
 }
 ```
 
-## Example: integrate with Slack
+## Example: Integrate with Slack
 
 ```js
 module.exports = function (user, context, cb) {
