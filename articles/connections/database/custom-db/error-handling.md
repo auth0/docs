@@ -45,5 +45,5 @@ If you use <dfn data-key="lock">Lock</dfn>, you can [customize the error message
 
 Test the script using the **TRY** button. 
 
-If you do not get the expected result, or you receive an error, use `console.log`statements in your script and try the connection again. The output of `console.log` prints in the try the script window.
+If you do not get the expected result or you receive an error, install the [Real-time Webtask Logs extension](/extensions/realtime-webtask-logs) and use `console.log()` statements in your script and try the connection again. The output of `console.log()` will print to the Real-time Webtask Logs window.
 
