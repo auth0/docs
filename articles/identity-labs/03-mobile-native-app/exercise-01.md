@@ -188,7 +188,7 @@ Congratulations! You have successfully added Auth0 authentication to your native
 
 The authorization code grant by itself has some security issues when implemented on native applications. For instance, a malicious attacker can intercept the authorization code returned by Auth0 and exchange it for an access token. The Proof Key for Code Exchange (PKCE) is a technique used to mitigate this authorization code interception attack.
 
-With PKCE, for every authorization request, the application creates a cryptographically random key called the **code verifier**, hashes that value into a **code challenge**, and sends it to the authorization server to get the authorization code. When the application receives the code after a successful login, it will send the code and the code verifier to the token endpoint to exchange them for the requested tokens.
+With PKCE, for every authorization request, the application creates a cryptographically random key called the **code verifier**, hashes that value into a **code challenge**, and sends the **code challenge** to the authorization server to get the authorization code. When the application receives the code after a successful login, it will send the code and the code verifier to the token endpoint to exchange them for the requested tokens.
 
 Since you previously enabled logging in our `WebAuth` call with the `logging()` method, it is easy to see the process flow in the Debug Area.
 
