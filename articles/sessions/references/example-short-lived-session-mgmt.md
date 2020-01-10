@@ -20,7 +20,7 @@ Auth0 supports long-lived sessions for enterprise Auth0 customers. With long-liv
 
 Workflow details would change in the case of a long-lived session where the application session would most likely be shorter than the <dfn data-key="single-sign-on">[Single Sign-on (SSO)](/sso)</dfn> session.
 
-Learn more about this feature in the [When UX Equals Keeping or Losing the Customer](https://auth0.com/blog/when-ux-equals-keeping-or-losing-the-customer/) launch announcement blog post. You can also see [Configure Session Lifetime Limits](/sso/current/configure-session-lifetime-limits) and [Set Access Token Lifetime](/tokens/guides/access-token/set-access-token-lifetime) for more information.
+Learn more about this feature in the [When UX Equals Keeping or Losing the Customer](https://auth0.com/blog/when-ux-equals-keeping-or-losing-the-customer/) launch announcement blog post. You can also see [Configure Session Lifetime Limits](/sso/current/configure-session-lifetime-limits) and [Update Access Token Lifetime](/dashboard/guides/apis/update-token-lifetime) for more information.
 :::
 
 ## SDK features

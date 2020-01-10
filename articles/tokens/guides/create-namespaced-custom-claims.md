@@ -1,5 +1,5 @@
 ---
-title: Namespacing Claims
+title: Create Namespaced Custom Claims
 description: Learn about creating collision-resistant names for custom claims by using namespacing.
 toc: false
 topics:
@@ -12,9 +12,9 @@ useCase:
   - invoke-api
   - secure-api
 ---
-# Namespacing Claims
+# Create Namespaced Custom Claims
 
-To keep your custom claims from colliding with any [reserved claims](/tokens/jwt-claims#reserved-claims) or claims from other resources, you must give them a globally unique name using a namespaced format.
+To keep your custom claims from colliding with any [reserved claims](/tokens/concepts/jwt-claims#reserved-claims) or claims from other resources, you must give them a globally unique name using a namespaced format.
 
 <%= include('../../_includes/_enforce-claim-namespacing') %>
 
@@ -44,6 +44,6 @@ For an example showing how to add custom claims to a token, see [Sample Use Case
 
 ## Read more
 
-* [JSON Web Token Claims](/tokens/jwt-claims)
-* [OpenID Connect Scopes: Standard Claims](/docs/scopes/current/oidc-scopes#standard-claims)
+* [JSON Web Token Claims](/tokens/concepts/jwt-claims)
+* [OpenID Connect Scopes: Standard Claims](/scopes/current/oidc-scopes#standard-claims)
 * [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases)

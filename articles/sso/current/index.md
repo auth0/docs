@@ -36,7 +36,7 @@ Single Sign-on and Single Logout are possible through the use of [sessions](/ses
 
 With SSO, a central domain performs authentication and then shares the session with other domains. The way a session is shared may differ between SSO protocols, but the general concept is the same.
 
-For example, the authentication domain may generate a signed [JSON Web Token (JWT)](/jwt) (encrypted using JSON Web Encryption (JWE)), which contains all the information needed to identify the user for any other domain requiring authentication. This token is passed to the client, but because it is signed, it cannot be modified in any way by the client. The token can be passed to the original domain by a redirect and used by the authentication domain and any other domains to identify the user.
+For example, the authentication domain may generate a signed [JSON Web Token (JWT)](/tokens/concepts/jwts) (encrypted using JSON Web Encryption (JWE)), which contains all the information needed to identify the user for any other domain requiring authentication. This token is passed to the client, but because it is signed, it cannot be modified in any way by the client. The token can be passed to the original domain by a redirect and used by the authentication domain and any other domains to identify the user.
 
 ## Protocols
 
@@ -52,7 +52,7 @@ With SAML or WS-Fed:
 
 ### OpenID Connect
 
-[OpenID Connect (OIDC)](/protocols/oidc) is an authentication protocol commonly used in consumer-facing SSO implementations. The OIDC protocol handles authentication through [JSON Web Tokens (JWTs)](/tokens/jwt) and a central identity provider.
+[OpenID Connect (OIDC)](/protocols/oidc) is an authentication protocol commonly used in consumer-facing SSO implementations. The OIDC protocol handles authentication through [JSON Web Tokens](/tokens/concepts/jwts) and a central identity provider.
 
 With OIDC:
 

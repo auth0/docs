@@ -16,7 +16,7 @@ useCase: invoke-api
 
 In certain cases, you may want to use Auth0's [Management API](/api/management/v2#!) to manage your applications and APIs rather than the Auth0 Management Dashboard. 
 
-To call any of the endpoints in the Management API, you must authenticate using a specialized <dfn data-key="access-token">[Access Token](/tokens/overview-access-tokens)</dfn> called the Management API Token. Management API Tokens are <dfn data-key="json-web-token">[JSON Web Tokens (JWTs)](/jwt)</dfn> that contain specific granted permissions (also known as <dfn data-key="scope">scopes</dfn>) for the Management API endpoints you want to call. 
+To call any of the endpoints in the Management API, you must authenticate using a specialized <dfn data-key="access-token">[Access Token](/tokens/overview-access-tokens)</dfn> called the Management API Token. Management API Tokens are <dfn data-key="json-web-token">[JSON Web Tokens (JWTs)](/tokens/concepts/jwts)</dfn> that contain specific granted permissions (also known as <dfn data-key="scope">scopes</dfn>) for the Management API endpoints you want to call. 
 
 ## Limitations
 
@@ -73,7 +73,7 @@ Notice:
 
 #### Response
 
-When we receive our Management API Token, it will be in [JSON Web Token format](/tokens/reference/jwt/jwt-structure). Decoding it and reviewing its contents will reveal the following:
+When we receive our Management API Token, it will be in [JSON Web Token format](/tokens/references/jwt-structure). Decoding it and reviewing its contents will reveal the following:
 
 ```text
 {

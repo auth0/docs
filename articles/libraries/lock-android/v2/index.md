@@ -193,7 +193,7 @@ private LockCallback callback = new AuthenticationCallback() {
 ```
 
 ::: note
-The results of the AuthenticationCallback are in a `credentials` object. This object contains the tokens that you will require for authentication related operations in your app; see the [Tokens documentation](/tokens) for more specifics.
+The results of the AuthenticationCallback are in a `credentials` object. This object contains the tokens that you will require for authentication related operations in your app; see [Tokens](/tokens) for more specifics.
 :::
 
 ### Lock.Builder

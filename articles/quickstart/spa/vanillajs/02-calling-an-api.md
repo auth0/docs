@@ -65,7 +65,7 @@ const checkJwt = jwt({
 });
 ```
 
-This code configures the `express-jwt` middleware with the settings that relate to your Auth0 application. It uses a [JWKS](/jwks) endpoint to download the RSA public key, which it uses to verify the signatures of incoming access tokens.
+This code configures the `express-jwt` middleware with the settings that relate to your Auth0 application. It uses a [JWKS](/tokens/concepts/jwks) endpoint to download the RSA public key, which it uses to verify the signatures of incoming access tokens.
 
 Next, open the `auth_config.json` file and modify the data so that the `audience` appears as a key within the JSON, using the value that you just used when creating the API:
 

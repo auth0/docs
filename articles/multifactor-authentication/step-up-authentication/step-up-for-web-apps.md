@@ -21,7 +21,7 @@ To accomplish step-up authentication for your web app, you will create a rule th
 
 ## How it works
 
-When a user logs in, you retrieve an [ID Token](/tokens/id-tokens), which is a <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn> that contains information relevant to the user's session in the form of claims. For this scenario, the relevant claim is `amr`, which indicates the authentication method used during login; it **must** be present in the ID Token's payload and **must** contain the value `mfa`. Because it can contain claims other than `mfa`, when validating you must both test for its existence and examine its contents for a value of `mfa`.
+When a user logs in, you retrieve an [ID Token](/tokens/concepts/id-tokens), which is a <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn> that contains information relevant to the user's session in the form of claims. For this scenario, the relevant claim is `amr`, which indicates the authentication method used during login; it **must** be present in the ID Token's payload and **must** contain the value `mfa`. Because it can contain claims other than `mfa`, when validating you must both test for its existence and examine its contents for a value of `mfa`.
 
 ::: panel Authentication Methods Reference
 The `amr` claim is a JSON array of strings that indicates the authentication method used during login. Its values may include any of the pre-defined [Authentication Method Reference Values](https://tools.ietf.org/html/rfc8176). For example, the `amr` claim may contains the pre-defined value `mfa`, which indicates that the user has authenticated using MFA. 
@@ -160,8 +160,8 @@ For this example, we assume that we have already done the following:
 
 ## Keep reading
 
-* [ID Tokens](/tokens/id-tokens)
+* [ID Tokens](/tokens/concepts/id-tokens)
 * [Rules](/rules)
-* [JSON Web Tokens](/jwt)
+* [JSON Web Tokens](/tokens/concepts/jwts)
 * [OpenID Connect (OIDC) specification](http://openid.net/specs/openid-connect-core-1_0.html)
 * [Step-up Authentication for APIs](/multifactor-authentication/developer/step-up-authentication/step-up-for-apis)

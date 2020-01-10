@@ -132,7 +132,7 @@ The mappings in the previous steps are the most commonly used, but if you need a
 
 3. If the claim type you are looking for doesn't exist, you have two options:
 
-    * Type a [namespace-qualified name](/tokens/concepts/claims-namespacing) for the new claim (for example `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department`).
+    * Type a [namespace-qualified name](/tokens/guides/create-namespaced-custom-claims) for the new claim (for example `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department`).
     * Register a new claim type (under **ADFS > Services > Claim Descriptions**) on the ADFS admin console), and use the claim name in the mapping.
 
     Auth0 uses the name part of the claim type (for example `department` in `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department`) as the attribute name for the user profile.

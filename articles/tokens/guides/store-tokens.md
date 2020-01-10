@@ -1,6 +1,5 @@
 ---
-description: In this guide we outline how to store tokens used in token-based authentication.
-toc: true
+description: Learn how to store tokens used in token-based authentication.
 topics:
   - security
   - security-bulletins
@@ -12,9 +11,9 @@ useCase:
   - development
 ---
 
-# Where to Store Tokens
+# Store Tokens
 
-Not sure where to store [tokens](/tokens)? This guide outlines how to securely store tokens used in token-based authentication.
+How and where to securely store [tokens](/tokens) used in token-based authentication depends on the type of app you are using.
 
 ## Regular web apps
 
@@ -62,3 +61,11 @@ If your single-page app has a backend server at all, then tokens should be handl
 ### If no backend is present
 
 If you have a single-page app (SPA) with no corresponding backend server, your SPA should request new tokens on login and store them in memory without any persistence. To make API calls, your SPA would then use the in-memory copy of the token.
+
+## Keep reading
+
+* [ID Tokens](/tokens/concepts/id-tokens)
+* [Access Tokens](/tokens/concepts/access-tokens)
+* [Refresh Tokens](/tokens/concepts/refresh-tokens)
+* [Token Best Practices](/best-practices/token-best-practices)
+* [JWT Handbook](https://auth0.com/resources/ebooks/jwt-handbook)

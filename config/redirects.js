@@ -896,8 +896,8 @@ module.exports = [
     to: '/multifactor-authentication/step-up-authentication'
   },
   {
-    from: ['/refresh-token', '/tokens/refresh_token'],
-    to: '/tokens/refresh-token'
+    from: ['/refresh-token', '/tokens/refresh_token', '/tokens/refresh-token'],
+    to: '/tokens/concepts/refresh-tokens'
   },
   {
     from: '/update-client-secret',
@@ -1169,8 +1169,8 @@ module.exports = [
     to: '/dev-lifecycle/setting-up-env'
   },
   {
-    from: '/tokens/id_token',
-    to: '/tokens/id-token'
+    from: ['/tokens/id_token', '/tokens/id-token'],
+    to: '/tokens/concepts/id-tokens'
   },
   {
     from: '/tokens/add-custom-claims',
@@ -1181,16 +1181,56 @@ module.exports = [
     to: '/dashboard/guides/applications/update-signing-algorithm'
   },
   {
-    from: '/scopes/current/custom-claims',
-    to: '/tokens/jwt-claims#custom-claims'
+    from: ['/scopes/current/custom-claims', '/tokens/jwt-claims#custom-claims'],
+    to: '/tokens/concepts/jwt-claims'
   },
   {
-    from: '/tokens/guides/jwt/verify-jwt-signature-using-jwks',
-    to: '/tokens/guides/jwt/use-jwks'
+    from: ['/tokens/guides/jwt/verify-jwt-signature-using-jwks', '/tokens/guides/jwt/use-jwks'],
+    to: '/tokens/guides/locate-jwks'
   },
   {
-    from: '/tokens/guides/jwt/parse-validate-jwt-programmatically',
-    to: '/tokens/guides/jwt/validate-jwt'
+    from: ['/tokens/guides/jwt/parse-validate-jwt-programmatically', '/tokens/guides/jwt/validate-jwt'],
+    to: '/tokens/guides/validate-jwts'
+  },
+  {
+    from: '/tokens/concepts/claims-namespacing',
+    to: '/tokens/guides/create-namespaced-custom-claims'
+  },
+  {
+    from: ['/tokens/concepts/why-use-jwt', '/tokens/jwt'],
+    to: '/tokens/concepts/jwts'
+  },
+  {
+    from: '/tokens/guides/id-token/get-id-tokens',
+    to: '/tokens/guides/get-id-tokens'
+  },
+  {
+    from: '/tokens/guides/id-token/validate-id-token',
+    to: '/tokens/guides/validate-id-tokens'
+  },
+  {
+    from: '/tokens/reference/jwt/jwks-properties',
+    to: '/tokens/references/jwks-properties'
+  },
+  {
+    from: '/tokens/reference/jwt/jwt-structure',
+    to: '/tokens/references/jwt-structure'
+  },
+  {
+    from: '/tokens/delegation',
+    to: '/tokens/concepts/delegation-tokens'
+  },
+  {
+    from: ['/tokens/jwks', '/jwks'],
+    to: '/tokens/concepts/jwks'
+  },
+  {
+    from: '/tokens/jwt-claims',
+    to: '/tokens/concepts/jwt-claims'
+  },
+  {
+    from: '/tokens/overview-idp-access-tokens',
+    to: '/tokens/concepts/idp-access-tokens'
   },
   {
     from: '/connections',
@@ -1873,8 +1913,8 @@ module.exports = [
     to: `/link-accounts`
   },
   {
-    from: '/videos/session-and-cookies',
-    to: '/security/store-tokens'
+    from: ['/videos/session-and-cookies', '/security/store-tokens'],
+    to: '/tokens/guides/store-tokens'
   },
   {
     from: '/support/sla',
@@ -1969,16 +2009,16 @@ module.exports = [
      to: '/hrd'
    },
    {
-     from: ['/tokens/overview-access-tokens','/tokens/access-token','/tokens/access_token'],
-     to: '/tokens/access-tokens'
+     from: ['/tokens/overview-access-tokens','/tokens/access-token','/tokens/access_token', '/tokens/access-tokens'],
+     to: '/tokens/concepts/access-tokens'
    },
    {
-    from: ['/tokens/overview-id-tokens','/tokens/id-token'],
-    to: '/tokens/id-tokens'
+    from: ['/tokens/overview-id-tokens','/tokens/id-token', '/tokens/id-tokens'],
+    to: '/tokens/concepts/id-tokens'
   },
    {
-     from: '/api-auth/tutorials/verify-access-token',
-     to: '/tokens/guides/access-token/validate-access-token'
+     from: ['/api-auth/tutorials/verify-access-token', '/tokens/guides/access-token/validate-access-token'],
+     to: '/tokens/guides/validate-access-tokens'
    },
    {
      from: '/user-profile',
@@ -2202,12 +2242,12 @@ module.exports = [
       to: '/protocols/saml/saml-apps/github-server'
     },
     {
-      from: '/tokens/get-access-tokens',
-      to: '/tokens/guides/access-token/get-access-tokens'
+      from: ['/tokens/get-access-tokens', '/tokens/guides/access-token/get-access-tokens'],
+      to: '/tokens/guides/get-access-tokens'
     },
     {
-      from: '/tokens/use-access-tokens',
-      to: '/tokens/guides/access-token/use-access-tokens'
+      from: ['/tokens/use-access-tokens', '/tokens/guides/access-token/use-access-tokens'],
+      to: '/tokens/guides/use-access-tokens'
     },
     {
       from: '/services/private-saas-configuration',

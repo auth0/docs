@@ -38,4 +38,4 @@ You can also follow our tutorial to use our API endpoints to [Call Your API Usi
 ## Keep reading
 
 - Auth0 offers many ways to customize your tokens using [rules](/rules) and [hooks](/hooks).
-- [Tokens used by Auth0](/tokens)
+- [Tokens](/tokens)

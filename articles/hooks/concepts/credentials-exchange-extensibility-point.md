@@ -23,7 +23,7 @@ Please see [Client Credentials Flow](/flows/concepts/client-credentials) for mor
 You can add the following as claims to the issued token:
 
 * The `scope` property of the response object
-* Any properties with [namespaced](/tokens/concepts/claims-namespacing) property names
+* Any properties with [namespaced](/tokens/guides/create-namespaced-custom-claims) property names
 
 The extensibility point will ignore all other response object properties.
 

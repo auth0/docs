@@ -51,13 +51,13 @@ Finally, you can follow our tutorials to use our API endpoints to [Add Login Us
 The Access Token is exposed on the client side. The implicit flow does not return a Refresh Token because the browser cannot keep it private.  
 :::
 
-While SPAs using the Implicit Grant cannot use [Refresh Tokens](/tokens/refresh-token), there are other ways to provide similar functionality. 
+While SPAs using the Implicit Grant cannot use [Refresh Tokens](/tokens/concepts/refresh-tokens), there are other ways to provide similar functionality. 
 
 - Use `prompt=none` when invoking the [/authorize](/api/authentication#implicit-grant) endpoint. The user will not see the login or consent dialogs. For more information, see [Silent Authentication](/api-auth/tutorials/silent-authentication). 
-- Call `/authorize` from a hidden iframe and extract the new [Access Token](/tokens/access-tokens) from the parent frame. The user will not see the redirects happening.
+- Call `/authorize` from a hidden iframe and extract the new [Access Token](/tokens/concepts/access-tokens) from the parent frame. The user will not see the redirects happening.
 
 ## Keep reading
 
 - Auth0 offers many ways to personalize your user's login experience using [rules](/rules) and [hooks](/hooks).
-- [Tokens used by Auth0](/tokens)
+- [Tokens](/tokens)
 - [Which OAuth 2.0 Flow Should I Use?](/api-auth/which-oauth-flow-to-use)

@@ -55,6 +55,7 @@ To implement the Device Authorization Flow, you can follow our tutorial: [Call Y
   * [Auth0 Backend/API Quickstarts](/quickstart/backend)
   * [Call Your API Using the Device Authorization Flow](/flows/guides/device-auth/call-api-device-auth)
   * [Change scopes and add custom claims to tokens using hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
+  * [Store Tokens](/tokens/guides/store-tokens)
 :::
 
 ::: references
@@ -64,8 +65,7 @@ To implement the Device Authorization Flow, you can follow our tutorial: [Call Y
 :::
 
 ::: concepts  
-  * [Access Tokens](/tokens/access-tokens)
-  * [Where to store tokens](/security/store-tokens)
+  * [Access Tokens](/tokens/concepts/access-tokens)
 :::
 
 ::::

@@ -1079,9 +1079,6 @@ articles:
       - title: Generate and Analyze HAR Files
         url: /troubleshoot/guides/generate-har-files
 
-      - title: Validate JSON Web Tokens
-        url: /tokens/guides/jwt/validate-jwt
-
       - title: Authentication API Debugger
         url: /extensions/authentication-api-debugger
 
@@ -1352,7 +1349,7 @@ articles:
   #       url: "/api-auth/dynamic-client-registration"
 
   #     - title: "Verify Access Tokens"
-  #       url: "/tokens/guides/access-token/validate-access-token"
+  #       url: "/tokens/guides/validate-access-tokens"
 
   - title: "Private Cloud Deployments"
     url: "/private-cloud"
@@ -1455,9 +1452,106 @@ articles:
         url: "/tokens"
         children:
 
-          - title: "Where to Store Tokens"
-            url: "/security/store-tokens"
+          - title: "ID Tokens"
+            url: "/tokens/concepts/id-tokens"
+            children:
+
+              - title: "Get ID Tokens"
+                url: "/tokens/guides/get-id-tokens"
+                hidden: true 
+
+              - title: "Validate ID Tokens"
+                url: "/tokens/guides/validate-id-tokens"
+                hidden: true 
+
+              - title: "ID Token Structure"
+                url: "/tokens/references/id-token-structure"
+                hidden: true 
+
+          - title: "Access Tokens"
+            url: "/tokens/concepts/access-tokens"
+            children:
+
+              - title: "IDP Access Tokens"
+                url: "/tokens/concepts/idp-access-tokens"
+                hidden: true 
+
+              - title: "Get Access Tokens"
+                url: "/tokens/guides/get-access-tokens"
+                hidden: true 
+
+              - title: "Use Access Tokens"
+                url: "/tokens/guides/use-access-tokens"
+                hidden: true 
+
+              - title: "Validate Access Tokens"
+                url: "/tokens/guides/validate-access-tokens"
+                hidden: true 
+
+          - title: "Refresh Tokens"
+            url: "/tokens/concepts/refresh-tokens"
+            children:
+
+              - title: "Get Refresh Tokens"
+                url: "/tokens/guides/get-refresh-tokens"
+                hidden: true 
+
+              - title: "Use Refresh Tokens"
+                url: "/tokens/guides/use-refresh-tokens"
+                hidden: true 
+
+              - title: "Revoke Refresh Tokens"
+                url: "/tokens/guides/revoke-refresh-tokens"
+                hidden: true 
+
+          - title: "Delegation Tokens"
+            url: "/tokens/concepts/delegation-tokens"
             hidden: true 
+
+          - title: "JSON Web Tokens"
+            url: "/tokens/concepts/jwts"
+            hidden: true 
+            children:
+
+              - title: "Validate JSON Web Tokens"
+                url: "/tokens/guides/validate-jwts"
+                hidden: true 
+
+              - title: "JSON Web Key Sets"
+                url: "/tokens/concepts/jwks"
+                hidden: true 
+                children:
+
+                  - title: "Locate JSON Web Key Sets"
+                    url: "/tokens/guides/locate-jwks"
+                    hidden: true 
+
+                  - title: "JSON Web Key Set Properties"
+                    url: "/tokens/references/jwks-properties"
+                    hidden: true 
+
+              - title: "JSON Web Token Claims"
+                url: "/tokens/concepts/jwt-claims"
+                hidden: true 
+                children:
+
+                  - title: "Create Namespaced Custom Claims"
+                    url: "/tokens/guides/create-namespaced-custom-claims"
+                    hidden: true 
+
+              - title: "Signing Algorithms"
+                url: "/tokens/concepts/signing-algorithms"
+                hidden: true 
+
+              - title: "JSON Web Token Structure"
+                url: "/tokens/references/jwt-structure"
+                hidden: true 
+
+          - title: "Store Tokens"
+            url: "/tokens/guides/store-tokens"
+
+          - title: "Revoke Tokens"
+            url: "/tokens/guides/revoke-tokens"
 
       - title: "Cookies"
         url: "/sessions/concepts/cookies"

@@ -1,6 +1,6 @@
 ---
 title: JSON Web Key Set Properties
-description: Reference the properties available in a JSON Web Key Set (JWKS).
+description: Describes the properties available in a JSON Web Key Set (JWKS).
 toc: false
 topics:
   - tokens
@@ -13,7 +13,7 @@ useCase:
 ---
 # JSON Web Key Set Properties
 
-This is an example of the JSON Web Key Set (JWKS) used by a demo tenant, containing a single JSON Web Key (JWK):
+Here is an example of the JSON Web Key Set (JWKS) used by a sample tenant, containing a single JSON Web Key (JWK):
 
 ```json
 {
@@ -33,7 +33,6 @@ This is an example of the JSON Web Key Set (JWKS) used by a demo tenant, contain
 ]}
 ```
 
-
 Each property in the key is defined by the JWK specification [RFC 7517 Section 4](https://tools.ietf.org/html/rfc7517#section-4) or, for algorithm-specific properties, in [RFC 7518](https://tools.ietf.org/html/rfc7518)].
 
 | Property name | Description                |
@@ -48,17 +47,16 @@ Each property in the key is defined by the JWK specification [RFC 7517 Section 4
 | `x5t`         | The thumbprint of the x.509 cert (SHA-1 thumbprint). |
 
 ::: note
-We don't currently support Elliptic Curve (EC) encryption.
+Auth0 only supports HMAC and RSA; it does not currently support Elliptic Curve encryption (ECDSA).
 :::
 
 For an example that uses JWKS to verify a JWT's signature, see [Navigating RS256 and JWKS](https://auth0.com/blog/navigating-rs256-and-jwks/) (uses Node.js), or check out our [Backend/API Quickstarts](/quickstart/backend).
 
-## Read more
+## Keep reading
 
-* [JSON Web Key Set](/tokens/jwks)
-* [Verify a JSON Web Token's Signature using the JSON Web Key Set Endpoint](/tokens/guides/jwt/use-jwks)
-* [Validate a JSON Web Token](/tokens/guides/jwt/validate-jwt)
-
-Sample implementations:
-* [Backend/API Quickstarts](/quickstart/backend)
-* [Navigating RS256 and JWKS](https://auth0.com/blog/navigating-rs256-and-jwks/) (uses Node.js)
+* [JSON Web Tokens](/tokens/concepts/jwts)
+* [JSON Web Token Structure](/tokens/references/jwt-structure)
+* [JSON Web Key Sets](/tokens/concepts/jwks)
+* [Validate JSON Web Tokens](/tokens/guides/validate-jwts)
+* [Locate JSON Web Token Key Sets](/tokens/guides/locate-jwks)
+* [JWT Handbook](https://auth0.com/resources/ebooks/jwt-handbook)
