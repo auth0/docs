@@ -77,7 +77,7 @@ To be able to use the callback that was configured in the Auth0 dashboard, a URL
 - **URL Schemes**: `$(PRODUCT_BUNDLE_IDENTIFIER)`
 - **Role**: `None`
 
-Just as `http` is a URL Scheme that will launch a browser, the bundle identifier of the app as a URL Scheme (which will resolve to `com.auth0.identity102`) will tell iOS that any time this scheme is used in a URL, it must be routed to our application. That will be the case of the callback used by Auth0 after you log in.
+Just as `http` is a URL Scheme that will launch a browser, the bundle identifier of the app has a URL Scheme (which will resolve to `com.auth0.identity102`) will tell iOS that any time this scheme is used in a URL, it must be routed to our application. That will be the case of the callback used by Auth0 after you log in.
 
 12. Now, the application needs to have the Auth0.swift SDK handle the callback in order to proceed with the authentication flow. In the Project Navigator on the left, open `exercise-01/AppDelegate.swift` and add the following import statement just below the other one:
 
