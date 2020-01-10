@@ -285,7 +285,7 @@ If you log in using a social identity provider (Google, Facebook, etc.), you wil
 For more information, see [Test Social Connections with Auth0 Developer Keys](https://auth0.com/docs/connections/social/devkeys).
 :::
 
-If you want to test the `allowAccess()` function, which restricts access for particular routes depending on whether the user is authenticated, try navigating to [localhost:5000/#expenses](http://localhost:5000/#expenses). If you are logged in, the page will load successfully (the content for this page will be implemented in the next exercise). If you are not logged in, the app will redirect you to the homepage.
+If you want to test the `allowAccess()` function, which restricts access for particular routes depending on whether the user is authenticated, try navigating to [localhost:5000/#expenses](http://localhost:5000/#expenses). If you are logged in, the page will load successfully showing a "Loading..." text (the content for this page will be implemented in the next exercise). If you are not logged in, the app will redirect you to the homepage.
 
 25. Let's explore the relevant network traces of the authentication process used in this lab. First, click the **Log Out** button, then, once you return to the app with your session ended, open Chrome's **Developer Tools** and go to the **Network** tab.
 
