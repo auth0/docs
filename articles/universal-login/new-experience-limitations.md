@@ -28,3 +28,5 @@ The New <dfn data-key="universal-login">Universal Login</dfn> Experience current
 
 - [MFA Enrollment Tickets](/multifactor-authentication/developer/custom-enrollment-ticket) will keep using the Classic Experience even when the New Experience is enabled.
 
+- When starting password reset by a call to the Management API password change endpoint, the password reset UI doesn't grant the user the option to click a button to redirect after the password change is complete (when using the New Universal Login Experience).
+
