@@ -87,26 +87,26 @@ public class AuthController {
                 .build();
     }
 
-    public Tokens handle(HttpServletRequest request) throws IdentityVerificationException {
-        return controller.handle(request);
+    public Tokens handle(HttpServletRequest request, HttpServletResponse response) throws IdentityVerificationException {
+        return controller.handle(request, response);
     }
 
-    public String buildAuthorizeUrl(HttpServletRequest request, String redirectUri) {
-        return controller.buildAuthorizeUrl(request, redirectUri)
+    public String buildAuthorizeUrl(HttpServletRequest request, HttpServletResponse response, String redirectUri) {
+        return controller.buildAuthorizeUrl(request, response, redirectUri)
                 .build();
     }
 }
 ```
 
-To enable users to login, your application will redirect them to the [Universal Login](https://auth0.com/docs/universal-login) page. Using the `AuthenticationController` instance, you can generate the redirect URL by calling the `buildAuthorizeUrl(HttpServletRequest request, String redirectUrl)` method. The redirect URL must be the URL that was added to the **Allowed Callback URLs** of your Auth0 Application.
+To enable users to login, your application will redirect them to the [Universal Login](https://auth0.com/docs/universal-login) page. Using the `AuthenticationController` instance, you can generate the redirect URL by calling the `buildAuthorizeUrl(HttpServletRequest request, HttpServletResponse response, String redirectUrl)` method. The redirect URL must be the URL that was added to the **Allowed Callback URLs** of your Auth0 Application.
 
 ```java
 // src/main/java/com/auth0/example/LoginController.java
 
 @RequestMapping(value = "/login", method = RequestMethod.GET)
-protected String login(final HttpServletRequest req) {
+protected String login(final HttpServletRequest req, final HttpServletResponse res) {
     String redirectUrl = req.getScheme() + "://" + req.getServerName() + ":" + req.getServerPort() + "/callback";
-    String authorizeUrl = controller.buildAuthorizeUrl(req, redirectUrl);
+    String authorizeUrl = controller.buildAuthorizeUrl(req, res, redirectUrl);
     return "redirect:" + authorizeUrl;
 }
 ```
@@ -121,7 +121,7 @@ The request holds the call context that the library previously set by generating
 @RequestMapping(value = "/callback", method = RequestMethod.GET)
 protected void getCallback(final HttpServletRequest req, final HttpServletResponse res) throws ServletException, IOException {
   try {
-      Tokens tokens = controller.handle(req);
+      Tokens tokens = controller.handle(req, res);
       SessionUtils.set(req, "accessToken", tokens.getAccessToken());
       SessionUtils.set(req, "idToken", tokens.getIdToken());
       res.sendRedirect("/portal/home");
@@ -132,7 +132,7 @@ protected void getCallback(final HttpServletRequest req, final HttpServletRespon
 ```
 
 ::: note
-It it's recommended to store the time in which we requested the tokens and the received `expiresIn` value, so that the next time when we are going to use the token we can check if it has already expired or if it's still valid. For the sake of this sample, we will skip that validation.
+It is recommended to store the time in which we requested the tokens and the received `expiresIn` value, so that the next time when we are going to use the token we can check if it has already expired or if it's still valid. For the sake of this sample, we will skip that validation.
 :::
 
 ## Display the Home Page
