@@ -16,7 +16,7 @@ Testing over non-secure channels `http` is generally safe for local servers that
 
 - Communication between an external service and your localhost should be encrypted to protect any sensitive information.
 - It tests a very critical part of the development stack if you run your server on secure channels in production.
-- Cookies using secure or [same-site](https://auth0.com/blog/browser-behavior-changes-what-developers-need-to-know/) will not be sent to local `http`, disrupting authentication and other functionality.
+- Cookies using a Secure attribute or [SameSite](https://auth0.com/blog/browser-behavior-changes-what-developers-need-to-know/) attribute set to `None` will not be sent across insecure channels, disrupting authentication and other functionality.
 
 ## How to set up a secure local server
 When you visit a secure web page (served over https), your browser will verify the SSL certificate supplied by the server with a Certificate Authority. When loading a secure web page from a local server, you can create an authority just for your machine and generate certificates that only your browser will trust.
