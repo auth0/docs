@@ -132,7 +132,7 @@ protected void getCallback(final HttpServletRequest req, final HttpServletRespon
 ```
 
 ::: note
-It's recommended to store the time in which we requested the tokens and the received `expiresIn` value, so that the next time when we are going to use the token we can check if it has already expired or if it's still valid. For the sake of this sample, we will skip that validation.
+It is recommended to store the time in which we requested the tokens and the received `expiresIn` value, so that the next time when we are going to use the token we can check if it has already expired or if it's still valid. For the sake of this sample, we will skip that validation.
 :::
 
 ## Display the Home Page
