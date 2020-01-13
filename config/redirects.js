@@ -1658,7 +1658,7 @@ module.exports = [
   },
   {
     from: '/tutorials/redirecting-users',
-    to: '/users/concepts/redirect-users-after-login',
+    to: '/users/guides/redirect-users-after-login',
   },
   {
     from: '/tutorials/get-user-information-with-unbounce-landing-pages',
@@ -2193,8 +2193,8 @@ module.exports = [
     to: '/hooks'
    },
    {
-     from: '/users/guides/redirect-users-after-login',
-     to: '/users/concepts/redirect-users-after-login'
+     from: '/users/redirecting-users',
+     to: '/users/guides/redirect-users-after-login'
    },
    {
      from: '/applications/spa',
