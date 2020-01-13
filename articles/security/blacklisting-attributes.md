@@ -28,7 +28,7 @@ For detailed steps on how to get one, see [Access Tokens for the Management API]
 
 ### Step 2. Call the API
 
-One you have the token (and the list of attributes to be blacklisted), you are ready to call the API. 
+Once you have the token (and the list of attributes to be blacklisted), you are ready to call the API. 
 
 Here is a sample HTTP request that blacklists two attributes: `ethnicity` and `gender`.
 
@@ -41,11 +41,12 @@ Here is a sample HTTP request that blacklists two attributes: `ethnicity` and `g
   "cookies": [],
   "headers": [
     { "name": "Authorization", "value": "Bearer YOUR_TOKEN" }
+    { "name": "Content-Type", "value": "application/json" }
   ],
   "queryString" : [],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"options\": {\"non_persistent_attrs\": [\"ethnicity\", \"gender\"]}\", \"enabled_clients\": [\"\"]}"
+    "text": "{\"options\": {\"non_persistent_attrs\": [\"ethnicity\", \"gender\"]}}"
   },
   "headersSize" : -1,
   "bodySize" : -1,
