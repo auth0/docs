@@ -143,7 +143,7 @@ The **Redirect To** URL is an optional destination to redirect the user to after
 ::: panel Redirect URLs
 With the Classic Experience, you can provide a URL to which users are redirected after they reset their password. Auth0 sends a success indicator and a message to the URL.
 
-With the New Experience, Auth0 redirects users to the default log in route when the user succeeds in resetting the password. If not, Auth0 handles the errors as part of the Universal Login flow and ignores the redirect URL provided in the email template.
+With the New Experience, Auth0 redirects users to the [default log in route](/universal-login/default-login-url) when the user succeeds in resetting the password. If not, Auth0 handles the errors as part of the Universal Login flow and ignores the redirect URL provided in the email template.
 :::
 
 **Only the following three variables** are available on the **Redirect To** URL:
