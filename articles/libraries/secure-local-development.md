@@ -28,7 +28,7 @@ The process to do this is:
 3. Serve the SSL certificate from your web application
 
 ### 1. Install Mkcert Utility
-To get started, download [Mkcert](https://github.com/FiloSottile/mkcert) and follow the [installation instructions](https://github.com/FiloSottile/mkcert#installation) for your specific operating system.
+To get started, download [mkcert](https://github.com/FiloSottile/mkcert) and follow the [installation instructions](https://github.com/FiloSottile/mkcert#installation) for your specific operating system.
 
 ### 2. Install local Certificate Authority
 The Certificate Authority is a trusted entity that the web browser uses to verify the certificate supplied by a webserver.  Installing a local Certificate Authority will allow you to generate your own SSL Certificates to be used locally.
