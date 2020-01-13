@@ -192,7 +192,7 @@ articles:
         url: /api-auth/tutorials/silent-authentication
 
       - title: Redirect After Login
-        url: /users/concepts/redirect-users-after-login
+        url: /users/guides/redirect-users-after-login
 
       - title: Logout
         url: /logout

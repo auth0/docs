@@ -32,7 +32,7 @@ For a high-level overview of how to do this, see [Authorization Code Flow](/flow
 
 ## Use local domains with Auth0
 
-If you're developing your application locally, you can use `localhost` and other domains inaccessible by Auth0 (such as those on an intranet) as [callback URLs](/users/concepts/redirect-users-after-login). For example, during development you could use `http://localhost:3000/callback` as the callback URL.
+If you're developing your application locally, you can use `localhost` and other domains inaccessible by Auth0 (such as those on an intranet) as [callback URLs](/users/guides/redirect-users-after-login). For example, during development you could use `http://localhost:3000/callback` as the callback URL.
 
 To set a callback URL, go to [Applications > Settings](${manage_url}/#/applications/${account.clientId}/settings) and add the URL to the **Allowed Callback URLs** list.
 

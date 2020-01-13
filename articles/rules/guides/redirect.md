@@ -37,8 +37,6 @@ Here are some things you should know before you create a redirect Rule:
   - For Resource Owner logins: `context.protocol === 'oauth2-resource-owner'`
 - When a user has been redirected from a rule to the `/continue` endpoint, the user object won't be refreshed. So any updates to user account information during the redirect will not be reflected in the user object. For example, metadata updates that occurred during redirect will not be available.
 
-<%= include('../../_includes/_redirect_uri_formats') %>
-
 ## Start a redirect
 
 To redirect a user from a Rule, set the `context.redirect` property as follows:
