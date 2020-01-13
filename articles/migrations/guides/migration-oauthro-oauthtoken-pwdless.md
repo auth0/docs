@@ -96,7 +96,18 @@ Here is an example of the response from `/oauth/token`:
 }
 ```
 
-### Verifying your migration
+## Code changes when using the SDKs
+
+When using the Auth0 Native libraries for Android or iOS you need to make sure you upgrade to the versions listed below or higher and you set the 'OIDC Conformant' flag to true when configuring the libraries:
+
+|Library|Minimum Version|Docs|
+|---|---|---|
+|Android SDK|1.2| [here](/articles/libraries/auth0-android/passwordless)| 
+|Lock Android|2.17| [here](/articles/libraries/lock-android/passwordless)| 
+|Swift SDK|1.20.0| [here](/articles/libraries/auth0-swift/passwordless)| 
+|Lock iOS|2.14.0| [here](/articles/libraries/lock-ios/passwordless)| 
+
+## Verifying your migration
 
 Once you have migrated your codebase, if you would like to be sure that your applications are no longer calling the legacy endpoint.
 
