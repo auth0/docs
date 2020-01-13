@@ -89,8 +89,8 @@ module.exports = [
     to: '/quickstart/native/ionic'
   },
   {
-    from: ['/ios-tutorial', '/native-platforms/ios-objc'],
-    to: '/quickstart/native/ios-objc'
+    from: ['/ios-tutorial', '/native-platforms/ios-objc', '/quickstart/native/ios-objc'],
+    to: '/quickstart/native/ios-swift'
   },
   {
     from: '/java-tutorial',
