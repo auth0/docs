@@ -102,10 +102,10 @@ When using the Auth0 Native libraries for Android or iOS you need to make sure y
 
 |Library|Minimum Version|Docs|
 |---|---|---|
-|Android SDK|1.2| [here](/articles/libraries/auth0-android/passwordless)| 
-|Lock Android|2.17| [here](/articles/libraries/lock-android/passwordless)| 
-|Swift SDK|1.20.0| [here](/articles/libraries/auth0-swift/passwordless)| 
-|Lock iOS|2.14.0| [here](/articles/libraries/lock-ios/passwordless)| 
+|Android SDK|1.2| [here](/libraries/auth0-android/passwordless)| 
+|Lock Android|2.17| [here](/libraries/lock-android/passwordless)| 
+|Swift SDK|1.20.0| [here](/libraries/auth0-swift/passwordless)| 
+|Lock iOS|2.14.0| [here](/libraries/lock-ios/passwordless)| 
 
 ## Verifying your migration
 
