@@ -98,14 +98,14 @@ Here is an example of the response from `/oauth/token`:
 
 ## Code changes when using the SDKs
 
-When using the Auth0 Native libraries for Android or iOS you need to make sure you upgrade to the versions listed below or higher and you set the 'OIDC Conformant' flag to true when configuring the libraries:
+If your application uses the Auth0 native libraries for Android or iOS, be sure that the version of the library you are including is at least the minimum listed below (or higher). Also, be sure to set the 'OIDC Conformant' flag to `true` when configuring the libraries.
 
-|Library|Minimum Version|Docs|
-|---|---|---|
-|Android SDK|1.2| [here](/libraries/auth0-android/passwordless)| 
-|Lock Android|2.17| [here](/libraries/lock-android/passwordless)| 
-|Swift SDK|1.20.0| [here](/libraries/auth0-swift/passwordless)| 
-|Lock iOS|2.14.0| [here](/libraries/lock-ios/passwordless)| 
+|Library|Minimum Version|
+|---|---|
+|[Android SDK](/libraries/auth0-android/passwordless)|1.2| 
+|[Lock Android](/libraries/lock-android/passwordless)|2.17|
+|[Swift SDK](/libraries/auth0-swift/passwordless)|1.20.0|
+|[Lock iOS](/libraries/lock-ios/passwordless)|2.14.0|
 
 ## Verifying your migration
 
