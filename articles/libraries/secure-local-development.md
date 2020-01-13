@@ -12,7 +12,7 @@ contentType:
 Local development environments typically run on non-secure channels (ie: `http://localhost`) out of the box.  This guide will discuss when you should run a secure local server and how to setup `https` on localhost.
 
 ## When to use a secure local server
-Testing locally on non-secure channels `http` is generally safe for servers that don't communicate with external services.  However, when your local server is communicating with external services (ie. Auth0), we recommend running your local server on `https` for the following reasons:
+Testing over non-secure channels `http` is generally safe for local servers that don't communicate with external services, like Auth0.  However, when your local server is communicating with external services, we recommend running your local server on `https` for the following reasons:
 
 - Communication between an external service and your localhost should be encrypted to protect any sensitive information.
 - It tests a very critical part of the development stack if you run your server on secure channels in production.
