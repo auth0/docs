@@ -16,7 +16,7 @@ If you are using Maven, add these dependencies to your `pom.xml`:
 <dependency>
     <groupId>com.auth0</groupId>
     <artifactId>mvc-auth-commons</artifactId>
-    <version>(1.0,2.0)</version>
+    <version>[1.0, 2.0)</version>
 </dependency>
 <dependency>
     <groupId>javax</groupId>

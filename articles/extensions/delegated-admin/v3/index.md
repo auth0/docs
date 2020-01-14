@@ -71,7 +71,7 @@ When working with roles, we recommend that you use the Authorization Core featur
 
 1. [Create DAE roles](/dashboard/guides/roles/create-roles). The names of the roles you create must match the names of the [pre-defined DAE roles above](#assign-roles-to-users).
 
-2. [Assign the DAE role to a user manually](/dashboard/guides/users/assign-roles-users), or add user roles to the DAE namespace in the ID Token using a rule. To do so, [create the following rule](/dashboard/guides/rules/create-rules), remembering to replace the `CLIENT_ID` placeholder value with your application's **Client ID**:
+2. [Assign the DAE role to a user manually](/dashboard/guides/users/assign-roles-users), then add the user roles to the DAE namespace in the ID Token using the following rule, remembering to replace the `CLIENT_ID` placeholder with your delegated admin application's **Client ID**.  
 
 ```js
 function (user, context, callback) {
@@ -85,8 +85,10 @@ function (user, context, callback) {
 }
 ```
 
+See this guide with more [information about creating rules](/dashboard/guides/rules/create-rules).
+
 ::: note
-Your claim should be [namespaced](/tokens/concepts/claims-namespacing).
+Your claim should be [namespaced](/tokens/guides/create-namespaced-custom-claims).
 :::
 
 ::: note

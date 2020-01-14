@@ -52,7 +52,7 @@ AuthenticationController controller = AuthenticationController.newBuilder(domain
                 .build();
 ```
 
-To enable users to login, your application will redirect them to the [Universal Login](https://auth0.com/docs/universal-login) page. Using the `AuthenticationController` instance, you can generate the redirect URL by calling the `buildAuthorizeUrl(HttpServletRequest request, String redirectUrl)` method. The redirect URL must be the URL that was added to the **Allowed Callback URLs** of your Auth0 Application.
+To enable users to login, your application will redirect them to the [Universal Login](https://auth0.com/docs/universal-login) page. Using the `AuthenticationController` instance, you can generate the redirect URL by calling the `buildAuthorizeUrl(HttpServletRequest request, HttpServletResponse response, String redirectUrl)` method. The redirect URL must be the URL that was added to the **Allowed Callback URLs** of your Auth0 Application.
 
 ```java
 // src/main/java/com/auth0/example/LoginServlet.java
@@ -65,7 +65,7 @@ protected void doGet(final HttpServletRequest req, final HttpServletResponse res
     }
     redirectUri += "/callback";
 
-    String authorizeUrl = authenticationController.buildAuthorizeUrl(req, redirectUri)
+    String authorizeUrl = authenticationController.buildAuthorizeUrl(req, res, redirectUri)
             .build();
     res.sendRedirect(authorizeUrl);
 }
@@ -91,7 +91,7 @@ public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOExc
 private void handle(HttpServletRequest req, HttpServletResponse res) throws IOException {
     try {
         // Parse the request
-        Tokens tokens = authenticationController.handle(req);
+        Tokens tokens = authenticationController.handle(req, res);
         SessionUtils.set(req, "accessToken", tokens.getAccessToken());
         SessionUtils.set(req, "idToken", tokens.getIdToken());
         res.sendRedirect(redirectOnSuccess);

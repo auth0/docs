@@ -124,7 +124,7 @@ Once a user has been authenticated, an application may wish to retrieve informat
 
 For customers who are using the [/tokeninfo](/api/authentication#get-token-info) endpoint, this endpoint is being replaced with the /userinfo endpoint. Customers should migrate to use the /userinfo endpoint instead of /tokeninfo. The /userinfo endpoint is the only one that will be maintained going forward and is the only endpoint for user information that is supported with the [custom domains](/custom-domains) feature.
 
-As explained in the /userinfo endpoint docs entry, /userinfo obtains information using the Management API and therefore requires an <dfn data-key="access-token">Access Token</dfn> (obtained during login) instead of the [ID Token](/tokens/id-tokens) used by /tokeninfo.
+As explained in the /userinfo endpoint docs entry, /userinfo obtains information using the Management API and therefore requires an <dfn data-key="access-token">Access Token</dfn> (obtained during login) instead of the [ID Token](/tokens/concepts/id-tokens) used by /tokeninfo.
 
 Note also that the [/userinfo response](/api-auth/tutorials/adoption/scope-custom-claims) may vary based on <dfn data-key="scope">scopes</dfn> requested and the value of the [OIDC Conformant](/api-auth/tutorials/adoption/oidc-conformant) setting in the [Dashboard](${manage_url}) under **Applications > (Your Application) > Settings > Advanced Settings**. In that case, application code might need adjusted to handle the slightly altered response format.
 
@@ -160,7 +160,7 @@ This was previously done with `getSSOData()`. The `getSSOData()` function perfor
 
 In "web applications", the backend typically has a session for the user. Over time, the application session may expire, in which case the application should renew the session. The application backend should invoke a call to the [/authorize](/api/authentication#authorize-application) endpoint to get a new token. If the Authorization Server (Auth0 in this case) still has a session for the user, the user will not have to re-enter their credentials to log in again. If Auth0 no longer has a session for the user, the user has to log in again.
 
-Customers with web applications which call the API from their backend should use this approach. Specifically, they should [call /oauth/token](/tokens/refresh-token/current#use-a-refresh-token) to renew their token.
+Customers with web applications which call the API from their backend should use this approach. Specifically, they should [call /oauth/token](/tokens/guides/use-refresh-tokens) to renew their token.
 
 ### How to log users out
 

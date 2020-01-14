@@ -36,7 +36,7 @@ Here are some helpful tools to help you troubleshoot issues:
 
 * [Auth0 Logs](/logs)
 * [HAR files](/troubleshoot/guides/generate-har-files)
-* [JWT Validator](/tokens/guides/jwt/validate-jwt)
+* [JWT Inspector](https://jwt.io/)
 * [Authentication API Debugger](/extensions/authorization-extension/v2/troubleshooting)
 
 ## Keep reading

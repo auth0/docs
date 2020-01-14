@@ -43,4 +43,4 @@ Finally, you can follow our tutorials to use our API endpoints to [Add Login Us
 ## Keep reading
 
 - Auth0 offers many ways to personalize your user's login experience using [rules](/rules) and [hooks](/hooks).
-- [Tokens used by Auth0](/tokens)
+- [Tokens](/tokens)

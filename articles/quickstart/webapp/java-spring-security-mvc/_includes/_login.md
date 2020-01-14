@@ -116,20 +116,21 @@ public AuthenticationController authenticationController() throws UnsupportedEnc
 }
 ```
 
-To authenticate the users you will redirect them to the login page which uses [Universal Login](https://auth0.com/docs/universal-login). This page is accessible from what we call the "Authorize URL". By using this library you can generate it with a simple method call. It will require a `HttpServletRequest` to store the call context in the session and the URI to redirect the authentication result. This URI is normally the address where your app is running plus the path where the result will be parsed, which happens to also be the "Callback URL" whitelisted before. Finally, request the scopes `openid profile email` to get back user profile information in the ID token upon login. After you create the Authorize URL, you redirect the request there so the user can enter their credentials. The following code snippet is located on the `LoginController` class of our sample:
+To enable users to login, your application will redirect them to the [Universal Login](https://auth0.com/docs/universal-login) page. Using the `AuthenticationController` instance, you can generate the redirect URL by calling the `buildAuthorizeUrl(HttpServletRequest request, HttpServletResponse response, String redirectUrl)` method. The redirect URL must be the URL that was added to the **Allowed Callback URLs** of your Auth0 Application.
 
 ```java
 // src/main/java/com/auth0/example/mvc/LoginController.java
 
 @RequestMapping(value = "/login", method = RequestMethod.GET)
-protected String login(final HttpServletRequest req) {
+protected String login(final HttpServletRequest request, final HttpServletResponse res) {
     String redirectUri = req.getScheme() + "://" + req.getServerName();
-    if ((req.getScheme().equals("http") && req.getServerPort() != 80) || (req.getScheme().equals("https") && req.getServerPort() != 443)) {
+    if ((req.getScheme().equals("http") && req.getServerPort() != 80) || 
+            (req.getScheme().equals("https") && req.getServerPort() != 443)) {
         redirectUri += ":" + req.getServerPort();
     }
     redirectUri += "/callback";
 
-    String authorizeUrl = controller.buildAuthorizeUrl(req, redirectUri)
+    String authorizeUrl = controller.buildAuthorizeUrl(req, res, redirectUri)
             .withScope("openid profile email")
             .build();
     return "redirect:" + authorizeUrl;
@@ -146,7 +147,7 @@ The request holds the call context that the library previously set by generating
 @RequestMapping(value = "/callback", method = RequestMethod.GET)
 protected void getCallback(final HttpServletRequest req, final HttpServletResponse res) throws ServletException, IOException {
   try {
-      Tokens tokens = controller.handle(req);
+      Tokens tokens = controller.handle(req, res);
       TokenAuthentication tokenAuth = new TokenAuthentication(JWT.decode(tokens.getIdToken()));
       SecurityContextHolder.getContext().setAuthentication(tokenAuth);
       res.sendRedirect(redirectOnSuccess);

@@ -17,7 +17,7 @@ useCase:
 
 # Migration Guide: Management API and ID Tokens
 
-For some use cases you could use [ID Tokens](/tokens/id-tokens) in order to call some of the [Users](/api/management/v2#!/Users/get_users_by_id) and [Device Credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoints of the Management API. 
+For some use cases you could use [ID Tokens](/tokens/concepts/id-tokens) in order to call some of the [Users](/api/management/v2#!/Users/get_users_by_id) and [Device Credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoints of the Management API. 
 
 This functionality is being deprecated. You will have to use proper <dfn data-key="access-token">[Access Tokens](/tokens/access-token)</dfn> in order to access any of the endpoints of the [Management API](/api/management/v2). Make sure the `Allow ID Tokens for Management API v2 Authentication` toggle is turned off after completing the migration to Access Tokens.
 
@@ -42,7 +42,7 @@ If you use ID Tokens to call any of the following endpoints, then you are affect
 | [POST/api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) | [Link user accounts](/link-accounts) from various identity providers |
 | [DELETE /api/v2/users/{id}/identities/{provider}/{user_id}](/api/management/v2#!/Users/delete_user_identity_by_user_id) | [Unlink user accounts](/link-accounts#unlinking-accounts) |
 
-These endpoints can now accept regular [Access Tokens](/tokens/access-tokens).
+These endpoints can now accept regular [Access Tokens](/tokens/concepts/access-tokens).
 
 Note that the last two endpoints are used for Account Linking. To review these changes, see [Changes in Account Linking](#changes-in-account-linking).
 
@@ -191,7 +191,7 @@ The changes in this functionality are the following:
 
 For a detailed overview of these changes and migration steps per use case, see [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking).
 
-## Next steps
+## Keep reading
 
-- [Get Access Tokens](/tokens/guides/access-token/get-access-tokens)
+- [Get Access Tokens](/tokens/guides/get-access-tokens)
 - [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking)

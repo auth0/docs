@@ -30,14 +30,12 @@ Here are some things you should know before you create a redirect Rule:
 - Redirect Rules won't work with:
   - [Resource Owner endpoint](/api/authentication/reference#resource-owner)
   - [Password exchange](/api-auth/grant/password)
-  - [Refresh Token exchange](/tokens/refresh-token#rules).
+  - [Refresh Token exchange](/tokens/concepts/refresh-token#rules).
 - You can detect the above cases by checking `context.protocol`:
   - For Password exchange: `context.protocol === 'oauth2-password'`
   - For Refresh Token exchange: `context.protocol === 'oauth2-refresh-token'`
   - For Resource Owner logins: `context.protocol === 'oauth2-resource-owner'`
 - When a user has been redirected from a rule to the `/continue` endpoint, the user object won't be refreshed. So any updates to user account information during the redirect will not be reflected in the user object. For example, metadata updates that occurred during redirect will not be available.
-
-<%= include('../../_includes/_redirect_uri_formats') %>
 
 ## Start a redirect
 

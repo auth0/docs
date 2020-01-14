@@ -32,7 +32,7 @@ The OAuth 2.0 Authorization Framework allows for different kinds of authorizatio
 
 The Implicit Grant flow is initiated by redirecting the user in an embedded web browser inside of your application to the Auth0 `/authorize` endpoint. Auth0 will then display the Auth0 Lock dialog, allowing the user to enter their credentials or alternatively sign in with any other configured [Identity Provider](/identityproviders).
 
-After the user has authenticated, Auth0 will redirect the browser back to the `redirect_uri` (also known as the **Callback URL**), passing along an `id_token` parameter in the [hash fragment](https://en.wikipedia.org/wiki/Fragment_identifier) or the URL. The ID Token is a [JSON Web Token (JWT)](/jwt) and contains various attributes - referred to as _Claims_ - regarding the user, such as the user's name, email address, profile picture and so on.
+After the user has authenticated, Auth0 will redirect the browser back to the `redirect_uri` (also known as the **Callback URL**), passing along an `id_token` parameter in the [hash fragment](https://en.wikipedia.org/wiki/Fragment_identifier) or the URL. The ID Token is a [JSON Web Token (JWT)](/tokens/concepts/jwts) and contains various attributes - referred to as _Claims_ - regarding the user, such as the user's name, email address, profile picture and so on.
 
 The ID Token can be decoded to extract the claims and you can use these inside of your application, to display a user's name and profile image for example.
 
@@ -84,9 +84,9 @@ After the user has authenticated, Auth0 will call back to the URL specified in t
 https://${account.namespace}/mobile#id_token=eyJ0...&token_type=Bearer
 ```
 
-The `token_type` will be set to **Bearer** and the `id_token` will be a [JSON Web Token (JWT)](/jwt) containing information about the user. You can extract both of these values from the URL using basic string manipulation techniques in whatever programming language you are using.
+The `token_type` will be set to **Bearer** and the `id_token` will be a [JSON Web Token (JWT)](/tokens/concepts/jwts) containing information about the user. You can extract both of these values from the URL using basic string manipulation techniques in whatever programming language you are using.
 
-As mentioned, the ID Token is a JWT and you will need to decode this token in order to read the claims (or attributes) of the user. The [JWT section of our website](/jwt) contains more information about the structure of a JWT.
+As mentioned, the ID Token is a JWT and you will need to decode this token in order to read the claims (or attributes) of the user. The [JWT section of our website](/tokens/concepts/jwts) contains more information about the structure of a JWT.
 
 You can also refer to the [libraries section on the JWT.io website](https://jwt.io/#libraries-io) in order to obtain a library for your programming language of choice which will assist you in decoding the ID Token.
 

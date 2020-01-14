@@ -37,7 +37,7 @@ Enabling this flag on an application will have the following effects:
 * The [/oauth/access_token endpoint](/api/authentication#post-oauth-access_token), used for social authentication from native mobile applications, is disabled.
   An OIDC-conformant alternative will be added in future releases.
 * The [`scope` parameter of authentication requests](/api-auth/tutorials/adoption/scope-custom-claims) will comply to the OIDC specification:
-    - Custom claims must be [namespaced](/tokens/concepts/claims-namespacing) and added to ID Tokens or Access Tokens via rules.
+    - Custom claims must be [namespaced](/tokens/guides/create-namespaced-custom-claims) and added to ID Tokens or Access Tokens via rules.
     - The namespace identifiers for custom claims must be **HTTP** or **HTTPS** URIs.
     - Custom <dfn data-key="scope">scope</dfn> values can be defined by a [resource server (API)](/api-auth/tutorials/adoption/api-tokens).
 * OIDC-conformant applications cannot be the source or target application of a [delegation request](/api-auth/tutorials/adoption/delegation).

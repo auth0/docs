@@ -189,7 +189,7 @@ npm install express-jwt-authz --save
 
 Now it is as simple as adding a call to `jwtAuthz(...)` to your middleware to ensure that the JWT contain a particular scope in order to execute a particular endpoint.
 
-We will add an additional dependency. The **express-jwt-authz** library, which is used in conjunction with express-jwt, validates the [JWT](/jwt) and ensures it bears the correct permissions to call the desired endpoint. For more information refer to the [express-jwt-authz GitHub repository](https://github.com/auth0/express-jwt-authz).
+We will add an additional dependency. The **express-jwt-authz** library, which is used in conjunction with express-jwt, validates the [JWT](/tokens/concepts/jwts) and ensures it bears the correct permissions to call the desired endpoint. For more information refer to the [express-jwt-authz GitHub repository](https://github.com/auth0/express-jwt-authz).
 
 This is our sample implementation (some code is omitted for brevity):
 
@@ -236,7 +236,7 @@ function (user, context, callback) {
 }
 ```
 
-The `namespace` is used to ensure the claim has a unique name and does not clash with the names of any of the standard OIDC claims. For more info on namespaced claims, see [Namespacing Claims](/tokens/concepts/claims-namespacing).
+The `namespace` is used to ensure the claim has a unique name and does not clash with the names of any of the standard OIDC claims. For more info on namespaced claims, see [Namespacing Claims](/tokens/guides/create-namespaced-custom-claims).
 
 Next, inside your API, you can retrieve the value of the claim from `req.user`, and use that as the unique user identity which you can associate with timesheet entries.
 

@@ -64,4 +64,4 @@ When using this flow from server-side applications, some anomaly detection featu
 ## Keep reading
 
 * [Implement the Resource Owner Password Grant](/api-auth/tutorials/password-grant)
-* [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
+* [Tokens](/tokens)
