@@ -22,7 +22,7 @@ From a functional perspective, it has much better support for [Localization](/un
 
     - <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> and Silent Authentication will work properly, which does not happen in the Classic Experience.
 
-    - Users will see a warning in the login page mentioning that the tenant is configured with [Development Keys](docs/connections/social/devkeys).
+    - Users will see a warning in the login page mentioning that the tenant is configured with [Development Keys](/connections/social/devkeys).
 
 - A button will be rendered for each social and enterprise connection. 
 
@@ -43,6 +43,8 @@ From a functional perspective, it has much better support for [Localization](/un
 ## Password Reset
 
 - In the Classic Experience you can [configure a url](/email/templates#redirect-to-results-for-the-change-password-email-template) to redirect users after completing the password reset. The URL will receive a success indicator and a message. The New Experience will redirect the users to the [default login route](/universal-login/default-login-url) when it succeeds, and will handle the error cases as part of the Universal Login flow. The Redirect URL in the email template will be ignored.  
+
+Please note that you must provide an **Application Login URI** under [Application Settings](/dashboard/reference/settings-application) for the redirect URLs to work.
 
 - A 'show password' icon will be displayed next to the password fields.
 
@@ -69,7 +71,7 @@ When using [Custom DB Connections](/connections/database/custom-db):
 
 ## Branding
 
-- You can configure the favicon URL and a custom font URL by using [the Branding API](/api/management/v2#!/Branding).
+- You can configure the favicon URL and a custom font URL by using [the Branding API](/api/management/v2#!/Branding/get_branding).
 
 ## Implement Universal Login
 

@@ -16,7 +16,7 @@ If you are using Maven, add these dependencies to your `pom.xml`:
 <dependency>
     <groupId>com.auth0</groupId>
     <artifactId>mvc-auth-commons</artifactId>
-    <version>(1.0,2.0)</version>
+    <version>[1.0, 2.0)</version>
 </dependency>
 <dependency>
     <groupId>javax</groupId>
@@ -76,7 +76,7 @@ Your Java EE application needs some information in order to authenticate users w
 </env-entry>
 ```
 
-This information will be used to configure the Auth0 Java MVC SDK to allow authentication with users. To learn more about the SDK, including its various configuration options, see the [README](https://github.com/auth0/auth0-java-mvc-common/blob/master/README.md) of the SDK.
+This information will be used to configure the **auth0-java-mvc-commons** library to enable users to login to your application. To learn more about the library, including its various configuration options, see the [README](https://github.com/auth0/auth0-java-mvc-common/blob/master/README.md) of the library.
 
 ::: panel Check populated attributes
 If you downloaded this sample using the **Download Sample** button, the `domain`, `clientId` and `clientSecret` attributes will be populated for you. You should verify that the values are correct, especially if you have multiple Auth0 applications in your account.

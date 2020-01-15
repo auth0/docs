@@ -1,5 +1,6 @@
 ---
-description: Recommended tenant settings in Auth0.
+title: Tenant Settings Best Practices
+description: Learn about recommended tenant settings in Auth0.
 topics:
   - best-practices
   - configuration
@@ -12,7 +13,6 @@ useCase:
   - tenant
   - tenant-settings
 ---
-
 # Tenant Settings Best Practices
 
 Here are some best practices for configuring [tenants](/getting-started/the-basics#account-and-tenants).

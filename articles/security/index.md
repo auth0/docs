@@ -30,8 +30,8 @@ useCase:
 ## Handling tokens
 
 <%= include('../_includes/_topic-links', { links: [
-  'security/store-tokens',
-  'tokens'
+  'tokens',
+  'tokens/guides/store-tokens'
 ] }) %>
 
 ## Preventing security attacks

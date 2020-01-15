@@ -15,6 +15,13 @@ You can store the application state parameter before you redirect users to authe
 
 Use the `state` parameter to lookup and restore the previous state of your application. Generate and store a <dfn data-key="nonce">`nonce`</dfn> locally (cookies/session/localstorage), along with any desired state data (like the redirect URL). Use the `nonce` as a state in the protocol message. If the returned state matches the stored nonce, accept the OAuth2 message and fetch the corresponding state data from storage. This is the approach used by Auth0.js.
 
+::: warning
+Passing URLs in plaintext or in any predictable way is unsafe. State should always be unique and opaque to ensure that:
+
+* `state` can be used for defense against CSRF attacks
+* your app is not vulnerable to open redirect exploits, which can lead to phishing attacks
+:::
+
 1. Generate the `nonce` that you will use to protect against CSRF attacks as explained before. Store the `nonce` locally, using it as the key to store all the other application state like the URL where the user intended to go. For example:
 
    ```json

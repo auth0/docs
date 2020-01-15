@@ -1,6 +1,6 @@
 ---
 title: Authorization
-description: This tutorial will show you how assign roles to your users, and use those claims to authorize or deny a user to access certain routes in the app.
+description: This tutorial will show you how to assign roles to your users, and use those claims to authorize or deny a user to access certain routes in the app.
 budicon: 546
 topics:
   - quickstarts
@@ -68,7 +68,7 @@ Update the code to check for your own email domain, or match your custom conditi
 You can define more roles other than `admin` and `user`, or customize the whole rule, depending on your product requirements.
 :::
 
-This quickstart guide uses `https://schemas.quickstarts.com/roles` for the claim [namespace](/tokens/concepts/claims-namespacing). We recommend that you use a namespace related to your own Auth0 tenant for your claims, for example, `https://schemas.YOUR_TENANT_NAME.com`.
+This quickstart guide uses `https://schemas.quickstarts.com/roles` for the claim [namespace](/tokens/guides/create-namespaced-custom-claims). We recommend that you use a namespace related to your own Auth0 tenant for your claims, for example, `https://schemas.YOUR_TENANT_NAME.com`.
 
 ::: note
 For more information on custom claims, read [User profile claims and scope](/api-auth/tutorials/adoption/scope-custom-claims).

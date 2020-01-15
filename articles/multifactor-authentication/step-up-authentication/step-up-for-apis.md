@@ -50,7 +50,7 @@ Besides checking the scope, the API must perform additional validation on the Ac
     | `iss` | Token issuer |
     | `aud` | Intended recipient of the token |
 
-For more info, see [Validate an Access Token: Custom API Access Tokens](/tokens/guides/access-token/validate-access-token#custom-api-access-tokens).
+For more information, see [Validate an Access Token: Custom API Access Tokens](/tokens/guides/validate-access-tokens#custom-api-access-tokens).
 
 ## Sample scenario
 
@@ -58,7 +58,7 @@ In the following scenario, we will learn how to implement the flow described abo
 
 For this example, we assume that we have already done the following:
 
-- [Registered an application](/applications/concepts/app-types-auth0). For this example, we'll use a single-page web app.
+- [Registered an application](/applications). For this example, we'll use a single-page web app.
 - [Created a database connection](${manage_url}/#/connections/database).
 - [Registered the API](/apis#how-to-configure-an-api-in-auth0). During this process, we should create two scopes: `view:balance` and `transfer:funds`.
 - [Enabled Multi-factor Authentication](/multifactor-authentication). For this example, we'll use [push notifications](/multifactor-authentication/factors/push).
@@ -210,8 +210,8 @@ For this example, we assume that we have already done the following:
 
 ## Keep reading
 
-* [Access Tokens](/tokens/access-tokens)
+* [Access Tokens](/tokens/concepts/access-tokens)
 * [Rules](/rules)
 * [Scopes](/scopes)
-* [Validate an Access Token](/tokens/guides/access-token/validate-access-token)
+* [Validate Access Tokens](/tokens/guides/validate-access-tokens)
 * [Step-up Authentication for Web Apps](/multifactor-authentication/step-up-authentication/step-up-for-web-apps)

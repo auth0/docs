@@ -75,7 +75,7 @@ In this case, the user successfully logs in with the idp, a successful login eve
 
 * Check the application's log files to see if there are any error messages indicating why the user is unable to access the application. The two most common causes for this issue are missing user profile information or incorrect/missing authorization information.
 
-* Check the information that Auth0 sends to the application by [capturing an HTTP trace of the login sequence](/har). To analyze the HTTP trace:
+* Check the information that Auth0 sends to the application by [capturing an HTTP trace of the login sequence](/troubleshoot/guides/generate-har-files). To analyze the HTTP trace:
 
   1. View the trace in a HAR file analyzer, such as [Google's HAR Analyzer](https://toolbox.googleapps.com/apps/har_analyzer/).
 

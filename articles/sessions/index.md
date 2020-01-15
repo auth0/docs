@@ -18,6 +18,7 @@ By default, when a user leaves a website or closes their browser, their session 
   'sessions/concepts/session-layers',
   'sessions/concepts/session-lifetime',
   'sessions/concepts/cookies',
+  'sessions/concepts/cookie-attributes',
   'logout',
   'sessions/references/sample-use-cases-sessions',
   'sessions/references/example-short-lived-session-mgmt'

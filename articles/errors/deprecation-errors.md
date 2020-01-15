@@ -17,7 +17,7 @@ When Auth0 features are deprecated, there may be errors or notices in the tenant
 
 ## How to search logs for deprecation warnings
 
-There are two different ways to search for warning messages showing usage of deprecated features: The Dashboard or the Management API. Note that in either case, the [log retention period](/logs#how-long-is-log-file-data-available-) is governed by the subscription level of your account.
+There are two different ways to search for warning messages showing usage of deprecated features: The Dashboard or the Management API. Note that in either case, the [log retention period](/logs/references/log-data-retention) is governed by the subscription level of your account.
 
 ### Search logs via the Dashboard
 

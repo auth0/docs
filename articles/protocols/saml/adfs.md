@@ -12,7 +12,7 @@ useCase:
   - saml-adfs
 ---
 
-# Setup an ADFS SAML Connection
+# Set Up an ADFS SAML Connection
 
 Create a custom <dfn data-key="security-assertion-markup-language">SAML</dfn> connection to Microsoft's Active Directory Federation Services (ADFS) to get more flexibility when configuring your mappings. 
 
@@ -34,10 +34,10 @@ See [Create a relying party trust](https://docs.microsoft.com/en-us/windows-serv
 1. Launch your instance of ADFS and start the **Add Relying Party Trust** wizard.
 2. On the **Welcome** page, choose **Claims aware** and click **Start**. 
 3. On the **Select Data Source** page, select **Enter data about the relying party manually** and click **Next**.
-4. On the **Specify Display Name** page, provide a descriptive name for your relying party (the typical format is `urn:auth0:${account.namespace}`) and a brief description under **Notes**. Click **Next**.
+4. On the **Specify Display Name** page, provide a descriptive name for your relying party (the typical format is `urn:auth0:${account.tenant}:YOUR_CONNECTION_NAME`) and a brief description under **Notes**. Be sure to replace `YOUR_CONNECTION_NAME` with a unique name you will also use to create a connection in Auth0 in a [later step](#Create-a-SAML-connection-with-Auth0-as-the-service-provider). If you are unsure of the connection name at this time, you can always edit the connection name later. Click **Next**.
 5. On the **Configure Certificate** page, click **Next**. (We will come back to configure the certificate later.)
 6. On the **Configure URL** page, check the box for **Enable support for the SAML 2.0 WebSSO protocol**. The wizard then asks for a **Relying party SAML 2.0 SSO service URL**. For the time being, provide a placeholder URL; we will return to this step later. Click **Next**.
-7. On the **Configure Identifiers** page, indicate that the **Relying party trust identifier** is `urn:auth0:${account.namespace}` (or whatever value you used as the display name when you started using the wizard). Click **Next**.
+7. On the **Configure Identifiers** page, indicate that the **Relying party trust identifier** is `urn:auth0:${account.tenant}:YOUR_CONNECTION_NAME` (or whatever value you used as the display name when you started using the wizard). Click **Next**.
 8. On the **Choose Access Control Policy** page, select **Permit everyone** and click **Next**.
 9. Review the settings you provided on the **Ready to Add Trust** page and click **Next** to save your information. If you were successful, you'll see a message indicating that on the **Finish** page. 
 10. Make sure that the **Configure claims issuance policy for this application** checkbox is selected, and click **Close**.
@@ -91,10 +91,10 @@ Finally, you'll need to export the signing certificate from the ADFS console to 
     
     | Parameter | Example Value |
     | - | - |
-    | Post-back URL | `https://{yourAuth0accountdomain}/login/callback}/login/callback?connection={your new SAML connection}` if a custom domain is configured |
-    | --- | `tenant.auth0.com` if not using custom domains |
-    | Entity ID | `urn:auth0:account:connection` |
-
+    | Post-back URL | `https://<YOUR CUSTOM DOMAIN>/login/callback?connection=YOUR_CONNECTION_NAME` if a [custom domain](/custom-domains) is configured |
+    | --- | `https://${account.namespace}/login/callback?connection=YOUR_CONNECTION_NAME` if not using custom domains |
+    | Entity ID | `urn:auth0:${account.tenant}:YOUR_CONNECTION_NAME` |
+    
 ## Edit the Relying Party Trust
 
 1. In the ADFS console, go to **ADFS > Relying Party Trusts** using the left-hand navigation pane. Select the Relying Party Trust you created earlier and click **Properties** (located on the right-hand navigation pane). 
@@ -126,4 +126,4 @@ Before you test your integration, make sure that you've completed the following 
 ## Keep reading
 
 * [Troubleshooting SAML Configuration](/protocols/saml/saml-configuration/troubleshoot)
-* [How SAML Authentication Works](/https://auth0.com/blog/how-saml-authentication-works/)
+* [How SAML Authentication Works](https://auth0.com/blog/how-saml-authentication-works/)

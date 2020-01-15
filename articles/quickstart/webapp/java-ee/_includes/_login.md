@@ -4,7 +4,7 @@ The Java EE 8 Security API introduced the `HttpAuthenticationMechanism` interfac
 
 To authenticate with Auth0, provide custom implementations of the following interfaces:
 
-- `HttpAuthenticationMechanism`: Responsible for obtaining an user's credentials and notifying the container of successful (or not) login status ([JavaDoc](https://javaee.github.io/javaee-spec/javadocs/javax/security/enterprise/authentication/mechanism/http/HttpAuthenticationMechanism.html)).
+- `HttpAuthenticationMechanism`: Responsible for obtaining a user's credentials and notifying the container of successful (or not) login status ([JavaDoc](https://javaee.github.io/javaee-spec/javadocs/javax/security/enterprise/authentication/mechanism/http/HttpAuthenticationMechanism.html)).
 - `IdentityStore`: Responsible for validating the user's credentials ([JavaDoc](https://javaee.github.io/javaee-spec/javadocs/javax/security/enterprise/identitystore/IdentityStore.html)).
 - `CallerPrincipal`: Represents the caller principal of the current HTTP request ([JavaDoc](https://javaee.github.io/javaee-spec/javadocs/javax/security/enterprise/CallerPrincipal.html)).
 - `Credential`: Represents the credential the caller will use to authenticate ([JavaDoc](https://javaee.github.io/javaee-spec/javadocs/javax/security/enterprise/credential/Credential.html)).
@@ -119,7 +119,16 @@ public class Auth0JwtIdentityStore implements IdentityStore {
 
 If the `credential` is an `Auth0Credential`, the calling user is authenticated and valid, so a `CredentialValidationResult` created with the credential is returned to indicate success. If it is not an `Auth0Credential`, return `CredentialValidationResult.NOT_VALIDATED_RESULT`.
 
-Before implementing the `HttpAuthenticationMechanism` interface that will use all these collaborators, create a bean that will provide a configured instance of the `AuthenticationController` from the Auth0 Java MVC SDK, used to build the authorize URLs and handle the token exchange to authenticate users:
+Before implementing the `HttpAuthenticationMechanism` interface that will use all these collaborators, create a bean that will provide a configured instance of the `AuthenticationController` from the Auth0 Java MVC SDK. The `AuthenticationController` is used to build the authorization URL where users will login, and handle the token exchange to authenticate users.
+
+* If your Auth0 Application is configured to use the **RS256 signing algorithm** (the default when creating a new Auth0 Application), you need to configure a `JwkProvider` to fetch the public key used to verify the token's signature. See the [jwks-rsa-java repository](https://github.com/auth0/jwks-rsa-java) to learn about additional configuration options.
+* If your Auth0 Application is configured to use the **HS256 signing algorithm**, there is no need to configure the `JwkProvider`.
+
+::: note
+To learn more about the available signing algorithms, refer to the [documentation](https://auth0.com/docs/tokens/concepts/signing-algorithms).
+:::
+
+The sample below shows how to configure the `AuthenticationController` for use with the **RS256 signing algorithm**:
 
 ```java
 // src/main/java/com/auth0/example/security/Auth0AuthenticationProvider.java
@@ -129,7 +138,9 @@ public class Auth0AuthenticationProvider {
 
     @Produces
     public AuthenticationController authenticationController(Auth0AuthenticationConfig config) {
+        JwkProvider jwkProvider = new JwkProviderBuilder(config.getDomain()).build();
         return AuthenticationController.newBuilder(config.getDomain(), config.getClientId(), config.getClientSecret())
+                .withJwkProvider(jwkProvider)
                 .build();
     }
 }
@@ -138,6 +149,8 @@ public class Auth0AuthenticationProvider {
 Finally, implement a custom `HttpAuthenticationMechanism`
 
 ```java
+// src/main/java/com/auth0/example/security/Auth0AuthenticationMechanism.java
+
 @ApplicationScoped
 @AutoApplySession
 public class Auth0AuthenticationMechanism implements HttpAuthenticationMechanism {
@@ -158,7 +171,7 @@ public class Auth0AuthenticationMechanism implements HttpAuthenticationMechanism
         // Exchange the code for the ID token, and notify container of result.
         if (isCallbackRequest(httpServletRequest)) {
             try {
-                Tokens tokens = authenticationController.handle(httpServletRequest);
+                Tokens tokens = authenticationController.handle(httpServletRequest, httpServletResponse);
                 Auth0JwtCredential auth0JwtCredential = new Auth0JwtCredential(tokens.getIdToken());
                 CredentialValidationResult result = identityStoreHandler.validate(auth0JwtCredential);
                 return httpMessageContext.notifyContainerAboutLogin(result);
@@ -190,7 +203,7 @@ Finally, note that the `@AutoApplySession` annotation has been added to allow th
 
 ## Trigger authentication
 
-To enable a user to login, create a Servlet that will handle requests to the `/login` path:
+To enable a user to log in, create a Servlet that will handle requests to the `/login` path:
 
 ```java
 // src/main/java/com/auth0/example/web/LoginServlet.java
@@ -217,8 +230,7 @@ public class LoginServlet extends HttpServlet {
         );
 
         // Create the authorization URL to redirect the user to, to begin the authentication flow.
-        String authURL = authenticationController.buildAuthorizeUrl(request, callbackUrl)
-                .withAudience("https://" + config.getDomain() + "/userinfo")
+        String authURL = authenticationController.buildAuthorizeUrl(request, response, callbackUrl)
                 .withScope(config.getScope())
                 .build();
 

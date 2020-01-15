@@ -34,7 +34,7 @@ While the Client ID is considered public information, the Client Secret **must b
 
 - **Application Logo**: The URL to a logo (recommended size: 150x150 pixels) to be displayed for the application. Appears in several areas, including the list of applications in the Dashboard and customized consent forms.
 
-- **Application Type**: The [Auth0 application type](/applications/concepts/app-types-auth0). Determines which settings you can configure using the Dashboard. Not editable for M2M Apps. Sometimes disabled for other Auth0 application types if the selected grant types are only allowed for the currently selected application type.
+- **Application Type**: The [Auth0 application type](/applications). Determines which settings you can configure using the Dashboard. Not editable for M2M Apps. Sometimes disabled for other Auth0 application types if the selected grant types are only allowed for the currently selected application type.
 
 - **Token Endpoint Authentication Method**: Defines the requested authentication method for the token endpoint. Possible values are `None` (public client without a client secret), `Post` (client uses HTTP POST parameters), and `Basic` (client uses HTTP Basic). Only editable for Regular Web Apps and M2M Apps.
 

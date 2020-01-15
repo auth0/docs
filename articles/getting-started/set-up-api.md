@@ -40,7 +40,7 @@ useCase:
 
     - **Scopes**: here you can define the scopes for this API, by setting a name and a description.
 
-    - **Machine to Machine Applications**: lists all applications for which the **Client Credentials** grant is **enabled**. By default, this grant is **enabled* for [Regular Web Applications and Machine to Machine Applications](/applications/concepts/app-types-auth0). You can authorize any of these applications to request Access Tokens for your API. Optionally, you can select a subset of the defined scopes to  limit your authorized application's access. 
+    - **Machine to Machine Applications**: lists all applications for which the **Client Credentials** grant is **enabled**. By default, this grant is **enabled* for [Regular Web Applications and Machine to Machine Applications](/applications). You can authorize any of these applications to request Access Tokens for your API. Optionally, you can select a subset of the defined scopes to  limit your authorized application's access. 
 
     - **Test**: from this view, you can execute a sample Client Credentials flow with any of your authorized applications to check that everything is working as expected.
 
@@ -91,7 +91,7 @@ Go to [Dashboard > Applications](${manage_url}/#/applications). Open the **Setti
 
 If you want to use the Public Key to verify a JWT signature on [JWT.io](https://jwt.io/), you can copy the Public Key and paste it in the **Public Key or Certificate** field under the **Verify Signature** section on the [JWT.io](https://jwt.io/) website.
 
-If you want to verify the signature of a token from one of your applications, we recommend that you get the Public Key from your tenant's [JSON Web Key Set (JWKS)](/jwks). Your tenant's JWKS is `https://${account.namespace}/.well-known/jwks.json`.
+If you want to verify the signature of a token from one of your applications, we recommend that you get the Public Key from your tenant's [JSON Web Key Set (JWKS)](/tokens/concepts/jwks). Your tenant's JWKS is `https://${account.namespace}/.well-known/jwks.json`.
 :::
 
 For a more detailed overview of the JWT signing algorithms, see [JSON Web Token (JWT) Signing Algorithms Overview](https://auth0.com/blog/json-web-token-signing-algorithms-overview/).
@@ -100,4 +100,4 @@ For a more detailed overview of the JWT signing algorithms, see [JSON Web Token 
 
 - [API Authorization Overview](/api-auth)
 - [Which OAuth Flow to Use](/api-auth/which-oauth-flow-to-use)
-- [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
+- [Tokens](/tokens)

@@ -44,7 +44,7 @@ In this article, we will evaluate the pros and cons of these two options and see
 
 For most situations, we recommend using a Universal Login strategy, where Auth0 will show a [login page](/hosted-pages/login) if authentication is required. You can customize your login page using the [Dashboard](${manage_url}/#/login_page).
 
-You can use **Auth0's Custom Domains** in order to persist the same domain across the login page and the app. This way the redirect to the login page will be transparent to your users since the domain will not change. For more details refer to [Custom Domains Overview](/custom-domains).
+You can use **Auth0's Custom Domains** in order to persist the same domain across the login page and the app. This way the redirect to the login page will be transparent to your users since the domain will not change. For more details, see [Custom Domains](/custom-domains).
 
 Whenever your app triggers an authentication request, the user will be redirected to the login page in order to authenticate. This will create a cookie. In future authentication requests, Auth0 will check for this cookie, and if it is present the user will not be redirected to the login page. They will see the page only when they need to actually log in. This is the easiest way to implement SSO.
 

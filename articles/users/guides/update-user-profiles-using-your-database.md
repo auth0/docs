@@ -60,10 +60,10 @@ The User Profile is cached for several reasons. First, caching allows you the op
 ## Keep reading
 
 * [User Profiles](/users/concepts/overview-user-profile)
-* [User Metadata](/users/concepts/overview-user-metadata)
+* [Metadata](/users/concepts/overview-user-metadata)
 * [Manage User Metadata](/users/guides/manage-user-metadata)
 * [Manage Users Using the Management API](users/guides/manage-users-using-the-management-api)
-* [Update Metadata Properties with the Management API](/users/guides/update-metadata-properties-with-management-api)
+* [Update Metadata with the Management API](/users/guides/update-metadata-properties-with-management-api)
 * [Read Metadata](/users/guides/read-metadata)
 * [User Data Storage Best Practices](/best-practices/user-data-storage-best-practices)
 * [User Data Storage Scenario](/users/references/user-data-storage-scenario)

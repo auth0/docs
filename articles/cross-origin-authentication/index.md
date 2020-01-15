@@ -17,7 +17,7 @@ Auth0 strongly recommends that authentication transactions be handled via [Unive
 
 When authentication requests are made from your application (via the Lock widget or a custom login form) to Auth0, the user's credentials are sent to a domain which differs from the one that serves your application. Collecting user credentials in an application served from one origin and then sending them to another origin can present certain security vulnerabilities, including the possibility of a phishing attack.
 
-Auth0 provides a [cross-origin authentication flow](https://raw.githubusercontent.com/jaredhanson/draft-openid-connect-cross-origin-authentication/master/Draft-1.0.txt) which makes use of [third-party cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#Third-party_cookies). The use of third-party cookies allows Lock and Auth0's backend to perform the necessary checks to allow for secure authentication transactions across different origins. This helps to prevent phishing when creating a <dfn data-key="single-sign-on">Single Sign-on</dfn> experience with the Lock widget or a custom login form in your application and it also helps to create a secure login experience even if SSO is not the goal.
+Auth0 provides a cross-origin authentication flow which makes use of [third-party cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#Third-party_cookies). The use of third-party cookies allows Lock and Auth0's backend to perform the necessary checks to allow for secure authentication transactions across different origins. This helps to prevent phishing when creating a <dfn data-key="single-sign-on">Single Sign-on</dfn> experience with the Lock widget or a custom login form in your application and it also helps to create a secure login experience even if SSO is not the goal.
 
 ::: note
 Cross-origin authentication is not recommended and is only necessary when authenticating against a directory using a username and password. Social IdPs and enterprise federation use a different mechanism, redirecting via standard protocols like OpenID Connect and <dfn data-key="security-assertion-markup-language">SAML</dfn>. Additionally, cross-origin authentication is only applicable to embedded login on the web (using Lock or auth0.js). Native applications using embedded login make use of the standard OAuth 2.0 token endpoint.
@@ -85,5 +85,7 @@ See the [cross-origin auth sample](https://github.com/auth0/lock/blob/master/sup
 
 The following browsers can use cross-origin authentication when third-party cookies are disabled:
 
-* Windows Internet Explorer
-* Windows Edge
+* Microsoft Internet Explorer
+* Microsoft Edge
+
+<%= include('../_includes/_samesite_none') %>

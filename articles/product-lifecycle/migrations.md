@@ -24,6 +24,37 @@ We are actively migrating customers to new behaviors for all **Deprecations** li
   </thead>
   <tbody>
     <tr>
+      <td><a href="/migrations/guides/management-api-v1-v2">Management API v1</a></td>
+      <td>October 2016</td>
+      <td>
+        <strong>Public Cloud</strong>: 13 July 2020<br>
+        <strong>Private Cloud</strong>: November 2020 release<br>
+      </td>
+      <td>Management API v1 will reach its End of Life on July 13, 2020. You may be required to take action before that date to ensure no interruption to your service. A <a href="/migrations/guides/management-api-v1-v2">migration guide</a> is available to walk you through the steps required. Notifications have been and will continue to be sent to customers that need to complete this migration.<br>Useful Resources:<br>
+        <a href="/migrations/guides/management-api-v1-v2">Management API v1 to v2 Migration Guide</a><br>
+        <a href="/api/management/v2">Management API v2 documentation</a><br>
+        <a href="/api/management/v1">Management API v1 documentation</a><br>
+        <a href="/api/management/v2/changes">Breaking changes</a><br>
+        <a href="/api/management/v1/use-cases">Unaffected endpoints</a><br>
+      </td>
+  </tr>
+  <tr>
+      <td><a href="/migrations/guides/passwordless-start">Deprecation of unauthenticated calls to the <code>/passwordless/start</code> endpoint from confidential clients</a></td>
+      <td>6 January 2020</td>
+      <td>
+        TBD
+      </td>
+      <td>We improved the security of our Passwordless implementation by adding client authentication to the <code>/passwordless/start</code> endpoint.</td>
+    </tr>
+    <tr>
+      <td><a href="/migrations/guides/migration-oauthro-oauthtoken-pwdless"><code>/oauth/ro</code> deprecation for Passwordless Connections</a></td>
+      <td>8 June 2017</td>
+      <td>
+        TBD
+      </td>
+      <td>On June 8th 2017 we deprecated the <code>/oauth/ro</code> endpoint for passwordless connections. You can now implement the same functionality using the <a href="/migrations/guides/migration-oauthro-oauthtoken-pwdless">/oauth/token endpoint</a>.</td>
+    </tr>
+    <tr>
       <td><a href="/users/search/v3/migrate-search-v2-v3">User Search v2</a></td>
       <td>6 June 2018</td>
       <td>30 June 2019</td>

@@ -1,5 +1,6 @@
 ---
-description: Best practices for general operations in Auth0.
+title: General Usage and Operations Best Practices
+description: Learn about best practices for general operations in Auth0.
 topics:
   - best-practices
 contentType: 
@@ -8,7 +9,6 @@ contentType:
 useCase:
   - best-practices
 ---
-
 # General Usage and Operations Best Practices
 
 Here are some recommended best practices for general Auth0 usage and operation.

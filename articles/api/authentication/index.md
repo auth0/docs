@@ -95,8 +95,13 @@ contentType:
  <%= include('./errors/_oauth-access_token') %>
 </div>
 <div class="api-section" data-section="errors">
+<%= include('./errors/_oauth-ro') %>
+</div>
+<div class="api-section" data-section="errors">
  <%= include('./errors/_passwordless-verify') %>
 </div>
 <div class="api-section" data-section="errors">
  <%= include('./errors/_passwordless-start') %>
 </div>
+
+<script type="text/javascript" src="https://my.hellobar.com/0a0898d29aca1681ebd408f7a9ba5c3c16a44862.js"></script>

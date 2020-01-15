@@ -1,6 +1,6 @@
 ## Refresh Tokens
 
-You have already received a [Refresh Token](/tokens/refresh-token/current) if you've been following this tutorial and completed the following:
+You have already received a [Refresh Token](/tokens/concepts/refresh-tokens) if you've been following this tutorial and completed the following:
 
 * configured your API to allow offline access
 * included the `offline_access` scope when you initiated the authentication request through the [authorize](/api/authentication/reference#authorize-application) endpoint
@@ -62,5 +62,5 @@ If all goes well, you'll receive an `HTTP 200` response with a payload containin
 ```
 
 ::: warning
-You should validate your tokens before saving them. To learn how, see [Validate an Access Token](/tokens/guides/access-token/validate-access-token) and [Validate an ID Token](/tokens/guides/id-token/validate-id-token).
+You should validate your tokens before saving them. To learn how, see [Validate Access Tokens](/tokens/guides/validate-access-tokens) and [Validate ID Tokens](/tokens/guides/validate-id-tokens).
 :::

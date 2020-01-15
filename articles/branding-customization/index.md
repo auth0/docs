@@ -1,6 +1,6 @@
 ---
 classes: topic-page
-title: Branding & Customization
+title: Brand and Customize
 description: Learn how to customize and apply branding to Auth0's product.
 topics:
   - branding
@@ -15,7 +15,7 @@ useCase:
 <!-- markdownlint-disable MD041 MD002 MD026 -->
 <div class="topic-page-header">
   <div data-name="example" class="topic-page-badge"></div>
-  <h1>Branding & Customization</h1>
+  <h1>Brand and Customize</h1>
   <p>
     Learn how to customize and apply branding to Auth0's product.
 

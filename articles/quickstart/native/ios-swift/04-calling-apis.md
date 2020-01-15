@@ -13,7 +13,7 @@ contentType: tutorial
 useCase: quickstart
 ---
 
-Auth0 provides a set of tools for protecting your resources with end-to-end authentication in your application. 
+Auth0 provides a set of tools for protecting your resources with end-to-end authentication in your application.
 
 In this tutorial, you'll learn how to get a token, attach it to a request (using the authorization header), and call any API you need to authenticate with.
 
@@ -37,6 +37,7 @@ Depending on the standards in your API, you configure the authorization header d
 
 ```swift
 // HomeViewController.swift
+
 let APIIdentifier = "API_IDENTIFIER" // Replace with the API Identifier value you created
 
 Auth0
@@ -68,6 +69,7 @@ let url = URL(string: "your api url")! // Set to your Protected API URL
 var request = URLRequest(url: url)
 
 request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+
 let task = URLSession.shared.dataTask(with: request) { data, response, error in
     // Parse the response
 }

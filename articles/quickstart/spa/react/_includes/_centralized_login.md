@@ -29,6 +29,19 @@ npm install react-router-dom @auth0/auth0-spa-js
 - [`@auth0/auth0-spa-js`](https://github.com/auth0/auth0-spa-js) - Auth0's JavaScript SDK for Single Page Applications
 - [`react-router-dom`](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom) - React's router package for the browser. This will allow users to navigate between different pages with ease
 
+### Create react-router's `history` instance
+
+Create a new folder inside the `src` folder called `utils`. This is where you will add all the utilitary functions your application might need.
+
+Create a new file in the `utils` folder called `history.js`. This file will be responsible for exporting react-router's `history` module so we can [redirect the user programatically](https://github.com/ReactTraining/react-router/blob/master/FAQ.md#how-do-i-access-the-history-object-outside-of-components).
+
+```jsx
+// src/utils/history.js
+
+import { createBrowserHistory } from "history";
+export default createBrowserHistory();
+```
+
 ### Install the Auth0 React wrapper
 
 Create a new file in the `src` directory called `react-auth0-spa.js` and populate it with the following content:
@@ -147,13 +160,7 @@ const NavBar = () => {
   return (
     <div>
       {!isAuthenticated && (
-        <button
-          onClick={() =>
-            loginWithRedirect({})
-          }
-        >
-          Log in
-        </button>
+        <button onClick={() => loginWithRedirect({})}>Log in</button>
       )}
 
       {isAuthenticated && <button onClick={() => logout()}>Log out</button>}
@@ -183,13 +190,12 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { Auth0Provider } from "./react-auth0-spa";
 import config from "./auth_config.json";
+import history from "./utils/history";
 
 // A function that routes the user to the right place
 // after login
 const onRedirectCallback = appState => {
-  window.history.replaceState(
-    {},
-    document.title,
+  history.push(
     appState && appState.targetUrl
       ? appState.targetUrl
       : window.location.pathname
@@ -202,7 +208,7 @@ ReactDOM.render(
     client_id={config.clientId}
     redirect_uri={window.location.origin}
     onRedirectCallback={onRedirectCallback}
->
+  >
     <App />
   </Auth0Provider>,
   document.getElementById("root")
@@ -213,7 +219,7 @@ serviceWorker.unregister();
 
 Notice that the `App` component is now wrapped in the `Auth0Provider` component, where the details about the Auth0 domain and client ID are specified. The `redirect_uri` prop is also specified here. Doing this here means that you don't need to pass this URI to every call to `loginWithRedirect`, and it keeps the configuration in one place.
 
-Also notice the function `onRedirectCallback`, which tries to route the user to the right place once they have logged in. For example, if the user tries to access a page that requires them to be authenticated, they will be asked to log in. When they return to the application, they will be forwarded to the page they were originally trying to access thanks to this function.
+Also notice the function `onRedirectCallback`, which routes the user to the right place once they have logged in. For example, if the user tries to access a page that requires them to be authenticated, they will be asked to log in. When they return to the application, they will be forwarded to the page they were originally trying to access thanks to this function.
 
 Next, create a new file `auth_config.json` in the `src` folder, and populate it with the following:
 
@@ -241,9 +247,7 @@ function App() {
   const { loading } = useAuth0();
 
   if (loading) {
-    return (
-      <div>Loading...</div>
-    );
+    return <div>Loading...</div>;
   }
 
   return (
@@ -282,9 +286,7 @@ const Profile = () => {
   const { loading, user } = useAuth0();
 
   if (loading || !user) {
-    return (
-      <div>Loading...</div>
-    );
+    return <div>Loading...</div>;
   }
 
   return (
@@ -305,7 +307,7 @@ Notice here that the `useAuth0` hook is again being used, this time to retrieve 
 
 In the UI for this component, the user's profile picture, name, and email address is being retrieved from the `user` property and displayed on the screen.
 
-To access this page, modify the `App.js` file to include a router so that the profile page may be displayed on the screen. The `App.js` file should now look something like this:
+To access this page, modify the `App.js` file to include a router so that the profile page may be displayed on the screen. Remember to pass the `history` module we created before to the `Router` component. The `App.js` file should now look something like this:
 
 ```jsx
 // src/App.js
@@ -314,14 +316,15 @@ import React from "react";
 import NavBar from "./components/NavBar";
 
 // New - import the React Router components, and the Profile page component
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
 import Profile from "./components/Profile";
+import history from "./utils/history";
 
 function App() {
   return (
     <div className="App">
-      {/* New - use BrowserRouter to provide access to /profile */}
-      <BrowserRouter>
+      {/* Don't forget to include the history module */}
+      <Router history={history}>
         <header>
           <NavBar />
         </header>
@@ -329,7 +332,7 @@ function App() {
           <Route path="/" exact />
           <Route path="/profile" component={Profile} />
         </Switch>
-      </BrowserRouter>
+      </Router>
     </div>
   );
 }
@@ -337,7 +340,7 @@ function App() {
 export default App;
 ```
 
-Notice that a `BrowserRouter` component has been included, and that two routes have been defined — one for the home page, and another for the profile page.
+Notice that a `Router` component has been included, and that two routes have been defined — one for the home page, and another for the profile page.
 
 To complete this step, open the `NavBar.js` file and modify the navigation bar's UI to include a link to the profile page. In addition, import the `Link` component at the top of the file.
 
@@ -407,7 +410,8 @@ const PrivateRoute = ({ component: Component, path, ...rest }) => {
     fn();
   }, [loading, isAuthenticated, loginWithRedirect, path]);
 
-  const render = props => isAuthenticated === true ? <Component {...props} /> : null;
+  const render = props =>
+    isAuthenticated === true ? <Component {...props} /> : null;
 
   return <Route path={path} render={render} {...rest} />;
 };
@@ -415,7 +419,7 @@ const PrivateRoute = ({ component: Component, path, ...rest }) => {
 export default PrivateRoute;
 ```
 
-This component takes another component as one of its arguments. It makes use of the [`useEffect` hook](https://reactjs.org/docs/hooks-effect.html) to redirect to the user to the login page if they are not yet authenticated.
+This component takes another component as one of its arguments. It makes use of the [`useEffect` hook](https://reactjs.org/docs/hooks-effect.html) to redirect the user to the login page if they are not yet authenticated.
 
 If the user is authenticated, the redirect will not take place and the component that was specified as the argument will be rendered instead. In this way, components that require the user to be logged in can be protected simply by wrapping the component using `PrivateRoute`.
 

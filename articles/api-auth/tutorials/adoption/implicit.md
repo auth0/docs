@@ -36,7 +36,7 @@ This document describes the differences of this flow between the legacy and OIDC
     &redirect_uri=https://app.example.com
     &device=my-device-name</code></pre>
     <ul>
-        <li>The <code>device</code> parameter is only needed if <a href="/tokens/refresh-token">requesting a <dfn data-key="refresh-token">Refresh Token</dfn></a> by passing the <code>offline_access</code> <dfn data-key="scope">scope</dfn>.</li>
+        <li>The <code>device</code> parameter is only needed if <a href="/tokens/concepts/refresh-tokens">requesting a <dfn data-key="refresh-token">Refresh Token</dfn></a> by passing the <code>offline_access</code> <dfn data-key="scope">scope</dfn>.</li>
     </ul>
     </div>
     <div id="request-oidc" class="tab-pane">
@@ -136,7 +136,7 @@ Location: https://app.example.com/#
     "nonce": "jxdlsjfi0fa"
 }</code></pre>
         <ul>
-            <li>The <code>favorite_color</code> claim must be <a href="/tokens/concepts/claims-namespacing">namespaced</a> and added through a rule.</li>
+            <li>The <code>favorite_color</code> claim must be <a href="/tokens/guides/create-namespaced-custom-claims">namespaced</a> and added through a rule.</li>
             <li>After validating the ID Token, the application must <a href="/api-auth/tutorials/nonce">validate the nonce to mitigate replay attacks</a>.</li>
         </ul>
     </div>

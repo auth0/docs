@@ -285,7 +285,7 @@ def logout(request):
 
 ## Add URL Mappings
 
-In previous steps we added methods to the `views.py` file. We need to map those methods to URLs.
+In previous steps, we added methods to the `views.py` file. We need to map those methods to URLs.
 
 Django has a [URL dispatcher](https://docs.djangoproject.com/en/2.1/topics/http/urls/) that lets you map URL patterns to views.
 

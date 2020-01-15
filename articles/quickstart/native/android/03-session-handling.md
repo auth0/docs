@@ -15,9 +15,9 @@ useCase: quickstart
 
 You need the `Credentials` class to handle users' credentials. The class is composed of these elements:
 
-* `accessToken`: Access Tokens used by the Auth0 API. To learn more, see the [Access Tokens](/tokens/access-tokens).
-* `idToken`: Identity Token that proves the identity of the user. To learn more, see the [ID Token documentation](/tokens/id-tokens).
-* `refreshToken`: Refresh Token that can be used to request new tokens without signing in again. To learn more, see the [Refresh Token documentation](/tokens/refresh-token/current).
+* `accessToken`: Access Tokens used by the Auth0 API. To learn more, see the [Access Tokens](/tokens/concepts/access-tokens).
+* `idToken`: Identity Token that proves the identity of the user. To learn more, see the [ID Token documentation](/tokens/concepts/id-tokens).
+* `refreshToken`: Refresh Token that can be used to request new tokens without signing in again. To learn more, see the [Refresh Tokens](/tokens/concepts/refresh-tokens).
 * `tokenType`: The type of tokens issued by the server.
 * `expiresIn`: The number of seconds before the tokens expire.
 * `expiresAt`: The date when the tokens expire.
@@ -38,11 +38,12 @@ You will need a valid Refresh Token in the response. To do that, ask for the `of
 
 Auth0 auth0 = new Auth0(this);
 auth0.setOIDCConformant(true);
+
 WebAuthProvider.login(auth0)
-    .withScheme("demo")
-    .withAudience(String.format("https://%s/userinfo", getString(R.string.com_auth0_domain)))
-    .withScope("openid offline_access")
-    .start(LoginActivity.this, loginCallback);
+        .withScheme("demo")
+        .withScope("openid offline_access")
+        .withAudience(String.format("https://%s/userinfo", getString(R.string.com_auth0_domain)))
+        .start(LoginActivity.this, loginCallback);
 ```
 
 ## Check for Tokens when the Application Starts
@@ -63,13 +64,15 @@ Create a new instance of the Credentials Manager. When you run the application, 
 ```java
 // app/src/main/java/com/auth0/samples/LoginActivity.java
 
+private SecureCredentialsManager credentialsManager;
+
 protected void onCreate(Bundle savedInstanceState) {
     // Setup CredentialsManager
     auth0 = new Auth0(this);
     auth0.setOIDCConformant(true);
     credentialsManager = new SecureCredentialsManager(this, new AuthenticationAPIClient(auth0), new SharedPreferencesStorage(this));
 
-    //Check if the activity was launched to log the user out
+    // Check if the activity was launched to log the user out
     if (getIntent().getBooleanExtra(EXTRA_CLEAR_CREDENTIALS, false)) {
         doLogout();
         return;
@@ -133,6 +136,7 @@ private void showNextActivity() {
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             intent.putExtra(EXTRA_ACCESS_TOKEN, credentials.getAccessToken());
             intent.putExtra(EXTRA_ID_TOKEN, credentials.getIdToken());
+
             startActivity(intent);
             finish();
         }
@@ -159,8 +163,8 @@ To log the user out, it is normally enough to remove their credentials and navig
 
 private void doLogout() {
     WebAuthProvider.logout(auth0)
-        .withScheme("demo")
-        .start(this, logoutCallback);
+            .withScheme("demo")
+            .start(this, logoutCallback);
 }
 
 private VoidCallback logoutCallback = new VoidCallback() {

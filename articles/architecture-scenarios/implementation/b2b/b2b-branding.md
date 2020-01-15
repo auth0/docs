@@ -56,14 +56,10 @@ If your organization users will all be isolated from each other, than it’s imp
 
 <%= include('../../_includes/_planning.md', { platform: 'b2b' }) %>
 
-## Keep reading
+## Multiple Organization Architecture (Multitenancy)
 
-* [Architecture](/architecture-scenarios/implementation/b2b/b2b-architecture)
-* [Provisioning](/architecture-scenarios/implementation/b2b/b2b-provisioning)
-* [Authentication](/architecture-scenarios/implementation/b2b/b2b-authentication)
-* [Deployment Automation](/architecture-scenarios/implementation/b2b/b2b-deployment)
-* [Quality Assurance](/architecture-scenarios/implementation/b2b/b2b-qa)
-* [Profile Management](/architecture-scenarios/implementation/b2b/b2b-profile-mgmt)
-* [Authorization](/architecture-scenarios/implementation/b2b/b2b-authorization)
-* [Logout](/architecture-scenarios/implementation/b2b/b2b-logout)
-* [Operations](/architecture-scenarios/implementation/b2b/b2b-operations)
+<%= include('../../_includes/_multitenancy.md', { platform: 'b2b' }) %>
+
+# Keep reading
+
+<%= include('../../_includes/_keep-reading.md', { platform: 'b2b', self: 'branding' }) %>

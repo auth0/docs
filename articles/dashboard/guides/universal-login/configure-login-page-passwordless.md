@@ -15,6 +15,8 @@ useCase:
 ---
 # Configure Universal Login with Passwordless
 
+[Universal Login](/universal-login) is Auth0's implementation of the login flow, which is the key feature of an Authorization Server. Each time a user needs to prove their identity, your applications redirect to Universal Login and Auth0 will do what is needed to guarantee the user's identity. By choosing Universal Login, you don't have to do any integration work to handle the various flavors of authentication.
+
 This guide will show you how to set up a login page for use with [passwordless authentication](/connections/passwordless) using Auth0's Dashboard. 
 
 ::: warning

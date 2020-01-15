@@ -79,7 +79,7 @@ The available database action scripts are:
 **Delete** | Executes when a user is deleted from the API or Auth0 dashboard. | `id`
 **Change Email** | Executes when a change in the email address, or the email address status, for a user occurs. | `email`, `newEmail`, `verified`, `callback`
 
-See [Custom Database Action Script Templates](/connections/database/custom-db/templates) and [Database action script  best practices](/best-practices/custom-db-connections-scripts#database-action-script-best-practices) for details on all the scripts.
+See [Custom Database Action Script Templates](/connections/database/custom-db/templates) and [Custom Database Action Script Execution Best Practices](/best-practices/custom-db-connections/execution) for details on all the scripts.
 
 ### Create a Login script
 
@@ -167,6 +167,6 @@ function login (username, password, callback) {
 
 ## Keep reading
 
-* [Custom Database Connection and Action Script Best Practices](/best-practices/custom-db-connections-scripts)
+* [Custom Database Connection and Action Script Best Practices](/best-practices/custom-db-connections)
 * [Custom Database Error Handling and Troubleshooting](/connections/database/custom-db/error-handling)
 * [Migrate Users to Auth0](/users/concepts/overview-user-migration)

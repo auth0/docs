@@ -41,7 +41,7 @@ The following [JSON schema](http://json-schema.org) describes valid users:
         },
         "user_id": {
             "type": "string",
-            "description": "The user's unique identifier."
+            "description": "The user's unique identifier. This will be prepended by the connection strategy."
         },
         "username": {
             "type": "string",

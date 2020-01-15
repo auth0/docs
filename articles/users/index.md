@@ -19,7 +19,7 @@ Auth0's hosted cloud database stores a variety of information on your users that
 <%= include('../_includes/_topic-links', { links: [
   'users/concepts/overview-user-profile',
   'users/concepts/overview-user-metadata',
-  'users/concepts/overview-progressive-profiling',
+  'sessions',
   'users/guides/manage-users-using-the-dashboard',
   'users/guides/manage-users-using-the-management-api',
   'extensions/account-link',

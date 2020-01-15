@@ -63,6 +63,7 @@ Finally, to use our API endpoints, you can follow our tutorial: [Call Your API U
   * [Auth0 Mobile/Native App Quickstarts](/quickstart/native)
   * [Call Your API Using the Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/call-api-auth-code-pkce)
   * [Change scopes and add custom claims to tokens using hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
+  * [Store Tokens](/tokens/guides/store-tokens)
 :::
 
 ::: references
@@ -72,8 +73,7 @@ Finally, to use our API endpoints, you can follow our tutorial: [Call Your API U
 :::
 
 ::: concepts  
-  * [Access Tokens](/tokens/access-tokens)
-  * [Where to store tokens](/security/store-tokens)
+  * [Access Tokens](/tokens/concepts/access-tokens)
 :::
 
 ::::

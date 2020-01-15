@@ -17,9 +17,7 @@ You can read metadata using rules with the Management API and with Lock. You can
 - `given_name`
 - `family_name`
 
-::: warning
-Rather than storing profile-related information in `user_metadata`, you can edit these user attributes on the normalized user profile. If you want to be able to edit these attributes, you must [configure your connection sync with Auth0](/dashboard/guides/connections/configure-connection-sync) so that user attributes will be updated from the identity provider only on user profile creation. Root attributes will then be available to be [edited individually](/api/management/guides/users/update-root-attributes-users) or [by bulk import](/api/management/guides/users/update-root-attributes-users) using the Management API.
-:::
+<%= include('../_includes/_connection-synch-note.md') %>
 
 ::: note 
 When using the deprecated [Search v2](/users/search/v2), beginning **1 September 2017** new tenants cannot search any of the  `app_metadata` fields. Only tenants associated with paid subscriptions that were created on/before **31 August 2017** can search the `app_metadata` fields.
@@ -72,7 +70,6 @@ For details on how to initialize `lock` refer to [Auth0Lock(clientID, domain, op
 ## Keep Reading
 
 * [Manage User Metadata](/users/guides/manage-user-metadata)
-* [Update Metadata Properties with the Management API](/users/guides/update-metadata-properties-with-management-api)
+* [Update Metadata with the Management API](/users/guides/update-metadata-properties-with-management-api)
 * [User Data Storage Best Practices](/best-practices/user-data-storage-best-practices)
 * [User Data Storage Scenario](/users/references/user-data-storage-scenario)
-* [Metadata Field Name Rules](/users/references/metadata-field-name-rules)

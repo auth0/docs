@@ -1,8 +1,6 @@
 ---
-title: MFA Troubleshooting for End-Users
-description: Basic troubleshooting of MFA issues for end-users.
-url: /multifactor-authentication/troubleshooting
-toc: true
+title: Troubleshoot Multi-Factor Authentication for End Users
+description: Describes basic troubleshooting of MFA issues for end-users.
 topics:
     - mfa
 contentType:
@@ -10,7 +8,7 @@ contentType:
 useCase:
   - customize-mfa
 ---
-# MFA Troubleshooting
+# Troubleshoot Multi-Factor Authentication for End Users
 
 This guide serves as a troubleshooting reference if you have end-users unable to log in with <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn>.
 
@@ -55,13 +53,9 @@ If you attempt to send more than ten SMS messages to your device within one hour
 
 When you exceed your messaging limit, you'll need to wait at least an hour after your request for your first message before requesting another. You will receive an additional attempt after the passage of each additional hour.
 
-## OTP-related issues
+## Rejected Codes
 
-If the 6-digit code in the Guardian or the Google Authenticator app are being rejected for sign in (often with the message `Incorrect Code`), first check that you are selecting the right application from the list in your authenticator app.
-
-If Guardian or Google Authenticator rejects the six-digit code that you provide and displays the `Incorrect Code` message, check that you are using the correct application from the list of options available in your authenticator app.
-
-If you've verified that you're selecting the correct application, make sure that your mobile device's clock settings are correct. One-time passwords are generated using Coordinated Universal Time (UTC), so your device's time must be correct for your code to work.
+If the 6-digit code in the Guardian or the Google Authenticator app are being rejected for sign in (often with the message `Incorrect Code`), first check that you are selecting the right application from the list in your authenticator app. If you've verified that you're selecting the correct application, make sure that your mobile device's clock settings are correct. One-time passwords are generated using Coordinated Universal Time (UTC), so your device's time must be correct for your code to work.
 
 To check your clock settings:
 

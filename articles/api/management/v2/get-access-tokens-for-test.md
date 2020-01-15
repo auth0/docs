@@ -53,6 +53,6 @@ To use the Access Token you just created for testing purposes, use the [Manageme
 ## Keep reading
 
 * [Get Access Tokens for Production](/api/management/v2/get-access-tokens-for-production)
-- [Auth0 Application Types](/applications/concepts/app-types-auth0)
+- [Applications](/applications)
 * [Management API Explorer](/api/management/v2#!)
 * [Management API Access Tokens FAQs](/api/management/v2/faq-management-api-access-tokens)

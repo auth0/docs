@@ -15,30 +15,26 @@ useCase:
   - extensibility-hooks
 ---
 
-# Using Hooks with Client Credentials Grant
+# Use Hooks with Client Credentials Grant
 
 You can now add [Hooks](/hooks) into your [client credentials](/api-auth/grant/client-credentials) flow. This way you can change the <dfn data-key="scope">scopes</dfn> and add custom claims to the tokens issued by Auth0.
 
-## Overview
+Hooks allow you to customize the behavior of Auth0 using Node.js code. They are actually [Webtasks](https://webtask.io/) associated with specific extensibility points of the Auth0 platform (like the Client Credentials grant). Auth0 invokes the Hooks at runtime to execute your custom logic.
 
-Hooks allow you to customize the behavior of Auth0 using Node.js code.
-
-They are actually [Webtasks](https://webtask.io/), associated with specific extensibility points of the Auth0 platform (like the Client Credentials grant). Auth0 invokes the Hooks at runtime to execute your custom logic.
-
-You can manage Hooks using the [Auth0 Dashboard](/hooks/dashboard) or the [Auth0 Command Line Interface (CLI)](/hooks/cli). In this article we will see how you can do either.
+You can manage Hooks using the [Auth0 Dashboard](/hooks/dashboard) or the [Auth0 Command Line Interface (CLI)](/hooks/cli). 
 
 ## Before you start
 
-Please ensure that:
+Create the following:
 
-- You have created an [API defined with the appropriate scopes](${manage_url}/#/apis)
-- You have created a [machine to machine application](/applications/concepts/app-types-auth0) that is authorized to use the API created in the previous step
+- [API defined with the appropriate scopes](${manage_url}/#/apis)
+- [Machine-to-machine application](/applications) authorized to use the API
 
-If you haven't done these yet, refer to these docs for details:
-- How to set up a Client Grant:
+For details on how to set up the API and the machine-to-machine app, see:
+- Set up a Client Grant:
   - [Using the Dashboard](/api-auth/config/using-the-auth0-dashboard)
   - [Using the Management API](/api-auth/config/using-the-management-api)
-- [How to execute a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
+- [Execute a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
 
 ## Use the Dashboard
 
@@ -77,7 +73,7 @@ You can create more than one hooks per extensibility point but __only one__ can 
   - add an `extra` scope to the default scopes configured on your [API](${manage_url}/#/apis).
 
   ::: panel Custom claims namespaced format
-  In order to improve compatibility for applications, Auth0 now returns profile information in a [structured claim format as defined by the OpenID Connect (OIDC) specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that in order to add custom claims to ID Tokens or <dfn data-key="access-token">Access Tokens</dfn>, they must [conform to a namespaced format](/tokens/concepts/claims-namespacing) to avoid possible collisions with standard OIDC claims.
+  In order to improve compatibility for applications, Auth0 now returns profile information in a [structured claim format as defined by the OpenID Connect (OIDC) specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that in order to add custom claims to ID Tokens or <dfn data-key="access-token">Access Tokens</dfn>, they must [conform to a namespaced format](/tokens/guides/create-namespaced-custom-claims) to avoid possible collisions with standard OIDC claims.
   :::
 
   ![Webtask Editor](/media/articles/api-auth/hooks/cc-webtask-editor.png)

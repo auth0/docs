@@ -171,7 +171,7 @@ Now generate a controller for the dashboard view that users will see once they a
 rails generate controller dashboard show --skip-assets
 ```
 
-Include the `concern` in the this new controller to prevent unauthenticated users from accessing its routes:
+Include the `concern` in this new controller to prevent unauthenticated users from accessing its routes:
 
 ```ruby
 # app/controllers/dashboard_controller.rb
@@ -266,7 +266,7 @@ module LogoutHelper
   private
 
   def to_query(hash)
-    hash.map { |k, v| "#{k}=#{URI.escape(v)}" unless v.nil? }.reject(&:nil?).join('&')
+    hash.map { |k, v| "#{k}=#{CGI.escape(v)}" unless v.nil? }.reject(&:nil?).join('&')
   end
 end
 ```

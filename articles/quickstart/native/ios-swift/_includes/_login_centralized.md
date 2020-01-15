@@ -6,7 +6,7 @@ This tutorial demonstrates how to add user login to a Swift application using We
 
 <%= include('../../_includes/_getting_started', { library: 'Swift' }) %>
 
-Add your credentials in the `Auth0.plist` file. If the file does not exist in your project yet, create it:
+Add your credentials in `Auth0.plist`. If the file does not exist in your project yet, create one with the information below ([Apple documentation on Property List Files](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html)):
 
 ```xml
 <!-- Auth0.plist -->
@@ -66,7 +66,7 @@ com.company.myapp://company.auth0.com/ios/com.company.myapp/callback
 [Universal Login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features.
 
 ::: note
-You can also embed the login dialog directly in your application using the [Lock widget](/lock). If you use this method, some features, such as single sign-on, will not be accessible. 
+You can also embed the login dialog directly in your application using the [Lock widget](/lock). If you use this method, some features, such as single sign-on, will not be accessible.
 To learn how to embed the Lock widget in your application, follow the [Embedded Login sample](https://github.com/auth0-samples/auth0-ios-swift-sample/tree/embedded-login/01-Embedded-Login). Make sure you read the [Browser-Based vs. Native Login Flows on Mobile Devices](/tutorials/browser-based-vs-native-experience-on-mobile) article to learn how to choose between the two types of login flows.
 :::
 
@@ -76,7 +76,7 @@ To learn how to embed the Lock widget in your application, follow the [Embedded 
 
 ## Add the Callback
 
-For Auth0 to handle the authentication callback, update your `AppDelegate` file. 
+For Auth0 to handle the authentication callback, update your `AppDelegate` file.
 
 First, import the `Auth0` module:
 
@@ -104,23 +104,25 @@ ${snippet(meta.snippets.use)}
 
 This adds the `profile` scope to enable [retrieving the User Profile](/quickstart/native/ios-swift/03-user-sessions#fetch-the-user-profile).
 
-After the user authenticates, their information is returned in a `credentials` object.
+After the user authenticates, their information is returned in a `Credentials` object.
 
 ::: note
-To learn more about the `credentials` object, read the [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift) article.
+To learn more about the `Credentials` object, read the [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift) article.
 :::
 
 <%= include('../../../../_includes/_logout_url') %>
 
-## Implement logout
+## Implement Logout
+
 To clear the session on the server side you need to invoke the `clearSession` method. Add the following snippet:
+
 ```swift
 // HomeViewController.swift
-@swift
+
 Auth0
     .webAuth()
-    .clearSession(federated:false){
-        switch $0{
+    .clearSession(federated:false) {
+        switch $0 {
             case true:
                 ...
             case false:
@@ -128,13 +130,15 @@ Auth0
         }
     }
 ```
+
 Go to your [Dashboard Settings](${manage_url}/#/applications/${account.clientId}/settings) and make sure that the **Allowed Logout URL** field contains the following logout callback URL:
 
 ```text
 {PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
 ```
+
 After the call, the callback will receive a BOOL with the logout status.
 
 ::: note
-Replace `{PRODUCT_BUNDLE_IDENTIFIER}` with your application's Bundle Identifier , available as the `Bundle Identifier` attribute inside the `identity`, on your `app project` properties.
+Replace `{PRODUCT_BUNDLE_IDENTIFIER}` with your application's Bundle Identifier, available as the `Bundle Identifier` attribute inside the `Identity` section, on your app project properties.
 :::

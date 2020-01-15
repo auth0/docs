@@ -27,7 +27,7 @@ useCase:
 To connect your application to Microsoft's Active Directory Federation Services (ADFS), you will need to provide the following information to your ADFS administrator:
 
 * Realm Identifier: `urn:auth0:${account.tenant}`
-* Endpoint: `https://${account.namespace}/login/callback` or `https://<YOUR CUSTOM DOMAIN>/login/callback`, if you are using a  [custom domain](/custom-domains).
+* Endpoint: `https://${account.namespace}/login/callback` or `https://<YOUR CUSTOM DOMAIN>/login/callback`, if you are using a [custom domain](/custom-domains).
 
 ::: panel Federated Metadata
 The Federation Metadata file contains information about the ADFS server's certificates. If the Federation Metadata endpoint (`/FederationMetadata/2007-06/FederationMetadata.xml`) is enabled in ADFS, Auth0 can periodically (once a day) look for changes in the configuration, like a new signing certificate added to prepare for a rollover. Because of this, enabling the Federation Metadata endpoint is preferred to providing a standalone metadata file. If you provide a standalone metadata file, we will notify you via email when the certificates are close to their expiration date.
@@ -132,7 +132,7 @@ The mappings in the previous steps are the most commonly used, but if you need a
 
 3. If the claim type you are looking for doesn't exist, you have two options:
 
-    * Type a [namespace-qualified name](/tokens/concepts/claims-namespacing) for the new claim (for example `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department`).
+    * Type a [namespace-qualified name](/tokens/guides/create-namespaced-custom-claims) for the new claim (for example `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department`).
     * Register a new claim type (under **ADFS > Services > Claim Descriptions**) on the ADFS admin console), and use the claim name in the mapping.
 
     Auth0 uses the name part of the claim type (for example `department` in `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department`) as the attribute name for the user profile.

@@ -15,7 +15,7 @@ useCase:
 ---
 # Lock v11 for Web
 
-Lock is an embeddable login form, [configurable to your needs](/libraries/lock/v11/configuration), and recommended for use in single-page apps. It enables you to easily add social identity providers, so that your users can login seamlessly using any provider they want.
+Lock is an embeddable login form that can be [configured to your needs](/libraries/lock/v11/configuration) and is recommended for use in single-page apps, preferably in conjunction with [Universal Login](/universal-login), which should be used whenever possible. Lock enables you to easily add social identity providers, so that your users can log in seamlessly using any desired provider.
 
 <%= include('../../../_includes/_embedded_login_warning') %>
 

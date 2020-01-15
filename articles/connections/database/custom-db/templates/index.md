@@ -64,5 +64,5 @@ Failure to execute the `callback` function will result in a stall of execution, 
 
 ## Keep reading
 
-* [Database action script best practices](/best-practices/custom-db-connections-scripts#database-action-script-best-practices)
+* [Custom Database Action Script Execution Best Practices](/best-practices/custom-db-connections/execution)
 * [Handle Errors and Troubleshoot Your Custom DB Scripts](/connections/database/custom-db/error-handling)

@@ -59,5 +59,4 @@ Finally, you can follow our tutorials to use our API endpoints to [Add Login Us
 ## Keep reading
 
 - Auth0 offers many ways to personalize your user's login experience using [rules](/rules) and [hooks](/hooks).
-- [Why you should always use Access Tokens to secure APIs](/api-auth/why-use-access-tokens-to-secure-apis)
-- [Tokens used by Auth0](/tokens)
+- [Tokens](/tokens)

@@ -3,10 +3,10 @@ title: User Sessions
 description: This tutorial will show you how to handle user sessions and retrieve the user's profile.
 budicon: 280
 topics:
-  - quickstarts
-  - native
-  - ios
-  - swift
+    - quickstarts
+    - native
+    - ios
+    - swift
 github:
     path: 03-User-Sessions
 contentType: tutorial
@@ -15,19 +15,19 @@ useCase: quickstart
 
 ## Credentials Manager
 
-This guide shows you how to use the credentials manager to store and Refresh Tokens. 
+This guide shows you how to use the credentials manager to store and Refresh Tokens.
 
-[Auth0.swift](https://github.com/auth0/Auth0.swift) provides a utility class to streamline the process of storing and renewing credentials. You can access the `accessToken` or `idToken` properties from the [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift) instance. 
+[Auth0.swift](https://github.com/auth0/Auth0.swift) provides a utility class to streamline the process of storing and renewing credentials. You can access the `accessToken` or `idToken` properties from the [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift) instance.
 
 ::: note
-You can also use `SimpleKeychain` directly, without the added benefits and convenience of the credentials manager. To learn more, read about [Saving and Refreshing Tokens](/libraries/auth0-swift/save-and-refresh-jwt-tokens#simplekeychain). 
+You can also use `SimpleKeychain` directly, without the added benefits and convenience of the credentials manager. To learn more, read about [Saving and Refreshing Tokens](/libraries/auth0-swift/save-and-refresh-jwt-tokens#simplekeychain).
 :::
 
 ## Save the User's Credentials When They Log in
 
 When your users log in successfully, save their credentials. You can then log them in automatically when they open your application again.
 
-To get a [Refresh Token](/refresh-token) during authentication, use the `offline_access` scope. You can use the Refresh Token to request a new Access Token when the previous one expires. 
+To get a [Refresh Token](/refresh-token) during authentication, use the `offline_access` scope. You can use the Refresh Token to request a new Access Token when the previous one expires.
 
 First, import the `Auth0` module to the file that will present the login page:
 
@@ -37,7 +37,7 @@ Next, present the login page:
 
 ```swift
 // HomeViewController.swift
-Credentials manager
+
 // Create an instance of the credentials manager for storing credentials
 let credentialsManager = CredentialsManager(authentication: Auth0.authentication())
 
@@ -53,7 +53,7 @@ Auth0
         case .success(let credentials):
             // Auth0 will automatically dismiss the login page
             // Store the credentials
-            credentialsManager.store(credentials: credentials)
+            self.credentialsManager.store(credentials: credentials)
         }
 }
 ```
@@ -88,32 +88,42 @@ credentialsManager.credentials { error, credentials in
     }
     // You now have a valid credentials object, you might want to store this locally for easy access.
     // You will use this later to retrieve the user's profile
-} 
+}
 ```
 
 If the credentials have expired, the credentials manager will automatically renew them for you with the Refresh Token.
 
-### Clear the Keychain When the User Logs Out
+### Clear the Keychain and Revoke the Refresh Token When the User Logs Out
 
-When you need to log the user out, remove their credentials from the keychain:
+When you need to log the user out, remove their credentials from the keychain and revoke the refresh token:
 
 ```swift
 // SessionManager.swift
 
-credentialsManager.clear()
+credentialsManager.revoke { error in
+    guard error == nil else {
+        // Handle error
+        print("Error: \(error)")
+    }
+
+    // The user is now logged out
+}
 ```
 
 ## Retrieve the User Profile
 
-To get the user's profile, you need a valid Access Token. You can find the token in the `credentials` object returned by the credentials manager.
+To get the user's profile, you need a valid Access Token. You can find the token in the `Credentials` object returned by the credentials manager.
 
 ```swift
 // SessionManager.swift
 
 // credentials = A returned credentials object from the credentials manager in the previous step.
 
-guard let accessToken = credentials?.accessToken
-    else { // Handle Error }
+guard let accessToken = credentials?.accessToken else {
+    // Handle Error
+    return
+}
+
 Auth0
     .authentication()
     .userInfo(withAccessToken: accessToken)
@@ -155,7 +165,7 @@ You will need to update the original login scopes to include `read:current_user`
 
 ### Audience
 
-You will also need to change your audience to the [API Audience identifier](https://manage.auth0.com/#/apis) for the Management API. 
+You will also need to change your audience to the [API Identifier](https://manage.auth0.com/#/apis) for the Management API.
 The default identifier is `https://${account.namespace}/api/v2/`
 
 ### Login
@@ -177,7 +187,7 @@ Auth0
         case .success(let credentials):
             // Auth0 will automatically dismiss the login page
             // Store the credentials
-            credentialsManager.store(credentials: credentials)
+            self.credentialsManager.store(credentials: credentials)
         }
 }
 ```
@@ -187,10 +197,13 @@ Auth0
 You can add custom user information in the user metadata section by performing a `patch`:
 
 ```swift
-let accessToken = ... // You will need the accessToken from your credentials instance 'credentials.accessToken'
+// ProfileViewController.swift
+
+let accessToken = ... // the user-scoped accessToken from your credentials instance 'credentials.accessToken'
 let profile = ... // the Profile instance you obtained accessing the `/userinfo` endpoint.
+
 Auth0
-    .users(token: "user-scoped access token")
+    .users(token: accessToken)
     .patch(profile.sub, userMetadata: ["country": "United Kingdom"])
     .start { result in
         switch result {
@@ -206,15 +219,18 @@ Auth0
 ## Retrieve User Metadata
 
 The `user_metadata` dictionary contains fields related to the user profile.
-You can specify the fields you want to retrieve, or use an empty array `[]` to pull back the full user profile. 
+You can specify the fields you want to retrieve, or use an empty array `[]` to pull back the full user profile.
 
 Retrieving the `user_metadata` dictionary:
 
 ```swift
-let accessToken = ... // You will need the accessToken from your credentials instance 'credentials.accessToken'
+// ProfileViewController.swift
+
+let accessToken = ... // the user-scoped accessToken from your credentials instance 'credentials.accessToken'
 let profile = ... // the Profile instance you obtained accessing the `/userinfo` endpoint.
+
 Auth0
-    .users(token: "user-scoped access token")
+    .users(token: accessToken)
     .get(profile.sub, fields: ["user_metadata"], include: true)
     .start { result in
         switch result {

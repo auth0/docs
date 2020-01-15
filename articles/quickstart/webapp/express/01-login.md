@@ -20,76 +20,62 @@ github:
 <%= include('../../../_includes/_callback_url') %>
 
 :::note
-If you are running this project on your local machine, your application's callback URL is `http://localhost:3000/callback`
+If you are running your project on `localhost:3000`, your application's callback URL would be `http://localhost:3000/callback`
 :::
 
 <%= include('../../../_includes/_logout_url' }) %>
 
 :::note
-If you are running this project on your local machine, your application's logout URL is `http://localhost:3000`
+If you are running your project on `localhost:3000`, your application's logout URL would be `http://localhost:3000`
 :::
 
 ## Integrate Auth0
 ### Install Dependencies
-Your application will need the following packages:
-
-- [`express-openid-connect`](https://github.com/auth0/express-openid-connect) - Auth0-maintained OIDC-compliant library for Express.
-- [`express-session`](https://github.com/auth0/express-session) - session middleware for Express.
+Your application will need the [`express-openid-connect`](https://github.com/auth0/express-openid-connect) package which is an Auth0-maintained OIDC-compliant library for Express.
 
 ```sh
-npm install express express-openid-connect express-session
+npm install express express-openid-connect@0.6.0 --save
 ```
 
-### Handling server responses
-Your application will need to parse URL-encoded data sent back from the Auth0 server.  Express provides a middleware for this called `express.urlencoded`. If you are integrating an existing application that uses `urlencoded` from the `body-parser`module, that will work as well.
+### Configure Router
+The Express OpenID Connect library provides the `auth` router in order to attach authentication routes to your application. You will need to configure the router with the following configuration keys:
 
-```js
-const express = require('express');
-const app = express();
+- `baseURL` - The URL where the application is served
+- `appSessionSecret` - A long, random string
+- `issuerBaseURL`  - The Domain as a secure URL found in your [Application settings](${manage_url}/#/applications/${account.clientId}/settings)
+- `clientID` - The Client ID found in your [Application settings](${manage_url}/#/applications/${account.clientId}/settings)
 
-app.use(express.urlencoded({
-  extended: false
-}));
-```
-
-### User sessions
-To keep the user logged in across multiple requests, your application will use the `express-session` middleware to store the user's data in memory. The user's session will allow your application to recognize them from request to request.
-
-```js
-const session = require('express-session');
-
-app.use(session({
-  secret: 'this should be a secret',
-  resave: true,
-  saveUninitialized: false
-}));
-```
-
-### Authentication
-The last part of integrating Auth0 into your application will be using the `auth` middleware provided by the Express OpenID Connect library installed above. The [API documentation](https://github.com/auth0/express-openid-connect/blob/master/API.md) for this library outlines additional configuration options and methods that can be used when initializing this middleware.
+Here is an example configuration using this router:
 
 ```js
 const { auth } = require('express-openid-connect');
 
-app.use(auth({
+const config = {
   required: false,
   auth0Logout: true,
   baseURL: 'http://localhost:3000',
   issuerBaseURL: 'https://${account.namespace}',
-  clientID: '${account.clientId}'
-}));
-```
+  clientID: '${account.clientId}',
+  appSessionSecret: 'a long, randomly-generated string stored in env'
+};
 
-Now that your application has the middleware installed, you can use [the helper functions and contextual data](https://github.com/auth0/express-openid-connect/blob/master/API.md#session-and-context) provided by the Express OpenID Connect library.  Here is an example of how to use `req.openid.isAuthenticated()`:
+// auth router attaches /login, /logout, and /callback routes to the baseURL
+app.use(auth(config));
 
-```js
+// req.isAuthenticated is provided from the auth router
 app.get('/', (req, res) => {
- res.send(req.isAuthenticated() ? 'Logged in' : 'Logged out'))
+  res.send(req.isAuthenticated() ? 'Logged in' : 'Logged out')
 });
 ```
 
+For additional configuration options visit the [API documentation](https://github.com/auth0/express-openid-connect/blob/master/API.md).
+
+:::note
+You can generate a suitable string for `appSessionSecret` using `openssl rand -hex 32` on the command line.
+:::
+
 ## Login
-A user can log into your application by visiting the `/login` route provided by the library. If you are testing your application locally, that link is [`localhost:3000/login`](http://localhost:3000/login).
+A user can now log into your application by visiting the `/login` route provided by the library. If you are running your project on `localhost:3000` that link would be [`localhost:3000/login`](http://localhost:3000/login).
 
 ## Profile
 To display the user's profile, your application should provide a protected route.
@@ -105,10 +91,12 @@ app.get('/profile', requiresAuth(), (req, res) => {
 ```
 
 ## Logout
-A user can log out of your application by visiting the `/logout` route provided by the library. If you are testing your application locally, that link is [`localhost:3000/logout`](http://localhost:3000/logout).
+A user can log out of your application by visiting the `/logout` route provided by the library. If you are running your project on `localhost:3000` that link would be [`localhost:3000/logout`](http://localhost:3000/logout).
 
 ## What's next?
 We put together a few examples of how to use [Express OpenID Connect](https://github.com/auth0/express-openid-connect) in more advanced use cases:
-* [Route Customization](https://github.com/auth0/express-openid-connect/blob/master/EXAMPLES.md#2-route-customization)
-* [Using refresh tokens](https://github.com/auth0/express-openid-connect/blob/master/EXAMPLES.md#4-using-refresh-tokens)
-* [Require auth for specific routes](https://github.com/auth0/express-openid-connect/blob/master/EXAMPLES.md#3-require-auth-for-specific-routes)
+
+* [Route Customization](https://github.com/auth0/express-openid-connect/blob/master/EXAMPLES.md#3-route-customization)
+* [Custom user session handling](https://github.com/auth0/express-openid-connect/blob/master/EXAMPLES.md#4-custom-user-session-handling)
+* [Obtaining access tokens for external APIs](https://github.com/auth0/express-openid-connect/blob/master/EXAMPLES.md#5-obtaining-and-storing-access-tokens-to-call-external-apis)
+* [Require auth for specific routes](https://github.com/auth0/express-openid-connect/blob/master/EXAMPLES.md#2-require-authentication-for-specific-routes)

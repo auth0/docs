@@ -32,7 +32,7 @@ The Authorization Code flow is initiated by redirecting the user in the web brow
 
 After the user has authenticated, Auth0 will redirect the browser back to the **Redirect URI** (also called **Callback URL**), passing along an `authorization_code` parameter in the query string of the Callback URL. This code can then be exchanged for an ID Token by making a request to the `/oauth/token` endpoint.
 
-The ID Token is a [JSON Web Token (JWT)](/jwt) and contains various attributes - referred to as _Claims_ - regarding the user, such as the user's name, email address, profile picture and so on.. The ID Token can be decoded to extract the claims and you are free to use these inside of your application, to display a user's name and profile image for example.
+The ID Token is a [JSON Web Token (JWT)](/tokens/concepts/jwts) and contains various attributes - referred to as _Claims_ - regarding the user, such as the user's name, email address, profile picture and so on.. The ID Token can be decoded to extract the claims and you are free to use these inside of your application, to display a user's name and profile image for example.
 
 ![](/media/articles/client-auth/server-side-web/server-side-web-flow.png)
 
@@ -132,7 +132,7 @@ The response from `/oauth/token` contains an `access_token`, `id_token` and `tok
 }
 ```
 
-The `token_type` will be set to **Bearer** and the `id_token` will be a [JSON Web Token (JWT)](/jwt) containing information about the user. You will need to decode the ID Token in order to read the claims (or attributes) of the user. The [JWT section of our website](/jwt) contains more information about the structure of a JWT.
+The `token_type` will be set to **Bearer** and the `id_token` will be a [JSON Web Token (JWT)](/tokens/concepts/jwts) containing information about the user. You will need to decode the ID Token in order to read the claims (or attributes) of the user. The [JWT section of our website](/tokens/concepts/jwts) contains more information about the structure of a JWT.
 
 You can refer to the [libraries section on the JWT.io website](https://jwt.io/#libraries-io) in order to obtain a library for your programming language of choice which will assist you in decoding the ID Token.
 

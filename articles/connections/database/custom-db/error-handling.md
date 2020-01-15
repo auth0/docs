@@ -1,5 +1,5 @@
 ---
-description: Learn how to handle errors when using your database as an identity provider.
+description: Describes how to handle errors and troubleshoot when using your database as an identity provider.
 topics:
     - connections
     - custom-database
@@ -9,7 +9,7 @@ useCase:
     - customize-connections
     - troubleshooting
 ---
-# Custom Database Error Handling and Troubleshooting
+# Troubleshoot Custom Databases
 
 You can use return errors resulting from your custom database connection for troubleshooting purposes. We will also cover some basic troubleshooting steps for your scripts.
 
@@ -45,5 +45,5 @@ If you use <dfn data-key="lock">Lock</dfn>, you can [customize the error message
 
 Test the script using the **TRY** button. 
 
-If you do not get the expected result, or you receive an error, use `console.log`statements in your script and try the connection again. The output of `console.log` prints in the try the script window.
+If you do not get the expected result or you receive an error, install the [Real-time Webtask Logs extension](/extensions/realtime-webtask-logs) and use `console.log()` statements in your script and try the connection again. The output of `console.log()` will print to the Real-time Webtask Logs window.
 

@@ -11,6 +11,7 @@ POST https://${account.namespace}/passwordless/start
 Content-Type: application/json
 {
   "client_id": "${account.clientId}",
+  "client_secret": "YOUR_CLIENT_SECRET", // for web applications
   "connection": "email|sms",
   "email": "EMAIL", //set for connection=email
   "phone_number": "PHONE_NUMBER", //set for connection=sms
@@ -89,6 +90,7 @@ You have three options for [passwordless authentication](/connections/passwordle
 | Parameter        | Description |
 |:-----------------|:------------|
 | `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your application. |
+| `client_secret` <br/><span class="label label-danger">Required</span> | The `client_secret` of your application, required for Regular Web Applications. |
 | `connection` <br/><span class="label label-danger">Required</span> | How to send the code/link to the user. Use `email` to send the code/link using email, or `sms` to use SMS. |
 | `email` | Set this to the user's email address, when `connection=email`. |
 | `phone_number` | Set this to the user's phone number, when `connection=sms`. |
@@ -112,8 +114,7 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 ### More Information
 
 - [Passwordless Authentication](/connections/passwordless)
-- [Authenticate Users with Passwordless Authentication](/connections/passwordless/guides/implement-passwordless)
-- [Passwordless Troubleshooting](/connections/passwordless/reference/troubleshoot)
+- [Passwordless Best Practices](/connections/passwordless/guides/best-practices)
 
 ## Authenticate User
 
@@ -182,8 +183,53 @@ curl --request POST \
 <%= include('../../_includes/_http-method', {
   "http_badge": "badge-success",
   "http_method": "POST",
-  "path": "/passwordless/verify",
+  "path": "/oauth/token",
   "link": "#authenticate-user"
+}) %>
+
+
+Once you have a verification code, use this endpoint to login the user with their phone number/email and verification code.
+
+### Request Parameters
+
+| Parameter        |Description |
+|:-----------------|:------------|
+| `grant_type` <br/><span class="label label-danger">Required</span> | It should be `http://auth0.com/oauth/grant-type/passwordless/otp`. |
+| `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your application. |
+| `client_secret` <br/><span class="label label-danger">Required</span> | The `client_secret` of your application. Only required for Regular Web Applications|
+| `username` <br/><span class="label label-danger">Required</span> | The user's phone number if `realm=sms`, or the user's email if `realm=email`. |
+| `realm` <br/><span class="label label-danger">Required</span> | Use `sms` or `email` (should be the same as [POST /passwordless/start](#get-code-or-link)) |
+| `otp` <br/><span class="label label-danger">Required</span> | The user's verification code.  |
+| <dfn data-key="audience">`audience`</dfn> | The API identifier you want to get an Access Token for. |
+| <dfn data-key="scope">`scope`</dfn> | Use `openid` to get an ID Token, or `openid profile email` to include also user profile information in the ID Token. |
+
+### Test with Postman
+
+<%= include('../../_includes/_test-with-postman') %>
+
+### Test with Authentication API Debugger
+
+<%= include('../../_includes/_test-this-endpoint') %>
+
+1. At the *Configuration* tab, set the fields **Application** (select the application you want to use for the test) and **Connection** (use `sms` or `email`).
+
+1. Copy the <dfn data-key="callback">**Callback URL**</dfn> and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
+
+1. At the *OAuth2 / OIDC* tab, set **Username** to the user's phone number if `connection=sms`, or the user's email if `connection=email`, and **Password** to the user's verification code. Click **Resource Owner Endpoint**.
+
+### Error Codes
+
+For the complete error code reference for this endpoint refer to [Errors > POST /oauth-token](#post-oauth-token).
+
+### More Information
+
+- [Passwordless Authentication](/connections/passwordless)
+
+<%= include('../../_includes/_http-method', {
+  "http_badge": "badge-success",
+  "http_method": "POST",
+  "path": "/passwordless/verify",
+  "link": "#authenticate-user-legacy"
 }) %>
 
 ::: warning
@@ -229,6 +275,5 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 
 ### More Information
 
-- [Passwordless Authentication](/connections/passwordless)
-- [Authenticate Users with Passwordless Authentication](/connections/passwordless/guides/implement-passwordless)
-- [Passwordless Troubleshooting](/connections/passwordless/reference/troubleshoot)
+- [Passwordless Best Practices](/connections/passwordless/guides/best-practices)
+

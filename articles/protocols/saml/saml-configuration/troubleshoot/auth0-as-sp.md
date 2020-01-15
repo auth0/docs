@@ -52,7 +52,7 @@ If Auth0's logs don't show a successful login event, there is probably an issue 
 
 ### Check the SAML Authentication Assertion
 
-Check the information that Auth0 sends to the application by [capturing an HTTP trace of the login sequence](/har) and analyzing the HTTP trace.
+Check the information that Auth0 sends to the application by [capturing an HTTP trace of the login sequence](/troubleshoot/guides/generate-har-files) and analyzing the HTTP trace.
 
 #### Retrieve the Assertion
 
@@ -132,7 +132,7 @@ The two most common causes for this issue are:
 
 ### Check the SAML Assertion
 
-Check the information that Auth0 sends to the application by [capturing an HTTP trace of the login sequence](/har) and analyzing the HTTP trace.
+Check the information that Auth0 sends to the application by [capturing an HTTP trace of the login sequence](/troubleshoot/guides/generate-har-files) and analyzing the HTTP trace.
 
 #### Retrieve the Assertion
 
@@ -163,7 +163,7 @@ Certificate | Compare the certificate sent to the one that you provided to the a
 
 ### Check the ID Token
 
-If your authorization flow uses an OIDC-conformant protocol, you can [capture a HAR trace](/har) and view it using [Google's HAR Analyzer](https://toolbox.googleapps.com/apps/har_analyzer/).
+If your authorization flow uses an OIDC-conformant protocol, you can [capture a HAR trace](/troubleshoot/guides/generate-har-files) and view it using [Google's HAR Analyzer](https://toolbox.googleapps.com/apps/har_analyzer/).
 
 1. Scan through the sequence of URLs in the trace, and look for the following:
 
