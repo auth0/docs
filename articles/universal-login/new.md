@@ -56,7 +56,7 @@ Please note that you must provide an **Application Login URI** under [Applicatio
 
 ## Consent
 
-- The logo and colors selected in the dashboard configuration section will be properly applied.
+- The logo and colors selected in the dashboard configuration section will be properly applied. (Recommended log size is 150 x 150 pixels.)
 
 ## Custom DB Connections
 
