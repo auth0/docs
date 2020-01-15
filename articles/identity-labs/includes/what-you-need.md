@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD041 -->
+
 **Node environment** - Install [Node.js](https://nodejs.org) directly or using [Homebrew](https://formulae.brew.sh/formula/node) or [NVM](https://github.com/nvm-sh/nvm) on a Mac. The labs were tested on Node.js v10.15.0 and NPM 6.4.1 (though they may work in other versions as well).
 
 ---

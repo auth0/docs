@@ -12,7 +12,9 @@ contentType:
 ---
 # Lab 4, Exercise 1: Adding Sign On
 
-<%= include('../_includes/first-page-of-lab-note') %>
+::: warning
+If you came to this page directly, go to the [first page of this lab](/identity-labs/04-single-page-app) and read through the instructions before getting started.
+:::
 
 In this lab, you will learn how to add sign-on capabilities to a Single-Page Application (SPA) and how to make this app consume an API that is secured with Auth0. You will integrate the SPA with Auth0 so that your users are able to use the Auth0 Universal Login Page to authenticate.
 

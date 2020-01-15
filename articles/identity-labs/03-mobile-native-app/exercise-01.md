@@ -12,13 +12,15 @@ contentType:
 ---
 # Lab 3, Exercise 1: Adding Authentication
 
-<%= include('../_includes/first-page-of-lab-note') %>
+::: warning
+If you came to this page directly, go to the [first page of this lab](/identity-labs/03-mobile-native-app) and read through the instructions before getting started.
+:::
 
 In this exercise, you will add authentication to an existing iOS application. A simple iOS application has been provided to get you started. This is a single-view application with a button to launch the Auth0 authentication process.
 
 1. Launch Xcode, go to **File > Open**, and open `/lab-03/exercise-01/begin/exercise-01.xcworkspace` in your locally-cloned copy of the [identity exercise repo](https://github.com/auth0/identity-102-exercises/).
 
-<%= include('../_includes/git-clone-note') %>
+<%= include('../includes/git-clone-note') %>
 
 ::: note
 If the project complains about a missing dependency, you might have opened `exercise-01.xcodeproj` instead of `exercise-01.xcworkspace` (note the extension).

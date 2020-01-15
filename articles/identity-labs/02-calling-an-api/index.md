@@ -27,7 +27,7 @@ The Node OIDC and bearer token npm packages that this lab uses has not been test
 
 ## What You'll Need
 
-<%= include('../_includes/what-you-need') %>
+<%= include('../includes/what-you-need') %>
 
 ---
 
