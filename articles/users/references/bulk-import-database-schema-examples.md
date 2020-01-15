@@ -81,7 +81,7 @@ The following [JSON schema](http://json-schema.org) describes valid users:
             "properties": {
                 "algorithm": {
                     "type": "string",
-                    "enum": ["argon2", "bcrypt", "ldap", "md4", "md5", "sha1", "sha256", "sha512", "pbkdf2"],
+                    "enum": ["argon2", "bcrypt", "hmac", "ldap", "md4", "md5", "sha1", "sha256", "sha512", "pbkdf2"],
                     "description": "The algorithm that was used to hash the password."
                 },
                 "hash": {
@@ -95,6 +95,28 @@ The following [JSON schema](http://json-schema.org) describes valid users:
                             "type": "string",
                             "enum": ["base64", "hex", "utf8"],
                             "description": "The encoding of the provided hash. Note that both upper and lower case hex variants are supported, as well as url-encoded base64."
+                        },
+                        "digest": {
+                            "type": "string",
+                            "description": "The algorithm that was used to generate the HMAC hash",
+                            "enum": ["md4", "md5", "ripemd160", "sha1", "sha224", "sha256", "sha384", "sha512", "whirlpool"]
+                        },
+                        "key": {
+                            "type: "object",
+                            "description": "The key that was used to generate the HMAC hash",
+                            "required": ["value"],
+                            "properties": {
+                                "value": {
+                                    "type": "string",
+                                    "description": "The key value"
+                                },
+                                "encoding": {
+                                    "type": "string",
+                                    "enum": ["base64", "hex", "utf8"],
+                                    "default: "utf8",
+                                    "description": "The key encoding"
+                                }
+                            }
                         }
                     }
                 },
@@ -182,9 +204,30 @@ The `app_metadata` stores information that can impact how an application functio
 
 In addition to the constraints described by the above schema, please consider the following when providing a `custom_password_hash`.
 
-- `hash.encoding` must be `utf8` when `algorithm` is one of `bcrypt|argon2|pbkdf2|ldap`.
-- `hash.encoding` must be either `hex` or `base64` when `algorithm` is in either of the `md*` or `sha*` family of algorithms.
-- `salt` is not allowed when `algorithm` is any of `bcrypt|argon2|pbkdf2|ldap`.
+### `md*` or `sha*` family of algorithms
+
+- `hash.encoding` must be either `hex` or `base64`.
+
+### `hmac`
+
+- `hash.encoding` must be either `hex` or `base64`.
+- `hash.digest` is mandatory and must be one of these:
+  - `md4`
+  - `md5`
+  - `ripemd160`
+  - `sha1`
+  - `sha224`
+  - `sha256`
+  - `sha384`
+  - `sha512`
+  - `whirlpool`
+- `hash.key.value` is mandatory.
+- `hash.key.encoding` must be either `base64` or `hex` or `utf8`.
+
+### `bcrypt|argon2|pbkdf2|ldap`
+
+- `hash.encoding` must be `utf8`.
+- `salt` is not allowed.
 - When `algorithm` is `bcrypt` the hash must be prefixed with either `$2a$` or `$2b$`. Other prefixes such as `$2$`, `$sha1$`, `$2x$`, etc. are not supported at this time. For instance, `$2b$10$nFguVi9LsCAcvTZFKQlRKeLVydo8ETv483lkNsSFI/Wl1Rz1Ypo1K` was generated from the string `hello` using with a cost parameter of 10.
 - When `algorithm` is `ldap`, `hash.value` must adhere to the format outlined in [`RFC-2307 section-5.3`](https://tools.ietf.org/html/rfc2307#section-5.3). The scheme should be one of `md5|smd5|sha*|ssha*` — see [here](https://www.openldap.org/faq/data/cache/347.html) for more info.
   - Note that the [`crypt`](https://www.openldap.org/faq/data/cache/344.html) scheme is **not supported** due to system/implementation dependent behavior. See also [Open LDAP Admin Guide - 14.4.2. CRYPT password storage scheme](https://www.openldap.org/doc/admin24/guide.html#CRYPT%20password%20storage%20scheme).
@@ -231,6 +274,7 @@ As described above, the supported hash algorithms are:
 * [`argon2`](https://github.com/p-h-c/phc-winner-argon2)
 * [`bcrypt`](https://auth0.com/blog/hashing-in-action-understanding-bcrypt/)
 * [`ldap`](https://tools.ietf.org/html/rfc2307#section-5.3) (`RFC-2307 "userPassword"`)
+* [`hmac`](https://tools.ietf.org/html/rfc2104)
 * [`md4`](https://tools.ietf.org/html/rfc1320)
 * [`md5`](https://tools.ietf.org/html/rfc1321)
 * [`sha1`](https://tools.ietf.org/html/rfc3174)
@@ -291,7 +335,6 @@ Some example users with hashes provided:
             }
         }
     },
-    
     {
         "email": "velma@contoso.com",
         "email_verified": false,
@@ -341,6 +384,22 @@ Some example users with hashes provided:
             "hash": {
                 "value": "{SSHA384}/cgEjdoZh85DhurDeOQEMO1rMlAur93SVPbYe5XSD4lF7nNuvrBju5hUeg9A6agRemgSXGl5YuE=",
                 "encoding": "utf8"
+            }
+        }
+    },
+    {
+        "email": "peter@contoso.com",
+        "email_verified": false,
+        "custom_password_hash": {
+            "algorithm": "hmac",
+            "hash": {
+                "value": "cg7f42jH39/2EaAU4wNd4s2lKIk=",
+                "encoding": "base64",
+                "digest": "sha1",
+                "key": {
+                    "value": "736868",
+                    "encoding": "hex"
+                }
             }
         }
     }
