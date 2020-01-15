@@ -12,7 +12,9 @@ contentType:
 ---
 # Lab 2, Exercise 3: Working with Refresh Tokens
 
-<%= include('../_includes/first-page-of-lab-note') %>
+::: warning
+If you came to this page directly, go to the [first page of this lab](/identity-labs/02-calling-an-api) and read through the instructions before getting started.
+:::
 
 Right now, if your users stay logged in for too long and try to refresh the `/expenses` page, they will face a problem. Access tokens were conceived to be exchanged by different services through the network (which makes them more prone to leakage), so they should expire quickly. When an access token is expired, your API won't accept it anymore, and your web application won't be able to fetch the data needed. A token expired error will be returned instead.
 
@@ -30,13 +32,19 @@ To change this behavior, you can make your web app take advantage of yet another
 app.use(auth({
   required: false,
   auth0Logout: true,
+  appSessionSecret: false,
   authorizationParams: {
     response_type: 'code id_token',
+    response_mode: 'form_post',
     audience: process.env.API_AUDIENCE,
 
-    // Change the line below 👇
+    // Change only the line below 👇
     scope: 'openid profile email read:reports offline_access'
-  }
+
+  },
+
+  // ... keep the rest
+
 }));
 ```
 
@@ -48,17 +56,13 @@ app.use(auth({
 app.get('/expenses', requiresAuth(), async (req, res, next) => {
   try {
 
-    // Replace this code ❌
-    /*
-    const tokenSet = req.openid.tokens;
-    */
+    let tokenSet = req.openid.makeTokenSet(req.session.openidTokens);
 
-    // ... with this 👇
-    let tokenSet = req.openid.tokens;
+    // Add the code block below 👇
     if (tokenSet.expired()) {
       tokenSet = await req.openid.client.refresh(tokenSet);
-      tokenSet.refresh_token = req.openid.tokens.refresh_token;
-      req.openid.tokens = tokenSet;
+      tokenSet.refresh_token = req.session.openidTokens.refresh_token;
+      req.session.openidTokens = tokenSet;
     }
 
     // ... keep the rest
@@ -80,7 +84,7 @@ This change will update your endpoint to check if the `tokenSet` is expired. If 
 
 app.get('/', requiredScopes('read:reports'), (req, res) => {
 
-  // Add the code below 👇
+  // Add the line below 👇
   console.log(new Date(req.auth.claims.iat * 1000));
 
   // ...

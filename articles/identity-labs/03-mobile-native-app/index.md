@@ -32,6 +32,6 @@ contentType:
 
 ---
 
-<%= include('../_includes/what-you-need') %>
+<%= include('../includes/what-you-need') %>
 
 <a href="/identity-labs/03-mobile-native-app/exercise-01" class="btn btn-transparent">Start →</a>
