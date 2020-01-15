@@ -102,7 +102,7 @@ The following [JSON schema](http://json-schema.org) describes valid users:
                             "enum": ["md4", "md5", "ripemd160", "sha1", "sha224", "sha256", "sha384", "sha512", "whirlpool"]
                         },
                         "key": {
-                            "type: "object",
+                            "type": "object",
                             "description": "The key that was used to generate the HMAC hash",
                             "required": ["value"],
                             "properties": {
@@ -113,7 +113,7 @@ The following [JSON schema](http://json-schema.org) describes valid users:
                                 "encoding": {
                                     "type": "string",
                                     "enum": ["base64", "hex", "utf8"],
-                                    "default: "utf8",
+                                    "default": "utf8",
                                     "description": "The key encoding"
                                 }
                             }
