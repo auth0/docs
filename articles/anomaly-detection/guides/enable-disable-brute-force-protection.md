@@ -27,5 +27,3 @@ Once enabled, you can [customize](/anomaly-detection/guides/set-anomaly-detectio
 
 * [Brute-Force Protection Triggers and Actions](/anomaly-detection/references/brute-force-protection-triggers-actions)
 * [Set Anomaly Detection Preferences](/anomaly-detection/guides/set-anomaly-detection-preferences)
-* [Anomaly Detection Restrictions and Limitations](/anomaly-detection/references/anomaly-detection-restrictions-limitations)
-* [Frequently Asked Questions](/anomaly-detection/references/anomaly-detection-faqs)

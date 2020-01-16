@@ -2340,5 +2340,13 @@ module.exports = [
     {
       from: '/logs/references/log-event-data',
       to: '/logs/references/log-event-types-codes'
+    },
+    {
+      from: '/anomaly-detection/references/anomaly-detection-faqs',
+      to: '/anomaly-detection'
+    },
+    {
+      from: '/anomaly-detection/references/anomaly-detection-restrictions-limitations',
+      to: '/anomaly-detection/guides/set-anomaly-detection-preferences'
     }
 ];
