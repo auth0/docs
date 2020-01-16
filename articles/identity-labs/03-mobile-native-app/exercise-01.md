@@ -20,7 +20,7 @@ In this exercise, you will add authentication to an existing iOS application. A 
 
 1. Launch Xcode, go to **File > Open**, and open `/lab-03/exercise-01/begin/exercise-01.xcworkspace` in your locally-cloned copy of the [identity exercise repo](https://github.com/auth0/identity-102-exercises/).
 
-<%= include('../includes/git-clone-note') %>
+<%= include('../_includes/_git-clone-note') %>
 
 ::: note
 If the project complains about a missing dependency, you might have opened `exercise-01.xcodeproj` instead of `exercise-01.xcworkspace` (note the extension).
