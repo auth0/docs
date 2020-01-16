@@ -79,7 +79,7 @@ To be able to use the callback that was configured in the Auth0 dashboard, a URL
 - **URL Schemes**: `$(PRODUCT_BUNDLE_IDENTIFIER)`
 - **Role**: `None`
 
-Just as `http` is a URL Scheme that will launch a browser, the bundle identifier of the app as a URL Scheme (which will resolve to `com.auth0.identity102`) will tell iOS that any time this scheme is used in a URL, it must be routed to our application. That will be the case of the callback used by Auth0 after you log in.
+Just as `http` is a URL Scheme that will launch a browser, the bundle identifier of the app has a URL Scheme (which will resolve to `com.auth0.identity102`) will tell iOS that any time this scheme is used in a URL, it must be routed to our application. That will be the case of the callback used by Auth0 after you log in.
 
 12. Now, the application needs to have the Auth0.swift SDK handle the callback in order to proceed with the authentication flow. In the Project Navigator on the left, open `exercise-01/AppDelegate.swift` and add the following import statement just below the other one:
 
@@ -190,7 +190,7 @@ Congratulations! You have successfully added Auth0 authentication to your native
 
 The authorization code grant by itself has some security issues when implemented on native applications. For instance, a malicious attacker can intercept the authorization code returned by Auth0 and exchange it for an access token. The Proof Key for Code Exchange (PKCE) is a technique used to mitigate this authorization code interception attack.
 
-With PKCE, for every authorization request, the application creates a cryptographically random key called the **code verifier**, hashes that value into a **code challenge**, and sends it to the authorization server to get the authorization code. When the application receives the code after a successful login, it will send the code and the code verifier to the token endpoint to exchange them for the requested tokens.
+With PKCE, for every authorization request, the application creates a cryptographically random key called the **code verifier**, hashes that value into a **code challenge**, and sends the **code challenge** to the authorization server to get the authorization code. When the application receives the code after a successful login, it will send the code and the code verifier to the token endpoint to exchange them for the requested tokens.
 
 Since you previously enabled logging in our `WebAuth` call with the `logging()` method, it is easy to see the process flow in the Debug Area.
 
