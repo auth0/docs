@@ -137,7 +137,7 @@ Auth0
     }
 ```
 
-If you're using **Swift 5+** the `Auth0.Result` type may shadow Swift's `Result`. To prevent that, whenever you want to refer to Swift's type, use `Swift.Result` instead. This will be fixed in the next major version of Auth0.swift.
+If you're using **Swift 5+**, `Auth0.Result` may shadow Swift's `Result` type. To prevent that, replace it with `Swift.Result` whenever you want to refer to Swift's built-in type. This will be fixed in the next major version of Auth0.swift.
 
 ::: note
 To ensure a response that complies with <dfn data-key="openid">OpenID Connect (OIDC)</dfn>, you must either request an <dfn data-key="audience">`audience`</dfn> or enable the **OIDC Conformant** switch in your [Auth0 dashboard](${manage_url}), under **Application > Settings > Show Advanced Settings > OAuth**. For more information, refer to [How to use the new flows](/api-auth/intro#how-to-use-the-new-flows).
