@@ -35,7 +35,6 @@ We are actively migrating customers to new behaviors for all **Deprecations** li
         <a href="/api/management/v2">Management API v2 documentation</a><br>
         <a href="/api/management/v1">Management API v1 documentation</a><br>
         <a href="/api/management/v2/changes">Breaking changes</a><br>
-        <a href="/api/management/v1/use-cases">Unaffected endpoints</a><br>
       </td>
   </tr>
   <tr>
