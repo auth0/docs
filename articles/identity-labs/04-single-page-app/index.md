@@ -19,7 +19,7 @@ contentType:
 
 ## What You'll Need
 
-<%= include('../includes/what-you-need') %>
+<%= include('../_includes/_what-you-need') %>
 
 ---
 

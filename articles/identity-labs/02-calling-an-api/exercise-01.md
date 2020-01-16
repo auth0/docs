@@ -20,7 +20,7 @@ After learning how to secure your web application with Auth0 in [lab 1](/identit
 
 1. Open a new terminal and browse to `/lab-02/begin/api` in your locally-cloned copy of the [identity exercise repo](https://github.com/auth0/identity-102-exercises/). This is where the code for your API resides. The API is an Express backend that contains a single endpoint. This endpoint (served under the root path) returns expenses, which are data that belong to each user (though they are static and the same for all).
 
-<%= include('../includes/git-clone-note') %>
+<%= include('../_includes/_git-clone-note') %>
 
 2. Install the dependencies using npm:
 
