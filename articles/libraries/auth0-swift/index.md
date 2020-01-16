@@ -120,7 +120,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 The first step in adding authentication to your iOS application is to provide a way for your users to log in. The fastest, most secure, and most feature-rich way to do this with Auth0 is to use <dfn data-key="universal-login">Universal Login</dfn>.
 
 ::: note
-If you need help between the two types of login flows, refer to [Browser-Based vs. Native Login Flows on Mobile Devices](/tutorials/browser-based-vs-native-experience-on-mobile)
+For more information on the two types of login flows, please refer to [Browser-Based vs. Native Login Flows on Mobile Devices](/tutorials/browser-based-vs-native-experience-on-mobile)
 :::
 
 ```swift
