@@ -1,5 +1,5 @@
 ---
-description: Describes how to implement progressive profiling in your website or application.
+description: Understand how progressive profiling can gather more information about your users over time as they engage with your website or application thereby enhancing their experience by not asking them too many questions up front.
 topics:
     - users
     - user-management
@@ -49,5 +49,5 @@ In the example above, the application collects **last name** and **first name** 
 
 ## Keep reading
 
-* [How Rules Handle the Data](https://github.com/auth0/rules/blob/master/redirect-rules/progressive-profiling/continue-from-update-profile-website.js)
+* [Blog: How Profile Enrichment and Progressive Profiling Can Boost Your Marketing](https://auth0.com/blog/how-profile-enrichment-and-progressive-profiling-can-boost-your-marketing/)
 * [Resume Authentication](/rules/guides/redirect#resume-authentication)
