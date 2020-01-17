@@ -43,6 +43,10 @@ Auth0
 }
 ```
 
+::: note
+The Keychain items do not get deleted after your app is uninstalled. We recommend to always clear all of your app's Keychain items on first launch.
+:::
+
 ### Credentials Check
 
 It can be useful to perform a quick sanity check that you have valid credentials stored in the manager. If not the user can then be directed to authenticate.
