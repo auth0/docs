@@ -56,9 +56,9 @@ Click over to the **Usage** tab. You'll need to configure Auth0 as the identity 
 
 At this point, you're ready to continue the configuration process from the AWS side.
 
-Log in to AWS, and navigate to the [IAM console](https://console.aws.amazon.com/iam). Using the left-hand navigation menu, select **Identity Providers**. Click **Create Provider**. 
+Log in to AWS, and navigate to the [IAM console](https://console.aws.amazon.com/iam). Using the left-hand navigation menu, under **Access Management**, select **Identity Providers**. Click **Create Provider**. 
 
-![](/media/articles/integrations/aws/create-provider.png)
+![](/media/articles/integrations/aws/aws-iam-identity-providers.png)
 
 Set the following parameters:
 
@@ -68,42 +68,40 @@ Set the following parameters:
 | Provider Name | A descriptive name for the provider, such as `auth0SamlProvider` |
 | Metadata Document | Upload the file containing the Auth0 metadata you downloaded in the previous step here. |
 
-![](/media/articles/integrations/aws/aws-configure-provider.png)
+![](/media/articles/integrations/aws/aws-iam-configure-provider.png)
 
 Click **Next Step**. Verify your settings and click **Create** if everything is correct.
 
-![](/media/articles/integrations/aws/create-provider-confirm.png)
-
 To use the provider, you must create an IAM role using the provider in the role's trust policy. 
 
-In the IAM console, navigate to [Roles](https://console.aws.amazon.com/iam/home#/roles). Click **Create New Role**.
+In the sidebar, under **Access Management**, navigate to **[Roles](https://console.aws.amazon.com/iam/home#/roles)**. Click **Create Role**.
 
-![](/media/articles/integrations/aws/iam-new-role.png)
+![](/media/articles/integrations/aws/aws-iam-roles.png)
 
-On the **Select role type** page, select **Role for identity provider access**. 
+On the next page, you will be asked to select the type of trusted entity. Select **SAML 2.0 Federation**. 
 
-![](/media/articles/integrations/aws/select-role-type.png)
+When prompted, set the provider you created above as the **SAML provider**. Select **Allow programmatic and AWS Management Console access**. Click **Next** to proceed.
 
-Click **Select** for the **Grant Web Single Sign-On (WebSSO) access to SAML providers** option. When prompted, set the provider you created above as the **SAML provider** and click **Next Step** to proceed.
+![](/media/articles/integrations/aws/aws-iam-create-role.png)
 
-![](/media/articles/integrations/aws/select-saml-provider-to-trust.png)
+On the **Attach Permission Policies** page, select the appropriate policies to attach to the role. These define the permissions that users granted this role will have with AWS. For example, to grant your users read-only access to IAM, filter for and select the `IAMReadOnlyAccess` policy. Once you are done, click **Next Step**.
 
-On the **Verify Role Trust** page, accept the **Policy Document** proposed (this policy tells IAM to trust the Auth0 SAML IdP). Click **Next Step**.
+![](/media/articles/integrations/aws/aws-iam-create-role-policies.png)
 
-On **Attach Policy**, select the appropriate policies to attach to the role. These define the permissions that users granted this role will have with AWS. For example, to grant your users read-only access to IAM, filter for and select the `IAMReadOnlyAccess` policy. Click **Next Step**.
+The third **Create Role** screen is **Add Tags**. You can use tags to organize the roles you create if you will be creating a significant number of them.
 
-Finally, set the role name and review your settings. Provide values for the following parameters:
+![](/media/articles/integrations/aws/aws-iam-create-role-tags.png)
+
+Finally, on the **Review** page, set the **Role Name** and review your settings. Provide values for the following parameters:
 
 | Parameter | Definition | 
 | - | - |
 | Role name | A descriptive name for your role |
 | Role description | A description of what your role is used for |
 
-Review the **Trusted entities** and **Policies** information, then click **Create Role**.
+Review the **Trusted entities** and **Policies** information, then click **Create Role**. At this point, you'll have created the necessary role to associate with your provider.
 
-![](/media/articles/integrations/aws/iam-review-role.png)
-
-At this point, you'll have created the necessary role to associate with your provider.
+![](/media/articles/integrations/aws/aws-iam-create-role-review.png)
 
 ## Map the AWS Role to a User
 
