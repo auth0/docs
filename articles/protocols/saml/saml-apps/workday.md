@@ -1,6 +1,6 @@
 ---
-title: Workday SAML Configuration
-description: Workday SAML Configuration
+title: Configure Auth0 as a SAML Identity Provider for Workday
+description: Learn how to configure Auth0 to be a SAML Identity Provider for Workday.
 topics:
     - saml
     - identity-providers
@@ -11,7 +11,16 @@ useCase:
   - add-idp
 ---
 
-<%= include('./_header') %>
+# Configure Auth0 as a SAML Identity Provider for Workday
+
+On this page, you'll find steps on configuring Auth0 as a SAML Identity Provider for [Workday](https://www.workday.com/).
+
+<%= include('./_configure-saml-addon', {
+  saml_app_name: "Workday"
+}) %>
+
+- **Application Callback URL:** `https://impl.workday.com/<tenant>/login-saml.htmld`. You may want to change the subdomain `impl` depending on the Workday data center you are using.
+- **Settings (JSON):**
 
 ```json
 {
@@ -32,4 +41,3 @@ useCase:
 }
 ```
 
-The **<dfn data-key="callback">Callback URL</dfn>** is `https://impl.workday.com/<tenant>/login-saml.htmld`. You may want to change the subdomain `impl` depending on the Workday data center you are using.

@@ -1,6 +1,6 @@
 ---
-title: Egencia SAML Configuration
-description: Egencia SAML Configuration
+title: Configure Auth0 as a SAML Identity Provider for Egencia
+description: Learn how to configure Auth0 to be a SAML Identity Provider for Egencia.
 topics:
     - saml
     - identity-providers
@@ -11,8 +11,16 @@ useCase:
   - add-idp
 ---
 
-<%= include('./_header') %>
+# Configure Auth0 as a SAML Identity Provider for Egencia
 
+On this page, you'll find steps on configuring Auth0 as a SAML Identity Provider for [Egencia](https://www.egencia.com/).
+
+<%= include('./_configure-saml-addon', {
+  saml_app_name: "Egencia"
+}) %>
+
+- **Application Callback URL:** `https://www.egencia.com/auth/v1/artifactConsumer`
+- **Settings (JSON):**
 
 ```json
 {
@@ -29,5 +37,3 @@ useCase:
    ],
 }
 ```
-
-The **<dfn data-key="callback">Callback URL</dfn>** is `https://www.egencia.com/auth/v1/artifactConsumer`.

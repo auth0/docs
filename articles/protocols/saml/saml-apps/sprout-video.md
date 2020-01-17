@@ -1,6 +1,6 @@
 ---
-title: Sprout Video SAML Configuration
-description: Sprout Video SAML Configuration
+title: Configure Auth0 as a SAML Identity Provider for Sprout Video
+description: Learn how to configure Auth0 to be a SAML Identity Provider for Sprout Video.
 topics:
     - saml
     - identity-providers
@@ -11,11 +11,19 @@ useCase:
   - add-idp
 ---
 
-<%= include('./_header') %>
+# Configure Auth0 as a SAML Identity Provider for Sprout Video
+
+On this page, you'll find steps on configuring Auth0 as a SAML Identity Provider for [Sprout Video](https://sproutvideo.com/).
+
+<%= include('./_configure-saml-addon', {
+  saml_app_name: "SproutVideo"
+}) %>
+
+- **Settings (JSON):**
 
 ```json
 {
- "audience":  "https://{YOUR SPROUT VIDEO ACCOUNT}.vids.io",
+ "audience":  "https://{YOUR_SPROUT_VIDEO_ACCOUNT}.vids.io",
  "mappings": {  
        "user_id":     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier",
        "email":       "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress",

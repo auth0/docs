@@ -1,18 +1,26 @@
 ---
-title: Pluralsight SAML Configuration
-description: Pluralsight SAML Configuration
+title: Configure Auth0 as a SAML Identity Provider for Pluralsight
+description: Learn how to configure Auth0 to be a SAML Identity Provider for Pluralsight.
 topics:
     - saml
     - identity-providers
-    - pluralsight
+    - Pluralsight
 contentType:
   - how-to
 useCase:
   - add-idp
 ---
 
-<%= include('./_header') %>
+# Configure Auth0 as a SAML Identity Provider for Pluralsight
 
+On this page, you'll find steps on configuring Auth0 as a SAML Identity Provider for [Pluralsight](https://www.pluralsight.com/).
+
+<%= include('./_configure-saml-addon', {
+  saml_app_name: "Pluralsight"
+}) %>
+
+- **Application Callback URL:** `https://prod-pf.pluralsight.com/sp/ACS.saml2`
+- **Settings (JSON):**
 
 ```json
 {
@@ -33,5 +41,3 @@ useCase:
   ]
 }
 ```
-
-The **<dfn data-key="callback">Callback URL</dfn>** is `https://prod-pf.pluralsight.com/sp/ACS.saml2`.

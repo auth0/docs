@@ -1,6 +1,6 @@
 ---
-title: Eloqua (Oracle Eloqua Marketing Cloud) SAML Configuration
-description: Eloqua (Oracle Eloqua Marketing Cloud) SAML Configuration
+title: Configure Auth0 as a SAML Identity Provider for Eloqua
+description: Learn how to configure Auth0 to be a SAML Identity Provider for Eloqua (Oracle Eloqua Marketing Cloud).
 topics:
     - saml
     - identity-providers
@@ -11,8 +11,16 @@ useCase:
   - add-idp
 ---
 
-<%= include('./_header') %>
+# Configure Auth0 as a SAML Identity Provider for Eloqua
 
+On this page, you'll find steps on configuring Auth0 as a SAML Identity Provider for [Eloqua (Oracle Eloqua Marketing Cloud)]().
+
+<%= include('./_configure-saml-addon', {
+  saml_app_name: "Eloqua"
+}) %>
+
+- **Application Callback URL:** `https://login.eloqua.com/auth/saml2/acs`
+- **Settings (JSON):**
 
 ```json
 {
@@ -31,8 +39,6 @@ useCase:
   }
 
 ```
-
-The **<dfn data-key="callback">Callback URL</dfn>** is `https://login.eloqua.com/auth/saml2/acs`.
 
 ::: note
 The Service Provider Entity URL copied from within the IDP settings in Eloqua to set the audience restriction within Auth0.

@@ -1,6 +1,6 @@
 ---
 title: Configure Auth0 as Identity Provider for GitHub Enterprise Cloud
-description: This page explains how to configure Auth0 to be the SAML Identity Provider for a GitHub Enterprise Cloud (github.com) organization.
+description: Learn how to configure Auth0 to be the SAML Identity Provider for a GitHub Enterprise Cloud (github.com) organization.
 topics:
     - saml
     - identity-providers
@@ -72,6 +72,7 @@ As an example, if you want `nickname` as the Name Identifier, the `mappings` sec
 ```
 
 ## Configure SAML Single Sign-On on GitHub
+
 Follow the instruction from GitHub's [Enabling and testing SAML Single Sign-on (SSO) for your organization](https://help.github.com/en/articles/enabling-and-testing-saml-single-sign-on-for-your-organization) to complete the configuration on GitHub Enterprise Cloud. You will need the following information:
 
 * **Sign On URL** (for step 6): `https://${account.namespace}/samlp/{CLIENT_ID}`

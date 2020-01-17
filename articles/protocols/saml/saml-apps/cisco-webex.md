@@ -1,18 +1,27 @@
 ---
-title: Cisco WebEx SAML Configuration
-description: Cisco WebEx SAML Configuration
+title: Configure Auth0 as a SAML Identity Provider for Cisco WebEx
+description: Learn how to configure Auth0 to be a SAML Identity Provider for a Cisco WebEx.
 topics:
     - saml
     - identity-providers
     - cisco
     - cisco-webex
+    - webex
 contentType:
   - how-to
 useCase:
   - add-idp
 ---
 
-<%= include('./_header') %>
+# Configure Auth0 as a SAML Identity Provider for Cisco WebEx
+
+On this page, you'll find steps on configuring Auth0 to serve as a SAML Identity Provider for [Cisco WebEx](https://www.webex.com/).
+
+<%= include('./_configure-saml-addon.md', {
+  saml_app_name: "CiscoWebEx"
+}) %>
+
+- **Settings (JSON):**
 
 ```json
 {

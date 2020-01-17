@@ -1,6 +1,6 @@
 ---
-title: Datadog SAML Configuration
-description: Datadog SAML Configuration
+title: Configure Auth0 as a SAML Identity Provider for Datadog
+description: Learn how to configure Auth0 to be a SAML Identity Provider for a Datadog.
 topics:
     - saml
     - identity-providers
@@ -11,7 +11,16 @@ useCase:
   - add-idp
 ---
 
-<%= include('./_header') %>
+# Configure Auth0 as a SAML Identity Provider for Datadog
+
+On this page, you'll find steps on configuring Auth0 as a SAML Identity Provider for [Datadog](https://www.datadoghq.com/).
+
+<%= include('./_configure-saml-addon', {
+  saml_app_name: "Datadog"
+}) %>
+
+- **Application Callback URL:** `https://app.datadoghq.com/account/saml/assertion`
+- **Settings (JSON):**
 
 ```json
 {
@@ -29,6 +38,4 @@ useCase:
 }
 ```
 
-The **<dfn data-key="callback">Callback URL</dfn>** is `https://app.datadoghq.com/account/saml/assertion`.
-
-Notice that Datadog has an option to automatically provision new users. Check [Datadog docs](http://docs.datadoghq.com/guides/saml/) for more details.
+Datadog has an option to automatically provision new users. Check out [Datadog docs](http://docs.datadoghq.com/guides/saml/) for more details.
