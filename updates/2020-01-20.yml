@@ -1,0 +1,8 @@
+changed:
+  -
+    title: "API Rate Limits"
+    tags:
+      - api
+      - ratelimits
+    description: |
+      Updated the [Rate Limit Policy](/rate-limits) to remove limits on the `/authorize` path.
