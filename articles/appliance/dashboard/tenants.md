@@ -35,7 +35,11 @@ For each associated tenant, you will see the following pieces of information:
 
 The name column of the Tenants page is a hyperlink. Clicking on this brings up the page where you can set up custom domains for this particular tenant, as well overview information for any currently-existing custom domains.
 
-### Adding a Custom Domain
+### Adding a Custom Domain (legacy PSaaS customers only)
+
+::: note
+The following steps are only required for legacy PSaaS customers. All new customers can use the Custom Domains feature as implemented in the public cloud version. 
+:::
 
 To add a custom domain, click on the "Add Domain" button. You will be prompted for the following information:
 
