@@ -2,7 +2,7 @@
 
 ## Create the Backend API
 
-For this example, you'll create an [Express](https://expressjs.com/) server that acts as the backend API. This API will expose an endpoint to validate incoming [JWT-formatted access tokens](https://auth0.com/docs/jwt) before returning a response.
+For this example, you'll create an [Express](https://expressjs.com/) server that acts as the backend API. This API will expose an endpoint to validate incoming [JWT-formatted access tokens](https://auth0.com/docs/tokens/concepts/jwts) before returning a response.
 
 Start by installing the following packages:
 

@@ -28,7 +28,7 @@ For single-page applications (SPAs), you will need to [get an Access Token from 
 
 ## Keep reading
 
-* [Access Tokens](/tokens/access-tokens)
+* [Access Tokens](/tokens/concepts/access-tokens)
 * [Management API Access Token FAQs](/api/management/v2/faq-management-api-access-tokens)
 * [Changes in Auth0 Management API Tokens](/api/management/v2/tokens-flows)
 * [Client Credentials Flow](/flows/concepts/client-credentials)

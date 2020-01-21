@@ -43,4 +43,4 @@ The Auth0 IP address whitelist is shared between all Auth0 tenants defined to a 
 
 * [Security Bulletins](/security/bulletins)
 * [Auth0 Security](/security)
-* [Where to Store Tokens](/security/store-tokens)
+* [Store Tokens](/tokens/guides/store-tokens)

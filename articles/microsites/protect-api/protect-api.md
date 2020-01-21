@@ -41,7 +41,7 @@ Your API will receive a request including an Access Token: 
 ::: guides
   * [Configure an API](/apis#how-to-configure-an-api-in-auth0)
   * [Auth0 Backend/API Quickstarts](/quickstart/backend)
-  * [Validate an Access Token for custom APIs](/tokens/guides/access-token/validate-access-token)
+  * [Validate an Access Token for custom APIs](/tokens/guides/validate-access-tokens)
 :::
 
 ::: references
@@ -50,9 +50,9 @@ Your API will receive a request including an Access Token: 
 :::
 
 ::: concepts  
-  * [Access Tokens](/tokens/access-tokens)
+  * [Tokens](/tokens)
+  * [Access Tokens](/tokens/concepts/access-tokens)
   * [Scopes](/scopes)
-  * [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
   * [Dynamic client registration](/api-auth/dynamic-client-registration)
 :::
 

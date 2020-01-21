@@ -11,7 +11,7 @@ useCase:
 ---
 # Migrate from Management API v1 to v2
 
-Auth0’s Management API v1 was deprecated in 2016 and replaced with the [Auth0 Management API v2](/api/management/v2/).
+Auth0’s Management API v1 was deprecated in 2016 and replaced with the [Auth0 Management API v2](/api/management/v2/). Management API v1 will reach its End Of Life in the Public Cloud on **July 13th, 2020**. Requests will begin failing with a `410` HTTP status code on or after that date. Private Cloud releases will continue to support Management API v1 until the November 2020 monthly release.
 
 ## Am I affected by the migration?
 
@@ -57,6 +57,8 @@ For a complete list of breaking changes associated with this deprecation, see [M
 After replacing all calls to the Management API v1 with their [Management API v2 replacements](/api/management/v2/changes), you should confirm you are no longer seeing Deprecation Notices in your Tenant Logs and **disable the Management API v1 for your tenant.** 
 
 You can disable API v1 by going **Tenant Settings** > **Advanced** > **Migration** in the [Auth0 Dashboard](http://manage.auth0.com/). This will simulate the expected behavior after the End of Life date, causing calls to API v1 to fail with a `410` HTTP status code. You will be able to re-enable API v1 any time before the End of Life date.
+
+By migrating your requests to API v2 and disabling API v1 as soon as possible, you will ensure that your systems will continue to operate uninterrupted after the **July 13th, 2020** End of Life date, at which time the option to enable API v1 will be removed.
 
 ![Toggle Management API Version](/media/articles/migrations/apiv1-toggle.png)
 

@@ -12,7 +12,9 @@ contentType:
 ---
 # Lab 2, Exercise 2: Securing APIs with Auth0
 
-<%= include('../_includes/first-page-of-lab-note') %>
+::: warning
+If you came to this page directly, go to the [first page of this lab](/identity-labs/02-calling-an-api) and read through the instructions before getting started.
+:::
 
 In this exercise, you will register the API with Auth0 so that tokens can be issued for it. You will also learn how to secure your API with Auth0. You will refactor the API that your web application is consuming by installing and configuring some libraries needed to secure it with Auth0.
 
@@ -47,10 +49,10 @@ As mentioned earlier, the expenses API is still not secure. The next steps will 
 ❯ pwd
 /Users/username/identity-102-exercises/lab-02/begin/api
 
-❯ npm install express-oauth2-bearer
+❯ npm install express-oauth2-bearer@0.4.0 --save
 # Ignore any warnings
 
-+ express-oauth2-bearer@0.X.X
++ express-oauth2-bearer@0.4.0
 added XX packages in X.XXs
 ```
 
@@ -62,7 +64,7 @@ added XX packages in X.XXs
 require('dotenv').config();
 // ... other require statements
 
-// Add the code below 👇
+// Add the line below 👇
 const { auth, requiredScopes } = require('express-oauth2-bearer');
 ```
 
@@ -74,7 +76,7 @@ const { auth, requiredScopes } = require('express-oauth2-bearer');
 // ... other require statements
 const app = express();
 
-// Add the code below 👇
+// Add the line below 👇
 app.use(auth());
 ```
 
@@ -83,9 +85,11 @@ app.use(auth());
 ```js
 // lab-02/begin/api/api-server.js
 
-// Change the line below 👇
+// Change only the line below 👇
 app.get('/', requiredScopes('read:reports'), (req, res) => {
+
     // ... leave the endpoint contents unchanged.
+
 });
 ```
 
@@ -95,7 +99,7 @@ The next time you run your API, all requests that do not include a valid access 
 
 ```text
 PORT=3001
-ISSUER_BASE_URL=https://${account.namespace}
+ISSUER_BASE_URL=https://your-tenant-name.auth0.com
 ALLOWED_AUDIENCES=https://expenses-api
 ```
 

@@ -12,7 +12,9 @@ contentType:
 ---
 # Lab 4, Exercise 1: Adding Sign On
 
-<%= include('../_includes/first-page-of-lab-note') %>
+::: warning
+If you came to this page directly, go to the [first page of this lab](/identity-labs/04-single-page-app) and read through the instructions before getting started.
+:::
 
 In this lab, you will learn how to add sign-on capabilities to a Single-Page Application (SPA) and how to make this app consume an API that is secured with Auth0. You will integrate the SPA with Auth0 so that your users are able to use the Auth0 Universal Login Page to authenticate.
 
@@ -285,7 +287,7 @@ If you log in using a social identity provider (Google, Facebook, etc.), you wil
 For more information, see [Test Social Connections with Auth0 Developer Keys](https://auth0.com/docs/connections/social/devkeys).
 :::
 
-If you want to test the `allowAccess()` function, which restricts access for particular routes depending on whether the user is authenticated, try navigating to [localhost:5000/#expenses](http://localhost:5000/#expenses). If you are logged in, the page will load successfully (the content for this page will be implemented in the next exercise). If you are not logged in, the app will redirect you to the homepage.
+If you want to test the `allowAccess()` function, which restricts access for particular routes depending on whether the user is authenticated, try navigating to [localhost:5000/#expenses](http://localhost:5000/#expenses). If you are logged in, the page will load successfully showing a "Loading..." text (the content for this page will be implemented in the next exercise). If you are not logged in, the app will redirect you to the homepage.
 
 25. Let's explore the relevant network traces of the authentication process used in this lab. First, click the **Log Out** button, then, once you return to the app with your session ended, open Chrome's **Developer Tools** and go to the **Network** tab.
 

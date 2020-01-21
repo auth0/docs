@@ -1,4 +1,4 @@
-In this scenario, your Auth0 tenant provides a token as an indicator of authorized access to an application. For applications utilizing <dfn data-key="openid">[OpenID Connect (OIDC)](/protocols/oidc)</dfn>, the industry-standard protocol we typically find most utilized when it comes to customer facing applications, this would be an ID Token expressed as a [JWT](/jwt).
+In this scenario, your Auth0 tenant provides a token as an indicator of authorized access to an application. For applications utilizing <dfn data-key="openid">[OpenID Connect (OIDC)](/protocols/oidc)</dfn>, the industry-standard protocol we typically find most utilized when it comes to customer facing applications, this would be an ID Token expressed as a [JWT](/tokens/concepts/jwts).
 
 ### ID Token claims 
 

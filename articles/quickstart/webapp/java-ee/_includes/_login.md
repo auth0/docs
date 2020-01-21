@@ -171,7 +171,7 @@ public class Auth0AuthenticationMechanism implements HttpAuthenticationMechanism
         // Exchange the code for the ID token, and notify container of result.
         if (isCallbackRequest(httpServletRequest)) {
             try {
-                Tokens tokens = authenticationController.handle(httpServletRequest);
+                Tokens tokens = authenticationController.handle(httpServletRequest, httpServletResponse);
                 Auth0JwtCredential auth0JwtCredential = new Auth0JwtCredential(tokens.getIdToken());
                 CredentialValidationResult result = identityStoreHandler.validate(auth0JwtCredential);
                 return httpMessageContext.notifyContainerAboutLogin(result);
@@ -230,7 +230,7 @@ public class LoginServlet extends HttpServlet {
         );
 
         // Create the authorization URL to redirect the user to, to begin the authentication flow.
-        String authURL = authenticationController.buildAuthorizeUrl(request, callbackUrl)
+        String authURL = authenticationController.buildAuthorizeUrl(request, response, callbackUrl)
                 .withScope(config.getScope())
                 .build();
 

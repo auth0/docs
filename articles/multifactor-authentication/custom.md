@@ -118,6 +118,10 @@ In order to let the user skip MFA, a cookie will be stored in the user's browser
 
 If you want to require a specific user to be prompted for MFA during their next log in, you can call the [Invalidate Remember Browser API endpoint](https://auth0.com/docs/api/management/v2#!/Users/post_invalidate_remember_browser). This is useful for situations where the user loses a trusted device.
 
+::: note
+The above time values are for active users. If a user is inactive for a period of seven days or more, their cookie will expire anyway and they will be prompted for MFA on their next login attempt, even if `allowRememberBrowser` is `true` and it has not been thirty days since their last MFA prompt.
+:::
+
 ### Access from an extranet
 
 Assuming that access to the specified network of internal IP addresses is well controlled, you can also have Auth0 request MFA from only users whose requests originate from outside the corporate network:

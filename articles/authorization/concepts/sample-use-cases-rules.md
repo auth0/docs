@@ -109,7 +109,7 @@ function (user, context, callback) {
 ```
 
 ::: note
-Your claim should be [namespaced](/tokens/concepts/claims-namespacing).
+Your claim should be [namespaced](/tokens/guides/create-namespaced-custom-claims).
 :::
 
 ## Keep reading

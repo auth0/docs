@@ -89,8 +89,8 @@ module.exports = [
     to: '/quickstart/native/ionic'
   },
   {
-    from: ['/ios-tutorial', '/native-platforms/ios-objc'],
-    to: '/quickstart/native/ios-objc'
+    from: ['/ios-tutorial', '/native-platforms/ios-objc', '/quickstart/native/ios-objc'],
+    to: '/quickstart/native/ios-swift'
   },
   {
     from: '/java-tutorial',
@@ -896,8 +896,8 @@ module.exports = [
     to: '/multifactor-authentication/step-up-authentication'
   },
   {
-    from: ['/refresh-token', '/tokens/refresh_token'],
-    to: '/tokens/refresh-token'
+    from: ['/refresh-token', '/tokens/refresh_token', '/tokens/refresh-token'],
+    to: '/tokens/concepts/refresh-tokens'
   },
   {
     from: '/update-client-secret',
@@ -1169,8 +1169,8 @@ module.exports = [
     to: '/dev-lifecycle/setting-up-env'
   },
   {
-    from: '/tokens/id_token',
-    to: '/tokens/id-token'
+    from: ['/tokens/id_token', '/tokens/id-token'],
+    to: '/tokens/concepts/id-tokens'
   },
   {
     from: '/tokens/add-custom-claims',
@@ -1181,16 +1181,56 @@ module.exports = [
     to: '/dashboard/guides/applications/update-signing-algorithm'
   },
   {
-    from: '/scopes/current/custom-claims',
-    to: '/tokens/jwt-claims#custom-claims'
+    from: ['/scopes/current/custom-claims', '/tokens/jwt-claims#custom-claims'],
+    to: '/tokens/concepts/jwt-claims'
   },
   {
-    from: '/tokens/guides/jwt/verify-jwt-signature-using-jwks',
-    to: '/tokens/guides/jwt/use-jwks'
+    from: ['/tokens/guides/jwt/verify-jwt-signature-using-jwks', '/tokens/guides/jwt/use-jwks'],
+    to: '/tokens/guides/locate-jwks'
   },
   {
-    from: '/tokens/guides/jwt/parse-validate-jwt-programmatically',
-    to: '/tokens/guides/jwt/validate-jwt'
+    from: ['/tokens/guides/jwt/parse-validate-jwt-programmatically', '/tokens/guides/jwt/validate-jwt'],
+    to: '/tokens/guides/validate-jwts'
+  },
+  {
+    from: '/tokens/concepts/claims-namespacing',
+    to: '/tokens/guides/create-namespaced-custom-claims'
+  },
+  {
+    from: ['/tokens/concepts/why-use-jwt', '/tokens/jwt'],
+    to: '/tokens/concepts/jwts'
+  },
+  {
+    from: '/tokens/guides/id-token/get-id-tokens',
+    to: '/tokens/guides/get-id-tokens'
+  },
+  {
+    from: '/tokens/guides/id-token/validate-id-token',
+    to: '/tokens/guides/validate-id-tokens'
+  },
+  {
+    from: '/tokens/reference/jwt/jwks-properties',
+    to: '/tokens/references/jwks-properties'
+  },
+  {
+    from: '/tokens/reference/jwt/jwt-structure',
+    to: '/tokens/references/jwt-structure'
+  },
+  {
+    from: '/tokens/delegation',
+    to: '/tokens/concepts/delegation-tokens'
+  },
+  {
+    from: ['/tokens/jwks', '/jwks'],
+    to: '/tokens/concepts/jwks'
+  },
+  {
+    from: '/tokens/jwt-claims',
+    to: '/tokens/concepts/jwt-claims'
+  },
+  {
+    from: '/tokens/overview-idp-access-tokens',
+    to: '/tokens/concepts/idp-access-tokens'
   },
   {
     from: '/connections',
@@ -1618,7 +1658,7 @@ module.exports = [
   },
   {
     from: '/tutorials/redirecting-users',
-    to: '/users/concepts/redirect-users-after-login',
+    to: '/users/guides/redirect-users-after-login',
   },
   {
     from: '/tutorials/get-user-information-with-unbounce-landing-pages',
@@ -1873,8 +1913,8 @@ module.exports = [
     to: `/link-accounts`
   },
   {
-    from: '/videos/session-and-cookies',
-    to: '/security/store-tokens'
+    from: ['/videos/session-and-cookies', '/security/store-tokens'],
+    to: '/tokens/guides/store-tokens'
   },
   {
     from: '/support/sla',
@@ -1969,16 +2009,16 @@ module.exports = [
      to: '/hrd'
    },
    {
-     from: ['/tokens/overview-access-tokens','/tokens/access-token','/tokens/access_token'],
-     to: '/tokens/access-tokens'
+     from: ['/tokens/overview-access-tokens','/tokens/access-token','/tokens/access_token', '/tokens/access-tokens'],
+     to: '/tokens/concepts/access-tokens'
    },
    {
-    from: ['/tokens/overview-id-tokens','/tokens/id-token'],
-    to: '/tokens/id-tokens'
+    from: ['/tokens/overview-id-tokens','/tokens/id-token', '/tokens/id-tokens'],
+    to: '/tokens/concepts/id-tokens'
   },
    {
-     from: '/api-auth/tutorials/verify-access-token',
-     to: '/tokens/guides/access-token/validate-access-token'
+     from: ['/api-auth/tutorials/verify-access-token', '/tokens/guides/access-token/validate-access-token'],
+     to: '/tokens/guides/validate-access-tokens'
    },
    {
      from: '/user-profile',
@@ -2153,8 +2193,8 @@ module.exports = [
     to: '/hooks'
    },
    {
-     from: '/users/guides/redirect-users-after-login',
-     to: '/users/concepts/redirect-users-after-login'
+     from: '/users/redirecting-users',
+     to: '/users/guides/redirect-users-after-login'
    },
    {
      from: '/applications/spa',
@@ -2202,12 +2242,12 @@ module.exports = [
       to: '/protocols/saml/saml-apps/github-server'
     },
     {
-      from: '/tokens/get-access-tokens',
-      to: '/tokens/guides/access-token/get-access-tokens'
+      from: ['/tokens/get-access-tokens', '/tokens/guides/access-token/get-access-tokens'],
+      to: '/tokens/guides/get-access-tokens'
     },
     {
-      from: '/tokens/use-access-tokens',
-      to: '/tokens/guides/access-token/use-access-tokens'
+      from: ['/tokens/use-access-tokens', '/tokens/guides/access-token/use-access-tokens'],
+      to: '/tokens/guides/use-access-tokens'
     },
     {
       from: '/services/private-saas-configuration',
@@ -2348,5 +2388,66 @@ module.exports = [
     {
       from: '/anomaly-detection/references/anomaly-detection-restrictions-limitations',
       to: '/anomaly-detection/guides/set-anomaly-detection-preferences'
+    },
+    {      
+      from: [
+        '/hooks/concepts/credentials-exchange-extensibility-point',
+        '/hooks/guides/use-the-credentials-exchange-extensibility-point'
+      ],
+      to: '/hooks/client-credentials-exchange'
+    },
+    {
+      from: [
+        '/hooks/concepts/post-user-registration-extensibility-point',
+        '/hooks/guides/use-the-post-user-registration-extensibility-point'
+      ],
+      to: '/hooks/post-user-registration'
+    },
+    {
+      from: [
+        '/hooks/concepts/pre-user-registration-extensibility-point',
+        '/hooks/guides/use-the-pre-user-registration-extensibility-point'
+      ],
+      to: '/hooks/pre-user-registration'
+    },
+    {
+      from: '/hooks/guides/post-change-password',
+      to: '/hooks/post-change-password'
+    },
+    {
+      from: '/hooks/concepts/extensibility-points',
+      to: '/hooks'
+    },
+    {
+      from: [
+        '/hooks/guides/create-hooks-using-cli',
+        '/hooks/guides/create-hooks-using-dashboard'
+      ],
+      to: '/hooks/create'
+    },
+    {
+      from: [
+        '/hooks/guides/delete-hooks-using-cli',
+        '/hooks/guides/delete-hooks-using-dashboard'
+      ],
+      to: '/hooks/delete'
+    },
+    {
+      from: [
+        '/hooks/guides/edit-hooks-using-cli',
+        '/hooks/guides/edit-hooks-using-dashboard'
+      ],
+      to: '/hooks/update'
+    },
+    {
+      from: [
+        '/hooks/guides/enable-disable-hooks-using-cli',
+        '/hooks/guides/enable-disable-hooks-using-dashboard'
+      ],
+      to: '/hooks/enable-disable'
+    },
+    {
+      from: '/hooks/guides/logging-hooks-using-cli',
+      to: '/hooks/logs'
     }
 ];

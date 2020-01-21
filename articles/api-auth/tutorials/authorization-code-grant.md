@@ -41,7 +41,7 @@ Where:
 
 * `audience`: The unique identifier of the API the web app wants to access. Use the **Identifier** value on the [Settings](${manage_url}/#/apis) tab for the API you created as part of the prerequisites for this tutorial.
 
-* `scope`: The <dfn data-key="scope">scopes</dfn> which you want to request authorization for. These must be separated by a space. You can request any of the [standard OpenID Connect (OIDC) scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must [conform to a namespaced format](/tokens/concepts/claims-namespacing), or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a <dfn data-key="refresh-token">Refresh Token</dfn> (make sure that the __Allow Offline Access__ field is enabled in the [API Settings](${manage_url}/#/apis)).
+* `scope`: The <dfn data-key="scope">scopes</dfn> which you want to request authorization for. These must be separated by a space. You can request any of the [standard OpenID Connect (OIDC) scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must [conform to a namespaced format](/tokens/guides/create-namespaced-custom-claims), or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a <dfn data-key="refresh-token">Refresh Token</dfn> (make sure that the __Allow Offline Access__ field is enabled in the [API Settings](${manage_url}/#/apis)).
 
 * `response_type`: Denotes the kind of credential that Auth0 will return (code vs token). For this flow, the value must be `code`.
 
@@ -121,7 +121,7 @@ The response contains the `access_token`, `refresh_token`, `id_token`, and `toke
 }
 ```
 
-Note that `refresh_token` will only be present in the response if you included the `offline_access` scope AND enabled __Allow Offline Access__ for your API in the Dashboard. For more information about Refresh Tokens and how to use them, see [our documentation](/tokens/refresh-token).
+Note that `refresh_token` will only be present in the response if you included the `offline_access` scope AND enabled __Allow Offline Access__ for your API in the Dashboard. See [Refresh Tokens](/tokens/concepts/refresh-tokens) for more information.
 
 ::: panel-warning Security Warning
 It is important to understand that the Authorization Code flow should only be used in cases such as a Regular Web Application where the Client Secret can be safely stored. In cases such as a Single-Page Application, the Client Secret is available to the application (in the web browser), so the integrity of the Client Secret cannot be maintained. That is why the [Implicit Grant flow](/api-auth/grant/implicit) is more appropriate in that case.
@@ -146,7 +146,7 @@ Once the Access Token has been obtained it can be used to make calls to the API 
 
 Once your API receives a request with a Bearer Access Token, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
 
-For details on the validations that should be performed refer to [Validate an Access Token](/tokens/guides/access-token/validate-access-token).
+For details on the validations that should be performed, see [Validate Access Tokens](/tokens/guides/validate-access-tokens).
 
 ## Optional: Customize the Tokens
 
@@ -157,9 +157,8 @@ If you wish to execute special logic unique to the Authorization Code grant, you
 ## Keep Reading
 
 ::: next-steps
-- [How to refresh a token](/tokens/refresh-token)
+- [Refresh Toekns](/tokens/concepts/refresh-token)
 - [How to configure an API in Auth0](/apis)
-- [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
 - [Application Authentication for Server-side Web Apps](/application-auth/server-side-web)
-- [Tokens used by Auth0](/tokens)
+- [Tokens](/tokens)
 :::

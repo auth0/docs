@@ -53,6 +53,164 @@ articles:
         url: "/getting-started/deployment-models"
 
 ## ------------------------------------------------------------
+## Architecture Scenarios
+## ------------------------------------------------------------
+
+  - title: Architecture Scenarios
+    url: /architecture-scenarios
+
+    children:
+
+      - title: Business to Consumer
+        url: /architecture-scenarios/b2c
+        children:
+            - title: Architecture
+              url: /architecture-scenarios/implementation/b2c/b2c-architecture
+
+            - title: Provisioning
+              url: /architecture-scenarios/implementation/b2c/b2c-provisioning
+
+            - title: Authentication
+              url: /architecture-scenarios/implementation/b2c/b2c-authentication
+
+            - title: Branding
+              url: /architecture-scenarios/implementation/b2c/b2c-branding
+
+            - title: Deployment Automation
+              url: /architecture-scenarios/implementation/b2c/b2c-deployment
+
+            - title: Quality Assurance
+              url: /architecture-scenarios/implementation/b2c/b2c-qa
+
+            - title: Profile Management
+              url: /architecture-scenarios/implementation/b2c/b2c-profile-mgmt
+
+            - title: Authorization
+              url: /architecture-scenarios/implementation/b2c/b2c-authorization
+
+            - title: Logout
+              url: /architecture-scenarios/implementation/b2c/b2c-logout
+
+            - title: Operations
+              url: /architecture-scenarios/implementation/b2c/b2c-operations
+
+            - title: Launch Preparation
+              url: /architecture-scenarios/implementation/b2c/b2c-launch 
+
+      - title: Business to Business
+        url: /architecture-scenarios/b2b
+        children:
+            - title: Architecture
+              url: /architecture-scenarios/implementation/b2b/b2b-architecture
+
+            - title: Provisioning
+              url: /architecture-scenarios/implementation/b2b/b2b-provisioning
+
+            - title: Authentication
+              url: /architecture-scenarios/implementation/b2b/b2b-authentication
+
+            - title: Branding
+              url: /architecture-scenarios/implementation/b2b/b2b-branding
+
+            - title: Deployment Automation
+              url: /architecture-scenarios/implementation/b2b/b2b-deployment
+
+            - title: Quality Assurance
+              url: /architecture-scenarios/implementation/b2b/b2b-qa
+
+            - title: Profile Management
+              url: /architecture-scenarios/implementation/b2b/b2b-profile-mgmt
+
+            - title: Authorization
+              url: /architecture-scenarios/implementation/b2b/b2b-authorization
+
+            - title: Logout
+              url: /architecture-scenarios/implementation/b2b/b2b-logout
+
+            - title: Operations
+              url: /architecture-scenarios/implementation/b2b/b2b-operations
+              
+            - title: Launch Preparation
+              url: /architecture-scenarios/implementation/b2b/b2b-launch 
+
+      - title: Business to Employees
+        url: /architecture-scenarios/b2e
+      # - title: SAML for Regular Web Apps
+      #   url: /architecture-scenarios/web-saml
+
+      # - title: B2B + B2E
+      #   url: /architecture-scenarios/b2b-b2e
+
+      # - title: B2E
+      #   url: /architecture-scenarios/b2e
+
+      - title: SSO for Regular Web Apps
+        url: /architecture-scenarios/web-app-sso
+        children:
+            - title: Solution Overview
+              url: /architecture-scenarios/web-app-sso/part-1
+
+            - title: Configuration
+              url: /architecture-scenarios/web-app-sso/part-2
+
+            - title: Implementation
+              url: /architecture-scenarios/web-app-sso/part-3
+
+            - title: Conclusion
+              url: /architecture-scenarios/web-app-sso/part-4
+
+      - title: Server Application + API
+        url: /architecture-scenarios/server-api
+        children:
+            - title: Solution Overview
+              url: /architecture-scenarios/server-api/part-1
+
+            - title: Configuration
+              url: /architecture-scenarios/server-api/part-2
+
+            - title: Implementation
+              url: /architecture-scenarios/server-api/part-3
+
+            - title: Conclusion
+              url: /architecture-scenarios/server-api/part-4
+
+      - title: SPA + API
+        url: /architecture-scenarios/spa-api
+        children:
+            - title: Solution Overview
+              url: /architecture-scenarios/spa-api/part-1
+
+            - title: Configuration
+              url: /architecture-scenarios/spa-api/part-2
+
+            - title: Implementation
+              url: /architecture-scenarios/spa-api/part-3
+
+            - title: Conclusion
+              url: /architecture-scenarios/spa-api/part-4
+
+      - title: Mobile + API
+        url: /architecture-scenarios/mobile-api
+        children:
+            - title: Solution Overview
+              url: /architecture-scenarios/mobile-api/part-1
+
+            - title: Configuration
+              url: /architecture-scenarios/mobile-api/part-2
+
+            - title: Implementation
+              url: /architecture-scenarios/mobile-api/part-3
+
+            - title: Conclusion
+              url: /architecture-scenarios/mobile-api/part-4
+
+      - title: Implementation Checklists
+        url: /architecture-scenarios/checklists
+
+      - title: Implementation Resources
+        url: /architecture-scenarios/implementation-resources
+
+## ------------------------------------------------------------
 ## LOGIN
 ## ------------------------------------------------------------
 
@@ -192,7 +350,7 @@ articles:
         url: /api-auth/tutorials/silent-authentication
 
       - title: Redirect After Login
-        url: /users/concepts/redirect-users-after-login
+        url: /users/guides/redirect-users-after-login
 
       - title: Logout
         url: /logout
@@ -774,65 +932,32 @@ articles:
         url: /hooks
         children:
 
-          - title: Extensibility Points
-            url: /hooks/concepts/extensibility-points
-            children:
+          - title: Create Hooks
+            url: /hooks/create
 
-              - title: Credentials Exchange
-                url: /hooks/concepts/credentials-exchange-extensibility-point
-                hidden: true
+          - title: Update Hooks
+            url: /hooks/update
 
-              - title: Pre-User Registration
-                url: /hooks/concepts/pre-user-registration-extensibility-point
-                hidden: true
+          - title: Delete Hooks
+            url: /hooks/delete
 
-              - title: Post-User Registration
-                url: /hooks/concepts/post-user-registration-extensibility-point
-                hidden: true
+          - title: Enable/Disable Hooks
+            url: /hooks/enable-disable
 
-          - title: Using the Auth0 CLI
-            url: /hooks/guides/create-hooks-using-cli
-            children:
+          - title: Client Credentials Exchange
+            url: /hooks/client-credentials-exchange
 
-              - title: Create Hooks
-                url: /hooks/guides/create-hooks-using-cli
-                hidden: true
+          - title: Post Change Password
+            url: /hooks/post-change-password
 
-              - title: Edit Hooks
-                url: /hooks/guides/edit-hooks-using-cli
-                hidden: true
+          - title: Post User Registration
+            url: /hooks/post-user-registration
 
-              - title: Delete Hooks
-                url: /hooks/guides/delete-hooks-using-cli
-                hidden: true
+          - title: Pre User Registration
+            url: /hooks/pre-user-registration
 
-              - title: Enable/Disable Hooks
-                url: /hooks/guides/enable-disable-hooks-using-cli
-                hidden: true
-
-              - title: Get Log Info
-                url: /hooks/guides/logging-hooks-using-cli
-                hidden: true
-
-          - title: Using the Dashboard
-            url: /hooks/guides/create-hooks-using-dashboard
-            children:
-
-              - title: Create Hooks
-                url: /hooks/guides/create-hooks-using-dashboard
-                hidden: true
-
-              - title: Edit Hooks
-                url: /hooks/guides/edit-hooks-using-dashboard
-                hidden: true
-
-              - title: Delete Hooks
-                url: /hooks/guides/delete-hooks-using-dashboard
-                hidden: true
-
-              - title: Enable/Disable Hooks
-                url: /hooks/guides/enable-disable-hooks-using-dashboard
-                hidden: true
+          - title: Get Log Info
+            url: /hooks/logs
 
       - title: Extensions
         url: /extensions
@@ -1073,169 +1198,9 @@ articles:
       - title: Generate and Analyze HAR Files
         url: /troubleshoot/guides/generate-har-files
 
-      - title: Validate JSON Web Tokens
-        url: /tokens/guides/jwt/validate-jwt
-
       - title: Authentication API Debugger
         url: /extensions/authentication-api-debugger
 
-## ------------------------------------------------------------
-## Architecture Scenarios
-## ------------------------------------------------------------
-
-  - title: Architecture Scenarios
-    url: /architecture-scenarios
-
-    children:
-
-      - title: Business to Consumer
-        url: /architecture-scenarios/b2c
-        children:
-            - title: Architecture
-              url: /architecture-scenarios/implementation/b2c/b2c-architecture
-
-            - title: Provisioning
-              url: /architecture-scenarios/implementation/b2c/b2c-provisioning
-
-            - title: Authentication
-              url: /architecture-scenarios/implementation/b2c/b2c-authentication
-
-            - title: Branding
-              url: /architecture-scenarios/implementation/b2c/b2c-branding
-
-            - title: Deployment Automation
-              url: /architecture-scenarios/implementation/b2c/b2c-deployment
-
-            - title: Quality Assurance
-              url: /architecture-scenarios/implementation/b2c/b2c-qa
-
-            - title: Profile Management
-              url: /architecture-scenarios/implementation/b2c/b2c-profile-mgmt
-
-            - title: Authorization
-              url: /architecture-scenarios/implementation/b2c/b2c-authorization
-
-            - title: Logout
-              url: /architecture-scenarios/implementation/b2c/b2c-logout
-
-            - title: Operations
-              url: /architecture-scenarios/implementation/b2c/b2c-operations
-
-            - title: Launch Preparation
-              url: /architecture-scenarios/implementation/b2c/b2c-launch 
-
-      - title: Business to Business
-        url: /architecture-scenarios/b2b
-        children:
-            - title: Architecture
-              url: /architecture-scenarios/implementation/b2b/b2b-architecture
-
-            - title: Provisioning
-              url: /architecture-scenarios/implementation/b2b/b2b-provisioning
-
-            - title: Authentication
-              url: /architecture-scenarios/implementation/b2b/b2b-authentication
-
-            - title: Branding
-              url: /architecture-scenarios/implementation/b2b/b2b-branding
-
-            - title: Deployment Automation
-              url: /architecture-scenarios/implementation/b2b/b2b-deployment
-
-            - title: Quality Assurance
-              url: /architecture-scenarios/implementation/b2b/b2b-qa
-
-            - title: Profile Management
-              url: /architecture-scenarios/implementation/b2b/b2b-profile-mgmt
-
-            - title: Authorization
-              url: /architecture-scenarios/implementation/b2b/b2b-authorization
-
-            - title: Logout
-              url: /architecture-scenarios/implementation/b2b/b2b-logout
-
-            - title: Operations
-              url: /architecture-scenarios/implementation/b2b/b2b-operations
-              
-            - title: Launch Preparation
-              url: /architecture-scenarios/implementation/b2b/b2b-launch 
-
-      - title: Business to Employees
-        url: /architecture-scenarios/b2e
-      # - title: SAML for Regular Web Apps
-      #   url: /architecture-scenarios/web-saml
-
-      # - title: B2B + B2E
-      #   url: /architecture-scenarios/b2b-b2e
-
-      # - title: B2E
-      #   url: /architecture-scenarios/b2e
-
-      - title: SSO for Regular Web Apps
-        url: /architecture-scenarios/web-app-sso
-        children:
-            - title: Solution Overview
-              url: /architecture-scenarios/web-app-sso/part-1
-
-            - title: Configuration
-              url: /architecture-scenarios/web-app-sso/part-2
-
-            - title: Implementation
-              url: /architecture-scenarios/web-app-sso/part-3
-
-            - title: Conclusion
-              url: /architecture-scenarios/web-app-sso/part-4
-
-      - title: Server Application + API
-        url: /architecture-scenarios/server-api
-        children:
-            - title: Solution Overview
-              url: /architecture-scenarios/server-api/part-1
-
-            - title: Configuration
-              url: /architecture-scenarios/server-api/part-2
-
-            - title: Implementation
-              url: /architecture-scenarios/server-api/part-3
-
-            - title: Conclusion
-              url: /architecture-scenarios/server-api/part-4
-
-      - title: SPA + API
-        url: /architecture-scenarios/spa-api
-        children:
-            - title: Solution Overview
-              url: /architecture-scenarios/spa-api/part-1
-
-            - title: Configuration
-              url: /architecture-scenarios/spa-api/part-2
-
-            - title: Implementation
-              url: /architecture-scenarios/spa-api/part-3
-
-            - title: Conclusion
-              url: /architecture-scenarios/spa-api/part-4
-
-      - title: Mobile + API
-        url: /architecture-scenarios/mobile-api
-        children:
-            - title: Solution Overview
-              url: /architecture-scenarios/mobile-api/part-1
-
-            - title: Configuration
-              url: /architecture-scenarios/mobile-api/part-2
-
-            - title: Implementation
-              url: /architecture-scenarios/mobile-api/part-3
-
-            - title: Conclusion
-              url: /architecture-scenarios/mobile-api/part-4
-
-      - title: Implementation Checklists
-        url: /architecture-scenarios/checklists
-
-      - title: Implementation Resources
-        url: /architecture-scenarios/implementation-resources
 
   # - title: "Applications"
   #   url: "/applications"
@@ -1346,7 +1311,7 @@ articles:
   #       url: "/api-auth/dynamic-client-registration"
 
   #     - title: "Verify Access Tokens"
-  #       url: "/tokens/guides/access-token/validate-access-token"
+  #       url: "/tokens/guides/validate-access-tokens"
 
   - title: "Private Cloud Deployments"
     url: "/private-cloud"
@@ -1449,9 +1414,106 @@ articles:
         url: "/tokens"
         children:
 
-          - title: "Where to Store Tokens"
-            url: "/security/store-tokens"
+          - title: "ID Tokens"
+            url: "/tokens/concepts/id-tokens"
+            children:
+
+              - title: "Get ID Tokens"
+                url: "/tokens/guides/get-id-tokens"
+                hidden: true 
+
+              - title: "Validate ID Tokens"
+                url: "/tokens/guides/validate-id-tokens"
+                hidden: true 
+
+              - title: "ID Token Structure"
+                url: "/tokens/references/id-token-structure"
+                hidden: true 
+
+          - title: "Access Tokens"
+            url: "/tokens/concepts/access-tokens"
+            children:
+
+              - title: "IDP Access Tokens"
+                url: "/tokens/concepts/idp-access-tokens"
+                hidden: true 
+
+              - title: "Get Access Tokens"
+                url: "/tokens/guides/get-access-tokens"
+                hidden: true 
+
+              - title: "Use Access Tokens"
+                url: "/tokens/guides/use-access-tokens"
+                hidden: true 
+
+              - title: "Validate Access Tokens"
+                url: "/tokens/guides/validate-access-tokens"
+                hidden: true 
+
+          - title: "Refresh Tokens"
+            url: "/tokens/concepts/refresh-tokens"
+            children:
+
+              - title: "Get Refresh Tokens"
+                url: "/tokens/guides/get-refresh-tokens"
+                hidden: true 
+
+              - title: "Use Refresh Tokens"
+                url: "/tokens/guides/use-refresh-tokens"
+                hidden: true 
+
+              - title: "Revoke Refresh Tokens"
+                url: "/tokens/guides/revoke-refresh-tokens"
+                hidden: true 
+
+          - title: "Delegation Tokens"
+            url: "/tokens/concepts/delegation-tokens"
             hidden: true 
+
+          - title: "JSON Web Tokens"
+            url: "/tokens/concepts/jwts"
+            hidden: true 
+            children:
+
+              - title: "Validate JSON Web Tokens"
+                url: "/tokens/guides/validate-jwts"
+                hidden: true 
+
+              - title: "JSON Web Key Sets"
+                url: "/tokens/concepts/jwks"
+                hidden: true 
+                children:
+
+                  - title: "Locate JSON Web Key Sets"
+                    url: "/tokens/guides/locate-jwks"
+                    hidden: true 
+
+                  - title: "JSON Web Key Set Properties"
+                    url: "/tokens/references/jwks-properties"
+                    hidden: true 
+
+              - title: "JSON Web Token Claims"
+                url: "/tokens/concepts/jwt-claims"
+                hidden: true 
+                children:
+
+                  - title: "Create Namespaced Custom Claims"
+                    url: "/tokens/guides/create-namespaced-custom-claims"
+                    hidden: true 
+
+              - title: "Signing Algorithms"
+                url: "/tokens/concepts/signing-algorithms"
+                hidden: true 
+
+              - title: "JSON Web Token Structure"
+                url: "/tokens/references/jwt-structure"
+                hidden: true 
+
+          - title: "Store Tokens"
+            url: "/tokens/guides/store-tokens"
+
+          - title: "Revoke Tokens"
+            url: "/tokens/guides/revoke-tokens"
 
       - title: "Cookies"
         url: "/sessions/concepts/cookies"

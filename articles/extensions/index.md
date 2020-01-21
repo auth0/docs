@@ -13,7 +13,7 @@ Auth0 Extensions enable you to install applications or run commands/scripts that
 
 Each extension is separate from all other extensions. Auth0 defines extensions per tenant, so data is stored by the pair `tenant\extension`.
 
-## Pre-defined Extensions
+## Pre-defined extensions
 
 Auth0 provides a selection of pre-defined extensions, which you can install via the [Dashboard](${manage_url}/extensions).
 
@@ -33,14 +33,16 @@ Auth0 provides a selection of pre-defined extensions, which you can install via 
 
 - [Users Import / Export](/extensions/user-import-export): Bulk import and export database users.
 
-### Extend & integrate
+### Extend and integrate
 
 Use your own custom webhooks in conjunction with Auth0 APIs:
 
 - [Auth0 Management API Webhooks](/extensions/management-api-webhooks)
 - [Auth0 Authentication API Webhooks](/extensions/authentication-api-webhooks)
 
-Deploy [rules](/rules) and [database connection](/connections/database) scripts from external repositories:
+### Deployment and source control
+
+Keep history and deploy [rules](/rules), [database connection](/connections/database) scripts and other assets from external repositories:
 
 - [GitHub Deployments Extension](/extensions/github-deploy)
 - [Bitbucket Deployments Extension](/extensions/bitbucket-deploy)
@@ -59,6 +61,8 @@ Test Auth0 API endpoints:
 - [Auth0 AD/LDAP Connector Health Monitor](/extensions/adldap-connector): Monitor your [AD/LDAP Connectors](/connector/overview).
 
 - [Real-time Webtask Logs](/extensions/realtime-webtask-logs): Access real-time Webtask logs.
+
+### Logs export
 
 Export Auth0 logs to external services:
 

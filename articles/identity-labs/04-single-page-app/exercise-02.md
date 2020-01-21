@@ -12,7 +12,9 @@ contentType:
 ---
 # Lab 4, Exercise 2: Calling a Protected API
 
-<%= include('../_includes/first-page-of-lab-note') %>
+::: warning
+If you came to this page directly, go to the [first page of this lab](/identity-labs/04-single-page-app) and read through the instructions before getting started.
+:::
 
 In this exercise, you will learn how to make your SPA consume, on behalf of the user, the private endpoint exposed by the API.
 

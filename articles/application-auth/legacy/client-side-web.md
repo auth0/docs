@@ -30,7 +30,7 @@ The OAuth 2.0 Authorization Framework allows for different kinds of authorizatio
 
 The Implicit Grant flow is initiated by redirecting the user in the web browser to the Auth0 `/authorize` endpoint. Auth0 will then display the Auth0 Lock dialog, allowing the user to enter their credentials or alternatively sign in with any other configured [Identity Provider](/identityproviders).
 
-After the user has authenticated, Auth0 will redirect the browser back to the **Redirect URI** (also called **Callback URL**), passing along an `id_token` parameter in the [hash fragment](https://en.wikipedia.org/wiki/Fragment_identifier). The ID Token is a [JSON Web Token (JWT)](/jwt) and contains various attributes - referred to as _Claims_ - regarding the user, such as the user's name, email address, profile picture and so on.
+After the user has authenticated, Auth0 will redirect the browser back to the **Redirect URI** (also called **Callback URL**), passing along an `id_token` parameter in the [hash fragment](https://en.wikipedia.org/wiki/Fragment_identifier). The ID Token is a [JSON Web Token (JWT)](/tokens/concepts/jwts) and contains various attributes - referred to as _Claims_ - regarding the user, such as the user's name, email address, profile picture and so on.
 
 The ID Token can be decoded to extract the claims and you are free to use these inside of your application, to display a user's name and profile image for example.
 
@@ -85,9 +85,9 @@ After the user has authenticated, Auth0 will call back to the URL specified in t
 https://YOUR_APP/callback#id_token=eyJ0...&token_type=Bearer
 ```
 
-The `token_type` will be set to **Bearer** and the `id_token` will be a [JSON Web Token (JWT)](/jwt) containing information about the user. You can access the hash fragment using the `window.location.hash` property and then use basic JavaScript string manipulation to access the ID Token.
+The `token_type` will be set to **Bearer** and the `id_token` will be a [JSON Web Token (JWT)](/tokens/concepts/jwts) containing information about the user. You can access the hash fragment using the `window.location.hash` property and then use basic JavaScript string manipulation to access the ID Token.
 
-As mentioned, the ID Token is a JWT and you will need to decode this token in order to read the claims (or attributes) of the user. The [JWT section of our website](/jwt) contains more information about the structure of a JWT.
+As mentioned, the ID Token is a JWT and you will need to decode this token in order to read the claims (or attributes) of the user. The [JWT section of our website](/tokens/concepts/jwts) contains more information about the structure of a JWT.
 
 Once the JWT is decoded, you can extract the information about the user from the Payload of the ID Token. This is a JSON structure and will contain the claims (attributes) about the user as well as some other metadata.
 
