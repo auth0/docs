@@ -45,11 +45,22 @@ Before sending the HAR file to Auth0, ensure that you remove or obfuscate any se
 ### Firefox
 
 1. Close all __private__ windows in Firefox.
-1. Open a __new private__ window in Firefox.
-2. Go to __Tools > Developer > Network__ or **ctrl-shift-E**.
-1. Visit the page and complete the steps that trigger the issue.
-1. Choose the __Network__ tab and right click and then select **Save All As Har**.
-1. Save the HAR file.
+2. Open a __new private__ window in Firefox.
+3. Go to __Tools > Developer > Network__ or **ctrl-shift-E**.
+4. Visit the page and complete the steps that trigger the issue.
+5. Choose the __Network__ tab and right click and then select **Save All As Har**.
+6. Save the HAR file.
+
+
+### Internet Explorer
+
+1. Close all __InPrivate__ windows in Internet Explorer.
+2. Open a __new InPrivate__ window in Firefox (**ctrl-shift-P**.)
+3. Go to __Tools > F12 Developer Options > Network__.
+4. Ensure **Clear entries on navigate** is switched off.
+5. Visit the page and complete the steps that trigger the issue.
+6. Choose the __Network__ tab and select **Export as HAR (Ctrl+S)**.
+7. Save the HAR file.
 
 ## Analyze HAR files
 
@@ -65,7 +76,3 @@ Before sending the HAR file to Auth0, ensure that you remove or obfuscate any se
     * Then there should be a redirect back to your application’s callback URL.
 
 <%= include('../_includes/_log_events_link') %>
-
-## Keep reading
-
-* 
