@@ -158,6 +158,13 @@ Click **Save**.
 
 ### Enable Connections
 
+<% if (service === "Zendesk") { %>
+::: warning
+Zendesk **requires** that all users have an email address, when enabling Enterprise or Social connections make sure that they will provide an email address
+that can be sent to Zendesk.
+:::
+
+<% } %>
 The **Connections** tab features a list of user sources available to your tenant. Your connections are organized by type (e.g., Database, Social, Enterprise, Passwordless).
 
 You can choose the connections that you want used with your newly-created SSO integration; this allows the users in those connections to log in to ${service}.
