@@ -9,7 +9,7 @@ useCase: extensibility-hooks
 v2: true
 ---
 
-# Delete a Hook
+# Delete Hooks
 
 You can delete existing Hooks using either the Dashboard or the command-line interface.
 
