@@ -9,12 +9,11 @@ topics:
 contentType: 
     - index
     - concept
-    - how-to
 useCase:
     - customize-connections
 ---
 
-# Database Identity Providers
+# Database Connections
 
 Auth0 provides database connections to authenticate users with an email/username and password. These credentials are securely stored in the Auth0 user store or in your own database.
 
@@ -43,23 +42,15 @@ For database connections, Auth0 limits the number of repeat login attempts per u
 
 ### Using your own user store
 
-If you have an existing user store, or wish to store user credentials on your own server, Auth0 enables you to connect to a database or repository and use it as the identity provider.
+If you have an existing user store, or wish to store user credentials on your own server, Auth0 enables you to connect to a [custom database](/connections/database/custom-db) or repository and use it as the identity provider.
 
-![](/media/articles/connections/database/custom-database.png)
+![Custom Database Configuration](/media/articles/dashboard/connections/database/connections-db-settings-custom-1.png)
 
-In this scenario, you provide the login script to authenticate the user that will execute each time a user attempts to log in. Optionally, you can create scripts for sign-up, email verification, password reset and delete user functionality.
+In this scenario, you provide the login script to authenticate the user that will execute each time a user attempts to log in. Optionally, you can create [scripts](/connections/database/custom-db/templates) for sign-up, email verification, password reset, and delete user functionality.
 
-These custom scripts are Node.js code that run in the tenant's [Webtask](https://webtask.io/) environment. Auth0 provides templates for most common databases, such as: **ASP.NET Membership Provider**, **MongoDB**, **MySQL**, **Oracle**, **PostgreSQL**, **SQL Server**, **Windows Azure SQL Database**, and for a web service accessed by **Basic Auth**. Essentially, you can connect to any kind of database or web service with a custom script.
+The scripts are `Node.js` code that run in the tenant's [Webtask](https://webtask.io/) environment. Auth0 provides [templates](/connections/database/custom-db/templates) for most common databases, such as: **ASP.NET Membership Provider**, **MongoDB**, **MySQL**, **Oracle**, **PostgreSQL**, **SQL Server**, **Windows Azure SQL Database**, and for a web service accessed by **Basic Auth**. Essentially, you can connect to any kind of database or web service with a custom script.
 
-When using your own user database or user store:
-
-* Latency will be greater compared to Auth0-hosted user stores
-* The database or service must be reachable from the Auth0 servers. You will need to configure inbound connections if your store is behind a firewall.
-* Database scripts run in the same [Webtask](https://webtask.io) container, which is shared with all other extensibility points (such as rules, webtasks or other databases) belonging to the same Auth0 domain. Therefore, you must carefully code for error handling and throttling.
-
-::: note
-Check out [Authenticate Users Using Your Database](/connections/database/custom-db) for instructions on how to set up your own user store as an identity provider for Auth0.
-:::
+<%= include('../../_includes/_webtask') %>
 
 ### Migrating to Auth0 from a custom user store
 

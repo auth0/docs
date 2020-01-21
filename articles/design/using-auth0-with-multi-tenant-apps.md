@@ -1,5 +1,5 @@
 ---
-description: This article discusses how you can use Auth0 with multi-tenant applications.
+description: This article discusses how you can use Auth0 to secure multi-tenant applications.
 crews: crew-2
 toc: true
 topics:
@@ -9,50 +9,60 @@ contentType: concept
 useCase: strategize
 ---
 
-# Using Auth0 with Multi-Tenant Applications
+# Using Auth0 to Secure Your Multi-Tenant Applications
 
-In this article, we'll discuss (at a high-level) how Auth0 can help you manage users for your multi-tenant applications.
+This article provides a high-level overview of how Auth0 can help you manage your multi-tenant applications.
 
-If you're planning to build a multi-tenant solution, please [contact our Sales or Professional Services](https://auth0.com/?contact=true) teams.
-
-## What's multi-tenant?
+## What is multi-tenancy
 
 [Multi-tenancy](https://en.wikipedia.org/wiki/Multitenancy) is when a single instance of software runs on a server that is accessible to multiple groups of users.
 
-When working with multi-tenant software, you can serve multiple customers from a single application instance running on one server (or pool of servers). This contrasts with single-tenant software, where you serve each customer with a dedicated software instance running on dedicated servers. In summation:
+Auth0's Public Cloud is an example of a multi-tenant application. Your applications, settings, and connections are a single tenant, which shares resources with other tenants in the Public Cloud.
 
-| Tenancy Type | Definition |
-| - | - |
-| Multi-Tenant | One instance, multiple customers |
-| Single-Tenant | One instance, one customer |
-
-We define **tenant** as a group of users who share access to one particular application instance. One example of this includes a company with multiple employees, all of whom have access to your SaaS offering. 
-
-When you use a multi-tenant setup, one single instance of your SaaS offering would be shared across multiple tenants (or multiple companies), each with its own group of employees. However, each tenant has a dedicated share of that instance, and you can then customize each share to meet the needs of the tenant that's using it. Such customization includes (but isn't limited to) branding, functionality, and access control.
+Please note that this article is **not about using multiple Auth0 tenant(s)**. It is about using Auth0 to secure your own multi-tenant application.
 
 ## Auth0 and multi-tenancy
 
-There are several ways you can handle multi-tenancy with Auth0. When using a single Auth0 tenant for all your customers you can:
+There are several ways you can secure multi-tenant applications with Auth0. You can handle your multi-tenancy needs with one of the following approaches:
 
-* Use multiple [connections](/connections).
-* Identify different tenants by application (using client IDs).
-* Store tenant details in [app_metadata](/users/concepts/overview-user-metadata).
-
-Another approach would be to use separate Auth0 tenants for each of your customers.
-
-If you're planning to build a multi-tenant solution, please [contact our Sales or Professional Services](https://auth0.com/?contact=true) teams.
-
-::: note
-We recommend that you [create multiple Auth0 tenants](https://github.com/auth0/auth0-multitenant-spa-api-sample) only if you need to share access to the Auth0 Dashboard with individual customers.
-:::
+* [Use multiple connections](#use-multiple-connections)
+* [Identify different tenants by application](#identify-tenants-by-application)
+* [Store tenant details in app_metadata](#store-tenant-details-in-app_metadata)
+* [Use separate Auth0 tenants](#create-separate-auth0-tenants-for-each-customer)
 
 ### Use multiple connections
 
+You can use multiple connections to handle your tenants. Each connection would represent and contain a different pool of users.
+
 ::: warning
-[Lock](https://auth0.com/lock) supports a maximum of **50 Database Connections** per [application](/applications). Enterprise Connections are not affected by this limit.
+If you use [Lock](/libraries/lock) in your applications, Lock supports a maximum of **50 Database Connections** per [application](/applications). Enterprise Connections are not affected by this limit. If you use the New Universal Login Experience, Lock is not involved and this limitation therefore does not affect you.
 :::
 
-While using multiple [Connections](/identityproviders) introduces additional layers of complexity, there are several scenarios where this option might make sense:
+Using multiple [Connections](/identityproviders) introduces additional layers of complexity, but there are several scenarios where the upsides of this option outweigh the downsides:
 
 * You have different Connection-level requirements, such as varying password policies, for each of your Applications.
-* You have users from different Connections. For example, one app may have users providing username/password credentials, while another app handles Enterprise logins.
+* You have user pools from different Connections. For example, one app may have users providing username/password credentials, while another app handles Enterprise logins.
+
+To implement this, you can call `/authorize` with a connection specified for the user, using the `connection` option in the [Auth0 SPA SDK](/libraries/auth0-spa-js), or by passing a `connection` parameter to the `authorize()` method in [Auth0.js](/libraries/auth0js/v9).
+
+### Identify tenants by application
+
+You can represent each of your tenants with a separate application in Auth0. 
+
+Representing each of your tenants with an application allows you to configure each one differently. You can also enable/disable [connections](/connections) for individual applications if your tenants have varying requirements. Doing so, however, requires you to track the tenants to which your users belong within your application. Then, when they log in, you will need to specify the application they are to use.
+
+### Store tenant details in app_metadata
+
+Storing tenant details in the user [metadata](/users/concepts/overview-user-metadata#metadata-usage) is the simplest of the implementation scenarios we cover in this article.
+
+Using the identifier of your choice (e.g., `"tenant": "customer_12345"`), you can store tenant related details in the `app_metadata`. Doing so allows all of your users, regardless of which tenant to which they belong, to log in using one uniform method.
+
+You can check for this value in your application after users log in and are redirected. This will help you sort users.
+
+### Create separate Auth0 tenants for each customer
+
+You can create a new Auth0 tenant for each of your application's tenants. 
+
+We recommend that you follow this approach only if you need to share access to the Auth0 Dashboard with individual customers. Otherwise, one of the above solutions is a more practical and easy to manage one than attempting to manage many Auth0 tenant dashboards, which is also not a scalable solution as your customer base grows.
+
+This method requires you to use a different set of Auth0 credentials when calling Auth0 APIs to authenticate users belonging to each customer, because you would be using different applications on different Auth0 tenants (with different Client IDs) for each of your customers.

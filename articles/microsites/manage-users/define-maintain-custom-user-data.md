@@ -59,7 +59,7 @@ After you have customized the user metadata, you can manage and store data relat
 ::: concepts
   * [User Management](/users)
   * [User Profiles](/users/concepts/overview-user-profile)
-  * [User Metadata](/users/concepts/overview-user-metadata)
+  * [Metadata](/users/concepts/overview-user-metadata)
   * [Normalized User Profiles](/users/normalized/auth0)
 :::
 

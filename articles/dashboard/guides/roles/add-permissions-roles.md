@@ -1,6 +1,6 @@
 ---
 title: Add Permissions to Roles
-description: Learn how to add permissions to roles for Auth0's API Authorization core feature using the Auth0 Management Dashboard.
+description: Learn how to add permissions to roles for Auth0's API Authorization Core feature using the Auth0 Management Dashboard.
 topics:
   - authorization
   - dashboard

@@ -14,8 +14,6 @@ useCase:
 ---
 # Multi-factor Authentication and the Resource Owner Password Grant
 
-<%= include('../../_includes/_pipeline2') %>
-
 Highly-trusted applications can use the [Resource Owner Password Grant](/api-auth/grant/password) to access an API. The flow typically involves prompting the user for username and password as credentials to be submitted to Auth0. In some scenarios, however, stronger authentication may be required. This document outlines using <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> with the [Resource Owner Password Grant](/api-auth/grant/password).
 
 ## Prerequisites
@@ -129,7 +127,7 @@ In this scenario, the challenge will be sent using a side channel, however, ther
 ## Using Recovery Codes
 
 ::: note
-This flow is currently only available for the Guardian Provider.
+This flow is not available when the user uses provider = `google-authenticator` or provider = `duo`.
 :::
 
 ![Resource Owner MFA Recovery](/media/articles/api-auth/recovery-code.png)

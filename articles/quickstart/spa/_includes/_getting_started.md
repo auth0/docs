@@ -10,16 +10,27 @@
 If you are following along with the sample project you downloaded from the top of this page, you should set the **Allowed Callback URL** to `${callback}`.
 :::
 
-<% if(typeof showLogoutInfo !== 'undefined' && showLogoutInfo === true) { %>
+<% if (typeof showLogoutInfo !== 'undefined' && showLogoutInfo === true) { %>
 <%= include('../../../_includes/_logout_url') %>
 <% } %>
 
-<% if(typeof showWebOriginInfo !== 'undefined' && showWebOriginInfo === true) { %>
-<%= include('../../../_includes/_web_origins') %>
+<% if (typeof showWebOriginInfo !== 'undefined' && showWebOriginInfo === true) { %>
+  <%= include('../../../_includes/_web_origins') %>
+
+  <% if (typeof webOriginUrl !== 'undefined') { %>
+  ::: note
+  If you are following along with the sample project you downloaded from the top of this page, you should set the **Allowed Web Origins** to `${webOriginUrl}`.
+  :::
+  <% } %>
+
 <% } %>
 
-<% if (typeof new_js_sdk !== 'undefined' && new_js_sdk === true) { %>
-<%= include('_install_auth0-spa-js') %>
-<% } else { %>
-<%= include('_install_auth0js') %>
+<%= include('../../../_includes/_token_signature') %>
+
+<% if (typeof show_install_info === 'undefined' || (typeof show_install_info !== 'undefined' && show_install_info !== false)) { %>
+  <% if (typeof new_js_sdk !== 'undefined' && new_js_sdk === true) { %>
+  <%= include('_install_auth0-spa-js') %>
+  <% } else { %>
+  <%= include('_install_auth0js') %>
+  <% } %>
 <% } %>

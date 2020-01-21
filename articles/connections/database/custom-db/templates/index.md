@@ -1,61 +1,68 @@
 ---
-description: Custom DB script templates and checklist and troubleshooting
+description: Learn about custom database action script templates.
 topics:
     - connections
     - custom-database
-contentType: index
+    - templates
+contentType: 
+    - index
+    - concept
 useCase:
     - customize-connections
+    - script-templates
 ---
-# Custom Database Script Templates
-Auth0 provides custom database script templates that you can use when implementing functionality for use with a custom database.
+# Custom Database Action Script Templates
 
-## Templates
-While Auth0 has populated default templates in the Dashboard script editor, you can use the following links to recover the original code and notes once you've made and saved edits.
+<%= include('../_includes/_panel-feature-availability') %>
+
+If you have your own database (known as a legacy data store in Auth0) containing user identity data, you can use it as an identity provider to authenticate users.
+You create and configure the connection to your legacy data store as a custom database in Auth0. You can choose to migrate data to Auth0's data store from your legacy database incrementally over time, or you can continue to use it without migrating data. We provide script templates to perform functions on the custom database that you can use and customize. 
+
+There are two different types of custom database scripts:
+
+* **Trickle Migration**: Whenever a user logs into Auth0, if the user is not yet in Auth0, the script will check the legacy database to see if the user exists there. If found and the **Import users to Auth0** flag is turned on, user data migrates the user to Auth0 data store. 
+
+* **Legacy Database**: Auth0 will always query the underlying database when a user tries to log in, is created, changes their password, verifies their email, or is deleted. If found and the **Import users to Auth0** flag is **not** turned on, user data stays in the legacy database and does **not** migrate to Auth0.
+
+Auth0 provides the following custom database action scripts:
 
 * [Change Passwords](/connections/database/custom-db/templates/change-password)
-* [Create User](/connections/database/custom-db/templates/create)
-* [Delete User](/connections/database/custom-db/templates/delete)
+* [Create](/connections/database/custom-db/templates/create)
+* [Delete](/connections/database/custom-db/templates/delete)
 * [Get User](/connections/database/custom-db/templates/get-user)
 * [Login](/connections/database/custom-db/templates/login)
-* [Verify User](/connections/database/custom-db/templates/verify)
+* [Verify](/connections/database/custom-db/templates/verify)
+* [Change Email](/connections/database/custom-db/templates/change-email)
 
-## Script Template Checklist
+<%= include('../../../../_includes/_ip_whitelist') %>
 
-Use the following checklist to make sure your scripts achieve the results you intend:
+## Script execution
 
-1. **Set a `user_id` on the returned user profile that is consistent for the same user every time.**
-   In the migration scenario, this is important because if you set a random `user_id` in the `get_user` script, then call `forgot password` and change the password, the user will get duplicated every time they log in.  In the non-migration scenario, if you set a random `user_id` you can end up with duplicate users for every login.
+As described in the [Custom Database Connections Overview](/connections/database/custom-db/custom-db-connection-overview#how-it-works), a custom database connection type allows you to configure action scripts: custom code that is used when interfacing with your legacy identity store. Each action script is essentially a named JavaScript function that is passed a number of parameters, with the name of the function and the parameters passed depending on the script. 
 
-2. **If using a `username`, ensure that you aren't returning the same email address for two different users in the `get_user` or `login` script.**
-   Auth0 will produce an error if you do this, but it is better to catch it in the script itself. 
+### Limits
 
-3. **If setting `app_metadata`, call it `metadata` in the script.**
-   To support backwards compatibility, `app_metadata` is called `metadata` in custom DB scripts. If you don't use `metadata` in the script, you will get an error where `app_metadata` will work but if you use the API to merge `app_metadata` with a user, it will appear as if all of your metadata was lost. 
+Action script execution supports the asynchronous nature of JavaScript, and constructs such as [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) objects can be used. Asynchronous processing effectively results in suspension pending completion of an operation, and an Auth0 serverless Webtask container typically has a 20-second execution limit, after which the container may be recycled. Recycling a container due to this limit will prematurely terminate operation, ultimately resulting in an error condition being returned (as well as resulting in a potential reset of the `global` object). 
 
-   ::: note
-   `user_metadata` is not affected by this and can simply be called `user_metadata`.
-   :::
+### Completion and the `callback` function
 
-4. **If using Auth0 to do machine-to-machine to the legacy database, restrict access to that audience with a rule.**
-   As with any API that you create, if you create it solely for client credentials, then you will want to restrict access to the API in a rule. By default, Auth0 gives you a token for any API if you authenticate successfully and include the <dfn data-key="audience">audience</dfn>. Someone could intercept the redirect to authorize and add the audience to your legacy database API. If you don’t block this in a rule, they will get an access token.
+The `callback` function supplied to each action script effectively acts as a signal to indicate completion of operation. An action script should complete immediately following a call to the `callback` function (either implicitly or by explicitly executing a JavaScript return statement) and should refrain from any other operation. 
 
-::: note
-You can also update the API to expect the sub of the token to end in `@clients`.
+::: warning
+The Auth0 supplied `callback` function must be called exactly **once**; calling the function more than once within an action script will lead to unpredictable results and/or errors.
 :::
 
-5. **Determine if they are accessing their database directly versus through an API.**
-   This item is not a requirement; it is a recommended best practice. A database interface is extremely open. You should add protections between an API endpoint and your database. Most people do not expose their database directly to the internet. Though you can whitelist Auth0 IPs, those IPs are shared in the cloud environment. In general, Auth0 recommends that you protect your database from too many actors directly talking to it. The alternative is to create a simple API endpoint that each script within Auth0 can call. That API can be protected using an access token. You can use the client credentials flow to get the Access Token from within the rules. 
+::: note
+Where `callback` is executed with no parameters, as in `callback()`, the implication is that function has been called as though `callback(null)` had been executed. 
+:::
 
-6. **If enabling trickle migration, ensure the following:**
+If an action script uses asynchronous processing, then a call to the `callback` function must be deferred to the point where asynchronous processing completes, and must be the final thing called. Asynchronous execution will result in a JavaScript `callback` being executed after the asynchronous operation is complete; this callback is typically fired at some point after the main (synchronous) body of a JavaScript function completes. 
 
-   * **The `Login` script and the `get_user` script both return the same user profile.**
-      Because of the two different flows (logging in, or using forgot password), if the `get_user` and `login` script return different user profiles, then depending on how a user migrates (either by logging in directly, or using the forgot password flow) they will end up with different profile information in Auth0.
+::: warning
+Failure to execute the `callback` function will result in a stall of execution, and ultimately in an error condition being returned. The action script must call the `callback` function exactly once: the `callback` function must be called at least once in order to prevent stall of execution, however it must not be called more than once otherwise unpredictable results and/or errors will occur.
+:::
 
-   * **If setting `app_metadata` or `user_metadata`, use a rule to fetch the metadata if it is missing.**
-      The metadata is not migrated until https://YOUR_TENANT.auth0.com/login/callback is called. However, the user credentials are migrated during the post to `usernamepassword/login`. This means that if the browser is killed, or computer dies or something on a user after they have posted to `usernamepassword/login`, but before login/callback, then they will have a user in the Auth0 database, but their app and user metadata are lost. It is really important, therefore, to create a rule that looks a lot like your `get_user` script to fetch the profile if app and user metadata are blank. This should only execute once per user at most (and usually never).
+## Keep reading
 
-   * **Use a rule to mark users as migrated.**
-      This is not a hard requirement, but it does protect against one scenario in which a user changes their email address, then changes it back to the original email address. A rule should call out to the legacy database to mark the user as being migrated in the original database so that `get_user` can return false. 
-
-
+* [Custom Database Action Script Execution Best Practices](/best-practices/custom-db-connections/execution)
+* [Handle Errors and Troubleshoot Your Custom DB Scripts](/connections/database/custom-db/error-handling)

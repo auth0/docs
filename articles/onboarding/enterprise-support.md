@@ -22,7 +22,7 @@ Refer to your subscription agreement to confirm which support offering is includ
 For general queries related to functionality, integration, best practice, or advice, you can use the following resources:
 
 - The [Auth0 Community](https://community.auth0.com/): Post questions to our audience of Customer Success Engineers, as well as other Auth0 users, or search and read existing posts for useful information.
-- Your __Customer Success Manager__: Your Auth0 Customer Success Manager is always available for general queries and helping you navigate to the right Auth0 resource.  The orientation information you received during onboarding should have the contact details for your Customer Success Manager.
+- Your __Technical Account Manager__: Your Auth0 Technical Account Manager is always available for general queries and helping you navigate to the right Auth0 resource.  The orientation information you received during onboarding should have the contact details for your Technical Account Manager.
 - The [Auth0 Docs](/search#gsc.tab=0)
 
 ## For Issues Impacting Production Environments (SLA Applicable)
@@ -114,7 +114,7 @@ To speed resolution, please provide the following when logging an issue:
 * Issue experienced by users every time or just some times?
 * Issue experienced with all browsers or just one?
 * Screenshot of error message (if any)
-* HTTP trace in the form of a [.har file](/har)
+* HTTP trace in the form of a [HAR file](/troubleshoot/guides/generate-har-files)
 
 *For Private Cloud Customers*:
 

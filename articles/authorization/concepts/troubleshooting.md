@@ -1,6 +1,5 @@
 ---
-description: Explore solutions to common issues experienced when implementing role-based access control (RBAC) using the Authorization core feature set.
-toc: true
+description: Explore solutions to common issues experienced when implementing role-based access control (RBAC) using the Authorization Core feature set.
 topics:
   - authorization
   - rbac
@@ -15,9 +14,9 @@ useCase:
   - call-api
   - secure-api
 ---
-# Troubleshooting: Role-Based Access Control and Authorization
+# Troubleshoot Role-Based Access Control and Authorization
 
-Here are some solutions to common issues experienced when implementing [role-based access control (RBAC)](/authorization/concepts/rbac) using the Authorization core feature set.
+Here are some solutions to common issues experienced when implementing [role-based access control (RBAC)](/authorization/concepts/rbac) using the Authorization Core feature set.
 
 ## Role-based access control is enabled for my API, but the scopes claim is not showing what [you say it should](/dashboard/guides/apis/enable-rbac). 
 

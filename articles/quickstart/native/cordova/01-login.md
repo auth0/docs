@@ -11,18 +11,22 @@ github:
 contentType: tutorial
 useCase: quickstart
 ---
-<%= include('../_includes/_getting_started', { library: 'Cordova') %>
+<!-- markdownlint-disable MD002-->
+
+<%= include('../_includes/_getting_started', { library: 'Cordova' }) %>
 
 <%= include('../../../_includes/_callback_url') %>
 
 The **Callback URL** to be used for your application includes your app's package ID which is found in the `config.xml` file for your app.
 
-Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Application Settings</a> section in your Auth0 dashboard and set your **Callback URL** in the **Allowed Callback URLs** box.
+Go to the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) section in your Auth0 dashboard and set your **Callback URL** in the **Allowed Callback URLs** box.
 
 ```bash
 # replace YOUR_PACKAGE_ID with your app package ID
 YOUR_PACKAGE_ID://${account.namespace}/cordova/YOUR_PACKAGE_ID/callback
 ```
+
+<%= include('../../../_includes/_logout_url', { returnTo: 'YOUR_PACKAGE_ID://' + account.namespace + '/cordova/YOUR_PACKAGE_ID/callback' }) %>
 
 Add `file` as an allowed origin to the **Allowed Origins (CORS)** box.
 
@@ -45,6 +49,8 @@ ${snippet(meta.snippets.setup)}
 Use the `onRedirectUri` method from **auth0-cordova** when your app loads to properly handle redirects after authentication.
 
 ```js
+// src/index.js
+
 var Auth0Cordova =  require('@auth0/cordova');
 var App = require('./App');
 
@@ -93,5 +99,3 @@ After authentication, users will be redirected to your application where they wi
 #### Cannot read property 'isAvailable' of undefined
 
 This means that you're attempting to test this in a browser. At this time you'll need to run this either in an emulator or on a device.
-
-

@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting issues with the Deploy CLI Tool
-description: General troubleshooting information for the Auth0 Deploy Command Line Interface (CLI) tool.
+title: Troubleshoot the Deploy CLI Tool
+description: Describes troubleshooting information for the Auth0 Deploy Command Line Interface (CLI) tool.
 topics:
   - extensions
   - deploy-cli
@@ -9,7 +9,7 @@ contentType:
   - concept
 useCase: extensibility-extensions
 ---
-# Troubleshooting issues with the Deploy CLI tool
+# Troubleshoot the Deploy CLI tool
 
 ## Warning log entries after a Google Apps connection is recreated
 

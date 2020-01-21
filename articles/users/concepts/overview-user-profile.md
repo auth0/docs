@@ -36,13 +36,13 @@ There are several components to the User Profile data structure in Auth0. This s
 ## Custom user profile data 
 
 Auth0 allows you to store **metadata**, which is data related to each user that has not come from the identity provider. 
-You can use `user_metadata` to store custom attributes such as the user's favorite color or hobby. See [User Metadata](/users/concepts/overview-user-metadata).
+You can use `user_metadata` to store custom attributes such as the user's favorite color or hobby. See [Metadata](/users/concepts/overview-user-metadata).
 
 Auth0 provides a [JS widget](https://github.com/auth0/auth0-editprofile-widget) that allows the user to update their own profile information. 
 
 ## User profile application access
 
-The User Profile will be provided to an application once authentication is complete and control is returned to the app. At a low level, this can be accomplished using one of the [application protocols](/protocols) supported by Auth0. However, most developers prefer to leverage the Auth0 SDKs that are available as [Quickstarts](/).
+The User Profile will be provided to an application once authentication is complete and control is returned to the app. At a low level, this can be accomplished using one of the [application protocols](/protocols) supported by Auth0. However, most developers prefer to leverage the Auth0 SDKs that are available as [Quickstarts](/quickstarts).
 
 One SDK is the Auth0 Lock widget, which provides a user login interface:
 
@@ -58,13 +58,13 @@ Auth0 provides a REST API that allows applications and services to access and ma
 
 The [API Explorer](/api/v2) allows users to interactively explore the Management API, view the API calls available, the information required for each call, and the information returned by each call. The explorer allows users to try out each endpoint in the explorer UI or via a CuRL command on the command line. To try out one of the Management API commands, select the access required under **Scopes** within that command, such as `update:users`, and then click on "TRY".
 
-Finally, there is the Authentication API specifically used for authentication flows. The documentation for these Authentication API calls can be found [here](/auth-api). Typically, most of these endpoints are used by the various Auth0 SDKs, not your own code. However, one endpoint that is particularly important for User Profile is [`/userinfo`](/api/authentication/reference#get-user-info), which will be discussed later in this article.
+Finally, there is the Authentication API specifically used for authentication flows. See [Authentication API Explorer](/api/authentication) for more information. Typically, most of these endpoints are used by the various Auth0 SDKs, not your own code. However, one endpoint that is particularly important for User Profile is [`/userinfo`](/api/authentication/reference#get-user-info), which will be discussed later in this article.
 
 ## User profile vs. tokens
 
 In the authentication flows described above, Auth0 returns a set of tokens in lieu of a full User Profile.
 
-One of the returned tokens is the ID Token, which is a [JSON Web Token](/jwt) (or JWT) that contains user profile attributes represented in the form of *claims*. These claims are statements about the user, which can be trusted if the consumer of the token can verify its signature, which is generated with the Auth0 app's Client Secret in the case of `HS256`. In case the application uses `RS256` encryption then the ID Token will be signed with a private key and verified with a public key. The app can then decode the JWT and get the user information contained in its payload, like the user's name, email, and so forth, typically used for UI display.
+One of the returned tokens is the ID Token, which is a [JSON Web Token](/tokens/concepts/jwts) (or JWT) that contains user profile attributes represented in the form of *claims*. These claims are statements about the user, which can be trusted if the consumer of the token can verify its signature, which is generated with the Auth0 app's Client Secret in the case of `HS256`. In case the application uses `RS256` encryption then the ID Token will be signed with a private key and verified with a public key. The app can then decode the JWT and get the user information contained in its payload, like the user's name, email, and so forth, typically used for UI display.
 
 The claims within a JWT generally contain a subset of the information available on the user profile in order to minimize the overall size. For further information on controlling the claims returned in a JWT, see the [Scopes](#scopes) section below.
 
@@ -74,7 +74,7 @@ There are three other types of tokens that can be returned during authentication
 * Third-party provider Access Token
 * <dfn data-key="refresh-token">Refresh Token</dfn>
 
-For more information on tokens and claims see the [Tokens](/tokens).
+For more information on tokens and claims see [Tokens](/tokens).
 
 ## User profile data modification
 

@@ -5,6 +5,10 @@ alias:
   - golang
 languages:
   - Go
+author:
+  name: Jim Anderson
+  email: jim.anderson@auth0.com
+  community: false
 image: /media/platforms/golang.png
 topics:
   - quickstart

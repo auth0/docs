@@ -53,6 +53,7 @@ Finally, to use our API endpoints, you can follow our tutorial: [Call Your API U
   * [Auth0 Single-Page App Quickstarts](/quickstart/spa)
   * [Call Your API Using the Implicit Flow](/flows/guides/implicit/call-api-implicit)
   * [Change scopes and add custom claims to tokens using hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
+  * [Store Tokens](/tokens/guides/store-tokens)
 :::
 
 ::: references
@@ -62,8 +63,7 @@ Finally, to use our API endpoints, you can follow our tutorial: [Call Your API U
 :::
 
 ::: concepts  
-  * [Access Tokens](/tokens/overview-access-tokens)
-  * [Where to store tokens](/security/store-tokens)
+  * [Access Tokens](/tokens/concepts/access-tokens)
 :::
 
 ::::

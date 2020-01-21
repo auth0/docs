@@ -21,11 +21,13 @@ github:
 
 ### Add the Dependencies
 
+::: note
+This sample uses [Composer](https://getcomposer.org/doc/00-intro.md), a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and installs them in your project.
+:::
+
 ${snippet(meta.snippets.dependencies)}
 
-::: note
-This sample uses [Composer](https://getcomposer.org/doc/00-intro.md), a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs. Then, it installs them in your project.
-:::
+This will create a `vendor` folder and download all the dependencies needed to use the Auth0 PHP SDK. This will also create a `vendor/autoload.php` file which is used in the code samples below to load all necessary classes.
 
 ### Configure Auth0 PHP SDK
 
@@ -44,9 +46,7 @@ $auth0 = new Auth0([
   'client_id' => '${account.clientId}',
   'client_secret' => 'YOUR_CLIENT_SECRET',
   'redirect_uri' => '${account.callback}',
-  'persist_id_token' => true,
-  'persist_access_token' => true,
-  'persist_refresh_token' => true,
+  'scope' => 'openid profile email',
 ]);
 ```
 

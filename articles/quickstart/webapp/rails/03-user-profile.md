@@ -15,7 +15,7 @@ github:
 
 ## Process the Callback
 
-After receiving a successful callback at `/auth/oauth2/callback`, the **OmniAuth** strategy provides available user profile information via the `request.env['omniauth.auth']` hash.
+After receiving a successful callback at `/auth/auth0/callback`, the **OmniAuth** strategy provides available user profile information via the `request.env['omniauth.auth']` hash.
 
 ::: note
 The full contents of the authentication hash retrieved by the Auth0 strategy are detailed [here](https://github.com/auth0/omniauth-auth0#auth-hash).
@@ -24,7 +24,7 @@ The full contents of the authentication hash retrieved by the Auth0 strategy are
 In the [login](/quickstart/webapp/rails/01-login) step, you configured the application for **OmniAuth** to start the **OmniAuth-Auth0** strategy and for **OmniAuth** to take over and complete the authentication process. You also set a route that matches the callback URL in the application routes.
 
 ```ruby
-get "/auth/oauth2/callback" => "auth0#callback"
+get "/auth/auth0/callback" => "auth0#callback"
 ```
 
 The `callback` action in the `auth0` controller retrieves the auth hash and stores it in the application's session hash. It then redirects to the dashboard controller `show` action, which renders the dashboard view.

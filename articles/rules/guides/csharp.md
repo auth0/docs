@@ -52,7 +52,7 @@ function (user, context, callback) {
 }
 ```
 
-You can take this one step further by adding the result of the C# function as a [namespaced Claim](/api-auth/tutorials/adoption/scope-custom-claims):
+You can take this one step further by adding the result of the C# function as a [namespaced Claim](/tokens/guides/create-namespaced-custom-claims):
 
 ```js
 function (user, context, callback) {

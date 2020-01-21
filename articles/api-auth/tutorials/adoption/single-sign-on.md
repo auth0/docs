@@ -10,7 +10,7 @@ useCase:
   - call-api
 ---
 
-# Single Sign-On
+# OIDC Single Sign-On
 
 <%= include('./_about.md') %>
 
@@ -20,7 +20,7 @@ In the context of the OIDC-conformant authentication pipeline, SSO must happen a
 
 This means that for SSO to happen, you must employ <dfn data-key="universal-login">Universal Login</dfn> and redirect users to the login page.
 
-## How SSO works
+## How it works
 
 At a general level, this is what happens when performing SSO:
 
@@ -56,4 +56,7 @@ When using Universal Login, the login page is by default hosted at an Auth0 doma
 
 This is only an aesthetic limitation and does not impact the security or functionality of SSO logins in any way.
 
-You can read further about [customizing your domain](/custom-domains) if you require it, to help maintain a uniform experience for your users.
+## Keep reading
+
+* [Custom Domains](/custom-domains)
+* [OIDC Handbook](https://auth0.com/resources/ebooks/the-openid-connect-handbook)

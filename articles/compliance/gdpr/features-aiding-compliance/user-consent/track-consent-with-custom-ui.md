@@ -16,11 +16,11 @@ In this tutorial we will see how you can use auth0.js or the Auth0 APIs to ask f
 
 ## Overview
 
-We will capture consent information, under various scenarios, and save this at the user's metadata.
+We will capture consent information, under various scenarios, and save this in the user's metadata.
 
-All scenarios will save the following properties at the user's metadata:
-- a `consentGiven` property, with true/false values, shows if the user has provided consent (true) or not (false)
-- a `consentTimestamp` property, holding the Unix timestamp of when the user provided consent
+All scenarios will save the following properties in the user's metadata:
+- `consentGiven` (true/false) shows if the user has provided consent (true) or not (false)
+- `consentTimestamp` (Unix timestamp) indicates when the user provided consent
 
 For example:
 
@@ -169,25 +169,22 @@ Once you have a valid token, use the following snippet to update the user's meta
 }
 ```
 
-Note that in order to make this call you need to know the unique `user_id`. You can retrieve this from the `sub` claim of the [ID Token](/tokens/id-token), if you got one from the response. Alternatively, if all you have is the email, you can retrieve the Id by calling another endpoint of the Management API. For more information see [Search Users by Email](/best-practices/search-best-practices#users-by-email).
+Note that in order to make this call you need to know the unique `user_id`. You can retrieve this from the `sub` claim of the [ID Token](/tokens/concepts/id-tokens), if you got one from the response. Alternatively, if all you have is the email, you can retrieve the Id by calling another endpoint of the Management API. For more information see [Search Users by Email](/best-practices/search-best-practices#users-by-email).
 
 ## Option 4: Redirect to another page
 
 If you want to display more information to your user, then upon signup you can redirect to another page where you ask for consent and any additional info, and then redirect back to finish the authentication transaction. This can be done with [redirect rules](/rules/redirect). That same rule can be used to save the consent information at the user's metadata so you can track this information and not ask for consent upon next login.
 
-::: note
-You need to host the pages to which you want to redirect your users because `webtask.io` is not an option in this case. 
-:::
-
 <%= include('./_redirect.md') %>
 
-To test this configuration: 
-1. Run the application and go to [http://localhost:3000](http://localhost:3000)
-1. Sign up with a new user. You will be navigated to the consent form. 
-1. Check the **I agree** flag and click **Submit**
-1. Go to [Dashboard > Users](${manage_url}/#/users) and search for your new user
-1. Go to **User Details** and scroll down to the **Metadata** section. 
-1. At the **user_metadata** text area you should see the `consentGiven` metadata set to `true`, and the `consentTimestamp` set to the Unix timestamp of the moment the user consented
+To test this configuration:
+ 
+1. Run the application and go to [http://localhost:3000](http://localhost:3000).
+2. Sign up with a new user. You will be redirected to the consent form. 
+3. Check the **I agree** flag, and click **Submit**.
+4. Go to [Dashboard > Users](${manage_url}/#/users), and search for your new user.
+5. Go to **User Details**, and scroll down to the **Metadata** section. 
+6. At the **user_metadata** text area, you should see the `consentGiven` metadata set to `true` and the `consentTimestamp` set to the Unix timestamp of the moment the user consented.
 
 ![Application Sign Up widget](/media/articles/compliance/lock-consent-form-agree.png)
 

@@ -1,5 +1,6 @@
 ---
-description: Best practices for general operations in Auth0.
+title: General Usage and Operations Best Practices
+description: Learn about best practices for general operations in Auth0.
 topics:
   - best-practices
 contentType: 
@@ -8,7 +9,6 @@ contentType:
 useCase:
   - best-practices
 ---
-
 # General Usage and Operations Best Practices
 
 Here are some recommended best practices for general Auth0 usage and operation.
@@ -29,17 +29,17 @@ Head over to the [Auth0 status page](https://status.auth0.com/) and sign up for 
 
 ## Store custom code in a source code repository
 
-If you have custom code for rules, hooks, custom database scripts or webtasks, store it in a source code repository such as Github for version and audit control. Auth0 has [extensions to help deploy code stored on external repositories](/extensions#deploy-hosted-pages-rules-and-database-connections-scripts-from-external-repositories).
+If you have custom code for rules, hooks, custom database scripts, or webtasks, store it in a source code repository such as Github for version and audit control. Auth0 has [extensions to help deploy code stored on external repositories](/extensions#deploy-hosted-pages-rules-and-database-connections-scripts-from-external-repositories).
 
 If you have a full continuous integration/continuous deployment pipeline, use the [Auth0 Deploy CLI tool](https://github.com/auth0/auth0-deploy-cli) for greater flexibility.
 
 ## Store configuration values in dashboard
 
-If your rules, hooks, custom database scripts or webtasks require configuration values (such as credentials or API keys), you should store them in the Auth0 dashboard. Storing configuration values in the dashboard [makes migrating configuration](/dev-lifecycle/setting-up-env#migration) between tenants easier.
+If your rules, hooks, custom database scripts, or webtasks require configuration values (such as credentials or API keys), you should store them in the Auth0 dashboard. Storing configuration values in the dashboard [makes migrating configuration](/dev-lifecycle/setting-up-env#migration) between tenants easier.
 
 ## Whitelist Auth0 public IP addresses
 
-If your rules, hooks, custom database scripts or webtasks call a service in your intranet or behind another firewall, be sure to whitelist the Auth0 public IP addresses. This lets requests from those IP addresses through. You can find the IP addresses for each region in your Auth0 dashboard, where you edit rules, hooks, or custom DB scripts.
+If your rules, hooks, custom database scripts, or webtasks call a service in your intranet or behind another firewall, be sure to whitelist the Auth0 public IP addresses. This lets requests from those IP addresses through. You can find the IP addresses for each region in your Auth0 dashboard, where you edit rules, hooks, or custom DB scripts.
 
 ## Run tenant configuration checks
 

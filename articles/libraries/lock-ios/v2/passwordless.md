@@ -15,15 +15,18 @@ useCase:
 ---
 # Lock Passwordless for iOS
 
-<%= include('../../../_includes/_native_passwordless_warning') %>
-
 <dfn data-key="lock">Lock</dfn> Passwordless handles <dfn data-key="passwordless">passwordless authentication</dfn> using email and sms connections.
+
+To use Passwordless Authentication you need Lock.Swift version 2.14.0 or greater.
 
 To show Lock, add the following snippet in your `UIViewController`.
 
 ```swift
 Lock
     .passwordless()
+    .withOptions {
+         $0.oidcConformant = true
+    }
     // withConnections, withOptions, withStyle, and so on.
     .onAuth { credentials in
       // Save the Credentials object
@@ -34,7 +37,6 @@ Lock
 **Notes:**
 
 - Passwordless can only be used with a single connection and will prioritize the use of email connections over SMS.
-- The `audience` option is not available in Passwordless.
 
 ### Passwordless Method
 

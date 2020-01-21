@@ -1,6 +1,8 @@
+<!-- markdownlint-disable MD002 MD041 -->
+
 ## Create the Backend API
 
-For this example, you'll create an [Express](https://expressjs.com/) server that acts as the backend API. This API will expose an endpoint to validate incoming ID Tokens before returning a response.
+For this example, you'll create an [Express](https://expressjs.com/) server that acts as the backend API. This API will expose an endpoint to validate incoming [JWT-formatted access tokens](https://auth0.com/docs/tokens/concepts/jwts) before returning a response.
 
 Start by installing the following packages:
 
@@ -25,12 +27,12 @@ const app = express();
 
 // Set up Auth0 configuration
 const authConfig = {
-  domain: "${account.tenant}",
+  domain: "${account.namespace}",
   audience: "${apiIdentifier}"
 };
 
 // Define middleware that validates incoming bearer tokens
-// using JWKS from ${account.tenant}
+// using JWKS from ${account.namespace}
 const checkJwt = jwt({
   secret: jwksRsa.expressJwtSecret({
     cache: true,

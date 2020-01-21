@@ -1,0 +1,53 @@
+title: Spring Security 5 Java API
+thirdParty: false
+author:
+  name: Jim Anderson
+  email: jim.anderson@auth0.com
+  community: false
+alias:
+  - spring security
+  - spring
+languages:
+  - Java
+framework:
+  - Spring
+image: /media/platforms/java.png
+topics:
+  - quickstart
+contentType: tutorial
+useCase: quickstart
+articles:
+  - 01-authorization
+  - 02-using
+  - 03-troubleshooting
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-spring-security5-api-sample
+requirements:
+  - Java 8 or above
+next_steps:
+  - path: 01-authorization
+    list:
+    - text: "Part 2: Using Your API"
+      icon: 345
+      href: "/quickstart/backend/java-spring-security5/02-using"
+  - path: 02-using
+    list:
+    - text: "Part 3: Troubleshooting Your API"
+      icon: 345
+      href: "/quickstart/backend/java-spring-security5/03-troubleshooting"
+  - path: 03-troubleshooting
+    list:
+    - text: Configure other identity providers
+      icon: 345
+      href: "/identityproviders"
+    - text: Enable multifactor authentication
+      icon: 345
+      href: "/multifactor-authentication"
+    - text: Learn about anomaly detection
+      icon: 345
+      href: "/anomaly-detection"
+    - text: Learn about Role-Based Access Control
+      icon: 345
+      href: "/authorization/concepts/rbac"

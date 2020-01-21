@@ -15,6 +15,8 @@ useCase:
 ---
 # Lock Android: Refreshing JWT Tokens
 
+<%= include('../../../_includes/_uses-delegation') %>
+
 When an authentication is performed with the `offline_access` <dfn data-key="scope">scope</dfn> included, the returned Credentials will contain a <dfn data-key="refresh-token">Refresh Token</dfn> and an ID Token. Both tokens can be used to request a new <dfn data-key="access-token">Access Token</dfn> and avoid asking the user their credentials again.
 
 We need to store the tokens in a secure storage after a successful authentication. Keep in mind that Refresh Tokens **never expire**. To request a new token you'll need to use `auth0.android`'s `AuthenticationAPIClient`. Don't forget to request the same scope used in the first login call.

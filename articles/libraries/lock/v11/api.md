@@ -219,6 +219,12 @@ Lock will emit events during its lifecycle. The `on` method can be used to liste
 - `signin submit`: emitted when the user clicks on the submit button of the "Login" screen. (Only in Version >`10.18`)
 - `signup submit`: emitted when the user clicks on the submit button of the "Sign Up" screen. (Only in Version >`10.18`)
 - `federated login`: emitted when the user clicks on a social connection button. Has the connection name and the strategy as arguments. (Only in Version >`10.18`)
+- `socialOrPhoneNumber ready`: emitted when the Passwordless screen with Social + Phone Number is shown
+- `socialOrPhoneNumber submit`: emitted when the Passwordless screen with Social + Phone Number is submitted
+- `socialOrEmail ready`: emitted when the Passwordless screen with Social + Email is shown
+- `socialOrEmail submit`: emitted when the Passwordless screen with Social + Email is submitted
+- `vcode ready`: emitted when the Passwordless screen with the one-time-password is shown
+- `vcode submit`: emitted when the Passwordless screen with the one-time-password is submitted
 
 The `authenticated` event listener has a single argument, an `authResult` object. This object contains the following properties: `accessToken`, `idToken`, `state`, `refreshToken` and `idTokenPayload`.
 

@@ -90,7 +90,7 @@ A popup displays the URL to be used in order to impersonate the user. You can ch
 ![Impersonate a User](/media/articles/user-profile/user3.png)
 
 ::: panel Acquiring a token
-Impersonating a user using the [Dashboard](${manage_url}) will not return an [ID Token](/tokens/id-token) to your application by default. There are two ways to achieve this. You can alter the **Response Type** setting in the impersonation menu's [Advanced Settings](#advanced-settings) from `Code` to `Token` (**Sign in as user** -> **Show Advanced Settings**). Alternatively, you can add `additionalParameters.scope: "openid"` to the request body while calling the [impersonation endpoint](/api/authentication/reference#impersonation) manually.
+Impersonating a user using the [Dashboard](${manage_url}) will not return an [ID Token](/tokens/concepts/id-tokens) to your application by default. There are two ways to achieve this. You can alter the **Response Type** setting in the impersonation menu's [Advanced Settings](#advanced-settings) from `Code` to `Token` (**Sign in as user** -> **Show Advanced Settings**). Alternatively, you can add `additionalParameters.scope: "openid"` to the request body while calling the [impersonation endpoint](/api/authentication/reference#impersonation) manually.
 :::
 
 ### Advanced settings

@@ -23,12 +23,12 @@ The Login project sample has the following structure:
 - build.gradle
 ```
 
-The project contains a single JSP: the `home.jsp` which will display the tokens associated to the user after a successful login and provide the option to logout.
+The project contains a single JSP: the `home.jsp` which will display the tokens associated with the user after a successful login and provide the option to logout.
 
 The project contains a WebFilter: the `Auth0Filter.java` which will check for existing tokens before giving the user access to our protected `/portal/*` path. If the tokens don't exist, the request will be redirected to the `LoginServlet`.
 
 The project contains also four servlets:
-- `LoginServlet.java`: Invoked when the user attempts to login. The servlet uses the `client_id` and `domain` parameters to create a valid Authorize URL and redirects the user there.
+- `LoginServlet.java`: Invoked when the user attempts to log in. The servlet uses the `client_id` and `domain` parameters to create a valid Authorize URL and redirects the user there.
 - `CallbackServlet.java`: The servlet captures requests to our Callback URL and processes the data to obtain the credentials. After a successful login, the credentials are then saved to the request's HttpSession.
 - `HomeServlet.java`: The servlet reads the previously saved tokens and shows them on the `home.jsp` resource.
 - `LogoutServlet.java`: Invoked when the user clicks the logout link. The servlet invalidates the user session and redirects the user to the login page, handled by the `LoginServlet`.
@@ -37,7 +37,7 @@ Lastly, the project defines a helper class: the `AuthenticationControllerProvide
 
 ## Trigger Authentication
 
-Let's begin by creating the `AuthenticationController` instance. From any Servlet class we can obtain the ServletConfig instance and read the properties defined in the `web.xml` file. Let's read our application properties and create a new instance of this controller:
+To enable users to authenticate, create an instance of the `AuthenticationController` provided by the `auth0-java-mvc-commons` SDK using the `domain`, `clientId`, and `clientSecret`.  The sample below shows how to configure the component for use with tokens signed using the RS256 asymmetric signing algorithm, by specifying a `JwkProvider` to fetch the public key used to verify the token's signature. See the [jwks-rsa-java repository](https://github.com/auth0/jwks-rsa-java) to learn about additional configuration options. If you are using HS256, there is no need to configure the `JwkProvider`. 
 
 ```java
 // src/main/java/com/auth0/example/AuthenticationControllerProvider.java
@@ -46,11 +46,13 @@ String domain = getServletConfig().getServletContext().getInitParameter("com.aut
 String clientId = getServletConfig().getServletContext().getInitParameter("com.auth0.clientId");
 String clientSecret = getServletConfig().getServletContext().getInitParameter("com.auth0.clientSecret");
 
+JwkProvider jwkProvider = new JwkProviderBuilder(domain).build();
 AuthenticationController controller = AuthenticationController.newBuilder(domain, clientId, clientSecret)
+                .withJwkProvider(jwkProvider)
                 .build();
 ```
 
-To authenticate the users we will redirect them to the **Auth0 Login Page** which uses the best version available of [Lock](/lock). This page is what we call the "Authorize URL". By using this library we can generate it with a simple method call. It will require a `HttpServletRequest` to store the call context in the session and the URI to redirect the authentication result to. This URI is normally the address where our app is running plus the path where the result will be parsed, which happens to be also the "Callback URL" whitelisted before. Finally, we will request the "User Info" *audience* in order to obtain an Open ID Connect compliant response. After we create the Authorize URL, we redirect the request there so the user can enter their credentials. The following code snippet is located on the `LoginServlet` class of our sample.
+To enable users to login, your application will redirect them to the [Universal Login](https://auth0.com/docs/universal-login) page. Using the `AuthenticationController` instance, you can generate the redirect URL by calling the `buildAuthorizeUrl(HttpServletRequest request, HttpServletResponse response, String redirectUrl)` method. The redirect URL must be the URL that was added to the **Allowed Callback URLs** of your Auth0 Application.
 
 ```java
 // src/main/java/com/auth0/example/LoginServlet.java
@@ -63,14 +65,15 @@ protected void doGet(final HttpServletRequest req, final HttpServletResponse res
     }
     redirectUri += "/callback";
 
-    String authorizeUrl = authenticationController.buildAuthorizeUrl(req, redirectUri)
-            .withAudience(String.format("https://%s/userinfo", domain))
+    String authorizeUrl = authenticationController.buildAuthorizeUrl(req, res, redirectUri)
             .build();
     res.sendRedirect(authorizeUrl);
 }
 ```
 
-After the user logs in the result will be received in our `CallbackServlet`, either via a GET or a POST Http method. The request holds the call context that we've previously set by generating the Authorize URL with the controller. When we pass it to the controller, we get back either a valid `Tokens` instance or an Exception indicating what went wrong. In the case of a successful call, we need to save the credentials somewhere we can access them later. We will use again the `HttpSession` of the request. A helper class called `SessionUtils` is included in the library to set and read values from a request's session.
+After the user logs in, the result will be received in our `CallbackServlet` via either a GET or POST HTTP request. Because we are using the Authorization Code Flow (the default), a GET request will be sent. If you have configured the library for the Implicit Flow, a POST request will be sent instead.
+
+The request holds the call context that the library previously set by generating the Authorize URL with the `AuthenticationController`. When passed to the controller, you get back either a valid `Tokens` instance or an Exception indicating what went wrong. In the case of a successful call, you need to save the credentials somewhere to access them later. You can use the `HttpSession` of the request by using the `SessionsUtils` class included in the library.
 
 ```java
 // src/main/java/com/auth0/example/CallbackServlet.java
@@ -88,7 +91,7 @@ public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOExc
 private void handle(HttpServletRequest req, HttpServletResponse res) throws IOException {
     try {
         // Parse the request
-        Tokens tokens = authenticationController.handle(req);
+        Tokens tokens = authenticationController.handle(req, res);
         SessionUtils.set(req, "accessToken", tokens.getAccessToken());
         SessionUtils.set(req, "idToken", tokens.getIdToken());
         res.sendRedirect(redirectOnSuccess);
@@ -100,7 +103,7 @@ private void handle(HttpServletRequest req, HttpServletResponse res) throws IOEx
 ```
 
 ::: note
-It is recommended to store the time in which we requested the tokens and the received `expiresIn` value, so that the next time when we are going to use the token we can check if it has already expired or if it's still valid. For the sake of this sample we will skip that validation.
+It is recommended to store the time in which we requested the tokens and the received `expiresIn` value, so that the next time when we are going to use the token we can check if it has already expired or if it's still valid. For the sake of this sample, we will skip that validation.
 :::
 
 ## Display the Home Page
@@ -168,7 +171,7 @@ After a few seconds, the application will be accessible on `http://localhost:300
 
 ![Login using Lock](/media/articles/java/login-with-lock.png)
 
-After a successful authentication you'll be able to see the home page contents.
+After a successful authentication, you'll be able to see the home page contents.
 
 ![Display Token](/media/articles/java/display-token.png)
 

@@ -31,7 +31,7 @@ This message indicates that the Application doesn't have an active Connection as
 1. Navigate to [Connections > Enterprise](${manage_url}/#/connections/enterprise).
 2. Find your Connection, and click on **Settings**.
 3. Switch to the *Applications* tab.
-4. Enable at least one Application (if you don't see any in the list, you will need to [create an application](/applications/concepts/app-types-auth0) before proceeding).
+4. Enable at least one Application (if you don't see any in the list, you will need to [create an application](/applications) before proceeding).
 
 ## Error: IdP-Initiated Default App Not Configured
 
@@ -41,13 +41,15 @@ This message indicates that the Application doesn't have an active Connection as
 }
 ```
 
-This error appears if you haven't provided the necessary information to support IdP-initiated login flows.
+This error typically occurs because the ACS URL configured in the IdP used the default Auth0 tenant domain, whereas the authentication transaction was started by calling the custom domain `/authorize` endpoint.
+
+The ACS URL should use the same domain as the initial authentication request. If using custom domains, this should use the custom domain callback URL.
 
 ### How to Fix
 
 1. Navigate to [Connections > Enterprise](${manage_url}/#/connections/enterprise).
 2. Find your Connection, and click on **Settings**.
-3. Switch to the *IdP-Initiated* tab.
+3. Switch to the **IdP-Initiated** tab.
 4. Select the **Default Application** and the **Response Protocol** used by that Application, and (optionally) specify any additional parameters you want passed to the Application.
 
 ::: panel SP-Initiated Login
@@ -90,3 +92,11 @@ One common error is specifying the incorrect response protocol on the IdP-Initia
 2. Find your Connection, and click on **Settings**.
 3. Switch to the *IdP-Initiated* tab.
 4. Check the value you have set in the **Response Protocol** field.
+
+## Issue: User isn't logged out from the IdP
+
+When ADFS is configured as SAML IdP, if the ADFS is relaying party trust `Name ID` attribute isn't mapped the logout flow fails. For example, with the federated parameter `v2/logout?federated&...` user isn't redirected to the ADFS SAML logout endpoint but redirects back to application callback URL directly. As a consequence, the user isn't logged out from the IdP in that case.
+
+### How to Fix
+
+Add the `Name ID` attribute as a rule on the SAML Relaying Party Trust. 

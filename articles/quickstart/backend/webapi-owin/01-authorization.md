@@ -154,7 +154,7 @@ public class ApiController : ApiController
 }
 ```
 
-To ensure that a scope is present in order to call a particular API endpoint, you simply need to decorate the action with the `ScopeAuthorize` attribute, and pass the name of the required `scope` in the `scope` parameter.
+To ensure that a scope is present in order to call a particular API endpoint, you simply need to decorate the action with the `ScopeAuthorize` attribute and pass the name of the required `scope` in the `scope` parameter.
 
 ```csharp
 // Controllers/ApiController.cs

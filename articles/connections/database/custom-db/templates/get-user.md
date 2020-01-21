@@ -1,24 +1,41 @@
 ---
-description: Custom DB script templates for user search
+description: Custom database action script templates for user search.
 toc: true
 topics:
     - connections
     - custom-database
-contentType: how-to
+    - get-users
+contentType: reference
 useCase:
     - customize-connections
 ---
-# Custom Database Script Templates: Get Users
+# Get User Script Templates
 
-Auth0 provides the following custom database script templates that you can use when implementing user search functionality.
+The **Get User** script implements the function executed to determine the current state of existence of a user. We recommend naming this function `getUser`. The script is optional for both legacy authentication and for automatic migration, though we recommend its implementation. 
 
-While Auth0 has populated default templates in the Dashboard script editor, you can use the following links to recover the original code and notes once you've made and saved edits.
+For automatic migration the script is executed during the password reset workflow, for example, with a forgotten password in Universal Login. For legacy authentication, it is executed whenever the following out-of-box operations occur: create user, change email, change password and password reset (e.g via forgot password workflow). 
 
-## Notes
+The `getUser` function should be defined as follows:
 
-When working on your script, keep in mind that this script will be executed when the user wishes to change his password to test if the user exists.
+```js
+function getUser(email, callback) {
+  // TODO: implement your script
+  return callback(null, profile);
+}
+```
 
-## Sample Scripts
+| **Parameter** | **Description** |
+| --- | --- |
+| `email` | The email address for the user as the user identifying credential.  |
+| `callback` | Executed with up to two parameters. The first parameter is an indication of status: a `null` first parameter with a corresponding second parameter indicates that the operation executed successfully; a `null` first parameter with no corresponding second parameter indicates that no user was found, while a non `null` first parameter value indicates that some error condition occurred. If the first parameter is `null` then the second parameter should be the profile for the user in JSON format (if a user was found). If the first parameter is `null` and no user was found, or if the first parameter is non `null`, then the second parameter can be omitted. The second parameter is the `profile` for the user. This should be supplied as a JSON object in normalized user profile form. See the [**Login**](/connections/database/custom-db/templates/login#callback-profile-example) script for details. |
+
+<%= include('../_includes/_bp-error-object') %>
+
+::: warning
+When creating users, Auth0 calls the **Get User** script before the **Create** script. Be sure to implement both database action scripts if you are creating new users.
+:::
+
+## Language-specific script examples
 
 Auth0 provides sample scripts for use with the following languages/technologies:
 
@@ -285,3 +302,12 @@ function getByEmail(email, callback) {
   });
 }
 ```
+
+## Keep reading
+
+* [Change Passwords](/connections/database/custom-db/templates/change-password)
+* [Create](/connections/database/custom-db/templates/create)
+* [Delete](/connections/database/custom-db/templates/delete)
+* [Login](/connections/database/custom-db/templates/login)
+* [Verify](/connections/database/custom-db/templates/verify)
+* [Change Email](/connections/database/custom-db/templates/change-email)

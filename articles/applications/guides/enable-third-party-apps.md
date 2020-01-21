@@ -1,7 +1,6 @@
 ---
 title: Enable Third-Party Applications
-description: Learn how to enable a third-party application.
-toc: true
+description: Learn how to enable third-party applications for your tenant.
 topics:
   - applications
   - application-types
@@ -11,32 +10,37 @@ contentType:
 useCase:
   - build-an-app
 ---
-# Enable Third-party Applications
+# Enable Third-Party Applications
+  
+You can enable third-party applications for your tenant. See [First-Party and Third-Party Applications](/applications/concepts/app-types-first-third-party) for details on the differences between the two types of applications. 
 
-This guide will show you how to enable [third-party applications](/applications/concepts/app-types-first-third-party#third-party-applications) for your tenant. 
+1. [Promote the connections you will use with third-party applications to domain level](/api/management/guides/connections/promote-connection-domain-level) in Auth0.
 
-## Steps 
+    Third-party applications can only authenticate users from [connections](/connections) flagged as domain-level connections. Domain-level connections can be enabled for selected first-party applications while also being open to all third-party application users for authentication.
+    
+2. Update your application's login page. If you use [Lock](/libraries/lock/v11) in the [Universal Login Page](/universal-login/classic), you must also:
 
-To enable third-party applications for your tenant, you will need to:
+  - Upgrade to Lock version 11 or later
+  - Set the `__useTenantInfo: config.isThirdPartyClient` flag when instantiating Lock
+  - *For [Private Cloud](/private-cloud) users only*: Set the [`configurationBaseUrl` option](https://auth0.com/docs/libraries/lock/v11/configuration#configurationbaseurl-string-) to `https://{config.auth0Domain}/` when instantiating Lock
 
-1. Promote the connections you will use with third-party applications to domain-level connections
-2. Update your application's login page (if you use [Lock](/libraries/lock/v11))
+## Access Token `current_user_*` scopes 
 
-## 1. Promote connections to domain-level connections
+Neither first- nor third-party applications can use [ID Tokens](/tokens/concepts/id-tokens) to invoke [Management API](/api/management/v2) endpoints. Instead, they should get [Access Tokens](/api/management/v2/tokens) with the following `current_user_*` scopes required by each endpoint:
 
-[Promote the connections you will use with third-party applications to domain level](/api/management/guides/connections/promote-connection-domain-level) in Auth0.
+| Scope | Endpoint |
+| - | - |
+| `read:current_user` | [List or search users](/api/management/v2#!/Users/get_users) |
+|  | [Get a user](/api/management/v2#!/Users/get_users_by_id) |
+|  | [Get user MFA enrollments](/api/management/v2#!/Users/get_enrollments) |
+| `update:current_user_metadata` | [Update a user](/api/management/v2#!/Users/patch_users_by_id) |
+|  | [Delete a user's multi-factor provider](/api/management/v2#!/Users/delete_multifactor_by_provider) |
+| `create:current_user_device_credentials` | [Create a device public key](/api/management/v2#!/Device_Credentials/post_device_credentials) |
+| `delete:current_user_device_credentials` | [Delete a device credential](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id) |
+| `update:current_user_identities` | [Link a user account](/api/management/v2#!/Users/post_identities) |
+|  | [Unlink a user identity](/api/management/v2#!/Users/delete_user_identity_by_user_id) |
 
-[Third-party applications](/applications/concepts/app-types-first-third-party) can only authenticate users from [connections](/connections) flagged as domain-level connections. Domain-level connections can be enabled for selected first-party applications while also being open to all third-party application users for authentication.
-
-## 2. Update your application's login page (if you use Lock)
-
-If you use Lock in the [Hosted Login Page](/hosted-pages/login), you must also:
-
-- Upgrade to Lock version 10.7.x or later
-- Set the `__useTenantInfo: config.isThirdPartyClient` flag when instantiating Lock
-- *For [Private Cloud](/private-cloud) users only*: Set the [`configurationBaseUrl` option](https://github.com/auth0/lock#other-options) to `https://{config.auth0Domain}/` when instantiating Lock
-
-### Sample script:
+## Sample script
 
 ```html
  <script src="https://cdn.auth0.com/js/lock/11.x.y/lock.min.js"></script>
@@ -74,3 +78,10 @@ If you use Lock in the [Hosted Login Page](/hosted-pages/login), you must also:
   lock.show();
 </script>
 ```
+
+## Keep reading
+* [View Application Ownership](/api/management/guides/applications/view-ownership)
+* [Applications](/applications)
+* [Confidential and Public Applications](/applications/concepts/app-types-confidential-public)
+* [Auth0 Grant Types Mapping](/applications/reference/grant-types-auth0-mapping)
+* [User consent and third-party applications](/api-auth/user-consent)

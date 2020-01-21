@@ -7,6 +7,10 @@ language:
   - C#
 framework:
   - ASP.NET Core
+author:
+  name: Damien Guard
+  email: damien.guard@auth0.com
+  community: false
 thirdParty: false
 image: /media/platforms/asp.png
 topics:

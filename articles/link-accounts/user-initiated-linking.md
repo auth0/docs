@@ -61,7 +61,7 @@ The following is a sample login using Lock:
 <button onclick="javascript:login()">Login</button>
 ```
 
-In the typical SPA login, the callback is handled client-side by the same page and a JWT is received after successful authentication. You can refer to the [Single-Page Apps Quickstarts](/quickstart/spa) for more details. You can also see the [Passwordless for Single-Page Apps](/connections/passwordless/spa) tutorials for examples of <dfn data-key="passwordless">passwordless</dfn> login.
+In the typical SPA login, the callback is handled client-side by the same page and a JWT is received after successful authentication. You can refer to the [Single-Page Apps Quickstarts](/quickstart/spa) for more details. You can also see the [Implement Passwordless](/connections/passwordless) tutorial for examples of <dfn data-key="passwordless">passwordless</dfn> login.
 
 ## 2. User initiates account linking
 
@@ -176,7 +176,7 @@ Also, you can select which identity will be used as the primary account and whic
 
 ## 4. Unlinking accounts
 
-For unlinking accounts, invoke the Management API v2 [Unlink a user account endpoint](/api/v2#!/Users/delete_provider_by_user_id) using the JWT from the primary account for authorization:
+For unlinking accounts, invoke the Management API v2 [Unlink a user account endpoint](/api/v2#!/Users/delete_user_identity_by_user_id) using the JWT from the primary account for authorization:
 
 ```js
 function unlinkAccount(secondaryProvider, secondaryUserId){

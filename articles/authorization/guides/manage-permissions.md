@@ -16,7 +16,9 @@ useCase:
 ---
 # Manage Role-Based Access Control Permissions
 
-This guide will show you how to manage permissions in a  [role-based access control (RBAC)](/authorization/concepts/rbac) system using Auth0's Dashboard.
+This guide will show you how to manage permissions in a  [role-based access control (RBAC)](/authorization/concepts/rbac) system using Auth0's Dashboard. These permissions are used with the API Authorization Core feature set.
+
+<%= include('../../_includes/_rbac_vs_extensions') %>
 
 <%= include('../_includes/_enable-authz-core') %>
 

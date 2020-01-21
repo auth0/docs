@@ -24,7 +24,7 @@ If you are using Maven, add them to your `pom.xml`:
 <dependency>
   <groupId>com.auth0</groupId>
   <artifactId>mvc-auth-commons</artifactId>
-  <version>1.+</version>
+  <version>[1.0, 2.0)</version>
 </dependency>
 <dependency>
   <groupId>javax.servlet</groupId>
@@ -56,18 +56,9 @@ Your Java App needs some information in order to authenticate against your Auth0
 </context-param>
 ```
 
-The library we're using has this default behavior:
-- Request the scope `openid`, needed to call the `/userinfo` endpoint later to verify the User's identity.
-- Request the `code` Response Type and later perform a Code Exchange to obtain the tokens.
-- Use the `HS256` Algorithm along with the Client Secret to verify the tokens.
-
-But it also allows us to customize its behavior:
-* To use the `RS256` Algorithm along with the Public Key obtained dynamically from the Auth0 hosted JWKs file, pass a `JwkProvider` instance to the `AuthenticationController` builder.
-* To use a different Response Type, set the desired value in the `AuthenticationController` builder. Any combination of `code token id_token` is allowed.
-* To request a different `scope`, set the desired value in the `AuthorizeUrl` received after calling `AuthenticationController#buildAuthorizeUrl()`.
-* To specify the `audience`, set the desired value in the `AuthorizeUrl` received after calling `AuthenticationController#buildAuthorizeUrl()`.
+This information will be used to configure the **auth0-java-mvc-commons** library to enable users to login to your application. To learn more about the library, including its various configuration options, see the [library's documentation](https://github.com/auth0/auth0-java-mvc-common/blob/master/README.md).
 
 
 ::: panel Check populated attributes
-If you download the seed using our **Download Sample** button then the `domain`, `clientId` and `clientSecret` attributes will be populated for you, unless you are not logged in or you do not have at least one registered application. In any case, you should verify that the values are correct if you have multiple applications in your account and you might want to use another than the one we set the information for.
+If you downloaded this sample using the **Download Sample** button, the `domain`, `clientId` and `clientSecret` attributes will be populated for you. You should verify that the values are correct, especially if you have multiple Auth0 applications in your account.
 :::

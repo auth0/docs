@@ -19,7 +19,7 @@ This guide will show you how to create <dfn data-key="role">[roles](/authorizati
 
 <%= include('../../../../authorization/_includes/_enable-authz-core') %>
 
-1. Make a `POST` call to the [Create Role endpoint](/api/management/v2#!/roles/post_role). Be sure to replace `MGMT_API_ACCESS_TOKEN`, `ROLE_NAME`, and `ROLE_DESC` placeholder values with your Management API Access Token, role name, and role description, respectively.
+1. Make a `POST` call to the [Create Role endpoint](/api/management/v2#!/Roles/post_roles). Be sure to replace `MGMT_API_ACCESS_TOKEN`, `ROLE_NAME`, and `ROLE_DESC` placeholder values with your Management API Access Token, role name, and role description, respectively.
 
 ```har
 {

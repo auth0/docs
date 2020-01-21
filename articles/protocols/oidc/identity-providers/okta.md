@@ -172,3 +172,7 @@ function(accessToken, ctx, cb) {
 
 Next, click the **Try** button to test the connection. If accepted, you should see the **It Works!** confirmation page.
 
+## Keep reading
+
+* [Configure Applications with OpenID Connect Discovery](/protocols/oidc/openid-connect-discovery)
+* [OIDC Handbook](https://auth0.com/resources/ebooks/the-openid-connect-handbook)

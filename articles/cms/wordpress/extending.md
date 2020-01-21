@@ -431,9 +431,9 @@ This filter allows developers to adjust the `/authorize` endpoint parameters as 
  * @param string $connection - Connection for auto-login, optional.
  * @param string $redirect_to - URL to redirect to after logging in.
  *
- * @return mixed
+ * @return array
  */
-function auth0_docs_hook_authorize_url_params( $params, $connection, $redirect_to ) {
+function auth0_docs_hook_authorize_url_params( array $params, $connection, $redirect_to ) {
 	if ( 'twitter' === $connection ) {
 		$params[ 'param1' ] = 'value1';
 	}

@@ -16,6 +16,8 @@ contentType: how-to
 
 # SAP OData Add-on
 
+<%= include('../_includes/_uses-delegation') %>
+
 ::: warning
 This integration is in <strong>experimental mode</strong>. Contact us if you have questions.
 :::

@@ -1,6 +1,6 @@
 ---
 title: Add Permissions to Roles
-description: Learn how to add permissions to roles for Auth0's API Authorization core feature using the Auth0 Management API.
+description: Learn how to add permissions to roles for Auth0's API Authorization Core feature using the Auth0 Management API.
 topics:
   - authorization
   - mgmt-api
@@ -19,7 +19,7 @@ This guide will show you how to add permissions to <dfn data-key="role">[roles](
 
 <%= include('../../../../authorization/_includes/_enable-authz-core') %>
 
-1. Make a `POST` call to the [Add Role Permissions endpoint](/api/management/v2#!/roles/post_role_permissions). Be sure to replace `ROLE_ID`, `MGMT_API_ACCESS_TOKEN`, `API_IDENTIFIER`, and `PERMISSION_NAME` placeholder values with your role ID, Management API Access Token, API identifier (audience), and permission name(s), respectively.
+1. Make a `POST` call to the [Add Role Permissions endpoint](/api/management/v2#!/Roles/post_role_permission_assignment). Be sure to replace `ROLE_ID`, `MGMT_API_ACCESS_TOKEN`, `API_IDENTIFIER`, and `PERMISSION_NAME` placeholder values with your role ID, Management API Access Token, API identifier (audience), and permission name(s), respectively.
 
 ```har
 {

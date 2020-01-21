@@ -14,6 +14,12 @@ contentType: tutorial
 useCase: quickstart
 ---
 
+:::note
+This Quickstart demonstrates securing an API using **Spring Boot 1** and **Spring Security 4**.
+
+See the [Spring Security 5 API Quickstart](quickstart/backend/java-spring-security5) to learn how to use Auth0 to secure an API built using Spring Boot 2 and Spring Security 5.
+:::
+
 <%= include('../../../_includes/_api_auth_intro') %>
 
 <%= include('../_includes/_api_create_new') %>
@@ -28,7 +34,7 @@ ${snippet(meta.snippets.setup)}
 
 | Attribute | Description|
 | --- | --- |
-| `auth0.issuer` | The issuer of the JWT Token. Typically, this is your Auth0 domain with a `https://` prefix and a `/` suffix. For example, if your Auth0 domain is `example.auth0.com`, the `auth0.issuer` must be set to `https://example.auth0.com/` (the trailing slash is important). |
+| `auth0.issuer` | The issuer of the JWT Token. Typically, this is your Auth0 domain with an `https://` prefix and a `/` suffix. For example, if your Auth0 domain is `example.auth0.com`, the `auth0.issuer` must be set to `https://example.auth0.com/` (the trailing slash is important). |
 | `auth0.apiAudience` | The unique identifier for your API. If you are following the steps in this tutorial it would be `https://quickstarts/api`.|
 
 ## Validate Access Tokens
@@ -47,14 +53,14 @@ ${snippet(meta.snippets.dependenciesGradle)}
 
 ### Configure JSON Web Token signature algorithm
 
-Configure your API to use the RS256 signing algorithm. 
+Configure your API to use the RS256 [signing algorithm](/tokens/concepts/signing-algorithms). 
 
 ```java
 // src/main/java/com/auth0/example/AppConfig.java
 
-@EnableWebSecurity
 @Configuration
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+@EnableWebSecurity
+public class AppConfig extends WebSecurityConfigurerAdapter {
 
     @Value(value = "<%= "${auth0.apiAudience}" %>")
     private String apiAudience;
@@ -79,9 +85,9 @@ The example below shows how to implement secure API methods. In the `AppConfig` 
 ```java
 // src/main/java/com/auth0/example/AppConfig.java
 
-@EnableWebSecurity
 @Configuration
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+@EnableWebSecurity
+public class AppConfig extends WebSecurityConfigurerAdapter {
 
     @Value(value = "<%= "${auth0.apiAudience}" %>")
     private String apiAudience;
@@ -171,7 +177,7 @@ To build and run the project, use the command:
 or if you are on Windows:
 
 ```bash
-gradlew.cmd bootRun
+gradlew.bat bootRun
 ```
 
 Using a REST client such as Postman or cURL, issue a `GET` request to `http://localhost:3010/api/public`. You should receive the response:

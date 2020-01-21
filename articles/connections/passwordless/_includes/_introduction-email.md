@@ -1,4 +1,4 @@
-With an email connection, the user is asked to enter their email address, to which Auth0 sends a one-time code. The user then enters the code into your application.
+When Passwordless is configured to use Email. the user is asked to enter their email address, to which Auth0 sends a one-time-use code. The user then enters the code into your application.
 
 If the email address attached to the code matches an existing user, Auth0 authenticates the user:
 
@@ -8,6 +8,3 @@ If the user is new, their user profile is created for the `email` connection bef
 
 ![New User Flow](/media/articles/connections/passwordless/passwordless-create-user-flow.png)
 
-<% if (isMobile) { %>
-On mobile platforms, your app will receive an ID Token, the user profile, and optionally, a <dfn data-key="refresh-token">Refresh Token</dfn>.
-<% } %>

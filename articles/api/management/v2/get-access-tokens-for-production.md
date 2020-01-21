@@ -65,7 +65,7 @@ The request parameters are:
 | __client_secret__ | This is the value of the __Client Secret__ field of the Machine-to-Machine Application you created. You can find it at the [Settings tab of your Application](${manage_url}/#/applications/${account.clientId}/settings). |
 | __audience__ | This is the value of the __Identifier__ field of the `Auth0 Management API`. You can find it at the [Settings tab of the API](${manage_url}/#/apis). |
 
-The response will contain a [signed JWT](/jwt), when it expires, the <dfn data-key="scope">scopes</dfn> granted, and the token type.
+The response will contain a [signed JWT](/tokens/concepts/jwts), when it expires, the <dfn data-key="scope">scopes</dfn> granted, and the token type.
 
 ```json
 {
@@ -171,7 +171,7 @@ if __name__ == '__main__':
 
 ## Keep reading
 
-- [Auth0 Application Types](/applications/concepts/app-types-auth0)
+- [Applications](/applications)
 * [Management API Explorer](/api/management/v2#!)
 * [Management API Access Tokens FAQs](/api/management/v2/faq-management-api-access-tokens)
 

@@ -1,6 +1,5 @@
 ---
-title: How to implement the Resource Owner Password Grant
-description: Step-by-step guide on how to implement the OAuth 2.0 Resource Owner Password Grant
+description: Tutorial on how to implement the OAuth 2.0 Resource Owner Password Grant
 toc: true
 topics:
   - api-authentication
@@ -11,21 +10,17 @@ useCase:
   - secure-api
   - call-api
 ---
-# How to implement the Resource Owner Password Grant
+# Implement the Resource Owner Password Grant
 
-<%= include('../../_includes/_pipeline2') %>
+<%= include('../_includes/_ropg-warning') %>
 
-In this tutorial, we will go through the steps required to implement the Resource Owner Password Grant.
-
-You should use this flow **only if** the following apply:
-- The application is absolutely trusted with the user's credentials. For [Single-Page Apps](/flows/concepts/implicit) and [Native/Mobile Apps](/flows/concepts/auth-code-pkce), we recommend using web flows instead.
-- Using a redirect-based flow is not possible. If this is not the case and redirects are possible in your application, you should use the [Authorization Code Flow](/flows/concepts/auth-code) instead.
+In this tutorial, we will go through the steps required to implement the Resource Owner Password Grant flow.
 
 ## Before you start
 
-* Check that your application's [grant type property](/applications/concepts/application-grant-types) is set appropriately
-* [Register the API](/apis#how-to-configure-an-api-in-auth0) with Auth0
-* Check that the [Default Audience and/or Default Directory](/dashboard/dashboard-tenant-settings#api-authorization-settings) has been set appropriately
+* Check that your application's [grant type property](/applications/concepts/application-grant-types) is set appropriately.
+* [Register the API](/apis#how-to-configure-an-api-in-auth0) with Auth0.
+* Check that the [Default Audience and/or Default Directory](/dashboard/reference/settings-tenant#api-authorization-settings) has been set appropriately.
 * Update or disable any [rules](/rules), such as rules that deny access based on an email domain whitelist, so they only impact specific connections. If you get an `'access_denied'` error when testing the Password Grant, this could be due to an access control rule.
 
 ## Configure your tenant
@@ -114,12 +109,12 @@ In these cases, the `scope` parameter will be included in the response, listing 
 :::
 
 ::: panel How to get the user's claims
-If you need the user's claims you can include the scope `openid` to your request. If the API uses `RS256` as the signing algorithm, the Access Token will now also include `/userinfo` as a valid <dfn data-key="audience">audience</dfn>. You can use this Access Token to invoke the [/userinfo endpoint](/api/authentication#get-user-info) and retrieve the user's claims.
+If you need the user's claims you can include the scope `openid` to your request. If the API uses `RS256` as the [signing algorithm](/tokens/concepts/signing-algorithms), the Access Token will now also include `/userinfo` as a valid <dfn data-key="audience">audience</dfn>. You can use this Access Token to invoke the [/userinfo endpoint](/api/authentication#get-user-info) and retrieve the user's claims.
 :::
 
-### Realm Support
+### Realm support
 
-A extension grant that offers similar functionality with the **Resource Owner Password Grant**, including the ability to indicate a specific realm, is the `http://auth0.com/oauth/grant-type/password-realm`.
+An extension grant that offers similar functionality to ROPG, including the ability to indicate a specific realm, is the `http://auth0.com/oauth/grant-type/password-realm`.
 
 Realms allow you to keep separate user directories and specify which one to use to the token endpoint.
 
@@ -139,7 +134,7 @@ To use this variation you will have to change the following request parameters:
     "params": [
         {
           "name": "grant_type",
-          "value": "password"
+          "value": "http://auth0.com/oauth/grant-type/password-realm"
         },
         {
           "name": "username",
@@ -175,7 +170,7 @@ To use this variation you will have to change the following request parameters:
 ```
 
 ::: panel Auth0 Connections as Realms
-You can configure Auth0 Connections as realms, as long as they support active authentication. This includes [Database](/connections/database), <dfn data-key="passwordless">[Passwordless](/connections/passwordless)</dfn>, [Active Directory/LDAP](/connections/enterprise/active-directory), [Windows Azure AD](/connections/enterprise/azure-active-directory) and [ADFS](/connections/enterprise/adfs) connections.
+You can configure Auth0 Connections as realms, as long as they support active authentication. This includes [Database](/connections/database), <dfn data-key="passwordless">[Passwordless](/connections/passwordless)</dfn>, [Active Directory/LDAP](/connections/enterprise/active-directory-ldap), [Windows Azure AD](/connections/enterprise/azure-active-directory) and [ADFS](/connections/enterprise/adfs) connections.
 :::
 
 ## Use the token
@@ -197,7 +192,7 @@ Once the Access Token has been obtained it can be used to make calls to the Reso
 
 Once your API receives a request with a Bearer Access Token, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
 
-For details on the validations that should be performed by the API, refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
+For details on the validations that should be performed by the API, see [Validate Access Tokens](/tokens/guides/validate-access-tokens).
 
 ## Optional: Customize the Tokens
 
@@ -215,9 +210,6 @@ When using this flow from server-side applications, some anomaly detection featu
 
 ## Keep reading
 
-::: next-steps
 * [Call APIs from Highly Trusted Applications](/api-auth/grant/password)
 * [How to configure an API in Auth0](/apis)
-* [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
-* [Tokens used by Auth0](/tokens)
-:::
+* [Tokens](/tokens)

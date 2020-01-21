@@ -1,5 +1,9 @@
 title: ASP.NET (OWIN)
 image: /media/platforms/asp.png
+author:
+  name: Damien Guard
+  email: damien.guard@auth0.com
+  community: false
 topics:
   - quickstart
 contentType: tutorial

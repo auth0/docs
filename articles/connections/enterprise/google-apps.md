@@ -1,9 +1,10 @@
 ---
-title: Connecting G Suite with Auth0
-connection: G Suite
-image: /media/connections/googleapps.png
+title: Connect Your App to Google G Suite
+connection: Google G Suite
+image: /media/connections/gsuite.png
+public: true
 seo_alias: g-suite
-description: Connecting G Suite with Auth0.
+description: Learn how to connect your app to Google G Suite using an enterprise connection.
 crews: crew-2
 toc: true
 topics:
@@ -16,103 +17,107 @@ useCase:
     - customize-connections
     - add-idp
 ---
-
-# Connect G Suite with Auth0
-
-You can connect your Auth0 Application to G Suite by providing the Google *Client ID* and *Client Secret* to Auth0.
+# Connect Your App to Google G Suite
 
 ::: panel Using Google Social and Enterprise Connections
-If you have an existing [Google Social Connection](/connections/social/google) for your application and you create a new G Suite connection for the same domain, users affiliated with the social connection with now be logged in with the new enterprise connection. This will occur regardless of whether you enable the G Suite (enterprise) connection or not.
+If you have an existing [Google Social Connection](/connections/social/google) for your application and you create a new Google G Suite connection for the same domain, users affiliated with the social connection with now be logged in with the new enterprise connection. This will occur regardless of whether you enable the G Suite enterprise connection or not.
 :::
 
-## Generate the Google Client ID and Client Secret
+## Prerequisites
 
-1. While logged in to your Google account, go to the [API Manager](https://console.developers.google.com/projectselector/apis/credentials).
+**Before beginning:**
 
-2. Create your new app by navigating to **Credentials** using the left-hand menu.
+* [Register your Application with Auth0](/getting-started/set-up-app). 
+  * Select an appropriate **Application Type**.
+  * Add an **Allowed Callback URL** of **`${account.callback}`**.
+  * Make sure your Application's **[Grant Types](/dashboard/guides/applications/update-grant-types)** include the appropriate flows.
 
-3. While you are on the **Credentials** page, click on **Create a project**.
+## Steps
 
-4. In the dialog box that appears, provide a Project name, answer Google's email- and privacy-related questions, and click **Create**.
+To connect your application to Google G Suite, you must:
 
-5. Google will take a moment to create your project. When the process completes, Google will prompt you to create the credentials you need.
+1. [Set up your app in Google](#set-up-your-app-in-google)
+2. [Create an enterprise connection in Auth0](#create-an-enterprise-connection-in-auth0).
+3. [Enable the enterprise connection for your Auth0 Application](#enable-the-enterprise-connection-for-your-auth0-application).
+4. [Test the connection](#test-the-connection).
 
-6. Click on **Create credentials** to display a pop-up menu listing the types of credentials you can create. Select the **OAuth client ID** option.
-
-7. At this point, Google will display a warning banner that says, "To create an OAuth client ID, you must first set a product name on the consent screen." Click **Configure consent screen** to begin this process.
-
-8. Provide a **Product Name** that will be shown to users when they log in through Google.
-
-9. Click **Save**.
-
-::: note
-Google may show an "unverified app" screen before displaying the consent screen for your app. To remove the unverified app screen, complete the [OAuth Developer Verification](https://support.google.com/code/contact/oauth_app_verification) process.
+::: panel Google G Suite Account
+Before proceeding, you will need a valid Google G Suite account and must have **your own** Google G Suite Organization for which you are an administrator. 
 :::
 
-10. At this point, you will be prompted to provide additional information about your newly-created app. Select **Web application**, and provide a name for your app.
+## Set up your app in Google
 
-12. Under **Restrictions**, enter the following information:
+To allow users to log in using Google G Suite, you must register your application in the Google developer console.
 
-    * **Authorized JavaScript origins:** `https://${account.namespace}`
-    * **Authorized redirect URI:** `https://${account.namespace}/login/callback`
+::: warning
+Before proceeding, you must have already set up **your own** Google G Suite Organization for which you are an administrator.
+:::
 
-    ::: note
-    If you are using the [custom domains](/custom-domains) feature, you will need to use your custom domain in the redirect URI in the following format: `https://<YOUR_CUSTOM_DOMAIN>/login/callback`.
-    :::
+### Register a new application
 
-13. Click **Create**. Your `Client Id` and `Client Secret` will be displayed.
+To learn how to register a new application with Google, follow Google's [Setting up OAuth 2.0](https://support.google.com/googleapi/answer/6158849) doc. During this process, Google will generate a **Client ID** and **Client Secret** for your application; make note of these.
 
-12. Save your `Client Id` and `Client Secret` to enter into the Connection settings in Auth0.
+While setting up your app, make sure you use the following settings:
+
+* On the **OAuth consent screen**, under **Authorized domains**, add `auth0.com`.
+* When asked to select an application type, choose **Web application** and set the following parameters:
+
+| Field | Description |
+| ----- | ----------- |
+| Name | The name of your application. |
+| Authorized JavaScript origins | `https://${account.namespace}` |
+| Authorized redirect URIs | `https://${account.namespace}/login/callback` |
+
+<%= include('../_find-auth0-domain-redirects') %>
+
+::: warning
+If your application requests sensitive OAuth <dfn data-key="scope">scopes</dfn>, it may be [subject to review by Google](https://developers.google.com/apps-script/guides/client-verification).
+:::
 
 ### Enable the Admin SDK Service
 
-If you are planning to connect to G Suite enterprise domains, you will need to enable the **Admin SDK** service.
+If you are planning to connect to Google G Suite enterprise domains, you will need to enable the **Admin SDK Service**. To learn how, follow Google's [Enable and disable APIs](https://support.google.com/googleapi/answer/6158841) doc.
 
-1. Navigate to the **Library** page of the API Manager.
+## Create an enterprise connection in Auth0
 
-2. Select **Admin SDK** from the list of APIs:
+Next, you will need to create and configure a Google G Suite Enterprise Connection in Auth0. Make sure you have the **Client ID** and **Client Secret** generated when you set up your app in the Google developer console.
 
-3. On the **Admin SDK** page, click **Enable**.
+1. Navigate to the [Connections > Enterprise](${manage_url}/#/connections/enterprise) page in the [Auth0 Dashboard](${manage_url}/), and click the `+` next to **Google G Suite**.
 
-## Enable and Configure the Auth0 Enterprise Connection
+![Create Connection Type](/media/articles/dashboard/connections/enterprise/conn-enterprise-list.png)
 
-1. Log in to your Auth0 account, and navigate to [Enterprise Connections](${manage_url}/#/connections/enterprise).
+2. Enter general information for your connection:
 
-2. Scroll down to the row for G Suite, and click the **Create New** plus icon.
+| Field | Description |
+| ----- | ----------- |
+| **Connection name** | Logical identifier for your connection; it must be unique for your tenant. Once set, this name can't be changed. |
+| **Display name** (optional) | Text used to customize the login button for Universal Login. When set, the Universal Login login button reads: "Continue with {Display name}". |
+| **Logo URL** (optional) | URL of image used to customize the login button for Universal Login. When set, the Universal Login login button displays the image as a 20px by 20px square. |
+| **G Suite Domain** | Google G Suite domain name for your organization. |
+| **Domain Aliases** (optional) | Comma-separated list of domains registered as aliases for the primary domain. |
 
-3. On the Settings screen, provide the following information:
+![Configure General Google G Suite Settings](/media/articles/dashboard/connections/enterprise/conn-enterprise-gsuite-settings-1.png)
 
-| Parameter | Description |
-| - | - |
-| **G Suite Domain** | the G Suite domain you're using for authentication |
-| **Domain Aliases** (optional) | a comma-separated list of domains registered as aliases for the primary domain |
-| **Client ID** | the Client ID for your G Suite Account |
-| **Client Secret** | the Client Secret for your G Suite Account |
-| **Attributes** | the flag that indicates how much information you want stored in the Auth0 User Profile. Select one of the two options: **Basic Profile** (includes the `email` and the `email verified` flag) or **Extended Profile** (includes the name, public profile URL, photo, gender, birthdate, country, language, and timezone) |
-| **Extended Attributes: Groups** | the distribution list(s) to which the user belongs |
-| **Extended Attributes: Is Domain Administrator** | whether the user is a domain administrator or not |
-| **Extended Attributes: Is Account Suspended**  | whether the user's account is suspended or not |
-| **Extended Attributes: Agreed to Terms** | whether the user's agreed to the terms of service or not |
-| **Auth0 APIs** | Enable Users API. The flag that indicates whether you've chosen to enable the ability to make calls to the Google Directory API |
+3. Enter credentials, select attributes, and configure advanced settings for your connection, then click **Create**:
 
-Click **Save** when you're done.
+| Field | Description |
+| ----- | ----------- |
+| **Client ID** | Unique identifier for your registered Google application. Enter the saved value of the **Client ID** for the app you just registered in the Google developer console. |
+| **Client Secret** | String used to gain access to your registered Google application. Enter the saved value of the **Client Secret** for the app you just registered in the Google developer console. |
+| **Attributes** | Basic attributes for the signed-in user that your app can access. Indicates how much information you want stored in the Auth0 User Profile. Options include: **Basic Profile** (`email`, `email verified` flag) and **Extended Profile** (name, public profile URL, photo, gender, birthdate, country, language, and timezone). |
+| **Extended Attributes** | Extended attributes for the signed-in user that your app can access. Options include: **Groups** (distribution list(s) to which the user belongs), **Is Domain Administrator** (indicates whether the user is a domain administrator), **Is Account Suspended** (indicates whether the user's account is suspended), and **Agreed to Terms** (indicates whether the user has agreed to the terms of service). |
+| **Auth0 APIs** | When **Enable Users API** is selected, indicates that you require the ability to make calls to the Google Directory API. |
 
-4. You will need to configure your settings so that your app can use Google's Admin APIs. If you're the administrator, you can click **Continue** on the Connection's *Settings* page to do so. If not, provide the URL you're given to your administrator so that they can adjust the required Settings.
+![Configure Advanced Google G Suite Settings](/media/articles/dashboard/connections/enterprise/conn-enterprise-gsuite-settings-2.png)
 
-## Enable the Connection for Your Auth0 Application
+4. If you have appropriate administrative permissions to configure your G Suite settings so you can use Google's Admin APIs, then click **Continue**. Otherwise, provide the given URL to your administrator so that they can adjust the required settings.
 
-To use your newly-created connection, you'll need to enable it for your Auth0 Application(s).
+## Enable the enterprise connection for your Auth0 application
 
-1. Go to the [Applications](${manage_url}/#/applications) page of the Management Dashboard.
+To use your new AD connection, you must first [enable the connection](/dashboard/guides/connections/enable-connections-enterprise) for your Auth0 Applications.
 
-2. Select the Application for which you want to enable the Connection.
+## Test the connection
 
-3. Click the **Connections** icon for your Application.
-
-4. Scroll down to the *Enterprise* section of the Connections page, and find your G Suite Connection. Click the slider to enable the Connection. If successful, the slide turns green.
-
-![Auth0 Application Connections](/media/articles/connections/enterprise/google/client-connection.png)
-
-At this point, your users will be able to log in using their G Suite credentials.
+Now you're ready to [test your connection](/dashboard/guides/connections/test-connections-enterprise).
 
 <%= include('../_quickstart-links.md') %>

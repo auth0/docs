@@ -100,7 +100,7 @@ For more information and details on how to do that refer to [Using Hooks with Cl
 
 Once your API receives a request with a Bearer Access Token, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
 
-For details on the validations that should be performed by the API, refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token). You can find examples on how to do it in different platforms in the [Quickstarts for backend applications](/quickstart/backend).
+For details on the validations that should be performed by the API, see [Validate Access Tokens](/tokens/guides/validate-access-tokens). You can find examples on how to do it in different platforms in the [Quickstarts for backend applications](/quickstart/backend).
 
 ## Sample application
 
@@ -110,9 +110,5 @@ This is a series of tutorials that describe a scenario for a fictitious company 
 
 ## Keep reading
 
-::: next-steps
-- [Auth0 Application Types](/applications/concepts/app-types-auth0)
-- [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
-- [How to change the scopes and add custom claims to the tokens using Hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
-- [Tokens used by Auth0](/tokens)
-:::
+- [Use Hooks with Client Credentials Grant](/api-auth/tutorials/client-credentials/customize-with-hooks)
+- [Tokens](/tokens)

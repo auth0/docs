@@ -73,8 +73,8 @@ The following steps assume that you have two apps, `app1` and `app2`, and you wa
 
    - `scope`: There are various possible values for `scope`:
 
-     - `scope: 'openid'`: _(default)_ Returns an opaque Access Token **and** an [ID Token](/tokens/id-token), which is a JSON Web Token ([JWT](/jwt)). The JWT will only contain the user ID (`sub` claim).
-     - `scope: 'openid {attr1} {attr2} {attrN}'`: Returns only specific user's attributes to be part of the [ID Token](/tokens/id-token) (for example, `scope: 'openid name email picture'`).
+     - `scope: 'openid'`: _(default)_ Returns an opaque Access Token **and** an [ID Token](/tokens/concepts/id-tokens), which is a JSON Web Token ([JWT](/tokens/concepts/jwts)). The JWT will only contain the user ID (`sub` claim).
+     - `scope: 'openid {attr1} {attr2} {attrN}'`: Returns only specific user's attributes to be part of the [ID Token](/tokens/concepts/id-tokens) (for example, `scope: 'openid name email picture'`).
 
      For more information, see [Scopes documentation](/scopes).
 

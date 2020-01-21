@@ -62,7 +62,7 @@ Check the [Silent Authentication documentation](/api-auth/tutorials/silent-authe
 
 ## Calling APIs
 
-Legacy applications used an [ID Token](/tokens/id-token) to invoke APIs. This [is a bad practice](/api-auth/why-use-access-tokens-to-secure-apis), and we recommend that you start using [Access Tokens](/tokens/overview-access-tokens).
+Legacy applications used an [ID Token](/tokens/concepts/id-tokens) to invoke APIs. This is a bad practice, and we recommend that you only use [Access Tokens](/tokens/concepts/access-tokens).
 
 To call an API, you will need to specify the API identifier as the `audience` parameter when initializing auth0.js or Lock.
 

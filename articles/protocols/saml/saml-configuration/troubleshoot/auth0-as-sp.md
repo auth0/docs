@@ -52,7 +52,7 @@ If Auth0's logs don't show a successful login event, there is probably an issue 
 
 ### Check the SAML Authentication Assertion
 
-Check the information that Auth0 sends to the application by [capturing an HTTP trace of the login sequence](/har) and analyzing the HTTP trace.
+Check the information that Auth0 sends to the application by [capturing an HTTP trace of the login sequence](/troubleshoot/guides/generate-har-files) and analyzing the HTTP trace.
 
 #### Retrieve the Assertion
 
@@ -132,7 +132,7 @@ The two most common causes for this issue are:
 
 ### Check the SAML Assertion
 
-Check the information that Auth0 sends to the application by [capturing an HTTP trace of the login sequence](/har) and analyzing the HTTP trace.
+Check the information that Auth0 sends to the application by [capturing an HTTP trace of the login sequence](/troubleshoot/guides/generate-har-files) and analyzing the HTTP trace.
 
 #### Retrieve the Assertion
 
@@ -163,7 +163,7 @@ Certificate | Compare the certificate sent to the one that you provided to the a
 
 ### Check the ID Token
 
-If your authorization flow uses an OIDC-conformant protocol, you can [capture a HAR trace](/har) and view it using [Google's HAR Analyzer](https://toolbox.googleapps.com/apps/har_analyzer/).
+If your authorization flow uses an OIDC-conformant protocol, you can [capture a HAR trace](/troubleshoot/guides/generate-har-files) and view it using [Google's HAR Analyzer](https://toolbox.googleapps.com/apps/har_analyzer/).
 
 1. Scan through the sequence of URLs in the trace, and look for the following:
 
@@ -194,3 +194,19 @@ If you're using an IdP-initiated flow (for example, the user starts at the ident
 * If you've enabled multi-factor authentication (MFA)</dfn>, disable it temporarily to make sure that it is not interfering with the login process.
 
 * Check that the SAML Connection works in an SP-Initiated flow by [using **Try** to run a Connection test](#issue-the-idp-login-page-doesn-t-display).
+
+## Error: The request could not be performed due to an error on the part of the SAML responder or SAML authority
+
+The error may appear as follows:
+
+```text
+<samlp:Status>
+<samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Responder" />
+</samlp:Status>
+```
+
+### How to Fix
+
+Make sure that the signature algorithm on your Auth0 connection is the same as the configuration on the ADFS side: either `rsa-sha256` or `rsa-sha1`. Alternatively you can contact your ADFS administrator to learn the expected signing method or to see if their logs contain further information about the reason for the error.
+
+![ADFS SAML Properties](/media/articles/protocols/saml-adfs/adfs-saml-properties.png)

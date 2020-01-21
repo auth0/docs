@@ -20,7 +20,6 @@ The following elements are available for the `options` attribute. These are opti
 | `passwordPolicy` | string | The strength level of the password. Allowed values include `none`, `low`, `fair`, `good`, and `excellent`. Used with [database connections](/connections/database). |
 | `password_complexity_options` | object | <%= include('./_includes/_options-prop-pw-complexity.md') %> Used with [database connections](/connections/database). |
 | `password_history` | object | <%= include('./_includes/_options-prop-pw-history.md') %> Used with [database connections](/connections/database). |
- | `password_expiration` | object | <%= include('./_includes/_options-prop-pw-expiration.md') %> Used with [database connections](/connections/database). |
 | `password_no_personal_info` | object | <%= include('./_includes/_options-prop-pw-no-pers-info.md') %> Used with [database connections](/connections/database). |
 | `password_dictionary` | object | <%= include('./_includes/_options-prop-pw-dictionary.md') %> Used with [database connections](/connections/database). |
 | `basic_profile` | boolean | Indicates that you want basic profile information (email address and email verified flag) stored in the Auth0 User Profile. Used with social and enterprise connections. |

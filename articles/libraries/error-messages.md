@@ -1,6 +1,6 @@
 ---
 section: libraries
-description: Common errors that you might get when you authenticate users using Auth0 libraries
+description: Describes common sign up and login errors that you might see when you authenticate users using Auth0 libraries.
 topics:
   - libraries
   - lock
@@ -12,9 +12,9 @@ useCase:
   - add-login
   - enable-mobile-auth
 ---
-# Common Authentication Errors
+# Common Auth0 Library Authentication Errors
 
-The actions or input data of your users, during the sign up or the log in processes, might trigger errors. This article lists the most common errors that you might get, if you use any of the Auth0 libraries for authentication.
+The actions or input data of your users, during the sign up or the log in processes, might trigger errors. Here is a list of the most common errors that you might get if you use any of the Auth0 libraries for authentication.
 
 ## Sign up
 
@@ -23,6 +23,7 @@ In the case of a failed signup, the most common errors are:
 | **Error** | **Description** |
 |-|-|
 | **invalid_password** | If the password used doesn't comply with the password policy for the connection |
+| **invalid_signup** | The user your are attempting to sign up is invalid |
 | **password_dictionary_error** | The chosen password is too common |
 | **password_no_user_info_error** | The chosen password is based on user information |
 | **password_strength_error** | The chosen [password is too weak](/connections/database/password-strength) |

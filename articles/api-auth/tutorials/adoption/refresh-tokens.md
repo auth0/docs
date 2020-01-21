@@ -47,7 +47,7 @@ Content-Type: application/x-www-form-urlencoded
 
 grant_type=refresh_token&refresh_token=123&client_id=123&client_secret=123&scope=openid+profile&audience=https%3A%2F%2Fapi.example.com
 </code></pre>
-<ul><li>The <dfn data-key="audience"><code>audience</code></dfn> and <code>client_secret</code> parameters are optional. The <code>client_secret</code> is not needed when requesting a <code>refresh_token</code> for a mobile app.</li></ul>
+<ul><li>The <code>audience</code> and <code>client_secret</code> parameters are optional. The <code>client_secret</code> is not needed when requesting a <code>refresh_token</code> for a mobile app.</li></ul>
    </div>
   </div>
 </div>

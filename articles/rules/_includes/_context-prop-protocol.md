@@ -1,6 +1,7 @@
 The authentication protocol. Possible values:
 - `oidc-basic-profile`: most used, web based login
 - `oidc-implicit-profile`: used on mobile devices and single-page apps
+- `oauth2-device-code`: transaction using the [Device Authorization Flow](/flows/concepts/device-auth)
 - `oauth2-resource-owner`: user/password login typically used on database connections
 - `oauth2-resource-owner-jwt-bearer`: login using a bearer JWT signed with user's private key
 - `oauth2-password`: login using the password exchange

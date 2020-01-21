@@ -13,7 +13,7 @@ useCase:
 
 Auth0 recognizes that customers may occasionally need to perform load tests against its production cloud service. In order to ensure a successful test and maintain a high quality of service for all customers, Auth0 has established the following guidelines. Any load testing in Auth0 must be conducted in accordance with this Policy.
 
-Only customers who have purchased an Enterprise subscription may conduct load testing. Free, Developer, Developer Pro and other non-Enterprise customers may not conduct load testing. Customers with an Enterprise subscription may request one load test (with up to 2 repeats) per year against an Auth0 production tenant.
+Only customers who have purchased an Enterprise subscription may conduct load testing. Free, Developer, Developer Pro and other non-Enterprise customers may not conduct load testing. Customers with an Enterprise subscription may request one load test (with up to 2 repeats) per year against an Auth0 production tenant. Performance and load testing is only allowed with Auth0's prior written approval. Once approved, testing can only target tenants that we have approved.
 
 ::: note
 Auth0 reserves the right to reject the load test request or ask for modifications. Failure to abide by this policy may result in temporary blocking of access to a tenant until the issue is remediated.

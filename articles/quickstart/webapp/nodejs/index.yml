@@ -1,5 +1,9 @@
 title: Node.js
 image: /media/platforms/node.png
+author:
+  name: Josh Cunningham
+  email: josh.cunningham@auth0.com
+  community: false
 topics:
   - quickstart
 contentType: tutorial

@@ -1,5 +1,5 @@
 ---
-description: How to configure and retrieve information using the Auth0 Logs to Splunk extension.
+description: Learn how to configure and retrieve information using the Auth0 Logs to Splunk extension.
 topics:
   - extensions
   - splunk
@@ -8,7 +8,7 @@ contentType:
 useCase: extensibility-extensions
 ---
 
-# Auth0 Logs to Splunk
+# Export Logs to Splunk Using the Auth0 Extension
 
 The _Auth0 Logs to Splunk_ is a scheduled job that takes all of your Auth0 logs and exports them to [Splunk](http://www.splunk.com/).
 
@@ -31,6 +31,8 @@ At this point you should set the following configuration variables:
 - **LOG_TYPES**: The events for which logs should be exported.
 
 Once you have provided this information, click the *Install* button to finish installing the extension.
+
+<%= include('./_includes/_batch-size') %>
 
 ## Retrieve the required information from Splunk
 

@@ -13,7 +13,9 @@ useCase:
 ---
 # Updating User Profile Root Attributes
 
-Auth0's normalized user profile contains a number of [root attributes](/users/references/user-profile-structure#attributes), some of which may be updated. Methods for updating root attributes vary depending on connection type.
+Auth0's normalized user profile contains a number of root attributes (attributes stored at the first, or root, level of the object), some of which may be updated. [Learn more about the user profile structure and its attributes.](/users/references/user-profile-structure) 
+
+Methods for updating root attributes vary depending on connection type.
 
 ## Auth0 as the Identity Provider
 

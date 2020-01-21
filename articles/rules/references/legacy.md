@@ -6,11 +6,10 @@ topics:
   - extensibility
 contentType:
   - reference
-  - how-to
 useCase: extensibility-rules
 ---
 
-# Rules
+# Rules (Legacy)
 
 ::: version-warning
 This document covers an outdated version of the Auth0 authentication pipeline and the way rules can be used. We recommend you use the latest version. For more on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
@@ -228,6 +227,8 @@ You can add `console.log` lines in the rule's code for debugging. The [Rule Edit
 2. **REALTIME LOGS**: an [extension](${manage_url}/#/extensions) that displays all logs in real-time for all custom code in your account. This includes all `console.log` output, and exceptions.
 
 3. **DEBUG RULE**: similar to the above, displays instructions for installing, configuring and running the [webtask CLI](https://github.com/auth0/wt-cli) for debugging rules. Paste these commands into a terminal to see the `console.log` output and any unhandled exceptions that occur during Rule execution.
+
+<%= include('../../_includes/_webtask') %>
 
   For example:
 

@@ -100,11 +100,40 @@ Auth0 can accept a signed response for the assertion, the response, or both.
 
 ### Receive Encrypted SAML Authentication Assertions
 
-If Auth0 is the SAML **service provider**, it may need to receive encrypted assertions from an identity provider. To do this, you must provide Auth0's public key and certificate to the IdP. The IdP encrypts the SAML assertion using the public key and sends it to Auth0, which decrypts it using the private key.
+If Auth0 is the SAML **service provider**, it may need to receive encrypted assertions from an identity provider. To do this, you must provide tenant's public key certificate to the IdP. The IdP encrypts the SAML assertion using the public key and sends it to Auth0, which decrypts it using the tenant's private key.
 
 To retrieve the certificate you need to send to your IdP from the [Management Dashboard](${manage_url}), go to **Connections** -> **Enterprise** -> **SAMLP Identity Provider** and click on the **Setup Instructions** button next to the connection.
 
 Navigate to the section titled **Encrypted Assertions** and download the certificate in the format requested by the IdP.
+
+### Use your own key pair to decrypt encrypted responses
+
+As noted above, Auth0 will by default use your tenant's private/public key pair to handle encryption. You can also provide your own public/private key pair if an advanced scenario requires so.
+
+Changing the key pair used to encrypt and decrypt requests in the connection can't be done on the Dashboard UI, so you will have to use the [Update a Connection endpoint](/api/management/v2#!/Connections/patch_connections_by_id) from the Management API v2, and add a `decryptionKey` property to the `options` object, as shown in the payload example below.
+
+::: note
+Updating the `options` object for a connection overrides the whole `options` object. To keep previous connection options, get the existing `options` object and add new key/values to it.
+:::
+
+Endpoint: `https://${account.namespace}/api/v2/connections/YOUR_CONNECTION_ID`
+
+Payload:
+
+```json
+{
+	{ 
+		"options" : {
+			[...], // all the other connection options
+		  "decryptionKey": {
+				"key":"-----BEGIN PRIVATE KEY-----\n...{your private key here}...\n-----END PRIVATE KEY-----",
+				"cert":"-----BEGIN CERTIFICATE-----\n...{your public key cert here}...\n-----END CERTIFICATE-----"
+			}
+	}
+}
+```
+
+The SAML metadata available for the connection will be updated with the provided certificate, so that the identity provider can pick it up to sign the SAML response. 
 
 ## Auth0 as the SAML Identity Provider
 
@@ -147,8 +176,8 @@ function (user, context, callback) {
   }
 
 	// provide your own private key and certificate here  
-  context.samlConfiguration.cert = "-----BEGIN CERTIFICATE-----\nMIIE[...]TxmAIvXa\n-----END CERTIFICATE-----\n";
-  context.samlConfiguration.key = "-----BEGIN PRIVATE KEY-----\nMIIJ[...]s=\n-----END PRIVATE KEY-----\n";
+  context.samlConfiguration.cert = "-----BEGIN CERTIFICATE-----\nnMIIC8jCCAdqgAwIBAgIJObB6jmhG0QIEMA0GCSqGSIb3DQEBBQUAMCAxHjAcBgNV[..all the other lines..]-----END CERTIFICATE-----\n";
+  context.samlConfiguration.key = "-----BEGIN PRIVATE KEY-----\nnMIIC8jCCAdqgAwIBAgIJObB6jmhG0QIEMA0GCSqGSIb3DQEBBQUAMCAxHjAcBgNV[..all the other lines..]-----END PRIVATE KEY-----\n";
       
   callback(null, user, context);
 }
@@ -160,14 +189,14 @@ Take a look at [Working with certificates as strings](#working-with-certificates
 
 If Auth0 is the SAML **identity provider**, it can received requests signed with the service provider's private key. Auth0 will then use the service providers' public key/certificate to validate the signature.
 
-To configure signature validation, you'll need to download the service provider's public key and store the value in the `signingCert` key. You can find the `signingCert` field in the [Management Dashboard](${manage_url}) by going to **Applications** > **Addons** > **SAML2 WEB APP** > **Settings**.
+To configure signature validation, you'll need to download the service provider's certificate with the public key and store the value in the `signingCert` key of the SAML Web App Addon `options` JSON object. You can find the `options` JSON object field in the [Management Dashboard](${manage_url}) by going to **Applications** > **Addons** > **SAML2 WEB APP** > **Settings**.
 
 The configuration should look like this:
 
 ```json
 {
   [...], // other settings
-  "signingCert": "-----BEGIN PUBLIC KEY-----\nMIGf...bpP/t3\n+JGNGIRMj1hF1rnb6QIDAQAB\n-----END PUBLIC KEY-----\n"
+  "signingCert": "-----BEGIN CERTIFICATE-----\nMIIC8jCCAdqgAwIBAgIJObB6jmhG0QIEMA0GCSqGSIb3DQEBBQUAMCAxHjAcBgNV\n[..all the other lines..]-----END CERTIFICATE-----\n"
 }
 ```
 
@@ -188,12 +217,17 @@ function (user, context, callback) {
   // this rule sets a specific public key to encrypt the SAML assertion generated from Auth0 
   if (context.clientID === 'THE_CLIENT_ID_OF_THE_APP_WITH_THE_SAML_APP_ADDON') {
 	  context.samlConfiguration = (context.samlConfiguration || {});
-    context.samlConfiguration.encryptionPublicKey = "-----BEGIN PUBLIC KEY-----\nMIGf...bpP/t3\n+JGNGIRMj1hF1rnb6QIDAQAB\n-----END PUBLIC KEY-----\n";
-    context.samlConfiguration.encryptionCert = "-----BEGIN CERTIFICATE-----\nMII...u84\n-----END CERTIFICATE-----\n";
+    context.samlConfiguration.encryptionPublicKey = "-----BEGIN PUBLIC KEY-----\nnMIIC8jCCAdqgAwIBAgIJObB6jmhG0QIEMA0GCSqGSIb3DQEBBQUAMCAxHjAcBgNV\n[..all the other lines..]-----END PUBLIC KEY-----\n";
+    context.samlConfiguration.encryptionCert = "-----BEGIN CERTIFICATE-----\nnnMIIC8jCCAdqgAwIBAgIJObB6jmhG0QIEMA0GCSqGSIb3DQEBBQUAMCAxHjAcBgNV\n[..all the other lines..]-----END CERTIFICATE-----\n";
 	}
   callback(null, user, context);
 }
 ```
+
+The following algorithms are used:
+
+* AES256 (`http://www.w3.org/2001/04/xmlenc#aes256-cbc`) for assertion encryption
+* RSA-OAEP (including MGF1 with SHA1, `http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p`) for key transport
 
 ## Working with certificates as strings
 

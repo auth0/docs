@@ -2,9 +2,9 @@ To run it from the command line:
 
 ```bash
 # In Linux / macOS
-./gradlew clean appRun
+./gradlew clean bootRun
 # In Windows
-gradlew clean appRun
+gradlew.bat clean bootRun
 ```
 
 The sample includes a [Docker](https://www.docker.com) image ready to run with the following command:

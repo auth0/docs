@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD002 MD041 -->
+
 ## Modify the Backend API
 
 For this tutorial, let's modify the API to include a new endpoint that expects an Access Token to be supplied.
@@ -60,7 +62,7 @@ Finally, modify the `authConfig` object to include your `audience` value:
 
 ```js
 const authConfig = {
-  domain: "${account.tenant}",
+  domain: "${account.namespace}",
   clientID: "${account.clientId}",
   audience: "${apiIdentifier}"
 };

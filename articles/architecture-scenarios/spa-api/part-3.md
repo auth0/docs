@@ -54,7 +54,7 @@ The validations that the API should perform are:
 
 Part of the validation process is to also check the Application permissions (scopes), but we will address this separately in the next paragraph of this document.
 
-For more information on validating Access Tokens, refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
+For more information on validating Access Tokens, see [Validate Access Tokens](/tokens/guides/validate-access-tokens).
 
 ::: note
 See the implementation in [Node.js](/architecture-scenarios/application/spa-api/api-implementation-nodejs#2-secure-the-api-endpoints)
@@ -126,7 +126,7 @@ The contents of the authResult object returned by parseHash depend upon which au
 - __accessToken__: An Access Token for the API, specified by the __audience__.
 - __expiresIn__: A string containing the expiration time (in seconds) of the Access Token.
 
-Determine where best to [store the tokens](/security/store-tokens#single-page-apps). If your single-page app has a backend server at all, then tokens should be handled server-side using the [Authorization Code Flow](/flows/concepts/auth-code), [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce), or [Hybrid Flow](/api-auth/grant/hybrid).
+Determine where best to [store the tokens](/tokens/guides/store-tokens#single-page-apps). If your single-page app has a backend server at all, then tokens should be handled server-side using the [Authorization Code Flow](/flows/concepts/auth-code), [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce), or [Hybrid Flow](/api-auth/grant/hybrid).
 
 If you have a single-page app (SPA) with no corresponding backend server, your SPA should request new tokens on login and store them in memory without any persistence. To make API calls, your SPA would then use the in-memory copy of the token.
 

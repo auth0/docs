@@ -40,7 +40,6 @@ For guidance on how to implement logout functionality in your specific type of a
 ### Web Apps
 
 * [ASP.NET (OWIN)](/quickstart/webapp/aspnet-owin/01-login#add-login-and-logout-methods)
-* [ASP.NET (System.Web)](/quickstart/webapp/aspnet#logout)
 * [ASP.NET Core](/quickstart/webapp/aspnet-core/01-login#add-login-and-logout-methods)
 * [Java](/quickstart/webapp/java)
 * [Java Spring MVC](/quickstart/webapp/java-spring-mvc)

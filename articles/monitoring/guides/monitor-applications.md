@@ -14,7 +14,7 @@ useCase:
 ---
 # Monitor Applications
 
-If you would like to monitor your own application or conduct end-to-end testing, you’ll need to set up your own tests. 
+If you would like to monitor your own [application](/applications) or conduct end-to-end testing, you’ll need to set up your own tests. 
 
 If you've extended Auth0 through [rules](/rules) or a [custom database connection](/connections/database/custom-db), you can build a synthetic transaction that exercises these capabilities using the [Resource Owner Password Grant](/api-auth/tutorials/password-grant). One way of doing this is to [Monitor Auth0 Using SCOM](/monitoring/guides/monitor-using-SCOM).
 
@@ -27,7 +27,7 @@ Use one of these services to execute synthetic authentication requests.
 
 ## Keep reading
 
-* [Analytics Integrations](/analytics/integrations)
+* [Analytics Integrations](/analytics)
 * [Check Auth0 Status](/monitoring/guides/check-status)
 * [Check External Services Status](/monitoring/guides/check-external-services)
 * [Monitor Auth0 Using System Center Operations Manager](/monitoring/guides/monitor-using-SCOM)

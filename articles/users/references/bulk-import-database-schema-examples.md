@@ -31,13 +31,14 @@ The following [JSON schema](http://json-schema.org) describes valid users:
             "description": "The user's email address.",
             "format": "email"
         },
-            "email_verified": {
+        "email_verified": {
             "type": "boolean",
+            "default": false,
             "description": "Indicates whether the user has verified their email address."
         },
         "user_id": {
-            "type": "text",
-            "description": "The user's unique identifier."
+            "type": "string",
+            "description": "The user's unique identifier. This will be prepended by the connection strategy."
         },
         "username": {
             "type": "string",
@@ -68,7 +69,7 @@ The following [JSON schema](http://json-schema.org) describes valid users:
             "description": "Indicates whether the user has been blocked."
         },
         "password_hash": {
-            "type": "text",
+            "type": "string",
             "description":"Hashed password for the user. Passwords should be hashed using bcrypt $2a$ or $2b$ and have 10 saltRounds."
         },
         "app_metadata": {
@@ -80,57 +81,9 @@ The following [JSON schema](http://json-schema.org) describes valid users:
             "description": "Data related to the user that does not affect the application's core functionality."
         }
     },
-    "required": ["email", "email_verified"],
+    "required": ["email"],
     "additionalProperties": false
 }
-```
-
-## User `app_metadata` schema
-
-Additionally, the `app_metadata` should **not** contain any of these properties:
-
-* `__tenant`
-* `_id`
-* `blocked`
-* `clientID`
-* `created_at`
-* `email_verified`
-* `email`
-* `globalClientID`
-* `global_client_id`
-* `identities`
-* `lastIP`
-* `lastLogin`
-* `loginsCount`
-* `metadata`
-* `multifactor_last_modified`
-* `multifactor`
-* `updated_at`
-* `user_id`
-
-
-::: note
-The `app_metadata` stores information that can impact how an application functions or what the user can access (for example, a user's support plan or <dfn data-key="role">roles</dfn> and access groups). For more information, refer to [User Metadata](/metadata).
-:::
-
-## File example
-
-A file with the following contents is valid:
-
-```json
-[
-  {
-    "email": "john.doe@contoso.com",
-    "email_verified": false,
-    "app_metadata": {
-        "roles": ["admin"],
-        "plan": "premium"
-    },
-    "user_metadata": {
-        "theme": "light"
-    }
-  }
-]
 ```
 
 ::: note

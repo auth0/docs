@@ -109,7 +109,7 @@ To resolve this issue, make sure you are passing the JWT as the Bearer token in 
 
 ## 2. Did you configure the JWT middleware for the correct signing algorithm?
 
-Make sure that the signing algorithm you used to sign your token matches the signing algorithm configured in your middleware. 
+Make sure that the [signing algorithm](/tokens/concepts/signing-algorithms) you used to sign your token matches the signing algorithm configured in your middleware. 
 
 The following screenshots show two messages:
 * A warning message: "Authorization failed..." 

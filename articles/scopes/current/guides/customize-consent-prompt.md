@@ -17,6 +17,8 @@ useCase:
 
 When a third-party application requests <dfn data-key="scope">scopes</dfn>, users see a consent prompt. By default, this prompt uses the scope **name** to generate text and groups all scopes for a resource, displaying the resource's actions in a single line.
 
+<%= include('../../../_includes/_parental-consent') %>
+
 For example, let's say you have an Auth0-registered API with the following defined scopes:
 
 * `read:messages`: Be able to read your email messages
@@ -32,7 +34,7 @@ This change is made at the tenant level, so it will affect consent prompts for a
 
 ## Use scope descriptions to generate consent prompt text
 
- Set your tenant's **use_scope_descriptions_for_consent** flag to `true` by making the following API call:
+Set your tenant's **use_scope_descriptions_for_consent** flag to `true` by making the following API call:
 
 ```har
 {

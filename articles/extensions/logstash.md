@@ -37,6 +37,8 @@ At this point you should set the following configuration variables:
 
 Once you have provided this information, click the _Install_ button to finish installing the extension.
 
+<%= include('./_includes/_batch-size') %>
+
 ### Using extension with ElasticSearch
 
 The extension is sending logs to the logstash instance as they are, including `_id`, which cannot be accepted by ElasticSearch. To fix that, you need rename `_id` to something else. You can do that by adding pipeline with `filter { mutate { rename => { "_id" => "log_id" } } }`.

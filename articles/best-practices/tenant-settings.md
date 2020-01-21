@@ -1,5 +1,6 @@
 ---
-description: Recommended tenant settings in Auth0.
+title: Tenant Settings Best Practices
+description: Learn about recommended tenant settings in Auth0.
 topics:
   - best-practices
   - configuration
@@ -12,7 +13,6 @@ useCase:
   - tenant
   - tenant-settings
 ---
-
 # Tenant Settings Best Practices
 
 Here are some best practices for configuring [tenants](/getting-started/the-basics#account-and-tenants).
@@ -42,7 +42,7 @@ For <dfn data-key="security-assertion-markup-language">SAML</dfn> connections th
 
 ## Set Single Sign-on session timeout
 
-The <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> [session timeout value](/dashboard/dashboard-tenant-settings#session-timeout) in your tenant settings specifies the time until a user's session expires. By default the value is 7 days. During this time, users can access your Auth0-integrated applications without re-entering their credentials.
+The <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> [session timeout value](/dashboard/reference/settings-tenant#login-session-management) in your tenant settings specifies the time until a user's session expires. By default the value is 7 days. During this time, users can access your Auth0-integrated applications without re-entering their credentials.
 
 Adjust this value to fit your application’s desired user experience and security requirements.
 
@@ -50,7 +50,7 @@ For example, enterprise environments may choose 8 hours or shorter to ensure use
 
 ## Periodically review dashboard admins 
 
-On a regular basis, review the list of [dashboard administrators](/dashboard/dashboard-tenant-settings#dashboard-admins) with access to your Auth0 tenant and make sure that:
+On a regular basis, review the list of [dashboard administrators](/dashboard/reference/settings-tenant#dashboard-admins) with access to your Auth0 tenant and make sure that:
 
 - each person has a legitimate need for admin access
 - admins are registered with a company account

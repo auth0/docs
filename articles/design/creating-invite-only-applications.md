@@ -17,7 +17,7 @@ In this tutorial, we will work through a sample setup for the fictional company,
 
 ExampleCo is a multi-tenant SaaS solution offering cloud-based analytics. Customers purchasing licenses send ExampleCo lists of users whom they want to access the application.
 
-You can handle this requirement in Auth0 using an [Enterprise Connection](/identityproviders#enterprise) (using federation) with the individual customers using ADFS, <dfn data-key="security-assertion-markup-language">SAML-P</dfn>, and so on. This allows the customer to authenticate users with their own Active Directory specifying who gets access to the app.
+You can handle this requirement in Auth0 using an [Enterprise Connection](/connections/identity-providers-enterprise) (using federation) with the individual customers using ADFS, <dfn data-key="security-assertion-markup-language">SAML-P</dfn>, and so on. This allows the customer to authenticate users with their own Active Directory specifying who gets access to the app.
 
 The invite-only authorization flow includes the following steps:
 
@@ -25,7 +25,7 @@ The invite-only authorization flow includes the following steps:
 1. Triggering the email verification process via Auth0
 1. Triggering the password reset process via Auth0
 
-### Setup your Application
+### Set up your Application
 
 You can store all ExampleCo end users in a single database, since everyone will provide their unique corporate email addresses.
 
@@ -33,7 +33,7 @@ You can store all ExampleCo end users in a single database, since everyone will 
 
 To prevent users from signing themselves up and adding themselves to the database connection, be sure to select the **Disable Sign Ups** option on the connection to make sure users can only be created on the backend.
  
-You will need to create an [application](/applications/concepts/app-types-auth0) in the [Dashboard](${manage_url}/#/applications) with the correct parameters:
+You will need to create an [application](/applications) in the [Dashboard](${manage_url}/#/applications) with the correct parameters:
 
  - **Name**: give your application a clear name as this will be used in the emails being sent out during the invite-only workflow
  - **Application Type**: this will be a regular web application.
@@ -58,13 +58,13 @@ Every user that exists in ExampleCo should be created in your Auth0 database con
 
 ### Email Verification
 
-Once you've created the user in Auth0, you'll send the appropriate `POST` call from your app to the [Create an Email Verification Ticket endpoint](/api/management/v2#!/Tickets/post_email_verification) to trigger an email that verifies the user's email.
+Once you've created the user in Auth0, send a `POST` request from your app to the [Send an email address verification email](/api/management/v2#!/Jobs/post_verification_email) endpoint that includes:
 
-Be sure to update the following placeholder values:
+* `user_id`: the Auth0 user ID to send the verification email to.
+* `client_id` (optional): the client ID of your app.
 
-* `MGMT_API_ACCESS_TOKEN`: replace with your [API Access Token](/api/management/v2/tokens)
-* `YOUR_APP_CALLBACK_URL`: replace with the callback/return URL for your app
-* `USER_ID`: replace with the Auth0 user ID for the end user
+Be sure to update the `MGMT_API_ACCESS_TOKEN` placeholder value below with your [API Access Token](/api/management/v2/tokens).
+
 ```har
 {
 	"method": "POST",
@@ -78,7 +78,7 @@ Be sure to update the following placeholder values:
 	"queryString": [],
 	"postData": {
 		"mimeType": "application/json",
-		"text": "{ \"result_url\": \"YOUR_APP_CALLBACK_URL\", \"user_id\": \"USER_ID\", \"ttl_sec\": 0 }"
+		"text": "{ \"user_id\": \"abcd|1234\", \"client_id\": \"xyz789\" }"
 	},
 	"headersSize": -1,
 	"bodySize": -1,

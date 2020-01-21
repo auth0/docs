@@ -12,6 +12,8 @@ useCase:
 ---
 # Set Up Add-ons
 
+<%= include('../../../_includes/_uses-delegation') %>
+
 This guide will show you how to set up an [add-on](/addons) for an application using Auth0's Dashboard.
 
 1. Navigate to the [Applications](${manage_url}/#/applications) page in the [Auth0 Dashboard](${manage_url}/), and click the name of the Application to view.

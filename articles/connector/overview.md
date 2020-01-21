@@ -12,7 +12,7 @@ useCase:
 
 # AD/LDAP Connector Overview
 
-Auth0 [integrates with Active Directory/LDAP](/connections/enterprise/active-directory) through an **AD/LDAP Connector** installed on your network.
+Auth0 [integrates with Active Directory/LDAP](/connections/enterprise/active-directory-ldap) through an **AD/LDAP Connector** installed on your network.
 
 The **AD/LDAP Connector** acts as a bridge between your **Active Directory (AD)** service and Auth0, which is required because AD typically runs and is accessible in your internal network while Auth0 is a cloud service (and therefore runs in a different context than your AD service).
 
@@ -25,6 +25,10 @@ If you install an AD/LDAP connector on your customer's servers and it is connect
 :::
 
 ![](/media/articles/connector/ad-data-flow.png)
+
+1. When a user authenticates with Auth0, they are redirected to the AD/LDAP Connector.
+2. The AD/LDAP Connector validates the user against against your Active Directory (AD) service.
+3. The AD/LDAP Connector sends the results of the validation back to Auth0.
 
 The Connector supports authentication based on the following:
 

@@ -23,13 +23,12 @@ The PSaaS Appliance is a managed service, which means that Auth0 is responsible 
 
 However, the deployment option you choose affects the scope of what Auth0 can do when it comes to *monitoring* the PSaaS Appliance. Currently, Auth0 supports the following deployment options:
 
-* The subscriber's on-premise data center
-* The subscriber's cloud data center (e.g., Amazon Web Services, Azure)
-* An Auth0-controlled data center (e.g., Amazon Web Services)
+* The subscriber's Amazon Web Services cloud environment
+* An Auth0-controlled data center
 
 If you choose to deploy the PSaaS Appliance to an Auth0-controlled data center, we have control over every aspect involved (DNS, certificates, infrastructure, Auth0 software stack). This level of control allows us to assist you in monitoring the health of the PSaaS Appliance and acting to prevent or remediate issues.
 
-However, if you choose to deploy the PSaaS Appliance to your on-premise data center or a cloud data center you own/subscribe to, **you are responsible for monitoring the deployment. Auth0 is unable to monitor such environments.**
+However, if you choose to deploy the PSaaS Appliance to AWS, **you are responsible for monitoring the deployment. Auth0 is unable to monitor such environments.**
 
 ::: note
 Please review [PSaaS Appliance: Roles and Responsibilities](https://auth0.com/docs/appliance/raci) for information on who is responsible for various activities related to managing and monitoring the PSaaS Appliance.
@@ -45,7 +44,7 @@ The PSaaS Appliance offers a number of tools to help you monitor the software th
 | System Health Checks | The [authenticated endpoints](/appliance/monitoring/authenticated-endpoints) provide a more granular health check than the `/testall` endpoint, allowing you to see the status of lower level system resources. With these endpoints, you can monitor the status of the PSaaS Appliance as it relates to memory, disk, network, internet, email, database, replica set, services, and the cluster. <br /> <br /> The authenticated endpoints return status codes indicating whether the system resource in question is healthy or not. |
 | [Instrumentation](/appliance/instrumentation) | The PSaaS Appliance offers instrumentation data, which is a vital component of monitoring and detecting anomalies or problems *before* they occur. To review your PSaaS Appliance instrumentation data, you can send it to DataDog. With DataDog,  you can set up robust monitoring and alerts strategies to review the health of your PSaaS Appliance. |
 | Dashboards | The PSaaS Appliance's [Troubleshooting](/appliance/dashboard/troubleshoot) dashboard allows you to view [Health Check](/appliance/dashboard/troubleshoot#health-check) results for the past 29 days. Please note that this dashboard does not provide any alerts functionality and should not be used as your only monitoring strategy. |
-| Audit and Tenant Events | The [Tenant Logs](https://auth0.com/docs/logs) track the transactions the PSaaS Appliance processes and provide an overview of the activity occurring in your tenant by the applications dependent on your PSaaS Appliance. You can get a complete listing of events captured using the [log events manifest](/logs#log-data-event-listing). <br /> <br /> You can export your Tenant Logs to the third-party data tool of your choice using any of the [log export extensions](/extensions#export-auth0-logs-to-an-external-service) or the PSaaS Appliance's native log offloading functionality. <br /> <br /> By integrating with a third-party data/monitoring tool, such as Splunk, you can monitor and alert on activity that falls outside of bounds of normal functionality. |
+| Audit and Tenant Events | The [Tenant Logs](https://auth0.com/docs/logs) track processed transactions and provide an overview of application activity in your tenant. |
 | Synthetic Transactions | You can use any third-party service that supports synthetic transaction to monitor PSaaS Appliance service availability. |
 
 ## Recommended Monitoring Strategy

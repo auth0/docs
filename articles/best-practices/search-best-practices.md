@@ -1,6 +1,6 @@
 ---
-name: User Search Best Practices
-description: Best practices when searching for users in Auth0
+title: User Search Best Practices
+description: Learn about best practices when searching for users in Auth0
 topics:
   - users
   - user-management
@@ -9,7 +9,6 @@ contentType: reference
 useCase:
   - manage-users
 ---
-
 # User Search Best Practices
 
 When running user searches:
@@ -22,11 +21,13 @@ When running user searches:
   * Avoid dynamic property names.
   * Avoid large schema sizes and deep structures.
   * Avoid storing data you do not need for authentication and authorization purposes.
+* Search queries time out (HTTP status code 503) if they're not completed in two seconds or less. Queries that take longer indicate that it's either an expensive query or that the query has an error resulting in it not completing quickly
 * Don't use a search criteria that returns a large data set (more than 1000 results).
 * Don't use existence queries (for example, "give me all users with a property regardless of its value").
 * Don't poll the search APIs.
 * Don't use large metadata fields (try to keep metadata fields to 2 KB or less).
-* Using wildcard on searches can affect performance.
+* Using wildcard on searches can affect performance. In some cases, wildcard searches on large data sets can result in time out errors. We also recommend avoiding wildcards prefixed to the search term, while using them as suffixes yields better performance.
+* Escape the space character to improve performance (e.g., `q=name:John Doe` should be written as `q=name:John\ Doe`)
 * If you are using [user search engine v2](/api/management/v2/user-search), check out the section on [migrating from v2 to v3](/users/search/v3/migrate-search-v2-v3).
 
 ::: note

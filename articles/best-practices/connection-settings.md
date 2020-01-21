@@ -1,5 +1,6 @@
 ---
-description: Recommended identity provider connection settings in Auth0.
+title: Connection Settings Best Practices
+description: Learn about recommended identity provider connection settings in Auth0.
 topics:
   - best-practices
   - configuration
@@ -12,14 +13,13 @@ useCase:
   - connection
   - connection-settings
 ---
-
 # Connection Settings Best Practices
 
 Here are some best practices for configuring [connections](/connections). Before you set up connections, take a moment to review [what connections are](/connections) and [the basics of authentication](/application-auth) for your application type.
 
 ## Use your credentials for social connections
 
-Auth0 provides [default credentials](/connections/social/devkeys) for [social connections](/identityproviders#social) to help you get started. You should replace these temporary credentials with your own to avoid restrictions.
+Auth0 provides [default credentials](/connections/social/devkeys) for [social connections](/connections/identity-providers-social) to help you get started. You should replace these temporary credentials with your own to avoid restrictions.
 
 ## Review requested data
 

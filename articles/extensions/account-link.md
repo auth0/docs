@@ -1,5 +1,4 @@
 ---
-toc: true
 description: The Account Link extension allows users with two accounts with the same email to be prompted to link them.
 topics:
   - extensions
@@ -9,7 +8,7 @@ contentType:
   - concept
 useCase: extensibility-extensions
 ---
-# Account Link
+# Link User Accounts
 
 The **Account Link** extension prompts users that may have created a second account by mistake to link the new account with their old one on their first login. The user may choose to either link the two accounts or keep them separate if it was intentional.
 
@@ -78,3 +77,13 @@ Do not remove `{{ ExtensionCSS }}`, `{{ CustomCSS }}`, `{{ Auth0Widget }}`, or `
 :::
 
 ![Widget Settings](/media/articles/extensions/account-link/widget-settings.png)
+
+## Custom domains
+
+If you're using a custom domain, you'll need to update the **auth0-account-link-extension** [rule](/rules) that is automatically created when you installed the extension. (You can find this rule in your Dashboard by going to **Rules** using the left-hand navigation bar).
+
+By default, line 27 of the rule is `issuer: auth0.domain`. You will need to change this to `issuer: "myCustomDomain.com"`, making sure to omit the protocol portion of the URL.
+
+:::note
+Uninstalling/reinstalling, as well as updating, the extension may override this change.
+:::

@@ -1,16 +1,19 @@
 ---
-title: Troubleshooting the Authorization Extension
-description: How to troubleshoot the Authorization Extension
+title: Troubleshoot the Authorization Extension
+description: Learn how to troubleshoot the Authorization Extension,
 topics:
   - extensions
   - authorization_v2
 contentType:
   - how-to
-  - concept
 useCase: extensibility-extensions
 ---
 
-# Authorization Extension: Troubleshoot Issues
+# Troubleshoot the Authorization Extension
+
+::: note
+<%= include('../../../_includes/_rbac_methods') %>
+:::
 
 The following are some issues you might see when setting up the Authorization Extension, as well as some tips to help you identify the cause.
 

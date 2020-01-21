@@ -15,7 +15,7 @@ useCase:
 ---
 # Authorization Code Flow
 
-Because regular web apps are server-side apps where the source code is not publicly exposed, they can use the Authorization Code Flow (defined in defined in [OAuth 2.0 RFC 6749, section 4.1](https://tools.ietf.org/html/rfc6749#section-4.1)), which exchanges an Authorization Code for a token. Your app must be server-side because during this exchange, you must also pass along your application's Client Secret, which must always be kept secure, and you will have to store it in your client.
+Because regular web apps are server-side apps where the source code is not publicly exposed, they can use the Authorization Code Flow (defined in [OAuth 2.0 RFC 6749, section 4.1](https://tools.ietf.org/html/rfc6749#section-4.1)), which exchanges an Authorization Code for a token. Your app must be server-side because during this exchange, you must also pass along your application's Client Secret, which must always be kept secure, and you will have to store it in your client.
 
 ## How it works
 
@@ -43,4 +43,4 @@ Finally, you can follow our tutorials to use our API endpoints to [Add Login Us
 ## Keep reading
 
 - Auth0 offers many ways to personalize your user's login experience using [rules](/rules) and [hooks](/hooks).
-- [Tokens used by Auth0](/tokens)
+- [Tokens](/tokens)

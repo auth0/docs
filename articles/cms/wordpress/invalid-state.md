@@ -13,7 +13,7 @@ useCase:
   - manage-users  
 ---
 
-# Invalid State Errors
+# Troubleshoot WordPress Plugin Invalid State Errors
 
 We added state validation to the WordPress plugin in [version 3.6.0](https://github.com/auth0/wp-auth0/releases/tag/3.6.0). This security measure helps mitigate CSRF attacks by ensuring that the response belongs to a request initiated by the same user For more information, see [State Parameter](/protocols/oauth2/oauth-state).
 
@@ -38,9 +38,13 @@ Below are some common causes of the invalid state error as well troubleshooting 
 
 The most common cause of the invalid state error is when the callback URL is cached on the server.
 
-Remove caching from all the URLs listed in the **Allowed Callback URLs** field for your Application in the Auth0 dashboard and test again. If that does not solve the issue, continue with the troubleshooting steps below. 
+Exclude caching on your server for all the URLs listed in the **Allowed Callback URLs** field for your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) in the Auth0 Dashboard and test again. In addition, exclude caching the site URL (`/index.php` on a regular install) if it has an Auth0 URL parameter. 
 
-### Cached cookies and URL parameters. 
+Check to see if your server’s time is not set properly. The `BeforeValidException` error can occur when the token is perceived to have been generated before the current time, which can happen if the server times are off. You can check server time by using `echo current_time( 'c' )`. A temporary workaround may also be to modify the plugin to add a time offset if you cannot modify the server time, but it should be fixed for production.
+
+If that does not solve the issue, continue with the troubleshooting steps below. 
+
+### Cached cookies and URL parameters 
 
 If you're on a managed host like WP-Engine, you may need to contact their support team for additional assistance. We've had reports of issues accessing required cookies on the callback URL, as well as problems with checking authentication on the final page that users see after logging in. Specifically, ask to have cache exclusions added for:
 
@@ -116,7 +120,7 @@ If none of the steps above resolve the issue, please collect the results of the 
 - WordPress version
 - Auth0 plugin version
 - Browser and OS used to test
-- A [HAR file](https://support.zendesk.com/hc/en-us/articles/204410413-Generating-a-HAR-file-for-troubleshooting) recording the entire process from loading the page with the login form all the way through the "Invalid state" message.
+- A [HAR file](/troubleshoot/guides/generate-har-files) recording the entire process from loading the page with the login form all the way through the "Invalid state" message.
 
 ## Related posts:
 

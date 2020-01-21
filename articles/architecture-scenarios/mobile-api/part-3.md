@@ -96,7 +96,7 @@ Next you can exchange the `authorization_code` from the response for an Access T
         "value": "YOUR_AUTHORIZATION_CODE"
       },
       {
-        "name": "redirect_ui",
+        "name": "redirect_uri",
         "value": "https://${account.callback}"
       }
     ]
@@ -125,7 +125,7 @@ The response from the Token URL will contain:
 ```
 
 - __access_token__: An Access Token for the API, specified by the `audience`.
-- __refresh_token__: A [Refresh Token](/tokens/refresh-token/current) will only be present if you included the `offline_access` scope AND enabled __Allow Offline Access__ for your API in the Dashboard.
+- __refresh_token__: A [Refresh Token](/tokens/concepts/refresh-tokens) will only be present if you included the `offline_access` scope AND enabled __Allow Offline Access__ for your API in the Dashboard.
 - __id_token__: An ID Token JWT containing user profile information.
 - __token_type__: A string containing the type of token, this will always be a Bearer token.
 - __expires_in__: The amount of seconds until the Access Token expires.
@@ -133,12 +133,12 @@ The response from the Token URL will contain:
 You will need to store the above credentials in local storage for use in calling your API and retrieving the user profile.
 
 ::: note
-[See the implementation in Android.](/architecture-scenarios/application/mobile-api/mobile-implementation-android#store-credentials)
+[See the implementation in Android](/architecture-scenarios/application/mobile-api/mobile-implementation-android#store-credentials).
 :::
 
 ### Get the User Profile
 
-To retrieve the [User Profile](/api/authentication?http#user-profile), your mobile application can decode the [ID Token](/tokens/id-token) using one of the [JWT libraries](https://jwt.io/#libraries-io). This is done by [verifying the signature](/tokens/guides/id-token/validate-id-token#verify-the-signature) and [verifying the claims](/tokens/guides/id-token/validate-id-token#verify-the-claims) of the token. After validating the ID Token, you can access its payload containing the user information:
+To retrieve the [User Profile](/api/authentication?http#user-profile), your mobile application can decode the [ID Token](/tokens/concepts/id-tokens) using one of the [JWT libraries](https://jwt.io/#libraries-io). This is done by [verifying the signature](/tokens/guides/validate-id-token#verify-the-signature) and [verifying the claims](/tokens/guides/validate-id-token#verify-the-claims) of the token. After validating the ID Token, you can access its payload containing the user information:
 
 ```json
 {
@@ -183,7 +183,7 @@ Refresh Tokens must be stored securely by an application since they do not expir
 
 To refresh your Access Token, perform a `POST` request to the `/oauth/token` endpoint using the Refresh Token from your authorization result.
 
-A [Refresh Token](/tokens/refresh-token/current) will only be present if you included the `offline_access` scope in the previous authorization request and  enabled __Allow Offline Access__ for your API in the Dashboard.
+A [Refresh Token](/tokens/concepts/refresh-tokens) will only be present if you included the `offline_access` scope in the previous authorization request and  enabled __Allow Offline Access__ for your API in the Dashboard.
 
 Your request should include:
 

@@ -4,69 +4,46 @@ topics:
   - password-reset
   - hosted-pages
 contentType: how-to
+toc: true
 useCase: customize-hosted-pages
 ---
 # Password Reset Page
 
 ::: note
-This article will help you learn how to configure the custom Password Reset page. If you are an admin trying to reset a user's password, see [Change Users' Passwords](/connections/database/password-change). If you are a user trying to reset your own password, see [Reset Your Auth0 Account Password](/support/reset-account-password).
+This article will help you learn how to configure the custom Password Reset page.
+
+If you are:
+
+* An admin trying to reset a user's password, see [Change Users' Passwords](/connections/database/password-change)
+* A user trying to reset your own password, see [Reset Your Auth0 Account Password](/support/reset-account-password)
 :::
 
-The Password Reset Page is a page that is hosted by Auth0, and uses Auth0's password reset widget to allow users to change their passwords in the event that they're unable to log in. Using this page, you can maintain consistency in the appearance of your pages (login, password reset, and so on), and the users of your application(s) can easily change their passwords as needed.
+The Password Reset Page provides your applications' users with a way to change their passwords if they can't log in.
 
-## Enable the Password Reset Page
+With the Password Reset Page, Auth0 handles all required functionality, including:
 
-Using the [Auth0 Dashboard](${manage_url}/#/password_reset), you can customize your Password Reset Page by flipping the toggle switch to enable customizations and providing a custom script.
+* Hosting the page itself
+* Redirecting the user wanting to reset their password as necessary (there is no URL to which the user can point their browsers)
+* Ensuring that the user's password meets your stated requirements and is updated accordingly
+* Automatically redirecting the user after they reset their password
+
+The Password Reset Page includes use of the Password Reset Widget. You can, however, [customize the page](/universal-login/advanced-customization) to display the personalized information you deem appropriate and to maintain consistency in the appearance of your Auth0 pages (e.g., Login, Password Reset, and MFA).
+
+## Enable Customization of the Password Reset Page
+
+By default, the Password Reset Page is enabled for all Auth0 users. The Password Reset Page **works as is *without* customization**. However, if you want to change the page to match your other pages and present your branding, you can enable customization of the Password Reset Page.
+
+To do so, log in to the [Dashboard](${manage_url}/#/password_reset). Go to **Universal Login** > **Password Reset**. Toggle **Customize Password Reset Page** to enable customization. 
 
 ![Hosted Password Reset Page](/media/articles/universal-login/password-reset.png)
 
 ## Edit the Password Reset Page
 
-Once you've flipped the customization toggle for the Password Reset Page, you'll be able to use the text editor built into the Auth0 Dashboard to change your HTML, style your page using CSS, and alter the JavaScript used to retrieve custom variables. After you've made your changes, make sure to click _Save_.
+Once you've enabled the customization toggle for the Password Reset Page, you can use the built-in text editor to change its HTML, style the page using CSS, and change the JavaScript used to retrieve and display custom variables. Be sure to **Save** any changes you make.
 
-Please note that the password reset page works as it is without customization. Auth0 hosts the page for your tenant, and also updates the included password reset widget as necessary. However, once you toggle the customization to **on**, you are responsible for the updating and maintaining the script (including changing version numbers, such as that for the Reset Password widget), since Auth0 can no longer update it automatically without potentially interfering with your customizations.
+### Display custom information on the Password Reset Page
 
-### Custom variables
-
-You can use JavaScript to retrieve the following custom variables:
-
-| Variable | Description |
-| - | - |
-<<<<<<< HEAD:articles/hosted-pages/password-reset.md
-| `email` | The email address of the user requesting the password change |
-| `ticket` | The ticket representing the given password reset request |
-| `csrf_token` | Token used to prevent CSRF activity |
-| `tenant.name` | The name associated with your Auth0 tenant |
-| `tenant.friendly_name` | The name displayed for your Auth0 tenant |
-| `tenant.picture_url` | The URL leading to the logo representing you in Auth0 |
-| `tenant.support_email` | The support email address for your company displayed to your Auth0 users |
-| `tenant.support_url` | The support URL for your company displayed to your Auth0 users |
-| `lang` | The user's language |
-| `password_policy` | The active connection's security policy You can see what this is using `${manage_url}/#/connections/database/con_YOUR-CONNECTION-ID/security`. Be sure to provide your connection ID in the URL.) |
-=======
-| `email` | The email address of the user requesting the password change | 
-| `ticket` | The ticket representing the given password reset request | 
-| `csrf_token` | Token used to prevent CSRF activity | 
-| `tenant.name` | The name associated with your Auth0 tenant | 
-| `tenant.friendly_name` | The name displayed for your Auth0 tenant | 
-| `tenant.picture_url` | The URL leading to the logo representing you in Auth0 | 
-| `tenant.support_email` | The support email address for your company displayed to your Auth0 users | 
-| `tenant.support_url` | The support URL for your company displayed to your Auth0 users | 
-| `lang` | The user's language | 
-| `password_policy` | The active connection's security policy. You can see what this is using `${manage_url}/#/connections/database/con_YOUR-CONNECTION-ID/security`. Be sure to provide your connection ID in the URL.) |
-| `password_complexity_options` | Object containing settings for the password complexity requirements |
-| `min_length` | The minimum length required for newly-created passwords. Can range from 1 to 128 characters in length | 
->>>>>>> master:articles/universal-login/password-reset.md
-
-::: note
-You can set/check the values for your `tenant` variables in the **Settings** area in [Tenant Settings](${manage_url}/#/tenant)
-:::
-
-::: note
-It is currently not possible to conditionalize customizations based on Application ID (`client_id`).
-:::
-
-Within the Password Reset Page Editor, you'll see the following JavaScript embedded:
+You can display personalized information on the Password Reset Page. This is done by editing the embedded JavaScript using the Password Reset Page Editor:
 
 ```js
   <script>
@@ -109,7 +86,7 @@ Within the Password Reset Page Editor, you'll see the following JavaScript embed
   </script>
 ```
 
-Notice that the sample template uses the `tenant.picture_url` variable to return the value entered in the **Logo URL** field of the **Settings** area in [Tenant Settings](${manage_url}/#/tenant). Auth0 will retrieve the logo at that URL and display it on the password reset widget. If Auth0 cannot resolve the URL, it'll display a default image (note that the sample snippet below has all unrelated content removed, including mandatory fields):
+For example, the sample template snippet below shows the variable `tenant.picture_url`. This variable returns the **Logo URL** value defined in [Tenant Settings](${manage_url}/#/tenant).
 
 ```js
   <script>
@@ -121,9 +98,41 @@ Notice that the sample template uses the `tenant.picture_url` variable to return
   </script>
 ```
 
-## Revert Your Changes
+Auth0 retrieves the logo at the URL and displays it on the Password Reset Widget. If Auth0 can't resolve the URL, it'll display that the default image.
 
-If you'd like to revert to an earlier design, you have two options:
+#### Custom variables
+
+The following custom variables can be used to display personalized information on the Password Reset Page:
+
+| Variable | Description |
+| - | - |
+| `email` | The email address of the user requesting the password change | 
+| `ticket` | The ticket representing the given password reset request | 
+| `csrf_token` | Token used to prevent CSRF activity | 
+| `tenant.name` | The name associated with your Auth0 tenant | 
+| `tenant.friendly_name` | The name displayed for your Auth0 tenant | 
+| `tenant.picture_url` | The URL leading to the logo representing you in Auth0 | 
+| `tenant.support_email` | The support email address for your company displayed to your Auth0 users |
+| `tenant.support_url` | The support URL for your company displayed to your Auth0 users | 
+| `lang` | The user's language | 
+| `password_policy` | The active connection's security policy. You can see what this is using `${manage_url}/#/connections/database/con_YOUR-CONNECTION-ID/security`. Be sure to provide your connection ID in the URL.) |
+| `password_complexity_options` | Object containing settings for the password complexity requirements |
+| `min_length` | The minimum length required for newly-created passwords. Can range from 1 to 128 characters in length | 
+
+**Notes:**
+
+* You can set/check the values for your `tenant` variables in the **Settings** area in [Tenant Settings](${manage_url}/#/tenant)
+* You cannot conditionalize customizations based on the Application ID (`client_id`).
+
+## Update the Password Reset Widget
+
+ If you **do not enable customization of the Password Reset Page**, Auth0 will handle updates necessary for the script, including changes to the version number of the included Password Reset Widget.
+
+**Once you have enabled customization of the Password Reset Page, it is your responsibility to update and maintain the script**. This includes updating the version number for the Password Reset Widget. With customization enabled, Auth0 cannot update your script automatically without potentially interfering with changes you've made. 
+
+## Revert your changes
+
+If you'd like to revert the Password Reset Page to an earlier design, you have two options:
 
 * Reverting to the last saved template by clicking **Reset to Last**;
 * Reverting to the default template provided by Auth0 by clicking **Reset to Default**.

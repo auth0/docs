@@ -10,10 +10,10 @@ toc: true
 # Customizing Your Emails
 
 ::: warning
-You must setup your own email provider using a [third-party service](/email/providers) ([Amazon SES](https://aws.amazon.com/ses/), [Mandrill](https://www.mandrill.com/signup/) or [SendGrid](https://sendgrid.com/pricing)) or a [custom provider](/email/custom) to be able to customize your emails.
+You must setup your own email provider using a [third-party service](/email/providers) (such as Amazon SES, Mandrill, SendGrid, SparkPost, Mailgun, or a custom SMTP provider) to be able to customize your emails.
 :::
 
-The [Emails](${manage_url}/#/emails) dashboard allows you to customize your emails, including templating with some contextual attributes [using Liquid syntax](/email/liquid-syntax). This can include references to the context of the current application or user.
+Auth0 provides an [Emails](${manage_url}/#/emails) dashboard that allows you to customize your HTML-based emails, including templating with some contextual attributes [using Liquid syntax](/email/liquid-syntax). This can include references to the context of the current application or user.
 
 ![](/media/articles/email/index/emails-fields.png)
 
@@ -21,6 +21,8 @@ The [Emails](${manage_url}/#/emails) dashboard allows you to customize your emai
 ::: note
 Only one template can be used for each template type (for example, only one template for verify emails).
 :::
+
+At this time, Auth0 does not support plaintext/text-based emails.
 
 ## Configuring email templates
 
@@ -33,7 +35,7 @@ You can access the following common variables when using Liquid Syntax in the **
 * The `application` object, with access to the standard client properties like
   * `application.name`
   * `application.clientID`
-* `connection.name` (except in the **Guardian Enrollment Email**)
+* `connection.name` (except in the **Multi-factor Enrollment Email**)
 * The `user` object, with access to the following properties:
   * `user.email`
   * `user.email_verified`
@@ -41,6 +43,7 @@ You can access the following common variables when using Liquid Syntax in the **
   * `user.nickname`
   * `user.given_name`
   * `user.family_name`
+  * `user.name`
   * `user.app_metadata` - stores information (such as a user's support plan, security <dfn data-key="role">roles</dfn>, or access control groups) that can impact a user's core functionality, such as how an application functions or what the user can access.
   * `user.user_metadata` - stores user attributes (such as user preferences) that do not impact a user's core functionality.
 * Tenant-related information (defined in the [Tenant Settings](${manage_url}/#/tenant)):
@@ -57,12 +60,13 @@ Hello {{ user.name }}. Welcome to {{ application.name }} from {{ friendly_name }
 Note that the attributes available for the `user` object will depend on the type of connection being used.
 
 ::: note
-Individual email templates define addtional variables that are appropriate for the specific template. Be sure to check out the [individual templates descriptions](#individual-templates-descriptions) below.
+Individual email templates define additional variables that are appropriate for the specific template. Be sure to check out the [individual templates descriptions](#individual-templates-descriptions) below.
 :::
 
-For those emails where the user needs to follow a link to take action, you can also configure the **URL Lifetime** and **Redirect To** URL destination after the action is completed. Liquid Syntax is also supported in the **Redirect To** URL field, but only two variables are supported:
+For those emails where the user needs to follow a link to take action, you can also configure the **URL Lifetime** and **Redirect To** URL destination after the action is completed. Liquid Syntax is also supported in the **Redirect To** URL field, but only three variables are supported:
 
 * `application.name`
+* `application.clientID`
 * `application.callback_domain`
 
 See [Configuring the Redirect To URL](#configuring-the-redirect-to-url) for more details.
@@ -137,18 +141,31 @@ http://myapplication.com/my_page/?email=john%contoso.com&message=Access%20expire
 
 The **Redirect To** URL is an optional destination to redirect the user to after the relevant action (verify account, reset password, unblock account) was performed.
 
-**Only the following two variables** are available on the **Redirect To** URL:
+::: panel Redirect URLs
+With the Classic Experience, you can provide a URL to which users are redirected after they reset their password. Auth0 sends a success indicator and a message to the URL.
+
+With the New Experience, Auth0 redirects users to the [default log in route](/universal-login/default-login-url) when the user succeeds in resetting the password. If not, Auth0 handles the errors as part of the Universal Login flow and ignores the redirect URL provided in the email template.
+:::
+
+**Only the following three variables** are available on the **Redirect To** URL:
 
 * `application.name` (or its synonym `client.name`)
+* `application.clientID`
 * `application.callback_domain` (or its synonym `client.callback_domain`)
   
-The `application.callback_domain` variable will contain the domain of the **first** URL listed in the application's **Allowed <dfn data-key="callback">Callback URL</dfn>** list. This lets you redirect users to a path of the application that triggered the action by using a syntax like this:
+The `application.callback_domain` variable will contain the origin of the **first** URL listed in the application's **Allowed <dfn data-key="callback">Callback URL</dfn>** list. This lets you redirect users to a path of the application that triggered the action by using a syntax like this:
 
 ```text
 {{ application.callback_domain }}/result_page
 ```
 
-If your application has multiple **Allowed Callback URLs** configured, Auth0 will use the first URL listed.
+Note that while the variable is called `callback_domain`, it is really an *origin*, so it includes the protocol in addition to the domain, e.g. `https://myapp.com`.
+
+If your application has multiple **Allowed Callback URLs** configured, Auth0 will use the first URL listed. You can also provide a default origin using Liquid syntax:
+
+```text
+{{ application.callback_domain | default: "https://my-default-domain.com" }}/result_page
+```
 
 #### Dynamic Redirect To URLs
 
@@ -220,7 +237,8 @@ You can [configure a **Redirect To** URL](#configuring-redirect-to) to send the 
 * `success` with value `true` or `false` indicating whether the email verification was successful
 * `message` with an additional description of the outcome. Some possible values are:
   * `Your email was verified. You can continue using the application.` (with `success=true`)
-  * `This URL can be used only once` (with `success=false`) * `Access expired.` (with `success=false`)
+  * `This URL can be used only once` (with `success=false`)
+  * `Access expired.` (with `success=false`)
   * `User account does not exist or verification code is invalid.` (with `success=false`)
   * `This account is already verified.` (with `success=false`)
 
@@ -248,7 +266,8 @@ You can [configure a **Redirect To** URL](#configuring-redirect-to) to send the 
 * `success` with value `true` or `false` indicating whether the password change was successful
 * `message` with an additional description of the outcome. Some possible values are:
   * `You can now login to the application with the new password.` (with `success=true`)
-  * `This URL can be used only once` (with `success=false`) * `Access expired.` (with `success=false`)
+  * `This URL can be used only once` (with `success=false`)
+  * `Access expired.` (with `success=false`)
   * `The operation cannot be completed. Please try again.` (with `success=false`)
 
 The target URL handler should be prepared to gracefully handle other possible messages as well. 
@@ -279,7 +298,8 @@ You can [configure a **Redirect To** URL](#configuring-redirect-to) to send the 
 * `success` with value `true` or `false` indicating whether the account unblocking was successful
 * `message` with an additional description of the outcome. Some possible values are:
   * `Your account has been unblocked.` (with `success=true`)
-  * `This URL can be used only once` (with `success=false`) * `Access expired.` (with `success=false`)
+  * `This URL can be used only once` (with `success=false`)
+  * `Access expired.` (with `success=false`)
 
 The target URL handler should be prepared to gracefully handle other possible messages as well. 
 
@@ -289,14 +309,14 @@ This email type is sent whenever Auth0 detects that the user is trying to access
 
 Learn more about [Breached Password Detection](/anomaly-detection#breached-password-detection)
 
-### Guardian Enrollment Email
+### Multi-factor Authentication Enrollment Email
 
-This email will be generated when an Guardian MFA enrollment invitation is sent. The message will contain a link that, when visited, will show the MFA enrollment experience.
+This email will be generated when an multi-factor authentication enrollment invitation is sent. The message will contain a link that, when visited, will show the MFA enrollment experience.
 
 Besides the [common variables](#common-variables) available for all email templates, the `link` variable is available in this email type, containing the URL that you will use to construct the link for this action, as in this example:
 
 ```html
-<a href="{{ url }}">Enroll your MFA device</a>
+<a href="{{ link }}">Enroll your MFA device</a>
 ```
 
 Do note that, unlike other email templates, the correct variable name is `link` and not `url`. Also, the `connection.name` variable is not available on this email template type.
@@ -335,7 +355,7 @@ The default template uses the above variables to do something like this:
   <!-- Signup email content -->
   {% if send == 'link' or send == 'link_ios' or send == 'link_android' %}
     <p>Click and confirm that you want to sign in to {{ application.name }}. This link will expire in five minutes.</p>
-    <a href="{{ link }}">Sign in to {{ application.name }</a>
+    <a href="{{ link }}">Sign in to {{ application.name }}</a>
     {% elsif send == 'code' %}
     <p>Your verification code is: <b>{{ code }}</b></p>
   {% endif %}

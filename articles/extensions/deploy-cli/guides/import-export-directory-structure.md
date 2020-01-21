@@ -77,7 +77,7 @@ Here is an example of a `config.json` file:
 
 To export your current tenant configuration, run a command that's similar to:
 
-`a0deploy export -c config.json --strip -f directory -o path/to/export`
+`a0deploy export -c config.json -f directory -o path/to/export`
 
 <%= include('../_includes/_strip-option') %>
 
@@ -87,7 +87,7 @@ For more information, see [Environment Variables and Keyword Mappings](/extensio
 
 ### Directory structure example
 
-Here is an example of what the export directory structure looks like:
+Here is a sample of what the export directory structure looks like (for full details on everything that can be included, please refer to the [extension's repository](https://github.com/auth0/auth0-deploy-cli/tree/master/examples/directory):
 
 ```
 repository =>
@@ -113,6 +113,8 @@ repository =>
   grants
     grant1.json
   pages
+    error_page.html
+    error_page.json
     login.html
     login.json
     password_reset.html

@@ -138,4 +138,4 @@ We do **not** recommend that you use this endpoint for:
 * [Migrate from Search V2 to V3](/users/search/v3/migrate-search-v2-v3)
 * [User Search Query Syntax](/users/search/v3/query-syntax)
 * [Search Best Practices](/best-practices/search-best-practices)
-* [Management API Explorer](/api/management/v2#!/users/get_users)
+* [Management API Explorer](/api/management/v2#!/Users/get_users)

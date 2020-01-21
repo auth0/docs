@@ -7,6 +7,10 @@ alias:
   - express
 languages:
   - Javascript
+author:
+  name: David Patrick
+  email: david.patrick@auth0.com
+  community: false
 image: /media/platforms/node.png
 topics:
   - quickstart

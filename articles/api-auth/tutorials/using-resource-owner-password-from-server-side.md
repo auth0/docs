@@ -1,5 +1,4 @@
 ---
-title: Using resource owner password from the server side
 description: How to use Resource Owner Password Grant from the server side together with anomaly detection.
 toc: true
 topics:
@@ -12,9 +11,7 @@ useCase:
   - call-api
 ---
 
-# Using Resource Owner Password from Server side
-
-<%= include('../../_includes/_pipeline2') %>
+# Use Resource Owner Password Grant From the Server Side
 
 Server-side applications can use the [Resource Owner Password Grant](/api-auth/grant/password) to access an API. The flow typically involves prompting the user for username and password as credentials which your server will submit to Auth0 to get an <dfn data-key="access-token">Access Token</dfn>. When using this flow from server side, some anomaly detection features might fail because of the particularities of this scenario. This document details how to use [Resource Owner Password Grant](/api-auth/grant/password) flow from server side preventing some common issues.
 
@@ -42,10 +39,9 @@ To prevent this, you may send the end-user's IP address to Auth0 along with the 
 <strong>Warning!</strong> Authenticated applications must only be used from protected resources, typically server-side. Do not use them from native applications or SPAs, as they are not capable of storing secrets.
 :::
 
+### Configure the Auth0 Application to receive and trust the IP sent by your server
 
-### Configuring the Auth0 Application to receive and trust the IP sent by your server
-
-1. Navigate to your [dashboard](${manage_url}) and [configure a regular web application or machine to machine application](/applications/concepts/app-types-auth0).
+1. Navigate to your [dashboard](${manage_url}) and [configure a regular web application or machine-to-machine application](/applications).
 
 2. Choose a __Token Endpoint Authentication Method__ other than `None` under the [Settings](/dashboard/reference/settings-application) section.
 

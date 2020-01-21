@@ -36,7 +36,7 @@ The following is a list of articles on this website which will help you to imple
 
 * [Lock](https://auth0.com/lock)
 * [Protocols supported by Auth0](/protocols)
-* [Connect Active Directory with Auth0](/connections/enterprise/active-directory)
+* [Connect Active Directory with Auth0](/connections/enterprise/active-directory-ldap)
 * [SAML](/saml-configuration)
 * [Using Auth0 in SaaS, multi-tenant Apps](/saas-apps)
 * [Identity Providers supported by Auth0](/identityproviders)

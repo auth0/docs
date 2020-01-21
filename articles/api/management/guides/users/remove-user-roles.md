@@ -20,7 +20,7 @@ This guide will show you how to remove the <dfn data-key="role">[roles](/authori
 
 <%= include('../../../../authorization/_includes/_enable-authz-core') %>
 
-1. Make a `DELETE` call to the [Delete User Roles endpoint](/api/management/v2#!/user_roles/delete_user_roles). Be sure to replace `USER_ID`, `MGMT_API_ACCESS_TOKEN`, and `ROLE_ID` placeholder values with your user ID, Management API Access Token, and role ID(s), respectively.
+1. Make a `DELETE` call to the [Delete User Roles endpoint](/api/management/v2#!/Users/delete_user_roles). Be sure to replace `USER_ID`, `MGMT_API_ACCESS_TOKEN`, and `ROLE_ID` placeholder values with your user ID, Management API Access Token, and role ID(s), respectively.
 
 ```har
 {

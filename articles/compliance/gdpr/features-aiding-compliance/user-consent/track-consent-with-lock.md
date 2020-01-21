@@ -52,7 +52,7 @@ We will see three different implementations for this:
 
 1. Copy the **Client Id** and **Domain** values. You will need them in a while.
 
-1. Go to [Dashboard > Connections > Database](${manage_url}/#/connections/database) and create a new connection. Click **Create DB Connection**, set a name for the new connection, and click **Save**. You can also [enable a social connection](/identityproviders#social) at [Dashboard > Connections > Social](${manage_url}/#/connections/social) (we will [enable Google login](/connections/social/google) for the purposes of this tutorial).
+1. Go to [Dashboard > Connections > Database](${manage_url}/#/connections/database) and create a new connection. Click **Create DB Connection**, set a name for the new connection, and click **Save**. You can also [enable a social connection](/connections/identity-providers-social) at [Dashboard > Connections > Social](${manage_url}/#/connections/social) (we will [enable Google login](/connections/social/google) for the purposes of this tutorial).
 
 1. Go to the connection's **Applications** tab and make sure your newly created application is enabled.
 
@@ -79,7 +79,7 @@ This works both for database connections and social logins.
         //code reducted for simplicity
       },
       languageDictionary: {
-        signUpTerms: "I agree to the <a href='https://my-app-url.com/terms' target='_new'>terms of service</a> and <a href='https://my-app-url.com/privacy' target='_new'>privacy policy</a>."
+        signUpTerms: "I agree to the <a href='https://my-app-url.com/terms' target='_blank'>terms of service</a> and <a href='https://my-app-url.com/privacy' target='_blank'>privacy policy</a>."
       },
       mustAcceptTerms: true,
       //code reducted for simplicity
@@ -152,6 +152,8 @@ Note that in this option we only set the flag and not the timestamp. Displaying 
 If you are using social logins, adding custom fields is not an option, but you can redirect the user to another page where you ask for consent and any additional info, and then redirect back to finish the authentication transaction. This can be done with [redirect rules](/rules/redirect). We will use that same rule to save the consent information at the user's metadata so we can track this information and not ask for consent upon next login.
 
 <%= include('./_redirect.md') %>
+
+<%= include('../../../../_includes/_parental-consent') %>
 
 We are done with the configuration part, let's test!
 

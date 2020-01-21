@@ -41,6 +41,8 @@ Extension requires these AWS permissions in order to send logs to CloudWatch:
 
 Once you have provided this information, click the _Install_ button to finish installing the extension.
 
+<%= include('./_includes/_batch-size') %>
+
 ## Use the Extension
 
 You can monitor activity by logging into the extension. There you can find reports on most recent runs. Reports contains amount of logs processed and errors, if any.

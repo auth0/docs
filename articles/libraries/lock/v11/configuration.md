@@ -299,14 +299,17 @@ var options = {
 
 ### rememberLastLogin {Boolean}
 
-Determines whether or not to show a screen that allows you to quickly log in with the account you used the last time. Defaults to true.
-Request for <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> data and enable **Last time you signed in with[...]** message. Defaults to `true`.
+Determines whether or not to show a screen that allows you to quickly log in with the account you used the last time.
+Requests <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> data and enables a **Last time you signed in with[...]** message. Defaults to `true`. This information comes from the user's Auth0 session, so this ability will last as long as their Auth0 session would (which is [configurable](/dashboard/reference/settings-tenant#login-session-management).
 
 ```js
 var options = {
   rememberLastLogin: false
 };
 ```
+::: note
+New tenants [automatically have Seamless SSO enabled](https://auth0.com/docs/dashboard/guides/tenants/enable-sso-tenant). With this enabled, the `rememberLastLogin` option will not be relevant because if there is a session in place then the hosted login page will not be displayed at all. Using Seamless SSO is highly recommended because it provides a seamless authentication experience: users log in once and won’t have to enter credentials again when they navigate either through the applications you have built, or third party apps. If the user is not logged in they will be redirected to the login screen, as expected.
+:::
 
 ::: note
 The **Last time you signed in with [...]** message will not be available under the following circumstances:
@@ -574,7 +577,7 @@ If you don't specify a `validator` the text field will be **required**. If you w
 ```js
 var options = {
   additionalSignUpFields: [{
-    name: "favorite color",
+    name: "favorite_color",
     placeholder: "Enter your favorite color (optional)",
     validator: function() { 
       return true;
@@ -768,7 +771,8 @@ Allows to set the initial value for the email and/or username inputs. When omitt
 var options = {
   prefill: {
     email: "someone@auth0.com",
-    username: "someone"
+    username: "someone",
+    phoneNumber: "+1234567890"
   }
 };
 ```

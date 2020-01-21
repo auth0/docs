@@ -20,19 +20,28 @@ useCase: manage-accounts
 
 <ul class="topic-links">
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/users/guides/create-users">Create Users using the Dashboard</a>
-    <p>How to create end users using the Dashboard</p>
+    <i class="icon icon-budicon-715"></i><a href="/users/guides/create-users">Create Users</a>
+    <p>Learn how to create users.</p>
   </li>
   <li>
     <i class="icon icon-budicon-715"></i><a href="/dashboard/manage-dashboard-admins">Manage Dashboard Administrators</a>
-    <p>How to add and manage user accounts with admin privileges to the Dashboard</p>
-  </li>
-  <li>
-    <i class="icon icon-budicon-715"></i><a href="/dashboard/dashboard-tenant-settings">Configure your Dashboard Tenant Settings</a>
-    <p>How to change the settings for a given tenant using the Dashboard</p>
+    <p>Learn how to add and manage user accounts with admin privileges.</p>
   </li>
   <li>
     <i class="icon icon-budicon-715"></i><a href="/logs">Logs</a>
-    <p>How to view log data and understand log event types</p>
+    <p>Learn how to view log data and understand log event types.</p>
+  </li>
+    <li>
+    <i class="icon icon-budicon-715"></i><a href="/dashboard/reference/settings-tenant">Tenant Settings</a>
+    <p>Explore the settings available for tenants.</p>
+  </li>
+    <li>
+    <i class="icon icon-budicon-715"></i><a href="/dashboard/reference/settings-application">Application Settings</a>
+    <p>Explore the settings available for applications.</p>
+  </li>
+    <li>
+    <i class="icon icon-budicon-715"></i><a href="/dashboard/reference/settings-api">API Settings</a>
+    <p>Explore the settings available for APIs.</p>
   </li>
 </ul>
+

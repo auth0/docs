@@ -1,0 +1,42 @@
+title: Ionic 4
+logo_name: ionic
+alias:
+  - ionic4
+language:
+  - Typescript
+framework:
+  - Ionic4
+  - Angular8
+  - Cordova
+hybrid: true
+image: /media/platforms/ionic.jpeg
+topics:
+  - quickstart
+contentType: tutorial
+useCase: quickstart
+seo_alias: ionic4
+default_article: 01-login
+articles:
+  - 01-login
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-ionic4-samples
+requirements:
+  - Ionic 4.x
+  - Angular 8+
+next_steps:
+  - path: 01-login
+    list:
+    - text: Configure other identity providers
+      icon: 345
+      href: "/identityproviders"
+    - text: Enable multifactor authentication
+      icon: 345
+      href: "/multifactor-authentication"
+    - text: Learn about anomaly detection
+      icon: 345
+      href: "/anomaly-detection"
+    - text: Learn about rules
+      icon: 345
+      href: "/rules"

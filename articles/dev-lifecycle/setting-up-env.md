@@ -8,10 +8,10 @@ useCase: development
 ---
 # Set Up Multiple Environments
 
-__Development__, __Test__, __Q&A__ environments are easy to setup in Auth0. Simply create a new tenant for each to guarantee the maximum isolation between these environments. You can easily switch between tenants using the tenant chooser from the top right menu on the dashboard. You can also configure different administrators for each.
+__Development__, __Test__, __QA__ environments are easy to setup in Auth0. Simply create a new tenant for each to guarantee the maximum isolation between these environments. You can easily switch between tenants using the tenant chooser from the top right menu on the dashboard. You can also configure different administrators for each.
 
 ::: warning
-Moving your tenant to a Development environment will impact [rate limits](https://auth0.com/docs/policies/rate-limits) for calls to the Authentication and Management API.
+Production [rate limits](/policies/rate-limits) only apply to tenants tagged as `Production`. Ensure your tenant's environment tag is set to `Production` before going live.
 :::
 
 ![](/media/articles/lifecycle/environments.png)

@@ -1,22 +1,38 @@
 ---
-description: Custom DB script templates for user deletion
+description: Custom database action script templates for user deletion.
 toc: true
 topics:
     - connections
     - custom-database
-contentType: how-to
+contentType: reference
 useCase:
     - customize-connections
 ---
-# Custom Database Script Templates: Delete Users
+# Delete Script Templates
 
-Auth0 provides the following custom database script templates that you can use when implementing user deletion functionality.
+The **Delete** script implements the function executed in order to delete the specified user identity from the legacy identity store. We recommend naming this function `deleteUser` (which will also mitigate clashes with the JavaScript `delete` keyword). The script is only used in a legacy authentication scenario if you want use Auth0 to delete users from your legacy data store. 
 
-While Auth0 has populated default templates in the Dashboard script editor, you can use the following links to recover the original code and notes once you've made and saved edits.
+::: warning
+Deleting a user using the Auth0 Dashboard or the Auth0 Management API performs deletion of both the user profile and the user identity. If you do not implement this script correctly then this will not be done as an atomic operation, which may leave a user identity still in existence even after the user’s profile has been removed. Conversely, deleting a user identity outside of Auth0 will typically leave a disconnected (orphaned) profile in Auth0 that has no associated user identity. This may cause unpredictable issues. 
+:::
 
-## Notes
+The `deleteUser` function should be defined as follows:
 
-When working on your user creation script, keep in mind that this script will be executed when a user is deleted. 
+```js
+function deleteUser(id, callback) {
+  // TODO: implement your script
+  return callback(null);
+}
+```
+
+| **Parameter** | **Description** |
+| --- | --- |
+| `id` | The identifier of the user. This is the connection specific identifier returned as the user_id value from either the `login` or `getUser` function. |
+| `callback` | Executed with a single parameter. The one and only parameter is an indication of status: a `null` value indicates successful operation, whereas a non `null` value indicates that some error condition occurred.  |
+
+<%= include('../_includes/_bp-error-object') %>
+
+<%= include('../_includes/_panel-bcrypt-hash-encryption') %>
 
 ## Sample Scripts
 
@@ -170,7 +186,7 @@ function remove (id, callback) {
 ```
 function remove (id, callback) {
 
-  var connection = mysql({
+  var connection = mysql.createConnection({
     host     : 'localhost',
     user     : 'me',
     password : 'secret',
@@ -360,3 +376,12 @@ function remove (id, callback) {
   });
 }
 ```
+
+## Keep reading
+
+* [Change Passwords](/connections/database/custom-db/templates/change-password)
+* [Create](/connections/database/custom-db/templates/create)
+* [Get User](/connections/database/custom-db/templates/get-user)
+* [Login](/connections/database/custom-db/templates/login)
+* [Verify](/connections/database/custom-db/templates/verify)
+* [Change Email](/connections/database/custom-db/templates/change-email)

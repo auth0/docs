@@ -1,6 +1,6 @@
 ---
 title: Operations
-description: Understand operationalization of your Auth0 tenant environments
+description: How to operationalize your Auth0 tenant environments.
 toc: true
 topics:
     - b2c
@@ -40,18 +40,10 @@ useCase:
 
 <%= include('../../_includes/_operations/_notifications.md', { platform: 'b2c' }) %>
 
-## Planning
+## Project Planning Guide
 
-To help you with planning your implementation, we've put together some [planning guidance](https://drive.google.com/a/auth0.com/file/d/1lQU-uPTfwEi58WJMKL2azUhZhvy9h1IU/view?usp=sharing) that details our recommended strategies.
+<%= include('../../_includes/_planning.md', { platform: 'b2c' }) %>
 
 ## Keep reading
 
-* [Architecture](/architecture-scenarios/implementation/b2c/b2c-architecture)
-* [Provisioning](/architecture-scenarios/implementation/b2c/b2c-provisioning)
-* [Authentication](/architecture-scenarios/implementation/b2c/b2c-authentication)
-* [Branding](/architecture-scenarios/implementation/b2c/b2c-branding)
-* [Deployment Automation](/architecture-scenarios/implementation/b2c/b2c-deployment)
-* [Quality Assurance](/architecture-scenarios/implementation/b2c/b2c-qa)
-* [Profile Management](/architecture-scenarios/implementation/b2c/b2c-profile-mgmt)
-* [Authorization](/architecture-scenarios/implementation/b2c/b2c-authorization)
-* [Logout](/architecture-scenarios/implementation/b2c/b2c-logout)
+<%= include('../../_includes/_keep-reading.md', { platform: 'b2c', self: 'operations' }) %>

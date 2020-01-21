@@ -1,0 +1,22 @@
+title: Device Authorization Flow
+author:
+  name: Rachel Khoriander
+  email: rachel.khoriander@auth0.com
+  community: false
+hybrid: false
+image: /media/platforms/device.svg
+topics:
+  - quickstart
+contentType: tutorial
+useCase: quickstart
+snippets:
+alias:
+  - device
+  - device-auth
+  - device-flow
+  - device-authorization-flow
+seo_alias: device
+default_article: 01-login
+articles:
+  - 01-login
+show_steps: false

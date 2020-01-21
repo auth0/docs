@@ -23,7 +23,7 @@ In this section you will configure Auth0 to serve as an Identity Provider. You w
 
 1. Go to [Dashboard > Applications](${manage_url}/#/applications).
 1. Click the **+ CREATE APPLICATION** button on the right.
-1. In the **Name** field, enter a name like `MySAMLApp`, and select the [application type](/dashboard/reference/settings-application).
+1. In the **Name** field, enter a name like `MySAMLApp`, and select the [application type](/applications).
 1. Click **SAVE**.
 1. Go back to [Dashboard > Applications](${manage_url}/#/applications).
 1. Find the row for the application you just created, and click on the **Settings** icon to the right of the application name. (the round gear icon)

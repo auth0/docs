@@ -120,7 +120,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 The first step in adding authentication to your iOS application is to provide a way for your users to log in. The fastest, most secure, and most feature-rich way to do this with Auth0 is to use <dfn data-key="universal-login">Universal Login</dfn>.
 
 ::: note
-To ensure a response that complies with <dfn data-key="openid">OpenID Connect (OIDC)</dfn>, you must either request an <dfn data-key="audience">`audience`</dfn> or enable the **OIDC Conformant** switch in your [Auth0 dashboard](${manage_url}), under **Application > Settings > Show Advanced Settings > OAuth**. For more information, refer to [How to use the new flows](/api-auth/intro#how-to-use-the-new-flows).
+For more information on the two types of login flows, please refer to [Browser-Based vs. Native Login Flows on Mobile Devices](/tutorials/browser-based-vs-native-experience-on-mobile)
 :::
 
 ```swift
@@ -128,7 +128,7 @@ Auth0
     .webAuth()
     .audience("https://${account.namespace}/userinfo")
     .start { result in
-        switch result {
+        switch result { // Auth0.Result
         case .success(let credentials):
             print("credentials: \(credentials)")
         case .failure(let error):
@@ -137,8 +137,10 @@ Auth0
     }
 ```
 
+If you're using **Swift 5+**, `Auth0.Result` may shadow Swift's `Result` type. To prevent that, replace it with `Swift.Result` whenever you want to refer to Swift's built-in type. This will be fixed in the next major version of Auth0.swift.
+
 ::: note
-If you need help between the two types of login flows, refer to [Browser-Based vs. Native Login Flows on Mobile Devices](/tutorials/browser-based-vs-native-experience-on-mobile)
+To ensure a response that complies with <dfn data-key="openid">OpenID Connect (OIDC)</dfn>, you must either request an <dfn data-key="audience">`audience`</dfn> or enable the **OIDC Conformant** switch in your [Auth0 dashboard](${manage_url}), under **Application > Settings > Show Advanced Settings > OAuth**. For more information, refer to [How to use the new flows](/api-auth/intro#how-to-use-the-new-flows).
 :::
 
 #### Authenticate with a specific Auth0 connection

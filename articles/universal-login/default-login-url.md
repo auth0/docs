@@ -10,7 +10,7 @@ contentType: how-to
 
 In certain cases (described below), Auth0 could need to redirect back to the application's login initiation endpoint, using [OIDC Third Party Initiated Login](https://openid.net/specs/openid-connect-core-1_0.html#ThirdPartyInitiatedLogin).
 
-You can configure these URIs in [Application Settings](/dashboard/reference/settings-application) or [Tenant Advanced Settings](/dashboard/dashboard-tenant-settings).
+You can configure these URIs in [Application Settings](/dashboard/reference/settings-application) or [Tenant Advanced Settings](/dashboard/reference/settings-tenant).
 
 You can also do this using the Management API:
 
@@ -56,7 +56,7 @@ The `login_url` should point to a route in the application that ends up redirect
 
 ### Users bookmarking the login page
 
-When an application initiates the login process, it navigates to `https://${account.namespace}/authorize` with a set of required parameters. Auth0 then redirects end-users to a `https://${account.namespace}/login` page, with a URL that looks like:
+When an application initiates the login process, it navigates to `https://${account.namespace}/authorize` with a set of [required parameters](/api/authentication#login). Auth0 then redirects end-users to a `https://${account.namespace}/login` page, with a URL that looks like:
 
 `https://${account.namespace}/login?state=g6Fo2SBjNTRyanlVa3ZqeHN4d1htTnh&...`
 

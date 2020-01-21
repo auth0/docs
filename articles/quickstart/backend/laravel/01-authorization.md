@@ -16,21 +16,19 @@ This quickstart covers building an API protected by an Auth0-issued access token
 - Mobile, desktop, and other native applications using the [Native login flow](https://auth0.com/docs/flows/concepts/auth-code-pkce)
 - CLIs, daemons, or services running on your back-end using the [Client Credentials Flow](https://auth0.com/docs/flows/concepts/client-credentials)
 
-If this API is only consumed by a web application on the same domain (in the case of AJAX actions or lazy loading content for an authenticated user) then the API protection should be handled by the application itself and the [login flow secured by Auth0](https://auth0.com/docs/flows/concepts/auth-code). 
+If this API is only consumed by a web application on the same domain (in the case of AJAX actions or lazy loading content for an authenticated user) then the API protection should be handled by the application itself and the [login flow secured by Auth0](https://auth0.com/docs/flows/concepts/auth-code).
+
+<%= include('../_includes/_api_auth_preamble') %>
 
 <%= include('../../../_includes/_api_auth_intro') %>
 
 <%= include('../_includes/_api_create_new') %>
 
-<%= include('../_includes/_api_auth_preamble') %>
-
 ## Validate Access Tokens
 
 ### Install dependencies
 
-Protecting your Laravel API requires a middleware which will check for and verify a bearer token in the `Authorization` header of an incoming HTTP request. We'll do that using tools provided by the [laravel-auth0](https://github.com/auth0/laravel-auth0) package.
-
-Install `laravel-auth0` using **Composer**.
+Protecting your Laravel API requires a middleware which will check for and verify a bearer token in the `Authorization` header of an incoming HTTP request. We'll do that using tools provided by the [Auth0 Laravel](https://github.com/auth0/laravel-auth0) package.
 
 ::: note
 **[Composer](https://getcomposer.org/)** is a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you. See Composer's [getting started](https://getcomposer.org/doc/00-intro.md) doc for information on how to use it.
@@ -45,10 +43,10 @@ $ composer require auth0/login
 The **laravel-auth0** plugin comes with a configuration file that can be generated using [Artisan](https://laravel.com/docs/5.7/artisan). First, generate the configuration file from the command line:
 
 ```bash
-$ php artisan vendor:publish
+$ php artisan vendor:publish --provider "Auth0\Login\LoginServiceProvider"
 ```
 
-Select the `Auth0\Login\LoginServiceProvider` option. After the file is generated, it will be located at `config/laravel-auth0.php`. Edit this file to add the configuration values needed to verify incoming tokens:
+After the file is generated, it will be located at `config/laravel-auth0.php`. Edit this file to add the configuration values needed to verify incoming tokens:
 
 ```php
 // config/laravel-auth0.php
@@ -65,7 +63,7 @@ return [
 
 In more detail:
 
-* `authorized_issuers` is an array of allowed token issuers. In this case it would simply be an array with just your tenant URL.
+* `authorized_issuers` is an array of allowed token issuers. In this case, it would simply be an array with just your tenant URL.
 * `api_identifier` is the **Identifier** field of the API [created above](#configure-auth0-apis).
 * `supported_algs` is the **Signing Algorithm** field of the API [created above](#configure-auth0-apis). This value should be an array but only have a single value, `RS256`.
 
@@ -94,11 +92,23 @@ Now, let's implement the `handle()` method that Laravel will call automatically 
 ```php
 <?php
 // app/Http/Middleware/CheckJWT.php
-// ...
+
+namespace App\Http\Middleware;
+
+use Closure;
 use Auth0\SDK\JWTVerifier;
 
-class CheckJWT {
+class CheckJWT
+{
 
+    /**
+     * Validate an incoming JWT access token.
+     *
+     * @param \Illuminate\Http\Request $request - Illuminate HTTP Request object.
+     * @param Closure $next - Function to call when middleware is complete.
+     *
+     * @return mixed
+     */
     public function handle($request, Closure $next) {
         $accessToken = $request->bearerToken();
         if (empty($accessToken)) {
@@ -165,33 +175,33 @@ Route::middleware(['jwt'])->group(function () {
 
 ```
 
-The `/api/private` route is now only accessible if a valid Access Token is included in the `Authorization` header of the incoming request. We can test this by manually generating an Access Token for the API and using a tool like Postman to test the routes.
+The `/api/private` route is now only accessible if a valid access token is included in the `Authorization` header of the incoming request. We can test this by manually generating an access token for the API and using a tool like Postman to test the routes.
 
-In the Auth0 Dashboard:
+In the Auth0 Dashboard, go to the **Test** tab for the API created above and click the **COPY TOKEN** link.
 
-1. Go to the **Machine to Machine Applications** tab for the API created above.
-2. Authorize the **API Explorer Application** but leave all scopes unchecked.
-3. Click the **Test** tab, then **COPY TOKEN**.
+:::note
+If you see a button to **Create & Authorize Test Application**, you'll need to click that before the **COPY TOKEN** button appears. After creating the test Application, click the **Machine to Machine Applications** tab, scroll down to the Application that was created, click the down icon, remove the `read:messages` permissions allowed for that Application, and click **Update**. Now click the **Test** tab, then **COPY TOKEN** to proceed.
+:::
 
 Now, let's turn on the Laravel test server:
 
 ```bash
-$ php artisan serve --port=3000
+$ php artisan serve --port=3010
 ```
 
-Send a `GET` request to the public route  - `http://localhost:3000/api/public` - and you should receive back:
+Send a `GET` request to the public route  - `http://localhost:3010/api/public` - and you should receive back:
 
 ```json
 { "message": "Hello from a public endpoint!" }
 ```
 
-Now send a `GET` request to the private route  - `http://localhost:3000/api/private` - and you should get a 401 status and the following message:
+Now send a `GET` request to the private route  - `http://localhost:3010/api/private` - and you should get a 401 status and the following message:
 
 ```json
 { "message": "Bearer token missing" }
 ```
 
-Add an `Authorization` header set to `Bearer API_TOKEN_HERE` using the token generated above. Send the `GET` request to the prviate route again and you should see:
+Add an `Authorization` header set to `Bearer API_TOKEN_HERE` using the token generated above. Send the `GET` request to the private route again and you should see:
 
 ```json
 { "message": "Hello from a private endpoint!" }
@@ -199,23 +209,34 @@ Add an `Authorization` header set to `Bearer API_TOKEN_HERE` using the token gen
 
 ### Configure the Scopes
 
-The middleware we created above checks for the existence and validity of an Access Token but does not check the **scope** of the token. In this section, we will modify the middleware created above to check for specific scopes.
+The middleware we created above checks for the existence and validity of an access token but does not check the **scope** of the token. In this section, we will modify the middleware created above to check for specific scopes.
 
-Here are the changes to make to the `CheckJWT` middleware created above:
+Then, in the existing `CheckJWT` class, make the following changes:
 
 ```php
 // app/Http/Middleware/CheckJWT.php
 // ...
 class CheckJWT {
-
+    // Add the new parameter to this method.
     public function handle ($request, Closure $next, $scopeRequired = null) {
+        // Existing code minus the return statement stays here ...
         // ...
         if ($scopeRequired && !$this->tokenHasScope($decodedToken, $scopeRequired)) {
             return response()->json(['message' => 'Insufficient scope'], 403);
         }
+
+        // Return statement is unchanged.
         return $next($request);
     }
 
+    /**
+     * Check if a token has a specific scope.
+     *
+     * @param \stdClass $token - JWT access token to check.
+     * @param string $scopeRequired - Scope to check for.
+     *
+     * @return bool
+     */
     protected function tokenHasScope($token, $scopeRequired) {
         if (empty($token->scope)) {
             return false;
@@ -239,7 +260,7 @@ Now, we can create a new middleware group that will check for both a valid token
 // routes/api.php
 // ...
 
-// These endpoints require a valid Access Token with a "read:messages" scope.
+// These endpoints require a valid access token with a "read:messages" scope.
 Route::middleware(['jwt:read:messages'])->group(function () {
     Route::get('/private-scoped', function (Request $request) {
         return response()->json(['message' => 'Hello from a private, scoped endpoint!']);
@@ -247,15 +268,15 @@ Route::middleware(['jwt:read:messages'])->group(function () {
 });
 ```
 
-This route is now only accessible if an Access Token used in the request has a scope of `read:messages`.
+This route is now only accessible if an access token used in the request has a scope of `read:messages`.
 
-To test this route, first send a `GET` request with no token to the private, scoped route  - `http://localhost:3000/api/private-scoped` - and you should get a 401 status and the following message:
+To test this route, first send a `GET` request with no token to the private, scoped route  - `http://localhost:3010/api/private-scoped` - and you should get a 401 status and the following message:
 
 ```json
 { "message": "Bearer token missing" }
 ```
 
-Add an `Authorization` header set to `Bearer API_TOKEN_HERE` using the same token from the previous section. Send the `GET` request to the prviate, scoped route again and you should get a 403 status and the following message:
+Add an `Authorization` header set to `Bearer API_TOKEN_HERE` using the same token from the previous section. Send the `GET` request to the private, scoped route again and you should get a 403 status and the following message:
 
 ```json
 { "message": "Insufficient scope" }
@@ -264,8 +285,12 @@ Add an `Authorization` header set to `Bearer API_TOKEN_HERE` using the same toke
 Back in the Auth0 Dashboard:
 
 1. Go to the **Machine to Machine Applications** tab for the API created above.
-2. Expand the **API Explorer Application**, check the `read:messages` scope,and click **Update**
-3. Click the **Test** tab, then **COPY TOKEN**.
+2. Scroll to the test Application for this API, make sure it's authorized, and click the down arrow icon.
+3. Add the `read:messages` scope and click **Update** (then **Continue** if needed).
+
+![](/media/articles/server-apis/authorize-m2m-for-api.png)
+
+4. Click the **Test** tab, select the test Application, and click the **COPY TOKEN** link above the second code block.
 
 Change the `Authorization` header to use the new token and send the `GET` request again. You should get a 200 status and the following message:
 
@@ -275,13 +300,13 @@ Change the `Authorization` header to use the new token and send the `GET` reques
 
 ## Obtaining Access Tokens
 
-The example above uses manually-generated tokens which are not long-lived. Once your API is live on the web and ready to accept requests, the applications making the requests will need to create their tokens using one of a few ways:
+The example above uses manually-generated tokens which are not long-lived. Once your API is live on the web and ready to accept requests, the applications making the requests will need to get an access token for this API using one of a few ways:
 
-- Mobile, desktop, and other native applications will use a [Mobile/Native Login Flow](https://auth0.com/docs/flows/concepts/auth-code-pkce)
-- CLIs, daemons, or services running on your back-end will use an [Machine-to-Machine Flow](https://auth0.com/docs/flows/concepts/client-credentials)
-- Web applications can use the [Authorization Code Flow](https://auth0.com/docs/flows/concepts/auth-code)
+- Web applications will use the [Authorization Code Flow](/flows/concepts/auth-code)
+- Mobile, desktop, and other native applications will use a [Mobile/Native Login Flow](/flows/concepts/auth-code-pkce)
+- CLIs, daemons, or services running on your back-end will use an [Machine-to-Machine Flow](/flows/concepts/client-credentials)
 
-Regardless of the type, the application will need to request the audience of this API during the login flow to receive a correctly-formed access token. 
+Regardless of the type, the application will need to request the audience of this API during the login flow to receive a correctly-formed access token.
 
 ## Configure CORS (optional)
 

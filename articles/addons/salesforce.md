@@ -16,6 +16,8 @@ contentType: how-to
 
 # Salesforce Add-on
 
+<%= include('../_includes/_uses-delegation') %>
+
 Auth0 supports both the __production__ connection to Salesforce and the __Sandbox__, the only difference being the endpoints hosted by Salesforce: `https://login.salesforce.com` and `https://test.salesforce.com`, respectively.
 
 The integration also supports getting tokens for __Salesforce Community Sites__. For this to work, you need to pass two additional parameters:

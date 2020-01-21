@@ -24,6 +24,8 @@ description: Learn how to use Auth0 to authenticate and authorize Windows Azure 
 
 # Windows Azure Mobile Services Add-on
 
+<%= include('../_includes/_uses-delegation') %>
+
 ## 1. Create an application
 
 Windows Azure Mobile Services (WAMS) endpoints can be used from anywhere. To configure an app that interacts with WAMS, you can use any of the following tutorials:

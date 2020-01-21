@@ -7,7 +7,7 @@ You have already received a <dfn data-key="refresh-token">Refresh Token</dfn> if
 
 You can use the Refresh Token to get a new Access Token. Usually, a user will need a new Access Token only after the previous one expires or when gaining access to a new resource for the first time. It's bad practice to call the endpoint to get a new Access Token every time you call an API, and Auth0 maintains rate limits that will throttle the amount of requests to the endpoint that can be executed using the same token from the same IP.
 
-To refresh your token, make a `POST` request to the `/token` endpoint in the Authentication API, using `grant_type=refresh_token`.
+To refresh your token, make a `POST` request to the `/oauth/token` endpoint in the Authentication API, using `grant_type=refresh_token`.
 
 ### Example POST to token URL
 
@@ -45,11 +45,11 @@ To refresh your token, make a `POST` request to the `/token` endpoint in the Aut
 | `grant_type`    | Set this to "refresh_token". |
 | `client_id`     | Your application's Client ID. You can find this value in your [Application Settings](${manage_url}/#/Applications/${account.clientId}/settings). |
 | `refresh_token` | The Refresh Token to use. |
-| `scope`         | (optional) A space-delimited list of requested scope permissions. If not sent, the original scopes will be used; otherwise you can request a reduced set of scopes. |
+| `scope`         | (optional) A space-delimited list of requested scope permissions. If not sent, the original scopes will be used; otherwise you can request a reduced set of scopes. Note that this must be URL encoded. |
 
 ### Response
 
-If all goes well, you'll receive an HTTP 200 response with a payload containing a new `access_token`, its lifetime in seconds (`expires_in`), granted `scope` values, and `token_type`. If the scope of the initial token included `openid`, then the response will also include a new `id_token`:
+If all goes well, you'll receive an `HTTP 200` response with a payload containing a new `access_token`, its lifetime in seconds (`expires_in`), granted `scope` values, and `token_type`. If the scope of the initial token included `openid`, then the response will also include a new `id_token`:
 
 ```json
 {
@@ -62,5 +62,5 @@ If all goes well, you'll receive an HTTP 200 response with a payload containing 
 ```
 
 ::: warning
-You should validate your tokens before saving them. To learn how, see [Validate an ID Token](/tokens/guides/id-token/validate-id-token) and [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
+You should validate your tokens before saving them. To learn how, see [Validate ID Tokens](/tokens/guides/validate-id-tokens) and [Validate Access Tokens](/tokens/guides/validate-access-tokens).
 :::

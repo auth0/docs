@@ -38,7 +38,7 @@ You can work around the issues posed by ITP by using Auth0's [custom domains](/c
 
 [Safari Technology Preview](https://developer.apple.com/safari/technology-preview/) offers an "Intelligent Tracking Prevention Debug Mode" that you can use to troubleshoot ITP issues. You can find instructions on how to debug ITP on [this blog post from WebKit](https://webkit.org/blog/8387/itp-debug-mode-in-safari-technology-preview-62/).
 
-**NOTE**: The instructions mention how to permanently classify a custom domain as having tracking abilites for testing purposes. In later versions of Safari Technology Preview, though, the domain to store the User Defaults for this setting changed from `com.apple.SafariTechnologyPreview` to `com.apple.WebKit.Networking`. If you are having trouble with the commands mentioned in the instructions, try these:
+**NOTE**: The instructions mention how to permanently classify a custom domain as having tracking abilities for testing purposes. In later versions of Safari Technology Preview, though, the domain to store the User Defaults for this setting changed from `com.apple.SafariTechnologyPreview` to `com.apple.WebKit.Networking`. If you are having trouble with the commands mentioned in the instructions, try these:
 
 * Classify a site as having tracking abilities:
 ```

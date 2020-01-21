@@ -11,13 +11,15 @@ useCase:
 
 # Migration to LinkedIn API V2
 
-In December 2018, LinkedIn [deprecated version 1.0 of their sign-in API](https://engineering.linkedin.com/blog/2018/12/developer-program-updates). The final shutdown date is set for March 1st, 2019. LinkedIn is replacing the sign-in API with [version 2.0 that has some key differences](https://docs.microsoft.com/en-us/linkedin/consumer/integrations/self-serve/migration-faq?context=linkedin/consumer/context).
+In December 2018, LinkedIn [deprecated version 1.0 of their sign-in API](https://engineering.linkedin.com/blog/2018/12/developer-program-updates). The final shutdown date we set for March 1st, 2019 then moved to May 1st, 2019. In June 2019, the current status is that "Applications requesting Version 1.0 APIs may experience issues as we begin to remove services."
 
-We've added the option to set the LinkedIn API version for LinkedIn Connections. On the Auth0 Dashboard you can change the API version for a LinkedIn Connection by selecting a **Strategy Version** under the connection's settings.
+LinkedIn replaced the sign-in API with [version 2.0, which has some key differences](https://docs.microsoft.com/en-us/linkedin/consumer/integrations/self-serve/migration-faq?context=linkedin/consumer/context).
+
+We've added the option to set the LinkedIn API version for LinkedIn Connections. You can change the API version for a LinkedIn Connection through the Auth0 Dashboard by selecting a **Strategy Version** under the connection's settings.
 
 ![New LinkedIn Connection Settings](/media/articles/connections/social/linkedin/linkedin-connection-new.png)
 
-On March 1st, 2019 all connections will automatically be updated to use version 2 of the LinkedIn API. You may need to update your application code to accomodate these API changes.
+Auth0 will not automatically migrate all connections to Version 2 until Version 1 stops working completely. We strongly recommend that you update your connection settings to Version 2. You may need to update your application code to accommodate these API changes.
 
 ## What's changed?
 

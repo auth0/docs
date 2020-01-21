@@ -60,6 +60,8 @@ Once you have provided this information, click the **Install** button to finish 
 
 The integration between Auth0 and Sumo Logic is now in place!
 
+<%= include('./_includes/_batch-size') %>
+
 ## How to view the results
 
 The integration you just setup, created a scheduled job that will be responsible to export the logs.
@@ -91,7 +93,7 @@ To help us (and our customers) visualize these logs, we spent some time creating
 
 If you're a Sumo Logic customer and are interested in trying out this dashboard, you can find details on installing the Auth0 App for the Sumo Logic extension here:
 
-[Install the Auth0 App](https://help.sumologic.com/Send_Data/Data_Types/Auth0/02Install_the_Auth0_App)
+[Install the Auth0 App](https://help.sumologic.com/07Sumo-Logic-Apps/20SAML/Auth0/Auth0-App-Dashboards)
 
 Once it's available through your account, you're free to customize it, add to it, create alerts based on the searches, or really anything else that you find useful.
 

@@ -8,13 +8,11 @@ useCase:
 ---
 # Pass Parameters to Identity Providers
 
-You can pass provider-specific parameters to an Identity Provider, during authentication.
+You can pass provider-specific parameters to an Identity Provider during authentication. The values can either be static per connection or dynamic per user. Note the following restrictions:
 
-The values can either be static per connection or dynamic per user.
-
-Note the following restrictions:
 - Only [valid OAuth 2.0/OIDC parameters](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint) are accepted.
 - Not all Identity Providers support upstream parameters. Check with the specific Identity Provider before you proceed with your implementation.
+- SAML identity providers, in particular, do not support upstream parameters.
 
 ## Static parameters
 

@@ -1,8 +1,8 @@
-title: Spring Security Java API
+title: Spring Security 4 Java API
 thirdParty: false
 author:
-  name: Luciano Balmaceda
-  email: luciano.balmaceda@auth0.com
+  name: Jim Anderson
+  email: jim.anderson@auth0.com
   community: false
 alias:
   - spring security

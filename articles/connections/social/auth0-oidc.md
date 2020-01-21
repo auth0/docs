@@ -1,9 +1,7 @@
 ---
 connection: Auth0 OpenIDConnect
-seo_alias: auth0-oidc
 image: /media/connections/auth0.png
 description: You can use an Application on another Auth0 tenant as an OIDC identity provider in your current Auth0 tenant.
-toc: true
 topics:
   - connections
   - social
@@ -12,7 +10,11 @@ useCase:
     - customize-connections
     - add-idp
 ---
-# Authenticate using OpenIDConnect to another Auth0 Tenant
+# Authenticate using OpenIDConnect to another Auth0 Tenant (Deprecated)
+
+::: warning
+This solution has been deprecated because it requires the use of a legacy version of the Auth0 User Profile. You should use the [OIDC Enterprise Connection](/connections/enterprise/oidc) instead.
+:::
 
 You can use an application on one Auth0 tenant (referred to below as the **OIDC Provider tenant**) as an identity provider in another Auth0 tenant (the **Relying Party tenant**).
 

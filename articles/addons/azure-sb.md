@@ -19,6 +19,8 @@ description: Learn how to use Auth0 to authenticate and authorize Azure Service 
 
 # Azure Service Bus Add-on
 
+<%= include('../_includes/_uses-delegation') %>
+
 Here's a sample call to the delegation endpoint to get the Shared Access Signature (SAS):
 
 ```text

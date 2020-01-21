@@ -11,7 +11,7 @@ useCase:
 ---
 # Migrate from Search v2 to v3
 
-The user search engine v2 has been deprecated as of **June 6th 2018**. We highly recommend migrating user search functionality to search engine v3 (`search_engine=v3`) as soon as possible. 
+User search v2 has reached its end of life as of **June 30, 2019**. We highly recommend migrating user search functionality to search engine v3 (`search_engine=v3`) as soon as possible.
 
 ## Migration considerations
 
@@ -84,4 +84,4 @@ Please note that only one log of the same type will be generated within 60 minut
 * [Authorization Extension](/extensions/authorization-extension/v2)
 * [Delegated Administration](/extensions/delegated-admin/v3)
 * [User Import/Export Extension](/extensions/user-import-export)
-* [Management API Explorer](/api/management/v2#!/users/get_users)
+* [Management API Explorer](/api/management/v2#!/Users/get_users)

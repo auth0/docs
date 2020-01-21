@@ -87,7 +87,7 @@ Critical Production issues should always be reported via the [Support Center](ht
 
 You can add support-only users to your Auth0 tenant. This will allow them to open, view, and comment on [Support Center](${env.DOMAIN_URL_SUPPORT}) tickets, receive relevant notifications, and see service details.  They do not, however, have full administration access to the [Auth0 Dashboard](${manage_url}).
 
-You can add support-only users via the Support Center. Click on your name in the top right, and click **Support Center Users**. Note that only tenant administrators with `All Applications` access can add Support-Only users.
+To add one or more support-only users, go to [Support Center](${env.DOMAIN_URL_SUPPORT}). Click on your name in the top right, and click **Invite Users to Support Center**. Note that only tenant administrators with `All Applications` access can add Support-Only users.
 
 ![](/media/articles/support/support-center-users.png)
 

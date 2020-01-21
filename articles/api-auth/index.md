@@ -20,10 +20,6 @@ useCase:
   </p>
 </div>
 
-::: note
-**Heads up!** As part of our efforts to improve security and standards-based interoperability, we have implemented several new features in our authentication flows and made changes to existing ones. For an overview of these changes, and details on how you adopt them, refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
-:::
-
 At some point, your custom APIs will need to allow limited access to users, servers, or servers on behalf of users. With Auth0 you can manage the authorization requirements for server-to-server and application-to-server applications.
 
 By using the OAuth 2.0 authorization framework, you can give your own applications or third-party applications limited access to your APIs on behalf of the application itself. With Auth0, you can easily support different flows in your own APIs without worrying about the OAuth 2.0/<dfn data-key="openid">OpenID Connect (OIDC)</dfn> specification, or the many other technical aspects of API authorization.
@@ -138,9 +134,9 @@ In this page you can find a list of resources that can help you secure your APIs
     </ul>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/api-auth/why-use-access-tokens-to-secure-apis">Why you should always use Access Tokens to secure an API</a>
+    <i class="icon icon-budicon-715"></i><a href="/tokens">Tokens</a>
     <p>
-      Learn about the differences between Αccess Τoken and ID Τoken and why the latter should never be used to secure an API.
+      Learn about the types of tokens related to identity and authentication and how they are used by Auth0.
     </p>
   </li>
   <li>
@@ -150,7 +146,7 @@ In this page you can find a list of resources that can help you secure your APIs
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/api-auth/tutorials/verify-access-token">Verify Access Tokens</a>
+    <i class="icon icon-budicon-715"></i><a href="/tokens/guides/validate-access-tokens">Validate Access Tokens</a>
     <p>
       Learn what an API has to do in order to verify a Bearer Access Token.
     </p>

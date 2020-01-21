@@ -75,7 +75,7 @@ The [OAuth 2.0 Authorization Framework specification](https://tools.ietf.org/htm
 
 - [Authorization Code](/flows/concepts/auth-code): used by Web Apps executing on a server. This is also used by mobile apps, using the [Proof Key for Code Exchange (PKCE) technique](/flows/concepts/auth-code-pkce).
 
-- [Implicit](/flows/concepts/auth-code): used by JavaScript-centric apps (Single-Page Applications) executing on the user's browser.
+- [Implicit](/flows/concepts/implicit): used by JavaScript-centric apps (Single-Page Applications) executing on the user's browser.
 
 - [Resource Owner Password Credentials](/api-auth/grant/password): used by trusted apps.
 
@@ -106,7 +106,7 @@ The request parameters of the Authorization endpoint are:
 This endpoint is used by the **Authorization Code** and the **Implicit** [grant types](#authorization-grant-types). The authorization server needs to know which grant type the application wants to use, since it affects the kind of credential it will issue: for **Authorization Code** grant it will issue an authorization code  (which later can be exchanged with an Access Token), while for **Implicit** grant it will issue an **Access Token**.
 
 ::: panel Authorization Code vs Access Token
-An authorization code is an opaque string, meant to be exchanged with an Access Token at the [token endpoint](#token-endpoint). An Access Token is an opaque string (or a [JWT](/jwt) in Auth0 implementation) that denotes who has authorized which permissions (scopes) to which application.
+An authorization code is an opaque string, meant to be exchanged with an Access Token at the [token endpoint](#token-endpoint). An Access Token is an opaque string (or a [JWT](/tokens/concepts/jwts) in Auth0 implementation) that denotes who has authorized which permissions (scopes) to which application.
 :::
 
 In order to inform the authorization server which grant type to use, the `response_type` request parameter is used:
@@ -116,7 +116,7 @@ In order to inform the authorization server which grant type to use, the `respon
 - For **Implicit** grant set `response_type=token`. This way the response will include an Access Token. An alternative is to set `response_type=id_token token`. In this case the response will include both an Access Token and an ID Token.
 
 ::: panel ID Token
-The ID Token is a JWT that contains information about the logged in user. It was introduced by <dfn data-key="openid">**OpenID Connect (OIDC)**</dfn>. For more info, see [OpenID Connect](/protocols/oidc) and [ID Token](/tokens/id-token).
+The ID Token is a JWT that contains information about the logged in user. It was introduced by <dfn data-key="openid">**OpenID Connect (OIDC)**</dfn>. For more info, see [OpenID Connect](/protocols/oidc) and [ID Token](/tokens/concepts/id-tokens).
 :::
 
 #### How response mode works
@@ -156,7 +156,7 @@ The [OAuth 2.0 Multiple Response Type Encoding Practices](https://openid.net/spe
    <body onload="javascript:document.forms[0].submit()">
     <form method="post" action="https://my-redirect-uri.com/callback">
       <input type="hidden" name="state" value="klsdfY78FVN3sl6DWSjsdhfsd8r67832nb"/>
-      <input type="hidden" name="access_token" value="eyJ...plD"/>
+      <input type="hidden" name="id_token" value="eyJ...plD"/>
     </form>
    </body>
   </html>
@@ -166,7 +166,7 @@ The [OAuth 2.0 Multiple Response Type Encoding Practices](https://openid.net/spe
 
 ### Token endpoint
 
-The Token endpoint is used by the application in order to get an [Access Token](/tokens/overview-access-tokens) or a <dfn data-key="refresh-token">[Refresh Token](/tokens/refresh-token)</dfn>. It is used by all flows, except for the [Implicit Flow](/flows/concepts/implicit) (since an Access Token is issued directly).
+The Token endpoint is used by the application in order to get an [Access Token](/tokens/concepts/access-tokens) or a <dfn data-key="refresh-token">[Refresh Token](/tokens/concepts/refresh-tokens)</dfn>. It is used by all flows, except for the [Implicit Flow](/flows/concepts/implicit) (since an Access Token is issued directly).
 
 In the [Authorization Code Flow](/flows/concepts/auth-code), the application exchanges the authorization code it got from the Authorization endpoint for an Access Token.
 

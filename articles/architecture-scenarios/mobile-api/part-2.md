@@ -28,7 +28,7 @@ You will be required to supply the following details for your API:
 
 - __Name__: a friendly name for the API. Does not affect any functionality.
 - __Identifier__: a unique identifier for the API. We recommend using a URL but note that this doesn't have to be a publicly available URL, Auth0 will not call your API at all. This value cannot be modified afterwards.
-- __Signing Algorithm__: the algorithm to sign the tokens with. The available values are `HS256` and `RS256`. When selecting RS256 the token will be signed with the tenant's private key. For more details on the signing algorithms see the Signing Algorithms paragraph below.
+- __Signing Algorithm__: the algorithm to sign the tokens with. The available values are `HS256` and `RS256`. When selecting RS256 the token will be signed with the tenant's private key. To learn more about signing algorithms, see [Signing Algorithms](/tokens/concepts/signing-algorithms).
 
 ![Create API](/media/articles/architecture-scenarios/mobile-api/create-api.png)
 
@@ -48,7 +48,7 @@ Set a name for your Application (we will use `Timesheets Mobile`) and select `Na
 
 Click __Create__.
 
-![Create Application](/media/articles/architecture-scenarios/mobile-api/create-application.png)
+![Create Application](/media/articles/architecture-scenarios/mobile-api/create-client.png)
 
 ## Configure the Authorization Extension
 
@@ -118,7 +118,7 @@ function (user, context, callback) {
 }
 ```
 
-The code above will ensure that all Access Tokens will only contain the scopes which are valid according to a user's permissions. Once you are done you can click on the **Save** button.
+The code above will ensure that all Access Tokens will only contain the properly-formatted scopes (e.g., `action:area` or `delete:timesheets`) which are valid according to a user's permissions. Once you are done you can click on the **Save** button.
 
 Rules execute in the order they are displayed on the Rules page, so ensure that the new rule you created is positioned below the rule for the Authorization Extension, so it executes after the Authorization Extension rule:
 

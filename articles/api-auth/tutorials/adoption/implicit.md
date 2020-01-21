@@ -36,7 +36,7 @@ This document describes the differences of this flow between the legacy and OIDC
     &redirect_uri=https://app.example.com
     &device=my-device-name</code></pre>
     <ul>
-        <li>The <code>device</code> parameter is only needed if <a href="/tokens/refresh-token">requesting a <dfn data-key="refresh-token">Refresh Token</dfn></a> by passing the <code>offline_access</code> <dfn data-key="scope">scope</dfn>.</li>
+        <li>The <code>device</code> parameter is only needed if <a href="/tokens/concepts/refresh-tokens">requesting a <dfn data-key="refresh-token">Refresh Token</dfn></a> by passing the <code>offline_access</code> <dfn data-key="scope">scope</dfn>.</li>
     </ul>
     </div>
     <div id="request-oidc" class="tab-pane">
@@ -92,7 +92,7 @@ Location: https://app.example.com/#
     &id_token=eyJ...
     &token_type=Bearer</code></pre>
     <ul>
-        <li>The returned Access Token is valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a> (provided that the API specified by the <code>audience</code> param uses <code>RS256</code> as signing algorithm) and optionally the resource server specified by the <code>audience</code> parameter.</li>
+        <li>The returned Access Token is valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a> (provided that the API specified by the <code>audience</code> param uses <code>RS256</code> as <a href="/tokens/concepts/signing-algorithms">signing algorithm</a>) and optionally the resource server specified by the <code>audience</code> parameter.</li>
         <li>If using <code>response_type=id_token</code>, Auth0 will only return an ID Token.</li>
         <li>Refresh Tokens are not allowed in the implicit grant. <a href="/api-auth/tutorials/silent-authentication">Use <code>prompt=none</code> instead</a>.</li>
     </ul>
@@ -136,7 +136,7 @@ Location: https://app.example.com/#
     "nonce": "jxdlsjfi0fa"
 }</code></pre>
         <ul>
-            <li>The <code>favorite_color</code> claim must be namespaced and added through a rule.</li>
+            <li>The <code>favorite_color</code> claim must be <a href="/tokens/guides/create-namespaced-custom-claims">namespaced</a> and added through a rule.</li>
             <li>After validating the ID Token, the application must <a href="/api-auth/tutorials/nonce">validate the nonce to mitigate replay attacks</a>.</li>
         </ul>
     </div>
@@ -173,7 +173,7 @@ Location: https://app.example.com/#
     "scope": "openid email"
 }</code></pre>
         <ul>
-            <li>The returned Access Token is a JWT valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a>(provided that the API specified by the <code>audience</code> param uses <code>RS256</code> as signing algorithm) as well as the resource server specified by the <code>audience</code> parameter.</li>
+            <li>The returned Access Token is a JWT valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a>(provided that the API specified by the <code>audience</code> param uses <code>RS256</code> as <a href="/tokens/concepts/signing-algorithms">signing algorithm</a>) as well as the resource server specified by the <code>audience</code> parameter.</li>
             <li>Note that an opaque Access Token could still be returned if /userinfo is the only specified audience.</li>
         </ul>
     </div>

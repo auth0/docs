@@ -47,7 +47,7 @@ Create a request that contains the following parameters:
 |-----------|-------------|
 | `users` | [File in JSON format](/users/references/bulk-import-database-schema-examples#file-example) that contains the users to import. |
 | `connection_id` | ID of the connection to which users will be inserted. You can retrieve the ID using the [GET /api/v2/connections](/api/management/v2#!/Connections/get_connections) endpoint. |
-| `upsert` | Boolean value; `false` by default. When set to `false`, pre-existing users that match on email address will fail. When set to `true`, pre-existing users that match on email address will be updated, but only with upsertable attributes. For a list of user profile fields that can be upserted during import, see [User Profile Attributes](/users/references/user-profile-structure#user-profile-attributes). |
+| `upsert` | Boolean value; `false` by default. When set to `false`, pre-existing users that match on email address, user ID, or username will fail. When set to `true`, pre-existing users that match on any of these fields will be updated, but only with upsertable attributes. For a list of user profile fields that can be upserted during import, see [User Profile Attributes](/users/references/user-profile-structure#user-profile-attributes). |
 | `external_id` | Optional user-defined string that can be used to correlate multiple jobs. Returned as part of the job status response. |
 | `send_completion_email` | Boolean value; `true` by default. When set to `true`, sends a completion email to all tenant owners when the import job is finished. If you do *not* want emails sent, you must explicitly set this parameter to `false`. |
 
@@ -73,9 +73,16 @@ You can query a job's status using the [Get a Job endpoint](/api/management/v2#!
 
 Additionally, the job status is added to [Tenant Logs](${manage_url}/#/logs), which allows for a custom WebHook to be triggered using the [WebHook Logs Extension](/extensions/management-api-webhooks).
 
+## Job timeouts
+
+All user import jobs timeout after **two (2) hours**. If your job does not complete within this time frame, it is marked as failed.
+
+Furthermore, all of your job-related data is automatically deleted after 24 hours and cannot be accessed afterward. As such, **we strongly recommend storing the job results using the storage mechanism of your choice**.
+
 ## Retrieve failed entries
 
 You can query and retrieve details on failed entries via the API using the [Get Failed Job Error Details endpoint](/api/management/v2#!/Jobs/get_errors).
+
 
 ## Keep reading
 

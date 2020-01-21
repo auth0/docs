@@ -307,7 +307,7 @@ You can follow the [Account Linking Using Server Side Code](/link-accounts/sugge
 
 ## Unlinking accounts
 
-The Auth0 Management API V2 also provides an [Unlink a user account endpoint](/api/v2#!/Users/delete_provider_by_user_id) which can be used with either of these two **scopes**:
+The Auth0 Management API V2 also provides an [Unlink a user account endpoint](/api/v2#!/Users/delete_user_identity_by_user_id) which can be used with either of these two **scopes**:
 
 * `update:current_user_identities`: when you call the endpoint from client-side code where you have an Access Token with this scope
 * `update:users`: when you call the endpoint from server-side code where you have an Access Token with this scope
@@ -330,3 +330,31 @@ The result of the unlinking process is the following:
 * The secondary account will have no metadata
 
 If your goal is to delete the secondary identity entirely, you must first unlink the accounts, and then delete the newly created secondary account.
+
+## Properties from secondary identities
+
+When a user logs in, applications receive user information from the **primary identity**. Auth0 will not attempt to automatically complete any missing profile field with information from the secondary identities. For example, if the primary identity comes from a database connection and is missing the `given_name` and `family_name` properties, and the secondary identity comes from a Google social connection that includes the first and last name of the user, then by default, the application will **not** receive data contained in the second identity.
+
+To fill in the missing info in primary identities with information from secondary identities, you can write a [rule](/rules):
+
+```js
+function(user, context, callback) {
+  
+  const propertiesToComplete = ["given_name", "family_name", "name"];
+
+  // go over each property and try to get missing
+  // information from secondary identities
+  for(var property of propertiesToComplete) {
+    if (!user[property]) {
+      for(var identity of user.identities) {
+        if (identity.profileData && identity.profileData[property]) {
+          user[property] = identity.profileData[property];
+          break;
+        }
+      }
+    }
+  }
+  
+  callback(null, user, context);
+}
+```

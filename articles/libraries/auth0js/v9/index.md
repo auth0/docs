@@ -1,7 +1,7 @@
 ---
 section: libraries
 toc: true
-title: Auth0.js v9 Reference
+title: auth0.js v9 Reference
 description: How to install, initialize and use auth0.js v9
 topics:
   - libraries
@@ -11,9 +11,9 @@ contentType:
   - how-to
 useCase: add-login
 ---
-# Auth0.js v9 Reference
+# auth0.js v9 Reference
 
-Auth0.js is a client-side library for Auth0. It is recommended for use in single-page apps, and auth0.js in your SPA makes it easier to do authentication and authorization with Auth0.
+auth0.js is a client-side library for Auth0. It is recommended for use in single-page apps, preferably in conjunction with [Universal Login](/universal-login), which should be used whenever possible. Using auth0.js in your SPA makes it easier to do authentication and authorization with Auth0.
 
 The full API documentation for the library is [here](https://auth0.github.io/auth0.js/index.html).
 
@@ -89,10 +89,10 @@ Because of clock skew issues, you may occasionally encounter the error `The toke
 
 ##### Scope
 
-The default `scope` value in Auth0.js v9 is `openid profile email`.
+The default `scope` value in auth0.js v9 is `openid profile email`.
 
-::: panel Running Auth0.js Locally
-If you don't specify at least the above scope when initializing Auth0.js, and you are running your website from `http://localhost` or `http://127.0.0.1`, calling the `getSSOData()` method will result in the following error in the browser console:
+::: panel Running auth0.js Locally
+If you don't specify at least the above scope when initializing auth0.js, and you are running your website from `http://localhost` or `http://127.0.0.1`, calling the `getSSOData()` method will result in the following error in the browser console:
 
 `Consent required. When using getSSOData, the user has to be authenticated with the following scope: openid profile email`
 
@@ -111,11 +111,11 @@ The `authorize()` method can be used for logging in users via <dfn data-key="uni
 | --- | --- | --- |
 | `audience` | optional | (String)  The default audience to be used for requesting API access. |
 | `connection` | optional | (String) Specifies the connection to use rather than presenting all connections available to the application. |
-| `scope` | optional | (String) The scopes which you want to request authorization for. These must be separated by a space. You can request any of the standard OIDC scopes about users, such as `profile` and `email`, custom claims that must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims), or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a <dfn data-key="refresh-token">Refresh Token</dfn>. |
+| `scope` | optional | (String) The scopes which you want to request authorization for. These must be separated by a space. You can request any of the standard OIDC scopes about users, such as `profile` and `email`, custom claims that must [conform to a namespaced format](/tokens/guides/create-namespaced-custom-claims), or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a <dfn data-key="refresh-token">Refresh Token</dfn>. |
 | `responseType` | optional | (String) It can be any space separated list of the values `code`, `token`, `id_token`.  It defaults to `'token'`, unless a `redirectUri` is provided, then it defaults to `'code'`. |
 | `clientID` | optional | (String)  Your Auth0 client ID. |
 | `redirectUri` | optional | (String) The URL to which Auth0 will redirect the browser after authorization has been granted for the user. |
-| `state` | optional | (String)  An arbitrary value that should be maintained across redirects. It is useful to mitigate CSRF attacks and for any contextual information (for example, a return URL) that you might need after the authentication process is finished. For more information, see [State Parameter](/protocols/oauth2/oauth-state). Auth0.js, when used in single-page applications, handles the state generation and validation automatically if not specified. |
+| `state` | optional | (String)  An arbitrary value that should be maintained across redirects. It is useful to mitigate CSRF attacks and for any contextual information (for example, a return URL) that you might need after the authentication process is finished. For more information, see [State Parameter](/protocols/oauth2/oauth-state). auth0.js, when used in single-page applications, handles the state generation and validation automatically if not specified. |
 | `prompt` | optional | (String) A value of `login` will force the login page to show regardless of current session. A value of `none` will attempt to bypass the login prompts if a session already exists (see the [silent authentication](/sso/current/single-page-apps#silent-authentication) documentation for more details). |
 
 For hosted login, one must call the `authorize()` method.
@@ -236,7 +236,7 @@ The `state` parameter is an opaque value that Auth0 will send back to you. This 
 
 <dfn data-key="passwordless">Passwordless authentication</dfn> allows users to log in by receiving a one-time password via email or text message. The process will require you to start the Passwordless process, generating and dispatching a code to the user, (or a code within a link), followed by accepting their credentials via the verification method. That could happen in the form of a login screen which asks for their (email or phone number) and the code you just sent them. It could also be implemented in the form of a Passwordless link instead of a code sent to the user. They would simply click the link in their email or text and it would hit your endpoint and verify this data automatically using the same verification method (just without manual entry of a code by the user).
 
-In order to use Passwordless, you will want to initialize Auth0.js with a `redirectUri` and to set the `responseType: 'token'`.
+In order to use Passwordless, you will want to initialize auth0.js with a `redirectUri` and to set the `responseType: 'token'`.
 
 ```js
 var webAuth = new auth0.WebAuth({
@@ -249,7 +249,7 @@ var webAuth = new auth0.WebAuth({
 
 ### Start passwordless
 
-The first step in Passwordless authentication with Auth0.js is the `passwordlessStart` method, which has several parameters which can be passed within its `options` object:
+The first step in Passwordless authentication with auth0.js is the `passwordlessStart` method, which has several parameters which can be passed within its `options` object:
 
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
@@ -271,7 +271,7 @@ webAuth.passwordlessStart({
 );
 ```
 
-### Verify passwordless
+### Passwordless Login
 
 If sending a code, you will then need to prompt the user to enter that code. You will process the code, and authenticate the user, with the `passwordlessLogin` method, which has several parameters which can be sent in its `options` object:
 
@@ -431,7 +431,7 @@ Signups should be for database connections. Here is an example of the `signup` m
 
 The `checkSession` method allows you to acquire a new token from Auth0 for a user who is already authenticated against Auth0 for your domain. The method accepts any valid OAuth2 parameters that would normally be sent to `authorize`. If you omit them, it will use the ones provided when initializing Auth0.
 
-The call to `checkSession` can use get a new token for the API that was specified as the audience when `webAuth` was initialized:
+The call to `checkSession` can be used to get a new token for the API that was specified as the audience when `webAuth` was initialized:
 
 ```js
 webAuth.checkSession({}, function (err, authResult) {
@@ -496,7 +496,7 @@ The user will then receive an email which will contain a link that they can foll
 
 The Management API provides functionality that allows you to link and unlink separate user accounts from different providers, tying them to a single profile (Read more about [Linking Accounts](/link-accounts) with Auth0). It also allows you to update user metadata.
 
-To get started, you first need to obtain a an Access Token that can be used to call the Management API. You can do it by specifying the `https://${account.namespace}/api/v2/` audience when initializing Auth0.js, in which case you will get the Access Token as part of the authentication flow.
+To get started, you first need to obtain a an Access Token that can be used to call the Management API. You can do it by specifying the `https://${account.namespace}/api/v2/` audience when initializing auth0.js, in which case you will get the Access Token as part of the authentication flow.
 
 ::: note
 If you use [custom domains](/custom-domains), you will need to instantiate a new copy of `webAuth` using your Auth0 domain rather than your custom one, for use with the Management API calls, as it only works with Auth0 domains.
@@ -565,7 +565,7 @@ auth0Manage.patchUserMetadata(userId, userMetadata, cb);
 
 Linking user accounts will allow a user to authenticate from any of their accounts and no matter which one they use, still pull up the same profile upon login. Auth0 treats all of these accounts as separate profiles by default, so if you wish a user's accounts to be linked, this is the way to go.
 
-The `linkUser` method accepts two parameters, the primary `userId` and the secondary user's ID Token (the token obtained after login with this identity). The user id in question is the unique identifier for this user account. If the id is in the format `facebook|1234567890`, the id required is the portion after the delimiting pipe. Visit the [Linking Accounts](/link-accounts) documentation for more details on linking accounts.
+The `linkUser` method accepts two parameters, the primary `userId` and the secondary user's ID Token (the token obtained after login with this identity). The user ID in question is the unique identifier for the primary user account. The ID should be passed with the provider prefix, e.g., `auth0|1234567890` or `facebook|1234567890`, when using this method. Visit the [Linking Accounts](/link-accounts) documentation for more details on linking accounts.
 
 ```js
 auth0Manage.linkUser(userId, secondaryUserToken, cb);

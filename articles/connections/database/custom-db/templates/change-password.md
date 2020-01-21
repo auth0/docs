@@ -1,28 +1,45 @@
 ---
-description: Custom DB script templates for changing a user's password
+description: Custom database action script templates for changing a user's password.
 toc: true
 topics:
     - connections
     - custom-database
-contentType: how-to
+contentType: reference
 useCase:
     - customize-connections
 ---
-# Custom Database Script Templates: Change Password
+# Change Password Script Templates
 
-Auth0 provides the following custom database change password script templates that you can use when implementing password changing functionality for your users.
+The **Change Password** script implements the function executed to change the password associated with the user identity in the your legacy identity store. We recommend naming this function `changePassword`. The script is only used in a legacy authentication scenario. 
 
-While Auth0 has populated default templates in the Dashboard script editor, you can use the following links to recover the original code and notes once you've made and saved edits.
+This script executes whenever a user tries to change their password; the user will receive the password reset email, which includes the link they need to follow to change their password. This script is **optional** however, a call to `changePassword` is typically preceded by a call to `getUser`, so if you implement the change password script you will also need to implement the [get user script](/connections/database/custom-db/templates/get-user).
 
-## Notes
+::: panel Best practice
+While it’s not mandatory to implement the `changePassword` function, it is a recommended best practice. The `changePassword` function is required to for the password reset workflow recommended for [great customer experience](https://auth0.com/learn/password-reset/). 
+:::
 
-When working on your password change script, keep in mind that:
+The script is executed whenever [password reset](/universal-login/password-reset) workflow is performed and also during password change workflow via the Auth0 Dashboard or the Auth0 Management API. 
 
-* This script will be executed whenever the user wishes to change his password; the user will receive the password reset email, which include the link they need to follow to change their password
-* The parameters **email** and **newPassword** are used to confirm the new password
-* The change password script is **optional**
+The `changePassword` function implemented in the **Change Password** script should be defined as follows:
 
-## Sample Scripts
+```js
+function changePassword(email, newPassword, callback) {
+  // TODO: implement your script
+  return callback(null, result);
+}
+```
+
+| **Parameter** | **Description** |
+| --- | --- |
+| `email` | The email address for the user as the user identifying credential. |
+| `password` | The new password credential for the user. The password credential for the user is passed to the script in plain text so care must be taken regarding its use. |
+| `callback` | Executed with up to two parameters. The first parameter is an indication of status: a `null` first parameter with a corresponding second parameter of `true` indicates that the operation executed successfully; a `null` first parameter with no corresponding second parameter (or one with a value of `false`) indicates that no password change was performed (possibly due to the user not being found). A non `null` first parameter value indicates that some error condition occurred.  |
+
+<%= include('../_includes/_bp-error-object') %>
+
+<%= include('../_includes/_panel-bcrypt-hash-encryption') %>
+
+## Language-specific script examples
 
 Auth0 provides sample scripts for use with the following languages/technologies:
 
@@ -308,7 +325,7 @@ function changePassword(email, newPassword, callback) {
 
 ```sql
 function changePassword (email, newPassword, callback) {
-  var connection = mysql({
+  var connection = mysql.createConnection({
     host     : 'localhost',
     user     : 'me',
     password : 'secret',
@@ -532,3 +549,12 @@ function changePassword (email, newPassword, callback) {
 
 }
 ```
+
+## Keep reading
+
+* [Create](/connections/database/custom-db/templates/create)
+* [Delete](/connections/database/custom-db/templates/delete)
+* [Get User](/connections/database/custom-db/templates/get-user)
+* [Login](/connections/database/custom-db/templates/login)
+* [Verify](/connections/database/custom-db/templates/verify)
+* [Change Email](/connections/database/custom-db/templates/change-email)

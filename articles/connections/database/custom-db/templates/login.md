@@ -1,28 +1,82 @@
 ---
-description: Custom DB script templates for user login
+description: Custom database action script templates for user login.
 toc: true
 topics:
     - connections
     - custom-database
-contentType: how-to
+contentType: reference
 useCase:
     - customize-connections
 ---
-# Custom Database Script Templates: Login
+# Login Script Templates
 
-Auth0 provides the following custom database login script templates that you can use when implementing user login functionality.
+The **Login** script implements the function executed each time a user is required to authenticate. We recommend naming this function `login`. The `login` function is typically used during the Universal Login workflow, but is also applicable in other authentication flow scenarios (such as [Resource Owner Password Grant](/api-auth/tutorials/password-grant)). The script is required for both legacy authentication and for automatic migration. 
 
-While Auth0 has populated default templates in the Dashboard script editor, you can use the following links to recover the original code and notes once you've made and saved edits.
+The `login` function should be defined as follows:
 
-## Notes
+```js
+function login(userNameOrEmail, password, callback) {
+  // TODO: implement your script
+  return callback(null, profile);
+}
+```
 
-When working on your login script, keep in mind that:
+| **Parameter** | **Description** |
+| --- | --- |
+| `userNameOrEmail` | The identification credential for the user typically either the email address for the user or the name associated with the user. With default out-of-box Universal Login, support for the use of `username` during login is available only if the **Requires Username** setting is enabled for the database connection.  |
+| `password` | Passed to the `login` script in plain text. Do not store it or transport it anywhere in its vanilla form. Use `bcrypt` as described below. |
+| `callback` | Executed with up to two parameters. The first parameter is an indication of status: a `null` first parameter with a corresponding second parameter indicates that the operation executed successfully, while a non `null` first parameter value indicates that some error condition occurred. If the first parameter is `null` then the second parameter is the profile for the user in JSON format. If the first parameter is non `null` then the second parameter can be omitted. The second parameter is the `profile` for the user. This should be supplied as a JSON object in normalized user profile form. See the example below. |
 
-* The script will be executed each time a user attempts to login
-* The two parameters, **email** and **password**, are used to validate the authenticity of the user 
-* The login script is **mandatory**
+<%= include('../_includes/_bp-error-object') %>
 
-## Sample Scripts
+<%= include('../_includes/_panel-bcrypt-hash-encryption') %>
+
+## `callback` `profile` parameter example 
+
+The second parameter provided to the `callback` function should be the profile for the user. This should be supplied as a JSON object in normalized user profile form. 
+
+::: warning
+The profile returned by the `login` script for a user should be consistent with the profile returned in the `getUser` script, and vice-versa.
+:::
+
+Additionally, you can also provide metadata for a user as part of the user profile returned. The following is an example of the profile object that can be returned for a user.
+
+```js
+{
+    "username": "<user name>",
+    "user_id": "<user identifier>",
+    "email": "jane.doe@example.com",
+    "email_verified": false,
+    "user_metadata": {
+        "language": "en"
+    },
+    "metadata": {
+        "plan": "full"
+    }
+}
+```
+
+| **Parameter** | Description |
+| --- | --- |
+| `username` | If a custom database connection type has **Requires Username** as an enabled setting then the profile returned for the user must include a `username`. If the setting is not enabled then `username` is optional and can be omitted. |
+| `user_id` | The `user_id` value must be specified and provides the unique identifier for a user. For the `auth0` strategy, the strategy used to define a custom database connection, Auth0 automatically decorates whatever `user_id` value is supplied by prefixing the text `auth0|` in order to create the `user_id` in the root of the normalized user profile. The `user_id` value supplied will appear in it’s undecorated form in the identities array associated with the user profile in Auth0. The `user_id` value specified must be unique across all database connections defined in an Auth0 tenant. Failure to observe this will result in user identifier collision which will lead to unpredictable operation. One way to avoid this is to explicitly prefix the supplied `user_id` with the name of, or pseudonym for, the connection (omitting any whitespace). The `user_id` value must also be consistent for any given user; the value returned by the **Login** script  must also be consistent with the value returned by the **Get User** script, and vice-versa. Failure to observe this requirement can lead to duplicate Auth0 user profiles for a user, duplicate identities for any user migrated via automatic migration, and/or unpredictable results when it comes to user operations. |
+| `email` | An `email` value should also be specified. While an email address is not mandatory for a user, much of Auth0 out-of-box functionality such as password reset, requires that a user has a valid and verified email address. Email addresses should be returned consistently for all scripts and should also be unique within the context of a single custom database connection (for automatic migration scenarios). Failure to observe either of these requirements will typically lead to unpredictable results when it comes to user operation. |
+
+::: warning
+If you are providing `app_metadata` as part of the user profile then you should refer to this as `metadata` in the profile object returned. Failure to do this will result in a loss of the metadata if any modifications are made to the users’ `app_metadata` in the future. 
+:::
+
+::: panel Best Practice
+While a user does not need to use an email address to login, it’s recommended best practice that they have an email address defined against their user profile. This ensures that Auth0 out-of-box functionality works as designed.  
+:::
+
+For a legacy authentication scenario, you can also enable the `Sync user profile at each login` option in the settings for a custom database connection. This allows attribute updatess in the Auth0 user profile each time a login for the user occurs for attributes that would otherwise not be available for update via the Auth0 Management API. For legacy authentication scenarios there are a number of root profile attributes which cannot be updated directly via the Management API.
+
+::: note
+In order to update `name`, `nickname`, `given_name`, `family_name`, and/or `picture` attributes associated with the root of the normalized user profile, you must configure user profile sync so that user attributes will be updated from the identity provider. Auth0 does not support update of these attributes for a custom database connection used for legacy authentication.   
+:::
+
+## Language-specific script examples
 
 Auth0 provides sample scripts for use with the following languages/technologies:
 
@@ -327,7 +381,7 @@ function login (username, password, callback) {
   function validatePassword(password, originalHash, callback) {
     var iterations = 1000;
     var hashBytes = Buffer.from(originalHash, 'base64');
-    var salt = hashBytes.slice(1, 17).toString('binary');
+    var salt = hashBytes.slice(1, 17);
     var hash = hashBytes.slice(17, 49);
     crypto.pbkdf2(password, salt, iterations, hash.length, function(err, hashed) {
       if (err) {
@@ -377,7 +431,7 @@ function login(email, password, callback) {
 
 ```sql
 function login(email, password, callback) {
-  var connection = mysql({
+  var connection = mysql.createConnection({
     host: 'localhost',
     user: 'me',
     password: 'secret',
@@ -729,3 +783,12 @@ function login(username, password, callback) {
   });
 }
 ```
+
+## Keep reading
+
+* [Change Passwords](/connections/database/custom-db/templates/change-password)
+* [Create](/connections/database/custom-db/templates/create)
+* [Delete](/connections/database/custom-db/templates/delete)
+* [Get User](/connections/database/custom-db/templates/get-user)
+* [Verify](/connections/database/custom-db/templates/verify)
+* [Change Email](/connections/database/custom-db/templates/change-email)

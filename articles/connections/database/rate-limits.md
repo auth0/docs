@@ -20,10 +20,12 @@ For database connections Auth0 limits certain types of repeat login attempts dep
 
 ## Unblocking a User
 
- The user account can be unblocked for a given IP address by the database owner following the unblock-user link or by the user properly completing a password reset procedure. For more information, see [Block and Unblock Users](/users/guides/block-and-unblock-users).
+If a user has triggered a block as part of anomaly detection, you can unblock the IP address using the [remove IP block](/api/management/v2#!/Anomaly/delete_ips_by_id) endpoint. For steps on how to unblock users on the dashboard, see [Block and Unblock Users](/users/guides/block-and-unblock-users).
 
 ## Why are some successful login attempts blocked?
 
 To protect the health of the system overall, putting these restrictions in place help mitigate the load on our systems. Due to the high amount of customization Auth0 provides, we risk degradation of service from users that may perform high load stress or benchmark tests, as well as the possibility of bad code causing users to login multiple times.
+
+Requests are subject to limits as outlined in the Rate Limit Policy for Auth0 APIs.
 
 [Click here to learn more about API Rate Limits](/rate-limits)

@@ -40,7 +40,7 @@ In this article, we will take a closer look at how this flow works.
 
 1. Auth0 authenticates the user via the browser. If this is the first time the user does this, they will see a consent page listing the permissions that Auth0 will give to the application.
 
-1. Auth0 redirects the user to the app with an [Access Token](/tokens/access-token) and (optionally) an [ID Token](/tokens/id-token) in the hash fragment of the URI. The app can now extract the tokens from the hash fragment.
+1. Auth0 redirects the user to the app with an [Access Token](/tokens/access-token) and (optionally) an [ID Token](/tokens/concepts/id-tokens) in the hash fragment of the URI. The app can now extract the tokens from the hash fragment.
 
 1. The application parses out the Authorization Code, sends it to Auth0's [token endpoint](/api/authentication?http#authorization-code), and requests that Auth0 return (in exchange) the Access Token. The application identifies itself during this request using its assigned Client ID and Client Secret.
 
@@ -59,8 +59,7 @@ For details on how to implement this using Auth0, refer to [Execute the Hybrid F
 ::: next-steps
 - [Execute the Hybrid Flow](/api-auth/tutorials/hybrid-flow)
 - [How to configure an API in Auth0](/apis)
-- [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
+- [Tokens](/tokens)
 - [Application authentication for regular web apps](/flows/concepts/auth-code)
 - [Application authentication for single-page apps](/flows/concepts/implicit)
-- [Tokens used by Auth0](/tokens)
 :::

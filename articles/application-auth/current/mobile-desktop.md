@@ -38,7 +38,7 @@ If you would like to implement this functionality using either Lock or one of th
 
 Auth0 exposes endpoints that you can use to authenticate users and get their authorization. 
 
-You can call these endpoints through an embedded browser in your **native** application. After authentication completes, you can return an [ID Token](/tokens/id-token) (which contains information about the identity of the user) and an [Access Token](/tokens/overview-access-tokens).
+You can call these endpoints through an embedded browser in your **native** application. After authentication completes, you can return an [ID Token](/tokens/concepts/id-tokens) (which contains information about the identity of the user) and an [Access Token](/tokens/concepts/access-tokens).
 
 ::: note
 Instead of following this tutorial, you can use any of Auth0's client libraries. They encapsulate all the logic required and make it easier for your to implement authentication. Please refer to our [Native Quickstarts](/quickstart/native) to get started.
@@ -46,7 +46,7 @@ Instead of following this tutorial, you can use any of Auth0's client libraries.
 
 ## Register your application
 
-If you haven't already created a new [Application](/applications/concepts/app-types-auth0) in Auth0, you'll need to do so before implementing your authentication flow. The Auth0 Application maps to your application and allows your application to use Auth0 for authentication purposes.
+If you haven't already created a new [application](/applications) in Auth0, you'll need to do so before implementing your authentication flow. The Auth0 Application maps to your application and allows your application to use Auth0 for authentication purposes.
 
 Go to the [Auth0 Dashboard](${manage_url}) and click on [Applications](${manage_url}/#/applications) in the left-hand navigation bar. Click **Create Application**.
 
@@ -155,7 +155,7 @@ Using the authorization code obtained in step 2, you can obtain the ID Token by 
         "value": "YOUR_AUTHORIZATION_CODE"
       },
       {
-        "name": "redirect_ui",
+        "name": "redirect_uri",
         "value": "https://${account.namespace}/mobile"
       }
     ]
@@ -198,7 +198,7 @@ Once you've decoded the ID Token, you can extract user information from it. The 
 }
 ```
 
-For additional details, please see our docs [on the ID Token and its claims](/tokens/id-token#id-token-payload).
+For additional details, please see our docs [on the ID Token and its claims](/tokens/id-tokens#id-token-payload).
 
 ::: note
 For a list of libraries you can use to verify and decode tokens refer to [JWT.io](https://jwt.io/#libraries-io).
@@ -257,7 +257,7 @@ Using the authorization code, you can obtain the ID Token by making a `POST` cal
         "value": "YOUR_AUTHORIZATION_CODE"
       },
       {
-        "name": "redirect_ui",
+        "name": "redirect_uri",
         "value": "https://${account.namespace}/mobile"
       }
     ]
@@ -348,7 +348,7 @@ Using the authorization code, you can obtain the ID Token by making a `POST` cal
         "value": "YOUR_AUTHORIZATION_CODE"
       },
       {
-        "name": "redirect_ui",
+        "name": "redirect_uri",
         "value": "https://${account.namespace}/mobile"
       }
     ]

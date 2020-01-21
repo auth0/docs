@@ -3,10 +3,10 @@ title: Linking Accounts
 description: This tutorial will show you how to link multiple accounts within the same user.
 budicon: 345
 topics:
-  - quickstarts
-  - native
-  - ios
-  - swift
+    - quickstarts
+    - native
+    - ios
+    - swift
 github:
     path: 07-Linking-Accounts
 contentType: tutorial
@@ -16,14 +16,14 @@ useCase: quickstart
 ## Before You Start
 
 Before you continue with this tutorial, make sure that you have completed the previous tutorials. This tutorial assumes that:
-* You have integrated [Auth0.swift](https://github.com/auth0/Auth0.swift/) as a dependency in your project. 
+* You have integrated [Auth0.swift](https://github.com/auth0/Auth0.swift/) as a dependency in your project.
 * You are familiar with presenting the login screen. To learn more, see the [Login](/quickstart/native/ios-swift/00-login) and the [User Sessions](/quickstart/native/ios-swift/03-user-sessions) tutorials.
 
 We recommend that you read the [Linking Accounts](/link-accounts) documentation to understand the process of linking accounts.
 
 ## Enter Account Credentials
 
-Your users may want to link their other accounts to the account they are logged in to. 
+Your users may want to link their other accounts to the account they are logged in to.
 
 To achieve this, present an additional login dialog where your users can enter the credentials for any additional account. You can present this dialog in the way described in the [Login](/quickstart/native/ios-swift/00-login#enter-account-credentials) tutorial.
 
@@ -38,8 +38,12 @@ import Auth0
 ```swift
 // UserIdentitiesViewController.swift
 
+let id = ... // the user id. (See profile.sub)
+let accessToken = ... // the user accessToken
+let otherUserToken = ... // the idToken from the secondary account
+
 Auth0
-    .users(token: idToken)
+    .users(token: accessToken)
     .link(id, withOtherUserToken: otherUserToken)
     .start { result in
         switch result {
@@ -58,14 +62,17 @@ Once you have the `sub` value from the profile, you can retrieve user identities
 ```swift
 // SessionManager.swift
 
+let id = ... // the user id. (See profile.sub)
+let accessToken = ... // the user accessToken
+
 Auth0
-    .users(token: idToken)
-    .get(profile.sub, fields: ["identities"], include: true)
+    .users(token: accessToken)
+    .get(id, fields: ["identities"], include: true)
     .start { result in
         switch result {
         case .success(let user):
             let identityValues = user["identities"] as? [[String: Any]] ?? []
-            let identities = identityValues.flatMap { Identity(json: $0) }
+            let identities = identityValues.compactMap { Identity(json: $0) }
         case .failure(let error):
             // Handle error
         }
@@ -84,10 +91,11 @@ Unlink the accounts:
 // UserIdentitiesViewController.swift
 
 let id = ... // the user id. (See profile.sub)
-let idToken = ... // the user idToken
+let accessToken = ... // the user accessToken
 let identity: Identity = ... // the identity (account) you want to unlink from the user
+
 Auth0
-    .users(token: idToken)
+    .users(token: accessToken)
     .unlink(identityId: identity.identifier, provider: identity.provider, fromUserId: id)
     .start { result in
             switch result {

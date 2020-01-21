@@ -19,7 +19,7 @@ This guide will show you how to edit a <dfn data-key="role">[role](/authorizatio
 
 <%= include('../../../../authorization/_includes/_enable-authz-core') %>
 
-1. Make a `PATCH` call to the [Update Role endpoint](/api/management/v2#!/roles/patch_role). Be sure to replace `ROLE_ID`, `MGMT_API_ACCESS_TOKEN`, `ROLE_NAME`, and `ROLE_DESC` placeholder values with your role ID, Management API Access Token, role name, and role description, respectively.
+1. Make a `PATCH` call to the [Update Role endpoint](/api/management/v2#!/Roles/patch_roles_by_id). Be sure to replace `ROLE_ID`, `MGMT_API_ACCESS_TOKEN`, `ROLE_NAME`, and `ROLE_DESC` placeholder values with your role ID, Management API Access Token, role name, and role description, respectively.
 
 ```har
 {

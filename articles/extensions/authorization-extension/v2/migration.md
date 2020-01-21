@@ -12,6 +12,10 @@ useCase: extensibility-extensions
 
 # Authorization Extension: Migrate from Version 1 to Version 2
 
+::: note
+<%= include('../../../_includes/_rbac_methods') %>
+:::
+
 ::: warning
 Migrating from Version 1 to Version 2 is a breaking change
 :::

@@ -15,7 +15,7 @@ contentType: tutorial
 useCase: quickstart
 ---
 
-<%= include('../_includes/_getting_started', { library: 'Windows Universal') %>
+<%= include('../_includes/_getting_started', { library: 'Windows Universal' }) %>
 
 <%= include('../../../_includes/_callback_url') %>
 
@@ -40,6 +40,10 @@ protected override void OnLaunched(LaunchActivatedEventArgs e)
 ```
 
 This will print out the callback URL to your Debug window in Visual Studio. This is a bit of a painful process to obtain this URL, but it is important to use this URL otherwise the authentication process will not function correctly.
+
+<%= include('../../../_includes/_logout_url') %>
+
+The logout URL you need to whitelist in the **Allowed Logout URLs** field is the same as the callback URL obtained in the previous step. For more information check Web authenticator broker [documentation](https://docs.microsoft.com/en-us/windows/uwp/security/web-authentication-broker#connecting-with-single-sign-on-sso).
 
 ## Integrate Auth0 in your Application
 
@@ -130,4 +134,14 @@ if (!loginResult.IsError)
         Debug.WriteLine($"{claim.Type} = {claim.Value}");
     }
 }
+```
+
+## Logout
+
+To log the user out call the `LogoutAsync` method.
+
+```csharp
+// MainPage.xaml.cs
+
+await client.LogoutAsync();
 ```

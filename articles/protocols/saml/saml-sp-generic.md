@@ -65,11 +65,11 @@ After pressing the **"SAVE"** button, A window will appear with a red **"CONTINU
 
 Click on the **"CONTINUE"** button.
 
-In the window that appears, metadata about this SAML  service provider  is displayed.  You will need to use the information from this screen to configure the Identity Provider.
+In the window that appears, metadata about this SAML service provider is displayed. You will need to use the information from this screen to configure the Identity Provider.
 
-The first bullet is the post-back URL or Assertion Consumer Service (ACS) URL.  This is the URL to which the Identity Provider will sent Authentication Assertions after authenticating a user.  Enter this value where the Identity Provider asks for Assertion Consumer Service URL.  It may just call this a Service Provider URL.
+The first bullet is the post-back URL or Assertion Consumer Service (ACS) URL. This is the URL the Identity Provider will send Authentication Assertions to after authenticating a user.  Enter this value where the Identity Provider asks for Assertion Consumer Service URL.  It may just call this a Service Provider URL.
 
-The second bullet tells you the **"Entity ID"**.  It will be of the form __urn:auth0:${account.tenant}:YOUR_CONNECTION_NAME__.  
+The second bullet tells you the **"Entity ID"**.  It will be of the form __urn:auth0:${account.tenant}:YOUR_CONNECTION_NAME__.
 
 Copy and save this entire Entity ID field from "urn" all the way to the end of the connection name.  Use this value if the Identity Provider asks for Entity ID or SAML Audience.
 
@@ -79,7 +79,7 @@ The fourth bullet indicates that Auth0 expects the Identity Provider to respond 
 
 The nameid format is the format for the attribute that will be used to identify users.
 
-In that same window, near the bottom, there is a line that says, _"You can access the metadata for your connection in Auth0 here:"_.  
+In that same window, near the bottom, there is a line that says, _"You can access the metadata for your connection in Auth0 here:"_.
 
 In general, you can access the metadata for a SAML connection in Auth0 here: `https://${account.namespace}/samlp/metadata?connection=YOUR_CONNECTION_NAME`.
 
@@ -100,7 +100,13 @@ The Identity Provider will need to know where to send the SAML assertions after 
 * Assertion Consumer Service URL
 * Application <dfn data-key="callback">Callback URL</dfn>
 
-Note that if you have [custom domains](/custom-domains) set up, you should use the custom domain based URL rather than your Auth0 domain. So, it should be in the format of `https://[YOUR CUSTOM DOMAIN]/login/callback?connection=TestSP`.
+```text
+https://${account.namespace}/login/callback?connection=YOUR_CONNECTION_NAME
+```
+
+The `connection` URL parameter is required for identity provider-initiated flows.
+
+Note that if you have [custom domains](/custom-domains) set up, you should use the custom domain based URL rather than your Auth0 domain. So, it should be in the format of `https://YOUR_CUSTOM_COMAIN/login/callback?connection=YOUR_CONNECTION_NAME`.
 
 If the Identity Provider has a field called "Audience" or "Entity ID", you should enter into that field the **Entity ID** from Auth0:
 
@@ -172,10 +178,8 @@ We currently support the following algorithms for processing XML Digital Signatu
 
   * 'http://www.w3.org/2000/09/xmldsig#rsa-sha1'
   * 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256'
-  * 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha512'
 
 * Digest
 
   * 'http://www.w3.org/2000/09/xmldsig#sha1'
   * 'http://www.w3.org/2001/04/xmlenc#sha256'
-  * 'http://www.w3.org/2001/04/xmlenc#sha512'

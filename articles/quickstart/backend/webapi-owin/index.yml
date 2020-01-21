@@ -6,6 +6,10 @@ languages:
 thirdParty: false
 framework:
   - OWIN
+author:
+  name: Damien Guard
+  email: damien.guard@auth0.com
+  community: false
 image: /media/platforms/asp.png
 topics:
   - quickstart

@@ -1,5 +1,4 @@
 ---
-title: User Migration
 description: Overview of importing users from external applications into Auth0.
 topics:
   - users
@@ -11,7 +10,7 @@ useCase:
   - manage-users
   - migrate
 ---
-# User Migration
+# Import and Export Users
 
 Auth0 supports importing users from external applications using custom database connections, the Auth0 Management API, or the User Import/Export Extension.
 
@@ -44,7 +43,7 @@ Auth0 can only assist users in the Auth0 database with password reset.
 
 ## Bulk user imports with the Management API
 
-If you already have a user database, you can use our [/post_users_imports Management API endpoint](/api/management/v2#!/Jobs/post_users_imports) to populate a database connection with this information. 
+If you already have a user database, you can use our [`/post_users_imports`](/api/management/v2#!/Jobs/post_users_imports) Management API endpoint to populate a database connection with this information. 
 
 ## Migrate users with the User Import/Export Extension
 
@@ -63,8 +62,9 @@ You can import and export user data using the User Import/Export Extension avail
 
 * [Configure Automatic Migration from Your Database](/users/guides/configure-automatic-migration)
 * [Bulk User Imports](/users/guides/bulk-user-imports)
-* [Bulk User Exports](/users/guide/bulk-user-exports)
+* [Bulk User Exports](/users/guides/bulk-user-exports)
 * [User Import/Export Extension](/extensions/user-import-export)
 * [Bulk Import Database Schema and Example](/users/references/bulk-import-database-schema-examples)
 * [User Migration Scenarios](/users/references/user-migration-scenarios)
-* [Migrating Stormpath Users to Auth0 Demo](https://github.com/auth0-blog/migrate-stormpath-users-to-auth0)
+* [Migrate Stormpath Users to Auth0 Demo](https://github.com/auth0-blog/migrate-stormpath-users-to-auth0)
+* [Migrate a User Database to Auth0](https://auth0.com/learn/migrate-user-database-auth0/)

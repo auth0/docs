@@ -234,8 +234,6 @@ Make sure you are logged into the **Tenant 1 Auth0 dashboard**.
 
 * Scroll down to the section near the bottom where it says **"ENTERPRISE"**.
 
-![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-17.png)
-
 * Find the row for the SAML connection you created above and click on the on/off toggle at right so that it is green, for "on".  That enables the SAML connection for this application.  
 
 ## 7. Test the connection from Service Provider to Identity Provider

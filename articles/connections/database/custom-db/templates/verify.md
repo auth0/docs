@@ -1,27 +1,52 @@
 ---
-description: Custom DB script templates for user verification
+description: Custom database action script templates for user verification.
 toc: true
 topics:
     - connections
     - custom-database
-contentType: how-to
+contentType: reference
 useCase:
     - customize-connections
 ---
-# Custom Database Script Templates: Verify Users
+# Verify Users Script Templates
 
-Auth0 provides the following custom database script templates that you can use when implementing user verification functionality.
+The **Verify** script implements the function executed to mark the verification status of a user’s email address in the legacy identity store. Email verification status information is typically returned via `email_verified` as part of any user profile information returned (see [Login](/connections/database/custom-db/templates/login) and [Get User](/connections/database/custom-db/templates/get-user) for further details). The script is executed when a user clicks on the link in the verification email sent by Auth0. We recommend naming this function `verify`. The script is only used in a legacy authentication scenario, and must be implemented if support is required for Auth0 email verification functionality.
 
-While Auth0 has populated default templates in the Dashboard script editor, you can use the following links to recover the original code and notes once you've made and saved edits.
+While it’s not mandatory to implement the `verify` function, it is a recommended best practice. The function is required to support user email address verification, and a verified email address for a user is critical to a number of the workflow scenarios in Auth0. Implementing the script will provide support for these workflows out-of-box.
 
-## Notes
+::: note
+The `verify` function is called when a user clicks on the link in the verification email sent by Auth0. Change in email verification status influenced by other operations, such as via user profile modification in the Auth0 Dashboard, is performed via the [Change Email](/connections/database/custom-db/templates/change-email) script.
+:::
 
-When working on your user creation script, keep in mind that:
+The `verify` function should be defined as follows:
 
-* This script will be executed when a newly-enrolled user clicks on an email verification link
-* The parameter **user.email** is used to verify the user's account
+```js
+function verify(email, callback) {
+  // TODO: implement your script
+  return callback(null, JSON Object);
+}
+```
 
-## Sample Scripts
+| **Parameter** | **Description** |
+| --- | --- |
+| `email` | The email address for the user as the user identifying credential. |
+| `callback` | Executed with up to two parameters. The first parameter is an indication of status: a `null` first parameter with a corresponding second parameter indicates that the operation executed successfully, while a non `null` first parameter value indicates that some error condition occurred. |
+
+## `callback` example
+
+If the first parameter is `null` then the second parameter should be a JSON object in a format similar to the following:
+
+```js
+{
+    "user_id": "<user identifier>",
+    "email": "jane.doe@example.com",
+    "email_verified": true
+}
+```
+
+<%= include('../_includes/_bp-error-object') %>
+
+## Language-specific script examples
 
 Auth0 provides sample scripts for use with the following languages/technologies:
 
@@ -240,7 +265,7 @@ function verify (email, callback) {
 
 ```
 function verify (email, callback) {
-  var connection = mysql({
+  var connection = mysql.createConnection({
     host     : 'localhost',
     user     : 'me',
     password : 'secret',
@@ -457,3 +482,12 @@ function verify (email, callback) {
 
 }
 ```
+
+## Keep reading
+
+* [Change Passwords](/connections/database/custom-db/templates/change-password)
+* [Create](/connections/database/custom-db/templates/create)
+* [Delete](/connections/database/custom-db/templates/delete)
+* [Get User](/connections/database/custom-db/templates/get-user)
+* [Login](/connections/database/custom-db/templates/login)
+* [Change Email](/connections/database/custom-db/templates/change-email)

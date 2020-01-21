@@ -1,5 +1,5 @@
 ---
-title: Calling your APIs with Auth0 tokens
+title: Call APIs with Auth0 Tokens
 description: The OIDC-conformant pipeline and how this affects your use of Auth0 tokens with external APIs
 topics:
   - tokens
@@ -13,11 +13,11 @@ useCase:
   - secure-api
   - call-api
 ---
-# Call your APIs with Auth0 tokens
+# Call APIs with Auth0 Tokens
 
 <%= include('./_about.md') %>
 
-With the OIDC-conformant pipeline, [all APIs should be secured with Access Tokens, not ID Tokens](/api-auth/why-use-access-tokens-to-secure-apis). In this article, we discuss what this means and what you need to do if you're using Auth0 tokens with your APIs.
+With the OIDC-conformant pipeline, all APIs should be secured with Access Tokens, not ID Tokens. In this article, we discuss what this means and what you need to do if you're using Auth0 tokens with your APIs.
 
 ## OIDC-conformant pipeline and tokens
 
@@ -83,7 +83,7 @@ The Access Token is meant to **authorize** the user to the **API (resource serve
 
 The token does not contain any information about the user except for the user ID (located in the **sub** claim). The token only contains authorization information about the actions that application is allowed to perform at the API (such permissions are referred to as **scopes**).
 
-In many cases, you may find it useful to retrieve additional user information. You can do this by calling the [/userinfo API endpoint](/api/authentication#get-user-info) with the Access Token. Be sure that the API for which the Access Token is issued uses the **RS256** signing algorithm.
+In many cases, you may find it useful to retrieve additional user information. You can do this by calling the [/userinfo API endpoint](/api/authentication#get-user-info) with the Access Token. Be sure that the API for which the Access Token is issued uses the **RS256** [signing algorithm](/tokens/concepts/signing-algorithms).
 
 ## Scopes
 

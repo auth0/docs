@@ -17,11 +17,7 @@ When an authentication is performed with the `offline_access` <dfn data-key="sco
 
 [Auth0.Android](https://github.com/auth0/Auth0.Android) provides a utility class to streamline the process of storing and renewing credentials. You can access the `accessToken` or `idToken` properties from the [Credentials](https://github.com/auth0/Auth0.Android/blob/master/auth0/src/main/java/com/auth0/android/result/Credentials.java) instance. This is the preferred method to manage user credentials.
 
-First, add the library dependency to your build.gradle file:
-
-```gradle
-compile 'com.auth0.android:auth0:1.+'
-```
+Credential Managers are included as part of the Auth0.Android SDK. If this is not part of your dependencies yet, make sure to [check the documentation](/libraries/auth0-android).
 
 Next, decide which class to use depending on your Android SDK target version.
 

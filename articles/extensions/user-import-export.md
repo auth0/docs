@@ -70,7 +70,7 @@ Once you've imported your users, you can manage them individually using the [Use
 ### Export Users
 
 ::: note
-Auth0 uses the [ndjson](http://ndjson.org/) format due to the large size of export files. Before you can import users, you'll need to convert from **ndjson** to **json** using the library of your choice (such as [jq](https://stedolan.github.io/jq/)).
+Auth0 uses the [ndjson](http://ndjson.org/) format due to the large size of export files. Before you can import users, you'll need to convert from **ndjson** to **json** using the library of your choice (such as [jq](https://stedolan.github.io/jq/)). When exporting users intended to later be imported, user field names should be left as their defaults and not mapped to a Column Name.
 :::
 
 To export your existing Auth0 users associated with database connections, select **Export** in the left-hand navigation bar.
@@ -82,8 +82,6 @@ Under **User Fields**, you can decide which user attributes or expressions shoul
 You can click the **Add Default Fields** button to automatically select the default fields and populate their column names (this is also a good way for you to visualize how parameters/expressions will appear).
 
 You can remove extraneous attributes/expressions by clicking on its associated **trash can** icon.
-
-![](/media/articles/extensions/user-import-export/default-columns.png)
 
 Under **Settings**, you can:
 

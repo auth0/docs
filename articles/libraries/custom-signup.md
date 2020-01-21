@@ -37,13 +37,13 @@ One way to use social provider signups with Lock and collect custom fields is to
 
 ### Progressive profiling
 
-Another way to collect custom field data when signing users up with social providers is via progressive profiling. Progressive profiling is a way by which you can slowly build up user profiles over time. You collect the bare minimum details upon signup, but when a user later interacts with your app, you collect a small amount of data (perhaps one question) each time until their profile is complete. This allows for collecting the desired information, but with less friction at signup, since the goal of using a social IDP for signup is, at least in part, making it more effortless and streamlined for the user.
+Another way to collect custom field data when signing users up with social providers is via [progressive profiling](/users/concepts/overview-progressive-profiling) whereby you can slowly build up user profile data over time. You collect the bare minimum details upon signup, but when a user later interacts with your app, you collect a small amount of data (perhaps one question) each time until their profile is complete. This allows you to collect the desired information but with less friction, since the goal of using a social IDP for signup is making it more effortless and streamlined for the user.
 
-For further reference, here is our [documentation on progressive profiling](/users/guides/implement-progressive-profiling) as well as an Auth0 [blog post on progressive profiling](https://auth0.com/blog/progressive-profiling/).
+For additional information, see this Auth0 [blog post](https://auth0.com/blog/progressive-profiling/) about progressive profiling.
 
 ## Using the API
 
-### 1. Create a signup form to capture custom fields
+### Create a signup form to capture custom fields
 
 ```html
 <form id="signup">
@@ -73,7 +73,7 @@ The `name` is a user profile attribute and `color` is a custom field.
 There is currently no way to validate user-supplied custom fields when signing up. Validation must be done from an Auth0 [Rule](/rules) at login, or with custom, **server-side** logic in your application.
 :::
 
-### 2. Send the form data
+### Send the form data
 
 Send a POST request to the [/dbconnections/signup](/api/authentication/reference#signup) endpoint in Auth0. 
 
@@ -178,8 +178,7 @@ $.ajax(settings).done(function (response) {
 });
 ```
 
-
-## Optional: Verifying password strength
+## Optional: Verify password strength
 
 Password policies for database connections can be configured in the dashboard. For more information, see: [Password Strength in Auth0 Database Connections](/connections/database/password-strength).
 

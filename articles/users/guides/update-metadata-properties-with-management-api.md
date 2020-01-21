@@ -1,5 +1,5 @@
 ---
-description: How to update user metadata properties with the Management API.
+description: Learn how to update user metadata with the Management API.
 crews: crew-2
 topics:
   - metadata
@@ -9,9 +9,9 @@ useCase: manage-users
 v2: true
 ---
 
-# Update Metadata Properties with the Management API
+# Update Metadata with the Management API
 
-You can update a user's metadata properties by making a `PATCH` call to the [Update a user](/api/management/v2#!/Users/patch_users_by_id) endpoint.
+You can update a user's metadata by making a `PATCH` call to the [Update a user](/api/management/v2#!/Users/patch_users_by_id) endpoint.
 
 Assuming you created a user with the following metadata values:
 
@@ -144,10 +144,10 @@ Similarly, this clears out `user_metadata`:
   "user_metadata": {}
 }
 ```
+
 ## Keep reading
 
 * [Access Tokens for the Management API](/api/management/v2/concepts/tokens)
 * [Manage User Metadata](/users/guides/manage-user-metadata)
 * [Read Metadata](/users/guides/read-metadata)
 * [Set Metadata Properties on Creation](/users/guides/set-metadata-properties-on-creation)
-* [Metadata Field Name Rules](/users/references/metadata-field-name-rules)

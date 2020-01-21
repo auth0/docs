@@ -89,8 +89,8 @@ module.exports = [
     to: '/quickstart/native/ionic'
   },
   {
-    from: ['/ios-tutorial', '/native-platforms/ios-objc'],
-    to: '/quickstart/native/ios-objc'
+    from: ['/ios-tutorial', '/native-platforms/ios-objc', '/quickstart/native/ios-objc'],
+    to: '/quickstart/native/ios-swift'
   },
   {
     from: '/java-tutorial',
@@ -115,6 +115,10 @@ module.exports = [
   {
     from: '/mvc-tutorial-enterprise',
     to: '/tutorials/aspnet-mvc4-enterprise-providers'
+  },
+  {
+    from: '/migrations',
+    to: '/product-lifecycle/migrations'
   },
   {
     from: '/nodeapi-tutorial',
@@ -324,7 +328,6 @@ module.exports = [
 
   {
     from: [
-      '/quickstart/spa/angularjs',
       '/quickstart/spa/aurelia',
       '/quickstart/spa/ember',
       '/quickstart/spa/jquery'
@@ -353,6 +356,10 @@ module.exports = [
   {
     from: '/connections/enterprise/azure-active-directory-classic',
     to: '/connections/enterprise/azure-active-directory/v1'
+  },
+  {
+    from: '/connections/enterprise/samlp',
+    to: '/connections/enterprise/saml'
   },
   {
     from: '/dwolla-clientid',
@@ -488,7 +495,15 @@ module.exports = [
   },
   {
     from: '/ad',
-    to: '/connections/enterprise/active-directory'
+    to: '/connections/enterprise/active-directory-ldap'
+  },
+  {
+    from: '/connections/enterprise/ldap',
+    to: '/connections/enterprise/active-directory-ldap'
+  },
+    {
+    from: '/connections/enterprise/active-directory',
+    to: '/connections/enterprise/active-directory-ldap'
   },
   {
     from: '/adfs',
@@ -522,20 +537,32 @@ module.exports = [
     to: '/applications/concepts/application-grant-types'
   },
   {
+    from: '/applications/concepts/signing-algorithms',
+    to: '/tokens/concepts/signing-algorithms'
+  },
+  {
     from: '/clients/client-types',
     to: '/applications/application-types'
   },
- {
+  {
     from: '/applications/application-types',
-    to: '/applications/concepts/app-types-auth0'
+    to: '/applications'
+  },
+  {
+    from: '/applications/concepts/connections',
+    to: '/connections'
   },
   {
     from: '/applications/machine-to-machine',
-    to: '/applications/concepts/app-types-auth0'
+    to: '/applications'
+  },
+  {
+    from: '/applications/concepts/app-types-auth0',
+    to: '/applications'
   },
   {
     from: '/clients/connections',
-    to: '/applications/connections'
+    to: '/connections'
   },
   {
     from: '/applications/connections',
@@ -711,10 +738,6 @@ module.exports = [
     to: '/api/management/v1/reference'
   },
   {
-    from: '/api/v1/use-cases',
-    to: '/api/management/v1/use-cases'
-  },
-  {
     from: ['/apiv2', '/api/v2'],
     to: '/api/management/v2'
   },
@@ -738,6 +761,10 @@ module.exports = [
       '/multifactor-authentication/custom-provider'
     ],
     to: '/multifactor-authentication'
+  },
+  {
+    from: '/multifactor-authentication/google-auth/user-guide',
+    to: '/multifactor-authentication/troubleshooting'
   },
   {
     from: '/multi-factor-authentication/yubikey',
@@ -782,7 +809,7 @@ module.exports = [
       '/appliance/update',
       '/updating-appliance'
     ],
-    to: '/appliance'
+    to: '/private-cloud'
   },
   {
     from: '/enterprise-support',
@@ -869,8 +896,8 @@ module.exports = [
     to: '/multifactor-authentication/step-up-authentication'
   },
   {
-    from: ['/refresh-token', '/tokens/refresh_token'],
-    to: '/tokens/refresh-token'
+    from: ['/refresh-token', '/tokens/refresh_token', '/tokens/refresh-token'],
+    to: '/tokens/concepts/refresh-tokens'
   },
   {
     from: '/update-client-secret',
@@ -929,8 +956,8 @@ module.exports = [
     to: '/tutorials/web-apps-vs-web-apis-cookies-vs-tokens'
   },
   {
-    from: ['/har', '/tutorials/troubleshootings-with-har-files'],
-    to: '/tutorials/troubleshooting-with-har-files'
+    from: ['/har', '/tutorials/troubleshooting-with-har-files', '/troubleshoot/har', '/support/troubleshooting-with-har-files'],
+    to: '/troubleshoot/guides/generate-har-files'
   },
   {
     from: '/hrd',
@@ -1127,7 +1154,7 @@ module.exports = [
   },
   {
     from: '/onboarding/appliance-outage',
-    to: '/appliance/critical-issue'
+    to: '/onboarding/enterprise-support'
   },
   {
     from: '/appliance/dashboard/instrumentation',
@@ -1142,8 +1169,68 @@ module.exports = [
     to: '/dev-lifecycle/setting-up-env'
   },
   {
-    from: '/tokens/id_token',
-    to: '/tokens/id-token'
+    from: ['/tokens/id_token', '/tokens/id-token'],
+    to: '/tokens/concepts/id-tokens'
+  },
+  {
+    from: '/tokens/add-custom-claims',
+    to: '/scopes/current/sample-use-cases#add-custom-claims-to-a-token'
+  },
+  {
+    from: '/tokens/guides/update-signing-algorithm-application',
+    to: '/dashboard/guides/applications/update-signing-algorithm'
+  },
+  {
+    from: ['/scopes/current/custom-claims', '/tokens/jwt-claims#custom-claims'],
+    to: '/tokens/concepts/jwt-claims'
+  },
+  {
+    from: ['/tokens/guides/jwt/verify-jwt-signature-using-jwks', '/tokens/guides/jwt/use-jwks'],
+    to: '/tokens/guides/locate-jwks'
+  },
+  {
+    from: ['/tokens/guides/jwt/parse-validate-jwt-programmatically', '/tokens/guides/jwt/validate-jwt'],
+    to: '/tokens/guides/validate-jwts'
+  },
+  {
+    from: '/tokens/concepts/claims-namespacing',
+    to: '/tokens/guides/create-namespaced-custom-claims'
+  },
+  {
+    from: ['/tokens/concepts/why-use-jwt', '/tokens/jwt'],
+    to: '/tokens/concepts/jwts'
+  },
+  {
+    from: '/tokens/guides/id-token/get-id-tokens',
+    to: '/tokens/guides/get-id-tokens'
+  },
+  {
+    from: '/tokens/guides/id-token/validate-id-token',
+    to: '/tokens/guides/validate-id-tokens'
+  },
+  {
+    from: '/tokens/reference/jwt/jwks-properties',
+    to: '/tokens/references/jwks-properties'
+  },
+  {
+    from: '/tokens/reference/jwt/jwt-structure',
+    to: '/tokens/references/jwt-structure'
+  },
+  {
+    from: '/tokens/delegation',
+    to: '/tokens/concepts/delegation-tokens'
+  },
+  {
+    from: ['/tokens/jwks', '/jwks'],
+    to: '/tokens/concepts/jwks'
+  },
+  {
+    from: '/tokens/jwt-claims',
+    to: '/tokens/concepts/jwt-claims'
+  },
+  {
+    from: '/tokens/overview-idp-access-tokens',
+    to: '/tokens/concepts/idp-access-tokens'
   },
   {
     from: '/connections',
@@ -1407,7 +1494,11 @@ module.exports = [
   },
   {
     from: '/hosted-pages/guardian',
-    to: '/universal-login/guardian'
+    to: '/universal-login/multifactor-authentication'
+  },
+  {
+    from: '/universal-login/guardian',
+    to: '/universal-login/multifactor-authentication'
   },
   {
     from: '/hosted-pages/password-reset',
@@ -1498,10 +1589,6 @@ module.exports = [
     to: '/support/reset-account-password',
   },
   {
-    from: '/tutorials/troubleshooting-with-har-files',
-    to: '/support/troubleshooting-with-har-files',
-  },
-  {
     from: '/tutorials/delete-reset-tenant',
     to: '/support/delete-reset-tenant',
   },
@@ -1528,6 +1615,10 @@ module.exports = [
   {
     from: '/tutorials/dashboard-tenant-settings',
     to: '/dashboard/dashboard-tenant-settings',
+  },
+  {
+    from: '/dashboard/dashboard-tenant-settings',
+    to: '/dashboard/reference/settings-tenant',  
   },
   {
     from: '/tutorials/manage-dashboard-admins',
@@ -1674,6 +1765,18 @@ module.exports = [
     to: '/sso/current/integrations/zoom'
   },
   {
+    from: '/analytics/integrations',
+    to: '/analytics',
+  },
+  {
+    from: '/analytics/integrations/facebook-analytics',
+    to: '/analytics/guides/facebook-analytics',
+  },
+  {
+    from: '/analytics/integrations/google-analytics',
+    to: '/analytics/guides/google-analytics',
+  },
+  {
     from: '/clients/how-to-update-client-secret',
     to: '/dashboard/guides/applications/rotate-client-secret',
   },
@@ -1810,8 +1913,8 @@ module.exports = [
     to: `/link-accounts`
   },
   {
-    from: '/videos/session-and-cookies',
-    to: '/security/store-tokens'
+    from: ['/videos/session-and-cookies', '/security/store-tokens'],
+    to: '/tokens/guides/store-tokens'
   },
   {
     from: '/support/sla',
@@ -1906,12 +2009,16 @@ module.exports = [
      to: '/hrd'
    },
    {
-     from: '/support/troubleshooting-with-har-files',
-     to: '/troubleshoot/har'
+     from: ['/tokens/overview-access-tokens','/tokens/access-token','/tokens/access_token', '/tokens/access-tokens'],
+     to: '/tokens/concepts/access-tokens'
    },
    {
-     from: ['/tokens/access-token','/tokens/access_token'],
-     to: '/tokens/overview-access-tokens'
+    from: ['/tokens/overview-id-tokens','/tokens/id-token', '/tokens/id-tokens'],
+    to: '/tokens/concepts/id-tokens'
+  },
+   {
+     from: ['/api-auth/tutorials/verify-access-token', '/tokens/guides/access-token/validate-access-token'],
+     to: '/tokens/guides/validate-access-tokens'
    },
    {
      from: '/user-profile',
@@ -1947,7 +2054,7 @@ module.exports = [
   //  },
    {
      from: '/user-profile/progressive-profiling',
-     to: '/users/guides/implement-progressive-profiling'
+     to: '/users/concepts/overview-progressive-profiling'
    },
    {
      from: '/user-profile/customdb.md',
@@ -2131,24 +2238,16 @@ module.exports = [
      to: '/rules/guides/redirect'
     },
     {
-     from: ['/tokens/set-access-token-format','/tokens/access-token-formats'],
-     to: '/tokens/reference/access-token/access-token-formats'
-    },
-    {
       from: '/integrations/using-auth0-as-an-identity-provider-with-github-enterprise',
       to: '/protocols/saml/saml-apps/github-server'
     },
     {
-      from: '/tokens/get-access-tokens',
-      to: '/tokens/guides/access-token/get-access-tokens'
+      from: ['/tokens/get-access-tokens', '/tokens/guides/access-token/get-access-tokens'],
+      to: '/tokens/guides/get-access-tokens'
     },
     {
-      from: '/tokens/set-access-token-lifetime',
-      to: '/tokens/guides/access-token/set-access-token-lifetime'
-    },
-    {
-      from: '/tokens/use-access-tokens',
-      to: '/tokens/guides/access-token/use-access-tokens'
+      from: ['/tokens/use-access-tokens', '/tokens/guides/access-token/use-access-tokens'],
+      to: '/tokens/guides/use-access-tokens'
     },
     {
       from: '/services/private-saas-configuration',
@@ -2172,10 +2271,175 @@ module.exports = [
     },
     {
       from: '/enterprise/private-cloud/overview',
-      to: '/private-saas-deployment'
+      to: '/private-cloud'
     },
     {
-      from: '/private-cloud',
-      to: '/private-saas-deployment'
+      from: '/private-saas-deployment',
+      to: '/private-cloud'
+    },
+    {
+      from: '/topics/identity-glossary',
+      to: '/glossary'
+    },
+    {
+      from: '/topics/extensibility',
+      to: '/extend-integrate'
+    },
+    {
+      from: '/private-saas-deployment/managed-private-cloud', 
+      to: '/private-cloud/managed-private-cloud'
+    },
+    {
+      from: '/private-saas-deployment/onboarding/managed-private-cloud', 
+      to: '/private-cloud/onboarding/managed-private-cloud'
+    },
+    {
+      from: '/private-saas-deployment/onboarding/managed-private-cloud/infrastructure', 
+      to: '/private-cloud/onboarding/managed-private-cloud/infrastructure'
+    },
+    {
+      from: '/private-saas-deployment/onboarding/managed-private-cloud/ip-domain-port-list', 
+      to: '/private-cloud/onboarding/managed-private-cloud/ip-domain-port-list'
+    },
+    {
+      from: '/private-saas-deployment/onboarding', 
+      to: '/private-cloud/onboarding'
+    },
+    {
+      from: '/private-saas-deployment/onboarding/private-cloud', 
+      to: '/private-cloud/onboarding/private-cloud'
+    },
+    {
+      from: '/private-saas-deployment/private-cloud', 
+      to: '/private-cloud/standard-private-cloud'
+    },
+    {
+      from: '/private-saas-deployment/add-ons', 
+      to: '/private-cloud/add-ons'
+    },
+    {
+      from: '/private-saas-deployment/custom-domain-migration', 
+      to: '/private-cloud/custom-domain-migration'
+    },
+    {
+      from: '/connections/passwordless/sms-gateway',
+      to: '/connections/passwordless/guides/use-sms-gateway-passwordless'
+    },
+    {
+      from: '/policies/requests',
+      to: '/policies/unsupported-requests'
+    },
+    {
+      from: '/rules/guides/create',
+      to: '/dashboard/guides/rules/create-rules'
+    },
+    {
+      from: '/connections/apple-setup',
+      to: '/connections/apple-siwa/set-up-apple'
+    },
+    {
+      from: '/connections/passwordless/email',
+      to: '/connections/passwordless/guides/email-otp'
+    },
+    {
+      from: '/connections/passwordless/sms',
+      to: '/connections/passwordless/guides/sms-otp'
+    },
+    {
+      from: '/connections/passwordless/spa',
+      to: '/connections/passwordless/guides/universal-login'
+    },
+    {
+      from: '/connections/passwordless/regular-web-app',
+      to: '/connections/passwordless/guides/universal-login'
+    },
+    {
+      from: '/connections/passwordless/faq',
+      to: '/connections/passwordless/reference/troubleshoot'
+    },
+    {
+      from: '/best-practices/custom-db-connections-scripts',
+      to: '/best-practices/custom-db-connections'
+    },
+    {
+      from: '/errors/deprecation-errors',
+      to: '/troubleshoot/guides/check-deprecation-errors'
+    },
+    {
+    from: '/api/management/v1/use-cases',
+    to: '/migrations/guides/management-api-v1-v2'
+    },
+    {
+      from: '/logs/query-syntax',
+      to: '/logs/references/query-syntax'
+    },
+    {
+      from: '/tokens/concepts/token-best-practices',
+      to: '/best-practices/token-best-practices'
+    },
+    {
+      from: '/logs/references/log-event-data',
+      to: '/logs/references/log-event-types-codes'
+    },
+    {
+      from: [
+        '/hooks/concepts/credentials-exchange-extensibility-point',
+        '/hooks/guides/use-the-credentials-exchange-extensibility-point'
+      ],
+      to: '/hooks/client-credentials-exchange'
+    },
+    {
+      from: [
+        '/hooks/concepts/post-user-registration-extensibility-point',
+        '/hooks/guides/use-the-post-user-registration-extensibility-point'
+      ],
+      to: '/hooks/post-user-registration'
+    },
+    {
+      from: [
+        '/hooks/concepts/pre-user-registration-extensibility-point',
+        '/hooks/guides/use-the-pre-user-registration-extensibility-point'
+      ],
+      to: '/hooks/pre-user-registration'
+    },
+    {
+      from: '/hooks/guides/post-change-password',
+      to: '/hooks/post-change-password'
+    },
+    {
+      from: '/hooks/concepts/extensibility-points',
+      to: '/hooks'
+    },
+    {
+      from: [
+        '/hooks/guides/create-hooks-using-cli',
+        '/hooks/guides/create-hooks-using-dashboard'
+      ],
+      to: '/hooks/create'
+    },
+    {
+      from: [
+        '/hooks/guides/delete-hooks-using-cli',
+        '/hooks/guides/delete-hooks-using-dashboard'
+      ],
+      to: '/hooks/delete'
+    },
+    {
+      from: [
+        '/hooks/guides/edit-hooks-using-cli',
+        '/hooks/guides/edit-hooks-using-dashboard'
+      ],
+      to: '/hooks/update'
+    },
+    {
+      from: [
+        '/hooks/guides/enable-disable-hooks-using-cli',
+        '/hooks/guides/enable-disable-hooks-using-dashboard'
+      ],
+      to: '/hooks/enable-disable'
+    },
+    {
+      from: '/hooks/guides/logging-hooks-using-cli',
+      to: '/hooks/logs'
     }
 ];

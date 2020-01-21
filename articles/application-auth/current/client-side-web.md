@@ -20,7 +20,7 @@ You can use the Auth0 Authentication API to create client-side web applications 
 
 ## Overview
 
-Auth0 exposes endpoints that you can use to authenticate users and get their authorization. You can redirect the user from your JavaScript application to these endpoints in the web browser. Auth0 will handle the authentication of the user, get their authorization for the resources your app wants to access, and then redirect the user back to a pre-configured callback URL, returning an [ID Token](/tokens/id-token) and [Access Token](/tokens/overview-access-tokens) in the hash fragment of the request.
+Auth0 exposes endpoints that you can use to authenticate users and get their authorization. You can redirect the user from your JavaScript application to these endpoints in the web browser. Auth0 will handle the authentication of the user, get their authorization for the resources your app wants to access, and then redirect the user back to a pre-configured callback URL, returning an [ID Token](/tokens/concepts/id-tokens) and [Access Token](/tokens/concepts/access-tokens) in the hash fragment of the request.
 
 ## The Authentication Flow
 
@@ -28,9 +28,9 @@ The OAuth 2.0 Authorization Framework allows for different kinds of authorizatio
 
 The Implicit Grant flow is initiated by redirecting the user in the web browser to the Auth0 `/authorize` endpoint. Auth0 will then display the Auth0 Lock dialog, allowing the user to enter their credentials or alternatively sign in with any other configured [Identity Provider](/identityproviders).
 
-After the user has authenticated, Auth0 will redirect the browser back to the **Redirect URI** (also called **Callback URL**), passing along the [ID Token](/tokens/id-token) as parameter in the [hash fragment](https://en.wikipedia.org/wiki/Fragment_identifier). The [ID Token](/tokens/id-token) is a [JSON Web Token (JWT)](/jwt) and contains various attributes (referred to as Claims) regarding the user, such as the user's name, email address, profile picture and so on.
+After the user has authenticated, Auth0 will redirect the browser back to the **Redirect URI** (also called **Callback URL**), passing along the [ID Token](/tokens/concepts/id-tokens) as parameter in the [hash fragment](https://en.wikipedia.org/wiki/Fragment_identifier). The [ID Token](/tokens/concepts/id-tokens) is a [JSON Web Token (JWT)](/tokens/concepts/jwts) and contains various attributes (referred to as Claims) regarding the user, such as the user's name, email address, profile picture and so on.
 
-The [ID Token](/tokens/id-token) can be decoded to extract the claims and you are free to use these inside of your application, to display a user's name and profile image for example.
+The [ID Token](/tokens/concepts/id-tokens) can be decoded to extract the claims and you are free to use these inside of your application, to display a user's name and profile image for example.
 
 ::: note
 You can potentially also receive an Access Token which can be used to call the [Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info) or your own APIs.
@@ -77,7 +77,7 @@ This endpoint supports the following query string parameters:
 |:------------------|:---------|
 | response_type | The response type specifies the Grant Type you want to use. For client-side web applications using the Implicit Grant Flow, this should be `id_token`. (If you also want to receive an Access Token it should be set to `token id_token`.) |
 | client_id | The Client ID of the Applications you registered in Auth0. This can be found on the **Settings** tab of your Applications in the Auth0 Dashboard |
-| scope | Specifies the claims (or attributes) of the user you want the be returned in the [ID Token](/tokens/id-token). To obtain an [ID Token](/tokens/id-token) you need to specify at least a scope of `openid`. If you want to return the user's full profile information, you can request `openid profile`.<br/><br/>You can read up more about [scopes](/scopes). |
+| scope | Specifies the claims (or attributes) of the user you want the be returned in the [ID Token](/tokens/concepts/id-tokens). To obtain an [ID Token](/tokens/concepts/id-tokens) you need to specify at least a scope of `openid`. If you want to return the user's full profile information, you can request `openid profile`.<br/><br/>You can read up more about [scopes](/scopes). |
 | redirect_uri | The URL in your application where the user will be redirected to after they have authenticated, such as `https://YOUR_APP/callback`|
 | connection | This is an optional parameter which allows you to force the user to sign in with a specific connection. You can for example pass a value of `github` to send the user directly to GitHub to log in with their GitHub account.<br /><br /> If this parameter is not specified, the user will be presented with the normal Auth0 Lock screen from where they can sign in with any of the available connections. You can see the list of configured connections on the **Connections** tab of your applications.  |
 | state | The state parameter will be sent back should be used for CSRF and contextual information (like a return url) |
@@ -89,17 +89,17 @@ This endpoint supports the following query string parameters:
 
 ## Handle the callback
 
-After the user has authenticated, Auth0 will call back to the URL specified in the `redirect_uri` query string parameter which was passed to the `/authorize` endpoint. When calling back to this URL, Auth0 will pass along the [ID Token](/tokens/id-token) in the hash fragment of the URL, such as
+After the user has authenticated, Auth0 will call back to the URL specified in the `redirect_uri` query string parameter which was passed to the `/authorize` endpoint. When calling back to this URL, Auth0 will pass along the [ID Token](/tokens/concepts/id-tokens) in the hash fragment of the URL, such as
 
 ```text
 https://YOUR_APP/callback#id_token=eyJ0...
 ```
 
-The [ID Token](/tokens/id-token) will be a [JSON Web Token (JWT)](/jwt) containing information about the user. You can access the hash fragment using the `window.location.hash` property and then use basic JavaScript string manipulation to access the ID Token.
+The [ID Token](/tokens/concepts/id-tokens) will be a [JSON Web Token (JWT)](/tokens/concepts/jwts) containing information about the user. You can access the hash fragment using the `window.location.hash` property and then use basic JavaScript string manipulation to access the ID Token.
 
-You will need to decode the [ID Token](/tokens/id-token) in order to read the claims (or attributes) of the user. The [JWT section of our website](/jwt) contains more information about the structure of a JWT.
+You will need to decode the [ID Token](/tokens/concepts/id-tokens) in order to read the claims (or attributes) of the user. 
 
-Once the JWT is decoded, you can extract the information about the user from the payload of the [ID Token](/tokens/id-token). This is a JSON structure and will contain the claims (attributes) about the user as well as some other metadata.
+Once the JWT is decoded, you can extract the information about the user from the payload of the [ID Token](/tokens/concepts/id-tokens). This is a JSON structure and will contain the claims (attributes) about the user as well as some other metadata.
 
 The [Auth0.js library](https://auth0.com/docs/libraries/auth0js) can assist you in decoding the JWT by calling the `parseHash` function, and then access the ID Token values from the `idTokenPayload` property:
 
@@ -151,7 +151,7 @@ The [Auth0.js library](https://auth0.com/docs/libraries/auth0js) can assist you 
 
 ### The ID Token payload
 
-An example payload for an [ID Token](/tokens/id-token) may look something like this:
+An example payload for an [ID Token](/tokens/concepts/id-tokens) may look something like this:
 
 ```json
 {
@@ -175,13 +175,13 @@ The payload above contains the following claims:
 | email | The email address of the user which is returned from the Identity Provider. |
 | picture | The profile picture of the user which is returned from the Identity Provider. |
 | sub | The unique identifier of the user. This is guaranteed to be unique per user and will be in the format (identity provider)&#124;(unique id in the provider), such as github&#124;1234567890. |
-| iss | The _issuer_. A case-sensitive string or URI that uniquely identiﬁes the party that issued the JWT. For an Auth0 issued [ID Token](/tokens/id-token), this will be **the URL of your Auth0 tenant**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
-| aud | The _audience_. Either a single case-sensitive string or URI or an array of such values that uniquely identify the intended recipients of this JWT. For an Auth0 issued [ID Token](/tokens/id-token), this will be the **Client ID of your Auth0 Applications**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
+| iss | The _issuer_. A case-sensitive string or URI that uniquely identiﬁes the party that issued the JWT. For an Auth0 issued [ID Token](/tokens/concepts/id-tokens), this will be **the URL of your Auth0 tenant**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
+| aud | The _audience_. Either a single case-sensitive string or URI or an array of such values that uniquely identify the intended recipients of this JWT. For an Auth0 issued [ID Token](/tokens/concepts/id-tokens), this will be the **Client ID of your Auth0 Applications**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
 | exp | The _expiration time_. A number representing a speciﬁc date and time in the format “seconds since epoch” as [deﬁned by POSIX6](https://en.wikipedia.org/wiki/Unix_time). This claim sets the exact moment from which this **JWT is considered invalid**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
 | iat | The _issued at time_. A number representing a speciﬁc date and time (in the same format as `exp`) at which this **JWT was issued**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
 | nonce | A string value which was sent with the request to the `/authorize` endpoint. This is used to [prevent token replay attacks](/api-auth/tutorials/nonce). |
 
-The exact claims contained in the [ID Token](/tokens/id-token) will depend on the `scope` parameter you sent to the `/authorize` endpoint. In an [ID Token](/tokens/id-token) issued by Auth0, the **registered claims** and the `sub` claim will always be present, but the other claims depends on the `scope`. You can refer to the [examples below](#examples) to see examples of how the scope influences the claims being returned.
+The exact claims contained in the [ID Token](/tokens/concepts/id-tokens) will depend on the `scope` parameter you sent to the `/authorize` endpoint. In an [ID Token](/tokens/concepts/id-tokens) issued by Auth0, the **registered claims** and the `sub` claim will always be present, but the other claims depends on the `scope`. You can refer to the [examples below](#examples) to see examples of how the scope influences the claims being returned.
 
 ::: note
 The [JWT.io website](https://jwt.io) has a handy debugger which will allow you to debug any JSON Web Token. This is useful is you quickly want to decode a JWT to see the information contained in the token.
@@ -189,7 +189,7 @@ The [JWT.io website](https://jwt.io) has a handy debugger which will allow you t
 
 ### Keep the user logged in
 
-Auth0 will assist you in authenticating a user, but it is up to you to keep track in your application of whether or not a user is logged in. You can use `localStorage` to keep track of whether a user is logged in or not, and also to store the claims of the user which was extracted from the [ID Token](/tokens/id-token).
+Auth0 will assist you in authenticating a user, but it is up to you to keep track in your application of whether or not a user is logged in. You can use `localStorage` to keep track of whether a user is logged in or not, and also to store the claims of the user which was extracted from the [ID Token](/tokens/concepts/id-tokens).
 
 You can then use those claims inside of your application to display the user's information or otherwise personalize the user's experience.
 
@@ -214,7 +214,7 @@ ${account.callback}
   #id_token=eyJ0...
 ```
 
-And this is an example of the decoded payload of the [ID Token](/tokens/id-token) which will be returned:
+And this is an example of the decoded payload of the [ID Token](/tokens/concepts/id-tokens) which will be returned:
 
 ```json
 {
@@ -247,7 +247,7 @@ ${account.callback}
   #id_token=eyJ0...
 ```
 
-The name and profile picture will be available in the `name` and `picture` claims of the returned [ID Token](/tokens/id-token):
+The name and profile picture will be available in the `name` and `picture` claims of the returned [ID Token](/tokens/concepts/id-tokens):
 
 ```json
 {
@@ -289,7 +289,7 @@ ${account.callback}
   #id_token=eyJ0...
 ```
 
-The user's name and profile attributes, such as the name, nickname and picture will be available in the `name`, `nickname` and `picture` claims of the returned [ID Token](/tokens/id-token). You will also notice that the `sub` claim contains the User's unique ID returned from GitHub:
+The user's name and profile attributes, such as the name, nickname and picture will be available in the `name`, `nickname` and `picture` claims of the returned [ID Token](/tokens/concepts/id-tokens). You will also notice that the `sub` claim contains the User's unique ID returned from GitHub:
 
 ```json
 {

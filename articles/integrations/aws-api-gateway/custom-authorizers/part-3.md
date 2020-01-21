@@ -34,7 +34,7 @@ You can [download a sample custom authorizer](https://github.com/auth0-samples/j
 | - | - |
 | **`TOKEN_ISSUER`** | The issuer of the token. If Auth0 is the token issuer, use `https://${account.namespace}/`. Be sure to include the trailing slash.|
 | **`JWKS_URI`** | The URL of the JWKS endpoint. If Auth0 is the token issuer, use `https://${account.namespace}/.well-known/jwks.json` |
-| **`AUDIENCE`** | The **audience** value of the API you created in [part 1](/integrations/aws-api-gateway/custom-authorizers/part-1) |
+| **`AUDIENCE`** | The **identifier** value of the API you created in [part 1](/integrations/aws-api-gateway/custom-authorizers/part-1) |
 
 As an example, the text of your .env file should look something like this when complete:
 
@@ -48,7 +48,7 @@ TOKEN_ISSUER=https://${account.namespace}/
 
 a. First, obtain a valid JWT Access Token. There are multiple methods by which you can get one, and the method you choose depends on your application's type, trust level, or overall end-user experience. 
 
-You can get a test token for your API by going to **APIs > Your API > Test** in the [dashboard](${manage_url}/#/apis). For specific details refer to [Get Access Tokens](/tokens/guides/access-token/get-access-tokens).
+You can get a test token for your API by going to **APIs > Your API > Test** in the [dashboard](${manage_url}/#/apis). For specific details refer to [Get Access Tokens](/tokens/guides/get-access-tokens).
 
 b. Create a local `event.json` file containing the token. You can copy the sample file (run `cp event.json.sample event.json`). Replace `ACCESS_TOKEN` with your JWT token, and `methodArn` with the appropriate ARN value for the `GET` method of your API.
 
@@ -89,31 +89,12 @@ If the value of `Effect` is `Allow`, your authorizer would've allowed the call t
 The IAM role has the required permissions to call Lambda functions; before we can proceed with our custom authorizer, we'll need to create an IAM role that can call our custom authorizer whenever API Gateway receives a request for access.
 
 1. Log in to AWS and navigate to the [IAM Console](https://console.aws.amazon.com/iam). Click **Roles** in the left-hand navigation bar.
-
 2. Click **Create new role**.
-
-![](/media/articles/integrations/aws-api-gateway-2/part-2/pt2-1.png)
-
-3. Under **AWS Service Role**, find the **AWS Lambda** row and click the associated **Select** button.
-
-![](/media/articles/integrations/aws-api-gateway-2/part-2/pt2-2.png)
-
-4. On the **Attach Policy** screen, select the **AWSLambdaRole**. You can use the provided filter to narrow down the list of options. Click **Next Step** to proceed.
-
-![](/media/articles/integrations/aws-api-gateway-2/part-2/pt2-4.png)
-
-5. On **Set role name and review**, provide a **Role name**, such as `Auth0Integration`. Leave the rest of the fields as is. Click **Create role**.
-
-![](/media/articles/integrations/aws-api-gateway-2/part-2/pt2-5.png)
-
+3. Under **AWS service** select the **AWS Lambda** row and click the **Next: Permissions** button.
+4. On the **Attach permissions policy** screen, select the **AWSLambdaRole**. You can use the provided filter to narrow down the list of options. Click **Next: Tags**, then click **Next: Review** to proceed.
+5. On the **Review** screen, provide a **Role name**, such as `Auth0Integration`. Leave the rest of the fields as is. Click **Create role**.
 6. Once AWS has created your role, you'll be directed back to the **Roles** page of IAM. Select your new role.
-
-![](/media/articles/integrations/aws-api-gateway-2/part-2/pt2-6.png)
-
 7. On the **Summary** page for the role you've just created, click on to the **Trust relationships** tab.
-
-![](/media/articles/integrations/aws-api-gateway-2/part-2/pt2-8.png)
-
 8. Click **Edit trust relationship**, and populate the **Policy Document** field with the following JSON snippet:
 
     ```json
@@ -152,65 +133,39 @@ Now that you've configured your custom authorizer for your environment and teste
 
 ![](/media/articles/integrations/aws-api-gateway-2/part-2/pt2-11.png)
 
-3. On the **Select blueprint** page, click **Author from scratch** to create a blank function.
-
-![](/media/articles/integrations/aws-api-gateway-2/part-2/pt2-12.png)
-
-4. On the **Configure triggers** page, click **Next** (you don't need to configure a trigger).
-
-![](/media/articles/integrations/aws-api-gateway-2/part-2/pt2-13.png)
-
-5. On the **Configure function** page, you'll provide all of the information needed for your new Lambda function. Under **Basic information**, provide values for the following parameters:
+3. On the **Select blueprint** page, click **Author from scratch** to create a blank function. Under **Basic information**, provide values for the following parameters:
 
 | **Parameter** | **Value** |
 | - | - |
 | **Name** | A name for your Lambda function, such as `jwtRsaCustomAuthorizer` |
 | **Description** | A description for your Lambda function (optional) |
-| **Runtime** | Select `Node.js 8.10` |
+| **Runtime** | Select `Node.js 10.x` |
 
-![](/media/articles/integrations/aws-api-gateway-2/part-2/pt2-14.png)
+![](/media/articles/integrations/aws-api-gateway-2/part-2/pt2-12.png)
 
-a. Next, provide the function code. Under **Code entry type**, select **Upload a .ZIP file**. Click **Upload** and select the `custom-authorizer.zip` bundle you created earlier.
+4. Click **Create Function** to continue.
 
-b. Then, create the following three **Environment variables**. Note that this information is identical to that which is the `.env` file.
+![](/media/articles/integrations/aws-api-gateway-2/part-2/pt2-13.png)
+
+5. On the **Configuration** page of your function, scroll down to the **Function Code** section.
+6. Select **Upload a .ZIP file** as the **Code entry type**.
+7. Click **Upload** and select the `custom-authorizer.zip` bundle you created earlier.
+8. Then, create the following three **Environment variables**. Note that this information is identical to that which is the `.env` file.
 
 | **Parameter** | **Value** |
 | - | - |
 | **`TOKEN_ISSUER`** | The issuer of the token. If Auth0 is the token issuer, use `https://${account.namespace}/` |
 | **`JWKS_URI`** | The URL of the JWKS endpoint. If Auth0 is the token issuer, use `https://${account.namespace}/.well-known/jwks.json` |
-| **`AUDIENCE`** | The **audience** value of the API you created in [part 1](/integrations/aws-api-gateway/custom-authorizers/part-1) |
+| **`AUDIENCE`** | The **identifier** value of the API you created in [part 1](/integrations/aws-api-gateway/custom-authorizers/part-1) |
 
-c. In the **Lambda function handler and role** section, set the following values:
+9. In the **Execution role** section, select **Use an existing role** then select the IAM role you created previously as the **Existing role**. 
 
-| **Parameter** | **Value** |
-| - | - |
-| **Handler** | `index.handler` |
-| **Role** | `Choose an existing role` |
-| **Existing role** | Select the IAM role you created in the steps above. |  
-
-d. Open up the **Advanced settings** area, and set **Timeout** to **30** sec.
-
-When you've provided all of the information above, click **Next**.
-
-e. Review the information you've provided for your Lambda function. If everything looks correct, click **Create function**. 
-
-![](/media/articles/integrations/aws-api-gateway-2/part-2/pt2-15.png)
-
-If AWS successfully creates your function, you'll see the following.
-
-![](/media/articles/integrations/aws-api-gateway-2/part-2/pt2-16.png)
-
-6. Test the Lambda function you just created. Click **Test** in the top right corner.
-
-7. Copy the contents of your `event.json` file into the Input test event JSON (you can use the default "Hello World" template). 
-
-![](/media/articles/integrations/aws-api-gateway-2/part-2/pt2-17.png)
-
-Click **Save and test**. If the test was successful, you'll see the following.
-
-![](/media/articles/integrations/aws-api-gateway-2/part-2/pt2-18.png)
-
-Expanding the output window should show a message similar to the one you received after your successful local test.
+10. Under **Basic settings** set **Timeout** to **30** sec.
+11. Click **Save**.
+12. Test the Lambda function you just created. Click **Test** in the top right corner.
+13. Copy the contents of your `event.json` file into the **Configure test event** form. You can use the default "Hello World" event template.
+14. Click **Create**.
+15. Run your test by selecting it and clicking **Test**. If the test was successful, you'll see: "Execution result: succeeded". Expanding the output window should show a message similar to the one you received after your successful local test.
 
 ![](/media/articles/integrations/aws-api-gateway-2/part-2/pt2-19.png)
 
@@ -224,30 +179,23 @@ Open the **PetStore** API we created earlier.
 
 ![](/media/articles/integrations/aws-api-gateway-2/part-2/pt2-22.png)
 
-Using the left-hand navigation bar, open **Authorizers**. If this is the first authorizer you've created, you'll see the **New custom authorizer** configuration screen by default. If not, you can bring up this screen by clicking **Create > Custom Authorizer** on the center panel.
-
-![](/media/articles/integrations/aws-api-gateway-2/part-2/pt2-23.png)
-
-Set the following parameters:
+Using the left-hand navigation bar, open **Authorizers** and select **Create New Authorizer** then set the following parameters:
 
 | **Parameter** | **Value** |
 | - | - |
-| **Lambda region** | Use the region for the Lambda function you created previously |
-| **Lambda function** | `jwtRsaCustomAuthorizer` |
-| **Authorizer name** | `jwt-rsa-custom-authorizer` |
-| **Execution role** | The IAM Role ARN you copied above |
-| **Identity token source** | `Authorization` |
-| **Token validation expression** | `^Bearer [-0-9a-zA-z\.]*$` |
-| **Result TTL in seconds** | `3600` |
-
-![](/media/articles/integrations/aws-api-gateway-2/part-2/pt2-24.png)
+| **Name** | `jwt-rsa-custom-authorizer` |
+| **Type** | Select **Lambda** |
+| **Lambda Region** | Use the region for the Lambda function you created previously |
+| **Lambda Function** | `jwtRsaCustomAuthorizer` |
+| **Lambda Invoke Role** | The IAM Role ARN you copied above |
+| **Lambda Event Payload** | Select **Token** |
+| **Token Source** | `Authorization` |
+| **Token Validation** | `^Bearer [-0-9a-zA-z\.]*$` |
+| **TTL (seconds)** | `3600` |
 
 Click **Create**.
 
-After AWS creates the authorizer and the page refreshes, you'll see a new **Test your authorizer** section at the bottom of the screen. You can test your authorizer by providing the Auth0 token (`Bearer ey...`) you've previously used and clicking **Test**.
-
-![](/media/articles/integrations/aws-api-gateway-2/part-2/pt2-25.png)
-
+After AWS creates the authorizer and the page refreshes, test your authorizer by clicking **Test** and providing the Auth0 token (`Bearer ey...`) you previously used.
 If the test was successful, you'll see a response similar to the following.
 
 ![](/media/articles/integrations/aws-api-gateway-2/part-2/pt2-26.png)
