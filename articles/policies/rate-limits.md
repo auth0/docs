@@ -215,16 +215,6 @@ If you obtain Access Tokens for your SPAs, note that there are rate limits that 
         <td>100 requests per second</td>
     </tr>
     <tr>
-        <td rowspan="2">Authentication and authorization</td>
-        <td rowspan="2"><code>/authorize</code></td>
-        <td>IP Address</td>
-        <td>500 requests per minute</td>
-    </tr>
-    <tr>
-        <td>Sessions</td>
-        <td>10 requests per second</td>
-    </tr>
-    <tr>
         <td rowspan="2">User Profile</td>
         <td><code>/tokeninfo</code> (Legacy)</td>
         <td>IP Address</td>
@@ -262,16 +252,6 @@ If you obtain Access Tokens for your SPAs, note that there are rate limits that 
         <th>Path</th>
         <th>Limited By</th>
         <th>Rate Limit</th>
-    </tr>
-    <tr>
-        <td rowspan="2">Authentication and authorization</td>
-        <td rowspan="2"><code>/authorize</code></td>
-        <td>IP Address</td>
-        <td>300 requests per minute</td>
-    </tr>
-    <tr>
-        <td>Sessions</td>
-        <td>10 requests per minute</td>
     </tr>
     <tr>
         <td rowspan="2">User Profile</td>
