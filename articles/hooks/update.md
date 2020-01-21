@@ -9,7 +9,7 @@ useCase: extensibility-hooks
 v2: true
 ---
 
-# Update a Hook
+# Update Hooks
 
 You can update existing Hooks using either the Dashboard or the command-line interface.
 
