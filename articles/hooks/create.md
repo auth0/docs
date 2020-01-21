@@ -9,7 +9,7 @@ useCase: extensibility-hooks
 v2: true
 ---
 
-# Create a New Hook
+# Create New Hooks
 
 You can create multiple Hooks for any given extensibility point. However, you may only have **one** Hook enabled per extensibility point at a time.
 
