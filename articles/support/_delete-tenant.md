@@ -14,8 +14,8 @@ You **cannot** restore a deleted tenant and you cannot reuse a tenant name when 
 
 ### For enterprise customers
 
-If you are an Enterprise customer, you may have multiple child tenants as part of your Auth0 contract. Rest assured that if you choose to delete such a tenant, this will have no impact on your agreement with Auth0. We recommend speaking with your Technical Account Manager if you have any concerns about your Enterprise agreement.
+If you are an Enterprise customer, you may have multiple child tenants as part of your Auth0 contract. While it is not possible to delete the main tenant from the dashboard (you will need to contact support for that), the child tenants can be deleted at any time. Rest assured that if you choose to delete a child tenant, this will have no impact on your agreement with Auth0. We recommend speaking with your Technical Account Manager if you have any concerns about your Enterprise agreement.
 
 ### For paid subscription customers
 
-If you have a paid subscription with one or more child tenants, deleting the child tenant should have no impact on your subscription plan. This is because activity and usage on child tenants counts toward the master's tenant activity and usage limitations.
+If you have a paid subscription with one or more child tenants, deleting the main subscription is not possible from the Dashboard. Please contact support for that. It is possible to delete child tenants from the Dashboard, and deleting such tenant should have no impact on your subscription plan. This is because activity and usage on child tenants counts toward the main's tenant activity and usage limitations.
