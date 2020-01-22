@@ -36,15 +36,14 @@ In this section you will configure Auth0 to serve as a SAML Service Provider.
 **In the Auth0 dashboard:**
 
 1. Click on **"Connections"** link at left.
-2. In the list of options below "Connections", click on **"Enterprise"**
-3. In the middle of the screen, click on **"SAMLP Identity Provider"**
-4. Click on the blue **"Create New Connection"** button
+1. In the list of options below "Connections", click on **"Enterprise"**.
+1. Click on the **"Create Connection"** button.
 
-In the **"Create SAMLP Identity Provider"** connection window, enter the following information into the **Configuration** tab.
+In the **"New SAML Connection"** window, enter the following information:
 
 - **Connection Name:** You can enter any name, such as `SAML-SP`.
-- **Email Domains:** Enter the email domain name for the users that will log in via this connection.
-For example, if your users have an email domain of 'abc-example.com', you would enter that into this field. You can enter multiple email domains if needed.  If you leave this field blank, users with any email domain can use the IDP.
+- **Display Name:** If a value is provided, Universal Login will have the button say "Continue with (Display Name)".
+- **IdP Domains:** (optional) Provide a comma-separated list of the domains that can be authenticated in the Identity Provider. This step is only needed for identifier-first authentication flows  If you leave this field blank, users with any email domain can use the IdP.
 - **Sign In URL:** Enter the **SAML SSO URL** that you obtained from the Identity Provider.
 - **Sign Out URL:** Enter the **SAML Logout URL** obtained from the Identity Provider.
 - **Certificate:**  Click on the red **"UPLOAD CERTIFICATE"** button and select the `.pem` file you obtained from the Identity Provider.
@@ -57,25 +56,21 @@ You can ignore the rest of the fields for now.
 
 Click on the blue **"SAVE"** button at the bottom.
 
-Here is an example of what the filled-out screen would look like: (you should have filled out the Email domains field as well with your specific test user's email domain)
-
-![](/media/articles/saml/saml-sp-generic/saml-sp-generic1.png)
-
-After pressing the **"SAVE"** button, A window will appear with a red **"CONTINUE"** button. (You might have to scroll up to see it)
+A window will appear with a red **"CONTINUE"** button. (You might have to scroll up to see it)
 
 Click on the **"CONTINUE"** button.
 
 In the window that appears, metadata about this SAML service provider is displayed. You will need to use the information from this screen to configure the Identity Provider.
 
-The first bullet is the post-back URL or Assertion Consumer Service (ACS) URL. This is the URL the Identity Provider will send Authentication Assertions to after authenticating a user.  Enter this value where the Identity Provider asks for Assertion Consumer Service URL.  It may just call this a Service Provider URL.
+The first bullet is the post-back URL or Assertion Consumer Service (ACS) URL. This is the URL the Identity Provider will send Authentication Assertions to after authenticating a user. Enter this value where the Identity Provider asks for Assertion Consumer Service URL. It may just call this a Service Provider URL.
 
 The second bullet tells you the **"Entity ID"**.  It will be of the form __urn:auth0:${account.tenant}:YOUR_CONNECTION_NAME__.
 
-Copy and save this entire Entity ID field from "urn" all the way to the end of the connection name.  Use this value if the Identity Provider asks for Entity ID or SAML Audience.
+Copy and save this entire Entity ID field from "urn" all the way to the end of the connection name. Use this value if the Identity Provider asks for Entity ID or SAML Audience.
 
-The third bullet indicates the binding that will be used to send the SAML Request from Auth0 to the Identity Provider.    If the Identity Provider provides a choice, select HTTP-Redirect as shown on your metadata screen.
+The third bullet indicates the binding that will be used to send the SAML Request from Auth0 to the Identity Provider. If the Identity Provider provides a choice, select HTTP-Redirect as shown on your metadata screen.
 
-The fourth bullet indicates that Auth0 expects the Identity Provider to respond with an HTTP POST, such as the Authentication Assertion from the Identity Provider will be sent using the HTTP POST binding.  If the Identity Provider provides a choice, indicate that HTTP-POST binding should be used for Authentication Assertions.
+The fourth bullet indicates that Auth0 expects the Identity Provider to respond with an HTTP POST, such as the Authentication Assertion from the Identity Provider will be sent using the HTTP POST binding. If the Identity Provider provides a choice, indicate that HTTP-POST binding should be used for Authentication Assertions.
 
 The nameid format is the format for the attribute that will be used to identify users.
 
@@ -130,11 +125,11 @@ In this section, you will test to make sure the SAML configuration between Auth0
 
 * In the [Dashboard](${manage_url}), navigate to:  __Connections > Enterprise > SAMLP Identity Provider__.
 
-* Click on the triangular **Try** button for the SAML connection you created earlier.  This button is to the right of the name of the connection.  You can hover your mouse over the button to have the text label appear.
+* Click on the triangular **Try** button for the SAML connection you created earlier.  This button is to the right of the name of the connection. You can hover your mouse over the button to have the text label appear.
 
-* You will first see a <dfn data-key="lock">Lock</dfn> login widget appear that is triggered by the Service Provider.  Enter the username.   If you entered an email domain in the SAMLP connection configuration, the username should belong to that email domain.
+* You will first see a <dfn data-key="lock">Lock</dfn> login widget appear that is triggered by the Service Provider.  Enter the username. If you entered an email domain in the SAMLP connection configuration, the username should belong to that email domain.
 
-You will then be redirected to the login screen of the Identity Provider.  Login with the credentials for a user that exists in the Identity Provider.
+You will then be redirected to the login screen of the Identity Provider. Login with the credentials for a user that exists in the Identity Provider.
 
 If the SAML configuration works, your browser will be redirected back to an Auth0 page that says __It works__.  This page will display the contents of the SAML authentication assertion sent by the Identity Provider to Auth0 Service Provider.
 This means the SAML connection from Auth0 Service Provider to Identity Provider is working.
@@ -142,7 +137,7 @@ This means the SAML connection from Auth0 Service Provider to Identity Provider 
 If it didn't work, double check the above steps and then consult the **troubleshooting** section at the end of this document.
 
 ::: note
-The **Try** button only works for users logged in to the Auth0 dashboard.  You cannot send this to an anonymous user to have them try it.
+The **Try** button only works for users logged in to the Auth0 dashboard. You cannot send this to an anonymous user to have them try it.
 :::
 
 Here is a sample of the **It Works** screen:
@@ -153,9 +148,9 @@ Here is a sample of the **It Works** screen:
 
 This section has a few ideas for things to check if your sample doesn't work.
 
-Note that if your application doesn't work the first time, you should clear your browser history and ideally cookies each time before you test again.  Otherwise, the browser may not be picking up the latest version of your html page or it may have stale cookies that impact execution.
+Note that if your application doesn't work the first time, you should clear your browser history and ideally cookies each time before you test again. Otherwise, the browser may not be picking up the latest version of your HTML page or it may have stale cookies that impact execution.
 
-When troubleshooting SSO, it is often helpful to capture an HTTP trace of the interaction.  There are many tools that will capture the HTTP traffic from your browser for analysis.  Search for "HTTP Trace" to find some.  Once you have an http trace tool, capture the login sequence from start to finish and analyze the trace to see the sequence of GETs to see how far in the expected sequence you get.  You should see a redirect from your original site to the Service Provider, and then to the Identity Provider, a post of credentials if you had to log in, and then a redirect back to the callback URL or the Service Provider and then finally a redirect to the callback URL specified in your application.
+When troubleshooting SSO, it is often helpful to capture an HTTP trace of the interaction.  There are many tools that will capture the HTTP traffic from your browser for analysis.  Search for "HTTP Trace" to find some.  Once you have an HTTP trace tool, capture the login sequence from start to finish and analyze the trace to see the sequence of GETs to see how far in the expected sequence you get. You should see a redirect from your original site to the Service Provider, and then to the Identity Provider, a post of credentials if you had to log in, and then a redirect back to the callback URL or the Service Provider and then finally a redirect to the callback URL specified in your application.
 
 Be sure to check to make sure cookies and javascript are enabled for your browser.
 
