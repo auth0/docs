@@ -51,7 +51,11 @@ If this block is triggered, additional access attempts are released one-at-a-tim
 
 ### Remove block
 
-Auth0 emails the dashboard administrator(s) when this block is triggered. The email contains a link that the owner can click to navigate to tenant logs to examine which IPs have been blocked. There is also a link to documentation that explains how to remove the block.
+Auth0 emails the dashboard administrator(s) when this block is triggered. The email contains a link that the owner can click to navigate to tenant logs to examine which IPs have been blocked. Recent blocks can be found using this query:
+```
+type:limit_mu
+```
+Blocks can then be removed using the [Management API](/api/management/v2#!/Anomaly/delete_ips_by_id).
 
 ## Keep reading
 
