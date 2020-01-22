@@ -18,4 +18,4 @@ If you are an Enterprise customer, you may have multiple child tenants as part o
 
 ### For paid subscription customers
 
-If you have a paid subscription with one or more child tenants, deleting the main subscription is not possible from the Dashboard. Please contact support for that. It is possible to delete child tenants from the Dashboard, and deleting such tenant should have no impact on your subscription plan. This is because activity and usage on child tenants counts toward the main's tenant activity and usage limitations.
+If you have a paid subscription with one or more child tenants, deleting the main subscription is not possible from the Dashboard. Please contact support for that. It is possible to delete child tenants from the Dashboard, and deleting such tenants should have no impact on your subscription plan. This is because activity and usage on child tenants counts toward the main tenant's activity and usage limitations.
