@@ -75,3 +75,11 @@ https.createServer({key: key, cert: cert }, express()).listen('3000', () => {
   console.log('Listening on https://localhost:3000');
 });
 ```
+
+#### Apache (for PHP)
+
+#### Nginx (for PHP)
+
+#### WordPress
+
+The WordPress documentation has some [specific considerations for running WordPress over HTTPS](https://make.wordpress.org/support/user-manual/web-publishing/https-for-wordpress/). Please see the Apache or nginx sections above for specifics on loading the certificates.
