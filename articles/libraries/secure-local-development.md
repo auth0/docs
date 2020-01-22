@@ -54,22 +54,24 @@ The next step is to generate the SSL certificate. This example will assume you a
 ```
 
 :::note
-The utility saves the cerificate `localhost.pem` and a key file `localhost-key.pem` in the folder where the command was executed.
+The utility saves the certificate `localhost.pem` and a key file `localhost-key.pem` in the folder where the command was executed.
 :::
 
 ### 4. Serve the SSL certificate
-Now that you have generated an SSL certificate and key, you need to load them when starting your server.  Here is an example of using them on localhost with an Express web server.
+Now that you have generated an SSL certificate and key, you need to load them when starting your server. The way certificates are loaded depends on the technology used to serve the application. Please see below for examples.
+
+#### Node.js with Express
 
 ```js
+// app.js
+
 const fs = require('fs');
 const key = fs.readFileSync('./localhost-key.pem');
 const cert = fs.readFileSync('./localhost.pem');
 
 const express = require('express');
 const https = require('https');
-const app = express();
-
-https.createServer({key: key, cert: cert }, app).listen('3000', () => {
-  console.log('listening on http://localhost:3000');
+https.createServer({key: key, cert: cert }, express()).listen('3000', () => {
+  console.log('Listening on https://localhost:3000');
 });
 ```

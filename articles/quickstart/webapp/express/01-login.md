@@ -20,14 +20,43 @@ github:
 <%= include('../../../_includes/_callback_url') %>
 
 :::note
-If you are running your project on `localhost:3000`, your application's callback URL would be `http://localhost:3000/callback`
+If you are running this quickstart on `localhost:3000`, your application's callback URL will be `https://localhost:3000/callback`
 :::
 
 <%= include('../../../_includes/_logout_url' }) %>
 
 :::note
-If you are running your project on `localhost:3000`, your application's logout URL would be `http://localhost:3000`
+If you are running this quickstart on `localhost:3000`, your application's logout URL will be `https://localhost:3000`
 :::
+
+## Generate and Install Certificates
+Applications that handle sensitive data must be served over secure channels. This includes local applications as they may handle the same sensitive data and should be built as close to production-ready as possible.
+
+### Generate Certificates
+There are a number of ways to generate certificates for local applications. If you do not already have a method of generating local certificates, download [mkcert](https://github.com/FiloSottile/mkcert) and follow the [installation instructions](https://github.com/FiloSottile/mkcert#installation) for your specific operating system. Now, run the following commands to generate a certificate and key for this application:
+
+```bash
+cd /path/to/application/root
+mkcert -install
+mkcert localhost
+```
+
+For more complete instructions, please see our [Secure Local Development guide](https://auth0.com/docs/libraries/secure-local-development).
+
+### Install Certificates
+The commands above will create `localhost-key.pem` and `localhost.pem` files, which need to be read from the file system:
+
+```js
+const fs = require('fs');
+const key = fs.readFileSync('./localhost-key.pem');
+const cert = fs.readFileSync('./localhost.pem');
+
+const express = require('express');
+const https = require('https');
+https.createServer({key: key, cert: cert }, express()).listen('3000', () => {
+  console.log('Listening on https://localhost:3000');
+});
+```
 
 ## Integrate Auth0
 ### Install Dependencies
@@ -53,7 +82,7 @@ const { auth } = require('express-openid-connect');
 const config = {
   required: false,
   auth0Logout: true,
-  baseURL: 'http://localhost:3000',
+  baseURL: 'https://localhost:3000',
   issuerBaseURL: 'https://${account.namespace}',
   clientID: '${account.clientId}',
   appSessionSecret: 'a long, randomly-generated string stored in env'
@@ -75,7 +104,7 @@ You can generate a suitable string for `appSessionSecret` using `openssl rand -h
 :::
 
 ## Login
-A user can now log into your application by visiting the `/login` route provided by the library. If you are running your project on `localhost:3000` that link would be [`localhost:3000/login`](http://localhost:3000/login).
+A user can now log into your application by visiting the `/login` route provided by the library. If you are running your project on `localhost:3000` that link would be [`https://localhost:3000/login`](https://localhost:3000/login).
 
 ## Profile
 To display the user's profile, your application should provide a protected route.
@@ -91,7 +120,7 @@ app.get('/profile', requiresAuth(), (req, res) => {
 ```
 
 ## Logout
-A user can log out of your application by visiting the `/logout` route provided by the library. If you are running your project on `localhost:3000` that link would be [`localhost:3000/logout`](http://localhost:3000/logout).
+A user can log out of your application by visiting the `/logout` route provided by the library. If you are running your project on `localhost:3000` that link would be [`https://localhost:3000/logout`](https://localhost:3000/logout).
 
 ## What's next?
 We put together a few examples of how to use [Express OpenID Connect](https://github.com/auth0/express-openid-connect) in more advanced use cases:
