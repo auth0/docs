@@ -33,7 +33,7 @@ useCase: compliance
     <p>Auth0 is certified under the Privacy Shield Program, specifically the <b>EU-US Privacy Shield Framework</b> and the <b>Swiss-US Privacy Shield Framework</b>. You can find further details on our <a href="https://auth0.com/privacy">Privacy</a> page.</p>
     <ul>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="https://www.privacyshield.gov/participant?id=a2zt000000001VJAAY&status=Active">Auth0's Privacy Shield Registration</a>
+        <i class="icon icon-budicon-695"></i><a href="https://www.privacyshield.gov/participant?id=a2zt0000000TQsZAAW&status=Active">Auth0's Privacy Shield Registration</a>
       </li>
     </ul>
   </li>
