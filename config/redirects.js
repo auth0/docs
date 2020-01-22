@@ -2382,6 +2382,14 @@ module.exports = [
       to: '/logs/references/log-event-types-codes'
     },
     {
+      from: '/anomaly-detection/references/anomaly-detection-faqs',
+      to: '/anomaly-detection'
+    },
+    {
+      from: '/anomaly-detection/references/anomaly-detection-restrictions-limitations',
+      to: '/anomaly-detection/guides/set-anomaly-detection-preferences'
+    },
+    {      
       from: [
         '/hooks/concepts/credentials-exchange-extensibility-point',
         '/hooks/guides/use-the-credentials-exchange-extensibility-point'
