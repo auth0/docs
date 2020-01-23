@@ -52,7 +52,7 @@ useCase: compliance
   </li>
     <li>
     <i class="icon icon-budicon-715"></i>ISO 27001/27018
-    <p>Auth0 undergoes an ISO 27001/27018 audit by an independent auditor annually. Our [ISO 27001/27018 certificate](https://support.auth0.com/compliance/documents/iso-27001) is available in our Support Center. WE can also share our Statement of Applicability (SOA) upon request with a non-disclosure agreement (NDA) signed by a corporate officer authorized to represent the company. To request the SOA, please contact your assigned Technical Account Manager.</p>
+    <p>Auth0 undergoes an ISO 27001/27018 audit by an independent auditor annually. Our [ISO 27001/27018 certificate](https://support.auth0.com/compliance/documents/iso-27001) is available in our Support Center. We can also share our Statement of Applicability (SOA) upon request with a non-disclosure agreement (NDA) signed by a corporate officer authorized to represent the company. To request the SOA, please contact your assigned Technical Account Manager.</p>
   </li>
     <li>
     <i class="icon icon-budicon-715"></i>PCI DSS
