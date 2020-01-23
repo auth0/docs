@@ -210,7 +210,7 @@ If you obtain Access Tokens for your SPAs, note that there are rate limits that 
     </tr>
     <tr>
         <td>All Endpoints</td>
-        <td><a href="/docs/api/authentication">All Authentication API endpoints</a></td>
+        <td><a href="/api/authentication">All Authentication API endpoints</a></td>
         <td>Sum of all combined requests to any Authentication API endpoint</td>
         <td>100 requests per second</td>
     </tr>
