@@ -45,7 +45,7 @@ Applications that handle sensitive data must be served over secure channels. Thi
 
 Complete instructions are below or see our [Secure Local Development guide](/libraries/secure-local-development) for additional explanation.
 
-### 4. Generate Certificates
+### 4. Generate an SSL Certificate
 
 If you do not already have a method of generating local certificates, [install `mkcert`](https://github.com/FiloSottile/mkcert#installation) and run the following commands in your terminal to generate a certificate and key for this application:
 
@@ -56,7 +56,7 @@ If you do not already have a method of generating local certificates, [install `
 ❯ mkcert localhost
 ```
 
-### 5. Install Certificates
+### 5. Serve the SSL certificate
 The commands above will create `localhost-key.pem` and `localhost.pem` files, which need to be read from the file system:
 
 ```js
