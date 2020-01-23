@@ -71,12 +71,54 @@ const cert = fs.readFileSync('./localhost.pem');
 
 const express = require('express');
 const https = require('https');
+
 https.createServer({key: key, cert: cert }, express()).listen('3000', () => {
   console.log('Listening on https://localhost:3000');
 });
 ```
 
-#### Apache (for PHP)
+#### Apache (including PHP, Python, Ruby)
+
+The actual path of the files mentioned below will differ depending on the OS and install method. The paths below are from Homebrew-installed Apache on macOS.
+
+```
+# /usr/local/etc/httpd/httpd.conf
+# Find and uncomment the lines below
+
+LoadModule socache_shmcb_module lib/httpd/modules/mod_socache_shmcb.so
+# ...
+LoadModule ssl_module lib/httpd/modules/mod_ssl.so
+# ...
+Include /usr/local/etc/httpd/extra/httpd-ssl.conf
+```
+
+```
+# /usr/local/etc/httpd/extra/httpd-ssl.conf
+
+# Listen 8443
+Listen 443
+# ...
+
+# Change the line below and comment out the two lines referenced below
+# <VirtualHost _default_:8443>
+<VirtualHost _default_:443>
+# ...
+# DocumentRoot "/usr/local/var/www"
+# ServerName www.example.com:8443
+```
+
+```
+# /usr/local/etc/httpd/extra/httpd-vhosts.conf
+
+<VirtualHost *:443>
+    # Make sure this path points to your local application.
+    DocumentRoot "/path/to/application/root"
+    ServerName localhost
+    SSLEngine on
+    SSLCertificateFile "/usr/local/etc/httpd/localhost.pem"
+    SSLCertificateKeyFile "/usr/local/etc/httpd/localhost-key.pem"
+</VirtualHost>
+```
 
 #### Nginx (for PHP)
 
