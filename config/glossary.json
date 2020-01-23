@@ -31,7 +31,7 @@
   },
   "confidential-client": {
     "title": "Confidential Client",
-    "definition": "According to OAuth2, clients (applications) can be classified as either confidential or public depending on whether or not they are able to hold credentials (such as a client ID and secret) securely. Confidential clients can hold credentials in a secure way without exposing them to unauthorized parties and require a trusted backend server to do so. They can use grant types that require them to authenticate by specifying their client ID and secret when calling the token endpoint and can have tokens issued to them that have been signed either symmetrically or asymmetrically. See <a href=‘/applications/concepts/app-types-confidential-public'>Application Types - Confidential vs. Public</a>.",
+    "definition": "According to the OAuth 2.0 protocol, clients (applications) can be classified as either confidential or public depending on whether or not they are able to hold credentials (such as a client ID and secret) securely. Confidential clients can hold credentials in a secure way without exposing them to unauthorized parties and require a trusted backend server to do so. They can use grant types that require them to authenticate by specifying their client ID and secret when calling the token endpoint and can have tokens issued to them that have been signed either symmetrically or asymmetrically. See <a href=‘/applications/concepts/app-types-confidential-public'>Application Types - Confidential vs. Public</a>.",
     "short": "A client (application) that can hold credentials securely by using a trusted backend server. Examples include a web application with a secure backend and a machine-to-machine (M2M) application."
   },
   "confused-deputy": {
@@ -96,7 +96,7 @@
   },
   "public-client": {
     "title": "Public Client",
-    "definition": "According to OAuth2, client (applications) can be classified as either confidential or public depending on whether or not they are able to hold credentials (such as a client ID and secret) securely. Public clients cannot hold credentials securely, so should only use grant types that do not require the use of their client secret. ID Tokens issued to them must be signed asymmetrically using a private key (RS256) and verified using the public key corresponding to the private key used to sign the token. See <a href=‘/applications/concepts/app-types-confidential-public'>Application Types - Confidential vs. Public</a>.",
+    "definition": "According to the OAuth 2.0 protocol, client (applications) can be classified as either confidential or public depending on whether or not they are able to hold credentials (such as a client ID and secret) securely. Public clients cannot hold credentials securely, so should only use grant types that do not require the use of their client secret. ID Tokens issued to them must be signed asymmetrically using a private key (RS256) and verified using the public key corresponding to the private key used to sign the token. See <a href=‘/applications/concepts/app-types-confidential-public'>Application Types - Confidential vs. Public</a>.",
     "short": "A client (application) that cannot hold credentials securely. Examples include a native desktop or mobile application and a JavaScript-based client-side web application (such as a single-page app (SPA))."
   },
   "raw-credentials": {
