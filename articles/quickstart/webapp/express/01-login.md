@@ -60,13 +60,14 @@ If you do not already have a method of generating local certificates, [install `
 The commands above will create `localhost-key.pem` and `localhost.pem` files, which need to be read from the file system:
 
 ```js
+const express = require('express');
+const https = require('https');
 const fs = require('fs');
+
 const key = fs.readFileSync('./localhost-key.pem');
 const cert = fs.readFileSync('./localhost.pem');
 
-const express = require('express');
-const https = require('https');
-https.createServer({ key: key, cert: cert }, express()).listen('3000', () => {
+https.createServer({key, cert}, express()).listen('3000', () => {
   console.log('Listening on https://localhost:3000');
 });
 ```
@@ -119,7 +120,7 @@ You can generate a suitable string for `appSessionSecret` using `openssl rand -h
 ## Login
 A user can now log into your application by visiting the `/login` route provided by the library. If you are running your project on `localhost:3000` that link would be [`https://localhost:3000/login`](https://localhost:3000/login).
 
-## Profile
+## Display User Profile
 To display the user's profile, your application should provide a protected route.
 
 Add the `requiresAuth` middleware for routes that require authentication.  Any route using this middleware will check for a valid user session and, if one does not exist, it will redirect the user to log in.
