@@ -145,7 +145,7 @@ Next, you will need to create and configure a Microsoft Azure AD Enterprise Conn
 
 ![Configure Advanced Microsoft Azure AD Settings](/media/articles/dashboard/connections/enterprise/conn-enterprise-ms-azure-ad-settings-2.png)
 
-4. If you have appropriate Azure AD administrative permissions to *give consent* to the application so users can log in, then click **Continue**; you will be asked to log in to your Azure AD account and give consent. Otherwise, provide the given URL to your administrator so that they can give consent.
+4. If you have appropriate Azure AD administrative permissions to *give consent* to the application so users can log in, then click **Continue**; you will be asked to [log in to your Azure AD account](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#requesting-consent-for-an-entire-tenant) and give consent. Otherwise, provide the given URL to your administrator so that they can give consent.
 
 ## Enable the enterprise connection for your Auth0 application
 
