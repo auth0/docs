@@ -65,14 +65,14 @@ Now that you have generated an SSL certificate and key, you need to load them wh
 ```js
 // app.js
 
+const express = require('express');
+const https = require('https');
 const fs = require('fs');
+
 const key = fs.readFileSync('./localhost-key.pem');
 const cert = fs.readFileSync('./localhost.pem');
 
-const express = require('express');
-const https = require('https');
-
-https.createServer({key: key, cert: cert }, express()).listen('3000', () => {
+https.createServer({key, cert}, express()).listen('3000', () => {
   console.log('Listening on https://localhost:3000');
 });
 ```
