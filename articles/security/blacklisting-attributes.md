@@ -33,7 +33,7 @@ Once you have the token (and the list of attributes to be blacklisted), you are 
 Here is a sample HTTP request that blacklists two attributes: `ethnicity` and `gender`.
 
 
-```har
+```js
 {
   "method": "PATCH",
   "url": "https://${account.namespace}/api/v2/connections/YOUR_CONNECTION_ID",
