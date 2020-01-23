@@ -55,7 +55,7 @@ Before sending the HAR file to Auth0, ensure that you remove or obfuscate any se
 ### Internet Explorer
 
 1. Close all __InPrivate__ windows in Internet Explorer.
-2. Open a __new InPrivate__ window in Firefox (**ctrl-shift-P**.)
+2. Open a __new InPrivate__ window in Internet Explorer (**ctrl-shift-P**.)
 3. Go to __Tools > F12 Developer Options > Network__.
 4. Ensure **Clear entries on navigate** is switched off.
 5. Visit the page and complete the steps that trigger the issue.
