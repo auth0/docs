@@ -19,6 +19,11 @@
     "definition": "An attribute packaged in a security token which represents a claim that the provider of the token is making about an entity.",
     "short": "An attribute packaged in a security token which represents a claim that the provider of the token is making about an entity."
   },
+  "client-secret":{
+    "title": "Client Secret",
+    "definition": "A secret used by a client (application) to authenticate with the Authorization Server; it should be known to only the client and the Authorization Server and must be sufficiently random to not be guessable.",
+    "short": "A secret used by a client (application) to authenticate with the Authorization Server; it should be known to only the client and the Authorization Server and must be sufficiently random to be not guessable."
+  },
   "confidential-client": {
     "title": "Confidential Client",
     "definition": "According to OAuth2, clients (applications) can be classified as either confidential or public depending on whether or not they are able to hold credentials (such as a client ID and secret) securely. Confidential clients can hold credentials in a secure way without exposing them to unauthorized parties and require a trusted backend server to do so. They can use grant types that require them to authenticate by specifying their client ID and secret when calling the token endpoint and can have tokens issued to them that have been signed either symmetrically or asymmetrically. See <a href=‘/applications/concepts/app-types-confidential-public'>Application Types - Confidential vs. Public</a>.",
