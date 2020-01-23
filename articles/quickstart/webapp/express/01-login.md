@@ -43,7 +43,7 @@ Finally, copy the following fields for your application for use in step 7:
 
 Applications that handle sensitive data must be served over secure channels. This includes local applications as they may handle the same sensitive data and should be built as close to production-ready as possible.
 
-Complete instructions are below or see our [Secure Local Development guide](https://auth0.com/docs/libraries/secure-local-development) for additional explanation.
+Complete instructions are below or see our [Secure Local Development guide](/libraries/secure-local-development) for additional explanation.
 
 ### 4. Generate Certificates
 
