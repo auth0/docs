@@ -19,12 +19,16 @@ useCase:
 # Implicit Flow
 
 ::: warning
-The [OAuth 2.0 BCP](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-09#section-2.1.2) states that you **should not** use the Implicit Flow to request [Access Tokens](/tokens/access-tokens) from the Authorization Server. For this reason, we recommend that you use the [Authorization Code Flow with PKCE](/flows/concepts/auth-code-pkce) if your single-page app (SPA) requires Access Tokens for [Cross-Origin Resource Sharing (CORS)](/cross-origin-authentication#what-is-cross-origin-authentication) requests.
+The [OAuth 2.0 BCP](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-09#section-2.1.2) states that you **should not** use the Implicit Flow to request [Access Tokens](/tokens/access-tokens) from the Authorization Server. For this reason, we recommend that you use the [Authorization Code Flow with PKCE](/flows/concepts/auth-code-pkce) if your single-page app (SPA) requires Access Tokens for [Cross-Origin Resource Sharing (CORS)](/cross-origin-authentication#what-is-cross-origin-authentication) requests. For a more detailed explanation, see our blog post: [OAuth2 Implicit Grant and SPA: Everything you always wanted to know (but were afraid to ask)](https://auth0.com/blog/oauth2-implicit-grant-and-spa/).
 :::
 
-During authentication, single-page applications (SPAs) have some special requirements. Since the SPA is a public client, it is unable to securely store information such as a Client Secret. As such, traditional guidance suggests using a special authentication flow exists called the OAuth 2.0 Implicit Flow (defined in [OAuth 2.0 RFC 6749, section 4.2](https://tools.ietf.org/html/rfc6749#section-4.2)). 
+During authentication, single-page applications (SPAs) have some special requirements. Since the SPA is a public client, it is unable to securely store information such as a Client Secret. As such, traditional guidance suggests using a special authentication flow called the OAuth 2.0 Implicit Flow (defined in [OAuth 2.0 RFC 6749, section 4.2](https://tools.ietf.org/html/rfc6749#section-4.2)). 
 
 Using the Implicit Flow streamlines authentication by returning tokens without introducing any unnecessary additional steps, but often returns tokens in the URL. As such, new guidance recommends the [Authorization Code Flow with PKCE](/flows/concepts/auth-code-pkce) instead. For a more detailed explanation, see our blog post: [OAuth2 Implicit Grant and SPA: Everything you always wanted to know (but were afraid to ask)](https://auth0.com/blog/oauth2-implicit-grant-and-spa/).
+
+As an alternative to the Authorization Code Flow (/flows/concepts/auth-code), the OAuth 2.0 spec includes the Implicit Flow intended for <dfn data-key="public-client">Public Clients</dfn>, which are unable to securely store <dfn data-key="client-secret">Client Secrets</dfn>. As part of the authorization response, the Implicit Flow returns an <dfn data-key="access-token">Access Token</dfn> rather than an Authorization Code (glossary) that must be exchanged at the token endpoint (glossary).
+
+While this is no longer considered a best practice for requesting Access Tokens, it does offer a streamlined workflow if the client only needs an ID Token to perform user authentication.
 
 ## How it works
 
