@@ -18,14 +18,18 @@ If you are seeing errors, take a look at this video on common issues with Custom
 
 ## Custom domain is still pending verification
 
-If you continue to see this error in the Dashboard, make sure that the CNAME record is properly configured in your domain management service.
+It can take up to 48 hours for the DNS to be propagated.
+
+If you continue to see this error in the Dashboard, make sure that the CNAME record is properly configured in your domain management service. 
 
 You can confirm the configuration of your CNAME record using:
 
-* A tool like [Mxtoolbox](https://mxtoolbox.com/CNAMELookup.aspx) or [Google](https://dns.google.com)
+* A tool like [Mxtoolbox](https://mxtoolbox.com/DNSLookup.aspx) or [Google](https://dns.google.com)
 * The `dig` command in your terminal
 
-It can take up to 48 hours for the DNS to be propagated.
+Ensure that the domain name is not already associated with an A record.
+
+Make sure that no errors were made when typing or copying the CNAME record's domain name or value.
 
 ## Cloudflare CNAME Flattening
 
