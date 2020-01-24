@@ -48,11 +48,11 @@ useCase: compliance
   </li>
     <li>
     <i class="icon icon-budicon-715"></i>CSA STAR
-    <p>Auth0 is CSA STAR certified. Auth0's [CSA Consensus Assessments Initiative Questionnaire (CAIQ)](https://support.auth0.com/compliance/regulations/cloud-security-alliance) is available in our Support Center. You can also view our CAIQ and STAR Certificate in the [CSA STAR Registry](https://cloudsecurityalliance.org/star/registry/auth0/).</p>
+    <p>Auth0 is CSA STAR certified. Auth0's <a href="https://support.auth0.com/compliance/regulations/cloud-security-alliance">CSA Consensus Assessments Initiative Questionnaire (CAIQ)</a> is available in our Support Center. You can also view our CAIQ and STAR Certificate in the <a href="https://cloudsecurityalliance.org/star/registry/auth0/">CSA STAR Registry</a>.</p>
   </li>
     <li>
     <i class="icon icon-budicon-715"></i>ISO 27001/27018
-    <p>Auth0 undergoes an ISO 27001/27018 audit by an independent auditor annually. Our [ISO 27001/27018 certificate](https://support.auth0.com/compliance/documents/iso-27001) is available in our Support Center. We can also share our Statement of Applicability (SOA) upon request with a non-disclosure agreement (NDA) signed by a corporate officer authorized to represent the company. To request the SOA, please contact your assigned Technical Account Manager.</p>
+    <p>Auth0 undergoes an ISO 27001/27018 audit by an independent auditor annually. Our <a href="https://support.auth0.com/compliance/documents/iso-27001">ISO 27001/27018 certificate</a> is available in our Support Center. We can also share our Statement of Applicability (SOA) upon request with a non-disclosure agreement (NDA) signed by a corporate officer authorized to represent the company. To request the SOA, please contact your assigned Technical Account Manager.</p>
   </li>
     <li>
     <i class="icon icon-budicon-715"></i>PCI DSS
