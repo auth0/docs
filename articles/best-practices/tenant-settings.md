@@ -57,7 +57,7 @@ On a regular basis, review the list of [dashboard administrators](/dashboard/ref
 - former employees no longer have access
 - there's more than one dashboard admin
 
-For further protection, turn on <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> for your dashboard admins. There is the possibility of an admin being locked out if they lose their phone, but if you have multiple dashboard admins, another admin can temporarily disable the MFA for the admin who lost their phone.
+For further protection, turn on <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> for your dashboard admins. If a Dashboard Admin is locked out and needs their MFA reset, another Dashboard Admin should open an Auth0 [support ticket](/support/tickets) on their behalf. Auth0 can reset MFA for that admin after a verification process.
 
 ## Turn off Enable Application Connections
 
