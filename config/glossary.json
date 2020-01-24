@@ -1,7 +1,7 @@
 {
   "access-token": {
     "title": "Access Token",
-    "definition": "A credential that can be used by an application to access an API. It informs the API that the bearer of the token has been authorized to access the API and perform specific actions specified by the scope that has been granted. An Access Token can be in any format, but two popular options include opaque strings and JSON Web Tokens (JWT). They should be transmitted to the API as a Bearer credential in an HTTP Authorization header. See <a href='/docs/tokens/access-token'>Access Tokens</a>.",
+    "definition": "A credential that can be used by an application to access an API. It informs the API that the bearer of the token has been authorized to access the API and perform specific actions specified by the scope that has been granted. An Access Token can be in any format, but two popular options include opaque strings and JSON Web Tokens (JWT). They should be transmitted to the API as a Bearer credential in an HTTP Authorization header.",
     "short": "An authorization credential, in the form of an opaque string or JWT, used to access an API."
   },
   "audience": {
@@ -31,7 +31,7 @@
   },
   "confidential-client": {
     "title": "Confidential Client",
-    "definition": "According to the OAuth 2.0 protocol, clients (applications) can be classified as either confidential or public depending on whether or not they are able to hold credentials (such as a client ID and secret) securely. Confidential clients can hold credentials in a secure way without exposing them to unauthorized parties and require a trusted backend server to do so. They can use grant types that require them to authenticate by specifying their client ID and secret when calling the token endpoint and can have tokens issued to them that have been signed either symmetrically or asymmetrically. See <a href=‘/applications/concepts/app-types-confidential-public'>Application Types - Confidential vs. Public</a>.",
+    "definition": "According to the OAuth 2.0 protocol, clients (applications) can be classified as either confidential or public depending on whether or not they are able to hold credentials (such as a client ID and secret) securely. Confidential clients can hold credentials in a secure way without exposing them to unauthorized parties and require a trusted backend server to do so. They can use grant types that require them to authenticate by specifying their client ID and secret when calling the token endpoint and can have tokens issued to them that have been signed either symmetrically or asymmetrically.",
     "short": "A client (application) that can hold credentials securely by using a trusted backend server. Examples include a web application with a secure backend and a machine-to-machine (M2M) application."
   },
   "confused-deputy": {
