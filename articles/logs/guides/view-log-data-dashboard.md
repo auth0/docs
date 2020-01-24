@@ -25,7 +25,7 @@ You can choose a [filter](/logs/references/log-event-filters) for log error, war
 
 * [Administrator and Developer Log Usage Examples](/logs/concepts/logs-admins-devs)
 * [Log Data Retention](/logs/references/log-data-retention)
-* [Log Event Type Codes](/logs/references/log-event-Type Codes)
+* [Log Event Type Codes](/logs/references/log-event-type-codes)
 * [Log Search Query Syntax](/logs/references/query-syntax)
 * [Retrieve Logs Using the Management API](/logs/guides/retrieve-logs-mgmt-api)
 * [Integrate AWS EventBridge with Auth0](/integrations/aws-eventbridge)
