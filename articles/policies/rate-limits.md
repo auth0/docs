@@ -234,6 +234,7 @@ If you obtain Access Tokens for your SPAs, note that there are rate limits that 
     <tr>
     <td>Change Password</td>
     <td><code>/dbconnections/change_pass</code></td>
+    <td>User Email, IP Address</td>
     <td>1 request per minute with bursts of up to 10 requests</td>
   </tr>
   <tr>
@@ -273,7 +274,7 @@ If you obtain Access Tokens for your SPAs, note that there are rate limits that 
     <tr>
     <td>Change Password</td>
     <td><code>/dbconnections/change_password</code></td>
-    <td>User Email and IP</td>
+    <td>User Email, IP Address</td>
     <td>1 request per minute with bursts of up to 10 requests</td>
   </tr>
   <tr>
