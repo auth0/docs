@@ -160,7 +160,7 @@ Click **Save**.
 
 <% if (service === "Zendesk") { %>
 ::: warning
-Zendesk **requires** that all users have an email address, when enabling Enterprise or Social connections make sure that they will provide an email address
+Zendesk **requires** that all users have an email address. When enabling Enterprise or Social connections, make sure that they will provide an email address
 that can be sent to Zendesk.
 :::
 
