@@ -21,6 +21,10 @@ Auth0 strongly recommends that you **do not** set the `brute_force_protection` f
 
 Once enabled, you can [customize](/anomaly-detection/guides/set-anomaly-detection-preferences#brute-force-protection-preferences) your brute-force protection settings.
 
+::: note
+If there are 10 attempted logins from an email address that is not associated with an existing user in Auth0, brute-force protection will still be triggered. However, no brute-force notification email is sent to the email address that is attempting the access. 
+:::
+
 ![Brute-Force Protection Shield](/media/articles/anomaly-detection/brute-force-shield.png)
 
 ## Keep reading
