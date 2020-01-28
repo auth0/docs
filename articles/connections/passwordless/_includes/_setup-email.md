@@ -73,6 +73,7 @@ You may configure Auth0 to send users one-time codes using:
 
 ::: note
 To use a custom SMTP email provider, the SMTP server must:
+
     * support LOGIN authentication
     * support TLS 1.0 or higher
     * use a certificate signed by a public certificate authority (CA)
