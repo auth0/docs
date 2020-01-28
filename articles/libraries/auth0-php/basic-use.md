@@ -18,15 +18,14 @@ The examples below assume that you followed the steps in the [Installation and G
 
 ### Login
 
-The basic login process in Auth0-PHP uses an [Authentication Code grant](/api-auth/tutorials/authorization-code-grant) combined with Auth0's <dfn data-key="universal-login">Universal Login</dfn> page. In short, that process is:
+The default login process in Auth0-PHP uses an [Authentication Code grant](/api-auth/tutorials/authorization-code-grant) combined with Auth0's <dfn data-key="universal-login">Universal Login</dfn> page. In short, that process is:
 
 1. A user requesting access is redirected to the Universal Login Page.
 2. The user authenticates using one of [many possible connections](https://auth0.com/docs/identityproviders): social (Google, Twitter, Facebook), database (email and password), <dfn data-key="passwordless">passwordless</dfn> (email, SMS), or enterprise (ActiveDirectory, ADFS, Office 365).
 3. The user is redirected or posted back to your application's callback URL with `code` and `state` values if successful or an `error` and `error_description` if not.
 4. If the authentication was successful, the `state` value is validated.
-5. If the `state` is valid, the `code` value is exchanged with Auth0 for an <dfn data-key="access-token">Access Token</dfn>.
-6. If the exchange is successful, the Access Token is used to call an Auth0 `/userinfo` endpoint, which returns the authenticated user's information.
-7. This information can be used to create an account, to start an application-specific session, or to persist as the user session.
+5. If the `state` is valid, the `code` value is exchanged with Auth0 for an <dfn data-key="id-token">ID Token</dfn> and/or an <dfn data-key="access-token">Access Token</dfn>.
+6. The identity from the ID token can be used to create an account, to start an application-specific session, or to persist as the user session.
 
 Auth0-PHP handles most of these steps automatically. Your application needs to:
 
@@ -54,9 +53,9 @@ $auth0 = new Auth0([
     'client_secret' => getenv('AUTH0_CLIENT_SECRET'),
     'redirect_uri' => getenv('AUTH0_REDIRECT_URI'),
 
-    // The scope determines what data is provided by the /userinfo endpoint.
-    // There must be at least one valid scope included here.
-    'scope' => 'openid',
+    // The scope determines what data is provided in the ID token.
+    // See: https://auth0.com/docs/scopes/current
+    'scope' => 'openid email profile',
 ]);
 
 // If there is a user persisted (PHP session by default), return that.
@@ -64,11 +63,7 @@ $auth0 = new Auth0([
 // If the state validation and code exchange are successful, return `userinfo`.
 try {
     $userinfo = $auth0->getUser();
-} catch (CoreException $e) {
-    // Invalid state or session already exists.
-    die( $e->getMessage() );
-} catch (ApiException $e) {
-    // Access token not present.
+} catch (Exception $e) {
     die( $e->getMessage() );
 }
 
@@ -110,7 +105,6 @@ Using the example above, we'll add additional [scopes](/api-auth/tutorials/adopt
 
 Once someone has logged in requesting the new user claims, let's redirect to a profile page instead of outputting the user information:
 
-
 ```php
 // login.php
 
@@ -120,7 +114,6 @@ header('Location: /profile.php');
 ```
 
 This profile page will return all the data we retrieved from the `/userinfo` endpoint and stored in our session. The <dfn data-key="scope">`scope`</dfn> parameter controls the data displayed here we passed to the `Auth0` class. More information on the claims we can pass to `scope` is [here](/api-auth/tutorials/adoption/scope-custom-claims).
-
 
 ```php
 // profile.php
@@ -160,7 +153,6 @@ use Auth0\SDK\Auth0;
 $auth0 = new Auth0([
     'domain' => getenv('AUTH0_DOMAIN'),
     'client_id' => getenv('AUTH0_CLIENT_ID'),
-    'client_secret' => getenv('AUTH0_CLIENT_SECRET'),
     'redirect_uri' => getenv('AUTH0_LOGIN_BASIC_CALLBACK_URL'),
 ]);
 
