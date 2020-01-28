@@ -1,5 +1,5 @@
 ---
-title: OIDC-conformant Resource Owner Password Credentials exchange
+description: Understand how the Resource Owner Password Grant (ROPG) is used by highly-trusted apps to provide active authentication. 
 topics:
   - api-authentication
   - oidc
@@ -9,7 +9,9 @@ useCase:
   - secure-api
   - call-api
 ---
-# Resource Owner Password Credentials exchange
+# Resource Owner Password Credentials Exchange
+
+<%= include('../_includes/_ropg-warning.md') %>
 
 <%= include('./_about.md') %>
 
@@ -191,6 +193,6 @@ Pragma: no-cache
 
 The Auth0 password realm grant is not defined by standard OIDC, but it is suggested as an alternative to the legacy resource owner endpoint because it supports the Auth0-specific `realm` parameter. The [standard OIDC grant is also supported](/api-auth/tutorials/password-grant) when using OIDC authentication.
 
-## Further reading
+## Keep reading
 
 <%= include('./_index.md') %>

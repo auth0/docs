@@ -1,5 +1,5 @@
 ---
-title: OIDC-conformant Refresh Token use
+description: Understand how refresh tokens are used in an OIDC-conformant authentication pipeline.
 topics:
   - api-authentication
   - oidc
@@ -11,7 +11,7 @@ useCase:
   - call-api
 ---
 
-# OIDC-conformant Refresh Tokens
+# OIDC-Conformant Refresh Tokens
 
 <%= include('./_about.md') %>
 
@@ -54,6 +54,6 @@ grant_type=refresh_token&refresh_token=123&client_id=123&client_secret=123&scope
 
 Please note that Refresh Tokens must be kept confidential in transit and storage, and they should be shared only among the authorization server and the client to whom the Refresh Tokens were issued.
 
-## Further reading
+## Keep reading
 
 <%= include('./_index.md') %>

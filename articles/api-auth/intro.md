@@ -1,5 +1,4 @@
 ---
-title: Introducing OIDC Conformant Authentication
 description: An overview of the OIDC Conformant authentication flows, why these changes were made and how you can adopt them.
 toc: true
 topics:
@@ -10,7 +9,7 @@ useCase:
   - secure-api
   - call-api
 ---
-# Introducing OIDC Conformant Authentication
+# OIDC-Conformant Authentication Overview
 
 **Released Date**: May 10, 2017
 
@@ -323,9 +322,8 @@ should be used instead with <code>"grant_type": "refresh_token"</code></td>
   </tbody>
 </table>
 
-## Keep Reading
+## Keep reading
 
-::: next-steps
 * [API Authorization index](/api-auth)
 * [Tokens](/tokens)
-:::
+

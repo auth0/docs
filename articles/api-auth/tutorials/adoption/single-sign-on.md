@@ -1,5 +1,5 @@
 ---
-title: OIDC Single Sign-On
+description: Understand how OIDC Single Sign-On occurs when a user logs into one app and is then signed into other apps automatically. 
 topics:
   - api-authentication
   - oidc
@@ -14,7 +14,7 @@ useCase:
 
 <%= include('./_about.md') %>
 
-<dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> occurs when a user logs in to one application and is then signed in to other applications automatically.
+<dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> occurs when a user logs into one application and is then signed into other applications automatically.
 
 In the context of the OIDC-conformant authentication pipeline, SSO must happen at the authorization server (i.e. Auth0) and not applications.
 

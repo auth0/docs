@@ -10,7 +10,7 @@ useCase:
   - call-api
 ---
 
-# Delegation and the OIDC-conformant pipeline
+# Delegation and the OIDC-Conformant Pipeline
 
 <%= include('../../../_includes/_deprecate-delegation') %>
 
@@ -32,6 +32,6 @@ At the moment there is no OIDC-compliant mechanism to obtain third-party API tok
 In order to facilitate a gradual migration to the new authentication pipeline, delegation can still be used to obtain third-party API tokens.
 This will be deprecated in future releases.
 
-## Further reading
+## Keep reading
 
 <%= include('./_index.md') %>
