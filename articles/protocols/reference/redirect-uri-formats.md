@@ -6,7 +6,7 @@ topics:
   - user-management
   - state-parameter
   - redirection
-contentType: how-to
+contentType: reference
 useCase: manage-users
 ---
 # Redirect URI Supported Wildcard Formats
