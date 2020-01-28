@@ -11,7 +11,7 @@ useCase:
 ---
 # Resource Owner Password Credentials Exchange
 
-<%= include('../_includes/_ropg-warning.md') %>
+<%= include('../../_includes/_ropg-warning.md') %>
 
 <%= include('./_about.md') %>
 
