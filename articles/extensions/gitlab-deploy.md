@@ -103,6 +103,9 @@ The **Deploy** button on the **Deployments** tab of the extension allows you to 
 
 ::: panel-warning Full Deployment
 To maintain a consistent state, the extension will always do a full deployment of the contents of these folders. **Any rules, pages or database connection scripts that exist in Auth0 but not in your GitHub repository will be deleted**.
+
+When AUTH0_ALLOW_DELETE is set to yes, if there are empty folders or missing config folder,  those configs will not delete existing settings on Auth0. It only deletes if you have that folder and something configured within that folder. We recommend setting up all of the config, since we are not able to provide data restores at this time.
+
 :::
 
 ### Deploy Database Connection scripts
