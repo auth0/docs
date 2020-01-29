@@ -1003,7 +1003,6 @@ articles:
               - title: AWS EventBridge
                 url: /logs/streams/aws-eventbridge
 
-
           - title: Log Data Retention
             url: /logs/references/log-data-retention
 
