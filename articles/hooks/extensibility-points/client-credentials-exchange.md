@@ -1,5 +1,6 @@
 ---
-description: Learn about the Client Credentials Exchange Hook available for Database Connections.
+title: Client Credentials Exchange Extensibility Point
+description: Learn how hooks can be used with the Client Credentials Exchange extensibility point, which is available for database connections and passwordless connections.
 beta: true
 toc: true
 topics:
@@ -13,31 +14,13 @@ useCase: extensibility-hooks
 v2: true
 ---
 
-# Client Credentials Exchange Hook
+# Client Credentials Exchange Extensibility Point
 
-The Client Credentials Exchange Hook lets you modify the <dfn data-key="scope">scopes</dfn> and add custom claims to <dfn data-key="access-token">Access Tokens</dfn> issued from the [`POST /oauth/token` Auth0 API](/api/authentication#client-credentials-flow) during runtime.
+At the Client Credentials Exchange extensibility point, Hooks allow custom actions to be executed after an <dfn data-key="access-token">Access Token</dfn> is issued through the Authentication API [`POST /oauth/token` endpoint](/api/authentication#client-credentials-flow) using the [Client Credentials Flow](/flows/concepts/client-credentials). For example, you may add custom claims to the Access Token or modify its <dfn data-key="scope">scopes</dfn>.
 
-The Client Credentials Exchange Hook is available for [Database Connections](/connections/database) and [Passwordless Connections](/connections/passwordless). You can create a new Post Change Password hook using the [Dashboard](/hooks/guides/create-hooks-using-dashboard) or the [Command Line Interface](/hooks/guides/create-hooks-using-cli).
+The Client Credentials Exchange extensibility point is available for [Database Connections](/connections/database) and [Passwordless Connections](/connections/passwordless).
 
-::: note
-For more information on the Client Credentials Grant check out:
-
-* [Client Credentials Flow](/flows/concepts/client-credentials)
-* [Using Hooks with Client Credentials Grant](/api-auth/tutorials/client-credentials/customize-with-hooks).
-:::
-
-## Claim types
-
-You can add the following as claims to the issued token:
-
-* The `scope` property of the response object
-* Any properties with [namespaced](/tokens/concepts/claims-namespacing) property names
-
-The extensibility point will ignore all other response object properties.
-
-::: note
-If you need to configure client secrets and access them within Hooks, use `context.webtask.secrets.SECRET_NAME`.
-:::
+To learn how to create Hooks, see [Create New Hooks](/hooks/create).
 
 ## Starter code and parameters
 
@@ -86,9 +69,7 @@ The default response object every time you run this Hook is as follows:
 
 ## Testing Hooks
 
-::: note
-Executing the code using the Runner requires a save, which means that the original code will be overwritten.
-:::
+<%= include('./_includes/_test-runner-save-warning') %>
 
 Once you've modified the sample code with the specific scopes of additional claims you'd like added to your Access Tokens, you can test the hook using the Runner. The Runner simulates a call to the Hook with the same body/payload that you would get with a Credentials Exchange. 
 
@@ -148,6 +129,17 @@ Using the [test runner](https://webtask.io/docs/editor/runner), we see that the 
 ## Example: add a claim to the Access Token
 
 This example shows you how to add a [namespaced](/tokens/guides/create-namespaced-custom-claims) claim and its value to the Access Token.
+
+## Claim types
+
+You can add the following as claims to the issued token:
+
+* The `scope` property of the response object
+* Any properties with [namespaced](/tokens/concepts/claims-namespacing) property names
+
+The extensibility point will ignore all other response object properties.
+
+<%= include('../_includes/_access-hook-secrets') %>
 
 ```js
 module.exports = function(client, scope, audience, context, cb) {

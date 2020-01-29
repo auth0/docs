@@ -1,5 +1,6 @@
 ---
-description: Learn about the Pre User Registration Hook available for Database Connections and Passwordless Connections.
+title: Pre User Registration Extensibility Point
+description: Learn how hooks can be used with the Pre User Registration extensibility point, which is available for database connections and passwordless connections.
 beta: true
 toc: true
 topics:
@@ -12,13 +13,13 @@ useCase: extensibility-hooks
 v2: true
 ---
 
-# Pre User Registration Hook
+# Pre User Registration Extensibility Point
 
-The Pre User Registration Hook allows custom actions to be executed when a new user is created.
+At the Pre User Registration extensibility point, Hooks allow custom actions to be executed when a new user is created. For example, you may add custom `app_metadata` or `user_metadata` to the newly-created user, or even prevent the creation of the user in the database.
 
-With the Pre User Registration Hook, you can do things like adding custom `app_metadata` or `user_metadata` to a newly created user or even prevent the creation of a user in the database.
+The Post User Registration extensibility point is available for [Database Connections](/connections/database) and [Passwordless Connections](/connections/passwordless).
 
-The Pre User Registration Hook is available for both [Database Connections](/connections/database) and [Passwordless Connections](/connections/passwordless). You can create a new Pre User Registration Hook using the [Dashboard](/hooks/create) or the [Command Line Interface](/hooks/create).
+To learn how to create Hooks, see [Create New Hooks](/hooks/create).
 
 ## Starter code and parameters
 

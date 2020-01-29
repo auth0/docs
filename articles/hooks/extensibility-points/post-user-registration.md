@@ -1,5 +1,6 @@
 ---
-description: Learn about the Post User Registration Hook available for Database Connections and Passwordless Connections.
+title: Post User Registration Extensibility Point
+description: Learn how hooks can be used with the Post User Registration extensibility point, which is available for database connections and passwordless connections.
 beta: true
 toc: true
 topics:
@@ -12,13 +13,15 @@ useCase: extensibility-hooks
 v2: true
 ---
 
-# Post User Registration Hook
+# Post User Registration Extensibility Point
 
-The Post User Registration Hook allows custom actions to be executed after a new user registers an account and is added to the database. This hook executes asynchronously with the rest of the Auth0 pipeline and its outcome does not affect the Auth0 transaction.
+At the Post User Registration extensibility point, Hooks allow custom actions to be executed after a new user registers an account and is added to the database. For example, you may send a message to Slack or create a record in your customer relationship management (CRM) system.
 
-With the Post User Registration Hook, you can do things like send a chat notification about the user's new account or create a new record in a customer relationship management system.
+The Hook added to this extensibility point executes asynchronously with the rest of the Auth0 pipeline, and its outcome does not affect the Auth0 transaction.
 
-The Post User Registration Hook is available for both [Database Connections](/connections/database) and [Passwordless Connections](/connections/passwordless). You can create a new Post User Registration Hook using the [Dashboard](/hooks/create) or the [Command Line Interface](/hooks/create).
+The Post User Registration extensibility point is available for [Database Connections](/connections/database) and [Passwordless Connections](/connections/passwordless).
+
+To learn how to create Hooks, see [Create New Hooks](/hooks/create).
 
 ## Starter code and parameters
 

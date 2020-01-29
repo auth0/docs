@@ -1,5 +1,6 @@
 ---
-description: Learn about the Post Change Password Hook available for Database Connections.
+title: Post Change Password Extensibility Point
+description: Learn how hooks can be used with the Post Change Password extensibility point, which is available for database connections.
 beta: true
 toc: true
 topics:
@@ -12,13 +13,15 @@ useCase: extensibility-hooks
 v2: true
 ---
 
-# Post Change Password Hook
+# Post Change Password Extensibility Point
 
-The Post Change Password Hook allows custom actions to be executed after a successful user password change; when a user updates their password or after a tenant administrator updates a user's password. This hook executes asynchronously with the rest of the Auth0 pipeline and its outcome does not affect the Auth0 transaction.
+At the Post Change Password extensibility point, Hooks allow custom actions to be executed after a successful user password change, whether initiated by a user for their own password or by a tenant administrator for another user's password. For example, you may send an email to a user to notify them that their password has been changed.
 
-With the Post Change Password Hook, you can do things like send an email to a user letting them know their password has been changed.
+The Hook added to this extensibility point executes asynchronously with the rest of the Auth0 pipeline, and its outcome does not affect the Auth0 transaction.
 
-The Post Change Password Hook is only available for [Database Connections](/connections/database). You can create a new Post Change Password Hook using the [Dashboard](/hooks/guides/create-hooks-using-dashboard) or the [Command Line Interface](/hooks/guides/create-hooks-using-cli).
+The Post Change Password extensibility point is available for [Database Connections](/connections/database).
+
+To learn how to create Hooks, see [Create New Hooks](/hooks/create).
 
 ## Starter code and parameters
 
