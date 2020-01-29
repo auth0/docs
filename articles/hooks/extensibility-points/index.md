@@ -18,9 +18,9 @@ Depending on the extensibility point, you can use Hooks with [Database Connectio
 
 The following extensibility points are available:
 
-| Extensibility Point | Trigger ID | Connection Type(s) | Description | 
+| Extensibility&nbsp;Point | Trigger ID | Connection Type(s) | Description | 
 |---------------------|-----------|-----------------|-------------|
-| [Client Credentials Exchange](/hooks/client-credentials-exchange) | `credentials-exchange` | Database, Passwordless | Change the <dfn data-key="scope">scopes</dfn> and add custom claims to access tokens issued by the Auth0 API's `POST /oauth/token` endpoint. |
-| [Pre User Registration](/hooks/pre-user-registration) | `pre-user-registration` | Database, Passwordless | Prevent user registration and add custom metadata to a newly-created user. |
-| [Post User Registration](/hooks/post-user-registration) | `post-user-registration` | Database, Passwordless | Implement custom actions that execute asynchronously from the Auth0 authentication process after a new user registers and is added to the database. |
-| [Post Change Password](/hooks/guides/post-change-password) | `post-change-password` | Database | Implement custom actions to be executed after a successful user password change. |
+| [Client Credentials Exchange](/hooks/extensibility-points/client-credentials-exchange) | `credentials-exchange` | Database, Passwordless | Change the <dfn data-key="scope">scopes</dfn> and add custom claims to access tokens issued by the Auth0 API's `POST /oauth/token` endpoint. |
+| [Pre User Registration](/hooks/extensibility-points/pre-user-registration) | `pre-user-registration` | Database, Passwordless | Prevent user registration and add custom metadata to a newly-created user. |
+| [Post User Registration](/hooks/extensibility-points/post-user-registration) | `post-user-registration` | Database, Passwordless | Implement custom actions that execute asynchronously from the Auth0 authentication process after a new user registers and is added to the database. |
+| [Post Change Password](/hooks/extensibility-points/post-change-password) | `post-change-password` | Database | Implement custom actions to be executed after a successful user password change. |

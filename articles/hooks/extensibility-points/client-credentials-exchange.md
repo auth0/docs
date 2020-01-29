@@ -20,6 +20,8 @@ At the Client Credentials Exchange extensibility point, Hooks allow custom actio
 
 The Client Credentials Exchange extensibility point is available for [Database Connections](/connections/database) and [Passwordless Connections](/connections/passwordless).
 
+To learn about other extensibility points, see [Extensibility Points](/hooks/extensibility-points).
+
 To learn how to create Hooks, see [Create New Hooks](/hooks/create).
 
 ## Starter code and parameters
