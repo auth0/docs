@@ -13,7 +13,7 @@ contentType: index
 
 Log Streams let you export your log events in near real-time to a given URL or to AWS EventBridge.
 
-<%= include('../_includes/_topic-links', { links: [
+<%= include('../../_includes/_topic-links', { links: [
   'logs/streams/http-event',
   'logs/streams/aws-eventbridge'
 ] }) %>
