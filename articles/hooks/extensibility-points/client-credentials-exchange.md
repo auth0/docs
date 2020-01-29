@@ -139,7 +139,7 @@ You can add the following as claims to the issued token:
 
 The extensibility point will ignore all other response object properties.
 
-<%= include('../_includes/_access-hook-secrets') %>
+<%= include('../_includes/_access_hook_secrets') %>
 
 ```js
 module.exports = function(client, scope, audience, context, cb) {
