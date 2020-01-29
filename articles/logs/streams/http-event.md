@@ -4,7 +4,9 @@ description: HTTP Event Log Streams let you export your events in near real-time
 toc: false
 topics:
  - logs
+ - streams
  - event-streams
+ - http-event
 contentType: how-to
 ---
 

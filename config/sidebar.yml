@@ -993,6 +993,17 @@ articles:
         url: /logs
         children:
 
+          - title: Log Streams
+            url: /logs/streams
+            children:
+
+              - title: HTTP Event Streams
+                url: /logs/streams/http-event
+
+              - title: AWS EventBridge
+                url: /logs/streams/aws-eventbridge
+
+
           - title: Log Data Retention
             url: /logs/references/log-data-retention
 

@@ -2450,4 +2450,8 @@ module.exports = [
       from: '/hooks/guides/logging-hooks-using-cli',
       to: '/hooks/logs'
     }
+    {
+      from: '/integrations/aws-eventbridge',
+      to: '/logs/streams/aws-eventbridge'
+    }
 ];

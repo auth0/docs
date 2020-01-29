@@ -4,6 +4,9 @@ description: Learn how to create an event-driven workflow using AWS EventBridge 
 toc: true
 topics:
  - integrations
+ - logs
+ - streams
+ - event-streams
  - aws
  - eventbridge
 contentType: how-to
