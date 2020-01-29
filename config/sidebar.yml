@@ -944,20 +944,14 @@ articles:
           - title: Enable/Disable Hooks
             url: /hooks/enable-disable
 
-          - title: Client Credentials Exchange
-            url: /hooks/client-credentials-exchange
+          - title: View Logs
+            url: /hooks/view-logs
 
-          - title: Post Change Password
-            url: /hooks/post-change-password
+          - title: Extensibility Points
+            url: /hooks/extensibility-points
 
-          - title: Post User Registration
-            url: /hooks/post-user-registration
-
-          - title: Pre User Registration
-            url: /hooks/pre-user-registration
-
-          - title: Get Log Info
-            url: /hooks/logs
+          - title: Hook Secrets
+            url: /hooks/secrets
 
       - title: Extensions
         url: /extensions
