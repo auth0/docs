@@ -59,7 +59,7 @@ Hooks may also be imported and exported using the [Deploy Command-Line Interface
 	],
 	"postData": {
     "mimeType": "application/json",
-    "text" : "{ \"name\": \"HOOK_NAME\", \"script\": \"HOOK_SCRIPT\", "\triggerId\": \"EXTENSIBILITY_POINT_NAME\" }"
+    "text" : "{ \"name\": \"HOOK_NAME\", \"script\": \"HOOK_SCRIPT\", \"triggerId\": \"EXTENSIBILITY_POINT_NAME\" }"
 	}
 }
 ```

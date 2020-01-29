@@ -95,9 +95,7 @@ Metadata property names must not start with the `$` character or contain the `.`
 
 ## Testing your Hook
 
-::: note
-Executing the code using the Runner requires a save, which means that your original code will be overwritten.
-:::
+<%= include('../_includes/_test_runner_save_warning') %>
 
 Once you've modified the sample code, you can test your Hook using the Runner. The runner simulates a call to the Hook with the appropriate user information body/payload. The following is the sample body that populates the Runner by default (these are the same objects/parameters detailed in the comment at the top of the sample Hook code):
 

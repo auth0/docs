@@ -58,9 +58,7 @@ The Post Change Password Hook ignores any response object. If an error is return
 
 ## Testing Hooks
 
-::: note
-Executing the code using the Runner requires a save, which means that the original code will be overwritten.
-:::
+<%= include('../_includes/_test_runner_save_warning') %>
 
 You can test Hooks using the Runner. The runner simulates a call to the Hook with the appropriate user information body/payload. The following is the sample body that populates the Runner by default (these are the same objects/parameters detailed in the comment at the top of the sample Hook code):
 

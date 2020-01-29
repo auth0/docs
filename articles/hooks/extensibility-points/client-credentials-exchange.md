@@ -69,7 +69,7 @@ The default response object every time you run this Hook is as follows:
 
 ## Testing Hooks
 
-<%= include('./_includes/_test-runner-save-warning') %>
+<%= include('../_includes/_test_runner_save_warning') %>
 
 Once you've modified the sample code with the specific scopes of additional claims you'd like added to your Access Tokens, you can test the hook using the Runner. The Runner simulates a call to the Hook with the same body/payload that you would get with a Credentials Exchange. 
 
