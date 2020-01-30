@@ -15,7 +15,7 @@ v2: true
 
 ### Trigger
 
-This trigger occurs when there are 10 failed login attempts into a single account from the same IP address, both from email addresses that are associated with users that exist in Auth0 and email addresses that are not.
+This trigger occurs when there are 10 failed login attempts into a single account from the same IP address, both from email addresses that are associated with users who exist in Auth0 and email addresses that are not.
 
 ::: note
 You cannot change the default trigger amount of 10.
