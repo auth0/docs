@@ -43,7 +43,7 @@ Because of these [cross-origin authentication issues](/cross-origin-authenticati
     * Only one custom domain can be applied per Auth0 tenant, so all applications on the tenant will use the same custom domain (they will need to use the same top-level domain as well).
     * This option may not be viable for customers who are not eligible to use custom domains, or who choose not to do so. In those cases, Universal Login is the best approach.
 
-<%= include('../../_includes/_embedded_login_warning') %>
+<%= include('../../../_includes/_embedded_login_warning') %>
 
 If neither of these recommendations (Universal Login or embedded + custom domains) seem to work for your situation, please visit our [Support Center](${env.DOMAIN_URL_SUPPORT}) and file a support ticket or a community post for further guidance.
 
