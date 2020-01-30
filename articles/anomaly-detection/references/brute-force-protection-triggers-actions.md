@@ -42,7 +42,7 @@ If the attempts come from an email address that does not exist in Auth0, the blo
 
 * Make a Management API call to `DELETE /api/v2/user-blocks?identifier=EMAIL`.
 * If you know the IP address, make a Management API call to `DELETE /api/v2/anomaly/blocks/ips/IP`.
-* If the user does a sign-up with the blocked email address. 
+* Ask the user to sign up with the blocked email address. 
 
 ## 100 failed login attempts *or* 50 sign up attempts
 
