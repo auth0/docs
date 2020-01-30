@@ -1,5 +1,4 @@
 ---
-toc: true
 description: List of Auth0 migrations that have already been enabled for all customers
 topics:
   - migrations
@@ -8,122 +7,15 @@ contentType:
 useCase:
   - migrate
 ---
-# Past Migrations
+# Deprecation Log
 
-These are migrations that have already been enabled for all customers.
+These are deprecations that have already been enabled for all customers.
 
-## Introducing Lock v11 and Auth0.js v9
-
-| Severity | Grace Period Start | Mandatory Opt-In|
-| --- | --- | --- |
-| Medium | 2017-12-21 |  2018-08-06 |
-
-We are continually improving the security of our service. As part of this effort, we have deprecated the Legacy Lock API, which consists of the /usernamepassword/login and /ssodata endpoints. These endpoints are used by Lock.js v8, v9, and v10 and Auth0.js, v6, v7, and v8, and can also be called directly from applications.
-
-As of August 6, 2018, Auth0 has permanently disabled the Legacy Lock API. This removal of service fully mitigates the CSRF vulnerability [disclosed in April 2018](https://auth0.com/blog/managing-and-mitigating-security-vulnerabilities-at-auth0/). This also ends the soft removal grace period that was [first announced on July 16, 2018](https://community.auth0.com/t/auth0-legacy-lock-api-disabled-grace-period-available/12949), meaning the Legacy Lock API can no longer be re-enabled.
-
-If your Legacy Lock API migration has not yet been completed, your users may experience an outage, failed logins, or other adverse effects. You will need to complete your migration in order to restore normal functionality. Refer to the [Legacy Lock API Deprecation Guide](/migrations/guides/legacy-lock-api-deprecation) to determine the correct path for your needs. See [Check Deprecation Errors](/troubleshoot/guides/check-deprecation-errors) to identify the source(s) of any errors in your tenant logs. 
-
-### Am I affected by the change?
-
-If you are currently implementing login in your application with Lock v8, v9, or v10, or Auth0.js v6, v7, or v8, you are affected by these changes. Additionally, you are affected if your application calls the /usernamepassword/login or /ssodata endpoints directly via the API.
-
-We **recommend** that applications using [Universal Login](/hosted-pages/login) update the library versions they use inside of the login page.
-
-However, those who are using Lock or Auth0.js embedded within their applications, or are calling the affected API endpoints directly, are **required** to update, and applications which still use deprecated endpoints will cease to function properly after the removal of service date.
-
-Libraries and SDKs not explicitly named here are not affected by this migration.
-
-## New IP Addresses for Whitelisting in Australia
-
-| Severity | Grace Period Start | Mandatory Opt-In|
-| --- | --- | --- |
-| Low | 2017-08-22 |  2017-09-30 |
-
-Auth0 is updating its cloud environments, and traffic from these regions will originate from new IP addresses. If you are whitelisting IP addresses, you will need to add the new addresses to your firewall rules.
-
-### Am I affected by the change?
-
-If you are using a custom database connection, rule, and/or custom email provider that connects to your environment, **and** you have implemented firewall restrictions for IP address ranges, then you are affected by this change. You will need to make sure the following IP addresses are allowed to go through your firewall:
-
-```
-13.55.232.24, 13.54.254.182, 13.210.52.131, 52.62.91.160, 52.63.36.78, 52.64.84.177, 52.64.111.197, 52.64.120.184, 54.66.205.24, 54.79.46.4, 54.153.131.0
-```
-
-If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
-
-## New IP Addresses for Whitelisting in Europe
-
-| Severity | Grace Period Start | Mandatory Opt-In|
-| --- | --- | --- |
-| Low | 2017-08-22 |  2017-09-30 |
-
-Auth0 is updating its cloud environments, and traffic from these regions will originate from new IP addresses. If you are whitelisting IP addresses, you will need to add the new addresses to your firewall rules.
-
-### Am I affected by the change?
-
-If you are using a custom database connection, rule, and/or custom email provider that connects to your environment, **and** you have implemented firewall restrictions for IP address ranges, then you are affected by this change. You will need to make sure the following IP addresses are allowed to go through your firewall:
-
-```
-34.253.4.94, 35.156.51.163, 35.157.221.52, 52.16.193.66, 52.16.224.164, 52.28.45.240, 52.28.56.226, 52.28.184.187, 52.28.212.16, 52.29.176.99, 52.50.106.250, 52.57.230.214, 52.211.56.181, 52.213.216.142, 52.213.38.246, 52.213.74.69
-```
-
-If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
-
-## CDN provider migration in the Europe and Australia environments
-
-| Severity | Grace Period Start | Mandatory Opt-In|
-| --- | --- | --- |
-| Low | N/A |  2017-07-12 |
-
-The existing Auth0 CDN service is one of our older services. It was been built and maintained internally since the early days of the company. To improve its scaling and availability, we are changing providers to use Amazon CloudFront on July 12, at 1pm UTC. We have already made this change in the US environment, and are now ready to do so in Europe and Australia.
-
-### Am I using the CDN?
-
-If you use <dfn data-key="lock">Lock</dfn> (hosted by our CDN) in Europe or Australia, yes.
-
-### Do I need to do something?
-
-This change shouldn't cause any disruption or change in behavior in your applications, so you don't have to do anything. This notification is for information only.
-
-If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
-
-## Whitelisting IP Address Ranges (Q1 2017)
-
-| Severity | Grace Period Start | Mandatory Opt-In|
-| --- | --- | --- |
-| Low | 2017-01-15 |  2017-02-20 |
-
-Auth0 is expanding into new US regions, and traffic originating from these regions will have new IP addresses. If you are whitelisting IP addresses, you will need to add the new addresses to your firewall rules.
-
-### Am I affected by the change?
-
-If you are using a custom database connection, rule, and/or custom email provider that connects to your environment, **and** you have implemented firewall restrictions for IP address ranges, then you are affected by this change. You will need to add the following IP addresses to your firewall rules:
-
-```
-138.91.154.99, 54.183.64.135, 54.67.77.38, 54.67.15.170,
-54.183.204.205, 54.173.21.107, 54.85.173.28, 35.167.74.121, 35.160.3.103,
-35.166.202.113, 52.14.40.253,
-52.14.38.78, 52.14.17.114, 52.71.209.77, 34.195.142.251, 52.200.94.42
-```
-
-If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
-
-## Vulnerable Password Flow
-
-| Severity | Grace Period Start | Mandatory Opt-In|
-| --- | --- | --- |
-| Medium | 2016-03-22 |  2017-02-01 |
-
-The current password reset flow on Auth0 allows a user to enter their email and a new password. This triggers a confirmation email that is sent to the user asking them to confirm that they requested a password reset.
-
-The issue is that the confirmation link may be inadvertently clicked by a user, which would result in the user's password being changed by an attacker.
-
-Lock version 9 and above uses the [new password reset flow](/connections/database/password-change) exclusively. Lock 8 and below does not handle the new password reset flow. We strongly recommend upgrading to Lock 9 or greater as soon as possible.
-
-::: panel Security Warning
-Even if you are not using Lock, the vulnerable reset flow can be accessed directly through the API. (See the [/dbconnections/change_password](/api/authentication/reference#change-password) endpoint for details.) We strongly encourage any app using the current flow to move immediately to the new reset flow and enable this migration.
-:::
+| Feature | Severity | Grace Period Start | Mandatory Opt-in | 
+| -- | -- | -- | -- | 
+| [Legacy Lock API](/product-lifecycle/deprecated/references/legacy-lock-api) | Medium | 2017-12-21 | 2018-08-06 | 
+| [Account Linking ID Tokens](/product-lifecycle/deprecated/references/account-linking-id-tokens) | Medium | -- | 2018-10-19 |
+| [Vulnerable Password Reset Flow](/product-lifecycle/deprecated/references/vulnerable-password-reset-flow) | 
 
 ## Account Linking Removal
 
