@@ -18,6 +18,6 @@ In order to further comply with the OIDC specification, Auth0 will no longer gen
 
 Existing applications with encoded secrets stored will remain intact and unchanged, but *new* applications will no longer use base64 encoding. The `secret_encoded` flag is no longer accepted or necessary, as a result.
 
-## Am I affected by the change?
+## Are you affected?
 
 You are affected by this change only if you interact with these endpoints directly.

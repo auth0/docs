@@ -22,7 +22,7 @@ You are impacted if you call the [/api/v2/users/{USER_ID}/identities](/api/manag
 
 No other use cases are impacted.
 
-## What should I do?
+## Next steps
 
 You should review all your calls to the account linking endpoint ([/api/v2/users/{USER_ID}/identities](/api/management/v2#!/Users/post_identities)) and update those that make use of the vulnerable flow described above. You can update your calls to either of the following:
 

@@ -26,6 +26,8 @@ If your applications match any of the following cases, you are affected:
 
 If you do not use the above libraries and do not specifically call the above endpoints, you are not affected. No libraries which are not specifically named are affected by this vulnerability, or in turn, by the migration.
 
+## Next steps
+
 ### If you already use Universal Login / Hosted Login Page
 
 Applications which log users in via <dfn data-key="universal-login">Universal Login</dfn> through an Auth0 hosted page are not _required_ to update the version of Lock or Auth0.js that they use _inside_ that login page (if you have customized your login page in the [Dashboard](${manage_url}/#/login_page). However, the use of the newest library versions is strongly recommended, even in the Universal Login Page. For those who have not customized their login page, the Lock v11 widget is already in use and no further action is required.

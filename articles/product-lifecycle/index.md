@@ -21,5 +21,5 @@ Learn about the Auth0 product lifecycle, including deprecations, end-of-life, an
 <%= include('../_includes/_topic-links', { links: [
 'product-lifecycle/deprecated',
 'product-lifecycle/upgrades',
-'product-lifecycle/migrations'
+'product-lifecycle/migration'
 ] }) %>

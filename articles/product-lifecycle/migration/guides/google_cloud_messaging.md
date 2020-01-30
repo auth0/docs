@@ -1,5 +1,4 @@
 ---
-title: Google Cloud Messaging Deprecation
 description: This article describes how you can migrate your applications based on the Android Guardian SDK to Firebase Cloud Messaging
 contentType:
   - concept
@@ -8,7 +7,7 @@ useCase:
   - customize-mfa
   - migrate
 ---
-# Migration to Firebase Cloud Messaging
+# Migration Guide: Firebase Cloud Messaging
 
 Auth0’s Guardian SDKs for iOS and Android helps you create custom Mobile apps with Guardian functionality, providing secure access to <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> with push notifications. 
 

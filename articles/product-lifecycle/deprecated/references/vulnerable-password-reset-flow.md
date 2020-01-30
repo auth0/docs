@@ -16,8 +16,18 @@ The current password reset flow on Auth0 allows a user to enter their email and 
 
 The issue is that the confirmation link may be inadvertently clicked by a user, which would result in the user's password being changed by an attacker.
 
-Lock version 9 and above uses the [new password reset flow](/connections/database/password-change) exclusively. Lock 8 and below does not handle the new password reset flow. We strongly recommend upgrading to Lock 9 or greater as soon as possible.
+## Are you affected?
+
+Lock version 9 and above uses the [new password reset flow](/connections/database/password-change) exclusively. Lock 8 and below does not handle the new password reset flow. 
+
+## Next steps
+
+We strongly recommend upgrading to Lock 9 or greater as soon as possible.
 
 ::: panel Security Warning
-Even if you are not using Lock, the vulnerable reset flow can be accessed directly through the API. (See the [/dbconnections/change_password](/api/authentication/reference#change-password) endpoint for details.) We strongly encourage any app using the current flow to move immediately to the new reset flow and enable this migration.
+Even if you are not using Lock, the vulnerable reset flow can be accessed directly through the API. (See the [/dbconnections/change_password](/api/authentication/reference#change-password) endpoint for details.) 
 :::
+
+## Migration
+
+We strongly encourage any app using the current flow to move immediately to the new reset flow and enable this migration.

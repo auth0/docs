@@ -1,5 +1,4 @@
 ---
-title: Migration Guide for Resource Owner Password Credentials Exchange
 description: Learn how to migrate your API calls and responses from /oauth/ro to /oauth/token
 toc: true
 contentType:
@@ -8,11 +7,11 @@ useCase:
   - secure-an-api
   - migrate
 ---
-# Migration Guide for Resource Owner Password Credentials Exchange
+# Migration Guide: Resource Owner Password Credentials Exchange
 
 Support for Resource Owner Password was added to [oauth/token](/api/authentication#authorization-code). Usage of the [oauth/ro](/api/authentication#resource-owner) endpoint was deprecated on July 08, 2017.
 
-## Does this affect me ?
+## Are you affected?
 
 This guide is for users who use the resource owner password credentials exchange, and call /oauth/ro directly, without the use of any Auth0 libraries or SDKs. The major Auth0 libraries such as <dfn data-key="lock">[Lock](/libraries/lock)</dfn> or [Auth0.js](/libraries/auth0js) have already been updated to stop using /oauth/ro internally. If you use the `lock-passwordless` library, you can now use [Passwordless Mode](/libraries/lock/v11#passwordless) in Lock v11 instead.
 

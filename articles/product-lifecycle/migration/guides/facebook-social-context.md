@@ -1,5 +1,4 @@
 ---
-title: 'Context' Facebook Field Deprecation
 description: Facebook is removing access to the 'social context' field from their profile
 toc: true
 contentType:
@@ -8,7 +7,7 @@ useCase:
   - add-login
   - migrate
 ---
-# 'Context' Facebook Field Deprecation
+# Migration Guide: Context Facebook Field Deprecation
 
 On **July 30th 00:00 UTC**, Facebook connections that request the `context` field will fail, so Auth0 will stop requesting it for all connections at that time.
 
@@ -24,8 +23,6 @@ Once you uncheck ‘Social context’, the profile data will not include the con
   "id": "dXNlcl9...UZD"
 }
 ```
- 
-**Do I need to take any action?**
  
 If you are not using the ‘context’ field in the Facebook profile returned by Auth0 in your application, then your application will keep working without changes. Otherwise, you will need to adjust your application code so it does not rely on it.
  
