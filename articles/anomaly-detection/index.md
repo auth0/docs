@@ -32,7 +32,7 @@ Auth0 recommends that you [create reports using tenant traffic data to see anoma
 
 Brute-force protection is [enabled by default](/anomaly-detection/guides/enable-disable-brute-force-protection) for all connections. There are two different [triggers](/anomaly-detection/references/brute-force-protection-triggers-actions) for the brute-force protection shield, for two slightly different attack scenarios.
 
-* 10 consecutive failed login attempts for the same user and from the same IP address (both from email addresses that are associated with users that exist in Auth0 and those that are not)
+* 10 consecutive failed login attempts for the same user and from the same IP address (both from email addresses that are associated with users who exist in Auth0 and email addresses that are not)
 * 100 failed login attempts from the same IP address in 24 hours *or* 50 sign up attempts per minute from the same IP address
 
 For example, if a user with *user_id1* signs in from *IP1* and fails to login consecutively for 10 attempts, their log in attempt from this *IP1* will be blocked. Another user, *user_id2*, signing in from *IP1* will not be blocked. 
