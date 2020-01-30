@@ -64,6 +64,10 @@ Hook Secrets may also be imported and exported using the [Deploy Command-Line In
 | `HOOK_ID` | ID of the hook for which you would like to update secrets. |
 | `HOOK_SECRET_KEY` | Name of the secret that you would like to update for the specified hook. This endpoint accepts an object of key-value pairs. |
 | `HOOK_SECRET_VALUE` | Value of the secret that you would like to update for the specified hook. This endpoint accepts an object of key-value pairs. |
+
+::: warning
+When retrieving secrets configured for a specified hook, values will contain the placeholder text: `_VALUE_NOT_SHOWN`. Be careful not to return this placeholder text during an update, or the secret's actual value will be overwritten.
+:::
     </div>
   </div>
 </div>

@@ -24,7 +24,6 @@ Hooks may also be imported and exported using the [Deploy Command-Line Interface
     <ul>
       <li><a href="#dashboard" data-toggle="tab">Dashboard</a></li>
       <li><a href="#mgmt-api" data-toggle="tab">Management API</a></li>
-      <li><a href="#auth0-cli" data-toggle="tab">Auth0 CLI</a></li>
     </ul>
   </div>
   <div class="tab-content">
@@ -79,3 +78,12 @@ Hooks may also be imported and exported using the [Deploy Command-Line Interface
 ::: note
 Optionally, you can add secrets (such as Twilio Keys or database connection strings) to Hooks. To learn more, see [Hook Secrets](/hooks/secrets).
 :::
+
+## Explore starter code and sample Hook scripts
+
+To explore starter code and sample Hook scripts, see the documentation for your chosen [extensibility point](/hooks/extensibility-points):
+
+* [Client Credentials Exchange](/hooks/extensibility-points/client-credentials-exchange)
+* [Post Change Password](/hooks/extensibility-points/post-change-password)
+* [Post User Registration](/hooks/extensibility-points/post-user-registration)
+* [Pre User Registration](/hooks/extensibility-points/pre-user-registration)

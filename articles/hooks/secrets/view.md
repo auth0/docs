@@ -50,6 +50,11 @@ To see configured secrets for a [Hook](/hooks), you can view them using the Dash
 | - | - |
 | `HOOK_ID` | ID of the Hook for which you want to retrieve secrets. |
 | `MGMT_API_ACCESS_TOKEN` | [Access Token for the Management API](/api/management/v2/tokens) with the <dfn data-key="scope">scope</dfn> `read:hooks`. |
+
+::: warning
+Secrets are write-only. When retrieving secrets configured for a specified hook, values will contain the placeholder text: `_VALUE_NOT_SHOWN`.
+:::
+
     </div>
   </div>
 </div>

@@ -21,54 +21,59 @@ The Hook added to this extensibility point executes asynchronously with the rest
 
 The Post User Registration extensibility point is available for [Database Connections](/connections/database) and [Passwordless Connections](/connections/passwordless).
 
-To learn about other extensibility points, see [Extensibility Points](/hooks/extensibility-points).
+::: note
+The `triggerId` for the Post User Registration extensibility point is `post-user-registration`. To learn how to create Hooks for this extensibility point, see [Create New Hooks](/hooks/create).
+:::
 
-To learn how to create Hooks, see [Create New Hooks](/hooks/create).
+To learn about other extensibility points, see [Extensibility Points](/hooks/extensibility-points).
 
 ## Starter code and parameters
 
-After you've created a new Hook that uses the Post-User Registration extensibility point, open up the Hook and edit it using the Webtask Editor embedded in the Dashboard. 
-
-The parameters listed in the comment at the top of the code indicate the Auth0 objects (and the parameters within the objects) that can be passed into and used by the Hook's function. 
+When creating a Hook executed at the Post User Registration extensibility point, you may find the following starter code helpful. Parameters that can be passed into and used by the Hook function are listed at the top of the code sample.
 
 ```js
 /**
-@param {object} user - The user being created
-@param {string} user.id - user id (user GUID without "auth0|" database prefix)
+@param {object} user - user being created
+@param {string} user.id - user's ID (user GUID without "auth0|" database prefix)
 @param {string} user.tenant - Auth0 tenant name
-@param {string} user.username - user name
-@param {string} user.email - email
-@param {boolean} user.emailVerified - is email verified?
-@param {string} user.phoneNumber - phone number
-@param {boolean} user.phoneNumberVerified - is phone number verified?
-@param {object} user.user_metadata - user metadata
-@param {object} user.app_metadata - application metadata
-@param {object} context - Auth0 connection and other context info
+@param {string} user.username - user's username
+@param {string} user.email - user's email
+@param {boolean} user.emailVerified - indicates whether email is verified
+@param {string} user.phoneNumber - user's phone number
+@param {boolean} user.phoneNumberVerified - indicates whether phone number is verified
+@param {object} user.user_metadata - user's user metadata
+@param {object} user.app_metadata - user's application metadata
+@param {object} context - Auth0 context info, such as connection
 @param {string} context.requestLanguage - language of the application agent
-@param {object} context.connection - information about the Auth0 connection
-@param {object} context.connection.id - connection id
+@param {object} context.connection - connection info
+@param {object} context.connection.id - connection ID
 @param {object} context.connection.name - connection name
 @param {object} context.connection.tenant - connection tenant
-@param {object} context.webtask - webtask context
+@param {object} context.webtask - Hook (webtask) context
 @param {function} cb - function (error, response)
 */
+
 module.exports = function (user, context, cb) {
   // Perform any asynchronous actions, such as send notification to Slack.
   cb();
 };
 ```
 
-The callback function `cb` at the end of the sample code is used to signal completion and must not be omitted (even though the extensibility point ignores response objects).
+Please note:
 
-### Response
+* The callback function (`cb`) at the end of the sample code signals completion and *must* be included.
 
-The Post-User Registration extensibility point ignores any response object.
+### Default response
 
-## Testing Hooks
+Hooks executed at the Post User Registration extensibility point ignore any response object.
+
+### Starter code response
+
+Once you've customized the starter code, you can test the Hook using the Runner embedded in the Hook Editor. The Runner simulates a call to the Hook with the appropriate body and response. 
 
 <%= include('../_includes/_test_runner_save_warning') %>
 
-Once you've modified the sample code with the specific <dfn data-key="scope">scopes</dfn> of additional claims you'd like added to your <dfn data-key="access-token">Access Tokens</dfn>, test Hooks using the Runner. The runner simulates a call to the Hook with the appropriate user information body/payload. The following is the sample body that populates the Runner by default (these are the same objects/parameters detailed in the comment at the top of the sample Hook code):
+When you run a Hook based on the starter code, the response object is:
 
 ```json
 {
@@ -97,7 +102,9 @@ Once you've modified the sample code with the specific <dfn data-key="scope">sco
 }
 ```
 
-## Example: Integrate with Slack
+## Sample script: Integrate with Slack
+
+In this example, we use a Hook to have Slack post a new user's username and email address to a specified channel upon user registration.
 
 ```js
 module.exports = function (user, context, cb) {
@@ -107,7 +114,7 @@ module.exports = function (user, context, cb) {
 
   // Post the new user's name and email address to the selected channel
   var slack = require('slack-notify')(SLACK_HOOK);
-  var message = 'New User: ' + (user.name || user.email) + ' (' + user.email + ')';
+  var message = 'New User: ' + (user.username || user.email) + ' (' + user.email + ')';
   var channel = '#some_channel';
 
   slack.success({

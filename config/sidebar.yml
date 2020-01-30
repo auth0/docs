@@ -944,14 +944,14 @@ articles:
           - title: Enable/Disable Hooks
             url: /hooks/enable-disable
 
-          - title: View Logs
-            url: /hooks/view-logs
-
           - title: Extensibility Points
             url: /hooks/extensibility-points
 
           - title: Hook Secrets
             url: /hooks/secrets
+
+          - title: View Logs
+            url: /hooks/view-logs
 
       - title: Extensions
         url: /extensions

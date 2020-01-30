@@ -48,7 +48,6 @@ If you added a [Hook Secret](/hooks/secrets) and want to update it, see [Update 
 2. Update the Hook using the Hook Editor, and click the disk icon to save.
 
   ![Update a Hook in the Hook Editor](/media/articles/hooks/webtask-editor.png)
-
     </div>
     <div id="mgmt-api" class="tab-pane">
 

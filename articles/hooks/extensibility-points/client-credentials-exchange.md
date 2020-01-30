@@ -20,29 +20,30 @@ At the Client Credentials Exchange extensibility point, Hooks allow custom actio
 
 The Client Credentials Exchange extensibility point is available for [Database Connections](/connections/database) and [Passwordless Connections](/connections/passwordless).
 
-To learn about other extensibility points, see [Extensibility Points](/hooks/extensibility-points).
+::: note
+The `triggerId` for the Client Credentials Exchange extensibility point is `credentials-exchange`. To learn how to create Hooks for this extensibility point, see [Create New Hooks](/hooks/create).
+:::
 
-To learn how to create Hooks, see [Create New Hooks](/hooks/create).
+To learn about other extensibility points, see [Extensibility Points](/hooks/extensibility-points).
 
 ## Starter code and parameters
 
-After you've created a new Client Credentials Exchange Hook, open up the Hook and edit it using the Webtask Editor embedded in the Dashboard. 
-
-The parameters listed in the comment at the top of the code indicate the Auth0 objects and their parameters that can be passed into and used by the Hook's function. For example, the `client` object comes with the following parameters: client name, client ID, the Auth0 tenant name with which the client is associated, and client metadata. 
+When creating a Hook executed at the Client Credentials Exchange extensibility point, you may find the following starter code helpful. Parameters that can be passed into and used by the Hook function are listed at the top of the code sample.
 
 ```js
 /**
-@param {object} client - information about the client
-@param {string} client.name - name of client
-@param {string} client.id - client id
+@param {object} client - client information
+@param {string} client.name - client name
+@param {string} client.id - client ID
 @param {string} client.tenant - Auth0 tenant name
 @param {object} client.metadata - client metadata
-@param {array|undefined} scope - array of strings representing the scope claim or undefined
+@param {array|undefined} scope - either an array of strings representing the token's scope claim, or undefined
 @param {string} audience - token's audience claim
-@param {object} context - additional authorization context
-@param {object} context.webtask - webtask context
+@param {object} context - Auth0 context info
+@param {object} context.webtask - Hook (webtask) context
 @param {function} cb - function (error, accessTokenClaims)
 */
+
 module.exports = function(client, scope, audience, context, cb) {
   var access_token = {};
   access_token.scope = scope; // do not remove this line
@@ -55,13 +56,14 @@ module.exports = function(client, scope, audience, context, cb) {
 };
 ```
 
-Pay attention to the following:
-- The callback function `cb` at the end of the sample code is used to signal completion and must not be omitted.
-- The line `access_token.scope = scope` ensures that all granted <dfn data-key="scope">scopes</dfn> will be present in the <dfn data-key="access-token">Access Token</dfn>. Removing it will reset all scopes and the token will include only any additional ones you might add with the script.
+Please note:
 
-### Response
+* The callback function (`cb`) at the end of the sample code signals completion and *must* be included.
+- The line `access_token.scope = scope` ensures that all granted <dfn data-key="scope">scopes</dfn> will be present in the <dfn data-key="access-token">Access Token</dfn>. Removing it will reset all scopes, and the token will include only any scopes you might add with the script.
 
-The default response object every time you run this Hook is as follows:
+### Default response
+
+When you run a Hook executed at the Client Crentials Exchange extensibility point, the default response object is:
 
 ```json
 {
@@ -69,13 +71,13 @@ The default response object every time you run this Hook is as follows:
 }
 ```
 
-## Testing Hooks
+### Starter code response
+
+Once you've customized the starter code with your scopes and additional claims, you can test the Hook using the Runner embedded in the Hook Editor. The Runner simulates a call to the Hook with the same body and response that you would get with a Client Credentials Exchange. 
 
 <%= include('../_includes/_test_runner_save_warning') %>
 
-Once you've modified the sample code with the specific scopes of additional claims you'd like added to your Access Tokens, you can test the hook using the Runner. The Runner simulates a call to the Hook with the same body/payload that you would get with a Credentials Exchange. 
-
-The following is the sample body that populates the Runner by default (these are the same objects/parameters detailed in the comment at the top of the sample Hook code):
+When you run a Hook based on the starter code, the response object is:
 
 ```json
 {
@@ -94,9 +96,9 @@ The following is the sample body that populates the Runner by default (these are
 }
 ```
 
-## Example: add an additional scope to the Access Token
+## Sample script: Add an additional scope to the Access Token
 
-This example shows you how to use the Hook to add an additional [scope](/scopes) to the scopes already existing on the Access Token.
+In this example, we use a Hook to add an additional [scope](/scopes) to those already existing for the Access Token.
 
 ```js
 module.exports = function(client, scope, audience, context, cb) {
@@ -117,7 +119,9 @@ module.exports = function(client, scope, audience, context, cb) {
 };
 ```
 
-Using the [test runner](https://webtask.io/docs/editor/runner), we see that the response is as follows:
+### Response
+
+When we run this Hook, the response object is:
 
 ```json
 {
@@ -128,12 +132,11 @@ Using the [test runner](https://webtask.io/docs/editor/runner), we see that the 
 }
 ```
 
-## Example: add a claim to the Access Token
+## Sample script: Add a claim to the Access Token
 
-This example shows you how to add a [namespaced](/tokens/guides/create-namespaced-custom-claims) claim and its value to the Access Token.
+In this example, we add a [namespaced](/tokens/guides/create-namespaced-custom-claims) custom claim and its value to the Access Token.
 
-## Claim types
-
+::: note
 You can add the following as claims to the issued token:
 
 * The `scope` property of the response object
@@ -156,7 +159,9 @@ module.exports = function(client, scope, audience, context, cb) {
   };
 ```
 
-Using the [test runner](https://webtask.io/docs/editor/runner), we see that the response is as follows:
+### Response
+
+When we run this Hook, the response object is:
 
 ```json
 {

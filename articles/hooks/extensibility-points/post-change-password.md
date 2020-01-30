@@ -21,48 +21,53 @@ The Hook added to this extensibility point executes asynchronously with the rest
 
 The Post Change Password extensibility point is available for [Database Connections](/connections/database).
 
-To learn about other extensibility points, see [Extensibility Points](/hooks/extensibility-points).
+::: note
+The `triggerId` for the Post Change Password extensibility point is `post-change-password`. To learn how to create Hooks for this extensibility point, see [Create New Hooks](/hooks/create).
+:::
 
-To learn how to create Hooks, see [Create New Hooks](/hooks/create).
+To learn about other extensibility points, see [Extensibility Points](/hooks/extensibility-points).
 
 ## Starter code and parameters
 
-After you've created a new Post Change Password Hook, open up the Hook and edit it using the Webtask Editor embedded in the Dashboard. 
-
-The parameters listed in the comment at the top of the code indicate the Auth0 objects and their parameters that can be passed into and used by the Hook's function.
+When creating a Hook executed at the Post Change Password extensibility point, you may find the following starter code helpful. Parameters that can be passed into and used by the Hook function are listed at the top of the code sample.
 
 ```js
 /**
-@param {object} user - The affected user
-@param {string} user.id - user id
-@param {string} user.username - user name
-@param {string} user.email - email
-@param {string} user.last_password_reset - exact date/time the user's password was changed
-@param {object} context - Auth0 connection and other context info
-@param {object} context.connection - information about the Auth0 connection
-@param {object} context.connection.id - connection id
+@param {object} user - affected user
+@param {string} user.id - user's ID
+@param {string} user.username - user's username
+@param {string} user.email - user's email
+@param {string} user.last_password_reset - date/time the user's password was last changed
+@param {object} context - Auth0 context info, such as connection
+@param {object} context.connection - connection info
+@param {object} context.connection.id - connection ID
 @param {object} context.connection.name - connection name
 @param {object} context.connection.tenant - connection tenant
-@param {object} context.webtask - webtask context
+@param {object} context.webtask - Hook (webtask) context
 @param {function} cb - function (error)
 **/
+
 module.exports = function (user, context, cb) {
   // Perform any asynchronous actions, e.g. send notification to Slack.
   cb();
 };
 ```
 
-The callback function `cb` at the end of the sample code is used to signal completion and must not be omitted.
+Please note: 
 
-### Response
+* The callback function (`cb`) at the end of the sample code signals completion and *must* be included.
 
-The Post Change Password Hook ignores any response object. If an error is returned a tenant log entry is created, but this does not affect the Auth0 transaction.
+### Default response
 
-## Testing Hooks
+Hooks executed at the Post Change Password extensibility point ignore any response object. If an error is returned, a tenant log entry is created, but this does not affect the Auth0 transaction.
+
+### Starter code response
+
+Once you've customized the starter code, you can test the Hook using the Runner embedded in the Hook Editor. The Runner simulates a call to the Hook with the appropriate body and response. 
 
 <%= include('../_includes/_test_runner_save_warning') %>
 
-You can test Hooks using the Runner. The runner simulates a call to the Hook with the appropriate user information body/payload. The following is the sample body that populates the Runner by default (these are the same objects/parameters detailed in the comment at the top of the sample Hook code):
+When you run a Hook based on the starter code, the response object is:
 
 ```json
 {
@@ -82,7 +87,9 @@ You can test Hooks using the Runner. The runner simulates a call to the Hook wit
 }
 ```
 
-## Example: Use SendGrid to send a password change notification email
+## Sample script: Send a notification email upon password change
+
+In this example, we use a Hook to have SendGrid send a notification email to the user upon password change.
 
 ```js
 module.exports = function (user, context, cb) {
