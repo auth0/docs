@@ -27,6 +27,7 @@ Each bulletin contains a description of the vulnerability, how to identify if yo
 
 | **Date** | **Bulletin number** | **Title** | **Affected software** |
 |-|-|-|-|
+| January 30, 2020 | [CVE 2019-20174](/security/bulletins/cve-2019-20174) | Auth0 Security Bulletin for Auth0 Lock < 11.21.0 | [Auth0 Lock](https://github.com/auth0/lock) |
 | October 04, 2019 | [CVE 2019-16929](/security/bulletins/cve-2019-16929) | Auth0 Security Bulletin for auth0.net between versions 5.8.0 and 6.5.3 inclusive | [auth0.net](https://www.nuget.org/packages/Auth0.AuthenticationApi/) |
 | September 05, 2019 | [Auth0 bulletin](/security/bulletins/2019-09-05_scopes) | Auth0 Security Bulletin for assigning scopes based on email address | Custom code within Auth0 rules |
 | July 23, 2019 | [CVE 2019-13483](/security/bulletins/cve-2019-13483) | Security Bulletin for Passport-SharePoint < 0.4.0 | [Passport-SharePoint](https://github.com/auth0/passport-sharepoint) |
