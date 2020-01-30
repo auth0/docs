@@ -15,7 +15,7 @@ This article will help you learn how to configure the custom Password Reset page
 If you are:
 
 * An admin trying to reset a user's password, see [Change Users' Passwords](/connections/database/password-change)
-* A user trying to reset your own password, see [Reset Your Auth0 Account Password](/support/reset-account-password)
+* A user trying to reset your own password, see [Reset Auth0 Account Password](/support/reset-account-password)
 :::
 
 The Password Reset Page provides your applications' users with a way to change their passwords if they can't log in.
