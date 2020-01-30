@@ -1,5 +1,4 @@
 ---
-toc: true
 title: Migrations
 description: View all Deprecations with active Migrations which may impact your tenant.
 topics:
