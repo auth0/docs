@@ -325,14 +325,13 @@ export class AuthService {
       this.loggedIn = false;
       this.safariViewController.isAvailable()
         .then((available: boolean) => {
-          const auth0Domain = AUTH_CONFIG.domain;
+          const domain = AUTH_CONFIG.domain;
           const clientId = AUTH_CONFIG.clientId;
           const pkgId = AUTH_CONFIG.packageIdentifier;
-          let url = `https://${auth0Domain}/v2/logout?client_id=${clientId}&returnTo=${pkgId}://${auth0Domain}/cordova/${pkgId}/callback`;
+          const url = `https://<%="${domain}"%>/v2/logout?client_id=<%= "${clientId}" %>&returnTo=<%= "${pkgId}" %>://<%="${domain}"%>/cordova/<%="${pkgId}"%>/callback`;
+
           if (available) {
-            this.safariViewController.show({
-              url: url
-            })
+            this.safariViewController.show({ url })
             .subscribe((result: any) => {
                 if(result.event === 'opened') console.log('Opened');
                 else if(result.event === 'closed') console.log('Closed');
