@@ -18,7 +18,7 @@ The examples below assume that you followed the steps in the [Installation and G
 
 ### Login
 
-The default login process in Auth0-PHP uses an [Authentication Code grant](/api-auth/tutorials/authorization-code-grant) combined with Auth0's <dfn data-key="universal-login">Universal Login</dfn> page. In short, that process is:
+The default login process in Auth0-PHP uses an [Authentication Code grant](/api-auth/tutorials/authorization-code-grant) combined with Auth0's <dfn data-key="universal-login">Universal Login</dfn> Page. In short, that process is:
 
 1. A user requesting access is redirected to the Universal Login Page.
 2. The user authenticates using one of [many possible connections](https://auth0.com/docs/identityproviders): social (Google, Twitter, Facebook), database (email and password), <dfn data-key="passwordless">passwordless</dfn> (email, SMS), or enterprise (ActiveDirectory, ADFS, Office 365).
