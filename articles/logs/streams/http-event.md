@@ -12,7 +12,7 @@ contentType: how-to
 
 # HTTP Event Log Streams
 
-HTTP Event Log Streams let you export your log events in near real-time to server or target of your choice. When Auth0 creates a log entry for your tenant, a copy is sent to a given URL via an HTTP POST request.
+HTTP Event Log Streams let you export your log events in near real-time to the server or target of your choice. When Auth0 creates a log entry for your tenant, a copy is sent to a given URL via an HTTP POST request.
 
 If you use Amazon Web Services, Auth0 also offers an [AWS EventBridge integration](/integrations/aws-eventbridge).
 
@@ -21,7 +21,7 @@ If you use Amazon Web Services, Auth0 also offers an [AWS EventBridge integratio
 1. Login to the [Auth0 Dashboard](${manage_url}).
 2. Navigate to **Logs > Streams**.
 3. Click **+ Create Stream**.
-4. Select **HTTP** and enter a unique name for your new HTTP Event Stream.
+4. Select **Custom Webhook** and enter a unique name for your new HTTP Event Stream.
 5. On the next screen, provide the following settings for your HTTP Event Stream:
 
 | Setting | Description |
@@ -29,7 +29,7 @@ If you use Amazon Web Services, Auth0 also offers an [AWS EventBridge integratio
 | Name | A unique display name to distinguish this integration from other integrations |
 | Payload URL | The URL where the event payloads are sent as HTTP POST requests. |
 | Authorization Token | (Optional) Set in the Authorization header of the request if provided. |
-| Content-Type | The media type of the payload that will be delivered to the webhook. |
+| Content Type | The media type of the payload that will be delivered to the webhook. |
 
 ![Create a new HTTP Event Log Stream](/media/articles/logs/http-event-stream.png)
 

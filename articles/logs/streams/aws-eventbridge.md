@@ -31,11 +31,17 @@ You can send events from Auth0 to AWS once you have [matched your partner event 
 
 Part of the integration process is to set Auth0 up for use as the event source (this step happens on your [Dashboard](${manage_url}).
 
-1. Go to [Log Integrations tab](https://manage.auth0.com/dashboard/us/{tenant}/amazon-eventbridge) on the Dashboard.
+1. Login to the [Auth0 Dashboard](${manage_url}).
 
-2. Create the AWS Event Source by providing your **AWS Account ID** and **AWS Region**. Note that the region you select must match the region in which your AWS EventBridge resides.
+2. Navigate to **Logs > Streams**.
 
-3. Click **Save**. Auth0 provides you with an **Event Source Name**. Make sure to save your **Event Source Name** value, since you will be providing it to AWS at a later point to complete the integration.
+3. Click **+ Create Stream**.
+
+4. Select **Amazon EventBridge** and enter a unique name for your new Amazon EventBridge Event Stream.
+
+5. Create the AWS Event Source by providing your **AWS Account ID** and **AWS Region**. Note that the region you select must match the region in which your AWS EventBridge resides.
+
+6. Click **Save**. Auth0 provides you with an **Event Source Name**. Make sure to save your **Event Source Name** value, since you will be providing it to AWS at a later point to complete the integration.
 
 Go to AWS to complete the final steps of the integration.
 
