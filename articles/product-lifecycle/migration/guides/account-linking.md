@@ -114,7 +114,7 @@ First, you must get an Access Token with the `update:current_user_identities` sc
 In the example that follows, we use the [Implicit Flow](/flows/guides/implicit/call-api-implicit), the recommended OAuth 2.0 flow for client-side apps). You can get Access Tokens though for any application type (see [Get Access Tokens](/tokens/get-access-tokens).
 :::
 
-<%= include('./_get-token-authorize.md', { scope: 'update:current_user_identities', idPrevious: 'authZ-id-token', idCurrent: 'authZ-access-token' }) %>
+<%= include('../../_get-token-authorize.md', { scope: 'update:current_user_identities', idPrevious: 'authZ-id-token', idCurrent: 'authZ-access-token' }) %>
 
 **The following must apply:**
 - The secondary account's ID Token must be signed with `RS256`
@@ -190,7 +190,7 @@ First, you must get an Access Token with the `update:current_user_identities` sc
 
 Use the sample script that follows as a guide. On the **Legacy (ID Token)** panel you can see an implementation of the old approach that gets an ID Token. On the **Current (Access Token)** panel you can see the new approach that gets an Access Token as well.
 
-<%= include('./_get-token-authorize.md', { scope: 'update:current_user_identities', idPrevious: 'unlink-id-token', idCurrent: 'unlink-access-token' }) %>
+<%= include('../../_get-token-authorize.md', { scope: 'update:current_user_identities', idPrevious: 'unlink-id-token', idCurrent: 'unlink-access-token' }) %>
 
 Once you have the Access Token, you can call the [Unlink a user identity](/api/management/v2#!/Users/delete_user_identity_by_user_id) endpoint of the Management API, using it in the `Authorization` header.
 

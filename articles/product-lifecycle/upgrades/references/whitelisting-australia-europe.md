@@ -1,12 +1,12 @@
 ---
-description: 
+description: Describes how Auth0 cloud environment upgrades affect IP addresses and traffic from Austrailia and Europe.
 topics:
   - whitelist
 contentType: reference
 useCase:
   - customize-connections
 ---
-# Whitelisting Changes
+# Upgrade Notice: Whitelisting Changes
 
 ## New IP Addresses for Whitelisting in Australia
 
