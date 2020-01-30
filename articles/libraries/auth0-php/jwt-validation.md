@@ -64,7 +64,7 @@ The second parameter of `IdTokenVerifier->verify()` is an optional array of opti
 * `max_age` to check the auth_time of the token.
 * `leeway` clock tolerance in seconds for the current check only (60 seconds default).
 
-## Read more
+## Read More
 
 ::: next-steps
 * [Auth0-PHP Introduction](/libraries/auth0-php)
