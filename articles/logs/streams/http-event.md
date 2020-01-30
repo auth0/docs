@@ -12,7 +12,7 @@ contentType: how-to
 
 # HTTP Event Log Streams
 
-HTTP Event Log Streams let you export your log events in near real-time to the server or target of your choice. When Auth0 creates a log entry for your tenant, a copy is sent to a given URL via an HTTP POST request.
+HTTP Event Log Streams let you export your log events to the server or target of your choice. When Auth0 creates a log entry for your tenant, a copy is automatically sent to a given URL via an HTTP POST request.
 
 If you use Amazon Web Services, Auth0 also offers an [AWS EventBridge integration](/integrations/aws-eventbridge).
 
