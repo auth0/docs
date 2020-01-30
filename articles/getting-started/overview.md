@@ -54,6 +54,6 @@ The identity industry standards that we use here in Auth0 are:
 ## Keep reading
 
 ::: next-steps
-- [Learn the basics and familiarize yourself with the identity terminology](/getting-started/the-basics)
+- [Learn the basics and familiarize yourself with identity terminology](/getting-started/the-basics)
 - [Read about different deployment models offered by Auth0](/getting-started/deployment-models)
 :::
