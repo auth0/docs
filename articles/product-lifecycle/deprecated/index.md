@@ -19,8 +19,9 @@ These are deprecations that have already been enabled for all customers.
 
 | Feature | Severity | Grace Period Start | Mandatory Opt-in | 
 | -- | -- | -- | -- | 
+| [Management API v1](/product-lifecycle/deprecated/references/management-api-v1) | Medium | 2016 | 2020-07-16 |
 | [User Search v2](/product-lifecycle/deprecated/references/search-v2) | Medium | -- | 2019-06-30 |
-| [Logs Search v2](/product-lifecycle/deprecated/references/logs-search-v2) | Medium | -- | -- |
+| [Tenant Logs Search v2](/product-lifecycle/deprecated/references/logs-search-v2) | Medium | -- | -- |
 | [Legacy Lock API](/product-lifecycle/deprecated/references/legacy-lock-api) | Medium | 2017-12-21 | 2018-08-06 | 
 | [Account Linking ID Tokens](/product-lifecycle/deprecated/references/account-linking-id-tokens) | Medium | -- | 2018-10-19 |
 | [Account Linking for Authorization Callback](/product-lifecycle/deprecated/references/account-linking-auth-callback) | Medium | 2017-01-03 |  2017-03-01 |
