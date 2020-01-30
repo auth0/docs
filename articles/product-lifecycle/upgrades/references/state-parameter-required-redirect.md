@@ -17,6 +17,6 @@ When a redirect is done from an Auth0 rule, Auth0 takes care of generating and s
 
 This is documented [here](/rules/redirect#what-to-do-after-redirecting)
 
-## Am I affected by the change?
+## Are you affected?
 
 You are effected by the change only if you redirect from rules, and do not yet capture and return (to the /continue end point) the state parameter.

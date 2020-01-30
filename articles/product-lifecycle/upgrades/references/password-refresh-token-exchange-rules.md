@@ -20,7 +20,7 @@ As part of Auth0's efforts to improve security, we recently added the ability to
 
 You are using this feature if you are calling the [/oauth/token](/api/authentication#authorization-code) endpoint of our Authentication API with `grant_type = "password"` , `grant_type = "http://auth0.com/oauth/grant-type/password-realm"`, or `grant_type = "refresh_token"`.
 
-## Am I affected by the change?
+## Are you affected?
 
 You could be impacted if you are currently using these exchanges and have Rules defined in Dashboard. In order to ensure a smooth transition, we have disabled the rules execution on these specific exchanges for your tenant. These rules will now execute for all new customers, as well as customers who have not yet used these exchanges.
 

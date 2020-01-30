@@ -18,7 +18,7 @@ When calling the [TokenInfo](/api/authentication/reference#get-token-info) endpo
 
 If these values do not match, the response will be `HTTP 400 - Bad Request`.
 
-## Am I affected by the change?
+## Are you affected?
 
 If you are calling the [tokeninfo](/api/authentication#get-token-info) endpoint directly, make sure that the value of the `iss` attribute of the ID Token being validated matches your Auth0 tenant namespace: `https://${account.namespace}/`.
 

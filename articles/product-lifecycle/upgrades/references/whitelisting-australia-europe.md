@@ -16,7 +16,7 @@ useCase:
 
 Auth0 is updating its cloud environments, and traffic from these regions will originate from new IP addresses. If you are whitelisting IP addresses, you will need to add the new addresses to your firewall rules.
 
-### Am I affected by the change?
+### Are you affected?
 
 If you are using a custom database connection, rule, and/or custom email provider that connects to your environment, **and** you have implemented firewall restrictions for IP address ranges, then you are affected by this change. You will need to make sure the following IP addresses are allowed to go through your firewall:
 
@@ -34,7 +34,7 @@ If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_
 
 Auth0 is updating its cloud environments, and traffic from these regions will originate from new IP addresses. If you are whitelisting IP addresses, you will need to add the new addresses to your firewall rules.
 
-### Am I affected by the change?
+### Are you affected?
 
 If you are using a custom database connection, rule, and/or custom email provider that connects to your environment, **and** you have implemented firewall restrictions for IP address ranges, then you are affected by this change. You will need to make sure the following IP addresses are allowed to go through your firewall:
 
@@ -52,11 +52,9 @@ If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_
 
 The existing Auth0 CDN service is one of our older services. It was been built and maintained internally since the early days of the company. To improve its scaling and availability, we are changing providers to use Amazon CloudFront on July 12, at 1pm UTC. We have already made this change in the US environment, and are now ready to do so in Europe and Australia.
 
-### Am I using the CDN?
+### Are you affected?
 
 If you use <dfn data-key="lock">Lock</dfn> (hosted by our CDN) in Europe or Australia, yes.
-
-### Do I need to do something?
 
 This change shouldn't cause any disruption or change in behavior in your applications, so you don't have to do anything. This notification is for information only.
 
@@ -70,7 +68,7 @@ If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_
 
 Auth0 is expanding into new US regions, and traffic originating from these regions will have new IP addresses. If you are whitelisting IP addresses, you will need to add the new addresses to your firewall rules.
 
-### Am I affected by the change?
+### Are you affected?
 
 If you are using a custom database connection, rule, and/or custom email provider that connects to your environment, **and** you have implemented firewall restrictions for IP address ranges, then you are affected by this change. You will need to add the following IP addresses to your firewall rules:
 

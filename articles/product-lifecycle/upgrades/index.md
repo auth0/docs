@@ -11,10 +11,6 @@ useCase:
 ---
 # Upgrades and Enhancements 
 
-**more info and intro stuff here** 
-
-## Upgrades and Enhancements Log
-
 These are new features and upgrades that have already been enabled for all customers.
 
 | Feature | Severity | Grace Period Start | Mandatory Opt-in | 
@@ -24,4 +20,4 @@ These are new features and upgrades that have already been enabled for all custo
 | [Email Delivery Changes "From" Address](/product-lifecycle/upgrades/references/email-delivery) (Cloud only) | Medium | 2016-04-20 | 2016-04-27 |
 | [TokenInfo Endpoint Validation](/product-lifecycle/upgrades/references/token-endpoint-validation) |  Low | - | 2016-06-01 |
 | [Delete All Users Endpoint Change](/product-lifecycle/upgrades/references/delete-all-users) | Low | - | 2016-09-13 |
-| [State Parameter Required on Redirects from Rules](/product-lifecycle/upgrades/references/state-parameter-required-redirect) | | High | - | 2016-11-01 |
+| [State Parameter Required on Redirects from Rules](/product-lifecycle/upgrades/references/state-parameter-required-redirect) | High | - | 2016-11-01 |
