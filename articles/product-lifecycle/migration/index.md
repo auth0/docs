@@ -1,5 +1,4 @@
 ---
-toc: true
 title: Migrations
 description: View all Deprecations with active Migrations which may impact your tenant.
 topics:
@@ -11,7 +10,18 @@ useCase:
 ---
 # Migrations
 
-We are actively migrating customers to new behaviors for all **Deprecations** listed below. Please review these carefully to ensure you've taken any necessary steps to avoid service disruptions. See [Deprecation and End Of Life](/product-lifecycle/deprecation-eol) to learn more about this process.
+When we make an End Of Life announcement, we will also initiate a migration to allow customers to prepare for the End Of Life Date. 
+
+Migrations will usually involve replacing the deprecated behavior with substantially comparable functionality (although at times, we may elect to discontinue support for some functionality entirely) and modifying your application's code so that it can continue working with the new behavior. We will publish a migration guide, which will detail any action required and will help you determine the impact on your tenants. To ensure a smooth transition and avoid service disruption, we will also provide instructions on how to opt in to the new behavior prior to the End Of Life Date. 
+
+Whenever possible, we will provide at least a six-month migration window between the End Of Life announcement and the End Of Life Date. This time frame may be accelerated in cases of emergency, such as critical vulnerability remediation, or changes required to comply with applicable law or third-party certification standards. In these cases, Auth0 will provide as much prior notice as is reasonable under the circumstances. See our [Self Service Terms of Service](https://auth0.com/legal/ss-tos) or your Enterprise Subscription Agreement for more information. 
+
+| Feature/Behavior | Deprecated | End of Life Date | Migration Guide |
+| -- | -- | -- | -- |
+| [Management API v1](/product-lifecycle/deprecated/references/management-api-v1) | 2016-10-01 | Public Cloud: 2020-07-13 | [Migration Guide: Management API v1 to v2](/product-lifecycle/migration/guides/management-api-v1-v2) |
+| | | Private Cloud: 2020-11-01 | |
+
+
 
 <table class="table">
   <thead>
@@ -81,7 +91,7 @@ We are actively migrating customers to new behaviors for all **Deprecations** li
         <strong>Developer Pro</strong>: 20 August 2019<br>
         <strong>Enterprise</strong>: 4 November 2019
       </td>
-      <td>To provide our customers with the most reliable and scalable solution, Auth0 has deprecated Tenant Logs Search Engine v2 in favor of v3. Auth0 is proactively migrating customers unaffected by this change, while those who are potentially affected are being notified to opt in for v3 during the provided grace period.  See the <a href="/logs/migrate-logs-v2-v3">migration guide</a> for more information.</td>
+      <td>To provide our customers with the most reliable and scalable solution, Auth0 has deprecated Tenant Logs Search Engine v2 in favor of v3. Auth0 is proactively migrating customers unaffected by this change, while those who are potentially affected are being notified to opt in for v3 during the provided grace period.  See the <a href="/product-lifecycle/migration/guides/migrate-logs-v2-v3">migration guide</a> for more information.</td>
     </tr>
   </tbody>
 </table>

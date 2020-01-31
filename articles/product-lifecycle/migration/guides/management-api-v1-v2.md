@@ -1,5 +1,4 @@
 ---
-title: Migrate from Management API v1 to v2
 description: Learn how to migrate from Auth0 Management API v1 to v2.
 topics:
   - management api
@@ -9,24 +8,11 @@ contentType:
 useCase:
   - management api
 ---
-# Migrate from Management API v1 to v2
+# Migration Guide: Management API v1 to v2
 
-Auth0’s Management API v1 was deprecated in 2016 and replaced with the [Auth0 Management API v2](/api/management/v2/). Management API v1 will reach its End Of Life in the Public Cloud on **July 13th, 2020**. Requests will begin failing with a `410` HTTP status code on or after that date. Private Cloud releases will continue to support Management API v1 until the November 2020 monthly release.
+For a complete list of breaking changes associated with this deprecation, see [Management API v2 Changes](/api/management/v2/changes).
 
-## Am I affected by the migration?
-
-Affected tenants are those who meet all of the following criteria:
-
-* Created before January 2, 2020
-* Actively making requests to Auth0 endpoints directly under the `/api/` path.
-
-The following tenants are NOT affected:
-
-* Created after January 2, 2020
-* Exclusively using the Auth0 Management API v2 endpoints 
-* Using the Authentication API exclusively. (The Authentication API is not affected by this deprecation.)
-  
-## How can I check to see if I've migrated all my requests?
+## Check requests
 
 Deprecation Notices will be recorded in your Tenant Logs for requests that will fail at API v1’s End of Life. You can search for relevant Deprecation Notices in your tenant logs with the following query: 
 
@@ -48,11 +34,7 @@ Auth0 generates only one log for each `client_id` and `details.path` combination
 If you implement changes to your requests, you'll need to allow 60 minutes to elapse before you can conclusively determine that the lack of new `depnote` logs means the deprecated endpoints have been removed from your code.
 :::
 
-## What’s changing?
-
-For a complete list of breaking changes associated with this deprecation, see [Management API v2 Changes](/api/management/v2/changes).
-
-## How do I migrate?
+## Migration steps
 
 After replacing all calls to the Management API v1 with their [Management API v2 replacements](/api/management/v2/changes), you should confirm you are no longer seeing Deprecation Notices in your Tenant Logs and **disable the Management API v1 for your tenant.** 
 
@@ -69,6 +51,7 @@ Note that tenants created after January 2, 2020 will not have access to API v1. 
 If you need help with the migration, contact us using the [Support Center](https://support.auth0.com/) or our [Community Site](https://community.auth0.com/c/auth0-community/Migrations).
 
 ## Keep reading
-* [Complete list of breaking changes](/api/management/v2/changes)
+
+* [Breaking Changes](/api/management/v2/changes)
 * [Management APIv1 documentation](/api/management/v1)
 * [Management APIv2 documentation](/api/management/v2)

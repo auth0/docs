@@ -1377,11 +1377,14 @@ articles:
   - title: "Product Lifecycle"
     url: "/product-lifecycle"
     children:
-      - title: "Deprecation and End Of Life"
-        url: "/product-lifecycle/deprecation-eol"
+      - title: "Deprecations and End Of Life"
+        url: "/product-lifecycle/deprecated"
+
+      - title: "Upgrades and Enhancements"
+        url: "/product-lifecycle/upgrades"
 
       - title: "Migrations"
-        url: "/product-lifecycle/migrations"
+        url: "/product-lifecycle/migration"
 
   - title: "Security"
     url: "/security"
