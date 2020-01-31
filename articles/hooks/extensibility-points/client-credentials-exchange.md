@@ -143,6 +143,7 @@ You can add the following as claims to the issued token:
 * Any properties with [namespaced](/tokens/concepts/claims-namespacing) property names
 
 The extensibility point will ignore all other response object properties.
+:::
 
 <%= include('../_includes/_access_hook_secrets') %>
 

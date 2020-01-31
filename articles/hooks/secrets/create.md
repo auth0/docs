@@ -65,6 +65,7 @@ Hook Secrets may also be imported and exported using the [Deploy Command-Line In
 | `HOOK_ID` | ID of the hook for which you would like to add secrets. |
 | `HOOK_SECRET_KEY` | Name of the secret that you would like to add to the specified hook. This endpoint accepts an object of key-value pairs. |
 | `HOOK_SECRET_VALUE` | Value of the secret that you would like to add to the specified hook. This endpoint accepts an object of key-value pairs. |
-    </div>
+
+</div>
   </div>
 </div>
