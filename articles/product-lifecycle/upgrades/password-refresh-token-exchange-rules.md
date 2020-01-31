@@ -1,5 +1,5 @@
 ---
-description: Describes the new feature that allows you to execute rules during the OAuth 2.0 Resource Ownser Password Grant (ROPG) exchange and the Refresh Token exchange.
+description: Describes the new feature that allows you to execute rules during the OAuth 2.0 Resource Owner Password Grant (ROPG) exchange and the Refresh Token exchange.
 topics:
   - upgrades
   - rules
@@ -10,7 +10,7 @@ useCase:
   - password-token-exchange
   - refresh-token-exchange
 ---
-# Upgrade Notice: Password and Refresh Token Exchange Rules
+# Upgrade Notice: Password and Refresh Token Exchange Rules Using /oauth/token
 
 | Severity | Grace Period Start | Mandatory Opt-In|
 | --- | --- | --- |

@@ -16,45 +16,13 @@ Migrations will usually involve replacing the deprecated behavior with substanti
 
 Whenever possible, we will provide at least a six-month migration window between the End Of Life announcement and the End Of Life Date. This time frame may be accelerated in cases of emergency, such as critical vulnerability remediation, or changes required to comply with applicable law or third-party certification standards. In these cases, Auth0 will provide as much prior notice as is reasonable under the circumstances. See our [Self Service Terms of Service](https://auth0.com/legal/ss-tos) or your Enterprise Subscription Agreement for more information. 
 
-| Feature/Behavior | Deprecated | End of Life Date | Migration Guide |
+| Deprecated Feature/Behavior | Deprecation Date | End of Life Date | Migration Guide |
 | -- | -- | -- | -- |
-| [Management API v1](/product-lifecycle/deprecated/references/management-api-v1) | 2016-10-01 | Public Cloud: 2020-07-13 | [Migration Guide: Management API v1 to v2](/product-lifecycle/migration/guides/management-api-v1-v2) |
-| | | Private Cloud: 2020-11-01 | |
+| [Management API v1](/product-lifecycle/deprecated/references/management-api-v1) | 2016-10-01 | Public Cloud: 2020-07-13 </br> Private Cloud: 2020-11-01| [Management API v1 to v2](/product-lifecycle/migration/guides/management-api-v1-v2)</br> [Breaking changes](/api/management/v2/changes) |
+| [Passwordless/start authentication](/product-lifecycle/migration/guides/passwordless-start) | 2020-01-06 | TBD | [Use of /passwordless/start from Confidential Applications](/product-lifecycle/migration/guides/passwordless-start) |
+| 
 
 
-
-<table class="table">
-  <thead>
-    <tr>
-      <th style="width: 156px;">Feature/Behavior</th>
-      <th style="width: 100px;">Deprecated</th>
-      <th style="width: 233px;">End Of Life Date</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="/migrations/guides/management-api-v1-v2">Management API v1</a></td>
-      <td>October 2016</td>
-      <td>
-        <strong>Public Cloud</strong>: 13 July 2020<br>
-        <strong>Private Cloud</strong>: November 2020 release<br>
-      </td>
-      <td>Management API v1 will reach its End of Life on July 13, 2020. You may be required to take action before that date to ensure no interruption to your service. A <a href="/migrations/guides/management-api-v1-v2">migration guide</a> is available to walk you through the steps required. Notifications have been and will continue to be sent to customers that need to complete this migration.<br>Useful Resources:<br>
-        <a href="/migrations/guides/management-api-v1-v2">Management API v1 to v2 Migration Guide</a><br>
-        <a href="/api/management/v2">Management API v2 documentation</a><br>
-        <a href="/api/management/v1">Management API v1 documentation</a><br>
-        <a href="/api/management/v2/changes">Breaking changes</a><br>
-      </td>
-  </tr>
-  <tr>
-      <td><a href="/migrations/guides/passwordless-start">Deprecation of unauthenticated calls to the <code>/passwordless/start</code> endpoint from confidential clients</a></td>
-      <td>6 January 2020</td>
-      <td>
-        TBD
-      </td>
-      <td>We improved the security of our Passwordless implementation by adding client authentication to the <code>/passwordless/start</code> endpoint.</td>
-    </tr>
     <tr>
       <td><a href="/migrations/guides/migration-oauthro-oauthtoken-pwdless"><code>/oauth/ro</code> deprecation for Passwordless Connections</a></td>
       <td>8 June 2017</td>

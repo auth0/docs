@@ -7,17 +7,7 @@ useCase:
   - secure-an-api
   - migrate
 ---
-# Migration Guide: Resource Owner Passwordless Credentials Exchange
-
-Support for Resource Owner Password was added to [/oauth/token](/api/authentication#authorization-code). Usage of the [/oauth/ro](/api/authentication#resource-owner) endpoint was deprecated on July 08, 2017. This endpoint was used to exchange an OTP received by the end-user by email or SMS with for an `id_token` and an `access_token`. 
-
-We have implemented a new API that replaces `oauth/ro` for this use case, and we recommend customers to migrate to the new implementation.
-
-## Does this affect me ?
-
-This guide is for users who use the resource owner passwordless credentials exchange, and call `/oauth/ro` directly, without the use of any Auth0 libraries or SDKs. 
-
-## Changes to requests
+# Migration Guide: Passwordless API Calls from /oauth/ro to /oauth/token
 
 Previously, the payload of a request to `/oauth/ro` looked similar to this:
 
