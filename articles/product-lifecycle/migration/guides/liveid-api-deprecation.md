@@ -1,5 +1,4 @@
 ---
-title: Microsoft Account Migration
 description: This article covers the Live Connect + SDK deprecation and how to update your Auth0 Microsoft Account Connection.
 toc: true
 contentType:
@@ -9,7 +8,7 @@ useCase:
   - migrate
 ---
 
-# Microsoft Account Migration to Azure AD (personal accounts) + Microsoft Graph
+# Migration Guide Microsoft Account Migration to Azure Active Directory
 
 In October 2017, Microsoft announced the [deprecation of the Live Connect API and Live SDK](https://developer.microsoft.com/en-us/office/blogs/outlook-rest-api-v1-0-office-365-discovery-and-live-connect-api-deprecation). This is a Microsoft deprecation that will affect Auth0 users using the Microsoft social connection. The change implies switching how Auth0 interacts with the Microsoft authentication APIs, and it might imply changes in customers application's code.
 

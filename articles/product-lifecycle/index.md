@@ -19,6 +19,7 @@ useCase:
 Learn about the Auth0 product lifecycle, including deprecations, end-of-life, and the migration process.
 
 <%= include('../_includes/_topic-links', { links: [
-'product-lifecycle/deprecation-eol',
-'product-lifecycle/migrations',
+'product-lifecycle/deprecated',
+'product-lifecycle/upgrades',
+'product-lifecycle/migration'
 ] }) %>

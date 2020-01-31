@@ -1,8 +1,4 @@
 ---
-section: libraries
-toc: true
-url: /libraries/lock-ios/v2/migration
-title: Migrating from v1 to v2 of Lock for iOS
 description: A migration guide to assist with migration from Lock v1 (Swift) to Lock v2 (Swift).
 topics:
   - libraries
@@ -17,7 +13,7 @@ useCase:
   - enable-mobile-auth
   - migrate
 ---
-# Migrating from Lock iOS v1 to v2
+# Migration Guide: Lock iOS v1 to v2
 
 <dfn data-key="lock">Lock</dfn> 2.0 is the latest major release of Lock iOS-OSX. This guide is provided in order to ease the transition of existing applications using Lock 1.x to the latest APIs.
 
@@ -287,5 +283,3 @@ Auth0
 <%= include('../../../_includes/_deprecate-delegation') %>
 
 Delegation is not available through Lock. It can be implemented via a legacy method in [Auth0.Swift](/libraries/auth0-swift) for tenants which existed prior to June 2017.
-
-<%= include('../_includes/_roadmap') %>

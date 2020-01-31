@@ -1,5 +1,4 @@
 ---
-title: Changes to Facebook Graph API
 description: The latest version of the Facebook Graph API changes what permissions and fields can be requested.
 toc: true
 contentType:
@@ -9,7 +8,7 @@ useCase:
   - migrate
 ---
 
-# Changes to Facebook Login and Graph API
+# Migration Guide: Changes to Facebook Login and Graph API
  
 The latest version of the Facebook Graph API changes what permissions and fields can be requested. We've updated Facebook Connections to reflect these changes and tweaked the connection interface for clarity.
 
