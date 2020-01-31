@@ -947,6 +947,9 @@ articles:
           - title: View Hooks
             url: /hooks/view
 
+          - title: View Logs
+            url: /hooks/view-logs
+
           - title: Extensibility Points
             url: /hooks/extensibility-points
             children:
@@ -978,9 +981,6 @@ articles:
 
               - title: View Secrets
                 url: /hooks/secrets/view
-
-          - title: View Logs
-            url: /hooks/view-logs
 
       - title: Extensions
         url: /extensions
