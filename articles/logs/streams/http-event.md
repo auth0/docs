@@ -18,7 +18,7 @@ If you use Amazon Web Services, Auth0 also offers an [AWS EventBridge integratio
 
 ## Create an HTTP Event Stream
 
-1. Login to the [Auth0 Dashboard](${manage_url}).
+1. Log in to the [Auth0 Dashboard](${manage_url}).
 2. Navigate to **Logs > Streams**.
 3. Click **+ Create Stream**.
 4. Select **Custom Webhook** and enter a unique name for your new HTTP Event Stream.
