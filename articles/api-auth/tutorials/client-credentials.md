@@ -92,7 +92,7 @@ If you [decode the `access_token`](https://jwt.io/#debugger-io) you will see tha
 
 You can change the <dfn data-key="scope">scopes</dfn> and add custom claims to the Access Token you got, using [Hooks](/hooks).
 
-Hooks allow you to customize the behavior of Auth0 using Node.js code. They are actually Webtasks, associated with specific extensibility points of the Auth0 platform (like the Client Credentials grant). Auth0 invokes the Hooks at runtime to execute your custom logic.
+Hooks allow you to customize the behavior of Auth0 using Node.js code. They are secure, self-contained functions associated with specific extensibility points of the Auth0 platform (like the Client Credentials grant). Auth0 invokes the Hooks at runtime to execute your custom logic.
 
 For more information and details on how to do that refer to [Using Hooks with Client Credentials Grant](/api-auth/tutorials/client-credentials/customize-with-hooks).
 

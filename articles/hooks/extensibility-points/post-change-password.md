@@ -1,5 +1,5 @@
 ---
-title: Post Change Password Extensibility Point
+title: Post Change Password
 description: Learn how hooks can be used with the Post Change Password extensibility point, which is available for database connections.
 beta: true
 toc: true
@@ -13,7 +13,7 @@ useCase: extensibility-hooks
 v2: true
 ---
 
-# Post Change Password Extensibility Point
+# Post Change Password
 
 At the Post Change Password extensibility point, Hooks allow custom actions to be executed after a successful user password change, whether initiated by a user for their own password or by a tenant administrator for another user's password. For example, you may send an email to a user to notify them that their password has been changed.
 

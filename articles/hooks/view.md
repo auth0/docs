@@ -28,6 +28,8 @@ To see configured Hooks, you can view them using the Dashboard or retrieve a lis
 
 1. Navigate to the [Hooks](${manage_url}/#/hooks) page in the [Auth0 Dashboard](${manage_url}/).
 
+All configured Hooks will be listed by the extensibility point at which they are executed. A green dot next to a Hook indicates that it is enabled.
+
     </div>
     <div id="mgmt-api" class="tab-pane">
 

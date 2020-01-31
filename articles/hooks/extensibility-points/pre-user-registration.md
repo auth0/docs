@@ -1,5 +1,5 @@
 ---
-title: Pre User Registration Extensibility Point
+title: Pre User Registration
 description: Learn how hooks can be used with the Pre User Registration extensibility point, which is available for database connections and passwordless connections.
 beta: true
 toc: true
@@ -13,7 +13,7 @@ useCase: extensibility-hooks
 v2: true
 ---
 
-# Pre User Registration Extensibility Point
+# Pre User Registration
 
 At the Pre User Registration extensibility point, Hooks allow custom actions to be executed when a new user is created. For example, you may add custom `app_metadata` or `user_metadata` to the newly-created user, or even prevent the creation of the user in the database.
 

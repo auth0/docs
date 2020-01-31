@@ -1,5 +1,5 @@
 ---
-title: Post User Registration Extensibility Point
+title: Post User Registration
 description: Learn how hooks can be used with the Post User Registration extensibility point, which is available for database connections and passwordless connections.
 beta: true
 toc: true
@@ -13,7 +13,7 @@ useCase: extensibility-hooks
 v2: true
 ---
 
-# Post User Registration Extensibility Point
+# Post User Registration
 
 At the Post User Registration extensibility point, Hooks allow custom actions to be executed after a new user registers an account and is added to the database. For example, you may send a message to Slack or create a record in your customer relationship management (CRM) system.
 

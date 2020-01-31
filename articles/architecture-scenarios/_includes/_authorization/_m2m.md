@@ -9,5 +9,5 @@ Traditionally, a special "service account" would have been created in order to c
 :::
 
 ::: warning
-Though the [Client Credentials Exchange Hook](/hooks/concepts/credentials-exchange-extensibility-point) in Auth0 can be used to add custom claims, it's important to consider the purpose for which a token was requested and to avoid extending use of the token beyond its intended purpose. Doing otherwise can result in the creation of unintended attack vectors for attackers to exploit.
+Though the [Client Credentials Exchange Hook](/hooks/extensibility-points/client-credentials-exchange) in Auth0 can be used to add custom claims, it's important to consider the purpose for which a token was requested and to avoid extending use of the token beyond its intended purpose. Doing otherwise can result in the creation of unintended attack vectors for attackers to exploit.
 :::

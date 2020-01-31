@@ -2098,15 +2098,15 @@ module.exports = [
    },
    {
      from: '/hooks/cli/edit',
-     to: '/hooks/guides/edit-hooks-using-cli'
+     to: '/hooks/update'
    },
    {
      from: '/hooks/cli/enable-disable',
-      to: '/hooks/guides/enable-disable-hooks-using-cli'
+      to: '/hooks/enable-disable'
    },
    {
      from: '/hooks/cli/logs',
-     to: '/hooks/guides/logging-hooks-using-cli'
+     to: '/hooks/view-logs'
    },
    {
      from: '/hooks/cli',
@@ -2118,7 +2118,7 @@ module.exports = [
    },
    {
      from: '/hooks/dashboard/create-delete',
-     to: '/hooks/guides/create-hooks-using-dashboard'
+     to: '/hooks/create'
    },
    {
      from: ['/libraries/lock/v10/auth0js', '/libraries/lock/v11/auth0js'],
@@ -2138,15 +2138,15 @@ module.exports = [
   { from: '/rules/current/management-api', to: '/rules/guides/management-api' },
   {
     from: '/hooks/cli/create-delete',
-    to: '/hooks/guides/create-hooks-using-cli'
+    to: '/hooks/create'
    },
    {
     from: '/hooks/cli/edit',
-    to: '/hooks/guides/edit-hooks-using-cli'
+    to: '/hooks/update'
    },
    {
     from: '/hooks/cli/enable-disable',
-    to: '/hooks/guides/enable-disable-hooks-using-cli'
+    to: '/hooks/enable-disable'
    },
    {
     from: '/hooks/cli/index',
@@ -2154,19 +2154,19 @@ module.exports = [
    },
    {
     from: '/hooks/cli/logs',
-    to: '/hooks/guides/logging-hooks-using-cli'
+    to: '/hooks/view-logs'
    },
    {
     from: '/hooks/dashboard/create-delete',
-    to: '/hooks/guides/create-hooks-using-dashboard'
+    to: '/hooks/create'
    },
    {
     from: '/hooks/dashboard/edit',
-    to: '/hooks/guides/edit-hooks-using-dashboard'
+    to: '/hooks/update'
    },
    {
     from: '/hooks/dashboard/enable-disable',
-    to: '/hooks/guides/enable-disable-hooks-using-dashboard'
+    to: '/hooks/enable-disable'
    },
    {
     from: '/hooks/dashboard/index',
@@ -2432,6 +2432,26 @@ module.exports = [
     },
     {
       from: '/hooks/guides/logging-hooks-using-cli',
-      to: '/hooks/logs'
+      to: '/hooks/view-logs'
+    },
+    {
+      from: '/hooks/client-credentials-exchange',
+      to: '/hooks/extensibility-points/client-credentials-exchange'
+    },
+    {
+      from: '/hooks/post-change-password ',
+      to: '/hooks/extensibility-points/post-change-password'
+    },
+    {
+      from: '/hooks/post-user-registration',
+      to: '/hooks/extensibility-points/post-user-registration'
+    },
+    {
+      from: '/hooks/pre-user-registration',
+      to: '/hooks/extensibility-points/pre-user-registration'
+    },
+    {
+      from: '/hooks/logs',
+      to: '/hooks/view-logs'
     }
 ];

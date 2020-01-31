@@ -80,7 +80,7 @@ Hooks may also be imported and exported using the [Deploy Command-Line Interface
 Optionally, you can add secrets (such as Twilio Keys or database connection strings) to Hooks. To learn more, see [Hook Secrets](/hooks/secrets).
 :::
 
-## Explore starter code and sample Hook scripts
+### Explore starter code and sample Hook scripts
 
 To explore starter code and sample Hook scripts, see the documentation for your chosen [extensibility point](/hooks/extensibility-points):
 

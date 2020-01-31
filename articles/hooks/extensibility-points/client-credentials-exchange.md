@@ -1,5 +1,5 @@
 ---
-title: Client Credentials Exchange Extensibility Point
+title: Client Credentials Exchange
 description: Learn how hooks can be used with the Client Credentials Exchange extensibility point, which is available for database connections and passwordless connections.
 beta: true
 toc: true
@@ -14,7 +14,7 @@ useCase: extensibility-hooks
 v2: true
 ---
 
-# Client Credentials Exchange Extensibility Point
+# Client Credentials Exchange
 
 At the Client Credentials Exchange extensibility point, Hooks allow custom actions to be executed after an <dfn data-key="access-token">Access Token</dfn> is issued through the Authentication API [`POST /oauth/token` endpoint](/api/authentication#client-credentials-flow) using the [Client Credentials Flow](/flows/concepts/client-credentials). For example, you may add custom claims to the Access Token or modify its <dfn data-key="scope">scopes</dfn>.
 
