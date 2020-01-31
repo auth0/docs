@@ -51,6 +51,7 @@ Hooks may also be imported and exported using the [Deploy Command-Line Interface
 | - | - |
 | `HOOK_ID` | ID of the Hook you would like to delete. |
 | `MGMT_API_ACCESS_TOKEN` | [Access Token for the Management API](/api/management/v2/tokens) with the <dfn data-key="scope">scope</dfn> `delete:hooks`. |
-    </div>
+
+</div>
   </div>
 </div>

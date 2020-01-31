@@ -69,7 +69,8 @@ Hooks may also be imported and exported using the [Deploy Command-Line Interface
 | `HOOK_NAME` | Name of the hook you would like to create. |
 | `HOOK_SCRIPT` | Script that contains the code for the hook. Should match what you would enter if you were creating a new hook using the Dashboard. |
 | `EXTENSIBILITY_POINT_NAME` | Name of the extensibility point for which the hook should execute. Options include: `credentials-exchange`, `pre-user-registration`, `post-user-registration`, `post-change-password`. To learn more about extensibility points, see [Extensibiity Points](/hooks/extensibility-points). |
-    </div>
+
+</div>
   </div>
 </div>
 

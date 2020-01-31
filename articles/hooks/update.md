@@ -81,7 +81,8 @@ If you added a [Hook Secret](/hooks/secrets) and want to update it, see [Update 
 ::: note
 The `enabled` property represents whether the rule is enabled (`true`) or disabled (`false`). |
 :::
-    </div>
+
+</div>
   </div>
 </div>
 

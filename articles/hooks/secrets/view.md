@@ -55,6 +55,6 @@ To see configured secrets for a [Hook](/hooks), you can view them using the Dash
 Secrets are write-only. When retrieving secrets configured for a specified hook, values will contain the placeholder text: `_VALUE_NOT_SHOWN`.
 :::
 
-    </div>
+</div>
   </div>
 </div>

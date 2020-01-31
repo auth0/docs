@@ -48,6 +48,7 @@ To see configured Hooks, you can view them using the Dashboard or retrieve a lis
 | **Value** | **Description** |
 | - | - |
 | `MGMT_API_ACCESS_TOKEN` | [Access Token for the Management API](/api/management/v2/tokens) with the <dfn data-key="scope">scope</dfn> `read:hooks`. |
-    </div>
+
+</div>
   </div>
 </div>

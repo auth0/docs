@@ -68,6 +68,7 @@ Hook Secrets may also be imported and exported using the [Deploy Command-Line In
 ::: warning
 When retrieving secrets configured for a specified hook, values will contain the placeholder text: `_VALUE_NOT_SHOWN`. Be careful not to return this placeholder text during an update, or the secret's actual value will be overwritten.
 :::
-    </div>
+
+</div>
   </div>
 </div>

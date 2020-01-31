@@ -136,14 +136,12 @@ When we run this Hook, the response object is:
 
 In this example, we add a [namespaced](/tokens/guides/create-namespaced-custom-claims) custom claim and its value to the Access Token.
 
-::: note
 You can add the following as claims to the issued token:
 
 * The `scope` property of the response object
 * Any properties with [namespaced](/tokens/concepts/claims-namespacing) property names
 
 The extensibility point will ignore all other response object properties.
-:::
 
 <%= include('../_includes/_access_hook_secrets') %>
 

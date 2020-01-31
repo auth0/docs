@@ -59,6 +59,7 @@ Hook Secrets may also be imported and exported using the [Deploy Command-Line In
 | `HOOK_ID` | ID of the Hook for which you want to delete secrets. |
 | `MGMT_API_ACCESS_TOKEN` | [Access Tokens for the Management API](/api/management/v2/tokens) with the <dfn data-key="scope">scope</dfn> `delete:hooks`. |
 | `HOOK_SECRET_NAME` | Name(s) of the secret(s) you would like to delete from the specified Hook. This endpoint accepts an array of secret names to delete. |
-    </div>
+
+</div>
   </div>
 </div>

@@ -71,6 +71,7 @@ A green dot will appear next to the name of any enabled Hooks.
 ::: note
 The `enabled` property represents whether the rule is enabled (`true`) or disabled (`false`). |
 :::
-    </div>
+
+</div>
   </div>
 </div>
