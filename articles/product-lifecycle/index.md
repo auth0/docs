@@ -32,7 +32,7 @@ Here are some key terms about product lifecycle:
 
 Here is a list of the Auth0 product features that have been deprecated and/or upgraded and migration guides available. 
 
-## Deprecations
+## Deprecated features and migration guides
 
 | Feature | EOL Date | Migration Guide |
 | -- | -- | -- | 
@@ -48,7 +48,7 @@ Here is a list of the Auth0 product features that have been deprecated and/or up
 | [Email Template Customization](/product-lifecycle/deprecated/email-template-customizations) (Cloud Only) |   2016-07-21 | 2016-08-29 |
 | [Patch and Post Endpoints No Longer Accept secret_encoded Flag](/product-lifecycle/deprecated/patch-post-endpoints) |   | 2016-12-06 |
 
-## Upgrades
+## Upgrades and enhancements
 
 | Feature | Severity | Grace Period Start | Mandatory Opt-in | 
 | -- | -- | -- | -- | 
