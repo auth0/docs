@@ -20,7 +20,7 @@ The Auth0-PHP repository is [hosted on GitHub](https://github.com/auth0/auth0-PH
 
 ## Requirements
 
-- PHP 5.5 or later
+- PHP 7.1 or later
 - [Composer](https://getcomposer.org/doc/00-intro.md)
 
 ## Installation

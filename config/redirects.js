@@ -2453,5 +2453,9 @@ module.exports = [
     {
       from: '/hooks/logs',
       to: '/hooks/view-logs'
+    },
+    {
+      from: '/integrations/aws-eventbridge',
+      to: '/logs/streams/aws-eventbridge'
     }
 ];
