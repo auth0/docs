@@ -23,6 +23,8 @@ The Deploy CLI tool (`auth0-deploy-cli`) supports two methods to import and expo
 - Pages
 - Email templates and providers
 - Guardian settings
+- Hooks
+- Hook Secrets
 
 You can export the data to a predefined [directory structure](/extensions/deploy-cli/guides/import-export-directory-structure) or a [YAML configuration file](/extensions/deploy-cli/guides/import-export-yaml-file). You can call the tool [programmatically](/extensions/deploy-cli/guides/call-deploy-cli-programmatically). You can also use the tool to replace environment variables. 
 

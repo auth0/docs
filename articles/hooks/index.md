@@ -1,5 +1,6 @@
 ---
-description: An overview of Auth0 Hooks for Database Connections and Passwordless Connections.
+title: Hooks
+description: Learn about Auth0 Hooks for Database Connections and Passwordless Connections.
 beta: true
 topics:
     - hooks
@@ -9,30 +10,38 @@ contentType:
   - concept
 useCase: extensibility-hooks
 ---
-
 # Hooks
 
-Hooks are secure, self-contained functions that execute for selected extension points. With Hooks you can customize the runtime behavior of Auth0 using custom Node.js code. Currently, you can only use Hooks with [Database Connections](/connections/database) and [Passwordless Connections](/connections/passwordless). The following is a list of currently available extensibility points:
+<%= include('../_includes/_ip_whitelist') %>
 
-- [Client Credentials Exchange](/hooks/client-credentials-exchange): change the <dfn data-key="scope">scopes</dfn> and add custom claims to access tokens issued by the Auth0 API's `POST /oauth/token` endpoint
-- [Pre User Registration](/hooks/pre-user-registration): prevent user registration and add custom metadata to a newly-created user
-- [Post User Registration](/hooks/post-user-registration): implement custom actions that execute asynchronously from the Auth0 authentication process after a new user registers and is added to the database
-- [Post Change Password](/hooks/guides/post-change-password): Implement custom actions to be executed after a successful user password change.
+Hooks are secure, self-contained functions that allow you to customize the behavior of Auth0 when executed for selected [extensibility points](/hooks/extensibility-points) of the Auth0 platform. Auth0 invokes Hooks during runtime to execute your custom Node.js code.
+
+Depending on the extensibility point, you can use Hooks with [Database Connections](/connections/database) and/or [Passwordless Connections](/connections/passwordless).
 
 ## Manage Hooks
 
-You can create, update, delete, and enable/disable Hooks from the Dashboard or using the Auth0 CLI:
+You can create, update, delete, enable/disable, and view Hooks from the Dashboard or Management API. To learn more, see:
 
-- [Create a Hook](/hooks/create)
+- [Create Hooks](/hooks/create)
 - [Update Hooks](/hooks/update)
 - [Delete Hooks](/hooks/delete)
 - [Enable/Disable Hooks](/hooks/enable-disable)
+- [View Hooks](/hooks/view)
 
+Hooks may also be imported and exported using the [Deploy Command-Line Interface (CLI) Extension](/extensions/deploy-cli).
 
-## How to Handle Rate Limits when calling Auth0 APIs
+<%= include('./_includes/_handle_rate_limits') %>
 
-For Hooks that call Auth0 APIs, you should always handle rate limiting by checking the X-RateLimit-Remaining header and acting appropriately when the number returned nears 0.
+## Manage Hook Secrets
 
-You should also add logic to handle cases in which you exceed the provided rate limits and receive the HTTP Status Code 429 (Too Many Requests). In this case, if a re-try is needed, it is best to allow for a back-off to avoid going into an infinite re-try loop. For more information about rate limits, see [Rate Limit Policy For Auth0 APIs](/policies/rate-limits).
+Hooks feature integrated secret management to securely store secrets while making them conveniently available in code. To learn more, see [Hook Secrets](/hooks/secrets).
 
-<%= include('../_includes/_ip_whitelist') %>
+## Test Hooks
+
+The Hooks editor in the Dashboard has an integrated Runner, which allows you to test your code without leaving the editor.
+
+<%= include('./_includes/_test_runner_save_warning') %>
+
+## View Logs
+
+You can view real-time logging information for specific configured Hooks using the Dashboard. To learn more, see [View Logs for Hooks](/hooks/view-logs).

@@ -24,7 +24,7 @@ There are two basic methods of changing a password:
 You can only change passwords for users signing in using database connections. Users signing in using social or enterprise connections need to reset their passwords with the relevant identity provider.
 :::
 
-You can use the [Post Change Password Hook](/hooks/guides/post-change-password) to implement custom actions after a successful password change.
+You can use the [Post Change Password Hook](/hooks/extensibility-points/post-change-password) to implement custom actions after a successful password change.
 
 ## Trigger an interactive password reset flow
 

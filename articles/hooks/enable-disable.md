@@ -1,9 +1,11 @@
 ---
-description: Learn how to enable and disable Hooks using the Dashboard or Auth0 Command-Line Interface
+title: Enable/Disable Hooks
+description: Learn how to enable and disable Hooks using the Dashboard  and Management API.
 beta: true
 topics:
     - hooks
-    - cli
+    - dashboard
+    - mgmt-api
 contentType: how-to
 useCase: extensibility-hooks
 v2: true
@@ -11,66 +13,65 @@ v2: true
 
 # Enable/Disable Hooks
 
-For each extensibility point, you may have either no associated Hooks enabled or **one** associated Hook enabled.
+You can enable or disable Hooks that have been configured for any given [extensibility point](/hooks/extensibility-points) using the Dashboard or Management API.
+
+<%= include('./_includes/_hook_enabled_limit') %>
+
+<%= include('./_includes/_default_hook_enable_behavior') %>
+
+<div class="code-picker">
+  <div class="languages-bar">
+    <ul>
+      <li><a href="#dashboard" data-toggle="tab">Dashboard</a></li>
+      <li><a href="#mgmt-api" data-toggle="tab">Management API</a></li>
+    </ul>
+  </div>
+  <div class="tab-content">
+    <div id="dashboard" class="tab-pane active">
 
 ## Enable/Disable Hooks using the Dashboard
 
-The Auth0 Management Dashboard provides a visual interface for working with Hooks. With the Dashboard, you can enable/disable Hooks that you've created.
+1. Navigate to the [Hooks](${manage_url}/#/hooks) page in the [Auth0 Dashboard](${manage_url}/), and locate the extensibility point for which you want to enable or disable a Hook.
 
-Each extensibility point may be associated with **zero** or **one** active Hook.
+2. Click on the dropdown box located immediately under the extensibility point's name and description.
+
+  ![View Avalilable Hooks for an Extensibility Point](/media/articles/hooks/select-hook-to-enable.png)
+
+3. Select the Hook you want to enable, and confirm. If you want to disable all Hooks, select `None`.
+
+A green dot will appear next to the name of any enabled Hooks.
+    </div>
+    <div id="mgmt-api" class="tab-pane">
+
+## Enable/Disable Hooks using the Management API
+
+1. Make a `PATCH` call to the [Update a Hook endpoint](/api/management/v2/#!/Hooks/patch_hooks_by_id). Be sure to replace `HOOK_ID` and `MGMT_API_ACCESS_TOKEN` placeholder values with your hook ID and Management API Access Token, respectively.
+
+```har
+{
+	"method": "PATCH",
+	"url": "https://${account.namespace}/api/v2/hooks/HOOK_ID",
+	"headers": [
+    	{ "name": "Content-Type", "value": "application/json" },
+   		{ "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
+    	{ "name": "Cache-Control", "value": "no-cache" }
+	],
+	"postData": {
+      	"mimeType": "application/json",
+      	"text" : "{ \"enabled\": \"true\" }"
+	}
+}
+```
+
+| Value | Description |
+| - | - |
+| `HOOK_ID` | ID of the hook to be updated. |
+| `MGMT_API_ACCESS_TOKEN` | [Access Tokens for the Management API](/api/management/v2/tokens) with the <dfn data-key="scope">scope</dfn> `update:hooks`. |
 
 ::: note
-Hooks utilize the Webtask Editor. For additional information on how to work with the Webtask Editor, you can review its docs [here](https://webtask.io/docs/editor/).
+The `enabled` property represents whether the rule is enabled (`true`) or disabled (`false`). |
 :::
 
-When creating new Hooks, Auth0 enables the Hook for that extensibility point if there are no other Hooks associated with that point. In any other circumstance, Auth0 does *not* enable the new Hook.
-
-### Enable Hooks
-
-1. Navigate to [the Hooks page of the Dashboard](${manage_url}/#/hooks) and find the extensibility point for which you want an enabled Hook.
-2. Immediately under the name and description of the extensibility point, click on the dropdown box that lists all of the point's associated Hooks.
-
-  ![List of Hooks for a Point](/media/articles/hooks/select-hook-to-enable.png)
-
-3. Select the Hook you want to enable.
-4. Confirm your selection by clicking **YES, ENABLE HOOK**.
-
-  ![Confirm Hook to Enable](/media/articles/hooks/confirm-enable-hook.png)
-
-You will now see a green dot next to the name of the Hook, indicating that it's enabled.
-
-### Disable Hooks
-
-1. Navigate to [the Hooks page of the Dashboard](${manage_url}/#/hooks) and find the extensibility point for which you want an enabled Hook.
-2. Immediately under the name and description of the extensibility point, click on the dropdown box that lists all of the point's associated Hooks.
-
-  ![List of Hooks for a Point](/media/articles/hooks/select-hook-to-enable.png)
-
-3. Select **None**.
-4. Confirm your selection by clicking **YES, DISABLE HOOK**.
-
-  ![Confirm Hook to Disable](/media/articles/hooks/disable-hook.png)
-
-## Enable/Disable Hooks using the command-line interface
-
-The Auth0 Command-Line Interface (CLI) allows you to enable or disable existing Hooks associated with specific extensibility points within the Auth0 platform. By default, the Auth0 CLI creates new Hooks in a disabled state.
-
-<%= include('./_includes/set-up-webtask-cli') %>
-
-### Enable Hooks
-
-The following command enables the Hook:
-
-```bash
-auth0 enable my-extension-1 -p auth0-default
-```
-
-By enabling a given Hook, the Auth0 CLI disables all other Hooks associated with the same extensibility point.
-
-### Disable Hooks
-
-The following command disables the Hook:
-
-```bash
-auth0 disable my-extension-1 -p auth0-default
-```
+</div>
+  </div>
+</div>
