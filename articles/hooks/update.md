@@ -1,11 +1,9 @@
 ---
-title: Update Hooks
-description: Learn how to update Hooks using the Dashboard or Management API. Hooks may also be imported and exported using the Auth0 Deploy Command-Line Interface (CLI) tool.
+description: Learn how to update Hooks using the Dashboard or Auth0 Command-Line Interface
 beta: true
 topics:
     - hooks
-    - dashboard
-    - mgmt-api
+    - cli
 contentType: how-to
 useCase: extensibility-hooks
 v2: true
@@ -13,81 +11,51 @@ v2: true
 
 # Update Hooks
 
-You can update Hooks configured for any given [extensibility point](/hooks/extensibility-points) using the Dashboard or Management API.
+You can update existing Hooks using either the Dashboard or the command-line interface.
 
-Hooks may also be imported and exported using the [Deploy Command-Line Interface (CLI) Extension](/extensions/deploy-cli).
+## Update Hooks using the Dashboard
 
-::: note
-If you added a [Hook Secret](/hooks/secrets) and want to update it, see [Update Hook Secrets](/hooks/secrets/update).
-:::
+With the Dashboard, update the code for the existing Hooks using the [Webtask Editor](https://webtask.io/docs/editor): 
 
-<div class="code-picker">
-  <div class="languages-bar">
-    <ul>
-      <li><a href="#dashboard" data-toggle="tab">Dashboard</a></li>
-      <li><a href="#mgmt-api" data-toggle="tab">Management API</a></li>
-    </ul>
-  </div>
-  <div class="tab-content">
-    <div id="dashboard" class="tab-pane active">
-
-## Rename Hooks using the Dashboard
-
-1. Navigate to the [Hooks](${manage_url}/#/hooks) page in the [Auth0 Dashboard](${manage_url}/), and click the gear icon next to the Hook you want to rename.
-2. Select **Rename**.
-3. Enter the current name and new name of the hook, then click **Rename**.
-
-![Rename Hooks prompt](/media/articles/hooks/rename-hook.png)
-
-## Update Hook scripts using the Dashboard
-
-1. Navigate to the [Hooks](${manage_url}/#/hooks) page in the [Auth0 Dashboard](${manage_url}/), and click the pencil icon next to the Hook you want to update.
+1. Navigate to [the Hooks page of the Dashboard](${manage_url}/#/hooks) and find the Hook you want to edit.
+2. Click the **Pencil and Paper** icon to the right of the Hook to open the Webtask Editor.
 
   ![List of Hooks](/media/articles/hooks/hooks-list.png)
 
-2. Update the Hook using the Hook Editor, and click the disk icon to save.
+3. Edit the Hook using the Webtask Editor.
 
-  ![Update a Hook in the Hook Editor](/media/articles/hooks/webtask-editor.png)
-    </div>
-    <div id="mgmt-api" class="tab-pane">
+  ![Webtask Editor](/media/articles/hooks/webtask-editor.png)
 
-## Update Hooks using the Management API
+### Rename Hooks
 
-1. Make a `PATCH` call to the [Update a Hook endpoint](/api/management/v2/#!/Hooks/patch_hooks_by_id). Be sure to replace `HOOK_ID` and `MGMT_API_ACCESS_TOKEN` placeholder values with your hook ID and Management API Access Token, respectively.
+To rename a Hook using the Dashboard:
 
-```har
-{
-	"method": "PATCH",
-	"url": "https://${account.namespace}/api/v2/hooks/HOOK_ID",
-	"headers": [
-    	{ "name": "Content-Type", "value": "application/json" },
-   		{ "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
-    	{ "name": "Cache-Control", "value": "no-cache" }
-	],
-	"postData": {
-      	"mimeType": "application/json",
-      	"text" : "{ \"name\": \"HOOK_NAME\", \"script\": \"HOOK_SCRIPT\", \"enabled\": \"true\" }"
-	}
-}
+1. On [the Hooks page of the Dashboard](${manage_url}/#/hooks), find the Hook you want to edit.
+2. Click the **Gear** icon next to the Hook.
+3. Click **Rename**. You will see a dialog pop up, asking you for the **Current Name** of the Hook, as well as the **New Name** you want to use. Click **Rename** when you have populated both values.
+
+![Rename Hooks prompt](/media/articles/hooks/rename-hook.png)
+
+## Update Hooks using the command-line interface
+
+The Auth0 Command-Line Interface (CLI) allows you to update existing Hooks associated with specific extensibility points within the Auth0 platform.
+
+<%= include('./_includes/set-up-webtask-cli') %>
+
+Edit the code of the Hook using the [Webtask Editor](https://webtask.io/docs/editor). The following command will open up the code for the Hook in the Webtask Editor window:
+
+```bash
+auth0 edit my-extension-1
 ```
 
-| Value | Description |
-| - | - |
-| `HOOK_ID` | ID of the hook to be updated. |
-| `MGMT_API_ACCESS_TOKEN` | [Access Tokens for the Management API](/api/management/v2/tokens) with the <dfn data-key="scope">scope</dfn> `update:hooks`. |
-| `HOOK_NAME` | Name of the hook you would like to create. |
-| `HOOK_SCRIPT` | Script that contains the code for the hook. Should match what you would enter if you were creating a new hook using the Dashboard. |
+![Webtask Editor](/media/articles/hooks/webtask-editor.png)
 
-::: note
-The `enabled` property represents whether the rule is enabled (`true`) or disabled (`false`). |
-:::
+If the CLI cannot open the Editor window automatically, copy and paste the provided link into a web browser.
 
-</div>
-  </div>
-</div>
+### Update secrets
 
-<%= include('./_includes/_handle_rate_limits') %>
+If you [provisioned a secret to the Hook](/hooks/create#provision-secrets-to-new-hooks) during creation, you can update the secret by clicking on the **wrench** at the top left of the Webtask Editor window and selecting **Secrets** from the dropdown menu.
 
-::: note
-Optionally, you can add secrets (such as Twilio Keys or database connection strings) to Hooks. To learn how to update secrets, see [Update Hook Secrets](/hooks/secrets/update).
-:::
+![Webtask Editor Secrets pane](/media/articles/hooks/webtask-editor-secrets.png)
+
+To the right, you will see a Secrets window where you can add key/value pairs. These pairs can then be accessed in the code in the `context.webtask.secrets` object (e.g., `context.webtask.secrets.SECRET_NAME`).

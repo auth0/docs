@@ -1,90 +1,66 @@
 ---
-title: Create Hooks
-description: Learn how to create Hooks using the Dashboard and Management API. Hooks may also be imported and exported using the Auth0 Deploy Command-Line Interface (CLI) tool.
+description: Learn how to create new Hooks using the Dashboard or Auth0 Command-Line Interface
 beta: true
 topics:
     - hooks
-    - dashboard
-    - mgmt-api
+    - cli
 contentType: how-to
 useCase: extensibility-hooks
 v2: true
 ---
 
-# Create Hooks
+# Create New Hooks
 
-You can create multiple Hooks for any given [extensibility point](/hooks/extensibility-points) using the Dashboard or Management API.
-
-Hooks may also be imported and exported using the [Deploy Command-Line Interface (CLI) Extension](/extensions/deploy-cli).
-
-<%= include('./_includes/_hook_enabled_limit') %>
-
-<div class="code-picker">
-  <div class="languages-bar">
-    <ul>
-      <li><a href="#dashboard" data-toggle="tab">Dashboard</a></li>
-      <li><a href="#mgmt-api" data-toggle="tab">Management API</a></li>
-    </ul>
-  </div>
-  <div class="tab-content">
-    <div id="dashboard" class="tab-pane active">
+You can create multiple Hooks for any given extensibility point. However, you may only have **one** Hook enabled per extensibility point at a time.
 
 ## Create Hooks using the Dashboard
 
-<%= include('./_includes/_default_hook_enable_behavior') %> 
-
-1. Navigate to the [Hooks](${manage_url}/#/hooks) page in the [Auth0 Dashboard](${manage_url}/), and click **Create a Hook**.
-2. Enter a descriptive name for your Hook, select the extensibility point for which the Hook should execute, and click **Create**.
-3. Locate the section for the extensibility point you selected, and click the pencil icon next to the hook you created.
-4. Update the Hook using the Hook Editor, and click the disk icon to save.
-
-    </div>
-    <div id="mgmt-api" class="tab-pane">
-
-## Create Hooks using the Management API
-
-<%= include('./_includes/_default_hook_enable_behavior') %> 
-
-1. Make a `POST` call to the [Create a Hook endpoint](/api/management/v2/#!/Hooks/post_hooks). Be sure to replace `MGMT_API_ACCESS_TOKEN`, `HOOK_NAME`, `HOOK_SCRIPT`, and `EXTENSIBILITY_POINT_NAME` placeholder values with your Management API Access Token, Hook name, Hook script, and extensibility point name, respectively.
-
-```har
-{
-	"method": "POST",
-	"url": "https://${account.namespace}/api/v2/hooks",
-  "headers": [
-  	{ "name": "Content-Type", "value": "application/json" },
-  	{ "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
-  	{ "name": "Cache-Control", "value": "no-cache" }
-	],
-	"postData": {
-    "mimeType": "application/json",
-    "text" : "{ \"name\": \"HOOK_NAME\", \"script\": \"HOOK_SCRIPT\", \"triggerId\": \"EXTENSIBILITY_POINT_NAME\" }"
-	}
-}
-```
-
-| **Value** | **Description** |
-| - | - |
-| `MGMT_API_ACCESS_TOKEN`  | [Access Token for the Management API](/api/management/v2/tokens) with the <dfn data-key="scope">scope</dfn> `create:hooks`. |
-| `HOOK_NAME` | Name of the hook you would like to create. |
-| `HOOK_SCRIPT` | Script that contains the code for the hook. Should match what you would enter if you were creating a new hook using the Dashboard. |
-| `EXTENSIBILITY_POINT_NAME` | Name of the extensibility point for which the hook should execute. Options include: `credentials-exchange`, `pre-user-registration`, `post-user-registration`, `post-change-password`. To learn more about extensibility points, see [Extensibiity Points](/hooks/extensibility-points). |
-
-</div>
-  </div>
-</div>
-
-<%= include('./_includes/_handle_rate_limits') %>
-
 ::: note
-Optionally, you can add secrets (such as Twilio Keys or database connection strings) to Hooks. To learn more, see [Hook Secrets](/hooks/secrets).
+Hooks utilize the Webtask Editor. For additional information on how to work with the Webtask Editor, you can review its docs [here](https://webtask.io/docs/editor/).
 :::
 
-### Explore starter code and sample Hook scripts
+Auth0 automatically enables the first Hook you create for an extensibility point. Any subsequent Hooks created for that point are in a disabled state. As such, you must explicitly enable subsequent Hooks. 
 
-To explore starter code and sample Hook scripts, see the documentation for your chosen [extensibility point](/hooks/extensibility-points):
+To create new Hooks on the Dashboard:
 
-* [Client Credentials Exchange](/hooks/extensibility-points/client-credentials-exchange)
-* [Post Change Password](/hooks/extensibility-points/post-change-password)
-* [Post User Registration](/hooks/extensibility-points/post-user-registration)
-* [Pre User Registration](/hooks/extensibility-points/pre-user-registration)
+1. Navigate to [the Hooks page of the Dashboard](${manage_url}/#/hooks). Create new Hooks in one of two ways:
+
+    * Clicking on the **+ Create New Hook** button at the top right of the Hooks page.
+    * Finding the extensibility hook you want to work with and then clicking the **Create New Hook** link below.
+
+2. On the *New Hook* pop-up window, provide the requested information:
+
+  ![Create Hook Dialog](/media/articles/hooks/create-new-hook.png)
+
+  * **Name**: The name for the new Hook
+  * **Hook**: The extensibility point associated with the Hook
+
+  Click **Create** to create the Hook.
+
+  At this point, you will see the newly-created Hook listed under its associated extensibility point.
+
+![List of Hooks](/media/articles/hooks/hooks-list.png)
+
+## Create Hooks using the command-line interface
+
+The Auth0 Command-Line Interface (CLI) allows you to create Hooks associated with specific extensibility points within the Auth0 platform. By default, the Auth0 CLI creates new Hooks in a disabled state.
+
+<%= include('./_includes/set-up-webtask-cli') %>
+
+Rather than beginning from scratch, scaffold the sample code for an Auth0 hook.
+
+```bash
+auth0 scaffold -t pre-user-registration > file.js
+```
+
+Create the hook:
+
+```bash
+auth0 create -t pre-user-registration --name my-extension-1 -p auth0-default file.js`
+```
+
+### Provision secrets to new Hooks
+
+Optionally, you can add secrets (such as Twilio Keys or database connection strings) to new Hooks by adding `--secret KEY=VALUE` to the *Create* command. The information you attach will be encrypted, and it can only be decrypted by the Webtask server.
+
+At this point, you have created a new, disabled Hook using the `pre-user-registration` [extensibility point](/hooks/concepts/overview-extensibility-points). You can repeat this process and create Hooks for any of the other extensibility points.

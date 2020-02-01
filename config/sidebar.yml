@@ -944,43 +944,20 @@ articles:
           - title: Enable/Disable Hooks
             url: /hooks/enable-disable
 
-          - title: View Hooks
-            url: /hooks/view
+          - title: Client Credentials Exchange
+            url: /hooks/client-credentials-exchange
 
-          - title: View Logs
-            url: /hooks/view-logs
+          - title: Post Change Password
+            url: /hooks/post-change-password
 
-          - title: Extensibility Points
-            url: /hooks/extensibility-points
-            children:
+          - title: Post User Registration
+            url: /hooks/post-user-registration
 
-            - title: Client Credentials Exchange
-              url: /hooks/extensibility-points/client-credentials-exchange
+          - title: Pre User Registration
+            url: /hooks/pre-user-registration
 
-            - title: Post Change Password
-              url: /hooks/extensibility-points/post-change-password
-
-            - title: Post User Registration
-              url: /hooks/extensibility-points/post-user-registration
-
-            - title: Pre User Registration
-              url: /hooks/extensibility-points/pre-user-registration    
-
-          - title: Hook Secrets
-            url: /hooks/secrets
-            children:
-
-              - title: Create Secrets
-                url: /hooks/secrets/create
-
-              - title: Update Secrets
-                url: /hooks/secrets/update
-
-              - title: Delete Secrets
-                url: /hooks/secrets/delete
-
-              - title: View Secrets
-                url: /hooks/secrets/view
+          - title: Get Log Info
+            url: /hooks/logs
 
       - title: Extensions
         url: /extensions

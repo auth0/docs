@@ -1,57 +1,35 @@
 ---
-title: Delete Hooks
-description: Learn how to delete Hooks using the Dashboard and Management API. Hooks may also be imported and exported using the Auth0 Deploy Command-Line Interface (CLI) tool.
+description: Learn how to delete Hooks using the Dashboard or Auth0 Command-Line Interface
 beta: true
 topics:
     - hooks
-    - mgmt-api
-    - dashboard
+    - cli
 contentType: how-to
 useCase: extensibility-hooks
 v2: true
 ---
+
 # Delete Hooks
 
-When you no longer need Hooks, you can delete them using either the Dashboard or Management API.
-
-Hooks may also be imported and exported using the [Deploy Command-Line Interface (CLI) Extension](/extensions/deploy-cli).
-
-<div class="code-picker">
-  <div class="languages-bar">
-    <ul>
-      <li><a href="#dashboard" data-toggle="tab">Dashboard</a></li>
-      <li><a href="#mgmt-api" data-toggle="tab">Management API</a></li>
-    </ul>
-  </div>
-  <div class="tab-content">
-    <div id="dashboard" class="tab-pane active">
+You can delete existing Hooks using either the Dashboard or the command-line interface.
 
 ## Delete Hooks using the Dashboard
 
-1. Navigate to the [Hooks](${manage_url}/#/hooks) page in the [Auth0 Dashboard](${manage_url}/), and click the gear icon next to the Hook you want to delete.
-2. Select **Delete**, and confirm.
-    </div>
-    <div id="mgmt-api" class="tab-pane">
+1. In the Hooks page of the Management Dashboard, find the Hook you want to edit.
+2. Click the **Gear** icon next to overview Hook.
+3. Click **Delete**.
+4. Confirm that you want to delete overview Hook by clicking **YES, DELETE HOOK**.
 
-## Delete Hooks using the Management API
+![Delete Hook Confirmation](/media/articles/hooks/delete-hook.png)
 
-1. Make a `DELETE` call to the [Delete a Hook endpoint](/api/management/v2/#!/Hooks/delete_hooks_by_id). Be sure to replace `HOOK_ID` and `MGMT_API_ACCESS_TOKEN` placeholder values with your hook ID and Management API Access Token, respectively.
+## Delete Hooks using the command-line interface
 
-```har
-{
-	"method": "DELETE",
-	"url": "https://${account.namespace}/api/v2/hooks/HOOK_ID",
-	"headers": [
-   	{ "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" }
-	]
-}
+The Auth0 Command-Line Interface (CLI) allows you to delete Hooks associated with specific extensibility points within the Auth0 platform if you no longer need them.
+
+<%= include('./_includes/set-up-webtask-cli') %>
+
+If you need to delete an existing Hook, use the following command:
+
+```bash
+auth0 rm my-extension-1 -p auth0-default
 ```
-
-| Value | Description |
-| - | - |
-| `HOOK_ID` | ID of the Hook you would like to delete. |
-| `MGMT_API_ACCESS_TOKEN` | [Access Token for the Management API](/api/management/v2/tokens) with the <dfn data-key="scope">scope</dfn> `delete:hooks`. |
-
-</div>
-  </div>
-</div>

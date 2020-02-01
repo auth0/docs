@@ -124,7 +124,7 @@ It’s recommended best practice to make use of the `auth0` object (and any othe
 
 ## Execution
 
-Each rule is executed as a JavaScript function; these functions are called in the [order](#order) that the rules are defined. Rules execute sequentially; the next rule in order won’t execute until the previous rule has completed. In addition, the rule pipeline only executes for workflows that involve _user_ credentials; the rule pipeline **does not** execute during [Client Credentials flow](/api-auth/tutorials/adoption/client-credentials) (which is instead supported via use of the [Client Credentials Exchange](/hooks/extensibility-points/client-credentials-exchange) hook).
+Each rule is executed as a JavaScript function; these functions are called in the [order](#order) that the rules are defined. Rules execute sequentially; the next rule in order won’t execute until the previous rule has completed. In addition, the rule pipeline only executes for workflows that involve _user_ credentials; the rule pipeline **does not** execute during [Client Credentials flow](/api-auth/tutorials/adoption/client-credentials) (which is instead supported via use of the [Client Credentials Exchange](/hooks/concepts/credentials-exchange-extensibility-point) hook).
 
 In pipeline terms, a rule completes when the [`callback`](#callback-function) function supplied to the rule is called. Failure to call the function will result in a stall of pipeline execution, and ultimately in an error being returned. Each rule must call the `callback` function **exactly** once.
 
