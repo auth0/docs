@@ -33,7 +33,7 @@ Because a URI must be unique and because this URI is under your control, you can
 
 * You can use any number of namespaces.
 
-## Add a namespace to a claim
+## Adding a namespace to a claim
 
 Once you have chosen your namespace, you append the claim to it to create a namespaced claim, which can be added to a token.
 

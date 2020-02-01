@@ -19,9 +19,9 @@ useCase:
 
 You can now add [Hooks](/hooks) into your [client credentials](/api-auth/grant/client-credentials) flow. This way you can change the <dfn data-key="scope">scopes</dfn> and add custom claims to the tokens issued by Auth0.
 
-Hooks allow you to customize the behavior of Auth0 using Node.js code. They are secure, self-contained functions associated with specific extensibility points of the Auth0 platform (like the Client Credentials grant). Auth0 invokes the Hooks at runtime to execute your custom logic.
+Hooks allow you to customize the behavior of Auth0 using Node.js code. They are actually [Webtasks](https://webtask.io/) associated with specific extensibility points of the Auth0 platform (like the Client Credentials grant). Auth0 invokes the Hooks at runtime to execute your custom logic.
 
-You can manage Hooks using the Auth0 Dashboard or the Management API. 
+You can manage Hooks using the [Auth0 Dashboard](/hooks/dashboard) or the [Auth0 Command Line Interface (CLI)](/hooks/cli). 
 
 ## Before you start
 
@@ -52,11 +52,11 @@ For details on how to set up the API and the machine-to-machine app, see:
 You can create more than one hooks per extensibility point but __only one__ can be enabled. The enabled hook will then be executed for __all__ applications and APIs.
 :::
 
-3. Click the __Pencil and Paper__ icon to the right of the Hook to open the Hook Editor.
+3. Click the __Pencil and Paper__ icon to the right of the Hook to open the Webtask Editor.
 
   ![Edit Client Credentials Hook](/media/articles/api-auth/hooks/edit-cc-hook.png)
 
-4. Using the Hook Editor, write your Node.js code. As an example, we will add an extra scope. The claim's name will be `https://foo.com/claim` and its value `bar`. Copy the sample code below and paste it in the Editor.
+4. Using the Webtask Editor, write your Node.js code. As an example, we will add an extra scope. The claim's name will be `https://foo.com/claim` and its value `bar`. Copy the sample code below and paste it in the Editor.
 
   ```js
   module.exports = function(client, scope, audience, context, cb) {
@@ -76,9 +76,53 @@ You can create more than one hooks per extensibility point but __only one__ can 
   In order to improve compatibility for applications, Auth0 now returns profile information in a [structured claim format as defined by the OpenID Connect (OIDC) specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that in order to add custom claims to ID Tokens or <dfn data-key="access-token">Access Tokens</dfn>, they must [conform to a namespaced format](/tokens/guides/create-namespaced-custom-claims) to avoid possible collisions with standard OIDC claims.
   :::
 
-  ![Hook Editor](/media/articles/api-auth/hooks/cc-webtask-editor.png)
+  ![Webtask Editor](/media/articles/api-auth/hooks/cc-webtask-editor.png)
 
   Click __Save__ (or hit Ctrl+S/Cmd+S) and close the Editor.
+
+5. That's it! Now you only need to test your hook. You can find detailed instructions at the [Test your Hook](#test-your-hook) paragraph.
+
+## Use the Auth0 CLI
+
+<%= include('../../../_includes/_webtask') %>
+
+1. Make sure you have installed the Webtask CLI. You can find detailed instructions in the [Dashboard's Webtask page](${manage_url}/#/account/webtasks).
+
+2. Create a file with your Node.js code. For our example, we will name the file `myrule.js` and copy the following code:
+
+  ```js
+  module.exports = function(client, scope, audience, context, cb) {
+    var access_token = {};
+    access_token['https://foo.com/claim'] = 'bar';
+    access_token.scope = scope;
+    access_token.scope.push('extra');
+    cb(null, access_token);
+  };
+  ```
+
+3. Create the Webtask. The command is the following:
+
+  ```text
+  auth0 create -t credentials-exchange -n client-credentials-exchange-hook -p ${account.namespace}-default file.js
+  ```
+
+  Let's break this down:
+  - `auth0`: The binary to use.
+  - `create`: The sub-command for creating or updating a Hook. Run in your terminal `auth0 -h` to see the rest.
+  - `-t credentials-exchange`: The hook type. For this use case, set to `credentials-exchange`.
+  - `-n client-credentials-exchange-hook`: The webtask's name. Set this to your preference, we chose `client-credentials-exchange-hook`.
+  - `-p ${account.namespace}-default`: Your account's profile name. Get this value from _Step 2_ of the instructions on the [Dashboard's Webtask page](${manage_url}/#/account/webtasks).
+  - `file.js`: The name of the file you created in the previous step.
+
+  Run the command.
+
+4. You will see a message that your hook was created, but in disabled state. To enable the hook, run the command:
+
+  ```text
+  auth0 enable --profile ${account.namespace}-default client-credentials-exchange-hook
+  ```
+
+  Where `client-credentials-exchange-hook` is the name of the webtask, and `${account.namespace}-default` the name of your profile (the same as the one used in the previous step).
 
 5. That's it! Now you only need to test your hook. You can find detailed instructions at the [Test your Hook](#test-your-hook) paragraph.
 
@@ -167,9 +211,9 @@ Use the Auth0 CLI to:
 - [Enable or disable Hooks](/auth0-hooks/cli/enable-disable)
 - [Review Logs](/auth0-hooks/cli/logs)
 
-## Input Parameters
+## Webtask Input Parameters
 
-The hook takes five input parameters. You can use these values for your custom logic.
+As you saw in our example, the webtask takes five input parameters. You can use these values for your custom logic.
 
 Let's see what each one contains.
 
