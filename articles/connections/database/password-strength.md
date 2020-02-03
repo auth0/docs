@@ -59,16 +59,16 @@ If you provide a minimum password length, this value supercedes that indicated b
 
 ### Minimum password length when using Hosted Pages
 
-If you are using either the [Hosted Login Page](/hosted-pages/login) or the [Hosted Password Reset Page](/hosted-pages/password-reset), and you want to set the minimum password length value, you will need to complete a few additional configuration steps using the [Dashboard](${manage_url}).
+If you are using either the [Hosted Login Page](/hosted-pages/login) or the [Hosted Password Reset Page](/universal-login/password-reset), and you want to set the minimum password length value, you will need to complete a few additional configuration steps using the [Dashboard](${manage_url}).
 
 #### Set minimum password length when using Hosted Password Reset Pages
 
-If you're using a customized [Password Reset Page](/hosted-pages/password-reset) and you want to set the password length parameter, you must:
+If you're using a customized [Password Reset Page](/universal-login/password-reset) and you want to set the password length parameter, you must:
 
 1. Update your templates to include library version 1.5.1 or later
 2. Add `password_complexity_options` to leverage the new parameter
 
-If you do not [update the Password Reset Page](/hosted-pages/password-reset#edit-the-password-reset-page), Auth0 ignores any attempt to set the minimum password length.
+If you do not [update the Password Reset Page](/universal-login/password-reset#edit-the-password-reset-page), Auth0 ignores any attempt to set the minimum password length.
 
 ##### Step 1: Update the change password library version
 
