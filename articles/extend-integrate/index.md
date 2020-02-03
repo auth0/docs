@@ -30,7 +30,7 @@ useCase:
   <li>
     <i class="icon icon-budicon-292"></i><a href="/hooks">Hooks</a>
     <p>
-        Hooks are Webtasks associated with specific extensibility points of the Auth0 platform, which allow you to customize the behavior of Auth0 with custom code using Node.js. Learn how to configure and use hooks with Auth0.
+        Hooks are secure, self-contained functions that allow you to customize the behavior of Auth0 when executed for selected [extensibility points](/hooks/extensibility-points) of the Auth0 platform. Learn how to configure and use hooks with Auth0.
     </p>
   </li>
   <li>
