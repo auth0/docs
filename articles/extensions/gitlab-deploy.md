@@ -102,10 +102,9 @@ With each commit you push to your configured GitLab repository, the webhook will
 The **Deploy** button on the **Deployments** tab of the extension allows you to manually deploy the Rules, Pages, and Database Connection scripts that you already have in your GitLab repository. This is useful if your repository already contains items that you want to deploy once you have set up the extension or if you have accidentally deleted some scripts in Auth0 and need to redeploy the latest version of your repository.
 
 ::: panel-warning Full Deployment
-To maintain a consistent state, the extension will always do a full deployment of the contents of these folders. **Any rules, pages or database connection scripts that exist in Auth0 but not in your GitHub repository will be deleted**.
+To maintain a consistent state, the extension will always do a full deployment of the contents of these folders. **Any rules, pages, or database connection scripts that exist in Auth0 but not in your GitHub repository will be deleted**.
 
-When AUTH0_ALLOW_DELETE is set to yes, if there are empty folders or missing config folder,  those configs will not delete existing settings on Auth0. It only deletes if you have that folder and something configured within that folder. We recommend setting up all of the config, since we are not able to provide data restores at this time.
-
+To delete existing settings when AUTH0_ALLOW_DELETE is set to yes, corresponding folders must be present and contain configuration files; settings will not be deleted for missing folders or empty folders. We recommend setting up all configurations, since we are unable to provide data restores at this time.
 :::
 
 ### Deploy Database Connection scripts
