@@ -27,9 +27,13 @@ To see configured secrets for a [Hook](/hooks), you can view them using the Dash
 
 ## View Hook Secrets using the Dashboard
 
-1. Navigate to the [Hooks](${manage_url}/#/hooks) page in the [Auth0 Dashboard](${manage_url}/).
+1. Navigate to the [Hooks](${manage_url}/#/hooks) page in the [Auth0 Dashboard](${manage_url}/), and click the pencil icon next to the Hook for which you want to view secrets.
 
-    </div>
+2. In the Hook editor, click the wrench icon, and click **Secrets**.
+
+All configured secrets for the selected Hook will be listed.
+
+</div>
     <div id="mgmt-api" class="tab-pane">
 
 ## Get Hook Secrets using the Management API
