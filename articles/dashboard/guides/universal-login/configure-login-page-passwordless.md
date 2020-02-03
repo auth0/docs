@@ -20,7 +20,7 @@ useCase:
 This guide will show you how to set up a login page for use with [passwordless authentication](/connections/passwordless) using Auth0's Dashboard. 
 
 ::: warning
-For passwordless authentication to work properly when previewing your login page, you must first have [configured a passwordless connection](/dashboard/guides/connections/set-up-connections-passwordless) for your application.
+For passwordless authentication to work properly when previewing your login page, you must first have [configured a passwordless connection](/connections/passwordless#implement-passwordless) for your application.
 :::
 
 When setting up a login page for passwordless, you have a few options. To learn how to configure your universal login page to use passwordless, select your implementation:

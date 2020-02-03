@@ -13,7 +13,7 @@ This guide will show you how to use a custom SMS gateway to send out your one-ti
 
 By default, [Passwordless SMS connections](/connections/passwordless#supported-authentication-methods) use [Twilio](https://www.twilio.com/) to send out one-time use codes. However, if you have a custom SMS gateway, you can modify your connection to use that instead.
 
-1. Set up a SMS passwordless connection. To learn how, see [Set Up Passwordless Connections](/dashboard/guides/connections/set-up-connections-passwordless).
+1. Set up a SMS passwordless connection. To learn how, see [Set Up Passwordless Connections](/connections/passwordless#implement-passwordless).
 
 2. Get an [Access Token for Management API](/api/management/v2/tokens). You will need this to make calls to the Management API to update your Passwordless connection.
 

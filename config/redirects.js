@@ -510,7 +510,7 @@ module.exports = [
     to: '/connections/enterprise/adfs'
   },
   {
-    from: '/passwordless',
+    from: ['/passwordless','/dashboard/guides/connections/set-up-connections-passwordless'],
     to: '/connections/passwordless'
   },
   {
