@@ -57,7 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return A0Lock.sharedLock().handleURL(url, sourceApplication: app)
     }
 
-    func application(_ application: NSApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([NSUserActivityRestoring]) -> Void) -> Bool {
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         return A0Lock.sharedLock().continueUserActivity(userActivity, restorationHandler: restorationHandler)
     }
 }
