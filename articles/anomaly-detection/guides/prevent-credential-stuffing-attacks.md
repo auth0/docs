@@ -38,7 +38,7 @@ Auth0 uses a large amount of data to identify patterns that signal that a creden
 
 ### Prerequisites
 
-* Please read Auth0’s [Beta Service Terms](https://cdn.auth0.com/website/legal/terms/beta-service-terms-11-18-19.pdf) and acknowledge you have read and agreed to the terms by emailing <a href="mailto:antonio.fuentes@auth0.com?subject=Credential%20Stuffing%20Attack%20Prevention%20Beta">Antonio Fuentes </a>
+* Please read Auth0’s [Beta Service Terms](https://cdn.auth0.com/website/legal/terms/beta-service-terms-11-18-19.pdf) and acknowledge you have read and agreed to the terms by emailing antonio.fuentes@auth0.com.
 
 [Antonio Fuentes](mailto:antonio.fuentes@auth.com?subject=[Auth0]%20Credential%20Stuffing%20Attacks%20Beta).
 
@@ -91,4 +91,4 @@ In addition, you can look at the [tenant logs](//anomaly-detection/guides/use-te
 - `f`: failed login
 - `fu`: failed login due to invalid email/username
 
-If you have questions, you can contact Auth0 through your TAM or contact <a href="mailto:antonio.fuentes@auth0.com?subject=Credential%20Stuffing%20Attack%20Prevention%20Beta">Antonio Fuentes </a>.
+If you have questions, you can contact Auth0 through your TAM or contact antonio.fuentes@auth0.com.
