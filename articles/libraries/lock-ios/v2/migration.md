@@ -70,15 +70,15 @@ In Lock v2, this is no longer required.
 In Lock v1 you'd add the following:
 
 ```swift
-func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-  return A0Lock.shared().handle(url, sourceApplication: sourceApplication)
+func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+  return A0Lock.shared().handle(url, sourceApplication: app)
 }
 ```
 
 In Lock v2 you need to instead use the following:
 
 ```swift
-func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
+func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
   return Lock.resumeAuth(url, options: options)
 }
 ```

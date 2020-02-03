@@ -119,21 +119,22 @@ Then call this method:
 lock.applicationLaunched(options: launchOptions)
 ```
 
-Lastly, you will need to handle the already registered custom scheme in your `AppDelegate`. To do so, override the `-application:openURL:sourceApplication:annotation:` method and add the following line:
+Lastly, you will need to handle the already registered custom scheme in your `AppDelegate`. To do so, override the `-application:openURL:options:` method and add the following line:
 
 **Objective C**:
 
 ```objc
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return [self.lock handleURL:url sourceApplication:sourceApplication];
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url
+            options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
+    return [self.lock handleURL:url sourceApplication:app];
 }
 ```
 
 **Swift**:
 
 ```swift
-func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-    return self.lock.handle(url, sourceApplication: sourceApplication)
+func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+    return self.lock.handle(url, sourceApplication: app)
 }
 ```
 

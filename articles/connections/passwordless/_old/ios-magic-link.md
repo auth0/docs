@@ -48,17 +48,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         A0Lock.sharedLock().applicationLaunchedWithOptions(launchOptions)
         return true
     }
 
-    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
-        return A0Lock.sharedLock().handleURL(url, sourceApplication: sourceApplication)
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+        return A0Lock.sharedLock().handleURL(url, sourceApplication: app)
     }
 
-    func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
-        return A0Lock.sharedLock().continueUserActivity(userActivity, restorationHandler:restorationHandler)
+    func application(_ application: NSApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([NSUserActivityRestoring]) -> Void) -> Bool {
+        return A0Lock.sharedLock().continueUserActivity(userActivity, restorationHandler: restorationHandler)
     }
 }
 
