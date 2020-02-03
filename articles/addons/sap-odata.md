@@ -1,6 +1,6 @@
 ---
 addon: SAP OData
-title: SAP ODate Add-on
+title: SAP OData Add-on
 alias:
   - sap
 url: /addons/sap-odata
