@@ -1,7 +1,6 @@
 ---
 title: Prevent Credential Stuffing Attacks
-extract: Traditional web application which needs to authenticate users using SAML2
-description: Explains the architecture scenario of using a traditional web application to authenticate users using SAML2.
+description: Learn how to prevent credential stuffing attacks on your system. 
 beta: true
 topics:
     - anomaly-detection
