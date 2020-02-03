@@ -17,9 +17,9 @@ If you need to change your password or you have forgotten the password to your A
 
 1. On the Auth0 account login screen, click **Don't remember your password?**
 
-2. Provide your email address and click the **right arrow** to submit. You will receive an email that provides further instructions on resetting your password.
+2. Provide your email address, and click the **right arrow** to submit. You will receive an email that provides further instructions on resetting your password.
 
-3. If your request was successfully received, you'll be directed back to the log in screen with a message that says, "We've just sent you an email to reset your password."
+3. If your request was successfully received, you'll be directed back to the login screen with a message that says, "We've just sent you an email to reset your password."
 
 ## Special password reset circumstances
 
