@@ -510,7 +510,7 @@ module.exports = [
     to: '/connections/enterprise/adfs'
   },
   {
-    from: '/passwordless',
+    from: ['/passwordless','/dashboard/guides/connections/set-up-connections-passwordless'],
     to: '/connections/passwordless'
   },
   {
@@ -2449,5 +2449,9 @@ module.exports = [
     {
       from: '/hooks/guides/logging-hooks-using-cli',
       to: '/hooks/logs'
+    },
+    {
+      from: '/integrations/aws-eventbridge',
+      to: '/logs/streams/aws-eventbridge'
     }
 ];

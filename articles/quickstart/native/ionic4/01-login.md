@@ -320,37 +320,39 @@ export class AuthService {
   }
 
   logout() {
-    this.storage.remove('profile');
-    this.storage.remove('access_token');
-    this.storage.remove('expires_at');
-    this.accessToken = null;
-    this.user = null;
-    this.loggedIn = false;
+      this.accessToken = null;
+      this.user = null;
+      this.loggedIn = false;
+      this.safariViewController.isAvailable()
+        .then((available: boolean) => {
+          const domain = AUTH_CONFIG.domain;
+          const clientId = AUTH_CONFIG.clientId;
+          const pkgId = AUTH_CONFIG.packageIdentifier;
+          const url = `https://<%="${domain}"%>/v2/logout?client_id=<%= "${clientId}" %>&returnTo=<%= "${pkgId}" %>://<%="${domain}"%>/cordova/<%="${pkgId}"%>/callback`;
 
-    this.safariViewController.isAvailable()
-      .then((available: boolean) => {
-        const domain = AUTH_CONFIG.domain;
-        const clientId = AUTH_CONFIG.clientId;
-        const pkgId = AUTH_CONFIG.packageIdentifier;
-        let url = `https://<%= "${domain}" %>/v2/logout?client_id=<%= "${clientId}" %>&returnTo=<%= "${pkgId}" %>://<%= "${domain}" %>/cordova/<%= "${pkgId}" %>/callback`;
-        if (available) {
-          this.safariViewController.show({
-            url: url
-          })
-          .subscribe((result: any) => {
-              if(result.event === 'opened') console.log('Opened');
-              else if(result.event === 'loaded') console.log('Loaded');
-              else if(result.event === 'closed') console.log('Closed');
-            },
-            (error: any) => console.error(error)
-          );
-        } else {
-          // use fallback browser
-          cordova.InAppBrowser.open(url, '_system');
+          if (available) {
+            this.safariViewController.show({ url })
+            .subscribe((result: any) => {
+                if(result.event === 'opened') console.log('Opened');
+                else if(result.event === 'closed') console.log('Closed');
+
+                if (result.event === 'loaded') {
+                  console.log('Loaded');
+                  this.storage.remove('profile');
+                  this.storage.remove('access_token');
+                  this.storage.remove('expires_at');
+                  this.safariViewController.hide();
+                }
+              },
+              (error: any) => console.error(error)
+            );
+          } else {
+            // use fallback browser
+            cordova.InAppBrowser.open(url, '_system');
+          }
         }
-      }
-    );
-  }
+      );
+    }
 }
 ```
 

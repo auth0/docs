@@ -75,7 +75,7 @@ Below we list a few code snippets that can be used to call these API endpoints f
 ```har
 {
   "method": "POST",
-  "url": "https://${account.namespace}/oauth-token",
+  "url": "https://${account.namespace}/oauth/token",
   "headers": [{
     "name": "Content-Type",
     "value": "application/json"
@@ -92,7 +92,7 @@ Below we list a few code snippets that can be used to call these API endpoints f
 ```har
 {
   "method": "POST",
-  "url": "https://${account.namespace}/oauth-token",
+  "url": "https://${account.namespace}/oauth/token",
   "headers": [{
     "name": "Content-Type",
     "value": "application/json"

@@ -13,6 +13,11 @@ useCase: extensibility-extensions
 ---
 
 # Authorization Extension
+
+::: panel Breaking Changes
+No breaking changes to this extension exist for the most recent update released on January 30, 2020. For more info, see the [changelog](https://github.com/auth0/auth0-authorization-extension/blob/master/CHANGELOG.md).
+:::
+
 ::: note
 <%= include('../../../_includes/_rbac_methods') %>
 :::

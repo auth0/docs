@@ -250,7 +250,7 @@ Once a user verifies their email address, they will receive a **Welcome Email**.
 
 ### Reset Email
 
-If a user requests a password change, they will receive a **Reset Email** that contains a URL link. When the user clicks on the link, a [Password Reset screen](/universal-login/password-reset) will be presented to enter the new password.
+If a user requests a password change, they will receive a **Reset Email** that contains a URL link. When the user clicks on the link, a [Password Reset page](/universal-login/password-reset) will be presented to enter the new password.
 
 In addition to the [common variables](#common-variables) available for all email templates, the **Reset Email** has the `url` variable that refers to the URL that the user will have to click. You will use it in the **Message** field to create a link that the user can follow, as in this example:
 
