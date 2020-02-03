@@ -26,13 +26,11 @@ Auth0 provides a number of tools to combat credential stuffing attacks:
 
 * [Using Multi-factor Authentication](/multifactor-authentication) can be effective in preventing unauthorized logins, but it adds friction to the user experience. 
 
-If you do not want to turn on additional features such as MFA, you can add **Automated Credential Stuffing Attack Protection** to provide a standard level of protection against against credential stuffing attacks and does not add any friction to legitimate users. 
+If you do not want to turn on additional features such as MFA, you can add **Automated Credential Stuffing Attack Protection** to provide a standard level of protection against credential stuffing attacks and does not add any friction to legitimate users. 
 
 ## How it works
 
-Auth0 uses a large amount of data to identify patterns that signal that a credential stuffing attack is taking place. Auth0 uses sophisticated algorithms to determine when bursts of traffic are likely to be from a bot or script. When this happens, a Captcha step is shown during the sign in flow. This Captcha helps to make it impractical for bad actors to continue sending credential stuffing attack traffic to the tenant.
-
-Users attempting to sign in from IPs which are determined to have a high likelihood of being a credential stuffing attack will see a Captcha step. The algorithms are designed so that this would only happen for bad traffic; the objective is to not show any friction to legitimate users.
+Auth0 uses a large amount of data to identify patterns that signal that a credential stuffing attack is taking place. Auth0 uses sophisticated algorithms to determine when bursts of traffic are likely to be from a bot or script. Users attempting to sign in from IPs which are determined to have a high likelihood of being a credential stuffing attack will see a Captcha step. The algorithms are designed so that this only happens for bad traffic; the objective is to not show any friction to legitimate users.
 
 ![Captcha Login Screen Example](/media/articles/anomaly-detection/captcha-login-screen.png)
 
@@ -62,7 +60,7 @@ Determine if your page is customized.
 
 3. If it is on, you have a customized login page. 
 
-### If you are using a customized Classic Universal Login
+### If you are using customized Classic Universal Login
 
 Upgrade your version of Lock.
 
