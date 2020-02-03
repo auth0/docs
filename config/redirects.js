@@ -2439,7 +2439,7 @@ module.exports = [
       to: '/hooks/extensibility-points/client-credentials-exchange'
     },
     {
-      from: '/hooks/post-change-password ',
+      from: '/hooks/post-change-password',
       to: '/hooks/extensibility-points/post-change-password'
     },
     {
