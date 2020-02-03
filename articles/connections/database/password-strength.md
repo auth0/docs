@@ -59,7 +59,7 @@ If you provide a minimum password length, this value supercedes that indicated b
 
 ### Minimum password length when using Hosted Pages
 
-If you are using either the [Hosted Login Page](/hosted-pages/login) or the [Customize Hosted Password Reset Page](/universal-login/password-reset), and you want to set the minimum password length value, you will need to complete a few additional configuration steps using the [Dashboard](${manage_url}).
+If you are using either the [Hosted Login Page](/hosted-pages/login) or the [Hosted Password Reset Page](/universal-login/password-reset), and you want to set the minimum password length value, you will need to complete a few additional configuration steps using the [Dashboard](${manage_url}).
 
 #### Set minimum password length when using Hosted Password Reset Pages
 
