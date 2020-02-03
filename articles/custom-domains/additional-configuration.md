@@ -9,26 +9,26 @@ useCase: customize-domains
 ---
 # Configure Features to Use Custom Domains
 
-In order to configure Auth0 features to use your custom domain, depending on the features you are using, there might be additional configuration steps you must complete. For example, you may need to make changes in order to use your custom domain in your login page or to call your APIs.
+To configure Auth0 features to use your custom domain, you may need to complete additional steps depending on the features you are using. For example, you may need to make changes before you can use your custom domain in your login page or to call your APIs.
 
-If you have been using Auth0 for some time and decide to enable a custom domain, you will have to migrate your existing apps and update the settings as described below. Note that existing sessions created at `${account.namespace}` will no longer be valid once you start using your custom domain, so users will have to login again.
+If you have been using Auth0 for some time and decide to enable a custom domain, you will have to migrate your existing apps and update the settings as described below. Note that existing sessions created at `${account.namespace}` will no longer be valid once you start using your custom domain, so users will have to log in again.
 
 ## Prerequisite
 
-You have already configured and verified your custom domain. See [Verify ownership](/custom-domains/auth0-managed-certificates#verify-ownership).
+You should have already configured and verified your custom domain. To learn how, see [Verify ownership](/custom-domains/auth0-managed-certificates#verify-ownership).
 
 ## Features
 
 | **Feature** | **Section to read** |
 |-|-|
-| <dfn data-key="universal-login">Universal Login</dfn> and you have customized the login page | [Universal Login](#universal-login) |
+| <dfn data-key="universal-login">Universal Login</dfn> with a customized login page | [Universal Login](#universal-login) |
 | Lock embedded in your application | [Embedded Lock](#embedded-lock) |
 | Auth0 SPA SDK, Auth0.js, or other Auth0 SDKs | [Auth0 SPA SDK, Auth0.js, and other SDKs](#auth0-spa-sdk-auth0-js-and-other-sdks) |
 | Custom domain with Auth0 emails | [Use custom domains in emails](#use-custom-domains-in-emails) |
 | Social identity providers | [Configure social identity providers](#configure-social-identity-providers) |
 | G Suite connections with your custom domain | [Configure G Suite connections](#configure-g-suite-connections) |
 | Issue Access Tokens for your APIs or access Auth0 APIs from your application | [APIs](#apis) |
-| <dfn data-key="security-assertion-markup-language">SAML</dfn> identity providers | [Configure SAML identity providers](#configure-saml-identity-providers) |
+| <dfn data-key="security-assertion-markup-language">SAML</dfn> Identity Providers | [Configure SAML identity providers](#configure-saml-identity-providers) |
 | SAML applications | [Configure SAML applications](#configure-saml-applications) |
 | WS-Fed applications | [Configure WS-Fed applications](#configure-ws-fed-applications) |
 | Azure AD connections | [Configure Azure AD connections](#configure-azure-ad-connections) |
@@ -39,7 +39,7 @@ You have already configured and verified your custom domain. See [Verify ownersh
 
 If you use [Universal Login](/hosted-pages/login) and you have customized the login page, you must update the code to use your custom domain. If you use the **default** login page without customization, you do not need to make any changes.
 
-If you are using [Lock](/libraries/lock), you need to set the `configurationBaseUrl` and `overrides` options as seen in the following sample script:
+If you are using [Lock](/libraries/lock), you must set the `configurationBaseUrl` and `overrides` options as seen in the following sample script:
 
 ```js
 var lock = new Auth0Lock(config.clientID, config.auth0Domain, {
@@ -53,7 +53,7 @@ var lock = new Auth0Lock(config.clientID, config.auth0Domain, {
 });
 ```
 
-If you use [Auth0.js](/libraries/auth0js) on the Universal Login page, you need to set the `overrides` option.
+If you use [Auth0.js](/libraries/auth0js) on the Universal Login page, you must set the `overrides` option.
 
 ```js
 var webAuth = new auth0.WebAuth({
@@ -69,7 +69,7 @@ var webAuth = new auth0.WebAuth({
 ```
 
 ::: note
-For most, the Auth0.js and Lock libraries get the tenant name (required for `/usernamepassword/login`) and the issuer (required for `id_token` validation) from the domain. However, if you're a Private Cloud customer who uses a proxy or a custom domain name where the domain name is different from the tenant/issuer, you can use `__tenant` and `__token_issuer` to provide your unique values.
+For most, the Auth0.js and Lock libraries retrieve the tenant name (required for `/usernamepassword/login`) and the issuer (required for `id_token` validation) from the domain. However, if you're a Private Cloud customer who uses a proxy or a custom domain name where the domain name is different from the tenant/issuer, you can use `__tenant` and `__token_issuer` to provide your unique values.
 :::
 
 ## Embedded Lock
@@ -88,7 +88,7 @@ The CDN URL varies by region. For regions outside of the US, use `https://cdn.[e
 
 ## Auth0 SPA SDK, Auth0.js, and other SDKs
 
-If you use the [Auth0 SPA SDK](/libraries/auth0-spa-js), [Auth0.js](/libraries/auth0js), or [other SDKs](/support/matrix#auth0-sdks), you will have to initialize the SDK using your custom domain. For example, if you are using the auth0.js SDK, you need to set the following:
+If you use the [Auth0 SPA SDK](/libraries/auth0-spa-js), [Auth0.js](/libraries/auth0js), or [other SDKs](/support/matrix#auth0-sdks), you will have to initialize the SDK using your custom domain. For example, if you are using the Auth0.js SDK, you must set the following:
 
 ```js
 webAuth = new auth0.WebAuth({
@@ -114,7 +114,7 @@ Note that the Management API only accepts Auth0 domains. If you use a custom dom
 
 If you want to use your custom domain with your Auth0 emails, you must enable this feature. 
 
-Go to [Dashboard > Tenant Settings > Custom Domains](${manage_url}/#/tenant/custom_domains) and enable the **Use Custom Domain in Emails** toggle. When the toggle is green, this feature is enabled.
+Go to [Dashboard > Tenant Settings > Custom Domains](${manage_url}/#/tenant/custom_domains), and enable the **Use Custom Domain in Emails** toggle. When the toggle is green, this feature is enabled.
 
 ![Use Custom Domain in Emails toggle](/media/articles/custom-domains/cd_email_toggle.png)
 
@@ -143,16 +143,16 @@ app.use(jwt({
 
 ## Configure SAML identity providers
 
-If you want to use your custom domain with SAML identity providers (IdPs), you must update your **Assertion Consumer Service (ACS) URL(s)** with the identity provider(s). You have two options for doing this, depending on what is supported by the IdP.
+To use your custom domain with SAML Identity Providers (IdPs), you must update your **Assertion Consumer Service (ACS) URL(s)** with the Identity Provider(s). Depending on what is supported by the IdP, you can do this in one of two ways:
 
-You can get the service provider metadata from Auth0 at `https://<YOUR-CUSTOM-DOMAIN>/samlp/metadata?connection=<YOUR-CONNECTION-NAME>`. This will include the updated ACS URL. Then, you need to manually update this value in your IdP(s) settings. This change to your IdP(s) must happen at the same time as you begin using your custom domain in your applications. This can pose a problem if there are multiple IdPs to configure.
+1. You can get the service provider metadata from Auth0 at `https://<YOUR-CUSTOM-DOMAIN>/samlp/metadata?connection=<YOUR-CONNECTION-NAME>`. This will include the updated ACS URL. Then, you must manually update this value in your IdP(s) settings. This change to your IdP(s) must happen at the same time as you begin using your custom domain in your applications. This can pose a problem if there are multiple IdPs to configure.
 
-Alternatively, if supported by the IdP, you can use signed requests to fulfill this requirement:
+2. If supported by the IdP, you can use signed requests to fulfill this requirement:
 
-- Download the signing certificate from `https://<TENANT>.auth0.com/pem`. Note that `https://<YOUR-CUSTOM-DOMAIN>.com/pem` will return the same certificate
-- Give the certificate to the IdP(s) to upload. This enables the IdP to validate the signature on the `AuthnRequest` message that Auth0 sends to the IdP
-- The IdP will import the certificate and, if necessary, signature verification should be enabled (exact steps vary by IdP)
-- Turn on the **Sign Request** toggle in the Dashboard under **Connections > Enterprise > SAML > CONNECTION**. This will trigger Auth0 to sign the SAML `AuthnRequest` messages it sends to the IdP.
+  - Download the signing certificate from `https://<TENANT>.auth0.com/pem`. Note that `https://<YOUR-CUSTOM-DOMAIN>.com/pem` will return the same certificate
+  - Give the certificate to the IdP(s) to upload. This enables the IdP to validate the signature on the `AuthnRequest` message that Auth0 sends to the IdP
+  - The IdP will import the certificate and, if necessary, signature verification should be enabled (exact steps vary by IdP)
+  - Turn on the **Sign Request** toggle in the Dashboard under **Connections > Enterprise > SAML > CONNECTION**. This will trigger Auth0 to sign the SAML `AuthnRequest` messages it sends to the IdP.
 
 Once this is done, and you start using your custom domain when you initiate an authentication request in your application, the IdP will receive that custom domain in your signed request. Because your application’s signed request is trusted, the IdP should automatically override whatever was configured as your ACS URL and replace it with the value sent in the signed request. However, there are IdPs that do **not** accept the ACS URL in the signed request, so you must check with yours first to confirm whether this is supported or not.
 
