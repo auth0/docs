@@ -49,11 +49,10 @@ Having a token that never expires can be very risky, in case an attacker gets ho
 
 ## Can I still get a non-expiring token?
 
-Yes you can. We added a text box (__Token Expiration (Seconds)__), at [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer), where you can set the new expiration time (in seconds) and click __Update & Regenerate Token__. A new token will be generated with your custom expiration time. Our recommendation however is not to use this and get a new token every 24 hours. You can easily automate this [following this process](/api/management/v2/tokens).
+Yes, you can. We added a text box (__Token Expiration (Seconds)__) on [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer), which allows you to set the new expiration time (in seconds), and click __Update & Regenerate Token__. A new token will be generated with your custom expiration time. Our recommendation, however, is not to use this and get a new token every 24 hours. You can easily automate this [following this process](/api/management/v2/tokens).
 
 Furthermore, you can generate a token using [JWT.io](https://jwt.io/):
 - Use the [JWT.io Debugger](https://jwt.io/#debugger-io) to manually type the claims and generate a token.
-- Use one of the [JWT.io libraries](https://jwt.io/#libraries-io).
 
 ::: warning
 Long-lived tokens compromise your security. Following this process is <strong>NOT</strong> recommended.
@@ -63,13 +62,13 @@ Long-lived tokens compromise your security. Following this process is <strong>NO
 
 You can use the [JWT.io Debugger](https://jwt.io/#debugger-io) to manually generate a token.
 
-The debugger allows you to edit the __Header__ and __Payload__ content on the right hand side of the screen. The token will automatically be updated on the left hand text area. Note that the debugger supports only `HS256` when editing header and payload.
+The debugger allows you to edit the __Header__ and __Payload__ content on the right-hand side of the screen. The token will automatically be updated on the left-hand text area. Note that the debugger supports only `HS256` when editing header and payload.
 
-To generate a token follow the next steps:
+To generate a token, follow the next steps:
 
 1. Go to [JWT.io Debugger](https://jwt.io/#debugger-io). Notice that there is a sample token on the left hand editor. The right hand editor contains the header, payload and verify signature parts.
 
-2. Delete the dummy `secret` value from the _Verify Signature_ panel. Set your __Global Client Secret__ (you can find this value at [Advanced Tenant Settings](${manage_url}/#/tenant/advanced)) and check the __secret base64 encoded__ flag.
+2. Delete the dummy `secret` value from the _Verify Signature_ panel. Set your __Global Client Secret__ (you can find this value at [Advanced Tenant Settings](${manage_url}/#/tenant/advanced)), and check the __secret base64 encoded__ flag.
 
 3. Make sure the _Header_ contains the `alg` and `typ` claims, as follows.
 
@@ -103,37 +102,4 @@ To generate a token follow the next steps:
 
   - __exp__: The time at which the token will expire. It must be a number containing a `NumericDate` value, for example `1518808520` (which maps to `Fri, 16 Feb 2018 19:15:20 GMT`).
 
-5. As you type the token on the left hand editor is automatically refreshed. When you are done copy this value.
-
-### Use a Library
-
-- Use one of the [JWT.io libraries](https://jwt.io/#libraries-io). For example, the following snippet generates a JWT using [node-jsonwebtoken](https://github.com/auth0/node-jsonwebtoken):
-
-  ```javascript
-  const jwt = require('jsonwebtoken');
-  const globalClientSecret = new Buffer('YOUR_GLOBAL_CLIENT_SECRET', 'base64');
-  const currentTimestamp = Math.floor(new Date());
-
-  var token = jwt.sign({
-    iss: 'https://${account.namespace}/',
-    aud: 'YOUR_GLOBAL_CLIENT_ID',
-    scope: 'read:clients read:client_keys'},
-    globalClientSecret,
-    { //options
-      algorithm: 'HS256',
-      expiresIn: '1y'
-    }
-  );
-
-  console.log(token);
-  ```
-
-  Note the following:
-
-  - The token is signed using `HS256` and the __Global Client Secret__ (you can find this value at [Advanced Tenant Settings](${manage_url}/#/tenant/advanced)).
-
-  - The audience (claim `aud`) is the __Global Client Id__ (you can find this value at [Advanced Tenant Settings](${manage_url}/#/tenant/advanced)).
-
-  - We want this token in order to call the [Get all applications](/api/management/v2#!/Clients/get_clients) so we only asked for the scopes required by this endpoint: `read:clients read:client_keys`.
-
-  - The token expires in one year (`expiresIn: '1y'`).
+5. As you type, the token in the left-hand editor is automatically refreshed. When you are done, copy this value.
