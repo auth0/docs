@@ -1,5 +1,5 @@
 ---
-description: Configuring Twilio for MFA
+description: Learn how to configure Twilio to use SMS with multi-factor authentication. 
 topics:
   - mfa
   - twilio
@@ -8,7 +8,7 @@ contentType:
 useCase:
   - customize-mfa
 ---
-# Configuring Twilio for using SMS with MFA
+# Configure Twilio to Use SMS with MFA
 
 When initially setting up SMS, you have up to 100 SMS to be used for testing. This limit can be removed by setting up a Twilio account. To prevent malicious login attempts, your users will always be limited to up to 10 SMS/Hour (replenishing one message an hour, up to 10).
 
