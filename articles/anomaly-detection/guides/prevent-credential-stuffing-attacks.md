@@ -19,13 +19,13 @@ Consider, for example, the number of errors caused by an incorrect email or user
 
 Auth0 provides a number of tools to combat credential stuffing attacks:  
 
-* [Enabling Brute Force Protection](/anomaly-detection/guides/enable-disable-brute-force-protection) blocks login attempts after a number of consecutive failed logins. 
+* [Brute Force Protection](/anomaly-detection/guides/enable-disable-brute-force-protection) blocks login attempts after a number of consecutive failed logins. 
 
-* [Enabling Breached Password Protection](/anomaly-detection/concepts/breached-passwords) identifies credentials that are known to be stolen.
+* [Breached Password Protection](/anomaly-detection/concepts/breached-passwords) identifies credentials that are known to be stolen.
 
-* [Using Multi-factor Authentication](/multifactor-authentication) can be effective in preventing unauthorized logins, but it adds friction to the user experience. 
+* [Multi-factor Authentication](/multifactor-authentication) can be effective in preventing unauthorized logins, but it adds friction to the user experience. 
 
-If you do not want to turn on additional features such as MFA, you can add **Automated Credential Stuffing Attack Protection** to provide a standard level of protection against credential stuffing attacks and does not add any friction to legitimate users. 
+If you do not want to turn on additional features such as MFA, you can add **Automated Credential Stuffing Attack Protection** to provide a standard level of protection against credential stuffing attacks that does not add any friction to legitimate users. 
 
 ## How it works
 
