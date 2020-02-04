@@ -37,7 +37,7 @@ Auth0 uses a large amount of data to identify patterns that signal that a creden
 
 ### Prerequisites
 
-* Please read Auth0’s [Beta Service Terms](https://cdn.auth0.com/website/legal/terms/beta-service-terms-11-18-19.pdf) and acknowledge you have read and agreed to the terms by emailing **Antonio Fuentes** at <antonio.fuentes@auth0.com>.
+* Please read Auth0’s [Beta Service Terms](https://cdn.auth0.com/website/legal/terms/beta-service-terms-11-18-19.pdf) and acknowledge you have read and agreed to the terms by emailing **Antonio Fuentes** at **antonio.fuentes@auth0.com**.
 
 * Determine which type of login experience you have configured: 
 
@@ -88,4 +88,4 @@ In addition, you can look at the [tenant logs](/anomaly-detection/guides/use-ten
 - `f`: failed login
 - `fu`: failed login due to invalid email/username
 
-If you have questions, you can contact Auth0 through your TAM or contact <antonio.fuentes@auth0.com>.
+If you have questions, you can contact Auth0 through your TAM or contact **antonio.fuentes@auth0.com**.
