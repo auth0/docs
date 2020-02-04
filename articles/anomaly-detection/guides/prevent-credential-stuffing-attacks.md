@@ -71,7 +71,7 @@ Upgrade your version of Lock.
 
 For example, replace this tag:
 ```html
-<script src="https://cdn.auth0.com/js/lock/11.3/lock.min.js"></script>
+<script src="https://cdn.auth0.com/js/lock/x.x/lock.min.js"></script>
 ```
 
 With the following:
