@@ -181,7 +181,7 @@ The [`context`](/rules/references/context-object) object provides information ab
 ```
 
 ::: warning
-We highly recommended reviewing best practices when [using contextual bypass logic for Multi-Factor Authentication checking](#contextual-bypass-for-multi-factor-authentication-mfa-). For example, **serious security flaws** can surface if use of MFA is predicated on `context.request.query.prompt === 'none'`. In addition, the content of the `context` object is **security sensitive**, so you should [**not** directly pass the object to any external or third-party service](#do-not-send-entire-context-object-to-external-services).
+We highly recommend reviewing best practices when [using contextual bypass logic for Multi-Factor Authentication checking](#contextual-bypass-for-multi-factor-authentication-mfa-). For example, **serious security flaws** can surface if use of MFA is predicated on `context.request.query.prompt === 'none'`. In addition, the content of the `context` object is **security sensitive**, so you should [**not** directly pass the object to any external or third-party service](#do-not-send-entire-context-object-to-external-services).
 :::
 
 #### Redirection
