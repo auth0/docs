@@ -29,7 +29,7 @@ You can redirect a user **once** per authentication flow. If you have one rule t
 Redirect Rules won't work with:
 - [Resource Owner endpoint](/api/authentication/reference#resource-owner)
 - [Password exchange](/api-auth/grant/password)
-- [Refresh Token exchange](/tokens/concepts/refresh-token#rules).
+- [Refresh Token exchange](/tokens/concepts/refresh-token#rules)
 
 You can detect the above cases by checking `context.protocol`:
 - For Password exchange: `context.protocol === 'oauth2-password'`
@@ -184,7 +184,7 @@ The token sent to the app should have the following requirements:
 
 | Token Element | Description |
 | -- | -- |
-| `sub` | The Auth0 user_id of the user. |
+| `sub` | The Auth0 `user_id` of the user. |
 | `iss` | An identifier that identifies the rule itself. |
 | `aud` | The application that is targeted for the redirect. |
 | `jti` | A randomly generated string that is stored for confirmation in the user object (in the rule code, set user.jti = uuid.v4(); and then add it as a jti to the token you create).  user.jti will still be set when rules run again when /continue is called.  This is inline with specifications. |
@@ -198,19 +198,23 @@ This token should **not** be treated as a Bearer token!  It is a signed piece of
 
 ### Pass information back to the rule
 
-In most scenarios, even if you want to pass information from the rule to the application.  The application will hopefully be able to safely store the information in whatever storage is necessary.  Even if the idea is to update the app or user metadata in Auth0 (see warning in "Best Approach" about storing data for users), that can be done using the management API and the user information will be updated as long as it has been completed before redirecting the user back to the /continue endpoint.  Only if the rule itself must get information and that information is only relevant to this particular sign in session should you pass information back to the rule.
+In most scenarios, even if you want to pass information from the rule to the application.  The application will hopefully be able to safely store the information in whatever storage is necessary.  Even if the idea is to update the app or user metadata in Auth0, that can be done using the management API and the user information will be updated as long as it has been completed before redirecting the user back to the `/continue` endpoint.  Only if the rule itself must get information and that information is only relevant to this particular sign in session should you pass information back to the rule.
 
-When passing information back to the /continue endpoint, the token passed should have the following requirements:
+When passing information back to the `/continue` endpoint, the token passed should have the following requirements:
 
-It should be sent using POST and then fetched at context.request.body.token (or something similar) rather than passing it as a query parameter.  This is similar to the form-post method for authentication.
-sub => The Auth0 user_id of the user
-iss => The application that is targeted for the redirect
-aud => Some identifier that identifies the rule itself
-jti => The same JTI that was stored in the token passed to the application (NOTE: it should match user.jti or fail)
-exp => Should be as short as possible to avoid re-use of the token
-other => Any other custom claims information you need to pass
-signature => Assuming that the application has a secure place to store a secret, you can use HS256 signed signatures.  This greatly reduces the complexity of the solution and since the token being passed back will have to be signed as well, this is a requirement of this solution.  You can use RS256, but it requires the creating of a certificate and updating that certificate when it expires.
-If you are not passing information back to the /continue endpoint, you may want to blacklist the JTI unless your expiration times are short enough that replay attacks will be almost impossible.
+It should be sent using POST and then fetched at `context.request.body.token` (or something similar) rather than passing it as a query parameter.  This is similar to the form-post method for authentication.
+
+| Token Element | Description |
+| -- | -- |
+| `sub` | The Auth0 `user_id` of the user. |
+| `iss` | The application that is targeted for the redirect. |
+| `aud` | Some identifier that identifies the rule itself. |
+| `jti` | The same JTI that was stored in the token passed to the application (NOTE: it should match user.jti or fail). |
+| `exp` | Should be as short as possible to avoid reuse of the token. |
+| `other` | Any other custom claims information you need to pass. |
+| `signature` | Assuming that the application has a secure place to store a secret, you can use HS256 signed signatures.  This greatly reduces the complexity of the solution and since the token being passed back will have to be signed as well, this is a requirement of this solution.  You can use RS256, but it requires the creating of a certificate and updating that certificate when it expires. |
+
+If you are not passing information back to the `/continue` endpoint, you may want to blacklist the JTI unless your expiration times are short enough that replay attacks will be almost impossible. 
 
 ## Non-applicability conditions
 
