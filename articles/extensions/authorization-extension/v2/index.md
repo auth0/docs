@@ -15,9 +15,9 @@ useCase: extensibility-extensions
 # Authorization Extension
 
 ::: panel Breaking Changes
-Authorization Extension 2.6 contains breaking changes. If you are upgrading from a version <2.6, you must rotate your API Key and re-publish the rule on the Authorization Extension’s configuration page. Failing to do this will cause an “InvalidApiKey” error on rule execution. This results from the changed logic for storing and handling the API Key.
+Authorization Extension 2.6 contains breaking changes. If you are upgrading from a version before 2.6, you must rotate your API Key and re-publish the rule on the Authorization Extension’s configuration page. Failing to do this will cause an “InvalidApiKey” error on rule execution. This results from the changed logic for storing and handling the API Key.
 
-Upgrading from a version >= 2.6 doesn’t have breaking changes and requires no further action.
+Upgrades from version 2.6 or later do not have breaking changes and require no further action.
 :::
 
 ::: note
