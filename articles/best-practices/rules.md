@@ -186,6 +186,17 @@ We highly recommended reviewing best practices when [using contextual bypass log
 
 #### Redirection
 
+There are times where it is important to collect information from a user as part of a login flow.  You could, of course, let the application deal with whatever additional information collection is necessary, but that can be painful for situations where there are many applications and you want a centralized service to manage that, or if you are using a SPA and you want to prevent the user from getting an access token under certain conditions.  In these cases, having a centralized way to collect information or provide a challenge to a user is necessary.
+
+Auth0 allows you to redirect the user to any URL where you can collect information from that user and then return the user to the `/continue` endpoint where they can complete the original `/authorize` request that triggered the redirect.  This is a powerful capability, and depending on the use case, the impact of doing it wrong can be anywhere from innocuous to leaving a security vulnerability in the application.  As such, it is important to ensure that this is done correctly.
+
+In most use cases, a redirect rule is in use to prompt the user to make some change to their profile such as:
+- forcing a password change
+- verifying their email
+- adding information to their profile
+
+The best approach for situations such as this is for the rule to check for some flag or value in the user's `app_metadata`, then redirect to an application that does its own `/authorize` call to Auth0, then can make any changes to the user's metadata and redirect the user back to Auth0.  This works great for any profile changing redirects or anything that does not need to restrict the user from logging in.
+
 [Redirect from rule](/rules/guides/redirect) provides the ability for implementing custom authentication flows that require additional user interaction (i.e., beyond the standard login form) and is triggered via use of [context.redirect](/rules/references/context-object#properties-of-the-context-object). Redirect from rule can only be used when calling the [`/authorize`](/api/authentication#login) endpoint.
 
 Redirection to your own hosted user interface is performed before a pipeline completes and can be triggered *only once* per `context.clientID` context. Redirection should only [use HTTPS](#always-use-https) when executed in a production environment, and additional parameters should be kept to a minimum to help mitigate [common security threats](/security/common-threats). Preferably, the Auth0-supplied `state` is the only parameter supplied.
@@ -193,6 +204,14 @@ Redirection to your own hosted user interface is performed before a pipeline com
 Once redirected, your own hosted user interface will execute in a user authenticated context, and can obtain authenticity artifacts by the virtue of Auth0 SSO. Obtaining these artifacts&mdash;e.g., an ID Token in [OpenID Connect (OIDC)](/protocols/oidc), and/or an <dfn data-key="access-token">Access Token</dfn> in [OAuth 2.0](/protocols/oauth2)&mdash;is achieved by using a `context.clientID` context **that is not** the one which triggered redirect. To do this, you would typically redirect to the `/authorize` endpoint; in the case of a SPA for example, this can be achieved seamlessly via use of [silent authentication](/libraries/auth0js/v9#using-checksession-to-acquire-new-tokens). This will create a new pipeline that will cause all rules to execute again, and you can use the `context` object within a rule to perform conditional processing (as discussed above).
 
 Upon completion of whatever processing is to be performed, pipeline execution continues by redirecting the user back to Auth0 via the `/continue` endpoint (and specifying the `state` supplied). This will cause all rules to execute again within the current pipeline, and you can use the `context` object within a rule to perform conditional processing checks.
+
+::: panel Storing Data
+Beware of storing too much data in the Auth0 profile. This data is intended to be used for authentication and authorization purposes. The metadata and search capabilities of Auth0 are not designed for marketing research or anything else that requires heavy search or update frequency. Your system is likely to run into scalability and performance issues if you use Auth0 for this purpose. A better approach is to store data in an external system and store a pointer (the user ID) in Auth0 so that backend systems can fetch the data if needed. A simple rule to follow is to store only items that you plan to use in rules to add to tokens or make decisions.  
+:::
+
+::: warning
+Passing information back and forth in the front channel opens up surface area for bad actors to attack.  This should definitely be done only in conditions where you must take action in the rule (such as rejecting the authorization attempt with `UnauthorizedError`). 
+:::
 
 ### `user` object
 

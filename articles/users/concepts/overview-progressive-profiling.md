@@ -49,5 +49,7 @@ In the example above, the application collects **last name** and **first name** 
 
 ## Keep reading
 
+* [Redirect Users After Login Authentication](/users/guides/redirect-users-after-login)
+* [Redirect Users From Within Rules](/rules/guides/redirect)
+* [Redirect Rule Best Practices](/best-practices/rules#redirection)
 * [Blog: How Profile Enrichment and Progressive Profiling Can Boost Your Marketing](https://auth0.com/blog/how-profile-enrichment-and-progressive-profiling-can-boost-your-marketing/)
-* [Resume Authentication](/rules/guides/redirect#resume-authentication)
