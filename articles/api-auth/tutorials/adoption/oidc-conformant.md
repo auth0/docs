@@ -1,5 +1,4 @@
 ---
-title: OIDC-conformant applications
 description: List of breaking changes for OIDC-conformant applications
 topics:
   - api-authentication
@@ -10,7 +9,7 @@ useCase:
   - call-api
 ---
 
-# OIDC-conformant applications
+# OIDC-Conformant Applications
 
 <%= include('./_about.md') %>
 
@@ -53,6 +52,6 @@ If your application doesn't need a resource server but you want opt-in to the ne
 https://${account.namespace}/userinfo
 ```
 
-## Further reading
+## Keep reading
 
 <%= include('./_index.md') %>

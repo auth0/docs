@@ -14,8 +14,6 @@ useCase:
 
 <%= include('./tutorials/adoption/_about.md') %>
 
-## About Passwordless Authentication
-
 <dfn data-key="passwordless">Passwordless</dfn> connections allow users to login without the need to remember a password.
 
 This improves the user experience, especially on mobile applications, since users will only need to remember an email address or phone number to authenticate with your application.

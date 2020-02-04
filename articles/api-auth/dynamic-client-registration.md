@@ -1,6 +1,5 @@
 ---
-title: Dynamic Client Registration
-description: How to dynamically register applications with Auth0 using the Management API
+description: Learn how to dynamically register applications with Auth0 using the Management API.
 crews: crew-2
 toc: true
 topics:

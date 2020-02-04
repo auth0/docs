@@ -1,6 +1,5 @@
 ---
-title: How to implement the Client Credentials Grant
-description: How to call an API from a server process using OAuth 2.0 and the Client Credentials grant
+description: Learn how to call an API from a server process using OAuth 2.0 and the Client Credentials grant.
 toc: true
 topics:
   - api-authentication
@@ -11,7 +10,7 @@ useCase:
   - secure-api
   - call-api
 ---
-# How to Implement the Client Credentials Grant
+# Implement the Client Credentials Grant
 
 The **Client Credentials Grant** (defined in [RFC 6749, section 4.4](https://tools.ietf.org/html/rfc6749#section-4.4)) allows an application to request an Access Token using its __Client Id__ and __Client Secret__. It is used for non interactive applications (a CLI, a daemon, or a Service running on your backend) where the token is issued to the application itself, instead of an end user.
 

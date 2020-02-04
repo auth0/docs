@@ -206,10 +206,8 @@ Let's see what each one contains.
 
 ## Keep reading
 
-:::next-steps
 * [What are Hooks and how you can work with them](/hooks)
 * [Overview of the Client Credentials Grant](/api-auth/grant/client-credentials)
 * [How to set up a Client Grant using the Dashboard](/api-auth/config/using-the-auth0-dashboard)
 * [How to set up a Client Grant using the Management API](/api-auth/config/using-the-management-api)
 * [How to execute a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
-:::

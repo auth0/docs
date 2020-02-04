@@ -52,6 +52,6 @@ We understand that making changes to the core authentication logic of your appli
 
 All Auth0 documentation, SDKs, libraries and samples will eventually apply only to the OIDC-conformant pipeline. Because of this, we strongly recommend adoption even if you do not need to leverage any new features or functionality in the near future.
 
-## Compare differences between the two pipelines
+## Keep reading
 
 <%= include('./_index.md') %>

@@ -1,5 +1,5 @@
 ---
-description: Tutorial on how to implement the OAuth 2.0 Resource Owner Password Grant
+description: Learn how to implement the OAuth 2.0 Resource Owner Password Grant
 toc: true
 topics:
   - api-authentication
