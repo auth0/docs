@@ -77,6 +77,22 @@ https.createServer({key, cert}, express()).listen('3000', () => {
 });
 ```
 
+#### webpack DevServer
+
+```js
+// webpack.config.js
+
+module.exports = {
+  //...
+  devServer: {
+    https: {
+      key: fs.readFileSync('./localhost-key.pem'),
+      cert: fs.readFileSync('./localhost.pem'),
+    }
+  }
+};
+```
+
 #### Apache (including PHP, Python, Ruby)
 
 The actual path of the files mentioned below will differ depending on the OS and install method. The paths below are from Homebrew-installed Apache on macOS.
