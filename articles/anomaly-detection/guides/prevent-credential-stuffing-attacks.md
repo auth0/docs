@@ -37,7 +37,7 @@ Auth0 uses a large amount of data to identify patterns that signal that a creden
 
 ### Prerequisites
 
-* Please read Auth0’s [Beta Service Terms](https://cdn.auth0.com/website/legal/terms/beta-service-terms-11-18-19.pdf) and acknowledge you have read and agreed to the terms by emailing **Antonio Fuentes** at <a href="mailto:antonio.fuentes@auth0.com">antonio.fuentes@auth0.com</a>.
+* Please read Auth0’s [Beta Service Terms](https://cdn.auth0.com/website/legal/terms/beta-service-terms-11-18-19.pdf) and acknowledge you have read and agreed to the terms by emailing **Antonio Fuentes** at **antonio.fuentes@auth0.com**.
 
 * Determine which type of login experience you have configured: 
 
@@ -83,9 +83,9 @@ With the following:
 
 This feature is intended to reduce the number of login attempts associated with automated or scripted credential stuffing attacks. It is not expected to cause a degradation in the latency or performance of the login flows. Auth0 monitors the impact on these metrics and will share them with you.  
 
-In addition, you can look at the [tenant logs](//anomaly-detection/guides/use-tenant-data-for-anomaly-detection). Events that indicate a credential stuffing attack is happening.
+In addition, you can look at the [tenant logs](/anomaly-detection/guides/use-tenant-data-for-anomaly-detection). Events that indicate a credential stuffing attack is happening.
 
 - `f`: failed login
 - `fu`: failed login due to invalid email/username
 
-If you have questions, you can contact Auth0 through your TAM or contact <a href="mailto:antonio.fuentes@auth0.com">antonio.fuentes@auth0.com</a>.
+If you have questions, you can contact Auth0 through your TAM or contact **antonio.fuentes@auth0.com**.
