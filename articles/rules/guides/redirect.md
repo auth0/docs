@@ -202,8 +202,6 @@ In most scenarios, even if you want to pass information from the rule to the app
 
 When passing information back to the `/continue` endpoint, the token passed should have the following requirements:
 
-It should be sent using POST and then fetched at `context.request.body.token` (or something similar) rather than passing it as a query parameter.  This is similar to the form-post method for authentication.
-
 | Token Element | Description |
 | -- | -- |
 | `sub` | The Auth0 `user_id` of the user. |
@@ -214,11 +212,13 @@ It should be sent using POST and then fetched at `context.request.body.token` (o
 | `other` | Any other custom claims information you need to pass. |
 | `signature` | Assuming that the application has a secure place to store a secret, you can use HS256 signed signatures.  This greatly reduces the complexity of the solution and since the token being passed back will have to be signed as well, this is a requirement of this solution.  You can use RS256, but it requires the creating of a certificate and updating that certificate when it expires. |
 
+It should be sent using POST and then fetched at `context.request.body.token` (or something similar) rather than passing it as a query parameter.  This is similar to the form-post method for authentication.
+
 If you are not passing information back to the `/continue` endpoint, you may want to blacklist the JTI unless your expiration times are short enough that replay attacks will be almost impossible. 
 
 ## Non-applicability conditions
 
-There are a couple of scenarios where redirection will automatically fail:
+There are some scenarios where redirection will automatically fail.
 
 ### ROPG
 
@@ -226,9 +226,9 @@ It is impossible to use redirect rules in the context where you are calling /oau
 
 ### Flows where `prompt=none`
 
-Since the goal of prompt=none is to avoid any scenario where the user will be required to enter input, any redirection will result in an `error=interaction_required`.
+Since the goal of `prompt=none` is to avoid any scenario where the user will be required to enter input, any redirection will result in an `error=interaction_required`.
 
-Since rules run after an authentication session is created, you cannot use `prompt=none` if you have a redirect rule that is attempting to block access to tokens under certain conditions (custom MFA, CAPTCHA with login, etc).  
+Since rules run after an authentication session is created, you cannot use `prompt=none` if you have a redirect rule that is attempting to block access to tokens under certain conditions (custom MFA, CAPTCHA with login, etc.).  
 
 You cannot create a redirect flow that blocks token access and bypasses the redirect rule if `prompt=none` because after a failed attempt, a user can simply call again with `prompt=none` and get tokens because their authentication session has been created even though rules failed the first time.
 
