@@ -15,7 +15,7 @@ useCase: extensibility-extensions
 # Authorization Extension
 
 ::: panel Breaking Changes
-Authorization Extension 2.6 contains breaking changes that result from changed logic for storing and handling the API Key; these require you to perform additional steps upon upgrade, as detailed below. Failing to complete these steps will result in an `InvalidApiKey` error on rule execution.
+Authorization Extension 2.6 contains breaking changes that result from changed logic for storing and handling the API Key; these require you to perform additional steps upon upgrade, as detailed below. Failing to complete these steps will result in an `InvalidApiKey` error on rule execution. For more info, see the [changelog](https://github.com/auth0/auth0-authorization-extension/blob/master/CHANGELOG.md).
 
 Upgrades from version 2.6 or later do not have breaking changes and require no further action. 
 
