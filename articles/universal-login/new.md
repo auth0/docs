@@ -34,15 +34,15 @@ From a functional perspective, it has much better support for [Localization](/un
 
 - You can make users land directly on the Signup page instead of the Login page by specifying the `screen_hint=signup` parameter when redirecting to `/authorize`. Note that this can be combined with `prompt=login`, which indicates if you want to always show the authentication page or you want to skip if there's an existing session. 
 
-|/authorize parameters | existing session | action|
+|/authorize parameters | Existing session | Action|
 |--|--|--|
-|no extra parameters | no | shows the login page|
-|screen_hint=signup | no | shows the signup page|
-|prompt=login | no | shows the login page|
-|no extra parameters | yes | redirects to the callback url|
-|screen_hint=signup | yes | redirects to the callback url|
-|prompt=login | yes | shows the login page|
-|prompt=login&screen_hint=signup | yes | shows the signup page|
+|no extra parameters | no | Shows the login page|
+|screen_hint=signup | no | Shows the signup page|
+|prompt=login | no | Shows the login page|
+|no extra parameters | yes | Redirects to the callback url|
+|screen_hint=signup | yes | Redirects to the callback url|
+|prompt=login | yes | Shows the login page|
+|prompt=login&screen_hint=signup | yes | Shows the signup page|
 
 
 ## Multi-Factor Authentication
