@@ -15,7 +15,26 @@ useCase: extensibility-extensions
 # Authorization Extension
 
 ::: panel Breaking Changes
-No breaking changes to this extension exist for the most recent update released on January 30, 2020. For more info, see the [changelog](https://github.com/auth0/auth0-authorization-extension/blob/master/CHANGELOG.md).
+Authorization Extension 2.6 contains breaking changes that result from changed logic for storing and handling the API Key; these require you to perform additional steps upon upgrade, as detailed below. Failing to complete these steps will result in an `InvalidApiKey` error on rule execution.
+
+Upgrades from version 2.6 or later do not have breaking changes and require no further action. 
+
+**If you are upgrading from a version before 2.6, you must:**
+
+Upgrade the Authorization Extension
+
+1. Navigate to the [Extensions](${manage_url}/#/extensions) page in the [Auth0 Dashboard](${manage_url}), and click the **Installed Extensions** tab. 
+2. Locate **Auth0 Authorization**, click **Upgrade**, and confirm. Wait for the upgrade to complete.
+
+Rotate the extension's API Key
+
+1. Click on **Auth0 Authorization** to open the extension.
+2. From the dropdown menu in the top-right of the extension dashboard, select **Configuration**.
+3. Locate the **API Key** section, and click **Rotate**.
+
+Republish the extension's Rule
+
+1. Click **Publish Rule**.
 :::
 
 ::: note
