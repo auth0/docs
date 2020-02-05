@@ -1,6 +1,6 @@
 ---
-title: What's New in Deploy CLI Tool v2
-description: Understand how the Auth0 Deploy Command Line Interface (CLI) tool works.
+title: What's New in Deploy CLI Tool
+description: Learn about features released in new versions of the Auth0 Deploy Command Line Interface (CLI) tool.
 topics:
   - extensions
   - deploy-cli
@@ -9,9 +9,30 @@ contentType:
   - concept
 useCase: extensibility-extensions
 ---
-# What's New in Deploy CLI Tool v2
+# What's New in Deploy CLI Tool
 
-The `auth0-deploy-cli` tool was updated to include the following changes.
+Features released in each version of the Deploy CLI Tool are listed below. For a complete list of changes, see the [changelog](https://github.com/auth0/auth0-deploy-cli/blob/master/CHANGELOG.md).
+
+## Deploy CLI Tool v4
+
+For version 4, the `auth0-deploy-cli` tool was updated to include the following changes.
+
+- Added support for Hooks and Hook Secrets
+
+<%= include('../_includes/_upgrade-v4') %>
+
+## Deploy CLI Tool v3
+
+For version 3, the `auth0-deploy-cli` tool was updated to include the following changes.
+
+- Added options to the config:
+  - INCLUDED_PROPS: Enables export of properties that are excluded by default (e.g., client_secret)
+  - EXCLUDED_PROPS: Provides ability to exclude any unwanted properties from exported objects
+- Removed `--strip` option from `export` command. IDs will now be stripped by default; to override, use `--export_ids` or `AUTH0_EXPORT_IDENTIFIERS: true`.
+
+## Deploy CLI Tool v2
+
+For version 2, the `auth0-deploy-cli` tool was updated to include the following changes.
 
 - Added YAML support
 - Added support for export (deprecation of separate auth0 dump tool)

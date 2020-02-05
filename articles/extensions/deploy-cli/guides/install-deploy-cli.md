@@ -89,6 +89,10 @@ The following scopes are required to be enabled on the `auth0-deploy-cli-extensi
     - update:rules
     - delete:rules
     - create:rules
+    - read:hooks
+    - create:hooks
+    - update:hooks
+    - delete:hooks
     - read:rules_configs
     - update:rules_configs
     - delete:rules_configs
