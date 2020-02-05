@@ -16,17 +16,17 @@ useCase: invoke-api
 
 In certain cases, you may want to use Auth0's [Management API](/api/management/v2#!) to manage your applications and APIs rather than the Auth0 Management Dashboard. 
 
-To call any of the endpoints in the Management API, you must authenticate using a specialized <dfn data-key="access-token">[Access Token](/tokens/overview-access-tokens)</dfn> called the Management API Token. Management API Tokens are <dfn data-key="json-web-token">[JSON Web Tokens (JWTs)](/tokens/concepts/jwts)</dfn> that contain specific granted permissions (also known as <dfn data-key="scope">scopes</dfn>) for the Management API endpoints you want to call. 
+To call any Management API endpoints, you must authenticate using a specialized <dfn data-key="access-token">[Access Token](/tokens/overview-access-tokens)</dfn> called the Management API Token. Management API Tokens are <dfn data-key="json-web-token">[JSON Web Tokens (JWTs)](/tokens/concepts/jwts)</dfn> that contain specific granted permissions (also known as <dfn data-key="scope">scopes</dfn>) for the Management API endpoints you want to call. 
 
 ## Limitations
 
-Because single-page applications (SPAs) are public clients and therefore cannot securely store sensitive information (such as a **Client Secret**), they must retrieve Management API Tokens from the frontend, unlike other [application types](/applications).
+Since single-page applications (SPAs) are public clients and cannot securely store sensitive information (such as a **Client Secret**), they must retrieve Management API Tokens from the frontend, unlike other [application types](/applications).
 
-This means that Management API Tokens for SPAs have special limitations. Specifically, they will be issued in the context of the user who is currently signed in to Auth0, which limits updates to only the logged-in user's data.  Although this restricts use of the Management API, it can still be used to perform actions related to updating the logged-in user's user profile.
+This means that Management API Tokens for SPAs have certain limitations. Specifically, they are issued in the context of the user who is currently signed in to Auth0 which limits updates to only the logged-in user's data. Although this restricts use of the Management API, it can still be used to perform actions related to updating the logged-in user's user profile.
 
 ## Available scopes and endpoints
 
-With a Management API Token issued for a SPA, you can access the following scopes (and hence endpoints):
+With a Management API Token issued for a SPA, you can access the following scopes (and hence endpoints). Please note that password changes through the [PATCH /api/v2/users/{id}](/api/management/v2#!/Users/patch_users_by_id) endpoint are not possible with a Management API Token issued for a SPA.
 
 | **Scope for current user** | **Endpoint** |
 | -------------------------- | ------------ |
@@ -39,7 +39,7 @@ With a Management API Token issued for a SPA, you can access the following scope
 | `delete:current_user_device_credentials` | [DELETE /api/v2/device-credentials/{id}](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id) |
 
 ::: note
-Please note that the above scopes (and therefore limits) are [rate limited](/policies/rate-limits#access-tokens-for-spas).
+The above scopes (and endpoints) are [rate limited](/policies/rate-limits#access-tokens-for-spas).
 :::
 
 ## Using a Management API Token to call the Management API from a SPA
