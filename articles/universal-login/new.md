@@ -32,7 +32,7 @@ From a functional perspective, it has much better support for [Localization](/un
 
 ## Signup
 
-- You can make users land directly on the Signup page instead of the Login page by specifying the `screen_hint=signup` parameter when redirecting to `/authorize`. Note that this can be combined to the `prompt=login` that indicates if you want to always show the login page or you want to skip if there's an existing session. 
+- You can make users land directly on the Signup page instead of the Login page by specifying the `screen_hint=signup` parameter when redirecting to `/authorize`. Note that this can be combined with `prompt=login`, which indicates if you want to always show the authentication page or you want to skip if there's an existing session. 
 
 |/authorize parameters | existing session | action|
 |--|--|--|
