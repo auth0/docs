@@ -35,6 +35,8 @@ Rotate the extension's API Key
 Republish the extension's Rule
 
 1. Click **Publish Rule**.
+
+For more info, see the [changelog](https://github.com/auth0/auth0-authorization-extension/blob/master/CHANGELOG.md).
 :::
 
 ::: note
