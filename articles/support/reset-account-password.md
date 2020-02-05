@@ -29,4 +29,4 @@ If you need to change your password or you have forgotten the password to your A
 
 ## Keep reading
 
-* [Customize Hosted Password Reset Page](/univeral-login/password-reset)
+* [Customize Hosted Password Reset Page](/universal-login/password-reset)
