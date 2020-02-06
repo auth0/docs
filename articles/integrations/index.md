@@ -42,7 +42,7 @@ useCase:
     </p>
     <ul>
       <li>
-        <i class="icon icon-budicon-715"></i><a href="/integrations/google-cloud-platform">Securing Google Cloud Endpoints with Auth0</a>
+        <i class="icon icon-budicon-715"></i><a href="/integrations/google-cloud-platform">Secure Google Cloud Endpoints with Auth0</a>
       </li>
       <li>
         <i class="icon icon-budicon-715"></i><a href="/integrations/azure-api-management">
