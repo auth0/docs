@@ -991,10 +991,10 @@ articles:
     children:
 
       - title: Authorization Extension
-        url: /extensions/authorization-extension
+        url: /extensions/authorization-extension/v2
 
       - title: Delegated Adminstration
-        url: /extensions/delegated-admin
+        url: /extensions/delegated-admin/v3
 
       - title: Custom Social Connections
         url: /extensions/custom-social-extensions
@@ -1010,12 +1010,15 @@ articles:
 
       - title: GitHub Deployments
         url: /extensions/github-deploy
+        hidden: true
       
       - title: Bitbucket Deployments
         url: /extensions/bitbucket-deploy
+        hidden: true
 
       - title: GitLab Deployments
         url: /extensions/gitlab-deploy
+        hidden: true
 
       - title: Visual Studio Team Services Deployments
         url: /extensions/visual-studio-team-services-deploy
