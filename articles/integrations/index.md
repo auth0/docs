@@ -36,6 +36,32 @@ useCase:
     </ul>
   </li>
   <li>
+    <i class="icon icon-budicon-546"></i>API Management Integrations
+    <p>
+      Learn how to use Auth0 with API Management Systems and other services.
+    </p>
+    <ul>
+      <li>
+        <i class="icon icon-budicon-715"></i><a href="/integrations/google-cloud-platform">Securing Google Cloud Endpoints with Auth0</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-715"></i><a href="/integrations/azure-api-management">
+        Integrate Azure API Management Service with Auth0
+        </a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-715"></i><a href="/integrations/aws">
+        Integrate Auth0 with Amazon Web Services
+        </a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-715"></i><a href="/integrations/aws-api-gateway">
+        Secure AWS API Gateway Endpoints Using Custom Authorizers
+        </a>
+      </li>
+    </ul>
+  </li>
+  <li>
     <i class="icon icon-budicon-705"></i><a href="/integrations/marketing">Marketing Integrations</a>
     <p>
         Learn how to import your Auth0 user data into marketing tools.
