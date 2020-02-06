@@ -92,6 +92,28 @@ Database connection require explicit acceptance of the Terms of Service.
 }
 ```
 
+## Web Authentication Options
+
+### leeway
+
+Clock skew used for ID token validation. It expands the time window in which the ID token will still be considered valid, to account for the difference between server time and client time. By default is **60000 milliseconds** (60 seconds).
+
+```swift
+.withOptions {
+  $0.leeway = 30000 // 30 seconds
+}
+```
+
+### maxAge
+
+Allowable elapsed time (in milliseconds) since the user last authenticated. Used for ID token validation. If set, the ID token will contain an `auth_time` claim with the authentication timestamp. Defaults to `nil`.
+
+```swift
+.withOptions {
+  $0.maxAge = 86400000 // 1 day
+}
+```
+
 ## Database options
 
 ### allow
