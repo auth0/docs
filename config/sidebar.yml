@@ -872,118 +872,203 @@ articles:
         url: /i18n
 
 ## ------------------------------------------------------------
-## Extend & Integrate
+## Rules
 ## ------------------------------------------------------------
 
-  - title: Extend & Integrate
-    url: /extend-integrate
+  - title: Rules
+    url: /rules
     children:
 
-      - title: Rules
-        url: /rules
+      - title: Create a New Rule
+        url: /dashboard/guides/rules/create-rules
+
+      - title: Rules Use Cases
+        url: /rules/references/use-cases
+
+      - title: Store Configuration for Rules
+        url: /rules/guides/configuration
+
+      - title: Cache Expensive Resources
+        url: /rules/guides/cache-resources
+
+      - title: Debug Rules
+        url: /rules/guides/debug
+
+      - title: Management API in Rules
+        url: /rules/guides/management-api
+
+      - title: Metadata in Rules
+        url: /rules/guides/metadata
+
+      - title: C# in Rules
+        url: /rules/guides/csharp
+
+      - title: Redirect Users from Rules
+        url: /rules/guides/redirect
+
+      - title: User Object
+        url: /rules/references/user-object
+
+      - title: Context Object
+        url: /rules/references/context-object
+
+      - title: Available Node.js Modules
+        url: /rules/references/modules
+
+      - title: Deploy Rules with Bitbucket
+        url: /extensions/bitbucket-deploy
+
+      - title: Deploy Rules with GitLab
+        url: /extensions/gitlab-deploy
+
+      - title: Deploy Rules with Github
+        url: /extensions/github-deploy
+
+## ------------------------------------------------------------
+## Hooks
+## ------------------------------------------------------------
+
+  - title: Hooks
+    url: /hooks
+    children:
+
+      - title: Create Hooks
+        url: /hooks/create
+
+      - title: Update Hooks
+        url: /hooks/update
+
+      - title: Delete Hooks
+        url: /hooks/delete
+
+      - title: Enable/Disable Hooks
+        url: /hooks/enable-disable
+
+      - title: View Hooks
+        url: /hooks/view
+
+      - title: View Logs
+        url: /hooks/view-logs
+
+      - title: Extensibility Points
+        url: /hooks/extensibility-points
         children:
 
-          - title: Create a New Rule
-            url: /dashboard/guides/rules/create-rules
+        - title: Client Credentials Exchange
+          url: /hooks/extensibility-points/client-credentials-exchange
 
-          - title: Rules Use Cases
-            url: /rules/references/use-cases
+        - title: Post Change Password
+          url: /hooks/extensibility-points/post-change-password
 
-          - title: Store Configuration for Rules
-            url: /rules/guides/configuration
+        - title: Post User Registration
+          url: /hooks/extensibility-points/post-user-registration
 
-          - title: Cache Expensive Resources
-            url: /rules/guides/cache-resources
+        - title: Pre User Registration
+          url: /hooks/extensibility-points/pre-user-registration    
 
-          - title: Debug Rules
-            url: /rules/guides/debug
-
-          - title: Management API in Rules
-            url: /rules/guides/management-api
-
-          - title: Metadata in Rules
-            url: /rules/guides/metadata
-
-          - title: C# in Rules
-            url: /rules/guides/csharp
-
-          - title: Redirect Users from Rules
-            url: /rules/guides/redirect
-
-          - title: User Object
-            url: /rules/references/user-object
-
-          - title: Context Object
-            url: /rules/references/context-object
-
-          - title: Available Node.js Modules
-            url: /rules/references/modules
-
-          - title: Deploy Rules with Bitbucket
-            url: /extensions/bitbucket-deploy
-
-          - title: Deploy Rules with GitLab
-            url: /extensions/gitlab-deploy
-
-          - title: Deploy Rules with Github
-            url: /extensions/github-deploy
-
-      - title: Hooks
-        url: /hooks
+      - title: Hook Secrets
+        url: /hooks/secrets
         children:
 
-          - title: Create Hooks
-            url: /hooks/create
+          - title: Create Secrets
+            url: /hooks/secrets/create
 
-          - title: Update Hooks
-            url: /hooks/update
+          - title: Update Secrets
+            url: /hooks/secrets/update
 
-          - title: Delete Hooks
-            url: /hooks/delete
+          - title: Delete Secrets
+            url: /hooks/secrets/delete
 
-          - title: Enable/Disable Hooks
-            url: /hooks/enable-disable
+          - title: View Secrets
+            url: /hooks/secrets/view
 
-          - title: View Hooks
-            url: /hooks/view
+## ------------------------------------------------------------
+## Extensions
+## ------------------------------------------------------------
 
-          - title: View Logs
-            url: /hooks/view-logs
+  - title: Extensions
+    url: /extensions
+    children:
 
-          - title: Extensibility Points
-            url: /hooks/extensibility-points
-            children:
+      - title: Authorization Extension
+        url: /extensions/authorization-extension
 
-            - title: Client Credentials Exchange
-              url: /hooks/extensibility-points/client-credentials-exchange
+      - title: Delegated Adminstration
+        url: /extensions/delegated-admin
 
-            - title: Post Change Password
-              url: /hooks/extensibility-points/post-change-password
+      - title: Custom Social Connections
+        url: /extensions/custom-social-extensions
 
-            - title: Post User Registration
-              url: /hooks/extensibility-points/post-user-registration
+      - title: SSO Dashboard Extension
+        url: /extensions/sso-dashboard
 
-            - title: Pre User Registration
-              url: /hooks/extensibility-points/pre-user-registration    
+      - title: Authentication API Webhooks
+        url: /extensions/authentication-api-webhooks
 
-          - title: Hook Secrets
-            url: /hooks/secrets
-            children:
+      - title: Management API Webhooks
+        url: /extensions/management-api-webhooks
 
-              - title: Create Secrets
-                url: /hooks/secrets/create
+      - title: GitHub Deployments
+        url: /extensions/github-deploy
+      
+      - title: Bitbucket Deployments
+        url: /extensions/bitbucket-deploy
 
-              - title: Update Secrets
-                url: /hooks/secrets/update
+      - title: GitLab Deployments
+        url: /extensions/gitlab-deploy
 
-              - title: Delete Secrets
-                url: /hooks/secrets/delete
+      - title: Visual Studio Team Services Deployments
+        url: /extensions/visual-studio-team-services-deploy
 
-              - title: View Secrets
-                url: /hooks/secrets/view
+      - title: Authentication API Debugger
+        url: /extensions/authentication-api-debugger
 
-      - title: Extensions
-        url: /extensions
+      - title: AD/LDAP Connector Health Monitor
+        url: /extensions/adldap-connector
+
+      - title: Real-time Webtask Logs
+        url: /extensions/realtime-webtask-logs
+
+      - title: Auth0 Logs to Application Insights
+        url: /extensions/application-insight
+
+      - title: Auth0 Logs to AWS Cloudwatch
+        url: /extensions/cloudwatch
+
+      - title: Auth0 Logs to Azure Blob Storage
+        url: /extensions/azure-blog-storage
+
+      - title: Auth0 Logs to Logentries
+        url: /extensions/logentries
+
+      - title: Auth0 Logs to Loggly
+        url: /extensions/loggly
+
+      - title: Auth0 Logs to Logstash
+        url: /extensions/logstash
+
+      - title: Auth0 Logs to Mixpanel
+        url: /extensions/mixpanel
+
+      - title: Auth0 Logs to Papertrail
+        url: /extensions/papertrail
+
+      - title: Auth0 Logs to Sumo Logic
+        url: /extensions/sumologic
+
+      - title: Auth0 Logs to Splunk
+        url: /extensions/splunk
+
+      - title: Add-ons
+        url: /addons
+
+## ------------------------------------------------------------
+## Integrations
+## ------------------------------------------------------------
+
+  - title: Integrations
+    url: /integrations
+    children:
 
       - title: Analytics
         url: /analytics
@@ -995,14 +1080,106 @@ articles:
           - title: Google Analytics
             url: /analytics/guides/google-analytics
 
-      - title: Single Sign-On Integrations
+      - title: Amazon Web Services (AWS)
+        url: /integrations/aws
+
+      - title: AWS API Gateway
+        url: /integrations/aws-api-gateway
+
+      - title: Azure API Management
+        url: /integrations/azure-api-management
+
+      - title: Google Cloud Endpoints
+        url: /integrations/google-cloud-platform
+
+      - title: Single Sign-On
         url: /integrations/sso
+        children:
 
-      - title: Marketing Integrations
+          - title: Active Directory RMS
+            url: /integrations/sso/ad-rms
+
+          - title: Box
+            url: /integrations/sso/box
+
+          - title: CloudBees
+            url: /integrations/sso/cloudbees
+
+          - title: Concur
+            url: /integrations/sso/concur
+
+          - title: Dropbox
+            url: /integrations/sso/dropbox
+
+          - title: Microsoft Dynamics CRM
+            url: /integrations/sso/dynamics-crm
+
+          - title: Adobe Echosign
+            url: /integrations/sso/echosign
+
+          - title: Egnyte
+            url: /integrations/sso/egnyte
+
+          - title: New Relic
+            url: /integrations/sso/new-relic
+
+          - title: Office 365
+            url: /integrations/sso/office-365
+
+          - title: SalesForce
+            url: /integrations/sso/salesforce
+
+          - title: Sentry
+            url: /integrations/sso/sentry
+
+          - title: SharePoint
+            url: /integrations/sso/sharepoint
+
+          - title: Slack
+            url: /integrations/sso/slack
+
+          - title: SpringCM
+            url: /integrations/sso/springcm
+
+          - title: Zendesk
+            url: /integrations/sso/zendesk
+
+          - title: Zoom
+            url: /integrations/sso/zoom
+
+      - title: Marketing
         url: /integrations/marketing
+        children:
 
-      - title: Add-ons
-        url: /addons
+          - title: Adobe Campaign
+            url: /integrations/marketing/adobe-campaign
+
+          - title: Alterian
+            url: /integrations/marketing/alterian
+
+          - title: Constant Contact
+            url: /integrations/marketing/constant-contact
+
+          - title: Oracle Eloqua
+            url: /integrations/marketing/eloqua
+
+          - title: MailChimp
+            url: /integrations/marketing/mailchimp
+
+          - title: Marketo
+            url: /integrations/marketing/marketo
+
+          - title: Sailthru
+            url: /integrations/marketing/sailthru
+
+          - title: Salesforce
+            url: /integrations/marketing/salesforce
+
+          - title: Salesforce Marketing Cloud
+            url: /integrations/marketing/salesforce-marketing-cloud
+
+          - title: Watson Campaign Automation
+            url: /integrations/marketing/watson-campaign-automation
 
 ## ------------------------------------------------------------
 ## Monitor
