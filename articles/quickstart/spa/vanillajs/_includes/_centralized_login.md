@@ -380,7 +380,7 @@ const updateUI = async () => {
       "ipt-access-token"
     ).innerHTML = await auth0.getTokenSilently();
 
-    document.getElementById("ipt-user-profile").innerHTML = JSON.stringify(
+    document.getElementById("ipt-user-profile").textContent = JSON.stringify(
       await auth0.getUser()
     );
 
