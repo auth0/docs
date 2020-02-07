@@ -1087,7 +1087,7 @@ articles:
         url: /integrations/aws
 
       - title: AWS API Gateway
-        url: /integrations/aws-api-gateway
+        url: /integrations/aws-api-gateway/custom-authorizers
 
       - title: Azure API Management
         url: /integrations/azure-api-management
