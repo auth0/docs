@@ -14,12 +14,9 @@ useCase:
 ---
 # Bulk User Import Database Schema and Example
 
----
-**NOTE**
-
+::: note
 For a list of user profile fields that can be imported, see [User Profile Attributes](/users/references/user-profile-structure#user-profile-attributes).
-
----
+:::
 
 The users file must have an array with the users' information in JSON format.
 
@@ -193,12 +190,9 @@ Additionally, the `app_metadata` should **not** contain any of these properties:
 * `updated_at`
 * `user_id`
 
----
-**NOTE**
-
+::: note
 The `app_metadata` stores information that can impact how an application functions or what the user can access (for example, a user's support plan or <dfn data-key="role">roles</dfn> and access groups). For more information, refer to [User Metadata](/metadata).
-
----
+:::
 
 ## `custom_password_hash` schema
 
@@ -406,12 +400,9 @@ Some example users with hashes provided:
 ]
 ```
 
----
-**NOTE**
-
+::: note
 The file size limit for a bulk import is 500KB. You will need to start multiple imports if your data exceeds this size.
-
----
+:::
 
 ## Keep reading
 
