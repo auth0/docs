@@ -4,7 +4,6 @@ topics:
   - authentication-api
   - account-linking
 contentType:
-  - reference
   - how-to
 useCase:
   - manage-accounts
@@ -121,3 +120,10 @@ The body should be:
     user_id: "LINKED_USER_ID" // (provider|id)
 }
 ```
+
+## Keep reading
+
+* [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking)
+* [Link User Accounts Client-Side Scenario](/users/references/link-accounts-client-side-scenario)
+* [Link User Accounts Server-Side Scenario](/users/references/link-accounts-server-side-scenario)
+* [Link User Accounts User Initiated Scenario](/users/references/link-acounts-user-initiated-scenario)

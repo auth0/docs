@@ -1,22 +1,16 @@
 ---
-title: Linking User Accounts
+title: Link User Accounts
 description: Learn how to link user accounts from various identity providers, so your users can authenticate from any of their accounts and still be recognized by your app and associated with the same user profile
 crews: crew-2
 toc: true
 topics:
   - account-linking
 contentType:
-  - concept
   - how-to
-  - index
 useCase:
   - manage-accounts
 ---
-# Linking User Accounts
-
-::: warning
-We recently introduced some changes in Account Linking. For all the details see [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking).
-:::
+# Link User Accounts
 
 Auth0 supports the linking of user accounts from various identity providers. This allows a user to authenticate from any of their accounts and still be recognized by your app and associated with the same user profile. This feature requires a paid subscription to the **Developer**, **Developer Pro** or **Enterprise** plan (see [Pricing](https://auth0.com/pricing)).
 
@@ -358,3 +352,10 @@ function(user, context, callback) {
   callback(null, user, context);
 }
 ```
+
+## Keep reading
+
+* [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking)
+* [Link User Accounts Client-Side Scenario](/users/references/link-accounts-client-side-scenario)
+* [Link User Accounts Server-Side Scenario](/users/references/link-accounts-server-side-scenario)
+* [Link User Accounts User Initiated Scenario](/users/references/link-acounts-user-initiated-scenario)

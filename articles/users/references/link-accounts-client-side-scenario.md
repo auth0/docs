@@ -5,17 +5,12 @@ topics:
   - account-linking
   - client-side
 contentType:
-  - concept
   - how-to
 useCase:
   - manage-accounts
 ---
 
-# Account Linking Using Client Side Code
-
-::: warning
-We recently introduced some changes in Account Linking. For all the details see [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking).
-:::
+# Link User Accounts Client-Side Scenario
 
 Auth0 supports the linking of user accounts from various identity providers.
 
@@ -163,4 +158,8 @@ function unlinkAccount(secondaryProvider, secondaryUserId) {
 }
 ```
 
-That's it, you are done!
+## Keep reading
+
+* [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking)
+* [Link User Accounts Server-Side Scenario](/users/references/link-accounts-server-side-scenario)
+* [Link User Accounts User Initiated Scenario](/users/references/link-acounts-user-initiated-scenario)

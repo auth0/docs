@@ -1,24 +1,19 @@
 ---
-description: How to link user accounts using server-side code.
+description: How to link user accounts with a regular web app using server-side code.
 crews: crew-2
 toc: true
 topics:
   - account-linking
   - server-side
 contentType:
-  - concept
   - how-to
 useCase:
   - manage-accounts
 ---
 
-# Account Linking Using Server Side Code
+# Link Users Accounts Server-Side Scenario
 
-::: warning
-We recently introduced some changes in Account Linking. For all the details see [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking).
-:::
-
-In this tutorial, you will use server-side code to facilitate account linking on a regular web application. Rather than automating the entire account linking process, you're engaging the user and asking them for permission before proceeding. Your code will:
+In this scenario, you will use server-side code to facilitate account linking on a regular web application. Rather than automating the entire account linking process, you're engaging the user and asking them for permission before proceeding. Your code will:
 
 1. Authenticate the user
 2. Search for and identify users using their email addresses
@@ -283,4 +278,8 @@ class Auth0Client {
 module.exports = new Auth0Client();
 ```
 
-That's it, you are done!
+## Keep reading
+
+* [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking)
+* [Link User Accounts Client-Side Scenario](/users/references/link-accounts-client-side-scenario)
+* [Link User Accounts User Initiated Scenario](/users/references/link-acounts-user-initiated-scenario)

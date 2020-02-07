@@ -5,13 +5,12 @@ topics:
   - account-linking
   - client-side
 contentType:
-  - concept
   - how-to
 useCase:
   - manage-accounts
 ---
 
-# User Initiated Account Linking
+# Link User Accounts Initiated by Users
 
 In this scenario, your app provides a UI for the user to authenticate to their other accounts and to link these to their primary account.
 
@@ -197,3 +196,9 @@ function unlinkAccount(secondaryProvider, secondaryUserId){
   });
 }
 ```
+
+## Keep reading
+
+* [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking)
+* [Link User Accounts Client-Side Scenario](/users/references/link-accounts-client-side-scenario)
+* [Link User Accounts Server-Side Scenario](/users/references/link-accounts-server-side-scenario)
