@@ -13,17 +13,23 @@ useCase:
 
 # Rules Best Practices
 
-This article covers some best practices when using [rules](/rules). Rules can be used in a [variety of situations](/rules#what-can-i-use-rules-for-) as part of the authentication pipeline where protocol specific artifacts are generated&mdash;i.e., an ID Token in [OpenID Connect (OIDC)](/protocols/oidc), an <dfn data-key="access-token">Access Token</dfn> in [OAuth 2.0](/protocols/oauth2), or an [assertion in SAML](/protocols/saml/saml-configuration/saml-assertions#use-rules). A new pipeline, in which rules execute, is created for each authentication request.
+[Rules](/rules) can be used in a [variety of situations](/rules#what-can-i-use-rules-for-) as part of the authentication pipeline where protocol specific artifacts are generated:
 
-A number of [pre-existing Rules/Rule templates](https://github.com/auth0/rules) are provided out-of-box to help you achieve your goal(s). However, there are times when you will want to [build your own Rule(s)](/rules/guides/create) in support of your specific functionality/requirements. You may choose to extend or modify a pre-existing Rule/Rule template, or you may choose to start from scratch (using one of our [samples](/rules/references/samples) to guide you). Either way, there are a number of best practices that you’ll want to adopt to ensure that you achieve the best possible outcome.
+- an ID Token in [OpenID Connect (OIDC)](/protocols/oidc)
+- an <dfn data-key="access-token">Access Token</dfn> in [OAuth 2.0](/protocols/oauth2)
+- an [assertion in SAML](/protocols/saml/saml-configuration/saml-assertions#use-rules)
+
+A new pipeline in which rules execute is created for each authentication request.
+
+Auth0 provides a number of [pre-existing Rules/Rule templates](https://github.com/auth0/rules) to help you achieve your goal(s). You may also want to [build your own Rule(s)](/rules/guides/create) to support your specific functionality requirements. You can modify a pre-existing rule template or choose to start from scratch using one of our [samples](/rules/references/samples). Either way, there are a number of best practices that you’ll want to adopt to ensure that you achieve the best possible outcome.
+
+The image below shows the [Auth0 Dashboard](/dashboard) with a number of enabled and disabled rules for a specific [Auth0 Tenant](/getting-started/the-basics#account-and-tenants). Enabled rules&mdash;those with the green toggle&mdash;are those rules that are active and will execute as part of a pipeline. Disabled rules&mdash;those with the greyed-out toggle&mdash;on the other hand, won't.
 
 ![Rules Dashboard](/media/articles/rules/rules-best-practice-dashboard.png)
 
-The image above depicts an [Auth0 Dashboard](/dashboard) showing a number of enabled and disabled rules for a specific [Auth0 Tenant](/getting-started/the-basics#account-and-tenants). Enabled rules&mdash;those with the green toggle&mdash;are those rules that are active and will execute as part of a pipeline. Disabled rules&mdash;those with the greyed-out toggle&mdash;on the other hand, won't.
-
 ## Anatomy
 
-A rule is essentially an anonymous JavaScript function that is passed 3 parameters: a [`user`](#user-object) object, a [`context`](#context-object) object, and a [`callback`](#callback-function) function.
+A rule is essentially an anonymous JavaScript function that is passed three parameters: a [`user`](#user-object) object, a [`context`](#context-object) object, and a [`callback`](#callback-function) function.
 
 ```js
     function (user, context, callback) {
@@ -33,7 +39,11 @@ A rule is essentially an anonymous JavaScript function that is passed 3 paramete
  ```
 
 ::: note
-**Do not** be tempted to add a trailing semicolon at the end of the function declaration as this will break rule execution. Also, anonymous functions make it hard in [debugging](/best-practices/debugging) situations to interpret the call-stack generated as a result of any [exceptional error]((/best-practices/error-handling#exceptions) condition. For convenience, consider providing a function name using some compact and unique naming convention to assist with diagnostic analysis (e.g., `function MyRule1 (user, context, callback) {...}`).
+**Do not** add a trailing semicolon at the end of the function declaration as this will break rule execution. 
+:::
+
+::: panel Best Practice
+Anonymous functions make it hard to interpret the call-stack generated as a result of any [exceptional error](/best-practices/error-handling#exceptions) condition. For convenience, use compact and unique naming conventions to assist with diagnostic analysis (e.g., `function MyRule1 (user, context, callback) {...}`).
 :::
 
 Rules execute in the pipeline associated with the generation of artifacts for authenticity that forms part of the overall [Auth0 engine](https://cdn.auth0.com/blog/auth0-raises-100m-to-fuel-the-growth/inside-the-auth0-engine-high-res.jpg). When a pipeline is executed, all enabled rules are packaged together in the order in which they are listed and sent as one code blob to be executed as an Auth0 serverless Webtask.
@@ -42,39 +52,35 @@ Rules execute in the pipeline associated with the generation of artifacts for au
 
 ## Size
 
-As a best practice, we recommend that the total size of implementation for all enabled rules should not exceed 100 kB. The larger the size, the more latency is introduced due to the packaging and transport process employed by the Auth0 serverless Webtask platform, and this will have an impact on the performance of your system. Note that the 100 kB limit does not include any [`npm`](https://www.npmjs.com/) modules that may be referenced as part of any [`require`](https://nodejs.org/api/modules.html#modules_require_id) statements.
+We recommend that the total size of implementation for all enabled rules should not exceed 100 kB. The larger the size, the more latency is introduced due to the packaging and transport process employed by the Auth0 serverless Webtask platform, and this will have an impact on the performance of your system. Note that the 100 kB limit does not include any [`npm`](https://www.npmjs.com/) modules that may be referenced as part of any [`require`](https://nodejs.org/api/modules.html#modules_require_id) statements.
 
 ## Order
 
-The order in which rules are displayed in the [Auth0 Dashboard](/dashboard) (see image above) dictates the order in which the rules will be executed. This is important because one rule may make one or more definitions within the [environment](/best-practices/custom-db-connections/environment) associated with execution that another rule may depend upon. In this case, the rule making the definition(s) should execute before the rule that makes use of it.
+The order in which rules are displayed in the [Auth0 Dashboard](/dashboard) dictates the order in which the rules will be executed. This is important because one rule may make one or more definitions within the [environment](/best-practices/custom-db-connections/environment) associated with execution that another rule may depend upon. In this case, the rule making the definition(s) should execute before the rule that makes use of it.
 
 ::: panel Best Practice
-As a recommended best practice, run expensive rules (i.e., rules that call out to APIs, including the Auth0 Management API) as late as possible. If you have other, less expensive rules that could cause an `unauthorized` access determination, then you should have these run first.
+Run expensive rules that call APIs (including the Auth0 Management API) as late as possible. If you have other, less expensive rules that could cause an `unauthorized` access determination, then you should run these first.
 :::
 
 ## Environment
 
-Rules execute as a series of called JavaScript functions in an instance of an Auth0 serverless Webtask __container__. As part of this, a specific environment is provided, together with a number of artifacts supplied by both the container and the Auth0 authentication server (a.k.a. your Auth0 tenant) itself.
+Rules execute as a series of called JavaScript functions in an instance of an Auth0 serverless Webtask __container__. As part of this, a specific environment is provided, together with a number of artifacts supplied by both the container and the Auth0 authentication server (your Auth0 tenant) itself.
 
 ### `npm` modules
 
 Auth0 serverless Webtask containers can make use of a wide range of [`npm`](https://www.npmjs.com/) modules; npm modules not only reduce the overall size of rule code implementation, but also provide access to a wide range of pre-built functionality.
 
-By default, a large list of publicly available npm modules are [supported out-of-the-box](https://auth0-extensions.github.io/canirequire/). This list has been compiled and vetted for any potential security concerns. If you require an npm module that is not supported out-of-the-box, then a request can be made via the [Auth0 support](https://support.auth0.com/) portal or via your Auth0 representative. Auth0 will evaluate your request to determine suitability. There is currently no support in Auth0 for the use of npm modules from private repositories.
-
-New packages are typically added on a 1 or 2 week cycle when requested. Existing packages are rarely removed as this would cause breaking changes in rules. Keep in mind, Auth0 packages and versions are stored on an internal registry and are not in sync with npm.
+By default, a large list of publicly available npm modules are [supported out-of-the-box](https://auth0-extensions.github.io/canirequire/). This list has been compiled and vetted for any potential security concerns. If you require an npm module that is not supported, you can request one at the [Auth0 support](https://support.auth0.com/) portal or via your Auth0 representative. Auth0 evaluates requests to determine suitability. There is currently no support in Auth0 for the use of `npm` modules from private repositories. New packages are typically added on a 2 week cycle when requested. Existing packages are rarely removed as this would cause breaking changes in rules. Keep in mind, Auth0 packages and versions are stored on an internal registry and are not in sync with `npm`.
 
 ::: panel Best Practice
-When using `npm` modules to access external services, it’s recommended best practice to [keep API requests to a minimum](/best-practices/performance#minimize-api-requests), [avoid excessive calls to paid services](/best-practices/performance#limit-calls-to-paid-services), and avoid potential security exposure by [limiting what is sent](#do-not-send-entire-context-object-to-external-services). For more information, see [Performance Best Practices](/best-practices/performance) and [Security Best Practices](/best-practices/custom-db-connections/security) sections below.
+When using `npm` modules to access external services, [keep API requests to a minimum](/best-practices/performance#minimize-api-requests), [avoid excessive calls to paid services](/best-practices/performance#limit-calls-to-paid-services), and avoid potential security exposure by [limiting what is sent](#do-not-send-entire-context-object-to-external-services). For more information, see [Performance Best Practices](/best-practices/performance) and [Security Best Practices](/best-practices/custom-db-connections/security).
 
-When requiring a module in a rule, if the version is not specified the package manager will use the first version it finds on the internal list. It's recommended to only specify the version if that package contains specific logic needed in the rule. 
+When requiring a module in a rule, if the version is not specified, the package manager uses the first version it finds on the internal list. Only specify a version if that package contains specific logic needed in the rule. 
 :::
 
 ### Environment variables
 
-The Auth0 rule ecosystem supports the notion of environment variables, accessed via what is defined as the globally available [configuration](/rules/guides/configuration) object. Configuration should be treated as read-only and should be used for [storing sensitive information](#store-security-sensitive-values-in-rules-settings), such as credentials or API keys for external service access. This mitigates having security-sensitive values hard coded in a rule.
-
-It can also be used to support whatever [Software Development Life Cycle (SDLC)](/dev-lifecycle/setting-up-env) best practice strategies you employ by allowing you to define variables that have tenant-specific values. This mitigates hard code values in a rule which may change depending upon which tenant is executing it.
+Auth0 Rules support environment variables, accessed via the globally available [configuration](/rules/guides/configuration) object. Configuration should be treated as read-only and should be used for [storing sensitive information](#store-security-sensitive-values-in-rules-settings), such as credentials or API keys for external service access. This mitigates having security-sensitive values hard-coded in a rule. It can also be used to support [Software Development Life Cycle (SDLC)](/dev-lifecycle/setting-up-env) best practice strategies you employ by allowing you to define variables that have tenant-specific values. This mitigates hard-code values in a rule which may change depending upon which tenant is executing it.
 
 ### `global` object
 
@@ -119,19 +125,19 @@ Alternative access to the Management API from within a rule is typically achieve
 Like the [`context`](#context-object) object (described below), the `auth0` object contains security-sensitive information, so you should not pass it to any external or third-party service. Further, the Auth0 Management API is both [rate limited](/policies/rate-limits#management-api-v2) and subject to latency, so you should be judicious regarding [how often calls are made](/best-practices/performance#minimize-api-requests).
 
 ::: panel Best Practice
-It’s recommended best practice to make use of the `auth0` object (and any other mechanisms for calling the Auth0 Management API) sparingly and to always make sure that adequate [exception](/best-practices/error-handling#exceptions) and [error](/best-practices/error-handling) handling is employed to prevent unexpected interruption of pipeline execution.
+Use the `auth0` object (and any other mechanisms for calling the Auth0 Management API) sparingly and use adequate [exception](/best-practices/error-handling#exceptions) and [error](/best-practices/error-handling) handling to prevent unexpected interruption of pipeline execution.
 :::
 
 ## Execution
 
-Each rule is executed as a JavaScript function; these functions are called in the [order](#order) that the rules are defined. Rules execute sequentially; the next rule in order won’t execute until the previous rule has completed. In addition, the rule pipeline only executes for workflows that involve _user_ credentials; the rule pipeline **does not** execute during [Client Credentials flow](/api-auth/tutorials/adoption/client-credentials) (which is instead supported via use of the [Client Credentials Exchange](/hooks/concepts/credentials-exchange-extensibility-point) hook).
+Each rule is executed as a JavaScript function called in the [order](#order) defined. The next rule in order won’t execute until the previous rule has completed. In addition, the rule pipeline only executes for workflows that involve _user_ credentials; the rule pipeline **does not** execute during [Client Credentials flow](/api-auth/tutorials/adoption/client-credentials) (which is instead supported via use of the [Client Credentials Exchange](/hooks/concepts/credentials-exchange-extensibility-point) hook).
 
-In pipeline terms, a rule completes when the [`callback`](#callback-function) function supplied to the rule is called. Failure to call the function will result in a stall of pipeline execution, and ultimately in an error being returned. Each rule must call the `callback` function **exactly** once.
+In pipeline terms, a rule completes when the [`callback`](#callback-function) function supplied to the rule is called. Failure to call the function results in a stall of pipeline execution, and ultimately in an error being returned. Each rule must call the `callback` function **exactly** once.
 
 Rule execution supports the asynchronous nature of JavaScript, and constructs such as [`Promise`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) objects and the like can be used. Asynchronous processing effectively results in suspension of a pipeline pending completion of the asynchronous operation. An Auth0 serverless Webtask container typically has a circa 20-second execution limit, after which the container may be recycled. Recycling of a container due to this limit will prematurely terminate a pipeline&mdash;suspended or otherwise&mdash;ultimately resulting in an error in authentication being returned (as well as resulting in a potential reset of the [`global`](#global-object) object).
 
 ::: panel Best Practice
-Setting `context.redirect` will trigger a [redirection](#redirection) once all rules have completed (the redirect is not forced at the point it is set). While all rules must complete within the execution limit of the Webtask container for the redirect to occur, the time taken as part of redirect processing *can* extend beyond that limit. As a best practice, we recommend that redirection back to Auth0 via the `/continue` endpoint should ideally occur within _one hour_. Redirection back to the `/continue` endpoint will also cause the creation of a new container in the context of the current pipeline, in which all rules will again be run.
+Setting `context.redirect` triggers a [redirection](#redirection) once all rules have completed (the redirect is not forced at the point it is set). While all rules must complete within the execution limit of the Webtask container for the redirect to occur, the time taken as part of redirect processing *can* extend beyond that limit. We recommend that redirection back to Auth0 via the `/continue` endpoint should ideally occur within _one hour_. Redirection back to the `/continue` endpoint will also cause the creation of a new container in the context of the current pipeline, in which all rules will again be run.
 :::
 
 Asynchronous execution will result in a (JavaScript) callback being executed after the asynchronous operation is complete. This callback is typically fired at some point after the main (synchronous) body of a JavaScript function completes. If a rule is making use of asynchronous processing, then a call to the (Auth0) supplied [`callback`](#callback-function) function must be deferred to the point where asynchronous processing completes and must be the final thing called. As discussed above, the (Auth0) supplied `callback` function must be called exactly once; calling the function more than once within a rule will lead to unpredictable results and/or errors.
@@ -186,7 +192,7 @@ We highly recommend reviewing best practices when [using contextual bypass logic
 
 #### Redirection
 
-There are times where it is important to collect information from a user as part of a login flow.  You could, of course, let the application deal with whatever additional information collection is necessary, but that can be painful for situations where there are many applications and you want a centralized service to manage that, or if you are using a SPA and you want to prevent the user from getting an access token under certain conditions.  In these cases, having a centralized way to collect information or provide a challenge to a user is necessary.
+It may not be practical to collect information from a user as part of a login flow in situations where there are many applications and you want a centralized service to manage that, or if you are using a SPA and you want to prevent the user from getting an access token under certain conditions.  In these cases, having a centralized way to collect information or provide a challenge to a user is necessary.
 
 Auth0 allows you to redirect the user to any URL where you can collect information from that user and then return the user to the `/continue` endpoint where they can complete the original `/authorize` request that triggered the redirect.  This is a powerful capability, and depending on the use case, the impact of doing it wrong can be anywhere from innocuous to leaving a security vulnerability in the application.  As such, it is important to ensure that this is done correctly.
 
@@ -195,15 +201,17 @@ In most use cases, a redirect rule is in use to prompt the user to make some cha
 - verifying their email
 - adding information to their profile
 
-The best approach for situations such as this is for the rule to check for some flag or value in the user's `app_metadata`, then redirect to an application that does its own `/authorize` call to Auth0, then can make any changes to the user's metadata and redirect the user back to Auth0.  This works great for any profile changing redirects or anything that does not need to restrict the user from logging in.
+We recommend that the rule check for some flag or value in the user's `app_metadata`, then redirect to an application that does its own `/authorize` call to Auth0 and make any changes to the user's metadata and redirect the user back to Auth0.  This works great for any profile changing redirects or anything that does not need to restrict the user from logging in.
 
-[Redirect from rule](/rules/guides/redirect) provides the ability for implementing custom authentication flows that require additional user interaction (i.e., beyond the standard login form) and is triggered via use of [context.redirect](/rules/references/context-object#properties-of-the-context-object). Redirect from rule can only be used when calling the [`/authorize`](/api/authentication#login) endpoint.
+[Redirect from rule](/rules/guides/redirect) allows you to implement custom authentication flows that require additional user interaction triggered by [context.redirect](/rules/references/context-object#properties-of-the-context-object). Redirect from rule can only be used when calling the [`/authorize`](/api/authentication#login) endpoint.
 
+::: panel Best Practice
 Redirection to your own hosted user interface is performed before a pipeline completes and can be triggered *only once* per `context.clientID` context. Redirection should only [use HTTPS](#always-use-https) when executed in a production environment, and additional parameters should be kept to a minimum to help mitigate [common security threats](/security/common-threats). Preferably, the Auth0-supplied `state` is the only parameter supplied.
+:::
 
-Once redirected, your own hosted user interface will execute in a user authenticated context, and can obtain authenticity artifacts by the virtue of Auth0 SSO. Obtaining these artifacts&mdash;e.g., an ID Token in [OpenID Connect (OIDC)](/protocols/oidc), and/or an <dfn data-key="access-token">Access Token</dfn> in [OAuth 2.0](/protocols/oauth2)&mdash;is achieved by using a `context.clientID` context **that is not** the one which triggered redirect. To do this, you would typically redirect to the `/authorize` endpoint; in the case of a SPA for example, this can be achieved seamlessly via use of [silent authentication](/libraries/auth0js/v9#using-checksession-to-acquire-new-tokens). This will create a new pipeline that will cause all rules to execute again, and you can use the `context` object within a rule to perform conditional processing (as discussed above).
+Once redirected, your own hosted user interface executes in a user authenticated context, and obtains authenticity artifacts by the virtue of Auth0 SSO. Obtaining these artifacts&mdash;e.g., an ID Token in [OpenID Connect (OIDC)](/protocols/oidc), and/or an <dfn data-key="access-token">Access Token</dfn> in [OAuth 2.0](/protocols/oauth2)&mdash;is achieved by using a `context.clientID` context **that is not** the one which triggered redirect. To do this, redirect to the `/authorize` endpoint. In the case of a SPA for example, use [silent authentication](/libraries/auth0js/v9#using-checksession-to-acquire-new-tokens). This creates a new pipeline that causes all rules to execute again, and you can use the `context` object within a rule to perform conditional processing.
 
-Upon completion of whatever processing is to be performed, pipeline execution continues by redirecting the user back to Auth0 via the `/continue` endpoint (and specifying the `state` supplied). This will cause all rules to execute again within the current pipeline, and you can use the `context` object within a rule to perform conditional processing checks.
+Upon completion of whatever processing is to be performed, pipeline execution continues by redirecting the user back to Auth0 via the `/continue` endpoint (and specifying the `state` supplied). This causes all rules to execute again within the current pipeline, and you can use the `context` object within a rule to perform conditional processing checks.
 
 ::: panel Storing Data
 Beware of storing too much data in the Auth0 profile. This data is intended to be used for authentication and authorization purposes. The metadata and search capabilities of Auth0 are not designed for marketing research or anything else that requires heavy search or update frequency. Your system is likely to run into scalability and performance issues if you use Auth0 for this purpose. A better approach is to store data in an external system and store a pointer (the user ID) in Auth0 so that backend systems can fetch the data if needed. A simple rule to follow is to store only items that you plan to use in rules to add to tokens or make decisions.  

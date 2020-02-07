@@ -24,18 +24,6 @@ You can use [Rules](/rules) to redirect users before an authentication transacti
 You can redirect a user **once** per authentication flow. If you have one rule that redirects a user, you **cannot** invoke a second rule to redirect the user at a later time.
 :::
 
-## Prerequisites
-
-Redirect Rules won't work with:
-- [Resource Owner endpoint](/api/authentication/reference#resource-owner)
-- [Password exchange](/api-auth/grant/password)
-- [Refresh Token exchange](/tokens/concepts/refresh-token#rules)
-
-You can detect the above cases by checking `context.protocol`:
-- For Password exchange: `context.protocol === 'oauth2-password'`
-- For Refresh Token exchange: `context.protocol === 'oauth2-refresh-token'`
-- For Resource Owner logins: `context.protocol === 'oauth2-resource-owner'`
-
 ## Start redirect and resume authentication
 
 1. Set the `context.redirect` property as follows:
@@ -216,11 +204,19 @@ It should be sent using POST and then fetched at `context.request.body.token` (o
 
 If you are not passing information back to the `/continue` endpoint, you may want to blacklist the JTI unless your expiration times are short enough that replay attacks will be almost impossible. 
 
-## Non-applicability conditions
+## Restrictions and limitations
 
-There are some scenarios where redirection will automatically fail.
+Redirect Rules won't work with:
+- [Resource Owner endpoint](/api/authentication/reference#resource-owner)
+- [Password exchange](/api-auth/grant/password)
+- [Refresh Token exchange](/tokens/concepts/refresh-token#rules)
 
-### ROPG
+You can detect the above cases by checking `context.protocol`:
+- For Password exchange: `context.protocol === 'oauth2-password'`
+- For Refresh Token exchange: `context.protocol === 'oauth2-refresh-token'`
+- For Resource Owner logins: `context.protocol === 'oauth2-resource-owner'`
+
+### Resource Owner endpoint
 
 It is impossible to use redirect rules in the context where you are calling /oauth/token directly for the Resource Owner Password Grant.  Since the user is not in a redirect flow to begin with, you can not redirect the user in a rule.  If you attempt to set context.redirect you will get a failed login attempt with the error interaction_required.
 
