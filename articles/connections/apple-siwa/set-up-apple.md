@@ -58,7 +58,7 @@ Before you can register your app in the Apple Developer Portal, you must have an
 At this time, Apple does not require validation of the redirect URL, and doing so is typically not necessary.
 :::
 
-### Set up your Signing Key
+### Set up your Client Secret Signing Key
 
 1. Go to **Keys** under the **Certificates, Identifiers, & Profiles** section of your Apple developer dashboard.
 1. Click on the **blue plus icon** to add a new key.

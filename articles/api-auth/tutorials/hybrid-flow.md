@@ -1,6 +1,5 @@
 ---
-title: How to Implement the Hybrid Flow
-description: How to execute the Hybrid Flow
+description: Learn how to execute the Hybrid Flow so your app can use an ID token to access information about the user while obtaining an authorization code that can be exchanged for an Access Token. 
 toc: true
 topics:
   - api-authentication
@@ -11,7 +10,7 @@ useCase:
   - secure-api
   - call-api
 ---
-# How to Implement the Hybrid Flow
+# Implement the Hybrid Flow
 
 The [Hybrid Flow](/api-auth/grant/hybrid) is an <dfn data-key="openid">OpenID Connect (OIDC)</dfn> grant that enables use cases where your application can immediately use an ID token to access information about the user while obtaining an authorization code that can be exchanged for an Access Token (therefore gaining access to protected resources for an extended period of time).
 

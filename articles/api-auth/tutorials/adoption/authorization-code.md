@@ -10,7 +10,7 @@ useCase:
   - call-api
 ---
 
-# Authorization Code grant
+# Authorization Code Grant
 
 <%= include('./_about.md') %>
 
@@ -230,6 +230,6 @@ Pragma: no-cache
   </div>
 </div>
 
-## Further reading
+## Keep reading
 
 <%= include('./_index.md') %>

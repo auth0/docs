@@ -54,22 +54,90 @@ The next step is to generate the SSL certificate. This example will assume you a
 ```
 
 :::note
-The utility saves the cerificate `localhost.pem` and a key file `localhost-key.pem` in the folder where the command was executed.
+The utility saves the certificate `localhost.pem` and a key file `localhost-key.pem` in the folder where the command was executed.
 :::
 
 ### 4. Serve the SSL certificate
-Now that you have generated an SSL certificate and key, you need to load them when starting your server.  Here is an example of using them on localhost with an Express web server.
+Now that you have generated an SSL certificate and key, you need to load them when starting your server. The way certificates are loaded depends on the technology used to serve the application. Please see below for examples.
+
+#### Node.js with Express
 
 ```js
-const fs = require('fs');
-const key = fs.readFileSync('./localhost-key.pem');
-const cert = fs.readFileSync('./localhost.pem');
+// app.js
 
 const express = require('express');
 const https = require('https');
-const app = express();
+const fs = require('fs');
 
-https.createServer({key: key, cert: cert }, app).listen('3000', () => {
-  console.log('listening on http://localhost:3000');
+const key = fs.readFileSync('./localhost-key.pem');
+const cert = fs.readFileSync('./localhost.pem');
+
+https.createServer({key, cert}, express()).listen('3000', () => {
+  console.log('Listening on https://localhost:3000');
 });
 ```
+
+#### webpack DevServer
+
+```js
+// webpack.config.js
+
+module.exports = {
+  //...
+  devServer: {
+    https: {
+      key: fs.readFileSync('./localhost-key.pem'),
+      cert: fs.readFileSync('./localhost.pem'),
+    }
+  }
+};
+```
+
+#### Apache (including PHP, Python, Ruby)
+
+The actual path of the files mentioned below will differ depending on the OS and install method. The paths below are from Homebrew-installed Apache on macOS.
+
+```
+# /usr/local/etc/httpd/httpd.conf
+# Find and uncomment the lines below
+
+LoadModule socache_shmcb_module lib/httpd/modules/mod_socache_shmcb.so
+# ...
+LoadModule ssl_module lib/httpd/modules/mod_ssl.so
+# ...
+Include /usr/local/etc/httpd/extra/httpd-ssl.conf
+```
+
+```
+# /usr/local/etc/httpd/extra/httpd-ssl.conf
+
+# Listen 8443
+Listen 443
+# ...
+
+# Change the line below and comment out the two lines referenced below
+# <VirtualHost _default_:8443>
+<VirtualHost _default_:443>
+# ...
+# DocumentRoot "/usr/local/var/www"
+# ServerName www.example.com:8443
+```
+
+```
+# /usr/local/etc/httpd/extra/httpd-vhosts.conf
+
+<VirtualHost *:443>
+    # Make sure this path points to your local application.
+    DocumentRoot "/path/to/application/root"
+    ServerName localhost
+    SSLEngine on
+    SSLCertificateFile "/usr/local/etc/httpd/localhost.pem"
+    SSLCertificateKeyFile "/usr/local/etc/httpd/localhost-key.pem"
+</VirtualHost>
+```
+
+#### Nginx (for PHP)
+
+#### WordPress
+
+The WordPress documentation has some [specific considerations for running WordPress over HTTPS](https://make.wordpress.org/support/user-manual/web-publishing/https-for-wordpress/). Please see the Apache or nginx sections above for specifics on loading the certificates.

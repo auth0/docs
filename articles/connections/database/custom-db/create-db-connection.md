@@ -146,9 +146,7 @@ This script assumes that you have a **users** table containing these columns. Th
 
 ## Add configuration parameters
 
-You can store parameters, like the credentials required to connect to your database, in the **Settings** section below the script editor. These will be available for all of your scripts, and you can access them using the `global` configuration object.
-
-You can access parameter values using the `configuration` object in your database action scripts (i.e., `configuration.MYSQL_PASSWORD`).
+You can store parameters, like the credentials required to connect to your database, in the **Settings** section below the script editor. These will be available for all of your scripts, and you can access the parameter values using the `configuration` object in your database action scripts (i.e., `configuration.MYSQL_PASSWORD`).
 
 ![Custom database settings](/media/articles/connections/database/mysql/db-connection-parameters.png)
 

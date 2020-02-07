@@ -43,7 +43,7 @@ In the [Dashboard](${manage_url}), you can see the settings for your login page 
 
 The settings available here are:
 
-* Logo
+* Logo (recommended size: 150 x 150 pixels)
 * Primary Color
 * Background Color
 

@@ -15,8 +15,6 @@ useCase:
 ---
 # APIs
 
-## Overview
-
 An API is an entity that represents an external resource, capable of accepting and responding to protected resource requests made by applications. At the [OAuth2 spec](https://tools.ietf.org/html/rfc6749) an API maps to the **Resource Server**.
 
 When an application wants to access an API's protected resources it must provide an <dfn data-key="access-token">Access Token</dfn>. The same Access Token can be used to access the API's resources without having to authenticate again, until it expires.

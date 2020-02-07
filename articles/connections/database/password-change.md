@@ -12,7 +12,7 @@ useCase: customize-connections
 # Change Users' Passwords
 
 ::: note
-This article covers how to reset a user's password. If you are trying to configure the custom Password Reset page for your tenant, see [Password Reset Page](/universal-login/password-reset). If you are a user of Auth0 and are trying to reset the password to your Auth0 account, see [Reset Your Auth0 Account Password](/support/reset-account-password).
+If you are trying to configure the custom Password Reset page for your tenant, see [Customize Hosted Password Reset Page](/universal-login/password-reset). If you are a user of Auth0 and are trying to reset the password to your Auth0 account, see [Reset Your Auth0 Account Password](/support/reset-account-password).
 :::
 
 There are two basic methods of changing a password:
@@ -24,7 +24,7 @@ There are two basic methods of changing a password:
 You can only change passwords for users signing in using database connections. Users signing in using social or enterprise connections need to reset their passwords with the relevant identity provider.
 :::
 
-You can use the [Post Change Password Hook](/hooks/guides/post-change-password) to implement custom actions after a successful password change.
+You can use the [Post Change Password Hook](/hooks/extensibility-points/post-change-password) to implement custom actions after a successful password change.
 
 ## Trigger an interactive password reset flow
 

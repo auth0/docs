@@ -24,7 +24,7 @@ Choose this option if:
 * You want to have more control of your certificates (such as choosing your own CA or certificate expiration)
 * You want to enable additional monitoring over your API calls to Auth0
 
-To set up your custom domain using self-managed certificates, you need to provide your domain name to Auth0, verify that you own that domain, configure the reverse proxy, and then complete additional configuration for the Auth0 features you are using.
+To set up your custom domain using self-managed certificates, you need to provide your domain name to Auth0, verify that you own that domain, and configure the reverse proxy. Once your custom domain has been set up, you will need to configure your Auth0 features to start using your custom domain.
 
 <%= include('./_provide-domain-name', { platform: 'self' }) %>
 

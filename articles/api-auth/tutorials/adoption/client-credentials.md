@@ -10,7 +10,7 @@ useCase:
   - call-api
 ---
 
-# Client Credentials exchange
+# Client Credentials Exchange
 
 <%= include('./_about.md') %>
 
@@ -24,6 +24,6 @@ We strongly discourage the latter approach in favor of using Client Credentials,
   For more information on how to execute a Client Credentials exchange, refer to <a href="/flows/guides/client-credentials/call-api-client-credentials">Call API Using the Client Credentials Flow</a>.
 :::
 
-## Further reading
+## Keep reading
 
 <%= include('./_index.md') %>

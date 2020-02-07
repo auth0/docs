@@ -22,7 +22,7 @@ For more information, see the [OAuth 2.0: Audience Information Specification](ht
 
 ## Can I try the endpoints before I implement my application?
 
-**A** Sure! You have two options:
+Sure! You have two options:
 - [Download our Postman collection](https://app.getpostman.com/run-collection/2a9bc47495ab00cda178). For more information on how to use our Postman collection refer to [Using the Auth0 API with our Postman Collections](/api/postman).
 
 - Use our [Authentication API Debugger Extension](/extensions/authentication-api-debugger). You can find detailed instructions per endpoint/grant at our [Authentication API Reference](/api/authentication).

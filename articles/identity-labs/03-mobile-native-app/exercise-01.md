@@ -12,13 +12,15 @@ contentType:
 ---
 # Lab 3, Exercise 1: Adding Authentication
 
-<%= include('../_includes/first-page-of-lab-note') %>
+::: warning
+If you came to this page directly, go to the [first page of this lab](/identity-labs/03-mobile-native-app) and read through the instructions before getting started.
+:::
 
 In this exercise, you will add authentication to an existing iOS application. A simple iOS application has been provided to get you started. This is a single-view application with a button to launch the Auth0 authentication process.
 
 1. Launch Xcode, go to **File > Open**, and open `/lab-03/exercise-01/begin/exercise-01.xcworkspace` in your locally-cloned copy of the [identity exercise repo](https://github.com/auth0/identity-102-exercises/).
 
-<%= include('../_includes/git-clone-note') %>
+<%= include('../_includes/_git-clone-note') %>
 
 ::: note
 If the project complains about a missing dependency, you might have opened `exercise-01.xcodeproj` instead of `exercise-01.xcworkspace` (note the extension).
@@ -77,7 +79,7 @@ To be able to use the callback that was configured in the Auth0 dashboard, a URL
 - **URL Schemes**: `$(PRODUCT_BUNDLE_IDENTIFIER)`
 - **Role**: `None`
 
-Just as `http` is a URL Scheme that will launch a browser, the bundle identifier of the app as a URL Scheme (which will resolve to `com.auth0.identity102`) will tell iOS that any time this scheme is used in a URL, it must be routed to our application. That will be the case of the callback used by Auth0 after you log in.
+Just as `http` is a URL Scheme that will launch a browser, the bundle identifier of the app has a URL Scheme (which will resolve to `com.auth0.identity102`) will tell iOS that any time this scheme is used in a URL, it must be routed to our application. That will be the case of the callback used by Auth0 after you log in.
 
 12. Now, the application needs to have the Auth0.swift SDK handle the callback in order to proceed with the authentication flow. In the Project Navigator on the left, open `exercise-01/AppDelegate.swift` and add the following import statement just below the other one:
 
@@ -188,7 +190,7 @@ Congratulations! You have successfully added Auth0 authentication to your native
 
 The authorization code grant by itself has some security issues when implemented on native applications. For instance, a malicious attacker can intercept the authorization code returned by Auth0 and exchange it for an access token. The Proof Key for Code Exchange (PKCE) is a technique used to mitigate this authorization code interception attack.
 
-With PKCE, for every authorization request, the application creates a cryptographically random key called the **code verifier**, hashes that value into a **code challenge**, and sends it to the authorization server to get the authorization code. When the application receives the code after a successful login, it will send the code and the code verifier to the token endpoint to exchange them for the requested tokens.
+With PKCE, for every authorization request, the application creates a cryptographically random key called the **code verifier**, hashes that value into a **code challenge**, and sends the **code challenge** to the authorization server to get the authorization code. When the application receives the code after a successful login, it will send the code and the code verifier to the token endpoint to exchange them for the requested tokens.
 
 Since you previously enabled logging in our `WebAuth` call with the `logging()` method, it is easy to see the process flow in the Debug Area.
 

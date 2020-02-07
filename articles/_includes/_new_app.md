@@ -3,7 +3,7 @@
 
 When you signed up for Auth0, a new application was created for you, or you could have created a new one.
 
-You will need some details about that application to communicate with Auth0. You can get these details from the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) section in the Auth0 dashboard.
+You will need some details about that application to communicate with Auth0. You can get these details from the [Application Settings](${manage_url}/#/applications) section in the Auth0 dashboard.
 
 You need the following information:
 

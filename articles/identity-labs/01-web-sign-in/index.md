@@ -30,7 +30,7 @@ The Node OIDC npm package that this lab uses has not been tested, licensed, or o
 
 ## What You'll Need
 
-<%= include('../_includes/what-you-need') %>
+<%= include('../_includes/_what-you-need') %>
 
 ---
 

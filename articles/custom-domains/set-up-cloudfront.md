@@ -35,6 +35,7 @@ You can configure AWS CloudFront for use as the reverse proxy with custom domain
   | Origin ID | A description for the origin. This value lets you distinguish between multiple origins in the same distribution and therefore must be unique. |
   | Origin Protocol Policy | Set to `HTTPS Only` |
   | Alternate Domain Names (CNAMEs) | Set to your custom domain name (the same one your configured in the Auth0 Dashboard) |
+  | SSL Certificate | Set to the SSL Certificate for your custom domain stored in AWS Certificate Manager (ACM) in the US East(N. Virginia) Region or in IAM. |
 
   ![Create Distribution](/media/articles/custom-domains/aws/create-distribution.png)
 
@@ -54,7 +55,7 @@ You can configure AWS CloudFront for use as the reverse proxy with custom domain
   | Viewer Protocol Policy | Select **Redirect HTTP to HTTPS** |
   | Allowed HTTP Methods | Select **GET, HEAD, OPTIONS, PUT, POST, PATCH, DELETE** |
   | Cache Based on Selected Request Headers | Select **Whitelist** |
-  | Whitelist Headers | Enter `User-Agent` and click **Add Custom >>** to add the custom whitelist header. Do the same for `Origin` and `Referer` headers. |
+  | Whitelist Headers | Enter `User-Agent` and click **Add Custom >>** to add the custom whitelist header. Do the same for `Origin`, `Referer` and `Accept` headers. |
   | Forward Cookies | Select **All** |
   | Query String Forwarding and Caching | Select **Forward all, cache based on all** |
 

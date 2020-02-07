@@ -1,19 +1,19 @@
 ---
-title: Represent Multiple APIs Using a Single Logical API in Auth0
-description: How to use a single logical API in Auth0 to represent and control access to multiple APIs.
+
+description: Learn how to use a single logical API in Auth0 to represent and control access to multiple APIs.
 topics:
   - api-authentication
   - oidc
   - apis
   - scopes
   - permissions
-contentType: tutorial
+contentType: how-to
 useCase:
   - secure-api
   - call-api
 ---
 
-# Represent Multiple APIs Using a Single Logical API in Auth0
+# Represent Multiple APIs Using a Single Logical API
 
 If you have multiple distinct API implementations that are all logically a part of the same API, you can simplify your authorization process by representing them with a single logical [API](/apis) in the Auth0 Dashboard. Doing this allows you to implement just one authorization flow, while still controlling access to the individual APIs by assigning the appropriate <dfn data-key="scope">scopes</dfn>.
 

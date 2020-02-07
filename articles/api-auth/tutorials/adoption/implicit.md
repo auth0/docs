@@ -1,5 +1,5 @@
 ---
-title: OIDC-conformant Implicit grant
+description: Understand how the implicit grant is used by apps that are incapable of securely storing secrets such as SPA JS apps.
 topics:
   - api-authentication
   - oidc
@@ -10,7 +10,7 @@ useCase:
   - call-api
 ---
 
-# Implicit grant
+# Implicit Grant
 
 <%= include('./_about.md') %>
 
@@ -180,6 +180,6 @@ Location: https://app.example.com/#
   </div>
 </div>
 
-## Further reading
+## Keep reading
 
 <%= include('./_index.md') %>

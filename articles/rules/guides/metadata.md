@@ -13,6 +13,12 @@ useCase: extensibility-rules
 
 You can read, update, and delete [metadata](/metadata) using [Rules](/rules).
 
+::: panel-warning `app_metadata` field names
+Avoid using the same name for `app_metadata` fields and root profile fields. Within the rules scope, `app_metadata` is squashed into the root profile and may override root properties.
+
+For example, if a SAML identity provider returns a `groups` field and the user has an `app_metadata.groups` field, then `user.groups` will be equal to `app_metadata.groups` and not `user.groups`.
+:::
+
 In the following sections, we will refer to this example where the user and their information is represented by the following JSON snippet:
 
 ```json

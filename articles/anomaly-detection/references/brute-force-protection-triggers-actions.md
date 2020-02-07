@@ -51,12 +51,14 @@ If this block is triggered, additional access attempts are released one-at-a-tim
 
 ### Remove block
 
-Auth0 emails the dashboard administrator(s) when this block is triggered. Within this email there's a link the owner can click on to clear the block.
+Auth0 emails the dashboard administrator(s) when this block is triggered. The email contains a link that the owner can click to navigate to tenant logs to examine which IPs have been blocked. Recent blocks can be found using this query:
+```
+type:limit_mu
+```
+Blocks can then be removed using the [Management API](/api/management/v2#!/Anomaly/delete_ips_by_id).
 
 ## Keep reading
 
-* Understand [how Auth0 detects anomalies](/anomaly-detection).
-* Learn how to [set anomaly detection preferences](/anomaly-detection/guides/set-anomaly-detection-preferences) in the Dashboard.
-* Learn how to [disable and enable brute-force protection](/anomaly-detection/guides/enable-disable-brute-force-protection).
-* [Restrictions and limitations](/anomaly-detection/references/anomaly-detection-restrictions-limitations) of Auth0 anomaly detection.
-* [Frequently asked questions](/anomaly-detection/references/anomaly-detection-faqs) about anomaly detection.
+* [Anomaly Detection](/anomaly-detection)
+* [Set Anomaly Detection Preferences](/anomaly-detection/guides/set-anomaly-detection-preferences)
+* [Enable and Disable Brute-Force Protection](/anomaly-detection/guides/enable-disable-brute-force-protection)

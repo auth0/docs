@@ -1,5 +1,5 @@
 ---
-description: How to securely generate and validate a cryptographic nonce for use with the Implicit Grant
+description: How to securely generate and validate a cryptographic nonce for use with the Implicit Grant.
 topics:
   - api-authentication
   - oidc
@@ -11,7 +11,7 @@ useCase:
   - call-api
 ---
 
-# Mitigate replay attacks when using the Implicit Flow
+# Mitigate Replay Attacks When Using the Implicit Flow
 
 To mitigate replay attacks when using the [Implicit Flow](/flows/concepts/implicit), a <dfn data-key="nonce">nonce</dfn> must be sent on authentication requests [as required by the OpenID Connect (OIDC) specification](https://openid.net/specs/openid-connect-core-1_0.html#ImplicitAuthRequest).
 

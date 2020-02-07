@@ -69,6 +69,7 @@ You may configure Auth0 to send users one-time codes using:
 * [AWS](/email/providers#configure-amazon-ses)
 * [Twilio SendGrid](/email/providers#configure-sendgrid)
 * [SparkPost](/email/providers#configure-sparkpost)
+* [Mailgun](/email/providers#configure-mailgun)
 * [your own custom SMTP email provider](/email/providers#configure-a-custom-smtp-server)
 
 ::: note

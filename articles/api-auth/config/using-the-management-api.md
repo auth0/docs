@@ -1,6 +1,5 @@
 ---
-title: Set up a Client Credentials Grant using the Management API
-description: How to set up a Client Credentials Grant using the Management API.
+description: Learn how to set up a Client Credentials Grant using the Management API.
 crews: crew-2
 topics:
   - client-credentials
@@ -9,9 +8,9 @@ contentType: how-to
 useCase: secure-api
 ---
 
-# Set up a Client Credentials Grant using the Management API
+# Set Up Client Credentials Grants Using the Management API
 
-Auth0 lets you authorize applications that have the 'Client Credentials' grant type enabled to call APIs using the [Client Credentials Flow](/flows/concepts/client-credentials). 
+Auth0 lets you authorize applications that have the Client Credentials grant type enabled to call APIs using the [Client Credentials Flow](/flows/concepts/client-credentials). 
 
 By default, all Machine-to-Machine Applications and Regular Web Applications have the 'Client Credentials' grant enabled, but they are not authorized to call any API.
 

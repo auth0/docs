@@ -23,7 +23,7 @@ To set up the Delegate Administration Extension (DAE), you must:
 1. [Register an Application with Auth0](#register-an-application-with-auth0)
 2. [Create a database connection](#create-a-database-connection)
 3. [Disable all other connections for your Auth0 Application](#disable-all-other-connections-for-your-auth0-application)
-4. [Create a user for the database connection](#create-a-user-for-the-database-connections)
+4. [Create a user for the database connection](#create-a-user-for-the-database-connection)
 5. [Assign roles to the user](#assign-roles-to-the-user)
 6. [Install and configure the extension](#install-and-configure-the-extension)
 7. [Use the extension](#use-the-extension)
@@ -102,7 +102,7 @@ If you choose not to use Authorization Core, you should define DAE roles in one 
 
 ## Install and configure the extension
 
-Now that we've created and configured an application, a connection, and our user, we can [install and configure the Delegated Admin Extension](/extensions/delegated-admin) itself.
+Now that we've created and configured an application, a connection, and our user, we can [install and configure the Delegated Admin Extension](/dashboard/guides/extensions/delegated-admin-install-extension) itself.
 
 ## Use the extension
 

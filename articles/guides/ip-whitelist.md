@@ -14,7 +14,7 @@ useCase:
 
 # Whitelist IP Addresses
 
-If you are behind a firewall, the use of the following features may require whitelisting of the appropriate Auth0 IP addresses to ensure proper functionality:
+If you are behind a firewall, the following features may require whitelisting of the appropriate Auth0 IP addresses to ensure proper functionality:
 
 * [Custom Database Connections](/connections/database/custom-db)
 * [Hooks](/hooks)
@@ -23,7 +23,7 @@ If you are behind a firewall, the use of the following features may require whit
 ## Outbound Calls
 
 ::: warning
-Please note that IP addresses are subject to change during [Auth0 Migrations](/migrations). The lists provided are up-to-date at the time of writing, but check the [Dashboard](${manage_url}) for the latest list.
+Please note that IP addresses are subject to change. In the event of a change, Auth0 will send notifications several months before any IP address changes take place. The lists provided are up-to-date at the time of writing, but check the [Dashboard](${manage_url}) for the latest list.
 :::
 
 When Auth0 makes outbound calls, the IP addresses are static. Auth0 translates internal IP addresses to one of the displayed options when reaching out using NAT. 

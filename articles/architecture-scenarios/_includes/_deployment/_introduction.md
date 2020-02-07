@@ -23,7 +23,7 @@ Each environment may also need some environment-specific configuration--Applicat
 Auth0 allows you to configure variables that are available from within custom [extensibility](/topics/extensibility); these can be thought of as environment variables for your Auth0 tenant. Rather than hard code references that change when moving code between development, test, and production environments, you can use a variable name that is configured in the tenant and referenced by the custom extensibility code. This makes it easier for the same custom code to function, without changes, in different tenants as the code can reference variables which will be populated with tenant-specific values at execution time:
 
 * For use of variables in Rules, see how to [configure values](/rules/guides/configuration#configure-values)
-* For use of variables in Hooks, see how to [configure secrets](https://webtask.io/docs/editor/secrets) in the editor used for Hooks
+* For use of variables in Hooks, see how to configure [secrets](/hooks/secrets) in the editor
 * For use of variables in Custom DB Scripts, see the [configuration parameters](/connections/database/custom-db/create-db-connection#step-3-add-configuration-parameters) 
 
 ::: panel Best Practice

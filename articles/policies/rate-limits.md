@@ -210,19 +210,9 @@ If you obtain Access Tokens for your SPAs, note that there are rate limits that 
     </tr>
     <tr>
         <td>All Endpoints</td>
-        <td><a href="/docs/api/authentication">All Authentication API endpoints</a></td>
+        <td><a href="/api/authentication">All Authentication API endpoints</a></td>
         <td>Sum of all combined requests to any Authentication API endpoint</td>
         <td>100 requests per second</td>
-    </tr>
-    <tr>
-        <td rowspan="2">Authentication and authorization</td>
-        <td rowspan="2"><code>/authorize</code></td>
-        <td>IP Address</td>
-        <td>500 requests per minute</td>
-    </tr>
-    <tr>
-        <td>Sessions</td>
-        <td>10 requests per second</td>
     </tr>
     <tr>
         <td rowspan="2">User Profile</td>
@@ -244,6 +234,7 @@ If you obtain Access Tokens for your SPAs, note that there are rate limits that 
     <tr>
     <td>Change Password</td>
     <td><code>/dbconnections/change_pass</code></td>
+    <td>User Email, IP Address</td>
     <td>1 request per minute with bursts of up to 10 requests</td>
   </tr>
   <tr>
@@ -262,16 +253,6 @@ If you obtain Access Tokens for your SPAs, note that there are rate limits that 
         <th>Path</th>
         <th>Limited By</th>
         <th>Rate Limit</th>
-    </tr>
-    <tr>
-        <td rowspan="2">Authentication and authorization</td>
-        <td rowspan="2"><code>/authorize</code></td>
-        <td>IP Address</td>
-        <td>300 requests per minute</td>
-    </tr>
-    <tr>
-        <td>Sessions</td>
-        <td>10 requests per minute</td>
     </tr>
     <tr>
         <td rowspan="2">User Profile</td>
@@ -293,7 +274,7 @@ If you obtain Access Tokens for your SPAs, note that there are rate limits that 
     <tr>
     <td>Change Password</td>
     <td><code>/dbconnections/change_password</code></td>
-    <td>User Email and IP</td>
+    <td>User Email, IP Address</td>
     <td>1 request per minute with bursts of up to 10 requests</td>
   </tr>
   <tr>

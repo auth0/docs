@@ -1,6 +1,5 @@
 ---
-title: How to implement the Implicit Grant
-description: How to execute an Implicit Grant flow from a SPA Client application.
+description: Learn how to execute an Implicit Grant flow from a SPA Client application.
 toc: true
 topics:
   - api-authentication
@@ -11,7 +10,7 @@ useCase:
   - secure-api
   - call-api
 ---
-# How to implement the Implicit Grant
+# Implement the Implicit Grant
 
 ::: note
 This tutorial will help you implement the Implicit Grant. If you are looking for some theory on the flow refer to [Call APIs from Client-side Web Apps](/api-auth/grant/implicit).

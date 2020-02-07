@@ -1,5 +1,5 @@
 ---
-title: User profile claims and scope
+description: Apps can request any standard OIDC scopes such as profile and email as well as any scopes supported by the API they want to access.
 topics:
   - api-authentication
   - oidc
@@ -12,7 +12,7 @@ useCase:
   - call-api
 ---
 
-# User profile claims and scope
+# User Profile Claims and the `scope` Parameter
 
 <%= include('./_about.md') %>
 

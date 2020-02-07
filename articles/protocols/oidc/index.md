@@ -41,15 +41,14 @@ The [ID Token](/tokens/id_token) is a <dfn data-key="json-web-token">JSON Web To
 
 ### Claims
 
-JWT Tokens contain [claims](/jwt#payload), which are statements (such as name or email address) about an entity (typically, the user) and additional metadata.
+JWT Tokens contain [claims](/tokens/concepts/jwt-claims), which are statements (such as name or email address) about an entity (typically, the user) and additional metadata.
 
 The [OpenID Connect specification](https://openid.net/specs/openid-connect-core-1_0.html) defines a set of [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). The set of standard claims include name, email, gender, birth date, and so on. However, if you want to capture information about a user and there currently isn't a standard claim that best reflects this piece of information, you can create [custom claims and add them to your tokens](/scopes/current/sample-use-cases#add-custom-claims-to-a-token).
-
-:::note
-Watch our 30 minute webinar tutorial [Intro to OpenID Connect](https://auth0.com/resources/webinars/intro-openid-connect) to better understand this protocol, its benefits, and how to integrate it in your app.
-:::
 
 ## Keep reading
 
 * [Configure Applications with OpenID Connect Discovery](/protocols/oidc/openid-connect-discovery)
+* [User Profiles Returned from OIDC-Compliant Pipelines](/users/normalized/oidc)
+* [OIDC Conformant Authentication Adoption Guide](/api-auth/tutorials/adoption)
+* [Webinar: Intro to OpenID Connect](https://auth0.com/resources/webinars/intro-openid-connect)
 * [OIDC Handbook](https://auth0.com/resources/ebooks/the-openid-connect-handbook)

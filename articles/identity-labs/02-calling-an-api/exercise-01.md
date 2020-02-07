@@ -12,13 +12,15 @@ contentType:
 ---
 # Lab 2, Exercise 1: Consuming APIs
 
-<%= include('../_includes/first-page-of-lab-note') %>
+::: warning
+If you came to this page directly, go to the [first page of this lab](/identity-labs/02-calling-an-api) and read through the instructions before getting started.
+:::
 
 After learning how to secure your web application with Auth0 in [lab 1](/identity-labs/01-web-sign-in), you will now learn how to make this application consume APIs on behalf of your users. You will start by running an unsecured API and a web application to see both working together, and then you will secure your API with Auth0.
 
 1. Open a new terminal and browse to `/lab-02/begin/api` in your locally-cloned copy of the [identity exercise repo](https://github.com/auth0/identity-102-exercises/). This is where the code for your API resides. The API is an Express backend that contains a single endpoint. This endpoint (served under the root path) returns expenses, which are data that belong to each user (though they are static and the same for all).
 
-<%= include('../_includes/git-clone-note') %>
+<%= include('../_includes/_git-clone-note') %>
 
 2. Install the dependencies using npm:
 
@@ -33,7 +35,7 @@ After learning how to secure your web application with Auth0 in [lab 1](/identit
 added XX packages in X.XXs
 ```
 
-3. Next, copy the `.env-example` to `.env` and start the API:
+3. Next, copy `.env-sample` to `.env` and start the API:
 
 ```bash
 ❯ cp .env-sample .env
@@ -74,9 +76,8 @@ added XX packages in X.XXs
 ISSUER_BASE_URL=https://YOUR_DOMAIN
 CLIENT_ID=YOUR_CLIENT_ID
 API_URL=http://localhost:3001
-BASE_URL=http://localhost:3000
 PORT=3000
-COOKIE_SECRET=LONG_RANDOM_STRING
+APP_SESSION_SECRET=LONG_RANDOM_STRING
 ```
 
 ::: note
@@ -102,55 +103,44 @@ Right now, even though the application requires authentication, the API does not
 ```js
 // webapp/server.js
 
-// Replace this code ❌
-/*
-app.use(auth({
-  required: false,
-  auth0Logout: true
-}));
-*/
-
-// ... with this 👇
 app.use(auth({
   required: false,
   auth0Logout: true,
+  baseURL: appUrl,
+
+  // Add the additional configuration keys below 👇
+  appSessionSecret: false,
   authorizationParams: {
     response_type: 'code id_token',
+    response_mode: 'form_post',
     audience: process.env.API_AUDIENCE,
     scope: 'openid profile email read:reports'
+  },
+  handleCallback: async function (req, res, next) {
+    req.session.openidTokens = req.openidTokens;
+    req.session.userIdentity = req.openidTokens.claims();
+    next();
+  },
+  getUser: async function (req) {
+    return req.session.userIdentity;
   }
+  // 👆
+
 }));
 ```
 
 This change updates the configuration object passed to `auth()` and defines how you want the `express-openid-connect` library to behave. In this case, you configured the library with a new property called `authorizationParams` and passed in an object with three properties:
 
 - `response_type` - setting this field to `code id_token` indicates that you no longer want the middleware to fetch just an ID token (which is the default behavior for this package). Instead, you are specifying that you want an ID token *and* an authorization code. When you configure the `express-openid-connect` library to fetch an authorization code, the middleware automatically exchanges this code for an access token (this process is known as the Authorization Code Grant flow). Later, you will use the access token to call the API.
+- `response_mode` - This is the same mode used in lab 1, a POST request from the authorization server to the application.
 - `audience` - this tells the middleware that you want access tokens valid for a specific resource server (your API, in this case). As you will see soon, you will configure an `API_AUDIENCE` environment variable to point to the identifier of an API that you will register with Auth0.
 - `scope` - securing your API uses a delegated authorization mechanism where an application (your web app) requests access to resources controlled by the user (the resource owner) and hosted by an API (the resource server). Scopes, in this case, are the permissions that the access token grants to the application on behalf of the user. In your case, you are defining four scopes: the first three (`openid`, `profile`, and `email`) are scopes related to the user profile (part of OpenID Connect specification). The last one, `read:reports`, is a custom scope that will be used to determine whether the caller is authorized to retrieve the expenses report from the API on behalf of a user.
 
-::: note
-To exchange the authorization code for an access token, the web application needs to authenticate with the token endpoint of the authorization server. You will configure your web app to send the `CLIENT_SECRET` along with `CLIENT_ID` for this purpose later in the lab.
-:::
+The `appSessionSecret`, `handleCallback`, and `getUser` additions change how the user session is handled and stores the incoming access and refresh tokens somewhere we can access later.
 
-10. Back in the `webapp/server.js` file, find the following code in the `/expenses` endpoint definition:
+10. Back in the `webapp/server.js` file, find the `/expenses` endpoint definition. In this code, you are making a request to the API, without any authorization information, to get a JSON resource. Note the use of the `requiresAuth()` middleware. This will enforce authentication for all requests to this endpoint.
 
-```js
-// webapp/server.js
-
-app.get('/expenses', requiresAuth(), async (req, res, next) => {
-  try {
-    const expenses = await request(process.env.API_URL, {
-      json: true
-    });
-    // ...
-  }
-  // ...
-});
-```
-
-In this code, you are making a simple request to the API without any authorization information, to get a JSON resource. Note the use of the `requiresAuth()` middleware. This will enforce authentication for all requests to this endpoint.
-
-11. Update the endpoint definition to include authorization information in the request. To do this, replace the lines in the try block shown in the previous step with the code below:
+11. Update the endpoint definition to include authorization information in the request:
 
 ```js
 // webapp/server.js
@@ -165,22 +155,20 @@ app.get('/expenses', requiresAuth(), async (req, res, next) => {
     });
     */
 
-    // ... with this 👇
-    const tokenSet = req.openid.tokens;
+    // ... with the code below 👇
+    let tokenSet = req.openid.makeTokenSet(req.session.openidTokens);
     const expenses = await request(process.env.API_URL, {
       headers: { authorization: "Bearer " + tokenSet.access_token },
       json: true
     });
 
-    // ...
+    // ... keep the rest
   }
   // ...
 });
 ```
 
 In the new version of this endpoint, you are sending the access token in an `Authorization` header when sending requests to the API. By doing so, the web application consumes the API on behalf of the logged in user.
-
-Note the use of the `req.openid.tokens` property in the first line. This is one of the properties added to the request object by the `express-openid-connect` middleware, which contains an instance of a `TokenSet`.
 
 12. Add the following two environment variables to the `webapp/.env` file:
 
