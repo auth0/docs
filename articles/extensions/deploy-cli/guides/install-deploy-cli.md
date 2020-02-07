@@ -32,7 +32,7 @@ npm i -g auth0-deploy-cli
 
 ## Install the Deploy CLI Extension
 
-The Deploy CLI tool must be authorized to call the Management API. The **Auth0 Deploy CLI** extension configures your tenant to use the Auth0 Deploy CLI tool by creating and configuring an application named **auth0-deploy-cli-extension**. Later, you will use the Client ID and Secret from this application to configure the Deploy CLI Tool.
+The Deploy CLI tool must be authorized to call the Management API. To do this, the **Auth0 Deploy CLI** extension configures your tenant by creating and configuring an application named **auth0-deploy-cli-extension** and authorizing it for use with the Management API. Later, you will use the Client ID and Secret from this application to configure the Deploy CLI Tool.
 
 1. Navigate to the [Extensions](${manage_url}/#/extensions) page in the [Auth0 Dashboard](${manage_url}), locate the **Auth0 Deploy CLI** extension, and click the extension.
 
