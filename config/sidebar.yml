@@ -993,7 +993,7 @@ articles:
       - title: Authorization Extension
         url: /extensions/authorization-extension/v2
 
-      - title: Delegated Adminstration
+      - title: Delegated Administration
         url: /extensions/delegated-admin/v3
 
       - title: Custom Social Connections
