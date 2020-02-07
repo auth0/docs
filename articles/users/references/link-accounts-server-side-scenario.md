@@ -6,7 +6,7 @@ topics:
   - account-linking
   - server-side
 contentType:
-  - how-to
+  - reference
 useCase:
   - manage-accounts
 ---
@@ -280,6 +280,9 @@ module.exports = new Auth0Client();
 
 ## Keep reading
 
+* [User Account Linking Overview](/users/concepts/overview-user-account-linking)
+* [Link User Accounts](/users/guides/link-user-accounts)
+* [Unlink User Accounts](/users/guides/unlink-user-accounts)
 * [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking)
 * [Link User Accounts Client-Side Scenario](/users/references/link-accounts-client-side-scenario)
-* [Link User Accounts User Initiated Scenario](/users/references/link-acounts-user-initiated-scenario)
+* [Link User Accounts Initiated by Users Scenario](/users/references/link-acounts-user-initiated-scenario)

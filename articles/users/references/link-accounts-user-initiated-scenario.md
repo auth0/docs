@@ -1,11 +1,11 @@
 ---
-description: How to provide a UI for the user to authenticate to their other accounts and link these to their primary account.
+description: Describes a UI for the user to authenticate to their other accounts and link these to their primary account.
 crews: crew-2
 topics:
   - account-linking
   - client-side
 contentType:
-  - how-to
+  - reference
 useCase:
   - manage-accounts
 ---
@@ -199,6 +199,9 @@ function unlinkAccount(secondaryProvider, secondaryUserId){
 
 ## Keep reading
 
+* [User Account Linking Overview](/users/concepts/overview-user-account-linking)
+* [Link User Accounts](/users/guides/link-user-accounts)
+* [Unlink User Accounts](/users/guides/unlink-user-accounts)
 * [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking)
 * [Link User Accounts Client-Side Scenario](/users/references/link-accounts-client-side-scenario)
 * [Link User Accounts Server-Side Scenario](/users/references/link-accounts-server-side-scenario)
