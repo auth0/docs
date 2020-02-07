@@ -1,8 +1,6 @@
 ---
 title: Link User Accounts
 description: Learn how to link user accounts from various identity providers, so your users can authenticate from any of their accounts and still be recognized by your app and associated with the same user profile.
-crews: crew-2
-toc: true
 topics:
   - account-linking
 contentType:
@@ -12,12 +10,18 @@ useCase:
 ---
 # Link User Accounts
 
+Auth0 supports the linking of user accounts from various identity providers. This allows a user to authenticate from any of their accounts and still be recognized by your app and associated with the same user profile. This feature requires a paid subscription to the **Developer**, **Developer Pro** or **Enterprise** plan (see [Pricing](https://auth0.com/pricing)).
+
+::: note
+Auth0 treats all identities as separate by default. For example, if a user logs in first against the Auth0 database and then via Google or Facebook, these two attempts would appear to Auth0 as two separate users.
+:::
+
 <div class="code-picker">
   <div class="languages-bar">
     <ul>
       <li><a href="#extension" data-toggle="tab">Account Link Extension</a></li>
       <li><a href="#mgmt-api" data-toggle="tab">Management API</a></li>
-      <li><a href="auth0js" data-toggle="tab">Auth0.js</a></li>
+      <li><a href="auth0js" data-toggle="tab">Auth0 js</a></li>
     </ul>
   </div>
   <div class="tab-content">
@@ -117,7 +121,7 @@ The Auth0 Management API provides the [Link a user account](/api/v2#!/Users/post
 
 ## Use Auth0.js
 
-Instead of calling directly the API, you can use the [Auth0.js](/libraries/auth0js) library.
+You can use the [Auth0.js](/libraries/auth0js) library.
 
 First, you must get an Access Token that can be used to call the Management API. You can do it by specifying the `https://${account.namespace}/api/v2/` audience when initializing Auth0.js. You will get the Access Token as part of the authentication flow. Alternatively, you can use the `checkSession` method.
 
