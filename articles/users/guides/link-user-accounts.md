@@ -12,9 +12,22 @@ useCase:
 ---
 # Link User Accounts
 
+<div class="code-picker">
+  <div class="languages-bar">
+    <ul>
+      <li><a href="#extension" data-toggle="tab">Account Link Extension</a></li>
+      <li><a href="#mgmt-api" data-toggle="tab">Management API</a></li>
+      <li><a href="auth0js" data-toggle="tab">Auth0.js</a></li>
+    </ul>
+  </div>
+  <div class="tab-content">
+    <div id="extension" class="tab-pane active">
+
 ## Use the Account Link extension
 
 You can install and configure the [Account Link Extension](/extensions/account-link) to prompt users that may have created a second account by mistake to link the new account with their old one on their first login. The user may choose to either link the two accounts or keep them separate if it was intentional.
+    </div>
+    <div id="mgmt-api" class="tab-pane">
 
 ## Use the Management API
 
@@ -99,6 +112,8 @@ The Auth0 Management API provides the [Link a user account](/api/v2#!/Users/post
   - The `aud` claim in the secondary account's ID Token must identify the client, and hold the same value with the `azp` claim of the Access Token used to make the request.
 
   Note also that since the Access Token contains the `update:users` scope, it can be used to update the information of **any** user. Therefore this method is intended for use in server-side code only.
+    </div>
+    <div id="auth0js" class="tab-pane">
 
 ## Use Auth0.js
 
@@ -109,6 +124,9 @@ First, you must get an Access Token that can be used to call the Management API.
 Once you have the Access Token, you can create a new `auth0.Management` instance by passing it the account's Auth0 domain, and the Access Token.
 
 For more information and sample scripts, see [Auth0.js > User management](/libraries/auth0js/v9#user-management).
+    </div>
+  </div>
+</div>
 
 ## Fill-in missing properties from secondary identities
 
