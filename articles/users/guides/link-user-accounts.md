@@ -141,4 +141,4 @@ function(user, context, callback) {
 * [Unlink User Accounts](/users/guides/unlink-user-accounts)
 * [Link User Accounts Client-Side Scenario](/users/references/link-accounts-client-side-scenario)
 * [Link User Accounts Server-Side Scenario](/users/references/link-accounts-server-side-scenario)
-* [Link User Accounts Initiated by Users Scenario](/users/references/link-acounts-user-initiated-scenario)
+* [Link User Accounts Initiated by Users Scenario](/users/references/link-accounts-user-initiated-scenario)

@@ -126,4 +126,4 @@ The body should be:
 * [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking)
 * [Link User Accounts Client-Side Scenario](/users/references/link-accounts-client-side-scenario)
 * [Link User Accounts Server-Side Scenario](/users/references/link-accounts-server-side-scenario)
-* [Link User Accounts User Initiated Scenario](/users/references/link-acounts-user-initiated-scenario)
+* [Link User Accounts Initiated by Users Scenario](/users/references/link-accounts-user-initiated-scenario)

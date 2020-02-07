@@ -134,4 +134,4 @@ Also, you can select which identity will be used as the primary account and whic
 * [Unlink User Accounts](/users/guides/unlink-user-accounts)
 * [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking)
 * [Link User Accounts Server-Side Scenario](/users/references/link-accounts-server-side-scenario)
-* [Link User Accounts Initiated by Users Scenario](/users/references/link-acounts-user-initiated-scenario)
+* [Link User Accounts Initiated by Users Scenario](/users/references/link-accounts-user-initiated-scenario)
