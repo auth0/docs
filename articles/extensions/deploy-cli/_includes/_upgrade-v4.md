@@ -5,5 +5,5 @@ Upgrading to Deploy CLI Tool v4 requires that the **auth0-deploy-cli-extension**
 
 2. Locate **Auth0 Deploy CLI**, click **Upgrade**, and confirm. Wait for the upgrade to complete.
 
-If necessary, you can also [manually create and configure the **auth0-deploy-cli-extension** application](/extensions/deploy-cli/guides/create-deploy-cli-application-manually#create-the-initial-deploy-cli-application) and [manually modify required scopes](/extensions/deploy-cli/guides/create-deploy-cli-application-manually#modify-deploy-cli-application-scopes).
+If necessary, you can check and [manually modify required scopes](/extensions/deploy-cli/guides/create-deploy-cli-application-manually#modify-deploy-cli-application-scopes).
 :::
