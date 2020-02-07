@@ -1,6 +1,6 @@
 ---
 title: Link User Accounts
-description: Learn how to link user accounts from various identity providers, so your users can authenticate from any of their accounts and still be recognized by your app and associated with the same user profile
+description: Learn how to link user accounts from various identity providers, so your users can authenticate from any of their accounts and still be recognized by your app and associated with the same user profile.
 crews: crew-2
 toc: true
 topics:
@@ -14,9 +14,9 @@ useCase:
 
 ## Use the Management API
 
-The Auth0 Management API provides the [Link a user account](/api/v2#!/Users/post_identities) endpoint, which can be invoked in two ways.
+The Auth0 Management API provides the [Link a user account](/api/v2#!/Users/post_identities) endpoint, which can be invoked in two ways:
 
-1. With an Access Token that contains the `update:current_user_identities` scope, the `user_id` of the primary account as part of the URL, and the secondary account's ID Token in the payload:
+* With an Access Token that contains the `update:current_user_identities` scope, the `user_id` of the primary account as part of the URL, and the secondary account's ID Token in the payload:
 
   ```har
   {
@@ -44,7 +44,7 @@ The Auth0 Management API provides the [Link a user account](/api/v2#!/Users/post
   - The secondary account's ID Token must be signed with `RS256`
   - The `aud` claim in the secondary account's ID Token must identify the client, and hold the same value with the `azp` claim of the Access Token used to make the request.
 
-2. With an Access Token that contains the `update:users` scope, the `user_id` of the primary account as part of the URL, and the `user_id` of the secondary account in the payload:
+* With an Access Token that contains the `update:users` scope, the `user_id` of the primary account as part of the URL, and the `user_id` of the secondary account in the payload:
 
   ```har
   {

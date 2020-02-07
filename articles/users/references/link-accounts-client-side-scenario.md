@@ -127,37 +127,6 @@ If you wish to retain and merge the `user_metadata` from the secondary account, 
 
 Also, you can select which identity will be used as the primary account and which as the secondary when calling the account linking. This choice will depend on which set of attributes you wish to retain in the primary profile.
 
-## Unlink accounts
-
-If you need to unlink two or more user accounts, you can do so.
-
-Call the Management API v2 [Unlink a User Account endpoint](/api/v2#!/Users/delete_user_identity_by_user_id) using an [Management API Access Token](/api/v2/tokens) with the `update:users` scope.
-
-```js
-function unlinkAccount(secondaryProvider, secondaryUserId) {
-  var primaryUserId = localStorage.getItem('user_id');
-  var primaryAccessToken = localStorage.getItem('access_token');
-
-  // Uses the Access Token of the primary user as a bearer token to identify the account
-  // which will have the account unlinked to, and the user id of the secondary user, to identify
-  // the user that will be unlinked from the primary account.
-
-  $.ajax({
-    type: 'DELETE',
-    url: 'https://' + AUTH0_DOMAIN +'/api/v2/users/' + primaryUserId +
-         '/identities/' + secondaryProvider + '/' + secondaryUserId,
-    headers: {
-      'Authorization': 'Bearer ' + primaryAccessToken
-    }
-  }).then(function(identities){
-    alert('unlinked!');
-    showLinkedAccounts(identities);
-  }).fail(function(jqXHR){
-    alert('Error unlinking Accounts: ' + jqXHR.status + ' ' + jqXHR.responseText);
-  });
-}
-```
-
 ## Keep reading
 
 * [User Account Linking Overview](/users/concepts/overview-user-account-linking)
