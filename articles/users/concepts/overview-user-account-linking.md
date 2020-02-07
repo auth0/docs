@@ -197,7 +197,11 @@ Typically, account linking will be initiated by an authenticated user. Your app 
 
 ### Suggested account linking
 
-As with automatic linking, in this scenario you will set up a [Rule](/rules) that will link accounts with the same verified email address. However, instead of completing the link automatically on authentication, your app will first prompt the user to link their identities.
+You can use the [Account Link Extension](/articles/extensions/account-link) to prompt users that may have created a second account by mistake to link the new account with their old one on their first login. The user may choose to either link the two accounts or keep them separate if it was intentional.
+
+If you're using a custom domain, you'll need to update the **auth0-account-link-extension** [rule](/rules) that is automatically created when you installed the extension. (You can find this rule in your Dashboard by going to **Rules** using the left-hand navigation bar).
+
+You can also set up a [Rule](/rules) that will link accounts with the same verified email address. However, instead of completing the link automatically on authentication, your app will first prompt the user to link their identities.
 
 ![Sample linking suggestion](/media/articles/link-accounts/regular-web-app-suggest-linking.png)
 

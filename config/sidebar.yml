@@ -743,7 +743,14 @@ articles:
         url: /users/guides/manage-users-using-the-management-api
 
       - title: Link User Accounts
-        url: /extensions/account-link
+        url: /users/concepts/overview-account-linking
+        children:
+
+          - title: Link User Accounts
+            url: /users/guides/link-user-accounts
+
+          - title: Unlink User Accounts
+            url: /users/guides/unlink-user-accounts
 
       - title: Blacklist User Attributes
         url: /security/blacklisting-attributes

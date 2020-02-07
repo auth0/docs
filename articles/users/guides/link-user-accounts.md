@@ -12,6 +12,10 @@ useCase:
 ---
 # Link User Accounts
 
+## Use the Account Link extension
+
+You can install and configure the [Account Link Extension](/extensions/account-link) to prompt users that may have created a second account by mistake to link the new account with their old one on their first login. The user may choose to either link the two accounts or keep them separate if it was intentional.
+
 ## Use the Management API
 
 The Auth0 Management API provides the [Link a user account](/api/v2#!/Users/post_identities) endpoint, which can be invoked in two ways:
