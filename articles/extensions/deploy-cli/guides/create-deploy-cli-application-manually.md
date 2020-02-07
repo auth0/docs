@@ -48,6 +48,14 @@ To modify permissions (scopes) for an application that has been created previous
 
 ![Enable Permissions](/media/articles/extensions/deploy-cli/deploy-cli-enable-permissions.png)
 
+::: warning
+If the APIs tab is not visible:
+
+1. For **Application Type**, and select **Machine to Machine**. 
+
+2. Click **Save Changes**, then refresh the page. The APIs tab should now be visible.
+:::
+
 ## Required Scopes
 
 The following scopes are required to be enabled on the `auth0-deploy-cli-extension` Application to ensure it is configured for proper access to the Management API.
