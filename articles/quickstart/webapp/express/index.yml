@@ -22,4 +22,4 @@ github:
   branch: master
 requirements:
   - NodeJS 10.13+
-  - Express 4.16+
+  - Express 4.17+
