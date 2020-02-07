@@ -1,7 +1,9 @@
 ::: panel Upgrading to Deploy CLI Tool v4
-Upgrading to Deploy CLI Tool v4 requires you to update your Deploy CLI Tool Application to grant the following permissions (scopes) to the Auth0 Management API: `create:hooks`, `read:hooks`, `update:hooks`, and `delete:hooks`. To do so:
+Upgrading to Deploy CLI Tool v4 requires that the **auth0-deploy-cli-extension** application be granted the following additional permissions (scopes) for the Auth0 Management API: `create:hooks`, `read:hooks`, `update:hooks`, and `delete:hooks`. Upgrading the **Auth0 Deploy CLI** extension will take care of this automatically. To upgrade the extension:
 
-1. Navigate to the [Applications](${manage_url}/#/applications) page in the [Auth0 Dashboard](${manage_url}), and click the **auth0-deploy-cli-extension** application name. 
-2. Click the **APIs** tab, and expand the **Auth0 Management API** section.
-3. In **Permissions**, select `create:hooks`, `read:hooks`, `update:hooks`, and `delete:hooks`, then click **Update**.
+1. Navigate to the [Extensions](${manage_url}/#/extensions) page in the [Auth0 Dashboard](${manage_url}), and click the **Installed Extensions** tab. 
+
+2. Locate **Auth0 Deploy CLI**, click **Upgrade**, and confirm. Wait for the upgrade to complete.
+
+If necessary, you can also [manually create and configure the **auth0-deploy-cli-extension** application](/extensions/deploy-cli/guides/create-deploy-cli-application-manually#create-the-initial-deploy-cli-application) and [manually modify required scopes](/extensions/deploy-cli/guides/create-deploy-cli-application-manually#modify-deploy-cli-application-scopes).
 :::
