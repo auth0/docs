@@ -17,11 +17,7 @@ useCase:
 
 # Bulk User Imports
 
-If you already have a user database, you can use the [`POST /api/v2/jobs/users/post_users_imports`](/api/management/v2#!/Jobs/post_users_imports) endpoint to populate a database connection with this information. The user data should first be exported in JSON format. You can then import that file using our API. To see database file schema and examples, visit [Bulk Import Database Schema and Example](/users/references/bulk-import-database-schema-examples).
-
-::: note
-Unless your passwords are compatibly hashed using one of the [supported algorithms](/users/references/bulk-import-database-schema-examples#supported-hash-algorithms), each affected user will need to reset their password when they log in for the first time after the bulk import.
-:::
+If you already have a user database, you can use the [POST /api/v2/jobs/users/post_users_imports](/api/management/v2#!/Jobs/post_users_imports) endpoint to populate a database connection with this information. The user data should first be exported in JSON format. You can then import that file using our API. To see database file schema and examples, visit [Bulk Import Database Schema and Examples](/users/references/bulk-import-database-schema-examples).
 
 For a list of user profile fields that can be inserted and updated during import, see [User Profile Attributes](/users/references/user-profile-structure#user-profile-attributes).
 
@@ -31,25 +27,67 @@ Using the bulk import endpoints, you can:
 2. [Query job's status](/api/management/v2#!/Jobs/get_jobs_by_id).
 3. [Check for details on any failed entries in your job](/api/management/v2#!/Jobs/get_errors).
 
-## Prerequisites
+## Before you start
 
-Before you launch the import users job, you must:
+Before you launch the import users job:
 
-* [Configure a database connection](/connections/database) to which the users will be imported and enable it for at least one application.
+* [Configure a database connection](/connections/database) to import the users to and enable it for at least one application.
+* Create a file in JSON format containing the users to import into Auth0.
+* If you are importing passwords, make sure the passwords are hashed using one of the [supported algorithms](/users/references/bulk-import-database-schema-examples#supported-hash-algorithms). Users with passwords hashed by unsupported algorithms will need to reset their password when they log in for the first time after the bulk import.
+* Get a [Management API Token](/api/management/v2/tokens) to use in requests to the job endpoints.
 
 ## Request bulk import
 
-The [Create Job to Import Users endpoint](/api/management/v2#!/Jobs/post_users_imports) requires that your `POST` request encoded as type `multipart/form-data`.
+The [Create import users job endpoint](/api/management/v2#!/Jobs/post_users_imports) requires that your `POST` request encoded as type `multipart/form-data`.
 
 Create a request that contains the following parameters:
 
 | Parameter | Description |
 |-----------|-------------|
-| `users` | [File in JSON format](/users/references/bulk-import-database-schema-examples#file-example) that contains the users to import. |
+| `users` | [File in JSON format](/users/references/bulk-import-database-schema-examples#examples) that contains the users to import. |
 | `connection_id` | ID of the connection to which users will be inserted. You can retrieve the ID using the [GET /api/v2/connections](/api/management/v2#!/Connections/get_connections) endpoint. |
 | `upsert` | Boolean value; `false` by default. When set to `false`, pre-existing users that match on email address, user ID, or username will fail. When set to `true`, pre-existing users that match on any of these fields will be updated, but only with upsertable attributes. For a list of user profile fields that can be upserted during import, see [User Profile Attributes](/users/references/user-profile-structure#user-profile-attributes). |
 | `external_id` | Optional user-defined string that can be used to correlate multiple jobs. Returned as part of the job status response. |
 | `send_completion_email` | Boolean value; `true` by default. When set to `true`, sends a completion email to all tenant owners when the import job is finished. If you do *not* want emails sent, you must explicitly set this parameter to `false`. |
+
+For example:
+
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/api/v2/jobs/users-imports",
+  "headers": [
+    { "name": "Content-Type", "value": "multipart/form-data" },
+    { "name": "Authorization", "value": "Bearer ACCESS_TOKEN" }
+  ],
+  "postData": {
+    "mimeType": "multipart/form-data",
+    "params": [
+        {
+          "name": "users",
+          "fileName": "MY_USERS_IMPORT_FILE.json",
+          "contentType": "application/json"
+        },
+        {
+          "name": "connection_id",
+          "value": "MY_DB_CONNECTION_ID"
+        },
+        {
+          "name": "upsert",
+          "value": false
+        },
+        {
+          "name": "external_id",
+          "value": "MY_EXTERNAL_ID"
+        },
+        {
+          "name": "send_completion_email",
+          "value": true
+        },
+    ]
+  }
+}
+```
 
 If the request works, you will receive a response similar to the following:
 

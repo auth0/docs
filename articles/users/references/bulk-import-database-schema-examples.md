@@ -1,6 +1,7 @@
 ---
-title: Bulk User Import Database Schema and Example 
+title: Bulk User Import Database Schema and Examples
 description: How to perform bulk user imports with the Management API.
+toc: true
 topics:
   - users
   - user-management
@@ -12,7 +13,7 @@ useCase:
   - manage-users
   - migrate
 ---
-# Bulk User Import Database Schema and Example
+# Bulk User Import Database Schema and Examples
 
 ::: note
 For a list of user profile fields that can be imported, see [User Profile Attributes](/users/references/user-profile-structure#user-profile-attributes).
