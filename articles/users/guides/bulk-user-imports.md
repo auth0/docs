@@ -36,11 +36,44 @@ Before you launch the import users job:
 * If you are importing passwords, make sure the passwords are hashed using one of the [supported algorithms](/users/references/bulk-import-database-schema-examples#supported-hash-algorithms). Users with passwords hashed by unsupported algorithms will need to reset their password when they log in for the first time after the bulk import.
 * Get a [Management API Token](/api/management/v2/tokens) to use in requests to the job endpoints.
 
-## Request bulk import
+## Request bulk user import
 
-The [Create import users job endpoint](/api/management/v2#!/Jobs/post_users_imports) requires that your `POST` request encoded as type `multipart/form-data`.
+To start a bulk user import job, make a `POST` request encoded as type `multipart/form-data` to the [create import users job endpoint](/api/management/v2#!/Jobs/post_users_imports). Be sure to replace the `MGMT_API_ACCESS_TOKEN`, `USERS_IMPORT_FILE.json`, `CONNECTION_ID`, and `EXTERNAL_ID` placeholder values with your Management API Access Token, users JSON file, database connection ID, and external ID, respectively.
 
-Create a request that contains the following parameters:
+```har
+{ 
+  "method":"POST",
+  "url":"https://${account.namespace}/api/v2/jobs/users-imports",
+  "headers":[ 
+    { 
+      "name":"Content-Type",
+      "value":"multipart/form-data"
+    },
+    { 
+      "name":"Authorization",
+      "value":"Bearer MGMT_API_ACCESS_TOKEN"
+    }
+  ],
+  "postData":{ 
+    "mimeType":"multipart/form-data",
+    "params":[ 
+      { 
+        "name":"users",
+        "fileName":"USERS_IMPORT_FILE.json",
+        "contentType":"application/json"
+      },
+      { 
+        "name":"connection_id",
+        "value":"CONNECTION_ID"
+      },
+      { 
+        "name":"external_id",
+        "value":"EXTERNAL_ID"
+      }
+    ]
+  }
+}
+```
 
 | Parameter | Description |
 |-----------|-------------|
@@ -50,64 +83,122 @@ Create a request that contains the following parameters:
 | `external_id` | Optional user-defined string that can be used to correlate multiple jobs. Returned as part of the job status response. |
 | `send_completion_email` | Boolean value; `true` by default. When set to `true`, sends a completion email to all tenant owners when the import job is finished. If you do *not* want emails sent, you must explicitly set this parameter to `false`. |
 
-For example:
-
-```har
-{
-  "method": "POST",
-  "url": "https://${account.namespace}/api/v2/jobs/users-imports",
-  "headers": [
-    { "name": "Content-Type", "value": "multipart/form-data" },
-    { "name": "Authorization", "value": "Bearer ACCESS_TOKEN" }
-  ],
-  "postData": {
-    "mimeType": "multipart/form-data",
-    "params": [
-        {
-          "name": "users",
-          "fileName": "MY_USERS_IMPORT_FILE.json",
-          "contentType": "application/json"
-        },
-        {
-          "name": "connection_id",
-          "value": "MY_DB_CONNECTION_ID"
-        },
-        {
-          "name": "upsert",
-          "value": false
-        },
-        {
-          "name": "external_id",
-          "value": "MY_EXTERNAL_ID"
-        },
-        {
-          "name": "send_completion_email",
-          "value": true
-        },
-    ]
-  }
-}
-```
-
-If the request works, you will receive a response similar to the following:
+If the request is successful, you'll receive a response similar to the following:
 
 ```json
 {
-    "status":"pending",
-    "type":"users_import",
-    "id":"job_abcdef1234567890",
-    "connection":"abcd",
-    "external_id":"contoso"
+  "status": "pending",
+  "type": "users_import",
+  "created_at": "",
+  "id": "job_abc123",
+  "connection_id": "CONNECTION_ID",
+  "upsert": false,
+  "external_id": "EXTERNAL_ID",
+  "send_completion_email": true
 }
 ```
 
 The returned entity represents the import job.
 
-Once the job finishes, the owner(s) of the Auth0 tenant that the job is being run on will get an email notifying them about whether it failed or succeeded (if `send_completion_email` was set to `true`). A notification email for a job that failed might notify the owner(s) that it failed to parse the users file JSON when importing users.
+When the user import job finishes and if `send_completion_email` was set to `true`, the tenant administrator(s) will get an email notifying them that job either failed or succeeded. An email for a job that failed might notify the administrator(s) that it failed to parse the users JSON file when importing users.
 
-## Query for job status
+## Check job status
 
-You can query a job's status using the [Get a Job endpoint](/api/management/v2#!/Jobs/get_jobs_by_id). If the job is complete, the job status response will also show summary totals of successful/failed/inserted/updated records. If there is an error in the job, it will return as failed; however, note that invalid user information, such as an invalid email, will not make the entire job fail.
+To check a job's status, make a `GET` request to the [Get a Job endpoint](/api/management/v2#!/Jobs/get_jobs_by_id). Be sure to replace the `JOB_ID` placeholder value with your user import job ID.
+
+```har
+{ 
+  "method": "GET",
+  "url": "https://${account.namespace}/api/v2/jobs/JOB_ID",
+  "headers": [ 
+    { 
+      "name": "Content-Type",
+      "value": "application/json"
+    },
+    { 
+      "name": "Authorization",
+      "value": "Bearer MGMT_API_ACCESS_TOKEN"
+    }
+  ]
+}
+```
+
+Depending on the status of the user import job, you'll receive a response similar to one of the following:
+
+**Pending**
+
+```json
+{
+  "status": "pending",
+  "type": "users_import",
+  "created_at": "", // TODO: add date
+  "id": "job_abc123",
+  "connection_id": "CONNECTION_ID",
+  "external_id": "EXTERNAL_ID"
+}
+```
+
+**Processing**
+
+```json
+{
+  "status": "processing",
+  "type": "users_import",
+  "created_at": "", // TODO: add date
+  "id": "job_abc123",
+  "connection_id": "CONNECTION_ID",
+  "external_id": "EXTERNAL_ID",
+  "percentage_done": 0,
+  "time_left_seconds": 0
+}
+```
+
+**Completed**
+
+If a job is completed, the job status response will include summary totals of successful/failed/inserted/updated records.
+
+```json
+{
+  "status": "completed",
+  "type": "users_import",
+  "created_at": "", // TODO: add date
+  "id": "job_abc123",
+  "connection_id": "CONNECTION_ID",
+  "external_id": "EXTERNAL_ID",
+  "location": "https://${account.namespace}/EXAMPLE"
+  // TODO: example of successful/failed/inserted/updated fields
+}
+```
+
+**Failed**
+
+If there is an error in the job, it will return as failed. However, note that invalid user information, such as an invalid email, will not make the entire job fail.
+
+```json
+{
+  "status": "failed",
+  "type": "users_import",
+  "created_at": "", // TODO: add date
+  "id": "job_abc123",
+  "connection_id": "CONNECTION_ID",
+  "external_id": "EXTERNAL_ID"
+}
+```
+
+**Expired**
+
+Expired jobs are completed jobs that were created more than `TODO_TIME` ago
+
+```json
+{
+  "status": "expired",
+  "type": "users_import",
+  "created_at": "", // TODO: add date
+  "id": "job_abc123",
+  "connection_id": "CONNECTION_ID",
+  "external_id": "EXTERNAL_ID"
+}
+```
 
 Additionally, the job status is added to [Tenant Logs](${manage_url}/#/logs), which allows for a custom WebHook to be triggered using the [WebHook Logs Extension](/extensions/management-api-webhooks).
 
