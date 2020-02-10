@@ -39,7 +39,7 @@ Republish the extension's Rule
 Delete the old extension Rule, if it exists
 
 1. Navigate to the [Rules](${manage_url}/#/rules) page in the [Auth0 Dashboard](${manage_url})
-2. Locate the `auth0-authz` rule. If it exists, continue with these steps; otherwise, you are done.
+2. Locate the `auth0-authz` rule. If it does not exist, you are done.; otherwise, continue with these steps:
 3. Locate the `auth0-authorization-extension` rule and drag it into the position below the `auth0-authz` rule.
 4. Check that the `auth0-authz` rule:
     * was authored by the Authorization Extension and has not been modified manually
