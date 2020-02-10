@@ -23,7 +23,7 @@ show_steps: true
 github:
   org: auth0-samples
   repo: auth0-aspnetcore-mvc-samples
-  branch: master
+  branch: netcore2.1
 requirements:
   - .NET Core SDK 2.1.300
   - .NET Core 2.1.0
