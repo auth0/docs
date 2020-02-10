@@ -16,7 +16,7 @@ Several fields in [Application Settings](/dashboard/reference/settings-applicati
 * **Allowed Logout URLs**: List of URLs to which you can redirect users after they log out from Auth0.
 * **Allowed Origins (CORS)**: Set of URLs that will be allowed to make requests from JavaScript to Auth0 API (typically used with CORS).
 
-You can use the star symbol (`*`) as a wildcard for subdomains, but it must be used in accordance with the following rules in order to properly function.
+See [Application Settings Best Practices](/best-practices/application-settings) for recommended settings for applications, which suggests to avoid using wildcards for subdomains in in application callbacks and allowed origins. If you choose to use them, you can use the star symbol (`*`) as a wildcard for subdomains, but it must be used in accordance with the following rules in order to properly function.
 
 ## Notes on Wildcard Usage
 
@@ -30,8 +30,6 @@ You can use the star symbol (`*`) as a wildcard for subdomains, but it must be u
 
 * The URL **MUST NOT** contain more than one wildcard. `https://*.*.example.com` will not work.
 
-* A wildcard **MAY** be prefixed and/or suffixed with additional valid hostname characters. `https://prefix-*-suffix.example.com` will work.
-
-* A URL with a valid wildcard **WILL** match a URL with no subdomain at the same level as the wildcard. `https://*.example.com` will work with `https://example.com`.
+* A wildcard **MAY** be prefixed and/or suffixed with additional valid hostname characters. `https://prefix-*-suffix.example.com` will work.  A wildcard for subdomains of cloud provider **SHOULD** always include at least a prefix or a suffix, such as `https://my-app-prefix-*.heroku.com`.
 
 * A URL with a valid wildcard **WILL NOT** match a URL more than one subdomain level in place of the wildcard. `https://*.example.com` will not work with `https://sub1.sub2.example.com`.
