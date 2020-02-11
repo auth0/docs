@@ -24,80 +24,80 @@ The following steps implement user-initiated account linking for a SPA.
 
 2. User initiates account linking. Your SPA must provide a UI for the user to initiate a link to their other accounts (social, passwordless, and so on). For example, in the user's settings page:
 
-![](/media/articles/link-accounts/spa-user-settings.png)
+    ![SPA User Settings Example](/media/articles/link-accounts/spa-user-settings.png)
 
 When the user clicks on any of the **Link Account** buttons, your app triggers authentication to the account selected. After successful authentication, use the obtained JWT to link the accounts.
 
-    Example using Lock: 
+Example using Lock: 
 
-    ```html
-    <script src="${lock_url}"></script>
-    <script type="text/javascript">
-      var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
+```js
+<script src="${lock_url}"></script>
+<script type="text/javascript">
+  var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
 
-      function linkPasswordAccount(connection){
-        var opts = {
-          rememberLastLogin: false,
-          languageDictionary: {
-            title: 'Link with another account'
-          },
-          auth: {
-            responseType: 'token id_token'
-          }
-        };
-
-        if (connection) {
-          opts.connections = [connection];
-        }
-
-        // open lock in signin mode with the customized options for linking
-        lock = new Auth0Lock('${account.clientId}', '${account.namespace}', opts);
-        lock.show();
+  function linkPasswordAccount(connection){
+    var opts = {
+      rememberLastLogin: false,
+      languageDictionary: {
+        title: 'Link with another account'
+      },
+      auth: {
+        responseType: 'token id_token'
       }
+    };
 
-      function lockAuthenticated(authResult)
-      {
-          if (isUserLoggedIn) {
-            linkAccount(authResult.idToken, authResult.idTokenPayload.sub);
-          } else {
-            // handle authentication for the first login
-          }
+    if (connection) {
+      opts.connections = [connection];
+    }
+
+    // open lock in signin mode with the customized options for linking
+    lock = new Auth0Lock('${account.clientId}', '${account.namespace}', opts);
+    lock.show();
+  }
+
+  function lockAuthenticated(authResult)
+  {
+      if (isUserLoggedIn) {
+        linkAccount(authResult.idToken, authResult.idTokenPayload.sub);
+      } else {
+        // handle authentication for the first login
       }
+  }
 
-      $(document).ready(function() {
-        lock.on("authenticated", lockAuthenticated);
-      });
-      
-    </script>
-    <button onclick="linkPasswordAccount()">Link Account</button>
-    ```
+  $(document).ready(function() {
+    lock.on("authenticated", lockAuthenticated);
+  });
+  
+</script>
+<button onclick="linkPasswordAccount()">Link Account</button>
+```
 
-    Example using Passwordless Mode:
+Example using Passwordless Mode:
 
-    ```html
-    <script src="${lock_url}"></script>
-    <script type="text/javascript">
-      function linkPasswordlessSMS(){
-        
-        // Initialize Passwordless Lock instance
-        var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}',
-        {
-          autoclose: true,
-          allowedConnections: ["sms"],
-          languageDictionary: {
-            passwordlessSMSInstructions: "Enter your phone to sign in <br>or create an account to link to."
-          }
-        });
-
-        lock.on("authenticated", function(authResult)) {
-          linkAccount(authResult.idToken);
-        }
-
-        lock.show();
+```js
+<script src="${lock_url}"></script>
+<script type="text/javascript">
+  function linkPasswordlessSMS(){
+    
+    // Initialize Passwordless Lock instance
+    var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}',
+    {
+      autoclose: true,
+      allowedConnections: ["sms"],
+      languageDictionary: {
+        passwordlessSMSInstructions: "Enter your phone to sign in <br>or create an account to link to."
       }
-    </script>
-    <button onclick="linkPasswordlessSMS()">SMS</a>
-    ```
+    });
+
+    lock.on("authenticated", function(authResult)) {
+      linkAccount(authResult.idToken);
+    }
+
+    lock.show();
+  }
+</script>
+<button onclick="linkPasswordlessSMS()">SMS</a>
+```
 
 3. Perform linking by calling the Management API [Link a user account endpoint](/api/v2#!/Users/post_identities). 
 
