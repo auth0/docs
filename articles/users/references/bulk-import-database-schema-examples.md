@@ -227,10 +227,10 @@ The `user.custom_password_hash` object has the following properties:
 | `hash.key` | object | The key used to generate the HMAC hash. |
 | `hash.key.value` | string | The key value. |
 | `hash.key.encoding` | string | The key encoding. Must be one of: <ul><li>`base64`</li><li>`hex`</li><li>`utf8`</li></ul>By default, `hash.key.encoding` is `utf8`. |
-| `hash.salt` | object |
-| `hash.salt.value` | string |
-| `hash.salt.encoding` | string |
-| `hash.salt.position` | string |
+| `hash.salt` | object | &nbsp; |
+| `hash.salt.value` | string | The salt value used to generate the hash. |
+| `hash.salt.encoding` | string | The encoding of the provided salt.Must be one of: <ul><li>`base64`</li><li>`hex`</li><li>`utf8`</li></ul> Upper and lower case hex variants are supported, as well as url-encoded base64. By default, `hash.salt.encoding` is `utf8`. |
+| `hash.salt.position` | string | The position of the salt when the hash was calculated. |
 | `password.encoding` | string | <%= include('../_includes/_password-encoding-description.md') %> |
 
 ### Supported hash algorithms
