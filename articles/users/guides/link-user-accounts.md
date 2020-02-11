@@ -132,11 +132,11 @@ For more information and sample scripts, see [Auth0.js > User management](/libra
   </div>
 </div>
 
-## Fill-in missing properties from secondary identities
+## Add missing properties from secondary identities with Rules
 
 When a user logs in, applications receive user information from the **primary identity**. Auth0 will not attempt to automatically complete any missing profile field with information from the secondary identities. For example, if the primary identity comes from a database connection and is missing the `given_name` and `family_name` properties, and the secondary identity comes from a Google social connection that includes the first and last name of the user, then by default, the application will **not** receive data contained in the second identity.
 
-To fill in the missing info in primary identities with information from secondary identities, you can write a [rule](/rules):
+To add missing information to primary identities with information from secondary identities, you can write a [rule](/rules) like the following example:
 
 ```js
 function(user, context, callback) {
