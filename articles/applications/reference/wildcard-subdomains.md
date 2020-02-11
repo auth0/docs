@@ -30,6 +30,6 @@ See [Application Settings Best Practices](/best-practices/application-settings) 
 
 * The URL **MUST NOT** contain more than one wildcard. `https://*.*.example.com` will not work.
 
-* A wildcard **MAY** be prefixed and/or suffixed with additional valid hostname characters. `https://prefix-*-suffix.example.com` will work.  A wildcard for subdomains of cloud provider **SHOULD** always include at least a prefix or a suffix, such as `https://my-app-prefix-*.heroku.com`.
+* A wildcard **MAY** be prefixed and/or suffixed with additional valid hostname characters. `https://prefix-*-suffix.example.com` will work.  A wildcard for subdomains of cloud provider **SHOULD** always include at least a prefix or a suffix, such as `https://my-app-prefix-*.herokuapp.com`.
 
 * A URL with a valid wildcard **WILL NOT** match a URL more than one subdomain level in place of the wildcard. `https://*.example.com` will not work with `https://sub1.sub2.example.com`.
