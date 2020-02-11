@@ -218,20 +218,20 @@ The `user.custom_password_hash` object can be used instead of the `user.password
 The `user.custom_password_hash` object has the following properties:
 
 | Property | Type | Description |
-|------|------|-------------|
-| algorithm | string | The algorithm used to hash the password. Must be one of: <ul><li>`argon2`</li><li>`bcrypt`</li><li>`hmac`</li><li>`ldap`</li><li>`md4`</li><li>`md5`</li><li>`sha1`</li><li>`sha256`</li><li>`sha512`</li><li>`pbkdf2`</li></ul> |
-| hash | object | &nbsp; |
-| hash.value | string | The password hash. |
-| hash.encoding | string | The encoding of the provided hash. Must be one of: <ul><li>`base64`</li><li>`hex`</li><li>`utf8`</li></ul>Upper and lower case hex variants are supported, as well as url-encoded base64. |
-| hash.digest | string | The algorithm used to generate the HMAC hash. Must be one of: <ul><li>`md4`</li><li>`md5`</li><li>`ripemd160`</li><li>`sha1`</li><li>`sha224`</li><li>`sha256`</li><li>`sha384`</li><li>`sha512`</li><li>`whirlpool`</li></ul> |
-| hash.key | object | The key used to generate the HMAC hash. |
-| hash.key.value | string | The key value. |
-| hash.key.encoding | string | The key encoding. Must be one of: <ul><li>`base64`</li><li>`hex`</li><li>`utf8`</li></ul>By default, `hash.key.encoding` is `utf8`. |
-| hash.salt | object |
-| hash.salt.value | string |
-| hash.salt.encoding | string |
-| hash.salt.position | string |
-| password.encoding | string | <%= include('../_includes/_password-encoding-description.md') %> |
+|----------|------|-------------|
+| `algorithm` | string | The algorithm used to hash the password. Must be one of: <ul><li>`argon2`</li><li>`bcrypt`</li><li>`hmac`</li><li>`ldap`</li><li>`md4`</li><li>`md5`</li><li>`sha1`</li><li>`sha256`</li><li>`sha512`</li><li>`pbkdf2`</li></ul> |
+| `hash` | object | &nbsp; |
+| `hash.value` | string | The password hash. |
+| `hash.encoding` | string | The encoding of the provided hash. Must be one of: <ul><li>`base64`</li><li>`hex`</li><li>`utf8`</li></ul>Upper and lower case hex variants are supported, as well as url-encoded base64. |
+| `hash.digest` | string | The algorithm used to generate the HMAC hash. Must be one of: <ul><li>`md4`</li><li>`md5`</li><li>`ripemd160`</li><li>`sha1`</li><li>`sha224`</li><li>`sha256`</li><li>`sha384`</li><li>`sha512`</li><li>`whirlpool`</li></ul> |
+| `hash.key` | object | The key used to generate the HMAC hash. |
+| `hash.key.value` | string | The key value. |
+| `hash.key.encoding` | string | The key encoding. Must be one of: <ul><li>`base64`</li><li>`hex`</li><li>`utf8`</li></ul>By default, `hash.key.encoding` is `utf8`. |
+| `hash.salt` | object |
+| `hash.salt.value` | string |
+| `hash.salt.encoding` | string |
+| `hash.salt.position` | string |
+| `password.encoding` | string | <%= include('../_includes/_password-encoding-description.md') %> |
 
 ### Supported hash algorithms
 
@@ -298,7 +298,7 @@ When the `algorithm` is set to `md4`, `md5`, `sha1`, `sha256`, or `sha512`:
 
 - `hash.encoding` must be either `hex` or `base64`.
 
-### PBKDF2
+#### PBKDF2
 
 - `hash.encoding` must be `utf8`.
 - `hash.salt` is not allowed.
