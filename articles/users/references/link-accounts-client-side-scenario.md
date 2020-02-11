@@ -12,7 +12,7 @@ useCase:
 
 # Link User Accounts Client-Side Scenario
 
-Auth0 supports the linking of user accounts from various identity providers. One way to implement this functionality is to enable the user to explicitly link accounts. In this scenario, the user authenticates and can later on use a link or a button in order to link another account to the first one. The user would click on this link/button and your application would make a call so that when the user logs in with the second provider, the second account is linked with the first.
+Auth0 supports the linking of user accounts from various identity providers. One way to implement this functionality is to enable the user to explicitly link accounts. In this scenario, the user authenticates and can later on use a link or a button to link another account to the first one. When the user clicks on this link/button, your application makes a call so that when the user logs in with the second provider, the second account is linked with the first.
 
 You can select which identity to use as the primary account and which as the secondary when calling the account linking. This choice depends on which set of attributes you want to retain in the primary profile.
 

@@ -107,7 +107,7 @@ Once you start supporting enterprise connections for users, you must do some for
 With enterprise connection support, user identities and credentials are managed by the identity provider of your customers' organization, as well as certain identity claims - which Auth0 will use to populate the user [profile](/architecture-scenarios/implementation/b2b/b2b-profile-mgmt).
 
 ::: panel Best Practice
-"Bring your own identity" is a great feature to provide, but if you don't support this from day one, and sometimes even if you do, you may have an organization that wants to switch to their own IdP after already having used the application for a while.  You will need a way to [Link User Accounts](/link-accounts) (a.k.a. Account Linking) to provide an effective way of associating the new identity with the old database identity.
+"Bring your own identity" is a great feature to provide, but if you don't support this from day one, and sometimes even if you do, you may have an organization that wants to switch to their own IdP after already having used the application for a while.  You will need a way to [link user accounts](/users/concepts/overview-account-linking) to provide an effective way of associating the new identity with the old database identity.
 :::
 
 ## Multi-factor authentication (MFA)

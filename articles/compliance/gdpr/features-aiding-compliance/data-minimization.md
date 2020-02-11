@@ -40,12 +40,12 @@ To better understand this, consider the following scenario. Your application off
 
 If a user signs up with Google, this will create a user profile in Auth0. If the same user, upon return, does not remember what he signed up with, and chooses to login with Facebook, Auth0 will create another user profile for the user. So now you have two profiles for the same user.
 
-You can fix this with [account linking](/link-accounts). You can link multiple accounts under a single user profile, regardless of the connection's type (for example, user/password, social, or <dfn data-key="security-assertion-markup-language">SAML</dfn>).
+You can fix this with [account linking](/users/concepts/overview-account-linking). You can link multiple accounts under a single user profile, regardless of the connection's type (for example, user/password, social, or <dfn data-key="security-assertion-markup-language">SAML</dfn>).
 
 There are three ways to implement this:
-- **Automatic** account linking: you can configure a rule that will link accounts with the same email address. For more info and a sample rule, see [Automatic Account Linking](/link-accounts#automatic-account-linking)
-- **User-initiated** account linking: your app must provide the UI so an authenticated user can link their accounts manually. For a sample implementation, see [User Initiated Account Linking](/link-accounts/user-initiated-linking)
-- **Suggested** account linking: in this case you still configure a rule that will link accounts with the same verified email address. However, instead of completing the link automatically, your app will first prompt the user to link their identities. For a sample implementation, see [Account Linking using server side code](/link-accounts/suggested-linking)
+- **Automatic** account linking: you can configure a rule that will link accounts with the same email address. For more info and a sample rule, see [Automatic Account Linking](/users/concepts/overview-account-linking#automatic-account-linking)
+- **User-initiated** account linking: your app must provide the UI so an authenticated user can link their accounts manually. For a sample implementation, see [Link User Accounts Server-Side Scenario](/users/references/link-accounts-user-initiated-scenario)
+- **Suggested** account linking: in this case you still configure a rule that will link accounts with the same verified email address. However, instead of completing the link automatically, your app will first prompt the user to link their identities. For a sample implementation, see [Link User Accounts Server-Side Scenario](/users/references/link-accounts-server-side-scenario)
 
 ## Export logs
 

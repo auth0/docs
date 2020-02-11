@@ -11,7 +11,7 @@ useCase:
   - manage-accounts
 ---
 
-# Link Users Accounts Server-Side Scenario
+# Link User Accounts Server-Side Scenario
 
 You can use server-side code to link accounts on a regular web application. Rather than automating the entire account linking process, you're engaging the user and asking them for permission before proceeding. Your code will authenticate users then search for and identify users using their email addresses. Your app will prompt the user to link their accounts, verify and merge metadata which links the accounts.
 

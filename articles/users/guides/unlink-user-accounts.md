@@ -111,7 +111,7 @@ function unlinkAccount(secondaryProvider, secondaryUserId) {
 }
 ```
 
-## Unline accounts from server-side code
+## Unlink accounts from server-side code
 
 1. Update the user in session with the new array of identities (each of which represent a separate user account).
 
