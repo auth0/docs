@@ -50,12 +50,12 @@ The Auth0 Management API provides the [Link a user account](/api/v2#!/Users/post
 * User initiated account linking using Access Tokens with the `update:current_user_identities` scope
 * Server-side account linking using Access Token that contains the `update:users` scope
 
-### Access Token method for user initiated account linking 
+### User initiated client-side account linking 
 
-For user initiated account linking, use an Access Token that contains the following items in the payload:
-    - `update:current_user_identites` scope
-    - `user_id` of the primary account as part of the URL
-    - ID Token of the secondary account must be signed with `RS256`, and an `aud` claim identifying the client that matches the value of the requesting Access Token's `azp` claim. 
+For user initiated account linking from client-side code, use an Access Token that contains the following items in the payload:
+- `update:current_user_identites` scope
+- `user_id` of the primary account as part of the URL
+- ID Token of the secondary account must be signed with `RS256` and an `aud` claim identifying the client that matches the value of the requesting Access Token's `azp` claim. 
 
 An Access Token that contains the `update:current_user_identities` scope can **only** be used to update the information of the currently logged-in user. Therefore, this method is suitable for scenarios where the user initiates the linking process.
 
@@ -79,13 +79,13 @@ An Access Token that contains the `update:current_user_identities` scope can **o
 }
 ```
 
-### Access Token method for server-side account linking 
+### Server-side account linking 
 
 For server-side account linking, use an Access Token that contains the following items in the payload:
-    - `update:users` scope
-    - `user_id` of the primary account as part of the URL
-    - `user_id` of the secondary account. 
-    - ID Token of the secondary account must be signed with `RS256`, and an `aud` claim identifying the client that matches the value of the requesting Access Token's `azp` claim. 
+- `update:users` scope
+- `user_id` of the primary account as part of the URL
+- `user_id` of the secondary account 
+- ID Token of the secondary account must be signed with `RS256` and an `aud` claim identifying the client that matches the value of the requesting Access Token's `azp` claim. 
 
 Access Tokens that contain the `update:users` scope can be used to update the information of **any** user. Therefore, this method is intended for use in server-side code only.
 
@@ -136,7 +136,7 @@ Instead of the `provider` and `user_id`, you can send the secondary account's ID
   </div>
   <div id="auth0js" class="tab-pane">
 
-## Auth0.js library method for account linking
+## Auth0.js library
 
 You can use the [Auth0.js](/libraries/auth0js) library.
 
@@ -180,8 +180,8 @@ function(user, context, callback) {
 ## Keep reading
 
 * [User Account Linking Overview](/users/concepts/overview-user-account-linking)
-* [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking)
 * [Unlink User Accounts](/users/guides/unlink-user-accounts)
 * [Link User Accounts Client-Side Scenario](/users/references/link-accounts-client-side-scenario)
 * [Link User Accounts Server-Side Scenario](/users/references/link-accounts-server-side-scenario)
 * [Link User Accounts Initiated by Users Scenario](/users/references/link-accounts-user-initiated-scenario)
+* [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking)

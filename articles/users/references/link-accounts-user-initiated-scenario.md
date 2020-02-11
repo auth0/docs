@@ -12,11 +12,7 @@ useCase:
 
 # Link User Accounts Initiated by Users Scenario
 
-In this scenario, your app provides a UI for the user to authenticate to their other accounts and to link these to their primary account. See [User Initiated Account Linking within a Single-Page App](https://github.com/auth0/auth0-link-accounts-sample/tree/master/SPA) for sample code.
-
-The following steps implement user-initiated account linking for a SPA.
-
-## 1. Initial login
+In this scenario, your SPA provides a UI for the user to authenticate to their other accounts and to link these to their primary account. See [User Initiated Account Linking within a Single-Page App](https://github.com/auth0/auth0-link-accounts-sample/tree/master/SPA) for sample code.
 
 1. The user authenticates to the SPA using either [Lock](/libraries/lock) or [Auth0.js](/libraries/auth0js) and a custom UI.
 
@@ -28,7 +24,39 @@ The following steps implement user-initiated account linking for a SPA.
 
 When the user clicks on any of the **Link Account** buttons, your app triggers authentication to the account selected. After successful authentication, use the obtained JWT to link the accounts.
 
-Example using Lock: 
+3. Perform linking by calling the Management API [Link a user account endpoint](/api/v2#!/Users/post_identities). 
+
+    ::: note
+    To retain and merge the `user_metadata` from the secondary account, you must retrieve it before calling the API endpoint. It will be discarded when the accounts are linked. You can select which identity will be used as the primary account and which as the secondary when calling the account linking. This choice will depend on which set of attributes you wish to retain in the primary profile.
+    :::
+
+    In the `linkAccount` function, call the Management API using both of the JWTs:
+
+    ```js
+    function linkAccount(secondaryJWT){
+      // At this point you can fetch the secondary user_metadata for merging
+      // with the primary account. Otherwise it will be lost after linking the accounts
+      var primaryJWT = localStorage.getItem('id_token');
+      var primaryUserId = localStorage.getItem('user_id');
+      $.ajax({
+        type: 'POST',
+        url: 'https://' + '${account.namespace}' + '/api/v2/users/' + primaryUserId + '/identities',
+        data: {
+          link_with: secondaryJWT
+        },
+        headers: {
+          'Authorization': 'Bearer ' + primaryJWT
+        }
+      }).then(function(identities){
+        alert('linked!');
+        showLinkedAccounts(identities);
+      }).fail(function(jqXHR){
+        alert('Error linking Accounts: ' + jqXHR.status + " " + jqXHR.responseText);
+      });
+    }
+    ```
+
+## Example using Lock
 
 ```js
 <script src="${lock_url}"></script>
@@ -72,7 +100,7 @@ Example using Lock:
 <button onclick="linkPasswordAccount()">Link Account</button>
 ```
 
-Example using Passwordless Mode:
+## Example using Passwordless Mode
 
 ```js
 <script src="${lock_url}"></script>
@@ -99,43 +127,11 @@ Example using Passwordless Mode:
 <button onclick="linkPasswordlessSMS()">SMS</a>
 ```
 
-3. Perform linking by calling the Management API [Link a user account endpoint](/api/v2#!/Users/post_identities). 
-
-    ::: note
-    To retain and merge the `user_metadata` from the secondary account, you must retrieve it before calling the API endpoint. It will be discarded when the accounts are linked. You can select which identity will be used as the primary account and which as the secondary when calling the account linking. This choice will depend on which set of attributes you wish to retain in the primary profile.
-    :::
-
-    In the `linkAccount` function, call the Management API using both of the JWTs:
-
-    ```js
-    function linkAccount(secondaryJWT){
-      // At this point you can fetch the secondary user_metadata for merging
-      // with the primary account. Otherwise it will be lost after linking the accounts
-      var primaryJWT = localStorage.getItem('id_token');
-      var primaryUserId = localStorage.getItem('user_id');
-      $.ajax({
-        type: 'POST',
-        url: 'https://' + '${account.namespace}' + '/api/v2/users/' + primaryUserId + '/identities',
-        data: {
-          link_with: secondaryJWT
-        },
-        headers: {
-          'Authorization': 'Bearer ' + primaryJWT
-        }
-      }).then(function(identities){
-        alert('linked!');
-        showLinkedAccounts(identities);
-      }).fail(function(jqXHR){
-        alert('Error linking Accounts: ' + jqXHR.status + " " + jqXHR.responseText);
-      });
-    }
-    ```
-
 ## Keep reading
 
 * [User Account Linking Overview](/users/concepts/overview-user-account-linking)
 * [Link User Accounts](/users/guides/link-user-accounts)
 * [Unlink User Accounts](/users/guides/unlink-user-accounts)
-* [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking)
 * [Link User Accounts Client-Side Scenario](/users/references/link-accounts-client-side-scenario)
 * [Link User Accounts Server-Side Scenario](/users/references/link-accounts-server-side-scenario)
+* [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking)

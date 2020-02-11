@@ -23,8 +23,8 @@ If your goal is to delete the secondary identity entirely, you must first unlink
 
 Depending on from where you call the endpoint, use one of these two scopes:
 
-* `update:current_user_identities`: from [client-side code](/users/references/link-accounts-client-side-scenario)
-* `update:users`: from [server-side code](/users/references/link-accounts-server-side-scenario)
+* `update:current_user_identities` from [client-side code](/users/references/link-accounts-client-side-scenario)
+* `update:users` from [server-side code](/users/references/link-accounts-server-side-scenario)
 
 The endpoint uses the following parameters:
 
@@ -170,8 +170,8 @@ function unlinkAccount(secondaryProvider, secondaryUserId) {
 ## Keep reading
 
 * [User Account Linking Overview](/users/concepts/overview-user-account-linking)
-* [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking)
 * [Link User Accounts](/users/guides/link-user-accounts)
 * [Link User Accounts Client-Side Scenario](/users/references/link-accounts-client-side-scenario)
 * [Link User Accounts Server-Side Scenario](/users/references/link-accounts-server-side-scenario)
 * [Link User Accounts Initiated by Users Scenario](/users/references/link-acounts-user-initiated-scenario)
+* [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking)
