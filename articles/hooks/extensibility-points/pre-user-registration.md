@@ -17,7 +17,7 @@ v2: true
 
 At the Pre User Registration extensibility point, Hooks allow custom actions to be executed when a new user is created. For example, you may add custom `app_metadata` or `user_metadata` to the newly-created user, or even prevent the creation of the user in the database.
 
-The Post User Registration extensibility point is available for [Database Connections](/connections/database) and [Passwordless Connections](/connections/passwordless).
+The Pre User Registration extensibility point is available for [Database Connections](/connections/database) and [Passwordless Connections](/connections/passwordless).
 
 ::: note
 The `triggerId` for the Pre User Registration extensibility point is `pre-user-registration`. To learn how to create Hooks for this extensibility point, see [Create New Hooks](/hooks/create).
