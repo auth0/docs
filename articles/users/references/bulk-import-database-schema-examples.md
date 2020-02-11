@@ -15,11 +15,31 @@ useCase:
 ---
 # Bulk User Import Database Schema and Examples
 
-::: note
-For a list of user profile fields that can be imported, see [User Profile Attributes](/users/references/user-profile-structure#user-profile-attributes).
-:::
-
 The users file must have an array with the users' information in JSON format.
+
+You can import users with the following properties:
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `app_metadata` | object | Data that can affect the application's core functionality or what the user can access. Data stored in `app_metadata` cannot be edited by users. This may include things such as support plans, roles or access groups. |
+| `blocked` | boolean | Indicates whether the user has been blocked. |
+| `email` | string | The user's email address. |
+| `email_verified` | boolean | Indicates whether the user has verified their email address. |
+| `family_name` | string | The user's family name. |
+| `given_name` | string | The user's given name. |
+| `name` | string | The user's full name. |
+| `nickname` | string | The user's nickname. |
+| `picture` | string | URL pointing to the user's profile picture. |
+| `user_id` | string | The user's unique identifier. This will be prepended by the connection strategy. |
+| `user_metadata` | object | Data that does not impact what users can or cannot access, such as work address, home address, or user preferences. |
+| `username` | string | The user's username. |
+| `password_hash` | string | Hashed password for the user's connection. When users are created, Auth0 uses [bcrypt](https://auth0.com/blog/hashing-in-action-understanding-bcrypt/) to secure the password. Importing hashed passwords lets users keep their passwords for a smoother experience. Compatible passwords should be hashed using bcrypt $2a$ or $2b$ and have 10 saltRounds. This property can only be provided when the user is first imported and cannot be updated later. |
+| `custom_password_hash` | object | A more generic way to provide the user's password hash. This can be used instead of the `password_hash` field when the user's password hash was created with an alternate algorithm. This property can only be provided when the user is first imported and cannot be updated later. |
+| `password_set_date` | date time | Timestamp indicating when the password for the user's connection was set. At user creation, this field exists, and `last_password_reset` does not. If the user has reset their password, this field and `last_password_reset` are identical. |
+
+For more information on `app_metadata` and `user_metadata`, check out the [Metadata Overview](/users/concepts/overview-user-metadata).
+
+## User JSON schema
 
 The following [JSON schema](http://json-schema.org) describes valid users:
 
@@ -168,9 +188,9 @@ The following [JSON schema](http://json-schema.org) describes valid users:
 }
 ```
 
-## User `app_metadata` schema
+## App metadata
 
-Additionally, the `app_metadata` should **not** contain any of these properties:
+The `user.app_metadata` object must **not** contain any of these properties:
 
 * `__tenant`
 * `_id`
@@ -191,22 +211,67 @@ Additionally, the `app_metadata` should **not** contain any of these properties:
 * `updated_at`
 * `user_id`
 
-::: note
-The `app_metadata` stores information that can impact how an application functions or what the user can access (for example, a user's support plan or <dfn data-key="role">roles</dfn> and access groups). For more information, refer to [User Metadata](/metadata).
-:::
+## Custom password hash
 
-## `custom_password_hash` schema
+The `user.custom_password_hash` object can be used instead of the `user.password_hash` property when the user's password hash was created with an alternate algorithm. Note this field and `password_hash` are mutually exclusive.
 
-In addition to the constraints described by the above schema, please consider the following when providing a `custom_password_hash`.
+The `user.custom_password_hash` object has the following properties:
 
-### `md*` or `sha*` family of algorithms
+| Property | Type | Description |
+|------|------|-------------|
+| algorithm | string | The algorithm used to hash the password. Must be one of: <ul><li>`argon2`</li><li>`bcrypt`</li><li>`hmac`</li><li>`ldap`</li><li>`md4`</li><li>`md5`</li><li>`sha1`</li><li>`sha256`</li><li>`sha512`</li><li>`pbkdf2`</li></ul> |
+| hash | object | &nbsp; |
+| hash.value | string | The password hash. |
+| hash.encoding | string | The encoding of the provided hash. Must be one of: <ul><li>`base64`</li><li>`hex`</li><li>`utf8`</li></ul>Upper and lower case hex variants are supported, as well as url-encoded base64. |
+| hash.digest | string | The algorithm used to generate the HMAC hash. Must be one of: <ul><li>`md4`</li><li>`md5`</li><li>`ripemd160`</li><li>`sha1`</li><li>`sha224`</li><li>`sha256`</li><li>`sha384`</li><li>`sha512`</li><li>`whirlpool`</li></ul> |
+| hash.key | object | The key used to generate the HMAC hash. |
+| hash.key.value | string | The key value. |
+| hash.key.encoding | string | The key encoding. Must be one of: <ul><li>`base64`</li><li>`hex`</li><li>`utf8`</li></ul>By default, `hash.key.encoding` is `utf8`. |
+| hash.salt | object |
+| hash.salt.value | string |
+| hash.salt.encoding | string |
+| hash.salt.position | string |
+| password.encoding | string | <%= include('../_includes/_password-encoding-description.md') %> |
+
+### Supported hash algorithms
+
+Auth0 currently supports imports of user passwords hashed by:
+
+* [Argon2](https://github.com/p-h-c/phc-winner-argon2)
+* [bcrypt](https://auth0.com/blog/hashing-in-action-understanding-bcrypt/)
+* [LDAP](https://tools.ietf.org/html/rfc2307#section-5.3) (`RFC-2307 "userPassword"`)
+* [HMAC](https://tools.ietf.org/html/rfc2104)
+* [MD4](https://tools.ietf.org/html/rfc1320)
+* [MD5](https://tools.ietf.org/html/rfc1321)
+* [SHA1](https://tools.ietf.org/html/rfc3174)
+* [SHA256 and SHA512](https://tools.ietf.org/html/rfc4634)
+* [PBKDF2](https://tools.ietf.org/html/rfc2898#section-5.2)
+
+Please consider the following sections when providing a `custom_password_hash`.
+
+#### Argon2
+
+When the `algorithm` is set to `argon2`:
+
+- `hash.encoding` must be `utf8`.
+- `hash.salt` is not allowed.
+- `hash.value` should be in [PHC string format](https://github.com/P-H-C/phc-string-format/blob/master/phc-sf-spec.md) and conform to [these requirements](https://github.com/auth0/magic#magicpasswordhash--magicverifypassword).
+- `hash.value` must include the base64 encoded salt (as specified in the `PHC` documentation).
+
+#### bcrypt
+
+When the `algorithm` is set to `bcrypt`:
+
+- `hash.encoding` must be `utf8`.
+- `hash.salt` is not allowed.
+- `hash.value` must be prefixed with either `$2a$` or `$2b$`. Other prefixes such as `$2$`, `$sha1$`, `$2x$`, etc. are not supported at this time. For instance, `$2b$10$nFguVi9LsCAcvTZFKQlRKeLVydo8ETv483lkNsSFI/Wl1Rz1Ypo1K` was generated from the string `hello` using with a cost parameter of 10.
+
+#### HMAC
+
+When the `algorithm` is set to `hmac`:
 
 - `hash.encoding` must be either `hex` or `base64`.
-
-### `hmac`
-
-- `hash.encoding` must be either `hex` or `base64`.
-- `hash.digest` is mandatory and must be one of these:
+- `hash.digest` is required and must be one of these:
   - `md4`
   - `md5`
   - `ripemd160`
@@ -216,19 +281,31 @@ In addition to the constraints described by the above schema, please consider th
   - `sha384`
   - `sha512`
   - `whirlpool`
-- `hash.key.value` is mandatory.
+- `hash.key.value` is required.
 - `hash.key.encoding` must be either `base64` or `hex` or `utf8`.
 
-### `bcrypt|argon2|pbkdf2|ldap`
+#### LDAP
 
 - `hash.encoding` must be `utf8`.
 - `salt` is not allowed.
-- When `algorithm` is `bcrypt` the hash must be prefixed with either `$2a$` or `$2b$`. Other prefixes such as `$2$`, `$sha1$`, `$2x$`, etc. are not supported at this time. For instance, `$2b$10$nFguVi9LsCAcvTZFKQlRKeLVydo8ETv483lkNsSFI/Wl1Rz1Ypo1K` was generated from the string `hello` using with a cost parameter of 10.
-- When `algorithm` is `ldap`, `hash.value` must adhere to the format outlined in [`RFC-2307 section-5.3`](https://tools.ietf.org/html/rfc2307#section-5.3). The scheme should be one of `md5|smd5|sha*|ssha*` — see [here](https://www.openldap.org/faq/data/cache/347.html) for more info.
-  - Note that the [`crypt`](https://www.openldap.org/faq/data/cache/344.html) scheme is **not supported** due to system/implementation dependent behavior. See also [Open LDAP Admin Guide - 14.4.2. CRYPT password storage scheme](https://www.openldap.org/doc/admin24/guide.html#CRYPT%20password%20storage%20scheme).
-- When the `algorithm` is either `argon2` or `pbkdf2`, `hash.value` field should be in [PHC string format](https://github.com/P-H-C/phc-string-format/blob/master/phc-sf-spec.md). Note that for these algorithms, `hash.value` must include the base64 encoded salt (as specified in the `PHC` documentation).
-  - For `argon2`, the hash value should conform to the requirements described [here](https://github.com/auth0/magic#magicpasswordhash--magicverifypassword).
-  - For `pbkdf2`, the hash value should include `i` (iterations) and `l` (keylen) parameters. If these parameters are omitted, they will default to `i=100000` and `l=64`. The `id` should be in a `pbkdf2-<digest>` format (e.g `pbkdf2-sha512`, `pbkdf2-md5`, etc). The supported digests are:
+- `hash.value` must adhere to the format outlined in [RFC-2307 section-5.3](https://tools.ietf.org/html/rfc2307#section-5.3).
+- The scheme should be one of `md5|smd5|sha*|ssha*` see [here](https://www.openldap.org/faq/data/cache/347.html) for more info.
+- Note that the [crypt](https://www.openldap.org/faq/data/cache/344.html) scheme is **not supported** due to system/implementation dependent behavior. For more information, check out [Open LDAP Admin Guide - 14.4.2. CRYPT password storage scheme](https://www.openldap.org/doc/admin24/guide.html#CRYPT%20password%20storage%20scheme).
+
+#### MD* or SHA*
+
+When the `algorithm` is set to `md4`, `md5`, `sha1`, `sha256`, or `sha512`:
+
+- `hash.encoding` must be either `hex` or `base64`.
+
+### PBKDF2
+
+- `hash.encoding` must be `utf8`.
+- `hash.salt` is not allowed.
+- `hash.value` should be in [PHC string format](https://github.com/P-H-C/phc-string-format/blob/master/phc-sf-spec.md).
+- `hash.value` must include the base64 encoded salt (as specified in the `PHC` documentation).
+- `hash.value` should include `i` (iterations) and `l` (keylen) parameters. If these parameters are omitted, they will default to `i=100000` and `l=64`.
+- The `id` should be in a `pbkdf2-<digest>` format (`pbkdf2-sha512`, `pbkdf2-md5`, etc). The supported digests are:
     - `RSA-MD4`
     - `RSA-MD5`
     - `RSA-MDC2`
@@ -262,19 +339,6 @@ In addition to the constraints described by the above schema, please consider th
     - `ssl3-md5`
     - `ssl3-sha1`
     - `whirlpool`
-
-### Supported hash algorithms
-
-As described above, the supported hash algorithms are:
-* [`argon2`](https://github.com/p-h-c/phc-winner-argon2)
-* [`bcrypt`](https://auth0.com/blog/hashing-in-action-understanding-bcrypt/)
-* [`ldap`](https://tools.ietf.org/html/rfc2307#section-5.3) (`RFC-2307 "userPassword"`)
-* [`hmac`](https://tools.ietf.org/html/rfc2104)
-* [`md4`](https://tools.ietf.org/html/rfc1320)
-* [`md5`](https://tools.ietf.org/html/rfc1321)
-* [`sha1`](https://tools.ietf.org/html/rfc3174)
-* [`sha256` and `sha512`](https://tools.ietf.org/html/rfc4634)
-* [`pbkdf2`](https://tools.ietf.org/html/rfc2898#section-5.2)
 
 ## Examples
 

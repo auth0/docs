@@ -17,28 +17,25 @@ useCase:
 
 # Bulk User Imports
 
-If you already have a user database, you can use the [POST /api/v2/jobs/users/post_users_imports](/api/management/v2#!/Jobs/post_users_imports) endpoint to populate a database connection with this information. The user data should first be exported in JSON format. You can then import that file using our API. To see database file schema and examples, visit [Bulk Import Database Schema and Examples](/users/references/bulk-import-database-schema-examples).
-
-For a list of user profile fields that can be inserted and updated during import, see [User Profile Attributes](/users/references/user-profile-structure#user-profile-attributes).
-
-Using the bulk import endpoints, you can:
-
-1. [Request a bulk import of users to a connection](/api/management/v2#!/Jobs/post_users_imports) and receive a response.
-2. [Query job's status](/api/management/v2#!/Jobs/get_jobs_by_id).
-3. [Check for details on any failed entries in your job](/api/management/v2#!/Jobs/get_errors).
+This tutorial shows you how to bulk import user data into Auth0 using the [create import users job](/api/management/v2#!/Jobs/post_users_imports) endpoint. Bulk imports are useful for migrating users from an existing database or service to Auth0.
 
 ## Before you start
 
 Before you launch the import users job:
 
-* [Configure a database connection](/connections/database) to import the users to and enable it for at least one application.
-* Create a file in JSON format containing the users to import into Auth0.
+* [Configure a database connection](/connections/database) to import the users into and enable it for at least one application.
 * If you are importing passwords, make sure the passwords are hashed using one of the [supported algorithms](/users/references/bulk-import-database-schema-examples#supported-hash-algorithms). Users with passwords hashed by unsupported algorithms will need to reset their password when they log in for the first time after the bulk import.
-* Get a [Management API Token](/api/management/v2/tokens) to use in requests to the job endpoints.
+* Get a [Management API Token](/api/management/v2/tokens) for job endpoint requests.
+
+## Create users JSON file
+
+First you'll need to create a JSON file with the user data you want to import into Auth0. How you export your user data to a JSON file will vary depending on your existing user database. To see the JSON file schema and examples, visit [Bulk Import Database Schema and Examples](/users/references/bulk-import-database-schema-examples).
+
+The file size limit for a bulk import is 500KB. You will need to start multiple imports if your data exceeds this size.
 
 ## Request bulk user import
 
-To start a bulk user import job, make a `POST` request encoded as type `multipart/form-data` to the [create import users job endpoint](/api/management/v2#!/Jobs/post_users_imports). Be sure to replace the `MGMT_API_ACCESS_TOKEN`, `USERS_IMPORT_FILE.json`, `CONNECTION_ID`, and `EXTERNAL_ID` placeholder values with your Management API Access Token, users JSON file, database connection ID, and external ID, respectively.
+To start a bulk user import job, make a `POST` request encoded as type `multipart/form-data` to the [create import users job](/api/management/v2#!/Jobs/post_users_imports) endpoint. Be sure to replace the `MGMT_API_ACCESS_TOKEN`, `USERS_IMPORT_FILE.json`, `CONNECTION_ID`, and `EXTERNAL_ID` placeholder values with your Management API Access Token, users JSON file, database connection ID, and external ID, respectively.
 
 ```har
 { 
@@ -104,7 +101,7 @@ When the user import job finishes and if `send_completion_email` was set to `tru
 
 ## Check job status
 
-To check a job's status, make a `GET` request to the [Get a Job endpoint](/api/management/v2#!/Jobs/get_jobs_by_id). Be sure to replace the `JOB_ID` placeholder value with your user import job ID.
+To check a job's status, make a `GET` request to the [get a job](/api/management/v2#!/Jobs/get_jobs_by_id) endpoint. Be sure to replace the `JOB_ID` placeholder value with your user import job ID.
 
 ```har
 { 
