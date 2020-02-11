@@ -1,6 +1,6 @@
 ---
 title: Unlink User Accounts
-description: Learn how to unlink user accounts.
+description: Learn how to use the Management API Unlink a User Account endpoint to unlink an identity from the target user account making it a separate user account again.
 topics:
   - account-linking
 contentType:
@@ -10,7 +10,7 @@ useCase:
 ---
 # Unlink User Accounts
 
-Use the Auth0 Management API V2 [Unlink a user account endpoint](/api/management/v2#!/Users/delete_user_identity_by_user_id) to unlink an identity from the target user making it a separate user account again. 
+Use the Auth0 Management API [Unlink a user account](/api/management/v2#!/Users/delete_user_identity_by_user_id) endpoint to unlink an identity from the target user account making it a separate user account again. 
 
 The result of the unlinking process is the following:
 * The secondary account is removed from the identities array of the primary account.

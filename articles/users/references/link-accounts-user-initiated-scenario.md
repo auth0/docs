@@ -1,5 +1,5 @@
 ---
-description: Learn how to authenticate users to their other accounts and link these to their primary account.
+description: Describes how to authenticate users to their other accounts and link these to their primary account using a user initiated scenario with a SPA.
 crews: crew-2
 topics:
   - account-linking

@@ -1,7 +1,6 @@
 ---
-description: How to link user accounts with a regular web app using server-side code.
+description: Describes how to link user accounts with a regular web app using server-side code using a sample scenario.
 crews: crew-2
-toc: true
 topics:
   - account-linking
   - server-side

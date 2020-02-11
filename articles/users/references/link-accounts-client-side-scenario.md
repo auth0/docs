@@ -1,5 +1,5 @@
 ---
-description: Learn how to provide a UI for the user to authenticate to their other accounts and link these to their primary account.
+description: Describes how to provide a client-side UI for the user to authenticate to their other accounts and link these to their primary account using a SPA scenario.
 crews: crew-2
 topics:
   - account-linking
