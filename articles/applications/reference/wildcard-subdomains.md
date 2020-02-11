@@ -16,7 +16,7 @@ Several fields in [Application Settings](/dashboard/reference/settings-applicati
 * **Allowed Logout URLs**: List of URLs to which you can redirect users after they log out from Auth0.
 * **Allowed Origins (CORS)**: Set of URLs that will be allowed to make requests from JavaScript to Auth0 API (typically used with CORS).
 
-See [Application Settings Best Practices](/best-practices/application-settings) for recommended settings for applications, which suggests to avoid using wildcards for subdomains in in application callbacks and allowed origins. If you choose to use them, you can use the star symbol (`*`) as a wildcard for subdomains, but it must be used in accordance with the following rules in order to properly function.
+See [Application Settings Best Practices](/best-practices/application-settings) for recommended settings for applications, which suggests to avoid using wildcards for subdomains in application callbacks and allowed origins. If you choose to use them, you can use the star symbol (`*`) as a wildcard for subdomains, but it must be used in accordance with the following rules in order to properly function.
 
 ## Notes on Wildcard Usage
 
