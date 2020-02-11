@@ -21,7 +21,7 @@ Auth0 treats all identities as separate by default. For example, if a user logs 
     <ul>
       <li><a href="#extension" data-toggle="tab">Account Link Extension</a></li>
       <li><a href="#mgmt-api" data-toggle="tab">Management API</a></li>
-      <li><a href="auth0js" data-toggle="tab">Auth0 js</a></li>
+      <li><a href="#auth0js" data-toggle="tab">Auth0 js</a></li>
     </ul>
   </div>
   <div class="tab-content">
