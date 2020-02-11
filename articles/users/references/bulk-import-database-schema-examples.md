@@ -286,6 +286,8 @@ When the `algorithm` is set to `hmac`:
 
 #### LDAP
 
+When the `algorithm` is set to `ldap`:
+
 - `hash.encoding` must be `utf8`.
 - `salt` is not allowed.
 - `hash.value` must adhere to the format outlined in [RFC-2307 section-5.3](https://tools.ietf.org/html/rfc2307#section-5.3).
@@ -299,6 +301,8 @@ When the `algorithm` is set to `md4`, `md5`, `sha1`, `sha256`, or `sha512`:
 - `hash.encoding` must be either `hex` or `base64`.
 
 #### PBKDF2
+
+When the `algorithm` is set to `pbkdf2`:
 
 - `hash.encoding` must be `utf8`.
 - `hash.salt` is not allowed.
