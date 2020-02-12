@@ -8,7 +8,7 @@ contentType: how-to
 useCase: secure-api
 ---
 
-# Set up a Client Credentials Grant using the Dashboard
+# Set Up Client Credentials Grants Using the Dashboard
 
 Auth0 lets you authorize applications that have the **Client Credentials** grant type enabled to call APIs using the [Client Credentials Flow](/flows/concepts/client-credentials). 
 
@@ -28,8 +28,6 @@ To authorize the applications to call an API:
 
 ## Keep reading
 
-:::next-steps
 * [Call API using the Client Credentials Flow](/flows/guides/client-credentials/call-api-client-credentials)
-* [How to change the scopes and add custom claims to a token using Hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
-* [How to add custom claims to a token using Rules](/scopes/current/sample-use-cases#add-custom-claims-to-a-token)
-:::
+* [Use Hooks with Client Credentials Grant](/api-auth/tutorials/client-credentials/customize-with-hooks)
+* [Add Custom Claims Tokens Using Rules](/scopes/current/sample-use-cases#add-custom-claims-to-a-token)

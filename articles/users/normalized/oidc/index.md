@@ -18,7 +18,7 @@ useCase:
 This article describes the user profile that includes only the [OpenID Connect (OIDC) standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). Use the toggle for information on the Auth0 normalized profile, which might contain information from many identity providers.
 :::
 
-When you're using an OIDC-conformant authentication flow, the user profile you receive in return may differ slightly from the [Auth0 Normalized User Profile](/users/normalized).
+When you're using an OIDC-conformant authentication flow, the user profile you receive in return may differ slightly from the [Auth0 Normalized User Profile](/users/normalized/auth0).
 
 The following is a [non-normative example of such a response](https://openid.net/specs/openid-connect-basic-1_0.html#StandardClaims):
 
@@ -89,3 +89,9 @@ Additionally, the User Profile section of our [QuickStarts](/quickstarts) return
 | `phone_number_verified` <br/><span class="label label-primary">Boolean</span> | `true` if user's phone number is verified; else, `false` |
 | `address` <br/><span class="label label-primary">JSON Object</span> | preferred postal address of the user |
 | `updated_at` <br/><span class="label label-primary">Number</span> | time when the user's profile was last updated |
+
+## Keep reading
+
+* [Configure Applications with OpenID Connect Discovery](/protocols/oidc/openid-connect-discovery)
+* [OIDC Conformant Authentication Adoption Guide](/api-auth/tutorials/adoption)
+* [OIDC Handbook](https://auth0.com/resources/ebooks/the-openid-connect-handbook)

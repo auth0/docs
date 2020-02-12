@@ -56,7 +56,7 @@ If you intend to significantly change the page's appearance, you may wish to use
 
 Auth0 offers you the ability to customize and display several other pages containing Auth0-related functionality and to which Auth0 redirects your users during the authorization process, beyond just the login page described above. You can modify the following types of pages from your [Dashboard](${manage_url}):
 
-* [Password Reset Page](/universal-login/password-reset)
+* [Customize Hosted Password Reset Page](/universal-login/password-reset)
 * [Multi-factor Authentication Page](/universal-login/multifactor-authentication)
 * [Error Pages](/universal-login/error-pages)
 

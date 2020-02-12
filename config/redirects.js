@@ -510,7 +510,7 @@ module.exports = [
     to: '/connections/enterprise/adfs'
   },
   {
-    from: '/passwordless',
+    from: ['/passwordless','/dashboard/guides/connections/set-up-connections-passwordless'],
     to: '/connections/passwordless'
   },
   {
@@ -991,7 +991,6 @@ module.exports = [
     from: '/overview/apis',
     to: '/api-auth/apis'
   },
-
   {
     from: '/overview/deployment-models',
     to: '/getting-started/deployment-models'
@@ -2098,15 +2097,15 @@ module.exports = [
    },
    {
      from: '/hooks/cli/edit',
-     to: '/hooks/guides/edit-hooks-using-cli'
+     to: '/hooks/update'
    },
    {
      from: '/hooks/cli/enable-disable',
-      to: '/hooks/guides/enable-disable-hooks-using-cli'
+      to: '/hooks/enable-disable'
    },
    {
      from: '/hooks/cli/logs',
-     to: '/hooks/guides/logging-hooks-using-cli'
+     to: '/hooks/view-logs'
    },
    {
      from: '/hooks/cli',
@@ -2118,7 +2117,7 @@ module.exports = [
    },
    {
      from: '/hooks/dashboard/create-delete',
-     to: '/hooks/guides/create-hooks-using-dashboard'
+     to: '/hooks/create'
    },
    {
      from: ['/libraries/lock/v10/auth0js', '/libraries/lock/v11/auth0js'],
@@ -2138,15 +2137,15 @@ module.exports = [
   { from: '/rules/current/management-api', to: '/rules/guides/management-api' },
   {
     from: '/hooks/cli/create-delete',
-    to: '/hooks/guides/create-hooks-using-cli'
+    to: '/hooks/create'
    },
    {
     from: '/hooks/cli/edit',
-    to: '/hooks/guides/edit-hooks-using-cli'
+    to: '/hooks/update'
    },
    {
     from: '/hooks/cli/enable-disable',
-    to: '/hooks/guides/enable-disable-hooks-using-cli'
+    to: '/hooks/enable-disable'
    },
    {
     from: '/hooks/cli/index',
@@ -2154,39 +2153,23 @@ module.exports = [
    },
    {
     from: '/hooks/cli/logs',
-    to: '/hooks/guides/logging-hooks-using-cli'
+    to: '/hooks/view-logs'
    },
    {
     from: '/hooks/dashboard/create-delete',
-    to: '/hooks/guides/create-hooks-using-dashboard'
+    to: '/hooks/create'
    },
    {
     from: '/hooks/dashboard/edit',
-    to: '/hooks/guides/edit-hooks-using-dashboard'
+    to: '/hooks/update'
    },
    {
     from: '/hooks/dashboard/enable-disable',
-    to: '/hooks/guides/enable-disable-hooks-using-dashboard'
+    to: '/hooks/enable-disable'
    },
    {
     from: '/hooks/dashboard/index',
     to: '/hooks'
-   },
-   {
-    from: '/hooks/extensibility-points/credentials-exchange',
-    to: '/hooks/concepts/credentials-exchange-extensibility-point'
-   },
-   {
-    from: '/hooks/extensibility-points',
-    to: '/hooks'
-   },
-   {
-    from: '/hooks/extensibility-points/post-user-registration',
-    to: '/hooks/concepts/post-user-registration-extensibility-point'
-   },
-   {
-    from: '/hooks/extensibility-points/pre-user-registration',
-    to: '/hooks/concepts/pre-user-registration-extensibility-point'
    },
    {
     from: '/hooks/overview',
@@ -2380,5 +2363,102 @@ module.exports = [
     {
       from: '/logs/references/log-event-data',
       to: '/logs/references/log-event-types-codes'
+    },
+    {
+      from: '/anomaly-detection/references/anomaly-detection-faqs',
+      to: '/anomaly-detection'
+    },
+    {
+      from: '/anomaly-detection/references/anomaly-detection-restrictions-limitations',
+      to: '/anomaly-detection/guides/set-anomaly-detection-preferences'
+    },
+    {      
+      from: [
+        '/hooks/concepts/credentials-exchange-extensibility-point',
+        '/hooks/guides/use-the-credentials-exchange-extensibility-point'
+      ],
+      to: '/hooks/extensibility-points/client-credentials-exchange'
+    },
+    {
+      from: [
+        '/hooks/concepts/post-user-registration-extensibility-point',
+        '/hooks/guides/use-the-post-user-registration-extensibility-point'
+      ],
+      to: '/hooks/extensibility-points/post-user-registration'
+    },
+    {
+      from: [
+        '/hooks/concepts/pre-user-registration-extensibility-point',
+        '/hooks/guides/use-the-pre-user-registration-extensibility-point'
+      ],
+      to: '/hooks/extensibility-points/pre-user-registration'
+    },
+    {
+      from: '/hooks/guides/post-change-password',
+      to: '/hooks/extensibility-points/post-change-password'
+    },
+    {
+      from: '/hooks/concepts/extensibility-points',
+      to: '/hooks/extensibility-points'
+    },
+    {
+      from: [
+        '/hooks/guides/create-hooks-using-cli',
+        '/hooks/guides/create-hooks-using-dashboard'
+      ],
+      to: '/hooks/create'
+    },
+    {
+      from: [
+        '/hooks/guides/delete-hooks-using-cli',
+        '/hooks/guides/delete-hooks-using-dashboard'
+      ],
+      to: '/hooks/delete'
+    },
+    {
+      from: [
+        '/hooks/guides/edit-hooks-using-cli',
+        '/hooks/guides/edit-hooks-using-dashboard'
+      ],
+      to: '/hooks/update'
+    },
+    {
+      from: [
+        '/hooks/guides/enable-disable-hooks-using-cli',
+        '/hooks/guides/enable-disable-hooks-using-dashboard'
+      ],
+      to: '/hooks/enable-disable'
+    },
+    {
+      from: '/hooks/guides/logging-hooks-using-cli',
+      to: '/hooks/view-logs'
+    },
+    {
+      from: '/hooks/client-credentials-exchange',
+      to: '/hooks/extensibility-points/client-credentials-exchange'
+    },
+    {
+      from: '/hooks/post-change-password',
+      to: '/hooks/extensibility-points/post-change-password'
+    },
+    {
+      from: '/hooks/post-user-registration',
+      to: '/hooks/extensibility-points/post-user-registration'
+    },
+    {
+      from: '/hooks/pre-user-registration',
+      to: '/hooks/extensibility-points/pre-user-registration'
+    },
+    {
+      from: '/hooks/logs',
+      to: '/hooks/view-logs'
+    },
+    {
+      from: '/integrations/aws-eventbridge',
+      to: '/logs/streams/aws-eventbridge'
+    },
+    {
+      from: '/extensions/deploy-cli/references/whats-new-v2',
+      to: 'articles/extensions/deploy-cli/references/whats-new'
     }
 ];

@@ -1,5 +1,5 @@
 ---
-description: Tutorial on how to implement the OAuth 2.0 Resource Owner Password Grant
+description: Learn how to implement the OAuth 2.0 Resource Owner Password Grant
 toc: true
 topics:
   - api-authentication
@@ -90,7 +90,7 @@ Where:
 * `client_secret`: Your application's Client Secret. You can find this value at the [Settings tab of the Machine to Machine Application](${manage_url}/#/applications). This is required when the **Token Endpoint Authentication Method** field at your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) is `Post` or `Basic`. Do not set this parameter if your application is not highly trusted (for example, SPA).
 * `scope`: String value of the different <dfn data-key="scope">scopes</dfn> the application is asking for. Multiple scopes are separated with whitespace.
 
-The response contains a signed <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn>, the token's type (which is `Bearer`), and in how much time it expires in [Unix time](https://en.wikipedia.org/wiki/Unix_time) (86400 seconds, which means 24 hours).
+The response contains a signed <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn>, the token's type (which is `Bearer`), and in how much time it expires in [Unix time](https://en.wikipedia.org/wiki/Unix_time).
 
 ```js
 {

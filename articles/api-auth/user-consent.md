@@ -1,5 +1,5 @@
 ---
-description: Decouple APIs from applications that consume them and define third-party apps that you don't control or may not trust. 
+description: Learn how to decouple APIs from applications that consume them and define third-party apps that you don't control or may not trust. 
 topics:
   - api-authentication
   - oidc

@@ -55,7 +55,21 @@ For more info about SES credentials, see Amazon's [Using Credentials With Amazon
 
 6. [Attach a policy with the proper permissions](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage.html). Attach a policy with the `ses:SendRawEmail` and `ses:SendEmail` permissions, as in this example:
 
-    ![Attach AWS Policy](/media/articles/email/providers/aws-policy.png)
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ses:SendRawEmail",
+                "ses:SendEmail"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
 
 7. Navigate to Auth0 [Custom Email Providers](${manage_url}/#/emails/provider). Activate the **Use my own email provider** toggle, and click the **Amazon Web Services** logo.
 

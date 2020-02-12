@@ -107,6 +107,6 @@ If your applications do not depend on external APIs and you just need to authent
 For more information on API authentication and authorization refer to <a href="/api-auth">API Authorization</a>.
 :::
 
-## Further reading
+## Keep reading
 
 <%= include('./_index.md') %>

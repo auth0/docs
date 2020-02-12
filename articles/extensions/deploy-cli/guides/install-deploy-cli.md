@@ -1,6 +1,6 @@
 ---
 title: Install and Configure the Deploy CLI Tool
-description: Learn how to install and configure the Deploy CLI Tool.
+description: Learn how to install and configure the Deploy CLI tool.
 topics:
   - extensions
   - deploy-cli
@@ -10,13 +10,12 @@ useCase: extensibility-extensions
 ---
 # Install and Configure the Deploy CLI Tool
 
-This guide will show you how to install the Deploy CLI Tool and configure it using the Deploy CLI Extension. To do this, you must:
+This guide will show you how to install the Deploy CLI tool and configure it using the Deploy CLI extension. To do this, you must:
 
 1. [Install the Deploy CLI Tool](#install-the-deploy-cli-tool)
-2. [Create the Deploy CLI Application](#create-the-deploy-cli-application)
-3. [Configure the Deploy CLI Application](#configure-the-deploy-cli-application)
-4. [Configure the Deploy CLI Tool](#configure-the-deploy-cli-tool)
-5. [Run the Deploy CLI Tool](#run-the-deploy-cli-tool)
+2. [Install the Deploy CLI Extension](#install-the-deploy-cli-extension)
+3. [Configure the Deploy CLI Tool](#configure-the-deploy-cli-tool)
+4. [Run the Deploy CLI Tool](#run-the-deploy-cli-tool)
 
 You can also upgrade from a previous version of the tool. The `auth0-deploy-cli` tool was completely rewritten from version 1 to [version 2](/extensions/deploy-cli/references/what-new-v2), which means that it is not backwards compatible. Please consider the following when upgrading:
 
@@ -31,11 +30,11 @@ To install the Deploy CLI Tool, use the command-line interface to run:
 npm i -g auth0-deploy-cli
 ```
 
-## Create the Deploy CLI Application
+## Install the Deploy CLI Extension
 
-The Deploy CLI Tool must be authorized to call the Management API. To do this, you must install the **Auth0 Deploy CLI** extension and then configure the application. Once installed, the extension creates an application named `auth0-deploy-cli-extension`, which you can then configure. Later, you will use the Client ID and Secret from this application to configure the Deploy CLI Tool.
+The Deploy CLI tool must be authorized to call the Management API. To do this, the **Auth0 Deploy CLI** extension configures your tenant by creating and configuring an application named **auth0-deploy-cli-extension** and authorizing it for use with the Management API. Later, you will use the Client ID and Secret from this application to configure the Deploy CLI Tool.
 
-1. Navigate to the [Extensions](${manage_url}/#/extensions) page in the [Auth0 Dashboard](${manage_url}), search for the **Auth0 Deploy CLI** extension, and click the Extension to install.
+1. Navigate to the [Extensions](${manage_url}/#/extensions) page in the [Auth0 Dashboard](${manage_url}), locate the **Auth0 Deploy CLI** extension, and click the extension.
 
 ![Find Deploy CLI Extension](/media/articles/extensions/deploy-cli/deploy-cli-find-extension.png)
 
@@ -45,78 +44,13 @@ The Deploy CLI Tool must be authorized to call the Management API. To do this, y
 
 3. From the list of installed extensions, click **Auth0 Deploy CLI**, then click **Accept** to consent to allow the extension to access your data. 
 
-## Configure the Deploy CLI Application
-
-The Deploy CLI Application must be configured to grant it access to the Management API with the [required scopes](#required-scopes). 
-
-1. Navigate to the [Applications](${manage_url}/#/applications) page in the [Auth0 Dashboard](${manage_url}/), and click the `auth0-deploy-cli-extension` application.
-
-![View Applications](/media/articles/extensions/deploy-cli/deploy-cli-app-list.png)
-
-2. Locate **Client ID** and **Client Secret**. Make note of these values; you will need them later.
-
-3. Locate **Application Type**, select **Machine to Machine**, and click **Save Changes**.
-
-4. Repeat step 1 to refresh the available Application options. Once refreshed, note that on the **APIs** tab, under **Auth0 Management API**, the [required scopes](#required-scopes) should already be enabled.
-
-![Enable Permissions](/media/articles/extensions/deploy-cli/deploy-cli-enable-permissions.png)
-
-### Required Scopes
-
-The following scopes are required to be enabled on the `auth0-deploy-cli-extension` Application to ensure it is configured for proper access to the Management API. The **Auth0 Deploy CLI** extension should have already automatically enabled these permissions when creating the `auth0-deploy-cli-extension`.
-
-    - read:client_grants
-    - create:client_grants
-    - delete:client_grants
-    - update:client_grants
-    - read:clients
-    - update:clients
-    - delete:clients
-    - create:clients
-    - read:client_keys
-    - update:client_keys
-    - delete:client_keys
-    - create:client_keys
-    - read:connections
-    - update:connections
-    - delete:connections
-    - create:connections
-    - read:resource_servers
-    - update:resource_servers
-    - delete:resource_servers
-    - create:resource_servers
-    - read:rules
-    - update:rules
-    - delete:rules
-    - create:rules
-    - read:rules_configs
-    - update:rules_configs
-    - delete:rules_configs
-    - read:email_provider
-    - update:email_provider
-    - delete:email_provider
-    - create:email_provider
-    - read:tenant_settings
-    - update:tenant_settings
-    - read:grants
-    - delete:grants
-    - read:guardian_factors
-    - update:guardian_factors
-    - read:email_templates
-    - create:email_templates
-    - update:email_templates
-    - read:roles
-    - create:roles
-    - delete:roles
-    - update:roles
-    - read:prompts
-    - update:prompts
-    - read:branding
-    - update:branding
+::: note
+If necessary, you can also [manually create and configure the **auth0-deploy-cli-extension** application](/extensions/deploy-cli/guides/create-deploy-cli-application-manually#create-the-initial-deploy-cli-application) and [manually modify required scopes](/extensions/deploy-cli/guides/create-deploy-cli-application-manually#modify-deploy-cli-application-scopes).
+:::
 
 ## Configure the Deploy CLI Tool
 
-To configure the Deploy CLI Tool to use the Deploy CLI Application, create a **config.json** file, including the **Client ID** and **Client Secret** you located when configuring the Deploy CLI Application:
+To configure the Deploy CLI tool to use the Deploy CLI application, create a **config.json** file, including the **Client ID** and **Client Secret** from the **auth0-deploy-cli-extension** application. You can find this application on the [Applications](${manage_url}/#/applications) page in the [Auth0 Dashboard](${manage_url}).
 
 ```json
 {
@@ -144,4 +78,4 @@ a0deploy export -c config.json -f yaml -o <your repo directory>
 * [Deploy CLI Tool Options](/extensions/deploy-cli/references/deploy-cli-options)
 * [Import/Export Tenant Configuration to a Directory Structure](extensions/deploy-cli/guides/import-export-directory-structure)
 * [Import/Export Tenant Configuration to a YAML File](/extensions/deploy-cli/guides/import-export-yaml-file)
-* [Troubleshooting Deploy CLI Tool](/extensions/deploy-cli/references/troubleshooting)
+* [Troubleshooting the Deploy CLI Tool](/extensions/deploy-cli/references/troubleshooting)

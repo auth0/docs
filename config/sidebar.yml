@@ -641,12 +641,6 @@ articles:
           - title: "View Anomaly Detection Events"
             url: "/anomaly-detection/guides/use-tenant-data-for-anomaly-detection"
 
-          - title: "Restrictions and Limitations"
-            url: "/anomaly-detection/references/anomaly-detection-restrictions-limitations"
-
-          - title: "FAQs"
-            url: "/anomaly-detection/references/anomaly-detection-faqs"
-
       - title: SAML Configuration
         url: /protocols/saml
         children:
@@ -938,65 +932,55 @@ articles:
         url: /hooks
         children:
 
+          - title: Create Hooks
+            url: /hooks/create
+
+          - title: Update Hooks
+            url: /hooks/update
+
+          - title: Delete Hooks
+            url: /hooks/delete
+
+          - title: Enable/Disable Hooks
+            url: /hooks/enable-disable
+
+          - title: View Hooks
+            url: /hooks/view
+
+          - title: View Logs
+            url: /hooks/view-logs
+
           - title: Extensibility Points
-            url: /hooks/concepts/extensibility-points
+            url: /hooks/extensibility-points
             children:
 
-              - title: Credentials Exchange
-                url: /hooks/concepts/credentials-exchange-extensibility-point
-                hidden: true
+            - title: Client Credentials Exchange
+              url: /hooks/extensibility-points/client-credentials-exchange
 
-              - title: Pre-User Registration
-                url: /hooks/concepts/pre-user-registration-extensibility-point
-                hidden: true
+            - title: Post Change Password
+              url: /hooks/extensibility-points/post-change-password
 
-              - title: Post-User Registration
-                url: /hooks/concepts/post-user-registration-extensibility-point
-                hidden: true
+            - title: Post User Registration
+              url: /hooks/extensibility-points/post-user-registration
 
-          - title: Using the Auth0 CLI
-            url: /hooks/guides/create-hooks-using-cli
+            - title: Pre User Registration
+              url: /hooks/extensibility-points/pre-user-registration    
+
+          - title: Hook Secrets
+            url: /hooks/secrets
             children:
 
-              - title: Create Hooks
-                url: /hooks/guides/create-hooks-using-cli
-                hidden: true
+              - title: Create Secrets
+                url: /hooks/secrets/create
 
-              - title: Edit Hooks
-                url: /hooks/guides/edit-hooks-using-cli
-                hidden: true
+              - title: Update Secrets
+                url: /hooks/secrets/update
 
-              - title: Delete Hooks
-                url: /hooks/guides/delete-hooks-using-cli
-                hidden: true
+              - title: Delete Secrets
+                url: /hooks/secrets/delete
 
-              - title: Enable/Disable Hooks
-                url: /hooks/guides/enable-disable-hooks-using-cli
-                hidden: true
-
-              - title: Get Log Info
-                url: /hooks/guides/logging-hooks-using-cli
-                hidden: true
-
-          - title: Using the Dashboard
-            url: /hooks/guides/create-hooks-using-dashboard
-            children:
-
-              - title: Create Hooks
-                url: /hooks/guides/create-hooks-using-dashboard
-                hidden: true
-
-              - title: Edit Hooks
-                url: /hooks/guides/edit-hooks-using-dashboard
-                hidden: true
-
-              - title: Delete Hooks
-                url: /hooks/guides/delete-hooks-using-dashboard
-                hidden: true
-
-              - title: Enable/Disable Hooks
-                url: /hooks/guides/enable-disable-hooks-using-dashboard
-                hidden: true
+              - title: View Secrets
+                url: /hooks/secrets/view
 
       - title: Extensions
         url: /extensions
@@ -1031,6 +1015,16 @@ articles:
       - title: Logs
         url: /logs
         children:
+
+          - title: Log Streams
+            url: /logs/streams
+            children:
+
+              - title: HTTP Event Streams
+                url: /logs/streams/http-event
+
+              - title: AWS EventBridge
+                url: /logs/streams/aws-eventbridge
 
           - title: Log Data Retention
             url: /logs/references/log-data-retention
@@ -1148,8 +1142,8 @@ articles:
           - title: "Deploy CLI Options"
             url: "/extensions/deploy-cli/references/deploy-cli-options"
 
-          - title: "What's New in v2"
-            url: "/extensions/deploy-cli/references/whats-new-v2"
+          - title: "What's New"
+            url: "/extensions/deploy-cli/references/whats-new"
 
           - title: "Troubleshoot Deploy CLI"
             url: "/extensions/deploy-cli/references/troubleshooting"

@@ -1,6 +1,5 @@
 ---
-title: How to implement the Client Credentials Grant
-description: How to call an API from a server process using OAuth 2.0 and the Client Credentials grant
+description: Learn how to call an API from a server process using OAuth 2.0 and the Client Credentials grant.
 toc: true
 topics:
   - api-authentication
@@ -11,7 +10,7 @@ useCase:
   - secure-api
   - call-api
 ---
-# How to Implement the Client Credentials Grant
+# Implement the Client Credentials Grant
 
 The **Client Credentials Grant** (defined in [RFC 6749, section 4.4](https://tools.ietf.org/html/rfc6749#section-4.4)) allows an application to request an Access Token using its __Client Id__ and __Client Secret__. It is used for non interactive applications (a CLI, a daemon, or a Service running on your backend) where the token is issued to the application itself, instead of an end user.
 
@@ -92,7 +91,7 @@ If you [decode the `access_token`](https://jwt.io/#debugger-io) you will see tha
 
 You can change the <dfn data-key="scope">scopes</dfn> and add custom claims to the Access Token you got, using [Hooks](/hooks).
 
-Hooks allow you to customize the behavior of Auth0 using Node.js code. They are actually Webtasks, associated with specific extensibility points of the Auth0 platform (like the Client Credentials grant). Auth0 invokes the Hooks at runtime to execute your custom logic.
+Hooks allow you to customize the behavior of Auth0 using Node.js code. They are secure, self-contained functions associated with specific extensibility points of the Auth0 platform (like the Client Credentials grant). Auth0 invokes the Hooks at runtime to execute your custom logic.
 
 For more information and details on how to do that refer to [Using Hooks with Client Credentials Grant](/api-auth/tutorials/client-credentials/customize-with-hooks).
 

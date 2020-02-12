@@ -32,7 +32,7 @@ In a JWT, a claim appears as a name/value pair where the name is always a string
 }
 ```
 
-## Types of JWT Claims
+## JWT claim types
 
 There are two types of <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn> claims:
 

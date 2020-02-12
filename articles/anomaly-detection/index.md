@@ -1,6 +1,7 @@
 ---
 title: Anomaly Detection
-description: Understand how Auth0 detects anomalies.
+description: Understand how Auth0 detects anomalies to stop malicious attempts to access your application, alert you and your users of suspicious activity, and block further login attempts. 
+toc: true 
 topics:
     - security
     - anomaly-detection
@@ -42,7 +43,31 @@ Every day, malicious hackers penetrate websites and applications, exposing thous
 
 Auth0 tracks large security breaches that are happening on major third party sites to help keep your users and system secure. By [enabling breached password detection](/anomaly-detection/guides/set-anomaly-detection-preferences), when a [trigger](/anomaly-detection/references/breached-password-detection-triggers-actions) occurs, your users can be notified and/or blocked from logging in if we suspect their credentials were part of a published security breach. You can [customize blocked account emails](/anomaly-detection/guides/customize-blocked-account-emails).
 
-## Keep reading
+## Frequently asked questions
 
-* [Restrictions and limitations](/anomaly-detection/references/anomaly-detection-restrictions-limitations) of Auth0 anomaly detection.
-* [Frequently asked questions](/anomaly-detection/references/anomaly-detection-faqs) about anomaly detection.
+* **Is the user notified at every login?**
+We send one email every hour, regardless of the number of logins. For example, if a user tries to log in 200 times in 1 hour and 30 minutes, we will send 2 emails.
+
+* **Is there a limit to the number of times a user will be notified?**
+Users will only be notified once per hour.
+
+* **How often does Auth0 email administrators when traffic is blocked using Brute Force Protection for multiple accounts?**
+In the event of an ongoing attack, traffic can be blocked from thousands of IP addresses at a time.  Auth0 will send a single email to each administrator every hour that traffic is blocked, regardless of the number of IPs involved in the attack.
+
+* **For how long is the reset password link, included in the breached password email, valid?**
+Password reset links are valid for 5 days.
+
+* **Is there a test dataset of breached passwords?**
+You can test with **leak-test@example.com** as the email and **Paaf213XXYYZZ** as the password. 
+
+* **Does the breached password detection work when logging in using the Resource Owner password grant?**
+Yes.
+
+* **Does the breached password detection feature work with a custom database?**
+Yes.
+
+* **What Redirect URL applies to the *Change password* link included in the breached password notification email?**
+The **RedirectTo** URL is the URL listed in the Dashboard in [Emails > Templates > Change Password Template](${manage_url}/#/emails).
+
+* **Is there a way to configure the Redirect URL and the length of time that the change password link is valid?**
+You can configure the **URL Lifetime** and **Redirect To** values in the Dashboard by going to [Emails > Templates > Change Password Template](${manage_url}/#/emails).

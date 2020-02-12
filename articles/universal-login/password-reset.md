@@ -1,5 +1,5 @@
 ---
-description: Guide on how to use the password reset page
+description: Learn how to customize a hosted password reset page.
 topics:
   - password-reset
   - hosted-pages
@@ -7,15 +7,13 @@ contentType: how-to
 toc: true
 useCase: customize-hosted-pages
 ---
-# Password Reset Page
+# Customize Hosted Password Reset Page
 
 ::: note
-This article will help you learn how to configure the custom Password Reset page.
-
 If you are:
 
-* An admin trying to reset a user's password, see [Change Users' Passwords](/connections/database/password-change)
-* A user trying to reset your own password, see [Reset Your Auth0 Account Password](/support/reset-account-password)
+* An administrator trying to reset a user's password, see [Change Users' Passwords](/connections/database/password-change)
+* A user trying to reset your own password, see [Reset Auth0 Account Password](/support/reset-account-password)
 :::
 
 The Password Reset Page provides your applications' users with a way to change their passwords if they can't log in.

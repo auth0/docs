@@ -43,6 +43,7 @@ You can access the following common variables when using Liquid Syntax in the **
   * `user.nickname`
   * `user.given_name`
   * `user.family_name`
+  * `user.name`
   * `user.app_metadata` - stores information (such as a user's support plan, security <dfn data-key="role">roles</dfn>, or access control groups) that can impact a user's core functionality, such as how an application functions or what the user can access.
   * `user.user_metadata` - stores user attributes (such as user preferences) that do not impact a user's core functionality.
 * Tenant-related information (defined in the [Tenant Settings](${manage_url}/#/tenant)):
@@ -249,7 +250,7 @@ Once a user verifies their email address, they will receive a **Welcome Email**.
 
 ### Reset Email
 
-If a user requests a password change, they will receive a **Reset Email** that contains a URL link. When the user clicks on the link, a [Password Reset screen](/universal-login/password-reset) will be presented to enter the new password.
+If a user requests a password change, they will receive a **Reset Email** that contains a URL link. When the user clicks on the link, a [Password Reset page](/universal-login/password-reset) will be presented to enter the new password.
 
 In addition to the [common variables](#common-variables) available for all email templates, the **Reset Email** has the `url` variable that refers to the URL that the user will have to click. You will use it in the **Message** field to create a link that the user can follow, as in this example:
 

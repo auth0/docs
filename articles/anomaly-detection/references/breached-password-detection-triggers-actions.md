@@ -31,7 +31,5 @@ This block remains in place until the user changes their password.
 
 ## Keep reading
 
-* Understand [how Auth0 detects anomalies](/anomaly-detection).
-* Understand why a user receives a [breached password email](/anomaly-detection/concepts/breached-passwords) and general web security tips.
-* [Restrictions and limitations](/anomaly-detection/references/anomaly-detection-restrictions-limitations) of Auth0 anomaly detection.
-* [Frequently asked questions](/anomaly-detection/references/anomaly-detection-faqs) about anomaly detection.
+* [Anomaly Detection](/anomaly-detection)
+* [Breached Password Security](/anomaly-detection/concepts/breached-passwords)

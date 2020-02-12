@@ -53,11 +53,16 @@ Facebook allows you to create a copy of your application to use for testing purp
 * [Create another Auth0 tenant](/dashboard/guides/tenants/create-multiple-tenants) to use for testing purposes and [set up a test environment](/dev-lifecycle/setting-up-env#set-the-environment).
 :::
 
+
 ## Access Facebook's API
 
 <%= include('../_call-api', {
   "idp": "Facebook"
 }) %>
+
+Facebook lets you select the minimum version of the Facebook API that is available to the application. This can be changed in the in the 'Settings/Advanced' section of your application in the Facebook developer portal. 
+
+Auth0 has been tested with version 3.2. We recommend setting that as the minimum version, but it could work with newer versions.
 
 ## Facebook Re-Authentication
 

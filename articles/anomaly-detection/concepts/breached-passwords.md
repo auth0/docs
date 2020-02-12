@@ -60,6 +60,5 @@ You can also use third-party tools, such as websites like [HaveIBeenPawned](http
 
 ## Keep reading
 
-* Understand how Auth0 [detects anomalies](/anomaly-detection).
-* Learn how to [customize blocked account emails](/anomaly-detection/guides/customize-blocked-account-emails).
-* [Frequently asked questions](/anomaly-detection/references/anomaly-detection-faqs) about anomaly detection.
+* [Anomaly Detection](/anomaly-detection)
+* [Customize Blocked Account Emails](/anomaly-detection/guides/customize-blocked-account-emails)

@@ -28,6 +28,6 @@ See [How to Read Your Results Set](/pre-deployment/how-to-run-test#how-to-read-y
 | [Email Templates](/email/custom) are configured | [Configure custom email templates](${manage_url}/#/emails) with your application specific details and corporate branding. |
 | [Guardian Multi-factor](/multifactor-authentication) or other Multi-factor Authentication Providers | Consider [multi-factor authentication](${manage_url}/#/guardian) as part of the authentication strategy. |
 | [MFA for Tenant Administrators](/tutorials/manage-dashboard-admins) is enabled | [Enable multi-factor authentication](${manage_url}/#/account/admins) for tenant administrators. |
-| [Password Reset Page](/hosted-pages/password-reset) is customized | [Configure a Custom Hosted Page for Password Reset](${manage_url}/#/password_reset) with your application details and corporate branding. |
+| [Hosted Password Reset Page](/universal-login/password-reset) is customized | [Configure a Custom Hosted Page for Password Reset](${manage_url}/#/password_reset) with your application details and corporate branding. |
 | [Redirect Logout URL](/logout#set-the-allowed-logout-urls-at-the-account-level) | Review the [Allowed Redirect Logout URLs](${manage_url}/#/account/advanced) for your Application. |
 | Use RS256 Instead of HS256 | Set the JSONWebToken [Signature Algorithm](/apis#signing-algorithms) to RS256 instead of HS256. |

@@ -14,11 +14,11 @@ useCase:
 ---
 # Check Auth0 Authentication and Supporting Services
 
-You can use the `/test` and `/testall` endpoints as a supplement to your other monitoring. 
-
-::: note
-These endpoints are best for determining if everything is functioning *not* for determining if something is down. For example, even if they return a `500` response code, that doesn’t mean that there’s a failure.
+::: warning
+The `/test` and `/testall` endpoints are best for determining if everything is functioning but *not* for determining if something is down. They do not provide a complete status picture. 
 :::
+
+Use the `/test` and `/testall` endpoints as a supplement to your other monitoring. You should use synthetic transactions against a test account to ensure that everything is functional. You should also track your own logs and other metrics to calls to Auth0 from servers and/or clients.
 
 ## Test endpoint
 
