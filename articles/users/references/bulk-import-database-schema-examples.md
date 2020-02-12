@@ -17,28 +17,6 @@ useCase:
 
 The users file must have an array with the users' information in JSON format.
 
-You can import users with the following properties:
-
-| Property | Type | Description |
-|----------|------|-------------|
-| `app_metadata` | object | Data that can affect the application's core functionality or what the user can access. Data stored in `app_metadata` cannot be edited by users. This may include things such as support plans, roles or access groups. |
-| `blocked` | boolean | Indicates whether the user has been blocked. |
-| `email` | string | The user's email address. |
-| `email_verified` | boolean | Indicates whether the user has verified their email address. |
-| `family_name` | string | The user's family name. |
-| `given_name` | string | The user's given name. |
-| `name` | string | The user's full name. |
-| `nickname` | string | The user's nickname. |
-| `picture` | string | URL pointing to the user's profile picture. |
-| `user_id` | string | The user's unique identifier. This will be prepended by the connection strategy. |
-| `user_metadata` | object | Data that does not impact what users can or cannot access, such as work address, home address, or user preferences. |
-| `username` | string | The user's username. |
-| `password_hash` | string | Hashed password for the user's connection. When users are created, Auth0 uses [bcrypt](https://auth0.com/blog/hashing-in-action-understanding-bcrypt/) to secure the password. Importing hashed passwords lets users keep their passwords for a smoother experience. Compatible passwords should be hashed using bcrypt $2a$ or $2b$ and have 10 saltRounds. This property can only be provided when the user is first imported and cannot be updated later. |
-| `custom_password_hash` | object | A more generic way to provide the user's password hash. This can be used instead of the `password_hash` field when the user's password hash was created with an alternate algorithm. This property can only be provided when the user is first imported and cannot be updated later. |
-| `password_set_date` | date time | Timestamp indicating when the password for the user's connection was set. At user creation, this field exists, and `last_password_reset` does not. If the user has reset their password, this field and `last_password_reset` are identical. |
-
-For more information on `app_metadata` and `user_metadata`, check out the [Metadata Overview](/users/concepts/overview-user-metadata).
-
 ## User JSON schema
 
 The following [JSON schema](http://json-schema.org) describes valid users:
@@ -187,6 +165,30 @@ The following [JSON schema](http://json-schema.org) describes valid users:
     "additionalProperties": false
 }
 ```
+
+## Properties
+
+You can import users with the following properties:
+
+| Property | Type | Description | Upsert During Import? |
+|----------|------|-------------|-----------------------|
+| `app_metadata` | object | Data that can affect the application's core functionality or what the user can access. Data stored in `app_metadata` cannot be edited by users. This may include things such as support plans, roles or access groups. | Yes |
+| `blocked` | boolean | Indicates whether the user has been blocked. | No |
+| `email` | string | The user's email address. | No |
+| `email_verified` | boolean | Indicates whether the user has verified their email address. | Yes |
+| `family_name` | string | The user's family name. | Yes |
+| `given_name` | string | The user's given name. | Yes |
+| `name` | string | The user's full name. | Yes |
+| `nickname` | string | The user's nickname. | Yes |
+| `picture` | string | URL pointing to the user's profile picture. | Yes |
+| `user_id` | string | The user's unique identifier. This will be prepended by the connection strategy. | No |
+| `user_metadata` | object | Data that does not impact what users can or cannot access, such as work address, home address, or user preferences. | Yes |
+| `username` | string | The user's username. | No |
+| `password_hash` | string | Hashed password for the user's connection. When users are created, Auth0 uses [bcrypt](https://auth0.com/blog/hashing-in-action-understanding-bcrypt/) to secure the password. Importing hashed passwords lets users keep their passwords for a smoother experience. Compatible passwords should be hashed using bcrypt $2a$ or $2b$ and have 10 saltRounds. This property can only be provided when the user is first imported and cannot be updated later. | No |
+| `custom_password_hash` | object | A more generic way to provide the user's password hash. This can be used instead of the `password_hash` field when the user's password hash was created with an alternate algorithm. This property can only be provided when the user is first imported and cannot be updated later. | No |
+| `password_set_date` | datetime | Timestamp indicating when the password for the user's connection was set. At user creation, this field exists, and `last_password_reset` does not. If the user has reset their password, this field and `last_password_reset` are identical. | No |
+
+For more information on `app_metadata` and `user_metadata`, check out the [Metadata Overview](/users/concepts/overview-user-metadata).
 
 ## App metadata
 
