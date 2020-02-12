@@ -14,11 +14,7 @@ useCase:
 
 Auth0 supports the linking of user accounts from various identity providers. This allows a user to authenticate from any of their accounts and still be recognized by your app and associated with the same user profile. This feature requires a paid subscription to the **Developer**, **Developer Pro** or **Enterprise** plan (see [Pricing](https://auth0.com/pricing)).
 
-::: note
-Auth0 treats all identities as separate by default. For example, if a user logs in first against the Auth0 database and then via Google or Facebook, these two attempts would appear to Auth0 as two separate users.
-:::
-
-You can implement functionality to enable a user to explicitly link accounts.  In this scenario, the user would log in with an initial provider, perhaps Google. Your application would provide a link or button to enable them to link another account to the first one.  The user would click on this link/button and your application would make a call so that when the user logs in with the second provider, the second account is linked with the first.
+Auth0 treats all identities as separate by default. For example, if a user logs in first against the Auth0 database and then via Google or Facebook, these two attempts would appear to Auth0 as two separate users. You can implement functionality to enable a user to explicitly link accounts. In this scenario, the user would log in with an initial provider, perhaps Google. Your application would provide a link or button to enable them to link another account to the first one.  The user would click on this link/button and your application would make a call so that when the user logs in with the second provider, the second account is linked with the first.
 
 ## Advantages of linking accounts
 
@@ -172,7 +168,7 @@ The [Auth0 Node.js SDK for APIv2](https://github.com/auth0/node-auth0/tree/v2) i
 
 ## Scenarios
 
-In this section we will see some scenarios that implement account linking:
+Here are some scenarios that implement account linking:
 * [Automatic account linking](#automatic-account-linking): automatically link accounts with the same email address
 * [User-initiated account linking](#user-initiated-account-linking): allow your users to link their accounts using an admin screen in your app
 * [Suggested account linking](#suggested-account-linking): identify accounts with the same email address and prompt the user in your app to link them
@@ -183,7 +179,7 @@ For security purposes, link accounts **only if both emails are verified**.
 
 ### Automatic account linking
 
-You can implement automatic linking by setting up a [Rule](/rules) that will run upon user login and link accounts with the same email address.
+You can implement automatic linking by setting up a [Rule](/rules) to run upon user login and link accounts with the same email addresses.
 
 The rule is an example of linking accounts in server-side code using the Auth0 Management API [Link a user account endpoint](/api/v2#!/Users/post_identities) where you have both the primary and secondary user IDs and an [Management API Access Token](/api/v2/tokens) with `update:users` scope.
 
@@ -207,6 +203,8 @@ You can also set up a [Rule](/rules) that will link accounts with the same verif
 
 ![Sample linking suggestion](/media/articles/link-accounts/regular-web-app-suggest-linking.png)
 
+<%= include('../_includes/_account-linking-id-tokens.md') %>
+
 ## Keep reading
 
 * [Link User Accounts](/users/guides/link-user-accounts)
@@ -214,4 +212,3 @@ You can also set up a [Rule](/rules) that will link accounts with the same verif
 * [Link User Accounts Client-Side Scenario](/users/references/link-accounts-client-side-scenario)
 * [Link User Accounts Server-Side Scenario](/users/references/link-accounts-server-side-scenario)
 * [Link User Accounts Initiated by Users Scenario](/users/references/link-accounts-user-initiated-scenario)
-* [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking)

@@ -127,6 +127,8 @@ When the user clicks on any of the **Link Account** buttons, your app triggers a
 <button onclick="linkPasswordlessSMS()">SMS</a>
 ```
 
+<%= include('../_includes/_account-linking-id-tokens.md') %>
+
 ## Keep reading
 
 * [User Account Linking Overview](/users/concepts/overview-user-account-linking)
@@ -134,4 +136,3 @@ When the user clicks on any of the **Link Account** buttons, your app triggers a
 * [Unlink User Accounts](/users/guides/unlink-user-accounts)
 * [Link User Accounts Client-Side Scenario](/users/references/link-accounts-client-side-scenario)
 * [Link User Accounts Server-Side Scenario](/users/references/link-accounts-server-side-scenario)
-* [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking)

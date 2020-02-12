@@ -10,7 +10,7 @@ useCase:
 ---
 # Unlink User Accounts
 
-Use the Auth0 Management API [Unlink a user account](/api/management/v2#!/Users/delete_user_identity_by_user_id) endpoint to unlink an identity from the target user account making it a separate user account again. 
+Use the Auth0 Management API [Unlink a user account](/api/management/v2#!/Users/delete_user_identity_by_user_id) endpoint or the Auth0.js library to unlink an identity from the target user account making it a separate user account again. 
 
 The result of the unlinking process is the following:
 * The secondary account is removed from the identities array of the primary account.
@@ -33,6 +33,8 @@ The endpoint uses the following parameters:
 | `id` | `string` | ID of the primary user account (required) |
 | `provider` | `string` | identity provider name of the secondary linked account (e.g. `google-oauth2`) |
 | `user_id` | `string` | ID of the secondary linked account (e.g. `123456789081523216417` part after the `|` in `google-oauth2|123456789081523216417`) |
+
+<%= include('../_includes/_account-linking-id-tokens.md') %>
 
 ## Response example
 
@@ -60,7 +62,7 @@ The endpoint uses the following parameters:
 
 ## Use JWT from the primary account
 
-To unlink accounts, invoke the Management API v2 [Unlink a user account endpoint](/api/v2#!/Users/delete_user_identity_by_user_id) using the JWT from the primary account for authorization:
+To unlink accounts, call the Management API [Unlink a User Account endpoint](/api/v2#!/Users/delete_user_identity_by_user_id) using the JWT from the primary account for authorization:
 
 ```js
 function unlinkAccount(secondaryProvider, secondaryUserId){
@@ -84,7 +86,7 @@ function unlinkAccount(secondaryProvider, secondaryUserId){
 
 ## Use Access Token with the `update:users` scope
 
-If you need to unlink two or more user accounts, call the Management API v2 [Unlink a User Account endpoint](/api/v2#!/Users/delete_user_identity_by_user_id) using an [Management API Access Token](/api/v2/tokens) with the `update:users` scope.
+If you need to unlink two or more user accounts, call the Management API [Unlink a User Account endpoint](/api/v2#!/Users/delete_user_identity_by_user_id) using an [Management API Access Token](/api/v2/tokens) with the `update:users` scope.
 
 ```js
 function unlinkAccount(secondaryProvider, secondaryUserId) {
@@ -167,11 +169,13 @@ function unlinkAccount(secondaryProvider, secondaryUserId) {
     module.exports = new Auth0Client();
     ```
 
+<%= include('../_includes/_account-linking-id-tokens.md') %>
+
 ## Keep reading
 
 * [User Account Linking Overview](/users/concepts/overview-user-account-linking)
 * [Link User Accounts](/users/guides/link-user-accounts)
-* [Link User Accounts Client-Side Scenario](/users/references/link-accounts-client-side-scenario)
-* [Link User Accounts Server-Side Scenario](/users/references/link-accounts-server-side-scenario)
+* [Link User Accounts Client-Side Code Scenario](/users/references/link-accounts-client-side-scenario)
+* [Link User Accounts Server-Side Code Scenario](/users/references/link-accounts-server-side-scenario)
 * [Link User Accounts Initiated by Users Scenario](/users/references/link-acounts-user-initiated-scenario)
 * [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking)

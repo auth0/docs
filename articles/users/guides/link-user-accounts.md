@@ -177,6 +177,8 @@ function(user, context, callback) {
 }
 ```
 
+<%= include('../_includes/_account-linking-id-tokens.md') %>
+
 ## Keep reading
 
 * [User Account Linking Overview](/users/concepts/overview-user-account-linking)
@@ -184,4 +186,3 @@ function(user, context, callback) {
 * [Link User Accounts Client-Side Scenario](/users/references/link-accounts-client-side-scenario)
 * [Link User Accounts Server-Side Scenario](/users/references/link-accounts-server-side-scenario)
 * [Link User Accounts Initiated by Users Scenario](/users/references/link-accounts-user-initiated-scenario)
-* [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking)

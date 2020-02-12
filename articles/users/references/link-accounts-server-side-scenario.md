@@ -10,7 +10,7 @@ useCase:
   - manage-accounts
 ---
 
-# Link User Accounts Server-Side Scenario
+# Link User Accounts Server-Side Code Scenario
 
 You can use server-side code to link accounts on a regular web application. Rather than automating the entire account linking process, you're engaging the user and asking them for permission before proceeding. Your code will authenticate users then search for and identify users using their email addresses. Your app will prompt the user to link their accounts, verify and merge metadata which links the accounts.
 
@@ -200,11 +200,12 @@ function _mergeMetadata(primaryUser, secondaryUser){
 }
 ```
 
+<%= include('../_includes/_account-linking-id-tokens.md') %>
+
 ## Keep reading
 
 * [User Account Linking Overview](/users/concepts/overview-user-account-linking)
 * [Link User Accounts](/users/guides/link-user-accounts)
 * [Unlink User Accounts](/users/guides/unlink-user-accounts)
-* [Link User Accounts Client-Side Scenario](/users/references/link-accounts-client-side-scenario)
+* [Link User Accounts Client-Side Code Scenario](/users/references/link-accounts-client-side-scenario)
 * [Link User Accounts Initiated by Users Scenario](/users/references/link-accounts-user-initiated-scenario)
-* [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking)
