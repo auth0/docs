@@ -11,7 +11,7 @@ topics:
 contentType: tutorial
 useCase: quickstart
 github:
-    path: 00-Starter-Seed
+    path: 01-Login
 ---
 
 <!-- markdownlint-disable MD002 -->
