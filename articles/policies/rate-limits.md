@@ -245,7 +245,7 @@ If you obtain Access Tokens for your SPAs, note that there are rate limits that 
   </tr>
 </table>
 
-#### Free Tenants and Non-Production Tenants for Enterprise Users
+#### Non-Production Tenants for Enterprise Users
 
 <table class="table">
     <tr>
@@ -315,6 +315,22 @@ If you obtain Access Tokens for your SPAs, note that there are rate limits that 
     <td>20 requests per second</td>
   </tr>
 </table>
+
+#### Free Tenants
+<table class="table">
+    <tr>
+        <th>Endpoint</th>
+        <th>Path</th>
+        <th>Limited By</th>
+        <th>Rate Limit</th>
+    </tr>
+    <tr>
+        <td>All Endpoints</td>
+        <td><a href="/api/authentication">All Authentication API endpoints</a></td>
+        <td>Sum of all combined requests to any Authentication API endpoint</td>
+        <td>300 requests per minute</td>
+    </tr>
+<table>
 
 ## Limits on Database Logins
 
