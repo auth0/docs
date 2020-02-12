@@ -101,7 +101,7 @@ When the user import job finishes and if `send_completion_email` was set to `tru
 
 ## Check job status
 
-To check a job's status, make a `GET` request to the [get a job](/api/management/v2#!/Jobs/get_jobs_by_id) endpoint. Be sure to replace the `JOB_ID` placeholder value with your user import job ID.
+To check a job's status, make a `GET` request to the [get a job](/api/management/v2#!/Jobs/get_jobs_by_id) endpoint. Be sure to replace the `MGMT_API_ACCESS_TOKEN` and `JOB_ID` placeholder values with your Management API Access Token and user import job ID.
 
 ```har
 { 
@@ -152,7 +152,7 @@ Depending on the status of the user import job, you'll receive a response simila
 
 **Completed**
 
-If a job is completed, the job status response will include summary totals of successful/failed/inserted/updated records.
+If a job is completed, the job status response will include totals of successful, failed, inserted, and updated records.
 
 ```json
 {
@@ -207,8 +207,32 @@ Furthermore, all of your job-related data is automatically deleted after 24 hour
 
 ## Retrieve failed entries
 
-You can query and retrieve details on failed entries via the API using the [Get Failed Job Error Details endpoint](/api/management/v2#!/Jobs/get_errors).
+If there were errors in the user import job, you can get the error details by making a `GET` request to the [get job error details](/api/management/v2#!/Jobs/get_errors) endpoint. Be sure to replace the `MGMT_API_ACCESS_TOKEN` and `JOB_ID` placeholder values with your Management API Access Token and user import job ID.
 
+```har
+{ 
+  "method": "GET",
+  "url": "https://${account.namespace}/api/v2/jobs/JOB_ID/errors",
+  "headers": [ 
+    { 
+      "name": "Content-Type",
+      "value": "application/json"
+    },
+    { 
+      "name": "Authorization",
+      "value": "Bearer MGMT_API_ACCESS_TOKEN"
+    }
+  ]
+}
+```
+
+If the request is successful, you'll receive a response similar to the following:
+
+```json
+{
+  "TODO": "TODO" // example response
+}
+```
 
 ## Keep reading
 
