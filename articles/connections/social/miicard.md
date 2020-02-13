@@ -16,9 +16,11 @@ useCase:
 
 # Connect your app to miiCard
 
-Please contact miiCard to get [self-management](http://www.miicard.com/developers/self-management) capabilities on your miiCard account.
+The miiCard service has been officially deprecated, so the ability to create new accounts has been disabled, and eventually, the service will be shut down completely. To learn more, see [miiCard](https://theidco.com/miicard/). 
 
-Once this is enabled, you will be able to complete the Auth0 setup. The `Consumer Key` and `Consumer Secret` will be available on the __miiCard Business Portal__:
+If you already have self-management capabilities on your miiCard account, you may be able to complete Auth0 setup until miiCard is fully shut down.
+
+The `Consumer Key` and `Consumer Secret` should be available on the __miiCard Business Portal__:
 
 ![](/media/articles/connections/social/miicard/miicard-businessportal.png)
 
