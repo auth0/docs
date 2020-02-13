@@ -183,6 +183,7 @@ function(user, context, callback) {
 
 * [User Account Linking Overview](/users/concepts/overview-user-account-linking)
 * [Unlink User Accounts](/users/guides/unlink-user-accounts)
+* [Account Link Extension](/extensions/account-link)
 * [Link User Accounts Client-Side Scenario](/users/references/link-accounts-client-side-scenario)
 * [Link User Accounts Server-Side Scenario](/users/references/link-accounts-server-side-scenario)
 * [Link User Accounts Initiated by Users Scenario](/users/references/link-accounts-user-initiated-scenario)

@@ -13,7 +13,7 @@ useCase: enable-mobile-auth
 
 The Management API provides functionality that you can use to manage users of your application, including tasks such as the following.
 
-* Link separate user accounts from different providers, tying them to a single profile (See [Linking Account](/users/concepts/overview-user-account-linking) for details.)
+* Link separate user accounts from different providers, tying them to a single profile (See [User Account Linking](/users/concepts/overview-user-account-linking) for details.)
 * Unlink user accounts, returning them to separate identities
 * Update user [metadata](/users/concepts/overview-user-metadata)
 

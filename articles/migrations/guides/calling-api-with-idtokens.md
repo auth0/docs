@@ -25,7 +25,7 @@ The grace period for this migration started on **March 31, 2018** and at the mom
 
 Customers are encouraged to migrate to Access Tokens. This guide will help you with that. 
 
-First, we will see which use cases are affected. We will continue with reviewing how you can use <dfn data-key="scope">[scopes](/scopes)</dfn> to get tokens with different access rights, and then see all the ways you can use to get an Access Token. Finally, we will review the changes introduced in the [Account Linking](/users/concepts/overview-user-account-linking) process.
+First, we will see which use cases are affected. We will continue with reviewing how you can use <dfn data-key="scope">[scopes](/scopes)</dfn> to get tokens with different access rights, and then see all the ways you can use to get an Access Token. Finally, we will review the changes introduced in the [User Account Linking](/users/concepts/overview-user-account-linking) process.
 
 ## Does this affect me?
 

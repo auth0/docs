@@ -1,4 +1,4 @@
-There may be situations when your users want to log in with multiple accounts that they own. In these cases, you may want to link these accounts together so that they are all reflected in the user's Auth0 profile. For example, if a user has signed up with an email and password (which provides very little information about them), you can ask them to link their account to an OAuth provider like Facebook or Google to gain access to their social profile. See [Account Linking](/docs/users/concepts/overview-user-account-linking) for details.
+There may be situations when your users want to log in with multiple accounts that they own. In these cases, you may want to link these accounts together so that they are all reflected in the user's Auth0 profile. For example, if a user has signed up with an email and password (which provides very little information about them), you can ask them to link their account to an OAuth provider like Facebook or Google to gain access to their social profile. See [User Account Linking](/users/concepts/overview-user-account-linking) for details.
 
 ## Linking Accounts
 

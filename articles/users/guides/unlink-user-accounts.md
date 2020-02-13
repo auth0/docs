@@ -175,6 +175,7 @@ function unlinkAccount(secondaryProvider, secondaryUserId) {
 
 * [User Account Linking Overview](/users/concepts/overview-user-account-linking)
 * [Link User Accounts](/users/guides/link-user-accounts)
+* [Account Link Extension](/extensions/account-link)
 * [Link User Accounts Client-Side Code Scenario](/users/references/link-accounts-client-side-scenario)
 * [Link User Accounts Server-Side Code Scenario](/users/references/link-accounts-server-side-scenario)
 * [Link User Accounts Initiated by Users Scenario](/users/references/link-acounts-user-initiated-scenario)

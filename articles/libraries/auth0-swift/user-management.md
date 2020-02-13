@@ -11,7 +11,7 @@ useCase: enable-mobile-auth
 ---
 # User Management with Auth0.Swift
 
-The Management API provides functionality that allows you to link and unlink separate user accounts from different providers, tying them to a single profile (See [Linking Accounts](/users/concepts/overview-user-account-linking) for details.) It also allows you to update user metadata.
+The Management API provides functionality that allows you to link and unlink separate user accounts from different providers, tying them to a single profile (See [User Account Linking](/users/concepts/overview-user-account-linking) for details.) It also allows you to update user metadata.
 
 ## Linking users
 
