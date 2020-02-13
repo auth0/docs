@@ -743,7 +743,7 @@ articles:
         url: /users/guides/manage-users-using-the-management-api
 
       - title: Link User Accounts
-        url: /users/concepts/overview-account-linking
+        url: /users/concepts/overview-user-account-linking
         children:
 
           - title: Link User Accounts

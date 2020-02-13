@@ -13,9 +13,9 @@ useCase:
 
 # Migration Guide: Account Linking with Access Tokens vs. ID Tokens
 
-This guide is part of the [Deprecating the usage of ID Tokens on the Auth0 Management API](/migrations#deprecating-the-usage-of-id-tokens-on-the-auth0-management-api) migration, and focuses on the [account linking process](/users/concepts/overview-account-linking).
+This guide is part of the [Deprecating the usage of ID Tokens on the Auth0 Management API](/migrations#deprecating-the-usage-of-id-tokens-on-the-auth0-management-api) migration, and focuses on the [account linking process](/users/concepts/overview-user-account-linking).
 
-For some use cases you could use [ID Tokens](/tokens/concepts/id-tokens) to [link and unlink user accounts](/link-accounts). This functionality is being deprecated. You will have to use <dfn data-key="access-token">Access Tokens</dfn> in all cases.
+For some use cases you could use [ID Tokens](/tokens/concepts/id-tokens) to link and unlink user accounts. This functionality is being deprecated. You will have to use <dfn data-key="access-token">Access Tokens</dfn> in all cases.
 
 The changes in account linking are:
 

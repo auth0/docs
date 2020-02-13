@@ -59,6 +59,6 @@ The one-time-use code expiration time can be altered in the passwordless connect
 
 ## Link accounts
 
-Users might want to authenticate using different passwordless factors during their lifetime. For example, they could initially sign up with an SMS, and later start authenticating with an email. You can achieve that by enabling them to link their different profiles using [account linking](/users/concepts/overview-account-linking).
+Users might want to authenticate using different passwordless factors during their lifetime. For example, they could initially sign up with an SMS, and later start authenticating with an email. You can achieve that by enabling them to link their different profiles using [account linking](/users/concepts/overview-user-account-linking).
 
 <%= include('../_includes/_rate_limit_server_side') %>

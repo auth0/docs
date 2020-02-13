@@ -25,7 +25,7 @@ The grace period for this migration started on **March 31, 2018** and at the mom
 
 Customers are encouraged to migrate to Access Tokens. This guide will help you with that. 
 
-First, we will see which use cases are affected. We will continue with reviewing how you can use <dfn data-key="scope">[scopes](/scopes)</dfn> to get tokens with different access rights, and then see all the ways you can use to get an Access Token. Finally, we will review the changes introduced in the [Account Linking](/link-accounts) process.
+First, we will see which use cases are affected. We will continue with reviewing how you can use <dfn data-key="scope">[scopes](/scopes)</dfn> to get tokens with different access rights, and then see all the ways you can use to get an Access Token. Finally, we will review the changes introduced in the [Account Linking](/users/concepts/overview-user-account-linking) process.
 
 ## Does this affect me?
 
@@ -39,8 +39,8 @@ If you use ID Tokens to call any of the following endpoints, then you are affect
 | [DELETE /api/v2/users/{id}/multifactor/{provider}](/api/management/v2#!/Users/delete_multifactor_by_provider) | Delete the [multi-factor](/multifactor-authentication) provider settings for a user |
 | [POST /api/v2/device-credentials](/api/management/v2#!/Device_Credentials/post_device_credentials) | Create a public key for a device |
 | [DELETE /api/v2/device-credentials/{id}](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id) | Delete a device credential |
-| [POST/api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) | [Link user accounts](/link-accounts) from various identity providers |
-| [DELETE /api/v2/users/{id}/identities/{provider}/{user_id}](/api/management/v2#!/Users/delete_user_identity_by_user_id) | [Unlink user accounts](/link-accounts#unlinking-accounts) |
+| [POST/api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) | [Link user accounts](/users/guides/link-user-accounts) from various identity providers |
+| [DELETE /api/v2/users/{id}/identities/{provider}/{user_id}](/api/management/v2#!/Users/delete_user_identity_by_user_id) | [Unlink user accounts](/users/guides/unlink-user-accounts) |
 
 These endpoints can now accept regular [Access Tokens](/tokens/concepts/access-tokens).
 

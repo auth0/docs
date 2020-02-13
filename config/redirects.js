@@ -775,8 +775,8 @@ module.exports = [
     to: '/'
   },
   {
-    from: '/link-accounts/user-initiated',
-    to: '/link-accounts/user-initiated-linking'
+    from: ['/link-accounts/user-initiated', '/link-accounts/user-initiated-linking'],
+    to: '/users/references/link-accounts-user-initiated-scenario'
   },
   {
     from: '/libraries/lock/using-refresh-tokens',
@@ -1908,8 +1908,8 @@ module.exports = [
     to: `/guides/login/migration-embedded-universal`
   },
   {
-    from: `/link-accounts/auth-api`,
-    to: `/link-accounts`
+    from: [`/link-accounts/auth-api`, `/link-accounts`],
+    to: `/users/concepts/overview-user-account-linking`
   },
   {
     from: ['/videos/session-and-cookies', '/security/store-tokens'],
