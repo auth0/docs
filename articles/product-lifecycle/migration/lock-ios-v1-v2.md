@@ -280,6 +280,6 @@ Auth0
 
 ### Delegation
 
-<%= include('../../../_includes/_deprecate-delegation') %>
+<%= include('../../_includes/_deprecate-delegation') %>
 
 Delegation is not available through Lock. It can be implemented via a legacy method in [Auth0.Swift](/libraries/auth0-swift) for tenants which existed prior to June 2017.
