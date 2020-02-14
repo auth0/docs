@@ -14,7 +14,7 @@ useCase:
 
 # Deprecations
 
-These are deprecations that have already been enabled for all customers.
+These are deprecations that have already been enabled for all customers. See [Check Deprecation Errors](/troubleshoot/guides/check-deprecation-errors) for help diagnosing errors. 
 
 | Feature | Severity | Grace Period Start | Mandatory Opt-in | 
 | -- | -- | -- | -- | 

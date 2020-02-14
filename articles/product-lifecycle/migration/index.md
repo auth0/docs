@@ -29,17 +29,24 @@ Whenever possible, we will provide at least a six-month migration window between
 
 <%= include('../../_includes/_topic-links', { links: [
   'guides/login/migration-embedded-universal',
+  'guides/migration-legacy-flows',
+  'libraries/auth0js/v9/migration-guide',
+  'libraries/lock/v11/migration-guide',
+  'guides/login/migration-sso',
   'product-lifecycle/migration/account-linking',
   'product-lifecycle/migration/calling-api-with-idtokens',
   'product-lifecycle/migration/facebook-social-context',
   'product-lifecycle/migration/facebook-graph-api-deprecation',
-  'product-lifecycle/migration/google-cloud-messaging',
+  'product-lifecycle/migration/google_cloud_messaging',
   'product-lifecycle/migration/legacy-lock-api-deprecation',
   'product-lifecycle/migration/linkedin-api-deprecation',
+  'integrations/office365-connection-deprecation-guide',
   'product-lifecycle/migration/liveid-api-deprecation',
   'product-lifecycle/migration/lock-android-v1-v2',
   'product-lifecycle/migration/lock-ios-v1-v2',
   'product-lifecycle/migration/clickjacking-protection'
 ] }) %>
+
+See [Check Deprecation Errors](/troubleshoot/guides/check-deprecation-errors) for help diagnosing errors. 
 
 If you have any questions, please visit the Migrations section of the [Auth0 Community site](https://community.auth0.com/c/auth0-community/Migrations) or create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
