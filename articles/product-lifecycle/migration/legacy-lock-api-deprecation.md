@@ -112,7 +112,7 @@ The `getSSOData()` and `checkSession()` functions should only be used from a Sin
 
 ##### Polling for an existing session
 
-<%= include('../../../_includes/_checksession_polling') %>
+<%= include('../../_includes/_checksession_polling') %>
 
 This was previously done with `getSSOData()`. The `getSSOData()` function performs more work behind the scenes than is needed for this purpose and applications that are not switched to `checkSession()` will suffer a needless performance penalty.
 
