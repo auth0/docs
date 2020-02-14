@@ -86,7 +86,7 @@ In the example below, we want to use the [GET User by ID endpoint](/api/manageme
 
 On the `Legacy (ID Token)` panel you can see an implementation of the old approach that gets an ID Token (and then uses it to call the endpoint). On the `Current (Access Token)` panel you can see the new approach that gets an Access Token as well.
 
-<%= include('./_get-token-authorize.md', { scope: 'read:current_user', idPrevious: 'authZ-id-token', idCurrent: 'authZ-access-token' }) %>
+<%= include('../_get-token-authorize.md', { scope: 'read:current_user', idPrevious: 'authZ-id-token', idCurrent: 'authZ-access-token' }) %>
 
 Once you have the Access Token you can use it to call the endpoint. This part remains the same, nothing else changes in the request except for the value you use as `Bearer` token. The response remains also the same.
 
@@ -176,7 +176,7 @@ If you embed either [Lock v11](/libraries/lock/v11) or [auth0.js v9](/libraries/
 
 If you use auth0.js to access the Management API and manage your users, then your script will have to be updated.
 
-<%= include('./_get-token-auth0js.md', { scope: 'read:current_user' }) %>
+<%= include('../_get-token-auth0js.md', { scope: 'read:current_user' }) %>
 
 ## Changes in Account Linking
 
