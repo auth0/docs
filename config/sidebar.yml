@@ -1387,10 +1387,10 @@ articles:
   - title: "Product Lifecycle"
     url: "/product-lifecycle"
     children:
-      - title: "Deprecations and End Of Life"
+      - title: "Deprecations"
         url: "/product-lifecycle/deprecated"
 
-      - title: "Upgrades and Enhancements"
+      - title: "Upgrades"
         url: "/product-lifecycle/upgrades"
 
       - title: "Migrations"
