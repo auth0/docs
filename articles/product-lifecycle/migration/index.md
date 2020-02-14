@@ -27,6 +27,8 @@ Whenever possible, we will provide at least a six-month migration window between
 
 ## Other helpful migration guides
 
+Here is a list of other Auth0 product features that have been deprecated and/or upgraded with migration guides available. 
+
 <%= include('../../_includes/_topic-links', { links: [
   'guides/login/migration-embedded-universal',
   'guides/migration-legacy-flows',
@@ -50,3 +52,8 @@ Whenever possible, we will provide at least a six-month migration window between
 See [Check Deprecation Errors](/troubleshoot/guides/check-deprecation-errors) for help diagnosing errors. 
 
 If you have any questions, please visit the Migrations section of the [Auth0 Community site](https://community.auth0.com/c/auth0-community/Migrations) or create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
+
+## Keep reading
+
+* [Deprecated Features](/product-lifecycle/deprecated)
+* [Upgrade Notices](/product-lifecycle/upgrades)

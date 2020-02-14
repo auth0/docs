@@ -1,5 +1,5 @@
 ---
-title: Upgrades and Enhancements
+title: Upgrades Notices
 description: Learn about Auth0 feature enhancements and upgrades.
 topics:
   - enhancements
@@ -9,7 +9,7 @@ contentType:
 useCase:
   - upgrade
 ---
-# Upgrades and Enhancements 
+# Upgrades Notices 
 
 These are new features and upgrades that have already been enabled for all customers.
 
@@ -21,3 +21,8 @@ These are new features and upgrades that have already been enabled for all custo
 | [TokenInfo Endpoint Validation](/product-lifecycle/upgrades/references/token-endpoint-validation) |  | 2016-06-01 |
 | [Delete All Users Endpoint Change](/product-lifecycle/upgrades/references/delete-all-users) |  | 2016-09-13 |
 | [State Parameter Required on Redirects from Rules](/product-lifecycle/upgrades/references/state-parameter-required-redirect) |  | 2016-11-01 |
+
+## Keep reading
+
+* [Deprecated Features](/product-lifecycle/deprecated)
+* [Migration Guides](/product-lifecycle/migration)
