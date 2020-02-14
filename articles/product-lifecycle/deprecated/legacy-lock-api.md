@@ -46,11 +46,11 @@ Because of these [cross-origin authentication issues](/cross-origin-authenticati
     * Only one custom domain can be applied per Auth0 tenant, so all applications on the tenant will use the same custom domain (they will need to use the same top-level domain as well).
     * This option may not be viable for customers who are not eligible to use custom domains, or who choose not to do so. In those cases, Universal Login is the best approach.
 
-<%= include('../../../_includes/_embedded_login_warning') %>
+<%= include('../../_includes/_embedded_login_warning') %>
 
 If neither of these recommendations (Universal Login or embedded + custom domains) will work for your situation, go to [Auth0 Support](${env.DOMAIN_URL_SUPPORT}) and file a support ticket or a community post for further guidance.
 
 ## Keep reading
 
-* [Migration Guide: Legacy Lock API Deprecation](/product-lifecycle/migrations/guides/legacy-lock-api-deprecation)
+* [Migration Guide: Legacy Lock API Deprecation](/product-lifecycle/migration/legacy-lock-api-deprecation)
 * [Check Deprecation Errors](/troubleshoot/guides/check-deprecation-errors)
