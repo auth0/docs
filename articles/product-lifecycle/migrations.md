@@ -83,6 +83,14 @@ We are actively migrating customers to new behaviors for all **Deprecations** li
       </td>
       <td>To provide our customers with the most reliable and scalable solution, Auth0 has deprecated Tenant Logs Search Engine v2 in favor of v3. Auth0 is proactively migrating customers unaffected by this change, while those who are potentially affected are being notified to opt in for v3 during the provided grace period.  See the <a href="/logs/migrate-logs-v2-v3">migration guide</a> for more information.</td>
     </tr>
+    <tr>
+      <td><a href="/migrations/guides/extensibility-node8">Node.js v8 Extensibility Runtime</a></td>
+      <td>xx April 2020</td>
+      <td>xx June 2020</td>
+      <td>
+        The Webtask engine powering Auth0 extensibility points currently uses Node 8. Beginning <strong>xx April 2020</strong>, <a href="https://github.com/nodejs/Release#release-schedule">Node.js v8 will no longer be under long-term support (LTS)</a>. This means that critical security fixes will no longer be back-ported to this version. As such, Auth0 will be migrating the Webtask runtime from Node.js v8 to Node.js v12.<br><br>On <strong>xx April 2020</strong>, we will make the Node 12 runtime available for extensibility to all public cloud customers. You will be provided a migration switch that allows you to control your environment's migration to the new runtime environment.<br><br>For more information on this migration and the steps you should follow to upgrade your implementation, see <a href="/migrations/guides/extensibility-node12">Migration Guide: Extensibility and Node.js v12</a>.
+      </td>
+    </tr>
   </tbody>
 </table>
 
