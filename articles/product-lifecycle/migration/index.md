@@ -23,7 +23,7 @@ Whenever possible, we will provide at least a six-month migration window between
 | [Passwordless/start authentication](/product-lifecycle/deprecated/passwordless-start) | 2020-01-06 | TBD | [Use of /passwordless/start from Confidential Applications](/product-lifecycle/migration/passwordless-start) |
 | [Password and Refresh Token Exchange Rules Using /oauth/token](/product-lifecycle/upgrades/password-refresh-token-exchange-rules) | 2017-02-23 | 2017-06-08 | [Passwordless API Calls from /oauth/ro to /oauth/token](/product-lifecycle/migration/migration-oauthro-oauthtoken-pwdless) </br> [Resource Owner Password Credentials Exchange](/product-lifecycle/migration/migration-oauthro-oauthtoken) |
 | [User Search v2](/product-lifecycle/deprecated/search-v2) | 2018-06-06 | 2019-06-30 | [User Search v2 to v3](/product-lifecycle/migration/migrate-search-v2-v3) |
-| [Tenant Logs Search v2](/product-lifecycle/deprecated/logs-search-v2) | Free: 2019-07-09 </br> Developer: 2019-08-20 </br> Developer Pro: 2019-08-24 </br> Enterprise: 2019-11-04 | [Tenant Logs Search v2 to v3](/product-lifecycle/migration/migrate-logs-v2-v3) |
+| [Tenant Logs Search v2](/product-lifecycle/deprecated/logs-search-v2) | | Free: 2019-07-09 </br> Developer: 2019-08-20 </br> Developer Pro: 2019-08-24 </br> Enterprise: 2019-11-04 | [Tenant Logs Search v2 to v3](/product-lifecycle/migration/migrate-logs-v2-v3) |
 
 ## Other helpful migration guides
 
