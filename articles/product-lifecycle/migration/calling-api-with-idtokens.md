@@ -1,6 +1,5 @@
 ---
-title: "Migration Guide: Management API and ID Tokens"
-description: Auth0 is deprecating the usage of ID Tokens as credentials for the Management API. This article will help you migrate your solution from the old implementation to the new one.
+description: Learn about migrating from the usage of ID Tokens to Access Tokens as credentials for the Management API. 
 toc: true
 topics:
   - migrations
@@ -27,7 +26,7 @@ Customers are encouraged to migrate to Access Tokens. This guide will help you w
 
 First, we will see which use cases are affected. We will continue with reviewing how you can use <dfn data-key="scope">[scopes](/scopes)</dfn> to get tokens with different access rights, and then see all the ways you can use to get an Access Token. Finally, we will review the changes introduced in the [Account Linking](/link-accounts) process.
 
-## Does this affect me?
+## Are you affected?
 
 If you use ID Tokens to call any of the following endpoints, then you are affected by this migration:
 

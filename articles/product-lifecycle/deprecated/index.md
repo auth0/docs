@@ -12,23 +12,7 @@ useCase:
   - migrate
 ---
 
-# Deprecations and End Of Life
-
-Here are some key terms about deprecations and end of life:
-
-**Breaking Change**: A change to the Auth0 Platform that, to Auth0's knowledge, will cause failures in the interoperation of the Auth0 Platform and Customer Applications.
-
-**Deprecated**: Tenants using the feature or behavior at the time of deprecation will continue to have access. The behavior will be disabled for newly-created Tenants. While it will continue to be supported and minimally maintained, no additional functionality will be added.
-
-**End Of Life Date**: The date access to a feature or behavior is removed from the platform. End Of Life Dates can vary between different plan types.
-
-**End Of Life**: The feature or behavior is removed from the platform. Continued use of the feature or behavior will likely result in errors. The new behavior will be automatically enabled for Tenants that had not opted in during the migration window.
-
-**Migration**: The process by which a customer moves away from a particular behavior.
-
-In an effort to keep the Auth0 platform stable and secure, we must occasionally modify or remove features and behaviors. These changes will sometimes result in a **Breaking Change**.
-
-When we must introduce a **Breaking Change**, the process starts with the feature or behavior being **Deprecated**. At that time, we will also typically announce an **End Of Life Date**; however, in some cases, a feature will be **Deprecated** to prevent further adoption with an **End Of Life Date** to be determined later.
+# Deprecations
 
 These are deprecations that have already been enabled for all customers.
 

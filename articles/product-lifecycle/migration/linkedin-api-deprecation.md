@@ -1,6 +1,5 @@
 ---
-description: This article covers the LinkedIn API deprecation and how to update your Auth0 LinkedIn Connection.
-toc: true
+description: Learn about the LinkedIn API deprecation and how to update your Auth0 LinkedIn Connection.
 contentType:
   - how-to
 useCase:

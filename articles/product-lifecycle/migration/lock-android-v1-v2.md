@@ -1,5 +1,5 @@
 ---
-description: A reference for changed option names and behaviors in Lock for Android v2
+description: Learn about the changed option names and behaviors in Lock for Android v2.
 topics:
   - libraries
   - lock

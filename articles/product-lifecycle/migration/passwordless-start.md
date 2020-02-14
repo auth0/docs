@@ -1,5 +1,5 @@
 ---
-description: Auth0 is deprecating the usage of the /passwordless/start endpoint from confidential applications without a client secret in the request.
+description: Learn about the usage of the /passwordless/start endpoint from confidential applications without a client secret in the request.
 topics:
   - passwordless
   - migrations

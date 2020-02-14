@@ -1,13 +1,12 @@
 ---
-description: Facebook is removing access to the 'social context' field from their profile
-toc: true
+description: Facebook is removing access to the 'social context' field from their profile.
 contentType:
   - how-to
 useCase:
   - add-login
   - migrate
 ---
-# Migration Guide: Context Facebook Field Deprecation
+# Migration Guide: Facebook Context Field Deprecation
 
 On **July 30th 00:00 UTC**, Facebook connections that request the `context` field will fail, so Auth0 will stop requesting it for all connections at that time.
 
@@ -17,7 +16,7 @@ On April 30th [Facebook deprecated]( https://developers.facebook.com/docs/graph-
  
 Once you uncheck ‘Social context’, the profile data will not include the context field. The field has the following content:
  
-```
+```text
 "context": {
   "mutual_likes": {"data": [],"summary": {"total_count": 0}},
   "id": "dXNlcl9...UZD"

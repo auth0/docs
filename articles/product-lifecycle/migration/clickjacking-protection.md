@@ -1,6 +1,5 @@
 ---
-title: Migration Guide: Enabling Clickjacking Protection for Universal Login
-description: Auth0 is adding a way to prevent the Universal Login pages to be embedded in an iframe.
+description: Learn how to enable clickjacking protection to prevent the Universal Login pages from being embedded in an iframe.
 toc: true
 topics:
   - universal-login
@@ -9,7 +8,7 @@ contentType:
   - concept
   - how-to
 ---
-# Migration Guide: Enabling Clickjacking Protection
+# Migration Guide: Enabling Clickjacking Protection for Universal Login
 
 Clickjacking is an attack that tricks a user into clicking a web page element which is invisible or disguised as another element. This is done by loading content in an iframe and rendering elements on top of it. In the context of the <dfn data-key="universal-login">Universal Login</dfn> pages, an attacker could trick the user into clicking a 'Login', or 'Reset Password' button.
 

@@ -1,5 +1,5 @@
 ---
-description: This article covers the Live Connect + SDK deprecation and how to update your Auth0 Microsoft Account Connection.
+description: Learn about the Live Connect + SDK deprecation and how to update your Auth0 Microsoft Account Connection.
 toc: true
 contentType:
   - how-to

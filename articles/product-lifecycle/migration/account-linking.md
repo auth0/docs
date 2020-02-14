@@ -1,5 +1,5 @@
 ---
-description: Auth0 is deprecating the usage of ID Tokens in the Account Linking process. This article will help you migrate your solution from the old implementation to the new one.
+description: Learn about migrating from the usage of ID Tokens to Access Tokens for linking user accounts.
 toc: true
 topics:
   - account-linking

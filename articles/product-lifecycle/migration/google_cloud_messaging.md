@@ -1,5 +1,5 @@
 ---
-description: This article describes how you can migrate your applications based on the Android Guardian SDK to Firebase Cloud Messaging
+description: Learn how to migrate your applications based on the Android Guardian SDK to Firebase Cloud Messaging
 contentType:
   - concept
   - how-to

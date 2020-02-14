@@ -1,6 +1,4 @@
 ---
-toc: true
-classes: topic-page
 title: Product Lifecycle
 description: Learn about the Auth0 product lifecycle, including deprecations, end-of-life, and the migration process.
 topics:
@@ -18,7 +16,7 @@ useCase:
 
 ## Terminology 
 
-When we must introduce a **Breaking Change**, the process starts with the feature or behavior being **Deprecated**. At that time, we will also typically announce an **End Of Life Date**; however, in some cases, a feature will be **Deprecated** to prevent further adoption with an **End Of Life Date** to be determined later.
+When Auth0 introduces a **Breaking Change**, the process starts with the feature or behavior being **Deprecated**. At that time, we will also typically announce an **End Of Life Date**; however, in some cases, a feature will be **Deprecated** to prevent further adoption with an **End Of Life Date** to be determined later.
 
 Here are some key terms about product lifecycle:
 
@@ -48,14 +46,8 @@ Here is a list of the Auth0 product features that have been deprecated and/or up
 | [Email Template Customization](/product-lifecycle/deprecated/email-template-customizations) (Cloud Only) |   2016-07-21 | 2016-08-29 |
 | [Patch and Post Endpoints No Longer Accept secret_encoded Flag](/product-lifecycle/deprecated/patch-post-endpoints) |   | 2016-12-06 |
 
-## Upgrades and enhancements
+## Keep reading
 
-| Feature | Severity | Grace Period Start | Mandatory Opt-in | 
-| -- | -- | -- | -- | 
-| [Password and Refresh Token Exchange Rules](/product-lifecycle/upgrades/password-refresh-token-exchange-rules) | Medium | 2017-02-23 |  2017-05-31 |
-| [Whitelisting](/product-lifecycle/upgrades/whitelisting-australia-europe) | Low | 2017-08-22 |  2017-09-30 |
-| [Email Delivery Changes "From" Address](/product-lifecycle/upgrades/email-delivery) (Cloud only) | Medium | 2016-04-20 | 2016-04-27 |
-| [TokenInfo Endpoint Validation](/product-lifecycle/upgrades/token-endpoint-validation) |  Low | - | 2016-06-01 |
-| [Delete All Users Endpoint Change](/product-lifecycle/upgrades/delete-all-users) | Low | - | 2016-09-13 |
-| [State Parameter Required on Redirects from Rules](/product-lifecycle/upgrades/state-parameter-required-redirect) | High | - | 2016-11-01 |
-| [User Search v3](/product-lifecycle/upgrades/user-search-v3) | | | 
+* [Upgrade Notices](/product-lifecycle/upgrades)
+* [Deprecated Features](/product-lifecycle/deprecated)
+* [Migration Guides](/product-lifecycle/migration)

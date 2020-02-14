@@ -1,5 +1,5 @@
 ---
-description: A migration guide to assist with migration from Lock v1 (Swift) to Lock v2 (Swift).
+description: Learn how to migrate from Lock v1 (Swift) to Lock v2 (Swift).
 topics:
   - libraries
   - lock

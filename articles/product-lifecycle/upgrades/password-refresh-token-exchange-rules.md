@@ -14,7 +14,7 @@ useCase:
 
 | Severity | Grace Period Start | Mandatory Opt-In|
 | --- | --- | --- |
-| Medium | 2017-02-23 |  2017-05-31 |
+| Medium | 2017-02-23 |  2017-06-08 |
 
 As part of Auth0's efforts to improve security, we recently added the ability to execute rules during the OAuth 2.0 Resource Owner Password Grant exchange (the password exchange) and the <dfn data-key="refresh-token">Refresh Token</dfn> exchange.
 
