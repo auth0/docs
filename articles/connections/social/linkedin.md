@@ -68,7 +68,7 @@ You're ready to [test your connection](/dashboard/guides/connections/test-connec
 }) %>
 
 ::: note
-On 1 March 2019, LinkedIn replaced their sign-in API with version 2.0, and all LinkedIn connections in Auth0 were automatically updated to use this version. To learn more, see [Migration to LinkedIn API V2](/migrations/guides/linkedin-api-deprecation).
+On 1 March 2019, LinkedIn replaced their sign-in API with version 2.0, and all LinkedIn connections in Auth0 were automatically updated to use this version. To learn more, see [Migration to LinkedIn API V2](/product-lifecycle/migration/linkedin-api-deprecation).
 :::
 
 <%= include('../_quickstart-links.md') %>

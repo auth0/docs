@@ -31,4 +31,4 @@ You should review all your calls to the account linking endpoint ([/api/v2/users
 
 ## Migration
 
-This migration is specifically targeted to mitigate a security vulnerability and is a subset of the larger [account linking migration guide](/migrations/guides/account-linking). At this point, you are not required to take further action beyond that described in this guide. However, it is strongly recommended that you fully review the account linking migration guide and, if needed, update your code as soon as possible. Auth0 will notify customers in advance, with a prudent time frame to migrate, before that migration is enforced.
+This migration is specifically targeted to mitigate a security vulnerability. At this point, you are not required to take further action beyond that described in this guide. However, it is strongly recommended that you update your code as soon as possible. Auth0 will notify customers in advance, with a prudent time frame to migrate, before that migration is enforced.

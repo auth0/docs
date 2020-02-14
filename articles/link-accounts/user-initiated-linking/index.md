@@ -14,7 +14,7 @@ useCase:
 # Account Linking Using Client Side Code
 
 ::: warning
-We recently introduced some changes in Account Linking. For all the details see [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking).
+We recently introduced some changes in Account Linking. For all the details see [Migration Guide: Account Linking and ID Tokens](/product-lifecycle/migration/account-linking).
 :::
 
 Auth0 supports the linking of user accounts from various identity providers.

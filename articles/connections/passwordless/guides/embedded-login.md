@@ -25,4 +25,4 @@ Depending on the kind of application you want to build, you'll need to implement
  * [Passwordless Authentication Overview](/connections/passwordless)
  * [Best practices for Passwordless Authentication](connections/passwordless/guides/best-practices)
  * [Passwordless API Documentation](/connections/passwordless/reference/relevant-api-endpoints)
- * [Migrating from deprecated Passwordless endpoints](/migrations/guides/migration-oauthro-oauthtoken-pwdless)
+ * [Migrating from deprecated Passwordless endpoints](/product-lifecycle/migration/migration-oauthro-oauthtoken-pwdless)

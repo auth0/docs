@@ -13,7 +13,7 @@ useCase:
 # Link Accounts using Authentication API (Deprecated)
 
 ::: warning
-This method of linking accounts using the linking endpoint of the [Authentication API](/api/authentication#link), either through **Lock** or by manually calling the API, is **deprecated** and should no longer be used. The [POST /api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) should be used instead. For more information refer to the [Migration Notice](/migrations/past-migrations#account-linking-removal).
+This method of linking accounts using the linking endpoint of the [Authentication API](/api/authentication#link), either through **Lock** or by manually calling the API, is **deprecated** and should no longer be used. The [POST /api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) should be used instead. For more information refer to the [Migration Guide](/product-lifecycle/migration/account-linking). 
 :::
 
 ## Link through Auth0 Login Widget

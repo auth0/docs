@@ -28,6 +28,7 @@ Whenever possible, we will provide at least a six-month migration window between
 ## Other helpful migration guides
 
 <%= include('../../_includes/_topic-links', { links: [
+  'guides/login/migration-embedded-universal',
   'product-lifecycle/migration/account-linking',
   'product-lifecycle/migration/calling-api-with-idtokens',
   'product-lifecycle/migration/facebook-social-context',

@@ -19,7 +19,7 @@ Auth0 has established the following operational policies.
 -  [Endpoints](/policies/endpoints)
 -  [Load Testing](/policies/load-testing)
 -  [Penetration Testing](/policies/penetration-testing)
--  [Migrations](/migrations)
+-  [Migrations](/product-lifecycle/migration)
 -  [Rate Limits](/policies/rate-limits)
 -  [Restoration of a Deleted Tenant](/policies/restore-deleted-tenant)
 -  [Unsupported Requests](/policies/unsupported-requests)

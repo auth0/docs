@@ -23,7 +23,7 @@ If you are behind a firewall, the use of the following features may require whit
 ## Outbound Calls
 
 ::: warning
-Please note that IP addresses are subject to change during [Auth0 Migrations](/migrations). The lists provided are up-to-date at the time of writing, but check the [Dashboard](${manage_url}) for the latest list.
+Please note that IP addresses are subject to change during [Auth0 Migrations](/product-lifecycle/migration). The lists provided are up-to-date at the time of writing, but check the [Dashboard](${manage_url}) for the latest list.
 :::
 
 When Auth0 makes outbound calls, the IP addresses are static. Auth0 translates internal IP addresses to one of the displayed options when reaching out using NAT. 

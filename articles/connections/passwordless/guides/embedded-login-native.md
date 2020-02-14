@@ -113,4 +113,4 @@ If you prefer, you can use the Android or iOS SDKs, which wrap this APIs in a pl
 
 ## Migrating from Legacy Implementations
 
-In the past, you could implement this scenario by using the `/oauth/ro` endpoint to exchange the one-time-use code for authentication tokens. Check the [migration guide](/migrations/guides/migration-oauthro-oauthtoken-pwdless) to learn how to update your code to use `/oauth/token`.
+In the past, you could implement this scenario by using the `/oauth/ro` endpoint to exchange the one-time-use code for authentication tokens. Check the [migration guide](/product-lifecycle/migration/migration-oauthro-oauthtoken-pwdless) to learn how to update your code to use `/oauth/token`.

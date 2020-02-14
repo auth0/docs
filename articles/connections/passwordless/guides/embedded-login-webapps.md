@@ -95,5 +95,5 @@ Below we list a few code snippets that can be used to call these API endpoints f
 
 In the past, you could implement this scenario by using features that we now deprecated:
 
-- Unauthenticated calls to `/passwordless/start`. Check the [migration guide](/migrations/guides/passwordless-start).
-- Use the `/oauth/ro` endpoint to exchange the one-time-use code for authentication tokens. Check the [migration guide](/migrations/guides/migration-oauthro-oauthtoken-pwdless).
+- Unauthenticated calls to `/passwordless/start`. Check the [migration guide](/product-lifecycle/migration/passwordless-start).
+- Use the `/oauth/ro` endpoint to exchange the one-time-use code for authentication tokens. Check the [migration guide](/product-lifecycle/migration/migration-oauthro-oauthtoken-pwdless).

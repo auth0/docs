@@ -15,7 +15,7 @@ useCase:
 # Account Linking Using Server Side Code
 
 ::: warning
-We recently introduced some changes in Account Linking. For all the details see [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking).
+We recently introduced some changes in Account Linking. For all the details see [Migration Guide: Account Linking and ID Tokens](/product-lifecycle/migration/account-linking).
 :::
 
 In this tutorial, you will use server-side code to facilitate account linking on a regular web application. Rather than automating the entire account linking process, you're engaging the user and asking them for permission before proceeding. Your code will:

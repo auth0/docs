@@ -15,7 +15,7 @@ useCase:
 # Linking User Accounts
 
 ::: warning
-We recently introduced some changes in Account Linking. For all the details see [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking).
+We recently introduced some changes in Account Linking. For all the details see [Migration Guide: Account Linking and ID Tokens](/product-lifecycle/migration/account-linking).
 :::
 
 Auth0 supports the linking of user accounts from various identity providers. This allows a user to authenticate from any of their accounts and still be recognized by your app and associated with the same user profile. This feature requires a paid subscription to the **Developer**, **Developer Pro** or **Enterprise** plan (see [Pricing](https://auth0.com/pricing)).

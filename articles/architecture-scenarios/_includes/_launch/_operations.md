@@ -44,7 +44,7 @@ You should ensure your team is monitoring all of the following communication cha
 
 <%= include('../../_includes/_operations/_notifications.md', { platform: 'b2b' }) %>
 
-In addition, you should periodically check the [Auth0 migrations page](/product-lifecycle/migrations) for news about upcoming deprecations that might require your team to make changes.
+In addition, you should periodically check the [Auth0 migrations page](/product-lifecycle/migration) for news about upcoming deprecations that might require your team to make changes.
 
 ## Automated Deployment, version control
 
@@ -56,7 +56,7 @@ While not required, it is highly recommended that you have deployment automation
 
 You should have a plan and mechanism in place to support any backup/restore capability needed for your project. This can be done using the Auth0 Management API for data as well as the Automated Deployment capabilities described in the automated deployment section for Auth0 configuration.
 
-As noted in the Auth0 [Data Tenant Restore policy](policies/restore-deleted-tenant) and [Data Transfer policy](policies/data-transfer), Auth0 does not restore deleted tenants or move data between tenants.  Auth0 provides the Auth0 Management API to provide customers a completely flexible capability to backup, restore and move data as needed. Customers can write scripts to retrieve data from Auth0 for backup purposes, and similarly write scripts for use with the Automated Deployment capability to restore any aspect of their Auth0 configuration.
+As noted in the Auth0 [Data Tenant Restore policy](/policies/restore-deleted-tenant) and [Data Transfer policy](/policies/data-transfer), Auth0 does not restore deleted tenants or move data between tenants.  Auth0 provides the Auth0 Management API to provide customers a completely flexible capability to backup, restore and move data as needed. Customers can write scripts to retrieve data from Auth0 for backup purposes, and similarly write scripts for use with the Automated Deployment capability to restore any aspect of their Auth0 configuration.
 
 ## Versions Up to Date
 
