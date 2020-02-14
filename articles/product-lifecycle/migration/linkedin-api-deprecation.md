@@ -7,7 +7,7 @@ useCase:
   - migrate
 ---
 
-# Migration Guide: LinkedIn API V2
+# LinkedIn API V2 Migration Guide
 
 In December 2018, LinkedIn [deprecated version 1.0 of their sign-in API](https://engineering.linkedin.com/blog/2018/12/developer-program-updates). The final shutdown date we set for March 1st, 2019 then moved to May 1st, 2019. In June 2019, the current status is that "Applications requesting Version 1.0 APIs may experience issues as we begin to remove services."
 
@@ -40,7 +40,7 @@ For version 2.0 we expose these options:
 |Basic Profile| r_basicprofile|
 |Email| r_emailaddress|
 
-As you can see version 2.0:
+Version 2.0:
 
 * Adds support for the `r_liteprofile` <dfn data-key="scope">scope</dfn>
 * Removes support for the `r_fullprofile` and `r_network` scopes

@@ -7,7 +7,7 @@ contentType: reference
 useCase:
   - customize-connections
 ---
-# Deprecation Notice: Passwordless API Calls from /oauth/ro
+# Passwordless API Calls from /oauth/ro Deprecation
 
 Support for Resource Owner Password Grant (ROPG) was added to [/oauth/token](/api/authentication#authorization-code). Usage of the [/oauth/ro](/api/authentication#resource-owner) endpoint was deprecated on July 08, 2017. This endpoint was used to exchange an OTP received by the end-user by email or SMS with for an `id_token` and an `access_token`. 
 
@@ -19,6 +19,8 @@ You are affected if you use the resource owner passwordless credentials exchange
 
 ## Migration
 
-See [Upgrade Notice: Password and Refresh Token Exchange Rules Using /oauth/token](/product-lifecycle/upgrades/references/password-refresh-token-exchange-rules) for information about the new feature.
+See [Password and Refresh Token Exchange Rules Using /oauth/token Upgrade](/product-lifecycle/upgrades/references/password-refresh-token-exchange-rules) for information about the new feature.
 
-See [Migration Guide: Passwordless API Calls from /oauth/ro to /oauth/token](/product-lifecycle/migration/guides/migration-oauthro-oauthtoken-pwdless) for details.
+See [Passwordless API Calls from /oauth/ro to /oauth/token Migration Guide](/product-lifecycle/migration/guides/migration-oauthro-oauthtoken-pwdless) for details.
+
+<%= include('./_contact-support') %>

@@ -7,7 +7,7 @@ contentType: reference
 useCase:
   - customize-connections
 ---
-# Deprecation Notice: Use of /passwordless/start from Confidential Applications
+# Use of /passwordless/start from Confidential Applications Deprecation
 
 Auth0 is deprecating the use of the `/passwordless/start` endpoint from confidential applications when Auth0 cannot authenticate that the call is made on behalf of the application.
 
@@ -25,4 +25,6 @@ You can verify whether you are affected by checking the [tenant logs](${manage_u
 
 ## Migration
 
-See [Migration Guide: Use of /passwordless/start from Confidential Applications](/product-lifecycle/migration/guides/passwordless-start) for details.
+See [Use of /passwordless/start from Confidential Applications Migration Guide](/product-lifecycle/migration/guides/passwordless-start) for details.
+
+<%= include('./_contact-support') %>

@@ -7,7 +7,7 @@ useCase:
   - secure-an-api
   - migrate
 ---
-# Migration Guide: Resource Owner Password Credentials Exchange
+# Resource Owner Password Credentials Exchange Migration Guide
 
 Support for Resource Owner Password was added to [oauth/token](/api/authentication#authorization-code). Usage of the [oauth/ro](/api/authentication#resource-owner) endpoint was deprecated on July 08, 2017.
 

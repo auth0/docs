@@ -6,7 +6,7 @@ contentType: reference
 useCase:
   - customize-connections
 ---
-# Upgrade Notice: Delete All Users Endpoint Change
+# Delete All Users Endpoint Change
 
 | Severity | Effective Date |
 | --- | --- | --- | --- |

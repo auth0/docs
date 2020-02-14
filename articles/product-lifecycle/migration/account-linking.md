@@ -11,7 +11,7 @@ useCase:
   - manage-accounts
 ---
 
-# Migration Guide: Account Linking and ID Tokens
+# Account Linking and ID Tokens Migration Guide
 
 For some use cases you could use [ID Tokens](/tokens/concepts/id-tokens) to [link and unlink user accounts](/link-accounts). This functionality is being deprecated. You will have to use <dfn data-key="access-token">Access Tokens</dfn> in all cases.
 
@@ -32,7 +32,7 @@ The changes in account linking are:
 
 The change in the unlinking of accounts is that you can no longer use an ID Token at the `Authorization` header. An Access Token must be used instead.
 
-## Does this affect me?
+## Are you affected?
 
 There are several ways you can link and unlink accounts. Some change, some remain the same, and a new variation is introduced. In the following matrix you can see a list of the use cases and their status based on this migration.
 
@@ -93,7 +93,7 @@ There are several ways you can link and unlink accounts. Some change, some remai
   </tbody>
 </table>
 
-## How to link accounts
+## Link accounts
 
 In order to link accounts you can either call directly the [Link a user account](/api/management/v2#!/Users/post_identities) endpoint of the Management API, or use the [Auth0.js library](/auth0js#user-management).
 
@@ -179,7 +179,7 @@ However, this migration does introduce an alternative to this. You still use an 
 - The secondary account's ID Token must be signed with `RS256`
 - The `aud` claim in the secondary account's ID Token must identify the client, and hold the same value with the `azp` claim of the Access Token used to make the request.
 
-## How to unlink accounts
+## Unlink accounts
 
 If you use ID Tokens in order to unlink accounts, then you must update your implementation to use Access Tokens.
 
@@ -220,9 +220,7 @@ Authorization: 'Bearer ACCESS_TOKEN'
 
 ## Keep reading
 
-:::next-steps
 - [Link User Accounts](/link-accounts)
 - [Account Linking Using Server Side Code](/link-accounts/suggested-linking)
 - [Account Linking Using Client Side Code](/link-accounts/user-initiated-linking)
-- [Migration Guide: Management API and ID Tokens](/product-lifecycle/migration/calling-api-with-idtokens)
-:::
+- [Management API and ID Tokens Migration Guide](/product-lifecycle/migration/calling-api-with-idtokens)

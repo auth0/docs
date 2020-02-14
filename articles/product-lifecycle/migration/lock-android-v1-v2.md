@@ -13,7 +13,7 @@ useCase:
   - enable-mobile-auth
   - migrate
 ---
-# Migration Guide: Lock Android v1 to v2
+# Lock Android v1 to v2 Migration Guide
 
 ## Application Class and Initializing Lock
 

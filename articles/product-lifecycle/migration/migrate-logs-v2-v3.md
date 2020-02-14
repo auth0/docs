@@ -8,7 +8,7 @@ useCase:
   - logs
 ---
 
-# Migration Guide: Tenant Logs Search v2 to v3
+# Tenant Logs Search v2 to v3 Migration Guide
 
 Search your tenant logs with the following to look for queries that would throw errors after you migrate to v3:
 

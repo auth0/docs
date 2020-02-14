@@ -6,7 +6,7 @@ useCase:
   - add-login
   - migrate
 ---
-# Migration Guide: Facebook Context Field Deprecation
+# Facebook Context Field Migration Guide
 
 On **July 30th 00:00 UTC**, Facebook connections that request the `context` field will fail, so Auth0 will stop requesting it for all connections at that time.
 

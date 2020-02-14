@@ -4,7 +4,7 @@ contentType: reference
 useCase:
   - migrate
 ---
-# Deprecation Notice: Account Linking for Authorization Callback
+# Account Linking for Authorization Callback Deprecation
 
 | Severity | Grace Period Start | Mandatory Opt-In|
 | --- | --- | --- |
@@ -24,4 +24,4 @@ Refer to https://auth0.com/docs/link-accounts for supported ways to link an acco
 
 ## Migration
 
-If you need help with the migration, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT})
+<%= include('./_contact-support') %>

@@ -7,7 +7,7 @@ contentType:
 useCase:
   - management api
 ---
-# Migration Guide: Management API v1 to v2
+# Management API v1 to v2 Migration Guide
 
 Management API v1 will reach its End of Life on July 13, 2020. You may be required to take action before that date to ensure no interruption to your service. Notifications have been sent to customers that need to complete this migration. See [Management API v2](/api/management/v2) for complete information. For a list of breaking changes associated with this deprecation, see [Management API v2 Changes](/api/management/v2/changes).
 

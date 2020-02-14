@@ -8,7 +8,7 @@ useCase:
   - migrate
 ---
 
-# Migration Guide: Changes to Facebook Login and Graph API
+# Facebook Login and Graph API Migration Guide
  
 The latest version of the Facebook Graph API changes what permissions and fields can be requested. We've updated Facebook Connections to reflect these changes and tweaked the connection interface for clarity.
 
@@ -22,7 +22,7 @@ This update may not require changes to your code or configuration, but your appl
 * If your Facebook application is marked as "development" then you may still see an error temporarily while trying the connection.
 * If you add new permissions to the connection, end users will be prompted for consent next time they log in. See the Facebook documentation for how to handle actions for users that don't have a specific permission.
  
-## Facebook Login Permissions
+## Facebook Login permissions
  
 [Facebook Login permissions](https://developers.facebook.com/docs/facebook-login/permissions) are requested by your application when a user logs in using Facebook. If the user is logging in for the first time or if the permissions have changed, they will be shown a consent window in Facebook showing the new permissions requested. Once those permissions are granted, your application can then act on behalf of that user with a Facebook access token.
  
@@ -71,7 +71,7 @@ The following permissions were moved to the **Deprecated** section and should no
 - publish_actions
 - user_managed_groups
  
-## Facebook Graph API Fields
+## Facebook Graph API fields
  
 The [Facebook Graph API](https://developers.facebook.com/docs/graph-api/reference/v3.2/user) is used after a user logs in to retrieve profile data for the Auth0 user. The user data permissions requested determine what information is retrieved from the Graph API. The fields that are returned depend on the permissions requested and the existence of those fields in the Facebook user profile.
  

@@ -6,7 +6,7 @@ useCase:
   - patch-endpoint
   - post-endpoint
 ---
-# Deprecation Notice: Patch and Post Endpoints No Longer Accept secret_encoded Flag
+# Patch and Post Endpoints No Longer Accept secret_encoded Flag Deprecation
 
 | Severity | Effective Date |
 | --- | --- | --- | --- |
@@ -21,3 +21,5 @@ Existing applications with encoded secrets stored will remain intact and unchang
 ## Are you affected?
 
 You are affected by this change only if you interact with these endpoints directly.
+
+<%= include('./_contact-support') %>

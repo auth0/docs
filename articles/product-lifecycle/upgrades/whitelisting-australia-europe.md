@@ -6,7 +6,7 @@ contentType: reference
 useCase:
   - customize-connections
 ---
-# Upgrade Notice: Whitelisting Changes
+# Whitelisting Changes
 
 ## New IP Addresses for Whitelisting in Australia
 

@@ -8,7 +8,7 @@ contentType:
 useCase:
   - email-delivery
 ---
-# Upgrade Notice: Email Delivery Changes "From" Address (Cloud Only)
+# Email Delivery Changes "From" Address (Cloud Only)
 
 | Severity | Platforms | Grace Period Start | Mandatory Opt-In|
 | --- | --- | --- | --- |

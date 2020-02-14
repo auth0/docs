@@ -13,7 +13,7 @@ useCase:
   - enable-mobile-auth
   - migrate
 ---
-# Migration Guide: Lock iOS v1 to v2
+# Lock iOS v1 to v2 Migration Guide
 
 <dfn data-key="lock">Lock</dfn> 2.0 is the latest major release of Lock iOS-OSX. This guide is provided in order to ease the transition of existing applications using Lock 1.x to the latest APIs.
 

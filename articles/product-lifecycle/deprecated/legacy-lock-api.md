@@ -6,7 +6,7 @@ useCase:
   - migrate
 ---
 
-# Deprecation Notice: Legacy Lock API
+# Legacy Lock API Deprecation
 
 | Severity | Grace Period Start | Mandatory Opt-In|
 | --- | --- | --- |
@@ -48,9 +48,8 @@ Because of these [cross-origin authentication issues](/cross-origin-authenticati
 
 <%= include('../../_includes/_embedded_login_warning') %>
 
-If neither of these recommendations (Universal Login or embedded + custom domains) will work for your situation, go to [Auth0 Support](${env.DOMAIN_URL_SUPPORT}) and file a support ticket or a community post for further guidance.
+## Migration
 
-## Keep reading
+See the [Legacy Lock API Migration Guide](/product-lifecycle/migration/legacy-lock-api-deprecation) for details. 
 
-* [Migration Guide: Legacy Lock API Deprecation](/product-lifecycle/migration/legacy-lock-api-deprecation)
-* [Check Deprecation Errors](/troubleshoot/guides/check-deprecation-errors)
+<%= include('./_contact-support') %>

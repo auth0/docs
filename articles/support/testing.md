@@ -1,5 +1,5 @@
 ---
-title: Testing Your Auth0 Implementation
+title: Test Your Auth0 Implementation
 description: Guidelines for testing your Auth0 implementation prior to deployment to Production environments
 topics:
     - support
@@ -12,7 +12,7 @@ useCase:
   - support
 ---
 
-# Testing Your Auth0 Implementation
+# Test Your Auth0 Implementation
 
 You should run unit and integration tests before implementing Auth0 on a live application or service.
 
@@ -22,11 +22,11 @@ Performing tests against Auth0 APIs may lead to your account being rate limited,
 Enterprise customers may [request load testing against Auth0](/policies/load-testing).
 :::
 
-## Performance Testing
+## Performance testing
 
 When conducting performance testing, you may encounter issues with your implementation. The following are steps you can take to begin the troubleshooting process and identify where there might be issues of concern.
 
-### The Auth0 Dashboard
+### Auth0 Dashboard
 
 The [Logs section of the Auth0 Dashboard](${manage_url}/#/logs) stores data on:
 
@@ -35,7 +35,7 @@ The [Logs section of the Auth0 Dashboard](${manage_url}/#/logs) stores data on:
 
 There are also [extensions](/extensions) that you can use for logging purposes, including [exporting logs to third-party tools](/extensions#export-auth0-logs-to-an-external-service) and [gathering information on the use of custom code in your account](/extensions#access-to-real-time-webtask-logs).
 
-### Third-Party Testing Tools
+### Third-party test tools
 
 There are a number of third-party testing tools that you can use for performance testing against RESTful APIs. Here are some options you might consider (note that Auth0 does not endorse any particular product or tool):
 
@@ -50,6 +50,6 @@ There are a number of third-party testing tools that you can use for performance
 
 These tools should provide activity logs that help you identify anything that is concerning. If you need assistance with deciphering your log or identifying the potential issue, please contact Support.
 
-### HAR Files
+### HAR files
 
 If you discover an issue that you can reproduce, you can [create a HAR file](/tutorials/troubleshooting-with-har-files) and send it to our Support team for additional assistance.

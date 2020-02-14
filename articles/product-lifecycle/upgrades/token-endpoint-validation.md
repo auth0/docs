@@ -8,7 +8,7 @@ contentType:
 useCase:
   - email-delivery
 ---
-# Upgrade Notice: TokenInfo endpoint validation
+# TokenInfo Endpoint Validation
 
 | Severity | Mandatory Opt-In|
 | --- | --- |

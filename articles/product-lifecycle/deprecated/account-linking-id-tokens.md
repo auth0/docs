@@ -4,11 +4,11 @@ contentType: reference
 useCase:
   - migrate
 ---
-# Deprecation Notice: Account Linking with ID Tokens
+# Account Linking with ID Tokens Deprecation
 
-| Severity | Grace Period Start | Mandatory Opt-In|
-| --- | --- | --- |
-| Medium | -- |  2018-10-19 |
+| Severity| EOL Date |
+| --- | --- |
+| Medium | 2018-10-19 |
 
 We have identified a weakness in a particular account linking flow that could allow it to be misused in specific circumstances. We have found no evidence that this has been used maliciously but have decided to deprecate the flow to prevent that ever happening.
 
@@ -26,9 +26,13 @@ No other use cases are impacted.
 
 You should review all your calls to the account linking endpoint ([/api/v2/users/{USER_ID}/identities](/api/management/v2#!/Users/post_identities)) and update those that make use of the vulnerable flow described above. You can update your calls to either of the following:
 
-1. **Client-side / user-initiated linking scenarios** -- For client-side linking scenarios, make the call to the [/api/v2/users/{USER_ID}/identities](/api/management/v2#!/Users/post_identities) using an Access Token with the `update:current_user_identities` scope, and provide the ID Token of the secondary account in the payload (`link_with`). This ID Token must be obtained through an OAuth/OIDC-conformant flow. See the [guide on client-side account linking](/link-accounts/user-initiated-linking) for more details.
-2. **Server-side linking scenarios** -- For server-side linking scenarios, make the call to the [/api/v2/users/{USER_ID}/identities](/api/management/v2#!/Users/post_identities) endpoint using an Access Token with the `update:users` scope and provide the `user_id` of the secondary account in the payload. See the [guide on server-side account linking](/link-accounts/suggested-linking) for more details.
+1. **Client-side / user-initiated linking scenarios**: For client-side linking scenarios, make the call to the [/api/v2/users/{USER_ID}/identities](/api/management/v2#!/Users/post_identities) using an Access Token with the `update:current_user_identities` scope, and provide the ID Token of the secondary account in the payload (`link_with`). This ID Token must be obtained through an OAuth/OIDC-conformant flow. See the [guide on client-side account linking](/link-accounts/user-initiated-linking) for more details.
+2. **Server-side linking scenarios**: For server-side linking scenarios, make the call to the [/api/v2/users/{USER_ID}/identities](/api/management/v2#!/Users/post_identities) endpoint using an Access Token with the `update:users` scope and provide the `user_id` of the secondary account in the payload. See the [guide on server-side account linking](/link-accounts/suggested-linking) for more details.
 
 ## Migration
 
 This migration is specifically targeted to mitigate a security vulnerability. At this point, you are not required to take further action beyond that described in this guide. However, it is strongly recommended that you update your code as soon as possible. Auth0 will notify customers in advance, with a prudent time frame to migrate, before that migration is enforced.
+
+See the security considerations in the [Account Linking Migration Guide](/product-lifecycle/migration/account-linking) for details. 
+
+<%= include('./_contact-support') %>

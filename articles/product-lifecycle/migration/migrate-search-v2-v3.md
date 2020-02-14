@@ -8,7 +8,7 @@ contentType: how-to
 useCase:
   - manage-users
 ---
-# Migration Guide: User Search v2 to v3
+# User Search v2 to v3 Migration Guide
 
 Before you start migrating, there are a few things you should know:
 

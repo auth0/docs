@@ -1,6 +1,5 @@
 ---
 description: Learn about the Live Connect + SDK deprecation and how to update your Auth0 Microsoft Account Connection.
-toc: true
 contentType:
   - how-to
 useCase:
@@ -8,7 +7,7 @@ useCase:
   - migrate
 ---
 
-# Migration Guide Microsoft Account Migration to Azure Active Directory
+# Microsoft Account Migration to Azure Active Directory Migration Guide
 
 In October 2017, Microsoft announced the [deprecation of the Live Connect API and Live SDK](https://developer.microsoft.com/en-us/office/blogs/outlook-rest-api-v1-0-office-365-discovery-and-live-connect-api-deprecation). This is a Microsoft deprecation that will affect Auth0 users using the Microsoft social connection. The change implies switching how Auth0 interacts with the Microsoft authentication APIs, and it might imply changes in customers application's code.
 
@@ -25,26 +24,24 @@ You can decide if Auth0 uses Live Connect + Live SDK or Azure AD + Microsoft Gra
 
 You need to switch to 'Azure AD (personal accounts)' to ensure your applications will keep working after Microsoft decommissions the API.
 
-**Microsoft Application Registration**
+## Microsoft Application Registration
 
 Depending on when you created your Live SDK application, it might or not support Azure Active Directory v2. If it's not supported, you will need to create a different application and update your Client ID and Client Secret in the Auth0 Microsoft connection settings. As a rule, if your Client ID looks like `00000000400FFF55`, you'll need to create a new application. 
 
 For more information, check [Microsoft's documentation](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-registration-portal).
 
-
-**User Profile**
+## User Profile
 
 Microsoft Graph provides different user profile information compared to the Live Connect and Live SDK user profile. In particular, some of the user profile fields that were previously available are not available anymore:
  
-
-***OIDC Profile***
+## OIDC Profile
 
 | Field  |  Live SDK |  Microsoft Graph  |
 |--------|---------------|------------------|
 |  picture | Returned a URL for the user picture | Auth0 will build a URL that will return a default picture for the user based on their initials |
 | locale | Returned a string in the format en_US | Not available |
 
-***Raw Profile***
+## Raw Profile
 
 The raw user profile that can be obtained calling the [Get User By Id Endpoint](https://auth0.com/docs/api/management/v2#!/Users/get_users_by_id) has several differences when using Live SDK or Microsoft Graph.
 
@@ -110,7 +107,7 @@ The `strategy_version` will be set to '2' for users that last logged in with Azu
 
 Note that the `user_id` field will be the same regardless of the API used to connect with Microsoft, even if you had to create another application to use Azure Active Directory v2.
  
-**Permissions**
+## Permissions
 
 Auth0 lets you select which permissions you want to ask from the Microsoft Graph APIs. The ones that Live SDK and Microsoft Graph support might provide similar functionality, but the data returned by them and their format may be completely different. See [Migrating from Live SDK - Permissions](https://docs.microsoft.com/en-us/onedrive/developer/rest-api/concepts/migrating-from-live-sdk?view=odsp-graph-online#permissions) to understand what changes are required in your code.
 

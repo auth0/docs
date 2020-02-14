@@ -1,10 +1,10 @@
 ---
-description: Describes the deprecation Auth0 built-in email provider template customization. 
+description: Describes the deprecation of the Auth0 built-in email provider template customization for cloud customers. 
 contentType: reference
 useCase:
   - migrate
 ---
-# Deprecation Notice: Email Template Customization (Cloud Only)
+# Email Template Customization Deprecation (Cloud Only)
 
 | Severity | Platforms | Grace Period Start | Mandatory Opt-In|
 | --- | --- | --- | --- |
@@ -14,8 +14,15 @@ Auth0's built-in email provider will no longer be supported for use in a product
 
 ## Next steps
 
-The built-in email service may still be used for test purposes but you must switch to an Auth0-supported [third-party service](/email/providers) ([Amazon SES](https://aws.amazon.com/ses/), [Mandrill](https://www.mandrill.com/signup/), [SendGrid](https://sendgrid.com/pricing)) or another [SMTP-based provider](/email/custom) before moving your apps to production.
+The built-in email service may still be used for test purposes but you must switch to an Auth0-supported [third-party service](/email/providers) before moving your apps to production:
+
+- [Amazon SES](https://aws.amazon.com/ses/)
+- [Mandrill](https://www.mandrill.com/signup/)
+- [SendGrid](https://sendgrid.com/pricing)) 
+- or another [SMTP-based provider](/email/custom)
 
 If you already use a custom email provider, no action is necessary.
 
 For more information, see [Emails in Auth0](/email).
+
+<%= include('./_contact-support') %>

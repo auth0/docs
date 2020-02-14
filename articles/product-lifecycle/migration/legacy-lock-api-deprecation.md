@@ -8,7 +8,7 @@ useCase:
   - add-login
   - migrate
 ---
-# Migration Guide: Legacy Lock API Deprecation
+# Legacy Lock API Migration Guide
 
 All applications _must_ stop using the deprecated endpoints / library versions, as they have been removed from service as of August 6, 2018. Applications using those endpoints will no longer function correctly. There are two options for migration:
 

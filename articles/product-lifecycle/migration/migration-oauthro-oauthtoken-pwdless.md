@@ -7,7 +7,7 @@ useCase:
   - secure-an-api
   - migrate
 ---
-# Migration Guide: Passwordless API Calls from /oauth/ro to /oauth/token
+# Passwordless API Calls from /oauth/ro to /oauth/token Migration Guide
 
 Previously, the payload of a request to `/oauth/ro` looked similar to this:
 

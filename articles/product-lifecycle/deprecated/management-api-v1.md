@@ -5,7 +5,7 @@ contentType: reference
 useCase:
   - migrate
 ---
-# Deprecation Notice: Management API v1
+# Management API v1 Deprecation
 
 Auth0’s Management API v1 was deprecated in 2016 and replaced with the [Auth0 Management API v2](/api/management/v2/). Management API v1 will reach its End Of Life in the Public Cloud on **July 13th, 2020**. Requests will begin failing with a `410` HTTP status code on or after that date. Private Cloud releases will continue to support Management API v1 until the November 2020 monthly release.
 
@@ -24,4 +24,6 @@ The following tenants are NOT affected:
  
 ## Migration
 
-See [Migration Guide: Management API v1 to v2](/product-lifecycle/migration/guides/management-api-v1-v2) for details. 
+See [Management API v1 to v2 Migration Guide](/product-lifecycle/migration/guides/management-api-v1-v2) for details. 
+
+<%= include('./_contact-support') %>

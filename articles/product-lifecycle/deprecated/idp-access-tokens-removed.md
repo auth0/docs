@@ -5,7 +5,7 @@ contentType: reference
 useCase:
   - migrate
 ---
-# Deprecation Notice: Identity Provider Access Tokens 
+# Identity Provider Access Tokens Deprecation
 
 | Severity | Grace Period Start | Mandatory Opt-In|
 | --- | --- | --- | --- |
@@ -25,8 +25,13 @@ You are affected by the change only if you are using the Identity Provider Acces
 
 ## Next steps
 
-For more information on how to obtain an Access Token, see: [Call an Identity Provider API](/what-to-do-once-the-user-is-logged-in/calling-an-external-idp-api) and [Identity Provider Access Tokens](/tokens/overview-idp-access-tokens).
+For more information on how to obtain an Access Token, see: 
+
+- [Call an Identity Provider API](/what-to-do-once-the-user-is-logged-in/calling-an-external-idp-api)
+- [Identity Provider Access Tokens](/tokens/overview-idp-access-tokens)
 
 ::: note
 If your tenant was created after the change, this update will be applied automatically.
 :::
+
+<%= include('./_contact-support') %>

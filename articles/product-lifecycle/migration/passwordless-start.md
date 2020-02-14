@@ -9,7 +9,7 @@ contentType:
 useCase:
   - customize-connections
 ---
-# Migration Guide: Use of /passwordless/start from Confidential Applications
+# Use of /passwordless/start from Confidential Applications Migration Guide
 
 If you are calling the `/passwordless/start` endpoint without proper application authentication you should:
 

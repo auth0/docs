@@ -7,7 +7,7 @@ contentType: reference
 useCase:
   - redirect-from-rules
 ---
-# Upgrade Notice: State Parameter Required on Redirect from Rule
+# State Parameter Required on Redirect from Rule
 
 | Severity | Effective Date |
 | --- | --- | --- | --- |

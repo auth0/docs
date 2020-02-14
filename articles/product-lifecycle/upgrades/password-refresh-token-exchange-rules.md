@@ -10,7 +10,7 @@ useCase:
   - password-token-exchange
   - refresh-token-exchange
 ---
-# Upgrade Notice: Password and Refresh Token Exchange Rules Using /oauth/token
+# Password and Refresh Token Exchange Rules Using /oauth/token
 
 | Severity | Grace Period Start | Mandatory Opt-In|
 | --- | --- | --- |

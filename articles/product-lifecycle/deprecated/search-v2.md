@@ -5,7 +5,7 @@ contentType: reference
 useCase:
   - migrate
 ---
-# Deprecation Notice: User Search v2
+# User Search v2 Deprecation
 
 User search v2 has reached its end of life as of **June 30, 2019**. We highly recommend migrating user search functionality to search engine v3 (`search_engine=v3`) as soon as possible.
 
@@ -36,3 +36,5 @@ Extension | Version with support for v3 | Considerations
 ## Migration
 
 See the [Migration Guide: User Search v3](/product-lifecycle/migration/guides/migrate-search-v2-v3) for details.
+
+<%= include('./_contact-support') %>

@@ -5,7 +5,7 @@ contentType: reference
 useCase:
   - migrate
 ---
-# Deprecation Notice: Tenant Logs Search v2
+# Tenant Logs Search v2 Deprecation
 
 To provide our customers with the most reliable and scalable solution, Auth0 has deprecated Tenant Logs Search Engine v2 in favor of v3.
 
@@ -32,4 +32,6 @@ The following tenants are NOT affected:
   
 ## Migration
 
-See [Migration Guide: Logs Search v2 to v3](/product-lifecycle/migration/guides/migrate-logs-v2-v3) for details.
+See [Logs Search v2 to v3 Migration Guide](/product-lifecycle/migration/guides/migrate-logs-v2-v3) for details.
+
+<%= include('./_contact-support') %>

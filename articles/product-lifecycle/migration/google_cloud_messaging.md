@@ -7,7 +7,7 @@ useCase:
   - customize-mfa
   - migrate
 ---
-# Migration Guide: Firebase Cloud Messaging
+# Firebase Cloud Messaging Migration Guide
 
 Auth0’s Guardian SDKs for iOS and Android helps you create custom Mobile apps with Guardian functionality, providing secure access to <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> with push notifications. 
 
@@ -19,7 +19,6 @@ The main difference between how you send notifications to GCM and FCM is in the 
 
 The Guardian Android SDK 0.4.0 version is already available in Maven Central and includes this change. The sample application was also upgraded, so it can be tested by providing the google-services.json file and a guardian-url. 
 
-You can check the updated documentation for the Guardian Android SDK [here](/multifactor-authentication/developer/libraries/android).
+You can check the updated documentation for the [Guardian Android SDK](/multifactor-authentication/developer/libraries/android).
 
-
-
+<%= include('./_contact-support') %>

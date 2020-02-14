@@ -6,7 +6,7 @@ useCase:
   - migrate
 ---
 
-# Deprecation Notice: Vulnerable Password Reset Flow
+# Vulnerable Password Reset Flow Deprecation
 
 | Severity | Grace Period Start | Mandatory Opt-In|
 | --- | --- | --- |
@@ -28,6 +28,6 @@ We strongly recommend upgrading to Lock 9 or greater as soon as possible.
 Even if you are not using Lock, the vulnerable reset flow can be accessed directly through the API. (See the [/dbconnections/change_password](/api/authentication/reference#change-password) endpoint for details.) 
 :::
 
-## Migration
+We strongly encourage you to migrate any app using the current flow to immediately use to the new reset flow and enable this migration.
 
-We strongly encourage any app using the current flow to move immediately to the new reset flow and enable this migration.
+<%= include('./_contact-support') %>

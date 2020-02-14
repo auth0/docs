@@ -14,7 +14,7 @@ useCase:
   - manage-accounts
 ---
 
-# Migration Guide: Management API and ID Tokens
+# Management API and ID Tokens Migration Guide
 
 For some use cases you could use [ID Tokens](/tokens/concepts/id-tokens) in order to call some of the [Users](/api/management/v2#!/Users/get_users_by_id) and [Device Credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoints of the Management API. 
 
@@ -69,7 +69,7 @@ For example, if I get an Access Token that contains the scope `read:users` I can
 
 The Access Tokens used to access the Management API **must hold only one value at the `aud` claim**. If your token contains more than one value, then your request to the Management API will error out.
 
-## How to get an Access Token
+## Get an Access Token
 
 In this section we will see the changes that are introduced in how you get a token for the aforementioned endpoints. We will see sample scripts side-by-side so you can identify the changes.
 
@@ -78,7 +78,7 @@ There are several variations on how you authenticate a user and get tokens, depe
 - Using the [Token endpoint](/api/authentication#get-token). You get your tokens from this endpoint if you authenticate users from a [web app](/api/authentication#authorization-code) (running on a server), a [mobile app](/api/authentication#authorization-code-pkce-), a [server process](/api/authentication#client-credentials), or a [highly trusted app](/api/authentication#resource-owner-password).
 - Using [Lock](/libraries/lock/v11#cross-origin-authentication) or [auth0.js](/libraries/auth0js/v9#configure-your-auth0-application-for-embedded-login) embedded in your application. In this case you are using [cross-origin authentication](/cross-origin-authentication) (used to authenticate users when the requests come from different domains). 
 
-### The Authorization endpoint
+### Authorization endpoint
 
 In this section we will use an example to showcase the differences in how you get a token with the [Authorization endpoint](/api/authentication#authorize-application). Keep in mind though that no matter which endpoint you want to migrate, the changes are the same, the only thing that differs is the [scopes](#changes-in-scopes) you will specify in the request.
 
@@ -101,7 +101,7 @@ Once you have the Access Token you can use it to call the endpoint. This part re
 }
 ```
 
-### The Token endpoint
+### Token endpoint
 
 In this section we will use an example to showcase the differences in how you get a token with the [Token endpoint](/api/authentication#get-token). Keep in mind though that no matter which endpoint you want to migrate, the changes are the same, the only thing that differs is the [scopes](#changes-in-scopes) you will specify in the request.
 
@@ -187,8 +187,6 @@ The changes in this functionality are the following:
 - If you use an Access Token at the `Authorization` header, with `update:current_user_metadata` as the granted permission, then you can only send the ID Token of the secondary account in the request's body. The following must apply:
   - The ID Token must be signed using `RS256` (you can set this value at *Dashboard > Applications > Application Settings > Advanced Settings > OAuth*)
   - The claim `aud` of the ID Token, must identify the application, and be the same value with the `azp` claim of the Access Token
-
-For a detailed overview of these changes and migration steps per use case, see [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking).
 
 ## Keep reading
 
