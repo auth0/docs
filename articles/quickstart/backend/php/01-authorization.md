@@ -21,14 +21,10 @@ useCase: quickstart
 
 ### Install dependencies
 
-In this example, token validation is done in the `JWTVerifier` class from the **auth0-PHP** library which can be applied to any endpoints you wish to protect. 
-
-The **router** library can be used to create simple routes. 
-
-Install the libraries with **composer**.
+In this example, token validation is done with the [Auth0 PHP SDK](https://github.com/auth0/auth0-PHP), which can be applied to any endpoints you wish to protect. The `kodus/file-cache` is a PSR-16 compliant caching library to store the contents of the public keys used to check the token signature. The `bramus/router` library is used in this example for simple API URLs and is not required for your application.
 
 ```bash
-composer require bramus/router:dev-master auth0/auth0-php:~5.0
+composer require auth0/auth0-php kodus/file-cache bramus/router
 ```
 
 ::: note
@@ -37,53 +33,76 @@ composer require bramus/router:dev-master auth0/auth0-php:~5.0
 
 ### Configure JWT Validation
 
-Create an instance of `JWTVerifier` and pass your API identifier to `valid_audiences` and your Auth0 domain to `authorized_iss`. You can also create a function which will be called to return a message when a request is made to a protected endpoint.
+Create an instance of `TokenVerifier` with your Auth0 domain as a URL and your API audience. We will also create methods which will be called to return a message when a request is made to a protected endpoint.
 
 ```php
-// src/Main.php
-
 <?php
+// src/Main.php
 
 namespace App;
 
-use Auth0\SDK\JWTVerifier;
+use Auth0\SDK\Exception\InvalidTokenException;
+use Auth0\SDK\Helpers\JWKFetcher;
+use Auth0\SDK\Helpers\Tokens\AsymmetricVerifier;
+use Auth0\SDK\Helpers\Tokens\TokenVerifier;
+use Kodus\Cache\FileCache;
 
 class Main {
 
-  protected $token;
-  protected $tokenInfo;
+    protected $issuer;
+    protected $audience;
+    protected $token;
+    protected $tokenInfo;
 
-  public function setCurrentToken($token) {
-
-    try {
-      $verifier = new JWTVerifier([
-        'supported_algs' => ['RS256'],
-        'valid_audiences' => ['${apiIdentifier}'],
-        'authorized_iss' => ['https://${account.namespace}/']
-      ]);
-
-      $this->token = $token;
-      $this->tokenInfo = $verifier->verifyAndDecode($token);
+    public function __construct( $issuer, $audience ) {
+        $this->issuer = $issuer;
+        $this->audience = $audience;
     }
-    catch(\Auth0\SDK\Exception\CoreException $e) {
-      throw $e;
+
+    public function setCurrentToken($token) {
+        $cacheHandler = new FileCache('./cache', 600);
+        $jwksUri      = $this->issuer . '.well-known/jwks.json';
+
+        $jwksFetcher   = new JWKFetcher($cacheHandler, [ 'base_uri' => $jwksUri ]);
+        $sigVerifier   = new AsymmetricVerifier($jwksFetcher);
+        $tokenVerifier = new TokenVerifier($this->issuer, $this->audience, $sigVerifier);
+
+        try {
+            $this->tokenInfo = $tokenVerifier->verify($token);
+            $this->token = $token;
+        }
+        catch(InvalidTokenException $e) {
+            // Handle invalid JWT exception ...
+        }
     }
-  }
 
-  // This endpoint doesn't need authentication
-  public function publicEndpoint() {
-    return array(
-      "status" => "ok",
-      "message" => "Hello from a public endpoint! You don't need to be authenticated to see this."
-    );
-  }
+    // This endpoint doesn't need authentication
+    public function publicEndpoint() {
+        return array(
+            "status" => "ok",
+            "message" => "Hello from a public endpoint! You don't need to be authenticated to see this."
+        );
+    }
 
-  public function privateEndpoint() {
-    return array(
-      "status" => "ok",
-      "message" => "Hello from a private endpoint! You need to be authenticated to see this."
-    );
-  }
+    public function privateEndpoint() {
+        return array(
+            "status" => "ok",
+            "message" => "Hello from a private endpoint! You need to be authenticated to see this."
+        );
+    }
+}
+```
+
+To include this class with Composer autoloading, add the following to your `composer.json`:
+
+```json
+{
+    // ...
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
 }
 ```
 
@@ -100,15 +119,7 @@ The `before` hook from the **router** package can be used to configure which rou
 // Require composer autoloader
 require __DIR__ . '/vendor/autoload.php';
 
-// Read .env
-try {
-  $dotenv = new Dotenv\Dotenv(__DIR__);
-  $dotenv->load();
-} catch(InvalidArgumentException $ex) {
-  // Ignore if no dotenv
-}
-
-$app = new \App\Main();
+$app = new \App\Main( 'https://${account.namespace}/', '${apiIdentifier}' );
 
 // Create Router instance
 $router = new \Bramus\Router\Router();
@@ -186,27 +197,29 @@ To add authorization you need to define the method `checkScope` to check for a p
 ```php
 // src/Main.php
 
-//..
+class Main {
+    // ...
 
-public function checkScope($scope){
-  if ($this->tokenInfo){
-    $scopes = explode(" ", $this->tokenInfo->scope);
-    foreach ($scopes as $s){
-      if ($s === $scope)
-        return true;
+    public function checkScope($scope){
+      if ($this->tokenInfo){
+        $scopes = explode(" ", $this->tokenInfo->scope);
+        foreach ($scopes as $s){
+          if ($s === $scope)
+            return true;
+        }
+      }
+
+      return false;
     }
-  }
 
-  return false;
-}
+    public function privateScopedEndpoint() {
+      return array(
+        "status" => "ok",
+        "message" => "Hello from a private endpoint! You need to be authenticated and have a scope of read:messages to see this."
+      );
+    }
 
-// ...
-
-public function privateScopedEndpoint() {
-  return array(
-    "status" => "ok",
-    "message" => "Hello from a private endpoint! You need to be authenticated and have a scope of read:messages to see this."
-  );
+    // ...
 }
 ```
 
