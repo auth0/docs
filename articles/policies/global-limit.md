@@ -1,6 +1,6 @@
 ---
 title: Global Rate Limit Policy For Authentication API
-description: This page details Authentication API Rate Limit Policy for free subscribers
+description: Learn about the Authentication API Rate Limit Policy for free subscribers
 toc: true
 topics:
     - auth0-policies
@@ -12,17 +12,20 @@ useCase:
   - support
 ---
 # Authentication API: Global Rate Limit Policy
+
 To ensure Auth0's quality of service, the Authentication API is subject to several levels of rate limiting.
 
-This document describes the global rate limiting policy applicable to __free subscribers__. Please visit [Rate limits](/policies/rate-limits) for more information on other applicable limits.
+This document describes the global rate limiting policy applicable to __free subscribers__. For information on other applicable limits, please see [Rate limits](/policies/rate-limits).
 
 ## Limits
+
 __Free subscribers__ Authentication API usage is restricted to __300 requests per minute__.
 
 Please be aware that the limit is global for the tenant and not per endpoint.
 
 ### Affected endpoints
-The global rate limit applies to all the [Authentication API](/api/authentication) endpoints. Below you will find a complete list of endpoints that are affected by this limit and the associated response if the rate limit is exceeded.
+
+The global rate limit applies to all [Authentication API](/api/authentication) endpoints. A complete list of endpoints that are affected by this limit, along with the associated response if the rate limit is exceeded, is a follows:
 
 Endpoint | Response
 ---------|---------
@@ -178,28 +181,33 @@ Endpoint | Response
 `GET /v2/logout` | [Error Page](#error-page)
 
 ## Exceeding the Rate Limit
-If you exceed the rate limit for a given API endpoint, you'll receive an [HTTP 429 (Too Many Requests)](http://tools.ietf.org/html/rfc6585#section-4) response (except for the cases documented in the [previous section](#affected-endpoints)). The response will also contain [HTTP Response Headers](policies/rate-limits#http-response-headers) that provide additional information on the rate limits applicable to that endpoint.
 
-If you exceed the global rate limit, a log like this one will be emitted to your logs: **You have reached the global limit for your account**. There will be a single log entry per hour when your account exceeds the rate limit.
+If you exceed the rate limit for a given API endpoint, you'll receive an [HTTP 429 (Too Many Requests)](http://tools.ietf.org/html/rfc6585#section-4) response (except for the cases documented in the [previous section](#affected-endpoints)). The response will also contain [HTTP Response Headers](/policies/rate-limits#http-response-headers) that provide additional information on the rate limits applicable to that endpoint.
 
-You view the log entries for a subscription in the [Dashboard](${manage_url}#/logs).
+If you exceed the global rate limit, the following example log entry will be emitted to your logs: **You have reached the global limit for your account**. There will be a single log entry per hour while your account exceeds the rate limit.
+
+To view the log entries for a subscription, navigate the to [Logs](${manage_url}#/logs) page in the [Dashboard](${manage_url}).
 
 ### Reducing the number of calls to Auth0
+
 When you exceed your rate limits, you'll need to reduce the number of calls you make to Auth0. The specifics depend on your use case, but here are some recommendations:
- * Cache `/.well-known/*` responses: this information does not change frequently, so you can usually cache it to reduce the number of times you need to call Auth0.
+
+ * Cache `/.well-known/*` responses: This information does not change frequently, so you can usually cache it to reduce the number of times you need to call Auth0.
+ 
  * Consider requesting an `id_token` instead of calling `/userinfo` to get information about the user.
 
 ### Response body
-The response body you receive depends on the endpoint. Each endpoint typically provides a return value in a different format (some an HTTP response, others redirect to URL and pass values in the query string, etc.). If the endpoint typically provides the response expected as JSON in the HTTP body, then a JSON error response will be sent if a rate limit is reached (exceptions are documented above).
 
-The following sections provide additional information about the errors possible.
+The response body you receive depends on the endpoint. Each endpoint typically provides a return value in a different format (for example, some return an HTTP response, while others redirect to a URL and pass values in the query string). If the endpoint typically provides the response expected as JSON in the HTTP body, then a JSON error response will be sent if a rate limit is reached (exceptions are documented above).
 
-The particular response per endpoint is stated in [Affected endpoints](#affected-endpoints) section, below you will find a description for each case.
+To view the particular response per endpoint, see [Affected endpoints](#affected-endpoints). Descriptions of each possible error are listed below.
 
 #### Error Page
-The Error Page response is sent for endpoints that render HTML content to the end user. When you exceed the rate limit, Auth0 renders the [Error Page](https://auth0.com/docs/universal-login/custom-error-pages) instead of the expected content.
+
+The Error Page response is sent for endpoints that render HTML content to the end user. When you exceed the rate limit, Auth0 renders the [Error Page](/universal-login/custom-error-pages) instead of the expected content.
 
 #### JSON Error
+
 Endpoints that usually provide JSON-formatted responses will return a JSON object containing an error code and description.
 
 ```json
@@ -211,10 +219,12 @@ Endpoints that usually provide JSON-formatted responses will return a JSON objec
 ```
 
 The error you receive depends on the type of endpoint you're calling:
+
 * `access_denied`: for OAuth endpoints 
 * `too_many_requests`: for endpoints that return JSON
 
 #### XML Error
+
 XML Errors are returned for endpoints that normally return XML.
 
 ```xml
@@ -238,5 +248,6 @@ XML Errors are returned for endpoints that normally return XML.
 ```
 
 The error you receive depends on the type of endpoint you're calling:
-- `fed:BadRequest` will be sent for WSFED-related endpoints.
+
+- `fed:BadRequest` will be sent for WSFed-related endpoints.
 - `wst:RequestFailed` will be used in for WSTrust-related endpoints.
