@@ -30,6 +30,21 @@ From a functional perspective, it has much better support for [Localization](/un
 
 - If you redirect users to the `/login` page directly, they will get a error unless they have configured the [default login route](/universal-login/default-login-url). You should always redirect users to the proper authorization request endpoint (e.g. `/authorize` if you are using OpenID Connect).
 
+## Signup
+
+- You can make users land directly on the Signup page instead of the Login page by specifying the `screen_hint=signup` parameter when redirecting to `/authorize`. Note that this can be combined with `prompt=login`, which indicates if you want to always show the authentication page or you want to skip if there's an existing session. 
+
+|/authorize parameters | Existing session | Action|
+|--|--|--|
+|no extra parameters | no | Shows the login page|
+|screen_hint=signup | no | Shows the signup page|
+|prompt=login | no | Shows the login page|
+|no extra parameters | yes | Redirects to the callback url|
+|screen_hint=signup | yes | Redirects to the callback url|
+|prompt=login | yes | Shows the login page|
+|prompt=login&screen_hint=signup | yes | Shows the signup page|
+
+
 ## Multi-Factor Authentication
 
 - If users have more than one <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> factor enrolled (e.g., SMS and Push notifications), the new MFA page will let the user select which one they want to use.
@@ -67,7 +82,11 @@ When using [Custom DB Connections](/connections/database/custom-db):
 
 ## Internationalization
 
-- The New Experience provides a more consistent approach for [Internationalization](/universal-login/i18n).
+- The New Experience provides a more consistent approach for [Internationalization](/universal-login/i18n). 
+
+## Text Customization
+
+- You can override any text in the New Experience by using the [Text Customization API](/universal-login/text-customization). 
 
 ## Branding
 
