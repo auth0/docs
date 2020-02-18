@@ -86,7 +86,7 @@ When using [Custom DB Connections](/connections/database/custom-db):
 
 ## Text Customization
 
-- You can override any text in the New Experience by using the [Text Customization API]((/universal-login/text-customization). 
+- You can override any text in the New Experience by using the [Text Customization API](/universal-login/text-customization). 
 
 ## Branding
 
