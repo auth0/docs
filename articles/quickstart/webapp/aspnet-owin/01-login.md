@@ -1,6 +1,6 @@
 ---
 title: Login
-description: This tutorial demonstrates how to add user login to an ASP.NET OWin application.
+description: This tutorial demonstrates how to add user login to an ASP.NET OWIN application.
 budicon: 448
 topics:
   - quickstarts
