@@ -439,5 +439,5 @@ export default new Router({
 ```
 
 :::panel Checkpoint
-Start the application and make sure you are logged out. Now, modify the URL in your browser's navigation bar to include the `/profile` path on the end. This should cause the application to ask you to authentication. Once you have logged in, the profile page should be visible without you having to navigate there manually.
+Start the application and make sure you are logged out. Now, modify the URL in your browser's navigation bar to include the `/profile` path on the end. This should cause the application to ask you to authenticate. Once you have logged in, the profile page should be visible without you having to navigate there manually.
 :::
