@@ -32,13 +32,9 @@ To set up your custom domain using self-managed certificates, you need to provid
 
 Before you can use the domain with Auth0, you'll need to verify that you own it. 
 
-1. Go to [Dashboard > Tenant Settings](${manage_url}/#/tenant), add the TXT verification record listed in the Dashboard to your domain's DNS record.
+1. Go to [Dashboard > Tenant Settings](${manage_url}/#/tenant), copy the TXT verification record listed in the Dashboard to your domain's DNS record.
 
   ![DSN Record](/media/articles/custom-domains/self-managed.png)
-
-2. Click **Verify** to proceed.
-
-  It may take a few minutes before Auth0 can verify your TXT record, depending on your DNS settings.
 
 ::: panel Add the TXT verification record to your domain's DNS record
 The following steps may vary for your domain host provider.
@@ -56,6 +52,10 @@ The following steps may vary for your domain host provider.
 
 3. When done, save your record.
 :::
+
+  It may take a few minutes before Auth0 can verify your TXT record, depending on your DNS settings.
+
+2. Click **Verify** to proceed.
 
   If Auth0 was able to verify your domain name, you'll see a confirmation window. 
 
