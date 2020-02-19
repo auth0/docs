@@ -48,7 +48,7 @@ If you have an existing user store, or wish to store user credentials on your ow
 
 In this scenario, you provide the login script to authenticate the user that will execute each time a user attempts to log in. Optionally, you can create [scripts](/connections/database/custom-db/templates) for sign-up, email verification, password reset, and delete user functionality.
 
-The scripts are `Node.js` code that run in the tenant's [Webtask](https://webtask.io/) environment. Auth0 provides [templates](/connections/database/custom-db/templates) for most common databases, such as: **ASP.NET Membership Provider**, **MongoDB**, **MySQL**, **Oracle**, **PostgreSQL**, **SQL Server**, **Windows Azure SQL Database**, and for a web service accessed by **Basic Auth**. Essentially, you can connect to any kind of database or web service with a custom script.
+The scripts are `Node.js` code. Auth0 provides [templates](/connections/database/custom-db/templates) for most common databases, such as: **ASP.NET Membership Provider**, **MongoDB**, **MySQL**, **Oracle**, **PostgreSQL**, **SQL Server**, **Windows Azure SQL Database**, and for a web service accessed by **Basic Auth**. Essentially, you can connect to any kind of database or web service with a custom script.
 
 <%= include('../../_includes/_webtask') %>
 
