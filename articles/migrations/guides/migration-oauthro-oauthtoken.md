@@ -14,7 +14,9 @@ Support for Resource Owner Password was added to [oauth/token](/api/authenticati
 
 ## Does this affect me ?
 
-This guide is for users who use the resource owner password credentials exchange, and call /oauth/ro directly, without the use of any Auth0 libraries or SDKs. The major Auth0 libraries such as <dfn data-key="lock">[Lock](/libraries/lock)</dfn> or [Auth0.js](/libraries/auth0js) have already been updated to stop using /oauth/ro internally. If you use the `lock-passwordless` library, you can now use [Passwordless Mode](/libraries/lock/v11#passwordless) in Lock v11 instead.
+This change affects you if you use the resource owner password credentials exchange, and call `/oauth/ro` directly, without the use of any Auth0 libraries or SDKs. The major Auth0 libraries such as <dfn data-key="lock">[Lock](/libraries/lock)</dfn> or [Auth0.js](/libraries/auth0js) have already been updated to stop using /oauth/ro internally. If you use the `lock-passwordless` library, you can now use [Passwordless Mode](/libraries/lock/v11#passwordless) in Lock v11 instead.
+
+<%= include('./_forced-logout.md') %>
 
 ## Changes to requests
 

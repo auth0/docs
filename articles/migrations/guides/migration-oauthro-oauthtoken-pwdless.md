@@ -16,7 +16,9 @@ We have implemented a new API that replaces `oauth/ro` for this use case, and we
 
 ## Does this affect me ?
 
-This guide is for users who use the resource owner passwordless credentials exchange, and call `/oauth/ro` directly, without the use of any Auth0 libraries or SDKs. 
+This change affects you if you use the resource owner passwordless credentials exchange and call `/oauth/ro` directly without the use of any Auth0 libraries or SDKs. 
+
+<%= include('./_forced-logout.md') %>
 
 ## Changes to requests
 
