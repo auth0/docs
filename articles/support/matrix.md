@@ -465,11 +465,6 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
-      <td><a href="/quickstart/backend/hapi">Hapi.js</a></td>
-      <td class="text-center"><a href="https://github.com/auth0-community/auth0-hapi-api-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
-      <td><div class="label label-default">Community</div></td>
-    </tr>
-    <tr>
       <td><a href="/quickstart/backend/java-spring-security">Java Spring Security</a></td>
       <td class="text-center"><a href="https://github.com/auth0-samples/auth0-spring-security-api-sample"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
