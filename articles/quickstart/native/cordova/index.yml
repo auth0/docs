@@ -1,6 +1,8 @@
 title: Cordova
 author:
-  community: true
+  name: David Patrick
+  email: david.patrick@auth0.com
+  community: false
 language:
   - Javascript
 framework:
@@ -24,7 +26,7 @@ articles:
   - 01-login
 show_steps: true
 github:
-  org: auth0-community
+  org: auth0-samples
   repo: auth0-cordova-samples
 requirements:
   - NodeJS 10

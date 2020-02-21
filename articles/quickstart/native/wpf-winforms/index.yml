@@ -1,6 +1,8 @@
 title: WPF / Winforms
 author:
-  community: true
+  name: Damien Guard
+  email: damien.guard@auth0.com
+  community: false
 hybrid: false
 language:
   - Javascript
@@ -28,7 +30,7 @@ articles:
   - 01-login
 show_steps: true
 github:
-  org: auth0-community
+  org: auth0-samples
   repo: auth0-WinFormsWPF-oidc-samples
 requirements:
   - Microsoft Visual Studio 2017

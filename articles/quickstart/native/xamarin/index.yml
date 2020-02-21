@@ -1,6 +1,8 @@
 title: Xamarin
 author:
-  community: true
+  name: Damien Guard
+  email: damien.guard@auth0.com
+  community: false
 language:
   - C#
 framework:
@@ -20,7 +22,7 @@ articles:
   - 01-login
 show_steps: true
 github:
-  org: auth0-community
+  org: auth0-samples
   repo: auth0-xamarin-oidc-samples
 requirements:
   - Visual Studio 2017 or Visual Studio for Mac
