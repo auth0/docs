@@ -26,12 +26,8 @@ function openUrl(url) {
             url: url
           },
           function(result) {
-            if (result.event === 'opened') {
-              console.log('opened');
-            } else if (result.event === 'loaded') {
-              console.log('loaded');
-            } else if (result.event === 'closed') {
-              console.log('closed');
+            if (result.event === 'loaded') {
+              SafariViewController.hide();
             }
           },
           function(msg) {
