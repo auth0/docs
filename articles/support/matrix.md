@@ -485,14 +485,9 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
-      <td><a href="/quickstart/backend/php-laravel">Laravel</a></td>
+      <td><a href="/quickstart/backend/laravel">Laravel</a></td>
       <td class="text-center"><a href="https://github.com/auth0-samples/auth0-laravel-api-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
-    </tr>
-    <tr>
-      <td><a href="/quickstart/backend/php-symfony">Symfony</a></td>
-      <td class="text-center"><a href="https://github.com/auth0-community/auth0-symfony-api-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
-      <td><div class="label label-default">Community</div></td>
     </tr>
     <tr>
       <td><a href="/quickstart/backend/python">Python</a></td>
@@ -500,19 +495,9 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
-      <td><a href="/quickstart/backend/ruby">Ruby</a></td>
-      <td class="text-center"><a href="https://github.com/auth0-community/auth0-ruby-api-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
-      <td><div class="label label-default">Community</div></td>
-    </tr>
-    <tr>
       <td><a href="/quickstart/backend/rails">Ruby on Rails</a></td>
       <td class="text-center"><a href="https://github.com/auth0-samples/auth0-rubyonrails-api-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
-    </tr>
-    <tr>
-      <td><a href="/quickstart/backend/falcor">Falcor</a></td>
-      <td class="text-center"><a href="https://github.com/auth0-community/auth0-falcor-sample"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
-      <td><div class="label label-default">Community</div></td>
     </tr>
   </tbody>
 </table>
