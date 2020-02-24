@@ -24,8 +24,6 @@ You can use the star symbol (`*`) as a wildcard for subdomains, but it must be u
 
 * The protocol of the URL **must** be `http:` or `https:`. `com.example.app://*.example.com` will not work.
 
-* The wildcard **must** be located within the hostname component of the URL. Star symbols (`*`) located outside of the hostname, such as in the path or query, will not be treated as wildcards. `https://example.com/*` will not be treated as having a wildcard.
-
 * The wildcard **must** be located in a subdomain within the hostname component. `https://*.com` will not work.
 
 * The wildcard **must** be located in the subdomain furthest from the root domain. `https://sub.*.example.com` will not work.
