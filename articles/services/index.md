@@ -43,7 +43,7 @@ The above diagram (click-through for further details) describes some of the vari
   <li>
     <i class="icon icon-budicon-715"></i><a href="#">Services</a>
 
-Designed to optimize our customers' investment in Auth0, our service offerings provide the proven best practice assistance required to help avoid common pitfalls and reduce risk when tackling the range of activities involved as part of integrating with Auth0:
+Designed to optimize our customers' investment in Auth0, our service offerings provide the proven best practice assistance required to help avoid common pitfalls and reduce risk when tackling the range of activities involved as part of integrating with Auth0. As you can see from the diagram above (click-through for further details), Professional Services fall into a number of different categories, and can be utilized in a number of different ways to assist during the various stages of your integration with Auth0:
     <ul>
       <li>
         <i class="icon icon-budicon-695"></i><a href="/services/discover-and-design">Discover & Design</a>
