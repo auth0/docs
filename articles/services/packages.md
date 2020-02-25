@@ -104,9 +104,9 @@ Auth0 Professional Services provides packaged offerings designed to optimize our
 		<img src="/media/articles/services/file_type_icons-04.png" alt="">&nbsp;Implementation HealthCheck Package</a>
 </h3>
 
-* 3 days of services
+* 1 to 3 days of services
 * Remote/on-site, as mutually agreed
-* Expires in 365 days
+* Expires in 90 days
 * Terms and Conditions apply
 * Wide range of [maintain and improve](/services/maintain-and-improve) services
  
