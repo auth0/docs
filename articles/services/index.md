@@ -21,15 +21,15 @@ useCase:
 
 ## How Professional Services can help with your project
 
-Customers buy software to solve a business problem. The longer it takes to integrate with that software, the longer the business problem remains unsolved. If integration stalls or fails, it’s a lost opportunity and a major additional cost both for you and for Auth0; at worst, it can become an even bigger security issue or legal nightmare. That's why it's of the utmost importance to plan, design, and implement your IAM solution securely, effectively, and expediently. This is where Auth0 Professional Services (PS) come in. 
+Customers buy software to solve a business problem. The longer it takes to integrate with that software, the longer the business problem remains unsolved. If integration stalls or fails it’s a lost opportunity, and potentially a major additional cost both for you and for Auth0. At worst, it can become an even bigger security issue or legal nightmare. That's why it's of the utmost importance to plan, design, and implement your IAM solution securely, effectively, and expediently. This is where Auth0 Professional Services (PS) come in. 
 
-![Professional Services Info Diagram](/media/articles/services/Auth0-Services-InfoDiagram.png)
+[![Professional Services Info Diagram](/media/articles/services/Auth0-Services-InfoDiagram.png)](/media/articles/services/Auth0-Services-InfoDiagram.pdf)
 
 ### Get to production faster
 
 <ul class="topic-links">
 
-We can help consolidate all the enablement activities leading to a successful adoption into three major milestones; the goal of a Professional Services engagement is to identify, document, and build consensus with you on these milestones as the path to successful Auth0 adoption: 
+The above diagram (click-through for further details) describes the various options you have for engaging with Auth0 Professional Services. We can help consolidate all the enablement activities leading to a successful adoption into major project milestones: the goal of a Professional Services engagement being to identify, document, and build consensus with you on these milestones as the path to successful Auth0 adoption: 
 
 * **Discovery and Design:** where our Solution Architects will work with your teams to identify the core goals, features, and functionality that constitute your successful IAM implementation. We'll also help you uncover any legacy architectural issues or design requirements that may need more careful consideration.
 
