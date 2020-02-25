@@ -29,7 +29,7 @@ Customers buy software to solve a business problem. The longer it takes to integ
 
 <ul class="topic-links">
 
-The above diagram (click-through for further details) describes some of the various options you have for engaging with Auth0 Professional Services. We can help consolidate all the enablement activities leading to a successful adoption, into major project milestones; the goal of a Professional Services engagement being to identify, document, and build consensus with you on these milestones as a path to successful Auth0 adoption: 
+The above diagram (click-through for details) describes some of the various options you have for engaging with Auth0 Professional Services. We can help consolidate all the enablement activities leading to a successful adoption, into major project milestones; the goal of a Professional Services engagement being to identify, document, and build consensus with you on these milestones as a path to successful Auth0 adoption: 
 
 * **Discovery and Design:** where our Solution Architects will work with your teams to identify the core goals, features, and functionality that constitute your successful IAM implementation. We'll also help you uncover any legacy architectural issues or design requirements that may need more careful consideration.
 
@@ -43,7 +43,7 @@ The above diagram (click-through for further details) describes some of the vari
   <li>
     <i class="icon icon-budicon-715"></i><a href="#">Services</a>
 
-Designed to optimize our customers' investment in Auth0, our service offerings provide the proven best practice assistance required to help avoid common pitfalls and reduce risk when tackling the range of activities involved as part of integrating with Auth0. As you can see from the diagram above (click-through for further details), Professional Services fall into a number of different categories, and can be utilized in a number of different ways to assist during the various stages of your integration with Auth0:
+Designed to optimize our customers' investment in Auth0, our service offerings provide the proven best practice assistance required to help avoid common pitfalls and reduce risk. As you can see from the diagram above (click-through for details), Professional Services fall into a number of different categories, and can be utilized in different ways to assist when tackling the range of activities involved as part of integrating with Auth0:
     <ul>
       <li>
         <i class="icon icon-budicon-695"></i><a href="/services/discover-and-design">Discover & Design</a>
@@ -62,7 +62,7 @@ Designed to optimize our customers' investment in Auth0, our service offerings p
   <li>
     <i class="icon icon-budicon-715"></i><a href="/services/packages">Packages</a>
 
-Our packages provide our customers with the services they need, in a manner structured to help them engage with our experts in a way that best suits their requirements. [See a full list of the packages we offer](/services/packages) and discover which of them would be a good fit for you.
+Our packages provide our customers with the services they need, in a manner structured to help them engage with our experts in a way which best suits their requirements. As you can see from the diagram above (click-through for details), a number of Professional Services packages are available, and can be employed in a mix-and-match fashion; [see a full list of the packages we offer](/services/packages) and discover which of them would be a good fit for you.
   </li>
 </ul>
 
