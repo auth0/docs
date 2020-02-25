@@ -141,6 +141,12 @@ You can now send a test email using the **Send Test Email** button. If you have 
 
 The SendGrid [Email Activity](https://sendgrid.com/logs/index) page will now display delivery insights for all emails that have been sent to your users.
 
+::: note
+If you send an email to Japanese mobile career users, we recommend that you check the following blogs to increases your deliverability.
+
+* [携帯キャリアにメールを届けるための設定　～なりすまし規制編～](https://sendgrid.kke.co.jp/blog/?p=10875)
+:::
+
 ## Configure SparkPost
 
 1. Sign up for a [SparkPost](https://www.sparkpost.com/) account, or log in. 
