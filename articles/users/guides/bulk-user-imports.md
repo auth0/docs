@@ -195,7 +195,7 @@ If there is an error in the job, it will return as failed. However, note that in
 
 **Expired**
 
-Expired jobs are completed jobs that were created more than `TODO_TIME` ago
+Expired jobs are completed jobs that were created more than 2 hours ago.
 
 ```json
 {
