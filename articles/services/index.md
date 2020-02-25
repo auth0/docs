@@ -62,7 +62,7 @@ Designed to optimize our customers' investment in Auth0, our service offerings p
   <li>
     <i class="icon icon-budicon-715"></i><a href="/services/packages">Packages</a>
 
-Our packages provide our customers with the services they need, in a manner structured to help them engage with our experts in a way which best suits their requirements. As you can see from the diagram above (click-through for details), a number of Professional Services packages are available, and can be employed in a mix-and-match fashion; [see a full list of the packages we offer](/services/packages) and discover which of them would be a good fit for you.
+Our packages provide our customers with the services they need, in a manner structured to help them engage with our experts in a way which best suits their requirements. As you can see from the diagram above (click-through for details), a number of Professional Services packages are available that can be employed in a mix-and-match fashion; [see a full list of the packages we offer](/services/packages) and discover which of them would be a good fit for you.
   </li>
 </ul>
 
