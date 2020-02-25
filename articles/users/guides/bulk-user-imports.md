@@ -128,7 +128,7 @@ Depending on the status of the user import job, you'll receive a response simila
 {
   "status": "pending",
   "type": "users_import",
-  "created_at": "", // TODO: add date
+  "created_at": "",
   "id": "job_abc123",
   "connection_id": "CONNECTION_ID",
   "external_id": "EXTERNAL_ID"
@@ -141,7 +141,7 @@ Depending on the status of the user import job, you'll receive a response simila
 {
   "status": "processing",
   "type": "users_import",
-  "created_at": "", // TODO: add date
+  "created_at": "",
   "id": "job_abc123",
   "connection_id": "CONNECTION_ID",
   "external_id": "EXTERNAL_ID",
@@ -158,12 +158,17 @@ If a job is completed, the job status response will include totals of successful
 {
   "status": "completed",
   "type": "users_import",
-  "created_at": "", // TODO: add date
+  "created_at": "",
   "id": "job_abc123",
   "connection_id": "CONNECTION_ID",
   "external_id": "EXTERNAL_ID",
-  "location": "https://${account.namespace}/EXAMPLE"
-  // TODO: example of successful/failed/inserted/updated fields
+  "location": "https://${account.namespace}/EXAMPLE",
+  "summary": {
+    "failed": 0,
+    "updated": 0,
+    "inserted": 1,
+    "total": 1
+  }
 }
 ```
 
@@ -175,10 +180,16 @@ If there is an error in the job, it will return as failed. However, note that in
 {
   "status": "failed",
   "type": "users_import",
-  "created_at": "", // TODO: add date
+  "created_at": "",
   "id": "job_abc123",
   "connection_id": "CONNECTION_ID",
-  "external_id": "EXTERNAL_ID"
+  "external_id": "EXTERNAL_ID",
+  "summary": {
+    "failed": 1,
+    "updated": 0,
+    "inserted": 0,
+    "total": 1
+  }
 }
 ```
 
@@ -190,7 +201,7 @@ Expired jobs are completed jobs that were created more than `TODO_TIME` ago
 {
   "status": "expired",
   "type": "users_import",
-  "created_at": "", // TODO: add date
+  "created_at": "",
   "id": "job_abc123",
   "connection_id": "CONNECTION_ID",
   "external_id": "EXTERNAL_ID"
@@ -226,18 +237,35 @@ If there were errors in the user import job, you can get the error details by ma
 }
 ```
 
-If the request is successful, you'll receive a response similar to the following:
+If the request is successful, you'll receive a response similar to the following. Sensitive fields such as `hash.value` will be redacted in the response.
 
 ```json
-{
-  "TODO": "TODO" // example response
-}
+[
+    {
+        "user": {
+            "email": "test@test.io",
+            "user_id": "7af4c65cb0ac6e162f081822422a9dde",
+            "custom_password_hash": {
+                "algorithm": "ldap",
+                "hash": {
+                    "value": "*****"
+                }
+            }
+        },
+        "errors": [
+            {
+                "code": "...",
+                "message": "...",
+                "path": "..."
+            }
+        ]
+    }
+]
 ```
 
-## Keep reading
+## Related pages
 
-* [User Migration Overview](/users/concepts/overview-user-migration)
 * [Configure Automatic Migration from Your Database](/users/guides/configure-automatic-migration)
 * [User Import/Export Extension](/extensions/user-import-export)
-* [Bulk Import Database Schema and Example](/users/references/bulk-import-database-schema-examples)
+* [Bulk Import Database Schema and Examples](/users/references/bulk-import-database-schema-examples)
 * [User Migration Scenarios](/users/references/user-migration-scenarios)
