@@ -29,7 +29,7 @@ Customers buy software to solve a business problem. The longer it takes to integ
 
 <ul class="topic-links">
 
-The above diagram (click-through for further details) describes the various options you have for engaging with Auth0 Professional Services. We can help consolidate all the enablement activities leading to a successful adoption into major project milestones: the goal of a Professional Services engagement being to identify, document, and build consensus with you on these milestones as the path to successful Auth0 adoption: 
+The above diagram (click-through for further details) describes some of the various options you have for engaging with Auth0 Professional Services. We can help consolidate all the enablement activities leading to a successful adoption, into major project milestones; the goal of a Professional Services engagement being to identify, document, and build consensus with you on these milestones as a path to successful Auth0 adoption: 
 
 * **Discovery and Design:** where our Solution Architects will work with your teams to identify the core goals, features, and functionality that constitute your successful IAM implementation. We'll also help you uncover any legacy architectural issues or design requirements that may need more careful consideration.
 
