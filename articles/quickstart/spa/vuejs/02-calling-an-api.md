@@ -181,14 +181,14 @@ export default {
 Modify the Vue router to include a route to this new page whenever the `/external-api` URL is accessed:
 
 ```js
-// src/router.js
+// src/router/index.js
 
 // .. other imports
 
 // NEW - import the view for calling the API
-import ExternalApiView from "./views/ExternalApi.vue";
+import ExternalApiView from "../views/ExternalApi.vue";
 
-const router = new Router({
+const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes: [

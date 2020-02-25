@@ -35,7 +35,8 @@ github:
   repo: auth0-vue-samples
   branch: master
 requirements:
-  - Vue 2.6.10
+  - Vue 2.6.11
+  - Vue CLI 4.2.2
 next_steps:
   - path: 01-login
     list:
