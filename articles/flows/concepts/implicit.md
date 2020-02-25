@@ -31,10 +31,10 @@ While this is no longer considered a best practice for requesting Access Tokens,
 In the Implicit Flow, issued tokens are short-lived, and <dfn data-key="refresh-token">Refresh Tokens</dfn> are not available.
 
 ::: warning
-You can use this flow for login only use cases; if you need to request Access Tokens while logging the user in so you can call your API, use the [Authorization Code Flow with PKCE](/flows/concepts/auth-code-pkce).
+You should use this flow for login only use cases; if you need to request Access Tokens while logging the user in so you can call your API, use the [Authorization Code Flow with PKCE](/flows/concepts/auth-code-pkce).
 :::
 
-![Implicit Flow Authentication Sequence](/media/articles/flows/concepts/auth-sequence-implicit.png)
+![Implicit Flow with Form Post Authentication Sequence](/media/articles/flows/concepts/auth-sequence-implicit-form-post.png)
 
 1. The user clicks **Login** in the app.
 2. Auth0's SDK redirects the user to the Auth0 Authorization Server (**/authorize** endpoint) passing along a `response_type` parameter of `id_token` that indicates the type of requested credential. It also passes along a `response_mode` parameter of `form_post` to ensure security.
