@@ -67,7 +67,9 @@ const fs = require('fs');
 const key = fs.readFileSync('./localhost-key.pem');
 const cert = fs.readFileSync('./localhost.pem');
 
-https.createServer({key, cert}, express()).listen('3000', () => {
+const app = express();
+
+https.createServer({key, cert}, app).listen('3000', () => {
   console.log('Listening on https://localhost:3000');
 });
 ```
