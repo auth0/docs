@@ -32,6 +32,22 @@ Auth0 issues tokens with the **iss** claim of whichever domain you used with the
 If you get an Access Token for the [Management API](/api/management/v2) using an authorization flow with your custom domain, you **must** call the Management API using the custom domain (your token will be considered invalid otherwise).
 :::
 
+## Metadata endpoints
+
+Auth0 implements certain metadata endpoints to ease interoperability and configuration of third party IdPs and
+applications. When these metadata contain URIs pointing back to Auth0 the URL can either use the Auth0 sub-domain or
+your custom domain depending on the hostname that is used to request the metadata.
+
+| If you use | Reference inside metadata |
+| -- | -- |
+| `https://northwind.auth0.com/.well-known/...` | `https://northwind.auth0.com/...` |
+| `https://login.northwind.com/samlp/metadata/...` | `https://login.northwind.com/...` |
+
+This applies to the following features (non-exhaustive list):
+- [OpenID Connect Discovery](/protocols/oidc/openid-connect-discovery)
+- [Auth0 as a SAML SP](/protocols/saml/saml-sp-generic)
+- [Auth0 as a SAML Identity Provider](/protocols/saml/saml-idp-generic)
+
 ## Whitelisting
 
 Be aware that Auth0 does not provide a static list of IP addresses because they are subject to change. We recommend that you whitelist your custom domain instead.
