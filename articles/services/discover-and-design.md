@@ -34,7 +34,7 @@ Discovery is at the heart of what we do: if you've never engaged with Profession
 		<img src="/media/articles/services/file_type_icons-05.png" alt="">&nbsp;Discovery Report</a>
 </h3>
 
-Your Discovery Report provides you with bespoke and tailored guidance. Each Discovery Report acts as a living document to provide project specifc guidance, as well as base line reference, for your Auth0 integration - whether part of a Professional Services engagement or beyond. The Discovery Report also provides recommendations for immediate review, as well as providing you with at-a-glance reference to general purpose Auth0 Business to Consumer (B2C) and Business to Business (B2B) Identity and Access Management guidance, as and when you need it. See for yourself the value of a bespoke and tailored Discovery Report, by clicking on the link above to review a sample of what we provide.      
+Your Discovery Report provides you with bespoke and tailored guidance. Each Discovery Report acts as a living document, providing project specifc best practice, as well as base line reference for your Auth0 integration - whether part of a Professional Services engagement or beyond. The Discovery Report also provides recommendations for immediate review, as well as providing you with at-a-glance reference to general purpose Auth0 [Business to Consumer (B2C)](/architecture-scenarios/b2c) and [Business to Business (B2B)](/architecture-scenarios/b2b] Identity and Access Management guidance - as and when you need it. See for yourself the value of a bespoke and tailored Discovery Report, by clicking the link above to review a sample of what we provide.      
 
 ## Keep reading
 
