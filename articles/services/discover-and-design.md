@@ -24,6 +24,10 @@ Focused on discovering the optimum design based on your requirements, Architectu
 
 Guiding you through your use case scenarios, our Scenario Guidance services help you navigate the possible paths through your discovered use cases in a best practice manner. Covering topics such as OpenID Connect (OIDC) flows, Authorization server capabilities, session management, and Single Sign-On (SSO), engagement with the Auth0 Professional Services team provides visibility into the things you need to prepare you to address what's required. Delivered as part of our [Discover, Design, & Implement packages](/services/packages#discover-design-and-implement-packages).
 
+## Discovery
+
+Discovery is at the heart of what we do: if you've never engaged with Professional Services on a project before then Discovery is where we start. Discovery is a fixed scope service, specifically designed to help us - and you - understand what's required for sucessfull integration with Auth0. Conducted as a series of Architectural Discover and Scenario Guidance sessions, we work with you and your team(s) on-site, to identify critical use case scenario(s) and build solution design(s). Why Discovery? Identifying your primary objectives early on will help you and your team(s) focus on the specifics important to building out your solution. Captured in a bespoke Discovery Report, and backed by beskoke Plannig Guidance, will help you understand what you need to consider to help bring your project(s) to market in the most effective manner.
+
 ## Keep reading
 
 * [Implement](/services/implement)
