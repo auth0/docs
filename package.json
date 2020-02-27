@@ -23,5 +23,6 @@
     "lint-staged": "^3.4.2",
     "markdownlint": "^0.13.0",
     "markdownlint-cli": "^0.15.0"
-  }
+  },
+  "dependencies": {}
 }
