@@ -26,7 +26,13 @@ Guiding you through your use case scenarios, our Scenario Guidance services help
 
 ## Discovery
 
-Discovery is at the heart of what we do: if you've never engaged with Professional Services on a project before then Discovery is where we start. Discovery is a fixed scope service, specifically designed to help us - and you - understand what's required for sucessfull integration with Auth0. Conducted as a series of Architectural Discover and Scenario Guidance sessions, we work with you and your team(s) on-site, to identify critical use case scenario(s) and build solution design(s). Why Discovery? Identifying your primary objectives early on will help you and your team(s) focus on the specifics important to building out your solution. Captured in a bespoke Discovery Report, and backed by beskoke Plannig Guidance, will help you understand what you need to consider to help bring your project(s) to market in the most effective manner.
+Discovery is at the heart of what we do: if you've never engaged with Professional Services on a project before then Discovery is where we start. Discovery is a fixed scope service, specifically designed to help us - and you - understand what's required for sucessfull integration with Auth0. Conducted as a series of [Architectural Discovery](#architectural-discovery) and [Scenario Guidance](#scenario-guidance) sessions, we work with you and your team(s) on-site to identify critical use case scenario(s) and build solution design(s). Why Discovery? Identifying your primary objectives early on will help you and your team(s) focus on the specifics important to building out your solution. Captured in a bespoke [Discovery Report](#discovery-report), and backed by beskoke Planning Guidance, we'll help you understand what you need to consider to bring your project(s) to market in the most effective manner.
+
+<h3 class="anchor-heading">
+	<span class="anchor"><i class="icon icon-budicon-345"></i></span>
+	<a data-trackOutbound href="https://docs.google.com/document/d/1aLOaBid0Gtl9lD7uE3Db9yMMD1VOqHM4jtdNWl-zfj4/edit?usp=sharing">
+		<img src="/media/articles/services/file_type_icons-04.png" alt="">&nbsp;Discovery Report</a>
+</h3>
 
 ## Keep reading
 
