@@ -17,7 +17,7 @@ useCase:
 ---
 # Connect your app to Instagram
 
-::: warning Instagram is deprecating all their APIs in favor of the new Instagram Graph API, which requires users to authenticate using Facebook Login. for more information see [this instagram blogpost](https://developers.facebook.com/blog/post/2019/10/15/launch-instagram-basic-display-api/) about the deprecation :::
+::: warning Instagram is deprecating their legacy APIs in favor of the new Instagram Graph API, which requires users to authenticate using Facebook Login. For more information, see [this instagram blogpost](https://developers.facebook.com/blog/post/2019/10/15/launch-instagram-basic-display-api/):::
 
 This article describes how to add functionality to your app that will allow your user to log in with Instagram.
 
