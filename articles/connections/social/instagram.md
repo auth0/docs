@@ -17,6 +17,8 @@ useCase:
 ---
 # Connect your app to Instagram
 
+::: warning Instagram is deprecating all their APIs in favor of the new Instagram Graph API, for more information see the [instagram platform deprecation notice](https://developers.facebook.com/blog/post/2018/01/30/instagram-graph-api-updates/) :::
+
 This article describes how to add functionality to your app that will allow your user to log in with Instagram.
 
 First you need to connect your Auth0 application to Instagram. This is summarized in the following steps:
