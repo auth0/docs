@@ -30,11 +30,19 @@ Discovery is at the heart of what we do: if you've never engaged with Profession
 
 <h3 class="anchor-heading">
 	<span class="anchor"><i class="icon icon-budicon-345"></i></span>
-	<a data-trackOutbound href="https://docs.google.com/document/d/1aLOaBid0Gtl9lD7uE3Db9yMMD1VOqHM4jtdNWl-zfj4/edit?usp=sharing">
+	<a data-trackOutbound href="https://docs.google.com/document/d/1aLOaBid0Gtl9lD7uE3Db9yMMD1VOqHM4jtdNWl-zfj4/view?usp=sharing">
 		<img src="/media/articles/services/file_type_icons-05.png" alt="">&nbsp;Discovery Report</a>
 </h3>
 
 Your Discovery Report provides you with bespoke and tailored guidance. Each Discovery Report acts as a collaborative document, providing project specifc best practice, as well as base line reference for your Auth0 integration - whether part of a Professional Services engagement or beyond. The Discovery Report also provides recommendations for immediate review, as well as providing you with at-a-glance reference to general purpose Auth0 [Business to Consumer (B2C)](/architecture-scenarios/b2c) and [Business to Business (B2B)](/architecture-scenarios/b2b) Identity and Access Management guidance - as and when you need it. See for yourself the value of a bespoke and tailored Discovery Report, by clicking the link above to review a sample of what we provide.      
+
+<h3 class="anchor-heading">
+	<span class="anchor"><i class="icon icon-budicon-345"></i></span>
+	<a data-trackOutbound href="https://drive.google.com/a/auth0.com/file/d/1trdKWjnjMRc1Zskh4nAShMsqbte5MDaS/view?usp=sharing">
+		<img src="/media/articles/services/file_type_icons-04.png" alt="">&nbsp;Planning Guidance</a>
+</h3>
+
+T.B.D.
 
 ## Keep reading
 
