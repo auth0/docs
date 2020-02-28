@@ -13,7 +13,7 @@ useCase: customize-connections
 # Password Options in Auth0 Database Connections
 
 ::: warning
-The **Password Options** feature is only available for Database connections. The password limitations in Social and Enterprise connections are enforced by each provider.
+The **Password Options** feature is only available for Database connections and Custom Database connections with import mode enabled. The password limitations in Social and Enterprise connections are enforced by each provider.
 :::
 
 An important concern when using passwords for authentication is the creation of unique passwords. A strong password policy will make it difficult, if not improbable, for someone to guess a password through either manual or automated means.
