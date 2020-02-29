@@ -26,7 +26,7 @@ In this case Auth0 will never store any password hashes, unless you choose to [p
 
 Auth0 primarily uses <dfn data-key="openid">OpenID Connect (OIDC)</dfn> as its authentication protocol, so you should be able to implement an integration to your application using standard libraries. The same situation applies when [integrating Auth0 through SAML](/saml-configuration).
 
-All of Auth0's SDKs, libraries and samples [are published on GitHub as free software](https://github.com/auth0/).
+All of Auth0's SDKs, libraries, and samples [are published on GitHub as free software](https://github.com/auth0/).
 
 ## Social identity providers
 
@@ -34,9 +34,9 @@ If you choose not to use Auth0 but keep using the same OAuth client IDs and secr
 
 ## Custom code
 
-All of Auth0's custom code features (rules, custom database scripts, custom OAuth connections, and so on) run on [Webtask](https://webtask.io/), which is a Node.js sandbox service.
-In the vast majority of cases, Webtask code is also valid Node.js code or can be adapted with minimal effort.
-All libraries available on Webtask are also available on npm for use with standard Node.js code.
+All of Auth0's custom code features (rules, custom database scripts, custom OAuth connections, and so on) run on a Node.js sandbox service.
+
+All libraries available on the sandbox service are also available on npm for use with standard Node.js code.
 
 ## Keep reading
 
