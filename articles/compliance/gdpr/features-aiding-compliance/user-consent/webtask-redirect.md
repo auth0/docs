@@ -5,11 +5,12 @@ contentType: how-to
 sitemap: false
 ---
 # Redirect Users to Consent Form Hosted Using Webtask
+
 :::warning
-Webtask is no longer accepting new signups. We recommend hosting this on another hosting service like Heroku. 
+Webtask is no longer accepting new signups. We recommend hosting your consent form on another hosting service like Heroku. 
 ::: 
 
-For simplicity, we will use this [sample consent form](https://wt-peter-auth0_com-0.run.webtask.io/simple-redirect-rule-consent-form). This is a form we have hosted for you, but later on we will see how to host your own version of this form (with your own URL). You can find the webtask's code at [Auth0 Redirect Rules repo](https://github.com/auth0/rules/blob/master/redirect-rules/simple/webtask.js).
+For simplicity, we will use this [sample consent form](https://wt-peter-auth0_com-0.run.webtask.io/simple-redirect-rule-consent-form). This is a form we have hosted for you, but later on we will see how to host your own version of this form (with your own URL). You can find the code at [Auth0 Redirect Rules repo](https://github.com/auth0/rules/blob/master/redirect-rules/simple/webtask.js).
 
 :::note
 If you are implementing this from a regular web app, hosting your own form, then you can also save the consent information at the `user_metadata` using the [Management API's Update User endpoint](/api/management/v2#!/Users/patch_users_by_id).
@@ -56,7 +57,6 @@ If you are implementing this from a regular web app, hosting your own form, then
 3. Go back to [Dashboard > Rules](${manage_url}/#/rules), scroll down, and under **Settings**, create a Key/Value pair as follows:
   - **Key**: `CONSENT_FORM_URL`
   - **Value**: `https://wt-peter-auth0_com-0.run.webtask.io/simple-redirect-rule-consent-form`
-
 
 If you want to work with your own implementation of the consent form webtask, you can host your own version of the webtask.js script. For instructions see [Consent Form Setup](https://github.com/auth0/rules/tree/master/redirect-rules/simple#consent-form-setup).
 
