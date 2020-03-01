@@ -31,7 +31,7 @@ Customers buy software to solve a business problem. The longer it takes to integ
 
 The diagram above (click for more details) shows a number of the Service and Package options available when engaging with Auth0 Professional Services. Your project(s) will have a requirement for one or more of these. We help you to consolidate all enablement activities into the major project milestones that lead to adoption; the goal of a Professional Services engagement being to identify, document, and build consensus with you on a path to successful integration: 
 
-* **Discovery and Design:** where our Solution Architects will work with your teams to identify the core goals, features, and functionality that constitute your successful IAM implementation. Discovery is at the heart of what we do, and will help you uncover any legacy architectural issues or design requirements that may need more careful consideration.
+* **Discovery and Design:** where our Solution Architects will work with your teams to identify the core goals, features, and functionality that constitute your successful IAM implementation. [Discovery](/services/discover-and-design#discovery) is at the heart of what we do, and we'll help you uncover any legacy architectural issues, or design requirements, that may need more careful consideration.
 
 * **Initial Go-Live:** designed to be impactful enough to make material differences in your overall Identity project. At the same time, it's limited enough that it can be reached quickly&mdash;ideally within 30 days of the project start&mdash;to maintain positive momentum. Initial Go-Live typically includes migration off a legacy IDP, must-have features, and possibly a subset of all your applications.
 

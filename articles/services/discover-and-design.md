@@ -34,7 +34,7 @@ Discovery is at the heart of what we do: if you've never engaged with Profession
 		<img src="/media/articles/services/file_type_icons-05.png" alt="">&nbsp;Discovery Report</a>
 </h3>
 
-Your Discovery Report provides you with bespoke and tailored guidance. Each Discovery Report acts as a collaborative document, providing project specifc best practice, as well as base line reference for your Auth0 integration - whether part of a Professional Services engagement or beyond. The Discovery Report also provides recommendations for immediate review, as well as providing you with at-a-glance reference to general purpose Auth0 [Business to Consumer (B2C)](/architecture-scenarios/b2c) and [Business to Business (B2B)](/architecture-scenarios/b2b) Identity and Access Management guidance - as and when you need it. See for yourself the value of a bespoke and tailored Discovery Report, by clicking the link above to review a sample of what we provide.      
+Your Discovery Report provides you with bespoke and tailored guidance. The report acts as a collaborative document, providing project specifc best practice as well as the base line reference for your Auth0 integration - whether part of a Professional Services engagement or beyond. The Discovery Report also provides recommendations for immediate review, as well as providing you with at-a-glance reference to general purpose Auth0 [Business to Consumer (B2C)](/architecture-scenarios/b2c) and [Business to Business (B2B)](/architecture-scenarios/b2b) Identity and Access Management guidance - as and when you need it. See for yourself the value of a bespoke and tailored Discovery Report, by clicking the link above to review a sample of what we provide.      
 
 <h3 class="anchor-heading">
 	<span class="anchor"><i class="icon icon-budicon-345"></i></span>
@@ -42,7 +42,9 @@ Your Discovery Report provides you with bespoke and tailored guidance. Each Disc
 		<img src="/media/articles/services/file_type_icons-04.png" alt="">&nbsp;Planning Guidance</a>
 </h3>
 
-T.B.D.
+
+Project Planning Guidance provides you with a bespoke plan for tackling your integration with Auth0. Based
+on real world customer implementation experience, but targeted to your specific requirements, your guide provides you with the goals and objectives you need to plan for, and in the order they need to be considered. Planning Guidance distills our experience, in conjunction with your project needs, to help you deliver your solution in the most effective manner, and links directly to your Discovery Report to provide access to bespoke, tailred guidance exactly when you need it.
 
 ## Keep reading
 
