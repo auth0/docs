@@ -29,13 +29,13 @@ Customers buy software to solve a business problem. The longer it takes to integ
 
 <ul class="topic-links">
 
-The above diagram (click-through for details) describes some of the various options you have for engaging with Auth0 Professional Services. We can help consolidate all the enablement activities leading to a successful adoption, into major project milestones; the goal of a Professional Services engagement being to identify, document, and build consensus with you on these milestones as a path to successful Auth0 adoption: 
+The diagram above (click for more details) shows a number of the Service and Package options available when engaging with Auth0 Professional Services. Your project(s) will have a requirement for one or more of these. We help you to consolidate all enablement activities into the major project milestones that lead to adoption; the goal of a Professional Services engagement being to identify, document, and build consensus with you on a path to successful integration: 
 
-* **Discovery and Design:** where our Solution Architects will work with your teams to identify the core goals, features, and functionality that constitute your successful IAM implementation. We'll also help you uncover any legacy architectural issues or design requirements that may need more careful consideration.
+* **Discovery and Design:** where our Solution Architects will work with your teams to identify the core goals, features, and functionality that constitute your successful IAM implementation. Discovery is at the heart of what we do, and will help you uncover any legacy architectural issues or design requirements that may need more careful consideration.
 
-* **Initial Go-Live:** designed to be impactful enough to make material differences in your overall Identity project. At the same time, it's limited enough that it can be reached quickly&mdash;ideally within 30 days of the project start&mdash;to keep the positive momentum. Initial Go-Live typically includes migration off a legacy IDP, must-have features, and possibly a subset of all your applications.
+* **Initial Go-Live:** designed to be impactful enough to make material differences in your overall Identity project. At the same time, it's limited enough that it can be reached quickly&mdash;ideally within 30 days of the project start&mdash;to maintain positive momentum. Initial Go-Live typically includes migration off a legacy IDP, must-have features, and possibly a subset of all your applications.
 
-* **Advanced Go-Live:** which can be easily broken into multiple sub-milestones&mdash;especially if you have multiple applications or development teams. This helps manage the complexity of a large project and is designed to help you achieve incremental and steady progress. 
+* **Advanced Go-Live:** which can be easily broken into multiple sub-milestones&mdash;especially if you have multiple application requirements. This helps manage the complexity of a large project and is designed to help you achieve incremental and steady progress. 
 
 </ul>
 
@@ -43,7 +43,7 @@ The above diagram (click-through for details) describes some of the various opti
   <li>
     <i class="icon icon-budicon-715"></i><a href="#">Services</a>
 
-Designed to optimize our customers' investment in Auth0, our service offerings provide the proven best practice assistance required to help avoid common pitfalls and reduce risk. As you can see from the diagram above (click-through for details), Professional Services fall into a number of different categories, and can be utilized in different ways to assist when tackling the range of activities involved as part of integrating with Auth0:
+Designed to optimize our customers' investment in Auth0, our service offerings provide the proven best practice assistance required to help avoid common pitfalls and reduce risk. As you can see from the diagram above (click for details), Professional Services fall into a number of different categories, and can be utilized in different ways to assist when tackling the range of activities involved as part of integrating with Auth0:
     <ul>
       <li>
         <i class="icon icon-budicon-695"></i><a href="/services/discover-and-design">Discover & Design</a>
@@ -62,7 +62,7 @@ Designed to optimize our customers' investment in Auth0, our service offerings p
   <li>
     <i class="icon icon-budicon-715"></i><a href="/services/packages">Packages</a>
 
-Our packages provide our customers with the services they need, in a manner structured to help them engage with our experts in a way which best suits their requirements. As you can see from the diagram above (click-through for details), a number of Professional Services packages are available that can be employed in a mix-and-match fashion; [see a full list of the packages we offer](/services/packages) and discover which of them would be a good fit for you.
+Our packages provide our customers with the services they need, in a manner structured to help them engage with our experts in a way which best suits their requirements. As you can see from the diagram above (click for details), a number of Professional Services packages are available that can be employed in a mix-and-match fashion; [see a full list of the packages we offer](/services/packages) and discover which of them would be a good fit for you.
   </li>
 </ul>
 
