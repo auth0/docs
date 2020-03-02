@@ -20,3 +20,5 @@ You can change the ID Token lifetime using Auth0's Dashboard.
 ![View Applications](/media/articles/dashboard/guides/app-list.png)
 
 2. Scroll to the bottom of the Application Settings page, locate the **ID Token Expiration** field, and enter the appropriate ID Token lifetime (in seconds) for the application. When finished, click **Save Changes**.
+
+![ID Token Expiration](/media/articles/dashboard/guides/rotate-client-secret.png)
