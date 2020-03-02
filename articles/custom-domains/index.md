@@ -41,6 +41,7 @@ your custom domain depending on the hostname that is used to request the metadat
 | If you use | Reference inside metadata |
 | -- | -- |
 | `https://northwind.auth0.com/.well-known/...` | `https://northwind.auth0.com/...` |
+| `https://northwind.auth0.com/samlp/metadata/...` | `https://northwind.auth0.com/...` |
 | `https://login.northwind.com/samlp/metadata/...` | `https://login.northwind.com/...` |
 
 This applies to the following features (non-exhaustive list):
