@@ -28,3 +28,15 @@ An example flow would be:
     - Username and Password
 - After the user authenticates in a different way, you link the accounts using [Account Linking](/link-accounts).
 
+## Why can't Auth0 use the Instagram Basic Display OAuth endpoint
+
+We could replace our current implementation and use the [Instagram Basic Display OAuth flow](https://developers.facebook.com/docs/instagram-basic-display-api/guides/getting-access-tokens-and-permissions), and it will let Instagram users authenticate with Auth0 in the same way it works today. 
+
+To do that, customers will need to [create an Instagram application](https://developers.facebook.com/docs/instagram-basic-display-api/getting-started) in Facebook. In that app, there's a notification saying
+
+*Note that Basic Display is not an authentication tool. Data returned by the API cannot be used to authenticate your app users or log them into your app. If your app uses API data to authenticate users, it will be rejected during App Review. If you need an authentication solution, use Facebook Login instead.*
+
+This means that even if Auth0 implemented this flow, your Instagram application will not be approved by Facebook. 
+
+If you need to access Instagram data, you will need to authenticate your user in other way (for example, using Facebook Login or username/password), and implement the Instagram OAuth flow in your application.
+
