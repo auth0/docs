@@ -44,7 +44,7 @@ Your Discovery Report provides you with bespoke and tailored guidance. The repor
 
 
 Project Planning Guidance provides you with a bespoke plan for tackling your integration with Auth0. Based
-on real world customer implementation experience, but targeted to your specific requirements, your guide provides you with the goals and objectives you need to plan for, and in the order they need to be considered. Planning Guidance distills our experience, in conjunction with your project needs, to help you deliver your solution in the most effective manner, and links directly to your Discovery Report to provide access to bespoke, tailred guidance exactly when you need it.
+on real world customer implementation experience, but targeted to your specific requirements, your guide provides you with the goals and objectives you need to plan for, and in the order they need to be considered. Planning Guidance distills our experience, in conjunction with your project needs, to help you deliver your solution in the most effective manner, and links directly to your Discovery Report to provide access to bespoke, tailred guidance exactly when you need it. See what bespoke and tailored Planning Guidance could mean for you, by clicking the link above to review a sample of what we provide.
 
 ## Keep reading
 
