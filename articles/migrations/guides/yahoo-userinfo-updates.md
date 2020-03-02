@@ -31,14 +31,14 @@ Yahoo stopped returning `url`, `profileUrl`, `isConnected`, and a set of other f
 
 The Yahoo `/userinfo` endpoint will return different fields depending on the API Permissions you configure in the [Yahoo Application](https://developer.yahoo.com/apps/) definition. 
 
-Yahoo lets you grant one of four permissions in the `Profile (Social Directory)` permissions section:
+Yahoo lets you grant one of four permissions in the **Profile (Social Directory)** permissions section:
 
 - Read Public Basic
 - Read Public Extended
 - Read Write Public
 - Read Write Public and Private
 
-In Auth0, you need to select the corresponding Attributes. If you choose one that does not match what you specified on Yahoo, the login transaction will fail.
+When configuring the Yahoo Connection in your Auth0 Dashboard, you need to select the attribute that corresponds to the permissions you granted in your Yahoo setup. If you choose an attribute that does not match what you specified on Yahoo, the login transaction will fail.
 
 |Yahoo Connection Attributes|Profile Fields|
 |--|--|
@@ -47,13 +47,12 @@ In Auth0, you need to select the corresponding Attributes. If you choose one tha
 |Extended Profile |sub, name, given_name, family_name, locale, email, email_verified, birthdate, profile_images, picture, preferred_username, phone_number, nickname |
 |Extended Write | sub, name, given_name, family_name, locale, email, email_verified, birthdate, profile_images, picture, preferred_username, phone_number, nickname |
 
-If you don't select any permission in the Auth0 connection settings, Auth0 will ask for the 'openid' scope, which will return the profile fields that correspond to whatever API Permission you specified in the Yahoo Application. For example, if your Yahoo application is configured with `Read Public Extended`, it will return the `sub, name, given_name, family_name, locale, email, email_verified, birthdate, profile_images, picture, preferred_username, phone_number and nickname` fields.
-
+If you do not select any permissions in the Auth0 connection settings, Auth0 will by default ask for the `openid` scope, which will return the profile fields that correspond to whatever API Permission you specified in the Yahoo Application. For example, if your Yahoo application is configured with `Read Public Extended`, it will return the `sub, name, given_name, family_name, locale, email, email_verified, birthdate, profile_images, picture, preferred_username, phone_number and nickname` fields.
 
 **Do I need to take any action?**
 
 Auth0 will default to send the `openid` scope when authenticating with Yahoo.
 
-If you are using the Yahoo connection to authenticate users and get their basic information, your application will still work without changes. 
+If you are using the Yahoo connection to authenticate users and get their basic information, your application will continue to work without changes.
 
-If your application is accessing fields in the user profile that are no longer available, then you will need to make sure you enable the right scopes in the Auth0 dashboard and adjust your application code to use the proper field names.
+If your application is accessing fields in the user profile that are no longer available, then you will need to make sure you enable the right Connection Attribute in the Auth0 dashboard and adjust your application code to use the proper field names.
