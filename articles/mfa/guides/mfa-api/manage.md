@@ -12,11 +12,11 @@ useCase:
   - customize-mfa
 ---
 
-# Manage the Authenticators
+# Manage Authenticators
 
 Auth0 provides several API endpoints to help you manage the authenticators you're using with an application for <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn>.
 
-## Before you start
+## Prerequisites
 
 The MFA endpoints require an <dfn data-key="access-token">Access Token</dfn> with:
 
