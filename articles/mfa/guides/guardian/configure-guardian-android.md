@@ -1,56 +1,54 @@
 ---
 title: Configure Guardian for Android
-url: /multifactor-authentication/developer/libraries/android
-description: Installation, usage, and configuration options guide for Guardian for Android
+description: Learn how to install, use and configure options for the Guardian for Android SDK. 
 topics:
   - mfa
   - guardian
   - android
 contentType:
   - how-to
-  - reference
 useCase:
   - customize-mfa
 ---
 # Configure Guardian for Android
 
-The [Guardian for Android Software Development Kit](https://github.com/auth0/Guardian.Android) helps you create Android apps with Guardian functionality, providing secure access to <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> with push notifications. With this toolkit you can build your own customized version of the Guardian application that matches the look and feel of your organization.
-
-For more information on MFA, read our [multi-factor authentication](/multifactor-authentication) documentation.
-
-Get started using Guardian for Android below, or, if you're looking for a specific document, try the listing of [additional documents](#additional-documents) related to Guardian for Android.
+The [Guardian for Android SDK](https://github.com/auth0/Guardian.Android) helps you create Android apps with Guardian functionality, providing secure access to <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> with push notifications. With this toolkit you can build your own customized version of the Guardian application that matches the look and feel of your organization.
 
 ## Requirements
 
 Android API level 15+ is required in order to use the Guardian Android SDK.
 
-## Installation
+## Install Guardian SDK
 
-Guardian is available both in [Maven Central](http://search.maven.org) and [JCenter](https://bintray.com/bintray/jcenter). To start using *Guardian* add these lines to your `build.gradle` dependencies file:
+Guardian is available both in [Maven Central](http://search.maven.org) and [JCenter](https://bintray.com/bintray/jcenter). 
 
-```gradle
-implementation 'com.auth0.android:guardian-sdk:0.4.0'
-```
+1. To start using *Guardian* add these lines to your `build.gradle` dependencies file:
+
+    ```gradle
+    implementation 'com.auth0.android:guardian-sdk:0.4.0'
+    ```
 
 ::: note
 You can check for the latest version on the repository [Releases](https://github.com/auth0/GuardianSDK.Android/releases) tab, in [Maven](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.auth0.android%22%20AND%20a%3A%22guardian%22), or in [JCenter](https://bintray.com/auth0/android/Guardian.Android).
 :::
 
-After adding your Gradle dependency, make sure to remember to sync your project with Gradle files.
+2. After adding your Gradle dependency, make sure to remember to sync your project with Gradle files.
 
-## Dashboard Settings
+## Enable Guardian push notifications
 
-To enable Guardian Push Notifications for your users, go to the [Multi-factor Auth](${manage_url}/#/guardian) section of the dashboard. Then toggle the **Push Notification** slider to enable it.
+1. To enable Guardian push notifications for your users, go to the [Multi-factor Auth](${manage_url}/#/guardian) section of the Dashboard. 
+
+2. Toggle the **Push Notification** slider to enable it.
 
 ![](/media/articles/multifactor-authentication/mfa-dashboard-1.png)
 
-## SNS configuration
+## Configure SNS for native apps
 
-For your native application to receive push notifications from Guardian, you will need to override the default SNS settings. Follow the instructions [here](/multifactor-authentication/developer/sns-configuration).
+For your native application to receive push notifications from Guardian, you will need to override the default SNS settings. See [Configure Amazon SNS for Guardian](/mfa/guides/guardian/configure-amazon-sns) for details.
 
-## Using the SDK
+## Use the SDK
 
-`Guardian` is the core of the SDK. You'll need to create an instance of this class for your specific tenant/url.
+Guardian is the core of the SDK. You'll need to create an instance of this class for your specific tenant/url.
 
 ```java
 Uri url = Uri.parse("https://tenant.guardian.auth0.com/");
@@ -166,7 +164,7 @@ guardian
     .execute(); // or start(new Callback<> ...)
 ```
 
-## Additional Documents
+## Keep reading
 
-* [Configuring Amazon SNS with Guardian](/multifactor-authentication/developer/sns-configuration)
 * [Getting Started with Google Cloud Messaging for Android](https://docs.aws.amazon.com/sns/latest/dg/mobile-push-gcm.html)
+* 

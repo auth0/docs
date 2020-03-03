@@ -1,14 +1,12 @@
 ---
 title: Configure Guardian for iOS
-url: /multifactor-authentication/developer/libraries/ios
-description: Installation, usage, and configuration options guide for Guardian for iOS
+description: Learn how to install, use and configure options for the Guardian for iOS SDK. 
 topics:
   - mfa
   - guardian
   - ios
 contentType:
   - how-to
-  - reference
 useCase:
   - customize-mfa
 ---

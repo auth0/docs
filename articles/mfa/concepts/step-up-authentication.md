@@ -5,7 +5,6 @@ topics:
   - mfa
   - step-up-authentication
 contentType:
-  - how-to
   - concept
 useCase:
   - customize-mfa
