@@ -583,6 +583,9 @@ articles:
           - title: Rotate Client Secret
             url: /dashboard/guides/applications/rotate-client-secret
 
+          - title: Wildcards for Subdomains
+            url: /applications/reference/wildcard-subdomains
+
           - title: Recommended Settings
             url: /best-practices/application-settings
 
