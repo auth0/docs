@@ -52,7 +52,7 @@ You can provide up to 100 URLs in the **Allowed Callback URLs**, **Allowed Web O
 
 - **Allowed Origins (CORS)**: Set of URLs that will be allowed to make requests from JavaScript to Auth0 API (typically used with CORS). This prevents same-origin policy errors when using Auth0 from within a web browser. By default, all your callback URLs will be allowed; this field allows you to enter other origins if you need to. You can specify multiple valid URLs by comma-separating them. For production environments, verify that the URLs do not point to localhost. You can use the star symbol as a wildcard for subdomains (`*.google.com`). Paths, querystrings, and hash information are not taken into account when validating these URLs (and may, in fact, cause the match to fail).
 
-- **JWT Expiration (seconds)**: The amount of time (in seconds) before the Auth0 ID Token expires. The default value is `36000`, which maps to 10 hours.
+- **ID Token Expiration (seconds)**: The amount of time (in seconds) before the Auth0 ID Token expires. The default value is `36000`, which maps to 10 hours.
 
 - **Use Auth0 instead of the IdP to do Single Sign-on**: If enabled, this setting prevents Auth0 from redirecting authenticated users with valid sessions to the identity provider (such as Facebook or ADFS). **Legacy tenants only.**
 

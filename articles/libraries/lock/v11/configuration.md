@@ -94,7 +94,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | [configurationBaseUrl](#configurationbaseurl-string-) | Override your application's base URL |
 | [languageBaseUrl](#languagebaseurl-string-) | Override your language file base URL |
 | [hashCleanup](#hashcleanup-boolean-) | Override the default removal of the hash from the URL |
-| [leeway](#leeway-integer-) | Add leeway for clock skew to JWT expiration times |
+| [leeway](#leeway-integer-) | Add leeway for clock skew to ID Token expiration times |
 
 ---
 
@@ -864,7 +864,7 @@ var options = {
 
 ### leeway {Integer}
 
-The `leeway` option can be set to an integer - a value in seconds - which can be used to account for clock skew in JWT expirations. Typically the value is no more than a minute or two at maximum.
+The `leeway` option can be set to an integer - a value in seconds - which can be used to account for clock skew in ID Token expirations. Typically the value is no more than a minute or two at maximum.
 
 ```js
 var options = {
