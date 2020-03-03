@@ -34,17 +34,9 @@ You can check for the latest version on the repository [Releases](https://github
 
 2. After adding your Gradle dependency, make sure to remember to sync your project with Gradle files.
 
-## Enable Guardian push notifications
+<%= include('../_includes/_enable-push-notifications') %>
 
-1. To enable Guardian push notifications for your users, go to the [Multi-factor Auth](${manage_url}/#/guardian) section of the Dashboard. 
-
-2. Toggle the **Push Notification** slider to enable it.
-
-![](/media/articles/multifactor-authentication/mfa-dashboard-1.png)
-
-## Configure SNS for native apps
-
-For your native application to receive push notifications from Guardian, you will need to override the default SNS settings. See [Configure Amazon SNS for Guardian](/mfa/guides/guardian/configure-amazon-sns) for details.
+<%= include('../_includes/_configure-sns') %>
 
 ## Use the SDK
 

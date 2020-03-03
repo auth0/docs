@@ -41,15 +41,10 @@ In your Cartfile add this line
 github "auth0/Guardian.swift"
 ```
 
-## Dashboard Settings
 
-To enable Guardian Push Notifications for your users, go to the [Multi-factor Auth](${manage_url}/#/guardian) section of the dashboard. Then toggle the **Push Notification** slider to enable it.
+<%= include('../_includes/_enable-push-notifications') %>
 
-![](/media/articles/multifactor-authentication/mfa-dashboard-1.png)
-
-## SNS configuration
-
-For your native application to receive push notifications from Guardian, you will need to override the default SNS settings. Follow the instructions [here](/multifactor-authentication/developer/sns-configuration).
+<%= include('../_includes/_configure-sns') %>
 
 ## Using the SDK
 

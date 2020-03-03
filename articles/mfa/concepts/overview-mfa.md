@@ -74,6 +74,10 @@ One-Time Password (OTP) allows you to register a device - such as Google Authent
 
 Using email when you want to provide users a way to perform MFA when they don't have their phone to receive an SMS or push notification.
 
+## Developer resources
+
+
+
 ## Keep reading
 
 * [Blog Post: From Theory to Practice - Adding Two Factor Authentication to node.js](https://auth0.com/blog/from-theory-to-practice-adding-two-factor-to-node-dot-js/)
