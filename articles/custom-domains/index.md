@@ -34,9 +34,9 @@ If you get an Access Token for the [Management API](/api/management/v2) using an
 
 ## Metadata endpoints
 
-Auth0 implements certain metadata endpoints to ease interoperability and configuration of third party IdPs and
-applications. When these metadata contain URIs pointing back to Auth0 the URL can either use the Auth0 sub-domain or
-your custom domain depending on the hostname that is used to request the metadata.
+Auth0 implements certain metadata endpoints to ease interoperability and configuration of third-party IdPs and
+applications. When these metadata contain URIs pointing back to Auth0, the URL can either use the Auth0 subdomain or
+your custom domain depending on the hostname used to request the metadata.
 
 | If you use | Reference inside metadata |
 | -- | -- |
@@ -44,7 +44,7 @@ your custom domain depending on the hostname that is used to request the metadat
 | `https://northwind.auth0.com/samlp/metadata/...` | `https://northwind.auth0.com/...` |
 | `https://login.northwind.com/samlp/metadata/...` | `https://login.northwind.com/...` |
 
-This applies to the following features (non-exhaustive list):
+This applies to the following features:
 - [OpenID Connect Discovery](/protocols/oidc/openid-connect-discovery)
 - [Auth0 as a SAML SP](/protocols/saml/saml-sp-generic)
 - [Auth0 as a SAML Identity Provider](/protocols/saml/saml-idp-generic)
