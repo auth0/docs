@@ -13,12 +13,12 @@ useCase: customize-connections
 # Password Options in Auth0 Database Connections
 
 ::: warning
-The **Password Options** feature is only available for Database connections and Custom Database connections with import mode enabled. The password limitations in Social and Enterprise connections are enforced by each provider.
+**Password History**, **Password Dictionary**, and **Personal Data** password options are available for Database connections using the Auth0 data store and for Custom Database connections that have import mode enabled. Password limitations in Social and Enterprise connections are enforced by each provider.
 :::
 
-An important concern when using passwords for authentication is the creation of unique passwords. A strong password policy will make it difficult, if not improbable, for someone to guess a password through either manual or automated means.
+When using passwords for authentication, you should enforce the creation of unique passwords. A strong password policy will make it difficult, if not improbable, for a bad actor to guess a password through either manual or automated means.
 
-One facet of strong passwords is their uniqueness and difficulty to guess. Auth0's password options for database connections are designed to allow you to force your users to make better decisions when choosing their passwords.
+Important facets of strong passwords are their uniqueness and difficulty to guess. Auth0's password options for database connections allow you to force your users to make better decisions when choosing their passwords.
 
 ![Password Options](/media/articles/connections/database/pw-options.png)
 
@@ -34,15 +34,13 @@ Note that upon enabling this option, only password changes going forward will be
 
 ## Password Dictionary
 
-The Password Dictionary option, when enabled, allows the use of a password dictionary to stop users from choosing common passwords. The [default dictionary list](https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10k-most-common.txt) that Auth0 uses can be enabled just by toggling this option on. It will not allow users to use a password that is present on that list.
-
-Additionally, you can use the text area here and add your own prohibited passwords, one per line. These can be items that are specific to your company, or passwords that your own research has shown you are commonly used in general or at your company in specific.
+Enabling this option disallows users from setting passwords to common options included in a [default dictionary list](https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10k-most-common.txt). You may also add your own prohibited passwords.
 
 Note that Auth0 uses case-insensitive comparison with the Password Dictionary feature.
 
 ## Personal Data
 
-Enabling this option will force a user that is setting their password to not set passwords that contain any part of the user's personal data. This includes:
+Enabling this option disallows users from setting passwords that contain any part of their personal data. This includes:
 
 * `name`
 * `username`
@@ -52,13 +50,13 @@ Enabling this option will force a user that is setting their password to not set
 * `user_metadata.last`
 * The first part of the user's email will also be checked - `firstpart`@example.com
 
-For example, if the user's name is "John", including "John" in the user's password `John1234` would not be allowed, if this option is enabled.
+For example, if the user's name were "John", the user would not be allowed to include "John" in their password; `John1234` would not be allowed.
 
 ## API Access
 
-Password options are associated with a Database connection so these values can be accessed with the [Connections endpoints of the Management API](/api/management/v2#!/Connections). The password related fields are stored in the `options` object. These fields are not required because these fields are not used for non-database connections and if they are not enabled for a connection they may not appear.
+Because password options are associated with a Database connection, you can access them using the [Connections endpoints of the Management API](/api/management/v2#!/Connections). Password-related fields are stored in the `options` object. Because these fields are not used for non-database connections, they are not required, so if they are not enabled for a connection, they may not appear.
 
-For example here is what a MySQL database connection may look like after setting a password policy. In this example, as we can see from the contents of the `options` object, all three password options are enabled, password history will store the 5 latest passwords and each password will be crossed checked against two dictionaries: `entry1` and `entry2`.
+For example, after setting a password policy, a MySQL database connection will look like this: 
 
 ```json
 {
@@ -89,4 +87,6 @@ For example here is what a MySQL database connection may look like after setting
 }
 ```
 
-If you are [creating a connection](/api/management/v2#!/Connections/post_connections) or [updating an existing connection](/api/management/v2#!/Connections/patch_connections_by_id) using the Management API you can update the password policy for the connection using these fields.
+In this example, we can see from the `options` object that all three password options are enabled, password history will store the 5 most recent passwords, and each password will be cross-checked against two dictionaries: `entry1` and `entry2`.
+
+If you are [creating a connection](/api/management/v2#!/Connections/post_connections) or [updating an existing connection](/api/management/v2#!/Connections/patch_connections_by_id) using the Management API, you can update the password policy for the connection using these fields.
