@@ -1,5 +1,5 @@
 ---
-description: Configuring a Custom SMS Gateway for MFA
+description: Configuring a Custom SMS Gateway for MFA using Amazon SNS
 topics:
   - mfa
   - sms

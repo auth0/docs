@@ -15,7 +15,7 @@ useCase: extensibility-hooks
 v2: true
 ---
 
-# Send Phone Message 
+# Send Phone Message
 
 At the Send Phone Message extensibility point, Hooks allow custom actions to be executed when a user is prompted for MFA. For example, you might call your SMS gateway provider to get better reliability or pricing, or you might call the user with the code. 
 
@@ -62,34 +62,6 @@ Please note:
 
 When you run a Hook executed at the Send Phone Message extensibility point, the default response object is:
 
-<!--
-```json
-{
-  "user": {
-    "tenant": "my-tenant",
-    "username": "user1",
-    "password": "xxxxxxx",
-    "email": "user1@foo.com",
-    "emailVerified": false,
-    "phoneNumber": "1-000-000-0000",
-    "phoneNumberVerified": false,
-    "user_metadata": {
-      "hobby": "surfing"
-    },
-    "app_metadata": {
-      "plan": "full"
-    }
-  }
-}
-```
-
-If you specify `app_metadata` and `user_metadata` in the response object, Auth0 adds this information to the new user.
-
-::: note
-Metadata property names must not start with the `$` character or contain the `.` character.
-:::
-
--->
 ::: note
 Hooks executed at the Send Phone Message extensibility point do not pass error messages to any Auth0 APIs.
 :::
@@ -101,33 +73,3 @@ Once you've customized the starter code, you can test the Hook using the Runner 
 <%= include('../_includes/_test_runner_save_warning') %>
 
 When you run a Hook based on the starter code, the response object is:
-
-<!--
-```json
-{
-  "user": {
-    "tenant": "my-tenant",
-    "username": "user1",
-    "password": "xxxxxxx",
-    "email": "user1@foo.com",
-    "emailVerified": false,
-    "phoneNumber": "1-000-000-0000",
-    "phoneNumberVerified": false,
-    "user_metadata": {
-      "hobby": "surfing"
-    },
-    "app_metadata": {
-      "plan": "full"
-    }
-  },
-  "context": {
-    "requestLanguage": "en-us",
-    "connection": {
-      "id": "con_xxxxxxxxxxxxxxxx",
-      "name": "Username-Password-Authentication",
-      "tenant": "my-tenant"
-    }
-  }
-}
-```
--->
