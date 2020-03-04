@@ -29,11 +29,11 @@ A self-service facility typically provides users with the capability to change o
   <a href="https://youtu.be/Qkfa_aDw_8k"><img src="/media/articles/services/gallery/veachange/verified-email-address-change.png" alt="Verified Email Address Change workflow"></a>
 </div>
 
-## Design
-
-<div align="center">
-  <a href="https://drive.google.com/open?id=1DtjpHFTwK6wN0B6BlaaXpbIFbU0BlUagDlymP0RGZgw"><img src="/media/articles/services/gallery/veachange/verified-email-address-change.png" alt="Verified Email Address Change workflow"></a>
-</div>
+<h2 class="anchor-heading">
+	<span class="anchor"><i class="icon icon-budicon-345"></i></span>
+	<a data-trackOutbound href="https://drive.google.com/open?id=1DtjpHFTwK6wN0B6BlaaXpbIFbU0BlUagDlymP0RGZgw">
+		<img src="/media/articles/services/file_type_icons-05.png" alt="">&nbsp;Design</a>
+</h3>
 
 ## Keep reading
 
