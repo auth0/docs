@@ -920,12 +920,15 @@ articles:
 
       - title: Deploy Rules with Bitbucket
         url: /extensions/bitbucket-deploy
+        hidden: true
 
       - title: Deploy Rules with GitLab
         url: /extensions/gitlab-deploy
+        hidden: true
 
       - title: Deploy Rules with Github
         url: /extensions/github-deploy
+        hidden: true
 
 ## ------------------------------------------------------------
 ## Hooks
@@ -1013,15 +1016,12 @@ articles:
 
       - title: GitHub Deployments
         url: /extensions/github-deploy
-        hidden: true
       
       - title: Bitbucket Deployments
         url: /extensions/bitbucket-deploy
-        hidden: true
 
       - title: GitLab Deployments
         url: /extensions/gitlab-deploy
-        hidden: true
 
       - title: Visual Studio Team Services Deployments
         url: /extensions/visual-studio-team-services-deploy
