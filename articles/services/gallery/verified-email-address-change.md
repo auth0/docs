@@ -33,7 +33,7 @@ A self-service facility typically provides users with the capability to change o
 	<span class="anchor"><i class="icon icon-budicon-345"></i></span>
 	<a data-trackOutbound href="https://drive.google.com/open?id=1DtjpHFTwK6wN0B6BlaaXpbIFbU0BlUagDlymP0RGZgw">
 		<img src="/media/articles/services/file_type_icons-05.png" alt="">&nbsp;Design</a>
-</h3>
+</h2>
 
 ## Keep reading
 
