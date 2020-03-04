@@ -42,8 +42,6 @@ If you are using the MFA API in conjunction with the [Token endpoint](/api/authe
 
 ## Keep reading
 
-* [Trigger MFA using the API](/multifactor-authentication/api/challenges)
-* [Using one-time passwords as the MFA challenge](/multifactor-authentication/api/otp)
-* [Using SMS messages as the MFA challenge](/multifactor-authentication/api/oob)
-* [Tutorial: How to use MFA with the Resource Owner Password Grant](/api-auth/tutorials/multifactor-resource-owner-password)
-
+* [Trigger MFA Using the API](/mfa/guides/apis/mfa-api/challenges)
+* [Associate a One-Time Password Authenticator](/mfa/guides/apis/mfa-api/otp)
+* [Associate an Out-of-Band Authenticator](/mfa/guides/apis/mfa-api/oob)
