@@ -20,8 +20,6 @@ The New <dfn data-key="universal-login">Universal Login</dfn> Experience current
 
 - The Signup page only lets users enter username / email / password, and does not offer the ability to prompt users to accept terms of service.
 
-- It's not possible to link to the Signup page or default to it. Users will land in the login page, and can navigate to Signup from there.
-
 - In order to be able to use [DUO](/multifactor-authentication/factors/duo) as an MFA factor, it needs to be the only factor enabled. It will render the same pages as in the Classic Experience.
 
 - <dfn data-key="passwordless">[Passwordless login](/connections/passwordless)</dfn> is not supported.

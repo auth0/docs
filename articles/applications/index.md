@@ -25,7 +25,7 @@ Auth0 categorizes apps based on these characteristics:
 
 ## Manage app settings
 
-You register apps on the [Dashboard > Applications > Settings](${manage_url}/#/applications/${account.clientId}/settings) page. See [Application Settings](//dashboard/reference/settings-application) for details.
+You register apps on the [Dashboard > Applications > Settings](${manage_url}/#/applications/${account.clientId}/settings) page. See [Application Settings](/dashboard/reference/settings-application) for details.
 
 In addition to setting up apps in the Dashboard, you can also set up apps programmatically as described in the [OpenID Connect (OIDC) Dynamic Client Registration 1.0 ](https://openid.net/specs/openid-connect-registration-1_0.html) specification. See [Dynamic Client Registration](/api-auth/dynamic-client-registration) for details.
 

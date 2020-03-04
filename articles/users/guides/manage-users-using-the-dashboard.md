@@ -27,7 +27,6 @@ User Management is included as part of the **Developer** subscription plan. You 
 ## Keep reading
 
 * [User Profiles](/users/concepts/overview-user-profile)
-* [Manage Users Using the Dashboard](/users/guides/manage-users-using-the-dashboard)
 * [View Users](/users/guides/view-users)
 * [Manage User Access to Applications](/users/guides/manage-user-access-to-applications)
 * [Manage Users Using the Management API](/users/guides/manage-users-using-the-management-api)

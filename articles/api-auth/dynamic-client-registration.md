@@ -74,7 +74,7 @@ Where:
 - **client_name**: The name of the Dynamic Application to be created
 - **redirect_uris** (required): An array of URLs that Auth0 will deem valid to call at the end of an authentication flow
 
-Optionally, you can set a value for `token_endpoint_auth_method`, which can be `none` or `client_secret_post` (default value).
+Optionally, you can set a value for `token_endpoint_auth_method`, which can be `none` or `client_secret_post` (default value). Use `token_endpoint_auth_method: none` in the request payload if creating a SPA.
 
 The response includes the basic application information.
 

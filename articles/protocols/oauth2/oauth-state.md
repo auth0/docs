@@ -29,6 +29,10 @@ The way this works is that you send a random value when starting an authenticati
 
 ![Diagram of CSRF attack](/media/articles/protocols/CSRF_Diagram.png)
 
+::: warning
+The cookie in which the `state` value is stored should be signed to prevent attackers to forge it.
+:::
+
 ## Redirect users
 
 You can also use the `state` parameter to encode an application state that will round-trip to the client application after the transaction completes. In this way, the application can put the user where they were before the authentication process happened. For more information, see [Redirect Users With State Parameters](/protocols/oauth2/redirect-users). 
@@ -36,7 +40,7 @@ You can also use the `state` parameter to encode an application state that will 
 ## Limitations
 
 * From a security perspective, neither the request nor the response is integrity-protected so a user can manipulate them. That is true for adding a parameter to the `redirect_uri` as well.
-* The allowed length for `state` is not unlimited. If you get the error `414 Request-URI Too Large` try a smaller value.
+* The allowed length for `state` is not unlimited. If you get the error `414 Request-URI Too Large`, try a smaller value.
 
 ## Keep reading
 

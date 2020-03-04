@@ -18,7 +18,7 @@ useCase:
 
 With AWS, you can create powerful, serverless, highly scalable APIs and applications using [Lambda](https://aws.amazon.com/lambda/), [API Gateway](https://aws.amazon.com/api-gateway/), and a JavaScript application for the front-end.
 
-A serverless application runs custom code as a compute service without the need to maintain an operating environment to host your service. Instead, a service like [AWS Lambda](https://aws.amazon.com/lambda/) or [webtask.io](https://webtask.io) executes your code on your behalf.
+A serverless application runs custom code as a compute service without the need to maintain an operating environment to host your service. Instead, a service like [AWS Lambda](https://aws.amazon.com/lambda/) executes your code on your behalf.
 
 The API Gateway extends the capabilities of Lambda by adding a service layer in front of your Lambda functions to extend security, manage input and output message transformations, and provide capabilities like throttling and auditing. A serverless approach simplifies your operational demands since concerns like scaling out and fault tolerance are now the responsibility of the compute service that is executing your code.
 

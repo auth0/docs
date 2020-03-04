@@ -30,6 +30,10 @@ To refresh your token, make a `POST` request to the `/oauth/token` endpoint in t
         "value": "${account.clientId}"
       },
       {
+        "name": "client_secret",
+        "value": "${account.clientSecret}"
+      },
+      {
         "name": "refresh_token",
         "value": "YOUR_REFRESH_TOKEN"
       }
@@ -44,6 +48,7 @@ To refresh your token, make a `POST` request to the `/oauth/token` endpoint in t
 |-----------------|-------------|
 | `grant_type`    | Set this to "refresh_token". |
 | `client_id`     | Your application's Client ID. You can find this value in your [Application Settings](${manage_url}/#/Applications/${account.clientId}/settings). |
+| `client_secret` | Your application's Client Secret. You can find this value in your [Application Settings](${manage_url}/#/Applications/${account.clientSecret}/settings). |
 | `refresh_token` | The Refresh Token to use. |
 | `scope`         | (Optional) A space-delimited list of requested scope permissions. If not sent, the original scopes will be used; otherwise you can request a reduced set of scopes. Note that this must be URL encoded. |
 

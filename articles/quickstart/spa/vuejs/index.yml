@@ -14,7 +14,7 @@ contentType: tutorial
 useCase: quickstart
 show_releases: true
 sdk:
-  name: auth0-spa-js 1.0.0
+  name: auth0-spa-js
   url: https://www.github.com/auth0/auth0-spa-js/
 snippets:
   dependencies: application-platforms/vuejs/dependencies
@@ -35,7 +35,8 @@ github:
   repo: auth0-vue-samples
   branch: master
 requirements:
-  - Vue 2.6.10
+  - Vue 2.6.11
+  - Vue CLI 4.2.2
 next_steps:
   - path: 01-login
     list:

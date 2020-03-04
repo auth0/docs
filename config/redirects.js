@@ -991,7 +991,6 @@ module.exports = [
     from: '/overview/apis',
     to: '/api-auth/apis'
   },
-
   {
     from: '/overview/deployment-models',
     to: '/getting-started/deployment-models'
@@ -2457,5 +2456,9 @@ module.exports = [
     {
       from: '/integrations/aws-eventbridge',
       to: '/logs/streams/aws-eventbridge'
+    },
+    {
+      from: '/extensions/deploy-cli/references/whats-new-v2',
+      to: 'articles/extensions/deploy-cli/references/whats-new'
     }
 ];

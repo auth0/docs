@@ -20,75 +20,62 @@ You can use [Rules](/rules) to redirect users before an authentication transacti
 * Requiring users to provide additional verification when logging in from unknown locations.
 * Gathering more information about your users than they provided at initial signup.
 
-For some examples of redirect Rules, see our [Rules repo](https://github.com/auth0/rules/tree/master/redirect-rules) on GitHub.
-
-## Before you start
-
-Here are some things you should know before you create a redirect Rule:
-
-- You can redirect a user **once** per authentication flow. If you have one rule that redirects a user, you cannot invoke a second rule to redirect the user at a later time.
-- Redirect Rules won't work with:
-  - [Resource Owner endpoint](/api/authentication/reference#resource-owner)
-  - [Password exchange](/api-auth/grant/password)
-  - [Refresh Token exchange](/tokens/concepts/refresh-token#rules).
-- You can detect the above cases by checking `context.protocol`:
-  - For Password exchange: `context.protocol === 'oauth2-password'`
-  - For Refresh Token exchange: `context.protocol === 'oauth2-refresh-token'`
-  - For Resource Owner logins: `context.protocol === 'oauth2-resource-owner'`
-- When a user has been redirected from a rule to the `/continue` endpoint, the user object won't be refreshed. So any updates to user account information during the redirect will not be reflected in the user object. For example, metadata updates that occurred during redirect will not be available.
-
-## Start a redirect
-
-To redirect a user from a Rule, set the `context.redirect` property as follows:
-
-```js
-function (user, context, callback) {
-    context.redirect = {
-        url: "https://example.com/foo"
-    };
-    return callback(null, user, context);
-}
-```
-
-Once all rules have finished executing, Auth0 redirects the user to the URL specified in the `context.redirect.url` property. Auth0 also passes a `state` parameter in that URL. For example:
-
-```
-https://example.com/foo?state=abc123
-```
-
-Your redirect URL will need to extract the `state` parameter and send it back to Auth0 to resume the authentication transaction.
-
 ::: note
-State is an opaque value, used to prevent [Cross-Site Request Forgery (CSRF) attacks](/security/common-threats#cross-site-request-forgery).
+You can redirect a user **once** per authentication flow. If you have one rule that redirects a user, you **cannot** invoke a second rule to redirect the user at a later time.
 :::
 
-## Resume authentication
+## Start redirect and resume authentication
 
-After the redirect, resume authentication by redirecting the user to the `/continue` endpoint and include the `state` parameter you received in the URL. If you do not send the original state back to the `/continue` endpoint, Auth0 will lose the context of the login transaction and the user will not be able to log in due to an `invalid_request` error.
+1. Set the `context.redirect` property as follows:
 
-For example:
+    ```js
+    function (user, context, callback) {
+        context.redirect = {
+            url: "https://example.com/foo"
+        };
+        return callback(null, user, context);
+    }
+    ```
 
-```http
-https://${account.namespace}/continue?state=THE_ORIGINAL_STATE
-```
+    Once all rules have finished executing, Auth0 redirects the user to the URL specified in the `context.redirect.url` property. Auth0 also passes a `state` parameter in that URL. For example:
 
-If you're using a custom domain:
+    ```
+    https://example.com/foo?state=abc123
+    ```
 
-```http
-https://YOUR_AUTH0_CUSTOM_DOMAIN/continue?state=THE_ORIGINAL_STATE
-```
+    Your redirect URL will need to extract the `state` parameter and send it back to Auth0 to resume the authentication transaction. State is an opaque value, used to prevent [Cross-Site Request Forgery (CSRF) attacks](/security/common-threats#cross-site-request-forgery).
 
-By `THE_ORIGINAL_STATE`, we mean the value that Auth0 generated and sent to the redirect URL.
+2. After the redirect, resume authentication by redirecting the user to the `/continue` endpoint and include the `state` parameter you received in the URL. 
 
-For example, if your rule redirected to `https://example.com/foo`, Auth0 would use a redirect URL similar to `https://example.com/foo?state=abc123`. So `abc123` would be the `THE_ORIGINAL_STATE`. To resume the authentication transaction, you would redirect to
+    ::: warning
+    If you do not send the original state back to the `/continue` endpoint, Auth0 will lose the context of the login transaction and the user will not be able to log in due to an `invalid_request` error.
+    :::
 
-```http
-https://${account.namespace}/continue?state=abc123
-```
+    For example:
 
-When a user has been redirected to the `/continue` endpoint, **all rules will be run again.**
+    ```http
+    https://${account.namespace}/continue?state=THE_ORIGINAL_STATE
+    ```
 
-## Check for resumed login
+    If you're using a custom domain:
+
+    ```http
+    https://YOUR_AUTH0_CUSTOM_DOMAIN/continue?state=THE_ORIGINAL_STATE
+    ```
+
+    `THE_ORIGINAL_STATE` is the value that Auth0 generated and sent to the redirect URL. For example, if your rule redirected to `https://example.com/foo`, Auth0 would use a redirect URL similar to `https://example.com/foo?state=abc123`. So `abc123` would be the `THE_ORIGINAL_STATE`. To resume the authentication transaction, you would redirect to
+
+    ```http
+    https://${account.namespace}/continue?state=abc123
+    ```
+
+    When a user has been redirected to the `/continue` endpoint, **all rules will be run again.**
+
+::: note
+When a user has been redirected from a rule to the `/continue` endpoint, the user object won't be refreshed. So any updates to user account information during the redirect will not be reflected in the user object. For example, metadata updates that occurred during redirect will not be available.
+:::
+
+## Validate resumed login
 
 To distinguish between user-initiated logins and resumed login flows, check the `context.protocol` property:
 
@@ -104,7 +91,7 @@ function (user, context, callback) {
 
 ## Force password change example
 
-Suppose you would like to force users to change their passwords under specific conditions. You can write a rule that would have the following behavior:
+In some cases, you may want to force users to change their passwords under specific conditions. You can write a rule that has the following behavior:
 
 1. The user attempts to log in and needs to change their password.
 2. The user is redirected to an application-specific page with a JWT in the query string. This JWT ensures that only this user's password can be changed and **must be validated** by the application.
@@ -167,99 +154,94 @@ function(user, context, callback) {
 }
 ```
 
-## Progressive profiling example
+## Where to store data
+
+Beware of storing too much data in the Auth0 profile. This data is intended to be used for authentication and authorization purposes. The metadata and search capabilities of Auth0 are not designed for marketing research or anything else that requires heavy search or update frequency. Your system is likely to run into scalability and performance issues if you use Auth0 for this purpose. A better approach is to store data in an external system and store a pointer (the user ID) in Auth0 so that backend systems can fetch the data if needed. A simple rule to follow is to store only items that you plan to use in rules to add to tokens or make decisions.  
+
+## Security considerations
+
+Passing information back and forth in the front channel opens up surface area for bad actors to attack.  This should definitely be done only in conditions where you must take action in the rule (such as rejecting the authorization attempt with `UnauthorizedError`). 
+
+If, however, you need to communicate directly back to Auth0 and give it instructions for restricting access (you are implementing CAPTCHA checks or custom MFA), then you must have a way to securely tell Auth0 that the requirements of that operation were performed.  Likewise, if you need to hand information to the application that you are redirecting to, then you must have a secure way to ensure that the information transferred has not been tampered with.  
+
+### Ensure app is logging into the same user
+
+The application is going to redirect the user back to the Auth0 tenant, so any data related to the user can be gathered through the ID token that is returned to the application.  However, you may want to ensure that the application is logging into the same user that is being redirected from to ensure that there is no tampering of any sort in-between.  Therefore you will likely want to send a token along with the request.
+
+The token sent to the app should have the following requirements:
+
+| Token Element | Description |
+| -- | -- |
+| `sub` | The Auth0 `user_id` of the user. |
+| `iss` | An identifier that identifies the rule itself. |
+| `aud` | The application that is targeted for the redirect. |
+| `jti` | A randomly generated string that is stored for confirmation in the user object (in the rule code, set user.jti = uuid.v4(); and then add it as a jti to the token you create).  user.jti will still be set when rules run again when /continue is called.  This is inline with specifications. |
+| `exp` | Should be as short as possible to avoid re-use of the token. |
+| `other` | Any other custom claims information you need to pass. |
+| `signature` | Assuming that the application has a secure place to store a secret, you can use HS256 signed signatures.  This greatly reduces the complexity of the solution and since the token being passed back will have to be signed as well, this is a requirement of this solution.  You can use RS256, but it requires the creating of a certificate and updating that certificate when it expires.  If you are not passing any information directly back to the rules, then you could use an SPA for this intermediate app and then may prefer RS256 so that the application doesn't have to store the info.  It would require you to have a way to validate the token, either through an introspection endpoint or through a public JWKS endpoint. |
 
 ::: warning
-This example hosts a User Profile webpage using a [Webtask](https://webtask.io) that you can modify, provision, and use in your webtask tenant. However, using webtasks is just one way of implementing and deploying the webpage; any HTTP server that provides the same behavior will work.
+This token should **not** be treated as a Bearer token!  It is a signed piece of information for use in the application.  The application should still redirect back to Auth0 to authenticate the user.
 :::
 
-<%= include('../../_includes/_webtask') %>
+### Pass information back to the rule
 
-You can use redirect rules to collect additional information for a user's profile, otherwise known as [progressive profiling](/users/concepts/overview-progressive-profiling). 
+In most scenarios, even if you want to pass information from the rule to the application.  The application will hopefully be able to safely store the information in whatever storage is necessary.  Even if the idea is to update the app or user metadata in Auth0, that can be done using the management API and the user information will be updated as long as it has been completed before redirecting the user back to the `/continue` endpoint.  Only if the rule itself must get information and that information is only relevant to this particular sign in session should you pass information back to the rule.
 
-This example prompts the user for their first and last name (but only if they didn't sign up using a social provider that already provided it):
+When passing information back to the `/continue` endpoint, the token passed should have the following requirements:
 
-![Core Fields](/media/articles/rules/core-fields.png)
+| Token Element | Description |
+| -- | -- |
+| `sub` | The Auth0 `user_id` of the user. |
+| `iss` | The application that is targeted for the redirect. |
+| `aud` | Some identifier that identifies the rule itself. |
+| `jti` | The same JTI that was stored in the token passed to the application (NOTE: it should match user.jti or fail). |
+| `exp` | Should be as short as possible to avoid reuse of the token. |
+| `other` | Any other custom claims information you need to pass. |
+| `signature` | Assuming that the application has a secure place to store a secret, you can use HS256 signed signatures.  This greatly reduces the complexity of the solution and since the token being passed back will have to be signed as well, this is a requirement of this solution.  You can use RS256, but it requires the creating of a certificate and updating that certificate when it expires. |
 
-Then, after the user's second login, it prompts the user for their birthday:
+It should be sent using POST and then fetched at `context.request.body.token` (or something similar) rather than passing it as a query parameter.  This is similar to the form-post method for authentication.
 
-![Birthday](/media/articles/rules/birthday.png)
+If you are not passing information back to the `/continue` endpoint, you may want to blacklist the JTI unless your expiration times are short enough that replay attacks will be almost impossible. 
 
-The `redirect-to-update-profile-website` rule checks to see if the user profile is missing any required fields. If so, it performs a redirect to the external **Update Profile Website**. When the redirect is performed, the required field names are passed via a self-signed JWT.
+## Restrictions and limitations
 
-In this example, the website is hosted as a webtask: `update-profile-website`. However, it could be hosted anywhere, such as on Heroku.
+Redirect Rules won't work with:
+- [Resource Owner endpoint](/api/authentication/reference#resource-owner)
+- [Password exchange](/api-auth/grant/password)
+- [Refresh Token exchange](/tokens/concepts/refresh-token#rules)
 
-::: note
-If a user signs in with a Database Connection identity, then the `redirect-to-update-profile-website` rule will generate a prompt for first and last name. However, if they use a social connection (e.g., Google), then chances are those fields will already exist in the identity provider attributes, so no prompt will be necessary.
-:::
+You can detect the above cases by checking `context.protocol`:
+- For Password exchange: `context.protocol === 'oauth2-password'`
+- For Refresh Token exchange: `context.protocol === 'oauth2-refresh-token'`
+- For Resource Owner logins: `context.protocol === 'oauth2-resource-owner'`
 
-The webtask renders a form that prompts the user for whatever fields were provided in the JWT. If the user provides the field values and they pass validation, the webtask renders a self-posting form with hidden fields; this form is designed to POST the values back to the Auth0 `/continue` endpoint.
+### Resource Owner endpoint
 
-The `continue-from-update-profile-website` rule then picks up the POST request from the webtask and updates the user profile. All fields are stored in `user_metadata`.
+It is impossible to use redirect rules in the context where you are calling /oauth/token directly for the Resource Owner Password Grant.  Since the user is not in a redirect flow to begin with, you can not redirect the user in a rule.  If you attempt to set context.redirect you will get a failed login attempt with the error interaction_required.
 
-### Set up the rules
+### Flows where `prompt=none`
 
-1. In your tenant, set up the following rules:
+Since the goal of `prompt=none` is to avoid any scenario where the user will be required to enter input, any redirection will result in an `error=interaction_required`.
 
-   * [`redirect-to-update-profile-website`](https://github.com/auth0/rules/blob/master/redirect-rules/progressive-profiling/redirect-to-update-profile-website.js)
-   * [`continue-from-update-profile-website`](https://github.com/auth0/rules/blob/master/redirect-rules/progressive-profiling/continue-from-update-profile-website.js)
+Since rules run after an authentication session is created, you cannot use `prompt=none` if you have a redirect rule that is attempting to block access to tokens under certain conditions (custom MFA, CAPTCHA with login, etc.).  
 
-2. Configure the following rule settings:
+You cannot create a redirect flow that blocks token access and bypasses the redirect rule if `prompt=none` because after a failed attempt, a user can simply call again with `prompt=none` and get tokens because their authentication session has been created even though rules failed the first time.
 
-    Key | Value
-    --- | ---
-    `TOKEN_ISSUER` | The issuer claim for the self-signed JWT that is generated by the `redirect-to-update-profile-website` rule and sent to the update-profile-website webtask website. (e.g., `https://example.com`).
-    `TOKEN_AUDIENCE` | The audience claim for that JWT.
-    `TOKEN_SECRET` | The secret used to sign the JWT using HS256.
-    `UPDATE_PROFILE_WEBSITE_URL` | The URL of the update-profile-website webtask website (e.g., `https://wt-bob-example_com-0.sandbox.auth0-extend.com/update-profile-website`).
+### Refresh tokens
 
-### Set up the Webtask
+Due to the fact that using a refresh token requires a backchannel call to `/oauth/token`, this will also fail if you set `context.redirect`.
 
-<%= include('../../_includes/_webtask') %>
+It is difficult to securely verify that any restrictions on login were carried out. There is not a consistent session ID in the context that could be used to collect information associated with the session such as *this user passed MFA challenges*. Therefore, you cannot use `prompt=none` at all. 
 
-1. In your webtask tenant, create the following webtasks, either via the Webtask Editor or the CLI.
+Anytime `context.redirect` is set in a rule, if `prompt=none` was passed, then the authorization fails with `error=interaction_required`, but since the user's session is created even if rules fail, we can't trust that a user passed all `context.redirect` challenges and therefore can't use `prompt=none` as a way to get tokens.  
 
-2. Create a webtask called `update-profile-website` using this [source code](https://github.com/auth0/rules/blob/master/redirect-rules/progressive-profiling/update-profile-website.js).
-
-3. Configure the following NPM modules:
-
-   * `body-parser`
-   * `cookie-session`
-   * `csurf`
-   * `ejs`
-   * `express`
-   * `jsonwebtoken`
-   * `lodash`
-   * `moment`
-   * `webtask-tools`
-
-4. Configure the webtask with the following secrets:
-
-   Key | Value
-   --- | ---
-   `AUTH0_DOMAIN` | The domain of your Auth0 tenant.
-   `TOKEN_ISSUER` | (Same value as the [Set up the rules](#set-up-the-rules) section above.)
-   `TOKEN_AUDIENCE` | (Same Value as the [Set up the rules](#set-up-the-rules) section above.)
-   `TOKEN_SECRET` | (Same value as the [Set up the rules](#set-up-the-rules) section above.)
-
-The completed `user-metadata` in the user profile might look like this:
-
-```js
-{
-    "given_name": "John",
-    "family_name": "Smith",
-    "birthdate": "1980-01-15"
-}
-```
-
-### Security
-
-The handoff redirect from the `redirect-to-update-profile-website` rule to the `update-profile-website` webtask is made secure via the self-signed JWT. It prevents someone from calling the webtask directly to invoke a new rendering of the update form. However, it's possible that someone could replay the same exact request (URL) before the JWT token has expired. This is prevented by virtue of the redirect protocol's state parameter, which binds the Auth0 session to the website session. To complete the Auth0 authentication transaction, the website must redirect (or POST) back to the Auth0 `/continue` endpoint, passing the same state value, and since the state value can only be used once, it's impossible to replay the same transaction.
-
-In this example, a JWT is only required for the redirect from the `redirect-to-update-profile-website` rule to the `update-profile-website` webtask. The return trip is secured by virtue of the state parameter. For added security and flexibility, the field values are returned to Auth0 via a POST versus query parameters in a redirect (GET). There are cases where a JWT should be used on the return to Auth0. 
+In this specific case, we recommend that you use refresh tokens exclusively, because you can ensure that a user passed challenges if those challenges are required to generate a refresh token.
 
 ## Keep reading
 
 * [Progressive Profiling](/users/concepts/overview-progressive-profiling)
-* [Sample Code for Progressive Profiling Redirect Rule](https://github.com/auth0/rules/blob/master/redirect-rules/progressive-profiling/continue-from-update-profile-website.js)
+* [Redirect Users After Login Authentication](/users/guides/redirect-users-after-login)
+* [Redirect Users After Logout](/logout/guides/redirect-users-after-logout)
 * [Resume Authentication](/rules/guides/redirect#resume-authentication)
+* [Redirect Rule Best Practices](/best-practices/rules#redirection)

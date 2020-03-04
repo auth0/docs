@@ -24,11 +24,17 @@ We are actively migrating customers to new behaviors for all **Deprecations** li
   </thead>
   <tbody>
     <tr>
+      <td><a href="/migrations/guides/yahoo-userinfo-updates">Changes in the Yahoo user profile</a></td>
+      <td>1 March 2020</td>
+      <td>1 March 2020</td>
+      <td>Yahoo changed the way to retrieve the user profile and the information included on it.</td>
+    </tr>
+    <tr>
       <td><a href="/migrations/guides/management-api-v1-v2">Management API v1</a></td>
       <td>October 2016</td>
       <td>
         <strong>Public Cloud</strong>: 13 July 2020<br>
-        <strong>Private Cloud</strong>: November 2020 release<br>
+        <strong>Private Cloud</strong>: December 2020 release<br>
       </td>
       <td>Management API v1 will reach its End of Life on July 13, 2020. You may be required to take action before that date to ensure no interruption to your service. A <a href="/migrations/guides/management-api-v1-v2">migration guide</a> is available to walk you through the steps required. Notifications have been and will continue to be sent to customers that need to complete this migration.<br>Useful Resources:<br>
         <a href="/migrations/guides/management-api-v1-v2">Management API v1 to v2 Migration Guide</a><br>

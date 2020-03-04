@@ -21,7 +21,7 @@ To configure OAuth2 connections with Dwolla, you will need to register Auth0 on 
 
 ## 1. Log into the developer portal
 
-Log into the Dwolla [Developer portal](https://uat.dwolla.com/applications) and click **Create an application**:
+Log into the Dwolla [Developer portal](https://accounts-sandbox.dwolla.com/login) and click **Create an application**:
 
 ![](/media/articles/connections/social/dwolla/dwolla-1.png)
 

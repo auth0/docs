@@ -80,11 +80,11 @@ There are two required parameters that must be passed in the `options` object wh
 | `audience` | optional | (String)  The default audience to be used for requesting API access. |
 | `responseType` | optional* | (String)  The default `responseType` used. It can be any space separated list of the values `code`, `token`, `id_token`. It defaults to `'token'`, unless a `redirectUri` is provided, then it defaults to `'code'`. **If you do not provide a global `responseType` value, you will need to provide a `responseType` value for *each* method you use.** |
 | `responseMode` | optional | (String)  This option is omitted by default. Can be set to `'form_post'` in order to send the token or code to the `'redirectUri'` via POST. Supported values are `query`, `fragment` and `form_post`. |
-| `leeway` | optional | (Integer) A value in seconds; leeway to allow for clock skew with regard to JWT expiration times. |
+| `leeway` | optional | (Integer) A value in seconds; leeway to allow for clock skew with regard to ID Token expiration times. |
 | `_disableDeprecationWarnings` | optional | (Boolean)  Disables the deprecation warnings, defaults to `false`. |
 
 ::: note
-Because of clock skew issues, you may occasionally encounter the error `The token was issued in the future`. The `leeway` parameter can be used to allow a few seconds of leeway to JWT expiration times, to prevent that from occurring.
+Because of clock skew issues, you may occasionally encounter the error `The token was issued in the future`. The `leeway` parameter can be used to allow a few seconds of leeway to ID Token expiration times, to prevent that from occurring.
 :::
 
 ##### Scope

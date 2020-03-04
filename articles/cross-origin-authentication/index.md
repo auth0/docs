@@ -60,11 +60,11 @@ Provide a page in your application which instantiates `WebAuth` from [auth0.js](
 <head>
   <script src="${auth0js_url}"></script>
   <script type="text/javascript">
-    var auth0 = new auth0.WebAuth({
+    var auth0Client = new auth0.WebAuth({
       clientID: '${account.clientId}',
       domain: '${account.namespace}'
     });
-    auth0.crossOriginVerification();
+    auth0Client.crossOriginVerification();
   </script>
 </head>
 ```

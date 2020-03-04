@@ -326,13 +326,13 @@ To display the profile information, create a new file called `Profile.vue` in th
 
 You will add a route to this Profile component so that the user may access it via the UI and the navigation bar. In the next section, you will protect this route from unauthenticated users.
 
-To access the profile page, open the `router.js` file and import the `Profile` component. Then, modify the routes list so that the `Profile` component is mapped to `/profile`, as in the following example:
+To access the profile page, open the `router/index.js` file and import the `Profile` component. Then, modify the routes list so that the `Profile` component is mapped to `/profile`, as in the following example:
 
 ```js
 //.. other imports
 
 // NEW - Import the profile component
-import Profile from "./views/Profile.vue";
+import Profile from "../views/Profile.vue";
 
 const router = new VueRouter({
   mode: 'history',
@@ -416,14 +416,14 @@ Notice that in the call to `loginWithRedirect`, the URL that the user was trying
 To see how the `targetUrl` property is used to navigate the user once they have authenticated, revisit the <a href="#create-a-vue-plugin">Create a Vue Plugin</a> section again and inspect how the plugin is installed into your Vue app.
 :::
 
-Finally, open up `src/router.js` and use the guard to protect the `/profile` route, as in the following example:
+Finally, open up `src/router/index.js` and use the guard to protect the `/profile` route, as in the following example:
 
 ```js
 // .. other imports ..
 
-import { authGuard } from "./auth/authGuard";
+import { authGuard } from "../auth/authGuard";
 
-export default new Router({
+const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes: [
@@ -439,5 +439,5 @@ export default new Router({
 ```
 
 :::panel Checkpoint
-Start the application and make sure you are logged out. Now, modify the URL in your browser's navigation bar to include the `/profile` path on the end. This should cause the application to ask you to authentication. Once you have logged in, the profile page should be visible without you having to navigate there manually.
+Start the application and make sure you are logged out. Now, modify the URL in your browser's navigation bar to include the `/profile` path on the end. This should cause the application to ask you to authenticate. Once you have logged in, the profile page should be visible without you having to navigate there manually.
 :::
