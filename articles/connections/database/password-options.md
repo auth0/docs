@@ -26,11 +26,9 @@ The Password Options area is located in your [Auth0 Dashboard](${manage_url}). G
 
 ## Password History
 
-When your users are creating passwords, you often don't want them to repeat the usage of passwords that they've used in the recent past. That, of course, would defeat the purpose of having them change their password! Even if you do not have a required password change policy (for example, forcing users to change passwords every six months), you still might have a reason to disallow the use of previous passwords. For example, if a security breach in your organization causes you to want users to change their passwords everywhere, you want to ensure that they aren't just re-using one that might be compromised!
+Enabling this option disallows users from setting passwords that repeat passwords they've used in the recent past. Auth0 can retain a password history for each user, up to a maximum of 24 entries per user. Note that when this option is enabled, only password changes going forward will be affected because the history will not have been kept prior to that point.
 
-Auth0 can retain a password history for each user in order to prevent their re-use. You can choose an amount of prior password entries to keep, up to 24 maximum.
-
-Note that upon enabling this option, only password changes going forward will be affected, as the history will not have been kept until that point.
+Even if you do not have a required password change policy (for example, forcing users to change passwords every six months), you still may want to disallow the use of previous passwords. For example, if a security breach in your organization causes you to force users to change their passwords everywhere, you will want to ensure they aren't just re-using passwords that might be compromised.
 
 ## Password Dictionary
 
