@@ -43,10 +43,9 @@ And enter the code at the prompt:
 
 Your users will need to have an OTP Authenticator app installed in their mobile devices.
 
+## Guardian SDKs
 
-## Guardian SDKS
-
-You can use the Guardian Mobile SDKs, available for [iOS](/mfa/guides/guardian/configure-guardian-ios) and [Android](/mfa/guides/guardian/configure-guardian-android) to build your own whitelabel multi-factor authentication application with complete control over the branding and look-and-feel.
+You can use the Guardian SDKs, available for [iOS](/mfa/guides/guardian/configure-guardian-ios) and [Android](/mfa/guides/guardian/configure-guardian-android) to build your own whitelabel multi-factor authentication application with complete control over the branding and look-and-feel.
 
 With the Guardian SDK, you can build your own custom mobile applications that works like Guardian or integrate some Guardian functionalities, such as receiving push notifications in your existing mobile applications.
 

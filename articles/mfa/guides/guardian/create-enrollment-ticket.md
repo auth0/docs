@@ -125,4 +125,11 @@ For example, the following code displays a different message depending on whethe
 {% endif %}
 ````
 
-Note that this conditional logic around the existence of the `ticket` variable is also used in the initialization of the `Auth0MFAWidget` above.
+::: note
+The conditional logic around the existence of the `ticket` variable is also used in the initialization of the `Auth0MFAWidget` above.
+:::
+
+## Keep reading
+
+* [MFA Widget References](/mfa/references/mfa-widget-reference)
+

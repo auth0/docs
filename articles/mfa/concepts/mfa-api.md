@@ -16,18 +16,11 @@ The <dfn data-key="multifactor-authentication">Multi-factor Authentication (MFA)
 
 ## Multi-factor authentication with the Token endpoint
 
-We have expanded MFA support on the Token endpoints to cover the following use cases:
+The Token endpoints cover the following use cases:
 
 * Use MFA with the [password](/api-auth/grant/password), [password-realm](/api-auth/grant/password#realm-support), and [refresh-token](/tokens/guides/use-refresh-tokens) grants.
 * Completion of first-time enrollment by users during authentication.
 * Selection of the desired MFA authenticator by the user before they execute the MFA challenge.
-
-### More information
-
-* [Trigger MFA using the API](/multifactor-authentication/api/challenges)
-* [Using one-time passwords as the MFA challenge](/multifactor-authentication/api/otp)
-* [Using SMS messages as the MFA challenge](/multifactor-authentication/api/oob)
-* [Tutorial: How to use MFA with the Resource Owner Password Grant](/api-auth/tutorials/multifactor-resource-owner-password)
 
 ## Enrollment and management of user authenticators
 
@@ -46,4 +39,11 @@ If you are using the MFA API in conjunction with the [Token endpoint](/api/authe
 * The MFA API is designed to work with SMS, Push via Guardian, Email, and OTP factors. It does not currently support enrolling with Duo or with the legacy 'google-authenticator' factor (which can be enrolled using the OTP factor).
 
 -  Support for factor selection is currently limited to the Token Endpoint and the [New Universal Login Experience](/universal-login/new). If users have more than one factor enrolled, the [Classic Universal Login Experience](/universal-login/new) will display the most secure factor.
+
+## Keep reading
+
+* [Trigger MFA using the API](/multifactor-authentication/api/challenges)
+* [Using one-time passwords as the MFA challenge](/multifactor-authentication/api/otp)
+* [Using SMS messages as the MFA challenge](/multifactor-authentication/api/oob)
+* [Tutorial: How to use MFA with the Resource Owner Password Grant](/api-auth/tutorials/multifactor-resource-owner-password)
 

@@ -11,7 +11,7 @@ useCase:
 ---
 # Multi-factor Authentication in Auth0
 
-Multi-factor Authentication (MFA) provides a method to verify a user's identity by requiring them to provide more than one piece of identifying information. This ensures that only valid users can access their accounts even if they use a username and password that may have been compromised from a different application. From the Dashboard, you can easily enable the [Google Authenticator](https://en.wikipedia.org/wiki/Google_Authenticator) or [DUO](https://www.duosecurity.com/) into the authentication flow for your application. 
+Multi-factor Authentication (MFA) provides a method to verify a user's identity by requiring them to provide more than one piece of identifying information. This ensures that only valid users can access their accounts even if they use a username and password that may have been compromised from a different application. 
 
 The type of information required from the user is typically two or more of the following:
 
@@ -23,40 +23,11 @@ The type of information required from the user is typically two or more of the f
 It's common for customer facing applications to provide users with an option for adding a second factor rather than _forcing_ them to use a second factor. 
 :::
 
-## MFA in business scenarios
-
-* B2B: Your customers manage MFA factors for their users 
-* B2C: End users manage their own MFA factors via the My MFA Settings Page
-* B2E: You manage MFA factors for your users
-
-## When to use MFA
-
-### Step-up authentication
-
-Applications that allow access to different types of resources can require users to authenticate with a stronger authentication mechanism to access sensitive resources. See [Step-Up Authentication](/mfa/concepts/step-up-authentication) for details. 
-
-### Metadata and IP ranges
-
-You can configure a rule in Dashboard > Rules for custom multi-factor authentication (MFA) processes, which allow you to define the conditions that will trigger additional authentication challenges. Rules can be used to force MFA for users of certain applications, or for users with particular user metadata or IP ranges, among other triggers.
-
-### Geolocation or *geo-fencing* 
-
-### Confidence score
-
-### Adaptive
-
-## MFA factors and authentication providers
+## Authentication factors
 
 Use any of the dozens of MFA solutions that exist today including SMS text, email, biometric, password-less and more, and be ready to add any new ones easily as they become available or necessary. Auth0 provides support for all MFA service providers through powerful authentication flow Rules.
 
-Here are a few different options for authenticator apps that work with Auth0 for protecting user account access:
-
-* Auth0 Guardian
-* DUO
-* Twilio
-* Google Authenticator
-* Authy
-* Microsoft Authenticator
+Here are some of the primary factors Auth0 recommends:
 
 ### Push notifications
 
@@ -74,9 +45,44 @@ One-Time Password (OTP) allows you to register a device - such as Google Authent
 
 Using email when you want to provide users a way to perform MFA when they don't have their phone to receive an SMS or push notification.
 
+## MFA use cases
+
+### Step-up authentication
+
+Applications that allow access to different types of resources can require users to authenticate with a stronger authentication mechanism to access sensitive resources. See [Step-Up Authentication](/mfa/concepts/step-up-authentication) for details. 
+
+### Conditional MFA
+
+You can configure a rule in Dashboard > Rules for custom multi-factor authentication (MFA) processes, which allow you to define the conditions that will trigger additional authentication challenges. Rules can be used to force MFA for users of certain applications, or for users with particular user metadata or IP ranges, among other triggers.
+
+### Geolocation or *geo-fencing* 
+
+### Confidence score
+
+### Adaptive
+
+## Authenticator apps
+
+Here are a few different options for authenticator apps that work with Auth0 for protecting user account access:
+
+* Auth0 Guardian
+* DUO
+* Twilio
+* Google Authenticator
+* Authy
+* Microsoft Authenticator
+
+## MFA management scenarios
+
+* B2B: Your customers manage MFA factors for their users 
+* B2C: End users manage their own MFA factors via the My MFA Settings Page
+* B2E: You manage MFA factors for your users
+
+## Enable MFA using the Dashboard
+
+From the Dashboard, you can easily enable the [Google Authenticator](https://en.wikipedia.org/wiki/Google_Authenticator) or [DUO](https://www.duosecurity.com/) into the authentication flow for your application. 
+
 ## Developer resources
-
-
 
 ## Keep reading
 
