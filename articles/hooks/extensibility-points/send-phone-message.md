@@ -36,17 +36,22 @@ When creating a Hook executed at the Send Phone Message extensibility point, you
 @param {string} recipient - phone number
 @param {string} text - message body
 @param {object} context - additional authorization context
-@param {string} context.factor_type - 'first' or 'second'
-@param {string} context.message_type - 'sms' or 'voice'
-@param {string} context.action - 'enrollment' or 'authentication'
+@param {string} context.message_type - 'sms' we'll support 'voice' in the future too
+@param {string} context.action - 'enrollment' or 'second-factor-authentication'
 @param {string} context.language - language used by login flow
 @param {string} context.code - one time password
 @param {string} context.ip - ip address
 @param {string} context.user_agent - user agent making the authentication request
-@param {string} context.client_id - to send different messages depending on the client id
-@param {string} context.name - to include it in the SMS message
-@param {object} context.client_metadata - metadata from client
-@param {object} context.user - To customize messages for the user
+@param {object} context.client - object with details about the Auth0 application
+@param {string} context.client.client_id - Auth0 application ID
+@param {string} context.client.name - Auth0 application name
+@param {object} context.client.client_metadata - metadata from client
+@param {object} context.user - object representing the user
+@param {string} context.user.user_id - Auth0 user ID
+@param {string} context.user.name - user name
+@param {string} context.user.email - user email
+@param {object} context.user.app_metadata - metadata specific to user and application
+@param {object} context.user.user_metadata - metadata specific to user
 @param {function} cb - function (error, response)
 */
 module.exports = function(recipient, text, context, cb) {
@@ -60,6 +65,35 @@ Please note:
 ::: note
 The callback function (`cb`) at the end of the sample code signals completion and *must* be included.
 :::
+
+### Example parameters
+
+```js
+{
+  "recipient": "1-808-555-5555",
+  "text": "Here is your one time password!",
+  "context": {
+    "message_type": "sms",
+    "action": "enrollment",
+    "language": "english",
+    "code": "1234556ADSFA547865",
+    "ip": "127.0.0.1",
+    "user_agent": "Mozilla/5.0",
+    "client": {
+      "client_id": "1235",
+      "name": "Test Application",
+      "client_metadata": { }
+    },
+    "user": {
+      "user_id": "auth0|test12345",
+      "name": "Billie Magnusson"
+      "email": "billie@email.com",
+      "app_metadata": { },
+      "user_metadata": { }
+    }
+  }
+}
+```
 
 ### Default response
 
