@@ -17,7 +17,7 @@ v2: true
 
 # Send Phone Message
 
-At the Send Phone Message extensibility point, Hooks allow custom actions to be executed when a user is prompted for MFA. For example, you might call your SMS gateway provider to get better reliability or pricing, or you might call the user with the code. 
+At the Send Phone Message extensibility point, Hooks allow custom actions to be executed when a user is prompted for MFA. For example, you may use your preferred SMS gateway provider to get better pricing, or you may make a voice call to the user with the MFA code instead of sending an SMS. 
 
 The Send Phone Message extensibility point is available for [MFA](/multifactor-authentication) requests.
 
@@ -51,12 +51,15 @@ When creating a Hook executed at the Send Phone Message extensibility point, you
 */
 module.exports = function(recipient, text, context, cb) {
  // TODO: Add your code here 
+ cb();
 };
 ```
 
 Please note:
 
-* The callback function (`cb`) at the end of the sample code signals completion and *must* be included.
+::: note
+The callback function (`cb`) at the end of the sample code signals completion and *must* be included.
+:::
 
 ### Default response
 
