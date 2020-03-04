@@ -32,7 +32,7 @@ Even if you do not have a required password change policy (for example, forcing 
 
 ## Password Dictionary
 
-Enabling this option disallows users from setting passwords to common options included in a [default dictionary list](https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10k-most-common.txt). You may also add your own prohibited passwords.
+Enabling this option disallows users from setting passwords to common options included in a [default dictionary list](https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10k-most-common.txt). You may also include your own prohibited passwords by entering them in the text field in this section.
 
 Note that Auth0 uses case-insensitive comparison with the Password Dictionary feature.
 
