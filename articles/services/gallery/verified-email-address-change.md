@@ -19,7 +19,7 @@ useCase:
 ---
 # Verified Email Address Change
 
-Self-service typically provides users with the ability to change one or more aspects of their user profile. Commonly referred to as MyAccount or MyProfile functionality, this often includes the capability for a user to change his/her email address in cases where an existing email address is no longer valid or preferred. Self-service email address change without the proper controls however can lead to various account management issues, and/or expose security vulnerabilities which can be exploited. Verified Email Address Change workflow is provided by Auth0 Professional Services as a customized extensibility solution, which leverages Auth0 functionality to address the problems that can occur in unverified email address change scenarios. 
+A self-service facility typically provides users with the capability to change one or more aspects of their user profile. Commonly referred to as _MyAccount_ or _MyProfile_ functionality, this often includes the ability for a user to change his/her email address, in cases where an existing email address is no longer valid or preferred. Self-service email address change without the proper controls however can lead to various account management issues, and/or expose security vulnerabilities which can be exploited. Verified Email Address Change workflow is provided by Auth0 Professional Services as a customized extensibility solution, which leverages Auth0 functionality to address the problems that can occur in unverified email address change scenarios. 
 
 <%= include('./_includes/_further-help.md') %>
 
@@ -27,6 +27,12 @@ Self-service typically provides users with the ability to change one or more asp
 
 <div align="center">
   <a href="https://youtu.be/Qkfa_aDw_8k"><img src="/media/articles/services/gallery/veachange/verified-email-address-change.png" alt="Verified Email Address Change workflow"></a>
+</div>
+
+## Design
+
+<div align="center">
+  <a href="https://drive.google.com/open?id=1DtjpHFTwK6wN0B6BlaaXpbIFbU0BlUagDlymP0RGZgw"><img src="/media/articles/services/gallery/veachange/verified-email-address-change.png" alt="Verified Email Address Change workflow"></a>
 </div>
 
 ## Keep reading
