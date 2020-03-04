@@ -16,9 +16,9 @@ useCase:
 Before you begin this tutorial, please:
 
 * Sign up for an [Amazon Web Services](https://portal.aws.amazon.com/billing/signup#/start).
-* Write down your Amazon Web Service region.
+* Capture your Amazon Web Service region.
 * Create a new Amazon IAM User with the `AmazonSNSFullAccess` role. 
-* Write down the access key and secret key details.
+* Capture the access key and secret key details.
 
 ## 1. Create a Send Phone Message hook 
 

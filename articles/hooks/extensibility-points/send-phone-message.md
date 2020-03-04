@@ -17,7 +17,7 @@ v2: true
 
 # Send Phone Message
 
-At the Send Phone Message extensibility point, Hooks allow custom actions to be executed when a user is prompted for MFA. For example, you may use your preferred SMS gateway provider to get better pricing, or you may make a voice call to the user with the MFA code instead of sending an SMS. 
+At the Send Phone Message extensibility point, Hooks allow custom actions to be executed when a user is prompted for MFA. For example, you may use your preferred SMS gateway provider to get better pricing.
 
 The Send Phone Message extensibility point is available for [MFA](/multifactor-authentication) requests.
 
