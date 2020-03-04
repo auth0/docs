@@ -50,3 +50,6 @@ You can use the Guardian SDKs, available for [iOS](/mfa/guides/guardian/configur
 With the Guardian SDK, you can build your own custom mobile applications that works like Guardian or integrate some Guardian functionalities, such as receiving push notifications in your existing mobile applications.
 
 A typical scenario could be: While building a banking app, you can make use of the Guardian SDK in your existing mobile app to receive and confirm push notifications when someone performs an ATM transaction.
+
+See [auth0-guardian.js](https://github.com/auth0/auth0-guardian.js) for more information.
+

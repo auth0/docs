@@ -1,5 +1,5 @@
 ---
-title: Configure Guardian for iOS
+title: Guardian for iOS SDK
 description: Learn how to install, use and configure options for the Guardian for iOS SDK. 
 topics:
   - mfa
@@ -10,7 +10,7 @@ contentType:
 useCase:
   - customize-mfa
 ---
-# Configure Guardian for iOS
+# Guardian for iOS SDK
 
 The [Guardian for iOS Software Development Kit](https://github.com/auth0/GuardianSDK.iOS) helps you create iOS apps with Guardian functionality, providing secure access to <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> with push notifications. With this toolkit you can build your own customized version of the Guardian application that matches the look and feel of your organization.
 
@@ -22,7 +22,7 @@ Get started using Guardian for iOS below, or, if you're looking for a specific d
 
 The Guardian iOS SDK requires iOS 9.3+ and Swift 3.
 
-## Installation
+## Install Guardian iOS SDK
 
 ### CocoaPods
 

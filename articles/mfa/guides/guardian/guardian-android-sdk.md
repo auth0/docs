@@ -1,5 +1,5 @@
 ---
-title: Configure Guardian for Android
+title: Guardian for Android SDK
 description: Learn how to install, use and configure options for the Guardian for Android SDK. 
 topics:
   - mfa
@@ -10,7 +10,7 @@ contentType:
 useCase:
   - customize-mfa
 ---
-# Configure Guardian for Android
+# Guardian for Android SDK
 
 The [Guardian for Android SDK](https://github.com/auth0/Guardian.Android) helps you create Android apps with Guardian functionality, providing secure access to <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> with push notifications. With this toolkit you can build your own customized version of the Guardian application that matches the look and feel of your organization.
 

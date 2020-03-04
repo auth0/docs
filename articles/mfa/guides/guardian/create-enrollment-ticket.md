@@ -132,4 +132,3 @@ The conditional logic around the existence of the `ticket` variable is also used
 ## Keep reading
 
 * [MFA Widget References](/mfa/references/mfa-widget-reference)
-

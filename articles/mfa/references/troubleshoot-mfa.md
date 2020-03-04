@@ -4,7 +4,7 @@ description: Describes basic troubleshooting of MFA issues for end-users.
 topics:
     - mfa
 contentType:
-  - index
+  - reference
 useCase:
   - customize-mfa
 ---
