@@ -10,7 +10,7 @@ useCase:
 ---
 # Instagram Connection Deprecation
 
-Facebook [announced](https://developers.facebook.com/blog/post/2020/01/14/instagram-basic-display-api-long-lived-access-tokens-available/) that on March 31th, 2020, they will turn off the Instagram legacy APIs in favor of a new set of APIs:
+Facebook [announced](https://developers.facebook.com/blog/post/2019/10/15/launch-instagram-basic-display-api/) that on March 31th, 2020, they will turn off the Instagram legacy APIs in favor of a new set of APIs:
 
 - The [Instagram Graph API](https://developers.facebook.com/docs/instagram-api) which is designed for Instagram Professional Accounts, not for end-user authentication.
 - The [The Instagram Basic Display API](https://developers.facebook.com/docs/instagram-basic-display-api), which is an OAuth2 API, and enables you to grant access to your basic Instagram account data to a third-party app.
