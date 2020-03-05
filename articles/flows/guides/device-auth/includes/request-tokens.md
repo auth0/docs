@@ -18,7 +18,7 @@ To avoid errors due to network latency, you should start counting each interval 
       "params": [
         {
           "name": "grant_type",
-          "value": "urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Adevice_code"
+          "value": "urn:ietf:params:oauth:grant-type:device_code"
         },
         {
           "name": "device_code",
