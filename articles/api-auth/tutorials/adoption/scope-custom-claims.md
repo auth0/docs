@@ -58,7 +58,7 @@ This is a [*normalized user profile*](/users/normalized), which is a protocol-ag
 }
 ```
 
-Note that the `user_id` property is sent as `sub` in the ID Token, and that `favorite_color` and `user_metadata` are not present in the OIDC response from Auth0. This is because OIDC does not define standard claims to represent all the information in this user’s profile. We can, however, define a non-standard claim by namespacing it through a rule:
+Note that the `user_id` property is sent as `sub` in the ID Token, and that `favorite_color` and `user_metadata` are not present in the OIDC response from Auth0. This is because OIDC does not define standard claims to represent all the information in this user’s profile. We can, however, define a non-standard claim by namespacing it through a [rule](/rules):
 
 ```js
 function (user, context, callback) {
