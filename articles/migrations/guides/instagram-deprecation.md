@@ -32,7 +32,7 @@ An example flow would be:
 
 While we could replace our current implementation and use the [Instagram Basic Display OAuth flow](https://developers.facebook.com/docs/instagram-basic-display-api/guides/getting-access-tokens-and-permissions), this would not be accepted by Facebook's policies. You would need to create an Instagram application in Facebook and, in that app, there's a notification saying:
 
-*Note that Basic Display is not an authentication tool. Data returned by the API cannot be used to authenticate your app users or log them into your app. If your app uses API data to authenticate users, it will be rejected during App Review. If you need an authentication solution, use Facebook Login instead.*
+> Note that Basic Display is not an authentication tool. Data returned by the API cannot be used to authenticate your app users or log them into your app. If your app uses API data to authenticate users, it will be rejected during App Review. If you need an authentication solution, use Facebook Login instead.
 
 This means that even if Auth0 implemented this flow, your Instagram application would not be approved by Facebook.
 
