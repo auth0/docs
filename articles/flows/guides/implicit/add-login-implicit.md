@@ -1,6 +1,6 @@
 ---
-title: Add Login Using the Implicit Flow
-description: Learn how to add login to your single-page application (SPA) using the Implicit Flow.
+title: Add Login Using the Implicit Flow with Form Post
+description: Learn how to add login to your single-page application (SPA) using the Implicit Flow with Form Post.
 toc: true
 topics:
   - api-authentication
@@ -13,15 +13,15 @@ contentType: tutorial
 useCase:
   - add-login
 ---
-# Add Login Using the Implicit Flow
+# Add Login Using the Implicit Flow with Form Post
 
 ::: note
-This tutorial will help you add login to your single-page application (SPA) using the Implicit Flow. If you want to learn how the flow works and why you should use it, see [Implicit Flow](/flows/concepts/implicit). 
+This tutorial will help you add login to your single-page application (SPA) using the Implicit Flow with Form Post. If you want to learn how the flow works and why you should use it, see [Implicit Flow with Form Post](/flows/concepts/implicit). 
 
-You can use the Implicit flow for login only use cases; if you need to request Access Tokens while logging the user in so you can call your API, use the [Authorization Code Flow with PKCE](/flows/concepts/auth-code-pkce).
+You can use the Implicit Flow with Form Post for login-only use cases; if you need to request Access Tokens while logging the user in so you can call your API, use the [Authorization Code Flow with PKCE](/flows/concepts/auth-code-pkce).
 :::
 
-Auth0 makes it easy to implement the Implicit Flow by using:
+Auth0 makes it easy to implement the Implicit Flow with Form Post by using:
 
 * [Express OpenID Connect SDK](https://www.npmjs.com/package/express-openid-connect): The easiest way to implement the flow, which will do most of the heavy-lifting for you. If you use our [Javascript SDK](/libraries/auth0js), please ensure you are implementing mitigations that are appropriate for your architecture.
 * Authentication API: If you prefer to roll your own solution, keep reading to learn how to call our API directly. 
