@@ -1188,51 +1188,55 @@ articles:
             url: /integrations/marketing/watson-campaign-automation
 
 ## ------------------------------------------------------------
+## Logs
+## ------------------------------------------------------------
+
+  - title: Logs
+    url: /logs
+    children:
+
+      - title: Log Streams
+        url: /logs/streams
+        children:
+
+          - title: HTTP Event Streams
+            url: /logs/streams/http-event
+
+          - title: AWS EventBridge
+            url: /logs/streams/aws-eventbridge
+
+      - title: Log Data Retention
+        url: /logs/references/log-data-retention
+
+      - title: View Log Data in the Dashboard
+        url: /logs/guides/view-log-data-dashboard
+
+      - title: Log Event Filters
+        url: /logs/references/log-event-filters
+
+      - title: Retrieve Logs Using the Management API
+        url: /logs/guides/retrieve-logs-mgmt-api
+
+      - tite: Log Event Type Codes
+        url: /logs/references/log-event-type-codes
+
+      - title: Log Search Query Syntax
+        url: /logs/references/query-syntax
+
+      - title: Log Usage Examples
+        url: /logs/concepts/logs-admins-devs
+
+      - title: Migrate from Logs Search v2 to v3
+        url: /monitor/logs/migrate-logs-v2-v3
+        hidden: true
+
+## ------------------------------------------------------------
 ## Monitor
 ## ------------------------------------------------------------
 
   - title: Monitor
     url: /monitoring
     children:
-
-      - title: Logs
-        url: /logs
-        children:
-
-          - title: Log Streams
-            url: /logs/streams
-            children:
-
-              - title: HTTP Event Streams
-                url: /logs/streams/http-event
-
-              - title: AWS EventBridge
-                url: /logs/streams/aws-eventbridge
-
-          - title: Log Data Retention
-            url: /logs/references/log-data-retention
-
-          - title: View Log Data in the Dashboard
-            url: /logs/guides/view-log-data-dashboard
-
-          - title: Log Event Filters
-            url: /logs/references/log-event-filters
-
-          - title: Retrieve Logs Using the Management API
-            url: /logs/guides/retrieve-logs-mgmt-api
-
-          - tite: Log Event Type Codes
-            url: /logs/references/log-event-type-codes
-
-          - title: Log Search Query Syntax
-            url: /logs/references/query-syntax
-
-          - title: Log Usage Examples
-            url: /logs/concepts/logs-admins-devs
-
-          - title: Migrate from Logs Search v2 to v3
-            url: /monitor/logs/migrate-logs-v2-v3
-            hidden: true
 
       - title: Check Auth0 Status
         url: /monitoring/guides/check-status
