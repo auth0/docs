@@ -112,7 +112,7 @@ If Auth0 is serving as a SAML Identity Provider, the Settings tab of Application
 
 Users can log into an application initially via one connection (such as a database), then log in via another connection (such as Facebook). In this case, the `user_id` for the second authentication will be different from that for the first authentication. 
 
-Auth0 provides a mechanism to [link](/link-accounts) the two accounts. If this is done, the `identities` array portion of the user profile will have multiple elements, one for each provider for which account linking has been done.
+Auth0 provides a mechanism to [link](/users/concepts/overview-user-account-linking) the two accounts. If this is done, the `identities` array portion of the user profile will have multiple elements, one for each provider for which account linking has been done.
 
 ::: note
 The user profile attributes from multiple providers are not merged. The core user profile attributes are sourced from the first provider used.

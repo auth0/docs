@@ -20,7 +20,7 @@ Before you continue with this tutorial, make sure that you have completed the pr
 * You are familiar with the `WebAuthProvider` class. To learn more, see the [Login](/quickstart/native/android/00-login) and the [Session Handling](/quickstart/native/android/03-session-handling) tutorials.
 * You are familiar with the concepts of `userId`, `accessToken` and `idToken`. You can find info about them in the [Session Handling](/quickstart/native/android/03-session-handling) and the [User Profile](/quickstart/native/android/04-user-profile) tutorials.
 
-We recommend that you read the [Linking Accounts](/link-accounts) documentation to understand the process of linking accounts.
+We recommend that you read the [Linking Accounts](/users/concepts/overview-user-account-linking) documentation to understand the process of linking accounts.
 
 ## API scopes on Authentication
 

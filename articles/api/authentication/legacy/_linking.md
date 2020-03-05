@@ -45,9 +45,9 @@ This endpoint will trigger the login flow to link an existing account with a new
 
 ### More Information
 
-- [Linking Accounts](/link-accounts)
-- [User Initiated Account Linking](/link-accounts/user-initiated-linking)
-- [Account Linking from Server Side Code](/link-accounts/suggested-linking)
+- [Link User Accounts](/users/guides/link-user-accounts)
+- [Link User Accounts Initiated by Users Scenario](/users/references/link-accounts-user-initiated-scenario)
+- [Link User Accounts Server-Side Scenario](/users/references/link-accounts-server-side-scenario)
 
 
 ## Unlink
@@ -116,4 +116,4 @@ Given a logged-in user's `access_token` and `user_id`, this endpoint will unlink
 
 ### More Information
 
-- [Unlinking Accounts](/link-accounts#unlinking-accounts)
+- [Unlink User Accounts](/users/guides/unlink-user-accounts)

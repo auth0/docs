@@ -746,7 +746,27 @@ articles:
         url: /users/guides/manage-users-using-the-management-api
 
       - title: Link User Accounts
-        url: /extensions/account-link
+        url: /users/concepts/overview-user-account-linking
+        children:
+
+          - title: Link User Accounts
+            url: /users/guides/link-user-accounts
+
+          - title: Unlink User Accounts
+            url: /users/guides/unlink-user-accounts
+
+          - title: Link Accounts using Authentication API
+            url: /users/guides/link-user-accounts-auth-api
+            hidden: true 
+
+          - title: Client-Side SPA Scenario 
+            url: /users/references/link-accounts-client-side-scenario
+          
+          - title: Server-Side Regular Web App Scenario
+            url: /users/references/link-accounts-server-side-scenario
+
+          - title: Initiated by Users Scenario
+            url: /users/references/link-accounts-user-initiated-scenario
 
       - title: Blacklist User Attributes
         url: /security/blacklisting-attributes
