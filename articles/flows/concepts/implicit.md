@@ -1,6 +1,6 @@
 ---
 title: Implicit Flow with Form Post
-description: Learn how the Implicit flow with Form Post works and why you should use it for single-page apps (SPAs).
+description: Learn how the Implicit flow with Form Post works and why you should use it for single-page apps (SPAs) that need only an ID Token to perform user authentication.
 topics:
   - authorization-code
   - implicit
