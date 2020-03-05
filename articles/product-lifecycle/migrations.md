@@ -23,11 +23,17 @@ We are actively migrating customers to new behaviors for all **Deprecations** li
     </tr>
   </thead>
   <tbody>
-    <tr>
+        <tr>
       <td><a href="/migrations/guides/yahoo-userinfo-updates">Changes in the Yahoo user profile</a></td>
       <td>1 March 2020</td>
       <td>1 March 2020</td>
       <td>Yahoo changed the way to retrieve the user profile and the information included on it.</td>
+    </tr>
+    <tr>
+      <td><a href="/migrations/guides/instagram-deprecation">Instagram Connection Deprecation</a></td>
+      <td>5 March 2020</td>
+      <td>31 March 2020</td>
+      <td>Facebook announced that on March 31th, 2020, they will turn off the Instagram legacy APIs, and they won't provide an alternative to implement Login with Instagram</td>
     </tr>
     <tr>
       <td><a href="/migrations/guides/management-api-v1-v2">Management API v1</a></td>
