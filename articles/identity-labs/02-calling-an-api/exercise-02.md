@@ -38,7 +38,7 @@ In this exercise, you will register the API with Auth0 so that tokens can be iss
 If at any point, you want to see the consent screen again when logging in, you can go to the Users screen in the Auth0 Dashboard, click on the user you'd like to modify, click the **Authorized Applications** tab, find the application you're using, and click **Revoke**. The next time you log in, the consent screen will appear again.
 :::
 
-As mentioned earlier, the expenses API is still not secure. The next steps will change the API to require a properly-scoped access token to view.
+As mentioned earlier, the expenses API is still not secure. You can see this by navigating directly to [localhost:3001](http://localhost:3001/). The expense data is available publicly, without an access token. The next steps will change the API to require a properly-scoped access token to view.
 
 4. In your terminal, stop your API with `[CTRL]` + `[c]`.
 
