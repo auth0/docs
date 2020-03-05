@@ -57,7 +57,7 @@ We support scenarios for server-side, mobile, desktop, client-side, machine-to-m
   <li>
       <i class="icon icon-budicon-715"></i><a href="/flows/concepts/implicit">Implicit Flow with Form Post</a>
     <p>
-      As an alternative to the [Authorization Code Flow](/flows/concepts/auth-code), the OAuth 2.0 spec includes the Implicit Flow intended for <dfn data-key="public-client">Public Clients</dfn>, or applications which are unable to securely store <dfn data-key="client-secret">Client Secrets</dfn>. While this is no longer considered a best practice for requesting Access Tokens, when used with Form Post response mode, it does offer a streamlined workflow if the application needs only an <dfn data-key="id-token">ID Token</dfn> to perform user authentication.
+      As an alternative to the <a href="/flows/concepts/auth-code">Authorization Code Flow</a>, the OAuth 2.0 spec includes the Implicit Flow intended for <dfn data-key="public-client">Public Clients</dfn>, or applications which are unable to securely store <dfn data-key="client-secret">Client Secrets</dfn>. While this is no longer considered a best practice for requesting Access Tokens, when used with Form Post response mode, it does offer a streamlined workflow if the application needs only an <dfn data-key="id-token">ID Token</dfn> to perform user authentication.
     </p>
     <ul>
       <li>
