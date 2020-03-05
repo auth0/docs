@@ -1,6 +1,6 @@
 ---
-title: Implicit Flow
-description: Learn how the Implicit flow works and why you should use it for single-page apps (SPAs).
+title: Implicit Flow with Form Post
+description: Learn how the Implicit flow with Form Post works and why you should use it for single-page apps (SPAs).
 topics:
   - authorization-code
   - implicit
