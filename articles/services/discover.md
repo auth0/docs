@@ -12,9 +12,13 @@ useCase:
 ---
 # Discover
 
-Discovery is at the heart of what we do: if you've never engaged with Professional Services on a project before then Discovery is where we start. Discovery is specifically designed to help us - and you - understand what's required for sucessfull integration with Auth0. Conducted as a series of [Architectural Discovery](/services/architect-and-design#architectural-discovery) and [Scenario Guidance](/services/architect-and-design#scenario-guidance) sessions, we typically work with you and your team(s), on-site, to identify critical use case scenario(s) and build solution design(s). Why Discovery? Identifying your primary objectives early on will help you and your team(s) focus on the specifics important to building out your solution. Captured in a bespoke [Discovery Report](#discovery-report), and backed by beskoke Planning Guidance, we'll help you understand what you need to consider to bring your project(s) to market in the most effective manner.
+Discovery is at the heart of what we do: if you've never engaged with Professional Services on a project before then Discovery is where we start. Discovery is specifically designed to help us - and you - understand what's required for sucessfull integration with Auth0. Conducted as a series of [Architectural Discovery](/services/architect-and-design#architectural-discovery) and [Scenario Guidance](/services/architect-and-design#scenario-guidance) sessions, we typically work with you and your team(s), on-site, to identify critical use case scenario(s) and build solution design(s). 
 
-## Discovery Worshop
+Why Discovery? Identifying your primary objectives early on will help you and your team(s) focus on the specifics important to building out your solution, and our Discovery process provides an oppertunity to work with one of our Solutions Architects in a focused and immersive manner. Typically conducted on-site, and captured in a bespoke [Discovery Report](#discovery-report) that's backed by beskoke [Planning Guidance](#planning-guidance), we'll help you understand what you need to consider in order to bring your project(s) to market in the most effective manner.
+
+## Discovery Workshop
+
+Discovery comes optionally included as part of all the [packages](/services/packages) available from Auth0 Professional Services. Our [Discovery Workshop package](/services/packages#-discovery-workshop-) however, offers a cost effective Discovery option that just gives you access to the wealth of valuable guidance provided by an Auth0 Solutions Architect, and captured in your own uniquely tailored [Discovery Documentation](#discovery-documentation).   
 
 ## Discovery Documentation
 
