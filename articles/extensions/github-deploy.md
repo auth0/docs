@@ -103,9 +103,11 @@ You can find an example in [this GitHub repository](https://github.com/auth0-sam
 
 #### Deploy Database Connection settings
 
-To deploy Database Connection settings, you must create `database-connections/[connection-name]/settings.json`. 
+To deploy Database Connection settings, you must create `database-connections/[connection-name]/database.json`.
 
 _This will work only for Auth0 connections (`strategy === auth0`); for non-Auth0 connections use `connections`._
+
+_Support for using `settings.json` has been deprecated in favor of `database.json` since v3.1.1 of the extension and may be dropped in a future release._
 
 See [Management API v2 Docs](https://auth0.com/docs/api/management/v2#!/Connections/patch_connections_by_id) for more info on allowed attributes for Connections.
 
