@@ -26,6 +26,12 @@ The Refresh Token behavior is applicable to [OIDC-conformant applications](/api-
 For more information on our authentication pipeline, see [Introducing OIDC-Conformant Authentication](/api-auth/intro).
 :::
 
+## Refresh Token rotation
+
+Typically, Refresh Tokens should not be used in single-page applications and exposted client-side in the browser; specifically not in SPAs that implement the implicit flow. 
+
+[Refresh Token rotation](/tokens/concepts/refresh-token-rotation) provides greater security by issuing a new Refresh Token with each request made to Auth0 for a new Access Token by a client using Refresh Tokens. Rotation consists of issuing a new token and invalidating its predecessor. By rotating the Refresh Token, the risk of a compromised Refresh Token is greatly reduced. Refresh Token rotation in Auth0 is built in conformance with the [OAuth 2.0 BCP](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-13#section-4.12). 
+
 ## Restrictions and limitations
 
 * You can only get a Refresh Token if you are implementing the [Authorization Code Flow](/flows/concepts/auth-code), [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce), [Resource Owner Password Grant](/api-auth/grant/password), or [Device Authorization Flow](/flows/concepts/device-auth).
@@ -71,6 +77,8 @@ auth0.checkSession({
 });
 ```
 
+The Auth0-spa-js SDK supports Refresh Token rotation capabilities.
+
 ### Native/Mobile apps
 
 For information on using Refresh Tokens with our mobile SDKs, see:
@@ -78,6 +86,7 @@ For information on using Refresh Tokens with our mobile SDKs, see:
 * [Mobile / Native Quickstarts](/quickstart/native)
 * [Lock Android: Refreshing JWT Tokens](/libraries/lock-android/refresh-jwt-tokens)
 * [Lock iOS: Saving and Refreshing JWT Tokens](/libraries/lock-ios/v2)
+
 
 ## Keep reading
 
