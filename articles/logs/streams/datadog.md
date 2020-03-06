@@ -15,15 +15,15 @@ Datadog Event Log Streams let you export your log events to Datadog for further 
 
 ## Create a Datadog Event Stream
 
-### In Datadog:
+### Configure settings in Datadog
 
 1. Head to the Datadog dashboard.
 2. Navigate to **Integrations** -> **APIs**.
 ![Integrations Dashboard](/media/articles/logs/datadog/tutorial-1.png)
-3. Expand the API Keys section on this page, and then copy the API Key that you would like to use.
+3. Expand the API Keys section on this page, then copy the API Key that you would like to use.
 ![API Keys Section](/media/articles/logs/datadog/tutorial-2.png)
 
-### In Auth0:
+### Configure settings in Auth0
 
 1. Log in to the [Auth0 Dashboard](${manage_url}).
 2. Navigate to **Logs > Streams**.
@@ -33,21 +33,20 @@ Datadog Event Log Streams let you export your log events to Datadog for further 
 
 | Setting | Description |
 |---------|-------------|
-| API Key | The Datadog API key you copied in step (3) from the Datadog dashboard |
-| Region | If you are in the Datadog EU site (app.datadoghq.eu), the `Region` should be `EU`, otherwise it should be `GLOBAL`|
+| API Key | The Datadog API key you copied from the Datadog dashboard |
+| Region | If you are in the Datadog EU site (app.datadoghq.eu), the `Region` should be `EU`, otherwise it should be `GLOBAL` |
 
 ![Datadog Settings Form](/media/articles/logs/datadog/tutorial-3.png)
 
 6. Click **Save**.
 7. You're done! Now when Auth0 writes the next tenant log, you'll receive a copy of that log event in Datadog with the `source` and `service` set to `Auth0`.
 
-### In Datadog:
+### View logs in Datadog
 
 1. Navigate to **Logs** > **Livetail**.
 2. See Auth0 logs by setting the Source to Auth0.
 ![Datadog Logs Dashboard](/media/articles/logs/datadog/tutorial-4.png)
 
-
 ## Delivery attempts and retries
 
-Auth0 events are delivered to your server via a streaming mechanism that sends each event as it is triggered in our system. If your server is unable to receive the event, we will retry up to three times to deliver the event; otherwise, we will log the failure to deliver in our system.
+Auth0 events are delivered to your server via a streaming mechanism that sends each event as it is triggered. If your server is unable to receive the event, Auth0 will retry up to three times to deliver the event. If it is still unsuccessful, Auth0 will then log the failure to deliver.
