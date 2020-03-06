@@ -17,7 +17,7 @@ useCase:
 ---
 # Authorization Code Flow with Proof Key for Code Exchange (PKCE)
 
-When public clients (e.g., native and single-page applications) request Access Tokens, some additional security concerns are posed that are not mitigted by the Authorization Code Flow alone. This is because:
+When public clients (e.g., native and single-page applications) request Access Tokens, some additional security concerns are posed that are not mitigated by the Authorization Code Flow alone. This is because:
 
 **Native apps**
 
