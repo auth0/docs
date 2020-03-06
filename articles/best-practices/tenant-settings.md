@@ -19,7 +19,7 @@ Here are some best practices for configuring [tenants](/getting-started/the-basi
 
 ## Specify a production tenant
 
-Visit [Auth0 Support Center > Tenants](https://support.auth0.com/tenants/public) and specify your production tenant. Production tenants get higher rate limits than non-production tenants. Only one tenant per subscription can be set as a production tenant.
+Visit [Auth0 Support Center > Tenants](https://support.auth0.com/tenants/public) and specify your production tenant. Production tenants get higher rate limits than non-production tenants. On non-enterprise plans, only one tenant per subscription can be set as a production tenant.
 
 ## Set up branding configuration
 
