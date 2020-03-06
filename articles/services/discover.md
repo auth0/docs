@@ -1,15 +1,17 @@
 ---
-title: Discovery
-description: Learn how Professional Services can help you discovery the best integration path for your Auth0 solution.
+title: Discover
+description: Learn how Professional Services can help you discover the best integration path for your Auth0 solution.
 toc: true
 topics:
     - ps
+    - discover
     - discovery
 contentType: concept
 useCase:
   - discovery
 ---
-# Discovery
+# Discover
+
 
 ## Keep reading
 
