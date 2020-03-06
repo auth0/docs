@@ -1918,8 +1918,11 @@ articles:
   - title: "Professional Services"
     url: "/services"
     children:
-      - title: "Discover & Design"
-        url: "/services/discover-and-design"
+      - title: "Discovery"
+        url: "/services/discovery"
+
+      - title: "Architect & Design"
+        url: "/services/architect-and-design"
 
       - title: "Implement"
         url: "/services/implement"

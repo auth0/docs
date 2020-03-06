@@ -44,7 +44,7 @@ We can help consolidate all the enablement activities leading to a successful ad
 Designed to optimize our customers' investment in Auth0, our service offerings provide the proven best practice assistance required to help avoid common pitfalls and reduce risk when tackling the range of activities involved as part of integrating with Auth0:
     <ul>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/services/discover-and-design">Discover & Design</a>
+        <i class="icon icon-budicon-695"></i><a href="/services/architect-and-design">Architect & Design</a>
       </li>
       <li>
         <i class="icon icon-budicon-695"></i><a href="/services/implement">Implement</a>
@@ -66,7 +66,8 @@ Our packages provide our customers with the services they need, in a manner stru
 
 ## Keep reading
 
-* [Discover & Design](/services/discover-and-design)
+* [Discovery](/services/discovery)
+* [Architect & Design](/services/architect-and-design)
 * [Implement](/services/implement)
 * [Maintain and Improve](/services/maintain-and-improve)
 * [Packages](/services/packages)

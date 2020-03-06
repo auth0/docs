@@ -28,8 +28,8 @@ Auth0 Professional Services provides packaged offerings designed to optimize our
 * Expires in 90 days
 * Terms and Conditions apply
 * Services typically included:
-  * [Architectural Discovery](/services/discover-and-design#architectural-discovery)
-  * [Scenario Guidance](/services/discover-and-design#scenario-guidance)
+  * [Architectural Discovery](/services/architect-and-design#architectural-discovery)
+  * [Scenario Guidance](/services/architect-and-design#scenario-guidance)
 
 <h3 class="anchor-heading">
 	<span class="anchor"><i class="icon icon-budicon-345"></i></span>
@@ -42,8 +42,8 @@ Auth0 Professional Services provides packaged offerings designed to optimize our
 * Expires in 90 days
 * Terms and Conditions apply
 * Services typically included:
-  * [Architectural Discovery](/services/discover-and-design#architectural-discovery)
-  * [Scenario Guidance](/services/discover-and-design#scenario-guidance)
+  * [Architectural Discovery](/services/architect-and-design#architectural-discovery)
+  * [Scenario Guidance](/services/architect-and-design#scenario-guidance)
   * [Programming Advisory](/services/implement#programming-advisory)
   * [Deployment Preparation](/services/implement#deployment-preparation)
 
@@ -58,8 +58,8 @@ Auth0 Professional Services provides packaged offerings designed to optimize our
 * Expires in 180 days
 * Terms and Conditions apply
 * Services typically included:
-  * [Architectural Discovery](/services/discover-and-design#architectural-discovery)
-  * [Scenario Guidance](/services/discover-and-design#scenario-guidance)
+  * [Architectural Discovery](/services/architect-and-design#architectural-discovery)
+  * [Scenario Guidance](/services/architect-and-design#scenario-guidance)
   * [Programming Advisory](/services/implement#programming-advisory)
   * [Deployment Preparation](/services/implement#deployment-preparation)
   * Some [Custom Implementation](/services/implement#custom-implementation)
@@ -75,8 +75,8 @@ Auth0 Professional Services provides packaged offerings designed to optimize our
 * Expires in 180 days
 * Terms and Conditions apply
 * Services typically included:
-  * [Architectural Discovery](/services/discover-and-design#architectural-discovery)
-  * [Scenario Guidance](/services/discover-and-design#scenario-guidance)
+  * [Architectural Discovery](/services/architect-and-design#architectural-discovery)
+  * [Scenario Guidance](/services/architect-and-design#scenario-guidance)
   * [Programming Advisory](/services/implement#programming-advisory)
   * [Deployment Preparation](/services/implement#deployment-preparation)
   * [Custom Implementation](/services/implement#custom-implementation)
@@ -92,8 +92,8 @@ Auth0 Professional Services provides packaged offerings designed to optimize our
 * Expires in 180 days
 * Terms and Conditions apply
 * Full range of [Custom Implementation](/services/implement#custom-implementation) services, including:
-  * [Architectural Discovery](/services/discover-and-design#architectural-discovery), 
-  * [Scenario Guidance](/services/discover-and-design#scenario-guidance) and 
+  * [Architectural Discovery](/services/architect-and-design#architectural-discovery), 
+  * [Scenario Guidance](/services/architect-and-design#scenario-guidance) and 
   * [Programming Advisory](/services/implement#programming-advisory)
   
 ## Maintain and Improve packages
@@ -126,6 +126,7 @@ Auth0 Professional Services provides packaged offerings designed to optimize our
 
 ## Keep reading
 
-* [Discover & Design](/services/discover-and-design)
+* [Discovery](/services/discovery)
+* [Architect & Design](/services/architect-and-design)
 * [Implement](/services/implement)
 * [Maintain and Improve](/services/maintain-and-improve)
