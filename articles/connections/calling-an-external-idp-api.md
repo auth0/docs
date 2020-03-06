@@ -187,8 +187,7 @@ You can build a process in your backend and expose it to your application as an 
 
 The backend process will implement the steps of [the backend section](#from-the-backend). You will call the IdP's API from the same backend process so the Access Token is never exposed to your public application.
 
-Then, you will call your proxy API from your public application using the following flow:
-- [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/guides/auth-code-pkce/call-api-auth-code-pkce)
+Then, you will call your proxy API from your public application using the [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/guides/auth-code-pkce/call-api-auth-code-pkce).
 
 :::panel Show me how to do it
 If you haven't implemented this before, you might find our [SPA + API](/architecture-scenarios/application/spa-api) article useful. It covers a different scenario but it does explain how to configure Auth0, call an API from a SPA, and implement the API validations. It comes with a sample that uses [Angular 2](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets/tree/master/timesheets-spa/angular) and [Node.js](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets/tree/master/timesheets-api/node). We also offer a [Mobile + API](/architecture-scenarios/application/mobile-api) variation (the sample uses [Android](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets/tree/master/timesheets-mobile/android) and [Node.js](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets/tree/master/timesheets-api/node)).
