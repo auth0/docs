@@ -29,7 +29,7 @@ Customers buy software to solve a business problem. The longer it takes to integ
 
 We can help consolidate all the enablement activities leading to a successful adoption into three major milestones; the goal of a Professional Services engagement is to identify, document, and build consensus with you on these milestones as the path to successful Auth0 adoption: 
 
-* **Discovery and Design:** where our Solution Architects will work with your teams to identify the core goals, features, and functionality that constitute your successful IAM implementation. We'll also help you uncover any legacy architectural issues or design requirements that may need more careful consideration.
+* **Discovery, Architecture, Design and Implementation:** where our Solution Architects will work with your teams to identify the core goals, features, and functionality that constitute your successful IAM implementation. We'll also help you uncover any legacy architectural issues or design requirements that may need more careful consideration.
 
 * **Initial Go-Live:** designed to be impactful enough to make material differences in your overall Identity project. At the same time, it's limited enough that it can be reached quickly&mdash;ideally within 30 days of the project start&mdash;to keep the positive momentum. Initial Go-Live typically includes migration off a legacy IDP, must-have features, and possibly a subset of all your applications.
 
@@ -43,6 +43,9 @@ We can help consolidate all the enablement activities leading to a successful ad
 
 Designed to optimize our customers' investment in Auth0, our service offerings provide the proven best practice assistance required to help avoid common pitfalls and reduce risk when tackling the range of activities involved as part of integrating with Auth0:
     <ul>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/services/discover">Discover</a>
+      </li>
       <li>
         <i class="icon icon-budicon-695"></i><a href="/services/architect-and-design">Architect & Design</a>
       </li>
