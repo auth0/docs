@@ -28,7 +28,8 @@ Auth0 Professional Services provides packaged offerings designed to optimize our
 * Expires in 90 days
 * Terms and Conditions apply
 * Services typically included:
-  * [Discovery](/services/discover-and-design#discovery)
+  * [Architectural Discovery](/services/discover-and-design#architectural-discovery)
+  * [Scenario Guidance](/services/discover-and-design#scenario-guidance)
 
 <h3 class="anchor-heading">
 	<span class="anchor"><i class="icon icon-budicon-345"></i></span>
@@ -41,7 +42,6 @@ Auth0 Professional Services provides packaged offerings designed to optimize our
 * Expires in 90 days
 * Terms and Conditions apply
 * Services typically included:
-  * [Discovery](/services/discover-and-design#discovery)
   * [Architectural Discovery](/services/discover-and-design#architectural-discovery)
   * [Scenario Guidance](/services/discover-and-design#scenario-guidance)
   * [Programming Advisory](/services/implement#programming-advisory)
@@ -58,7 +58,6 @@ Auth0 Professional Services provides packaged offerings designed to optimize our
 * Expires in 180 days
 * Terms and Conditions apply
 * Services typically included:
-  * [Discovery](/services/discover-and-design#discovery)
   * [Architectural Discovery](/services/discover-and-design#architectural-discovery)
   * [Scenario Guidance](/services/discover-and-design#scenario-guidance)
   * [Programming Advisory](/services/implement#programming-advisory)
@@ -76,7 +75,6 @@ Auth0 Professional Services provides packaged offerings designed to optimize our
 * Expires in 180 days
 * Terms and Conditions apply
 * Services typically included:
-  * [Discovery](/services/discover-and-design#discovery)
   * [Architectural Discovery](/services/discover-and-design#architectural-discovery)
   * [Scenario Guidance](/services/discover-and-design#scenario-guidance)
   * [Programming Advisory](/services/implement#programming-advisory)
