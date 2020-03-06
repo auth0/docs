@@ -224,7 +224,6 @@ This is the OAuth 2.0 grant that web apps utilize in order to access an API.
 ### More Information
 
 - [Implicit Flow](/flows/concepts/implicit)
-- [Call Your API using the Implicit Flow](/flows/guides/implicit/call-api-implicit)
 - [State Parameter](/protocols/oauth2/oauth-state)
 - [Mitigate replay attacks when using the Implicit Grant](/api-auth/tutorials/nonce)
 - [Silent Authentication](/api-auth/tutorials/silent-authentication)

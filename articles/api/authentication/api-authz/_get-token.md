@@ -348,7 +348,7 @@ Content-Type: application/json
 This flow should only be used from highly-trusted applications that **cannot do redirects**. If you can use redirect-based flows from your app, we recommend using the [Authorization Code Flow](#regular-web-app-login-flow) instead.
 :::
 
-This is the OAuth 2.0 grant that highly-trusted apps use to access an API. In this flow, the end-user is asked to fill in credentials (username/password), typically using an interactive form in the user-agent (browser). This information is sent to the backend and from there to Auth0. It is therefore imperative that the application is absolutely trusted with this information. For [single-page applications](/flows/concepts/implicit) and [native/mobile apps](/flows/concepts/auth-code-pkce) we recommend using web flows instead.
+This is the OAuth 2.0 grant that highly-trusted apps use to access an API. In this flow, the end-user is asked to fill in credentials (username/password), typically using an interactive form in the user-agent (browser). This information is sent to the backend and from there to Auth0. It is therefore imperative that the application is absolutely trusted with this information. For [single-page applications and native/mobile apps](/flows/concepts/auth-code-pkce), we recommend using web flows instead.
 
 
 ### Request Parameters

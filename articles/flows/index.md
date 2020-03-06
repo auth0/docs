@@ -43,7 +43,7 @@ We support scenarios for server-side, mobile, desktop, client-side, machine-to-m
   <li>
       <i class="icon icon-budicon-715"></i><a href="/flows/concepts/auth-code-pkce">Authorization Code Flow with Proof Key for Code Exchange (PKCE)</a>
     <p>
-      During authentication, mobile/native applications can use the OAuth 2.0 Authorization Code Flow, but they require additional security. To mitigate this, OAuth 2.0 provides a version of the Authorization Code Flow which makes use of a Proof Key for Code Exchange (PKCE) (defined in OAuth 2.0 RFC 7636).
+      During authentication, mobile and native applications can use the OAuth 2.0 Authorization Code Flow, but they require additional security. Additionally, single-page apps have special challenges. To mitigate these, OAuth 2.0 provides a version of the Authorization Code Flow which makes use of a Proof Key for Code Exchange (PKCE) (defined in OAuth 2.0 RFC 7636).
     </p>
     <ul>
       <li>
@@ -55,16 +55,13 @@ We support scenarios for server-side, mobile, desktop, client-side, machine-to-m
     </ul>
   </li>
   <li>
-      <i class="icon icon-budicon-715"></i><a href="/flows/concepts/implicit">Implicit Flow</a>
+      <i class="icon icon-budicon-715"></i><a href="/flows/concepts/implicit">Implicit Flow with Form Post</a>
     <p>
-      During authentication, single-page applications (SPAs) have some special requirements. Since the SPA is a public client, it is unable to securely store information such as a Client Secret. As such a special authentication flow exists called the OAuth 2.0 Implicit Flow (defined in OAuth 2.0 RFC 6749, section 4.2).
+      As an alternative to the <a href="/flows/concepts/auth-code">Authorization Code Flow</a>, the OAuth 2.0 spec includes the Implicit Flow intended for <dfn data-key="public-client">Public Clients</dfn>, or applications which are unable to securely store <dfn data-key="client-secret">Client Secrets</dfn>. While this is no longer considered a best practice for requesting Access Tokens, when used with Form Post response mode, it does offer a streamlined workflow if the application needs only an <dfn data-key="id-token">ID Token</dfn> to perform user authentication.
     </p>
     <ul>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/flows/guides/implicit/add-login-implicit">Add Login Using the Implicit Flow</a>
-      </li>
-      <li>
-        <i class="icon icon-budicon-695"></i><a href="/flows/guides/implicit/call-api-implicit">Call API Using the Implicit Flow</a>
+        <i class="icon icon-budicon-695"></i><a href="/flows/guides/implicit/add-login-implicit">Add Login Using the Implicit Flow with Form Post</a>
       </li>
     </ul>
   </li>

@@ -1,6 +1,6 @@
 ---
-title: Add Login Using the Implicit Flow
-description: Learn how to add login to your single-page application (SPA) using the Implicit Flow.
+title: Add Login Using the Implicit Flow with Form Post
+description: Learn how to add login to your single-page application (SPA) using the Implicit Flow with Form Post.
 toc: true
 topics:
   - api-authentication
@@ -13,18 +13,20 @@ contentType: tutorial
 useCase:
   - add-login
 ---
-# Add Login Using the Implicit Flow
+# Add Login Using the Implicit Flow with Form Post
 
 ::: note
-This tutorial will help you add login to your single-page application (SPA) using the Implicit Flow. If you want to learn how the flow works and why you should use it, see [Implicit Flow](/flows/concepts/implicit). If you want to learn to call your API from a SPA, see [Call Your API Using the Implicit Flow](/flows/guides/implicit/call-api-implicit).
+This tutorial will help you add login to your single-page application (SPA) using the Implicit Flow with Form Post. If you want to learn how the flow works and why you should use it, see [Implicit Flow with Form Post](/flows/concepts/implicit). 
+
+You can use the Implicit Flow with Form Post for login-only use cases; if you need to request Access Tokens while logging the user in so you can call your API, use the [Authorization Code Flow with PKCE](/flows/concepts/auth-code-pkce).
 :::
 
-Auth0 makes it easy to implement the Implicit Flow by using:
+Auth0 makes it easy to implement the Implicit Flow with Form Post by using:
 
-* [Auth0.js](/libraries/auth0js): The easiest way to implement the flow, which will do most of the heavy-lifting for you. Our [Single-Page App Quickstarts](/quickstart/spa) will walk you through the process.
-* Authentication API: If you prefer to roll your own solution, keep reading to learn how to call our API directly.
+* [Express OpenID Connect SDK](https://www.npmjs.com/package/express-openid-connect): The easiest way to implement the flow, which will do most of the heavy-lifting for you. If you use our [Javascript SDK](/libraries/auth0js), please ensure you are implementing mitigations that are appropriate for your architecture.
+* Authentication API: If you prefer to roll your own solution, keep reading to learn how to call our API directly. 
 
-Following successful login, your application will have access to the user's [ID Token](/tokens/concepts/id-tokens) and [Access Token](/tokens/concepts/access-tokens), as well as an authorization code that can be exchanged with Auth0 for an additional Access Token. The ID Token will contain basic user profile information, and the Access Token can be used to call the Auth0 /userinfo endpoint or your own protected APIs.
+Following successful login, your application will have access to the user's [ID Token](/tokens/id-tokens). The ID Token will contain basic user profile information.
 
 ## Prerequisites
 
@@ -38,8 +40,6 @@ Following successful login, your application will have access to the user's [ID 
 ## Steps
 
 1. [Authorize the user](#authorize-the-user): Request the user's authorization and redirect back to your app.
-2. [Request tokens](#request-tokens): If the SPA has a back-end, exchange your authorization code for tokens, including a secure Access Token.
-
 
 Optional: [Explore Sample Use Cases](#sample-use-cases)
 

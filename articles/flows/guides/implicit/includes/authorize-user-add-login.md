@@ -14,6 +14,7 @@ To authorize the user, your app must send the user to the authorization URL.
 ```text
 https://${account.namespace}/authorize?
     response_type=YOUR_RESPONSE_TYPE&
+    response_mode=form_post&
     client_id=${account.clientId}&
     redirect_uri=${account.callback}&
     state=STATE&
@@ -25,6 +26,7 @@ https://${account.namespace}/authorize?
 | Parameter Name | Description |
 | -------------- | ----------- |
 | `response_type` | Denotes the kind of credential that Auth0 will return (code or token). For the Implicit Flow, the value can be `id_token`, `token`, or `id_token token`. Specifically, `id_token` returns an ID Token, and `token` returns an Access Token. |
+| `response_mode` | Specifies the method with which response parameters should be returned. For security purposes, the value should be `form_post`. In this mode, response parameters will be encoded as HTML form values that are transmitted via the HTTP POST method and encoded in the body using the `application/x-www-form-urlencoded` format. |
 | `client_id` | Your application's Client ID. You can find this value at your [Application's Settings](${manage_url}/#/applications/${account.clientId}/settings). |
 | `redirect_uri`  | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. You must specify this URL as a valid callback URL in your [Application Settings](${manage_url}/#/Applications/${account.clientId}/settings). <br /> <br /> **Warning:** Per the [OAuth 2.0 Specification](https://tools.ietf.org/html/rfc6749#section-3.1.2), Auth0 removes everything after the hash and does *not* honor any fragments. |
 | `scope` | Specifies the [scopes](/scopes) for which you want to request authorization, which dictate which claims (or user attributes) you want returned. These must be separated by a space. You can request any of the [standard OpenID Connect (OIDC) scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, [custom claims](/tokens/concepts/jwt-claims#custom-claims) conforming to a [namespaced format](/tokens/guides/create-namespaced-custom-claims), or any scopes supported by the target API (for example, `read:contacts`). |
@@ -37,6 +39,7 @@ As an example, your HTML snippet for your authorization URL when adding login to
 ```html
 <a href="https://${account.namespace}/authorize?
   response_type=id_token token&
+  response_mode=form_post&
   client_id=${account.clientId}&
   redirect_uri=${account.callback}&
   scope=read:tests&
@@ -48,11 +51,14 @@ As an example, your HTML snippet for your authorization URL when adding login to
 
 ### Response
 
-If all goes well, you'll receive an `HTTP 302` response. The requested credentials are included in a hash fragment at the end of the URL:
+If all goes well, you'll receive an `HTTP 302` response. The requested credentials are encoded in the body:
 
 ```text
 HTTP/1.1 302 Found
-Location: ${account.callback}#access_token=ey...MhPw&expires_in=7200&token_type=Bearer&id_token=ey...Fyqk&state=xyzABC123
+Content-Type: application/x-www-form-urlencoded
+
+id_token=eyJ...acA&
+state=xyzABC123
 ```
 
 Note that the returned values depend on what you requested as a `response_type`.
