@@ -45,7 +45,7 @@ Datadog Event Log Streams let you export your log events to Datadog for further 
 
 1. Navigate to **Logs** > **Livetail**.
 2. See Auth0 logs by setting the Source to Auth0.
-![Datadog Logs Dashboard](/media/articles/logs/datadog/tutorial-3.png)
+![Datadog Logs Dashboard](/media/articles/logs/datadog/tutorial-4.png)
 
 
 ## Delivery attempts and retries
