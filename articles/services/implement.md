@@ -35,7 +35,7 @@ In addition, our Custom Implementation services&mdash;delivered as part of a num
 
 ## Keep reading
 
-* [Discovery](/services/discovery)
+* [Discover](/services/discover)
 * [Architect & Design](/services/architect-and-design)
 * [Maintain and Improve](/services/maintain-and-improve)
 * [Packages](/services/packages)

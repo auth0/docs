@@ -14,7 +14,7 @@ useCase:
 ---
 # Architect & Design
 
-our Discover & Design services are here to help you architect and design your Identity and Access Management solution. We work together with your product and engineering teams to **architect an Identity solution** for your environment and build on your **incremental Go-Live plan** in a way that addresses the most-pressing identity problems early. Auth0 Professional Services helps your projects quickly reach success by addressing your business objectives in a pragmatic, step-by-step manner. 
+Our Architecture & Design services are here to help you architect and design your Identity and Access Management solution. We work together with your product and engineering teams to **architect an Identity solution** for your environment and build on your **incremental Go-Live plan** in a way that addresses the most-pressing identity problems early. Auth0 Professional Services helps your projects quickly reach success by addressing your business objectives in a pragmatic, step-by-step manner. 
 
 <%= include('./_includes/_further-help.md') %>
 
@@ -28,7 +28,7 @@ Guiding you through your use case scenarios, our Scenario Guidance services help
 
 ## Keep reading
 
-* [Discovery](/services/discovery)
+* [Discover](/services/discover)
 * [Implement](/services/implement)
 * [Maintain and Improve](/services/maintain-and-improve)
 * [Packages](/services/packages)

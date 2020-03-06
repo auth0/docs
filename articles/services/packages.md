@@ -126,7 +126,7 @@ Auth0 Professional Services provides packaged offerings designed to optimize our
 
 ## Keep reading
 
-* [Discovery](/services/discovery)
+* [Discover](/services/discover)
 * [Architect & Design](/services/architect-and-design)
 * [Implement](/services/implement)
 * [Maintain and Improve](/services/maintain-and-improve)

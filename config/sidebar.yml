@@ -1918,8 +1918,8 @@ articles:
   - title: "Professional Services"
     url: "/services"
     children:
-      - title: "Discovery"
-        url: "/services/discovery"
+      - title: "Discover"
+        url: "/services/discover"
 
       - title: "Architect & Design"
         url: "/services/architect-and-design"
