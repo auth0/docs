@@ -7,11 +7,12 @@ For this example, you'll create an [Express](https://expressjs.com/) server that
 Start by installing the following packages:
 
 ```bash
-npm install express express-jwt jwks-rsa npm-run-all
+npm install cors express express-jwt jwks-rsa npm-run-all
 ```
 
 * [`express`](https://github.com/expressjs/express) - a lightweight web server for Node
 * [`express-jwt`](https://www.npmjs.com/package/express-jwt) - middleware to validate JsonWebTokens
+* [`cors`](https://github.com/expressjs/cors) - middleware to enable CORS
 * [`jwks-rsa`](https://www.npmjs.com/package/jwks-rsa) - retrieves RSA signing keys from a JWKS endpoint
 * [`npm-run-all`](https://www.npmjs.com/package/npm-run-all) - a helper to run the SPA and backend API concurrently
 
@@ -19,11 +20,15 @@ Next, create a new file `server.js` with the following code:
 
 ```js
 const express = require("express");
+const cors = require("cors");
 const jwt = require("express-jwt");
 const jwksRsa = require("jwks-rsa");
 
 // Create a new Express app
 const app = express();
+
+// Accept cross-origin requests from the frontend app
+app.use(cors({ origin: 'http://localhost:3000' }));
 
 // Set up Auth0 configuration
 const authConfig = {
