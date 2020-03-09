@@ -1237,7 +1237,7 @@ articles:
       - title: Retrieve Logs Using the Management API
         url: /logs/guides/retrieve-logs-mgmt-api
 
-      - tite: Log Event Type Codes
+      - title: Log Event Type Codes
         url: /logs/references/log-event-type-codes
 
       - title: Log Search Query Syntax
