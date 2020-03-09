@@ -10,7 +10,7 @@ useCase:
 ---
 # Refresh Token Rotation
 
-Refresh Token rotation provides greater security by issuing a new Refresh Token with each request made to Auth0 for a new Access Token by a client using Refresh Tokens. Rotation consists of issuing a new token and invalidating its predecessor. By rotating the Refresh Token, the risk of a compromised Refresh Token is greatly reduced. Refresh Token rotation in Auth0 is built in conformance with the [OAuth 2.0 BCP](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-13#section-4.12). 
+Refresh Token rotation consists of issuing a new token and invalidating its predecessor. By rotating the Refresh Token, the risk of a compromised Refresh Token is greatly reduced. 
 
 Refresh Token rotation is supported in conjunction with the following flows:
 * OAuth2 Authorization Code Flow
@@ -59,4 +59,4 @@ const auth0 = await createAuth0Client({
 * [Enable Refresh Token Rotation for Applications](/tokens/guides/enable-refresh-token-rotation)
 * [Disable Refresh Token Rotation for Applications](/tokens/guides/disable-refresh-token-rotation)
 * [Rotate Refresh Tokens](/tokens/guides/rotate-refresh-tokens)
-
+* [OAuth 2.0 BCP](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-13#section-4.12)
