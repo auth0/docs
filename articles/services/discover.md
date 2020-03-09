@@ -18,9 +18,11 @@ Why Discovery? Identifying your primary objectives early on will help you and yo
 
 ## Discovery Workshop
 
-Discovery comes optionally included as part of all the [packages](/services/packages) available from Auth0 Professional Services. Our [Discovery Workshop package](/services/packages#-discovery-workshop-) however, offers a cost effective Discovery option that just gives you access to the wealth of valuable guidance provided by an Auth0 Solutions Architect, and captured in your own uniquely tailored [Discovery Documentation](#discovery-documentation).   
+Discovery comes optionally included as part of all [packages](/services/packages) available from Auth0 Professional Services. Our [Discovery Workshop](/services/packages#-discovery-workshop-) offers a cost effective Discovery option which simply gives you access to just the wealth of valuable guidance that's provided by an Auth0 Solutions Architect, and is specifically geared for customers who require nothing more. Of course, you can always engage with Professional Services beyond a Discovery Workshop, but whichever option you choose the results of Discovery are captured in your own bespoke and uniquely tailored [Discovery Documentation](#discovery-documentation).   
 
 ## Discovery Documentation
+
+Discovery documentation comes in a numnber of forms that complement to provide different views regarding your integration with Auth0. Your [Discovery Report](#discovery-report) describes what you need to consider as art of your integration, and acts as a baseline document going forward; projects often benefit from more than one Discovery, as and when required. [Planning Guidance](#planning-guidance) offers you a view on how to tackle your integration, and provides at-a-glance view regarding which topics to address and when to address them. For further deatils, please see the examples provided below.   
 
 <h3 class="anchor-heading">
 	<span class="anchor"><i class="icon icon-budicon-345"></i></span>
