@@ -58,7 +58,7 @@ This will create a new application and grant **all <dfn data-key="scope">scopes<
 ::: panel Can't see the button?
 If you don't see this button, it means that you already have at least one authorized application for the Management API. In this case, you can either update the scopes of the existing application and use that, or create a new one following these steps:
 
-1. Navigate to [Applications](${manage_url}/#/applications) in the [Auth0 Dashboard](${manage_url}), and click **Create Application**. 
+1. Navigate to [Applications](${manage_url}/#/applications) in the [Dashboard](${manage_url}), and click **Create Application**. 
 2. Select **Machine to Machine Applications**, and click **Create**
 3. From the **Select an API** dropdown, select `Auth0 Management API`.
 4. Enable required scopes, and click **Authorize**.
@@ -70,7 +70,7 @@ If you don't see this button, it means that you already have at least one author
 For security reasons, we recommend that you assign only the required scopes to the application you will be using. For this particular case, the scopes you need are: `read:users`, `read:user_idp_tokens`. Required scopes are listed for each endpoint in the [Management API Explorer](/api/management/v2/).
 :::
 
-To grant or remove scopes from the [registered Auth0 Management API](${manage_url}/#/apis/management/authorized-clients) in the [Dashboard],click the [**Machine to Machine Applications** tab](${manage_url}/#/apis/management/authorized-clients):
+To grant or remove scopes from the [registered Auth0 Management API](${manage_url}/#/apis/management/authorized-clients) in the [Dashboard](${manage_url}), click the [**Machine to Machine Applications** tab](${manage_url}/#/apis/management/authorized-clients):
 
 ![Edit the scopes granted to the Application](/media/articles/connections/edit-granted-scopes.png)
 
@@ -127,7 +127,7 @@ Replace these values:
 
 ::: panel Where do I find the User ID?
 - For testing purposes, you can find a user ID at [Users](${manage_url}/#/users/) in the [Auth0 Dashboard](${manage_url}). Locate a user, and copy the value of the **user_id** field.
-- For your implementation, you can either extract this information from the `sub` claim in the [ID Token](/tokens/concepts/id-tokens), or call the [/userinfo endpoint](/api/authentication#get-user-info) of the Authentication API and extract it from the `user_id` response property.
+- For your implementation, you can either extract the user ID from the `sub` claim in the [ID Token](/tokens/concepts/id-tokens), or call the [/userinfo endpoint](/api/authentication#get-user-info) of the Authentication API and extract it from the `user_id` response property.
 :::
 
 ### Step 3: Extract the IdP Access Token
