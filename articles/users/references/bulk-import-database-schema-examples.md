@@ -309,7 +309,7 @@ When the `algorithm` is set to `pbkdf2`:
 - `hash.encoding` must be `utf8`.
 - `hash.salt` is not allowed.
 - `hash.value` should be in [PHC string format](https://github.com/P-H-C/phc-string-format/blob/master/phc-sf-spec.md).
-- `hash.value` must include the base64 encoded salt (as specified in the `PHC` documentation).
+- `hash.value` must include the B64 encoded salt (base64 omitting padding characters `=`, as specified in the `PHC` documentation).
 - `hash.value` should include `i` (iterations) and `l` (keylen) parameters. If these parameters are omitted, they will default to `i=100000` and `l=64`.
 - The `id` should be in a `pbkdf2-<digest>` format (`pbkdf2-sha512`, `pbkdf2-md5`, etc). The supported digests are:
     - `RSA-MD4`
