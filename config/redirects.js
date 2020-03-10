@@ -1912,8 +1912,8 @@ module.exports = [
     to: `/users/concepts/overview-user-account-linking`
   },
   {
-    from: ['/videos/session-and-cookies', '/security/store-tokens'],
-    to: '/tokens/guides/store-tokens'
+    from: ['/videos/session-and-cookies', '/security/store-tokens', '/tokens/guides/store-tokens'],
+    to: '/tokens/concepts/token-storage'
   },
   {
     from: '/support/sla',

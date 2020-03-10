@@ -55,7 +55,7 @@ Or, to use our API endpoints, you can follow our tutorial: [Call Your API Using 
   * [Auth0 Regular Web App Quickstarts](/quickstart/webapp)
   * [Call Your API Using the Authorization Code Flow](/flows/guides/auth-code/call-api-auth-code)
   * [Change scopes and add custom claims to tokens using hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
-  * [Store Tokens](/tokens/guides/store-tokens)
+  * [Token Storage](/tokens/concepts/token-storage)
 :::
 
 ::: references

@@ -1749,8 +1749,8 @@ articles:
                 url: "/tokens/references/jwt-structure"
                 hidden: true 
 
-          - title: "Store Tokens"
-            url: "/tokens/guides/store-tokens"
+          - title: "Token Storage"
+            url: "/tokens/concepts/token-storage"
 
           - title: "Revoke Tokens"
             url: "/tokens/guides/revoke-tokens"
