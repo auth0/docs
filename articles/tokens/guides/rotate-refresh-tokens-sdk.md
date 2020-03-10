@@ -8,13 +8,15 @@ useCase:
   - refresh-token-rotation
   - silent-authentication
 ---
-# Rotate Refresh Tokens
+# Rotate Refresh Tokens in SPAs Using auth0-sp-js SDK
 
-To take advantage of the Refresh Token rotation functionality, a new option `useRefreshTokens` has been added to `createAuth0Client`, which defaults to `false`.
+To take advantage of the Refresh Token rotation functionality, the option `useRefreshTokens` has been added to `createAuth0Client`, which defaults to `false`.
 
-With this option set to `true`, the `offline_access` scope is automatically requested when using `loginWithRedirect(), loginWithPopup()` and `getTokenSilently()`. Furthermore, when `getTokenSilently()` is invoked and the access token has expired, the SDK will attempt to renew the ID and access tokens by calling the `/token` endpoint using the `refresh_token` grant type along with the Refresh Token from the cache. 
+* With this option set to `true`, the `offline_access` scope is automatically requested when using `loginWithRedirect(), loginWithPopup()` and `getTokenSilently()`. Furthermore, when `getTokenSilently()` is invoked and the access token has expired, the SDK will attempt to renew the ID and Access Tokens by calling the `/token` endpoint using the `refresh_token` grant type along with the Refresh Token from the cache. 
 
-With this option set to `false`, when `getTokenSilently()` is invoked and a new Access Token is required, the SDK will attempt to acquire a new Access Token using a hidden iframe and `prompt=none`.
+* With this option set to `false`, when `getTokenSilently()` is invoked and a new Access Token is required, the SDK will attempt to acquire a new Access Token using a hidden iframe and `prompt=none`.
+
+## Example
 
 The following example shows how to configure the SDK to use both local storage and refresh tokens:
 

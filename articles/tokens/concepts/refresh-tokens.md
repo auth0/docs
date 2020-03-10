@@ -50,7 +50,7 @@ If you have added custom claims to your tokens using a rule, the custom claims w
 
 ## Refresh Token rotation
 
-[Refresh Token rotation](/tokens/concepts/refresh-token-rotation) provides greater security by issuing a new Refresh Token with each request made to Auth0 for a new Access Token. Rotation consists of issuing a new token and invalidating its predecessor token. By rotating the Refresh Token, the risk of a compromised Refresh Token is greatly reduced. Refresh Token rotation in Auth0 conforms with the [OAuth 2.0 BCP](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-13#section-4.12). 
+[Refresh Token rotation](/tokens/concepts/refresh-token-rotation) provides greater security by issuing a new Refresh Token and invalidating its predecessor token with each request made to Auth0 for a new Access Token. Rotating the Refresh Token reduces the risk of a compromised Refresh Token. Refresh Token rotation in Auth0 conforms with the [OAuth 2.0 BCP](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-13#section-4.12). 
 
 ## SDK support
 

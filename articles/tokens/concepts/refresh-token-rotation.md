@@ -10,13 +10,15 @@ useCase:
 ---
 # Refresh Token Rotation
 
-Refresh Token rotation consists of issuing a new token and invalidating its predecessor. By rotating the Refresh Token, the risk of a compromised Refresh Token is greatly reduced. 
+[Refresh Token](/tokens/concepts/refresh-tokens) rotation provides greater security by issuing a new Refresh Token and invalidating its predecessor token with each request made to Auth0 for a new [Access Token](/tokens/cocncepts/access-tokens). 
+
+Refresh Token rotation in Auth0 conforms with the [OAuth 2.0 BCP](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-13#section-4.12). 
 
 Refresh Token rotation is supported in conjunction with the following flows:
-* OAuth2 Authorization Code Flow
-* OAuth2 Authorization Code Flow with Proof Key for Code Exchange (PKCE)
-* Resource Owner Password Grant
-* Device Authorization Flow
+* [Authorization Code Flow](/flows/concepts/auth-code)
+* [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce)
+* [Resource Owner Password Credentials Exchange](/api-auth/tutorials/adoption/password)
+* [Device Authorization Flow](/flows/concepts/device-auth)
 
 ## How it works
 
@@ -34,29 +36,10 @@ For single page apps, you can use the `auth0-spa-js` SDK to perform silent re-au
 
 * Developers now also have a config option to use Refresh Tokens to retrieve new access tokens. With this option enabled, SPA JS will now request the offline_access scope automatically, and call the token endpoint directly with a refresh token (if available). The default  iframe method with prompt=none will not be used if Refresh Tokens are enabled.
 
-## Token storage considerations
-
-::: warning
-Storing tokens in local storage could leave your tokens vulnerable in the event of an XSS attack.
-:::
-
-By default, `auth0-spa-js` stores tokens in memory. You also have the option of storing tokens in local storage.
-
-The storage strategy can be configured using the option `cacheLocation` when invoking `createAuth0Client`. The `cacheLocation` option can be set to one of two values: `memory`, or `localstorage`. 
-
-The following example shows how to configure the SDK to use local storage to store tokens:
-
-```js
-const auth0 = await createAuth0Client({
-    domain: '<your Auth0 domain>',
-    client_id: '<your Auth0 client ID>',
-    cacheLocation: 'localstorage'
-});
-```
-
 ## Keep reading
 
-* [Enable Refresh Token Rotation for Applications](/tokens/guides/enable-refresh-token-rotation)
-* [Disable Refresh Token Rotation for Applications](/tokens/guides/disable-refresh-token-rotation)
-* [Rotate Refresh Tokens](/tokens/guides/rotate-refresh-tokens)
+* [Enable Refresh Token Rotation](/tokens/guides/enable-refresh-token-rotation)
+* [Disable Refresh Token Rotation](/tokens/guides/disable-refresh-token-rotation)
+* [Rotate Refresh Tokens in SPAs Using auth0-sp-js SDK](/tokens/guides/rotate-refresh-tokens-sdk)
+* [Token Storage](/tokens/concepts/token-storage)
 * [OAuth 2.0 BCP](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-13#section-4.12)
