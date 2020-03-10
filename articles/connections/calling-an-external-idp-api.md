@@ -1,6 +1,6 @@
 ---
 title: Call an Identity Provider API
-description: Learn how to call an Identity Provider's API.
+description: Learn how to call an external Identity Provider API.
 toc: true
 crews: crew-2
 topics:
