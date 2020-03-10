@@ -297,6 +297,27 @@ Save this file and run the artisan command to create this table:
 php artisan migrate
 ```
 
+From here, we need to make sub fillable. Edit the app/User.php file to remove the `password` entry and replace it with `sub`  
+
+```php
+// app/User.php
+// ...
+class User extends Authenticatable
+{
+    use Notifiable;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name', 'email', 'sub',
+    ];
+    // ...
+}
+```
+
 Next, make a `CustomUserRepository.php` class we can modify:
 
 ```bash
