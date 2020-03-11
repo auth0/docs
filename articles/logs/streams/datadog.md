@@ -11,11 +11,11 @@ contentType: how-to
 
 # Datadog Event Log Streams
 
-Datadog Event Log Streams let you export your log events to Datadog for further analysis and monitoring. When Auth0 creates a log entry for your tenant, a copy is automatically sent to Datadog with the `source` and `service` both set to `Auth0`.
+Datadog Event Log Streams let you export your log events to Datadog for further analysis and monitoring. When Auth0 creates a log entry for your tenant, a copy is automatically sent to Datadog with the `source` and `service` both set to `auth0`.
 
 ## Create a Datadog Event Stream
 
-### Configure settings in Datadog
+### Copy API Key from Datadog
 
 1. Head to the Datadog dashboard.
 2. Navigate to **Integrations** -> **APIs**.
@@ -29,22 +29,22 @@ Datadog Event Log Streams let you export your log events to Datadog for further 
 2. Navigate to **Logs > Streams**.
 3. Click **+ Create Stream**.
 4. Select **Datadog** and enter a unique name for your new Datadog Event Stream.
-5. On the next screen, provide the following settings for your HTTP Event Stream:
+5. On the next screen, provide the following settings for your Datadog Event Stream:
 
 | Setting | Description |
 |---------|-------------|
 | API Key | The Datadog API key you copied from the Datadog dashboard |
-| Region | If you are in the Datadog EU site (app.datadoghq.eu), the `Region` should be `EU`, otherwise it should be `GLOBAL` |
+| Region | If you are in the Datadog EU site (app.datadoghq.eu), the `Region` should be `EU`, otherwise it should be `US` |
 
 ![Datadog Settings Form](/media/articles/logs/datadog/tutorial-3.png)
 
 6. Click **Save**.
-7. You're done! Now when Auth0 writes the next tenant log, you'll receive a copy of that log event in Datadog with the `source` and `service` set to `Auth0`.
+7. You're done! Now when Auth0 writes the next tenant log, you'll receive a copy of that log event in Datadog with the `source` and `service` set to `auth0`.
 
 ### View logs in Datadog
 
 1. Navigate to **Logs** > **Livetail**.
-2. See Auth0 logs by setting the Source to Auth0.
+2. See Auth0 logs by setting the `source` to `auth0`.
 ![Datadog Logs Dashboard](/media/articles/logs/datadog/tutorial-4.png)
 
 ## Delivery attempts and retries
