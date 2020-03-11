@@ -38,7 +38,7 @@ Switch to the test application created when registering your API and make note o
 
 ## Implement the Client Credentials flow
 
-Now you're ready to implement the [Client Credentials Flow](/flows/guides/client-credentials/call-api-client-credentials#request-token) to request the Access Tokens you can provide to Apigee Edge.
+Now you're ready to implement the [Client Credentials Flow](/flows/guides/client-credentials/call-api-client-credentials#request-token) to request the Access Tokens you can provide to Apigee Edge. Note that in this scenario, you will use the Client Credentials Flow because you are using Apigee with your backend service APIs, which represents a Machine-to-Machine (M2M) application; other scenarios may require the use of different flows.
 
 To learn how to log in and get an Access Token that can be used to call Apigee Edge, see [Call API Using the Client Credentials Flow](/flows/guides/client-credentials/call-api-client-credentials).
 
