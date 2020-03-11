@@ -25,7 +25,7 @@ Auth0 Professional Services packages can be consumed in a mix-and-match fashion 
 		<img src="/media/articles/services/file_type_icons-04.png" alt="">&nbsp;Discovery Workshop</a>
 </h3>
 
-Our Discovery Workshop (click link above for more information) provides you with access to just our [Discovery](services/discover) sevices and nothing more. This is an ideal engagement if you have mature identity skills within your organization, existing experience with Auth0, and are looking to get a new project/project feature validated by one of our experienced Solution Architects. A typical Discovery Workshop (terms and conditions apply) offers: 
+Our Discovery Workshop (click link above for more information) provides you with access to just our [Discovery](services/discover) sevices and nothing more. This is an ideal engagement if you have mature identity skills within your organization, existing experience with Auth0, and are looking to get a new project/project feature set validated by one of our experienced Solution Architects. A typical Discovery Workshop (terms and conditions apply) offers: 
 
 * 2 days (16 hours) of services
 * Remote/on-site, as mutually agreed
@@ -40,7 +40,7 @@ Our Discovery Workshop (click link above for more information) provides you with
 		<img src="/media/articles/services/file_type_icons-04.png" alt="">&nbsp;Basic Package</a>
 </h3>
 
-An entry level to Professional Services, the Basic Package (click link above for more information) provides you with access to our [Discovery](services/discover) sevice, together with a range of the other services we have to offer; see below for further details. This is an ideal engagement if you have identity skills within your organization, and are looking to get expert help as you get a new project/project feature integrated with Auth0. A typical Basic Package (terms and conditions apply) offers: 
+An entry level to Professional Services, the Basic Package (click link above for more information) provides you with access to our [Discovery](services/discover) sevice, together with a range of the other services we have to offer; see below for further details. This is an ideal engagement if you have identity skills within your organization, and are looking to get expert help as you get a new project/project feature set integrated with Auth0. A typical Basic Package (terms and conditions apply) offers: 
 
 * 5 days (40 hours) of services
 * Remote/on-site, as mutually agreed
@@ -58,7 +58,7 @@ An entry level to Professional Services, the Basic Package (click link above for
 		<img src="/media/articles/services/file_type_icons-04.png" alt="">&nbsp;Standard Package</a>
 </h3>
 
-Arguably the classic way to engage with Professional Services, our Standard Package (click link above for more information) provides you with access to [Discovery](services/discover), and the wide range of additional services as described below. This is an ideal engagement if you've just begun working with Auth0, and you're looking for expertise and specialist advice as you get a new project/project feature integrated. A typical Standard Package (terms and conditions apply) offers: 
+Arguably the classic way to engage with Professional Services, our Standard Package (click link above for more information) provides you with access to [Discovery](services/discover), and the wide range of additional services as described below. This is an ideal engagement if you've just begun working with Auth0, and you're looking for expertise and specialist advice as you get a new project/project feature set integrated. A typical Standard Package (terms and conditions apply) offers: 
 
 * 12 days (96 hours) of services
 * Remote/on-site, as mutually agreed
@@ -76,7 +76,7 @@ Arguably the classic way to engage with Professional Services, our Standard Pack
 		<img src="/media/articles/services/file_type_icons-04.png" alt="">&nbsp;Advanced Package</a>
 </h3>
 
-The full range of Professional Services delivered in a comprehensive engagement, the Advanced Package provides access to [Discovery](services/discover), and all the other services described below. This is the engagement for you, if you have several projects and/or teams requiring a broad range of identity skills and varying degress of specialist help. A typical Advanced Package (terms and conditions apply) offers: 
+The full range of Professional Services delivered in a comprehensive manner, the Advanced Package provides access to [Discovery](services/discover) as well as all the other services described below. If you have several projects, project requirements and/or teams, that need to leverage a broad range of identity skills with varying degress of specialism, then this is the engagement for you. A typical Advanced Package (terms and conditions apply) offers: 
 
 * 25 days (200 hours) of services
 * Remote/on-site, as mutually agreed
