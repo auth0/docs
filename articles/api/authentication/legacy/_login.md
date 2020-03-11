@@ -97,7 +97,7 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 
 - [Identity Provider Access Tokens](/tokens/overview-idp-access-tokens)
 
-- [Add scopes/permissions to call Identity Provider's APIs](/tutorials/adding-scopes-for-an-external-idp)
+- [Add scopes/permissions to call Identity Provider's APIs](/connections/adding-scopes-for-an-external-idp)
 
 ## Database/AD/LDAP (Active)
 
