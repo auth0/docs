@@ -23,11 +23,12 @@ Auth0 Professional Services provides packaged offerings designed to optimize our
 		<img src="/media/articles/services/file_type_icons-04.png" alt="">&nbsp;Discovery Workshop</a>
 </h3>
 
-* 2 days of services
+Our classic Discovery Workshop (click link above for details) provides you with access to just our [Discovery](services/discover) sevices and nothing more. This is an ideal engagement if you have mature identity skills within your organization, existing experience with Auth0, and are looking to get a new project/project feature validated by one of our experienced Solution Architects. A typical Discovery Workshop (terms and conditions apply) offers: 
+
+* 2 days (16 hours) of services
 * Remote/on-site, as mutually agreed
-* Expires in 90 days
-* Terms and Conditions apply
-* Services typically included:
+* Expiration in 90 days
+* Services included:
   * [Architectural Discovery](/services/architect-and-design#architectural-discovery)
   * [Scenario Guidance](/services/architect-and-design#scenario-guidance)
 
@@ -37,9 +38,9 @@ Auth0 Professional Services provides packaged offerings designed to optimize our
 		<img src="/media/articles/services/file_type_icons-04.png" alt="">&nbsp;Basic Package</a>
 </h3>
 
-* 5 days of services
-* Remote only
-* Expires in 90 days
+* 5 days (40 hours) of services
+* Remote/on-site, as mutually agreed
+* Typically expires in 90 days
 * Terms and Conditions apply
 * Services typically included:
   * [Architectural Discovery](/services/architect-and-design#architectural-discovery)
@@ -53,9 +54,9 @@ Auth0 Professional Services provides packaged offerings designed to optimize our
 		<img src="/media/articles/services/file_type_icons-04.png" alt="">&nbsp;Standard Package</a>
 </h3>
 
-* 12 days of services
+* 12 days (96 hours) of services
 * Remote/on-site, as mutually agreed
-* Expires in 180 days
+* Typically expires in 180 days
 * Terms and Conditions apply
 * Services typically included:
   * [Architectural Discovery](/services/architect-and-design#architectural-discovery)
@@ -70,9 +71,9 @@ Auth0 Professional Services provides packaged offerings designed to optimize our
 		<img src="/media/articles/services/file_type_icons-04.png" alt="">&nbsp;Advanced Package</a>
 </h3>
 
-* 25 days of services
-* On-site
-* Expires in 180 days
+* 25 days (200 hours) of services
+* Remote/on-site, as mutually agreed
+* Typically expires in 180 days
 * Terms and Conditions apply
 * Services typically included:
   * [Architectural Discovery](/services/architect-and-design#architectural-discovery)
@@ -89,7 +90,7 @@ Auth0 Professional Services provides packaged offerings designed to optimize our
 
 * 15 or more days of services
 * Remote only
-* Expires in 180 days
+* Typically expires in 180 days
 * Terms and Conditions apply
 * Full range of [Custom Implementation](/services/implement#custom-implementation) services, including:
   * [Architectural Discovery](/services/architect-and-design#architectural-discovery), 
@@ -106,7 +107,7 @@ Auth0 Professional Services provides packaged offerings designed to optimize our
 
 * 1 to 3 days of services
 * Remote/on-site, as mutually agreed
-* Expires in 90 days
+* Typically expires in 90 days
 * Terms and Conditions apply
 * Wide range of [maintain and improve](/services/maintain-and-improve) services
  
@@ -119,7 +120,7 @@ Auth0 Professional Services provides packaged offerings designed to optimize our
 
 * 24 days of services
 * On-site
-* Expires in 365 days
+* Typically expires in 365 days
 * Terms and Conditions apply
 * Full range of [maintain and improve](/services/maintain-and-improve) services
 
