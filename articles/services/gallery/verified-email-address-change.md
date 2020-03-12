@@ -32,9 +32,10 @@ Auth0 Professional Services provide Custom Implementation for a wide range of us
 <h3 class="anchor-heading">
 	<span class="anchor"><i class="icon icon-budicon-345"></i></span>
 	<a data-trackOutbound href="https://drive.google.com/open?id=1DtjpHFTwK6wN0B6BlaaXpbIFbU0BlUagDlymP0RGZgw">
-		<img src="/media/articles/services/file_type_icons-05.png" alt="">&nbsp;Design</a>
+		<img src="/media/articles/services/file_type_icons-04.png" alt="">&nbsp;Design Details</a>
 </h3>
 
+Our Design documentation (click link above to access) provides you with comprehensive details that are implementation agnostic. Using the information provided, you and your team can implement Verified Email Address Change workflow whatever the technology stack you currently, or plan, to utilize. The information is provided free of charge and without warentee - either explicit or implied.    
 
 ## Keep reading
 
