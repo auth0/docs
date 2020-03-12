@@ -1349,9 +1349,6 @@ articles:
           - title: "Deploy CLI Options"
             url: "/extensions/deploy-cli/references/deploy-cli-options"
 
-          - title: "What's New"
-            url: "/extensions/deploy-cli/references/whats-new"
-
           - title: "Troubleshoot Deploy CLI"
             url: "/extensions/deploy-cli/references/troubleshooting"
             hidden: true

@@ -55,7 +55,7 @@ The `auth0-deploy-cli` tool uses the Management API to pass through objects for 
 
 You may occasionally see `Bad Request` and `Payload validation` errors returned by the Management API. These errors usually mean the object you're working with has attributes which are not writable or no longer available. This can happen when you are exporting from an older Auth0 tenant and importing into a newly-created tenant.
 
-If this is the case, update your configuration to support the new object format used by Auth0. For more information, see [What's New in Deploy CLI Tool](/extensions/deploy-cli/references/whats-new). 
+If this is the case, update your configuration to support the new object format used by Auth0. 
 
 ## Keep reading
 

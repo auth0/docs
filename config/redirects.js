@@ -2456,9 +2456,5 @@ module.exports = [
     {
       from: '/integrations/aws-eventbridge',
       to: '/logs/streams/aws-eventbridge'
-    },
-    {
-      from: '/extensions/deploy-cli/references/whats-new-v2',
-      to: 'articles/extensions/deploy-cli/references/whats-new'
     }
 ];

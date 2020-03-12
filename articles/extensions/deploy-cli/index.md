@@ -40,5 +40,4 @@ This tool can be destructive to your Auth0 tenant. Please ensure you have read t
 * [Incorporate Deploy CLI into Build Environment](/extensions/deploy-cli/guides/incorporate-deploy-cli-into-build-environment)
 * [Deploy CLI Tool Options](/extensions/deploy-cli/references/deploy-cli-options)
 * [Environment Variables and Keyword Mappings](/extensions/deploy-cli/references/environment-variables-keyword-mappings)
-* [What's New in Deploy CLI Tool](/extensions/deploy-cli/references/whats-new)
 * [Troubleshooting Deploy CLI Tool](/extensions/deploy-cli/references/troubleshooting)

@@ -1,6 +1,8 @@
 ---
 title: What's New in Deploy CLI Tool
 description: Learn about features released in new versions of the Auth0 Deploy Command Line Interface (CLI) tool.
+public: false
+sitemap: false
 topics:
   - extensions
   - deploy-cli

@@ -1,7 +1,6 @@
 ---
 title: Connection Options in the Management API
 description: Learn about the options attribute when creating a connection using the Management API.
-toc: true
 topics:
   - connections
   - mgmt-api
