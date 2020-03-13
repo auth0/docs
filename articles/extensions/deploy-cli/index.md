@@ -36,7 +36,7 @@ This tool can be destructive to your Auth0 tenant. Please ensure you have read t
 
 For version 4, the `auth0-deploy-cli` tool was updated to add support for Hooks and Hook Secrets.
 
-<%= include('../_includes/_upgrade-v4') %>
+<%= include('./_includes/_upgrade-v4') %>
 
 ## Previous versions
 
