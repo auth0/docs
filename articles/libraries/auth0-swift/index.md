@@ -21,9 +21,9 @@ Check out the [Auth0.swift repository](https://github.com/auth0/Auth0.swift) on 
 
 ## Requirements
 
-- iOS 9 or later
-- Xcode 8
-- Swift 3.0
+- iOS 9+
+- Xcode 10+
+- Swift 4+
 
 ## Installation
 
@@ -110,7 +110,7 @@ Auth0.swift will only handle URLs with your Auth0 domain as host, for example `c
 Allow Auth0 to handle authentication callbacks. In your `AppDelegate.swift` add the following:
 
 ```swift
-func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
+func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
     return Auth0.resumeAuth(url, options: options)
 }
 ```
@@ -202,7 +202,7 @@ Auth0
 
 ## Next Steps
 
-Take a look at the following resources to see how the Auth0.Swift SDK can be customized for your needs:
+Take a look at the following resources to see how the Auth0.swift SDK can be customized for your needs:
 
 ::: next-steps
 * [Auth0.Swift Database Authentication](/libraries/auth0-swift/database-authentication)
