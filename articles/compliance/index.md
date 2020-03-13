@@ -14,7 +14,10 @@ useCase: compliance
   <div data-name="example" class="topic-page-badge"></div>
   <h1>Compliance Frameworks and Certifications</h1>
   <p>
-    Auth0 maintains and meets the requirements for multiple compliance frameworks and certifications. To download or request Auth0 compliance documentation, go to <a href="https://support.auth0.com/compliance">Auth0 Support Center: Compliance</a>.
+    Auth0 maintains and meets the requirements for multiple compliance frameworks and certifications.
+  </p>
+  <p>
+    To download or request Auth0 compliance documentation, go to <a href="https://support.auth0.com/compliance">Auth0 Support Center: Compliance</a>.
   </p>
 </div>
 
