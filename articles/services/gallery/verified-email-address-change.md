@@ -21,7 +21,7 @@ useCase:
 
 A self-service facility typically provides users with the capability to change one or more aspects of their user profile. Commonly referred to as _MyAccount_ or _MyProfile_ functionality, this often includes the ability for a user to change his/her email address - for cases where an existing email address is no longer valid or a different email address is preferred. Self-service email address change without the proper controls however, can lead to various account management issues, and/or expose security vulnerabilities which can be exploited. 
 
-Verified Email Address Change workflow is provided by Auth0 Professional Services as a customized extensibility solution, that leverages Auth0 functionality to address the sort of problems that can occur in unverified email address change scenarios. For further information regarding this, or any other customized extensibility provided by Auth0 Professional Services, please contact your account representative, or get in-touch with us directly. 
+Verified Email Address Change workflow is provided by Auth0 Professional Services as a customized extensibility solution, that leverages Auth0 functionality to address the sort of problems that can occur in unverified email address change scenarios. For further information regarding this, or any other customized extensibility provided by Auth0 Professional Services, please contact your account representative or get in-touch with us directly. 
 
 <div class="video-wrapper" data-video="aycyjyjxqh"></div>
 
@@ -30,7 +30,7 @@ Verified Email Address Change workflow is provided by Auth0 Professional Service
 Auth0 Professional Services provide Custom Implementation for a wide range of use cases, across a wide range of use case scenarios. Our services can be leveraged to provide you with a complete solution for Verified Email Address Change - in either a stand-alone fashion or in conjunction with other customization. However we also provide you with full design details (see below) if you prefer to implement yourself.  
 
 ::: note
-Auth0 Professional Services provide Custom Implementation which can be leveraged for a wide range of use cases. Alternativele, we also provide full design details, if you would prefer to implement yourself.
+Custom Implementation Services provided by Auth0 Professional Services, can be leveraged across a wide range of use cases. Alternatively, we also provide comprehensive design documentation for a number of use case scenarios, if you would prefer to implement yourself.
 :::
 
 <h3 class="anchor-heading">
