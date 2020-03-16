@@ -19,23 +19,27 @@ useCase:
 ---
 # Verified Email Address Change
 
-A self-service facility typically provides users with the capability to change one or more aspects of their user profile. Commonly referred to as _MyAccount_ or _MyProfile_ functionality, this often includes the ability for a user to change his/her email address - for cases where an existing email address is no longer valid or a different email address is preferred. Self-service email address change without the proper controls however, can lead to various account management issues, and/or expose security vulnerabilities which can be exploited. Verified Email Address Change workflow is provided by Auth0 Professional Services as a customized extensibility solution, that leverages Auth0 functionality to address the sort of problems that can occur in unverified email address change scenarios. 
+A self-service facility typically provides users with the capability to change one or more aspects of their user profile. Commonly referred to as _MyAccount_ or _MyProfile_ functionality, this often includes the ability for a user to change his/her email address - for cases where an existing email address is no longer valid or a different email address is preferred. Self-service email address change without the proper controls however, can lead to various account management issues, and/or expose security vulnerabilities which can be exploited. 
+
+Verified Email Address Change workflow is provided by Auth0 Professional Services as a customized extensibility solution, that leverages Auth0 functionality to address the sort of problems that can occur in unverified email address change scenarios. For further information regarding this, or any other customized extensibility provided by Auth0 Professional Services, please contact your account representative, or get in-touch with us directly. 
 
 <div class="video-wrapper" data-video="aycyjyjxqh"></div>
 
 ## Design
 
-Auth0 Professional Services provide Custom Implementation for a wide range of use cases, across a wide range of use case scenarios. Our services can be leveraged to provide you with a complete solution for Verified Email Address Change - in either a stand-alone fashion or in conjunction with other customization - however we also provide you with full design details if you want to implement yourself.  
+Auth0 Professional Services provide Custom Implementation for a wide range of use cases, across a wide range of use case scenarios. Our services can be leveraged to provide you with a complete solution for Verified Email Address Change - in either a stand-alone fashion or in conjunction with other customization. However we also provide you with full design details (see below) if you prefer to implement yourself.  
 
-<%= include('./_includes/_further-help.md') %>
+::: note
+Auth0 Professional Services provide Custom Implementation which can be leveraged for a wide range of use cases. Alternativele, we also provide full design details, if you would prefer to implement yourself.
+:::
 
 <h3 class="anchor-heading">
 	<span class="anchor"><i class="icon icon-budicon-345"></i></span>
 	<a data-trackOutbound href="https://drive.google.com/open?id=1DtjpHFTwK6wN0B6BlaaXpbIFbU0BlUagDlymP0RGZgw">
-		<img src="/media/articles/services/file_type_icons-04.png" alt="">&nbsp;Detailed Design</a>
+		<img src="/media/articles/services/file_type_icons-04.png" alt="">&nbsp;Design Details</a>
 </h3>
 
-Our Detailed Design documentation (click link above to access) provides you with comprehensive information that is implementation agnostic. Using this, you and your team can implement Verified Email Address Change workflow whatever the technology stack you currently, or indeed plan, to utilize. The information is provided free of charge and without warentee - either explicit or implied.    
+Our Detailed Design documentation (click link above to access) provides you with comprehensive information that is implementation agnostic. Using this, you and your team can implement Verified Email Address Change workflow whatever the technology stack you currently, or indeed plan, to utilize. The information is provided free of charge and without warranty (either explicit or implied).    
 
 ## Keep reading
 
