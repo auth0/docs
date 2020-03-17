@@ -84,7 +84,7 @@ Next, create a button users can click to start logging in.
 <button id="login">Click to Login</button>
 ```
 
-Listen for click events on the button you created. When the event occurs, use the desired login method to authenticate the user (`loginWithPopup()` in this example). After the user is authenticated, you can retrieve the user profile with the `getUser()` method.
+Listen for click events on the button you created. When the event occurs, use the desired login method to authenticate the user (`loginWithRedirect()` in this example). After the user is authenticated, you can retrieve the user profile with the `getUser()` method.
 
 ```js
 // either with async/await
