@@ -13,7 +13,7 @@ useCase:
 
 # Reset Auth0 Account Password
 
-If you need to change your password or you have forgotten the password to your Auth0 account, in most cases, you can set a new password from the Auth0 Dashboard. 
+If you need to change your password or you have forgotten the password to your Auth0 account, in most cases, you can set a new password from the Auth0 Dashboard. Password resets cause Auth0 sessions to expire. 
 
 1. On the Auth0 account login screen, click **Don't remember your password?**
 
