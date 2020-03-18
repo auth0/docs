@@ -110,7 +110,7 @@ extension ViewController: ASAuthorizationControllerDelegate {
 }
 ```
 
-### Add the Sign In With Apple capability
+### Add the Sign in with Apple capability
 
 To enable Sign In With Apple in your application, you need to enable this capability to your app, as shown:
 
