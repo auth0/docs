@@ -1,4 +1,4 @@
-title: iOS Swift - Sign In With Apple
+title: iOS Swift - Facebook Log In
 alias:
   - ios
   - swift
@@ -15,7 +15,10 @@ topics:
   - quickstart
 contentType: tutorial
 useCase: quickstart
-seo_alias: swift-siwa
+seo_alias: swift-facebook-login
+snippets:
+  facebook-button-permissions: native-platforms/ios-facebook-login/facebook-button-permissions
+  facebook-button-config: native-platforms/ios-facebook-login/facebook-button-config
 default_article: 00-login
 articles:
   - 00-login
