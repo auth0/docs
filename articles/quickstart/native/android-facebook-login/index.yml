@@ -17,8 +17,8 @@ contentType: tutorial
 useCase: quickstart
 seo_alias: swift-facebook-login
 snippets:
-  facebook-button-permissions: native-platforms/android-facebook-login/facebook-button-permissions
-  facebook-button-config: native-platforms/android-facebook-login/facebook-button-config
+  facebook_button_permissions: native-platforms/android-facebook-login/facebook-button-permissions
+  facebook_button_config: native-platforms/android-facebook-login/facebook-button-config
 default_article: 00-login
 articles:
   - 00-login
