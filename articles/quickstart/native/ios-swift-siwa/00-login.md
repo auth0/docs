@@ -20,7 +20,7 @@ requirements:
 
 <!-- markdownlint-disable MD002 MD041 -->
 
-## Before you Start
+## Before You Start
 
 This tutorial describes how to implement the native [Sign In With Apple](https://developer.apple.com/sign-in-with-apple/) introduced in iOS 13. Alternatively check out the [iOS Swift Login tutorial](/quickstart/native/ios-swift) for Web Authentication with Auth0.
 

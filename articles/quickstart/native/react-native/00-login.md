@@ -22,7 +22,7 @@ How to install the React Native Auth0 module.
 Please refer to the [official documentation](https://facebook.github.io/react-native/) for additional details on React Native.
 :::
 
-### yarn
+### Yarn
 
 ```bash
 yarn add react-native-auth0
@@ -38,7 +38,7 @@ For further reference on yarn, check [their official documentation](https://yarn
 npm install react-native-auth0 --save
 ```
 
-### Additional iOS step: Install the Module Pod
+### Additional iOS step: install the module Pod
 
 CocoaPods is the package management tool for iOS that the React Native framework uses to install itself into your project. For the iOS native module to work with your iOS app you must first install the library Pod. If you're familiar with older React Native SDK versions, this is similar to what was called _linking a native module_. The process is now simplified:
 
@@ -53,7 +53,7 @@ The first step in adding authentication to your application is to provide a way 
 
 <div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/lock_centralized_login.png" alt="Login Page"></div>
 
-## Integrate Auth0 in your Application 
+## Integrate Auth0 in Your Application
 
 ### Configure Android
 
@@ -156,7 +156,7 @@ For additional information please read [react native docs](https://facebook.gith
 
 <%= include('../../../_includes/_callback_url') %>
 
-#### iOS Callback URL
+#### iOS callback URL
 
 ```text
 {PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
@@ -165,7 +165,7 @@ For additional information please read [react native docs](https://facebook.gith
 Remember to replace `{PRODUCT_BUNDLE_IDENTIFIER}` with your actual application's bundle identifier name.
 
 
-#### Android Callback URL
+#### Android callback URL
 
 ```text
 {YOUR_APP_PACKAGE_NAME}://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
@@ -193,7 +193,7 @@ Remember to replace `{PRODUCT_BUNDLE_IDENTIFIER}` with your actual application's
 Remember to replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
 
 
-### Add Authentication with Auth0
+### Add authentication with Auth0
 
 [Universal login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features.
 
@@ -229,7 +229,7 @@ Upon successful authentication the user's `credentials` will be returned, contai
 For more information on the `accessToken`, refer to [Access Token](/tokens/concepts/access-tokens).
 :::
 
-### Log the User Out
+### Log the user out
 
 To log the user out, redirect them to the Auth0 log out endpoint by calling `clearSession`. This will remove their session from the authorization server. After this happens, remove the Access Token from the state. 
 
