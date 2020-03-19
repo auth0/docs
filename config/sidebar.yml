@@ -1921,15 +1921,21 @@ articles:
       - title: "Discover"
         url: "/services/discover"
 
-      - title: "Architect & Design"
-        url: "/services/architect-and-design"
+      - title: "Architect"
+        url: "/services/architect"
+
+      - title: "Design"
+        url: "/services/design"
 
       - title: "Implement"
         url: "/services/implement"
 
-      - title: "Maintain and Improve"
-        url: "/services/maintain-and-improve"
+      - title: "Maintain"
+        url: "/services/maintain"
         
+      - title: "Improve"
+        url: "/services/improve"
+
       - title: "Packages"
         url: "/services/packages"
 
