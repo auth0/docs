@@ -5,13 +5,13 @@ Your application is already able to sign in with Facebook. But in order to have 
 
 Set the requested permissions to "public_profile" and "email". This way, the user email will also be included as part of the response, provided the access request is accepted by the user.
 
-${snippet(meta.snippets.facebook-button-permissions)}
+${snippet(meta.snippets.facebookButtonPermissions)}
 
 Now, in order to kick off the authentication process with Auth0, create a new method where you will prepare the payload to be sent. 
 
 In the sample, the method was named `performLogin`. Call this method from the login callback's `onSuccess` method, as shown below:
 
-${snippet(meta.snippets.facebook-button-config)}
+${snippet(meta.snippets.facebookButtonConfig)}
 
 # Integrate Facebook
 

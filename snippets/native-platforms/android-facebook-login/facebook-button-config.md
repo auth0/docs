@@ -15,7 +15,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
         }
 
         override fun onError(error: FacebookException) {
-            Log.e(TAG, "Error ${error.message}")
+            Log.e(TAG, "Error $\{error.message\}")
         }
     })
 }
