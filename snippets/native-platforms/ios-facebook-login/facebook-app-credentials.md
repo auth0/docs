@@ -1,4 +1,4 @@
-Go ahead and add an `Auth0.plist` file to your iOS application to store them.
+Go ahead and add an `Auth0.plist` file to your iOS application's main bundle to store them.
 
 ```xml
 <!-- Auth0.plist -->
