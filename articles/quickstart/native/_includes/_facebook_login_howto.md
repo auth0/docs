@@ -38,7 +38,7 @@ private fun fetchSessionToken(token: String, callback: (String?) -> Unit) {
     request.graphPath = "oauth/access_token"
     request.callback = GraphRequest.Callback { response ->
         if (response.error != null) {
-            Log.e(TAG, "Failed to fetch session token. ${response.error.errorMessage}")
+            Log.e(TAG, "Failed to fetch session token. $\{response.error.errorMessage\}")
             callback.invoke(null)
             return@Callback
         }
@@ -63,7 +63,7 @@ private fun fetchUserProfile(token: String, userId: String, callback: (String?) 
     request.graphPath = userId
     request.callback = GraphRequest.Callback { response ->
         if (response.error != null) {
-            Log.w(TAG, "Failed to fetch user profile: ${response.error.errorMessage}")
+            Log.w(TAG, "Failed to fetch user profile: $\{response.error.errorMessage\}")
             callback.invoke(null)
             return@Callback
         }
