@@ -30,18 +30,15 @@ articles:
 next_steps:
   - path: 00-login
     list:
-    - text: Configure other identity providers
+    - text: Learn to save and renew tokens
       icon: 345
-      href: "/identityproviders"
-    - text: Enable multifactor authentication
-      icon: 345
-      href: "/multifactor-authentication"
+      href: "/libraries/auth0-swift/save-and-refresh-jwt-tokens"
     - text: Learn about anomaly detection
       icon: 345
       href: "/anomaly-detection"
-    - text: Learn about rules
+    - text: Learn to call APIs
       icon: 345
-      href: "/rules"
+      href: "/quickstart/native/ios-swift/04-calling-apis"
 show_steps: true
 github:
   org: auth0-samples
