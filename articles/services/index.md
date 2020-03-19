@@ -37,9 +37,6 @@ The diagram below (click for more details) shows a number of the Service and Pac
 
 * **Advanced Go-Live:** which can be easily broken into multiple sub-milestones&mdash;especially if you have multiple applications or development teams. This helps manage the complexity of a large project and is designed to help you achieve incremental and steady progress. 
 
-</ul>
-
-<ul class="topic-links">
   <li>
     <i class="icon icon-budicon-715"></i><a href="#">Services</a>
 
@@ -65,7 +62,7 @@ Designed to optimize our customers' investment in Auth0, our service offerings p
   <li>
     <i class="icon icon-budicon-715"></i><a href="/services/packages">Packages</a>
 
-Our packages provide our customers with the services they need, in a manner structured to help them engage with our experts in a way which best suits their requirements. As you can see from the diagram above (click for details), a number of Professional Services packages are available that can be employed in a mix-and-match fashion; [see a list of the packages we offer](/services/packages##discover-design-and-implement-packages) and discover which of them would be a good fit for you.
+Our packages provide our customers with the services they need, in a manner structured to help them engage with our experts in a way which best suits their requirements. As you can see from the diagram above (click for details), a number of Professional Services packages are available that can be employed in a mix-and-match fashion; [see a list of the packages we offer](/services/packages#discover-design-and-implement-packages) and discover which of them would be a good fit for you.
   </li>
 </ul>
 
