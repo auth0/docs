@@ -200,7 +200,7 @@ public class AccountController : Controller
         await HttpContext.ChallengeAsync("Auth0", new AuthenticationProperties() { RedirectUri = returnUrl });
     }
 
-    [Authorize]
+    [AllowAnonymous]
     public async Task Logout()
     {
         await HttpContext.SignOutAsync("Auth0", new AuthenticationProperties
