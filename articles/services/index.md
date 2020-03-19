@@ -29,11 +29,15 @@ The diagram below (click for more details) shows a number of the Service and Pac
 
 [![Professional Services Info Diagram](/media/articles/services/Auth0-Services-InfoDiagram.png)](/media/articles/services/Auth0-Services-InfoDiagram.pdf)
 
+<ul class="topic-links">
+
 * **Discovery, Architecture, Design and Implementation:** where our Solution Architects will work with your teams to identify the core goals, features, and functionality that constitute your successful IAM implementation. We'll also help you uncover any legacy architectural issues or design requirements that may need more careful consideration.
 
 * **Initial Go-Live:** designed to be impactful enough to make material differences in your overall Identity project. At the same time, this stage is limited enough that it can be reached quickly&mdash;ideally within 30 days of the project start&mdash;to maintain positive momentum. Initial Go-Live typically includes migration off a legacy IDP, must-have features, and possibly a subset of all your applications.
 
 * **Advanced Go-Live:** which can be easily broken into multiple sub-milestones&mdash;especially if you have multiple applications or development teams. This helps manage the complexity of a large project and is designed to help you achieve incremental and steady progress. 
+
+</ul>
 
 <ul class="topic-links">
   <li>
