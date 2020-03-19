@@ -1930,11 +1930,8 @@ articles:
       - title: "Implement"
         url: "/services/implement"
 
-      - title: "Maintain"
-        url: "/services/maintain"
-        
-      - title: "Improve"
-        url: "/services/improve"
+      - title: "Maintain and Improve"
+        url: "/services/maintain-and-improve"        
 
       - title: "Packages"
         url: "/services/packages"
