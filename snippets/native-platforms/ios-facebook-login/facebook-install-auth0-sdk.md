@@ -31,4 +31,4 @@ For more information about Carthage usage, check [their official documentation](
 
 :::
 
-if your iOS application plans to support Web Authentication, head over [here](https://auth0.com/docs/libraries/auth0-swift#web-based-auth-ios-only-) to learn how to configure the Callback and Logout URLs, and setup the Custom Scheme.
+If your iOS application plans to support Web Authentication, head over [here](https://auth0.com/docs/libraries/auth0-swift#web-based-auth-ios-only-) to learn how to configure the Callback and Logout URLs, and setup the Custom URL Scheme.
