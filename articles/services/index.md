@@ -37,6 +37,9 @@ The diagram below (click for more details) shows a number of the Service and Pac
 
 * **Advanced Go-Live:** which can be easily broken into multiple sub-milestones&mdash;especially if you have multiple applications or development teams. This helps manage the complexity of a large project and is designed to help you achieve incremental and steady progress. 
 
+</ul>
+
+<ul class="topic-links">
   <li>
     <i class="icon icon-budicon-715"></i><a href="#">Services</a>
 
