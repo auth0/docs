@@ -4,8 +4,6 @@
 
 Your application is already able to sign in with Facebook. But in order to have a rich user profile, the permissions with which the Facebook Login Button is set up need to be updated.
 
-Set the requested permissions to `public_profile` and `email`. This way, the user email will also be included as part of the response, provided the access request is accepted by the user.
-
 ${snippet(meta.snippets.facebook_button_permissions)}
 
 Now, in order to kick off the authentication process with Auth0, create a new method where you will prepare the payload to be sent. 
