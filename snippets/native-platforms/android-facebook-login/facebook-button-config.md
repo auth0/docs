@@ -1,3 +1,5 @@
+In the sample, the method was named `performLogin`. Call this method from the login callback's `onSuccess` method, as shown below:
+
 ```kotlin
 override fun onCreate(savedInstanceState: Bundle?) {
     //Your existing code

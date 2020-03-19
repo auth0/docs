@@ -1,24 +1,28 @@
-title: iOS Swift - Facebook Log In
+title: Android - Facebook Login
 alias:
-  - ios
-  - swift
+  - Android
 language:
-  - Swift
-framework:
-  - Swift
+  - Kotlin
+  - Java
+hybrid: false
 author:
-  name: Martin Walsh
-  email: martin.walsh@auth0.com
+  name: Luciano Balmaceda
+  email: luciano.balmaceda@auth0.com
   community: false
-image: /media/platforms/ios.png
+image: /media/platforms/android.png
 topics:
   - quickstart
 contentType: tutorial
 useCase: quickstart
-seo_alias: swift-facebook-login
+seo_alias: android-facebook-login
 snippets:
   facebook_button_permissions: native-platforms/android-facebook-login/facebook-button-permissions
   facebook_button_config: native-platforms/android-facebook-login/facebook-button-config
+  facebook_fetch_session_token: native-platforms/android-facebook-login/facebook-fetch-session-token
+  facebook_fetch_profile: native-platforms/android-facebook-login/facebook-fetch-profile
+  facebook_app_credentials: native-platforms/android-facebook-login/facebook-app-credentials
+  facebook_install_auth0_sdk: native-platforms/android-facebook-login/facebook-install-auth0-sdk
+  facebook_token_exchange: native-platforms/android-facebook-login/facebook-token-exchange
 default_article: 00-login
 articles:
   - 00-login

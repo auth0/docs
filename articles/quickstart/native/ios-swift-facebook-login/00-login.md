@@ -1,6 +1,6 @@
 ---
 title: Login
-description: This tutorial demonstrates how to add user login to a Swift application using native Facebook Login
+description: This tutorial demonstrates how to add user login to a Swift application using native Facebook Login.
 budicon: 448
 topics:
   - quickstarts
@@ -21,5 +21,4 @@ requirements:
 <!-- markdownlint-disable MD002 MD041 -->
 
 <%= include('../_includes/_facebook_login_prerequisites') %>
-
 <%= include('../_includes/_facebook_login_howto') %>
