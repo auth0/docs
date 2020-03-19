@@ -13,9 +13,9 @@ github:
 contentType: tutorial
 useCase: quickstart
 requirements:
-  - CocoaPods
-  - Xcode 11 Beta 6
-  - iOS 13 Beta 8 Device
+  - CocoaPods/Carthage
+  - Xcode 11+
+  - iOS 13+ Emulator/Device
 ---
 
 <!-- markdownlint-disable MD002 MD041 -->
