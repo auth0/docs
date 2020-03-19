@@ -45,7 +45,7 @@ next_steps:
 show_steps: true
 github:
   org: auth0-samples
-  repo: auth0-ios-swift-siwa-samples
+  repo: auth0-ios-swift-facebook-samples
 requirements:
   - CocoaPods/Carthage
   - Xcode 11+
