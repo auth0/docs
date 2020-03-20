@@ -33,17 +33,11 @@ Please note that you can only have ONE Send Phone Message Hook active at a time.
 You will need to add three new [Hook Secrets](/hooks/secrets/create) to the previously created Send Phone Message Hook. 
 The screen should resemble the following screenshot:
 
-# TODO: Add screenshot here
-
 ## 3. Implement starter code
 
 [Edit](/hooks/update) the Send Phone Message hook's code to match
 
 ```js
-process.env.AWS_ACCESS_KEY_ID = context.webtask.secrets.AWS_ACCESS_KEY_ID
-process.env.AWS_SECRET_ACCESS_KEY = context.webtask.secrets.AWS_SECRET_ACCESS_KEY
-process.env.AWS_REGION = context.webtask.secrets.AWS_REGION
-
 // Load the SDK
 var AWS = require("aws-sdk");
 
@@ -65,6 +59,10 @@ var AWS = require("aws-sdk");
 @param {function} cb - function (error, response)
 */
 module.exports = function(recipient, text, context, cb) {
+  process.env.AWS_ACCESS_KEY_ID = context.webtask.secrets.AWS_ACCESS_KEY_ID
+  process.env.AWS_SECRET_ACCESS_KEY = context.webtask.secrets.AWS_SECRET_ACCESS_KEY
+  process.env.AWS_REGION = context.webtask.secrets.AWS_REGION
+
   var params = { Message: text, PhoneNumber: recipient };
 
   var publishTextPromise = new AWS.SNS({ apiVersion: "2010-03-31" })
@@ -72,8 +70,7 @@ module.exports = function(recipient, text, context, cb) {
     .promise();
 
   publishTextPromise
-    .then(function(data) {
-      res.end(JSON.stringify({ MessageID: data.MessageId }));
+    .then(function() {
       cb();
     })
     .catch(function(err) {
@@ -90,9 +87,9 @@ Trigger an MFA flow and double check that everything works as intended. If you c
 
 If you aren't receiving the SMS, please look at the logs for clues and make sure that:
 
-- That the Hook is being called.
-- That you have configured the Hook Secrets as per Step #2.
-- That those secrets are the same ones that you created in the Amazon Web Services portal.
-- Your Amazon Web Services user has access to the `AmazonSNSFullAccess` role.
-- Your Amazon Web Services account is active (not suspended).
-- That your phone number is formatted using the [E.164 format](https://en.wikipedia.org/wiki/E.164).
+- The Hook is being called
+- You have configured the Hook Secrets as per Step #2
+- Those secrets are the same ones you created in the Amazon Web Services portal
+- Your Amazon Web Services user has access to the `AmazonSNSFullAccess` role
+- Your Amazon Web Services account is active (not suspended)
+- Your phone number is formatted using the [E.164 format](https://en.wikipedia.org/wiki/E.164)

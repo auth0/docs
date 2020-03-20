@@ -1,5 +1,4 @@
 ---
-title: Send Phone Message 
 description: Learn how hooks can be used with the Send Phone Message extensibility point, which is available for MFA.
 beta: true
 toc: true
@@ -14,7 +13,6 @@ contentType:
 useCase: extensibility-hooks
 v2: true
 ---
-
 # Send Phone Message
 
 At the Send Phone Message extensibility point, Hooks allow custom actions to be executed when a user is prompted for MFA. For example, you may use your preferred SMS gateway provider to get better pricing.
@@ -66,7 +64,7 @@ Please note:
 The callback function (`cb`) at the end of the sample code signals completion and *must* be included.
 :::
 
-### Example parameters
+## Example parameters
 
 ```js
 {
@@ -75,8 +73,8 @@ The callback function (`cb`) at the end of the sample code signals completion an
   "context": {
     "message_type": "sms",
     "action": "enrollment",
-    "language": "english",
-    "code": "1234556ADSFA547865",
+    "language": "en",
+    "code": "123456",
     "ip": "127.0.0.1",
     "user_agent": "Mozilla/5.0",
     "client": {
@@ -86,7 +84,7 @@ The callback function (`cb`) at the end of the sample code signals completion an
     },
     "user": {
       "user_id": "auth0|test12345",
-      "name": "Billie Magnusson"
+      "name": "Billie Magnusson",
       "email": "billie@email.com",
       "app_metadata": { },
       "user_metadata": { }
@@ -95,7 +93,7 @@ The callback function (`cb`) at the end of the sample code signals completion an
 }
 ```
 
-### Default response
+## Default response
 
 When you run a Hook executed at the Send Phone Message extensibility point, the default response object is:
 
@@ -103,7 +101,7 @@ When you run a Hook executed at the Send Phone Message extensibility point, the 
 Hooks executed at the Send Phone Message extensibility point do not pass error messages to any Auth0 APIs.
 :::
 
-### Starter code response
+## Starter code response
 
 Once you've customized the starter code, you can test the Hook using the Runner embedded in the Hook Editor. The Runner simulates a call to the Hook with the appropriate body and response. 
 

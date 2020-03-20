@@ -1,5 +1,4 @@
 ---
-title: MFA - SMS
 description: Using one time passwords with Auth0 MFA
 toc: true
 topics:
@@ -25,7 +24,7 @@ Your users must have a device capable of receiving SMS messages to use this opti
 
 ## Administrative setup
 
-To set up SMS and be able to send SMS messages to users, you'll need to enable the SMS factor in the Dashboard and [configure Twilio](/multifactor-authentication/twilio-configuration), or alternatively use your own [custom SMS gateway](multifactor-authentication/send-phone-message-hook-configuration) with the Send Phone Message Hook feature. 
+To set up SMS and be able to send SMS messages to users, you'll need to enable the SMS factor in the Dashboard and [configure Twilio](/multifactor-authentication/twilio-configuration), or alternatively use your own [custom SMS gateway](multifactor-authentication/send-phone-message-hook-configuration) with the Send Phone Message feature. 
 
 You can (optionally) [customize your SMS notification templates](/multifactor-authentication/sms-templates).
 
