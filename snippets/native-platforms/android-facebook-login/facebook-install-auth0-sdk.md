@@ -10,10 +10,10 @@ If your application does not plan to make use of the Web Authentication module p
 
 ```xml
 <application>
-<!-- Add the activity declaration line below -->
-  <activity
+  <!-- Add the activity declaration line below -->
+   <activity
     android:name="com.auth0.android.provider.AuthenticationActivity"
-  tools:node="remove" />
+    tools:node="remove" />
   
 </application>
 ```

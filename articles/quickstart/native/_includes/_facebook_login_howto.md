@@ -21,7 +21,7 @@ In order to obtain the Session Access Token and the user profile, two additional
 ### Fetch Facebook session access token
 
 Make a new GET request against the Facebook API's `/oauth/access_token` endpoint.
-Use the following parameters:
+Use the following query parameters:
 - `grant_type`: `fb_attenuate_token`.
 - `fb_exchange_token`: the access token received upon login.
 - `client_id`: your App ID. This value comes from the Facebook Developer's dashboard and should already be in use in your application in order to have integrated Facebook Sign In successfully.
@@ -41,11 +41,11 @@ ${snippet(meta.snippets.facebook_fetch_profile)}
 
 ## Integrate Auth0
 
-Now that the required artifacts have been obtained you are ready to trade them for Auth0 user credentials, such as the ID and Access Tokens. Before getting there, you must set up the SDK to make that last request.
+Now that the required artifacts have been obtained you are ready to trade them for Auth0 user credentials, such as the ID and Access Tokens. Before getting there, you must set up the Auth0 SDK to make that last request.
 
 ### Get your application keys
 
-Go to the **Applications** section of the [Auth0 Dashboard](https://manage.auth0.com/) and select the existing application in which you had enabled **Sign in with Facebook**. If you need help with this step, make sure to check the requirements listed at the top of this article.
+Go to the **Applications** section of the [Auth0 Dashboard](https://manage.auth0.com/) and select the existing application in which you had enabled **Sign in with Facebook**. If you need help with this step, please check the requirements section at the top of this article.
 
 Take the **Domain** and **Client ID** values from the application settings page. These are required by the SDK to properly initialize and communicate against Auth0.
 
@@ -57,8 +57,4 @@ ${snippet(meta.snippets.facebook_install_auth0_sdk)}
 
 ### Exchange the received data for Auth0 tokens
 
-With the SDK installed, it's time to go back to the first method you added and tie everything together. 
-
 ${snippet(meta.snippets.facebook_token_exchange)}
-
-### Add note about the scope used, what it involves, etc (e.g. offline_access, what for?)

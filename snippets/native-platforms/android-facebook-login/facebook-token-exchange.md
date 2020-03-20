@@ -1,36 +1,67 @@
-Add logic in it to execute the requests you prepared in the previous steps. Then, pass the resulting Session Access Token and user profile to the SDK's `tokenExchange(withFacebookSessionAccessToken:profile:)` method. Don't forget to import the SDK first, with `import Auth0`.
+The SDK must be instantiated before use. This can be done _lazily_, so that the initialization happens once the field is needed. The credentials defined in the step above are passed to the `Auth0` constructor, and then a new instance of the `AuthenticationAPIClient` is created with it.
 
-```swift
-fileprivate func exchangeFacebookAccessToken(with accessToken: FacebookLogin.AccessToken) {
-    // Get the request publishers
-    let sessionAccessTokenPublisher = fetchSessionAccessToken(appId: accessToken.appID,
-                                                              accessToken: accessToken.tokenString)
-    let profilePublisher = fetchProfile(userId: accessToken.userID, accessToken: accessToken.tokenString)
+```kotlin
+private val auth0Client: AuthenticationAPIClient by lazy {
+    val account = Auth0(getString(R.string.com_auth0_client_id), getString(R.string.com_auth0_domain))
+    AuthenticationAPIClient(account)
+}
+```
 
-    // Start both requests in parallel and wait until all finish
-    _ = Publishers
-        .Zip(sessionAccessTokenPublisher, profilePublisher)
-        .sink(receiveCompletion: { completion in
-            if case .failure(let error) = completion {
-                print(error)
+Create the method that will hold the logic to exchange the two obtained artifacts for Auth0 tokens. In the sample, this method is named `exchangeTokens`.
+
+The API client declares a method `loginWithNativeSocialToken` that receives a token and a subject type. The former corresponds to the session token, and the latter indicates what type of connection the backend will attempt to authenticate with. For native Facebook Login, you will use the following value:
+
+```
+"http://auth0.com/oauth/token-type/facebook-info-session-access-token"
+```
+
+Other values that need to be configured are the user profile, using the `user_profile` key, and the scope asked to the Auth0 tokens to contain. 
+
+
+```kotlin
+private fun exchangeTokens(sessionToken: String, userProfile: String?) {
+    val params = mapOf("user_profile" to userProfile)
+
+    auth0Client.loginWithNativeSocialToken(sessionToken, "http://auth0.com/oauth/token-type/facebook-info-session-access-token")
+        .setScope("openid email profile offline_access")
+        .addAuthenticationParameters(params)
+        .start(object : BaseCallback<Credentials, AuthenticationException> {
+            override fun onSuccess(credentials: Credentials) {
+                Log.i(TAG, "Logged in")
+                /*
+                * Logged in!
+                *   Use access token to call API
+                *   or consume ID token locally
+                */
             }
-        }, receiveValue: { sessionAccessToken, profile in
-            // Perform the token exchange
-            Auth0
-                .authentication()
-                .tokenExchange(withFacebookSessionAccessToken: sessionAccessToken, profile: profile)
-                .start { result in
-                    switch result {
-                    case .success(let credentials): print(credentials) // Auth0 user credentials 🎉
-                    case .failure(let error): print(error)
-                }
+
+            override fun onFailure(error: AuthenticationException) {
+                Log.e(TAG, "Error <%= "${error.code}: ${error.description}" %>")
             }
+
         })
 }
 ```
 
 ::: note
-
-To learn more about the `Credentials` object, read the [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift) article.
-
+You can read more about scopes in the dedicated [article](/scopes/current/oidc-scopes).
 :::
+
+
+Now that every step is defined in its own method, is time to put everything together inside the `performLogin` method.
+
+```kotlin
+private fun performLogin(result: AccessToken) {
+    result.let { accessToken ->
+        fetchSessionToken(accessToken.token) { sessionToken ->
+            sessionToken?.let {
+                fetchUserProfile(accessToken.token, accessToken.userId) { profile ->
+                    exchangeTokens(it, profile)
+                }
+            }
+        }
+    }
+}
+```
+
+If everything went fine, you should now be able to authenticate natively with the Facebook Login SDK. That means, if the Facebook app is installed in the device, the authentication will be handled via the application and not a browser app.

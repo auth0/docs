@@ -44,8 +44,8 @@ next_steps:
 show_steps: true
 github:
   org: auth0-samples
-  repo: auth0-ios-swift-siwa-samples
+  repo: auth0-android-native-social-samples
 requirements:
-  - CocoaPods
-  - Xcode 11 Beta 6
-  - iOS 13 Beta 8 Device
+  - Android Studio 3.6.1
+  - Android SDK 25
+  - Emulator - Nexus 5X - Android 6.0

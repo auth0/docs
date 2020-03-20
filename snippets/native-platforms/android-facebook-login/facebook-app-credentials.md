@@ -2,7 +2,7 @@ Go ahead and create two new resources in your Android application's `strings.xml
 
 ```xml
 <resources>
-    <string name="com_auth0_domain">{{TENANT}}</string>
-    <string name="com_auth0_client_id">{{CLIENT_ID}}</string>
+    <string name="com_auth0_domain">{TENANT}</string>
+    <string name="com_auth0_client_id">{CLIENT_ID}</string>
 </resources>
 ```
