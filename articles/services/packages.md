@@ -13,11 +13,11 @@ useCase:
 ---
 # Professional Service Packages
 
-Auth0 Professional Services provides packaged offerings designed to optimize our customers' investments in Auth0 by helping design, deploy, implement, and maintain solutions based on proven practices, which allows our customers to avoid common pitfalls and reduces risk. Packaged offerings generally fall into two main categories: Discover, Architect, Design, and Implement packages, together with Maintain and Improve packages. 
+Auth0 Professional Services provides packaged offerings designed to optimize our customers' investments in Auth0. Packaged offerings generally fall into two main categories: Discover, Architect, Design, and Implement packages, together with Maintain and Improve packages, and are all based on proven best practices designed to help customers avoid common pitfalls and reduce risk. 
 
-Auth0 Professional Services packages can be consumed in a mix-and-match fashion to provide you with expert help as and when you need it; take a Discovery Workshop followed by a Basic or Standard package, or opt for a Standard or an Advanced Package from the start, the choice is your. To get more information and to order any of these service offerings, please contact your Auth0 Account Representative.
+Auth0 Professional Services packages can be consumed in a mix-and-match fashion to provide you with expert help as and when you need it: take a Discovery Workshop followed by a Basic or Standard package, or opt for a Standard or an Advanced Package from the start, the choice is your. To get more information and to order any of these service packages, please contact your Auth0 Account Representative.
 
-## Discover, Design, and Implement packages
+## Discover, Architect, Design, and Implement packages
 
 <h3 class="anchor-heading">
 	<span class="anchor"><i class="icon icon-budicon-345"></i></span>
@@ -31,8 +31,7 @@ Our Discovery Workshop (click link above for more information) provides you with
 * Remote/on-site, as mutually agreed
 * Expiration in 90 days
 * Services included:
-  * [Architectural Discovery](/services/architect-and-design#architectural-discovery)
-  * [Scenario Guidance](/services/architect-and-design#scenario-guidance)
+  * [Architectural Analysis](/services/architect#architectural-analysis)
 
 <h3 class="anchor-heading">
 	<span class="anchor"><i class="icon icon-budicon-345"></i></span>
@@ -47,8 +46,8 @@ An entry level to Professional Services, the Basic Package (click link above for
 * Typically expires in 90 days
 * Terms and Conditions apply
 * Services included:
-  * [Architectural Discovery](/services/architect-and-design#architectural-discovery)
-  * [Scenario Guidance](/services/architect-and-design#scenario-guidance)
+  * [Architectural Analysis](/services/architect#architectural-analysis)
+  * [Scenario Guidance](/services/design#scenario-guidance)
   * [Programming Advisory](/services/implement#programming-advisory)
   * [Deployment Preparation](/services/implement#deployment-preparation)
 
@@ -64,8 +63,8 @@ Arguably the classic way to engage with Professional Services, our Standard Pack
 * Remote/on-site, as mutually agreed
 * Typically expires in 180 days
 * Services included:
-  * [Architectural Discovery](/services/architect-and-design#architectural-discovery)
-  * [Scenario Guidance](/services/architect-and-design#scenario-guidance)
+  * [Architectural Analysis](/services/architect#architectural-analysis)
+  * [Scenario Guidance](/services/design#scenario-guidance)
   * [Programming Advisory](/services/implement#programming-advisory)
   * [Deployment Preparation](/services/implement#deployment-preparation)
   * Extensibility based [Custom Implementation](/services/implement#custom-implementation)
@@ -82,8 +81,8 @@ The full range of Professional Services delivered in a comprehensive manner, the
 * Remote/on-site, as mutually agreed
 * Typically expires in 180 days
 * Services included:
-  * [Architectural Discovery](/services/architect-and-design#architectural-discovery)
-  * [Scenario Guidance](/services/architect-and-design#scenario-guidance)
+  * [Architectural Analysis](/services/architect#architectural-analysis)
+  * [Scenario Guidance](/services/design#scenario-guidance)
   * [Programming Advisory](/services/implement#programming-advisory)
   * [Deployment Preparation](/services/implement#deployment-preparation)
   * [Custom Implementation](/services/implement#custom-implementation)
@@ -99,8 +98,8 @@ The full range of Professional Services delivered in a comprehensive manner, the
 * Typically expires in 180 days
 * Terms and Conditions apply
 * Full range of [Custom Implementation](/services/implement#custom-implementation) services, including:
-  * [Architectural Discovery](/services/architect-and-design#architectural-discovery), 
-  * [Scenario Guidance](/services/architect-and-design#scenario-guidance) and 
+  * [Architectural Analysis](/services/architect#architectural-analysis)
+  * [Scenario Guidance](/services/design#scenario-guidance)
   * [Programming Advisory](/services/implement#programming-advisory)
   
 ## Maintain and Improve packages
@@ -134,6 +133,7 @@ The full range of Professional Services delivered in a comprehensive manner, the
 ## Keep reading
 
 * [Discover](/services/discover)
-* [Architect & Design](/services/architect-and-design)
+* [Architect](/services/architect)
+* [Design](/services/design)
 * [Implement](/services/implement)
 * [Maintain and Improve](/services/maintain-and-improve)
