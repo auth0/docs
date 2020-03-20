@@ -29,18 +29,18 @@ articles:
 next_steps:
   - path: 00-login
     list:
+    - text: Learn how to securely store tokens
+      icon: 345
+      href: "/libraries/auth0-android/save-and-refresh-tokens"
+    - text: Learn to call an API
+      icon: 345
+      href: "/quickstart/native/android/06-calling-apis"
     - text: Configure other identity providers
       icon: 345
       href: "/identityproviders"
-    - text: Enable multifactor authentication
+    - text: Lean more about the Android SDK
       icon: 345
-      href: "/multifactor-authentication"
-    - text: Learn about anomaly detection
-      icon: 345
-      href: "/anomaly-detection"
-    - text: Learn about rules
-      icon: 345
-      href: "/rules"
+      href: "/libraries/auth0-android"
 show_steps: true
 github:
   org: auth0-samples

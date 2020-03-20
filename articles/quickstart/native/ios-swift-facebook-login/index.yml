@@ -33,12 +33,15 @@ next_steps:
     - text: Learn to save and renew tokens
       icon: 345
       href: "/libraries/auth0-swift/save-and-refresh-jwt-tokens"
-    - text: Learn to call APIs
+    - text: Learn to call an API
       icon: 345
       href: "/quickstart/native/ios-swift/04-calling-apis"
     - text: Configure other identity providers
       icon: 345
       href: "/identityproviders"
+    - text: Learn more about the Swift sdk
+      icon: 345
+      href: "/libraries/auth0-swift"
 show_steps: true
 github:
   org: auth0-samples
