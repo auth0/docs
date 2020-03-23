@@ -117,21 +117,7 @@ REST_FRAMEWORK = {
 }
 ```
 
-Configure the [Django REST Framework JWK](https://github.com/Styria-Digital/django-rest-framework-jwt/) by setting the JWT_AUTH variable.
-
-```python
-# apiexample/settings.py
-import textwrap
-
-jsonurl = request.urlopen("https://${account.namespace}/.well-known/jwks.json")
-jwks = json.loads(jsonurl.read())
-cert = '-----BEGIN CERTIFICATE-----\n' + textwrap.fill(jwks['keys'][0]['x5c'][0], 64) + '\n-----END CERTIFICATE-----'
-
-certificate = load_pem_x509_certificate(str.encode(cert), default_backend())
-publickey = certificate.public_key()
-```
-
-Configure the [Django REST Framework JWK](http://getblimp.github.io/django-rest-framework-jwt/) by setting the JWT_AUTH variable. 
+Configure the [Django REST Framework JWK](https://github.com/Styria-Digital/django-rest-framework-jwt/) by setting the `JWT_AUTH` variable.
 
 Set the `JWT_AUDIENCE` to your API identifier and the `JWT_ISSUER` to your Auth0 domain. By default, those values will be retrieved from the `.env` file.
 
