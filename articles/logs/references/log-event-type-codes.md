@@ -49,6 +49,7 @@ The following table lists the codes associated with the each log event.
 | `fepft` | Failed Exchange | Failed exchange of Password for Access Token | |
 | `fercft` | Failed Exchange | Failed Exchange of Password and MFA Recovery code for Access Token | |
 | `fertft` | Failed Exchange | Failed Exchange of <dfn data-key="refresh-token">Refresh Token</dfn> for Access Token | |
+| `febrtft` | Failed Exchange | Failed Exchange of Rotating <dfn data-key="refresh-token">Refresh Token</dfn> for Access Token | |
 | `flo` | Failed Logout | User logout failed | [Logout](/logout) |
 | `fn` | Failed Sending Notification | Failed to send email notification | [Emails](/email) |
 | `fp` | Failed Login (Incorrect Password) | | |
