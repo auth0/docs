@@ -95,8 +95,8 @@ The main driver for picking the authentication factor is user experience, and th
 If you decide to use Email, then you need to decide between an one-time-use code or a magic link. We recommend using one-time-use code as the login flow is more predictable for end users. To learn more refer to the following documents:
 
   - [Passwordless using Email and one-time-use code](/connections/passwordless/guides/email-otp)
-  - [Passwordless Passwordless using Email and Magic Links](/connections/passwordless/guides/email-magic-link)
-  - [Passwordless Passwordless using SMS](/connections/passwordless/guides/sms-otp)
+  - [Passwordless using Email and Magic Links](/connections/passwordless/guides/email-magic-link)
+  - [Passwordless using SMS](/connections/passwordless/guides/sms-otp)
 
 ### Implementing Login 
 
