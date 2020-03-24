@@ -30,7 +30,7 @@ This enables users to enroll more than one device and select a fallback MFA mech
 
 Check out [Manage Authenticators](/multifactor-authentication/api/manage) for more on listing or deleting authenticators.
 
-<%= include('../../_includes/_authenticator-before-start') %>
+<%= include('../_includes/_authenticator-before-start') %>
 
 If you are using the MFA API in conjunction with the [Token endpoint](/api/authentication#get-token), you must meet the requirements of the corresponding grant.
 
