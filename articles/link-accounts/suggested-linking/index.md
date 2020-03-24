@@ -30,15 +30,13 @@ Additionally, this tutorial will show you how you can unlink accounts at a later
 
 You can find sample code for this tutorial in the [Auth0 Node.js Regular Web App Account Linking](https://github.com/auth0/auth0-link-accounts-sample/tree/master/RegularWebApp) repo on Github.
 
+Note that this example does not automatically link accounts based on the user's verified emails. Verified emails are not enough evidence to prove that the user can currently authenticate to both accounts.
+
 ## Step 1: Authenticate the user
 
 Start by logging in the user to your application.
 
-The recommended implementation is to use [Universal Login](/hosted-pages/login). You can find detailed guidance on how to do just that at our [Node.js Quickstart](/quickstart/webapp/nodejs).
-
-If you choose instead to embed the [Lock](/libraries/lock/v11) widget in your app, you can review the sample code for this tutorial in the [Auth0 Node.js Regular Web App Account Linking](https://github.com/auth0/auth0-link-accounts-sample/tree/master/RegularWebApp) repo on Github.
-
-If you don't use Lock at all, but call the Authentication API directly, follow our tutorial, [Call API Using the Authorization Code Flow](/flows/guides/auth-code/call-api-auth-code).
+The recommended implementation is to use [Universal Login](/universal-login). You can find detailed guidance on how to do just that at our [Node.js Quickstart](/quickstart/webapp/nodejs).
 
 ## Step 2: Search for users with identical email addresses
 

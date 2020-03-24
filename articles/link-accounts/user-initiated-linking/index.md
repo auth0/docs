@@ -19,7 +19,7 @@ We recently introduced some changes in Account Linking. For all the details see 
 
 Auth0 supports the linking of user accounts from various identity providers.
 
-One way to implement this functionality is to enable the user to explicitly link accounts. In this scenario, the user authenticates and can later on use a link or a button in order to link another account to the first one. The user would click on this link/button and your application would make a call so that when the user logs in with the second provider, the second account is linked with the first.
+The recommended way to implement this functionality is to enable the user to explicitly link accounts. In this scenario, the user authenticates and can later on use a link or a button in order to link another account to the first one. The user would click on this link/button and your application would make a call so that when the user logs in with the second provider, the second account is linked with the first.
 
 The following steps implement this scenario for a Single-Page Application (SPA). You can find the sample code at [User Initiated Account Linking within a Single-Page App](https://github.com/auth0/auth0-link-accounts-sample/tree/master/SPA) on Github.
 

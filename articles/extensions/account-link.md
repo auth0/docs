@@ -18,7 +18,7 @@ To install this extension, click on the __Account Link__ box in the list of prov
 
 ![Install Account Link Extension](/media/articles/extensions/account-link/install-extension.png)
 
-The extension will create a new **Application** named `auth0-account-link` to use internally and a new **Rule** to redirect users to the extension if they login with a new account that has an email matching an existing account.
+The extension will create a new **Application** named `auth0-account-link` to use internally and a new **Rule** to redirect users to the extension if they login with a new account that has an email matching an existing account. This application needs to have enabled all the connections that you want to perform account linking with.
 
 ## Setup
 
@@ -28,7 +28,7 @@ We recommend changing the name of the default application used for the extension
 
 ### Updating the Login Page
 
-By default, Auth0's [Universal Login](/hosted-pages/login) allows a user to both login and sign up as one may expect. However, when the account linking asks you to authenticate your primary account in order to link it with the new account, providing a sign up option can be confusing for users.
+By default, Auth0's [Universal Login](/universal-login) allows a user to both login and sign up as one may expect. However, when the account linking asks you to authenticate your primary account in order to link it with the new account, providing a sign up option can be confusing for users.
 
 To prevent this, we send over a query parameter to let the login page know that it should hide the **Sign Up** option. In order for this query parameter to take effect, however, we must first customize the login page.
 
@@ -48,6 +48,12 @@ Then save your changes and attempt to link an account. You'll notice that the **
 
 ![Account Linking Hosted Page](/media/articles/extensions/account-link/hosted-page-example.png)
 
+Note that this is not supported in the New Universal Login Experience.
+
+:::note
+Hiding the Signup link is not supported in the New Universal Login Experience.
+:::
+
 ## Customization
 
 At installation, or any time after by clicking the **Settings** icon for the Account Link Extension, you can add a URL to a custom stylesheet if you would like to customize the extension page to look a bit different from the default theme.
@@ -55,10 +61,6 @@ At installation, or any time after by clicking the **Settings** icon for the Acc
 ![Account Linking Page](/media/articles/extensions/account-link/extension-page-example.png)
 
 ## Administration Panel
-
-::: warning
-This feature is available in version 2.0 and up.
-:::
 
 You can customize your account linking login page and widget using the extension administration panel. 
 
@@ -87,3 +89,15 @@ By default, line 27 of the rule is `issuer: auth0.domain`. You will need to chan
 :::note
 Uninstalling/reinstalling, as well as updating, the extension may override this change.
 :::
+
+## How does the extension work?
+
+The extension will be triggered after authentication, when there's an existing user account with the email of the logged user's email. 
+
+For example, if a user logs-in with their Facebook account using the email 'john@acme.com', and later authenticates with Google using the same email address, they'll be prompted with a page like this:
+
+![Account Linking Extension](/media/articles/extensions/account-link/account-linking-extension.png)
+
+If users click 'Continue', they will be redirected to Facebook to authenticate. If users are already logged-in, Facebook will redirect back to the application, and the user will be automatically linked. If they are not logged-in, they'll be prompted first for their Facebook credentials, authenticated, and linked with the Google account after Facebook redirects back to Auth0.
+
+Note that the extension does not automatically link users with the same email, even if emails are verified. Verified emails are not enough evidence to prove that the user can currently authenticate to both accounts.
