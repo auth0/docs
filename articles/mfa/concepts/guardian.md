@@ -13,8 +13,6 @@ useCase:
 ---
 # Auth0 Guardian
 
-
-
 ## Guardian and push notifications
 
 When enabling push, end-users will need to have Auth0 Guardian or a custom application built with the Guardian SDK installed in their device. The app is sent push notifications when the user attempts to authenticate, and the user must respond to it in order to login, ensuring that they not only know their login information but also possess the device set up for MFA.

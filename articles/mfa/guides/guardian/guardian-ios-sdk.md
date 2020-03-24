@@ -42,9 +42,9 @@ github "auth0/Guardian.swift"
 ```
 
 
-<%= include('../_includes/_enable-push-notifications') %>
+<%= include('../../_includes/_enable-push-notifications') %>
 
-<%= include('../_includes/_configure-sns') %>
+<%= include('../../_includes/_configure-sns') %>
 
 ## Using the SDK
 

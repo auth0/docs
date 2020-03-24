@@ -1,3 +1,13 @@
+---
+description: Learn how to configure time-based one time passwords for MFA.
+topics:
+  - mfa
+  - duo
+contentType:
+  - how-to
+useCase:
+  - customize-mfa
+---
 # Configure Time-Based One Time Passwords
 
 To use one time passwords as an authentication factor, users need an Authenticator app such as:

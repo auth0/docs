@@ -34,9 +34,9 @@ You can check for the latest version on the repository [Releases](https://github
 
 2. After adding your Gradle dependency, make sure to remember to sync your project with Gradle files.
 
-<%= include('../_includes/_enable-push-notifications') %>
+<%= include('../../_includes/_enable-push-notifications') %>
 
-<%= include('../_includes/_configure-sns') %>
+<%= include('../../_includes/_configure-sns') %>
 
 ## Use the SDK
 

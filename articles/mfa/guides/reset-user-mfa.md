@@ -1,15 +1,14 @@
 ---
-description: Reset a User's MFA
+description: Learn how to reset a user's MFA in case they lose their mobile device and do not have a recovery code. 
 topics:
   - mfa
-  - guardian
   - user-management
 contentType:
   - how-to
 useCase:
   - customize-mfa
 ---
-# Resetting a user's multi-factor account
+# Reset User's MFA
 
 If a user has lost their mobile device, they can use their recovery code to log in. If they do not have recovery code, they will need their tenant administrator to reset their <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn>. This action is equivalent to removing or deleting the user's MFA registration. The MFA settings associated with their user will be removed, which allows them to set up MFA as if they were a new user on their next login attempt.
 

@@ -1,5 +1,5 @@
 ---
-description: Configuring SMS with Twilio for MFA
+description: Learn how to configure SMS with Twilio for MFA.
 topics:
   - mfa
   - twilio
@@ -8,7 +8,7 @@ contentType:
 useCase:
   - customize-mfa
 ---
-# Configure SMS with Twilio
+# Configure SMS with Twilio for MFA
 
 ## SMS notifications
 

@@ -1,3 +1,13 @@
+---
+description: Learn how to configure email as an MFA factor for users who don't have their primary factor available. 
+topics:
+  - mfa
+  - email
+contentType:
+  - how-to
+useCase:
+  - customize-mfa
+---
 # Configure Email as MFA Factor
 
 Using email as an MFA factor is useful when you want to provide users a way to perform MFA when they don't have their primary factor available (e.g. they don't have their phone to receive an SMS or push notification). 

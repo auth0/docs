@@ -1,6 +1,16 @@
-# Configure Duo for MFA
+---
+description: Learn how to configure Cisco Duo for MFA.
+topics:
+  - mfa
+  - duo
+contentType:
+  - how-to
+useCase:
+  - customize-mfa
+---
+# Configure Cisco Duo for MFA
 
-Duo is a multi-faceted provider and can only be used on your Auth0 tenant if all other factors are disabled. 
+Cisco Duo is a multi-faceted authentication provider and can only be used on your Auth0 tenant if all other factors are disabled. 
 
 ## Administrative setup
 
