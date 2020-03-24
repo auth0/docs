@@ -82,7 +82,7 @@ The application can then use the session info Access Token and the Facebook user
 POST https://${account.namespace}/oauth/token
 
 grant_type: 'urn:ietf:params:oauth:grant-type:token-exchange'
-subject_token_type: 'http://auth0.com/oauth/token-type/facebook-session-access-token'
+subject_token_type: 'http://auth0.com/oauth/token-type/facebook-info-session-access-token'
 audience: 'your-api'
 scope: 'read:appointments openid profile email email_verified'
 subject_token: 'XAAGgR4b...1lHWNCpqrUHZAEtUuZAhcpoAZDZD'
