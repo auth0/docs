@@ -76,7 +76,7 @@ GET https://graph.facebook.com/v5.0/<facebook user id>?access_token=<facebook ac
 
 ### Step 4
 
-The application can then use the session info Access Token and the Facebook user profile to authenticate with Auth0 by calling Auth0's `/oauth/token` endpoint using the Token Exchange flow with the `facebook-session-access-token` token type. If all goes well, Auth0 will return a normal response from the exchange, with the addition of the user profile.
+The application can then use the session info Access Token and the Facebook user profile to authenticate with Auth0 by calling Auth0's `/oauth/token` endpoint using the Token Exchange flow with the `facebook-session-access-token` token type. If all goes well, Auth0 will return a normal response from the exchange, with the addition of the user profile. The user profile should be a JSON object, encoded as a string.
 
 ```
 POST https://${account.namespace}/oauth/token
