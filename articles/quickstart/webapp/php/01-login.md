@@ -45,7 +45,7 @@ $auth0 = new Auth0([
   'domain' => '${account.namespace}',
   'client_id' => '${account.clientId}',
   'client_secret' => 'YOUR_CLIENT_SECRET',
-  'redirect_uri' => '${account.callback}',
+  'redirect_uri' => 'http://localhost:3000/',
   'scope' => 'openid profile email',
 ]);
 ```
