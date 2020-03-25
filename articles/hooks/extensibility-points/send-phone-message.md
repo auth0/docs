@@ -109,3 +109,6 @@ To configure this Hook using the Management API, please refer to the [Create New
 ::: note
 The `triggerId` for the Send Phone Message extensibility point is `send-phone-message`.
 :::
+
+# Keep reading
+To view sample code on how to configure your Send Phone Message extensibility point using Amazon SNS, please follow the [Configuring a Custom SMS Gateway for MFA using Amazon SNS](/multifactor-authentication/send-phone-message-hook-configuration) guide. 
