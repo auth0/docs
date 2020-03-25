@@ -28,17 +28,19 @@ After signing up, and entering a country code and phone number, the user will re
 
 Your users must have a device capable of receiving SMS messages to use this option. If users cannot receive SMS messages, they will not be able to authenticate with this factor. If they already enrolled with SMS and do not have such a device, they will need to use their recovery code to complete the MFA flow (and then enroll another MFA method rather than this one).
 
-## Prerequisites
+## Administrative setup
 
-* To be able to let users authenticate via SMS, you will need to enable the SMS factor and select your preferred delivery method.
+To be able to let users authenticate with SMS, you will need to enable the SMS factor and select your preferred delivery method:
 
-    * **Auth0:** Auth0 will send the messages using an internally-configured SMS delivery provider. This method can be used for evaluation purposes, but there is a maximum of 100 messages per tenant, during the entire lifetime of the tenant.
-    * **Twilio**: Auth0 will send the messages using the [Twilio Programmable SMS API](https://www.twilio.com/sms). You will need to provide [your own Twilio credentials](#twilio-configuration).
-    * **Custom**: Auth0 will invoke the [Send Phone Message Hook](/hooks/extensibility-points/send-phone-message) to send a message.
+- **Auth0:** Auth0 will send the messages using an internally-configured SMS delivery provider. It can be used for evaluation purposes, and there is a maximum of 100 messages per tenant, during the entire tenant lifetime.
+
+- **Twilio**: Auth0 will send the messages using the [Twilio Programmable SMS API](https://www.twilio.com/sms). You will need to provide [your own Twilio credentials](#twilio-configuration).
+
+- **Custom**: Auth0 will invoke the [Send Phone Message Hook](/hooks/extensibility-points/send-phone-message) to send a message.
 
 You can (optionally) [customize your SMS notification templates](/multifactor-authentication/sms-templates).
 
-  ![MFA SMS Settings](/media/articles/multifactor-authentication/sms-settings.png)
+![MFA SMS Settings](/media/articles/multifactor-authentication/sms-settings.png)
 
 ## Twilio Configuration
 
