@@ -114,4 +114,6 @@ Since the native login implementation does not make use of standard browser-base
 
 ## Keep reading
 
+* [Native Facebook Login with iOS Swift](/quickstart/native/ios-swift-facebook-login)
+* [Native Facebook Login with Android](/quickstart/native/android-facebook-login)
 * [Rate Limits on Native Social Logins](/policies/rate-limits#limits-on-native-social-logins)
