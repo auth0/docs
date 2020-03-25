@@ -18,10 +18,6 @@ The Send Phone Message hook can be used to override how Auth0 sends SMS messages
 
 The Send Phone Message extensibility point is available for [MFA](/multifactor-authentication) requests.
 
-::: note
-The `triggerId` for the Send Phone Message extensibility point is `send-phone-message`. To learn how to create Hooks for this extensibility point, see [Create New Hooks](/hooks/create).
-:::
-
 To learn about other extensibility points, see [Extensibility Points](/hooks/extensibility-points).
 
 ## Starter code and parameters
@@ -105,3 +101,11 @@ When you run a Hook based on the starter code, the response object is:
     "MessageID": "998a9ad1-c9b9-4b85-97b1-ac0305aa5532"
 }
 ```
+
+## Configuring the hook using the Management API
+
+To configure this Hook using the Management API, please refer to the [Create New Hooks](/hooks/create) documentation.
+
+::: note
+The `triggerId` for the Send Phone Message extensibility point is `send-phone-message`.
+:::
