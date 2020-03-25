@@ -1,5 +1,6 @@
 ---
-description: Learn how hooks can be used with the Send Phone Message extensibility point, which is available for MFA.
+title: Send Phone Message
+description: Learn how to provide your own code to send SMS messages for MFA
 toc: true
 topics:
     - hooks
@@ -14,11 +15,13 @@ v2: true
 ---
 # Send Phone Message
 
-The Send Phone Message hook can be used to override how Auth0 sends SMS messages as part of the multi-factor authentication flows. Auth0 has built-in support for sending SMS messages with Twilio, but in some scenarios, you could want to use a different provider (e.g. you get better pricing in your region, or you already standardized with a different vendor).
+If you decide to use SMS as a multi-factor authentication, you can configure how you want Auth0 to send the messages in the [SMS configuration dialog](/multifactor-authentication/factors/sms#administrative-setup).
 
-The Send Phone Message extensibility point is available for [MFA](/multifactor-authentication) requests.
+If you select the 'Custom' SMS delivery method, you need to create an **Send Phone Message Hook** that will let you write your own code to send the message. This allows you to use whatever SMS provider you want.
 
-To learn about other extensibility points, see [Extensibility Points](/hooks/extensibility-points).
+::: note
+The `triggerId` for the Pre User Registration extensibility point is `send-phone-message`. To learn how to create Hooks for this extensibility point, see [Create New Hooks](/hooks/create).
+:::
 
 ## Starter code and parameters
 
@@ -61,10 +64,12 @@ The callback function (`cb`) at the end of the sample code signals completion an
 
 ## Example parameters
 
+This is an example of how the parameters look like:
+
 ```js
 {
   "recipient": "1-808-555-5555",
-  "text": "Here is your one time password!",
+  "text": "Here is your one time password: 999111",
   "context": {
     "message_type": "sms",
     "action": "enrollment",
@@ -90,7 +95,7 @@ The callback function (`cb`) at the end of the sample code signals completion an
 
 ## Starter code response
 
-Once you've customized the starter code, you can test the Hook using the Runner embedded in the Hook Editor. The Runner simulates a call to the Hook with the appropriate body and response. 
+Once you've customized the Hook code, you can test it using the Runner embedded in the Editor. The Runner simulates a call to the Hook with the appropriate body and response. 
 
 <%= include('../_includes/_test_runner_save_warning') %>
 
@@ -102,13 +107,7 @@ When you run a Hook based on the starter code, the response object is:
 }
 ```
 
-## Configuring the hook using the Management API
-
-To configure this Hook using the Management API, please refer to the [Create New Hooks](/hooks/create) documentation.
-
-::: note
-The `triggerId` for the Send Phone Message extensibility point is `send-phone-message`.
-:::
-
 # Keep reading
-To view sample code on how to configure your Send Phone Message extensibility point using Amazon SNS, please follow the [Configuring a Custom SMS Gateway for MFA using Amazon SNS](/multifactor-authentication/send-phone-message-hook-configuration) guide. 
+
+- [Configuring a Custom SMS Gateway for MFA using Amazon SNS](/multifactor-authentication/send-phone-message-hook-amazon-sns) guide. 
+- Learn about other [Extensibility Points](/hooks/extensibility-points).
