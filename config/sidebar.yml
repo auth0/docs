@@ -1027,6 +1027,9 @@ articles:
             - title: Send Phone Message
               url: /hooks/extensibility-points/send-phone-message 
 
+            - title: Send Phone Message
+              url: /hooks/extensibility-points/send-phone-message 
+
           - title: Hook Secrets
             url: /hooks/secrets
             children:
