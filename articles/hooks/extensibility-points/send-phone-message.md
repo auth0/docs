@@ -1,6 +1,5 @@
 ---
 description: Learn how hooks can be used with the Send Phone Message extensibility point, which is available for MFA.
-beta: true
 toc: true
 topics:
     - hooks
@@ -15,7 +14,7 @@ v2: true
 ---
 # Send Phone Message
 
-At the Send Phone Message extensibility point, Hooks allow custom actions to be executed when a user is prompted for MFA. For example, you may use your preferred SMS gateway provider to get better pricing.
+The Send Phone Message hook can be used to override how Auth0 sends SMS messages as part of the multi-factor authentication flows. Auth0 has built-in support for sending SMS messages with Twilio, but in some scenarios, you could want to use a different provider (e.g. you get better pricing in your region, or you already standardized with a different vendor).
 
 The Send Phone Message extensibility point is available for [MFA](/multifactor-authentication) requests.
 
