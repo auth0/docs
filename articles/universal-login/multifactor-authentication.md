@@ -6,10 +6,13 @@ topics:
 contentType: how-to
 useCase: customize-hosted-pages
 ---
-# Multi-factor Authentication Page
+# Multi-factor Authentication with Classic Universal Login
+
+::: note
+For information about MFA with New Universal Login Experience, visit the [MFA docs](/multifactor-authentication#mfa-with-new-universal-login).
+:::
 
 You can enable [Multi-factor authentication](/multifactor-authentication) from the [Dashboard > Multifactor Auth](${manage_url}/#/mfa) section.
-
 
 ![Universal Login MFA Page](/media/articles/multifactor-authentication/mfa-dashboard-1.png)
 
