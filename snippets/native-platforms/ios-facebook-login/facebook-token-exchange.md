@@ -32,5 +32,5 @@ fileprivate func login(with accessToken: FacebookLogin.AccessToken) {
 ```
 
 ::: note
-To learn more about the `Credentials` object, check out [its](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift) source.
+To learn more about the `Credentials` object, check out [its source](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift).
 :::
