@@ -22,4 +22,4 @@ If your application does not plan to make use of the Web Authentication module p
 ```
 
 However, if you do plan to support Web Authentication, head over [here](https://auth0.com/docs/libraries/auth0-android#authentication-via-universal-login) to learn how to declare the Manifest Placeholders.
-::: panel
+:::
