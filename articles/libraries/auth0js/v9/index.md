@@ -80,11 +80,11 @@ There are two required parameters that must be passed in the `options` object wh
 | `audience` | optional | (String)  The default audience to be used for requesting API access. |
 | `responseType` | optional* | (String)  The default `responseType` used. It can be any space separated list of the values `code`, `token`, `id_token`. It defaults to `'token'`, unless a `redirectUri` is provided, then it defaults to `'code'`. **If you do not provide a global `responseType` value, you will need to provide a `responseType` value for *each* method you use.** |
 | `responseMode` | optional | (String)  This option is omitted by default. Can be set to `'form_post'` in order to send the token or code to the `'redirectUri'` via POST. Supported values are `query`, `fragment` and `form_post`. |
-| `leeway` | optional | (Integer) A value in seconds; leeway to allow for clock skew with regard to JWT expiration times. |
+| `leeway` | optional | (Integer) A value in seconds; leeway to allow for clock skew with regard to ID Token expiration times. |
 | `_disableDeprecationWarnings` | optional | (Boolean)  Disables the deprecation warnings, defaults to `false`. |
 
 ::: note
-Because of clock skew issues, you may occasionally encounter the error `The token was issued in the future`. The `leeway` parameter can be used to allow a few seconds of leeway to JWT expiration times, to prevent that from occurring.
+Because of clock skew issues, you may occasionally encounter the error `The token was issued in the future`. The `leeway` parameter can be used to allow a few seconds of leeway to ID Token expiration times, to prevent that from occurring.
 :::
 
 ##### Scope
@@ -494,7 +494,7 @@ The user will then receive an email which will contain a link that they can foll
 
 ## User management
 
-The Management API provides functionality that allows you to link and unlink separate user accounts from different providers, tying them to a single profile (Read more about [Linking Accounts](/link-accounts) with Auth0). It also allows you to update user metadata.
+The Management API provides functionality that allows you to link and unlink separate user accounts from different providers, tying them to a single profile (See [User Account Linking](/users/concepts/overview-user-account-linking) for details.) It also allows you to update user metadata.
 
 To get started, you first need to obtain a an Access Token that can be used to call the Management API. You can do it by specifying the `https://${account.namespace}/api/v2/` audience when initializing auth0.js, in which case you will get the Access Token as part of the authentication flow.
 
@@ -565,7 +565,7 @@ auth0Manage.patchUserMetadata(userId, userMetadata, cb);
 
 Linking user accounts will allow a user to authenticate from any of their accounts and no matter which one they use, still pull up the same profile upon login. Auth0 treats all of these accounts as separate profiles by default, so if you wish a user's accounts to be linked, this is the way to go.
 
-The `linkUser` method accepts two parameters, the primary `userId` and the secondary user's ID Token (the token obtained after login with this identity). The user ID in question is the unique identifier for the primary user account. The ID should be passed with the provider prefix, e.g., `auth0|1234567890` or `facebook|1234567890`, when using this method. Visit the [Linking Accounts](/link-accounts) documentation for more details on linking accounts.
+The `linkUser` method accepts two parameters, the primary `userId` and the secondary user's ID Token (the token obtained after login with this identity). The user ID in question is the unique identifier for the primary user account. The ID should be passed with the provider prefix, e.g., `auth0|1234567890` or `facebook|1234567890`, when using this method. See [User Account Linking](/users/concepts/overview-user-account-linking) for details.
 
 ```js
 auth0Manage.linkUser(userId, secondaryUserToken, cb);

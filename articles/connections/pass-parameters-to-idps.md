@@ -98,7 +98,6 @@ Here are fields available for the `enum` parameter:
 * `id_token_hint`
 * `login_hint`
 * `max_age`
-* `max_age`
 * `prompt`
 * `resource`
 * `response_mode`

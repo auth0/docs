@@ -13,11 +13,11 @@ useCase: enable-mobile-auth
 
 The Management API provides functionality that you can use to manage users of your application, including tasks such as the following.
 
-* Link separate user accounts from different providers, tying them to a single profile (Read more about [Linking Accounts](/link-accounts) with Auth0)
+* Link separate user accounts from different providers, tying them to a single profile (See [User Account Linking](/users/concepts/overview-user-account-linking) for details.)
 * Unlink user accounts, returning them to separate identities
-* Update user [metadata](/users/concepts/overview-user-metadata)
+* Update [user metadata](/users/concepts/overview-user-metadata)
 
-## Initializing the API Application
+## Initialize the UsersAPIClient
 
 To get started, create a new `UsersAPIClient` instance by passing it the `account` and the token for the primary identity. In the case of linking users, this primary identity is the user profile that you want to "keep" the data for, and which you plan to link other identities to.
 
@@ -26,9 +26,9 @@ Auth0 account = new Auth0("${account.clientId}", "${account.namespace}");
 UsersAPIClient users = new UsersAPIClient(account, "token");
 ```
 
-## Linking users
+## Link users
 
-Linking user accounts will allow a user to authenticate from any of their accounts and no matter which one they use, still pull up the same profile upon login. Auth0 treats all of these accounts as separate profiles by default, so if you wish a user's accounts to be linked, this is the way to go.
+Linking user accounts will allow a user to authenticate from any of their accounts and no matter which one they use, still pull up the same profile upon login. Auth0 treats all of these accounts as separate profiles by default, so if you wish a user's accounts to refer to the same profile, you must perform account linking.
 
 The `link` method accepts two parameters, the primary user id and the secondary user token (the token obtained after login with this identity). The user id in question is the unique identifier for this user account. If the id is in the format `facebook|1234567890`, the id required is the portion after the delimiting pipe.
 
@@ -48,7 +48,7 @@ users
     });
 ```
 
-## Unlinking users
+## Unlink users
 
 Unlinking users is a similar process to the linking of users. The `unlink` method takes three parameters, though: the primary user id, the secondary user id, and the secondary provider (of the secondary user).
 

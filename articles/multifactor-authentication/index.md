@@ -58,7 +58,17 @@ These customizations do not apply to Duo, which has its own UI.
 
 The Multi-factor Authentication pages can be customized by adjusting the Universal Login branding options in the [Universal Login Settings](${manage_url}/#/login_settings) section.
 
-If you need further customization, you can also customize [the full HTML content](/universal-login/multifactor-authentication#customizing-the-html-for-the-mfa-page) to reflect your organization's particular UX requirements. 
+If you need further customization, you can also customize [the full HTML content](/universal-login/multifactor-authentication#customizing-the-html-for-the-mfa-page) to reflect your organization's particular UX requirements, if using Classic Universal Login.
+
+#### MFA with New Universal Login
+
+With the New Universal Login Experience, MFA is presented even more simply to the user. Once they have entered their credentials to log in, they are presented with the MFA screen. If they have no MFA factor enrolled, they will be asked to enroll, and if they do, they will be asked to present their MFA credential.
+
+![MFA with New UL](/media/articles/universal-login/new-ul-mfa1.png)
+
+Note that in addition to complying with the requested factor, a user can also click the link at the bottom and be taken to a screen which presents all available MFA factors for this application, and select another to enroll or use.
+
+![MFA with New UL - Select a Factor](/media/articles/universal-login/new-ul-mfa2.png)
 
 ### Customizing via Rules
 

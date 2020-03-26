@@ -79,7 +79,7 @@ Depending on which claims have been mapped when installing the claims provider t
 
 ## Customizing the Login Page
 
-You can customize the login page by following the instructions in the [documentation on customizing the login page](/hosted-pages/login#how-to-customize-your-login-page).
+You can customize the login page by following the instructions in the [documentation on customizing the login page](/universal-login#simple-customization).
 
 You might wish to provide a way to let users authenticate with Sharepoint using Windows Authentication, bypassing Auth0. You can do that by customizing the login page, adding a link to the Windows Authentication endpoint (usually similar to `https://yoursharepointserver/_windows/default.aspx?ReturnUrl=/_layouts/15/Authenticate.aspx`).
 

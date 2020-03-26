@@ -16,7 +16,7 @@ useCase:
 This guide will show you how to test enterprise [connections](/connections) for applications using Auth0's Dashboard.
 
 ::: warning
-To properly test, you should have already [set up your enterprise connection](/connections/enterprise).
+To properly test, you should have already [set up your enterprise connection](/connections/identity-providers-enterprise).
 :::
 
 1. Navigate to the [Connections > Enterprise](${manage_url}/#/connections/enterprise) page in the [Auth0 Dashboard](${manage_url}/), and click on the connection type to view.

@@ -11,9 +11,9 @@ useCase: enable-mobile-auth
 ---
 # User Management with Auth0.Swift
 
-The Management API provides functionality that allows you to link and unlink separate user accounts from different providers, tying them to a single profile (Read more about [Linking Accounts](/link-accounts) with Auth0). It also allows you to update user metadata.
+The Management API provides functionality that allows you to link and unlink separate user accounts from different providers, tying them to a single profile (See [User Account Linking](/users/concepts/overview-user-account-linking) for details). It also allows you to update user metadata.
 
-## Linking users
+## Link users
 
 Linking user accounts will allow a user to authenticate from any of their accounts and no matter which one they use, still pull up the same profile upon login. Auth0 treats all of these accounts as separate profiles by default, so if you wish a user's accounts to be linked, this is the way to go.
 
@@ -33,9 +33,9 @@ Auth0
    }
 ```
 
-## Unlinking users
+## Unlink users
 
-Unlinking users is a similar provess to the linking of users. The `unlink` method takes three parameters, though: the secondary user id, and the secondary provider (the provider of the secondary user), and the primary user id.
+Unlinking users is a similar process to the linking of users. The `unlink` method takes three parameters, though: the secondary user id, and the secondary provider (the provider of the secondary user), and the primary user id.
 The parameters read, essentially: "Unlink this **secondary user** (with this **provider**) from this **primary user**".
 
 ```swift
@@ -56,7 +56,7 @@ Auth0
 Note that when accounts are linked, the secondary account's metadata is not merged with the primary account's metadata. Similarly, when unlinking two accounts, the secondary account does not retain the primary account's metadata when it becomes separate again.
 :::
 
-## Retrieving user metadata
+## Retrieve user metadata
 
 ```swift
 Auth0

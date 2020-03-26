@@ -62,7 +62,7 @@ Some example tasks include:
 * registering your applications and APIs with Auth0
 * setting up [connections](/connections) with which your users can authenticate
 * [managing users](/users)
-* [linking user accounts](/link-accounts)
+* [linking user accounts](/users/guides/link-user-accounts)
 
 <div class="api-info-wrapper">
   <div class="block-links">

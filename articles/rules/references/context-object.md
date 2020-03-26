@@ -38,6 +38,6 @@ The following properties are available for the `context` object.
 | `context.redirect` | The object used to [implement the redirection of a user from a rule](/rules/current/redirect#how-to-implement-a-redirect). |
 | `context.sessionID` | An internal identification for the authentication session. Value is kept only if `prompt=none` is used in the authorization request. Note that the session ID can change **after** rule execution on other flows, so the value available in `context.sessionID` might not match the new session ID that the user will receive. This makes this value only meaningful when `prompt=none` is used. |
 | `context.request` | <%= include('../_includes/_context-prop-request.md') %> |
-| `context.primaryUser` | The unique user id of the primary account for the user. Used to [link user accounts](/link-accounts#automatic-account-linking) from various identity providers. |
+| `context.primaryUser` | The unique user id of the primary account for the user. Used to [link user accounts](/users/concepts/overview-user-account-linking#automatic-account-linking) from various identity providers. |
 | `context.authentication` | <%= include('../_includes/_context-prop-authentication.md') %> |
 | `context.authorization` | <%= include('../_includes/_context-prop-authorization.md') %> |

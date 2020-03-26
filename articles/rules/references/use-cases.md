@@ -195,7 +195,7 @@ useCase: extensibility-rules
 
 <ul class="topic-links">
     <li>
-        <i class="icon icon-budicon-715"></i><a href="/link-accounts#properties-from-secondary-identities">Add missing user profile information from secondary identities</a>
+        <i class="icon icon-budicon-715"></i><a href="/users/guides/link-user-accounts#add-missing-information-from-rules">Add missing user profile information from secondary identities</a>
     </li>
     <li>
         <i class="icon icon-budicon-715"></i><a href="/users/guides/change-user-pictures">Update a user profile metadata data field with information available via the ID Token</a>

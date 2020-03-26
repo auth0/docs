@@ -8,7 +8,7 @@ contentType:
   - concept
 useCase: extensibility-extensions
 ---
-# Link User Accounts
+# Account Link Extension
 
 The **Account Link** extension prompts users that may have created a second account by mistake to link the new account with their old one on their first login. The user may choose to either link the two accounts or keep them separate if it was intentional.
 

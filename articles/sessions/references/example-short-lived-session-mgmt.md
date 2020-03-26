@@ -13,7 +13,7 @@ useCase:
 
 # Example: Application Sessions and SSO Sessions Workflow
 
-This workflow shows how the `auth0-spa-js` SDK should be implemented to support multi-site session management.  In this scenario, it is assumed that the tenant SSO Inactivity Timeout is set to 300 seconds, and the JWT Expiration of each SPA application is set to 150 seconds. This is considered a "short-lived" session. 
+This workflow shows how the `auth0-spa-js` SDK should be implemented to support multi-site session management.  In this scenario, it is assumed that the tenant SSO Inactivity Timeout is set to 300 seconds, and the ID Token Expiration of each SPA application is set to 150 seconds. This is considered a "short-lived" session. 
 
 ::: panel Support for Long-Lived Sessions
 Auth0 supports long-lived sessions for enterprise Auth0 customers. With long-lived sessions, you can configure session limits with up to 100 days of inactivity (idle timeout) and up to one year in total duration (absolute timeout). If you have quarterly, monthly, or other timelines, this allows you to reduce friction for end-users and provide access to low-risk content and capabilities. In addition, media companies can leverage long-lived sessions for improving user experiences through seamless access to content. You can also make the choices between long-lived sessions and password validation based on your requirements around user experience and security. 

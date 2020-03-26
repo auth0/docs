@@ -41,10 +41,7 @@ If you are writing a login script for a [custom database](/connections/database
 
 ## Additional Attributes
 
-The User Profile includes an array of identities. In the most common case (logging in with a single provider), the array contains only one element. If the user has multiple accounts linked, the array will have an element for each associated account.
-
-::: note
-For more information, see: [Link Accounts](/link-accounts).
+The User Profile includes an array of identities. In the most common case (logging in with a single provider), the array contains only one element. If the user has multiple accounts linked, the array will have an element for each associated account. See [User Account Linking](/users/concepts/overview-user-account-linking) for more information. 
 :::
 
 The `identities` array contains the following attributes:

@@ -16,6 +16,9 @@ useCase: compliance
   <p>
     Auth0 maintains and meets the requirements for multiple compliance frameworks and certifications.
   </p>
+  <p>
+    To download or request Auth0 compliance documentation, go to <a href="https://support.auth0.com/compliance">Auth0 Support Center: Compliance</a>.
+  </p>
 </div>
 
 <ul class="topic-links">

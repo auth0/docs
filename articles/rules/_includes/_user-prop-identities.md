@@ -1,4 +1,4 @@
-Contains info retrieved from the identity provider with which the user originally authenticates. Users may also [link their profile to multiple identity providers](/link-accounts); those identities will then also appear in this array. The contents of an individual identity provider object varies by provider, but it will typically include the following:
+Contains info retrieved from the identity provider with which the user originally authenticates. Users may also [link their profile to multiple identity providers](/users/concepts/overview-user-account-linking); those identities will then also appear in this array. The contents of an individual identity provider object varies by provider, but it will typically include the following:
 
 - `connection` (text): Name of the Auth0 connection used to authenticate the user.
 - `isSocial` (boolean): Indicates whether the connection is a social one.

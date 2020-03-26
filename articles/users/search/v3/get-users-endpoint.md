@@ -128,7 +128,7 @@ We do **not** recommend that you use this endpoint for:
 * Operations that require immediate consistency. Instead, use the [Get Users by Email endpoint](/users/search/v3/get-users-by-email-endpoint) or the [Get Users by ID endpoint](/users/search/v3/get-users-by-id-endpoint).
 * User exports. Instead, use the [User Export endpoint](/users/guides/bulk-user-exports).
 * Operations that require user search as part of authentication processes. Instead, use the [Get Users by Email endpoint](/users/search/v3/get-users-by-email-endpoint) or the [Get Users by ID endpoint](/users/search/v3/get-users-by-id-endpoint).
-* Searching for Users for [Account Linking](/link-accounts) by Email. Instead, use the [Get Users by Email endpoint](/users/search/v3/get-users-by-email-endpoint).
+* Searching for Users for [Account Linking](/users/concepts/overview-user-account-linking) by Email. Instead, use the [Get Users by Email endpoint](/users/search/v3/get-users-by-email-endpoint).
 
 ## Keep reading
 
