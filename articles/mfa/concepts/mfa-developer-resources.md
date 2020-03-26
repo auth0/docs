@@ -22,7 +22,7 @@ Using Auth0 SDKs, you can customize your users' <dfn data-key="multifactor-authe
 
 * [MFA User Factor Management API](/mfa/concepts/mfa-user-factor-mgmt-api)
 
-## Customize the Multi-factor Authentication Page
+## Customize the mlti-factor authentication page
 
 Use the following client libraries to customize the look-and-feel of the MFA page so it matches your organization.
 

@@ -11,21 +11,13 @@ useCase:
 ---
 # Multi-factor Authentication in Auth0
 
-Multi-factor Authentication (MFA) provides a method to verify a user's identity by requiring them to provide more than one piece of identifying information. This ensures that only valid users can access their accounts even if they use a username and password that may have been compromised from a different application. 
+## Authentication factors
 
-The type of information required from the user is typically two or more of the following:
-
-* **Knowledge**: Something the user **knows** (such as a password)
-* **Possession**: Something the user **has** (such as a mobile device)
-* **Inheritance**: Something the user **is** (such as a fingerprint or retina scan)
+Use any of the dozens of MFA solutions that exist today including SMS text, email, biometric, password-less and more, and be ready to add any new ones easily as they become available or necessary. Auth0 provides support for all MFA service providers through powerful authentication flow Rules.
 
 ::: note
 It's common for customer facing applications to provide users with an option for adding a second factor rather than _forcing_ them to use a second factor. 
 :::
-
-## Authentication factors
-
-Use any of the dozens of MFA solutions that exist today including SMS text, email, biometric, password-less and more, and be ready to add any new ones easily as they become available or necessary. Auth0 provides support for all MFA service providers through powerful authentication flow Rules.
 
 Here are some of the primary factors Auth0 recommends:
 
@@ -61,15 +53,17 @@ You can configure a rule in Dashboard > Rules for custom multi-factor authentica
 
 ### Adaptive
 
+## Developer resources
+
 ## Authenticator apps
 
 Here are a few different options for authenticator apps that work with Auth0 for protecting user account access:
 
 * Auth0 Guardian
-* DUO
+* Cisco Duo
 * Twilio
 * Google Authenticator
-* Authy
+* Google Authy
 * Microsoft Authenticator
 
 ## MFA management scenarios
@@ -77,12 +71,6 @@ Here are a few different options for authenticator apps that work with Auth0 for
 * B2B: Your customers manage MFA factors for their users 
 * B2C: End users manage their own MFA factors via the My MFA Settings Page
 * B2E: You manage MFA factors for your users
-
-## Enable MFA using the Dashboard
-
-From the Dashboard, you can easily enable the [Google Authenticator](https://en.wikipedia.org/wiki/Google_Authenticator) or [DUO](https://www.duosecurity.com/) into the authentication flow for your application. 
-
-## Developer resources
 
 ## Keep reading
 
