@@ -14,7 +14,7 @@ ${snippet(meta.snippets.facebook_button_config)}
 
 When you sign in with Facebook at Auth0, the backend will perform some checks in the background to ensure the user is who they say they are. To achieve this, it needs to be provided with a "Session Access Token". 
 
-Furthermore, if a user needs to be created on Auth0 to represent this Facebook user, it will require some of their information such as their name, last name and email. The email, if provided, can be automatically verified by the backend and marked as such on the Auth0 user profile. 
+Furthermore, if a user needs to be created on Auth0 to represent this Facebook user, it will require some of their information such as their name, last name and email. The email, if provided, it will be **flagged as non-verified** on the Auth0 user profile.
 
 In order to obtain the Session Access Token and the user profile, two additional requests need to be made against the Facebook API.
 
