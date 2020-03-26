@@ -1,9 +1,9 @@
 With the SDK installed, it's time to go back to the first method you added and tie everything together. 
 
-Add logic in it to execute the requests you prepared in the previous steps. Then, pass the resulting Session Access Token and user profile to the SDK's `tokenExchange(withFacebookSessionAccessToken:profile:)` method. Don't forget to import the SDK first, with `import Auth0`.
+Add logic in it to execute the requests you prepared in the previous steps. Then, pass the resulting Session Access Token and user profile to the SDK method `login(facebookSessionAccessToken:profile:)`. Don't forget to import the SDK first, with `import Auth0`.
 
 ```swift
-fileprivate func exchangeFacebookAccessToken(with accessToken: FacebookLogin.AccessToken) {
+fileprivate func login(with accessToken: FacebookLogin.AccessToken) {
     // Get the request publishers
     let sessionAccessTokenPublisher = fetchSessionAccessToken(appId: accessToken.appID,
                                                               accessToken: accessToken.tokenString)
@@ -20,7 +20,7 @@ fileprivate func exchangeFacebookAccessToken(with accessToken: FacebookLogin.Acc
             // Perform the token exchange
             Auth0
                 .authentication()
-                .tokenExchange(withFacebookSessionAccessToken: sessionAccessToken, profile: profile)
+                .login(facebookSessionAccessToken: sessionAccessToken, profile: profile)
                 .start { result in
                     switch result {
                     case .success(let credentials): print(credentials) // Auth0 user credentials 🎉
@@ -32,7 +32,5 @@ fileprivate func exchangeFacebookAccessToken(with accessToken: FacebookLogin.Acc
 ```
 
 ::: note
-
-To learn more about the `Credentials` object, read the [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift) article.
-
+To learn more about the `Credentials` object, check out [its](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift) source.
 :::

@@ -1,7 +1,7 @@
 title: iOS Swift - Facebook Login
 alias:
-  - ios
-  - swift
+  - iOS
+  - Swift
 language:
   - Swift
 framework:
@@ -30,7 +30,7 @@ articles:
 next_steps:
   - path: 00-login
     list:
-    - text: Learn to save and renew tokens
+    - text: Learn how to securely store tokens
       icon: 345
       href: "/libraries/auth0-swift/save-and-refresh-jwt-tokens"
     - text: Learn to call an API
@@ -39,7 +39,7 @@ next_steps:
     - text: Configure other identity providers
       icon: 345
       href: "/identityproviders"
-    - text: Learn more about the Swift sdk
+    - text: Learn more about the Swift SDK
       icon: 345
       href: "/libraries/auth0-swift"
 show_steps: true
@@ -49,4 +49,4 @@ github:
 requirements:
   - CocoaPods/Carthage
   - Xcode 11+
-  - iOS 13+ Emulator/Device
+  - iOS 13+ Simulator/Device

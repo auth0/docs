@@ -1,12 +1,12 @@
-In the sample, the method was named `exchangeFacebookAccessToken(with:)`.
+In the sample, the method was named `login(with:)`.
 
 ```swift
-fileprivate func exchangeFacebookAccessToken(with accessToken: FacebookLogin.AccessToken) {
+fileprivate func login(with accessToken: FacebookLogin.AccessToken) {
     // TODO
 }
 ```
 
-Call this method from the login button delegate `loginButton(_:didCompleteWith:error:)` method, as shown below:
+Call this method from the Facebook Login Button delegate `loginButton(_:didCompleteWith:error:)` method, as shown below:
 
 ```swift
 extension ViewController: LoginButtonDelegate {
@@ -16,7 +16,7 @@ extension ViewController: LoginButtonDelegate {
             return print(error ?? "Facebook access token is nil")
         }
 
-        exchangeFacebookAccessToken(with: accessToken) // 👈🏻
+        login(with: accessToken) // 👈🏻
     }
 
     func loginButtonDidLogOut(_ loginButton: FBLoginButton) {

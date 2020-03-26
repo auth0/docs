@@ -1,25 +1,24 @@
 ## Setup the “Continue with Facebook” Button
 
-
 This guide will help you add authentication with Auth0 to the application you built in the first step.
 
 ### Requesting Facebook permissions
 
-Your application is already able to sign in with Facebook. But in order to have a rich user profile, the permissions with which the Facebook Login Button is set up need to be updated.
+Your application is already able to sign in with Facebook. But to have a rich user profile, the permissions with which the Facebook Login Button was set up need to be updated.
 
 ${snippet(meta.snippets.facebook_button_permissions)}
 
-Now, in order to kick off the authentication process with Auth0, create a new method where you will prepare the payload to be sent. 
+Now, to kick off the authentication process with Auth0, create a new method where you will prepare the payload to be sent. 
 
 ${snippet(meta.snippets.facebook_button_config)}
 
 ## Integrate Facebook
 
-When you sign in with Facebook at Auth0, the backend will perform some checks in the background to ensure the user is who they say they are. To achieve this, it needs to be provided with a "Session Access Token". 
+When you sign in with Facebook at Auth0, the backend will perform some checks in the background to ensure the user is who they say they are. To achieve this, it needs to be provided with a Session Access Token. 
 
-Furthermore, if a user needs to be created on Auth0 to represent this Facebook user, it will require some of their information such as their name, last name and email. The email, if provided, it will be **flagged as non-verified** on the Auth0 user profile.
+Furthermore, if a user needs to be created on Auth0 to represent this Facebook user, it will require some of their information such as their name, last name and email. The email, if provided, will be **flagged as non-verified** on the Auth0 user profile.
 
-In order to obtain the Session Access Token and the user profile, two additional requests need to be made against the Facebook API.
+To obtain the Session Access Token and the user profile, two additional requests need to be made against the Facebook API.
 
 ### Fetch Facebook session access token
 
@@ -38,19 +37,19 @@ ${snippet(meta.snippets.facebook_fetch_session_token)}
 Now make another GET request, just like in the step above. The endpoint path will be the User ID value from the Facebook login result, e.g. `/904636746222815`.
 Use the following parameters:
 - `access_token`: the access token received upon login.
-- `fields`: the fields from the user profile that you'd like to obtain back in the response. These are directly tied to the Facebook Login Button permissions that were configured at the begginning. When a permission is optional, the user must first consent to give access to it. For the purpose of signing up a user at Auth0, their full name and email will suffice. 
+- `fields`: the fields from the user profile that you'd like to get back in the response. These are directly tied to the Facebook Login Button permissions that were configured at the beginning. When a permission is optional, the user must first consent to give access to it. For the purpose of signing up a user at Auth0, their full name and email will suffice. 
 
 ${snippet(meta.snippets.facebook_fetch_profile)}
 
 ## Integrate Auth0
 
-Now that the required artifacts have been obtained you are ready to trade them for Auth0 user credentials, such as the ID and Access Tokens. Before getting there, you must set up the Auth0 SDK to make that last request.
+Now that the required artifacts have been obtained, you are ready to trade them for Auth0 user credentials, such as the ID and Access Tokens. Before getting there, you must set up the Auth0 SDK to make that last request.
 
 ### Get your application keys
 
 Go to the **Applications** section of the [Auth0 Dashboard](https://manage.auth0.com/) and select the existing application in which you had enabled **Sign in with Facebook**. If you need help with this step, please check the requirements section at the top of this article.
 
-Take the **Domain** and **Client ID** values from the application settings page. These are required by the SDK to properly initialize and communicate against Auth0.
+Take the **Domain** and **Client ID** values from the application settings page. These are required by the SDK.
 
 ${snippet(meta.snippets.facebook_app_credentials)}
 

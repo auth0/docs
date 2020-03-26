@@ -1,4 +1,4 @@
-The SDK must be instantiated before use. This can be done _lazily_, so that the initialization happens once the field is needed. The credentials defined in the step above are passed to the `Auth0` constructor, and then a new instance of the `AuthenticationAPIClient` is created with it.
+The SDK must be instantiated before use. This can be done _lazily_ so that the initialisation happens once the field is needed. The credentials defined in the step above are passed to the `Auth0` constructor, and then a new instance of the `AuthenticationAPIClient` is created with it.
 
 ```kotlin
 private val auth0Client: AuthenticationAPIClient by lazy {
@@ -7,15 +7,15 @@ private val auth0Client: AuthenticationAPIClient by lazy {
 }
 ```
 
-Create the method that will hold the logic to exchange the two obtained artifacts for Auth0 tokens. In the sample, this method is named `exchangeTokens`.
+Create the method that will hold the logic to exchange the two obtained artifacts for Auth0 user credentials. In the sample, this method is named `exchangeTokens`.
 
-The API client declares a method `loginWithNativeSocialToken` that receives a token and a subject type. The former corresponds to the session token, and the latter indicates what type of connection the backend will attempt to authenticate with. For native Facebook Login, you will use the following value:
+The API client declares the method `loginWithNativeSocialToken` that receives a token and a subject type. The former corresponds to the session token, and the latter indicates what type of connection the backend will attempt to authenticate with. For native Facebook Login, you will use the following value:
 
 ```
 "http://auth0.com/oauth/token-type/facebook-info-session-access-token"
 ```
 
-Other values that need to be configured are the user profile, using the `user_profile` key, and the scope asked to the Auth0 tokens to contain. 
+Other values that need to be configured are the user profile, using the `user_profile` key, and the scope asked to the Auth0 tokens to contain.
 
 
 ```kotlin

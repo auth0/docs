@@ -15,7 +15,7 @@ useCase: quickstart
 requirements:
   - CocoaPods/Carthage
   - Xcode 11+
-  - iOS 13+ Emulator/Device
+  - iOS 13+ Simulator/Device
 ---
 
 <!-- markdownlint-disable MD002 MD041 -->
