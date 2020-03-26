@@ -9,7 +9,7 @@ useCase:
 ---
 # Enable Multi-Factor Authentication
 
-Enabling MFA for your tenant is a fairly straightforward process. First, you toggle on the factors you choose to enable on your tenant, such as push notifications or SMS. Next, you perform any further setup required to configure that factor, and last, you choose whether you wish to force MFA for all users or not. See the instructions below for details.
+To enable MFA, you toggle on the factors (such as push notifications or SMS) you choose to enable in the Dashboard on your tenant. Next, you perform any further setup required to configure that factor, and last, you choose whether you wish to force MFA for all users or not. 
 
 You can also [customize your MFA flow](/multifactor-authentication/custom) with [Auth0 Rules](/rules), to allow MFA to only be required in specific circumstances or force a particular factor to be used.
 

@@ -13,6 +13,8 @@ useCase:
 ---
 # Auth0 Guardian
 
+Auth0 Guardian is a service that provides both _Push_ notification generation and an application for allowing or denying requests. _Push_ sends notification to a user’s pre-registered device - typically a mobile or tablet - from which a user can immediately allow or deny account access via the press of a button.
+
 ## Guardian and push notifications
 
 When enabling push, end-users will need to have Auth0 Guardian or a custom application built with the Guardian SDK installed in their device. The app is sent push notifications when the user attempts to authenticate, and the user must respond to it in order to login, ensuring that they not only know their login information but also possess the device set up for MFA.
@@ -43,11 +45,17 @@ Your users will need to have an OTP Authenticator app installed in their mobile 
 
 ## Guardian SDKs
 
-You can use the Guardian SDKs, available for [iOS](/mfa/guides/guardian/configure-guardian-ios) and [Android](/mfa/guides/guardian/configure-guardian-android) to build your own whitelabel multi-factor authentication application with complete control over the branding and look-and-feel.
+You can use the [Guardian SDKs](/mfa/guides/guardian/guardian-sdk), available for [iOS](/mfa/guides/guardian/configure-guardian-ios) and [Android](/mfa/guides/guardian/configure-guardian-android) to build your own whitelabel multi-factor authentication application with complete control over the branding and look-and-feel.
 
 With the Guardian SDK, you can build your own custom mobile applications that works like Guardian or integrate some Guardian functionalities, such as receiving push notifications in your existing mobile applications.
 
-A typical scenario could be: While building a banking app, you can make use of the Guardian SDK in your existing mobile app to receive and confirm push notifications when someone performs an ATM transaction.
+A typical scenario could be for a banking app. You can use the Guardian SDK in your existing mobile app to receive and confirm push notifications when someone performs an ATM transaction.
 
 See [auth0-guardian.js](https://github.com/auth0/auth0-guardian.js) for more information.
 
+## Keep reading
+
+* [Configure Amazon SNS for Guardian](/mfa/guides/guardian/configure-amazon-sns)
+* [Create Custom Enrollment Tickets](/mfa/guides/guardian/create-enrollment-ticket)
+* [Customize MFA Settings Page](/mfa/guides/guardian/customize-mfa-settings-page)
+* [Customize SMS Messages](/mfa/guides/guardian/customize-sms-messages)

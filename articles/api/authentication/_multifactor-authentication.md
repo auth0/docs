@@ -9,8 +9,8 @@ Next, verify the multi-factor authentication using the `/oauth/token` endpoint a
 For more information, check out:
 
 - [Multi-factor Authentication and Resource Owner Password](/api-auth/tutorials/multifactor-resource-owner-password)
-- [Multi-factor Authentication API](/multifactor-authentication/api)
-- [Multi-factor Authentication in Auth0](/multifactor-authentication)
+- [Multi-factor Authentication API](/mfa/concepts/mfa-api)
+- [Multi-factor Authentication in Auth0](/mfa)
 
 ## Challenge request
 

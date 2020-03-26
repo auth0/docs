@@ -11,6 +11,8 @@ useCase:
 ---
 # Multi-factor Authentication in Auth0
 
+Auth0 supports a number of different options when it comes to enabling MFA for protecting user account access. An MFA workflow is typically provided via a separate application that runs on a mobile or tablet device. If you don’t want your customers to have to download a separate application, Auth0 also provides you with an [MFA SDK](/mfa/guides/guardian/guardian-sdk) that you can use to build second factor workflow right in your existing mobile device app.
+
 ## Authentication factors
 
 Use any of the dozens of MFA solutions that exist today including SMS text, email, biometric, password-less and more, and be ready to add any new ones easily as they become available or necessary. Auth0 provides support for all MFA service providers through powerful authentication flow Rules.
@@ -76,3 +78,4 @@ Here are a few different options for authenticator apps that work with Auth0 for
 
 * [Blog Post: From Theory to Practice - Adding Two Factor Authentication to node.js](https://auth0.com/blog/from-theory-to-practice-adding-two-factor-to-node-dot-js/)
 * [Blog Post: Announcing Auth0 Guardian Whitelabel SDK](https://auth0.com/blog/announcing-guardian-whitelabel-sdk/)
+* [Blog Post: Time-based One-Time Password (TOTP)](https://auth0.com/blog/from-theory-to-practice-adding-two-factor-to-node-dot-js/)
