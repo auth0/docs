@@ -2,7 +2,6 @@ title: Android - Facebook Login
 alias:
   - Android
 language:
-  - Kotlin
   - Java
 hybrid: false
 author:
@@ -44,7 +43,7 @@ next_steps:
 show_steps: true
 github:
   org: auth0-samples
-  repo: auth0-android-native-social-samples
+  repo: auth0-android-native-social-sample
 requirements:
   - Android Studio 3.6.1
   - Android SDK 25
