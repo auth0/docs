@@ -104,4 +104,4 @@ Be sure to replace the placeholder values in the payload body shown below as app
 }
 ```
 
-<%= include('../../_includes/_successful_confirmation') %>
+<%= include('../../../_includes/_successful_confirmation') %>
