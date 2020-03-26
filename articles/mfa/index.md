@@ -18,7 +18,7 @@ See the following sections for more details:
 <%= include('../_includes/_topic-links', { links: [
   'mfa/concepts/overview-mfa',
   'mfa/guides/enable-mfa',
-  'mfa/guides/customize-mfa-univeral-login'.
+  'universal-login/multifactor-authentication',
   'mfa/concepts/developer-resources',
   'mfa/concepts/guardian',
   'mfa/guides/reset-user-mfa',

@@ -1,21 +1,19 @@
 ---
-description: Guide on how to customize the MFA page
+description: Learn how to customize the MFA page.
 topics:
   - mfa
   - hosted-pages
 contentType: how-to
 useCase: customize-hosted-pages
 ---
-# Multi-factor Authentication Page
+# Customize Multi-factor Authentication Page
 
-You can enable [Multi-factor authentication](/multifactor-authentication) from the [Dashboard > Multifactor Auth](${manage_url}/#/mfa) section.
+You can enable [Multi-factor authentication](/mfa) from the [Dashboard > Multifactor Auth](${manage_url}/#/mfa) section.
 
 
 ![Universal Login MFA Page](/media/articles/multifactor-authentication/mfa-dashboard-1.png)
 
-## Customizing the MFA Pages
-
-You can customize the MFA pages using the Universal Login's [basic customization features](universal-login#simple-customization). 
+You can customize the MFA pages using the Universal Login's [basic customization features](/universal-login#simple-customization). 
 
 If you need further customizations, you can provide your own HTML for the MFA page. Note that this will use the Auth0 MFA Widget, which has the following limitations:
 - It does not support MFA with Email.
