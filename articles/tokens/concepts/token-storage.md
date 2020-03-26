@@ -1,5 +1,5 @@
 ---
-description: Understand store tokens in browsers used in token-based authentication.
+description: Understand how and where to store tokens used in token-based authentication.
 topics:
   - security
   - tokens
