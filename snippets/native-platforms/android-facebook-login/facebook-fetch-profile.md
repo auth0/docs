@@ -1,20 +1,24 @@
-```kotlin
-private fun fetchUserProfile(token: String, userId: String, callback: (String?) -> Unit) {
-    val params = Bundle()
-    params.putString("access_token", token)
-    params.putString("fields", "first_name,last_name,email")
+```java
+private void fetchUserProfile(String token, String userId, final SimpleCallback<String> callback) {
+    Bundle params = new Bundle();
+    params.putString("access_token", token);
+    params.putString("fields", "first_name,last_name,email");
 
-    val request = GraphRequest()
-    request.parameters = params
-    request.graphPath = userId
-    request.callback = GraphRequest.Callback { response ->
-        if (response.error != null) {
-            Log.w(TAG, "Failed to fetch user profile: $\{response.error.errorMessage\}")
-            callback.invoke(null)
-            return@Callback
+    GraphRequest request = new GraphRequest();
+    request.setParameters(params);
+    request.setGraphPath(userId);
+    request.setCallback(new GraphRequest.Callback() {
+        @Override
+        public void onCompleted(GraphResponse response) {
+            FacebookRequestError error = response.getError();
+            if (error != null) {
+                //Failed to fetch user profile
+                callback.onError(error.getException());
+                return;
+            }
+            //Handle back the profile as received
+            callback.onResult(response.getRawResponse());
         }
-        callback.invoke(response.rawResponse)
-    }
-    request.executeAsync()
+    });
 }
 ```
