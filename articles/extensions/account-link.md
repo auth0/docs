@@ -90,12 +90,12 @@ Uninstalling/reinstalling, as well as updating, the extension may override this 
 
 ## How does the extension work?
   
-The extension will be triggered after authentication, when there's an existing user account with the email of the logged user's email. 
+The extension triggers after authentication, when there is an existing user account using a different provider but with an email address that is the same as that of the user who just authenticated.
 
-For example, if a user logs-in with their Facebook account using the email 'john@acme.com', and later authenticates with Google using the same email address, they'll be prompted with a page like this:
+For example, if a user logs in with their Facebook account using the email `john@acme.com`, and then later authenticates with Google using the same email address, they will be prompted with a page like this:
 
 ![Account Linking Extension](/media/articles/extensions/account-link/account-linking-extension.png)
 
-If users click 'Continue', they will be redirected to Facebook to authenticate. If users are already logged-in, Facebook will redirect back to the application, and the user will be automatically linked. If they are not logged-in, they'll be prompted first for their Facebook credentials, authenticated, and linked with the Google account after Facebook redirects back to Auth0.
+The extension does not automatically link users with the same email, even if emails are verified. Verified emails are not enough evidence to prove that the user can currently authenticate to both accounts.
 
-Note that the extension does not automatically link users with the same email, even if emails are verified. Verified emails are not enough evidence to prove that the user can currently authenticate to both accounts.
+If the user clicks **Continue**, they will be redirected to Facebook to authenticate. If the user is already logged in, Facebook will redirect back to the application, and the user will be automatically linked. If they are not logged in, they will be prompted first to authenticate with their Facebook credentials. Then, the account will be linked with the Google account after Facebook redirects back to Auth0. This process ensures that it is the same user who has the credentials to authenticate to both accounts. This allows the accounts to be linked safely without fear of linking accounts incorrectly.
