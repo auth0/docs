@@ -1,5 +1,8 @@
 ## Setup the “Continue with Facebook” Button
 
+
+This guide will help you add authentication with Auth0 to the application you built in the first step.
+
 ### Requesting Facebook permissions
 
 Your application is already able to sign in with Facebook. But in order to have a rich user profile, the permissions with which the Facebook Login Button is set up need to be updated.
