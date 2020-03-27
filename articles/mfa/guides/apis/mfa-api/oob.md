@@ -16,15 +16,15 @@ useCase:
 
 In this tutorial, you'll learn how to configure your application so users can self-associate out-of-band (OOB) authenticators.
 
-<%= include('../../_includes/_authenticator-before-start') %>
+<%= include('../../../_includes/_authenticator-before-start') %>
 
 ## 1. Get the MFA token
 
-<%= include('../../_includes/_get_mfa_token') %>
+<%= include('../../../_includes/_get_mfa_token') %>
 
 ## 2. Request association of the authenticator
 
-<%= include('../../_includes/_request_association') %>
+<%= include('../../../_includes/_request_association') %>
 
 To associate an authenticator where the challenge type is an SMS message containing a code the user provides, make the following `POST` request to the `/mfa/associate` endpoint. This will both trigger an MFA challenge for the user and associate the new authenticator. 
 
