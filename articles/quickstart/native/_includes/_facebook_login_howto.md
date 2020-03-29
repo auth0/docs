@@ -26,7 +26,7 @@ Make a new GET request against the Facebook API's `/oauth/access_token` endpoint
 Use the following query parameters:
 - `grant_type`: `fb_attenuate_token`.
 - `fb_exchange_token`: the access token received upon login.
-- `client_id`: your App ID. This value comes from the Facebook Developer's dashboard and should already be in use in your application in order to have integrated Facebook Sign In successfully.
+- `client_id`: your App ID. This value comes from the Facebook Developer's dashboard and should already be in use in your application in order to have integrated Facebook Login successfully.
 
 Put the logic from this step on its own method. You will be calling it later from the previously added method.
 
