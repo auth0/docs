@@ -15,12 +15,12 @@ topics:
   - quickstart
 contentType: tutorial
 useCase: quickstart
-seo_alias: swift-siwa
-default_article: 00-login
+seo_alias: ios-siwa
+default_article: 00-login-siwa
 articles:
-  - 00-login
+  - 00-login-siwa
 next_steps:
-  - path: 00-login
+  - path: 00-login-siwa
     list:
     - text: Configure other identity providers
       icon: 345
@@ -37,7 +37,7 @@ next_steps:
 show_steps: true
 github:
   org: auth0-samples
-  repo: auth0-ios-swift-siwa-samples
+  repo: auth0-ios-swift-native-social-samples
 requirements:
   - CocoaPods
   - Xcode 11 Beta 6

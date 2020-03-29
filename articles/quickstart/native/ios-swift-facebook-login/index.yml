@@ -24,11 +24,11 @@ snippets:
   facebook_app_credentials: native-platforms/ios-facebook-login/facebook-app-credentials
   facebook_install_auth0_sdk: native-platforms/ios-facebook-login/facebook-install-auth0-sdk
   facebook_token_exchange: native-platforms/ios-facebook-login/facebook-token-exchange
-default_article: 00-login
+default_article: 00-login-facebook
 articles:
-  - 00-login
+  - 00-login-facebook
 next_steps:
-  - path: 00-login
+  - path: 00-login-facebook
     list:
     - text: Learn how to securely store tokens
       icon: 345
@@ -45,7 +45,7 @@ next_steps:
 show_steps: true
 github:
   org: auth0-samples
-  repo: auth0-ios-swift-facebook-samples
+  repo: auth0-ios-swift-native-social-samples
 requirements:
   - CocoaPods/Carthage
   - Xcode 11+
