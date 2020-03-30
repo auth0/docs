@@ -58,7 +58,7 @@ If successful, you'll receive a response like this:
 
 ### Recovery Codes
 
-<%= include('../../_includes/_recovery_codes') %>
+<%= include('../../../_includes/_recovery_codes') %>
 
 ## 3. Confirm the authenticator association
 

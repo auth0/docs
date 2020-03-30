@@ -63,7 +63,7 @@ You might also consider displaying the `secret` in plain text so that your users
 
 ### Recovery Codes
 
-<%= include('../../_includes/_recovery_codes') %>
+<%= include('../../../_includes/_recovery_codes') %>
 
 ## 3. Confirm the authenticator association
 
