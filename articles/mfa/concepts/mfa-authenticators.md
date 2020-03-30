@@ -11,7 +11,7 @@ useCase:
 ---
 # MFA Authenticators
 
-<%= include('../_includes/_topic-links', { links: [
+<%= include('../../_includes/_topic-links', { links: [
   'mfa/concepts/guardian',
   'mfa/guides/non-auth0-authenticators/configure-cisco-duo',
   'mfa/guides/non-auth0-authenticators/configure-google-authenticator,
