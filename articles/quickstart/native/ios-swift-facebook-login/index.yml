@@ -10,6 +10,7 @@ author:
   name: Rita Zerrizuela
   email: rita.zerrizuela@auth0.com
   community: false
+logo_name: ios
 image: /media/platforms/ios.png
 topics:
   - quickstart
