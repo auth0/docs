@@ -9,7 +9,7 @@ topics:
   - swift
   - siwa
 github:
-  path: 00-Login
+  path: 00-login-siwa
 contentType: tutorial
 useCase: quickstart
 requirements:
