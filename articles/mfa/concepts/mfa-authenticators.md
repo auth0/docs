@@ -1,6 +1,6 @@
 ---
 title: MFA Authenticators
-description: Understand how MFA works in Auth0.
+description: Understand how MFA authenticators works in Auth0.
 classes: topic-page
 topics:
     - mfa
@@ -11,7 +11,9 @@ useCase:
 ---
 # MFA Authenticators
 
-<%= include('../../../_includes/_topic-links', { links: [
+There are many methods you can use to enable multi-factor authentication for your users. 
+
+<%= include('../../_includes/_topic-links', { links: [
   'mfa/concepts/guardian',
   'mfa/guides/non-auth0-authenticators/configure-cisco-duo',
   'mfa/guides/non-auth0-authenticators/configure-google-authenticator,

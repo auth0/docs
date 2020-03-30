@@ -20,7 +20,7 @@ The main difference between how you send notifications to GCM and FCM is in the 
 
 The Guardian Android SDK 0.4.0 version is already available in Maven Central and includes this change. The sample application was also upgraded, so it can be tested by providing the google-services.json file and a guardian-url. 
 
-You can check the updated documentation for the Guardian Android SDK [here](/multifactor-authentication/developer/libraries/android).
+You can check the updated documentation for the [Guardian Android SDK](/mfa/guides/guardian/guardian-android-sdk).
 
 
 

@@ -28,11 +28,11 @@ Note that in addition to complying with the requested factor, a user can also cl
 
 ## Customize via Rules
 
-If you need to customize the multi-factor experience you are offering to your users, you may do so via [custom rules configurations for multi-factor authentication](/multifactor-authentication/custom). This might be needed, for example, if you wish to trigger MFA for only specific applications, or for specific users based on user metadata or on IP addresses.
+If you need to customize the multi-factor experience you are offering to your users, you may do so via custom rules configurations for multi-factor authentication. This might be needed, for example, if you wish to trigger MFA for only specific applications, or for specific users based on user metadata or on IP addresses.
 
 ## MFA API
 
-Additionally, the [MFA API](/multifactor-authentication/api) is available for other customized MFA requirements.
+Additionally, the [MFA API](/mfa/concepts/mfa-api) is available for other customized MFA requirements.
 
 You can configure a [rule](/rules) in  [Dashboard > Rules](${manage_url}/#/rules) for custom <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> processes, which allow you to define the conditions that will trigger additional authentication challenges. Rules can be used to force MFA for users of certain applications, or for users with particular user metadata or IP ranges, among other triggers.
 

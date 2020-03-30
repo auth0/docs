@@ -11,4 +11,4 @@ If the call was successful, you'll receive a response in the below format, conta
 
 At this point, the authenticator is fully associated and ready to be used, and you have an Access Token for the user.
 
-You can check at any point to verify whether an authenticator has been confirmed by calling the [`mfa/authenticators` endpoint](/multifactor-authentication/api/manage#list-authenticators). If the authenticator is confirmed, the value returned for `active` is `true`.
+You can check at any point to verify whether an authenticator has been confirmed by calling the [`mfa/authenticators` endpoint](/mfa/guides/apis/mfa-api/manage). If the authenticator is confirmed, the value returned for `active` is `true`.

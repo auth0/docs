@@ -61,7 +61,7 @@ For this example, we assume that we have already done the following:
 - [Registered an application](/applications). For this example, we'll use a single-page web app.
 - [Created a database connection](${manage_url}/#/connections/database).
 - [Registered the API](/apis#how-to-configure-an-api-in-auth0). During this process, we should create two scopes: `view:balance` and `transfer:funds`.
-- [Enabled Multi-factor Authentication](/multifactor-authentication). For this example, we'll use [push notifications](/multifactor-authentication/factors/push).
+- [Enabled Multi-factor Authentication](/mfa). For this example, we'll use push notifications.
 
 1. Create a rule that challenges the user to authenticate with MFA when the `transfer:funds` scope is requested. Navigate to [Rules](${manage_url}/#/rules), and create a rule that contains the following content:
 
@@ -86,7 +86,7 @@ For this example, we assume that we have already done the following:
 
     - The `CLIENTS_WITH_MFA` variable holds the Client IDs of all the applications you want to use this rule. (You can remove this (and the `if` statement that follows) if you don't need it.)
 
-    - The `context.request.query.scope` property contains all the scopes for which the authentication request asked. If it includes the value `transfer:funds`, then we ask for MFA by setting the `context.multifactor` property to the appropriate value. In this case, we are asking for MFA using [Push](/multifactor-authentication/factors/push).
+    - The `context.request.query.scope` property contains all the scopes for which the authentication request asked. If it includes the value `transfer:funds`, then we ask for MFA by setting the `context.multifactor` property to the appropriate value. In this case, we are asking for MFA using [Push](/mfa/concepts/overview-mfa#push-notifications).
 
 2. Configure the app to send the appropriate authentication request to the API, depending on whether the user is attempting to perform the high-value transaction of transferring funds. Notice that the only difference between the two authentication requests (with or without MFA) is the scope.
 
@@ -214,4 +214,4 @@ For this example, we assume that we have already done the following:
 * [Rules](/rules)
 * [Scopes](/scopes)
 * [Validate Access Tokens](/tokens/guides/validate-access-tokens)
-* [Step-up Authentication for Web Apps](/multifactor-authentication/step-up-authentication/step-up-for-web-apps)
+* [Step-up Authentication for Web Apps](/mfa/guides/configure-step-up-for-web-apps)

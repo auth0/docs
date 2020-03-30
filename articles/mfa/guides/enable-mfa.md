@@ -11,7 +11,7 @@ useCase:
 
 To enable MFA, you toggle on the factors (such as push notifications or SMS) you choose to enable in the Dashboard on your tenant. Next, you perform any further setup required to configure that factor, and last, you choose whether you wish to force MFA for all users or not. 
 
-You can also [customize your MFA flow](/multifactor-authentication/custom) with [Auth0 Rules](/rules), to allow MFA to only be required in specific circumstances or force a particular factor to be used.
+You can also [customize your MFA flow](/mfa/guides/customize-mfa-universal-login) with [Auth0 Rules](/rules), to allow MFA to only be required in specific circumstances or force a particular factor to be used.
 
 1. To enable the factors you require, go to [Dashboard > Multifactor Auth](${manage_url}/#/mfa). Here you will find a series of toggles for the MFA factors supported by Auth0. 
 

@@ -11,7 +11,7 @@ useCase:
 ---
 # Multi-factor Authentication in Auth0
 
-Auth0 supports a number of different options when it comes to enabling MFA for protecting user account access. An MFA workflow is typically provided via a separate application that runs on a mobile or tablet device. If you don’t want your customers to have to download a separate application, Auth0 also provides you with an [MFA SDK](/mfa/guides/guardian/guardian-sdk) that you can use to build second factor workflow right in your existing mobile device app.
+Auth0 supports a number of different options when it comes to enabling MFA for protecting user account access. An MFA workflow is typically provided via a separate application that runs on a mobile or tablet device. If you don’t want your customers to have to download a separate application, Auth0 also provides an [MFA SDK](/mfa/guides/guardian/guardian-sdk) that you can use to build second factor workflow right in your existing mobile device app.
 
 ## Authentication factors
 
@@ -25,7 +25,7 @@ Here are some of the primary factors Auth0 recommends:
 
 ### Push notifications
 
-Push sends notification to a user’s pre-registered device - typically a mobile or tablet - from which a user can immediately allow or deny account access via the simple press of a button. Push factor is offered with Guardian mobile app, available for both [iOS](/mfa/guides/guardian/configure-guardian-ios) and [Android](/mfa/guides/guardian/configure-guardian-android). In addition, the technology is also available as a [Guardian Whitelabel SDK](/mfa/concepts/guardian-whitelabel-sdk) which can be used in custom mobile applications to act as second factor push responder. 
+Push sends notification to a user’s pre-registered device - typically a mobile or tablet - from which a user can immediately allow or deny account access via the simple press of a button. Push factor is offered with Guardian mobile app, available for both [iOS](/mfa/guides/guardian/configure-guardian-ios) and [Android](/mfa/guides/guardian/configure-guardian-android). In addition, the technology is also available as a [Guardian Whitelabel SDK](/mfa/concepts/guardian) which can be used in custom mobile applications to act as second factor push responder. 
 
 ### SMS notifications
 
@@ -38,6 +38,10 @@ One-Time Password (OTP) allows you to register a device - such as Google Authent
 ### Email 
 
 Using email when you want to provide users a way to perform MFA when they don't have their phone to receive an SMS or push notification.
+
+## Authenticator apps
+
+Auth0 MFA works with many [authenticator apps](/mfa/concepts/mfa-authenticators) for protecting user account access.
 
 ## MFA use cases
 
@@ -56,17 +60,6 @@ You can configure a rule in Dashboard > Rules for custom multi-factor authentica
 ### Adaptive
 
 ## Developer resources
-
-## Authenticator apps
-
-Here are a few different options for authenticator apps that work with Auth0 for protecting user account access:
-
-* Auth0 Guardian
-* Cisco Duo
-* Twilio
-* Google Authenticator
-* Google Authy
-* Microsoft Authenticator
 
 ## MFA management scenarios
 

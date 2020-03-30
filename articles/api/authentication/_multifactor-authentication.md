@@ -119,7 +119,7 @@ If OTP is supported by the user and you don't want to request a different factor
 
 ### More information
 
-- [Trigger MFA using the API](/multifactor-authentication/api/challenges)
+- [Trigger MFA using the API](/mfa/guides/apis/mfa-api/challenges)
 
 ## Verify with one-time password (OTP)
 
@@ -194,7 +194,7 @@ The response is the same as responses for `password` or `http://auth0.com/oauth/
 
 ### More information
 
-- [Associate an OTP Authenticator](/multifactor-authentication/api/otp)
+- [Associate OTP Authenticators](/mfa/guides/apis/mfa-api/otp)
 
 ## Verify with out-of-band (OOB)
 
@@ -296,7 +296,7 @@ When the challenge response includes a `binding_method: prompt`, your app needs 
 
 ### More information
 
-- [Associate an Out-of-Band Authenticator](/multifactor-authentication/api/oob)
+- [Associate Out-of-Band Authenticators](/mfa/guides/apis/mfa-api/oob)
 
 ## Verify with recovery code
 
@@ -487,7 +487,7 @@ To access this endpoint, you must set an Access Token at the Authorization heade
 
 ### More information
 
-- [Multi-factor Authentication API](/multifactor-authentication/api)
+- [Multi-factor Authentication API](/mfa/concepts/mfa-api)
 
 ## List authenticators
 
@@ -582,7 +582,7 @@ To access this endpoint you must set an <dfn data-key="access-token">Access Toke
 
 #### More information
 
-- [Manage Authenticators: List Authenticators](/multifactor-authentication/api/manage#list-authenticators)
+- [Manage Authenticators](/mfa/guides/apis/mfa-api/manage)
 
 ## Delete an authenticator
 
@@ -644,4 +644,4 @@ To access this endpoint, you must set an <dfn data-key="access-token">Access Tok
 
 ### More information
 
-- [Manage Authenticators: Delete Authenticators](/multifactor-authentication/api/manage#delete-authenticators)
+- [Manage Authenticators](/mfa/guides/apis/mfa-api/manage)

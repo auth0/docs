@@ -37,7 +37,7 @@ If you are requesting SMS messages, make sure you are not [exceeding rate limits
 
 ### If you need to remove or delete MFA from a user in my tenant
 
-If you need to remove, delete, or reset MFA for a user, you may [follow the instructions here to reset MFA](/multifactor-authentication/reset-user).
+If you need to remove, delete, or reset MFA for a user, you may [follow the instructions here to reset MFA](/mfa/reset-user-MFA).
 
 ## SMS-related issues
 

@@ -351,7 +351,7 @@ For database connections, Auth0 limits certain types of repeat login attempts de
 
 ## Limits on SMS Messages for MFA
 
-There's a limit of 10 SMS messages/hour per user for multi-factor authentication. For more information, see [Configuring Twilio for SMS](/multifactor-authentication/twilio-configuration).
+There's a limit of 10 SMS messages/hour per user for multi-factor authentication. For more information, see [Configuring Twilio for SMS](/mfa/guides/non-auth0-authenticators/configure-SMS-twilio).
 
 ## Limits on Native Social Logins
 

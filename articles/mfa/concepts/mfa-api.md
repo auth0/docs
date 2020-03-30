@@ -28,7 +28,7 @@ The MFA Associate API allows you to create, read, update, and delete authenticat
 
 This enables users to enroll more than one device and select a fallback MFA mechanism in case the primary one is not available. For example, your user might use OTP when their SMS network is not present or unresponsive.
 
-Check out [Manage Authenticators](/multifactor-authentication/api/manage) for more on listing or deleting authenticators.
+Check out [Manage Authenticators](/mfa/guides/apis/mfa-api/manage) for more on listing or deleting authenticators.
 
 <%= include('../_includes/_authenticator-before-start') %>
 
@@ -66,7 +66,7 @@ If you are using the MFA API in conjunction with the [Token endpoint](/api/authe
 
   If you delete a push authenticator, the associated one-time password (OTP) authenticator is also deleted. If you delete the OTP authenticator, the associated push authenticator is deleted.
 
-  Recovery codes can only be deleted by an administrator using the [Management API](/multifactor-authentication/api/manage#delete-authenticators).
+  Recovery codes can only be deleted by an administrator using the [Management API](/mfa/guides/apis/mfa-api/manage).
 
 * If I'm using Guardian, what happens if I delete one of the authenticators?
 

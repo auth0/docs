@@ -33,11 +33,11 @@ Use the following client libraries to customize the look-and-feel of the MFA pag
 
 Customize the enrollment process for your users.
 
-* [Custom enrollment](/multifactor-authentication/developer/custom-enrollment-ticket)
+* [Custom enrollment](/mfa/guides/guardian/create-enrollment-ticket)
 
 ## Build custom mobile applications
 
 Build custom _white-label_ Guardian-like applications, or add multi-factor functionality into your applications.
 
-* [Getting Started with Guardian for Android](/multifactor-authentication/developer/libraries/android)
-* [Getting Started with Guardian for iOS](/multifactor-authentication/developer/libraries/ios)
+* [Guardian for Android](/mfa/guides/guardian/guardian-android-sdk)
+* [Guardian for iOS](/mfa/guides/guardian/guardian-ios-sdk)

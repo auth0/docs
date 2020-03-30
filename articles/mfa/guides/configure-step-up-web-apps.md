@@ -87,13 +87,13 @@ If a user attempts to access a restricted page and the token shows that the user
 
 ## Sample scenario
 
-In the following scenario, a web app authenticates users with username and password. When users want to access a specific screen with sensitive information, such as salary data, they must authenticate with another factor, such as [Guardian push notifications](/multifactor-authentication#mfa-using-push-notifications-auth0-guardian-).
+In the following scenario, a web app authenticates users with username and password. When users want to access a specific screen with sensitive information, such as salary data, they must authenticate with another factor, such as Guardian push notifications.
 
 For this example, we assume that we have already done the following:
 
 - [Registered an application](/applications). For this example, we'll use a regular web app.
 - [Created a database connection](${manage_url}/#/connections/database).
-- [Enabled Multi-factor Authentication](/multifactor-authentication) using [push notifications](/multifactor-authentication/factors/push).
+- [Enabled Multi-factor Authentication](/mfa/guides/enable-mfa) using push notifications.
 
 1. Create a rule that challenges the user to authenticate with MFA when the web app requests it. Navigate to [Rules](${manage_url}/#/rules), and create a rule that contains the following content:
 
@@ -118,7 +118,7 @@ For this example, we assume that we have already done the following:
 
     - The `CLIENTS_WITH_MFA` variable holds the Client IDs of all the applications you want to use this rule. (You can remove this (and the `if` statement that follows) if you don't need it.)
 
-    - The `context.request.query.acr_values` property contains the context class that the Authorization Server is being requested to use when processing requests from the application. It only exists when the application includes it in the authentication request. In this example, our web app will include it in the authentication request, but only when a user who has not already authenticated ith MFA tries to access salary information. When our web app includes it, it will set a value of `http://schemas.openid.net/pape/policies/2007/06/multi-factor`, which indicates that we want the Authorization Server to require MFA, and the `context.multifactor` property value that we set in our code will specify MFA via [Push notification](/multifactor-authentication/factors/push).
+    - The `context.request.query.acr_values` property contains the context class that the Authorization Server is being requested to use when processing requests from the application. It only exists when the application includes it in the authentication request. In this example, our web app will include it in the authentication request, but only when a user who has not already authenticated ith MFA tries to access salary information. When our web app includes it, it will set a value of `http://schemas.openid.net/pape/policies/2007/06/multi-factor`, which indicates that we want the Authorization Server to require MFA, and the `context.multifactor` property value that we set in our code will specify MFA via [Push notification](/mfa/concepts/overview-mfa#push-notifications).
 
 2. Configure the app to check that the user has authenticated using MFA when a user tries to acces the restricted salary information page. (When a user has authenticated with MFA, the ID Token claims contain the `amr` claim with a value of `mfa`). If the user has already authenticated with MFA, then the web app will display the restricted page; otherwise, the web app will send a new authentication request that includes the `acr_values` parameter with a value of `http://schemas.openid.net/pape/policies/2007/06/multi-factor`, which will trigger our rule. 
 
@@ -164,4 +164,4 @@ For this example, we assume that we have already done the following:
 * [Rules](/rules)
 * [JSON Web Tokens](/tokens/concepts/jwts)
 * [OpenID Connect (OIDC) specification](http://openid.net/specs/openid-connect-core-1_0.html)
-* [Step-up Authentication for APIs](/multifactor-authentication/developer/step-up-authentication/step-up-for-apis)
+* [Configure Step-up Authentication for APIs](/mfa/guides/configure-step-up-apis)
