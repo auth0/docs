@@ -1,4 +1,4 @@
-Go ahead and create two new resources in your Android application's `strings.xml` file to store them. The name of the keys must match the ones used below:
+Create two new resources in your Android application's `strings.xml` file to store them. The name of the keys must match the ones used below:
 
 ```xml
 <resources>

@@ -37,7 +37,7 @@ next_steps:
     - text: Configure other identity providers
       icon: 345
       href: "/identityproviders"
-    - text: Lean more about the Android SDK
+    - text: Learn more about the Android SDK
       icon: 345
       href: "/libraries/auth0-android"
 show_steps: true

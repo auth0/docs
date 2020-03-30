@@ -1,6 +1,6 @@
 With the SDK installed, it's time to go back to the first method you added and tie everything together. 
 
-Add logic in it to execute the requests you prepared in the previous steps. Then, pass the resulting Session Access Token and user profile to the SDK method `login(facebookSessionAccessToken:profile:)`. Don't forget to import the SDK first, with `import Auth0`.
+Add logic in the method to execute the requests you prepared in the previous steps. Then, pass the resulting Session Access Token and user profile to the SDK method `login(facebookSessionAccessToken:profile:)`. Don't forget to import the SDK first, with `import Auth0`.
 
 ```swift
 fileprivate func login(with accessToken: FacebookLogin.AccessToken) {

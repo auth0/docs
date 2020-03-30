@@ -1,4 +1,4 @@
-The SDK must be instantiated before use. Define a field at the class level and initialize it on the `onCreate` method. Note how the credentials defined in the step above are passed to the `Auth0` constructor, and then a new instance of the `AuthenticationAPIClient` is created with it.
+The SDK must be instantiated before use. Define a field at the class level and initialize it on the `onCreate` method. Note how the credentials defined in the step above are passed to the `Auth0` constructor and then a new instance of the `AuthenticationAPIClient` is created with it.
 
 ```java
 private AuthenticationAPIClient auth0Client;
@@ -24,7 +24,7 @@ The API client declares the method `loginWithNativeSocialToken` that receives a 
 "http://auth0.com/oauth/token-type/facebook-info-session-access-token"
 ```
 
-Other values that need to be configured are the user profile, using the `user_profile` key, and the scope asked to the Auth0 tokens to contain.
+Other values that need to be configured are the user profile (using the `user_profile` key) and the scope you request the Auth0 tokens contain.
 
 
 ```java
@@ -52,12 +52,12 @@ private void exchangeTokens(@NonNull String sessionToken, @NonNull String userPr
 ```
 
 ::: note
-Is a good practice to keep all the values that you know won't change as constants at the top of the class. The sample makes use of constants for the subject token type, the facebook permissions, and the Auth0 scopes. 
+It's a good practice to keep all the values that you know won't change as constants at the top of the class. The sample makes use of constants for the subject token type, the facebook permissions, and the Auth0 scopes. 
 You can read more about Auth0 scopes in the dedicated [article](/scopes/current/oidc-scopes).
 :::
 
 
-Now that every step is defined in its own method, is time to put everything together inside the `performLogin` method.
+Now that every step is defined in its own method, it's time to put everything together inside the `performLogin` method.
 
 ```java
 private void performLogin(@NonNull final AccessToken accessToken, final SimpleCallback<Credentials> loginCallback) {
@@ -90,4 +90,4 @@ private void performLogin(@NonNull final AccessToken accessToken, final SimpleCa
     }
 ```
 
-If everything went fine, you should now be able to authenticate natively with the Facebook Login SDK. That means, if the Facebook app is installed in the device, the authentication will be handled via the application and not a browser app.
+If everything went well, you should now be able to authenticate natively with the Facebook Login SDK. This means that if the Facebook app is installed on the device, the authentication will be handled via the application and not a browser app.

@@ -9,7 +9,7 @@ dependencies {
 Now is time to run the Gradle Sync task to refresh the project and its dependencies.
 
 ::: panel Web Authentication
-If your application does not plan to make use of the Web Authentication module provided by the SDK, you will need to remove the unused activity from the `AndroidManifest.xml` file to prevent Manifest Placeholder issues. That can be achieved by adding an activity declaration and annotating it with `tools:node="remove"`.
+If your application does not plan to make use of the Web Authentication module provided by the SDK, you will need to remove the unused activity from the `AndroidManifest.xml` file to prevent Manifest Placeholder issues. This can be achieved by adding an activity declaration and annotating it with `tools:node="remove"`.
 
 ```xml
 <application>

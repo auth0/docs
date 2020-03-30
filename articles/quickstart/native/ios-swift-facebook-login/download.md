@@ -1,4 +1,4 @@
-To run the sample follow these steps:
+To run the sample, follow these steps:
 
 1) Open `Auth0Sample.xcworkspace` in [Xcode](https://developer.apple.com/xcode/). 
-2) Click the `Run` button or select the menu option `Product | Run ` or keyboard shortcut `CMD + R`. 
+2) Click the `Run` button, select the menu option `Product | Run `, or use keyboard shortcut `CMD + R`. 
