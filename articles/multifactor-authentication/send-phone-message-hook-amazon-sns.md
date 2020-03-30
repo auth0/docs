@@ -59,9 +59,9 @@ var AWS = require("aws-sdk");
 @param {function} cb - function (error, response)
 */
 module.exports = function(recipient, text, context, cb) {
-  process.env.AWS_ACCESS_KEY_ID = context.webtask.secrets.AWS_ACCESS_KEY_ID
-  process.env.AWS_SECRET_ACCESS_KEY = context.webtask.secrets.AWS_SECRET_ACCESS_KEY
-  process.env.AWS_REGION = context.webtask.secrets.AWS_REGION
+  process.env.AWS_ACCESS_KEY_ID = context.webtask.secrets.AWS_ACCESS_KEY_ID;
+  process.env.AWS_SECRET_ACCESS_KEY = context.webtask.secrets.AWS_SECRET_ACCESS_KEY;
+  process.env.AWS_REGION = context.webtask.secrets.AWS_REGION;
 
   var params = { Message: text, PhoneNumber: recipient };
 
@@ -79,7 +79,15 @@ module.exports = function(recipient, text, context, cb) {
 };
 ```
 
-## 4. Test the MFA flow
+## 4. Add the AWS SDK NPM package
+
+The hook uses the [AWS SDK for JavaScript in Node.js](https://aws.amazon.com/sdk-for-node-js/). You will need to add the 'aws-sdk' module from the 'NPM modules' section in the Hooks configuration. You can access it by clicking the icon on the top left of the Hook editor.
+
+## 5. Test your hook implementation
+
+Click the 'Run' icon on the top right to test the hook. Edit the parameters to specify the phone number to receive the SMS and click the 'Run' button.
+
+## 6. Test the MFA flow
 
 Trigger an MFA flow and double check that everything works as intended. If you can't receive the SMS, please take a look at the [Hook Logs](/hooks/view-logs).
 
