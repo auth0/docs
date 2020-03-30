@@ -9,7 +9,7 @@ topics:
   - swift
   - facebook native
 github:
-  path: 00-Login
+  path: 00-login-facebook
 contentType: tutorial
 useCase: quickstart
 requirements:
