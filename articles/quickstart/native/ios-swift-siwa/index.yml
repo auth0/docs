@@ -19,11 +19,11 @@ seo_alias: swift-siwa
 snippets:
   setup: native-platforms/ios-swift-siwa/setup
   use: native-platforms/ios-swift-siwa/use
-default_article: 00-login
+default_article: 00-login-siwa
 articles:
-  - 00-login
+  - 00-login-siwa
 next_steps:
-  - path: 00-login
+  - path: 00-login-siwa
     list:
     - text: Configure other identity providers
       icon: 345
