@@ -1,7 +1,6 @@
 ---
 title: Multi-factor Authentication in Auth0
 description: Understand the basics of multi-factor authentication and the different methods of implementing it with Auth0.
-toc: true
 topics:
     - mfa
 contentType:
@@ -58,8 +57,6 @@ You can configure a rule in Dashboard > Rules for custom multi-factor authentica
 ### Confidence score
 
 ### Adaptive
-
-## Developer resources
 
 ## MFA management scenarios
 

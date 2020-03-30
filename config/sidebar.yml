@@ -252,7 +252,7 @@ articles:
           - title: "Version Control"
             url: "/universal-login/version-control"
 
-      - title: Universal vs Embedded Login
+      - title: Universal vs. Embedded Login
         url: /guides/login/universal-vs-embedded
 
       - title: Embedded Login
@@ -293,24 +293,30 @@ articles:
 
           - title: Native Apps Using Universal Login
             url: /mfa/guides/native-universal-login
+            hidden: true 
 
           - title: Regular Web Apps Using Universal Login
             url: /mfa/guides/regular-web-universal-login
 
           - title: SPAs Using Universal Login
             url: /mfa/guides/spas-universal-login
+            hidden: true 
 
           - title: Native Apps Using Embedded Login
             url: /mfa/guides/native-embedded-login
-
-          - title: Regular Web Apps Using Embedded Login
-            url: /mfa/guides/regular-web-embedded-login
-
-          - title: SPAs Using Embedded Login
-            url: /mfa/guides/spas-embedded-login
+            hidden: true 
 
           - title: Customize MFA with Universal Login
             url: /mfa/guides/customize-mfa-universal-login
+            hidden: true 
+
+          - title: Regular Web Apps Using Embedded Login
+            url: /mfa/guides/regular-web-embedded-login
+            hidden: true 
+
+          - title: SPAs Using Embedded Login
+            url: /mfa/guides/spas-embedded-login
+            hidden: true 
 
           - title: Reset MFA
             url: /mfa/guides/reset-user-mfa
@@ -321,20 +327,22 @@ articles:
 
               - title: For APIs
                 url: /mfa/guides/configure-step-up-apis
+                hidden: true 
 
               - title: For Web Apps
                 url: /mfa/guides/configure-step-up-web-apps
+                hidden: true 
 
           - title: MFA Authenticators
             url: /mfa/concepts/mfa-authenticators
             children: 
 
-            - title: Time-based One Time Passwords
-              url: /mfa/guides/non-auth0-authenticators/configure-otp
+              - title: Time-based One Time Passwords
+                url: /mfa/guides/non-auth0-authenticators/configure-otp
 
-            - title: Guardian
-              url: /mfa/concepts/guardian
-              children: 
+              - title: Guardian
+                url: /mfa/concepts/guardian
+                children: 
 
               - title: Configure Twilio SMS
                 url: /mfa/guides/non-auth0-authenticators/configure-SMS-twilio
@@ -351,25 +359,25 @@ articles:
               - title: Guardian Error Code Reference
                 url: /mfa/references/guardian-error-code-reference
 
-            - title: Configure Duo
-              url: /mfa/guides/non-auth0-authenticators/configure-cisco-duo
+              - title: Configure Duo
+                url: /mfa/guides/non-auth0-authenticators/configure-cisco-duo
 
-            - title: Configure Google Authenticator
-              url: /mfa/guides/non-auth0-authenticators/configure-google-authenticator
+              - title: Configure Google Authenticator
+                url: /mfa/guides/non-auth0-authenticators/configure-google-authenticator
 
-            - title: Configure Google Authy
-              url: /mfa/guides/non-auth0-authenticators/configure-google-authy
+              - title: Configure Google Authy
+                url: /mfa/guides/non-auth0-authenticators/configure-google-authy
 
-            - title: Configure Microsoft Authenticator
-              url: /mfa/guides/non-auth0-authenticators/configure-microsoft-authenticator
+              - title: Configure Microsoft Authenticator
+                url: /mfa/guides/non-auth0-authenticators/configure-microsoft-authenticator
 
           - title: MFA Developer Resources
             url: /mfa/concepts/mfa-developer-resources
             children:
 
-            - title: MFA API
-              url: /mfa/concepts/mfa-api
-              children:
+              - title: MFA API
+                url: /mfa/concepts/mfa-api
+                children:
 
                 - title: Manage Authenticators
                   url: /mfa/guides/apis/mfa-api/manage
@@ -386,19 +394,19 @@ articles:
                 - title: Associate One-Time Password Authenticators
                   url: /mfa/guides/apis/mfa-api/otp
 
-            - title: MFA Tenant Configuration API
-              url: /mfa/guides/apis/mfa-tenant-config-api
-              hidden: true 
+          - title: MFA Tenant Configuration API
+            url: /mfa/guides/apis/mfa-tenant-config-api
+            hidden: true 
 
-            - title: MFA User Factor Management API
-              url: /mfa/guides/apis/mfa-user-factor-mgmt-api
-              hidden: true 
+          - title: MFA User Factor Management API
+            url: /mfa/guides/apis/mfa-user-factor-mgmt-api
+            hidden: true 
 
-            - title: MFA Theme Language Dictionary
-              url: /mfa/references/language-dictionary
+          - title: MFA Theme Language Dictionary
+            url: /mfa/references/language-dictionary
 
-            - title: MFA Widget Theme Options
-              url: /mfa/references/mfa-widget-reference
+          - title: MFA Widget Theme Options
+            url: /mfa/references/mfa-widget-reference
 
           - title: Troubleshooting MFA
             url: /mfa/referenes/troubleshoot-mfa
