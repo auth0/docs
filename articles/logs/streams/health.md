@@ -28,10 +28,10 @@ Status types:
 
 | Status | Description |
 |---------|-------------|
-| Active (with no errors) | The latest log deliveries were successful. |
+| Active (with no errors) | The latest log deliveries were successful |
 | Active (with errors) | The log deliveries are active but the stream failed to deliver logs at one or more points. |
-| Paused | The customer has pausued the stream. |
-| Suspended | Our system has disabled the stream because there is an issue and your logs could not be delivered. You may restart the stream by following the directions or returning to list view and clicking the dropdown option "restart." |
+| Paused | The customer has paused the stream |
+| Suspended | Our system has disabled the stream because there is an issue and your logs could not be delivered. You may restart the stream by following the directions or returning to list view and clicking the dropdown option `restart` |
 
 
 ## Streaming delivery errors, pauses, or suspensions. 
