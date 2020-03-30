@@ -38,7 +38,6 @@ private void exchangeTokens(@NonNull String sessionToken, @NonNull String userPr
             .start(new BaseCallback<Credentials, AuthenticationException>() {
                 @Override
                 public void onSuccess(Credentials credentials) {
-                    //4. Logged in to Auth0 with the Facebook artifacts
                     callback.onResult(credentials);
                 }
 
@@ -46,7 +45,6 @@ private void exchangeTokens(@NonNull String sessionToken, @NonNull String userPr
                 public void onFailure(AuthenticationException error) {
                     callback.onError(error);
                 }
-
             });
 }
 ```
@@ -60,34 +58,48 @@ You can read more about Auth0 scopes in the dedicated [article](/scopes/current/
 Now that every step is defined in its own method, it's time to put everything together inside the `performLogin` method.
 
 ```java
-private void performLogin(@NonNull final AccessToken accessToken, final SimpleCallback<Credentials> loginCallback) {
-        final String token = accessToken.getToken();
-        fetchSessionToken(token, new SimpleCallback<String>() {
-            @Override
-            public void onResult(@NonNull final String sessionToken) {
-                //2. Obtained the Facebook session token
-                fetchUserProfile(token, accessToken.getUserId(), new SimpleCallback<String>() {
+private void performLogin(@NonNull final AccessToken accessToken) {
+    final String token = accessToken.getToken();
+    fetchSessionToken(token, new SimpleCallback<String>() {
+        @Override
+        public void onResult(@NonNull final String sessionToken) {
+            //2. Obtained the Facebook session token
+            fetchUserProfile(token, accessToken.getUserId(), new SimpleCallback<String>() {
 
-                    @Override
-                    public void onResult(@NonNull String jsonProfile) {
-                        //3. Obtained the Facebook user profile
-                        exchangeTokens(sessionToken, jsonProfile, loginCallback);
-                    }
+                @Override
+                public void onResult(@NonNull String jsonProfile) {
+                    //3. Obtained the Facebook user profile
+                    exchangeTokens(sessionToken, jsonProfile, new SimpleCallback<Credentials>() {
 
-                    @Override
-                    public void onError(@NonNull Throwable cause) {
-                        loginCallback.onError(cause);
-                    }
+                        @Override
+                        public void onResult(@NonNull Credentials credentials) {
+                            /*
+                            *  4. Logged in!
+                            *     Use access token to call API
+                            *     or consume ID token locally
+                            */
+                        }
 
-                });
-            }
+                        @Override
+                        public void onError(@NonNull Throwable cause) {
+                            //Handle token exchange error
+                        }
+                    });
+                }
 
-            @Override
-            public void onError(@NonNull Throwable cause) {
-                loginCallback.onError(cause);
-            }
-        });
-    }
+                @Override
+                public void onError(@NonNull Throwable cause) {
+                    //Handle profile request error
+                }
+            });
+        }
+
+        @Override
+        public void onError(@NonNull Throwable cause) {
+            //Handle session token request error
+        }
+    });
+}
 ```
 
 If everything went well, you should now be able to authenticate natively with the Facebook Login SDK. This means that if the Facebook app is installed on the device, the authentication will be handled via the application and not a browser app.
