@@ -1,6 +1,6 @@
 ---
-title: Multi-factor Authentication in Auth0
-description: The basics of multi-factor authentication and the different methods of implementing it with Auth0.
+title: Multi-factor Authentication
+description: Understand how MFA works in Auth0.
 classes: topic-page
 topics:
     - mfa
@@ -18,7 +18,6 @@ See the following sections for more details:
 <%= include('../_includes/_topic-links', { links: [
   'mfa/concepts/overview-mfa',
   'mfa/guides/enable-mfa',
-  'universal-login/multifactor-authentication',
   'mfa/concepts/mfa-developer-resources',
   'mfa/concepts/guardian',
   'mfa/guides/reset-user-mfa',

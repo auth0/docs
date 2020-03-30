@@ -1,5 +1,5 @@
 ---
-title: Associate a One-Time Password Authenticator
+title: Associate One-Time Password Authenticators
 description: Configure your application so users can self-associate one-time password (OTP) authenticators.
 topics:
   - mfa
@@ -13,7 +13,7 @@ useCase:
   - customize-mfa
 ---
 
-# Associate a One-Time Password Authenticator
+# Associate One-Time Password Authenticators
 
 In this tutorial, you'll learn how to configure your application so users can self-associate one-time password (OTP) authenticators.
 

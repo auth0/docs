@@ -1,5 +1,5 @@
 ---
-description: Describes the MFA Widget them options for customizing the theme properties of the MFA pages. 
+description: Describes the MFA Widget theme options for customizing the theme properties of the MFA pages. 
 topics:
   - mfa
   - hosted-pages

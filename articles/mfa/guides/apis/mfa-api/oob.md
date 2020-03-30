@@ -1,5 +1,5 @@
 ---
-title: Associate an Out-of-Band Authenticator
+title: Associate Out-of-Band Authenticators
 description: Configure your application so users can self-associate out-of-band (OOB) authenticators.
 topics:
   - mfa
@@ -12,9 +12,9 @@ contentType:
 useCase:
   - customize-mfa
 ---
-# Associate an Out-of-Band Authenticator
+# Associate Out-of-Band Authenticators
 
-In this tutorial, you'll learn how to configure your application so users can self-associate out-of-band (OOB) authenticators.
+You can configure your application so users can self-associate out-of-band (OOB) authenticators.
 
 <%= include('../../../_includes/_authenticator-before-start') %>
 

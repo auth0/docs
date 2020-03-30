@@ -1,6 +1,6 @@
 ---
 title: Manage the Authenticators for Multi-factor Authentication
-description: How to manage your MFA authenticators
+description: Learn how to manage your MFA authenticators
 topics:
   - mfa
   - mfa-api

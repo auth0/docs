@@ -1,5 +1,4 @@
 ---
-title: Trigger MFA Using the API
 description: Learn how to trigger MFA challenges for enrolled authenticators using the MFA API
 topics:
   - mfa
@@ -11,7 +10,7 @@ contentType:
 useCase:
   - customize-mfa
 ---
-# Trigger MFA Using the API
+# Trigger MFA Challenges
 
 You can trigger MFA challenges for enrolled authenticators by calling the `/mfa/challenge` endpoint.
 

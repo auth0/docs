@@ -282,69 +282,126 @@ articles:
             url: /flows/guides/auth-code-pkce/add-login-auth-code-pkce
 
       - title: Multi-Factor Authentication
-        url: /multifactor-authentication
+        url: /mfa
         children:
 
           - title: Overview
-            url: /multifactor-authentication
+            url: /mfa/concepts/overview-mfa
 
-          - title: Factors
-            url: /multifactor-authentication/factors
+          - title: Enable MFA
+            url: /mfa/guides/enable-mfa
+
+          - title: Native Apps Using Universal Login
+            url: /mfa/guides/native-universal-login
+
+          - title: Regular Web Apps Using Universal Login
+            url: /mfa/guides/regular-web-universal-login
+
+          - title: SPAs Using Universal Login
+            url: /mfa/guides/spas-universal-login
+
+          - title: Native Apps Using Embedded Login
+            url: /mfa/guides/native-embedded-login
+
+          - title: Regular Web Apps Using Embedded Login
+            url: /mfa/guides/regular-web-embedded-login
+
+          - title: SPAs Using Embedded Login
+            url: /mfa/guides/spas-embedded-login
+
+          - title: Customize MFA with Universal Login
+            url: /mfa/guides/customize-mfa-universal-login
+
+          - title: Reset MFA
+            url: /mfa/guides/reset-user-mfa
+
+          - title: Step-up Authentication
+            url: /mfa/concepts/step-up-authentication
             children:
 
-              - title: Push
-                url: /multifactor-authentication/factors/push
-                hidden: true
+              - title: For APIs
+                url: /mfa/guides/configure-step-up-apis
 
-              - title: OTP
-                url: /multifactor-authentication/factors/otp
-                hidden: true
+              - title: For Web Apps
+                url: /mfa/guides/configure-step-up-web-apps
 
-              - title: SMS
-                url: /multifactor-authentication/factors/sms
-                hidden: true
+          - title: MFA Authenticators
+            url: /mfa/concepts/mfa-authenticators
+            children: 
 
-              - title: Duo
-                url: /multifactor-authentication/factors/duo
-                hidden: true
+            - title: Time-based One Time Passwords
+              url: /mfa/guides/non-auth0-authenticators/configure-otp
 
-              - title: Email
-                url: /multifactor-authentication/factors/email
-                hidden: true
+            - title: Guardian
+              url: /mfa/concepts/guardian
+              children: 
 
-          - title: Custom
-            url: /multifactor-authentication/custom
+              - title: Configure Twilio SMS
+                url: /mfa/guides/non-auth0-authenticators/configure-SMS-twilio
 
-          - title: Step-Up
-            url: /multifactor-authentication/step-up-authentication
+              - title: Guardian SDK
+                url: /mfa/guides/guardian/guardian-sdk
 
-          - title: MFA API
-            url: /multifactor-authentication/api
+              - title: Guardian iOS SDK
+                url: /mfa/guides/guardian/guardian-ios-sdk
+
+              - title: Guardian Android SDK
+                url: /mfa/guides/guardian/guardian-android-sdk
+
+              - title: Guardian Error Code Reference
+                url: /mfa/references/guardian-error-code-reference
+
+            - title: Configure Duo
+              url: /mfa/guides/non-auth0-authenticators/configure-cisco-duo
+
+            - title: Configure Google Authenticator
+              url: /mfa/guides/non-auth0-authenticators/configure-google-authenticator
+
+            - title: Configure Google Authy
+              url: /mfa/guides/non-auth0-authenticators/configure-google-authy
+
+            - title: Configure Microsoft Authenticator
+              url: /mfa/guides/non-auth0-authenticators/configure-microsoft-authenticator
+
+          - title: MFA Developer Resources
+            url: /mfa/concepts/mfa-developer-resources
             children:
 
-              - title: "Trigger MFA"
-                url: "/multifactor-authentication/api/challenges"
-                hidden: true
+            - title: MFA API
+              url: /mfa/concepts/mfa-api
+              children:
 
-              - title: "One-Time Password Challenge"
-                url: "/multifactor-authentication/api/otp"
-                hidden: true
+                - title: Manage Authenticators
+                  url: /mfa/guides/apis/mfa-api/manage
 
-              - title: "SMS Message Challenge"
-                url: "/multifactor-authentication/api/oob"
-                hidden: true
+                - title: Trigger MFA Challenges
+                  url: /mfa/guides/apis/mfa-api/challenges
 
-              - title: "Email Authenticator"
-                url: "/multifactor-authentication/api/email"
-                hidden: true
+                - title: Associate Email Authenticators
+                  url: /mfa/guides/apis/mfa-api/email
 
-              - title: "Manage Authenticators"
-                url: "/multifactor-authentication/api/manage"
-                hidden: true
+                - title: Associate Out-of-Band Authenticators
+                  url: /mfa/guides/apis/mfa-api/oob
 
-              - title: "FAQ"
-                url: "/multifactor-authentication/api/faq"
-                hidden: true
+                - title: Associate One-Time Password Authenticators
+                  url: /mfa/guides/apis/mfa-api/otp
+
+              - title: MFA Tenant Configuration API
+                url: /mfa/apis/mfa-tenant-config-api
+                hidden: true 
+
+              - title: MFA User Factor Management API
+                url: /mfa/apis/mfa-user-factor-mgmt-api
+                hidden: true 
+
+              - title: MFA Theme Language Dictionary
+                url: /mfa/references/language-dictionary
+
+              - title: MFA Widget Theme Options
+                url: /mfa/references/mfa-widget-reference
+
+          - title: Troubleshooting MFA
+            url: /mfa/referenes/troubleshoot-mfa
 
       - title: Silent Authentication
         url: /api-auth/tutorials/silent-authentication
@@ -1405,7 +1462,7 @@ articles:
             url: /authorization/concepts/troubleshooting
 
           - title: MFA
-            url: /multifactor-authentication/troubleshooting
+            url: /mfa/references/troubleshooting
 
           - title: SAML
             url: /protocols/saml/saml-configuration/troubleshoot

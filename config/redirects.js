@@ -755,20 +755,25 @@ module.exports = [
   },
   {
     from: [
-      '/mfa',
       '/multi-factor-authentication',
       '/multi-factor-authentication2',
       '/multifactor-authentication/custom-provider'
     ],
-    to: '/multifactor-authentication'
+    to: '/mfa'
   },
   {
-    from: '/multifactor-authentication/google-auth/user-guide',
-    to: '/multifactor-authentication/troubleshooting'
+    from: [
+      '/multifactor-authentication/google-auth/user-guide',
+      '/multifactor-authentication/troubleshooting'
+    ],
+    to: '/mfa/references/troubleshoot-mfa'
   },
   {
-    from: '/multi-factor-authentication/yubikey',
-    to: '/multifactor-authentication/yubikey'
+    from: [
+      '/multi-factor-authentication/yubikey',
+      '/multifactor-authentication/yubikey'
+    ],
+    to: '/mfa'
   },
   {
     from: '/quickstart',

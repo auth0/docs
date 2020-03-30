@@ -6,7 +6,7 @@ topics:
 contentType: reference
 useCase: customize-hosted-pages
 ---
-# MFA Configuration Options
+# MFA Theme Language Dictionary
 
 ## defaultLocation
 
