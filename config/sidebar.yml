@@ -387,11 +387,11 @@ articles:
                   url: /mfa/guides/apis/mfa-api/otp
 
               - title: MFA Tenant Configuration API
-                url: /mfa/apis/mfa-tenant-config-api
+                url: /mfa/guides/apis/mfa-tenant-config-api
                 hidden: true 
 
               - title: MFA User Factor Management API
-                url: /mfa/apis/mfa-user-factor-mgmt-api
+                url: /mfa/guides/apis/mfa-user-factor-mgmt-api
                 hidden: true 
 
               - title: MFA Theme Language Dictionary
