@@ -54,8 +54,8 @@ Content-Type: application/json
 
 <%= include('../../../_includes/_http-method', {
   "http_badge": "badge-primary",
-  "http_method": "GET",
-  "path": "/device/code",
+  "http_method": "POST",
+  "path": "/oauth/device/code",
   "link": "#device-code"
 }) %>
 

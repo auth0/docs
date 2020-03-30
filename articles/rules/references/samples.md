@@ -1,5 +1,5 @@
 ---
-title: Sample Rules
+title: Rule Examples
 description: A collection of sample Rules.
 toc: true
 topics:
@@ -9,7 +9,7 @@ contentType: reference
 useCase: extensibility-rules
 ---
 
-# Sample Rules
+# Rule Examples
 
 In this article you'll find a collection of sample Rules. For more examples, see our Github repo at [auth0/rules](https://github.com/auth0/rules).
 
@@ -136,22 +136,6 @@ function(user, context, callback) {
   callback(null, user, context);
 }
 ```
-
-## Modify scope of Access Token
-
-This will override the returned <dfn data-key="scope">scopes</dfn> of the Access Token. The Rule will run after user authentication and before authorization.
-
-```js
-function(user, context, callback) {
-
-  // change scope
-  context.accessToken.scope = ['array', 'of', 'strings'];
-
-  callback(null, user, context);
-}
-```
-
-The user will be granted three <dfn data-key="scope">scopes</dfn>: `array`, `of`, and `strings`.
 
 ## Add claims to Access Token
 
