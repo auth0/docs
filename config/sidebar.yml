@@ -386,19 +386,19 @@ articles:
                 - title: Associate One-Time Password Authenticators
                   url: /mfa/guides/apis/mfa-api/otp
 
-              - title: MFA Tenant Configuration API
-                url: /mfa/guides/apis/mfa-tenant-config-api
-                hidden: true 
+            - title: MFA Tenant Configuration API
+              url: /mfa/guides/apis/mfa-tenant-config-api
+              hidden: true 
 
-              - title: MFA User Factor Management API
-                url: /mfa/guides/apis/mfa-user-factor-mgmt-api
-                hidden: true 
+            - title: MFA User Factor Management API
+              url: /mfa/guides/apis/mfa-user-factor-mgmt-api
+              hidden: true 
 
-              - title: MFA Theme Language Dictionary
-                url: /mfa/references/language-dictionary
+            - title: MFA Theme Language Dictionary
+              url: /mfa/references/language-dictionary
 
-              - title: MFA Widget Theme Options
-                url: /mfa/references/mfa-widget-reference
+            - title: MFA Widget Theme Options
+              url: /mfa/references/mfa-widget-reference
 
           - title: Troubleshooting MFA
             url: /mfa/referenes/troubleshoot-mfa
