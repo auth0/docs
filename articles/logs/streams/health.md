@@ -7,7 +7,7 @@ topics:
  - streams
  - event-streams
 contentType: how-to
----
+---gi
 
 ## Viewing an Existing Event Stream's Health
 
