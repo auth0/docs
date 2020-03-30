@@ -7,9 +7,9 @@ topics:
  - streams
  - event-streams
 contentType: how-to
----gi
+---
 
-## Viewing an Existing Event Stream's Health
+# Viewing an Existing Event Stream's Health
 
 Log Stream Health is the functionality that allows customers to troubleshoot issues with Log Streams. It allows customers to get the status of the latest delivery attempts of each stream to make it easy to identify problems in the delivery.
 
@@ -22,8 +22,9 @@ Log Stream Health is the functionality that allows customers to troubleshoot iss
 
 ## Understanding Stream Health States
 
-add some stuff here
+**add some stuff here**
 
+Status types:
 
 | Status | Description |
 |---------|-------------|
@@ -37,7 +38,7 @@ add some stuff here
 
 Auth0 events are delivered to your server via a streaming mechanism that sends each event as it is triggered in our system. 
 
-### Erros
+### Errors
 
 Errors are populated in the Logs Health Table when logs could not be delivered with corresponding error codes and counter information. TBD here is how to use counter information to recover logs and the time frame for recovery TBD.
 
@@ -51,10 +52,9 @@ If a stream is paused, TBD here is how to recover your logs during the pause tim
 
 If your server is unable to receive the stream, we will retry up to fifty times to deliver the event; otherwise, we will suspend the stream. You can restart the stream by following the link in the suspension message or by returning to the list view and using the dropdown menu to click 'restart.' TBD here is how to recover logs during hte suspension state  and and the time frame for recoveryTBD (if all of the above recovery methods are the same, perhaps put it under subheading resolving errors and undelivered logs during paused, suspended, or active states  )
 
-## Resolving Errors and Undelivered Logs During Paused, Active, or Suspsended States
+### Resolving Errors and Undelivered Logs During Paused, Active, or Suspsended States
 
 
 1. On a stream's **Health** tab:
-2. --------- (how to use counter to ensure delivered logs)
-3. --------- (how to fix errors, etc. )
-4. --------- 
+2. ....how to use counter to ensure delivered logs....
+3. ...how to fix errors, etc...
