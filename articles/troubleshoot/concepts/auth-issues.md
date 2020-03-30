@@ -19,7 +19,7 @@ useCase:
   'troubleshoot/guides/check-login-logout-issues',
   'troubleshoot/guides/check-user-profiles',
   'authorization/concepts/troubleshooting',
-  'multifactor-authentication/troubleshooting',
+  'mfa/references/troubleshoot-mfa',
   'protocols/saml/saml-configuration/troubleshoot',
   'extensions/authorization-extension/v2/troubleshooting'
 ] }) %>

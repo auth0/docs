@@ -2118,7 +2118,7 @@ module.exports = [
    },
    {
      from: ['/multifactor-authentication/yubikey', '/multifactor-authentication/guardian', '/multifactor-authentication/guardian/user-guide'],
-     to: '/multifactor-authentication'
+     to: '/mfa'
    },
    {
      from: '/hooks/dashboard/create-delete',
