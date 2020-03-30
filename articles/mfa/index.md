@@ -19,7 +19,7 @@ See the following sections for more details:
   'mfa/concepts/overview-mfa',
   'mfa/guides/enable-mfa',
   'universal-login/multifactor-authentication',
-  'mfa/concepts/developer-resources',
+  'mfa/concepts/mfa-developer-resources',
   'mfa/concepts/guardian',
   'mfa/guides/reset-user-mfa',
   'mfa/references/troubleshoot-mfa'
