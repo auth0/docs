@@ -14,15 +14,11 @@ useCase:
 
 Using Auth0 SDKs, you can customize your users' <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> experience and even build applications on top of our multi-factor capabilities.
 
-## MFA APIs
+## MFA API
 
-* [MFA API](/mfa/concepts/mfa-api) MFA API endpoints allow you to enforce MFA when users interact with [the Token endpoints](/api/authentication#get-token), as well enroll and manage MFA factors.
+[MFA API](/mfa/concepts/mfa-api) MFA API endpoints allow you to enforce MFA when users interact with [the Token endpoints](/api/authentication#get-token), as well enroll and manage MFA factors.
 
-* [MFA Tenant Config API](/mfa/concepts/mfa-tenant-config-api)
-
-* [MFA User Factor Management API](/mfa/concepts/mfa-user-factor-mgmt-api)
-
-## Customize the mlti-factor authentication page
+## Customize the multi-factor authentication page
 
 Use the following client libraries to customize the look-and-feel of the MFA page so it matches your organization.
 
@@ -31,9 +27,7 @@ Use the following client libraries to customize the look-and-feel of the MFA pag
 
 ## Manage enrollments
 
-Customize the enrollment process for your users.
-
-* [Custom enrollment](/mfa/guides/guardian/create-enrollment-ticket)
+You can [customise the enrollment](/mfa/guides/guardian/create-enrollment-ticket) process for your users.
 
 ## Build custom mobile applications
 

@@ -59,3 +59,4 @@ See [auth0-guardian.js](https://github.com/auth0/auth0-guardian.js) for more inf
 * [Create Custom Enrollment Tickets](/mfa/guides/guardian/create-enrollment-ticket)
 * [Customize MFA Settings Page](/mfa/guides/guardian/customize-mfa-settings-page)
 * [Customize SMS Messages](/mfa/guides/guardian/customize-sms-messages)
+* [Guardian Error Code Reference](/mfa/references/guardian-error-code-reference)
