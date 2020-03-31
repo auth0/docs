@@ -215,7 +215,7 @@ Create a new class named `Message`, which is the domain object the API will retu
 public class Message {
     private final String message;
 
-    Message(String message) {
+    public Message(String message) {
         this.message = message;
     }
 
