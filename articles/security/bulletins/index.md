@@ -27,7 +27,7 @@ Each bulletin contains a description of the vulnerability, how to identify if yo
 
 | **Date** | **Bulletin number** | **Title** | **Affected software** |
 |-|-|-|-|
-| March 31, 2020 | [Auth0 Bulletin](/security/bulletins/2020-03-31_wpauth0.md) | Auth0 Security Bulletin for WordPress Plugin for Auth0 versions < 4.0.0 | [WordPress Plugin for Auth0](https://github.com/auth0/wp-auth0) |
+| March 31, 2020 | [Auth0 Bulletin](/security/bulletins/2020-03-31_wpauth0) | Auth0 Security Bulletin for WordPress Plugin for Auth0 versions < 4.0.0 | [WordPress Plugin for Auth0](https://github.com/auth0/wp-auth0) |
 | January 31, 2020 | [CVE 2019-20173](/security/bulletins/cve-2019-20173) | Auth0 Security Bulletin for WordPress Plugin for Auth0 versions 3.11.0, 3.11.1 and 3.11.2 | [WordPress Plugin for Auth0](https://github.com/auth0/wp-auth0) |
 | January 30, 2020 | [CVE 2019-20174](/security/bulletins/cve-2019-20174) | Auth0 Security Bulletin for Auth0 Lock < 11.21.0 | [Auth0 Lock](https://github.com/auth0/lock) |
 | October 04, 2019 | [CVE 2019-16929](/security/bulletins/cve-2019-16929) | Auth0 Security Bulletin for auth0.net between versions 5.8.0 and 6.5.3 inclusive | [auth0.net](https://www.nuget.org/packages/Auth0.AuthenticationApi/) |
