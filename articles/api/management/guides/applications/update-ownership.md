@@ -5,11 +5,11 @@ toc: true
 topics:
   - applications
   - application-types
-	- mgmt-api
+  - mgmt-api
 contentType: 
-	- how-to
+  - how-to
 useCase:
-	- build-an-app
+  - build-an-app
 ---
 # Update Application Ownership
 
@@ -19,17 +19,17 @@ This guide will show you how to use Auth0's Management API to update application
 
 ```har
 {
-	"method": "PATCH",
-	"url": "https://${account.namespace}/api/v2/clients/YOUR_CLIENT_ID",
-	"headers": [
-		{ "name": "Content-Type", "value": "application/json" },
-		{ "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
-		{ "name": "Cache-Control", "value": "no-cache" }
-	],
-	"postData": {
-		"mimeType": "application/json",
-		"text" : "{ \"is_first_party\": \"OWNERSHIP_BOOLEAN\" }"
-	}
+  "method": "PATCH",
+  "url": "https://${account.namespace}/api/v2/clients/YOUR_CLIENT_ID",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" },
+    { "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
+    { "name": "Cache-Control", "value": "no-cache" }
+  ],
+  "postData": {
+    "mimeType": "application/json",
+    "text" : "{ \"is_first_party\": \"OWNERSHIP_BOOLEAN\" }"
+  }
 }
 ```
 
