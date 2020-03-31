@@ -15,7 +15,7 @@ useCase:
 
 This guide will show you how to use Auth0's Management API to update application ownership, which allows you to specify whether an application is registered with Auth0 as a first-party or third-party application.
 
-1. Make a `PATCH` call to the [Update a Client endpoint](/api/management/v2#!/Clients/patch_clients_by_id). Be sure to replace `YOUR_CLIENT_ID`,`MGMT_API_ACCESS_TOKEN`, and `OWNERSHIP_BOOLEAN` placeholder values with your client ID, Management API Access Token, and boolean representing the application's ownership, respectively.
+Make a `PATCH` call to the [Update a Client endpoint](/api/management/v2#!/Clients/patch_clients_by_id). Be sure to replace `YOUR_CLIENT_ID`,`MGMT_API_ACCESS_TOKEN`, and `OWNERSHIP_BOOLEAN` placeholder values with your client ID, Management API Access Token, and boolean representing the application's ownership, respectively.
 
 ```har
 {
