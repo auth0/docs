@@ -15,9 +15,9 @@ v2: true
 ---
 # Send Phone Message
 
-If you decide to use SMS as a multi-factor authentication, you can configure how you want Auth0 to send the messages in the [SMS configuration dialog](/multifactor-authentication/factors/sms#administrative-setup).
+If you decide to use SMS as a factor for multi-factor authentication, you can configure how you want Auth0 to send the messages in the [SMS configuration dialog](/multifactor-authentication/factors/sms#administrative-setup).
 
-If you select the 'Custom' SMS delivery method, you need to create an **Send Phone Message Hook** that will let you write your own code to send the message. This allows you to use whatever SMS provider you want.
+If you select the 'Custom' SMS delivery method, you need to create a **Send Phone Message Hook** that will let you write your own code to send the message. This allows you to use whatever SMS provider you want.
 
 ::: note
 The `triggerId` for the Pre User Registration extensibility point is `send-phone-message`. To learn how to create Hooks for this extensibility point, see [Create New Hooks](/hooks/create).
@@ -56,15 +56,13 @@ module.exports = function(recipient, text, context, cb) {
 };
 ```
 
-Please note:
-
 ::: note
-The callback function (`cb`) at the end of the sample code signals completion and *must* be included.
+The callback function (`cb`) at the end of the sample code signals completion and **must** be included.
 :::
 
 ## Example parameters
 
-This is an example of how the parameters look like:
+This is an example of the parameters:
 
 ```js
 {
@@ -95,7 +93,7 @@ This is an example of how the parameters look like:
 
 ## Starter code response
 
-Once you've customized the Hook code, you can test it using the Runner embedded in the Editor. The Runner simulates a call to the Hook with the appropriate body and response. 
+Once you have customized the Hook code, you can test it using the Runner embedded in the Editor. The Runner simulates a call to the Hook with the appropriate body and response.
 
 <%= include('../_includes/_test_runner_save_warning') %>
 
