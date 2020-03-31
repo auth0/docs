@@ -25,7 +25,7 @@ Before you begin this tutorial, please:
 You will need to create a [Send Phone Message](/hooks/extensibility-points/send-phone-message) hook, which will hold the code and secrets of your custom implementation.
 
 ::: note
-Please note that you can only have ONE Send Phone Message Hook active at a time.
+You can only have **one** Send Phone Message Hook active at a time.
 :::
 
 ## 2. Configure Hook secrets
