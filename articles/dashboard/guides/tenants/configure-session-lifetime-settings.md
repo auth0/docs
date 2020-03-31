@@ -19,11 +19,11 @@ This guide will show you how to configure session settings for your tenant using
 
 1. Navigate to the [Tenant Settings](${manage_url}/#/tenant) page in the [Auth0 Dashboard](${manage_url}/), and click the [**Advanced**](${manage_url}/#/tenant/advanced) tab.
 
-![View Advanced Tenant Settings](/media/articles/dashboard/guides/tenants/tenant-settings.png)
+![View Advanced Tenant Settings](/media/articles/dashboard/tenants/tenant-settings.png)
 
 2. Scroll to the **Log In Session Management** section, locate **Inactivity timeout** and **Require log in after**, enter the desired settings, and click **Save**.
 
-![View Log In Session Management Settings](/media/articles/dashboard/guides/tenants/tenant-settings-advanced-login-session-management.png)
+![View Log In Session Management Settings](/media/articles/dashboard/tenants/tenant-settings-advanced-login-session-management.png)
 
 | Setting | Description |
 | ------- | ----------- |

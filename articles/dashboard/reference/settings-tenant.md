@@ -80,6 +80,18 @@ The **Custom Domains** tab allows you to configure a custom domain, which allows
 Custom domains are not available for free plans. To configure a custom domain, you must upgrade your account to any paid plan.
 :::
 
+## Signing Keys
+
+The **Signing Keys** tab allows you to securely manage the signing key and certificate used by your applications to validate tokens for users.
+
+![Signing Key Tenant Settings](/media/articles/dashboard/tenants/tenant-settings-signing-keys.png)
+
+**Rotate Application Signing Key**: Setting that allows you to rotate the signing key and certificate used by your applications to validate tokens for users. To learn more, see [Manage Application Signing Key](/tokens/guides/manage-application-signing-key).
+
+**Valid Keys**: List of valid keys for your tenant, which are also available at the metadata endpoint for your application to validate tokens. Valid keys include the current key in use and the next key in the queue when you choose to rotate your signing key.
+
+**Revoked Keys**: List of the last three revoked keys for your tenant. More data about revoked keys is available via tenant logs.
+
 ## Advanced
 
 The **Advanced** tab contains advanced settings that are sometimes set for tenants. On this tab, you can also delete your tenant and cancel all associated subscriptions.

@@ -53,7 +53,7 @@ If dynamically setting the value isn't possible, then set as either `HTTP-Redire
 
 ## Encrypted assertions:
 
-Optionally, assertions can be encrypted. Use this public key to configure the IdP: [CER](https://${account.namespace}/cer) | [PEM](https://${account.namespace}/pem) | [PKCS#7](https://${account.namespace}/pb7)
+Optionally, assertions can be encrypted. Use this public key to configure the IdP: [CER](https://${account.namespace}/cer?cert=connection) | [PEM](https://${account.namespace}/pem?cert=connection) | [raw PEM](https://${account.namespace}/rawpem?cert=connection) | [PKCS#7](https://${account.namespace}/pb7?cert=connection) | [Fingerprint](https://${account.namespace}/fingerprint?cert=connection)
 
 ## IdP-initiated Single Sign-on
 
