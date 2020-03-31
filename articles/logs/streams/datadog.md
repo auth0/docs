@@ -11,19 +11,26 @@ contentType: how-to
 
 # Datadog Event Log Streams
 
-Datadog Event Log Streams let you export your log events to Datadog for further analysis and monitoring. When Auth0 creates a log entry for your tenant, a copy is automatically sent to Datadog with the `source` and `service` both set to `auth0`.
+Datadog is the essential monitoring platform for cloud applications. It brings together together data from servers, containers, databases, and third-party services to make your stack entirely observable.
 
-## Create a Datadog Event Stream
+You can create monitoring, alerting and analysis dashboards for Auth0 tenants.
+
+## Send events from Auth0 to Datadog
+
+To send Auth0 events to Datadog, you will need:
+
+1. A Datadog API Key.
+2. Your Datadog dashboard region.
 
 ### Copy API Key from Datadog
 
-1. Head to the Datadog dashboard.
+1. Log in to the Datadog dashboard.
 2. Navigate to **Integrations** -> **APIs**.
 ![Integrations Dashboard](/media/articles/logs/datadog/tutorial-1.png)
 3. Expand the API Keys section on this page, then copy the API Key that you would like to use.
 ![API Keys Section](/media/articles/logs/datadog/tutorial-2.png)
 
-### Configure settings in Auth0
+### Set up Event Stream in Auth0
 
 1. Log in to the [Auth0 Dashboard](${manage_url}).
 2. Navigate to **Logs > Streams**.
