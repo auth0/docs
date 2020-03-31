@@ -20,7 +20,7 @@ You can configure your application so users can use email authenticators.
 Currently, email authenticators are only supported by the <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> API or when using the [New Universal Login Experience](/universal-login/new). It's not supported in the Classic Universal Login experience.
 :::
 
-<%= include('../../../_includes/_authenticator-before-start') %>
+<%= include('../../_includes/_authenticator-before-start') %>
 
 ## Enable email authenticators with the Management API
 
