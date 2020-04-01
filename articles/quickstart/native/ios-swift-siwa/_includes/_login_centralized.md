@@ -185,7 +185,7 @@ if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCr
 }
 ```
 
-The `fullName` parameter is needed for Auth0 to be able to complete the user profile with properties like the first and last name, because the ID Token obtained from Apple does not include that information.
+Auth0 requires the `fullName` parameter to complete the user profile with properties like the first and last name, because the ID Token obtained from Apple does not include that information.
 
 ## Renew Authentication
 
