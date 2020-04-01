@@ -38,6 +38,8 @@ This rule will be skipped if the user has already signed up, which is signaled b
 ```js
 function (user, context, callback) {
 
+  const request = require('request');
+
   const mpEvent = {
     "event": "Sign up",
     "properties": {
@@ -73,6 +75,9 @@ We ignore certain conditions that exist in the API and only do this when there's
 
 ```js
 function (user, context, callback) {
+
+  const request = require('request');
+
   const FULLCONTACT_KEY = configuration.FULLCONTACT_KEY;
   const SLACK_HOOK = configuration.SLACK_HOOK_URL;
 
@@ -131,6 +136,9 @@ Create a rule to record the information as a New Lead in Salesforce, so the sale
 
 ```js
 function (user, context, callback) {
+
+  const request = require('request');
+
   user.app_metadata = user.app_metadata || {};
   if (user.app_metadata.recordedAsLead) {
     return callback(null,user,context);

@@ -249,6 +249,7 @@ function verify (email, callback) {
 
 ```
 function verify (email, callback) {
+  var mongo = require('mongo-getdb');
   mongo('mongodb://user:pass@mymongoserver.com/my-db', function (db) {
     var users = db.collection('users');
     var query = { email: email, email_verified: false };
@@ -265,6 +266,7 @@ function verify (email, callback) {
 
 ```
 function verify (email, callback) {
+  var mysql = require('mysql');
   var connection = mysql.createConnection({
     host     : 'localhost',
     user     : 'me',
@@ -337,8 +339,10 @@ function verify (email, callback) {
   //this example uses the "pg" library
   //more info here: https://github.com/brianc/node-postgres
 
+  var pg = require('pg');
+
   var conString = "postgres://user:pass@localhost/mydb";
-  postgres(conString, function (err, client, done) {
+  pg.connect(conString, function (err, client, done) {
     if (err) {
       console.log('could not connect to postgres db', err);
       return callback(err);
@@ -465,6 +469,8 @@ function verify (email, callback) {
 
 ```
 function verify (email, callback) {
+
+  var request = require('request');
 
   request.put({
     url:  'https://myserviceurl.com/users',

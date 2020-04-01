@@ -48,6 +48,7 @@ For example, the following code will retrieve the user profile from the **GitHub
 
 ```js
 function(access_token, ctx, callback) {
+    var request = require('request');
     request.get('https://api.github.com/user', {
         'headers': {
             'Authorization': 'Bearer ' + access_token,

@@ -142,7 +142,13 @@ function create (user, callback) {
 
 ```
 function create (user, callback) {
-  var connection = sqlserver.connect({
+
+  var crypto = require('crypto');
+  var Connection = require('tedious').Connection;
+  var Request = require('tedious').Request;
+  var TYPES = require('tedious').TYPES
+
+  var connection = new Connection({
     userName:  'username',
     password:  'pwd',
     server:    'server',
@@ -208,7 +214,7 @@ function create (user, callback) {
       'OUTPUT Inserted.UserId ' +
       'VALUES (@UserName, GETDATE(), @ApplicationId, NEWID(), \'false\')';
 
-    var createUserQuery = new sqlserver.Request(createUser, function (err, rowCount, rows) {
+    var createUserQuery = new Request(createUser, function (err, rowCount, rows) {
       if (err) {
         return callback(err);
       }
@@ -239,7 +245,7 @@ function create (user, callback) {
         '(@ApplicationId, @UserId, @Password, 1, @PasswordSalt, ' +
         '@Email, \'false\', \'false\', GETDATE(), GETDATE(), GETDATE(), GETDATE(), 0, 0, 0, 0)';
 
-      var createMembershipQuery = new sqlserver.Request(createMembership, function (err, rowCount) {
+      var createMembershipQuery = new Request(createMembership, function (err, rowCount) {
         if (err) {
           return callback(err);
         }
@@ -252,18 +258,18 @@ function create (user, callback) {
 
       });
 
-      createMembershipQuery.addParameter('ApplicationId', sqlserver.Types.VarChar, membershipData.ApplicationId);
-      createMembershipQuery.addParameter('Email',         sqlserver.Types.VarChar, membershipData.Email);
-      createMembershipQuery.addParameter('Password',      sqlserver.Types.VarChar, membershipData.Password);
-      createMembershipQuery.addParameter('PasswordSalt',  sqlserver.Types.VarChar, membershipData.PasswordSalt);
-      createMembershipQuery.addParameter('UserId',        sqlserver.Types.VarChar, membershipData.UserId);
+      createMembershipQuery.addParameter('ApplicationId', TYPES.VarChar, membershipData.ApplicationId);
+      createMembershipQuery.addParameter('Email',         TYPES.VarChar, membershipData.Email);
+      createMembershipQuery.addParameter('Password',      TYPES.VarChar, membershipData.Password);
+      createMembershipQuery.addParameter('PasswordSalt',  TYPES.VarChar, membershipData.PasswordSalt);
+      createMembershipQuery.addParameter('UserId',        TYPES.VarChar, membershipData.UserId);
 
       connection.execSql(createMembershipQuery);
 
     });
 
-    createUserQuery.addParameter('UserName',      sqlserver.Types.VarChar, userData.UserName);
-    createUserQuery.addParameter('ApplicationId', sqlserver.Types.VarChar, userData.ApplicationId);
+    createUserQuery.addParameter('UserName',      TYPES.VarChar, userData.UserName);
+    createUserQuery.addParameter('ApplicationId', TYPES.VarChar, userData.ApplicationId);
 
     connection.execSql(createUserQuery);
   }
@@ -274,7 +280,13 @@ function create (user, callback) {
 
 ```
 function create (user, callback) {
-  var connection = sqlserver.connect({
+
+  var crypto = require('crypto');
+  var Connection = require('tedious').Connection;
+  var Request = require('tedious').Request;
+  var TYPES = require('tedious').TYPES
+
+  var connection = new Connection({
     userName:  'username',
     password:  'pwd',
     server:    'server',
@@ -342,7 +354,7 @@ function create (user, callback) {
       'OUTPUT Inserted.UserId ' +
       'VALUES (@UserName)';
 
-    var createUserQuery = new sqlserver.Request(createUser, function (err, rowCount, rows) {
+    var createUserQuery = new Request(createUser, function (err, rowCount, rows) {
       if (err) {
         return callback(err);
       }
@@ -366,7 +378,7 @@ function create (user, callback) {
         'VALUES ' +
         '(@UserId, GETDATE(), \'false\', 0, @Password, \'\')';
 
-      var createMembershipQuery = new sqlserver.Request(createMembership, function (err, rowCount) {
+      var createMembershipQuery = new Request(createMembership, function (err, rowCount) {
         if (err) {
           return callback(err);
         }
@@ -384,9 +396,9 @@ function create (user, callback) {
           return callback(err);
         }
 
-        createMembershipQuery.addParameter('Password',      sqlserver.Types.VarChar, hashedPassword);
-        createMembershipQuery.addParameter('PasswordSalt',  sqlserver.Types.VarChar, membershipData.PasswordSalt);
-        createMembershipQuery.addParameter('UserId',        sqlserver.Types.VarChar, membershipData.UserId);
+        createMembershipQuery.addParameter('Password',      TYPES.VarChar, hashedPassword);
+        createMembershipQuery.addParameter('PasswordSalt',  TYPES.VarChar, membershipData.PasswordSalt);
+        createMembershipQuery.addParameter('UserId',        TYPES.VarChar, membershipData.UserId);
 
         connection.execSql(createMembershipQuery);
 
@@ -394,7 +406,7 @@ function create (user, callback) {
 
     });
 
-    createUserQuery.addParameter('UserName', sqlserver.Types.VarChar, user.email);
+    createUserQuery.addParameter('UserName', TYPES.VarChar, user.email);
 
     connection.execSql(createUserQuery);
   }
@@ -405,6 +417,10 @@ function create (user, callback) {
 
 ```
 function create (user, callback) {
+
+  var bcrypt = require('bcrypt');
+  var mongo = require('mongo-getdb');
+
   mongo('mongodb://user:pass@mymongoserver.com/my-db', function (db) {
     var users = db.collection('users');
 
@@ -430,6 +446,10 @@ function create (user, callback) {
 
 ```sql
 function create(user, callback) {
+
+  var bcrypt = require('bcrypt');
+  var mysql = require('mysql');
+
   var connection = mysql.createConnection({
     host: 'localhost',
     user: 'me',
@@ -463,6 +483,8 @@ function create(user, callback) {
 function create(user, callback) {
 
   var oracledb = require('oracledb');
+  var bcrypt = require('bcrypt');
+
   oracledb.outFormat = oracledb.OBJECT;
 
   oracledb.getConnection({
@@ -530,8 +552,10 @@ function create(user, callback) {
   //more info here: https://github.com/brianc/node-postgres
 
   var conString = "postgres://user:pass@localhost/mydb";
+  var bcrypt = require('bcrypt');
+  var pg = require('pg');
 
-  postgres(conString, function (err, client, done) {
+  pg.connect(conString, function (err, client, done) {
     if (err) {
       console.log('could not connect to postgres db', err);
       return callback(err);
@@ -562,7 +586,13 @@ function create(user, callback) {
 function create (user, callback) {
   //this example uses the "tedious" library
   //more info here: http://pekim.github.io/tedious/index.html
-  var connection = sqlserver.connect({
+
+  var bcrypt = require('bcrypt');
+  var Connection = require('tedious').Connection;
+  var Request = require('tedious').Request;
+  var TYPES = require('tedious').TYPES
+
+  var connection = new Connection({
     userName:  'test',
     password:  'test',
     server:    'localhost',
@@ -584,7 +614,7 @@ function create (user, callback) {
   connection.on('connect', function (err) {
     if (err) return callback(err);
 
-    var request = new sqlserver.Request(query, function (err, rows) {
+    var request = new Request(query, function (err, rows) {
       if (err) return callback(err);
       console.log('rows: ' + rows);
       callback(null);
@@ -592,8 +622,8 @@ function create (user, callback) {
 
     var hashedPassword = bcrypt.hashSync(user.password, 10);
 
-    request.addParameter('Email', sqlserver.Types.VarChar, user.email);
-    request.addParameter('Password', sqlserver.Types.VarChar, hashedPassword);
+    request.addParameter('Email', TYPES.VarChar, user.email);
+    request.addParameter('Password', TYPES.VarChar, hashedPassword);
 
     connection.execSql(request);
   });
@@ -610,6 +640,7 @@ function create (user, callback) {
   var Connection = require('tedious@1.11.0').Connection;
   var Request = require('tedious@1.11.0').Request;
   var TYPES = require('tedious@1.11.0').TYPES;
+  var bcrypt = require('bcrypt');
 
   var connection = new Connection({
     userName:  'your-user@your-server-id.database.windows.net',
@@ -657,6 +688,7 @@ function create (user, callback) {
 
 ```
 function create (user, callback) {
+  const request = require('request');
 
   request.post({
     url:  'https://myserviceurl.com/users',

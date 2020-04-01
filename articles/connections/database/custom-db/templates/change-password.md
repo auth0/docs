@@ -92,7 +92,13 @@ function changePassword (email, newPassword, callback) {
 
 ```
 function changePassword(email, newPassword, callback) {
-  var connection = sqlserver.connect({
+
+  var crypto = require('crypto');
+  var Connection = require('tedious').Connection;
+  var Request = require('tedious').Request;
+  var TYPES = require('tedious').TYPES
+
+  var connection = new Connection({
     userName:  'the username',
     password:  'the password',
     server:    'the server',
@@ -151,16 +157,16 @@ function changePassword(email, newPassword, callback) {
       'SET Password=@NewPassword, PasswordSalt=@NewSalt, LastPasswordChangedDate=GETDATE() '+
       'WHERE Email=@Email';
 
-    var updateMembershipQuery = new sqlserver.Request(updateMembership, function (membershipErr, membershipCount) {
+    var updateMembershipQuery = new Request(updateMembership, function (membershipErr, membershipCount) {
       if (membershipErr) {
         return callback(membershipErr);
       }
       callback(null, membershipCount > 0);
     });
 
-    updateMembershipQuery.addParameter('NewPassword', sqlserver.Types.VarChar, hashedPassword);
-    updateMembershipQuery.addParameter('NewSalt',     sqlserver.Types.VarChar, salt.toString('base64'));
-    updateMembershipQuery.addParameter('Email',       sqlserver.Types.VarChar, email);
+    updateMembershipQuery.addParameter('NewPassword', TYPES.VarChar, hashedPassword);
+    updateMembershipQuery.addParameter('NewSalt',     TYPES.VarChar, salt.toString('base64'));
+    updateMembershipQuery.addParameter('Email',       TYPES.VarChar, email);
 
     connection.execSql(updateMembershipQuery);
   }
@@ -171,7 +177,13 @@ function changePassword(email, newPassword, callback) {
 
 ```
 function changePassword(email, newPassword, callback) {
-  var connection = sqlserver.connect({
+
+  var crypto = require('crypto');
+  var Connection = require('tedious').Connection;
+  var Request = require('tedious').Request;
+  var TYPES = require('tedious').TYPES
+
+  var connection = new Connection({
     userName:  'the username',
     password:  'the password',
     server:    'the server',
@@ -235,7 +247,7 @@ function changePassword(email, newPassword, callback) {
       'ON UserProfile.UserId = webpages_Membership.UserId ' +
       'WHERE UserName = @Email';
 
-    var findUserIdFromEmailQuery = new sqlserver.Request(findUserIdFromEmail, function (err, rowCount, rows) {
+    var findUserIdFromEmailQuery = new Request(findUserIdFromEmail, function (err, rowCount, rows) {
       if (err) {
         return callback(err);
       }
@@ -251,7 +263,7 @@ function changePassword(email, newPassword, callback) {
 
     });
 
-    findUserIdFromEmailQuery.addParameter('Email', sqlserver.Types.VarChar, email);
+    findUserIdFromEmailQuery.addParameter('Email', TYPES.VarChar, email);
 
     connection.execSql(findUserIdFromEmailQuery);
   }
@@ -273,7 +285,7 @@ function changePassword(email, newPassword, callback) {
         'SET Password=@NewPassword, PasswordChangedDate=GETDATE() '+
         'WHERE UserId=@UserId';
 
-      var updateMembershipQuery = new sqlserver.Request(updateMembership, function (err, rowCount) {
+      var updateMembershipQuery = new Request(updateMembership, function (err, rowCount) {
         if (err) {
           return callback(err);
         }
@@ -290,8 +302,8 @@ function changePassword(email, newPassword, callback) {
           return callback(err);
         }
 
-        updateMembershipQuery.addParameter('NewPassword',   sqlserver.Types.VarChar, hashedPassword);
-        updateMembershipQuery.addParameter('UserId',        sqlserver.Types.VarChar, userId);
+        updateMembershipQuery.addParameter('NewPassword',   TYPES.VarChar, hashedPassword);
+        updateMembershipQuery.addParameter('UserId',        TYPES.VarChar, userId);
 
         connection.execSql(updateMembershipQuery);
       });
@@ -304,6 +316,9 @@ function changePassword(email, newPassword, callback) {
 
 ```
 function changePassword(email, newPassword, callback) {
+  var bcrypt = require('bcrypt');
+  var mongo = require('mongo-getdb');
+
   mongo('mongodb://user:pass@mymongoserver.com/my-db', function (db) {
     var users = db.collection('users');
 
@@ -325,6 +340,8 @@ function changePassword(email, newPassword, callback) {
 
 ```sql
 function changePassword (email, newPassword, callback) {
+  var bcrypt = require('bcrypt');
+  var mysql = require('mysql');
   var connection = mysql.createConnection({
     host     : 'localhost',
     user     : 'me',
@@ -355,6 +372,7 @@ function changePassword (email, newPassword, callback) {
 function changePassword(email, newPassword, callback) {
 
   var oracledb = require('oracledb');
+  var bcrypt = require('bcrypt');
   oracledb.outFormat = oracledb.OBJECT;
 
   oracledb.getConnection({
@@ -402,8 +420,11 @@ function changePassword (email, newPassword, callback) {
   //this example uses the "pg" library
   //more info here: https://github.com/brianc/node-postgres
 
+  var bcrypt = require('bcrypt');
+  var pg = require('pg');
+
   var conString = "postgres://user:pass@localhost/mydb";
-  postgres(conString, function (err, client, done) {
+  pg.connect(conString, function (err, client, done) {
     if (err) {
       console.log('could not connect to postgres db', err);
       return callback(err);
@@ -438,7 +459,12 @@ function changePassword (email, newPassword, callback) {
   //this example uses the "tedious" library
   //more info here: http://pekim.github.io/tedious/index.html
 
-  var connection = sqlserver.connect({
+  var bcrypt = require('bcrypt');
+  var Connection = require('tedious').Connection;
+  var Request = require('tedious').Request;
+  var TYPES = require('tedious').TYPES
+
+  var connection = new Connection({
     userName:  'test',
     password:  'test',
     server:    'localhost',
@@ -460,7 +486,7 @@ function changePassword (email, newPassword, callback) {
   connection.on('connect', function (err) {
     if (err) return callback(err);
 
-    var request = new sqlserver.Request(query, function (err, rows) {
+    var request = new Request(query, function (err, rows) {
       if (err) return callback(err);
       console.log('rows: ' + rows);
       callback(null, rows > 0);
@@ -468,8 +494,8 @@ function changePassword (email, newPassword, callback) {
 
     bcrypt.hash(newPassword, 10, function (err, hash) {
       if (err) return callback(err);
-      request.addParameter('NewPassword', sqlserver.Types.VarChar, hash);
-      request.addParameter('Email', sqlserver.Types.VarChar, email);
+      request.addParameter('NewPassword', TYPES.VarChar, hash);
+      request.addParameter('Email', TYPES.VarChar, email);
       connection.execSql(request);
     });
 
@@ -487,6 +513,7 @@ function changePassword (email, newPassword, callback) {
   var Connection = require('tedious@1.11.0').Connection;
   var Request = require('tedious@1.11.0').Request;
   var TYPES = require('tedious@1.11.0').TYPES;
+  var bcrypt = require('bcrypt');
 
   var connection = new Connection({
     userName:  'your-user@your-server-id.database.windows.net',
@@ -534,6 +561,8 @@ function changePassword (email, newPassword, callback) {
 
 ```
 function changePassword (email, newPassword, callback) {
+
+  var request = require('request');
 
   request.put({
     url:  'https://myserviceurl.com/users',

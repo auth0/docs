@@ -141,6 +141,9 @@ function login (email, password, callback) {
 
 ```
 function login (email, password, callback) {
+
+  var crypto = require('crypto');
+
   var connection = sqlserver.connect({
     userName:  'the username',
     password:  'the password',
@@ -260,6 +263,9 @@ function login (email, password, callback) {
 
 ```
 function login (username, password, callback) {
+
+  var crypto = require('crypto');
+
   var connection = sqlserver.connect({
     userName:  'YOUR_USER@YOUR_SERVER.database.windows.net',
     password:  'YOUR_PASS',
@@ -401,6 +407,10 @@ function login (username, password, callback) {
 
 ```
 function login(email, password, callback) {
+  
+  var bcrypt = require('bcrypt');
+  var mongo = require('mongo-getdb');
+
   mongo('mongodb://user:pass@mymongoserver.com/my-db', function (db) {
     var users = db.collection('users');
     users.findOne({ email: email }, function (err, user) {
@@ -431,6 +441,10 @@ function login(email, password, callback) {
 
 ```sql
 function login(email, password, callback) {
+
+ var bcrypt = require('bcrypt');
+ var mysql = require('mysql');
+
   var connection = mysql.createConnection({
     host: 'localhost',
     user: 'me',
@@ -471,6 +485,7 @@ function login(email, password, callback) {
 ```sql
 function login(email, password, callback) {
   var oracledb = require('oracledb');
+  var bcrypt = require('bcrypt');
   oracledb.outFormat = oracledb.OBJECT;
 
   oracledb.getConnection({
@@ -533,7 +548,10 @@ function login(email, password, callback) {
   //more info here: https://github.com/brianc/node-postgres
 
   var conString = "postgres://user:pass@localhost/mydb";
-  postgres(conString, function (err, client, done) {
+  var bcrypt = require('bcrypt');
+  var pg = require('pg');
+
+  pg.connect(conString, function (err, client, done) {
     if (err) {
       console.log('could not connect to postgres db', err);
       return callback(err);
@@ -582,6 +600,9 @@ function login(email, password, callback) {
 function login(email, password, callback) {
   //this example uses the "tedious" library
   //more info here: http://pekim.github.io/tedious/index.html
+
+  var bcrypt = require('bcrypt');
+
   var connection = sqlserver.connect({
     userName: 'test',
     password: 'test',
@@ -641,6 +662,7 @@ function login(email, password, callback) {
   var Connection = require('tedious@1.11.0').Connection;
   var Request = require('tedious@1.11.0').Request;
   var TYPES = require('tedious@1.11.0').TYPES;
+  var bcrypt = require('bcrypt');
 
   var connection = new Connection({
     userName: 'your-user@your-server-id.database.windows.net',
@@ -699,6 +721,8 @@ function login(email, password, callback) {
 
 ```
 function login (email, password, callback) {
+
+  var request = require('request');
 
   request.get({
     url:  'https://myserviceurl.com/profile',

@@ -169,6 +169,8 @@ function remove (id, callback) {
 ```
 function remove (id, callback) {
 
+  var mongo = require('mongo-getdb');
+
   mongo('mongodb://user:pass@mymongoserver.com/my-db', function (db) {
     var users = db.collection('users');
 
@@ -185,6 +187,8 @@ function remove (id, callback) {
 
 ```
 function remove (id, callback) {
+
+  var mysql = require('mysql');
 
   var connection = mysql.createConnection({
     host     : 'localhost',
@@ -255,7 +259,9 @@ function remove (id, callback) {
   // this example uses the "pg" library
   // more info here: https://github.com/brianc/node-postgres
 
-  postgres('postgres://user:pass@localhost/mydb', function (err, client, done) {
+  var pg = require('pg');
+
+  pg.connect('postgres://user:pass@localhost/mydb', function (err, client, done) {
     if (err) {
       console.log('could not connect to postgres db', err);
       return callback(err);
