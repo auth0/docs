@@ -26,7 +26,7 @@ If you are using Node 8:
 
     | Location  | Allowed Callback URL |
     | --------- | -------------------- |
-    | USA       | `https://${account.tenant}.us8.webtask.io` |
+    | USA       | `https://${account.tenant}.us8.webtask.io/auth0-delegated-admin/login` |
     | Europe    | `https://${account.tenant}.eu8.webtask.io/auth0-delegated-admin/login` |
     | Australia | `https://${account.tenant}.au8.webtask.io/auth0-delegated-admin/login` |
 
