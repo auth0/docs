@@ -160,7 +160,7 @@ The Account Information is ONLY sent on the first successful authorization. This
 
 ## Auth0 Token Exchange
 
-Now that you have a successful authorization response, you can use the `authorizationCode` to perform a token exchange. The token exchange will give you access to Auth0 credentials, such as the ID and Access Tokens. For example:
+Now that you have a successful authorization response, you can use the `authorizationCode` and `fullName` to perform a token exchange. The token exchange will give you access to Auth0 credentials, such as the ID and Access Tokens. For example:
 
 ```swift
 if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
@@ -174,7 +174,7 @@ if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCr
     // Auth0 Token Exchange
     Auth0
         .authentication()
-        .tokenExchange(withAppleAuthorizationCode: authCode).start { result in
+        .login(appleAuthorizationCode: authCode, fullName: appleIDCredential.fullName).start { result in
             switch result {
             case .success(let credentials):
                 print("Auth0 Success: \(credentials)")
@@ -184,6 +184,8 @@ if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCr
     }
 }
 ```
+
+The `fullName` parameter is needed for Auth0 to be able to complete the user profile with properties like the first and last name, because the ID Token obtained from Apple does not include that information.
 
 ## Renew Authentication
 
@@ -226,7 +228,7 @@ Next, modify the token exchange call you added earlier to store credentials when
 ```swift
 Auth0
     .authentication()
-    .tokenExchange(withAppleAuthorizationCode: authCode).start { result in
+    .login(appleAuthorizationCode: authCode, fullName: appleIDCredential.fullName).start { result in
         switch result {
         case .success(let credentials):
             // NEW - store the user ID in the keychain
