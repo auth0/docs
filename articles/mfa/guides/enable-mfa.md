@@ -11,7 +11,7 @@ useCase:
 
 To enable MFA, you toggle on the factors (such as push notifications or SMS) you choose to enable in the Dashboard on your tenant. Next, you perform any further setup required to configure that factor, and last, you choose whether you wish to force MFA for all users or not. 
 
-You can also [customize your MFA flow](/mfa/guides/customize-mfa-universal-login) with [Auth0 Rules](/rules), to allow MFA to only be required in specific circumstances or force a particular factor to be used.
+You can also customize your MFA flow with [Auth0 Rules](/rules), to allow MFA to only be required in specific circumstances or force a particular factor to be used.
 
 1. To enable the factors you require, go to [Dashboard > Multifactor Auth](${manage_url}/#/mfa). Here you will find a series of toggles for the MFA factors supported by Auth0. 
 
@@ -23,7 +23,18 @@ Any or all of these factors can be enabled simultaneously. When logging in the f
 Duo will only be available to end-users as a factor if it is the only factor that is enabled.
 :::
 
-2. To force all your applications to prompt for MFA, toggle **Always require Multi-factor Authentication** on. Users will be able to use any of the factors enabled in the Dashboard.
+2. Under **Policies**, next to **Require Multi-factor Auth**, choose **Always** or **Never**. If set to **Always**, users will be able to use any of the factors enabled in the Dashboard.
 
-3. Set up your services.
+3. Click **Save**.
 
+4. Configure your [factors](/mfa/concepts/mfa-factors). 
+
+## Keep reading
+
+* [Configure Guardian](/mfa/guides/guardian/configure-guardian)
+* [Configure One-Time Passwords](/mfa/guides/configure-otp)
+* [Configure SMS with Twilio](/mfa/guides/configure-sms-twilio)
+* [Configure Email](/mfa/guides/configure-email-universal-login)
+* [Configure Cisco Duo](/mfa/guides/configure-cisco-duo)
+* [Customize SMS Messages](/mfa/guides/guardian/customize-sms-messages)
+* [Customize MFA Pages with New Universal Login Branding Options](/mfa/guides/customize-mfa-universal-login)

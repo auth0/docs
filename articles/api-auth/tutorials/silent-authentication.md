@@ -142,4 +142,4 @@ function (user, context, callback) {
 }
 ```
 
-See [Customize Multi-Factor Authentication](/mfa/guides/customize-mfa-universal-login#change-authentication-request-frequency) for details.
+See [Change Authentication Request Frequency](/mfa/guides/customize-mfa-universal-login#change-authentication-request-frequency) for details.

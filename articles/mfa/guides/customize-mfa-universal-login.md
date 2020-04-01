@@ -1,5 +1,5 @@
 ---
-description: Learn how to customize MFA with Universal Login.
+description: Learn how to customize MFA pages with Universal Login branding options.
 topics:
   - mfa
   - custom-mfa
@@ -8,13 +8,13 @@ contentType:
 useCase:
   - customize-mfa
 ---
-# Customize Multi-Factor Authentication with Universal Login
+# Customize MFA Pages with New Universal Login Branding Options
 
 ::: note
 These customizations do not apply to Duo, which has its own UI.
 :::
 
-The Multi-factor Authentication pages can be customized by adjusting the Universal Login branding options in the [Universal Login Settings](${manage_url}/#/login_settings) section.
+The multi-factor authentication pages that appear to your users can be customized by adjusting the Universal Login branding options in the [Universal Login Settings](${manage_url}/#/login_settings) section.
 
 If you need further customization, you can also customize [the full HTML content](/universal-login/multifactor-authentication#customize-the-html-for-the-mfa-page) to reflect your organization's particular UX requirements. 
 

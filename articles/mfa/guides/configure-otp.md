@@ -8,7 +8,7 @@ contentType:
 useCase:
   - customize-mfa
 ---
-# Configure Time-Based One Time Passwords
+# Configure One Time Passwords for MFA
 
 To use one time passwords as an authentication factor, users need an Authenticator app such as:
 

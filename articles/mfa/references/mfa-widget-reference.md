@@ -8,9 +8,10 @@ useCase: customize-hosted-pages
 ---
 # MFA Widget Theme Options
 
-See a [basic widget example using auth0-guardian.js](https://github.com/auth0/auth0-guardian.js/tree/master/example). 
-
-See [auth0-guardian.js](https://github.com/auth0/auth0-guardian.js) for more information.
+When using your own HTML, it uses the Auth0 MFA Widget, which has the following limitations:
+- It does not support MFA with Email.
+- If users enrolled more than one factor, they cannot select which one to use, the MFA widget will ask them to login with the most secure factor.
+- It does not use Universal Login's [internationalization](/universal-login/i18n) features
 
 There are a few theming options for the MFA Widget, namespaced under the `theme` property.
 
@@ -50,3 +51,9 @@ return new Auth0MFAWidget({
   
 })
 ```
+
+## Keep reading
+
+* [auth0-guardian.js](https://github.com/auth0/auth0-guardian.js)
+* [Widget Example Using auth0-guardian.js](https://github.com/auth0/auth0-guardian.js/tree/master/example)
+* [Multi-factor Authentication with Clasic Universal Login](/universal-login/multifactor-authentication)

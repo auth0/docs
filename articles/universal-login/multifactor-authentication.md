@@ -8,20 +8,20 @@ useCase: customize-hosted-pages
 ---
 # Multi-factor Authentication with Classic Universal Login
 
-::: note
-For information about MFA with New Universal Login Experience, visit the [MFA docs](/mfa/guides/customize-mfa-universal-login).
-:::
-
 You can enable [Multi-factor authentication](/mfa) from the [Dashboard > Multifactor Auth](${manage_url}/#/mfa) section.
 
 ![Universal Login MFA Page](/media/articles/multifactor-authentication/mfa-dashboard.png)
 
 You can customize the MFA pages using the Universal Login's [basic customization features](/universal-login#simple-customization). 
 
-If you need further customizations, you can provide your own HTML for the MFA page. Note that this will use the Auth0 MFA Widget, which has the following limitations:
+If you need further customizations, you can provide your own HTML for the MFA page. 
+
+:: note
+When using your own HTML, it uses the Auth0 MFA Widget, which has the following limitations:
 - It does not support MFA with Email.
 - If users enrolled more than one factor, they cannot select which one to use, the MFA widget will ask them to login with the most secure factor.
 - It does not use Universal Login's [internationalization](/universal-login/i18n) features
+::: 
 
 ## Customize the HTML for the MFA page
 
@@ -57,3 +57,7 @@ The following parameters are available to assist in rendering your page:
 
 Most of the parameters that are used in the MFA Widget need to be passed to Guardian as shown in the default template provided in the customization area.
 If you need a higher level of customization you could use [auth0-guardian.js](https://github.com/auth0/auth0-guardian.js/tree/master/example).
+
+::: note
+For information about customizing MFA with the New Universal Login Experience, see [Customize MFA Pages with New Universal Login Branding Options](/mfa/guides/customize-mfa-universal-login).
+:::
