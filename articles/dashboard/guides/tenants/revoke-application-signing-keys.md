@@ -1,6 +1,6 @@
 ---
 title: Revoke Application Signing Keys
-description: Learn how to revoke your tenant's application signing key, which is used to sign tokens and SAML assertions, using the Auth0 Dashboard and Auth0 Management API.
+description: Learn how to revoke your tenant's application signing key using the Auth0 Dashboard and Auth0 Management API. Application signing keysmare used to sign ID Tokens, Access Tokens, SAML assertions and WS-Fed assertions that are sent to your application.
 topics:
   - tokens
   - access-tokens

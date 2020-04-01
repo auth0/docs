@@ -1,5 +1,5 @@
 ---
-description: Learn how to manage your tenant's application signing key, which is used to sign tokens and SAML assertions.
+description: Learn how to manage your tenant's application signing key, which is used to sign ID Tokens, Access Tokens, SAML assertions and WS-Fed assertions that are sent to your application.
 topics:
   - tokens
   - access-tokens
@@ -28,7 +28,7 @@ When a user signs in to your application, we create a token that contains inform
 For security purposes, you may manually rotate your signing key on a periodic basis.
 
 ::: note
-We use the application signing key to sign assertions that are sent to applications. These assertions may include ID Tokens, Access Tokens, SAML assertions, and WS-Fed assertions. Note that these keys are different from those used to sign interactions with connections, including signing SAML Requests to IdPs and encrypting responses from IdPs.
+We use the application signing key to sign assertions that are sent to applications. These assertions may include ID Tokens, Access Tokens, SAML assertions, and WS-Fed assertions that are sent to your application. Note that these keys are different from those used to sign interactions with connections, including signing SAML Requests to IdPs and encrypting responses from IdPs.
 
 To learn more about signing keys for SAML connection assertions, see [SAML Identity Provider Configuration](/protocols/saml/samlp).
 :::
