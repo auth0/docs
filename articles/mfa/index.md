@@ -32,3 +32,4 @@ See the following sections for more details:
 
 * [Blog Post: From Theory to Practice - Adding Two Factor Authentication to node.js](https://auth0.com/blog/from-theory-to-practice-adding-two-factor-to-node-dot-js/)
 * [Blog Post: Announcing Auth0 Guardian Whitelabel SDK](https://auth0.com/blog/announcing-guardian-whitelabel-sdk/)
+* [Blog Post: Time-based One-Time Password (TOTP)](https://auth0.com/blog/from-theory-to-practice-adding-two-factor-to-node-dot-js/)
