@@ -119,7 +119,7 @@ If OTP is supported by the user and you don't want to request a different factor
 
 ### More information
 
-- [Trigger MFA using the API](/mfa/guides/apis/mfa-api/challenges)
+- [Trigger MFA using the API](/mfa/guides/mfa-api/challenges)
 
 ## Verify with one-time password (OTP)
 
@@ -194,7 +194,7 @@ The response is the same as responses for `password` or `http://auth0.com/oauth/
 
 ### More information
 
-- [Associate OTP Authenticators](/mfa/guides/apis/mfa-api/otp)
+- [Associate OTP Authenticators](/mfa/guides/mfa-api/otp)
 
 ## Verify with out-of-band (OOB)
 
@@ -296,7 +296,7 @@ When the challenge response includes a `binding_method: prompt`, your app needs 
 
 ### More information
 
-- [Associate Out-of-Band Authenticators](/mfa/guides/apis/mfa-api/oob)
+- [Associate Out-of-Band Authenticators](/mfa/guides/mfa-api/oob)
 
 ## Verify with recovery code
 
@@ -582,7 +582,7 @@ To access this endpoint you must set an <dfn data-key="access-token">Access Toke
 
 #### More information
 
-- [Manage Authenticators](/mfa/guides/apis/mfa-api/manage)
+- [Manage Authenticators](/mfa/guides/mfa-api/manage)
 
 ## Delete an authenticator
 
@@ -644,4 +644,4 @@ To access this endpoint, you must set an <dfn data-key="access-token">Access Tok
 
 ### More information
 
-- [Manage Authenticators](/mfa/guides/apis/mfa-api/manage)
+- [Manage Authenticators](/mfa/guides/mfa-api/manage)

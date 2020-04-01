@@ -22,7 +22,7 @@ Highly-trusted applications can use the [Resource Owner Password Grant](/api-aut
 
 Before you continue, make sure that you've met the following prerequisites:
 
-1. MFA is enabled on the [Auth0 dashboard](${manage_url}). [Duo Security](/mfa/guides/non-auth0-authenticators/configure-cisco-duo) is __not__ supported as a factor with this flow.
+1. MFA is enabled on the [Auth0 dashboard](${manage_url}). [Duo Security](/mfa/guides/configure-cisco-duo) is __not__ supported as a factor with this flow.
 
 1. An Application is configured to execute the Resource Owner Password Grant (either [password](/api-auth/tutorials/password-grant) or [password-realm](/api-auth/tutorials/password-grant#realm-support) grant types). For details on how to implement this, refer to [Execute the Resource Owner Password Grant](/api-auth/tutorials/password-grant).
 

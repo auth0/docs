@@ -28,7 +28,7 @@ After the login step, users will be prompted with the most secure enabled factor
 
 #### Using the MFA API
 
-You can explicitly enroll an email for MFA [using the MFA API](/mfa/guides/apis/mfa-api/email). If users have a verified email and one or more explicitly enrolled emails, they'll be able to select which email they want to use to complete MFA when logging-in using Universal Login.
+You can explicitly enroll an email for MFA [using the MFA API](/mfa/guides/mfa-api/email). If users have a verified email and one or more explicitly enrolled emails, they'll be able to select which email they want to use to complete MFA when logging-in using Universal Login.
 
 #### Administrative setup
 
