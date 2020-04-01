@@ -9,23 +9,24 @@ contentType:
 useCase:
   - customize-mfa
 ---
-# Configuring a Custom SMS Gateway for MFA using Amazon SNS
+# Configuring a Custom SMS Gateway for MFA using Twilio
+
+Auth0 has built-in support for sending messages through Twilio. However, you could want do add specific logic before sending the message, or sending a different message depending on the user or the application. If that's the case, you can achieve whatever you want by configuring SMS MFA to use a send messages using the Phone Message Hook.
 
 ## Prerequisites
 
 Before you begin this tutorial, please:
 
-* Sign up for an [Amazon Web Services](https://portal.aws.amazon.com/billing/signup#/start).
+* Sign up for an [Twilio](https://www.twilio.com/try-twilio).
 * Capture your Amazon Web Service region.
-* Create a new Amazon IAM User with the `AmazonSNSFullAccess` role. 
-* Capture the access key and secret key details.
+* Capture the Account SID and Authorization Token.
 
 ## 1. Create a Send Phone Message hook 
 
 You will need to create a [Send Phone Message](/hooks/extensibility-points/send-phone-message) hook, which will hold the code and secrets of your custom implementation.
 
 ::: note
-You can only have **one** Send Phone Message Hook active at a time.
+Please note that you can only have ONE Send Phone Message Hook active at a time.
 :::
 
 ## 2. Configure Hook secrets
@@ -38,9 +39,6 @@ The screen should resemble the following screenshot:
 [Edit](/hooks/update) the Send Phone Message hook's code to match
 
 ```js
-// Load the SDK
-var AWS = require("aws-sdk");
-
 /**
 @param {string} recipient - phone number
 @param {string} text - message body
@@ -59,29 +57,32 @@ var AWS = require("aws-sdk");
 @param {function} cb - function (error, response)
 */
 module.exports = function(recipient, text, context, cb) {
-  process.env.AWS_ACCESS_KEY_ID = context.webtask.secrets.AWS_ACCESS_KEY_ID;
-  process.env.AWS_SECRET_ACCESS_KEY = context.webtask.secrets.AWS_SECRET_ACCESS_KEY;
-  process.env.AWS_REGION = context.webtask.secrets.AWS_REGION;
 
-  var params = { Message: text, PhoneNumber: recipient };
+  const accountSid = context.webtask.secrets.TWILIO_ACCOUNT_SID; 
+  const authToken = context.webtask.secrets.TWILIO_AUTH_TOKEN; 
+  const fromPhoneNumber = '+XXXXXXX';
 
-  var publishTextPromise = new AWS.SNS({ apiVersion: "2010-03-31" })
-    .publish(params)
-    .promise();
-
-  publishTextPromise
-    .then(function() {
-      cb(null, {});
-    })
-    .catch(function(err) {
-      cb(err);
-    });
+  const client = require('twilio')(accountSid, authToken); 
+ 
+  client.messages 
+      .create({ 
+         body: text + context.client_id, 
+         from: fromPhoneNumber,       
+         to: recipient 
+      }) 
+      .then(function() {
+        cb(null, {});
+      }) 
+      .catch(function(err) {
+        cb(err);
+      });
 };
+
 ```
 
 ## 4. Add the AWS SDK NPM package
 
-The hook uses the [AWS SDK for JavaScript in Node.js](https://aws.amazon.com/sdk-for-node-js/). You will need to add the 'aws-sdk' module from the 'NPM modules' section in the Hooks configuration. You can access it by clicking the icon on the top left of the Hook editor.
+The hook uses the [Twilio Node.JS Helper Library](https://github.com/twilio/twilio-node). You will need to add the 'twilio-node' module from the 'NPM modules' section in the Hooks configuration. You can access it by clicking the icon on the top left of the Hook editor.
 
 ## 5. Test your hook implementation
 
@@ -97,7 +98,6 @@ If you aren't receiving the SMS, please look at the logs for clues and make sure
 
 - The Hook is active and the SMS configuration is set to use 'Custom'.
 - You have configured the Hook Secrets as per Step #2
-- Those secrets are the same ones you created in the Amazon Web Services portal
-- Your Amazon Web Services user has access to the `AmazonSNSFullAccess` role
-- Your Amazon Web Services account is active (not suspended)
+- Those are the same ones you created in the Twilio Console
+- Your are sending the messages from a phone number that's linked to your Twilio account
 - Your phone number is formatted using the [E.164 format](https://en.wikipedia.org/wiki/E.164)
