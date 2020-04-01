@@ -186,5 +186,5 @@ Guardian
 
 ## Additional Documents
 
-* [Configuring Amazon SNS with Guardian](/mfa/guides/guardian/configure-amazon-sns)
+* [Configure Guardian](/mfa/guides/guardian/configure-guardian)
 * [Getting Started with Apple Push Notification Service](https://docs.aws.amazon.com/sns/latest/dg/mobile-push-apns.html)

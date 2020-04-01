@@ -13,7 +13,31 @@ useCase:
 ---
 # Auth0 Guardian
 
-Auth0 Guardian is a service that provides both _Push_ notification generation and an application for allowing or denying requests. _Push_ sends notification to a user’s pre-registered device - typically a mobile or tablet - from which a user can immediately allow or deny account access via the press of a button.
+Auth0 multi-factor authentication (MFA) is available as five factors:
+
+* One-time password
+* SMS
+* Push
+* Duo
+* Email
+
+Auth0 Guardian is a service that provides both push notification generation and an application for allowing or denying requests. push sends notification to a user’s pre-registered device - typically a mobile or tablet - from which a user can immediately allow or deny account access via the press of a button.
+
+The push factor is offered with the Guardian mobile app, available for both iOS and Android. In addition, the technology is also available as [whitelabelled Guardian SDK](https://auth0.com/blog/announcing-guardian-whitelabel-sdk) which can be used in custom mobile applications to act as second factor push responder. 
+
+Auth0 Guardian is available on ([Google Play](https://play.google.com/store/apps/details?id=com.auth0.guardian) and the [App Store](https://itunes.apple.com/us/app/auth0-guardian/id1093447833?mt=8)).
+
+The Guardian functionality relies on vendor-specific push notification services which you need to configure. 
+
+::: note
+See the documentation for [Apple Push Notification service (APNs)](https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html) for details on setting up APNs. 
+:::
+
+## How it works
+
+Instead of integrating with each vendor-specific push notification service, Auth0 push notification is implemented using AWS Simple Notification Service (SNS) which handles the vendor specific integration. 
+
+![Guardian Functionality](/media/articles/multifactor-authentication/guardian-functionality.png)
 
 ## Guardian and push notifications
 
@@ -24,8 +48,6 @@ End users will be prompted to download Auth0 Guardian when trying to sign up or 
 Once this is all set up, when the user attempts to authenticate as normal, their device will receive a push notification via the app, and once they approve the request, they will be logged in.
 
 <div class="phone-mockup"><img src="/media/articles/multifactor-authentication/guardian-push.png" alt="Guardian Push"/></div>
-
-Auth0 Guardian is available on ([Google Play](https://play.google.com/store/apps/details?id=com.auth0.guardian) and the [App Store](https://itunes.apple.com/us/app/auth0-guardian/id1093447833?mt=8)).
 
 ## Guardian and One-Time Passwords
 
@@ -55,8 +77,10 @@ See [auth0-guardian.js](https://github.com/auth0/auth0-guardian.js) for more inf
 
 ## Keep reading
 
-* [Configure Amazon SNS for Guardian](/mfa/guides/guardian/configure-amazon-sns)
+* [Configure Guardian](/mfa/guides/guardian/configure-guardian)
 * [Create Custom Enrollment Tickets](/mfa/guides/guardian/create-enrollment-ticket)
-* [Customize MFA Settings Page](/mfa/guides/guardian/customize-mfa-settings-page)
 * [Customize SMS Messages](/mfa/guides/guardian/customize-sms-messages)
 * [Guardian Error Code Reference](/mfa/references/guardian-error-code-reference)
+* [Auth0 Management API](/api/management/v2)
+* [Getting Started with Apple Push Notification Service](https://docs.aws.amazon.com/sns/latest/dg/mobile-push-apns.html)
+* [Getting Started with Firebase Cloud Messaging for Android](https://docs.aws.amazon.com/sns/latest/dg/sns-mobile-application-as-subscriber.html)

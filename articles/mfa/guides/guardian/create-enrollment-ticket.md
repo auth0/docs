@@ -1,5 +1,5 @@
 ---
-description: Learn how to create an enrollment ticket from API
+description: Learn how to create an enrollment ticket from the MFA API.
 topics:
   - mfa
   - step-up-authentication
@@ -131,4 +131,4 @@ The conditional logic around the existence of the `ticket` variable is also used
 
 ## Keep reading
 
-* [MFA Widget References](/mfa/references/mfa-widget-reference)
+* [MFA Widget Reference](/mfa/references/mfa-widget-reference)

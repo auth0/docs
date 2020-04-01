@@ -8,6 +8,10 @@ useCase: customize-hosted-pages
 ---
 # MFA Widget Theme Options
 
+See a [basic widget example using auth0-guardian.js](https://github.com/auth0/auth0-guardian.js/tree/master/example). 
+
+See [auth0-guardian.js](https://github.com/auth0/auth0-guardian.js) for more information.
+
 There are a few theming options for the MFA Widget, namespaced under the `theme` property.
 
 ## icon

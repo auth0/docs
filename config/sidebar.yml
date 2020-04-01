@@ -291,34 +291,37 @@ articles:
           - title: Enable MFA
             url: /mfa/guides/enable-mfa
 
-          - title: Native Apps Using Universal Login
-            url: /mfa/guides/native-universal-login
-            hidden: true 
+          - title: Guardian
+            url: /mfa/concepts/guardian
+            children: 
 
-          - title: Regular Web Apps Using Universal Login
-            url: /mfa/guides/regular-web-universal-login
-            hidden: true 
+              - title: Configure Guardian
+                url: /mfa/guides/guardian/configure-guardian
+                hidden: true 
 
-          - title: SPAs Using Universal Login
-            url: /mfa/guides/spas-universal-login
-            hidden: true 
+              - title: Create Custom Enrollment Ticket
+                url: /mfa/guides/guardian/create-enrollment-ticket
+                hidden: true 
 
-          - title: Native Apps Using Embedded Login
-            url: /mfa/guides/native-embedded-login
-            hidden: true 
+              - title: Customize SMS Messages
+                url: /mfa/guides/guardian/customize-sms-messages
+                hidden: true 
 
-          - title: Customize MFA with Universal Login
+              - title: Guardian SDK
+                url: /mfa/guides/guardian/guardian-sdk
+                hidden: true 
+
+              - title: Guardian for Android SDK
+                url: /mfa/guides/guardian/guardian-android-sdk
+                hidden: true 
+
+              - title: Guardian for iOS SDK
+                url: /mfa/guides/guardian/guardian-ios-sdk
+                hidden: true 
+
+          - title: Customize MFA
             url: /mfa/guides/customize-mfa-universal-login
-            hidden: true 
-
-          - title: Regular Web Apps Using Embedded Login
-            url: /mfa/guides/regular-web-embedded-login
-            hidden: true 
-
-          - title: SPAs Using Embedded Login
-            url: /mfa/guides/spas-embedded-login
-            hidden: true 
-
+          
           - title: Reset MFA
             url: /mfa/guides/reset-user-mfa
 
@@ -333,9 +336,6 @@ articles:
               - title: For Web Apps
                 url: /mfa/guides/configure-step-up-web-apps
                 hidden: true 
-
-          - title: Guardian
-            url: /mfa/concepts/guardian
 
           - title: MFA Developer Resources
             url: /mfa/concepts/mfa-developer-resources
