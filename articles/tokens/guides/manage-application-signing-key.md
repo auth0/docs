@@ -28,7 +28,9 @@ When a user signs in to your application, we create a token that contains inform
 For security purposes, you may manually rotate your signing key on a periodic basis.
 
 ::: note
-We use the application signing key to sign assertions that are sent to applications. These assertions may include tokens and SAML assertions. Note that these keys are diffeent from those used to sign interactions with connections, such as SAMLRequests, and signing keys used to encrypt data. To learn more about signing keys for encrypted SAML connection assertions, see [SAML Identity Provider Configuration](/protocols/saml/samlp).
+We use the application signing key to sign assertions that are sent to applications. These assertions may include ID Tokens, Access Tokens, SAML assertions, and WS-Fed assertions. Note that these keys are different from those used to sign interactions with connections, including signing SAML Requests to IdPs and encrypting responses from IdPs.
+
+To learn more about signing keys for SAML connection assertions, see [SAML Identity Provider Configuration](/protocols/saml/samlp).
 :::
 
 ## Rotate your application signing key
@@ -40,7 +42,9 @@ Your tenant's [OpenID Connect discovery document](/tokens/guides/locate-jwks) al
 You can rotate your application signing key using either the Auth0 Dashboard or Management API. To learn more, see [Rotate Application Signing Keys](/dashboard/guides/tenants/rotate-application-signing-keys).
 
 ::: warning
-Rotating your application signing key will cause all your applications to require the signing key currently in queue for validating new tokens. All previously-validated tokens will still be valid with the previous key until the previous key is revoked.
+Make sure you have updated your application with the new key before you revoke the previous key.
+
+All tokens signed with the previous key will still be valid until the previous key is revoked.
 :::
 
 ## Manage your application signing keys
@@ -56,7 +60,7 @@ In addition, the Dashboard allows you to view, copy, and download the signing ce
 
 ### Limitations
 
-* You may rotate your application signing keys once per day.
+* Rotating your signing key will be subject to a smaller rate limit than other API endpoints. To learn more, see [Rate Limits](/policies/rate-limits).
 
 ## Keep reading
 

@@ -21,10 +21,12 @@ useCase:
 
 # Rotate Application Signing Keys
 
-This guide will show you how to rotate your tenant's application signing key using the Auth0 Dashboard and Auth0 Management API. The application signing key is used to sign tokens and SAML assertions.
+This guide will show you how to rotate your tenant's application signing key using the Auth0 Dashboard and Auth0 Management API. The application signing key is used to sign ID Tokens, Access Tokens, SAML assertions, and WS-Fed assertions sent to your application.
 
 ::: warning
-Rotating your application signing key will cause all your applications to require the signing key currently in queue for validating new tokens. All previously-validated tokens will still be valid with the previous key until the previous key is revoked.
+Make sure you have updated your application with the new key before you revoke the previous key.
+
+All tokens signed with the previous key will still be valid until the previous key is revoked.
 :::
 
 <div class="code-picker">
