@@ -55,7 +55,7 @@ The `Management` class stores access to endpoints as properties of its instances
 This endpoint is documented [here](/api/management/v2#!/Users/get_users).
 
 ```php
-$results = $mgmt_api->users->search([
+$results = $mgmt_api->users()->getAll([
     'q' => 'josh'
 ]);
 
@@ -77,7 +77,7 @@ if (! empty($results)) {
 This endpoint is documented [here](/api/management/v2#!/Clients/get_clients).
 
 ```php
-$results = $mgmt_api->clients->getAll();
+$results = $mgmt_api->clients()->getAll();
 
 if (! empty($results)) {
     echo '<h2>Get All Clients</h2>';
