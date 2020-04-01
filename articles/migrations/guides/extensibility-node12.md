@@ -87,7 +87,7 @@ The [Authorization Extension](/extensions/authorization), the [Delegated Adminis
 
 If you use any of these extensions, **you must whitelist the new URLs** both as Allowed <dfn data-key="callback">Callback</dfn> and as Allowed Logout URLs.
 
-The change is a `12` that is appended before the `webtask.io` part. So if you accessed an extension using the URL `https://${account.tenant}.us.webtask.io/dummy-extension-url`, when you upgrade to Node 12 the URL will be `https://${account.tenant}.us12.webtask.io/dummy-extension-url`.
+The change is a `-node12` that is appended before the `webtask.io` part and a `prod-` that is appended before the region part. So if you accessed an extension using the URL `https://${account.tenant}.us8.webtask.io/dummy-extension-url`, when you upgrade to Node 12 the URL will be `https://${account.tenant}.prod-us-node12.webtask.io/dummy-extension-url`.
 
 To do so, go to [Dashboard > Applications > Settings](${manage_url}/#/applications/${account.clientId}/settings), and add the URL to the fields **Allowed Callback URLs** and **Allowed Logout URLs**.
 
@@ -115,13 +115,13 @@ If you use the Delegated Administration Extension, the matrix that follows conta
 
 | Location | Allowed Callback URL for Node 12 | Allowed Logout URL for Node 12 |
 | --- | --- | --- |
-| USA | `https://${account.tenant}.us12.webtask.io/auth0-delegated-admin/login` | `https://${account.tenant}.us12.webtask.io/auth0-delegated-admin` |
-| Europe | `https://${account.tenant}.eu12.webtask.io/auth0-delegated-admin/login` | `https://${account.tenant}.eu12.webtask.io/auth0-delegated-admin` |
-| Australia | `https://${account.tenant}.au12.webtask.io/auth0-delegated-admin/login` | `https://${account.tenant}.au12.webtask.io/auth0-delegated-admin` |
+| USA | `https://${account.tenant}.prod-us-node12.webtask.io/auth0-delegated-admin/login` | `https://${account.tenant}.prod-us-node12.webtask.io/auth0-delegated-admin` |
+| Europe | `https://${account.tenant}.prod-eu-node12.webtask.io/auth0-delegated-admin/login` | `https://${account.tenant}.prod-eu-node12.webtask.io/auth0-delegated-admin` |
+| Australia | `https://${account.tenant}.prod-au-node12.webtask.io/auth0-delegated-admin/login` | `https://${account.tenant}.prod-au-node12.webtask.io/auth0-delegated-admin` |
 
 For example, if you are located in the USA and you use the Delegated Administration, you should update the following fields in your application's settings: 
-- **Allowed Callback URLs**: `https://${account.tenant}.us12.webtask.io/auth0-delegated-admin/login`
-- **Allowed Logout URLs**: `https://${account.tenant}.us12.webtask.io/auth0-delegated-admin`
+- **Allowed Callback URLs**: `https://${account.tenant}.prod-us-node12.webtask.io/auth0-delegated-admin/login`
+- **Allowed Logout URLs**: `https://${account.tenant}.prod-us-node12.webtask.io/auth0-delegated-admin`
 
 ### SSO Dashboard URLs
 
@@ -131,17 +131,17 @@ The login URL for **Admins**:
 
 | Location | Allowed Callback URL |
 | --- | --- |
-| USA | `https://${account.tenant}.us12.webtask.io/auth0-sso-dashboard/admins/login` |
-| Europe | `https://${account.tenant}.eu12.webtask.io/auth0-sso-dashboard/admins/login` |
-| Australia | `https://${account.tenant}.au12.webtask.io/auth0-sso-dashboard/admins/login` |
+| USA | `https://${account.tenant}.prod-us-node12.webtask.io/auth0-sso-dashboard/admins/login` |
+| Europe | `https://${account.tenant}.prod-eu-node12.webtask.io/auth0-sso-dashboard/admins/login` |
+| Australia | `https://${account.tenant}.prod-au-node12.webtask.io/auth0-sso-dashboard/admins/login` |
 
 The login URL for **Users**:
 
 | Location | Allowed Callback URL |
 | --- | --- |
-| USA | `https://${account.tenant}.us12.webtask.io/auth0-sso-dashboard/login` |
-| Europe | `https://${account.tenant}.eu12.webtask.io/auth0-sso-dashboard/login` |
-| Australia | `https://${account.tenant}.au12.webtask.io/auth0-sso-dashboard/login` |
+| USA | `https://${account.tenant}.prod-us-node12.webtask.io/auth0-sso-dashboard/login` |
+| Europe | `https://${account.tenant}.prod-eu-node12.webtask.io/auth0-sso-dashboard/login` |
+| Australia | `https://${account.tenant}.prod-au-node12.webtask.io/auth0-sso-dashboard/login` |
 
 ### All Extensions
 

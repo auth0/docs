@@ -28,6 +28,16 @@ Before you [add the SSO Dashboard extension](/dashboard/guides/extensions/sso-da
 
     For **Admins**:
 
+    If you are using Node 8:
+
+    | Location | Allowed Callback URL |
+    | --- | --- |
+    | USA | `https://${account.tenant}.us8.webtask.io/auth0-sso-dashboard/admins/login` |
+    | Europe | `https://${account.tenant}.eu8.webtask.io/auth0-sso-dashboard/admins/login` |
+    | Australia | `https://${account.tenant}.au8.webtask.io/auth0-sso-dashboard/admins/login` |
+
+    If you are using Node 12:
+
     | Location | Allowed Callback URL |
     | --- | --- |
     | USA | `https://${account.tenant}.prod-us-node12.webtask.io/auth0-sso-dashboard/admins/login` |
@@ -35,6 +45,16 @@ Before you [add the SSO Dashboard extension](/dashboard/guides/extensions/sso-da
     | Australia | `https://${account.tenant}.prod-au-node12.webtask.io/auth0-sso-dashboard/admins/login` |
 
     For **Users**:
+
+    If you are using Node 8:
+
+    | Location | Allowed Callback URL |
+    | --- | --- |
+    | USA | `https://${account.tenant}.us8.webtask.io/auth0-sso-dashboard/login` |
+    | Europe | `https://${account.tenant}.eu8.webtask.io/auth0-sso-dashboard/login` |
+    | Australia | `https://${account.tenant}.au8.webtask.io/auth0-sso-dashboard/login` |
+
+    If you are using Node 12:
 
     | Location | Allowed Callback URL |
     | --- | --- |

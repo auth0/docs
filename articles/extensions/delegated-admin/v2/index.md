@@ -35,6 +35,16 @@ Once you've created your Application, you'll need to make the following Applicat
 
 Click on the **Settings** tab and set the **Allowed Callback URLs**. This varies based on your location:
 
+If you are using Node 8:
+
+| Location | Allowed Callback URL |
+| --- | --- |
+| USA | `https://${account.tenant}.us8.webtask.io/auth0-delegated-admin/login` |
+| Europe | `https://${account.tenant}.eu8.webtask.io/auth0-delegated-admin/login` |
+| Australia | `https://${account.tenant}.au8.webtask.io/auth0-delegated-admin/login` |
+
+If you are using Node 12:
+
 | Location | Allowed Callback URL |
 | --- | --- |
 | USA | `https://${account.tenant}.prod-us-node12.webtask.io/auth0-delegated-admin/login` |
@@ -42,6 +52,16 @@ Click on the **Settings** tab and set the **Allowed Callback URLs**. This varies
 | Australia | `https://${account.tenant}.prod-au-node12.webtask.io/auth0-delegated-admin/login` |
 
 You will also need to configure the **Allowed Logout URLs**:
+
+If you are using Node 8:
+ 
+| Location | Allowed Logout URL |
+| --- | --- |
+| USA | `https://${account.tenant}.us8.webtask.io/auth0-delegated-admin` |
+| Europe | `https://${account.tenant}.eu8.webtask.io/auth0-delegated-admin` |
+| Australia | `https://${account.tenant}.au8.webtask.io/auth0-delegated-admin` |
+
+If you are using Node 12:
  
 | Location | Allowed Logout URL |
 | --- | --- |
