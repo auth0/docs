@@ -1,6 +1,5 @@
 ---
-title: Step-up Authentication
-description: Describes using acr_values and acr claims to perform step-up authentication with Auth0
+description: Understand how step-up authentication works for APIs and web apps to verify that the user has logged in using MFA and if not, require the user to step-up to access certain resources. 
 topics:
   - mfa
   - step-up-authentication

@@ -1,5 +1,5 @@
 ---
-description: Developer Documentation for Multi-factor Authentication
+description: Learn about developer resources such as the Auth0 MFA API and the Guardian SDKs for MFA.
 topics:
   - mfa
   - guardian
