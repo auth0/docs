@@ -1,5 +1,4 @@
 ---
-title: Troubleshoot Multi-Factor Authentication
 description: Describes basic troubleshooting of MFA issues for end-users.
 topics:
     - mfa

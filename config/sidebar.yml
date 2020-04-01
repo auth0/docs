@@ -350,7 +350,7 @@ articles:
                 hidden: true 
 
           - title: Troubleshooting MFA
-            url: /mfa/referenes/troubleshoot-mfa
+            url: /mfa/references/troubleshoot-mfa
 
       - title: Silent Authentication
         url: /api-auth/tutorials/silent-authentication

@@ -1,6 +1,4 @@
 ---
-title: Developer Documentation for Multi-factor Authentication
-url: /multifactor-authentication/developer
 description: Developer Documentation for Multi-factor Authentication
 topics:
   - mfa
