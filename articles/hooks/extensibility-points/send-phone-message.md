@@ -108,4 +108,5 @@ When you run a Hook based on the starter code, the response object is:
 # Keep reading
 
 - [Configuring a Custom SMS Gateway for MFA using Amazon SNS](/multifactor-authentication/send-phone-message-hook-amazon-sns) guide. 
+- [Configuring a Custom SMS Gateway for MFA using Twilio](/multifactor-authentication/send-phone-message-hook-twilio) guide. 
 - Learn about other [Extensibility Points](/hooks/extensibility-points).
