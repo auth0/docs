@@ -86,7 +86,7 @@ For this example, we assume that we have already done the following:
 
     - The `CLIENTS_WITH_MFA` variable holds the Client IDs of all the applications you want to use this rule. (You can remove this (and the `if` statement that follows) if you don't need it.)
 
-    - The `context.request.query.scope` property contains all the scopes for which the authentication request asked. If it includes the value `transfer:funds`, then we ask for MFA by setting the `context.multifactor` property to the appropriate value. In this case, we are asking for MFA using [Push](/mfa/concepts/overview-mfa#push-notifications).
+    - The `context.request.query.scope` property contains all the scopes for which the authentication request asked. If it includes the value `transfer:funds`, then we ask for MFA by setting the `context.multifactor` property to the appropriate value. In this case, we are asking for MFA using [Push](/mfa/concepts/mfa-factors#push-notifications).
 
 2. Configure the app to send the appropriate authentication request to the API, depending on whether the user is attempting to perform the high-value transaction of transferring funds. Notice that the only difference between the two authentication requests (with or without MFA) is the scope.
 

@@ -1,6 +1,5 @@
 ---
-title: Multi-factor Authentication in Auth0
-description: Understand the basics of multi-factor authentication and the different methods of implementing it with Auth0.
+description: Understand how MFA works in Auth0, the authentication factors, policies and use cases.
 toc: true 
 topics:
     - mfa
@@ -9,15 +8,9 @@ contentType:
 useCase:
   - customize-mfa
 ---
-# Multi-factor Authentication in Auth0
+# Multi-factor Authentication Factors
 
 Auth0 supports a number of different options when it comes to enabling MFA for protecting user account access. An MFA workflow is typically provided via a separate application that runs on a mobile or tablet device. If you don’t want your customers to have to download a separate application, Auth0 also provides an [MFA SDK](/mfa/guides/guardian/guardian-sdk) that you can use to build second factor workflow right in your existing mobile device app.
-
-There are different ways to manage MFA depending on your environment: 
-
-* B2B: Your customers manage MFA factors for their users .
-* B2C: End users manage their own MFA factors via the My MFA Settings Page.
-* B2E: You manage MFA factors for your users.
 
 ## Authentication factors
 
@@ -25,7 +18,9 @@ Auth0 supports the following factors for implementing MFA. You must enable at le
 
 Use any of the dozens of MFA solutions that exist today including SMS text, email, biometric, password-less and more, and be ready to add any new ones easily as they become available or necessary. Auth0 provides support for all MFA service providers through  authentication flow [Rules](/rules).
 
-In the Dashboard you can select the factors to use for MFA. Here are the primary authentication factors:
+On the [Dashboard > Multifactor Auth](${manage_url}/#/mfa) page, you can select the factors to use for MFA for your tenant. 
+
+![MFA Dashboard Page](/media/articles/multifactor-authentication/mfa-dashboard.png)
 
 ### Push notifications with Auth0 Guardian
 
@@ -58,6 +53,12 @@ Rules affecting MFA take precedence over the policy configuration in the Dashboa
 :::
 
 ## MFA use cases
+
+There are different ways to manage MFA depending on your environment: 
+
+* B2B: Your customers manage MFA factors for their users .
+* B2C: End users manage their own MFA factors via the My MFA Settings Page.
+* B2E: You manage MFA factors for your users.
 
 Applications that allow access to different types of resources can require users to authenticate with a stronger authentication mechanism to access sensitive resources. See [Step-Up Authentication](/mfa/concepts/step-up-authentication) for details. 
 

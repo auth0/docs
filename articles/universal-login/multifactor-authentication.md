@@ -14,7 +14,7 @@ For information about MFA with New Universal Login Experience, visit the [MFA do
 
 You can enable [Multi-factor authentication](/mfa) from the [Dashboard > Multifactor Auth](${manage_url}/#/mfa) section.
 
-![Universal Login MFA Page](/media/articles/multifactor-authentication/mfa-dashboard-1.png)
+![Universal Login MFA Page](/media/articles/multifactor-authentication/mfa-dashboard.png)
 
 You can customize the MFA pages using the Universal Login's [basic customization features](/universal-login#simple-customization). 
 

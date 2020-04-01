@@ -285,8 +285,8 @@ articles:
         url: /mfa
         children:
 
-          - title: Overview
-            url: /mfa/concepts/overview-mfa
+          - title: Factors
+            url: /mfa/concepts/mfa-factors
 
           - title: Enable MFA
             url: /mfa/guides/enable-mfa
@@ -349,7 +349,7 @@ articles:
                 url: /mfa/references/mfa-widget-reference
                 hidden: true 
 
-          - title: Troubleshooting MFA
+          - title: Troubleshoot MFA
             url: /mfa/references/troubleshoot-mfa
 
       - title: Silent Authentication
