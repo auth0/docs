@@ -40,7 +40,7 @@ If you are using Node 12:
 
     | Location  | Allowed Callback URL |
     | --------- | -------------------- |
-    | USA       | `https://${account.tenant}.prod-us-node12.webtask.io` |
+    | USA       | `https://${account.tenant}.prod-us-node12.webtask.io/auth0-delegated-admin/login` |
     | Europe    | `https://${account.tenant}.prod-eu-node12.webtask.io/auth0-delegated-admin/login` |
     | Australia | `https://${account.tenant}.prod-au-node12.webtask.io/auth0-delegated-admin/login` |
 
