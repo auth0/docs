@@ -56,7 +56,9 @@ This means that there is a user in WordPress that has the same email as the one 
 1. View the user's profile and scroll down to the bottom
 1. Click **Delete Auth0 Data** and confirm
 
-Keep in mind, if you have 2 user accounts in Auth0 with the same email address, this error message will persist. We recommend looking into [user account linking](/users/concepts/overview-user-account-linking).
+::: note
+If you have 2 user accounts in Auth0 with the same email address, this error message will persist. We recommend looking into [user account linking](/users/concepts/overview-user-account-linking).
+:::
 
 ## I see the error message "Failed cross origin authentication" or "No verifier returned from client" in my browser's console logs when trying to log in
 
@@ -124,7 +126,9 @@ add_filter('v_forcelogin_whitelist', 'wp_auth0_forcelogin_whitelist', 10, 1);
 
 ## How can I redirect the users to a specific URL after login?
 
-Please note that all redirects are checked using `wp_safe_redirect()` before being performed. If you're trying to redirect to a domain that is not your main domain, add that domain to the check using the core WordPress `allowed_redirect_hosts` filter ([documentation](https://developer.wordpress.org/reference/hooks/allowed_redirect_hosts/)).
+::: note
+All redirects are checked using `wp_safe_redirect()` before being performed. If you're trying to redirect to a domain that is not your main domain, add that domain to the check using the core WordPress `allowed_redirect_hosts` filter ([documentation](https://developer.wordpress.org/reference/hooks/allowed_redirect_hosts/)).
+:::
 
 ### On the login page
 
