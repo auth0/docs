@@ -1,6 +1,6 @@
 ---
 title: Rotate Application Signing Keys
-description: Learn how to rotate your tenant's application signing key using the Auth0 Dashboard and Auth0 Management API. Application signing keysmare used to sign ID Tokens, Access Tokens, SAML assertions and WS-Fed assertions that are sent to your application.
+description: Learn how to rotate your tenant's application signing key using the Auth0 Dashboard and Auth0 Management API. Application signing keys are used to sign ID Tokens, Access Tokens, SAML assertions, and WS-Fed assertions that are sent to your application.
 topics:
   - tokens
   - access-tokens
@@ -21,12 +21,10 @@ useCase:
 
 # Rotate Application Signing Keys
 
-This guide will show you how to rotate your tenant's application signing key using the Auth0 Dashboard and Auth0 Management API. The application signing key is used to sign ID Tokens, Access Tokens, SAML assertions, and WS-Fed assertions sent to your application.
+You can rotate your tenant's application signing key using the Auth0 Dashboard and Auth0 Management API. The application signing key is used to sign ID Tokens, Access Tokens, SAML assertions, and WS-Fed assertions sent to your application. To learn more, see [Manage Application Signing Keys](/tokens/guides/manage-application-signing-keys).
 
 ::: warning
-Make sure you have updated your application with the new key before you revoke the previous key.
-
-All tokens signed with the previous key will still be valid until the previous key is revoked.
+To allow you time to update your application with the new key, all tokens signed with the previous key will still be valid until you revoke the previous key. To learn more, see [Revoke Application Signing Keys](/dashboard/guides/tenants/revoke-application-signing-keys).
 :::
 
 <div class="code-picker">
@@ -47,7 +45,7 @@ All tokens signed with the previous key will still be valid until the previous k
 
 ![View Signing Key Tenant Settings](/media/articles/dashboard/tenants/tenant-settings-signing-keys.png)
 
-3. When asked to confirm, if you have already updated certificates and signing keys in all of your applications, select the **Yes, revoke the currently used signing key** checkbox, and click **Rotate**.
+3. Confirm rotation by clicking **Rotate**.
 
 ![Confirm Signing Key Rotation](/media/articles/dashboard/tenants/tenant-settings-signing-keys-rotate-confirm.png)
     </div>

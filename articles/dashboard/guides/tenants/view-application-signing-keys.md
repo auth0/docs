@@ -1,6 +1,6 @@
 ---
 title: View Application Signing Keys
-description: Learn how to view your tenant's application signing keys using the Auth0 Dashboard and Auth0 Management API. Application signing keysmare used to sign ID Tokens, Access Tokens, SAML assertions and WS-Fed assertions that are sent to your application.
+description: Learn how to view your tenant's application signing keys using the Auth0 Dashboard and Auth0 Management API. Application signing keys are used to sign ID Tokens, Access Tokens, SAML assertions, and WS-Fed assertions that are sent to your application.
 topics:
   - tokens
   - access-tokens
@@ -21,7 +21,13 @@ useCase:
 
 # View Application Signing Keys
 
-This guide will show you how to view your tenant's application signing keys using the Auth0 Dashboard and Auth0 Management API. The application signing key is used to sign tokens and SAML assertions.
+You can view your tenant's application signing keys using the Auth0 Dashboard and Auth0 Management API. The application signing key is used to sign ID Tokens, Access Tokens, SAML assertions, and WS-Fed assertions sent to your application. To learn more, see [Manage Application Signing Keys](/tokens/guides/manage-application-signing-keys).
+
+::: note
+Note that these keys are different from those used to sign interactions with connections, including signing SAML Requests to IdPs and encrypting responses from IdPs.
+
+By default, SAML assertions for IdP connections are signed, which we recommend. To learn more, see [SAML Identity Provider Configuration: Signed Assertions](/protocols/saml/samlp#signed-assertions). 
+:::
 
 <div class="code-picker">
   <div class="languages-bar">

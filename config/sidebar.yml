@@ -539,7 +539,7 @@ articles:
             url: /dashboard/manage-dashboard-admins
 
           - title: Manage Application Signing Keys
-            url: /tokens/guides/manage-application-signing-key
+            url: /tokens/guides/manage-application-signing-keys
 
           - title: Configure Session Lifetime Settings
             url: /dashboard/guides/tenants/configure-session-lifetime-settings

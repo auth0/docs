@@ -96,6 +96,7 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
       <th><strong>POST</strong></th>
       <th><strong>DELETE</strong></th>
       <th><strong>PATCH</strong></th>
+      <th><strong>PUT</strong></th>
     </tr>
   </thead>
   <tbody>
@@ -105,6 +106,15 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
       <td>/client-grants</td>
       <td>/client-grants/{id}</td>
       <td>/client-grants/{id}</td>
+      <td></td>
+  </tr>
+    <tr>
+    <td>Application Signing Keys</td>
+      <td>/keys/signing<br>/keys/signing/{id}</td>
+      <td>/keys/signing/rotate<br>Limited to 5 requests per day</td>
+      <td></td>
+      <td></td>
+      <td>/keys/signing/{kid}/revoke</td>
   </tr>
   <tr>
       <td>Applications</td>
@@ -112,6 +122,7 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
       <td>/client</td>
       <td>/client/{id}</td>
       <td>/client/{id}</td>
+      <td></td>
   </tr>
   <tr>
       <td>Connections</td>
@@ -119,6 +130,7 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
       <td>/connections</td>
       <td>/connections/{id} <br />/connections/{id}/users</td>
       <td>/connections/{id}</td>
+      <td></td>
   </tr>
   <tr>
       <td>Device Credentials</td>
@@ -126,10 +138,12 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
       <td>/device-credentials</td>
       <td>/device-credentials/{id}</td>
       <td></td>
+      <td></td>
   </tr>
   <tr>
       <td>Logs</td>
       <td>/logs <br />/log/{id}</td>
+      <td></td>
       <td></td>
       <td></td>
       <td></td>
@@ -140,12 +154,14 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
       <td>/rules</td>
       <td>/rules/{id}</td>
       <td>/rules/{id}</td>
+      <td></td>
   </tr>
   <tr>
       <td>User Blocks</td>
       <td>/user-blocks <br />/user-blocks/{id}</td>
       <td></td>
       <td>/user-blocks <br />/user-blocks/{id}</td>
+      <td></td>
       <td></td>
   </tr>
   <tr>
@@ -154,6 +170,7 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
       <td>/users <br />/users/{id}/identities</td>
       <td>/users/{id} <br />/users/{id}/identities <br />/users/{id}/multifactor/{provider}</td>
       <td>/users/{id}</td>
+      <td></td>
   </tr>
   <tr>
       <td>Emails</td>
@@ -161,11 +178,13 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
       <td>/emails/provider</td>
       <td></td>
       <td>/emails/provider</td>
+      <td></td>
   </tr>
   <tr>
       <td>Jobs</td>
       <td>/jobs/{id} <br /> /jobs/{id}/errors</td>
       <td>/jobs/verification-email <br />/jobs/users-imports <br />/jobs/users-exports</td>
+      <td></td>
       <td></td>
       <td></td>
   </tr>
@@ -175,10 +194,12 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
       <td>/resource-servers</td>
       <td>/resource-servers/{id}</td>
       <td>/resource-servers/{id}</td>
+      <td></td>
   </tr>
   <tr>
       <td>Stats</td>
       <td>/stats/active-users <br />/stats/daily</td>
+      <td></td>
       <td></td>
       <td></td>
       <td></td>
@@ -189,6 +210,7 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
       <td></td>
       <td></td>
       <td>/tenants/settings</td>
+      <td></td>
   </tr>
   </tbody>
 </table>

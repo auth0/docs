@@ -82,13 +82,16 @@ Custom domains are not available for free plans. To configure a custom domain, y
 
 ## Signing Keys
 
-The **Signing Keys** tab allows you to securely manage the signing key and certificate used by your applications to validate tokens for users.
+The **Signing Keys** tab allows you to securely manage the signing key and certificate used to sign ID Tokens, Access Tokens, SAML assertions, and WS-Fed assertions that are sent to your applications.
 
 ![Signing Key Tenant Settings](/media/articles/dashboard/tenants/tenant-settings-signing-keys.png)
 
-**Rotate Application Signing Key**: Setting that allows you to rotate the signing key and certificate used by your applications to validate tokens for users. To learn more, see [Manage Application Signing Key](/tokens/guides/manage-application-signing-key).
+**Rotate Application Signing Key**: Setting that allows you to rotate the signing key and certificate. To learn more, see [Manage Application Signing Key](/tokens/guides/manage-application-signing-keys).
 
-**Valid Keys**: List of valid keys for your tenant, which are also available at the metadata endpoint for your application to validate tokens. Valid keys include the current key in use and the next key in the queue when you choose to rotate your signing key.
+**Valid Keys**: List of valid keys for your tenant, which are also available at the metadata endpoint for your application. Valid keys include:
+  * **Next in queue**: Key that will be used when the application signing key is next rotated.
+  * **Currently used**: Key that is currently in use.
+  * **Previously used**: Key that was previously used. Its appearance indicates that the application signing key has been rotated, but the previously used key has not yet been revoked.
 
 **Revoked Keys**: List of the last three revoked keys for your tenant. More data about revoked keys is available via tenant logs.
 

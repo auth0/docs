@@ -1,6 +1,6 @@
 ---
 title: Revoke Application Signing Keys
-description: Learn how to revoke your tenant's application signing key using the Auth0 Dashboard and Auth0 Management API. Application signing keysmare used to sign ID Tokens, Access Tokens, SAML assertions and WS-Fed assertions that are sent to your application.
+description: Learn how to revoke your tenant's application signing key using the Auth0 Dashboard and Auth0 Management API. Application signing keys are used to sign ID Tokens, Access Tokens, SAML assertions, and WS-Fed assertions that are sent to your application.
 topics:
   - tokens
   - access-tokens
@@ -21,10 +21,12 @@ useCase:
 
 # Revoke Application Signing Keys
 
-This guide will show you how to revoke your tenant's application signing key using the Auth0 Dashboard and Auth0 Management API. The application signing key is used to sign tokens and SAML assertions.
+You can revoke your tenant's application signing key using the Auth0 Dashboard and Auth0 Management API. The application signing key is used to sign ID Tokens, Access Tokens, SAML assertions, and WS-Fed assertions sent to your application. To learn more, see [Manage Application Signing Keys](/tokens/guides/manage-application-signing-keys).
 
 ::: warning
-Rotating your application signing key will cause all your applications to require the signing key currently in queue for validating new tokens. All previously-validated tokens will still be valid with the previous key until the previous key is revoked.
+Before you can revoke a previously used application signing key, you must first have rotated the key. To learn how, see [Rotate Application Signing Keys](/dashboard/guides/tenants/rotate-application-signing-keys).
+
+Make sure you have updated your application with the new key before you revoke the previous key.
 :::
 
 <div class="code-picker">
@@ -41,15 +43,19 @@ Rotating your application signing key will cause all your applications to requir
 
 ![View Advanced Tenant Settings](/media/articles/dashboard/tenants/tenant-settings.png)
 
-2. Scroll to the **Settings** section, locate **Rotate Application Signing Key**, and click **Rotate Key**.
+2. Scroll to the **Valid Keys** section, locate the **Previously Used** key, click its more options (**...**) menu, and select **Revoke Key**.
 
-![View Signing Key Tenant Settings](/media/articles/dashboard/tenants/tenant-settings-signing-keys.png)
+![View Signing Key Tenant Settings](/media/articles/dashboard/tenants/tenant-settings-signing-keys-revoke.png)
 
-3. When asked to confirm, å, select the **Yes, revoke the currently used signing key** checkbox. Click **Rotate**.
+3. Confirm revocation by clicking **Revoke**.
 
-![Confirm Signing Key Rotation](/media/articles/dashboard/tenants/tenant-settings-signing-keys-rotate-confirm.png)
+![Confirm Revoking Signing Key](/media/articles/dashboard/tenants/tenant-settings-signing-keys-revoke-confirm.png)
     </div>
     <div id="mgmt-api" class="tab-pane">
+
+::: warning
+You may only revoke the previously used signing key.
+:::
 
 1. Make a `PUT` call to the [Revoke Signing Key endpoint](/api/management/v2#!/signing_keys/post_signing_key). Be sure to replace the `YOUR_KEY_ID` and `MGMT_API_ACCESS_TOKEN` placeholder values with your signing key's kid and Management API Access Token, respectively.
 
