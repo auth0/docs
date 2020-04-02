@@ -59,7 +59,7 @@ Auth0 provides sample scripts for use with the following languages/technologies:
 ### JavaScript
 
 ```
-function changePassword (email, newPassword, callback) {
+function changePassword(email, newPassword, callback) {
   // This script should change the password stored for the current user in your
   // database. It is executed when the user clicks on the confirmation link
   // after a reset password request.
@@ -82,8 +82,8 @@ function changePassword (email, newPassword, callback) {
   // https://example.com would redirect to the following URL:
   //     https://example.com?email=alice%40example.com&message=error&success=false
 
-  var msg = "Please implement the Change Password script for this database " +
-       "connection at https://manage.auth0.com/#/connections/database";
+  const msg = 'Please implement the Change Password script for this database ' +
+    'connection at https://manage.auth0.com/#/connections/database';
   return callback(new Error(msg));
 }
 ```
@@ -316,21 +316,27 @@ function changePassword(email, newPassword, callback) {
 
 ```
 function changePassword(email, newPassword, callback) {
-  var bcrypt = require('bcrypt');
-  var mongo = require('mongo-getdb');
+  const bcrypt = require('bcrypt');
+  const MongoClient = require('mongodb@3.1.4').MongoClient;
+  const client = new MongoClient('mongodb://user:pass@mymongoserver.com');
 
-  mongo('mongodb://user:pass@mymongoserver.com/my-db', function (db) {
-    var users = db.collection('users');
+  client.connect(function (err) {
+    if (err) return callback(err);
+
+    const db = client.db('db-name');
+    const users = db.collection('users');
 
     bcrypt.hash(newPassword, 10, function (err, hash) {
       if (err) {
-        callback(err);
-      } else {
-        users.update({ email: email }, { $set: { password: hash } }, function (err, count) {
-          if (err) return callback(err);
-          callback(null, count > 0);
-        });
+        client.close();
+        return callback(err);
       }
+
+      users.update({ email: email }, { $set: { password: hash } }, function (err, count) {
+        client.close();
+        if (err) return callback(err);
+        callback(null, count > 0);
+      });
     });
   });
 }
@@ -339,29 +345,28 @@ function changePassword(email, newPassword, callback) {
 ### MySQL
 
 ```sql
-function changePassword (email, newPassword, callback) {
-  var bcrypt = require('bcrypt');
-  var mysql = require('mysql');
-  var connection = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'me',
-    password : 'secret',
-    database : 'mydb'
+function changePassword(email, newPassword, callback) {
+  const mysql = require('mysql');
+  const bcrypt = require('bcrypt');
+
+  const connection = mysql({
+    host: 'localhost',
+    user: 'me',
+    password: 'secret',
+    database: 'mydb'
   });
 
   connection.connect();
 
-  var query = "UPDATE users SET password = ? WHERE email = ? ";
+  const query = 'UPDATE users SET password = ? WHERE email = ?';
 
-  bcrypt.hash(newPassword, 10, function (err, hash) {
-    if (err) {
-      callback(err);
-    } else {
-      connection.query(query, hash, email, function (err, results) {
-        if (err) return callback(err);
-        callback(null, results.affectedRows > 0);
-      });
-    }
+  bcrypt.hash(newPassword, 10, function(err, hash) {
+    if (err) return callback(err);
+
+    connection.query(query, [ hash, email ], function(err, results) {
+      if (err) return callback(err);
+      callback(null, results.length > 0);
+    });
   });
 }
 ```
@@ -370,46 +375,36 @@ function changePassword (email, newPassword, callback) {
 
 ```sql
 function changePassword(email, newPassword, callback) {
-
-  var oracledb = require('oracledb');
-  var bcrypt = require('bcrypt');
+  const bcrypt = require('bcrypt');
+  const oracledb = require('oracledb');
   oracledb.outFormat = oracledb.OBJECT;
 
   oracledb.getConnection({
       user: configuration.dbUser,
       password: configuration.dbUserPassword,
-      connectString: "CONNECTION_STRING" // Refer here https://github.com/oracle/node-oracledb/blob/master/doc/api.md#connectionstrings
+      connectString: 'CONNECTION_STRING' // Refer here https://github.com/oracle/node-oracledb/blob/master/doc/api.md#connectionstrings
     },
     function(err, connection) {
-      if (err) {
-        return callback(new Error(err));
-      }
+      if (err) callback(err);
+
       bcrypt.hash(newPassword, 10, function(err, hash) {
-        if (err) { return callback(err); }
-        connection.execute(
-          "update users set PASSWORD = :hash " +
-          "where EMAIL = :email", [hash, email], { autoCommit: true },
-          function(err, result) {
-            if (err) {
-              doRelease(connection);
-              return callback(new Error(err));
-            }
-            doRelease(connection);
-            callback(null, result.rowsAffected > 0);
-          });
+        if (err) return callback(err);
+
+        const query = 'update Users set PASSWORD = :hash where EMAIL = :email';
+        connection.execute(query, [hash, email], { autoCommit: true }, function(err, result) {
+          doRelease(connection);
+          callback(err, result && result.rowsAffected > 0);
+        });
       });
 
       // Note: connections should always be released when not needed
       function doRelease(connection) {
         connection.close(
           function(err) {
-            if (err) {
-              console.error(err.message);
-            }
+            if (err) console.error(err.message);
           });
       }
     });
-
 }
 ```
 
@@ -420,32 +415,23 @@ function changePassword (email, newPassword, callback) {
   //this example uses the "pg" library
   //more info here: https://github.com/brianc/node-postgres
 
-  var bcrypt = require('bcrypt');
-  var pg = require('pg');
+  const bcrypt = require('bcrypt');
+  const postgres = require('pg');
 
-  var conString = "postgres://user:pass@localhost/mydb";
-  pg.connect(conString, function (err, client, done) {
-    if (err) {
-      console.log('could not connect to postgres db', err);
-      return callback(err);
-    }
+  const conString = 'postgres://user:pass@localhost/mydb';
+  postgres.connect(conString, function (err, client, done) {
+    if (err) return callback(err);
 
     bcrypt.hash(newPassword, 10, function (err, hash) {
       if (err) return callback(err);
-      client.query('UPDATE users SET password = $1 WHERE email = $2', [hash, email], function (err, result) {
+
+      const query = 'UPDATE users SET password = $1 WHERE email = $2';
+      client.query(query, [hash, email], function (err, result) {
         // NOTE: always call `done()` here to close
         // the connection to the database
         done();
 
-        if (err) {
-          return callback(err);
-        }
-
-        if (result.rowCount === 0) {
-          return callback();
-        }
-
-        callback(null, result.rowCount > 0);
+        return callback(err, result && result.rowCount > 0);
       });
     });
   });
@@ -457,14 +443,15 @@ function changePassword (email, newPassword, callback) {
 ```
 function changePassword (email, newPassword, callback) {
   //this example uses the "tedious" library
-  //more info here: http://pekim.github.io/tedious/index.html
+  //more info here: http://tediousjs.github.io/tedious/
+  const bcrypt = require('bcrypt');
+  const sqlserver = require('tedious@1.11.0');
 
-  var bcrypt = require('bcrypt');
-  var Connection = require('tedious').Connection;
-  var Request = require('tedious').Request;
-  var TYPES = require('tedious').TYPES
+  const Connection = sqlserver.Connection;
+  const Request = sqlserver.Request;
+  const TYPES = sqlserver.TYPES;
 
-  var connection = new Connection({
+  const connection = new Connection({
     userName:  'test',
     password:  'test',
     server:    'localhost',
@@ -473,7 +460,7 @@ function changePassword (email, newPassword, callback) {
     }
   });
 
-  var query = "UPDATE dbo.Users SET Password = @NewPassword WHERE Email = @Email";
+  const query = 'UPDATE dbo.Users SET Password = @NewPassword WHERE Email = @Email';
 
   connection.on('debug', function(text) {
     console.log(text);
@@ -486,9 +473,9 @@ function changePassword (email, newPassword, callback) {
   connection.on('connect', function (err) {
     if (err) return callback(err);
 
-    var request = new Request(query, function (err, rows) {
+    const request = new Request(query, function (err, rows) {
       if (err) return callback(err);
-      console.log('rows: ' + rows);
+      // console.log('rows: ' + rows);
       callback(null, rows > 0);
     });
 
@@ -498,7 +485,6 @@ function changePassword (email, newPassword, callback) {
       request.addParameter('Email', TYPES.VarChar, email);
       connection.execSql(request);
     });
-
   });
 }
 ```

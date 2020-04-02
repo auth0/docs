@@ -64,7 +64,7 @@ Auth0 provides sample scripts for use with the following languages/technologies:
 ### JavaScript
 
 ```
-function verify (email, callback) {
+function verify(email, callback) {
   // This script should mark the current user's email address as verified in
   // your database.
   // It is executed whenever a user clicks the verification link sent by email.
@@ -85,8 +85,8 @@ function verify (email, callback) {
   // https://example.com would redirect to the following URL:
   //     https://example.com?email=alice%40example.com&message=error&success=false
 
-  var msg = "Please implement the Verify script for this database connection " +
-       "at https://manage.auth0.com/#/connections/database";
+  const msg = 'Please implement the Verify script for this database connection ' +
+    'at https://manage.auth0.com/#/connections/database';
   return callback(new Error(msg));
 }
 ```
@@ -94,35 +94,38 @@ function verify (email, callback) {
 ### ASP.NET Membership Provider (MVC3 - Universal Providers)
 
 ```
-function verify (email, callback) {
-  var connection = sqlserver.connect({
-    userName:  'username',
-    password:  'pwd',
-    server:    'server',
+function verify(email, callback) {
+  const sqlserver = require('tedious@1.11.0');
+
+  const Connection = sqlserver.Connection;
+  const Request = sqlserver.Request;
+  const TYPES = sqlserver.TYPES;
+
+  const connection = new Connection({
+    userName: 'the username',
+    password: 'the password',
+    server: 'the server',
     options: {
-      database:                         'mydb',
-      encrypt:                          true,
+      database: 'the db name',
+      encrypt: true,
       // Required to retrieve userId needed for Membership entity creation
       rowCollectionOnRequestCompletion: true
     }
   });
 
   connection.on('debug', function(text) {
-      // if you have connection issues, uncomment this to get more detailed info
-      //console.log(text);
+    // if you have connection issues, uncomment this to get more detailed info
+    //console.log(text);
   }).on('errorMessage', function(text) {
-      // this will show any errors when connecting to the SQL database or with the SQL statements
+    // this will show any errors when connecting to the SQL database or with the SQL statements
     console.log(JSON.stringify(text));
   });
 
-  connection.on('connect', function (err) {
-    if (err) {
-      return callback(err);
-    }
+  connection.on('connect', function(err) {
+    if (err) return callback(err);
+
     verifyMembershipUser(email, function(err, wasUpdated) {
-      if (err) {
-        return callback(err); // this will return a 500
-      }
+      if (err) return callback(err); // this will return a 500
 
       callback(null, wasUpdated);
     });
@@ -130,18 +133,18 @@ function verify (email, callback) {
 
   function verifyMembershipUser(email, callback) {
     // isApproved field is the email verification flag
-    var updateMembership =
+    const updateMembership =
       'UPDATE Memberships SET isApproved = \'true\' ' +
       'WHERE isApproved = \'false\' AND Email = @Email';
 
-    var updateMembershipQuery = new sqlserver.Request(updateMembership, function (err, rowCount) {
+    const updateMembershipQuery = new Request(updateMembership, function(err, rowCount) {
       if (err) {
         return callback(err);
       }
       callback(null, rowCount > 0);
     });
 
-    updateMembershipQuery.addParameter('Email', sqlserver.Types.VarChar, email);
+    updateMembershipQuery.addParameter('Email', TYPES.VarChar, email);
 
     connection.execSql(updateMembershipQuery);
   }
@@ -152,94 +155,77 @@ function verify (email, callback) {
 
 ```
 function verify (email, callback) {
-  var connection = sqlserver.connect({
-    userName:  'username',
-    password:  'pwd',
-    server:    'server',
+  const sqlserver = require('tedious@1.11.0');
+
+  const Connection = sqlserver.Connection;
+  const Request = sqlserver.Request;
+  const TYPES = sqlserver.TYPES;
+
+  const connection = new Connection({
+    userName: 'the username',
+    password: 'the password',
+    server: 'the server',
     options: {
-      database:                         'mydb',
-      encrypt:                          true,
+      database: 'the db name',
+      encrypt: true,
       // Required to retrieve userId needed for Membership entity creation
       rowCollectionOnRequestCompletion: true
     }
   });
 
   connection.on('debug', function(text) {
-      // if you have connection issues, uncomment this to get more detailed info
-      //console.log(text);
+    // if you have connection issues, uncomment this to get more detailed info
+    //console.log(text);
   }).on('errorMessage', function(text) {
-      // this will show any errors when connecting to the SQL database or with the SQL statements
+    // this will show any errors when connecting to the SQL database or with the SQL statements
     console.log(JSON.stringify(text));
   });
 
   connection.on('connect', function (err) {
-    if (err) {
-      return callback(err);
-    }
+    if (err) return callback(err);
     verifyMembershipUser(email, function(err, wasUpdated) {
-      if (err) {
-        return callback(err); // this will return a 500
-      }
+      if (err) return callback(err); // this will return a 500
 
       callback(null, wasUpdated);
     });
   });
 
   function findUserId(email, callback) {
-    var findUserIdFromEmail =
+    const findUserIdFromEmail =
       'SELECT UserProfile.UserId FROM ' +
       'UserProfile INNER JOIN webpages_Membership ' +
       'ON UserProfile.UserId = webpages_Membership.UserId ' +
-      'WHERE UserName = @Email';
+      'WHERE UserName = @Username';
 
-    var findUserIdFromEmailQuery = new sqlserver.Request(findUserIdFromEmail, function (err, rowCount, rows) {
-      if (err) {
-        return callback(err);
-      }
+    const findUserIdFromEmailQuery = new Request(findUserIdFromEmail, function (err, rowCount, rows) {
+      if (err || rowCount < 1) return callback(err);
 
-      // No record found with that email
-      if (rowCount < 1) {
-        return callback(null, null);
-      }
-
-      var userId = rows[0][0].value;
+      const userId = rows[0][0].value;
 
       callback(null, userId);
-
     });
 
-    findUserIdFromEmailQuery.addParameter('Email', sqlserver.Types.VarChar, email);
+    findUserIdFromEmailQuery.addParameter('Username', TYPES.VarChar, email);
 
     connection.execSql(findUserIdFromEmailQuery);
-
   }
 
   function verifyMembershipUser(email, callback) {
     findUserId(email, function (err, userId) {
-      if (err) {
-        return callback(err);
-      }
-
-      if(userId === null) {
-        return callback();
-      }
+      if (err || !userId) return callback(err);
 
       // isConfirmed field is the email verification flag
-      var updateMembership =
+      const updateMembership =
         'UPDATE webpages_Membership SET isConfirmed = \'true\' ' +
         'WHERE isConfirmed = \'false\' AND UserId = @UserId';
 
-      var updateMembershipQuery = new sqlserver.Request(updateMembership, function (err, rowCount) {
-        if (err) {
-          return callback(err);
-        }
-        callback(null, rowCount > 0);
+      const updateMembershipQuery = new Request(updateMembership, function (err, rowCount) {
+        return callback(err, rowCount > 0);
       });
 
-      updateMembershipQuery.addParameter('UserId', sqlserver.Types.VarChar, userId);
+      updateMembershipQuery.addParameter('UserId', TYPES.VarChar, userId);
 
       connection.execSql(updateMembershipQuery);
-
     });
   }
 }
@@ -249,12 +235,19 @@ function verify (email, callback) {
 
 ```
 function verify (email, callback) {
-  var mongo = require('mongo-getdb');
-  mongo('mongodb://user:pass@mymongoserver.com/my-db', function (db) {
-    var users = db.collection('users');
-    var query = { email: email, email_verified: false };
+  const MongoClient = require('mongodb@3.1.4').MongoClient;
+  const client = new MongoClient('mongodb://user:pass@mymongoserver.com');
+
+  client.connect(function (err) {
+    if (err) return callback(err);
+
+    const db = client.db('db-name');
+    const users = db.collection('users');
+    const query = { email: email, email_verified: false };
 
     users.update(query, { $set: { email_verified: true } }, function (err, count) {
+      client.close();
+
       if (err) return callback(err);
       callback(null, count > 0);
     });
@@ -265,22 +258,22 @@ function verify (email, callback) {
 ### MySQL
 
 ```
-function verify (email, callback) {
-  var mysql = require('mysql');
-  var connection = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'me',
-    password : 'secret',
-    database : 'mydb'
+function verify(email, callback) {
+  const mysql = require('mysql');
+
+  const connection = mysql({
+    host: 'localhost',
+    user: 'me',
+    password: 'secret',
+    database: 'mydb'
   });
 
   connection.connect();
 
-  var query = "UPDATE users SET email_Verified = true WHERE email_Verified = false AND email = ? ";
+  const query = 'UPDATE users SET email_Verified = true WHERE email_Verified = false AND email = ?';
 
-  connection.query(query, email, function (err, results) {
+  connection.query(query, [ email ], function(err, results) {
     if (err) return callback(err);
-    if (results.affectedRows === 0) return callback();
 
     callback(null, results.length > 0);
   });
@@ -292,40 +285,28 @@ function verify (email, callback) {
 
 ```
 function verify(email, callback) {
-
-  var oracledb = require('oracledb');
+  const oracledb = require('oracledb');
   oracledb.outFormat = oracledb.OBJECT;
 
   oracledb.getConnection({
       user: configuration.dbUser,
       password: configuration.dbUserPassword,
-      connectString: "CONNECTION_STRING" // Refer here https://github.com/oracle/node-oracledb/blob/master/doc/api.md#connectionstrings
+      connectString: 'CONNECTION_STRING' // Refer here https://github.com/oracle/node-oracledb/blob/master/doc/api.md#connectionstrings
     },
     function(err, connection) {
-      if (err) {
-        return callback(new Error(err));
-      }
+      if (err) return callback(err);
 
-      connection.execute(
-        "update users set EMAIL_VERIFIED = 'true' " +
-        "where EMAIL = :email", [email], { autoCommit: true },
-        function(err, result) {
-          if (err) {
-            doRelease(connection);
-            return callback(new Error(err));
-          }
-          doRelease(connection);
-          callback(null, result.rowsAffected > 0);
-        });
-
+      const query = 'update Users set EMAIL_VERIFIED = \'true\' where EMAIL = :email and EMAIL_VERIFIED = \'false\'';
+      connection.execute(query, [email], { autoCommit: true }, function(err, result) {
+        doRelease(connection);
+        callback(err, result && result.rowsAffected > 0);
+      });
 
       // Note: connections should always be released when not needed
       function doRelease(connection) {
         connection.close(
           function(err) {
-            if (err) {
-              console.error(err.message);
-            }
+            if (err) console.error(err.message);
           });
       }
     });
@@ -339,35 +320,21 @@ function verify (email, callback) {
   //this example uses the "pg" library
   //more info here: https://github.com/brianc/node-postgres
 
-  var pg = require('pg');
+  const postgres = require('pg');
 
-  var conString = "postgres://user:pass@localhost/mydb";
-  pg.connect(conString, function (err, client, done) {
-    if (err) {
-      console.log('could not connect to postgres db', err);
-      return callback(err);
-    }
+  const conString = 'postgres://user:pass@localhost/mydb';
+  postgres.connect(conString, function (err, client, done) {
+    if (err) return callback(err);
 
-    var query = 'UPDATE users SET email_Verified = true ' +
-                'WHERE email_Verified = false AND email = $1';
-
+    const query = 'UPDATE users SET email_Verified = true WHERE email_Verified = false AND email = $1';
     client.query(query, [email], function (err, result) {
       // NOTE: always call `done()` here to close
       // the connection to the database
       done();
 
-      if (err) {
-        return callback(err);
-      }
-
-      if (result.rowCount === 0) {
-        return callback();
-      }
-
-      callback(null, result.rowCount > 0);
+      return callback(err, result && result.rowCount > 0);
     });
   });
-
 }
 ```
 
@@ -377,8 +344,13 @@ function verify (email, callback) {
 function verify (email, callback) {
   //this example uses the "tedious" library
   //more info here: http://pekim.github.io/tedious/index.html
+  const sqlserver = require('tedious@1.11.0');
 
-  var connection = sqlserver.connect({
+  const Connection = sqlserver.Connection;
+  const Request = sqlserver.Request;
+  const TYPES = sqlserver.TYPES;
+
+  const connection = new Connection({
     userName:  'test',
     password:  'test',
     server:    'localhost',
@@ -387,7 +359,7 @@ function verify (email, callback) {
     }
   });
 
-  var query = "UPDATE dbo.Users SET Email_Verified = true WHERE Email_Verified = false AND Email = @Email";
+  const query = 'UPDATE dbo.Users SET Email_Verified = true WHERE Email_Verified = false AND Email = @Email';
 
   connection.on('debug', function(text) {
     console.log(text);
@@ -400,13 +372,13 @@ function verify (email, callback) {
   connection.on('connect', function (err) {
     if (err) return callback(err);
 
-    var request = new sqlserver.Request(query, function (err, rows) {
+    const request = new Request(query, function (err, rows) {
       if (err) return callback(err);
-      console.log('rows: ' + rows);
+      // console.log('rows: ' + rows);
       callback(null, rows > 0);
     });
 
-    request.addParameter('Email', sqlserver.Types.VarChar, email);
+    request.addParameter('Email', TYPES.VarChar, email);
 
     connection.execSql(request);
   });
@@ -468,24 +440,20 @@ function verify (email, callback) {
 ### Request with Basic Auth
 
 ```
-function verify (email, callback) {
-
-  var request = require('request');
+function verify(email, callback) {
+  const request = require('request');
 
   request.put({
-    url:  'https://myserviceurl.com/users',
+    url: 'https://myserviceurl.com/users',
     json: { email: email }
     //for more options check:
     //https://github.com/mikeal/request#requestoptions-callback
-  }, function (err, response, body) {
-
+  }, function(err, response, body) {
     if (err) return callback(err);
     if (response.statusCode === 401) return callback();
 
     callback(null, body);
-
   });
-
 }
 ```
 

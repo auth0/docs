@@ -73,45 +73,53 @@ function remove (id, callback) {
 ### ASP.NET Membership Provider (MVC3 - Universal Providers)
 
 ```
-function remove (id, callback) {
+function remove(id, callback) {
+  const sqlserver = require('tedious@1.11.0');
 
-  var connection = sqlserver.connect({
-    userName: 'username',
-    password: 'pwd',
-    server: 'server',
+  const Connection = sqlserver.Connection;
+  const Request = sqlserver.Request;
+  const TYPES = sqlserver.TYPES;
+
+  const connection = new Connection({
+    userName: 'the username',
+    password: 'the password',
+    server: 'the server',
     options: {
-      database: 'mydb',
+      database: 'the db name',
       encrypt: true,
       // Required to retrieve userId needed for Membership entity creation
       rowCollectionOnRequestCompletion: true
     }
   });
 
-  connection.on('debug', function (text) {
+  connection.on('debug', function(text) {
     // if you have connection issues, uncomment this to get more detailed info
     // console.log(text);
-  }).on('errorMessage', function (text) {
+  }).on('errorMessage', function(text) {
     // this will show any errors when connecting to the SQL database or with the SQL statements
     console.log(JSON.stringify(text));
   });
 
-  connection.on('connect', function (err) {
-    if (err) { return callback(err); }
-    executeDelete(['Memberships', 'Users'], function (err) {
-      if (err) { return callback(err); }
+  connection.on('connect', function(err) {
+    if (err) return callback(err);
+
+    executeDelete(['Memberships', 'Users'], function(err) {
+      if (err) return callback(err);
+
       callback(null);
     });
   });
 
-  function executeDelete (tables, callback) {
-    var query = tables.map(function (table) {
+  function executeDelete(tables, callback) {
+    const query = tables.map(function(table) {
       return 'DELETE FROM ' + table + ' WHERE UserId = @UserId';
     }).join(';');
-    var request = new sqlserver.Request(query, function (err) {
-      if (err) { return callback(err); }
+    const request = new Request(query, function(err) {
+      if (err) return callback(err);
+
       callback(null);
     });
-    request.addParameter('UserId', sqlserver.Types.VarChar, id);
+    request.addParameter('UserId', TYPES.VarChar, id);
     connection.execSql(request);
   }
 }
@@ -120,14 +128,19 @@ function remove (id, callback) {
 ### ASP.NET Membership Provider (MVC4 - Simple Membership)
 
 ```
-function remove (id, callback) {
+function remove(id, callback) {
+  const sqlserver = require('tedious@1.11.0');
 
-  var connection = sqlserver.connect({
-    userName: 'username',
-    password: 'pwd',
-    server: 'server',
+  const Connection = sqlserver.Connection;
+  const Request = sqlserver.Request;
+  const TYPES = sqlserver.TYPES;
+
+  const connection = new Connection({
+    userName: 'the username',
+    password: 'the password',
+    server: 'the server',
     options: {
-      database: 'mydb',
+      database: 'the db name',
       encrypt: true,
       // Required to retrieve userId needed for Membership entity creation
       rowCollectionOnRequestCompletion: true
@@ -143,22 +156,22 @@ function remove (id, callback) {
   });
 
   connection.on('connect', function (err) {
-    if (err) { return callback(err); }
+    if (err) return callback(err);
     executeDelete(['webpages_Membership', 'UserProfile'], function (err) {
-      if (err) { return callback(err); }
+      if (err) return callback(err);
       callback(null);
     });
   });
 
-  function executeDelete (tables, callback) {
-    var query = tables.map(function (table) {
+  function executeDelete(tables, callback) {
+    const query = tables.map(function (table) {
       return 'DELETE FROM ' + table + ' WHERE UserId = @UserId';
     }).join(';');
-    var request = new sqlserver.Request(query, function (err) {
-      if (err) { return callback(err); }
+    const request = new Request(query, function (err) {
+      if (err) return callback(err);
       callback(null);
     });
-    request.addParameter('UserId', sqlserver.Types.VarChar, id);
+    request.addParameter('UserId', TYPES.VarChar, id);
     connection.execSql(request);
   }
 }
@@ -167,14 +180,19 @@ function remove (id, callback) {
 ### MongoDB
 
 ```
-function remove (id, callback) {
+function remove(id, callback) {
+  const MongoClient = require('mongodb@3.1.4').MongoClient;
+  const client = new MongoClient('mongodb://user:pass@mymongoserver.com');
 
-  var mongo = require('mongo-getdb');
+  client.connect(function (err) {
+    if (err) return callback(err);
 
-  mongo('mongodb://user:pass@mymongoserver.com/my-db', function (db) {
-    var users = db.collection('users');
+    const db = client.db('db-name');
+    const users = db.collection('users');
 
     users.remove({ _id: id }, function (err) {
+      client.close();
+
       if (err) return callback(err);
       callback(null);
     });
@@ -186,22 +204,21 @@ function remove (id, callback) {
 ### MySQL
 
 ```
-function remove (id, callback) {
+function remove(id, callback) {
+  const mysql = require('mysql');
 
-  var mysql = require('mysql');
-
-  var connection = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'me',
-    password : 'secret',
-    database : 'mydb'
+  const connection = mysql({
+    host: 'localhost',
+    user: 'me',
+    password: 'secret',
+    database: 'mydb'
   });
 
   connection.connect();
 
-  var query = 'DELETE FROM users WHERE id = ?';
+  const query = 'DELETE FROM users WHERE id = ?';
 
-  connection.query(query, [id], function (err) {
+  connection.query(query, [ id ], function(err) {
     if (err) return callback(err);
     callback(null);
   });
@@ -212,40 +229,28 @@ function remove (id, callback) {
 
 ```
 function remove(id, callback) {
-
-  var oracledb = require('oracledb');
+  const oracledb = require('oracledb');
   oracledb.outFormat = oracledb.OBJECT;
 
   oracledb.getConnection({
       user: configuration.dbUser,
       password: configuration.dbUserPassword,
-      connectString: "CONNECTION_STRING" // Refer here https://github.com/oracle/node-oracledb/blob/master/doc/api.md#connectionstrings
+      connectString: 'CONNECTION_STRING' // Refer here https://github.com/oracle/node-oracledb/blob/master/doc/api.md#connectionstrings
     },
     function(err, connection) {
-      if (err) {
-        return callback(new Error(err));
-      }
+      if (err) return callback(err);
 
-      connection.execute(
-        "delete users " +
-        "where ID = :id", [id], { autoCommit: true },
-        function(err, result) {
-          if (err) {
-            doRelease(connection);
-            return callback(new Error(err));
-          }
-          doRelease(connection);
-          callback(null);
-        });
-
+      const query = 'delete Users where ID = :id';
+      connection.execute(query, [id], { autoCommit: true }, function(err) {
+        doRelease(connection);
+        callback(err);
+      });
 
       // Note: connections should always be released when not needed
       function doRelease(connection) {
         connection.close(
           function(err) {
-            if (err) {
-              console.error(err.message);
-            }
+            if (err) console.error(err.message);
           });
       }
     });
@@ -255,28 +260,23 @@ function remove(id, callback) {
 ### PostgreSQL
 
 ```
-function remove (id, callback) {
-  // this example uses the "pg" library
-  // more info here: https://github.com/brianc/node-postgres
+function remove(id, callback) {
+  //this example uses the "pg" library
+  //more info here: https://github.com/brianc/node-postgres
 
-  var pg = require('pg');
+  const postgres = require('pg');
 
-  pg.connect('postgres://user:pass@localhost/mydb', function (err, client, done) {
-    if (err) {
-      console.log('could not connect to postgres db', err);
-      return callback(err);
-    }
+  const conString = 'postgres://user:pass@localhost/mydb';
+  postgres.connect(conString, function (err, client, done) {
+    if (err) return callback(err);
 
-    client.query('DELETE FROM users WHERE id = $1', [id], function (err) {
+    const query = 'DELETE FROM users WHERE id = $1';
+    client.query(query, [id], function (err) {
       // NOTE: always call `done()` here to close
       // the connection to the database
       done();
 
-      if (err) {
-        return callback(err);
-      }
-
-      callback(null);
+      return callback(err);
     });
   });
 }
@@ -285,18 +285,25 @@ function remove (id, callback) {
 ### SQL Server
 
 ```
-function remove (id, callback) {
+function remove(id, callback) {
   // this example uses the "tedious" library
   // more info here: http://pekim.github.io/tedious/index.html
+  const sqlserver = require('tedious@1.11.0');
 
-  var connection = sqlserver.connect({
-    userName: 'test',
-    password: 'test',
-    server: 'localhost',
-    options: {
+  const Connection = sqlserver.Connection;
+  const Request = sqlserver.Request;
+  const TYPES = sqlserver.TYPES;
+
+  const connection = new Connection({
+    userName:  'test',
+    password:  'test',
+    server:    'localhost',
+    options:  {
       database: 'mydb'
     }
   });
+
+  const query = 'DELETE FROM dbo.Users WHERE id = @UserId';
 
   connection.on('debug', function (text) {
     console.log(text);
@@ -307,15 +314,14 @@ function remove (id, callback) {
   });
 
   connection.on('connect', function (err) {
-    if (err) { return callback(err); }
-    var query = 'DELETE FROM dbo.Users WHERE id = @UserId';
+    if (err) return callback(err);
 
-    var request = new sqlserver.Request(query, function (err) {
-      if (err) { return callback(err); }
+    const request = new Request(query, function (err) {
+      if (err) return callback(err);
       callback(null);
     });
 
-    request.addParameter('UserId', sqlserver.Types.VarChar, id);
+    request.addParameter('UserId', TYPES.VarChar, id);
 
     connection.execSql(request);
   });

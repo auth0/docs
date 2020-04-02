@@ -108,7 +108,7 @@ Auth0 provides sample scripts for use with the following languages/technologies:
 ### JavaScript
 
 ```
-function create (user, callback) {
+function create(user, callback) {
   // This script should create a user entry in your existing database. It will
   // be executed when a user attempts to sign up, or when a user is created
   // through the Auth0 dashboard or API.
@@ -141,26 +141,27 @@ function create (user, callback) {
 ### ASP.NET Membership Provider (MVC3 - Universal Providers)
 
 ```
-function create (user, callback) {
+function create(user, callback) {
+  const crypto = require('crypto');
+  const sqlserver = require('tedious@1.11.0');
 
-  var crypto = require('crypto');
-  var Connection = require('tedious').Connection;
-  var Request = require('tedious').Request;
-  var TYPES = require('tedious').TYPES
+  const Connection = sqlserver.Connection;
+  const Request = sqlserver.Request;
+  const TYPES = sqlserver.TYPES;
 
-  var connection = new Connection({
-    userName:  'username',
-    password:  'pwd',
-    server:    'server',
+  const connection = new Connection({
+    userName: 'the username',
+    password: 'the password',
+    server: 'the server',
     options: {
-      database:                         'mydb',
-      encrypt:                          true,
+      database: 'the db name',
+      encrypt: true,
       // Required to retrieve userId needed for Membership entity creation
       rowCollectionOnRequestCompletion: true
     }
   });
 
-  var applicationId = 'your-application-id-goes-here';
+  const applicationId = 'your-application-id-goes-here';
 
   /**
    * hashPassword
@@ -173,13 +174,13 @@ function create (user, callback) {
   function hashPassword(password, salt) {
     // the default implementation uses HMACSHA256 and since Key length is 64
     // and default salt is 16 bytes, Membership will fill the buffer repeating the salt
-    var key = Buffer.concat([salt, salt, salt, salt]);
-    var hmac = crypto.createHmac('sha256', key);
+    const key = Buffer.concat([salt, salt, salt, salt]);
+    const hmac = crypto.createHmac('sha256', key);
     hmac.update(Buffer.from(password, 'ucs2'));
-    var hashed = hmac.digest('base64');
 
-    return hashed;
+    return hmac.digest('base64');
   }
+
   connection.on('debug', function(text) {
     // if you have connection issues, uncomment this to get more detailed info
     // console.log(text);
@@ -188,54 +189,45 @@ function create (user, callback) {
     console.log(JSON.stringify(text));
   });
 
-  connection.on('connect', function (err) {
+  connection.on('connect', function(err) {
     if (err) {
       return callback(err);
     }
     createMembershipUser(user, function(err, user) {
-      if (err) {
-        return callback(err); // this will return a 500
-      }
-      if (!user) {
-        return callback(); // this will return a 401
-      }
+      if (err) return callback(err); // this will return a 500
+      if (!user) return callback(); // this will return a 401
 
       callback(null, user);
     });
   });
 
   function createMembershipUser(user, callback) {
-    var userData = {
-      UserName:       user.email,
-      ApplicationId:  applicationId
+    const userData = {
+      UserName: user.email,
+      ApplicationId: applicationId
     };
-    var createUser =
+    const createUser =
       'INSERT INTO Users (UserName, LastActivityDate, ApplicationId, UserId, IsAnonymous) ' +
       'OUTPUT Inserted.UserId ' +
       'VALUES (@UserName, GETDATE(), @ApplicationId, NEWID(), \'false\')';
 
-    var createUserQuery = new Request(createUser, function (err, rowCount, rows) {
-      if (err) {
-        return callback(err);
-      }
+    const createUserQuery = new Request(createUser, function(err, rowCount, rows) {
+      if (err) return callback(err);
 
       // No records added
-      if (rowCount === 0) {
-        return callback(null);
-      }
+      if (rowCount === 0) return callback(null);
 
-      var userId = rows[0][0].value;
-      var salt = crypto.randomBytes(16);
-
-      var membershipData = {
-        ApplicationId:  applicationId,
-        Email:          user.email,
-        Password:       hashPassword(user.password, salt),
-        PasswordSalt:   salt.toString('base64'),
-        UserId:         userId
+      const userId = rows[0][0].value;
+      const salt = crypto.randomBytes(16);
+      const membershipData = {
+        ApplicationId: applicationId,
+        Email: user.email,
+        Password: hashPassword(user.password, salt),
+        PasswordSalt: salt.toString('base64'),
+        UserId: userId
       };
 
-      var createMembership =
+      const createMembership =
         'INSERT INTO Memberships (ApplicationId, UserId, Password, PasswordFormat, ' +
         'PasswordSalt, Email, isApproved, isLockedOut, CreateDate, LastLoginDate, ' +
         'LastPasswordChangedDate, LastLockoutDate, FailedPasswordAttemptCount, ' +
@@ -245,30 +237,24 @@ function create (user, callback) {
         '(@ApplicationId, @UserId, @Password, 1, @PasswordSalt, ' +
         '@Email, \'false\', \'false\', GETDATE(), GETDATE(), GETDATE(), GETDATE(), 0, 0, 0, 0)';
 
-      var createMembershipQuery = new Request(createMembership, function (err, rowCount) {
-        if (err) {
-          return callback(err);
-        }
+      const createMembershipQuery = new Request(createMembership, function(err, rowCount) {
+        if (err) return callback(err);
 
-        if (rowCount === 0) {
-          callback(null);
-        }
+        if (rowCount === 0) return callback(null);
 
         callback(null, rowCount > 0);
-
       });
 
       createMembershipQuery.addParameter('ApplicationId', TYPES.VarChar, membershipData.ApplicationId);
-      createMembershipQuery.addParameter('Email',         TYPES.VarChar, membershipData.Email);
-      createMembershipQuery.addParameter('Password',      TYPES.VarChar, membershipData.Password);
-      createMembershipQuery.addParameter('PasswordSalt',  TYPES.VarChar, membershipData.PasswordSalt);
-      createMembershipQuery.addParameter('UserId',        TYPES.VarChar, membershipData.UserId);
+      createMembershipQuery.addParameter('Email', TYPES.VarChar, membershipData.Email);
+      createMembershipQuery.addParameter('Password', TYPES.VarChar, membershipData.Password);
+      createMembershipQuery.addParameter('PasswordSalt', TYPES.VarChar, membershipData.PasswordSalt);
+      createMembershipQuery.addParameter('UserId', TYPES.VarChar, membershipData.UserId);
 
       connection.execSql(createMembershipQuery);
-
     });
 
-    createUserQuery.addParameter('UserName',      TYPES.VarChar, userData.UserName);
+    createUserQuery.addParameter('UserName', TYPES.VarChar, userData.UserName);
     createUserQuery.addParameter('ApplicationId', TYPES.VarChar, userData.ApplicationId);
 
     connection.execSql(createUserQuery);
@@ -279,20 +265,21 @@ function create (user, callback) {
 ### ASP.NET Membership Provider (MVC4 - Simple Membership)
 
 ```
-function create (user, callback) {
+function create(user, callback) {
+  const crypto = require('crypto');
+  const sqlserver = require('tedious@1.11.0');
 
-  var crypto = require('crypto');
-  var Connection = require('tedious').Connection;
-  var Request = require('tedious').Request;
-  var TYPES = require('tedious').TYPES
+  const Connection = sqlserver.Connection;
+  const Request = sqlserver.Request;
+  const TYPES = sqlserver.TYPES;
 
-  var connection = new Connection({
-    userName:  'username',
-    password:  'pwd',
-    server:    'server',
+  const connection = new Connection({
+    userName: 'the username',
+    password: 'the password',
+    server: 'the server',
     options: {
-      database:                         'mydb',
-      encrypt:                          true,
+      database: 'the db name',
+      encrypt: true,
       // Required to retrieve userId needed for Membership entity creation
       rowCollectionOnRequestCompletion: true
     }
@@ -308,131 +295,100 @@ function create (user, callback) {
    * @callback    {[function]}  callback to be called after hashing the password
    */
   function hashPassword(password, salt, callback) {
-    var iterations         = 1000;
-    var passwordHashLength = 32;
+    const iterations = 1000;
+    const passwordHashLength = 32;
 
-    crypto.pbkdf2(password, salt, iterations, passwordHashLength, function (err, hashed) {
-      if (err) {
-        return callback(err);
-      }
-      var result = Buffer.concat([Buffer.from([0], 1), salt, Buffer.from(hashed, 'binary')]);
+    crypto.pbkdf2(password, salt, iterations, passwordHashLength, 'sha1', function (err, hashed) {
+      if (err) return callback(err);
 
-      var resultBase64 = result.toString('base64');
+      const result = Buffer.concat([Buffer.from([0], 1), salt, Buffer.from(hashed, 'binary')]);
+      const resultBase64 = result.toString('base64');
 
       callback(null, resultBase64);
     });
-
   }
 
-  connection.on('debug', function(text) {
+  connection.on('debug', function (text) {
     // if you have connection issues, uncomment this to get more detailed info
     // console.log(text);
-  }).on('errorMessage', function(text) {
+  }).on('errorMessage', function (text) {
     // this will show any errors when connecting to the SQL database or with the SQL statements
     console.log(JSON.stringify(text));
   });
 
   connection.on('connect', function (err) {
-    if (err) {
-      return callback(err);
-    }
-    createMembershipUser(user, function(err, user) {
-      if (err) {
-        return callback(err); // this will return a 500
-      }
-      if (!user) {
-        return callback(); // this will return a 401
-      }
+    if (err) return callback(err);
 
-      callback(null, user);
-    });
-  });
-
-  function createMembershipUser(user, callback) {
-    var createUser =
+    const createUser =
       'INSERT INTO UserProfile (UserName) ' +
       'OUTPUT Inserted.UserId ' +
       'VALUES (@UserName)';
 
-    var createUserQuery = new Request(createUser, function (err, rowCount, rows) {
-      if (err) {
-        return callback(err);
-      }
+    const createUserQuery = new Request(createUser, function (err, rowCount, rows) {
+      if (err || rowCount === 0) return callback(err);
 
-      // No records added
-      if (rowCount === 0) {
-        return callback(null);
-      }
+      const userId = rows[0][0].value;
+      const salt = crypto.randomBytes(16);
 
-      var userId = rows[0][0].value;
-      var salt = crypto.randomBytes(16);
-
-      var membershipData = {
-        PasswordSalt:   salt.toString('base64'),
-        UserId:         userId
-      };
-
-      var createMembership =
+      const createMembership =
         'INSERT INTO webpages_Membership ' +
         '(UserId, CreateDate, IsConfirmed, PasswordFailuresSinceLastSuccess, Password, PasswordSalt) ' +
         'VALUES ' +
         '(@UserId, GETDATE(), \'false\', 0, @Password, \'\')';
 
-      var createMembershipQuery = new Request(createMembership, function (err, rowCount) {
-        if (err) {
-          return callback(err);
-        }
-
-        if (rowCount === 0) {
-          return callback(null);
-        }
+      const createMembershipQuery = new Request(createMembership, function (err, rowCount) {
+        if (err || rowCount === 0) return callback(err);
 
         callback(null, rowCount > 0);
-
       });
 
       hashPassword(user.password, salt, function (err, hashedPassword) {
-        if (err) {
-          return callback(err);
-        }
-
-        createMembershipQuery.addParameter('Password',      TYPES.VarChar, hashedPassword);
-        createMembershipQuery.addParameter('PasswordSalt',  TYPES.VarChar, membershipData.PasswordSalt);
-        createMembershipQuery.addParameter('UserId',        TYPES.VarChar, membershipData.UserId);
+        if (err) return callback(err);
+        createMembershipQuery.addParameter('Password', TYPES.VarChar, hashedPassword);
+        createMembershipQuery.addParameter('PasswordSalt', TYPES.VarChar, salt.toString('base64'));
+        createMembershipQuery.addParameter('UserId', TYPES.VarChar, userId);
 
         connection.execSql(createMembershipQuery);
-
       });
-
     });
 
     createUserQuery.addParameter('UserName', TYPES.VarChar, user.email);
 
     connection.execSql(createUserQuery);
-  }
+  });
 }
 ```
 
 ### MongoDB
 
 ```
-function create (user, callback) {
+function create(user, callback) {
+  const bcrypt = require('bcrypt');
+  const MongoClient = require('mongodb@3.1.4').MongoClient;
+  const client = new MongoClient('mongodb://user:pass@mymongoserver.com');
 
-  var bcrypt = require('bcrypt');
-  var mongo = require('mongo-getdb');
+  client.connect(function (err) {
+    if (err) return callback(err);
 
-  mongo('mongodb://user:pass@mymongoserver.com/my-db', function (db) {
-    var users = db.collection('users');
+    const db = client.db('db-name');
+    const users = db.collection('users');
 
     users.findOne({ email: user.email }, function (err, withSameMail) {
-
-      if (err) return callback(err);
-      if (withSameMail) return callback(new Error('the user already exists'));
+      if (err || withSameMail) {
+        client.close();
+        return callback(err || new Error('the user already exists'));
+      }
 
       bcrypt.hash(user.password, 10, function (err, hash) {
-        if (err) { return callback(err); }
+        if (err) {
+          client.close();
+          return callback(err);
+        }
+
         user.password = hash;
         users.insert(user, function (err, inserted) {
+          client.close();
+
           if (err) return callback(err);
           callback(null);
         });
@@ -446,11 +402,10 @@ function create (user, callback) {
 
 ```sql
 function create(user, callback) {
+  const mysql = require('mysql');
+  const bcrypt = require('bcrypt');
 
-  var bcrypt = require('bcrypt');
-  var mysql = require('mysql');
-
-  var connection = mysql.createConnection({
+  const connection = mysql({
     host: 'localhost',
     user: 'me',
     password: 'secret',
@@ -459,21 +414,22 @@ function create(user, callback) {
 
   connection.connect();
 
-  var query = "INSERT INTO users SET ?";
+  const query = 'INSERT INTO users SET ?';
 
-  bcrypt.hash(user.password, 10, function (err, hash) {
-    if (err) { return callback(err); }
-    var insert = {
+  bcrypt.hash(user.password, 10, function(err, hash) {
+    if (err) return callback(err);
+
+    const insert = {
       password: hash,
       email: user.email
     };
-    connection.query(query, insert, function (err, results) {
+
+    connection.query(query, insert, function(err, results) {
       if (err) return callback(err);
       if (results.length === 0) return callback();
       callback(null);
     });
   });
-
 }
 ```
 
@@ -481,63 +437,43 @@ function create(user, callback) {
 
 ```sql
 function create(user, callback) {
-
-  var oracledb = require('oracledb');
-  var bcrypt = require('bcrypt');
-
+  const bcrypt = require('bcrypt');
+  const oracledb = require('oracledb');
   oracledb.outFormat = oracledb.OBJECT;
 
   oracledb.getConnection({
       user: configuration.dbUser,
       password: configuration.dbUserPassword,
-      connectString: "CONNECTION_STRING" // Refer here https://github.com/oracle/node-oracledb/blob/master/doc/api.md#connectionstrings
+      connectString: 'CONNECTION_STRING' // Refer here https://github.com/oracle/node-oracledb/blob/master/doc/api.md#connectionstrings
     },
     function(err, connection) {
-      if (err) {
-        return callback(new Error(err));
-      }
-      connection.execute(
-        "SELECT ID, EMAIL, PASSWORD, EMAIL_VERIFIED, NICKNAME" +
-        " FROM Users " +
-        " WHERE EMAIL = :email", [user.email],
-        function(err, result) {
-          if (err) {
-            doRelease(connection);
-            return callback(new Error(err));
-          }
-          if (result.rows.length > 0) {
-            doRelease(connection);
-            return callback(new Error("User already exists"));
-          }
-          bcrypt.hash(user.password, 10, function(err, hash) {
-            if (err) { return callback(err); }
-            user.password = hash;
-            connection.execute(
-              "insert into users (EMAIL, PASSWORD, EMAIL_VERIFIED, NICKNAME) " +
-              " values (:email, :password, :email_verified, :nickname)", [
-                user.email, user.password, 'false', user.email.substring(0, user.email.indexOf('@'))
-              ], {
-                autoCommit: true
-              },
-              function(err, result) {
-                if (err) {
-                  doRelease(connection);
-                  return callback(new Error(err));
-                }
-                doRelease(connection);
-                callback(null);
-              });
-          });
+      if (err) return callback(err);
 
+      const selectQuery = 'select ID, EMAIL, PASSWORD, EMAIL_VERIFIED, NICKNAME from Users where EMAIL = :email';
+      connection.execute(selectQuery, [user.email], function(err, result) {
+        if (err || result.rows.length > 0) {
+          doRelease(connection);
+          return callback(err || new Error('User already exists'));
+        }
+        bcrypt.hash(user.password, 10, function(err, hash) {
+          if (err) return callback(err);
+
+          user.password = hash;
+          const insertQuery = 'insert into Users (EMAIL, PASSWORD, EMAIL_VERIFIED, NICKNAME) values (:email, :password, :email_verified, :nickname)';
+          const params = [user.email, user.password, 'false', user.email.substring(0, user.email.indexOf('@'))];
+          connection.execute(insertQuery, params, { autoCommit: true }, function(err) {
+            doRelease(connection);
+            callback(err);
+          });
         });
+
+      });
 
       // Note: connections should always be released when not needed
       function doRelease(connection) {
         connection.close(
           function(err) {
-            if (err) {
-              console.error(err.message);
-            }
+            if (err) console.error(err.message);
           });
       }
     });
@@ -551,29 +487,23 @@ function create(user, callback) {
   //this example uses the "pg" library
   //more info here: https://github.com/brianc/node-postgres
 
-  var conString = "postgres://user:pass@localhost/mydb";
-  var bcrypt = require('bcrypt');
-  var pg = require('pg');
+  const bcrypt = require('bcrypt');
+  const postgres = require('pg');
 
-  pg.connect(conString, function (err, client, done) {
-    if (err) {
-      console.log('could not connect to postgres db', err);
-      return callback(err);
-    }
+  const conString = 'postgres://user:pass@localhost/mydb';
+  postgres.connect(conString, function (err, client, done) {
+    if (err) return callback(err);
+
     bcrypt.hash(user.password, 10, function (err, hashedPassword) {
-      var query = 'INSERT INTO users(email, password) VALUES ($1, $2)';
+      if (err) return callback(err);
+
+      const query = 'INSERT INTO users(email, password) VALUES ($1, $2)';
       client.query(query, [user.email, hashedPassword], function (err, result) {
         // NOTE: always call `done()` here to close
         // the connection to the database
         done();
-        if (err) {
-          console.log('error executing query', err);
-          return callback(err);
-        }
-        if (result.rows.length === 0) {
-          return callback();
-        }
-        callback(null);
+
+        return callback(err);
       });
     });
   });
@@ -583,16 +513,18 @@ function create(user, callback) {
 ### SQL Server
 
 ```
-function create (user, callback) {
+  
+function create(user, callback) {
   //this example uses the "tedious" library
   //more info here: http://pekim.github.io/tedious/index.html
+  const bcrypt = require('bcrypt');
+  const sqlserver = require('tedious@1.11.0');
 
-  var bcrypt = require('bcrypt');
-  var Connection = require('tedious').Connection;
-  var Request = require('tedious').Request;
-  var TYPES = require('tedious').TYPES
+  const Connection = sqlserver.Connection;
+  const Request = sqlserver.Request;
+  const TYPES = sqlserver.TYPES;
 
-  var connection = new Connection({
+  const connection = new Connection({
     userName:  'test',
     password:  'test',
     server:    'localhost',
@@ -601,7 +533,7 @@ function create (user, callback) {
     }
   });
 
-  var query = "INSERT INTO dbo.Users SET Email = @Email, Password = @Password";
+  const query = 'INSERT INTO dbo.Users SET Email = @Email, Password = @Password';
 
   connection.on('debug', function(text) {
     console.log(text);
@@ -614,18 +546,18 @@ function create (user, callback) {
   connection.on('connect', function (err) {
     if (err) return callback(err);
 
-    var request = new Request(query, function (err, rows) {
+    const request = new Request(query, function (err, rows) {
       if (err) return callback(err);
-      console.log('rows: ' + rows);
+      // console.log('rows: ' + rows);
       callback(null);
     });
 
-    var hashedPassword = bcrypt.hashSync(user.password, 10);
-
-    request.addParameter('Email', TYPES.VarChar, user.email);
-    request.addParameter('Password', TYPES.VarChar, hashedPassword);
-
-    connection.execSql(request);
+    bcrypt.hash(user.password, 10, function(err, hash) {
+      if (err) return callback(err);
+      request.addParameter('Email', TYPES.VarChar, user.email);
+      request.addParameter('Password', TYPES.VarChar, hash);
+      connection.execSql(request);
+    });
   });
 }
 ```
@@ -687,23 +619,19 @@ function create (user, callback) {
 ### Request with Basic Auth
 
 ```
-function create (user, callback) {
+function create(user, callback) {
   const request = require('request');
 
   request.post({
-    url:  'https://myserviceurl.com/users',
+    url: 'https://myserviceurl.com/users',
     json: user
     //for more options check:
     //https://github.com/mikeal/request#requestoptions-callback
-  }, function (err, response, body) {
-
+  }, function(err, response, body) {
     if (err) return callback(err);
-    if (response.statusCode === 401) return callback();
 
     callback(null);
-
   });
-
 }
 ```
 
