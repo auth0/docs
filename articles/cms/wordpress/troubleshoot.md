@@ -31,13 +31,13 @@ State validation is a security feature added in [version 3.6.0](https://github.c
 
 ## I'm seeing the error message "Invalid ID token" or "Expired ID token" that prevents me from logging in
 
-This is typically caused by a server set to an incorrect time. If the error message includes "used too early," then your server time is set in the future. If it says that the token is expired, then the server time is set too far in the past. A difference in time between two servers is common. Output `echo date(DateTime::ISO8601)` in PHP on your server and compare that, including seconds, to the current UTC time. If your server's time is more than 30 seconds off from UTC time, then you’ll need to set a longer leeway to account for your server’s clock skew. You can paste the below code in your theme's `functions.php` or anywhere else that would run it after the plugin loads and before the login hook runs:
+This is typically caused by a server set to an incorrect time. If the error message includes "used too early," then your server time is set in the future. If it says that the token is expired, then the server time is set too far in the past. A difference in time between two servers is common. Output `echo date(DateTime::ISO8601)` in PHP on your server and compare that, including seconds, to the current UTC time. If your server's time is more than 60 seconds (the default leeway) off from UTC time, then you’ll need to set a longer leeway to account for your server’s clock skew. You can paste the below code in your theme's `functions.php` or anywhere else that would run it after the plugin loads and before the login hook runs:
 
 ```
-if ( class_exists( 'JWT' ) ) { \JWT::$leeway = 60; }
+add_filter( 'auth0_jwt_leeway', function( $default_leeway ) { return 120; } );
 ```
 
-This would provide a 60 second leeway. You may need to adjust this depending upon how skewed your server's time is.
+This would provide a 120 second leeway. You may need to adjust this depending upon how skewed your server's time is.
 
 ## I see the error message "This account does not have an email associated..." that prevents me from logging in
 
@@ -56,6 +56,8 @@ This means that there is a user in WordPress that has the same email as the one 
 1. View the user's profile and scroll down to the bottom
 1. Click **Delete Auth0 Data** and confirm
 
+Keep in mind, if you have 2 user accounts in Auth0 with the same email address, this error message will persist. We recommend looking into [user account linking](/users/concepts/overview-user-account-linking).
+
 ## I see the error message "Failed cross origin authentication" or "No verifier returned from client" in my browser's console logs when trying to log in
 
 Check your "Allowed Callback URLs" and "Allowed Origins (CORS)" fields in the [Application](${manage_url}/#/applications) settings for your WordPress site to make sure those are correct. If you're using a Chromium-based browser, see [Cross-Origin Authentication](/cross-origin-authentication#limitations) to make sure you don't have third-party cookies turned off.  
@@ -73,10 +75,6 @@ This means that the plugin is already configured with a Domain, Client ID, and C
 1. Find the Connection that was created by WordPress (its name should be the site name of your WordPress site prepended with "DB-")
 1. Click on the Connection to view the settings. Scroll down to the bottom, and click **I Want To Delete This Connection*. ***Please note that this will delete the Connection and all users that were created within.***
 1. Return to WordPress. You will now see the Setup Wizard option under Auth0 in the admin menu.
-
-## I see an error about file types when trying to upload an exported settings file.
-
-If you're uploading a settings JSON file and you see an error message "Sorry, this file type is not permitted for security reasons," this is caused by the JSON file type being blocked by WordPress. You can add `json` as an allowed type using the [`upload_mimes`](https://developer.wordpress.org/reference/hooks/upload_mimes/) filter in a custom plugin or you can click the **paste the entire json** link and paste the contents instead.
 
 ## How do I setup Passwordless login?
 
@@ -125,6 +123,8 @@ add_filter('v_forcelogin_whitelist', 'wp_auth0_forcelogin_whitelist', 10, 1);
 ```
 
 ## How can I redirect the users to a specific URL after login?
+
+Please note that all redirects are checked using `wp_safe_redirect()` before being performed. If you're trying to redirect to a domain that is not your main domain, add that domain to the check using the core WordPress `allowed_redirect_hosts` filter ([documentation](https://developer.wordpress.org/reference/hooks/allowed_redirect_hosts/)).
 
 ### On the login page
 
@@ -219,7 +219,7 @@ If you're unable to access the site via FTP, you can also run the process direct
 1. When this completes, click **Activate**.
 1. Check **Auth0** > **Settings** and make sure the previous settings remain. If not:
     1. Go to **Auth0** > **Import-Export Settings**.
-    1. Click **Choose File**, select the previously-exported JSON file, and click **Import**.
+    1. Paste in the settings JSON exported previously and click **Import**.
 1. Completely delete the settings file export JSON (it contains sensitive information).
 
 Everything should now be working as expected with the new plugin and updates will resume as usual.
