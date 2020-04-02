@@ -2460,5 +2460,9 @@ module.exports = [
     {
       from: '/extensions/deploy-cli/references/whats-new-v2',
       to: 'articles/extensions/deploy-cli/references/whats-new'
+    },
+    {
+      from: '/api/management/guides/retrieve-connection-options',
+      to: '/api/management/guides/connections/retrieve-connection-options'
     }
 ];
