@@ -38,7 +38,7 @@ You can [use email](/mfa/guides/configure-mail-universal-login) when you want to
 
 ## Duo Security
 
-[Duo](/mfa/guides/configure-cisco-duo) is a multi-faceted provider and can only be used on your Auth0 tenant if all other factors are disabled. Use your Duo account to manage MFA with Auth0. 
+[Duo](/mfa/guides/configure-cisco-duo) is a multi-faceted provider and can only be used if it's the only factor available for the user. Use your Duo account to manage MFA with Auth0. 
 
 ## Policies
 
