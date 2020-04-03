@@ -44,7 +44,7 @@ There are a few ways that a network of sites can be setup in Auth0:
 	1. Run the Setup Wizard steps to completion for the main site.
 	2. Setup all other sites manually using the **Domain**, **Client ID**, and **Client Secret** from the main site in the Basic tab of the Auth0 settings page.
 	3. Update the Application's **Allowed Callback URLs**, **Allowed Web Origins**, and **Allowed Logout URLs** to include each site (wildcards can be used if your network uses subdomains).
-1. **Each site can have its own Application and share a database connection (recommended)**
+1. **Each site can have its own Application and share a database connection**
 	1. Run the Setup Wizard steps to completion for the main site.
 	2. Next, create an Application for each of the sites [manually](/cms/wordpress/configuration) and add each one to the previously-created database connection.
 	3. Add the **Domain**, **Client ID**, and **Client Secret** values to the Basic tab of the Auth0 settings page for each site.
