@@ -21,7 +21,7 @@ Auth0 multi-factor authentication (MFA) is available as five factors:
 * Duo
 * Email
 
-Auth0 Guardian is a service that provides both push notification generation and an application for allowing or denying requests. push sends notification to a user’s pre-registered device - typically a mobile or tablet - from which a user can immediately allow or deny account access via the press of a button.
+Auth0 Guardian is a mobile app that can deliver push notifications on a user’s pre-registered device - typically a mobile or tablet - from which a user can immediately allow or deny account access via the press of a button. It can also generate one-time passwords if that factor is preferred.
 
 The push factor is offered with the Guardian mobile app, available for both iOS and Android. In addition, the technology is also available as [whitelabelled Guardian SDK](https://auth0.com/blog/announcing-guardian-whitelabel-sdk) which can be used in custom mobile applications to act as second factor push responder. 
 
