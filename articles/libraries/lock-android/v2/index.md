@@ -19,7 +19,7 @@ useCase:
 # Lock Android: Getting Started
 
 ::: warning
-Username/Email & Password authentication from native applications is disabled by default for new tenants as of 8 June 2017. Users are encouraged to use <dfn data-key="universal-login">Universal Login</dfn> and perform Web Authentication instead. If you still want to proceed you'll need to enable the Password Grant Type on your dashboard first. See [Application Grant Types](/applications/concepts/application-grant-types) for more information.
+Auth0 encourages the use of [web authentication via Univeral Login](/guides/login/universal-vs-embedded) rather than native username/password authentication whenever possible.
 :::
 
 <dfn data-key="lock">Lock</dfn> for Android can integrate into your native Android apps to provide a beautiful way to log your users in and to sign them up in your app. It provides support for social identity providers such as Facebook, Google, or Twitter, as well as enterprise providers such as Active Directory.
