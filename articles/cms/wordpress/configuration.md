@@ -32,7 +32,7 @@ Your [Auth0 tenant](/getting-started/the-basics#account-and-tenants) must be con
 
     ![Auth0 Applications in the Management Dashboard](/media/articles/cms/wordpress/application-listing.png)
 
-2. Click on the on the **Settings** tab for the Application. You will see your Domain, Client ID, and Client Secret, which are used in **wp-admin > Auth0 > Settings** to connect to Auth0.
+2. Click on the **Settings** tab for the Application. You will see your Domain, Client ID, and Client Secret, which are used in **wp-admin > Auth0 > Settings** to connect to Auth0.
 
     ![Application Settings](/media/articles/cms/wordpress/auth0-app-settings.png)
 
@@ -45,7 +45,7 @@ https://your-wordpress-domain.com/index.php?auth0=1
 ```
 
 ::: warning
-The Callback URL here **must not** be cached, or you might see an "Invalid state" error during login. Please see our [troubleshooting steps for this error](/cms/wordpress/invalid-state#cached-callback-urls) for more information.
+The Callback URL here **must not** be cached, or you might see an "Invalid state" error during login. Please see [these troubleshooting steps](/cms/wordpress/invalid-state#cached-callback-urls) for more information.
 :::
 
 5. Enter your WordPress site's **WordPress Address (URL)** (where the WordPress site appears publicly) and, if different, the **Site Address (URL)** (where wp-admin is served from) in the **Allowed Web Origins** field. Both of these values are found on your WordPress site's general settings screen.
