@@ -104,10 +104,9 @@ While setting up your permissions, make sure you use the following settings:
 * When asked for a permission type, choose **Delegated permissions**. Under **User**, select **User.Read** so your app can sign in users and read the signed-in user's profile. Under **Directory**, select **Directory.Read.All** so your app can read directory data on the signed-in user's behalf.
 
 ::: note
-If you want to enable extended attributes (like *Extended Profile* or *Security Groups*), then you also must enable the following: 
-
-* **Delegated permissions**: Under **Directory**, select **Directory.AccessAsUser.All** so your app can access the directory as the signed-in user.
-* **Application Permissions**: Under **Directory**, select **Directory.Read.All** so your app can read directory data.
+If you want to enable extended attributes then you also must enable the following permissions:
+* If you would like to be able to fetch user groups, the `Directory.Read.All` is required.
+* If you would like to request the extended profile, the `User.Read` permission is required.
 :::
 
 ## Create an enterprise connection in Auth0
