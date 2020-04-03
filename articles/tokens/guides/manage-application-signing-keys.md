@@ -18,7 +18,7 @@ useCase:
 
 # Manage Application Signing Keys
 
-When you select our recommended [signing algorithm](/tokens/concepts/signing-algorithms), (RS256), Auth0 uses public-key cryptography to establish trust with your applications. In more general terms, we use a signing key that consists of a public and private key pair.
+When you select our recommended [signing algorithm](/tokens/concepts/signing-algorithms) (RS256), Auth0 uses public-key cryptography to establish trust with your applications. In more general terms, we use a signing key that consists of a public and private key pair.
 
 When a user signs in to your application, we create a token that contains information about the user and sign the token using its private key before we send it back to your application. Auth0 secures the private key, which is unique per tenant.
 
