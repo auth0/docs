@@ -9,7 +9,7 @@ Auth0 supports a number of different options when it comes to enabling MFA for p
 * Auth0 [Guardian](https://auth0.com/multifactor-authentication): a service that provides both _Push_ notification generation and an application for allowing or denying requests. _Push_ sends notification to a user’s pre-registered device - typically a mobile or tablet - from which a user can immediately allow or deny account access via the simple press of a button.
 * Time-based One-Time Password ([TOTP](https://auth0.com/blog/from-theory-to-practice-adding-two-factor-to-node-dot-js/)): allows you to register a device - such as Google Authenticator - that will generate a one-time password which changes over time and which can be entered as the second factor to validate a user’s account.
 * SMS: for sending a one-time code over SMS which the user is then prompted to enter before they can finish authenticating.
-* DUO: allows you to use your DUO account for multi-factor authentication.
+* Duo: allows you to use your Duo account for multi-factor authentication.
 * Email: allows you to use your email account for multi-factor authentication.
 
 Whilst MFA workflow using technologies such as Guardian or Google Authenticator is typically provided via a separate application that runs on a mobile or tablet device, if you don’t want your customers to have to download a separate application Auth0 also provides you with an [SDK](https://auth0.com/blog/announcing-guardian-whitelabel-sdk/) that you can use to build second factor workflow right in your existing mobile device application(s).
