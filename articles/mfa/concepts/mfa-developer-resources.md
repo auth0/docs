@@ -14,7 +14,7 @@ Using Auth0 SDKs, you can customize your users' <dfn data-key="multifactor-authe
 
 ## MFA API
 
-[MFA API](/mfa/concepts/mfa-api) MFA API endpoints allow you to enforce MFA when users interact with [the Token endpoints](/api/authentication#get-token), as well enroll and manage MFA factors.
+[MFA API](/mfa/concepts/mfa-api) endpoints allow you to enforce MFA when users interact with [the Token endpoints](/api/authentication#get-token), as well enroll and manage MFA factors.
 
 ## Customize the multi-factor authentication page
 
