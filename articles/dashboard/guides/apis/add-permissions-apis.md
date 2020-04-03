@@ -30,7 +30,7 @@ By default, any user of any application can ask for any permission defined here.
 
 ![Delete Permissions](/media/articles/authorization/api-def-permissions.png)
 
-## Reserved Names
+## Reserved names
 
 The following permission names are reserved and cannot be set as custom API permissions:
 
