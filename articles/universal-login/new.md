@@ -49,7 +49,7 @@ From a functional perspective, it has much better support for [Localization](/un
 
 - If users have more than one <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> factor enrolled (e.g., SMS and Push notifications), the new MFA page will let the user select which one they want to use.
 
-- You can use [Email as an MFA factor](/multifactor-authentication/factors/email).
+- You can use [Email as an MFA factor](/mfa/concepts/mfa-factors#email-notifications).
 
 - If you are using the Guardian SDK to create your own native application to handle Push Notifications, you can configure the name of the application and the URLs to download them in the "Push via Auth0 Guardian" option in the MFA [Dashboard > MFA](${manage_url}/#/mfa) section.
 

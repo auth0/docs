@@ -26,7 +26,7 @@ useCase: development
   'architecture-scenarios',
   'tokens',
   'users',
-  'multifactor-authentication',
+  'mfa',
   'integrations',
   'flows',
   'product-lifecycle',
