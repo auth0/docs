@@ -12,7 +12,7 @@ useCase:
   - build-an-app
   - customize-connections
 ---
-# Extending the Login by Auth0 WordPress Plugin
+# Extending Login by Auth0
 
 WordPress plugins can be extended to fit your specific requirements by using actions and filters to run custom code at specific points during runtime. This document outlines the existing hooks in the Login by Auth0 plugin. We're happy to review and approve new filters and actions that help you integrate even further in this plugin. Please see the Contributing section on the [GitHub repo readme for this plugin](https://github.com/auth0/wp-auth0/blob/master/README.md).
 
@@ -23,8 +23,6 @@ Actions in WordPress run custom code at specific points during processing. [Lear
 ### auth0_before_login
 
 This action runs in `WP_Auth0_LoginManager` after a user has been authenticated successfully but before they have been logged into WordPress. It can be used to stop the login process if needed using `wp_die()` or throwing an exception.
-
-**Example:**
 
 ```php
 /**
@@ -45,8 +43,6 @@ add_action( 'auth0_before_login', 'auth0_docs_hook_auth0_before_login', 10, 1 );
 ### auth0_user_login
 
 This action runs in `WP_Auth0_LoginManager` after a user has been authenticated successfully and logged into WordPress. It can be used to set specific meta values, send notifications, or ping other services.
-
-**Example:**
 
 ```php
 /**
@@ -77,8 +73,6 @@ add_action( 'auth0_user_login', 'auth0_docs_hook_auth0_user_login', 10, 6 );
 ### wpa0_user_created
 
 This action runs in `WP_Auth0_Users` just after a WordPress user is successfully created. It can be used to change user values, set additional user metas, or trigger other new user actions.
-
-**Example:**
 
 ```php
 /**
@@ -114,8 +108,6 @@ This filter is called after the plugin finds the related user to login (based on
 
 If the filter returns null, it will lookup by email as described in the [How does it work?](/cms/wordpress/how-does-it-work) document.
 
-**Example:**
-
 ```php
 /**
  * Filter the WordPress user found during login.
@@ -127,7 +119,7 @@ If the filter returns null, it will lookup by email as described in the [How doe
  *
  * @return WP_User|null
  */
-function auth0_docs_hook_auth0_get_wp_user( $user, $userinfo ) {
+function auth0_docs_hook_auth0_get_wp_user( ?WP_User $user, stdClass $userinfo ) {
 	$found_user = get_user_by( 'email', $userinfo->email );
 	$user       = $found_user instanceof WP_User ? $user : null;
 	return $user;
@@ -139,8 +131,6 @@ add_filter( 'auth0_get_wp_user', 'auth0_docs_hook_auth0_get_wp_user', 1, 2 );
 
 This filter runs in `WP_Auth0_Email_Verification` to change the HTML rendered when a user who is logging in needs to verify their email before gaining access to the site. Note that this HTML is passed to `wp_die()` where it is modified before being displayed (see the `_default_wp_die_handler()` definition in core for more information).
 
-**Example:**
-
 ```php
 /**
  * Filter the HTML used on the email verification wp_die page.
@@ -149,23 +139,20 @@ This filter runs in `WP_Auth0_Email_Verification` to change the HTML rendered wh
  *
  * @param string   $html     - HTML to modify, echoed out within wp_die().
  * @param stdClass $userinfo - user info object from Auth0.
- * @param string   $id_token - DEPRECATED, do not use.
  *
  * @return string
  */
-function auth0_docs_hook_auth0_verify_email_page( $html, $userinfo, $id_token ) {
+function auth0_docs_hook_auth0_verify_email_page( string $html, stdClass $userinfo ) {
 	$html = 'Hi ' . $userinfo->email . '!<br>' . $html;
 	$html = str_replace( 'email', 'banana', $html );
 	return $html;
 }
-add_filter( 'auth0_verify_email_page', 'auth0_docs_hook_auth0_verify_email_page', 10, 3 );
+add_filter( 'auth0_verify_email_page', 'auth0_docs_hook_auth0_verify_email_page', 10 );
 ```
 
 ### auth0_get_auto_login_connection
 
 This filter is used in `WP_Auth0_LoginManager` to modify what connection is used for the auto-login process. The setting in wp-admin is pulled and then passed through this filter.
-
-**Example:**
 
 ```php
 /**
@@ -175,7 +162,7 @@ This filter is used in `WP_Auth0_LoginManager` to modify what connection is used
  *
  * @return string mixed
  */
-function auth0_docs_hook_auth0_get_auto_login_connection( $connection ) {
+function auth0_docs_hook_auth0_get_auto_login_connection( ?string $connection ) {
 	return ! empty( $_GET['connection'] ) ? rawurlencode( $_GET['connection'] ) : $connection;
 }
 add_filter( 'auth0_get_auto_login_connection', 'auth0_docs_hook_auth0_get_auto_login_connection' );
@@ -183,9 +170,7 @@ add_filter( 'auth0_get_auto_login_connection', 'auth0_docs_hook_auth0_get_auto_l
 
 ### wp_auth0_get_option
 
-This filter is used by option-getting functions and methods to modify the output value.  
-
-**Example:**
+This filter is used by option-getting functions and methods to modify the output value.
 
 ```php
 /**
@@ -196,7 +181,7 @@ This filter is used by option-getting functions and methods to modify the output
  *
  * @return mixed
  */
-function auth0_docs_hook_wp_auth0_get_option( $value, $key ) {
+function auth0_docs_hook_wp_auth0_get_option( $value, string $key ) {
 	$value = 'bad_key' === $key ? 'That is a bad key and you know it' : $value;
 	return $value;
 }
@@ -207,8 +192,6 @@ add_filter( 'wp_auth0_get_option', 'auth0_docs_hook_wp_auth0_get_option', 10, 2 
 
 This filter is used in `WP_Auth0_Routes` to alter the WP_User object that is JSON-encoded and returned to Auth0 during a user migration.
 
-**Example:**
-
 ```php
 /**
  * Filter the WP user object before sending back to Auth0 during migration.
@@ -217,7 +200,7 @@ This filter is used in `WP_Auth0_Routes` to alter the WP_User object that is JSO
  *
  * @return WP_User
  */
-function auth0_docs_hook_auth0_migration_ws_authenticated( $user ) {
+function auth0_docs_hook_auth0_migration_ws_authenticated( WP_User $user ) {
 	$user->data->display_name = 'Sir ' . $user->data->display_name . ', Esquire';
 	return $user;
 }
@@ -226,11 +209,7 @@ add_filter( 'auth0_migration_ws_authenticated', 'auth0_docs_hook_auth0_migration
 
 ### wpa0_should_create_user
 
-This filter is used in `WP_Auth0_Users` when deciding whether a user should be created. The initial value passed in
-is `TRUE`. If `FALSE` is returned for any reason, registration will be rejected and the registering user will see an
-error message (see `WP_Auth0_UsersRepo::create()`).
-
-**Example:**
+This filter is used in `WP_Auth0_Users` when deciding whether a user should be created. The initial value passed in is `TRUE`. If `FALSE` is returned for any reason, registration will be rejected and the registering user will see an error message (see `WP_Auth0_UsersRepo::create()`).
 
 ```php
 /**
@@ -241,8 +220,8 @@ error message (see `WP_Auth0_UsersRepo::create()`).
  *
  * @return bool
  */
-function auth0_docs_hook_wpa0_should_create_user( $should_create, $userinfo ) {
-	$should_create = false === strpos( 'josh', $userinfo->email );
+function auth0_docs_hook_wpa0_should_create_user( bool $should_create, stdClass $userinfo ) {
+	$should_create = !strpos( 'josh', $userinfo->email );
 	return $should_create;
 }
 add_filter( 'wpa0_should_create_user', 'auth0_docs_hook_wpa0_should_create_user' );
@@ -250,10 +229,7 @@ add_filter( 'wpa0_should_create_user', 'auth0_docs_hook_wpa0_should_create_user'
 
 ### auth0_login_css
 
-This filter is used to modify the CSS on the login page, including the login widget itself. This filter runs before
-CSS is retrieved from the wp-admin settings page.
-
-**Example:**
+This filter is used to modify the CSS on the login page, including the login widget itself. This filter runs before CSS is retrieved from the wp-admin settings page.
 
 ```php
 /**
@@ -263,7 +239,7 @@ CSS is retrieved from the wp-admin settings page.
  *
  * @return string
  */
-function auth0_docs_hook_auth0_login_css( $css ) {
+function auth0_docs_hook_auth0_login_css( ?string $css ) {
 	$css .= '
 		body {background: radial-gradient(#01B48F, #16214D)}
 		#login h1 {display: none}
@@ -288,7 +264,7 @@ Filters the template used for the Auth0 login form. This should return a path to
  *
  * @return string
  */
-function auth0_docs_hook_auth0_login_form_tpl( $tpl_path, $lock_options, $show_legacy_login ) {
+function auth0_docs_hook_auth0_login_form_tpl( string $tpl_path, array $lock_options, bool $show_legacy_login ) {
 	return get_stylesheet_directory_uri() . '/templates/auth0-login-form.html';
 }
 add_filter( 'auth0_login_form_tpl', 'auth0_docs_hook_auth0_login_form_tpl', 10, 3 );
@@ -309,7 +285,7 @@ This filter is used to modify an existing form field or to add a new one. This s
  *
  * @see WP_Auth0_Admin_Generic::init_option_section()
  */
-function auth0_docs_hook_auth0_settings_fields( $options, $id ) {
+function auth0_docs_hook_auth0_settings_fields( array $options, string $id ) {
 	switch ( $id ) {
 		case 'basic':
 			$options[] = array(
@@ -337,7 +313,7 @@ add_filter( 'auth0_settings_fields', 'auth0_docs_hook_auth0_settings_fields', 10
  *
  * @see auth0_docs_hook_auth0_settings_fields()
  */
-function auth0_docs_render_custom_basic_opt_name( $args ) {
+function auth0_docs_render_custom_basic_opt_name( array $args ) {
 	$options = WP_Auth0_Options::Instance();
 	printf(
 		'<input type="text" name="%s[%s]" id="%s" value="%s">',
@@ -361,7 +337,7 @@ This filter allows developers to add or change the scope requested during login.
  *
  * @return array
  */
-function auth0_docs_hook_auth0_auth_scope( $scopes ) {
+function auth0_docs_hook_auth0_auth_scope( array $scopes ) {
 	// Add offline_access to include a Refresh Token.
 	// See auth0_docs_hook_auth0_user_login() for how this token can be used.
 	$scopes[] = 'offline_access';
@@ -390,7 +366,7 @@ Read more about the `Set-Cookie` HTTP response header at the [MDN's Set-Cookie d
  *
  * @return string
  */
-function auth0_docs_hook_prefix_cookie_name( $cookie_name ) {
+function auth0_docs_hook_prefix_cookie_name( string $cookie_name ) {
 	return 'prefix_' . $cookie_name;
 }
 add_filter( 'auth0_state_cookie_name', 'auth0_docs_hook_prefix_cookie_name' );
@@ -399,7 +375,7 @@ add_filter( 'auth0_nonce_cookie_name', 'auth0_docs_hook_prefix_cookie_name' );
 
 ### auth0_settings_constant_prefix
 
-Use this filter to change the prefix for the constant used to override plugin settings. Please note that this filter **must** run before `WP_Auth0::init()` so it should be located in an [MU plugin](https://codex.wordpress.org/Must_Use_Plugins).
+Use this filter to change the prefix for the constant used to override plugin settings. Please note that this filter **must** run before the Auth0 plugin is loaded so it needs to be located in an [MU plugin](https://codex.wordpress.org/Must_Use_Plugins).
 
 ```php
 /**
@@ -409,7 +385,7 @@ Use this filter to change the prefix for the constant used to override plugin se
  *
  * @return string
  */
-function auth0_docs_hook_settings_constant_prefix( $prefix ) {
+function auth0_docs_hook_settings_constant_prefix( string $prefix ) {
 	// Replace the prefix with something else.
 	// return 'AUTH_ENV_';
 
@@ -433,7 +409,7 @@ This filter allows developers to adjust the `/authorize` endpoint parameters as 
  *
  * @return array
  */
-function auth0_docs_hook_authorize_url_params( array $params, $connection, $redirect_to ) {
+function auth0_docs_hook_authorize_url_params( array $params, ?string $connection, string $redirect_to ) {
 	if ( 'twitter' === $connection ) {
 		$params[ 'param1' ] = 'value1';
 	}
@@ -460,7 +436,7 @@ This filter allows developers to adjust the complete `/authorize` URL before use
  *
  * @return mixed
  */
-function auth0_docs_hook_authorize_url( $auth_url, $auth_params ) {
+function auth0_docs_hook_authorize_url( string $auth_url, array $auth_params ) {
 
 	if ( 'twitter' === $auth_params['connection'] ) {
 		$auth_url .= '&param1=value1';
@@ -493,7 +469,7 @@ This filter lets you modify or replace the HTML content passed to `wp_die()` whe
  *
  * @return string
  */
-function auth0_docs_hook_die_on_login_output( $html, $msg, $code, $login_link ) {
+function auth0_docs_hook_die_on_login_output( string $html, string $msg, $code, string $login_link ) {
 	return sprintf(
 		'Original: <code style="display: block; background: #f1f1f1; padding: 1em; margin: 1em 0">%s</code>
 		<strong>Message: </strong> %s<br><strong>Code: </strong> %s<br><strong>Link: </strong> <code>%s</code><br>',
@@ -505,10 +481,6 @@ function auth0_docs_hook_die_on_login_output( $html, $msg, $code, $login_link ) 
 }
 add_filter( 'auth0_die_on_login_output', 'auth0_docs_hook_die_on_login_output', 10, 4 );
 ```
-
-### auth0_sso_auth0js_url
-
-This filter lets you override the default CDN URL for Auth0.js when doing a <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> check on the `wp-login.php` page.
 
 ### auth0_coo_auth0js_url
 
@@ -526,13 +498,30 @@ This filter lets you override the default `returnTo` URL when logging out of Aut
  *
  * @return string
  */
-function auth0_wp_test_hook_auth0_slo_return_to( $default_return_url ) {
-	if ( ! empty( $_GET['logout_return_url'] ) ) {
-		$default_return_url = esc_url( $_GET['logout_return_url'] );
-	}
+function auth0_wp_test_hook_auth0_slo_return_to( string $default_return_url ) {
+  $default_return_url = add_query_arg( 'cache-break', uniqid(), $default_return_url );
 	return $default_return_url;
 }
 add_filter( 'auth0_slo_return_to', 'auth0_docs_hook_auth0_slo_return_to', 10 );
+```
+
+### auth0_logout_url
+
+This filter lets you override the Auth0 logout URL. See the [Auth0 Logout page](/logout) for more information on how this is used.
+
+```php
+/**
+ * URL used to logout of Auth0.
+ *
+ * @param string $default_logout_url - Logout URL.
+ *
+ * @return string
+ */
+function auth0_docs_hook_auth0_logout_url( string $default_logout_url ) {
+	$default_logout_url = add_query_arg( 'federated', 1, $default_logout_url );
+	return $default_logout_url;
+}
+add_filter( 'auth0_logout_url', 'auth0_docs_hook_auth0_logout_url' );
 ```
 
 ### auth0_use_management_api_for_userinfo
@@ -556,7 +545,7 @@ This filter can be used to modify the options for the embedded Lock login form u
  *
  * @return array
  */
-function auth0_docs_hook_lock_options( $options ) {
+function auth0_docs_hook_lock_options( array $options ) {
 	if ( ! empty( $_GET[ 'lock_language' ] ) ) {
 		$options['language'] = sanitize_title( $_GET[ 'lock_language' ] );
 	}
@@ -573,14 +562,55 @@ This filter lets you adjust the leeway time used to validate ID tokens and shoul
 /**
  * Filter the JWT leeway.
  *
- * @param integer $leeway - Existing leeway time.
+ * @param integer $leeway - Existing JWT leeway time in seconds; default is 60.
  *
  * @return integer
  */
-function auth0_docs_hook_jwt_leeway( $leeway ) {
-	return 90;
+function auth0_docs_hook_jwt_leeway( ?int $leeway ) {
+	return 120;
 }
-add_filter( 'auth0_jwt_leeway', 'auth0_docs_hook_jwt_leeway', 10 );
+add_filter( 'auth0_jwt_leeway', 'auth0_docs_hook_jwt_leeway' );
+```
+
+### auth0_jwt_max_age
+
+This filter lets you adjust the `max_age` URL parameter sent on the authorize URL.
+
+```php
+/**
+ * Filter the max_age login parameter.
+ *
+ * @param integer $max_age - Existing max_age time, defaults to empty.
+ *
+ * @return integer
+ */
+function auth0_docs_hook_jwt_max_age( ?int $max_age ) {
+	return 1200;
+}
+add_filter( 'auth0_jwt_max_age', 'auth0_docs_hook_jwt_max_age' );
+```
+
+### auth0_authorize_state
+
+This filter lets you filter the state data before being encoded and used for login. This data will be verified after a successful login and provided as-is for use.
+
+```php
+/**
+ * Add, modify, or remove state values on login redirect.
+ *
+ * @param array $state Current state array.
+ * @param array $auth_params Authorization URL parameters.
+ *
+ * @return array
+ */
+function auth0_docs_hook_authorize_state( array $state, array $auth_params ) {
+	$redirect_to = parse_url( $state['redirect_to'] ?? '' );
+	if ( '/checkout' === ( $redirect_to['path'] ?? '' ) ) {
+		$state['cart_id'] = namspace_get_cart_id();
+	}
+	return $state;
+}
+add_filter( 'auth0_authorize_state', 'auth0_docs_hook_authorize_state', 10, 2 );
 ```
 
 ## Additional Extensions
@@ -595,6 +625,5 @@ More information on the Login by Auth0 WordPress plugin:
 * [How does it work?](/cms/wordpress/how-does-it-work)
 * [Install the plugin](/cms/wordpress/installation)
 * [Configure the plugin](/cms/wordpress/configuration)
-* [JWT API authentication](/cms/wordpress/jwt-authentication)
 * [Troubleshooting](/cms/wordpress/troubleshoot)
 :::
