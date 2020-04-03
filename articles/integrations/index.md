@@ -136,7 +136,7 @@ useCase:
         <i class="icon icon-budicon-715"></i><a href="/integrations/sso/office-365">Office 365</a>
       </li>
       <li>
-        <i class="icon icon-budicon-715"></i><a href="/integrations/sso/salesforce">SalesForce</a>
+        <i class="icon icon-budicon-715"></i><a href="/integrations/sso/salesforce">Salesforce</a>
       </li>
       <li>
         <i class="icon icon-budicon-715"></i><a href="/integrations/sso/sharepoint">SharePoint</a>

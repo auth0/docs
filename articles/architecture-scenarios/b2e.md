@@ -70,7 +70,7 @@ Now when a user signs in to one application, they can access other applications 
 
 You can also integrate purchased applications with Auth0 for <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn>. Auth0 provides [pre-built integrations](/integrations/sso) for applications such as:
 
-* SalesForce
+* Salesforce
 * Zendesk
 * Slack
 * New Relic
