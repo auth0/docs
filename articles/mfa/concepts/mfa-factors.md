@@ -30,7 +30,7 @@ Push sends notification to a user’s pre-registered device - typically a mobile
 
 ## One-Time passwords
 
-[One-Time Password (OTP)](/mfa/guides/configure-otp) allows you to register a device - such as Google Authenticator - that will generate a one-time password which changes over time and which can be entered as the second factor to validate a user’s account.
+[One-Time Password (OTP)](/mfa/guides/configure-otp) allows you to use an Authenticator application in your personal device - such as Google Authenticator - that will generate a one-time password which changes over time and which can be entered as the second factor to validate a user’s account.
 
 ## Email notifications
 
