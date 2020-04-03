@@ -13,26 +13,26 @@ useCase:
 ---
 # Configuring Login by Auth0
 
-New installations of Login by Auth0 can run the Setup Wizard to setup the necessary components within Auth0 ([covered here](/cms/wordpress/installation#setup-wizard)) or configure the plugin and Auth0 manually for more control over the process. The instructions below can also followed if the Setup Wizard did not complete or as part of troubleshooting login issues.
+Login by Auth0 can be configured using the Setup Wizard in the plugin ([covered here](/cms/wordpress/installation#setup-wizard)) or manually for more control over the process. The instructions below can also be used if the Setup Wizard did not complete or as part of troubleshooting login issues.
 
 ::: note
-You'll need to be logged into your Auth0 account before starting the steps below. If you don't have one yet, [create one here](https://auth0.com/signup).
+You will need to be logged into your Auth0 account before starting the steps below. If you don't have one yet, [create one here](https://auth0.com/signup).
 :::
 
 ## Auth0 configuration
 
-Your [Auth0 tenant](/getting-started/the-basics#account-and-tenants) needs to be configured to accept login requests from your WordPress site and source user identities from a [Connection](/identityproviders), whether that's from an Auth0 database, a social connection, or a business directory.
+Your [Auth0 tenant](/getting-started/the-basics#account-and-tenants) must be configured to accept login requests from your WordPress site and source user identities from at least one [Connection](/identityproviders), whether that's an Auth0 database, a social connection, or a business directory.
 
 ### Application setup
 
 1. First, we need an Application for your WordPress site:
 
-  - **If you're troubleshooting the Setup Wizard**, navigate to the [Applications](${manage_url}/#/applications) screen and look for an Application that is similar to your WordPress site name. If you don't find one, it means that an Application was not created by the Wizard. Restart the Setup Wizard in WordPress or follow the step below to create an Application manually.
+  - **If you're troubleshooting the Setup Wizard**, navigate to the [Applications](${manage_url}/#/applications) screen and look for an Application that is similar to your WordPress site name. If you don't find one, it means that an Application was not created by the Wizard. Restart the Setup Wizard in WordPress or follow the step just below to create an Application manually.
   - **If you're configuring manually**, navigate to the [Applications](${manage_url}/#/applications) screen and click **Create Application**. Enter a name for the Application, select **Regular Web Applications**, and click **Create**.
 
     ![Auth0 Applications in the Management Dashboard](/media/articles/cms/wordpress/application-listing.png)
 
-2. Click on the on the **Settings** tab for the Application. You will see your Domain, Client ID, and Client Secret, which are used in **wp-admin > Auth0 > Settings** to make a connection to Auth0.
+2. Click on the on the **Settings** tab for the Application. You will see your Domain, Client ID, and Client Secret, which are used in **wp-admin > Auth0 > Settings** to connect to Auth0.
 
     ![Application Settings](/media/articles/cms/wordpress/auth0-app-settings.png)
 
@@ -48,14 +48,14 @@ https://your-wordpress-domain.com/index.php?auth0=1
 The Callback URL here **must not** be cached, or you might see an "Invalid state" error during login. Please see our [troubleshooting steps for this error](/cms/wordpress/invalid-state#cached-callback-urls) for more information.
 :::
 
-5. Enter your WordPress site's home domain (where the WordPress site appears publicly) and, if different, site domain (where wp-admin is served from) in the **Allowed Web Origins** field
+5. Enter your WordPress site's **WordPress Address (URL)** (where the WordPress site appears publicly) and, if different, the **Site Address (URL)** (where wp-admin is served from) in the **Allowed Web Origins** field. Both of these values are found on your WordPress site's general settings screen.
 
 6. Enter your WordPress site's login URL in the **Allowed Logout URLs** field
 
 7. Leave the **Allowed Origins (CORS)** field blank (it will use the **Allowed Callback URLs** values from above)
 
 ::: note
-Make sure to match your site's protocol (http or https) and use the site URL as a base, found in **wp-admin > Settings > General > WordPress Address (URL)** for all URL fields above.
+Make sure to match your site's protocol (http or https) and use the home URL as a base, found in **wp-admin > Settings > General > WordPress Address (URL)** for all URL fields above.
 :::
 
 8. Scroll down and click the **Show Advanced Settings** link, then the **OAuth** tab and make sure **JsonWebToken Signature Algorithm** is set to RS256. If this needs to be changed later, it should be changed here as well as in wp-admin (see Settings > Basic below).

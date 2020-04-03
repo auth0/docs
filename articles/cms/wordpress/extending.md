@@ -221,7 +221,7 @@ This filter is used in `WP_Auth0_Users` when deciding whether a user should be c
  * @return bool
  */
 function auth0_docs_hook_wpa0_should_create_user( bool $should_create, stdClass $userinfo ) {
-	$should_create = !strpos( 'josh', $userinfo->email );
+	$should_create = ( false === strpos( 'josh', $userinfo->email ) );
 	return $should_create;
 }
 add_filter( 'wpa0_should_create_user', 'auth0_docs_hook_wpa0_should_create_user' );
