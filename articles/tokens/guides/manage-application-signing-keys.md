@@ -37,15 +37,17 @@ By default, SAML assertions for IdP connections are signed, which we recommend. 
 
 ## Transition your application gracefully
 
-We have designed the rotation and revocation process to both support your personal preferences and promote a graceful transition for your application. If you prefer to update your application first, then rotate and revoke your key, you may do so. Alternatively, if you prefer to rotate your key, and then update your application and revoke your old key, you may do that as well.
+We have designed the rotation and revocation process to both support your personal preferences and promote a graceful transition for your application. If you prefer to update your application first, then rotate and revoke your key, you may do that. Alternatively, if you prefer to rotate your key, and then update your application and revoke your old key, you may also do that.
 
-To that end, available keys include:
+For this reason, available keys include:
 
 * **Currently used**: Key that is currently being used to sign all new assertions.
 * **Previously used**: Key that was previously used, but has been rotated out. Assertions that were generated with this key will still work.
-* **Next in queue**: Key that is queued and will replace the current key owhen the application signing key is next rotated.
+* **Next in queue**: Key that is queued and will replace the current key when the application signing key is next rotated.
 
+::: warning
 Regardless of the method you use, you should always test on a development tenant before rotating application signing keys in production.
+:::
 
 ## Rotate your application signing key
 
