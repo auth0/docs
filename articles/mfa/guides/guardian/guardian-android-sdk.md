@@ -18,7 +18,7 @@ The [Guardian for Android SDK](https://github.com/auth0/Guardian.Android) helps 
 
 Android API level 15+ is required in order to use the Guardian Android SDK.
 
-## Install Guardian SDK
+## Install Guardian Android SDK
 
 Guardian is available both in [Maven Central](http://search.maven.org) and [JCenter](https://bintray.com/bintray/jcenter). 
 

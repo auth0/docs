@@ -31,10 +31,10 @@ Duo will only be available to end-users as a factor if it is the only factor tha
 
 ## Keep reading
 
-* [Configure Guardian](/mfa/guides/guardian/configure-guardian)
-* [Configure One-Time Passwords](/mfa/guides/configure-otp)
-* [Configure SMS with Twilio](/mfa/guides/configure-sms-twilio)
-* [Configure Email](/mfa/guides/configure-email-universal-login)
+* [Configure Push Notifications for MFA](/mfa/guides/configure-push)
+* [Configure One Time Passwords for MFA](/mfa/guides/configure-otp)
+* [Configure SMS Notifications for MFA](/mfa/guides/configure-sms)
+* [Configure Email Notifications for MFA](/mfa/guides/configure-email-universal-login)
 * [Configure Cisco Duo](/mfa/guides/configure-cisco-duo)
 * [Customize SMS Messages](/mfa/guides/guardian/customize-sms-messages)
-* [Customize MFA Pages with New Universal Login Branding Options](/mfa/guides/customize-mfa-universal-login)
+* [Customize Multi-factor Authentication](/mfa/guides/customize-mfa-universal-login)

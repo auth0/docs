@@ -1,5 +1,5 @@
 ---
-description: Learn how to configure SMS with Twilio for MFA.
+description: Learn how to configure SMS notifications for MFA.
 topics:
   - mfa
   - twilio
@@ -8,9 +8,7 @@ contentType:
 useCase:
   - customize-mfa
 ---
-# Configure SMS with Twilio for MFA
-
-## SMS notifications
+# Configure SMS Notifications for MFA
 
 Using SMS as an authentication factor means that the end user is sent a code via SMS when attempting to authenticate with your application. They will have to enter this code to complete the transaction, implying that in addition to knowing their login information, they also have possession of the device.
 
@@ -28,7 +26,7 @@ After signing up, and entering a country code and phone number, the user will re
 
 ![SMS End User 2](/media/articles/multifactor-authentication/mfa-sms2.png)
 
-Your users must have a device capable of receiving SMS messages to use this option. If users can't receive SMS messages, they will not be able to sign-up with this factor. If they already enrolled with SMS and don't have the device, they will need to use their recovery code to complete the MFA flow.
+Your users must have a device capable of receiving SMS messages to use this option. If users can't receive SMS messages, they will not be able to authenticate with this factor. If they already enrolled with SMS and don't have such a device, they will need to use their recovery code to complete the MFA flow.
 
 ## Prerequisites
 

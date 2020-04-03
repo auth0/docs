@@ -776,6 +776,102 @@ module.exports = [
     to: '/mfa'
   },
   {
+    from: '/multifactor-authentication/api/email',
+    to: '/mfa/guides/mfa-api/email'
+  },
+  {
+    from: '/multifactor-authentication/api/oob',
+    to: '/mfa/guides/mfa-api/oob'
+  },
+  {
+    from: '/multifactor-authentication/api/otp',
+    to: '/mfa/guides/mfa-api/otp'
+  },
+  {
+    from: ['/multifactor-authentication/api', '/multifactor-authentication/api/faq'],
+    to: '/mfa/concepts/mfa-api'
+  },
+  {
+    from: '/multifactor-authentication/api/manage',
+    to: '/mfa/guides/mfa-api/manage'
+  },
+  {
+    from: '/multifactor-authentication/api/challenges',
+    to: '/mfa/guides/mfa-api/challenges'
+  },
+  {
+    from: '/multifactor-authentication/twilio-configuration',
+    to: '/mfa/guides/configure-sms'
+  },
+  {
+    from: '/multifactor-authentication/sms-templates',
+    to: '/mfa/guides/guardian/customize-sms-messages'
+  },
+  {
+    from: '/multifactor-authentication/reset-user',
+    to: '/mfa/guides/reset-user-mfa'
+  },
+  {
+    from: '/multifactor-authentication/step-up-authentication',
+    to: '/mfa/concepts/step-up-authentication'
+  },
+  {
+    from: '/multifactor-authentication/step-up-authentication/step-up-for-web-apps',
+    to: '/mfa/guides/configure-step-up-web-apps'
+  },
+  {
+    from: '/multifactor-authentication/step-up-authentication/step-up-for-apis',
+    to: '/mfa/guides/configure-step-up-apis'
+  },
+  {
+    from: '/multifactor-authentication/factors',
+    to: '/mfa/concepts/mfa-factors'
+  },
+  {
+    from: '/multifactor-authentication/factors/sms',
+    to: '/mfa/guides/configure-sms'
+  },
+  {
+    from: '/multifactor-authentication/factors/push',
+    to: '/mfa/guides/configure-push'
+  },
+  {
+    from: '/multifactor-authentication/factors/otp',
+    to: '/mfa/guides/configure-otp'
+  },
+  {
+    from: '/multifactor-authentication/factors/email',
+    to: '/mfa/guides/configure-email-universal-login'
+  },
+  {
+    from: '/multifactor-authentication/factors/duo',
+    to: '/mfa/guides/configure-cisco-duo'
+  },
+  {
+    from: '/multifactor-authentication/developer',
+    to: '/mfa/concepts/developer-resources'
+  },
+  {
+    from: '/multifactor-authentication/developer/sns-configuration',
+    to: '/mfa/guides/configure-push'
+  },
+  {
+    from: '/multifactor-authentication/developer/libraries/ios',
+    to: '/mfa/guides/guardian/guardian-ios-sdk'
+  },
+  {
+    from: '/multifactor-authentication/developer/libraries/android',
+    to: '/mfa/guides/guardian/guardian-android-sdk'
+  },
+  {
+    from: '/multifactor-authentication/developer/custom-enrollment-ticket',
+    to: '/mfa/guides/guardian/create-enrollment-ticket'
+  },
+  {
+    from: '/multifactor-authentication/custom',
+    to: '/mfa/guides/customize-mfa-universal-login'
+  },
+  {
     from: '/quickstart',
     to: '/'
   },

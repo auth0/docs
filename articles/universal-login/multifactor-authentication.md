@@ -59,5 +59,5 @@ Most of the parameters that are used in the MFA Widget need to be passed to Guar
 If you need a higher level of customization you could use [auth0-guardian.js](https://github.com/auth0/auth0-guardian.js/tree/master/example).
 
 ::: note
-For information about customizing MFA with the New Universal Login Experience, see [Customize MFA Pages with New Universal Login Branding Options](/mfa/guides/customize-mfa-universal-login).
+For information about customizing MFA with the New Universal Login Experience, see [Customize Multi-factor Authentication](/mfa/guides/customize-mfa-universal-login).
 :::

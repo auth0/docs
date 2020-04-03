@@ -1,16 +1,17 @@
 ---
-description: Learn how to configure Guardian Multi-factor Authentication.
+description: Learn how to configure push notification using Guardian SDKs for multi-factor authentication.
 topics:
   - mfa
-  - guardian
+  - guardian-sdk
+  - push
 contentType:
   - how-to
 useCase:
-  - configure-guardian
+  - configure-push-notifications
 ---
-# Configure Guardian
+# Configure Push Notifications for MFA
 
-The Guardian functionality relies on vendor-specific push notification services which you need to configure. 
+Use a custom app built using the Guardian SDKs for [iOS](/mfa/guides/guardian/guardian-ios-sdk) and [Android](/mfa/guides/guardian/guardian-android-sdk) that relies on vendor-specific push notification services. 
 
 1. [Create an SNS Platform Application](https://console.aws.amazon.com/sns/v3/home?region=us-east-1#/mobile/push-notifications/platform-applications) using AWS Management console and note it’s ARN.
 
@@ -34,6 +35,7 @@ The Guardian functionality relies on vendor-specific push notification services 
 
 ## Keep reading
 
+* [Guardian iOS SDK](/mfa/guides/guardian/guardian-ios-sdk)
+* [Guardian Android SDK](/mfa/guides/guardian/guardian-android-sdk)
 * [Create Custom Enrollment Tickets](/mfa/guides/guardian/create-enrollment-ticket)
-* [Customize SMS Messages](/mfa/guides/guardian/customize-sms-messages)
 * [Guardian Error Code Reference](/mfa/references/guardian-error-code-reference)

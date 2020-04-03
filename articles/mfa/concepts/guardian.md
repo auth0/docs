@@ -27,8 +27,6 @@ The push factor is offered with the Guardian mobile app, available for both iOS 
 
 Auth0 Guardian is available on ([Google Play](https://play.google.com/store/apps/details?id=com.auth0.guardian) and the [App Store](https://itunes.apple.com/us/app/auth0-guardian/id1093447833?mt=8)).
 
-The Guardian functionality relies on vendor-specific push notification services which you need to configure. 
-
 ::: note
 See the documentation for [Apple Push Notification service (APNs)](https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html) for details on setting up APNs. 
 :::
@@ -67,7 +65,7 @@ Your users will need to have an OTP Authenticator app installed in their mobile 
 
 ## Guardian SDKs
 
-You can use the [Guardian SDKs](/mfa/guides/guardian/guardian-sdk), available for [iOS](/mfa/guides/guardian/configure-guardian-ios) and [Android](/mfa/guides/guardian/configure-guardian-android) to build your own whitelabel multi-factor authentication application with complete control over the branding and look-and-feel.
+You can [install the Guardian SDK](/mfa/guides/guardian/install-guardian-sdk), available for [iOS](/mfa/guides/guardian/configure-guardian-ios) and [Android](/mfa/guides/guardian/configure-guardian-android) to build your own whitelabel multi-factor authentication application with complete control over the branding and look-and-feel.
 
 With the Guardian SDK, you can build your own custom mobile applications that works like Guardian or integrate some Guardian functionalities, such as receiving push notifications in your existing mobile applications.
 
@@ -77,7 +75,7 @@ See [auth0-guardian.js](https://github.com/auth0/auth0-guardian.js) for more inf
 
 ## Keep reading
 
-* [Configure Guardian](/mfa/guides/guardian/configure-guardian)
+* [Configure Push Notifications for MFA](/mfa/guides/configure-push)
 * [Create Custom Enrollment Tickets](/mfa/guides/guardian/create-enrollment-ticket)
 * [Customize SMS Messages](/mfa/guides/guardian/customize-sms-messages)
 * [Guardian Error Code Reference](/mfa/references/guardian-error-code-reference)

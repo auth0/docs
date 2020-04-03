@@ -307,8 +307,8 @@ articles:
                 url: /mfa/guides/guardian/customize-sms-messages
                 hidden: true 
 
-              - title: Guardian SDK
-                url: /mfa/guides/guardian/guardian-sdk
+              - title: Install Guardian SDK
+                url: /mfa/guides/guardian/install-guardian-sdk
                 hidden: true 
 
               - title: Guardian for Android SDK

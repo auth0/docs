@@ -1,6 +1,5 @@
 ---
-title: Guardian SDK
-description: Learn how to install, use and configure options for the Guardian SDK. 
+description: Learn how to install, use and configure options for the Guardian SDKs. 
 topics:
   - mfa
   - guardian
@@ -10,11 +9,9 @@ contentType:
 useCase:
   - customize-mfa
 ---
-# Guardian SDK
+# Install Guardian SDK
 
 The Guardian SDK provides a UI-less client for Guardian.
-
-## Install Guardian SDK
 
 ```text
 npm install auth0-guardian-js

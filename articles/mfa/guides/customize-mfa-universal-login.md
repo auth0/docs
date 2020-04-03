@@ -8,7 +8,7 @@ contentType:
 useCase:
   - customize-mfa
 ---
-# Customize MFA Pages with New Universal Login Branding Options
+# Customize Multi-Factor Authentication
 
 ::: note
 These customizations do not apply to Duo, which has its own UI.

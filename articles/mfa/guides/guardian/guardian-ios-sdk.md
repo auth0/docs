@@ -14,9 +14,7 @@ useCase:
 
 The [Guardian for iOS Software Development Kit](https://github.com/auth0/GuardianSDK.iOS) helps you create iOS apps with Guardian functionality, providing secure access to <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> with push notifications. With this toolkit you can build your own customized version of the Guardian application that matches the look and feel of your organization.
 
-For more general information on MFA, read our [multi-factor authentication](/mfa) documentation.
-
-Get started using Guardian for iOS below, or, if you're looking for a specific document, try the listing of [additional documents](#additional-documents) related to Guardian for iOS.
+For more general information on MFA, see [multi-factor authentication](/mfa).
 
 ## Requirements
 
@@ -40,7 +38,6 @@ In your Cartfile add this line
 ```
 github "auth0/Guardian.swift"
 ```
-
 
 <%= include('../../_includes/_enable-push-notifications') %>
 
@@ -184,7 +181,7 @@ Guardian
         }
 ```
 
-## Additional Documents
+## Keep reading
 
-* [Configure Guardian](/mfa/guides/guardian/configure-guardian)
+* [Configure Push Notifications for MFA](/mfa/guides/configure-push)
 * [Getting Started with Apple Push Notification Service](https://docs.aws.amazon.com/sns/latest/dg/mobile-push-apns.html)

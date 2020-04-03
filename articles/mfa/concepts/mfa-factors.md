@@ -10,9 +10,9 @@ useCase:
 ---
 # Multi-factor Authentication Factors
 
-Auth0 supports a number of different options when it comes to enabling MFA for protecting user account access. An MFA workflow is typically provided via a separate application that runs on a mobile or tablet device. If you don’t want your customers to have to download a separate application, Auth0 also provides an [MFA SDK](/mfa/guides/guardian/guardian-sdk) that you can use to build second factor workflow right in your existing mobile device app.
+Auth0 supports a number of different options when it comes to enabling MFA for protecting user account access. An MFA workflow is typically provided via a separate application that runs on a mobile or tablet device. 
 
-Use any of the dozens of MFA solutions that exist today including SMS text, email, biometric, password-less and more, and be ready to add any new ones easily as they become available or necessary. Auth0 provides support for all MFA service providers through authentication flow [Rules](/rules).
+If you don’t want your customers to have to download a separate application, Auth0 also provides an [SDK](/mfa/guides/guardian/install-guardian-sdk) that you can use to build a second factor workflow in your existing mobile device app.
 
 On the [Dashboard > Multifactor Auth](${manage_url}/#/mfa) page, you can select the factors to use for MFA for your tenant. 
 
@@ -22,11 +22,11 @@ Auth0 supports the following factors for implementing MFA. You must enable at le
 
 ## Push notifications
 
-Push sends notification to a user’s pre-registered device - typically a mobile phone or tablet - from which a user can immediately allow or deny account access via the simple press of a button. Push factor is offered with the Guardian mobile app, available for both iOS and Android. 
+Send users push notifications to a their pre-registered devices - typically a mobile phone or tablet - from which a user can immediately allow or deny account access via the simple press of a button. Push factor is offered with the [Guardian](/mfa/concepts/guardian) mobile app, available for both [iOS](/mfa/guides/guardian/guardian-ios-sdk) and [Android](/mfa/guides/guardian/guardian-android-sdk). 
 
 ## SMS notifications
 
-[Send users a one-time code over SMS](/mfa/guides/configure-SMS-twilio) which the user is then prompted to enter before they can finish authenticating.
+[Send users a one-time code over SMS](/mfa/guides/configure-sms) which the user is then prompted to enter before they can finish authenticating.
 
 ## One-Time passwords
 
@@ -44,7 +44,7 @@ You can [use email](/mfa/guides/configure-mail-universal-login) when you want to
 
 Policies determine when a user will be prompted to complete additional steps to prove they own a particular account. Use policies to define your own level of acceptable risk. You can choose between **Never** and **Always**. 
 
-You can achieve more refined multifactor configurations (such as per application, per user, etc.) by using [Rules](/rules). 
+You can achieve more refined multifactor configurations (such as per application, per user, etc.) by using [Rules](/rules/references/use-cases#multi-factor-authentication). 
 
 ::: note
 Rules affecting MFA take precedence over the policy configuration in the Dashboard.
@@ -67,5 +67,5 @@ Add contextual MFA which allows you to define arbitrary conditions that will tri
 ## Keep reading
 
 * [Enable MFA](/mfa/guides/enable-mfa)
-* [Configure Guardian](/mfa/guides/guardian/configure-guardian)
+* [Configure Push Notifications for MFA](/mfa/guides/configure-push)
 * [Developer Resources for Multi-factor Authentication](/mfa/concepts/mfa-developer-resources)
