@@ -30,6 +30,25 @@ By default, any user of any application can ask for any permission defined here.
 
 ![Delete Permissions](/media/articles/authorization/api-def-permissions.png)
 
+## Reserved Names
+
+The following permission names are reserved and cannot be set as custom API permissions:
+
+* address
+* created_at
+* email
+* email_verified
+* family_name
+* given_name
+* identities
+* name
+* nickname
+* offline_access
+* openid
+* phone
+* picture
+* profile
+
 ## Keep reading
 
 - [Customize the Consent Prompt](/scopes/current/guides/customize-consent-prompt)
