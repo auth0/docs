@@ -30,7 +30,7 @@ Send users push notifications to a their pre-registered devices - typically a mo
 
 ## One-Time passwords
 
-[One-Time Password (OTP)](/mfa/guides/configure-otp) allows you to register a device - such as Google Authenticator - that will generate a one-time password which changes over time and which can be entered as the second factor to validate a user’s account.
+[One-Time Password (OTP)](/mfa/guides/configure-otp) allows you to use an Authenticator application in your personal device - such as Google Authenticator - that will generate a one-time password which changes over time and which can be entered as the second factor to validate a user’s account.
 
 ## Email notifications
 
@@ -38,7 +38,7 @@ You can [use email](/mfa/guides/configure-mail-universal-login) when you want to
 
 ## Duo Security
 
-[Duo](/mfa/guides/configure-cisco-duo) is a multi-faceted provider and can only be used on your Auth0 tenant if all other factors are disabled. Use your Duo account to manage MFA with Auth0. 
+[Duo](/mfa/guides/configure-cisco-duo) is a multi-faceted provider and can only be used if it's the only factor available for the user. Use your Duo account to manage MFA with Auth0. 
 
 ## Policies
 
@@ -54,7 +54,7 @@ Rules affecting MFA take precedence over the policy configuration in the Dashboa
 
 There are different ways to manage MFA depending on your environment: 
 
-* B2B: Your customers manage MFA factors for their users .
+* B2B: Your customers manage MFA factors for their users.
 * B2C: End users manage their own MFA factors via the My MFA Settings Page.
 * B2E: You manage MFA factors for your users.
 
