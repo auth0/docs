@@ -26,7 +26,7 @@ function getUser(email, callback) {
 
 | **Parameter** | **Description** |
 | --- | --- |
-| `email` | The email address for the user as the user identifying credential.  |
+| `email` | The email address for the user as the user identifying credential.  If **Requires Username** is enabled for your connection, the **Get User** script may run multiple times for some transactions (ex. Creating a user, or requesting a password reset link). In these cases the value of the parameter will sometimes be a username instead of an email.  Your code should be able to handle either value and always return the same profile for a given user regardless of whether they were looked up by email or username. |
 | `callback` | Executed with up to two parameters. The first parameter is an indication of status: a `null` first parameter with a corresponding second parameter indicates that the operation executed successfully; a `null` first parameter with no corresponding second parameter indicates that no user was found, while a non `null` first parameter value indicates that some error condition occurred. If the first parameter is `null` then the second parameter should be the profile for the user in JSON format (if a user was found). If the first parameter is `null` and no user was found, or if the first parameter is non `null`, then the second parameter can be omitted. The second parameter is the `profile` for the user. This should be supplied as a JSON object in normalized user profile form. See the [**Login**](/connections/database/custom-db/templates/login#callback-profile-example) script for details. |
 
 <%= include('../_includes/_bp-error-object') %>
