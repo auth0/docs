@@ -27,7 +27,7 @@ Finally, you'll configure the Identity Provider (IdP) portion of your SAML setup
 * [Okta](/okta)
 * [OneLogin](/onelogin)
 * [Ping7](/ping7)
-* [SalesForce](/saml/identity-providers/salesforce)
+* [Salesforce](/saml/identity-providers/salesforce)
 * [SiteMinder](/siteminder)
 * [SSOCircle](/ssocircle)
 

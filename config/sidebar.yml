@@ -1152,7 +1152,7 @@ articles:
           - title: Office 365
             url: /integrations/sso/office-365
 
-          - title: SalesForce
+          - title: Salesforce
             url: /integrations/sso/salesforce
 
           - title: Sentry
