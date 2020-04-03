@@ -12,7 +12,7 @@ useCase:
   - secure-an-api
   - manage-users  
 ---
-# Troubleshoot WordPress Plugin
+# Troubleshooting Login by Auth0
 
 Here are some common troubleshooting questions. If the items below do not solve your issue, then consider the following alternatives:
 
@@ -236,6 +236,5 @@ More information on the Login by Auth0 WordPress plugin:
 * [How does it work?](/cms/wordpress/how-does-it-work)
 * [Install the plugin](/cms/wordpress/installation)
 * [Configure the plugin](/cms/wordpress/configuration)
-* [JWT API authentication](/cms/wordpress/jwt-authentication)
 * [Extend the plugin](/cms/wordpress/extending)
 :::
