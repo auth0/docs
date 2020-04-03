@@ -281,7 +281,7 @@ articles:
           - title: Native App
             url: /flows/guides/auth-code-pkce/add-login-auth-code-pkce
 
-      - title: Multi-Factor Authentication
+      - title: Multi-factor Authentication
         url: /mfa
         children:
 

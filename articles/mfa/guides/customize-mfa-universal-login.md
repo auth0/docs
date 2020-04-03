@@ -34,7 +34,7 @@ If you need to customize the multi-factor experience you are offering to your us
 
 Additionally, the [MFA API](/mfa/concepts/mfa-api) is available for other customized MFA requirements.
 
-You can configure a [rule](/rules) in  [Dashboard > Rules](${manage_url}/#/rules) for custom <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> processes, which allow you to define the conditions that will trigger additional authentication challenges. Rules can be used to force MFA for users of certain applications, or for users with particular user metadata or IP ranges, among other triggers.
+You can configure a [rule](/rules/references/use-cases#multi-factor-authentication) in  [Dashboard > Rules](${manage_url}/#/rules) for custom <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> processes, which allow you to define the conditions that will trigger additional authentication challenges. Rules can be used to force MFA for users of certain applications, or for users with particular user metadata or IP ranges, among other triggers.
 
 ::: note
 The MFA settings defined in rules will always take precedence over the toggles in the Multi-factor Auth section of the Dashboard.

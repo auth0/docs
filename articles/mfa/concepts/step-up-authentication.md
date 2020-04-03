@@ -20,7 +20,7 @@ You can add step-up authentication to your app with Auth0's extensible multi-fac
 
 ## Step-up Authentication for APIs
 
-When your <dfn data-key="audience">audience</dfn> is an API, you can implement step-up authentication with Auth0 using <dfn data-key="scope">scopes</dfn>, <dfn data-key="access-token">Access Tokens</dfn> and [rules](/rules).
+When your <dfn data-key="audience">audience</dfn> is an API, you can implement step-up authentication with Auth0 using <dfn data-key="scope">scopes</dfn>, <dfn data-key="access-token">Access Tokens</dfn> and [Rules](/rules/references/use-cases#multi-factor-authentication).
 
 ::: note
 An Access Token is a credential you can use to access an API. The actions that you can perform to that API are defined by the scopes your Access Token includes. The rules are JavaScript functions you can use to run custom logic when a user authenticates.

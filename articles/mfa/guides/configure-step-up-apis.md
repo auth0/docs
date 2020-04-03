@@ -17,7 +17,7 @@ With step-up authentication, applications that allow access to different types o
 
 For instance, a user of a bankin app may be allowed to transfer money between accounts only after they have confirmed their identity using <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn>.
 
-When your <dfn data-key="audience">audience</dfn> is an API, you can implement step-up authentication with Auth0 using <dfn data-key="scope">scopes</dfn>, <dfn data-key="access-token">Access Tokens</dfn>, and [rules](/rules). 
+When your <dfn data-key="audience">audience</dfn> is an API, you can implement step-up authentication with Auth0 using <dfn data-key="scope">scopes</dfn>, <dfn data-key="access-token">Access Tokens</dfn>, and [Rules](/rules/references/use-cases#multi-factor-authentication). 
 
 ## How it works
 
@@ -211,7 +211,7 @@ For this example, we assume that we have already done the following:
 ## Keep reading
 
 * [Access Tokens](/tokens/concepts/access-tokens)
-* [Rules](/rules)
+* [Rules Uses Cases](/rules/references/use-cases#multi-factor-authentication)
 * [Scopes](/scopes)
 * [Validate Access Tokens](/tokens/guides/validate-access-tokens)
 * [Step-up Authentication for Web Apps](/mfa/guides/configure-step-up-for-web-apps)

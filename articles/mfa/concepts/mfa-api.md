@@ -56,7 +56,7 @@ If you are using the MFA API in conjunction with the [Token endpoints](/api/auth
 
 * When should I use self-association during authorization vs. association outside the authorization process?
 
-  You can self-associate during the authorization process if there are no active authenticators. Associating authenticators outside the authorization process (generally used to add additional authenticators) requires additional programming, such as the use of [rules](/rules).
+  You can self-associate during the authorization process if there are no active authenticators. Associating authenticators outside the authorization process (generally used to add additional authenticators) requires additional programming, such as the use of Auth0 [Rules](/rules/references/use-cases#multi-factor-authentication).
 
 * What happens if I delete an authenticator?
 
