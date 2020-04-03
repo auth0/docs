@@ -392,11 +392,11 @@ Some example users with hashes provided:
             "algorithm": "sha256",
             "hash": {
                 "value": "d24e794fce503c3ddb1cd1ba1dd5d9b250cf9917336a0316fefd87fecf79200f",
-                "encoding": "hex"
-            },
-            "salt": {
-                "value": "abc123",
-                "position": "prefix"
+                "encoding": "hex",
+                "salt": {
+                    "value": "abc123",
+                    "position": "prefix"
+                }
             }
         }
     },
