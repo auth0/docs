@@ -24,7 +24,6 @@ The following table lists the codes associated with the each log event.
 | `depnote` | Deprecation Notice | | |
 | `du` | Deleted User | User has been deleted. | [User Profile](/users/concepts/overview-user-profile) |
 | `f` | Failed Login | | |
-| `fapi` | Failed API Operation | | |
 | `fc` | Failed by Connector | | [Active Directory/LDAP Connector](/connector) |
 | `fce` | Failed Change Email | Failed to change user email | [User Profile](/users/concepts/overview-user-profile) |
 | `fco` | Failed by CORS | Origin is not in the Allowed Origins list for the specified application | [Applications](/dashboard/reference/settings-application) |
