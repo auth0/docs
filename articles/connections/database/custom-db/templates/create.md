@@ -548,7 +548,6 @@ function create(user, callback) {
 
     const request = new Request(query, function (err, rows) {
       if (err) return callback(err);
-      // console.log('rows: ' + rows);
       callback(null);
     });
 
