@@ -64,7 +64,10 @@ All our main SDKs support Refresh Tokens out of the box. Some are [Node.js](/qui
 
 - The `authorize` method, redirects the user to the `/authorize` endpoint, to log in and provide consent.
 - The `parseHash` method, parses a URL hash fragment to extract the result of an Auth0 authentication response.
-- The `checkSession` method, attempts to get a new token from Auth0, using [silent authentication](/api-auth/tutorials/silent-authentication). For more details refer to [Using checkSession to Acquire New Tokens](/libraries/auth0js#using-checksession-to-acquire-new-tokens). An example is as follows:
+- The `checkSession` method, attempts to get a new token from Auth0, using [silent authentication](/api-auth/tutorials/silent-authentication). For more details refer to [Using checkSession to Acquire New Tokens](/libraries/auth0js#using-checksession-to-acquire-new-tokens). 
+- The Auth0-spa-js SDK supports Refresh Token rotation capabilities.
+
+An example is as follows:
 
 ```js
 auth0.checkSession({
@@ -74,8 +77,6 @@ auth0.checkSession({
     // Renewed tokens or error
 });
 ```
-
-The Auth0-spa-js SDK supports Refresh Token rotation capabilities.
 
 ### Native/Mobile apps
 
@@ -90,3 +91,4 @@ For information on using Refresh Tokens with our mobile SDKs, see:
 * [Get Refresh Tokens](/tokens/guides/get-refresh-tokens)
 * [Use Refresh Tokens](/tokens/guides/use-refresh-tokens)
 * [Revoke Refresh Tokens](/tokens/guides/revoke-refresh-tokens)
+* [Token Storage](/tokens/concepts/token-storage)

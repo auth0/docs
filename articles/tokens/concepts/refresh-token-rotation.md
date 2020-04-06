@@ -26,11 +26,13 @@ Typically, ID and Access Tokens are obtained from the authorization server and c
 
 This method, however, is impacted by [Intelligent Tracking Prevention (ITP)](https://webkit.org/blog/7675/intelligent-tracking-prevention/). Starting with ITP2, this became a problem with sessions being prematurely terminated in Safari. This is especially a concern if you want to offer long-lived sessions. To address this issue, you can use Refresh Token rotation to leverage the use of Refresh Tokens in the browser that adhere to the OAuth 2.0 BCP. 
 
+If tokens are stored locally and there is a cross-site scripting (XSS)  attack, an attacker can get Refresh Tokens from local storage. It’s generally considered the least secure option for storing data in the browser. In general, in memory storage is considered the most secure browser storage option, but depending on the implementation, an attacker can still get the Refresh Token from there. Auth0 offers both a local storage and an in-memory option defaulting to in-memory. See [Token Storage](/tokens/concepts/token-storage) for details. 
+
 ## SDK support
 
 For single page apps, you can use the `auth0-spa-js` SDK to perform silent re-authentication.
 
-* For Refresh Token support, [enable the Refresh Token Rotation feature](/tokens/guides/enable-refresh-token-rotation) for your tenant, and configure it on your client using the Management API or Dashboard.
+* For Refresh Token support, [configure the Refresh Token Rotation feature](/tokens/guides/configure-refresh-token-rotation) for your tenant, and configure it on your client using the Management API or Dashboard.
 
 * You have the option to use either memory or local storage to store all tokens. The SDK defaults to memory for token storage.
 
@@ -42,8 +44,6 @@ The SDK uses the iframe method if you have set `useRefreshTokens` to `true` but 
 
 ## Keep reading
 
-* [Enable Refresh Token Rotation](/tokens/guides/enable-refresh-token-rotation)
-* [Disable Refresh Token Rotation](/tokens/guides/disable-refresh-token-rotation)
-* [Rotate Refresh Tokens in SPAs Using auth0-sp-js SDK](/tokens/guides/rotate-refresh-tokens-sdk)
+* [Configure Refresh Token Rotation](/tokens/guides/configure-refresh-token-rotation)
 * [Token Storage](/tokens/concepts/token-storage)
 * [OAuth 2.0 BCP](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-13#section-4.12)

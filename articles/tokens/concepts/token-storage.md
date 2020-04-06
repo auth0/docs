@@ -1,5 +1,6 @@
 ---
 description: Understand how and where to store tokens used in token-based authentication.
+toc: true 
 topics:
   - security
   - tokens
@@ -41,7 +42,7 @@ If you have a SPA with **no** corresponding backend server, your SPA should requ
 
 ## Token storage scenarios
 
-### Next.js static site example
+### Next.js static site scenarios
 
 When you're building a Next.js application, authentication might be needed in the following cases:
 
@@ -59,7 +60,53 @@ Where a server is available, it can handle the interaction with Auth0 and create
 
 ![In-Memory Token Storage](/media/articles/tokens/in-memory-token-storage.png)
 
-### 
+### Traditional web app scenarios
+
+If your app is using a sign in scenario that doesn't require API calls, only an ID Token is required. There is no need to store it. You can validate it and get the data from it that you required. 
+
+If your app needs to call APIs on behalf of the user, Access Tokens and (optionally) Refresh Tokens are needed. These can be stored server-side or in a session cookie. The cookie needs to be encrypted and have a maximum size of 4 KB. If the data to be stored is large, storing tokens in the session cookie is not a viable option. 
+
+Use the following flow types in these scenarios: 
+
+- [Authorization Code Flow](/flows/concepts/auth-code)
+- [Regular Web App Quickstarts](/quickstart/webapp)
+
+### Native/Mobile app scenarios
+
+Store tokens in a secure storage that the OS offers and limit access to that storage. For example, leverage KeyStore for Android and KeyChain for iOS.
+
+Use the following flow types in these scenarios:
+
+- [Authorization Code Flow with Proof Key for Code Exchange](/flows/concepts/auth-code-pkce)
+- [Saving and Renewing Tokens for Android](/libraries/auth0-android/save-and-refresh-tokens)
+- [Saving and Renewing Tokens for Swift](/libraries/auth0-swift/save-and-refresh-jwt-tokens)
+- [Native/Mobile Apps Quickstarts](/quickstart/native)
+
+### SPA backend scenarios
+
+When the SPA calls only an API that is served from a domain that can share cookies with the domain of the SPA, no tokens are needed. OAuth adds additional attack vectors without providing any additional value and should be avoided in favour of a traditional cookie based approach.
+
+When the SPA calls multiple APIs living in a different domain, access and optionally refresh tokens are needed.
+
+-  If the SPA backend can handle the API calls, the tokens should be handled and stored similarly to a Web App scenario.
+
+- If the SPA backend cannot handle the API calls, the tokens should be stored in the SPA backend but the SPA needs to fetch the tokens from the backend to perform requests to the API. A protocol needs to be established between the backend and the SPA to allow the secure transfer of the token from the backend to the SPA.
+
+### Browser in-memory scenarios
+
+Auth0 recommends that you use [JavaScript closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures#Emulating_private_methods_with_closures) when storing tokens in memory to emulate private methods. Use [auth0-sp-js](https://github.com/auth0/auth0-spa-js). This is the most secure method for browser storage, however it **does not** provide persistence across page refreshes and browser tabs. 
+
+### Browser local storage scenarios
+
+Storing tokens in browser local storage provides persistence across page refreshes and browser tabs, however if an attacker can achieve running JavaScript in the SPA, they can retrieve the tokens stored in local storage using a cross-site scripting (XSS) attack. A vulnerability leading to a successful XSS attack can be either in the SPA source code or in any third-party JavaScript code (such as bootstrap, jQuery, or Google Analytics) included in the SPA.
+
+Using browser local storage can be viable alternative to mechanisms that require retrieving the Access Token from an iframe and to cookie-based authentication across domains when these are not possible due to browser restrictions (e.g. ITP2).
+
+::: panel Reduce Security Risks with Local Storage
+If the SPA is using Implicit (although it is recommended that authorization code with PKCE is used) or Hybrid Flows, the absolute token expiration time can be reduced. This will reduce the impact of a reflected XSS (but not of a persistent one). To do so, go to **Dashboard > APIs > Settings > Token Expiration For Browser Flows (Seconds)**.
+
+Reduce the amount of third party JavaScript code included from a source outside your domain to the minimum needed (such as links to jQuery, Bootstrap, Google Analytics etc.) Reducing third-party JS code reduces the possibility of an XSS vulnerability. Performing Subresource Integrity checking (SRI) in third-party scripts (where possible) to verify that the resources fetched are delivered without unexpected manipulation is also more secure.
+:::
 
 ## Keep reading
 
