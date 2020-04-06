@@ -51,11 +51,29 @@ If this block is triggered, additional access attempts are released one-at-a-tim
 
 ### Remove block
 
-Auth0 emails the dashboard administrator(s) when this block is triggered. The email contains a link that the owner can click to navigate to tenant logs to examine which IPs have been blocked. Recent blocks can be found using this query:
-```
+Auth0 emails the Dashboard administrator(s) when this block is triggered. The email contains a link that the owner can click to navigate to tenant logs to examine which IPs have been blocked. 
+
+Recent blocks can be found using this query:
+
+```text
 type:limit_mu
 ```
+
 Blocks can then be removed using the [Management API](/api/management/v2#!/Anomaly/delete_ips_by_id).
+
+## 100 distinct username/password pairs over a sliding 24 hour window
+
+### Trigger
+
+A single host (IP) which attempts more than 100 distinct username/password combos over a sliding 24 hour window with less than 1% of successful logins. This is considered a credential stuffing attack. 
+
+### Actions
+
+A Captcha step is shown during the sign in or sign up flows. This Captcha will help make it much more impractical for bad actors to continue sending credential stuffing attack traffic to the tenant.
+
+### Remove block
+
+
 
 ## Keep reading
 
