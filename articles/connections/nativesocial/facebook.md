@@ -1,8 +1,12 @@
 ---
 title: Add Facebook Login to Native Apps
-description: Learn how to add login functionality to your native app with Facebook.
-connection: Facebook
+connection: Facebook Native
 image: /media/connections/facebook.png
+public: true
+alias:
+  - facebook-login-native
+seo_alias: facebook-native
+description: Learn how to add login functionality to your native app with Facebook.
 topics:
   - authentication
   - connections
