@@ -1,8 +1,8 @@
 ---
+url: connections/nativesocial/facebook
 title: Add Facebook Login to Native Apps
 connection: Facebook Native
 image: /media/connections/facebook.png
-public: true
 alias:
   - facebook-login-native
 seo_alias: facebook-native
