@@ -641,6 +641,9 @@ articles:
           - title: "Enable/Disable Brute Force Protection"
             url: "/anomaly-detection/guides/enable-disable-brute-force-protection"
 
+          - title: "Enable/Disable Credential Stuffing Protection"
+            url: "/anomaly-detection/guides/enable-disable-credential-stuffing"
+
           - title: "Breached Password Triggers"
             url: "/anomaly-detection/references/breached-password-detection-triggers-actions"
 
