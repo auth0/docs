@@ -22,7 +22,7 @@ Log Stream Health is the functionality that allows customers to troubleshoot iss
 
 ## Understanding Stream Health States
 
-**add some stuff here**
+**Stream Health has a variety of different states. These status types are described below.**
 
 Status types:
 
