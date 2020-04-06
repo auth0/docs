@@ -22,19 +22,23 @@ Refresh Token rotation is supported in conjunction with the following flows:
 
 ## How it works
 
-Typically, ID and Access Tokens are obtained from the authorization server and cached in memory. Token renewal (due to evicted memory or expiration) is handled by the SDK, relieving the developer of this burden. Silent re-authentication is technically achieved by sending a `prompt=none` parameter on the authentication request and using a hidden iframe, provided that there is still an active user session on the authorization server. This method, however, is impacted by [Intelligent Tracking Prevention (ITP)](https://webkit.org/blog/7675/intelligent-tracking-prevention/). 
+Typically, ID and Access Tokens are obtained from the authorization server and cached in memory. Token renewal (due to refreshing the browser, memory cache eviction budgets, or expiration) is handled by the SDK. Silent re-authentication is technically achieved by sending a `prompt=none` parameter upon the authentication request and using a hidden iframe, provided that there is an active user session on the authorization server. 
 
-Starting with ITP2, this became a problem with sessions being prematurely terminated in Safari. This is especially a concern if you want to offer long-lived sessions. To address this issue, you can use Refresh Token rotation to leverage the use of Refresh Tokens in the browser that adhere to the OAuth 2.0 BCP. 
+This method, however, is impacted by [Intelligent Tracking Prevention (ITP)](https://webkit.org/blog/7675/intelligent-tracking-prevention/). Starting with ITP2, this became a problem with sessions being prematurely terminated in Safari. This is especially a concern if you want to offer long-lived sessions. To address this issue, you can use Refresh Token rotation to leverage the use of Refresh Tokens in the browser that adhere to the OAuth 2.0 BCP. 
 
 ## SDK support
 
 For single page apps, you can use the `auth0-spa-js` SDK to perform silent re-authentication.
 
-* For refresh token support, the Auth0 tenant must have the Refresh Token Rotation feature [enabled](/tokens/guides/enable-refresh-token-rotation), and configured on a client using the Management API or Dashboard.
+* For Refresh Token support, [enable the Refresh Token Rotation feature](/tokens/guides/enable-refresh-token-rotation) for your tenant, and configure it on your client using the Management API or Dashboard.
 
-* Developers have the option to use either memory or local storage to store all tokens (ID, access, refresh tokens). The SDK defaults to memory, as the more security-conscious option.
+* You have the option to use either memory or local storage to store all tokens. The SDK defaults to memory for token storage.
 
-* Developers now also have a config option to use Refresh Tokens to retrieve new access tokens. With this option enabled, SPA JS will now request the offline_access scope automatically, and call the token endpoint directly with a refresh token (if available). The default  iframe method with prompt=none will not be used if Refresh Tokens are enabled.
+* You can use refresh tokens to retrieve new access tokens for the SPA JS to request the `offline_access` scope automatically and call the `/token` endpoint directly with a Refresh Token (if available). 
+
+::: note
+The SDK uses the iframe method if you have set `useRefreshTokens` to `true` but no Refresh Token is available in the cache. This helps users to silently migrate to using Refresh Tokens without making them log in again.
+:::
 
 ## Keep reading
 

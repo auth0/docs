@@ -85,7 +85,6 @@ For information on using Refresh Tokens with our mobile SDKs, see:
 * [Lock Android: Refreshing JWT Tokens](/libraries/lock-android/refresh-jwt-tokens)
 * [Lock iOS: Saving and Refreshing JWT Tokens](/libraries/lock-ios/v2)
 
-
 ## Keep reading
 
 * [Get Refresh Tokens](/tokens/guides/get-refresh-tokens)
