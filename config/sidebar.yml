@@ -1714,6 +1714,14 @@ articles:
                 url: "/tokens/guides/configure-refresh-token-rotation"
                 hidden: true 
 
+              - title: "Use Refresh Token Rotation"
+                url: "/tokens/guides/use-refresh-token-rotation"
+                hidden: true 
+
+              - title: "Disable Refresh Token Rotation"
+                url: "/tokens/guides/disable-refresh-token-rotation"
+                hidden: true 
+
           - title: "Delegation Tokens"
             url: "/tokens/concepts/delegation-tokens"
             hidden: true 
