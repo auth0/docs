@@ -26,37 +26,20 @@ The Refresh Token behavior is applicable to [OIDC-conformant applications](/api-
 For more information on our authentication pipeline, see [Introducing OIDC-Conformant Authentication](/api-auth/intro).
 :::
 
-## Restrictions and limitations
-
-* You can only get a Refresh Token if you are implementing the [Authorization Code Flow](/flows/concepts/auth-code), [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce), [Resource Owner Password Grant](/api-auth/grant/password), or [Device Authorization Flow](/flows/concepts/device-auth).
-
-* A SPA (normally implementing [Implicit Flow](/flows/concepts/implicit)) should not ever receive a Refresh Token. A Refresh Token is essentially a user credential that allows a user to remain authenticated indefinitely. This sensitive information should be stored securely and *not* exposed client-side in a browser.
-
-* If you are implementing an SPA using [Implicit Flow](/flows/concepts/implicit) and you need to renew a token, the only secure option for doing so is to use [Silent Authentication](/api-auth/tutorials/silent-authentication).
-
-* If you limit offline access to your API, a safeguard configured via the **Allow Offline Access** switch on the [API Settings](${manage_url}/#/apis), Auth0 will not return a Refresh Token for the API (even if you include the `offline_access` <dfn data-key="scope">scope</dfn> in your request).
-
-### Rules
-
-Rules will run for the [Refresh Token Exchange](/tokens/guides/use-refresh-tokens). To execute special logic, you can look at the `context.protocol` property in your rule. If the value is `oauth2-refresh-token`, then the rule is running during the exchange.
-
-::: warning
-If you try to do a <a href="/rules/redirect">redirect</a> with <code>context.redirect</code>, the authentication flow will return an error.
-:::
-
-### Custom claims
-
-If you have added custom claims to your tokens using a rule, the custom claims will appear in new tokens issued when using a Refresh Token for as long as your rule is in place. Although new tokens do not automatically inherit custom claims, rules run during the Refresh Token flow, so the same code will be executed. This allows you to add or change custom claims in newly-issued tokens without forcing previously-authorized applications to obtain a new Refresh Token.
-
-## Refresh Token rotation
-
-[Refresh Token rotation](/tokens/concepts/refresh-token-rotation) provides greater security by issuing a new Refresh Token and invalidating its predecessor token with each request made to Auth0 for a new Access Token. Rotating the Refresh Token reduces the risk of a compromised Refresh Token. Refresh Token rotation in Auth0 conforms with the [OAuth 2.0 BCP](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-13#section-4.12). 
+You can increase security by using [Refresh Token rotation](/tokens/concepts/refresh-token-rotation) which issues a new Refresh Token and invalidates the predecessor token with each request made to Auth0 for a new Access Token. Rotating the Refresh Token reduces the risk of a compromised Refresh Token. 
 
 ## SDK support
 
 ### Web apps
 
-All our main SDKs support Refresh Tokens out of the box. Some are [Node.js](/quickstart/webapp/nodejs), [ASP.NET Core](/quickstart/webapp/aspnet-core), [PHP](/quickstart/webapp/php), [Java](/dev-centers/java), and many more. For a complete listing, see [Quickstarts](/quickstart/webapp).
+Auth0 SDKs support Refresh Tokens out of the box including: 
+
+- [Node.js](/quickstart/webapp/nodejs)
+- [ASP.NET Core](/quickstart/webapp/aspnet-core)
+- [PHP](/quickstart/webapp/php)
+- [Java](/dev-centers/java)
+
+For a complete listing, see [Quickstarts](/quickstart/webapp).
 
 ### Single-page apps
 
@@ -85,6 +68,28 @@ For information on using Refresh Tokens with our mobile SDKs, see:
 * [Mobile / Native Quickstarts](/quickstart/native)
 * [Lock Android: Refreshing JWT Tokens](/libraries/lock-android/refresh-jwt-tokens)
 * [Lock iOS: Saving and Refreshing JWT Tokens](/libraries/lock-ios/v2)
+
+## Restrictions and limitations
+
+* You can only get a Refresh Token if you are implementing the following flows:
+  - [Authorization Code Flow](/flows/concepts/auth-code)
+  - [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce)
+  - [Resource Owner Password Grant](/api-auth/grant/password)
+  - [Device Authorization Flow](/flows/concepts/device-auth)
+
+* A SPA (normally implementing [Implicit Flow](/flows/concepts/implicit)) should not ever receive a Refresh Token. A Refresh Token is essentially a user credential that allows a user to remain authenticated indefinitely. This sensitive information should be stored securely and *not* exposed client-side in a browser.
+
+* If you are implementing an SPA using [Implicit Flow](/flows/concepts/implicit) and you need to renew a token, the only secure option for doing so is to use [Silent Authentication](/api-auth/tutorials/silent-authentication).
+
+* If you limit offline access to your API, a safeguard configured via the **Allow Offline Access** switch on the [API Settings](${manage_url}/#/apis), Auth0 will not return a Refresh Token for the API (even if you include the `offline_access` <dfn data-key="scope">scope</dfn> in your request).
+
+* Rules will run for the [Refresh Token Exchange](/tokens/guides/use-refresh-tokens). To execute special logic, you can look at the `context.protocol` property in your rule. If the value is `oauth2-refresh-token`, then the rule is running during the exchange.
+
+  ::: warning
+  If you try to do a <a href="/rules/redirect">redirect</a> with <code>context.redirect</code>, the authentication flow will return an error.
+  :::
+
+* If you have added custom claims to your tokens using a rule, the custom claims will appear in new tokens issued when using a Refresh Token for as long as your rule is in place. Although new tokens do not automatically inherit custom claims, rules run during the Refresh Token flow, so the same code will be executed. This allows you to add or change custom claims in newly-issued tokens without forcing previously-authorized applications to obtain a new Refresh Token.
 
 ## Keep reading
 

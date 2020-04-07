@@ -2,15 +2,11 @@
 title: Use Refresh Tokens
 description: Learn how to use a Refresh Token you received during authorization.
 topics:
-  - access-tokens
-  - api-authentication
-  - oidc
-  - id-tokens
+  - refresh-tokens
 contentType:
   - how-to
 useCase:
-  - add-login
-  - development
+  - use-refresh-tokens
 ---
 # Use Refresh Tokens
 

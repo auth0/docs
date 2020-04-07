@@ -105,7 +105,7 @@ Using browser local storage can be viable alternative to mechanisms that require
 ::: panel Reduce Security Risks with Local Storage
 If the SPA is using Implicit (although it is recommended that authorization code with PKCE is used) or Hybrid Flows, the absolute token expiration time can be reduced. This will reduce the impact of a reflected XSS (but not of a persistent one). To do so, go to **Dashboard > APIs > Settings > Token Expiration For Browser Flows (Seconds)**.
 
-Reduce the amount of third party JavaScript code included from a source outside your domain to the minimum needed (such as links to jQuery, Bootstrap, Google Analytics etc.) Reducing third-party JS code reduces the possibility of an XSS vulnerability. Performing Subresource Integrity checking (SRI) in third-party scripts (where possible) to verify that the resources fetched are delivered without unexpected manipulation is also more secure.
+Reduce the amount of third party JavaScript code included from a source outside your domain to the minimum needed (such as links to jQuery, Bootstrap, Google Analytics etc.) Reducing third-party JS code reduces the possibility of an XSS vulnerability. Performing [Subresource Integrity (SRI)](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity) checking in third-party scripts (where possible) to verify that the resources fetched are delivered without unexpected manipulation is also more secure.
 :::
 
 ## Keep reading
