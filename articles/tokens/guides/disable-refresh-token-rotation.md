@@ -27,5 +27,5 @@ PATCH /api/v2/clients/{client_id}
 
 * [Refresh Tokens](/tokens/concepts/refresh-tokens)
 * [Refresh Token Rotation](/tokens/concepts/refresh-token-rotation)
-* [Token Storage](/tokens/concepts/token-rotation)
+* [Token Storage](/tokens/concepts/token-storage)
 * [Configure Refresh Token Rotation](/tokens/guides/configure-refresh-token-rotation)

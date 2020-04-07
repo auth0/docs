@@ -47,4 +47,4 @@ await auth0.getTokenSilently();
 * [Disable Refresh Token Rotation](/tokens/guides/disable-refresh-token-rotation)
 * [Revoke Refresh Tokens](/tokens/guides/revoke-refresh-tokens)
 * [Refresh Token Rotation](/tokens/concepts/refresh-token-rotation)
-* [Token Storage](/tokens/concepts/token-rotation)
+* [Token Storage](/tokens/concepts/token-storage)

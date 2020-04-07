@@ -76,4 +76,4 @@ See [Revoke Refresh Tokens](/tokens/guides/revoke-refresh-tokens) for details.
 * [Use Refresh Token Rotation](/tokens/guides/use-refresh-token-rotation)
 * [Revoke Refresh Tokens](/tokens/guides/revoke-refresh-tokens)
 * [Disable Refresh Token Rotation](/tokens/guides/disable-refresh-token-rotation)
-* [Token Storage](/tokens/concepts/token-rotation)
+* [Token Storage](/tokens/concepts/token-storage)
