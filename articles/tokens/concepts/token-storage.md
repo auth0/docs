@@ -21,13 +21,11 @@ We recommend using the [Auth0 Single Page App SDK](/libraries/auth0-spa-js). The
 
 When you're building a Next.js application, authentication might be needed in the following cases:
 
-1. When accessing a page: "My Invoices"
-2. When accessing an API route: /api/my/invoices
-3. When your application calls an API hosted outside of your Next.js application on behalf of the user: from `www.mycompany.com` to `billing.mycompany.com/api`.
+1. When accessing a page
+2. When accessing an API route
+3. When your application calls an API hosted outside of your Next.js application on behalf of the user
 
-Now that we understand where and when our application might require authentication, let's explore the authentication strategies that can be implemented for different Next.js deployment models.
-
-Where a server is available, it can handle the interaction with Auth0 and create a session, but in this model, we don't have a backend. All of the work happens on the frontend:
+Where a server is available, your app can handle the interaction with Auth0 and create a session, but in this model, we don't have a backend. All of the work happens on the frontend:
 
 1. The user is redirected to Auth0.
 2. When the user is successfully signed in, they will be redirected back to the application.
