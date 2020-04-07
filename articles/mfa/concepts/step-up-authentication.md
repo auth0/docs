@@ -40,7 +40,7 @@ The solution is that the application performs another authentication call, but t
 
 Once the user successfully authenticates with MFA, a new Access Token which includes the high-value scope is generated and sent. The application will pass the Access Token to the API which will discard it after verification, thereby treating it like a single-use token.
 
-For details and sample code, see [Step-up Authentication for APIs](/mfa/guides/configure-step-up-for-apis).
+For details and sample code, see [Step-up Authentication for APIs](/mfa/guides/configure-step-up-apis).
 
 ## Step-up Authentication for Web Apps
 
@@ -50,7 +50,7 @@ For example, you might have an employee app that authenticates users with userna
 
 You can implement this by checking the ID Token when the user tries to access that screen. If the claims show that the user has authenticated with MFA already then display the sensitive information. Otherwise, trigger authentication again, and using a rule, prompt the user to authenticate with MFA.
 
-For details and sample code, see [Step-up Authentication for Web Apps](/mfa/guides/configure-step-up-for-web-apps).
+For details and sample code, see [Step-up Authentication for Web Apps](/mfa/guides/configure-step-up-web-apps).
 
 ## Keep reading
 
