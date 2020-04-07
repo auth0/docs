@@ -44,13 +44,14 @@ PATCH /api/v2/clients/{client_id}
 }
 ```
 
-### Refresh Token expiration
-
-The default Refresh Token expiration period when Refresh Token Rotation is enabled is 30 days. You can configure up to 90 days using the Management API. 
+| Attribute | Description |
+| -- | -- |
+| `rotation_type` | Text string: "rotating" or "reusable" |
+| `expiration_type` | Text string: "expiring" or "non-expiring" |
+| `token_lifetime` | The default Refresh Token expiration period, when Refresh Token Rotation is enabled, is 30 days (2592000 seconds). You can configure up to 90 days (7776000 seconds). |
+| `leeway` | Allow the same Refresh Token to be used within the time period to account for potential network concurrency issues that would otherwise invalidate the token should the client attempt to retry using the same Refresh Token. By default leeway is disabled. Configurable in seconds. |
 
 ### Refresh Token leeway (latency compensation)
-
-You can use the `leeway` attribute to allow the same Refresh Token to be used within the time period to account for potential network concurrency issues that would otherwise invalidate the token should the client attempt to retry using the same Refresh Token. By default leeway is disabled.
 
 The concept of a *leeway* is to avoid concurrency issues when exchanging the Rotating Refresh Token multiple times within a given timeframe. During the leeway window which is configurable on a per second basis, the breach detection features don't apply and therefore a new Rotating Refresh Token is issued. Only the previous token can be reused, meaning if the second to last one is exchanged, the breach detection will apply. 
 
@@ -58,12 +59,15 @@ The concept of a *leeway* is to avoid concurrency issues when exchanging the Rot
 
 If a previously invalidated token is used, the entire set of Refresh Tokens issued since that invalidated token was issued will be immediately revoked, requiring the end-user to re-authenticate.
 
-Use the `/oath/revoke` endpoint to revoke a Refresh Token. 
+Use the `/oauth/revoke` endpoint to revoke a Refresh Token. 
 
-Use the `/api/v2/device-credentials` endpoint to revoke Refresh Tokens configured for rotation. Note that using this endpoint revokes the entire grant not just a specific token.
+Use the `/api/v2/device-credentials` endpoint to revoke Refresh Tokens configured for rotation. 
 
-## Use Refresh Token rotation functionality
+::: note
+The `/api/v2/device-credentials` endpoint revokes the entire grant not just a specific token.
+:::
 
+## Use Refresh Token rotation
 
 To use the Refresh Token rotation functionality, use the option `useRefreshTokens` on `createAuth0Client` which defaults to `false`.
 
