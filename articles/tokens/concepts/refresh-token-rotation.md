@@ -20,8 +20,6 @@ Typically, ID and Access Tokens are obtained from the authorization server and c
 
 ## SDK support
 
-### Single-page apps
-
 For SPAs, use the `auth0-spa-js` SDK to perform silent re-authentication.
 
 * For Refresh Token support, [configure the Refresh Token Rotation feature](/tokens/guides/configure-refresh-token-rotation) for your tenant, and configure it on your client using the Management API.
@@ -34,9 +32,7 @@ For SPAs, use the `auth0-spa-js` SDK to perform silent re-authentication.
 The SDK uses the iframe method if you have set `useRefreshTokens` to `true` but no Refresh Token is available in the cache. This helps users to silently migrate to using Refresh Tokens without making them log in again.
 :::
 
-### Other apps
-
-For iOS, Android, Windows and any other type of app, there is no change. 
+For iOS, Android, Windows and any other type of app, there are no changes. 
 
 ## Keep reading
 
