@@ -13,57 +13,61 @@ useCase:
 ---
 # Configure Refresh Token Rotation
 
-Configure Refresh Token Rotation for each application using the Management API. When Refresh Token Rotation is enabled, the transition for the end-user will be seamless. The application will use the previous non-rotating Refresh Token, which will be expired and swapped for a rotating Refresh Token. Request a new Refresh Token/Access Token pair when Refresh Token Rotation is enabled.
+Configure Refresh Token Rotation for each application using the Management API. When Refresh Token Rotation is enabled, the transition for the end-user is seamless. The application uses the previous non-rotating Refresh Token, which has expired and swaps it for a rotating Refresh Token. 
 
+::: note
 Migration scenarios accommodate automatic token revocation when migrating from a non-rotating Refresh Token to a rotating Refresh Token and vice-versa.
+:::
 
-- Exchanging a non-rotating Refresh Token when Refresh Token Rotation is enabled will delete all the non-rotating tokens issued for the same `client_id`, resource server, and user and tenant.
-- Exchanging a rotating Refresh Token when Refresh Token Rotation is disabled will issue a non-rotating Refresh Token and revoke the Rotating Refresh Token family.
+Request a new Refresh Token/Access Token pair when Refresh Token Rotation is enabled.
 
-## Prerequisite
+- Exchanging a non-rotating Refresh Token when Refresh Token Rotation is enabled deletes all the non-rotating tokens issued for the same `client_id`, resource server, and user and tenant.
+- Exchanging a rotating Refresh Token when Refresh Token Rotation is disabled issues a non-rotating Refresh Token and revokes the Rotating Refresh Token family.
 
-Install the latest version of the `auth0-spa-js` SDK.
+The following steps describe how to configure Refresh Token rotation for a SPA, as an example. 
 
-```text
-npm install @auth0/auth0-spa-js
-```
+1. Install the latest version of the `auth0-spa-js` SDK.
 
-## Enable Refresh Token rotation for an application
+    ```text
+    npm install @auth0/auth0-spa-js
+    ```
 
-Use the Managment API to enable Refresh Token rotation:
+2. Use the Managment API to enable Refresh Token rotation:
 
-```js
-PATCH /api/v2/clients/{client_id}
-{
-  "refresh_token": {
-    "rotation_type": "rotating"
-    "expiration_type": "expiring"
-    "token_lifetime": "2592000"
-    "leeway": 3
-  }
-}
-```
+    ```js
+    PATCH /api/v2/clients/{client_id}
+    {
+      "refresh_token": {
+        "rotation_type": "rotating"
+        "expiration_type": "expiring"
+        "token_lifetime": "2592000"
+        "leeway": 3
+      }
+    }
+    ```
 
-| Attribute | Description |
-| -- | -- |
-| `rotation_type` | Text string: "rotating" or "reusable" |
-| `expiration_type` | Text string: "expiring" or "non-expiring" |
-| `token_lifetime` | The default Refresh Token expiration period, when Refresh Token Rotation is enabled, is 30 days (2592000 seconds). You can configure up to 90 days (7776000 seconds). |
-| `leeway` | Allow the same Refresh Token to be used within the time period to account for potential network concurrency issues that would otherwise invalidate the token should the client attempt to retry using the same Refresh Token. By default leeway is disabled. Configurable in seconds. |
+    | Attribute | Description |
+    | -- | -- |
+    | `rotation_type` | Text string: "rotating" or "reusable" |
+    | `expiration_type` | Text string: "expiring" or "non-expiring" |
+    | `token_lifetime` | The default Refresh Token expiration period, when Refresh Token Rotation is enabled, is 30 days (2592000 seconds). You can configure up to 90 days (7776000 seconds). |
+    | `leeway` | Allow the same Refresh Token to be used within the time period to account for potential network concurrency issues that would otherwise invalidate the token should the client attempt to retry using the same Refresh Token. By default leeway is disabled. Configurable in seconds. |
 
-The concept of a *leeway* is to avoid concurrency issues when exchanging the Rotating Refresh Token multiple times within a given timeframe. During the leeway window which is configurable on a per second basis, the breach detection features don't apply and therefore a new Rotating Refresh Token is issued. Only the previous token can be reused, meaning if the second to last one is exchanged, the breach detection will apply. 
+    ::: panel What is *leeway*?
+    The concept of *leeway* is to avoid concurrency issues when exchanging the Rotating Refresh Token multiple times within a given timeframe. During the leeway window which is configurable on a per second basis, the breach detection features don't apply and therefore a new rotating Refresh Token is issued. Only the previous token can be reused, meaning if the second to last one is exchanged, the breach detection will apply. 
+    :::
 
 ## Revoke Refresh Tokens and re-use detection
 
 If a previously invalidated token is used, the entire set of Refresh Tokens issued since that invalidated token was issued will be immediately revoked, requiring the end-user to re-authenticate.
 
-Use the `/oauth/revoke` endpoint to revoke a Refresh Token. 
+- Use the `/oauth/revoke` endpoint to revoke a Refresh Token. 
 
-Use the `/api/v2/device-credentials` endpoint to revoke Refresh Tokens configured for rotation. 
+- Use the `/api/v2/device-credentials` endpoint to revoke Refresh Tokens configured for rotation. 
 
-::: note
-The `/api/v2/device-credentials` endpoint revokes the entire grant not just a specific token.
-:::
+  ::: note
+  The `/api/v2/device-credentials` endpoint revokes the entire grant not just a specific token.
+  :::
 
 ## Keep reading
 
