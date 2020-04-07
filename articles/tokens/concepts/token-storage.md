@@ -17,32 +17,7 @@ Securing single page apps (SPAs) that make API calls come with their own set of 
 
 We recommend using the [Auth0 Single Page App SDK](/libraries/auth0-spa-js). The Auth0 SPA SDK handles token storage, session management, and other details for you.
 
-## Session token storage
-
-Session storage (or browser local storage) is [not a secure place to store sensitive information](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/HTML5_Security_Cheat_Sheet.md#local-storage). Any data stored there:
-
-* Can be accessed through JavaScript
-* May be vulnerable to [cross-site scripting](https://www.owasp.org/index.php/Cross-site_Scripting_(XSS))
-
-If an attacker steals a token, they can gain access and make requests to your API. Treat tokens like credit card numbers or passwords. Avoid storing them in local storage.
-
-## Cookies
-
-Under certain circumstances, you can use cookies to authenticate SPAs:
-
-* if your SPA is served to the client using your own backend
-* if your SPA has the same domain as your backend
-* if your SPA makes API calls that require authentication to your backend
-
-For an overview of this approach and an example implementation, see [Single-Page App Authentication Using Cookies](/login/spa/authenticate-with-cookies).
-
-If your SPA has a backend server, handle tokens server-side using the [Authorization Code Flow](/flows/concepts/auth-code), [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce), or [Hybrid Flow](/api-auth/grant/hybrid).
-
-If you have a SPA with **no** corresponding backend server, your SPA should request new tokens on login and store them in memory without any persistence. To make API calls, your SPA would then use the in-memory copy of the token.
-
-## Token storage scenarios
-
-### Next.js static site scenarios
+## Next.js static site scenarios
 
 When you're building a Next.js application, authentication might be needed in the following cases:
 
@@ -60,7 +35,7 @@ Where a server is available, it can handle the interaction with Auth0 and create
 
 ![In-Memory Token Storage](/media/articles/tokens/in-memory-token-storage.png)
 
-### Traditional web app scenarios
+## Traditional web app scenarios
 
 If your app is using a sign in scenario that doesn't require API calls, only an ID Token is required. There is no need to store it. You can validate it and get the data from it that you required. 
 
@@ -71,7 +46,7 @@ Use the following flow types in these scenarios:
 - [Authorization Code Flow](/flows/concepts/auth-code)
 - [Regular Web App Quickstarts](/quickstart/webapp)
 
-### Native/Mobile app scenarios
+## Native/Mobile app scenarios
 
 Store tokens in a secure storage that the OS offers and limit access to that storage. For example, leverage KeyStore for Android and KeyChain for iOS.
 
@@ -82,19 +57,28 @@ Use the following flow types in these scenarios:
 - [Saving and Renewing Tokens for Swift](/libraries/auth0-swift/save-and-refresh-jwt-tokens)
 - [Native/Mobile Apps Quickstarts](/quickstart/native)
 
-### SPA backend scenarios
+## Single-page app scenarios
 
-When the SPA calls only an API that is served from a domain that can share cookies with the domain of the SPA, no tokens are needed. OAuth adds additional attack vectors without providing any additional value and should be avoided in favour of a traditional cookie based approach.
+When the SPA calls only an API that is served from a domain that can share cookies with the domain of the SPA, no tokens are needed. OAuth adds additional attack vectors without providing any additional value and should be avoided in favor of a traditional cookie-based approach. For an overview of this approach and an example implementation, see [Single-Page App Authentication Using Cookies](/login/spa/authenticate-with-cookies).
 
-When the SPA calls multiple APIs living in a different domain, access and optionally refresh tokens are needed.
+When the SPA calls multiple APIs that reside in a different domain, access and optionally refresh tokens are needed.
 
--  If the SPA backend can handle the API calls, the tokens should be handled and stored similarly to a Web App scenario.
+-  If the SPA backend can handle the API calls, handle tokens server-side using:
+    - [Authorization Code Flow](/flows/concepts/auth-code)
+    - [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce)
+    - [Hybrid Flow](/api-auth/grant/hybrid)
 
 - If the SPA backend cannot handle the API calls, the tokens should be stored in the SPA backend but the SPA needs to fetch the tokens from the backend to perform requests to the API. A protocol needs to be established between the backend and the SPA to allow the secure transfer of the token from the backend to the SPA.
 
+- If you have a SPA with **no** corresponding backend server, your SPA should request new tokens on login and store them in memory without any persistence. To make API calls, your SPA would then use the in-memory copy of the token.
+
 ### Browser in-memory scenarios
 
-Auth0 recommends that you use [JavaScript closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures#Emulating_private_methods_with_closures) when storing tokens in memory to emulate private methods. Use [auth0-spa-js](https://github.com/auth0/auth0-spa-js). This is the most secure method for browser storage, however it **does not** provide persistence across page refreshes and browser tabs. 
+Auth0 recommends that you use [JavaScript closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures#Emulating_private_methods_with_closures) when storing tokens in memory to emulate private methods. Use [auth0-spa-js](https://github.com/auth0/auth0-spa-js). 
+
+::: warning
+The in-memory method for browser storage **does not** provide persistence across page refreshes and browser tabs. 
+:::
 
 ### Browser local storage scenarios
 
