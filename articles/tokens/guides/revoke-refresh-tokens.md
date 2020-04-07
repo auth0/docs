@@ -122,6 +122,14 @@ DELETE https://${account.namespace}/api/v2/device-credentials/{id}
 
 The response will be an **HTTP 204**: The credential no longer exists.
 
+::: note
+When using Refresh Token rotation, If a previously invalidated token is used, the entire set of Refresh Tokens issued since that invalidated token was issued will immediately be revoked, requiring the end-user to re-authenticate.
+
+- Use the `/oauth/revoke` endpoint to revoke a Refresh Token. 
+
+- Use the `/api/v2/device-credentials` endpoint to revoke Refresh Tokens configured for rotation. This endpoint revokes the entire grant not just a specific token.
+:::
+
 ## Use the Dashboard
 
 Strictly speaking, the following process shows you how to revoke a user's authorized access to the application that issued the token. This renders the Refresh Token invalid, which is functionally identical to revoking the token itself.
@@ -142,3 +150,4 @@ To revoke the user's access to an authorized application, and hence invalidate t
 * [ID Tokens](/tokens/concepts/id-tokens)
 * [Get Refresh Tokens](/tokens/guides/get-refresh-tokens)
 * [Use Refresh Tokens](/tokens/guides/use-refresh-tokens)
+* [Refresh Tokens and Reuse Detection](/tokens/guides/configure-refresh-token-rotation#refresh-tokens-and-re-use-detection)

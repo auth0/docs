@@ -57,9 +57,9 @@ The following steps describe how to configure Refresh Token rotation for a SPA, 
     The concept of *leeway* is to avoid concurrency issues when exchanging the Rotating Refresh Token multiple times within a given timeframe. During the leeway window which is configurable on a per second basis, the breach detection features don't apply and therefore a new rotating Refresh Token is issued. Only the previous token can be reused, meaning if the second to last one is exchanged, the breach detection will apply. 
     :::
 
-## Revoke Refresh Tokens and re-use detection
+## Refresh Tokens and re-use detection
 
-If a previously invalidated token is used, the entire set of Refresh Tokens issued since that invalidated token was issued will be immediately revoked, requiring the end-user to re-authenticate.
+If a previously invalidated token is used, the entire set of Refresh Tokens issued since that invalidated token was issued will immediately be revoked, requiring the end-user to re-authenticate.
 
 - Use the `/oauth/revoke` endpoint to revoke a Refresh Token. 
 
@@ -69,9 +69,12 @@ If a previously invalidated token is used, the entire set of Refresh Tokens issu
   The `/api/v2/device-credentials` endpoint revokes the entire grant not just a specific token.
   :::
 
+See [Revoke Refresh Tokens](/tokens/guides/revoke-refresh-tokens) for details. 
+
 ## Keep reading
 
 * [Refresh Tokens](/tokens/concepts/refresh-tokens)
 * [Refresh Token Rotation](/tokens/concepts/refresh-token-rotation)
 * [Use Refresh Token Rotation](/tokens/guides/use-refresh-token-rotation)
+* [Revoke Refresh Tokens](/tokens/guides/revoke-refresh-tokens)
 * [Token Storage](/tokens/concepts/token-rotation)
