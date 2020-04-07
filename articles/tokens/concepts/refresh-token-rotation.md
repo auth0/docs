@@ -42,5 +42,7 @@ For iOS, Android, Windows and any other type of app, there is no change.
 
 * [Configure Refresh Token Rotation](/tokens/guides/configure-refresh-token-rotation)
 * [Use Refresh Token Rotation](/tokens/guides/use-refresh-token-rotation)
+* [Revoke Refresh Tokens](/tokens/guides/revoke-refresh-tokens)
+* [Disable Refresh Token Rotation](/tokens/guides/disable-refresh-token-rotation)
 * [Token Storage](/tokens/concepts/token-storage)
 * [OAuth 2.0 BCP](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-13#section-4.12)

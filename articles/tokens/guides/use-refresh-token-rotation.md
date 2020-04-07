@@ -40,23 +40,11 @@ auth0.loginWithRedirect();
 await auth0.getTokenSilently();
 ```
 
-## Disable Refresh Token rotation
-
-Disable Refresh Token Rotation for each application using the Management API. 
-
-```js
-PATCH /api/v2/clients/{client_id}
-{
-  "refresh_token": {
-    "rotation_type": "reusable"
-    "expiration_type": "non-expiring"
-  }
-}
-```
-
 ## Keep reading
 
 * [Refresh Tokens](/tokens/concepts/refresh-tokens)
 * [Configure Refresh Token Rotation](/tokens/guides/configure-refresh-token-rotation)
+* [Disable Refresh Token Rotation](/tokens/guides/disable-refresh-token-rotation)
+* [Revoke Refresh Tokens](/tokens/guides/revoke-refresh-tokens)
 * [Refresh Token Rotation](/tokens/concepts/refresh-token-rotation)
 * [Token Storage](/tokens/concepts/token-rotation)

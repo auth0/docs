@@ -1,6 +1,5 @@
 ---
 description: Learn how to configure Refresh Token rotation.
-toc: true 
 topics:
   - tokens
   - refresh-tokens
@@ -9,7 +8,6 @@ contentType: how-to
 useCase:
   - enable-refresh-token-rotation
   - configure-refresh-token-rotation
-  - disable-refresh-token-rotation
 ---
 # Configure Refresh Token Rotation
 
@@ -77,4 +75,5 @@ See [Revoke Refresh Tokens](/tokens/guides/revoke-refresh-tokens) for details.
 * [Refresh Token Rotation](/tokens/concepts/refresh-token-rotation)
 * [Use Refresh Token Rotation](/tokens/guides/use-refresh-token-rotation)
 * [Revoke Refresh Tokens](/tokens/guides/revoke-refresh-tokens)
+* [Disable Refresh Token Rotation](/tokens/guides/disable-refresh-token-rotation)
 * [Token Storage](/tokens/concepts/token-rotation)
