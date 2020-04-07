@@ -135,7 +135,7 @@ The following [JSON schema](http://json-schema.org) describes valid users:
                             "description": "The position of the salt when the hash was calculated. For example; MD5('salt' + 'password') = '67A1E09BB1F83F5007DC119C14D663AA' would have \"position\":\"prefix\"."
                         }
                     },
-                    "required": ["value", "hash"]
+                    "required": ["value", "position"]
                 },
                 "password": {
                     "type": "object",
