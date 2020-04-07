@@ -15,7 +15,13 @@ useCase:
 ---
 # Add Facebook Login to Native Apps
 
-You can add functionality to your native application to allow your users to authenticate using Facebook natively, within the application. This does not require redirection via a web browser and will let mobile applications comply with [Facebook Developer Policy](https://developers.facebook.com/policy/) which requires that mobile applications use their SDK to authenticate.
+You can add functionality to your native application to allow your users to authenticate using Facebook natively, within the application. This does not require redirection via a web browser and will let mobile applications comply with [Facebook Developer Policy](https://developers.facebook.com/policy/) which requires that mobile applications use the Facebook SDK for [Android](https://developers.facebook.com/docs/android) or [iOS](https://developers.facebook.com/docs/ios) to authenticate.
+
+::: note
+When integrating with the Facebook SDKs, your applications will be sharing data with Facebook. Make sure you understand the data that is being shared and that you reflect it properly in your application's privacy policy. Auth0 has no control over what data will be shared with Facebook via the SDK. 
+
+Check the [Facebook GDPR](https://www.facebook.com/business/m/one-sheeters/gdpr-developer-faqs) page for more information about data collected by the Facebook SDK and Facebook Login.
+:::
 
 ## How it works
 
