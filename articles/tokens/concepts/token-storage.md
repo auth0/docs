@@ -94,7 +94,7 @@ When the SPA calls multiple APIs living in a different domain, access and option
 
 ### Browser in-memory scenarios
 
-Auth0 recommends that you use [JavaScript closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures#Emulating_private_methods_with_closures) when storing tokens in memory to emulate private methods. Use [auth0-sp-js](https://github.com/auth0/auth0-spa-js). This is the most secure method for browser storage, however it **does not** provide persistence across page refreshes and browser tabs. 
+Auth0 recommends that you use [JavaScript closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures#Emulating_private_methods_with_closures) when storing tokens in memory to emulate private methods. Use [auth0-spa-js](https://github.com/auth0/auth0-spa-js). This is the most secure method for browser storage, however it **does not** provide persistence across page refreshes and browser tabs. 
 
 ### Browser local storage scenarios
 
