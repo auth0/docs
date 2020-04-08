@@ -77,7 +77,7 @@ function changePassword(email, newPassword, callback) {
   //     callback(new Error("my error message"));
   //
   // If an error is returned, it will be passed to the query string of the page
-  // where the user is being redirected to after clicking the confirmation link.
+  // to which the user is being redirected after clicking the confirmation link.
   // For example, returning `callback(new Error("error"))` and redirecting to
   // https://example.com would redirect to the following URL:
   //     https://example.com?email=alice%40example.com&message=error&success=false
@@ -104,7 +104,7 @@ function changePassword(email, newPassword, callback) {
     server:    'the server',
     options: {
       database:  'the db name',
-      // encrypt: true for Windows Azure enable this
+      // encrypt: true   for Windows Azure enable this
     }
   });
 
@@ -196,7 +196,7 @@ function changePassword(email, newPassword, callback) {
   /**
    * hashPassword
    *
-   * This function hashes a password using HMAC SHA256 algorythm.
+   * This function hashes a password using HMAC SHA256 algorithm.
    *
    * @password    {[string]}    password to be hased
    * @salt        {[string]}    salt to be used in the hashing process
