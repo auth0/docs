@@ -82,13 +82,9 @@ The in-memory method for browser storage **does not** provide persistence across
 
 ### Browser local storage scenarios
 
-Storing tokens in browser local storage provides persistence across page refreshes and browser tabs, however if an attacker can achieve running JavaScript in the SPA, they can retrieve the tokens stored in local storage using a cross-site scripting (XSS) attack. A vulnerability leading to a successful XSS attack can be either in the SPA source code or in any third-party JavaScript code (such as bootstrap, jQuery, or Google Analytics) included in the SPA.
+Storing tokens in browser local storage provides persistence across page refreshes and browser tabs, however if an attacker can achieve running JavaScript in the SPA using a cross-site scripting (XSS) attack, they can retrieve the tokens stored in local storage. A vulnerability leading to a successful XSS attack can be either in the SPA source code or in any third-party JavaScript code (such as bootstrap, jQuery, or Google Analytics) included in the SPA.
 
 Using browser local storage can be viable alternative to mechanisms that require retrieving the Access Token from an iframe and to cookie-based authentication across domains when these are not possible due to browser restrictions (e.g. ITP2).
-
-::: warning
-With the browser local storage method, if an attacker can run JavaScript in the SPA using a cross-site scripting (XSS) attack, they can retrieve the tokens stored in local storage.
-:::
 
 ::: panel Reduce Security Risks with Local Storage
 If the SPA is using Implicit (although it is recommended that authorization code with PKCE is used) or Hybrid Flows, the absolute token expiration time can be reduced. This will reduce the impact of a reflected XSS (but not of a persistent one). To do so, go to **Dashboard > APIs > Settings > Token Expiration For Browser Flows (Seconds)**.
