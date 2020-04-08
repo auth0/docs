@@ -132,8 +132,11 @@ This rule gives users from the `IT Department` the `Delegated Admin - Administra
 
 ```js
 function (user, context, callback) {
- if (context.clientID === 'CLIENT_ID') {
-   const namespace = 'https://${account.tenant}.prod-us-node12.webtask.io/auth0-delegated-admin';
+  if (context.clientID === 'CLIENT_ID') {
+    // If you are using Node 8, uncomment the following line
+    //const namespace = 'https://${account.tenant}.us8.webtask.io/auth0-delegated-admin';
+    //If you are using Node 12, uncomment the following line
+    //const namespace = 'https://${account.tenant}.prod-us-node12.webtask.io/auth0-delegated-admin';
    if (user.groups && user.groups.indexOf('IT Department') > -1) {
      context.idToken[namespace] = { roles: [ 'Delegated Admin - Administrator' ] };
      return callback(null, user, context);

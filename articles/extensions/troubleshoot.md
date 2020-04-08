@@ -29,12 +29,6 @@ One of the first things you can do when running into issues with an extension is
 
 ## Migrate to Node.js v12
 
-Many Auth0 extensions rely on modules that use Node.js v12. If your tenant still uses Node.js v8, you may have issues running extensions or get errors such as:
-
-```
-Compilation failed: Cannot find module 'auth0-source-control-extension-tools'
-```
-
 We recommend changing your tenant's extensibility runtime from Node.js v8 to Node.js v12. Before updating, however, review the [migration guide](/migrations/guides/extensibility-node12) for full details on what will be affected by this change.
 
 You can change the Node.js runtime version by going to the **Extensibility** section in [Tenant Settings > Advanced](https://manage.auth0.com/#/tenant/advanced).

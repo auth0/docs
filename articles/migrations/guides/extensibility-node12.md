@@ -24,18 +24,6 @@ On December 31, 2019, [Node.js v8 went out of long-term support (LTS)](https://g
 
 As such, Auth0 is migrating from Node 8 to Node 12.
 
-**We will be ending support for the Node 8 runtime on June xx, 2020**. Tenants which have not already migrated to Node 12 will be migrated automatically. Automatic migrations will begin on April xx, 2020, and continue through June xx, 2020. Automatic migrations are happening in cohorts: 
-
-* Free tier tenants will be migrated beginning on April xx, 2020
-* Self-serve tenants will follow through early May 2020
-* Enterprise tenants will be migrated in late May and June 2020
-
-Customers will be notified two weeks in advance of their automatic migration date, with additional periodic reminders leading up to their automatic migration date.
-
-::: warning
-All tenant automatic upgrades to Node 12 will be completed no later than June xx, 2020. Most tenant upgrades will be completed before this date. Admins for affected tenants will be notified of their exact migration date.
-:::
-
 In this document, we:
 
 * Provide recommendations on how you can ensure a smooth migration for your environment
@@ -51,25 +39,21 @@ The Webtask runtime powering the following Auth0 features utilize Node 8:
 * Custom social connections
 * Extensions
 
-If you do not use any of the extensibility features mentioned above, you are not affected by this migration. **Additionally, your tenant will automatically be upgraded to use the Node 12 runtime by June xx, 2020.** This will ensure that any future extensibility code you author will be running on a secure runtime.
+If you do not use any of the extensibility features mentioned above, you are not affected by this migration.
 
-As part of this migration, the Auth0 development team has performed extensive testing to detect any breaking changes proactively. However, there may be behavioral changes as a result of this migration. As such, we have provided a migration switch that allows you to control the migration of your environment to the new Webtask runtime using Node 12.
+## Verified extensions
 
-::: note
-Private Cloud and Managed Private Cloud (PSaaS) customers have had their tenants migrated already. No further action is necessary.
-:::
+As part of this migration, the Auth0 development team has performed extensive testing to proactively detect any breaking changes. 
 
-### Important Dates
+Verified extensions for Node 12 include:
 
-* **2019 December 31**: [Node 8 is no longer under long-term support (LTS)](https://github.com/nodejs/Release#release-schedule)
-* **2020 April xx**: The Webtask runtime using Node 12 becomes available to Auth0 customers
-* **2020 April xx**: All official Auth0 Extensions will be updated to run on Node 12 and available for you to upgrade in the **Installed Extensions** tab of the [Extensions page](${manage_url}/#/extensions)
-* **2020 April xx**: Any tenants created after this date are already using the Node.js 12 runtime, and no action is required.
-* **2020 April xx**: Tenants with NO Extensibility code will be automatically be upgraded to use Node 12
-* **2020 April xx**: All Auth0 tenants on the Auth0 public cloud which have not already migrated to the Node.js 12 runtime, will be automatically migrated between April xx, 2020 and June xx, 2020
-* **2019 June xx**: Node 8 support in Auth0 is permanently removed
+* Realtime Webtask Logs
+* Deploy extensions (Github, Gitlab, etc.)
+* Deploy CLI
 
-## How to enable the Node 12 runtime
+Still, there may be behavioral changes as a result of this migration, so we have provided a migration switch that allows you to control the migration of your environment to the new Webtask runtime using Node 12.
+
+## Enable the Node 12 runtime
 
 Node 12 can be enabled through the new Extensibility panel on the [Advanced Tenant Settings](${manage_url}/#/tenant/advanced) page of the Dashboard.
 
@@ -149,6 +133,10 @@ Most extensions use the `PUBLIC_WT_URL` hidden secret for authorization. This se
 
 To update it, you need to save the extension's settings (no changes are necessary). To do so, after switching the runtime to `Node 12`, you need to open the extension's settings in the extensions dashboard (gear icon) and hit `Save`. After that, the extensions gallery will update the `PUBLIC_WT_URL` secret accordingly based on the selected runtime.
 
+If you do not update the `PUBLIC_WT_URL` hidden secret, you will receive the following error:
+
+![Misconfiguration or Service Outage Error](/media/articles/migrations/node-hidden-secret-error.png)
+
 ## How to ensure a stable migration
 
 As part of the process of introducing Node 12 in our Webtask runtime, we ran a number of tests to determine which modules are not forward-compatible from Node 8 to 12. Most customers _should_ be able to upgrade to Node 12 without any issues.
@@ -163,15 +151,13 @@ With that said, before you migrate, we highly recommend testing all of your:
 
 Furthermore, we recommend that the testing be done in your development tenant and migrating your production tenant only if you see no issues in development. 
 
-You can query the Management API for your Rules, Custom Database scripts, and Custom Social Connections. This will make it easier for you to move items from your production tenant to development tenant for testing purposes.
+You can query the Management API for your Rules, Hooks, Custom Database scripts, and Custom Social Connections. This will make it easier for you to move items from your production tenant to development tenant for testing purposes.
 
-Please see our documentation on the [Connections](/api/management/v2#!/Connections) and [Rules](/api/management/v2#!/Rules/get_rules) endpoints for additional information on this process.
+Please see our documentation on the [Connections](/api/management/v2#!/Connections), [Rules](/api/management/v2#!/Rules/get_rules), and [Hooks](/api/management/v2/#!/Hooks/get_hooks) endpoints for additional information on this process.
 
 When using the [Connections](/api/management/v2#!/Connections) endpoints in the Management API, Custom Database Scripts can be retrieved or updated using `options.customScripts`.
 
 Similarly, you can find Custom Social Connections in `options.scripts.fetchUserProfile`.
-
-You will need to manually copy over any Hooks-related code that you use since they cannot be accessed via the Management API.
 
 ## Affected modules
 
@@ -179,20 +165,10 @@ If you are using the following built-in modules (that is, modules that you did n
 
 | Module name | Old version | New version |
 | - | - | - |
-| azure-storage | ~0.4.1 | ~2.2.1 |
-| couchbase | ~1.2.1 | ~2.3.5 |
-| jsonwebtoken | ~0.4.1^* | ~7.4.1 (w/ compatibility shim) |
-| knex | ~0.6.3 | ~0.13.0 |
-| mongo-getdb | ~1.2.0^* | ^2.2.0 |
-| mongodb | ~1.3.15^* | ^2.2.0 |
-| mysql | 2.0.0-alpha8^* | ^2.0.0 |
-| node-cassandra-cql | ^0.4.4 | ^0.5.0 |
-| request | ~2.27.0 | ~2.81.0 |
-| pg | ^4.3.0^* | ^4.5.7 |
-| bcrypt | ~0.8.5^* | 1.0.3 |
-| xml2json | ~0.10.0^* | ~0.11.2 |
+| couchbase | ~2.5.1 | 2.6.10 |
+| bcrypt | 1.0.3 | 3.0.8 |
 
-^* These versions are no longer supported due to incompatibility with Node 12.
+These new versions should remain backwards compatible with their previous versions.
 
 ### Pinned modules
 
@@ -200,22 +176,16 @@ If you have manually pinned modules, you may need to manually update them so tha
 
 For example, you must change
 
-`var mysql = require(‘mysql@2.0.0-alpha8’);`
+`var bcrypt = require(‘bcrypt@1.0.3’);`
 
 to
 
-`var mysql = require(‘mysql’);`
+`var bcrypt = require(‘bcrypt’);`
 
 or, if the module must be pinned to a specific version:
 
-`var mysql = require(‘mysql@2.0.0’);`
+`var bcrypt = require(‘bcrypt@3.0.8’);`
 
-### Behavioral and syntactic changes
+### Notes for Node 10 and Node 12 changes
 
-Some of the behavioral and syntactic changes in modules were not forward-compatible with Node 12.
-
-For example, the default encoding of the `crypto` module was changed from `binary` to `utf8`, and the use of `new Buffer()` has been deprecated in favor of `Buffer.from()`.
-
-Please consult Node.js' migration guide for [v4 to v8](https://github.com/nodejs/wiki-archive/blob/master/Breaking-changes-between-v4-LTS-and-v6-LTS.md) and [v6 to v8](https://github.com/nodejs/wiki-archive/blob/master/Breaking-changes-between-v6-LTS-and-v8-LTS.md) and [v8 to v12]() for additional information.
-
-**To ensure that your Auth0 implementation functions as intended, please be sure to migrate to the Node 12 runtime before June xx, 2020.**
+For additional information, please consult Node.js's [Node 10 release notes](https://nodejs.org/fr/blog/release/v10.0.0/) and [Introducing Node.js 12](https://medium.com/@nodejs/introducing-node-js-12-76c41a1b3f3f).
