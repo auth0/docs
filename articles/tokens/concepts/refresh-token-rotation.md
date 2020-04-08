@@ -16,7 +16,7 @@ useCase:
 * [Resource Owner Password Credentials Exchange](/api-auth/tutorials/adoption/password)
 * [Device Authorization Flow](/flows/concepts/device-auth)
 
-Refresh Token rotation has an advantage with browser intelligent tracking prevention (ITP) mechanisms where cookies could be lost. Because of that, the Auth0 session is lost and the user has to re-authenticate, where with a rotating Refresh Token there is no link with the Auth0 session, and therefore isn't affected by ITP mechanisms.
+Refresh Token rotation has an advantage with browser intelligent tracking prevention (ITP) mechanisms where cookies could be lost. Because of that, the Auth0 session is lost and the user has to re-authenticate With a rotating Refresh Token, there is no link with the Auth0 session, and therefore it is not affected by ITP mechanisms.
 
 ## SDK support
 

@@ -15,8 +15,6 @@ useCase:
 
 Securing single page apps (SPAs) that make API calls come with their own set of concerns. You'll need to ensure that tokens and other sensitive data are not vulnerable to [cross-site scripting](https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)) and can't be read by malicious JavaScript.
 
-We recommend using the [Auth0 Single Page App SDK](/libraries/auth0-spa-js). The Auth0 SPA SDK handles token storage, session management, and other details for you.
-
 ## Next.js static site scenarios
 
 When you're building a Next.js application, authentication might be needed in the following cases:
@@ -56,6 +54,8 @@ Use the following flow types in these scenarios:
 - [Native/Mobile Apps Quickstarts](/quickstart/native)
 
 ## Single-page app scenarios
+
+We recommend using the [Auth0 Single Page App SDK](/libraries/auth0-spa-js). The Auth0 SPA SDK handles token storage, session management, and other details for you.
 
 When the SPA calls only an API that is served from a domain that can share cookies with the domain of the SPA, no tokens are needed. OAuth adds additional attack vectors without providing any additional value and should be avoided in favor of a traditional cookie-based approach. For an overview of this approach and an example implementation, see [Single-Page App Authentication Using Cookies](/login/spa/authenticate-with-cookies).
 

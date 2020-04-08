@@ -11,17 +11,27 @@ useCase:
 ---
 # Use Refresh Token Rotation
 
-To use the Refresh Token rotation functionality, use the option `useRefreshTokens` on `createAuth0Client` which defaults to `false`.
+To use Refresh Token rotation, you will use the [Auth0 Single Page App SDK](/libraries/auth0-spa-js). The Auth0 SPA SDK handles token storage, session management, and other details for you.
 
-* With this option set to `true`, the `offline_access` scope is automatically requested when using `loginWithRedirect(), loginWithPopup()` and `getTokenSilently()`. When `getTokenSilently()` is invoked and the access token has expired, the SDK attempts to renew the ID and Access Tokens by calling the `/token` endpoint using the `refresh_token` grant type along with the Refresh Token from the cache. 
+## Prerequisite
 
-* With this option set to `false`, when `getTokenSilently()` is invoked and a new Access Token is required, the SDK attempts to acquire a new Access Token using a hidden iframe and `prompt=none`.
+[Configure Refresh Token Rotation](/tokens/guides/configure-refresh-token-rotation)
 
-If the exchange fails because `useRefreshTokens` is `true` but there isn't a Refresh Token in the cache, then it falls back to the iframe method (which could also fail if third-party cookies are blocked).
+## Enable useRefreshTokens
 
-With SPAs, ID and Access Tokens are obtained from the authorization server and typically cached in memory. Token renewal (due to refreshing the browser, memory cache eviction budgets, or expiration) is handled by the SDK. See [Token Storage](/tokens/concepts/token-storage) for detail. 
+Use the option `useRefreshTokens` on `createAuth0Client` which defaults to `false`. With this option set to `false`, when `getTokenSilently()` is invoked and a new Access Token is required, the SDK attempts to acquire a new Access Token using a hidden iframe and `prompt=none`.
+
+If you set to this option to `true`, the `offline_access` scope is automatically requested when using `loginWithRedirect(), loginWithPopup()` and `getTokenSilently()`. When `getTokenSilently()` is invoked and the access token has expired, the SDK attempts to renew the ID and Access Tokens by calling the `/token` endpoint using the `refresh_token` grant type along with the Refresh Token from the cache.
 
 Silent re-authentication is achieved by sending a `prompt=none` parameter upon the authentication request and using a hidden iframe, provided that there is an active user session on the authorization server. The SDK uses the iframe method if you have set `useRefreshTokens` to `true` but no Refresh Token is available in the cache. This helps users to silently migrate to using Refresh Tokens without making them log in again.
+
+::: note
+If the exchange fails because `useRefreshTokens` is `true` but there isn't a Refresh Token in the cache, then it falls back to the iframe method (which could also fail if third-party cookies are blocked).
+:::
+
+## Token storage
+
+With SPAs, ID and Access Tokens are obtained from the authorization server and typically cached in memory. Token renewal (due to refreshing the browser, memory cache eviction budgets, or expiration) is handled by the SDK. See [Token Storage](/tokens/concepts/token-storage) for details. 
 
 ## Example
 
