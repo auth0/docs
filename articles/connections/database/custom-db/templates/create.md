@@ -400,7 +400,7 @@ function create(user, callback) {
 
 ### MySQL
 
-```sql
+```
 function create(user, callback) {
   const mysql = require('mysql');
   const bcrypt = require('bcrypt');
@@ -435,7 +435,7 @@ function create(user, callback) {
 
 ### Oracle
 
-```sql
+```
 function create(user, callback) {
   const bcrypt = require('bcrypt');
   const oracledb = require('oracledb');

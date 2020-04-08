@@ -344,7 +344,7 @@ function changePassword(email, newPassword, callback) {
 
 ### MySQL
 
-```sql
+```
 function changePassword(email, newPassword, callback) {
   const mysql = require('mysql');
   const bcrypt = require('bcrypt');
@@ -373,7 +373,7 @@ function changePassword(email, newPassword, callback) {
 
 ### Oracle
 
-```sql
+```
 function changePassword(email, newPassword, callback) {
   const bcrypt = require('bcrypt');
   const oracledb = require('oracledb');
