@@ -72,7 +72,9 @@ When the SPA calls multiple APIs that reside in a different domain, access and o
 
 ### Browser in-memory scenarios
 
-Auth0 recommends that you use [JavaScript closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures#Emulating_private_methods_with_closures) when storing tokens in memory to emulate private methods. Use [auth0-spa-js](https://github.com/auth0/auth0-spa-js). 
+Auth0 recommends storing tokens in browser memory as the most secure option. Using [Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API) to handle the transmission and storage of tokens is the best way to protect the tokens, as Web Workers run in a separate global scope than the rest of the application. Use [auth0-spa-js](https://github.com/auth0/auth0-spa-js) whose default storage option is in-memory storage leveraging Web Workers.
+
+If you cannot use Web Workers, Auth0 recommends as an alternative that you use [JavaScript closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures#Emulating_private_methods_with_closures) to emulate private methods.
 
 ::: warning
 The in-memory method for browser storage **does not** provide persistence across page refreshes and browser tabs. 
