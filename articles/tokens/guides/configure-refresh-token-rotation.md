@@ -57,15 +57,7 @@ The following steps describe how to configure Refresh Token rotation for a SPA, 
 
 ## Refresh Tokens and re-use detection
 
-If a previously invalidated token is used, the entire set of Refresh Tokens issued since that invalidated token was issued will immediately be revoked, requiring the end-user to re-authenticate.
-
-- Use the `/oauth/revoke` endpoint to revoke a Refresh Token. 
-
-- Use the `/api/v2/device-credentials` endpoint to revoke Refresh Tokens configured for rotation. 
-
-  ::: note
-  The `/api/v2/device-credentials` endpoint revokes the entire grant not just a specific token.
-  :::
+If a previously invalidated token is used, the entire set of Refresh Tokens issued since that invalidated token was issued will immediately be revoked along with the grant, requiring the end-user to re-authenticate.
 
 See [Revoke Refresh Tokens](/tokens/guides/revoke-refresh-tokens) for details. 
 

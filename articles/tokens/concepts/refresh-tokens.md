@@ -15,7 +15,7 @@ A Refresh Token is a special kind of token that can be used to obtain a renewed 
 
 For native applications, refresh tokens improve the authentication experience significantly. The user has to authenticate only once, through the web authentication process. Subsequent re-authentication can take place without user interaction, using the Refresh Token.
 
-Refresh Tokens [can be revoked](/tokens/guides/revoke-refresh-tokens) by the Authorization Server.
+You can increase security by using [Refresh Token rotation](/tokens/concepts/refresh-token-rotation) which issues a new Refresh Token and invalidates the predecessor token with each request made to Auth0 for a new Access Token. Rotating the Refresh Token reduces the risk of a compromised Refresh Token. 
 
 ::: panel OIDC-Conformant Apps
 The Refresh Token behavior is applicable to [OIDC-conformant applications](/api-auth/tutorials/adoption/oidc-conformant). You can configure an application to be OIDC-conformant in one of the following two ways:
@@ -25,8 +25,6 @@ The Refresh Token behavior is applicable to [OIDC-conformant applications](/api-
 
 For more information on our authentication pipeline, see [Introducing OIDC-Conformant Authentication](/api-auth/intro).
 :::
-
-You can increase security by using [Refresh Token rotation](/tokens/concepts/refresh-token-rotation) which issues a new Refresh Token and invalidates the predecessor token with each request made to Auth0 for a new Access Token. Rotating the Refresh Token reduces the risk of a compromised Refresh Token. 
 
 ## SDK support
 
@@ -77,8 +75,6 @@ For information on using Refresh Tokens with our mobile SDKs, see:
   - [Resource Owner Password Grant](/api-auth/grant/password)
   - [Device Authorization Flow](/flows/concepts/device-auth)
 
-* A SPA (normally implementing [Implicit Flow](/flows/concepts/implicit)) should not ever receive a Refresh Token. A Refresh Token is essentially a user credential that allows a user to remain authenticated indefinitely. This sensitive information should be stored securely and *not* exposed client-side in a browser.
-
 * If you are implementing an SPA using [Implicit Flow](/flows/concepts/implicit) and you need to renew a token, the only secure option for doing so is to use [Silent Authentication](/api-auth/tutorials/silent-authentication).
 
 * If you limit offline access to your API, a safeguard configured via the **Allow Offline Access** switch on the [API Settings](${manage_url}/#/apis), Auth0 will not return a Refresh Token for the API (even if you include the `offline_access` <dfn data-key="scope">scope</dfn> in your request).
@@ -96,4 +92,5 @@ For information on using Refresh Tokens with our mobile SDKs, see:
 * [Get Refresh Tokens](/tokens/guides/get-refresh-tokens)
 * [Use Refresh Tokens](/tokens/guides/use-refresh-tokens)
 * [Revoke Refresh Tokens](/tokens/guides/revoke-refresh-tokens)
+* [Refresh Token Rotation](/tokens/concepts/refresh-token-rotation)
 * [Token Storage](/tokens/concepts/token-storage)

@@ -30,6 +30,12 @@ You can revoke a Refresh Token by:
 
 To revoke a Refresh Token, you can send a `POST` request to `https://${account.namespace}/oauth/revoke`.
 
+Use the `/api/v2/device-credentials` endpoint to revoke Refresh Tokens configured for rotation. 
+
+::: note
+The `/oauth/revoke` and `/api/v2/device-credentials` endpoints revoke the entire grant not just a specific token.
+:::
+
 The API first validates the application credentials and then verifies whether the token was issued to the application making the revocation request.  If this validation fails, the request is refused, and the application is informed of the error. Next, the API invalidates the token. The invalidation takes place immediately, and the token cannot be used again after the revocation. Each revocation request invalidates all the tokens that have been issued for the same authorization grant.
 
 ```har

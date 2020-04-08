@@ -19,6 +19,10 @@ To use the Refresh Token rotation functionality, use the option `useRefreshToken
 
 If the exchange fails because `useRefreshTokens` is `true` but there isn't a Refresh Token in the cache, then it falls back to the iframe method (which could also fail if third-party cookies are blocked).
 
+With SPAs, ID and Access Tokens are obtained from the authorization server and typically cached in memory. Token renewal (due to refreshing the browser, memory cache eviction budgets, or expiration) is handled by the SDK. See [Token Storage](/tokens/concepts/token-storage) for detail. 
+
+Silent re-authentication is achieved by sending a `prompt=none` parameter upon the authentication request and using a hidden iframe, provided that there is an active user session on the authorization server. The SDK uses the iframe method if you have set `useRefreshTokens` to `true` but no Refresh Token is available in the cache. This helps users to silently migrate to using Refresh Tokens without making them log in again.
+
 ## Example
 
 The following example shows how to configure the SDK to use both local storage and refresh tokens:
@@ -42,9 +46,8 @@ await auth0.getTokenSilently();
 
 ## Keep reading
 
-* [Refresh Tokens](/tokens/concepts/refresh-tokens)
+* [Refresh Token Rotation](/tokens/concepts/refresh-token-rotation)
 * [Configure Refresh Token Rotation](/tokens/guides/configure-refresh-token-rotation)
 * [Disable Refresh Token Rotation](/tokens/guides/disable-refresh-token-rotation)
 * [Revoke Refresh Tokens](/tokens/guides/revoke-refresh-tokens)
-* [Refresh Token Rotation](/tokens/concepts/refresh-token-rotation)
 * [Token Storage](/tokens/concepts/token-storage)
