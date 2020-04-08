@@ -417,7 +417,7 @@ function login(email, password, callback) {
 
 ### MySQL
 
-```sql
+```
 function login(email, password, callback) {
   const mysql = require('mysql');
   const bcrypt = require('bcrypt');
@@ -453,7 +453,7 @@ function login(email, password, callback) {
 
 ### Oracle
 
-```sql
+```
 function login(email, password, callback) {
   const bcrypt = require('bcrypt');
   const oracledb = require('oracledb');
