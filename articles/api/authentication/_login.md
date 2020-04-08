@@ -98,6 +98,7 @@ GET https://${account.namespace}/authorize?
   client_id=${account.clientId}&
   connection=CONNECTION&
   redirect_uri=${account.callback}&
+  scope=openid%20profile%20email&
   state=STATE
 ```
 
@@ -116,6 +117,7 @@ GET https://${account.namespace}/authorize?
     clientID: '${account.clientId}', // string
     responseType: 'token', // code or token
     redirectUri: '${account.callback}',
+    scope: 'openid profile email'
     state: 'YOUR_STATE'
   });
 
@@ -141,6 +143,7 @@ Use this endpoint for browser based (passive) authentication. It returns a `302`
 | `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your application. |
 | `connection`     | The name of the connection configured to your application. If null, it will redirect to the [Auth0 Login Page](https://${account.namespace}/login) and show the Login Widget using the first database connection. |
 | `redirect_uri` <br/><span class="label label-danger">Required</span> | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
+| `scope` | OIDC scopes and custom API scopes. For example: `openid read:timesheets`. |
 | `state` <br/><span class="label label-primary">Recommended</span> | An opaque value the applications adds to the initial request that the authorization server includes when redirecting the back to the application. This value must be used by the application to prevent CSRF attacks. |
 
 
