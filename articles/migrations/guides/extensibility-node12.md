@@ -31,7 +31,7 @@ In this document, we:
 
 ## Summary of the migration
 
-The Webtask runtime powering the following Auth0 features utilize Node 8:
+The Webtask runtime powering the following Auth0 features use Node 8:
 
 * Rules
 * Hooks
