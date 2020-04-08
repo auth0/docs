@@ -198,6 +198,7 @@ function getByEmail(email, callback) {
 
 ### MongoDB
 
+```
 function getByEmail(email, callback) {
   const MongoClient = require('mongodb@3.1.4').MongoClient;
   const client = new MongoClient('mongodb://user:pass@mymongoserver.com');
