@@ -17,7 +17,7 @@ Disable Refresh Token Rotation for each application using the Management API:
 PATCH /api/v2/clients/{client_id}
 {
   "refresh_token": {
-    "rotation_type": "reusable"
+    "rotation_type": "non-rotating",
     "expiration_type": "non-expiring"
   }
 }

@@ -46,7 +46,7 @@ The following steps describe how to configure Refresh Token rotation for a SPA, 
 
     | Attribute | Description |
     | -- | -- |
-    | `rotation_type` | Text string: "rotating" or "reusable" |
+    | `rotation_type` | Text string: "rotating" or "non-rotating" |
     | `expiration_type` | Text string: "expiring" or "non-expiring" |
     | `token_lifetime` | The default Refresh Token expiration period, when Refresh Token Rotation is enabled, is 30 days (2592000 seconds). You can configure up to 90 days (7776000 seconds). |
     | `leeway` | Allow the same Refresh Token to be used within the time period to account for potential network concurrency issues that would otherwise invalidate the token should the client attempt to retry using the same Refresh Token. By default leeway is disabled. Configurable in seconds. |
