@@ -50,6 +50,7 @@ Because the PKCE-enhanced Authorization Code Flow builds upon the [standard Aut
 10. Your application can use the Access Token to call an API to access information about the user.
 11. The API responds with requested data.
 
+<%= include('../../_includes/_refresh_token_rotation_panel.md') %>
 
 ## How to implement it
 
