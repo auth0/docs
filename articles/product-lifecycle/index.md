@@ -2,7 +2,7 @@
 toc: true
 classes: topic-page
 title: Product Lifecycle
-description: Learn about the Auth0 product lifecycle, including deprecations, end-of-life, and the migration process.
+description: Learn about the Auth0 product lifecycle, including project release stages, deprecations, end-of-life, and the migration process.
 topics:
   - deprecations
   - migrations
@@ -16,9 +16,17 @@ useCase:
 
 # Product Lifecycle
 
-Learn about the Auth0 product lifecycle, including deprecations, end-of-life, and the migration process.
+When building Auth0 products, we resolve to
+
+* deliver value to customers early and often, iterating based on their feedback
+* seek a deep understanding of our customers and consider them in every decision
+* relentlessly acquire and analyze data, so we can make better choices
+* visualize and design for current, idealized, and future versions of our whole product when adding features
+
+To best serve these goals, we apply an iterative approach to product delivery, including an iterative product release lifecycle that allows us to introduce and improve upon new functionality.
 
 <%= include('../_includes/_topic-links', { links: [
+'product-lifecycle/product-release-stages',
 'product-lifecycle/deprecation-eol',
 'product-lifecycle/migrations',
 ] }) %>

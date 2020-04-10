@@ -9,9 +9,10 @@ contentType:
 useCase:
   - migrate
 ---
+
 # Migrations
 
-We are actively migrating customers to new behaviors for all **Deprecations** listed below. Please review these carefully to ensure you've taken any necessary steps to avoid service disruptions. See [Deprecation and End Of Life](/product-lifecycle/deprecation-eol) to learn more about this process.
+We are actively migrating customers to new behaviors for all **Deprecations** listed below. Please review these carefully to ensure you've taken any necessary steps to avoid service disruptions. To learn more about this process, see [Deprecation and End Of Life](/product-lifecycle/deprecation-eol).
 
 <table class="table">
   <thead>
