@@ -1623,6 +1623,9 @@ articles:
   - title: "Product Lifecycle"
     url: "/product-lifecycle"
     children:
+      - title: "Product Release Stages"
+        url: "/product-lifecycle/product-release-stages"
+
       - title: "Deprecation and End Of Life"
         url: "/product-lifecycle/deprecation-eol"
 
