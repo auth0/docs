@@ -14,7 +14,13 @@ useCase:
   - migrate
 ---
 
-# Product Lifecycle
+<div class="topic-page-header">
+  <div data-name="example" class="topic-page-badge"></div>
+  <h1>Product Lifecycle</h1>
+  <p>
+    We apply an iterative approach to product delivery, including an iterative product release lifecycle that allows us to introduce and improve upon new functionality.
+  </p>
+</div>
 
 When building Auth0 products, we resolve to
 

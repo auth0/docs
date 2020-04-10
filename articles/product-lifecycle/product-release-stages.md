@@ -56,6 +56,6 @@ Although we know that deprecations can be disruptive, they are necessary to allo
 
 We are committed to transparency, so we try to proactively notify subscribers when deprecations result in breaking changes or cause altered use of Auth0. Additionally, we try to provide end-of-life notices with accompanying recommendations for migration and replacement capabilities where available.
 
-**End Of Life**
+## End Of Life
 
 Features that reach this stage are removed from the platform. Continued use of these feature will likely result in errors.
