@@ -16,15 +16,17 @@ useCase:
 * [Resource Owner Password Credentials Exchange](/api-auth/tutorials/adoption/password)
 * [Device Authorization Flow](/flows/concepts/device-auth)
 
-Refresh Token rotation has an advantage with browser intelligent tracking prevention (ITP) mechanisms where cookies could be lost. Because of that, the Auth0 session is lost and the user has to re-authenticate With a rotating Refresh Token, there is no link with the Auth0 session, and therefore it is not affected by ITP mechanisms.
+Refresh Token Rotation offers a remediation to end-user sessions being lost due to side-effects of browser privacy mechanisms such as Intelligent Tracking Prevention (ITP) where third-party cookies could be lost or are inaccessible via the hidden iframe used with silent authentication. Because Refresh Token Rotation does not rely on access to the Auth0 session cookie, it is not affected by ITP mechanisms.
 
 ## SDK support
 
-For SPAs, use the [Auth0 SPA SDK](/libraries/auth0-spa-js) to perform silent re-authentication. Auth0 recommends that you use the [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce).
+For SPAs, use the [Auth0 SPA SDK](/libraries/auth0-spa-js) to request new access tokens and new refresh tokens. Auth0 recommends that you use the [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce).
 
 With SPAs, you have the option to use either memory or local storage to store all tokens. The SDK defaults to memory for token storage. See [Token Storage](/tokens/concepts/token-storage) for details on which option will work for your app. 
 
-For iOS, Android, Windows and any other type of app, there are no changes. 
+For iOS, make sure you update to the latest version (1.23.0 or later) of [Auth0.swift](https://auth0.com/docs/libraries/auth0-swift).
+
+For Android, make sure you update to the latest version (1.23.0 or later) of[Auth0.android](https://auth0.com/docs/libraries/auth0-android).
 
 ## Keep reading
 
