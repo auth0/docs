@@ -27,6 +27,7 @@ Various grant types are valid when registering Auth0 Applications. These can be 
 | `password` | [Resource Owner Password Grant](/api-auth/grant/password) |
 | `refresh_token` | [Use Refresh Tokens](/tokens/guides/use-refresh-tokens) |
 |  `urn:ietf:params:oauth:grant-type:device_code` | [Device Authorization Grant](/flows/concepts/device-auth) |
+| `urn:ietf:params:oauth:grant-type:token-exchange` | [On-Behalf-Of Grant](/flows/concepts/on-behalf-of) |
 
 ## Auth0 extension grants
 

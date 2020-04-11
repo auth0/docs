@@ -481,6 +481,9 @@ articles:
           - title: Device Authorization
             url: /flows/guides/device-auth/call-api-device-auth
 
+          - title: On-Behalf-Of
+            url: /flows/guides/on-behalf-of/call-api-on-behalf-of
+
           - title: Implicit
             url: /flows/guides/implicit/call-api-implicit
             children:

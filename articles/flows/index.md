@@ -87,4 +87,15 @@ We support scenarios for server-side, mobile, desktop, client-side, machine-to-m
       </li>
     </ul>
   </li>
+  <li>
+      <i class="icon icon-budicon-715"></i><a href="/flows/concepts/on-behalf-of">On-Behalf-Of Flow</a>
+    <p>
+      With applications that access APIs via a middle-tier API, it can be useful to allow an API to get Access Tokens for other APIs using only the Access Token already issued for itself&mdash;and without additional user interaction. To do this, a source API uses a version of the Token Exchange Flow (drafted in OAuth 2.0) to initiate a second authorization process and get an Access Token for another, target API.
+    </p>
+    <ul>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/flows/guides/on-behalf-of/call-api-on-behalf-of">Call API Using the On-Behalf-Of Flow</a>
+      </li>
+    </ul>
+  </li>
 </ul>
