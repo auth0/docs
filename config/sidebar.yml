@@ -1936,6 +1936,39 @@ articles:
       - title: "Packages"
         url: "/services/packages"
 
+      - title: "Gallery"
+        url: "/services/gallery"
+        children:
+          - title: "Anonymous Browsing"
+            url: "/services/gallery/anonymous-browsing"
+
+          - title: "Continuous Deployment"
+            url: "/services/gallery/continuous-deployment"
+
+          - title: "Continuous Integration"
+            url: "/services/gallery/continuous-integration"
+
+          - title: "GDPR"
+            url: "/services/gallery/gdpr"
+
+          - title: "Organizational Branding"
+            url: "/services/gallery/organizational-branding"
+
+          - title: "SCIM"
+            url: "/services/gallery/scim"
+
+          - title: "Sign-up by Invitation"
+            url: "/services/gallery/scim"
+
+          - title: "Progressive Profiling"
+            url: "/services/gallery/progressive-profiling"
+
+          - title: "SwissID"
+            url: "/services/gallery/swissid"
+
+          - title: "Verified Email Address Change"
+            url: "/services/gallery/verified-email-address-change"
+
       - title: "Architectural Design Sessions"
         url: "/services/architectural-design"
         hidden: true
