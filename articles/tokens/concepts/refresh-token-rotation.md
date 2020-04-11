@@ -16,17 +16,17 @@ useCase:
 * [Resource Owner Password Credentials Exchange](/api-auth/tutorials/adoption/password)
 * [Device Authorization Flow](/flows/concepts/device-auth)
 
-Refresh Token Rotation offers a remediation to end-user sessions being lost due to side-effects of browser privacy mechanisms such as Intelligent Tracking Prevention (ITP) where third-party cookies could be lost or are inaccessible via the hidden iframe used with silent authentication. Because Refresh Token Rotation does not rely on access to the Auth0 session cookie, it is not affected by ITP mechanisms.
+# Maintaining User Sessions in Single Page Applications (SPAs)
+
+Until very recently, SPAs overcame the challenge of maintaining the user’s session by using the Authorization Code Flow with PKCE in conjunction with [Silent Authentication](https://auth0.com/docs/api-auth/tutorials/silent-authentication). Recent developments in browser privacy technology, such as Intelligent Tracking Prevention (ITP) prevent access to the Auth0 session cookie, thereby requiring users to reauthenticate. 
+
+Refresh Token Rotation offers a remediation to end-user sessions being lost due to side-effects of browser privacy mechanisms. Because Refresh Token Rotation does not rely on access to the Auth0 session cookie, it is not affected by ITP or similar mechanisms.
 
 ## SDK support
 
-For SPAs, use the [Auth0 SPA SDK](/libraries/auth0-spa-js) to request new access tokens and new refresh tokens. Auth0 recommends that you use the [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce).
-
-With SPAs, you have the option to use either memory or local storage to store all tokens. The SDK defaults to memory for token storage. See [Token Storage](/tokens/concepts/token-storage) for details on which option will work for your app. 
-
-For iOS, make sure you update to the latest version (1.23.0 or later) of [Auth0.swift](https://auth0.com/docs/libraries/auth0-swift).
-
-For Android, make sure you update to the latest version (1.23.0 or later) of[Auth0.android](https://auth0.com/docs/libraries/auth0-android).
+* For SPAs, use the [Auth0 SPA SDK](/libraries/auth0-spa-js) to request new access tokens and new refresh tokens. Auth0 recommends that you use the [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce). With SPAs, you have the option to use either memory or local storage to store all tokens. The SDK defaults to memory for token storage. See [Token Storage](/tokens/concepts/token-storage) for details on which option will work for your app. 
+* For iOS, make sure you update to the latest version (1.23.0 or later) of [Auth0.swift](https://auth0.com/docs/libraries/auth0-swift).
+* For Android, make sure you update to the latest version (1.23.0 or later) of [Auth0.android](https://auth0.com/docs/libraries/auth0-android).
 
 ## Keep reading
 
