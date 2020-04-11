@@ -1924,15 +1924,21 @@ articles:
   - title: "Professional Services"
     url: "/services"
     children:
-      - title: "Discover & Design"
-        url: "/services/discover-and-design"
+      - title: "Discover"
+        url: "/services/discover"
+
+      - title: "Architect"
+        url: "/services/architect"
+
+      - title: "Design"
+        url: "/services/design"
 
       - title: "Implement"
         url: "/services/implement"
 
       - title: "Maintain and Improve"
-        url: "/services/maintain-and-improve"
-        
+        url: "/services/maintain-and-improve"        
+
       - title: "Packages"
         url: "/services/packages"
 

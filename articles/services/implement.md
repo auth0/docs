@@ -31,11 +31,12 @@ In addition, our Custom Implementation services&mdash;delivered as part of a num
 
 * **Custom APIs and libraries:** Solve service communication, user experience, or tenant management problem through the use of a custom web services endpoint or code library. Typically deployed on customer or third-party infrastructure.
 
-* **Custom utilities:** Solve quality assurance or operations problems that are out-of-band from extending core product functionality, such as performance testing or deployment scripts.
+* **Custom utilities:** Solve quality assurance or operations problems that are out-of-band from existing core product functionality (such as performance testing, or deployment script creation).
 
 ## Keep reading
 
-* [Discover & Design](/services/discover-and-design)
+* [Discover](/services/discover)
+* [Architect & Design](/services/architect-and-design)
 * [Maintain and Improve](/services/maintain-and-improve)
 * [Packages](/services/packages)
 

@@ -1,18 +1,20 @@
 ---
-title: Discover & Design
-description: Learn how Professional Services can help you design and architect your Auth0 solution.
+title: Architect & Design
+description: Learn how Professional Services can help you architect and design your Auth0 solution.
 toc: true
 topics:
     - ps
     - design
+    - architect
 contentType: concept
 useCase:
   - design
+  - architect
   - solution-design
 ---
-# Discover & Design
+# Architect & Design
 
-The first stage in a successful implementation involves discovering, designing, and architecting your Identity and Access Management solution, and our Discover & Design services are here to help. We work together with your product and engineering teams to **architect an Identity solution** for your environment and build an **incremental Go-Live plan** that solves the most-pressing identity problems early. Auth0 Professional Services help your projects quickly reach success by addressing your business objectives in a pragmatic, step-by-step manner. 
+Our Architecture & Design services are here to help you architect and design your Identity and Access Management solution. We work together with your product and engineering teams to **architect an Identity solution** for your environment and build on your **incremental Go-Live plan** in a way that addresses the most-pressing identity problems early. Auth0 Professional Services helps your projects quickly reach success by addressing your business objectives in a pragmatic, step-by-step manner. 
 
 <%= include('./_includes/_further-help.md') %>
 
@@ -26,6 +28,7 @@ Guiding you through your use case scenarios, our Scenario Guidance services help
 
 ## Keep reading
 
+* [Discover](/services/discover)
 * [Implement](/services/implement)
 * [Maintain and Improve](/services/maintain-and-improve)
 * [Packages](/services/packages)

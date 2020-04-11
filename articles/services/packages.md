@@ -13,9 +13,11 @@ useCase:
 ---
 # Professional Service Packages
 
-Auth0 Professional Services provides packaged offerings designed to optimize our customers' investments in Auth0 by helping design, deploy, implement, and maintain solutions based on proven practices, which allows our customers to avoid common pitfalls and reduces risk. Packaged offerings generally fall into two main categories: Discover, Design, and Implement packages, and Maintain and Improve packages. To get more information and to order any of these service offerings, please contact your Auth0 Account Representative.
+Auth0 Professional Services provides packaged offerings designed to optimize our customers' investments in Auth0. Packaged offerings generally fall into two main categories: Discover, Architect, Design, and Implement packages, together with Maintain and Improve packages, and are all based on proven best practices designed to help customers avoid common pitfalls and reduce risk. 
 
-## Discover, Design, and Implement packages
+Auth0 Professional Services packages can be consumed in a mix-and-match fashion to provide you with expert help as and when you need it: take a Discovery Workshop followed by a Basic or Standard package, or opt for a Standard or an Advanced Package from the start, the choice is your. To get more information and to order any of these service packages, please contact your Auth0 Account Representative.
+
+## Discover, Architect, Design, and Implement packages
 
 <h3 class="anchor-heading">
 	<span class="anchor"><i class="icon icon-budicon-345"></i></span>
@@ -23,13 +25,13 @@ Auth0 Professional Services provides packaged offerings designed to optimize our
 		<img src="/media/articles/services/file_type_icons-04.png" alt="">&nbsp;Discovery Workshop</a>
 </h3>
 
-* 2 days of services
+Our Discovery Workshop (click link above for more information) provides you with access to just our [Discovery](services/discover) sevices and nothing more. This is an ideal engagement if you have mature identity skills within your organization, existing experience with Auth0, and are looking to get a new project validated by one of our experienced Solution Architects. A typical Discovery Workshop (terms and conditions apply) offers: 
+
+* 2 days (16 hours) of services
 * Remote/on-site, as mutually agreed
-* Expires in 90 days
-* Terms and Conditions apply
-* Services typically included:
-  * [Architectural Discovery](/services/discover-and-design#architectural-discovery)
-  * [Scenario Guidance](/services/discover-and-design#scenario-guidance)
+* Expiration in 90 days
+* Services included:
+  * [Architectural Analysis](/services/architect#architectural-analysis)
 
 <h3 class="anchor-heading">
 	<span class="anchor"><i class="icon icon-budicon-345"></i></span>
@@ -37,13 +39,15 @@ Auth0 Professional Services provides packaged offerings designed to optimize our
 		<img src="/media/articles/services/file_type_icons-04.png" alt="">&nbsp;Basic Package</a>
 </h3>
 
-* 5 days of services
-* Remote only
-* Expires in 90 days
+An entry level to Professional Services, the Basic Package (click link above for more information) provides you with access to our [Discovery](services/discover) sevice, together with a range of the other services we have to offer; see below for further details. This is an ideal engagement if you have identity skills within your organization, and are looking to get expert help as you get a new project integrated with Auth0. A typical Basic Package (terms and conditions apply) offers: 
+
+* 5 days (40 hours) of services
+* Remote/on-site, as mutually agreed
+* Typically expires in 90 days
 * Terms and Conditions apply
-* Services typically included:
-  * [Architectural Discovery](/services/discover-and-design#architectural-discovery)
-  * [Scenario Guidance](/services/discover-and-design#scenario-guidance)
+* Services included:
+  * [Architectural Analysis](/services/architect#architectural-analysis)
+  * [Scenario Guidance](/services/design#scenario-guidance)
   * [Programming Advisory](/services/implement#programming-advisory)
   * [Deployment Preparation](/services/implement#deployment-preparation)
 
@@ -53,16 +57,17 @@ Auth0 Professional Services provides packaged offerings designed to optimize our
 		<img src="/media/articles/services/file_type_icons-04.png" alt="">&nbsp;Standard Package</a>
 </h3>
 
-* 12 days of services
+Arguably the classic way to engage with Professional Services, our Standard Package (click link above for more information) provides you with access to [Discovery](services/discover), and the wide range of additional services as described below. This is an ideal engagement if you've just begun working with Auth0, and you're looking for expertise and specialist advice as you get a new project integrated. A typical Standard Package (terms and conditions apply) offers: 
+
+* 12 days (96 hours) of services
 * Remote/on-site, as mutually agreed
-* Expires in 180 days
-* Terms and Conditions apply
-* Services typically included:
-  * [Architectural Discovery](/services/discover-and-design#architectural-discovery)
-  * [Scenario Guidance](/services/discover-and-design#scenario-guidance)
+* Typically expires in 180 days
+* Services included:
+  * [Architectural Analysis](/services/architect#architectural-analysis)
+  * [Scenario Guidance](/services/design#scenario-guidance)
   * [Programming Advisory](/services/implement#programming-advisory)
   * [Deployment Preparation](/services/implement#deployment-preparation)
-  * Some [Custom Implementation](/services/implement#custom-implementation)
+  * Extensibility based [Custom Implementation](/services/implement#custom-implementation)
 
 <h3 class="anchor-heading">
 	<span class="anchor"><i class="icon icon-budicon-345"></i></span>
@@ -70,13 +75,14 @@ Auth0 Professional Services provides packaged offerings designed to optimize our
 		<img src="/media/articles/services/file_type_icons-04.png" alt="">&nbsp;Advanced Package</a>
 </h3>
 
-* 25 days of services
-* On-site
-* Expires in 180 days
-* Terms and Conditions apply
-* Services typically included:
-  * [Architectural Discovery](/services/discover-and-design#architectural-discovery)
-  * [Scenario Guidance](/services/discover-and-design#scenario-guidance)
+The full range of Professional Services delivered in a comprehensive manner, the Advanced Package provides access to [Discovery](services/discover) as well as all the other services described below. If you have several projects, project requirements and/or teams, that need to leverage a broad range of identity skills with varying degress of specialism, then this is the engagement for you. A typical Advanced Package (terms and conditions apply) offers: 
+
+* 25 days (200 hours) of services
+* Remote/on-site, as mutually agreed
+* Typically expires in 180 days
+* Services included:
+  * [Architectural Analysis](/services/architect#architectural-analysis)
+  * [Scenario Guidance](/services/design#scenario-guidance)
   * [Programming Advisory](/services/implement#programming-advisory)
   * [Deployment Preparation](/services/implement#deployment-preparation)
   * [Custom Implementation](/services/implement#custom-implementation)
@@ -89,11 +95,11 @@ Auth0 Professional Services provides packaged offerings designed to optimize our
 
 * 15 or more days of services
 * Remote only
-* Expires in 180 days
+* Typically expires in 180 days
 * Terms and Conditions apply
 * Full range of [Custom Implementation](/services/implement#custom-implementation) services, including:
-  * [Architectural Discovery](/services/discover-and-design#architectural-discovery), 
-  * [Scenario Guidance](/services/discover-and-design#scenario-guidance) and 
+  * [Architectural Analysis](/services/architect#architectural-analysis)
+  * [Scenario Guidance](/services/design#scenario-guidance)
   * [Programming Advisory](/services/implement#programming-advisory)
   
 ## Maintain and Improve packages
@@ -106,7 +112,7 @@ Auth0 Professional Services provides packaged offerings designed to optimize our
 
 * 1 to 3 days of services
 * Remote/on-site, as mutually agreed
-* Expires in 90 days
+* Typically expires in 90 days
 * Terms and Conditions apply
 * Wide range of [maintain and improve](/services/maintain-and-improve) services
  
@@ -119,13 +125,15 @@ Auth0 Professional Services provides packaged offerings designed to optimize our
 
 * 24 days of services
 * On-site
-* Expires in 365 days
+* Typically expires in 365 days
 * Terms and Conditions apply
 * Full range of [maintain and improve](/services/maintain-and-improve) services
 
 
 ## Keep reading
 
-* [Discover & Design](/services/discover-and-design)
+* [Discover](/services/discover)
+* [Architect](/services/architect)
+* [Design](/services/design)
 * [Implement](/services/implement)
 * [Maintain and Improve](/services/maintain-and-improve)
