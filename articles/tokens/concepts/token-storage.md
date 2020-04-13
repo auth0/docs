@@ -76,6 +76,8 @@ Auth0 recommends storing tokens in browser memory as the most secure option. Usi
 
 If you cannot use Web Workers, Auth0 recommends as an alternative that you use [JavaScript closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures#Emulating_private_methods_with_closures) to emulate private methods.
 
+ Use [auth0-spa-js](https://github.com/auth0/auth0-spa-js) whose default storage option is in-memory storage. It leverages both Web Workers and JavaScript closures depending on the type of token.
+
 ::: warning
 The in-memory method for browser storage **does not** provide persistence across page refreshes and browser tabs. 
 :::
