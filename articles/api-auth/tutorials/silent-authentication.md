@@ -15,6 +15,12 @@ useCase:
 
 The <dfn data-key="openid">OpenID Connect protocol</dfn> supports a `prompt=none` parameter on the authentication request that allows applications to indicate that the authorization server must not display any user interaction (such as authentication, consent or MFA). Auth0 will either return the requested response back to the application or return an error if the user is not already authenticated, or that some type of consent or prompt is required before proceeding.
 
+Use of the [Implicit Flow](/flows/concepts/implicit) in SPAs presents some challenges requiring explicit mitigation strategies. You can use the [Authorization Code Flow with PKCE](/flows/concepts/auth-code-pkce) in conjunction with Silent Authentication to renew sessions in SPAs with no adverse UX.
+
+::: panel Alternative Method: Refresh Token Rotation
+Recent advancements in user privacy controls in browsers adversely impact the user experience by preventing access to third-party cookies. You can use [Refresh Token Rotation](/tokens/concepts/refresh-token-rotation) as an alternative that provides a secure method for using refresh tokens in SPAs while providing end-users with seamless access to resources without the disruption in UX caused by browser privacy technology like ITP.
+:::
+
 Your SPAs can use this flow to renew tokens as explained below.
 
 ## Initiate Silent Authentication requests
@@ -47,7 +53,7 @@ Any applicable [rules](/rules) will be executed as part of the silent authentica
 
 If the user was already logged in to Auth0 and no other interactive prompts are required, Auth0 will respond exactly as if the user had authenticated manually through the login page.
 
-For example, when using the [Implicit Flow](/flows/concepts/implicit) (`response_type=id_token token`, used for single-page applications), Auth0 will respond with the requested tokens:
+For example, when using the Implicit Flow, (`response_type=id_token token`, used for single-page applications), Auth0 will respond with the requested tokens:
 
 ```text
 GET ${account.callback}
@@ -83,8 +89,6 @@ If any of these errors are returned, the user must be redirected to the Auth0 lo
 ## Renew expired tokens
 
 You can make a silent authentication request to get new tokens as long as the user still has a valid session at Auth0. The [`checkSession` method from auth0.js](/libraries/auth0js#using-checksession-to-acquire-new-tokens) uses a silent token request in combination with `response_mode=web_message` for SPAs so that the request happens in a hidden iframe. With SPAs, Auth0.js handles the result processing (either the token or the error code) and passes the information through a callback function provided by the application. This results in no UX disruption (no page refresh or lost state).
-
-You can also use [Refresh Token Rotation](/tokens/concepts/refresh-token-rotation) as an alternative. 
 
 ::: note
 See [Renew Tokens When Using Safari](/api-auth/token-renewal-in-safari) for other important limitations and workarounds with the Safari browser. 

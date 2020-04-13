@@ -30,7 +30,7 @@ For more information on our authentication pipeline, see [Introducing OIDC-Confo
 
 ### Web apps
 
-Auth0 SDKs support Refresh Tokens out of the box including: 
+Auth0 SDKs support Refresh Tokens including: 
 
 - [Node.js](/quickstart/webapp/nodejs)
 - [ASP.NET Core](/quickstart/webapp/aspnet-core)
@@ -41,23 +41,11 @@ For a complete listing, see [Quickstarts](/quickstart/webapp).
 
 ### Single-page apps
 
-[Silent Authentication](/api-auth/tutorials/silent-authentication) is the method that is used to refresh a token for web apps that execute in a browser. [Auth0.js](/libraries/auth0js), our client-side library, provides methods for this functionality:
+Providing secure authentication in SPAs has a number of challenges based on your application’s use case. The former guidance of using the Implicit Grant to provide access tokens (ATs) to SPAs is fairly straightforward, but carries with it several security risks that each require explicit mitigations you must account for. If you want a more detailed exposition on the challenges of using the Implicit Flow in SPAs, please read this blog article [OAuth2 Implicit Grant and SPA](https://auth0.com/blog/oauth2-implicit-grant-and-spa/).
 
-- The `authorize` method, redirects the user to the `/authorize` endpoint, to log in and provide consent.
-- The `parseHash` method, parses a URL hash fragment to extract the result of an Auth0 authentication response.
-- The `checkSession` method, attempts to get a new token from Auth0, using [silent authentication](/api-auth/tutorials/silent-authentication). For more details refer to [Using checkSession to Acquire New Tokens](/libraries/auth0js#using-checksession-to-acquire-new-tokens). 
-- The Auth0-spa-js SDK supports Refresh Token rotation capabilities.
+Auth0’s guidance to date is to use the [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce) in conjuntion with [Silent Authentication](/api-auth/tutorials/silent-authentication) in SPAs. This is a much more secure solution than the Implicit Flow. The Authorization Code Flow with PKCE returns an Access Token, but best practices state that Access Tokens should be short-lived to minimize risk. Providing a good user experience while using short-lived Access Tokens requires a means for getting new tokens without continually prompting the user. 
 
-An example is as follows:
-
-```js
-auth0.checkSession({
-  audience: 'https://mystore.com/api/v2',
-  scope: 'read:order write:order'
-  }, function (err, authResult) {
-    // Renewed tokens or error
-});
-```
+Because of recent browser changes to address user privacy concerns, there are unfortunate impacts on how SPAs interact with authorization servers like Auth0. We recommend using [Refresh Token Rotation](/tokens/concepts/refresh-token-rotation) with reuse detection that invalidates a refresh token and issues a new one whenever it is used to refresh an Access Token. 
 
 ### Native/Mobile apps
 

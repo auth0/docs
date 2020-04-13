@@ -156,4 +156,4 @@ To revoke the user's access to an authorized application, and hence invalidate t
 * [ID Tokens](/tokens/concepts/id-tokens)
 * [Get Refresh Tokens](/tokens/guides/get-refresh-tokens)
 * [Use Refresh Tokens](/tokens/guides/use-refresh-tokens)
-* [Refresh Tokens and Reuse Detection](/tokens/guides/configure-refresh-token-rotation#refresh-tokens-and-re-use-detection)
+* [Refresh Tokens and Reuse Detection](/tokens/guides/configure-refresh-token-rotation#refresh-tokens-and-reuse-detection)

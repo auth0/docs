@@ -10,11 +10,13 @@ useCase:
 ---
 # Refresh Token Rotation
 
-[Refresh Token](/tokens/concepts/refresh-tokens) rotation provides greater security by issuing a new Refresh Token and invalidating its predecessor token with each request made to Auth0 for a new [Access Token](/tokens/cocncepts/access-tokens). The way Refresh Token rotation works in Auth0 conforms with the [OAuth 2.0 BCP](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-13#section-4.12) and works with the following flows:
+With Refresh Token Rotation enabled, every time a client exchanges a [Refresh Token](/tokens/concepts/refresh-tokens) to get a new [Access Token](/tokens/cocncepts/access-tokens), a new Refresh Token is also returned. Therefore, you no longer have a long-lived Refresh Token that, if compromised, could provide illegitimate access to resources. As Refresh Tokens are continually exchanged and invalidated, the threat is reduced. 
+
+The way Refresh Token rotation works in Auth0 conforms with the [OAuth 2.0 BCP](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-13#section-4.12) and works with the following flows:
 * [Authorization Code Flow](/flows/concepts/auth-code)
 * [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce)
-* [Resource Owner Password Credentials Exchange](/api-auth/tutorials/adoption/password)
 * [Device Authorization Flow](/flows/concepts/device-auth)
+* [Resource Owner Password Credentials Exchange](/api-auth/tutorials/adoption/password)
 
 ## Maintaining user sessions in SPAs
 
@@ -26,11 +28,36 @@ The following state diagram illustrates how Refresh Token Rotation is used in co
 
 ![Refresh Token Rotation State Diagram](/media/articles/tokens/rtr-state-diagram.png)
 
+This means that you can safely use Refresh Tokens to mitigate the adverse effects of browser privacy tools and provide continuous access to end-users without disrupting the user experience.
+
+## Automatic reuse detection
+
+When a client needs a new Access Token, it sends the Refresh Token with the request to Auth0 to get a new token pair. As soon as the new pair is issued by Auth0, the Refresh Token used in the request is invalidated. This helps safeguard your app from replay attacks resulting from compromised tokens.
+
+Without enforcing sender-constraint, it’s impossible for the authorization server to know which actor is legitimate or malicious in the event of a replay attack. Therefore, it’s important that when a previously-used Refresh Token (already invalidated) is sent to the authorization server that the most recently issued Refresh Token is immediately invalidated as well, preventing any Refresh Tokens in the same token family (all Refresh Tokens descending from the original Refresh Token issued for the client) from being used to get new Access Tokens.
+
+For example, consider the following scenario: 
+1. Legitimate Client has **Refresh Token 1**, and it is leaked to or stolen by Malicious Client. 
+2. Legitimate Client uses **Refresh Token 1** to get a new Refresh Token/Access Token pair.
+Auth0 returns **Refresh Token 2/Access Token 2**.
+3. Malicious Client then attempts to use **Refresh Token 1** to get an Access Token. Auth0 recognizes that Refresh Token 1 is being reused, and immediately invalidates the Refresh Token family, including **Refresh Token 2**.
+4. Auth0 returns an **Access Denied** response to Malicious Client.
+5. **Access Token 2** expires and Legitimate Client attempts to use **Refresh Token 2** to request a new token pair. Auth0 returns an **Access Denied** response to Legitimate Client.
+6. Re-authentication is required.
+
+![Reuse Detection](/media/articles/tokens/reuse-detection.png)
+
+This protection mechanism works regardless of whether the legitimate client or the malicious client is able to exchange **Refresh Token 1** for a new token pair before the other. As soon as reuse is detected, all subsequent requests will be denied until the user re-authenticates. When reuse is detected, Auth0 captures this event in logs to provide visibility for security reviews and audits. This can be especially useful in conjunction with Auth0’s log streaming capabilities.
+
 ## SDK support
 
-* For SPAs, use the [Auth0 SPA SDK](/libraries/auth0-spa-js) to request new access tokens and new refresh tokens. Auth0 recommends that you use the [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce). With SPAs, you have the option to use either memory or local storage to store all tokens. The SDK defaults to memory for token storage. See [Token Storage](/tokens/concepts/token-storage) for details on which option will work for your app. 
-* For iOS, make sure you update to the latest version (1.23.0 or later) of [Auth0.swift](/libraries/auth0-swift).
-* For Android, make sure you update to the latest version (1.23.0 or later) of [Auth0.android](/libraries/auth0-android).
+The following SDKs include support for Refresh Token Rotation and automatic reuse detection. 
+
+* [Auth0 SPA SDK](/libraries/auth0-spa-js)
+* [Auth0 Swift (iOS) SDK](/libraries/auth0-swift)
+* [Auth0 Android SDK](/libraries/auth0-android).
+
+You can opt-in to storing tokens in either local storage or browser memory, the default being in browser memory. See [Token Storage](/tokens/concepts/token-storage) for details.
 
 ## Keep reading
 
@@ -38,5 +65,4 @@ The following state diagram illustrates how Refresh Token Rotation is used in co
 * [Use Refresh Token Rotation](/tokens/guides/use-refresh-token-rotation)
 * [Revoke Refresh Tokens](/tokens/guides/revoke-refresh-tokens)
 * [Disable Refresh Token Rotation](/tokens/guides/disable-refresh-token-rotation)
-* [Token Storage](/tokens/concepts/token-storage)
 * [OAuth 2.0 BCP](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-13#section-4.12)
