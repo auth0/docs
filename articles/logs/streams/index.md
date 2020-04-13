@@ -36,6 +36,7 @@ You can troubleshoot potential issues with your stream by looking in the `Health
 | Disabled | We have disabled your stream because of successive errors. You may click the `Restart Stream` option at any time to change the status back to `Active` and re-attempt delivery for this stream|
 
 ![Pause a Stream](/media/articles/logs/health/pause-a-stream.png)
+
 ## Delivery Errors
 
 In order to assist you with diagnosing issues with your stream, you can see the last 10 errors we encountered while attempting to deliver logs to your stream in the last 24h.
