@@ -56,7 +56,7 @@ General Availability (GA) releases are fully functional and available to all sub
 
 Deprecated features are not supported for use by new subscribers, are not actively being enhanced, and are being only minimally maintained. <dfn data-key="tenant">Tenants</dfn> using the feature at the time of deprecation will continue to have access. 
 
-Deprecation begins when we identify a feature or behavior that must be modified or removed and will result in a <dfn data-key="migration">breaking change</dfn> and ends when the referenced feature or behavior moves into the End of Life product release stage. During Deprecation, customers should engage in a <dfn data-key="migration">migration</dfn> to move away from the deprecated feature or behavior. To learn more, see [Migration Process](/product-lifecycle/migration-process).
+Deprecation begins when we introduce new behavior that customers would experience as a <dfn data-key="migration">breaking change</dfn> without mediation and ends when the old behavior moves into the End of Life product release stage. During Deprecation, customers should engage in a <dfn data-key="migration">migration</dfn> to move away from the deprecated feature or behavior. To learn more, see [Migration Process](/product-lifecycle/migration-process).
 
 Although we know that deprecations can be disruptive, they are necessary to allow us to upgrade technology, improve security and quality, and continue to invest in resources that provide the most value for our customers.
 
