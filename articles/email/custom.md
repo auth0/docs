@@ -26,6 +26,9 @@ Using a [Rule](/rules), you can call your API when a user logs in for the first 
 
 ```js
 function (user, context, callback) {
+
+  const request = require('request');
+
   user.user_metadata = user.user_metadata || {};
   if (user.email_verified || user.user_metadata.verification_email_sent) {
     return callback(null, user, context);
@@ -71,6 +74,9 @@ A welcome email is sent to users once they have verified their email address. Th
 
 ```js
 function (user, context, callback) {
+
+  const request = require('request');
+
   if (!user.email_verified || user.welcome_email_sent) {
     return callback(null, user, context);
   }
