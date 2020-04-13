@@ -70,7 +70,7 @@ When the SPA calls multiple APIs that reside in a different domain, access and o
 
 - If you have a SPA with **no** corresponding backend server, your SPA should request new tokens on login and store them in memory without any persistence. To make API calls, your SPA would then use the in-memory copy of the token.
 
-<%= include('./_includes/_rtr_enabled') %>
+<%= include('../_includes/_rtr_enabled') %>
 
 ### Browser in-memory scenarios
 

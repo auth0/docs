@@ -19,7 +19,7 @@ To use Refresh Token rotation, you will use the [Auth0 Single Page App SDK](/lib
 
 ## Enable useRefreshTokens
 
-<%= include('./_includes/_rtr_enabled') %>
+<%= include('../_includes/_rtr_enabled') %>
 
 Use the option `useRefreshTokens` on `createAuth0Client` which defaults to `false`. With this option set to `false`, when `getTokenSilently()` is invoked and a new Access Token is required, the SDK attempts to acquire a new Access Token using a hidden iframe and `prompt=none`.
 
