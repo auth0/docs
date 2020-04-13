@@ -26,7 +26,7 @@ Even if using email or SMS can be more secure than a weak password, they have kn
 
 - Having an email address is not sufficient for user authentication (aliases, forwarding, multiple users in one account are all examples). Email providers vary in their security practices and some do not require any establishment of a user's identity. SMTP is a very old protocol, and many providers still route SMTP traffic unencrypted leading to an increased chance of an interception attack. 
 
-We recommend that if you use passwordless authentication, you also implement [Multi-factor Authentication (MFA)](/multifactor-authentication) with a different factor when the user performs a security-sensitive operation.
+We recommend that if you use passwordless authentication, you also implement [Multi-factor Authentication (MFA)](/mfa) with a different factor when the user performs a security-sensitive operation.
 
 ## Preventing Phishing Attacks
 

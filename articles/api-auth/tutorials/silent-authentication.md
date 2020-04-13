@@ -134,8 +134,10 @@ function (user, context, callback) {
 }
 ```
 
+See [Change Authentication Request Frequency](/mfa/guides/customize-mfa-universal-login#change-authentication-request-frequency) for details.
+
 ## Keep reading
 
-* [Customize Multi-Factor Authentication](/multifactor-authentication/custom#change-authentication-request-frequency)
 * [Refresh Token Rotation](/tokens/concepts/refresh-token-rotation)
 * [Configure Refresh Token Rotation](/tokens/guides/configure-refresh-token-rotation)
+

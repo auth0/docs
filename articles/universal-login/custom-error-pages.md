@@ -96,7 +96,7 @@ To provide the appropriate HTML, pass in a string containing the appropriate Liq
     "queryString" : [],
     "postData": {
         "mimeType": "application/json",
-    "text": "{\"error_page\": {\"html\": \"<h1>{{error} {{error_description}} This error was generated {{'now' | date: '%Y %h'}}.</h1>\", \"show_log_link\": false, \"url\": \"\"}}"
+    "text": "{\"error_page\": {\"html\": \"<h1>{{error}} {{error_description}} This error was generated {{'now' | date: '%Y %h'}}.</h1>\", \"show_log_link\": false, \"url\": \"\"}}"
     },
     "headersSize" : -1,
     "bodySize" : -1,

@@ -193,6 +193,18 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
   </tbody>
 </table>
 
+#### Concurrent import users jobs
+
+The [create import users job](/api/management/v2#!/Jobs/post_users_imports) endpoint has a limit of two concurrent import jobs. Requesting additional jobs while there are two pending returns a `429 Too Many Requests` response:
+
+```json
+{
+  "statusCode": 429,
+  "error": "Too Many Requests",
+  "message": "There are 2 active import users jobs, please wait until some of them are finished and try again
+}
+```
+
 #### Access tokens for SPAs
 
 If you obtain Access Tokens for your SPAs, note that there are rate limits that are applicable when working with the available `current_user`-related [scopes and endpoints](/api/management/v2/get-access-tokens-for-spas#available-scopes-and-endpoints). You are allowed a maximum of **10 requests per minute per user**.
@@ -339,7 +351,7 @@ For database connections, Auth0 limits certain types of repeat login attempts de
 
 ## Limits on SMS Messages for MFA
 
-There's a limit of 10 SMS messages/hour per user for multi-factor authentication. For more information, see [Configuring Twilio for SMS](/multifactor-authentication/twilio-configuration).
+There's a limit of 10 SMS messages/hour per user for multi-factor authentication. For more information, see [Configure SMS Notifications for MFA](/mfa/guides/configure-sms).
 
 ## Limits on Native Social Logins
 

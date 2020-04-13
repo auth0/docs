@@ -14,11 +14,15 @@ useCase:
   
 You can enable third-party applications for your tenant. See [First-Party and Third-Party Applications](/applications/concepts/app-types-first-third-party) for details on the differences between the two types of applications. 
 
-1. [Promote the connections you will use with third-party applications to domain level](/api/management/guides/connections/promote-connection-domain-level) in Auth0.
+1. [Update your application's ownership to third-party](/api/management/guides/applications/update-ownership) in Auth0.
+
+    By default, applications registered in Auth0 are first-party applications. If you want your application to be a third-party application, you must update its ownership.
+
+2. [Promote the connections you will use with third-party applications to domain level](/api/management/guides/connections/promote-connection-domain-level) in Auth0.
 
     Third-party applications can only authenticate users from [connections](/connections) flagged as domain-level connections. Domain-level connections can be enabled for selected first-party applications while also being open to all third-party application users for authentication.
     
-2. Update your application's login page. If you use [Lock](/libraries/lock/v11) in the [Universal Login Page](/universal-login/classic), you must also:
+3. Update your application's login page. If you use [Lock](/libraries/lock/v11) in the [Universal Login Page](/universal-login/classic), you must also:
 
   - Upgrade to Lock version 11 or later
   - Set the `__useTenantInfo: config.isThirdPartyClient` flag when instantiating Lock

@@ -36,7 +36,7 @@ Auth0 provides outbound [SSO Integrations](/integrations/sso) for the following 
 - [Egnyte](/integrations/sso/egnyte)
 - [New Relic](/integrations/sso/new-relic)
 - [Office 365](/integrations/sso/office-365)
-- [SalesForce](/integrations/sso/salesforce)
+- [Salesforce](/integrations/sso/salesforce)
 - [SharePoint](/integrations/sso/sharepoint)
 - [Slack](/integrations/sso/slack)
 - [SpringCM](/integrations/sso/springcm)

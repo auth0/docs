@@ -24,7 +24,7 @@ This tutorial shows you how to create a simple API using [Express](https://expre
 
 <%= include('../_includes/_calling_api_create_api') %>
 
-<%= include('../_includes/_calling_api_create_backend.md') %>
+<%= include('../_includes/_calling_api_create_backend_no_proxy') %>
 
 Finally, modify `package.json` to add two new scripts `dev` and `server` that can be used to start the frontend and the backend API together:
 
@@ -37,28 +37,6 @@ scripts": {
   "dev": "npm-run-all --parallel start server",
   "server": "node server.js"
 },
-```
-
-## Proxy to the Backend API
-
-In this example, the backend and the frontend apps run on two different ports. In order to call the API from the frontend application, the development server must be configured to proxy requests through to the backend API. This is so that the frontend application can make a request to `/api/external` and it will be correctly proxied through to the backend API at `http://localhost:3001/api/external`.
-
-To do this, open the `package.json` file in the root of the project and add a new key `proxy` with a value of `http://localhost:3001`.
-
-Your `package.json` file should look something like the following with these changes in place (some values have been omitted for brevity):
-
-```json
-{
-  "name": "auth0-react-03-calling-an-api",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {...},
-  "dependencies": { ... },
-  "devDependencies": { ... },
-  "eslintConfig": { ... },
-  "browserslist": { ... },
-  "proxy": "http://localhost:3001"
-}
 ```
 
 ## Specify the API Audience
@@ -113,7 +91,7 @@ const ExternalApi = () => {
     try {
       const token = await getTokenSilently();
 
-      const response = await fetch("/api/external", {
+      const response = await fetch("http://localhost:3001/api/external", {
         headers: {
           Authorization: `Bearer <%= "${token}" %>`
         }

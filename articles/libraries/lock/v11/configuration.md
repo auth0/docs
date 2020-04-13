@@ -586,6 +586,17 @@ var options = {
 }
 ```
 
+If you want to save the value of the attribute in the root of your profile, use `storage: 'root'`. Only a subset of values can be stored this way. The list of attributes that can be added to your root profile is [here](/api/management/v2#!/Users/patch_users_by_id). By default, every additional sign up field is stored inside the user_metadata object.
+
+```js
+var options = {
+  additionalSignUpFields: [{
+    name: "name",
+    storage: "root"
+  }]
+};
+```
+
 ![Lock - Additional Signup Fields](/media/articles/libraries/lock/v11/customization/lock-additionalsignupfields.png)
 
 #### Select Field

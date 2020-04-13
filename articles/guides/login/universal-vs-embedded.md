@@ -34,7 +34,7 @@ In this article, we will evaluate the pros and cons of these two options and see
 
 ![Universal vs Embedded login UX](/media/articles/guides/login/centralized-embedded-ux.jpg)
 
-- **Central Features Management**: When you use Universal Login with Auth0, you can turn on and off features across all your apps, using the Dashboard. An example is [Multi-factor Authentication](/multifactor-authentication) which you can enable using the toggles located at the [Dashboard > Multi-factor Auth](${manage_url}/#/mfa) page. These changes will be automatically available to all your registered apps.
+- **Central Features Management**: When you use Universal Login with Auth0, you can turn on and off features across all your apps, using the Dashboard. An example is [Multi-factor Authentication](/mfa) which you can enable using the toggles located at the [Dashboard > Multi-factor Auth](${manage_url}/#/mfa) page. These changes will be automatically available to all your registered apps.
 
 - **User Experience**: In the past, an argument could be made that the user experience with embedded login was better because it did not require redirecting users to another subdomain. However, users are getting increasingly familiar with the process of being redirected to another subdomain to log in. As a result, they don't find the process disruptive to their experience. Think about this, when you try to access your Gmail, if you are not logged in, you get redirected to the Google Accounts subdomain in order to log in. Do you get frustrated with that? You probably don't even notice it.
 

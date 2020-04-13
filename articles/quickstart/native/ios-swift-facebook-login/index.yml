@@ -1,0 +1,53 @@
+title: iOS Swift - Facebook Login
+alias:
+  - iOS
+  - Swift
+language:
+  - Swift
+framework:
+  - Swift
+author:
+  name: Rita Zerrizuela
+  email: rita.zerrizuela@auth0.com
+  community: false
+logo_name: ios
+image: /media/platforms/ios.png
+topics:
+  - quickstart
+contentType: tutorial
+useCase: quickstart
+seo_alias: ios-facebook-login
+snippets:
+  facebook_button_permissions: native-platforms/ios-facebook-login/facebook-button-permissions
+  facebook_button_config: native-platforms/ios-facebook-login/facebook-button-config
+  facebook_fetch_session_token: native-platforms/ios-facebook-login/facebook-fetch-session-token
+  facebook_fetch_profile: native-platforms/ios-facebook-login/facebook-fetch-profile
+  facebook_app_credentials: native-platforms/ios-facebook-login/facebook-app-credentials
+  facebook_install_auth0_sdk: native-platforms/ios-facebook-login/facebook-install-auth0-sdk
+  facebook_token_exchange: native-platforms/ios-facebook-login/facebook-token-exchange
+default_article: 00-login-facebook
+articles:
+  - 00-login-facebook
+next_steps:
+  - path: 00-login-facebook
+    list:
+    - text: Learn how to securely store tokens
+      icon: 345
+      href: "/libraries/auth0-swift/save-and-refresh-jwt-tokens"
+    - text: Learn to call an API
+      icon: 345
+      href: "/quickstart/native/ios-swift/04-calling-apis"
+    - text: Configure other identity providers
+      icon: 345
+      href: "/identityproviders"
+    - text: Learn more about the Swift SDK
+      icon: 345
+      href: "/libraries/auth0-swift"
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-ios-swift-native-social-samples
+requirements:
+  - CocoaPods/Carthage
+  - Xcode 11+
+  - iOS 13+ Simulator/Device

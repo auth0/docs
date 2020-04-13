@@ -69,7 +69,7 @@ With multi-factor authentication (MFA), you can add an additional layer of secur
 
 We support MFA using push notifications, SMS, one-time password authentication services, and custom providers. You can enable MFA for specific users or specific actions (for example, access screens with sensitive data). You can also define the conditions that will trigger additional authentication challenges, such as changes in geographic location or logins from unrecognized devices.
 
-To review all available options and their features, and get implementation details for the one that suits your needs, see [Multi-factor Authentication in Auth0](/multifactor-authentication).
+To review all available options and their features, and get implementation details for the one that suits your needs, see [Multi-factor Authentication in Auth0](/mfa).
 
 ## Help your users choose better passwords
 
@@ -83,11 +83,11 @@ For information on how to use them see [Password Strength](/connections/database
 
 ## Step-up authentication
 
-With step-up authentication, applications can ask users to authenticate with a stronger authentication mechanism to access sensitive resources. For example, you may have a banking application which does not require [Multi-factor Authentication (MFA)](/multifactor-authentication) to view the accounts basic information, but when users try to transfer money between accounts then they must authenticate with one more factor (for example, a code sent via SMS).
+With step-up authentication, applications can ask users to authenticate with a stronger authentication mechanism to access sensitive resources. For example, you may have a banking application which does not require [Multi-factor Authentication (MFA)](/mfa) to view the accounts basic information, but when users try to transfer money between accounts then they must authenticate with one more factor (for example, a code sent via SMS).
 
 You can check if a user has logged in with MFA by reviewing the contents of their ID Token or Access Token. You can then configure your application to deny access to sensitive resources if the token indicates that the user did not log in with MFA.
 
-For details see [Step-up Authentication](/multifactor-authentication/step-up-authentication).
+For details see [Step-up Authentication](/mfa/concepts/step-up-authentication).
 
 ## Availability and resilience
 
