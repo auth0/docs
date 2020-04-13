@@ -12,7 +12,7 @@ useCase:
 
 # Migrations
 
-We are actively migrating customers to new behaviors for all **Deprecations** listed below. Please review these carefully to ensure you've taken any necessary steps to avoid service disruptions. To learn more about this process, see [Deprecation and End Of Life](/product-lifecycle/deprecation-eol).
+We are actively migrating customers to new behaviors for all **Deprecations** listed below. Please review these carefully to ensure you've taken any necessary steps to avoid service disruptions. To learn more, see the [Migration Process](/product-lifecycle/migration-process).
 
 <table class="table">
   <thead>
