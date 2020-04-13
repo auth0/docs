@@ -2,7 +2,7 @@
 toc: true
 classes: topic-page
 title: Product Lifecycle
-description: Learn about the Auth0 product lifecycle, including product release stages, deprecations, end-of-life, and the migration process.
+description: Learn about the Auth0 product lifecycle, including product release stages, deprecations, end-of-life, the migration process, and active migrations.
 topics:
   - deprecations
   - migrations

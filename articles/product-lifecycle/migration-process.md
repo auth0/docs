@@ -18,7 +18,7 @@ To keep our platform stable and secure, we must occasionally modify or remove fe
 
 When we must introduce a breaking change, we first deprecate the affected feature or behavior and announce the <dfn data-key="deprecation">Deprecation</dfn> to our customers. When a new Deprecation is announced, customers should engage in a <dfn data-key="migration">Migration</dfn> to move away from the deprecated feature or behavior.
 
-For a list of all Deprecations with active Migrations, see [Migrations](/product-lifecycle/migrations).
+For a list of all Deprecations with active Migrations, see [Active Migrations](/product-lifecycle/migrations).
 
 To learn more about Auth0 product release stages, see [Product Release Stages](/product-lifecycle/product-release-stages).
 
