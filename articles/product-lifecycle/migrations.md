@@ -1,7 +1,7 @@
 ---
 toc: true
-title: Migrations
-description: View all Deprecations with active Migrations which may impact your tenant.
+title: Active Migrations
+description: View all Deprecations with active Migrations that may impact your tenant.
 topics:
   - migrations
 contentType:
@@ -10,9 +10,9 @@ useCase:
   - migrate
 ---
 
-# Migrations
+# Active Migrations
 
-We are actively migrating customers to new behaviors for all **Deprecations** listed below. Please review these carefully to ensure you've taken any necessary steps to avoid service disruptions. To learn more, see the [Migration Process](/product-lifecycle/migration-process).
+We are actively migrating customers to new behaviors for all **Deprecations** listed below. Please review these carefully to ensure you've taken any necessary steps to avoid service disruption. To learn more, see [Migration Process](/product-lifecycle/migration-process).
 
 <table class="table">
   <thead>

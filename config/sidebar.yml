@@ -1626,10 +1626,10 @@ articles:
       - title: "Product Release Stages"
         url: "/product-lifecycle/product-release-stages"
 
-      - title: "Deprecation and End Of Life"
-        url: "/product-lifecycle/deprecation-eol"
+      - title: "Migration Process"
+        url: "/product-lifecycle/migration-process"
 
-      - title: "Migrations"
+      - title: "Active Migrations"
         url: "/product-lifecycle/migrations"
 
   - title: "Security"
