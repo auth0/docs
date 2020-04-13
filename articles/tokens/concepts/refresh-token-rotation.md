@@ -47,7 +47,7 @@ Auth0 returns **Refresh Token 2/Access Token 2**.
 
 ![Reuse Detection](/media/articles/tokens/reuse-detection.png)
 
-This protection mechanism works regardless of whether the legitimate client or the malicious client is able to exchange **Refresh Token 1** for a new token pair before the other. As soon as reuse is detected, all subsequent requests will be denied until the user re-authenticates. When reuse is detected, Auth0 captures this event in logs to provide visibility for security reviews and audits. This can be especially useful in conjunction with Auth0’s log streaming capabilities.
+This protection mechanism works regardless of whether the legitimate client or the malicious client is able to exchange **Refresh Token 1** for a new token pair before the other. As soon as reuse is detected, all subsequent requests will be denied until the user re-authenticates. When reuse is detected, Auth0 captures this event (`ferrt` indicating a failed exchange) in logs to provide visibility for security reviews and audits. This can be especially useful in conjunction with Auth0’s log streaming capabilities.
 
 ## SDK support
 

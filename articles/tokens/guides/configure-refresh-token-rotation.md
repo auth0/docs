@@ -11,7 +11,7 @@ useCase:
 ---
 # Configure Refresh Token Rotation
 
-Configure Refresh Token Rotation for each application using the Management API. When Refresh Token Rotation is enabled, the transition for the end-user is seamless. The application uses the previous non-rotating Refresh Token, which has expired and swaps it for a rotating Refresh Token. 
+Configure Refresh Token Rotation for each application using the Dashboard or the Management API. When Refresh Token Rotation is enabled, the transition for the end-user is seamless. The application uses the previous non-rotating Refresh Token, which has expired and swaps it for a rotating Refresh Token. 
 
 ::: note
 Migration scenarios accommodate automatic token revocation when migrating from a non-rotating Refresh Token to a rotating Refresh Token and vice-versa.
@@ -22,7 +22,21 @@ Request a new Refresh Token/Access Token pair when Refresh Token Rotation is ena
 - Exchanging a non-rotating Refresh Token when Refresh Token Rotation is enabled deletes all the non-rotating tokens issued for the same `client_id`, resource server, and user and tenant.
 - Exchanging a rotating Refresh Token when Refresh Token Rotation is disabled issues a non-rotating Refresh Token and revokes the Rotating Refresh Token family.
 
-The following steps describe how to configure Refresh Token rotation for a SPA, as an example. 
+## Using the Dashboard
+
+1. Go to [Dashboard > Application Settings](${manage_url}/#/applications). Scroll to the **Application Tokens** section. Next to **Refresh Token Behavior** select **Rotating**. 
+
+    ![Application Token Settings - Rotating Refresh Tokens](/media/articles/tokens/rotating-tokens.png)
+
+2. Set **Refresh Token Lifetime (Absolute)** for when a Refresh Token will expire in seconds. The default Refresh Token expiration period, when Refresh Token Rotation is enabled, is 30 days (2592000 seconds). You can configure up to 90 days (7776000 seconds).
+
+3. Set **Refresh Token Reuse Interval** to allow a reuse interval for a Refresh Token to account for lag between request and response time due to the end-user's network, device, and/or location (in seconds). 
+
+4. Click **Save**.
+
+## Using the Management API
+
+You can also use the Managment API to enable Refresh Token rotation:
 
 1. Install the latest version of the `auth0-spa-js` SDK.
 
@@ -30,7 +44,18 @@ The following steps describe how to configure Refresh Token rotation for a SPA, 
     npm install @auth0/auth0-spa-js
     ```
 
-2. Use the Managment API to enable Refresh Token rotation:
+2. Enable the feature on the SDK by setting `useRefreshTokens: true` to start sending the `offline_access` scope.
+
+    ```js
+    const auth0 = await createAuth0Client({
+      domain: '<YOUR AUTH0 DOMAIN>',
+      client_id: '<YOUR CLIENT ID>',
+      audience: '<YOUR API IDENTIFIER>',
+      useRefreshTokens: true
+    });
+    ```
+
+3. Configure the Refresh Token rotation settings. For example:  
 
     ```js
     PATCH /api/v2/clients/{client_id}
