@@ -19,6 +19,8 @@ To use Refresh Token rotation, you will use the [Auth0 Single Page App SDK](/lib
 
 ## Enable useRefreshTokens
 
+<%= include('./_includes/_rtr_enabled') %>
+
 Use the option `useRefreshTokens` on `createAuth0Client` which defaults to `false`. With this option set to `false`, when `getTokenSilently()` is invoked and a new Access Token is required, the SDK attempts to acquire a new Access Token using a hidden iframe and `prompt=none`.
 
 If you set to this option to `true`, the `offline_access` scope is automatically requested when using `loginWithRedirect(), loginWithPopup()` and `getTokenSilently()`. When `getTokenSilently()` is invoked and the access token has expired, the SDK attempts to renew the ID and Access Tokens by calling the `/token` endpoint using the `refresh_token` grant type along with the Refresh Token from the cache.

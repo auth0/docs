@@ -28,7 +28,9 @@ Request a new Refresh Token/Access Token pair when Refresh Token Rotation is ena
 
     ![Application Token Settings - Rotating Refresh Tokens](/media/articles/tokens/rotating-tokens.png)
 
-2. Set **Refresh Token Lifetime (Absolute)** for when a Refresh Token will expire in seconds. The default Refresh Token expiration period, when Refresh Token Rotation is enabled, is 30 days (2592000 seconds). You can configure up to 90 days (7776000 seconds).
+2. Set **Refresh Token Lifetime (Absolute)** for when a Refresh Token will expire in seconds. 
+
+  The Refresh Token lifetime is the *absolute* lifetime that Refresh Tokens can be used to get new Access Tokens, after which time, the user has to re-authenticate. The default Refresh Token expiration period is 30 days (2592000 seconds). You can configure up to 90 days (7776000 seconds). **The lifetime does not extend when tokens are rotated.** 
 
 3. Set **Refresh Token Reuse Interval** to allow a reuse interval for a Refresh Token to account for lag between request and response time due to the end-user's network, device, and/or location (in seconds). 
 
@@ -73,7 +75,7 @@ You can also use the Managment API to enable Refresh Token rotation:
     | -- | -- |
     | `rotation_type` | Text string: "rotating" or "non-rotating" |
     | `expiration_type` | Text string: "expiring" or "non-expiring" |
-    | `token_lifetime` | The default Refresh Token expiration period, when Refresh Token Rotation is enabled, is 30 days (2592000 seconds). You can configure up to 90 days (7776000 seconds). |
+    | `token_lifetime` | The default Refresh Token expiration period, when Refresh Token Rotation is enabled, is 30 days (2592000 seconds). You can configure up to 90 days (7776000 seconds). **The lifetime does not extend when tokens are rotated.** |
     | `leeway` | Allow the same Refresh Token to be used within the time period to account for potential network concurrency issues that would otherwise invalidate the token should the client attempt to retry using the same Refresh Token. By default leeway is disabled. Configurable in seconds. |
 
     ::: panel What is *leeway*?
