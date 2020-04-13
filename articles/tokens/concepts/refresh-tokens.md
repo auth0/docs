@@ -75,7 +75,7 @@ For information on using Refresh Tokens with our mobile SDKs, see:
   - [Resource Owner Password Grant](/api-auth/grant/password)
   - [Device Authorization Flow](/flows/concepts/device-auth)
 
-* If you are implementing an SPA using [Implicit Flow](/flows/concepts/implicit) and you need to renew a token, the only secure option for doing so is to use [Silent Authentication](/api-auth/tutorials/silent-authentication).
+* If you are implementing a SPA using [Implicit Flow](/flows/concepts/implicit) and you need to renew a token, the only secure option for doing so is to use [Silent Authentication](/api-auth/tutorials/silent-authentication).
 
 * If you limit offline access to your API, a safeguard configured via the **Allow Offline Access** switch on the [API Settings](${manage_url}/#/apis), Auth0 will not return a Refresh Token for the API (even if you include the `offline_access` <dfn data-key="scope">scope</dfn> in your request).
 

@@ -12,7 +12,7 @@ useCase:
 ---
 # Renew Tokens When Using Safari
 
-Renewing tokens with the **checkSession()** function does not work correctly with the latest version of the Safari browser.
+Renewing tokens with the `checkSession()` function does not work correctly with the latest version of the Safari browser.
 
 Recent versions of the Safari browser introduced a new featured called [Intelligent Tracking Prevention (ITP)](https://webkit.org/blog/category/privacy/). ITP is designed to prevent websites from tracking user activity across multiple websites.
 
@@ -28,9 +28,9 @@ This is akin to the way <dfn data-key="openid">OpenID Connect (OIDC)</dfn> uses 
 
 ## Workaround
 
-There is currently no solution that will work with all use cases.
-
 You can work around the issues posed by ITP by using Auth0's [custom domains](/custom-domains) functionality, particularly if the custom domain lives on a *subdomain* of the application's website domain. For example, if your application is hosted on **example.com**, the custom domain would need to be of the format **subdomain.example.com**.
+
+You can also use [Refresh Token Rotation](/tokens/concepts/refresh-token-rotation) as an alternative. 
 
 ## ITP debug mode
 
