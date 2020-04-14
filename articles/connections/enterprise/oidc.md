@@ -36,7 +36,7 @@ If you are using the Lock login widget with an OpenID Connect (OIDC) connection,
 To connect your application to an OIDC Identity Provider, you must:
 
 1. [Set up your app in the OpenID Connect Identity Provider](#set-up-your-app-in-the-openid-connect-identity-provider).
-2. [Create an enterprise connection in Auth0](#create-an-enterprise-connection-in-auth0) and download the installer.
+2. [Create an enterprise connection in Auth0](#create-an-enterprise-connection-in-auth0).
 3. [Enable the enterprise connection for your Auth0 Application](#enable-the-enterprise-connection-for-your-auth0-application).
 4. [Test the connection](#test-the-connection).
 
