@@ -10,7 +10,9 @@ useCase:
 ---
 # Refresh Token Rotation
 
-With Refresh Token Rotation enabled, every time a client exchanges a [Refresh Token](/tokens/concepts/refresh-tokens) to get a new [Access Token](/tokens/cocncepts/access-tokens), a new Refresh Token is also returned. Therefore, you no longer have a long-lived Refresh Token that, if compromised, could provide illegitimate access to resources. As Refresh Tokens are continually exchanged and invalidated, the threat is reduced. 
+Refresh Token Rotation is a technique for getting new <dfn data-key="access-token">Access Tokens</dfn> using <dfn data-key="refresh-token">Refresh Tokens</dfn> that goes beyond silent authentication. Refresh Tokens are typically longer lived and can be used to request new Access Tokens after the shorter-lived Access Tokens expire. Refresh Tokens are often used in native applications on mobile devices in conjunction with short-lived Access Tokens to provide seamless UX without having to issue long-lived Access Tokens. 
+
+With Refresh Token Rotation enabled on the Auth0 Dashboard, every time a client exchanges a Refresh Token to get a new Access Token, a new Refresh Token is also returned. Therefore, you no longer have a long-lived Refresh Token that, if compromised, could provide illegitimate access to resources. As Refresh Tokens are continually exchanged and invalidated, the threat is reduced. 
 
 The way Refresh Token rotation works in Auth0 conforms with the [OAuth 2.0 BCP](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-13#section-4.12) and works with the following flows:
 * [Authorization Code Flow](/flows/concepts/auth-code)
@@ -20,7 +22,9 @@ The way Refresh Token rotation works in Auth0 conforms with the [OAuth 2.0 BCP](
 
 ## Maintaining user sessions in SPAs
 
-Until very recently, SPAs overcame the challenge of maintaining the user’s session by using the Authorization Code Flow with PKCE in conjunction with [Silent Authentication](/api-auth/tutorials/silent-authentication). Recent developments in browser privacy technology, such as Intelligent Tracking Prevention (ITP) prevent access to the Auth0 session cookie, thereby requiring users to reauthenticate. 
+Until very recently, SPAs overcame the challenge of maintaining the user’s session by using the [Authorization Code Flow with PKCE](/flows/concepts/auth-code-pkce) in conjunction with [Silent Authentication](/api-auth/tutorials/silent-authentication). Recent developments in browser privacy technology, such as Intelligent Tracking Prevention (ITP) prevent access to the Auth0 session cookie, thereby requiring users to reauthenticate. 
+
+![Refresh Token and Access Tokens](/media/articles/tokens/rt-and-at.png)
 
 Refresh Token Rotation offers a remediation to end-user sessions being lost due to side-effects of browser privacy mechanisms. Because Refresh Token Rotation does not rely on access to the Auth0 session cookie, it is not affected by ITP or similar mechanisms.
 
