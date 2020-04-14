@@ -46,10 +46,6 @@ Using [yarn](https://yarnpkg.com):
 yarn add @auth0/auth0-spa-js
 ```
 
-::: note
-If you use NPM or Yarn to install auth0-spa-js, don't forget to import the package to your project: `import auth0-spa-js from 'auth0-spa-js'`.
-:::
-
 ## Getting Started
 
 ### Create the client
@@ -73,6 +69,26 @@ createAuth0Client({
   client_id: '${account.clientId}'
 }).then(auth0 => {
   //...
+});
+```
+
+Using `createAuth0Client` does a couple of things automatically:
+
+* It calls `getTokenSilently` to refresh the user session
+* It suppresses all errors from `getTokenSilently`, except `login_required`
+
+You can also create the client directly using the `Auth0Client` constructor. This can be useful if:
+
+* You wish to bypass the call to `getTokenSilently` on initialization
+* You wish to do custom error handling
+* You wish to initialize the SDK in a synchronous way
+
+```js
+import { Auth0Client } from '@auth0/auth0-spa-js';
+
+const auth0 = new Auth0Client({
+  domain: '${account.namespace}',
+  client_id: '${account.clientId}'
 });
 ```
 
@@ -157,7 +173,7 @@ document.getElementById('callApi').addEventListener('click', () => {
 
 ### Logout
 
-Finally, add a button users can click to logout.
+Add a button users can click to logout.
 
 ```html
 <button id="logout">Logout</button>
@@ -168,6 +184,49 @@ document.getElementById('logout').addEventListener('click', () => {
   auth0.logout();
 });
 ```
+
+### Change storage options
+
+The Auth0 SPA SDK stores tokens in memory by default. However, this does not provide persistence across page refreshes and browser tabs. Instead, you can opt-in to store tokens in local storage by setting the `cacheLocation` property to `localstorage` when initializing the SDK.
+
+::: warning
+Storing tokens in browser local storage provides persistence across page refreshes and browser tabs. However, if an attacker can achieve running JavaScript in the SPA using a cross-site scripting (XSS) attack, they can retrieve the tokens stored in local storage. A vulnerability leading to a successful XSS attack can be either in the SPA source code or in any third-party JavaScript code (such as bootstrap, jQuery, or Google Analytics) included in the SPA.
+
+Read more about [token storage](/tokens/concepts/token-storage#single-page-app-scenarios).
+:::
+
+```js
+const auth0 = await createAuth0Client({
+  domain: '${account.namespace}',
+  client_id: '${account.clientId}',
+  cacheLocation: 'localstorage'
+});
+```
+
+### Use rotating Refresh Tokens
+
+The Auth0 SPA SDK can be configured to use [rotating Refresh Tokens](/tokens/concepts/refresh-token-rotation) to get new access tokens silently. These can be used to bypass browser privacy technology that prevents access to the Auth0 session cookie when authenticating silently, as well as providing [built-in reuse detection](/tokens/concepts/refresh-token-rotation#automatic-reuse-detection).
+
+Configure the SDK to do this by setting `useRefreshTokens` to `true` on initialization:
+
+```js
+const auth0 = await createAuth0Client({
+  domain: '${account.namespace}',
+  client_id: '${account.clientId}',
+  useRefreshTokens: true
+});
+
+// Request a new access token using a refresh token
+const token = await auth0.getTokenSilently();
+```
+
+Refresh Tokens will also need to be [configured for your tenant](/tokens/guides/configure-refresh-token-rotation) before they can be used in your SPA.
+
+Once configured, the SDK will request the `offline_access` scope during the authorization step. Furthermore, `getTokenSilently` will then call the `/oauth/token` endpoint directly to exchange refresh tokens for access tokens.
+
+:::note
+The SDK will obey the storage configuration when storing refresh tokens. If the SDK has been configured using the default in-memory storage mechanism, refresh tokens will be lost when refreshing the page.
+:::
 
 ## Usage 
 
@@ -202,6 +261,10 @@ $('#loginRedirectCallback').click(async () => {
 ```
 
 ### Get Access Token with no interaction
+
+Get a new Access Token silently using either a hidden iframe and `prompt=none`, or by using a rotating Refresh Token. Refresh Tokens are used when `useRefreshTokens` is set to `true` when configuring the SDK.
+
+If in-memory storage (the default) and refresh tokens are used, new tokens are retrieved using a web worker on supported browsers.
 
 ```js
 $('#getToken').click(async () => {
