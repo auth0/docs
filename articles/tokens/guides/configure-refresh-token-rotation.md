@@ -34,7 +34,7 @@ Request a new Refresh Token/Access Token pair when Refresh Token Rotation is ena
 
 3. Set **Refresh Token Reuse Interval** to allow a reuse interval for a Refresh Token to account for lag between request and response time due to the end-user's network, device, and/or location (in seconds). 
 
-4. Click **Save**.
+4. Click **Save Changes**.
 
 ## Using the Management API
 

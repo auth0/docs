@@ -19,7 +19,7 @@ You can disable Refresh Token Rotation for each application using Dashboard or t
 
     ![Application Token Settings - Non-Rotating Refresh Tokens](/media/articles/tokens/non-rotating-tokens.png)
 
-2. Click **Save**.
+2. Click **Save Changes**.
 
 ## Using the Management API
 
