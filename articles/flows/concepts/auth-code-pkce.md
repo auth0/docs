@@ -67,7 +67,7 @@ Depending on your application type, you can also use our mobile or single-page a
 
 * [Auth0 Single-Page App SDK](/libraries/auth0-spa-js)
 
-<%= include('../../_includes/_refresh_token_rotation_recommend.md') %>
+<%= include('../../_includes/_refresh_token_rotation_recommended.md') %>
 
 You can follow our tutorials to use our API endpoints to [Add Login Using the Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/add-login-auth-code-pkce) or [Call Your API Using the Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/call-api-auth-code-pkce).
 

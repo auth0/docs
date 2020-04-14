@@ -510,4 +510,4 @@ public unscheduleRenewal() {
 
 Finally you need to initiate the schedule renewal. This can be done by calling `scheduleRenewal` inside your `AppComponent` which will happen when the page is loaded. This will occur after every authentication flow, either when the user explicitly logs in, or when the silent authentication happens.
 
-<%= include('../../../_includes/_refresh_token_rotation_recommend.md') %>
+<%= include('../../_includes/_refresh_token_rotation_recommended.md') %>
