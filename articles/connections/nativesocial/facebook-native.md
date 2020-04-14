@@ -97,8 +97,8 @@ subject_token_type: 'http://auth0.com/oauth/token-type/facebook-info-session-acc
 audience: 'your-api'
 scope: 'read:appointments openid profile email email_verified'
 subject_token: 'XAAGgR4b...1lHWNCpqrUHZAEtUuZAhcpoAZDZD'
-client_id: '${account.clientID}'
-user_profile: '{"email":"john@example.com", "Name":"John Doe"}'
+client_id: '${account.clientId}'
+user_profile: '{"email":"john@example.com", "name":"John Doe"}'
 ```
 
 and the response from Auth0:
