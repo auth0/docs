@@ -153,7 +153,7 @@ The [Verify](/connections/database/custom-db/templates/verify) script implements
 
 ### Change Password action scripts
 
-The [Change Password](/connections/database/custom-db/templates/change-password) script implements the function executed to change the password associated with the user identity in the your legacy identity store. 
+The [Change Password](/connections/database/custom-db/templates/change-password) script implements the function executed to change the password associated with the user identity in the legacy identity store. 
 
 * While it’s not mandatory to implement the `changePassword` function, it is a recommended best practice. The `changePassword` function is required for the password reset workflow recommended for [better customer experience](https://auth0.com/learn/password-reset/).
 
