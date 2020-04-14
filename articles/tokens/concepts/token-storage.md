@@ -74,11 +74,11 @@ When the SPA calls multiple APIs that reside in a different domain, access and o
 
 ### Browser in-memory scenarios
 
-Auth0 recommends storing tokens in browser memory as the most secure option. Using [Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API) to handle the transmission and storage of tokens is the best way to protect the tokens, as Web Workers run in a separate global scope than the rest of the application. Use [auth0-spa-js](https://github.com/auth0/auth0-spa-js) whose default storage option is in-memory storage leveraging Web Workers.
+Auth0 recommends storing tokens in browser memory as the most secure option. Using [Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API) to handle the transmission and storage of tokens is the best way to protect the tokens, as Web Workers run in a separate global scope than the rest of the application. Use [Auth0 SPA SDK](/libraries/auth0-spa-js) whose default storage option is in-memory storage leveraging Web Workers.
 
 If you cannot use Web Workers, Auth0 recommends as an alternative that you use [JavaScript closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures#Emulating_private_methods_with_closures) to emulate private methods.
 
- Use [auth0-spa-js](https://github.com/auth0/auth0-spa-js) whose default storage option is in-memory storage. It leverages both Web Workers and JavaScript closures depending on the type of token.
+ Use [Auth0 SPA SDK](/libraries/auth0-spa-js) whose default storage option is in-memory storage to leverage both Web Workers and JavaScript closures depending on the type of token.
 
 ::: warning
 The in-memory method for browser storage **does not** provide persistence across page refreshes and browser tabs. 
@@ -103,6 +103,7 @@ Reduce the amount of third party JavaScript code included from a source outside 
 * [ID Tokens](/tokens/concepts/id-tokens)
 * [Access Tokens](/tokens/concepts/access-tokens)
 * [Refresh Tokens](/tokens/concepts/refresh-tokens)
+* [Auth0 SPA SDK](https://github.com/auth0/auth0-spa-js)
 * [Token Best Practices](/best-practices/token-best-practices)
 * [JWT Handbook](https://auth0.com/resources/ebooks/jwt-handbook)
 * [The Ultimate Guide to Next.js Authentication with Auth0](https://auth0.com/blog/ultimate-guide-nextjs-authentication-auth0/?utm_source=twitter&utm_medium=sc&utm_campaign=nextjs_authn_guide)
