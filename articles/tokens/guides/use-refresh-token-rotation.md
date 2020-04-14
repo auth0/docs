@@ -31,6 +31,8 @@ Silent re-authentication is achieved by sending a `prompt=none` parameter upon t
 If the exchange fails because `useRefreshTokens` is `true` but there isn't a Refresh Token in the cache, then it falls back to the iframe method (which could also fail if third-party cookies are blocked).
 :::
 
+For more details and examples, see [Use rotating Refresh Tokens](/libraries/auth0-spa-js/index#use-rotating-refresh-tokens). 
+
 ## Token storage
 
 With SPAs, ID and Access Tokens are obtained from the authorization server and typically cached in memory. Token renewal (due to refreshing the browser, memory cache eviction budgets, or expiration) is handled by the SDK. See [Token Storage](/tokens/concepts/token-storage) for details. 
