@@ -11,7 +11,7 @@ useCase:
 
 Auth0 issues an <dfn data-key="access-token">[Access Token](/tokens/concepts/access-tokens)</dfn> or an [ID Token](/tokens/concepts/id-tokens) in response to an [authentication request](/api-auth). You can use Access Tokens to make authenticated calls to a secured API, while the ID Token contains user profile attributes represented in the form of *claims*. Both are [JWTs](/tokens/concepts/jwts) and therefore have expiration dates indicated using the `exp` claim, as well as security measures, like signatures. Typically, a user needs a new Access Token when gaining access to a resource for the first time, or after the previous Access Token granted to them expires.
 
-A Refresh Token is a special kind of token that can be used to obtain a renewed access token. You are able to request new access tokens until the Refresh Token is blacklisted. It’s important that refresh tokens are [stored securely](/tokens/concepts/token-storage) by the application because they essentially allow a user to remain authenticated forever.
+A Refresh Token is a special kind of token that can be used to obtain a renewed Access Token. You are able to request new access tokens until the Refresh Token is blacklisted. It’s important that refresh tokens are [stored securely](/tokens/concepts/token-storage) by the application because they essentially allow a user to remain authenticated forever.
 
 For native applications, refresh tokens improve the authentication experience significantly. The user has to authenticate only once, through the web authentication process. Subsequent re-authentication can take place without user interaction, using the Refresh Token.
 
@@ -41,11 +41,11 @@ For a complete listing, see [Quickstarts](/quickstart/webapp).
 
 ### Single-page apps
 
-Providing secure authentication in SPAs has a number of challenges based on your application’s use case. The former guidance of using the Implicit Grant to provide access tokens (ATs) to SPAs is fairly straightforward, but carries with it several security risks that each require explicit mitigations you must account for. If you want a more detailed exposition on the challenges of using the Implicit Flow in SPAs, please read this blog article [OAuth2 Implicit Grant and SPA](https://auth0.com/blog/oauth2-implicit-grant-and-spa/).
+Providing secure authentication in SPAs has a number of challenges based on your application’s use case. New browser privacy controls like Intelligent Tracking Prevention (ITP) adversely impact the user experience in SPAs by preventing access to third-party cookies.
 
-Auth0’s guidance to date is to use the [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce) in conjuntion with [Silent Authentication](/api-auth/tutorials/silent-authentication) in SPAs. This is a much more secure solution than the Implicit Flow. The Authorization Code Flow with PKCE returns an Access Token, but best practices state that Access Tokens should be short-lived to minimize risk. Providing a good user experience while using short-lived Access Tokens requires a means for getting new tokens without continually prompting the user. 
+Auth0 recommends using [Refresh Token Rotation](/tokens/concepts/refresh-token-rotation) which provides a secure method for using Refresh Tokens in SPAs while providing end-users with seamless access to resources without the disruption in UX caused by browser privacy technology like ITP.
 
-Because of recent browser changes to address user privacy concerns, there are unfortunate impacts on how SPAs interact with authorization servers like Auth0. We recommend using [Refresh Token Rotation](/tokens/concepts/refresh-token-rotation) with reuse detection that invalidates a refresh token and issues a new one whenever it is used to refresh an Access Token. 
+Auth0’s former guidance was to use the [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce) in conjuntion with [Silent Authentication](/api-auth/tutorials/silent-authentication) in SPAs. This is more secure solution than the Implicit Flow but not as secure as Refresh Token Rotation. If you want a more detailed explanation about the challenges of using the Implicit Flow in SPAs, please read this blog article [OAuth2 Implicit Grant and SPA](https://auth0.com/blog/oauth2-implicit-grant-and-spa/).
 
 ### Native/Mobile apps
 

@@ -15,13 +15,9 @@ useCase:
 
 The <dfn data-key="openid">OpenID Connect protocol</dfn> supports a `prompt=none` parameter on the authentication request that allows applications to indicate that the authorization server must not display any user interaction (such as authentication, consent or MFA). Auth0 will either return the requested response back to the application or return an error if the user is not already authenticated, or that some type of consent or prompt is required before proceeding.
 
-Use of the [Implicit Flow](/flows/concepts/implicit) in SPAs presents some challenges requiring explicit mitigation strategies. You can use the [Authorization Code Flow with PKCE](/flows/concepts/auth-code-pkce) in conjunction with Silent Authentication to renew sessions in SPAs with no adverse UX.
+Use of the [Implicit Flow](/flows/concepts/implicit) in SPAs presents security challenges requiring explicit mitigation strategies. You can use the [Authorization Code Flow with PKCE](/flows/concepts/auth-code-pkce) in conjunction with Silent Authentication to renew sessions in SPAs.
 
-::: panel Alternative Method: Refresh Token Rotation
-Recent advancements in user privacy controls in browsers adversely impact the user experience by preventing access to third-party cookies. You can use [Refresh Token Rotation](/tokens/concepts/refresh-token-rotation) as an alternative that provides a secure method for using refresh tokens in SPAs while providing end-users with seamless access to resources without the disruption in UX caused by browser privacy technology like ITP.
-:::
-
-Your SPAs can use this flow to renew tokens as explained below.
+<%= include('../../_includes/_refresh_token_rotation_recommend.md') %>
 
 ## Initiate Silent Authentication requests
 
