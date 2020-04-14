@@ -17,7 +17,7 @@ The <dfn data-key="openid">OpenID Connect protocol</dfn> supports a `prompt=none
 
 Use of the [Implicit Flow](/flows/concepts/implicit) in SPAs presents security challenges requiring explicit mitigation strategies. You can use the [Authorization Code Flow with PKCE](/flows/concepts/auth-code-pkce) in conjunction with Silent Authentication to renew sessions in SPAs.
 
-<%= include('../../_includes/_refresh_token_rotation_recommend.md') %>
+<%= include('../../../_includes/_refresh_token_rotation_recommend.md') %>
 
 ## Initiate Silent Authentication requests
 
