@@ -20,13 +20,13 @@ Migration scenarios accommodate automatic token revocation when migrating from a
 
 ## Using the Dashboard
 
-1. Go to [Dashboard > Application Settings](${manage_url}/#/applications). Scroll to the **Application Tokens** section. Next to **Refresh Token Behavior** select **Rotating**. 
+1. Go to [Dashboard > Application Settings](${manage_url}/#/applications). Scroll to the **Application Tokens** section. Set **Refresh Token Behavior** to **Rotating**. 
 
     ![Application Token Settings - Rotating Refresh Tokens](/media/articles/tokens/rotating-tokens.png)
 
 2. Set **Refresh Token Lifetime (Absolute)** for when a Refresh Token will expire in seconds. 
 
-  The Refresh Token lifetime is the *absolute* lifetime that Refresh Tokens can be used to get new Access Tokens, after which time, the user has to re-authenticate. The default Refresh Token expiration period is 30 days (2592000 seconds). You can configure up to 90 days (7776000 seconds). **The lifetime does not extend when tokens are rotated.** 
+    The Refresh Token lifetime is the *absolute* lifetime that Refresh Tokens can be used to get new Access Tokens, after which time, the user has to re-authenticate. The default Refresh Token expiration period is 30 days (2592000 seconds). You can configure up to 90 days (7776000 seconds). *The lifetime does not extend when tokens are rotated.* 
 
 3. Set **Refresh Token Reuse Interval** to allow a reuse interval for a Refresh Token to account for lag between request and response time due to the end-user's network, device, and/or location (in seconds). 
 
