@@ -1,4 +1,4 @@
-When Passwordless is configured to use Email. the user is asked to enter their email address, to which Auth0 sends a one-time-use code. The user then enters the code into your application.
+When Passwordless is configured to use Email. the user is asked to enter their email address, to which Auth0 sends a one-time-use code. The user then enters the code into your application. If you are using Universal Login, make sure you [configure Universal Login with Passwordless](/dashboard/guides/universal-login/configure-login-page-passwordless).
 
 If the email address attached to the code matches an existing user, Auth0 authenticates the user:
 
