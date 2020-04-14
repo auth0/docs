@@ -39,11 +39,11 @@ Without enforcing sender-constraint, it’s impossible for the authorization ser
 For example, consider the following scenario: 
 1. Legitimate Client has **Refresh Token 1**, and it is leaked to or stolen by Malicious Client. 
 2. Legitimate Client uses **Refresh Token 1** to get a new Refresh Token/Access Token pair.
-Auth0 returns **Refresh Token 2/Access Token 2**.
-3. Malicious Client then attempts to use **Refresh Token 1** to get an Access Token. Auth0 recognizes that Refresh Token 1 is being reused, and immediately invalidates the Refresh Token family, including **Refresh Token 2**.
-4. Auth0 returns an **Access Denied** response to Malicious Client.
-5. **Access Token 2** expires and Legitimate Client attempts to use **Refresh Token 2** to request a new token pair. Auth0 returns an **Access Denied** response to Legitimate Client.
-6. Re-authentication is required.
+3. Auth0 returns **Refresh Token 2/Access Token 2**.
+4. Malicious Client then attempts to use **Refresh Token 1** to get an Access Token. Auth0 recognizes that Refresh Token 1 is being reused, and immediately invalidates the Refresh Token family, including **Refresh Token 2**.
+5. Auth0 returns an **Access Denied** response to Malicious Client.
+6. **Access Token 2** expires and Legitimate Client attempts to use **Refresh Token 2** to request a new token pair. Auth0 returns an **Access Denied** response to Legitimate Client.
+7. Re-authentication is required.
 
 ![Reuse Detection](/media/articles/tokens/reuse-detection.png)
 
