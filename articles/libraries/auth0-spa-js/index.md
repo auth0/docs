@@ -74,6 +74,7 @@ createAuth0Client({
 
 Using `createAuth0Client` does a couple of things automatically:
 
+* It creates an instance of `Auth0Client`
 * It calls `getTokenSilently` to refresh the user session
 * It suppresses all errors from `getTokenSilently`, except `login_required`
 
