@@ -26,6 +26,8 @@ Until very recently, SPAs overcame the challenge of maintaining the user’s ses
 
 ![Refresh Token and Access Tokens](/media/articles/tokens/rt-and-at.png)
 
+Unfortunately, long-lived Refresh Tokens are not suitable for SPAs because there is no persistent storage mechanism in a browser that can assure access by the intended application only. As there are vulnerabilities that can be exploited to obtain these high-value artifacts and grant malicious actors access to protected resources, using Refresh Tokens in SPAs has been strongly discouraged. 
+
 Refresh Token Rotation offers a remediation to end-user sessions being lost due to side-effects of browser privacy mechanisms. Because Refresh Token Rotation does not rely on access to the Auth0 session cookie, it is not affected by ITP or similar mechanisms.
 
 The following state diagram illustrates how Refresh Token Rotation is used in conjunction with the Authorization Code Flow with PKCE, but the general principle of getting a new refresh token with each exchange applies to all supported flows.
