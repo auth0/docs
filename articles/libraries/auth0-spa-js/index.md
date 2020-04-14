@@ -188,7 +188,7 @@ document.getElementById('logout').addEventListener('click', () => {
 
 ### Change storage options
 
-The Auth0 SPA SDK stores tokens in memory by default. However, this does not provide persistence across page refreshes and browser tabs. Instead, you can opt-in to store tokens in local storage by setting the `cacheLocation` property to `localstorage` when initializing the SDK.
+The Auth0 SPA SDK stores tokens in memory by default. However, this does not provide persistence across page refreshes and browser tabs. Instead, you can opt-in to store tokens in local storage by setting the `cacheLocation` property to `localstorage` when initializing the SDK. This can help to mitigate some of the effects of browser privacy technology that prevents access to the Auth0 session cookie by storing Access Tokens for longer.
 
 ::: warning
 Storing tokens in browser local storage provides persistence across page refreshes and browser tabs. However, if an attacker can achieve running JavaScript in the SPA using a cross-site scripting (XSS) attack, they can retrieve the tokens stored in local storage. A vulnerability leading to a successful XSS attack can be either in the SPA source code or in any third-party JavaScript code (such as bootstrap, jQuery, or Google Analytics) included in the SPA.
