@@ -55,9 +55,9 @@ Use the following flow types in these scenarios:
 
 ## Single-page app scenarios
 
-We recommend using the [Auth0 Single Page App SDK](/libraries/auth0-spa-js). The Auth0 SPA SDK handles token storage, session management, and other details for you.
+We recommend using the [Auth0 SPA SDK](/libraries/auth0-spa-js) to handle token storage, session management, and other details for you.
 
-When the SPA calls only an API that is served from a domain that can share cookies with the domain of the SPA, no tokens are needed. OAuth adds additional attack vectors without providing any additional value and should be avoided in favor of a traditional cookie-based approach. For an overview of this approach and an example implementation, see [Single-Page App Authentication Using Cookies](/login/spa/authenticate-with-cookies).
+When the SPA calls only an API that is served from a domain that can share cookies with the domain of the SPA, no tokens are needed. OAuth adds additional attack vectors without providing any additional value and should be avoided in favor of a traditional cookie-based approach. For an overview of this approach and an example implementation, see [SPA  Authentication Using Cookies](/login/spa/authenticate-with-cookies).
 
 When the SPA calls multiple APIs that reside in a different domain, access and optionally refresh tokens are needed.
 
