@@ -74,15 +74,15 @@ createAuth0Client({
 
 Using `createAuth0Client` does a couple of things automatically:
 
-* It creates an instance of `Auth0Client`
-* It calls `getTokenSilently` to refresh the user session
-* It suppresses all errors from `getTokenSilently`, except `login_required`
+* It creates an instance of `Auth0Client`.
+* It calls `getTokenSilently` to refresh the user session.
+* It suppresses all errors from `getTokenSilently`, except `login_required`.
 
 You can also create the client directly using the `Auth0Client` constructor. This can be useful if:
 
-* You wish to bypass the call to `getTokenSilently` on initialization
-* You wish to do custom error handling
-* You wish to initialize the SDK in a synchronous way
+* You wish to bypass the call to `getTokenSilently` on initialization.
+* You wish to do custom error handling.
+* You wish to initialize the SDK in a synchronous way.
 
 ```js
 import { Auth0Client } from '@auth0/auth0-spa-js';
