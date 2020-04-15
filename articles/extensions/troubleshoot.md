@@ -14,8 +14,8 @@ useCase:
 
 If you see issues with your [extensions](/extensions), we recommend that you begin the troubleshooting process with the following two steps:
 
-1. Reinstalling the extension
-2. Migrating to Node.js v12
+1. Reinstall the extension.
+2. Migrate to Node.js v12.
 
 ## Reinstall the Extension
 
