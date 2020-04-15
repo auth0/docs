@@ -90,12 +90,22 @@ To be configurable through the Auth0 Dashboard, the OpenID Connect (OIDC) Identi
 
 ![Additional OIDC Settings](/media/articles/dashboard/connections/enterprise/conn-enterprise-additional-oidc-settings.png)
 
-5. Configure additional domains and scopes settings.
+5. On the **Settings** tab, under **Issuer URL**, click **Show Issuer Details** to view the Issuer URL **Advanced Settings**.
+
+| Field | Description|
+| -- | -- |
+| **Issuer** |    | 
+| **Authorization Endpoint** |  |
+| **JWKS URL** |  |
+
+6. Set connection **Type** to **Front Channel** or **Back Channel**. Front Channel uses the OIDC protocol with `response_mode=form_post` and `response_type=id_token`. Back Channel uses `response_type=code`.
+
+7. Configure the **IdP Domains** and **Scopes** if necessary. 
 
 | Field | Description|
 | -- | -- |
 | **IdP Domains** | **Optional** Enter comma-separated list of the domains that can be authenticated in the Identify Provider. You only need these for [Identifier First](/universal-login/identifier-first) authentication flows. |
-| **Scopes** | Add a comma-separated list of scopes to request from the Issuer. This list must contain `openid`. |
+| **Scopes** | Add a comma-separated list of scopes to request from the Issuer. This list *must* contain `openid`. |
 
 6. Click **Save Changes**.
 
