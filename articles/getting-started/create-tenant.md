@@ -19,10 +19,11 @@ The term is borrowed from "software multitenancy". This refers to an architectur
 Some characteristics:
 
 - The tenant name has to be unique (we will see in the next paragraph that it is used to create your own personal domain).
-- The tenant name must be all lowercase.
+- The tenant name can contain only lowercase alphanumeric characters and hyphens ("-"). It cannot begin or end with a hyphen.
+- The tenant name must be a minimum of three characters and maximum of 64 characters.
 - The tenant name cannot be changed after creation.
 - You can create more than one tenant; in fact, you are encouraged to do so for each environment you have (such as Development, Staging, or Production).
-- If you chose to host your data in Europe or Australia, then your tenant will have a suffix (`eu` or `au`). In our example, if `Example-Co` picked the name `example-co`, then depending on where the data is stored, the tenant name would be `example-co-eu` or `example-co-au`.
+- If you chose to host your data in Europe or Australia, then your tenant will have a subdomain added for the region (`eu` or `au`). In our example, if `Example-Co` picked the name `example-co`, then depending on where the data is stored, the tenant name would be `example-co.eu` or `example-co.au`.
 
 You can create additional tenants at any time. To do so, go to the upper-right corner of the Dashboard and click on your tenant name to display the pulldown menu. Click **Create Tenant**.
 
