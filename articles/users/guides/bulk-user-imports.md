@@ -25,11 +25,12 @@ Before you launch the import users job:
 
 * [Configure a database connection](/connections/database) to import the users into and enable it for at least one application.
 * If you are importing passwords, make sure the passwords are hashed using one of the [supported algorithms](/users/references/bulk-import-database-schema-examples#supported-hash-algorithms). Users with passwords hashed by unsupported algorithms will need to reset their password when they log in for the first time after the bulk import.
+* If you are importing MFA enrollments, make sure they are a [supported type](/users/references/bulk-import-database-schema-examples#mfa-factors): `email`, `phone`, or `totp`. 
 * Get a [Management API Token](/api/management/v2/tokens) for job endpoint requests.
 
 ## Create users JSON file
 
-First you'll need to create a JSON file with the user data you want to import into Auth0. How you export your user data to a JSON file will vary depending on your existing user database. To see the JSON file schema and examples, visit [Bulk Import Database Schema and Examples](/users/references/bulk-import-database-schema-examples).
+First you'll need to create a JSON file with the user data you want to import into Auth0. How you export user data to a JSON file will vary depending on your existing user database. To see the JSON file schema and examples, visit [Bulk Import Database Schema and Examples](/users/references/bulk-import-database-schema-examples).
 
 The file size limit for a bulk import is 500KB. You will need to start multiple imports if your data exceeds this size.
 

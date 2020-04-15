@@ -280,7 +280,7 @@ The `user.custom_password_hash` object has the following properties:
 | `hash.key.encoding` | string | The key encoding. Must be one of: <ul><li>`base64`</li><li>`hex`</li><li>`utf8`</li></ul>By default, `hash.key.encoding` is `utf8`. |
 | `hash.salt` | object | &nbsp; |
 | `hash.salt.value` | string | The salt value used to generate the hash. |
-| `hash.salt.encoding` | string | The encoding of the provided salt.Must be one of: <ul><li>`base64`</li><li>`hex`</li><li>`utf8`</li></ul> Upper and lower case hex variants are supported, as well as url-encoded base64. By default, `hash.salt.encoding` is `utf8`. |
+| `hash.salt.encoding` | string | The encoding of the provided salt. Must be one of: <ul><li>`base64`</li><li>`hex`</li><li>`utf8`</li></ul> Upper and lower case hex variants are supported, as well as url-encoded base64. By default, `hash.salt.encoding` is `utf8`. |
 | `hash.salt.position` | string | The position of the salt when the hash was calculated. |
 | `password.encoding` | string | <%= include('../_includes/_password-encoding-description.md') %> |
 
@@ -394,6 +394,19 @@ When the `algorithm` is set to `pbkdf2`:
     - `ssl3-md5`
     - `ssl3-sha1`
     - `whirlpool`
+
+### MFA factors
+
+The `user.mfa_factors` array contains [MFA enrollments](/mfa) for the user. Importing enrollments prevents the need for users to re-enroll in MFA after they're imported. The supported enrollment types are:
+
+| Property | Type | Description |
+|---------|------|-------------|
+| `email` | object | &nbsp; |
+| `email.value` | string | The email address for MFA. |
+| `phone` | object | &nbsp; |
+| `phone.value` | string | The phone number for SMS MFA. Must have a country code and begin with `+`, such as: `"+1 (212) 555-0001"` |
+| `totp` | object | &nbsp; |
+| `totp.secret` | string | The OTP secret for MFA authentication with authenticator apps such as Google Authenticator type apps. Must be in un-padded Base32 encoding, for example: `"JBTWY3DPEHPK3PNP"` |
 
 ## Examples
 
@@ -520,14 +533,15 @@ Some example users with hashes provided:
 ]
 ```
 
-## MFA Factors
+### MFA Factors
 
 As you might expect, the `user.mfa_factors` array allows you to provide the user's [MFA enrollments](/mfa). The supported enrollment types are:
+
 * Phone: Used for sms-based verification.
 * TOTP: OTP secret for use with Google Authenticator type apps.
 * Email: Used for email-based verification.
 
-Below are some examples of users with MFA factors:
+Some examples of users with MFA factors:
 
 ```json
 [
