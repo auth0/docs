@@ -171,4 +171,4 @@ If you are using MFA after an authentication with one or more social providers, 
 ## Keep reading
 
 * [Resource Owner](/api-auth/tutorials/multifactor-resource-owner-password)
-* [Set Up Silent Authentication](/api-auth/tutorials/silent-authentication)
+* [Configure Silent Authentication](/api-auth/tutorials/silent-authentication)

@@ -51,7 +51,7 @@ Finally, to use our API endpoints, you can follow our tutorial: [Call Your API U
   * [Auth0 Single-Page App Quickstarts](/quickstart/spa)
   * [Call Your API Using the Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/call-api-auth-code-pkce)
   * [Change scopes and add custom claims to tokens using hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
-  * [Store Tokens](/tokens/guides/store-tokens)
+  * [Token Storage](/tokens/concepts/token-storage)
 :::
 
 ::: references
