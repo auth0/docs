@@ -25,10 +25,10 @@ We are actively migrating customers to new behaviors for all **Deprecations** li
   <tbody>
       <tr>
       <td><a href="/migrations/guides/extensibility-node12">Node.js v8 Extensibility Runtime</a></td>
-      <td>xx April 2020</td>
+      <td>15 April 2020</td>
       <td>TBA</td>
       <td>
-        The Webtask engine powering Auth0 extensibility points currently uses Node 8. Beginning <strong>31 December 2019</strong>, <a href="https://github.com/nodejs/Release#release-schedule">Node.js v8 will no longer be under long-term support (LTS)</a>. This means that critical security fixes will no longer be back-ported to this version. As such, Auth0 will be migrating the Webtask runtime from Node.js v8 to Node.js v12.<br><br>On <strong>xx April 2020</strong>, we will make the Node 12 runtime available for extensibility to all public cloud customers. You will be provided a migration switch that allows you to control your environment's migration to the new runtime environment.<br><br>To learn more about this migration and the steps you should follow to upgrade your implementation, see <a href="/migrations/guides/extensibility-node12">Migration Guide: Extensibility and Node.js v12</a>.
+        The Webtask engine powering Auth0 extensibility points currently uses Node 8. Beginning <strong>31 December 2019</strong>, <a href="https://github.com/nodejs/Release#release-schedule">Node.js v8 was no longer under long-term support (LTS)</a>. This means that critical security fixes were no longer back-ported to this version. As such, Auth0 is migrating the Webtask runtime from Node.js v8 to Node.js v12.<br><br>On <strong>15 April 2020</strong>, we made the Node 12 runtime available for extensibility to all public cloud customers. You have been provided a migration switch that allows you to control your environment's migration to the new runtime environment.<br><br>To learn more about this migration and the steps you should follow to upgrade your implementation, see <a href="/migrations/guides/extensibility-node12">Migration Guide: Extensibility and Node.js v12</a>.
       </td>
     </tr>
     <tr>
