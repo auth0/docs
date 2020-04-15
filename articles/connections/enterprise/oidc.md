@@ -90,13 +90,7 @@ To be configurable through the Auth0 Dashboard, the OpenID Connect (OIDC) Identi
 
 ![Additional OIDC Settings](/media/articles/dashboard/connections/enterprise/conn-enterprise-additional-oidc-settings.png)
 
-5. On the **Settings** tab, under **Issuer URL**, click **Show Issuer Details** to view the Issuer URL **Advanced Settings**.
-
-| Field | Description|
-| -- | -- |
-| **Issuer** |    | 
-| **Authorization Endpoint** |  |
-| **JWKS URL** |  |
+5. On the **Settings** tab, under **Issuer URL**, click **Show Issuer Details** to view the Issuer URL **Advanced Settings** and make adjustments if necessary. 
 
 6. Set connection **Type** to **Front Channel** or **Back Channel**. Front Channel uses the OIDC protocol with `response_mode=form_post` and `response_type=id_token`. Back Channel uses `response_type=code`.
 
@@ -104,8 +98,8 @@ To be configurable through the Auth0 Dashboard, the OpenID Connect (OIDC) Identi
 
 | Field | Description|
 | -- | -- |
-| **IdP Domains** | **Optional** Enter comma-separated list of the domains that can be authenticated in the Identify Provider. You only need these for [Identifier First](/universal-login/identifier-first) authentication flows. |
-| **Scopes** | Add a comma-separated list of scopes to request from the Issuer. This list *must* contain `openid`. |
+| **IdP Domains** | **Optional** Enter comma-separated list of the domains that can be authenticated in the Identify Provider. This is only applicable when using [Identifier First](/universal-login/identifier-first) authentication in the Classic Universal Login Experience. |
+| **Scopes** | A comma-separated list of Auth0 scopes to request when connecting to the Identify Provider. This will affect the data stored in the user profile. You are required to include at least the `openid` scope. Note that the connection does not call `/userinfo` endpoint and expects the user claims to be present in the `id_token`.  |
 
 6. Click **Save Changes**.
 
