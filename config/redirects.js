@@ -2566,5 +2566,9 @@ module.exports = [
     {
       from: '/api/management/guides/retrieve-connection-options',
       to: '/api/management/guides/connections/retrieve-connection-options'
+    },
+    {
+      from: '/product-lifecycle/deprecation-eol',
+      to: '/product-lifecycle/migration-process'
     }
 ];
