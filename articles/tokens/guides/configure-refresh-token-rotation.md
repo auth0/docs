@@ -32,7 +32,7 @@ Migration scenarios accommodate automatic token revocation when migrating from a
 
 4. Click **Save Changes**.
 
-::: warning
+::: note
 Refresh Token Rotation is only supported for OIDC-conformant applications having the Refresh Token grant type enabled.
 :::
 
