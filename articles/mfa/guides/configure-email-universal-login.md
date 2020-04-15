@@ -14,7 +14,7 @@ Using email as an MFA factor is useful when you want to provide users a way to p
 
 You can only enable email as an MFA factor if there is already another factor enabled. Email will only be functional as a factor from <dfn data-key="universal-login">Universal Login</dfn> when you have the [New Universal Login Experience](/universal-login/new) enabled.
 
-Once Email MFA is enabled user will be prompted to complete MFA with the other enabled factor. If they have a verified email they will be given the option to select Email, and get an one time code in their email which they can then enter to complete MFA.
+Once Email MFA is enabled user will be prompted to complete MFA with the other enabled factor. If they have a **verified email** they will be given the option to select Email, and get an one time code in their email which they can then enter to complete MFA.
 
 Users do not need to explicitly enroll with email MFA. They will get be able to use it when they have a verified email. This happens when they completed the email verification flow, when the updated the email_verified field using the Management API, or when they logged-in with a connection that provides verified emails (e.g. Google).
 
