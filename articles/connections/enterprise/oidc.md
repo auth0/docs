@@ -70,40 +70,23 @@ To be configurable through the Auth0 Dashboard, the OpenID Connect (OIDC) Identi
 | **Logo URL** (optional) | URL of image used to customize the login button for Universal Login. When set, the Universal Login login button displays the image as a 20px by 20px square. |
 | **Issuer URL** | URL where Auth0 can find the **OpenID Provider Configuration Document**, which should be available in the `/.well-known/openid-configuration` endpoint. You can enter the base URL or the full URL. You will see a green checkmark if it can be found at that location, a red mark if it cannot be found, or an error message if the file is found but the required information is not present in the configuration file. |
 | **Client ID** | Unique identifier for your registered Azure AD application. Enter the saved value of the **Client ID** for the app you registered with the OIDC Identity Provider. |
-
-![Configure General OIDC Settings](/media/articles/dashboard/connections/enterprise/conn-enterprise-oidc-settings-1.png)
-
-3. Enter additional information for your connection:
-
-| Field | Description |
-| ----- | ----------- |
 | **Callback URL** | URL to which Auth0 redirects users after they authenticate. Ensure that this value is configured for the app you registered with the OIDC Identity Provider.
 | **Sync user profile attributes at each login** | When enabled, Auth0 automatically syncs user profile data with each user login, thereby ensuring that changes made in the connection source are automatically updated in Auth0. |
 
 <%= include('../_find-auth0-domain-redirects.md') %>
 
-![Configure Advanced OIDC Settings](/media/articles/dashboard/connections/enterprise/conn-enterprise-oidc-settings-2.png)
+4. Click **Create**. The new enterprise connection settings screen appears. 
 
-4. Click **Create**. 
-
-	The new enterprise connection settings screen appears. 
-
-![Additional OIDC Settings](/media/articles/dashboard/connections/enterprise/conn-enterprise-additional-oidc-settings.png)
-
-5. On the **Settings** tab, under **Issuer URL**, click **Show Issuer Details** to view the Issuer URL **Advanced Settings** and make adjustments if necessary. 
-
-6. Set connection **Type** to **Front Channel** or **Back Channel**. Front Channel uses the OIDC protocol with `response_mode=form_post` and `response_type=id_token`. Back Channel uses `response_type=code`.
-
-7. Configure the **IdP Domains** and **Scopes** if necessary. 
+5. On the **Settings** tab, make additional configure adjustments if necessary.
 
 | Field | Description|
 | -- | -- |
+| **Issuer URL** | Click **Show Issuer Details** to view the Issuer URL **Advanced Settings** and make adjustments. |
+| **Type** | Set to **Front Channel** or **Back Channel**. Front Channel uses the OIDC protocol with `response_mode=form_post` and `response_type=id_token`. Back Channel uses `response_type=code`. |
 | **IdP Domains** | **Optional** Enter comma-separated list of the domains that can be authenticated in the Identify Provider. This is only applicable when using [Identifier First](/universal-login/identifier-first) authentication in the Classic Universal Login Experience. |
 | **Scopes** | A comma-separated list of Auth0 scopes to request when connecting to the Identify Provider. This will affect the data stored in the user profile. You are required to include at least the `openid` scope. Note that the connection does not call `/userinfo` endpoint and expects the user claims to be present in the `id_token`.  |
 
 6. Click **Save Changes**.
-
-7. [Test the connection](#test-the-connection).
 
 ### Create an enterprise connection using the Management API
 
@@ -204,7 +187,7 @@ These examples will show you the variety of ways you can create the [connection]
 
 ## Enable the enterprise connection for your Auth0 application
 
-To use your new Azure AD enterprise connection, you must first [enable the connection](/dashboard/guides/connections/enable-connections-enterprise) for your Auth0 Applications.
+To use your new enterprise connection, you must first [enable the connection](/dashboard/guides/connections/enable-connections-enterprise) for your Auth0 Applications.
 
 ## Test the connection
 
