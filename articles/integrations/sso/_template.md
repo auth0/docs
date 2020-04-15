@@ -164,6 +164,8 @@ Zendesk **requires** that all users have an email address. When enabling Enterpr
 that can be sent to Zendesk.
 :::
 
+If the Auth0 generated Remote Logout URL is used within Zendesk, an Auth0 error page will be shown when the user attempts to logout. For the generated `returnTo` to work, update the logout URL setting in the Dashboard **Tenant > Settings > Advanced > Allowed Logout URLs**. 
+
 <% } %>
 The **Connections** tab features a list of user sources available to your tenant. Your connections are organized by type (e.g., Database, Social, Enterprise, Passwordless).
 
