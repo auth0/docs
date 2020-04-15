@@ -159,6 +159,54 @@ The following [JSON schema](http://json-schema.org) describes valid users:
         "user_metadata": {
             "type": "object",
             "description": "Data related to the user that does not affect the application's core functionality."
+        },
+        "mfa_factors": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "totp": {
+                        "type": "object",
+                        "properties": {
+                        "secret": {
+                            "type": "string",
+                                "pattern": "^[A-Z2-7]+$",
+                                "description": "The OTP secret is used for MFA authentication with Google Authenticator type apps. It must be supplied in un-padded Base32 encoding, such as: JBTWY3DPEHPK3PNP"
+                            },
+                        },
+                        "additionalProperties": false,
+                        "required": ["secret"],
+                    },
+                    "phone": {
+                        "type": "object",
+                        "properties": {
+                        "value": {
+                            "type": "string",
+                            "pattern": "^\\+[0-9-()\\s]{8,}$",
+                            "description": "The phone number for SMS MFA. The phone number should include a country code and begin with +, such as: +1 (212) 555-0001"
+                        },
+                        },
+                        "additionalProperties": false,
+                        "required": ["value"],
+                    },
+                    "email": {
+                        "type": "object",
+                        "properties": {
+                            "value": {
+                                "type": "string",
+                                "format": "email",
+                                "description": "The email address for MFA"
+                            },
+                        },
+                        "additionalProperties": false,
+                        "required": ["value"],
+                    },
+                },
+                "maxProperties": 1,
+                "additionalProperties": false,
+            },
+            "minItems": 1,
+            "maxItems": 10
         }
     },
     "required": ["email"],
@@ -187,6 +235,7 @@ You can import users with the following properties:
 | `password_hash` | string | Hashed password for the user's connection. When users are created, Auth0 uses [bcrypt](https://auth0.com/blog/hashing-in-action-understanding-bcrypt/) to secure the password. Importing hashed passwords lets users keep their passwords for a smoother experience. Compatible passwords should be hashed using bcrypt $2a$ or $2b$ and have 10 saltRounds. This property can only be provided when the user is first imported and cannot be updated later. | No |
 | `custom_password_hash` | object | A more generic way to provide the user's password hash. This can be used instead of the `password_hash` field when the user's password hash was created with an alternate algorithm. This property can only be provided when the user is first imported and cannot be updated later. | Yes |
 | `password_set_date` | datetime | Timestamp indicating when the password for the user's connection was set. At user creation, this field exists, and `last_password_reset` does not. If the user has reset their password, this field and `last_password_reset` are identical. | No |
+| `mfa_factors` | array | The MFA factors that can be used to authenticate this user | Yes |
 
 For more information on `app_metadata` and `user_metadata`, check out the [Metadata Overview](/users/concepts/overview-user-metadata).
 
@@ -467,6 +516,70 @@ Some example users with hashes provided:
                 }
             }
         }
+    }
+]
+```
+
+## MFA Factors
+
+As you might expect, the `user.mfa_factors` array allows you to provide the user's [MFA enrollments](/mfa). The supported enrollment types are:
+* Phone: Used for sms-based verification.
+* TOTP: OTP secret for use with Google Authenticator type apps.
+* Email: Used for email-based verification.
+
+Below are some examples of users with MFA factors:
+
+```json
+[
+    {
+        "email": "antoinette@contoso.com",
+        "mfa_factors": [
+            {
+                "totp": {
+                    "secret": "2PRX8ZWZAYYDAWCD"
+                }
+            },
+            {
+                "phone": {
+                    "value": "+1 (555) 111 2233"
+                }
+            },
+            {
+                "email": {
+                    "value": "antoinette@antoinette.biz"
+                }
+            }
+        ]
+    },
+    {
+        "email": "mary@contoso.com",
+        "mfa_factors": [
+            {
+                "totp": {
+                    "secret": "JTF18P5973P1KCZN"
+                }
+            }
+        ]
+    },
+    {
+        "email": "velma@contoso.com",
+        "mfa_factors": [
+            {
+                "phone": {
+                    "value": "+1 (555) 123 4567"
+                }
+            },
+        ]
+    },
+    {
+        "email": "edward@contoso.com",
+        "mfa_factors": [
+            {
+                "email": {
+                    "value": "antoinette@antoinette.biz"
+                }
+            }
+        ]
     }
 ]
 ```

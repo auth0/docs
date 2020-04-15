@@ -52,7 +52,14 @@ Additionally, you can also provide metadata for a user as part of the user profi
     },
     "metadata": {
         "plan": "full"
-    }
+    },
+    "mfa_factors": [
+      {
+        "phone": {
+          "value": "+1 (555) 123 4567"
+        }
+      },
+    ]
 }
 ```
 
@@ -61,6 +68,7 @@ Additionally, you can also provide metadata for a user as part of the user profi
 | `username` | If a custom database connection type has **Requires Username** as an enabled setting then the profile returned for the user must include a `username`. If the setting is not enabled then `username` is optional and can be omitted. |
 | `user_id` | The `user_id` value must be specified and provides the unique identifier for a user. For the `auth0` strategy, the strategy used to define a custom database connection, Auth0 automatically decorates whatever `user_id` value is supplied by prefixing the text `auth0|` in order to create the `user_id` in the root of the normalized user profile. The `user_id` value supplied will appear in it’s undecorated form in the identities array associated with the user profile in Auth0. The `user_id` value specified must be unique across all database connections defined in an Auth0 tenant. Failure to observe this will result in user identifier collision which will lead to unpredictable operation. One way to avoid this is to explicitly prefix the supplied `user_id` with the name of, or pseudonym for, the connection (omitting any whitespace). The `user_id` value must also be consistent for any given user; the value returned by the **Login** script  must also be consistent with the value returned by the **Get User** script, and vice-versa. Failure to observe this requirement can lead to duplicate Auth0 user profiles for a user, duplicate identities for any user migrated via automatic migration, and/or unpredictable results when it comes to user operations. |
 | `email` | An `email` value should also be specified. While an email address is not mandatory for a user, much of Auth0 out-of-box functionality such as password reset, requires that a user has a valid and verified email address. Email addresses should be returned consistently for all scripts and should also be unique within the context of a single custom database connection (for automatic migration scenarios). Failure to observe either of these requirements will typically lead to unpredictable results when it comes to user operation. |
+| `mfa_factors` | (Optional) A list of [MFA enrollments](/mfa) for the imported user, which prevents the need for users to re-enroll in MFA. This field currently supports [SMS](/mfa/concepts/mfa-factors#sms-notifications), [OTP](/mfa/concepts/mfa-factors#one-time-passwords), and [email](/mfa/concepts/mfa-factors#email-notifications) based factors.|
 
 ::: warning
 If you are providing `app_metadata` as part of the user profile then you should refer to this as `metadata` in the profile object returned. Failure to do this will result in a loss of the metadata if any modifications are made to the users’ `app_metadata` in the future. 
