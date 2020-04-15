@@ -1,5 +1,4 @@
 ---
-title: Connect Your App to OpenID Connect Identity Providers
 connection: OpenID Connect
 image: /media/connections/oidc.png
 public: true
@@ -16,15 +15,13 @@ useCase:
     - customize-connections
     - add-idp
 ---
-# Connect to an OpenID Connect Identity Provider
+# Connect to OpenID Connect Identity Provider
 
 ::: warning
 If you are using the Lock login widget with an OpenID Connect (OIDC) connection, you must use Lock version 11.16 or higher.
 :::
 
 ## Prerequisites
-
-**Before beginning:**
 
 * [Register your Application with Auth0](/getting-started/set-up-app). 
   * Select an appropriate **Application Type**.
@@ -60,7 +57,7 @@ Next, you will need to create and configure a OIDC Enterprise Connection in Auth
 To be configurable through the Auth0 Dashboard, the OpenID Connect (OIDC) Identity Provider (IdP) needs to support [OIDC Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html). Otherwise, you can configure the connection using the [Management API](#configure-the-connection-using-the-management-api).
 :::
 
-1. Navigate to the [Connections > Enterprise](${manage_url}/#/connections/enterprise) page in the [Auth0 Dashboard](${manage_url}/), and click the `+` next to **OpenID Connect**.
+1. Navigate to the [Connections > Enterprise](${manage_url}/#/connections/enterprise) page in the [Auth0 Dashboard](${manage_url}/), and click **Create Connection**.
 
 ![Create Connection Type](/media/articles/dashboard/connections/enterprise/conn-enterprise-list.png)
 
@@ -76,7 +73,7 @@ To be configurable through the Auth0 Dashboard, the OpenID Connect (OIDC) Identi
 
 ![Configure General OIDC Settings](/media/articles/dashboard/connections/enterprise/conn-enterprise-oidc-settings-1.png)
 
-3. Enter additional information for your connection, and click **Create**:
+3. Enter additional information for your connection:
 
 | Field | Description |
 | ----- | ----------- |
@@ -86,6 +83,23 @@ To be configurable through the Auth0 Dashboard, the OpenID Connect (OIDC) Identi
 <%= include('../_find-auth0-domain-redirects.md') %>
 
 ![Configure Advanced OIDC Settings](/media/articles/dashboard/connections/enterprise/conn-enterprise-oidc-settings-2.png)
+
+4. Click **Create**. 
+
+	The new enterprise connection settings screen appears. 
+
+![Additional OIDC Settings](/media/articles/dashboard/connections/enterprise/conn-enterprise-additional-oidc-settings.png)
+
+5. Configure additional domains and scopes settings.
+
+| Field | Description|
+| -- | -- |
+| **IdP Domains** | **Optional** Enter comma-separated list of the domains that can be authenticated in the Identify Provider. You only need these for [Identifier First](/universal-login/identifier-first) authentication flows. |
+| **Scopes** | Add a comma-separated list of scopes to request from the Issuer. This list must contain `openid`. |
+
+6. Click **Save Changes**.
+
+7. [Test the connection](#test-the-connection).
 
 ### Create an enterprise connection using the Management API
 
