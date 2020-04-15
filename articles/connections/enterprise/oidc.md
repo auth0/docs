@@ -77,7 +77,7 @@ To be configurable through the Auth0 Dashboard, the OpenID Connect (OIDC) Identi
 
 4. Click **Create**. The new enterprise connection settings screen appears. 
 
-5. On the **Settings** tab, make additional configure adjustments if necessary.
+5. On the **Settings** tab, make additional configuration adjustments if necessary.
 
 | Field | Description|
 | -- | -- |
