@@ -81,6 +81,7 @@ To verify the signature, you will need to:
     1. Retrieve the `alg` property from the decoded Header.
     2. Ensure that it is an allowed algorithm. Specifically, to avoid certain attacks, make sure you disallow `none`.
     3. Check that it matches the algorithm you selected when you [registered your Application](/getting-started/set-up-app) or [API](/getting-started/set-up-api) with Auth0.
+
 2. Confirm that the token is correctly signed using the proper key. Check the Signature to verify that the sender of the JWT is who it says it is and that the message wasn't changed along the way.
 
     Remember that the Signature is created using the Header and Payload segments, a [signing algorithm](/tokens/concepts/signing-algorithms), and a secret or public key (depending on the chosen signing algorithm).
@@ -90,6 +91,14 @@ To verify the signature, you will need to:
     1. Take the original Base64url-encoded Header and original Base64url-encoded Payload segments (Base64url-encoded Header + "." + Base64url-encoded Payload), and hash them with SHA-256.
     2. Encrypt using either HMAC or RSA (depending on your selected signing algorithm) and the appropriate key.
     3. Base64url-encode the result.
+
+    In the case of RSA, use the following steps:
+
+    1. Calculate current hash value. A hash value of the signed message is calculated. For this calculation, the same hashing algorithm is used as was used during the signing process. The obtained hash value is called the current hash value because it is calculated from the current state of the message.
+
+    2. Calculate the original hash value. The digital signature is decrypted with the same encryption algorithm that was used during the signing process. The decryption is done by the public key that corresponds to the private key used during the signing of the message. As a result, we obtain the original hash value that was calculated from the original message during the previous step of the signing process (the original message digests).
+
+    3. Compare the current and the original hash values. Compare the current hash value in step 1 with the original hash-value from step 2. If the two values are identical, the verification is successful and proves that the message has been signed with the private key that corresponds to the public key used in the verification process. If the two values differ, the digital signature is invalid and the verification is unsuccessful.
 
     ::: panel Locate Public Key
 
