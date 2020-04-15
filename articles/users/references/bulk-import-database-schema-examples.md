@@ -576,7 +576,7 @@ Below are some examples of users with MFA factors:
         "mfa_factors": [
             {
                 "email": {
-                    "value": "antoinette@antoinette.biz"
+                    "value": "edward@edward.biz"
                 }
             }
         ]
