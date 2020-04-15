@@ -757,7 +757,8 @@ module.exports = [
     from: [
       '/multi-factor-authentication',
       '/multi-factor-authentication2',
-      '/multifactor-authentication/custom-provider'
+      '/multifactor-authentication/custom-provider',
+      '/multifactor-authentication'
     ],
     to: '/mfa'
   },
