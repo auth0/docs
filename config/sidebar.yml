@@ -1712,9 +1712,8 @@ articles:
                 url: "/tokens/guides/revoke-refresh-tokens"
                 hidden: true 
 
-              - title: "Refresh Token Rotation"
-                url: "/tokens/concepts/refresh-token-rotation"
-                hidden: true 
+          - title: "Refresh Token Rotation"
+            url: "/tokens/concepts/refresh-token-rotation"
 
               - title: "Configure Refresh Token Rotation"
                 url: "/tokens/guides/configure-refresh-token-rotation"

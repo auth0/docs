@@ -22,7 +22,7 @@ The way Refresh Token rotation works in Auth0 conforms with the [OAuth 2.0 BCP](
 
 ## Maintaining user sessions in SPAs
 
-Until very recently, SPAs overcame the challenge of maintaining the user’s session by using the [Authorization Code Flow with PKCE](/flows/concepts/auth-code-pkce) in conjunction with [Silent Authentication](/api-auth/tutorials/silent-authentication). Recent developments in browser privacy technology, such as Intelligent Tracking Prevention (ITP) prevent access to the Auth0 session cookie, thereby requiring users to reauthenticate. 
+Until very recently, SPAs maintained the user’s session by using the [Authorization Code Flow with PKCE](/flows/concepts/auth-code-pkce) in conjunction with [Silent Authentication](/api-auth/tutorials/silent-authentication). Recent developments in browser privacy technology, such as Intelligent Tracking Prevention (ITP) prevent access to the Auth0 session cookie, thereby requiring users to reauthenticate. 
 
 ![Refresh Token and Access Tokens](/media/articles/tokens/rt-and-at.png)
 
@@ -34,13 +34,13 @@ The following state diagram illustrates how Refresh Token Rotation is used in co
 
 ![Refresh Token Rotation State Diagram](/media/articles/tokens/rtr-state-diagram.png)
 
-This means that you can safely use Refresh Tokens to mitigate the adverse effects of browser privacy tools and provide continuous access to end-users without disrupting the user experience.
+This means you can safely use Refresh Tokens to mitigate the adverse effects of browser privacy tools and provide continuous access to end-users without disrupting the user experience.
 
 ## Automatic reuse detection
 
-When a client needs a new Access Token, it sends the Refresh Token with the request to Auth0 to get a new token pair. As soon as the new pair is issued by Auth0, the Refresh Token used in the request is invalidated. This helps safeguard your app from replay attacks resulting from compromised tokens.
+When a client needs a new Access Token, it sends the Refresh Token with the request to Auth0 to get a new token pair. As soon as the new pair is issued by Auth0, the Refresh Token used in the request is invalidated. This safeguards your app from replay attacks resulting from compromised tokens.
 
-Without enforcing sender-constraint, it’s impossible for the authorization server to know which actor is legitimate or malicious in the event of a replay attack. Therefore, it’s important that when a previously-used Refresh Token (already invalidated) is sent to the authorization server that the most recently issued Refresh Token is immediately invalidated as well, preventing any Refresh Tokens in the same token family (all Refresh Tokens descending from the original Refresh Token issued for the client) from being used to get new Access Tokens.
+Without enforcing sender-constraint, it’s impossible for the authorization server to know which actor is legitimate or malicious in the event of a replay attack. So it’s important that the most recently issued Refresh Token is also immediately invalidated when a previously-used Refresh Token (already invalidated) is sent to the authorization server. This prevents any Refresh Tokens in the same token family (all Refresh Tokens descending from the original Refresh Token issued for the client) from being used to get new Access Tokens.
 
 For example, consider the following scenario: 
 1. Legitimate Client has **Refresh Token 1**, and it is leaked to or stolen by Malicious Client. 
@@ -53,7 +53,7 @@ For example, consider the following scenario:
 
 ![Reuse Detection](/media/articles/tokens/reuse-detection.png)
 
-This protection mechanism works regardless of whether the legitimate client or the malicious client is able to exchange **Refresh Token 1** for a new token pair before the other. As soon as reuse is detected, all subsequent requests will be denied until the user re-authenticates. When reuse is detected, Auth0 captures this event (`ferrt` indicating a failed exchange) in logs to provide visibility for security reviews and audits. This can be especially useful in conjunction with Auth0’s log streaming capabilities.
+This protection mechanism works regardless of whether the legitimate client or the malicious client is able to exchange **Refresh Token 1** for a new token pair before the other. As soon as reuse is detected, all subsequent requests will be denied until the user re-authenticates. When reuse is detected, Auth0 captures detected reuse events (such as `ferrt` indicating a failed exchange) in logs. This can be especially useful in conjunction with Auth0’s log streaming capabilities.
 
 ## SDK support
 
