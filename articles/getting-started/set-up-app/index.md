@@ -1,17 +1,17 @@
 ---
-title: Set Up an App
+title: Set Up Applications in the Dashboard
 description: Learn how to set up an app in Auth0 Dashboard. 
 classes: topic-page
 topics:
   - apps
-contentType: how-to
+contentType: index
 useCase:
   - set-up-app
   - get-started
 ---
-# Set Up an App
+# Set Up Applications in the Dashboard
 
-Learn how to set up an app in the Auth0 Dashboard. You can set up the following app types: 
+You can set up the following app types: 
 
 <%= include('../../_includes/_topic-links', { links: [
   'dashboard/guides/applications/register-app-regular-web',
