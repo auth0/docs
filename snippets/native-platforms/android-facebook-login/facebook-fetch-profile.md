@@ -20,5 +20,6 @@ private void fetchUserProfile(String token, String userId, final SimpleCallback<
             callback.onResult(response.getRawResponse());
         }
     });
+    request.executeAsync();
 }
 ```
