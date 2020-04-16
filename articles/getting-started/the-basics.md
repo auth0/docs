@@ -37,7 +37,7 @@ You can create more than one tenant; in fact, we encourage you to do so for each
 
 ## Domains
 
-When you create a new account with Auth0, and choose a name for your tenant, the name is  appended with `auth0.com`. This will be your Auth0 *domain*. It's the base URL you will use to access our API and the URL where your users are redirected in order to authenticate. You can also use [custom domains](#custom-domains), which we highly recommend for your production environment. This option does require an additional cost. 
+When you create a new account with Auth0, and choose a name for your tenant, the name is  appended with `auth0.com`. This will be your Auth0 *domain*. It's the base URL you will use to access our API and the URL where your users are redirected in order to authenticate. 
 
 Auth0 supports three regional subdomains: 
 - `auth0.com` for US
@@ -46,11 +46,7 @@ Auth0 supports three regional subdomains:
 
 When you create your tenant, you are asked for the region you want to use. This choice affects which regional subdomain will be assigned to you and where your data will be hosted. For example, if you pick US then the name format will be `YOUR-TENANT-NAME.auth0.com`, for Europe it will be `YOUR-TENANT-NAME.eu.auth0.com`, and so forth. In our example, the owner of `Example-Co` picked the name `example-co` and chose Americas as their region. Therefore their domain is `example-co.auth0.com`.
 
-### Custom domains
-
-We recommend using *custom domains*, like `example-co.com`, for production environments to give your users the most secure and seamless experience. If you have a [**single-tenant** implementation](/private-cloud), you can deploy your custom domain in either the cloud managed by Auth0 or an AWS cloud managed by you
-
-See [Custom Domains](/custom-domains) to learn more about all the features. 
+Alternatively, you can use [custom domains](#custom-domains), which we highly recommend for a production environment, like `example-co.com`. (This option does require an additional cost.) Using a custom domain gives your users the most secure and seamless experience. If you have a [**single-tenant** implementation](/private-cloud), you can deploy your custom domain in either the cloud managed by Auth0 or an AWS cloud that you manage. See [Custom Domains](/custom-domains) to learn more about all the features. 
 
 ## Application
 
