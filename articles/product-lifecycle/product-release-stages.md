@@ -66,6 +66,6 @@ For self-service subscribers, Deprecation is subject to our [Identity Platform T
 
 ## End Of Life
 
-Features that reach this stage are removed from the platform. Continued use of these feature will likely result in errors.
+Features that reach this stage are removed from the platform. Continued use of these features will likely result in errors.
 
 For self-service subscribers, End of Life is subject to our [Identity Platform Terms of Service](https://auth0.com/legal/ss-tos). For enterprise customers, End of Life is subject to the Subscription Agreement, which you can view at [Legal](https://auth0.com/legal). 
