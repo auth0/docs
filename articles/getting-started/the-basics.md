@@ -62,7 +62,7 @@ Another important piece of information is the **Client Secret**. Think of it as 
 
 In our example, `ExampleCo` has two apps: a web app (running on a server) and a mobile app. They would register two applications: one of type `Regular Web Applications`, and one of type `Native`.
 
-If you want to know all the details, see [Applications](/applications). To see some examples for different types of apps, see [/getting-started/set-up-app].
+If you want to know all the details, see [Applications](/applications). To see some examples for different types of apps, see [Set Up an App](/getting-started/set-up-app).
 
 ## Connection
 
