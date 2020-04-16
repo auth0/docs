@@ -33,11 +33,11 @@ The name you give your Auth0 tenant is very important because it will be used fo
 - Consist of **only** lowercase alphanumeric characters and hyphens ("-")
 - Cannot begin or end with a hyphen
 
-You can create more than one tenant; in fact, you are encouraged to do so for each environment you have (for example: development, staging, or production). You can create additional tenants at any time in the Dashboard: Click on your tenant name to display the pulldown menu and click **Create Tenant**.
+You can create more than one tenant; in fact, we encourage you to do so for each environment you may have (for example: development, staging, and production). You can create additional tenants any time in the Dashboard: Just click on your tenant name in the upper right to display the pulldown menu and then click **Create Tenant**. This is another reason why it's important to plan your tenant names. 
 
 ## Domains
 
-When you create a new account with Auth0, and choose a name for your tenant, the name is  appended with `auth0.com`. This will be your Auth0 *domain*. It's the base URL you will use to access our API and the URL where your users are redirected in order to authenticate. You can also use [custom domains](#custom-domains), which we highly recommend for your production environment.
+When you create a new account with Auth0, and choose a name for your tenant, the name is  appended with `auth0.com`. This will be your Auth0 *domain*. It's the base URL you will use to access our API and the URL where your users are redirected in order to authenticate. You can also use [custom domains](#custom-domains), which we highly recommend for your production environment. This option does require an additional cost. 
 
 Auth0 supports three regional subdomains: 
 - `auth0.com` for US
@@ -48,7 +48,7 @@ When you create your tenant, you are asked for the region you want to use. This 
 
 ### Custom domains
 
-We recommend using *custom domains*, like `example-co.com`, for production environments to give your users the most secure and seamless experience. This option does require an additional cost. If you have a [**single-tenant** implementation](/private-cloud), you can deploy your custom domain in either the cloud managed by Auth0 or an AWS cloud managed by you
+We recommend using *custom domains*, like `example-co.com`, for production environments to give your users the most secure and seamless experience. If you have a [**single-tenant** implementation](/private-cloud), you can deploy your custom domain in either the cloud managed by Auth0 or an AWS cloud managed by you
 
 See [Custom Domains](/custom-domains) to learn more about all the features. 
 
