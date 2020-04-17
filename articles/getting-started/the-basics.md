@@ -16,7 +16,7 @@ useCase:
 
 Often, the biggest barrier to learning new things, especially in the tech industry, is terminology. The words that are used to describe things can cause problems when you try to understand new concepts. This document explains some of the basic terminology we use at Auth0 and maps these terms to concepts you are already familiar with. We also have a handy [glossary](/glossary).
 
-::: panel
+::: panel TL;DR
 This article uses an example to introduce some core concepts of Auth0: **accounts**, **tenants**, **domains**, **applications**, and **connections**. If you already know what these are in the context of Auth0, you can safely skip reading it.
 
 We will use a very simple example: A company named `Example-Co` wants to use Auth0 for authentication. They have a web app and a mobile app, and they want their users to be able to log in with username/password, Google, or GitHub.
@@ -42,13 +42,13 @@ When you create a new account with Auth0 and choose a name for your tenant, a re
 
 Auth0 supports three regional subdomains: 
 
-- `auth0.com` for US
+- `auth0.com` for the Americas
 - `eu.auth0.com` for Europe
 - `au.auth0.com` for Australia
 
-When you create your tenant, you will be asked for the region you want to use. This choice affects which regional subdomain will be assigned to you and where your data will be hosted. For example, if you pick US then the name format will be `YOUR-TENANT-NAME.auth0.com`, for Europe it will be `YOUR-TENANT-NAME.eu.auth0.com`, and so forth. In our example, the owner of `Example-Co` picked the name `example-co` and chose Americas as their region. Therefore, their domain is `example-co.auth0.com`.
+When you create your tenant, you will be asked for the region you want to use. This choice affects which regional subdomain will be assigned to you and where your data will be hosted. For example, if you pick the Americas, then the name format will be `YOUR-TENANT-NAME.auth0.com`; for Europe, it will be `YOUR-TENANT-NAME.eu.auth0.com`; and so forth. In our example, the owner of `Example-Co` picked the name `example-co` and chose the Americas as their region. Therefore, their domain is `example-co.auth0.com`.
 
-Alternatively, you can use [custom domains](#custom-domains) (which we highly recommend for a production environment), like `example-co.com`. (This option does require an additional cost.) Using a custom domain gives your users the most secure and seamless experience. If you have a [**single-tenant** implementation](/private-cloud), you can deploy your custom domain in either the cloud managed by Auth0 or an AWS cloud that you manage. To learn more, see [Custom Domains](/custom-domains). 
+Alternatively, you can use [custom domains](#custom-domains) (which we highly recommend for a production environment), like `example-co.com`. (This option requires an additional cost.) Using a custom domain gives your users the most secure and seamless experience. If you have a [**single-tenant** implementation](/private-cloud), you can deploy your custom domain in either the cloud managed by Auth0 or an AWS cloud that you manage. To learn more, see [Custom Domains](/custom-domains). 
 
 ## Application
 
