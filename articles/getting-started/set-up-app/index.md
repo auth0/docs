@@ -1,6 +1,6 @@
 ---
-title: Set Up Applications in the Dashboard
-description: Learn how to set up an app in Auth0 Dashboard. 
+title: Set Up Applications
+description: Learn how to set up an application in the Auth0 Dashboard. 
 classes: topic-page
 topics:
   - apps
@@ -9,7 +9,8 @@ useCase:
   - set-up-app
   - get-started
 ---
-# Set Up Applications in the Dashboard
+
+# Set Up Applications
 
 You can set up the following app types: 
 
