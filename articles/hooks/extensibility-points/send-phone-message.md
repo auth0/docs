@@ -119,4 +119,5 @@ The `context.language` parameter will always have one of the languages configure
 
 - [Configuring a Custom SMS Gateway for MFA using Amazon SNS](/multifactor-authentication/send-phone-message-hook-amazon-sns) guide. 
 - [Configuring a Custom SMS Gateway for MFA using Twilio](/multifactor-authentication/send-phone-message-hook-twilio) guide. 
+- [Configuring a Custom SMS Gateway for MFA using Infobip](/multifactor-authentication/send-phone-message-hook-infobip) guide. 
 - Learn about other [Extensibility Points](/hooks/extensibility-points).
