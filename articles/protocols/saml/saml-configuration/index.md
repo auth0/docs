@@ -20,7 +20,7 @@ Auth0 supports the SAML protocol and can serve as the identity provider, the ser
 
 ## SAML Identity Providers
 
-Some applications (such as SalesForce, Box, and Workday) allow users to authenticate against an external IdP using the SAML protocol. You can then integrate the application with Auth0, which serves as the application's SAML IdP.
+Some applications (such as Salesforce, Box, and Workday) allow users to authenticate against an external IdP using the SAML protocol. You can then integrate the application with Auth0, which serves as the application's SAML IdP.
 
 Application users will be redirected to Auth0 to log in, and Auth0 can authenticate them using any backend authentication connection, such as an LDAP directory, a database, or another SAML IdP or Social Provider.
 

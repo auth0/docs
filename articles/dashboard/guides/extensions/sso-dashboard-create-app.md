@@ -28,19 +28,39 @@ Before you [add the SSO Dashboard extension](/dashboard/guides/extensions/sso-da
 
     For **Admins**:
 
+    If you are using Node 8:
+
     | Location | Allowed Callback URL |
     | --- | --- |
     | USA | `https://${account.tenant}.us8.webtask.io/auth0-sso-dashboard/admins/login` |
     | Europe | `https://${account.tenant}.eu8.webtask.io/auth0-sso-dashboard/admins/login` |
     | Australia | `https://${account.tenant}.au8.webtask.io/auth0-sso-dashboard/admins/login` |
 
+    If you are using Node 12:
+
+    | Location | Allowed Callback URL |
+    | --- | --- |
+    | USA | `https://${account.tenant}.prod-us-node12.webtask.io/auth0-sso-dashboard/admins/login` |
+    | Europe | `https://${account.tenant}.prod-eu-node12.webtask.io/auth0-sso-dashboard/admins/login` |
+    | Australia | `https://${account.tenant}.prod-au-node12.webtask.io/auth0-sso-dashboard/admins/login` |
+
     For **Users**:
+
+    If you are using Node 8:
 
     | Location | Allowed Callback URL |
     | --- | --- |
     | USA | `https://${account.tenant}.us8.webtask.io/auth0-sso-dashboard/login` |
     | Europe | `https://${account.tenant}.eu8.webtask.io/auth0-sso-dashboard/login` |
     | Australia | `https://${account.tenant}.au8.webtask.io/auth0-sso-dashboard/login` |
+
+    If you are using Node 12:
+
+    | Location | Allowed Callback URL |
+    | --- | --- |
+    | USA | `https://${account.tenant}.prod-us-node12.webtask.io/auth0-sso-dashboard/login` |
+    | Europe | `https://${account.tenant}.prod-eu-node12.webtask.io/auth0-sso-dashboard/login` |
+    | Australia | `https://${account.tenant}.prod-au-node12.webtask.io/auth0-sso-dashboard/login` |
 
 4. Select and copy the **Client ID** value.
 
@@ -63,7 +83,7 @@ By default all the connection types are enabled for users to be able to login in
 - [View this Extension on GitHub](https://github.com/auth0-extensions/auth0-sso-dashboard-extension)
 - [Troubleshoot Extensions](/extensions/troubleshoot)
 - [Understand how Single Sign-On works with Auth0](/sso/current/sso-auth0)
-- Learn how to [enable SSO in Auth0](/dashboard/guides/tenants/enable-sso-tenant)
-- [Understand session lifetime](/sessions/concepts/session-lifetime)
-- Learn how to [configure session lifetime settings](/dashboard/guides/tenants/configure-session-lifetime-settings)
-- Learn how to [log users out](/logout)
+- [Enable SSO in Auth0](/dashboard/guides/tenants/enable-sso-tenant)
+- [Understand Session Lifetime](/sessions/concepts/session-lifetime)
+- [Configure Session Lifetime Settings](/dashboard/guides/tenants/configure-session-lifetime-settings)
+- [Log Users Out](/logout)

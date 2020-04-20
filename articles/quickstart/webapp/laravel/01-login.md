@@ -20,15 +20,15 @@ github:
 
 <%= include('../../../_includes/_logout_url', { returnTo: 'http://localhost:3000' }) %>
 
-## Install and Configure Laravel 5.7
+## Install and Configure Laravel 6
 
 If you are installing Auth0 to an existing app, you can skip this section. Otherwise, walk through the Laravel guides below to get started with a sample project.
 
-1. **[Installation](https://laravel.com/docs/5.7/installation)**
+1. **[Installation](https://laravel.com/docs/6.x#installation)**
     * Use any of the install methods listed to start a new project
     * PHP can be served any way that works for your development process (we use Homebrew-installed Apache and PHP)
     * Walk through the "Configuration" section completely
-2. **[Configuration](https://laravel.com/docs/5.7/configuration)**
+2. **[Configuration](https://laravel.com/docs/6.x#configuration)**
     * Create a .env file, used later for critical and sensitive Auth0 connection values
     * Make sure `APP_DEBUG` is set to `true`
 
@@ -62,7 +62,7 @@ First, we need to add the Auth0 Services to the list of Providers in `config/app
 );
 ```
 
-If you want to use an `Auth0` facade, add an alias in the same file (not required, [more information on facades here](http://laravel.com/docs/5.7/facades)):
+If you want to use an `Auth0` facade, add an alias in the same file (not required, [more information on facades here](http://laravel.com/docs/6.x/facades)):
 
 ```php
 // config/app.php
@@ -95,7 +95,7 @@ class AppServiceProvider extends ServiceProvider
 
 ### Configure It
 
-To configure the plugin, you must publish the plugin configuration and complete the file `config/laravel-auth0.php` using  information from your Auth0 account and details of your implementation.
+To configure the plugin, you must publish the plugin configuration and complete the file `config/laravel-auth0.php` using information from your Auth0 account and details of your implementation.
 
 Publish the default configuration file with the following command:
 
@@ -132,7 +132,7 @@ In `laravel-auth0.php`, the global helper `env()` is used to retrieve these valu
 
 ### Set Up Routes
 
-The plugin works with the [Laravel authentication system](https://laravel.com/docs/5.7/authentication) by creating a callback route to handle the authentication data from the Auth0 server.
+The plugin works with the [Laravel authentication system](https://laravel.com/docs/6.x/authentication) by creating a callback route to handle the authentication data from the Auth0 server.
 
 First, we'll add our route and controller to `routes/web.php`. The route used here must match the `redirect_uri` configuration option set previously:
 
@@ -204,7 +204,7 @@ Route::get( '/logout', 'Auth\Auth0IndexController@logout' )->name( 'logout' )->m
 
 ### Integrate with Laravel authentication system
 
-The [Laravel authentication system](https://laravel.com/docs/5.7/authentication) needs a *User Object* given by a *User Provider*. With these two abstractions, the user entity can have any structure you like and can be stored anywhere. You configure the *User Provider* indirectly, by selecting a user provider in `config/auth.php`. The default provider is Eloquent, which persists the User model in a database using the ORM.
+The [Laravel authentication system](https://laravel.com/docs/6.x/authentication) needs a *User Object* given by a *User Provider*. With these two abstractions, the user entity can have any structure you like and can be stored anywhere. You configure the *User Provider* indirectly, by selecting a user provider in `config/auth.php`. The default provider is Eloquent, which persists the User model in a database using the ORM.
 
 The plugin comes with an authentication driver called `auth0` which defines a user structure that wraps the [Normalized User Profile](/users/normalized) defined by Auth0. This driver does not actually persist the User, it just stores it in session for future calls. This works fine for basic testing or if you don't really need to persist the user. For persistence in the database, see the "Custom User Handling" section below.
 

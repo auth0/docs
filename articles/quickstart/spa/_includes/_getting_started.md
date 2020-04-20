@@ -1,8 +1,9 @@
 <!-- markdownlint-disable MD041 -->
 
 ::: note
-**New to Auth?** Learn [How Auth0 works](/overview), how it [integrates with Single-Page Applications](/architecture-scenarios/application/spa-api) and which [protocol](/flows/concepts/implicit) it uses.
+**New to Auth?** Learn [How Auth0 works](/overview), how it [integrates with Single-Page Applications](/architecture-scenarios/application/spa-api) and which [protocol](/flows/concepts/auth-code-pkce) it uses.
 :::
+
 <%= include('../../../_includes/_new_app') %>
 <%= include('../../../_includes/_callback_url') %>
 

@@ -144,7 +144,7 @@ The **Global Client ID** and **Global Client Secret** are used to generate token
 
 ![Advanced Tenant Settings: Extensibility](/media/articles/tutorials/tenant-settings/tenant-advanced-extensibility.png)
 
-* **Runtime**:  NodeJS version environment used to execute custom scripts that allow you to extend parts of Auth0's functionality; these include [Rules](/rules), [Hooks](/hooks), and [Database Connections](/connections#database-and-custom-connections).
+* **Runtime**:  NodeJS version environment used to execute custom scripts that allow you to extend parts of Auth0's functionality; these include [Rules](/rules), [Hooks](/hooks), and [Database Connections](/connections#database-and-custom-connections).  Choose the `node.js` version environment you will use to execute your custom scripts. If you are migrating from an older version of `node.js` that is no longer supported, see the [migration guide](/migrations/guides/extensibility-node12).
 
 ### Migrations
 

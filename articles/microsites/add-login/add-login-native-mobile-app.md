@@ -42,7 +42,6 @@ For security in native/mobile devices, Auth0 uses the [Authorization Code Flow w
 
 :::
 
-
 ## Alternative: Use Embedded Login
 
 While we strongly recommend that you use our hosted universal login page, if you prefer to embed your own login pages within your native/mobile app, you can implement our login widget (Lock UI) directly into your app with our:
@@ -56,7 +55,7 @@ While we strongly recommend that you use our hosted universal login page, if you
   * [Auth0 Mobile/Native App Quickstarts](/quickstart/native)
   * [Add login using the Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/add-login-auth-code-pkce)
   * [Customize the hosted login page](/hosted-pages/login#how-to-customize-your-login-page)
-  * [Store tokens](/tokens/guides/store-tokens)
+  * [Token Storage](/tokens/concepts/token-storage)
 :::
 
 ::: references

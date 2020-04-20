@@ -50,6 +50,7 @@ Because the PKCE-enhanced Authorization Code Flow builds upon the [standard Aut
 10. Your application can use the Access Token to call an API to access information about the user.
 11. The API responds with requested data.
 
+<%= include('../../_includes/_refresh_token_rotation_panel.md') %>
 
 ## How to implement it
 
@@ -66,7 +67,9 @@ Depending on your application type, you can also use our mobile or single-page a
 
 * [Auth0 Single-Page App SDK](/libraries/auth0-spa-js)
 
-Finally, you can follow our tutorials to use our API endpoints to [Add Login Using the Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/add-login-auth-code-pkce) or [Call Your API Using the Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/call-api-auth-code-pkce).
+<%= include('../../_includes/_refresh_token_rotation_recommended.md') %>
+
+You can follow our tutorials to use our API endpoints to [Add Login Using the Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/add-login-auth-code-pkce) or [Call Your API Using the Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/call-api-auth-code-pkce).
 
 ## Keep reading
 

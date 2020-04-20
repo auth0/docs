@@ -55,7 +55,7 @@ You can remove administrators by clicking **REMOVE** after they have been added.
 
 ## Add, change or remove MFA
 
-The administrator can self-enroll for [Multi-factor Authentication](/multifactor-authentication). The MFA indicator will indicate whether an administrator has enabled their account for MFA, which they can do in their Account Settings.
+The administrator can self-enroll for [Multi-factor Authentication](/mfa). The MFA indicator will indicate whether an administrator has enabled their account for MFA, which they can do in their Account Settings.
 
 ### Add MFA
 

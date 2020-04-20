@@ -95,7 +95,7 @@ With the [self-managed certificate approach](/custom-domains/self-managed-certif
 
 * [Configure Custom Domains for Specific Features](/custom-domains/additional-configuration)
 * [Universal Login](/hosted-pages/login)
-* [Multi-factor Authentication](/multifactor-authentication)
+* [Multi-factor Authentication](/mfa)
 * [Emails in Auth0](/email)
 * [Connections](/identityproviders)
 * [Lock v11 for Web](/libraries/lock/v11)

@@ -22,7 +22,7 @@ You can obtain JWTs for testing using any of the following methods:
 
 1. Create a test user for a database [connection](/identityproviders), and programmatically log this user in. Essentially, you are using the recommended process for [calling an API using a highly-trusted application](/api-auth/grant/password). For detailed implementation instructions, see [Execute the Resource Owner Password Grant](/api-auth/tutorials/password-grant).
 
-2. Use a browser bot (such as Selenium) to play the role of a user, log in and retrieve a JWT. While this approach may take some effort to develop and maintain, it will allow you to test any [redirection rules](/rules/redirect) or [MFA prompts](/multifactor-authentication) that you have configured.
+2. Use a browser bot (such as Selenium) to play the role of a user, log in and retrieve a JWT. While this approach may take some effort to develop and maintain, it will allow you to test any [redirection rules](/rules/redirect) or [MFA prompts](/mfa) that you have configured.
 
 ## Use sessions with server-side applications
 

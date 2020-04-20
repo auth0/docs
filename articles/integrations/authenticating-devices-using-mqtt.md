@@ -112,8 +112,8 @@ Auth0Mosca.prototype.authenticateWithCredentials = function(){
   var self = this;
 
   return function(client, username, password, callback) {
-
-     var data = {
+    
+    var data = {
         client_id:   self.clientId, // {client-name}
         username:    username.toString(),
         password:    password.toString(),

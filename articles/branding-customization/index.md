@@ -33,7 +33,7 @@ useCase:
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-292"></i><a href="/multifactor-authentication/sms-templates">SMS Messages</a>
+    <i class="icon icon-budicon-292"></i><a href="/mfa/guides/guardian/customize-sms-messages/">SMS Messages</a>
     <p>
         Multi-factor Authentication (MFA) is a method of verifying a user's identity by requiring them to present more than one piece of identifying information, such as a password, a mobile device, or a fingerprint. When mobile devices are selected, you can customize the SMS messages sent by Auth0 during enrollment and verification.
     </p>

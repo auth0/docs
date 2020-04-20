@@ -24,7 +24,6 @@ The following table lists the codes associated with the each log event.
 | `depnote` | Deprecation Notice | | |
 | `du` | Deleted User | User has been deleted. | [User Profile](/users/concepts/overview-user-profile) |
 | `f` | Failed Login | | |
-| `fapi` | Failed API Operation | | |
 | `fc` | Failed by Connector | | [Active Directory/LDAP Connector](/connector) |
 | `fce` | Failed Change Email | Failed to change user email | [User Profile](/users/concepts/overview-user-profile) |
 | `fco` | Failed by CORS | Origin is not in the Allowed Origins list for the specified application | [Applications](/dashboard/reference/settings-application) |
@@ -49,6 +48,7 @@ The following table lists the codes associated with the each log event.
 | `fepft` | Failed Exchange | Failed exchange of Password for Access Token | |
 | `fercft` | Failed Exchange | Failed Exchange of Password and MFA Recovery code for Access Token | |
 | `fertft` | Failed Exchange | Failed Exchange of <dfn data-key="refresh-token">Refresh Token</dfn> for Access Token | |
+| `ferrt` | Failed Exchange | Failed Exchange of Rotating <dfn data-key="refresh-token">Refresh Token</dfn> | |
 | `flo` | Failed Logout | User logout failed | [Logout](/logout) |
 | `fn` | Failed Sending Notification | Failed to send email notification | [Emails](/email) |
 | `fp` | Failed Login (Incorrect Password) | | |
@@ -58,23 +58,23 @@ The following table lists the codes associated with the each log event.
 | `fui` | Failed users import | Failed to import users | [User Import/Export](/extensions/user-import-export) |
 | `fv` | Failed Verification Email | Failed to send verification email | [Verification Email](/email/custom#verification-email) |
 | `fvr` | Failed Verification Email Request | Failed to process verification email request | [Verification Email](/email/custom#verification-email) |
-| `gd_auth_failed` | OTP Auth failed | One-time password authentication failed. | [Multi-factor Authentication](/multifactor-authentication) |
-| `gd_auth_rejected` | OTP Auth rejected | One-time password authentication rejected. | [Multi-factor Authentication](/multifactor-authentication) |
-| `gd_auth_succeed` | OTP Auth success | One-time password authentication success. | [Multi-factor Authentication](/multifactor-authentication) |
+| `gd_auth_failed` | OTP Auth failed | One-time password authentication failed. | [Multi-factor Authentication](/mfa) |
+| `gd_auth_rejected` | OTP Auth rejected | One-time password authentication rejected. | [Multi-factor Authentication](/mfa) |
+| `gd_auth_succeed` | OTP Auth success | One-time password authentication success. | [Multi-factor Authentication](/mfa) |
 | `gd_enrollment_complete` | Guardian enrollment complete | | |
 | `gd_module_switch` | Module switch | | |
 | `gd_otp_rate_limit_exceed` | Too many failures | | |
-| `gd_recovery_failed` | Recovery failed | Multi-factor recovery code failed. | [Multi-factor Authentication](/multifactor-authentication) |
-| `gd_recovery_rate_limit_exceed` | Too many failures | Multi-factor recovery code has failed too many times. | [Multi-factor Authentication](/multifactor-authentication) |
-| `gd_recovery_succeed` | Recovery success | Multi-factor recovery code succeeded authorization. | [Multi-factor Authentication](/multifactor-authentication) |
-| `gd_send_pn` | Push notification sent | Push notification for MFA sent successfully sent. | [MFA with Push Notifications](/multifactor-authentication/factors/push) |
-| `gd_send_sms` | SMS sent | SMS for MFA sent successfully. | [Using SMS for MFA](/multifactor-authentication/factors/sms) |
-| `gd_send_sms_failure` | SMS sent failures | SMS for MFA sent failed. | [Using SMS for MFA](/multifactor-authentication/factors/sms) |
-| `gd_start_auth` | Second factor started | Second factor authentication event started for MFA. | [Multi-factor Authentication](/multifactor-authentication) |
-| `gd_start_enroll` | Enroll started | Multi-factor authentication enroll has started. | [Multi-factor Authentication](/multifactor-authentication) |
+| `gd_recovery_failed` | Recovery failed | Multi-factor recovery code failed. | [Multi-factor Authentication](/mfa) |
+| `gd_recovery_rate_limit_exceed` | Too many failures | Multi-factor recovery code has failed too many times. | [Multi-factor Authentication](/mfa) |
+| `gd_recovery_succeed` | Recovery success | Multi-factor recovery code succeeded authorization. | [Multi-factor Authentication](/mfa) |
+| `gd_send_pn` | Push notification sent | Push notification for MFA sent successfully sent. | [MFA with Push Notifications](/mfa/concepts/mfa-factors#push-notifications) |
+| `gd_send_sms` | SMS sent | SMS for MFA sent successfully. | [Using SMS for MFA](/mfa/concepts/mfa-factors#sms-notifications) |
+| `gd_send_sms_failure` | SMS sent failures | SMS for MFA sent failed. | [Using SMS for MFA](/mfa/concepts/mfa-factors#sms-notifications) |
+| `gd_start_auth` | Second factor started | Second factor authentication event started for MFA. | [Multi-factor Authentication](/mfa) |
+| `gd_start_enroll` | Enroll started | Multi-factor authentication enroll has started. | [Multi-factor Authentication](/mfa) |
 | `gd_tenant_update` | Guardian tenant update | | [Hosted MFA Page](/universal-login/multifactor-authentication) |
-| `gd_unenroll` | Unenroll device account | Device used for second factor authentication has been unenrolled. | [Multi-factor Authentication](/multifactor-authentication) |
-| `gd_update_device_account` | Update device account | Device used for second factor authentication has been updated. | [Multi-factor Authentication](/multifactor-authentication) |
+| `gd_unenroll` | Unenroll device account | Device used for second factor authentication has been unenrolled. | [Multi-factor Authentication](/mfa) |
+| `gd_update_device_account` | Update device account | Device used for second factor authentication has been updated. | [Multi-factor Authentication](/mfa) |
 | `gd_user_delete` | User delete | Deleted multi-factor user account. | [User Profile](/users/concepts/overview-user-profile) |
 | `limit_delegation` | Too Many Calls to /delegation | Rate limit exceeded to `/delegation` endpoint | [API Rate Limit Policy](/policies/rate-limits) |
 | `limit_mu` | Blocked IP Address | An IP address is blocked with 100 failed login attempts using different usernames, all with incorrect passwords in 24 hours, or 50 sign-up attempts per minute from the same IP address. | [Anomaly Detection](/anomaly-detection) |

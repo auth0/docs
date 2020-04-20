@@ -99,6 +99,18 @@ The returned entity represents the import job.
 
 When the user import job finishes and if `send_completion_email` was set to `true`, the tenant administrator(s) will get an email notifying them that job either failed or succeeded. An email for a job that failed might notify the administrator(s) that it failed to parse the users JSON file when importing users.
 
+### Concurrent import jobs
+
+The [create import users job](/api/management/v2#!/Jobs/post_users_imports) endpoint has a limit of two concurrent import jobs. Requesting additional jobs while there are two pending returns a `429 Too Many Requests` response:
+
+```json
+{
+  "statusCode": 429,
+  "error": "Too Many Requests",
+  "message": "There are 2 active import users jobs, please wait until some of them are finished and try again
+}
+```
+
 ## Check job status
 
 To check a job's status, make a `GET` request to the [get a job](/api/management/v2#!/Jobs/get_jobs_by_id) endpoint. Be sure to replace the `MGMT_API_ACCESS_TOKEN` and `JOB_ID` placeholder values with your Management API Access Token and user import job ID.

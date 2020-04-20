@@ -1,6 +1,6 @@
 <!-- markdownlint-disable MD002 MD041 -->
 
-## Before you Start
+## Before You Start
 
 This tutorial demonstrates how to add user login to a Swift application using Web Authentication with Auth0. Alternatively, check out the [iOS Swift - Sign In With Apple tutorial](/quickstart/native/ios-swift-siwa).
 

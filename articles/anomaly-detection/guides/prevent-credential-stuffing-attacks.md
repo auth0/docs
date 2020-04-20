@@ -23,7 +23,7 @@ Auth0 provides a number of tools to combat credential stuffing attacks:
 
 * [Breached Password Protection](/anomaly-detection/concepts/breached-passwords) identifies credentials that are known to be stolen.
 
-* [Multi-factor Authentication](/multifactor-authentication) can be effective in preventing unauthorized logins, but it adds friction to the user experience. 
+* [Multi-factor Authentication](/mfa) can be effective in preventing unauthorized logins, but it adds friction to the user experience. 
 
 If you do not want to turn on additional features such as MFA, you can add **Automated Credential Stuffing Attack Protection** to provide a standard level of protection against credential stuffing attacks that does not add any friction to legitimate users. 
 

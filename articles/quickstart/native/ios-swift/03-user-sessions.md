@@ -23,7 +23,7 @@ This guide shows you how to use the credentials manager to store and Refresh Tok
 You can also use `SimpleKeychain` directly, without the added benefits and convenience of the credentials manager. To learn more, read about [Saving and Refreshing Tokens](/libraries/auth0-swift/save-and-refresh-jwt-tokens#simplekeychain).
 :::
 
-## Save the User's Credentials When They Log in
+## Save the User's Credentials When They Log In
 
 When your users log in successfully, save their credentials. You can then log them in automatically when they open your application again.
 
@@ -58,7 +58,7 @@ Auth0
 }
 ```
 
-### Check for Credentials When the User Opens Your Application
+### Check for credentials when the user opens your application
 
 When the user opens your application, check for valid credentials. If they exist, you can log the user in automatically and redirect them to the app's main flow without any additional login steps.
 
@@ -93,9 +93,9 @@ credentialsManager.credentials { error, credentials in
 
 If the credentials have expired, the credentials manager will automatically renew them for you with the Refresh Token.
 
-### Clear the Keychain and Revoke the Refresh Token When the User Logs Out
+### Clear the Keychain and revoke the Refresh Token when the user logs out
 
-When you need to log the user out, remove their credentials from the keychain and revoke the refresh token:
+When you need to log the user out, remove their credentials from the keychain and revoke the Refresh Token:
 
 ```swift
 // SessionManager.swift
@@ -139,7 +139,7 @@ Auth0
     }
 ```
 
-### User Profile Information
+### User profile information
 
 To show the information contained in the user profile, access its properties, for example:
 

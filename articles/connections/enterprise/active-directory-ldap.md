@@ -28,7 +28,7 @@ Auth0 integrates with Active Directory (AD)  using Lightweight Directory Access 
 
 The **AD/LDAP Connector** (1), is a bridge between your **Active Directory/LDAP** (2) and the **Auth0 Service** (3). This bridge is necessary because AD/LDAP is typically restricted to your internal network, and Auth0 is a cloud service running in a completely different context.
 
-![Overview Diagram of AD/LDAP Connector](/media/articles/connections/enterprise/active-directory-ldap/ldap-connect.png)
+![Overview Diagram of AD/LDAP Connector](/media/articles/connections/enterprise/active-directory/ldap-connect.png)
 
 For [high availability and load balancing](/connector/high-availability), you can install multiple instances of the connector. All connections are outbound from the connector to the Auth0 Server, so changes to your firewall are generally unnecessary.
 

@@ -755,20 +755,122 @@ module.exports = [
   },
   {
     from: [
-      '/mfa',
       '/multi-factor-authentication',
       '/multi-factor-authentication2',
-      '/multifactor-authentication/custom-provider'
+      '/multifactor-authentication/custom-provider',
+      '/multifactor-authentication'
     ],
-    to: '/multifactor-authentication'
+    to: '/mfa'
   },
   {
-    from: '/multifactor-authentication/google-auth/user-guide',
-    to: '/multifactor-authentication/troubleshooting'
+    from: [
+      '/multifactor-authentication/google-auth/user-guide',
+      '/multifactor-authentication/troubleshooting'
+    ],
+    to: '/mfa/references/troubleshoot-mfa'
   },
   {
-    from: '/multi-factor-authentication/yubikey',
-    to: '/multifactor-authentication/yubikey'
+    from: [
+      '/multi-factor-authentication/yubikey',
+      '/multifactor-authentication/yubikey'
+    ],
+    to: '/mfa'
+  },
+  {
+    from: '/multifactor-authentication/api/email',
+    to: '/mfa/guides/mfa-api/email'
+  },
+  {
+    from: '/multifactor-authentication/api/oob',
+    to: '/mfa/guides/mfa-api/oob'
+  },
+  {
+    from: '/multifactor-authentication/api/otp',
+    to: '/mfa/guides/mfa-api/otp'
+  },
+  {
+    from: ['/multifactor-authentication/api', '/multifactor-authentication/api/faq'],
+    to: '/mfa/concepts/mfa-api'
+  },
+  {
+    from: '/multifactor-authentication/api/manage',
+    to: '/mfa/guides/mfa-api/manage'
+  },
+  {
+    from: '/multifactor-authentication/api/challenges',
+    to: '/mfa/guides/mfa-api/challenges'
+  },
+  {
+    from: '/multifactor-authentication/twilio-configuration',
+    to: '/mfa/guides/configure-sms'
+  },
+  {
+    from: '/multifactor-authentication/sms-templates',
+    to: '/mfa/guides/guardian/customize-sms-messages'
+  },
+  {
+    from: '/multifactor-authentication/reset-user',
+    to: '/mfa/guides/reset-user-mfa'
+  },
+  {
+    from: '/multifactor-authentication/step-up-authentication',
+    to: '/mfa/concepts/step-up-authentication'
+  },
+  {
+    from: '/multifactor-authentication/step-up-authentication/step-up-for-web-apps',
+    to: '/mfa/guides/configure-step-up-web-apps'
+  },
+  {
+    from: '/multifactor-authentication/step-up-authentication/step-up-for-apis',
+    to: '/mfa/guides/configure-step-up-apis'
+  },
+  {
+    from: '/multifactor-authentication/factors',
+    to: '/mfa/concepts/mfa-factors'
+  },
+  {
+    from: '/multifactor-authentication/factors/sms',
+    to: '/mfa/guides/configure-sms'
+  },
+  {
+    from: '/multifactor-authentication/factors/push',
+    to: '/mfa/guides/configure-push'
+  },
+  {
+    from: '/multifactor-authentication/factors/otp',
+    to: '/mfa/guides/configure-otp'
+  },
+  {
+    from: '/multifactor-authentication/factors/email',
+    to: '/mfa/guides/configure-email-universal-login'
+  },
+  {
+    from: '/multifactor-authentication/factors/duo',
+    to: '/mfa/guides/configure-cisco-duo'
+  },
+  {
+    from: '/multifactor-authentication/developer',
+    to: '/mfa/concepts/developer-resources'
+  },
+  {
+    from: '/multifactor-authentication/developer/sns-configuration',
+    to: '/mfa/guides/configure-push'
+  },
+  {
+    from: '/multifactor-authentication/developer/libraries/ios',
+    to: '/mfa/guides/guardian/guardian-ios-sdk'
+  },
+  {
+    from: '/multifactor-authentication/developer/libraries/android',
+    to: '/mfa/guides/guardian/guardian-android-sdk'
+  },
+  {
+    from: '/multifactor-authentication/developer/custom-enrollment-ticket',
+    to: '/mfa/guides/guardian/create-enrollment-ticket'
+  },
+  {
+    from: '/multifactor-authentication/custom',
+    to: '/mfa/guides/customize-mfa-universal-login'
   },
   {
     from: '/quickstart',
@@ -1912,8 +2014,8 @@ module.exports = [
     to: `/users/concepts/overview-user-account-linking`
   },
   {
-    from: ['/videos/session-and-cookies', '/security/store-tokens'],
-    to: '/tokens/guides/store-tokens'
+    from: ['/videos/session-and-cookies', '/security/store-tokens', '/tokens/guides/store-tokens'],
+    to: '/tokens/concepts/token-storage'
   },
   {
     from: '/support/sla',
@@ -2113,7 +2215,7 @@ module.exports = [
    },
    {
      from: ['/multifactor-authentication/yubikey', '/multifactor-authentication/guardian', '/multifactor-authentication/guardian/user-guide'],
-     to: '/multifactor-authentication'
+     to: '/mfa'
    },
    {
      from: '/hooks/dashboard/create-delete',
@@ -2458,7 +2560,15 @@ module.exports = [
       to: '/logs/streams/aws-eventbridge'
     },
     {
-      from: ['/extensions/deploy-cli/references/whats-new-v2', '/extensions/deploy-cli/references/whats-new'],
-      to: '/extensions/deploy-cli'
+      from: '/extensions/deploy-cli/references/whats-new-v2',
+      to: 'articles/extensions/deploy-cli/references/whats-new'
+    },
+    {
+      from: '/api/management/guides/retrieve-connection-options',
+      to: '/api/management/guides/connections/retrieve-connection-options'
+    },
+    {
+      from: '/product-lifecycle/deprecation-eol',
+      to: '/product-lifecycle/migration-process'
     }
 ];
