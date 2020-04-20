@@ -125,4 +125,28 @@ When using the `upsert` option, any non-MFA related updates to existing users wi
 
 MFA enrollments can also be imported during an [automatic migration](/connections/database/custom-db/overview-custom-db-connections#automatic-migration-scenario). This can be accomplished by providing any existing enrollments in the `mfa_factors` field of the user that is provided to the callback at the end of your custom DB [login script](/connections/database/custom-db/templates/login).
 
-Any failures will appear in your tenant logs as failed logins, and will be distinguishable from other failures by their description: `Unable to import MFA factors`.
+Any failures will appear in your tenant logs as failed logins, and will be distinguishable from other failures by their description: `Unable to import MFA factors`. For instance:
+
+```json
+{
+  "_id": "5e9df3b29ebabe00571c04a7",
+  "date": "2020-04-20T19:10:42.916Z",
+  "type": "fu",
+  "description": "Unable to import MFA factors.",
+  "connection": "Username-Password-Authentication",
+  "connection_id": "con_mMkvaycgzgCS0p0z",
+  "client_id": "aCbTAJNi5HbsjPJtRpSP6BIoLPOrSj2Cgg",
+  "client_name": "All Applications",
+  "ip": "10.12.13.1",
+  "client_ip": null,
+  "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36",
+  "details": {
+    "error": {
+      "message": "Unable to import MFA factors."
+    }
+  },
+  "user_name": "test@test.io",
+  "strategy": "auth0",
+  "strategy_type": "database"
+}
+```
