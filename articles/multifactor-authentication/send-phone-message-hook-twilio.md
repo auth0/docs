@@ -18,8 +18,9 @@ Auth0 has built-in support for sending messages through Twilio. However, you cou
 Before you begin this tutorial, please:
 
 * Sign up for an [Twilio](https://www.twilio.com/try-twilio).
-* Capture your Amazon Web Service region.
-* Capture the Account SID and Authorization Token.
+* Create a [new Messaging Service](https://www.twilio.com/console/sms/services).
+* Add a phone number that is enabled for SMS to your service and capture the number.
+* Capture the Account SID and Authorization Token by clicking *Show API Credentials* in the [Twilio SMS Dashboard](https://www.twilio.com/console/sms/dashboard)
 
 ## 1. Create a Send Phone Message hook 
 
@@ -31,10 +32,9 @@ Please note that you can only have ONE Send Phone Message Hook active at a time.
 
 ## 2. Configure Hook secrets
 
-You will need to add three new [Hook Secrets](/hooks/secrets/create) to the previously created Send Phone Message Hook. 
-The screen should resemble the following screenshot:
+Add three [Hook Secrets](/hooks/secrets/create) with key = `TWILIO_ACCOUNT_SID`, `TWILIO_AUTH_TOKEN` and `TWILIO_PHONE_NUMBER` with the values previously captured.
 
-## 3. Implement starter code
+## 3. Implement the Hook
 
 [Edit](/hooks/update) the Send Phone Message hook's code to match
 
@@ -60,7 +60,7 @@ module.exports = function(recipient, text, context, cb) {
 
   const accountSid = context.webtask.secrets.TWILIO_ACCOUNT_SID; 
   const authToken = context.webtask.secrets.TWILIO_AUTH_TOKEN; 
-  const fromPhoneNumber = '+XXXXXXX';
+  const fromPhoneNumber = context.webtask.secrets.TWILIO_PHONE_NUMBER;
 
   const client = require('twilio')(accountSid, authToken); 
  
@@ -80,7 +80,7 @@ module.exports = function(recipient, text, context, cb) {
 
 ```
 
-## 4. Add the AWS SDK NPM package
+## 4. Add the Twilio Node JS Helper NPM package
 
 The hook uses the [Twilio Node.JS Helper Library](https://github.com/twilio/twilio-node). You will need to add the 'twilio-node' module from the 'NPM modules' section in the Hooks configuration. You can access it by clicking the icon on the top left of the Hook editor.
 
