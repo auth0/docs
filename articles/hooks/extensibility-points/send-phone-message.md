@@ -52,7 +52,7 @@ When creating a Hook executed at the Send Phone Message extensibility point, you
 */
 module.exports = function(recipient, text, context, cb) {
  // TODO: Add your code here 
- cb();
+  cb(null, {}); 
 };
 ```
 
@@ -104,6 +104,16 @@ When you run a Hook based on the starter code, the response object is:
     "MessageID": "998a9ad1-c9b9-4b85-97b1-ac0305aa5532"
 }
 ```
+
+## Localization
+
+The `context.language` parameter will always have one of the languages configured in the Tenant Settings (/universal-login/i18n). Depending on how you trigger the MFA flow, it will be calculated in different ways:
+
+- If you use the [MFA API](/mfa/concepts/mfa-api) it will use the Accept-Language header from the request, and map it to a tenant language. If the language is not available, it will be set to the tenant default language.
+
+- If you use the New Universal Login Experience, it will use a combination of the Accept-Language header and the `ui_locales` parameter, as described [here](/i18n#language-selection).
+
+- If you use the Classic Universal Login Experience, the language will be set to 'N/A'. This is a limitation that will be fixed in upcoming releases.
 
 # Keep reading
 

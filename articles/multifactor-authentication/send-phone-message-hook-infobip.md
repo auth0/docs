@@ -1,5 +1,5 @@
 ---
-description: Configuring a Custom SMS Gateway for MFA using Amazon SNS
+description: Configuring a Custom SMS Gateway for MFA using Infobip
 topics:
   - mfa
   - sms
@@ -9,16 +9,14 @@ contentType:
 useCase:
   - customize-mfa
 ---
-# Configuring a Custom SMS Gateway for MFA using Amazon SNS
+# Configuring a Custom SMS Gateway for MFA using Infobip
 
 ## Prerequisites
 
 Before you begin this tutorial, please:
 
-* Sign up for an [Amazon Web Services](https://portal.aws.amazon.com/billing/signup#/start).
-* Capture your Amazon Web Service region.
-* Create a new Amazon IAM User with the `AmazonSNSFullAccess` role. 
-* Capture the user's access key and secret key details.
+* Login to the [Infobip Portal](https://portal.infobip.com/) or [signup for a free trial](https://www.infobip.com/signup).
+* Create and capture a new API Key in the [Infobip API Keys page](https://portal.infobip.com/.settings/accounts/api-keys) 
 
 ## 1. Create a Send Phone Message hook 
 
@@ -30,16 +28,13 @@ You can only have **one** Send Phone Message Hook active at a time.
 
 ## 2. Configure Hook secrets
 
-Add three [Hook Secrets](/hooks/secrets/create) with keys AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY and AWS_REGION, with the corresponding values from your Amazon account.
+Add a [Hook Secret](/hooks/secrets/create) with key = `API_KEY` and the API key provided by Infobip.
 
 ## 3. Implement the Hook
 
 [Edit](/hooks/update) the Send Phone Message hook's code to match
 
 ```js
-// Load the SDK
-var AWS = require("aws-sdk");
-
 /**
 @param {string} recipient - phone number
 @param {string} text - message body
@@ -58,35 +53,47 @@ var AWS = require("aws-sdk");
 @param {function} cb - function (error, response)
 */
 module.exports = function(recipient, text, context, cb) {
-  process.env.AWS_ACCESS_KEY_ID = context.webtask.secrets.AWS_ACCESS_KEY_ID;
-  process.env.AWS_SECRET_ACCESS_KEY = context.webtask.secrets.AWS_SECRET_ACCESS_KEY;
-  process.env.AWS_REGION = context.webtask.secrets.AWS_REGION;
-
-  var params = { Message: text, PhoneNumber: recipient };
-
-  var publishTextPromise = new AWS.SNS({ apiVersion: "2010-03-31" })
-    .publish(params)
-    .promise();
-
-  publishTextPromise
-    .then(function() {
-      cb(null, {});
-    })
-    .catch(function(err) {
-      cb(err);
+  
+    const axios = require('axios').default;
+    const API_KEY = context.webtask.secrets.API_KEY;;
+    const BASE_URL = 'https://2622w.api.infobip.com';
+    const instance = axios.create({
+        baseURL: BASE_URL,
+        headers: {
+            'Authorization': `App ${API_KEY}`,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
     });
+    instance({
+        method: 'post',
+        url: '/sms/2/text/advanced',
+        data: {
+            "messages": [
+                {
+                    "destinations": [
+                        { "to": recipient }
+                    ],
+                    "text": text
+                }
+            ]
+        }
+    })
+    .then((response) => {
+        cb(null, {});
+    })
+    .catch((error) => {
+        cb(error);
+    });
+
 };
 ```
 
-## 4. Add the AWS SDK NPM package
-
-The hook uses the [AWS SDK for JavaScript in Node.js](https://aws.amazon.com/sdk-for-node-js/). You will need to add the 'aws-sdk' module from the 'NPM modules' section in the Hooks configuration. You can access it by clicking the icon on the top left of the Hook editor.
-
-## 5. Test your hook implementation
+## 4. Test your hook implementation
 
 Click the 'Run' icon on the top right to test the hook. Edit the parameters to specify the phone number to receive the SMS and click the 'Run' button.
 
-## 6. Test the MFA flow
+## 5. Test the MFA flow
 
 Trigger an MFA flow and double check that everything works as intended. If you can't receive the SMS, please take a look at the [Hook Logs](/hooks/view-logs).
 
@@ -95,8 +102,6 @@ Trigger an MFA flow and double check that everything works as intended. If you c
 If you aren't receiving the SMS, please look at the logs for clues and make sure that:
 
 - The Hook is active and the SMS configuration is set to use 'Custom'.
-- You have configured the Hook Secrets as per Step #2
-- Those secrets are the same ones you created in the Amazon Web Services portal
-- Your Amazon Web Services user has access to the `AmazonSNSFullAccess` role
-- Your Amazon Web Services account is active (not suspended)
-- Your phone number is formatted using the [E.164 format](https://en.wikipedia.org/wiki/E.164)
+- You have configured the Hook Secrets as per Step #2.
+- Those secrets are the same ones you created in the Infobip Portal.
+- Your phone number is formatted using the [E.164 format](https://en.wikipedia.org/wiki/E.164).
