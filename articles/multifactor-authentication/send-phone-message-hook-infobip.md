@@ -60,7 +60,7 @@ module.exports = function(recipient, text, context, cb) {
     const instance = axios.create({
         baseURL: BASE_URL,
         headers: {
-            'Authorization': `App ${API_KEY}`,
+            'Authorization': 'App ' + API_KEY,
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
