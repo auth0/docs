@@ -171,7 +171,7 @@ The following [JSON schema](http://json-schema.org) describes valid users:
                         "secret": {
                             "type": "string",
                                 "pattern": "^[A-Z2-7]+$",
-                                "description": "The OTP secret is used for MFA authentication with Google Authenticator type apps. It must be supplied in un-padded Base32 encoding, such as: JBTWY3DPEHPK3PNP"
+                                "description": "The OTP secret is used with authenticator apps (Google Authenticator, Microsoft Authenticator, Authy, 1Password, LastPass). It must be supplied in un-padded Base32 encoding, such as: JBTWY3DPEHPK3PNP"
                             },
                         },
                         "additionalProperties": false,
@@ -406,7 +406,7 @@ The `user.mfa_factors` array contains [MFA enrollments](/mfa) for the user. Impo
 | `phone` | object | &nbsp; |
 | `phone.value` | string | The phone number for SMS MFA. Must have a country code and begin with `+`, such as: `"+1 (212) 555-0001"` |
 | `totp` | object | &nbsp; |
-| `totp.secret` | string | The OTP secret for MFA authentication with authenticator apps such as Google Authenticator type apps. Must be in un-padded Base32 encoding, for example: `"JBTWY3DPEHPK3PNP"` |
+| `totp.secret` | string | The OTP secret for MFA authentication with authenticator apps (Google Authenticator, Microsoft Authenticator, Authy, 1Password, LastPass). Must be in un-padded Base32 encoding, for example: `"JBTWY3DPEHPK3PNP"` |
 
 ## Examples
 
@@ -538,7 +538,7 @@ Some example users with hashes provided:
 As you might expect, the `user.mfa_factors` array allows you to provide the user's [MFA enrollments](/mfa). The supported enrollment types are:
 
 * Phone: Used for sms-based verification.
-* TOTP: OTP secret for use with Google Authenticator type apps.
+* TOTP: OTP secret for use with MFA type apps (Google Authenticator, Microsoft Authenticator, Authy, 1Password, LastPass).
 * Email: Used for email-based verification.
 
 Some examples of users with MFA factors:
