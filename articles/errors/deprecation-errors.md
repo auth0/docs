@@ -74,7 +74,7 @@ Click on the **TRY** button. If successful, you should see a screen similar to t
 
 | Cause | Resolution |
 | --- | --- |
-| You are using a legacy version of embedded Lock or Auth0.js SDK. | [Migrate away from the deprecated library versions](/migrations/guides/legacy-lock-api-deprecation) as soon as possible. |
+| You are using a legacy version of embedded Lock or Auth0.js SDK. | Migrate away from the deprecated library versions as soon as possible. |
 | Calling the /usernamepassword/login endpoint directly. | Use the Lock or Auth0.js libraries instead. |
 | Automatic monitoring tools making requests to login page | If you have an automatic monitoring tool making requests to the login page, the tool will likely not preserve state correctly and will cause the Legacy Lock API error to occur in your logs. Use of the tool should either be discontinued, or accounted for when considering causes of the log notices. |
 | Coding errors in a customized [Universal Login Page](/hosted-pages/login) | Make sure the `state` and `_csrf` fields are passed to Lock or Auth0.js in your customized login page. They are by default included in the `config.internalOptions` object, but if this is removed during customization, the error occurs. |

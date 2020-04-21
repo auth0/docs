@@ -18,7 +18,6 @@ useCase:
 There are some changes to how <dfn data-key="refresh-token">Refresh Tokens</dfn> are used in the OIDC-conformant authentication pipeline:
 
 * Using the [implicit grant](/api-auth/tutorials/adoption/implicit) for authentication will no longer return Refresh Tokens.
-  Use [silent authentication](/api-auth/tutorials/silent-authentication) (such as `prompt=none`) instead.
 * Refresh Tokens should only be used by [confidential applications](/applications/concepts/app-types-confidential-public#confidential-applications). However, they can also be used by Native (public) applications to obtain Refresh Tokens for mobile apps. 
 * The `/delegation` endpoint is deprecated. To obtain new tokens from a Refresh Token, the `/oauth/token` endpoint should be used instead:
 

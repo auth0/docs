@@ -2,6 +2,7 @@
 title: Legacy Lock API Deprecation
 description: This article covers the Legacy Lock API deprecation and gives direction as to migration paths and changes required.
 toc: true
+public: false
 contentType:
   - concept
   - how-to

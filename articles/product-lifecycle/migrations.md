@@ -58,14 +58,6 @@ We are actively migrating customers to new behaviors for all <dfn data-key="depr
         <a href="/api/management/v2/changes">Breaking changes</a><br>
       </td>
   </tr>
-  <tr>
-      <td><a href="/migrations/guides/passwordless-start">Deprecation of unauthenticated calls to the <code>/passwordless/start</code> endpoint from confidential clients</a></td>
-      <td>6 January 2020</td>
-      <td>
-        TBD
-      </td>
-      <td>We improved the security of our Passwordless implementation by adding client authentication to the <code>/passwordless/start</code> endpoint.</td>
-    </tr>
     <tr>
       <td><a href="/migrations/guides/migration-oauthro-oauthtoken-pwdless"><code>/oauth/ro</code> deprecation for Passwordless Connections</a></td>
       <td>8 June 2017</td>
@@ -84,14 +76,6 @@ We are actively migrating customers to new behaviors for all <dfn data-key="depr
         <a href="/best-practices/search-best-practices">User Search Best Practices</a><br>
         <a href="/users/search/v3/migrate-search-v2-v3">User Search v2 to v3 Migration Guide</a><br>
       </td>
-    </tr>
-    <tr>
-      <td><a href="/migrations/guides/facebook-social-context"><code>context</code> field for Facebook Connection (3rd party deprecation)</a></td>
-      <td>30 April 2019</td>
-      <td>
-        30 July 2019
-      </td>
-      <td>On April 30th 2019, Facebook deprecated the use of the <a href="https://developers.facebook.com/docs/graph-api/changelog/4-30-2019-endpoint-deprecations">'Social Context’ field</a> for new applications.</td>
     </tr>
     <tr>
       <td><a href="/logs/migrate-logs-v2-v3">Tenant Logs Search v2</a></td>

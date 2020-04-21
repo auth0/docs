@@ -1,6 +1,7 @@
 ---
 title: Google Cloud Messaging Deprecation
 description: This article describes how you can migrate your applications based on the Android Guardian SDK to Firebase Cloud Messaging
+public: false
 contentType:
   - concept
   - how-to
