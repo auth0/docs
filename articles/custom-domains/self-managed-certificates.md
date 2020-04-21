@@ -77,9 +77,7 @@ You can use a service such as [Cloudflare](/custom-domains/set-up-cloudflare), [
 
 1. After you've created the reverse proxy settings on your service, go to [Dashboard > Tenant Settings](${manage_url}/#/tenant) **Custom Domains** tab.
 
-2. Add a new CNAME record to your DNS for your custom domain pointing to the service domain name for your distribution. 
-
-  You can usually find this by looking for the **Distribution ID** on your reverse proxy server configuration. 
+2. Add a new CNAME record to your DNS for your custom domain pointing to the service domain name for your distribution. You can  find this by looking for the **Distribution ID** on your reverse proxy server configuration. 
 
   ::: note
   Once added, the CNAME record must be present at all times to avoid issues during certificate renewal.
