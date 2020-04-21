@@ -2572,7 +2572,7 @@ module.exports = [
       to: '/product-lifecycle/migration-process'
     },
     {
-      from: '/mfa/reset-user-MFA',
-      to: '/mfa/guides/reset-user-MFA'
+      from: ['/mfa/reset-user-mfa','/mfa-reset-user-MFA'],
+      to: '/mfa/guides/reset-user-mfa'
     }
 ];
