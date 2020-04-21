@@ -2449,7 +2449,7 @@ module.exports = [
     {
       from: '/migrations/guides/passwordless-start',
       to: '/connections/passwordless'
-    }
+    },
     {
       from: '/best-practices/custom-db-connections-scripts',
       to: '/best-practices/custom-db-connections'
