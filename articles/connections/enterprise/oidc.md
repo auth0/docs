@@ -200,7 +200,3 @@ If you click `Show Issuer Details` on the Issuer URL endpoint, you can see the d
 ## Federate with Auth0
 
 The OpenID Connect enterprise connection is extremely useful when federating to another Auth0 tenant. Just enter your Auth0 tenant URL (for example, `https://<tenant>.auth0.com` in the **Issuer** field, and enter the Client ID for any application in the tenant to which you want to federate in the **Client ID** field.
-
-## Provide Feedback
-
-While in Beta, we'll be answering questions and receiving feedback in our [Community Section for the OIDC Connection Beta Program](https://community.auth0.com/c/auth0-beta-programs/new-oidc-connection-beta).
