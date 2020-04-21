@@ -134,7 +134,7 @@ export class AuthService {
 
 The service includes several methods for handling authentication.
 
-- __login__: calls `authorize` from auth0.js which initiates [Universal Login](/hosted-pages/login)
+- __login__: calls `authorize` from auth0.js which initiates [Universal Login](/universal-login)
 - __handleAuthentication__: looks for an authentication result in the URL hash and processes it with the `parseHash` method from auth0.js
 - __setSession__: sets the user's Access Token, ID Token, and a time at which the Access Token will expire
 - __logout__: removes the user's tokens from browser storage

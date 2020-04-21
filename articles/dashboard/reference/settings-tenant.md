@@ -40,7 +40,7 @@ Setting the Default Audience is equivalent to appending this audience to every a
 
 ![Tenant Settings: Error Pages](/media/articles/tutorials/tenant-settings/error-pages.png)
 
-In the event of an authorization error, you can either display a generic error page to your users or you can redirect users to your own custom error page. To learn more, see [Custom Error Pages](/hosted-pages/custom-error-pages).
+In the event of an authorization error, you can either display a generic error page to your users or you can redirect users to your own custom error page. To learn more, see [Custom Error Pages](/universal-login/custom-error-pages).
 
 ### Languages
 

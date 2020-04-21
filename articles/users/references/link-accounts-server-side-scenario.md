@@ -18,7 +18,7 @@ See [Auth0 Node.js Regular Web App Account Linking](https://github.com/auth0/aut
 
 1. Log in the user to your application.
 
-    - Auth0 recommends using [Universal Login](/hosted-pages/login). 
+    - Auth0 recommends using [Universal Login](/universal-login). 
     - If you choose to embed the [Lock](/libraries/lock/v11) widget in your app, see [Auth0 Node.js Regular Web App Account Linking](https://github.com/auth0/auth0-link-accounts-sample/tree/master/RegularWebApp) for sample code.
     - If you call the Authentication API directly, see [Call API Using the Authorization Code Flow](/flows/guides/auth-code/call-api-auth-code).
 

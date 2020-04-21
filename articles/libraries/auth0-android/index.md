@@ -143,7 +143,7 @@ Finally, don't forget to add the internet permission:
 In versions 1.8.0 or lower of Auth0.Android you had to define the **intent-filter** inside your activity to capture the authentication result in the `onNewIntent` method and then call `WebAuthProvider.resume()` with the received data. The intent-filter declaration and resume call are no longer required for versions greater than 1.8.0, as it's now done internally by the library for you.
 :::
 
-Now, let's authenticate a user by presenting the universal [login page](hosted-pages/login):
+Now, let's authenticate a user by presenting the universal [login page](/universal-login):
 
 ```java
 WebAuthProvider.login(account)

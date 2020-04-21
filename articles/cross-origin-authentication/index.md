@@ -11,7 +11,7 @@ useCase:
 ---
 # Cross-Origin Authentication
 
-Auth0 strongly recommends that authentication transactions be handled via [Universal Login](/hosted-pages/login). Doing so offers [the easiest and most secure way to authenticate users](guides/login/universal-vs-embedded). However, some situations may require that authentication forms be directly embedded in an application. Although not recommended, cross-origin authentication provides a way to do this.
+Auth0 strongly recommends that authentication transactions be handled via [Universal Login](/universal-login). Doing so offers [the easiest and most secure way to authenticate users](guides/login/universal-vs-embedded). However, some situations may require that authentication forms be directly embedded in an application. Although not recommended, cross-origin authentication provides a way to do this.
 
 ## What is cross-origin authentication?
 
@@ -32,7 +32,7 @@ There are two approaches you can follow to remediate the issue:
 - Enable a [Custom Domain](/custom-domains) on your tenant and host your web application in a domain that has the same top-level domain as your Auth0 custom domain. For example, you host an application at `https://northwind.com` and set your Auth0 custom domain as `https://login.northwind.com`. This way the cookies are no longer third-party (because both your Auth0 tenant and your application are using the same top-level domain), and thus, are not blocked by browsers.
 - Provide a [cross-origin verification page](#create-a-cross-origin-verification-page) that will make cross-origin authentication work in a **limited number of browsers** even with third-party cookies disabled (see the [browser testing information](#browser-testing-support) below).
 
-These issues are another reason why the more practical solution is to use [Universal Login](/hosted-pages/login).
+These issues are another reason why the more practical solution is to use [Universal Login](/universal-login).
 
 ## Configure your application for cross-origin authentication
 
