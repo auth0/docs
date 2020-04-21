@@ -28,51 +28,32 @@ useCase:
 ---
 # Connect Your App to Microsoft Azure Active Directory
 
-You may want to integrate with Microsoft Azure Active Directory (AD) if:
+You can integrate with Microsoft Azure Active Directory (AD) if you want to let users:
 
-* you want to let users (such as employees in your company) into your application from an Azure AD controlled by you or your organization.
-* you want to let users coming from other companies' Azure ADs into your application. (You may want to set up those external directories as different connections.)
+* From within your company use your application from an Azure AD controlled by you or your organization.
+* From other companies' Azure ADs use your application. (We recommend that you configure  external directories as different connections.)
 
-## Prerequisites
+To connect your application to Azure AD, you must:
 
-**Before beginning:**
-
-* [Register your Application with Auth0](/getting-started/set-up-app). 
-  * Select an appropriate **Application Type**.
-  * Add an **Allowed Callback URL** of **`${account.callback}`**.
-  * Make sure your Application's **[Grant Types](/dashboard/guides/applications/update-grant-types)** include the appropriate flows.
-
-## Steps
-
-To connect your application to Microsoft Azure AD, you must:
-
-1. [Set up your app in the Microsoft Azure portal](#set-up-your-app-in-the-microsoft-azure-portal).
+1. [Register your app in the Azure portal](#register-your-app-in-the-azure-portal).
 2. [Create an enterprise connection in Auth0](#create-an-enterprise-connection-in-auth0).
 3. [Enable the enterprise connection for your Auth0 Application](#enable-the-enterprise-connection-for-your-auth0-application).
 4. [Test the connection](#test-the-connection).
 
-::: panel Microsoft Azure Account
-Before proceeding, you will need a valid Microsoft Azure account and must have **your own** Microsoft Azure AD directory for which you are a Global administrator. 
+## Prerequisites
 
-If you don't have a Microsoft Azure account, you can [sign up](https://azure.microsoft.com/en-us/free) for free; then, if necessary, set up an Azure AD directory by following Microsoft's [Quickstart: Create a new tenant in Azure Active Directory - Create a new tenant for your organization](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-access-create-new-tenant#create-a-new-tenant-for-your-organization).
+[Register your app with Auth0](/getting-started/set-up-app) 
+* Select an appropriate **Application Type**.
+* Add an **Allowed Callback URL** of **`${account.callback}`**.
+* Make sure your Application's **[Grant Types](/dashboard/guides/applications/update-grant-types)** include the appropriate flows.
 
-Alternatively, if you have an Office 365 account, you can use the account's Azure AD instance instead of creating a new one. To access your Office 365 account's Azure AD instance:
+## Register your app in the Azure portal
 
-1. [Sign in to Office 365](https://portal.office.com), and navigate to the [Office 365 Admin Center](https://portal.office.com/adminportal/home#/homepage).
-2. Open the **Admin centers** menu drawer located in the left menu, and click on **Azure AD**.
-:::
-
-## Set up your app in the Microsoft Azure portal
-
-To allow users to log in using a Microsoft Azure Active Directory account, you must register your application in the Microsoft Azure portal.
-
-::: warning
-Before proceeding, you must have already set up **your own** Microsoft Azure AD directory for which you are a Global administrator. To learn how, follow Microsoft's [Quickstart: Create a new tenant in Azure Active Directory - Create a new tenant for your organization](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-access-create-new-tenant#create-a-new-tenant-for-your-organization).
-:::
+To allow users to log in using a Azure AD account, you must register your application in the Microsoft Azure portal. If you don't have a Azure account, you can [sign up](https://azure.microsoft.com/en-us/free) for free; then, if necessary, set up an Azure AD directory by following Microsoft's [Quickstart: Create a new tenant in Azure Active Directory - Create a new tenant for your organization](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-access-create-new-tenant#create-a-new-tenant-for-your-organization).
 
 ### Register a new application
 
-To learn how to register your application with Azure AD, follow Microsoft's [Quickstart: Register an application with the Microsoft identity platform](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app) doc. 
+For details on registering your application with Azure AD, see Microsoft's [Quickstart: Register an application with the Microsoft identity platform](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app). 
 
 ::: warning
 If you have more than one Azure AD directory, make sure you are in the correct directory when you register your app.
@@ -80,39 +61,47 @@ If you have more than one Azure AD directory, make sure you are in the correct d
 
 While setting up your app, make sure you use the following settings:
 
-* If you want to allow users from external organizations (like other Azure AD directories), then when asked to choose **Supported account types**, choose the appropriate multitenant option. Multitenant options include the following: **Accounts in any organizational directory (Any Azure AD directory - Multitenant)**.
-* When asked to set a **Redirect URI**, enter your <dfn data-key="callback">callback URL</dfn>: `https://${account.namespace}/login/callback`.
+| Option | Setting |
+| -- | -- |
+| **Supported account types** | To allow users from external organizations (like other Azure AD directories) choose the appropriate multitenant option. Multitenant options include the following: **Accounts in any organizational directory (Any Azure AD directory - Multitenant)**. |
+| **Redirect URI** | Enter your <dfn data-key="callback">callback URL</dfn>: `https://${account.namespace}/login/callback`. |
 
 <%= include('../../../_find-auth0-domain-redirects.md') %>
 
-During this process, Microsoft will generate an **Application (client) ID** for your application; you can find this on the app's **Overview** screen. Make note of this value.
+During this process, Microsoft generates an **Application (client) ID** for your application; you can find this on the app's **Overview** screen. **Make note of this value.**
 
 ### Create a client secret
 
-To learn how to create a client secret, follow Microsoft's [Quickstart: Configure a client application to access web APIs - Add Credentials to your web application](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-access-web-apis#add-credentials-to-your-web-application). You want to generate a **Client secret**. Once generated, make note of this value.
+To create a client secret, see Microsoft's [Quickstart: Configure a client application to access web APIs - Add Credentials to your web application](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-access-web-apis#add-credentials-to-your-web-application). 
+
+Once generated, **make note of this value**.
 
 ::: note
-If you configure an expiring secret, make sure to record the expiration date; you will need to renew the key before that day to avoid a service interruption.
+If you configure an expiring secret, make sure to **record the expiration date**; you will need to renew the key before that day to avoid a service interruption.
 :::
 
 ### Add permissions
 
-To learn how to add permissions, follow Microsoft's [Quickstart: Configure a client application to access web APIs - Add permissions to access web APIs](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-access-web-apis#add-permissions-to-access-web-apis). You want to configure permissions for the **Microsoft Graph API**.
+To add permissions, see Microsoft's [Quickstart: Configure a client application to access web APIs - Add permissions to access web APIs](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-access-web-apis#add-permissions-to-access-web-apis). 
+
+You will need to configure permissions for the **Microsoft Graph API**.
 
 While setting up your permissions, make sure you use the following settings:
 
-* When asked for a permission type, choose **Delegated permissions**. Under **User**, select **User.Read** so your app can sign in users and read the signed-in user's profile. Under **Directory**, select **Directory.Read.All** so your app can read directory data on the signed-in user's behalf.
+| Option | Setting |
+| -- | -- |
+| **Delegated permissions** | Required.  |
+| **Users > User.Read** | So your app can sign in users and read the signed-in users' profiles. |
+| **Directory > Directory.Read.All** | So your app can read directory data on the signed-in user's behalf. |
 
-::: note
-If you want to enable extended attributes (like *Extended Profile* or *Security Groups*), then you also must enable the following: 
+If you want to enable extended attributes (such as *Extended Profile* or *Security Groups*), then you also must enable the following: 
 
 * **Delegated permissions**: Under **Directory**, select **Directory.AccessAsUser.All** so your app can access the directory as the signed-in user.
 * **Application Permissions**: Under **Directory**, select **Directory.Read.All** so your app can read directory data.
-:::
 
 ## Create an enterprise connection in Auth0
 
-Next, you will need to create and configure a Microsoft Azure AD Enterprise Connection in Auth0. Make sure you have the **Application (client) ID** and the **Client secret** generated when you set up your app in the Microsoft Azure portal.
+Create and configure an Azure AD Enterprise Connection in Auth0. Make sure you have the **Application (client) ID** and the **Client secret** generated when you set up your app in the Microsoft Azure portal.
 
 1. Navigate to the [Connections > Enterprise](${manage_url}/#/connections/enterprise) page in the [Auth0 Dashboard](${manage_url}/), and click the `+` next to **Microsoft Azure AD**.
 
@@ -126,7 +115,7 @@ Next, you will need to create and configure a Microsoft Azure AD Enterprise Conn
 | **Display name** (optional) | Text used to customize the login button for Universal Login. When set, the Universal Login login button reads: "Continue with {Display name}". |
 | **Logo URL** (optional) | URL of image used to customize the login button for Universal Login. When set, the Universal Login login button displays the image as a 20px by 20px square. |
 | **Microsoft Azure AD Domain** | Your Azure AD domain name. You can find this on your Azure AD directory's overview page in the Microsoft Azure portal. |
-| **Domain aliases (optional)** | Comma-separated list of domains registered as an alias of the primary one. These may include any email domains that correspond to the connection. |
+| **IdP Domains** | Comma-separated list of domains that can be authenticated in the Identity Provider. Only needed for Identifier First authentication flows. |
 
 ![Configure General Microsoft Azure AD Settings](/media/articles/dashboard/connections/enterprise/conn-enterprise-ms-azure-ad-settings-1.png)
 
@@ -136,7 +125,7 @@ Next, you will need to create and configure a Microsoft Azure AD Enterprise Conn
 | ----- | ----------- |
 | **Client ID** | Unique identifier for your registered Azure AD application. Enter the saved value of the **Application (client) ID** for the app you just registered in Azure AD. |
 | **Client Secret** | String used to gain access to your registered Azure AD application. Enter the saved value of the **Client secret** for the app you just registered in Azure AD. |
-| **Use common endpoint** (optional) | When enabled, your application will dynamically accept users from new directories. Typically enabled if you selected a multitenant option for **Supported account types** for the application you just registered in Azure AD. When enabled, Auth0 will redirect users to Azure's common login endpoint, and Azure will perform *Home Realm Discovery* based on the domain of the user's email address. |
+| **Use common endpoint** | (Optional) When enabled, your application will dynamically accept users from new directories. Typically enabled if you selected a multitenant option for **Supported account types** for the application you just registered in Azure AD. When enabled, Auth0 will redirect users to Azure's common login endpoint, and Azure will perform *Home Realm Discovery* based on the domain of the user's email address. |
 | **Identity API** | API used by Auth0 to interact with Azure AD endpoints. Learn about the differences in behavior in Microsoft's [Why update to Microsoft identity platform (v2.0)](https://docs.microsoft.com/en-us/azure/active-directory/develop/azure-ad-endpoint-comparison) doc. |
 | **Attributes** | Basic attributes for the signed-in user that your app can access. Indicates how much information you want stored in the Auth0 User Profile. |
 | **Extended Attributes** (optional) | Extended attributes for the signed-in user that your app can access. |
