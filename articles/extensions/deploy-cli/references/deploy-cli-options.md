@@ -27,10 +27,10 @@ The following options are supported by the Deploy CLI tool `a0deploy`.
 ## Examples
 
 ```
-  a0deploy export -c config.json --strip -f yaml -o path/to/export       Dump Auth0 config to folder in YAML format
-  a0deploy export -c config.json --strip -f directory -o path/to/export  Dump Auth0 config to folder in directory format
-  a0deploy import -c config.json -i tenant.yaml                          Deploy Auth0 via YAML
-  a0deploy import -c config.json -i path/to/files                        Deploy Auth0 via Path
+  a0deploy export --config_file config.json --strip --format yaml --output_folder path/to/export       Dump Auth0 config to folder in YAML format
+  a0deploy export --config_file config.json --strip --format directory --output_folder path/to/export  Dump Auth0 config to folder in directory format
+  a0deploy import --config_file config.json --input_file tenant.yaml                                   Deploy Auth0 via YAML
+  a0deploy import --config_file config.json --input_file path/to/files                                 Deploy Auth0 via Path
 ```
 
 ## Keep reading
