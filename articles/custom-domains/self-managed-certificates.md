@@ -19,10 +19,10 @@ useCase:
 
 If you choose to manage the certificates for your custom domains yourself, it requires multiple DNS records on the domain. You have to purchase or provide the certificates from any known Certificate Authority and manage the renewals yourself. You will also need a reverse proxy, where the certificate will be installed. Once the domain is verified, we will accept traffic from the proxy.
 
-Choose this option if:
+Choose this option to:
 
-* You want to have more control of your certificates (such as choosing your own CA or certificate expiration)
-* You want to enable additional monitoring over your API calls to Auth0
+* Have more control of your certificates (such as choosing your own CA or certificate expiration).
+* Enable additional monitoring over your API calls to Auth0.
 
 To set up your custom domain using self-managed certificates, you need to provide your domain name to Auth0, verify that you own that domain, and configure the reverse proxy. Once your custom domain has been set up, you will need to configure your Auth0 features to start using your custom domain.
 
@@ -75,21 +75,21 @@ The reverse proxy server retrieves resources on behalf of your client from one o
 
 You can use a service such as [Cloudflare](/custom-domains/set-up-cloudflare), [Azure CDN](/custom-domains/set-up-azure-cdn), or [AWS Cloudfront](/custom-domains/set-up-cloudfront) and configure settings for your custom domain. You will add the new CNAME value to your DNS for your custom domain pointing to the reverse proxy server domain name for distribution. 
 
-::: note
-Cloudflare has a feature called CNAME Flattening which affects the Auth0 verification and certificate renewal processes due to the way it handles DNS records. We recommend turning off CNAME Flattening unless it's strictly necessary, according to the [Cloudflare documentation](https://support.cloudflare.com/hc/en-us/articles/200169056-Understand-and-configure-CNAME-Flattening).
-:::
+1. After you've created the reverse proxy settings on your service, go to [Dashboard > Tenant Settings](${manage_url}/#/tenant) **Custom Domains** tab.
 
-The way you configure the proxy server will vary depending on the service you use. You will likely need to configure the following types of settings:
+2. Add a new CNAME record to your DNS for your custom domain pointing to the service domain name for your distribution. 
+
+  You can usually find this by looking for the **Distribution ID** on your reverse proxy server configuration. 
+
+  ::: note
+  Once added, the CNAME record must be present at all times to avoid issues during certificate renewal.
+  :::
+
+3. The way you configure the proxy server will vary depending on the service you use. You will likely need to configure the following types of settings:
 
 * [Distribution](#distribution-settings)
 * [Origin custom headers](#origin-custom-header-settings)
 * [Default cache behaviour](#default-cache-behavior-settings)
-
-After you've created the reverse proxy settings on your service, go to [Dashboard > Tenant Settings](${manage_url}/#/tenant) **Custom Domains** tab, add a new CNAME record to your DNS for your custom domain pointing to the service (such as Cloudfront) domain name for your distribution. You can usually find this by looking for the **Distribution ID** on your reverse proxy server configuration. 
-
-::: warning
-Once added, the CNAME record must be present at all times to avoid issues during certificate renewal.
-:::
 
 ### Distribution settings
 
@@ -119,6 +119,10 @@ Once added, the CNAME record must be present at all times to avoid issues during
   | Query String Forwarding and Caching | Select **Forward all, cache based on all** |
 
 <%= include('./_additional-steps') %>
+
+::: panel Turn off Cloudflare CNAME Flattening
+Cloudflare uses a feature called CNAME Flattening which affects  Auth0 verification and certificate renewal in the way that it handles DNS records. We recommend tht you turn off CNAME Flattening unless it's absolutely necessary. See [Cloudflare documentation](https://support.cloudflare.com/hc/en-us/articles/200169056-Understand-and-configure-CNAME-Flattening) for details.
+:::
 
 ## Keep reading
 
