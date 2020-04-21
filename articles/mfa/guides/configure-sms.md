@@ -30,7 +30,7 @@ Your users must have a device capable of receiving SMS messages to use this opti
 
 ## Prerequisites
 
-* To set up SMS and be able to send SMS messages to users, enable the SMS factor in the Dashboard and configure Twilio. You can (optionally) [customize your SMS notification templates](/mfa/guardian/customize-sms-messages).
+* To set up SMS and be able to send SMS messages to users, enable the SMS factor in the Dashboard and configure Twilio. You can (optionally) [customize your SMS notification templates](/mfa/guides/guardian/customize-sms-messages).
 
 ::: note
 Custom SMS gateways are unavailable with MFA.

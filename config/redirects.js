@@ -2570,5 +2570,9 @@ module.exports = [
     {
       from: '/product-lifecycle/deprecation-eol',
       to: '/product-lifecycle/migration-process'
+    },
+    {
+      from: '/mfa/reset-user-MFA',
+      to: '/mfa/guides/reset-user-MFA'
     }
 ];
