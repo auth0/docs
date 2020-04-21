@@ -86,14 +86,17 @@ The **Signing Keys** tab allows you to securely manage the signing key and certi
 
 ![Signing Key Tenant Settings](/media/articles/dashboard/tenants/tenant-settings-signing-keys.png)
 
-**Rotate Application Signing Key**: Setting that allows you to rotate the signing key and certificate. To learn more, see [Manage Application Signing Key](/tokens/guides/manage-application-signing-keys).
 
-**Valid Keys**: List of valid keys for your tenant, which are also available at the metadata endpoint for your application. Valid keys include:
+**Rotate Settings**: Settings that allow you to rotate the signing key and certificate. You may choose whether or not to revoke the signing key upon rotation. To learn more, see [Manage Application Signing Key](/tokens/guides/manage-application-signing-keys).
+  **Rotate Signing Key**: Rotates the signing key without revoking it; effectively, moves the current key to the previous key. All tokens signed with the previous key will still be valid until it is revoked.
+  **Rotate & Revoke Signing Key**: Rotates the signing key and then revokes it; effectively, moves the current key to the previous key and then invalidates the previous key. Make sure you have updated your application with the next key in queue before you rotate and revoke the current key.
+
+**List of Valid Keys**: List of valid keys for your tenant, which are also available at the metadata endpoint for your application. Valid keys include:
   * **Next in queue**: Key that will be used when the application signing key is next rotated.
   * **Currently used**: Key that is currently in use.
   * **Previously used**: Key that was previously used. Its appearance indicates that the application signing key has been rotated, but the previously used key has not yet been revoked.
 
-**Revoked Keys**: List of the last three revoked keys for your tenant. More data about revoked keys is available via tenant logs.
+**List of Revoked Keys**: List of the last three revoked keys for your tenant. More data about revoked keys is available via tenant logs.
 
 ## Advanced
 

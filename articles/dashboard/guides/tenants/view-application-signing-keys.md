@@ -43,13 +43,13 @@ By default, SAML assertions for IdP connections are signed, which we recommend. 
 
 ![View Advanced Tenant Settings](/media/articles/dashboard/tenants/tenant-settings.png)
 
-2. Scroll to the **Settings** section, locate **Rotate Application Signing Key**, and click **Rotate Key**.
+2. Scroll to the **Settings** section, and locate **List of Valid Keys** and **List of Revoked Keys**.
 
 ![View Signing Key Tenant Settings](/media/articles/dashboard/tenants/tenant-settings-signing-keys.png)
 
-The **Valid Keys** section lists the current signing key being used by your tenant, plus the next signing key that will be assigned should you choose to rotate your signing keys.
+The **List of Valid Keys** section lists the current signing key being used by your tenant, plus the next signing key that will be assigned should you choose to rotate your signing keys. If you have previously rotated signing keys, this section also lists the previously used keys.
 
-The **Revoked Keys** section lists the last three revoked keys for your tenant. 
+The **List of Revoked Keys** section lists the last three revoked keys for your tenant. 
     </div>
     <div id="mgmt-api" class="tab-pane">
 

@@ -55,7 +55,11 @@ If dynamically setting the value isn't possible, then set as either `HTTP-Redire
 
 By default, SAML assertions for IdP connections are signed, which we recommend. You can use the following public keys to configure the IdP: 
 
-[CER](https://${account.namespace}/cer?cert=connection) | [PEM](https://${account.namespace}/pem?cert=connection) | [raw PEM](https://${account.namespace}/rawpem?cert=connection) | [PKCS#7](https://${account.namespace}/pb7?cert=connection) | [Fingerprint](https://${account.namespace}/fingerprint?cert=connection)
+* [CER](https://${account.namespace}/cer?cert=connection)
+* [PEM](https://${account.namespace}/pem?cert=connection)
+* [raw PEM](https://${account.namespace}/rawpem?cert=connection)
+* [PKCS#7](https://${account.namespace}/pb7?cert=connection)
+* [Fingerprint](https://${account.namespace}/fingerprint?cert=connection)
 
 ## IdP-initiated Single Sign-on
 

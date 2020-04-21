@@ -24,7 +24,7 @@ useCase:
 You can rotate your tenant's application signing key using the Auth0 Dashboard and Auth0 Management API. The application signing key is used to sign ID Tokens, Access Tokens, SAML assertions, and WS-Fed assertions sent to your application. To learn more, see [Manage Application Signing Keys](/tokens/guides/manage-application-signing-keys).
 
 ::: warning
-To allow you time to update your application with the new key, all tokens signed with the previous key will still be valid until you revoke the previous key. To learn more, see [Revoke Application Signing Keys](/dashboard/guides/tenants/revoke-application-signing-keys).
+To allow you time to update your application with the new key, all tokens signed with the previous key will still be valid until you revoke the previous key. To learn more, see [Revoke Application Signing Keys](/dashboard/guides/tenants/revoke-application-signing-keys), or learn how to [rotate and revoke signing keys at the same time](/dashboard/guides/tenants/revoke-application-signing-keys#rotate-and-revoke-signing-key).
 :::
 
 <div class="code-picker">
@@ -41,7 +41,7 @@ To allow you time to update your application with the new key, all tokens signed
 
 ![View Advanced Tenant Settings](/media/articles/dashboard/tenants/tenant-settings.png)
 
-2. Scroll to the **Settings** section, locate **Rotate Application Signing Key**, and click **Rotate Key**.
+2. Scroll to the **Rotation Settings** section, locate **Rotate Signing Key**, and click **Rotate Key**.
 
 ![View Signing Key Tenant Settings](/media/articles/dashboard/tenants/tenant-settings-signing-keys.png)
 

@@ -67,12 +67,17 @@ Make sure you have updated your application with the new key before you revoke t
 
 We provide other application security key management capabilities through both our Dashboard and Management API. Through the Management API and Dashboard, you can:
 
+* [Rotate Application Signing Keys](/dashboard/guides/tenants/rotate-application-signing-keys)
 * [Revoke Application Signing Keys](/dashboard/guides/tenants/revoke-application-signing-keys)
 * [View Application Signing Keys](/dashboard/guides/tenants/view-application-signing-keys)
 
 In addition, the Dashboard allows you to view, copy, and download the signing certificates for your application signing keys. Additional application signing certificates links are as follows:
 
-[CER](https://${account.namespace}/cer) | [PEM](https://${account.namespace}/pem) | [raw PEM](https://${account.namespace}/rawpem) | [PB7](https://${account.namespace}/pb7) | [Fingerprint](https://${account.namespace}/fingerprint)
+* [CER](https://${account.namespace}/cer)
+* [PEM](https://${account.namespace}/pem)
+* [raw PEM](https://${account.namespace}/rawpem)
+* [PB7](https://${account.namespace}/pb7)
+* [Fingerprint](https://${account.namespace}/fingerprint)
 
 ### Limitations
 
