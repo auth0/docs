@@ -36,7 +36,7 @@ Add three [Hook Secrets](/hooks/secrets/create) with key = `TWILIO_ACCOUNT_SID`,
 
 ## 3. Implement the Hook
 
-[Edit](/hooks/update) the Send Phone Message hook's code to match
+[Edit](/hooks/update) the Send Phone Message hook's code to match the example below.
 
 ```js
 /**

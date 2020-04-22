@@ -32,7 +32,7 @@ Add a [Hook Secret](/hooks/secrets/create) with key = `API_KEY` and the API key 
 
 ## 3. Implement the Hook
 
-[Edit](/hooks/update) the Send Phone Message hook's code to match
+[Edit](/hooks/update) the Send Phone Message hook's code to match the example below.
 
 ```js
 /**
