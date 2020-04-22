@@ -538,8 +538,8 @@ articles:
           - title: Manage Tenant Administrators
             url: /dashboard/manage-dashboard-admins
 
-          - title: Manage Application Signing Keys
-            url: /tokens/guides/manage-application-signing-keys
+          - title: Manage Signing Keys
+            url: /tokens/guides/manage-signing-keys
 
           - title: Configure Session Lifetime Settings
             url: /dashboard/guides/tenants/configure-session-lifetime-settings
