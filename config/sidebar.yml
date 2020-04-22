@@ -932,9 +932,6 @@ articles:
       - title: Metadata in Rules
         url: /rules/guides/metadata
 
-      - title: C# in Rules
-        url: /rules/guides/csharp
-
       - title: Redirect Users from Rules
         url: /rules/guides/redirect
 

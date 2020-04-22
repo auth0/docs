@@ -2236,6 +2236,7 @@ module.exports = [
   { from: '/rules/current/redirect', to: '/rules/guides/redirect' },
   { from: '/rules/current/metadata-in-rules', to: '/rules/guides/metadata' },
   { from: '/rules/current/csharp', to: '/rules/guides/csharp' },
+  { from: '/rules/guides/csharp', to: '/rules' },
   { from: '/rules/current/management-api', to: '/rules/guides/management-api' },
   {
     from: '/hooks/cli/create-delete',
