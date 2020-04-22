@@ -30,8 +30,8 @@ Universal Login functionality and features are driven from web pages served by A
 
 There are two versions of Universal Login:
 
-* Classic Universal Login: Auth0 hosted pages built with [Lock.js](/libraries/lock) and other Javascript widgets, or with a library like [Auth0.js](/libraries/auth0js). HTML and CSS can also be customized.
-* New Universal Login: Auth0 hosted pages, rendered server-side, that do not use [Lock.js](/libraries/lock) or other Javascript widgets and libraries. Can only be customized based on the configuration available. HTML, CSS, and JS cannot be customized.
+* Classic Universal Login: Auth0-hosted pages built with [Lock.js](/libraries/lock) and other Javascript widgets, or with a library like [Auth0.js](/libraries/auth0js). HTML and CSS can also be customized.
+* New Universal Login: Auth0-hosted pages, rendered server-side, that do not use [Lock.js](/libraries/lock) or other Javascript widgets and libraries. Can only be customized based on the configuration available. HTML, CSS, and JS cannot be customized.
 
 In the [Dashboard](${manage_url}), the dialog shown below lets you select which Experience will be used for default, non-customized pages:
 

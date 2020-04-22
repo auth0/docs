@@ -189,7 +189,7 @@ At the moment there is no OIDC-compliant mechanism to obtain third-party API tok
 
 Our new implementation only supports an [OIDC-conformant](/api-auth/tutorials/adoption) <dfn data-key="passwordless">passwordless</dfn> authentication mechanism when using web applications (with Lock.js or auth0.js).
 
-Native applications need to use Universal Login (with an Auth0-hosted login page). Customers can use the <dfn data-key="lock">Lock</dfn> (Passwordless) template in the [Dashboard](${manage_url}/#/login) under **Hosted Pages -> Login -> Default Templates**, or customize it to fit specific requirements.
+Native applications need to use Universal Login (with an Auth0-hosted login page). Customers can use the <dfn data-key="lock">Lock</dfn> (Passwordless) template in the [Dashboard](${manage_url}/#/login_settings) under **Universal Login -> Login -> Default Templates**, or customize it to fit specific requirements.
 
 ### Other Authentication API endpoints
 

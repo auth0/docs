@@ -46,7 +46,7 @@ For security in SPAs, Auth0 uses the [Authorization Code Flow with PKCE](/flows/
   * [Auth0 Single-Page App Quickstarts](/quickstart/spa)
   * [Add login using the Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/add-login-auth-code-pkce)
   * [Add login using the Implicit Flow](/flows/guides/implicit/add-login-implicit)
-  * [Customize the hosted login page](/hosted-pages/login#how-to-customize-your-login-page)
+  * [Customize the universal login page](/universal-login)
   * [Token Storage](/tokens/concepts/token-storage)
 :::
 

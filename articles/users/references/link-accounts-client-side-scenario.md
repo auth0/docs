@@ -20,7 +20,7 @@ The following steps implement this scenario for a Single-Page Application (SPA).
 
 1. Log in the user to your application. 
 
-    - Auth0 recommends using [Universal Login](/hosted-pages/login). 
+    - Auth0 recommends using [Universal Login](/universal-login). 
     - If you choose to embed the [Lock](/libraries/lock/v11) widget or the [auth0.js library](/libraries/auth0js/v9) in your app, see [Auth0 jQuery Single-Page App Account Linking Sample](https://github.com/auth0-samples/auth0-link-accounts-sample/tree/master/SPA) for sample code.
     - If you call the Authentication API directly, see [Call API Using the Implicit Flow](/flows/guides/implicit/call-api-implicit).
 

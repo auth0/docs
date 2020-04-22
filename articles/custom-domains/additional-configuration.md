@@ -37,7 +37,7 @@ You should have already configured and verified your custom domain. To learn how
 
 ## Universal Login
 
-If you use [Universal Login](/hosted-pages/login) and you have customized the login page, you must update the code to use your custom domain. If you use the **default** login page without customization, you do not need to make any changes.
+If you use [Universal Login](/universal-login) and you have customized the login page, you must update the code to use your custom domain. If you use the **default** login page without customization, you do not need to make any changes.
 
 If you are using [Lock](/libraries/lock), you must set the `configurationBaseUrl` and `overrides` options as seen in the following sample script:
 

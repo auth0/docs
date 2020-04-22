@@ -57,9 +57,9 @@ If you opt for a higher-level password policy, but you do not specify a minimum 
 
 If you provide a minimum password length, this value supercedes that indicated by the password policy.
 
-### Minimum password length when using Hosted Pages
+### Minimum password length when using Universal Login Pages
 
-If you are using either the [Hosted Login Page](/hosted-pages/login) or the [Hosted Password Reset Page](/universal-login/password-reset), and you want to set the minimum password length value, you will need to complete a few additional configuration steps using the [Dashboard](${manage_url}).
+If you are using either the [Universal Login Page](/universal-login) or the [Universal Login Password Reset Page](/universal-login/password-reset), and you want to set the minimum password length value, you will need to complete a few additional configuration steps using the [Dashboard](${manage_url}).
 
 #### Set minimum password length when using Hosted Password Reset Pages
 
@@ -101,9 +101,9 @@ You'll need to add `password_complexity_options` to leverage the new parameter. 
 
 Scroll to the bottom and click **Save**.
 
-#### Set minimum password length when using Hosted Login Pages
+#### Set minimum password length when using Universal Login Pages
 
-If you're using a customized [Login Page](/hosted-pages/login) and you want to set the password length parameter, you must [update the page to use Lock version 11.9 or later](/hosted-pages/login/lock#customize-lock-in-the-login-page).
+If you're using a customized [Login Page](/universal-login) and you want to set the password length parameter, you must [update the page to use Lock version 11.9 or later](/universal-login/classic).
 
 ```text
 <script src="https://cdn.auth0.com/js/lock/11.9/lock.min.js"></script>

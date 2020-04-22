@@ -18,7 +18,7 @@ Here are things to check to help you narrow down when issues occur during login 
 * Does the HAR file show a call to the authorization server (`/authorize` endpoint)?
 * Is the connection enabled for the application?
 * Is the remote authorization service available? 
-* If using the [Auth0 Universal Login Page](/hosted-pages/login), try turning off customization and see if authentication works. If login works without your customizations, review your Universal Login Page customization code.
+* If using the [Auth0 Universal Login Page](/universal-login), try turning off customization and see if authentication works. If login works without your customizations, review your Universal Login Page customization code.
 
 ### Is an error message shown after entering credentials?
 

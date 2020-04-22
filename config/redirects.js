@@ -1594,6 +1594,10 @@ module.exports = [
     to: '/universal-login/default-login-url'
   },
   {
+    from: '/hosted-pages/version-control',
+    to: '/universal-login/version-control'
+  },
+  {
     from: '/hosted-pages/guardian',
     to: '/universal-login/multifactor-authentication'
   },

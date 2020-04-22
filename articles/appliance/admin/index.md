@@ -23,4 +23,4 @@ This document covers factors PSaaS Appliance administrators should be aware of w
 * [Monitoring & Performing Health Checks on Load Balancers](/appliance/admin/monitoring)
 * [Updating the PSaaS Appliance](/appliance/admin/updating-the-appliance)
   * [Why You Should Update the PSaaS Appliance Regularly](/appliance/admin/importance-of-updates)
-* [Configuring Custom Error Pages](/hosted-pages/custom-error-pages)
+* [Configuring Custom Error Pages](/universal-login/custom-error-pages)
