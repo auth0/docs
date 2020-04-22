@@ -20,6 +20,8 @@ To set up Cloudflare as a reverse proxy, a Cloudflare Enterprise Plan with the f
 * Host Header Override: [Using Page Rules to Re-Write Host Headers (Cloudflare Support)](https://support.cloudflare.com/hc/en-us/articles/206652947-Using-Page-Rules-to-Re-Write-Host-Headers)
 * True-Client-IP Header: [What is True-Client-IP? (Cloudflare Support)](https://support.cloudflare.com/hc/en-us/articles/206776727-What-is-True-Client-IP-)
 
+<%= include('./_cloudflare-cname-flattening') %>
+
 1. Complete the steps on [Configure Custom Domains with Self-Managed Certificates](/custom-domains/self-managed-certificates) if you haven't already. Make note of the **Origin Domain Name** and **cname-api-key** values since you'll need these later.
 2. [Configure a CNAME setup](https://support.cloudflare.com/hc/en-us/articles/360020615111-Configuring-a-CNAME-setup) with Cloudflare.
 3. Once Cloudflare has verified your domain, log in to the [Cloudflare Dashboard](https://dash.cloudflare.com/login).

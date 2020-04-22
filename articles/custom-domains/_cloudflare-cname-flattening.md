@@ -1,0 +1,3 @@
+::: panel Turn off Cloudflare CNAME Flattening
+Cloudflare uses a feature called CNAME Flattening which affects  Auth0 verification and certificate renewal in the way that it handles DNS records. We recommend tht you turn off CNAME Flattening unless it's absolutely necessary. See [Cloudflare documentation](https://support.cloudflare.com/hc/en-us/articles/200169056-Understand-and-configure-CNAME-Flattening) for details.
+:::
