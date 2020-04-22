@@ -49,17 +49,17 @@ To connect your application to Azure AD, you must:
 
 ## Register your app in the Azure portal
 
-To allow users to log in using a Azure AD account, you must register your application in the Microsoft Azure portal. If you don't have a Azure account, you can [sign up](https://azure.microsoft.com/en-us/free) for free; then, if necessary, set up an Azure AD directory by following Microsoft's [Quickstart: Create a new tenant in Azure Active Directory - Create a new tenant for your organization](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-access-create-new-tenant#create-a-new-tenant-for-your-organization).
+To allow users to log in using a Azure AD account, you must register your application in the Microsoft Azure portal. If you don't have a Azure account, you can [sign up](https://azure.microsoft.com/en-us/free) for free; then create an Azure AD directory by following Microsoft's [Quickstart: Create a new tenant in Azure Active Directory - Create a new tenant for your organization](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-access-create-new-tenant#create-a-new-tenant-for-your-organization).
 
-### Register a new application
+### Register your app with Azure AD
 
-For details on registering your application with Azure AD, see Microsoft's [Quickstart: Register an application with the Microsoft identity platform](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app). 
+To register your app with Azure AD, see Microsoft's [Quickstart: Register an application with the Microsoft identity platform](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app). 
 
 ::: warning
-If you have more than one Azure AD directory, make sure you are in the correct directory when you register your app.
+If you have more than one Azure AD directory, make sure you are in the correct directory when you register the app you want to use with Auth0.
 :::
 
-While setting up your app, make sure you use the following settings:
+During registration, configure the following settings:
 
 | Option | Setting |
 | -- | -- |
