@@ -49,9 +49,9 @@ For this reason, available keys include:
 Regardless of the method you use, you should always test on a development tenant before rotating application signing keys in production.
 :::
 
-## Rotate your application signing key
+## Rotate your signing key
 
-Auth0 allows you to manually rotate your signing key on a periodic basis. So, for security purposes, any application that integrates with Auth0 should be prepared to handle key rotation regardless of how infrequently it may occur. If your application does not handle signing key rotation and attempts to use an expired signing key to verify a token, the authentication request will fail.
+Auth0 allows you to manually rotate your application signing key on a periodic basis. So, for security purposes, any application that integrates with Auth0 should be prepared to handle key rotation regardless of how infrequently it may occur. If your application does not handle signing key rotation and attempts to use an expired signing key to verify a token, the authentication request will fail.
 
 Your tenant's [OpenID Connect discovery document](/tokens/guides/locate-jwks) always contains multiple keys. Specifically, it will always include both the current key and the next key, but it may also include the previous key if the previous key has not yet been revoked. To provide a seamless experience in case of emergency, your application should be able to use any of the keys specified in the document.
 
@@ -63,7 +63,7 @@ All tokens signed with the previous key will still be valid until the previous k
 Make sure you have updated your application with the new key before you revoke the previous key.
 :::
 
-## Manage your application signing keys
+## Manage your signing keys
 
 We provide other application security key management capabilities through both our Dashboard and Management API. Through the Management API and Dashboard, you can:
 
