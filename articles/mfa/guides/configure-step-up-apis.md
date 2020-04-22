@@ -168,7 +168,7 @@ For this example, we assume that we have already done the following:
 
     // Create middleware for checking the JWT
     const checkJwt = jwt({
-      // Dynamically provide a signing key based on the kid in the header and the singing keys provided by the JWKS endpoint
+      // Dynamically provide a signing key based on the kid in the header and the signing keys provided by the JWKS endpoint
       secret: jwksRsa.expressJwtSecret({
         cache: true,
         rateLimit: true,
