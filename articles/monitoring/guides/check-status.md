@@ -27,7 +27,7 @@ On the [Auth0 Status](https://status.auth0.com) page, choose your region and env
 
 * Follow [@auth0status](https://twitter.com/auth0status) on Twitter to get the latest status updates.
 
-* Subscribe to the Auth0 Atom feed to get status updates that affect your tenant. Using an RSS feed aggregator of your choice (such as https://feeder.co/reader), use the following RSS feed URL to view the status of your tenant. Replace `YOUR-TENANT` with your tenant domain name.
+* Subscribe to the Auth0 Atom feed to get status updates that affect your tenant. Using an RSS feed aggregator of your choice (such as https://feeder.co/reader), use the following RSS feed URL to view the status of your tenant. Replace `YOUR-TENANT` with your tenant name.
 
    `status.auth0.com/feed?domain={YOUR-TENANT}.auth0.com`
 
