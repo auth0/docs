@@ -109,7 +109,9 @@ Create and configure an Azure AD Enterprise Connection in Auth0. Make sure you h
 
 ![Create Connection Type](/media/articles/dashboard/connections/enterprise/conn-enterprise-list.png)
 
-2. Enter general information for your connection:
+2. Enter general information for your connection.
+
+![Configure General Microsoft Azure AD Settings](/media/articles/dashboard/connections/enterprise/conn-enterprise-ms-azure-ad-settings-1.png)
 
 | Field | Description |
 | ----- | ----------- |
@@ -119,9 +121,9 @@ Create and configure an Azure AD Enterprise Connection in Auth0. Make sure you h
 | **Microsoft Azure AD Domain** | Your Azure AD domain name. You can find this on your Azure AD directory's overview page in the Microsoft Azure portal. |
 | **IdP Domains** | Comma-separated list of domains that can be authenticated in the Identity Provider. Only needed for Identifier First authentication flows. |
 
-![Configure General Microsoft Azure AD Settings](/media/articles/dashboard/connections/enterprise/conn-enterprise-ms-azure-ad-settings-1.png)
+3. Enter credentials, select attributes, and configure advanced settings for your connection.
 
-3. Enter credentials, select attributes, and configure advanced settings for your connection, then click **Create**:
+![Configure Advanced Microsoft Azure AD Settings](/media/articles/dashboard/connections/enterprise/conn-enterprise-ms-azure-ad-settings-2.png)
 
 | Field | Description |
 | ----- | ----------- |
@@ -134,9 +136,11 @@ Create and configure an Azure AD Enterprise Connection in Auth0. Make sure you h
 | **Auth0 APIs** (optional) | When selected, indicates that you require the ability to make calls to the Azure AD API. |
 | **Sync user profile attributes at each login** | When enabled, Auth0 automatically syncs user profile data with each user login, thereby ensuring that changes made in the connection source are automatically updated in Auth0. |
 
-![Configure Advanced Microsoft Azure AD Settings](/media/articles/dashboard/connections/enterprise/conn-enterprise-ms-azure-ad-settings-2.png)
+4. Click **Create**.
 
-4. If you have appropriate Azure AD administrative permissions to *give consent* to the application so users can log in, then click **Continue**; you will be asked to [log in to your Azure AD account](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#requesting-consent-for-an-entire-tenant) and give consent. Otherwise, provide the given URL to your administrator so that they can give consent.
+5. If you have appropriate Azure AD administrative permissions to *give consent* to the application so users can log in, then click **Continue**. 
+
+    You will be asked to [log in to your Azure AD account](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#requesting-consent-for-an-entire-tenant) and give consent. Otherwise, provide the given URL to your administrator so that they can give consent.
 
 ## Enable the enterprise connection for your Auth0 application
 
@@ -147,6 +151,8 @@ To use your new Azure AD enterprise connection, you must first [enable the conne
 Now you're ready to [test your connection](/dashboard/guides/connections/test-connections-enterprise).
 
 ## Troubleshooting
+
+Here are some troubleshooting tips: 
 
 **I registered my application with Azure AD, but when I go back to my Azure Active Directory App registrations, I can't see my application.**
 
