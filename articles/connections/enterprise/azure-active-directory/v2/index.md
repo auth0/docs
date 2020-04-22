@@ -86,18 +86,20 @@ To add permissions, see Microsoft's [Quickstart: Configure a client application 
 
 You will need to configure permissions for the **Microsoft Graph API**.
 
-While setting up your permissions, make sure you use the following settings:
+While setting up your permissions, configure the following settings:
 
-| Option | Setting |
+| Field | Description |
 | -- | -- |
 | **Delegated permissions** | Required.  |
 | **Users > User.Read** | So your app can sign in users and read the signed-in users' profiles. |
 | **Directory > Directory.Read.All** | So your app can read directory data on the signed-in user's behalf. |
 
-If you want to enable extended attributes (such as *Extended Profile* or *Security Groups*), then you also must enable the following: 
+If you want to enable extended attributes (such as *Extended Profile* or *Security Groups*), then you also must configure the following settings: 
 
-* **Delegated permissions**: Under **Directory**, select **Directory.AccessAsUser.All** so your app can access the directory as the signed-in user.
-* **Application Permissions**: Under **Directory**, select **Directory.Read.All** so your app can read directory data.
+| Field | Description |
+| -- | -- |
+| **Delegated permissions** | Under **Directory**, select **Directory.AccessAsUser.All** so your app can access the directory as the signed-in user. |
+| **Application Permissions** | Under **Directory**, select **Directory.Read.All** so your app can read directory data. |
 
 ## Create an enterprise connection in Auth0
 
