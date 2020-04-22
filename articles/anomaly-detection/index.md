@@ -42,12 +42,12 @@ For example, if a user with *user_id1* signs in from *IP1* and fails to login co
 
 Credential stuffing (or *list validation*) attacks are a type of brute-force attack which attempts to compromise a large number of user accounts with stolen credentials. At Auth0, credential stuffing attacks account for, on average, nearly half of all login attempts using our platform. Credential stuffing protection is [enabled by default](/anomaly-detection/guides/enable-disable-credential-stuffing) for all connections. 
 
-To detect this type of attack, Auth0 uses a large amount of data to identify patterns that signal that a credential stuffing attack is taking place. Using sophisticated algorithms, Auth0 can identify when bursts of traffic are likely to be from a bot or script, and allows you to use this information in two ways:
+To detect this type of attack, Auth0 uses a large amount of data to identify patterns that signal that a credential stuffing attack is taking place. Using sophisticated algorithms, Auth0 can identify when bursts of traffic are likely to be from a bot or script, and performs the following:
 
-- The measure of the likelihood of an individual operation coming from an IP associated with credential stuffing attacks (a score) will be made available to customers.  This score can be used to power any set of rules or custom logic in the Auth0 platform. 
-- A Captcha step can be shown during the sign in or sign up flows.   This Captcha will help make it much more impractical for bad actors to continue sending credential stuffing attack traffic to the tenant.
+- Provides a score that measures the likelihood of an individual operation coming from an IP associated with credential stuffing attacks. Use this score to trigger rules or custom logic in the Auth0 platform. 
+- Shows a CAPTCHA (Completely Automated Public Turing Test To Tell Computers and Humans Apart) step during the sign in or sign up flows.  This CAPTCHA step helps prevent bad actors from continuing to send credential stuffing attack traffic to your tenant.
 
-Auth0 automatically analyzes anonymized login data to detect when a customer is likely to be experiencing a credential stuffing attack.  When such an attack is detected, it throws a Captcha step in the login experience to eliminate bot and scripted traffic.
+Auth0 automatically analyzes anonymized login data to detect when a customer is likely to be experiencing a credential stuffing attack.  When such an attack is detected, it throws a CAPTCHA step in the login experience to eliminate bot and scripted traffic.
 
 Download this free [whitepaper](https://auth0.com/resources/whitepapers/credential-stuffing-attacks) to learn how Auth0 can help you combat credential stuffing attacks.
 

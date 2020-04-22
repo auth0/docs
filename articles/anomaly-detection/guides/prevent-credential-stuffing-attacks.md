@@ -29,9 +29,9 @@ If you do not want to turn on additional features such as MFA, you can add **Aut
 
 ## How it works
 
-Auth0 uses a large amount of data to identify patterns that signal that a credential stuffing attack is taking place. Auth0 uses sophisticated algorithms to determine when bursts of traffic are likely to be from a bot or script. Users attempting to sign in from IPs which are determined to have a high likelihood of being a credential stuffing attack will see a Captcha step. The algorithms are designed so that this only happens for bad traffic; the objective is to not show any friction to legitimate users.
+Auth0 uses a large amount of data to identify patterns that signal that a credential stuffing attack is taking place. Auth0 uses sophisticated algorithms to determine when bursts of traffic are likely to be from a bot or script. Users attempting to sign in from IPs which are determined to have a high likelihood of being a credential stuffing attack will see a CAPTCHA step. The algorithms are designed so that this only happens for bad traffic; the objective is to not show any friction to legitimate users.
 
-![Captcha Login Screen Example](/media/articles/anomaly-detection/captcha-login-screen.png)
+![CAPTCHA Login Screen Example](/media/articles/anomaly-detection/captcha-login-screen.png)
 
 ## Enable automated credential stuffing attack protection
 

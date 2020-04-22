@@ -69,7 +69,7 @@ A single host (IP) which attempts more than 100 distinct username/password combo
 
 ### Actions
 
-A Captcha step is shown during the sign in or sign up flows. This Captcha will help make it much more impractical for bad actors to continue sending credential stuffing attack traffic to the tenant.
+A CAPTCHA step is shown during the sign in or sign up flows. This CAPTCHA step helps prevent bad actors from continuing to send credential stuffing attack traffic to your tenant.
 
 ### Remove block
 
