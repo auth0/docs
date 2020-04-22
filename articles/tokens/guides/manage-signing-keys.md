@@ -16,7 +16,7 @@ useCase:
   - secure-api
 ---
 
-# Manage Application Signing Keys
+# Manage Signing Keys
 
 When you select our recommended [signing algorithm](/tokens/concepts/signing-algorithms) (RS256), Auth0 uses public-key cryptography to establish trust with your applications. In more general terms, we use a signing key that consists of a public and private key pair.
 
@@ -55,7 +55,7 @@ Auth0 allows you to manually rotate your signing key on a periodic basis. So, fo
 
 Your tenant's [OpenID Connect discovery document](/tokens/guides/locate-jwks) always contains multiple keys. Specifically, it will always include both the current key and the next key, but it may also include the previous key if the previous key has not yet been revoked. To provide a seamless experience in case of emergency, your application should be able to use any of the keys specified in the document.
 
-You can rotate your application signing key using either the Auth0 Dashboard or Management API. To learn more, see [Rotate Application Signing Keys](/dashboard/guides/tenants/rotate-application-signing-keys).
+You can rotate your application signing key using either the Auth0 Dashboard or Management API. To learn more, see [Rotate Signing Keys](/dashboard/guides/tenants/rotate-signing-keys).
 
 ::: warning
 All tokens signed with the previous key will still be valid until the previous key is revoked.
@@ -67,9 +67,9 @@ Make sure you have updated your application with the new key before you revoke t
 
 We provide other application security key management capabilities through both our Dashboard and Management API. Through the Management API and Dashboard, you can:
 
-* [Rotate Application Signing Keys](/dashboard/guides/tenants/rotate-application-signing-keys)
-* [Revoke Application Signing Keys](/dashboard/guides/tenants/revoke-application-signing-keys)
-* [View Application Signing Keys](/dashboard/guides/tenants/view-application-signing-keys)
+* [Rotate Signing Keys](/dashboard/guides/tenants/rotate-signing-keys)
+* [Revoke Signing Keys](/dashboard/guides/tenants/revoke-signing-keys)
+* [View Signing Keys](/dashboard/guides/tenants/view-signing-keys)
 
 In addition, the Dashboard allows you to view, copy, and download the signing certificates for your application signing keys. Additional application signing certificates links are as follows:
 
@@ -85,8 +85,8 @@ In addition, the Dashboard allows you to view, copy, and download the signing ce
 
 ## Keep reading
 
-* [Rotate Application Signing Keys](/dashboard/guides/tenants/rotate-application-signing-keys)
-* [Revoke Application Signing Keys](/dashboard/guides/tenants/revoke-application-signing-keys)
-* [View Application Signing Keys](/dashboard/guides/tenants/view-application-signing-keys)
+* [Rotate Signing Keys](/dashboard/guides/tenants/rotate-signing-keys)
+* [Revoke Signing Keys](/dashboard/guides/tenants/revoke-signing-keys)
+* [View Signing Keys](/dashboard/guides/tenants/view-signing-keys)
 * [Locate JSON Web Key Sets (JWKS)](/tokens/guides/locate-jwks)
 * [Signing Algorithms](/tokens/concepts/signing-algorithms)

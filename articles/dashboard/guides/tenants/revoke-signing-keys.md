@@ -1,5 +1,5 @@
 ---
-title: Revoke Application Signing Keys
+title: Revoke Signing Keys
 description: Learn how to revoke your tenant's application signing key using the Auth0 Dashboard and Auth0 Management API. Application signing keys are used to sign ID Tokens, Access Tokens, SAML assertions, and WS-Fed assertions that are sent to your application.
 topics:
   - tokens
@@ -19,12 +19,12 @@ useCase:
   - call-api
 ---
 
-# Revoke Application Signing Keys
+# Revoke Signing Keys
 
-You can revoke your tenant's application signing key using the Auth0 Dashboard and Auth0 Management API. The application signing key is used to sign ID Tokens, Access Tokens, SAML assertions, and WS-Fed assertions sent to your application. To learn more, see [Manage Application Signing Keys](/tokens/guides/manage-application-signing-keys).
+You can revoke your tenant's application signing key using the Auth0 Dashboard and Auth0 Management API. The application signing key is used to sign ID Tokens, Access Tokens, SAML assertions, and WS-Fed assertions sent to your application. To learn more, see [Manage Signing Keys](/tokens/guides/manage-signing-keys).
 
 ::: warning
-Before you can revoke a previously used application signing key, you must first have rotated the key. To learn how, see [Rotate Application Signing Keys](/dashboard/guides/tenants/rotate-application-signing-keys), or learn how to [rotate and revoke signing keys at the same time](/dashboard/guides/tenants/revoke-application-signing-keys#rotate-and-revoke-signing-key).
+Before you can revoke a previously-used application signing key, you must first have rotated the key. To learn how, see [Rotate Signing Keys](/dashboard/guides/tenants/rotate-signing-keys), or learn how to [rotate and revoke signing keys at the same time](/dashboard/guides/tenants/revoke-signing-keys#rotate-and-revoke-signing-key).
 
 Make sure you have updated your application with the new key before you revoke the previous key.
 :::

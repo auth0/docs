@@ -109,7 +109,7 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
       <td></td>
   </tr>
     <tr>
-    <td>Application Signing Keys</td>
+    <td>Signing Keys</td>
       <td>/keys/signing<br>/keys/signing/{id}</td>
       <td>/keys/signing/rotate<br>Limited to 5 requests per day</td>
       <td></td>
