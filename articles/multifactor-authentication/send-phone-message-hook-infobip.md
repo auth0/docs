@@ -1,15 +1,15 @@
 ---
-description: Configuring a Custom SMS Gateway for MFA using Infobip
+description: Configuring a Custom SMS Provider for MFA using Infobip
 topics:
   - mfa
   - sms
-  - custom-sms-gateway 
+  - custom-sms-provider 
 contentType:
   - how-to
 useCase:
   - customize-mfa
 ---
-# Configuring a Custom SMS Gateway for MFA using Infobip
+# Configuring a Custom SMS Provider for MFA using Infobip
 
 ## Prerequisites
 

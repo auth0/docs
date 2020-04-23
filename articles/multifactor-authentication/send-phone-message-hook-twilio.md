@@ -1,15 +1,15 @@
 ---
-description: Configuring a Custom SMS Gateway for MFA using Twilio
+description: Configuring a Custom SMS Provider for MFA using Twilio
 topics:
   - mfa
   - sms
-  - custom-sms-gateway 
+  - custom-sms-provider 
 contentType:
   - how-to
 useCase:
   - customize-mfa
 ---
-# Configuring a Custom SMS Gateway for MFA using Twilio
+# Configuring a Custom SMS Provider for MFA using Twilio
 
 Auth0 has built-in support for sending messages through Twilio. However, you could want to add specific logic before sending a message, or want to send a different message dependent upon the user or the application. If that is the case, you can configure SMS MFA to use a Send Phone Message Hook.
 
