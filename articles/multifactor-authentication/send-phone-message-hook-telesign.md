@@ -72,6 +72,7 @@ module.exports = function (recipient, text, context, cb) {
   const restApiKey = context.webtask.secrets.TELESIGN_REST_API_KEY;
 
   const instance = axios.create({
+    // If you are using the standard TeleSign plan the URL should be https://rest-api.telesign.com/
     baseURL: "https://rest-ww.telesign.com",
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded'
