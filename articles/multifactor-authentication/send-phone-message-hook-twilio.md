@@ -11,13 +11,13 @@ useCase:
 ---
 # Configuring a Custom SMS Gateway for MFA using Twilio
 
-Auth0 has built-in support for sending messages through Twilio. However, you could want do add specific logic before sending the message, or sending a different message depending on the user or the application. If that's the case, you can achieve whatever you want by configuring SMS MFA to use a send messages using the Phone Message Hook.
+Auth0 has built-in support for sending messages through Twilio. However, you could want to add specific logic before sending a message, or want to send a different message dependent upon the user or the application. If that is the case, you can configure SMS MFA to use a Send Phone Message Hook.
 
 ## Prerequisites
 
 Before you begin this tutorial, please:
 
-* Sign up for an [Twilio](https://www.twilio.com/try-twilio).
+* Sign up for a [Twilio](https://www.twilio.com/try-twilio) account.
 * Create a [new Messaging Service](https://www.twilio.com/console/sms/services).
 * Add a phone number that is enabled for SMS to your service and capture the number.
 * Capture the Account SID and Authorization Token by clicking *Show API Credentials* in the [Twilio SMS Dashboard](https://www.twilio.com/console/sms/dashboard)
@@ -36,7 +36,7 @@ Add three [Hook Secrets](/hooks/secrets/create) with key = `TWILIO_ACCOUNT_SID`,
 
 ## 3. Implement the Hook
 
-[Edit](/hooks/update) the Send Phone Message hook's code to match the example below.
+[Edit](/hooks/update) the Send Phone Message hook code to match the example below.
 
 ```js
 /**
@@ -82,22 +82,22 @@ module.exports = function(recipient, text, context, cb) {
 
 ## 4. Add the Twilio Node JS Helper NPM package
 
-The hook uses the [Twilio Node.JS Helper Library](https://github.com/twilio/twilio-node). You will need to add the 'twilio-node' module from the 'NPM modules' section in the Hooks configuration. You can access it by clicking the icon on the top left of the Hook editor.
+The hook uses the [Twilio Node.JS Helper Library](https://github.com/twilio/twilio-node). You will need to add the 'twilio-node' module from the **NPM modules** section in the Hooks configuration. You can access it by clicking the icon on the top left of the Hook editor.
 
 ## 5. Test your hook implementation
 
-Click the 'Run' icon on the top right to test the hook. Edit the parameters to specify the phone number to receive the SMS and click the 'Run' button.
+Click the **Run** icon on the top right to test the hook. Edit the parameters to specify the phone number to receive the SMS and click the **Run** button.
 
 ## 6. Test the MFA flow
 
-Trigger an MFA flow and double check that everything works as intended. If you can't receive the SMS, please take a look at the [Hook Logs](/hooks/view-logs).
+Trigger an MFA flow and double check that everything works as intended. If you do not receive the SMS, please take a look at the [Hook Logs](/hooks/view-logs).
 
 ## Troubleshooting
 
-If you aren't receiving the SMS, please look at the logs for clues and make sure that:
+If you do not receive the SMS, please look at the logs for clues and make sure that:
 
 - The Hook is active and the SMS configuration is set to use 'Custom'.
 - You have configured the Hook Secrets as per Step 2
 - Those are the same ones you created in the Twilio Console
-- Your are sending the messages from a phone number that's linked to your Twilio account
+- Your are sending the messages from a phone number that is linked to your Twilio account
 - Your phone number is formatted using the [E.164 format](https://en.wikipedia.org/wiki/E.164)
