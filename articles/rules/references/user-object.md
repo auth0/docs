@@ -11,7 +11,7 @@ useCase: extensibility-rules
 
 # User Object in Rules
 
-The `user` object stores information about the logged-in user, returned by the identity provider. It is generated when a user authenticates and before rules run. Because of the [order of events](/rules/index#authentication-transaction-flow) when a user authenticates, changes made to a user's profile from within a rule will only be available in the current user object if you also save the changes to the user object from within the same rule.
+The `user` object stores information about the logged-in user, returned by the identity provider. It is generated when a user authenticates and before rules run. Because of the [order of events](/rules#authentication-transaction-flow) when a user authenticates, changes made to a user's profile from within a rule will only be available in the current user object if you also save the changes to the user object from within the same rule.
 
 ## Properties
 
