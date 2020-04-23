@@ -111,7 +111,7 @@ The `context.language` parameter will always have one of the languages configure
 
 - If you use the [MFA API](/mfa/concepts/mfa-api) it will use the Accept-Language header from the request, and map it to a tenant language. If the language is not available, it will be set to the tenant default language.
 
-- If you use the New Universal Login Experience, it will use a combination of the Accept-Language header and the `ui_locales` parameter, as described [here](/i18n#language-selection).
+- If you use the New Universal Login Experience, it will use a combination of the Accept-Language header and the `ui_locales` parameter, as described in [Universal Login Internationalization](/universal-login/i18n#language-selection).
 
 - If you use the Classic Universal Login Experience, the language will be set to 'N/A'. This is a limitation that will be fixed in upcoming releases.
 
