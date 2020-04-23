@@ -2473,6 +2473,13 @@ module.exports = [
       from: '/anomaly-detection/references/anomaly-detection-restrictions-limitations',
       to: '/anomaly-detection/guides/set-anomaly-detection-preferences'
     },
+    {
+      from: [
+        '/anomaly-detection/references/brute-force-protection-triggers-actions',
+        '/anomaly-detection/references/breached-password-detection-triggers-actions'
+      ],
+      to: '/anomaly-detection/references/attack-protection-triggers-actions'
+    },
     {      
       from: [
         '/hooks/concepts/credentials-exchange-extensibility-point',

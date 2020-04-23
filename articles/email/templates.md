@@ -7,7 +7,7 @@ useCase: customize-emails
 toc: true
 ---
 
-# Customizing Your Emails
+# Customize Your Emails
 
 ::: warning
 You must setup your own email provider using a [third-party service](/email/providers) (such as Amazon SES, Mandrill, SendGrid, SparkPost, Mailgun, or a custom SMTP provider) to be able to customize your emails.

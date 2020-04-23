@@ -1,15 +1,17 @@
 ---
-title: Brute-Force Protection Triggers and Actions
-description: Brute-force protection triggers and actions taken upon anomaly detection and how blocks are cleared.
+title: Attack Protection Triggers and Actions
+description: Attack protection triggers and actions taken upon anomaly detection and how blocks are cleared.
 topics:
     - security
     - anomaly-detection
     - brute-force-protection
+    - credential-stuffing
+    - breached-password-protection
 contentType: reference
-useCase: customize-anomaly-detection
+useCase: anomaly-detection
 v2: true
 ---
-# Brute-Force Protection Triggers and Actions
+# Attack Protection Triggers and Actions
 
 ## 10 failed login attempts
 
@@ -61,7 +63,7 @@ type:limit_mu
 
 Blocks can then be removed using the [Management API](/api/management/v2#!/Anomaly/delete_ips_by_id).
 
-## 100 distinct username/password pairs over a sliding 24 hour window
+## Credential stuffing attacks
 
 ### Trigger
 
@@ -73,7 +75,27 @@ A CAPTCHA step is shown during the sign in or sign up flows. This CAPTCHA step h
 
 ### Remove block
 
+*TBD*
 
+## Breached password detection
+
+### Trigger
+
+A trigger occurs when Auth0 suspects that a specific user's credentials were included in a major public security breach.
+
+::: panel Video Tutorial
+Watch our [Breached Password Detection 101 video tutorial](https://auth0.com/resources/videos/learn-about-breached-password-detection).
+:::
+
+### Actions
+
+* Send an email to the affected user.
+* Send an email to dashboard owners immediately, and/or have a daily/weekly/monthly summary.
+* Block login attempts for suspected user accounts using that username and password combination.
+
+### Remove block
+
+This block remains in place until the user changes their password.
 
 ## Keep reading
 

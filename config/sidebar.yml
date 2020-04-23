@@ -629,8 +629,14 @@ articles:
         url: "/anomaly-detection"
         children:
 
-          - title: "Breached Password Security"
+          - title: "Breached Password Protection"
             url: "/anomaly-detection/concepts/breached-passwords"
+
+          - title: "Brute Force Protection"
+            url: "/anomaly-detection/concepts/brute-force-protection"
+
+          - title: "Credential Stuffing Attack Protection"
+            url: "/anomaly-detection/concepts/credential-stuffing"
 
           - title: "Set Preferences"
             url: "/anomaly-detection/guides/set-anomaly-detection-preferences"
@@ -638,20 +644,11 @@ articles:
           - title: "Customize Emails"
             url: "/anomaly-detection/guides/customize-blocked-account-emails"
 
-          - title: "Enable/Disable Brute Force Protection"
-            url: "/anomaly-detection/guides/enable-disable-brute-force-protection"
-
-          - title: "Enable/Disable Credential Stuffing Protection"
-            url: "/anomaly-detection/guides/enable-disable-credential-stuffing"
-
-          - title: "Breached Password Triggers"
-            url: "/anomaly-detection/references/breached-password-detection-triggers-actions"
-
-          - title: "Brute-Force Protection Triggers"
-            url: "/anomaly-detection/references/brute-force-protection-triggers-actions"
+          - title: "Attack Protection Triggers and Actions"
+            url: "/anomaly-detection/references/attack-protection-triggers-actions"
 
           - title: "View Anomaly Detection Events"
-            url: "/anomaly-detection/guides/use-tenant-data-for-anomaly-detection"
+            url: "/anomaly-detection/guides/view-anomaly-detection-events"
 
       - title: SAML Configuration
         url: /protocols/saml

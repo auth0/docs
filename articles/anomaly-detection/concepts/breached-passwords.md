@@ -1,5 +1,5 @@
 ---
-title: Breached Password Security
+title: Breached Password Detection
 description: Understand why a user receives a breached password email and general web security tips.
 topics:
     - security
@@ -9,7 +9,17 @@ useCase: customize-anomaly-detection
 v2: true
 ---
 
-# Breached Password Security
+# Breached Password Detection
+
+Every day, malicious hackers penetrate websites and applications, exposing thousands of email and passwords. Because it's common for users to use the same password to login to multiples sites, this poses a problem, not only for the hacked system, but to any application that shares those [breached passwords](/anomaly-detection/concepts/breached-passwords).
+
+Auth0 tracks large security breaches that are happening on major third party sites to help keep your users and system secure. By [enabling breached password detection](/anomaly-detection/guides/set-anomaly-detection-preferences), when a [trigger](/anomaly-detection/references/attack-protection-triggers-actions) occurs, your users can be notified and/or blocked from logging in if we suspect their credentials were part of a published security breach. You can [customize blocked account emails](/anomaly-detection/guides/customize-blocked-account-emails).
+
+You can configure the **URL Lifetime** and **Redirect To** values in the Dashboard by going to [Emails > Templates > Change Password Template](${manage_url}/#/emails).
+
+::: note
+Breached password detection works when logging in using the Resource Owner Password Grant (ROPG) and when using custom databases with your tenants.
+:::
 
 When a user receives an email requesting that they change their password immediately, it is because their account could be the victim of a security breach. This may be the result of a compromise by a third-party application that experienced a security breach. The breach may not have happened to this account, but based on available data, the user's credentials may have been released. Since many people reuse passwords, the request to change passwords is a precaution to make sure the user stays protected. 
 
@@ -60,5 +70,6 @@ You can also use third-party tools, such as websites like [HaveIBeenPawned](http
 
 ## Keep reading
 
-* [Anomaly Detection](/anomaly-detection)
+* [Attack Protection Triggers and Actions](/anomaly-detection/references/attack-protection-triggers-actions)
 * [Customize Blocked Account Emails](/anomaly-detection/guides/customize-blocked-account-emails)
+* [View Anomaly Detection Events](/anomaly-detection/guides/view-anomaly-detection-events)
