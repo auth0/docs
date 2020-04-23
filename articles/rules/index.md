@@ -55,7 +55,13 @@ A Rule is a function with the following arguments:
 
 ## Execution order
 
-Rules execute in the order shown on the Auth0 Dashboard. If a rule depends on the execution of another rule, move the dependent rule lower in the list.
+In general, rules execute in the order shown on the Auth0 Dashboard. If a rule depends on the execution of another rule, move the dependent rule lower in the list.
+
+When using rules, keep in mind that rules run before the Redirect and MFA features run. The order is as follows:
+
+1. Your rules (in the order shown in the Dashboard)
+2. Redirect feature
+3. MFA feature
 
 ## Available modules
 
