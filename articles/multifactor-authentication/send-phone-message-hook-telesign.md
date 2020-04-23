@@ -13,14 +13,16 @@ useCase:
 
 TeleSign provides two different APIs for sending SMS:
 
-* The [TeleSign SMS](https://www.telesign.com/products/sms-api), where you need to manage regional phone numbers and short codes.
-* The [TeleSign SMS Verify](https://www.telesign.com/products/sms-verify), which manages phone numbers from you, and it's available in the Enterprise plan. 
+* The [TeleSign SMS](https://www.telesign.com/products/sms-api), with which you can build and manage SMS communications and security verification processes.
+* The [TeleSign SMS Verify](https://www.telesign.com/products/sms-verify), which helps you manage the SMS verification process and is available in the Enterprise plan. 
+
+Either the SMS API or the SMS Verify API may be used alongside Auth0 for MFA.
 
 ## Prerequisites
 
 Before you begin this tutorial, please:
 
-* Login to the [TeleSign Enterprise Portal](https://teleportal.telesign.com) or the [TeleSign Standard Portal](https://portal.telesign.com/).
+* Log in to your TeleSign portal (either the [TeleSign Enterprise Portal](https://teleportal.telesign.com) or the [TeleSign Standard Portal](https://portal.telesign.com/)).
 * Capture the Customer ID and API Keys from your TeleSign account.
 
 ## 1. Create a Send Phone Message hook 
@@ -37,7 +39,9 @@ Add a [Hook Secret](/hooks/secrets/create) with keys `TELESIGN_CUSTOMER_ID` and 
 
 ## 3. Implement the Hook 
 
-[Edit](/hooks/update) the Send Phone Message hook's code to match the example below.
+[Edit](/hooks/update) the Send Phone Message hook code to match the relevant example below.
+
+### SMS API example
 
 If you are using the **SMS API** the code should be:
 
@@ -97,6 +101,8 @@ module.exports = function (recipient, text, context, cb) {
 }
 ```
 
+### SMS Verify API example
+
 For the SMS Verify API, the code should be:
 
 ```js
@@ -138,17 +144,17 @@ module.exports = function(recipient, text, context, cb) {
 
 ## 4. Test your hook implementation
 
-Click the 'Run' icon on the top right to test the hook. Edit the parameters to specify the phone number to receive the SMS and click the 'Run' button.
+Click the **Run** icon on the top right to test the hook. Edit the parameters to specify the phone number to receive the SMS and click the **Run** button.
 
 ## 5. Test the MFA flow
 
-Trigger an MFA flow and double check that everything works as intended. If you can't receive the SMS, please take a look at the [Hook Logs](/hooks/view-logs).
+Trigger an MFA flow and double check that everything works as intended. If you do not receive the SMS, please take a look at the [Hook Logs](/hooks/view-logs).
 
 ## Troubleshooting
 
-If you aren't receiving the SMS, please look at the logs for clues and make sure that:
+If you do not receive the SMS, please look at the logs for clues and make sure that:
 
 - The Hook is active and the SMS configuration is set to use 'Custom'.
-- You have configured the Hook Secrets as per Step #2.
+- You have configured the Hook Secrets as per Step 2.
 - Those secrets are the same ones provided in the TeleSign portal.
 - Your phone number is formatted using the [E.164 format](https://en.wikipedia.org/wiki/E.164).
