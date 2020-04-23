@@ -91,17 +91,17 @@ module.exports = function(recipient, text, context, cb) {
 
 ## 4. Test your hook implementation
 
-Click the 'Run' icon on the top right to test the hook. Edit the parameters to specify the phone number to receive the SMS and click the 'Run' button.
+Click the **Run** icon on the top right to test the hook. Edit the parameters to specify the phone number to receive the SMS and click the **Run** button.
 
 ## 5. Test the MFA flow
 
-Trigger an MFA flow and double check that everything works as intended. If you can't receive the SMS, please take a look at the [Hook Logs](/hooks/view-logs).
+Trigger an MFA flow and double check that everything works as intended. If you do not receive the SMS, please take a look at the [Hook Logs](/hooks/view-logs).
 
 ## Troubleshooting
 
-If you aren't receiving the SMS, please look at the logs for clues and make sure that:
+If you do not receive the SMS, please look at the logs for clues and make sure that:
 
 - The Hook is active and the SMS configuration is set to use 'Custom'.
-- You have configured the Hook Secrets as per Step #2.
+- You have configured the Hook Secrets as per Step 2.
 - Those secrets are the same ones you created in the Infobip Portal.
 - Your phone number is formatted using the [E.164 format](https://en.wikipedia.org/wiki/E.164).
