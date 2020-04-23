@@ -13,7 +13,7 @@ useCase: extensibility-hooks
 
 Extensibility points are places in the Auth0 platform where [Hooks](/hooks) can be executed.
 
-Depending on the extensibility point, you can use Hooks with [Database Connections](/connections/database), [Passwordless Connections](/connections/passwordless) and/or [MFA](/multifactor-authentication).
+Depending on the extensibility point, you can use Hooks with [Database Connections](/connections/database), [Passwordless Connections](/connections/passwordless) and/or [MFA](/mfa).
 
 The following extensibility points are available:
 
