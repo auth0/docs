@@ -97,7 +97,7 @@ Trigger an MFA flow and double check that everything works as intended. If you c
 If you aren't receiving the SMS, please look at the logs for clues and make sure that:
 
 - The Hook is active and the SMS configuration is set to use 'Custom'.
-- You have configured the Hook Secrets as per Step #2
+- You have configured the Hook Secrets as per Step 2
 - Those are the same ones you created in the Twilio Console
 - Your are sending the messages from a phone number that's linked to your Twilio account
 - Your phone number is formatted using the [E.164 format](https://en.wikipedia.org/wiki/E.164)
