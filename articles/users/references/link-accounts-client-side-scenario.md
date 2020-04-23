@@ -16,12 +16,11 @@ Auth0 supports the linking of user accounts from various identity providers. One
 
 You can select which identity to use as the primary account and which as the secondary when calling the account linking. This choice depends on which set of attributes you want to retain in the primary profile.
 
-The following steps implement this scenario for a Single-Page Application (SPA). See [User Initiated Account Linking within a Single-Page App](https://github.com/auth0/auth0-link-accounts-sample/tree/master/SPA) for sample code.
+The following steps implement this scenario for a Single-Page Application (SPA).
 
 1. Log in the user to your application. 
 
     - Auth0 recommends using [Universal Login](/universal-login). 
-    - If you choose to embed the [Lock](/libraries/lock/v11) widget or the [auth0.js library](/libraries/auth0js/v9) in your app, see [Auth0 jQuery Single-Page App Account Linking Sample](https://github.com/auth0-samples/auth0-link-accounts-sample/tree/master/SPA) for sample code.
     - If you call the Authentication API directly, see [Call API Using the Implicit Flow](/flows/guides/implicit/call-api-implicit).
 
 2. User initiates account linking. Your SPA must provide a UI for the user to initiate a link to their other accounts (social, <dfn data-key="passwordless">passwordless</dfn>, and so on). For example, in the user's settings page.
