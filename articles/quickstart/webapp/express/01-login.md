@@ -24,13 +24,13 @@ You will need to register your application with Auth0 in order to start authenti
 
 A callback URL is an application route where Auth0 redirects users after they have authenticated. This URL must be registered with Auth0 or else users will be unable to log in to the application and will get a "Callback URL mismatch" error.
 
-The callback URL for the application created in this quickstart is `https://localhost:3000/callback`. Paste that in the **Allowed Callback URLs** field for the application you just created.
+The callback URL for the application created in this quickstart is `http://localhost:3000/callback`. Paste that in the **Allowed Callback URLs** field for the application you just created.
 
 ### 2. Configure Logout URL
 
 A logout URL is an application route that Auth0 can return users to after logging out. This URL must be registered with Auth0 or else users will be unable to log out of the application and will get a "misconfiguration" error.
 
-The logout URL for the application created in this quickstart is `https://localhost:3000`. Paste that in the **Allowed Logout URLs** field for the application you just created, then scroll down and click **Save Changes**.
+The logout URL for the application created in this quickstart is `http://localhost:3000`. Paste that in the **Allowed Logout URLs** field for the application you just created, then scroll down and click **Save Changes**.
 
 ### 3. Get Your Application Keys
 
@@ -66,7 +66,7 @@ const config = {
   appSession: {
     secret: 'a long, randomly-generated string stored in env'
   },
-  baseURL: 'https://localhost:3000',
+  baseURL: 'http://localhost:3000',
   clientID: '${account.clientId}',
   issuerBaseURL: 'https://${account.namespace}',
 };
@@ -87,7 +87,7 @@ You can generate a suitable string for `appSessionSecret` using `openssl rand -h
 :::
 
 ## Login
-A user can now log into your application by visiting the `/login` route provided by the library. If you are running your project on `localhost:3000` that link would be [`https://localhost:3000/login`](https://localhost:3000/login).
+A user can now log into your application by visiting the `/login` route provided by the library. If you are running your project on `localhost:3000` that link would be [`http://localhost:3000/login`](http://localhost:3000/login).
 
 ## Display User Profile
 To display the user's profile, your application should provide a protected route.
@@ -103,7 +103,7 @@ app.get('/profile', requiresAuth(), (req, res) => {
 ```
 
 ## Logout
-A user can log out of your application by visiting the `/logout` route provided by the library. If you are running your project on `localhost:3000` that link would be [`https://localhost:3000/logout`](https://localhost:3000/logout).
+A user can log out of your application by visiting the `/logout` route provided by the library. If you are running your project on `localhost:3000` that link would be [`http://localhost:3000/logout`](http://localhost:3000/logout).
 
 ## What's next?
 We put together a few examples of how to use [Express OpenID Connect](https://github.com/auth0/express-openid-connect) in more advanced use cases:
