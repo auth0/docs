@@ -40,7 +40,7 @@ Setting the Default Audience is equivalent to appending this audience to every a
 
 ![Tenant Settings: Error Pages](/media/articles/tutorials/tenant-settings/error-pages.png)
 
-In the event of an authorization error, you can either display a generic error page to your users or you can redirect users to your own custom error page. To learn more, see [Custom Error Pages](/hosted-pages/custom-error-pages).
+In the event of an authorization error, you can either display a generic error page to your users or you can redirect users to your own custom error page. To learn more, see [Custom Error Pages](/universal-login/custom-error-pages).
 
 ### Languages
 
@@ -79,6 +79,24 @@ The **Custom Domains** tab allows you to configure a custom domain, which allows
 ::: note
 Custom domains are not available for free plans. To configure a custom domain, you must upgrade your account to any paid plan.
 :::
+
+## Signing Keys
+
+The **Signing Keys** tab allows you to securely manage the signing key and certificate used to sign ID Tokens, Access Tokens, SAML assertions, and WS-Fed assertions that are sent to your applications.
+
+![Signing Key Tenant Settings](/media/articles/dashboard/tenants/tenant-settings-signing-keys.png)
+
+
+**Rotate Settings**: Settings that allow you to rotate the application signing key and certificate. You may choose whether or not to revoke the signing key upon rotation. To learn more, see [Manage Signing Keys](/tokens/guides/manage-signing-keys).
+  **Rotate Signing Key**: Rotates the signing key without revoking it; effectively, moves the current key to the previous key. All tokens signed with the previous key will still be valid until it is revoked.
+  **Rotate & Revoke Signing Key**: Rotates the signing key and then revokes it; effectively, moves the current key to the previous key and then invalidates the previous key. Make sure you have updated your application with the next key in queue before you rotate and revoke the current key.
+
+**List of Valid Keys**: List of valid application signing keys for your tenant, which are also available at the metadata endpoint for your application. Valid keys include:
+  * **Next in queue**: Key that will be used when the signing key is next rotated.
+  * **Currently used**: Key that is currently in use.
+  * **Previously used**: Key that was previously used. Its appearance indicates that the signing key has been rotated, but the previously-used key has not yet been revoked.
+
+**List of Revoked Keys**: List of the last three revoked keys for your tenant. More data about revoked keys is available via tenant logs.
 
 ## Advanced
 

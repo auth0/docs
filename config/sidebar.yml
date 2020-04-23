@@ -538,6 +538,9 @@ articles:
           - title: Manage Tenant Administrators
             url: /dashboard/manage-dashboard-admins
 
+          - title: Manage Signing Keys
+            url: /tokens/guides/manage-signing-keys
+
           - title: Configure Session Lifetime Settings
             url: /dashboard/guides/tenants/configure-session-lifetime-settings
 
@@ -929,9 +932,6 @@ articles:
       - title: Metadata in Rules
         url: /rules/guides/metadata
 
-      - title: C# in Rules
-        url: /rules/guides/csharp
-
       - title: Redirect Users from Rules
         url: /rules/guides/redirect
 
@@ -997,6 +997,9 @@ articles:
 
         - title: Pre User Registration
           url: /hooks/extensibility-points/pre-user-registration    
+
+        - title: Send Phone Message
+          url: /hooks/extensibility-points/send-phone-message 
 
       - title: Hook Secrets
         url: /hooks/secrets

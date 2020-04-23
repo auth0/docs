@@ -22,11 +22,11 @@ This guide will show you how to configure settings for the user code generated b
 
 1. Navigate to the [Tenant Settings](${manage_url}/#/tenant) page in the [Auth0 Dashboard](${manage_url}/), and click the [**Advanced**](${manage_url}/#/tenant/advanced) tab.
 
-![View Advanced Tenant Settings](/media/articles/dashboard/guides/tenants/tenant-settings.png)
+![View Advanced Tenant Settings](/media/articles/dashboard/tenants/tenant-settings.png)
 
 2. Scroll to the **Device Flow User Code Format** section, locate **User Code Character Set** and **User Code Mask**, enter the desired settings, and click **Save**.
 
-![View Device User Code Settings](/media/articles/dashboard/guides/tenants/tenant-settings-advanced-device-user-code.png)
+![View Device User Code Settings](/media/articles/dashboard/tenants/tenant-settings-advanced-device-user-code.png)
 
 | Setting | Description |
 | ------- | ----------- |

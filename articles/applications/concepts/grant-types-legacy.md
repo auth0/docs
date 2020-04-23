@@ -32,5 +32,5 @@ If you're currently using a legacy grant type, refer to the chart below to see w
 | `http://auth0.com/oauth/legacy/grant-type/access_token` | Use browser-based social authentication. |
 
 ::: note
-Those implementing <dfn data-key="passwordless">Passwordless</dfn> Authentication should use [Universal Login](/hosted-pages/login) instead of the `oauth/ro` endpoint.
+Those implementing <dfn data-key="passwordless">Passwordless</dfn> Authentication should use [Universal Login](/universal-login) instead of the `oauth/ro` endpoint.
 :::

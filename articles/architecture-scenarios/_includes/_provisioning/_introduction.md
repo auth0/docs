@@ -1,7 +1,7 @@
 Determining how users get signed up is important to address early, and the decisions you make here will influence many of the decisions you will need to make going forward. We’ve found there are a typical set of patterns for how users will get added to your system, and things to take note of when considering workflow design too.
 
 ::: panel Best Practice
-Whilst Auth0 supports numerous workflows, web based workflows using Auth0 [Universal Login](/hosted-pages/login) for sign up are considered both industry and Auth0 best practice as they provide for optimal functionality and the best security.
+Whilst Auth0 supports numerous workflows, web based workflows using Auth0 [Universal Login](/universal-login) for sign up are considered both industry and Auth0 best practice as they provide for optimal functionality and the best security.
 :::
 
 Auth0 supports user sign up via a number of different [identity providers](/identityproviders). During sign up, Auth0 provisions the [user profile](/users/concepts/overview-user-profile) so that it contains the user’s account information. There are a number of things to consider when looking at functionality and workflow:

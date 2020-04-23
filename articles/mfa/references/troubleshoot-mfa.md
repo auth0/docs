@@ -34,9 +34,9 @@ If more than five minutes has elapsed, you will need to log in again and obtain 
 
 If you are requesting SMS messages, make sure you are not [exceeding rate limits](#sms-rate-limits).
 
-### If you need to remove or delete MFA from a user in my tenant
+### If you need to remove or delete MFA from a user in your tenant
 
-If you need to remove, delete, or reset MFA for a user, you may [follow the instructions here to reset MFA](/mfa/reset-user-MFA).
+If you need to remove, delete, or reset MFA for a user, you should [reset MFA](/mfa/guides/reset-user-mfa).
 
 ## SMS-related issues
 

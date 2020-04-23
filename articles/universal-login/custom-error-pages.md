@@ -12,9 +12,9 @@ useCase: customize-hosted-pages
 ---
 # Custom Error Pages
 
-In the event of an authorization error, you may choose to display to your users either [the default Auth0 error page](/hosted-pages/error-pages) or a customized error page.
+In the event of an authorization error, you may choose to display to your users either [the default Auth0 error page](/universal-login/error-pages) or a customized error page.
 
-This article will show you how to use a customized error page. For details on the default Auth0 error page see [Error Pages](/hosted-pages/error-pages).
+This article will show you how to use a customized error page. For details on the default Auth0 error page see [Error Pages](/universal-login/error-pages).
 
 ## How to customize the error page
 
@@ -96,7 +96,7 @@ To provide the appropriate HTML, pass in a string containing the appropriate Liq
     "queryString" : [],
     "postData": {
         "mimeType": "application/json",
-    "text": "{\"error_page\": {\"html\": \"<h1>{{error}} {{error_description}} This error was generated {{'now' | date: '%Y %h'}}.</h1>\", \"show_log_link\": false, \"url\": \"\"}}"
+    "text": "{\"error_page\": {\"html\": \"<h1>{{error | escape }} {{error_description | escape }} This error was generated {{'now' | date: '%Y %h'}}.</h1>\", \"show_log_link\": false, \"url\": \"\"}}"
     },
     "headersSize" : -1,
     "bodySize" : -1,

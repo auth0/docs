@@ -88,3 +88,4 @@ To explore starter code and sample Hook scripts, see the documentation for your 
 * [Post Change Password](/hooks/extensibility-points/post-change-password)
 * [Post User Registration](/hooks/extensibility-points/post-user-registration)
 * [Pre User Registration](/hooks/extensibility-points/pre-user-registration)
+* [Send Phone Message](/hooks/extensibility-points/send-phone-message)

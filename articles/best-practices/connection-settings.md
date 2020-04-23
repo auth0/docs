@@ -29,7 +29,7 @@ You should review the data you are requesting from each social connection. Users
 
 Configure the [password policy](/connections/database/password-strength) for your [Auth0 database connections](/connections/database) so created users have strong passwords. You can configure the password policy in the [database connection settings](${manage_url}/#/connections/database/) on the dashboard or with the [Auth0 Management API](/api/management/v2/#!/Connections/patch_connections_by_id).
 
-The password policy applies to password resets performed with the <dfn data-key="universal-login">Universal Login</dfn> [Page](/hosted-pages/login) as well as the [Auth0 Management API](/api/management/v2/).
+The password policy applies to password resets performed with the <dfn data-key="universal-login">Universal Login</dfn> [Page](/universal-login) as well as the [Auth0 Management API](/api/management/v2/).
 
 ## Disable user signup if it's not appropriate for each database connection
 

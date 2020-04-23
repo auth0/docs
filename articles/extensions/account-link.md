@@ -32,7 +32,7 @@ By default, Auth0's [Universal Login](/universal-login) allows a user to both lo
 
 To prevent this, we send over a query parameter to let the login page know that it should hide the **Sign Up** option. In order for this query parameter to take effect, however, we must first customize the login page.
 
-First go to your [Dashboard](${manage_url}) and click on **Hosted Pages**. It should open to the login page by default. 
+First go to your [Dashboard](${manage_url}) and click on **Universal Login**. It should open to the login page by default. 
 
 If it is not already enabled, toggle the **Customize Login Page** to enable the custom editor below. In the editor we're going to add a new line to the Lock config.
 

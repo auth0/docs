@@ -42,7 +42,7 @@ In this article, we will evaluate the pros and cons of these two options and see
 
 ## Universal Login with Auth0
 
-For most situations, we recommend using a Universal Login strategy, where Auth0 will show a [login page](/hosted-pages/login) if authentication is required. You can customize your login page using the [Dashboard](${manage_url}/#/login_page).
+For most situations, we recommend using a Universal Login strategy, where Auth0 will show a [login page](/universal-login) if authentication is required. You can customize your login page using the [Dashboard](${manage_url}/#/login_page).
 
 You can use **Auth0's Custom Domains** in order to persist the same domain across the login page and the app. This way the redirect to the login page will be transparent to your users since the domain will not change. For more details, see [Custom Domains](/custom-domains).
 

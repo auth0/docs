@@ -10,7 +10,7 @@ useCase:
 ---
 # Integrate Facebook Analytics with Auth0
 
-Install and configure the **Facebook Analytics for Auth0** integration on your own page that is using [Lock](/libraries/lock) or the [hosted Lock pages](/hosted-pages/login). You can configure funnels and reports inside of Facebook Analytics to get the most out of this integration.
+Install and configure the **Facebook Analytics for Auth0** integration on your own page that is using [Lock](/libraries/lock) or the [hosted Lock pages](/universal-login). You can configure funnels and reports inside of Facebook Analytics to get the most out of this integration.
 
 <%= include('../_includes/_install', { name: "Facebook Analytics" }) %>
 

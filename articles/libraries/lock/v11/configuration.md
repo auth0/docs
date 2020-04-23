@@ -314,7 +314,7 @@ New tenants [automatically have Seamless SSO enabled](https://auth0.com/docs/das
 ::: note
 The **Last time you signed in with [...]** message will not be available under the following circumstances:
 
-- You used Lock in a [Hosted Login Page](/hosted-pages/login) with the session established using <dfn data-key="passwordless">[Passwordless authentication](/connections/passwordless)</dfn>.
+- You used Lock in a [Hosted Login Page](/universal-login) with the session established using <dfn data-key="passwordless">[Passwordless authentication](/connections/passwordless)</dfn>.
 - You used Lock in an [embedded login scenario](/guides/login/universal-vs-embedded#embedded-login-with-auth0) where `responseType: code` (indicating the [Authorization Code Flow](/flows/concepts/auth-code), which is used for Regular Web Apps).
 :::
 

@@ -68,7 +68,7 @@ To configure the Deploy CLI tool to use the Deploy CLI application, create a **c
 To run the Deploy CLI Tool, use the command-line interface to run:
 
 ```bash
-a0deploy export -c config.json -f yaml -o <your repo directory>
+a0deploy export --config_file config.json --format yaml --output_folder <your repo directory>
 ```
 
 ## Keep reading

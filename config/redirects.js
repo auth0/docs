@@ -1594,6 +1594,10 @@ module.exports = [
     to: '/universal-login/default-login-url'
   },
   {
+    from: '/hosted-pages/version-control',
+    to: '/universal-login/version-control'
+  },
+  {
     from: '/hosted-pages/guardian',
     to: '/universal-login/multifactor-authentication'
   },
@@ -2235,7 +2239,8 @@ module.exports = [
   { from: '/rules/context', to: '/rules/references/context-object' },
   { from: '/rules/current/redirect', to: '/rules/guides/redirect' },
   { from: '/rules/current/metadata-in-rules', to: '/rules/guides/metadata' },
-  { from: '/rules/current/csharp', to: '/rules/guides/csharp' },
+  { from: '/rules/current/csharp', to: '/rules' },
+  { from: '/rules/guides/csharp', to: '/rules' },
   { from: '/rules/current/management-api', to: '/rules/guides/management-api' },
   {
     from: '/hooks/cli/create-delete',
@@ -2570,5 +2575,9 @@ module.exports = [
     {
       from: '/product-lifecycle/deprecation-eol',
       to: '/product-lifecycle/migration-process'
+    },
+    {
+      from: ['/mfa/reset-user-mfa','/mfa/reset-user-MFA'],
+      to: '/mfa/guides/reset-user-mfa'
     }
 ];
