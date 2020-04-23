@@ -998,6 +998,9 @@ articles:
         - title: Pre User Registration
           url: /hooks/extensibility-points/pre-user-registration    
 
+        - title: Send Phone Message
+          url: /hooks/extensibility-points/send-phone-message 
+
       - title: Hook Secrets
         url: /hooks/secrets
         children:
