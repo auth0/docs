@@ -30,11 +30,11 @@ You can only have **one** Send Phone Message Hook active at a time.
 
 ## 2. Configure Hook secrets
 
-Add three [Hook Secrets](/hooks/secrets/create) with keys AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY and AWS_REGION, with the corresponding values from your Amazon account.
+Add three [Hook Secrets](/hooks/secrets/create) with keys `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` and `AWS_REGION`, with the corresponding values from your Amazon account.
 
 ## 3. Implement the Hook
 
-[Edit](/hooks/update) the Send Phone Message hook's code to match the example below.
+[Edit](/hooks/update) the Send Phone Message hook code to match the example below.
 
 ```js
 // Load the SDK
@@ -80,22 +80,22 @@ module.exports = function(recipient, text, context, cb) {
 
 ## 4. Add the AWS SDK NPM package
 
-The hook uses the [AWS SDK for JavaScript in Node.js](https://aws.amazon.com/sdk-for-node-js/). You will need to add the 'aws-sdk' module from the 'NPM modules' section in the Hooks configuration. You can access it by clicking the icon on the top left of the Hook editor.
+The hook uses the [AWS SDK for JavaScript in Node.js](https://aws.amazon.com/sdk-for-node-js/). You will need to add the 'aws-sdk' module from the **NPM modules** section in the Hooks configuration. You can access it by clicking the icon on the top left of the Hook editor.
 
 ## 5. Test your hook implementation
 
-Click the 'Run' icon on the top right to test the hook. Edit the parameters to specify the phone number to receive the SMS and click the 'Run' button.
+Click the **Run** icon on the top right to test the hook. Edit the parameters to specify the phone number to receive the SMS and click the **Run** button.
 
 ## 6. Test the MFA flow
 
-Trigger an MFA flow and double check that everything works as intended. If you can't receive the SMS, please take a look at the [Hook Logs](/hooks/view-logs).
+Trigger an MFA flow and double check that everything works as intended. If you do not receive the SMS, please take a look at the [Hook Logs](/hooks/view-logs).
 
 ## Troubleshooting
 
-If you aren't receiving the SMS, please look at the logs for clues and make sure that:
+If you do not receive the SMS, please look at the logs for clues and make sure of the following:
 
 - The Hook is active and the SMS configuration is set to use 'Custom'.
-- You have configured the Hook Secrets as per Step #2
+- You have configured the Hook Secrets as per Step 2
 - Those secrets are the same ones you created in the Amazon Web Services portal
 - Your Amazon Web Services user has access to the `AmazonSNSFullAccess` role
 - Your Amazon Web Services account is active (not suspended)
