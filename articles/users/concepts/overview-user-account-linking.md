@@ -168,24 +168,14 @@ The [Auth0 Node.js SDK for APIv2](https://github.com/auth0/node-auth0/tree/v2) i
 
 ## Scenarios
 
-Here are some scenarios that implement account linking:
-* [Automatic account linking](#automatic-account-linking): automatically link accounts with the same email address
+Here are two scenarios that implement account linking:
+
 * [User-initiated account linking](#user-initiated-account-linking): allow your users to link their accounts using an admin screen in your app
 * [Suggested account linking](#suggested-account-linking): identify accounts with the same email address and prompt the user in your app to link them
 
 ::: warning
 For security purposes, link accounts **only if both emails are verified**.
 :::
-
-### Automatic account linking
-
-You can implement automatic linking by setting up a [Rule](/rules) to run upon user login and link accounts with the same email addresses.
-
-The rule is an example of linking accounts in server-side code using the Auth0 Management API [Link a user account endpoint](/api/v2#!/Users/post_identities) where you have both the primary and secondary user IDs and an [Management API Access Token](/api/v2/tokens) with `update:users` scope.
-
-Note, that if the primary account changes during the authorization transaction (for example, the account the user has logged in with, becomes a secondary account to some other primary account), you could get an error in the Authorization Code flow or an ID Token with the wrong `sub` claim in the token flow. To avoid this, set `context.primaryUser = 'auth0|user123'` in the rule after account linking. This will tell the authorization server to use the user with id `auth0|user123` for the rest of the flow.
-
-For a rule template on automatic account linking, see [Link Accounts with Same Email Address](https://github.com/auth0/rules/blob/master/src/rules/link-users-by-email.js). If you want to merge metadata as well, see [Link Accounts with Same Email Address while Merging Metadata](https://github.com/auth0/rules/blob/master/src/rules/link-users-by-email-with-metadata.js).
 
 ### User-initiated account linking
 
