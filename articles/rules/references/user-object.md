@@ -11,7 +11,7 @@ useCase: extensibility-rules
 
 # User Object in Rules
 
-The `user` object stores information about the logged in user, returned by the identity provider. It is generated when a user authenticates, before rules run.
+The `user` object stores information about the logged-in user, returned by the identity provider. It is generated when a user authenticates and before rules run. Because of the [order of events](/rules/index#authentication-transaction-flow) when a user authenticates, changes made to a user's profile from within a rule will only be available in the current user object if you also save the changes to the user object from within the same rule.
 
 ## Properties
 
@@ -38,3 +38,8 @@ The following properties are available for the `user` object.
 | `user.user_id` | text | (unique) The user's unique identifier. |
 | `user.user_metadata` | object | Custom fields that store info about a user that does not impact what they can or cannot access, such as work address, home address, or user preferences. For more info, see [Metadata](/metadata). |
 | `user.username` | text | (unique) The user's username. |
+
+## Read more
+
+* [Debug Rules](/rules/guides/debug)
+* [Context Object](/rules/references/context-object)
