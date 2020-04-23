@@ -1,15 +1,15 @@
 ---
-description: Configuring a Custom SMS Gateway for MFA using Amazon SNS
+description: Configuring a Custom SMS Provider for MFA using Amazon SNS
 topics:
   - mfa
   - sms
-  - custom-sms-gateway 
+  - custom-sms-provider 
 contentType:
   - how-to
 useCase:
   - customize-mfa
 ---
-# Configuring a Custom SMS Gateway for MFA using Amazon SNS
+# Configuring a Custom SMS Provider for MFA using Amazon SNS
 
 ## Prerequisites
 

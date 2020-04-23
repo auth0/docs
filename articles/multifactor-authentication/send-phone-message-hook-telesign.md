@@ -1,15 +1,15 @@
 ---
-description: Configuring a Custom SMS Gateway for MFA using TeleSign
+description: Configuring a Custom SMS Provider for MFA using TeleSign
 topics:
   - mfa
   - sms
-  - custom-sms-gateway 
+  - custom-sms-provider 
 contentType:
   - how-to
 useCase:
   - customize-mfa
 ---
-# Configuring a Custom SMS Gateway for MFA using TeleSign
+# Configuring a Custom SMS Provider for MFA using TeleSign
 
 TeleSign provides two different APIs for sending SMS:
 

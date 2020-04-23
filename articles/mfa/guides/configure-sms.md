@@ -50,7 +50,7 @@ If you choose to deliver SMS via Twilio, follow these steps to configure your SM
 
 2. Click on the **SMS** box to configure your SMS settings.
 
-  ![](/media/articles/mfa/sms-config.png)
+  ![](/media/articles/mfa/mfa-sms-twilio.png)
 
 3. Configure the connection. Enter your **Twilio Account SID** and **Twilio Auth Token** in the appropriate fields.
 
