@@ -774,9 +774,6 @@ articles:
           - title: Server-Side Regular Web App Scenario
             url: /users/references/link-accounts-server-side-scenario
 
-          - title: Initiated by Users Scenario
-            url: /users/references/link-accounts-user-initiated-scenario
-
       - title: Blacklist User Attributes
         url: /security/blacklisting-attributes
 

@@ -1,4 +1,5 @@
 ---
+title: Link User Accounts Server-Side Code Scenario
 description: Describes how to link user accounts with a regular web app using server-side code using a sample scenario.
 crews: crew-2
 topics:
@@ -12,19 +13,17 @@ useCase:
 
 # Link User Accounts Server-Side Code Scenario
 
-You can use server-side code to link accounts on a regular web application. Rather than automating the entire account linking process, you're engaging the user and asking them for permission before proceeding. Your code will authenticate users then search for and identify users using their email addresses. Your app will prompt the user to link their accounts, verify and merge metadata which links the accounts.
+Auth0 supports the linking of user accounts from various identity providers. You can use server-side code to link accounts on a regular web application. Rather than automating the entire account linking process, you're engaging the user and asking them for permission before proceeding. Your code will authenticate users, then search for and identify users using their email addresses. Your application will prompt the user to link their accounts, then verify and merge metadata, which effectively links the accounts.
 
-See [Auth0 Node.js Regular Web App Account Linking](https://github.com/auth0/auth0-link-accounts-sample/tree/master/RegularWebApp) for sample code.
+1. Log the user in to your application.
 
-1. Log in the user to your application.
+    The user authenticates to your application using either [Lock](/libraries/lock) or [Auth0.js](/libraries/auth0js) and a custom UI. We recommend using [Universal Login](/universal-login).
 
-    - Auth0 recommends using [Universal Login](/universal-login). 
-    - If you choose to embed the [Lock](/libraries/lock/v11) widget in your app, see [Auth0 Node.js Regular Web App Account Linking](https://github.com/auth0/auth0-link-accounts-sample/tree/master/RegularWebApp) for sample code.
-    - If you call the Authentication API directly, see [Call API Using the Authorization Code Flow](/flows/guides/auth-code/call-api-auth-code).
+    For details, see the [Regular Web App Quickstarts](/quickstart/webapp) or, if you want to call the Authentication API directly, see [Call Your API Using the Authorization Code Flow](/flows/guides/auth-code/call-api-auth-code). You can also see the [Implement Passwordless](/connections/passwordless) tutorial for examples of <dfn data-key="passwordless">passwordless</dfn> login.
 
 2. Search for users with identical email addresses.
 
-    During the post-login page load, your app invokes a custom endpoint that returns a list of users that could be linked together. This is done using the following code:
+    During the post-login page load, your application invokes a custom endpoint that returns a list of users that could be linked together. This is done using the following code:
 
     ```js
     const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
@@ -45,7 +44,7 @@ See [Auth0 Node.js Regular Web App Account Linking](https://github.com/auth0/aut
     });
     ```
 
-    To get a list of all of the user records with the same email address, your app calls the Management API's [Get Users By Email endpoint](/api/v2#!/users-by-email/) using a [Management API Access Token](/api/management/v2/tokens) with the `read:users` scope.
+    To get a list of all of the user records with the same email address, your application calls the Auth0 Management API's [Get Users By Email endpoint](/api/v2#!/users-by-email/) using a [Management API Access Token](/api/management/v2/tokens) with the `read:users` scope.
 
     ```js
     const request = require('request');
@@ -81,16 +80,20 @@ See [Auth0 Node.js Regular Web App Account Linking](https://github.com/auth0/aut
 
 3. Prompt the user to link accounts. 
 
-    If Auth0 returns one or more records with matching email addresses, the user sees the list, as well as the following message prompting them to link the accounts: "We noticed there are other registered users with the same verified email address as EMAIL_ADDRESS. Do you want to link the accounts?".
+    If Auth0 returns one or more records with matching email addresses, the user will see the list along with the following message prompting them to link the accounts: "We noticed there are other registered users with the same verified email address as EMAIL_ADDRESS. Do you want to link the accounts?".
 
     If the user wants to link a given account, they can click **Link** next to the appropriate account.
 
-4. When the user clicks **Link**, your app invokes your custom endpoint for account linking. 
+4. When the user clicks **Link**, your application invokes your custom endpoint for account linking. 
 
-    - Before calling `linkAccounts`, you can verify or retrieve metadata from secondary accounts and merge them into the metadata fields for the primary account. After the accounts are linked, the metadata for the secondary accounts is discarded.
-    - When calling `linkAccounts`, you can select the primary account identity. Your choice will depend on which set of attributes you want to retain in the user's profile.
 
-    The following code snippet shows how you can implement both features.
+    ::: warning
+    To retain and merge the `user_metadata` from the secondary account, you must retrieve and merge it into the metadata for the primary account before calling the API endpoint. After the accounts are linked, the metadata for the secondary account is discarded. 
+    
+    When calling account linking, you can select which identity will be used as the primary account and which as the secondary. This choice will depend on which set of attributes you want to retain in the primary profile.
+    :::
+
+    The following code snippet shows how to verify and merge metadata:
 
     ```js
     const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
@@ -125,7 +128,7 @@ See [Auth0 Node.js Regular Web App Account Linking](https://github.com/auth0/aut
 
     In the example above, you'll notice that the email address is verified a second time. This is to ensure that `targetUserId` hasn't been tampered with on the client side.
 
-5. Your app needs to call the Management API's [Link a User Account endpoint](/api/v2#!/Users/post_identities). You need to call the API using a [Management API Access Token](/api/management/v2/tokens) with the `update:users` scope.
+5. Your application calls the Auth0 Management API's [Link a User Account endpoint](/api/v2#!/Users/post_identities) using a [Management API Access Token](/api/management/v2/tokens) with the `update:users` scope.
 
     ```js
     const request = require('request');
@@ -208,4 +211,3 @@ function _mergeMetadata(primaryUser, secondaryUser){
 * [Link User Accounts](/users/guides/link-user-accounts)
 * [Unlink User Accounts](/users/guides/unlink-user-accounts)
 * [Link User Accounts Client-Side Code Scenario](/users/references/link-accounts-client-side-scenario)
-* [Link User Accounts Initiated by Users Scenario](/users/references/link-accounts-user-initiated-scenario)
