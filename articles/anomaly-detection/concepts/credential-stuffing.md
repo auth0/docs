@@ -26,6 +26,18 @@ Auth0 uses a large amount of data to identify patterns that signal that a creden
 
 ![CAPTCHA Login Screen Example](/media/articles/anomaly-detection/captcha-login-screen.png)
 
+## Restrictions and limitations
+
+Automated Attack Protection works for web and mobile apps only on the authentication flows (not signup, not account recovery). This protection works on most authentication flows but not all.
+
+| Flow | Limitation | 
+| -- | -- |
+| New Universal Login | Works automatically (if enabled which is the default). |
+| Classic Universal Login (Lock) | Works with Lock v11.20 or higher. |
+| Classic Universal Login (auth0.js) | Works automatically. |
+| `/oauth/token` | Returns an error message "Suspicious request requires validation" when an error code `requires_validation` occurs. You may need to modify your app to accommodate this error case. |
+| Embedded Login | Does now work in this case. |
+
 ## Keep reading
 
 * [Enable and Disable Automated Attack Protection](/anomaly-detection/guides/enable-disable-automated-attack-protection)
