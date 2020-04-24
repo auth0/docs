@@ -26,13 +26,12 @@ Because regular web apps are server-side apps where the source code is not publi
 2. Auth0's SDK redirects the user to the Auth0 Authorization Server ([**/authorize** endpoint](/api/authentication#authorization-code-grant)).
 3. Your Auth0 Authorization Server redirects the user to the login and authorization prompt.
 4. The user authenticates using one of the configured login options and may see a consent page listing the permissions Auth0 will give to the regular web application.
-5. Your Auth0 Authorization Server redirects the user back to the application with an authorization `code`.
+5. Your Auth0 Authorization Server redirects the user back to the application with an authorization `code`, which is good for one use.
 6. Auth0's SDK sends this `code` to the Auth0 Authorization Server ([**/oauth/token** endpoint](/api/authentication?http#authorization-code-flow43)) along with the application's Client ID and Client Secret.
 7. Your Auth0 Authorization Server verifies the code, Client ID, and Client Secret.
 8. Your Auth0 Authorization Server responds with an ID Token and Access Token (and optionally, a <dfn data-key="refresh-token">Refresh Token</dfn>).
 9. Your application can use the Access Token to call an API to access information about the user.
 10. The API responds with requested data.
-
 
 ## How to implement it
 
@@ -42,5 +41,6 @@ Finally, you can follow our tutorials to use our API endpoints to [Add Login Us
 
 ## Keep reading
 
-- Auth0 offers many ways to personalize your user's login experience using [rules](/rules) and [hooks](/hooks).
-- [Tokens](/tokens)
+- Learn how to personalize your user's login experience using [rules](/rules) and [hooks](/hooks)
+- Learn more about [tokens](/tokens) and [token storage](/tokens/concepts/token-storage)
+- Explore [Which OAuth 2.0 Flow Should I Use?](/api-auth/which-oauth-flow-to-use)
