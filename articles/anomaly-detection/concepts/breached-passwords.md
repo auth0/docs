@@ -68,6 +68,16 @@ If you use Gmail, Google offers the [Security Checkup](https://myaccount.google.
 
 You can also use third-party tools, such as websites like [HaveIBeenPawned](https://haveibeenpwned.com/PwnedWebsites) to see if there might be security issues associated with your email address.
 
+## Restrictions and limitations
+
+Breached password detection depends on the IP address of the user. Because of this, the following use cases are *not* supported:
+
+* If you use the [Resource Owner](/api/authentication#resource-owner) from the backend of the application. Using this call does not get the IP address of the user. 
+
+* If you use [Resource Owner Password Grant](/api-auth/grant/password) from the backend of the application. 
+
+* If you authenticate a large number of users from the same IP address. For example, users that are behind a proxy are more likely to reach these limits and trigger the associated protection. It is possible to configure a whitelist for the proxy's IP and CIDR range and avoid erroneously triggering the protection.
+
 ## Keep reading
 
 * [Attack Protection Triggers and Actions](/anomaly-detection/references/attack-protection-triggers-actions)
