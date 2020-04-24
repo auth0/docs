@@ -21,7 +21,7 @@ Auth0 recommends that you **do not** make changes to your anomaly detection feat
 
 ![Anomaly Detection Dashboard](/media/articles/anomaly-detection/anomaly-detection-overview.png)
 
-## Automated Attack Protection preferences
+## Automated Attack Protection 
 
 Automated attack protection protects against [credential stuffing attacks](/anomaly-detection/concepts/credential-stuffing). It is [enabled by default](/anomaly-detection/guides/enable-disable-automated-attack-protection) for all connections. It provides a basic level of protection against certain attacks that does not add any friction to legitimate users. When such an attack is detected, it displays a CAPTCHA step in the login experience to eliminate bot and scripted traffic.
 
@@ -29,20 +29,18 @@ Automated attack protection protects against [credential stuffing attacks](/anom
 Auth0 strongly recommends that you **do not** disable **Automated Attack Protection**, however if you do, you can enable it in the [Dashboard](${manage_url}/#/anomaly).
 ::: 
 
-The **Automated Attack Protection** feature works in the following ways depending on the Auth0 login option you choose:
+**Automated Attack Protection** works in the following ways depending on the Auth0 login option you choose:
 
-- If you are using New Universal Login: No further configuration is required. The feature will work for your tenant immediately.
-- If you are using Classic Universal Login: Determine if your page is customized. If it is, upgrade your version of Lock to v11.20 by replacing the script tage with the tag for the newer version: 
+| Flow | Limitation | 
+| -- | -- |
+| New Universal Login | Works automatically (if enabled which is the default). |
+| Classic Universal Login (Lock) | Works with Lock v11.20 or higher. |
+| Classic Universal Login (auth0.js) | Works automatically. |
+| `/oauth/token` | Returns an error message "Suspicious request requires validation" when an error code `requires_validation` occurs. You may need to modify your app to accommodate this error case. |
 
-    For example, replace this tag:
-    ```html
-    <script src="https://cdn.auth0.com/js/lock/x.x/lock.min.js"></script>
-    ```
-
-    With the following:
-    ```html
-    <script src="https://cdn.auth0.com/js/lock/11.20/lock.min.js"></script>
-    ```
+::: note
+This protection type does **not** work with Embedded Login. 
+:::
 
 ## Brute-force Protection preferences
 
