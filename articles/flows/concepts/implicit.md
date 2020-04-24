@@ -54,6 +54,6 @@ Finally, you can follow our tutorials to use our API endpoints to [Add Login Us
 
 ## Keep reading
 
-- Auth0 offers many ways to personalize your user's login experience using [rules](/rules) and [hooks](/hooks).
-- [Tokens](/tokens)
-- [Which OAuth 2.0 Flow Should I Use?](/api-auth/which-oauth-flow-to-use)
+- Learn how to personalize your user's login experience using [rules](/rules) and [hooks](/hooks)
+- Learn more about [tokens](/tokens) and [token storage](/tokens/concepts/token-storage)
+- Explore [Which OAuth 2.0 Flow Should I Use?](/api-auth/which-oauth-flow-to-use)
