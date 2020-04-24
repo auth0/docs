@@ -7,7 +7,7 @@
   <% if (platform === "auth0") { %>
   ![Tenant Settings](/media/articles/custom-domains/custom-domains.png)
 
-3. Enter your custom domain in the provided box and select **Auth0-managed certificates**. 
+3. Enter your custom domain in the provided box, and select **Auth0-managed certificates**. 
   <%  } %>
 
   <% if (platform === "self") { %>
