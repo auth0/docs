@@ -17,7 +17,7 @@ If you are an administrator, there are many helpful metrics and bits of informat
 - Identifying a target audience
 - Detecting patterns in user behavior that can be optimized
 - Identifying problematic actors by IP address
-- Calculating frequency and type of Anomaly Detection triggers
+- Calculating frequency and type of anomaly detection triggers
 
  The deeper the analysis, the more you can learn about your customers and your business.
 

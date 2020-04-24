@@ -10,17 +10,15 @@ useCase: anomaly-detection
 ---
 # Credential Stuffing Attack Protection
 
-Use **Automated Attack Protection** to provide a standard level of protection against credential stuffing attacks that does not add any friction to legitimate users. This protection is enabled by default for all connections. Credential stuffing (or *list validation*) attacks are a type of brute-force attack which attempts to compromise a large number of user accounts with stolen credentials. At Auth0, credential stuffing attacks account for, on average, nearly half of all login attempts using our platform. 
+Credential stuffing attacks (or *list validation attacks*) occur when bad actors automate the process of trying username and password combinations (usually stolen from another site) for many accounts in a short period of time.  According to recent statistics, as many as 71% of accounts use the same password across multiple sites so a credential stuffing attack has the potential to successfully log into your system.  
+
+At Auth0, credential stuffing attacks account for, on average, nearly half of all login attempts using our platform. 
+
+Use **Automated Attack Protection** to provide a standard level of protection against credential stuffing attacks that does not add any friction to legitimate users. This protection is enabled by default for all connections.  
 
 ::: panel Credential Stuffing Attacks: What Are They and How to Combat Them
 Download this free [whitepaper](https://auth0.com/resources/whitepapers/credential-stuffing-attacks) to learn how Auth0 can help you combat credential stuffing attacks.
 :::
-
-Credential stuffing attacks (also known as *list validation attacks*) occur when bad actors automate the process of trying username and password combinations (usually stolen from another site) for many accounts in a short period of time.  According to recent statistics, as many as 71% of accounts use the same password across multiple sites so a credential stuffing attack has the potential to successfully log into your system.  
-
-Consider, for example, the number of errors caused by an incorrect email or username (identified in the logs as type `fu`) for a particular tenant, which suggests an attack occurred November 20, with some abuse patterns afterwards:
-
-![Credential Stuffing Attack Example](/media/articles/anomaly-detection/credential-stuffing-attack.png)
 
 ## How it works
 
