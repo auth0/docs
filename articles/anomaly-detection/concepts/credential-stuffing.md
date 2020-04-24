@@ -1,5 +1,4 @@
 ---
-title: Credential Stuffing Attack Protection
 description: Understand how Auth0 detects anomalies to stop malicious attempts to access your application, alert you and your users of suspicious activity, and block further login attempts. 
 topics:
     - security
