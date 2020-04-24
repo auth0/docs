@@ -567,6 +567,7 @@ Use this endpoint to refresh an <dfn data-key="access-token">Access Token</dfn> 
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
 | `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Application Settings](${manage_url}/#/applications) is `Post` or `Basic`. |
 | `refresh_token` <br/><span class="label label-danger">Required</span> | The Refresh Token to use. |
+| `scope` | A space-delimited list of requested scope permissions. If not sent, the original scopes will be used; otherwise you can request a reduced set of scopes. Note that this must be URL encoded. |
 
 
 ### Test this endpoint
