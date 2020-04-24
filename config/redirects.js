@@ -2471,7 +2471,7 @@ module.exports = [
     },
     {
       from: '/anomaly-detection/references/anomaly-detection-restrictions-limitations',
-      to: '/anomaly-detection/guides/set-anomaly-detection-preferences'
+      to: '/anomaly-detection'
     },
     {
       from: [
@@ -2479,6 +2479,14 @@ module.exports = [
         '/anomaly-detection/references/breached-password-detection-triggers-actions'
       ],
       to: '/anomaly-detection/references/attack-protection-triggers-actions'
+    },
+    {
+      from: '/anomaly-detection/guides/prevent-credential-stuffing-attacks',
+      to: `/anomaly-detection/concepts/credential-stuffing`
+    },
+    {
+      from: '/anomaly-detection/guides/enable-disable-brute-force-protection',
+      to: '/anomaly-detection/guides/set-anomaly-detection-preferences'
     },
     {      
       from: [

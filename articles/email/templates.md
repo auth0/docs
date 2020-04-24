@@ -305,9 +305,9 @@ The target URL handler should be prepared to gracefully handle other possible me
 
 ### Password Breach Alert Email
 
-This email type is sent whenever Auth0 detects that the user is trying to access the application using a password that has been leaked by a third party. These emails are only set after enabling **Breached Password Detection** in the [Anomaly Detection](${manage_url}/#/anomaly) section of the dashboard.
+This email type is sent whenever Auth0 detects that the user is trying to access the application using a password that has been leaked by a third party. These emails are only set after enabling **Breached Password Detection** in the [Anomaly Detection](${manage_url}/#/anomaly) section of the Dashboard.
 
-Learn more about [Breached Password Detection](/anomaly-detection#breached-password-detection)
+Learn more about [Breached Password Detection](/anomaly-detection/concepts/breached-password-detection)
 
 ### Multi-factor Authentication Enrollment Email
 

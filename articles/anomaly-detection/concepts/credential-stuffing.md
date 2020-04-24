@@ -8,7 +8,7 @@ topics:
 contentType: concept
 useCase: anomaly-detection
 ---
-# Credential Stuffing Attack Protection
+# Automated Attack and Credential Stuffing Protection
 
 Credential stuffing attacks (or *list validation attacks*) occur when bad actors automate the process of trying username and password combinations (usually stolen from another site) for many accounts in a short period of time.  According to recent statistics, as many as 71% of accounts use the same password across multiple sites so a credential stuffing attack has the potential to successfully log into your system.  
 

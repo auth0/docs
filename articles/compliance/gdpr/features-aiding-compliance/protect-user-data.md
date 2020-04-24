@@ -47,7 +47,7 @@ Every time Auth0 detects 100 failed login attempts in 24 hours or 50 sign up att
 
 You can enable brute-force protection, configure which actions you want to take, and customize the blocked account email using the Dashboard. 
 
-For more information, see [Brute Force Protection](/anomaly-detection#brute-force-protection).  
+For more information, see [Brute Force Protection](/anomaly-detection/concepts/brute-force-protection).  
 
 ## Enable breached password detection
 
@@ -61,7 +61,7 @@ Auth0 tracks large security breaches that are happening on major third party sit
 
 You can enable breached password detection and configure which actions you want to take using the Dashboard. 
 
-For more information and steps to follow, see [Breached Password Detection](/anomaly-detection#breached-password-detection).
+For more information and steps to follow, see [Breached Password Detection](/anomaly-detection/concepts/breached-password-detection).
 
 ## Harden your security with multi-factor authentication
 

@@ -30,7 +30,7 @@ When debugging an issue, or setting up an integrations, logs are as good as gold
 * [Log Data Retention](/logs/references/log-data-retention)
 * [View Log Data in the Dashboard](/logs/guides/view-log-data-dashboard)
 * [Retrieve Logs Using the Management API](/logs/guides/retrieve-logs-mgmt-api)
-* [View Anomaly Detection Events](/anomaly-detection/guides/use-tenant-data-for-anomaly-detection)
+* [View Anomaly Detection Events](/anomaly-detection/guides/view-anomaly-detection-events)
 * [Log Event Type Codes](/logs/references/log-event-type-codes)
 * [Log Search Query Syntax](/logs/references/query-syntax)
 * [Log Event Filters](/logs/references/log-event-filters)

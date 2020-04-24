@@ -123,7 +123,7 @@ When searching for logs, the `totals` field tells you how many logs are returned
 * [Administrator and Developer Log Usage Examples](/logs/concepts/logs-admins-devs)
 * [View Log Data in the Dashboard](/logs/guides/view-log-data-dashboard)
 * [Retrieve Logs Using the Management API](/logs/guides/retrieve-logs-mgmt-api)
-* [View Anomaly Detection Events](/anomaly-detection/guides/use-tenant-data-for-anomaly-detection)
+* [View Anomaly Detection Events](/anomaly-detection/guides/view-anomaly-detection-events)
 * [Log Event Type Codes](/logs/references/log-event-type-codes)
 * [Log Event Filters](/logs/references/log-event-filters)
 * [Integrate AWS EventBridge with Auth0](/integrations/aws-eventbridge)

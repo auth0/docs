@@ -73,10 +73,6 @@ A single host (IP) which attempts more than 100 distinct username/password combo
 
 A CAPTCHA step is shown during the sign in or sign up flows. This CAPTCHA step helps prevent bad actors from continuing to send credential stuffing attack traffic to your tenant.
 
-### Remove block
-
-*TBD*
-
 ## Breached password detection
 
 ### Trigger
@@ -99,6 +95,9 @@ This block remains in place until the user changes their password.
 
 ## Keep reading
 
-* [Anomaly Detection](/anomaly-detection)
 * [Set Anomaly Detection Preferences](/anomaly-detection/guides/set-anomaly-detection-preferences)
-* [Enable and Disable Brute-Force Protection](/anomaly-detection/guides/enable-disable-brute-force-protection)
+* [Credential Stuffing Attack Protection](/anomaly-detection/concepts/credential-stuffing)
+* [Breached Password Detection](/anomaly-detection/concepts/breached-passwords)
+* [Brute-force Protection](/anomaly-detection/concepts/brute-force-protection)
+* [Customize Blocked Account Emails](/anomaly-detection/guides/customize-blocked-account-emails)
+* [View Anomaly Detection Events](/anomaly-detection/guides/view-anomaly-detection-events)

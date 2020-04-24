@@ -629,14 +629,14 @@ articles:
         url: "/anomaly-detection"
         children:
 
+          - title: "Automated Attack Protection"
+            url: "/anomaly-detection/concepts/credential-stuffing"
+
           - title: "Breached Password Protection"
             url: "/anomaly-detection/concepts/breached-passwords"
 
           - title: "Brute Force Protection"
             url: "/anomaly-detection/concepts/brute-force-protection"
-
-          - title: "Credential Stuffing Attack Protection"
-            url: "/anomaly-detection/concepts/credential-stuffing"
 
           - title: "Set Preferences"
             url: "/anomaly-detection/guides/set-anomaly-detection-preferences"

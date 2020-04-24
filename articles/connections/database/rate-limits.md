@@ -14,7 +14,7 @@ useCase: customize-connections
 
 For database connections Auth0 limits certain types of repeat login attempts depending on the user account and IP address, some of these limits are set as part of [Anomaly Detection](/anomaly-detection):
 
- - If a user enters their password incorrectly more than 10 times from a single IP address, they will be blocked from logging into that account from that IP address. Auth0 will send an email containing a link to unblock the user to the owner of the database account. This is the [Brute Force Protection](/anomaly-detection#brute-force-protection) shield which is part of Auth0's Anomaly Detection.
+ - If a user enters their password incorrectly more than 10 times from a single IP address, they will be blocked from logging into that account from that IP address. Auth0 will send an email containing a link to unblock the user to the owner of the database account. This is the [Brute Force Protection](/anomaly-detection/concepts/brute-force-protection) shield which is part of Auth0's Anomaly Detection.
 
 - If a user attempts to login 20 times per minute as the same user from the same location, regardless of having the correct credentials, the rate limit will come into effect. When this happens, the user can make 10 attempts per minute. Most endpoints at the moment support this rate limit, and soon all of them will.
 
@@ -28,4 +28,4 @@ To protect the health of the system overall, putting these restrictions in place
 
 Requests are subject to limits as outlined in the Rate Limit Policy for Auth0 APIs.
 
-[Click here to learn more about API Rate Limits](/rate-limits)
+See [Rate Limits](/rate-limits) for more information. 

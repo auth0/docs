@@ -10,7 +10,7 @@ useCase: anomaly-detection
 ---
 # Brute-force Protection
 
-Brute-force protection is [enabled by default](/anomaly-detection/guides/enable-disable-brute-force-protection) for all connections. There are two different [triggers](/anomaly-detection/references/attack-protection-triggers-actions) for the brute-force protection shield, for two slightly different attack scenarios.
+Brute-force protection is enabled by default for all connections. There are two different [triggers](/anomaly-detection/references/attack-protection-triggers-actions) for the brute-force protection shield, for two slightly different attack scenarios.
 
 * 10 consecutive failed login attempts for the same user and from the same IP address
 * 100 failed login attempts from the same IP address in 24 hours *or* 50 sign up attempts per minute from the same IP address
@@ -19,7 +19,7 @@ For example, if a user with *user_id1* signs in from *IP1* and fails to login co
 
 ## Keep reading
 
-* [Enable and Disable Brute-Force Protection](/anomaly-detection/guides/enable-disable-brute-force-protection)
+* [Set Anomaly Detection Preferences](/anomaly-detection/guides/set-anomaly-detection-preferences)
 * [Credential Stuffing Attack Protection](/anomaly-detection/concepts/credential-stuffing)
 * [Attack Protection Triggers and Actions](/anomaly-detection/references/attack-protection-triggers-actions)
 * [Customize Blocked Account Emails](/anomaly-detection/guides/customize-blocked-account-emails)
