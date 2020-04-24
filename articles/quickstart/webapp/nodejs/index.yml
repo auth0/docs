@@ -1,46 +1,24 @@
-title: Node.js
+title: Node.js (Express)
 image: /media/platforms/node.png
 author:
-  name: Josh Cunningham
-  email: josh.cunningham@auth0.com
+  name: David Patrick
+  email: david.patrick@auth0.com
   community: false
 topics:
   - quickstart
 contentType: tutorial
 useCase: quickstart
-snippets:
-  dependencies: server-platforms/nodejs/dependencies
-  setup: server-platforms/nodejs/setup
-  use: server-platforms/nodejs/use
 alias:
   - node
   - express
-  - node-connect
-  - passport
-seo_alias: nodejs
+seo_alias: express
 default_article: 01-login
 articles:
   - 01-login
-show_steps: true
 github:
   org: auth0-samples
-  repo: auth0-nodejs-webapp-sample
+  repo: auth0-express-webapp-sample
   branch: master
 requirements:
-  - NodeJS 4.3 or higher
-  - Express 4.16
-next_steps:
-  - path: 01-login
-    list:
-    - text: Configure other identity providers
-      icon: 345
-      href: "/identityproviders"
-    - text: Enable multifactor authentication
-      icon: 345
-      href: "/multifactor-authentication"
-    - text: Learn about anomaly detection
-      icon: 345
-      href: "/anomaly-detection"
-    - text: Learn about rules
-      icon: 345
-      href: "/rules"
+  - NodeJS 10.13+
+  - Express 4.17+
