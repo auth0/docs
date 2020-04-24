@@ -13,7 +13,7 @@ useCase: anomaly-detection
 ---
 # Set Anomaly Detection Preferences
 
-Customize the actions that occur after the triggers in the **Anomaly Detection** section on the [Dashboard](${manage_url}/#/anomaly).
+Enable, disable, and customize **Anomaly Detection** settings in the [Dashboard](${manage_url}/#/anomaly).
 
 ::: warning
 Auth0 recommends that you **do not** make changes to your anomaly detection features with the Management API.
@@ -21,7 +21,7 @@ Auth0 recommends that you **do not** make changes to your anomaly detection feat
 
 ![Anomaly Detection Dashboard](/media/articles/anomaly-detection/anomaly-detection-overview.png)
 
-## Automated attack protection preferences
+## Automated Attack Protection preferences
 
 Automated attack protection protects against [credential stuffing attacks](/anomaly-detection/concepts/credential-stuffing). It is [enabled by default](/anomaly-detection/guides/enable-disable-automated-attack-protection) for all connections. It provides a basic level of protection against certain attacks that does not add any friction to legitimate users. When such an attack is detected, it displays a CAPTCHA step in the login experience to eliminate bot and scripted traffic.
 
@@ -44,7 +44,7 @@ The **Automated Attack Protection** feature works in the following ways dependin
     <script src="https://cdn.auth0.com/js/lock/11.20/lock.min.js"></script>
     ```
 
-## Brute-force protection preferences
+## Brute-force Protection preferences
 
 [Brute-force protection](/anomaly-detection/concepts/brute-force-protection) is enabled by default for all connections. Once enabled, you can customize the brute-force protection settings.
 
@@ -64,7 +64,7 @@ You can limit the amount of signups and failed logins from a suspicious IP addre
 
 4. Click **Save**.
 
-## Breached password detection preferences
+## Breached Password Detection preferences
 
 Set preferences for [breached password](/anomaly-detection/concepts/breached-passwords) detection actions. 
 
@@ -77,13 +77,6 @@ Set preferences for [breached password](/anomaly-detection/concepts/breached-pas
 3. Determine how administrators are notified.
 
 4. Click **Save**.
-
-## View anomaly detection events in logs
-
-You can monitor your [tenant logs](/anomaly-detection/guides/view-anomaly-detection-events) for events that indicate potential attacks. For example, the following events may indicate credential stuffing attacks:
-
-- `f`: failed login
-- `fu`: failed login due to invalid email/username
 
 ## Restrictions and limitations
 
@@ -99,3 +92,4 @@ Both brute-force protection and breached password detection depend on the IP add
 
 * [Attack Protection Triggers and Actions](/anomaly-detection/references/attack-protection-triggers-actions)
 * [Customize Blocked Account Emails](/anomaly-detection/guides/customize-blocked-account-emails)
+* [View Anomaly Detection Events](/anomaly-detection/guides/view-anomaly-detection-events)

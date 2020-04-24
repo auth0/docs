@@ -36,7 +36,7 @@ Automated Attack Protection works for web and mobile apps only on the authentica
 | Classic Universal Login (Lock) | Works with Lock v11.20 or higher. |
 | Classic Universal Login (auth0.js) | Works automatically. |
 | `/oauth/token` | Returns an error message "Suspicious request requires validation" when an error code `requires_validation` occurs. You may need to modify your app to accommodate this error case. |
-| Embedded Login | Does now work in this case. |
+| Embedded Login | Does **not** work in this case. |
 
 ## Keep reading
 
