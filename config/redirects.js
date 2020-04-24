@@ -878,7 +878,11 @@ module.exports = [
   },
   {
     from: ['/link-accounts/user-initiated', '/link-accounts/user-initiated-linking'],
-    to: '/users/references/link-accounts-user-initiated-scenario'
+    to: '/users/references/link-accounts-client-side-scenario'
+  },
+  {
+    from: '/users/references/link-accounts-user-initiated-scenario',
+    to: '/users/references/link-accounts-client-side-scenario'
   },
   {
     from: '/libraries/lock/using-refresh-tokens',
