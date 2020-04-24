@@ -2583,5 +2583,9 @@ module.exports = [
     {
       from: ['/mfa/reset-user-mfa','/mfa/reset-user-MFA'],
       to: '/mfa/guides/reset-user-mfa'
+    },
+    {
+      from: '/connections/social/miicard',
+      to: '/connections/identity-providers-social'
     }
 ];
