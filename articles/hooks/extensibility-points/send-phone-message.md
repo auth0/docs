@@ -7,7 +7,7 @@ topics:
     - extensibility-points
     - send-phone-message
     - custom-sms-gateway
-    - sms 
+    - sms
 contentType:
   - how-to
 useCase: extensibility-hooks
@@ -51,8 +51,8 @@ When creating a Hook executed at the Send Phone Message extensibility point, you
 @param {function} cb - function (error, response)
 */
 module.exports = function(recipient, text, context, cb) {
- // TODO: Add your code here 
-  cb(null, {}); 
+ // TODO: Add your code here
+  cb(null, {});
 };
 ```
 
@@ -117,8 +117,9 @@ The `context.language` parameter will always have one of the languages configure
 
 # Keep reading
 
-- [Configuring a Custom SMS Provider for MFA using Amazon SNS](/multifactor-authentication/send-phone-message-hook-amazon-sns) guide. 
+- [Configuring a Custom SMS Provider for MFA using Amazon SNS](/multifactor-authentication/send-phone-message-hook-amazon-sns) guide.
 - [Configuring a Custom SMS Provider for MFA using Twilio](/multifactor-authentication/send-phone-message-hook-twilio) guide. 
-- [Configuring a Custom SMS Provider for MFA using Infobip](/multifactor-authentication/send-phone-message-hook-infobip) guide. 
-- [Configuring a Custom SMS Provider for MFA using TeleSign](/multifactor-authentication/send-phone-message-hook-telesign) guide. 
+- [Configuring a Custom SMS Provider for MFA using Infobip](/multifactor-authentication/send-phone-message-hook-infobip) guide.
+- [Configuring a Custom SMS Provider for MFA using TeleSign](/multifactor-authentication/send-phone-message-hook-telesign) guide.
+- [Configuring a Custom SMS Provider for MFA using Vonage](/multifactor-authentication/send-phone-message-hook-vonage) guide.
 - Learn about other [Extensibility Points](/hooks/extensibility-points).
