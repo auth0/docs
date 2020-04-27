@@ -332,7 +332,7 @@ function (user, context, callback) {
 }
 ```
 
-However, if you want to execute different code depending on the company the user belongs to, you **should not rely on the email domain**, but instead on data that can link the user to the identity provider they authenticated with (connection/identity provider specific fields such as Azure’s **tenant id**).
+However, if you want to execute different code depending on the company the user belongs to, you **should not rely on the email domain**, but instead on data that can link the user to the identity provider they authenticated with (the connection or identity-provider -specific fields such as Azure’s **tenant id**).
 
 ### Check for exact string matches
 
