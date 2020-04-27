@@ -20,6 +20,5 @@ Log Streams let you export your log events to a target of your choice given URL 
 
 <%= include('../../_includes/_topic-links', { links: [
   'logs/streams/http-event',
-  'logs/streams/aws-eventbridge',
-  'logs/streams/datadog'
+  'logs/streams/aws-eventbridge'
 ] }) %>
