@@ -51,7 +51,7 @@ npm install express express-openid-connect --save
 The Express OpenID Connect library provides the `auth` router in order to attach authentication routes to your application. You will need to configure the router with the following configuration keys:
 
 - `baseURL` - The URL where the application is served
-- `appSessionSecret` - A long, random string
+- `appSession.secret` - A long, random string
 - `issuerBaseURL`  - The Domain as a secure URL found in your [Application settings](${manage_url}/#/applications/${account.clientId}/settings)
 - `clientID` - The Client ID found in your [Application settings](${manage_url}/#/applications/${account.clientId}/settings)
 
