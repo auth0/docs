@@ -26,7 +26,7 @@ A callback URL is an application route where Auth0 redirects users after they ha
 
 The callback URL for the application created in this quickstart is `http://localhost:3000/callback`. Paste that in the **Allowed Callback URLs** field for the application you just created.
 
-### 2. Configure Logout URL
+### 2. Configure logout URL
 
 A logout URL is an application route that Auth0 can return users to after logging out. This URL must be registered with Auth0 or else users will be unable to log out of the application and will get a "misconfiguration" error.
 
