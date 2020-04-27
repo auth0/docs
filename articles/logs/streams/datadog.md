@@ -19,8 +19,9 @@ You can create monitoring, alerting, and analysis dashboards for Auth0 tenants.
 
 To send Auth0 events to Datadog, you will need:
 
-1. A Datadog API Key.
-2. Your Datadog dashboard region.
+1. A `Log Management` plan with Datadog. Read more about Datadog plans [here](https://www.datadoghq.com/pricing/).
+2. A Datadog API Key.
+3. Your Datadog dashboard region.
 
 ### Copy API Key from Datadog
 
