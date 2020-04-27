@@ -15,7 +15,7 @@ To page the user search results, use the `page`, `per_page`, and `include_totals
 
 Parameter | Description
 ----------|------------
-`page` | The page number, zero based.
+`page` | The page number, zero based. When this is not set, we return a maximum of 50 records, regardless of how many records exist.
 `per_page` | The amount of users per page.
 `include_totals` | Set to `true` to include a query summary as part of the result.
 
