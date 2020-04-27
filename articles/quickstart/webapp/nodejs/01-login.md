@@ -40,7 +40,7 @@ Finally, copy the following fields for your application for use in step 7:
 * **Client ID**
 
 ## Integrate Auth0
-### 4. Install Dependencies
+### 4. Install dependencies
 Your application will need the [`express-openid-connect`](https://github.com/auth0/express-openid-connect) package which is an Auth0-maintained OIDC-compliant library for Express.
 
 ```sh
