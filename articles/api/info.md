@@ -25,7 +25,7 @@ Some example tasks include:
 * getting [tokens](/tokens) during authentication
 * requesting a user's profile using an [Access Token](/tokens/concepts/access-tokens)
 * exchanging [Refresh Tokens](/tokens/concepts/refresh-tokens) for new Access Tokens
-* requesting a challenge for [multi-factor authentication (MFA)](/multifactor-authentication)
+* requesting a challenge for [multi-factor authentication (MFA)](/mfa)
 
 <div class="api-info-wrapper">
   <div class="block-links">
@@ -62,7 +62,7 @@ Some example tasks include:
 * registering your applications and APIs with Auth0
 * setting up [connections](/connections) with which your users can authenticate
 * [managing users](/users)
-* [linking user accounts](/link-accounts)
+* [linking user accounts](/users/guides/link-user-accounts)
 
 <div class="api-info-wrapper">
   <div class="block-links">

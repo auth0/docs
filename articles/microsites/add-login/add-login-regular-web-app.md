@@ -45,8 +45,8 @@ For security in server-side web apps, Auth0 uses the [Authorization Code Flow](/
 ::: guides
   * [Auth0 Regular Web App Quickstarts](/quickstart/webapp)
   * [Add login using the Authorization Code Flow](/flows/guides/auth-code/add-login-auth-code)
-  * [Customize the hosted login page](/hosted-pages/login#how-to-customize-your-login-page)
-  * [Store tokens](/tokens/guides/store-tokens)
+  * [Customize the universal login page](/universal-login)
+  * [Token Storage](/tokens/concepts/token-storage)
 :::
 
 ::: references

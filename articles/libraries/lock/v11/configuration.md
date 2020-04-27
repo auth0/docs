@@ -94,7 +94,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | [configurationBaseUrl](#configurationbaseurl-string-) | Override your application's base URL |
 | [languageBaseUrl](#languagebaseurl-string-) | Override your language file base URL |
 | [hashCleanup](#hashcleanup-boolean-) | Override the default removal of the hash from the URL |
-| [leeway](#leeway-integer-) | Add leeway for clock skew to JWT expiration times |
+| [leeway](#leeway-integer-) | Add leeway for clock skew to ID Token expiration times |
 
 ---
 
@@ -314,7 +314,7 @@ New tenants [automatically have Seamless SSO enabled](https://auth0.com/docs/das
 ::: note
 The **Last time you signed in with [...]** message will not be available under the following circumstances:
 
-- You used Lock in a [Hosted Login Page](/hosted-pages/login) with the session established using <dfn data-key="passwordless">[Passwordless authentication](/connections/passwordless)</dfn>.
+- You used Lock in a [Hosted Login Page](/universal-login) with the session established using <dfn data-key="passwordless">[Passwordless authentication](/connections/passwordless)</dfn>.
 - You used Lock in an [embedded login scenario](/guides/login/universal-vs-embedded#embedded-login-with-auth0) where `responseType: code` (indicating the [Authorization Code Flow](/flows/concepts/auth-code), which is used for Regular Web Apps).
 :::
 
@@ -584,6 +584,17 @@ var options = {
     }
   }]
 }
+```
+
+If you want to save the value of the attribute in the root of your profile, use `storage: 'root'`. Only a subset of values can be stored this way. The list of attributes that can be added to your root profile is [here](/api/management/v2#!/Users/patch_users_by_id). By default, every additional sign up field is stored inside the user_metadata object.
+
+```js
+var options = {
+  additionalSignUpFields: [{
+    name: "name",
+    storage: "root"
+  }]
+};
 ```
 
 ![Lock - Additional Signup Fields](/media/articles/libraries/lock/v11/customization/lock-additionalsignupfields.png)
@@ -864,7 +875,7 @@ var options = {
 
 ### leeway {Integer}
 
-The `leeway` option can be set to an integer - a value in seconds - which can be used to account for clock skew in JWT expirations. Typically the value is no more than a minute or two at maximum.
+The `leeway` option can be set to an integer - a value in seconds - which can be used to account for clock skew in ID Token expirations. Typically the value is no more than a minute or two at maximum.
 
 ```js
 var options = {

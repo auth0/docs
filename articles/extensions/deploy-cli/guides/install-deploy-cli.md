@@ -17,7 +17,7 @@ This guide will show you how to install the Deploy CLI tool and configure it usi
 3. [Configure the Deploy CLI Tool](#configure-the-deploy-cli-tool)
 4. [Run the Deploy CLI Tool](#run-the-deploy-cli-tool)
 
-You can also upgrade from a previous version of the tool. The `auth0-deploy-cli` tool was completely rewritten from version 1 to [version 2](/extensions/deploy-cli/references/what-new-v2), which means that it is not backwards compatible. Please consider the following when upgrading:
+You can also upgrade from a previous version of the tool. The `auth0-deploy-cli` tool was completely rewritten from version 1 to [version 2 or later](/extensions/deploy-cli/references/whats-new), which means that it is not backwards compatible. Please consider the following when upgrading:
 
 - The directory structure and format has changed to allow for additional object types.
 - The command line parameters have changed to allow for additional options, such as export.
@@ -68,7 +68,7 @@ To configure the Deploy CLI tool to use the Deploy CLI application, create a **c
 To run the Deploy CLI Tool, use the command-line interface to run:
 
 ```bash
-a0deploy export -c config.json -f yaml -o <your repo directory>
+a0deploy export --config_file config.json --format yaml --output_folder <your repo directory>
 ```
 
 ## Keep reading

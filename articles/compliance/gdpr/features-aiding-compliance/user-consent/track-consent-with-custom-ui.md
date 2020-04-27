@@ -40,7 +40,7 @@ We will see four different implementations for this:
 
 ## Option 1: Use auth0.js
 
-In this section, we will use a simple Single-Page Application and customize the login widget to add a flag which users can use to provide consent information. Instead of building an app from scratch, we will use [Auth0's JavaScript Quickstart sample](/quickstart/spa/vanillajs). We will also use [Auth0's Universal Login Page](/hosted-pages/login) so we can implement a [Universal Login experience](/guides/login/centralized-vs-embedded), instead of embedding the login in our app.
+In this section, we will use a simple Single-Page Application and customize the login widget to add a flag which users can use to provide consent information. Instead of building an app from scratch, we will use [Auth0's JavaScript Quickstart sample](/quickstart/spa/vanillajs). We will also use [Auth0's Universal Login Page](/universal-login) so we can implement a [Universal Login experience](/guides/login/centralized-vs-embedded), instead of embedding the login in our app.
 
 This works **only** for database connections (we will use Auth0's infrastructure, instead of setting up our own database).
 
@@ -58,7 +58,7 @@ This works **only** for database connections (we will use Auth0's infrastructure
 
 1. [Set the Client ID and Domain](https://github.com/auth0-samples/auth0-javascript-samples/tree/master/01-Login#set-the-client-id-and-domain) values.
 
-1. Go to [Dashboard > Hosted Pages](${manage_url}/#/login_page). At the **Login** tab enable the toggle. 
+1. Go to [Dashboard > Universal Login](${manage_url}/#/login_settings). At the **Login** tab enable the toggle. 
 
 1. At the **Default Templates** dropdown make sure that `Custom Login Form` is picked. The code is prepopulated for you.
 

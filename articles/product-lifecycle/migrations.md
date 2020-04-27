@@ -1,7 +1,7 @@
 ---
 toc: true
-title: Migrations
-description: View all Deprecations with active Migrations which may impact your tenant.
+title: Active Migrations
+description: View all Deprecations with active Migrations that may impact your tenant.
 topics:
   - migrations
 contentType:
@@ -9,9 +9,10 @@ contentType:
 useCase:
   - migrate
 ---
-# Migrations
 
-We are actively migrating customers to new behaviors for all **Deprecations** listed below. Please review these carefully to ensure you've taken any necessary steps to avoid service disruptions. See [Deprecation and End Of Life](/product-lifecycle/deprecation-eol) to learn more about this process.
+# Active Migrations
+
+We are actively migrating customers to new behaviors for all <dfn data-key="deprecation">Deprecations</dfn> listed below. Please review these carefully to ensure you've taken any necessary steps to avoid service disruption. To learn more, see [Migration Process](/product-lifecycle/migration-process).
 
 <table class="table">
   <thead>
@@ -23,6 +24,26 @@ We are actively migrating customers to new behaviors for all **Deprecations** li
     </tr>
   </thead>
   <tbody>
+      <tr>
+      <td><a href="/migrations/guides/extensibility-node12">Node.js v8 Extensibility Runtime</a></td>
+      <td>15 April 2020</td>
+      <td>TBA</td>
+      <td>
+        The Webtask engine powering Auth0 extensibility points currently uses Node 8. Beginning <strong>31 December 2019</strong>, <a href="https://github.com/nodejs/Release#release-schedule">Node.js v8 was no longer under long-term support (LTS)</a>. This means that critical security fixes were no longer back-ported to this version. As such, Auth0 is migrating the Webtask runtime from Node.js v8 to Node.js v12.<br><br>On <strong>15 April 2020</strong>, we made the Node 12 runtime available for extensibility to all public cloud customers. You have been provided a migration switch that allows you to control your environment's migration to the new runtime environment.<br><br>To learn more about this migration and the steps you should follow to upgrade your implementation, see <a href="/migrations/guides/extensibility-node12">Migration Guide: Extensibility and Node.js v12</a>.
+      </td>
+    </tr>
+    <tr>
+      <td><a href="/migrations/guides/instagram-deprecation">Instagram Connection Deprecation</a></td>
+      <td>5 March 2020</td>
+      <td>31 March 2020</td>
+      <td>Facebook announced that on March 31th, 2020, they will turn off the Instagram legacy APIs, and they won't provide an alternative to implement Login with Instagram</td>
+    </tr>
+     <tr>
+      <td><a href="/migrations/guides/yahoo-userinfo-updates">Changes in the Yahoo user profile</a></td>
+      <td>1 March 2020</td>
+      <td>1 March 2020</td>
+      <td>Yahoo changed the way to retrieve the user profile and the information included on it.</td>
+    </tr>
     <tr>
       <td><a href="/migrations/guides/management-api-v1-v2">Management API v1</a></td>
       <td>October 2016</td>

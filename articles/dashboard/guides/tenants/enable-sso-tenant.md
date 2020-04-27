@@ -24,11 +24,11 @@ If you do not choose to enable tenant-level SSO, you may [enable it per applicat
 
 1. Navigate to the [Tenant Settings](${manage_url}/#/tenant) page in the [Auth0 Dashboard](${manage_url}/), and click the [**Advanced**](${manage_url}/#/tenant/advanced) tab.
 
-![View Advanced Tenant Settings](/media/articles/dashboard/guides/tenants/tenant-settings.png)
+![View Advanced Tenant Settings](/media/articles/dashboard/tenants/tenant-settings.png)
 
 2. Scroll to the **Log In Session Management** section, locate **Enable Seamless SSO**, and enable the toggle.
 
-![View Log In Session Management Settings](/media/articles/dashboard/guides/tenants/tenant-settings-advanced-login-session-management.png)
+![View Log In Session Management Settings](/media/articles/dashboard/tenants/tenant-settings-advanced-login-session-management.png)
 
 ::: warning
 If you do not see this setting available in the Dashboard, you already have Seamless SSO enabled; this toggle is strictly for legacy tenants.

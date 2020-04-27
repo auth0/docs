@@ -24,7 +24,7 @@ If any of your applications currently call the `/passwordless/start` endpoint di
 
 If you are implementing passwordless authentication through the Universal Login page and you changed the default way Auth0 libraries are initialized, it might also affect you too.
 
-You can verify whether you are affected by checking the [tenant logs](${manage_url}/#/logs), filtering by "Deprecation Notice" and check for logs saying "Enforce client authentication for passwordless connections". You can also perform this search directly with the following query: `type:depnote AND description:*passwordless*`.
+You can verify whether you are affected by checking the [tenant logs](${manage_url}/#/logs), filtering by "Deprecation Notice" and check for logs saying "Enforce client authentication for passwordless connections". You can also perform this search directly with the following query: `type:depnote AND description:*passwordless*`. Note that this specific query will only work for public cloud tenants, as private cloud logs cannot be searched on the description field.
 
 ## What do I need to do?
 

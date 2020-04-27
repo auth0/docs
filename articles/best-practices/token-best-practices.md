@@ -13,11 +13,11 @@ useCase:
 
 # Token Best Practices
 
-* **Keep it secret. Keep it safe.** The signing key should be treated like any other credentials and revealed only to services that need it.
+* **Keep it secret. Keep it safe.** The signing key should be treated like any other credential and revealed only to services that need it.
 
 * **Do not add sensitive data to the payload.** Tokens are signed to protect against manipulation and are easily decoded. Add the bare minimum number of claims to the payload for best performance and security.
 
-* **Give tokens an expiration.** Technically, once a token is signed – it is valid forever – unless the signing key is changed or expiration explicitly set. This could pose potential issues so have a strategy for expiring and/or revoking tokens.
+* **Give tokens an expiration.** Technically, once a token is signed, it is valid forever&mdash;unless the signing key is changed or expiration explicitly set. This could pose potential issues so have a strategy for expiring and/or revoking tokens.
 
 * **Embrace HTTPS.** Do not send tokens over non-HTTPS connections as those requests can be intercepted and tokens compromised.
 

@@ -36,7 +36,7 @@ Two sessions are created:
 
 * The local session (storezero.io): Allows the application to know if a user is authenticated.
 
-* The session on the Authorization Server (storezero.auth0.com): Allows the Authorization Server to know if a user is authenticated and optionally, tracks other information. For example, the Authorization Server can track whether a user has authenticated using [Multi-factor Authentication (MFA)](/multifactor-authentication). If so, the next time the user arrives at the Authorization Server, they won't need to see a login page or be prompted to use MFA again.
+* The session on the Authorization Server (storezero.auth0.com): Allows the Authorization Server to know if a user is authenticated and optionally, tracks other information. For example, the Authorization Server can track whether a user has authenticated using [Multi-factor Authentication (MFA)](/mfa). If so, the next time the user arrives at the Authorization Server, they won't need to see a login page or be prompted to use MFA again.
 
 ### User logs in with identity provider
 

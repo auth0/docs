@@ -34,22 +34,18 @@ From a functional perspective, it has much better support for [Localization](/un
 
 - You can make users land directly on the Signup page instead of the Login page by specifying the `screen_hint=signup` parameter when redirecting to `/authorize`. Note that this can be combined with `prompt=login`, which indicates if you want to always show the authentication page or you want to skip if there's an existing session. 
 
-|/authorize parameters | Existing session | Action|
+|`/authorize` parameters | No existing session  | Existing session |
 |--|--|--|
-|no extra parameters | no | Shows the login page|
-|screen_hint=signup | no | Shows the signup page|
-|prompt=login | no | Shows the login page|
-|no extra parameters | yes | Redirects to the callback url|
-|screen_hint=signup | yes | Redirects to the callback url|
-|prompt=login | yes | Shows the login page|
-|prompt=login&screen_hint=signup | yes | Shows the signup page|
-
+|no extra parameters   | Shows the login page  | Redirects to the callback url |
+|`screen_hint=signup`  | Shows the signup page | Redirects to the callback url |
+|`prompt=login`        | Shows the login page  | Shows the login page          |
+|`prompt=login&screen_hint=signup`| Shows the signup page | Shows the signup page |
 
 ## Multi-Factor Authentication
 
 - If users have more than one <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> factor enrolled (e.g., SMS and Push notifications), the new MFA page will let the user select which one they want to use.
 
-- You can use [Email as an MFA factor](/multifactor-authentication/factors/email).
+- You can use [Email as an MFA factor](/mfa/concepts/mfa-factors#email-notifications).
 
 - If you are using the Guardian SDK to create your own native application to handle Push Notifications, you can configure the name of the application and the URLs to download them in the "Push via Auth0 Guardian" option in the MFA [Dashboard > MFA](${manage_url}/#/mfa) section.
 

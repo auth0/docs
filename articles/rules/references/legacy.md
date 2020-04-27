@@ -278,7 +278,7 @@ Notice that the code sandbox in which Rules run on, can be recycled at any time.
 
 ## Available modules
 
-For security reasons, the Rules code runs in a JavaScript sandbox based on [webtask.io](https://webtask.io) where you can use the full power of the ECMAScript 5 language.
+For security reasons, the Rules code runs in a JavaScript sandbox where you can use the full power of the ECMAScript 5 language.
 
 For a list of currently supported sandbox modules, see: [Modules Supported by the Sandbox](https://auth0-extensions.github.io/canirequire/).
 

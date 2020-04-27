@@ -34,6 +34,6 @@ You can also create [custom claims](/tokens/concepts/jwt-claims#custom-claims), 
 
 * [ID Tokens](/tokens/concepts/id-tokens)
 * [Get ID Tokens](/tokens/guides/get-id-tokens)
-* [Store Tokens](/tokens/guides/store-tokens)
+* [Token Storage](/tokens/concepts/token-storage)
 * [Validate ID Tokens](/tokens/guides/validate-id-tokens)
 * [Revoke Tokens](/tokens/guides/revoke-tokens)

@@ -37,7 +37,7 @@ You should have already configured and verified your custom domain. To learn how
 
 ## Universal Login
 
-If you use [Universal Login](/hosted-pages/login) and you have customized the login page, you must update the code to use your custom domain. If you use the **default** login page without customization, you do not need to make any changes.
+If you use [Universal Login](/universal-login) and you have customized the login page, you must update the code to use your custom domain. If you use the **default** login page without customization, you do not need to make any changes.
 
 If you are using [Lock](/libraries/lock), you must set the `configurationBaseUrl` and `overrides` options as seen in the following sample script:
 
@@ -186,7 +186,7 @@ If you want to use your custom domain with ADFS connections, you must update the
 
 If you do not need Kerberos support, AD/LDAP connections do not require further configuration.
 
-In order to use AD/LDAP connections with Kerberos support, you will need to update the ticket endpoint to work with the custom domain. As mentioned in the [Auth0 AD/LDAP connector documentation](/connector/modify#point-an-ad-ldap-connector-to-a-new-connection), the `config.json` file needs to be modified, with the `PROVISIONING_TICKET` value changed to use your custom domain in the format `https://<YOUR-CUSTOM-DOMAIN>/p/ad/jUG0dN0R/info`.
+In order to use AD/LDAP connections with Kerberos support, you will need to update the ticket endpoint to work with the custom domain. As mentioned in the [Auth0 AD/LDAP connector documentation](/connector/modify#point-an-ad-ldap-connector-to-a-new-connection), the `config.json` file needs to be modified, with the `PROVISIONING_TICKET` value changed to use your custom domain in the format `https://<YOUR-CUSTOM-DOMAIN>/p/ad/jUG0dN0R`.
 
 Once this change is saved, you need to restart the AD/LDAP Connector service for the change to take effect.
 

@@ -187,6 +187,9 @@ To reduce the rule's processing time, you may update both the `app_metadata` and
 
 ```js
 function(user, context, callback){
+
+  var q = require('q');
+
   user.app_metadata = user.app_metadata || {};
   user.user_metadata = user.user_metadata || {};
   // update the user_metadata that will be part of the response

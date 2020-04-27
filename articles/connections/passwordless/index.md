@@ -24,7 +24,7 @@ A passwordless connection is another type of connection separate from any existi
 You cannot create passwordless users from the Dashboard. Create then directly from the [Management API](/api/management/v2#!/Users/post_users) if signup is disabled. In the **Connection** field, use **email** for passwordless users using an email address and **sms** for passwordless users using a mobile phone number.
 :::
 
-Passwordless differs from Multi-factor Authentication (MFA) in that only one factor is used to authenticate a user&mdash;the one-time code or link received by the user. If you want to require that users log in with a one-time code or link **in addition** to another factor (e.g., username/password or a social Identity Provider, such as Google), see [Multi-factor Authentication (MFA)](/multifactor-authentication).
+Passwordless differs from Multi-factor Authentication (MFA) in that only one factor is used to authenticate a user&mdash;the one-time code or link received by the user. If you want to require that users log in with a one-time code or link **in addition** to another factor (e.g., username/password or a social Identity Provider, such as Google), see [Multi-factor Authentication (MFA)](/mfa).
 
 ## Benefits
 
@@ -95,8 +95,8 @@ The main driver for picking the authentication factor is user experience, and th
 If you decide to use Email, then you need to decide between an one-time-use code or a magic link. We recommend using one-time-use code as the login flow is more predictable for end users. To learn more refer to the following documents:
 
   - [Passwordless using Email and one-time-use code](/connections/passwordless/guides/email-otp)
-  - [Passwordless Passwordless using Email and Magic Links](/connections/passwordless/guides/email-magic-link)
-  - [Passwordless Passwordless using SMS](/connections/passwordless/guides/sms-otp)
+  - [Passwordless using Email and Magic Links](/connections/passwordless/guides/email-magic-link)
+  - [Passwordless using SMS](/connections/passwordless/guides/sms-otp)
 
 ### Implementing Login 
 

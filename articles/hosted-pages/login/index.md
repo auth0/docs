@@ -14,7 +14,7 @@ If you cannot use universal login, you can embed the Lock widget or a custom log
 
 ![Login Page](/media/articles/hosted-pages/hlp-lock.png)
 
-To find the default page name for the login page, see [How to Use Version Control to Manage Your Hosted Pages](/hosted-pages/version-control).
+To find the default page name for the login page, see [How to Use Version Control to Manage Your Universal Login Pages](/universal-login/version-control).
 
 ### How Does Universal Login Work
 
@@ -59,7 +59,7 @@ Currently, universal login is the **only** way to use [Passwordless](/connection
 
 ### 1. Enable Customization on the Login Page
 
-In the [Dashboard](${manage_url}), you can enable a custom login page by navigating to [Hosted Pages](${manage_url}/#/login_page) and enabling the **Customize Login Page** toggle.
+In the [Dashboard](${manage_url}), you can enable a custom login page by navigating to [Universal Login](${manage_url}/#/login_settings) and enabling the **Customize Login Page** toggle.
 
 ![Login Page](/media/articles/hosted-pages/login.png)
 
@@ -105,19 +105,19 @@ webAuth.authorize({
 
 ## Configure Multiple Pages by Using Separate Tenants
 
-In some cases, you might have multiple apps and want to configure separate login pages for each. Since the hosted pages are configured in the [Dashboard](${manage_url}) at the tenant level (every app you have set up on a single tenant would use the same login page), you would have to create a new tenant for each application that requires a different hosted page.
+In some cases, you might have multiple apps and want to configure separate login pages for each. Since the Universal Login pages are configured in the [Dashboard](${manage_url}) at the tenant level (every app you have set up on a single tenant would use the same login page), you would have to create a new tenant for each application that requires a different login page.
 
 In most cases, it would be preferable to use a single login page, which unifies your brand and the authentication experience for your users across the various areas in which they might encounter it. Additionally, using the same pages, and the same tenant, will allow you to share the resources that would otherwise need to be separated across multiple tenants.
 
-Creating a separate tenant is only really a viable option for an organization that needs two or more separate sets of custom pages, such as for branding reasons. If an example corporation has multiple branded subsidiaries or products, and separate APIs for all of them, it might make sense for them to create several separate Auth0 tenants, each with their own hosted pages set up for that brand or product's specific needs.
+Creating a separate tenant is only really a viable option for an organization that needs two or more separate sets of custom pages, such as for branding reasons. If an example corporation has multiple branded subsidiaries or products, and separate APIs for all of them, it might make sense for them to create several separate Auth0 tenants, each with their own Universal Login pages set up for that brand or product's specific needs.
 
-Bear in mind that separating tenants with the goal of having separate hosted pages will also mean that those separate tenants will have two distinct sets of applications, users, settings, and so on as these things are not shared between tenants.
+Bear in mind that separating tenants with the goal of having separate Universal Login pages will also mean that those separate tenants will have two distinct sets of applications, users, settings, and so on as these things are not shared between tenants.
 
 ### Creating New Tenants
 
 If your use case requires separate sets of custom pages, let's see how you would go about creating them.
 
-If you have five different applications, with three of them (`app1`, `app2`, `app3`) using the same set of hosted pages and the other two (`app4`, `app5`) using different ones, you would do the following:
+If you have five different applications, with three of them (`app1`, `app2`, `app3`) using the same set of Universal Login pages and the other two (`app4`, `app5`) using different ones, you would do the following:
 
 - If you already have an account, you have a tenant configured. Configure three applications under this tenant, one to represent each app (`app1`, `app2`, `app3`), and one login page  which these applications will all share.
 - Create a second tenant, configure a new application for `app4`, and configure the login page for this application.

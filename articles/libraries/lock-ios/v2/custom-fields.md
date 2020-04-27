@@ -16,7 +16,7 @@ useCase:
 
 # Lock v2 for iOS - Custom Fields at Signup
 
-**Lock v2 for iOS** allows you to specify additional fields that the user must complete before creating a new account. The extra fields will be shown on a second screen after the user completes the basic fields (email, username, password).
+**Lock v2 for iOS** allows you to specify additional fields that the user must complete before creating a new account. The extra fields will be shown after the basic fields (email, username, password).
 
 ## Adding custom fields
 

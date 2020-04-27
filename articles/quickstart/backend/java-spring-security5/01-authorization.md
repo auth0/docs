@@ -55,7 +55,7 @@ If you are using Gradle, you can add the required dependencies using the [Spring
 // build.gradle
 
 plugins {
-    id 'org.springframework.boot' version '2.2.4.RELEASE'
+    id 'org.springframework.boot' version '2.2.6.RELEASE'
     id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 }
 
@@ -76,7 +76,7 @@ If you are using Maven, add the Spring dependencies to your `pom.xml` file:
 <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.2.4.RELEASE</version>
+    <version>2.2.6.RELEASE</version>
     <relativePath/>
 </parent>
 
@@ -215,7 +215,7 @@ Create a new class named `Message`, which is the domain object the API will retu
 public class Message {
     private final String message;
 
-    Message(String message) {
+    public Message(String message) {
         this.message = message;
     }
 

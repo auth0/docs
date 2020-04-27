@@ -45,6 +45,8 @@ function (user, context, callback) {
   //Filter by app
   //if(context.clientName !== 'AN APP') return callback(null, user, context);
 
+  var request = require('request');
+
   if (!user.email || !user.email_verified) {
     return callback(null, user, context);
   }
@@ -82,6 +84,9 @@ Create a rule that will record the information as a __New Lead__ in Salesforce, 
 
 ```js
 function (user, context, callback) {
+
+  const request = require('request');
+
   user.app_metadata = user.app_metadata || {};
   if (user.app_metadata.recordedAsLead) {
     return callback(null,user,context);
