@@ -46,7 +46,7 @@ To send Auth0 events to Datadog, you will need:
 ![Datadog Settings Form](/media/articles/logs/datadog/tutorial-3.png)
 
 6. Click **Save**.
-7. You're done! When Auth0 writes the next tenant log, you'll receive a copy of that log event in Datadog with the `source` and `service` set to `auth0`.
+7. You're done! When Auth0 writes the next log event, you'll receive a copy of that log event in Datadog with the `source` and `service` set to `auth0`.
 
 ### View logs in Datadog
 
@@ -56,4 +56,4 @@ To send Auth0 events to Datadog, you will need:
 
 ## Delivery attempts and retries
 
-Auth0 events are delivered to your server via a streaming mechanism that sends each event as it is triggered. If your server is unable to receive the event, Auth0 will try to redeliver it up to three times. If still unsuccessful, Auth0 will log the failure to deliver.
+Auth0 events are delivered to your server via a streaming mechanism that sends each event as it is triggered. If your server is unable to receive the event, Auth0 will try to redeliver it up to three times. If still unsuccessful, Auth0 will log the failure to deliver, and you will be able see these failures in the Health tab for your log stream.
