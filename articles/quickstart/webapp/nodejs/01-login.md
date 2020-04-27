@@ -32,7 +32,7 @@ A logout URL is an application route that Auth0 can return users to after loggin
 
 The logout URL for the application created in this quickstart is `http://localhost:3000`. Paste that in the **Allowed Logout URLs** field for the application you just created, then scroll down and click **Save Changes**.
 
-### 3. Get Your Application Keys
+### 3. Get your application keys
 
 Finally, copy the following fields for your application for use in step 7:
 
