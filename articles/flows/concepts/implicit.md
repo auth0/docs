@@ -1,6 +1,6 @@
 ---
-title: Implicit Flow
-description: Learn how the Implicit flow works and why you should use it for single-page apps (SPAs).
+title: Implicit Flow with Form Post
+description: Learn how the Implicit flow with Form Post works and why you should use it for single-page apps (SPAs) that need only an ID Token to perform user authentication.
 topics:
   - authorization-code
   - implicit
@@ -16,48 +16,44 @@ useCase:
   - call-api
   - add-login
 ---
-# Implicit Flow
+# Implicit Flow with Form Post
 
-During authentication, single-page applications (SPAs) have some special requirements. Since the SPA is a public client, it is unable to securely store information such as a Client Secret. As such, a special authentication flow exists called the OAuth 2.0 Implicit Flow (defined in [OAuth 2.0 RFC 6749, section 4.2](https://tools.ietf.org/html/rfc6749#section-4.2)). Using the Implicit Flow streamlines authentication by returning tokens without introducing any unnecessary additional steps.
+::: warning
+The [OAuth 2.0 BCP](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-09#section-2.1.2) states that you **should not** use the Implicit Flow to request [Access Tokens](/tokens/access-tokens) from the Authorization Server. For this reason, we recommend that you use the [Authorization Code Flow with PKCE](/flows/concepts/auth-code-pkce) if your single-page app (SPA) requires Access Tokens for [Cross-Origin Resource Sharing (CORS)](/cross-origin-authentication#what-is-cross-origin-authentication) requests (along with [Refresh Token Rotation](/tokens/concepts/refresh-token-rotation) if your SPA needs to maintain session). For a more detailed explanation, see our blog post: [OAuth2 Implicit Grant and SPA: Everything you always wanted to know (but were afraid to ask)](https://auth0.com/blog/oauth2-implicit-grant-and-spa/).
+:::
+
+As an alternative to the [Authorization Code Flow](/flows/concepts/auth-code), the OAuth 2.0 spec includes the Implicit Flow intended for <dfn data-key="public-client">Public Clients</dfn>, or applications which are unable to securely store <dfn data-key="client-secret">Client Secrets</dfn>. As part of the authorization response, the Implicit Flow returns an <dfn data-key="access-token">Access Token</dfn> rather than an <dfn data-key="authorization-code">Authorization Code</dfn> that must be exchanged at the <dfn data-key="token-endpoint">token endpoint</dfn>.
+
+While this is no longer considered a best practice for requesting Access Tokens, it does offer a streamlined workflow if the application needs only an <dfn data-key="id-token">ID Token</dfn> to perform user authentication.
 
 ## How it works
 
-For SPAs, you should use the Implicit Flow in which issued tokens are short-lived. <dfn data-key="refresh-token">Refresh Tokens</dfn> are not available in this flow. 
+In the Implicit Flow, issued tokens are short-lived, and <dfn data-key="refresh-token">Refresh Tokens</dfn> are not available.
 
-![Implicit Flow Authentication Sequence](/media/articles/flows/concepts/auth-sequence-implicit.png)
+::: warning
+You should use this flow for login-only use cases; if you need to request Access Tokens while logging the user in so you can call your API, use the [Authorization Code Flow with PKCE](/flows/concepts/auth-code-pkce).
+:::
 
-1. The user clicks **Login** within the SPA.
-2. Auth0's SDK redirects the user to the Auth0 Authorization Server (**/authorize** endpoint) passing along a `response_type` parameter that indicates the type of requested credential.
+![Implicit Flow with Form Post Authentication Sequence](/media/articles/flows/concepts/auth-sequence-implicit-form-post.png)
+
+1. The user clicks **Login** in the app.
+2. Auth0's SDK redirects the user to the Auth0 Authorization Server (**/authorize** endpoint) passing along a `response_type` parameter of `id_token` that indicates the type of requested credential. It also passes along a `response_mode` parameter of `form_post` to ensure security.
 3. Your Auth0 Authorization Server redirects the user to the login and authorization prompt.
-4. The user authenticates using one of the configured login options and may see a consent page listing the permissions Auth0 will give to the SPA.
-5. Your Auth0 Authorization Server redirects the user back to the SPA with any of the following, depending on the provided `response_type` parameter (step 2):
-* An ID Token;
-* An Access Token;
-* An ID Token and an Access Token.
-6. Your SPA can use the Access Token to call an API.
-7. The API responds with requested data.
+4. The user authenticates using one of the configured login options and may see a consent page listing the permissions Auth0 will give to the app.
+5. Your Auth0 Authorization Server redirects the user back to the app with an ID Token.
 
 ## How to implement it
 
-The easiest way to implement the Implicit Flow is to follow our [Single-Page App Quickstarts](/quickstart/spa).
+You can use our [Express OpenID Connect SDK](https://www.npmjs.com/package/express-openid-connect) to securely implement the Implicit Flow. If you use our [Javascript SDKs](/libraries), please ensure you are implementing mitigations that are appropriate for your architecture.
 
-You can also use our [SDKs](/libraries).
-
-Finally, you can follow our tutorials to use our API endpoints to [Add Login Using the Implicit Flow](/flows/guides/implicit/add-login-implicit) or [Call Your API Using the Implicit Flow](/flows/guides/implicit/call-api-implicit).
-
-## SPAs and refresh tokens
-
-::: warning
-The Access Token is exposed on the client side. The implicit flow does not return a Refresh Token because the browser cannot keep it private.  
+::: note
+The [Auth0 Single-Page App SDK](/libraries/auth0-spa-js) and [Single-Page Quickstarts](/quickstart/spa) adhere to the new recommendations and use the [Authorization Code Flow with PKCE](/flows/concepts/auth-code-pkce).
 :::
 
-While SPAs using the Implicit Grant cannot use [Refresh Tokens](/tokens/concepts/refresh-tokens), there are other ways to provide similar functionality. 
-
-- Use `prompt=none` when invoking the [/authorize](/api/authentication#implicit-grant) endpoint. The user will not see the login or consent dialogs. For more information, see [Silent Authentication](/api-auth/tutorials/silent-authentication). 
-- Call `/authorize` from a hidden iframe and extract the new [Access Token](/tokens/concepts/access-tokens) from the parent frame. The user will not see the redirects happening.
+Finally, you can follow our tutorials to use our API endpoints to [Add Login Using the Implicit Flow with Form Post](/flows/guides/implicit/add-login-implicit).
 
 ## Keep reading
 
-- Auth0 offers many ways to personalize your user's login experience using [rules](/rules) and [hooks](/hooks).
-- [Tokens](/tokens)
-- [Which OAuth 2.0 Flow Should I Use?](/api-auth/which-oauth-flow-to-use)
+- Learn how to personalize your user's login experience using [rules](/rules) and [hooks](/hooks)
+- Learn more about [tokens](/tokens) and [token storage](/tokens/concepts/token-storage)
+- Explore [Which OAuth 2.0 Flow Should I Use?](/api-auth/which-oauth-flow-to-use)

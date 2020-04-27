@@ -26,7 +26,7 @@ Even if using email or SMS can be more secure than a weak password, they have kn
 
 - Having an email address is not sufficient for user authentication (aliases, forwarding, multiple users in one account are all examples). Email providers vary in their security practices and some do not require any establishment of a user's identity. SMTP is a very old protocol, and many providers still route SMTP traffic unencrypted leading to an increased chance of an interception attack. 
 
-We recommend that if you use passwordless authentication, you also implement [Multi-factor Authentication (MFA)](/multifactor-authentication) with a different factor when the user performs a security-sensitive operation.
+We recommend that if you use passwordless authentication, you also implement [Multi-factor Authentication (MFA)](/mfa) with a different factor when the user performs a security-sensitive operation.
 
 ## Preventing Phishing Attacks
 
@@ -57,8 +57,8 @@ If you choose to extend the amount of time it takes for your one-time-use code t
 
 The one-time-use code expiration time can be altered in the passwordless connection settings in the [Dashboard](${manage_url}/#/connections/passwordless).
 
-##  Linking Accounts
+## Link accounts
 
-Users might want to authenticate using different passwordless factors during their lifetime. For example, they could initially sign up with an SMS, and later start authenticating with an email. You can achieve that by enabling them to link their different profiles using [account linking](/link-accounts).
+Users might want to authenticate using different passwordless factors during their lifetime. For example, they could initially sign up with an SMS, and later start authenticating with an email. You can achieve that by enabling them to link their different profiles using [account linking](/users/concepts/overview-user-account-linking).
 
 <%= include('../_includes/_rate_limit_server_side') %>

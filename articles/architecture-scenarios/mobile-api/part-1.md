@@ -39,6 +39,8 @@ With PKCE, the Application creates, for every authorization request, a cryptogra
 4. Auth0 validates this information and returns an Access Token (and optionally a Refresh Token).
 5. The native app can use the Access Token to call the API on behalf of the user.
 
+<%= include('../../_includes/_refresh_token_rotation_panel.md') %>
+
 ## Authorization Extension
 
 The [Auth0 Authorization Extension](/extensions/authorization-extension) allows you to provide authorization support in your application, by assigning <dfn data-key="role">Roles</dfn>, Groups and Permissions to Users.

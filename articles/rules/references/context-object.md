@@ -12,6 +12,10 @@ useCase: extensibility-rules
 
 The `context` object stores contextual information about the current authentication transaction, such as the user's IP address, application, or location.
 
+::: note
+If you change token content using the context object within a rule, your changes will be available in tokens after all rules have finished running. If your application also requires multifactor authentication or user consent, the user will be prompted before changes in the token are available.
+:::
+
 ## Properties
 
 The following properties are available for the `context` object.
@@ -31,13 +35,19 @@ The following properties are available for the `context` object.
 | `context.protocol` | <%= include('../_includes/_context-prop-protocol.md') %> |
 | `context.stats` | An object containing specific user stats, like `stats.loginsCount`. Note that any of the counter variables returned as part of the `stats` object do not increase during [silent authentication](/api-auth/tutorials/silent-authentication) (as when `prompt=none`). There are also scenarios where the counter variables might increase yet a rule or set of rules do not execute, as in the case of a successful cross-origin authentication followed by a failed token request. |
 | `context.sso` | <%= include('../_includes/_context-prop-sso.md') %> |
-| `context.accessToken` | An object representing the options defined on the <dfn data-key="access-token">Access Token</dfn>. You can use this object to [add custom namespaced claims](/scopes/current/sample-use-cases#add-custom-claims-to-a-token) to the Access Token. `context.accessToken.scope` can be used to [change the Access Token's returned scopes](/rules/references/samples#modify-scope-of-access-token).  When provided, it is an array containing permissions in string format. |
-| `context.idToken` | An object representing the options defined on the [ID Token](/tokens/concepts/id-tokens). Used to add custom [namespaced](/tokens/guides/create-namespaced-custom-claims) claims to the ID Token. |
+| `context.accessToken` | An object representing the options defined on the <dfn data-key="access-token">Access Token</dfn>. You can use this object to [add custom namespaced claims](/scopes/current/sample-use-cases#add-custom-claims-to-a-token) to the Access Token. `context.accessToken.scope` can be used to [change the Access Token's returned scopes](/rules/references/samples#modify-scope-of-access-token).  When provided, it is an array containing permissions in string format. Custom claims will be included in the Access Token after all rules have run. |
+| `context.idToken` | An object representing the options defined on the [ID Token](/tokens/concepts/id-tokens). Used to add custom [namespaced](/tokens/guides/create-namespaced-custom-claims) claims to the ID Token. Custom claims will be included in the ID Token after all rules have run. |
 | `context.original_protocol` | After a [redirect rule](/rules/current/redirect) has executed and the authentication transaction is resumed, this property will be populated with the original protocol used to initiate the transaction. |
-| `context.multifactor` | An object representing the multifactor settings used in [implementing contextual MFA](/multifactor-authentication/custom). |
+| `context.multifactor` | An object representing the multifactor settings used in [implementing contextual MFA](/mfa). |
 | `context.redirect` | The object used to [implement the redirection of a user from a rule](/rules/current/redirect#how-to-implement-a-redirect). |
 | `context.sessionID` | An internal identification for the authentication session. Value is kept only if `prompt=none` is used in the authorization request. Note that the session ID can change **after** rule execution on other flows, so the value available in `context.sessionID` might not match the new session ID that the user will receive. This makes this value only meaningful when `prompt=none` is used. |
 | `context.request` | <%= include('../_includes/_context-prop-request.md') %> |
-| `context.primaryUser` | The unique user id of the primary account for the user. Used to [link user accounts](/link-accounts#automatic-account-linking) from various identity providers. |
+| `context.primaryUser` | The unique user id of the primary account for the user. Used to [link user accounts](/users/concepts/overview-user-account-linking#automatic-account-linking) from various identity providers. |
 | `context.authentication` | <%= include('../_includes/_context-prop-authentication.md') %> |
 | `context.authorization` | <%= include('../_includes/_context-prop-authorization.md') %> |
+
+## Read more
+
+* [Debug Rules](/rules/guides/debug)
+* [User Object](/rules/references/user-object)
+* [Sample Use Cases - Scopes and Claims: Add custom claims to a token](/scopes/current/sample-use-cases#add-custom-claims-to-a-token)

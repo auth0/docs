@@ -34,7 +34,7 @@ For some <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> Integrations 
 * Egnyte
 * New Relic
 * Office 365
-* SalesForce
+* Salesforce
 * SharePoint
 * Slack
 * SpringCM

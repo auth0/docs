@@ -252,7 +252,7 @@ articles:
           - title: "Version Control"
             url: "/universal-login/version-control"
 
-      - title: Universal vs Embedded Login
+      - title: Universal vs. Embedded Login
         url: /guides/login/universal-vs-embedded
 
       - title: Embedded Login
@@ -281,70 +281,76 @@ articles:
           - title: Native App
             url: /flows/guides/auth-code-pkce/add-login-auth-code-pkce
 
-      - title: Multi-Factor Authentication
-        url: /multifactor-authentication
+      - title: Multi-factor Authentication
+        url: /mfa
         children:
 
-          - title: Overview
-            url: /multifactor-authentication
-
           - title: Factors
-            url: /multifactor-authentication/factors
+            url: /mfa/concepts/mfa-factors
+
+          - title: Enable MFA
+            url: /mfa/guides/enable-mfa
+
+          - title: Guardian
+            url: /mfa/concepts/guardian
+            children: 
+
+              - title: Configure Guardian
+                url: /mfa/guides/guardian/configure-guardian
+                hidden: true 
+
+              - title: Create Custom Enrollment Ticket
+                url: /mfa/guides/guardian/create-enrollment-ticket
+                hidden: true 
+
+              - title: Customize SMS Messages
+                url: /mfa/guides/guardian/customize-sms-messages
+                hidden: true 
+
+              - title: Install Guardian SDK
+                url: /mfa/guides/guardian/install-guardian-sdk
+                hidden: true 
+
+              - title: Guardian for Android SDK
+                url: /mfa/guides/guardian/guardian-android-sdk
+                hidden: true 
+
+              - title: Guardian for iOS SDK
+                url: /mfa/guides/guardian/guardian-ios-sdk
+                hidden: true 
+
+          - title: Customize MFA
+            url: /mfa/guides/customize-mfa-universal-login
+          
+          - title: Reset MFA
+            url: /mfa/guides/reset-user-mfa
+
+          - title: Step-up Authentication
+            url: /mfa/concepts/step-up-authentication
             children:
 
-              - title: Push
-                url: /multifactor-authentication/factors/push
-                hidden: true
+              - title: For APIs
+                url: /mfa/guides/configure-step-up-apis
+                hidden: true 
 
-              - title: OTP
-                url: /multifactor-authentication/factors/otp
-                hidden: true
+              - title: For Web Apps
+                url: /mfa/guides/configure-step-up-web-apps
+                hidden: true 
 
-              - title: SMS
-                url: /multifactor-authentication/factors/sms
-                hidden: true
-
-              - title: Duo
-                url: /multifactor-authentication/factors/duo
-                hidden: true
-
-              - title: Email
-                url: /multifactor-authentication/factors/email
-                hidden: true
-
-          - title: Custom
-            url: /multifactor-authentication/custom
-
-          - title: Step-Up
-            url: /multifactor-authentication/step-up-authentication
-
-          - title: MFA API
-            url: /multifactor-authentication/api
+          - title: MFA Developer Resources
+            url: /mfa/concepts/mfa-developer-resources
             children:
 
-              - title: "Trigger MFA"
-                url: "/multifactor-authentication/api/challenges"
-                hidden: true
+              - title: MFA Theme Language Dictionary
+                url: /mfa/references/language-dictionary
+                hidden: true 
 
-              - title: "One-Time Password Challenge"
-                url: "/multifactor-authentication/api/otp"
-                hidden: true
+              - title: MFA Widget Theme Options
+                url: /mfa/references/mfa-widget-reference
+                hidden: true 
 
-              - title: "SMS Message Challenge"
-                url: "/multifactor-authentication/api/oob"
-                hidden: true
-
-              - title: "Email Authenticator"
-                url: "/multifactor-authentication/api/email"
-                hidden: true
-
-              - title: "Manage Authenticators"
-                url: "/multifactor-authentication/api/manage"
-                hidden: true
-
-              - title: "FAQ"
-                url: "/multifactor-authentication/api/faq"
-                hidden: true
+          - title: Troubleshoot MFA
+            url: /mfa/references/troubleshoot-mfa
 
       - title: Silent Authentication
         url: /api-auth/tutorials/silent-authentication
@@ -532,6 +538,9 @@ articles:
           - title: Manage Tenant Administrators
             url: /dashboard/manage-dashboard-admins
 
+          - title: Manage Signing Keys
+            url: /tokens/guides/manage-signing-keys
+
           - title: Configure Session Lifetime Settings
             url: /dashboard/guides/tenants/configure-session-lifetime-settings
 
@@ -582,6 +591,9 @@ articles:
 
           - title: Rotate Client Secret
             url: /dashboard/guides/applications/rotate-client-secret
+
+          - title: Wildcards for Subdomains
+            url: /applications/reference/wildcard-subdomains
 
           - title: Recommended Settings
             url: /best-practices/application-settings
@@ -743,7 +755,24 @@ articles:
         url: /users/guides/manage-users-using-the-management-api
 
       - title: Link User Accounts
-        url: /extensions/account-link
+        url: /users/concepts/overview-user-account-linking
+        children:
+
+          - title: Link User Accounts
+            url: /users/guides/link-user-accounts
+
+          - title: Unlink User Accounts
+            url: /users/guides/unlink-user-accounts
+
+          - title: Link Accounts using Authentication API
+            url: /users/guides/link-user-accounts-auth-api
+            hidden: true 
+
+          - title: Client-Side SPA Scenario 
+            url: /users/references/link-accounts-client-side-scenario
+          
+          - title: Server-Side Regular Web App Scenario
+            url: /users/references/link-accounts-server-side-scenario
 
       - title: Blacklist User Attributes
         url: /security/blacklisting-attributes
@@ -872,118 +901,206 @@ articles:
         url: /i18n
 
 ## ------------------------------------------------------------
-## Extend & Integrate
+## Rules
 ## ------------------------------------------------------------
 
-  - title: Extend & Integrate
-    url: /extend-integrate
+  - title: Rules
+    url: /rules
     children:
 
-      - title: Rules
-        url: /rules
+      - title: Create a New Rule
+        url: /dashboard/guides/rules/create-rules
+
+      - title: Rules Use Cases
+        url: /rules/references/use-cases
+
+      - title: Store Configuration for Rules
+        url: /rules/guides/configuration
+
+      - title: Cache Expensive Resources
+        url: /rules/guides/cache-resources
+
+      - title: Debug Rules
+        url: /rules/guides/debug
+
+      - title: Management API in Rules
+        url: /rules/guides/management-api
+
+      - title: Metadata in Rules
+        url: /rules/guides/metadata
+
+      - title: Redirect Users from Rules
+        url: /rules/guides/redirect
+
+      - title: User Object
+        url: /rules/references/user-object
+
+      - title: Context Object
+        url: /rules/references/context-object
+
+      - title: Available Node.js Modules
+        url: /rules/references/modules
+
+      - title: Deploy Rules with Bitbucket
+        url: /extensions/bitbucket-deploy
+        hidden: true
+
+      - title: Deploy Rules with GitLab
+        url: /extensions/gitlab-deploy
+        hidden: true
+
+      - title: Deploy Rules with Github
+        url: /extensions/github-deploy
+        hidden: true
+
+## ------------------------------------------------------------
+## Hooks
+## ------------------------------------------------------------
+
+  - title: Hooks
+    url: /hooks
+    children:
+
+      - title: Create Hooks
+        url: /hooks/create
+
+      - title: Update Hooks
+        url: /hooks/update
+
+      - title: Delete Hooks
+        url: /hooks/delete
+
+      - title: Enable/Disable Hooks
+        url: /hooks/enable-disable
+
+      - title: View Hooks
+        url: /hooks/view
+
+      - title: View Logs
+        url: /hooks/view-logs
+
+      - title: Extensibility Points
+        url: /hooks/extensibility-points
         children:
 
-          - title: Create a New Rule
-            url: /dashboard/guides/rules/create-rules
+        - title: Client Credentials Exchange
+          url: /hooks/extensibility-points/client-credentials-exchange
 
-          - title: Rules Use Cases
-            url: /rules/references/use-cases
+        - title: Post Change Password
+          url: /hooks/extensibility-points/post-change-password
 
-          - title: Store Configuration for Rules
-            url: /rules/guides/configuration
+        - title: Post User Registration
+          url: /hooks/extensibility-points/post-user-registration
 
-          - title: Cache Expensive Resources
-            url: /rules/guides/cache-resources
+        - title: Pre User Registration
+          url: /hooks/extensibility-points/pre-user-registration    
 
-          - title: Debug Rules
-            url: /rules/guides/debug
+        - title: Send Phone Message
+          url: /hooks/extensibility-points/send-phone-message 
 
-          - title: Management API in Rules
-            url: /rules/guides/management-api
-
-          - title: Metadata in Rules
-            url: /rules/guides/metadata
-
-          - title: C# in Rules
-            url: /rules/guides/csharp
-
-          - title: Redirect Users from Rules
-            url: /rules/guides/redirect
-
-          - title: User Object
-            url: /rules/references/user-object
-
-          - title: Context Object
-            url: /rules/references/context-object
-
-          - title: Available Node.js Modules
-            url: /rules/references/modules
-
-          - title: Deploy Rules with Bitbucket
-            url: /extensions/bitbucket-deploy
-
-          - title: Deploy Rules with GitLab
-            url: /extensions/gitlab-deploy
-
-          - title: Deploy Rules with Github
-            url: /extensions/github-deploy
-
-      - title: Hooks
-        url: /hooks
+      - title: Hook Secrets
+        url: /hooks/secrets
         children:
 
-          - title: Create Hooks
-            url: /hooks/create
+          - title: Create Secrets
+            url: /hooks/secrets/create
 
-          - title: Update Hooks
-            url: /hooks/update
+          - title: Update Secrets
+            url: /hooks/secrets/update
 
-          - title: Delete Hooks
-            url: /hooks/delete
+          - title: Delete Secrets
+            url: /hooks/secrets/delete
 
-          - title: Enable/Disable Hooks
-            url: /hooks/enable-disable
+          - title: View Secrets
+            url: /hooks/secrets/view
 
-          - title: View Hooks
-            url: /hooks/view
+## ------------------------------------------------------------
+## Extensions
+## ------------------------------------------------------------
 
-          - title: View Logs
-            url: /hooks/view-logs
+  - title: Extensions
+    url: /extensions
+    children:
 
-          - title: Extensibility Points
-            url: /hooks/extensibility-points
-            children:
+      - title: Authorization Extension
+        url: /extensions/authorization-extension/v2
 
-            - title: Client Credentials Exchange
-              url: /hooks/extensibility-points/client-credentials-exchange
+      - title: Delegated Administration
+        url: /extensions/delegated-admin/v3
 
-            - title: Post Change Password
-              url: /hooks/extensibility-points/post-change-password
+      - title: Custom Social Connections
+        url: /extensions/custom-social-extensions
 
-            - title: Post User Registration
-              url: /hooks/extensibility-points/post-user-registration
+      - title: SSO Dashboard Extension
+        url: /extensions/sso-dashboard
 
-            - title: Pre User Registration
-              url: /hooks/extensibility-points/pre-user-registration    
+      - title: Authentication API Webhooks
+        url: /extensions/authentication-api-webhooks
 
-          - title: Hook Secrets
-            url: /hooks/secrets
-            children:
+      - title: Management API Webhooks
+        url: /extensions/management-api-webhooks
 
-              - title: Create Secrets
-                url: /hooks/secrets/create
+      - title: GitHub Deployments
+        url: /extensions/github-deploy
+      
+      - title: Bitbucket Deployments
+        url: /extensions/bitbucket-deploy
 
-              - title: Update Secrets
-                url: /hooks/secrets/update
+      - title: GitLab Deployments
+        url: /extensions/gitlab-deploy
 
-              - title: Delete Secrets
-                url: /hooks/secrets/delete
+      - title: Visual Studio Team Services Deployments
+        url: /extensions/visual-studio-team-services-deploy
 
-              - title: View Secrets
-                url: /hooks/secrets/view
+      - title: Authentication API Debugger
+        url: /extensions/authentication-api-debugger
 
-      - title: Extensions
-        url: /extensions
+      - title: AD/LDAP Connector Health Monitor
+        url: /extensions/adldap-connector
+
+      - title: Real-time Webtask Logs
+        url: /extensions/realtime-webtask-logs
+
+      - title: Auth0 Logs to Application Insights
+        url: /extensions/application-insight
+
+      - title: Auth0 Logs to AWS Cloudwatch
+        url: /extensions/cloudwatch
+
+      - title: Auth0 Logs to Azure Blob Storage
+        url: /extensions/azure-blog-storage
+
+      - title: Auth0 Logs to Logentries
+        url: /extensions/logentries
+
+      - title: Auth0 Logs to Loggly
+        url: /extensions/loggly
+
+      - title: Auth0 Logs to Logstash
+        url: /extensions/logstash
+
+      - title: Auth0 Logs to Mixpanel
+        url: /extensions/mixpanel
+
+      - title: Auth0 Logs to Papertrail
+        url: /extensions/papertrail
+
+      - title: Auth0 Logs to Sumo Logic
+        url: /extensions/sumologic
+
+      - title: Auth0 Logs to Splunk
+        url: /extensions/splunk
+
+      - title: Add-ons
+        url: /addons
+
+## ------------------------------------------------------------
+## Integrations
+## ------------------------------------------------------------
+
+  - title: Integrations
+    url: /integrations
+    children:
 
       - title: Analytics
         url: /analytics
@@ -995,14 +1112,154 @@ articles:
           - title: Google Analytics
             url: /analytics/guides/google-analytics
 
-      - title: Single Sign-On Integrations
+      - title: Amazon Web Services (AWS)
+        url: /integrations/aws
+
+      - title: AWS API Gateway
+        url: /integrations/aws-api-gateway/custom-authorizers
+
+      - title: Azure API Management
+        url: /integrations/azure-api-management
+
+      - title: Google Cloud Endpoints
+        url: /integrations/google-cloud-platform
+
+      - title: Single Sign-On
         url: /integrations/sso
+        children:
 
-      - title: Marketing Integrations
+          - title: Active Directory RMS
+            url: /integrations/sso/ad-rms
+
+          - title: Box
+            url: /integrations/sso/box
+
+          - title: CloudBees
+            url: /integrations/sso/cloudbees
+
+          - title: Concur
+            url: /integrations/sso/concur
+
+          - title: Dropbox
+            url: /integrations/sso/dropbox
+
+          - title: Microsoft Dynamics CRM
+            url: /integrations/sso/dynamics-crm
+
+          - title: Adobe Echosign
+            url: /integrations/sso/echosign
+
+          - title: Egnyte
+            url: /integrations/sso/egnyte
+
+          - title: New Relic
+            url: /integrations/sso/new-relic
+
+          - title: Office 365
+            url: /integrations/sso/office-365
+
+          - title: Salesforce
+            url: /integrations/sso/salesforce
+
+          - title: Sentry
+            url: /integrations/sso/sentry
+
+          - title: SharePoint
+            url: /integrations/sso/sharepoint
+
+          - title: Slack
+            url: /integrations/sso/slack
+
+          - title: SpringCM
+            url: /integrations/sso/springcm
+
+          - title: Zendesk
+            url: /integrations/sso/zendesk
+
+          - title: Zoom
+            url: /integrations/sso/zoom
+
+      - title: Marketing
         url: /integrations/marketing
+        children:
 
-      - title: Add-ons
-        url: /addons
+          - title: Adobe Campaign
+            url: /integrations/marketing/adobe-campaign
+
+          - title: Alterian
+            url: /integrations/marketing/alterian
+
+          - title: Constant Contact
+            url: /integrations/marketing/constant-contact
+
+          - title: Oracle Eloqua
+            url: /integrations/marketing/eloqua
+
+          - title: MailChimp
+            url: /integrations/marketing/mailchimp
+
+          - title: Marketo
+            url: /integrations/marketing/marketo
+
+          - title: Sailthru
+            url: /integrations/marketing/sailthru
+
+          - title: Salesforce
+            url: /integrations/marketing/salesforce
+
+          - title: Salesforce Marketing Cloud
+            url: /integrations/marketing/salesforce-marketing-cloud
+
+          - title: Watson Campaign Automation
+            url: /integrations/marketing/watson-campaign-automation
+
+## ------------------------------------------------------------
+## Logs
+## ------------------------------------------------------------
+
+  - title: Logs
+    url: /logs
+    children:
+
+      - title: Log Streams
+        url: /logs/streams
+        children:
+
+          - title: HTTP Event Streams
+            url: /logs/streams/http-event
+
+          - title: AWS EventBridge
+            url: /logs/streams/aws-eventbridge
+
+
+          - title: Datadog Event Streams
+            url: /logs/streams/datadog
+
+      - title: Log Data Retention
+        url: /logs/references/log-data-retention
+
+
+      - title: View Log Data in the Dashboard
+        url: /logs/guides/view-log-data-dashboard
+
+      - title: Log Event Filters
+        url: /logs/references/log-event-filters
+
+      - title: Retrieve Logs Using the Management API
+        url: /logs/guides/retrieve-logs-mgmt-api
+
+      - title: Log Event Type Codes
+        url: /logs/references/log-event-type-codes
+
+      - title: Log Search Query Syntax
+        url: /logs/references/query-syntax
+
+      - title: Log Usage Examples
+        url: /logs/concepts/logs-admins-devs
+
+      - title: Migrate from Logs Search v2 to v3
+        url: /monitor/logs/migrate-logs-v2-v3
+        hidden: true
 
 ## ------------------------------------------------------------
 ## Monitor
@@ -1011,48 +1268,6 @@ articles:
   - title: Monitor
     url: /monitoring
     children:
-
-      - title: Logs
-        url: /logs
-        children:
-
-          - title: Log Streams
-            url: /logs/streams
-            children:
-
-              - title: HTTP Event Streams
-                url: /logs/streams/http-event
-
-              - title: AWS EventBridge
-                url: /logs/streams/aws-eventbridge
-                
-              - title: Datadog Event Streams
-                url: /logs/streams/datadog
-
-          - title: Log Data Retention
-            url: /logs/references/log-data-retention
-
-          - title: View Log Data in the Dashboard
-            url: /logs/guides/view-log-data-dashboard
-
-          - title: Log Event Filters
-            url: /logs/references/log-event-filters
-
-          - title: Retrieve Logs Using the Management API
-            url: /logs/guides/retrieve-logs-mgmt-api
-
-          - tite: Log Event Type Codes
-            url: /logs/references/log-event-type-codes
-
-          - title: Log Search Query Syntax
-            url: /logs/references/query-syntax
-
-          - title: Log Usage Examples
-            url: /logs/concepts/logs-admins-devs
-
-          - title: Migrate from Logs Search v2 to v3
-            url: /monitor/logs/migrate-logs-v2-v3
-            hidden: true
 
       - title: Check Auth0 Status
         url: /monitoring/guides/check-status
@@ -1201,7 +1416,7 @@ articles:
             url: /authorization/concepts/troubleshooting
 
           - title: MFA
-            url: /multifactor-authentication/troubleshooting
+            url: /mfa/references/troubleshooting
 
           - title: SAML
             url: /protocols/saml/saml-configuration/troubleshoot
@@ -1413,10 +1628,13 @@ articles:
   - title: "Product Lifecycle"
     url: "/product-lifecycle"
     children:
-      - title: "Deprecation and End Of Life"
-        url: "/product-lifecycle/deprecation-eol"
+      - title: "Product Release Stages"
+        url: "/product-lifecycle/product-release-stages"
 
-      - title: "Migrations"
+      - title: "Migration Process"
+        url: "/product-lifecycle/migration-process"
+
+      - title: "Active Migrations"
         url: "/product-lifecycle/migrations"
 
   - title: "Security"
@@ -1502,6 +1720,22 @@ articles:
                 url: "/tokens/guides/revoke-refresh-tokens"
                 hidden: true 
 
+          - title: "Refresh Token Rotation"
+            url: "/tokens/concepts/refresh-token-rotation"
+            children: 
+
+              - title: "Configure Refresh Token Rotation"
+                url: "/tokens/guides/configure-refresh-token-rotation"
+                hidden: true 
+
+              - title: "Use Refresh Token Rotation"
+                url: "/tokens/guides/use-refresh-token-rotation"
+                hidden: true 
+
+              - title: "Disable Refresh Token Rotation"
+                url: "/tokens/guides/disable-refresh-token-rotation"
+                hidden: true 
+
           - title: "Delegation Tokens"
             url: "/tokens/concepts/delegation-tokens"
             hidden: true 
@@ -1545,8 +1779,8 @@ articles:
                 url: "/tokens/references/jwt-structure"
                 hidden: true 
 
-          - title: "Store Tokens"
-            url: "/tokens/guides/store-tokens"
+          - title: "Token Storage"
+            url: "/tokens/concepts/token-storage"
 
           - title: "Revoke Tokens"
             url: "/tokens/guides/revoke-tokens"

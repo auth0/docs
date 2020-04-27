@@ -158,7 +158,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 }
 ```
 
-### Web Authentication
+### Web authentication
 
 Finally, you can now perform webAuth authentication by specifying the social connection name, for example with Facebook.
 
@@ -180,7 +180,7 @@ Auth0
 
 Once you obtain the `credentials` object upon a successful authentication, you can deal with them as usual.
 
-#### Connection Scopes
+#### Connection scopes
 
 If you need additional provider permissions these can be specified using the `connectionScope` method and providing
 a comma separated list of provider permissions.

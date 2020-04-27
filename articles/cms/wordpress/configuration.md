@@ -11,34 +11,28 @@ useCase:
   - secure-an-api
   - manage-users  
 ---
-# Configuration of the Login by Auth0 WordPress Plugin
+# Configuring Login by Auth0
 
-By default, new installations of Login by Auth0 run the Setup Wizard and ask for an app token and attempt to setup all necessary components within your Auth0 tenant. This includes:
+Login by Auth0 can be configured using the Setup Wizard in the plugin ([covered here](/cms/wordpress/installation#setup-wizard)) or manually for more control over the process. The instructions below can also be used if the Setup Wizard did not complete or as part of troubleshooting login issues.
 
-* Creating a new Application using your site name with the correct app type and URLs
-* Creating a database Connection for this Application for storing users
-* Creating an application grant for the system Auth0 Management API
-* Creating a new user for the WordPress administrator running the wizard
-
-Once this process is complete, your tenant is set up correctly and ready to accept signups and logins.
-
-The Setup Wizard must run to completion for your site to be setup correctly. If the Wizard fails for any reason before the "setup successful" screen, check the plugin error log at **wp-admin > Auth0 > Error Log** and the steps below to determine the issue.
-
-It can be helpful, if you're having any issues with logging in or creating accounts, to walk through the screens for each section below to confirm your setup.
-
-You'll need to be logged into your Auth0 account before starting the steps below. If you don't have one yet, [create one here](https://auth0.com/signup).
+::: note
+You will need to be logged into your Auth0 account before starting the steps below. If you don't have one yet, [create one here](https://auth0.com/signup).
+:::
 
 ## Auth0 configuration
 
+Your [Auth0 tenant](/getting-started/the-basics#account-and-tenants) must be configured to accept login requests from your WordPress site and source user identities from at least one [Connection](/identityproviders), whether that's an Auth0 database, a social connection, or a business directory.
+
 ### Application setup
 
-First, we'll check for the Application created for your WordPress site.
+1. First, we need an Application for your WordPress site:
 
-1. Navigate to the [Applications](${manage_url}/#/applications) page and look for an application that is similar to your site name. If you don't find one, it means that an Application was not created by the Wizard. Restart the Setup Wizard or create a new Application manually by clicking **Create Application**. Enter a name for the application, select **Regular Web Applications**, and click **Create**.
+  - **If you're troubleshooting the Setup Wizard**, navigate to the [Applications](${manage_url}/#/applications) screen and look for an Application that is similar to your WordPress site name. If you don't find one, it means that an Application was not created by the Wizard. Restart the Setup Wizard in WordPress or follow the step just below to create an Application manually.
+  - **If you're configuring manually**, navigate to the [Applications](${manage_url}/#/applications) screen and click **Create Application**. Enter a name for the Application, select **Regular Web Applications**, and click **Create**.
 
     ![Auth0 Applications in the Management Dashboard](/media/articles/cms/wordpress/application-listing.png)
 
-2. Click on the name to get to the **Settings** tab. You will see your Domain, Client ID, and Client Secret, which are used in **wp-admin > Auth0 > Settings** to make a connection to Auth0.
+2. Click on the **Settings** tab for the Application. You will see your Domain, Client ID, and Client Secret, which are used in **wp-admin > Auth0 > Settings** to connect to Auth0.
 
     ![Application Settings](/media/articles/cms/wordpress/auth0-app-settings.png)
 
@@ -47,22 +41,22 @@ First, we'll check for the Application created for your WordPress site.
 4. Scroll down to **Allowed Callback URLs** and provide the WordPress site URL with `?auth0=1` appended:
 
 ```
-https://yourdomain.com/index.php?auth0=1
+https://your-wordpress-domain.com/index.php?auth0=1
 ```
 
 ::: warning
-Do **not** cache Callback URLs, or you might see an "Invalid state" error during login. Please see our [troubleshooting steps for this error](/cms/wordpress/invalid-state#cached-callback-urls) for more information.
+The Callback URL here **must not** be cached, or you might see an "Invalid state" error during login. Please see [these troubleshooting steps](/cms/wordpress/invalid-state#cached-callback-urls) for more information.
 :::
 
-5. Enter your WordPress site's home domain (where the WordPress site appears) and, if different, site domain (where wp-admin is served from) in the **Allowed Web Origins** field
+5. Enter your WordPress site's **WordPress Address (URL)** (where the WordPress site appears publicly) and, if different, the **Site Address (URL)** (where wp-admin is served from) in the **Allowed Web Origins** field. Both of these values are found on your WordPress site's general settings screen.
 
 6. Enter your WordPress site's login URL in the **Allowed Logout URLs** field
 
 7. Leave the **Allowed Origins (CORS)** field blank (it will use the **Allowed Callback URLs** values from above)
 
-    ::: note
-    Make sure to match your site's protocol (http or https) and use the site URL as a base, found in **wp-admin > Settings > General > WordPress Address (URL)** for all URL fields above.
-    :::
+::: note
+Make sure to match your site's protocol (http or https) and use the home URL as a base, found in **wp-admin > Settings > General > WordPress Address (URL)** for all URL fields above.
+:::
 
 8. Scroll down and click the **Show Advanced Settings** link, then the **OAuth** tab and make sure **JsonWebToken Signature Algorithm** is set to RS256. If this needs to be changed later, it should be changed here as well as in wp-admin (see Settings > Basic below).
 
@@ -70,11 +64,11 @@ Do **not** cache Callback URLs, or you might see an "Invalid state" error during
 
     ![Application - Advanced Settings - OAuth](/media/articles/cms/wordpress/app-advanced-settings.png)
 
-10. Click the **Grant Types** tab and select at least **Implicit,** **Authorization Code,** and **Client Credentials**.
+10. Click the **Grant Types** tab and select at least **Authorization Code** and **Client Credentials**.
 
     ![Application - Advanced Settings - Grant Types](/media/articles/cms/wordpress/client-grant-types.png)
 
-11. Click **Save Changes** if anything was modified.
+11. Click **Save Changes**.
 
 ### Authorize the Application for the Management API
 
@@ -94,21 +88,25 @@ In order for your WordPress site to perform certain actions on behalf of your Au
 
 ### Database Connection setup
 
-Database Connections enable the typical username and password login seen on most sites. This type of Connection is not required and can be skipped if you're using <dfn data-key="passwordless">passwordless</dfn> or social logins only.
+Database Connections enable username and password login with user records stored at Auth0. This type of Connection is not required and can be skipped if you're using <dfn data-key="passwordless">passwordless</dfn>, social, or enterprise logins only.
 
 1. If you used the wizard during setup, navigate to the [Connections > Database](${manage_url}/#/connections/database) page and look for a Connection that has a similar name to the Application setup above. Otherwise, you can create a new Connection, use an existing Connection, or use the default **Username-Password-Authentication**. Click an existing Connection name to view settings or click **Create DB Connection** and follow the steps.
 
-    ![Application Advanced Settings](/media/articles/cms/wordpress/database-connection-listing.png)
+    ![Database Connection Listing](/media/articles/cms/wordpress/db-connection-listing.png)
 
 1. Click the **Applications** tab and activate the Application created above.
 
-    ![Application Advanced Settings](/media/articles/cms/wordpress/db-connection-apps.png)
+    ![Database Connection Settings](/media/articles/cms/wordpress/db-connection-apps.png)
 
 ### Social Connection setup
 
-See [Social Connections](/connections/identity-providers-social) for detailed information on how to activate and configure these login methods.
+See [Social Connections](/connections/identity-providers-social) for detailed information on how to activate and configure this login method.
 
-### Update Auth0 settings in WordPress
+### Enterprise Connection setup
+
+See [Enterprise Connections](/connections/identity-providers-enterprise) for detailed information on how to activate and configure this login method.
+
+## WordPress Configuration
 
 1. Go to back to the [Applications](${manage_url}/#/applications) page and select the Application created above.
 
@@ -155,8 +153,6 @@ All sites in a WordPress multi-site network will use the same constant value mak
 
 * **Client Secret:** The Client Secret copied from the Application settings in your dashboard.  Option name is `client_secret`.
 
-* **Client Secret Base64 Encoded:** Whether or not the Client Secret is Base64 encoded; it will say below the Client Secret field in your Auth0 dashboard whether or not this should be turned on. Option name is `client_secret_b64_encoded`.
-
 * **JWT Signature Algorithm** The algorithm used for signing tokens from the Advanced Application Settings, OAuth tab; default is RS256. Option name is `client_signing_algorithm`.
 
 * **JWKS Cache Time (in minutes):** How long the JWKS information should be stored when using the RS256 JWT Signature Algorithm. Option name is `cache_expiration`.
@@ -176,15 +172,13 @@ All sites in a WordPress multi-site network will use the same constant value mak
 
 * **Auto Login Method:** A single, active connection to use for authentication when **Universal Login Page** is turned on. Leave this blank to show all active Connections on the Universal Login Page. Option name is `auto_login_method`.
 
-* **Single Logout:** Enable this option to log out of Auth0 when logging out of WordPress. Option name is `singlelogout`.
-
-* **Single Sign-On (SSO):** *This option is deprecated and will be removed in the next major. Please use the Universal Login Page option to enable SSO* Enable this option to attempt SSO on the `wp-login.php` page. Option name is `sso`.
+* **Auth0 Logout:** Enable this option to log out of Auth0 when logging out of WordPress. Option name is `singlelogout`.
 
 * **Override WordPress Avatars:** Forces WordPress to use Auth0 avatars. Option name is `override_wp_avatars`.
 
 ### Embedded
 
-This section was changed from "Appearance" to "Embedded" to reflect the fact that these settings only affect Auth0 login forms embedded on the WordPress site. Options here do not affect the Universal Login Page (see [this page](/universal-login) for customization options).
+Options here do not affect the Universal Login Page (see [this page](/universal-login) for customization options).
 
 * **Passwordless Login:** Enable this option to turn on Passwordless login on all embedded Auth0 login forms. Passwordless connections are managed in the Auth0 dashboard and at least one must be active and enabled on this Application for this to work. Option name is `passwordless_enabled`.
 
@@ -197,10 +191,6 @@ This section was changed from "Appearance" to "Embedded" to reflect the fact tha
 * **Login Name Style:** Selecting **Email** will require users to enter their email address to login. Set this to **Username** if you do not want to force a username to be a valid email address. Option name is `username_style`. Option name is `client_secret_b64_encoded`.
 
 * **Primary Color:** Information on this setting is [here](/libraries/lock/v11/configuration#primarycolor-string-). Option name is `primary_color`.
-
-* **Language:** Information on this setting is [here](/libraries/lock/v11/configuration#language-string-). Option name is `language`.
-
-* **Custom Signup Fields:** This field is the JSON that describes the custom signup fields for Lock. The should be a in the form of JSON and allows the use of functions for validation. [More info on custom signup fields here](/libraries/lock/v11/configuration#additionalsignupfields-array-). Option name is `custom_signup_fields`.
 
 * **Extra Settings:** A valid JSON object that includes options to call Lock with. This overrides all other options set above. For a list of available options, see [Lock: User configurable options](/libraries/lock/customization) (e.g.: `{"disableResetAction": true }`). Option name is `extra_conf`.
 
@@ -218,7 +208,7 @@ This section was changed from "Appearance" to "Embedded" to reflect the fact tha
 
 * **Require Verified Email:** If set, requires the user to have a verified email to log in. This can prevent some Connections from working properly if they do not provide an email address or an `email_verified` flag in the user profile data. Option name is `requires_verified_email`.
 
-* **Skip Strategies:** If Require Verified Email is turned on, this setting will display. This field accepts strategy names to skip the verified email requirement on login and account association. This should only be used for strategies that do not provide an `email_verified` flag.
+* **Skip Strategies:** If Require Verified Email is turned on, this setting will display. This field accepts strategy names to skip the verified email requirement on login and account association. This should **only** be used for strategies that do not provide an `email_verified` flag.
 
 * **Remember User Session:** By default, user sessions live for two days. Enable this setting to keep user sessions live for 14 days. Option name is `remember_users_session`.
 
@@ -238,8 +228,6 @@ This section was changed from "Appearance" to "Embedded" to reflect the fact tha
 
 * **Migration IPs Whitelist:** Only requests from listed IPs will be allowed access to the migration webservice. Option name is `migration_ips_filter`.
 
-* **Implicit Login Flow:** If enabled, uses the [Implicit Flow with form_post](/api-auth/tutorials/implicit-grant) protocol for authorization in cases where the server is without internet access or behind a firewall. Option name is `auth0_implicit_workflow`.
-
 * **Valid Proxy IP:** List the IP address of your proxy or load balancer to enable IP checks for logins and migration web services. Option name is `valid_proxy_ip`.
 
 * **Auth0 Server Domain:** The Auth0 domain, it is used by the setup wizard to fetch your account information. Option name is `auth0_server_domain`.
@@ -251,7 +239,6 @@ More information on the Login by Auth0 WordPress plugin:
 ::: next-steps
 * [How does it work?](/cms/wordpress/how-does-it-work)
 * [Install the plugin](/cms/wordpress/installation)
-* [JWT API authentication](/cms/wordpress/jwt-authentication)
 * [Troubleshooting](/cms/wordpress/troubleshoot)
 * [Extend the plugin](/cms/wordpress/extending)
 :::

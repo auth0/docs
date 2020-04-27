@@ -50,7 +50,7 @@ Note that the default scope used is `openid`
 
 ## withConnectionScope
 
-There may be times when you need to authenticate with particular connection scopes, or permissions, from the Authentication Provider in question. Auth0 has [documentation on setting up connection scopes for external Authentication Providers](/tutorials/adding-scopes-for-an-external-idp). However, if you need specific access for a particular situation in your app you can do so by passing parameters to `withConnectionScope`. A full listing of available parameters can be found in that connection's settings in your [Dashboard](${manage_url}), or from the Authentication Providers's documentation. The scope requested here is added on top of the ones specified in the connection's settings in the Dashboard.
+There may be times when you need to authenticate with particular connection scopes, or permissions, from the Authentication Provider in question. Auth0 has [documentation on setting up connection scopes for external Authentication Providers](/connections/adding-scopes-for-an-external-idp). However, if you need specific access for a particular situation in your app you can do so by passing parameters to `withConnectionScope`. A full listing of available parameters can be found in that connection's settings in your [Dashboard](${manage_url}), or from the Authentication Providers's documentation. The scope requested here is added on top of the ones specified in the connection's settings in the Dashboard.
 
 ```java
 WebAuthProvider.login(account)

@@ -113,6 +113,9 @@ The first rule sends a request to our Node API, which then queries the database 
 
 ```js
 function (user, context, callback) {
+
+  var request = require('request');
+
   user.app_metadata = user.app_metadata || {};
   user.app_metadata.roles = user.roles || [];
 

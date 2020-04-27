@@ -12,9 +12,9 @@ useCase:
 
 # SAML Identity Provider Configuration
 
-## Common settings:
+## Common settings
 
-These are the parameters used to configure a <dfn data-key="security-assertion-markup-language">SAML</dfn> Identity Provider:
+These are the parameters used to configure a <dfn data-key="security-assertion-markup-language">SAML</dfn> Identity Provider (IdP):
 
 * The __post-back URL__ (also called __Assertion Consumer Service URL__) is: `https://${account.namespace}/login/callback?connection=YOUR_CONNECTION_NAME`
 * The __Entity ID__ of the Service Provider is: `urn:auth0:${account.tenant}:YOUR_CONNECTION_NAME` (default value). Use `connection.options.entityId` if available. You can obtain this value using the [Get a connection by its id APIv2 endpoint](/api/management/v2#!/Connections/get_connections_by_id):
@@ -51,9 +51,15 @@ If dynamically setting the value isn't possible, then set as either `HTTP-Redire
 * The SAML assertion, and the SAML response can be individually or simultaneously signed.
 * The __SingleLogout service URL__, where the SAML Identity Provider will send logout requests and responses, is: `https://${account.namespace}/logout`. SAML logout requests must be signed by the Identity Provider.
 
-## Encrypted assertions:
+## Signed assertions
 
-Optionally, assertions can be encrypted. Use this public key to configure the IdP: [CER](https://${account.namespace}/cer) | [PEM](https://${account.namespace}/pem) | [PKCS#7](https://${account.namespace}/pb7)
+By default, SAML assertions for IdP connections are signed, which we recommend. You can use the following public keys to configure the IdP: 
+
+* [CER](https://${account.namespace}/cer?cert=connection)
+* [PEM](https://${account.namespace}/pem?cert=connection)
+* [raw PEM](https://${account.namespace}/rawpem?cert=connection)
+* [PKCS#7](https://${account.namespace}/pb7?cert=connection)
+* [Fingerprint](https://${account.namespace}/fingerprint?cert=connection)
 
 ## IdP-initiated Single Sign-on
 

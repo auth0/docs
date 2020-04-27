@@ -1,5 +1,5 @@
 ---
-description: How to back up your Universal Login pages using the Auth0 version control extensions
+description: Learn how to back up your Universal Login pages using the Auth0 version control extensions
 topics:
   - version-control
   - hosted-pages

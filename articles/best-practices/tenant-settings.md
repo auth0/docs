@@ -19,7 +19,7 @@ Here are some best practices for configuring [tenants](/getting-started/the-basi
 
 ## Specify a production tenant
 
-Visit [Auth0 Support Center > Tenants](https://support.auth0.com/tenants/public) and specify your production tenant. Production tenants get higher rate limits than non-production tenants. Only one tenant per subscription can be set as a production tenant.
+Visit [Auth0 Support Center > Tenants](https://support.auth0.com/tenants/public) and specify your production tenant. Production tenants get higher rate limits than non-production tenants. On non-enterprise plans, only one tenant per subscription can be set as a production tenant.
 
 ## Set up branding configuration
 
@@ -30,13 +30,13 @@ Go to your [tenant's general settings](${manage_url}/#/tenant) and provide your 
 - your company's support email address
 - your company's support URL
 
-The support email address and URL is shown on the default error page, so users can contact your support if they have an issue. You can also [host your own custom error page](/hosted-pages/custom-error-pages) and configure Auth0 to use it instead. Using your own error page, you can provide more complete and customized explanations to users about what to do in the event of an error. Setting up your own custom error page is recommended, but not required.
+The support email address and URL is shown on the default error page, so users can contact your support if they have an issue. You can also [host your own custom error page](/universal-login/custom-error-pages) and configure Auth0 to use it instead. Using your own error page, you can provide more complete and customized explanations to users about what to do in the event of an error. Setting up your own custom error page is recommended, but not required.
 
 ## Set up Custom Domain
 
 You can configure [custom domains](/custom-domains) in your tenant settings.
 
-If you want to use a custom domain name for the <dfn data-key="universal-login">Universal Login</dfn> [page](/hosted-pages/login), set up the custom domain at the start to minimize changes you’ll need to make later.
+If you want to use a custom domain name for the <dfn data-key="universal-login">Universal Login</dfn> [page](/universal-login), set up the custom domain at the start to minimize changes you’ll need to make later.
 
 For <dfn data-key="security-assertion-markup-language">SAML</dfn> connections that authenticate users against remote SAML Identity Providers, you should set up the custom domain before configuring any SAML providers as changing the domain across multiple SAML providers is challenging.
 

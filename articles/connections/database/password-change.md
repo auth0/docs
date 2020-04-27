@@ -20,6 +20,8 @@ There are two basic methods of changing a password:
 - an [interactive password reset flow](#trigger-an-interactive-password-reset-flow) where the user receives an email with a link that opens the Auth0 password reset page to enter the new password.
 - [directly setting the new password](#directly-set-the-new-password) either using the Management API v2 or the Dashboard.
 
+Password resets cause Auth0 sessions to expire. 
+
 ::: note
 You can only change passwords for users signing in using database connections. Users signing in using social or enterprise connections need to reset their passwords with the relevant identity provider.
 :::

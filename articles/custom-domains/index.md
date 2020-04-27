@@ -17,7 +17,7 @@ useCase: customize-domains
 
 Auth0 allows you to map the domain for your tenant to **one custom domain** of your choosing. This allows you to maintain a consistent experience for your users by keeping them on your domain instead of redirecting or using Auth0's domain. You must register and own the domain name to which you are mapping your Auth0 domain. For example, if your Auth0 domain is **northwind.auth0.com**, you can have your users to see, use, and remain on **login.northwind.com**.
 
-We recommend that you use custom domains with Universal Login for the most seamless and secure experience for your users. See [Universal Login](/hosted-pages/login) to determine if your use case requires custom domains. 
+We recommend that you use custom domains with Universal Login for the most seamless and secure experience for your users. See [Universal Login](/universal-login) to determine if your use case requires custom domains. 
 
 ## Token issuance
 
@@ -31,6 +31,23 @@ Auth0 issues tokens with the **iss** claim of whichever domain you used with the
 ::: note
 If you get an Access Token for the [Management API](/api/management/v2) using an authorization flow with your custom domain, you **must** call the Management API using the custom domain (your token will be considered invalid otherwise).
 :::
+
+## Metadata endpoints
+
+Auth0 implements certain metadata endpoints to ease interoperability and configuration of third-party IdPs and
+applications. When these metadata contain URIs pointing back to Auth0, the URL can either use the Auth0 subdomain or
+your custom domain depending on the hostname used to request the metadata.
+
+| If you use | Reference inside metadata |
+| -- | -- |
+| `https://northwind.auth0.com/.well-known/...` | `https://northwind.auth0.com/...` |
+| `https://northwind.auth0.com/samlp/metadata/...` | `https://northwind.auth0.com/...` |
+| `https://login.northwind.com/samlp/metadata/...` | `https://login.northwind.com/...` |
+
+This applies to the following features:
+- [OpenID Connect Discovery](/protocols/oidc/openid-connect-discovery)
+- [Auth0 as a SAML SP](/protocols/saml/saml-sp-generic)
+- [Auth0 as a SAML Identity Provider](/protocols/saml/saml-idp-generic)
 
 ## Whitelisting
 
@@ -77,8 +94,8 @@ With the [self-managed certificate approach](/custom-domains/self-managed-certif
 ## Keep reading
 
 * [Configure Custom Domains for Specific Features](/custom-domains/additional-configuration)
-* [Universal Login](/hosted-pages/login)
-* [Multi-factor Authentication](/multifactor-authentication)
+* [Universal Login](/universal-login)
+* [Multi-factor Authentication](/mfa)
 * [Emails in Auth0](/email)
 * [Connections](/identityproviders)
 * [Lock v11 for Web](/libraries/lock/v11)

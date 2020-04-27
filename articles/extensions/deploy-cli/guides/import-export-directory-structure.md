@@ -52,7 +52,7 @@ You can either set the environment variables, or you can place the values in a c
 2. Deploy using the following command:
 
 ```bash
-a0deploy import -c config.json -i .
+a0deploy import --config_file config.json --input_file .
 ```
 
 ### Example: configuration file
@@ -88,7 +88,7 @@ Here is an example of a `config.json` file:
 
 To export your current tenant configuration, run a command that's similar to:
 
-`a0deploy export -c config.json -f directory -o path/to/export`
+`a0deploy export --config_file config.json --format directory --output_folder path/to/export`
 
 <%= include('../_includes/_strip-option') %>
 

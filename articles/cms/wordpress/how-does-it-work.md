@@ -63,7 +63,6 @@ More information on the Login by Auth0 WordPress plugin:
 ::: next-steps
 * [Install the plugin](/cms/wordpress/installation)
 * [Configure the plugin](/cms/wordpress/configuration)
-* [JWT API authentication](/cms/wordpress/jwt-authentication)
 * [Troubleshooting](/cms/wordpress/troubleshoot)
 * [Extend the plugin](/cms/wordpress/extending)
 :::

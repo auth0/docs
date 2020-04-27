@@ -1,5 +1,4 @@
 ---
-title: Migration Guide: Account Linking and ID Tokens
 description: Auth0 is deprecating the usage of ID Tokens in the Account Linking process. This article will help you migrate your solution from the old implementation to the new one.
 toc: true
 topics:
@@ -12,17 +11,11 @@ useCase:
   - manage-accounts
 ---
 
-# Migration Guide: Account Linking and ID Tokens
+# Migration Guide: Account Linking with Access Tokens vs. ID Tokens
 
-This guide is part of the [Deprecating the usage of ID Tokens on the Auth0 Management API](/migrations#deprecating-the-usage-of-id-tokens-on-the-auth0-management-api) migration, and focuses on the [account linking process](/link-accounts).
+This guide is part of the [Deprecating the usage of ID Tokens on the Auth0 Management API](/migrations#deprecating-the-usage-of-id-tokens-on-the-auth0-management-api) migration, and focuses on the [account linking process](/users/concepts/overview-user-account-linking).
 
-For some use cases you could use [ID Tokens](/tokens/concepts/id-tokens) to [link and unlink user accounts](/link-accounts). This functionality is being deprecated. You will have to use <dfn data-key="access-token">Access Tokens</dfn> in all cases.
-
-The functionality is available and affected users are encouraged to migrate. However the ability to use ID Tokens will **not** be disabled in the foreseeable future so the mandatory opt-in date for this migration remains open. When this changes, customers will be notified beforehand.
-
-This article will help you migrate your implementation. First, we will see which use cases are affected. We will continue with reviewing how you can use <dfn data-key="scope">scopes</dfn> to get tokens with different access rights, and how you can use them in the account linking process.
-
-## Summary of changes
+For some use cases you could use [ID Tokens](/tokens/concepts/id-tokens) to link and unlink user accounts. This functionality is being deprecated. You will have to use <dfn data-key="access-token">Access Tokens</dfn> in all cases.
 
 The changes in account linking are:
 
@@ -33,9 +26,13 @@ The changes in account linking are:
   - The ID Token must be signed using `RS256` (you can set this value at *Dashboard > Clients > Client Settings > Advanced Settings > OAuth*)
   - The claim `aud` of the ID Token, must identify the client, and be the same value with the `azp` claim of the Access Token
 
-The change in the unlinking of accounts is that you can no longer use an ID Token at the `Authorization` header. An Access Token must be used instead.
+The change in the unlinking of accounts is that you can no longer use an ID Token at the `Authorization` header. An Access Token must be used instead. See [#security-considerations] below for details. 
 
-## Does this affect me?
+::: warning
+This migration is specifically targeted to mitigate a possible security vulnerability. Auth0 strongly recommendeds that you update your code as soon as possible. 
+:::
+
+## Are you affected?
 
 There are several ways you can link and unlink accounts. Some change, some remain the same, and a new variation is introduced. In the following matrix you can see a list of the use cases and their status based on this migration.
 
@@ -96,11 +93,11 @@ There are several ways you can link and unlink accounts. Some change, some remai
   </tbody>
 </table>
 
-## How to link accounts
+## Link user accounts
 
 In order to link accounts you can either call directly the [Link a user account](/api/management/v2#!/Users/post_identities) endpoint of the Management API, or use the [Auth0.js library](/auth0js#user-management).
 
-### Link current user accounts with the API
+### Link current user accounts with the Management API
 
 A common use case is to allow the logged-in user to link their various accounts using your app. 
 
@@ -152,7 +149,7 @@ First, you must get an Access Token with the `update:current_user_identities` sc
 
 <%= include('./_get-token-auth0js.md', { scope: 'update:current_user_identities' }) %>
 
-### Link any user account with the API
+### Link any user account with the Management API
 
 If you get an Access Token for account linking, that contains the `update:users` scope, and send the secondary account's `user_id` and `provider` in the request, then you don't have to make any changes.
 
@@ -182,7 +179,7 @@ However, this migration does introduce an alternative to this. You still use an 
 - The secondary account's ID Token must be signed with `RS256`
 - The `aud` claim in the secondary account's ID Token must identify the client, and hold the same value with the `azp` claim of the Access Token used to make the request.
 
-## How to unlink accounts
+## Unlink user accounts
 
 If you use ID Tokens in order to unlink accounts, then you must update your implementation to use Access Tokens.
 
@@ -221,11 +218,29 @@ Authorization: 'Bearer ACCESS_TOKEN'
   </div>
 </div>
 
+## Security considerations
+
+We have identified a weakness in a particular account linking flow that could allow it to be misused in specific circumstances. We have found no evidence that this has been used maliciously but have decided to deprecate the flow to prevent that ever happening.
+
+Therefore, Auth0 requires customers using the affected account linking flow to migrate to a more secure implementation before October 19th, 2018. Migration paths are provided in this guide, which should not result in any lost functionality.
+
+On October 19th, 2018 or anytime after, the affected account linking flow will be disabled and customers using it will experience run-time errors.
+
+### What's the impact
+
+You are impacted if you call the [/api/v2/users/{USER_ID}/identities](/api/management/v2#!/Users/post_identities) endpoint using a token (ID or <dfn data-key="access-token">Access Token</dfn>) with the <dfn data-key="scope">scope</dfn> `update:current_user_identities` in the Authorization header and include the secondary account's `user_id` in the payload.
+
+No other use cases are impacted.
+
+## Next steps
+
+You should review all your calls to the account linking endpoint ([/api/v2/users/{USER_ID}/identities](/api/management/v2#!/Users/post_identities)) and update those that make use of the vulnerable flow described above. You can update your calls to either of the following:
+
+1. **Client-side / user-initiated linking scenarios** -- For client-side linking scenarios, make the call to the [/api/v2/users/{USER_ID}/identities](/api/management/v2#!/Users/post_identities) using an Access Token with the `update:current_user_identities` scope, and provide the ID Token of the secondary account in the payload (`link_with`). This ID Token must be obtained through an OAuth/OIDC-conformant flow. See [Link User Accounts Initiated by Users Scenario](/users/references/link-accounts-user-initiated-scenario) for more details.
+2. **Server-side linking scenarios** -- For server-side linking scenarios, make the call to the [/api/v2/users/{USER_ID}/identities](/api/management/v2#!/Users/post_identities) endpoint using an Access Token with the `update:users` scope and provide the `user_id` of the secondary account in the payload. See [Link User Accounts Server-Side Scenario](/users/references/link-accounts-server-side-scenario) for details.
+
 ## Keep reading
 
-:::next-steps
-- [Link User Accounts](/link-accounts)
-- [Account Linking Using Server Side Code](/link-accounts/suggested-linking)
-- [Account Linking Using Client Side Code](/link-accounts/user-initiated-linking)
-- [Migration Guide: Management API and ID Tokens](/migrations/guides/calling-api-with-idtokens)
-:::
+- [Link User Accounts](/users/guides/link-user-accounts)
+- [Link User Accounts Server-Side Code Scenario](/users/references/link-accounts-server-side-scenario)
+- [Link User Accounts Client-Side Code Scenario](/user/references/link-accounts-client-side-scenario)

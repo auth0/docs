@@ -1,7 +1,6 @@
 ---
 title: Connection Options in the Management API
-description: Learn about the options attribute when creating a connection using the Management API.
-toc: true
+description: Describes the options attributes used when creating or updating a connection using the Management API.
 topics:
   - connections
   - mgmt-api
@@ -10,7 +9,7 @@ useCase: add-login
 ---
 # Connection Options in the Management API
 
-When creating or updating a connection in the Management API, you may include a variety of custom options in the `options` attribute, such as a password strength for the connection or provider-specific parameters to pass to an Identity Provider.
+When creating or updating a connection in the Management API, you can include a variety of custom options in the `options` attribute, such as a password strength for the connection or provider-specific parameters to pass to an Identity Provider.
 
 The following elements are available for the `options` attribute. These are optional when calling the [Create a Connection endpoint](/api/management/v2#!/Connections/post_connections) or [Update a Connection endpoint](/api/management/v2#!/Connections/patch_connections_by_id).
 

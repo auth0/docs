@@ -18,6 +18,8 @@ function(user, context, callback) {
 }
 ```
 
+Scopes will be available in the token after all rules have run.
+
 ::: panel-warning Namespacing Custom Claims 
 Auth0 returns profile information in a [structured claim format as defined by the OpenID Connect (OIDC) specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that custom claims added to ID Tokens or Access Tokens must [conform to a namespaced format](/tokens/guides/create-namespaced-custom-claims) to avoid possible collisions with standard OIDC claims. 
 :::

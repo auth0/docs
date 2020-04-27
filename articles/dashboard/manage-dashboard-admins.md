@@ -32,7 +32,7 @@ When the recipient opens and accepts the invitation, the current Auth0 account i
 If the invited administrator has not created an Auth0 admin user account, they will need to do so in order to be able to accept the invitation and log into the Management Dashboard. Auth0 admin users are managed separately from tenant users; accounts can be created by following the invitation URL or signing up through [auth0.com/signup](https://auth0.com/signup).
 :::
 
-Administrators are application-specific, so areas to which the admin doesn't have access rights (e.g., APIs, Rules, Hooks, Hosted Pages, and so on) will appear as blank pages. Administrators will also *not* be allowed to manage users, create rules, and perform other functions for applications to which they don't have access.
+Administrators are application-specific, so areas to which the admin doesn't have access rights (e.g., APIs, Rules, Hooks, Universal Login Pages, and so on) will appear as blank pages. Administrators will also *not* be allowed to manage users, create rules, and perform other functions for applications to which they don't have access.
 
 ::: panel Application-Specific Access
 Application-specific access includes the following:
@@ -55,7 +55,7 @@ You can remove administrators by clicking **REMOVE** after they have been added.
 
 ## Add, change or remove MFA
 
-The administrator can self-enroll for [Multi-factor Authentication](/multifactor-authentication). The MFA indicator will indicate whether an administrator has enabled their account for MFA, which they can do in their Account Settings.
+The administrator can self-enroll for [Multi-factor Authentication](/mfa). The MFA indicator will indicate whether an administrator has enabled their account for MFA, which they can do in their Account Settings.
 
 ### Add MFA
 

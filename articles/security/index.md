@@ -31,7 +31,7 @@ useCase:
 
 <%= include('../_includes/_topic-links', { links: [
   'tokens',
-  'tokens/guides/store-tokens'
+  'tokens/concepts/token-storage'
 ] }) %>
 
 ## Preventing security attacks

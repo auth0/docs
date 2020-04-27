@@ -26,7 +26,7 @@ This tutorial performs Access Token validation using the  **jwt** Gem within a c
 Install the **jwt** Gem.
 
 ```bash
-gem `jwt`
+gem 'jwt'
 bundle install
 ```
 
