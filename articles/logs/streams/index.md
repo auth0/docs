@@ -46,6 +46,5 @@ To help diagnose issues with your stream, you can see the last ten errors we enc
 
 <%= include('../../_includes/_topic-links', { links: [
   'logs/streams/http-event',
-  'logs/streams/aws-eventbridge',
-  'logs/streams/datadog'
+  'logs/streams/aws-eventbridge'
 ] }) %>
