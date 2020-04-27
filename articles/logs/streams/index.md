@@ -32,14 +32,14 @@ You can troubleshoot potential issues with your stream by looking in the `Health
 | Status | Description |
 |---------|-------------|
 | Active  | Your stream is enabled with us, and we will attempt to deliver the next log events. |
-| Paused  | You have requested us to stop delivery attempts for the stream. You may click the `Resume Stream` option at any time to change the status back to `Active`. |
-| Disabled | We have disabled your stream because of successive errors. You may click the `Restart Stream` option at any time to change the status back to `Active` and re-attempt delivery for this stream|
+| Paused  | You have requested that we stop delivery attempts for the stream. You may click the `Resume Stream` option at any time to change the status back to `Active`. |
+| Disabled | We have disabled your stream because of successive errors. You may click the `Restart Stream` option at any time to change the status back to `Active` and re-attempt delivery for this stream. |
 
 ![Pause a Stream](/media/articles/logs/health/pause-a-stream.png)
 
 ## Delivery Errors
 
-In order to assist you with diagnosing issues with your stream, you can see the last 10 errors we encountered while attempting to deliver logs to your stream in the last 24h.
+To help diagnose issues with your stream, you can see the last ten errors we encountered while attempting to deliver logs to your stream within the last 24 hours.
 
 ![Stream Errors](/media/articles/logs/health/health-errors.png)
 
