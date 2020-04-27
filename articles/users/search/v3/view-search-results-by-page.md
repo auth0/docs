@@ -55,6 +55,31 @@ Parameter | Description
 }
 ```
 
+## Sample response
+
+A sample response body for the values set in the above sample request is as follows:
+
+```har
+{
+    "start": 20,
+    "limit": 10,
+    "length": 10,
+    "users": [
+        {
+            ...
+        }
+    ],
+    "total": 79
+}
+```
+
+Paramater | Description
+----------|------------
+`start`   | Record position from which the page starts.
+`limit`   | Maximum number of records that can be shown on the page.
+`length`  | Number of records shown on the page.
+`total`   | Total number of records found.
+
 ## Limitation
 
 Auth0 limits the total number of users you can retrieve to 1000, so for example, 100 users per page for 10 pages.
