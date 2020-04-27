@@ -47,7 +47,7 @@ Your application will need the [`express-openid-connect`](https://github.com/aut
 npm install express express-openid-connect --save
 ```
 
-### 5. Configure Router
+### 5. Configure router
 The Express OpenID Connect library provides the `auth` router in order to attach authentication routes to your application. You will need to configure the router with the following configuration keys:
 
 - `baseURL` - The URL where the application is served
