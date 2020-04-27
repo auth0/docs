@@ -59,7 +59,7 @@ Parameter | Description
 
 A sample response body for the values set in the above sample request is as follows:
 
-```har
+```json
 {
     "start": 20,
     "limit": 10,
