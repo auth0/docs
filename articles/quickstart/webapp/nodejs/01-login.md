@@ -20,7 +20,7 @@ github:
 
 You will need to register your application with Auth0 in order to start authenticating users. Go to the [Applications](${manage_url}/#/applications) screen in the Auth0 dashboard, create a new **Regular Web Application**, and follow the steps below.
 
-### 1. Configure Callback URL
+### 1. Configure callback URL
 
 A callback URL is an application route where Auth0 redirects users after they have authenticated. This URL must be registered with Auth0 or else users will be unable to log in to the application and will get a "Callback URL mismatch" error.
 
