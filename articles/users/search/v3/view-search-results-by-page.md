@@ -82,7 +82,7 @@ Paramater | Description
 
 ## Limitation
 
-Auth0 limits the total number of users you can retrieve to 1000, so for example, 100 users per page for 10 pages.
+Auth0 limits the total number of users you can retrieve to 1000 (for example, 100 users per page for 10 pages). When the `page` parameter is not set, we return a maximum of 50 records, regardless of how many records exist.
 
 ## Keep reading
 
