@@ -13,11 +13,13 @@ useCase:
 
 # Delete or Reset Tenants
 
-If you want to completely remove an unwanted tenant, we recommend deleting it. This option is useful if you have created a test or demo tenant that you won't be using again.
+::: warning
+If you are using custom domains, when deleting a tenant, first delete the custom domain. If you delete the tenant before removing the custom domain, you will not be able to reuse your custom domain elsewhere.
+:::
 
-When choosing this option, please note that you **cannot** use the deleted tenant's name again; Auth0 requires that all tenant names be unique.
+If you want to completely remove an unwanted tenant, we recommend deleting it. This option is useful if you have created a test or demo tenant that you won't be using again, so you don't care about keeping your tenant name.
 
-If you want to keep using the tenant name, we recommend using the **Deploy CLI Tool** to remove any unwanted items and return your tenant to its initial state. This way, you do *not* have to create a new tenant name.
+If you want to keep using your tenant name, we recommend resetting your tenant by using the **Deploy CLI Tool** to remove any unwanted items. This will return your tenant to its initial state and retain your tenant name.
 
 <%= include('./_delete-tenant') %>
 
