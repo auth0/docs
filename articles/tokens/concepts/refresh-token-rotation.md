@@ -66,7 +66,7 @@ The following SDKs include support for Refresh Token Rotation and automatic reus
 
 * [Auth0 SPA SDK](/libraries/auth0-spa-js)
 * [Auth0 Swift (iOS) SDK](/libraries/auth0-swift)
-* [Auth0 Android SDK](/libraries/auth0-android).
+* [Auth0 Android SDK](/libraries/auth0-android)
 
 You can opt-in to storing tokens in either local storage or browser memory, the default being in browser memory. See [Token Storage](/tokens/concepts/token-storage) for details.
 
