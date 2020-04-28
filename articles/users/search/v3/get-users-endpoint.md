@@ -119,7 +119,7 @@ Successful calls to the endpoint return a JSON object similar to the following:
 
 ## Limitations
 
-This endpoint allows you to retrieve a maximum of 1000 users. If your results exceed this threshold, redefine your search. If you need a complete export of all of your users, instead use the [export job](/api/management/v2#!/Jobs/post_users_exports) or the [User Import / Export](/extensions/user-import-export) extension.
+This endpoint allows you to retrieve a maximum of 1000 users (if the `page` parameter is set; if not set, we return a maximum of 50 users). If your results exceed this threshold, redefine your search. If you need a complete export of all of your users, instead use the [export job](/api/management/v2#!/Jobs/post_users_exports) or the [User Import / Export](/extensions/user-import-export) extension.
 
 If you get the error `414 Request-URI Too Large` this means that your query string is larger than the supported length. In this case, refine your search.
 

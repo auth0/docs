@@ -15,7 +15,7 @@ To page the user search results, use the `page`, `per_page`, and `include_totals
 
 Parameter | Description
 ----------|------------
-`page` | The page number, zero based.
+`page` | The page number, zero based. When this is not set, we return a maximum of 50 records, regardless of how many records exist.
 `per_page` | The amount of users per page.
 `include_totals` | Set to `true` to include a query summary as part of the result.
 
@@ -55,9 +55,34 @@ Parameter | Description
 }
 ```
 
+## Sample response
+
+A sample response body for the values set in the above sample request is as follows:
+
+```json
+{
+    "start": 20,
+    "limit": 10,
+    "length": 10,
+    "users": [
+        {
+            ...
+        }
+    ],
+    "total": 79
+}
+```
+
+Paramater | Description
+----------|------------
+`start`   | Record position from which the page starts.
+`limit`   | Maximum number of records that can be shown on the page.
+`length`  | Number of records shown on the page.
+`total`   | Total number of records found.
+
 ## Limitation
 
-Auth0 limits the total number of users you can retrieve to 1000, so for example, 100 users per page for 10 pages.
+Auth0 limits the total number of users you can retrieve to 1000 (for example, 100 users per page for 10 pages). When the `page` parameter is not set, we return a maximum of 50 records, regardless of how many records exist.
 
 ## Keep reading
 
