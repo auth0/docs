@@ -46,7 +46,7 @@ Logging out of your Auth0 Session Layer will require you to redirect the user to
 
 Auth0 only redirects to whitelisted URLs after logout and there are two places you can configure these. The first place you can set this is at your Auth0 tenant level where you can put the set of logout URLs that are shared between all applications. The second place is in the application settings: if you need different redirects for each application, you can whitelist the URLs in your application settings. This allows you to set logout URLs in an application-specific context. 
 
-### Session lifetime and session timout
+### Session lifetime and session timeout
 
 You can also set the behavior in cases where a user doesn’t explicitly logout of your application. Auth0 provides for [session lifetime limits](/sessions/concepts/session-lifetime) to deal with Auth0 session termination in this scenario. 
 

@@ -56,4 +56,4 @@ return new Auth0MFAWidget({
 
 * [auth0-guardian.js](https://github.com/auth0/auth0-guardian.js)
 * [Widget Example Using auth0-guardian.js](https://github.com/auth0/auth0-guardian.js/tree/master/example)
-* [Multi-factor Authentication with Clasic Universal Login](/universal-login/multifactor-authentication)
+* [Multi-factor Authentication with Classic Universal Login](/universal-login/multifactor-authentication)

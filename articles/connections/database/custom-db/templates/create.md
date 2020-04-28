@@ -288,7 +288,7 @@ function create(user, callback) {
   /**
    * hashPassword
    *
-   * This function hashes a password using HMAC SHA256 algorythm.
+   * This function hashes a password using HMAC SHA256 algorithm.
    *
    * @password    {[string]}    password to be hased
    * @salt        {[string]}    salt to be used in the hashing process

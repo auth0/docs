@@ -364,7 +364,7 @@ block content
       img(src=user.picture)
       h2 User profile
       p This is the content of <code>req.user</code>.
-      p Note: <code>_raw</code> and <code>_json</code> properties have been ommited.
+      p Note: <code>_raw</code> and <code>_json</code> properties have been omitted.
       pre
         code #{userProfile}
 ```

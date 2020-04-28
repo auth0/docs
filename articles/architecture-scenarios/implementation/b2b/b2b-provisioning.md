@@ -42,7 +42,7 @@ You need to provision those users at the IdP level.  Each of the organizations w
 
 * **Your Auth0 Tenant is the IdP**: A Database Connection in your main tenant dedicated to this organization.
 * **Organizations bring their own IdP**: You set up an Enterprise Connection for them.
-* **Organizations with more than one IdP**: This situation is a little more tricky, you have multiple options for approaching this situation, here they are in decending order of complexity:
+* **Organizations with more than one IdP**: This situation is a little more tricky, you have multiple options for approaching this situation, here they are in descending order of complexity:
     * You convince them to (or find that they already have) one master IdP that can route to their individual IdPs
     * You create separate Organizations (e.g. customerorg-department1 and customerorg-department2) in your applications
     * You setup a new Auth0 tenant just for them and add as many IdPs (which may include a database in Auth0) as they need to that tenant, along with their own custom domain and branding

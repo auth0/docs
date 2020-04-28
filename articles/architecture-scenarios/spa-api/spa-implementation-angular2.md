@@ -142,7 +142,7 @@ The service includes several methods for handling authentication.
 
 ### Process the Authentication Result
 
-When a user authenticates via Universal Login and is then redirected back to your application, their authentication information will be contained in a URL hash fragment. The `handleAuthentication` method in the `AuthService` is responsibile for processing the hash.
+When a user authenticates via Universal Login and is then redirected back to your application, their authentication information will be contained in a URL hash fragment. The `handleAuthentication` method in the `AuthService` is responsible for processing the hash.
 
 Call `handleAuthentication` in your app's root component so that the authentication hash fragment can be processed when the app first loads after the user is redirected back to it.
 

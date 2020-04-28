@@ -68,7 +68,7 @@ You can filter logs for errors, warnings, and success events in the [Dashboard](
 | Recovery failed | Multi-factor recovery code failed |
 | Second factor email failed | Email for MFA failed |
 | Too Many Calls to /delegation | Rate limt exceeded to /delegation endpoint |
-| Too Many Calls to /userinfo | Rate limit exceded to /userinfo endpoint |
+| Too Many Calls to /userinfo | Rate limit exceeded to /userinfo endpoint |
 | Too Many Invalid Device Codes | Rate limit exceeded for invalid device codes |
 
 ## Warning event filters 

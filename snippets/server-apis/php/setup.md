@@ -9,7 +9,7 @@
   $router->before('GET', '/secured/.*', function() {
 
     // This method will exist if you're using apache
-    // If you're not, please go to the extras for a defintion of it.
+    // If you're not, please go to the extras for a definition of it.
     $requestHeaders = apache_request_headers();
     $authorizationHeader = $requestHeaders['Authorization'];
 

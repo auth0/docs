@@ -18,7 +18,7 @@ Use the error codes to display informative messages and to distinguish between r
 | `insufficient_scope` | You don't have enought grants to perform the requested operation
 | `invalid_bearer_format`	| The bearer put in authentication header was not valid
 | `enrollment_conflict`	| There is another enrollment for the same user. You cannot enroll twice.
-| `tenant_not_found`	| The tenant associated cannot be found. Should not normally hapen at least that you delete the tenant
+| `tenant_not_found`	| The tenant associated cannot be found. Should not normally happen at least that you delete the tenant
 | `login_transaction_not_found`	| The mfa auth transaction is not active or has already expired
 | `error_sending_push_notification`	| Push notification delivery failed
 | `push_notification_wrong_credentials`	| Push notification delivery failed because of wrong credentials

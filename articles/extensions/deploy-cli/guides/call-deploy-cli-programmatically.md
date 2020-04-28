@@ -30,7 +30,7 @@ dump({
   config_file: configFile,                      // Option to a config json
   config: configObj,                            // Option to sent in json as object
   strip,                                        // Strip the identifier field for each object type
-  secret                                        // Optionally pass in auth0 client secret seperate from config
+  secret                                        // Optionally pass in auth0 client secret separate from config
 })
   .then(() => console.log('yey dump was successful'))
   .catch(err => console.log(`Oh no, something went wrong. <%= "Error: ${err}" %>`));
@@ -43,7 +43,7 @@ deploy({
   config_file: configFile,                  // Option to a config json
   config: configObj,                        // Option to sent in json as object
   env,                                      // Allow env variable mappings from process.env
-  secret                                    // Optionally pass in auth0 client secret seperate from config
+  secret                                    // Optionally pass in auth0 client secret separate from config
 })
   .then(() => console.log('yey deploy was successful'))
   .catch(err => console.log(`Oh no, something went wrong. <%= "Error: ${err}" %>`));

@@ -76,6 +76,6 @@ After you have customized the user metadata, you can manage and store data relat
 ::::
 
 ::: whats-next
-* Learn more about the tools availabe to [manage users and user profiles](/microsites/manage-users/manage-users-and-user-profiles).
+* Learn more about the tools available to [manage users and user profiles](/microsites/manage-users/manage-users-and-user-profiles).
 * If you are building your own API and you want to secure the endpoints using Auth0, see [Protect Your API](/microsites/protect-api/protect-api).
  :::
