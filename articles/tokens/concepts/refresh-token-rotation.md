@@ -43,6 +43,9 @@ When a client needs a new Access Token, it sends the Refresh Token with the requ
 Without enforcing sender-constraint, it’s impossible for the authorization server to know which actor is legitimate or malicious in the event of a replay attack. So it’s important that the most recently issued Refresh Token is also immediately invalidated when a previously-used Refresh Token (already invalidated) is sent to the authorization server. This prevents any Refresh Tokens in the same token family (all Refresh Tokens descending from the original Refresh Token issued for the client) from being used to get new Access Tokens.
 
 For example, consider the following scenario: 
+
+![Reuse Detection](/media/articles/tokens/reuse-detection1.png)
+
 1. Legitimate Client has **Refresh Token 1**, and it is leaked to or stolen by Malicious Client. 
 2. Legitimate Client uses **Refresh Token 1** to get a new Refresh Token/Access Token pair.
 3. Auth0 returns **Refresh Token 2/Access Token 2**.
@@ -51,9 +54,11 @@ For example, consider the following scenario:
 6. **Access Token 2** expires and Legitimate Client attempts to use **Refresh Token 2** to request a new token pair. Auth0 returns an **Access Denied** response to Legitimate Client.
 7. Re-authentication is required.
 
-![Reuse Detection](/media/articles/tokens/reuse-detection.png)
-
 This protection mechanism works regardless of whether the legitimate client or the malicious client is able to exchange **Refresh Token 1** for a new token pair before the other. As soon as reuse is detected, all subsequent requests will be denied until the user re-authenticates. When reuse is detected, Auth0 captures detected reuse events (such as `ferrt` indicating a failed exchange) in logs. This can be especially useful in conjunction with Auth0’s log streaming capabilities.
+
+Another example is where the malicious client steals the Refresh Token before the legitimate client attempts to use it. In this case the malicious client’s access would be limited because the Refresh Token will be revoked as soon as the legitimate client tries to use the same Refresh Token, as shown in the following diagram:
+
+![Reuse Detection](/media/articles/tokens/reuse-detection2.png)
 
 ## SDK support
 
