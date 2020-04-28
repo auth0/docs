@@ -96,5 +96,5 @@ How ever you use a JWT, you must [check its signature](/tokens/guides/validate-j
 * [Validate JSON Web Tokens](/tokens/guides/validate-jwts)
 * [Locate JSON Web Token Key Sets](/tokens/guides/locate-jwks)
 * [JSON Web Key Sets](/tokens/concepts/jwks)
-* [JSON Web Key Set Properties](/tokens/references/jwkw-properties)
+* [JSON Web Key Set Properties](/tokens/references/jwks-properties)
 * [JWT Handbook](https://auth0.com/resources/ebooks/jwt-handbook)
