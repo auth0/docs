@@ -100,8 +100,15 @@ The following is a list of customization options for your SAML assertions.
 
 * **nameIdentifierProbes** (Array): Auth0 will try each of the attributes of this array in order. If one of them has a value, it will use that for the Subject/NameID. The order is: http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier (mapped from user_id), http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress (mapped from email), http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name (mapped from name).
 
-* **authnContextClassRef**: Default is `urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified`.
+* **authnContextClassRef** (string): Default is `urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified`.
 
-* **typedAttributes**: Default is true. When set to true, we infer the xs:type of the element. Types are `xs:string`, `xs:boolean`, `xs:double `and `xs:anyType`. When set to false all `xs:type` are `xs:anyType`
+* **typedAttributes** (bool): Default is true. When set to true, we infer the xs:type of the element. Types are `xs:string`, `xs:boolean`, `xs:double `and `xs:anyType`. When set to false all `xs:type` are `xs:anyType`
 
-* **includeAttributeNameFormat**: Default is true. When set to `true`, we infer the NameFormat based on the attribute name. NameFormat values are `urn:oasis:names:tc:SAML:2.0:attrname-format:uri`, `urn:oasis:names:tc:SAML:2.0:attrname-format:basic` and `urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified`. If set to `false`, the attribute NameFormat is not set in the assertion
+* **includeAttributeNameFormat** (bool): Default is true. When set to `true`, we infer the NameFormat based on the attribute name. NameFormat values are `urn:oasis:names:tc:SAML:2.0:attrname-format:uri`, `urn:oasis:names:tc:SAML:2.0:attrname-format:basic` and `urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified`. If set to `false`, the attribute NameFormat is not set in the assertion
+
+* **logout** (object): An object that controls SAML logout. It can contain two properties:`callback` (of type `string`), that contains the service provider (client application)'s **Single Logout Service URL**, where Auth0 will send logout requests and responses, and `slo_enabled`(boolean) that controls whether Auth0 should notify service providers of session termination. The default value is`true` (notify service providers).
+* **binding** (string):Optionally indicates the protocol binding used for SAML logout responses. By default Auth0 uses `HTTP-POST`, but you can switch to `HTTP-Redirect` by setting `"binding"` to `"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"`.
+* **signingCert** (string): Optionally indicates the public key certificate used to validate SAML requests. If set, SAML requests will be required to be signed. A sample value would be
+```
+"-----BEGIN PUBLIC KEY-----\nMIGf...bpP/t3\n+JGNGIRMj1hF1rnb6QIDAQAB\n-----END PUBLIC KEY-----\n"
+```
