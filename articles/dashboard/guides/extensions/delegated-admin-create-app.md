@@ -22,7 +22,7 @@ Before you [add the Delegated Admin extension](/dashboard/guides/extensions/dele
 
 3. On the **Settings** tab, set the **Allowed Callback URLs** and **Allowed Logout URLs** based on your location, and click **Save Changes**:
 
-If you are using Node 8:
+    If you are using Node 8:
 
     | Location  | Allowed Callback URL |
     | --------- | -------------------- |
@@ -36,7 +36,7 @@ If you are using Node 8:
     | Europe    | `https://${account.tenant}.eu8.webtask.io/auth0-delegated-admin` |
     | Australia | `https://${account.tenant}.au8.webtask.io/auth0-delegated-admin` |
 
-If you are using Node 12:
+    If you are using Node 12:
 
     | Location  | Allowed Callback URL |
     | --------- | -------------------- |
