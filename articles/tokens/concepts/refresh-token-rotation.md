@@ -56,7 +56,7 @@ For example, consider the following scenario:
 
 This protection mechanism works regardless of whether the legitimate client or the malicious client is able to exchange **Refresh Token 1** for a new token pair before the other. As soon as reuse is detected, all subsequent requests will be denied until the user re-authenticates. When reuse is detected, Auth0 captures detected reuse events (such as `ferrt` indicating a failed exchange) in logs. This can be especially useful in conjunction with Auth0’s log streaming capabilities.
 
-Another example is where the malicious client steals the Refresh Token before the legitimate client attempts to use it. In this case the malicious client’s access would be limited because the Refresh Token will be revoked as soon as the legitimate client tries to use the same Refresh Token, as shown in the following diagram:
+Another example is where the malicious client steals Refresh Token 1 and successfully uses it to acquire an Access Token before the legitimate client attempts to use Refresh Token 1. In this case, the malicious client’s access would be short-lived because Refresh Token 2 (or any subsequently issued RTs) is automatically revoked when the legitimate client tries to use Refresh Token 1, as shown in the following diagram:
 
 ![Reuse Detection](/media/articles/tokens/reuse-detection2.png)
 
