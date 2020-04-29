@@ -37,7 +37,7 @@ Use the following [Management API](/api/management/v2) endpoints to view, create
 | **Task** | **Endpoint** | **Scope** | 
 | -- | -- | -- |
 | View | [`GET /api/v2/user/{id}`](/api/management/v2#!/Users/get_users_by_id) | `read:current_user_metadata` | 
-| Create | [`PATCH /api/v2/users/{id}`](/api/management/v2#!/Users/post_users) | `create:current_user_metadata` |
+| Create | [`POST /api/v2/users/{id}`](/api/management/v2#!/Users/post_users) | `create:current_user_metadata` |
 | Update | [`PATCH /api/v2/users/{id}`](/api/management/v2#!/Users/patch_users_by_id) | `update:current_user_metadata` | 
 | Delete | [`DELETE /api/v2/users/{id}/multifactor/{provider}`](/api/management/v2#!/Users/delete_multifactor_by_provider) | `delete:current_user_metadata` | 
 
