@@ -42,7 +42,7 @@ Use the following [Management API](/api/management/v2) endpoints to view, create
 | Delete | [`DELETE /api/v2/users/{id}/multifactor/{provider}`](/api/management/v2#!/Users/delete_multifactor_by_provider) | `delete:current_user_metadata` | 
 
 ::: note
-The Auth0 Management APIv2 token is required to call the Auth0 Management API. Learn more about [Access Tokens for the Management API](/api/management/v2/tokens) and [Scopes and Endpoints for Management API Tokens](/api/management/v2/get-access-tokens-for-spas).
+The Auth0 Management APIv2 token is required to call the Auth0 Management API. Learn more about [Access Tokens for the Management API](/api/management/v2/tokens) and [Get Management API Tokens for SPAs](/api/management/v2/get-access-tokens-for-spas).
 :::
 
 ## Lock library

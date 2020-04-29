@@ -38,7 +38,7 @@ If you have multiple applications that should access the Management API, and you
 
 * [Get Access Tokens for Testing](/api/management/v2/get-access-tokens-for-test)
 * [Get Access Tokens for Production](/api/management/v2/get-access-tokens-for-production)
-* [Scopes and Endpoints for Management API Tokens](/api/management/v2/get-access-tokens-for-spas)
+* [Get Management API Tokens for Single-page Applications](/api/management/v2/get-access-tokens-for-spas)
 * [Applications](/applications)
 * [Management API Explorer](/api/management/v2#!)
 * [Management API Access Tokens FAQs](/api/management/v2/faq-management-api-access-tokens)
