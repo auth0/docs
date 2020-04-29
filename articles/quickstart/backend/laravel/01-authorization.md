@@ -52,9 +52,9 @@ After the file is generated, it will be located at `config/laravel-auth0.php`. E
 // config/laravel-auth0.php
 return [
 	// ...
-	'authorized_issuers' => [ 'https://your-tenant.auth0.com/' ],
+	'authorized_issuers' => [ 'https://${account.namespace}/' ],
 	// ...
-	'api_identifier' => 'https://quickstarts/api',
+	'api_identifier' => '${apiIdentifier}',
 	// ...
 	'supported_algs' => [ 'RS256' ],
 	// ...
@@ -95,52 +95,63 @@ Now, let's implement the `handle()` method that Laravel will call automatically 
 
 namespace App\Http\Middleware;
 
+use Auth0\Login\Contract\Auth0UserRepository;
+use Auth0\SDK\Exception\CoreException;
+use Auth0\SDK\Exception\InvalidTokenException;
 use Closure;
-use Auth0\SDK\JWTVerifier;
 
 class CheckJWT
 {
+    protected $userRepository;
 
     /**
-     * Validate an incoming JWT access token.
+     * CheckJWT constructor.
      *
-     * @param \Illuminate\Http\Request $request - Illuminate HTTP Request object.
-     * @param Closure $next - Function to call when middleware is complete.
+     * @param Auth0UserRepository $userRepository
+     */
+    public function __construct(Auth0UserRepository $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
+
+    /**
+     * Handle an incoming request.
      *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next) {
+    public function handle($request, Closure $next)
+    {
+        $auth0 = \App::make('auth0');
+
         $accessToken = $request->bearerToken();
-        if (empty($accessToken)) {
-            return response()->json(['message' => 'Bearer token missing'], 401);
-        }
-
-        $laravelConfig = config('laravel-auth0');
-        $jwtConfig = [
-            'authorized_iss' => $laravelConfig['authorized_issuers'],
-            'valid_audiences' => [$laravelConfig['api_identifier']],
-            'supported_algs' => $laravelConfig['supported_algs'],
-        ];
-
         try {
-            $jwtVerifier = new JWTVerifier($jwtConfig);
-            $decodedToken = $jwtVerifier->verifyAndDecode($accessToken);
-        } catch (\Exception $e) {
-            return response()->json(['message' => $e->getMessage()], 401);
+            $tokenInfo = $auth0->decodeJWT($accessToken);
+            $user = $this->userRepository->getUserByDecodedJWT($tokenInfo);
+            if (!$user) {
+                return response()->json(["message" => "Unauthorized user"], 401);
+            }
+
+        } catch (InvalidTokenException $e) {
+            return response()->json(["message" => $e->getMessage()], 401);
+        } catch (CoreException $e) {
+            return response()->json(["message" => $e->getMessage()], 401);
         }
 
         return $next($request);
     }
 }
+
 ```
 
 This middleware:
 
-* Checks that there is a Bearer token and stops the request if one was not found.
-* Pulls in the configuration values needed to verify the token.
-* Attempts to decode the token, catching any exceptions thrown if it is expired, malformed, or otherwise invalid.
+* Retrieves the Bearer token from the request, and calls the `decodeJWT` function with it to decode and verify the JWT.
+* Uses the decoded and verified JWT to retrieve an `Auth0JWTUser`.
+* Catches any exceptions thrown if the JWT is expired, malformed, or otherwise invalid.
 
-Next, we register this middleware we in the HTTP Kernel with the name `jwt`:
+Next, we register this middleware in the HTTP Kernel with the name `jwt`:
 
 ```php
 // app/Http/Kernel.php
@@ -163,16 +174,13 @@ We are now able to protect individual API endpoints by applying the `jwt` middle
 
 // This endpoint does not need authentication.
 Route::get('/public', function (Request $request) {
-    return response()->json(['message' => 'Hello from a public endpoint!']);
+    return response()->json(["message" => "Hello from a public endpoint! You don't need to be authenticated to see this."]);
 });
 
 // These endpoints require a valid access token.
-Route::middleware(['jwt'])->group(function () {
-    Route::get('/private', function (Request $request) {
-        return response()->json(['message' => 'Hello from a private endpoint!']);
-    });
-});
-
+Route::get('/private', function (Request $request) {
+    return response()->json(["message" => "Hello from a private endpoint! You need to have a valid access token to see this."]);
+})->middleware('jwt');
 ```
 
 The `/api/private` route is now only accessible if a valid access token is included in the `Authorization` header of the incoming request. We can test this by manually generating an access token for the API and using a tool like Postman to test the routes.
@@ -209,63 +217,117 @@ Add an `Authorization` header set to `Bearer API_TOKEN_HERE` using the token gen
 
 ### Configure the Scopes
 
-The middleware we created above checks for the existence and validity of an access token but does not check the **scope** of the token. In this section, we will modify the middleware created above to check for specific scopes.
+The middleware we created above checks for the existence and validity of an access token but does not check the **scope** of the token. In this section, we will create another middleware to check for specific scopes.
 
-Then, in the existing `CheckJWT` class, make the following changes:
+Use the Artisan `make:middleware` again to create the middleware:
+
+```bash
+php artisan make:middleware CheckScope
+```
+
+Implement the `handle()` method that Laravel will call automatically for the route:
 
 ```php
-// app/Http/Middleware/CheckJWT.php
-// ...
-class CheckJWT {
-    // Add the new parameter to this method.
-    public function handle ($request, Closure $next, $scopeRequired = null) {
-        // Existing code minus the return statement stays here ...
-        // ...
-        if ($scopeRequired && !$this->tokenHasScope($decodedToken, $scopeRequired)) {
-            return response()->json(['message' => 'Insufficient scope'], 403);
-        }
+// app/Http/Middleware/CheckScope.php
 
-        // Return statement is unchanged.
-        return $next($request);
+namespace App\Http\Middleware;
+
+use Auth0\Login\Contract\Auth0UserRepository;
+use Auth0\SDK\Exception\CoreException;
+use Auth0\SDK\Exception\InvalidTokenException;
+use Closure;
+
+class CheckScope
+{
+    protected $userRepository;
+
+    /**
+     * CheckScope constructor.
+     *
+     * @param Auth0UserRepository $userRepository
+     */
+    public function __construct(Auth0UserRepository $userRepository)
+    {
+        $this->userRepository = $userRepository;
     }
 
     /**
-     * Check if a token has a specific scope.
+     * Handle an incoming request.
      *
-     * @param \stdClass $token - JWT access token to check.
-     * @param string $scopeRequired - Scope to check for.
-     *
-     * @return bool
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @param  \string  $scope
+     * @return mixed
      */
-    protected function tokenHasScope($token, $scopeRequired) {
-        if (empty($token->scope)) {
-            return false;
+    public function handle($request, Closure $next, $scope)
+    {
+        $auth0 = \App::make('auth0');
+
+        $accessToken = $request->bearerToken();
+        try {
+            $tokenInfo = $auth0->decodeJWT($accessToken);
+            $user = $this->userRepository->getUserByDecodedJWT($tokenInfo);
+            if (!$user) {
+                return response()->json(["message" => "Unauthorized user"], 401);
+            }
+
+            if($scope) {
+                $hasScope = false;
+                if(isset($tokenInfo['scope'])) {
+                    $scopes = explode(" ", $tokenInfo['scope']);
+                    foreach ($scopes as $s) {
+                        if ($s === $scope)
+                            $hasScope = true;
+                    }
+                } 
+                if(!$hasScope) {
+                    return response()->json(["message" => "Insufficient scope"], 403);
+                }
+            }
+        } catch (InvalidTokenException $e) {
+            return response()->json(["message" => $e->getMessage()], 401);
+        } catch (CoreException $e) {
+            return response()->json(["message" => $e->getMessage()], 401);
         }
 
-        $tokenScopes = explode(' ', $token->scope);
-        return in_array($scopeRequired, $tokenScopes);
+        return $next($request);
     }
 }
 ```
 
-In summary:
+This middleware:
 
-* We added a `$scopeRequired` parameter to the `handle()` method with a default value of `null`. This will allow us to still handle private routes that do not need to check scope.
-* At the end of `handle()`, we check if the route requires a scope and, if so, that the token includes it.
-* We added a `tokenHasScope()` method to look for a specific scope within a decoded token.
+* Similar to the `CheckJWT` middleware, it first uses the Bearer token from the request to decode and verify the JWT, handling any exceptions thrown as before.
+* Verifies that the token contains the required `scope`.
 
-Now, we can create a new middleware group that will check for both a valid token and a specific scope:
+Register this middleware in the HTTP Kernel with the name `check.scope`:
+
+```php
+// app/Http/Kernel.php
+// ...
+class Kernel extends HttpKernel {
+	// ...
+	protected $routeMiddleware = [
+	    // ...
+        'check.scope' => \App\Http\Middleware\CheckScope::class,
+	    // ...
+	];
+	// ...
+}
+```
+
+We are now able to protect individual API endpoints by applying the `check.scope` middleware:
 
 ```php
 // routes/api.php
 // ...
 
 // These endpoints require a valid access token with a "read:messages" scope.
-Route::middleware(['jwt:read:messages'])->group(function () {
-    Route::get('/private-scoped', function (Request $request) {
-        return response()->json(['message' => 'Hello from a private, scoped endpoint!']);
-    });
-});
+Route::get('/private-scoped', function (Request $request) {
+    return response()->json([
+        "message" => "Hello from a private endpoint! You need to have a valid access token and a scope of read:messages to see this."
+    ]);
+})->middleware('check.scope:read:messages');
 ```
 
 This route is now only accessible if an access token used in the request has a scope of `read:messages`.
