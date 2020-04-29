@@ -48,7 +48,7 @@ The above scopes and endpoints are subject to [rate limits](/policies/rate-limit
 
 ## Use Management API Token to call Management API from a SPA
 
-The following example retrieves a Management API Token from a SPA and uses the token to call the Management API to retrieve the full user profile of the currently logged-in user.
+You can retrieve a Management API Token from a SPA and use the token to call the Management API to retrieve the full user profile of the currently logged-in user.
 
 1. Retrieve a Management API token. Authenticate the user by redirecting them to the Authorization endpoint, which is where users are directed upon login or sign-up. When you receive the Management API Token, it will be in [JSON Web Token format](/tokens/references/jwt-structure). Decode it and review its contents.
 
