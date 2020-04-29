@@ -259,10 +259,10 @@ Failure to call the function will result in a stall of pipeline execution, and u
 
 ```js
   function (user, context, callback) {
-    if (!user.email) {
+    if (!user.user_id) {
       return callback(null, user, context);
     } else {
-      getRoles(user.email, (err, roles) => {
+      getRoles(user.user_id, (err, roles) => {
         if (err) return callback(err);
 
         context.idToken['https://example.com/roles'] = roles;
@@ -286,8 +286,6 @@ As authentication has already occurred, any early exit of the pipeline with an (
 ::: warning
 Any call to the [`/logout`](/api/authentication#logout) endpoint could be interrupted, so explicit Auth0 session termination is not guaranteed. This is important, as any explicit condition that caused an `unauthorized` error must be re-checked in any subsequent rule pipeline execution, and it should not be possible to bypass these condition check(s) through any other conditions (such as [`prompt===none`](/api-auth/tutorials/silent-authentication)).
 :::
-
-The example provided above also demonstrates best practice use of [early exit](/best-practices/performance#exit-early) as described in [Performance Best Practices](/best-practices/performance). Note: the `getRoles` function used is implemented elsewhere within the rule, as a wrapper function to a third-party API.
 
 ## Security
 
