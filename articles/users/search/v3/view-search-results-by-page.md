@@ -73,7 +73,7 @@ A sample response body for the values set in the above sample request is as foll
 }
 ```
 
-Paramater | Description
+Parameter | Description
 ----------|------------
 `start`   | Record position from which the page starts.
 `limit`   | Maximum number of records that can be shown on the page.

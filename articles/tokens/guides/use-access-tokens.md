@@ -14,7 +14,7 @@ useCase:
 
 <dfn data-key="access-token">Access Tokens</dfn> are used in token-based authentication to allow an application to access an API. For example, a Calendar application needs access to a Calendar API in the cloud so that it can read the user's scheduled events and create new events.
 
-Once an application has received an Access Token, it will include that token as a credential when making API requests. To do so, it should transmit the Access Token tothe API as a **Bearer** credential in an HTTP **Authorization** header.
+Once an application has received an Access Token, it will include that token as a credential when making API requests. To do so, it should transmit the Access Token to the API as a **Bearer** credential in an HTTP **Authorization** header.
 
 For example:
 

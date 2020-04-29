@@ -33,7 +33,7 @@ app.get("/api/external", checkJwt, (req, res) => {
 Notice that it continues to use the same `checkJwt` middleware in order to validate the Access Token. The difference here is that the Access Token must be validated using the API identifier, rather than the client ID that we used for the ID Token.
 
 ::: note
-The API identifier is the identifer that was specified when the API was created in the [Auth0 dashboard](${manage_url}/#/apis).
+The API identifier is the identifier that was specified when the API was created in the [Auth0 dashboard](${manage_url}/#/apis).
 :::
 
 Therefore, modify the `checkJwt` function to include the API identifier value in the `audience` setting:

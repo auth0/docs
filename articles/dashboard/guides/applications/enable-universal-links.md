@@ -44,7 +44,7 @@ To find your iOS application's `Bundle identifier`, go to its [Xcode project set
 
 ## Test Your Universal Link
 
-To check whether the universal links `apple-app-site-association` file is available for your application, navigate tothe following URL in your browser:
+To check whether the universal links `apple-app-site-association` file is available for your application, navigate to the following URL in your browser:
 
 `${account.namespace}/apple-app-site-association`.
 

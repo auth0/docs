@@ -71,7 +71,7 @@ You can display personalized information on the Password Reset Page. This is don
         //   upperCase: "Upper case letters (A-Z)"
         // },
         // successMessage: "Your password has been reset successfully.",
-        // configurationError: "An error ocurred. There appears to be a misconfiguration in the form.",
+        // configurationError: "An error occurred. There appears to be a misconfiguration in the form.",
         // networkError: "The server cannot be reached, there is a problem with the network.",
         // timeoutError: "The server cannot be reached, please try again.",
         // serverError: "There was an error processing the password reset.",
