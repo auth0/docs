@@ -3,7 +3,7 @@ description: Configuring a Custom SMS Provider for MFA using Infobip
 topics:
   - mfa
   - sms
-  - custom-sms-provider 
+  - custom-sms-provider
 contentType:
   - how-to
 useCase:
@@ -16,9 +16,9 @@ useCase:
 Before you begin this tutorial, please:
 
 * Login to the [Infobip Portal](https://portal.infobip.com/) or [signup for a free trial](https://www.infobip.com/signup).
-* Create and capture a new API Key in the [Infobip API Keys page](https://portal.infobip.com/.settings/accounts/api-keys) 
+* Create and capture a new API Key in the [Infobip API Keys page](https://portal.infobip.com/.settings/accounts/api-keys)
 
-## 1. Create a Send Phone Message hook 
+## 1. Create a Send Phone Message hook
 
 You will need to create a [Send Phone Message](/hooks/extensibility-points/send-phone-message) hook, which will hold the code and secrets of your custom implementation.
 
@@ -53,7 +53,7 @@ Add a [Hook Secret](/hooks/secrets/create) with key = `API_KEY` and the API key 
 @param {function} cb - function (error, response)
 */
 module.exports = function(recipient, text, context, cb) {
-  
+
     const axios = require('axios').default;
     const API_KEY = context.webtask.secrets.API_KEY;;
     const BASE_URL = 'https://2622w.api.infobip.com';
@@ -105,3 +105,12 @@ If you do not receive the SMS, please look at the logs for clues and make sure t
 - You have configured the Hook Secrets as per Step 2.
 - Those secrets are the same ones you created in the Infobip Portal.
 - Your phone number is formatted using the [E.164 format](https://en.wikipedia.org/wiki/E.164).
+
+## Additional Providers
+
+::: next-steps
+* [Configuring a Custom SMS Provider for MFA using Amazon SNS](/multifactor-authentication/send-phone-message-hook-amazon-sns)
+* [Configuring a Custom SMS Provider for MFA using Twilio](/multifactor-authentication/send-phone-message-hook-twilio)
+* [Configuring a Custom SMS Provider for MFA using TeleSign](/multifactor-authentication/send-phone-message-hook-telesign)
+* [Configuring a Custom SMS Provider for MFA using Vonage](/multifactor-authentication/send-phone-message-hook-vonage)
+:::

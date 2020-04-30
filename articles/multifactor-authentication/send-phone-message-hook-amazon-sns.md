@@ -3,7 +3,7 @@ description: Configuring a Custom SMS Provider for MFA using Amazon SNS
 topics:
   - mfa
   - sms
-  - custom-sms-provider 
+  - custom-sms-provider
 contentType:
   - how-to
 useCase:
@@ -17,10 +17,10 @@ Before you begin this tutorial, please:
 
 * Sign up for an [Amazon Web Services](https://portal.aws.amazon.com/billing/signup#/start).
 * Capture your Amazon Web Service region.
-* Create a new Amazon IAM User with the `AmazonSNSFullAccess` role. 
+* Create a new Amazon IAM User with the `AmazonSNSFullAccess` role.
 * Capture the user's access key and secret key details.
 
-## 1. Create a Send Phone Message hook 
+## 1. Create a Send Phone Message hook
 
 You will need to create a [Send Phone Message](/hooks/extensibility-points/send-phone-message) hook, which will hold the code and secrets of your custom implementation.
 
@@ -100,3 +100,12 @@ If you do not receive the SMS, please look at the logs for clues and make sure o
 - Your Amazon Web Services user has access to the `AmazonSNSFullAccess` role
 - Your Amazon Web Services account is active (not suspended)
 - Your phone number is formatted using the [E.164 format](https://en.wikipedia.org/wiki/E.164)
+
+## Additional Providers
+
+::: next-steps
+* [Configuring a Custom SMS Provider for MFA using Twilio](/multifactor-authentication/send-phone-message-hook-twilio)
+* [Configuring a Custom SMS Provider for MFA using Infobip](/multifactor-authentication/send-phone-message-hook-infobip)
+* [Configuring a Custom SMS Provider for MFA using TeleSign](/multifactor-authentication/send-phone-message-hook-telesign)
+* [Configuring a Custom SMS Provider for MFA using Vonage](/multifactor-authentication/send-phone-message-hook-vonage)
+:::

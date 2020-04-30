@@ -115,11 +115,14 @@ The `context.language` parameter will always have one of the languages configure
 
 - If you use the Classic Universal Login Experience, the language will be set to 'N/A'. This is a limitation that will be fixed in upcoming releases.
 
-# Keep reading
+## Keep Reading
 
-- [Configuring a Custom SMS Provider for MFA using Amazon SNS](/multifactor-authentication/send-phone-message-hook-amazon-sns) guide.
-- [Configuring a Custom SMS Provider for MFA using Twilio](/multifactor-authentication/send-phone-message-hook-twilio) guide. 
-- [Configuring a Custom SMS Provider for MFA using Infobip](/multifactor-authentication/send-phone-message-hook-infobip) guide.
-- [Configuring a Custom SMS Provider for MFA using TeleSign](/multifactor-authentication/send-phone-message-hook-telesign) guide.
-- [Configuring a Custom SMS Provider for MFA using Vonage](/multifactor-authentication/send-phone-message-hook-vonage) guide.
-- Learn about other [Extensibility Points](/hooks/extensibility-points).
+::: next-steps
+- [Configuring a Custom SMS Provider for MFA using Amazon SNS](/multifactor-authentication/send-phone-message-hook-amazon-sns)
+- [Configuring a Custom SMS Provider for MFA using Twilio](/multifactor-authentication/send-phone-message-hook-twilio)
+- [Configuring a Custom SMS Provider for MFA using Infobip](/multifactor-authentication/send-phone-message-hook-infobip)
+- [Configuring a Custom SMS Provider for MFA using TeleSign](/multifactor-authentication/send-phone-message-hook-telesign)
+- [Configuring a Custom SMS Provider for MFA using Vonage](/multifactor-authentication/send-phone-message-hook-vonage)
+- [More about the SMS MFA factor](/mfa/guides/configure-sms)
+- [Learn about other Extensibility Points](/hooks/extensibility-points)
+:::

@@ -3,7 +3,7 @@ description: Configuring a Custom SMS Provider for MFA using TeleSign
 topics:
   - mfa
   - sms
-  - custom-sms-provider 
+  - custom-sms-provider
 contentType:
   - how-to
 useCase:
@@ -14,7 +14,7 @@ useCase:
 TeleSign provides two different APIs for sending SMS:
 
 * The [TeleSign SMS](https://www.telesign.com/products/sms-api), with which you can build and manage SMS communications and security verification processes.
-* The [TeleSign SMS Verify](https://www.telesign.com/products/sms-verify), which helps you manage the SMS verification process and is available in the Enterprise plan. 
+* The [TeleSign SMS Verify](https://www.telesign.com/products/sms-verify), which helps you manage the SMS verification process and is available in the Enterprise plan.
 
 Either the SMS API or the SMS Verify API may be used alongside Auth0 for MFA.
 
@@ -25,7 +25,7 @@ Before you begin this tutorial, please:
 * Log in to your TeleSign portal (either the [TeleSign Enterprise Portal](https://teleportal.telesign.com) or the [TeleSign Standard Portal](https://portal.telesign.com/)).
 * Capture the Customer ID and API Keys from your TeleSign account.
 
-## 1. Create a Send Phone Message hook 
+## 1. Create a Send Phone Message hook
 
 You will need to create a [Send Phone Message](/hooks/extensibility-points/send-phone-message) hook, which will hold the code and secrets of your custom implementation.
 
@@ -37,7 +37,7 @@ You can only have **one** Send Phone Message Hook active at a time.
 
 Add a [Hook Secret](/hooks/secrets/create) with keys `TELESIGN_CUSTOMER_ID` and `TELESIGN_API_KEY` for the Customer ID and API Keys from your TeleSign account.
 
-## 3. Implement the Hook 
+## 3. Implement the Hook
 
 [Edit](/hooks/update) the Send Phone Message hook code to match the relevant example below.
 
@@ -108,7 +108,7 @@ For the SMS Verify API, the code should be:
 
 ```js
 module.exports = function(recipient, text, context, cb) {
-  
+
   const axios = require('axios').default;
   const querystring = require('querystring');
 
@@ -159,3 +159,12 @@ If you do not receive the SMS, please look at the logs for clues and make sure t
 - You have configured the Hook Secrets as per Step 2.
 - Those secrets are the same ones provided in the TeleSign portal.
 - Your phone number is formatted using the [E.164 format](https://en.wikipedia.org/wiki/E.164).
+
+## Additional Providers
+
+::: next-steps
+* [Configuring a Custom SMS Provider for MFA using Amazon SNS](/multifactor-authentication/send-phone-message-hook-amazon-sns)
+* [Configuring a Custom SMS Provider for MFA using Twilio](/multifactor-authentication/send-phone-message-hook-twilio)
+* [Configuring a Custom SMS Provider for MFA using Infobip](/multifactor-authentication/send-phone-message-hook-infobip)
+* [Configuring a Custom SMS Provider for MFA using Vonage](/multifactor-authentication/send-phone-message-hook-vonage)
+:::

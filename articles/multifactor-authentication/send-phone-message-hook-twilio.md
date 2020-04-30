@@ -3,7 +3,7 @@ description: Configuring a Custom SMS Provider for MFA using Twilio
 topics:
   - mfa
   - sms
-  - custom-sms-provider 
+  - custom-sms-provider
 contentType:
   - how-to
 useCase:
@@ -22,7 +22,7 @@ Before you begin this tutorial, please:
 * Add a phone number that is enabled for SMS to your service and capture the number.
 * Capture the Account SID and Authorization Token by clicking *Show API Credentials* in the [Twilio SMS Dashboard](https://www.twilio.com/console/sms/dashboard)
 
-## 1. Create a Send Phone Message hook 
+## 1. Create a Send Phone Message hook
 
 You will need to create a [Send Phone Message](/hooks/extensibility-points/send-phone-message) hook, which will hold the code and secrets of your custom implementation.
 
@@ -58,21 +58,21 @@ Add three [Hook Secrets](/hooks/secrets/create) with key = `TWILIO_ACCOUNT_SID`,
 */
 module.exports = function(recipient, text, context, cb) {
 
-  const accountSid = context.webtask.secrets.TWILIO_ACCOUNT_SID; 
-  const authToken = context.webtask.secrets.TWILIO_AUTH_TOKEN; 
+  const accountSid = context.webtask.secrets.TWILIO_ACCOUNT_SID;
+  const authToken = context.webtask.secrets.TWILIO_AUTH_TOKEN;
   const fromPhoneNumber = context.webtask.secrets.TWILIO_PHONE_NUMBER;
 
-  const client = require('twilio')(accountSid, authToken); 
- 
-  client.messages 
-      .create({ 
-         body: text + context.client_id, 
+  const client = require('twilio')(accountSid, authToken);
+
+  client.messages
+      .create({
+         body: text + context.client_id,
          from: fromPhoneNumber,       
-         to: recipient 
-      }) 
+         to: recipient
+      })
       .then(function() {
         cb(null, {});
-      }) 
+      })
       .catch(function(err) {
         cb(err);
       });
@@ -101,3 +101,12 @@ If you do not receive the SMS, please look at the logs for clues and make sure t
 - Those are the same ones you created in the Twilio Console
 - Your are sending the messages from a phone number that is linked to your Twilio account
 - Your phone number is formatted using the [E.164 format](https://en.wikipedia.org/wiki/E.164)
+
+## Additional Providers
+
+::: next-steps
+* [Configuring a Custom SMS Provider for MFA using Amazon SNS](/multifactor-authentication/send-phone-message-hook-amazon-sns)
+* [Configuring a Custom SMS Provider for MFA using Infobip](/multifactor-authentication/send-phone-message-hook-infobip)
+* [Configuring a Custom SMS Provider for MFA using TeleSign](/multifactor-authentication/send-phone-message-hook-telesign)
+* [Configuring a Custom SMS Provider for MFA using Vonage](/multifactor-authentication/send-phone-message-hook-vonage)
+:::

@@ -17,11 +17,7 @@ This guide covers how to send multi-factor authentication text messages using th
 
 ## What is Vonage?
 
-Vonage provides an SMS API which can be used by Auth0 to deliver multi-factor verification via text messages. In their words:
-
-> *Support secure text messaging ... with private SMS communication, your users can seamlessly and safely book appointments, confirm deliveries, and more. Enable communication without compromising privacy, ensure conversations and transactions between parties stay on your platform, and perform analysis and generate new insights for your business.*
-
-[More](https://www.vonage.com/communications-apis/sms/)
+Vonage provides an SMS API which can be used by Auth0 to deliver multi-factor verification via text messages. [More information here](https://www.vonage.com/communications-apis/sms/).
 
 ## Get Started with Vonage
 
@@ -127,3 +123,12 @@ If you scroll down in the **Raw** tab, you should see an error message explainin
 ![Auth0 logs error sending MFA SMS details](/media/articles/multifactor-authentication/11-guide-auth0-log-sms-error-details.png)
 
 If this does not solve your issue, the next step would be to check the Vonage [SMS API logs](https://dashboard.nexmo.com/sms) for a message sent and what the status was. If there was no record with Vonage of the message, then the API call likely failed and the problem is in the Hook code.
+
+## Additional Providers
+
+::: next-steps
+* [Configuring a Custom SMS Provider for MFA using Amazon SNS](/multifactor-authentication/send-phone-message-hook-amazon-sns)
+* [Configuring a Custom SMS Provider for MFA using Twilio](/multifactor-authentication/send-phone-message-hook-twilio)
+* [Configuring a Custom SMS Provider for MFA using Infobip](/multifactor-authentication/send-phone-message-hook-infobip)
+* [Configuring a Custom SMS Provider for MFA using TeleSign](/multifactor-authentication/send-phone-message-hook-telesign)
+:::
