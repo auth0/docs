@@ -1963,6 +1963,15 @@ articles:
 
           - title: "Rate Limits"
             url: "/policies/rate-limits"
+            children:
+
+              - title: "Legacy Rate Limits"
+                url: "/policies/legacy-rate-limits"
+                hidden: true 
+
+              - title: "Entity Limits"
+                url: "/policies/entity-limits"
+                hidden: true 
 
           - title: "Restore Deleted Tenant"
             url: "/policies/restore-deleted-tenant"
