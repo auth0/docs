@@ -44,6 +44,10 @@ For some API endpoints, the rate limits are defined per bucket, so the origins o
 
 If you exceed the provided rate limit for a given API endpoint, you will receive a response with [HTTP Status Code 429 (Too Many Requests)](http://tools.ietf.org/html/rfc6585#section-4). You can refer to the [HTTP Response Headers](#http-response-headers) for more information on the rate limits applicable to that endpoint.
 
+If you exceed rate limits, the following message also appears:
+
+![Rate Limit Reached](/media/articles/policies/rate-limit-reached.png)
+
 Actions such as rapidly updating configuration settings, aggressive polling, or making highly concurrent API calls may result in your app being rate limited.
 
 Please note that usage of the Management API for free and trial tenants is restricted to **two requests per second** (with bursts of up to **ten (10) requests**). Exceeding these values will also trigger the HTTP 429 error, but the error message states, "Global limit has been reached." These are in addition to those indicated in the rate limit response headers.
