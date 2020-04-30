@@ -1,6 +1,6 @@
 ---
 title: Rate Limit Policy For Auth0 APIs
-description: This page details Auth0's rate limit policy when working with Auth0 API endpoints.
+description: Describes Auth0's rate limit policy when working with Auth0 API endpoints.
 toc: true
 topics:
     - auth0-policies
@@ -78,6 +78,10 @@ If you are using an API endpoint **not** listed below and you receive rate limit
 
 The rate limits for this API differ depending on whether your tenant is free or paid, production or not.
 
+If you exceed your plan rate limits, the following message appears: 
+
+![Rate Limit Reached](/media/articles/policies/rate-limit-reached.png)
+
 | Tenant Type | Rate Limit (per second) | Rate Limit (per minute) |
 | - | - | - |
 | Free or Trial | 10 | 120 |
@@ -85,11 +89,15 @@ The rate limits for this API differ depending on whether your tenant is free or 
 | Enterprise (Production) | 50 | 1000 |
 | Developer or Developer Pro (created before 05-21-2020) | 50 | 1000 |
 
+::: note
+These limits apply to Developer and Developer Pro tenants created after 05-20-2020. Starting on 07-01-2020, these limits will apply to all Developer and Developer Pro tenants.
+
+If you subscribed on or before 05-19-2020, the following [rate limit policy](/policies/legacy-rate-limits) applies to you.
+:::
+
 The aforementioned rate limits include calls made via [Rules](/rules) and are set **by tenant** and not by endpoint.
 
 The following Auth0 Management API endpoints return rate limit-related headers. For additional information about these endpoints, please consult the [Management API explorer](/api/management/v2).
-
-The following limits apply to Developer and Developer Pro tenants created after 05-20-2020. Starting on 07-01-2020, these limits will apply to all Developer and Developer Pro tenants.
 
 | Endpoints | Rate Limit (per second) | Rate Limit (per minute) |
 | - | - | - |
@@ -236,6 +244,7 @@ If you obtain Access Tokens for your SPAs, there are rate limits that are applic
 </table>
 
 #### Free tenants
+
 Auth0's Authentication API has a [global limit](/policies/global-limit) for free tenants.
 <table class="table">
     <tr>
