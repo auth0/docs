@@ -93,6 +93,8 @@ If you exceed your plan rate limits, the following message appears:
 | Enterprise (Production) | 50 | 1000 |
 | Developer or Developer Pro (created before 05-21-2020) | 50 | 1000 |
 
+See the [Entity Limit Policy for Self-Service Subscribers](/policies/entity-limits) for more information. 
+
 ::: note
 These limits apply to Developer and Developer Pro tenants created after 05-20-2020. Starting on 07-01-2020, these limits will apply to all Developer and Developer Pro tenants.
 

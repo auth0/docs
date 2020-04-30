@@ -1,7 +1,6 @@
 ---
 title: Entity Limit Policy for Self-Service Subscribers
 description: Describes Auth0's entity rate limit policy for self-service subscribers.
-toc: true
 topics:
     - auth0-policies
     - rate-limits

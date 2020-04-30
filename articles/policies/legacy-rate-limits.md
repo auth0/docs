@@ -1,7 +1,6 @@
 ---
 title: Rate Limits for Subscriptions before 05-21-2020
 description: Describes Auth0's rate limit policy for subscriptions created before 05-21-2020 when working with Auth0 API endpoints.
-toc: true
 topics:
     - auth0-policies
     - rate-limits
