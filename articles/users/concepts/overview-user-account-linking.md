@@ -195,7 +195,7 @@ Typically, account linking will be initiated by an authenticated user. Your app 
 
 ### Suggested account linking
 
-You can use the [Account Link Extension](/articles/extensions/account-link) to prompt users that may have created a second account by mistake to link the new account with their old one on their first login. The user may choose to either link the two accounts or keep them separate if it was intentional.
+You can use the [Account Link Extension](/extensions/account-link) to prompt users that may have created a second account by mistake to link the new account with their old one on their first login. The user may choose to either link the two accounts or keep them separate if it was intentional.
 
 If you're using a custom domain, you'll need to update the **auth0-account-link-extension** [rule](/rules) that is automatically created when you installed the extension. (You can find this rule in your Dashboard by going to **Rules** using the left-hand navigation bar).
 
