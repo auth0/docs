@@ -21,5 +21,5 @@ Auth0 has established the following operational policies.
 -  [Penetration Testing](/policies/penetration-testing)
 -  [Migrations](/migrations)
 -  [Rate Limits](/policies/rate-limits)
--  [Restoration of a Deleted Tenant](/policies/restore-deleted-tenant)
+-  [Tenant Restoration](/policies/restore-deleted-tenant)
 -  [Unsupported Requests](/policies/unsupported-requests)

@@ -1939,6 +1939,36 @@ articles:
 
       - title: "Operational Policies"
         url: "/policies"
+        children:
+          - title: "Billing"
+            url: "/policies/billing"
+
+          - title: "Dashboard Authentication"
+            url: "/policies/dashboard-authentication"
+
+          - title: "Data Export"
+            url: "/policies/data-export"
+
+          - title: "Data Transfer"
+            url: "/policies/data-transfer"
+
+          - title: "Endpoints"
+            url: "/policies/endpoints"
+
+          - title: "Load Testing"
+            url: "/policies/load-teseting"
+
+          - title: "Penetration Testing"
+            url: "/policies/penetration-testing"
+
+          - title: "Rate Limits"
+            url: "/policies/rate-limits"
+
+          - title: "Restore Deleted Tenant"
+            url: "/policies/restore-deleted-tenant"
+
+          - title: "Unsupported Requests"
+            url: "/policies/unsupported-requests"
 
   - title: "Professional Services"
     url: "/services"
