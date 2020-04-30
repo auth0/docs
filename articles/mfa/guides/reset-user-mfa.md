@@ -15,7 +15,7 @@ If a user has lost their mobile device, they can use their recovery code to log 
 This action is equivalent to removing or deleting the user's MFA registration. The MFA settings associated with their user will be removed, which allows them to set up MFA as if they were a new user on their next login attempt.
 
 ::: note
-If you need to [reset an admin’s MFA](/support/reset-account-password) as opposed to an end user’s MFA, contact [Auth0 Support](${env.DOMAIN_URL_SUPPORT}).
+If you need to reset an admin's MFA as opposed to an end user's MFA, please contact [Auth0 Support](${env.DOMAIN_URL_SUPPORT}).
 :::
 
 ## Reset MFA in the Dashboard
