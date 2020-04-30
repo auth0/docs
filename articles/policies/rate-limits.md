@@ -40,7 +40,7 @@ For example, the above states that, for the given bucket, there is a maximum req
 For some API endpoints, the rate limits are defined per bucket, so the origins of the call do not influence the rate limit changes. For other buckets, the rate limits are defined using different keys, so the originating IP address is considered when counting the number of received API calls.
 :::
 
-## Exceeding the Rate Limit
+## Exceeding rate limits
 
 If you exceed the provided rate limit for a given API endpoint, you will receive a response with [HTTP Status Code 429 (Too Many Requests)](http://tools.ietf.org/html/rfc6585#section-4). You can refer to the [HTTP Response Headers](#http-response-headers) for more information on the rate limits applicable to that endpoint.
 
@@ -54,170 +54,55 @@ If your app triggers the rate limit, please refrain from making additional reque
 For scripts and rules that call Auth0 APIs, you should always handle rate limiting by checking the X-RateLimit-Remaining header and acting appropriately when the number returned nears 0. You should also add logic to handle cases in which you exceed the provided rate limits and receive the HTTP Status Code 429 (Too Many Requests); in this case, if a re-try is needed, it is best to allow for a back-off to avoid going into an infinite re-try loop.
 :::
 
-## HTTP Response Headers
+## HTTP response headers
 
-API requests to selected [Authentication](/api/authentication) or [Management API](/api/management/v2) endpoints will return HTTP Response Headers that provide relevant data on the current status of your rate limits for that endpoint. If you receive a rate limit-related response header, it will include numeric information detailing your status.
+API requests to selected [Authentication](/api/authentication) or [Management API](/api/management/v2) endpoints will return HTTP response headers that provide relevant data on the current status of your rate limits for that endpoint. If you receive a rate limit-related response header, it will include numeric information detailing your status.
 
 * **X-RateLimit-Limit**: The maximum number of requests available in the current time frame.
 * **X-RateLimit-Remaining**: The number of remaining requests in the current time frame.
 * **X-RateLimit-Reset**: A [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) of the expected time when the rate limit will reset.
 
-## Tenant Types
+## Tenant types
 
 Auth0's rate limits vary based on the tenant type you have. The tenants that have no credit card associated in the [Dashboard](${manage_url}/#/tenant/billing/payment) are free.
 
 There are also variations in terms of paid tenant types (e.g., non-production, production). To set an environment for your tenant (development, staging or production), go to [Support Center > Tenants](${env.DOMAIN_URL_SUPPORT}/tenants/public), find your tenant, select __Assign Environment Tag__, set the environment and save changes.
 
-## Endpoints with Rate Limits
+## Endpoints with rate limits
 
 ::: note
-If you are using an API endpoint **not** listed below and you receive rate limit headers as part of your response, please see the page on [Anomaly Detection](/anomaly-detection) for additional information.
+If you are using an API endpoint **not** listed below and you receive rate limit headers as part of your response, see [Anomaly Detection](/anomaly-detection) for more information.
 :::
 
 ### Management API v2
 
 The rate limits for this API differ depending on whether your tenant is free or paid, production or not.
 
-| Tenant Type | Limit |
-| - | - |
-| Free or Trial | 2 requests per second (and bursts up to 10 requests) |
-| Non-Production (Paid) | 2 requests per second (and bursts up to 10 requests) |
-| Production (Paid) | 15 requests per second (and bursts up to 50 requests) |
+| Tenant Type | Rate Limit (per second) | Rate Limit (per minute) |
+| - | - | - |
+| Free or Trial | 10 | 120 |
+| Enterprise (Non-production) | 10 | 120 |
+| Enterprise (Production) | 50 | 1000 |
+| Developer or Developer Pro (created before 05-21-2020) | 50 | 1000 |
 
 The aforementioned rate limits include calls made via [Rules](/rules) and are set **by tenant** and not by endpoint.
 
 The following Auth0 Management API endpoints return rate limit-related headers. For additional information about these endpoints, please consult the [Management API explorer](/api/management/v2).
 
-<table class="table">
-  <thead>
-    <tr>
-      <th><strong>Endpoint</strong></th>
-      <th><strong>GET</strong></th>
-      <th><strong>POST</strong></th>
-      <th><strong>DELETE</strong></th>
-      <th><strong>PATCH</strong></th>
-      <th><strong>PUT</strong></th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-      <td>Application Grants</td>
-      <td>/client-grants</td>
-      <td>/client-grants</td>
-      <td>/client-grants/{id}</td>
-      <td>/client-grants/{id}</td>
-      <td></td>
-  </tr>
-    <tr>
-    <td>Signing Keys</td>
-      <td>/keys/signing<br>/keys/signing/{id}</td>
-      <td>/keys/signing/rotate<br>Limited to 5 requests per day</td>
-      <td></td>
-      <td></td>
-      <td>/keys/signing/{kid}/revoke</td>
-  </tr>
-  <tr>
-      <td>Applications</td>
-      <td>/client <br />/client/{id}</td>
-      <td>/client</td>
-      <td>/client/{id}</td>
-      <td>/client/{id}</td>
-      <td></td>
-  </tr>
-  <tr>
-      <td>Connections</td>
-      <td>/connections <br />/connections/{id}</td>
-      <td>/connections</td>
-      <td>/connections/{id} <br />/connections/{id}/users</td>
-      <td>/connections/{id}</td>
-      <td></td>
-  </tr>
-  <tr>
-      <td>Device Credentials</td>
-      <td>/device-credentials</td>
-      <td>/device-credentials</td>
-      <td>/device-credentials/{id}</td>
-      <td></td>
-      <td></td>
-  </tr>
-  <tr>
-      <td>Logs</td>
-      <td>/logs <br />/log/{id}</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  </tr>
-  <tr>
-      <td>Rules</td>
-      <td>/rules <br />/rules/{id}</td>
-      <td>/rules</td>
-      <td>/rules/{id}</td>
-      <td>/rules/{id}</td>
-      <td></td>
-  </tr>
-  <tr>
-      <td>User Blocks</td>
-      <td>/user-blocks <br />/user-blocks/{id}</td>
-      <td></td>
-      <td>/user-blocks <br />/user-blocks/{id}</td>
-      <td></td>
-      <td></td>
-  </tr>
-  <tr>
-      <td>Users</td>
-      <td>/users <br /> /users/{id} <br />/users/{id}/logs <br />/users/{id}/enrollments</td>
-      <td>/users <br />/users/{id}/identities</td>
-      <td>/users/{id} <br />/users/{id}/identities <br />/users/{id}/multifactor/{provider}</td>
-      <td>/users/{id}</td>
-      <td></td>
-  </tr>
-  <tr>
-      <td>Emails</td>
-      <td>/emails/provider</td>
-      <td>/emails/provider</td>
-      <td></td>
-      <td>/emails/provider</td>
-      <td></td>
-  </tr>
-  <tr>
-      <td>Jobs</td>
-      <td>/jobs/{id} <br /> /jobs/{id}/errors</td>
-      <td>/jobs/verification-email <br />/jobs/users-imports <br />/jobs/users-exports</td>
-      <td></td>
-      <td></td>
-      <td></td>
-  </tr>
-  <tr>
-      <td>Resource Servers</td>
-      <td>/resource-servers <br />/resource-servers/{id}</td>
-      <td>/resource-servers</td>
-      <td>/resource-servers/{id}</td>
-      <td>/resource-servers/{id}</td>
-      <td></td>
-  </tr>
-  <tr>
-      <td>Stats</td>
-      <td>/stats/active-users <br />/stats/daily</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  </tr>
-  <tr>
-      <td>Tenants</td>
-      <td>/tenants/settings</td>
-      <td></td>
-      <td></td>
-      <td>/tenants/settings</td>
-      <td></td>
-  </tr>
-  </tbody>
-</table>
+The following limits apply to Developer and Developer Pro tenants created after 05-20-2020. Starting on 07-01-2020, these limits will apply to all Developer and Developer Pro tenants.
+
+| Endpoints | Rate Limit (per second) | Rate Limit (per minute) |
+| - | - | - |
+| Read or write users: <br> `GET /api/v2/users` <br> `POST /api/v2/users` | 40 | 800 |
+| Read logs: <br> `GET /api/v2/logs` <br> `GET /api/v2/user/{id}/logs` | 10 | 200 |
+| Read clients: <br> `GET /api/v2/clients` <br> `POST /api/v2/clients/{id}` | 5 | 100 |
+| Read connections: <br> `GET /api/v2/connections` <br> `POST /api/v2/connections/{id} | 10 | 100 |
+| Delete device credentials: <br> `DELETE /api/v2/device-credentials/{id} | 5 | 100 |
+| All other endpoints | 10 | 150 |
 
 #### Concurrent import users jobs
 
-The [create import users job](/api/management/v2#!/Jobs/post_users_imports) endpoint has a limit of two concurrent import jobs. Requesting additional jobs while there are two pending returns a `429 Too Many Requests` response:
+The [create import users job](/api/management/v2#!/Jobs/post_users_imports) endpoint has a limit of 2 concurrent import jobs. Requesting additional jobs while there are two pending returns a `429 Too Many Requests` response:
 
 ```json
 {
@@ -229,11 +114,11 @@ The [create import users job](/api/management/v2#!/Jobs/post_users_imports) endp
 
 #### Access tokens for SPAs
 
-If you obtain Access Tokens for your SPAs, note that there are rate limits that are applicable when working with the available `current_user`-related [scopes and endpoints](/api/management/v2/get-access-tokens-for-spas#available-scopes-and-endpoints). You are allowed a maximum of **10 requests per minute per user**.
+If you obtain Access Tokens for your SPAs, there are rate limits that are applicable when working with the available `current_user`-related [scopes and endpoints](/api/management/v2/get-access-tokens-for-spas#available-scopes-and-endpoints). You are allowed a maximum of **10 requests per minute per user**.
 
 ### Authentication API
 
-#### Production Tenants for Enterprise Users
+#### Production tenants for enterprise users
 
 <table class="table">
     <tr>
@@ -279,7 +164,7 @@ If you obtain Access Tokens for your SPAs, note that there are rate limits that 
   </tr>
 </table>
 
-#### Non-Production Tenants for Enterprise Users
+#### Non-production tenants for enterprise users
 
 <table class="table">
     <tr>
@@ -350,7 +235,7 @@ If you obtain Access Tokens for your SPAs, note that there are rate limits that 
   </tr>
 </table>
 
-#### Free Tenants
+#### Free tenants
 Auth0's Authentication API has a [global limit](/policies/global-limit) for free tenants.
 <table class="table">
     <tr>
@@ -367,7 +252,7 @@ Auth0's Authentication API has a [global limit](/policies/global-limit) for free
     </tr>
 <table>
 
-## Limits on Database Logins
+## Limits on database logins
 
 For database connections, Auth0 limits certain types of repeat login attempts depending on the user account and IP address. For more information, see [Rate Limits on User/Password Authentication](/connections/database/rate-limits).
 
@@ -375,14 +260,14 @@ For database connections, Auth0 limits certain types of repeat login attempts de
 
 There's a limit of 10 SMS messages/hour per user for multi-factor authentication. For more information, see [Configure SMS Notifications for MFA](/mfa/guides/configure-sms).
 
-## Limits on Native Social Logins
+## Limits on native social logins
 
 Limits are only applied to requests related to the Native Social Login flows, which are identified based on the body of the requests with the following initial criteria:
 
 * `grant_type`: `urn:ietf:params:oauth:grant-type:token-exchange` 
 * `subject_token_type`: `http://auth0.com/oauth/token-type/apple-authz-code`
 
-### Limits for Production Tenants for Enterprise Users
+### Limits for production tenants for enterprise users
 
 <table class="table">
   <thead>
@@ -403,7 +288,7 @@ Limits are only applied to requests related to the Native Social Login flows, wh
   </tbody>
 </table>
 
-### Limits for Free Tenants and Non-Production Tenants for Enterprise Users
+### Limits for free tenants and non-production tenants for enterprise users
 
 <table class="table">
   <thead>
