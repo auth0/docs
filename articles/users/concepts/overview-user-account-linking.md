@@ -173,10 +173,6 @@ Here are two scenarios that implement account linking:
 * [User-initiated account linking](#user-initiated-account-linking): allow your users to link their accounts using an admin screen in your app
 * [Suggested account linking](#suggested-account-linking): identify accounts with the same email address and prompt the user in your app to link them
 
-::: warning
-For security purposes, link accounts **only if both emails are verified**.
-:::
-
 ### User-initiated account linking
 
 Typically, account linking will be initiated by an authenticated user. Your app must provide the UI, such as a **Link accounts** button on the user's profile page.
