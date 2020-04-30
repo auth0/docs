@@ -258,19 +258,15 @@ The `callback` function supplied to a rule effectively acts as a signal to indic
 Failure to call the function will result in a stall of pipeline execution, and ultimately in an error condition being returned. Each rule then must call the `callback` function exactly once;. Calling it once prevents the stall of the pipeline, but more could cause unpredictable results or errors.
 
 ```js
-  function (user, context, callback) {
-    if (!user.user_id) {
-      return callback(null, user, context);
-    } else {
-      getRoles(user.user_id, (err, roles) => {
-        if (err) return callback(err);
+function (user, context, callback) {
+  getRoles(user.user_id, (err, roles) => {
+    if (err) return callback(err);
 
-        context.idToken['https://example.com/roles'] = roles;
+    context.idToken['https://example.com/roles'] = roles;
 
-        return callback(null, user, context);
-      });
-    }
-  }
+    return callback(null, user, context);
+  });
+}
 ```
 
 As can be seen in the example above, the `callback` function can be called with up to three parameters. The first parameter is mandatory and provides an indication of the status of rule operation. The second and third parameters are optional and represent the user and the context to be supplied to the next rule in the pipeline. If these are specified, then it is a recommended best practice to pass the [`user`](#user-object) and [`context`](#context-object) object (respectively) as supplied to the rule.
