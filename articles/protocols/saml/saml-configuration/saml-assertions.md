@@ -92,7 +92,7 @@ The following is a list of customization options for your SAML assertions.
 
 * **destination**: Destination of the SAML Response. If not specified, it will be `AssertionConsumerUrl` of SAMLRequest or Callback URL if there was no SAMLRequest.
 
-* **lifetimeInSeconds** (int): Expiration of the token. Default is 3600 seconds (1 hour).
+* **lifetimeInSeconds** (int): Expiration of the token. Default is `3600` seconds (1 hour).
 
 * **signResponse** (bool): Whether or not the SAML Response should be signed. By default the SAML Assertion will be signed, but not the SAML Response. If true, SAML Response will be signed instead of SAML Assertion.
 
@@ -102,13 +102,16 @@ The following is a list of customization options for your SAML assertions.
 
 * **authnContextClassRef** (string): Default is `urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified`.
 
-* **typedAttributes** (bool): Default is true. When set to true, we infer the xs:type of the element. Types are `xs:string`, `xs:boolean`, `xs:double `and `xs:anyType`. When set to false all `xs:type` are `xs:anyType`
+* **typedAttributes** (bool): Default is `true`. When set to true, we infer the xs:type of the element. Types are `xs:string`, `xs:boolean`, `xs:double `and `xs:anyType`. When set to false all `xs:type` are `xs:anyType`
 
-* **includeAttributeNameFormat** (bool): Default is true. When set to `true`, we infer the NameFormat based on the attribute name. NameFormat values are `urn:oasis:names:tc:SAML:2.0:attrname-format:uri`, `urn:oasis:names:tc:SAML:2.0:attrname-format:basic` and `urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified`. If set to `false`, the attribute NameFormat is not set in the assertion
+* **includeAttributeNameFormat** (bool): Default is `true`. When set to `true`, we infer the NameFormat based on the attribute name. NameFormat values are `urn:oasis:names:tc:SAML:2.0:attrname-format:uri`, `urn:oasis:names:tc:SAML:2.0:attrname-format:basic` and `urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified`. If set to `false`, the attribute NameFormat is not set in the assertion.
 
 * **logout** (object): An object that controls SAML logout. It can contain two properties:`callback` (of type `string`), that contains the service provider (client application)'s **Single Logout Service URL**, where Auth0 will send logout requests and responses, and `slo_enabled`(boolean) that controls whether Auth0 should notify service providers of session termination. The default value is`true` (notify service providers).
-* **binding** (string):Optionally indicates the protocol binding used for SAML logout responses. By default Auth0 uses `HTTP-POST`, but you can switch to `HTTP-Redirect` by setting `"binding"` to `"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"`.
+
+* **binding** (string): Optionally indicates the protocol binding used for SAML logout responses. By default Auth0 uses `HTTP-POST`, but you can switch to `HTTP-Redirect` by setting `"binding"` to `"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"`.
+
 * **signingCert** (string): Optionally indicates the public key certificate used to validate SAML requests. If set, SAML requests will be required to be signed. A sample value would be
-```
-"-----BEGIN PUBLIC KEY-----\nMIGf...bpP/t3\n+JGNGIRMj1hF1rnb6QIDAQAB\n-----END PUBLIC KEY-----\n"
-```
+
+  ```
+  "-----BEGIN PUBLIC KEY-----\nMIGf...bpP/t3\n+JGNGIRMj1hF1rnb6QIDAQAB\n-----END PUBLIC KEY-----\n"
+  ```
