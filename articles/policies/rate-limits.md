@@ -82,10 +82,6 @@ If you are using an API endpoint **not** listed below and you receive rate limit
 
 The rate limits for this API differ depending on whether your tenant is free or paid, production or not.
 
-If you exceed your plan rate limits, the following message appears: 
-
-![Rate Limit Reached](/media/articles/policies/rate-limit-reached.png)
-
 | Tenant Type | Rate Limit (per second) | Rate Limit (per minute) |
 | - | - | - |
 | Free or Trial | 10 | 120 |
