@@ -43,6 +43,9 @@ When a client needs a new Access Token, it sends the Refresh Token with the requ
 Without enforcing sender-constraint, it’s impossible for the authorization server to know which actor is legitimate or malicious in the event of a replay attack. So it’s important that the most recently issued Refresh Token is also immediately invalidated when a previously-used Refresh Token (already invalidated) is sent to the authorization server. This prevents any Refresh Tokens in the same token family (all Refresh Tokens descending from the original Refresh Token issued for the client) from being used to get new Access Tokens.
 
 For example, consider the following scenario: 
+
+![Reuse Detection](/media/articles/tokens/reuse-detection1.png)
+
 1. Legitimate Client has **Refresh Token 1**, and it is leaked to or stolen by Malicious Client. 
 2. Legitimate Client uses **Refresh Token 1** to get a new Refresh Token/Access Token pair.
 3. Auth0 returns **Refresh Token 2/Access Token 2**.
@@ -51,9 +54,11 @@ For example, consider the following scenario:
 6. **Access Token 2** expires and Legitimate Client attempts to use **Refresh Token 2** to request a new token pair. Auth0 returns an **Access Denied** response to Legitimate Client.
 7. Re-authentication is required.
 
-![Reuse Detection](/media/articles/tokens/reuse-detection.png)
-
 This protection mechanism works regardless of whether the legitimate client or the malicious client is able to exchange **Refresh Token 1** for a new token pair before the other. As soon as reuse is detected, all subsequent requests will be denied until the user re-authenticates. When reuse is detected, Auth0 captures detected reuse events (such as `ferrt` indicating a failed exchange) in logs. This can be especially useful in conjunction with Auth0’s log streaming capabilities.
+
+Another example is where the malicious client steals Refresh Token 1 and successfully uses it to acquire an Access Token before the legitimate client attempts to use Refresh Token 1. In this case, the malicious client’s access would be short-lived because Refresh Token 2 (or any subsequently issued RTs) is automatically revoked when the legitimate client tries to use Refresh Token 1, as shown in the following diagram:
+
+![Reuse Detection](/media/articles/tokens/reuse-detection2.png)
 
 ## SDK support
 
@@ -61,7 +66,7 @@ The following SDKs include support for Refresh Token Rotation and automatic reus
 
 * [Auth0 SPA SDK](/libraries/auth0-spa-js)
 * [Auth0 Swift (iOS) SDK](/libraries/auth0-swift)
-* [Auth0 Android SDK](/libraries/auth0-android).
+* [Auth0 Android SDK](/libraries/auth0-android)
 
 You can opt-in to storing tokens in either local storage or browser memory, the default being in browser memory. See [Token Storage](/tokens/concepts/token-storage) for details.
 
