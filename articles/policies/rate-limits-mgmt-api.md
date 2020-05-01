@@ -1,5 +1,5 @@
 ---
-title: Rate Limits for Management API Endpoints
+title: Management API Endpoint Rate Limits
 description: Describes Auth0's rate limit policy when working with Auth0 Management API endpoints.
 toc: true
 topics:
@@ -10,7 +10,7 @@ contentType:
 useCase:
   - support
 ---
-# Rate Limits for Management API Endpoints
+# Management API Endpoint Rate Limits
 
 ::: note
 These limits apply to Developer and Developer Pro tenants created after 05-20-2020. Starting on 07-01-2020, these limits will apply to all Developer and Developer Pro tenants.
@@ -59,7 +59,7 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
 | Delete device credentials: <br> `DELETE /api/v2/device-credentials/{id} | 5 | 100 |
 | All other endpoints | 10 | 150 |
 
-## Management API rate limits for self-service subscriptions
+## Self-service subscription limits
 
 | Endpoints | Rate Limit (per second) | Rate Limit (per minute) | Rate Limit (per day) |
 | - | - | - | - |
@@ -78,7 +78,7 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
 | Write device credentials | 5 | 100 | n/a |
 | All other endpoints combined | 10 | 150 | n/a |
 
-## Concurrent import users jobs
+## Concurrent import users job limits
 
 The [create import users job](/api/management/v2#!/Jobs/post_users_imports) endpoint has a limit of 2 concurrent import jobs. Requesting additional jobs while there are two pending returns a `429 Too Many Requests` response:
 
@@ -90,6 +90,6 @@ The [create import users job](/api/management/v2#!/Jobs/post_users_imports) endp
 }
 ```
 
-## Access tokens for SPAs
+## Access token limits for SPAs
 
 If you obtain Access Tokens for your SPAs, there are rate limits that are applicable when working with the available `current_user`-related [scopes and endpoints](/api/management/v2/get-access-tokens-for-spas#available-scopes-and-endpoints). You are allowed a maximum of **10 requests per minute per user**.

@@ -1969,9 +1969,16 @@ articles:
                 url: "/policies/legacy-rate-limits"
                 hidden: true 
 
-              - title: "Entity Limits"
-                url: "/policies/entity-limits"
+              - title: "Managment API Endpoint Rate Limits"
+                url: "/policies/rate-limits-mgmt-api"
                 hidden: true 
+
+              - title: "Authentication API Endpoint Rate Limits"
+                url: "/policies/rate-limits-mgmt-api"
+                hidden: true 
+
+          - title: "Entity Limits"
+            url: "/policies/entity-limits"
 
           - title: "Restore Deleted Tenant"
             url: "/policies/restore-deleted-tenant"

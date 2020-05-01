@@ -38,5 +38,5 @@ This guide will show you how to configure session settings for your tenant using
 | **Value** | **Description** |
 | - | - |
 | `MGMT_API_ACCESS_TOKEN`  | [Access Token for the Management API](/api/management/v2/tokens) with the <dfn data-key="scope">scope</dfn> `update:tenant_settings`. |
-| `IDLE_SESSION_LIFETIME_VALUE` | Timeframe (in hours) after which a user's session will expire if they haven’t interacted with the Authorization Server. Will be superseded by system limits if over 72 hours (3 days) for self-service plans or 2,400 hours (100 days) for enterprise plans. |
-| `SESSION_LIFETIME_VALUE` | Timeframe (in hours) after which a user will be required to log in again, regardless of their activity. Will be superseded by system limits if over 720 hours (30 days) for self-service plans or 8,760 hours (365 days) for enterprise plans. |
+| `IDLE_SESSION_LIFETIME_VALUE` | Timeframe (in hours) after which a user's session will expire if they haven’t interacted with the Authorization Server. Will be superseded by system limits if over 72 hours (3 days) for Developer or Developer Pro or 2,400 hours (100 days) for enterprise plans. |
+| `SESSION_LIFETIME_VALUE` | Timeframe (in hours) after which a user will be required to log in again, regardless of their activity. Will be superseded by system limits if over 720 hours (30 days) for Developer or Developer Pro or 8,760 hours (365 days) for enterprise plans. |

@@ -126,9 +126,9 @@ Timeouts for tokens issued by Auth0 can be configured elsewhere. Token timeouts 
 
 * **Enable Seamless SSO**: When enabled, users will not be prompted to confirm log in before Single Sign-on (SSO) redirection.
 
-* **Inactivity Timeout**: Timeframe (in minutes) after which a user's session will expire if they haven’t interacted with the Authorization Server. Will be superseded by system limits if over 4,320 minutes (3 days) for self-service plans or 144,000 minutes (100 days) for enterprise plans. To learn more, see [Single Sign-On](/sso).
+* **Inactivity Timeout**: Timeframe (in minutes) after which a user's session will expire if they haven’t interacted with the Authorization Server. Will be superseded by system limits if over 4,320 minutes (3 days) for Developer or Developer Pro or 144,000 minutes (100 days) for enterprise plans. To learn more, see [Single Sign-On](/sso).
 
-* **Require Login After**: Timeframe (in minutes) after which a user will be required to log in again, regardless of their activity. Will be superseded by system limits if over 43,200 minutes (30 days) for self-service plans or 525,600 minutes (365 days) for enterprise plans.
+* **Require Login After**: Timeframe (in minutes) after which a user will be required to log in again, regardless of their activity. Will be superseded by system limits if over 43,200 minutes (30 days) for Developer or Developer Pro or 525,600 minutes (365 days) for enterprise plans.
 
 ### Device Flow User Code Format
 
