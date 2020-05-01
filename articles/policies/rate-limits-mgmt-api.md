@@ -57,8 +57,8 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
 | Read clients | `GET /api/v2/clients` | 5 | 100 |
 | | `POST /api/v2/clients/{id}` | |
 | Read connections | `GET /api/v2/connections` | 10 | 100 |
-| | `POST /api/v2/connections/{id} | |
-| Delete device credentials | `DELETE /api/v2/device-credentials/{id} | 5 | 100 |
+| | `POST /api/v2/connections/{id}` | |
+| Delete device credentials | `DELETE /api/v2/device-credentials/{id}` | 5 | 100 |
 | All other endpoints | | 10 | 150 |
 
 ## Self-service subscription limits
