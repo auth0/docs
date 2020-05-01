@@ -13,7 +13,7 @@ useCase:
 # Management API Endpoint Rate Limits
 
 ::: warning
-These rate limits apply to you if you subscribed after **May 20, 2020**. Starting on **July 1, 2020**, these limits will apply to all tenants. If you subscribed on or before **May 21, 2020**, the older [rate limit policy](/policies/legacy-rate-limits) applies to you.
+These rate limits apply to you if you subscribed on or after **May 19, 2020**. If you subscribed before **May 19, 2020**, the older [rate limit policy](/policies/legacy-rate-limits) applies to you until **July 1, 2020**. Starting on **July 1, 2020**, these limits will apply to all tenants. You will be notified of the new limits through a **Dashboard Notification**. All existing paid subscriptions that changes will impact will be notified directly via email with additional information about general best practices for minimizing API calls and information about upgrading plans.
 :::
 
 The rate limits for this API differ depending on whether your tenant is free or paid, production or not.
