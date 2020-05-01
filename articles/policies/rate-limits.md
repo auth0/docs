@@ -15,10 +15,6 @@ Actions such as rapidly updating configuration settings, aggressive polling, or 
 
 Auth0's rate limits vary based on the tenant type you have. The tenants that have no credit card associated in the [Dashboard](${manage_url}/#/tenant/billing/payment) are free. There are also variations in terms of paid tenant types (e.g., non-production, production). To set an environment for your tenant (development, staging or production), go to [Support Center > Tenants](${env.DOMAIN_URL_SUPPORT}/tenants/public), find your tenant, select __Assign Environment Tag__, set the environment and save changes.
 
-If you exceed rate limits, the following message also appears:
-
-![Rate Limit Reached](/media/articles/policies/rate-limit-reached.png)
-
 ## API endpoint limits
 
 To ensure the quality of Auth0's services, the Auth0 APIs are subject to rate limiting. Depending on the API endpoint, the request limit and the rate limit window in which the request limit resets, varies. 

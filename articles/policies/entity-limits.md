@@ -1,6 +1,6 @@
 ---
 title: Entity Limit Policy
-description: Describes Auth0's entity rate limit policy for subscribers.
+description: Describes Auth0's tenant entity limit policy for subscribers.
 topics:
     - auth0-policies
     - rate-limits
@@ -12,7 +12,7 @@ useCase:
 ---
 # Entity Limit Policy
 
-Entities in Auth0 are tenant configuration elements such as applications, connections, rules, and resource servers. 
+Entities in Auth0 are tenant configuration elements such as applications, connections, rules, and API resource servers. 
 
 Auth0 limits the number of entities you can have depending on your subscription level. Auth0 provides notifications to you when you are approaching (90%) and when you have reached (100% or higher) your respective entity limits. We will also provide informative messages to prevent you from attempting to configure entities that would end up being rejected.
 
@@ -20,14 +20,14 @@ Here is an example of a message you would see if you reached your connection lim
 
 ![Entity Limit Reached](/media/articles/policies/entity-limit-reached.png)
 
-## Developer and Developer Pro subscription limits
+## Enterpise, Developer and Developer Pro subscription limits
 
 | Entity | Maximum | 
 | - | - |
 | Applications | 100 |
 | Connections | 100 |
 | Rules | 100 |
-| API Resource Server | 100 |
+| API Resource Servers | 100 |
 
 ## Free subscription limits
 
@@ -36,7 +36,7 @@ Here is an example of a message you would see if you reached your connection lim
 | Applications | 10 |
 | Connections | 10 |
 | Rules | 10 |
-| API Resource Server | 10 |
+| API Resource Servers | 10 |
 
 ## Keep reading
 
