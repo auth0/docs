@@ -73,7 +73,7 @@ Limits are only applied to requests related to the Native Social Login flows, wh
 
 ## Keep reading
 
-* [Entity Limit Policy](/policies/entity-limits)
 * [Management API Endpoint Rate Limits](/policies/rate-limits-mgmt-api)
 * [Authentication API Endpoint Rate Limits](/policies/rate-limits-auth-api)
 * [Legacy Rate Limits](/policies/legacy-rate-limits)
+* [Entity Limit Policy](/policies/entity-limits)
