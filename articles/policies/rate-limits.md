@@ -1,6 +1,7 @@
 ---
 title: Rate Limit Policy
 description: Describes Auth0's rate limit policy.
+toc: true 
 topics:
     - auth0-policies
     - rate-limits
@@ -19,27 +20,27 @@ Auth0's rate limits vary based on the tenant type you have. The tenants that hav
 
 To ensure the quality of Auth0's services, the Auth0 APIs are subject to rate limiting. Depending on the API endpoint, the request limit and the rate limit window in which the request limit resets, varies. 
 
-Using the Management API for free and trial tenants is restricted to **two requests per second** (with bursts of up to **ten (10) requests**). Exceeding these values will also trigger the HTTP 429 error, but the error message states, "Global limit has been reached." These are in addition to those indicated in the rate limit response headers.
+Using the Management API for free and trial tenants is restricted to **2 requests per second** (with bursts of up to **10 requests**). Exceeding these values triggers an HTTP 429 error, but the error message states, "Global limit has been reached." These are in addition to those indicated in the rate limit response headers.
 
 If your app triggers the rate limit, please refrain from making additional requests until the appropriate amount of time has elapsed.
 
-::: warning How to Handle Rate Limits when calling Auth0 APIs
-For scripts and rules that call Auth0 APIs, you should always handle rate limiting by checking the X-RateLimit-Remaining header and acting appropriately when the number returned nears 0. You should also add logic to handle cases in which you exceed the provided rate limits and receive the HTTP Status Code 429 (Too Many Requests); in this case, if a re-try is needed, it is best to allow for a back-off to avoid going into an infinite re-try loop.
-:::
+See the rate limits for [Management API Endpoints](/policies/rate-limits-mgmt-api) and [Authentication API Endpoints](/policies/rate-limits-auth-api) for complete details on each endpoint limitation. 
 
-See the rate limits for [Management API Endpoints](/policies/rate-limits-mgmt-api) and [Authentication API Endpoints](/policies/rate-limits-auth-api) for details. 
+### Review HTTP response headers
 
-### HTTP response headers
-
-::: note
-Auth0 reserves the right to modify the rate limits at any time. For the up-to-date information on rate limits, please review the headers returned from rate limited endpoints.
-:::
+Auth0 reserves the right to modify the rate limits at any time. For the up-to-date information on rate limits, you can review the HTTP response headers returned from rate limited endpoints.
 
 API requests to selected [Authentication](/api/authentication) or [Management API](/api/management/v2) endpoints will return HTTP response headers that provide relevant data on the current status of your rate limits for that endpoint. If you receive a rate limit-related response header, it will include numeric information detailing your status.
 
 * **X-RateLimit-Limit**: The maximum number of requests available in the current time frame.
 * **X-RateLimit-Remaining**: The number of remaining requests in the current time frame.
 * **X-RateLimit-Reset**: A [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) of the expected time when the rate limit will reset.
+
+### Handle rates limitations in code
+
+You should add logic to handle cases in which you exceed the provided rate limits and receive the HTTP Status Code 429 (Too Many Requests). In this case, if a retry is needed, it is best to allow for a back-off to avoid going into an infinite retry loop.
+
+For scripts and rules that call Auth0 APIs, you should always handle rate limiting by checking the `X-RateLimit-Remaining` header and acting appropriately when the number returned nears 0. 
 
 ## Database login limits
 
@@ -62,13 +63,13 @@ Limits are only applied to requests related to the Native Social Login flows, wh
 
 | Endpoint | Path | Limited By | Rate Limit |
 | - | - | - | - |
-| Get Token | /oauth/token | Any native social login request | 50 per minute with bursts up to 500 requests |
+| Get Token | `/oauth/token` | Any native social login request | 50 per minute with bursts up to 500 requests |
 
 ### Enterprise free tenant and non-production tenant limits
 
 | Endpoint | Path | Limited By | Rate Limit |
 | - | - | - | - |
-| Get Token | /oauth/token | Native social login requests and IP | 30 per minute |
+| Get Token | `/oauth/token` | Native social login requests and IP | 30 per minute |
 
 ## Keep reading
 
