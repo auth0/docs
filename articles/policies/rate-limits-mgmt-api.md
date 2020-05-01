@@ -12,10 +12,10 @@ useCase:
 ---
 # Management API Endpoint Rate Limits
 
-::: note
-These limits apply to Developer and Developer Pro tenants created after 05-20-2020. Starting on 07-01-2020, these limits will apply to all Developer and Developer Pro tenants.
+::: warning
+These limits apply to tenants created after **May 20, 2020**. Starting on **July 1, 2020**, these limits will apply to tenants.
 
-If you subscribed on or before 05-19-2020, the following [rate limit policy](/policies/legacy-rate-limits) applies to you.
+If you subscribed on or before **May 19, 2020**, the following [rate limit policy](/policies/legacy-rate-limits) applies to you.
 :::
 
 The rate limits for this API differ depending on whether your tenant is free or paid, production or not.

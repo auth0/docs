@@ -11,9 +11,7 @@ useCase:
 ---
 # Rate Limits for Subscriptions before 05-21-2020
 
-The following rate limits apply if you subscribed to Auth0 before 05-21-2020. All paid self-service subscriptions created on or after 05-19-2020 will be subject to the updated [entity limits](/policies/entity-limits) and [rate limits](/rate-limits). 
-
-All free subscriptions created on or after 05-19-2020 will be subject to the new rate limits. See the [Dashboard Notification]() from Auth0 Support Center. 
+The following rate limits apply if you subscribed to Auth0 before **May 21, 2020**. All paid and free subscriptions created on or after **May 20, 2020** will be subject to the updated [entity limits](/policies/entity-limits) and [rate limits](/rate-limits). 
 
 The rate limits for Auth0 Management API differ depending on whether your tenant is free or paid, production or not.
 
