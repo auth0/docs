@@ -63,13 +63,13 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
 
 | Endpoints | Rate Limit (per second) | Rate Limit (per minute) | Rate Limit (per day) |
 | - | - | - | - |
-| Verify custom domain: `POST /api/v2/custom-domains{id}/verify` | n/a | 5 | n/a |
-| Send test email: `POST /api/v2/email-send-test` | 1 | n/a | n/a |
-| Register dynamic client: `POST /oidc/register` | 5 | n/a | n/a |
-| Rotate signing keys: `POST /api/v2/keys/signing/rotate` | n/a | n/a | 5 |
-| Create tenant: `POST /api/v2/tenants` | 5 | n/a | n/a |
-| Read connection status: `GET /api/v2/connections/{id}/status` | 15 | n/a | n/a |
-| Create tenant invitation: `POST /api/v2/tenants/invitations` | n/a | 5 | n/a |
+| Verify custom domain: <br> `POST /api/v2/custom-domains{id}/verify` | n/a | 5 | n/a |
+| Send test email: <br> `POST /api/v2/email-send-test` | 1 | n/a | n/a |
+| Register dynamic client: <br> `POST /oidc/register` | 5 | n/a | n/a |
+| Rotate signing keys: <br> `POST /api/v2/keys/signing/rotate` | n/a | n/a | 5 |
+| Create tenant: <br> `POST /api/v2/tenants` | 5 | n/a | n/a |
+| Read connection status: <br> `GET /api/v2/connections/{id}/status` | 15 | n/a | n/a |
+| Create tenant invitation: <br> `POST /api/v2/tenants/invitations` | n/a | 5 | n/a |
 | Read users | 40 | 500 | n/a |
 | Write users | 20 | 200 | n/a |
 | Read logs | 10 | 100 | n/a |
@@ -80,7 +80,7 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
 
 ## Concurrent import users job limits
 
-The [create import users job](/api/management/v2#!/Jobs/post_users_imports) endpoint has a limit of 2 concurrent import jobs. Requesting additional jobs while there are two pending returns a `429 Too Many Requests` response:
+The [create import users job](/api/management/v2#!/Jobs/post_users_imports) endpoint has a limit of 2 concurrent import jobs. If you request additional jobs while there are 2 pending returns, the following response occurs:
 
 ```json
 {
