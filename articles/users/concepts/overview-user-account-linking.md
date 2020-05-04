@@ -168,10 +168,10 @@ The [Auth0 Node.js SDK for APIv2](https://github.com/auth0/node-auth0/tree/v2) i
 
 ## Scenarios
 
-Here are two scenarios that implement account linking:
+There are two different ways of implementing account linking:
 
-* [User-initiated account linking](#user-initiated-account-linking): allow your users to link their accounts using an admin screen in your app
-* [Suggested account linking](#suggested-account-linking): identify accounts with the same email address and prompt the user in your app to link them
+* [User-initiated account linking](#user-initiated-account-linking): allow your users to link their accounts using an admin screen in your app.
+* [Suggested account linking](#suggested-account-linking): identify accounts with the same email address and prompt the user in your app to link them.
 
 ### User-initiated account linking
 
@@ -181,11 +181,11 @@ Typically, account linking will be initiated by an authenticated user. Your app 
 
 ### Suggested account linking
 
-You can use the [Account Link Extension](/articles/extensions/account-link) to prompt users that may have created a second account by mistake to link the new account with their old one on their first login. The user may choose to either link the two accounts or keep them separate if it was intentional.
+You can find accounts with the same email, and prompt the users to link them. For example, a user can create an account with Google with the user@gmail.com, and then login with Facebook, with an account linked to the same email. 
 
-If you're using a custom domain, you'll need to update the **auth0-account-link-extension** [rule](/rules) that is automatically created when you installed the extension. (You can find this rule in your Dashboard by going to **Rules** using the left-hand navigation bar).
+If that's the case, you can show users the list of accounts so they can link them, by first authenticating with the account they'll be linking to.
 
-You can also set up a [Rule](/rules) that will link accounts with the same verified email address. However, instead of completing the link automatically on authentication, your app will first prompt the user to link their identities.
+You can also use the [Account Link Extension](/articles/extensions/account-link) to achieve the same outcome. 
 
 ![Sample linking suggestion](/media/articles/link-accounts/regular-web-app-suggest-linking.png)
 
@@ -196,6 +196,5 @@ You can also set up a [Rule](/rules) that will link accounts with the same verif
 * [Link User Accounts](/users/guides/link-user-accounts)
 * [Unlink User Accounts](/users/guides/unlink-user-accounts)
 * [Account Link Extension](/extensions/account-link)
-* [Link User Accounts Client-Side Scenario](/users/references/link-accounts-client-side-scenario)
-* [Link User Accounts Server-Side Scenario](/users/references/link-accounts-server-side-scenario)
-* [Link User Accounts Initiated by Users Scenario](/users/references/link-accounts-user-initiated-scenario)
+* [User initiated account linking](/users/references/link-accounts-client-side-scenario)
+* [Suggested account linking](/users/references/link-accounts-server-side-scenario)
