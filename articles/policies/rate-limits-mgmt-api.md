@@ -58,7 +58,7 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
 | Write users | `POST /api/v2/users` | 20 | 200 |
 | | `POST /api/v2/users/{id}/identities` | | |
 | | `PATCH /api/v2/users/{id}` | | |
-| | `DELETE /api/v2/users/{id}/users` | | |
+| | `DELETE /api/v2/connections/{id}/users` | | |
 | | `DELETE /api/v2/users/{id}/identities/{provider}/{user_id}` | | |
 | | `DELETE /api/v2/users/{id}` | | |
 | Read logs | `GET /api/v2/logs` | 10 | 100 |
