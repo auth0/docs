@@ -62,19 +62,16 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
 | Write connections | `POST /api/v2/connections/{id}` | 10 | 100 |
 | Write device credentials | `POST /api/v2/device-credentials` | 5 | 100 | 
 | Delete device credentials | `DELETE /api/v2/device-credentials/{id}` | 5 | 100 |
+| All other endpoints combined | | 10 | 150 |
 
 ## Endpoint limits for all subscriptions
 
-| Endpoint | Path | Rate Limit (per second) | Rate Limit (per minute) |
-| - | - | - | - |
-| Verify custom domain | `POST /api/v2/custom-domains{id}/verify` | n/a | 5 | 
-| Register dynamic client | `POST /oidc/register` | 5 | n/a | 
-| Read connection status | `GET /api/v2/connections/{id}/status` | 15 | n/a | 
-| All other endpoints combined | | 10 | 150 |
-
-## Rotate signing key limits
-
-The Rotate Signing Keys endpoint, `POST /api/v2/keys/signing/rotate`, has a limit of 5 per day. 
+| Endpoint | Path | Rate Limit (per second) | Rate Limit (per minute) | Rate Limit (per day) |
+| - | - | - | - | - |
+| Verify custom domain | `POST /api/v2/custom-domains{id}/verify` | n/a | 5 | n/a |
+| Register dynamic client | `POST /oidc/register` | 5 | n/a | n/a |
+| Read connection status | `GET /api/v2/connections/{id}/status` | 15 | n/a | n/a |
+| Rotate signing keys | `POST /api/v2/keys/signing/rotate` | n/a | n/a | 5 |
 
 ## Concurrent import users job limits
 
