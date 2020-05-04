@@ -1,5 +1,4 @@
 ---
-title: Rate Limits for Subscriptions before May 19, 2020
 description: Describes Auth0's rate limit policy for subscriptions created before 05-21-2020 when working with Auth0 API endpoints.
 topics:
     - auth0-policies
@@ -9,11 +8,13 @@ contentType:
 useCase:
   - support
 ---
-# Rate Limits for Subscriptions before May 19, 2020
+# Managment API Endpoint Rate Limits before May 19, 2020
+
+**This policy is effective for all paid and free subscriptions made before May 19, 2020.** 
 
 ::: warning
-All paid and free subscriptions created on or after **May 19, 2020** will be subject to the updated [rate limits](/rate-limits). 
-The following rate limits apply if you subscribed to Auth0 before **May 19, 2020**. Starting on **June 18, 2020**, the new limits will apply to all tenants. You will be notified of the new limits through a **Dashboard Notification**. If the changes will impact your tenant, you will be notified directly via email with additional information about minimizing API calls and upgrading plans.
+All subscriptions made on or after **May 19, 2020** are subject to the [updated rate limits](/policies/rate-limits-mgmt-api). 
+Starting on **June 18, 2020**, the new limits will apply to all tenants. You will be notified of the new limits through a **Dashboard Notification**. If the changes will impact your tenant, you will be notified directly via email with additional information about minimizing API calls and upgrading plans.
 :::
 
 The rate limits for Auth0 Management API differ depending on whether your tenant is free or paid, production or not.
