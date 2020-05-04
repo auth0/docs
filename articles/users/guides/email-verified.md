@@ -10,39 +10,45 @@ contentType:
     - reference
 useCase: manage-users
 ---
-
 # Verified Email Usage
 
-The `email_verified` field of a user profile indicates if the user has verified their email address. Valid emails are required for things such as communications to users, password resets/recovery, and magic links.
+The `email_verified` field of a user profile indicates if the user has verified their email address. Valid emails are required for things such as communications to users, password resets/recovery, and passwordless magic links.
 
-However, valid emails should not be the basis to make decisions about authorization or to perform automatic account linking.
+An email is usually verified immediately after the user account is created or when the user logs in to the application for the first time. It's a good way to know that the person signing up actually owns that moment. 
 
-An email is usually verified when the user account is created or when the user logs in to the application for the first time. Since email verification happens at a specific moment, later on we can't ensure the person logged in with the account still owns the email address.
+Since email verification happens at that specific moment, later on we can't ensure the person logged in with the account still owns the email address. 
 
-## Don't use the email_verified field to make authorization decisions
+Federated identity providers sometimes report if the user has a verified email, and based on that, Auth0 sets the `email_verified` field in the user profile. However, you can't know if the identity provider is doing that properly, or if the verified email from that provider is still owned by the user.
 
-...
+For all of these reasons, we need to be careful on what we can assume based on a verified email.
 
-```js
-// sample of rule you should not use
-```
+## Verified Emails and Account Linking
 
-## Don't use emails as a way to perform automatic account linking
+When you want to [link two user accounts](/articles/users/concept/overview-user-account-linking), you need to make sure that the user still has access to both accounts. The only way to achieve that is to have users authenticate with both accounts before linking them. 
 
-Even if the email is verified, the same email can be used by different people. For example: with email aliases or shared accounts.
+You *should not automatically link accounts based on the user's emails*. Always prompt users to authenticate again before doing that. This will prevent scenarios like:
 
-An email can also change owners. The owner of the account you are linking to might no longer own the email address, and the new owner would take over the existing account. For example, a company might hire John Doe and give him the email address `john.doe@travel0.com`. If John Doe leaves the company, and another John Doe is hired, and he logs in to the same application using a GSuite connection, they’ll take over the previous account.
+- John Doe, an employee of Travel0, signs up to a site using his corporate email `john.doe@travel0.com` and a password. Months later, John Doe leaves Travel0, and a new John Doe is hired, with the same email account. That person goes to the same website, and authenticates with his corporate identity provider (e.g. GSuite), and gets the account automatically linked to the other user.
 
-## Email domain used for validation
+- Federated identity providers can make mistakes on how they handle email verification, and can report that users owns an email they do not. 
 
-...
+On the other hand, we recommend you to still check for the `email_verified` field *before* performing account linking, to mitigate scenarios like:
 
-* in general, don't use the email domain to validate that a user belongs to any specific organization, unless you have control of that organization’s directory.
-* example: if you are federating to your internal ADFSs, you can trust the email domains. If you are also federating to your customers' ADFS, you can’t. A rogue admin in those customers could potentially create email accounts with the domain of your internal ADFS.
+- An attacker creates a Google account 'attacker@gmail.com'
+- Attacker creates a new database users with the victim's email (e.g. 'victim@hotmail.com').
+- Attacker links both accounts.
+- Attacker sends a phishing attack to victim.
+- The victim tries to sign-up, they are told the user already exists, and get offered to reset the password.
+- The user enters their password, and logs into the attacker's account, which now has access to whatever data the victim enters in the application.
 
-## Guest users
+## Verified Emails and Authorization Decisions
 
-* some Identity Providers support Guest users (e.g Azure AD).
-* you might want to enable those users to use the features enabled for users from the main domain even if these users don’t have the same email domain.
-* if you need to make sure the user belongs to the organization you can rely on the connection they authenticated with, or specific claims (e.g. tenant id in Azure AD)
-* when the emails are returned as verified from upstream identity providers, we need to trust that they do proper email verification and report it correctly. We can’t really trust that unless we control the Identity Provider.
+You *should not use the email's domain to make authorization decisions*. If you need to check if the user belongs to a specific organization, it's better to rely on the connection they used to authenticate, or in connection-specific attributes like the Azure AD's tenant id.
+
+## Keep reading
+
+* [Link User Accounts](/users/guides/link-user-accounts)
+* [Unlink User Accounts](/users/guides/unlink-user-accounts)
+* [Account Link Extension](/extensions/account-link)
+* [User Initiated Account Linking - Client-Side Implementation](/users/references/link-accounts-client-side-scenario)
+* [Suggested Account Linking - Server-Side Implementation](/users/references/link-accounts-server-side-scenario)
