@@ -21,9 +21,9 @@ The rate limits for this API differ depending on whether your tenant is free or 
 | Tenant Type | Rate Limit (per second) | Rate Limit (per minute) |
 | - | - | - |
 | Free or Trial | 10 | 120 |
-| Enterprise (Non-production) | 10 | 120 |
+| Developer or Developer Pro (created before May 19, 2020) | 50 | 1000 |
 | Enterprise (Production) | 50 | 1000 |
-| Developer or Developer Pro (created before 05-21-2020) | 50 | 1000 |
+| Enterprise (Non-production) | 10 | 120 |
 
 Each endpoint is configured with a bucket that defines:
 
@@ -46,22 +46,7 @@ If you are using an API endpoint **not** listed below and you receive rate limit
 
 The aforementioned rate limits include calls made via [Rules](/rules) and are set **by tenant** and not by endpoint.
 
-The following Auth0 Management API endpoints return rate limit-related headers. For additional information about these endpoints, please consult the [Management API explorer](/api/management/v2).
-
-| Endpoint | Path | Rate Limit (per second) | Rate Limit (per minute) |
-| - | - | - | - |
-| Read or write users | `GET /api/v2/users` | 40 | 800 |
-| | `POST /api/v2/users` | | |
-| Read logs | `GET /api/v2/logs` | 10 | 200 |
-| | `GET /api/v2/user/{id}/logs` | |
-| Read clients | `GET /api/v2/clients` | 5 | 100 |
-| | `POST /api/v2/clients/{id}` | |
-| Read connections | `GET /api/v2/connections` | 10 | 100 |
-| | `POST /api/v2/connections/{id}` | |
-| Delete device credentials | `DELETE /api/v2/device-credentials/{id}` | 5 | 100 |
-| All other endpoints | | 10 | 150 |
-
-## Self-service subscription limits
+## Developer and Developer Pro subscription limits
 
 | Endpoint | Path | Rate Limit (per second) | Rate Limit (per minute) | Rate Limit (per day) |
 | - | - | - | - | - |
@@ -79,6 +64,23 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
 | Read connections | | 10 | 100 | n/a |
 | Write device credentials | | 5 | 100 | n/a |
 | All other endpoints combined | | 10 | 150 | n/a |
+
+## Enterprise subscription limits
+
+The following Auth0 Management API endpoints return rate limit-related headers. For additional information about these endpoints, please consult the [Management API explorer](/api/management/v2).
+
+| Endpoint | Path | Rate Limit (per second) | Rate Limit (per minute) |
+| - | - | - | - |
+| Read or write users | `GET /api/v2/users` | 40 | 800 |
+| | `POST /api/v2/users` | | |
+| Read logs | `GET /api/v2/logs` | 10 | 200 |
+| | `GET /api/v2/user/{id}/logs` | |
+| Read clients | `GET /api/v2/clients` | 5 | 100 |
+| | `POST /api/v2/clients/{id}` | |
+| Read connections | `GET /api/v2/connections` | 10 | 100 |
+| | `POST /api/v2/connections/{id}` | |
+| Delete device credentials | `DELETE /api/v2/device-credentials/{id}` | 5 | 100 |
+| All other endpoints | | 10 | 150 |
 
 ## Concurrent import users job limits
 

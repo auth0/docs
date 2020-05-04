@@ -18,7 +18,7 @@ Auth0 limits the number of entities you can have depending on your subscription 
 
 ![Entity Limit Reached](/media/articles/policies/entity-limit-reached.png)
 
-## Enterpise, Developer and Developer Pro subscription limits
+## Developer and Developer Pro subscription limits
 
 | Entity | Maximum | 
 | - | - |
