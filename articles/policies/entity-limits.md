@@ -14,9 +14,7 @@ useCase:
 
 Entities in Auth0 are tenant configuration elements such as applications, connections, rules, and API resource servers. 
 
-Auth0 limits the number of entities you can have depending on your subscription level. Auth0 provides notifications to you when you are approaching (90%) and when you have reached (100% or higher) your respective entity limits. We will also provide informative messages to prevent you from attempting to configure entities that would end up being rejected.
-
-Here is an example of a message you would see if you reached your connection limit:
+Auth0 limits the number of entities you can have depending on your subscription level. Auth0 provides notifications to you when you are approaching (90%) and when you have reached your respective entity limits (100% or higher). We will also provide messages to prevent you from attempting to configure entities that would be rejected because they would put you over your limit. Here is an example of a message you would see if you reached your connection limit:
 
 ![Entity Limit Reached](/media/articles/policies/entity-limit-reached.png)
 
