@@ -53,11 +53,23 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
 | Endpoint Group | Path | Rate Limit (per second) | Rate Limit (per minute) |
 | - | - | - | - |
 | Read users | `GET /api/v2/users` | 40 | 500 |
+| | `GET /api/v2/users-by-email` | | |
+| | `GET /api/v2/users/{id}` | | |
 | Write users | `POST /api/v2/users` | 20 | 200 |
+| | `POST /api/v2/users/{id}/identities` | | |
+| | `PATCH /api/v2/users/{id}` | | |
+| | `DELETE /api/v2/users/{id}/users` | | |
+| | `DELETE /api/v2/users/{id}/identities/{provider}/{user_id}` | | |
+| | `DELETE /api/v2/users/{id}` | | |
 | Read logs | `GET /api/v2/logs` | 10 | 100 |
+| | `GET /api/v2/logs/{id}` | | |
+| | `GET /api/v2/users/{id}/logs` | | |
 | Read clients | `GET /api/v2/clients` | 5 | 100 |
+| | `GET /api/v2/clients/{id}` | | |
 | Read connections | `GET /api/v2/connections` | 10 | 100 |
+| | `GET /api/v2/connections/{id}` | | |
 | Write device credentials | `POST /api/v2/device-credentials` | 5 | 100 | 
+| | `DELETE /api/v2/device-credentials/{id}` | | |
 | All other endpoints combined | | 10 | 150 |
 
 ## Endpoint limits for all subscriptions
