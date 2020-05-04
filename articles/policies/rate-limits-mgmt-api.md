@@ -63,7 +63,7 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
 | Write device credentials | `POST /api/v2/device-credentials` | 5 | 100 | 
 | Delete device credentials | `DELETE /api/v2/device-credentials/{id}` | 5 | 100 |
 
-## All subscription limits
+## Endpoint limits for all subscriptions
 
 | Endpoint | Path | Rate Limit (per second) | Rate Limit (per minute) |
 | - | - | - | - |
