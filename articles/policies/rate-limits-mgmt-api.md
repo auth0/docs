@@ -25,6 +25,8 @@ The rate limits for this API differ depending on whether your tenant is free or 
 | Enterprise (Production) | 50 | 1000 |
 | Enterprise (Non-production) | 10 | 120 |
 
+The rate limits include calls made via [Rules](/rules) and are set **by tenant** and not by endpoint.
+
 Each endpoint is configured with a bucket that defines:
 
 -  Request limit
@@ -44,9 +46,9 @@ For some API endpoints, the rate limits are defined per bucket, so the origins o
 If you are using an API endpoint **not** listed below and you receive rate limit headers as part of your response, see [Anomaly Detection](/anomaly-detection) for more information.
 :::
 
-The aforementioned rate limits include calls made via [Rules](/rules) and are set **by tenant** and not by endpoint.
-
 The following Auth0 Management API endpoints return rate limit-related headers. For additional information about these endpoints, please consult the [Management API explorer](/api/management/v2).
+
+## Developer and Developer Pro subscription limits
 
 | Endpoint | Path | Rate Limit (per second) | Rate Limit (per minute) |
 | - | - | - | - |
@@ -60,12 +62,14 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
 | Write connections | `POST /api/v2/connections/{id}` | 10 | 100 |
 | Write device credentials | `POST /api/v2/device-credentials` | 5 | 100 | 
 | Delete device credentials | `DELETE /api/v2/device-credentials/{id}` | 5 | 100 |
+
+## All subscription limits
+
+| Endpoint | Path | Rate Limit (per second) | Rate Limit (per minute) |
+| - | - | - | - |
 | Verify custom domain | `POST /api/v2/custom-domains{id}/verify` | n/a | 5 | 
-| Send test email | `POST /api/v2/email-send-test` | 1 | n/a | 
 | Register dynamic client | `POST /oidc/register` | 5 | n/a | 
-| Create tenant | `POST /api/v2/tenants` | 5 | n/a | n/a |
 | Read connection status | `GET /api/v2/connections/{id}/status` | 15 | n/a | 
-| Create tenant invitation | `POST /api/v2/tenants/invitations` | n/a | 5 | 
 | All other endpoints combined | | 10 | 150 |
 
 ## Rotate signing key limits
