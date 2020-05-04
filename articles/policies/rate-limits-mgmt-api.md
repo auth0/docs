@@ -50,18 +50,14 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
 
 ## Developer and Developer Pro subscription limits
 
-| Endpoint | Path | Rate Limit (per second) | Rate Limit (per minute) |
+| Endpoint Group | Path | Rate Limit (per second) | Rate Limit (per minute) |
 | - | - | - | - |
 | Read users | `GET /api/v2/users` | 40 | 500 |
 | Write users | `POST /api/v2/users` | 20 | 200 |
 | Read logs | `GET /api/v2/logs` | 10 | 100 |
-| Write logs | `GET /api/v2/user/{id}/logs` | 10 | 200|
 | Read clients | `GET /api/v2/clients` | 5 | 100 |
-| Write clients | `POST /api/v2/clients/{id}` | 5 | 100 |
 | Read connections | `GET /api/v2/connections` | 10 | 100 |
-| Write connections | `POST /api/v2/connections/{id}` | 10 | 100 |
 | Write device credentials | `POST /api/v2/device-credentials` | 5 | 100 | 
-| Delete device credentials | `DELETE /api/v2/device-credentials/{id}` | 5 | 100 |
 | All other endpoints combined | | 10 | 150 |
 
 ## Endpoint limits for all subscriptions
