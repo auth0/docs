@@ -69,7 +69,7 @@ You can redirect a user **once** per authentication flow. If you have one rule t
     https://${account.namespace}/continue?state=abc123
     ```
 
-    When a user has been redirected to the `/continue` endpoint, **all rules will be run again.**
+    When a user has been redirected to the `/continue` endpoint, **all rules will be run again**, however, the `context.redirect` will be ignored to allow authentication to continue.
 
 ::: note
 When a user has been redirected from a rule to the `/continue` endpoint, the user object won't be refreshed. So any updates to user account information during the redirect will not be reflected in the user object. For example, metadata updates that occurred during redirect will not be available.
