@@ -2,6 +2,7 @@
 title: Migration to LinkedIn API V2
 description: This article covers the LinkedIn API deprecation and how to update your Auth0 LinkedIn Connection.
 toc: true
+public: false
 contentType:
   - how-to
 useCase:

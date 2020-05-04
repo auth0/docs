@@ -410,12 +410,12 @@ module.exports = [
     to: '/connections/social/microsoft-account'
   },
   {
-    from: '/o365-clientid',
-    to: '/connections/enterprise/o365-deprecated'
-  },
-  {
     from: '/oauth2',
     to: '/connections/social/oauth2'
+  },
+  {
+    from: '/connections/social/auth0-oidc',
+    to: '/connections/enterprise/oidc'
   },
   {
     from: '/paypal-clientid',
@@ -694,7 +694,7 @@ module.exports = [
     to: '/integrations/aws'
   },
   {
-    from: '/lock',
+    from: ['/lock', '/migrations/guides/legacy-lock-api-deprecation'],
     to: '/libraries/lock'
   },
   {
@@ -731,7 +731,7 @@ module.exports = [
   },
   {
     from: '/api/v1',
-    to: '/api/management/v1'
+    to: '/migrations/guides/management-api-v1-v2'
   },
   {
     from: ['/api-reference', '/api/v1/reference'],
@@ -883,6 +883,10 @@ module.exports = [
   {
     from: '/users/references/link-accounts-user-initiated-scenario',
     to: '/users/references/link-accounts-client-side-scenario'
+  },
+  {
+    from: '/users/guides/link-user-accounts-auth-api',
+    to: '/migrations/guides/account-linking'
   },
   {
     from: '/libraries/lock/using-refresh-tokens',
@@ -2450,6 +2454,10 @@ module.exports = [
     {
       from: '/connections/passwordless/faq',
       to: '/connections/passwordless/reference/troubleshoot'
+    },
+    {
+      from: '/migrations/guides/passwordless-start',
+      to: '/connections/passwordless'
     },
     {
       from: '/best-practices/custom-db-connections-scripts',

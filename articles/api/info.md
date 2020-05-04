@@ -22,10 +22,10 @@ Typically, you should consume this API through one of the Auth0 SDKs, such as [A
 
 Some example tasks include:
 
-* getting [tokens](/tokens) during authentication
-* requesting a user's profile using an [Access Token](/tokens/concepts/access-tokens)
-* exchanging [Refresh Tokens](/tokens/concepts/refresh-tokens) for new Access Tokens
-* requesting a challenge for [multi-factor authentication (MFA)](/mfa)
+* Get [tokens](/tokens) during authentication
+* Request a user's profile using an [Access Token](/tokens/concepts/access-tokens)
+* Exchange [Refresh Tokens](/tokens/concepts/refresh-tokens) for new Access Tokens
+* Request a challenge for [multi-factor authentication (MFA)](/mfa)
 
 <div class="api-info-wrapper">
   <div class="block-links">
@@ -53,16 +53,16 @@ Some example tasks include:
   </div>
 </div>
 
-## Management API v2
+## Management API 
 
 The Management API allows you to manage your Auth0 account programmatically, so you can automate configuration of your environment. Most of the tasks you can perform in the Auth0 Management Dashboard can also be performed programmatically by using this API.
 
 Some example tasks include:
 
-* registering your applications and APIs with Auth0
-* setting up [connections](/connections) with which your users can authenticate
-* [managing users](/users)
-* [linking user accounts](/users/guides/link-user-accounts)
+* Register your applications and APIs with Auth0
+* Set up [connections](/connections) with which your users can authenticate
+* [Manage users](/users)
+* [Link user accounts](/users/guides/link-user-accounts)
 
 <div class="api-info-wrapper">
   <div class="block-links">
@@ -90,6 +90,10 @@ Some example tasks include:
   </div>
 </div>
 
-### Management API v1 - DEPRECATED
+### Management API v1 has been deprecated
 
-The Management API v1 is deprecated and should not be used for new projects. If your existing application uses Management API v1, please see the [Management API v1 documentation](/api/management/v1).
+The Management API v1 is deprecated and should not be used for new projects. 
+
+Management API v1 will reach its End of Life on **July 13, 2020**. You may be required to take action before that date to ensure no interruption to your service. See [Migrate from Management API v1 to v2](/migrations/guides/management-api-v1-v2) for details. Notifications have been and will continue to be sent to customers that need to complete this migration.
+
+If your existing application still uses Management API v1, see [Management API v1](/api/management/v1) noting that some endpoints may have limited functionality.

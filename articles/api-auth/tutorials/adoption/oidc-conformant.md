@@ -20,7 +20,7 @@ In order to make the transition to the [OIDC-conformant authentication pipeline]
 The objective of this flag is to disable as many legacy features as possible, so you can run into the OIDC-conformant pipeline's breaking changes at configuration time rather than run time.
 Enabling this flag on an application will have the following effects:
 
-* The following features are deprecated in favor of [silent authentication](/api-auth/tutorials/adoption/implicit):
+* The following features are deprecated:
     - <dfn data-key="refresh-token">Refresh Tokens</dfn> on authentication with the [implicit grant](/api-auth/tutorials/adoption/implicit)
     - /ssodata endpoint and `getSSOData()` method from Lock/auth0.js
 * <dfn data-key="single-sign-on">[Single Sign-on (SSO)](/api-auth/tutorials/adoption/single-sign-on)</dfn> can only be performed from Auth0 login pages.

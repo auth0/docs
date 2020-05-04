@@ -1,7 +1,7 @@
 ---
 title: 'Context' Facebook Field Deprecation
+public: false
 description: Facebook is removing access to the 'social context' field from their profile
-toc: true
 contentType:
   - how-to
 useCase:
