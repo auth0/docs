@@ -37,7 +37,7 @@ Automated Attack Protection works for web and mobile apps that uses Auth0's Univ
 
 ## Keep reading
 
-* [Enable and Disable Automated Attack Protection](/anomaly-detection/guides/enable-disable-automated-attack-protection)
+* [Set Anomaly Detection Preferences](/anomaly-detection/guides/set-anomaly-detection-preferences)
 * [Attack Protection Triggers and Actions](/anomaly-detection/references/attack-protection-triggers-actions)
 * [Customize Blocked Account Emails](/anomaly-detection/guides/customize-blocked-account-emails)
 * [View Anomaly Detection Events](/anomaly-detection/guides/view-anomaly-detection-events)
