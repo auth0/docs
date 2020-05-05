@@ -179,6 +179,8 @@ Typically, account linking will be initiated by an authenticated user. Your app 
 
 ![Sample user profile page](/media/articles/link-accounts/spa-user-settings.png)
 
+You can read more about how to implement user-initiated account linking in a Single Page Application [here](/users/references/link-accounts-client-side-scenario).
+
 ### Suggested account linking
 
 You can find accounts with the same email, and prompt the users to link them. For example, a user can create an account with Google with the user@gmail.com, and then login with Facebook, with an account linked to the same email. 
@@ -187,7 +189,9 @@ If that's the case, you can show users the list of accounts so they can link the
 
 You can also use the [Account Link Extension](/articles/extensions/account-link) to achieve the same outcome. 
 
-![Sample linking suggestion](/media/articles/link-accounts/regular-web-app-suggest-linking.png)
+![Suggested Account Linking](/media/articles/link-accounts/account-linking-webapp-small.png)
+
+You can read more about how to implement user-initiated account linking in a Single Page Application [here](/users/references/link-accounts-server-side-scenario).
 
 <%= include('../_includes/_account-linking-id-tokens.md') %>
 
@@ -196,5 +200,5 @@ You can also use the [Account Link Extension](/articles/extensions/account-link)
 * [Link User Accounts](/users/guides/link-user-accounts)
 * [Unlink User Accounts](/users/guides/unlink-user-accounts)
 * [Account Link Extension](/extensions/account-link)
-* [User initiated account linking](/users/references/link-accounts-client-side-scenario)
-* [Suggested account linking](/users/references/link-accounts-server-side-scenario)
+* [Suggested Account Linking - Server-Side Implementation](/users/references/link-accounts-server-side-scenario)
+* [User Initiated Account Linking - Client-Side Implementation](/users/references/link-accounts-client-side-scenario)

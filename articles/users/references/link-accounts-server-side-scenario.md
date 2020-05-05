@@ -79,8 +79,7 @@ router.get("/", async (req, res) => {
 
     If the user wants to link a given account, they can click **Link** next to the appropriate account.
 
-![SPA User Settings Example](/media/articles/link-accounts/account-linking-webapp-small.png)
-
+![WebApp User Settings Example](/media/articles/link-accounts/account-linking-webapp-small.png)
 
 4. When the user clicks **Link**, your application will ask the user to authenticate with the target account, and then perform account linking. 
 
