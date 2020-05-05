@@ -77,13 +77,13 @@ Use a consistent data type each time you create or update a given metadata field
 
 ## Metadata storage and size limits
 
-* Both `app_metadata` and `user_metadata` are together limited to a size of 16 MB total. Metadata storage is not designed to be a general purpose data store, and you should still use your own external storage facility when possible. When using Rules and/or the Management Dashboard, your metadata limits may be lower.
+* Both `app_metadata` and `user_metadata` are together limited to a size of 16 MB total per user. Metadata storage is not designed to be a general purpose data store, and you should still use your own external storage facility when possible. When using Rules and/or the Management Dashboard, your metadata limits may be lower.
 
 * When setting the `user_metadata` field using the [Authentication API's Signup endpoint](/api/authentication?javascript#signup), you are limited to a maximum of 10 `String` fields and 500 characters. For an example of working with metadata during a custom signup process, see [Custom Signup > Using the API](/libraries/custom-signup#using-the-api).
 
 ## Customize emails with metadata
 
-Store any information that you want use to customize Auth0 emails in metadata and preferably `user_metadata` if the user is allowed to change it, such as information used to determine the language for an email.
+Store any information that you want to use to customize Auth0 emails in metadata. Use `user_metadata` if the user is allowed to change the field's value, such as information used to determine the language for an email.
 
 ## App metadata restrictions
 
