@@ -1357,6 +1357,7 @@ articles:
 
           - title: "What's New"
             url: "/extensions/deploy-cli/references/whats-new"
+            hidden: true 
 
           - title: "Troubleshoot Deploy CLI"
             url: "/extensions/deploy-cli/references/troubleshooting"

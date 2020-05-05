@@ -75,6 +75,7 @@ The [Auth0 AD/LDAP Connector Health Monitor](/extensions/adldap-connector) exten
 Please upgrade to the latest version of the extension before disabling API v1 support.
 
 ## Keep reading
-* [Complete list of breaking changes](/api/management/v2/changes)
+
+* [Complete list of changes](/api/management/v2/changes)
 * [Management APIv1 documentation](/api/management/v1)
 * [Management APIv2 documentation](/api/management/v2)
