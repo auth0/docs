@@ -12,7 +12,7 @@ useCase: manage-users
 ---
 # Verified Email Usage
 
-The `email_verified` field of a user profile indicates if the user has verified their email address. Valid emails are required for things such as communications to users, password resets/recovery, and passwordless magic links.
+The `email_verified` field of a user profile indicates whether the user has verified their email address. Email verification is optional, but valid email addresses are required for certain actions, such as sending email communications, password reset/recovery links, and passwordless magic links to users.
 
 An email is usually verified immediately after the user account is created or when the user logs in to the application for the first time. It's a good way to know that the person signing up actually owns the email at that moment. 
 
