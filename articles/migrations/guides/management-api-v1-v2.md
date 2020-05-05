@@ -18,7 +18,7 @@ Auth0’s Management API v1 was deprecated in 2016 and replaced with the [Auth0 
 Affected tenants are those who meet all of the following criteria:
 
 * Created before January 2, 2020
-* Actively making requests to Auth0 endpoints directly under the `/api/` path.
+* Actively making requests to Auth0 endpoints directly under the `/api/` path from your application.
 
 The following tenants are NOT affected:
 
@@ -73,6 +73,13 @@ If you need help with the migration, contact us using the [Support Center](https
 The [Auth0 AD/LDAP Connector Health Monitor](/extensions/adldap-connector) extension v1 uses the API v1 `GET /api/connections/{connection-name}` and `GET /api/connections/{connection-name}/socket` endpoints.
 
 Please upgrade to the latest version of the extension before disabling API v1 support.
+
+## SharePoint Integration Custom Claims Provider
+
+The Custom Claims Provider of the [Auth0 SharePoint Integration](https://auth0.com/docs/integrations/sharepoint) leverages three API v1 endpoints : `/api/enterpriseconnections/users`, `/api/socialconnections/users`, and `/api/connections`
+
+- If called from the SharePoint integration these endpoints will continue to work after the API v1 End of Life date. You may continue see `depnote` tenant logs for this activity. If the client_id in the tenant log is a SharePoint application, you can disregard this warning. 
+- If you are calling these end points directly from your code, you will need to migrate those calls off of API v1.
 
 ## Keep reading
 
