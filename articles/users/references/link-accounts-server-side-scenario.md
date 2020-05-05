@@ -67,7 +67,7 @@ router.get("/", async (req, res) => {
          url: `${process.env.ISSUER_BASE_URL}/api/v2/users`,
          qs: {
            search_engine: "v3",
-           q: `email:"${email}" AND email_verified:true -user_id:"${sub}"`,
+           q: `email:"<%= "${email}" %>" AND email_verified:true -user_id:"<%= "${sub}" %>"`,
         } ,
       });
     }

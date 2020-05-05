@@ -55,15 +55,15 @@ You can find the full source of this sample application [on GitHub](https://gith
 
   if (!email_verified) {
     throw new Error(
-      `Account linking is only allowed to a verified account. Please verify your email ${email}.`
+      `Account linking is only allowed to a verified account. Please verify your email <%= "${email}" %>.`
     );
   }
 
-  await fetch(`https://${config.domain}/api/v2/users/${sub}/identities`, {
+  await fetch(`https://${config.domain}/api/v2/users/<%= "${sub}" %>/identities`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${accessToken}`,
+      Authorization: `Bearer <%= "${accessToken}" %>`,
     },
     body: JSON.stringify({
       link_with: targetUserIdToken,
