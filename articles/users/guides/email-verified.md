@@ -16,7 +16,7 @@ The `email_verified` field of a user profile indicates whether the user has veri
 
 An email is usually verified immediately after the user account is created or when the user logs in to the application for the first time. It's a good way to know that the person signing up actually owns the email at that moment. 
 
-Since email verification happens at that specific moment, later on we can't ensure the person logged in with the account still owns the email address. 
+Since email verification happens once at that specific moment, we can't ensure that a person who logs in with the user account at a later time still owns the email address that was verified. 
 
 In case of federated identity providers, they sometimes report if the user has a verified email, and based on that, Auth0 sets the `email_verified` field in the user profile. This, however, transfers the responsibility to the identity provider to do it properly - something we can't ensure. We also don't know if the verified email from that provider is still owned by the user.
  
