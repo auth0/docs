@@ -86,7 +86,7 @@ When using [Custom DB Connections](/connections/database/custom-db):
 
 ## Branding
 
-- You can configure the favicon URL and a custom font URL by using [the Branding API](/api/management/v2#!/Branding/get_branding).
+- You can configure the favicon URL and a custom logo URL by using [the Branding API](/api/management/v2#!/Branding/get_branding).
 
 ## Implement Universal Login
 
