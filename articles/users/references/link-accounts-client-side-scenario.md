@@ -1,5 +1,5 @@
 ---
-title: Link User Accounts Client-Side Code Scenario
+title: User Initiated Account Linking - Client-Side Implementation
 description: Learn how to provide a client-side UI that allows users to authenticate to their other accounts and link these to their primary account using a SPA.
 crews: crew-2
 topics:

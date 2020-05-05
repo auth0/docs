@@ -1,5 +1,5 @@
 ---
-title: Link User Accounts Server-Side Code Scenario
+title: Suggested Account Linking - Server-Side Implementation
 description: Describes how to link user accounts with a regular web app using server-side code using a sample scenario.
 crews: crew-2
 topics:
@@ -27,7 +27,7 @@ You can find the full source of this sample application [here](https://github.co
 
 ```js
 router.get("/", async (req, res) => {
-  x`st { sub, email_verified } = req.openid.user;
+  const { sub, email_verified } = req.openid.user;
   //fetch user profile containing the user_metadata and app_metadata properties
   try {
     let getUsersWithSameVerifiedEmail = [];
@@ -64,7 +64,7 @@ router.get("/", async (req, res) => {
     ...
     async getUsersWithSameVerifiedEmail({ sub, email }) {
       return await this.request({
-        url: `${process.env.ISSUER_BASE_URL}/api/v2/users`,
+        url: `${process.env.ISSUER_BASE_URL}/api/v2/x`x``users`,
         qs: {
           search_engine: "v3",
           q: `email:"<%= "${email}" %>" AND email_verified:true -user_id:"<%= "${sub}" %>"`,
