@@ -59,7 +59,7 @@ You can find the full source of this sample application [on GitHub](https://gith
     );
   }
 
-  await fetch(`https://${config.domain}/api/v2/users/<%= "${sub}" %>/identities`, {
+  await fetch(`https://${account.namespace}/api/v2/users/<%= "${sub}" %>/identities`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
