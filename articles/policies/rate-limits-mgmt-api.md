@@ -12,7 +12,7 @@ useCase:
 ---
 # Management API Endpoint Rate Limits
 
-**This policy is effective May 19, 2020. **
+**This policy is effective May 19, 2020.**
 
 ::: warning
 If you subscribed before **May 19, 2020**, the [previous rate limit policy](/policies/legacy-rate-limits) applies to you until **June 18, 2020**. Starting on **June 18, 2020**, these limits will apply to all tenants. You will be notified of the new limits through a **Dashboard Notification**. If the new limits impact your tenant, you will be notified directly via email with additional information about minimizing API calls and upgrading plans.
