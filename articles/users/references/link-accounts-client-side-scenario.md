@@ -1,5 +1,5 @@
 ---
-title: Link User Accounts Client-Side Code Scenario
+title: User Initiated Account Linking - Client-Side Implementation
 description: Learn how to provide a client-side UI that allows users to authenticate to their other accounts and link these to their primary account using a SPA.
 crews: crew-2
 topics:
@@ -55,15 +55,15 @@ You can find the full source of this sample application [on GitHub](https://gith
 
   if (!email_verified) {
     throw new Error(
-      `Account linking is only allowed to a verified account. Please verify your email ${email}.`
+      `Account linking is only allowed to a verified account. Please verify your email <%= "${email}" %>.`
     );
   }
 
-  await fetch(`https://${config.domain}/api/v2/users/${sub}/identities`, {
+  await fetch(`https://${account.namespace}/api/v2/users/<%= "${sub}" %>/identities`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${accessToken}`,
+      Authorization: `Bearer <%= "${accessToken}" %>`,
     },
     body: JSON.stringify({
       link_with: targetUserIdToken,
