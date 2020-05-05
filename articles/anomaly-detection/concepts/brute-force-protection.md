@@ -30,7 +30,7 @@ Both brute-force protection depends on the IP address of the user. Because of th
 ## Keep reading
 
 * [Set Anomaly Detection Preferences](/anomaly-detection/guides/set-anomaly-detection-preferences)
-* [Credential Stuffing Attack Protection](/anomaly-detection/concepts/credential-stuffing)
+* [Automated Attack and Credential Stuffing Protection](/anomaly-detection/concepts/credential-stuffing)
 * [Attack Protection Triggers and Actions](/anomaly-detection/references/attack-protection-triggers-actions)
 * [Customize Blocked Account Emails](/anomaly-detection/guides/customize-blocked-account-emails)
 * [View Anomaly Detection Events](/anomaly-detection/guides/view-anomaly-detection-events)

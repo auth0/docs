@@ -33,7 +33,4 @@ You can [create reports using tenant traffic data to see anomaly detection event
 ## Keep reading
 
 * [Set Anomaly Detection Preferences](/anomaly-detection/guides/set-anomaly-detection-preferences)
-* [Brute Force Protection](/anomaly-detection/concepts/brute-force-protection)
-* [Breached Password Detection](/anomaly-detection/concepts/breached-passwords)
-* [Credential Stuffing Attack Protection](/anomaly-detection/concepts/credential-stuffing)
 * [Attack Protection Triggers and Actions](/anomaly-detection/references/attack-protection-triggers-actions)

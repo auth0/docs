@@ -75,6 +75,7 @@ Set preferences for [breached password](/anomaly-detection/concepts/breached-pas
 
 ## Keep reading
 
+* [Automated Attack and Credential Stuffing Protection](/anomaly-detection/concepts/credential-stuffing)
 * [Attack Protection Triggers and Actions](/anomaly-detection/references/attack-protection-triggers-actions)
 * [Customize Blocked Account Emails](/anomaly-detection/guides/customize-blocked-account-emails)
 * [View Anomaly Detection Events](/anomaly-detection/guides/view-anomaly-detection-events)

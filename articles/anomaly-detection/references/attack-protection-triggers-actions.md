@@ -96,7 +96,7 @@ This block remains in place until the user changes their password.
 ## Keep reading
 
 * [Set Anomaly Detection Preferences](/anomaly-detection/guides/set-anomaly-detection-preferences)
-* [Credential Stuffing Attack Protection](/anomaly-detection/concepts/credential-stuffing)
+* [Automated Attack and Credential Stuffing Protection](/anomaly-detection/concepts/credential-stuffing)
 * [Breached Password Detection](/anomaly-detection/concepts/breached-passwords)
 * [Brute-force Protection](/anomaly-detection/concepts/brute-force-protection)
 * [Customize Blocked Account Emails](/anomaly-detection/guides/customize-blocked-account-emails)
