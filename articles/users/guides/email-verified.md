@@ -19,7 +19,7 @@ An email is usually verified immediately after the user account is created or wh
 Since email verification happens at that specific moment, later on we can't ensure the person logged in with the account still owns the email address. 
 
 In case of federated identity providers, they sometimes report if the user has a verified email, and based on that, Auth0 sets the `email_verified` field in the user profile. This, however, transfers the responsibility to the identity provider to do it properly - something we can't ensure. We also don't know if the verified email from that provider is still owned by the user.
-
+ 
 For all of these reasons, we need to be careful on what we can assume based on a verified email.
 
 ## Verified Emails and Account Linking
@@ -43,7 +43,17 @@ On the other hand, we recommend you to still check for the `email_verified` fiel
 
 ## Verified Emails and Authorization Decisions
 
-You **should not use the email's domain to make authorization decisions**. If you need to check if the user belongs to a specific organization, it's better to rely on the connection they used to authenticate, or in connection-specific attributes like the Azure AD's tenant id.
+In the same way you can't fully trust the email, you can't fully trust the email domain. 
+
+If your application needs to restrict access based on the user's employer, the fact that a user is logged in with an email from a specific corporate domain does not guarantee that it should be granted access.
+
+For example:
+
+- If your application allows customers to signup for new accounts, and employees from different companies authenticate using their corporate credentials, a user that signs up with an user@acme.com account shouldn't be granted access to the same feature set that a user authenticating with acme.com's corporate directory.
+
+- If your application supports authenticating with Azure AD, and the directory supports guests users, you can get users from any domain logging-in from that Azure AD tenant. You might want to give guest users the same access level than the rest of the users authenticating with that tenant.
+
+As a general recommendation, **you should not use the email's domain to make authorization decisions**. If you need to check if the user belongs to a specific organization, it's better to rely on the connection they used to authenticate, or in connection-specific attributes like the Azure AD's tenant id.
 
 ## Keep reading
 
