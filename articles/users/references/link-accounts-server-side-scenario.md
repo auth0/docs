@@ -27,13 +27,13 @@ You can find the full source of this sample application [here](https://github.co
 
 ```js
 router.get("/", async (req, res) => {
-  const { sub, email_verified } = req.openid.user;
+  x`st { sub, email_verified } = req.openid.user;
   //fetch user profile containing the user_metadata and app_metadata properties
   try {
     let getUsersWithSameVerifiedEmail = [];
     const getUserProfile = auth0Client.getUser(sub);
     if (email_verified)
-      // account linking is only offered verified email
+      // account linking isx only offered verified email
       getUsersWithSameVerifiedEmail = auth0Client.getUsersWithSameVerifiedEmail(
         req.openid.user
       );
@@ -58,20 +58,20 @@ router.get("/", async (req, res) => {
 
   To get a list of all of the user records with the same email address, your application calls the Auth0 Management API's [Get Users By Email endpoint](/api/v2#!/users-by-email/) using a [Management API Access Token](/api/management/v2/tokens) with the `read:users` scope.
 
-    ```js
-    const request = require('request');
-    class Auth0Client {
-      ...
-      async getUsersWithSameVerifiedEmail({ sub, email }) {
-       return await this.request({
-         url: `${process.env.ISSUER_BASE_URL}/api/v2/users`,
-         qs: {
-           search_engine: "v3",
-           q: `email:"<%= "${email}" %>" AND email_verified:true -user_id:"<%= "${sub}" %>"`,
-        } ,
-      });
-    }
-    ```
+  ```js
+  const request = require('request');
+  class Auth0Client {
+    ...
+    async getUsersWithSameVerifiedEmail({ sub, email }) {
+      return await this.request({
+        url: `${process.env.ISSUER_BASE_URL}/api/v2/users`,
+        qs: {
+          search_engine: "v3",
+          q: `email:"<%= "${email}" %>" AND email_verified:true -user_id:"<%= "${sub}" %>"`,
+      } ,
+    });
+  }
+  ```
 
 3. Prompt the user to link accounts. 
 
@@ -125,7 +125,7 @@ router.get("/", async (req, res) => {
       next();
     }
   }
-```
+  ```
 
 5. Your application calls the Auth0 Management API's [Link a User Account endpoint](/api/v2#!/Users/post_identities) using a [Management API Access Token](/api/management/v2/tokens) with the `update:users` scope.
 
