@@ -15,7 +15,7 @@ useCase:
 
 Auth0 supports the linking of user accounts from various identity providers. You can use server-side code to link accounts on a regular web application, engaging the user and asking them for permission before proceeding. Your code will authenticate users and search for and identify users using their email addresses. Your application will then prompt the user to link their accounts by authenticating with the target account's credentials, and later link the accounts.
 
-You can find the full source of this sample application [here](https://github.com/auth0-samples/auth0-link-accounts-sample/tree/master/RegularWebApp).
+You can find the full source of this sample application [on GitHub](https://github.com/auth0-samples/auth0-link-accounts-sample/tree/master/RegularWebApp).
 
 1. Log the user in to your application.
 
