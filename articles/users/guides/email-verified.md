@@ -30,7 +30,7 @@ You **should not automatically link accounts based on the user's emails**. Alway
 
 - John Doe, an employee of Travel0, signs up to a site using his corporate email `john.doe@travel0.com` and a password. Months later, John Doe leaves Travel0, and a new John Doe is hired, with the same email account. That person goes to the same website, and authenticates with his corporate identity provider (e.g. GSuite), and gets the account automatically linked to the other user.
 
-- Federated identity providers can make mistakes on how they handle email verification, and can report that users owns an email they do not. 
+- Federated identity providers can make mistakes on how they handle email verification, and can report that users own an email they do not. 
 
 On the other hand, we recommend you to still check for the `email_verified` field *before* performing account linking, to mitigate scenarios like:
 
