@@ -15,9 +15,9 @@ useCase:
 
 Auth0 supports the linking of user accounts from various identity providers. One way to implement this functionality is to enable the user to explicitly link accounts. In this scenario, the user authenticates through the UI of your Single Page Application (SPA) and can later use a link or button to link another account to the first one. When the user clicks on this link/button, your application makes a call so that when the user logs in with the second provider, the second account is linked with the first.
 
-When calling account linking, you can select which identity to use as the primary account and which to use as the secondary. This choice depends on which set of attributes you want to retain in the primary profile.
+When you initiate account linking, you can select which identity to use as the primary account and which to use as the secondary. This choice depends on which set of attributes you want to retain in the primary profile, as you will only retain the attributes from the primary account.
 
-You can find the full source of this sample application [here](https://github.com/auth0-samples/auth0-link-accounts-sample/tree/master/SPA).
+You can find the full source of this sample application [on GitHub](https://github.com/auth0-samples/auth0-link-accounts-sample/tree/master/SPA).
 
 1. Log the user in to your application. 
 
@@ -29,7 +29,7 @@ You can find the full source of this sample application [here](https://github.co
 
     ![SPA User Settings Example](/media/articles/link-accounts/account-linking-spa.png)
 
-    When the user clicks on the **Link Account** button, your app redirects the user to the Universal Login page, when they login with the connection they want to link to. After successful authentication, use the obtained token to link the accounts.
+    When the user clicks on the **Link Account** button, your app redirects the user to the Universal Login page, when they log in with the connection they want to link to. After successful authentication, use the obtained token to link the accounts.
 
     You could also add a button for each connection (e.g. 'Link Facebook Account', 'Link Google Account') and redirect the user to `/authorize` with the `connection` parameter set (e.g. `/authorize?connection=facebook`).
 
@@ -38,7 +38,7 @@ You can find the full source of this sample application [here](https://github.co
     ::: warning
     To retain and merge the `user_metadata` from the secondary account, you must retrieve and merge it into the metadata for the primary account before calling the API endpoint. After the accounts are linked, the metadata for the secondary account is discarded. 
     
-    When calling account linking, you can select which identity will be used as the primary account and which as the secondary. This choice will depend on which set of attributes you want to retain in the primary profile.
+    When you initiate account linking, you can select which identity will be used as the primary account and which as the secondary. This choice will depend on which set of attributes you want to retain in the primary profile.
     :::
 
     In the `linkAccount` function, call the Management API. Authenticate with the API using the primary JWT, which is the Access Token, and link using the primary user's ID and the secondary JWT, which is the secondary user's ID Token.
@@ -80,4 +80,3 @@ You can find the full source of this sample application [here](https://github.co
 * [Link User Accounts](/users/guides/link-user-accounts)
 * [Unlink User Accounts](/users/guides/unlink-user-accounts)
 * [Suggested Account Linking - Server-Side Implementation](/users/references/link-accounts-server-side-scenario)
-
