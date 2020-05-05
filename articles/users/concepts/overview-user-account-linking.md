@@ -179,19 +179,19 @@ Typically, account linking will be initiated by an authenticated user. Your app 
 
 ![Sample user profile page](/media/articles/link-accounts/spa-user-settings.png)
 
-You can read more about how to implement user-initiated account linking in a Single Page Application [here](/users/references/link-accounts-client-side-scenario).
+You can read more about how to implement user-initiated account linking in a Single Page Application in the [Client-Side Account Linking](/users/references/link-accounts-client-side-scenario) article.
 
 ### Suggested account linking
 
-You can find accounts with the same email, and prompt the users to link them. For example, a user can create an account with Google with the user@gmail.com, and then login with Facebook, with an account linked to the same email. 
+You can find accounts with the same email, and prompt the users to link them. For example, a user can create an account with Google with the user@gmail.com, and then log in with Facebook, with an account linked to the same email. 
 
-If that's the case, you can show users the list of accounts so they can link them, by first authenticating with the account they'll be linking to.
+If that occurs, you can show users the list of available accounts so they can link them, by first authenticating with the account they will be linking to.
 
 You can also use the [Account Link Extension](/articles/extensions/account-link) to achieve the same outcome. 
 
 ![Suggested Account Linking](/media/articles/link-accounts/account-linking-webapp-small.png)
 
-You can read more about how to implement user-initiated account linking in a Single Page Application [here](/users/references/link-accounts-server-side-scenario).
+You can read more about how to implement user-initiated account linking in a Single Page Application in the [Server-Side Account Linking](/users/references/link-accounts-server-side-scenario) article.
 
 <%= include('../_includes/_account-linking-id-tokens.md') %>
 
