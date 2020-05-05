@@ -29,18 +29,15 @@ Automated attack protection protects against [credential stuffing attacks](/anom
 Auth0 strongly recommends that you **do not** disable **Automated Attack Protection**, however if you do, you can enable it in the [Dashboard](${manage_url}/#/anomaly).
 ::: 
 
-**Automated Attack Protection** works in the following ways depending on the Auth0 login option you choose:
+1. Click on the **Automated Attack Protection** shield.
 
-| Flow | Limitation | 
-| -- | -- |
-| New Universal Login | Works automatically (if enabled which is the default). |
-| Classic Universal Login (Lock) | Works with Lock v11.20 or higher. |
-| Classic Universal Login (auth0.js) | Works automatically. |
-| `/oauth/token` | Returns an error message "Suspicious request requires validation" when an error code `requires_validation` occurs. You may need to modify your app to accommodate this error case. |
+![Automated Attack Protection Shield]()
 
-::: note
-This protection type does **not** work with Embedded Login. 
-:::
+2. step
+
+3. step
+
+4. Click **Save**. 
 
 ## Brute-force Protection preferences
 

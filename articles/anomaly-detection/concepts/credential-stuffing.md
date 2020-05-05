@@ -11,8 +11,6 @@ useCase: anomaly-detection
 
 Credential stuffing attacks (or *list validation attacks*) occur when bad actors automate the process of trying username and password combinations (usually stolen from another site) for many accounts in a short period of time.  According to recent statistics, as many as 71% of accounts use the same password across multiple sites so a credential stuffing attack has the potential to successfully log into your system.  
 
-At Auth0, credential stuffing attacks account for, on average, nearly half of all login attempts using our platform. 
-
 Use **Automated Attack Protection** to provide a standard level of protection against credential stuffing attacks that does not add any friction to legitimate users. This protection is enabled by default for all connections.  
 
 ::: panel Credential Stuffing Attacks: What Are They and How to Combat Them
@@ -21,13 +19,13 @@ Download this free [whitepaper](https://auth0.com/resources/whitepapers/credenti
 
 ## How it works
 
-Auth0 uses a large amount of data to identify patterns that signal that a credential stuffing attack is taking place. Auth0 uses sophisticated algorithms to determine when bursts of traffic are likely to be from a bot or script. Users attempting to sign in from IPs which are determined to have a high likelihood of being a credential stuffing attack will see a CAPTCHA step. The algorithms are designed so that this only happens for bad traffic; the objective is to not show any friction to legitimate users.
+Auth0 uses a large amount of data to identify patterns that signal that a credential stuffing attack is taking place. Auth0 uses data algorithms to determine when bursts of traffic are likely to be from a bot or script. Users attempting to sign in from IPs which are determined to have a high likelihood of being a credential stuffing attack will see a CAPTCHA step. The algorithms are designed so that this only happens for bad traffic; the objective is to not show any friction to legitimate users.
 
 ![CAPTCHA Login Screen Example](/media/articles/anomaly-detection/captcha-login-screen.png)
 
 ## Restrictions and limitations
 
-Automated Attack Protection works for web and mobile apps only on the authentication flows (not signup, not account recovery). This protection works on most authentication flows but not all.
+Automated Attack Protection works for web and mobile apps that uses Auth0's Universal Login. This feature is not supported in the sign up or account recovery flows. This protection works on most authentication flows but not all.
 
 | Flow | Limitation | 
 | -- | -- |

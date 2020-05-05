@@ -64,9 +64,11 @@ Here's an example of what that data might look like.
 
 ## Number of IPs producing errors and their location
 
-Look for a high number of IPs from locales that do not make sense. For example: Do you expect traffic from 10,000 IPs from Russia every day?
+Look for a high number of IPs from locales that do not make sense. For example: Do you expect traffic from 10,000 IPs from Russia every day? Observe `ip` addresses in conjunction with `fu` event traffic to determine where the failure traffic is coming from.  
 
-Observe `ip` addresses in conjunction with `fu` event traffic to determine where the failure traffic is coming from.  
+::: note
+IP geolocation data isn't available in the tenant logs unless you're able to enrich it from another location. The IP locale is only  available from Kibana where the logs are already enriched with the information. 
+:::
 
 Here's an example of what that data might look like.
 
@@ -74,7 +76,7 @@ Here's an example of what that data might look like.
 
 ## Keep reading
 
-* [Log Event Data](/logs/references/log-events-data)
+* [Log Event Type Codes](/logs/references/log-event-type-codes)
 * [Log Search Query Syntax](/logs/references/query-syntax)
 * [Export Log Data to External Services](/extensions#Monitor)
 * [Retrieve Logs Using the Management API](/logs/guides/retrieve-logs-mgmt-api)
