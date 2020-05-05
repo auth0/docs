@@ -187,7 +187,7 @@ You can find accounts with the same email, and prompt the users to link them. Fo
 
 If that occurs, you can show users the list of available accounts so they can link them, by first authenticating with the account they will be linking to.
 
-You can also use the [Account Link Extension](/articles/extensions/account-link) to achieve the same outcome. 
+You can also use the [Account Link Extension](/extensions/account-link) to achieve the same outcome. 
 
 ![Suggested Account Linking](/media/articles/link-accounts/account-linking-webapp-small.png)
 
