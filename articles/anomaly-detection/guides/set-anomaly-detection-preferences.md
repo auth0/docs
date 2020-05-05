@@ -21,7 +21,7 @@ Auth0 recommends that you **do not** make changes to your anomaly detection feat
 
 ![Anomaly Detection Dashboard](/media/articles/anomaly-detection/anomaly-detection-overview.png)
 
-## Automated Attack Protection 
+## Automated Attack Protection preferences
 
 Automated attack protection protects against [credential stuffing attacks](/anomaly-detection/concepts/credential-stuffing). It is enabled by default for all connections. It provides a basic level of protection against certain attacks that does not add any friction to legitimate users. When such an attack is detected, it displays a CAPTCHA step in the login experience to eliminate bot and scripted traffic.
 
