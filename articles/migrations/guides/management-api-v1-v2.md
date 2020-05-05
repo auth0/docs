@@ -24,7 +24,7 @@ The following tenants are NOT affected:
 
 * Created after January 2, 2020
 * Exclusively using the Auth0 Management API v2 endpoints
-* Using the Authentication API exclusively. (The Authentication API is not affected by this deprecation.)
+* Using the Authentication API exclusively, the Authentication API is not affected by this deprecation.
 
 ## How can I check to see if I've migrated all my requests?
 
@@ -33,6 +33,14 @@ Deprecation Notices will be recorded in your Tenant Logs for requests that will 
 ```
 type:depnote AND description:*APIv1*
 ```
+
+::: note
+**Private Cloud Customers**
+
+- You must be running release [2003](https://auth0.com/releases/2003) or later to see Deprecation Notices.
+
+- Searching by `description` is not currently supported in the tenant logs available in the Dashboard. If you [export your logs to an external service](/extensions#logs-export) you can leverage it to query for APIv1 Deprecation Notices.
+:::
 
 ![Management API Version 1 Log Query](/media/articles/migrations/apiv1-log-query.png)
 
