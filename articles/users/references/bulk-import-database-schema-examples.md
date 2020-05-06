@@ -404,7 +404,7 @@ The `user.mfa_factors` array contains [MFA enrollments](/mfa) for the user. Impo
 | `email` | object | &nbsp; |
 | `email.value` | string | The email address for MFA. |
 | `phone` | object | &nbsp; |
-| `phone.value` | string | The phone number for SMS MFA. Must have a country code and begin with `+`, such as: `"+1 (212) 555-0001"` |
+| `phone.value` | string | The phone number for SMS MFA. Must have a country code and begin with `+`, such as: `"+12125550001"` |
 | `totp` | object | &nbsp; |
 | `totp.secret` | string | The OTP secret for MFA authentication with authenticator apps (Google Authenticator, Microsoft Authenticator, Authy, 1Password, LastPass). Must be in un-padded Base32 encoding, for example: `"JBTWY3DPEHPK3PNP"` |
 
@@ -555,7 +555,7 @@ Some examples of users with MFA factors:
             },
             {
                 "phone": {
-                    "value": "+1 (555) 111 2233"
+                    "value": "+15551112233"
                 }
             },
             {
@@ -580,7 +580,7 @@ Some examples of users with MFA factors:
         "mfa_factors": [
             {
                 "phone": {
-                    "value": "+1 (555) 123 4567"
+                    "value": "+15551234567"
                 }
             },
         ]
