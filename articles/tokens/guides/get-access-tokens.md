@@ -31,7 +31,7 @@ You may configure your tenant to always include a [default audience](/dashboard/
 | Your own custom API | [JWT](/tokens/concepts/jwts) | The API Identifier for your custom API registered in the Auth0 Dashboard |  |
 
 ::: panel Multiple Audiences
-In only one specific instance, Access Tokens can have multiple target audiences as long as your custom API's [signing algorithm](/tokens/concepts/signing-algorithms) is set to **RS256**. 
+In only one specific instance, Access Tokens can have multiple target audiences. This requires that your custom API's [signing algorithm](/tokens/concepts/signing-algorithms) is set to **RS256**. 
 
 If you specify an `audience` of your custom API identifier and a `scope` of `openid`, then the resulting Access Token's `aud` claim will be an array rather than a string, and the Access Token will be valid for both your custom API and for the `/userinfo` endpoint. Other than in the use case of a single custom API as well as Auth0's `/userinfo` endpoint, your Access Tokens will be unable to have two or more audiences.
 :::
@@ -46,7 +46,7 @@ For an Access Token with the target audience of the [Auth0 Management API](/api/
 
 By default, an Access Token for a Custom API is valid for 86400 seconds (24 hours). If there are security concerns, you can [shorten the time period before the token expires](/dashboard/guides/apis/update-token-lifetime). 
 
-After an Access Token has expired, you may want to renew your Access Token. To renew the Access Token, you can either reauthenticate the user using Auth0, or use a <dfn data-key="refresh-token">[Refresh Tokens](/tokens/concepts/refresh-tokens)</dfn>.
+After an Access Token has expired, you may want to renew your Access Token. To renew the Access Token, you can either reauthenticate the user using Auth0 or use a <dfn data-key="refresh-token">[Refresh Token](/tokens/concepts/refresh-tokens)</dfn>.
 
 ## Keep reading
 
