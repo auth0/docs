@@ -44,7 +44,7 @@ The schema applies to MFA factors for both of the aforementioned workflows.
                 "properties": {
                 "value": {
                     "type": "string",
-                    "pattern": "^\\+[0-9-()\\s]{8,}$",
+                    "pattern": "^\\+[0-9]{1,15}$",
                     "description": "The phone number for SMS MFA. The phone number should include a country code and begin with +, such as: +12125550001"
                 },
                 },
