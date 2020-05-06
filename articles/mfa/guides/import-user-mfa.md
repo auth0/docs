@@ -101,7 +101,7 @@ When using the `upsert` option, any non-MFA related updates to existing users wi
         },
         {
           "phone": {
-            "value": "+1 (555) 111 2233"
+            "value": "+15551112233"
           }
         },
         {

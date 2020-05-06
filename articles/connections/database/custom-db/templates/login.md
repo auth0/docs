@@ -56,7 +56,7 @@ Additionally, you can also provide metadata for a user as part of the user profi
     "mfa_factors": [
       {
         "phone": {
-          "value": "+1 (555) 123 4567"
+          "value": "+15551234567"
         }
       },
     ]

@@ -182,8 +182,8 @@ The following [JSON schema](http://json-schema.org) describes valid users:
                         "properties": {
                         "value": {
                             "type": "string",
-                            "pattern": "^\\+[0-9-()\\s]{8,}$",
-                            "description": "The phone number for SMS MFA. The phone number should include a country code and begin with +, such as: +1 (212) 555-0001"
+                            "pattern": "^\\+[0-9]{1,15}$",
+                            "description": "The phone number for SMS MFA. The phone number should include a country code and begin with +, such as: +12125550001"
                         },
                         },
                         "additionalProperties": false,
