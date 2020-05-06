@@ -29,7 +29,7 @@ If you need to reset an admin's MFA as opposed to an end user's MFA, please cont
 
 5. There will be a pop up box to confirm your decision.  Click **YES, RESET IT** to reset the user's MFA.
 
-The next time the user logs in they will, need to setup their MFA just like a new user.
+The next time the user logs in, they will need to setup their MFA just like a new user.
 
 ## Reset MFA using the Management API
 
@@ -37,7 +37,7 @@ As an admin, you can also use the Management API to delete a user's MFA enrollme
 
 ## Recovery codes
 
-With most MFA factors, upon signup, the end user will be given a recovery code which should be noted and kept secret. They will enter this code, after their username and password, to login if they do not have their device or are temporarily unable to use their normal MFA. 
+With most MFA factors, the end user will be given a recovery code upon signup, which should be noted and kept secret. If they do not have their device or are otherwise temporarily unable to use their normal MFA process, the user can log in by entering this code after their username and password. 
 
 ![MFA Recovery Code](/media/articles/multifactor-authentication/recovery-code.png)
 
