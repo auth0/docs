@@ -35,51 +35,49 @@ Create a new folder inside the `src` folder called `utils`. This is where you wi
 
 Create a new file in the `utils` folder called `history.js`. This file will be responsible for exporting react-router's `history` module so we can [redirect the user programatically](https://github.com/ReactTraining/react-router/blob/master/FAQ.md#how-do-i-access-the-history-object-outside-of-components).
 
-```jsx
+```js
 // src/utils/history.js
 
 import { createBrowserHistory } from "history";
 export default createBrowserHistory();
 ```
 
-### Install the Auth0 React wrapper
+### Create the Auth0 React wrapper
 
 Create a new file in the `src` directory called `react-auth0-spa.js` and populate it with the following content:
 
-```js
+```jsx
 // src/react-auth0-spa.js
 import React, { useState, useEffect, useContext } from "react";
 import createAuth0Client from "@auth0/auth0-spa-js";
-
-const DEFAULT_REDIRECT_CALLBACK = () =>
-  window.history.replaceState({}, document.title, window.location.pathname);
+import history from "./utils/history";
 
 export const Auth0Context = React.createContext();
+
 export const useAuth0 = () => useContext(Auth0Context);
-export const Auth0Provider = ({
-  children,
-  onRedirectCallback = DEFAULT_REDIRECT_CALLBACK,
-  ...initOptions
-}) => {
+
+export const Auth0Provider = ({ children, config }) => {
+  // Auth0 State
+  const [loading, setLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState();
   const [user, setUser] = useState();
+
+  // Auth0 Client
   const [auth0Client, setAuth0] = useState();
-  const [loading, setLoading] = useState(true);
-  const [popupOpen, setPopupOpen] = useState(false);
 
   useEffect(() => {
-    const initAuth0 = async () => {
-      const auth0FromHook = await createAuth0Client(initOptions);
+    (async function initAuth0() {
+      const auth0FromHook = await createAuth0Client({ ...config });
       setAuth0(auth0FromHook);
 
-      if (window.location.search.includes("code=") &&
-          window.location.search.includes("state=")) {
+      const { search } = window.location;
+      if (search.includes("code=") && search.includes("state=")) {
         const { appState } = await auth0FromHook.handleRedirectCallback();
-        onRedirectCallback(appState);
+        const targetUrl = appState?.targetUrl;
+        history.push(targetUrl || "/");
       }
 
       const isAuthenticated = await auth0FromHook.isAuthenticated();
-
       setIsAuthenticated(isAuthenticated);
 
       if (isAuthenticated) {
@@ -88,47 +86,14 @@ export const Auth0Provider = ({
       }
 
       setLoading(false);
-    };
-    initAuth0();
-    // eslint-disable-next-line
-  }, []);
+    })();
+  }, [config]);
 
-  const loginWithPopup = async (params = {}) => {
-    setPopupOpen(true);
-    try {
-      await auth0Client.loginWithPopup(params);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setPopupOpen(false);
-    }
-    const user = await auth0Client.getUser();
-    setUser(user);
-    setIsAuthenticated(true);
-  };
-
-  const handleRedirectCallback = async () => {
-    setLoading(true);
-    await auth0Client.handleRedirectCallback();
-    const user = await auth0Client.getUser();
-    setLoading(false);
-    setIsAuthenticated(true);
-    setUser(user);
-  };
   return (
     <Auth0Context.Provider
       value={{
-        isAuthenticated,
-        user,
-        loading,
-        popupOpen,
-        loginWithPopup,
-        handleRedirectCallback,
-        getIdTokenClaims: (...p) => auth0Client.getIdTokenClaims(...p),
-        loginWithRedirect: (...p) => auth0Client.loginWithRedirect(...p),
-        getTokenSilently: (...p) => auth0Client.getTokenSilently(...p),
-        getTokenWithPopup: (...p) => auth0Client.getTokenWithPopup(...p),
-        logout: (...p) => auth0Client.logout(...p)
+        auth0State: { loading, isAuthenticated, user },
+        auth0Client
       }}
     >
       {children}
@@ -137,7 +102,9 @@ export const Auth0Provider = ({
 };
 ```
 
-This is a set of custom [React hooks](https://reactjs.org/docs/hooks-intro.html) that enable you to work with the Auth0 SDK in a more idiomatic way, providing functions that allow the user to log in, log out, and information such as whether the user is logged in.
+This is a set of custom [React hooks](https://reactjs.org/docs/hooks-intro.html) that enable you to work with the Auth0 SDK in a more idiomatic way, providing functions that allow the user to log in or log out. They also supply information such as whether the user is logged in.
+
+Notice that the `Auth0Provider` component routes the user to the right place once they have logged in. For example, if the user tries to access a page that requires them to be authenticated, they will be asked to log in. When they return to the application, they will be forwarded to the page they were originally trying to access.
 
 The next few sections will integrate these hooks into the various components that make up the app.
 
@@ -156,25 +123,29 @@ import React from "react";
 import { useAuth0 } from "../react-auth0-spa";
 
 const NavBar = () => {
-  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  const { auth0State, auth0Client } = useAuth0();
+
+  if (!auth0State.isAuthenticated) {
+    return (
+      <nav>
+        <button onClick={() => auth0Client.loginWithRedirect()}>Log in</button>
+      </nav>
+    );
+  }
 
   return (
-    <div>
-      {!isAuthenticated && (
-        <button onClick={() => loginWithRedirect({})}>Log in</button>
-      )}
-
-      {isAuthenticated && <button onClick={() => logout()}>Log out</button>}
-    </div>
+    <nav>
+      <button onClick={() => auth0Client.logout()}>Log out</button>
+    </nav>
   );
 };
 
 export default NavBar;
 ```
 
-Here the component renders two buttons, for logging in and logging out, depending on whether the user is currently authenticated.
+Here the component renders two buttons for logging in and logging out, depending on whether the user is currently authenticated.
 
-Notice the use of `useAuth0` — provided by the wrapper you created in the previous section — which provides the functions needed in order to log in, log out, and determine if the user is logged in through the `isAuthenticated` property.
+Notice the use of `useAuth0` — provided by the wrapper you created in the previous section — which provides the functionality needed to log in, log out, and determine if the user is logged in through the `isAuthenticated` property.
 
 ### Integrate the SDK
 
@@ -191,53 +162,40 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { Auth0Provider } from "./react-auth0-spa";
 import config from "./auth_config.json";
-import history from "./utils/history";
-
-// A function that routes the user to the right place
-// after login
-const onRedirectCallback = appState => {
-  history.push(
-    appState && appState.targetUrl
-      ? appState.targetUrl
-      : window.location.pathname
-  );
-};
 
 ReactDOM.render(
-  <Auth0Provider
-    domain={config.domain}
-    client_id={config.clientId}
-    redirect_uri={window.location.origin}
-    onRedirectCallback={onRedirectCallback}
-  >
-    <App />
-  </Auth0Provider>,
+  <React.StrictMode>
+    <Auth0Provider config={config}>
+      <App />
+    </Auth0Provider>
+  </React.StrictMode>,
   document.getElementById("root")
 );
 
 serviceWorker.unregister();
 ```
 
-Notice that the `App` component is now wrapped in the `Auth0Provider` component, where the details about the Auth0 domain and client ID are specified. The `redirect_uri` prop is also specified here. Doing this here means that you don't need to pass this URI to every call to `loginWithRedirect`, and it keeps the configuration in one place.
-
-Also notice the function `onRedirectCallback`, which routes the user to the right place once they have logged in. For example, if the user tries to access a page that requires them to be authenticated, they will be asked to log in. When they return to the application, they will be forwarded to the page they were originally trying to access thanks to this function.
+Notice that the `App` component is now wrapped in the `Auth0Provider` component, where the Auth0 configuration is specified.
 
 Next, create a new file `auth_config.json` in the `src` folder, and populate it with the following:
 
 ```json
 {
   "domain": "${account.namespace}",
-  "clientId": "${account.clientId}"
+  "client_id": "${account.clientId}",
+  "redirect_uri": "http://localhost:3000"
 }
 ```
 
+Details about the Auth0 domain and client ID are specified here. The `redirect_uri` property is also specified. Doing this here means that you don't need to pass this URI to every call to `loginWithRedirect`, and it keeps the configuration in one place.
+
 :::note
-The values for `domain` and `clientId` should be replaced with those for your own Auth0 app.
+The values for `domain` and `client_id` should be replaced with those for your own Auth0 app.
 :::
 
 Next, open the `App.js` file in the `src` folder, populate it with the following content:
 
-```js
+```jsx
 // src/App.js
 
 import React from "react";
@@ -245,9 +203,9 @@ import NavBar from "./components/NavBar";
 import { useAuth0 } from "./react-auth0-spa";
 
 function App() {
-  const { loading } = useAuth0();
+  const { auth0State } = useAuth0();
 
-  if (loading) {
+  if (auth0State.loading) {
     return <div>Loading...</div>;
   }
 
@@ -265,8 +223,10 @@ export default App;
 
 This replaces the default content created by `create-react-app` and simply shows the `NavBar` component you created earlier.
 
+Notice the use of the `useAuth0` hook to retrieve a `loading` property. This property can be used to display some kind of "loading" text or spinner graphic while the user's data is being retrieved.
+
 :::panel Checkpoint
-At this point, you should be able to go through the complete authentication flow: logging in and logging out. Start the application from the terminal using `yarn start` and browse to [localhost:3000](http://localhost:3000) (if the application does not open automatically). From there, clicking the **Log in** button should redirect you to the Auth0 login page where you will be given the opportunity to log in.
+At this point, you should be able to go through the complete authentication flow: logging in and logging out. Start the application from the terminal using `npm start` and browse to [localhost:3000](http://localhost:3000) (if the application does not open automatically). From there, clicking the **Log in** button should redirect you to the Auth0 login page where you will be given the opportunity to log in.
 
 Once you are logged in, control returns to your application and you should see that the **Log out** button is now visible. Clicking this should log you out of the application and return you to an unauthenticated state.
 :::
@@ -280,35 +240,63 @@ To display this information to the user, create a new file called `Profile.js` i
 ```jsx
 // src/components/Profile.js
 
-import React, { Fragment } from "react";
+import React from "react";
 import { useAuth0 } from "../react-auth0-spa";
 
 const Profile = () => {
-  const { loading, user } = useAuth0();
+  const { auth0State } = useAuth0();
 
-  if (loading || !user) {
-    return <div>Loading...</div>;
+  if (!auth0State.user) {
+    return <div>User profile unavailable</div>;
   }
 
   return (
-    <Fragment>
-      <img src={user.picture} alt="Profile" />
+    <>
+      <img src={auth0State.user.picture} alt="Profile" />
 
-      <h2>{user.name}</h2>
-      <p>{user.email}</p>
-      <code>{JSON.stringify(user, null, 2)}</code>
-    </Fragment>
+      <h2>{auth0State.user.name}</h2>
+      <p>{auth0State.user.email}</p>
+      <code>{JSON.stringify(auth0State.user, null, 2)}</code>
+    </>
   );
 };
 
 export default Profile;
 ```
 
-Notice here that the `useAuth0` hook is again being used, this time to retrieve the user's profile information (through the `user` property) and a `loading` property that can be used to display some kind of "loading" text or spinner graphic while the user's data is being retrieved.
+Notice here that the `useAuth0` hook is again being used, this time to retrieve the user's profile information (through the `user` property).
 
-In the UI for this component, the user's profile picture, name, and email address is being retrieved from the `user` property and displayed on the screen.
+In the UI for this component, the user's profile picture, name, and email address are being retrieved from the `user` property and displayed on the screen.
 
-To access this page, modify the `App.js` file to include a router so that the profile page may be displayed on the screen. Remember to pass the `history` module we created before to the `Router` component. The `App.js` file should now look something like this:
+To access this page, modify the `index.js` file to include a router so that the application can navigate between pages. Remember to pass the `history` module we previously created to the `Router` component. The `index.js` file should now look something like this:
+
+```jsx
+// src/index.js
+
+import React from "react";
+import ReactDOM from "react-dom";
+import { Router } from "react-router-dom";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
+import { Auth0Provider } from "./react-auth0-spa";
+import config from "./auth_config.json";
+import history from "./utils/history";
+
+ReactDOM.render(
+  <React.StrictMode>
+    <Auth0Provider config={config}>
+      <Router history={history}>
+        <App />
+      </Router>
+    </Auth0Provider>
+  </React.StrictMode>,
+  document.getElementById("root")
+);
+
+serviceWorker.unregister();
+```
+
+Next, modify the `App.js` file to include `Route` components for displaying the different pages.
 
 ```jsx
 // src/App.js
@@ -317,23 +305,25 @@ import React from "react";
 import NavBar from "./components/NavBar";
 
 // New - import the React Router components, and the Profile page component
-import { Router, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Profile from "./components/Profile";
-import history from "./utils/history";
 
 function App() {
+  const { auth0State } = useAuth0();
+
+  if (auth0State.loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="App">
-      {/* Don't forget to include the history module */}
-      <Router history={history}>
-        <header>
-          <NavBar />
-        </header>
-        <Switch>
-          <Route path="/" exact />
-          <Route path="/profile" component={Profile} />
-        </Switch>
-      </Router>
+      <header>
+        <NavBar />
+      </header>
+      <Switch>
+        <Route path="/" exact />
+        <Route path="/profile" component={Profile} />
+      </Switch>
     </div>
   );
 }
@@ -349,28 +339,33 @@ The `NavBar` component should now look something like this:
 
 ```jsx
 // src/components/NavBar.js
-// .. other imports
+
+import React from "react";
+import { useAuth0 } from "../react-auth0-spa";
 
 // NEW - import the Link component
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
-  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  const { auth0State, auth0Client } = useAuth0();
+
+  if (!auth0State.isAuthenticated) {
+    return (
+      <nav>
+        <button onClick={() => auth0Client.loginWithRedirect()}>Log in</button>
+      </nav>
+    );
+  }
 
   return (
-    // .. code removed for brevity
-
-    {isAuthenticated && <button onClick={() => logout()}>Log out</button>}
-
-    {/* NEW - add a link to the home and profile pages */}
-    {isAuthenticated && (
+    <nav>
+      <button onClick={() => auth0Client.logout()}>Log out</button>
+      {/* NEW - add a link to the home and profile pages */}
       <span>
         <Link to="/">Home</Link>&nbsp;
         <Link to="/profile">Profile</Link>
       </span>
-    )}
-
-    //..
+    </nav>
   );
 };
 
@@ -383,52 +378,56 @@ Go ahead and run the project one more time. Now if the user is authenticated and
 
 ## Secure the Profile Page
 
-The profile page should be protected in such a way that if the user tries to access it directly without logging in, they will be automatically redirected to Auth0 to log in. Currently the user would just see a blank page.
+The profile page should be protected in such a way that if the user tries to access it directly without logging in, they will be automatically redirected to Auth0 to log in.
 
-To fix this, a Higher-Order Component can be created that will wrap any component to check if is authenticated.
+To accomplish this, you can make a Higher-Order Component that will wrap any component to check if the user is authenticated.
 
 Start by creating a new component `components/PrivateRoute.js` that can wrap another component. Populate it with the following content:
 
 ```jsx
 // src/components/PrivateRoute.js
 
-import React, { useEffect } from "react";
+import React from "react";
 import { Route } from "react-router-dom";
 import { useAuth0 } from "../react-auth0-spa";
 
-const PrivateRoute = ({ component: Component, path, ...rest }) => {
-  const { loading, isAuthenticated, loginWithRedirect } = useAuth0();
+const PrivateRoute = ({ component: Component, ...rest }) => {
+  const { auth0State, auth0Client } = useAuth0();
 
-  useEffect(() => {
-    if (loading || isAuthenticated) {
-      return;
-    }
-    const fn = async () => {
-      await loginWithRedirect({
-        appState: {targetUrl: window.location.pathname}
-      });
-    };
-    fn();
-  }, [loading, isAuthenticated, loginWithRedirect, path]);
+  return (
+    <Route
+      {...rest}
+      render={props => {
+        // 1. Redirect to login if not logged in
+        if (!auth0State.isAuthenticated) {
+          if (!auth0State.loading) {
+            return auth0Client.loginWithRedirect({
+              appState: { targetUrl: window.location.pathname }
+            });
+          } else {
+            return null;
+          }
+        }
 
-  const render = props =>
-    isAuthenticated === true ? <Component {...props} /> : null;
-
-  return <Route path={path} render={render} {...rest} />;
+        // 2. Render component
+        return <Component {...props} />;
+      }}
+    />
+  );
 };
 
 export default PrivateRoute;
 ```
 
-This component takes another component as one of its arguments. It makes use of the [`useEffect` hook](https://reactjs.org/docs/hooks-effect.html) to redirect the user to the login page if they are not yet authenticated.
+This component takes another component as one of its arguments. It redirects the user to the login page if they are not yet authenticated.
 
 If the user is authenticated, the redirect will not take place and the component that was specified as the argument will be rendered instead. In this way, components that require the user to be logged in can be protected simply by wrapping the component using `PrivateRoute`.
 
 ### Protect application routes
 
-With the `PrivateRoute` component in place, the application router can now be modified to secure the `/profile` route, ensuring that users must log into the application in order to see it.
+With the `PrivateRoute` component in place, the application router can now be modified to secure the `/profile` route, ensuring that users must log in to the application to see it.
 
-Open `App.js` once again, import the `PrivateRoute` component, and update the router so that the `Profile` component is wrapped by the `PrivateRoute` component:
+Open `App.js` once again, import the `PrivateRoute` component, and update the router so that the `Profile` component is wrapped by the `PrivateRoute` component instead of the `Route` component:
 
 ```jsx
 // src/App.js
@@ -451,5 +450,5 @@ export default App;
 ```
 
 :::panel Checkpoint
-Run the project again. Now if the user is not authenticated and you navigate to the `/profile` page through the URL bar in the browser, you will be sent through the authentication flow, and will see the Profile page upon your return.
+Run the project again. Now if the user is not authenticated and you navigate to the `/profile` page through the URL bar in the browser, you will be sent through the authentication flow, and you will see the Profile page upon your return.
 :::
