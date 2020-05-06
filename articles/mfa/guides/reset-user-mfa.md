@@ -10,18 +10,18 @@ useCase:
 ---
 # Reset User's MFA
 
-If a user has lost their mobile device, they can use their recovery code to log in. If they do not have recovery code, they will need their tenant administrator to reset their <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn>. 
+If a user has lost their mobile device, they can use their recovery code to log in. If they do not have a recovery code, they will need their tenant administrator to reset their <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn>. 
 
 This action is equivalent to removing or deleting the user's MFA registration. The MFA settings associated with their user will be removed, which allows them to set up MFA as if they were a new user on their next login attempt.
 
 ::: note
-If you need to reset an admin's MFA as opposed to an end user's MFA, please contact [Auth0 Support](${env.DOMAIN_URL_SUPPORT}).
+If you need to reset an admin's MFA as opposed to an end user's MFA, please contact [Auth0 Support](https://auth0.com/docs/support).
 :::
 
 ## Reset MFA in the Dashboard
 
 1. Go to [Dashboard > Users & Roles > Users](${manage_url}/#/users).
-2. Click on the user you want to reset.
+2. Click on the user whose MFA you want to reset.
 3. Click on the **Actions** button on the top right of the screen.
 4. Select **Reset Multi-factor** from the dropdown.
 
@@ -29,11 +29,11 @@ If you need to reset an admin's MFA as opposed to an end user's MFA, please cont
 
 5. There will be a pop up box to confirm your decision.  Click **YES, RESET IT** to reset the user's MFA.
 
-The next time the user logs in they will need to setup their MFA just like a new user.
+The next time the user logs in they will, need to setup their MFA just like a new user.
 
 ## Reset MFA using the Management API
 
-As an admin, you can also use the Management API to delete the enrollment using `DELETE /api/v2/guardian/enrollments/{id|`. This requires getting the enrollment ID first with a `GET` to the same endpoint. If the user has more than one enrollment, you will need to repeat the process for each enrollment.
+As an admin, you can also use the Management API to delete a user's MFA enrollment using `DELETE /api/v2/guardian/enrollments/{id}`. This requires getting the enrollment ID first with a `GET` to the same endpoint. If the user has more than one enrollment, you will need to repeat the process for each enrollment.
 
 ## Recovery codes
 
