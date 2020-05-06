@@ -9,7 +9,7 @@ useCase:
   - support
 ---
 
-# Endpoints used by Auth0 public cloud service  
+# Endpoints Used by Auth0 Public Cloud Service 
 
 The following endpoints are used by Auth0 public cloud service:
 
