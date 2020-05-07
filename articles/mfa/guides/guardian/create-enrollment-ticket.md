@@ -19,7 +19,7 @@ This API will return an _enrollment ticket_ containing a `ticket_id` and a `tick
 
 The `ticket_url` can be delivered to the user (for instance, via email) and used to kick off the enrollment process.
 
-Alternatively, the ticket can be leveraged inside the [MFA Page](${manage_url}/#/guardian_mfa_page) to customize the Auth0 MFA widget's appearance:
+Alternatively, the ticket can be leveraged inside the [MFA Page](${manage_url}/#/mfa_page) to customize the Auth0 MFA widget's appearance:
 
 ```html
 <!DOCTYPE html>

@@ -25,7 +25,7 @@ When using your own HTML, it uses the Auth0 MFA Widget, which has the following 
 
 ## Customize the HTML for the MFA page
 
-To customize the MFA page, go to [Dashboard > Universal Login > Guardian Multi-factor](${manage_url}/#/guardian_mfa_page) and enable the __Customize Guardian Page__ switch.
+To customize the MFA page, go to [Dashboard > Universal Login > Guardian Multi-factor](${manage_url}/#/mfa_page) and enable the __Customize Guardian Page__ switch.
 
 Once you do that, you'll be able to use the text editor built into the Auth0 Dashboard to change your HTML, style your page using CSS, and alter the JavaScript used to retrieve custom variables. Once you've made your changes, and make sure to click __Save__.
 
