@@ -76,10 +76,11 @@ Please upgrade to the latest version of the extension before disabling API v1 su
 
 ## SharePoint Integration Custom Claims Provider
 
-The Custom Claims Provider of the [Auth0 SharePoint Integration](https://auth0.com/docs/integrations/sharepoint) leverages three API v1 endpoints : `/api/enterpriseconnections/users`, `/api/socialconnections/users`, and `/api/connections`
+The Custom Claims Provider of the [Auth0 SharePoint Integration](https://auth0.com/docs/integrations/sharepoint) leverages three API v1 endpoints : `/api/enterpriseconnections/users`, `/api/socialconnections/users`, and `/api/connections`.
 
-- If called from the SharePoint integration these endpoints will continue to work after the API v1 End of Life date. You may continue see `depnote` tenant logs for this activity. If the client_id in the tenant log is a SharePoint application, you can disregard this warning. 
-- If you are calling these end points directly from your code, you will need to migrate those calls off of API v1.
+If you are calling these endpoints from the SharePoint integration, they will continue to work after the API v1 End of Life date. You may continue see `depnote` tenant logs for this activity. If the `client_id` in the tenant log is a SharePoint application, you can disregard this warning. 
+
+If you are calling these endpoints directly from your code, you will need to migrate those calls off of API v1.
 
 ## Keep reading
 
