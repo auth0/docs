@@ -34,7 +34,7 @@ Send users push notifications to a their pre-registered devices - typically a mo
 
 ## Email notifications
 
-You can [use email](/mfa/guides/configure-mail-universal-login) when you want to provide users a way to perform MFA when they don't have their phone to receive an SMS or push notification.
+You can [use email](/mfa/guides/configure-email-universal-login) when you want to provide users a way to perform MFA when they don't have their phone to receive an SMS or push notification.
 
 ## Duo Security
 
