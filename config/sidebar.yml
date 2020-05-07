@@ -754,6 +754,9 @@ articles:
       - title: Using the API
         url: /users/guides/manage-users-using-the-management-api
 
+      - title: Email Verified Usage
+        url: /users/guides/email-verified
+
       - title: Link User Accounts
         url: /users/concepts/overview-user-account-linking
         children:
