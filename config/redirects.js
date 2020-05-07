@@ -2595,5 +2595,9 @@ module.exports = [
     {
       from: '/connections/social/miicard',
       to: '/connections/identity-providers-social'
+    },
+    {
+      from: '/mfa/references/troubleshooting',
+      to: '/mfa/references/troubleshoot-mfa'
     }
 ];
