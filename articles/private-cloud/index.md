@@ -68,8 +68,8 @@ We are currently unable to offer deployments to China.
   </li>
   <li>
     <i class="icon icon-budicon-715"></i>
-    <a href="/private-cloud/custom-domain-migration">Custom Domain Migration</a>
-    <p>Information on how to migrate custom domains using the Private Cloud Custom Domains feature to the Auth0 Custom Domains feature.</p>
+    <a href="/private-cloud/migrations">Migrations</a>
+    <p>Information on how to migrate custom domains, from Public Cloud to Private Cloud and vice-versa.</p>
   </li>
   <li>
     <i class="icon icon-budicon-715"></i>

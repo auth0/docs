@@ -2412,8 +2412,8 @@ module.exports = [
       to: '/private-cloud/add-ons'
     },
     {
-      from: '/private-saas-deployment/custom-domain-migration', 
-      to: '/private-cloud/custom-domain-migration'
+      from: ['/private-saas-deployment/custom-domain-migration', '/private-cloud/custom-domain-migration'],
+      to: '/private-cloud/migration-custom-domains'
     },
     {
       from: '/connections/passwordless/sms-gateway',

@@ -1583,8 +1583,8 @@ articles:
       - title: Add-Ons for Private Cloud Deployments
         url: /private-cloud/add-ons
 
-      - title: Custom Domain Migration
-        url: /private-cloud/custom-domain-migration
+      - title: Migrations
+        url: /private-cloud/migrations
 
       - title: Onboarding
         url: /private-cloud/onboarding
