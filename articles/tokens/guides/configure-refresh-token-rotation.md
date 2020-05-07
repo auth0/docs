@@ -63,9 +63,9 @@ You can also use the Management API to enable Refresh Token rotation:
     PATCH /api/v2/clients/{client_id}
     {
       "refresh_token": {
-        "rotation_type": "rotating"
-        "expiration_type": "expiring"
-        "token_lifetime": "2592000"
+        "rotation_type": "rotating",
+        "expiration_type": "expiring",
+        "token_lifetime": "2592000",
         "leeway": 3
       }
     }
