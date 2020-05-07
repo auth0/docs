@@ -9,7 +9,7 @@ useCase: private-cloud
 
 Due to the extra security and isolation provided in our Private Cloud environment, the architecture that it's built on differs from the Public Cloud, which makes migrations between the two a bit more involved. Migrating from a Auth0 Public Cloud to Private Cloud configuration essentially involves rebuilding your environment from scratch, however we have designed the migration process to minimize the impact as much as possible.
 
-The migration process complexity depends on the Auth0 features you are currently using. The process consists of a migration assessment done with the Auth0 team which results in a custom migration guide for your specific implementation as well as a technical validation. Auth0 provides guidance and consulting on the process with a personalized migration plan designed for minimal intervention from Auth0. 
+The migration process complexity depends on the Auth0 features you are currently using. The process consists of a migration assessment done with your Auth0 Technical Account Manager which results in a custom migration plan for your specific implementation as well as a technical validation. Auth0 provides guidance and consulting on the process with a personalized migration plan designed for minimal intervention from Auth0. 
 
 After the migration is complete, your users will have to re-log in and all their sessions will be invalidated. Other impacts depends on features you are using and will be outlined in your migration plan.
 
@@ -29,23 +29,32 @@ During the assessment, your Auth0 Technical Account Manager will ask you a serie
 * Do you use anomaly detection?
 * Do you have different user roles configured?
 
-## Customized migration plan
+## Migration plan
 
-After the assessment is complete, Auth0 will provide you with a document that outlines the steps to follow to migrate your Auth0 Public Cloud environment to a Private Cloud. The steps are relevant to your specific requirements and are grouped into the following categories:
+After the assessment is complete, we will provide you with a document that outlines the steps to follow. The steps are relevant to your specific requirements and are grouped into the following categories:
 
 * Phase 1: Initial Steps 
+    
     General considerations, tooling and limitations.
 
 * Phase 2: Asynchronous Steps
+    
     This phase can be executed in any order, but should be completed prior to moving on to the Final Simultaneous Steps
 
 * Phase 3: Final Simultaneous Steps
+    
     This phase must be executed last and should be completed as close to simultaneously as possible.
-
-Following a review of the plan and a **Go** decision, your Auth0 Technical Account Manager will manage the commercial process and facilitate the handover to the Private Cloud Service Delivery Team.
-
-The Service Delivery Team will coordinate the onboarding of your new Private Cloud environment. Subsequently, you may start executing the migration steps detailed within this guide, either on your own, or by engaging Auth0 Professional Services.
 
 ## Technical validation
 
 Following creation of your migration plan, an Auth0 Solutions Architect will technically validate the migration steps. The steps should be validated against both the current source environment and the desired target environment to evaluate migration feasibility.
+
+## Go / No Go decision
+
+Following a review of the plan and a **Go** decision, your Auth0 Technical Account Manager will manage the commercial process and facilitate the handover to the Private Cloud Service Delivery Team.
+
+## Complete migration steps
+
+The Service Delivery Team will coordinate the onboarding of your new Private Cloud environment. Subsequently, you may start executing the migration steps detailed within this guide, either on your own, or by engaging Auth0 Professional Services.
+
+Following the migration, you will have sufficient time and technical support to evaluate and test the migration.
