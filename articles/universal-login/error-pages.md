@@ -23,7 +23,7 @@ If you configure the following fields in your [Tenant Settings](${manage_url}/#/
 * **Support Email**: the email address of your company's support team
 * **Support URL**: the URL for your company's support page
 
-```note
+``` note
 Auth0 will display the **Tenant** information exactly as entered on the Tenant Settings page.
 ```
 
