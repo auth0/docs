@@ -9,7 +9,7 @@ useCase: private-cloud
 
 There are three types of migrations that Auth0 supports for Private Cloud:
 
-* [Custom domain migration](/private-cloud/migration-custom-domain)
+* [Custom domain migration](/private-cloud/migration-custom-domains)
 * [Public Cloud to Private Cloud migration](/private-cloud/migration-public-to-private)
 * [Private Cloud to Private Cloud migration](/private-cloud/migration-private-to-private)
 
