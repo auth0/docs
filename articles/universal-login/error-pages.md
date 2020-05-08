@@ -38,9 +38,9 @@ In addition to these fields, the error page returns some contextual information 
 * **Title**: the friendly name of the tenant
 * **Tenant**: the tenant information (friendly name, logo URL, support email, and support URL)
 
-```note
-The error page can only return information that was available in the request. If, for example, the request which resulted in an error did not contain a `client_id`, no Client ID will be returned by the error page.
-```
+::: note
+The error page can only return information that was available in the request. If, for example, the request which resulted in an error did not contain a `client_id`, no client ID will be returned by the error page.
+:::
 
 Fields returned by the error page will be appended as query string parameters to the page's URL.
 
