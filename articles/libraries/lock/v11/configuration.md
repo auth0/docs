@@ -26,18 +26,18 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | [allowAutocomplete](#allowautocomplete-boolean-) | Enable or disable autocompletion on the email or username inputs |
 | [allowPasswordAutocomplete](#allowpasswordautocomplete-boolean-) | Enable or disable autocompletion on password input |
 | [allowShowPassword](#allowshowpassword-boolean-) | Specifies if the user can choose to show password while typing it |
-| [allowedConnections](#allowedconnections-array-) | List of connections that will be available to perform authentication. |
+| [allowedConnections](#allowedconnections-array-) | List of connections that will be available to perform authentication |
 | [autoclose](#autoclose-boolean-) | Specifies if Lock closes after a login |
 | [autofocus](#autofocus-boolean-) | Specifies if focus is set on the first input field |
-| [avatar](#avatar-object-) | Specifies if an avatar and a username should be displayed on the Lock's header once an email or username has been entered and how to obtain it. |
-| [closable](#closable-boolean-) | Determines whether or not Lock can be closed. |
-| [container](#container-string-) | The HTML element where Lock will be rendered. This causes Lock to appear inline instead of in a modal window. |
-| [flashMessage](#) | Shows an `error` or `success` flash message when Lock is shown. |
-| [language](#language-string-) | Specifies the language of the widget. |
+| [avatar](#avatar-object-) | Specifies if an avatar and a username should be displayed on the Lock's header once an email or username has been entered and how to obtain it |
+| [closable](#closable-boolean-) | Determines whether or not Lock can be closed |
+| [container](#container-string-) | The HTML element where Lock will be rendered. This causes Lock to appear inline instead of in a modal window |
+| [flashMessage](#) | Shows an `error` or `success` flash message when Lock is shown |
+| [language](#language-string-) | Specifies the language of the widget |
 | [languageDictionary](#languagedictionary-object-) | Change text in particular sections of Lock |
-| [popupOptions](#popupoptions-object-) | Customize the location of the popup in the screen. |
+| [popupOptions](#popupoptions-object-) | Customize the location of the popup in the screen |
 | [rememberLastLogin](#rememberlastlogin-boolean-) | Whether or not to show a screen that allows you to quickly log in with the account you used the last time |
-| [scrollGlobalMessagesIntoView](#scrollglobalmessagesintoview-boolean-) | Specify if a globalMessage should be scrolled into the user's viewport. |
+| [scrollGlobalMessagesIntoView](#scrollglobalmessagesintoview-boolean-) | Specify if a globalMessage should be scrolled into the user's viewport |
 
 ## Theme
 
@@ -64,7 +64,7 @@ Authentication options are grouped in the `auth` property of the `options` objec
 | [redirectUrl](#redirecturl-string-) | The URL to redirect to after auth |
 | [responseMode](#responsemode-string-) | Option to send response as POST |
 | [responseType](#responsetype-string-) | Response as a code or token |
-| [sso](#sso-boolean-) | Determines whether Single Sign-On is enabled or not in Lock. |
+| [sso](#sso-boolean-) | Determines whether Single Sign-On is enabled or not in Lock |
 
 ### Database
 
@@ -78,7 +78,7 @@ Authentication options are grouped in the `auth` property of the `options` objec
 | [initialScreen](#initialscreen-string-) | Which screen to show when the widget is opened |
 | [loginAfterSignUp](#loginaftersignup-boolean-) | After signup, whether or not to auto login |
 | [forgotPasswordLink](#forgotpasswordlink-string-) | Link to a custom forgot password page |
-| [showTerms](#showterms-boolean-) | Specify if signup terms should be display. |
+| [showTerms](#showterms-boolean-) | Specify if signup terms should be display |
 | [mustAcceptTerms](#mustacceptterms-boolean-) | Whether or not terms must be accepted (checkbox) |
 | [prefill](#prefill-object-) | Prefill values for email/username fields |
 | [signUpLink](#signuplink-string-) | Set a custom url to fire when clicking "sign up" |
@@ -94,7 +94,7 @@ Authentication options are grouped in the `auth` property of the `options` objec
 
 | Option | Description |
 | --- | --- |
-| [passwordlessMethod](#passwordlessmethod-string-) | When using `Auth0LockPasswordless` with an email connection, you can use this option to pick between sending a [code](/connections/passwordless/spa-email-code) or a [magic link](/connections/passwordless/spa-email-link) to authenticate the user. |
+| [passwordlessMethod](#passwordlessmethod-string-) | When using `Auth0LockPasswordless` with an email connection, you can use this option to pick between sending a [code](/connections/passwordless/spa-email-code) or a [magic link](/connections/passwordless/spa-email-link) to authenticate the user |
 
 ### Other
 
@@ -103,7 +103,7 @@ Authentication options are grouped in the `auth` property of the `options` objec
 | [configurationBaseUrl](#configurationbaseurl-string-) | Override your application's base URL |
 | [languageBaseUrl](#languagebaseurl-string-) | Override your language file base URL |
 | [hashCleanup](#hashcleanup-boolean-) | Override the default removal of the hash from the URL |
-| [connectionResolver](#connectionresolver-function-) | Optional callback function for choosing a connection based on the username information. |
+| [connectionResolver](#connectionresolver-function-) | Optional callback function for choosing a connection based on the username information |
 
 ---
 
