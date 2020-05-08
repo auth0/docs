@@ -91,6 +91,12 @@ By doing this, you are changing the **Login** and **Get User** [Database Action 
 
 3. Configure [rules](/rules) to execute other functions when a user authenticates to your application.
 
+## Troubleshooting
+
+When a user is being imported from a legacy database, a partial state is created on Auth0's end to make this migration possible. If you delete this user in the auth0 database and re-creating the user, you might encounter the error "The user already exists". If you encounter this issue, use the [Delete a connection user endpoint](https://auth0.com/docs/api/management/v2#!/Connections/delete_users_by_email) to remove this user and then, try re-creating it, after confirming they don't exist in your legacy database. 
+
+In addition, the "Get User" script will be called on user creation, so you need to ensure that this user also does not exist in your external database, otherwise you will get the "The user already exists" error.
+
 ## Keep reading
 
 * [User Migration Overview](/users/concepts/overview-user-migration)
