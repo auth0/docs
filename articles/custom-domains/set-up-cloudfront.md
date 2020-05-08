@@ -55,7 +55,7 @@ You can configure AWS CloudFront for use as the reverse proxy with custom domain
   | Viewer Protocol Policy | Select **Redirect HTTP to HTTPS** |
   | Allowed HTTP Methods | Select **GET, HEAD, OPTIONS, PUT, POST, PATCH, DELETE** |
   | Cache Based on Selected Request Headers | Select **Whitelist** |
-  | Whitelist Headers | Enter `User-Agent` and click **Add Custom >>** to add the custom whitelist header. Do the same for `Origin`, `Referer` and `Accept` headers. |
+  | Whitelist Headers | Enter `User-Agent` and click **Add Custom >>** to add the custom whitelist header. Do the same for `Authorization`, `Origin`, `Referer` and `Accept` headers. |
   | Forward Cookies | Select **All** |
   | Query String Forwarding and Caching | Select **Forward all, cache based on all** |
 
