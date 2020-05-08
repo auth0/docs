@@ -53,7 +53,7 @@ Regardless of the method you use, you should always test on a development tenant
 
 Auth0 allows you to manually rotate your application signing key on a periodic basis. So, for security purposes, any application that integrates with Auth0 should be prepared to handle key rotation regardless of how infrequently it may occur. If your application does not handle signing key rotation and attempts to use an expired signing key to verify a token, the authentication request will fail.
 
-Your tenant's [OpenID Connect discovery document](/tokens/guides/locate-jwks) always contains multiple keys. Specifically, it will always include both the current key and the next key, but it may also include the previous key if the previous key has not yet been revoked. To provide a seamless experience in case of emergency, your application should be able to use any of the keys specified in the document.
+Although Auth0 signs with only one signing key at a time, your tenant's [OpenID Connect discovery document](/tokens/guides/locate-jwks) always contains multiple keys. Specifically, it will always include both the current key and the next key, but it may also include the previous key if the previous key has not yet been revoked. To provide a seamless experience in case of emergency, your application should be able to use any of the keys specified in the document.
 
 You can rotate your application signing key using either the Auth0 Dashboard or Management API. To learn more, see [Rotate Signing Keys](/dashboard/guides/tenants/rotate-signing-keys).
 
