@@ -191,7 +191,7 @@ You can also use the [Account Link Extension](/extensions/account-link) to achie
 
 ![Suggested Account Linking](/media/articles/link-accounts/account-linking-webapp-small.png)
 
-You can read more about how to implement user-initiated account linking in a Single Page Application in the [Server-Side Account Linking](/users/references/link-accounts-server-side-scenario) article.
+You can read more about how to implement user-initiated account linking in a Regular Web Application in the [Server-Side Account Linking](/users/references/link-accounts-server-side-scenario) article.
 
 <%= include('../_includes/_account-linking-id-tokens.md') %>
 
