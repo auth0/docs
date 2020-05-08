@@ -64,7 +64,6 @@ account.setOIDCConformant(true);
 //Use the account in the API applications
 ```
 
-<dfn data-key="passwordless">Passwordless authentication</dfn> **cannot be used** with this flag set to `true`. For more information, please see the [OIDC adoption guide](/api-auth/tutorials/adoption).
 
 ## Authentication via Universal Login
 
