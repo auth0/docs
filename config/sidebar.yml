@@ -1256,7 +1256,7 @@ articles:
         url: /logs/concepts/logs-admins-devs
 
       - title: Migrate from Logs Search v2 to v3
-        url: /monitor/logs/migrate-logs-v2-v3
+        url: /monitor/logs/guides/migrate-logs-v2-v3
         hidden: true
 
 ## ------------------------------------------------------------
