@@ -2182,7 +2182,7 @@ libraries:
       - title: "Refresh Tokens"
         url: "/libraries/auth0-swift/save-and-refresh-jwt-tokens"
 
-      - title: "TouchID"
+      - title: "Touch ID / Face ID"
         url: "/libraries/auth0-swift/touchid-authentication"
 
   - title: "Auth0 SDK for Android"

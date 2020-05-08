@@ -1,7 +1,7 @@
 ---
 section: libraries
 toc: true
-description: Using Auth0.Swift in Passwordless mode
+description: Using Auth0.Swift in passwordless mode
 topics:
   - libraries
   - swift
@@ -9,11 +9,12 @@ topics:
 contentType: how-to
 useCase: enable-mobile-auth
 ---
+
 # Passwordless Authentication with Auth0.Swift
 
 <dfn data-key="passwordless">Passwordless authentication</dfn> allows users to login using only an email address or phone number, reducing the friction that occurs when a user must remember a password. Passwordless authentication can be done via email or via SMS, and either by sending the user a code, or sending them a link which contains a code.
 
-To use Passwordless Authentication you need Auth0.Swift version 1.20.0 or greater.
+To use Passwordless Authentication you need Auth0.Swift version `1.20.0` or greater.
 
 ## How Passwordless works
 
@@ -57,7 +58,7 @@ Auth0
    .start { result in
        switch result {
        case .success(let credentials):
-           print("access_token: \(credentials.accessToken)")
+           print("Access Token: \(credentials.accessToken)")
        case .failure(let error):
            print(error)
        }
@@ -65,7 +66,6 @@ Auth0
 ```
 
 If you used SMS, the call would be like:
-
 
 ```swift
 Auth0
@@ -78,7 +78,7 @@ Auth0
    .start { result in
        switch result {
        case .success(let credentials):
-           print("access_token: \(credentials.accessToken)")
+           print("Access Token: \(credentials.accessToken)")
        case .failure(let error):
            print(error)
        }
