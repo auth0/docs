@@ -29,11 +29,11 @@ Check out the [Auth0.swift repository](https://github.com/auth0/Auth0.swift) on 
 ## Installation
 
 ### Cocoapods
-   
+
 If you are using [Cocoapods](https://cocoapods.org), add this line to your `Podfile`:
 
 ```ruby
-pod 'Auth0', '~> 1.24'
+pod 'Auth0', '~> 1.0'
 ```
 
 Then run `pod install`.
@@ -47,7 +47,7 @@ For more information on Cocoapods, check [their official documentation](https://
 If you are using [Carthage](https://github.com/Carthage/Carthage), add the following line to your `Cartfile`:
 
 ```ruby
-github "auth0/Auth0.swift" ~> 1.24
+github "auth0/Auth0.swift" ~> 1.0
 ```
 
 Then run `carthage bootstrap`.
