@@ -39,7 +39,7 @@ type:depnote AND description:*APIv1*
 
 - You must be running release [2003](https://auth0.com/releases/2003) or later to see Deprecation Notices.
 
-- Searching by `description` is not currently supported in the tenant logs available in the Dashboard. If you [export your logs to an external service](/extensions#logs-export) you can leverage it to query for APIv1 Deprecation Notices.
+- If searching tenant logs from the Dashboard, search for `type:depnote`. Searching by `description` is not currently supported in the tenant logs search available in the Dashboard. If you [export your logs to an external service](/extensions#logs-export) you can leverage it to query for APIv1 Deprecation Notices using a combination of `type` and `description`.
 :::
 
 ![Management API Version 1 Log Query](/media/articles/migrations/apiv1-log-query.png)
