@@ -20,14 +20,17 @@ Auth0 has built-in support for sending messages through Twilio. However, you may
 
 ## What is Twilio?
 
-Twilio provides an SMS messaging service which can be used by Auth0 to deliver multi-factor verification via text messages. To learn more, see [Twilio's Programmable SMS Overview](https://www.twilio.com/sms).
+Twilio provides an SMS messaging service which can be used by Auth0 to deliver multi-factor verification via text messages. You two APIs for that purpose:
+
+  - [Programmable SMS](https://www.twilio.com/sms) is a flexible API designed to fully automate SMS communications.
+  - [Verify](https://www.twilio.com/verify) is an API designed to send one-time codes while hides the complexity of SMS delivery. If you want to use the Verify API, you need to make sure that the Twilio Verify Service is configured to accept a custom code. At the time of writing, you need to contact Twilio support to get it enabled. 
 
 ## Prerequisites
 
 Before you begin this tutorial, please:
 
 * Sign up for a [Twilio](https://www.twilio.com/try-twilio) account.
-* Create a [new Messaging Service](https://www.twilio.com/console/sms/services).
+* Create a new Messaging Service in the [Programmable SMS console](https://www.twilio.com/console/sms/services) or in the [Verify console](https://www.twilio.com/console/verify/services) depending on the API you want to use.
 * Add a phone number that is enabled for SMS to your service and capture the number.
 * Capture the Account SID and Authorization Token by clicking *Show API Credentials* in the [Twilio SMS Dashboard](https://www.twilio.com/console/sms/dashboard).
 
@@ -65,7 +68,9 @@ You're going to store the values needed from the Twilio SMS Dashboard in [Hook S
 
 To make the call to Twilio, add the appropriate code to the Hook.
 
-1. Copy the code block below and [edit](/hooks/update) the Send Phone Message Hook code to include it. This function will run each time a user requires MFA, calling Twilio to send a verification code via SMS.
+1. [Edit](/hooks/update) the Send Phone Message Hook code and copy of the code snippets below, depending on the API you want to use. This function will run each time a user requires MFA, calling Twilio to send a verification code via SMS.
+
+To use the Programmable SMS API, use the code below.
 
 ```js
 /**
@@ -91,11 +96,11 @@ module.exports = function(recipient, text, context, cb) {
   const authToken = context.webtask.secrets.TWILIO_AUTH_TOKEN;
   const fromPhoneNumber = context.webtask.secrets.TWILIO_PHONE_NUMBER;
 
-  const client = require('twilio')(accountSid, authToken);
-
-  client.messages
-      .create({
-         body: text + context.client_id,
+  const client = require('twilio')(accountSid, authToken); 
+ 
+  client.messages 
+      .create({ 
+         body: text, 
          from: fromPhoneNumber,       
          to: recipient
       })
@@ -106,7 +111,33 @@ module.exports = function(recipient, text, context, cb) {
         cb(err);
       });
 };
+```
 
+To use the Verify API, use the code below.
+
+```js
+module.exports = function(recipient, text, context, cb) {
+
+  const accountSid = context.webtask.secrets.TWILIO_ACCOUNT_SID; 
+  const authToken = context.webtask.secrets.TWILIO_AUTH_TOKEN; 
+  const fromPhoneNumber = context.webtask.secrets.TWILIO_PHONE_NUMBER;
+
+  const client = require('twilio')(accountSid, authToken); 
+ 
+  client.verify.services(accountSid)
+      .verifications
+      .create({
+        to: recipient,
+        channel: 'sms',
+        customCode: context.code
+      })
+      .then(function() {
+        cb(null, {});
+      }) 
+      .catch(function(err) {
+        cb(err);
+      });
+};
 ```
 
 ### Add the Twilio Node JS Helper NPM package
