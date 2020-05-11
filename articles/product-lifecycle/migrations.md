@@ -77,7 +77,7 @@ We are actively migrating customers to new behaviors for all <dfn data-key="depr
       </td>
     </tr>
     <tr>
-      <td><a href="/logs/migrate-logs-v2-v3">Tenant Logs Search v2</a></td>
+      <td><a href="/logs/guides/migrate-logs-v2-v3">Tenant Logs Search v2</a></td>
       <td>21 May 2019</td>
       <td>
         <strong>Free</strong>: 9 July 2019<br>
@@ -85,7 +85,7 @@ We are actively migrating customers to new behaviors for all <dfn data-key="depr
         <strong>Developer Pro</strong>: 20 August 2019<br>
         <strong>Enterprise</strong>: 4 November 2019
       </td>
-      <td>To provide our customers with the most reliable and scalable solution, Auth0 has deprecated Tenant Logs Search Engine v2 in favor of v3. Auth0 is proactively migrating customers unaffected by this change, while those who are potentially affected are being notified to opt in for v3 during the provided grace period.  See the <a href="/logs/migrate-logs-v2-v3">migration guide</a> for more information.</td>
+      <td>To provide our customers with the most reliable and scalable solution, Auth0 has deprecated Tenant Logs Search Engine v2 in favor of v3. Auth0 is proactively migrating customers unaffected by this change, while those who are potentially affected are being notified to opt in for v3 during the provided grace period.  See the <a href="/logs/guides/migrate-logs-v2-v3">migration guide</a> for more information.</td>
     </tr>
   </tbody>
 </table>
