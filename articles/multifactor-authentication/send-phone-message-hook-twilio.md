@@ -140,13 +140,36 @@ module.exports = function(recipient, text, context, cb) {
 };
 ```
 
-### Add the Twilio Node JS Helper NPM package
+If you want to use the Verify API, you need to make sure that the Twilio Verify Service is configured to accept a custom code. At the time of writing, you need to contact Twilio support to get it enabled. 
 
-The Hook uses the [Twilio Node.JS Helper Library](https://github.com/twilio/twilio-node), so you'll need to include this package in your Hook.
+[Edit](/hooks/update) the Send Phone Message hook code to match the example below.
 
-1. Click the **Settings** icon again, and select **NPM Modules**. 
+```js
+module.exports = function(recipient, text, context, cb) {
 
-2. Search for `twilio-node` and add the module that appears.
+  const accountSid = context.webtask.secrets.TWILIO_ACCOUNT_SID; 
+  const authToken = context.webtask.secrets.TWILIO_AUTH_TOKEN; 
+  const fromPhoneNumber = context.webtask.secrets.TWILIO_PHONE_NUMBER;
+
+  const client = require('twilio')(accountSid, authToken); 
+ 
+  client.verify.services(accountSid)
+      .verifications
+      .create({
+        to: recipient,
+        channel: 'sms',
+        customCode: context.code
+      })
+      .then(function() {
+        cb(null, {});
+      }) 
+      .catch(function(err) {
+        cb(err);
+      });
+};
+```
+
+## 4. Add the Twilio Node JS Helper NPM package
 
 ### Test your Hook implementation
 
