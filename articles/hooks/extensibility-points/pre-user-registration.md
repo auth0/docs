@@ -1,6 +1,6 @@
 ---
-title: Pre User Registration
-description: Learn how hooks can be used with the Pre User Registration extensibility point, which is available for database connections and passwordless connections.
+title: Pre-User Registration
+description: Learn how hooks can be used with the Pre-User Registration extensibility point, which is available for database connections and passwordless connections.
 beta: true
 toc: true
 topics:
@@ -13,21 +13,21 @@ useCase: extensibility-hooks
 v2: true
 ---
 
-# Pre User Registration
+# Pre-User Registration
 
-At the Pre User Registration extensibility point, Hooks allow custom actions to be executed when a new user is created. For example, you may add custom `app_metadata` or `user_metadata` to the newly-created user, or even prevent the creation of the user in the database.
+At the Pre-User Registration extensibility point, Hooks allow custom actions to be executed when a new user is created. For example, you may add custom `app_metadata` or `user_metadata` to the newly-created user, or even prevent the creation of the user in the database.
 
-The Pre User Registration extensibility point is available for [Database Connections](/connections/database) and [Passwordless Connections](/connections/passwordless).
+The Pre-User Registration extensibility point is available for [Database Connections](/connections/database) and [Passwordless Connections](/connections/passwordless).
 
 ::: note
-The `triggerId` for the Pre User Registration extensibility point is `pre-user-registration`. To learn how to create Hooks for this extensibility point, see [Create New Hooks](/hooks/create).
+The `triggerId` for the Pre-User Registration extensibility point is `pre-user-registration`. To learn how to create Hooks for this extensibility point, see [Create New Hooks](/hooks/create).
 :::
 
 To learn about other extensibility points, see [Extensibility Points](/hooks/extensibility-points).
 
 ## Starter code and parameters
 
-When creating a Hook executed at the Pre User Registration extensibility point, you may find the following starter code helpful. Parameters that can be passed into and used by the Hook function are listed at the top of the code sample.
+When creating a Hook executed at the Pre-User Registration extensibility point, you may find the following starter code helpful. Parameters that can be passed into and used by the Hook function are listed at the top of the code sample.
 
 ```js
 /**
@@ -70,7 +70,7 @@ Please note:
 
 ### Default response
 
-When you run a Hook executed at the Pre User Registration extensibility point, the default response object is:
+When you run a Hook executed at the Pre-User Registration extensibility point, the default response object is:
 
 ```json
 {
@@ -99,7 +99,7 @@ Metadata property names must not start with the `$` character or contain the `.`
 :::
 
 ::: note
-Hooks executed at the Pre User Registration extensibility point do not pass error messages to any Auth0 APIs.
+Hooks executed at the Pre-User Registration extensibility point do not pass error messages to any Auth0 APIs.
 :::
 
 ### Starter code response
