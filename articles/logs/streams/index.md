@@ -39,7 +39,7 @@ You can troubleshoot potential issues with your stream by looking in the `Health
 
 ## Delivery Errors
 
-To help diagnose issues with your stream, you can see the last ten errors we encountered while attempting to deliver logs to your stream within the last 24 hours.
+To help diagnose issues with your stream, you can see the last ten errors we encountered while attempting to deliver logs to your stream within the last 5 days.
 
 ![Stream Errors](/media/articles/logs/health/health-errors.png)
 
