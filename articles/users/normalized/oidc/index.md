@@ -57,7 +57,7 @@ The following is a [non-normative example of such a response](https://openid.net
 
 You can retrieve the user profile by retrieving an ID Token using the Authentication API's [`oauth/token` endpoint](/api/authentication#get-token) or the [`/userinfo` endpoint](/api/authentication#get-user-info). Auth0's [Lock](https://auth0.com/docs/libraries#lock-login-signup-widgets) widget and the [Auth0 client-side SDKs](/libraries#auth0-client-side-sdks) also return the OIDC-compliant user profile.
 
-Additionally, the User Profile section of our [QuickStarts](/quickstarts) return user profiles compliant with the OIDC specification. Some of our more popular QuickStarts are:
+Additionally, the User Profile section of our [Quickstarts](/quickstarts) return user profiles compliant with the OIDC specification. Some of our more popular Quickstarts are:
 
 - [ASP.NET Core](/quickstart/webapp/aspnet-core/04-user-profile)
 - [Android](/quickstart/native/android/04-user-profile)
