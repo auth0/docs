@@ -1234,8 +1234,13 @@ articles:
           - title: AWS EventBridge
             url: /logs/streams/aws-eventbridge
 
+
+          - title: Datadog Event Streams
+            url: /logs/streams/datadog
+
       - title: Log Data Retention
         url: /logs/references/log-data-retention
+
 
       - title: View Log Data in the Dashboard
         url: /logs/guides/view-log-data-dashboard
