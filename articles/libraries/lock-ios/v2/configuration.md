@@ -59,7 +59,7 @@ Allows Lock to be dismissed by the user. By default this is `false`.
 
 #### Refresh Tokens
 
-Specifying the `offline_access` scope in your Lock options will allow a <dfn data-key="refresh-token">[Refresh Token](/tokens/concepts/refresh-tokens)</dfn> to be returned along with the access\_token and the id\_token. Refresh Tokens can be saved and used to acquire a new Access Token when the old one expires. For more information about using Refresh Tokens for Auth0 authentication, take a look at the reference documentation for the [Auth0.Swift SDK](/libraries/auth0-swift), which you would use to implement Refresh Tokens, or at the [Swift QuickStart Guide](/quickstart/native/ios-swift/03-user-sessions), which provides a comprehensive example of use of Auth0 in Swift development, including the management of Refresh Tokens.
+Specifying the `offline_access` scope in your Lock options will allow a <dfn data-key="refresh-token">[Refresh Token](/tokens/concepts/refresh-tokens)</dfn> to be returned along with the access\_token and the id\_token. Refresh Tokens can be saved and used to acquire a new Access Token when the old one expires. For more information about using Refresh Tokens for Auth0 authentication, take a look at the reference documentation for the [Auth0.Swift SDK](/libraries/auth0-swift), which you would use to implement Refresh Tokens, or at the [Swift Quickstart Guide](/quickstart/native/ios-swift/03-user-sessions), which provides a comprehensive example of use of Auth0 in Swift development, including the management of Refresh Tokens.
 
 ### termsOfService
 
