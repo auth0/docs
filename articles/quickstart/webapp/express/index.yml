@@ -1,0 +1,25 @@
+title: Express
+beta: true
+image: /media/platforms/node.png
+author:
+  name: David Patrick
+  email: david.patrick@auth0.com
+  community: false
+topics:
+  - quickstart
+contentType: tutorial
+useCase: quickstart
+alias:
+  - node
+  - express
+seo_alias: express
+default_article: 01-login
+articles:
+  - 01-login
+github:
+  org: auth0-samples
+  repo: auth0-express-webapp-sample
+  branch: master
+requirements:
+  - NodeJS 10.13+
+  - Express 4.17+
