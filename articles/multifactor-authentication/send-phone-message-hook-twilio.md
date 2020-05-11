@@ -31,8 +31,8 @@ Before you begin this tutorial, please:
 
 * Sign up for a [Twilio](https://www.twilio.com/try-twilio) account.
 * Create a new Messaging Service in the [Programmable SMS console](https://www.twilio.com/console/sms/services) or in the [Verify console](https://www.twilio.com/console/verify/services) depending on the API you want to use.
-* Add a phone number that is enabled for SMS to your service and capture the number.
-* Capture the Account SID and Authorization Token by clicking *Show API Credentials* in the [Twilio SMS Dashboard](https://www.twilio.com/console/sms/dashboard).
+* If you use Programmable SMS, you need to add a phone number that is enabled for SMS to your service and capture the number.
+* Capture the Account SID and Authorization Token by clicking *Show API Credentials* in the [Twilio SMS Dashboard](https://www.twilio.com/console/sms/dashboard)
 
 ## Steps
 
