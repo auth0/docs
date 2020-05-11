@@ -1,4 +1,4 @@
 /articles/quickstart @auth0/dx-sdks-approver
 /articles/libraries @auth0/dx-sdks-approver
 /articles/cms @auth0/dx-sdks-approver
-/articles/quickstart/webapp/nodejs @pdillon @davidpatrick
+/articles/quickstart/webapp/express @pdillon
