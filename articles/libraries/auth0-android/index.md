@@ -64,7 +64,6 @@ account.setOIDCConformant(true);
 //Use the account in the API applications
 ```
 
-
 ## Authentication via Universal Login
 
 First, go to the [Dashboard](${manage_url}/#/applications) and go to your application's settings. Make sure you have in **Allowed <dfn data-key="callback">Callback URLs</dfn>** a URL with the following format:
