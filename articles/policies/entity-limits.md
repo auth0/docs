@@ -12,7 +12,9 @@ useCase:
 ---
 # Entity Limit Policy
 
-**This policy is effective for all paid and free subscriptions made before May 19, 2020.** 
+::: note
+This policy is effective for all Developer, Developer Pro, and free subscriptions made on or after May 19, 2020. Starting on **June 18, 2020**, the policy will apply to all Developer, Developer Pro, and free subscriptions.
+:::
 
 Entities in Auth0 are tenant configuration elements such as applications, connections, rules, and API resource servers. 
 
