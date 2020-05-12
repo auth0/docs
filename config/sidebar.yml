@@ -1237,6 +1237,9 @@ articles:
 
           - title: Datadog Event Streams
             url: /logs/streams/datadog
+            
+          - title: Azure Event Grid Streams
+            url: /logs/streams/azure-event-grid
 
       - title: Log Data Retention
         url: /logs/references/log-data-retention
