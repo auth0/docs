@@ -45,7 +45,7 @@ Providing secure authentication in SPAs has a number of challenges based on your
 
 Auth0 recommends using [Refresh Token Rotation](/tokens/concepts/refresh-token-rotation) which provides a secure method for using Refresh Tokens in SPAs while providing end-users with seamless access to resources without the disruption in UX caused by browser privacy technology like ITP.
 
-Auth0’s former guidance was to use the [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce) in conjuntion with [Silent Authentication](/api-auth/tutorials/silent-authentication) in SPAs. This is more secure solution than the Implicit Flow but not as secure as Refresh Token Rotation. If you want a more detailed explanation about the challenges of using the Implicit Flow in SPAs, please read this blog article [OAuth2 Implicit Grant and SPA](https://auth0.com/blog/oauth2-implicit-grant-and-spa/).
+Auth0’s former guidance was to use the [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce) in conjuntion with [Silent Authentication](/api-auth/tutorials/silent-authentication) in SPAs. This is more secure solution than the Implicit Flow but not as secure as the [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce) with Refresh Token Rotation. If you want a more detailed explanation about the challenges of using the Implicit Flow in SPAs, please read this blog article [OAuth2 Implicit Grant and SPA](https://auth0.com/blog/oauth2-implicit-grant-and-spa/).
 
 ### Native/Mobile apps
 
