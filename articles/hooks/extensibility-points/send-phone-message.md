@@ -124,5 +124,5 @@ The `context.language` parameter will always have one of the [languages configur
 - [Configure a Custom SMS Provider for MFA using TeleSign](/multifactor-authentication/send-phone-message-hook-telesign)
 - [Configure a Custom SMS Provider for MFA using Vonage](/multifactor-authentication/send-phone-message-hook-vonage)
 - [Configure SMS Notifications for MFA](/mfa/guides/configure-sms)
-- Learn about other [Extensibility Points](/hooks/extensibility-points)
+- [Extensibility Points](/hooks/extensibility-points)
 :::

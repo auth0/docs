@@ -45,7 +45,7 @@ Optional: [Troubleshoot](#troubleshoot)
 
 You're going to use a Hook in the Auth0 dashboard to send the text message when MFA is required. To do that, you need the API information for your Vonage account and a simple Node function to send the message.
 
-1. Navigate to the [Hooks screen](https://manage.auth0.com/#/hooks) in the Auth0 Dashboard, scroll down to **Send Phone Message**, and click **Create New Hook**.
+1. Navigate to the [Hooks screen](${manage_url}/#/hooks) in the Auth0 Dashboard, scroll down to **Send Phone Message**, and click **Create New Hook**.
 
 ![Auth0 Dashboard: Add New Hook](/media/articles/multifactor-authentication/02-guide-auth0-add-new-hook.png)
 
@@ -150,7 +150,7 @@ If something was misconfigured in Vonage, the Hook, or the SMS Factor, you may s
 
 ![Auth0 Universal Login MFA SMS Error](/media/articles/multifactor-authentication/09-guide-login-sms-error-message.png)
 
-The best place to start debugging this issue is the [Logs screen](https://manage.auth0.com/#/logs) in the Auth0 dashboard. Look for a failed SMS log entry:
+The best place to start debugging this issue is the [Logs screen](${manage_url}/#/logs) in the Auth0 dashboard. Look for a failed SMS log entry:
 
 ![Auth0 Logs: Error Sending MFA SMS](/media/articles/multifactor-authentication/10-guide-auth0-log-sms-error.png)
 
