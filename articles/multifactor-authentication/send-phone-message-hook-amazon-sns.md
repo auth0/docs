@@ -12,7 +12,7 @@ useCase:
 ---
 # Configure a Custom SMS Provider for MFA using Amazon SNS
 
-This guide covers how to send <dfn data-key="multifactor-authentication">Multi-factor Authentication (MFA)</dfn> text messages using the Amazon Simple Notification Service (SNS).
+This guide explains how to send <dfn data-key="multifactor-authentication">Multi-factor Authentication (MFA)</dfn> text messages using the Amazon Simple Notification Service (SNS).
 
 <%= include('./_includes/_test-setup') %>
 

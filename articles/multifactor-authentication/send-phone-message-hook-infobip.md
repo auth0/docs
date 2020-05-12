@@ -12,7 +12,7 @@ useCase:
 ---
 # Configure a Custom SMS Provider for MFA using Infobip
 
-This guide covers how to send <dfn data-key="multifactor-authentication">Multi-factor Authentication (MFA)</dfn> text messages using Infohip.
+This guide explains how to send <dfn data-key="multifactor-authentication">Multi-factor Authentication (MFA)</dfn> text messages using Infohip.
 
 <%= include('./_includes/_test-setup') %>
 

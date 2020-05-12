@@ -1,5 +1,5 @@
 ---
-description: Configuring a Custom SMS Provider for MFA using Vonage
+description: Configure a Custom SMS Provider for MFA using Vonage
 topics:
   - mfa
   - sms
@@ -9,9 +9,9 @@ contentType:
 useCase:
   - customize-mfa
 ---
-# Configuring a Custom SMS Provider for MFA using Vonage
+# Configure a Custom SMS Provider for MFA using Vonage
 
-This guide covers how to send <dfn data-key="multifactor-authentication">Multi-factor Authentication (MFA)</dfn> text messages using the Vonage (previously Nexmo) SMS API.
+This guide explains how to send <dfn data-key="multifactor-authentication">Multi-factor Authentication (MFA)</dfn> text messages using the Vonage (previously Nexmo) SMS API.
 
 <%= include('./_includes/_test-setup') %>
 

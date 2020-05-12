@@ -12,7 +12,7 @@ useCase:
 ---
 # Configure a Custom SMS Provider for MFA using TeleSign
 
-This guide covers how to send <dfn data-key="multifactor-authentication">Multi-factor Authentication (MFA)</dfn> text messages using Telesign.
+This guide explains how to send <dfn data-key="multifactor-authentication">Multi-factor Authentication (MFA)</dfn> text messages using Telesign.
 
 <%= include('./_includes/_test-setup') %>
 

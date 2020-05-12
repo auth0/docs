@@ -12,7 +12,7 @@ useCase:
 ---
 # Configure a Custom SMS Provider for MFA using Twilio
 
-This guide covers how to send <dfn data-key="multifactor-authentication">Multi-factor Authentication (MFA)</dfn> text messages using Twilio and the Send Phone Message Hook.
+This guide explains how to send <dfn data-key="multifactor-authentication">Multi-factor Authentication (MFA)</dfn> text messages using Twilio and the Send Phone Message Hook.
 
 Auth0 has built-in support for sending messages through Twilio. However, you may want to add specific logic before sending a message or want to send a different message depending on the user or the application. In this case, you would configure SMS MFA to use a Send Phone Message Hook.
 
