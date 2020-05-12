@@ -15,7 +15,7 @@ useCase:
 
 All data in your Auth0 tenant is always under your control and is [available through the management API](/api/v2) at any time.
 The only information which is not available through the API (for security reasons) are the password hashes of your [Auth0-hosted database users](/connections/database) and private keys.
-You can still request this information by opening a [support ticket](${env.DOMAIN_URL_SUPPORT}). Please note that this operation is not available for our Free subscription tier, and we are unable to accept or guarantee requests for exports at a specific time and date.
+You can request the password hashes by opening a [support ticket](${env.DOMAIN_URL_SUPPORT}). Please note that this operation is not available for our Free subscription tier, and we are unable to accept or guarantee requests for exports at a specific time and date.
 
 ## Keep user credentials on your infrastructure
 
