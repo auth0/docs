@@ -1,6 +1,6 @@
 ---
-title: Post User Registration
-description: Learn how hooks can be used with the Post User Registration extensibility point, which is available for database connections and passwordless connections.
+title: Post-User Registration
+description: Learn how hooks can be used with the Post-User Registration extensibility point, which is available for database connections and passwordless connections.
 beta: true
 toc: true
 topics:
@@ -13,23 +13,23 @@ useCase: extensibility-hooks
 v2: true
 ---
 
-# Post User Registration
+# Post-User Registration
 
-At the Post User Registration extensibility point, Hooks allow custom actions to be executed after a new user registers an account and is added to the database. For example, you may send a message to Slack or create a record in your customer relationship management (CRM) system.
+At the Post-User Registration extensibility point, Hooks allow custom actions to be executed after a new user registers an account and is added to the database. For example, you may send a message to Slack or create a record in your customer relationship management (CRM) system.
 
 The Hook added to this extensibility point executes asynchronously with the rest of the Auth0 pipeline, and its outcome does not affect the Auth0 transaction.
 
-The Post User Registration extensibility point is available for [Database Connections](/connections/database) and [Passwordless Connections](/connections/passwordless).
+The Post-User Registration extensibility point is available for [Database Connections](/connections/database) and [Passwordless Connections](/connections/passwordless).
 
 ::: note
-The `triggerId` for the Post User Registration extensibility point is `post-user-registration`. To learn how to create Hooks for this extensibility point, see [Create New Hooks](/hooks/create).
+The `triggerId` for the Post-User Registration extensibility point is `post-user-registration`. To learn how to create Hooks for this extensibility point, see [Create New Hooks](/hooks/create).
 :::
 
 To learn about other extensibility points, see [Extensibility Points](/hooks/extensibility-points).
 
 ## Starter code and parameters
 
-When creating a Hook executed at the Post User Registration extensibility point, you may find the following starter code helpful. Parameters that can be passed into and used by the Hook function are listed at the top of the code sample.
+When creating a Hook executed at the Post-User Registration extensibility point, you may find the following starter code helpful. Parameters that can be passed into and used by the Hook function are listed at the top of the code sample.
 
 ```js
 /**
@@ -65,7 +65,7 @@ Please note:
 
 ### Default response
 
-Hooks executed at the Post User Registration extensibility point ignore any response object.
+Hooks executed at the Post-User Registration extensibility point ignore any response object.
 
 ### Starter code response
 

@@ -989,13 +989,13 @@ articles:
         - title: Client Credentials Exchange
           url: /hooks/extensibility-points/client-credentials-exchange
 
-        - title: Post Change Password
+        - title: Post-Change Password
           url: /hooks/extensibility-points/post-change-password
 
-        - title: Post User Registration
+        - title: Post-User Registration
           url: /hooks/extensibility-points/post-user-registration
 
-        - title: Pre User Registration
+        - title: Pre-User Registration
           url: /hooks/extensibility-points/pre-user-registration    
 
         - title: Send Phone Message

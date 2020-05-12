@@ -7,7 +7,7 @@ topics:
     - extensibility-points
     - send-phone-message
     - custom-sms-gateway
-    - sms 
+    - sms
 contentType:
   - how-to
 useCase: extensibility-hooks
@@ -15,12 +15,12 @@ v2: true
 ---
 # Send Phone Message
 
-If you decide to use SMS as a factor for multi-factor authentication, you can configure how you want Auth0 to send the messages in the [SMS configuration dialog](/multifactor-authentication/factors/sms#administrative-setup).
+If you decide to use SMS as a factor for <dfn data-key="multifactor-authentication">Multi-factor Authentication (MFA)</dfn>, you can configure how you want Auth0 to send the messages in the [SMS configuration dialog](/multifactor-authentication/factors/sms#administrative-setup).
 
-If you select the 'Custom' SMS delivery method, you need to create a **Send Phone Message Hook** that will let you write your own code to send the message. This allows you to use whatever SMS provider you want.
+If you select the 'Custom' SMS delivery method, you must create a **Send Phone Message Hook** that will let you write your own code to send the message. This allows you to use whatever SMS provider you want.
 
 ::: note
-The `triggerId` for the Pre User Registration extensibility point is `send-phone-message`. To learn how to create Hooks for this extensibility point, see [Create New Hooks](/hooks/create).
+The `triggerId` for the Send Phone Message extensibility point is `send-phone-message`. To learn how to create Hooks for this extensibility point, see [Create New Hooks](/hooks/create).
 :::
 
 ## Starter code and parameters
@@ -32,10 +32,10 @@ When creating a Hook executed at the Send Phone Message extensibility point, you
 @param {string} recipient - phone number
 @param {string} text - message body
 @param {object} context - additional authorization context
-@param {string} context.message_type - 'sms' we'll support 'voice' in the future too
+@param {string} context.message_type - 'sms'; we'll support 'voice' in the future too
 @param {string} context.action - 'enrollment' or 'second-factor-authentication'
 @param {string} context.language - language used by login flow
-@param {string} context.code - one time password
+@param {string} context.code - one-time password
 @param {string} context.ip - ip address
 @param {string} context.user_agent - user agent making the authentication request
 @param {object} context.client - object with details about the Auth0 application
@@ -43,16 +43,16 @@ When creating a Hook executed at the Send Phone Message extensibility point, you
 @param {string} context.client.name - Auth0 application name
 @param {object} context.client.client_metadata - metadata from client
 @param {object} context.user - object representing the user
-@param {string} context.user.user_id - Auth0 user ID
-@param {string} context.user.name - user name
-@param {string} context.user.email - user email
+@param {string} context.user.user_id - Auth0 user's ID
+@param {string} context.user.name - user's name
+@param {string} context.user.email - user 'semail
 @param {object} context.user.app_metadata - metadata specific to user and application
 @param {object} context.user.user_metadata - metadata specific to user
 @param {function} cb - function (error, response)
 */
 module.exports = function(recipient, text, context, cb) {
- // TODO: Add your code here 
-  cb(null, {}); 
+ // TODO: Add your code here
+  cb(null, {});
 };
 ```
 
@@ -107,18 +107,22 @@ When you run a Hook based on the starter code, the response object is:
 
 ## Localization
 
-The `context.language` parameter will always have one of the languages configured in the Tenant Settings (/universal-login/i18n). Depending on how you trigger the MFA flow, it will be calculated in different ways:
+The `context.language` parameter will always have one of the [languages configured in the Tenant Settings](/universal-login/i18n). Depending on how you trigger the MFA flow, we will calculate which language to use in the following different ways:
 
-- If you use the [MFA API](/mfa/concepts/mfa-api) it will use the Accept-Language header from the request, and map it to a tenant language. If the language is not available, it will be set to the tenant default language.
+- If you use the [MFA API](/mfa/concepts/mfa-api), we will use the Accept-Language header from the request and map it to a tenant language. If the language is not available, we will set the parameter to the tenant default language.
 
-- If you use the New Universal Login Experience, it will use a combination of the Accept-Language header and the `ui_locales` parameter, as described in [Universal Login Internationalization](/universal-login/i18n#language-selection).
+- If you use the New Universal Login Experience, we will use a combination of the Accept-Language header and the `ui_locales` parameter, as described in [Universal Login Internationalization](/universal-login/i18n#language-selection).
 
-- If you use the Classic Universal Login Experience, the language will be set to 'N/A'. This is a limitation that will be fixed in upcoming releases.
+- If you use the Classic Universal Login Experience, we will set the language to 'N/A'. This is a limitation that will be fixed in upcoming releases.
 
-# Keep reading
+## Keep reading
 
-- [Configuring a Custom SMS Provider for MFA using Amazon SNS](/multifactor-authentication/send-phone-message-hook-amazon-sns) guide. 
-- [Configuring a Custom SMS Provider for MFA using Twilio](/multifactor-authentication/send-phone-message-hook-twilio) guide. 
-- [Configuring a Custom SMS Provider for MFA using Infobip](/multifactor-authentication/send-phone-message-hook-infobip) guide. 
-- [Configuring a Custom SMS Provider for MFA using TeleSign](/multifactor-authentication/send-phone-message-hook-telesign) guide. 
-- Learn about other [Extensibility Points](/hooks/extensibility-points).
+::: next-steps
+- [Configure a Custom SMS Provider for MFA using Amazon SNS](/multifactor-authentication/send-phone-message-hook-amazon-sns)
+- [Configure a Custom SMS Provider for MFA using Twilio](/multifactor-authentication/send-phone-message-hook-twilio)
+- [Configure a Custom SMS Provider for MFA using Infobip](/multifactor-authentication/send-phone-message-hook-infobip)
+- [Configure a Custom SMS Provider for MFA using TeleSign](/multifactor-authentication/send-phone-message-hook-telesign)
+- [Configure a Custom SMS Provider for MFA using Vonage](/multifactor-authentication/send-phone-message-hook-vonage)
+- [Configure SMS Notifications for MFA](/mfa/guides/configure-sms)
+- [Extensibility Points](/hooks/extensibility-points)
+:::
