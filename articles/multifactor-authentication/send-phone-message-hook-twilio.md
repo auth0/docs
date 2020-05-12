@@ -20,10 +20,10 @@ Auth0 has built-in support for sending messages through Twilio. However, you may
 
 ## What is Twilio?
 
-Twilio provides an SMS messaging service which can be used by Auth0 to deliver multi-factor verification via text messages. You two APIs for that purpose:
+Twilio provides an SMS messaging service which can be used by Auth0 to deliver multi-factor verification via text messages. It provides two different APIs:
 
   - [Programmable SMS](https://www.twilio.com/sms) is a flexible API designed to fully automate SMS communications.
-  - [Verify](https://www.twilio.com/verify) is an API designed to send one-time codes while hides the complexity of SMS delivery. If you want to use the Verify API, you need to make sure that the Twilio Verify Service is configured to accept a custom code. At the time of writing, you need to contact Twilio support to get it enabled. 
+  - [Verify](https://www.twilio.com/verify) is an API designed to send one-time codes while hides the complexity of SMS delivery.
 
 ## Prerequisites
 
@@ -32,6 +32,7 @@ Before you begin this tutorial, please:
 * Sign up for a [Twilio](https://www.twilio.com/try-twilio) account.
 * Create a new Messaging Service in the [Programmable SMS console](https://www.twilio.com/console/sms/services) or in the [Verify console](https://www.twilio.com/console/verify/services) depending on the API you want to use.
 * If you use Programmable SMS, you need to add a phone number that is enabled for SMS to your service and capture the number.
+*  If use the Verify API, you need to make sure that the Twilio Verify Service is configured to accept a custom code. At the time of writing, you need to contact Twilio support to get it enabled. 
 * Capture the Account SID and Authorization Token by clicking *Show API Credentials* in the [Twilio SMS Dashboard](https://www.twilio.com/console/sms/dashboard)
 
 ## Steps
@@ -140,36 +141,13 @@ module.exports = function(recipient, text, context, cb) {
 };
 ```
 
-If you want to use the Verify API, you need to make sure that the Twilio Verify Service is configured to accept a custom code. At the time of writing, you need to contact Twilio support to get it enabled. 
+### Add the Twilio Node JS Helper NPM package
 
-[Edit](/hooks/update) the Send Phone Message hook code to match the example below.
+The Hook uses the [Twilio Node.JS Helper Library](https://github.com/twilio/twilio-node), so you'll need to include this package in your Hook.
 
-```js
-module.exports = function(recipient, text, context, cb) {
+1. Click the **Settings** icon again, and select **NPM Modules**. 
 
-  const accountSid = context.webtask.secrets.TWILIO_ACCOUNT_SID; 
-  const authToken = context.webtask.secrets.TWILIO_AUTH_TOKEN; 
-  const fromPhoneNumber = context.webtask.secrets.TWILIO_PHONE_NUMBER;
-
-  const client = require('twilio')(accountSid, authToken); 
- 
-  client.verify.services(accountSid)
-      .verifications
-      .create({
-        to: recipient,
-        channel: 'sms',
-        customCode: context.code
-      })
-      .then(function() {
-        cb(null, {});
-      }) 
-      .catch(function(err) {
-        cb(err);
-      });
-};
-```
-
-## 4. Add the Twilio Node JS Helper NPM package
+2. Search for `twilio-node` and add the module that appears.
 
 ### Test your Hook implementation
 
