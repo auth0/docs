@@ -143,9 +143,9 @@ If you do not receive the SMS, please look at the logs for clues and ensure that
 ## Additional providers
 
 ::: next-steps
+* [Configure a Custom SMS Provider for MFA using Amazon SNS](/multifactor-authentication/send-phone-message-hook-amazon-sns)
 * [Configure a Custom SMS Provider for MFA using Twilio](/multifactor-authentication/send-phone-message-hook-twilio)
 * [Configure a Custom SMS Provider for MFA using Infobip](/multifactor-authentication/send-phone-message-hook-infobip)
 * [Configure a Custom SMS Provider for MFA using TeleSign](/multifactor-authentication/send-phone-message-hook-telesign)
 * [Configure a Custom SMS Provider for MFA using Vonage](/multifactor-authentication/send-phone-message-hook-vonage)
-* [Configure a Custom SMS Provider for MFA using Esendex](/multifactor-authentication/send-phone-message-hook-esendex)
 :::

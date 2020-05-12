@@ -52,7 +52,7 @@ You can only have **one** Send Phone Message Hook active at a time.
 
 You're going to store the value needed from the Infobip portal in a [Hook Secret](/hooks/secrets). This way, the values are secure and can be used easily in your function.
 
-1. [Add a Hook Secret](/hooks/secrets/create) with the following settings. You can find the value for the secret on the [Infobip API Keys](https://portal.infobip.com/.settings/accounts/api-keys) page.
+[Add a Hook Secret](/hooks/secrets/create) with the following settings. You can find the value for the secret on the [Infobip API Keys](https://portal.infobip.com/.settings/accounts/api-keys) page.
 
 * `INFOBIP_API_KEY` - Infobip API key
 
@@ -60,7 +60,7 @@ You're going to store the value needed from the Infobip portal in a [Hook Secret
 
 To make the call to Infobip, add the appropriate code to the Hook.
 
-1. Copy the code block below and [edit](/hooks/update) the Send Phone Message Hook code to include it. This function will run each time a user requires MFA, calling Infobip to send a verification code via SMS.
+Copy the code block below and [edit](/hooks/update) the Send Phone Message Hook code to include it. This function will run each time a user requires MFA, calling Infobip to send a verification code via SMS.
 
 ```js
 /**
@@ -151,4 +151,5 @@ If you do not receive the SMS, please look at the logs for clues and make sure t
 * [Configure a Custom SMS Provider for MFA using Twilio](/multifactor-authentication/send-phone-message-hook-twilio)
 * [Configure a Custom SMS Provider for MFA using TeleSign](/multifactor-authentication/send-phone-message-hook-telesign)
 * [Configure a Custom SMS Provider for MFA using Vonage](/multifactor-authentication/send-phone-message-hook-vonage)
+* [Configure a Custom SMS Provider for MFA using Esendex](/multifactor-authentication/send-phone-message-hook-esendex)
 :::

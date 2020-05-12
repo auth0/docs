@@ -55,7 +55,7 @@ You can only have **one** Send Phone Message Hook active at a time.
 
 You're going to store the values needed from the Telesign portal in [Hook Secrets](/hooks/secrets). This way, the values are secure and can be used easily in your function.
 
-1. [Add Hook Secrets](/hooks/secrets/create) with the following settings. You can find the values for the secrets in your Telesign portal.
+[Add Hook Secrets](/hooks/secrets/create) with the following settings. You can find the values for the secrets in your Telesign portal.
 
 * `TELESIGN_CUSTOMER_ID`: Telesign Customer ID
 * `TELESIGN_API_KEY`: Telesign API Key
@@ -64,7 +64,7 @@ You're going to store the values needed from the Telesign portal in [Hook Secret
 
 To make the call to Telesign, add the appropriate code to the Hook.
 
-1. Copy the appropriate code block below and [edit](/hooks/update) the Send Phone Message Hook code to include it. This function will run each time a user requires MFA, calling Telesign to send a verification code via SMS.
+Copy the appropriate code block below and [edit](/hooks/update) the Send Phone Message Hook code to include it. This function will run each time a user requires MFA, calling Telesign to send a verification code via SMS.
 
 #### SMS API
 
@@ -202,4 +202,5 @@ If you do not receive the SMS, please look at the logs for clues and make sure t
 * [Configure a Custom SMS Provider for MFA using Twilio](/multifactor-authentication/send-phone-message-hook-twilio)
 * [Configure a Custom SMS Provider for MFA using Infobip](/multifactor-authentication/send-phone-message-hook-infobip)
 * [Configure a Custom SMS Provider for MFA using Vonage](/multifactor-authentication/send-phone-message-hook-vonage)
+* [Configure a Custom SMS Provider for MFA using Esendex](/multifactor-authentication/send-phone-message-hook-esendex)
 :::

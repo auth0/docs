@@ -57,7 +57,7 @@ You're going to use a Hook in the Auth0 dashboard to send the text message when 
 
 You're going to store each of the values needed from the Vonage dashboard in a [Hook Secret](/hooks/secrets). This way, the values are secure and can be used easily in your function.
 
-1. Click the **Settings** icon (wrench) on the top left and select **Secrets**, then click **Add Secret**, and add the following secrets. You can find the values for all three of these secrets in the [Getting Started Guide](https://dashboard.nexmo.com/getting-started-guide) in the Vonage dashboard.
+Click the **Settings** icon (wrench) on the top left and select **Secrets**, then click **Add Secret**, and add the following secrets. You can find the values for all three of these secrets in the [Getting Started Guide](https://dashboard.nexmo.com/getting-started-guide) in the Vonage dashboard.
 
 * `VONAGE_API_KEY`: Vonage API key
 * `VONAGE_API_SECRET`: Vonage API secret
@@ -81,7 +81,7 @@ Next, you'll need to include the `nexmo` module in your hook.
 
 To make the call to the Vonage API, add the appropriate code to the Hook.
 
-1. Copy the code block below and paste it into the Hooks code editor. This function will run each time a user requires MFA, calling the Vonage API to send a verification code via SMS.
+Copy the code block below and paste it into the Hooks code editor. This function will run each time a user requires MFA, calling the Vonage API to send a verification code via SMS.
 
 ```js
 module.exports = function(toNumber, text, context, cb) {
@@ -108,8 +108,6 @@ module.exports = function(toNumber, text, context, cb) {
   });
 };
 ```
-
-2. Click **Save**.
 
 ### Test your Hook implementation
 
@@ -169,4 +167,5 @@ If this does not solve your issue, the next step would be to check the [Vonage S
 * [Configure a Custom SMS Provider for MFA using Twilio](/multifactor-authentication/send-phone-message-hook-twilio)
 * [Configure a Custom SMS Provider for MFA using Infobip](/multifactor-authentication/send-phone-message-hook-infobip)
 * [Configure a Custom SMS Provider for MFA using TeleSign](/multifactor-authentication/send-phone-message-hook-telesign)
+* [Configure a Custom SMS Provider for MFA using Esendex](/multifactor-authentication/send-phone-message-hook-esendex)
 :::
