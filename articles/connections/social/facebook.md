@@ -17,7 +17,7 @@ useCase:
   - customize-connections
   - add-idp
 ---
-# Add Facebook Login to Your App
+# Connect Apps to Facebook
 
 This guide will show you how to add functionality to your web app that allows your users to log in with Facebook. Along the way, you will also learn how to get an <dfn data-key="access-token">Access Token</dfn> that will allow you to access the Facebook API.
 

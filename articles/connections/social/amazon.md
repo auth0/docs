@@ -19,7 +19,7 @@ useCase:
     - add-idp
 ---
 
-# Connect your app to Amazon
+# Connect Apps to Amazon
 
 To configure an Amazon connection with Auth0, you will need to register your app on the Amazon portal.
 

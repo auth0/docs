@@ -15,7 +15,7 @@ useCase:
     - add-idp
 ---
 
-# Connect your app to Dwolla
+# Connect Apps to Dwolla
 
 To configure OAuth2 connections with Dwolla, you will need to register Auth0 on the Dwolla Developer portal.
 

@@ -16,7 +16,7 @@ useCase:
     - add-idp
 ---
 
-# Connect your app to Fitbit
+# Connect Apps to Fitbit
 
 ::: panel-warning Fitbit has ended support for OAuth 1.0
 New connections with Fitbit will use OAuth 2.0. Please see the following documentation on [Using OAuth 2.0](https://dev.fitbit.com/docs/oauth2/) with Fitbit.

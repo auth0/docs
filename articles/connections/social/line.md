@@ -17,7 +17,7 @@ useCase:
   - customize-connections
   - add-idp
 ---
-# Add LINE Login to Your App
+# Connect Apps to LINE
 
 This guide will show you how to add functionality to your web app that allows your users to use LINE to login.
 

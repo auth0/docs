@@ -15,7 +15,7 @@ useCase:
     - add-idp
 ---
 
-# Connect your app to Yammer
+# Connect Apps to Yammer
 
 To configure Yammer for OAuth connections, you will need to register your app in the Yammer Developer Center.
 

@@ -15,7 +15,7 @@ useCase:
     - add-idp
 ---
 
-# Connect your app to Evernote
+# Connect Apps to Evernote
 
 To configure Evernote OAuth connections, you will need to create an API Key on the Evernote Developers portal.
 

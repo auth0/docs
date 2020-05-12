@@ -9,7 +9,7 @@ useCase:
     - add-idp
 ---
 
-# Handling Declined Authorization Permissions
+# Handle Declined Authorization Permissions
 
 When your users are authorizing your application, some providers (such as Facebook) allow the user to select the attributes they wish to share.
 

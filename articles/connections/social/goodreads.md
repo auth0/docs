@@ -13,7 +13,7 @@ useCase:
     - customize-connections
     - add-idp
 ---
-# Connect your app to Goodreads
+# Connect Apps to Goodreads
 
 This doc refers to the steps required to configure a Goodreads social connection in your Auth0 [dashboard](${manage_url}). If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
 

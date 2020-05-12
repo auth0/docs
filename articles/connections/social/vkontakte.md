@@ -15,7 +15,7 @@ useCase:
     - add-idp
 ---
 
-# Connect your app to vKontakte
+# Connect Apps to vKontakte
 
 To connect your Auth0 app to vKontakte, you will need to generate an `Application ID` and `Secure Key` in a vKontakte app, copy these keys into your Auth0 settings, and enable the connection.
 

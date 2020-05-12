@@ -15,7 +15,7 @@ useCase:
     - add-idp
 ---
 
-# Connect your app to RenRen
+# Connect Apps to RenRen
 
 To configure a RenRen OAuth2 connection, you will need to register Auth0 on the RenRen integration portal.
 

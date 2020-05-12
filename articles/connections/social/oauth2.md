@@ -15,7 +15,7 @@ useCase:
     - customize-connections
     - add-idp
 ---
-# Add a generic OAuth2 Authorization Server to Auth0
+# Add Generic OAuth2 Authorization Server to Auth0
 
 The most common [identity providers](/identityproviders) are readily available on Auth0's dashboard. However, you can add any other OAuth2 provider using the **Custom Social Connections** [extension](${manage_url}/#/extensions). For details on how to install and configure the extension, refer to [Auth0 Extension: Custom Social Connections](/extensions/custom-social-extensions).
 

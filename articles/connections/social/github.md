@@ -15,7 +15,7 @@ useCase:
     - customize-connections
     - add-idp
 ---
-# Connect your app to GitHub
+# Connect Apps to GitHub
 
 To configure a GitHub connection, you will need to register Auth0 with GitHub.
 

@@ -16,7 +16,7 @@ useCase:
     - add-idp
 ---
 
-# Connect your app to PayPal
+# Connect Apps to PayPal
 
 To configure an OAuth connection with PayPal, register your Auth0 Application on the [**PayPal Developer Portal**](https://developer.paypal.com/).
 

@@ -16,7 +16,7 @@ useCase:
     - add-idp
 ---
 
-# Connect Your App to Twitter
+# Connect Apps to Twitter
 
 To connect your Auth0 application to Twitter, you will need to generate **Consumer** and **Secret** Keys in a Twitter application, copy these into your Auth0 settings, and enable the connection.
 

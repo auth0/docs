@@ -15,7 +15,7 @@ useCase:
     - add-idp
 ---
 
-# Connect your app to Box
+# Connect Apps to Box
 
 To configure a Box OAuth2 connection, you will need to register your Auth0 tenant on their [developer portal](https://developers.box.com/).
 

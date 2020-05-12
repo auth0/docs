@@ -15,7 +15,7 @@ useCase:
     - add-idp
 ---
 
-# Connect your app to The City
+# Connect Apps to The City
 
 To connect your Auth0 app to The City, you will need to create a plugin as an administrator on your The City portal.
 

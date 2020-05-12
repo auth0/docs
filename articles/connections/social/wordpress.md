@@ -16,7 +16,7 @@ useCase:
     - add-idp
 ---
 
-# Connect your App to WordPress
+# Connect Apps to WordPress
 
 To configure WordPress OAuth2 connections, you will need to register Auth0 with the [WordPress Developer Portal](http://developer.wordpress.com/).
 
