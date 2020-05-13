@@ -59,7 +59,7 @@ You're going to store the values needed from Esendex in [Hook Secrets](/hooks/se
 
 To make the call to Esendex, add the appropriate code to the Hook.
 
-Copy the code block below and [edit](/hooks/update) the Send Phone Message Hook code to include it. This function will run each time a user requires MFA, calling Esendex to send a verification code via SMS.
+Copy the code block below and [edit](/hooks/update) the Send Phone Message Hook code to include it. This function will run each time a user requires MFA, calling Esendex to send a verification code via SMS. You can learn more about the Esendex API in their [API documentation](https://developers.esendex.com/api-reference#smsapis).
 
 ```js
 /**
