@@ -13,11 +13,11 @@ useCase: private-cloud
 
 # Private Cloud Deployable Regions
 
-With Private Cloud you can choose the region where your data is stored -- any region with three (3) [availability zones](https://aws.amazon.com/about-aws/global-infrastructure) can be used for the Private Cloud. All data will remain and be stored in the chosen region. This is crucial in instances where regulations prevent data from being sent outside the origin region.
+With Private Cloud, you can choose the region where your data is stored&mdash;any region with three (3) [availability zones](https://aws.amazon.com/about-aws/global-infrastructure) can be used for the Private Cloud. All data will remain and be stored in the chosen region. This is crucial in instances where regulations prevent data from being sent outside the origin region.
 
 ## Backups and logs
 
-For Auth0-hosted Private Cloud customers, backups will be processed and stored in the United States (USA). Service logs will be processed in the region closest to where Private Cloud is hosted, currently this includes:
+For Auth0-hosted Private Cloud customers, backups will be processed and stored in the United States (USA). Service logs will be processed in the region closest to where Private Cloud is hosted. Currently, this includes:
 
 * Australia
 * Canada
