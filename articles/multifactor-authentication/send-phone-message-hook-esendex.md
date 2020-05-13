@@ -18,7 +18,7 @@ This guide explains how to send <dfn data-key="multifactor-authentication">Multi
 
 ## What is Esendex?
 
-Esendex provides an SMS messaging service which can be used by Auth0 to deliver multi-factor verification via text messages. 
+Esendex provides an SMS messaging service that can be used by Auth0 to deliver multi-factor verification via text messages. 
 
 ## Prequisites
 
@@ -28,7 +28,7 @@ Before you begin this tutorial, please:
 
 ## Steps
 
-To configure a custom SMS provider for MFA using Twilio, you will:
+To configure a custom SMS provider for MFA using Esendex, you will:
 
 1. [Create a Send Phone Message Hook](#create-a-send-phone-message-hook)
 2. [Configure Hook Secrets](#configure-hook-secrets)
@@ -49,9 +49,9 @@ You can only have **one** Send Phone Message Hook active at a time.
 
 You're going to store the values needed from Esendex in [Hook Secrets](/hooks/secrets). This way, the values are secure and can be used easily in your function.
 
-[Add Hook Secrets](/hooks/secrets/create) with the following settings.
+[Add Hook Secrets](/hooks/secrets/create) with the following settings:
 
-* `ESENDEX_ACCOUNT` - Esendex Account (from https://admin.esendex.com/accounts)
+* `ESENDEX_ACCOUNT` - Esendex Account (from the [Esendex Dashboard](https://admin.esendex.com/accounts))
 * `ESENDEX_USERNAME` - Esendex Username
 * `ESENDEX_PASSWORD` - Esendex Password
 
@@ -59,7 +59,7 @@ You're going to store the values needed from Esendex in [Hook Secrets](/hooks/se
 
 To make the call to Esendex, add the appropriate code to the Hook.
 
-Copy the code block below and [edit](/hooks/update) the Send Phone Message Hook code to include it. This function will run each time a user requires MFA, calling Esendex to send a verification code via SMS. You can learn more about the Esendex API in their [API documentation](https://developers.esendex.com/api-reference#smsapis).
+Copy the code block below and [edit](/hooks/update) the Send Phone Message Hook code to include it. This function will run each time a user requires MFA, calling Esendex to send a verification code via SMS. You can learn more about the Esendex API in [Esendex's API documentation](https://developers.esendex.com/api-reference#smsapis).
 
 ```js
 /**
