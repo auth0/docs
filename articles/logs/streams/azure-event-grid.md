@@ -34,10 +34,10 @@ Log in to the Auth0 Dashboard.
 1. Navigate to Logs > Streams.
 2. Click + Create Stream.
 3. Select Azure Event Grid and enter a unique name for your new stream.
-4. Create the event source by providing your Subscription ID, Azure Region and a Resource Group. 
+4. Create the event source by providing your Azure Subscription ID, Azure Region and a Resource Group name. 
 5. Click Save.
 
-Go to Azure to complete the final steps of the integration.
+Go to the Azure Portal to complete the final steps of the integration.
 
 ## Set up an event handler
 
@@ -45,7 +45,7 @@ Go to your Azure subscription and spin up a service that is supported as an even
 
 ### Enable Event Grid resource provider
 
-If you haven’t previously used Event Grid, you will need to register the Event Grid resource provider
+If you haven’t previously used Event Grid, you will need to register the Event Grid resource provider. If you've used Event Grid before, skip to the next section.
 
 In your Azure portal:
 
@@ -56,33 +56,24 @@ In your Azure portal:
 5. Select Register
 6. Refresh to make sure the status changes to Registered
 
-### Create a custom topic
+### Activate your Auth0 Partner Topic in Azure
 
-An event grid topic providers a user-defined endpoint that you post events to.
+Activating the Auth0 topic in Azure allows events to flow from Auth0 to Azure.
 
-In your Azure portal:
+1. Log in to the [Azure Portal](https://portal.azure.com/).
+2. Search `Partner Topics` at the top and click `Event Grid Partner Topics` under services.
+3. Click on the topic that matches the stream you created in your Auth0 Dashboard.
+4. Confirm the `Source` field matches your Auth0 account.
+5. Click Activate.
 
-1. Select All services on the left navigation menu
-2. Search Event Grid and select Event Grid Topics
-3. On the Event Grid topics page, select + Add on the toolbar
-4. Create a new topic
-    1. Provide a unique name for the custom topic. The topic name must be unique because it's represented by a DNS entry. Don't use the name shown in the image. Instead, create your own name - it must be between 3-50 characters and contain only values a-z, A-Z, 0-9, and "-".
-    2. Select your Azure subscription.
-    3. Select the same resource group from the previous steps.
-    4. Select a location for the event grid topic.
-    5. Keep the default value Event Grid Schema for the Event Schema field.
-    6. Select Create.
-5. Once the topic is created you should see a successful notification. Select “Go to resource group”
-6. On the resource Group page, select the event grid topic
-
-### Subscribe to custom topic
+### Subscribe to your Partner Topic
 
 You subscribe to an event grid topic to tell Event Grid which events to send to which event handler.
 
 1. On the Event Grid topic page, select + Event Subscription on the toolbar
 2. On the Create Event Subscription page:
     1. Enter a name for the event subscription.
-    2. Select your desired Azure service for the Endpoint type.
+    2. Select your desired Azure service or WebHook for the Endpoint type.
     3. Follow the instructions for the particular service.
     4. Back on the Create Event Subscription page, select Create.
 
