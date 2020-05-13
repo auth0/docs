@@ -11,9 +11,9 @@ contentType: how-to
 
 # Integrate Azure Event Grid with Auth0
 
-Azure’s Event Grid is a serverless event bus that acts as an intermediary allowing you to send data from Auth0 into the Azure ecosystem.
+Azure Event Grid is a serverless event bus that lets you send event data from any source to any destination.
 
-You can create an event-driven workflow using Event Grid to send your Auth0 tenant logs to the targets of your choice (e.g., Azure Functions, Event Hubs, Sentinel and Logic Apps).
+You can create event-driven workflows using to Event Grid send your Auth0 tenant logs to targets such as Azure Functions, Event Hubs, Sentinel, and Logic Apps.
 
 See the Auth0 event type codes for a [full list](https://auth0.com/docs/logs/references/log-event-type-codes) of the events that Auth0 supports.
 
