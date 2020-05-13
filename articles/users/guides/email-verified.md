@@ -49,9 +49,9 @@ If your application needs to restrict access based on the user's employer, the f
 
 For example:
 
-- If your application allows customers to signup for new accounts, and employees from different companies authenticate using their corporate credentials, a user that signs up with an user@acme.com account shouldn't be granted access to the same feature set that a user authenticating with acme.com's corporate directory.
+- If your application allows customers to sign up for new accounts, and employees from different companies authenticate using their corporate credentials, a user that signs up with a user@acme.com account shouldn't be granted access to the same feature set that a user authenticating with acme.com's corporate directory.
 
-- If your application supports authenticating with Azure AD, and the directory supports guests users, you can get users from any domain logging-in from that Azure AD tenant. You might want to give guest users the same access level than the rest of the users authenticating with that tenant.
+- If your application supports authenticating with Azure AD, and the directory supports guests users, you can get users from any domain logging-in from that Azure AD tenant. You should not give guest users the same access level as the rest of the users authenticating with that tenant.
 
 As a general recommendation, **you should not use the email's domain to make authorization decisions**. If you need to check if the user belongs to a specific organization, it's better to rely on the connection they used to authenticate, or in connection-specific attributes like the Azure AD's tenant id.
 
