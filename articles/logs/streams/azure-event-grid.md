@@ -19,7 +19,7 @@ See the Auth0 event type codes for a [full list](https://auth0.com/docs/logs/ref
 
 ## Send events from Auth0 to Azure Event Grid
 
-To send Auth0 events to Azure, you will need:
+To send Auth0 events to Azure, you'll need to:
 
 1. Enable Event Grid resource provider.
 2. Set up an event source (in this case, this is Auth0).
