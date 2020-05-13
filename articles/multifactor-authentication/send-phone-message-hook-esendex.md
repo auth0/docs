@@ -1,6 +1,6 @@
 ---
-title: Configure a Custom SMS Provider for MFA using Amazon SNS
-description: Learn how to configure a Custom SMS Provider for multifactor authentication (MFA) using Amazon SNS.
+title: Configure a Custom SMS Provider for MFA using Esendex
+description: Learn how to configure a Custom SMS Provider for multifactor authentication (MFA) using Esendex.
 topics:
   - mfa
   - sms
@@ -10,38 +10,32 @@ contentType:
 useCase:
   - customize-mfa
 ---
-# Configure a Custom SMS Provider for MFA using Amazon SNS
+# Configure a Custom SMS Provider for MFA using Esendex
 
-This guide explains how to send <dfn data-key="multifactor-authentication">Multi-factor Authentication (MFA)</dfn> text messages using the Amazon Simple Notification Service (SNS).
+This guide explains how to send <dfn data-key="multifactor-authentication">Multi-factor Authentication (MFA)</dfn> text messages using Esendex and the Send Phone Message Hook.
 
 <%= include('./_includes/_test-setup') %>
 
-## What is Amazon SNS?
+## What is Esendex?
 
-Amazon Simple Notification Service (SNS) is a pub/sub messaging service that enables Auth0 to deliver multi-factor verification via text messages. To learn more, see [Amazon's SNS Overview](https://aws.amazon.com/sns).
+Esendex provides an SMS messaging service which can be used by Auth0 to deliver multi-factor verification via text messages. 
 
-## Prerequisites
+## Prequisites
 
 Before you begin this tutorial, please:
 
-* Sign up for an [Amazon Web Services](https://portal.aws.amazon.com/billing/signup#/start).
-* Capture your Amazon Web Service region.
-* Create a new Amazon IAM User with the `AmazonSNSFullAccess` role.
-* Capture the user's access key and secret key details.
+- [Sign up with Esendex](https://www.esendex.co.uk/#freetrialformblock) and complete your profile and confirmation steps. Once this is complete, you should be able to access the SMS API. Here, you can try out the API with a test number.
 
 ## Steps
 
-To configure a custom SMS provider for MFA using Amazon SNS, you will:
+To configure a custom SMS provider for MFA using Twilio, you will:
 
 1. [Create a Send Phone Message Hook](#create-a-send-phone-message-hook)
 2. [Configure Hook Secrets](#configure-hook-secrets)
-3. [Add the AWS SNS call](#add-the-aws-sns-call)
-4. [Add the AWS SDK NPM package](#add-the-aws-sdk-npm-package)
-5. [Test your Hook implementation](#test-your-hook-implementation)
-6. [Activate the custom SMS factor](#activate-the-custom-sms-factor)
-7. [Test the MFA flow](#test-the-mfa-flow)
-
-Optional: [Troubleshoot](#troubleshoot)
+3. [Add the Esendex call](#add-the-esendex-call)
+4. [Test your Hook implementation](#test-your-hook-implementation)
+5. [Activate the custom SMS factor](#activate-the-custom-sms-factor)
+6. [Test the MFA flow](#test-the-mfa-flow)
 
 ### Create a Send Phone Message Hook
 
@@ -51,20 +45,23 @@ You will need to create a [Send Phone Message](/hooks/extensibility-points/send-
 You can only have **one** Send Phone Message Hook active at a time.
 :::
 
-### Configure Hook secrets
+### Configure Hook Secrets
 
-Add three [Hook Secrets](/hooks/secrets/create) with keys `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` and `AWS_REGION`, with the corresponding values from your Amazon account.
+You're going to store the values needed from Esendex in [Hook Secrets](/hooks/secrets). This way, the values are secure and can be used easily in your function.
 
-### Add the AWS SNS call
+[Add Hook Secrets](/hooks/secrets/create) with the following settings.
 
-To make the call to AWS SNS, add the appropriate code to the Hook.
+* `ESENDEX_ACCOUNT` - Esendex Account (from https://admin.esendex.com/accounts)
+* `ESENDEX_USERNAME` - Esendex Username
+* `ESENDEX_PASSWORD` - Esendex Password
 
-Copy the code block below and [edit](/hooks/update) the Send Phone Message Hook code to include it. This function will run each time a user requires MFA, calling AWS SNS to send a verification code via SMS.
+### Add the Esendex call
+
+To make the call to Esendex, add the appropriate code to the Hook.
+
+Copy the code block below and [edit](/hooks/update) the Send Phone Message Hook code to include it. This function will run each time a user requires MFA, calling Esendex to send a verification code via SMS.
 
 ```js
-// Load the SDK
-var AWS = require("aws-sdk");
-
 /**
 @param {string} recipient - phone number
 @param {string} text - message body
@@ -73,7 +70,7 @@ var AWS = require("aws-sdk");
 @param {string} context.message_type - 'sms' or 'voice'
 @param {string} context.action - 'enrollment' or 'authentication'
 @param {string} context.language - language used by login flow
-@param {string} context.code - one-time password
+@param {string} context.code - one time password
 @param {string} context.ip - ip address
 @param {string} context.user_agent - user agent making the authentication request
 @param {string} context.client_id - to send different messages depending on the client id
@@ -83,33 +80,36 @@ var AWS = require("aws-sdk");
 @param {function} cb - function (error, response)
 */
 module.exports = function(recipient, text, context, cb) {
-  process.env.AWS_ACCESS_KEY_ID = context.webtask.secrets.AWS_ACCESS_KEY_ID;
-  process.env.AWS_SECRET_ACCESS_KEY = context.webtask.secrets.AWS_SECRET_ACCESS_KEY;
-  process.env.AWS_REGION = context.webtask.secrets.AWS_REGION;
+   const axios = require('axios').default;
 
-  var params = { Message: text, PhoneNumber: recipient };
-
-  var publishTextPromise = new AWS.SNS({ apiVersion: "2010-03-31" })
-    .publish(params)
-    .promise();
-
-  publishTextPromise
-    .then(function() {
-      cb(null, {});
+   const instance = axios.create({
+    baseURL: "https://api.esendex.com/",
+    headers: {
+        "Content-Type": "application/json",
+        "Accept-Encoding": "gzip, deflate, br",
+        "Accept": "application/json"
+    },
+  });
+  instance({
+    method: 'post',
+    auth: {
+      username: context.webtask.secrets.ESENDEX_USERNAME,
+      password: context.webtask.secrets.ESENDEX_PASSWORD
+    },
+    url: '/v1.0/messagedispatcher',
+    data: JSON.stringify({
+        accountreference: context.webtask.secrets.ESENDEX_ACCOUNT,
+        messages: [{ to: recipient, body: text }]
     })
-    .catch(function(err) {
-      cb(err);
-    });
+  })
+  .then((response) => {
+    cb(null, {});
+  })
+  .catch((error) => {
+    cb(error);
+  });
 };
 ```
-
-### Add the AWS SDK NPM package
-
-The Hook uses the [AWS SDK for JavaScript in Node.js](https://aws.amazon.com/sdk-for-node-js/), so you'll need to include this package in your Hook.
-
-1. Click the **Settings** icon again, and select **NPM Modules**. 
-
-2. Search for `aws-sdk` and add the module that appears.
 
 ### Test your Hook implementation
 
@@ -117,7 +117,7 @@ Click the **Run** icon on the top right to test the Hook. Edit the parameters to
 
 ### Activate the custom SMS factor
 
-The Hook is now ready to send MFA codes via the Vonage SMS API. The last steps are to configure the SMS Factor to use the custom code and test the MFA flow.
+The Hook is now ready to send MFA codes. The last steps are to configure the SMS Factor to use the custom code and test the MFA flow.
 
 1. Navigate to the [Multifactor Auth](${manage_url}/#/mfa) page in the [Auth0 Dashboard](${manage_url}/), and click the **SMS** factor box.
 
@@ -131,20 +131,18 @@ Trigger an MFA flow and double check that everything works as intended. If you d
 
 ## Troubleshoot
 
-If you do not receive the SMS, please look at the logs for clues and ensure that:
+If you do not receive the SMS, please look at the logs for clues and make sure that:
 
-- The Hook is active and the SMS configuration is set to use `Custom`.
+- The Hook is active and the SMS configuration is set to use 'Custom'.
 - You have configured the Hook Secrets as per Step 2.
-- The configured Hook Secrets are the same ones you created in the Amazon Web Services portal.
-- Your Amazon Web Services user has access to the `AmazonSNSFullAccess` role.
-- Your Amazon Web Services account is active (not suspended).
+- The configured Hook Secrets are the same ones you got from Esendex.
 - Your phone number is formatted using the [E.164 format](https://en.wikipedia.org/wiki/E.164).
 
 ## Additional providers
 
 ::: next-steps
 * [Configure a Custom SMS Provider for MFA using Amazon SNS](/multifactor-authentication/send-phone-message-hook-amazon-sns)
-* [Configure a Custom SMS Provider for MFA using Twilio](/multifactor-authentication/send-phone-message-hook-twilio)
+* [Configure a Custom SMS Provider for MFA using TeleSign](/multifactor-authentication/send-phone-message-hook-twilio)
 * [Configure a Custom SMS Provider for MFA using Infobip](/multifactor-authentication/send-phone-message-hook-infobip)
 * [Configure a Custom SMS Provider for MFA using TeleSign](/multifactor-authentication/send-phone-message-hook-telesign)
 * [Configure a Custom SMS Provider for MFA using Vonage](/multifactor-authentication/send-phone-message-hook-vonage)
