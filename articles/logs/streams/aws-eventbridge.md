@@ -77,4 +77,5 @@ At this point, your EventBridge workflow should be complete. As soon as Auth0 wr
 
 ## Delivery attempts and retries
 
-Auth0 events are delivered to AWS via a streaming mechanism that sends each event as it is triggered in our system. If EventBridge is unable to receive the event, we will retry up to three times to deliver the event; otherwise, we will log the failure to deliver in our system.
+Auth0 events are delivered to AWS via a streaming mechanism that sends each event as it is triggered in our system. If EventBridge is unable to receive the event, we will retry up to three times to deliver the event; otherwise, we will log the failure to deliver in our system, and you will be able see these failures in the Health tab for your log stream.
+

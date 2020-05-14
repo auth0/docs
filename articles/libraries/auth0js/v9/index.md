@@ -440,6 +440,8 @@ webAuth.checkSession({}, function (err, authResult) {
 });
 ```
 
+See [Extract the AuthResult and Get User Info](#extract-the-authresult-and-get-user-info) for the format of `authResult`.
+
 Or, the token can be acquired for a different API than the one used when initializing `webAuth` by specifying an `audience` and `scope`:
 
 ```js

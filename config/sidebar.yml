@@ -754,6 +754,9 @@ articles:
       - title: Using the API
         url: /users/guides/manage-users-using-the-management-api
 
+      - title: Email Verified Usage
+        url: /users/guides/email-verified
+
       - title: Link User Accounts
         url: /users/concepts/overview-user-account-linking
         children:
@@ -986,13 +989,13 @@ articles:
         - title: Client Credentials Exchange
           url: /hooks/extensibility-points/client-credentials-exchange
 
-        - title: Post Change Password
+        - title: Post-Change Password
           url: /hooks/extensibility-points/post-change-password
 
-        - title: Post User Registration
+        - title: Post-User Registration
           url: /hooks/extensibility-points/post-user-registration
 
-        - title: Pre User Registration
+        - title: Pre-User Registration
           url: /hooks/extensibility-points/pre-user-registration    
 
         - title: Send Phone Message
@@ -1231,8 +1234,13 @@ articles:
           - title: AWS EventBridge
             url: /logs/streams/aws-eventbridge
 
+
+          - title: Datadog Event Streams
+            url: /logs/streams/datadog
+
       - title: Log Data Retention
         url: /logs/references/log-data-retention
+
 
       - title: View Log Data in the Dashboard
         url: /logs/guides/view-log-data-dashboard
@@ -1253,7 +1261,7 @@ articles:
         url: /logs/concepts/logs-admins-devs
 
       - title: Migrate from Logs Search v2 to v3
-        url: /monitor/logs/migrate-logs-v2-v3
+        url: /monitor/logs/guides/migrate-logs-v2-v3
         hidden: true
 
 ## ------------------------------------------------------------
@@ -2179,7 +2187,7 @@ libraries:
       - title: "Refresh Tokens"
         url: "/libraries/auth0-swift/save-and-refresh-jwt-tokens"
 
-      - title: "TouchID"
+      - title: "Touch ID / Face ID"
         url: "/libraries/auth0-swift/touchid-authentication"
 
   - title: "Auth0 SDK for Android"

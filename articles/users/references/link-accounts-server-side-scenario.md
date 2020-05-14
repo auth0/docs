@@ -1,5 +1,5 @@
 ---
-title: Link User Accounts Server-Side Code Scenario
+title: Suggested Account Linking - Server-Side Implementation
 description: Describes how to link user accounts with a regular web app using server-side code using a sample scenario.
 crews: crew-2
 topics:
@@ -15,7 +15,7 @@ useCase:
 
 Auth0 supports the linking of user accounts from various identity providers. You can use server-side code to link accounts on a regular web application, engaging the user and asking them for permission before proceeding. Your code will authenticate users and search for and identify users using their email addresses. Your application will then prompt the user to link their accounts by authenticating with the target account's credentials, and later link the accounts.
 
-You can find the full source of this sample application [here](https://github.com/auth0-samples/auth0-link-accounts-sample/tree/master/RegularWebApp).
+You can find the full source of this sample application [on GitHub](https://github.com/auth0-samples/auth0-link-accounts-sample/tree/master/RegularWebApp).
 
 1. Log the user in to your application.
 
@@ -33,7 +33,7 @@ router.get("/", async (req, res) => {
     let getUsersWithSameVerifiedEmail = [];
     const getUserProfile = auth0Client.getUser(sub);
     if (email_verified)
-      // account linking is only offered verified email
+      // account linking isx only offered verified email
       getUsersWithSameVerifiedEmail = auth0Client.getUsersWithSameVerifiedEmail(
         req.openid.user
       );
@@ -58,20 +58,20 @@ router.get("/", async (req, res) => {
 
   To get a list of all of the user records with the same email address, your application calls the Auth0 Management API's [Get Users By Email endpoint](/api/v2#!/users-by-email/) using a [Management API Access Token](/api/management/v2/tokens) with the `read:users` scope.
 
-    ```js
-    const request = require('request');
-    class Auth0Client {
-      ...
-      async getUsersWithSameVerifiedEmail({ sub, email }) {
-       return await this.request({
-         url: `${process.env.ISSUER_BASE_URL}/api/v2/users`,
-         qs: {
-           search_engine: "v3",
-           q: `email:"${email}" AND email_verified:true -user_id:"${sub}"`,
-        } ,
-      });
-    }
-    ```
+  ```js
+  const request = require('request');
+  class Auth0Client {
+    ...
+    async getUsersWithSameVerifiedEmail({ sub, email }) {
+      return await this.request({
+        url: `${process.env.ISSUER_BASE_URL}/api/v2/x`x``users`,
+        qs: {
+          search_engine: "v3",
+          q: `email:"<%= "${email}" %>" AND email_verified:true -user_id:"<%= "${sub}" %>"`,
+      } ,
+    });
+  }
+  ```
 
 3. Prompt the user to link accounts. 
 
@@ -79,8 +79,7 @@ router.get("/", async (req, res) => {
 
     If the user wants to link a given account, they can click **Link** next to the appropriate account.
 
-![SPA User Settings Example](/media/articles/link-accounts/account-linking-webapp-small.png)
-
+![WebApp User Settings Example](/media/articles/link-accounts/account-linking-webapp-small.png)
 
 4. When the user clicks **Link**, your application will ask the user to authenticate with the target account, and then perform account linking. 
 
@@ -126,7 +125,7 @@ router.get("/", async (req, res) => {
       next();
     }
   }
-```
+  ```
 
 5. Your application calls the Auth0 Management API's [Link a User Account endpoint](/api/v2#!/Users/post_identities) using a [Management API Access Token](/api/management/v2/tokens) with the `update:users` scope.
 

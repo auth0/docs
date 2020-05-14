@@ -28,7 +28,7 @@ Auth0 uses the [JSON Web Key (JWK) specification](https://tools.ietf.org/html/rf
 Auth0 exposes a JWKS endpoint for each tenant, which is found at `https://${account.namespace}/.well-known/jwks.json`. This endpoint will contain the JWK used to sign all Auth0-issued JWTs for this tenant.
 
 ::: note
-Currently, Auth0 only supports a single JWK for signing; however, it is important to assume this endpoint could contain multiple JWKs. As an example, multiple keys can be found in the JWKS when [rotating application signing keys](/tokens/guides/manage-signing-keys).
+Currently, Auth0 signs with only one JWK at a time; however, it is important to assume this endpoint could contain multiple JWKs. As an example, multiple keys can be found in the JWKS when [rotating application signing keys](/tokens/guides/manage-signing-keys).
 :::
 
 ## Keep reading

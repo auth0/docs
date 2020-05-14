@@ -48,9 +48,9 @@ We are actively migrating customers to new behaviors for all <dfn data-key="depr
       <td>October 2016</td>
       <td>
         <strong>Public Cloud</strong>: 13 July 2020<br>
-        <strong>Private Cloud</strong>: December 2020 release<br>
+        <strong>Private Cloud</strong>: November 2020 release<br>
       </td>
-      <td>Management API v1 will reach its End of Life on July 13, 2020. You may be required to take action before that date to ensure no interruption to your service. A <a href="/migrations/guides/management-api-v1-v2">migration guide</a> is available to walk you through the steps required. Notifications have been and will continue to be sent to customers that need to complete this migration.<br>Useful Resources:<br>
+      <td>Management API v1 will reach its End of Life in the Public Cloud on July 13, 2020. Management API v1 will be included in the Private Cloud until the November 2020 monthly release, which is the first release that will not include Management API v1. You may be required to take action before that date to ensure no interruption to your service. A <a href="/migrations/guides/management-api-v1-v2">migration guide</a> is available to walk you through the required steps. Notifications have been and will continue to be sent to customers that need to complete this migration.<br>Useful Resources:<br>
         <a href="/migrations/guides/management-api-v1-v2">Management API v1 to v2 Migration Guide</a><br>
         <a href="/api/management/v2">Management API v2 documentation</a><br>
         <a href="/api/management/v1">Management API v1 documentation</a><br>
@@ -77,7 +77,7 @@ We are actively migrating customers to new behaviors for all <dfn data-key="depr
       </td>
     </tr>
     <tr>
-      <td><a href="/logs/migrate-logs-v2-v3">Tenant Logs Search v2</a></td>
+      <td><a href="/logs/guides/migrate-logs-v2-v3">Tenant Logs Search v2</a></td>
       <td>21 May 2019</td>
       <td>
         <strong>Free</strong>: 9 July 2019<br>
@@ -85,7 +85,7 @@ We are actively migrating customers to new behaviors for all <dfn data-key="depr
         <strong>Developer Pro</strong>: 20 August 2019<br>
         <strong>Enterprise</strong>: 4 November 2019
       </td>
-      <td>To provide our customers with the most reliable and scalable solution, Auth0 has deprecated Tenant Logs Search Engine v2 in favor of v3. Auth0 is proactively migrating customers unaffected by this change, while those who are potentially affected are being notified to opt in for v3 during the provided grace period.  See the <a href="/logs/migrate-logs-v2-v3">migration guide</a> for more information.</td>
+      <td>To provide our customers with the most reliable and scalable solution, Auth0 has deprecated Tenant Logs Search Engine v2 in favor of v3. Auth0 is proactively migrating customers unaffected by this change, while those who are potentially affected are being notified to opt in for v3 during the provided grace period.  See the <a href="/logs/guides/migrate-logs-v2-v3">migration guide</a> for more information.</td>
     </tr>
   </tbody>
 </table>

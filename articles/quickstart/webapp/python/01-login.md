@@ -118,7 +118,7 @@ def login():
     return auth0.authorize_redirect(redirect_uri='YOUR_CALLBACK_URL')
 ```
 
-Create a `home.html` file in a `/template` folder. Add a link to the `/login` route.
+Create a `home.html` file in a `/templates` folder. Add a link to the `/login` route.
 
 ```html
 <div class="login-box auth0-box before">
@@ -168,7 +168,7 @@ def dashboard():
                            userinfo_pretty=json.dumps(session['jwt_payload'], indent=4))
 ```
 
-Add a `dashboard.html` file in a `/template` folder to display the user information.
+Add a `dashboard.html` file in a `/templates` folder to display the user information.
 
 Add a link to allow users to Log Out.
 
