@@ -30,10 +30,10 @@ You can revoke a Refresh Token by:
 
 To revoke a Refresh Token, you can send a `POST` request to `https://${account.namespace}/oauth/revoke`.
 
-Use the `/api/v2/device-credentials` endpoint to revoke Refresh Tokens configured for rotation. 
+Use the `/api/v2/device-credentials` endpoint to revoke Refresh Tokens. 
 
 ::: note
-The `/oauth/revoke` and `/api/v2/device-credentials` endpoints revoke the entire grant not just a specific token.
+The `/oauth/revoke` endpoint revokes the entire grant not just a specific token.
 :::
 
 The API first validates the application credentials and then verifies whether the token was issued to the application making the revocation request.  If this validation fails, the request is refused, and the application is informed of the error. Next, the API invalidates the token. The invalidation takes place immediately, and the token cannot be used again after the revocation. Each revocation request invalidates all the tokens that have been issued for the same authorization grant.
@@ -131,9 +131,9 @@ The response will be an **HTTP 204**: The credential no longer exists.
 ::: note
 When using Refresh Token rotation, If a previously invalidated token is used, the entire set of Refresh Tokens issued since that invalidated token was issued will immediately be revoked, requiring the end-user to re-authenticate.
 
-- Use the `/oauth/revoke` endpoint to revoke a Refresh Token. 
+- Use the `/oauth/revoke` endpoint to revoke a Refresh Token. This endpoint revokes the entire grant not just a specific token.
 
-- Use the `/api/v2/device-credentials` endpoint to revoke Refresh Tokens configured for rotation. This endpoint revokes the entire grant not just a specific token.
+- Use the `/api/v2/device-credentials` endpoint to revoke Refresh Tokens configured for rotation.
 :::
 
 ## Use the Dashboard
