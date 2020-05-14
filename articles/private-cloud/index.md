@@ -25,7 +25,7 @@ You may be interested in considering the Private Cloud offering if you have any 
 * [Data residency and isolation](#data-residency-and-isolation)
 * [Maximum availability SLA](#maximum-availability)
 * [High demand apps](#high-demand-apps)
-* [PCI Certification](#pci-certification)
+* [PCI Certification](#pci-compliance-certification)
 * [Minimum cloud exposure](#minimum-cloud-exposure)
 
 ## Data Residency and Isolation
@@ -56,8 +56,10 @@ Auth0's Private Cloud instances have the highest Service Level Agreement (SLA) f
 
 If your application requires a significantly high amount of requests per second (RPS), you may also wish to consider Private Cloud. Any requirement over 100 logins per second should choose a Private Deployment. Take a look at the [rate limits policies](/policies/rate-limits) for more information about the standard rate limits. For Private Cloud deployments, the limit is 500 RPS with optional upgrade to 1500 RPS.
 
-## PCI Certification
+## PCI Compliance Certification
 
-
+If your application is PCI Compliant, or striving to be, and your requirements indicate that your identity provider also needs to be PCI compliant, this is only available as a Private Cloud addon. Public cloud tenants cannot acquire this benefit.
 
 ## Minimum Cloud Exposure
+
+Although it seems that everything lives in one public cloud or another, the fact remains that many businesses are reluctant to bring their intellectual property, and worse, their customers' data, into a cloud that they do not control. Moving core functionality out of your own data centers can be difficult. Private Cloud can help ease this burden by providing the agility and flexibility of cloud infrastructure without the perceived dangers of sharing the resources with others. It also gives you a larger degree of control over your Auth0 tenants than the public cloud does.
