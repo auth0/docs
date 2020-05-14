@@ -33,7 +33,7 @@ router.get("/", async (req, res) => {
     let getUsersWithSameVerifiedEmail = [];
     const getUserProfile = auth0Client.getUser(sub);
     if (email_verified)
-      // account linking isx only offered verified email
+      // account linking is only offered verified email
       getUsersWithSameVerifiedEmail = auth0Client.getUsersWithSameVerifiedEmail(
         req.openid.user
       );
@@ -64,7 +64,7 @@ router.get("/", async (req, res) => {
     ...
     async getUsersWithSameVerifiedEmail({ sub, email }) {
       return await this.request({
-        url: `${process.env.ISSUER_BASE_URL}/api/v2/x`x``users`,
+        url: `${process.env.ISSUER_BASE_URL}/api/v2/users`,
         qs: {
           search_engine: "v3",
           q: `email:"<%= "${email}" %>" AND email_verified:true -user_id:"<%= "${sub}" %>"`,

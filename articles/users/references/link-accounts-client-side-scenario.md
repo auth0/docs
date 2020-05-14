@@ -43,7 +43,7 @@ You can find the full source of this sample application [on GitHub](https://gith
 
     In the `linkAccount` function, call the Management API. Authenticate with the API using the primary JWT, which is the Access Token, and link using the primary user's ID and the secondary JWT, which is the secondary user's ID Token.
 
-  ```js
+```
   const linkAccount = async () => {
   const accessToken = await auth0.getTokenSilently();
   const { sub } = await auth0.getUser();
