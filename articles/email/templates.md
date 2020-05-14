@@ -240,6 +240,7 @@ You can [configure a **Redirect To** URL](#configuring-redirect-to) to send the 
   * `Access expired.` (with `success=false`)
   * `User account does not exist or verification code is invalid.` (with `success=false`)
   * `This account is already verified.` (with `success=false`)
+* `email` if `Include Email In Redirect` is enabled in the template
 
 The target URL handler should be prepared to gracefully handle other possible messages as well. 
 
@@ -267,6 +268,7 @@ You can [configure a **Redirect To** URL](#configuring-redirect-to) to send the 
   * `This URL can be used only once` (with `success=false`)
   * `Access expired.` (with `success=false`)
   * `The operation cannot be completed. Please try again.` (with `success=false`)
+* `email` if `Include Email In Redirect` is enabled in the template
 
 The target URL handler should be prepared to gracefully handle other possible messages as well. 
 
