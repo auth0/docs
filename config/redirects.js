@@ -2599,5 +2599,9 @@ module.exports = [
     {
       from: '/mfa/references/troubleshooting',
       to: '/mfa/references/troubleshoot-mfa'
+    },
+    {
+      from: '/line',
+      to: '/connections/social/line'
     }
 ];
