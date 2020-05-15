@@ -18,10 +18,14 @@ In this tutorial, we will go through the steps required to implement the Resourc
 
 ## Before you start
 
-* Check that your application's [grant type property](/applications/concepts/application-grant-types) is set appropriately.
+* Check that your application's grant type is set to "Password". To set an application's grant type:
+  1. Go to the [Dashboard](${manage_url}) and select **Applications**
+  2. Choose your application from the list
+  3. On the **Settings** page scroll down to **Advanced Settings**
+  4. Select the **Grant Types** tab
+  5. Enable the "Password" grant
 * [Register the API](/apis#how-to-configure-an-api-in-auth0) with Auth0.
-* Check that the [Default Audience and/or Default Directory](/dashboard/reference/settings-tenant#api-authorization-settings) has been set appropriately.
-* Update or disable any [rules](/rules), such as rules that deny access based on an email domain whitelist, so they only impact specific connections. If you get an `'access_denied'` error when testing the Password Grant, this could be due to an access control rule.
+* Update or disable any [rules](/rules) so they only impact specific connections. If you get an `'access_denied'` error when testing the Password Grant, this could be due to an access control rule.
 
 ## Configure your tenant
 
