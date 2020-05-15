@@ -52,6 +52,18 @@ module.exports = function(client, scope, audience, context, cb) {
   // access_token['https://example.com/claim'] = 'bar';
   // access_token.scope.push('extra');
 
+  // Deny the token and respond with an OAuth2 error response
+  // if (denyExchange) {
+  //   // To return an HTTP 400 with { "error": "invalid_scope", "error_description": "Not authorized for this scope." }
+  //   return cb(new InvalidScopeError('Not authorized for this scope.'));
+  //
+  //   // To return an HTTP 400 with { "error": "invalid_request", "error_description": "Not a valid request." }
+  //   return cb(new InvalidRequestError('Not a valid request.'));
+  //
+  //   // To return an HTTP 500 with { "error": "server_error", "error_description": "A server error occurred." }
+  //   return cb(new ServerError('A server error occurred.'));
+  // }
+
   cb(null, access_token);
 };
 ```
@@ -73,7 +85,7 @@ When you run a Hook executed at the Client Crentials Exchange extensibility poin
 
 ### Starter code response
 
-Once you've customized the starter code with your scopes and additional claims, you can test the Hook using the Runner embedded in the Hook Editor. The Runner simulates a call to the Hook with the same body and response that you would get with a Client Credentials Exchange. 
+Once you've customized the starter code with your scopes and additional claims, you can test the Hook using the Runner embedded in the Hook Editor. The Runner simulates a call to the Hook with the same body and response that you would get with a Client Credentials Exchange.
 
 <%= include('../_includes/_test_runner_save_warning') %>
 
@@ -167,3 +179,85 @@ When we run this Hook, the response object is:
   "https://example.com/foo": "bar"
 }
 ```
+
+## Sample script: Raise an Error or Deny an Access Token
+
+In this example, we use custom Error objects to generate OAuth2 Error Responses. ([See OAuth2 RFC - Section 5.2](https://tools.ietf.org/html/rfc6749#section-5.2))
+
+If a plain JavaScript error is returned in the callback such as:
+
+```js
+module.exports = function(client, scope, audience, context, cb) {
+    // Callback to indicate completion and to return new claim
+    cb(new Error("Unknown error occurred.");
+  };
+```
+
+Then when a `client_credentials` grant is request from the `/oauth/token` endpoint, Auth0 will respond with a:
+
+```
+HTTP 500
+{ "error": "server_error", "error_description": "Unknown error occurred." }
+```
+
+However, if you like additional control over the OAuth2 Error Response, three custom Error objects are available to use instead. They are:
+
+### InvalidScopeError
+
+```js
+module.exports = function(client, scope, audience, context, cb) {
+    const invalidScope = ...; // determine if scope is valid
+
+    if(invalidScope) {
+      cb(new InvalidScopeError("Scope is not permitted."));
+    }
+  };
+```
+
+Then when a `client_credentials` grant is request from the `/oauth/token` endpoint, Auth0 will respond with a:
+
+```
+HTTP 400
+{ "error": "invalid_scope", "error_description": "Scope is not permitted." }
+```
+
+### InvalidRequestError
+
+```js
+module.exports = function(client, scope, audience, context, cb) {
+    const invalidRequest = ...; // determine if request is valid
+
+    if(invalidRequest) {
+      cb(new InvalidRequestError("Bad request."));
+    }
+  };
+```
+
+Then when a `client_credentials` grant is request from the `/oauth/token` endpoint, Auth0 will respond with a:
+
+```
+HTTP 400
+{ "error": "invalid_request", "error_description": "Bad request." }
+```
+
+### ServerError
+
+```js
+module.exports = function(client, scope, audience, context, cb) {
+    callOtherService(function(err, response) {
+      if(err) {
+        return cb(new ServerError("Error calling remote system: " + err.message));
+      }
+    });
+  };
+```
+
+Then when a `client_credentials` grant is request from the `/oauth/token` endpoint, Auth0 will respond with a:
+
+```
+HTTP 400
+{ "error": "server_error", "error_description": "Error calling remote system: ..." }
+```
+
+Note: Currently, the behavior of the built-in JavaScript `Error` class and `ServerError` is identical, but it was include so your Hook
+      can be explicit about the OAuth2 error that will be returned.
