@@ -1,7 +1,6 @@
 ---
 title: Pre-User Registration
 description: Learn how hooks can be used with the Pre-User Registration extensibility point, which is available for database connections and passwordless connections.
-beta: true
 toc: true
 topics:
     - hooks

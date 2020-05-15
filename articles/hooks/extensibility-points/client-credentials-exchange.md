@@ -1,7 +1,6 @@
 ---
 title: Client Credentials Exchange
 description: Learn how hooks can be used with the Client Credentials Exchange extensibility point, which is available for database connections and passwordless connections.
-beta: true
 toc: true
 topics:
     - hooks

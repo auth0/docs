@@ -1,7 +1,6 @@
 ---
 title: Enable/Disable Hooks
 description: Learn how to enable and disable Hooks using the Dashboard  and Management API.
-beta: true
 topics:
     - hooks
     - dashboard

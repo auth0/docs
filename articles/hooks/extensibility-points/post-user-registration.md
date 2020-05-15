@@ -1,7 +1,6 @@
 ---
 title: Post-User Registration
 description: Learn how hooks can be used with the Post-User Registration extensibility point, which is available for database connections and passwordless connections.
-beta: true
 toc: true
 topics:
     - hooks
@@ -69,7 +68,7 @@ Hooks executed at the Post-User Registration extensibility point ignore any resp
 
 ### Starter code response
 
-Once you've customized the starter code, you can test the Hook using the Runner embedded in the Hook Editor. The Runner simulates a call to the Hook with the appropriate body and response. 
+Once you've customized the starter code, you can test the Hook using the Runner embedded in the Hook Editor. The Runner simulates a call to the Hook with the appropriate body and response.
 
 <%= include('../_includes/_test_runner_save_warning') %>
 

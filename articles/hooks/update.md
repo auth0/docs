@@ -1,7 +1,6 @@
 ---
 title: Update Hooks
 description: Learn how to update Hooks using the Dashboard or Management API. Hooks may also be imported and exported using the Auth0 Deploy Command-Line Interface (CLI) tool.
-beta: true
 topics:
     - hooks
     - dashboard

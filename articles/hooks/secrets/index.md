@@ -1,7 +1,6 @@
 ---
 title: Hook Secrets
 description: Learn about integrated secret management used with Auth0 Hooks.
-beta: true
 topics:
     - hooks
     - secrets

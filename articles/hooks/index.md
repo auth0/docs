@@ -1,7 +1,6 @@
 ---
 title: Hooks
 description: Learn about Auth0 Hooks for Database Connections and Passwordless Connections.
-beta: true
 topics:
     - hooks
     - extensibility-points

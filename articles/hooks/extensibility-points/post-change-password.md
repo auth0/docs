@@ -1,7 +1,6 @@
 ---
 title: Post-Change Password
 description: Learn how hooks can be used with the Post Change Password extensibility point, which is available for database connections.
-beta: true
 toc: true
 topics:
     - hooks
@@ -53,7 +52,7 @@ module.exports = function (user, context, cb) {
 };
 ```
 
-Please note: 
+Please note:
 
 * The callback function (`cb`) at the end of the sample code signals completion and *must* be included.
 
@@ -63,7 +62,7 @@ Hooks executed at the Post-Change Password extensibility point ignore any respon
 
 ### Starter code response
 
-Once you've customized the starter code, you can test the Hook using the Runner embedded in the Hook Editor. The Runner simulates a call to the Hook with the appropriate body and response. 
+Once you've customized the starter code, you can test the Hook using the Runner embedded in the Hook Editor. The Runner simulates a call to the Hook with the appropriate body and response.
 
 <%= include('../_includes/_test_runner_save_warning') %>
 
