@@ -41,6 +41,7 @@ When creating a Hook executed at the Pre-User Registration extensibility point, 
 @param {boolean} user.phoneNumberVerified - indicates whether phone number is verified
 @param {object} context - Auth0 context info, such as connection
 @param {string} context.requestLanguage - language of the application agent
+@param {string} context.renderLanguage - language of the signup floww
 @param {object} context.connection - connection info
 @param {object} context.connection.id - connection ID
 @param {object} context.connection.name - connection name
@@ -104,7 +105,7 @@ Hooks executed at the Pre-User Registration extensibility point do not pass erro
 
 ### Starter code response
 
-Once you've customized the starter code, you can test the Hook using the Runner embedded in the Hook Editor. The Runner simulates a call to the Hook with the appropriate body and response. 
+Once you've customized the starter code, you can test the Hook using the Runner embedded in the Hook Editor. The Runner simulates a call to the Hook with the appropriate body and response.
 
 <%= include('../_includes/_test_runner_save_warning') %>
 
@@ -172,3 +173,30 @@ When we run this Hook, the response object is:
   }
 }
 ```
+
+## Sample script: Deny a user from registering
+
+In this example, we use a Hook to prevent a user from registering.
+
+```js
+module.exports = function (user, context, cb) {
+  const isUserDenied = ...; // determine if a user should be allowed to register
+
+  if (isUserDenied) {
+    const LOCALIZED_MESSAGES = {
+      en: 'You are not allowed to register.',
+      es: 'No tienes permitido registrarte.'
+    };
+
+    const localizedMessage = LOCALIZED_MESSAGES[context.renderLanguage] || LOCALIZED_MESSAGES['en'];
+    return cb(new PreUserRegistrationError('Denied user registration in Pre User Registration Hook', localizedMessage));
+  }
+};
+```
+
+The custom `PreUserRegistrationError` class is available to you to control what message the user who is attempting to register
+will see. The first parameter passed to `PreUserRegistrationError` controls the error message that appears in your tenant logs.
+
+The second paramter controls what error message the end-user who is attempting to register will see if your tenant is configured
+to use the "New" Universal Login component. In the example above, the `context.renderLanguage` parameter is being used to generate
+a user-facing message that is appropriate for their desired language.
