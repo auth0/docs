@@ -297,6 +297,23 @@ Save this file and run the artisan command to create this table:
 php artisan migrate
 ```
 
+After running this migration, the `sub` field must also be added as field in `$fillable` in the User model. Failing to do so will cause SQL insert errors when the `upsertUser()` function tries to add a new User record. The `sub` field won't be included in the query and the query will attemt to insert a NULL value for `sub`.
+
+```
+// app/User.php
+
+class User extends Authenticatable
+{
+    // ...
+
+    protected $fillable = [
+        'name', 'email', 'sub',
+    ];
+
+    // ...
+}
+```
+
 Next, make a `CustomUserRepository.php` class we can modify:
 
 ```bash
@@ -316,6 +333,7 @@ use App\User;
 use Auth0\Login\Auth0User;
 use Auth0\Login\Auth0JWTUser;
 use Auth0\Login\Repository\Auth0UserRepository;
+use Illuminate\Contracts\Auth\Authenticatable;
 
 class CustomUserRepository extends Auth0UserRepository
 {
@@ -337,11 +355,12 @@ class CustomUserRepository extends Auth0UserRepository
     /**
      * Authenticate a user with a decoded ID Token
      *
-     * @param object $jwt
+     * @param array $decodedJwt
      *
      * @return Auth0JWTUser
      */
-    public function getUserByDecodedJWT( $jwt ) {
+    public function getUserByDecodedJWT(array $decodedJwt) : Authenticatable
+    {
         $user = $this->upsertUser( (array) $jwt );
         return new Auth0JWTUser( $user->getAttributes() );
     }
@@ -353,10 +372,12 @@ class CustomUserRepository extends Auth0UserRepository
      *
      * @return Auth0User
      */
-    public function getUserByUserInfo( $userinfo ) {
+    public function getUserByUserInfo(array $userinfo) : Authenticatable
+    {
         $user = $this->upsertUser( $userinfo['profile'] );
         return new Auth0User( $user->getAttributes(), $userinfo['accessToken'] );
     }
+
 }
 ```
 
