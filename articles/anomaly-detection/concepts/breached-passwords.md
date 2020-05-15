@@ -56,7 +56,7 @@ Applications release patches and updates when they find security vulnerabilities
 
 If you use Gmail, Google offers the [Security Checkup](https://myaccount.google.com/security-checkup) tool to let you know if there are any security issues related to your inbox.
 
-You can also use third-party tools, such as websites like [HaveIBeenPawned](https://haveibeenpwned.com/PwnedWebsites) to see if there might be security issues associated with your email address.
+You can also use third-party tools, such as websites like [HaveIBeenPwned](https://haveibeenpwned.com/PwnedWebsites) to see if there might be security issues associated with your email address.
 
 ## Keep reading
 
