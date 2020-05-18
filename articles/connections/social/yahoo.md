@@ -1,5 +1,5 @@
 ---
-title: Add Yahoo Login to Your App
+title: Connect Apps to Yahoo!
 connection: Yahoo!
 index: 15
 image: /media/connections/yahoo.png

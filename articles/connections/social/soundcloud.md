@@ -1,5 +1,5 @@
 ---
-title: Connect your app to SoundCloud
+title: Connect Apps to SoundCloud
 connection: SoundCloud
 index: 5
 image: /media/connections/soundcloud.png

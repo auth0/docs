@@ -1,5 +1,5 @@
 ---
-title: Connect your app to Box
+title: Connect Apps to Box
 connection: Box
 image: /media/connections/box.png
 seo_alias: box

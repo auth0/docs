@@ -1,5 +1,5 @@
 ---
-title: Connect your app to Yandex
+title: Connect Apps to Yandex
 connection: Yandex
 image: /media/connections/yandex.png
 seo_alias: yandex

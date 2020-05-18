@@ -1,5 +1,5 @@
 ---
-title: Add LinkedIn Login to Your App
+title: Connect Apps to LinkedIn
 connection: LinkedIn
 index: 3
 image: /media/connections/linkedin.png

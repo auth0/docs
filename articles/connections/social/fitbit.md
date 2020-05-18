@@ -1,5 +1,5 @@
 ---
-title: Connect your app to Fitbit
+title: Connect Apps to Fitbit
 connection: Fitbit
 image: /media/connections/fitbit.png
 seo_alias: fitbit

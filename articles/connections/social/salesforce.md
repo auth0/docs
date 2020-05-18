@@ -1,5 +1,5 @@
 ---
-title: Connect your app to Salesforce
+title: Connect Apps to Salesforce
 connection: Salesforce
 image: /media/connections/salesforce.png
 seo_alias: salesforce

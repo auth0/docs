@@ -1,5 +1,5 @@
 ---
-title: Connect your app to Goodreads
+title: Connect Apps to Goodreads
 connection: Goodreads
 image: /media/connections/goodreads.png
 seo_alias: goodreads

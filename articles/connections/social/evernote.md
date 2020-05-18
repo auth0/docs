@@ -1,5 +1,5 @@
 ---
-title: Connect your app to Evernote
+title: Connect Apps to Evernote
 connection: Evernote
 image: /media/connections/evernote.png
 seo_alias: evernote

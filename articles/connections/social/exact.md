@@ -1,5 +1,5 @@
 ---
-title: Connect Your App to Exact
+title: Connect Apps to Exact
 connection: Exact
 image: /media/connections/exact.png
 seo_alias: exact

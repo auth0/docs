@@ -1,5 +1,5 @@
 ---
-title: Add LINE Login to Your App
+title: Connect Apps to LINE
 connection: LINE
 index: 3
 image: /media/connections/line.png

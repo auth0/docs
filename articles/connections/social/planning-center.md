@@ -1,5 +1,5 @@
 ---
-title: Connect your app to Planning Center
+title: Connect Apps to Planning Center
 connection: Planning Center
 image: /media/connections/planning-center.png
 seo_alias: planning-center

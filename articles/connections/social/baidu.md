@@ -1,5 +1,5 @@
 ---
-title: Connect your app to Baidu
+title: Connect Apps to Baidu
 connection: Baidu
 image: /media/connections/baidu.png
 seo_alias: baidu

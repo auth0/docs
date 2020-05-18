@@ -1,5 +1,5 @@
 ---
-title: Connect your app to GitHub
+title: Connect Apps to GitHub
 connection: Github
 image: /media/connections/github.png
 seo_alias: github

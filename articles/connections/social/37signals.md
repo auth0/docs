@@ -1,5 +1,5 @@
 ---
-title: Connect your app to 37Signals
+title: Connect Apps to 37Signals
 connection: Basecamp
 image: /media/connections/basecamp.png
 alias:

@@ -1,5 +1,5 @@
 ---
-title: Add Weibo Login to Your App
+title: Connect Apps to Weibo
 connection: Weibo
 image: /media/connections/weibo.png
 seo_alias: weibo

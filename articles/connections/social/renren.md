@@ -1,5 +1,5 @@
 ---
-title: Connect your app to RenRen
+title: Connect Apps to RenRen
 connection: RenRen
 image: /media/connections/renren.png
 seo_alias: renren

@@ -1,5 +1,5 @@
 ---
-title: Connect your app to Instagram
+title: Connect Apps to Instagram
 connection: Instagram
 index: 4
 image: /media/connections/instagram.png

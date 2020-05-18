@@ -1,5 +1,5 @@
 ---
-title: Connect your app to Dwolla
+title: Connect Apps to Dwolla
 connection: Dwolla
 image: /media/connections/dwolla.png
 seo_alias: dwolla

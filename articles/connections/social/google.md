@@ -1,5 +1,5 @@
 ---
-title: Add Google Login to Your App
+title: Connect Apps to Google
 connection: Google
 index: 1
 image: /media/connections/google.png

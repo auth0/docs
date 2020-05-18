@@ -1,5 +1,5 @@
 ---
-title: Connect your app to WordPress
+title: Connect Apps to WordPress
 connection: WordPress
 image: /media/connections/wordpress.png
 seo_alias: wordpress

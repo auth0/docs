@@ -1,5 +1,5 @@
 ---
-title: Connect your app to The City
+title: Connect Apps to The City
 connection: The City
 image: /media/connections/thecity.png
 seo_alias: thecity

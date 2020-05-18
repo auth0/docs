@@ -1,5 +1,5 @@
 ---
-title: Add Shopify Login to Your App
+title: Connect Apps to Shopify
 connection: Shopify
 image: /media/connections/shopify.png
 seo_alias: shopify

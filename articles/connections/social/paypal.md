@@ -1,5 +1,5 @@
 ---
-title: Connect your app to PayPal
+title: Connect Apps to PayPal
 connection: PayPal
 image: /media/connections/paypal.png
 seo_alias: paypal

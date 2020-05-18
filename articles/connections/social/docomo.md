@@ -1,5 +1,5 @@
 ---
-title: Connect your app to Docomo dAccount
+title: Connect Apps to Docomo dAccount
 connection: Docomo
 image: /media/connections/daccount.png
 seo_alias: docomo
