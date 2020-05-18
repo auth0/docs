@@ -1,12 +1,12 @@
 ---
-description: Learn how to create an application to use with the SSO Dashboard Extension to enable SSO login for your applications. 
+description: Learn how to create an application to use with the SSO Dashboard Extension to enable SSO login for your applications.
 topics:
   - extensions
   - sso-dashboard
   - sso
 contentType:
   - how-to
-useCase: 
+useCase:
   - extensibility-extensions
   - setup-multiple-sso-applications
   - create-sso-dashboard-application
@@ -14,11 +14,11 @@ useCase:
 
 # Create a SSO Dashboard Application
 
-Use the [SSO Dashboard Extension](/extensions/sso-dashboard) to manage SSO login for your users on multiple enterprise applications. 
+Use the [SSO Dashboard Extension](/extensions/sso-dashboard) to manage SSO login for your users on multiple enterprise applications.
 
-Before you [add the SSO Dashboard extension](/dashboard/guides/extensions/sso-dashboard-install-extension), you need to create the SSO Dashboard application in Auth0. 
+Before you [add the SSO Dashboard extension](/dashboard/guides/extensions/sso-dashboard-install-extension), you need to create the SSO Dashboard application in Auth0.
 
-1. Navigate to the [Applications](${manage_url}/#/applications) page in the [Auth0 Dashboard](${manage_url}/), and click **+Create Application**. 
+1. Navigate to the [Applications](${manage_url}/#/applications) page in the [Auth0 Dashboard](${manage_url}/), and click **+Create Application**.
 
 2. Enter a descriptive name for your Application (for example, *SSO Dashboard*), select an application type of **Single-Page Web Application**, and click **Create**.
 
@@ -40,9 +40,9 @@ Before you [add the SSO Dashboard extension](/dashboard/guides/extensions/sso-da
 
     | Location | Allowed Callback URL |
     | --- | --- |
-    | USA | `https://${account.tenant}.prod-us-node12.webtask.io/auth0-sso-dashboard/admins/login` |
-    | Europe | `https://${account.tenant}.prod-eu-node12.webtask.io/auth0-sso-dashboard/admins/login` |
-    | Australia | `https://${account.tenant}.prod-au-node12.webtask.io/auth0-sso-dashboard/admins/login` |
+    | USA | `https://${account.tenant}.us12.webtask.io/auth0-sso-dashboard/admins/login` |
+    | Europe | `https://${account.tenant}.eu12.webtask.io/auth0-sso-dashboard/admins/login` |
+    | Australia | `https://${account.tenant}.au12.webtask.io/auth0-sso-dashboard/admins/login` |
 
     For **Users**:
 
@@ -58,19 +58,19 @@ Before you [add the SSO Dashboard extension](/dashboard/guides/extensions/sso-da
 
     | Location | Allowed Callback URL |
     | --- | --- |
-    | USA | `https://${account.tenant}.prod-us-node12.webtask.io/auth0-sso-dashboard/login` |
-    | Europe | `https://${account.tenant}.prod-eu-node12.webtask.io/auth0-sso-dashboard/login` |
-    | Australia | `https://${account.tenant}.prod-au-node12.webtask.io/auth0-sso-dashboard/login` |
+    | USA | `https://${account.tenant}.us12.webtask.io/auth0-sso-dashboard/login` |
+    | Europe | `https://${account.tenant}.eu12.webtask.io/auth0-sso-dashboard/login` |
+    | Australia | `https://${account.tenant}.au12.webtask.io/auth0-sso-dashboard/login` |
 
 4. Select and copy the **Client ID** value.
 
-5. Scroll to the bottom of the page, and click **Show Advanced Settings**. 
+5. Scroll to the bottom of the page, and click **Show Advanced Settings**.
 
 6. Click the **OAuth** tab, and paste the **Client ID** value into the **Allowed APPs / APIs** field.
 
 7. Make sure that the **JsonWebToken Signature Algorithm** is set to **RS256**.
 
-8. Click **Save Changes**. 
+8. Click **Save Changes**.
 
   Next, you will need to [install the SSO Dashboard Extension](/dashboard/guides/extensions/sso-dashboard-install-extension) and [add applications](/dashboard/guides/extensions/sso-dashboard-add-apps) to the dashboard.
 
