@@ -24,7 +24,7 @@ By default, [Passwordless SMS connections](/connections/passwordless#supported-a
 ```har
 {
   "method": "GET",
-  "url": "http://your-auth0-tenant.com/api/v2/connections",
+  "url": "https://your-auth0-tenant.com/api/v2/connections",
   "headers": [
     { "name": "Authorization", "value": "Bearer YOUR_ACCESS_TOKEN_HERE" }
   ]
