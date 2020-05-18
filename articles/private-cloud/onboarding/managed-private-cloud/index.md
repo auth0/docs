@@ -69,7 +69,7 @@ You can also choose to send the data logged by Auth0 to an external service. To 
 
 ## Rate limits
 
-To ensure the quality of Auth0's services, the APIs are subject to rate limiting.
+To ensure the quality of Auth0's services, the APIs are subject to [published production rate limits](/policies/rate-limits).
 
 ## Support
 

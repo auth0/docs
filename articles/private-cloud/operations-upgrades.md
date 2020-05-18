@@ -58,6 +58,6 @@ In the unlikely event a customer-hosted on-premise three-node cluster is lost an
 ## Keep reading
 
 * [Private Cloud Releases](/private-cloud/operations-releases)
-* [Testing Auth0 Implementations](/support/testing)
+* [Private Cloud Testing](/private-cloud/operations-testing)
 * [Open and Manage Support Tickets](/support/tickets)
-* [Managed Private Cloud Report Access Options](/private-cloud/onboarding/managed-private-cloud/remote-access-options)
+* [Managed Private Cloud Remote Access Options](/private-cloud/onboarding/managed-private-cloud/remote-access-options)

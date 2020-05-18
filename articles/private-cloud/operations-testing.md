@@ -36,3 +36,4 @@ For the information we require, see our [Penetration Testing Policy](/policies/p
 
 * [Testing Auth0 Implementations](/support/testing)
 * [Open and Manage Support Tickets](/support/tickets)
+* [Managed Private Cloud Remote Access Options](/private-cloud/onboarding/managed-private-cloud/remote-access-options)

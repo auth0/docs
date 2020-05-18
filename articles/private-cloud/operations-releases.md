@@ -22,5 +22,5 @@ Managed Private Cloud major releases are provided monthly, of which the 4 most r
 ## Keep reading
 
 * [Private Cloud Upgrades](/private-cloud/operations-upgrades)
-* [Testing Auth0 Implementations](/support/testing)
+* [Private Cloud Testing](/private-cloud/operations-testing)
 * [Open and Manage Support Tickets](/support/tickets)

@@ -16,5 +16,5 @@ Certificates relating to custom domains (in the format `*.auth.<CustomerName>.co
 ## Keep reading
 
 * [Private Cloud Upgrades](/private-cloud/operations-upgrades)
-* [Testing Auth0 Implementations](/support/testing)
+* [Private Cloud Testing](/private-cloud/operations-testing)
 * [Open and Manage Support Tickets](/support/tickets)
