@@ -1,27 +1,69 @@
 ---
-title: Global Rate Limit Policy For Authentication API
-description: Learn about the Authentication API Rate Limit Policy for free subscribers
+title: Authentication API Endpoint Rate Limits
+description: Describes Auth0's rate limit policy when working with Auth0 Authentication API endpoints.
 toc: true
 topics:
     - auth0-policies
     - rate-limits
-    - testing
 contentType:
   - reference
 useCase:
   - support
 ---
-# Authentication API: Global Rate Limit Policy
+# Authentication API Endpoint Rate Limits
 
-To ensure Auth0's quality of service, the Authentication API is subject to several levels of rate limiting.
+Each Authentication API endpoint is configured with a bucket that defines:
 
-This document describes the global rate limiting policy applicable to __free subscribers__. For information on other applicable limits, please see [Rate limits](/policies/rate-limits).
+-  Request limit
+-  Rate limit window (per second, per minute, per day, etc.)
 
-## Limits
+```text
+bucket:
+    size: x
+    per_minute: y
+```
 
-__Free subscribers__ Authentication API usage is restricted to __300 requests per minute__.
+For example, the above states that, for the given bucket, there is a maximum request limit of `x` per minute, and for each minute that elapses, permissions for `y` requests are added back. In other words, for each `60 / y` seconds, one additional request is added to the bucket. This occurs automatically until the bucket contains the maximum permitted number of requests.
 
-Please be aware that the limit is global for the tenant and not per endpoint.
+For some API endpoints, the rate limits are defined per bucket, so the origins of the call do not influence the rate limit changes. For other buckets, the rate limits are defined using different keys, so the originating IP address is considered when counting the number of received API calls.
+
+::: note
+If you are using an API endpoint **not** listed below and you receive rate limit headers as part of your response, see [Anomaly Detection](/anomaly-detection) for more information.
+:::
+
+## Production tenant limits for enterprise users
+
+| Endpoint | Path | Limited By | Rate Limit |
+| - | - | - | - |
+| All Endpoints | [All Authentication API endpoints](/api/authentication) | Sum of all combined requests to any Authentication API endpoint | 100 requests per second |
+| User Profile | `/tokeninfo` (Legacy) | IP Address | 800 requests per minute  |
+|  | `/userinfo` | User ID | 5 requests per minute with bursts up to 10 requests |
+| Delegation | `/delegation` | User ID, IP Address | 10 requests per second |
+| Change Password | `/dbconnections/change_password` | User Email, IP Address | 1 request per minute with bursts up to 10 requests |
+| Get Passwordless Code or Link | `/passwordless/start` | IP Address | 50 requests per hour |
+
+## Non-production tenant limits for enterprise users
+
+| Endpoint | Path | Limited By | Rate Limit |
+| - | - | - | - |
+| User Profile | `/tokeninfo` (Legacy) | IP Address | 800 requests per minute  |
+|  | `/userinfo` | User ID | 5 requests per minute with bursts up to 10 requests |
+| Delegation | `/delegation` | User ID, IP Address | 10 requests per second |
+| Change Password | `/dbconnections/change_password` | User Email, IP Address | 1 request per minute with bursts up to 10 requests |
+| Get Passwordless Code or Link | `/passwordless/start` | IP Address | 50 requests per hour |
+| Get Token | `/oauth/token` | Any request | 30 requests per second |
+| Cross Origin Authentication | `/co/authenticate` | Any request | 5 requests per second |
+| Authentication | `usernamepassword/login` | Any request | 5 requests per second |
+| Resource Owner (Legacy) | `/oauth/ro` | Any request | 10 requests per second |
+| JSON Web Token Keys | `/.well-known/jwks.json` | Any request | 20 requests per second |
+
+## Free tenant global limits
+
+To ensure Auth0's quality of service, the Authentication API is subject to several levels of rate limiting for free subscribers. Auth0's Authentication API has a global limit of **300 requests per minute** for free tenants.  
+
+::: note
+The limit is global for the tenant and not per endpoint.
+:::
 
 ### Affected endpoints
 
