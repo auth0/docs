@@ -40,15 +40,15 @@ Before you [add the Delegated Admin extension](/dashboard/guides/extensions/dele
 
     | Location  | Allowed Callback URL |
     | --------- | -------------------- |
-    | USA       | `https://${account.tenant}.prod-us-node12.webtask.io/auth0-delegated-admin/login` |
-    | Europe    | `https://${account.tenant}.prod-eu-node12.webtask.io/auth0-delegated-admin/login` |
-    | Australia | `https://${account.tenant}.prod-au-node12.webtask.io/auth0-delegated-admin/login` |
+    | USA       | `https://${account.tenant}.us12.webtask.io/auth0-delegated-admin/login` |
+    | Europe    | `https://${account.tenant}.eu12.webtask.io/auth0-delegated-admin/login` |
+    | Australia | `https://${account.tenant}.au12.webtask.io/auth0-delegated-admin/login` |
 
     | Location  | Allowed Logout URL |
     | --------- | ------------------ |
-    | USA       | `https://${account.tenant}.prod-us-node12.webtask.io/auth0-delegated-admin` |
-    | Europe    | `https://${account.tenant}.prod-eu-node12.webtask.io/auth0-delegated-admin` |
-    | Australia | `https://${account.tenant}.prod-au-node12.webtask.io/auth0-delegated-admin` |
+    | USA       | `https://${account.tenant}.us12.webtask.io/auth0-delegated-admin` |
+    | Europe    | `https://${account.tenant}.eu12.webtask.io/auth0-delegated-admin` |
+    | Australia | `https://${account.tenant}.au12.webtask.io/auth0-delegated-admin` |
 
 Next, you will need to [install the Delegated Admin Extension](/dashboard/guides/extensions/delegated-admin-install-extension).
 

@@ -43,7 +43,7 @@ If you do not use any of the extensibility features mentioned above, you are not
 
 ## Verified extensions
 
-As part of this migration, the Auth0 development team has performed extensive testing to proactively detect any breaking changes. 
+As part of this migration, the Auth0 development team has performed extensive testing to proactively detect any breaking changes.
 
 Verified extensions for Node 12 include:
 
@@ -71,7 +71,7 @@ The [Authorization Extension](/extensions/authorization), the [Delegated Adminis
 
 If you use any of these extensions, **you must whitelist the new URLs** both as Allowed <dfn data-key="callback">Callback</dfn> and as Allowed Logout URLs.
 
-The change is a `-node12` that is appended before the `webtask.io` part and a `prod-` that is appended before the region part. So if you accessed an extension using the URL `https://${account.tenant}.us8.webtask.io/dummy-extension-url`, when you upgrade to Node 12 the URL will be `https://${account.tenant}.prod-us-node12.webtask.io/dummy-extension-url`.
+The change is that the region portion of the url will change from `8` to `12`. So if you accessed an extension using the URL `https://${account.tenant}.us8.webtask.io/dummy-extension-url`, when you upgrade to Node 12 the URL will be `https://${account.tenant}.us12.webtask.io/dummy-extension-url`.
 
 To do so, go to [Dashboard > Applications > Settings](${manage_url}/#/applications/${account.clientId}/settings), and add the URL to the fields **Allowed Callback URLs** and **Allowed Logout URLs**.
 
@@ -85,7 +85,7 @@ To ensure a clean upgrade:
 
 1. Ensure you have upgraded to the latest version of the Authorization Extension from the "Installed Extensions" tab. If the upgrade button is present, click to upgrade. If the button is not present, you are already on the latest version of the extension.
 2. Open the Authorization Extension configuration page.
-3. To update the URL in the rule, publish the rule again by clicking the "Publish Rule" button. 
+3. To update the URL in the rule, publish the rule again by clicking the "Publish Rule" button.
 4. Test to make sure everything is still working.
 5. If you see an "Invalid API Key" error after updating, use the "Rotate" button to generate a new API key.
 
@@ -99,13 +99,13 @@ If you use the Delegated Administration Extension, the matrix that follows conta
 
 | Location | Allowed Callback URL for Node 12 | Allowed Logout URL for Node 12 |
 | --- | --- | --- |
-| USA | `https://${account.tenant}.prod-us-node12.webtask.io/auth0-delegated-admin/login` | `https://${account.tenant}.prod-us-node12.webtask.io/auth0-delegated-admin` |
-| Europe | `https://${account.tenant}.prod-eu-node12.webtask.io/auth0-delegated-admin/login` | `https://${account.tenant}.prod-eu-node12.webtask.io/auth0-delegated-admin` |
-| Australia | `https://${account.tenant}.prod-au-node12.webtask.io/auth0-delegated-admin/login` | `https://${account.tenant}.prod-au-node12.webtask.io/auth0-delegated-admin` |
+| USA | `https://${account.tenant}.us12.webtask.io/auth0-delegated-admin/login` | `https://${account.tenant}.us12.webtask.io/auth0-delegated-admin` |
+| Europe | `https://${account.tenant}.eu12.webtask.io/auth0-delegated-admin/login` | `https://${account.tenant}.eu12.webtask.io/auth0-delegated-admin` |
+| Australia | `https://${account.tenant}.au12.webtask.io/auth0-delegated-admin/login` | `https://${account.tenant}.au12.webtask.io/auth0-delegated-admin` |
 
-For example, if you are located in the USA and you use the Delegated Administration, you should update the following fields in your application's settings: 
-- **Allowed Callback URLs**: `https://${account.tenant}.prod-us-node12.webtask.io/auth0-delegated-admin/login`
-- **Allowed Logout URLs**: `https://${account.tenant}.prod-us-node12.webtask.io/auth0-delegated-admin`
+For example, if you are located in the USA and you use the Delegated Administration, you should update the following fields in your application's settings:
+- **Allowed Callback URLs**: `https://${account.tenant}.us12.webtask.io/auth0-delegated-admin/login`
+- **Allowed Logout URLs**: `https://${account.tenant}.us12.webtask.io/auth0-delegated-admin`
 
 ### SSO Dashboard URLs
 
@@ -115,17 +115,17 @@ The login URL for **Admins**:
 
 | Location | Allowed Callback URL |
 | --- | --- |
-| USA | `https://${account.tenant}.prod-us-node12.webtask.io/auth0-sso-dashboard/admins/login` |
-| Europe | `https://${account.tenant}.prod-eu-node12.webtask.io/auth0-sso-dashboard/admins/login` |
-| Australia | `https://${account.tenant}.prod-au-node12.webtask.io/auth0-sso-dashboard/admins/login` |
+| USA | `https://${account.tenant}.us12.webtask.io/auth0-sso-dashboard/admins/login` |
+| Europe | `https://${account.tenant}.eu12.webtask.io/auth0-sso-dashboard/admins/login` |
+| Australia | `https://${account.tenant}.au12.webtask.io/auth0-sso-dashboard/admins/login` |
 
 The login URL for **Users**:
 
 | Location | Allowed Callback URL |
 | --- | --- |
-| USA | `https://${account.tenant}.prod-us-node12.webtask.io/auth0-sso-dashboard/login` |
-| Europe | `https://${account.tenant}.prod-eu-node12.webtask.io/auth0-sso-dashboard/login` |
-| Australia | `https://${account.tenant}.prod-au-node12.webtask.io/auth0-sso-dashboard/login` |
+| USA | `https://${account.tenant}.us12.webtask.io/auth0-sso-dashboard/login` |
+| Europe | `https://${account.tenant}.eu12.webtask.io/auth0-sso-dashboard/login` |
+| Australia | `https://${account.tenant}.au12.webtask.io/auth0-sso-dashboard/login` |
 
 ### All Extensions
 
@@ -149,7 +149,7 @@ With that said, before you migrate, we highly recommend testing all of your:
 * Custom Social Connections
 * Extensions
 
-Furthermore, we recommend that the testing be done in your development tenant and migrating your production tenant only if you see no issues in development. 
+Furthermore, we recommend that the testing be done in your development tenant and migrating your production tenant only if you see no issues in development.
 
 You can query the Management API for your Rules, Hooks, Custom Database scripts, and Custom Social Connections. This will make it easier for you to move items from your production tenant to development tenant for testing purposes.
 

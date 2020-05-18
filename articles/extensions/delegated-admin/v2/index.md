@@ -47,14 +47,14 @@ If you are using Node 12:
 
 | Location | Allowed Callback URL |
 | --- | --- |
-| USA | `https://${account.tenant}.prod-us-node12.webtask.io/auth0-delegated-admin/login` |
-| Europe | `https://${account.tenant}.prod-eu-node12.webtask.io/auth0-delegated-admin/login` |
-| Australia | `https://${account.tenant}.prod-au-node12.webtask.io/auth0-delegated-admin/login` |
+| USA | `https://${account.tenant}.us12.webtask.io/auth0-delegated-admin/login` |
+| Europe | `https://${account.tenant}.eu12.webtask.io/auth0-delegated-admin/login` |
+| Australia | `https://${account.tenant}.au12.webtask.io/auth0-delegated-admin/login` |
 
 You will also need to configure the **Allowed Logout URLs**:
 
 If you are using Node 8:
- 
+
 | Location | Allowed Logout URL |
 | --- | --- |
 | USA | `https://${account.tenant}.us8.webtask.io/auth0-delegated-admin` |
@@ -62,12 +62,12 @@ If you are using Node 8:
 | Australia | `https://${account.tenant}.au8.webtask.io/auth0-delegated-admin` |
 
 If you are using Node 12:
- 
+
 | Location | Allowed Logout URL |
 | --- | --- |
-| USA | `https://${account.tenant}.prod-us-node12.webtask.io/auth0-delegated-admin` |
-| Europe | `https://${account.tenant}.prod-eu-node12.webtask.io/auth0-delegated-admin` |
-| Australia | `https://${account.tenant}.prod-au-node12.webtask.io/auth0-delegated-admin` |
+| USA | `https://${account.tenant}.us12.webtask.io/auth0-delegated-admin` |
+| Europe | `https://${account.tenant}.eu12.webtask.io/auth0-delegated-admin` |
+| Australia | `https://${account.tenant}.au12.webtask.io/auth0-delegated-admin` |
 
 Copy the **Client ID** value.
 
@@ -136,7 +136,7 @@ function (user, context, callback) {
     // If you are using Node 8, uncomment the following line
     //const namespace = 'https://${account.tenant}.us8.webtask.io/auth0-delegated-admin';
     //If you are using Node 12, uncomment the following line
-    //const namespace = 'https://${account.tenant}.prod-us-node12.webtask.io/auth0-delegated-admin';
+    //const namespace = 'https://${account.tenant}.us12.webtask.io/auth0-delegated-admin';
    if (user.groups && user.groups.indexOf('IT Department') > -1) {
      context.idToken[namespace] = { roles: [ 'Delegated Admin - Administrator' ] };
      return callback(null, user, context);
