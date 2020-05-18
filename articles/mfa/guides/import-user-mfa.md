@@ -17,6 +17,11 @@ You can import a user's MFA enrollments with [automatic migration](/users/guides
 
 Importing MFA enrollments provides a seamless user experience, since users won't have to re-enroll after migration.
 
+::: warning
+Please note that the classic login experience does not support factor selection for users with multiple factors. If you plan to import users with multiple registered factors, consider using the [universal login](/universal-login) experience.
+
+:::
+
 ## Schema
 
 The schema applies to MFA factors for both of the aforementioned workflows.
