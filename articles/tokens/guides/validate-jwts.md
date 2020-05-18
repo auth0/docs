@@ -65,10 +65,9 @@ Most JWT libraries take care of JWT validation for you, so be sure to visit [JWT
 Ensure that the JWT conforms to the [structure of a JWT](/tokens/references/jwt-structure). If this fails, the token is considered invalid, and the request must be rejected.
 
 1. Verify that the JWT contains three segments, separated by two period ('.') characters.
-2. Parse the JWT using [JWT.io](https://jwt.io/) to extract its components. The first segment is the Header, the second is the Payload, and the third is the Signature. Each segment is base64url encoded.
+2. Parse the JWT to extract its three components. The first segment is the Header, the second is the Payload, and the third is the Signature. Each segment is base64url encoded.
 3. Base64url-decode the Header, ensuring that no line breaks, whitespace, or other additional characters have been used, and verify that the decoded Header is a valid JSON object.
 4. Base64url-decode the Payload, ensuring that no line breaks, whitespace, or other additional characters have been used, and verify that the decoded Payload is a valid JSON object.
-5. Base64url-decode the Signature, ensuring that no line breaks, whitespace, or other additional characters have been used, and verify that the decoded Signature is a valid JSON object.
 
 ## Check the signature
 
