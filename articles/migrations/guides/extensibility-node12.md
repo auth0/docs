@@ -71,7 +71,7 @@ The [Authorization Extension](/extensions/authorization), the [Delegated Adminis
 
 If you use any of these extensions, **you must whitelist the new URLs** both as Allowed <dfn data-key="callback">Callback</dfn> and as Allowed Logout URLs.
 
-The change is that the region portion of the url will change from `8` to `12`. So if you accessed an extension using the URL `https://${account.tenant}.us8.webtask.io/dummy-extension-url`, when you upgrade to Node 12 the URL will be `https://${account.tenant}.us12.webtask.io/dummy-extension-url`.
+The region portion of the URL will change from 8 to 12. If you access an extension using the URL `https://${account.tenant}.us8.webtask.io/dummy-extension-url`, when you upgrade to Node 12 the URL will be `https://${account.tenant}.us12.webtask.io/dummy-extension-url`.
 
 To do so, go to [Dashboard > Applications > Settings](${manage_url}/#/applications/${account.clientId}/settings), and add the URL to the fields **Allowed Callback URLs** and **Allowed Logout URLs**.
 
