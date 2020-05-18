@@ -1,5 +1,5 @@
 ---
-title: Add Facebook Login to Your App
+title: Connect Apps to Facebook
 connection: Facebook
 index: 2
 image: /media/connections/facebook.png
