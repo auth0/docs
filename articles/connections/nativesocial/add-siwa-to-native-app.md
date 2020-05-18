@@ -2,7 +2,7 @@
 url: connections/nativesocial/apple
 title: Add Sign In with Apple to Native iOS Apps
 connection: Apple Native
-image: /media/connections.apple.svg
+image: /media/connections/apple.svg
 public: true
 description: Learn how to add native login functionality to your native app with Apple. 
 topics:
