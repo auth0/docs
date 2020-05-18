@@ -48,7 +48,15 @@ Part of the integration process is to set Auth0 up for use as an event source (t
 2. Navigate to **Logs > Streams**.
 3. Click **+ Create Stream**.
 4. Select **Azure Event Grid** and enter a unique name for your new stream.
-5. Create the event source by providing your Azure Subscription ID, Azure Region and a Resource Group name. 
+5. On the next screen, provide the following settings for your Event Grid stream:
+
+| Setting | Description |
+|---------|-------------|
+| Name | A unique display name to distinguish this integration from other integrations. |
+| Azure Subscription ID | The subscription ID is the unique alphanumeric string that identifies your Azure subscription. |
+| Azure Region | The region where your Azure subscription is hosted. |
+| Resource Group name | Name of the Azure resource group, which is entity to manage all Azure assets within one subscription. |
+
 6. Click **Save**.
 
 Go to the [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.EventGrid%2FpartnerTopics) to complete the final steps of the integration.
