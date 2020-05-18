@@ -43,6 +43,8 @@ Auth0 will reach out to you to coordinate the specific dates and times during wh
 
 The [Private Cloud Release Notes](https://auth0.com/releases/) will contain full details on the changes made to your deployment.
 
+See [Private Cloud Upgrades](/private-cloud/operations-upgrades) for details. 
+
 ## Custom domains
 
 See [Custom Domains](/custom-domains) for instructions on how to map your tenant domain to a custom domain of your choosing, as well as how to manage the required certificates.

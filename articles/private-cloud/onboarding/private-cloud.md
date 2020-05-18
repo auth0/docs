@@ -27,6 +27,8 @@ Auth0 will issue monthly updates to the Private Cloud automatically. The [Privat
 The four most recent Private Cloud releases are considered to be the **Active Releases**.
 :::
 
+See [Private Cloud Upgrades](/private-cloud/operations-upgrades) for details. 
+
 ## Custom domains
 
 See [Custom Domains](/custom-domains) for instructions on how to map your tenant domain to a custom domain of your choosing, as well as how to manage the required certificates.
