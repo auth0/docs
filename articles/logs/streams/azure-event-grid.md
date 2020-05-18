@@ -45,7 +45,7 @@ In your Azure portal:
 Part of the integration process is to set Auth0 up for use as an event source (this step happens on your Dashboard).
 
 1. Log in to the [Auth0 Dashboard](${manage_url}).
-2. Navigate to Logs > Streams.
+2. Navigate to **Logs > Streams**.
 3. Click + Create Stream.
 4. Select Azure Event Grid and enter a unique name for your new stream.
 5. Create the event source by providing your Azure Subscription ID, Azure Region and a Resource Group name. 
@@ -89,7 +89,7 @@ At this point, your Event Grid workflow should be complete.
 To verify that the integration is working as expected:
 
 1. Log in to the [Auth0 Dashboard](${manage_url}).
-2. Navigate to Logs > Streams.
+2. Navigate to **Logs > Streams**.
 3. Click on your Event Grid stream.
 4. Once on the stream, click on the Health tab. The stream should be active and as long as you don't see any errors, the stream is working.
 
