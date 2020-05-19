@@ -23,6 +23,7 @@ See the following sections for more details:
   'mfa/concepts/guardian',
   'mfa/guides/customize-mfa-universal-login',
   'mfa/guides/reset-user-mfa',
+  'mfa/guides/import-user-mfa',
   'mfa/concepts/mfa-developer-resources',
   'mfa/concepts/step-up-authentication',
   'mfa/references/troubleshoot-mfa'
