@@ -173,9 +173,9 @@ When we run this Hook, the response object is:
 }
 ```
 
-## Sample script: Deny a user from registering
+## Sample script: Customize the error message and language for user messages
 
-In this example, we use a Hook to prevent a user from registering.
+In this example, we use a Hook to prevent a user from registering, then return a custom error message in our tenant logs and show a custom, translated error message to the user when they are denied. To use the translation functionality, your tenant must be configured to use the [Universal Login - New Experience](/universal-login/new).
 
 ```js
 module.exports = function (user, context, cb) {
@@ -188,14 +188,12 @@ module.exports = function (user, context, cb) {
     };
 
     const localizedMessage = LOCALIZED_MESSAGES[context.renderLanguage] || LOCALIZED_MESSAGES['en'];
-    return cb(new PreUserRegistrationError('Denied user registration in Pre User Registration Hook', localizedMessage));
+    return cb(new PreUserRegistrationError('Denied user registration in Pre-User Registration Hook', localizedMessage));
   }
 };
 ```
 
-The custom `PreUserRegistrationError` class is available to you to control what message the user who is attempting to register
-will see. The first parameter passed to `PreUserRegistrationError` controls the error message that appears in your tenant logs.
-
-The second paramter controls what error message the end-user who is attempting to register will see if your tenant is configured
-to use the "New" Universal Login component. In the example above, the `context.renderLanguage` parameter is being used to generate
-a user-facing message that is appropriate for their desired language.
+Please note:
+* The custom `PreUserRegistrationError` class allows you to control the message seen by the user who is attempting to register.
+* The first parameter passed to `PreUserRegistrationError` controls the error message that appears in your tenant logs.
+* The second parameter controls the error message seen by the user who is attempting to register (if your tenant is configured to use the Universal Login - New Experience). In this example, the `context.renderLanguage` parameter generates a user-facing message in the appropriate language for the user.
