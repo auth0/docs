@@ -73,7 +73,7 @@ Activating the Auth0 topic in Azure allows events to flow from Auth0 to Azure.
 
 Subscribe to an Event Grid partner topic to tell Event Grid which events to send to your event handler.
 
-1. On the Event Grid topic page, select + Event Subscription on the toolbar
+1. On the Event Grid partner topic Overview page, select **+ Event Subscription** on the toolbar.
 2. On the Create Event Subscription page:
     1. Enter a name for the event subscription.
     2. Select your desired Azure service or WebHook for the Endpoint type.
