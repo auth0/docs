@@ -25,7 +25,7 @@ To send Auth0 events to Azure, you must:
 2. Set up an event source (in this case, this is Auth0).
 3. Set up an event handler, which is the app or service where the event will be sent.
 
-To learn more, see [Microsoft's Azure Event Grid Concepts](https://docs.microsoft.com/en-us/azure/event-grid/concepts).
+To learn more, see [Microsoft's Concepts in Azure Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/concepts).
 
 ### Enable Event Grid resource provider
 
@@ -84,7 +84,7 @@ To send events to your topic, please follow the instructions in this article.
 
 ### Set up an event handler
 
-Go to your Azure subscription and spin up a service that is supported as an event handler. For a full list of supported event handlers, see [Microsoft's Azure Event Grid Event Handlers](https://docs.microsoft.com/en-us/azure/event-grid/event-handlers).
+Go to your Azure subscription and spin up a service that is supported as an event handler. For a full list of supported event handlers, see [Microsoft's Event Handlers in Azure Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/event-handlers).
 
 ## Testing
 
