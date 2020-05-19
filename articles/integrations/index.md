@@ -155,4 +155,21 @@ useCase:
       </li>
     </ul>
   </li>
+  <li>
+    <i></i><a href="/log-streams">Log Streaming Integrations</a>
+    <p>
+        Learn how to set up and configure log streaming integrations with Auth0.
+    </p>
+    <ul>
+      <li>
+        <img class="icon icon-budicon-715" /><a href="/logs/streams/aws-eventbridge">AWS Eventbridge</a>
+      </li>
+      <li>
+        <img class="icon icon-budicon-715" /><a href="/logs/streams/datadog">Datadog</a>
+      </li>
+      <li>
+        <img class="icon icon-budicon-715" /><a href="/logs/streams/azure-event-grid">Azure Event Grid</a>
+      </li>
+    </ul>
+  </li>
 </ul>
