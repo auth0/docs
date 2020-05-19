@@ -16,7 +16,7 @@ v2: true
 
 At the Post-User Registration extensibility point, Hooks allow custom actions to be executed after a new user registers an account and is added to the database. For example, you may send a message to Slack or create a record in your customer relationship management (CRM) system.
 
-The Hook added to this extensibility point executes asynchronously with the rest of the Auth0 pipeline, and its outcome does not affect the Auth0 transaction.
+Hooks at this extensibility point are non-blocking (asynchronous), which means the Auth0 pipeline will continue to run without waiting for a Hook to finish its execution. Thus, the Hook's outcome does not affect the Auth0 transaction.
 
 The Post-User Registration extensibility point is available for [Database Connections](/connections/database) and [Passwordless Connections](/connections/passwordless).
 
