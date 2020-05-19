@@ -16,7 +16,7 @@ You can customize the MFA pages using the Universal Login's [basic customization
 
 If you need further customizations, you can provide your own HTML for the MFA page. 
 
-:: note
+::: note
 When using your own HTML, it uses the Auth0 MFA Widget, which has the following limitations:
 - It does not support MFA with Email.
 - If users enrolled more than one factor, they cannot select which one to use, the MFA widget will ask them to login with the most secure factor.
