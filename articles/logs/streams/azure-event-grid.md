@@ -71,7 +71,7 @@ Activating the Auth0 topic in Azure allows events to flow from Auth0 to Azure.
 
 #### Subscribe to your Partner Topic
 
-You subscribe to an event grid topic to tell Event Grid which events to send to which event handler.
+Subscribe to an Event Grid partner topic to tell Event Grid which events to send to your event handler.
 
 1. On the Event Grid topic page, select + Event Subscription on the toolbar
 2. On the Create Event Subscription page:
