@@ -16,6 +16,8 @@ v2: true
 
 At the Pre-User Registration extensibility point, Hooks allow custom actions to be executed when a new user is created. For example, you may add custom `app_metadata` or `user_metadata` to the newly-created user, or even prevent the creation of the user in the database.
 
+Hooks at this extensibility point are blocking (synchronous), which means they execute as part of the trigger's process and will prevent the rest of the Auth0 pipeline from running until the Hook is complete.
+
 The Pre-User Registration extensibility point is available for [Database Connections](/connections/database) and [Passwordless Connections](/connections/passwordless).
 
 ::: note

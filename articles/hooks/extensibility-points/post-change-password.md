@@ -16,7 +16,7 @@ v2: true
 
 At the Post-Change Password extensibility point, Hooks allow custom actions to be executed after a successful user password change, whether initiated by a user for their own password or by a tenant administrator for another user's password. For example, you may send an email to a user to notify them that their password has been changed.
 
-The Hook added to this extensibility point executes asynchronously with the rest of the Auth0 pipeline, and its outcome does not affect the Auth0 transaction.
+Hooks at this extensibility point are non-blocking (asynchronous), which means the Auth0 pipeline will continue to run without waiting for a Hook to finish its execution. Thus, the Hook's outcome does not affect the Auth0 transaction.
 
 The Post-Change Password extensibility point is available for [Database Connections](/connections/database).
 
