@@ -177,7 +177,7 @@ When we run this Hook, the response object is:
 
 ## Sample script: Customize the error message and language for user messages
 
-In this example, we use a Hook to prevent a user from registering, then return a custom error message in our tenant logs and show a custom, translated error message to the user when they are denied. To use the translation functionality, your tenant must be configured to use the [Universal Login - New Experience](/universal-login/new).
+In this example, we use a Hook to prevent a user from registering, then return a custom error message in our tenant logs and show a custom, translated error message to the user when they are denied. To return the user message and use the translation functionality, your tenant must be configured to use the [Universal Login - New Experience](/universal-login/new).
 
 ```js
 module.exports = function (user, context, cb) {
@@ -198,4 +198,4 @@ module.exports = function (user, context, cb) {
 Please note:
 * The custom `PreUserRegistrationError` class allows you to control the message seen by the user who is attempting to register.
 * The first parameter passed to `PreUserRegistrationError` controls the error message that appears in your tenant logs.
-* The second parameter controls the error message seen by the user who is attempting to register (if your tenant is configured to use the Universal Login - New Experience). In this example, the `context.renderLanguage` parameter generates a user-facing message in the appropriate language for the user.
+* The second parameter controls the error message seen by the user who is attempting to register. In this example, the `context.renderLanguage` parameter generates a user-facing message in the appropriate language for the user. You can use these parameters only if your tenant is configured to use the [Universal Login - New Experience](/universal-login/new).
