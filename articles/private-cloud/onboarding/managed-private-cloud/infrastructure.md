@@ -7,9 +7,9 @@ useCase: private-cloud
 ---
 # Infrastructure Requirements for the Customer-Hosted Managed Private Cloud
 
-If you are a Managed Private Cloud customer hosting Auth0 using Amazon Web Services, the following are the requirements you should be aware of when setting up your cloud environment.
+If you are a Managed Private Cloud customer hosting Auth0 using Amazon Web Services, be aware of the following requirements.
 
-## Choosing your AWS regions
+## AWS regions
 
 The AWS Region(s) in which your deployments are hosted must support:
 
@@ -20,7 +20,7 @@ The AWS Region(s) in which your deployments are hosted must support:
 
 ## AWS instance types
 
-The size of your AWS instance must be, at minimum, **M4.2xlarge**, though the **M5.2xlarge** size is preferred.
+The size of your AWS instance must be at least **M4.2xlarge**, though the **M5.2xlarge** size is preferred.
 
 We ask that the individual volumes have the following resource allocation:
 
@@ -73,7 +73,7 @@ All servers in the cluster must:
 * Be able to communicate over ports 7777, 27017, 8721, and 8701
 * Listen for and accept traffic from the load balancer over ports 443 and 4443
 
-For a complete listing of IP addresses and ports used, see the [IP/Domain and Port List](/private-cloud/onboarding/managed-private-cloud/ip-domain-port-list).
+For a complete list of IP addresses and ports used, see the [IP/Domain and Port List](/private-cloud/onboarding/managed-private-cloud/ip-domain-port-list).
 
 ## Internet connectivity
 
@@ -86,7 +86,7 @@ All servers in the cluster require outbound access to:
 
 ## DNS records
 
-Each environment (e.g., Development, Staging, Production), which are represented by `<env-name>`, requires a separate namespace when it comes to DNS records.
+Each environment (e.g., Development, Staging, Production), which are represented by `<env-name>`, requires a separate namespace for DNS records. 
 
 You will need DNS records for the following namespaces:
 
@@ -102,14 +102,14 @@ You must use either an ALB or ELB. For HTTP health check monitoring, you can use
 
 ### Software Load Balancers
 
-You can use either NGINX or HA Proxy as the software load balancer in front of the Auth0 environment or for IP whitelisting and/or endpoint filtering (only authentication endpoints are publicly available). If you are using NGINX or HA Proxy as the software load balancer, you must:
+You can use either NGINX or HA Proxy as the software load balancer in front of the Auth0 environment or for IP whitelisting and/or endpoint filtering (only authentication endpoints are publicly available). If you are using NGINX or HA Proxy as the software load balancer, you must
 
-* Use TCP mode with Proxy Protocol or HTTPS mode (SSL offloading). In HTTPS mode the connector will not work.
+* Use TCP mode with Proxy Protocol or HTTPS mode (SSL offloading). In HTTPS mode, the connector will not work.
 * Forward the incoming hostname to the nodes
 
 ## SSL Certificates
 
-Your SSL certificates must:
+Your SSL certificates must
 
 * Be signed by a public certificate authority
 * Contain all of the required DNS names (if the certificate is not a wildcard certificate)
@@ -122,7 +122,7 @@ Auth0 requires TLS 1.1 or later.
 
 ## SMTP
 
-You must set up and configure a SMTP provider (or a global default email provider) to send emails. Optionally,, you can set up transactional email providers (e.g., SendGrid, Amazon SES, Mandrill) for individual tenants.
+To send emails, you must set up and configure an SMTP provider (or a global default email provider). Optionally, you can set up transactional email providers (e.g., SendGrid, Amazon SES, Mandrill) for individual tenants.
 
 STARTTLS is supported by Auth0, but is not required.
 
