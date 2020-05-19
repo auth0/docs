@@ -183,7 +183,7 @@ When we run this Hook, the response object is:
 
 In this example, we use custom Error objects to generate OAuth2 Error Responses. ([See OAuth2 RFC - Section 5.2](https://tools.ietf.org/html/rfc6749#section-5.2))
 
-If a plain JavaScript error is returned in the callback such as:
+If a plain JavaScript error is returned in the callback, such as:
 
 ```js
 module.exports = function(client, scope, audience, context, cb) {
@@ -192,7 +192,7 @@ module.exports = function(client, scope, audience, context, cb) {
   };
 ```
 
-Then when a `client_credentials` grant is request from the `/oauth/token` endpoint, Auth0 will respond with a:
+Then when you request a `client_credentials` grant from the `/oauth/token` endpoint, Auth0 will respond with:
 
 ```
 HTTP 500
@@ -213,7 +213,7 @@ module.exports = function(client, scope, audience, context, cb) {
   };
 ```
 
-Then when a `client_credentials` grant is request from the `/oauth/token` endpoint, Auth0 will respond with a:
+Then when you request a `client_credentials` grant is from the `/oauth/token` endpoint, Auth0 will respond with:
 
 ```
 HTTP 400
@@ -232,7 +232,7 @@ module.exports = function(client, scope, audience, context, cb) {
   };
 ```
 
-Then when a `client_credentials` grant is request from the `/oauth/token` endpoint, Auth0 will respond with a:
+Then when you request a `client_credentials` grant from the `/oauth/token` endpoint, Auth0 will respond with:
 
 ```
 HTTP 400
@@ -251,12 +251,13 @@ module.exports = function(client, scope, audience, context, cb) {
   };
 ```
 
-Then when a `client_credentials` grant is request from the `/oauth/token` endpoint, Auth0 will respond with a:
+Then when you request a `client_credentials` grant from the `/oauth/token` endpoint, Auth0 will respond with:
 
 ```
 HTTP 400
 { "error": "server_error", "error_description": "Error calling remote system: ..." }
 ```
 
-Note: Currently, the behavior of the built-in JavaScript `Error` class and `ServerError` is identical, but it was include so your Hook
-      can be explicit about the OAuth2 error that will be returned.
+::: note
+Currently, the behavior of the built-in JavaScript `Error` class and `ServerError` is identical, but the `ServerError` class allows you to be explicit about the OAuth2 error that will be returned.
+:::
