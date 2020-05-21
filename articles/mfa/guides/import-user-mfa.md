@@ -101,7 +101,7 @@ When using the `upsert` option, any non-MFA related updates to existing users wi
       "mfa_factors": [
         {
           "totp": {
-            "secret": "2PRX8ZWZAYYDAWCD"
+            "secret": "2PRXZWZAYYDAWCD"
           }
         },
         {
