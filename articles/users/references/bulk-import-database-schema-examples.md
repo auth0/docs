@@ -550,7 +550,7 @@ Some examples of users with MFA factors:
         "mfa_factors": [
             {
                 "totp": {
-                    "secret": "2PRX8ZWZAYYDAWCD"
+                    "secret": "2PRXZWZAYYDAWCD"
                 }
             },
             {
