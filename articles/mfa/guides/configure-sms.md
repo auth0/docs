@@ -21,11 +21,11 @@ When testing Twilio, you should use the **Live Credentials**, not the **Test Cre
 
 ## End user experience
 
-![SMS End User 1](/media/articles/multifactor-authentication/mfa-sms1.png)
+![SMS End User 1](/media/articles/mfa/mfa-sms1.png)
 
 After signing up and entering a country code and phone number, the user will receive a six-digit code on their device, which they must enter to authenticate.
 
-![SMS End User 2](/media/articles/multifactor-authentication/mfa-sms2.png)
+![SMS End User 2](/media/articles/mfa/mfa-sms2.png)
 
 To use this option, your users must have a device capable of receiving SMS messages. If users cannot receive SMS messages, they will not be able to authenticate with this factor. If they already enrolled with SMS and do not have such a device, they will need to use their recovery code to complete the MFA flow (and then enroll another MFA method in place of this one).
 
@@ -39,9 +39,9 @@ To allow users to authenticate with SMS, you must enable the SMS factor and sele
 
 * **Custom**: Sends the messages by invoking the [Send Phone Message Hook](/hooks/extensibility-points/send-phone-message).
 
-Optionally, you can [customize your SMS notification templates](/multifactor-authentication/sms-templates).
+Optionally, you can [customize your SMS notification templates](/mfa/guides/guardian/customize-sms-messages).
 
-![MFA SMS Settings](/media/articles/multifactor-authentication/sms-settings.png)
+![MFA SMS Settings](/media/articles/mfa/sms-settings.png)
 
 ## Twilio configuration
 
@@ -68,8 +68,10 @@ If you choose to deliver SMS via Twilio, follow these steps to configure your SM
 SMS providers not currently integrated with Auth0 can be supported by using the [Send Phone Message](/hooks/extensibility-points/send-phone-message) Hook. To learn how to implement this in your MFA flow, see the guides below.
 
 ::: next-steps
-* [Configure a Custom SMS Provider for MFA using Amazon SNS](/multifactor-authentication/send-phone-message-hook-amazon-sns)
-* [Configure a Custom SMS Provider for MFA using Twilio](/multifactor-authentication/send-phone-message-hook-twilio)
-* [Configure a Custom SMS Provider for MFA using Infobip](/multifactor-authentication/send-phone-message-hook-infobip)
-* [Configure a Custom SMS Provider for MFA using TeleSign](/multifactor-authentication/send-phone-message-hook-telesign)
-* [Configure a Custom SMS Provider for MFA using Vonage](/multifactor-authentication/send-phone-message-hook-vonage) :::
+* [Configure a Custom SMS Provider for MFA using Amazon SNS](/mfa/send-phone-message-hook-amazon-sns)
+* [Configure a Custom SMS Provider for MFA using Twilio](/mfa/send-phone-message-hook-twilio)
+* [Configure a Custom SMS Provider for MFA using Infobip](/mfa/send-phone-message-hook-infobip)
+* [Configure a Custom SMS Provider for MFA using TeleSign](/mfa/send-phone-message-hook-telesign)
+* [Configure a Custom SMS Provider for MFA using Vonage](/mfa/send-phone-message-hook-vonage)
+* [Configure a Custom SMS Provider for MFA using Esendex](/mfa/send-phone-message-hook-esendex)
+:::

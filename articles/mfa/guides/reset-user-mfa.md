@@ -39,7 +39,7 @@ As an admin, you can also use the Management API to delete a user's MFA enrollme
 
 With most MFA factors, the end user will be given a recovery code upon signup, which should be noted and kept secret. If they do not have their device or are otherwise temporarily unable to use their normal MFA process, the user can log in by entering this code after their username and password. 
 
-![MFA Recovery Code](/media/articles/multifactor-authentication/recovery-code.png)
+![MFA Recovery Code](/media/articles/mfa/recovery-code.png)
 
 ::: note
 If a recovery code is used, a new recovery code will be provided at that time.

@@ -59,7 +59,7 @@ You can only have **one** Send Phone Message Hook active at a time.
 
 You're going to store the values needed from the Twilio SMS Dashboard in [Hook Secrets](/hooks/secrets). This way, the values are secure and can be used easily in your function.
 
-1. [Add Hook Secrets](/hooks/secrets/create) with the following settings. You can find the values for the secrets in your [Twilio SMS Dashboard](https://www.twilio.com/console/sms/dashboard).
+[Add Hook Secrets](/hooks/secrets/create) with the following settings. You can find the values for the secrets in your [Twilio SMS Dashboard](https://www.twilio.com/console/sms/dashboard).
 
 * `TWILIO_ACCOUNT_SID`: Twilio Account SID
 * `TWILIO_AUTH_TOKEN`: Twilio Authorization token
@@ -69,7 +69,7 @@ You're going to store the values needed from the Twilio SMS Dashboard in [Hook S
 
 To make the call to Twilio, add the appropriate code to the Hook.
 
-1. [Edit](/hooks/update) the Send Phone Message Hook code and copy of the code snippets below, depending on the API you want to use. This function will run each time a user requires MFA, calling Twilio to send a verification code via SMS.
+[Edit](/hooks/update) the Send Phone Message Hook code and copy of the code snippets below, depending on the API you want to use. This function will run each time a user requires MFA, calling Twilio to send a verification code via SMS.
 
 To use the Programmable SMS API, use the code below.
 
@@ -180,8 +180,9 @@ If you do not receive the SMS, please look at the logs for clues and make sure t
 ## Additional providers
 
 ::: next-steps
-* [Configure a Custom SMS Provider for MFA using Amazon SNS](/multifactor-authentication/send-phone-message-hook-amazon-sns)
-* [Configure a Custom SMS Provider for MFA using Infobip](/multifactor-authentication/send-phone-message-hook-infobip)
-* [Configure a Custom SMS Provider for MFA using TeleSign](/multifactor-authentication/send-phone-message-hook-telesign)
-* [Configure a Custom SMS Provider for MFA using Vonage](/multifactor-authentication/send-phone-message-hook-vonage)
+* [Configure a Custom SMS Provider for MFA using Amazon SNS](/mfa/send-phone-message-hook-amazon-sns)
+* [Configure a Custom SMS Provider for MFA using Infobip](/mfa/send-phone-message-hook-infobip)
+* [Configure a Custom SMS Provider for MFA using TeleSign](/mfa/send-phone-message-hook-telesign)
+* [Configure a Custom SMS Provider for MFA using Vonage](/mfa/send-phone-message-hook-vonage)
+* [Configure a Custom SMS Provider for MFA using Esendex](/mfa/send-phone-message-hook-esendex)
 :::

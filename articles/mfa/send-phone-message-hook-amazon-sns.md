@@ -59,7 +59,7 @@ Add three [Hook Secrets](/hooks/secrets/create) with keys `AWS_ACCESS_KEY_ID`, `
 
 To make the call to AWS SNS, add the appropriate code to the Hook.
 
-1. Copy the code block below and [edit](/hooks/update) the Send Phone Message Hook code to include it. This function will run each time a user requires MFA, calling AWS SNS to send a verification code via SMS.
+Copy the code block below and [edit](/hooks/update) the Send Phone Message Hook code to include it. This function will run each time a user requires MFA, calling AWS SNS to send a verification code via SMS.
 
 ```js
 // Load the SDK
@@ -143,8 +143,9 @@ If you do not receive the SMS, please look at the logs for clues and ensure that
 ## Additional providers
 
 ::: next-steps
-* [Configure a Custom SMS Provider for MFA using Twilio](/multifactor-authentication/send-phone-message-hook-twilio)
-* [Configure a Custom SMS Provider for MFA using Infobip](/multifactor-authentication/send-phone-message-hook-infobip)
-* [Configure a Custom SMS Provider for MFA using TeleSign](/multifactor-authentication/send-phone-message-hook-telesign)
-* [Configure a Custom SMS Provider for MFA using Vonage](/multifactor-authentication/send-phone-message-hook-vonage)
+* [Configure a Custom SMS Provider for MFA using Twilio](/mfa/send-phone-message-hook-twilio)
+* [Configure a Custom SMS Provider for MFA using Infobip](/mfa/send-phone-message-hook-infobip)
+* [Configure a Custom SMS Provider for MFA using TeleSign](/mfa/send-phone-message-hook-telesign)
+* [Configure a Custom SMS Provider for MFA using Vonage](/mfa/send-phone-message-hook-vonage)
+* [Configure a Custom SMS Provider for MFA using Esendex](/mfa/send-phone-message-hook-esendex)
 :::
