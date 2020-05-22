@@ -78,7 +78,6 @@ Copy the code block below and [edit](/hooks/update) the Send Phone Message Hook 
 module.exports = function(recipient, text, context, cb) {
    const axios = require('axios').default;
 
-
    const instance = axios.create({
       baseURL: "https://rest.mittoapi.com/",    
       headers: {
@@ -86,8 +85,6 @@ module.exports = function(recipient, text, context, cb) {
       "X-Mitto-API-Key": context.webtask.secrets.MITTO_API_KEY
     },
   });
-
-
   instance({
     method: 'post',
     url: '/sms.json',
