@@ -30,6 +30,8 @@ From a functional perspective, it has much better support for [Localization](/un
 
 - If you redirect users to the `/login` page directly, they will get a error unless they have configured the [default login route](/universal-login/default-login-url). You should always redirect users to the proper authorization request endpoint (e.g. `/authorize` if you are using OpenID Connect).
 
+- You can specify the `login_hint` when redirecting to Auth0, and it will be used to populate the username/email field for the login or signup page.
+
 ## Signup
 
 - You can make users land directly on the Signup page instead of the Login page by specifying the `screen_hint=signup` parameter when redirecting to `/authorize`. Note that this can be combined with `prompt=login`, which indicates if you want to always show the authentication page or you want to skip if there's an existing session. 
@@ -60,6 +62,9 @@ Please note that you must provide an **Application Login URI** under [Applicatio
 - A 'show password' icon will be displayed next to the password fields.
 
 - If the Database Connection is set to ['Require Username'](/connections/database/require-username), the password reset flow will ask the user for the username and send an the password reset email to the associated email address.
+
+- If the Database Connection is set to ['Require Username'](/connections/database/require-username), the password reset flow will ask the user for the username and send an the password reset email to the associated email address.
+
 
 ## Email Verification
 
