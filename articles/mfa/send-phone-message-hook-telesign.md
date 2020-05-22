@@ -203,4 +203,5 @@ If you do not receive the SMS, please look at the logs for clues and make sure t
 * [Configure a Custom SMS Provider for MFA using Infobip](/mfa/send-phone-message-hook-infobip)
 * [Configure a Custom SMS Provider for MFA using Vonage](/mfa/send-phone-message-hook-vonage)
 * [Configure a Custom SMS Provider for MFA using Esendex](/mfa/send-phone-message-hook-esendex)
+* [Configure a Custom SMS Provider for MFA using Mitto](/mfa/send-phone-message-hook-mitto)
 :::

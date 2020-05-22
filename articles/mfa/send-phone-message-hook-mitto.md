@@ -1,6 +1,6 @@
 ---
-title: Configure a Custom SMS Provider for MFA using Infobip
-description: Learn how to configure a Custom SMS Provider for multifactor authentication (MFA) using Infobip.
+title: Configure a Custom SMS Provider for MFA using Mitto
+description: Learn how to configure a Custom SMS Provider for multifactor authentication (MFA) using Mitto.
 topics:
   - mfa
   - sms
@@ -10,35 +10,30 @@ contentType:
 useCase:
   - customize-mfa
 ---
-# Configure a Custom SMS Provider for MFA using Infobip
+# Configure a Custom SMS Provider for MFA using Mitto
 
-This guide explains how to send <dfn data-key="multifactor-authentication">Multi-factor Authentication (MFA)</dfn> text messages using Infohip.
+This guide explains how to send <dfn data-key="multifactor-authentication">Multi-factor Authentication (MFA)</dfn> text messages using Mitto and the Send Phone Message Hook.
 
 <%= include('./_includes/_test-setup') %>
 
-## What is Infobip?
+## What is Mitto?
 
-Infobip SMS is a messaging platform that enables Auth0 to deliver multi-factor verification via text messages. To learn more, see [Infobip's SMS Overview](https://www.infobip.com/products/sms).
+Mitto provides an SMS messaging service that can be used by Auth0 to deliver multi-factor verification via text messages. 
 
-## Prerequisites
+## Prequisites
 
-Before you begin this tutorial, please:
-
-* Log in to the [Infobip Portal](https://portal.infobip.com/) or [sign up for a free trial](https://www.infobip.com/signup).
-* Create and capture a new API Key on the [Infobip API Keys](https://portal.infobip.com/.settings/accounts/api-keys) page.
+Before you begin this tutorial, please create an account with Mitto by contacting a sales representative at info@mitto.ch. You will get an API Key and a Sender ID that you can then use to invoke Mitto's APIs.
 
 ## Steps
 
-To configure a custom SMS provider for MFA using Infobip, you will:
+To configure a custom SMS provider for MFA using Mitto, you will:
 
 1. [Create a Send Phone Message Hook](#create-a-send-phone-message-hook)
 2. [Configure Hook Secrets](#configure-hook-secrets)
-3. [Add the Infobip call](#add-the-infobip-call)
+3. [Add the Mitto call](#add-the-mitto-call)
 4. [Test your Hook implementation](#test-your-hook-implementation)
 5. [Activate the custom SMS factor](#activate-the-custom-sms-factor)
 6. [Test the MFA flow](#test-the-mfa-flow)
-
-Optional: [Troubleshoot](#troubleshoot)
 
 ### Create a Send Phone Message Hook
 
@@ -50,17 +45,17 @@ You can only have **one** Send Phone Message Hook active at a time.
 
 ### Configure Hook Secrets
 
-You're going to store the value needed from the Infobip portal in a [Hook Secret](/hooks/secrets). This way, the values are secure and can be used easily in your function.
+You're going to store the values needed from Mitto in [Hook Secrets](/hooks/secrets). This way, the values are secure and can be used easily in your function.
 
-[Add a Hook Secret](/hooks/secrets/create) with the following settings. You can find the value for the secret on the [Infobip API Keys](https://portal.infobip.com/.settings/accounts/api-keys) page.
+[Add Hook Secrets](/hooks/secrets/create) with the following settings:
 
-* `INFOBIP_API_KEY` - Infobip API key
+* `MITTO_API_KEY` - The API Key provided by Mitto
 
-### Add the Infobip call
+### Add the Mitto call
 
-To make the call to Infobip, add the appropriate code to the Hook.
+To make the call to Mitto, add the appropriate code to the Hook.
 
-Copy the code block below and [edit](/hooks/update) the Send Phone Message Hook code to include it. This function will run each time a user requires MFA, calling Infobip to send a verification code via SMS.
+Copy the code block below and [edit](/hooks/update) the Send Phone Message Hook code to include it. This function will run each time a user requires MFA, calling Mitto to send a verification code via SMS. You can learn more about the Mitto API in [Mitto's API documentation](https://info.mitto.ch/hubfs/Developer%20Guides/Mitto%20SMS%20API%202.0%20Developer%20Guide%20v2.5.pdf).
 
 ```js
 /**
@@ -81,39 +76,30 @@ Copy the code block below and [edit](/hooks/update) the Send Phone Message Hook 
 @param {function} cb - function (error, response)
 */
 module.exports = function(recipient, text, context, cb) {
+   const axios = require('axios').default;
 
-    const axios = require('axios').default;
-    const API_KEY = context.webtask.secrets.API_KEY;;
-    const BASE_URL = 'https://2622w.api.infobip.com';
-    const instance = axios.create({
-        baseURL: BASE_URL,
-        headers: {
-            'Authorization': 'App ' + API_KEY,
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-    });
-    instance({
-        method: 'post',
-        url: '/sms/2/text/advanced',
-        data: {
-            "messages": [
-                {
-                    "destinations": [
-                        { "to": recipient }
-                    ],
-                    "text": text
-                }
-            ]
-        }
+   const instance = axios.create({
+      baseURL: "https://rest.mittoapi.com/",    
+      headers: {
+      "Content-Type": "application/json",
+      "X-Mitto-API-Key": context.webtask.secrets.MITTO_API_KEY
+    },
+  });
+  instance({
+    method: 'post',
+    url: '/sms.json',
+    data: JSON.stringify({
+        to: recipient,
+        from: "Mitto SMS", // The Mitto Sender ID
+        text: text
     })
-    .then((response) => {
-        cb(null, {});
-    })
-    .catch((error) => {
-        cb(error);
-    });
-
+  })
+  .then((response) => {
+    cb(null, {});
+  })
+  .catch((error) => {
+    cb(error);
+  });
 };
 ```
 
@@ -123,7 +109,7 @@ Click the **Run** icon on the top right to test the Hook. Edit the parameters to
 
 ### Activate the custom SMS factor
 
-The Hook is now ready to send MFA codes via Infobip. The last steps are to configure the SMS Factor to use the custom code and test the MFA flow.
+The Hook is now ready to send MFA codes. The last steps are to configure the SMS Factor to use the custom code and test the MFA flow.
 
 1. Navigate to the [Multifactor Auth](${manage_url}/#/mfa) page in the [Auth0 Dashboard](${manage_url}/), and click the **SMS** factor box.
 
@@ -141,16 +127,16 @@ If you do not receive the SMS, please look at the logs for clues and make sure t
 
 - The Hook is active and the SMS configuration is set to use 'Custom'.
 - You have configured the Hook Secrets as per Step 2.
-- The configured Hook Secrets are the same ones you created in the Infobip portal.
+- The configured Hook Secrets are the same ones you got from Mitto.
 - Your phone number is formatted using the [E.164 format](https://en.wikipedia.org/wiki/E.164).
 
 ## Additional providers
 
 ::: next-steps
 * [Configure a Custom SMS Provider for MFA using Amazon SNS](/mfa/send-phone-message-hook-amazon-sns)
-* [Configure a Custom SMS Provider for MFA using Twilio](/mfa/send-phone-message-hook-twilio)
+* [Configure a Custom SMS Provider for MFA using TeleSign](/mfa/send-phone-message-hook-twilio)
+* [Configure a Custom SMS Provider for MFA using Infobip](/mfa/send-phone-message-hook-infobip)
 * [Configure a Custom SMS Provider for MFA using TeleSign](/mfa/send-phone-message-hook-telesign)
 * [Configure a Custom SMS Provider for MFA using Vonage](/mfa/send-phone-message-hook-vonage)
 * [Configure a Custom SMS Provider for MFA using Esendex](/mfa/send-phone-message-hook-esendex)
-* [Configure a Custom SMS Provider for MFA using Mitto](/mfa/send-phone-message-hook-mitto)
 :::

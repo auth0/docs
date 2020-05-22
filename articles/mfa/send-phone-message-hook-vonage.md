@@ -168,4 +168,5 @@ If this does not solve your issue, the next step would be to check the [Vonage S
 * [Configure a Custom SMS Provider for MFA using Infobip](/mfa/send-phone-message-hook-infobip)
 * [Configure a Custom SMS Provider for MFA using TeleSign](/mfa/send-phone-message-hook-telesign)
 * [Configure a Custom SMS Provider for MFA using Esendex](/mfa/send-phone-message-hook-esendex)
+* [Configure a Custom SMS Provider for MFA using Mitto](/mfa/send-phone-message-hook-mitto)
 :::
