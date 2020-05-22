@@ -24,7 +24,7 @@ Note that Email is not true <dfn data-key="multifactor-authentication">multi-fac
 
 After the login step, users will be prompted with the most secure enabled factor. If they select 'Try another method', and then pick Email, they will be sent an email with a six-digit code that they will need to enter to complete the authentication flow.
 
-![Email End User 1](/media/articles/multifactor-authentication/mfa-email.png)
+![Email End User 1](/media/articles/mfa/mfa-email.png)
 
 ## Using the MFA API
 
@@ -34,6 +34,6 @@ You can explicitly enroll an email for MFA [using the MFA API](/mfa/guides/mfa-a
 
 In order to set up Email, you need to enable the Email factor in the Dashboard. You will only be able to enable it if there is another factor enabled. 
 
-![MFA Email Settings](/media/articles/multifactor-authentication/email-settings.png)
+![MFA Email Settings](/media/articles/mfa/email-settings.png)
 
 [Auth0 provides a test email provider](/email) but it only allows a limited amount of emails, so you should [configure your own email provider](/email/providers).

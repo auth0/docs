@@ -15,7 +15,7 @@ v2: true
 ---
 # Send Phone Message
 
-If you decide to use SMS as a factor for <dfn data-key="multifactor-authentication">Multi-factor Authentication (MFA)</dfn>, you can configure how you want Auth0 to send the messages in the [SMS configuration dialog](/multifactor-authentication/factors/sms#administrative-setup).
+If you decide to use SMS as a factor for <dfn data-key="multifactor-authentication">Multi-factor Authentication (MFA)</dfn>, you can configure how you want Auth0 to send the messages in the [SMS configuration dialog](/mfa/guides/configure-sms#administrative-setup).
 
 If you select the 'Custom' SMS delivery method, you must create a **Send Phone Message Hook** that will let you write your own code to send the message. This allows you to use whatever SMS provider you want.
 
@@ -118,11 +118,11 @@ The `context.language` parameter will always have one of the [languages configur
 ## Keep reading
 
 ::: next-steps
-- [Configure a Custom SMS Provider for MFA using Amazon SNS](/multifactor-authentication/send-phone-message-hook-amazon-sns)
-- [Configure a Custom SMS Provider for MFA using Twilio](/multifactor-authentication/send-phone-message-hook-twilio)
-- [Configure a Custom SMS Provider for MFA using Infobip](/multifactor-authentication/send-phone-message-hook-infobip)
-- [Configure a Custom SMS Provider for MFA using TeleSign](/multifactor-authentication/send-phone-message-hook-telesign)
-- [Configure a Custom SMS Provider for MFA using Vonage](/multifactor-authentication/send-phone-message-hook-vonage)
+- [Configure a Custom SMS Provider for MFA using Amazon SNS](/mfa/send-phone-message-hook-amazon-sns)
+- [Configure a Custom SMS Provider for MFA using Twilio](/mfa/send-phone-message-hook-twilio)
+- [Configure a Custom SMS Provider for MFA using Infobip](/mfa/send-phone-message-hook-infobip)
+- [Configure a Custom SMS Provider for MFA using TeleSign](/mfa/send-phone-message-hook-telesign)
+- [Configure a Custom SMS Provider for MFA using Vonage](/mfa/send-phone-message-hook-vonage)
 - [Configure SMS Notifications for MFA](/mfa/guides/configure-sms)
 - [Extensibility Points](/hooks/extensibility-points)
 :::

@@ -35,7 +35,7 @@ See the documentation for [Apple Push Notification service (APNs)](https://devel
 
 Instead of integrating with each vendor-specific push notification service, Auth0 push notification is implemented using AWS Simple Notification Service (SNS) which handles the vendor specific integration. 
 
-![Guardian Functionality](/media/articles/multifactor-authentication/guardian-functionality.png)
+![Guardian Functionality](/media/articles/mfa/guardian-functionality.png)
 
 ## Guardian and push notifications
 
@@ -45,21 +45,21 @@ End users will be prompted to download Auth0 Guardian when trying to sign up or 
 
 Once this is all set up, when the user attempts to authenticate as normal, their device will receive a push notification via the app, and once they approve the request, they will be logged in.
 
-<div class="phone-mockup"><img src="/media/articles/multifactor-authentication/guardian-push.png" alt="Guardian Push"/></div>
+<div class="phone-mockup"><img src="/media/articles/mfa/guardian-push.png" alt="Guardian Push"/></div>
 
 ## Guardian and One-Time Passwords
 
-![MFA OTP Signup](/media/articles/multifactor-authentication/mfa-otp-setup.png)
+![MFA OTP Signup](/media/articles/mfa/mfa-otp-setup.png)
 
 Upon signup, they can scan a code and set up the app, upon which it will begin generating one-time codes. 
 
 Afterwards, when logging in to the app, the user can simply check the authenticator app for the current one-time code:
 
-<div class="phone-mockup"><img src="/media/articles/multifactor-authentication/google-auth-screenshot.png" alt="Google Authenticator OTP"/></div>
+<div class="phone-mockup"><img src="/media/articles/mfa/google-auth-screenshot.png" alt="Google Authenticator OTP"/></div>
 
 And enter the code at the prompt:
 
-![MFA OTP Login](/media/articles/multifactor-authentication/mfa-otp-login.png)
+![MFA OTP Login](/media/articles/mfa/mfa-otp-login.png)
 
 Your users will need to have an OTP Authenticator app installed in their mobile devices.
 

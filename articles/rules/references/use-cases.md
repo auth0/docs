@@ -156,16 +156,16 @@ useCase: extensibility-rules
 
 <ul class="topic-links">
     <li>
-        <i class="icon icon-budicon-715"></i><a href="/multifactor-authentication/custom">Define the conditions that trigger additional authentication challenges when users log in</a>
+        <i class="icon icon-budicon-715"></i><a href="/mfa/guides/customize-mfa-universal-login">Define the conditions that trigger additional authentication challenges when users log in</a>
     </li>
     <li>
-        <i class="icon icon-budicon-715"></i><a href="/multifactor-authentication/factors/duo#mfa-sessions">Require users to log in with Duo every time</a>
+        <i class="icon icon-budicon-715"></i><a href="/mfa/guides/configure-cisco-duo#mfa-sessions">Require users to log in with Duo every time</a>
     </li>
     <li>
-        <i class="icon icon-budicon-715"></i><a href="/multifactor-authentication/step-up-authentication/step-up-for-apis#sample-scenario">Require users to authenticate with MFA whenever a specific scope is requested</a>
+        <i class="icon icon-budicon-715"></i><a href="/mfa/guides/configure-step-up-apis#sample-scenario">Require users to authenticate with MFA whenever a specific scope is requested</a>
     </li>
     <li>
-        <i class="icon icon-budicon-715"></i><a href="/multifactor-authentication/step-up-authentication/step-up-for-web-apps#sample-scenario">Require users to authenticate with MFA whenever requested by the web app</a>
+        <i class="icon icon-budicon-715"></i><a href="/mfa/guides/configure-step-up-web-apps#sample-scenario">Require users to authenticate with MFA whenever requested by the web app</a>
     </li>
 </ul>
 
