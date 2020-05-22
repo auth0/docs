@@ -18,11 +18,11 @@ This guide explains how to send <dfn data-key="multifactor-authentication">Multi
 
 ## What is Mitto?
 
-Esendex provides an SMS messaging service that can be used by Auth0 to deliver multi-factor verification via text messages. 
+Mitto provides an SMS messaging service that can be used by Auth0 to deliver multi-factor verification via text messages. 
 
 ## Prequisites
 
-Before you begin this tutorial, please create an account with Mitto by contacting a sales representative at info@mitto.ch. You will get an API Key, and a Sender ID that you can then use to invoke Mitto's APIs.
+Before you begin this tutorial, please create an account with Mitto by contacting a sales representative at info@mitto.ch. You will get an API Key and a Sender ID that you can then use to invoke Mitto's APIs.
 
 ## Steps
 
@@ -30,7 +30,7 @@ To configure a custom SMS provider for MFA using Mitto, you will:
 
 1. [Create a Send Phone Message Hook](#create-a-send-phone-message-hook)
 2. [Configure Hook Secrets](#configure-hook-secrets)
-3. [Add the Mitto call](#add-the-esendex-call)
+3. [Add the Mitto call](#add-the-mitto-call)
 4. [Test your Hook implementation](#test-your-hook-implementation)
 5. [Activate the custom SMS factor](#activate-the-custom-sms-factor)
 6. [Test the MFA flow](#test-the-mfa-flow)
