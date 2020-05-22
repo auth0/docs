@@ -123,6 +123,7 @@ The `context.language` parameter will always have one of the [languages configur
 - [Configure a Custom SMS Provider for MFA using Infobip](/mfa/send-phone-message-hook-infobip)
 - [Configure a Custom SMS Provider for MFA using TeleSign](/mfa/send-phone-message-hook-telesign)
 - [Configure a Custom SMS Provider for MFA using Vonage](/mfa/send-phone-message-hook-vonage)
+- [Configure a Custom SMS Provider for MFA using ESendex](/mfa/send-phone-message-hook-esendex)
 - [Configure SMS Notifications for MFA](/mfa/guides/configure-sms)
 - [Extensibility Points](/hooks/extensibility-points)
 :::
