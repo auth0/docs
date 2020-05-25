@@ -19,6 +19,12 @@ Once you successfully authenticate a user with an external Identity Provider (Id
 
 You can retrieve and use this token to call the IdP's API.
 
+::: panel Availability
+Not all connection types will have an access token. If you don't see an access token for identities coming from a specific source, it means that the connection does not support retrieving or storing an access token. 
+
+Enterprise OIDC connections do not support storing the IdP access token.
+:::
+
 ::: note
 This article assumes that you have already configured the connection with the IdP of your choice. If not, go to [Identity Providers Supported by Auth0](/identityproviders), select the IdP you want, and follow the configuration steps.
 :::
