@@ -36,7 +36,7 @@ Migration scenarios accommodate automatic token revocation when migrating from a
 Refresh Token Rotation is only supported for OIDC-conformant applications having the Refresh Token grant type enabled.
 :::
 
-## Using the Management API
+## Using the Auth0 SPA SDK
 
 You can also use the Management API to enable Refresh Token rotation:
 
