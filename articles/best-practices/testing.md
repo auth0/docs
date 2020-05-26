@@ -1,5 +1,5 @@
 ---
-title: Testing Best Practices
+title: Testing Best Practices for Rules
 description: Learn about best practices for testing.
 topics:
   - best-practices
@@ -16,7 +16,8 @@ useCase:
   - database-action-scripts
   - rules
 ---
-# Testing
+
+# Testing Best Practices for Rules
 
 The Auth0 Dashboard provides the facility to [`TRY`](/rules/guides/debug) a rule for the purpose of testing and debugging. This facility allows a mock [`user`](/best-practices/rules#user-object) and [`context`](/best-practices/rules#context-object) object to be defined, which is then passed to the rule as part of its execution. The resulting output from the rule (including any console logging) is displayed upon completion. While this provides an immediate at-a-glance way to unit test a rule, it is very much a manual approach, and one which is unable to leverage the use of automated testing tools such as [Mocha](https://mochajs.org/) or [rewire](https://www.npmjs.com/package/rewire).
 
