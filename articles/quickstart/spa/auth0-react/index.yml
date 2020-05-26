@@ -1,0 +1,53 @@
+title: React
+alias:
+  - react
+  - reactjs
+language:
+  - Javascript
+author:
+  name: Dan Arias
+  email: dan.arias@auth0.com
+  community: false
+framework:
+  - React
+image: /media/platforms/react.png
+topics:
+  - quickstart
+contentType: tutorial
+useCase: quickstart
+show_releases: true
+beta: true
+sdk:
+  name: auth0-react
+  url: https://www.github.com/auth0/auth0-react/
+snippets:
+  dependencies: application-platforms/react/dependencies
+  setup: application-platforms/react/setup
+  use: application-platforms/react/use
+seo_alias: react
+default_article: "01"
+articles:
+  - "01"
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-react-samples
+  branch: master
+requirements:
+  - React 16.8
+next_steps:
+  - path: 01
+    list:
+      - text: Configure other identity providers
+        icon: 345
+        href: "/identityproviders"
+      - text: Enable multifactor authentication
+        icon: 345
+        href: "/multifactor-authentication"
+      - text: Learn about anomaly detection
+        icon: 345
+        href: "/anomaly-detection"
+      - text: Learn about rules
+        icon: 345
+        href: "/rules"
+    
