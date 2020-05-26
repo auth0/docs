@@ -3,6 +3,7 @@ description: Learn how to install and configure the Facebook Analytics for Auth0
 topics:
   - facebook
   - analytics
+public: false
 contentType: how-to
 useCase:
   - manage-analytics
