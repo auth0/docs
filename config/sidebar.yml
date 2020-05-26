@@ -1971,7 +1971,7 @@ articles:
             url: "/policies/endpoints"
 
           - title: "Load Testing"
-            url: "/policies/load-teseting"
+            url: "/policies/load-testing"
 
           - title: "Penetration Testing"
             url: "/policies/penetration-testing"
