@@ -1107,13 +1107,16 @@ articles:
 
       - title: Analytics
         url: /analytics
+        hidden: true
         children:
 
           - title: Facebook Analytics
             url: /analytics/guides/facebook-analytics
+            hidden: true
             
           - title: Google Analytics
             url: /analytics/guides/google-analytics
+            hidden: true
 
       - title: Amazon Web Services (AWS)
         url: /integrations/aws

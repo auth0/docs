@@ -5,6 +5,7 @@ classes: topic-page
 title: Analytics Integrations
 topics:
   - analytics
+public: false
 contentType: index
 useCase:
   - manage-analytics
