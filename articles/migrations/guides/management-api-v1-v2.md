@@ -13,6 +13,17 @@ useCase:
 
 Auth0’s Management API v1 was deprecated in 2016 and replaced with the [Auth0 Management API v2](/api/management/v2/). Management API v1 will reach its End Of Life in the Public Cloud on **July 13th, 2020**. Requests will begin failing with a `410` HTTP status code on or after that date. Management API v1 will be included in the Private Cloud until the November 2020 monthly release, which is the first release that will not include Management API v1.
 
+## Key Dates
+
+The following are key dates for this migration:
+
+| Date | Public Cloud | Private Cloud |
+|------|--------------|---------------|
+| Jan 13, 2020 | Initial Public Announcement | N/A | 
+| May 21, 2020 | N/A | Initial Public Announcement |
+| July 13, 2020 | End of Life for Management API v1 | N/A |
+| November 2020 | N/A | Support removed from release for Mgmt API V1 |
+
 ## Am I affected by the migration?
 
 Affected tenants are those who meet all of the following criteria:
