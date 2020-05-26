@@ -19,9 +19,13 @@ If you decide to use SMS as a factor for <dfn data-key="multifactor-authenticati
 
 If you select the 'Custom' SMS delivery method, you must create a **Send Phone Message Hook** that will let you write your own code to send the message. This allows you to use whatever SMS provider you want.
 
+Hooks at this extensibility point are blocking (synchronous), which means they execute as part of the trigger's process and will prevent the rest of the Auth0 pipeline from running until the Hook is complete.
+
 ::: note
 The `triggerId` for the Send Phone Message extensibility point is `send-phone-message`. To learn how to create Hooks for this extensibility point, see [Create New Hooks](/hooks/create).
 :::
+
+To learn about other extensibility points, see [Extensibility Points](/hooks/extensibility-points).
 
 ## Starter code and parameters
 

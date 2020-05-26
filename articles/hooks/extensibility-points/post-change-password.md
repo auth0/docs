@@ -1,7 +1,6 @@
 ---
 title: Post-Change Password
 description: Learn how hooks can be used with the Post Change Password extensibility point, which is available for database connections.
-beta: true
 toc: true
 topics:
     - hooks
@@ -17,7 +16,7 @@ v2: true
 
 At the Post-Change Password extensibility point, Hooks allow custom actions to be executed after a successful user password change, whether initiated by a user for their own password or by a tenant administrator for another user's password. For example, you may send an email to a user to notify them that their password has been changed.
 
-The Hook added to this extensibility point executes asynchronously with the rest of the Auth0 pipeline, and its outcome does not affect the Auth0 transaction.
+Hooks at this extensibility point are non-blocking (asynchronous), which means the Auth0 pipeline will continue to run without waiting for a Hook to finish its execution. Thus, the Hook's outcome does not affect the Auth0 transaction.
 
 The Post-Change Password extensibility point is available for [Database Connections](/connections/database).
 
@@ -53,7 +52,7 @@ module.exports = function (user, context, cb) {
 };
 ```
 
-Please note: 
+Please note:
 
 * The callback function (`cb`) at the end of the sample code signals completion and *must* be included.
 
@@ -63,7 +62,7 @@ Hooks executed at the Post-Change Password extensibility point ignore any respon
 
 ### Starter code response
 
-Once you've customized the starter code, you can test the Hook using the Runner embedded in the Hook Editor. The Runner simulates a call to the Hook with the appropriate body and response. 
+Once you've customized the starter code, you can test the Hook using the Runner embedded in the Hook Editor. The Runner simulates a call to the Hook with the appropriate body and response.
 
 <%= include('../_includes/_test_runner_save_warning') %>
 

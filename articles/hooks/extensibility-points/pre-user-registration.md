@@ -1,7 +1,6 @@
 ---
 title: Pre-User Registration
 description: Learn how hooks can be used with the Pre-User Registration extensibility point, which is available for database connections and passwordless connections.
-beta: true
 toc: true
 topics:
     - hooks
@@ -16,6 +15,8 @@ v2: true
 # Pre-User Registration
 
 At the Pre-User Registration extensibility point, Hooks allow custom actions to be executed when a new user is created. For example, you may add custom `app_metadata` or `user_metadata` to the newly-created user, or even prevent the creation of the user in the database.
+
+Hooks at this extensibility point are blocking (synchronous), which means they execute as part of the trigger's process and will prevent the rest of the Auth0 pipeline from running until the Hook is complete.
 
 The Pre-User Registration extensibility point is available for [Database Connections](/connections/database) and [Passwordless Connections](/connections/passwordless).
 
@@ -41,6 +42,7 @@ When creating a Hook executed at the Pre-User Registration extensibility point, 
 @param {boolean} user.phoneNumberVerified - indicates whether phone number is verified
 @param {object} context - Auth0 context info, such as connection
 @param {string} context.requestLanguage - language of the application agent
+@param {string} context.renderLanguage - language of the signup floww
 @param {object} context.connection - connection info
 @param {object} context.connection.id - connection ID
 @param {object} context.connection.name - connection name
@@ -104,7 +106,7 @@ Hooks executed at the Pre-User Registration extensibility point do not pass erro
 
 ### Starter code response
 
-Once you've customized the starter code, you can test the Hook using the Runner embedded in the Hook Editor. The Runner simulates a call to the Hook with the appropriate body and response. 
+Once you've customized the starter code, you can test the Hook using the Runner embedded in the Hook Editor. The Runner simulates a call to the Hook with the appropriate body and response.
 
 <%= include('../_includes/_test_runner_save_warning') %>
 
@@ -172,3 +174,28 @@ When we run this Hook, the response object is:
   }
 }
 ```
+
+## Sample script: Customize the error message and language for user messages
+
+In this example, we use a Hook to prevent a user from registering, then return a custom error message in our tenant logs and show a custom, translated error message to the user when they are denied. To return the user message and use the translation functionality, your tenant must be configured to use the [Universal Login - New Experience](/universal-login/new).
+
+```js
+module.exports = function (user, context, cb) {
+  const isUserDenied = ...; // determine if a user should be allowed to register
+
+  if (isUserDenied) {
+    const LOCALIZED_MESSAGES = {
+      en: 'You are not allowed to register.',
+      es: 'No tienes permitido registrarte.'
+    };
+
+    const localizedMessage = LOCALIZED_MESSAGES[context.renderLanguage] || LOCALIZED_MESSAGES['en'];
+    return cb(new PreUserRegistrationError('Denied user registration in Pre-User Registration Hook', localizedMessage));
+  }
+};
+```
+
+Please note:
+* The custom `PreUserRegistrationError` class allows you to control the message seen by the user who is attempting to register.
+* The first parameter passed to `PreUserRegistrationError` controls the error message that appears in your tenant logs.
+* The second parameter controls the error message seen by the user who is attempting to register. In this example, the `context.renderLanguage` parameter generates a user-facing message in the appropriate language for the user. You can use these parameters only if your tenant is configured to use the [Universal Login - New Experience](/universal-login/new).

@@ -1,7 +1,6 @@
 ---
 title: View Logs for Hooks
 description: Learn how to view logs for Hooks using the Auth0 Dashboard.
-beta: true
 topics:
     - hooks
     - logs

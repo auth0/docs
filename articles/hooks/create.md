@@ -1,7 +1,6 @@
 ---
 title: Create Hooks
 description: Learn how to create Hooks using the Dashboard and Management API. Hooks may also be imported and exported using the Auth0 Deploy Command-Line Interface (CLI) tool.
-beta: true
 topics:
     - hooks
     - dashboard
@@ -31,7 +30,7 @@ Hooks may also be imported and exported using the [Deploy Command-Line Interface
 
 ## Create Hooks using the Dashboard
 
-<%= include('./_includes/_default_hook_enable_behavior') %> 
+<%= include('./_includes/_default_hook_enable_behavior') %>
 
 1. Navigate to the [Hooks](${manage_url}/#/hooks) page in the [Auth0 Dashboard](${manage_url}/), and click **Create a Hook**.
 2. Enter a descriptive name for your Hook, select the extensibility point for which the Hook should execute, and click **Create**.
@@ -43,7 +42,7 @@ Hooks may also be imported and exported using the [Deploy Command-Line Interface
 
 ## Create Hooks using the Management API
 
-<%= include('./_includes/_default_hook_enable_behavior') %> 
+<%= include('./_includes/_default_hook_enable_behavior') %>
 
 1. Make a `POST` call to the [Create a Hook endpoint](/api/management/v2/#!/Hooks/post_hooks). Be sure to replace `MGMT_API_ACCESS_TOKEN`, `HOOK_NAME`, `HOOK_SCRIPT`, and `EXTENSIBILITY_POINT_NAME` placeholder values with your Management API Access Token, Hook name, Hook script, and extensibility point name, respectively.
 
