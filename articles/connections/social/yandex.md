@@ -1,5 +1,5 @@
 ---
-title: Connect your app to Yandex
+title: Connect Apps to Yandex
 connection: Yandex
 image: /media/connections/yandex.png
 seo_alias: yandex
@@ -15,7 +15,7 @@ useCase:
     - add-idp
 ---
 
-# Connect your app to Yandex
+# Connect Apps to Yandex
 
 To configure an Yandex connection you will need to register your Auth0 instance as a Yandex application.
 

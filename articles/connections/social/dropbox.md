@@ -1,5 +1,5 @@
 ---
-title: Connect your app to Dropbox
+title: Connect Apps to Dropbox
 connection: Dropbox
 image: /media/connections/dropbox.png
 seo_alias: dropbox
@@ -15,7 +15,7 @@ useCase:
     - add-idp
 ---
 
-# Connect your app to Dropbox
+# Connect Apps to Dropbox
 
 To connect your Auth0 app to Dropbox, you will need to generate a *Client ID* and *Client Secret* in a Dropbox app, copy these keys into your Auth0 settings, and enable the connection.
 

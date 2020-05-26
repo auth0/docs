@@ -1,5 +1,5 @@
 ---
-title: Connect your app to RenRen
+title: Connect Apps to RenRen
 connection: RenRen
 image: /media/connections/renren.png
 seo_alias: renren
@@ -15,7 +15,7 @@ useCase:
     - add-idp
 ---
 
-# Connect your app to RenRen
+# Connect Apps to RenRen
 
 To configure a RenRen OAuth2 connection, you will need to register Auth0 on the RenRen integration portal.
 

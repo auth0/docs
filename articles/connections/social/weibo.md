@@ -1,5 +1,5 @@
 ---
-title: Add Weibo Login to Your App
+title: Connect Apps to Weibo
 connection: Weibo
 image: /media/connections/weibo.png
 seo_alias: weibo
@@ -14,7 +14,7 @@ useCase:
     - customize-connections
     - add-idp
 ---
-# Add Weibo Login to Your App
+# Connect Apps to Weibo
 
 This guide will show you how to enable your users to log in to your Auth0 app using their Weibo credentials.
 

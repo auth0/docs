@@ -1,5 +1,5 @@
 ---
-title: Connect your app to SoundCloud
+title: Connect Apps to SoundCloud
 connection: SoundCloud
 index: 5
 image: /media/connections/soundcloud.png
@@ -16,7 +16,7 @@ useCase:
     - add-idp
 ---
 
-# Connect your app to SoundCloud
+# Connect Apps to SoundCloud
 
 To configure an OAuth 2.0 connection with SoundCloud, you will need to register your Auth0 Application with SoundCloud using their [Developer Portal](http://developers.soundcloud.com/).
 

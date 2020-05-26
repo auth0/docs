@@ -1,5 +1,5 @@
 ---
-title: Add LinkedIn Login to Your App
+title: Connect Apps to LinkedIn
 connection: LinkedIn
 index: 3
 image: /media/connections/linkedin.png
@@ -17,7 +17,7 @@ useCase:
   - customize-connections
   - add-idp
 ---
-# Add LinkedIn Login to Your App
+# Connect Apps to LinkedIn
 
 This guide will show you how to add functionality to your web app that allows your users to log in with LinkedIn. Along the way, you will also learn how to get an Access Token that will allow you to access the LinkedIn API.
 

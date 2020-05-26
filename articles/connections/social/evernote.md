@@ -1,5 +1,5 @@
 ---
-title: Connect your app to Evernote
+title: Connect Apps to Evernote
 connection: Evernote
 image: /media/connections/evernote.png
 seo_alias: evernote
@@ -15,7 +15,7 @@ useCase:
     - add-idp
 ---
 
-# Connect your app to Evernote
+# Connect Apps to Evernote
 
 To configure Evernote OAuth connections, you will need to create an API Key on the Evernote Developers portal.
 

@@ -1,5 +1,5 @@
 ---
-title: Connect your app to Yammer
+title: Connect Apps to Yammer
 connection: Yammer
 image: /media/connections/yammer.png
 description: How to obtain the credentials required to configure your Auth0 connection to Yammer.
@@ -15,7 +15,7 @@ useCase:
     - add-idp
 ---
 
-# Connect your app to Yammer
+# Connect Apps to Yammer
 
 To configure Yammer for OAuth connections, you will need to register your app in the Yammer Developer Center.
 

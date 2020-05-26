@@ -1,5 +1,5 @@
 ---
-title: Add Shopify Login to Your App
+title: Connect Apps to Shopify
 connection: Shopify
 image: /media/connections/shopify.png
 seo_alias: shopify
@@ -16,7 +16,7 @@ useCase:
   - customize-connections
   - add-idp
 ---
-# Add Shopify Login to Your App
+# Connect Apps to Shopify
 
 This guide will show you how to add functionality to your web app that allows your users to log in with Shopify. 
 

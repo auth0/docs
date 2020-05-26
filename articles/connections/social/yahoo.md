@@ -1,5 +1,5 @@
 ---
-title: Add Yahoo Login to Your App
+title: Connect Apps to Yahoo!
 connection: Yahoo!
 index: 15
 image: /media/connections/yahoo.png
@@ -15,7 +15,7 @@ useCase:
     - customize-connections
     - add-idp
 ---
-# Add Yahoo Login to Your App
+# Connect Apps to Yahoo!
 
 This guide will show you how to add functionality to your web app that allows your users to log in with Yahoo.
 

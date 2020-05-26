@@ -1,5 +1,5 @@
 ---
-title: Connect your app to The City
+title: Connect Apps to The City
 connection: The City
 image: /media/connections/thecity.png
 seo_alias: thecity
@@ -15,7 +15,7 @@ useCase:
     - add-idp
 ---
 
-# Connect your app to The City
+# Connect Apps to The City
 
 To connect your Auth0 app to The City, you will need to create a plugin as an administrator on your The City portal.
 

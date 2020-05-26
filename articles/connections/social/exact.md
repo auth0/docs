@@ -1,5 +1,5 @@
 ---
-title: Connect Your App to Exact
+title: Connect Apps to Exact
 connection: Exact
 image: /media/connections/exact.png
 seo_alias: exact
@@ -14,7 +14,7 @@ useCase:
     - add-idp
 ---
 
-# Connect Your App to Exact
+# Connect Apps to Exact
 
 To configure an Exact OAuth2 connection, you will need to register your Auth0 tenant on the [Exact Online App Center](https://apps.exactonline.com/).
 

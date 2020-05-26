@@ -1,5 +1,5 @@
 ---
-title: Connect your app to Salesforce
+title: Connect Apps to Salesforce
 connection: Salesforce
 image: /media/connections/salesforce.png
 seo_alias: salesforce
@@ -16,7 +16,7 @@ useCase:
     - add-idp
 ---
 
-# Connect your app to Salesforce
+# Connect Apps to Salesforce
 
 To configure a Salesforce OAuth2 connection you will need to register your Auth0 tenant on their **Administer** panel.
 
