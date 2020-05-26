@@ -29,7 +29,7 @@ The [Apple App Store Developer Guidelines](https://developer.apple.com/app-store
 
 ## Prerequisites
 
-Before you configure SIWA for your native app in Auth0, you must:
+Before you configure SIWA for your app in Auth0, you must:
 
 * Have an [Apple Developer](https://developer.apple.com/programs/) account, which is a paid account with Apple. (There is no free trial available unless you are part of their [iOS Developer University Program](https://developer.apple.com/support/compare-memberships/).)
 * [Register Your App in the Apple Developer Portal](/connections/apple-siwa/set-up-apple) if you have not already done so. Make a note of the following IDs and key for the application connection settings in the Auth0 Dashboard:
