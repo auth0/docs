@@ -1,6 +1,6 @@
 ## Create a Code Verifier
 
-Create a `code_verifier`, which is a cryptographically-random key that will eventually be sent to Auth0 to request an `access_token`.
+Create a `code_verifier`, which is a cryptographically-random key that will eventually be sent to Auth0 to request tokens.
 
 <div class="code-picker">
   
