@@ -22,6 +22,12 @@ In case of federated identity providers, they sometimes report if the user has a
  
 For all of these reasons, we need to be careful on what we can assume based on a verified email.
 
+## When does Auth0 sets emails as verified?
+
+When users signup with email and password, they will get a [verification email](/email/templates#verification-email) with a link. When they click the link, their email will be verified. 
+
+When users authenticate with a federated identity provider (e.g. a social or enterprise connection), the value of the `email_verified` field will match what the identity provider returns in the user profile. If they identity provider does not return any value, it will be set to `false`.
+
 ## Verified Emails and Account Linking
 
 When you want to [link two user accounts](/articles/users/concept/overview-user-account-linking), you need to make sure that the user still has access to both accounts. The only way to achieve that is to have users authenticate with both accounts before linking them. 
