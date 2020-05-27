@@ -10,7 +10,7 @@ useCase: extensibility-extensions
 ---
 # Import/Export Tenant Configuration to YAML File
 
-The `auth0-deploy-cli` tool's **YAML option** supports the exporting to and importing of an Auth0 tenant configuration using a [YAML](http://yaml.org/) file.
+The `auth0-deploy-cli` tool's **YAML option** supports the exporting to and importing of an Auth0 tenant configuration using a [YAML](http://yaml.org/) file. You can find an [example config file and other examples of using `auth0-deploy-cli`](https://github.com/auth0/auth0-deploy-cli/) in the Github repo.
 
 ## Import tenant configuration
 
@@ -74,7 +74,8 @@ Here is the example of a `config.json` file:
     "clients": [ "client_secret" ]
   },
   "EXCLUDED_PROPS": {
-    "connections": [ "options.client_secret" ]
+    "connections": [ "options.client_secret" ],
+    "emailProvider": ["name", "credentials", "default_from_address", "enabled"]
   },
   "AUTH0_EXCLUDED_RULES": [ "auth0-account-link-extension" ],
   "AUTH0_EXCLUDED_CLIENTS": [ "auth0-account-link" ],
