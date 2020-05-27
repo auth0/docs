@@ -9,7 +9,7 @@ contentType: how-to
 ---
 # Using the Management API with Auth0-PHP
 
-Auht0-PHP provides a wrapper for the Management API, which is used to perform operations on your Auth0 tenant. Using this API, you can:
+Auth0-PHP provides a wrapper for the Management API, which is used to perform operations on your Auth0 tenant. Using this API, you can:
 
 - Search for and create users
 - Create and update Applications
