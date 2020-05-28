@@ -10,7 +10,6 @@ topics:
   - connections
   - social
   - facebook
-beta: true
 contentType: how-to
 useCase:
   - add-login
