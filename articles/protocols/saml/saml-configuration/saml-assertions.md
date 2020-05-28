@@ -33,6 +33,10 @@ You can use rules to add more extensive or dynamic customizations to the SAML re
 
 Customizations done in Rules override customizations done using the Application Addons tab.
 
+::: note
+The `context.samlConfiguration.mappings` object is used to override default SAML attributes or add new attributes. The object keys are the name of the SAML attribute to override or add and the values are a string of the `user` object property to use as the attribute value.
+:::
+
 #### Example: Changing the SAML Token Lifetime and Using UPN as NameID
 
 ```js
@@ -43,7 +47,7 @@ function (user, context, callback) {
   // if available, use upn as NameID
   if (user.upn) {
     context.samlConfiguration.mappings = {
-      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "upn"
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "upn" // use user.upn as the value
     }
   }
 
@@ -58,11 +62,7 @@ function (user, context, callback) {
   user.user_metadata = user.user_metadata || {};
   user.user_metadata.color = "purple";
   context.samlConfiguration.mappings = {
-    //Attribute already in user_metadata
-    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/color": "user_metadata.color",
-
-    //Attribute dynamically added to user_metadata above
-    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/color": "user_metadata.color",
+    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/color": "user_metadata.color", // use user.user_metadata.color as the value
   };
   callback(null, user, context);
 }
