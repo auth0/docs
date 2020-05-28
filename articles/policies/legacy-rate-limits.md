@@ -8,7 +8,7 @@ contentType:
 useCase:
   - support
 ---
-# Managment API Endpoint Rate Limits before May 19, 2020
+# Management API Endpoint Rate Limits before May 19, 2020
 
 **This policy is effective for all paid and free subscriptions made before May 19, 2020.** 
 
