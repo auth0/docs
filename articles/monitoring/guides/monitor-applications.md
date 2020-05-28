@@ -27,7 +27,6 @@ Use one of these services to execute synthetic authentication requests.
 
 ## Keep reading
 
-* [Analytics Integrations](/analytics)
 * [Check Auth0 Status](/monitoring/guides/check-status)
 * [Check External Services Status](/monitoring/guides/check-external-services)
 * [Monitor Auth0 Using System Center Operations Manager](/monitoring/guides/monitor-using-SCOM)

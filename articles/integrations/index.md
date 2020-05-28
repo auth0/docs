@@ -22,20 +22,6 @@ useCase:
 
 <ul class="topic-links">
   <li>
-    <i class="icon icon-budicon-292"></i><a href="/analytics">Analytics Integrations</a>
-    <p>
-        Learn how to set up and configure analytics integrations with Auth0.
-    </p>
-    <ul>
-      <li>
-        <img class="icon-logo" src="/img/icons/facebook.svg" /><a href="/analytics/guides/facebook-analytics">Integrate Facebook Analytics with Auth0</a>
-      </li>
-      <li>
-        <img class="icon-logo" src="/img/icons/google.svg" /><a href="/analytics/guides/google-analytics">Integrate Google Analytics with Auth0</a>
-      </li>
-    </ul>
-  </li>
-  <li>
     <i class="icon icon-budicon-546"></i>API Management Integrations
     <p>
       Learn how to use Auth0 with API Management Systems and other services.
