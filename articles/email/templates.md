@@ -96,7 +96,7 @@ MyApp support@mail128-21.atl41.mandrillapp.com on behalf of MyApp support@fabrik
 
 You can configure the SPF by adding a TXT record to your domain's zone file. You should set the host name to `@`, or leave it empty, depending on the provider. The value of the record should look something like the following.
 
- ```text
+```text
 "v=spf1 include:spf.mandrillapp.com -all"
 ```
 
@@ -231,9 +231,8 @@ In addition to the [common variables](#common-variables) available for all email
 ```
 #### Redirect To Results for the Verification Email Template
 
-You can [configure a **Redirect To** URL](#configuring-redirect-to) to send the users to after the email verification action was attempted. When redirecting, Auth0 will include the following parameters:
+You can [configure a **Redirect To** URL](#configuring-redirect-to) to send the users to after the email verification action was attempted. By default, Auth0 includes the following parameters:
 
-* `email` indicating the email of the user
 * `success` with value `true` or `false` indicating whether the email verification was successful
 * `message` with an additional description of the outcome. Some possible values are:
   * `Your email was verified. You can continue using the application.` (with `success=true`)
@@ -241,6 +240,7 @@ You can [configure a **Redirect To** URL](#configuring-redirect-to) to send the 
   * `Access expired.` (with `success=false`)
   * `User account does not exist or verification code is invalid.` (with `success=false`)
   * `This account is already verified.` (with `success=false`)
+* `email` if `Include Email In Redirect` is enabled in the template. By default, `email` is not included
 
 The target URL handler should be prepared to gracefully handle other possible messages as well. 
 
@@ -260,15 +260,15 @@ In addition to the [common variables](#common-variables) available for all email
 
 #### Redirect To Results for the Change Password Template
 
-You can [configure a **Redirect To** URL](#configuring-redirect-to) to send the users to after the password change action was attempted. When redirecting, Auth0 will include the following parameters:
+You can [configure a **Redirect To** URL](#configuring-redirect-to) to send the users to after the password change action was attempted. By default, Auth0 includes the following parameters:
 
-* `email` indicating the email of the user
 * `success` with value `true` or `false` indicating whether the password change was successful
 * `message` with an additional description of the outcome. Some possible values are:
   * `You can now login to the application with the new password.` (with `success=true`)
   * `This URL can be used only once` (with `success=false`)
   * `Access expired.` (with `success=false`)
   * `The operation cannot be completed. Please try again.` (with `success=false`)
+* `email` if `Include Email In Redirect` is enabled in the template. By default, `email` is not included
 
 The target URL handler should be prepared to gracefully handle other possible messages as well. 
 

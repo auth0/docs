@@ -25,7 +25,7 @@ Guardian is available both in [Maven Central](http://search.maven.org) and [JCen
 1. To start using *Guardian* add these lines to your `build.gradle` dependencies file:
 
     ```gradle
-    implementation 'com.auth0.android:guardian-sdk:0.4.0'
+    implementation 'com.auth0.android:guardian:0.4.0'
     ```
 
 ::: note

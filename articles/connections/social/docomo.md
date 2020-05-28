@@ -1,5 +1,5 @@
 ---
-title: Connect your app to Docomo dAccount
+title: Connect Apps to Docomo dAccount
 connection: Docomo
 image: /media/connections/daccount.png
 seo_alias: docomo
@@ -15,7 +15,7 @@ useCase:
     - add-idp
 ---
 
-# Connect your app to Docomo dAccount
+# Connect Apps to Docomo dAccount
 
 To configure a Docomo dAccount connection you will need to register Auth0 on the [dAccount Connect Portal](https://dac-g.apl01.spmode.ne.jp/VIEW_OC01/GOCA00004/).
 

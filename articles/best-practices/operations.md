@@ -15,7 +15,7 @@ Here are some recommended best practices for general Auth0 usage and operation.
 
 ## Capture log files 
 
-Auth0 keeps tenant [logs](/logs) for a limited amount of time. To get log data and store it elsewhere, you can use the [Management API](/api/management/v2#!/Logs/get_logs) or one of the [available extensions](/extensions#export-auth0-logs-to-an-external-service) for services such as Loggly or Splunk.
+Auth0 keeps tenant [logs](/logs) for a limited amount of time. To get log data and store it elsewhere, you can use the [Management API](/api/management/v2#!/Logs/get_logs), [stream the logs](/logs/streams) to an external service or use one of the [available extensions](/extensions#export-auth0-logs-to-an-external-service) for services such as Loggly or Splunk.
 
 ## Set up your own email provider and customize email templates
 

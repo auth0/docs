@@ -211,7 +211,7 @@ errorMessages: {
   pushNotificationWrongCredentials: 'Seems that your device credentials are outdated. Please re-enroll your device or wait for them to be updated.',
   smsNotConfigured: 'You cannot use this module because you\'ve enrolled with a different one.',
   socketError: 'We cannot connect to real time channel.',
-  // tenant_not_found | The tenant associated cannot be found. Should not normally hapen at least that you delete the tenant
+  // tenant_not_found | The tenant associated cannot be found. Should not normally happen at least that you delete the tenant
   tooManyPn: 'You have exceeded the amount of push notifications per minute. Please wait and try again.',
   tooManyPnPerTenant: 'There are too many push requests right now. Wait a few minutes and try again.',
   tooManySms: 'You have exceeded the amount of SMSs per hour. Wait a few minutes and try again.',

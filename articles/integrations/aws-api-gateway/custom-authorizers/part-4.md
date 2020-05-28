@@ -25,7 +25,7 @@ Log in to AWS and navigate to the [API Gateway Console](http://console.aws.amazo
 Custom authorizers are set on a method by method basis; if you want to secure multiple methods using a single authorizer, you'll need to repeat the following instructions for each method.
 :::
 
-Open the **PetStore** API we created in [part 2](/integrations/aws-api-gateway-2/part-2) of this tutorial. Under the **Resource** tree in the center pane, select the **GET** method under the `/pets` resource.
+Open the **PetStore** API we created in [part 2](/integrations/aws-api-gateway/part-2) of this tutorial. Under the **Resource** tree in the center pane, select the **GET** method under the `/pets` resource.
 
 ![](/media/articles/integrations/aws-api-gateway-2/part-3/pt3-2.png)
 
@@ -33,7 +33,7 @@ Select **Method Request**.
 
 ![](/media/articles/integrations/aws-api-gateway-2/part-3/pt3-3.png)
 
-Under **Settings**, click the **pencil** icon to the right **Authorization** and choose the `jwt-rsa-custom-authorizer` custom authorizer you created in [part 3](/integrations/aws-api-gateway-2/part-3). 
+Under **Settings**, click the **pencil** icon to the right **Authorization** and choose the `jwt-rsa-custom-authorizer` custom authorizer you created in [part 3](/integrations/aws-api-gateway/part-3). 
 
 ![](/media/articles/integrations/aws-api-gateway-2/part-3/pt3-4.png)
 

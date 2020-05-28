@@ -11,7 +11,7 @@ useCase:
 
 # Child Tenant Request Process
 
-This request process is for self-service customers requesting a development, test, or staging tenant that's linked to their paid production tenant. This tenant is called a **child tenant**.
+This request process is for Developer or Developer Pro customers requesting a development, test, or staging tenant that's linked to their paid production tenant. This tenant is called a **child tenant**.
 
 Free tenants do not include a child tenant.
 

@@ -1,7 +1,6 @@
 ---
 title: View Hook Secrets
 description: Learn how to view Hook Secrets using the Dashboard and Management API.
-beta: true
 topics:
     - hooks
     - secrets

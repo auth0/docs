@@ -1,5 +1,6 @@
 ---
 description: How to link accounts using the Authentication API (Deprecated)
+public: false
 topics:
   - authentication-api
   - account-linking
@@ -124,6 +125,5 @@ The body should be:
 ## Keep reading
 
 * [Migration Guide: Account Linking and ID Tokens](/migrations/guides/account-linking)
-* [Link User Accounts Client-Side Scenario](/users/references/link-accounts-client-side-scenario)
-* [Link User Accounts Server-Side Scenario](/users/references/link-accounts-server-side-scenario)
-* [Link User Accounts Initiated by Users Scenario](/users/references/link-accounts-user-initiated-scenario)
+* [Suggested Account Linking - Server-Side Implementation](/users/references/link-accounts-server-side-scenario)
+* [User Initiated Account Linking - Client-Side Implementation](/users/references/link-accounts-client-side-scenario)

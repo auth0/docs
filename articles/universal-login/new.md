@@ -8,13 +8,13 @@ toc: true
 ---
 # New Universal Login Experience
 
-Auth0's New <dfn data-key="universal-login">Universal Login</dfn> Experience provides a reimagined login flow, with a fresh UX design, and lightweight pages. When you pick this new experience, Auth0 will use it for all pages that haven't been customized. It can be enabled from the [Universal Login Settings](${manage_url}/#/login_settings) dashboard section:
+Auth0's New <dfn data-key="universal-login">Universal Login</dfn> Experience provides a reimagined login flow, with a fresh UX design and lightweight pages. When you pick this new experience, Auth0 will use it for all pages that haven't been customized. You can enable it from the [Universal Login Settings](${manage_url}/#/login_settings) dashboard section:
 
 ![Login Page](/media/articles/universal-login/experience-picker.png)
 
-The key structural difference with the [Classic Experience](/universal-login/classic) is that while the former uses Javascript widgets in all the pages, the New Experience is rendered on the server and does not require Javascript. 
+The key structural difference from the [Classic Experience](/universal-login/classic) is that the former uses Javascript widgets in all the pages, while the New Experience is rendered on the server and does not require Javascript. 
 
-From a functional perspective, it has much better support for [Localization](/universal-login/i18n), a better MFA experience, and several improvements across all pages. The New Experience is being actively developed, so new features are regularly added. However, there is still a [feature gap](/universal-login/new-experience-limitations) with the Classic Experience, and some pages in the New Experience have certain differences detailed below.
+From a functional perspective, the New Experience has much better support for [Localization](/universal-login/i18n), a better MFA experience, and several improvements across all pages. The New Experience is being actively developed, so new features are regularly added. However, there is still a [feature gap](/universal-login/new-experience-limitations) with the Classic Experience, and some pages in the New Experience have certain differences detailed below.
 
 ## Login
 
@@ -28,22 +28,20 @@ From a functional perspective, it has much better support for [Localization](/un
 
 - A 'show password' icon will be displayed next to the password field.
 
-- If you redirect users to the `/login` page directly, they will get a error unless they have configured the [default login route](/universal-login/default-login-url). You should always redirect users to the proper authorization request endpoint (e.g. `/authorize` if you are using OpenID Connect).
+- If you redirect users to the `/login` page directly, they will get an error unless they have configured the [default login route](/universal-login/default-login-url). You should always redirect users to the proper authorization request endpoint (e.g., `/authorize` if you are using OpenID Connect).
+
+- You can specify the `login_hint` when redirecting to Auth0, and it will be used to populate the username/email field for the login or signup page.
 
 ## Signup
 
-- You can make users land directly on the Signup page instead of the Login page by specifying the `screen_hint=signup` parameter when redirecting to `/authorize`. Note that this can be combined with `prompt=login`, which indicates if you want to always show the authentication page or you want to skip if there's an existing session. 
+- You can make users land directly on the Signup page instead of the Login page by specifying the `screen_hint=signup` parameter when redirecting to `/authorize`. Note that this can be combined with `prompt=login`, which indicates whether you want to always show the authentication page or you want to skip if there's an existing session. 
 
-|/authorize parameters | Existing session | Action|
+|`/authorize` parameters | No existing session  | Existing session |
 |--|--|--|
-|no extra parameters | no | Shows the login page|
-|screen_hint=signup | no | Shows the signup page|
-|prompt=login | no | Shows the login page|
-|no extra parameters | yes | Redirects to the callback url|
-|screen_hint=signup | yes | Redirects to the callback url|
-|prompt=login | yes | Shows the login page|
-|prompt=login&screen_hint=signup | yes | Shows the signup page|
-
+|no extra parameters   | Shows the login page  | Redirects to the callback url |
+|`screen_hint=signup`  | Shows the signup page | Redirects to the callback url |
+|`prompt=login`        | Shows the login page  | Shows the login page          |
+|`prompt=login&screen_hint=signup`| Shows the signup page | Shows the signup page |
 
 ## Multi-Factor Authentication
 
@@ -57,17 +55,17 @@ From a functional perspective, it has much better support for [Localization](/un
 
 ## Password Reset
 
-- In the Classic Experience you can [configure a url](/email/templates#redirect-to-results-for-the-change-password-email-template) to redirect users after completing the password reset. The URL will receive a success indicator and a message. The New Experience will redirect the users to the [default login route](/universal-login/default-login-url) when it succeeds, and will handle the error cases as part of the Universal Login flow. The Redirect URL in the email template will be ignored.  
+- In the Classic Experience, you can [configure a url](/email/templates#redirect-to-results-for-the-change-password-email-template) to redirect users after completing the password reset. The URL will receive a success indicator and a message. The New Experience will redirect the users to the [default login route](/universal-login/default-login-url) when it succeeds and will handle the error cases as part of the Universal Login flow. The Redirect URL in the email template will be ignored.  
 
 Please note that you must provide an **Application Login URI** under [Application Settings](/dashboard/reference/settings-application) for the redirect URLs to work.
 
 - A 'show password' icon will be displayed next to the password fields.
 
-- If the Database Connection is set to ['Require Username'](/connections/database/require-username), the password reset flow will ask the user for the username and send an the password reset email to the associated email address.
+- If the Database Connection is set to ['Require Username'](/connections/database/require-username), the password reset flow will ask the user for the username and send a password reset email to the associated email address.
 
 ## Email Verification
 
-- After user clicks in the email verification link, they'll get redirected to a page that will confirm that their email is verified. If the [default login route](/universal-login/default-login-url) is configured, users will be able to click a button and get redirected to it.
+- After a user clicks the email verification link, they'll be redirected to a page that will confirm that their email is verified. If the [default login route](/universal-login/default-login-url) is configured, users will be able to click a button and get redirected to it.
 
 ## Consent
 
@@ -78,7 +76,7 @@ Please note that you must provide an **Application Login URI** under [Applicatio
 When using [Custom DB Connections](/connections/database/custom-db):
 
 - The password reset flow will function properly even if you return errors from the change password script.
-- The [errors](/connections/database/custom-db/error-handling) returned in ValidationErrors or WrongUsernameOrPasswordError will be displayed in the corresponding pages.
+- The [errors](/connections/database/custom-db/error-handling) returned in `ValidationErrors` or `WrongUsernameOrPasswordError` will be displayed in the corresponding pages.
 
 ## Internationalization
 
@@ -90,7 +88,7 @@ When using [Custom DB Connections](/connections/database/custom-db):
 
 ## Branding
 
-- You can configure the favicon URL and a custom font URL by using [the Branding API](/api/management/v2#!/Branding/get_branding).
+- You can configure the favicon URL and a custom logo URL by using [the Branding API](/api/management/v2#!/Branding/get_branding).
 
 ## Implement Universal Login
 

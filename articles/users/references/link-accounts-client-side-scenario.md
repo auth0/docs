@@ -1,5 +1,6 @@
 ---
-description: Describes how to provide a client-side UI for the user to authenticate to their other accounts and link these to their primary account using a SPA scenario.
+title: User Initiated Account Linking - Client-Side Implementation
+description: Learn how to provide a client-side UI that allows users to authenticate to their other accounts and link these to their primary account using a SPA.
 crews: crew-2
 topics:
   - account-linking
@@ -10,62 +11,66 @@ useCase:
   - manage-accounts
 ---
 
-# Link User Accounts Client-Side Code Scenario
+# User Initiated Account Linking - Client-Side Implementation
 
-Auth0 supports the linking of user accounts from various identity providers. One way to implement this functionality is to enable the user to explicitly link accounts. In this scenario, the user authenticates and can later on use a link or a button to link another account to the first one. When the user clicks on this link/button, your application makes a call so that when the user logs in with the second provider, the second account is linked with the first.
+Auth0 supports the linking of user accounts from various identity providers. One way to implement this functionality is to enable the user to explicitly link accounts. In this scenario, the user authenticates through the UI of your Single Page Application (SPA) and can later use a link or button to link another account to the first one. When the user clicks on this link/button, your application makes a call so that when the user logs in with the second provider, the second account is linked with the first.
 
-You can select which identity to use as the primary account and which as the secondary when calling the account linking. This choice depends on which set of attributes you want to retain in the primary profile.
+When you initiate account linking, you can select which identity to use as the primary account and which to use as the secondary. This choice depends on which set of attributes you want to retain in the primary profile, as you will only retain the attributes from the primary account.
 
-The following steps implement this scenario for a Single-Page Application (SPA). See [User Initiated Account Linking within a Single-Page App](https://github.com/auth0/auth0-link-accounts-sample/tree/master/SPA) for sample code.
+You can find the full source of this sample application [on GitHub](https://github.com/auth0-samples/auth0-link-accounts-sample/tree/master/SPA).
 
-1. Log in the user to your application. 
+1. Log the user in to your application. 
 
-    - Auth0 recommends using [Universal Login](/hosted-pages/login). 
-    - If you choose to embed the [Lock](/libraries/lock/v11) widget or the [auth0.js library](/libraries/auth0js/v9) in your app, see [Auth0 jQuery Single-Page App Account Linking Sample](https://github.com/auth0-samples/auth0-link-accounts-sample/tree/master/SPA) for sample code.
-    - If you call the Authentication API directly, see [Call API Using the Implicit Flow](/flows/guides/implicit/call-api-implicit).
+    The user authenticates to your SPA using using [Universal Login](/universal-login), requesting an [Access Token for the Management API](/api/management/v2/get-access-tokens-for-spas).
 
-2. User initiates account linking. Your SPA must provide a UI for the user to initiate a link to their other accounts (social, <dfn data-key="passwordless">passwordless</dfn>, and so on). For example, in the user's settings page.
+    In the typical SPA login, the callback is handled client-side by the same page, and a JWT is received after successful authentication. For details, see the [Single-Page App Quickstarts](/quickstart/spa).
 
-    ![SPA user setting's page](/media/articles/link-accounts/spa-user-settings.png)
+2. The user initiates account linking. Your SPA must provide a UI for the user to initiate a link to their other accounts. For example, your SPA could contain a user's settings page:
 
-    When the user clicks on any of the **Link Account** buttons, your app will trigger authentication to the account selected. After successful authentication, use the obtained token to link the accounts.
+    ![SPA User Settings Example](/media/articles/link-accounts/account-linking-spa.png)
 
-    In the sample you can also find the code in order to handle the second authentication with Passwordless and SMS (see function `linkPasswordlessSMS`), Passwordless and email code (see `linkPasswordlessEmailCode`), or Passwordless and Magic Link (see `linkPasswordlessEmailLink`).
+    When the user clicks on the **Link Account** button, your app redirects the user to the Universal Login page, when they log in with the connection they want to link to. After successful authentication, use the obtained token to link the accounts.
 
-3. Call the API to link accounts. In the `linkAccount` function, call the Management API V2 [Link a user account endpoint](/api/v2#!/Users/post_identities). Authenticate with the API using the Access Token, and link using the primary user's ID and the secondary user's ID Token.
+    You could also add a button for each connection (e.g. 'Link Facebook Account', 'Link Google Account') and redirect the user to `/authorize` with the `connection` parameter set (e.g. `/authorize?connection=facebook`).
 
-    ```js
-    function linkAccount(secondaryIdToken) {
+3. Link accounts by calling the Auth0 Management API's [Link a User Account endpoint](/api/v2#!/Users/post_identities).
 
-      // At this point you could fetch the secondary account's user_metadata for merging with the primary account.
-      // Otherwise, it will be lost after linking the accounts
+    ::: warning
+    To retain and merge the `user_metadata` from the secondary account, you must retrieve and merge it into the metadata for the primary account before calling the API endpoint. After the accounts are linked, the metadata for the secondary account is discarded. 
+    
+    When you initiate account linking, you can select which identity will be used as the primary account and which as the secondary. This choice will depend on which set of attributes you want to retain in the primary profile.
+    :::
 
-      // Uses the Access Token of the primary user as a bearer token to identify the account
-      // which will have the account linked to, and the ID Token of the secondary user, to identify
-      // the user that will be linked into the primary account.
+    In the `linkAccount` function, call the Management API. Authenticate with the API using the primary JWT, which is the Access Token, and link using the primary user's ID and the secondary JWT, which is the secondary user's ID Token.
 
-      var primaryAccessToken = localStorage.getItem('access_token');
-      var primaryUserId = localStorage.getItem('user_id');
+```
+  const linkAccount = async () => {
+  const accessToken = await auth0.getTokenSilently();
+  const { sub } = await auth0.getUser();
+  const {
+    __raw: targetUserIdToken,
+    email_verified,
+    email,
+  } = await authenticateUser();
 
-      $.ajax({
-        type: 'POST',
-        url: 'https://' + AUTH0_DOMAIN +'/api/v2/users/' + primaryUserId + '/identities',
-        data: {
-          link_with: secondaryIdToken
-        },
-        headers: {
-          'Authorization': 'Bearer ' + primaryAccessToken
-        }
-      }).then(function(identities){
-        alert('linked!');
-        reloadProfile();
-      }).fail(function(jqXHR){
-        alert('Error linking Accounts: ' + jqXHR.status + " " + jqXHR.responseText);
-      });
-    }
-    ```
+  if (!email_verified) {
+    throw new Error(
+      `Account linking is only allowed to a verified account. Please verify your email <%= "${email}" %>.`
+    );
+  }
 
-4. To retain and merge the `user_metadata` from the secondary account, you must retrieve it before calling the API endpoint. It will be discarded when the accounts are linked.
+  await fetch(`https://${account.namespace}/api/v2/users/<%= "${sub}" %>/identities`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer <%= "${accessToken}" %>`,
+    },
+    body: JSON.stringify({
+      link_with: targetUserIdToken,
+    }),
+  });
+};
+```
 
 <%= include('../_includes/_account-linking-id-tokens.md') %>
 
@@ -74,5 +79,4 @@ The following steps implement this scenario for a Single-Page Application (SPA).
 * [User Account Linking Overview](/users/concepts/overview-user-account-linking)
 * [Link User Accounts](/users/guides/link-user-accounts)
 * [Unlink User Accounts](/users/guides/unlink-user-accounts)
-* [Link User Accounts Server-Side Code Scenario](/users/references/link-accounts-server-side-scenario)
-* [Link User Accounts Initiated by Users Scenario](/users/references/link-accounts-user-initiated-scenario)
+* [Suggested Account Linking - Server-Side Implementation](/users/references/link-accounts-server-side-scenario)

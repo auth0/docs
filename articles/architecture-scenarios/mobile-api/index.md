@@ -30,7 +30,7 @@ We will also be building a mobile application which will be used to view and log
 
 ::: panel TL;DR
 * Auth0 provides API Authentication and Authorization as a means to secure access to API endpoints (see [API Authentication and Authorization](/architecture-scenarios/mobile-api/part-1#api-authentication-and-authorization))
-* For authorizing a mobile app user and granting access to the API, Auth0 supports the Authorization Code Grant Flow with PKCE (see [Proof Key for Code Exchange](/architecture-scenarios/mobile-api/part-1#proof-key-for-code-exchange-pkce-))
+* For authorizing a mobile app user and granting access to the API, Auth0 supports the [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce) (see [Proof Key for Code Exchange](/architecture-scenarios/mobile-api/part-1#proof-key-for-code-exchange-pkce-))
 * Both the mobile app and the API must be configured in the Auth0 Dashboard (see [Auth0 Configuration](/architecture-scenarios/mobile-api/part-2))
 * User Permissions can be enforced using the Authorization Extension (see [Configure the Authorization Extension](/architecture-scenarios/mobile-api/part-2#configure-the-authorization-extension))
 * The API is secured by ensuring that a valid <dfn data-key="Access Token">[Access Token](/tokens/concepts/access-tokens)</dfn> is passed in the HTTP Authorization header when calls are made to the API (see [Implement the API](/architecture-scenarios/mobile-api/part-3#secure-the-endpoints))

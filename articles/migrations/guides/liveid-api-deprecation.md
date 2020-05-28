@@ -2,6 +2,7 @@
 title: Microsoft Account Migration
 description: This article covers the Live Connect + SDK deprecation and how to update your Auth0 Microsoft Account Connection.
 toc: true
+public: false
 contentType:
   - how-to
 useCase:

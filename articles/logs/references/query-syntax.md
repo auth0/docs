@@ -30,7 +30,7 @@ The query string is parsed into a series of terms and operators:
 The following list of fields are searchable and case sensitive:
 
 * `log_id`: the id of the log event
-* `date`: The moment when the event occured.
+* `date`: The moment when the event occurred.
 * `connection`: The connection name related to the event.
 * `connection_id`: The connection id related to the event.
 * `client_id`: The client id related to the event

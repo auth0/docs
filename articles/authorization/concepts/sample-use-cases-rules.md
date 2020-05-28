@@ -63,7 +63,7 @@ If the user is outside the corporate network, they will be denied access even if
 
 ## Add user roles to tokens
 
-If you [enable RBAC for APIs](/dashboard/guides/apis/enable-rbac) and set the **Token Dialect** appropriately, you will receive user permissions in your Access Tokens. To add user <dfn data-key="role">roles</dfn> to tokens, you would use the `context.authorization` object when you [create the following rule](/dashboard/guides/rules/create-rules):
+If you [enable RBAC for APIs](/dashboard/guides/apis/enable-rbac) along with "Add Permissions in the Access Token" (or [enable RBAC via the Management API](/api/management/guides/apis/enable-rbac) and set the **Token Dialect** to `access_token_authz`), you will receive user permissions in your Access Tokens. To add user <dfn data-key="role">roles</dfn> to tokens, you would use the `context.authorization` object when you [create the following rule](/dashboard/guides/rules/create-rules):
 
 ```js
 function (user, context, callback) {

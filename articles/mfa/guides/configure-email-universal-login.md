@@ -14,7 +14,7 @@ Using email as an MFA factor is useful when you want to provide users a way to p
 
 You can only enable email as an MFA factor if there is already another factor enabled. Email will only be functional as a factor from <dfn data-key="universal-login">Universal Login</dfn> when you have the [New Universal Login Experience](/universal-login/new) enabled.
 
-Once Email MFA is enabled user will be prompted to complete MFA with the other enabled factor. If they have a verified email they will be given the option to select Email, and get an one time code in their email which they can then enter to complete MFA.
+Once Email MFA is enabled user will be prompted to complete MFA with the other enabled factor. If they have a **verified email** they will be given the option to select Email, and get an one time code in their email which they can then enter to complete MFA.
 
 Users do not need to explicitly enroll with email MFA. They will get be able to use it when they have a verified email. This happens when they completed the email verification flow, when the updated the email_verified field using the Management API, or when they logged-in with a connection that provides verified emails (e.g. Google).
 
@@ -24,7 +24,7 @@ Note that Email is not true <dfn data-key="multifactor-authentication">multi-fac
 
 After the login step, users will be prompted with the most secure enabled factor. If they select 'Try another method', and then pick Email, they will be sent an email with a six-digit code that they will need to enter to complete the authentication flow.
 
-![Email End User 1](/media/articles/multifactor-authentication/mfa-email.png)
+![Email End User 1](/media/articles/mfa/mfa-email.png)
 
 ## Using the MFA API
 
@@ -34,6 +34,6 @@ You can explicitly enroll an email for MFA [using the MFA API](/mfa/guides/mfa-a
 
 In order to set up Email, you need to enable the Email factor in the Dashboard. You will only be able to enable it if there is another factor enabled. 
 
-![MFA Email Settings](/media/articles/multifactor-authentication/email-settings.png)
+![MFA Email Settings](/media/articles/mfa/email-settings.png)
 
 [Auth0 provides a test email provider](/email) but it only allows a limited amount of emails, so you should [configure your own email provider](/email/providers).

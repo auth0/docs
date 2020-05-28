@@ -2,7 +2,7 @@
 title: Connect Your App using IP Address Authentication [DEPRECATED]
 connection: IP Address Authentication
 image: /media/connections/ipaddress.png
-public: true
+public: false
 alias:
   - ip-based-auth
   - ip

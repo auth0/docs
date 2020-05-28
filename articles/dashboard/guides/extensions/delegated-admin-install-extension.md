@@ -28,7 +28,7 @@ Before you install and configure the Delegated Admin extension, you need to [cre
     | Variable | Description |
     | --- | --- |
     | **EXTENSION_CLIENT_ID** | **Client ID** of the application with which you plan to use this extension. |
-    | **TITLE** | Custom title that will appear at the top of the Delegated Adminstration Dashboard page. |
+    | **TITLE** | Custom title that will appear at the top of the Delegated Administration Dashboard page. |
     | **CUSTOM_CSS** | (*Optional*) Link to a custom CSS you can use to style the look of your Delegated Administration Dashboard page. |
     | **FAVICON_PATH** | (*Optional*) Path to custom favicon. |
     | **AUTH0_CUSTOM_DOMAIN** | (*Optional*) If you have a custom domain name configured, enter it here (e.g., `login.example.com`). This will change the authorization endpoint to `https://login.example.com/login`. |

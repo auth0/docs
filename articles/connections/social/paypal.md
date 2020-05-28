@@ -1,5 +1,5 @@
 ---
-title: Connect your app to PayPal
+title: Connect Apps to PayPal
 connection: PayPal
 image: /media/connections/paypal.png
 seo_alias: paypal
@@ -16,7 +16,7 @@ useCase:
     - add-idp
 ---
 
-# Connect your app to PayPal
+# Connect Apps to PayPal
 
 To configure an OAuth connection with PayPal, register your Auth0 Application on the [**PayPal Developer Portal**](https://developer.paypal.com/).
 

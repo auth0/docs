@@ -64,7 +64,7 @@ var loginResult = await client.LoginAsync();
 
 if (loginResult.IsError)
 {
-    Debug.WriteLine($"An error occurred during login: {loginResult.Error}")
+    Debug.WriteLine($"An error occurred during login: {loginResult.Error}");
 }
 ```
 

@@ -23,7 +23,7 @@ To call endpoints, you will need to do the following:
 * [Get Access Tokens for Production](/api/management/v2/get-access-tokens-for-production)
 
 ::: note
-For single-page applications (SPAs), you will need to [get an Access Token from the frontend](/api/management/v2/get-access-tokens-for-spas).
+For single-page applications (SPAs), there are some limitations. See [Get Management API Tokens for SPAs](/api/management/v2/get-access-tokens-for-spas) for more information.
 :::
 
 ## Keep reading

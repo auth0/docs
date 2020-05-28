@@ -22,7 +22,7 @@ Create an integration in Duo Security of type **Web SDK** and use those credenti
 
 When enabling Duo in the Dashboard, you will need to click on the Duo factor and fill in a few settings fields in order to link your Duo account to Auth0.
 
-![MFA Duo Settings](/media/articles/multifactor-authentication/duo-settings.png)
+![MFA Duo Settings](/media/articles/mfa/duo-settings.png)
 
 ::: warning
 If other factors are enabled alongside Duo, Duo will be unavailable. Duo is only available to end users when it is the **sole** factor enabled.
@@ -47,6 +47,6 @@ function (user, context, callback) {
 
 The user will see a prompt for the second factor with Duo, listing the options you have enabled in your Duo account.
 
-![Duo Login](/media/articles/multifactor-authentication/duo-login.png)
+![Duo Login](/media/articles/mfa/duo-login.png)
 
 Your end users can download Duo from [Google Play](https://play.google.com/store/apps/details?id=com.duosecurity.duomobile) or from the [App Store](https://itunes.apple.com/us/app/duo-mobile/id422663827?mt=8) for use as a second factor.

@@ -64,8 +64,6 @@ account.setOIDCConformant(true);
 //Use the account in the API applications
 ```
 
-<dfn data-key="passwordless">Passwordless authentication</dfn> **cannot be used** with this flag set to `true`. For more information, please see the [OIDC adoption guide](/api-auth/tutorials/adoption).
-
 ## Authentication via Universal Login
 
 First, go to the [Dashboard](${manage_url}/#/applications) and go to your application's settings. Make sure you have in **Allowed <dfn data-key="callback">Callback URLs</dfn>** a URL with the following format:
@@ -143,7 +141,7 @@ Finally, don't forget to add the internet permission:
 In versions 1.8.0 or lower of Auth0.Android you had to define the **intent-filter** inside your activity to capture the authentication result in the `onNewIntent` method and then call `WebAuthProvider.resume()` with the received data. The intent-filter declaration and resume call are no longer required for versions greater than 1.8.0, as it's now done internally by the library for you.
 :::
 
-Now, let's authenticate a user by presenting the universal [login page](hosted-pages/login):
+Now, let's authenticate a user by presenting the universal [login page](/universal-login):
 
 ```java
 WebAuthProvider.login(account)

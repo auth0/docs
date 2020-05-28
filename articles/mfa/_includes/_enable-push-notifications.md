@@ -4,4 +4,4 @@
 
 2. Toggle the **Push Notification** slider to enable it.
 
-![Enable Push Notifications](/media/articles/multifactor-authentication/mfa-dashboard.png)
+![Enable Push Notifications](/media/articles/mfa/mfa-dashboard.png)

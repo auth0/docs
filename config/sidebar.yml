@@ -538,6 +538,9 @@ articles:
           - title: Manage Tenant Administrators
             url: /dashboard/manage-dashboard-admins
 
+          - title: Manage Signing Keys
+            url: /tokens/guides/manage-signing-keys
+
           - title: Configure Session Lifetime Settings
             url: /dashboard/guides/tenants/configure-session-lifetime-settings
 
@@ -751,6 +754,9 @@ articles:
       - title: Using the API
         url: /users/guides/manage-users-using-the-management-api
 
+      - title: Email Verified Usage
+        url: /users/guides/email-verified
+
       - title: Link User Accounts
         url: /users/concepts/overview-user-account-linking
         children:
@@ -770,9 +776,6 @@ articles:
           
           - title: Server-Side Regular Web App Scenario
             url: /users/references/link-accounts-server-side-scenario
-
-          - title: Initiated by Users Scenario
-            url: /users/references/link-accounts-user-initiated-scenario
 
       - title: Blacklist User Attributes
         url: /security/blacklisting-attributes
@@ -929,9 +932,6 @@ articles:
       - title: Metadata in Rules
         url: /rules/guides/metadata
 
-      - title: C# in Rules
-        url: /rules/guides/csharp
-
       - title: Redirect Users from Rules
         url: /rules/guides/redirect
 
@@ -989,14 +989,17 @@ articles:
         - title: Client Credentials Exchange
           url: /hooks/extensibility-points/client-credentials-exchange
 
-        - title: Post Change Password
+        - title: Post-Change Password
           url: /hooks/extensibility-points/post-change-password
 
-        - title: Post User Registration
+        - title: Post-User Registration
           url: /hooks/extensibility-points/post-user-registration
 
-        - title: Pre User Registration
+        - title: Pre-User Registration
           url: /hooks/extensibility-points/pre-user-registration    
+
+        - title: Send Phone Message
+          url: /hooks/extensibility-points/send-phone-message 
 
       - title: Hook Secrets
         url: /hooks/secrets
@@ -1104,13 +1107,16 @@ articles:
 
       - title: Analytics
         url: /analytics
+        hidden: true
         children:
 
           - title: Facebook Analytics
             url: /analytics/guides/facebook-analytics
+            hidden: true
             
           - title: Google Analytics
             url: /analytics/guides/google-analytics
+            hidden: true
 
       - title: Amazon Web Services (AWS)
         url: /integrations/aws
@@ -1231,8 +1237,16 @@ articles:
           - title: AWS EventBridge
             url: /logs/streams/aws-eventbridge
 
+
+          - title: Datadog Event Streams
+            url: /logs/streams/datadog
+            
+          - title: Azure Event Grid Streams
+            url: /logs/streams/azure-event-grid
+
       - title: Log Data Retention
         url: /logs/references/log-data-retention
+
 
       - title: View Log Data in the Dashboard
         url: /logs/guides/view-log-data-dashboard
@@ -1253,7 +1267,7 @@ articles:
         url: /logs/concepts/logs-admins-devs
 
       - title: Migrate from Logs Search v2 to v3
-        url: /monitor/logs/migrate-logs-v2-v3
+        url: /monitor/logs/guides/migrate-logs-v2-v3
         hidden: true
 
 ## ------------------------------------------------------------
@@ -1357,6 +1371,7 @@ articles:
 
           - title: "What's New"
             url: "/extensions/deploy-cli/references/whats-new"
+            hidden: true 
 
           - title: "Troubleshoot Deploy CLI"
             url: "/extensions/deploy-cli/references/troubleshooting"
@@ -1623,10 +1638,13 @@ articles:
   - title: "Product Lifecycle"
     url: "/product-lifecycle"
     children:
-      - title: "Deprecation and End Of Life"
-        url: "/product-lifecycle/deprecation-eol"
+      - title: "Product Release Stages"
+        url: "/product-lifecycle/product-release-stages"
 
-      - title: "Migrations"
+      - title: "Migration Process"
+        url: "/product-lifecycle/migration-process"
+
+      - title: "Active Migrations"
         url: "/product-lifecycle/migrations"
 
   - title: "Security"
@@ -1712,6 +1730,22 @@ articles:
                 url: "/tokens/guides/revoke-refresh-tokens"
                 hidden: true 
 
+          - title: "Refresh Token Rotation"
+            url: "/tokens/concepts/refresh-token-rotation"
+            children: 
+
+              - title: "Configure Refresh Token Rotation"
+                url: "/tokens/guides/configure-refresh-token-rotation"
+                hidden: true 
+
+              - title: "Use Refresh Token Rotation"
+                url: "/tokens/guides/use-refresh-token-rotation"
+                hidden: true 
+
+              - title: "Disable Refresh Token Rotation"
+                url: "/tokens/guides/disable-refresh-token-rotation"
+                hidden: true 
+
           - title: "Delegation Tokens"
             url: "/tokens/concepts/delegation-tokens"
             hidden: true 
@@ -1755,8 +1789,8 @@ articles:
                 url: "/tokens/references/jwt-structure"
                 hidden: true 
 
-          - title: "Store Tokens"
-            url: "/tokens/guides/store-tokens"
+          - title: "Token Storage"
+            url: "/tokens/concepts/token-storage"
 
           - title: "Revoke Tokens"
             url: "/tokens/guides/revoke-tokens"
@@ -1920,6 +1954,52 @@ articles:
 
       - title: "Operational Policies"
         url: "/policies"
+        children:
+          - title: "Billing"
+            url: "/policies/billing"
+
+          - title: "Dashboard Authentication"
+            url: "/policies/dashboard-authentication"
+
+          - title: "Data Export"
+            url: "/policies/data-export"
+
+          - title: "Data Transfer"
+            url: "/policies/data-transfer"
+
+          - title: "Endpoints"
+            url: "/policies/endpoints"
+
+          - title: "Load Testing"
+            url: "/policies/load-testing"
+
+          - title: "Penetration Testing"
+            url: "/policies/penetration-testing"
+
+          - title: "Rate Limits"
+            url: "/policies/rate-limits"
+            children:
+
+              - title: "Legacy Rate Limits"
+                url: "/policies/legacy-rate-limits"
+                hidden: true 
+
+              - title: "Managment API Endpoint Rate Limits"
+                url: "/policies/rate-limits-mgmt-api"
+                hidden: true 
+
+              - title: "Authentication API Endpoint Rate Limits"
+                url: "/policies/rate-limits-mgmt-api"
+                hidden: true 
+
+          - title: "Entity Limits"
+            url: "/policies/entity-limits"
+
+          - title: "Restore Deleted Tenant"
+            url: "/policies/restore-deleted-tenant"
+
+          - title: "Unsupported Requests"
+            url: "/policies/unsupported-requests"
 
   - title: "Professional Services"
     url: "/services"
@@ -2159,7 +2239,7 @@ libraries:
       - title: "Refresh Tokens"
         url: "/libraries/auth0-swift/save-and-refresh-jwt-tokens"
 
-      - title: "TouchID"
+      - title: "Touch ID / Face ID"
         url: "/libraries/auth0-swift/touchid-authentication"
 
   - title: "Auth0 SDK for Android"

@@ -10,13 +10,13 @@ useCase: customize-hosted-pages
 
 You can enable [Multi-factor authentication](/mfa) from the [Dashboard > Multifactor Auth](${manage_url}/#/mfa) section.
 
-![Universal Login MFA Page](/media/articles/multifactor-authentication/mfa-dashboard.png)
+![Universal Login MFA Page](/media/articles/mfa/mfa-dashboard.png)
 
 You can customize the MFA pages using the Universal Login's [basic customization features](/universal-login#simple-customization). 
 
 If you need further customizations, you can provide your own HTML for the MFA page. 
 
-:: note
+::: note
 When using your own HTML, it uses the Auth0 MFA Widget, which has the following limitations:
 - It does not support MFA with Email.
 - If users enrolled more than one factor, they cannot select which one to use, the MFA widget will ask them to login with the most secure factor.
@@ -25,7 +25,7 @@ When using your own HTML, it uses the Auth0 MFA Widget, which has the following 
 
 ## Customize the HTML for the MFA page
 
-To customize the MFA page, go to [Dashboard > Universal Login > Guardian Multi-factor](${manage_url}/#/guardian_mfa_page) and enable the __Customize Guardian Page__ switch.
+To customize the MFA page, go to [Dashboard > Universal Login > Guardian Multi-factor](${manage_url}/#/mfa_page) and enable the __Customize Guardian Page__ switch.
 
 Once you do that, you'll be able to use the text editor built into the Auth0 Dashboard to change your HTML, style your page using CSS, and alter the JavaScript used to retrieve custom variables. Once you've made your changes, and make sure to click __Save__.
 
@@ -36,7 +36,7 @@ If you'd like to revert to an earlier design, you have two options:
 
 Please note that MFA page works without customization (Auth0 will also update the included scripts as required). However, once you toggle the customization to **on**, you are responsible for the updating and maintaining the script (including changing version numbers, such as that for the MFA widget), since Auth0 can no longer update it automatically.
 
-For information about how to override the text for many areas of the MFA process on Universal Login Classic Experience, see [MFA Configuration Options](/mfa/reference/language-dictionary).
+For information about how to override the text for many areas of the MFA process on Universal Login Classic Experience, see [MFA Configuration Options](/mfa/references/language-dictionary).
 
 For information about the MFA Widget Theme options, see [MFA Widget Theme Options](/mfa/references/mfa-widget-reference).
 

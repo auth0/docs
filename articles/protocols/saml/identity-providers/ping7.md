@@ -26,7 +26,7 @@ PingFederate is a federation server that provides identity management, single si
 If you want to use **IdP-Initiated SSO**, make sure to include the `connection` parameter in the Assertion Consumer Service URL: `https://${account.namespace}/login/callback?connection=YOUR_CONNECTION_NAME`.
 :::
 
-1. Download your Auth0 metadata file from `https://YOUR_DOMAIN/saml/metadata?connection=YOUR_CONNECTION_NAME`. Make sure that you use your custom domain if you have one configured. You will upload this file to import your Auth0 tenant information into the PingFederate configuration.
+1. Download your Auth0 metadata file from `https://YOUR_DOMAIN/samlp/metadata?connection=YOUR_CONNECTION_NAME`. Make sure that you use your custom domain if you have one configured. You will upload this file to import your Auth0 tenant information into the PingFederate configuration.
 
 2. Sign on to your PingFederated account and select **Create New** from the **SP Connections** section.
 

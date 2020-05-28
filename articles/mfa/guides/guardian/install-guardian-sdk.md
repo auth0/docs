@@ -60,7 +60,7 @@ Enrolling devices consists of the following steps:
 4. Confirm enrollment.
 5. Show recovery code.
 
-Some steps can be omited depending on the method, we provide the same interface for all methods so you can write uniform code. Some of the methods end up completing the authentication, whereas some others need an extra authentication step. You can know that by listening to the `enrollment-complete` event. 
+Some steps can be omitted depending on the method, we provide the same interface for all methods so you can write uniform code. Some of the methods end up completing the authentication, whereas some others need an extra authentication step. You can know that by listening to the `enrollment-complete` event. 
 
 ```js
 function enroll(transaction, method) {

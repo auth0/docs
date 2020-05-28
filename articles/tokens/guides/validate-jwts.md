@@ -65,10 +65,9 @@ Most JWT libraries take care of JWT validation for you, so be sure to visit [JWT
 Ensure that the JWT conforms to the [structure of a JWT](/tokens/references/jwt-structure). If this fails, the token is considered invalid, and the request must be rejected.
 
 1. Verify that the JWT contains three segments, separated by two period ('.') characters.
-2. Parse the JWT using [JWT.io](https://jwt.io/) to extract its components. The first segment is the Header, the second is the Payload, and the third is the Signature. Each segment is base64url encoded.
+2. Parse the JWT to extract its three components. The first segment is the Header, the second is the Payload, and the third is the Signature. Each segment is base64url encoded.
 3. Base64url-decode the Header, ensuring that no line breaks, whitespace, or other additional characters have been used, and verify that the decoded Header is a valid JSON object.
 4. Base64url-decode the Payload, ensuring that no line breaks, whitespace, or other additional characters have been used, and verify that the decoded Payload is a valid JSON object.
-5. Base64url-decode the Signature, ensuring that no line breaks, whitespace, or other additional characters have been used, and verify that the decoded Signature is a valid JSON object.
 
 ## Check the signature
 
@@ -81,9 +80,7 @@ To verify the signature, you will need to:
     1. Retrieve the `alg` property from the decoded Header.
     2. Ensure that it is an allowed algorithm. Specifically, to avoid certain attacks, make sure you disallow `none`.
     3. Check that it matches the algorithm you selected when you [registered your Application](/getting-started/set-up-app) or [API](/getting-started/set-up-api) with Auth0.
-2. Confirm that the token is correctly signed using the proper key. Check the Signature to verify that the sender of the JWT is who it says it is and that the message wasn't changed along the way.
-
-    Remember that the Signature is created using the Header and Payload segments, a [signing algorithm](/tokens/concepts/signing-algorithms), and a secret or public key (depending on the chosen signing algorithm).
+2. Confirm that the token is correctly signed using the proper key.
 
     To verify that the signature is correct, you need to generate a new Base64url-encoded signature using the public key (RS256) or secret (HS256) and verify that it matches the original Signature included with the JWT:
 

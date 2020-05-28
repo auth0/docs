@@ -1,10 +1,11 @@
 ---
-title: Add Sign in with Apple to Your App
+title: Connect Web Apps to Apple
 connection: Apple
-index: 3
+index: 2
 image: /media/connections/apple.svg
 seo_alias: apple
-description: Learn how to add login functionality to your app with Apple. 
+description: Learn how to add login functionality to your web app with Apple. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
+toc: true 
 topics:
   - authentication
   - connections
@@ -16,19 +17,30 @@ useCase:
   - connections
   - add-siwa
 ---
-# Add Sign In with Apple to Your App
+# Connect Web Apps to Apple
 
-Auth0 enables you to use the Sign In with Apple (SIWA) capability to provide Apple-based authentication to your applications. You can include SIWA for your native Apple applications, web applications, or applications that run on other platforms (such as Android).
+You can add functionality to your web application that allows your users to authenticate using their Apple login credentials. As with other identity providers supported by Auth0, when your users log in, they can click the **Sign In with Apple** button, and they'll be taken to the Apple sign-in screen. They will see the name of your app and a placeholder icon. They will enter their Apple ID and password. If their Apple ID has two-factor authentication enabled, they'll be prompted for that as well.
+
+To add SIWA capabilities for your native apps, see [Add Sign In with Apple to Native iOS Apps](/connections/nativesocial/add-siwa-to-native-app).
 
 ::: warning
-The [Apple App Store Developer Guidelines](https://developer.apple.com/app-store/review/guidelines/#sign-in-with-apple) require that SIWA must be available in all applications that exclusively use third-party sign-in options, such as Facebook or Google.
+The [Apple App Store Developer Guidelines](https://developer.apple.com/app-store/review/guidelines/#sign-in-with-apple) require that Sign In with Apple (SIWA) must be available in all applications that exclusively use third-party sign-in options, such as Facebook or Google.
 :::
 
 ## Prerequisites
 
-Before you add support for SIWA to your app, you'll need:
+Before you configure SIWA for your app in Auth0, you must:
 
-* an [Apple Developer](https://developer.apple.com/programs/) account, which is a paid account with Apple. (There is no free trial available unless you are part of their [iOS Developer University Program](https://developer.apple.com/support/compare-memberships/).)
+* Have an [Apple Developer](https://developer.apple.com/programs/) account, which is a paid account with Apple. (There is no free trial available unless you are part of their [iOS Developer University Program](https://developer.apple.com/support/compare-memberships/).)
+* [Register Your App in the Apple Developer Portal](/connections/apple-siwa/set-up-apple) if you have not already done so. Make a note of the following IDs and key for the application connection settings in the Auth0 Dashboard:
+  * **Services ID** (Client ID)
+  * **Apple Team ID**
+  * **Client Secret Signing Key**
+  * **Key ID**
+
+::: note
+If you are using the Classic Universal Login flow or embedding `Lock.js` in your application, make sure you are using `Lock.js` version 11.16 or later. 
+:::
 
 ## How it works
 
@@ -36,17 +48,27 @@ Once you have registered your application with Apple and configured your applica
 
 ![Apple Sign In with Apple Setup Flow](/media/articles/connections/social/apple/apple-siwa-setup-flow.png)
 
-Choose a guide to get started: 
+## Configure and enable the connection in Auth0
 
-* [Add Sign In with Apple to Native iOS Apps](/connections/apple-siwa/add-siwa-to-native-app)
-* [Add Sign In with Apple to Web or Other Apps](/connections/apple-siwa/add-siwa-to-web-app)
+Once you have the credentials you need from your Apple Developer account, you need to configure the connection settings and enable the connection for your application in Auth0. 
+
+::: note
+The **Client Secret Signing Key** is the contents of the key file you downloaded when setting up the key on the Apple Developer site. You can copy and paste the content of that file into this field.
+:::
+
+1. On the Dashboard, go to [Connections > Social](${manage_url}/#/connections/social) and click on the **Apple** connection.
+1. On the **Settings** tab, fill in the following fields:
+    * **Client ID** (Services ID)
+    * **Apple Team ID**
+    * **Client Secret Signing Key**
+    * **Key ID**
+
+    ![Application Connection Settings](/media/articles/connections/social/apple/apple-connection.png)
+1. Click **Save**.
+1. [Test the connection](/connections/apple-siwa/test-siwa-connection). 
 
 ## Keep reading
 
-* [Register Apps in the Apple Developer Portal](/connections/apple-siwa/set-up-apple)
-* [Add Sign In with Apple to Native iOS Apps](/connections/apple-siwa/add-siwa-to-native-app)
-* [Add Sign In with Apple to Web or Other Apps](/connections/apple-siwa/add-siwa-to-web-app)
-* [Test Sign In with Apple Configuration](/connections/apple-siwa/test-siwa-connection)
 * [iOS Swift - Sign In with Apple Quickstart](/quickstart/native/ios-swift-siwa)
 * [Rate Limits on Native Social Logins](/policies/rate-limits#limits-on-native-social-logins)
 * [Troubleshooting Sign In with Apple](/connections/apple-siwa/troubleshooting)

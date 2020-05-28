@@ -35,19 +35,39 @@ Once you've created your Application, you'll need to make the following Applicat
 
 Click on the **Settings** tab and set the **Allowed Callback URLs**. This varies based on your location:
 
+If you are using Node 8:
+
 | Location | Allowed Callback URL |
 | --- | --- |
 | USA | `https://${account.tenant}.us8.webtask.io/auth0-delegated-admin/login` |
 | Europe | `https://${account.tenant}.eu8.webtask.io/auth0-delegated-admin/login` |
 | Australia | `https://${account.tenant}.au8.webtask.io/auth0-delegated-admin/login` |
 
+If you are using Node 12:
+
+| Location | Allowed Callback URL |
+| --- | --- |
+| USA | `https://${account.tenant}.us12.webtask.io/auth0-delegated-admin/login` |
+| Europe | `https://${account.tenant}.eu12.webtask.io/auth0-delegated-admin/login` |
+| Australia | `https://${account.tenant}.au12.webtask.io/auth0-delegated-admin/login` |
+
 You will also need to configure the **Allowed Logout URLs**:
- 
+
+If you are using Node 8:
+
 | Location | Allowed Logout URL |
 | --- | --- |
 | USA | `https://${account.tenant}.us8.webtask.io/auth0-delegated-admin` |
 | Europe | `https://${account.tenant}.eu8.webtask.io/auth0-delegated-admin` |
 | Australia | `https://${account.tenant}.au8.webtask.io/auth0-delegated-admin` |
+
+If you are using Node 12:
+
+| Location | Allowed Logout URL |
+| --- | --- |
+| USA | `https://${account.tenant}.us12.webtask.io/auth0-delegated-admin` |
+| Europe | `https://${account.tenant}.eu12.webtask.io/auth0-delegated-admin` |
+| Australia | `https://${account.tenant}.au12.webtask.io/auth0-delegated-admin` |
 
 Copy the **Client ID** value.
 
@@ -75,7 +95,7 @@ Switch over to the Application's **Connections** tab and disable all the Connect
 
 In the navigation pane of the Management Dashboard, click on **Connections** > [Database Connections](${manage_url}/#/connections/database).
 
-On the Database Connections page, click on **+Create DB Connection**. Provide a name for your Connection, such as `Helpdesk`. 
+On the Database Connections page, click on **+Create DB Connection**. Provide a name for your Connection, such as `Helpdesk`.
 
 Click **Save** to proceed.
 
@@ -112,8 +132,11 @@ This rule gives users from the `IT Department` the `Delegated Admin - Administra
 
 ```js
 function (user, context, callback) {
- if (context.clientID === 'CLIENT_ID') {
-   const namespace = 'https://${account.tenant}.us8.webtask.io/auth0-delegated-admin';
+  if (context.clientID === 'CLIENT_ID') {
+    // If you are using Node 8, uncomment the following line
+    //const namespace = 'https://${account.tenant}.us8.webtask.io/auth0-delegated-admin';
+    //If you are using Node 12, uncomment the following line
+    //const namespace = 'https://${account.tenant}.us12.webtask.io/auth0-delegated-admin';
    if (user.groups && user.groups.indexOf('IT Department') > -1) {
      context.idToken[namespace] = { roles: [ 'Delegated Admin - Administrator' ] };
      return callback(null, user, context);
@@ -169,6 +192,5 @@ Once you provide valid credentials, you'll be redirected to the *Delegated Admin
 
 ## Keep Reading
 
-* [Customizing the Delegated Administration Extension Using Hooks](/extensions/delegated-admin/hooks)
-
-* [Managing Users in the Delegated Administration Extension Dashboard](/extensions/delegated-admin/manage-users)
+* [Customize the Delegated Administration Extension Using Hooks](/extensions/delegated-admin/hooks)
+* [Manage Users in the Delegated Administration Extension Dashboard](/extensions/delegated-admin/manage-users)

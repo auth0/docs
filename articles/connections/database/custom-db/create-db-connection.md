@@ -96,7 +96,10 @@ The following steps use an example for a MySQL database login script.
 
 ```js
 function login(email, password, callback) {
-  var connection = mysql({
+  var bcrypt = require('bcrypt');
+  var mysql = require('mysql');
+
+  var connection = mysql.createConnection({
     host: 'localhost',
     user: 'me',
     password: 'secret',
@@ -154,7 +157,8 @@ Use the added parameters in your scripts to configure the connection. For exampl
 
 ```js
 function login (username, password, callback) {
-  var connection = mysql({
+  var mysql = require('mysql');
+  var connection = mysql.createConnection({
     host     : configuration.MYSQL_HOST,
     user     : 'me',
     password : configuration.MYSQL_PASSWORD,

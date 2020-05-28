@@ -73,6 +73,6 @@ Depending on your application and use case, you'll have to update your applicati
 
 ::: next-steps
 * [Add Rules to customize user authentication](/rules/current)
-* [Set up the Hosted Login Page](/hosted-pages/login)
+* [Set up the Universal Login Page](/universal-login)
 * [Manage user access with groups, roles, and permissions](/extensions/authorization-extension)
 :::

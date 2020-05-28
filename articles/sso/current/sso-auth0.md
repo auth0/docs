@@ -11,7 +11,7 @@ useCase:
 ---
 # Single Sign-On with Auth0
 
-The easiest and most secure way to implement <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> with Auth0 is by using [Universal Login](/hosted-pages/login) for authentication. In fact, currently SSO is only possible with native platforms (like iOS or Android) if the application uses Universal Login. The [Swift](/quickstart/native/ios-swift/00-login) and [Android](/quickstart/native/android/00-login) quickstarts provide some examples of using Universal Login.
+The easiest and most secure way to implement <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> with Auth0 is by using [Universal Login](/universal-login) for authentication. In fact, currently SSO is only possible with native platforms (like iOS or Android) if the application uses Universal Login. The [Swift](/quickstart/native/ios-swift/00-login) and [Android](/quickstart/native/android/00-login) quickstarts provide some examples of using Universal Login.
 
 If you cannot use Universal Login with your application, review the following for additional info on embedded authentication:
 

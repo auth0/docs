@@ -49,7 +49,7 @@ The profile obtained this way is OIDC-conformant. Depending on the [scopes](/sco
 2. Get the user's full profile using the [Management API](/api/management/v2#!/Users). Since fields such as [user_metadata](#additional-information) are not part of the OIDC specification you need to obtain the full profile to read them. This step is explained next:
 
 
-Create an instance of the Users API application using the Access Token that you saved in the log in step. This Access Token can be used to authorize requests since you've requested the Management API audience and the corresponding user entity scopes in the login step. In the snippet bellow we obtain the token from the extras that the LoginActivity class has passed when starting this activity. The API application is used to request the user's profile data.
+Create an instance of the Users API application using the Access Token that you saved in the log in step. This Access Token can be used to authorize requests since you've requested the Management API audience and the corresponding user entity scopes in the login step. In the snippet below we obtain the token from the extras that the LoginActivity class has passed when starting this activity. The API application is used to request the user's profile data.
 
 Create now an instance of the Authentication API application. This time is used to call the userinfo endpoint and retrieve the ID of the user to whom the token was issued.
 

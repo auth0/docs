@@ -40,7 +40,7 @@ Setting the Default Audience is equivalent to appending this audience to every a
 
 ![Tenant Settings: Error Pages](/media/articles/tutorials/tenant-settings/error-pages.png)
 
-In the event of an authorization error, you can either display a generic error page to your users or you can redirect users to your own custom error page. To learn more, see [Custom Error Pages](/hosted-pages/custom-error-pages).
+In the event of an authorization error, you can either display a generic error page to your users or you can redirect users to your own custom error page. To learn more, see [Custom Error Pages](/universal-login/custom-error-pages).
 
 ### Languages
 
@@ -80,6 +80,24 @@ The **Custom Domains** tab allows you to configure a custom domain, which allows
 Custom domains are not available for free plans. To configure a custom domain, you must upgrade your account to any paid plan.
 :::
 
+## Signing Keys
+
+The **Signing Keys** tab allows you to securely manage the signing key and certificate used to sign ID Tokens, Access Tokens, SAML assertions, and WS-Fed assertions that are sent to your applications.
+
+![Signing Key Tenant Settings](/media/articles/dashboard/tenants/tenant-settings-signing-keys.png)
+
+
+**Rotate Settings**: Settings that allow you to rotate the application signing key and certificate. You may choose whether or not to revoke the signing key upon rotation. To learn more, see [Manage Signing Keys](/tokens/guides/manage-signing-keys).
+  **Rotate Signing Key**: Rotates the signing key without revoking it; effectively, moves the current key to the previous key. All tokens signed with the previous key will still be valid until it is revoked.
+  **Rotate & Revoke Signing Key**: Rotates the signing key and then revokes it; effectively, moves the current key to the previous key and then invalidates the previous key. Make sure you have updated your application with the next key in queue before you rotate and revoke the current key.
+
+**List of Valid Keys**: List of valid application signing keys for your tenant, which are also available at the metadata endpoint for your application. Valid keys include:
+  * **Next in queue**: Key that will be used when the signing key is next rotated.
+  * **Currently used**: Key that is currently in use.
+  * **Previously used**: Key that was previously used. Its appearance indicates that the signing key has been rotated, but the previously-used key has not yet been revoked.
+
+**List of Revoked Keys**: List of the last three revoked keys for your tenant. More data about revoked keys is available via tenant logs.
+
 ## Advanced
 
 The **Advanced** tab contains advanced settings that are sometimes set for tenants. On this tab, you can also delete your tenant and cancel all associated subscriptions.
@@ -108,9 +126,9 @@ Timeouts for tokens issued by Auth0 can be configured elsewhere. Token timeouts 
 
 * **Enable Seamless SSO**: When enabled, users will not be prompted to confirm log in before Single Sign-on (SSO) redirection.
 
-* **Inactivity Timeout**: Timeframe (in minutes) after which a user's session will expire if they haven’t interacted with the Authorization Server. Will be superseded by system limits if over 4,320 minutes (3 days) for self-service plans or 144,000 minutes (100 days) for enterprise plans. To learn more, see [Single Sign-On](/sso).
+* **Inactivity Timeout**: Timeframe (in minutes) after which a user's session will expire if they haven’t interacted with the Authorization Server. Will be superseded by system limits if over 4,320 minutes (3 days) for Developer or Developer Pro or 144,000 minutes (100 days) for enterprise plans. To learn more, see [Single Sign-On](/sso).
 
-* **Require Login After**: Timeframe (in minutes) after which a user will be required to log in again, regardless of their activity. Will be superseded by system limits if over 43,200 minutes (30 days) for self-service plans or 525,600 minutes (365 days) for enterprise plans.
+* **Require Login After**: Timeframe (in minutes) after which a user will be required to log in again, regardless of their activity. Will be superseded by system limits if over 43,200 minutes (30 days) for Developer or Developer Pro or 525,600 minutes (365 days) for enterprise plans.
 
 ### Device Flow User Code Format
 
@@ -144,7 +162,7 @@ The **Global Client ID** and **Global Client Secret** are used to generate token
 
 ![Advanced Tenant Settings: Extensibility](/media/articles/tutorials/tenant-settings/tenant-advanced-extensibility.png)
 
-* **Runtime**:  NodeJS version environment used to execute custom scripts that allow you to extend parts of Auth0's functionality; these include [Rules](/rules), [Hooks](/hooks), and [Database Connections](/connections#database-and-custom-connections).
+* **Runtime**:  NodeJS version environment used to execute custom scripts that allow you to extend parts of Auth0's functionality; these include [Rules](/rules), [Hooks](/hooks), and [Database Connections](/connections#database-and-custom-connections).  Choose the `node.js` version environment you will use to execute your custom scripts. If you are migrating from an older version of `node.js` that is no longer supported, see the [migration guide](/migrations/guides/extensibility-node12).
 
 ### Migrations
 

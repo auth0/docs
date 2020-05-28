@@ -41,7 +41,7 @@ scripts": {
 
 ## Specify the API Audience
 
-For calls to the API to work properly and for access tokens to be correctly validated, the frontend application must specify the correct API audience when authenticating with Auth0. In this scenario, the application should be configured with the API identifier value (the audience) that was created ealier when the API was created in the Auth0 dashboard.
+For calls to the API to work properly and for access tokens to be correctly validated, the frontend application must specify the correct API audience when authenticating with Auth0. In this scenario, the application should be configured with the API identifier value (the audience) that was created earlier when the API was created in the Auth0 dashboard.
 
 To specify the audience, open `src/auth_config.json` and add a new key called `audience` with the API identifier created earlier as the value:
 

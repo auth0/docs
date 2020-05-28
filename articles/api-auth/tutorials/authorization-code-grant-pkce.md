@@ -245,7 +245,7 @@ The response contains `access_token`, `refresh_token`, `id_token`, and `token_ty
 Note that `refresh_token` will only be present in the response if you included the `offline_access` scope AND enabled __Allow Offline Access__ for your API in the Dashboard. See [Refresh Tokens](/tokens/concepts/refresh-tokens) for more information.
 
 ::: warning
-The Authorization Code flow with PKCE can only be used for Applications whose type is `Native` in the Dashboard.
+The Authorization Code flow with PKCE can only be used for Applications whose type is `Native` or `Single Page Application` in the Dashboard.
 :::
 
 ## 5. Call the API

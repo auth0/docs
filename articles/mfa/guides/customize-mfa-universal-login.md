@@ -53,7 +53,7 @@ The `provider` setting is a way to specify whether to force MFA, and which facto
 
 If you are using the New Experience you can get the behavior of the Classic experience if you enable customization of the MFA login page.
 
-The `guardian` and `google-authenticator` options are legacy settings that are kept for backwards compability reasons, and should not be used moving forward. We recommend using `any`.  The 'google-authenticator' option does not let users enroll a recovery code.
+The `guardian` and `google-authenticator` options are legacy settings that are kept for backwards compatibility reasons, and should not be used moving forward. We recommend using `any`.  The 'google-authenticator' option does not let users enroll a recovery code.
 
 Setting the `provider` to a specific option manually will override the enabled/disabled toggles in the Dashboard. The following rule will prompt the user to enroll for Duo even if other factor are enabled in the Dashboard:
 
@@ -132,16 +132,16 @@ Depending on the property value the behavior will be as follows:
 - `true`: when `provider` is set to `google-authenticator` or `duo`, the user will be prompted for MFA once every 30 days. For other provider values, the user will be able to decide if they want to skip MFA for the next 30 days.
 - `false`: the user will be prompted for MFA each time they authenticate.
 
+::: note
+These time values are for active users. If a user is inactive for a period of seven days or more, their cookie will expire anyway, and they will be prompted for MFA on their next login attempt, even if `allowRememberBrowser` is `true` and it has not been thirty days since their last MFA prompt.
+:::
+
 In order to let the user skip MFA, a cookie will be stored in the user's browser. If the user has the cookie set but you still want the user to perform MFA, you have these options:
 
 - Set `allowRememberBrowser` to `false`
 - Set `acr_values` to `http://schemas.openid.net/pape/policies/2007/06/multi-factor` when calling the `/authorize` endpoint.
 
 If you want to require a specific user to be prompted for MFA during their next log in, you can call the [Invalidate Remember Browser API endpoint](https://auth0.com/docs/api/management/v2#!/Users/post_invalidate_remember_browser). This is useful for situations where the user loses a trusted device.
-
-::: note
-The above time values are for active users. If a user is inactive for a period of seven days or more, their cookie will expire anyway and they will be prompted for MFA on their next login attempt, even if `allowRememberBrowser` is `true` and it has not been thirty days since their last MFA prompt.
-:::
 
 ### Customize MFA for users outside the network
 
@@ -171,4 +171,4 @@ If you are using MFA after an authentication with one or more social providers, 
 ## Keep reading
 
 * [Resource Owner](/api-auth/tutorials/multifactor-resource-owner-password)
-* [Set Up Silent Authentication](/api-auth/tutorials/silent-authentication)
+* [Configure Silent Authentication](/api-auth/tutorials/silent-authentication)

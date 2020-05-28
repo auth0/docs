@@ -19,7 +19,7 @@ useCase:
 # Implicit Flow with Form Post
 
 ::: warning
-The [OAuth 2.0 BCP](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-09#section-2.1.2) states that you **should not** use the Implicit Flow to request [Access Tokens](/tokens/access-tokens) from the Authorization Server. For this reason, we recommend that you use the [Authorization Code Flow with PKCE](/flows/concepts/auth-code-pkce) if your single-page app (SPA) requires Access Tokens for [Cross-Origin Resource Sharing (CORS)](/cross-origin-authentication#what-is-cross-origin-authentication) requests. For a more detailed explanation, see our blog post: [OAuth2 Implicit Grant and SPA: Everything you always wanted to know (but were afraid to ask)](https://auth0.com/blog/oauth2-implicit-grant-and-spa/).
+The [OAuth 2.0 BCP](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-09#section-2.1.2) states that you **should not** use the Implicit Flow to request [Access Tokens](/tokens/access-tokens) from the Authorization Server. For this reason, we recommend that you use the [Authorization Code Flow with PKCE](/flows/concepts/auth-code-pkce) if your single-page app (SPA) requires Access Tokens for [Cross-Origin Resource Sharing (CORS)](/cross-origin-authentication#what-is-cross-origin-authentication) requests (along with [Refresh Token Rotation](/tokens/concepts/refresh-token-rotation) if your SPA needs to maintain session). For a more detailed explanation, see our blog post: [OAuth2 Implicit Grant and SPA: Everything you always wanted to know (but were afraid to ask)](https://auth0.com/blog/oauth2-implicit-grant-and-spa/).
 :::
 
 As an alternative to the [Authorization Code Flow](/flows/concepts/auth-code), the OAuth 2.0 spec includes the Implicit Flow intended for <dfn data-key="public-client">Public Clients</dfn>, or applications which are unable to securely store <dfn data-key="client-secret">Client Secrets</dfn>. As part of the authorization response, the Implicit Flow returns an <dfn data-key="access-token">Access Token</dfn> rather than an <dfn data-key="authorization-code">Authorization Code</dfn> that must be exchanged at the <dfn data-key="token-endpoint">token endpoint</dfn>.
@@ -54,6 +54,6 @@ Finally, you can follow our tutorials to use our API endpoints to [Add Login Us
 
 ## Keep reading
 
-- Auth0 offers many ways to personalize your user's login experience using [rules](/rules) and [hooks](/hooks).
-- [Tokens](/tokens)
-- [Which OAuth 2.0 Flow Should I Use?](/api-auth/which-oauth-flow-to-use)
+- Learn how to personalize your user's login experience using [rules](/rules) and [hooks](/hooks)
+- Learn more about [tokens](/tokens) and [token storage](/tokens/concepts/token-storage)
+- Explore [Which OAuth 2.0 Flow Should I Use?](/api-auth/which-oauth-flow-to-use)

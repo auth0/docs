@@ -66,7 +66,7 @@ Applications release patches and updates when they find security vulnerabilities
 
 If you use Gmail, Google offers the [Security Checkup](https://myaccount.google.com/security-checkup) tool to let you know if there are any security issues related to your inbox.
 
-You can also use third-party tools, such as websites like [HaveIBeenPawned](https://haveibeenpwned.com/PwnedWebsites) to see if there might be security issues associated with your email address.
+You can also use third-party tools, such as websites like [HaveIBeenPwned](https://haveibeenpwned.com/PwnedWebsites) to see if there might be security issues associated with your email address.
 
 ## Restrictions and limitations
 
@@ -80,6 +80,7 @@ Breached password detection depends on the IP address of the user. Because of th
 
 ## Keep reading
 
+* [Anomaly Detection](/anomaly-detection)
 * [Attack Protection Triggers and Actions](/anomaly-detection/references/attack-protection-triggers-actions)
 * [Customize Blocked Account Emails](/anomaly-detection/guides/customize-blocked-account-emails)
 * [View Anomaly Detection Events](/anomaly-detection/guides/view-anomaly-detection-events)

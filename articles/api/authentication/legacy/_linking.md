@@ -2,6 +2,10 @@
 
 ## Link
 
+::: warning
+This endpoint is **deprecated** for account linking. The [POST /api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) should be used instead. For more information refer to the [Migration Notice](/migrations/past-migrations#account-linking-removal).
+:::
+
 ```http
 GET https://${account.namespace}/authorize?
   response_type=code|token&
@@ -17,10 +21,6 @@ GET https://${account.namespace}/authorize?
   "path": "/authorize",
   "link": "#link"
 }) %>
-
-::: warning
-This endpoint is **deprecated** for account linking. The [POST /api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) should be used instead. For more information refer to the [Migration Notice](/migrations/past-migrations#account-linking-removal).
-:::
 
 Call this endpoint when a user wants to link a second authentication method (for example, a user/password database connection, with Facebook).
 

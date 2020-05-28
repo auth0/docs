@@ -24,7 +24,7 @@ If you are an existing Private Cloud customer, you will need to create an Auth0 
 1. Choose **Affected Tenant** from the dropdown menu.
 1. Under **Issue Type** select the type of issue that best fits your case.
 ![Issue types](/media/articles/support/issue-types.png)
-    * **Public Cloud Support Incident** or **Private Cloud Support Incident** - (the second option is only available to Private Cloud customers)
+    * **I have a question or issue regarding Auth0** or **I have a question or issue regarding Auth0 or my Private Cloud instance(s)** - (the second option is only available to Private Cloud customers)
         * If you are not a Trial Tenant customer, you will be asked to select a severity:
             * **Low: Product Question** - You have questions about how things work, whether we support something
             * **Normal: General Support Question** - You are in development and have a question about how to configure something or how to resolve an error
@@ -34,11 +34,12 @@ If you are an existing Private Cloud customer, you will need to create an Auth0 
 ![Customer Reason](/media/articles/support/customer-reason.png)
         * After you make your selection, you can choose to answer some follow-up questions to further refine your request. You can also choose to skip this step by clicking the toggle. 
 ![Follow-up questions](/media/articles/support/follow-up.png)
-    * **Enhancement/Feature Request** - You would like to suggested product improvements or enhancement requests
-    * **Billing or Payment** - You are experiencing issues such as incorrect billing, charges to the incorrect account, and so on
-    * **Compliance/Legal** - You would like to report security vulnerabilities or legal questions
+    * **I would like something new or changed in Auth0** - You would like to suggested product improvements or enhancement requests
+    * **I have a question regarding billing or my recent payments** - You are experiencing issues such as incorrect billing, charges to the incorrect account, and so on
+    * **I have a Compliance or legal question** - You would like to report security vulnerabilities or legal questions
+    * **I have a question regarding my Auth0 account** - You need operational assistance with your account or tenant, or would like to file a request for testing according to our Load and Penetration Testing policies
 ::: note
-Selection of severity is not available to Trial Tenant customers or those who have selected any of the following issue types: **Enhancement/Feature Request**, **Billing or Payment**, **Compliance/Legal**.
+Selection of severity is not available to Trial Tenant customers or those who have selected any of the following issue types: **I would like something new or changed in Auth0**, **I have a question regarding billing or my recent payments**, **I have a Compliance or legal question**.
 :::
 1. Next, provide a clear summary of the question/issue in the **Subject** field.
 1. In the **Description** box, provide as much detail as possible about the issue. When writing in this box, you can style your text with [Markdown](https://guides.github.com/features/mastering-markdown) and preview what you have written by clicking on **Preview**.

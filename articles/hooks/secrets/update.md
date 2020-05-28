@@ -1,7 +1,6 @@
 ---
 title: Update Hook Secrets
 description: Learn how to update Hook Secrets using the Dashboard or Management API. Hook Secrets may also be imported and exported using the Auth0 Deploy Command-Line Interface (CLI) tool.
-beta: true
 topics:
     - hooks
     - secrets

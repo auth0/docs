@@ -63,7 +63,7 @@ See an example using the Auth0 Quickstart for a single-page application (SPA) im
 
   This time around, I will select the Regular Web App application type and `asp.net core` sample. `Asp.net core` is a typical enterprise server side rendered web application framework.
 
-  The steps are the same as before: Select the application, set local developement urls, download and run the sample.
+  The steps are the same as before: Select the application, set local development urls, download and run the sample.
 
   After authenticating the user and redirecting them to an identity provider, you can check for active SSO sessions.
 </details>

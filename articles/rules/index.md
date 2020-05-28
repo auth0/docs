@@ -17,6 +17,8 @@ Rules are JavaScript functions that execute when a user authenticates to your ap
 
 Please note that rules also run during the [token refresh](/tokens/concepts/refresh-tokens) flow.
 
+## Authentication transaction flow
+
 ![Rule Flow](/media/articles/rules/flow.png)
 
 1. An app initiates an authentication request to Auth0.
@@ -55,7 +57,11 @@ A Rule is a function with the following arguments:
 
 ## Execution order
 
-Rules execute in the order shown on the Auth0 Dashboard. If a rule depends on the execution of another rule, move the dependent rule lower in the list.
+In general, rules execute in the order shown on the Auth0 Dashboard. If a rule depends on the execution of another rule, move the dependent rule lower in the list.
+
+::: note
+Remember that rules run at a specific point within the authentication transaction flow. After rules run, the Redirect, Multi-factor Authentication (MFA), and Consent features must still run (in that order and only if they are required).
+:::
 
 ## Available modules
 

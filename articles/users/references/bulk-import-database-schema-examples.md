@@ -135,7 +135,7 @@ The following [JSON schema](http://json-schema.org) describes valid users:
                             "description": "The position of the salt when the hash was calculated. For example; MD5('salt' + 'password') = '67A1E09BB1F83F5007DC119C14D663AA' would have \"position\":\"prefix\"."
                         }
                     },
-                    "required": ["value", "hash"]
+                    "required": ["value", "position"]
                 },
                 "password": {
                     "type": "object",
@@ -159,6 +159,54 @@ The following [JSON schema](http://json-schema.org) describes valid users:
         "user_metadata": {
             "type": "object",
             "description": "Data related to the user that does not affect the application's core functionality."
+        },
+        "mfa_factors": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "totp": {
+                        "type": "object",
+                        "properties": {
+                        "secret": {
+                            "type": "string",
+                                "pattern": "^[A-Z2-7]+$",
+                                "description": "The OTP secret is used with authenticator apps (Google Authenticator, Microsoft Authenticator, Authy, 1Password, LastPass). It must be supplied in un-padded Base32 encoding, such as: JBTWY3DPEHPK3PNP"
+                            },
+                        },
+                        "additionalProperties": false,
+                        "required": ["secret"],
+                    },
+                    "phone": {
+                        "type": "object",
+                        "properties": {
+                        "value": {
+                            "type": "string",
+                            "pattern": "^\\+[0-9]{1,15}$",
+                            "description": "The phone number for SMS MFA. The phone number should include a country code and begin with +, such as: +12125550001"
+                        },
+                        },
+                        "additionalProperties": false,
+                        "required": ["value"],
+                    },
+                    "email": {
+                        "type": "object",
+                        "properties": {
+                            "value": {
+                                "type": "string",
+                                "format": "email",
+                                "description": "The email address for MFA"
+                            },
+                        },
+                        "additionalProperties": false,
+                        "required": ["value"],
+                    },
+                },
+                "maxProperties": 1,
+                "additionalProperties": false,
+            },
+            "minItems": 1,
+            "maxItems": 10
         }
     },
     "required": ["email"],
@@ -187,6 +235,7 @@ You can import users with the following properties:
 | `password_hash` | string | Hashed password for the user's connection. When users are created, Auth0 uses [bcrypt](https://auth0.com/blog/hashing-in-action-understanding-bcrypt/) to secure the password. Importing hashed passwords lets users keep their passwords for a smoother experience. Compatible passwords should be hashed using bcrypt $2a$ or $2b$ and have 10 saltRounds. This property can only be provided when the user is first imported and cannot be updated later. | No |
 | `custom_password_hash` | object | A more generic way to provide the user's password hash. This can be used instead of the `password_hash` field when the user's password hash was created with an alternate algorithm. This property can only be provided when the user is first imported and cannot be updated later. | Yes |
 | `password_set_date` | datetime | Timestamp indicating when the password for the user's connection was set. At user creation, this field exists, and `last_password_reset` does not. If the user has reset their password, this field and `last_password_reset` are identical. | No |
+| `mfa_factors` | array | The MFA factors that can be used to authenticate this user | Yes |
 
 For more information on `app_metadata` and `user_metadata`, check out the [Metadata Overview](/users/concepts/overview-user-metadata).
 
@@ -231,7 +280,7 @@ The `user.custom_password_hash` object has the following properties:
 | `hash.key.encoding` | string | The key encoding. Must be one of: <ul><li>`base64`</li><li>`hex`</li><li>`utf8`</li></ul>By default, `hash.key.encoding` is `utf8`. |
 | `hash.salt` | object | &nbsp; |
 | `hash.salt.value` | string | The salt value used to generate the hash. |
-| `hash.salt.encoding` | string | The encoding of the provided salt.Must be one of: <ul><li>`base64`</li><li>`hex`</li><li>`utf8`</li></ul> Upper and lower case hex variants are supported, as well as url-encoded base64. By default, `hash.salt.encoding` is `utf8`. |
+| `hash.salt.encoding` | string | The encoding of the provided salt. Must be one of: <ul><li>`base64`</li><li>`hex`</li><li>`utf8`</li></ul> Upper and lower case hex variants are supported, as well as url-encoded base64. By default, `hash.salt.encoding` is `utf8`. |
 | `hash.salt.position` | string | The position of the salt when the hash was calculated. |
 | `password.encoding` | string | <%= include('../_includes/_password-encoding-description.md') %> |
 
@@ -345,6 +394,19 @@ When the `algorithm` is set to `pbkdf2`:
     - `ssl3-md5`
     - `ssl3-sha1`
     - `whirlpool`
+
+### MFA factors
+
+The `user.mfa_factors` array contains [MFA enrollments](/mfa) for the user. Importing enrollments prevents the need for users to re-enroll in MFA after they're imported. The supported enrollment types are:
+
+| Property | Type | Description |
+|---------|------|-------------|
+| `email` | object | &nbsp; |
+| `email.value` | string | The email address for MFA. |
+| `phone` | object | &nbsp; |
+| `phone.value` | string | The phone number for SMS MFA. Must have a country code and begin with `+`, such as: `"+12125550001"` |
+| `totp` | object | &nbsp; |
+| `totp.secret` | string | The OTP secret for MFA authentication with authenticator apps (Google Authenticator, Microsoft Authenticator, Authy, 1Password, LastPass). Must be in un-padded Base32 encoding, for example: `"JBTWY3DPEHPK3PNP"` |
 
 ## Examples
 
@@ -467,6 +529,71 @@ Some example users with hashes provided:
                 }
             }
         }
+    }
+]
+```
+
+### MFA Factors
+
+As you might expect, the `user.mfa_factors` array allows you to provide the user's [MFA enrollments](/mfa). The supported enrollment types are:
+
+* Phone: Used for sms-based verification.
+* TOTP: OTP secret for use with MFA type apps (Google Authenticator, Microsoft Authenticator, Authy, 1Password, LastPass).
+* Email: Used for email-based verification.
+
+Some examples of users with MFA factors:
+
+```json
+[
+    {
+        "email": "antoinette@contoso.com",
+        "mfa_factors": [
+            {
+                "totp": {
+                    "secret": "2PRXZWZAYYDAWCD"
+                }
+            },
+            {
+                "phone": {
+                    "value": "+15551112233"
+                }
+            },
+            {
+                "email": {
+                    "value": "antoinette@antoinette.biz"
+                }
+            }
+        ]
+    },
+    {
+        "email": "mary@contoso.com",
+        "mfa_factors": [
+            {
+                "totp": {
+                    "secret": "JTF18P5973P1KCZN"
+                }
+            }
+        ]
+    },
+    {
+        "email": "velma@contoso.com",
+        "mfa_factors": [
+            {
+                "phone": {
+                    "value": "+15551234567"
+                }
+            },
+        ]
+    },
+    {
+        "email": "edward@contoso.com",
+        "mfa_factors": [
+            {
+                "email": {
+                    "value": "edward@edward.biz"
+                }
+            }
+        ]
     }
 ]
 ```

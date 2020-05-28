@@ -22,6 +22,7 @@ Auth0's hosted cloud database stores a variety of information on your users that
   'sessions',
   'users/guides/manage-users-using-the-dashboard',
   'users/guides/manage-users-using-the-management-api',
+  'users/guides/email-verified',
   'extensions/account-link',
   'security/blacklisting-attributes',
   'users/concepts/overview-user-migration',

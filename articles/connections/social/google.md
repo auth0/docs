@@ -1,5 +1,5 @@
 ---
-title: Add Google Login to Your App
+title: Connect Apps to Google
 connection: Google
 index: 1
 image: /media/connections/google.png
@@ -21,7 +21,7 @@ useCase:
     - customize-connections
     - add-idp
 ---
-# Add Google Login to Your App
+# Connect Apps to Google
 
 This guide will show you how to add functionality to your web app that allows your users to log in with Google. Along the way, you will also learn how to get an <dfn data-key="access-token">Access Token</dfn> that will allow you to access the Google API.
 

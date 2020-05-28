@@ -16,7 +16,7 @@ If you don’t want your customers to have to download a separate application, A
 
 On the [Dashboard > Multifactor Auth](${manage_url}/#/mfa) page, you can select the factors to use for MFA for your tenant. 
 
-![MFA Dashboard Page](/media/articles/multifactor-authentication/mfa-dashboard.png)
+![MFA Dashboard Page](/media/articles/mfa/mfa-dashboard.png)
 
 Auth0 supports the following factors for implementing MFA. You must enable at least one to use MFA, but you can choose to enable and make available more than one factor if you wish. Available factors are dependent on your subscription plan.
 
@@ -34,7 +34,7 @@ Send users push notifications to a their pre-registered devices - typically a mo
 
 ## Email notifications
 
-You can [use email](/mfa/guides/configure-mail-universal-login) when you want to provide users a way to perform MFA when they don't have their phone to receive an SMS or push notification.
+You can [use email](/mfa/guides/configure-email-universal-login) when you want to provide users a way to perform MFA when they don't have their phone to receive an SMS or push notification.
 
 ## Duo Security
 

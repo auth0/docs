@@ -242,5 +242,5 @@ You should review all your calls to the account linking endpoint ([/api/v2/users
 ## Keep reading
 
 - [Link User Accounts](/users/guides/link-user-accounts)
-- [Link User Accounts Server-Side Code Scenario](/users/references/link-accounts-server-side-scenario)
-- [Link User Accounts Client-Side Code Scenario](/user/references/link-accounts-client-side-scenario)
+* [Suggested Account Linking - Server-Side Implementation](/users/references/link-accounts-server-side-scenario)
+* [User Initiated Account Linking - Client-Side Implementation](/users/references/link-accounts-client-side-scenario)

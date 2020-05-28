@@ -12,7 +12,7 @@ useCase:
     - customize-connections
     - add-idp
 ---
-# Connect your App to Bitbucket
+# Connect Apps to Bitbucket
 
 To connect your Auth0 app to Bitbucket, you will need to generate a *Key* and *Secret* in a Bitbucket app, copy these keys into your Auth0 settings, and enable the connection.
 

@@ -169,22 +169,22 @@ For this profile, Auth0 would normally return the following ID Token claims to y
 
 ```json
 {
+  "email": "jane@example.com",
+  "email_verified": true,
   "iss": "https://my-domain.auth0.com/",
   "sub": "custom|123",
   "aud": "my_client_id",
-  "exp": 1311281970,
   "iat": 1311280970,
-  "email": "jane@example.com",
-  "email_verified": true
+  "exp": 1311281970
 }
 ```
 
 Notice that in this example:
 
  * the `sub` claim contains the value of the `user_id` property
- * neither the `favorite_color` or `user_metadata` properties are present because OpenID Connect (OIDC) does not define standard claims that represent `favorite_color` or `user_metadata`
+ * neither the `favorite_color` nor `user_metadata` properties are present because OpenID Connect (OIDC) does not define standard claims that represent `favorite_color` or `user_metadata`
  
-To receive the custom data, create a rule to customize the token with [namespaced](/tokens/guides/create-namespaced-custom-claims) [custom claims](/tokens/concepts/jwt-claims#custom-claims) that represent these properties from the user profile:
+To receive the custom data, create a rule to customize the token with [namespaced](/tokens/guides/create-namespaced-custom-claims) [custom claims](/tokens/concepts/jwt-claims#custom-claims) that represent these properties from the user profile. Custom data will be available in the token after all rules have run.
 
 ```js
 function(user, context, callback) {
@@ -196,12 +196,28 @@ function(user, context, callback) {
 ```
 
 ::: note
-This example shows a custom claim being added to an ID Token, which uses the `context.idToken` property. To add to an Access Token, use the `context.accessToken` property instead. For more information, see [Context Object in Rules](/rules/references/context-object).
+This example shows custom claims being added to an ID Token, which uses the `context.idToken` property. To add to an Access Token, use the `context.accessToken` property instead. To learn more, see [Context Object in Rules](/rules/references/context-object).
 :::
 
 ::: warning
 When creating your rule, make sure to set some logic that determines when to include additional claims. Injecting custom claims into every ID Token that is issued is not ideal.
 :::
+
+With this rule enabled, Auth0 will include the `favorite_color` and `preferred_contact` custom claims in the ID Token:
+
+```json
+{
+  "https://myapp.example.com/favorite_color": "blue",
+  "https://myapp.example.com/preferred_contact": "email",
+  "email": "jane@example.com",
+  "email_verified": true,
+  "iss": "https://my-domain.auth0.com/",
+  "sub": "custom|123",
+  "aud": "my_client_id",
+  "iat": 1311280970,
+  "exp": 1311281970
+}
+```
 
 ## Keep reading
 

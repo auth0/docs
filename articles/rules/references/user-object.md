@@ -11,7 +11,7 @@ useCase: extensibility-rules
 
 # User Object in Rules
 
-The `user` object stores information about the logged in user, returned by the identity provider. It is generated when a user authenticates, before rules run.
+The `user` object stores information about the logged-in user, returned by the identity provider. It is generated when a user authenticates and before rules run. Because of the [order of events](/rules#authentication-transaction-flow) when a user authenticates, changes made to a user's profile from within a rule will only be available in the current user object if you also save the changes to the user object from within the same rule.
 
 ## Properties
 
@@ -26,7 +26,7 @@ The following properties are available for the `user` object.
 | `user.family_name` | text | The user's family name. |
 | `user.given_name` | text | The user's given name. |
 | `user.identities` | array (object) |  <%= include('../_includes/_user-prop-identities.md') %> |
-| `user.last_password_reset` | date time | Timestamp indicating the last time the user's password was reset/changed. At user creation, this field does not exist. |
+| `user.last_password_reset` | date time | Timestamp indicating the last time the user's password was reset/changed. At user creation, this field does not exist. This property is only available for Database connections. |
 | `user.multifactor` | array (text) | List of <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> providers with which the user is enrolled. This array is updated when the user logs in with MFA successfully for the first time, and is not updated when enrollment is completed or when an administrator resets a user's MFA. |
 | `user.name` | text | The user's full name. |
 | `user.nickname` | text | The user's nickname. |
@@ -38,3 +38,8 @@ The following properties are available for the `user` object.
 | `user.user_id` | text | (unique) The user's unique identifier. |
 | `user.user_metadata` | object | Custom fields that store info about a user that does not impact what they can or cannot access, such as work address, home address, or user preferences. For more info, see [Metadata](/metadata). |
 | `user.username` | text | (unique) The user's username. |
+
+## Read more
+
+* [Debug Rules](/rules/guides/debug)
+* [Context Object](/rules/references/context-object)

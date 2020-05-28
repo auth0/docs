@@ -19,7 +19,7 @@ useCase:
 
 Use a custom database connection when you want to provide access to your own independent (legacy) identity data store for the following purposes:
 
-* **Authentication**: Use your database as an identity provider in Auth0 to authenticate users. (Refered to as *legacy authentication*.)
+* **Authentication**: Use your database as an identity provider in Auth0 to authenticate users. (Referred to as *legacy authentication*.)
 * **Import Users**: Use automatic migration (*trickle* or *lazy* migration)
 * **Proxy access to an Auth0 tenant**: Use Auth0 multi-tenant architecture. 
 

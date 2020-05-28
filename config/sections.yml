@@ -11,7 +11,7 @@
   default: true
 
 - id: "quickstarts"
-  title: "QuickStarts"
+  title: "Quickstarts"
   url: "/quickstarts"
   folder: "quickstart"
 

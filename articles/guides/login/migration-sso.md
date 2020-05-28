@@ -14,7 +14,7 @@ useCase: migrate
 
 # Migration in Embedded Login Scenarios with Single Sign-On
 
-Migration from legacy versions of Lock and Auth0.js is required. For <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> scenarios, it will imply moving to [Universal Login](/hosted-pages/login) in most cases. 
+Migration from legacy versions of Lock and Auth0.js is required. For <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> scenarios, it will imply moving to [Universal Login](/universal-login) in most cases. 
 
 ## Single-Page Apps
 

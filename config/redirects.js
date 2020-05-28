@@ -410,12 +410,12 @@ module.exports = [
     to: '/connections/social/microsoft-account'
   },
   {
-    from: '/o365-clientid',
-    to: '/connections/enterprise/o365-deprecated'
-  },
-  {
     from: '/oauth2',
     to: '/connections/social/oauth2'
+  },
+  {
+    from: '/connections/social/auth0-oidc',
+    to: '/connections/enterprise/oidc'
   },
   {
     from: '/paypal-clientid',
@@ -694,7 +694,7 @@ module.exports = [
     to: '/integrations/aws'
   },
   {
-    from: '/lock',
+    from: ['/lock', '/migrations/guides/legacy-lock-api-deprecation'],
     to: '/libraries/lock'
   },
   {
@@ -731,7 +731,7 @@ module.exports = [
   },
   {
     from: '/api/v1',
-    to: '/api/management/v1'
+    to: '/migrations/guides/management-api-v1-v2'
   },
   {
     from: ['/api-reference', '/api/v1/reference'],
@@ -757,7 +757,8 @@ module.exports = [
     from: [
       '/multi-factor-authentication',
       '/multi-factor-authentication2',
-      '/multifactor-authentication/custom-provider'
+      '/multifactor-authentication/custom-provider',
+      '/multifactor-authentication'
     ],
     to: '/mfa'
   },
@@ -877,7 +878,15 @@ module.exports = [
   },
   {
     from: ['/link-accounts/user-initiated', '/link-accounts/user-initiated-linking'],
-    to: '/users/references/link-accounts-user-initiated-scenario'
+    to: '/users/references/link-accounts-client-side-scenario'
+  },
+  {
+    from: '/users/references/link-accounts-user-initiated-scenario',
+    to: '/users/references/link-accounts-client-side-scenario'
+  },
+  {
+    from: '/users/guides/link-user-accounts-auth-api',
+    to: '/migrations/guides/account-linking'
   },
   {
     from: '/libraries/lock/using-refresh-tokens',
@@ -1593,6 +1602,10 @@ module.exports = [
     to: '/universal-login/default-login-url'
   },
   {
+    from: '/hosted-pages/version-control',
+    to: '/universal-login/version-control'
+  },
+  {
     from: '/hosted-pages/guardian',
     to: '/universal-login/multifactor-authentication'
   },
@@ -2013,8 +2026,8 @@ module.exports = [
     to: `/users/concepts/overview-user-account-linking`
   },
   {
-    from: ['/videos/session-and-cookies', '/security/store-tokens'],
-    to: '/tokens/guides/store-tokens'
+    from: ['/videos/session-and-cookies', '/security/store-tokens', '/tokens/guides/store-tokens'],
+    to: '/tokens/concepts/token-storage'
   },
   {
     from: '/support/sla',
@@ -2234,7 +2247,8 @@ module.exports = [
   { from: '/rules/context', to: '/rules/references/context-object' },
   { from: '/rules/current/redirect', to: '/rules/guides/redirect' },
   { from: '/rules/current/metadata-in-rules', to: '/rules/guides/metadata' },
-  { from: '/rules/current/csharp', to: '/rules/guides/csharp' },
+  { from: '/rules/current/csharp', to: '/rules' },
+  { from: '/rules/guides/csharp', to: '/rules' },
   { from: '/rules/current/management-api', to: '/rules/guides/management-api' },
   {
     from: '/hooks/cli/create-delete',
@@ -2422,6 +2436,14 @@ module.exports = [
       to: '/connections/apple-siwa/set-up-apple'
     },
     {
+      from: '/connections/apple-siwa/add-siwa-web-app',
+      to: '/connections/social/apple'
+    },
+    {
+      from: '/connections/apple-siwa/add-siwa-to-native-app',
+      to: '/connections/nativesocial/add-siwa-to-native-app'
+    },    
+    {
       from: '/connections/passwordless/email',
       to: '/connections/passwordless/guides/email-otp'
     },
@@ -2440,6 +2462,10 @@ module.exports = [
     {
       from: '/connections/passwordless/faq',
       to: '/connections/passwordless/reference/troubleshoot'
+    },
+    {
+      from: '/migrations/guides/passwordless-start',
+      to: '/connections/passwordless'
     },
     {
       from: '/best-practices/custom-db-connections-scripts',
@@ -2580,5 +2606,25 @@ module.exports = [
     {
       from: '/api/management/guides/retrieve-connection-options',
       to: '/api/management/guides/connections/retrieve-connection-options'
+    },
+    {
+      from: '/product-lifecycle/deprecation-eol',
+      to: '/product-lifecycle/migration-process'
+    },
+    {
+      from: ['/mfa/reset-user-mfa','/mfa/reset-user-MFA'],
+      to: '/mfa/guides/reset-user-mfa'
+    },
+    {
+      from: '/connections/social/miicard',
+      to: '/connections/identity-providers-social'
+    },
+    {
+      from: '/mfa/references/troubleshooting',
+      to: '/mfa/references/troubleshoot-mfa'
+    },
+    {
+      from: '/line',
+      to: '/connections/social/line'
     }
 ];

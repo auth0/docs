@@ -1,7 +1,6 @@
 ---
 title: Delete Hook Secrets
 description: Learn how to delete Hook Secrets using the Dashboard and Management API. Hook Secrets may also be imported and exported using the Auth0 Deploy Command-Line Interface (CLI) tool.
-beta: true
 topics:
     - hooks
     - secrets

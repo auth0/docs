@@ -11,20 +11,31 @@ useCase:
 ---
 # Migrate from Management API v1 to v2
 
-Auth0’s Management API v1 was deprecated in 2016 and replaced with the [Auth0 Management API v2](/api/management/v2/). Management API v1 will reach its End Of Life in the Public Cloud on **July 13th, 2020**. Requests will begin failing with a `410` HTTP status code on or after that date. Private Cloud releases will continue to support Management API v1 until the December 2020 monthly release.
+Auth0’s Management API v1 was deprecated in 2016 and replaced with the [Auth0 Management API v2](/api/management/v2/). Management API v1 will reach its End Of Life in the Public Cloud on **July 13th, 2020**. Requests will begin failing with a `410` HTTP status code on or after that date. Management API v1 will be included in the Private Cloud until the November 2020 monthly release, which is the first release that will not include Management API v1.
+
+## Key Dates
+
+The following are key dates for this migration:
+
+| Date | Public Cloud | Private Cloud |
+|------|--------------|---------------|
+| Jan 13, 2020 | Initial Public Announcement | N/A | 
+| May 21, 2020 | N/A | Initial Public Announcement |
+| July 13, 2020 | End of Life for Management API v1 | N/A |
+| November 2020 | N/A | Support removed from release for Mgmt API V1 |
 
 ## Am I affected by the migration?
 
 Affected tenants are those who meet all of the following criteria:
 
 * Created before January 2, 2020
-* Actively making requests to Auth0 endpoints directly under the `/api/` path.
+* Actively making requests to Auth0 endpoints directly under the `/api/` path from your application.
 
 The following tenants are NOT affected:
 
 * Created after January 2, 2020
 * Exclusively using the Auth0 Management API v2 endpoints
-* Using the Authentication API exclusively. (The Authentication API is not affected by this deprecation.)
+* Using the Authentication API exclusively, the Authentication API is not affected by this deprecation.
 
 ## How can I check to see if I've migrated all my requests?
 
@@ -33,6 +44,14 @@ Deprecation Notices will be recorded in your Tenant Logs for requests that will 
 ```
 type:depnote AND description:*APIv1*
 ```
+
+::: note
+**Private Cloud Customers**
+
+- You must be running release [2003](https://auth0.com/releases/2003) or later to see Deprecation Notices.
+
+- If searching tenant logs from the Dashboard, search for `type:depnote`. Searching by `description` is not currently supported in the tenant logs search available in the Dashboard. If you [export your logs to an external service](/extensions#logs-export), you can leverage it to query for APIv1 Deprecation Notices using a combination of `type` and `description`.
+:::
 
 ![Management API Version 1 Log Query](/media/articles/migrations/apiv1-log-query.png)
 
@@ -74,7 +93,16 @@ The [Auth0 AD/LDAP Connector Health Monitor](/extensions/adldap-connector) exten
 
 Please upgrade to the latest version of the extension before disabling API v1 support.
 
+## SharePoint Integration Custom Claims Provider
+
+The Custom Claims Provider of the [Auth0 SharePoint Integration](https://auth0.com/docs/integrations/sharepoint) leverages three API v1 endpoints : `/api/enterpriseconnections/users`, `/api/socialconnections/users`, and `/api/connections`.
+
+If you are calling these endpoints from the SharePoint integration, they will continue to work after the API v1 End of Life date. You may continue see `depnote` tenant logs for this activity. If the `client_id` in the tenant log is a SharePoint application, you can disregard this warning. 
+
+If you are calling these endpoints directly from your code, you will need to migrate those calls off of API v1.
+
 ## Keep reading
-* [Complete list of breaking changes](/api/management/v2/changes)
+
+* [Complete list of changes](/api/management/v2/changes)
 * [Management APIv1 documentation](/api/management/v1)
 * [Management APIv2 documentation](/api/management/v2)

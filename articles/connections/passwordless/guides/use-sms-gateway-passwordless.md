@@ -11,7 +11,11 @@ useCase: customize-connections
 
 This guide will show you how to use a custom SMS gateway to send out your one-time-use codes.
 
-By default, [Passwordless SMS connections](/connections/passwordless#supported-authentication-methods) use [Twilio](https://www.twilio.com/) to send out one-time use codes. However, if you have a custom SMS gateway, you can modify your connection to use that instead.
+By default, [Passwordless SMS connections](/connections/passwordless#supported-authentication-methods) use [Twilio](https://www.twilio.com/) to send out one-time use codes. However, if you have a custom SMS gateway, you can modify your connection to use that instead. 
+
+::: note
+Auth0 does **not** support basic SMS authentication. 
+:::
 
 1. Set up a SMS passwordless connection. To learn how, see [Set Up Passwordless Connections](/connections/passwordless#implement-passwordless).
 
@@ -24,7 +28,7 @@ By default, [Passwordless SMS connections](/connections/passwordless#supported-a
 ```har
 {
   "method": "GET",
-  "url": "http://your-auth0-tenant.com/api/v2/connections",
+  "url": "https://your-auth0-tenant.com/api/v2/connections",
   "headers": [
     { "name": "Authorization", "value": "Bearer YOUR_ACCESS_TOKEN_HERE" }
   ]

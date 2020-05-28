@@ -36,6 +36,8 @@ Create a rule that will record user `signup` events for your apps in Keen. Pleas
 ```js
 function(user, context, callback) {
 
+  var request = require('request');
+
   if(user.signedUp){
     return callback(null, user, context);
   }

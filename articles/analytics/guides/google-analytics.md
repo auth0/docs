@@ -3,6 +3,7 @@ description: Learn how to install and configure the Google Analytics for Auth0 i
 topics:
   - google
   - analytics
+public: false
 contentType: how-to
 useCase:
   - manage-analytics
