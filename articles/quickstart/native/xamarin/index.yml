@@ -27,8 +27,8 @@ github:
 requirements:
   - Visual Studio 2017 or Visual Studio for Mac
   - Xamarin for Visual Studio 4.5
-  - Auth0.OidcClient.Android 2.4.0
-  - Auth0.OidcClient.iOS 2.4.0
+  - Auth0.OidcClient.Android 3.1.3
+  - Auth0.OidcClient.iOS 3.1.3
 next_steps:
   - path: 01-login
     list:
