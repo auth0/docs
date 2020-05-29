@@ -97,7 +97,7 @@ Pass the `checkJwt` and `checkScopes` middlewares to the route you want to prote
 ```js
 // server.js
 
-const checkScopes = jwtAuthz([ 'read:messages' ]);
+const checkScopes = jwtAuthz([ 'read:messages' ], { customScopeKey: 'permissions' });
 
 app.get('/api/private-scoped', checkJwt, checkScopes, function(req, res) {
   res.json({
