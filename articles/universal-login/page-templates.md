@@ -7,7 +7,11 @@ toc: true
 ---
 # Customizing the New Universal Login Page with Page Template
 
-You can customize the New <dfn data-key="universal-login">Universal Login</dfn> pages by providing a Page Template using the [Liquid template language](https://shopify.github.io/liquid/).
+You can customize the New <dfn data-key="universal-login">Universal Login</dfn> pages by providing a Page Template using the [Liquid template language](https://shopify.github.io/liquid/). 
+
+:::note
+This capability only be used if the tenant has [Custom Domains](/custom-domains) enabled.
+:::
 
 Page Templates let you define the content that is displayed around the Universal Login widgets (e.g. the Login box, the MFA box). The simplest template you can write is:
 
@@ -71,7 +75,7 @@ To set the Page Template you need to use the Management API. You first need to g
     ],
     "postData" : {
       "mimeType": "text/html",
-      "text" : ""
+      "text": "{\"user_metadata\": {\"displayName\": \"J-vald3z\"}"
     }
 }
 ```
