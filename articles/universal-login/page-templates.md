@@ -66,8 +66,8 @@ To set the Page Template you need to use the Management API. You first need to g
     "method": "PUT",
     "url": "${account.namespace}/api/v2/branding/templates/universal-login",
     "headers": [
-      { "name" "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
-      { "name" "Content-Type", "value": "text/html" }
+      { "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
+      { "name":  "Content-Type", "value": "text/html" }
     ],
     "postData" : {
       "mimeType": "text/html",
