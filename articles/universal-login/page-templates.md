@@ -71,7 +71,7 @@ To set the Page Template you need to use the Management API. You first need to g
     ],
     "postData" : {
       "mimeType": "text/html",
-      "text" : "<!DOCTYPE html><html><head>{%- auth0:head -%}</head><body>{%- auth0:widget -%}</body></html>"
+      "text" : ""
     }
 }
 ```
