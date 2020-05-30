@@ -78,6 +78,7 @@ To set the Page Template you need to use the Management API. You first need to g
     }
 }
 
+
 {
     "method": "PUT",
     "url": "${account.namespace}/api/v2/branding/templates/universal-login",
@@ -92,14 +93,12 @@ To set the Page Template you need to use the Management API. You first need to g
 }
 
 
-
 ```har
 {
- "method": "PUT",
-    "url": "${account.namespace}/api/v2/branding/templates/universal-login",
+  "method": "POST",
+  "url": "https://${account.namespace}/oidc/register",
   "headers": [
-      { "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
-      { "name":  "Content-Type", "value": "text/html" }
+    { "name": "Content-Type", "value": "application/json" }
   ],
   "postData": {
     "mimeType": "application/json",
