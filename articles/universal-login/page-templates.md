@@ -101,7 +101,7 @@ To set the Page Template you need to use the Management API. You first need to g
     { "name":  "Content-Type", "value": "text/html" }
   ],
   "postData": {
-    "mimeType": "application/json",
+    "mimeType": "text/html",
     "text": "{\"client_name\":\"My Dynamic Application\",\"redirect_uris\": [\"https://application.example.com/callback\", \"https://application.example.com/callback2\"]}"
   }
 }
