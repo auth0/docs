@@ -65,44 +65,17 @@ By using these variables you can support scenarios like:
 
 To set the Page Template you need to use the Management API. You first need to get a Management API token with the "update:branding","read:branding","delete:branding" scopes.
 
-{
-    "method": "PUT",
-    "url": "${account.namespace}/api/v2/branding/templates/universal-login",
-    "headers": [
-      { "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
-      { "name":  "Content-Type", "value": "text/html" }
-    ],
-    "postData" : {
-      "mimeType": "text/html",
-      "text": "{\"user_metadata\": {\"displayName\": \"J-vald3z\"}"
-    }
-}
-
-
-{
-    "method": "PUT",
-    "url": ",
-    "headers": [
-      { "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
-      { "name":  "Content-Type", "value": "text/html" }
-    ],
-    "postData" : {
-      "mimeType": "text/html",
-      "text": "{\"user_metadata\": {\"displayName\": \"J-vald3z\"}"
-    }
-}
-
 ```har
 {
   "method": "POST",
   "url": "https://${account.namespace}/api/v2/branding/templates/universal-login",
   "headers": [
     { "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
-    { "name":  "Content-Type", "value": "text/html" }
+    { "name": "Content-Type", "value": "text/html" }
   ],
   "postData": {
     "mimeType": "text/html",
-    "text": ""
+    "text": "<!DOCTYPE html><html><head>{%- auth0:head -%}</head><body>{%- auth0:widget -%}</body></html>"
   }
 }
 ```
