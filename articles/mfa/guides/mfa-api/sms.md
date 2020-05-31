@@ -14,7 +14,9 @@ useCase:
 ---
 # Enroll and Challenge SMS Authenticators
 
-You could want to build your own enrollment and challenge flow using SMS as an MFA factor.
+Auth0 provides a built-in MFA enrollment and authentication flow using [Universal Login](/universal-login). However, if you want to create your own user interface, you can use the MFA API to accomplish it. 
+
+This guide will explain how to enroll and challenge users with SMS.
 
 <%= include('../../_includes/_authenticator-before-start') %>
 
@@ -28,9 +30,11 @@ You could want to build your own enrollment and challenge flow using SMS as an M
 
 <%= include('../../_includes/_request_association') %>
 
-To enroll an authenticator where the users are challenged for a code that is delivered by SMS make the following `POST` request to the `/mfa/associate` endpoint. This will both trigger an MFA challenge for the user and associate the new authenticator. 
+To enroll with SMS, you need to use the following parameters:
 
-Be sure to replace the placeholder values in the payload body shown below as appropriate. 
+- `authentication_types` = `[oob]`
+- `oob_channels` = `[sms]`
+- `phone_number` = `+11...9`, the phone number [E.164 format](https://en.wikipedia.org/wiki/E.164)
 
 ```har
 {
@@ -64,7 +68,7 @@ If successful, you'll receive a response like the one below:
 
 ### 3. Confirm the authenticator enrollment
 
-To confirm the association of an phone messaging authenticator, make a `POST` request to the `oauth/token` endpoint. Now, you can add the `oob_code` retrieved previously as a parameter in the request, and the `binding_code` with the value received by in the SMS message.
+To confirm the association of an phone messaging authenticator, make a `POST` request to the `oauth/token` endpoint. You need to include the `oob_code` returned previously as a parameter in the request, and the `binding_code` with the value received by in the SMS message.
 
 Be sure to replace the placeholder values in the payload body shown below as appropriate.
 
@@ -112,27 +116,44 @@ Be sure to replace the placeholder values in the payload body shown below as app
 
 ## Challenging with SMS
 
-You can trigger MFA challenges for enrolled authenticators by calling the `/mfa/challenge` endpoint.
-
-In general, this happens as part of the authentication flow. You'd call `/oauth/token` with the resource-owner password grant with the username/password, and you'll get an `mfa_required` return code, together with an `mfa_token`.
+To challenge a user with SMS, follow the steps detailed below.
 
 ### 1. Get the MFA token
 
-You can get the MFA token in [the same way](#1.-get-the-mfa-token) you do it in the enrollment flow.
+You can get the MFA token in [the same way](#1-get-the-mfa-token) you do it for enrollment.
 
 ### 2. Retrieve the enrolled authenticators
 
-To be able to challenge the user for MFA, you need the `authenticator_id` for the factor you want to challenge. You can list all enrolled authenticators by using the `/mfa/authenticators` endpoint:
+To be able to challenge the user, you need the `authenticator_id` for the factor you want to challenge. You can list all enrolled authenticators by using the `/mfa/authenticators` endpoint:
 
 ```
 {
-	"method": "POST",
-	"url": "https://${account.namespace}/mfa/challenge",
-	"postData": {
-		"mimeType": "application/json",
-		"text": "{ \"client_id\": \"YOUR_CLIENT_ID\", \"challenge_type\": \"oob\", \"authenticator_id\": \"sms|dev_s...O\", \"mfa_token\": \"Fe26.2**05...\" }"
-	}
+	"method": "GET",
+	"url": "https://${account.namespace}/mfa/authenticators",
+  "headers": [
+    { "name": "Authorization", "value": "Bearer ACCESS_TOKEN" },
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
+  ]
 }
+```
+
+You will get a list of authenticators with the format below:
+
+```json
+[
+    {
+        "id": "recovery-code|dev_O4KYL4FtcLAVRsCl",
+        "authenticator_type": "recovery-code",
+        "active": true
+    },
+    {
+        "id": "sms|dev_NU1Ofuw3Cw0XCt5x",
+        "authenticator_type": "oob",
+        "active": true,
+        "oob_channel": "sms",
+        "name": "XXXXXXXX8730"
+    },
+]
 ```
 
 ### 2. Challenge the user with SMS
@@ -145,7 +166,7 @@ To trigger an OOB challenge, make the appropriate `POST` call to `mfa/challenge`
 	"url": "https://${account.namespace}/mfa/challenge",
 	"postData": {
 		"mimeType": "application/json",
-		"text": "{ \"client_id\": \"YOUR_CLIENT_ID\",  \"client_secret\": \"YOUR_CLIENT_ID\", \"challenge_type\": \"oob\", \"authenticator_id\": \"sms|dev_s...O\", \"mfa_token\": \"Fe26.2**05...\" }"
+		"text": "{ \"client_id\": \"YOUR_CLIENT_ID\",  \"client_secret\": \"YOUR_CLIENT_SECRET\", \"challenge_type\": \"oob\", \"authenticator_id\": \"sms|dev_NU1Ofuw3Cw0XCt5x\", \"mfa_token\": \"MFA_TOKEN" }"
 	}
 }
 ```
@@ -162,15 +183,7 @@ If successful, you'll receive the following response, as well as an SMS message 
 }
 ```
 
-Proceed with the authentication process using `/oauth/token` as usual, sending the `oob_code` as a parameter (format below) in the request.
-
-```
-{
-	"name": "oob_code",
-	"value": "asdae35fdt5...oob_code_redacted"
-}
-```
-
+Proceed with the authentication process using `/oauth/token` as usual, sending the `oob_code` as a parameter in the request.
 
 ```har
 {

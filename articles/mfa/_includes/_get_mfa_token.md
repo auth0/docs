@@ -1,7 +1,9 @@
 
-When using Universal Login, users get prompted to enroll an MFA factor the first time they authenticate. If you want to provide end users a way to enroll an additional factor, you need to obtain an Access Token for the `https://${account.namespace}/mfa` audience and the `enroll` scope. You can do it by specifying that audience as part the initial authentication request, or in a different one.
+When using Universal Login, users usually get prompted to enroll an MFA factor the first time they authenticate. 
 
-When using the Resource Owner Password Grant, when users try to authenticate without an active authenticator associated with their account, Auth0 will return an `mfa_required` error when calling the `/oauth/token` endpoint. The request might look something like this:
+If you want to call the MFA API after the user is logged in, to retrieve the enrolled factors, enroll an additional one, or remove an existing one, you need to obtain an Access Token for the `https://${account.namespace}/mfa` audience and the `enroll` scope. You can do it by specifying that audience as part the initial authentication request, or in a different one. In the latter case you need to redirect twice to `/authorize` part of the login flow.
+
+When using the Resource Owner Password Grant, when users try to authenticate without an active authenticator associated with their account, or if they already have an MFA factor enrolled, Auth0 will return an `mfa_required` error when calling the `/oauth/token` endpoint. 
 
 ```har
 {
@@ -46,7 +48,7 @@ When using the Resource Owner Password Grant, when users try to authenticate wit
 }
 ```
 
-The response will include the `mfa_required` error and a `mfa_token` that you can use when calling the `/mfa/associate` endpoint to enroll your first authenticator.
+The response will include the `mfa_required` error and a `mfa_token` that you can use for any other call to the MFA API:
 
 ```json
 {
