@@ -110,7 +110,7 @@ To retrieve the template, you need to use the following endpoint:
   "method": "GET",
   "url": "https://${account.namespace}/api/v2/branding/templates/universal-login",
   "headers": [
-    { "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
+    { "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" }
   ]
 }
 ```
@@ -122,10 +122,13 @@ To delete the template, you need to use the following endpoint:
   "method": "DELETE",
   "url": "https://${account.namespace}/api/v2/branding/templates/universal-login",
   "headers": [
-    { "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
+    { "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" }
   ]
 }
 ```
+
+
+
 
 ** Troubleshooting
 
