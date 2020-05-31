@@ -127,12 +127,6 @@ To delete the template, you need to use the following endpoint:
 }
 ```
 
-
-
-
-** Troubleshooting
+## Troubleshooting
 
 - If the template is not being applied, check that you are navigating to `<custom_domain>/authorize`. When you navigate to `${account.namespace}/authorize` Auth0 will not render the page template.
-
-
-
