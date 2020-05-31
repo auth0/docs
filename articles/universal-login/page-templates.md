@@ -9,7 +9,7 @@ toc: true
 
 You can customize the New <dfn data-key="universal-login">Universal Login</dfn> pages by providing a Page Template using the [Liquid template language](https://shopify.github.io/liquid/). 
 
-:::note
+::: warning
 This capability only be used if the tenant has [Custom Domains](/custom-domains) enabled.
 :::
 
@@ -38,22 +38,43 @@ The following tags need to be present in the template:
 
 The Page Templates have a set of context variables that can be used to impact how the page is rendered.
 
-|||
-|:-----------------|:------------|
-|locale| Current locale, matching one of the [supported tenant languages](/universal-login/i18n)|
-|application.id| The Application ID |
-|application.name| The [Application Name](/dashboard/reference/settings-application#basic-settings)) |
-|application.logo_uri| The [Application Logo](/dashboard/reference/settings-application#basic-settings) |
-|application.metadata| The [Application Metadata](/dashboard/reference/settings-application#application-metadata) |
-|branding.logo_url| [Tenant friendly name](/dashboard/reference/settings-tenant#basic-settings)|
-|branding.colors.primary| Primary color configured in the [Universal Login Settings](${manage_url}/#/login_settings) |
-|branding.colors.page_background| Page background color configured in the [Universal Login Settings](${manage_url}/#/login_settings)   |
-|tenant.friendly_name| [Tenant friendly name](/dashboard/reference/settings-tenant#basic-settings) |
-|tenant.support_email| [Tenant support email](/dashboard/reference/settings-tenant#basic-settings)  |
-|tenant.support_url| [Tenant support url](/dashboard/reference/settings-tenant#basic-settings) |
-|prompt.name| The name of the Universal Login prompt being rendered |
-|prompt.screen.name| The name of the Universal Login screen being rendered |
-|prompt.screen.custom_text| Localized text for the all the strings displayed in the page. [Read more](/universal-login/text-customization) |
+* The login page [application's settings](/dashboard/reference/settings-application#basic-settings):
+  - application.id
+  - application.name
+  - application.logo_uri
+  - application.metadata
+
+* Universal Login [branding settings](${manage_url}/#/login_settings):
+  - branding.logo_url
+  - branding.colors.primary
+  - branding.colors.page_background
+
+* Tenant's [settings](/dashboard/reference/settings-tenant#basic-settings):
+  - tenant.friendly_name
+  - tenant.support_email
+  - tenant.support_url
+
+* Information about each the current universal login prompt.
+
+  <%= include('text-customization-prompts/_prompt_definition') %>
+
+  - locale: Locale used to render the login pages, matching one of the [supported tenant languages](/universal-login/i18n)
+  - prompt.name: The name of the Universal Login prompt being rendered 
+  - prompt.screen.name: The name of the Universal Login screen being rendered.
+  - prompt.screen.texts: All the [localized texts](/universal-login/text-customization) needed in the screen being rendered.
+  
+* Information about the current user, for pages rendered after the user authenticates:
+  - user.user_id
+  - user.picture
+  - user.email
+  - user.email_verified
+  - user.app_metadata
+  - user.user_metadata
+  - user.family_name
+  - user.given_name
+  - user.name
+  - user.nickname
+  - user.username
 
 By using these variables you can support scenarios like:
 
@@ -63,12 +84,13 @@ By using these variables you can support scenarios like:
 
 ## Page Templates API
 
-To set the Page Template you need to use the Management API. You first need to get a Management API token with the "update:branding","read:branding","delete:branding" scopes.
+To set the Page Template you need to use the Management API. You first need to get a Management API token with the `update:branding`,`read:branding`, `delete:branding` scopes.
 
+To set the template, you need to use the following endpoint:
 
 ```har
 {
-  "method": "POST",
+  "method": "PUT",
   "url": "https://${account.namespace}/api/v2/branding/templates/universal-login",
   "headers": [
     { "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
@@ -80,4 +102,34 @@ To set the Page Template you need to use the Management API. You first need to g
   }
 }
 ```
+
+To retrieve the template, you need to use the following endpoint:
+
+```har
+{
+  "method": "GET",
+  "url": "https://${account.namespace}/api/v2/branding/templates/universal-login",
+  "headers": [
+    { "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
+  ]
+}
+```
+
+To delete the template, you need to use the following endpoint:
+
+```har
+{
+  "method": "DELETE",
+  "url": "https://${account.namespace}/api/v2/branding/templates/universal-login",
+  "headers": [
+    { "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" },
+  ]
+}
+```
+
+** Troubleshooting
+
+- If the template is not being applied, check that you are navigating to `<custom_domain>/authorize`. When you navigate to `${account.namespace}/authorize` Auth0 will not render the page template.
+
+
 
