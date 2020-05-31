@@ -5,7 +5,7 @@ topics:
   - internationalization
 toc: true
 ---
-# Customizing the New Universal Login Page with Page Template
+# Customizing the New Universal Login Pages with Pages Template
 
 You can customize the New <dfn data-key="universal-login">Universal Login</dfn> pages by providing a Page Template using the [Liquid template language](https://shopify.github.io/liquid/). 
 
