@@ -1,11 +1,11 @@
 ---
 title: Enroll and Challenge SMS Authenticators
-description: Build your own enrollment flow with SMS messages.
+description: Build your own MFA flows using SMS as a factor.
 topics:
   - mfa
   - mfa-api
   - mfa-authenticators
-  - oob
+  - sms
 contentType:
   - how-to
   - reference
@@ -16,7 +16,7 @@ useCase:
 
 Auth0 provides a built-in MFA enrollment and authentication flow using [Universal Login](/universal-login). However, if you want to create your own user interface, you can use the MFA API to accomplish it. 
 
-This guide will explain how to enroll and challenge users with SMS.
+This guide will explain how to enroll and challenge users with SMS using the MFA API. First, make sure that SMS is [enabled as factor](/mfa/guides/configure-sms) in the Dashboard or using the [Management API](/api/management/v2#!/Guardian/put_factors_by_name).
 
 <%= include('../../_includes/_authenticator-before-start') %>
 
@@ -56,8 +56,9 @@ If successful, you'll receive a response like the one below:
 ```json
 {
   "authenticator_type": "oob",
-  "oob_channel": "<message_type>",
+  "binding_method": "prompt",
   "recovery_codes": [ "N3BGPZZWJ85JLCNPZBDW6QXC" ],
+  "oob_channel": "sms",
   "oob_code": "ata6daXAiOi..."
 }
 ```
@@ -66,11 +67,11 @@ If successful, you'll receive a response like the one below:
 
 <%= include('../../_includes/_recovery_codes') %>
 
-### 3. Confirm the authenticator enrollment
+### 3. Confirm the SMS enrollment
 
-To confirm the association of an phone messaging authenticator, make a `POST` request to the `oauth/token` endpoint. You need to include the `oob_code` returned previously as a parameter in the request, and the `binding_code` with the value received by in the SMS message.
+The user should receive an SMS containing the 6-digit code, which they can provide to the application.
 
-Be sure to replace the placeholder values in the payload body shown below as appropriate.
+To complete enrollment of the sms authenticator make a `POST` request to the `oauth/token` endpoint. You need to include the `oob_code` returned in the previous response, and the `binding_code` with the value received in the SMS message.
 
 ```har
 {
@@ -156,9 +157,9 @@ You will get a list of authenticators with the format below:
 ]
 ```
 
-### 2. Challenge the user with SMS
+### 3. Challenge the user with SMS
 
-To trigger an OOB challenge, make the appropriate `POST` call to `mfa/challenge`, using the corresponding `authenticator_id` ID and the `mfa_token`. The `client_secret` is required for server-side applications.
+To trigger an SMS challenge,  `POST` to the to `mfa/challenge` endpoint, using the corresponding `authenticator_id` ID and the `mfa_token`. 
 
 ```
 {
@@ -171,19 +172,21 @@ To trigger an OOB challenge, make the appropriate `POST` call to `mfa/challenge`
 }
 ```
 
-### 3. Complete authentication using the received code
+### 4. Complete authentication using the received code
 
-If successful, you'll receive the following response, as well as an SMS message containing the required six-digit code:
+If successful, you'll receive the following response, and the user will get an SMS message containing the required six-digit code:
 
 ```json
 {
   "challenge_type": "oob",
-  "oob_code": "asdae35fdt5...oob_code_redacted",
+  "oob_code": "asdae35fdt5...",
   "binding_method": "prompt"
 }
 ```
 
-Proceed with the authentication process using `/oauth/token` as usual, sending the `oob_code` as a parameter in the request.
+Your application needs to prompt the user for the `binding_code` and send it as part of the request. The `binding_code` is a 6-digit number included in the challenge.
+
+You can then verify the code and get the authentication tokens using the `/oauth/token` endpoint:
 
 ```har
 {
