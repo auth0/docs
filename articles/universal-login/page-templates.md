@@ -65,6 +65,7 @@ By using these variables you can support scenarios like:
 
 To set the Page Template you need to use the Management API. You first need to get a Management API token with the "update:branding","read:branding","delete:branding" scopes.
 
+
 ```har
 {
   "method": "POST",
