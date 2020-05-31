@@ -37,4 +37,4 @@ For example, if you want to implement Passwordless with MFA, you can use the 'Cl
 
 You can achieve it by enabling the New Universal Login Experience and then customize the HTML page of the Login page with whatever content you want, for example, the `Auth0LockPasswordless` widget. In that case, users will get a Passwordless login page that behaves like in Classic, and and MFA page that looks like the New Universal Login page.
 
-Check the [Classic Universal Login customization documentation](/universal-login/classic-customization) to learn more.
+Check the [Classic Universal Login customization documentation](/universal-login/customization-classic) to learn more.

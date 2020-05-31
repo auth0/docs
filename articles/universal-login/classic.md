@@ -11,7 +11,7 @@ Auth0's Classic <dfn data-key="universal-login">Universal Login</dfn> experience
 
 When you [customize the HTML in the Dashboard](${manage_url}/#/login_page) for Universal Login pages, the default templates will also use the same JavaScript libraries, so from a UX and functional perspective, the transition between the default user interface and a custom one is more natural.
 
-The Classic Experience has extensive [customization options](/universal-login/classic-customization) available. After choosing one of the templates, you can modify them to meet your needs. The Lock widget, if used, has a variety of both appearance and behavior options that can be changed. The Auth0.js based templates have even more flexibility, as the UI is entirely custom made and can be modified to match your application's styles if you wish to do so.
+The Classic Experience has extensive [customization options](/universal-login/customization-classic) available. After choosing one of the templates, you can modify them to meet your needs. The Lock widget, if used, has a variety of both appearance and behavior options that can be changed. The Auth0.js based templates have even more flexibility, as the UI is entirely custom made and can be modified to match your application's styles if you wish to do so.
 
 Given that it is being used by a significant percentage of Auth0 customers, the Classic Universal Login Experience will be maintained for the foreseeable future. However, the majority of significant new feature development will be done on the [New Universal Login Experience](/universal-login/new).
 

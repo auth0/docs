@@ -56,13 +56,15 @@ The Page Templates have a set of context variables that can be used to impact ho
 
 * Information about each the current universal login prompt.
 
-  <%= include('text-customization-prompts/_prompt_definition') %>
+    <%= include('text-customization-prompts/_prompt_definition') %>
+
 
   - locale: Locale used to render the login pages, matching one of the [supported tenant languages](/universal-login/i18n)
   - prompt.name: The name of the Universal Login prompt being rendered 
   - prompt.screen.name: The name of the Universal Login screen being rendered.
   - prompt.screen.texts: All the [localized texts](/universal-login/text-customization) needed in the screen being rendered.
   
+
 * Information about the current user, for pages rendered after the user authenticates:
   - user.user_id
   - user.picture
@@ -126,6 +128,10 @@ To delete the template, you need to use the following endpoint:
   ]
 }
 ```
+
+## Examples
+
+..
 
 ## Troubleshooting
 
