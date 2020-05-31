@@ -4,6 +4,7 @@ topics:
   - universal-login
   - internationalization
 toc: true
+beta: true
 ---
 # Customizing the New Universal Login Pages with Pages Template
 
@@ -128,10 +129,6 @@ To delete the template, you need to use the following endpoint:
   ]
 }
 ```
-
-## Examples
-
-..
 
 ## Troubleshooting
 
