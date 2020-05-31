@@ -32,6 +32,7 @@ From a functional perspective, the New Experience has much better support for [L
 
 - You can specify the `login_hint` when redirecting to Auth0, and it will be used to populate the username/email field for the login or signup page.
 
+
 ## Signup
 
 - You can make users land directly on the Signup page instead of the Login page by specifying the `screen_hint=signup` parameter when redirecting to `/authorize`. Note that this can be combined with `prompt=login`, which indicates whether you want to always show the authentication page or you want to skip if there's an existing session. 
