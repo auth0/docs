@@ -33,8 +33,7 @@ This guide will explain how to enroll and challenge users using Push Notificatio
 To enroll with SMS, you need to use the following parameters:
 
 - `authentication_types` = `[oob]`
-- `oob_channels` = `[sms]`
-- `phone_number` = `+11...9`, the phone number [E.164 format](https://en.wikipedia.org/wiki/E.164)
+- `oob_channels` = `[auth0]`
 
 ```har
 {
@@ -46,7 +45,7 @@ To enroll with SMS, you need to use the following parameters:
   ],
 	"postData": {
 		"mimeType": "application/json",
-		"text": "{ \"authenticator_types\": [\"oob\"], \"oob_channels\": [\"sms\"], \"phone_number\": \"+11...9\" }"
+		"text": "{ \"authenticator_types\": [\"oob\"], \"oob_channels\": [\"auth0\"] }"
 	}
 }
 ```
@@ -105,7 +104,7 @@ To confirm the enrollment, the end user will need to scan the a QR code with the
       {
         "name": "oob_code",
         "value": "OOB_CODE"
-      },
+      }
     ]
 	}
 }
@@ -169,7 +168,7 @@ You will get a list of authenticators with the format below:
 ]
 ```
 
-Note that when users enroll with Push, they also get enrolled in OTP, as Guardian supports [challenging with OTP](/mfa/guides/mfa-api/otp/ #challenging-with-otp) for scenarios where the user does not have connectivity.  
+Note that when users enroll with Push, they also get enrolled in OTP, as Guardian supports [challenging with OTP](/mfa/guides/mfa-api/otp/#challenging-with-otp) for scenarios where the user does not have connectivity.  
 
 ### 3. Challenge the user with Push
 
