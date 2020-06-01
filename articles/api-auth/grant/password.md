@@ -57,7 +57,7 @@ For details on how to implement this, see [Customize the Tokens](/api-auth/tutor
 
 ## MFA support and anomaly detection
 
-For details on how to implement <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn>, refer to [Multi-factor Authentication and Resource Owner Password](/api-auth/tutorials/multifactor-resource-owner-password).
+For details on how to implement <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn>, refer to [Multi-factor Authentication and Resource Owner Password](/mfa/guides/mfa-api/multifactor-resource-owner-password).
 
 When using this flow from server-side applications, some anomaly detection features might fail because of the particularities of this scenario. For details on how to implement this, while avoiding some common issues, refer to [Using Resource Owner Password from Server side](/api-auth/tutorials/using-resource-owner-password-from-server-side).
 

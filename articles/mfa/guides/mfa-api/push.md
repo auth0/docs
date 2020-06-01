@@ -234,12 +234,17 @@ Your application needs to start polling the `/oauth/token` endpoint until the us
 }
 ```
 
-If the user did hasn't scanned the code, it will return an `authorization_pending` response, indicating you need to call `/oauth_token` again in a few seconds:
+This call can return one of the following results:
 
-```json
-{
-    "error": "authorization_pending",
-    "error_description": "Authorization pending: please repeat the request in a few seconds."
-}
-```
+  - `authorization_pending` error: if the challenge has not been accepted nor rejected.
+  - `slow_down` error: if the polling is too frequent.
+  - an `access_token` and a `refresh_token`: if the challenge has been accepted; polling should be stopped at this point.
+  - `invalid_grant` error: if the challenge has been rejected; polling should be stopped at this point.
 
+## Keep Reading
+
+* [Managing MFA Enrollments](/mfa/guides/mfa-api/manage).
+* [Enroll and Challenge SMS Authenticators](/mfa/guides/mfa-api/sms)
+* [Enroll and Challenge OTP Authenticators](/mfa/guides/mfa-api/otp).
+* [Enroll and Challenge Email Authenticators](/mfa/guides/mfa-api/email).
+* [Challenge a Recovery Code](/mfa/guides/mfa-api/recovery-code).

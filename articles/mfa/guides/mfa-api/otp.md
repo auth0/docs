@@ -16,13 +16,13 @@ useCase:
 
 Auth0 provides a built-in MFA enrollment and authentication flow using [Universal Login](/universal-login). However, if you want to create your own user interface, you can use the MFA API to accomplish it. 
 
-This guide will explain how to enroll and challenge users with OTP using the MFA API. First, make sure that OTP is [enabled as factor](/mfa/guides/configure-sms) in the Dashboard or using the [Management API](/api/management/v2#!/Guardian/put_factors_by_name).
+This guide will explain how to enroll and challenge users with OTP using the MFA API. First, make sure that OTP is [enabled as factor](/mfa/guides/configure-otp) in the Dashboard or using the [Management API](/api/management/v2#!/Guardian/put_factors_by_name).
 
 <%= include('../../_includes/_authenticator-before-start') %>
 
 ## Enrolling with OTP
 
-## 1. Get the MFA Token
+### 1. Get the MFA Token
 
 <%= include('../../_includes/_get_mfa_token') %>
 
@@ -60,18 +60,15 @@ If successful, you'll receive a response like this:
 
 If you get a `User is already enrolled error`, is because the user already has an MFA factor enrolled. Before associating it another factor, you need challenge the user with the existing one.
 
-### Recovery Codes
+#### Recovery Codes
 
 <%= include('../../_includes/_recovery_codes') %>
 
 ### 3. Confirm the OTP enrollment
 
-To confirm the enrollment, the end user will need to enter the secret obtained in the previous step in an OTP generator application like Google Authenticator, Authy, etc.
+To confirm the enrollment, the end user will need to enter the secret obtained in the previous step in an OTP generator application like Google Authenticator. They can enter the secret by scanning a QR code with the `barcode_uri` or by typing the `secret` code manually in that OTP application. You should provide users a way to get the `secret` as text in case they cannot scan the QR code (e.g. if they are enrolling from a mobile device, or using a desktop OTP application).
 
-They can enter the secret by scanning a QR code with the `barcode_uri` or by entering the `secret` code manually in that OTP application. You should provide users a way to get the `secret` as text in case they cannot scan the QR code (e.g. if they are enrolling from a mobile device, or using a desktop OTP application).
-
-After the users enters the secret, the OTP application will display a 6-digit OTP code, that the user should enter in your application. You should then make a `POST` request to the `oauth/token` endpoint, including that `otp` value.
-
+After the users enter the secret, the OTP application will display a 6-digit code, that the user should enter in your application. The application should then make a `POST` request to the `oauth/token` endpoint, including that `otp` value.
 
 ```har
 {
@@ -112,7 +109,7 @@ After the users enters the secret, the OTP application will display a 6-digit OT
 
 ## Challenging with OTP
 
-To challenge a user with SMS, follow the steps detailed below.
+To challenge a user with OTP, follow the steps detailed below.
 
 ### 1. Get the MFA token
 
@@ -154,8 +151,6 @@ You will get a list of authenticators with the format below:
 
 To trigger an OTP challenge, `POST` to the to `mfa/challenge` endpoint, using the corresponding `authenticator_id` ID and the `mfa_token`. 
 
-To trigger an OTP challenge, make the appropriate `POST` call to `mfa/challenge`.
-
 ```har
 {
 	"method": "POST",
@@ -166,7 +161,6 @@ To trigger an OTP challenge, make the appropriate `POST` call to `mfa/challenge`
 	}
 }
 ```
-
 
 ### 4. Complete authentication using the received code
 
@@ -208,9 +202,15 @@ The user will collect a one-time password, which you will then collect from them
       },
       {
         "name": "otp",
-        "value": "CODE_RECEIVED_BY_THE_USER"
+        "value": "USER_OTP_CODE"
       }
     ]
   }
 }
 ```
+
+* [Managing MFA Enrollments](/mfa/guides/mfa-api/manage).
+* [Enroll and Challenge Push Authenticators](/mfa/guides/mfa-api/push)
+* [Enroll and Challenge SMS Authenticators](/mfa/guides/mfa-api/sms).
+* [Enroll and Challenge Email Authenticators](/mfa/guides/mfa-api/email).
+* [Challenge a Recovery Code](/mfa/guides/mfa-api/recovery-code).

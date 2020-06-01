@@ -29,11 +29,14 @@ Email authenticators are not supported when using the Classic Universal Login ex
 
 ## Enrolling with Email
 
-If you want to enable users enroll additional emails, in addition of the one in their primary identity, you need to complete the following steps.
+If you want to enable users enroll additional emails, in addition of the verified email in their primary identity, you need to complete the following steps.
 
 ### 1. Get the MFA token
 
-<%= include('../../_includes/_get_mfa_token') %>
+Depending on when you are triggering enrollment, you can obtain an access token for using the MFA API in different ways: 
+
+  - [Authenticating with the MFA API]
+  - [Managing Authentication Factors with the MFA API]
 
 ### 2. Enroll the Authenticator 
 
@@ -78,45 +81,43 @@ If you get a `User is already enrolled error`, is because the user already has a
 
 ### 3. Confirm the email enrollment
 
-4. The user should receive an email containing the 6-digit code, which they can provide to the application.
+The user should receive an email containing the 6-digit code, which they can provide to the application.
 
- To complete enrollment of the email authenticator make a `POST` request to the `oauth/token` endpoint. You need to include the `oob_code` returned in the previous response, and the `binding_code` with the value received in the email message.
+To complete enrollment of the email authenticator make a `POST` request to the `oauth/token` endpoint. You need to include the `oob_code` returned in the previous response, and the `binding_code` with the value received in the email message.
 
-  ```har
-  {
-      "method": "POST",
-      "url": "https://${account.namespace}/oauth/token",
-      "postData": {
-          "mimeType": "application/x-www-form-urlencoded",
-          "params": [
-            {
-              "name": "grant_type",
-              "value": "http://auth0.com/oauth/grant-type/mfa-oob"
-            },
-            {
-              "name": "mfa_token",
-              "value": "MFA_TOKEN"
-            },
-            {
-              "name": "oob_code",
-              "value": "ata...i0i"
-            },
-            {
-              "name": "binding_code",
-              "value": "000000"
-            },
-            {
-              "name": "client_id",
-              "value": "${account.clientId}"
-            }
-          ]
-      }
-  }
-  ```
+```har
+{
+    "method": "POST",
+    "url": "https://${account.namespace}/oauth/token",
+    "postData": {
+        "mimeType": "application/x-www-form-urlencoded",
+        "params": [
+          {
+            "name": "grant_type",
+            "value": "http://auth0.com/oauth/grant-type/mfa-oob"
+          },
+          {
+            "name": "mfa_token",
+            "value": "MFA_TOKEN"
+          },
+          {
+            "name": "oob_code",
+            "value": "ata...i0i"
+          },
+          {
+            "name": "binding_code",
+            "value": "000000"
+          },
+          {
+            "name": "client_id",
+            "value": "${account.clientId}"
+          }
+        ]
+    }
+}
+```
 
-  For more information on how to customize the email template, w [Customizing Your Emails](/email/templates).
-
-::: panel Recovery Codes
+For more information on how to customize the email that users get, check [Customizing Your Emails](/email/templates).
 
 <%= include('../../_includes/_successful_confirmation') %>
 
@@ -128,43 +129,11 @@ To challenge a user with Email, follow the steps detailed below.
 
 You can get the MFA token in [the same way](#1-get-the-mfa-token) you do it for enrollment.
 
-### 2. Retrieve the enrolled authenticators
+### 2. Challenge the user with Email
 
-To be able to challenge the user, you need the `authenticator_id` for the factor you want to challenge. You can list all enrolled authenticators by using the `/mfa/authenticators` endpoint:
+To challenge the user you first need to obtain the id of the authenticator you want to challenge using the `/mfa/enrollments` endpoint.
 
-```
-{
-	"method": "GET",
-	"url": "https://${account.namespace}/mfa/authenticators",
-  "headers": [
-    { "name": "Authorization", "value": "Bearer MFA_TOKEN" },
-    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
-  ]
-}
-```
-
-You will get a list of authenticators with the format below:
-
-```json
-[
-    {
-        "id": "recovery-code|dev_O4KYL4FtcLAVRsCl",
-        "authenticator_type": "recovery-code",
-        "active": true
-    },
-    {
-        "id": "email|dev_NU1Ofuw3Cw0XCt5x",
-        "authenticator_type": "oob",
-        "active": true,
-        "oob_channel": "email",
-        "name": "email@address.com"
-    },
-]
-```
-
-### 3. Challenge the user with Email
-
-To trigger an email challenge,  `POST` to the to `mfa/challenge` endpoint, using the corresponding `authenticator_id` ID and the `mfa_token`. 
+To trigger an email challenge, `POST` to the to `mfa/challenge` endpoint, using the corresponding `authenticator_id` ID and the `mfa_token`. 
 
 ```
 {
@@ -177,7 +146,7 @@ To trigger an email challenge,  `POST` to the to `mfa/challenge` endpoint, using
 }
 ```
 
-### 4. Complete authentication using the received code
+### 3. Complete authentication using the received code
 
 If successful, you'll get the following response, and the user will get an email message containing the six-digit code:
 
@@ -231,3 +200,9 @@ You can then verify the code and get the authentication tokens using the `/oauth
   }
 }
 ```
+
+* [Managing MFA Enrollments](/mfa/guides/mfa-api/manage).
+* [Enroll and Challenge Push Authenticators](/mfa/guides/mfa-api/push)
+* [Enroll and Challenge OTP Authenticators](/mfa/guides/mfa-api/otp).
+* [Enroll and Challenge SMS Authenticators](/mfa/guides/mfa-api/sms).
+* [Challenge a Recovery Code](/mfa/guides/mfa-api/recovery-code).

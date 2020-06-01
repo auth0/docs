@@ -1,1 +1,1 @@
-Next, make a `POST` request to the `/mfa/associate` endpoint to request association of the user's authenticator. The Access Token required by this endpoint is the MFA token received in the previous step.
+Next, make a `POST` request to the `/mfa/associate` endpoint to enroll the user's authenticator. The Access Token required by this endpoint is the MFA token obtained in the previous step.
