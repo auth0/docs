@@ -16,7 +16,7 @@ useCase:
 
 Auth0 provides a built-in MFA enrollment and authentication flow using [Universal Login](/universal-login). However, if you want to create your own user interface, you can use the MFA API to accomplish it. 
 
-This guide explains how to enroll and challenge users with OTP. First, make sure that OTP is [enabled as factor](/mfa/guides/configure-otp) in the Dashboard or using the [Management API](/api/management/v2#!/Guardian/put_factors_by_name).
+This guide explains how to enroll and challenge users with OTP using the MFA API. First, make sure that OTP is [enabled as factor](/mfa/guides/configure-otp) in the Dashboard or using the [Management API](/api/management/v2#!/Guardian/put_factors_by_name).
 
 <%= include('../../_includes/_authenticator-before-start') %>
 

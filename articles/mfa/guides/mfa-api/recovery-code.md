@@ -16,7 +16,7 @@ useCase:
 
 Auth0 automatically generates recovery codes when users enroll with MFA. These codes can be used when users lost access to the device or account they used to enroll MFA.
 
-This guide explains how to enable users to authenticate using a recovery code.
+This guide explains how to enable users to authenticate using a recovery code using the MFA API.
 
 ## 1. Prompt the user for the recovery code
 

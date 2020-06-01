@@ -16,7 +16,7 @@ useCase:
 
 Auth0 provides a built-in MFA enrollment and authentication flow using [Universal Login](/universal-login). However, if you want to create your own user interface, you can use the MFA API to accomplish it. 
 
-This guide explains how to enroll and challenge users with SMS. First, make sure that SMS is [enabled as factor](/mfa/guides/configure-sms) in the Dashboard or using the [Management API](/api/management/v2#!/Guardian/put_factors_by_name).
+This guide explains how to enroll and challenge users with SMS using the MFA API. First, make sure that SMS is [enabled as factor](/mfa/guides/configure-sms) in the Dashboard or using the [Management API](/api/management/v2#!/Guardian/put_factors_by_name).
 
 <%= include('../../_includes/_authenticator-before-start') %>
 
@@ -129,7 +129,7 @@ To challenge a user with SMS, follow the steps detailed below.
 
 To be able to challenge the user, you need the `authenticator_id` for the factor you want to challenge. You can list all enrolled authenticators by using the `/mfa/authenticators` endpoint:
 
-```
+```har
 {
 	"method": "GET",
 	"url": "https://${account.namespace}/mfa/authenticators",
@@ -163,13 +163,13 @@ You will get a list of authenticators with the format below:
 
 To trigger an SMS challenge, `POST` to the to `mfa/challenge` endpoint, using the corresponding `authenticator_id` ID and the `mfa_token`. 
 
-```
+```har
 {
 	"method": "POST",
 	"url": "https://${account.namespace}/mfa/challenge",
 	"postData": {
 		"mimeType": "application/json",
-		"text": "{ \"client_id\": \"YOUR_CLIENT_ID\",  \"client_secret\": \"YOUR_CLIENT_SECRET\", \"challenge_type\": \"oob\", \"authenticator_id\": \"sms|dev_NU1Ofuw3Cw0XCt5x\", \"mfa_token\": \"MFA_TOKEN" }"
+		"text": "{ \"client_id\": \"YOUR_CLIENT_ID\",  \"client_secret\": \"YOUR_CLIENT_SECRET\", \"challenge_type\": \"oob\", \"authenticator_id\": \"sms|dev_NU1Ofuw3Cw0XCt5x\", \"mfa_token\": \"MFA_TOKEN\" }"
 	}
 }
 ```
@@ -190,7 +190,7 @@ Your application needs to prompt the user for the `binding_code` and send it as 
 
 You can then verify the code and get the authentication tokens using the `/oauth/token` endpoint:
 
-```
+```har
 {
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",

@@ -16,7 +16,7 @@ useCase:
 
 Auth0 provides a built-in MFA enrollment and authentication flow using [Universal Login](/universal-login). However, if you want to create your own user interface, you can use the MFA API to accomplish it. 
 
-This guide will explain how to enroll and challenge users with Email. Make sure that Email is [enabled as factor](/mfa/guides/configure-email-universal-login) in the Dashboard or using the [Management API](/api/management/v2#!/Guardian/put_factors_by_name).
+This guide will explain how to enroll and challenge users with Email using the MFA API. Make sure that Email is [enabled as factor](/mfa/guides/configure-email-universal-login) in the Dashboard or using the [Management API](/api/management/v2#!/Guardian/put_factors_by_name).
 
 
 ::: note
@@ -147,13 +147,13 @@ To trigger an email challenge, `POST` to the to `mfa/challenge` endpoint, using 
 
 If successful, you'll get the following response, and the user will get an email message containing the six-digit code:
 
-  ```json
-  {
-    "challenge_type": "oob",
-    "oob_code": "abcd1234...",
-    "binding_method": "prompt"
-  }
-  ```
+```json
+{
+  "challenge_type": "oob",
+  "oob_code": "abcd1234...",
+  "binding_method": "prompt"
+}
+```
 
 Your application needs to prompt the user for the code, and send it as part of the request, in the `binding_code` parameter, in the following call to the `/oauth/token` endpoint:
 
