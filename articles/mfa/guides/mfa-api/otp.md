@@ -12,31 +12,32 @@ contentType:
 useCase:
   - customize-mfa
 ---
+# Enroll and Challenge OTP Authenticators
 
-# Associate One-Time Password Authenticators
+Auth0 provides a built-in MFA enrollment and authentication flow using [Universal Login](/universal-login). However, if you want to create your own user interface, you can use the MFA API to accomplish it. 
 
-In this tutorial, you'll learn how to configure your application so users can self-associate one-time password (OTP) authenticators.
+This guide will explain how to enroll and challenge users with OTP using the MFA API. First, make sure that OTP is [enabled as factor](/mfa/guides/configure-sms) in the Dashboard or using the [Management API](/api/management/v2#!/Guardian/put_factors_by_name).
 
 <%= include('../../_includes/_authenticator-before-start') %>
+
+## Enrolling with OTP
 
 ## 1. Get the MFA Token
 
 <%= include('../../_includes/_get_mfa_token') %>
 
-## 2. Request association of the authenticator
+### 2. Enroll the Authenticator 
 
 <%= include('../../_includes/_request_association') %>
 
-To associate an authenticator where the challenge type is an OTP code the user provides, make the following `POST` request to the `/mfa/associate` endpoint. This will both trigger an MFA challenge for the user and associate the new authenticator. 
-
-Be sure to replace the placeholder values in the payload body shown below as appropriate.
+To enroll with OTP you need to set the `authenticator_types` parameter to `[otp]`.
 
 ```har
 {
 	"method": "POST",
 	"url": "https://${account.namespace}/mfa/associate",
 	"headers": [
-    { "name": "Authorization", "value": "Bearer ACCESS_TOKEN" },
+    { "name": "Authorization", "value": "Bearer MFA_TOKEN" },
     { "name": "Content-Type", "value": "application/json" }
   ],
 	"postData": {
@@ -52,26 +53,25 @@ If successful, you'll receive a response like this:
 {
   "authenticator_type": "otp",
   "secret": "EN...S",
-  "barcode_uri": "otpauth...period=30",
+  "barcode_uri": "otpauth://totp/tenant:user?secret=...&issuer=tenant&algorithm=SHA1&digits=6&period=30",
   "recovery_codes": [ "N3B...XC"]
 }
 ```
 
-In the next step, you'll need the one-time password (`otp`), which can be obtained by using the `barcode_uri` to generate a QR code that can be scanned by the OTP generator of your choice (such as Google Authenticator). Once the user scans that QR code, they will be able to obtain the OTP code.
-
-You might also consider displaying the `secret` in plain text so that your users can copy and paste it directly into the OTP generator (this is especially helpful for users on desktop applications).
+If you get a `User is already enrolled error`, is because the user already has an MFA factor enrolled. Before associating it another factor, you need challenge the user with the existing one.
 
 ### Recovery Codes
 
 <%= include('../../_includes/_recovery_codes') %>
 
-## 3. Confirm the authenticator association
+### 3. Confirm the OTP enrollment
 
-Once the authenticator is associated, **it must be used at least once to confirm the association**.
+To confirm the enrollment, the end user will need to enter the secret obtained in the previous step in an OTP generator application like Google Authenticator, Authy, etc.
 
-To confirm the association of an authenticator using OTP, make a `POST` request to the `oauth/token` endpoint, including the `otp` value that is collected from the user after they have set up their OTP generator. 
+They can enter the secret by scanning a QR code with the `barcode_uri` or by entering the `secret` code manually in that OTP application. You should provide users a way to get the `secret` as text in case they cannot scan the QR code (e.g. if they are enrolling from a mobile device, or using a desktop OTP application).
 
-Be sure to replace the placeholder values in the payload body shown below as appropriate.
+After the users enters the secret, the OTP application will display a 6-digit OTP code, that the user should enter in your application. You should then make a `POST` request to the `oauth/token` endpoint, including that `otp` value.
+
 
 ```har
 {
@@ -93,7 +93,7 @@ Be sure to replace the placeholder values in the payload body shown below as app
       },
       {
         "name": "mfa_token",
-        "value": "YOUR_MFA_TOKEN"
+        "value": "MFA_TOKEN"
       },
       {
         "name": "client_secret",
@@ -101,7 +101,7 @@ Be sure to replace the placeholder values in the payload body shown below as app
       },
       {
         "name": "otp",
-        "value": "000000"
+        "value": "USER_OTP_CODE"
       }
     ]
 	}
@@ -109,3 +109,108 @@ Be sure to replace the placeholder values in the payload body shown below as app
 ```
 
 <%= include('../../_includes/_successful_confirmation') %>
+
+## Challenging with OTP
+
+To challenge a user with SMS, follow the steps detailed below.
+
+### 1. Get the MFA token
+
+You can get the MFA token in [the same way](#1-get-the-mfa-token) you do it for enrollment.
+
+### 2. Retrieve the enrolled authenticators
+
+To be able to challenge the user, you need the `authenticator_id` for the factor you want to challenge. You can list all enrolled authenticators by using the `/mfa/authenticators` endpoint:
+
+```
+{
+	"method": "GET",
+	"url": "https://${account.namespace}/mfa/authenticators",
+  "headers": [
+    { "name": "Authorization", "value": "Bearer MFA_TOKEN" },
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
+  ]
+}
+```
+
+You will get a list of authenticators with the format below:
+
+```json
+[
+    {
+        "id": "recovery-code|dev_qpOkGUOxBpw6R16t",
+        "authenticator_type": "recovery-code",
+        "active": true
+    },
+    {
+        "id": "totp|dev_6NWz8awwC8brh2dN",
+        "authenticator_type": "otp",
+        "active": true
+    }
+]
+```
+
+### 3. Challenge the user with OTP
+
+To trigger an OTP challenge, `POST` to the to `mfa/challenge` endpoint, using the corresponding `authenticator_id` ID and the `mfa_token`. 
+
+To trigger an OTP challenge, make the appropriate `POST` call to `mfa/challenge`.
+
+```har
+{
+	"method": "POST",
+	"url": "https://${account.namespace}/mfa/challenge",
+	"postData": {
+		"mimeType": "application/json",
+		"text": "{ \"client_id\": \"YOUR_CLIENT_ID\", \"challenge_type\": \"otp\", \"mfa_token\": \"MFA_TOKEN\", \"authenticator_id\" : \"totp|dev_6NWz8awwC8brh2dN\" }"
+	}
+}
+```
+
+
+### 4. Complete authentication using the received code
+
+If successful, you'll receive the following response: 
+
+```json
+{
+  "challenge_type": "otp"
+}
+```
+
+The user will collect a one-time password, which you will then collect from them. You can the  verify the code and get authentication tokens using the `/oauth/token` endpoint, specifying the one-time password in the `otp` parameter:
+
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/oauth/token",
+  "headers": [
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
+  ],
+  "postData": {
+    "mimeType": "application/x-www-form-urlencoded",
+    "params": [
+      {
+        "name": "grant_type",
+        "value": "http://auth0.com/oauth/grant-type/mfa-otp"
+      },
+      {
+        "name": "client_id",
+        "value": "${account.clientId}"
+      },
+      {
+        "name": "client_secret",
+        "value": "YOUR_CLIENT_SECRET"
+      },
+      {
+        "name": "mfa_token",
+        "value": "MFA_TOKEN"
+      },
+      {
+        "name": "otp",
+        "value": "CODE_RECEIVED_BY_THE_USER"
+      }
+    ]
+  }
+}
+```

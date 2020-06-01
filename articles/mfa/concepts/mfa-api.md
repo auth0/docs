@@ -12,7 +12,7 @@ useCase:
 
 # Multi-factor Authentication API
 
-The <dfn data-key="multifactor-authentication">Multi-factor Authentication (MFA)</dfn> API endpoints allow you to enforce MFA when users interact with [the Token endpoints](/api/authentication#get-token), as well as enroll and manage MFA factors.
+The <dfn data-key="multifactor-authentication">Multi-factor Authentication (MFA)</dfn> API endpoints allow you to use MFA when users interact with [the Token endpoints](/api/authentication#get-token), as well as enroll and manage MFA factors.
 
 The Token endpoints cover the following use cases:
 
@@ -47,12 +47,6 @@ If you are using the MFA API in conjunction with the [Token endpoints](/api/auth
 * With push notifications, why do I get two authenticators instead of one?
 
   Push notifications have two authenticators. One to trigger the push notification and the other for a time-based one-time password (TOTP). The TOTP authenticator lets you authenticate if you are offline or can't receive the push notification.
-
-* Why can I associate more than one authenticator with a particular end user?
-
-  Associating multiple authenticators with a user can provide flexibility for the user.
-
-  For example, a user may enable push notifications on their phone and TOTP codes on their computer. If the user is unable to use one of the devices, they can use the other (and not have to rely on the recovery code).
 
 * When should I use self-association during authorization vs. association outside the authorization process?
 

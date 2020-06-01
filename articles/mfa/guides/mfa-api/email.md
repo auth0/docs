@@ -70,6 +70,8 @@ To enroll with SMS, you need to use the following parameters:
   }
   ```
 
+If you get a `User is already enrolled error`, is because the user already has an MFA factor enrolled. Before associating it another factor, you need challenge the user with the existing one.
+
 #### Recovery Codes
 
 <%= include('../../_includes/_recovery_codes') %>
@@ -93,7 +95,7 @@ To enroll with SMS, you need to use the following parameters:
             },
             {
               "name": "mfa_token",
-              "value": "YOUR_MFA_TOKEN"
+              "value": "MFA_TOKEN"
             },
             {
               "name": "oob_code",
@@ -135,7 +137,7 @@ To be able to challenge the user, you need the `authenticator_id` for the factor
 	"method": "GET",
 	"url": "https://${account.namespace}/mfa/authenticators",
   "headers": [
-    { "name": "Authorization", "value": "Bearer ACCESS_TOKEN" },
+    { "name": "Authorization", "value": "Bearer MFA_TOKEN" },
     { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ]
 }
