@@ -76,3 +76,8 @@ SMS providers not currently integrated with Auth0 can be supported by using the 
 * [Configure a Custom SMS Provider for MFA using Esendex](/mfa/send-phone-message-hook-esendex)
 * [Configure a Custom SMS Provider for MFA using Mitto](/mfa/send-phone-message-hook-mitto)
 :::
+
+## Keep Reading
+
+* [Enroll and Challenge SMS Authenticators using the MFA API](/mfa/guides/mfa-api/sms)
+

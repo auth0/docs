@@ -37,3 +37,7 @@ In order to set up Email, you need to enable the Email factor in the Dashboard. 
 ![MFA Email Settings](/media/articles/mfa/email-settings.png)
 
 [Auth0 provides a test email provider](/email) but it only allows a limited amount of emails, so you should [configure your own email provider](/email/providers).
+
+## Keep reading
+
+* [Enroll and Challenge Email Authenticators using the MFA API](/mfa/guides/mfa-api/email)

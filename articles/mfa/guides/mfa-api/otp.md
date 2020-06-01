@@ -1,6 +1,6 @@
 ---
-title: Associate One-Time Password Authenticators
-description: Configure your application so users can self-associate one-time password (OTP) authenticators.
+title: Enroll and Challenge OTP Authenticators
+description: Build your own MFA flows using OTP as a factor.
 topics:
   - mfa
   - mfa-api

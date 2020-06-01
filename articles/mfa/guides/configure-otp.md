@@ -30,3 +30,7 @@ And enter the code at the prompt:
 ![MFA OTP Login](/media/articles/mfa/mfa-otp-login.png)
 
 Your users will need to have an OTP Authenticator app installed in their mobile devices.
+
+## Keep reading
+
+* [Enroll and Challenge OTP Authenticators using the MFA API](/mfa/guides/mfa-api/otp)
