@@ -64,7 +64,7 @@ To enroll with SMS, you need to use the following parameters:
   {
     "authenticator_type": "oob",
     "binding_method": "prompt",
-
+    "oob_code" : "Fe26..nWE",
     "oob_channel": "email",
     "recovery_codes": [ "N3BGPZZWJ85JLCNPZBDW6QXC" ]
   }
@@ -99,7 +99,7 @@ To complete enrollment of the email authenticator make a `POST` request to the `
           },
           {
             "name": "oob_code",
-            "value": "ata...i0i"
+            "value": "OOB_CODE"
           },
           {
             "name": "binding_code",
@@ -132,13 +132,13 @@ To challenge the user you first need to obtain the id of the authenticator you w
 
 To trigger an email challenge, `POST` to the to `mfa/challenge` endpoint, using the corresponding `authenticator_id` ID and the `mfa_token`. 
 
-```
+```har
 {
 	"method": "POST",
 	"url": "https://${account.namespace}/mfa/challenge",
 	"postData": {
 		"mimeType": "application/json",
-		"text": "{ \"client_id\": \"YOUR_CLIENT_ID\",  \"client_secret\": \"YOUR_CLIENT_SECRET\", \"challenge_type\": \"oob\", \"authenticator_id\": \"email|dev_NU1Ofuw3Cw0XCt5x\", \"mfa_token\": \"MFA_TOKEN" }"
+		"text": "{  \"client_id\": \"YOUR_CLIENT_ID\",  \"client_secret\": \"YOUR_CLIENT_SECRET\",  \"challenge_type\": \"oob\",  \"authenticator_id\": \"email|dev_NU1Ofuw3Cw0XCt5x\", \"mfa_token\": \"MFA_TOKEN\" }"
 	}
 }
 ```
