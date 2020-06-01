@@ -27,11 +27,12 @@ If you are using these endpoints as part of an authentication flow, you can foll
 
 If you are building a user interface to manage authentication factors, you'll need to obtain a token you can use for the MFA API at any moment, not only during authentication. 
 
-The best way to achieve depends on how you authenticate your users and the kind of application you are building. All Auth0 authentication flows allow to specify an `audience` parameter. 
+* If you are using [Universal Login](/universal-login), you can to make an additional redirect call to the `/authorize` endpoint, specifying the `https://${account.namespace}/mfa` audience, before using calling the MFA API.
 
-- If you are not using the `audience` parameter, you can use the `https://${account.namespace}/mfa` audience to get the Access Token, and use a [Refresh Token](/tokens/concepts/refresh-tokens) to refresh it later.
+* If you are using the Resource Owner Password Grant, you have two options:
 
-- If you are using the `audience` parameter, and you use [Universal Login](/universal-login), you'll need to make an additional redirect call to the `/authorize` endpoint, specifying the `https://${account.namespace}/mfa` audience.
+  - You ask for the `https://${account.namespace}/mfa` audience when logging-in, and use a [Refresh Token](/tokens/concepts/refresh-tokens) to refresh it later.
+  - You ask the user to authenticate using his user/password before seeing or changing his MFA Enrollments. You will get an `mfa_required` error and the `mfa_token` you can later use to call the MFA API.
 
 ## List Authenticators
 
@@ -84,10 +85,10 @@ For the purposes of building an user interface for end users to manage their fac
 
 The documents below explain how to enroll with different factors:
 
-- [Enrolling with SMS](/mfa/guides/mfa-api-sms#enrolling-with-sms).
-- [Enrolling with OTP](/mfa/guides/mfa-api-sms#enrolling-with-otp).
-- [Enrolling with Push](/mfa/guides/mfa-api-sms#enrolling-with-push).
-- [Enrolling with Email](/mfa/guides/mfa-api-sms#enrolling-with-email).
+- [Enrolling with SMS](/mfa/guides/mfa-api/sms#enrolling-with-sms)
+- [Enrolling with OTP](/mfa/guides/mfa-api/otp#enrolling-with-otp)
+- [Enrolling with Push](/mfa/guides/mfa-api/push#enrolling-with-push)
+- [Enrolling with Email](/mfa/guides/mfa-api/email#enrolling-with-email)
 
 You can also [use the Universal Login flow](/mfa/guides/guardian/create-enrollment-ticket) for enrolling users at any moment.
 
@@ -111,9 +112,8 @@ If the authenticator was deleted, a 204 response is returned.
 :::note
 - When you enroll a Push authenticator, Auth0 also enrolls an OTP one. If you delete any of them, the other one will be also deleted.
 - If Email MFA is enabled, all verified emails will be listed as authenticators, but you can't delete them. You can only delete email authenticators that were enrolled explicitly.
-- You cannot delete Recovery codes using this API. They only be deleted using the [Management API](/mfa/guides/mfa-api/manage).
+- You cannot delete Recovery codes using this API. They only be deleted using the [Management API](/api/management/v2#!/Users/post_recovery_code_regeneration).
 :::
-
 
 ## Keep reading
 
