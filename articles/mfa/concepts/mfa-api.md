@@ -19,7 +19,7 @@ You will need to use the MFA API in the following scenarios:
 
 - If you want to build an interface to let users [manage their MFA factors](/mfa/guides/mfa-api/manage).
 
-<%= include('../../_includes/_authenticator-before-start') %>
+<%= include('../_includes/_authenticator-before-start') %>
 
 ## Limitations
 
