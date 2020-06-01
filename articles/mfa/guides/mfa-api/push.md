@@ -133,7 +133,7 @@ To challenge a user with Push, follow the steps detailed below.
 
 To be able to challenge the user, you need the `authenticator_id` for the factor you want to challenge. You can list all enrolled authenticators by using the `/mfa/authenticators` endpoint:
 
-```
+```har
 {
 	"method": "GET",
 	"url": "https://${account.namespace}/mfa/authenticators",
@@ -174,7 +174,7 @@ Note that when users enroll with Push, they also get enrolled in OTP, as Guardia
 
 To trigger an SMS challenge, `POST` to the to `mfa/challenge` endpoint, using the corresponding `authenticator_id` ID and the `mfa_token`. 
 
-```
+```har
 {
 	"method": "POST",
 	"url": "https://${account.namespace}/mfa/challenge",
@@ -243,8 +243,8 @@ This call can return one of the following results:
 
 ## Keep Reading
 
-* [Managing MFA Enrollments](/mfa/guides/mfa-api/manage).
+* [Managing MFA Enrollments](/mfa/guides/mfa-api/manage)
 * [Enroll and Challenge SMS Authenticators](/mfa/guides/mfa-api/sms)
-* [Enroll and Challenge OTP Authenticators](/mfa/guides/mfa-api/otp).
-* [Enroll and Challenge Email Authenticators](/mfa/guides/mfa-api/email).
-* [Challenge a Recovery Code](/mfa/guides/mfa-api/recovery-code).
+* [Enroll and Challenge OTP Authenticators](/mfa/guides/mfa-api/otp)
+* [Enroll and Challenge Email Authenticators](/mfa/guides/mfa-api/email)
+* [Challenge a Recovery Code](/mfa/guides/mfa-api/recovery-code)

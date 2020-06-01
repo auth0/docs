@@ -115,12 +115,12 @@ You will need to use the authenticator's `id` when challenging the user for MFA.
 
 ## 3. Enroll an MFA factor
 
-If the user is not enrolled in MFA, enroll it using the `/mfa/associate` endpoint. The documents linked below explain how to implement this flow depending on the authentication factor:
+If the user is not enrolled in MFA, use the MFA token obtained earlier, and enroll it using the `/mfa/associate` endpoint. The documents linked below explain how to implement this flow depending on the authentication factor:
 
-- [Enrolling with SMS](/mfa/guides/mfa-api-sms#enrolling-with-sms).
-- [Enrolling with OTP](/mfa/guides/mfa-api-sms#enrolling-with-otp).
-- [Enrolling with Push](/mfa/guides/mfa-api-sms#enrolling-with-push).
-- [Enrolling with Email](/mfa/guides/mfa-api-sms#enrolling-with-email).
+- [Enrolling with SMS](/mfa/guides/mfa-api/sms#enrolling-with-sms)
+- [Enrolling with OTP](/mfa/guides/mfa-api/otp#enrolling-with-otp)
+- [Enrolling with Push](/mfa/guides/mfa-api/push#enrolling-with-push)
+- [Enrolling with Email](/mfa/guides/mfa-api/email#enrolling-with-email)
 
 ## 4. Challenge the user with MFA
 
@@ -130,11 +130,11 @@ After the challenge is completed, call `/oauth/token` again to finalize the auth
 
 The documents linked below explain how to implement this flow depending on the authentication factor:
 
-- [Challenging with SMS](/mfa/guides/mfa-api/sms#challenging-with-sms).
-- [Challenging with OTP](/mfa/guides/mfa-api/otp#challenging-with-otp).
-- [Challenging with Push](/mfa/guides/mfa-api/push#challenging-with-push).
-- [Challenging with Email](/mfa/guides/mfa-api/email#challenging-with-email).
-- [Challenging with Recovery Code](/mfa/guides/mfa-api/recovery-code).
+- [Challenging with SMS](/mfa/guides/mfa-api/sms#challenging-with-sms)
+- [Challenging with OTP](/mfa/guides/mfa-api/otp#challenging-with-otp)
+- [Challenging with Push](/mfa/guides/mfa-api/push#challenging-with-push)
+- [Challenging with Email](/mfa/guides/mfa-api/email#challenging-with-email)
+- [Challenging with Recovery Code](/mfa/guides/mfa-api/recovery-code)
 
 ## Keep reading
 

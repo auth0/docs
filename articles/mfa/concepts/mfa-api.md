@@ -11,7 +11,7 @@ useCase:
 ---
 # Multi-factor Authentication API
 
-Auth0 provides a built-in e <dfn data-key="multifactor-authentication">Multi-factor Authentication (MFA)</dfn> enrollment and authentication flow using [Universal Login](/universal-login). 
+Auth0 provides a built-in <dfn data-key="multifactor-authentication">Multi-factor Authentication (MFA)</dfn> enrollment and authentication flow using [Universal Login](/universal-login). 
 
 You will need to use the MFA API in the following scenarios:
 
