@@ -31,7 +31,7 @@ Silent re-authentication is achieved by sending a `prompt=none` parameter upon t
 If the exchange fails because `useRefreshTokens` is `true` but there isn't a Refresh Token in the cache, then it falls back to the iframe method (which could also fail if third-party cookies are blocked).
 :::
 
-For more details and examples, see [Use rotating Refresh Tokens](/libraries/auth0-spa-js/index#use-rotating-refresh-tokens). 
+For more details and examples, see [Use rotating Refresh Tokens](/libraries/auth0-spa-js#use-rotating-refresh-tokens). 
 
 ## Token storage
 
