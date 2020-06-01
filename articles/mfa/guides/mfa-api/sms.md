@@ -233,6 +233,7 @@ You can then verify the code and get the authentication tokens using the `/oauth
 
 ## Keep reading
 
+* [Configure SMS Notifications for MFA](/mfa/guides/configure-sms)
 * [Managing MFA Enrollments](/mfa/guides/mfa-api/manage)
 * [Enroll and Challenge Push Authenticators](/mfa/guides/mfa-api/push)
 * [Enroll and Challenge OTP Authenticators](/mfa/guides/mfa-api/otp)

@@ -119,7 +119,7 @@ If OTP is supported by the user and you don't want to request a different factor
 
 ### More information
 
-* [Authenticating With Resource Owner Password Grant and MFA](/mfa/guides/mfa-api/authenticating)
+* [Authenticate With Resource Owner Password Grant and MFA](/mfa/guides/mfa-api/authenticate)
 * [Manage Authenticator Factors using the MFA API](/mfa/guides/mfa-api/manage)
 
 ## Verify with one-time password (OTP)

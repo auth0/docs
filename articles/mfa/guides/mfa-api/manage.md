@@ -23,7 +23,7 @@ You can use these endpoints to build a complete user interface for letting users
 
 In order to call the MFA API to manage enrollments, you first need to obtain an MFA Access Token for the API.
 
-If you are using these endpoints as part of an authentication flow, you can follow the steps detailed in the [Authenticating With Resource Owner Password Grant and MFA](/mfa/guides/mfa-api/authenticating) document.
+If you are using these endpoints as part of an authentication flow, you can follow the steps detailed in the [Authenticate With Resource Owner Password Grant and MFA](/mfa/guides/mfa-api/authenticate) document.
 
 If you are building a user interface to manage authentication factors, you'll need to obtain a token you can use for the MFA API at any moment, not only during authentication. 
 
@@ -112,10 +112,32 @@ If the authenticator was deleted, a 204 response is returned.
 :::note
 - When you enroll a Push authenticator, Auth0 also enrolls an OTP one. If you delete any of them, the other one will be also deleted.
 - If Email MFA is enabled, all verified emails will be listed as authenticators, but you can't delete them. You can only delete email authenticators that were enrolled explicitly.
-- You cannot delete Recovery codes using this API. They only be deleted using the [Management API](/api/management/v2#!/Users/post_recovery_code_regeneration).
 :::
+
+## Delete a Recovery Code
+
+To delete a Recovery Code, you need to use Management API's `/api/v2/users/USER_ID/recovery-code-regeneration` endpoint. You previously to get a [Management API Access Token](/api/management/v2/tokens).
+
+```har
+{
+	"method": "DELETE",
+	"url": "https://${account.namespace}/api/v2/users/USER_ID/recovery-code-regeneration",
+	"headers": [{
+		"name": "Authorization",
+		"value": "Bearer MANAGEMENT_API_TOKEN"
+	}]
+}
+```
+
+You will get a new recovery code that the end user will need to capture:
+
+```json
+{
+  "recovery_code": "FA45S1Z87MYARX9RG6EVMAPE"
+}
+```
 
 ## Keep reading
 
-* [Authenticating With Resource Owner Password Grant and MFA](/mfa/guides/mfa-api/authenticating)
+* [Authenticate With Resource Owner Password Grant and MFA](/mfa/guides/mfa-api/authenticate)
 

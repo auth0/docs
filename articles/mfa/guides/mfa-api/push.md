@@ -243,6 +243,7 @@ This call can return one of the following results:
 
 ## Keep Reading
 
+* [Configure Push Notifications for MFA](/mfa/guides/configure-push)
 * [Managing MFA Enrollments](/mfa/guides/mfa-api/manage)
 * [Enroll and Challenge SMS Authenticators](/mfa/guides/mfa-api/sms)
 * [Enroll and Challenge OTP Authenticators](/mfa/guides/mfa-api/otp)
