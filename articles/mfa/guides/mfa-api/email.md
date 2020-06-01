@@ -132,7 +132,7 @@ To challenge the user you first need to obtain the id of the authenticator you w
 
 To trigger an email challenge, `POST` to the to `mfa/challenge` endpoint, using the corresponding `authenticator_id` ID and the `mfa_token`. 
 
-```har
+```
 {
 	"method": "POST",
 	"url": "https://${account.namespace}/mfa/challenge",
