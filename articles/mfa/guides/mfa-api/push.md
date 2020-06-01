@@ -16,7 +16,7 @@ useCase:
 
 Auth0 provides a built-in MFA enrollment and authentication flow using [Universal Login](/universal-login). However, if you want to create your own user interface, you can use the MFA API to accomplish it. 
 
-This guide will explain how to enroll and challenge users using Push Notifications with the Guardian Application or SDK, with the MFA API. First, make sure that Push is [enabled as factor](/mfa/guides/configure-push) in the Dashboard or using the [Management API](/api/management/v2#!/Guardian/put_factors_by_name).
+This guide explains to enroll and challenge users using Push Notifications with the Guardian Application or SDK, with the MFA API. First, make sure that Push is [enabled as factor](/mfa/guides/configure-push) in the Dashboard or using the [Management API](/api/management/v2#!/Guardian/put_factors_by_name).
 
 <%= include('../../_includes/_authenticator-before-start') %>
 
@@ -127,7 +127,7 @@ To challenge a user with Push, follow the steps detailed below.
 
 ### 1. Get the MFA token
 
-You can get the MFA token in [the same way](#1-get-the-mfa-token) you do it for enrollment.
+<%= include('../../_includes/_get_mfa_token_challenge') %>
 
 ### 2. Retrieve the enrolled authenticators
 

@@ -33,10 +33,7 @@ If you want to enable users enroll additional emails, in addition of the verifie
 
 ### 1. Get the MFA token
 
-Depending on when you are triggering enrollment, you can obtain an access token for using the MFA API in different ways: 
-
-  - [Authenticating with the MFA API]
-  - [Managing Authentication Factors with the MFA API]
+<%= include('../../_includes/_get_mfa_token') %>
 
 ### 2. Enroll the Authenticator 
 
@@ -106,7 +103,7 @@ To complete enrollment of the email authenticator make a `POST` request to the `
           },
           {
             "name": "binding_code",
-            "value": "000000"
+            "value": "USER_EMAIL_OTP_CODE"
           },
           {
             "name": "client_id",
@@ -127,11 +124,11 @@ To challenge a user with Email, follow the steps detailed below.
 
 ### 1. Get the MFA token
 
-You can get the MFA token in [the same way](#1-get-the-mfa-token) you do it for enrollment.
+<%= include('../../_includes/_get_mfa_token_challenge') %>
 
 ### 2. Challenge the user with Email
 
-To challenge the user you first need to obtain the id of the authenticator you want to challenge using the `/mfa/enrollments` endpoint.
+To challenge the user you first need to obtain the id of the authenticator you want to challenge using the [`/mfa/enrollments`](/mfa/guides/mfa-api/manage#list-authenticators) endpoint.
 
 To trigger an email challenge, `POST` to the to `mfa/challenge` endpoint, using the corresponding `authenticator_id` ID and the `mfa_token`. 
 
@@ -158,9 +155,7 @@ If successful, you'll get the following response, and the user will get an email
   }
   ```
 
-Your application needs to prompt the user for the `binding_code` and send it as part of the request. The `binding_code` is a 6-digit number included in the challenge.
-
-You can then verify the code and get the authentication tokens using the `/oauth/token` endpoint:
+Your application needs to prompt the user for the code, and send it as part of the request, in the `binding_code` parameter, in the following call to the `/oauth/token` endpoint:
 
 ```har
 {
@@ -194,12 +189,16 @@ You can then verify the code and get the authentication tokens using the `/oauth
       },
       {
         "name": "binding_code",
-        "value": "CODE_RECEIVED_BY_THE_USER"
+        "value": "USER_EMAIL_OTP_CODE"
       }
     ]
   }
 }
 ```
+
+<%= include('../../_includes/_successful_challenge') %>
+
+## Keep Reading
 
 * [Managing MFA Enrollments](/mfa/guides/mfa-api/manage).
 * [Enroll and Challenge Push Authenticators](/mfa/guides/mfa-api/push)

@@ -16,7 +16,7 @@ useCase:
 
 Auth0 provides a built-in MFA enrollment and authentication flow using [Universal Login](/universal-login). However, if you want to create your own user interface, you can use the MFA API to accomplish it. 
 
-This guide will explain how to enroll and challenge users with SMS using the MFA API. First, make sure that SMS is [enabled as factor](/mfa/guides/configure-sms) in the Dashboard or using the [Management API](/api/management/v2#!/Guardian/put_factors_by_name).
+This guide explains how to enroll and challenge users with SMS using the MFA API. First, make sure that SMS is [enabled as factor](/mfa/guides/configure-sms) in the Dashboard or using the [Management API](/api/management/v2#!/Guardian/put_factors_by_name).
 
 <%= include('../../_includes/_authenticator-before-start') %>
 
@@ -123,7 +123,7 @@ To challenge a user with SMS, follow the steps detailed below.
 
 ### 1. Get the MFA token
 
-You can get the MFA token in [the same way](#1-get-the-mfa-token) you do it for enrollment.
+<%= include('../../_includes/_get_mfa_token_challenge') %>
 
 ### 2. Retrieve the enrolled authenticators
 
@@ -222,12 +222,14 @@ You can then verify the code and get the authentication tokens using the `/oauth
       },
       {
         "name": "binding_code",
-        "value": "CODE_RECEIVED_BY_THE_USER"
+        "value": "USER_SMS_OTP_CODE"
       }
     ]
   }
 }
 ```
+
+<%= include('../../_includes/_successful_challenge') %>
 
 ## Keep reading
 

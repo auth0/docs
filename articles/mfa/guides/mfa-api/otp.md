@@ -16,7 +16,7 @@ useCase:
 
 Auth0 provides a built-in MFA enrollment and authentication flow using [Universal Login](/universal-login). However, if you want to create your own user interface, you can use the MFA API to accomplish it. 
 
-This guide will explain how to enroll and challenge users with OTP using the MFA API. First, make sure that OTP is [enabled as factor](/mfa/guides/configure-otp) in the Dashboard or using the [Management API](/api/management/v2#!/Guardian/put_factors_by_name).
+This guide explains how to enroll and challenge users with OTP using the MFA API. First, make sure that OTP is [enabled as factor](/mfa/guides/configure-otp) in the Dashboard or using the [Management API](/api/management/v2#!/Guardian/put_factors_by_name).
 
 <%= include('../../_includes/_authenticator-before-start') %>
 
@@ -113,7 +113,7 @@ To challenge a user with OTP, follow the steps detailed below.
 
 ### 1. Get the MFA token
 
-You can get the MFA token in [the same way](#1-get-the-mfa-token) you do it for enrollment.
+<%= include('../../_includes/_get_mfa_token_challenge') %>
 
 ### 2. Retrieve the enrolled authenticators
 
@@ -208,6 +208,10 @@ The user will collect a one-time password, which you will then collect from them
   }
 }
 ```
+
+<%= include('../../_includes/_successful_challenge') %>
+
+## Keep Reading
 
 * [Managing MFA Enrollments](/mfa/guides/mfa-api/manage).
 * [Enroll and Challenge Push Authenticators](/mfa/guides/mfa-api/push)
