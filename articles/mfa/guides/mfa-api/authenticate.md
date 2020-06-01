@@ -90,7 +90,7 @@ After getting the error above, you need to find out if the user has an MFA facto
 }
 ```
 
-You will get an array with the available authenticators. The array will be empty if the user did not enroll any factor, or have the enrolled factors otherwise:
+You will get an array with the available authenticators. The array will be empty if the user did not enroll any factor.
 
 ```json
 [
@@ -108,8 +108,6 @@ You will get an array with the available authenticators. The array will be empty
     }
 ]
 ```
-
-You will need to use the authenticator's `id` when challenging the user for MFA.
 
 ## 3. Enroll an MFA factor
 

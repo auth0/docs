@@ -78,7 +78,7 @@ You should receive information about the authenticator type(s) in the response:
 
 For the purposes of building an user interface for end users to manage their factors, you should ignore authenticators that have `active` = `false`. Those authenticators are not confirmed by users, so they can't be used to challenge for MFA.
 
-:::note
+::: note
 - When a user enrolls with Push, Auth0 creates an OTP enrollment. You will see both when listing enrollments.
 - When Email MFA is enabled, all verified emails will be listed as authenticators.
 - When a user enrolls any factor Auth0 creates a recovery code that will be listed as an authenticator.
