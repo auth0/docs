@@ -74,7 +74,7 @@ Please note:
 
 ### Default response
 
-When you run a Hook executed at the Client Crentials Exchange extensibility point, the default response object is:
+When you run a Hook executed at the Client Credentials Exchange extensibility point, the default response object is:
 
 ```json
 {
