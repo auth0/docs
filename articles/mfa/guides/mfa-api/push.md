@@ -74,7 +74,7 @@ If you get a `User is already enrolled error`, is because the user already has a
 
 To confirm the enrollment, the end user will need to scan the a QR code with the `barcode_uri` in the Guardian App. Once that's done the Guardian App will notify Auth0 that the user enrolled successfully. To know if that happened, you need to poll the `/oauth/token` endpoint with the `oob_code` returned by the `/associate` call:
 
-```
+```har
 {
 	"method": "POST",
 	"url": "https://${account.namespace}/oauth/token",
@@ -133,7 +133,7 @@ To challenge a user with Push, follow the steps detailed below.
 
 To be able to challenge the user, you need the `authenticator_id` for the factor you want to challenge. You can list all enrolled authenticators by using the `/mfa/authenticators` endpoint:
 
-```
+```har
 {
 	"method": "GET",
 	"url": "https://${account.namespace}/mfa/authenticators",
@@ -174,13 +174,13 @@ Note that when users enroll with Push, they also get enrolled in OTP, as Guardia
 
 To trigger an SMS challenge, `POST` to the to `mfa/challenge` endpoint, using the corresponding `authenticator_id` ID and the `mfa_token`. 
 
-```
+```har
 {
 	"method": "POST",
 	"url": "https://${account.namespace}/mfa/challenge",
 	"postData": {
 		"mimeType": "application/json",
-		"text": "{ \"client_id\": \"YOUR_CLIENT_ID\",  \"client_secret\": \"YOUR_CLIENT_SECRET\", \"challenge_type\": \"oob\", \"authenticator_id\": \"push|dev_ZUla9SQ6tAIHSz6y\", \"mfa_token\": \"MFA_TOKEN" }"
+		"text": "{ \"client_id\": \"YOUR_CLIENT_ID\",  \"client_secret\": \"YOUR_CLIENT_SECRET\", \"challenge_type\": \"oob\", \"authenticator_id\": \"push|dev_ZUla9SQ6tAIHSz6y\", \"mfa_token\": \"MFA_TOKEN\" }"
 	}
 }
 ```
@@ -199,7 +199,7 @@ If successful, you'll receive the following response, and the user will get an P
 
 Your application needs to start polling the `/oauth/token` endpoint until the user accepts the Push notification. If the endpoint returns `
 
-```
+```har
 {
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
@@ -236,10 +236,10 @@ Your application needs to start polling the `/oauth/token` endpoint until the us
 
 This call can return one of the following results:
 
-  - `authorization_pending` error: if the challenge has not been accepted nor rejected.
-  - `slow_down` error: if the polling is too frequent.
-  - an `access_token` and a `refresh_token`: if the challenge has been accepted; polling should be stopped at this point.
-  - `invalid_grant` error: if the challenge has been rejected; polling should be stopped at this point.
+- `authorization_pending` error: if the challenge has not been accepted nor rejected.
+- `slow_down` error: if the polling is too frequent.
+- an `access_token` and a `refresh_token`: if the challenge has been accepted; polling should be stopped at this point.
+- `invalid_grant` error: if the challenge has been rejected; polling should be stopped at this point.
 
 ## Keep Reading
 
