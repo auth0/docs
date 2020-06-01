@@ -35,7 +35,7 @@ To enroll with SMS, you need to use the following parameters:
 - `authentication_types` = `[oob]`
 - `oob_channels` = `[auth0]`
 
-```har
+```
 {
 	"method": "POST",
 	"url": "https://${account.namespace}/mfa/associate",
@@ -74,7 +74,7 @@ If you get a `User is already enrolled error`, is because the user already has a
 
 To confirm the enrollment, the end user will need to scan the a QR code with the `barcode_uri` in the Guardian App. Once that's done the Guardian App will notify Auth0 that the user enrolled successfully. To know if that happened, you need to poll the `/oauth/token` endpoint with the `oob_code` returned by the `/associate` call:
 
-```har
+```
 {
 	"method": "POST",
 	"url": "https://${account.namespace}/oauth/token",
@@ -174,7 +174,7 @@ Note that when users enroll with Push, they also get enrolled in OTP, as Guardia
 
 To trigger an SMS challenge, `POST` to the to `mfa/challenge` endpoint, using the corresponding `authenticator_id` ID and the `mfa_token`. 
 
-```har
+```
 {
 	"method": "POST",
 	"url": "https://${account.namespace}/mfa/challenge",
@@ -199,7 +199,7 @@ If successful, you'll receive the following response, and the user will get an P
 
 Your application needs to start polling the `/oauth/token` endpoint until the user accepts the Push notification. If the endpoint returns `
 
-```har
+```
 {
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
