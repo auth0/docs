@@ -35,7 +35,7 @@ To enroll with SMS, you need to use the following parameters:
 - `authentication_types` = `[oob]`
 - `oob_channels` = `[auth0]`
 
-```
+```har
 {
 	"method": "POST",
 	"url": "https://${account.namespace}/mfa/associate",
