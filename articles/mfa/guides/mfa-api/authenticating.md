@@ -14,15 +14,13 @@ useCase:
 ---
 # Authenticating With Resource Owner Password Grant and MFA
 
-This guide explains how you use the MFA API to complete the authentication flow using [Resource Owner Password Grant](/api-auth/tutorials/password-grant) when MFA is enabled.
+This guide explains how to use the MFA API to complete the authentication flow using [Resource Owner Password Grant](/api-auth/tutorials/password-grant) when MFA is enabled.
 
 <%= include('../../_includes/_authenticator-before-start') %>
 
 ## 1. Authenticate the User
 
-When you use the Resource Owner Password Grant to authenticate, you call the `/oauth/token` endpoint with the user's username/password. 
-
-If MFA is enabled, the call will return an `mfa_required` error and a `mfa_token`.
+When you use the Resource Owner Password Grant to authenticate, you call the `/oauth/token` endpoint with the user's username/password: 
 
 ```har
 {
@@ -67,7 +65,7 @@ If MFA is enabled, the call will return an `mfa_required` error and a `mfa_token
 }
 ```
 
-The response will include the `mfa_required` error and a `mfa_token`:
+When MFA is enabled, the response will include an `mfa_required` error and a `mfa_token`.
 
 ```json
 {
@@ -81,9 +79,9 @@ The response will include the `mfa_required` error and a `mfa_token`:
 
 After getting the error above, you need find out if the user has an MFA factor enrolled or not. 
 
-Call `/mfa/authenticators` endpoint, using the MFA token obtained in the previous step.
+Call [`/mfa/authenticators`](/mfa/guides/mfa-api/manage#list-authenticators) endpoint, using the MFA token obtained in the previous step.
 
-```
+```har
 {
     "method": "GET",
 	"url": "https://${account.namespace}/mfa/authenticators",
@@ -109,7 +107,7 @@ You will get an array with the available authenticators. The array will be empty
         "active": true,
         "oob_channel": "email",
         "name": "email@address.com"
-    },
+    }
 ]
 ```
 
@@ -126,7 +124,7 @@ If the user is not enrolled in MFA, enroll it using the `/mfa/associate` endpoin
 
 ## 4. Challenge the user with MFA
 
-If the user is already enrolled in MFA, you need to challenge the user with one existing factor. Use the `authenticator_id` returned by the `/mfa/authenticators` endpoint when calling the `/mfa/challenge` endpoint. 
+If the user is already enrolled in MFA, you need to challenge the user with one of the existing factors. Use the `authenticator_id` returned by the `/mfa/authenticators` endpoint when calling the `/mfa/challenge` endpoint. 
 
 After the challenge is completed, call `/oauth/token` again to finalize the authentication flow and get the authentication tokens. 
 
