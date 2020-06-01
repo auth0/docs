@@ -132,7 +132,7 @@ To challenge the user you first need to obtain the id of the authenticator you w
 
 To trigger an email challenge, `POST` to the to `mfa/challenge` endpoint, using the corresponding `authenticator_id` ID and the `mfa_token`. 
 
-```
+```har
 {
 	"method": "POST",
 	"url": "https://${account.namespace}/mfa/challenge",
@@ -200,8 +200,8 @@ Your application needs to prompt the user for the code, and send it as part of t
 
 ## Keep Reading
 
-* [Managing MFA Enrollments](/mfa/guides/mfa-api/manage).
+* [Managing MFA Enrollments](/mfa/guides/mfa-api/manage)
 * [Enroll and Challenge Push Authenticators](/mfa/guides/mfa-api/push)
-* [Enroll and Challenge OTP Authenticators](/mfa/guides/mfa-api/otp).
-* [Enroll and Challenge SMS Authenticators](/mfa/guides/mfa-api/sms).
-* [Challenge a Recovery Code](/mfa/guides/mfa-api/recovery-code).
+* [Enroll and Challenge OTP Authenticators](/mfa/guides/mfa-api/otp)
+* [Enroll and Challenge SMS Authenticators](/mfa/guides/mfa-api/sms)
+* [Challenge a Recovery Code](/mfa/guides/mfa-api/recovery-code)

@@ -119,7 +119,7 @@ To challenge a user with OTP, follow the steps detailed below.
 
 To be able to challenge the user, you need the `authenticator_id` for the factor you want to challenge. You can list all enrolled authenticators by using the `/mfa/authenticators` endpoint:
 
-```
+```har
 {
 	"method": "GET",
 	"url": "https://${account.namespace}/mfa/authenticators",
@@ -213,8 +213,8 @@ The user will collect a one-time password, which you will then collect from them
 
 ## Keep Reading
 
-* [Managing MFA Enrollments](/mfa/guides/mfa-api/manage).
+* [Managing MFA Enrollments](/mfa/guides/mfa-api/manage)
 * [Enroll and Challenge Push Authenticators](/mfa/guides/mfa-api/push)
-* [Enroll and Challenge SMS Authenticators](/mfa/guides/mfa-api/sms).
-* [Enroll and Challenge Email Authenticators](/mfa/guides/mfa-api/email).
-* [Challenge a Recovery Code](/mfa/guides/mfa-api/recovery-code).
+* [Enroll and Challenge SMS Authenticators](/mfa/guides/mfa-api/sms)
+* [Enroll and Challenge Email Authenticators](/mfa/guides/mfa-api/email)
+* [Challenge a Recovery Code](/mfa/guides/mfa-api/recovery-code)
