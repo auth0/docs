@@ -133,7 +133,7 @@ To challenge a user with Push, follow the steps detailed below.
 
 To be able to challenge the user, you need the `authenticator_id` for the factor you want to challenge. You can list all enrolled authenticators by using the `/mfa/authenticators` endpoint:
 
-```har
+```
 {
 	"method": "GET",
 	"url": "https://${account.namespace}/mfa/authenticators",
