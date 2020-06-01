@@ -1,5 +1,5 @@
 ---
-title: Manage the Authenticators for Multi-factor Authentication
+title: Manage Authenticator Factors using the MFA API
 description: Learn how to manage your MFA authenticators
 topics:
   - mfa
