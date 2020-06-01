@@ -1,6 +1,6 @@
 ---
 title: Enroll and Challenge SMS Authenticators
-description: Build your own MFA flows using sms as a factor.
+description: Build your own MFA flows using SMS as a factor.
 topics:
   - mfa
   - mfa-api

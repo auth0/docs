@@ -15,28 +15,31 @@ useCase:
 
 Auth0 provides several API endpoints to help you manage the authenticators you're using with an application for <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn>.
 
-You can use these endpoints to build a complete user interface for letting users manage their authenticator factors.
+You can use these endpoints to build a complete user interface for letting users manage their authenticator factors. 
 
 <%= include('../../_includes/_authenticator-before-start') %>
 
 ## Getting an MFA API Access Token
 
-In order to call the MFA API to manage enrollments, you first need to obtain an MFA Access Token for the API.
+In order to call the MFA API to manage enrollments, you first need to obtain an Access Token for the MFA API.
 
-If you are using these endpoints as part of an authentication flow, you can follow the steps detailed in the [Authenticate With Resource Owner Password Grant and MFA](/mfa/guides/mfa-api/authenticate) document.
+If you want to use the MFA API as part of an authentication flow, you can follow the steps detailed in the [Authenticate With Resource Owner Password Grant and MFA](/mfa/guides/mfa-api/authenticate) document.
 
-If you are building a user interface to manage authentication factors, you'll need to obtain a token you can use for the MFA API at any moment, not only during authentication. 
+If you are building a user interface to manage authentication factors, you'll need to obtain a token you can use for the MFA API at any moment, not only during authentication:
 
-* If you are using [Universal Login](/universal-login), you can to make an additional redirect call to the `/authorize` endpoint, specifying the `https://${account.namespace}/mfa` audience, before using calling the MFA API.
+* If you are using [Universal Login](/universal-login), redirect to the `/authorize` endpoint, specifying the `https://${account.namespace}/mfa` audience, before using calling the MFA API.
 
 * If you are using the Resource Owner Password Grant, you have two options:
 
-  - You ask for the `https://${account.namespace}/mfa` audience when logging-in, and use a [Refresh Token](/tokens/concepts/refresh-tokens) to refresh it later.
-  - You ask the user to authenticate using his user/password before seeing or changing his MFA Enrollments. You will get an `mfa_required` error and the `mfa_token` you can later use to call the MFA API.
+  - Ask for the `https://${account.namespace}/mfa` audience when logging-in, and use a [Refresh Token](/tokens/concepts/refresh-tokens) to refresh it later.
+
+  - If you need to list and delete authenticators, ask for the user to [authenticate again](/mfa/guides/mfa-api/authenticate) with `/oauth/token`, specifying the `https://${account.namespace}/mfa` audience. Users will need to complete MFA before being able to list/delete the authentication factors. 
+
+  - If you only need to list authenticators, ask for the user to [authenticate again](/mfa/guides/mfa-api/authenticate) using `/oauth/token`, with username/password. The endpoint will return an `mfa_required` error, and an `mfa_token` you can use to list authenticators. Users will need to provide their password to see their authenticators.
 
 ## List Authenticators
 
-To get a list of the authenticators a user has associated and can be used with your tenant, you can call the `/mfa/authenticators` endpoint:
+To get the list of the authenticators for a user, you can call the `/mfa/authenticators` endpoint:
 
 ```har
 {
@@ -78,7 +81,7 @@ For the purposes of building an user interface for end users to manage their fac
 :::note
 - When a user enrolls with Push, Auth0 creates an OTP enrollment. You will see both when listing enrollments.
 - When Email MFA is enabled, all verified emails will be listed as authenticators.
-- When a user enrolls any factor, Auth0 creates a recovery code, that will be listed as an authenticator.
+- When a user enrolls any factor Auth0 creates a recovery code that will be listed as an authenticator.
 :::
 
 ## Enroll Authenticators
@@ -94,7 +97,7 @@ You can also [use the Universal Login flow](/mfa/guides/guardian/create-enrollme
 
 ## Delete Authenticators
 
-To delete an associated authenticator, send a delete request to the `/mfa/authenticators/AUTHENTICATOR_ID` endpoint (be sure to replace `AUTHENTICATOR_ID` with the relevant authenticator ID).
+To delete an associated authenticator, send a `DELETE` request to the `/mfa/authenticators/AUTHENTICATOR_ID` endpoint. You can get the `ID` when listing authenticators.
 
 ```har
 {
@@ -116,7 +119,7 @@ If the authenticator was deleted, a 204 response is returned.
 
 ## Delete a Recovery Code
 
-To delete a Recovery Code, you need to use Management API's `/api/v2/users/USER_ID/recovery-code-regeneration` endpoint. You previously to get a [Management API Access Token](/api/management/v2/tokens).
+To delete a Recovery Code, you need to use Management API's `/api/v2/users/USER_ID/recovery-code-regeneration` endpoint. You previously need to get a [Management API Access Token](/api/management/v2/tokens).
 
 ```har
 {
