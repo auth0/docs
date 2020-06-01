@@ -1,6 +1,6 @@
 ---
-title: Associate One-Time Password Authenticators
-description: Configure your application so users can self-associate one-time password (OTP) authenticators.
+title: Authenticate With Resource Owner Password Grant and MFA
+description: Authenticate With Resource Owner Password Grant and MFA
 topics:
   - mfa
   - mfa-api
@@ -12,7 +12,7 @@ contentType:
 useCase:
   - customize-mfa
 ---
-# Authenticating With Resource Owner Password Grant and MFA
+# Authenticate With Resource Owner Password Grant and MFA
 
 This guide explains how to use the MFA API to complete the authentication flow using [Resource Owner Password Grant](/api-auth/tutorials/password-grant) when MFA is enabled.
 

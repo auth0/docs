@@ -200,6 +200,7 @@ Your application needs to prompt the user for the code, and send it as part of t
 
 ## Keep Reading
 
+* [Configure Email Notifications for MFA](/mfa/guides/configure-email)
 * [Managing MFA Enrollments](/mfa/guides/mfa-api/manage)
 * [Enroll and Challenge Push Authenticators](/mfa/guides/mfa-api/push)
 * [Enroll and Challenge OTP Authenticators](/mfa/guides/mfa-api/otp)
