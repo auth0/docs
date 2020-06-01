@@ -391,7 +391,7 @@ This is the OAuth 2.0 grant that highly-trusted apps use to access an API. In th
 ### More Information
 - [Calling APIs from Highly-Trusted Applications](/api-auth/grant/password)
 - [Executing the Resource Owner Password Grant](/api-auth/tutorials/password-grant)
-- [Multi-factor Authentication and Resource Owner Password](/api-auth/tutorials/multifactor-resource-owner-password)
+- [Multi-factor Authentication and Resource Owner Password](/mfa/guides/mfa-api/multifactor-resource-owner-password)
 
 ## Device Authorization Flow
 

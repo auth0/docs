@@ -231,7 +231,8 @@ You can then verify the code and get the authentication tokens using the `/oauth
 
 ## Keep reading
 
-* [Managing MFA Enrollments](/mfa/guides/mfa-api/manage)
+* [Managing MFA Enrollments](/mfa/guides/mfa-api/manage).
 * [Enroll and Challenge Push Authenticators](/mfa/guides/mfa-api/push)
-* [Enroll and Challenge OTP Authenticators](/mfa/guides/mfa-api/otp)
-* [Enroll and Challenge SMS Authenticators](/mfa/guides/mfa-api/sms)
+* [Enroll and Challenge OTP Authenticators](/mfa/guides/mfa-api/otp).
+* [Enroll and Challenge Email Authenticators](/mfa/guides/mfa-api/email).
+* [Challenge a Recovery Code](/mfa/guides/mfa-api/recovery-code).
