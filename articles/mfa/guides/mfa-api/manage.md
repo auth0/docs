@@ -33,9 +33,15 @@ If you are building a user interface to manage authentication factors, you'll ne
 
   - Ask for the `https://${account.namespace}/mfa` audience when logging-in, and use a [Refresh Token](/tokens/concepts/refresh-tokens) to refresh it later.
 
-  - If you need to list and delete authenticators, ask for the user to [authenticate again](/mfa/guides/mfa-api/authenticate) with `/oauth/token`, specifying the `https://${account.namespace}/mfa` audience. Users will need to complete MFA before being able to list/delete the authentication factors. 
+  - If you need to list and delete authenticators, ask the user to [authenticate again](/mfa/guides/mfa-api/authenticate) with `/oauth/token`, specifying the `https://${account.namespace}/mfa` audience. Users will need to complete MFA before being able to list/delete the authentication factors. 
 
-  - If you only need to list authenticators, ask for the user to [authenticate again](/mfa/guides/mfa-api/authenticate) using `/oauth/token`, with username/password. The endpoint will return an `mfa_required` error, and an `mfa_token` you can use to list authenticators. Users will need to provide their password to see their authenticators.
+  - If you only need to list authenticators, ask the user to [authenticate again](/mfa/guides/mfa-api/authenticate) using `/oauth/token`, with username/password. The endpoint will return an `mfa_required` error, and an `mfa_token` you can use to list authenticators. Users will need to provide their password to see their authenticators.
+
+When you request a token for the MFA audience, you can request the following scopes:
+
+- `enroll`: needed to enroll a new authenticator
+- `read:authenticators`: needed to list existing authenticators
+- `remove:authenticators`: needed to delete an authenticator
 
 ## List Authenticators
 
