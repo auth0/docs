@@ -28,7 +28,7 @@ Issue detection and failover typically occur at the database level in 30 seconds
 
 Geo-HA is a PSaaS Appliance implementation that provides:
 * Data center redundancy;
-* Automatic failure handling;
+* Rapid failure response;
 * The highest form of PSaaS Appliance availability offered by Auth0.
 
 **Disadvantages**:
