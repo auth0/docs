@@ -12,11 +12,11 @@ contentType: index
 
 # Log Streams
 
-Log Streams let you export your log events to a target of your choice given URL or via AWS EventBridge. With Log Streams you can:
+Log Streams let you export your log events to a target of your choice given URL or one of our integrations. With Log Streams you can:
 
 * export logs to a tool or service you already use
 * react to events, such as changed passwords or new registrations, with your own business logic by sending log events to custom webhooks
-* send events to AWS EventBridge for processing with lambdas or additional data pipelines
+* send events to Amazon EventBridge or Azure Event Grid
 
 ## Log Stream Health
 
@@ -46,7 +46,7 @@ To help diagnose issues with your stream, you can see the last ten errors we enc
 
 <%= include('../../_includes/_topic-links', { links: [
   'logs/streams/http-event',
-  'logs/streams/aws-eventbridge',
+  'logs/streams/amazon-eventbridge',
   'logs/streams/datadog',
   'logs/streams/azure-event-grid'
 ] }) %>
