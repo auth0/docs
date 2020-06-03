@@ -75,7 +75,7 @@ When MFA is enabled, the response will include an `mfa_required` error and a `mf
 }
 ```
 
-## 2. Retrieve the enrolled authenticators
+## 2. Retrieve the Enrolled Authenticators
 
 After getting the error above, you need to find out if the user has an MFA factor enrolled or not. Call [`/mfa/authenticators`](/mfa/guides/mfa-api/manage#list-authenticators) endpoint, using the MFA token obtained in the previous step.
 
@@ -135,4 +135,3 @@ The documents linked below explain how to implement this flow depending on the a
 ## Keep reading
 
 * [Managing MFA Enrollments](/mfa/guides/mfa-api/manage)
-
