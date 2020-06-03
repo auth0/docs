@@ -30,10 +30,19 @@ The [Apple App Store Developer Guidelines](https://developer.apple.com/app-store
 
 ## Prerequisites
 
-Before you configure SIWA for your app in Auth0, you must:
+Before you configure SIWA for your app in Auth0, you must have an [Apple Developer](https://developer.apple.com/programs/) account, which is a paid account with Apple. (There is no free trial available unless you are part of their [iOS Developer University Program](https://developer.apple.com/support/compare-memberships/).)
 
-* Have an [Apple Developer](https://developer.apple.com/programs/) account, which is a paid account with Apple. (There is no free trial available unless you are part of their [iOS Developer University Program](https://developer.apple.com/support/compare-memberships/).)
-* [Register Your App in the Apple Developer Portal](/connections/apple-siwa/set-up-apple) if you have not already done so. Make a note of the following IDs and key for the application connection settings in the Auth0 Dashboard:
+## Steps
+
+To connect your app to Apple, you will:
+
+1. [Set up your app on Apple](#set-up-your-app-on-apple)
+2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
+3. [Test the connection](#test-the-connection)
+
+## Set up your app on Apple
+
+[Register Your App in the Apple Developer Portal](/connections/apple-siwa/set-up-apple) if you have not already done so. Make a note of the following IDs and key for the application connection settings in the Auth0 Dashboard:
   * **Services ID** (Client ID)
   * **Apple Team ID**
   * **Client Secret Signing Key**
@@ -43,19 +52,11 @@ Before you configure SIWA for your app in Auth0, you must:
 If you are using the Classic Universal Login flow or embedding `Lock.js` in your application, make sure you are using `Lock.js` version 11.16 or later. 
 :::
 
-## How it works
-
 Once you have registered your application with Apple and configured your application connection settings in Auth0 to use the IDs and keys obtained from Apple, your users can sign in to your applications using their Apple IDs and passwords. 
 
 ![Apple Sign In with Apple Setup Flow](/media/articles/connections/social/apple/apple-siwa-setup-flow.png)
 
-## Configure and enable the connection in Auth0
-
-Once you have the credentials you need from your Apple Developer account, you need to configure the connection settings and enable the connection for your application in Auth0. 
-
-::: note
-The **Client Secret Signing Key** is the contents of the key file you downloaded when setting up the key on the Apple Developer site. You can copy and paste the content of that file into this field.
-:::
+### Create and enable a connection in Auth0
 
 1. On the Dashboard, go to [Connections > Social](${manage_url}/#/connections/social) and click on the **Apple** connection.
 1. On the **Settings** tab, fill in the following fields:
@@ -66,7 +67,10 @@ The **Client Secret Signing Key** is the contents of the key file you downloaded
 
     ![Application Connection Settings](/media/articles/connections/social/apple/apple-connection.png)
 1. Click **Save**.
-1. [Test the connection](/connections/apple-siwa/test-siwa-connection). 
+
+### Test the connection
+
+[Test the connection](/connections/apple-siwa/test-siwa-connection) to verify the connection works. 
 
 ## Keep reading
 

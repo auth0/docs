@@ -19,60 +19,46 @@ useCase:
 ---
 # Connect Apps to LinkedIn
 
-This guide will show you how to add functionality to your web app that allows your users to log in with LinkedIn. Along the way, you will also learn how to get an Access Token that will allow you to access the LinkedIn API.
+You can add functionality to your web app that allows your users to log in with LinkedIn. 
 
-## 1. Create your app in LinkedIn
+## Prerequisites
 
-Log in to the [LinkedIn Developer portal](https://www.linkedin.com/developers), and click **Create App**.
+Before you connect your Auth0 app to GitHub, you must have an account on the [LinkedIn Developer](https://www.linkedin.com/developers) portal.
 
-You'll be asked to provide basic details about your app, including your:
+## Steps
 
-* App name
-* Company
-* Privacy policy URL
-* Business email
-* App logo
+To connect your app to LinkedIn, you will:
 
-You'll also need to select the products you'd like to add/integrate into your app. By default, you'll get the abilities to **Share on LinkedIn** and **Sign In with LinkedIn**. You can, however, also use the **Marketing Developer Platform**.
+1. [Set up your app in LinkedIn](#set-up-your-app-in-LinkedIn)
+2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
+3. [Test the connection](#test-the-connection)
 
-Finally, indicate that you agree to LinkedIn's legal terms, and click **Create App**.
+### Set up your app in LinkedIn
 
-### Client ID and Client Secret
+1. Log in to the [LinkedIn Developer portal](https://www.linkedin.com/developers), and click **Create App**.
+2. Provide the basic details about your app.
+3. Select the products you'd like to add/integrate into your app. By default, you'll get the abilities to **Share on LinkedIn** and **Sign In with LinkedIn**. You can, however, also use the **Marketing Developer Platform**.
+4. Click **Create App**. LinkedIn generates a **Client ID** and **Client Secret** for your application. You can find these on the app's **Auth** screen under **Application credentials**. 
+5. On the **Auth** screen under **OAuth 2.0 Settings**. Click the **pencil** icon, then click **Add redirect URL**. Enter the following redirect URL:
 
-LinkedIn automatically generates a **Client ID** and **Client Secret** for your application; you can find these on the app's **Auth** screen under **Application credentials**. Make a note of these values, since you'll need to provide them to Auth0 at a later point.
-
-### OAuth 2.0 Settings
-
-You will need to provide the appropriate Redirect URL for your app to LinkedIn. You can do this via the **Auth** screen under **OAuth 2.0 Settings**. Click the **pencil** icon, then click **Add redirect URL**. When prompted, provide the following:
-
-| Field |    Description |
-|-------|-------------|
-| Redirect URLs |    `https://${account.namespace}/login/callback` |
+  `https://${account.namespace}/login/callback`
 
 <%= include('../_find-auth0-domain-redirects') %>
 
-Click **Update** to save your changes.
+6. Click **Update** to save your changes.
 
-## 2. Create and enable a connection in Auth0
+### Create and enable a connection in Auth0
 
-[Set up the LinkedIn social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **Client ID** and **Client Secret** generated in Step 1.
+[Set up the LinkedIn social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated.
 
-## 3. Test the connection
+### Test the connection
 
-You're ready to [test your connection](/dashboard/guides/connections/test-connections-social).
+You're ready to [test your connection](/dashboard/guides/connections/test-connections-social). After logging in, you'll be prompted to allow your app access. To do so, click **Install unlisted app**.
 
 ## Access LinkedIn's API
 
 <%= include('../_call-api', {
   "idp": "LinkedIn"
 }) %>
-
-## LinkedIn Deprecations
-
-In December 2018, LinkedIn [deprecated version 1.0 of their sign-in API](https://engineering.linkedin.com/blog/2018/12/developer-program-updates). The final shutdown date we set for March 1st, 2019 then moved to May 1st, 2019. In June 2019, the current status is that "Applications requesting Version 1.0 APIs may experience issues as we begin to remove services."
-
-LinkedIn replaced the sign-in API with [version 2.0, which has some key differences](https://docs.microsoft.com/en-us/linkedin/consumer/integrations/self-serve/migration-faq?context=linkedin/consumer/context).
-
-We've added the option to set the LinkedIn API version for LinkedIn Connections. You can change the API version for a LinkedIn Connection through the Auth0 Dashboard by selecting a **Strategy Version** under the connection's settings.
 
 <%= include('../_quickstart-links.md') %>

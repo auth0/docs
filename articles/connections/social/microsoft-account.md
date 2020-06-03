@@ -22,32 +22,43 @@ useCase:
   - customize-connections
   - add-idp
 ---
-# Connect Apps to Microsoft
+# Connect Apps to Microsoft Account
 
-This guide will show you how to add functionality to your web app that allows your users to log in with Microsoft Accounts.
+You can add functionality to your web app that allows your users to log in with Microsoft. 
 
-## 1. Set up your app in the Microsoft Azure portal
+## Prerequisites
 
-To learn how, follow Microsoft's [Quickstart: Register an application with the Microsoft identity platform (Preview)](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app) doc.
+Before you connect your Auth0 app to Microsoft Account, you must have:
 
-During this process, Microsoft will generate an **Application (client) ID** for your application; you can find this on the app's **Overview** screen. Make note of this.
+* An account on the [Azure](https://azure.microsoft.com/en-us/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) portal
+* An [Azure AD Tenant](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-create-new-tenant).
 
-While setting up your app, make sure you use the following settings:
+## Steps
 
-* When asked to set a **Redirect URI**, enter your <dfn data-key="callback">callback URL</dfn> `https://${account.namespace}/login/callback`.
+To connect your app to Microsoft Account, you will:
+
+1. [Set up your app in Microsoft Account](#set-up-your-app-in-microsoft-account)
+2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
+3. [Test the connection](#test-the-connection)
+
+### Set up your app in Microsoft Account
+
+Follow the instructions in [Quickstart: Register an application with the Microsoft identity platform (Preview)](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app).
+
+While setting up your app, when asked to set a **Redirect URI**, enter your <dfn data-key="callback">callback URL</dfn>:
+
+  `https://${account.namespace}/login/callback`
 
 <%= include('../_find-auth0-domain-redirects.md') %>
 
-## 2. Add credentials to your Microsoft app
+Microsoft will generate an **Application (client) ID** for your application. You can find this on the app's **Overview** screen. 
 
-To learn how, follow Microsoft's [Quickstart: Configure a client application to access web APIs (Preview)](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-access-web-apis#add-credentials-to-your-web-application) doc. You want to generate a **Client secret**. Once generated, make note of it.
+### Create and enable a connection in Auth0
 
-## 3. Create and enable a connection in Auth0
+[Set up the Microsoft Account social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated.
 
-[Set up the Microsoft social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **Application (client) ID** generated in Step 1 and the **Client Secret** generated in Step 2.
+### Test the connection
 
-## 4. Test the connection
-
-You're ready to [test your connection](/dashboard/guides/connections/test-connections-social).
+You're ready to [test your connection](/dashboard/guides/connections/test-connections-social). After logging in, you'll be prompted to allow your app access. To do so, click **Install unlisted app**.
 
 <%= include('../_quickstart-links.md') %>

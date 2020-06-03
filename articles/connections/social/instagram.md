@@ -17,57 +17,49 @@ useCase:
 ---
 # Connect Apps to Instagram
 
-::: warning 
-Instagram is deprecating their legacy APIs in favor of the new [Instagram Graph API](https://developers.facebook.com/docs/instagram-basic-display-api), which requires users to authenticate using Facebook Login. For more information, see [this Instagram blog post](https://developers.facebook.com/blog/post/2019/10/15/launch-instagram-basic-display-api/).
+You can add functionality to your web app that allows your users to log in with Instagram. 
+
+::: note 
+Instagram hass deprecated their legacy APIs in favor of the new [Instagram Graph API](https://developers.facebook.com/docs/instagram-basic-display-api), which requires users to authenticate using Facebook Login. For more information, see [this blog post](https://developers.facebook.com/blog/post/2019/10/15/launch-instagram-basic-display-api/).
 :::
 
-This article describes how to add functionality to your app that will allow your user to log in with Instagram.
+## Prerequisites
 
-First you need to connect your Auth0 application to Instagram. This is summarized in the following steps:
+Before you connect your Auth0 app to Instagram, you must have an account on the [Facebook Developer](https://developers.facebook.com/) portal. Follow the instructions in [Getting Started with the Instagram Graph API](https://developers.facebook.com/docs/instagram-api/getting-started/). You must get an <dfn data-key="access-token">access token</dfn> that allows you to access the Facebook API. 
 
-- Follow all the steps required by the Graph API in order to register a new client
-- Get the **Client ID** and **Client Secret** for your new client from the [Facebook Developers page](https://developers.facebook.com/)
-- Copy these keys into your Auth0 settings
-- Enable the Instagram social connection in Auth0
+## Steps
 
-## 1. Configure the Instagram Graph API
+To connect your app to Instagram, you will:
 
-To register your app with the Graph API and get the credentials for your client, refer to the Facebook's documentation: [Getting Started with the Instagram Graph API](https://developers.facebook.com/docs/instagram-api/getting-started/).
+1. [Set up your app with the Graph API](#set-up-your-app-with-the-graph-api)
+2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
+3. [Test the connection](#test-the-connection)
+
+### Set up your app with the Graph API
+
+1. 1. Log in to the [Facebook Developer](https://developers.facebook.com/) portal. 
+2. Follow steps for [App Development](https://developers.facebook.com/docs/apps#register) to register your app. 
+3. Add Facebook Login to your app in the App Dashboard. 
+4. On the **Facebook Login > Settings** page, under **Valid Oauth Redirect URIs**, enter your <dfn data-key="callback">callback URL</dfn>: 
+
+  `https://${account.namespace}/login/callback`
+
+  You can also set a **Deauthorize Callback URL** that will be called when a user deauthorizes your app.
+
+<%= include('../_find-auth0-domain-redirects') %>
+
+::: note
+If your application requests sensitive permissions, it may be [subject to review by Facebook](https://developers.facebook.com/docs/apps/review/). Only the `default` and `email` permissions do not currently require app review. For info on Facebook permissions, see Facebook's [Facebook Login Permissions Reference](https://developers.facebook.com/docs/facebook-login/permissions/).
+:::
 
 Once you are done you should have two pieces of information: the **Client ID** and **Client Secret** for your app.
 
-## 2. Set the credentials in the Dashboard
+### Create and enable a connection in Auth0
 
-1. Go to [Dashboard > Connections > Social](${manage_url}/#/connections/social)
-2. Select **Instagram**
-3. Copy the **Client Id** and **Client Secret** from the Developer portal into the corresponding fields on this page
-4. Select the **Permissions** you want to enable.
-5. Click **SAVE**.
+[Set up the Instagram social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated.
 
-![](/media/articles/connections/social/instagram/instagram-devportal-5.png)
+### Test the connection
 
-## 3. Enable the connection
-
-Go to the **Apps** tab of the Instagram connection on Auth0 and select each of your existing Auth0 apps for which you want to enable this connection:
-
-![](/media/articles/connections/social/instagram/instagram-devportal-6.png)
-
-## 4. Test the connection
-
-Close the **Settings** window to return to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard.
-
-A **TRY** icon will now be displayed next to the Instagram logo:
-
-![](/media/articles/connections/social/instagram/instagram-devportal-7.png)
-
-Click **TRY**.
-
-Click **Authorize** to allow your app access.
-
-![](/media/articles/connections/social/instagram/instagram-devportal-7a.png)
-
-If you have configured everything correctly, you will see the **It works!!!** page:
-
-![](/media/articles/connections/social/instagram/instagram-devportal-7b.png)
+You're ready to [test your connection](/dashboard/guides/connections/test-connections-social). After logging in, you'll be prompted to allow your app access. To do so, click **Install unlisted app**.
 
 <%= include('../_quickstart-links.md') %>

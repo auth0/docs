@@ -19,7 +19,7 @@ useCase:
 ---
 # Connect Apps to Shopify
 
-This guide will show you how to add functionality to your web app that allows your users to log in with Shopify. 
+You can add functionality to your web app that allows your users to log in with Shopify. 
 
 ## Prerequisites
 
@@ -48,7 +48,7 @@ While setting up your app, make sure you use the following settings:
 
 ### Create and enable a connection in Auth0
 
-[Set up the Shopify social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated in Step 1.
+[Set up the Shopify social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated.
 
 ### Test the connection
 

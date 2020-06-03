@@ -19,31 +19,46 @@ useCase:
 ---
 # Connect Apps to Facebook
 
-This guide will show you how to add functionality to your web app that allows your users to log in with Facebook. Along the way, you will also learn how to get an <dfn data-key="access-token">Access Token</dfn> that will allow you to access the Facebook API.
+You can add functionality to your web app that allows your users to log in with Facebook. 
 
-## 1. Set up your app in Facebook
+## Prerequisites
 
-To learn how, follow Facebook's [App Development](https://developers.facebook.com/docs/apps) docs. During this process, Facebook will generate an **App ID** and **App Secret** for your application; you can find these in the app's **Basic Settings**.
+Before you connect your Auth0 app to Facebook, you must have an account on the [Facebook Developer](https://developers.facebook.com/) portal. Follow the instructions in [Facebook App Development](https://developers.facebook.com/docs/apps) docs. You must get an <dfn data-key="access-token">access token</dfn> that allows you to access the Facebook API.
 
-While setting up your app, make sure you use the following settings:
+## Steps
 
-* When asked to select scenarios, choose **Facebook Login**.
-* On the **Facebook Login** > **Settings** page, under **Valid Oauth Redirect URIs**, enter your <dfn data-key="callback">callback URL</dfn>: `https://${account.namespace}/login/callback`.
-* On the **Facebook Login** > **Settings** page, you can also set a **Deauthorize Callback URL** that will be called when a user deauthorizes your app.
+To connect your app to Facebook, you will:
+
+1. [Set up your app in Facebook](#set-up-your-app-in-facebook)
+2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
+3. [Test the connection](#test-the-connection)
+
+### Set up your app in Facebook
+
+1. Log in to the [Facebook Developer](https://developers.facebook.com/) portal. 
+2. Follow steps for [App Development](https://developers.facebook.com/docs/apps#register) to register your app. 
+3. Add Facebook Login to your app in the App Dashboard. When asked to select a scenario, choose **Facebook Login**.
+4. On the **Facebook Login > Settings** page, under **Valid Oauth Redirect URIs**, enter your <dfn data-key="callback">callback URL</dfn>: 
+
+  `https://${account.namespace}/login/callback`
+
+  You can also set a **Deauthorize Callback URL** that will be called when a user deauthorizes your app.
 
 <%= include('../_find-auth0-domain-redirects') %>
 
-::: warning
+::: note
 If your application requests sensitive permissions, it may be [subject to review by Facebook](https://developers.facebook.com/docs/apps/review/). Only the `default` and `email` permissions do not currently require app review. For info on Facebook permissions, see Facebook's [Facebook Login Permissions Reference](https://developers.facebook.com/docs/facebook-login/permissions/).
 :::
 
-## 2. Create and enable a connection in Auth0
+Once you are done you should have two pieces of information: the **Client ID** and **Client Secret** for your app.
 
-[Set up the Facebook social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **App ID** and **App Secret** generated in Step 1.
+### Create and enable a connection in Auth0
 
-## 3. Test the connection
+[Set up the Facebook social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated.
 
-You're ready to [test your connection](/dashboard/guides/connections/test-connections-social).
+### Test the connection
+
+You're ready to [test your connection](/dashboard/guides/connections/test-connections-social). After logging in, you'll be prompted to allow your app access. To do so, click **Install unlisted app**.
 
 ::: note
 Facebook allows you to create a copy of your application to use for testing purposes. A test application has its own unique **App ID** and **App Secret**. Because Auth0 only allows one Facebook connection to be configured per tenant, you have two options for testing in Auth0:
@@ -52,7 +67,6 @@ Facebook allows you to create a copy of your application to use for testing purp
 
 * [Create another Auth0 tenant](/dashboard/guides/tenants/create-multiple-tenants) to use for testing purposes and [set up a test environment](/dev-lifecycle/setting-up-env#set-the-environment).
 :::
-
 
 ## Access Facebook's API
 
@@ -70,29 +84,10 @@ Once users authenticate, they will be prompted to accept the permissions your ap
 
 ## Context Facebook field deprecation
 
-On **July 30th 00:00 UTC**, Facebook connections that request the `context` field will fail, so Auth0 will stop requesting it for all connections at that time.
+As of 30 July 2019, Facebook connections that request the `context` field fail, so Auth0 does not request it for all connections.
 
-On April 30th [Facebook deprecated]( https://developers.facebook.com/docs/graph-api/changelog/4-30-2019-endpoint-deprecations) the use of the ‘Social Context’ field for new applications. Auth0 continued to request that field by default for Facebook connections created before April 30th 2019. You can make sure the field is not requested before July 30th by unchecking the ‘Social context’ field in the User Data connection section:
- 
-![facebook context](/media/articles/migrations/facebook-context.png)
- 
-Once you uncheck ‘Social context’, the profile data will not include the context field. The field has the following content:
- 
-```
-"context": {
-  "mutual_likes": {"data": [],"summary": {"total_count": 0}},
-  "id": "dXNlcl9...UZD"
-}
-```
- 
-**Do I need to take any action?**
- 
 If you are not using the ‘context’ field in the Facebook profile returned by Auth0 in your application, then your application will keep working without changes. Otherwise, you will need to adjust your application code so it does not rely on it.
  
-If you want to make sure your application is not affected on July 30th we recommend you to uncheck the ‘Social context’ field in the Facebook connection properties.
-
-## Keep reading
-
-You can find additional info at Facebook's: [Facebook Login](https://developers.facebook.com/docs/facebook-login).
+If you want to make sure your application is not affected we recommend you make sure that the ‘Social context’ field is unchecked in the Facebook connection properties.
 
 <%= include('../_quickstart-links.md') %>

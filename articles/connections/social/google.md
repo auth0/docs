@@ -23,16 +23,31 @@ useCase:
 ---
 # Connect Apps to Google
 
-This guide will show you how to add functionality to your web app that allows your users to log in with Google. Along the way, you will also learn how to get an <dfn data-key="access-token">Access Token</dfn> that will allow you to access the Google API.
+You can add functionality to your web app that allows your users to log in with Google. 
 
-## 1. Set up your app in Google
+## Prerequisites
 
-To learn how, follow Google's [Setting up OAuth 2.0](https://support.google.com/googleapi/answer/6158849) doc. During this process, Google will generate a **Client ID** and **Client Secret** for your application; make note of these.
+Before you connect your Auth0 app to Google, you must have an account on the [Google Developer Console](https://console.developers.google.com/). You will need to get an <dfn data-key="access-token">access token</dfn> that will allow you to access the Google API. See [Setting up OAuth 2.0](https://support.google.com/googleapi/answer/6158849) for details.
 
-While setting up your app, make sure you use the following settings:
+## Steps
 
-* On the **OAuth consent screen**, under **Authorized domains**, add `auth0.com`.
-* When asked to select an application type, choose **Web application** and set the following parameters:
+To connect your app to Google, you will:
+
+1. [Set up your app in Google](#set-up-your-app-in-Google)
+2. [Enable the Admin SDK service](#enable-the-admin-sdk-service)
+2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
+3. [Test the connection](#test-the-connection)
+
+### Set up your app in Google
+
+1. Log in to [Google Developer Console](https://console.developers.google.com/).
+
+2. From the projects list, select a project or create a new one.
+3. If the APIs & services page is already open, open the console left side menu and select **APIs & services**.
+4. Click **Credentials**.
+5. Click **New Credentials**, then select **OAuth client ID**.
+6. On the **OAuth consent screen**, under **Authorized domains**, add `auth0.com`.
+7. Select **Web application** and complete the following information: 
 
 | Field | Description |
 | - | - |
@@ -46,26 +61,26 @@ While setting up your app, make sure you use the following settings:
 If your application requests sensitive OAuth <dfn data-key="scope">scopes</dfn>, it may be [subject to review by Google](https://developers.google.com/apps-script/guides/client-verification).
 :::
 
-## 2. Enable the Admin SDK Service
+### Enable the Admin SDK service
 
-To learn how, follow Google's [Enable and disable APIs](https://support.google.com/googleapi/answer/6158841) doc.
+Follow Google's [Enable and disable APIs](https://support.google.com/googleapi/answer/6158841) instructions.
 
-## 3. Create and enable a connection in Auth0
+### Create and enable a connection in Auth0
 
-[Set up the Google social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **Client ID** and **Client Secret** generated in Step 1.
+[Set up the Google social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated.
 
-## 4. Test the connection
+### Test the connection
 
-You're ready to [test your connection](/dashboard/guides/connections/test-connections-social).
+You're ready to [test your connection](/dashboard/guides/connections/test-connections-social). After logging in, you'll be prompted to allow your app access. To do so, click **Install unlisted app**.
 
-## Access Google's API.
+## Access the Google API
 
 <%= include('../_call-api', {
   "idp": "Google"
 }) %>
 
-For Google OAuth 2.0 connections, Auth0 can store a <dfn data-key="refresh-token">[Refresh Token](/tokens/refresh-token/current#get-a-refresh-token)</dfn> you can use to obtain a new Access Token. To request a refresh token, include the `access_type=offline` parameter when calling the Auth0 `/authorize` endpoint. [Additional scopes can be included in the /authorize request](/connections/adding-scopes-for-an-external-idp) using the `connection_scope` parameter.
+To request a refresh token, include the `access_type=offline` parameter when calling the Auth0 `/authorize` endpoint. [Additional scopes can be included in the /authorize request](/connections/adding-scopes-for-an-external-idp) using the `connection_scope` parameter.
 
-For more information, check out [Identity Provider Access Tokens](/tokens/overview-idp-access-tokens) and review the [restrictions on using Refresh Tokens](/tokens/refresh-token/current#restrictions-on-refresh-token-usage).
+For more information, see [Identity Provider Access Tokens](/tokens/concepts/idp-access-tokens).
 
 <%= include('../_quickstart-links.md') %>

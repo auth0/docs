@@ -7,7 +7,7 @@ alias:
   - amazon-web-services
 seo_alias: amazon
 index: 1
-description: How to obtain a Client Id and Client Secret for Amazon.
+description: Learn how to add login functionality to your app with Amazon. You will need to obtain a Client Id and Client Secret for Amazon.
 toc: true
 topics:
   - connections
@@ -15,45 +15,45 @@ topics:
   - amazon
 contentType: how-to
 useCase:
-    - customize-connections
-    - add-idp
+  - customize-connections
+  - add-idp
 ---
 
 # Connect Apps to Amazon
 
-To configure an Amazon connection with Auth0, you will need to register your app on the Amazon portal.
+You can add functioanlity to your app that allows your users to login with Amazon.
 
-## 1. Add a new Application
-Log into [Login with Amazon](http://login.amazon.com) and select **App Console**.
+## Prerequisites
 
-![](/media/articles/connections/social/amazon/amazon-login-1.png)
+Before connecting your Auth0 app to have an account on the [Amazon portal](http://login.amazon.com). 
 
-## 2. Register a new application
+## Steps
 
-Click on the **Register New Application** button and enter a **Name**, **Description**, and **Privacy Notice URL** for your app. Click **Save**.
+To connect your app to Amazon, you will:
 
-![](/media/articles/connections/social/amazon/amazon-register-app.png)
+1. [Set up your app on Amazon](#set-up-your-app-on-amazon)
+2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
+3. [Test the connection](#test-the-connection) 
 
-## 3. Enter your callback URL
+### Set up your app on Amazon
 
-Expand the **Web Settings** section. Enter your Auth0 JavaScript origin in the **Allowed JavaScript Origins** field and <dfn data-key="callback">callback URLs</dfn> in the **Allowed Return URLs** field. The JavaScript origin address for your app should be:
+1. Log into [Login with Amazon](http://login.amazon.com) and select **App Console**.
+2. Click on the **Register New Application** button and enter a **Name**, **Description**, and **Privacy Notice URL** for your app. Click **Save**.
+3. Enter your callback URL. Expand the **Web Settings** section. 
 
-```text
-https://${account.namespace}/
-```
-
-and the callback address for your app should be:
-
-```text
-https://${account.namespace}/login/callback
-```
+| Field | Value to Provide |
+| - | - |
+| Allowed Javascript Origins | `https://${account.namespace}/` |
+| Allowed Return URL | `https://${account.namespace}/login/callback` |
 
 <%= include('../_find-auth0-domain-redirects') %>
 
-## 4. Copy your Client Id and Client Secret
+### Create and enable a connection in Auth0
 
-Go to your Auth0 Dashboard and select **Connections > Social**, then choose **Amazon**. Copy the `Client Id` and `Client Secret` from the **Web Settings** of your app on Amazon into the fields on this page on Auth0.
+[Set up the Amazon social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated.
 
-![](/media/articles/connections/social/amazon/amazon-add-connection.png)
+### Test the connection
+
+You're ready to [test your connection](/dashboard/guides/connections/test-connections-social). After logging in, you'll be prompted to allow your app access. To do so, click **Install unlisted app**.
 
 <%= include('../_quickstart-links.md') %>

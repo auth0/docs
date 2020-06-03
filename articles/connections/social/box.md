@@ -18,41 +18,44 @@ useCase:
 
 # Connect Apps to Box
 
-To configure a Box OAuth2 connection, you will need to register your Auth0 tenant on their [developer portal](https://developers.box.com/).
+You can add functionality to your web app that allows your users to log in with Box. 
 
-## 1. Register a new Box app
+## Prerequisites
 
-Log into the Box developer portal and click **My Apps** and then select **Create a Box Application**:
+Before connecting yor Auth0 app to Box, you will need to register your Auth0 tenant on their [developer portal](https://developers.box.com/).
 
-![](/media/articles/connections/social/box/box-register-1.png)
+## Steps
 
-Name your new app and click **Create Application**:
+To connect your app to Shopify, you will:
 
-![](/media/articles/connections/social/box/box-register-2.png)
+1. [Set up your app in Box](#set-up-your-app-in-box)
+2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
+3. [Test the connection](#test-the-connection)
 
-## 2. Edit your app Properties
+### Set up your app in Box
 
-Once the app is created, click on **Edit Application** and review the form. There are a number of properties that you can change (such as contact information, logos, and so on):
+1. Log into the Box developer portal and click **My Apps** and then select **Create a Box Application**.
 
-![](/media/articles/connections/social/box/box-register-3.png)
+2. Name your new app and click **Create Application**.
 
-Scroll down to find the `client_id` and `client_secret` fields under the **OAuth2 Parameters** section:
+3. Click on **Edit Application** and review the form. 
 
-![](/media/articles/connections/social/box/box-register-4.png)
+4. Scroll down to `client_id` and `client_secret` fields under the **OAuth2 Parameters** section.
 
-Enter your <dfn data-key="callback">callback URL</dfn> as the `redirect_uri`:
+5. Enter your <dfn data-key="callback">callback URL</dfn> as the `redirect_uri`:
 
-  https://${account.namespace}/login/callback
+  `https://${account.namespace}/login/callback`
 
-  <%= include('../_find-auth0-domain-redirects') %>
+<%= include('../_find-auth0-domain-redirects') %>
 
-While on this page, make sure to define the appropriate permission <dfn data-key="scope">**scopes**</dfn> for your app.
+6. Define the appropriate permission <dfn data-key="scope">**scopes**</dfn> for your app.
 
-## 3. Copy your *Client Id* and *Client Secret*
+## Create and enable a connection in Auth0
 
-Go to your Auth0 Dashboard and select **Connections > Social**, then choose **Box**. Copy the `Client Id` and `Client Secret` from the **OAuth2 Parameters** section of your app on Box into the fields on this page on Auth0:
+[Set up the Box social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated.
 
-![](/media/articles/connections/social/box/box-add-connection.png)
+### Test the connection
+
+You're ready to [test your connection](/dashboard/guides/connections/test-connections-social). After logging in, you'll be prompted to allow your app access. To do so, click **Install unlisted app**.
 
 <%= include('../_quickstart-links.md') %>
-

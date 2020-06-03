@@ -19,31 +19,32 @@ useCase:
 ---
 # Connect Apps to LINE
 
-This guide will show you how to add functionality to your web app that allows your users to use LINE to login.
+You can add functionality to your app that allows your users to login with LINE.
 
-::: note
-You can test out the LINE connection by simply going to the [Dashboard](${manage_url}) to **Connections > Social** and Try the LINE connection, leaving the settings blank. This will let you test it out with Auth0’s developer credentials. Prior to use in production applications, however, you will need to set up your own, which this guide details.
-:::
+## Prerequisites
 
-## 1. Set up your app with LINE
+Before connecting your Auth0 app to LINE, you will need to have an account on [LINE](https://developers.line.biz/console/register/line-login/channel/).
 
-You can follow the instructions in the [LINE Documentation](https://developers.line.biz/en/docs/line-login/getting-started/) to get a channel set up for your app in LINE.
+## Steps
 
-While setting up the channel in LINE for your app, make sure you save the following items from your LINE channel's settings for later:
+To connect your app to LINE, you will:
 
-* The Channel ID
-* The Channel Secret
+1. [Set up your app in LINE](#set-up-your-app-in-line)
+2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
+3. [Test the connection](#test-the-connection)
 
-## 2. Create and enable a connection in Auth0
+### Set up your app in LINE
 
-Navigate to the [Connections > Social page](${manage_url}) in the Auth0 Dashboard, and click on the LINE connection.
+Follow the instructions in the [Getting started with LINE Login](https://developers.line.biz/en/docs/line-login/getting-started/).
 
-Fill in the Channel ID and the Channel Secret here.
+While setting up the channel in LINE for your app, make sure you save the **Channel ID** and the **Channel Secret**.
 
-![LINE Connection Settings](/media/articles/connections/social/line/line_connection.png)
+### Create and enable a connection in Auth0
 
-## 3. Test the connection
+[Set up the Bitbucket social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated.
 
-You're ready to [test your connection](/dashboard/guides/connections/test-connections-social).
+### Test the connection
+
+You're ready to [test your connection](/dashboard/guides/connections/test-connections-social). After logging in, you'll be prompted to allow your app access. To do so, click **Install unlisted app**.
 
 <%= include('../_quickstart-links.md') %>

@@ -19,7 +19,7 @@ useCase:
 
 The most common [identity providers](/identityproviders) are readily available on Auth0's dashboard. However, you can add any other OAuth2 provider using the **Custom Social Connections** [extension](${manage_url}/#/extensions). For details on how to install and configure the extension, refer to [Auth0 Extension: Custom Social Connections](/extensions/custom-social-extensions).
 
-## The fetch user profile script
+## Fetch user profile script
 
 A custom fetch user profile script is called after the user has logged in with the OAuth2 provider. Auth0 executes this script to call the OAuth2 provider API and get the user profile:
 
@@ -206,10 +206,8 @@ Where `[your credentials]` is the actual credentials which you need to send to t
 
 ## Keep Reading
 
-::: next-steps
 * [Customizing buttons for connections in Lock](/libraries/lock/v11/ui-customization#authbuttons-object-)
 * [Generic OAuth2 or OAuth1 examples](/oauth2-examples)
 * [Identity Providers supported by Auth0](/identityproviders)
 * [Identity Protocols supported by Auth0](/protocols)
 * [Add a generic OAuth1 Authorization Server to Auth0](/oauth1)
-:::

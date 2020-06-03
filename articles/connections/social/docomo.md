@@ -18,19 +18,27 @@ useCase:
 
 # Connect Apps to Docomo dAccount
 
-To configure a Docomo dAccount connection you will need to register Auth0 on the [dAccount Connect Portal](https://dac-g.apl01.spmode.ne.jp/VIEW_OC01/GOCA00004/).
+You can add functionality to your web app that allows your users to log in with Docomo dAccount. 
 
-## 1. Add a new Service
+## Prerequisites
 
-First log in into your [dAccount Connect Portal](https://dac-g.apl01.spmode.ne.jp/VIEW_OC01/GOCA00004/), once you have logged in click on the **RP site information management (RPサイト情報管理画面)** link on the side navigation.
+Before connecting your Auth0 app to Docomo dAccount, you must have an account on the [dAccount Connect Portal](https://dac-g.apl01.spmode.ne.jp/VIEW_OC01/GOCA00004/).
 
-![dAccount Connect Top](/media/articles/connections/social/docomo/connect-top.png)
+## Steps
 
-This will bring up RP site information management page. Click the **Add new RP site info (新規RPサイト情報追加)** button to add a new service.
+To connect your app to Shopify, you will:
 
-![dAccount RP Site Info](/media/articles/connections/social/docomo/rp-info-1.png)
+1. [Set up your app in Docomo dAccount](#set-up-your-app-in-docomo-daccount)
+2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
+3. [Test the connection](#test-the-connection)
 
-Fill out the form by providing the following information:
+### Set up your app on Docomo dAccount
+
+1. Log in into your [dAccount Connect Portal](https://dac-g.apl01.spmode.ne.jp/VIEW_OC01/GOCA00004/), and click on the **RP site information management (RPサイト情報管理画面)** link on the side navigation.
+
+2. Click the **Add new RP site info (新規RPサイト情報追加)** button to add a new service.
+
+3. Fill out the form by providing the following information:
 
 | Field | Description
 --------|------------
@@ -42,39 +50,17 @@ Available scopes (利用可能スコープ) | The <dfn data-key="scope">scopes</
 
 <%= include('../_find-auth0-domain-redirects') %>
 
-![dAccount RP Site Registration](/media/articles/connections/social/docomo/rp-register.png)
+4. When finished, click **Register (登録)**.
 
-When finished, click **Register (登録)**.
+5. Go to the details page for your service by clicking on the **Details (詳細)** button. This page contains your **Client ID (クライアントID)** and **Client Secret (クライアントシークット)**, to be used in the next step.
 
-## 2. Get your **Client ID** and **Client Secret**
+### Create and enable a connection in Auth0
 
-Go to the details page for your service by clicking on the **Details (詳細)** button.
+[Set up the Docomo dAccount social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated.
 
-![dAccount RP site info](/media/articles/connections/social/docomo/rp-info-2.png)
+### Test the connection
 
-This page will contain your **Client ID (クライアントID)** and **Client Secret (クライアントシークット)**, to be used in the next step.
-
-![dAccount Service Details](/media/articles/connections/social/docomo/service-details.png)
-
-## 3. Setup the Connection to Auth0
-
-In a separate tab or page, go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard.
-
-Click on the **NTT Docomo** connection.
-
-Enter your **Client ID** and **Client ID** from the dAccount Connect service you created, select your **Attributes** then click **SAVE**.
-
-![Paste your Client ID and Client Secret](/media/articles/connections/social/docomo/enter-keys.png)
-
-Next on the **Clients** tab, enable which of your applications will be able to use this connection. After enabling the applications, click **SAVE**.
-
-## 4. Test the Connection
-
-On the [Connections > Social](${manage_url}/#/connections/social) page of the Auth0 dashboard you should now see a **TRY** button with the NTT Docomo connection.
-
-![Try Button](/media/articles/connections/social/docomo/try-connection.png)
-
-Click on this to test the new connection. If your connection has been correctly configured, this should take you to a login page where you can log in with your dAccount.
+You're ready to [test your connection](/dashboard/guides/connections/test-connections-social). After logging in, you'll be prompted to allow your app access. To do so, click **Install unlisted app**.
 
 <%= include('../_quickstart-links.md') %>
 

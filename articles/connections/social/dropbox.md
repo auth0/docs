@@ -18,83 +18,49 @@ useCase:
 
 # Connect Apps to Dropbox
 
-To connect your Auth0 app to Dropbox, you will need to generate a *Client ID* and *Client Secret* in a Dropbox app, copy these keys into your Auth0 settings, and enable the connection.
+You can add functionality to your web app that allows your users to log in with Dropbox. 
 
 ::: note
-  <strong>Heads up!</strong> This connection will only work with <dfn data-key="lock">Lock</dfn> version 9.2 or higher.
+This connection will only work with <dfn data-key="lock">Lock</dfn> version 9.2 or higher.
 :::
 
-## 1. Login to the developer portal
+## Prerequisites
 
-Go to the [Dropbox Developer](https://www.dropbox.com/developers) portal and log in with your Dropbox credentials. 
+Before you connect your Auth0 app to Dropbox, you must have an account on the [Dropbox Developer](https://www.dropbox.com/developers) portal.
 
-Click **Create your app**:
+## Steps
 
-![](/media/articles/connections/social/dropbox/dropbox-01.png)
+To connect your app to Shopify, you will:
 
-## 2. Create your app
+1. [Set up your app in Dropbox](#set-up-your-app-in-dropbox)
+2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
+3. [Test the connection](#test-the-connection)
 
-1. Under **Choose an API**, select **Dropbox API**.
-2. Under **Choose the type of access you need**, select **App folder** or **Full Dropbox**, depending on your needs.
-3. Name your app.
-4. Click **Create app**.
+### Set up your app in Dropbox
 
-![](/media/articles/connections/social/dropbox/dropbox-02.png)
+1. Log in to the [Dropbox Developer](https://www.dropbox.com/developers) portal and click **Create your app**.
+2. Complete the form by providing the following information:
 
-## 3. Enter your callback URL
+| Field | Description
+--------|------------
+Choose an API | Select **Dropbox API**
+Choose the type of access you need | Select **App folder** or **Full Dropbox** depending on your needs.
+App Name | Name your app.
 
-On your app's **Settings** page that follows, enter your <dfn data-key="callback">callback URL</dfn> in the **Redirect URIs** field:
+3. Click **Create app**.
+4. On your app's **Settings** page, enter your <dfn data-key="callback">callback URL</dfn> in the **Redirect URIs** field:
 
 `https://${account.namespace}/login/callback`
 
 <%= include('../_find-auth0-domain-redirects') %>
-Click **Add**:
+5. Click **Add**. On the same **Settings** page, your `App key` and `App secret` will be displayed. 
 
-![](/media/articles/connections/social/dropbox/dropbox-03.png)
+### Create and enable a connection in Auth0
 
-## 4. Get your *Client ID* and *Client Secret*
+[Set up the Dropbox social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated.
 
-On the same **Settings** page, your `App key` and `App secret` will be displayed:
+### Test the connection
 
-![](/media/articles/connections/social/dropbox/dropbox-04.png)
-
-## 5. Copy your *Client Id* and *Client Secret* into Auth0
-
-In a separate window, login to your [Auth0 Dashboard](${manage_url}) and select **Connections > Social** in the left nav. 
-
-Select **Dropbox**. 
-
-![](/media/articles/connections/social/dropbox/dropbox-05.png)
-
-Copy the `App key` and `App secret` from the **Settings** page of the Dropbox Developer portal into the fields on this page on Auth0:
-
-![](/media/articles/connections/social/dropbox/dropbox-06.png)
-
-Click **SAVE**.
-
-## 6 Enable the Connection
-
-Select the **Apps** tab of the Dropbox connection on Auth0 and select each of your existing Auth0 apps for which you want to enable this connection:
-
-![](/media/articles/connections/social/dropbox/dropbox-07.png)
-
-## 7 Test the connection
-
-Close the **Settings** window to return to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard.
-
-A **TRY** icon will now be displayed next to the Dropbox logo:
-
-![](/media/articles/connections/social/dropbox/dropbox-08.png)
-
-Click **TRY**.
-
-Click **Allow** to grant your app access.
-
-![](/media/articles/connections/social/dropbox/dropbox-09.png)
-
-If you have configured everything correctly, you will see the **It works!!!** page:
-
-![](/media/articles/connections/social/dropbox/dropbox-10.png)
+You're ready to [test your connection](/dashboard/guides/connections/test-connections-social). After logging in, you'll be prompted to allow your app access. To do so, click **Install unlisted app**.
 
 <%= include('../_quickstart-links.md') %>
-
