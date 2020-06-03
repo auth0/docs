@@ -2577,8 +2577,8 @@ module.exports = [
       to: '/hooks/view-logs'
     },
     {
-      from: '/integrations/aws-eventbridge',
-      to: '/logs/streams/aws-eventbridge'
+      from: ['/integrations/aws-eventbridge','/logs/streams/aws-eventbridge'],
+      to: '/logs/streams/amazon-eventbridge'
     },
     {
       from: '/extensions/deploy-cli/references/whats-new-v2',
