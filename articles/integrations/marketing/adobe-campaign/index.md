@@ -38,7 +38,7 @@ After adding the user fields, click on the **Export Users** button to start the 
 ## Import a user data file
 
 ::: note
-[Adobe Campaign Documentation: Importing Data](https://docs.campaign.adobe.com/doc/AC/en/PTF_Importing-Exporting_data_Importing_data.html)
+[Adobe Campaign Documentation: Importing Data](https://docs.adobe.com/content/help/en/campaign-classic/using/getting-started/importing-and-exporting-data/importing-data.html)
 :::
 
 Log in to your Adobe Campaign client dashboard and navigate to **Profiles and Targets > Jobs**. Create a new import job by clicking the **Create** button and selecting **New Import**.
@@ -53,20 +53,14 @@ Description | A brief description of the job.
 Import type | Set to `Simple import` for single file imports and `Multiple import` for multiple file imports.
 Folder | Select the folder to save the import file to.
 
-![Adobe Campaign Import Wizard Template Selection](/media/articles/integrations/marketing/adobe-campaign/template-selection.png)
-
 Once you've configured your import parameters, click the **Next** button to continue.
 
 On the **File to Import** step upload the user data CSV file you exported from Auth0 in the previous section. Click the **Next** button to proceed to **Field Mapping**.
 
 Next, map the export file schema to your Adobe Campaign database schema. Check that the field names and field types are correct, then click the **Next** button.
 
-![Adobe Campaign Import Wizard Field Mapping](/media/articles/integrations/marketing/adobe-campaign/field-mapping.png)
-
 Complete the remaining configuration steps by defining your data reconciliation mode and selecting a folder, list, or service for the users being imported.
 
 Finally, begin the import by clicking the **Start** button on the **Data Import Execution** window.
-
-![Adobe Campaign Import Wizard Data Import Execution](/media/articles/integrations/marketing/adobe-campaign/import-execution.png)
 
 That's it! You successfully imported your Auth0 users into Adobe Campaign.
