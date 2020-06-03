@@ -14,7 +14,7 @@ useCase:
 ---
 # Enroll and Challenge Push using Guardian
 
-Auth0 provides a built-in MFA enrollment and authentication flow using [Universal Login](/universal-login). However, if you want to create your own user interface, you can use the MFA API to accomplish it. 
+Auth0 provides a built-in MFA enrollment and authentication flow using [Universal Login](/universal-login). However, if you want to create your own user interface, you can use the MFA API to accomplish it.
 
 This guide explains to enroll and challenge users using Push Notifications with the Guardian Application or SDK, using the MFA API. First, make sure that Push is [enabled as factor](/mfa/guides/configure-push) in the Dashboard or using the [Management API](/api/management/v2#!/Guardian/put_factors_by_name).
 
@@ -64,7 +64,7 @@ If successful, you'll receive a response like the one below:
 }
 ```
 
-If you get a `User is already enrolled error`, is because the user already has an MFA factor enrolled. Before associating it another factor, you need challenge the user with the existing one.
+If you get a `User is already enrolled error`, the user already has an MFA factor enrolled. Before associating another factor with the user, you need to challenge the user with the existing factor.
 
 #### Recovery Codes
 
@@ -72,7 +72,7 @@ If you get a `User is already enrolled error`, is because the user already has a
 
 ### 3. Confirm the Push enrollment
 
-To confirm the enrollment, the end user will need to scan the a QR code with the `barcode_uri` in the Guardian App. Once that's done the Guardian App will notify Auth0 that the user enrolled successfully. To know if that happened, you need to poll the `/oauth/token` endpoint with the `oob_code` returned by the `/associate` call:
+To confirm the enrollment, the end user will need to scan the a QR code with the `barcode_uri` in the Guardian App. Once that is done the Guardian App will notify Auth0 that the user enrolled successfully. To know if that happened, you need to poll the `/oauth/token` endpoint with the `oob_code` returned by the `/associate` call:
 
 ```har
 {
@@ -110,7 +110,7 @@ To confirm the enrollment, the end user will need to scan the a QR code with the
 }
 ```
 
-If the user did hasn't scanned the code, it will return an `authorization_pending` response, indicating you need to call `oauth_token` again in a few seconds:
+If the user did has not scanned the code, it will return an `authorization_pending` response, indicating you need to call `oauth_token` again in a few seconds:
 
 ```json
 {
