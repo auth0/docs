@@ -109,7 +109,7 @@ You will get an array with the available authenticators. The array will be empty
 ]
 ```
 
-## 3. Enroll an MFA factor
+## 3. Enroll an MFA Factor
 
 If the user is not enrolled in MFA, use the MFA token obtained earlier, and enroll it using the `/mfa/associate` endpoint. The documents linked below explain how to implement this flow depending on the authentication factor:
 
