@@ -13,5 +13,5 @@ You can also take advantage of our [Implementation Checklists](/architecture-sce
 :::
 
 ::: warning
-Though Auth0 allows you to create as many free tenants as you'd like, you may be limited for the number of tenants where all paid features are enabled. By default, you are provided with **three** tenants where all features are available.
+Though Auth0 allows you to create as many free tenants as you'd like, you may be limited for the number of tenants where all paid features are enabled. If elegible, you can be provided with up to **three** tenants where all features are shared.
 :::
