@@ -58,7 +58,7 @@ If successful, you'll receive a response like this:
 }
 ```
 
-If you get a `User is already enrolled error`, is because the user already has an MFA factor enrolled. Before associating it another factor, you need challenge the user with the existing one.
+If you get a `User is already enrolled error`, the user already has an MFA factor enrolled. Before associating another factor with the user, you need to challenge the user with the existing factor.
 
 #### Recovery Codes
 
