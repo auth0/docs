@@ -1,6 +1,6 @@
 ---
-title: Associate Email Authenticators
-description: Configure apps so users can self-associate email authenticators.
+title: Enroll and Challenge Email Authenticators
+description: Build your own MFA flows using email as a factor.
 topics:
   - mfa
   - mfa-api
@@ -8,101 +8,40 @@ topics:
   - email
 contentType:
   - how-to
+  - reference
 useCase:
   - customize-mfa
 ---
+# Enroll and Challenge SMS Authenticators
 
-# Associate Email Authenticators
+Auth0 provides a built-in MFA enrollment and authentication flow using [Universal Login](/universal-login). However, if you want to create your own user interface, you can use the MFA API to accomplish it. 
 
-You can configure your application so users can use email authenticators.
+This guide will explain how to enroll and challenge users with Email using the MFA API. Make sure that Email is [enabled as factor](/mfa/guides/configure-email-universal-login) in the Dashboard or using the [Management API](/api/management/v2#!/Guardian/put_factors_by_name).
+
 
 ::: note
-Currently, email authenticators are only supported by the <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> API or when using the [New Universal Login Experience](/universal-login/new). It's not supported in the Classic Universal Login experience.
+When Email is enabled as factor, all users with verified emails will be able to use them to complete MFA.
+
+Email authenticators are not supported when using the Classic Universal Login experience.
 :::
 
 <%= include('../../_includes/_authenticator-before-start') %>
 
-## Enable email authenticators with the Management API
+## Enrolling with Email
 
-1. Make a `PUT` request to the [/api/v2/guardian/factors/email](/api/management/v2/#!/Guardian/put_factors_by_name) endpoint. You'll need a [Management API Token](/api/management/v2/tokens) with the `update:guardian_factors` <dfn data-key="scope">scope</dfn> to perform the request:
+If you want to enable users enroll additional emails, in addition of the verified email in their primary identity, you need to complete the following steps.
 
-  ```har
-  {
-    "method": "PUT",
-    "url": "https://${account.namespace}/api/v2/guardian/factors/email",
-    "headers": [
-      { "name": "Authorization", "value": "Bearer MANAGEMENT_API_TOKEN" },
-      { "name": "Content-Type", "value": "application/json" }
-    ],
-    "postData": {
-      "mimeType": "application/json",
-      "text": "{\"enabled\": true }"
-    }
-  }
-  ```
+### 1. Get the MFA token
 
-  You can also enable this factor in the Multi-factor Authentication section in the [Auth0 Dashboard](${manage_url}/#/mfa).
+<%= include('../../_includes/_get_mfa_token') %>
 
-2. Get the MFA Token. When a user begins the authorization process without an active authenticator associated with their account, they will trigger the an `mfa_required` error when calling the `/oauth/token` endpoint. For example:
+### 2. Enroll the Authenticator 
 
-  ```har
-  {
-    "method": "POST",
-    "url": "https://${account.namespace}/oauth/token",
-    "headers": [
-      { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
-    ],
-    "postData": {
-      "mimeType": "application/x-www-form-urlencoded",
-      "params": [
-          {
-            "name": "grant_type",
-            "value": "password"
-          },
-          {
-            "name": "username",
-            "value": "user@example.com"
-          },
-          {
-            "name": "password",
-            "value": "pwd"
-          },
-          {
-            "name": "audience",
-            "value": "https://someapi.com/api"
-          },
-          {
-            "name": "scope",
-            "value": "read:sample"
-          },
-          {
-            "name": "client_id",
-            "value": "${account.clientId}"
-          },
-          {
-            "name": "client_secret",
-            "value": "YOUR_CLIENT_SECRET"
-          }
-      ]
-    }
-  }
-  ```
+To enroll with SMS, you need to use the following parameters:
 
-  The `mfa_required` error will look like this:
-
-  ```json
-  {
-    "error": "mfa_required",
-    "error_description": "Multifactor authentication required",
-    "mfa_token": "Fe26...Ha"
-  }
-  ```
-
-  In the next step, you can use the `mfa_token` value to request association of a new authenticator.
-
-3. Request association of the authenticator. Make a `POST` request to the `/mfa/associate` endpoint to request association of your authenticator. Use the MFA token from the previous step.
-
-  To associate an authenticator where the challenge type is an email containing a code the user provides, make the following `POST` request to the `/mfa/associate` endpoint. Replace the placeholder values in the example below as appropriate.
+- `authentication_types` = `[oob]`
+- `oob_channels` = `[email]`
+- `email` = `email@address.com`, the user's email address.
 
   ```har
   {
@@ -114,7 +53,7 @@ Currently, email authenticators are only supported by the <dfn data-key="multifa
       }],
       "postData": {
           "mimeType": "application/json",
-          "text": "{ \"authenticator_types\": [\"oob\"], \"oob_channels\": [\"email\"]}"
+          "text": "{ \"authenticator_types\": [\"oob\"], \"oob_channels\": [\"email\"], \"email\" : \"email@address.com\" }"
       }
   }
   ```
@@ -124,85 +63,30 @@ Currently, email authenticators are only supported by the <dfn data-key="multifa
   ```json
   {
     "authenticator_type": "oob",
+    "binding_method": "prompt",
+    "oob_code" : "Fe26..nWE",
     "oob_channel": "email",
     "recovery_codes": [ "N3BGPZZWJ85JLCNPZBDW6QXC" ]
   }
   ```
 
-4. The user should receive an email containing the 6-digit code, which they can provide to the application. To complete enrollment of the email authenticator, make a `POST` request to the `/oauth/token` endpoint and include the provided code as the `binding_code`. Be sure to replace the placeholder values shown below as appropriate.
+If you get a `User is already enrolled error`, the user already has an MFA factor enrolled. Before associating another factor with the user, you need to challenge the user with the existing factor.
 
-  ```har
-  {
-      "method": "POST",
-      "url": "https://${account.namespace}/oauth/token",
-      "postData": {
-          "mimeType": "application/x-www-form-urlencoded",
-          "params": [
-            {
-              "name": "grant_type",
-              "value": "http://auth0.com/oauth/grant-type/mfa-oob"
-            },
-            {
-              "name": "mfa_token",
-              "value": "YOUR_MFA_TOKEN"
-            },
-            {
-              "name": "oob_code",
-              "value": "ata...i0i"
-            },
-            {
-              "name": "binding_code",
-              "value": "000000"
-            },
-            {
-              "name": "client_id",
-              "value": "${account.clientId}"
-            }
-          ]
-      }
-  }
-  ```
+#### Recovery Codes
 
-  For more information on how to customize the email template, w [Customizing Your Emails](/email/templates).
+<%= include('../../_includes/_recovery_codes') %>
 
-::: panel Recovery Codes
+### 3. Confirm the email enrollment
 
-If this is the first time you're associating an authenticator, you'll notice your response includes `recovery_codes`. This is used to access your account in the event that you lose access to the account or device used for your second factor authentication. These are one-time usable codes, and new ones are generated as necessary.
-:::
+The user should receive an email containing the 6-digit code, which they can provide to the application.
 
-5. Trigger a challenge and verify the authenticator. With the email authenticator associated, it can be used for MFA challenges during authentication.
+To complete enrollment of the email authenticator make a `POST` request to the `oauth/token` endpoint. You need to include the `oob_code` returned in the previous response, and the `binding_code` with the value received in the email message.
 
-  For example, after receiving the `mfa_required` error, make a `POST` request to the `/mfa/challenge` endpoint with the `mfa_token` value:
-
-  ```har
-  {
-      "method": "POST",
-      "url": "https://${account.namespace}/mfa/challenge",
-      "postData": {
-          "mimeType": "application/json",
-          "text": "{ \"mfa_token\": \"Fe26.2**05...\", \"challenge_type\": \"oob\", \"authenticator_id\": \"email|dev_s...O\", \"client_id\": \"${account.clientId}\", \"client_secret\": \"YOUR_CLIENT_SECRET\"}" }
-  }
-  ```
-
-  If successful, you'll get the following response:
-
-  ```json
-  {
-    "challenge_type": "oob",
-    "oob_code": "abcd1234...",
-    "binding_method": "prompt"
-  }
-  ```
-
-6. Your application needs to prompt the user for the `binding_code` and send it as part of the request. The `binding_code` is a 6-digit number included in the challenge.
-
-  Then you can verify the multifactor authentication using the `/oauth/token` endpoint:
-
-  ```har
-  {
-      "method": "POST",
-      "url": "https://${account.namespace}/oauth/token",
-      "postData": {
+```har
+{
+    "method": "POST",
+    "url": "https://${account.namespace}/oauth/token",
+    "postData": {
         "mimeType": "application/x-www-form-urlencoded",
         "params": [
           {
@@ -211,23 +95,114 @@ If this is the first time you're associating an authenticator, you'll notice you
           },
           {
             "name": "mfa_token",
-            "value": "YOUR_MFA_TOKEN"
+            "value": "MFA_TOKEN"
           },
           {
             "name": "oob_code",
-            "value": "ata...i0i"
+            "value": "OOB_CODE"
           },
           {
             "name": "binding_code",
-            "value": "000000"
+            "value": "USER_EMAIL_OTP_CODE"
           },
           {
             "name": "client_id",
             "value": "${account.clientId}"
           }
         ]
-      }
-  }
-  ```
+    }
+}
+```
 
-  After verifying the code, proceed with authentication as usual.
+For more information on how to customize the email that users get, check [Customizing Your Emails](/email/templates).
+
+<%= include('../../_includes/_successful_confirmation') %>
+
+## Challenging with Email
+
+To challenge a user with Email, follow the steps detailed below.
+
+### 1. Get the MFA token
+
+<%= include('../../_includes/_get_mfa_token_challenge') %>
+
+### 2. Challenge the user with Email
+
+To challenge the user you first need to obtain the id of the authenticator you want to challenge using the [`/mfa/enrollments`](/mfa/guides/mfa-api/manage#list-authenticators) endpoint.
+
+To trigger an email challenge, `POST` to the to `mfa/challenge` endpoint, using the corresponding `authenticator_id` ID and the `mfa_token`. 
+
+```har
+{
+	"method": "POST",
+	"url": "https://${account.namespace}/mfa/challenge",
+	"postData": {
+		"mimeType": "application/json",
+		"text": "{  \"client_id\": \"YOUR_CLIENT_ID\",  \"client_secret\": \"YOUR_CLIENT_SECRET\",  \"challenge_type\": \"oob\",  \"authenticator_id\": \"email|dev_NU1Ofuw3Cw0XCt5x\", \"mfa_token\": \"MFA_TOKEN\" }"
+	}
+}
+```
+
+### 3. Complete authentication using the received code
+
+If successful, you'll get the following response, and the user will get an email message containing the six-digit code:
+
+```json
+{
+  "challenge_type": "oob",
+  "oob_code": "abcd1234...",
+  "binding_method": "prompt"
+}
+```
+
+Your application needs to prompt the user for the code, and send it as part of the request, in the `binding_code` parameter, in the following call to the `/oauth/token` endpoint:
+
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/oauth/token",
+  "headers": [
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
+  ],
+  "postData": {
+    "mimeType": "application/x-www-form-urlencoded",
+    "params": [
+      {
+        "name": "grant_type",
+        "value": "http://auth0.com/oauth/grant-type/mfa-oob"
+      },
+      {
+        "name": "client_id",
+        "value": "${account.clientId}"
+      },
+      {
+        "name": "client_secret",
+        "value": "CLIENT_SECRET"
+      },
+      {
+        "name": "mfa_token",
+        "value": "MFA_TOKEN"
+      },
+      {
+        "name": "oob_code",
+        "value": "OOB_CODE"
+      },
+      {
+        "name": "binding_code",
+        "value": "USER_EMAIL_OTP_CODE"
+      }
+    ]
+  }
+}
+```
+
+<%= include('../../_includes/_successful_challenge') %>
+
+## Keep Reading
+
+* [Configure Email Notifications for MFA](/mfa/guides/configure-email)
+* [Managing MFA Enrollments](/mfa/guides/mfa-api/manage)
+* [Enroll and Challenge Push Authenticators](/mfa/guides/mfa-api/push)
+* [Enroll and Challenge OTP Authenticators](/mfa/guides/mfa-api/otp)
+* [Enroll and Challenge SMS Authenticators](/mfa/guides/mfa-api/sms)
+* [Challenge a Recovery Code](/mfa/guides/mfa-api/recovery-code)

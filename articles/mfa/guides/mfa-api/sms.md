@@ -1,28 +1,28 @@
 ---
-title: Enroll and Challenge OTP Authenticators
-description: Build your own MFA flows using OTP as a factor.
+title: Enroll and Challenge SMS Authenticators
+description: Build your own MFA flows using SMS as a factor.
 topics:
   - mfa
   - mfa-api
   - mfa-authenticators
-  - otp
+  - sms
 contentType:
   - how-to
   - reference
 useCase:
   - customize-mfa
 ---
-# Enroll and Challenge OTP Authenticators
+# Enroll and Challenge SMS Authenticators
 
 Auth0 provides a built-in MFA enrollment and authentication flow using [Universal Login](/universal-login). However, if you want to create your own user interface, you can use the MFA API to accomplish it. 
 
-This guide explains how to enroll and challenge users with OTP using the MFA API. First, make sure that OTP is [enabled as factor](/mfa/guides/configure-otp) in the Dashboard or using the [Management API](/api/management/v2#!/Guardian/put_factors_by_name).
+This guide explains how to enroll and challenge users with SMS using the MFA API. First, make sure that SMS is [enabled as factor](/mfa/guides/configure-sms) in the Dashboard or using the [Management API](/api/management/v2#!/Guardian/put_factors_by_name).
 
 <%= include('../../_includes/_authenticator-before-start') %>
 
-## Enrolling with OTP
+## Enrolling with SMS
 
-### 1. Get the MFA Token
+### 1. Get the MFA token
 
 <%= include('../../_includes/_get_mfa_token') %>
 
@@ -30,7 +30,11 @@ This guide explains how to enroll and challenge users with OTP using the MFA API
 
 <%= include('../../_includes/_request_association') %>
 
-To enroll with OTP you need to set the `authenticator_types` parameter to `[otp]`.
+To enroll with SMS, you need to use the following parameters:
+
+- `authentication_types` = `[oob]`
+- `oob_channels` = `[sms]`
+- `phone_number` = `+11...9`, the phone number [E.164 format](https://en.wikipedia.org/wiki/E.164)
 
 ```har
 {
@@ -42,19 +46,20 @@ To enroll with OTP you need to set the `authenticator_types` parameter to `[otp]
   ],
 	"postData": {
 		"mimeType": "application/json",
-		"text": "{ \"authenticator_types\": [\"otp\"] }"
+		"text": "{ \"authenticator_types\": [\"oob\"], \"oob_channels\": [\"sms\"], \"phone_number\": \"+11...9\" }"
 	}
 }
 ```
 
-If successful, you'll receive a response like this:
+If successful, you'll receive a response like the one below:
 
 ```json
 {
-  "authenticator_type": "otp",
-  "secret": "EN...S",
-  "barcode_uri": "otpauth://totp/tenant:user?secret=...&issuer=tenant&algorithm=SHA1&digits=6&period=30",
-  "recovery_codes": [ "N3B...XC"]
+  "authenticator_type": "oob",
+  "binding_method": "prompt",
+  "recovery_codes": [ "N3BGPZZWJ85JLCNPZBDW6QXC" ],
+  "oob_channel": "sms",
+  "oob_code": "ata6daXAiOi..."
 }
 ```
 
@@ -64,17 +69,18 @@ If you get a `User is already enrolled error`, the user already has an MFA facto
 
 <%= include('../../_includes/_recovery_codes') %>
 
-### 3. Confirm the OTP enrollment
+### 3. Confirm the SMS enrollment
 
-To confirm the enrollment, the end user will need to enter the secret obtained in the previous step in an OTP generator application like Google Authenticator. They can enter the secret by scanning a QR code with the `barcode_uri` or by typing the `secret` code manually in that OTP application. You should provide users a way to get the `secret` as text in case they cannot scan the QR code (e.g. if they are enrolling from a mobile device, or using a desktop OTP application).
+The user should receive an SMS containing the 6-digit code, which they can provide to the application.
 
-After the users enter the secret, the OTP application will display a 6-digit code, that the user should enter in your application. The application should then make a `POST` request to the `oauth/token` endpoint, including that `otp` value.
+To complete enrollment of the sms authenticator make a `POST` request to the `oauth/token` endpoint. You need to include the `oob_code` returned in the previous response, and the `binding_code` with the value received in the SMS message.
 
 ```har
 {
 	"method": "POST",
 	"url": "https://${account.namespace}/oauth/token",
   "headers": [
+    { "name": "Authorization", "value": "Bearer MFA_TOKEN" },
     { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
 	"postData": {
@@ -82,23 +88,27 @@ After the users enter the secret, the OTP application will display a 6-digit cod
     "params": [
       {
         "name": "grant_type",
-        "value": "http://auth0.com/oauth/grant-type/mfa-otp"
+        "value": "http://auth0.com/oauth/grant-type/mfa-oob"
       },
       {
         "name": "client_id",
         "value": "${account.clientId}"
       },
       {
-        "name": "mfa_token",
-        "value": "MFA_TOKEN"
-      },
-      {
         "name": "client_secret",
         "value": "YOUR_CLIENT_SECRET"
       },
       {
-        "name": "otp",
-        "value": "USER_OTP_CODE"
+        "name": "mfa_token",
+        "value": "MFA_TOKEN"
+      },
+      {
+        "name": "oob_code",
+        "value": "OOB_CODE"
+      },
+      {
+        "name": "binding_code",
+        "value": "USER_SMS_OTP_CODE"
       }
     ]
 	}
@@ -107,9 +117,9 @@ After the users enter the secret, the OTP application will display a 6-digit cod
 
 <%= include('../../_includes/_successful_confirmation') %>
 
-## Challenging with OTP
+## Challenging with SMS
 
-To challenge a user with OTP, follow the steps detailed below.
+To challenge a user with SMS, follow the steps detailed below.
 
 ### 1. Get the MFA token
 
@@ -135,21 +145,23 @@ You will get a list of authenticators with the format below:
 ```json
 [
     {
-        "id": "recovery-code|dev_qpOkGUOxBpw6R16t",
+        "id": "recovery-code|dev_O4KYL4FtcLAVRsCl",
         "authenticator_type": "recovery-code",
         "active": true
     },
     {
-        "id": "totp|dev_6NWz8awwC8brh2dN",
-        "authenticator_type": "otp",
-        "active": true
-    }
+        "id": "sms|dev_NU1Ofuw3Cw0XCt5x",
+        "authenticator_type": "oob",
+        "active": true,
+        "oob_channel": "sms",
+        "name": "XXXXXXXX8730"
+    },
 ]
 ```
 
-### 3. Challenge the user with OTP
+### 3. Challenge the user with SMS
 
-To trigger an OTP challenge, `POST` to the to `mfa/challenge` endpoint, using the corresponding `authenticator_id` ID and the `mfa_token`. 
+To trigger an SMS challenge, `POST` to the to `mfa/challenge` endpoint, using the corresponding `authenticator_id` ID and the `mfa_token`. 
 
 ```har
 {
@@ -157,22 +169,26 @@ To trigger an OTP challenge, `POST` to the to `mfa/challenge` endpoint, using th
 	"url": "https://${account.namespace}/mfa/challenge",
 	"postData": {
 		"mimeType": "application/json",
-		"text": "{ \"client_id\": \"YOUR_CLIENT_ID\", \"challenge_type\": \"otp\", \"mfa_token\": \"MFA_TOKEN\", \"authenticator_id\" : \"totp|dev_6NWz8awwC8brh2dN\" }"
+		"text": "{ \"client_id\": \"YOUR_CLIENT_ID\",  \"client_secret\": \"YOUR_CLIENT_SECRET\", \"challenge_type\": \"oob\", \"authenticator_id\": \"sms|dev_NU1Ofuw3Cw0XCt5x\", \"mfa_token\": \"MFA_TOKEN\" }"
 	}
 }
 ```
 
 ### 4. Complete authentication using the received code
 
-If successful, you'll receive the following response: 
+If successful, you'll receive the following response, and the user will get an SMS message containing the required six-digit code:
 
 ```json
 {
-  "challenge_type": "otp"
+  "challenge_type": "oob",
+  "oob_code": "asdae35fdt5...",
+  "binding_method": "prompt"
 }
 ```
 
-The user will collect a one-time password, which you will then collect from them. You can the  verify the code and get authentication tokens using the `/oauth/token` endpoint, specifying the one-time password in the `otp` parameter:
+Your application needs to prompt the user for the `binding_code` and send it as part of the request. The `binding_code` is a 6-digit number included in the challenge.
+
+You can then verify the code and get the authentication tokens using the `/oauth/token` endpoint:
 
 ```har
 {
@@ -186,7 +202,7 @@ The user will collect a one-time password, which you will then collect from them
     "params": [
       {
         "name": "grant_type",
-        "value": "http://auth0.com/oauth/grant-type/mfa-otp"
+        "value": "http://auth0.com/oauth/grant-type/mfa-oob"
       },
       {
         "name": "client_id",
@@ -201,8 +217,12 @@ The user will collect a one-time password, which you will then collect from them
         "value": "MFA_TOKEN"
       },
       {
-        "name": "otp",
-        "value": "USER_OTP_CODE"
+        "name": "oob_code",
+        "value": "OOB_CODE"
+      },
+      {
+        "name": "binding_code",
+        "value": "USER_SMS_OTP_CODE"
       }
     ]
   }
@@ -211,11 +231,11 @@ The user will collect a one-time password, which you will then collect from them
 
 <%= include('../../_includes/_successful_challenge') %>
 
-## Keep Reading
+## Keep reading
 
-* [Configure One-Time Passwords for MFA](/mfa/guides/configure-otp)
+* [Configure SMS Notifications for MFA](/mfa/guides/configure-sms)
 * [Managing MFA Enrollments](/mfa/guides/mfa-api/manage)
 * [Enroll and Challenge Push Authenticators](/mfa/guides/mfa-api/push)
-* [Enroll and Challenge SMS Authenticators](/mfa/guides/mfa-api/sms)
+* [Enroll and Challenge OTP Authenticators](/mfa/guides/mfa-api/otp)
 * [Enroll and Challenge Email Authenticators](/mfa/guides/mfa-api/email)
 * [Challenge a Recovery Code](/mfa/guides/mfa-api/recovery-code)

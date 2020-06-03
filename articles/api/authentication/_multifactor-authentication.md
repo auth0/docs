@@ -8,7 +8,7 @@ Next, verify the multi-factor authentication using the `/oauth/token` endpoint a
 
 For more information, check out:
 
-- [Multi-factor Authentication and Resource Owner Password](/api-auth/tutorials/multifactor-resource-owner-password)
+- [Multi-factor Authentication and Resource Owner Password](/mfa/guides/mfa-api/multifactor-resource-owner-password)
 - [Multi-factor Authentication API](/mfa/concepts/mfa-api)
 - [Multi-factor Authentication in Auth0](/mfa)
 
@@ -119,7 +119,8 @@ If OTP is supported by the user and you don't want to request a different factor
 
 ### More information
 
-- [Trigger MFA using the API](/mfa/guides/mfa-api/challenges)
+* [Authenticate With Resource Owner Password Grant and MFA](/mfa/guides/mfa-api/authenticate)
+* [Manage Authenticator Factors using the MFA API](/mfa/guides/mfa-api/manage)
 
 ## Verify with one-time password (OTP)
 

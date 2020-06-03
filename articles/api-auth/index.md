@@ -126,7 +126,7 @@ In this page you can find a list of resources that can help you secure your APIs
         <i class="icon icon-budicon-695"></i><a href="/api-auth/tutorials/password-grant">Executing the flow</a>
       </li>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/api-auth/tutorials/multifactor-resource-owner-password">How to use MFA with Resource Owner Password Grant</a>
+        <i class="icon icon-budicon-695"></i><a href="/mfa/guides/mfa-api/multifactor-resource-owner-password">How to use MFA with Resource Owner Password Grant</a>
       </li>
       <li>
         <i class="icon icon-budicon-695"></i><a href="/api-auth/tutorials/using-resource-owner-password-from-server-side">How to use Resource Owner Password Grant from the server side together with Anomaly Detection</a>

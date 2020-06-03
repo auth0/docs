@@ -797,10 +797,6 @@ module.exports = [
     to: '/mfa/guides/mfa-api/manage'
   },
   {
-    from: '/multifactor-authentication/api/challenges',
-    to: '/mfa/guides/mfa-api/challenges'
-  },
-  {
     from: '/multifactor-authentication/twilio-configuration',
     to: '/mfa/guides/configure-sms'
   },
@@ -2611,5 +2607,9 @@ module.exports = [
     {
       from: '/line',
       to: '/connections/social/line'
+    },
+    {
+      from: '/api-auth/tutorials/multifactor-resource-owner-password',
+      to: '/mfa/guides/mfa-api/multifactor-resource-owner-password'
     }
 ];
