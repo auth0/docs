@@ -23,7 +23,7 @@ You will need to use the MFA API in the following scenarios:
 
 ## Limitations
 
-The MFA API is designed to work with SMS, Push via Guardian, Email, and OTP factors. It does not currently support enrolling with Duo or with the legacy 'google-authenticator' factor (which can be enrolled using the OTP factor).
+The MFA API is designed to work with SMS, Push via Guardian, Email, and OTP factors. It does not currently support enrolling with Duo or with the legacy 'google-authenticator' factor (Google Authenticator can still be enrolled using the OTP factor).
 
 ## Keep reading
 
