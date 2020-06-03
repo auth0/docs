@@ -46,7 +46,7 @@ The `provider` setting is a way to specify whether to force MFA, and which facto
 
 | Provider             | Classic Experience      | New Experience          |
 |----------------------|:-----------------------:|------------------------:|
-| any                  |  Push, SMS or OTP using | Push, SMS, OTP or Email |
+| any                  |  Push, SMS or OTP using | Push, SMS, Voice, OTP or Email |
 | guardian             |  Push, SMS or OTP using | Push, SMS, OTP or Email |
 | google-authenticator |  Google Authenticator   | Push, SMS, OTP or Email |
 | duo                  |  Duo                    | Duo                     |

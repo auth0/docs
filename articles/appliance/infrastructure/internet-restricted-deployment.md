@@ -51,7 +51,7 @@ To properly render the Dashboard, it accesses the following sites:
 
 ### Multi-factor Authentication (MFA)
 
-When using multi-factor authentication (MFA), you will need internet access for Guardian MFA (both SMS and push notifications require internet connectivity).
+When using multi-factor authentication (MFA), you will need internet access for Push notifications, SMS and Voice.
 
 For limited connectivity options, you may choose from:
 

@@ -1,6 +1,6 @@
 ---
-title: Enroll and Challenge SMS Authenticators
-description: Build your own MFA flows using SMS as a factor.
+title: Enroll and Challenge SMS or Voice Authenticators
+description: Build your own MFA flows using SMS or Voice as a factor.
 topics:
   - mfa
   - mfa-api
@@ -12,15 +12,15 @@ contentType:
 useCase:
   - customize-mfa
 ---
-# Enroll and Challenge SMS Authenticators
+# Enroll and Challenge SMS or Voice Authenticators
 
 Auth0 provides a built-in MFA enrollment and authentication flow using [Universal Login](/universal-login). However, if you want to create your own user interface, you can use the MFA API to accomplish it. 
 
-This guide explains how to enroll and challenge users with SMS using the MFA API. First, make sure that SMS is [enabled as factor](/mfa/guides/configure-sms) in the Dashboard or using the [Management API](/api/management/v2#!/Guardian/put_factors_by_name).
+This guide explains how to enroll and challenge users with SMS or a voice call using the MFA API. First, make sure that Phone is [enabled as factor](/mfa/guides/configure-phone) in the Dashboard or using the [Management API](/api/management/v2#!/Guardian/put_factors_by_name).
 
 <%= include('../../_includes/_authenticator-before-start') %>
 
-## Enrolling with SMS
+## Enrolling with SMS or Voice
 
 ### 1. Get the MFA token
 
@@ -30,11 +30,14 @@ This guide explains how to enroll and challenge users with SMS using the MFA API
 
 <%= include('../../_includes/_request_association') %>
 
-To enroll with SMS, you need to use the following parameters:
+When you enroll with Voice or SMS, you are actually enrolling a phone number, that can be challenged either with SMS or Voice.
+
+To enroll, you need to specify the parameters below. The `oob_channels` parameter indicates how you want to send the code to the user:
 
 - `authentication_types` = `[oob]`
-- `oob_channels` = `[sms]`
+- `oob_channels` = `[sms]` or `[voice]`.
 - `phone_number` = `+11...9`, the phone number [E.164 format](https://en.wikipedia.org/wiki/E.164)
+
 
 ```har
 {
@@ -63,17 +66,17 @@ If successful, you'll receive a response like the one below:
 }
 ```
 
-If you get a `User is already enrolled error`, the user already has an MFA factor enrolled. Before associating another factor with the user, you need to challenge the user with the existing factor.
+If you get a `User is already enrolled error`, is because the user already has an MFA factor enrolled. Before associating it another factor, you need challenge the user with the existing one.
 
 #### Recovery Codes
 
 <%= include('../../_includes/_recovery_codes') %>
 
-### 3. Confirm the SMS enrollment
+### 3. Confirm the SMS or Voice enrollment
 
-The user should receive an SMS containing the 6-digit code, which they can provide to the application.
+Users should receive an text message or a voice call with a 6-digit code that need to provide to the application.
 
-To complete enrollment of the sms authenticator make a `POST` request to the `oauth/token` endpoint. You need to include the `oob_code` returned in the previous response, and the `binding_code` with the value received in the SMS message.
+To complete enrollment, make a `POST` request to the `oauth/token` endpoint. You need to include the `oob_code` returned in the previous response, and the `binding_code` with the value received in the message.
 
 ```har
 {
@@ -108,7 +111,7 @@ To complete enrollment of the sms authenticator make a `POST` request to the `oa
       },
       {
         "name": "binding_code",
-        "value": "USER_SMS_OTP_CODE"
+        "value": "USER_OTP_CODE"
       }
     ]
 	}
@@ -117,9 +120,9 @@ To complete enrollment of the sms authenticator make a `POST` request to the `oa
 
 <%= include('../../_includes/_successful_confirmation') %>
 
-## Challenging with SMS
+## Challenging with SMS or Voice
 
-To challenge a user with SMS, follow the steps detailed below.
+To challenge a user with SMS or Voice, follow the steps detailed below.
 
 ### 1. Get the MFA token
 
@@ -156,12 +159,21 @@ You will get a list of authenticators with the format below:
         "oob_channel": "sms",
         "name": "XXXXXXXX8730"
     },
+        {
+        "id": "voice|dev_NU1Ofuw3Cw0XCt5x",
+        "authenticator_type": "oob",
+        "active": true,
+        "oob_channel": "voice",
+        "name": "XXXXXXXX8730"
+    }
 ]
 ```
 
-### 3. Challenge the user with SMS
+Note that you have two authenticators with different `authenticator_id` for Voice or SMS. 
 
-To trigger an SMS challenge, `POST` to the to `mfa/challenge` endpoint, using the corresponding `authenticator_id` ID and the `mfa_token`. 
+### 3. Challenge the user with SMS or Voice
+
+To trigger the challenge, `POST` to the to `mfa/challenge` endpoint, using the corresponding `authenticator_id` and the MFA Access Token.
 
 ```har
 {
@@ -176,7 +188,7 @@ To trigger an SMS challenge, `POST` to the to `mfa/challenge` endpoint, using th
 
 ### 4. Complete authentication using the received code
 
-If successful, you'll receive the following response, and the user will get an SMS message containing the required six-digit code:
+If successful, you'll receive the following response, and the user will get a message containing the required six-digit code:
 
 ```json
 {
@@ -186,9 +198,9 @@ If successful, you'll receive the following response, and the user will get an S
 }
 ```
 
-Your application needs to prompt the user for the `binding_code` and send it as part of the request. The `binding_code` is a 6-digit number included in the challenge.
+Your application needs to prompt the user for 6-digit number sent in the message, and should be set in the `binding_code` parameter.
 
-You can then verify the code and get the authentication tokens using the `/oauth/token` endpoint:
+You can then verify the code and get the authentication tokens using the `/oauth/token` endpoint, using the `binding_code` and the `oob_code` returned by the previous call:
 
 ```har
 {
@@ -222,7 +234,7 @@ You can then verify the code and get the authentication tokens using the `/oauth
       },
       {
         "name": "binding_code",
-        "value": "USER_SMS_OTP_CODE"
+        "value": "USER_OTP_CODE"
       }
     ]
   }
@@ -233,7 +245,7 @@ You can then verify the code and get the authentication tokens using the `/oauth
 
 ## Keep reading
 
-* [Configure SMS Notifications for MFA](/mfa/guides/configure-sms)
+* [Configure SMS or Voice Notifications for MFA](/mfa/guides/configure-phone)
 * [Managing MFA Enrollments](/mfa/guides/mfa-api/manage)
 * [Enroll and Challenge Push Authenticators](/mfa/guides/mfa-api/push)
 * [Enroll and Challenge OTP Authenticators](/mfa/guides/mfa-api/otp)

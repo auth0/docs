@@ -802,7 +802,11 @@ module.exports = [
   },
   {
     from: '/multifactor-authentication/sms-templates',
-    to: '/mfa/guides/guardian/customize-sms-messages'
+    to: '/mfa/guides/customize-phone-messages'
+  },
+  {
+    from: '/mfa/guides/guardian/customize-sms-messages',
+    to: '/mfa/guides/customize-phone-messages'
   },
   {
     from: '/multifactor-authentication/reset-user',

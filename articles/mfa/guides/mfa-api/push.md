@@ -5,7 +5,6 @@ topics:
   - mfa
   - mfa-api
   - mfa-authenticators
-  - sms
 contentType:
   - how-to
   - reference
@@ -30,7 +29,7 @@ This guide explains to enroll and challenge users using Push Notifications with 
 
 <%= include('../../_includes/_request_association') %>
 
-To enroll with SMS, you need to use the following parameters:
+To enroll with Push, you need to use the following parameters:
 
 - `authentication_types` = `[oob]`
 - `oob_channels` = `[auth0]`

@@ -46,9 +46,9 @@ For scripts and rules that call Auth0 APIs, you should always handle rate limiti
 
 For database connections, Auth0 limits certain types of repeat login attempts depending on the user account and IP address. For more information, see [Rate Limits on User/Password Authentication](/connections/database/rate-limits).
 
-## SMS message limits for multi-factor authentication
+## SMS/Voice message limits for multi-factor authentication
 
-There's a limit of 10 SMS messages/hour per user for MFA. For more information, see [Configure SMS Notifications for MFA](/mfa/guides/configure-sms).
+There's a limit of 10 SMS or Voice messages/hour per user for MFA. For more information, see [Configure SMS or Voice Notifications for MFA](/mfa/guides/configure-phone).
 
 ## Native social login limits
 

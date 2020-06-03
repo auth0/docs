@@ -13,10 +13,11 @@ useCase:
 ---
 # Auth0 Guardian
 
-Auth0 multi-factor authentication (MFA) is available as five factors:
+Auth0 multi-factor authentication (MFA) supports these authentication factors:
 
 * One-time password (OTP)
 * SMS
+* Voice
 * Push
 * Duo
 * Email
@@ -89,7 +90,6 @@ The Guardian Android SDK 0.4.0 version is available in Maven Central and include
 
 * [Configure Push Notifications for MFA](/mfa/guides/configure-push)
 * [Create Custom Enrollment Tickets](/mfa/guides/guardian/create-enrollment-ticket)
-* [Customize SMS Messages](/mfa/guides/guardian/customize-sms-messages)
 * [Guardian Error Code Reference](/mfa/references/guardian-error-code-reference)
 * [Auth0 Management API](/api/management/v2)
 * [Getting Started with Apple Push Notification Service](https://docs.aws.amazon.com/sns/latest/dg/mobile-push-apns.html)

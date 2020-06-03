@@ -12,7 +12,7 @@ useCase:
 You can import a user's MFA enrollments with [automatic migration](/users/guides/configure-automatic-migration) and [bulk user imports](/users/guides/bulk-user-imports). The supported enrollment types are:
 
 * Email: for [email](/mfa/concepts/mfa-factors#email-notifications) verification.
-* Phone: for [SMS](/mfa/concepts/mfa-factors#sms-notifications) verification.
+* Phone: for [SMS](/mfa/concepts/mfa-factors#sms-notifications) or [Voice](/mfa/concepts/mfa-factors#voice-notifications) verification.
 * TOTP: for [One-Time Passwords (OTP)](/mfa/concepts/mfa-factors#one-time-passwords) used with authenticator applications, such as Google Authenticator.
 
 Importing MFA enrollments provides a seamless user experience, since users won't have to re-enroll after migration.
@@ -50,7 +50,7 @@ The schema applies to MFA factors for both of the aforementioned workflows.
                 "value": {
                     "type": "string",
                     "pattern": "^\\+[0-9]{1,15}$",
-                    "description": "The phone number for SMS MFA. The phone number should include a country code and begin with +, such as: +12125550001"
+                    "description": "The phone number for SMS or Voice MFA. The phone number should include a country code and begin with +, such as: +12125550001"
                 },
                 },
                 "additionalProperties": false,

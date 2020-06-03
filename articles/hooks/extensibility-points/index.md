@@ -24,4 +24,4 @@ The following extensibility points are available:
 | [Pre-User Registration](/hooks/extensibility-points/pre-user-registration) | `pre-user-registration` | Database, Passwordless | Yes | Prevent user creation or registration, or add custom metadata to a newly-created user. |
 | [Post-User Registration](/hooks/extensibility-points/post-user-registration) | `post-user-registration` | Database, Passwordless | No | Implement custom actions from the Auth0 authentication process after a new user is created or registers and is added to the database. |
 | [Post-Change Password](/hooks/extensibility-points/post-change-password) | `post-change-password` | Database | No | Implement custom actions to be executed after a successful user password change. |
-| [Send Phone Message](/hooks/extensibility-points/send-phone-message) | `send-phone-message` | N/A | Yes | Implement a custom SMS provider to deliver MFA one-time-use codes. |
+| [Send Phone Message](/hooks/extensibility-points/send-phone-message) | `send-phone-message` | N/A | Yes | Implement a custom phone messaging provider to deliver MFA one-time-use codes. |

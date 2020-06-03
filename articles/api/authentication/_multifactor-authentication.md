@@ -94,7 +94,7 @@ Request a challenge for <dfn data-key="multifactor-authentication">multi-factor 
 The `challenge_type` is how the user will get the challenge and prove possession. Supported challenge types include:
 
 - `otp`: for one-time password (OTP)
-- `oob`: for SMS messages or out-of-band (OOB)
+- `oob`: for SMS/Voice messages or out-of-band (OOB)
 
 If OTP is supported by the user and you don't want to request a different factor, you can skip the challenge request and [verify the multi-factor authentication with a one-time password](#verify-with-one-time-password-otp-).
 
@@ -106,7 +106,7 @@ If OTP is supported by the user and you don't want to request a different factor
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
 | `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Application Settings](${manage_url}/#/applications) is `Post` or `Basic`. |
 | `challenge_type` | A whitespace-separated list of the challenges types accepted by your application. Accepted challenge types are `oob` or `otp`. Excluding this parameter means that your client application accepts all supported challenge types. |
-| `oob_channel` | The channel to use for OOB. Can only be provided when `challenge_type` is `oob`. Accepted channel types are `sms` or `auth0`. Excluding this parameter means that your client application will accept all supported OOB channels. |
+| `oob_channel` | The channel to use for OOB. Can only be provided when `challenge_type` is `oob`. Accepted channel types are `sms`, `voice` or `auth0`. Excluding this parameter means that your client application will accept all supported OOB channels. |
 | `authenticator_id` | The ID of the authenticator to challenge. You can get the ID by querying the list of available authenticators for the user as explained on [List authenticators](#list-authenticators) below. |
 
 ### Remarks
@@ -273,7 +273,7 @@ Content-Type: application/json
   "link": "#multifactor-authentication"
 }) %>
 
-Verifies <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> using an out-of-band (OOB) challenge (either Push notification or SMS).
+Verifies <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> using an out-of-band (OOB) challenge (either Push notification, SMS or Voice).
 
 To verify MFA using an OOB challenge, your application must make a request to `/oauth/token` with `grant_type=http://auth0.com/oauth/grant-type/mfa-oob`. Include the `oob_code` you received from the challenge response, as well as the `mfa_token` you received as part of `mfa_required` error.
 
@@ -483,8 +483,8 @@ To access this endpoint, you must set an Access Token at the Authorization heade
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
 | `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field in your [Application Settings](${manage_url}/#/applications) is `Post` or `Basic`. |
 | `authenticator_types` <br/><span class="label label-danger">Required</span> | The type of authenticators supported by the client. Value is an array with values `"otp"` or `"oob"`. |
-| `oob_channel` | The type of OOB channels supported by the client. An array with values `"auth0"` or `"sms"`. Required if `authenticator_types` include `oob`. |
-| `phone_number` | The phone number to use for SMS. Required if `oob_channel` includes `sms`. |
+| `oob_channel` | The type of OOB channels supported by the client. An array with values `"auth0"`, `"sms"`, `"voice"`. Required if `authenticator_types` include `oob`. |
+| `phone_number` | The phone number to use for SMS or Voice. Required if `oob_channel` includes `sms` or `voice`. |
 
 ### More information
 
