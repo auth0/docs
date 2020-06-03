@@ -28,20 +28,17 @@ If you want to use the MFA API as part of an authentication flow, you can follow
 If you are building a user interface to manage authentication factors, you'll need to obtain a token you can use for the MFA API at any moment, not only during authentication:
 
 * If you are using [Universal Login](/universal-login), redirect to the `/authorize` endpoint, specifying the `https://${account.namespace}/mfa` audience, before using calling the MFA API.
-
 * If you are using the Resource Owner Password Grant, you have two options:
-
-  - Ask for the `https://${account.namespace}/mfa` audience when logging-in, and use a [Refresh Token](/tokens/concepts/refresh-tokens) to refresh it later.
-
-  - If you need to list and delete authenticators, ask the user to [authenticate again](/mfa/guides/mfa-api/authenticate) with `/oauth/token`, specifying the `https://${account.namespace}/mfa` audience. Users will need to complete MFA before being able to list/delete the authentication factors. 
-
-  - If you only need to list authenticators, ask the user to [authenticate again](/mfa/guides/mfa-api/authenticate) using `/oauth/token`, with username/password. The endpoint will return an `mfa_required` error, and an `mfa_token` you can use to list authenticators. Users will need to provide their password to see their authenticators.
+    * Ask for the `https://${account.namespace}/mfa` audience when logging-in, and use a [Refresh Token](/tokens/concepts/refresh-tokens) to refresh it later.
+    * If you need to list and delete authenticators, ask the user to [authenticate again](/mfa/guides/mfa-api/authenticate) with `/oauth/token`, specifying the `https://${account.namespace}/mfa` audience. Users will need to complete MFA before being able to list/delete the authentication factors. 
+    * If you need to list and delete authenticators, ask the user to [authenticate again](/mfa/guides/mfa-api/authenticate) with `/oauth/token`, specifying the `https://${account.namespace}/mfa` audience. Users will need to complete MFA before being able to list/delete the authentication factors. 
+    * If you only need to list authenticators, ask the user to [authenticate again](/mfa/guides/mfa-api/authenticate) using `/oauth/token`, with username/password. The endpoint will return an `mfa_required` error, and an `mfa_token` you can use to list authenticators. Users will need to provide their password to see their authenticators.
 
 When you request a token for the MFA audience, you can request the following scopes:
 
-- `enroll`: needed to enroll a new authenticator
-- `read:authenticators`: needed to list existing authenticators
-- `remove:authenticators`: needed to delete an authenticator
+* `enroll`: needed to enroll a new authenticator
+* `read:authenticators`: needed to list existing authenticators
+* `remove:authenticators`: needed to delete an authenticator
 
 ## List Authenticators
 
@@ -94,10 +91,10 @@ For the purposes of building an user interface for end users to manage their fac
 
 The documents below explain how to enroll with different factors:
 
-- [Enrolling with SMS](/mfa/guides/mfa-api/sms#enrolling-with-sms)
-- [Enrolling with OTP](/mfa/guides/mfa-api/otp#enrolling-with-otp)
-- [Enrolling with Push](/mfa/guides/mfa-api/push#enrolling-with-push)
-- [Enrolling with Email](/mfa/guides/mfa-api/email#enrolling-with-email)
+* [Enrolling with SMS](/mfa/guides/mfa-api/sms#enrolling-with-sms)
+* [Enrolling with OTP](/mfa/guides/mfa-api/otp#enrolling-with-otp)
+* [Enrolling with Push](/mfa/guides/mfa-api/push#enrolling-with-push)
+* [Enrolling with Email](/mfa/guides/mfa-api/email#enrolling-with-email)
 
 You can also [use the Universal Login flow](/mfa/guides/guardian/create-enrollment-ticket) for enrolling users at any moment.
 
@@ -149,4 +146,3 @@ You will get a new recovery code that the end user will need to capture:
 ## Keep reading
 
 * [Authenticate With Resource Owner Password Grant and MFA](/mfa/guides/mfa-api/authenticate)
-
