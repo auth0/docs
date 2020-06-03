@@ -2607,5 +2607,9 @@ module.exports = [
     {
       from: '/line',
       to: '/connections/social/line'
+    },
+    {
+      from: '/api-auth/tutorials/multifactor-resource-owner-password',
+      to: '/mfa/guides/mfa-api/multifactor-resource-owner-password'
     }
 ];
