@@ -118,7 +118,7 @@ If the user is not enrolled in MFA, use the MFA token obtained earlier, and enro
 - [Enrolling with Push](/mfa/guides/mfa-api/push#enrolling-with-push)
 - [Enrolling with Email](/mfa/guides/mfa-api/email#enrolling-with-email)
 
-## 4. Challenge the user with MFA
+## 4. Challenge the User with MFA
 
 If the user is already enrolled in MFA, you need to challenge the user with one of the existing factors. Use the `authenticator_id` returned by the `/mfa/authenticators` endpoint when calling the `/mfa/challenge` endpoint. 
 
