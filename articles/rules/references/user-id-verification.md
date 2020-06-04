@@ -1,6 +1,6 @@
 ---
 title: Integrate User ID Verification Services Using Rules
-description: Describes how to integrate third-party user identity verification services using rules.  
+description: Learn how to integrate third-party user identity verification services using rules.  
 topics:
   - rules
   - extensibility
@@ -11,27 +11,46 @@ useCase: extensibility-rules
 
 # Integrate User ID Verification Services Using Rules
 
-Auth0 allows integration with third-party vendors that offer identity verification. Such integration can be done by either connecting the third-party vendor as a federated identity provider using:
+Auth0 allows integration with third-party vendors that offer identity verification. Such integration can be done by either connecting the third-party vendor as a federated identity provider using either a [custom OIDC Connection](/connections/enterprise/oidc) or the [SAML protocol](/saml), or by using [Auth0 Rules](/rules).
 
-* OpenID Connect protocol
-* SAML protocol
-* Auth0 rules
- 
-## Configure a redirect rule with OnFido
+In this example, you will integrate with OnFido, a third-party vendor providing Document ID and Facial Biometrics Verification, using a [redirect rule](/rules/guides/redirect) in Auth0.
 
-Here is an example of an integration with OnFido (third-party vendor providing Document ID & Facial Biometrics Verification) using a [redirect rule](/rules/guides/redirect) in Auth0. 
+## Prerequisites
 
-1. Go to [**Rules > Create Rule**](${manage_url}/#/rules/new) and create a rule for OnFido.
+Before connecting your Auth0 app to OnFido, you must [sign up for and configure your account with OnFido](https://onfido.com/us/).
 
-![Enable Auth0 OnFido Rule](/media/articles/rules/enable-onfido-redirect-rule.png)
+## Steps
 
-2. Edit the rule settings. See the following example for the OnFido rule settings. 
+To connect your app to OnFido, you will:
+
+1. [Get your OnFido credentials](#get-your-onfido-credentials)
+2. [Create and activate a rule in Auth0](#create-and-activate-a-rule-in-auth0)
+
+### Get your OnFido credentials
+
+First, you will need to retrieve the URL of OnFido's API and your API Token. To learn how to do this, see [OnFido's Getting Started docs](https://documentation.onfido.com/#getting-started-with-api-v3).
+
+Once you have retrieved the OnFido API's URL and your API Token, keep these values on hand because we will use them in the next step.
+
+### Create and activate a rule in Auth0
+
+[Set up a rule](articles/dashboard/guides/rules/create-rules) in Auth0. While setting up your rule, select the **Empty rule** template from the **Empty** section. For example code, see the following:
 
 ![Edit Auth0 OnFido Rule](/media/articles/rules/edit-onfido-rule.png)
 
+ Use the following settings:
+
+| Variable | Value |
+| -------- | ----- |
+| url | OnFido API URL |
+| token | OnFido API Token. You may use global variables to configure this in your rule. If so, be sure to [configure your rules variables](/dashboard/guides/rules/configure-variables) first. |
+
+By default, your rule will be activated upon save.
+
 ## User ID verification login experience
 
-The authentication flow has the following steps:
+The authentication flow contains the following steps:
+
 1. An app initiates an authentication request to Auth0.
 2. Auth0 routes the request to an Identity Provider through a configured connection.
 3. The user authenticates successfully.
@@ -53,7 +72,7 @@ After the user performs the steps to verify their identity, uploading documents 
 
 ## Metadata example
 
-The information of the OnFido verification is then stored in a user’s app metadata within the Auth0 user profile.
+The information of the OnFido verification is then stored in a [user’s app metadata](/users/concepts/overview-user-metadata) within the Auth0 user profile.
 
 ![OnFido Metadata Example](/media/articles/rules/onfido-metadata-example.png)
 
