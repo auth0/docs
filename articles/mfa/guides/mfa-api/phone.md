@@ -16,6 +16,10 @@ useCase:
 
 Auth0 provides a built-in MFA enrollment and authentication flow using [Universal Login](/universal-login). However, if you want to create your own user interface, you can use the MFA API to accomplish it. 
 
+::: warning
+You can use SMS in production environments, but Voice MFA is currently a Beta feature, which should not be used in production environments.
+::: 
+
 This guide explains how to enroll and challenge users with SMS or a voice call using the MFA API. First, make sure that Phone is [enabled as factor](/mfa/guides/configure-phone) in the Dashboard or using the [Management API](/api/management/v2#!/Guardian/put_factors_by_name).
 
 <%= include('../../_includes/_authenticator-before-start') %>

@@ -15,7 +15,11 @@ If you use SMS or Voice as an authentication factor, when an end user attempts t
 
 You can configure this factor to send messages through SMS, Voice, or to let the end users choose how they want the code to be delivered.
 
-## End user experience
+::: warning
+You can use SMS in production environments, but Voice MFA is currently a Beta feature, which should not be used in production environments.
+::: 
+
+## End user experience - SMS
 
 ![SMS End User 1](/media/articles/mfa/mfa-sms1.png)
 
@@ -24,6 +28,10 @@ After signing up and entering a country code and phone number, the user will rec
 ![SMS End User 2](/media/articles/mfa/mfa-sms2.png)
 
 To use this option, your users must have a device capable of receiving text messages or phone calls. If users cannot receive them messages, they will not be able to authenticate with this factor. If they already enrolled this way and do not have such a device, they will need to use their recovery code to complete the MFA flow (and then enroll another MFA method in place of this one).
+
+## End user experience - SMS and Voice
+
+TBD
 
 ## Administrative setup
 
