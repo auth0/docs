@@ -16,7 +16,7 @@ If you use SMS or Voice as an authentication factor, when an end user attempts t
 You can configure this factor to send messages through SMS, Voice, or to let the end users choose how they want the code to be delivered.
 
 ::: warning
-You can use SMS in production environments, but Voice MFA is currently a Beta feature, which should not be used in production environments.
+Voice MFA is currently a Beta feature. It should not be used in production environments.
 ::: 
 
 ## End user experience - SMS
@@ -96,7 +96,7 @@ The `messages_types` parameter is an array that can have ["sms"], ["voice"], or 
       "url": "https://${account.namespace}/api/v2/guardian/factors/phone/message-types",
       "headers": [{
           "name": "Authorization",
-          "value": "Bearer MANAGEMENT_API_ACCESS_TOKEN"
+          "value": "Bearer MGMT_API_ACCESS_TOKEN"
       }],
       "postData": {
           "mimeType": "application/json",
