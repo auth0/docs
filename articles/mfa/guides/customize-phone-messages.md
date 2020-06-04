@@ -25,7 +25,7 @@ You have two fields to customize your messages:
 
 * `message_type`: Can be “sms” or “voice”, and can be used to detect which kind of message it's being sent.
 * `code`: The Enrollment/Verification code. When sending voice messages, this variable will have the value with dots between the digits (e.g. ‘1.2.3.4.5.6’), so it can be pronounced as independent digits by voice messaging provides.
-* `locale`: When using the New Universal Login experience or the MFA API, it will have the the language selected for the login flow, as specified here https://auth0.com/docs/universal-login/i18n. 
+* `locale`: When using the New Universal Login experience or the MFA API, it will have the the language selected for the login flow, as specified [here](https://auth0.com/docs/universal-login/i18n). 
 * `requestInfo.lang`: The browser Accept-Language header (ie, `es-AR,es;q=0.8`,`en-US,en`, and so on.). It can be used for localization when using the Classic Login Experience.
 * `tenant.friendlyName`: The **Friendly Name** set in [Tenant Settings](${manage_url}/#/tenant).
 * `pause`: A special variable that can be used when you want to make a pause during a voice message.
