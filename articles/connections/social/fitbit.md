@@ -26,7 +26,7 @@ New connections with Fitbit will use OAuth 2.0. Please see the following documen
 
 ## Prerequisites
 
-Before you connect your Auth0 app to Fitbit, you must have an account on the [Fitbit Developer](https://dev.fitbit.com) portal.
+Before you connect your Auth0 app to Fitbit, you must have a [Fitbit Developer](https://dev.fitbit.com) account.
 
 ## Steps
 
@@ -38,16 +38,12 @@ To connect your app to Fitbit, you will:
 
 ### Set up your app in Fitbit
 
-1. Log in to the [Fitbit's Developer site](https://dev.fitbit.com), then select **REGISTER AN APP**.
-2. Complete the form with the following information:
+1. Log in to [Fitbit's Developer](https://dev.fitbit.com) portal and select **REGISTER AN APP**.
+2. Complete information about your app including the following:
 
 | Field | Description
 --------|------------
-Application Name | The name your app
-Description | App description
 Application Website | `https://${account.namespace}`
-Organization | The name of the associated organization
-Organization Website | URL of the organization
 OAuth 2.0 Application Type | Select **Application**
 Callback URL | `https://${account.namespace}/login/callback`
 Default Access Type | The type of access granted to the app

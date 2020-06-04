@@ -26,7 +26,7 @@ This connection will only work with <dfn data-key="lock">Lock</dfn> version 9.2 
 
 ## Prerequisites
 
-Before you connect your Auth0 app to Dropbox, you must have an account on the [Dropbox Developer](https://www.dropbox.com/developers) portal.
+Before you connect your Auth0 app to Dropbox, you must have a [Dropbox Developer](https://www.dropbox.com/developers) account.
 
 ## Steps
 
@@ -53,7 +53,8 @@ App Name | Name your app.
 `https://${account.namespace}/login/callback`
 
 <%= include('../_find-auth0-domain-redirects') %>
-5. Click **Add**. On the same **Settings** page, your `App key` and `App secret` will be displayed. 
+
+5. Click **Add**. Your `App key` and `App secret` will be displayed. 
 
 ### Create and enable a connection in Auth0
 

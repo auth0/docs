@@ -18,47 +18,40 @@ useCase:
 
 # Connect Apps to SoundCloud
 
-To configure an OAuth 2.0 connection with SoundCloud, you will need to register your Auth0 Application with SoundCloud using their [Developer Portal](http://developers.soundcloud.com/).
+You can add functionality to your web app that allows your users to log in with SoundCloud. 
 
-## 1. Register Your App and Obtain API Credentials with SoundCloud
-
-::: panel-warning SoundCloud App Registration
-SoundCloud's manual application registration process is currently closed, so **new applications cannot be registered**. Furthermore, as noted below, SoundCloud does **not** have an automated process to register your app. Auth0 does not have any control over this process, you must apply to SoundCloud and work with them to get your application configured. Only after SoundCloud approves your application can you use SoundCloud with Auth0.
+::: panel-warning Restricted SoundCloud App Registration
+SoundCloud's manual application registration process is currently closed, so **new applications cannot be registered**. SoundCloud does **not** have an automated process to register your app. You must apply to SoundCloud and work with them to get your application configured which can take up to 2 weeks. Only after SoundCloud approves your application can you use SoundCloud with Auth0. See [How to Request a SoundCloud API Key](https://support.appmachine.com/hc/en-us/articles/115000057244-How-to-request-a-SoundCloud-API-key) for details.
 :::
 
-Navigate to the [SoundCloud Developer Portal](http://developers.soundcloud.com/). Using the navigation menu on the right side, click on **Register a new app**:
+## Prerequisites
 
-![](/media/articles/connections/social/soundcloud/soundcloud-devportal-1.png)
+Before connecting your Auth0 app to SoundCloud, you must have a [SoundCloud Developer](http://developers.soundcloud.com/) account.
 
-You will be asked to fill out a Developer Application (which is a Google Forms document):
+## Steps
 
-![](/media/articles/connections/social/soundcloud/soundcloud-google-doc.png)
+To connect your app to SoundCloud, you will:
 
-This provides SoundCloud information about your Auth0 Application.
+1. [Set up your app in SoundCloud](#set-up-your-app-in-soundcloud)
+2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
+3. [Test the connection](#test-the-connection)
 
-Once you have completed and submitted your application, you will be contacted by the SoundCloud team with further instructions on how to proceed. Only at this point will you be given the appropriate API credentials to complete the integration.
+### Set up your app in SoundCloud
 
-## 2. Set Up a SoundCloud Social Connection in Auth0
+1. Navigate to https://soundcloud.com/you/apps/new.
+2. Follow the steps on the screen to complete your SoundCloud Application Registration. The SoundCloud application will provide the required keys to stream music from SoundCloud within your AppMachine app.
+3. You will be able to find your SoundCloud profile URL by logging into SoundCloud on https://soundcloud.com/.
+4. After logging in, navigate to your own profile by clicking your profile name in the top-right corner of the screen. Once navigated to your profile, your profile URL is equal to the page you are currently on.
+5. The question “Will your app authenticate users?” can be answered “No, my app will only use publicly accessible resources”.
+6. After filling out the form, your app will be in review for a maximum period of two weeks. Once reviewed, you will be able to use your SoundCloud API key to stream music from SoundCloud within your AppMachine app. When your request is approved and you received your own SoundCloud **API key** you'll be able to enter it in the Music block. You'll find the appropriate field in the **Settings: Client ID**.
 
-Once your Auth0 Application has been added to your SoundCloud account, you can get the `Client ID` and `Client Secret` necessary for the Auth0 Connection Settings.
+### Create and enable a connection in Auth0
 
-![](/media/articles/connections/social/soundcloud/soundcloud-devportal-2.png)
+[Set up the SoundCloud social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated.
 
-Be sure to provide your <dfn data-key="callback">callback URL</dfn> as your `Redirect URI for Authentication` on the SoundCloud dashboard: `https://${account.namespace}/login/callback`
+### Test the connection
 
-<%= include('../_find-auth0-domain-redirects') %>
-
-Go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard and enable **SoundCloud**.
-
-![](/media/articles/connections/social/soundcloud/social.png)
-
-You will be prompted to provide your SoundCloud `Client ID` and `Client Secret`.
-
-![](/media/articles/connections/social/soundcloud/auth0-settings.png)
-
-**Save** your settings. Switch to the *Applications* tab, and select the Application(s) you want to use the SoundCloud integration. **Save** again.
-
-![](/media/articles/connections/social/soundcloud/clients.png)
+You're ready to [test your connection](/dashboard/guides/connections/test-connections-social). After logging in, you'll be prompted to allow your app access. To do so, click **Install unlisted app**.
 
 <%= include('../_quickstart-links.md') %>
 

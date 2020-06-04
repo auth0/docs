@@ -27,7 +27,7 @@ You can add functionality to your web app that allows your users to log in with 
 
 ## Prerequisites
 
-Before you connect your Auth0 app to Google, you must have an account on the [Google Developer Console](https://console.developers.google.com/). You will need to get an <dfn data-key="access-token">access token</dfn> that will allow you to access the Google API. See [Setting up OAuth 2.0](https://support.google.com/googleapi/answer/6158849) for details.
+Before you connect your Auth0 app to Google, you must have a [Google Developer](https://console.developers.google.com/) account. You will need to get an <dfn data-key="access-token">access token</dfn> that will allow you to access the Google API. See [Setting up OAuth 2.0](https://support.google.com/googleapi/answer/6158849) for details.
 
 ## Steps
 
@@ -47,11 +47,10 @@ To connect your app to Google, you will:
 4. Click **Credentials**.
 5. Click **New Credentials**, then select **OAuth client ID**.
 6. On the **OAuth consent screen**, under **Authorized domains**, add `auth0.com`.
-7. Select **Web application** and complete the following information: 
+7. Select **Web application** and complete form including the following information: 
 
 | Field | Description |
 | - | - |
-| Name | The name of your application. |
 | Authorized JavaScript origins | `https://${account.namespace}` |
 | Authorized redirect URIs | `https://${account.namespace}/login/callback` |
 

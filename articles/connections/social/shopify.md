@@ -23,7 +23,7 @@ You can add functionality to your web app that allows your users to log in with 
 
 ## Prerequisites
 
-Before connecting your Auth0 app to Shopify, you must be a [member of the Shopify Partners program](https://www.shopify.com/partners).
+Before connecting your Auth0 app to Shopify, you must be a member of the [Shopify Partners program](https://www.shopify.com/partners).
 
 ## Steps
 
@@ -35,16 +35,18 @@ To connect your app to Shopify, you will:
 
 ### Set up your app in Shopify
 
-Create an app in Shopify and generate credentials for it, using Shopify's [Public Apps](https://help.shopify.com/en/api/getting-started/authentication/public-authentication#generate-credentials-from-your-partner-dashboard) docs. During this process, Shopify will generate an **API key** and **API secret key** for your application; make note of these.
+1. Register an app in Shopify using the instructions on [Public Apps](https://help.shopify.com/en/api/getting-started/authentication/public-authentication#generate-credentials-from-your-partner-dashboard). 
 
-While setting up your app, make sure you use the following settings:
+2. Complete information about your app including the following values:
 
 | Field | Value to Provide |
 | - | - |
-| App URL | `${manage_url}.auth0.com` |
-| Whitelisted redirection URL(s) | `${manage_url}.auth0.com/login/callback` |
+| App URL | `https://${account.namespace}` |
+| Whitelisted redirection URL(s) | `https://${account.namespace}/login/callback` |
 
 <%= include('../_find-auth0-domain-redirects') %>
+
+3. Submit your settings. Your **API key** and **API secret key** will be displayed.
 
 ### Create and enable a connection in Auth0
 

@@ -22,7 +22,7 @@ You can add functionality to your web app that allows your users to log in with 
 
 ## Prerequisites
 
-Before you connect your Auth0 app to Dwolla, you must have an account on the [Dwolla Developer](https://accounts-sandbox.dwolla.com/login) portal.
+Before you connect your Auth0 app to Dwolla, you must have a [Dwolla Developer](https://accounts-sandbox.dwolla.com/login) account.
 
 ## Steps
 

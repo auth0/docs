@@ -20,19 +20,19 @@ You can add functionality to your web app that allows your users to log in with 
 
 ## Prerequisites
 
-Before you connect your Auth0 app to Goodreads, you must have an account on the [Goodreads Developer](https://www.goodreads.com/api) portal.
+Before you connect your Auth0 app to Goodreads, you must have a [Goodreads Developer](https://www.goodreads.com/api) account.
 
 ## Steps
 
 To connect your app to Goodreads, you will:
 
-1. [Set up your app on Goodreads](#set-up-your-app-on-Goodreads)
+1. [Set up your app in Goodreads](#set-up-your-app-in-Goodreads)
 2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
 3. [Test the connection](#test-the-connection)
 
-### Set up your app on Goodreads
+### Set up your app in Goodreads
 
-1. Log into the [Goodreads developer site](https://www.goodreads.com/api), and select *developer key*.
+1. Log in to the [Goodreads developer portal](https://www.goodreads.com/api) and select *developer key*.
 
 2. Complete the form then click **Apply for a Developer Key**. 
 3. Enter your <dfn data-key="callback">callback URL</dfn> in the `Callback URL` field: 

@@ -24,7 +24,7 @@ useCase:
 ---
 # Connect Apps to Microsoft Account
 
-You can add functionality to your web app that allows your users to log in with Microsoft. 
+You can add functionality to your web app that allows your users to log in with a Microsoft Account. 
 
 ## Prerequisites
 
@@ -43,9 +43,9 @@ To connect your app to Microsoft Account, you will:
 
 ### Set up your app in Microsoft Account
 
-Follow the instructions in [Quickstart: Register an application with the Microsoft identity platform (Preview)](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app).
+1. Follow the instructions in [Quickstart: Register an application with the Microsoft identity platform (Preview)](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app).
 
-While setting up your app, when asked to set a **Redirect URI**, enter your <dfn data-key="callback">callback URL</dfn>:
+2. While setting up your app, when asked to set a **Redirect URI**, enter your <dfn data-key="callback">callback URL</dfn>:
 
   `https://${account.namespace}/login/callback`
 

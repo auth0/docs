@@ -22,7 +22,7 @@ You can add functionality to your web app that allows your users to log in with 
 
 ## Prerequisites
 
-Before connecting yor Auth0 app to Box, you will need to register your Auth0 tenant on their [developer portal](https://developers.box.com/).
+Before connecting yor Auth0 app to Box, you will need to have a [Box Developer](https://developers.box.com/) account.
 
 ## Steps
 
@@ -34,13 +34,13 @@ To connect your app to Shopify, you will:
 
 ### Set up your app in Box
 
-1. Log into the Box developer portal and click **My Apps** and then select **Create a Box Application**.
+1. Log in to the [Box Developer](https://developers.box.com/) portal and click **My Apps** and then select **Create a Box Application**.
 
 2. Name your new app and click **Create Application**.
 
-3. Click on **Edit Application** and review the form. 
+3. Click **Edit Application**. 
 
-4. Scroll down to `client_id` and `client_secret` fields under the **OAuth2 Parameters** section.
+4. Scroll to `client_id` and `client_secret` fields under the **OAuth2 Parameters** section.
 
 5. Enter your <dfn data-key="callback">callback URL</dfn> as the `redirect_uri`:
 

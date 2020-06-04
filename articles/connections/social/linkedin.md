@@ -23,7 +23,7 @@ You can add functionality to your web app that allows your users to log in with 
 
 ## Prerequisites
 
-Before you connect your Auth0 app to GitHub, you must have an account on the [LinkedIn Developer](https://www.linkedin.com/developers) portal.
+Before you connect your Auth0 app to GitHub, you must have a [LinkedIn Developer](https://www.linkedin.com/developers) account.
 
 ## Steps
 
@@ -36,7 +36,7 @@ To connect your app to LinkedIn, you will:
 ### Set up your app in LinkedIn
 
 1. Log in to the [LinkedIn Developer portal](https://www.linkedin.com/developers), and click **Create App**.
-2. Provide the basic details about your app.
+2. Provide the information about your app.
 3. Select the products you'd like to add/integrate into your app. By default, you'll get the abilities to **Share on LinkedIn** and **Sign In with LinkedIn**. You can, however, also use the **Marketing Developer Platform**.
 4. Click **Create App**. LinkedIn generates a **Client ID** and **Client Secret** for your application. You can find these on the app's **Auth** screen under **Application credentials**. 
 5. On the **Auth** screen under **OAuth 2.0 Settings**. Click the **pencil** icon, then click **Add redirect URL**. Enter the following redirect URL:

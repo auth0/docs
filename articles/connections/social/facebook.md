@@ -23,7 +23,7 @@ You can add functionality to your web app that allows your users to log in with 
 
 ## Prerequisites
 
-Before you connect your Auth0 app to Facebook, you must have an account on the [Facebook Developer](https://developers.facebook.com/) portal. Follow the instructions in [Facebook App Development](https://developers.facebook.com/docs/apps) docs. You must get an <dfn data-key="access-token">access token</dfn> that allows you to access the Facebook API.
+Before you connect your Auth0 app to Facebook, you must have a [Facebook Developer](https://developers.facebook.com/) account. Follow the instructions in [Facebook App Development](https://developers.facebook.com/docs/apps) docs. You must get an <dfn data-key="access-token">access token</dfn> that allows you to access the Facebook API.
 
 ## Steps
 

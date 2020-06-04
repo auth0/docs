@@ -18,37 +18,39 @@ useCase:
 
 # Connect Apps to RenRen
 
-To configure a RenRen OAuth2 connection, you will need to register Auth0 on the RenRen integration portal.
+You can add functionality to your web app that allows your users to log in with RenRen. 
 
-## 1. Create a new App
+## Prerequisites
 
-Log into the RenRen [integration portal](http://app.renren.com/developers) and click **Create New App**:
+Before connecting your Auth0 app to RenRen, you must have a [RenRen Developer](http://app.renren.com/developers) account.
 
-![](/media/articles/connections/social/renren/renren-register-1.png)
+## Steps
 
-## 2. Enter app information
+To connect your app to RenRen, you will:
 
-Complete the required information on this page. Enter your <dfn data-key="callback">callback URL</dfn> for the *callback URL*:
+1. [Set up your app in RenRen](#set-up-your-app-in-renren)
+2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
+3. [Test the connection](#test-the-connection)
+
+### Set up your app in RenRen
+
+1. Log in to the [RenRen Integration portal](http://app.renren.com/developers) and click **Create New App**.
+
+2. Complete the form and enter your <dfn data-key="callback">callback URL</dfn> for the *callback URL*:
 
   https://${account.namespace}/login/callback
 
-  <%= include('../_find-auth0-domain-redirects') %>
+<%= include('../_find-auth0-domain-redirects') %>
 
-Click **Create App**.
+3/ Click **Create App**. The `API Key` and `Secret Key` is displayed.
 
-![](/media/articles/connections/social/renren/renren-register-2.png)
+### Create and enable a connection in Auth0
 
-## 3. Get your *API Key* and *Secret Key*
+[Set up the RenRen social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated.
 
-Once the app is created, the `API Key` and `Secret Key` will be displayed on the following page:
+### Test the connection
 
-![](/media/articles/connections/social/renren/renren-register-3.png)
-
-## 4. Copy your *API Key* and *Secret Key*
-
-Go to the [Social Connections](${manage_url}/#/connections/social) section of your Auth0 Dashboard and choose **RenRen**. Copy the `API Key` and `Secret Key` from the **New App** page on RenRen into fields on this page on Auth0:
-
-![](/media/articles/connections/social/renren/renren-register-4.png)
+You're ready to [test your connection](/dashboard/guides/connections/test-connections-social). After logging in, you'll be prompted to allow your app access. To do so, click **Install unlisted app**.
 
 <%= include('../_quickstart-links.md') %>
 

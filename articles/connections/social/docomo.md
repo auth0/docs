@@ -22,19 +22,19 @@ You can add functionality to your web app that allows your users to log in with 
 
 ## Prerequisites
 
-Before connecting your Auth0 app to Docomo dAccount, you must have an account on the [dAccount Connect Portal](https://dac-g.apl01.spmode.ne.jp/VIEW_OC01/GOCA00004/).
+Before connecting your Auth0 app to Docomo dAccount, you must have a [dAccount Connect Portal](https://dac-g.apl01.spmode.ne.jp/VIEW_OC01/GOCA00004/) account.
 
 ## Steps
 
-To connect your app to Shopify, you will:
+To connect your app to Docomo dAccount, you will:
 
 1. [Set up your app in Docomo dAccount](#set-up-your-app-in-docomo-daccount)
 2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
 3. [Test the connection](#test-the-connection)
 
-### Set up your app on Docomo dAccount
+### Set up your app in Docomo dAccount
 
-1. Log in into your [dAccount Connect Portal](https://dac-g.apl01.spmode.ne.jp/VIEW_OC01/GOCA00004/), and click on the **RP site information management (RPサイト情報管理画面)** link on the side navigation.
+1. Log in to the [dAccount Connect Portal](https://dac-g.apl01.spmode.ne.jp/VIEW_OC01/GOCA00004/) and click on the **RP site information management (RPサイト情報管理画面)** link on the side navigation.
 
 2. Click the **Add new RP site info (新規RPサイト情報追加)** button to add a new service.
 

@@ -21,7 +21,7 @@ You can add functionality to your web app that allows your users to log in with 
 
 ## Prerequisites
 
-Before you connect your Auth0 app to Exact, you must have an account on the [Exact Online App Center](https://apps.exactonline.com/) portal.
+Before you connect your Auth0 app to Exact, you must have a [Exact Online App Center](https://apps.exactonline.com/) account.
 
 ## Steps
 
@@ -33,11 +33,7 @@ To connect your app to Exact, you will:
 
 ### Set up your app in Exact
 
-::: note
-You can register applications in multiple regions with Exact. By default, Auth0 will use `https://start.exactonline.nl`, but this value can be overridden with the `Base URL` parameter.
-:::
-
-1. Log in to the [Exact Online App Center](https://apps.exactonline.com/)and click **Manage Apps**, then **Add a new application**.
+1. Log in to the [Exact Online App Center](https://apps.exactonline.com/)and click **Manage Apps**, then **Add a new application**. You can register applications in multiple regions with Exact. By default, Auth0 will use `https://start.exactonline.nl`, but this value can be overridden with the `Base URL` parameter.
 
 2. Enter your app name.
 

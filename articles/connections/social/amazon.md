@@ -25,7 +25,7 @@ You can add functioanlity to your app that allows your users to login with Amazo
 
 ## Prerequisites
 
-Before connecting your Auth0 app to have an account on the [Amazon portal](http://login.amazon.com). 
+Before connecting your Auth0 app to have an [Amazon portal](http://login.amazon.com) account. 
 
 ## Steps
 
@@ -37,9 +37,10 @@ To connect your app to Amazon, you will:
 
 ### Set up your app on Amazon
 
-1. Log into [Login with Amazon](http://login.amazon.com) and select **App Console**.
-2. Click on the **Register New Application** button and enter a **Name**, **Description**, and **Privacy Notice URL** for your app. Click **Save**.
-3. Enter your callback URL. Expand the **Web Settings** section. 
+1. Log in to [Amazon](http://login.amazon.com) and select **App Console**.
+2. Click **Register New Application** and enter a **Name**, **Description**, and **Privacy Notice URL** for your app. 
+3. Click **Save**.
+4. Expand the **Web Settings** section. Enter the following values: 
 
 | Field | Value to Provide |
 | - | - |

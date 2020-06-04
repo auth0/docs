@@ -25,7 +25,7 @@ Instagram hass deprecated their legacy APIs in favor of the new [Instagram Graph
 
 ## Prerequisites
 
-Before you connect your Auth0 app to Instagram, you must have an account on the [Facebook Developer](https://developers.facebook.com/) portal. Follow the instructions in [Getting Started with the Instagram Graph API](https://developers.facebook.com/docs/instagram-api/getting-started/). You must get an <dfn data-key="access-token">access token</dfn> that allows you to access the Facebook API. 
+Before you connect your Auth0 app to Instagram, you must have a [Facebook Developer](https://developers.facebook.com/) account. Follow the instructions in [Getting Started with the Instagram Graph API](https://developers.facebook.com/docs/instagram-api/getting-started/). You must get an <dfn data-key="access-token">access token</dfn> that allows you to access the Facebook API. 
 
 ## Steps
 
@@ -37,9 +37,9 @@ To connect your app to Instagram, you will:
 
 ### Set up your app with the Graph API
 
-1. 1. Log in to the [Facebook Developer](https://developers.facebook.com/) portal. 
+1. Log in to the [Facebook Developer](https://developers.facebook.com/) portal. 
 2. Follow steps for [App Development](https://developers.facebook.com/docs/apps#register) to register your app. 
-3. Add Facebook Login to your app in the App Dashboard. 
+3. Add **Facebook Login** to your app in the **App Dashboard**. 
 4. On the **Facebook Login > Settings** page, under **Valid Oauth Redirect URIs**, enter your <dfn data-key="callback">callback URL</dfn>: 
 
   `https://${account.namespace}/login/callback`

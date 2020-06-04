@@ -23,7 +23,7 @@ This connection will only work with <dfn data-key="lock">Lock</dfn> version 9.2 
 
 ## Prerequisites
 
-Before connecting your Auth0 app to Bitbucket, you will need to have an account on [Bitbucket](https://bitbucket.org/).
+Before connecting your Auth0 app to Bitbucket, you will need to have a [Bitbucket](https://bitbucket.org/) account.
 
 ## Steps
 
@@ -39,7 +39,7 @@ To connect your app to Bitbucket, you will:
 2. Click **Add consumer**. 
 3. Provide a name for your app. In the <dfn data-key="callback">**Callback URL**</dfn> field, enter the following:
 
-`https://${account.namespace}/login/callback`
+  `https://${account.namespace}/login/callback`
 
 <%= include('../_find-auth0-domain-redirects') %>
 
@@ -47,7 +47,7 @@ To connect your app to Bitbucket, you will:
 
 5. Click **Save**.
 
-6. To get your *Key* and *Secret*, on the page that follows, click the name of your app under **OAuth consumers** to reveal your keys.
+6. On the page that follows, click the name of your app under **OAuth consumers** to reveal your keys.
 
 ### Create and enable a connection in Auth0
 

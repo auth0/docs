@@ -21,7 +21,7 @@ You can add functionality to your web app that allows your users to log in with 
 
 ## Prerequisites
 
-Before you connect your Auth0 app to GitHub, you must have an account on the [GitHub Developer](https://github.com/settings/developers) portal.
+Before you connect your Auth0 app to GitHub, you must have a [GitHub Developer](https://github.com/settings/developers) account.
 
 ## Steps
 
@@ -31,17 +31,15 @@ To connect your app to GitHub, you will:
 2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
 3. [Test the connection](#test-the-connection)
 
-### Set up your app with GitHub
+### Set up your app in GitHub
 
 1. Log in to [GitHub](https://github.com/) and go to **OAuth applications** in your [developer settings](https://github.com/settings/developers). 
 2. Click [Register a new application](https://github.com/settings/applications/new).
-3. Complete the form with the following information:
+3. Complete the form including the information:
 
 | Field | Description |
 | - | - |
-| Application name | The name of your app |
 | Homepage URL | `https://${account.namespace}` |
-| Application description | The description of your app users will see (Optional) |
 | Authorization callback URL | `https://${account.namespace}/login/callback` |
 
 <%= include('../_find-auth0-domain-redirects') %>

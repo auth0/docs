@@ -18,66 +18,40 @@ useCase:
 
 # Connect Apps to Yammer
 
-To configure Yammer for OAuth connections, you will need to register your app in the Yammer Developer Center.
+You can add functionality to your web app that allows your users to log in with Yammer. 
 
-## 1. Login to Yammer Developer Center
+## Prerequisites
 
-Go to [Yammer Developer Center](https://developer.yammer.com/) and login with your account. Click on **Apps** in the top menu:
+Before connecting your Auth0 app to Yammer, you must have a [Yammer Developer](https://developer.yammer.com/) account.
 
-![](/media/articles/connections/social/yammer/yammer-connect-1.png)
+## Steps
 
-Click on **Register an App**:
+To connect your app to Yammer, you will:
 
-![](/media/articles/connections/social/yammer/yammer-connect-2.png)
+1. [Set up your app in Yammer](#set-up-your-app-in-yammer)
+2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
+3. [Test the connection](#test-the-connection)
 
-Then click **Register New App**:
+### Set up your app in Yammer
 
-![](/media/articles/connections/social/yammer/yammer-connect-3.png)
+1. Log in to [Yammer Developer Center](https://developer.yammer.com/) and click on **Apps** in the top menu.
+2. Click on **Register an App**.
+3. Then click **Register New App**.
+4. Name your app and complete the form. For the **Redirect URI**, enter your <dfn data-key="callback">callback URL</dfn>: 
 
-## 2. Name your application
-
-Name your app and complete the form.
-For the **Redirect URI**, enter your <dfn data-key="callback">callback URL</dfn>: `https://${account.namespace}/login/callback`.
+  `https://${account.namespace}/login/callback`.
 
 <%= include('../_find-auth0-domain-redirects') %>
 
-Click **Continue**.
+5. Click **Continue**. Once your app is created, your `Client ID` and `Client Secret` will be displayed.
 
-![](/media/articles/connections/social/yammer/yammer-connect-4.png)
+### Create and enable a connection in Auth0
 
-## 3. Get your *Client ID* and *Client Secret*
+[Set up the Yammer social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated.
 
-Once your app is created, your `Client ID` and `Client Secret` will be displayed:
+### Test the connection
 
-![](/media/articles/connections/social/yammer/yammer-connect-5.png)
-
-## 4. Copy the *Client ID* and *Client Secret* into Auth0
-
-Go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard and select **Yammer**.
-Copy the `Client ID` and `Client Secret` from the **Basic Info** page of your app on Yammer into the fields on this page on Auth0.
-Click **Save**:
-
-![](/media/articles/connections/social/yammer/yammer-connect-6.png)
-
-## 5. Test your app
-
-Go back to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard.
-
-If you have configured your app correctly, you will see a Try icon next to the Yammer logo.
-Toggle on the switch to enable Yammer authentication:
-
-![](/media/articles/connections/social/yammer/yammer-connect-7.png)
-
-Select the apps you would like to use Yammer authentication with.
-Click **Continue**:
-
-![](/media/articles/connections/social/yammer/yammer-connect-8.png)
-
-Now you can test your new app by clicking **Try**:
-
-![](/media/articles/connections/social/yammer/yammer-connect-9.png)
-
-![](/media/articles/connections/social/yammer/yammer-connect-10.png)
+You're ready to [test your connection](/dashboard/guides/connections/test-connections-social). After logging in, you'll be prompted to allow your app access. To do so, click **Install unlisted app**.
 
 <%= include('../_quickstart-links.md') %>
 
