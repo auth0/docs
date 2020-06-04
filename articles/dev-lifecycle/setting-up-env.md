@@ -40,6 +40,10 @@ After selecting the environment, click on **Save Changes**.
 
 ![Support Center Tenants Settings](/media/articles/clients/support-tenants-settings.png)
 
+::: note
+Environment Tags are not available in [Private Cloud deployments ](/private-cloud). All tenants in the same environment will have the same limits.
+:::
+
 ## Migration
 
 Through the [Management API v2](/api/management/v2), you can automate the migration of assets ([rules](/rules/current), database [connections](/connections), and so forth) between tenants.
