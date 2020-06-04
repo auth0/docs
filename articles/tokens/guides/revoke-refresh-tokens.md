@@ -91,13 +91,13 @@ The possible responses are:
 
 ## Use the Management API
 
-To revoke a Refresh Token using the Auth0 Management API, you need the `id` of the Refresh Token you wish to revoke. To obtain a list of existing Refresh Tokens, call the [List device credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoint, specifying `type=refresh_token` with an Access Token containing `read:device_credentials` scope. To narrow the results, you can also specify the `client_id` and `user_id` associated with the token (if known).
+To revoke a Refresh Token using the Auth0 Management API, you need the `id` of the Refresh Token you wish to revoke. To obtain a list of existing Refresh Tokens, call the [List device credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoint, specifying `type=refresh_token` and `user_id` with an Access Token containing `read:device_credentials` scope. To narrow the results, you can also specify the `client_id` associated with the token (if known).
 
 ```text
 GET https://${account.namespace}/api/v2/device-credentials?
   type=refresh_token
-  &client_id={}
-  &user_id={}
+  &client_id=
+  &user_id=
 
 {
   "Authorization":   "Bearer {your_access_token}"
