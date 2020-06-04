@@ -48,13 +48,9 @@ You can choose if you want to give users the option of getting text messages, vo
 
 If you choose to deliver SMS via Twilio, follow these steps to configure your SMS factor.
 
-1. Open an account with Twilio. You will need a [Twilio Account SID](https://www.twilio.com/help/faq/twilio-basics/what-is-an-application-sid) and a [Twilio Auth Token](https://www.twilio.com/help/faq/twilio-basics/what-is-the-auth-token-and-how-can-i-change-it). 
+1. Open an account with Twilio. You will need a [Twilio Account SID](https://www.twilio.com/help/faq/twilio-basics/what-is-an-application-sid) and a [Twilio Auth Token](https://www.twilio.com/help/faq/twilio-basics/what-is-the-auth-token-and-how-can-i-change-it). These are the Twilio API credentials that Auth0 will use to send an messages to the user. 
 
-These are the Twilio API credentials that Auth0 will use to send an messages to the user. 
-
-You may also need to enable permissions for your geographic region for [SMS](https://support.twilio.com/hc/en-us/articles/223181108-How-International-SMS-Permissions-work) and [Voice](https://www.twilio.com/console/voice/calls/geo-permissions).
-
-If you use Voice, your Twilio phone number needs to be enabled to make Voice calls.
+  You may also need to enable permissions for your geographic region for [SMS](https://support.twilio.com/hc/en-us/articles/223181108-How-International-SMS-Permissions-work) and [Voice](https://www.twilio.com/console/voice/calls/geo-permissions). If you use Voice, your Twilio phone number needs to be enabled to make Voice calls.
 
 2. Configure the connection. Enter your **Twilio Account SID** and **Twilio Auth Token** in the appropriate fields.
 
@@ -79,7 +75,6 @@ Phone Messaging providers not currently integrated with Auth0 can be supported b
 * [Vonage](/mfa/send-phone-message-hook-vonage)
 * [Esendex](/mfa/send-phone-message-hook-esendex)
 * [Mitto](/mfa/send-phone-message-hook-mitto)
-:::
 
 ## Using the Management API to configure Voice or SMS
 
@@ -104,4 +99,4 @@ The `messages_types` parameter is an array that can have ["sms"], ["voice"], or 
 
 ## Keep Reading
 
-* [Enroll and Challenge SMS Authenticators using the MFA API](/mfa/guides/mfa-api/phone)
+* [Enroll and Challenge SMS and Voice Authenticators using the MFA API](/mfa/guides/mfa-api/phone)

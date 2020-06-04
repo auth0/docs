@@ -32,12 +32,11 @@ This guide explains how to enroll and challenge users with SMS or a voice call u
 
 When you enroll with Voice or SMS, you are actually enrolling a phone number, that can be challenged either with SMS or Voice.
 
-To enroll, you need to specify the parameters below. The `oob_channels` parameter indicates how you want to send the code to the user:
+You need to specify the parameters below to call the endpoint. The `oob_channels` parameter indicates how you want to send the code to the user (SMS or Voice):
 
 - `authentication_types` = `[oob]`
 - `oob_channels` = `[sms]` or `[voice]`.
 - `phone_number` = `+11...9`, the phone number [E.164 format](https://en.wikipedia.org/wiki/E.164)
-
 
 ```har
 {
@@ -74,7 +73,7 @@ If you get a `User is already enrolled error`, is because the user already has a
 
 ### 3. Confirm the SMS or Voice enrollment
 
-Users should receive an text message or a voice call with a 6-digit code that need to provide to the application.
+Users should receive an message with a 6-digit code that need to provide to the application.
 
 To complete enrollment, make a `POST` request to the `oauth/token` endpoint. You need to include the `oob_code` returned in the previous response, and the `binding_code` with the value received in the message.
 
