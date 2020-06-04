@@ -798,7 +798,7 @@ module.exports = [
   },
   {
     from: '/multifactor-authentication/twilio-configuration',
-    to: '/mfa/guides/configure-sms'
+    to: '/mfa/guides/configure-phone'
   },
   {
     from: '/multifactor-authentication/sms-templates',
@@ -830,7 +830,7 @@ module.exports = [
   },
   {
     from: '/multifactor-authentication/factors/sms',
-    to: '/mfa/guides/configure-sms'
+    to: '/mfa/guides/configure-phone'
   },
   {
     from: '/multifactor-authentication/factors/push',

@@ -16,7 +16,7 @@ v2: true
 ---
 # Send Phone Message
 
-If you decide to use SMS or Voice as a factor for <dfn data-key="multifactor-authentication">Multi-factor Authentication (MFA)</dfn>, you can configure how you want Auth0 to send the messages in the [MFA Phone configuration dialog](/mfa/guides/configure-sms#administrative-setup).
+If you decide to use SMS or Voice as a factor for <dfn data-key="multifactor-authentication">Multi-factor Authentication (MFA)</dfn>, you can configure how you want Auth0 to send the messages in the [MFA Phone configuration dialog](/mfa/guides/configure-phone#administrative-setup).
 
 If you select the 'Custom' delivery method, you must create a **Send Phone Message Hook** that will let you write your own code to send the message. This allows you to use whatever messaging provider you want.
 
@@ -134,5 +134,5 @@ Learn how to integrate different messaging providers with the examples below:
 
 ## Keep Reading
 
-- [Configure SMS Notifications for MFA](/mfa/guides/configure-sms)
+- [Configure SMS or Voice Notifications for MFA](/mfa/guides/configure-phone)
 - [Extensibility Points](/hooks/extensibility-points)
