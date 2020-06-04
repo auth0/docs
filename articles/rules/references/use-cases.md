@@ -114,6 +114,12 @@ useCase: extensibility-rules
     <li>
         <i class="icon icon-budicon-715"></i><a href="/integrations/sharepoint#authorization">Modify the SAML configuration to store the user's group memberships in their profile's groups attribute</a>
     </li>
+    <li>
+        <i class="icon icon-budicon-715"></i><a href="/rules/guides/integrate-mixpanel">Integrate with MixPanel Product Analytics</a>
+    </li>
+    <li>
+        <i class="icon icon-budicon-715"></i><a href="/rules/guides/integrate-efm-solutions">Integrate with Enterprise Fraud Management Solutions</a>
+    </li>
 </ul>
 
 <h2>Login</h2>
