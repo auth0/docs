@@ -54,7 +54,7 @@ The email invitation needs to be sent with your existing email service provider.
 
 ## Customize the Password Reset UI
 
-Once the user clicks the link in the invitation they will be brought to the [Universal Login Password Reset](/universal-login/password-reset) page. Here they will set a password for their account. Since this page is used both for the forgot password workflow and for your user invitations, you will want to use the query parameters you defined earlier to identify the invite workflow and [customize the UI](/universal-login/password-reset) accordingly.
+Once the user clicks the link in the invitation they will be brought to the [Universal Login Password Reset](/universal-login/password-reset) page. Here they will set a password for their account. Since this page is used both for the forgot password workflow and for your user invitations, you will want to use the query parameters you defined earlier to identify the invite workflow and customize the UI accordingly.
 
 ## Complete the user experience
 
