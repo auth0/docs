@@ -1,51 +1,60 @@
 ---
-title: Connect Apps to 37Signals
+title: Connect Apps to Basecamp
 connection: Basecamp
 image: /media/connections/basecamp.png
 alias:
   - basecamp
   - thirtysevensignals
 seo_alias: 37signals
-description: How to obtain a Client Id and Client Secret for 37Signals.
+description: How to obtain a Client Id and Client Secret for Basecamp (formerly 37Signals).
 toc: true
 topics:
   - connections
   - social
   - 37signals
+  - basecamp
 contentType: how-to
 useCase:
-    - customize-connections
-    - add-idp
+  - customize-connections
+  - add-idp
+  - add-login
 ---
 
-# Connect Apps to 37Signals
+# Connect Apps to Basecamp
 
-To configure a 37Signals OAuth2 connection, you will need to register your Auth0 tenant on the [37Signals Integration Portal](https://integrate.37signals.com/).
+This guide will show you how to add functionality to your web app that allows your users to log in with Basecamp (formerly 37Signals).
 
-## 1. Register a new App
+## Prerequisites
 
-Log into the Integration Portal. Select **New Application** and enter some general information about your app (name, website, logo) on first page:
+Before connecting your Auth0 app to Basecamp, you must have [set up an account with Basecamp](https://basecamp.com/).
 
-![](/media/articles/connections/social/37signals/37signals-register-1.png)
+## Steps
 
-## 2. Define the scope of access and enter your callback URL
+To connect your app to Basecamp, you will:
 
-On the next page, select which 37Signals applications you want to access, and enter your Auth0 <dfn data-key="callback">callback URL</dfn> in the **Redirect URI** field:
+1. [Set up your app in Basecamp](#set-up-your-app-in-basecamp)
+2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
+3. [Test the connection](#test-the-connection)
 
-    https://${account.namespace}/login/callback
+### Set up your app in Basecamp
+
+Register an app in Basecamp and generate credentials for it through the [Basecamp Launchpad](https://integrate.37signals.com/). While setting up your app, make sure you use the following settings:
+
+| Field | Value to Provide |
+| - | - |
+| Redirect URI | `${manage_url}.auth0.com/login/callback` |
+| Products | Select the Basecamp products with which you want your app to integrate. |
 
 <%= include('../_find-auth0-domain-redirects') %>
 
-![](/media/articles/connections/social/37signals/37signals-register-2.png)
+During this process, Basecamp will generate a **Client ID** and **Client Secret** for your application, which you can see on the Application Details page; make note of these.
 
-## 3. Generate your *Client Id* and *Client Secret*
+### Create and enable a connection in Auth0
 
-Once your app is registered, a `Client Id` and `Client Secret` are generated for you.
+[Set up the 37Signals social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **Client ID** and the **Client Secret** generated in Step 1.
 
-![](/media/articles/connections/social/37signals/37signals-register-4.png)
+### Test the connection
 
-Go to your Auth0 Dashboard and select **Connections > Social**, then choose **37Signals**. Copy the `Client Id` and `Client Secret` from the Integration Portal into the fields on this page.
-
-![](/media/articles/connections/social/37signals/37signals-add-connection.png)
+You're ready to [test your connection](/dashboard/guides/connections/test-connections-social). After logging in, you'll be prompted to allow your app access. To do so, click **Install unlisted app**.
 
 <%= include('../_quickstart-links.md') %>
