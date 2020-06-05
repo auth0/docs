@@ -22,7 +22,7 @@ Mitto provides an SMS messaging service that can be used by Auth0 to deliver mul
 
 ## Prequisites
 
-Before you begin this tutorial, please create an account with Mitto [here](https://info.mitto.ch/mitto-auth0). You will get an API Key and a Sender ID that you can then use to invoke Mitto's APIs.
+Before you begin this tutorial, please [create an account with Mitto](https://info.mitto.ch/mitto-auth0). You will get an API Key and a Sender ID that you can then use to invoke Mitto's APIs.
 
 ## Steps
 
