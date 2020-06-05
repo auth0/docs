@@ -22,6 +22,12 @@ If you plan to use global variables in your rule, be sure to [configure your rul
 
 1. Navigate to the [Rules](${manage_url}/#/rules) page in the [Auth0 Dashboard](${manage_url}/), and click **Create Rule**.
 
+![View Rules](/media/articles/dashboard/rules-list-empty.png)
+
 2. Select a rule template.
 
+![Select Rules Template](/media/articles/dashboard/rules/rules-templates.png)
+
 3. Name the rule, modify the script to suit your needs, and click **Save Changes**.
+
+![Edit Rules Template](/media/articles/dashboard/rules/rules-edit-rule.png)

@@ -33,7 +33,7 @@ First, you will need to retrieve your HubSpot API Key and the list ID of the Hub
 To learn how to get your HubSpot API Key, see [HubSpot's Access your HubSpot API Key doc](https://knowledge.HubSpot.com/integrations/how-do-i-get-my-HubSpot-api-key).
 
 You can find the ID of any list in HubSpot by navigating to the list in your portal and inspecting the URL. The format of the URL is:
-https://app.hubspot.com/contacts/{portal id}/lists/{list id}
+`https://app.hubspot.com/contacts/{portal id}/lists/{list id}`
 
 Once you have retrieved your HubSpot API Key and HubSpot List ID, keep these values on hand because we will use them in the next step.
 
