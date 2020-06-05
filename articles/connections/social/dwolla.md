@@ -5,6 +5,7 @@ image: /media/connections/dwolla.png
 seo_alias: dwolla
 description: How to obtain a Client Id and Client Secret for Dwolla.
 toc: true
+index: 9
 topics:
   - connections
   - social

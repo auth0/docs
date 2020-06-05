@@ -3,6 +3,7 @@ connection: Bitbucket
 image: /media/connections/bitbucket.png
 seo_alias: bitbucket
 description: This page shows you how to connect your Auth0 app to Bitbucket. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
+index: 5
 topics:
   - connections
   - social

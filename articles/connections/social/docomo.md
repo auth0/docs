@@ -5,6 +5,7 @@ image: /media/connections/daccount.png
 seo_alias: docomo
 description: How to obtain a Client ID and Client Secret for Docomo dAccount.
 toc: true
+index: 7
 topics:
   - connections
   - social

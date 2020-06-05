@@ -2,7 +2,7 @@
 title: Connect Apps to Microsoft
 connection: Microsoft Account
 image: /media/connections/ms.png
-index: 12
+index: 22
 alias:
  - live-id
  - microsoft-live

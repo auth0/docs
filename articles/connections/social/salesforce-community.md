@@ -3,7 +3,7 @@ title: Connect Apps to Salesforce Community
 connection: Salesforce Community
 image: /media/connections/salesforce.png
 seo_alias: salesforce
-index: 8
+index: 29
 description: Learn how to add login functionality to your app with Salesforce Community. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
 toc: true
 topics:

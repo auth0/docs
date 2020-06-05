@@ -3,6 +3,7 @@ title: Connect Apps to Goodreads
 connection: Goodreads
 image: /media/connections/goodreads.png
 seo_alias: goodreads
+index: 17
 description: How to obtain a Consumer Key and Consumer Secret for Goodreads.
 topics:
   - connections

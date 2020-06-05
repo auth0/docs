@@ -5,7 +5,7 @@ image: /media/connections/evernote.png
 seo_alias: evernote
 description: Learn how to add login functionality to your app with Evernote. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
 toc: true
-index: 4
+index: 10
 topics:
   - connections
   - social

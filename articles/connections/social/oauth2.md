@@ -4,7 +4,7 @@ connection: Generic OAuth2 Provider
 image: /media/connections/oauth2.png
 seo_alias: oauth2
 toc: true
-index: 13
+index: 15
 description: You can add any OAuth2 provider using the Auth0 Custom Social Connections extension.
 topics:
   - connections
