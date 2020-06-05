@@ -3,7 +3,7 @@ title: Connect Apps to Salesforce Community
 connection: Salesforce Community
 image: /media/connections/salesforce.png
 seo_alias: salesforce
-index: 6
+index: 8
 description: Learn how to add login functionality to your app with Salesforce Community. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
 toc: true
 topics:
@@ -69,8 +69,6 @@ For example, if the community name is `Trailblazers` and the community exists fo
 
 You're ready to [test your connection](/dashboard/guides/connections/test-connections-social). After logging in, you'll be prompted to allow your app access. To do so, click **Install unlisted app**.
 
-<%= include('../_quickstart-links.md') %>
-
 ## Additional Notes
 
 ### Salesforce Community Authorization URL
@@ -89,3 +87,5 @@ You only need to configure the base path for the social connection because Auth0
 ### Customizing Salesforce Community login pages
 
 It is common to customize the login page for Salesforce Community sites. If you customize your community login page, remember that the login page is part of the login transaction, so you must honor the OAuth2 flow. To learn more about customizing the Salesforce Community login page properly, see the [Sample Pages for Salesforce Login Pages](https://github.com/salesforceidentity/basic-custom-login) Github repo.
+
+<%= include('../_quickstart-links.md') %>

@@ -3,7 +3,7 @@ title: Connect Apps to PayPal Sandbox
 connection: PayPal Sandbox
 image: /media/connections/paypal.png
 seo_alias: paypal
-index: 10
+index: 11
 description: Learn how to add login functionality to your app with PayPal Sandbox. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
 toc: true
 topics:
@@ -56,8 +56,6 @@ While setting up your app, make sure you use the following settings:
 ### Test the connection
 
 You're ready to [test your connection](/dashboard/guides/connections/test-connections-social). After logging in, you'll be prompted to allow your app access. To do so, click **Install unlisted app**.
-
-<%= include('../_quickstart-links.md') %>
 
 ::: note
 Your app's **Return URL** can take up to 3 hours to go into effect with Paypal, which can cause the connection to fail until it is updated.

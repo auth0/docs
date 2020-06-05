@@ -57,8 +57,6 @@ While setting up your app, make sure you use the following settings:
 
 You're ready to [test your connection](/dashboard/guides/connections/test-connections-social). After logging in, you'll be prompted to allow your app access. To do so, click **Install unlisted app**.
 
-<%= include('../_quickstart-links.md') %>
-
 ::: note
 Your app's **Return URL** can take up to 3 hours to go into effect with Paypal, which can cause the connection to fail until it is updated.
 :::
