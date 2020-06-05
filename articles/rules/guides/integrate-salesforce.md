@@ -17,7 +17,7 @@ In this example, we will use a rule to record a new Salesforce Lead when a new u
 
 ## Prerequisites
 
-Before connecting your Auth0 app to Salesforce, you must [sign up for and configure your account with Salesforce](https://www.salesforce.com/)
+Before connecting your Auth0 app to Salesforce, you must [sign up for and configure your account with Salesforce](https://www.salesforce.com/).
 
 ## Steps
 
