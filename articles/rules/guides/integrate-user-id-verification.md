@@ -19,34 +19,6 @@ In this example, you will integrate with OnFido, a third-party vendor providing 
 
 Before connecting your Auth0 app to OnFido, you must [sign up for and configure your account with OnFido](https://onfido.com/us/).
 
-## Steps
-
-To connect your app to OnFido, you will:
-
-1. [Get your OnFido credentials](#get-your-onfido-credentials)
-2. [Create and activate a rule in Auth0](#create-and-activate-a-rule-in-auth0)
-
-### Get your OnFido credentials
-
-First, you will need to retrieve the URL of OnFido's API and your API Token. To learn how to do this, see [OnFido's Getting Started docs](https://documentation.onfido.com/#getting-started-with-api-v3).
-
-Once you have retrieved the OnFido API's URL and your API Token, keep these values on hand because we will use them in the next step.
-
-### Create and activate a rule in Auth0
-
-[Set up a rule](articles/dashboard/guides/rules/create-rules) in Auth0. While setting up your rule, select the **Empty rule** template from the **Empty** section. For example code, see the following:
-
-![Edit Auth0 OnFido Rule](/media/articles/rules/edit-onfido-rule.png)
-
- Use the following settings:
-
-| Variable | Value |
-| -------- | ----- |
-| url | OnFido API URL |
-| token | OnFido API Token. You may use global variables to configure this in your rule. If so, be sure to [configure your rules variables](/dashboard/guides/rules/configure-variables) first. |
-
-By default, your rule will be activated upon save.
-
 ## User ID verification login experience
 
 The authentication flow contains the following steps:
