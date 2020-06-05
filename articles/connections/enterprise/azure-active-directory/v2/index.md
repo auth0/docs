@@ -133,7 +133,7 @@ Create and configure an Azure AD Enterprise Connection in Auth0. Make sure you h
 | **Identity API** | API used by Auth0 to interact with Azure AD endpoints. Learn about the differences in behavior in Microsoft's [Why update to Microsoft identity platform (v2.0)](https://docs.microsoft.com/en-us/azure/active-directory/develop/azure-ad-endpoint-comparison) doc. |
 | **Attributes** | Basic attributes for the signed-in user that your app can access. Indicates how much information you want stored in the Auth0 User Profile. |
 | **Extended Attributes** (optional) | Extended attributes for the signed-in user that your app can access. |
-| **Auth0 APIs** (optional) | When selected, indicates that you require the ability to make calls to the Azure AD API. |
+| **Auth0 APIs** (optional) | When selected, indicates that we require the ability to make calls to the Azure AD API, which allows us to search for users in the Azure AD Graph even if they never logged in to Auth0. This is required in some cases, since no feature parity exists between the Azure AD API v1 and Microsoft Identity Plaform v2, but it will be eliminated when the Auth0 Management API v1 is shut down after July 6, 2020. |
 | **Sync user profile attributes at each login** | When enabled, Auth0 automatically syncs user profile data with each user login, thereby ensuring that changes made in the connection source are automatically updated in Auth0. |
 
 4. Click **Create**.
