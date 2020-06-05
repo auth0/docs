@@ -1,94 +1,66 @@
 ---
-title: Connect Apps to PayPal
-connection: PayPal
+title: Connect Apps to PayPal Sandbox
+connection: PayPal Sandbox
 image: /media/connections/paypal.png
 seo_alias: paypal
 index: 10
-description: How to obtain a Client Id and Client Secret for PayPal.
+description: Learn how to add login functionality to your app with PayPal Sandbox. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
 toc: true
 topics:
   - connections
   - social
   - paypal
+  - sandbox
 contentType: how-to
 useCase:
-    - customize-connections
-    - add-idp
+  - customize-connections
+  - add-idp
+  - add-login
 ---
 
-# Connect Apps to PayPal
+# Connect Apps to PayPal Sandbox
 
-To configure an OAuth connection with PayPal, register your Auth0 Application on the [**PayPal Developer Portal**](https://developer.paypal.com/).
+In addition to its production system, PayPal offers sandboxes, so you can isolate customization and development work from your production environment until you’re ready to deploy changes. This guide will show you how to add functionality to your web app that allows your users to log in with PayPal Sandbox.
 
-## 1. Register your app at the PayPal Developer Portal
+To learn more about PayPal Sandboxes, see the [PayPal Sandbox Testing Guide](https://developer.paypal.com/docs/api-basics/sandbox/).
 
-Go to the [PayPal Developer Portal](https://developer.paypal.com/) and log in with your PayPal credentials. Click on **Dashboard** in the upper-right corner.
+## Prerequisites
 
-![](/media/articles/connections/social/paypal/dev-portal.png)
+Before connecting your Auth0 app to PayPal Sandbox, you must have already [signed up for and configured your account with PayPal](https://developer.paypal.com). Upon account creation, you will have access to a PayPal Sandbox.
 
-You will be directed to the **My Apps & Credentials** page. Scroll down to under the **REST API Apps** section, click **Create App**.
+## Steps
 
-![](/media/articles/connections/social/paypal/apps-and-creds.png)
+To connect your app to PayPal Sandbox, you will:
 
-On the **Create New App** page, provide a value for **App Name** and click **Create App**:
+1. [Set up your app in PayPal Sandbox](#set-up-your-app-in-paypal)
+2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
+3. [Test the connection](#test-the-connection)
 
-![](/media/articles/connections/social/paypal/create-new-app.png)
+### Set up your app in PayPal Sandbox
 
-## 2. Get your PayPal Client ID and Secret
+Create an app in PayPal Sandbox and generate credentials for it, using [PayPal's Get Credentials](https://developer.paypal.com/docs/api/overview/#get-credentials) doc. During this process, PayPal will generate a **Client ID** and **Secret** for your application; make note of these.
 
-Once PayPal has created your app, you will be shown the API credentials for this particular application. Copy both the **Client ID** and **Secret** values (the Secret value is initially hidden) for later use.
+While setting up your app, make sure you use the following settings:
 
-![](/media/articles/connections/social/paypal/api-creds.png)
+| Field | Value to Provide |
+| - | - |
+| Return URL | `${manage_url}.auth0.com/login/callback` |
+| Log In with PayPal | Enable, then under **Advanced Options**, select **Full Name**, **Date of Birth**, **Timezone**, **Locale**, and **Language**. |
 
-Note that by default you are editing your Sandbox account. Switch to your live account by toggling to **Live** on the top right of the page.
+<%= include('../../connections/_find-auth0-domain-redirects') %>
 
-## 3. Provide PayPal with information about your app
+### Create and enable a connection in Auth0
 
-Scroll down to the **Sandbox App Settings** section and **Show** the **Return URL** box. Enter your <dfn data-key="callback">callback URL</dfn>:
+[Set up the PayPal Sandbox social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **Client ID** and the **Secret** generated in Step 1; enter them into the **App ID** and **App Secret** fields, respectively.
 
-`https://${account.namespace}/login/callback`
+### Test the connection
 
-<%= include('../_find-auth0-domain-redirects') %>
+You're ready to [test your connection](/dashboard/guides/connections/test-connections-social). After logging in, you'll be prompted to allow your app access. To do so, click **Install unlisted app**.
 
-![](/media/articles/connections/social/paypal/sandbox-settings.png)
-
-If you would like to control the scope of access to customer data (such as profile information, email address, home address, and phone number) through Auth0, you need to enable access to this information by selecting the desired attributes under the **Advanced Options**, which becomes available to you if you enable the **Log In with PayPal** feature.
-
-![](/media/articles/connections/social/paypal/log-in-with-paypal.png)
-
-For your Sandbox Account to work, check the Full Name, Date of birth, Timezone, Locale, and Language because Auth0 requires this Basic Profile information.
-
-Click **Save**:
-
-
-## 4. Provide your PayPal Client Id and Secret to your Auth0 application
-
-Go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 Dashboard. Under the **Social** page, click to enable **PayPal**.
-
-![](/media/articles/connections/social/paypal/social-connections.png)
-
-Paste in the **Client Id** and **Secret** from the **PayPal Developer Portal** into the **App ID** and **App Secret** fields on this page on Auth0, respectively, then click **Save**.
-
-![](/media/articles/connections/social/paypal/paypal-settings.png)
-
-## 5. Enable and test the connection
-
-Switch the **Paypal** connection in the dashboard to enabled. Then under **Applications**, choose which of your applications you want to enable this connection and then click **SAVE**.
-
-![Enable Applications](/media/articles/connections/social/paypal/enable-clients.png)
-
-Now you should see a **TRY** button for the **Paypal** connection.
-
-![Try Paypal](/media/articles/connections/social/paypal/try-button.png)
-
-This allows you to test your connection to see if it has been configured properly.
+<%= include('../_quickstart-links.md') %>
 
 ::: note
-The Target URL field that you enter can take up to 3 hours for the change to go into effect with Paypal. This can cause the connection to fail until it is updated.
+Your app's **Return URL** can take up to 3 hours to go into effect with Paypal, which can cause the connection to fail until it is updated.
 :::
-
-## Additional Information
-
-[Paypal Docs](https://developer.paypal.com/docs/)
 
 <%= include('../_quickstart-links.md') %>
