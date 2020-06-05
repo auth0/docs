@@ -39,6 +39,25 @@ Below we list a few code snippets that can be used to call these API endpoints f
 }
 ```
 
+**Send a magic link via Email**
+
+You need to specify `send` = `link`.
+
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/passwordless/start",
+  "headers": [{
+    "name": "Content-Type",
+    "value": "application/json"
+  }],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"client_id\": \"${account.clientId}\", \"client_secret\": \"YOUR_CLIENT_SECRET\", \"connection\": \"email\", \"email\": \"USER_EMAIL\",\"send\": \"link\"}"
+  }
+}
+```
+
 **Send a one-time-use password via SMS**
 
 ```har
@@ -88,6 +107,10 @@ Below we list a few code snippets that can be used to call these API endpoints f
     "text": "{\"grant_type\": \"http://auth0.com/oauth/grant-type/passwordless/otp\", \"client_id\": \"${account.clientId}\", \"client_secret\": \"YOUR_CLIENT_SECRET\", \"username\": \"USER_EMAIL\", \"otp\": \"code\", \"realm\": \"email\", \"audience\": \"your-api-audience\", \"scope\": \"opend profile email\"}"}
 }
 ```
+
+**Authenticate a user through a magic link**
+
+When you send a magic link, you don't need to call an API to authenticate the user. Users will click the link and get redirected to the callback URL.
 
 <%= include('../_includes/_rate_limit_server_side') %>
 
