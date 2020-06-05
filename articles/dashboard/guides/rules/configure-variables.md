@@ -22,12 +22,12 @@ This guide will show you how to configure global variables for [rules](/rules) u
 To see the **Settings** section, you must have already created at least one rule.
 :::
 
-![View Rules](/media/articles/dashboard/rules-list-with-rules.png)
+![View Rules](/media/articles/dashboard/rules/rules-list-with-rules.png)
 
 2. Enter a variable key/value pair, and click **Add**.
 
-![Add Global Variable](/media/articles/dashboard/rules-settings-add-variable.png)
+![Add Global Variable](/media/articles/dashboard/rules/rules-settings-add-variable.png)
 
 The entered value is now available to all rules via the global `configuration` object and can be referenced using the value in the **Code Snippet** column.
 
-![View Variables](/media/articles/dashboard/rules-list-with-rules-variables.png)
+![View Variables](/media/articles/dashboard/rules/rules-list-with-rules-variables.png)
