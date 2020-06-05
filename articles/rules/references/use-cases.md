@@ -121,6 +121,9 @@ useCase: extensibility-rules
         <i class="icon icon-budicon-715"></i><a href="/rules/guides/integrate-efm-solutions">Integrate with Enterprise Fraud Management Solutions</a>
     </li>
     <li>
+        <i class="icon icon-budicon-715"></i><a href="/rules/guides/integrate-erfm-solutions">Integrate with eCommerce and Retail Fraud Management Solutions</a>
+    </li>
+    <li>
         <i class="icon icon-budicon-715"></i><a href="/rules/guides/integrate-salesforce">Integrate with Salesforce Customer Relationship Management Solutions</a>
     </li>
     <li>
