@@ -7,13 +7,13 @@ useCase: private-cloud
 ---
 # Custom Domain Migration
 
-Beginning with Private Cloud release 1906, dedicated deployments will include the ability to fully utilize the [Auth0 Custom Domains](/custom-domains) feature.
+Beginning with Private Cloud release 1906, dedicated deployments include the ability to fully utilize the [Auth0 Custom Domains](/custom-domains) feature.
 
-Existing Private Cloud customers using custom domains must complete a migration of their Private Cloud custom domains to the Auth0 custom domains. New customers/deployments will automatically use the Auth0 custom domains features.
+Private Cloud customers using custom domains on prior releases must complete a migration of their Private Cloud custom domains to Auth0 custom domains if they have not already. New customers/deployments will automatically use the full Auth0 custom domain features.
 
 ## Background
 
-Private Cloud administrators can create one or more custom domains per tenant and invoke the Authentication API endpoints using those domains.
+Private Cloud administrators can create one or more custom domain per tenant and invoke the Authentication API endpoints using those domains.
 
 Auth0 added support for custom domains for those deploying on the Public Cloud. However, the feature includes additional capabilities not included on the Private Cloud implementation. The following table summarizes the differences.
 
@@ -49,7 +49,7 @@ Before beginning the migration process, Auth0 will reach out to you to explain t
 
 * The type of load balancer you're using (i.e. network (layer 4) or application (layer 7))
 
-  If your dedicated deployment is AWS-hosted, we will need to confirm the type of load balanced you're using. If you are using an application load balancer, you will need to provision an additional network load balancer.
+  If your dedicated deployment is AWS-hosted, we will need to confirm the type of load balancer you're using. If you are using an application load balancer, you will need to provision an additional network load balancer.
 
 * Allocating new DNS resources to meet stated requirements (if necessary)
 
