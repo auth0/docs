@@ -24,9 +24,9 @@ A user invitation is basically a change password link repurposed as an invitatio
 
 ## Generate invitations
 
-You can allow a user to access an existing account that you have created on their behalf. Then, send the user a unique link to set their password. You generate the unique link by creating a Password Change ticket by having your invitation app call the /api/v2/tickets/password-change Management API endpoint. You will need to: 
+You can allow a user to access an existing account that you have created on their behalf. Then, send the user a unique link to set their password. You generate the unique link by creating a Password Change ticket where your invitation app calls the /password-change Management API endpoint. You will need to: 
 
-* Create a [Auth0 database](/connections/database) user with the `user.email_verified` parameter set to `false`
+* Create an [Auth0 database](/connections/database) user with the `user.email_verified` parameter set to `false`
 * Have access to an [external email service](/email/providers)
 * Obtain a [Management API access token](/api/management/v2/tokens)
 
