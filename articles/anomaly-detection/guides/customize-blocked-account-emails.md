@@ -12,10 +12,10 @@ v2: true
 ---
 # Customize Blocked Account Emails
 
-When Auth0 sends an email to a user to notify them of the [breached password block action](/anomaly-detection/references/attack-protection-triggers-actions), the message contains a link to re-enable the origin of the request.
+When Auth0 sends an email to a user to notify them of the breached password block action, the message contains a link to re-enable the origin of the request.
 
 ::: note
-Auth0 never blocks the user itself, just the attempts from the suspicious origin.
+Auth0 never blocks the user themself, just the attempts from the suspicious origin.
 :::
 
 The email sent to the user looks like this:

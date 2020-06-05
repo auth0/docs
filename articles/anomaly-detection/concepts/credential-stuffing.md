@@ -19,7 +19,7 @@ Download this free [whitepaper](https://auth0.com/resources/whitepapers/credenti
 
 ## How it works
 
-Auth0 uses a large amount of data to identify patterns that signal that a credential stuffing attack is taking place. Auth0 uses data algorithms to determine when bursts of traffic are likely to be from a bot or script. Users attempting to sign in from IPs which are determined to have a high likelihood of being a credential stuffing attack will see a CAPTCHA step. The algorithms are designed so that this only happens for bad traffic; the objective is to not show any friction to legitimate users.
+Auth0 uses a large amount of data to identify patterns that signal that a credential stuffing attack is taking place. Auth0 uses data statistical models to determine when bursts of traffic are likely to be from a bot or script. Users attempting to sign in from IPs which are determined to have a high likelihood of being a credential stuffing attack will see a CAPTCHA step. The triggers are designed so that this only happens for bad traffic; the objective is to not show any friction to legitimate users. This block remains in place until the user changes their password.
 
 ![CAPTCHA Login Screen Example](/media/articles/anomaly-detection/captcha-login-screen.png)
 
@@ -38,6 +38,5 @@ Automated Attack Protection works for web and mobile apps that uses Auth0's Univ
 ## Keep reading
 
 * [Set Anomaly Detection Preferences](/anomaly-detection/guides/set-anomaly-detection-preferences)
-* [Attack Protection Triggers and Actions](/anomaly-detection/references/attack-protection-triggers-actions)
 * [Customize Blocked Account Emails](/anomaly-detection/guides/customize-blocked-account-emails)
 * [View Anomaly Detection Events](/anomaly-detection/guides/view-anomaly-detection-events)

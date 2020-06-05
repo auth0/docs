@@ -23,7 +23,7 @@ Auth0 recommends that you **do not** make changes to your anomaly detection feat
 
 ## Automated Attack Protection preferences
 
-Automated attack protection protects against [credential stuffing attacks](/anomaly-detection/concepts/credential-stuffing). It is enabled by default for all connections. It provides a basic level of protection against certain attacks that does not add any friction to legitimate users. When such an attack is detected, it displays a CAPTCHA step in the login experience to eliminate bot and scripted traffic.
+Automated attack protection protects against [credential stuffing attacks](/anomaly-detection/concepts/credential-stuffing). It is enabled by default for all connections. It provides a basic level of protection against certain attacks that adds very little friction to legitimate users. When such an attack is detected, it displays a CAPTCHA step in the login experience to eliminate bot and scripted traffic.
 
 ::: warning
 Auth0 strongly recommends that you **do not** disable **Automated Attack Protection**, however if you do, you can enable it in the [Dashboard](${manage_url}/#/anomaly).
@@ -33,11 +33,11 @@ Auth0 strongly recommends that you **do not** disable **Automated Attack Protect
 
 ![Automated Attack Protection Shield]()
 
-2. step
+2. Choose whether you wish to use the Simple Captcha provided by Auth0, or a Google reCaptcha (requires external setup and registration).If you choose CAPTCHA, you are done.
 
-3. step
+3. If you choose Google's reCAPTCHA, enter your **Site Key** and a **Secret**. 
 
-4. Click **Save**. 
+4. Click **Save**.
 
 ## Brute-force Protection preferences
 
@@ -76,6 +76,5 @@ Set preferences for [breached password](/anomaly-detection/concepts/breached-pas
 ## Keep reading
 
 * [Automated Attack and Credential Stuffing Protection](/anomaly-detection/concepts/credential-stuffing)
-* [Attack Protection Triggers and Actions](/anomaly-detection/references/attack-protection-triggers-actions)
 * [Customize Blocked Account Emails](/anomaly-detection/guides/customize-blocked-account-emails)
 * [View Anomaly Detection Events](/anomaly-detection/guides/view-anomaly-detection-events)

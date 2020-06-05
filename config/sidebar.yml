@@ -647,9 +647,6 @@ articles:
           - title: "Customize Emails"
             url: "/anomaly-detection/guides/customize-blocked-account-emails"
 
-          - title: "Attack Protection Triggers and Actions"
-            url: "/anomaly-detection/references/attack-protection-triggers-actions"
-
           - title: "View Anomaly Detection Events"
             url: "/anomaly-detection/guides/view-anomaly-detection-events"
 

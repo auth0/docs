@@ -2504,7 +2504,7 @@ module.exports = [
         '/anomaly-detection/references/brute-force-protection-triggers-actions',
         '/anomaly-detection/references/breached-password-detection-triggers-actions'
       ],
-      to: '/anomaly-detection/references/attack-protection-triggers-actions'
+      to: '/anomaly-detection'
     },
     {
       from: '/anomaly-detection/guides/prevent-credential-stuffing-attacks',
