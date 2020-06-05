@@ -33,7 +33,7 @@ Auth0 strongly recommends that you **do not** disable **Automated Attack Protect
 
 ![Automated Attack Protection Shield]()
 
-2. Choose whether you wish to use the Simple Captcha provided by Auth0, or a Google reCaptcha (requires external setup and registration).If you choose CAPTCHA, you are done.
+2. Choose whether you wish to use the simple CAPTCHA provided by Auth0, or Google reCAPTCHA (requires external setup and registration). If you choose simple CAPTCHA, you are done with set up.
 
 3. If you choose Google's reCAPTCHA, enter your **Site Key** and a **Secret**. 
 
