@@ -114,6 +114,21 @@ useCase: extensibility-rules
     <li>
         <i class="icon icon-budicon-715"></i><a href="/integrations/sharepoint#authorization">Modify the SAML configuration to store the user's group memberships in their profile's groups attribute</a>
     </li>
+    <li>
+        <i class="icon icon-budicon-715"></i><a href="/rules/guides/integrate-mixpanel">Integrate with MixPanel Product Analytics</a>
+    </li>
+    <li>
+        <i class="icon icon-budicon-715"></i><a href="/rules/guides/integrate-efm-solutions">Integrate with Enterprise Fraud Management Solutions</a>
+    </li>
+    <li>
+        <i class="icon icon-budicon-715"></i><a href="/rules/guides/integrate-salesforce">Integrate with Salesforce Customer Relationship Management Solutions</a>
+    </li>
+    <li>
+        <i class="icon icon-budicon-715"></i><a href="/rules/guides/integrate-hubspot">Integrate with HubSpot Marketing Software</a>
+    </li>
+    <li>
+        <i class="icon icon-budicon-715"></i><a href="/rules/guides/integrate-user-id-verification">Integrate User ID Verification Services Using Rules</a>
+    </li>
 </ul>
 
 <h2>Login</h2>
