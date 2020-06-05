@@ -34,7 +34,7 @@ Once you have retrieved the MixPanel API's URL and your API Token, keep these va
 
 ### Create and activate a rule in Auth0
 
-[Set up a rule](articles/dashboard/guides/rules/create-rules) in Auth0. While setting up your rule, select the **Tracks Logins in Mixpanel** template from the **Webhook** section, then use the following settings:
+[Set up a rule](/dashboard/guides/rules/create-rules) in Auth0. While setting up your rule, select the **Tracks Logins in Mixpanel** template from the **Webhook** section, then use the following settings:
 
 | Variable | Value |
 | -------- | ----- |
