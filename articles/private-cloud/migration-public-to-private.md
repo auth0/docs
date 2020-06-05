@@ -19,7 +19,7 @@ During the assessment, your Auth0 Technical Account Manager will ask you a serie
 
 * Why do you want to migrate to Private Cloud?
 * Are you using custom domains and if so, how? Are you using custom domains with self-managed certificates or Auth0-Managed certificates?
-* Do you have over 100 tenants? There are limitation to how custom domain certificates work if you have over 100 tenants.
+* Do you have over 100 tenants (there are limitations on how custom domain certificates work if you have over 100 tenants)?
 * Do you use Auth0 database connections?
 * Do you use enterprise connections?
 * Do you use SAML or WS-Fed connections and/or application addons?
@@ -35,7 +35,7 @@ After the assessment is complete, we will provide you with a document that outli
 
 * Phase 1: Initial Steps 
     
-    General considerations, tooling and limitations.
+    General considerations, tooling, and limitations.
 
 * Phase 2: Asynchronous Steps
     
