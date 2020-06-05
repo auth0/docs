@@ -7,11 +7,11 @@ useCase: private-cloud
 ---
 # Private Cloud to Private Cloud Migration
 
-The migration process complexity depends on the Auth0 features you are currently using. The process consists of a migration requirements discussion with your Auth0 Technical Account Manager which results in a custom migration plan for your specific implementation as well as a technical validation. Auth0 provides guidance and consulting on the process with a personalized migration plan designed for minimal intervention from Auth0. 
+The migration process complexity depends on the Auth0 features you are currently using. The process consists of a migration requirements discussion with your Auth0 Technical Account Manager which results in a custom migration plan for your specific implementation as well as a technical validation. Auth0 provides guidance and consultation on the process with a personalized migration plan designed for minimal intervention from Auth0.
 
 After the migration is complete, your users will have to re-log in and all their sessions will be invalidated. Other impacts depends on features you are using and will be outlined in your migration plan.
 
-The process does not vary much if you're environment is:
+The process does not vary much if your environment is:
 
 * Standard Private Cloud
 * Managed Private Cloud - Auth0 hosted
@@ -19,7 +19,7 @@ The process does not vary much if you're environment is:
 
 ## Migration requirements discussion
 
-Your Technical Account Manager will work with you to understand the migration requirements and assess the appropriate migration method. The default migration method is to back-up and restore to a new private cloud, however we may recommend environment extend in some circumstances. 
+Your Technical Account Manager will work with you to understand the migration requirements and assess the appropriate migration method. The default migration method is to back up and restore to a new private cloud, however we may recommend environment extend in some circumstances. 
 
 ## Migration plan
 
