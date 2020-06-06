@@ -1,7 +1,7 @@
 ---
 title: Connect Apps to LinkedIn
 connection: LinkedIn
-index: 3
+index: 21
 image: /media/connections/linkedin.png
 seo_alias: linkedin
 description: Learn how to add login functionality to your app with LinkedIn. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.

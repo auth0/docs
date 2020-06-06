@@ -1,7 +1,7 @@
 ---
 title: Connect Apps to Google
 connection: Google
-index: 1
+index: 18
 image: /media/connections/google.png
 description: Learn how to add login functionality to your app with Google. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
 alias:

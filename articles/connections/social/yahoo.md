@@ -1,7 +1,7 @@
 ---
 title: Connect Apps to Yahoo!
 connection: Yahoo!
-index: 15
+index: 36
 image: /media/connections/yahoo.png
 description: How to obtain a Consumer Key and Consumer Secret for Yahoo!
 seo_alias: yahoo

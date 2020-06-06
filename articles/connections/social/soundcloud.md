@@ -1,7 +1,7 @@
 ---
 title: Connect Apps to SoundCloud
 connection: SoundCloud
-index: 5
+index: 31
 image: /media/connections/soundcloud.png
 seo_alias: soundcloud
 description: How to obtain a Client Id and Client Secret for SoundCloud.

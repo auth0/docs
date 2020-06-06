@@ -3,6 +3,7 @@ title: Connect Apps to Shopify
 connection: Shopify
 image: /media/connections/shopify.png
 seo_alias: shopify
+index: 30
 description: Learn how to add login functionality to your app with Shopify. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
 toc: true
 topics:

@@ -4,7 +4,7 @@ connection: Twitter
 image: /media/connections/twitter.png
 description: This page shows you how to connect your Auth0 application to Twitter. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
 seo_alias: twitter
-index: 8
+index: 32
 toc: true
 topics:
   - connections

@@ -3,7 +3,7 @@ title: Connect Apps to WordPress
 connection: WordPress
 image: /media/connections/wordpress.png
 seo_alias: wordpress
-index: 11
+index: 35
 description: How to obtain a Client Id and Client Secret for WordPress
 toc: true
 topics:

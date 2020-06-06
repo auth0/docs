@@ -3,6 +3,7 @@ title: Connect Apps to Weibo
 connection: Weibo
 image: /media/connections/weibo.png
 seo_alias: weibo
+index: 34
 description: How to add Weibo login to your app
 toc: true
 topics:

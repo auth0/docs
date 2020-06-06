@@ -3,7 +3,7 @@ title: Connect Apps to GitHub
 connection: Github
 image: /media/connections/github.png
 seo_alias: github
-index: 7
+index: 16
 description: How to add GitHub login to your app and access their API
 toc: true
 topics:

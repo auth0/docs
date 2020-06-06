@@ -5,6 +5,7 @@ image: /media/connections/box.png
 seo_alias: box
 description: How to obtain a Client Id and Client Secret for Box.
 toc: true
+index: 6
 topics:
   - connections
   - social

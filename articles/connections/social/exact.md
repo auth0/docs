@@ -4,6 +4,7 @@ connection: Exact
 image: /media/connections/exact.png
 seo_alias: exact
 description: Learn how to connect your application to Exact.
+index: 12
 topics:
   - connections
   - social

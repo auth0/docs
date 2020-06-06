@@ -5,6 +5,7 @@ image: /media/connections/baidu.png
 seo_alias: baidu
 description: How to obtain an API Key and Secret Key for Baidu.
 toc: true
+index: 3
 topics:
   - connections
   - social
