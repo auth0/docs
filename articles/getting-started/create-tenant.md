@@ -10,22 +10,26 @@ useCase:
 ---
 # Create a Tenant
 
-If you haven't already [signed up](https://auth0.com/signup) for an Auth0 **account**, do so (it's free). You can either use username/password or log in with a social provider (GitHub, Google, or Microsoft).
+Once you create your account you will be asked to create a **tenant**. No tenant can access the data of another tenant, even though multiple tenants might be running on the same machine. 
 
-Once you create your account you will be asked to create a **Tenant**. This is a **logical isolation unit**.
+Tenant characteristics include:
 
-The term is borrowed from "software multitenancy". This refers to an architecture where a single instance of the software serves multiple tenants. No tenant can access the instance of another tenant, even though the software might be running on the same machine (hence the logical isolation).
-
-Some characteristics:
-
-- The tenant name has to be unique (we will see in the next paragraph that it is used to create your own personal domain).
+- The tenant name has to be unique. It will be used to create your personal domain.
 - The tenant name can contain only lowercase alphanumeric characters and hyphens ("-"). It cannot begin or end with a hyphen.
-- The tenant name must be a minimum of three characters and maximum of 64 characters.
+- The tenant name must be a minimum of 3 characters and maximum of 64 characters.
 - The tenant name cannot be changed after creation.
-- You can create more than one tenant; in fact, you are encouraged to do so for each environment you have (such as Development, Staging, or Production).
-- If you chose to host your data in Europe or Australia, then your tenant will have a subdomain added for the region (`eu` or `au`). In our example, if `Example-Co` picked the name `example-co`, then depending on where the data is stored, the tenant name would be `example-co.eu` or `example-co.au`.
+- You can create more than one tenant; in fact you are encouraged to do so for each environment you may have such as development, staging, or production. See [Set Up Multiple Environments](/dev-lifecycle/setting-up-env) for details. 
 
-You can create additional tenants at any time. To do so, go to the upper-right corner of the Dashboard and click on your tenant name to display the pulldown menu. Click **Create Tenant**.
+When you name your tenant, that name becomes your Auth0 domain. (Or, you can create a custom domain.) This domain is the base URL that you will use to access our API and the URL where your users are redirected in order to authenticate.
+
+Auth0 supports three regional subdomains: 
+- `us.auth0.com` for US
+- `eu.auth0.com` for Europe
+- `au.auth0.com` for Australia
+
+When you you are asked for the region you want to use, your choice affects which regional subdomain will be assigned to you and where your data will be hosted. If you pick US then the name format will be `YOUR-TENANT-NAME.us.auth0.com`, for Europe it will be `YOUR-TENANT-NAME.eu.auth0.com`, and so forth.
+
+In our example, Example-Co chose the name `example-co` and Americas as their region. So their domain is `example-co.us.auth0.com`.
 
 ## Keep reading
 

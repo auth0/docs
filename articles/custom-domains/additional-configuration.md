@@ -79,12 +79,12 @@ If you use [Lock](/libraries/lock) v11 embedded in your application, you must up
 ```js
 var lock = new Auth0Lock('${account.clientId}', 'YOUR_CUSTOM_DOMAIN', {
   //code omitted for brevity
-  configurationBaseUrl: 'https://cdn.auth0.com'
+  configurationBaseUrl: 'https://cdn.us.auth0.com'
   //code omitted for brevity
 });
 ```
 
-The CDN URL varies by region. For regions outside of the US, use `https://cdn.[eu|au].auth0.com` (`eu` for Europe or `au` for Australia).
+The CDN URL varies by region. Use `https://cdn.[us|eu|au].auth0.com` (`us` for US, `eu` for Europe, or `au` for Australia).
 
 ## Auth0 SPA SDK, Auth0.js, and other SDKs
 

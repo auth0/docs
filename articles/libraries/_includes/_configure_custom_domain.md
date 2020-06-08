@@ -14,7 +14,7 @@ var lock = new Auth0Lock('${account.clientId}', 'login.your-domain.com', options
 
 ```
 var options = {
-  configurationBaseUrl: 'https://cdn.auth0.com'
+  configurationBaseUrl: 'https://cdn.us.auth0.com'
 };
 ```
 
