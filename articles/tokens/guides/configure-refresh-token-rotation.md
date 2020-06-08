@@ -11,7 +11,7 @@ useCase:
 ---
 # Configure Refresh Token Rotation
 
-Configure Refresh Token Rotation for each application using the Dashboard or the Management API. When Refresh Token Rotation is enabled, the transition for the end-user is seamless. The application uses the previous non-rotating Refresh Token which has expired and swaps it for a rotating Refresh Token. 
+Configure Refresh Token Rotation for each application using the Dashboard or the auth-spa-js SDK. When Refresh Token Rotation is enabled, the transition for the end-user is seamless. The application uses the previous non-rotating Refresh Token which has expired and swaps it for a rotating Refresh Token. 
 
 Migration scenarios accommodate automatic token revocation when migrating from a non-rotating Refresh Token to a rotating Refresh Token and vice-versa.
 
