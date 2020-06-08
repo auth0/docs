@@ -8,7 +8,7 @@ contentType: how-to
 ---
 # Email Verification for Azure AD and ADFS connections
 
-Auth0 user's profile has an `email_verified` field. The way it is set depends on the connection type. For database connections, users need to go through an email validation flow. For federated connections, the identity providers can return the email_verified field, based on their own criteria.
+Auth0 user's profile has an `email_verified` field. The way it is set depends on the connection type. For database connections, users need to go through an email validation flow in order to get the email verified. For federated connections, the identity providers can return the `email_verified` field, based on their own criteria.
 
 Azure AD and ADFS cannot guarantee that the emails their return have been verified: 
 
@@ -29,7 +29,7 @@ The Azure AD connection has 'Use Common Endpoint' property. When it's enabled, t
 
 In previous versions, Auth0 always set the `email_verified` field to true in Azure AD and ADFS connections. If you were using Azure AD and ADFS connections in the past, you will have a tenant setting that will override the Connection Setting for `Email Verification` and keep the previous behavior. 
 
-The new tenant setting is in the 'Migrations' section, and it's called **Default to 'Email Verification' setting for Azure AD/ADFS connections.
+The new tenant setting is in the 'Migrations' section, and it's called **Default to 'Email Verification' setting for Azure AD/ADFS connections**.
 
-When disabled, `email_verified` will always be `true` for Azure AD/ADFS connections will always return `email_verified` = `true` for Azure AD/ADFS connections. When enabled, it will use the 'Email Verification' setting at the connection level.
+When disabled, `email_verified` will always be `true` for Azure AD/ADFS connections for Azure AD/ADFS connections. When enabled, it will use the 'Email Verification' setting at the connection level.
 
