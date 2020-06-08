@@ -13,7 +13,7 @@ useCase:
   - add-login
   - migrate
 ---
-# Migrating from Lock v10 to v11
+# Migrate from Lock v10 to v11
 
 This guide includes all the information you need to update your <dfn data-key="lock">Lock</dfn> v10 application to [Lock v11](/libraries/lock).
 
