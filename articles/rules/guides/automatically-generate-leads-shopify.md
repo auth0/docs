@@ -35,7 +35,7 @@ Create an app in Shopify and generate credentials for it, using Shopify's [Authe
 
 You will also need to get your Shopify API URL. To learn about the structure of your Shopify API URL, see Shopify's [Make Your First Shopify API Request](https://shopify.dev/tutorials/make-your-first-shopify-api-request#making-your-first-request).
 
-Once you have retrieved your Shopify API URL, keep this values on hand because we will use it in the next step.
+Once you have retrieved your Shopify API URL, keep this value on hand because we will use it in the next step.
 
 ### Create and activate a rule in Auth0
 
