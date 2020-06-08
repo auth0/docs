@@ -115,7 +115,7 @@ Add the `LockActivity`.
   android:label="@string/app_name"
   android:launchMode="singleTask"
   android:screenOrientation="portrait"
-  android:theme="@style/MyLock.Theme"/>
+  android:theme="@style/Lock.Theme"/>
 ```
 
 ::: note
