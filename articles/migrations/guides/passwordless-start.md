@@ -1,6 +1,6 @@
 ---
 title: Migration Guide for the Use of /passwordless/start from Confidential Applications
-public: false
+public: true
 description: Auth0 is deprecating the usage of the /passwordless/start endpoint from confidential applications without a client secret in the request.
 topics:
   - passwordless
