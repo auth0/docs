@@ -1234,7 +1234,7 @@ articles:
           - title: HTTP Event Streams
             url: /logs/streams/http-event
 
-          - title: Example: HTTP Stream to Slack
+          - title: HTTP Stream to Slack Example
             url: /logs/streams/http-event-to-slack
 
           - title: AWS EventBridge
