@@ -14,6 +14,17 @@ useCase: extensibility-extensions
 
 Features released in each version of the Deploy CLI Tool are listed below. For a complete list of changes, see the [changelog](https://github.com/auth0/auth0-deploy-cli/blob/master/CHANGELOG.md).
 
+## Deploy CLI Tool v5
+
+For version 5, the `auth0-deploy-cli` tool was updated to include the following changes.
+
+- Updated dependencies and deprecated support for Node.js versions earlier than 8
+
+- Allow excluding default values for emailProvider with `AUTH0_EXCLUDED_DEFAULTS`
+
+- pages: fix error when dumping error_page without html property
+
+
 ## Deploy CLI Tool v4
 
 For version 4, the `auth0-deploy-cli` tool was updated to include the following changes.

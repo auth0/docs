@@ -34,13 +34,21 @@ This tool can be destructive to your Auth0 tenant. Please ensure you have read t
 
 ## Upgrade to latest version
 
-For version 4, the `auth0-deploy-cli` tool was updated to add support for Hooks and Hook Secrets.
+For version 5, the `auth0-deploy-cli` tool was updated with support for Node.js v14 and dropped support for Node.js versions earlier than v8.
 
-<%= include('./_includes/_upgrade-v4') %>
+If you are upgrading `auth0-deploy-cli` from versions earlier than v4, please upgrade the **Auth0 Deploy CLI** extension by following the instructions for [Deploy CLI Tool v4](#deploy-cli-tool-v4) below.
 
 ## Previous versions
 
 Features released in previous versions of the Deploy CLI Tool are listed below. For a complete list of changes, see the [changelog](https://github.com/auth0/auth0-deploy-cli/blob/master/CHANGELOG.md).
+
+
+### Deploy CLI Tool v4
+
+For version 4, the `auth0-deploy-cli` tool was updated to add support for Hooks and Hook Secrets.
+
+<%= include('./_includes/_upgrade-v4') %>
+
 
 ### Deploy CLI Tool v3
 
