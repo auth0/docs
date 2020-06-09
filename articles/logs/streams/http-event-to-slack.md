@@ -68,7 +68,7 @@ ok
 
 The `ok` above signals that the request was accepted and processed correctly. In Slack, you should see the following message in the channel you configured:
 
-<img src="readme-slack-message.png" width="200">
+![Stream Auth0 Log Events to Slack](/media/articles/logs/log-stream-to-slack-message.png)
 
 ## Configure an Auth0 log stream
 
