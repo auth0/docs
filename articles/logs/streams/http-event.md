@@ -14,7 +14,9 @@ contentType: how-to
 
 HTTP Event Log Streams let you export your log events to the server or target of your choice. When Auth0 creates a log entry for your tenant, a copy is automatically sent to a given URL via an HTTP POST request.
 
-If you use Amazon Web Services, Auth0 also offers an [AWS EventBridge integration](/integrations/aws-eventbridge).
+If you use Amazon Web Services, Auth0 also offers an [AWS EventBridge integration](/logs/streams/amazon-eventbridge).
+
+See our example [HTTP Event Log Stream example using Slack](/logs/streams/http-event-to-slack).
 
 ## Create an HTTP Event Stream
 
@@ -40,3 +42,11 @@ If you use Amazon Web Services, Auth0 also offers an [AWS EventBridge integratio
 
 Auth0 events are delivered to your server via a streaming mechanism that sends each event as it is triggered in our system. If your server is unable to receive the event, we will retry up to three times to deliver the event; otherwise, we will log the failure to deliver in our system, and you will be able see these failures in the Health tab for your log stream.
 
+## More on Log Streams
+
+::: next-steps
+* [Example: Stream Auth0 Log Events to Slack](/logs/streams/http-event-to-slack)
+* [Amazon EventBridge Log Streams](/logs/streams/amazon-eventbridge)
+* [Datadog Event Log Streams](/logs/streams/datadog)
+* [Azure Event Grid Log Streams](/logs/streams/azure-event-grid)
+:::

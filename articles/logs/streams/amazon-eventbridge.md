@@ -60,7 +60,7 @@ Go to AWS to complete the final steps of the integration.
 
 At this point, the events that you send will be made available on your event bus. However, before you can use the data you send to AWS services, you will need to [create rules](https://docs.aws.amazon.com/eventbridge/latest/userguide/create-event-bus.html) that map those events to specific targets.
 
-Amazon EventBridge uses rules, which are definitions specifying how you want incoming events routed to the desired targets. 
+Amazon EventBridge uses rules, which are definitions specifying how you want incoming events routed to the desired targets.
 
 Targets are the services, such as AWS EC2 instances, Lambda functions, Kinesis streams, or ECS tasks, that processes the event-driven data that it receives. The data received by targets are JSON-formatted.
 
@@ -80,3 +80,11 @@ At this point, your EventBridge workflow should be complete. As soon as Auth0 wr
 
 Auth0 events are delivered to AWS via a streaming mechanism that sends each event as it is triggered in our system. If EventBridge is unable to receive the event, we will retry up to three times to deliver the event; otherwise, we will log the failure to deliver in our system, and you will be able see these failures in the Health tab for your log stream.
 
+## More on Log Streams
+
+::: next-steps
+* [HTTP Event Log Streams](/logs/streams/http-event)
+* [Example: Stream Auth0 Log Events to Slack](/logs/streams/http-event-to-slack)
+* [Datadog Event Log Streams](/logs/streams/datadog)
+* [Azure Event Grid Log Streams](/logs/streams/azure-event-grid)
+:::

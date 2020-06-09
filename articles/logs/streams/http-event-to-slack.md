@@ -20,8 +20,8 @@ This guide explains how to use [Auth0 Log Streaming](/logs/streams) to send spec
 The diagram above describes what you will build using this guide:
 
 1. Application 1 and 2 both redirect to Auth0 to log in
-2. The login for Application 2 succeeds but the login for Application 1 fails
-3. Both events create a distinct log record
+2. The login for Application 2 succeeds but the login for Application 1 fails; Both events create a distinct log record
+3. Both applications receive a response from Auth0
 4. These log events are sent together in a JSON payload to the custom webhook
 5. The webhook filters out the successful event
 6. The webhook sends the failed event to Slack
@@ -92,3 +92,12 @@ If you're not seeing the Slack message appear after several seconds, you'll need
 1. First, check the Dashboard **Logs > Search** screen to make sure the record is there.
 2. Then, check the **Health** tab for the stream ([more information here](/logs/streams/http-event#delivery-attempts-and-retries)).
 3. If the webhook delivery is succeeding, check the logs for your deployed application to see if anything is going wrong there.
+
+## More on Log Streams
+
+::: next-steps
+* [HTTP Event Log Streams](/logs/streams/http-event)
+* [Amazon EventBridge Log Streams](/logs/streams/amazon-eventbridge)
+* [Datadog Event Log Streams](/logs/streams/datadog)
+* [Azure Event Grid Log Streams](/logs/streams/azure-event-grid)
+:::
