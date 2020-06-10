@@ -16,8 +16,6 @@ The **Account Link** extension prompts users that may have created a second acco
 
 To install this extension, click on the __Account Link__ box in the list of provided extensions on the [Extensions](${manage_url}/#/extensions) page of the dashboard. The __Install Extension__ window will open.
 
-![Install Account Link Extension](/media/articles/extensions/account-link/install-extension.png)
-
 The extension will create a new **Application** named `auth0-account-link` to use internally and a new **Rule** to redirect users to the extension if they login with a new account that has an email matching an existing account. This application needs to have enabled all the connections that you want to perform account linking with.
 
 ## Setup
