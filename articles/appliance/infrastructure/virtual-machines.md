@@ -41,7 +41,7 @@ For multi-node clusters, Auth0 recommends deploying the PSaaS Appliance virtual 
 
 ## For AWS Users
 
-* The *recommended* [instance type](https://aws.amazon.com/ec2/instance-types/) is **M4.2xlarge** (minimum).
+* The *recommended* [instance type](https://aws.amazon.com/ec2/instance-types/) is **m5.2xlarge** (minimum).
 * Auth0 will need the following pieces of information to share the AMI with you:
     * AWS account number;
     * AWS region name. The region should have at least three [availability zones](https://aws.amazon.com/about-aws/global-infrastructure) for your Production cluster.
