@@ -225,7 +225,7 @@ Now that you are able to obtain a fresh access token by using the refresh token,
 
 🎉 **You have completed Lab 3 by building a native mobile application calling a secure API with refresh capability!** 🎉
 
-    </div>
+</div>
   </div>
 </div>
 

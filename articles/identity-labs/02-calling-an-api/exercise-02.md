@@ -137,7 +137,7 @@ listening on http://localhost:3001
 
 To test your secured API, refresh the expenses page in your application - [localhost:3000/expenses](http://localhost:3000/expenses). If everything works as expected, you will still be able to access this view (which means that the web app is consuming the API on your behalf). If you browse directly to the API at [localhost:3001](http://localhost:3001), however, you will get an error saying the token is missing.
 
-    </div>
+</div>
   </div>
 </div>
 

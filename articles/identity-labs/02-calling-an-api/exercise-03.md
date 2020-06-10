@@ -133,7 +133,7 @@ If you are using PowerShell in Windows and you see blank lines instead of the ti
 
 🎉 **You have completed Lab 2 by building a web application that calls an API with refresh capability!** 🎉
 
-    </div>
+</div>
   </div>
 </div>
 

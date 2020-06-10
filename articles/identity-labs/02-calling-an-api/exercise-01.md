@@ -209,7 +209,7 @@ The `API_AUDIENCE` value is the identifier for the API that will be created in t
 
 If you restart the application in your terminal, logout, and try to log back in, you will see an error because no resource server with the identifier `https://expenses-api` has been registered yet. In the next exercise, you will learn how to create and secure APIs with Auth0, and this request will begin to work.
 
-    </div>
+</div>
   </div>
 </div>
 

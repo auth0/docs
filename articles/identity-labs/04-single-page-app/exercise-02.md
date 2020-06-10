@@ -182,7 +182,7 @@ If you want to recreate the scenario where consent is needed, go to the [Users s
 
 🎉 **You have completed Lab 4 by building a single-page application calling a secure API!** 🎉
 
-    </div>
+</div>
   </div>
 </div>
 

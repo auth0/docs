@@ -333,7 +333,7 @@ The `Status Code: 200` (OK) lets us know the request was executed successfully. 
 
 You have now integrated your native application frontend with a protected API backend! In the next exercise, you will look at how the access token can be refreshed without having the user go through the web-based authentication flow each time.
 
-    </div>
+</div>
   </div>
 </div>
 

@@ -126,7 +126,7 @@ Note the following:
 
 🎉 **You have completed Lab 1 by building a web application with sign-on using OpenID Connect!** 🎉
 
-    </div>
+</div>
   </div>
 </div>
 

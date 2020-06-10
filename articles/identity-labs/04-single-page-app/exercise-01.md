@@ -359,7 +359,7 @@ If you are using a content blocker or browser setting that blocks third-party co
 
 For this to work properly, the silent authentication process requires the referrer URL to be whitelisted. This is why you added `http://localhost:5000` to the **Allowed Web Origins** field for your Auth0 Application. Otherwise, the silent authentication process would fail, and your users would need to log in again interactively.
 
-    </div>
+</div>
   </div>
 </div>
 

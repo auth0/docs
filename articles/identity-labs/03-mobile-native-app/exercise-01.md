@@ -267,7 +267,7 @@ Content-Type: application/json
 
 In the next exercise, you will use a token to validate and authorize the user and authorize against a protected API.
 
-    </div>
+</div>
   </div>
 </div>
 
