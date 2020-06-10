@@ -9,7 +9,7 @@ useCase:
   - support
 ---
 
-# Endpoints Used by Auth0 Public Cloud Service 
+# Auth0 Public Cloud Service Endpoints
 
 The following endpoints are used by Auth0 public cloud service:
 
@@ -17,10 +17,14 @@ The following endpoints are used by Auth0 public cloud service:
 
 * https://manage.auth0.com
 * https://auth0.com
-* https://login.auth0.com
-* https://cdn.auth0.com
-* https://{YOUR ACCOUNT}.auth0.com
-* https://{YOUR ACCOUNT}.guardian.auth0.com 
+* https://login.us.auth0.com
+* https://cdn.us.auth0.com
+* https://{YOUR ACCOUNT}.us.auth0.com
+* https://{YOUR ACCOUNT}.guardian.us.auth0.com 
+
+::: note
+New tenants will have `us` as part of the URL. Tenants created before the regional domain addition will continue to work. For example, `https://{YOUR ACCOUNT}.auth0.com`.
+:::
 
 ## EU & AU Regions
 

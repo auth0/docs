@@ -10,16 +10,16 @@
 var lock = new Auth0Lock('${account.clientId}', 'login.your-domain.com', options);
 ```
 
-4. Set the `configurationBaseUrl` option to `https://cdn.auth0.com`.
+4. Set the `configurationBaseUrl` option to `https://cdn.us.auth0.com`.
 
 ```
 var options = {
-  configurationBaseUrl: 'https://cdn.auth0.com'
+  configurationBaseUrl: 'https://cdn.us.auth0.com'
 };
 ```
 
 ::: note
-The CDN URL varies by region. For regions outside of the US, use `https://cdn.{region}.auth0.com` (for example, use `eu` for Europe, `au` for Australia).
+The CDN URL varies by region. For regions outside of the US, use `https://cdn.{region}.auth0.com` (use `eu` for Europe, `au` for Australia). For regions in the United States, new tenants will have `us` as part of the URL. Tenants created before the regional domain addition will continue to work. For example, `https://cdn.auth0.com`.
 :::
 
 #### Management Application
