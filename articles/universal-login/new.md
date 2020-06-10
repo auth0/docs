@@ -18,7 +18,7 @@ From a functional perspective, the New Experience has much better support for [L
 
 ## User Interface Customization
 
-Learn how to [Customize the New Universal Login Experience](/universal-login/customization-new).
+Learn how to customize the New Universal Login Experience using [Page Templates](/universal-login/page-templates).
 
 ## Internationalization
 

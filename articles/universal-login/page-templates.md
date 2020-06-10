@@ -10,11 +10,14 @@ beta: true
 
 You can customize the New <dfn data-key="universal-login">Universal Login</dfn> pages by providing a Page Template using the [Liquid template language](https://shopify.github.io/liquid/). 
 
+
 ::: warning
 This capability can only be used if the tenant has [Custom Domains](/custom-domains) enabled.
 :::
 
-Page Templates let you define the content that is displayed around the Universal Login widgets (e.g. the Login box, the MFA box). The simplest template you can write is:
+Page Templates let you define the content that is displayed around the Universal Login widgets (e.g. the Login box, the MFA box). The same template is used for all pages, which helps you to implement a consistent login with minimum effort.
+
+The simplest template you can write is:
 
 ```html
 <!DOCTYPE html>
@@ -37,7 +40,15 @@ The following tags need to be present in the template:
 
 ## Page Templates Variables
 
-The Page Templates have a set of context variables that can be used to impact how the page is rendered.
+The Page Templates have a set of context variables that can be used to impact how the page is rendered. This allows you to implement scenarios like:
+
+* Render different content depending on the Application (e.g. you own two brands that need a different design).
+* Render different content depending on the Prompt (e.g. in the Login page you want to add content explaining what the application does, but in the MFA flow, you prefer to only have the MFA box).
+* Add a footer with links to the tenant's support page or email.
+
+### Available Variables
+
+The available variables are:
 
 - The login page [application's settings](/dashboard/reference/settings-application#basic-settings):
   * application.id
@@ -77,12 +88,6 @@ The Page Templates have a set of context variables that can be used to impact ho
   * user.name
   * user.nickname
   * user.username
-
-By using these variables you can support scenarios like:
-
-* Render different content depending on the Application (e.g. you own two brands that need a different design).
-* Render different content depending on the Prompt (e.g. in the Login page you want to add content explaining what the application does, but in the MFA flow, you prefer to only have the MFA box).
-* Add a footer with links to the tenant's support page or email.
 
 ## Page Templates API
 
