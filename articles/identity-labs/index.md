@@ -15,7 +15,7 @@ contentType:
 
 _A few general things to keep in mind as you work through these labs:_
 
-**Plan to take around 1 hour or so (longer depending on your coding experience) for each lab.**
+**Plan to take around 1 hour or so (longer depending on your coding experience) for each lab.** Optionally, video demonstrations of the lab exercises are available.
 
 **These labs are designed to illustrate the basic concepts of digital identity, OAuth, and OpenID Connect.** The goal is to see the parameters and data that come together to create a complete authentication flow. As such, take your time and read through each section carefully. Completing the lab successfully is less important than understanding the concepts within.
 
