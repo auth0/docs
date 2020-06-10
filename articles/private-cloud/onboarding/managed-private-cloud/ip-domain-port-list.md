@@ -7,7 +7,7 @@ useCase: private-cloud
 ---
 # Private Cloud IP/Domain and Port List
 
-Private Cloud deployments require certain ports within the cluster to be open and able to communicate with one another, as well as selected external sites.
+Private Cloud deployments require certain ports within the cluster to be open and able to communicate with one another and with selected external sites.
 
 ## Between Cluster Nodes
 
@@ -198,4 +198,4 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
 ## Notes
 
 * If you are using social providers for logins, the cluster must be able to connect to the social providers' endpoints.
-* The Jump Host IP is stable and provided at the time of setup.
+* The jump host IP is stable and provided at the time of setup.

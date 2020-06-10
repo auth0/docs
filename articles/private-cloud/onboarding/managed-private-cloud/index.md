@@ -41,11 +41,11 @@ Auth0 provides monthly releases to the Managed Private Cloud; of these, the four
 
 We will reach out to you to coordinate the specific dates and times during which we will apply updates will to your deployment.
 
-The [Private Cloud Release Notes](https://auth0.com/releases/) will contain full details on the changes made to your deployment.
+The [Private Cloud Release Notes](https://auth0.com/releases/) will contain full details about the changes made to your deployment.
 
 ## Custom domains
 
-To learn howto map your tenant domain to a custom domain of your choosing, see [Custom Domains](/custom-domains). You can also learn how to manage the required certificates.
+To learn how to map your tenant domain to a custom domain of your choosing, see [Custom Domains](/custom-domains). You can also learn how to manage the required certificates.
 
 If you are a customer-hosted Managed Private Cloud customer using the legacy custom domains feature, you will need to migrate your custom domains to the Auth0 Custom Domains feature. Please consult Auth0 for additional assistance.
 

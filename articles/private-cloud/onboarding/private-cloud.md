@@ -10,7 +10,7 @@ useCase: private-cloud
 This article will cover all facets of the **Private Cloud** onboarding process, including timelines, information about future updates, technical requirements, and implementation instructions for key Private Cloud features.
 
 ::: note
-If you are a **Managed** Private Cloud customer, please see [Managed Private Cloud Onboarding](/private-cloud/onboarding/managed-private-cloud). 
+If you are a **Managed** Private Cloud customer, please see [Managed Private Cloud Onboarding](/private-cloud/onboarding/managed-private-cloud).
 :::
 
 ## Timeline
@@ -21,7 +21,7 @@ Immediately after the kickoff meeting, we begin the implementation process, whic
 
 ## Updates
 
-Auth0 issues automatic monthly updates to the Private Cloud. The [Private Cloud Release Notes](https://auth0.com/releases/) will contain full details on the changes made to your deployment.
+Auth0 issues automatic monthly updates to the Private Cloud. The [Private Cloud Release Notes](https://auth0.com/releases/) will contain full details about the changes made to your deployment.
 
 ::: note
 The four most recent Private Cloud releases are considered to be the **Active Releases**.

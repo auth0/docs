@@ -7,7 +7,7 @@ useCase: private-cloud
 ---
 # Infrastructure Requirements for the Customer-Hosted Managed Private Cloud
 
-If you are a Managed Private Cloud customer hosting Auth0 using Amazon Web Services, be aware of the following requirements.
+If you are a Managed Private Cloud customer who is hosting Auth0 using Amazon Web Services, be aware of the following requirements.
 
 ## AWS regions
 
@@ -22,7 +22,7 @@ The AWS Region(s) in which your deployments are hosted must support:
 
 The size of your AWS instance must be at least **M4.2xlarge**, though the **M5.2xlarge** size is preferred.
 
-We ask that the individual volumes have the following resource allocation:
+Individual volumes should have the following resource allocation:
 
 <table class="table">
     <tr>
@@ -77,16 +77,14 @@ For a complete list of IP addresses and ports used, see the [IP/Domain and Port 
 
 ## Internet connectivity
 
-Internet connectivity is required for all servers in the cluster.
-
-All servers in the cluster require outbound access to:
+All servers in the cluster must have internet connectivity and require outbound access to:
 * **docker.it.auth0.com** (**52.9.124.234**) on port 443.
 * **cdn.auth0.com** on port 443.
 * Social providers and third-party APIs (as needed)
 
 ## DNS records
 
-Each environment (e.g., Development, Staging, Production), which are represented by `<env-name>`, requires a separate namespace for DNS records. 
+Each environment (e.g., Development, Staging, Production, which are represented by `<env-name>`) requires a separate namespace for DNS records. 
 
 You will need DNS records for the following namespaces:
 
@@ -128,7 +126,7 @@ STARTTLS is supported by Auth0, but is not required.
 
 ## Amazon RDS for PostgreSQL
 
-Amazon RDS for PostgreSQL is currently used to support the Authorization Roles-Based Access Control functionality, but it will be used to support other functionality in the future.
+Amazon RDS for PostgreSQL is currently used to support the Authorization Roles-Based Access Control (RBAC) functionality, but it will be used to support other functionality in the future.
 
 We ask that, at minimum, you use **postgres10, db.r3.xlarge** with 10 GB of storage. You should also allow automated snapshots with seven-day snapshot retention and multi-AZ deployments with automated failover.
 
