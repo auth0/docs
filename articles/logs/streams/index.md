@@ -48,5 +48,6 @@ To help diagnose issues with your stream, you can see the last ten errors we enc
   'logs/streams/http-event-to-slack',
   'logs/streams/amazon-eventbridge',
   'logs/streams/datadog',
-  'logs/streams/azure-event-grid'
+  'logs/streams/azure-event-grid',
+  'logs/streams/splunk'
 ] }) %>
