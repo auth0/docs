@@ -99,18 +99,40 @@ module.exports = function(recipient, text, context, cb) {
 
   const client = require('twilio')(accountSid, authToken); 
  
-  client.messages 
-      .create({ 
-         body: text, 
-         from: fromPhoneNumber,       
-         to: recipient
-      })
-      .then(function() {
-        cb(null, {});
-      })
-      .catch(function(err) {
-        cb(err);
-      });
+  if (context.message_type === "sms") {
+    client.messages 
+        .create({ 
+          body: text, 
+          from: fromPhoneNumber,       
+          to: recipient
+        })
+        .then(function() {
+          cb(null, {});
+        })
+        .catch(function(err) {
+          cb(err);
+        });
+  }
+  else {
+    const sayInCall = `<?xml version="1.0" encoding="UTF-8"?>
+    <Response>
+        <Say voice="man" language="en-US">Hello, your code is {{code}}.</Say>
+    </Response>`
+    client.calls
+        .create({
+          twiml: sayInCall,
+          to: recipient,
+          from: fromPhoneNumber,
+          timeout: 30,
+        })
+        .then(function() { 
+          cb(null, {})
+        )
+        .catch(function(err) {
+          cb(err)
+        }
+    };
+  }
 };
 ```
 
