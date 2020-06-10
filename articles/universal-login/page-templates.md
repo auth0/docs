@@ -11,7 +11,7 @@ beta: true
 You can customize the New <dfn data-key="universal-login">Universal Login</dfn> pages by providing a Page Template using the [Liquid template language](https://shopify.github.io/liquid/). 
 
 ::: warning
-This capability only be used if the tenant has [Custom Domains](/custom-domains) enabled.
+This capability can only be used if the tenant has [Custom Domains](/custom-domains) enabled.
 :::
 
 Page Templates let you define the content that is displayed around the Universal Login widgets (e.g. the Login box, the MFA box). The simplest template you can write is:
@@ -55,7 +55,7 @@ The Page Templates have a set of context variables that can be used to impact ho
   * tenant.support_email
   * tenant.support_url
 
-- Information about each the current universal login screen.
+- Information about the current universal login screen.
 
   * locale: Locale used to render the login pages, matching one of the [supported tenant languages](/universal-login/i18n)
   * prompt.name: The name of the Universal Login prompt being rendered 
