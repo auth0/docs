@@ -60,6 +60,11 @@ The default Splunk Cloud instance uses a self-signed certificate. We recommend u
 
 ## View logs in Splunk
 
+1. Log into your Splunk instance (in this case, Cloud)
+2. In the menu bar go to `App: Cloud Monitoring...`
+3. Click Search & Reporting in the sub-menu
+4. In search bar, input wildcard * and adjust time drop down to desired window.
+
 ## Delivery attempts and retries
 
 Auth0 events are delivered to your server via a streaming mechanism that sends each event as it is triggered. If your server is unable to receive the event, Auth0 will try to redeliver it up to three times. If still unsuccessful, Auth0 will log the failure to deliver, and you will be able see these failures in the Health tab for your log stream.
