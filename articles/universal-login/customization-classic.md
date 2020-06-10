@@ -25,7 +25,7 @@ These settings, once changed, will take effect on all your Universal Login pages
 
 ## Advanced Customization
 
-In addition to the basic settings described above, you can alter the actual code of some <dfn data-key="universal-login">Universal Login</dfn>. You can customize the HTML code for Login, Password Reset and MFA pages.
+In addition to the basic settings described above, you can alter the actual code of the <dfn data-key="universal-login">Universal Login</dfn> flow. You can customize the HTML code for Login, Password Reset and MFA pages.
 
 ![Login Page](/media/articles/universal-login/login.png)
 
@@ -37,7 +37,6 @@ You should also exercise caution regarding the use of third-party JavaScript on 
 If you have enabled customization to inspect the page code, and then decide **not** to customize your login page, you should make sure to disable the **Customize Login Page** toggle, so Auth0 will render the default pages.
 :::
 
-However you will be responsible for maintaining the page thereafter, including updating the version of any Auth0 widget - such as Lock - or Auth0 SDK used. 
 
 ## Login
 
@@ -69,7 +68,7 @@ To learn more about how to do these, and many other customizations, take a look 
 
 If you intend to significantly change the page's appearance, you may wish to use the Custom Login Form template instead of the Lock template. You can use the example in the Custom Login Form template as a guideline that shows you how to get the values and information you need into the login page and how to use the Auth0.js SDK to do so, then do the styling and layout in whatever manner you wish. You may perform whatever CSS customizations that you like, as long as they are included in this one file, as there is no option to host a separate CSS file on your Auth0 tenant.
 
-## Other Universal Login Pages
+## Other facets of Universal Login
 
 Auth0 offers you the ability to customize and display several other pages containing Auth0-related functionality and to which Auth0 redirects your users during the authorization process, beyond just the login page described above. You can modify the following types of pages from your [Dashboard](${manage_url}):
 
@@ -77,6 +76,4 @@ Auth0 offers you the ability to customize and display several other pages contai
 * [Multi-factor Authentication Page](/universal-login/multifactor-authentication)
 * [Error Pages](/universal-login/error-pages)
 
-## Managing Universal Login Pages Source
-
-
+While Auth0 hosts these custom pages, you can still manage your pages using the [version control system of your choice](https://auth0.com/docs/universal-login/version-control).

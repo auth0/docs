@@ -1,6 +1,5 @@
-
 ---
-description: Overview of advanced customization of the login page for the Universal Login classic experience.
+description: New Universal Login UI Customization
 topics:
   - login
   - universal-login
