@@ -8,7 +8,7 @@ useCase: development
 ---
 # Set Up Multiple Environments
 
-__Development__, __staging__, and __production__ environments are easy to setup in Auth0. Simply create a new tenant for each environment to guarantee isolation between them. You can easily switch between tenants using the tenant chooser from the top right menu on the Dashboard. You can also configure different administrators for each.
+__Development__, __staging__, and __production__ environments are easy to set up in Auth0. Create a new tenant for each environment to guarantee isolation between them. You can easily switch between tenants using the tenant chooser from the top right menu on the Dashboard. You can also configure different administrators for each.
 
 ::: warning
 Production [rate limits](/policies/rate-limits) only apply to tenants tagged as `Production`. Ensure your tenant's environment tag is set to `Production` before going live.
@@ -28,7 +28,7 @@ For each new tenant created, you should specify its environment. You can assign 
 If your tenant is mixed use, choose the higher environment. For example, a tenant used for both development and production should be set to `Production`.
 :::
 
-1. To assign an environment tag to a tenant, go to the [Auth0 Support Center > Tenants](${env.DOMAIN_URL_SUPPORT}/tenants/public). Locate your tenant and click the gear icon to bring up the **Settings** section.
+1. To assign an environment tag to a tenant, go to the [Auth0 Support Center > Tenants](${env.DOMAIN_URL_SUPPORT}/tenants/public). Locate your tenant, and click the gear icon to bring up the **Settings** section.
 
 ![Support Center Tenants](/media/articles/clients/support-tenants.png)
 
