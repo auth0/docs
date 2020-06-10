@@ -23,12 +23,12 @@ In this exercise, you will explore the use of refresh tokens. A refresh token is
     <ul class="nav nav-tabs">
       <li class="active">
         <a href="#video-tutorial" data-toggle="tab">
-          Video Turorial
+          Video Tutorial
         </a>
       </li>
       <li>
         <a href="#text-tutorial" data-toggle="tab">
-          Text Tutorial
+          Lab
         </a>
       </li>
     </ul>

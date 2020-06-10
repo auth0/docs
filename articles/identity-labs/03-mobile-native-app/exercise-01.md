@@ -23,12 +23,12 @@ In this exercise, you will add authentication to an existing iOS application. A 
     <ul class="nav nav-tabs">
       <li class="active">
         <a href="#video-tutorial" data-toggle="tab">
-          Video Turorial
+          Video Tutorial
         </a>
       </li>
       <li>
         <a href="#text-tutorial" data-toggle="tab">
-          Text Tutorial
+          Lab
         </a>
       </li>
     </ul>
