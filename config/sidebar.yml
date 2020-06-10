@@ -771,6 +771,8 @@ articles:
                 url: /logs/export-log-events-with-log-streaming/datadog-dashboard-templates
           - title: Azure Event Grid Streams
             url: /logs/export-log-events-with-log-streaming/stream-logs-to-azure-event-grid
+          - title: Splunk Event Streams
+            url: /logs/streams/splunk
       - title: Log Data Retention
         url: /logs/log-data-retention
       - title: View Log Data in the Dashboard
