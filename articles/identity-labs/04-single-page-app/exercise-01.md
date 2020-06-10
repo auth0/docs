@@ -25,6 +25,36 @@ The SPA in question is a vanilla JavaScript application that consumes an API sim
 
 In this exercise, you will focus on integrating the SPA with Auth0 and getting the profile of the logged-in user. Exercise 2 will show how to consume the private endpoint exposed by the API.
 
+<div>
+  <div>
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <a href="#video-tutorial" data-toggle="tab">
+          Video Turorial
+        </a>
+      </li>
+      <li>
+        <a href="#text-tutorial" data-toggle="tab">
+          Text Tutorial
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="tab-content">
+    <div id="video-tutorial" class="tab-pane active">
+      <div class="video-wrapper" data-video="xozbeg92cm"></div>
+      <hr>
+      <div class="video-wrapper" data-video="i01sxuclba"></div>
+      <hr>
+      <div class="video-wrapper" data-video="la4r6zl99s"></div>
+      <hr>
+      <div class="video-wrapper" data-video="2sg5ofur0j"></div>
+      <hr>
+      <div class="video-wrapper" data-video="8erv7xmqod"></div>
+      <hr>
+    </div>
+    <div id="text-tutorial" class="tab-pane">
+
 1. First, you will run a version of the app that is not integrated with Auth0. Open a new terminal and browse to `/lab-04/exercise-01/begin/api` in your locally-cloned copy of the [identity exercise repo](https://github.com/auth0/identity-102-exercises/). This is where the code for your API resides. Install the dependencies using npm.
 
 ```bash
@@ -328,5 +358,9 @@ If you are using a content blocker or browser setting that blocks third-party co
 ![Silent authentication network request from single-page application](/media/articles/identity-labs/lab-04-silent-auth-request.png)
 
 For this to work properly, the silent authentication process requires the referrer URL to be whitelisted. This is why you added `http://localhost:5000` to the **Allowed Web Origins** field for your Auth0 Application. Otherwise, the silent authentication process would fail, and your users would need to log in again interactively.
+
+    </div>
+  </div>
+</div>
 
 <a href="/identity-labs/04-single-page-app/exercise-02" class="btn btn-transparent">Next →</a>

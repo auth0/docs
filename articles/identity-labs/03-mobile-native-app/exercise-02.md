@@ -17,6 +17,29 @@ If you came to this page directly, go to the [first page of this lab](/identity-
 
 In this exercise, you are going to enable the native application to authorize against the protected API backend that was built in [Lab 2, Exercise 2](/identity-labs/02-calling-an-api/exercise-02). In that lab, you set up an Auth0 API server for your Expenses API with an audience value of `https://expenses-api`.
 
+<div>
+  <div>
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <a href="#video-tutorial" data-toggle="tab">
+          Video Turorial
+        </a>
+      </li>
+      <li>
+        <a href="#text-tutorial" data-toggle="tab">
+          Text Tutorial
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="tab-content">
+    <div id="video-tutorial" class="tab-pane active">
+      <div class="video-wrapper" data-video="g1r8exsdl4"></div>
+      <hr>
+    </div>
+    <div id="text-tutorial" class="tab-pane">
+
+
 If you have already completed lab 2, you can use the same Auth0 configuration and local files to run the API needed for this lab. Just go to `/lab-02/begin/api` in your locally-cloned copy of the [identity exercise repo](https://github.com/auth0/identity-102-exercises/) and run `npm start` in your terminal before beginning this exercise. Make sure your token expiration times in Auth0 are back to normal (at least an hour for both).
 
 ::: panel If you did not complete Lab 2
@@ -309,5 +332,9 @@ The `Status Code: 200` (OK) lets us know the request was executed successfully. 
 ```
 
 You have now integrated your native application frontend with a protected API backend! In the next exercise, you will look at how the access token can be refreshed without having the user go through the web-based authentication flow each time.
+
+    </div>
+  </div>
+</div>
 
 <a href="/identity-labs/03-mobile-native-app/exercise-03" class="btn btn-transparent">Next →</a>

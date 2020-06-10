@@ -18,6 +18,28 @@ If you came to this page directly, go to the [first page of this lab](/identity-
 
 In this exercise, you will learn how to make your SPA consume, on behalf of the user, the private endpoint exposed by the API.
 
+<div>
+  <div>
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <a href="#video-tutorial" data-toggle="tab">
+          Video Turorial
+        </a>
+      </li>
+      <li>
+        <a href="#text-tutorial" data-toggle="tab">
+          Text Tutorial
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="tab-content">
+    <div id="video-tutorial" class="tab-pane active">
+      <div class="video-wrapper" data-video="a9o2c59weh"></div>
+      <hr>
+    </div>
+    <div id="text-tutorial" class="tab-pane">
+
 ::: note
 You can continue using the source code from the previous exercise, or if you are starting from scratch, use the code in the `exercise-02/begin` folder. Make sure you run steps 1-6 in [exercise 1](/identity-labs/04-single-page-app/exercise-01) either way.
 :::
@@ -159,5 +181,9 @@ If you want to recreate the scenario where consent is needed, go to the [Users s
 :::
 
 🎉 **You have completed Lab 4 by building a single-page application calling a secure API!** 🎉
+
+    </div>
+  </div>
+</div>
 
 <a href="/identity-labs/" class="btn btn-transparent">← All Identity Labs</a>

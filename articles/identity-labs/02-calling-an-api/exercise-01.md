@@ -18,6 +18,30 @@ If you came to this page directly, go to the [first page of this lab](/identity-
 
 After learning how to secure your web application with Auth0 in [lab 1](/identity-labs/01-web-sign-in), you will now learn how to make this application consume APIs on behalf of your users. You will start by running an unsecured API and a web application to see both working together, and then you will secure your API with Auth0.
 
+<div>
+  <div>
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <a href="#video-tutorial" data-toggle="tab">
+          Video Turorial
+        </a>
+      </li>
+      <li>
+        <a href="#text-tutorial" data-toggle="tab">
+          Text Tutorial
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="tab-content">
+    <div id="video-tutorial" class="tab-pane active">
+      <div class="video-wrapper" data-video="ucdc0nohs4"></div>
+      <hr>
+      <div class="video-wrapper" data-video="xjimnp9iqt"></div>
+      <hr>
+    </div>
+    <div id="text-tutorial" class="tab-pane">
+
 1. Open a new terminal and browse to `/lab-02/begin/api` in your locally-cloned copy of the [identity exercise repo](https://github.com/auth0/identity-102-exercises/). This is where the code for your API resides. The API is an Express backend that contains a single endpoint. This endpoint (served under the root path) returns expenses, which are data that belong to each user (though they are static and the same for all).
 
 <%= include('../_includes/_git-clone-note') %>
@@ -184,5 +208,9 @@ The `API_AUDIENCE` value is the identifier for the API that will be created in t
 **And that's it!** You have just configured your web application to consume the API on behalf of the logged in user.
 
 If you restart the application in your terminal, logout, and try to log back in, you will see an error because no resource server with the identifier `https://expenses-api` has been registered yet. In the next exercise, you will learn how to create and secure APIs with Auth0, and this request will begin to work.
+
+    </div>
+  </div>
+</div>
 
 <a href="/identity-labs/02-calling-an-api/exercise-02" class="btn btn-transparent">Next →</a>

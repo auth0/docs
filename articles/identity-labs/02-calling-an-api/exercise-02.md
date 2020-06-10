@@ -18,6 +18,30 @@ If you came to this page directly, go to the [first page of this lab](/identity-
 
 In this exercise, you will register the API with Auth0 so that tokens can be issued for it. You will also learn how to secure your API with Auth0. You will refactor the API that your web application is consuming by installing and configuring some libraries needed to secure it with Auth0.
 
+<div>
+  <div>
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <a href="#video-tutorial" data-toggle="tab">
+          Video Turorial
+        </a>
+      </li>
+      <li>
+        <a href="#text-tutorial" data-toggle="tab">
+          Text Tutorial
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="tab-content">
+    <div id="video-tutorial" class="tab-pane active">
+      <div class="video-wrapper" data-video="6omxlyo7w5"></div>
+      <hr>
+      <div class="video-wrapper" data-video="hkt0fbvxq3"></div>
+      <hr>
+    </div>
+    <div id="text-tutorial" class="tab-pane">
+
 1. To register the API with Auth0, open the Auth0 Dashboard and go to the [APIs screen](${manage_url}/#/apis).
 
 2. Click the **Create API** button. Add a descriptive Name, paste `https://expenses-api` into the **Identifier** field, and click **Create**.
@@ -112,5 +136,9 @@ listening on http://localhost:3001
 ```
 
 To test your secured API, refresh the expenses page in your application - [localhost:3000/expenses](http://localhost:3000/expenses). If everything works as expected, you will still be able to access this view (which means that the web app is consuming the API on your behalf). If you browse directly to the API at [localhost:3001](http://localhost:3001), however, you will get an error saying the token is missing.
+
+    </div>
+  </div>
+</div>
 
 <a href="/identity-labs/02-calling-an-api/exercise-03" class="btn btn-transparent">Next →</a>
