@@ -156,6 +156,9 @@ useCase:
       <li>
         <i class="icon icon-budicon-715"></i><a href="/logs/streams/azure-event-grid">Azure Event Grid</a>
       </li>
+      <li>
+        <i class="icon icon-budicon-715"></i><a href="/logs/streams/splunk">Splunk</a>
+      </li>
     </ul>
   </li>
 </ul>
