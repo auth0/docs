@@ -49,7 +49,7 @@ The settings available here are:
 You can further customize login pages:
 
 - Customizing the [Classic Universal Login Experience](/universal-login/customization-classic)
-- Customizing the [New Universal Login Experience](/universal-login/page-templates)
+- Customizing the [New Universal Login Experience](/universal-login/customization-new)
 
 ## Implement Universal Login
 
