@@ -86,6 +86,10 @@ var lock = new Auth0Lock('${account.clientId}', 'YOUR_CUSTOM_DOMAIN', {
 
 The CDN URL varies by region. Use `https://cdn.[us|eu|au].auth0.com` (`us` for US, `eu` for Europe, or `au` for Australia).
 
+::: note
+New tenants will have `us` as part of the URL. Tenants created before the regional domain addition will continue to work. For example, `https://{YOUR ACCOUNT}.auth0.com`.
+:::
+
 ## Auth0 SPA SDK, Auth0.js, and other SDKs
 
 If you use the [Auth0 SPA SDK](/libraries/auth0-spa-js), [Auth0.js](/libraries/auth0js), or [other SDKs](/support/matrix#auth0-sdks), you will have to initialize the SDK using your custom domain. For example, if you are using the Auth0.js SDK, you must set the following:
