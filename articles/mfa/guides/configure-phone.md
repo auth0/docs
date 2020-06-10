@@ -89,11 +89,11 @@ Phone Messaging providers not currently integrated with Auth0 can be supported b
 
 You can use the Management API to configure which Message Delivery Methods are enabled by using the `/api/v2/guardian/factors/phone/message-types` endpoint. 
 
-The `messages_types` parameter is an array that can have ["sms"], ["voice"], or ["sms", "voice"]. You need a [Management API Token](https://auth0.com/docs/api/management/v2/tokens) as a Bearer Token to call the API:
+The `messages_types` parameter is an array that can have ["sms"], ["voice"], or ["sms", "voice"]. You need a [Management API Token](https://auth0.com/docs/api/management/v2/tokens) with the `update:guardian_factors` scope as a Bearer Token to call the API:
 
  ```har
   {
-      "method": "POST",
+      "method": "PUT",
       "url": "https://${account.namespace}/api/v2/guardian/factors/phone/message-types",
       "headers": [{
           "name": "Authorization",
