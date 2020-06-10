@@ -23,7 +23,7 @@ The following endpoints are used by Auth0 public cloud service:
 * https://{YOUR ACCOUNT}.guardian.us.auth0.com 
 
 ::: note
-New tenants will have `us` as part of the URL. Tenants created before the regional domain addition, will continue to work. For example, `https://{YOUR ACCOUNT}.auth0.com`.
+New tenants will have `us` as part of the URL. Tenants created before the regional domain addition will continue to work. For example, `https://{YOUR ACCOUNT}.auth0.com`.
 :::
 
 ## EU & AU Regions
