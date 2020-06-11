@@ -34,7 +34,7 @@ This tool can be destructive to your Auth0 tenant. Please ensure you have read t
 
 ## Upgrade to latest version
 
-For version 5, the `auth0-deploy-cli` tool was updated with support for Node.js v14 and dropped support for Node.js versions earlier than v8.
+For version 5, the `auth0-deploy-cli` tool was updated to add support for Node.js v14 and drop support for Node.js versions earlier than v8.
 
 If you are upgrading `auth0-deploy-cli` from versions earlier than v4, please upgrade the **Auth0 Deploy CLI** extension by following the instructions for [Deploy CLI Tool v4](#deploy-cli-tool-v4) below.
 
