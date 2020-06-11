@@ -20,10 +20,9 @@ For version 5, the `auth0-deploy-cli` tool was updated to include the following 
 
 - Updated dependencies and deprecated support for Node.js versions earlier than 8
 
-- Allow excluding default values for emailProvider with `AUTH0_EXCLUDED_DEFAULTS`
+- Allowed excluding default values for emailProvider with `AUTH0_EXCLUDED_DEFAULTS`
 
-- pages: fix error when dumping error_page without html property
-
+- For pages, fixed error when dumping error_page without html property
 
 ## Deploy CLI Tool v4
 
