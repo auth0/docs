@@ -206,6 +206,8 @@ If there is an error in the job, it will return as failed. However, note that in
 }
 ```
 
+See [below](#retrieve-failed-entries) for information on how to get details for failed entries. 
+
 **Expired**
 
 Expired jobs are completed jobs that were created more than 2 hours ago.
@@ -227,9 +229,11 @@ Additionally, the job status is added to [Tenant Logs](${manage_url}/#/logs), wh
 
 All user import jobs timeout after **two (2) hours**. If your job does not complete within this time frame, it is marked as failed.
 
-Furthermore, all of your job-related data is automatically deleted after 24 hours and cannot be accessed afterward. As such, **we strongly recommend storing the job results using the storage mechanism of your choice**.
-
 ## Retrieve failed entries
+
+::: warning
+All of the job-related data is automatically deleted after 24 hours and cannot be accessed afterward. As such, **we strongly recommend storing the job results using the storage mechanism of your choice**.
+:::
 
 If there were errors in the user import job, you can get the error details by making a `GET` request to the [get job error details](/api/management/v2#!/Jobs/get_errors) endpoint. Be sure to replace the `MGMT_API_ACCESS_TOKEN` and `JOB_ID` placeholder values with your Management API Access Token and user import job ID.
 
