@@ -36,7 +36,7 @@ To allow users to authenticate with SMS, you must enable the SMS factor and sele
 * **Auth0**: Sends the messages using Auth0's internally-configured SMS delivery provider. It can be used for evaluation purposes, and there is a maximum of 100 messages per tenant during the entire tenant lifetime.
 
 ::: note
-Private Cloud supports Twilio and Custom SMS via the Send Phone Message Hook only. Sending via Auth0 default email delivery for testing purposes is not supported for Private Cloud deployments.
+Private Cloud supports Twilio and Custom SMS via the Send Phone Message Hook only. Sending via Auth0 default delivery for testing purposes is not supported for Private Cloud deployments.
 :::
 
 * **Twilio**: Sends the messages using the [Twilio Programmable SMS API](https://www.twilio.com/sms). You will need to provide [your own Twilio credentials](#twilio-configuration).
