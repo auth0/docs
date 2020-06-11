@@ -1,6 +1,6 @@
 ---
 title: Login
-description: This tutorial demonstrates how to add user login to an Cordova application using Auth0.
+description: This tutorial demonstrates how to call your API from an input-constrained device using the Device Authorization flow.
 budicon: 448
 topics:
   - quickstarts
