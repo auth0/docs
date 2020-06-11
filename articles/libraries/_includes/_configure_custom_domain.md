@@ -19,7 +19,7 @@ var options = {
 ```
 
 ::: note
-The CDN URL varies by region. For regions outside of the US, use `https://cdn.{region}.auth0.com` (use `eu` for Europe, `au` for Australia). For regions in the United States, new tenants will have `us` as part of the URL. Tenants created before the regional domain addition will continue to work. For example, `https://cdn.auth0.com`.
+The CDN URL varies by region. Tenants created before 11 June 2020 should use `https://cdn.auth0.com` if the region is the United States, or add `eu` or `au` for Europe or Australia. If your tenant was created after 11 June 2020, use `https://cdn.us.auth0.com` if the region is the United States. 
 :::
 
 #### Management Application
