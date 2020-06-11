@@ -18,7 +18,7 @@ You can create monitoring, alerting, and analysis dashboards for Auth0 tenants.
 
 ## Send events from Auth0 to Splunk
 
-To send Auth0 events to Splunk, you will need:
+To send Auth0 events to Splunk, you will need to know your:
 
 1. Splunk instance domain name
 2. Splunk event collector token
