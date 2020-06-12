@@ -838,7 +838,11 @@ module.exports = [
   },
   {
     from: '/multifactor-authentication/factors/email',
-    to: '/mfa/guides/configure-email-universal-login'
+    to: '/mfa/guides/configure-email'
+  },
+  {
+    from: '/mfa/guides/configure-email-universal-login',
+    to: '/mfa/guides/configure-email'
   },
   {
     from: '/multifactor-authentication/factors/duo',
