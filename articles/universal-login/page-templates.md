@@ -89,6 +89,14 @@ The available variables are:
   * user.nickname
   * user.username
 
+## CSS Customization
+
+Given you can edit the HTML for the page, you could also override the CSS classes that are used in the Universal Login widgets. 
+
+This is not supported yet. If you override the CSS for our built-in classes, your login page will break whenever we change the CSS.
+
+We'll be supporting this in the future.
+
 ## Page Templates API
 
 To set the Page Template you need to use the Management API. You first need to get a Management API token with the `update:branding`,`read:branding`, `delete:branding` scopes. If you are using the 'API Explorer Application' to generate tokens, make sure those scopes are enabled for the 'Auth0 Management API'.
