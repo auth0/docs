@@ -108,11 +108,11 @@ The `messages_types` parameter is an array that can have ["sms"], ["voice"], or 
 
 ## Security Considerations
 
-When using SMS or Voice, you need to be aware that attackers abusing the signup flow could cause you financial damage.
+When using any phone messaging provider, you need to be aware that attackers abusing the signup flow could cause you financial damage.
 
-Auth0 will let a single user send up to 10 sms or voice messages per hour. To further protect your account, you can consider. 
+Auth0 will let a single user send up to 10 sms or voice messages per hour. To further protect your account, you can consider:
 
-- Enabling [Brute Force Protection](/anomaly-detection/references/brute-force-protection-triggers-actions#100-failed-login-attempts-or-50-sign-up-attempts).Auth0 will block an IP if it attempts to do more than 50 signup requests per minute.
+- Enabling [Brute Force Protection](/anomaly-detection/references/brute-force-protection-triggers-actions#100-failed-login-attempts-or-50-sign-up-attempts). Auth0 will block an IP if it attempts to do more than 50 signup requests per minute.
 
 - Enable [Log Streaming](https://auth0.com/docs/logs/streams) and create alerts using your favorite monitoring tool, when you see spikes in the number of `gd_send_voice` or `gd_send_voice_failure` [log events](/logs/references/log-event-type-codes).
 
