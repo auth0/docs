@@ -27,7 +27,7 @@ To send Auth0 events to Splunk, you will need to know your:
 
 #### Retrieving the Domain, Token, and Port
 
-  1. Navigate to your Splunk instance. You will have received this information via email upon Splunk signup. Copy the domain part of the URL, this is your Splunk **Domain**.
+  1. Navigate to your Splunk instance. Copy the domain part of the URL, this is your Splunk **Domain**. (You may have received this information via email upon Splunk signup as well).
   2. From the system menu select Settings > Data Inputs. Select the Add New link under Local Inputs > HTTP Event Collector.
   3. A wizard, that will configure a new token for receiving data over HTTP, is displayed. Set a name for this new token and click Next. We recommend naming it auth0.
   4. Select a Source type and an Index. We will create a new Source type, named auth0, and use main as our Index. Click Review.
