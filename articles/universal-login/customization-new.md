@@ -33,8 +33,11 @@ You can further the New <dfn data-key="universal-login">Universal Login</dfn> pa
 
 Given the Classic Universal Login experience is still more flexible than the New Universal Login experience, you could want to combine pages from both flows. 
 
-For example, if you want to implement Passwordless with MFA, you can use the 'Classic' login page for Passwordless and the 'New' MFA page for MFA.
+For example, if you want to implement Passwordless with MFA, you can use the 'Classic' login page for Passwordless and the 'New' MFA page for MFA, you can do so as follows:
 
-You can achieve it by enabling the New Universal Login Experience and then customize the HTML page of the Login page with whatever content you want, for example, the `Auth0LockPasswordless` widget. In that case, users will get a Passwordless login page that behaves like in Classic, and and MFA page that looks like the New Universal Login page.
+1. Enable the New Universal Login Experience.
+1. Customize the HTML page of the Login page with whatever content you want, for example, the `Auth0LockPasswordless` widget. 
+
+In this case, users will get a customized Classic behavior login page that allows them to log in via a passwordless connection, but will get the MFA page that looks like the New Universal Login page.
 
 Check the [Classic Universal Login customization documentation](/universal-login/customization-classic) to learn more.
