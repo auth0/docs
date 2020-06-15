@@ -95,10 +95,10 @@ The `messages_types` parameter is an array that can have ["sms"], ["voice"], or 
   {
       "method": "PUT",
       "url": "https://${account.namespace}/api/v2/guardian/factors/phone/message-types",
-      "headers": [{
-          "name": "Authorization",
-          "value": "Bearer MGMT_API_ACCESS_TOKEN"
-      }],
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+   	    { "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" }
+      ],
       "postData": {
           "mimeType": "application/json",
           "text": "{ \"message_types\": [\"sms\", \"voice\"] }"
