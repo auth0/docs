@@ -3,7 +3,7 @@ title: Connect Apps to Exact
 connection: Exact
 image: /media/connections/exact.png
 seo_alias: exact
-description: Learn how to connect your application to Exact.
+description: Learn how to add login functionality to your app with Exact.
 index: 12
 topics:
   - connections

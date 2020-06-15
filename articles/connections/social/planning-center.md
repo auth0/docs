@@ -3,7 +3,7 @@ title: Connect Apps to Planning Center
 connection: Planning Center
 image: /media/connections/planning-center.png
 seo_alias: planning-center
-description: How to obtain a Client Id and Client Secret for Planning Center.
+description: Learn how to add login functionality to your app with Planning Center. You will need to get a Client Id and Client Secret for Planning Center.
 toc: true
 index: 25
 topics:

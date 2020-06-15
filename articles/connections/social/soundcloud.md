@@ -4,7 +4,7 @@ connection: SoundCloud
 index: 31
 image: /media/connections/soundcloud.png
 seo_alias: soundcloud
-description: How to obtain a Client Id and Client Secret for SoundCloud.
+description: Learn how to add login functionality to your app with SoundCloud. You will need to obtain a Client Id and Client Secret for SoundCloud.
 toc: true
 topics:
   - connections

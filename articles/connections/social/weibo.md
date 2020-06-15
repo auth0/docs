@@ -4,7 +4,7 @@ connection: Weibo
 image: /media/connections/weibo.png
 seo_alias: weibo
 index: 34
-description: How to add Weibo login to your app
+description: Learn how to add login functionality to your app with Weibo.
 toc: true
 topics:
   - connections

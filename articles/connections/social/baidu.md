@@ -3,7 +3,7 @@ title: Connect Apps to Baidu
 connection: Baidu
 image: /media/connections/baidu.png
 seo_alias: baidu
-description: How to obtain an API Key and Secret Key for Baidu.
+description: Learn how to add login functionality to your app with Baidy. You will need to obtain a Client Id and Client Secret for Baidu.
 toc: true
 index: 3
 topics:
@@ -18,11 +18,11 @@ useCase:
 
 # Connect Apps to Baidu
 
-You can add functionality to your app that allows your users to login with Baidu.
+You can add functionality to your app that allows your users to log in with Baidu.
 
 ## Prerequisites
 
-Before connecting your Auth0 app to Baidu, you must have an account on the Baidu [integration portal](https://developer.baidu.com/dev).
+Before connecting your Auth0 app to Baidu, you must have an account on the [Baidu integration portal](https://developer.baidu.com/dev).
 
 ## Steps
 

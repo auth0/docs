@@ -21,11 +21,11 @@ useCase:
 
 # Connect Apps to Amazon
 
-You can add functioanlity to your app that allows your users to login with Amazon.
+You can add functionality to your app that allows your users to log in with Amazon.
 
 ## Prerequisites
 
-Before connecting your Auth0 app to have an [Amazon portal](http://login.amazon.com) account. 
+Before connecting your Auth0 app to Amazon, you must have an [Amazon portal](http://login.amazon.com) account. 
 
 ## Steps
 

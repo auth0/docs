@@ -3,7 +3,7 @@ title: Connect Apps to Box
 connection: Box
 image: /media/connections/box.png
 seo_alias: box
-description: How to obtain a Client Id and Client Secret for Box.
+description: Learn how to add login functionality to your app with Box. You will need to obtain a Client Id and Client Secret for Box.
 toc: true
 index: 6
 topics:

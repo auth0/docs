@@ -4,7 +4,7 @@ connection: WordPress
 image: /media/connections/wordpress.png
 seo_alias: wordpress
 index: 35
-description: How to obtain a Client Id and Client Secret for WordPress
+description: Learn how to add login functionality to your app with WordPress. You will need to obtain a Client Id and Client Secret for WordPress.
 toc: true
 topics:
   - connections

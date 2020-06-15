@@ -3,7 +3,7 @@ title: Connect Apps to Docomo dAccount
 connection: Docomo
 image: /media/connections/daccount.png
 seo_alias: docomo
-description: How to obtain a Client ID and Client Secret for Docomo dAccount.
+description: Learn how to add login functionality to your app with Docomo dAccount. You will need to obtain a Client Id and Client Secret for Docomo.
 toc: true
 index: 7
 topics:
@@ -16,7 +16,7 @@ useCase:
     - add-idp
 ---
 
-# Connect Apps to Docomo dAccount
+# Connect Apps to Docomo dAccounts
 
 You can add functionality to your web app that allows your users to log in with Docomo dAccount. 
 

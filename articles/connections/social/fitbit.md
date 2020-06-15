@@ -4,7 +4,7 @@ connection: Fitbit
 image: /media/connections/fitbit.png
 seo_alias: fitbit
 index: 14
-description: How to obtain a Client Id and Client Secret for Fitbit.
+description: Learn how to add login functionality to your app with Fitbit. You will need to obtain a Client Id and Client Secret for Fitbit.
 toc: true
 topics:
   - connections

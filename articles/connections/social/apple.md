@@ -4,6 +4,7 @@ connection: Apple
 image: /media/connections/apple.svg
 seo_alias: apple
 description: Learn how to add login functionality to your web app with Apple. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
+public: true
 toc: true 
 index: 2
 public: true

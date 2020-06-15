@@ -4,7 +4,7 @@ connection: Goodreads
 image: /media/connections/goodreads.png
 seo_alias: goodreads
 index: 17
-description: How to obtain a Consumer Key and Consumer Secret for Goodreads.
+description: Learn how to add login functionality to your app with Goodreads.
 topics:
   - connections
   - social

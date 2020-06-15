@@ -3,7 +3,7 @@ title: Connect Apps to RenRen
 connection: RenRen
 image: /media/connections/renren.png
 seo_alias: renren
-description: How to obtain an API Key and Secret Key for RenRen.
+description: Learn how to add login functionality to your app with RenRen. You will need to obtain an API Key and Secret Key for RenRen.
 toc: true
 index: 26
 topics:

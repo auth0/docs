@@ -3,7 +3,7 @@ title: Connect Apps to vKontakte
 connection: vKontakte
 image: /media/connections/vkontakte.png
 seo_alias: vkontakte
-description: How to connect your Auth0 app to vKontakte.
+description: Learn how to add login functionality to your app with vKontakte.
 toc: true
 index: 33
 topics:

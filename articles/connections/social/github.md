@@ -4,7 +4,7 @@ connection: Github
 image: /media/connections/github.png
 seo_alias: github
 index: 16
-description: How to add GitHub login to your app and access their API
+description: Learn how to add login functionality to your app with GitHub. You can also access the GitHub API.
 toc: true
 topics:
   - connections

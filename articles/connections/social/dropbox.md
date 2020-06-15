@@ -3,7 +3,7 @@ title: Connect Apps to Dropbox
 connection: Dropbox
 image: /media/connections/dropbox.png
 seo_alias: dropbox
-description: This page shows you how to connect your Auth0 app to Dropbox. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
+description: Learn how to connect your Auth0 app to Dropbox. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
 toc: true
 index: 8
 topics:
