@@ -1,16 +1,16 @@
 ---
 title: Connect Web Apps to Apple
 connection: Apple
-index: 2
 image: /media/connections/apple.svg
 seo_alias: apple
 description: Learn how to add login functionality to your web app with Apple. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
 toc: true 
 index: 2
+public: true
 topics:
   - authentication
   - connections
-  - native-social
+  - social
   - apple
 contentType: concept
 useCase:
@@ -22,7 +22,7 @@ useCase:
 
 You can add functionality to your web application that allows your users to authenticate using their Apple login credentials. As with other identity providers supported by Auth0, when your users log in, they can click the **Sign In with Apple** button, and they'll be taken to the Apple sign-in screen. They will see the name of your app and a placeholder icon. They will enter their Apple ID and password. If their Apple ID has two-factor authentication enabled, they'll be prompted for that as well.
 
-To add SIWA capabilities for your native apps, see [Add Sign In with Apple to Native iOS Apps](/connections/nativesocial/add-siwa-to-native-app).
+To add SIWA capabilities for your native apps, see [Add Sign In with Apple to Native iOS Apps](/connections/nativesocial/apple).
 
 ::: warning
 The [Apple App Store Developer Guidelines](https://developer.apple.com/app-store/review/guidelines/#sign-in-with-apple) require that Sign In with Apple (SIWA) must be available in all applications that exclusively use third-party sign-in options, such as Facebook or Google.

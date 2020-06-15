@@ -2441,8 +2441,12 @@ module.exports = [
     },
     {
       from: '/connections/apple-siwa/add-siwa-to-native-app',
-      to: '/connections/nativesocial/add-siwa-to-native-app'
-    },    
+      to: '/connections/nativesocial/apple'
+    },
+    {
+      from: '/connections/nativesocial/add-siwa-to-native-app',
+      to: '/connections/nativesocial/apple'
+    },
     {
       from: '/connections/passwordless/email',
       to: '/connections/passwordless/guides/email-otp'
