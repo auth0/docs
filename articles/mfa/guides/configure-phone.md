@@ -67,9 +67,9 @@ If you choose to deliver SMS via Twilio, follow these steps to configure your SM
 
   * If you choose **Use From**, you will need to enter the **From** phone number that users will see as the sender. You may also configure this in Twilio. 
 
-  * If you choose **Use Copilot**, you will need to enter a [Copilot SID](https://www.twilio.com/docs/api/rest/sending-messages-copilot).
+  * If you choose **Use Messaging Services**, you will need to enter a [Messaging Service SID](https://www.twilio.com/docs/sms/services/services-send-messages).
 
-  If you are using Voice, you always need to configure 'From' even if you are using 'Copilot' for SMS.
+  If you are using Voice, you always need to configure 'From' even if you are using 'Messaging Services' for SMS. Make sure the phone number is configured to send both SMS and Voice messages.
 
 5. Click **Save**.
 
@@ -105,6 +105,23 @@ The `messages_types` parameter is an array that can have ["sms"], ["voice"], or 
       }
   }
 ```
+
+## Security Considerations
+
+When using SMS or Voice, you need to be aware that attackers abusing the signup flow could cause you financial damage.
+
+Auth0 will let a single user send up to 10 sms or voice messages per hour. To further protect your account, you can consider. 
+
+- Enabling [Brute Force Protection](/anomaly-detection/references/brute-force-protection-triggers-actions#100-failed-login-attempts-or-50-sign-up-attempts).Auth0 will block an IP if it attempts to do more than 50 signup requests per minute.
+
+- Enable [Log Streaming](https://auth0.com/docs/logs/streams) and create alerts using your favorite monitoring tool, when you see spikes in the number of `gd_send_voice` or `gd_send_voice_failure` [log events](/logs/references/log-event-type-codes).
+
+Phone Messaging providers have additional protections. If you are using Twilio, make sure you read the [Anti-Fraud Developer Guide](https://www.twilio.com/docs/usage/anti-fraud-developer-guide). We recommend that you consider the following options:
+
+- Limit the countries that you'll send messages for [SMS](https://support.twilio.com/hc/en-us/articles/223181108-How-International-SMS-Permissions-work) and [Voice](https://support.twilio.com/hc/en-us/articles/223180228-International-Voice-Dialing-Geographic-Permissions-Geo-Permissions-and-How-They-Work).
+
+- Enable Twilio [usage triggers](https://support.twilio.com/hc/en-us/articles/223132387-Protect-your-Twilio-project-from-Fraud-with-Usage-Triggers).
+
 
 ## Keep Reading
 

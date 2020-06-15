@@ -70,6 +70,8 @@ The following table lists the codes associated with the each log event.
 | `gd_send_pn` | Push notification sent | Push notification for MFA sent successfully sent. | [MFA with Push Notifications](/mfa/concepts/mfa-factors#push-notifications) |
 | `gd_send_sms` | SMS sent | SMS for MFA sent successfully. | [Using SMS for MFA](/mfa/concepts/mfa-factors#sms-notifications) |
 | `gd_send_sms_failure` | SMS sent failures | SMS for MFA sent failed. | [Using SMS for MFA](/mfa/concepts/mfa-factors#sms-notifications) |
+| `gd_send_voice` | Voice call made | Voice call for MFA made successfully. | [Using Voice for MFA](/mfa/concepts/mfa-factors#voice-notifications) |
+| `gd_send_voice_failure` | Voice call failure | Voice call for MFA failed. | [Using Voice for MFA](/mfa/concepts/mfa-factors#voice-notifications) |
 | `gd_start_auth` | Second factor started | Second factor authentication event started for MFA. | [Multi-factor Authentication](/mfa) |
 | `gd_start_enroll` | Enroll started | Multi-factor authentication enroll has started. | [Multi-factor Authentication](/mfa) |
 | `gd_tenant_update` | Guardian tenant update | | [Hosted MFA Page](/universal-login/multifactor-authentication) |
