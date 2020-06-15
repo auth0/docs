@@ -29,7 +29,7 @@ Before you connect your Auth0 app to GitHub, you must have a [LinkedIn Developer
 
 To connect your app to LinkedIn, you will:
 
-1. [Set up your app in LinkedIn](#set-up-your-app-in-LinkedIn)
+1. [Set up your app in LinkedIn](#set-up-your-app-in-linkedin)
 2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
 3. [Test the connection](#test-the-connection)
 

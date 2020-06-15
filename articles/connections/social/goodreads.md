@@ -26,7 +26,7 @@ Before you connect your Auth0 app to Goodreads, you must have a [Goodreads Devel
 
 To connect your app to Goodreads, you will:
 
-1. [Set up your app in Goodreads](#set-up-your-app-in-Goodreads)
+1. [Set up your app in Goodreads](#set-up-your-app-in-goodreads)
 2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
 3. [Test the connection](#test-the-connection)
 

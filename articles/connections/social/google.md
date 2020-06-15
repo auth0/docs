@@ -33,7 +33,7 @@ Before you connect your Auth0 app to Google, you must have a [Google Developer](
 
 To connect your app to Google, you will:
 
-1. [Set up your app in Google](#set-up-your-app-in-Google)
+1. [Set up your app in Google](#set-up-your-app-in-google)
 2. [Enable the Admin SDK service](#enable-the-admin-sdk-service)
 2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
 3. [Test the connection](#test-the-connection)
