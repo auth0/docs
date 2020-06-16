@@ -1,5 +1,5 @@
 ---
-connection: Generic OAuth2 Provider
+connection: OAuth2 Provider (Generic)
 image: /media/connections/oauth2.png
 seo_alias: oauth2
 toc: true
