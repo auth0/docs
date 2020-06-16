@@ -27,7 +27,7 @@ You can also configure the favicon URL and a custom font URL using [the Branding
 
 ## Page Templates
 
-You can further the New <dfn data-key="universal-login">Universal Login</dfn> pages by providing a Page Template using the [Liquid template language](https://shopify.github.io/liquid/). Learn more in the [Page Template documentation](/universal-login/page-template).
+You can further the New <dfn data-key="universal-login">Universal Login</dfn> pages by providing a Page Template using the [Liquid template language](https://shopify.github.io/liquid/). Learn more in the [Page Template documentation](/universal-login/page-templates).
 
 ## Combining New Universal Login and Classic Universal Login
 
