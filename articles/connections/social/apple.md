@@ -65,6 +65,8 @@ Once you have the credentials you need from your Apple Developer account, you mu
   <div class="tab-content">
     <div id="dashboard" class="tab-pane active">
 
+#### Dashboard
+
 [Set up the Apple social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the following values:
 * Client ID (Services ID)
 * Apple Team ID
@@ -72,6 +74,8 @@ Once you have the credentials you need from your Apple Developer account, you mu
 * Key ID
     </div>
     <div id="mgmt-api" class="tab-pane">
+    
+#### Management API
 
 1. Make a `POST` call to the [Create a Connection endpoint](/api/management/v2/#!/Connections/post_connections). Be sure to replace `MGMT_API_ACCESS_TOKEN`, `CLIENT_ID`, `APPLE_TEAM_ID`, `APPLE_KEY_ID`, `APPLE_SERVICES_ID`, and `APPLE_CLIENT_SECRET_SIGNING_KEY` placeholder values with your Management API Access Token, Auth0 Client ID, Apple Team ID, Apple Key ID, Apple Services ID, and Apple Client Secret Signing Key values, respectively.
 
