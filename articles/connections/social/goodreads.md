@@ -35,8 +35,7 @@ To connect your app to Goodreads, you will:
 1. Log in to the [Goodreads developer portal](https://www.goodreads.com/api) and select *developer key*.
 
 2. Complete the form then click **Apply for a Developer Key**. 
-3. Enter your <dfn data-key="callback">callback URL</dfn> in the `Callback URL` field: 
-
+3. Enter your <dfn data-key="callback">callback URL</dfn> in the `Callback URL` field:
   `https://${account.namespace}/login/callback`
 
 <%= include('../_find-auth0-domain-redirects') %>

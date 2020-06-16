@@ -39,8 +39,7 @@ Set up an app in RenRen. During this process, RenRen will generate an **API Key*
 1. Log in to the [RenRen Integration portal](http://app.renren.com/developers), and click **Create New App**.
 
 2. Complete the form and enter your <dfn data-key="callback">callback URL</dfn> for the **callback URL**:
-
-  https://${account.namespace}/login/callback
+  `https://${account.namespace}/login/callback`
 
 <%= include('../_find-auth0-domain-redirects') %>
 

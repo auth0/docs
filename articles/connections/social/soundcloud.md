@@ -39,10 +39,10 @@ To connect your app to SoundCloud, you will:
 ### Set up your app in SoundCloud
 
 1. [Create a new app on your SoundCloud profile](https://soundcloud.com/you/apps/new), and complete your SoundCloud Application Registration by following the steps on the screen.
-  * Find your SoundCloud profile URL by [logging into SoundCloud](https://soundcloud.com/) and clicking your profile name in the top-right corner of the screen. Once navigated to your profile, your profile URL is displayed in your browser's address bar.
-  * Answer **Will your app authenticate users?** with `No, my app will only use publicly accessible resources`.
+    * Find your SoundCloud profile URL by [logging into SoundCloud](https://soundcloud.com/) and clicking your profile name in the top-right corner of the screen. Once navigated to your profile, your profile URL is displayed in your browser's address bar.
+    * Answer **Will your app authenticate users?** with `No, my app will only use publicly accessible resources`.
 
-  Your app will be in review for a maximum period of two weeks. Once approved, you will be able to use your SoundCloud API key to stream music from SoundCloud within your AppMachine app. 
+    Your app will be in review for a maximum period of two weeks. Once approved, you will be able to use your SoundCloud API key to stream music from SoundCloud within your AppMachine app. 
 
 2. When your request is approved, you will receive your own SoundCloud **Client ID**. Enter it in the **Music** block in the appropriate field under **Settings: Client ID**.
 

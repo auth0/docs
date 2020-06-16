@@ -40,8 +40,7 @@ To connect your app to Instagram, you will:
 1. Log in to the [Facebook Developer](https://developers.facebook.com/) portal. 
 2. Follow steps for [App Development](https://developers.facebook.com/docs/apps#register) to register your app. 
 3. Add **Facebook Login** to your app in the **App Dashboard**. 
-4. On the **Facebook Login > Settings** page, under **Valid Oauth Redirect URIs**, enter your <dfn data-key="callback">callback URL</dfn>: 
-
+4. On the **Facebook Login > Settings** page, under **Valid Oauth Redirect URIs**, enter your <dfn data-key="callback">callback URL</dfn>:
   `https://${account.namespace}/login/callback`
 
   You can also set a **Deauthorize Callback URL** that will be called when a user deauthorizes your app.

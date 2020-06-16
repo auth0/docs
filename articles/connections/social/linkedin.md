@@ -40,7 +40,6 @@ To connect your app to LinkedIn, you will:
 3. Select the products you'd like to add/integrate into your app. By default, you'll get the abilities to **Share on LinkedIn** and **Sign In with LinkedIn**. You can, however, also use the **Marketing Developer Platform**.
 4. Click **Create App**. LinkedIn generates a **Client ID** and **Client Secret** for your application. You can find these on the app's **Auth** screen under **Application credentials**. 
 5. On the **Auth** screen under **OAuth 2.0 Settings**. Click the **pencil** icon, then click **Add redirect URL**. Enter the following redirect URL:
-
   `https://${account.namespace}/login/callback`
 
 <%= include('../_find-auth0-domain-redirects') %>

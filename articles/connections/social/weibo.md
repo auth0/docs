@@ -33,9 +33,8 @@ Set up an app in Weibo. During this process, Weibo will generate an **appkey** a
 
 1. Register your app with [Weibo](https://open.weibo.com/authentication).
 
-2. Provide a <dfn data-key="callback">callback URL</dfn> during the registration process. 
-
-  `https://${account.namespace}/login/callback`.
+2. Provide a <dfn data-key="callback">callback URL</dfn> during the registration process:
+  `https://${account.namespace}/login/callback`
 
 <%= include('../_find-auth0-domain-redirects') %>
 

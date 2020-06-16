@@ -46,11 +46,11 @@ Set up an app in Planning Center. During this process, Planning Center will gene
 
 <%= include('../_find-auth0-domain-redirects') %>
 
-4. Click **Submit**. Your `Client Id` and `Secret` will be displayed.
+4. Click **Submit**. Your **Client Id** and **Secret** will be displayed.
 
 ### Create and enable a connection in Auth0
 
-[Set up the Planning Center social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the generated **Client ID** and **Client Secret**.
+[Set up the Planning Center social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the generated **Client Id** and **Secret**.
 
 ### Test the connection
 

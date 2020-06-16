@@ -39,13 +39,12 @@ Set up an app in Yammer. During this process, Yammer will generate a **Client ID
 1. Log in to [Yammer Developer Center](https://developer.yammer.com/) and click on **Apps** in the top menu.
 2. Click on **Register an App**.
 3. Then click **Register New App**.
-4. Name your app and complete the form. For the **Redirect URI**, enter your <dfn data-key="callback">callback URL</dfn>: 
-
-  `https://${account.namespace}/login/callback`.
+4. Name your app and complete the form. For the **Redirect URI**, enter your <dfn data-key="callback">callback URL</dfn>:
+  `https://${account.namespace}/login/callback`
 
 <%= include('../_find-auth0-domain-redirects') %>
 
-5. Click **Continue**. Once your app is created, your `Client ID` and `Client Secret` will be displayed.
+5. Click **Continue**. Once your app is created, your **Client ID** and **Client Secret** will be displayed.
 
 ### Create and enable a connection in Auth0
 

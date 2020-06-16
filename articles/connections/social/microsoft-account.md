@@ -46,7 +46,6 @@ To connect your app to Microsoft Account, you will:
 1. Follow the instructions in [Quickstart: Register an application with the Microsoft identity platform (Preview)](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app).
 
 2. While setting up your app, when asked to set a **Redirect URI**, enter your <dfn data-key="callback">callback URL</dfn>:
-
   `https://${account.namespace}/login/callback`
 
 <%= include('../_find-auth0-domain-redirects.md') %>
