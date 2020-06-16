@@ -34,21 +34,21 @@ To connect your app to Baidu, you will:
 
 ### Set up your app in Baidu
 
-1. Log into the [integration portal](https://developer.baidu.com/dev) and register a new app.
+1. Log into the [integration portal](https://developer.baidu.com/dev) and register a new app. During this process, Baidu will generate an **API Key** and **Secret Key** for your application; make note of these.
 
-2. Get your API Key and Secret Key.
+While setting up your app, make sure you use the following settings:
 
-3. Enter the callback URL. Use the following value for the <dfn data-key="callback">callback URL</dfn>:
-
-  `https://${account.namespace}/login/callback`
+| Field | Value to Provide |
+| ----- | ---------------- |
+| <dfn data-key="callback">Callback URL</dfn> | `https://${account.namespace}/login/callback` |
 
 <%= include('../_find-auth0-domain-redirects') %>
 
-4. Select your application on the console, and then click on `API 管理 -> 安全设置`
+2. Select your application on the console, and then click on `API 管理 -> 安全设置`
 
 ### Create and enable a connection in Auth0
 
-[Set up the Baidu social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated.
+[Set up the Baidu social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the generated **API Key** and the **Secret Key**.
 
 ### Test the connection
 

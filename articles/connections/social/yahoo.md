@@ -36,6 +36,8 @@ To connect your app to Yahoo, you will:
 
 ### Set up your app in Yahoo
 
+Set up an app in Yahoo. During this process, Yahoo will generate a **Client ID** and **Client Secret** for your application; make note of these.
+
 1. Log in to [Yahoo Developer Apps](https://developer.yahoo.com/apps/) and click **Create an App**.
 
 2. Complete information about your app including the following values:
@@ -53,7 +55,7 @@ namespace}` |
 
 ### Create and enable a connection in Auth0
 
-[Set up the Yahoo social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated.
+[Set up the Yahoo social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **Client ID** and the **Client Secret** generated.
 
 ### Test the connection
 

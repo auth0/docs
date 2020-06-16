@@ -34,11 +34,9 @@ To connect your app to Twitter, you will:
 
 ### Set up your app in Twitter
 
-::: note
-If you're using a [custom domain](/custom-domains), you'll need to add that domain to the <dfn data-key="callback">callback URLs</dfn> list of your [Twitter application](https://developer.twitter.com/en/apps/create). For more information on this change, see this [Twitter developer forum post](https://twittercommunity.com/t/action-required-sign-in-with-twitter-users-must-whitelist-callback-urls/105342).
-:::
+Set up an app in Twitter. During this process, Twitter will generate a **Consumer Key** and **Consumer Secret** for your application; make note of these.
 
-1. Log in to [Twitter Developer App Management](https://developer.twitter.com/en/apps) and click **Create an app**.
+1. Log in to [Twitter Developer App Management](https://developer.twitter.com/en/apps), and click **Create an app**.
 
 2. Complete information about your app including the following values:
 
@@ -48,6 +46,10 @@ If you're using a [custom domain](/custom-domains), you'll need to add that doma
 | Redirect URL | `https://${account.namespace}/login/callback` |
 
 <%= include('../_find-auth0-domain-redirects') %>
+
+::: note
+If you're using a [custom domain](/custom-domains), you'll need to add that domain to a <dfn data-key="callback">callback URLs</dfn> whitelist for your [Twitter application](https://developer.twitter.com/en/apps/create). For more information on this change, see this [Twitter developer forum post](https://twittercommunity.com/t/action-required-sign-in-with-twitter-users-must-whitelist-callback-urls/105342).
+:::
 
 4. Ensure the **Enabled Sign in with Twitter** option is selected. 
 
@@ -59,7 +61,7 @@ Unlike many social identity providers, Twitter manages profile attribute permiss
 
 ### Create and enable a connection in Auth0
 
-[Set up the Twitter social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated.
+[Set up the Twitter social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the generated **Consumer Key** and **Consumer Secret**.
 
 ### Test the connection
 

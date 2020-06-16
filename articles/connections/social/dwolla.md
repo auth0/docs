@@ -34,19 +34,19 @@ To connect your app to Dwolla, you will:
 
 ### Set up your app in Dwolla
 
-1. Log into the Dwolla [Developer portal](https://accounts-sandbox.dwolla.com/login) and click **Create an application**.
+Set up an app in Dwolla using Dwolla's [OAuth: Creating an Application](https://developers.dwolla.com/guides/auth#creating-an-application) doc. During this process, Dwolla will generate a **Key** and **Secret** for your application; make note of these.
 
-2. Complete the information on this page. Enter your <dfn data-key="callback">callback URL</dfn> in the **OAuth Redirect URL** field:
+While setting up your app, make sure you use the following settings:
 
-  `https://${account.namespace}/login/callback`
+| Field | Value to Provide |
+| - | - |
+| OAuth Redirect URL | `https://${account.namespace}/login/callback` |
 
 <%= include('../_find-auth0-domain-redirects') %>
 
-3. Click **Create application**. Once the application is registered, your app's `Key` and `Secret` will be displayed.
-
 ### Create and enable a connection in Auth0
 
-[Set up the Dwolla social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated.
+[Set up the Dwolla social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the generated **Key** and **Secret**.
 
 ### Test the connection
 

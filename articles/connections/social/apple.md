@@ -29,7 +29,7 @@ To add SIWA capabilities to your native app, see [Add Sign In with Apple to Nati
 
 ## Prerequisites
 
-Before you configure SIWA for your app in Auth0, you must have an [Apple Developer account](https://developer.apple.com/programs/), which is a paid account. A free trial is available if you are a member of the [iOS Developer University Program](https://developer.apple.com/support/compare-memberships/).
+Before you configure SIWA for your app in Auth0, you must have an [Apple Developer Program](https://developer.apple.com/programs/) account, which is a paid account. A free trial is available if you are a member of the [iOS Developer University Program](https://developer.apple.com/support/compare-memberships/).
 
 ## Steps
 

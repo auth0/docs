@@ -41,7 +41,7 @@ To connect your app to LINE, you will:
 
 ### Create and enable a connection in Auth0
 
-[Set up the LINE social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated.
+[Set up the LINE social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the generated **Channel ID** and **Channel Secret**.
 
 ### Test the connection
 

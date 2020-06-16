@@ -38,16 +38,17 @@ To connect your app to SoundCloud, you will:
 
 ### Set up your app in SoundCloud
 
-1. Navigate to https://soundcloud.com/you/apps/new.
-2. Follow the steps on the screen to complete your SoundCloud Application Registration. The SoundCloud application will provide the required keys to stream music from SoundCloud within your AppMachine app.
-3. You will be able to find your SoundCloud profile URL by logging into SoundCloud on https://soundcloud.com/.
-4. After logging in, navigate to your own profile by clicking your profile name in the top-right corner of the screen. Once navigated to your profile, your profile URL is equal to the page you are currently on.
-5. The question “Will your app authenticate users?” can be answered “No, my app will only use publicly accessible resources”.
-6. After filling out the form, your app will be in review for a maximum period of two weeks. Once reviewed, you will be able to use your SoundCloud API key to stream music from SoundCloud within your AppMachine app. When your request is approved and you received your own SoundCloud **API key** you'll be able to enter it in the Music block. You'll find the appropriate field in the **Settings: Client ID**.
+1. [Create a new app on your SoundCloud profile](https://soundcloud.com/you/apps/new), and complete your SoundCloud Application Registration by following the steps on the screen.
+  * Find your SoundCloud profile URL by [logging into SoundCloud](https://soundcloud.com/) and clicking your profile name in the top-right corner of the screen. Once navigated to your profile, your profile URL is displayed in your browser's address bar.
+  * Answer **Will your app authenticate users?** with `No, my app will only use publicly accessible resources`.
+
+  Your app will be in review for a maximum period of two weeks. Once approved, you will be able to use your SoundCloud API key to stream music from SoundCloud within your AppMachine app. 
+
+2. When your request is approved, you will receive your own SoundCloud **Client ID**. Enter it in the **Music** block in the appropriate field under **Settings: Client ID**.
 
 ### Create and enable a connection in Auth0
 
-[Set up the SoundCloud social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated.
+[Set up the SoundCloud social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the generated **Client ID** and **Client Secret**.
 
 ### Test the connection
 

@@ -26,7 +26,7 @@ Before connecting yor Auth0 app to Box, you will need to have a [Box Developer](
 
 ## Steps
 
-To connect your app to Shopify, you will:
+To connect your app to Box, you will:
 
 1. [Set up your app in Box](#set-up-your-app-in-box)
 2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
@@ -34,25 +34,20 @@ To connect your app to Shopify, you will:
 
 ### Set up your app in Box
 
-1. Log in to the [Box Developer](https://developers.box.com/) portal and click **My Apps** and then select **Create a Box Application**.
+Set up an app in Box using Box's [Custom Apps: Setup with OAuth 2.0](https://developer.box.com/guides/applications/custom-apps/oauth2-setup/) doc. During this process, Box will generate a **Client ID** and **Client Secret** for your application; make note of these.
 
-2. Name your new app and click **Create Application**.
+While setting up your app, make sure you use the following settings:
 
-3. Click **Edit Application**. 
-
-4. Scroll to `client_id` and `client_secret` fields under the **OAuth2 Parameters** section.
-
-5. Enter your <dfn data-key="callback">callback URL</dfn> as the `redirect_uri`:
-
-  `https://${account.namespace}/login/callback`
+| Field | Value to Provide |
+| - | - |
+| Redirect URI | `https://${account.namespace}/login/callback` |
+| Application Scopes | Select the permissions you want to enable for this connection. |
 
 <%= include('../_find-auth0-domain-redirects') %>
 
-6. Define the appropriate permission <dfn data-key="scope">**scopes**</dfn> for your app.
-
 ## Create and enable a connection in Auth0
 
-[Set up the Box social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated.
+[Set up the Box social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **Client ID** and the **Client Secret** generated.
 
 ### Test the connection
 

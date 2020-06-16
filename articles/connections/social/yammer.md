@@ -34,6 +34,8 @@ To connect your app to Yammer, you will:
 
 ### Set up your app in Yammer
 
+Set up an app in Yammer. During this process, Yammer will generate a **Client ID** and **Client Secret** for your application; make note of these.
+
 1. Log in to [Yammer Developer Center](https://developer.yammer.com/) and click on **Apps** in the top menu.
 2. Click on **Register an App**.
 3. Then click **Register New App**.
@@ -47,7 +49,7 @@ To connect your app to Yammer, you will:
 
 ### Create and enable a connection in Auth0
 
-[Set up the Yammer social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated.
+[Set up the Yammer social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the generated **Client ID** and the **Client Secret**.
 
 ### Test the connection
 

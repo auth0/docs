@@ -34,6 +34,8 @@ To connect your app to vKontakte, you will:
 
 ### Set up your app in vKontakte
 
+Set up an app in vKontakte. During this process, vKontakte will generate an **Application ID** and **Secure Key** for your application; make note of these.
+
 1. Log in to [vKontakte Developers](https://new.vk.com/dev), go to **My Apps** and click **Create an Application**.
 
 2. Select **Website** as the **Category**. 
@@ -53,11 +55,13 @@ To connect your app to vKontakte, you will:
 
   `https://${account.namespace}/login/callback`
 
+  <%= include('../_find-auth0-domain-redirects') %>
+
 6. Click **Save**. The top of the page displays the **Application ID** and the **Secure Key**.
 
 ### Create and enable a connection in Auth0
 
-[Set up the vKontakte social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated.
+[Set up the vKontakte social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the generated **Application ID** and **Secure Key**.
 
 ### Test the connection
 

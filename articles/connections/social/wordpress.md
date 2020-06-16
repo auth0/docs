@@ -34,6 +34,8 @@ To connect your app to WordPress, you will:
 
 ### Set up your app in WordPress
 
+Set up an app in WordPress. During this process, WordPress will generate a **Client ID** and **Client Secret** for your application; make note of these.
+
 1. Log in to the [WordPress Developer Portal](http://developer.wordpress.com/) and select **My Apps** from the top menu.
 
 2. If you have not already registered your application with Wordpress, click **Create New Application**:
@@ -55,7 +57,7 @@ To connect your app to WordPress, you will:
 
 ### Create and enable a connection in Auth0
 
-[Set up the WordPress social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated.
+[Set up the WordPress social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the generated **Client ID** and **Client Secret**.
 
 ### Test the connection
 

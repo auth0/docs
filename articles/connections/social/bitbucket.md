@@ -35,23 +35,20 @@ To connect your app to Bitbucket, you will:
 
 ### Set up your app in Bitbucket
 
-1. Login to [Bitbucket](https://bitbucket.org/) and click on your account icon in the lower left and select **Bitbucket settings**. Select **OAuth**  in the left nav.
-2. Click **Add consumer**. 
-3. Provide a name for your app. In the <dfn data-key="callback">**Callback URL**</dfn> field, enter the following:
+Set up an app in Bitbucket using Atlassian's [OAuth on Bitbucket Cloud: Create a consumer](https://confluence.atlassian.com/bitbucket/oauth-on-bitbucket-cloud-238027431.html#OAuthonBitbucketCloud-Createaconsumer) doc. During this process, Bitbucket will generate a **Key** and **Secret** for your application; make note of these.
 
-  `https://${account.namespace}/login/callback`
+While setting up your app, make sure you use the following settings:
+
+| Field | Value to Provide |
+| - | - |
+| Callback URL | `https://${account.namespace}/login/callback` |
+| Permissions | Select the permissions you want to enable for this connection. At minimum, you need `account:email` and `account:read`. |
 
 <%= include('../_find-auth0-domain-redirects') %>
 
-4. Select the Permissions you want to enable for this connection. At the very least you will need to select the `Account:Email` and `Account:Read` permissions.
-
-5. Click **Save**.
-
-6. On the page that follows, click the name of your app under **OAuth consumers** to reveal your keys.
-
 ### Create and enable a connection in Auth0
 
-[Set up the Bitbucket social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated.
+[Set up the Bitbucket social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **Key** and the **Secret** generated.
 
 ### Test the connection
 

@@ -30,7 +30,7 @@ Before you connect your Auth0 app to Dropbox, you must have a [Dropbox Developer
 
 ## Steps
 
-To connect your app to Shopify, you will:
+To connect your app to Dropbox, you will:
 
 1. [Set up your app in Dropbox](#set-up-your-app-in-dropbox)
 2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
@@ -38,27 +38,22 @@ To connect your app to Shopify, you will:
 
 ### Set up your app in Dropbox
 
-1. Log in to the [Dropbox Developer](https://www.dropbox.com/developers) portal and click **Create your app**.
-2. Complete the form by providing the following information:
+Set up an app in Dropbox using Dropbox's [App Console: Creating a Dropbox App](https://www.dropbox.com/developers/reference/getting-started#app%20console) doc. During this process, Dropbox will generate an **App key** and **App secret** for your application; make note of these.
 
-| Field | Description
---------|------------
-Choose an API | Select **Dropbox API**
-Choose the type of access you need | Select **App folder** or **Full Dropbox** depending on your needs.
-App Name | Name your app.
+While setting up your app, make sure you use the following settings:
 
-3. Click **Create app**.
-4. On your app's **Settings** page, enter your <dfn data-key="callback">callback URL</dfn> in the **Redirect URIs** field:
-
-`https://${account.namespace}/login/callback`
+| Field | Value to Provide |
+| - | - |
+| Choose an API | **Dropbox API**. |
+| Choose the type of access you need | Appropriate options depending on your needs. |
+| App name | Your application name. |
+| Redirect URIs | `https://${account.namespace}/login/callback` |
 
 <%= include('../_find-auth0-domain-redirects') %>
 
-5. Click **Add**. Your `App key` and `App secret` will be displayed. 
-
 ### Create and enable a connection in Auth0
 
-[Set up the Dropbox social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated.
+[Set up the Dropbox social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the generated **App key** and **App secret**.
 
 ### Test the connection
 

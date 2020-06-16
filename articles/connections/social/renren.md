@@ -34,19 +34,21 @@ To connect your app to RenRen, you will:
 
 ### Set up your app in RenRen
 
-1. Log in to the [RenRen Integration portal](http://app.renren.com/developers) and click **Create New App**.
+Set up an app in RenRen. During this process, RenRen will generate an **API Key** and **Secret Key** for your application; make note of these.
 
-2. Complete the form and enter your <dfn data-key="callback">callback URL</dfn> for the *callback URL*:
+1. Log in to the [RenRen Integration portal](http://app.renren.com/developers), and click **Create New App**.
+
+2. Complete the form and enter your <dfn data-key="callback">callback URL</dfn> for the **callback URL**:
 
   https://${account.namespace}/login/callback
 
 <%= include('../_find-auth0-domain-redirects') %>
 
-3/ Click **Create App**. The `API Key` and `Secret Key` is displayed.
+3. Click **Create App**. The `API Key` and `Secret Key` are displayed.
 
 ### Create and enable a connection in Auth0
 
-[Set up the RenRen social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated.
+[Set up the RenRen social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the generated **API Key** and **Secret Key**.
 
 ### Test the connection
 

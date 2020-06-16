@@ -34,6 +34,8 @@ To connect your app to Planning Center, you will:
 
 ### Set up your app in Planning Center
 
+Set up an app in Planning Center. During this process, Planning Center will generate a **Client ID** and **Secret** for your application; make note of these.
+
 1. Log in to the [Planning Center Developer](https://api.planningcenteronline.com/) portal and click **Register** on the **Developer Applications** page.
 2. Complete form including the following information.
 
@@ -48,7 +50,7 @@ To connect your app to Planning Center, you will:
 
 ### Create and enable a connection in Auth0
 
-[Set up the Planning Center social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated.
+[Set up the Planning Center social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the generated **Client ID** and **Client Secret**.
 
 ### Test the connection
 

@@ -34,29 +34,29 @@ To connect your app to Docomo dAccount, you will:
 
 ### Set up your app in Docomo dAccount
 
-1. Log in to the [dAccount Connect Portal](https://dac-g.apl01.spmode.ne.jp/VIEW_OC01/GOCA00004/) and click on the **RP site information management (RPサイト情報管理画面)** link on the side navigation.
+1. Log in to the [dAccount Connect Portal](https://dac-g.apl01.spmode.ne.jp/VIEW_OC01/GOCA00004/), and click on the **RP site information management (RPサイト情報管理画面)** link on the side navigation.
 
 2. Click the **Add new RP site info (新規RPサイト情報追加)** button to add a new service.
 
 3. Fill out the form by providing the following information:
 
-| Field | Description
---------|------------
-Service name (サービス名) | Your application's name.
-Service overview (サービス概要) | A brief description of your application.
-<dfn data-key="access-token">Access Token</dfn> lifetime (アクセストークン有効期間 秒) | The lifetime of your Access Token in seconds.
-Redirect URI (リダイレクトURI) | The <dfn data-key="callback">callback URL</dfn> for your application (`https://${account.namespace}/login/callback`)
-Available scopes (利用可能スコープ) | The <dfn data-key="scope">scopes</dfn> for the information you are requesting for your app.
+| Field | Value to enter |
+--------|----------------|
+| Service name (サービス名) | Application name. |
+| Service overview (サービス概要) | Brief description of your application. |
+| <dfn data-key="access-token">Access Token</dfn> lifetime (アクセストークン有効期間 秒) | Lifetime of your Access Token in seconds. |
+| Redirect URI (リダイレクトURI) | `https://${account.namespace}/login/callback` |
+| Available scopes (利用可能スコープ) | <dfn data-key="scope">Scopes</dfn> for the information you are requesting for your app. |
 
 <%= include('../_find-auth0-domain-redirects') %>
 
 4. When finished, click **Register (登録)**.
 
-5. Go to the details page for your service by clicking on the **Details (詳細)** button. This page contains your **Client ID (クライアントID)** and **Client Secret (クライアントシークット)**, to be used in the next step.
+5. Go to the details page for your service by clicking on the **Details (詳細)** button. This page contains your **Client ID (クライアントID)** and **Client Secret (クライアントシークット)**; make note of these.
 
 ### Create and enable a connection in Auth0
 
-[Set up the Docomo dAccount social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated.
+[Set up the Docomo dAccount social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the generated **Client ID** and **Client Secret**.
 
 ### Test the connection
 

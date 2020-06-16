@@ -55,7 +55,7 @@ Microsoft will generate an **Application (client) ID** for your application. You
 
 ### Create and enable a connection in Auth0
 
-[Set up the Microsoft Account social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated.
+[Set up the Microsoft Account social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the generated **Application (client) ID** and **Application (client) Secret**.
 
 ### Test the connection
 

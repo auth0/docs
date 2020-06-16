@@ -38,7 +38,9 @@ To connect your app to Fitbit, you will:
 
 ### Set up your app in Fitbit
 
-1. Log in to [Fitbit's Developer](https://dev.fitbit.com) portal and select **REGISTER AN APP**.
+Set up an app in Fitbit. During this process, Fitbit will generate a **API Key** and **API Secret** for your application; make note of these.
+
+1. Log in to [Fitbit's Developer](https://dev.fitbit.com) portal, and select **Register an App**.
 2. Complete information about your app including the following:
 
 | Field | Description
@@ -54,7 +56,7 @@ Default Access Type | The type of access granted to the app
 
 ### Create and enable a connection in Auth0
 
-[Set up the Fitbit social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated.
+[Set up the Fitbit social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the generated **API Key** and the **API Secret**.
 
 ### Test the connection
 

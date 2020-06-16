@@ -29,6 +29,8 @@ To connect your app to Weibo, you will:
 
 ### Set up your app in Weibo
 
+Set up an app in Weibo. During this process, Weibo will generate an **appkey** and **appkey secret** for your application; make note of these.
+
 1. Register your app with [Weibo](https://open.weibo.com/authentication).
 
 2. Provide a <dfn data-key="callback">callback URL</dfn> during the registration process. 
@@ -41,7 +43,7 @@ After the registration process, Weibo provides you with an **appkey** and a corr
 
 ### Create and enable a connection in Auth0
 
-[Set up the Weibo social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated.
+[Set up the Weibo social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the generated **appkey** and **appkey secret**.
 
 ### Test the connection
 

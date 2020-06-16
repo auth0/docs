@@ -56,7 +56,7 @@ Once you are done you should have two pieces of information: the **Client ID** a
 
 ### Create and enable a connection in Auth0
 
-[Set up the Instagram social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated.
+[Set up the Instagram social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the generated **Client ID** and **Client Secret**.
 
 ### Test the connection
 

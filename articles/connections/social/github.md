@@ -33,6 +33,8 @@ To connect your app to GitHub, you will:
 
 ### Set up your app in GitHub
 
+Set up an app in GitHub. During this process, GitHub will generate a **Client ID** and **Client Secret** for your application; make note of these.
+
 1. Log in to [GitHub](https://github.com/) and go to **OAuth applications** in your [developer settings](https://github.com/settings/developers). 
 2. Click [Register a new application](https://github.com/settings/applications/new).
 3. Complete the form including the information:
@@ -44,11 +46,11 @@ To connect your app to GitHub, you will:
 
 <%= include('../_find-auth0-domain-redirects') %>
 
-4. Click **Register application** to proceed. Your app's `Client ID` and `Client Secret` will be displayed.
+4. Click **Register application** to proceed. Your app's **Client ID** and **Client Secret** will be displayed.
 
 ### Create and enable a connection in Auth0
 
-[Set up the GitHub social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated.
+[Set up the GitHub social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the generated **Client ID** and **Client Secret**.
 
 ### Test the connection
 

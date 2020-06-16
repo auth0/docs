@@ -35,9 +35,9 @@ To connect your app to Shopify, you will:
 
 ### Set up your app in Shopify
 
-1. Register an app in Shopify using the instructions on [Public Apps](https://help.shopify.com/en/api/getting-started/authentication/public-authentication#generate-credentials-from-your-partner-dashboard). 
+Set up an app in Dwolla using the instructions in Shopify's [Public Apps](https://help.shopify.com/en/api/getting-started/authentication/public-authentication#generate-credentials-from-your-partner-dashboard) doc. During this process, Shopify will generate an **API key** and **API secret key** for your application; make note of these.
 
-2. Complete information about your app including the following values:
+While setting up your app, make sure you use the following settings:
 
 | Field | Value to Provide |
 | - | - |
@@ -46,11 +46,9 @@ To connect your app to Shopify, you will:
 
 <%= include('../_find-auth0-domain-redirects') %>
 
-3. Submit your settings. Your **API key** and **API secret key** will be displayed.
-
 ### Create and enable a connection in Auth0
 
-[Set up the Shopify social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated.
+[Set up the Shopify social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the generated **API key** and **API secret key**.
 
 ### Test the connection
 
