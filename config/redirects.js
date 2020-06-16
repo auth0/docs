@@ -338,8 +338,8 @@ module.exports = [
   /* --- Connections --- */
 
   {
-    from: '/37signals-clientid',
-    to: '/connections/social/37signals'
+    from: ['/37signals-clientid', '/connections/social/37signals'],
+    to: '/connections/social/basecamp'
   },
   {
     from: '/amazon-clientid',
