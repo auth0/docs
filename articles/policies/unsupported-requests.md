@@ -38,3 +38,4 @@ Our support team strives to assist you to the best of our ability. However, we a
   * Hooks
   * Extensions
   * Email templates
+  * Tenant logs once the [standard retention time](/logs/references/log-data-retention) passed
