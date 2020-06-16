@@ -107,7 +107,7 @@ To verify the signature, you will need to:
 
 Before using the token, you should retrieve the following standard claims from the decoded Payload and perform the following checks:
 
-* **Token expiration** (`exp`, Unix timestamp): The expiration date/time must be after the current date/time and should match what you set for your token lifetime.
+* **Token expiration** (`exp`, Unix timestamp): The expiration date/time must be after the current date/time.
 * **Token issuer** (`iss`, string): The issuing authority inside the token must match the issuing authority (`issuer`) identified in your Auth0 tenant's discovery document, which exists at `https://${account.namespace}/.well-known/openid-configuration`.
 
 Additional checks are required depending on whether the JWT you are validating is an ID Token or an Access Token. To learn about the additional requirements, see [Validate ID Tokens](/tokens/guides/validate-id-tokens) or [Validate Access Tokens](/tokens/guides/validate-access-tokens).
