@@ -47,8 +47,6 @@ Set up an app in vKontakte. During this process, vKontakte will generate an **Ap
 | Site address | `https://${account.namespace}` |
 | Base domain | `${account.namespace}` |
 
-<%= include('../_find-auth0-domain-redirects') %>
-
 4. Click **Connect Site** to create the app. You will be required to confirm your request with a code send via SMS.
 
 5. Once the application is created, select **Settings** in the left nav. In the **Authorized redirect URI** field, enter your <dfn data-key="callback">callback URL</dfn>:
