@@ -3,7 +3,7 @@ title: Connect Apps to Baidu
 connection: Baidu
 image: /media/connections/baidu.png
 seo_alias: baidu
-description: How to obtain an API Key and Secret Key for Baidu.
+description: Learn how to add login functionality to your app with Baidy. You will need to obtain a Client Id and Client Secret for Baidu.
 toc: true
 index: 3
 topics:
@@ -18,20 +18,41 @@ useCase:
 
 # Connect Apps to Baidu
 
-To configure a Baidu OAuth2 connection, you will need to register your Auth0 tenant on their [integration portal](https://developer.baidu.com/dev).
+You can add functionality to your app that allows your users to log in with Baidu.
 
-1. Log into the integration portal and register a new app:
+## Prerequisites
 
-2. Get your API Key and Secret Key
+Before connecting your Auth0 app to Baidu, you must have an account on the [Baidu integration portal](https://developer.baidu.com/dev).
 
-  Once the application is registered, enter your new `API Key` and `Secret Key` into the connection settings in Auth0.
+## Steps
 
-3. Enter the callback URL. Use the following value for the <dfn data-key="callback">callback URL</dfn>:
+To connect your app to Baidu, you will:
 
-  `https://${account.namespace}/login/callback`
+1. [Set up your app in Baidu](#set-up-your-app-in-baidu)
+2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
+3. [Test the connection](#test-the-connection)
 
-  <%= include('../_find-auth0-domain-redirects') %>
+### Set up your app in Baidu
 
-4. Select your application on the console, and then click on `API 管理 -> 安全设置`
+1. Log into the [integration portal](https://developer.baidu.com/dev) and register a new app. During this process, Baidu will generate an **API Key** and **Secret Key** for your application; make note of these.
+
+While setting up your app, make sure you use the following settings:
+
+| Field | Value to Provide |
+| ----- | ---------------- |
+| <dfn data-key="callback">Callback URL</dfn> | `https://${account.namespace}/login/callback` |
+
+<%= include('../_find-auth0-domain-redirects') %>
+
+2. Select your application on the console, and then click on `API 管理 -> 安全设置`
+
+### Create and enable a connection in Auth0
+
+[Set up the Baidu social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the generated **API Key** and the **Secret Key**.
+
+### Test the connection
+
+You're ready to [test your connection](/dashboard/guides/connections/test-connections-social). After logging in, you'll be prompted to allow your app access. To do so, click **Install unlisted app**.
+
 
 <%= include('../_quickstart-links.md') %>

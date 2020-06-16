@@ -4,7 +4,7 @@ connection: Weibo
 image: /media/connections/weibo.png
 seo_alias: weibo
 index: 34
-description: How to add Weibo login to your app
+description: Learn how to add login functionality to your app with Weibo.
 toc: true
 topics:
   - connections
@@ -17,24 +17,35 @@ useCase:
 ---
 # Connect Apps to Weibo
 
-This guide will show you how to enable your users to log in to your Auth0 app using their Weibo credentials.
+You can add functionality to your web app that allows your users to log in with Weibo. 
 
-## 1. Register Auth0 with Weibo
+## Steps
 
-Begin by [registering your Auth0 app with Weibo](https://open.weibo.com/authentication).
+To connect your app to Weibo, you will:
 
-You will be prompted to provide a <dfn data-key="callback">callback URL</dfn> during the registration process. Use `https://${account.namespace}/login/callback`.
+1. [Set up your app in Weibo](#set-up-your-app-in-weibo)
+2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
+3. [Test the connection](#test-the-connection)
+
+### Set up your app in Weibo
+
+Set up an app in Weibo. During this process, Weibo will generate an **appkey** and **appkey secret** for your application; make note of these.
+
+1. Register your app with [Weibo](https://open.weibo.com/authentication).
+
+2. Provide a <dfn data-key="callback">callback URL</dfn> during the registration process:
+  `https://${account.namespace}/login/callback`
 
 <%= include('../_find-auth0-domain-redirects') %>
 
-After the registration process, Weibo provides you with an **appkey** and a corresponding **appkey secret**. Make a note of these values, since you'll need to provide them to Auth0.
+After the registration process, Weibo provides you with an **appkey** and a corresponding **appkey secret**. 
 
-## 2. Create and enable your Auth0 connection
+### Create and enable a connection in Auth0
 
-[Set up the Weibo social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **App key** and the **App secret** that Weibo provided to you in Step 1.
+[Set up the Weibo social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the generated **appkey** and **appkey secret**.
 
-## 3. Test the connection
+### Test the connection
 
-At this point, you're ready to [test your connection](/dashboard/guides/connections/test-connections-social).
+You're ready to [test your connection](/dashboard/guides/connections/test-connections-social). After logging in, you'll be prompted to allow your app access. To do so, click **Install unlisted app**.
 
 <%= include('../_quickstart-links.md') %>

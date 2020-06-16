@@ -19,11 +19,11 @@ useCase:
 ---
 # Connect Apps to Shopify
 
-This guide will show you how to add functionality to your web app that allows your users to log in with Shopify. 
+You can add functionality to your web app that allows your users to log in with Shopify. 
 
 ## Prerequisites
 
-Before connecting your Auth0 app to Shopify, you must be a [member of the Shopify Partners program](https://www.shopify.com/partners).
+Before connecting your Auth0 app to Shopify, you must be a member of the [Shopify Partners program](https://www.shopify.com/partners).
 
 ## Steps
 
@@ -35,20 +35,20 @@ To connect your app to Shopify, you will:
 
 ### Set up your app in Shopify
 
-Create an app in Shopify and generate credentials for it, using Shopify's [Public Apps](https://help.shopify.com/en/api/getting-started/authentication/public-authentication#generate-credentials-from-your-partner-dashboard) docs. During this process, Shopify will generate an **API key** and **API secret key** for your application; make note of these.
+Set up an app in Dwolla using the instructions in Shopify's [Public Apps](https://help.shopify.com/en/api/getting-started/authentication/public-authentication#generate-credentials-from-your-partner-dashboard) doc. During this process, Shopify will generate an **API key** and **API secret key** for your application; make note of these.
 
 While setting up your app, make sure you use the following settings:
 
 | Field | Value to Provide |
 | - | - |
-| App URL | `${manage_url}.auth0.com` |
-| Whitelisted redirection URL(s) | `${manage_url}.auth0.com/login/callback` |
+| App URL | `https://${account.namespace}` |
+| Whitelisted redirection URL(s) | `https://${account.namespace}/login/callback` |
 
 <%= include('../_find-auth0-domain-redirects') %>
 
 ### Create and enable a connection in Auth0
 
-[Set up the Shopify social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **API key** and the **API secret key** generated in Step 1.
+[Set up the Shopify social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the generated **API key** and **API secret key**.
 
 ### Test the connection
 

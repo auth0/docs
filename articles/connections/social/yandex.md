@@ -18,37 +18,39 @@ useCase:
 
 # Connect Apps to Yandex
 
-To configure an Yandex connection you will need to register your Auth0 instance as a Yandex application.
+You can add functionality to your web app that allows your users to log in with Yandex. 
 
-## 1. Create a new Application in Yandex:
+## Prerequisites
 
-Log in into Yandex and [create a new app](https://oauth.yandex.ru/client/new):
+Before connecting your Auth0 app to Yandex, you must have a [Yandex Developer](https://developer.store.yandex.com/) accout.
 
-::: note
-Complete instructions are available [here](http://api.yandex.ru/oauth/doc/dg/tasks/register-client.xml)
-:::
+## Steps
 
+To connect your app to Yandex, you will:
 
-## 2. Register a new application
+1. [Set up your app in Yandex](#set-up-your-app-in-yandex)
+2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
+3. [Test the connection](#test-the-connection)
 
-Complete the form:
+### Set up your app in Yandex
 
-![](/media/articles/connections/social/yandex/yandex-create-app.png)
+Set up an app in [Yandex](https://oauth.yandex.ru/client/new) using Yandex's [Application Registration](https://yandex.ru/dev/oauth/doc/dg/tasks/register-client-docpage/) doc. During this process, Yandex will generate an **Application ID** and **Application Password** for your application; make note of these.
 
-The <dfn data-key="callback">callback URL</dfn> for your app should be:
+While setting up your app, make sure you use the following settings:
 
-  https://${account.namespace}/login/callback
+| Field | Value to Provide |
+| - | - |
+| Callback URL | `https://${account.namespace}/login/callback` |
+| Scopes | Select the appropriate options depending on your application's needs. |
 
-  <%= include('../_find-auth0-domain-redirects') %>
+<%= include('../_find-auth0-domain-redirects') %>
 
+### Create and enable a connection in Auth0
 
-Notice that `scopes` in Yandex are defined in this screen. Select what kind of information you are requesting for your app.
+[Set up the Yandex social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the generated **Application ID** and **Application Password**.
 
+### Test the connection
 
-## 3. Get your Application ID and Application Password
-
-Once the application is registered, enter your new `Application ID` and `Application Password` into the connection settings in Auth0.
-
-![](/media/articles/connections/social/yandex/yandex-add-connection.png)
+You're ready to [test your connection](/dashboard/guides/connections/test-connections-social). After logging in, you'll be prompted to allow your app access. To do so, click **Install unlisted app**.
 
 <%= include('../_quickstart-links.md') %>

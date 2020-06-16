@@ -2,7 +2,7 @@
 title: Connect Apps to Evernote Sandbox
 connection: Evernote Sandbox
 image: /media/connections/evernote.png
-seo_alias: evernote
+seo_alias: evernote-sandbox
 description: Learn how to add login functionality to your app with Evernote Sandbox. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
 toc: true
 index: 11
