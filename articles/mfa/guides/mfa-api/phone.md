@@ -34,7 +34,7 @@ This guide explains how to enroll and challenge users with SMS or a voice call u
 
 <%= include('../../_includes/_request_association') %>
 
-When you enroll with Voice or SMS, you are actually enrolling a phone number, that can be challenged either with SMS or Voice.
+When a user enrolls with Voice or SMS, they are actually enrolling a phone number that can be challenged either with SMS or Voice.
 
 You need to specify the parameters below to call the endpoint. The `oob_channels` parameter indicates how you want to send the code to the user (SMS or Voice):
 
@@ -69,7 +69,7 @@ If successful, you'll receive a response like the one below:
 }
 ```
 
-If you get a `User is already enrolled error`, is because the user already has an MFA factor enrolled. Before associating it another factor, you need challenge the user with the existing one.
+If you get a `User is already enrolled error`, it is because the user already has an MFA factor enrolled. Before associating it with another factor, you need to challenge the user with the existing one.
 
 #### Recovery Codes
 
@@ -77,7 +77,7 @@ If you get a `User is already enrolled error`, is because the user already has a
 
 ### 3. Confirm the SMS or Voice enrollment
 
-Users should receive an message with a 6-digit code that need to provide to the application.
+Users should receive an message with a 6-digit code that they need to provide to the application.
 
 To complete enrollment, make a `POST` request to the `oauth/token` endpoint. You need to include the `oob_code` returned in the previous response, and the `binding_code` with the value received in the message.
 
@@ -201,7 +201,7 @@ If successful, you'll receive the following response, and the user will get a me
 }
 ```
 
-Your application needs to prompt the user for 6-digit number sent in the message, and should be set in the `binding_code` parameter.
+Your application needs to prompt the user for 6-digit code sent in the message, and should be set in the `binding_code` parameter.
 
 You can then verify the code and get the authentication tokens using the `/oauth/token` endpoint, using the `binding_code` and the `oob_code` returned by the previous call:
 
