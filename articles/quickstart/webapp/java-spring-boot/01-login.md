@@ -251,7 +251,7 @@ public class ProfileController {
 }
 ```
 
-You can then use this profile information in your view. The example below uses [Thymeleaf](https://www.thymeleaf.org/) and the [Spring Security integration module](https://github.com/thymeleaf/thymeleaf-extras-springsecurity) to display the user's name and email.
+You can then use this profile information in your view. The example below uses [Thymeleaf](https://www.thymeleaf.org/) and the [Spring Security integration module](https://github.com/thymeleaf/thymeleaf-extras-springsecurity) to display the user's name and email if the user is logged in.
 
 ```html
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
