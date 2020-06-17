@@ -1,5 +1,5 @@
 ---
-title: Configure  SMS and Voice Notifications for MFA
+title: Configure SMS and Voice Notifications for MFA
 description: Learn how to configure SMS and Voice notifications for MFA.
 topics:
   - mfa
@@ -28,7 +28,7 @@ After signing up and entering a country code and phone number, the user will rec
 
 ![SMS End User 2](/media/articles/mfa/mfa-sms2.png)
 
-To use this option, your users must have a device capable of receiving text messages or phone calls. If users cannot receive them messages, they will not be able to authenticate with this factor. If they already enrolled this way and do not have such a device, they will need to use their recovery code to complete the MFA flow (and then enroll another MFA method in place of this one).
+To use this option, your users must have a device capable of receiving text messages or phone calls. If users cannot receive text messages or phone calls, they will not be able to authenticate with this factor. If they already enrolled wuth one of these methods and do not have such a device, they will need to use their recovery code to complete the MFA flow (and then enroll another MFA method in place of this one).
 
 ## End user experience - SMS and Voice
 
@@ -38,9 +38,9 @@ TBD
 
 To allow users to authenticate with SMS or Voice, you must enable the Phone factor and select your preferred delivery method:
 
-* **Auth0**: Sends the messages using Auth0's internally-configured SMS delivery provider. It can be used for evaluation purposes, and there is a maximum of 100 messages per tenant during the entire tenant lifetime. You can't use this provider to send Voice messages.
+* **Auth0**: Sends the messages using Auth0's internally-configured SMS delivery provider. It can be used for evaluation and testing purposes, and there is a maximum of 100 messages per tenant during the entire tenant lifetime. New codes are not received after reaching the 100 message limit. You can't use this provider to send Voice messages.
 
-* **Twilio**: Sends the messages using the [Twilio Programmable SMS API](https://www.twilio.com/sms) for SMS or [Twilio Programmable Voice API](https://www.twilio.com/voice) for Voice. You will need to provide [your own Twilio credentials](#twilio-configuration). Make sure you use Twilio  **Live Credentials**, not the **Test Credentials**. The test credentials aren't meant to send messages for real.
+* **Twilio**: Sends the messages using the [Twilio Programmable SMS API](https://www.twilio.com/sms) for SMS or [Twilio Programmable Voice API](https://www.twilio.com/voice) for Voice. You will need to provide [your own Twilio credentials](#twilio-configuration). Make sure you use Twilio  **Live Credentials**, not the **Test Credentials**. The test credentials are not meant to be used to send messages in a production environment.
 :::
 
 * **Custom**: Sends the messages by invoking the [Send Phone Message Hook](/hooks/extensibility-points/send-phone-message).
@@ -57,9 +57,9 @@ You can choose if you want to give users the option of getting text messages, vo
 
 If you choose to deliver SMS via Twilio, follow these steps to configure your SMS factor.
 
-1. Open an account with Twilio. You will need a [Twilio Account SID](https://www.twilio.com/help/faq/twilio-basics/what-is-an-application-sid) and a [Twilio Auth Token](https://www.twilio.com/help/faq/twilio-basics/what-is-the-auth-token-and-how-can-i-change-it). These are the Twilio API credentials that Auth0 will use to send an messages to the user. 
+1. Open an account with Twilio. You will need a [Twilio Account SID](https://www.twilio.com/help/faq/twilio-basics/what-is-an-application-sid) and a [Twilio Auth Token](https://www.twilio.com/help/faq/twilio-basics/what-is-the-auth-token-and-how-can-i-change-it). These are the Twilio API credentials that Auth0 will use to send messages to your users.
 
-  You may also need to enable permissions for your geographic region for [SMS](https://support.twilio.com/hc/en-us/articles/223181108-How-International-SMS-Permissions-work) and [Voice](https://www.twilio.com/console/voice/calls/geo-permissions). If you use Voice, your Twilio phone number needs to be enabled to make Voice calls.
+  You may also need to enable permissions for your geographic region for [SMS](https://support.twilio.com/hc/en-us/articles/223181108-How-International-SMS-Permissions-work) and [Voice](https://www.twilio.com/console/voice/calls/geo-permissions). If you use Voice, your account needs to have a Twilio phone number enabled to make Voice calls. This can be an external phone number [verified with Twilio](https://support.twilio.com/hc/en-us/articles/223180048-Adding-a-Verified-Phone-Number-or-Caller-ID-with-Twilio) or you can purchase and set up a Twilio Phone Number from within your account.
 
 2. Configure the connection. Enter your **Twilio Account SID** and **Twilio Auth Token** in the appropriate fields.
 
@@ -75,7 +75,7 @@ If you choose to deliver SMS via Twilio, follow these steps to configure your SM
 
 ## Custom Phone Messaging providers
 
-Phone Messaging providers not currently integrated with Auth0 can be supported by using the [Send Phone Message](/hooks/extensibility-points/send-phone-message) Hook. To learn how to implement this in your MFA flow, check the examples for different providers below:
+Phone Messaging providers not currently integrated with Auth0 can be implemented by using the [Send Phone Message](/hooks/extensibility-points/send-phone-message) Hook. To learn how to do this in your MFA flow, check the examples for different providers below:
 
 * [Amazon SNS](/mfa/send-phone-message-hook-amazon-sns)
 * [Twilio](/mfa/send-phone-message-hook-twilio)
@@ -89,7 +89,7 @@ Phone Messaging providers not currently integrated with Auth0 can be supported b
 
 You can use the Management API to configure which Message Delivery Methods are enabled by using the `/api/v2/guardian/factors/phone/message-types` endpoint. 
 
-The `messages_types` parameter is an array that can have ["sms"], ["voice"], or ["sms", "voice"]. You need a [Management API Token](https://auth0.com/docs/api/management/v2/tokens) with the `update:guardian_factors` scope as a Bearer Token to call the API:
+The `messages_types` parameter is an array that can have `["sms"]`, `["voice"]`, or `["sms", "voice"]`. You need a [Management API Token](/api/management/v2/tokens) with the `update:guardian_factors` scope as a Bearer Token to call the API:
 
  ```har
   {
@@ -110,17 +110,17 @@ The `messages_types` parameter is an array that can have ["sms"], ["voice"], or 
 
 When using any phone messaging provider, you need to be aware that attackers abusing the signup flow could cause you financial damage.
 
-Auth0 will let a single user send up to 10 sms or voice messages per hour. To further protect your account, you can consider:
+Auth0 will limit a single user to sending up to 10 SMS or voice messages per hour. To further protect your account, you can consider:
 
 - Enabling [Brute Force Protection](/anomaly-detection/references/brute-force-protection-triggers-actions#100-failed-login-attempts-or-50-sign-up-attempts). Auth0 will block an IP if it attempts to do more than 50 signup requests per minute.
 
-- Enable [Log Streaming](https://auth0.com/docs/logs/streams) and create alerts using your favorite monitoring tool, when you see spikes in the number of `gd_send_voice` or `gd_send_voice_failure` [log events](/logs/references/log-event-type-codes).
+- Enable [Log Streaming](/logs/streams) and create alerts using your favorite monitoring tool, when you see spikes in the number of `gd_send_voice` or `gd_send_voice_failure` [log events](/logs/references/log-event-type-codes).
 
 Phone Messaging providers have additional protections. If you are using Twilio, make sure you read the [Anti-Fraud Developer Guide](https://www.twilio.com/docs/usage/anti-fraud-developer-guide). We recommend that you consider the following options:
 
-- Limit the countries that you'll send messages for [SMS](https://support.twilio.com/hc/en-us/articles/223181108-How-International-SMS-Permissions-work) and [Voice](https://support.twilio.com/hc/en-us/articles/223180228-International-Voice-Dialing-Geographic-Permissions-Geo-Permissions-and-How-They-Work).
+- Limit the countries that you will send messages for [SMS](https://support.twilio.com/hc/en-us/articles/223181108-How-International-SMS-Permissions-work) and [Voice](https://support.twilio.com/hc/en-us/articles/223180228-International-Voice-Dialing-Geographic-Permissions-Geo-Permissions-and-How-They-Work). This is particularly useful if there are countries with a higher risk of [toll fraud](https://www.twilio.com/learn/voice-and-video/toll-fraud) or more expensive calling rates in which you do not typically do business.
 
-- Enable Twilio [usage triggers](https://support.twilio.com/hc/en-us/articles/223132387-Protect-your-Twilio-project-from-Fraud-with-Usage-Triggers).
+- Enable Twilio [usage triggers](https://support.twilio.com/hc/en-us/articles/223132387-Protect-your-Twilio-project-from-Fraud-with-Usage-Triggers) to protect your account against fraud and coding mistakes.
 
 
 ## Keep Reading
