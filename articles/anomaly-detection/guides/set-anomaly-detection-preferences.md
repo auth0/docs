@@ -23,7 +23,7 @@ Auth0 recommends that you **do not** make changes to your anomaly detection feat
 
 ## Automated Attack Protection preferences
 
-Automated attack protection protects against [credential stuffing attacks](/anomaly-detection/concepts/credential-stuffing). It is enabled by default for all connections. It provides a basic level of protection against certain attacks that adds very little friction to legitimate users. When such an attack is detected, it displays a CAPTCHA step in the login experience to eliminate bot and scripted traffic.
+Automated attack protection mitigates scripted attacks by detecting when a request is likely to be coming from a bot. These are sometimes called  [credential stuffing](/anomaly-detection/concepts/credential-stuffing) attacks. It is enabled by default for all connections. It provides a basic level of protection against certain attacks that adds very little friction to legitimate users. When such an attack is detected, it displays a CAPTCHA step in the login experience to eliminate bot and scripted traffic.
 
 ::: warning
 Auth0 strongly recommends that you **do not** disable **Automated Attack Protection**, however if you do, you can enable it in the [Dashboard](${manage_url}/#/anomaly).
@@ -31,11 +31,17 @@ Auth0 strongly recommends that you **do not** disable **Automated Attack Protect
 
 1. Click on the **Automated Attack Protection** shield.
 
-![Automated Attack Protection Shield]()
+![Automated Attack Protection Shield](/media/articles/anomaly-detection/automated-attack-shield.png)
 
-2. Choose whether you wish to use the simple CAPTCHA provided by Auth0, or Google reCAPTCHA (requires external setup and registration). If you choose simple CAPTCHA, you are done with set up.
+2. Choose whether you wish to use the simple CAPTCHA provided by Auth0, or Google reCAPTCHA (requires external setup and registration). 
 
-3. If you choose Google's reCAPTCHA, enter your **Site Key** and a **Secret**. 
+    - If you choose simple CAPTCHA, you are done with set up.
+
+    ![Simple CAPTCHA](/media/articles/anomaly-detection/simple.png)
+
+    - If you choose Google's reCAPTCHA, enter your **Site Key** and a **Secret** you obtain when you register your app with Google. 
+
+    ![Google reCAPTCHA](/media/articles/anomaly-detection/google.png)
 
 4. Click **Save**.
 
