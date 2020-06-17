@@ -83,7 +83,7 @@ For the purposes of building an user interface for end users to manage their fac
 
 ::: note
 - When a user enrolls with Push, Auth0 creates an OTP enrollment. You will see both when listing enrollments.
-- If SMS and Voice are enabled, when a user enrolls with SMS or Voice, Auth0 will create two authenticators, one for `sms` and another for `voice`. 
+- If both SMS and Voice are enabled, when a user enrolls with either SMS or Voice, Auth0 will automatically create two authenticators for the phone number, one for `sms` and another for `voice`. 
 - When Email MFA is enabled, all verified emails will be listed as authenticators.
 - When a user enrolls any factor Auth0 creates a recovery code that will be listed as an authenticator.
 :::
