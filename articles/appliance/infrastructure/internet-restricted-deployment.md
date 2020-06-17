@@ -38,7 +38,7 @@ Operating the PSaaS Appliance in an internet-restricted environment results in t
 
 ### Management Dashboard
 
-The browser that you are using to manage your PSaaS Appliance requires internet access to navigate to the Management Dashboard (located at **manage.your-domain**). 
+The browser that you are using to manage your PSaaS Appliance requires Internet access to navigate to the Management Dashboard (located at **manage.your-domain**). 
 
 You may, however, restrict server-side access to the Management Dashboard.
 
@@ -51,7 +51,7 @@ To properly render the Dashboard, it accesses the following sites:
 
 ### Multi-factor Authentication (MFA)
 
-When using multi-factor authentication (MFA), you will need internet access for Push notifications, SMS and Voice.
+When using multi-factor authentication (MFA), you will need Internet access for Push notifications, SMS, and Voice.
 
 For limited connectivity options, you may choose from:
 
