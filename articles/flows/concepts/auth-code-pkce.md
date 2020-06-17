@@ -66,6 +66,7 @@ Depending on your application type, you can also use our mobile or single-page a
 **Single-page**
 
 * [Auth0 Single-Page App SDK](/libraries/auth0-spa-js)
+* [Auth0 React SDK](/libraries/auth0-react)
 
 <%= include('../../_includes/_refresh_token_rotation_recommended.md') %>
 

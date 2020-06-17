@@ -95,7 +95,7 @@ articles:
               url: /architecture-scenarios/implementation/b2c/b2c-operations
 
             - title: Launch Preparation
-              url: /architecture-scenarios/implementation/b2c/b2c-launch 
+              url: /architecture-scenarios/implementation/b2c/b2c-launch
 
       - title: Business to Business
         url: /architecture-scenarios/b2b
@@ -129,9 +129,9 @@ articles:
 
             - title: Operations
               url: /architecture-scenarios/implementation/b2b/b2b-operations
-              
+
             - title: Launch Preparation
-              url: /architecture-scenarios/implementation/b2b/b2b-launch 
+              url: /architecture-scenarios/implementation/b2b/b2b-launch
 
       - title: Business to Employees
         url: /architecture-scenarios/b2e
@@ -236,7 +236,7 @@ articles:
 
           - title: "Passwordless"
             url: "/dashboard/guides/universal-login/configure-login-page-passwordless"
-            
+
           - title: "Error Pages"
             url: "/universal-login/error-pages"
 
@@ -293,35 +293,35 @@ articles:
 
           - title: Guardian
             url: /mfa/concepts/guardian
-            children: 
+            children:
 
               - title: Configure Guardian
                 url: /mfa/guides/guardian/configure-guardian
-                hidden: true 
+                hidden: true
 
               - title: Create Custom Enrollment Ticket
                 url: /mfa/guides/guardian/create-enrollment-ticket
-                hidden: true 
+                hidden: true
 
               - title: Customize SMS Messages
                 url: /mfa/guides/guardian/customize-sms-messages
-                hidden: true 
+                hidden: true
 
               - title: Install Guardian SDK
                 url: /mfa/guides/guardian/install-guardian-sdk
-                hidden: true 
+                hidden: true
 
               - title: Guardian for Android SDK
                 url: /mfa/guides/guardian/guardian-android-sdk
-                hidden: true 
+                hidden: true
 
               - title: Guardian for iOS SDK
                 url: /mfa/guides/guardian/guardian-ios-sdk
-                hidden: true 
+                hidden: true
 
           - title: Customize MFA
             url: /mfa/guides/customize-mfa-universal-login
-          
+
           - title: Reset MFA
             url: /mfa/guides/reset-user-mfa
 
@@ -331,11 +331,11 @@ articles:
 
               - title: For APIs
                 url: /mfa/guides/configure-step-up-apis
-                hidden: true 
+                hidden: true
 
               - title: For Web Apps
                 url: /mfa/guides/configure-step-up-web-apps
-                hidden: true 
+                hidden: true
 
           - title: MFA Developer Resources
             url: /mfa/concepts/mfa-developer-resources
@@ -343,11 +343,11 @@ articles:
 
               - title: MFA Theme Language Dictionary
                 url: /mfa/references/language-dictionary
-                hidden: true 
+                hidden: true
 
               - title: MFA Widget Theme Options
                 url: /mfa/references/mfa-widget-reference
-                hidden: true 
+                hidden: true
 
           - title: Troubleshoot MFA
             url: /mfa/references/troubleshoot-mfa
@@ -769,11 +769,11 @@ articles:
 
           - title: Link Accounts using Authentication API
             url: /users/guides/link-user-accounts-auth-api
-            hidden: true 
+            hidden: true
 
-          - title: Client-Side SPA Scenario 
+          - title: Client-Side SPA Scenario
             url: /users/references/link-accounts-client-side-scenario
-          
+
           - title: Server-Side Regular Web App Scenario
             url: /users/references/link-accounts-server-side-scenario
 
@@ -996,10 +996,10 @@ articles:
           url: /hooks/extensibility-points/post-user-registration
 
         - title: Pre-User Registration
-          url: /hooks/extensibility-points/pre-user-registration    
+          url: /hooks/extensibility-points/pre-user-registration
 
         - title: Send Phone Message
-          url: /hooks/extensibility-points/send-phone-message 
+          url: /hooks/extensibility-points/send-phone-message
 
       - title: Hook Secrets
         url: /hooks/secrets
@@ -1045,7 +1045,7 @@ articles:
 
       - title: GitHub Deployments
         url: /extensions/github-deploy
-      
+
       - title: Bitbucket Deployments
         url: /extensions/bitbucket-deploy
 
@@ -1113,7 +1113,7 @@ articles:
           - title: Facebook Analytics
             url: /analytics/guides/facebook-analytics
             hidden: true
-            
+
           - title: Google Analytics
             url: /analytics/guides/google-analytics
             hidden: true
@@ -1240,7 +1240,7 @@ articles:
 
           - title: Datadog Event Streams
             url: /logs/streams/datadog
-            
+
           - title: Azure Event Grid Streams
             url: /logs/streams/azure-event-grid
 
@@ -1371,7 +1371,7 @@ articles:
 
           - title: "What's New"
             url: "/extensions/deploy-cli/references/whats-new"
-            hidden: true 
+            hidden: true
 
           - title: "Troubleshoot Deploy CLI"
             url: "/extensions/deploy-cli/references/troubleshooting"
@@ -1407,7 +1407,7 @@ articles:
 
               - title: Deprecation Errors
                 url: "/troubleshoot/guides/check-deprecation-errors"
-                hidden: true 
+                hidden: true
 
       - title: Authentication Issues
         url: /troubleshoot/concepts/auth-issues
@@ -1684,15 +1684,15 @@ articles:
 
               - title: "Get ID Tokens"
                 url: "/tokens/guides/get-id-tokens"
-                hidden: true 
+                hidden: true
 
               - title: "Validate ID Tokens"
                 url: "/tokens/guides/validate-id-tokens"
-                hidden: true 
+                hidden: true
 
               - title: "ID Token Structure"
                 url: "/tokens/references/id-token-structure"
-                hidden: true 
+                hidden: true
 
           - title: "Access Tokens"
             url: "/tokens/concepts/access-tokens"
@@ -1700,19 +1700,19 @@ articles:
 
               - title: "IDP Access Tokens"
                 url: "/tokens/concepts/idp-access-tokens"
-                hidden: true 
+                hidden: true
 
               - title: "Get Access Tokens"
                 url: "/tokens/guides/get-access-tokens"
-                hidden: true 
+                hidden: true
 
               - title: "Use Access Tokens"
                 url: "/tokens/guides/use-access-tokens"
-                hidden: true 
+                hidden: true
 
               - title: "Validate Access Tokens"
                 url: "/tokens/guides/validate-access-tokens"
-                hidden: true 
+                hidden: true
 
           - title: "Refresh Tokens"
             url: "/tokens/concepts/refresh-tokens"
@@ -1720,74 +1720,74 @@ articles:
 
               - title: "Get Refresh Tokens"
                 url: "/tokens/guides/get-refresh-tokens"
-                hidden: true 
+                hidden: true
 
               - title: "Use Refresh Tokens"
                 url: "/tokens/guides/use-refresh-tokens"
-                hidden: true 
+                hidden: true
 
               - title: "Revoke Refresh Tokens"
                 url: "/tokens/guides/revoke-refresh-tokens"
-                hidden: true 
+                hidden: true
 
           - title: "Refresh Token Rotation"
             url: "/tokens/concepts/refresh-token-rotation"
-            children: 
+            children:
 
               - title: "Configure Refresh Token Rotation"
                 url: "/tokens/guides/configure-refresh-token-rotation"
-                hidden: true 
+                hidden: true
 
               - title: "Use Refresh Token Rotation"
                 url: "/tokens/guides/use-refresh-token-rotation"
-                hidden: true 
+                hidden: true
 
               - title: "Disable Refresh Token Rotation"
                 url: "/tokens/guides/disable-refresh-token-rotation"
-                hidden: true 
+                hidden: true
 
           - title: "Delegation Tokens"
             url: "/tokens/concepts/delegation-tokens"
-            hidden: true 
+            hidden: true
 
           - title: "JSON Web Tokens"
             url: "/tokens/concepts/jwts"
-            hidden: true 
+            hidden: true
             children:
 
               - title: "Validate JSON Web Tokens"
                 url: "/tokens/guides/validate-jwts"
-                hidden: true 
+                hidden: true
 
               - title: "JSON Web Key Sets"
                 url: "/tokens/concepts/jwks"
-                hidden: true 
+                hidden: true
                 children:
 
                   - title: "Locate JSON Web Key Sets"
                     url: "/tokens/guides/locate-jwks"
-                    hidden: true 
+                    hidden: true
 
                   - title: "JSON Web Key Set Properties"
                     url: "/tokens/references/jwks-properties"
-                    hidden: true 
+                    hidden: true
 
               - title: "JSON Web Token Claims"
                 url: "/tokens/concepts/jwt-claims"
-                hidden: true 
+                hidden: true
                 children:
 
                   - title: "Create Namespaced Custom Claims"
                     url: "/tokens/guides/create-namespaced-custom-claims"
-                    hidden: true 
+                    hidden: true
 
               - title: "Signing Algorithms"
                 url: "/tokens/concepts/signing-algorithms"
-                hidden: true 
+                hidden: true
 
               - title: "JSON Web Token Structure"
                 url: "/tokens/references/jwt-structure"
-                hidden: true 
+                hidden: true
 
           - title: "Token Storage"
             url: "/tokens/concepts/token-storage"
@@ -1881,39 +1881,39 @@ articles:
         children:
           - title: "Custom Database Connection Anatomy"
             url: "/best-practices/custom-db-connections/anatomy"
-            hidden: true 
+            hidden: true
 
           - title: "Custom Database Action Script Size"
             url: "/best-practices/custom-db-connections/size"
-            hidden: true 
+            hidden: true
 
           - title: "Custom Database Action Script Environment"
             url: "/best-practices/custom-db-connections/environment"
-            hidden: true 
+            hidden: true
 
           - title: "Error Handling"
             url: "/best-practices/error-handling"
-            hidden: true 
+            hidden: true
 
           - title: "Debugging"
             url: "/best-practices/debugging"
-            hidden: true 
+            hidden: true
 
           - title: "Testing"
             url: "/best-practices/testing"
-            hidden: true 
+            hidden: true
 
           - title: "Deployment"
             url: "/best-practices/deployment"
-            hidden: true 
+            hidden: true
 
           - title: "Performance"
             url: "/best-practices/performance"
-            hidden: true 
+            hidden: true
 
           - title: "Security"
             url: "/best-practices/custom-db-connections/security"
-            hidden: true 
+            hidden: true
 
       - title: "Metadata"
         url: "/best-practices/metadata-best-practices"
@@ -1982,15 +1982,15 @@ articles:
 
               - title: "Legacy Rate Limits"
                 url: "/policies/legacy-rate-limits"
-                hidden: true 
+                hidden: true
 
               - title: "Managment API Endpoint Rate Limits"
                 url: "/policies/rate-limits-mgmt-api"
-                hidden: true 
+                hidden: true
 
               - title: "Authentication API Endpoint Rate Limits"
                 url: "/policies/rate-limits-mgmt-api"
-                hidden: true 
+                hidden: true
 
           - title: "Entity Limits"
             url: "/policies/entity-limits"
@@ -2012,7 +2012,7 @@ articles:
 
       - title: "Maintain and Improve"
         url: "/services/maintain-and-improve"
-        
+
       - title: "Packages"
         url: "/services/packages"
 
@@ -2131,6 +2131,9 @@ libraries:
 
       - title: "Migrate from auth0.js"
         url: /libraries/auth0-spa-js/migrate-from-auth0js
+
+  - title: "Auth0 React SDK"
+    url: "/libraries/auth0-react"
 
   - title: "Lock for Web"
     url: "/libraries/lock/v11"
