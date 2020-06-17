@@ -21,7 +21,7 @@ Auth0 recommends that you **do not** make changes to your anomaly detection feat
 
 ![Anomaly Detection Dashboard](/media/articles/anomaly-detection/anomaly-detection-overview.png)
 
-## Automated Attack Protection preferences
+## Automated attack protection preferences
 
 Automated attack protection mitigates scripted attacks by detecting when a request is likely to be coming from a bot. These are sometimes called  [credential stuffing](/anomaly-detection/concepts/credential-stuffing) attacks. It is enabled by default for all connections. It provides a basic level of protection against certain attacks that adds very little friction to legitimate users. When such an attack is detected, it displays a CAPTCHA step in the login experience to eliminate bot and scripted traffic.
 
@@ -29,17 +29,15 @@ Automated attack protection mitigates scripted attacks by detecting when a reque
 Auth0 strongly recommends that you **do not** disable **Automated Attack Protection**, however if you do, you can enable it in the [Dashboard](${manage_url}/#/anomaly).
 ::: 
 
-1. Click on the **Automated Attack Protection** shield.
-
-![Automated Attack Protection Shield](/media/articles/anomaly-detection/automated-attack-shield.png)
-
-2. Choose whether you wish to use the simple CAPTCHA provided by Auth0, or Google reCAPTCHA (requires external setup and registration). 
+1. Go to [Dashboard > Anomaly Detection](${manage_url}/#/anomaly)
+2. Click on the **Automated Attack Protection** shield.
+3. Choose whether you wish to use the simple CAPTCHA provided by Auth0, or Google reCAPTCHA (requires external setup and registration). 
 
     - If you choose simple CAPTCHA, you are done with set up.
 
     ![Simple CAPTCHA](/media/articles/anomaly-detection/simple.png)
 
-    - If you choose Google's reCAPTCHA, enter your **Site Key** and a **Secret** you obtain when you register your app with Google. 
+    - If you choose Google's reCAPTCHA, enter the **Site Key** and **Secret** you obtain when you register your app with Google. 
 
     ![Google reCAPTCHA](/media/articles/anomaly-detection/google.png)
 
@@ -47,33 +45,30 @@ Auth0 strongly recommends that you **do not** disable **Automated Attack Protect
 
 ## Brute-force Protection preferences
 
-[Brute-force protection](/anomaly-detection/concepts/brute-force-protection) is enabled by default for all connections. Once enabled, you can customize the brute-force protection settings.
+[Brute-force protection](/anomaly-detection/concepts/brute-force-protection) is enabled by default for all connections. Once enabled, you can customize the brute-force protection settings. You can limit the number of signups and failed logins from a suspicious IP address.
 
 ::: warning
 Auth0 strongly recommends that you **do not** disable **Brute-force Protection**, however if you do, you can enable it in the [Dashboard](${manage_url}/#/anomaly).
-::: 
+:::  
 
-You can limit the amount of signups and failed logins from a suspicious IP address. 
-
-1. Click on the **Brute-force Protection** shield. 
+1. Go to [Dashboard > Anomaly Detection](${manage_url}/#/anomaly)
+2. Click on the **Brute-force Protection** shield. 
+3. Use the toggles to enable or disable actions for single or multiple user accounts. 
 
 ![Brute-Force Protection Shield](/media/articles/anomaly-detection/brute-force-shield.png)
 
-2. Use the toggles to enable or disable actions for single or multiple user accounts. 
+4. Add any IP addresses to the **Whitelist** field to avoid erroneously triggering the protection action.
 
-3. Add any IP addresses to the **Whitelist** field to avoid erroneously triggering the protection action.
-
-4. Click **Save**.
+5. Click **Save**.
 
 ## Breached Password Detection preferences
 
 Set preferences for [breached password](/anomaly-detection/concepts/breached-passwords) detection actions. 
 
 1. Click on the **Breached-password Detection** shield.
+2. Use the toggles to enable or disable actions when login security breaches are detected. 
 
 ![Breached Password Detection Shield](/media/articles/anomaly-detection/breached-password-shield.png)
-
-2. Use the toggles to enable or disable actions when login security breaches are detected. 
 
 3. Determine how administrators are notified.
 

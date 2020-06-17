@@ -25,7 +25,7 @@ Auth0 uses a large amount of data to identify patterns that signal that a creden
 
 ## Restrictions and limitations
 
-Automated Attack Protection works for web and mobile apps that uses Auth0's Universal Login. This feature is not supported in the sign up or account recovery flows. This protection works on most authentication flows but not all.
+Automated Attack Protection works for web and mobile apps that use Auth0's Universal Login. This feature is not supported in the sign-up or account recovery flows. This protection works on most authentication flows but not all.
 
 | Flow | Limitation | 
 | -- | -- |

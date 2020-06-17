@@ -15,11 +15,11 @@ Brute-force protection is enabled by default for all connections. There are two 
 * 10 consecutive failed login attempts for the same user and from the same IP address
 * 100 failed login attempts from the same IP address in 24 hours *or* 50 sign up attempts per minute from the same IP address
 
-For example, if a user with *user_id1* signs in from *IP1* and fails to login consecutively for 10 attempts, their log in attempt from this *IP1* will be blocked. Another user, *user_id2*, signing in from *IP1* will not be blocked. 
+For example, if a user with *user_id1* signs in from *IP1* and fails to login consecutively for 10 attempts, their log in attempt from this *IP1* will be blocked. Another user, *user_id2*, logging in from *IP1* will not be blocked. 
 
 ## How it works
 
-When brute-force protection is triggers, some or all of the following actions take can place:
+When brute-force protection is triggered, some or all of the following actions take can place:
 
 * Send an email to the affected user.  (You can [customize the email](/anomaly-detection/guides/customize-blocked-account-emails).)
 * Block the suspicious IP address for that user.
@@ -34,7 +34,7 @@ If blocks are triggered, they can be removed in the following ways:
 
 ## Restrictions and limitations
 
-Both brute-force protection depends on the IP address of the user. Because of this, the following use cases are *not* supported:
+Brute-force protection depends on the IP address of the user. Because of this, the following use cases are *not* supported:
 
 * If you use the [Resource Owner](/api/authentication#resource-owner) from the backend of the application. Using this call does not get the IP address of the user. 
 

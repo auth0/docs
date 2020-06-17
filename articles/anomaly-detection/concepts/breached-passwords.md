@@ -11,19 +11,15 @@ v2: true
 
 # Breached Password Detection
 
-Every day, malicious hackers penetrate websites and applications, exposing thousands of email and passwords. Because it's common for users to use the same password to login to multiples sites, this poses a problem, not only for the hacked system, but to any application that shares those [breached passwords](/anomaly-detection/concepts/breached-passwords).
+Every day, malicious hackers penetrate websites and applications, exposing thousands of emails and passwords. Because it's common for users to use the same password to login to multiples sites, this poses a problem, not only for the hacked system but to any application that shares those breached passwords.
 
-Auth0 tracks large security breaches that are happening on major third party sites to help keep your users and system secure. By [enabling breached password detection](/anomaly-detection/guides/set-anomaly-detection-preferences), when a trigger occurs, your users can be notified and/or blocked from logging in if we suspect their credentials were part of a published security breach. You can [customize blocked account emails](/anomaly-detection/guides/customize-blocked-account-emails).
+Auth0 tracks large security breaches that are happening on major third-party sites to help secure your users and system. By [enabling breached password detection](/anomaly-detection/guides/set-anomaly-detection-preferences), when a trigger occurs, your users can be notified and/or blocked from logging in if we suspect their credentials were part of a published security breach. 
 
 You can configure the **URL Lifetime** and **Redirect To** values in the Dashboard by going to [Emails > Templates > Change Password Template](${manage_url}/#/emails).
 
-::: note
 Breached password detection works when logging in using the Resource Owner Password Grant (ROPG) and when using custom databases with your tenants.
-:::
 
-When a user receives an email requesting that they change their password immediately, it is because their account could be the victim of a security breach. This may be the result of a compromise by a third-party application that experienced a security breach. The breach may not have happened to this account, but based on available data, the user's credentials may have been released. Since many people reuse passwords, the request to change passwords is a precaution to make sure the user stays protected. 
-
-Users may also want to change their password at any other sites where they suspect they used a shared password. 
+When a user receives an email requesting that they change their password immediately, it is because their account could be the victim of a security breach. You can [customize blocked account emails](/anomaly-detection/guides/customize-blocked-account-emails). This may be the result of a compromise by a third-party application that experienced a security breach. The breach may not have happened to this account, but based on available data, the user's credentials may have been released. Since many people reuse passwords, the request to change passwords is a precaution to make sure the user stays protected. Users may also want to change their password at any other sites where they suspect they used a shared password. 
 
 ## General security tips
 
@@ -52,11 +48,11 @@ Most web browsers detect suspicious sites. An alert should appear when you try t
 
 ### Do not reuse passwords
 
-When one site has a breach of user data, if a user uses the same credentials elsewhere, information in other sites can also be accessed. The only way to prevent this is by not reusing passwords for multiple sites. The problem is that remembering countless passwords is frustrating and often impossible. One solution to this problem is the use of a password manager. There are many password managers available which can help users to use separate and secure passwords for each account, but at the same time not be responsible for remembering all of them. 
+When one site has a breach of user data, if a user uses the same credentials elsewhere, the information in other sites can also be accessed. The only way to prevent this is by not reusing passwords for multiple sites. The problem is that remembering countless passwords is frustrating and often impossible. One solution to this problem is the use of a password manager. There are many password managers available which can help users to use separate and secure passwords for each account, but at the same time not be responsible for remembering all of them. 
 
 ### Use strong passwords
 
-The longer a password is, the harder it becomes to be guessed via brute force methods. Many sites allow the use of pass-phrases (a phrase or sentence instead of just a complicate word.) Try to make passwords long and use a mix of special characters, numbers, and upper- and lowercase letters.
+The longer a password is, the harder it becomes to be guessed via brute force methods. Many sites allow the use of pass-phrases (a phrase or sentence instead of just a complicated word.) Try to make passwords long and use a mix of special characters, numbers, and upper- and lowercase letters.
 
 ### Keep software current
 

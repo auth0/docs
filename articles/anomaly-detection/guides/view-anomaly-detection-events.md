@@ -10,10 +10,10 @@ useCase: tenant-logs
 # View Anomaly Detection Events
 
 Your tenant logs contain useful data that you can use to build charts to look at the profile of the traffic going through your tenant. This is helpful when evaluating anomaly detection activity. For example, you can look for the following events to determine if you're under attack:
-- Abnormal bursts in traffic to the login flow that result in error (such as wrong username or password errors).
+- Abnormal bursts in traffic to the login flow that result in errors (such as wrong username or password errors).
 - Abnormal bursts in traffic coming from IP locales that are not expected.
 
-The above tend to happen without much change to the rate of successful sign ins.
+These events tend to happen without much change to the rate of successful sign-ins.
 
 You can use your tenant log data `event` field to view tenant traffic data. We recommend building a daily histogram of failure events of the following types:
 
@@ -36,7 +36,7 @@ The following example shows a credential stuffing attack on 11/20, with a large 
 
 ## Rate of errors in login flow
 
-Look for a surge or abnormal number of errors for incorrect username or password. For example: Do you expect >30,000 errors per hour?
+Look for a surge or an abnormal number of errors for incorrect username or password. For example: Do you expect >30,000 errors per hour?
 
 | Event Code | Event |
 | -- | -- |
@@ -50,7 +50,7 @@ Here's an example of what the data might look like.
 
 ## Rate of anomaly detection events
 
-Look for abnormally high traffic for anomaly detection events, such as [breached password detection](/anomaly-detection/concepts/breached-passwords) or [brute-force protection](/anomaly-detection/concepts/brute-force-protection) for multiple accounts.
+Look for abnormally high traffic for anomaly detection events such as [breached password detection](/anomaly-detection/concepts/breached-passwords) or [brute-force attacks](/anomaly-detection/concepts/brute-force-protection) for multiple accounts.
 
 | Event Code | Event |
 | -- | -- |
@@ -62,12 +62,12 @@ Here's an example of what that data might look like.
 
 ![Anomaly Detection Events](/media/articles/anomaly-detection/anomaly-detection-events.png)
 
-## Number of IPs producing errors and their location
+## Number of IPs producing errors and their locations
 
-Look for a high number of IPs from locales that do not make sense. For example: Do you expect traffic from 10,000 IPs from Russia every day? Observe `ip` addresses in conjunction with `fu` event traffic to determine where the failure traffic is coming from.  
+Look for a high number of IPs from locales that do not make sense. For example: Do you expect traffic from 10,000 IPs from Russia every day? Observe `ip` address data in conjunction with `fu` event traffic to determine where the failure traffic is coming from.  
 
 ::: note
-IP geolocation data isn't available in the tenant logs unless you're able to enrich it from another location. The IP locale is only  available from Kibana where the logs are already enriched with the information. 
+IP geolocation data isn't available in the tenant logs unless you're able to enrich it from another location. The IP locale is only available from Kibana where the logs are already enriched with the information. 
 :::
 
 Here's an example of what that data might look like.
