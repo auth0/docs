@@ -23,7 +23,7 @@ Auth0 has built-in support for sending messages through Twilio. However, you may
 Twilio provides an SMS messaging service which can be used by Auth0 to deliver multi-factor verification via text messages. It provides two different APIs:
 
   - [Programmable SMS](https://www.twilio.com/sms) is a flexible API designed to fully automate SMS communications.
-  - [Verify](https://www.twilio.com/verify) is an API designed to send one-time codes while hides the complexity of SMS delivery.
+  - [Verify](https://www.twilio.com/verify) is an API designed to send one-time codes while hiding the complexity of SMS delivery.
 
 ## Prerequisites
 
