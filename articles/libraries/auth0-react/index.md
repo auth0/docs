@@ -17,9 +17,9 @@ contentType:
 
 The Auth0 React SDK is a JavaScript library for implementing authentication & authorization in React apps with Auth0. It provides a custom React hook and other Higher Order Components so you can secure React apps using best practices while writing less code.
 
-The Auth0 React SDK handles grant and protocol details, token expiration and renewal, as well as token storage and cacheing. Under the hood, it implements [Universal Login](/universal-login) and the [Authorization Code Grant Flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce).
+The Auth0 React SDK handles grant and protocol details, token expiration and renewal, as well as token storage and caching. Under the hood, it implements [Universal Login](/universal-login) and the [Authorization Code Grant Flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce).
 
-The library is [hosted on GitHub](https://github.com/auth0/auth0-react) and you can find the API documentation [here](https://auth0.github.io/auth0-react/).
+The library is [hosted on GitHub](https://github.com/auth0/auth0-react) where you can [read more about the API](https://auth0.github.io/auth0-react/).
 
 ## Installation
 
@@ -102,9 +102,9 @@ function App() {
 export default App;
 ```
 
-### Use with a Class Component
+### Use with a class component
 
-Use the `withAuth0` higher order component to add the `auth0` property to Class components instead of using the hook.
+Use the `withAuth0` Higher Order Component to add the `auth0` property to class components instead of using the hook.
 
 ```jsx
 import React, { Component } from 'react';
@@ -120,7 +120,7 @@ class Profile extends Component {
 export default withAuth0(Profile);
 ```
 
-### Protect a Route
+### Protect a route
 
 Protect a route component using the `withAuthenticationRequired` higher order component. Visits to this route when unauthenticated will redirect the user to the login page and back to this page after login.
 
@@ -140,7 +140,7 @@ export default withAuthenticationRequired(PrivateRoute, {
 
 ### Call an API
 
-To call a protected API with an Access Token. Be sure to specify the `audience` and `scope` of your access token, either in `Auth0Provider` or `getAccessTokenSilently`. Then use it to call a protected API by passing it in the `Authorization` header of your request.
+To call a protected API with an Access Token, be sure to specify the `audience` and `scope` of your access token, either in `Auth0Provider` or `getAccessTokenSilently`. Then use it to call a protected API by passing it in the `Authorization` header of your request.
 
 ```jsx
 import React, { useEffect, useState } from 'react';
@@ -184,4 +184,3 @@ const Posts = () => {
 
 export default Posts;
 ```
-
