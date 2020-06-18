@@ -36,7 +36,7 @@ When creating a Hook executed at the Send Phone Message extensibility point, you
 @param {string} recipient - phone number
 @param {string} text - message body
 @param {object} context - additional authorization context
-@param {string} context.message_type - 'sms'; we'll support 'voice' in the future too
+@param {string} context.message_type - 'sms' or 'voice'
 @param {string} context.action - 'enrollment' or 'second-factor-authentication'
 @param {string} context.language - language used by login flow
 @param {string} context.code - one-time password
