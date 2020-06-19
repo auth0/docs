@@ -67,18 +67,18 @@ ReactDOM.render(
 
 Use the `useAuth0` hook in your components to access the React Context's authentication state (`isLoading`, `isAuthenticated` and `user`) and authentication methods (`loginWithRedirect` and `logout`).
 
+### isLoading and error
+
+Wait for the SDK to initialise and handle any errors with the `isLoading` and `error` states.
+
 ```jsx
 import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 
-function App() {
+function Wrapper({ children }) {
   const {
     isLoading,
-    isAuthenticated,
     error,
-    user,
-    loginWithRedirect,
-    logout,
   } = useAuth0();
 
   if (isLoading) {
@@ -87,19 +87,73 @@ function App() {
   if (error) {
     return <div>Oops... {error.message}</div>;
   }
-  if (!isAuthenticated) {
-    return <button onClick={loginWithRedirect}>Log in</button>;
-  }
-  if (isAuthenticated) {
-    return (
-      <div>
-        Hello {user.name} <button onClick={logout}>Log out</button>
-      </div>
-    );
-  }
+  return <>{children}</>;
 }
 
-export default App;
+export default Wrapper;
+```
+
+### Login
+
+Use `loginWithRedirect` or `loginWithPopup` to log your users in.
+
+```jsx
+import React from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
+
+function LoginButton() {
+  const {
+    isAuthenticated,
+    loginWithRedirect,
+  } = useAuth0();
+
+  return !isAuthenticated && (
+    <button onClick={loginWithRedirect}>Log in</button>
+  );
+}
+
+export default Login;
+```
+
+### Logout
+
+Use `logout` to log your users out. Make sure `returnTo` is specified in "Allowed Logout URLs" in your Auth0 Dashboard.
+
+```jsx
+import React from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
+
+function LogoutButton() {
+  const {
+    isAuthenticated,
+    logout,
+  } = useAuth0();
+
+  return isAuthenticated && (
+    <button onClick={() => {
+      logout({ returnTo: window.location.origin });
+    }}>Log in</button>
+  );
+}
+
+export default Logout;
+```
+
+### User
+
+Access user profile information with the `user` value. 
+
+```jsx
+import React from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
+
+function Profile() {
+  const { user } = useAuth0();
+
+  return <div>Hello {user.name}</div>;
+}
+
+export default Profile;
 ```
 
 ### Use with a class component
