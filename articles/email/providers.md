@@ -30,7 +30,7 @@ You can only configure one email provider, which will be used for all emails.
 
 ## Whitelist IP addresses
 
-To ensure that emails can be sent from Auth0 to your SMTP, you must open the right ports and allow inbound connections from specific IP addresses. To get the list of IPs, navigate to [Dashboard > Emails > Provider](${manage_url}/#/emails/provider).
+To ensure that emails can be sent from Auth0 to your SMTP, you must open the right ports and allow inbound connections from specific IP addresses. To get the list of IPs, navigate to [Dashboard > Emails > Provider](${manage_url}/#/templates/provider).
 
 ## Configure Amazon SES
 
