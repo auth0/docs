@@ -23,8 +23,7 @@ github:
   branch: master
 requirements:
   - Java 8
-  - Gradle 6.5
-  - Spring Boot 2.3.0
+  - Gradle 6 or Maven 3
 next_steps:
   - path: 01-login
     list:
