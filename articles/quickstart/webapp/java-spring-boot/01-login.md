@@ -139,6 +139,7 @@ http.authorizeRequests()
 Spring Security will use the client configuration you defined earlier to handle login when a user visits the `/oauth2/authorization/auth0` path of your application. You can use this to create a login link in your application.
 
 ```html
+<!-- src/main/resources/templates/index.html -->
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
     <body>
         <div sec:authorize="!isAuthenticated()">
@@ -149,6 +150,30 @@ Spring Security will use the client configuration you defined earlier to handle 
         </div>
     </body>
 </html>
+```
+
+Be sure to create or update a controller to render your view.
+
+```java
+package com.auth0.example;
+
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.core.oidc.user.OidcUser;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+/**
+ * Controller for the home page.
+ */
+@Controller
+public class HomeController {
+
+    @GetMapping("/")
+    public String home(Model model, @AuthenticationPrincipal OidcUser principal) {
+        return "index";
+    }
+}
 ```
 
 :::panel Checkpoint
@@ -275,23 +300,18 @@ Add the logout link in the view of your application. When you click it, verify t
 
 You can retrieve the [profile information](https://auth0.com/docs/users/concepts/overview-user-profile) associated with logged-in users through the [OidcUser](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/oauth2/core/oidc/user/OidcUser.html) class, which can be used with the [AuthenticationPrincipal annotation](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/core/annotation/AuthenticationPrincipal.html).
 
+In your controller, add the user's profile information to the model:
+
 ```java
-package com.auth0.example;
-
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.oauth2.core.oidc.user.OidcUser;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-
 @Controller
-public class ProfileController {
+public class HomeController {
 
-    @GetMapping("/profile")
-    public String profile(Model model, @AuthenticationPrincipal OidcUser oidcUser) {
-        // Add user profile info to the model for use by the view
-        model.addAttribute("profile", oidcUser.getClaims());
-        return "profile";
+    @GetMapping("/")
+    public String home(Model model, @AuthenticationPrincipal OidcUser principal) {
+        if (principal != null) {
+            model.addAttribute("profile", principal.getClaims());
+        }
+        return "index";
     }
 }
 ```
