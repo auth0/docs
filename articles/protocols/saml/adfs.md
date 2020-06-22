@@ -119,8 +119,8 @@ Before you test your integration, make sure that you've completed the following 
 * Create a user on the IdP that you can use to test your new connection.
 * [Enable your Connection](/connections) for at least one application.
 
-1. To test your connection, navigate to **Connections > Enterprise > ADFS**. 
-2. Click the ADFS row (or the hamburger icon to the right) to bring up a list of your ADFS connections. 
+1. To test your connection, navigate to **Connections > Enterprise > SAML**. 
+2. Click the ADFS row (or the hamburger icon to the right to bring up a list of your SAML connections). 
 3. Select the one you want to test and click the **play** button to test the connection.
 
 ## Keep reading
