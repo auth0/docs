@@ -45,6 +45,10 @@ Using multiple [Connections](/identityproviders) introduces additional layers of
 
 To implement this, you can call `/authorize` with a connection specified for the user, using the `connection` option in the [Auth0 SPA SDK](/libraries/auth0-spa-js), or by passing a `connection` parameter to the `authorize()` method in [Auth0.js](/libraries/auth0js/v9).
 
+::: note
+There are entity limits which may apply when using Auth0 libraries. See [Entity Limit Policy](/policies/entity-limits) for details.
+:::
+
 ### Identify tenants by application
 
 You can represent each of your tenants with a separate application in Auth0. 
