@@ -16,7 +16,7 @@ useCase:
 
 # Which OAuth 2.0 Flow Should I Use?
 
-OAuth 2.0 supports several different **grants**. Grants are ways of retrieving an <dfn data-key="access-token">Access Token</dfn>. Deciding which one is suited for your case depends mostly on your Client's type, but other parameters weigh in as well, like the level of trust for the Client, or the experience you want your users to have.
+[OAuth 2.0](https://tools.ietf.org/html/rfc6749) supports several different **grants**. Grants are ways of retrieving an <dfn data-key="access-token">Access Token</dfn>. Deciding which one is suited for your case depends mostly on your Client's type, but other parameters weigh in as well, like the level of trust for the Client, or the experience you want your users to have.
 
 ## OAuth 2.0 terminology
 
