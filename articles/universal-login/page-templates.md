@@ -93,6 +93,108 @@ Because of the fact that you can edit the HTML for the Universal Login page, you
 
 This is not supported yet. If you override the CSS for our built-in classes, your login page will break whenever we change the CSS used in the page. However, this level of CSS customization will be supported in the future.
 
+## Examples
+
+### Login Box + Image Layout
+
+The following template will show the login box to the left, and an image to the right only for the login / signup pages. The rest of the pages will look like the default ones.
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    {%- auth0:head -%}
+    <style>
+      body {
+        background-image: url("https://images.unsplash.com/photo-1592450865877-e3a318ec3522?ixlib=rb-1.2.1&auto=format&fit=crop&w=2255&q=80");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .prompt-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: 480px;
+        height: 100%;
+        justify-content: left;
+        background-color: rgb(60,60,60);
+      }
+    </style>
+  </head>
+  <body>
+    {% if prompt.name == "login" or prompt.name == "signup" %} 
+        <div class="prompt-wrapper">
+        {%- auth0:widget -%}
+        </div>
+    {% else %}
+        {%- auth0:widget -%}
+    {% endif %}
+  </body>
+</html>
+```
+
+### Page Footers
+
+The example below adds a gray footer with links to Privacy Policy and Terms of Services:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    {%- auth0:head -%}
+    <style>
+      body {
+        background-image: radial-gradient(white, rgb(200, 200, 200));
+      }
+      .footer {
+        background-color: rgb(120, 120, 120);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 16px 0; 
+        width: 100%;
+        color: white;
+        /* Use a high z-index for future-proofing */
+        z-index: 10;
+      }
+      .footer ul {
+        text-align: center;
+      }
+      .footer ul li {
+        display: inline-block;
+        margin: 0 4px;
+      }
+      .footer ul li:not(:first-of-type) {
+        margin-left: 0;
+      }
+      .footer ul li:not(:first-of-type)::before {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        width: 4px;
+        height: 4px;
+        margin-right: 4px;
+        background-color: white;
+        border-radius: 50%;
+      }
+      .footer a {
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    {%- auth0:widget -%}
+    <footer class="footer">
+      <ul>
+        <li><a href="https://company.com/privacy">Privacy Policy</a></li>
+        <li><a href="https://company.com/terms">Terms of Service</a></li>
+      </ul>
+    </footer>
+  </body>
+</html>
+```
+
 ## Page Templates API
 
 To set the Page Template you need to use the Management API. You first need to get a Management API token with the `update:branding`,`read:branding`, `delete:branding` scopes. If you are using the 'API Explorer Application' to generate tokens, make sure those scopes are enabled for the 'Auth0 Management API'.
