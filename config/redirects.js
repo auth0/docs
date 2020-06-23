@@ -829,7 +829,7 @@ module.exports = [
     to: '/mfa/concepts/mfa-factors'
   },
   {
-    from: '/multifactor-authentication/factors/sms',
+    from: ['/multifactor-authentication/factors/sms','/mfa/guides/configure-sms'],
     to: '/mfa/guides/configure-phone'
   },
   {
