@@ -34,7 +34,7 @@ You can configure Auth0 as the SAML SSO identity provider for Atlassian.
 
 | Setting | Description|
 | -- | -- |
-| **Identity provider Entity ID** | `urn.TENANT.auth0.com` |
+| **Identity provider Entity ID** | `urn:TENANT.auth0.com` |
 | **Identity provider SSO URL** | `https://TENANT.auth0.com/samlp/APP_ID` |
 | **Public x509 certificate** | Content from your .pem file: `https://TENANT.auth0.com/pem` |
 
@@ -62,6 +62,8 @@ You can configure Auth0 as the SAML SSO identity provider for Atlassian.
   "nameIdentifierFormat": "urn:oasis:names:tc:SAML:2.0:nameid-format:email"
 }
 ```
+
+![SAML2 Web App Settings](/media/articles/protocols/saml/atlassian-saml2-web-app-settings.png)
 
 4. Click **Save**.
 
