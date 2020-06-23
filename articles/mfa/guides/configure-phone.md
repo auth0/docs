@@ -50,8 +50,6 @@ To allow users to authenticate with SMS or Voice, you must enable the Phone fact
 
 * **Custom**: Sends the messages by invoking the [Send Phone Message Hook](/hooks/extensibility-points/send-phone-message).
 
-## Message Delivery Method
-
 You can also choose if you want to give users the option of getting text messages, voice calls, or both.
 
 ## Twilio configuration
