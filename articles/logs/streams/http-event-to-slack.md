@@ -42,11 +42,27 @@ We'll build a simple Express API that provides a single `/api/logs` route accept
 
 We'll start with a very simple Express application:
 
+```text
+// app.js
+require("dotenv").config();
 
+const express = require("express");
+const http = require("http");
+
+const app = express();
+app.use(express.json());
+
+app.post("/api/logs", require("./api/logs"));
+
+//const port = process.env.PORT || 3000;
+//http.createServer(app).listen(port, () => {
+//  console.log(`Listening on port ${port}`);
+//});
+```
 
 Then we'll add the endpoint middleware:
 
-```js
+```text
 // api/logs/index.js
 const got = require("got");
 
