@@ -28,7 +28,7 @@ After signing up and entering a country code and phone number, the user will rec
 
 ![SMS End User 2](/media/articles/mfa/mfa-sms2.png)
 
-To use this option, your users must have a device capable of receiving text messages or phone calls. If users cannot receive text messages or phone calls, they will not be able to authenticate with this factor. If they already enrolled wuth one of these methods and do not have such a device, they will need to use their recovery code to complete the MFA flow (and then enroll another MFA method in place of this one).
+To use this option, your users must have a device capable of receiving text messages or phone calls. If users cannot receive text messages or phone calls, they will not be able to authenticate with this factor. If they already enrolled with one of these methods and do not have such a device, they will need to use their recovery code to complete the MFA flow (and then enroll another MFA method in place of this one).
 
 ## End user experience - SMS and Voice
 
@@ -36,26 +36,27 @@ TBD
 
 ## Administrative setup
 
+![MFA Phone Message Settings](/media/articles/mfa/phone-settings.png)
+
+## Message Delivery Provider and Method
+
 To allow users to authenticate with SMS or Voice, you must enable the Phone factor and select your preferred delivery method:
 
 * **Auth0**: Sends the messages using Auth0's internally-configured SMS delivery provider. It can be used for evaluation and testing purposes, and there is a maximum of 100 messages per tenant during the entire tenant lifetime. New codes are not received after reaching the 100 message limit. You can't use this provider to send Voice messages.
 
 * **Twilio**: Sends the messages using the [Twilio Programmable SMS API](https://www.twilio.com/sms) for SMS or [Twilio Programmable Voice API](https://www.twilio.com/voice) for Voice. You will need to provide [your own Twilio credentials](#twilio-configuration). Make sure you use Twilio  **Live Credentials**, not the **Test Credentials**. The test credentials are not meant to be used to send messages in a production environment.
-:::
 
 * **Custom**: Sends the messages by invoking the [Send Phone Message Hook](/hooks/extensibility-points/send-phone-message).
 
-Optionally, you can [customize your SMS or Voice notification templates](/mfa/guides/customize-phone-messages).
-
-![MFA SMS Settings](/media/articles/mfa/sms-settings.png)
-
 ## Message Delivery Method
 
-You can choose if you want to give users the option of getting text messages, voice calls, or both.
+You can also choose if you want to give users the option of getting text messages, voice calls, or both.
 
 ## Twilio configuration
 
 If you choose to deliver SMS via Twilio, follow these steps to configure your SMS factor.
+
+![MFA Phone Settings](/media/articles/mfa/sms-settings.png)
 
 1. Open an account with Twilio. You will need a [Twilio Account SID](https://www.twilio.com/help/faq/twilio-basics/what-is-an-application-sid) and a [Twilio Auth Token](https://www.twilio.com/help/faq/twilio-basics/what-is-the-auth-token-and-how-can-i-change-it). These are the Twilio API credentials that Auth0 will use to send messages to your users.
 
@@ -84,6 +85,10 @@ Phone Messaging providers not currently integrated with Auth0 can be implemented
 * [Vonage](/mfa/send-phone-message-hook-vonage)
 * [Esendex](/mfa/send-phone-message-hook-esendex)
 * [Mitto](/mfa/send-phone-message-hook-mitto)
+
+## Custom SMS or Voice Notification Templates
+
+Optionally, you can [customize your SMS or Voice notification templates](/mfa/guides/customize-phone-messages).
 
 ## Using the Management API to configure Voice or SMS
 
