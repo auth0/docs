@@ -38,9 +38,94 @@ Go to the [Slack API Applications section](https://api.slack.com/apps) and login
 
 ## Deploy the webhook
 
-The application in the [`auth0/log-stream-to-slack` GitHub repo](https://github.com/auth0/log-stream-to-slack) is a simple Express API that provides a single `/api/logs` route accepting POST requests. If the request is formatted properly, the log events for failures are parsed and sent to Slack.
+We'll build a simple Express API that provides a single `/api/logs` route accepting POST requests. When any lo event happens, it will be sent to this endpoint. If the request is formatted properly, the log events for failures are parsed and sent to Slack.
 
-To configure this application, you'll need the following environment variables:
+We'll start with a very simple Express application:
+
+```js
+// app.js
+require("dotenv").config();
+
+const express = require("express");
+const http = require("http");
+
+const app = express();
+app.use(express.json());
+
+app.post("/api/logs", require("./api/logs"));
+
+const port = process.env.PORT || 3000;
+http.createServer(app).listen(port, () => {
+  console.log(`Listening on port ${port}`);
+});
+```
+
+... then add the endpoint middleware:
+
+```js
+// api/logs/index.js
+const got = require("got");
+
+module.exports = async (req, res, next) => {
+  const { body, headers } = req;
+
+  if (!body || !Array.isArray(body)) {
+    return res.sendStatus(400);
+  }
+
+  if (headers.authorization !== process.env.AUTH0_LOG_STREAM_TOKEN) {
+    return res.sendStatus(401);
+  }
+
+  const failedLogs = body.filter((log) => {
+    return "f" === log.data.type[0] || /limit/.test(log.data.type);
+  });
+
+  if (failedLogs.length === 0) {
+    return res.sendStatus(204);
+  }
+
+  const reqUrl = process.env.SLACK_WEBHOOK_URL;
+  const reqOpts = {
+    json: {
+      attachments: failedLogs.map((log) => {
+        return {
+          pretext: "*Auth0 log alert*",
+          title: `${log.data.description } [type: ${log.data.type}]`,
+          color: "#ff0000",
+          title_link: `https://manage.auth0.com/#/logs/${log.data.log_id}`
+        };
+      }),
+    },
+  };
+
+  try {
+    const slackResponse = await got.post(reqUrl, reqOpts);
+    res.status(slackResponse.statusCode);
+    return res.end(slackResponse.body);
+  } catch (error) {
+    next(error);
+  }
+};
+```
+
+... and, finally, the NPM package file:
+
+```json
+// package.json
+{
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "got": "^10.7.0"
+  },
+  "scripts": {
+    "start": "node app.js",
+  }
+}
+```
+
+To configure this application, you'll also need the following environment variables:
 
 - `SLACK_WEBHOOK_URL` - This is the URL provided by Slack for your incoming webhook application.
 - `AUTH0_LOG_STREAM_TOKEN` - Optional but recommended. This is a long, random string used to protect the endpoint from unauthorized requests. You will use this value in the Auth0 configuration steps below as well.
