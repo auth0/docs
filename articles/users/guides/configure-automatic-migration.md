@@ -81,7 +81,7 @@ function getByEmail (email, callback) {
 }
 ```
 
-By doing this, you are changing the **Login** and **Get User** [Database Action Scripts](/connections/database/mysql#3-provide-action-scripts) to NO-OP functions, essentially making it behave as a non-custom database connection..
+By doing this, you are changing the **Login** and **Get User** [Database Action Scripts](/connections/database/mysql#3-provide-action-scripts) to NO-OP functions, essentially making it behave as a non-custom database connection.
 
 :::panel-warning Leave Import Users to Auth0 turned on
 Make sure to leave the **Import Users to Auth0** option turned on. If you turn this option off Auth0 will only use the scripts to authenticate and perform other user actions instead of using the users that were imported locally.
