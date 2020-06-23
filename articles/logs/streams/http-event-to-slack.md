@@ -134,12 +134,11 @@ If you are testing this locally or hosting this endpoint yourself, these can be 
 
 Once configured locally or deployed to your host, you can test the endpoint and its connection to Slack with the following:
 
-```text
+```bash
 $ npm install # If running yourself
 added XX packages from XX contributors in XX.XXs
 
-$ npm start # If running yourself
-Listening on port 3000
+$ npm start # If running yourself Listening on port 3000
 
 # Replace the Authorization header below
 $ curl \
