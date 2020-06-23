@@ -42,26 +42,6 @@ You'll build a simple Express API that provides a single `/api/logs` route accep
 
  Start with a simple Express application:
 
-```text
-// app.js
-require("dotenv").config();
-
-const express = require("express");
-const http = require("http");
-
-const app = express();
-app.use(express.json());
-
-app.post("/api/logs", require("./api/logs"));
-
-//const port = process.env.PORT || 3000;
-//http.createServer(app).listen(port, () => {
-//  console.log(`Listening on port ${port}`);
-//});
-```
-
-Then add the endpoint middleware:
-
 
 
 Finally, add the NPM package file:
