@@ -32,15 +32,11 @@ When only SMS is enabled, the flow is simpler:
 
 After users are enrolled, the next time they authenticate they will get the Voice or SMS message in their registered phone. 
 
-## End user experience - SMS and Voice
-
-TBD
-
 ## Administrative setup
 
 ![MFA Phone Message Settings](/media/articles/mfa/mfa-phone-settings.png)
 
-## Message Delivery Provider and Method
+### Message Delivery Provider and Method
 
 To allow users to authenticate with SMS or Voice, you must enable the Phone factor and select your preferred delivery method:
 
@@ -52,7 +48,7 @@ To allow users to authenticate with SMS or Voice, you must enable the Phone fact
 
 You can also choose if you want to give users the option of getting text messages, voice calls, or both.
 
-## Twilio configuration
+### Twilio configuration
 
 If you choose to deliver SMS via Twilio, follow these steps to configure your SMS factor.
 
@@ -74,7 +70,7 @@ If you choose to deliver SMS via Twilio, follow these steps to configure your SM
 
 5. Click **Save**.
 
-## Custom Phone Messaging providers
+### Custom Phone Messaging providers
 
 Phone Messaging providers not currently integrated with Auth0 can be implemented by using the [Send Phone Message](/hooks/extensibility-points/send-phone-message) Hook. To learn how to do this in your MFA flow, check the examples for different providers below:
 
@@ -126,7 +122,6 @@ Phone Messaging providers have additional protections. If you are using Twilio, 
 - Limit the countries that you will send messages for [SMS](https://support.twilio.com/hc/en-us/articles/223181108-How-International-SMS-Permissions-work) and [Voice](https://support.twilio.com/hc/en-us/articles/223180228-International-Voice-Dialing-Geographic-Permissions-Geo-Permissions-and-How-They-Work). This is particularly useful if there are countries with a higher risk of [toll fraud](https://www.twilio.com/learn/voice-and-video/toll-fraud) or more expensive calling rates in which you do not typically do business.
 
 - Enable Twilio [usage triggers](https://support.twilio.com/hc/en-us/articles/223132387-Protect-your-Twilio-project-from-Fraud-with-Usage-Triggers) to protect your account against fraud and coding mistakes.
-
 
 ## Keep Reading
 
