@@ -42,7 +42,72 @@ You'll build a simple Express API that provides a single `/api/logs` route accep
 
  Start with a simple Express application:
 
+```js
+// app.js
+require("dotenv").config();
 
+const express = require("express");
+const http = require("http");
+
+const app = express();
+app.use(express.json());
+
+app.post("/api/logs", require("./api/logs"));
+
+const port = process.env.PORT || 3000;
+http.createServer(app).listen(port, () => {
+
+});
+```
+
+Then add the endpoint middleware:
+
+```js
+// api/logs/index.js
+const got = require("got");
+
+module.exports = async (req, res, next) => {
+  const { body, headers } = req;
+
+  if (!body || !Array.isArray(body)) {
+    return res.sendStatus(400);
+  }
+
+  if (headers.authorization !== process.env.AUTH0_LOG_STREAM_TOKEN) {
+    return res.sendStatus(401);
+  }
+
+  const failedLogs = body.filter((log) => {
+    return "f" === log.data.type[0] || /limit/.test(log.data.type);
+  });
+
+  if (failedLogs.length === 0) {
+    return res.sendStatus(204);
+  }
+
+  const reqUrl = process.env.SLACK_WEBHOOK_URL;
+  const reqOpts = {
+    json: {
+      attachments: failedLogs.map((log) => {
+        return {
+          pretext: "*Auth0 log alert*",
+          title: `${log.data.description } [type: ${log.data.type}]`,
+          color: "#ff0000",
+          title_link: `https://manage.auth0.com/#/logs/${log.data.log_id}`
+        };
+      }),
+    },
+  };
+
+  try {
+    const slackResponse = await got.post(reqUrl, reqOpts);
+    res.status(slackResponse.statusCode);
+    return res.end(slackResponse.body);
+  } catch (error) {
+    next(error);
+  }
+};
+```
 
 Finally, add the NPM package file:
 
