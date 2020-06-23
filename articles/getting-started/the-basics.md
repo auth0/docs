@@ -42,13 +42,17 @@ You can create additional tenants at any time. To do so, go to the upper-right c
 As discussed in the previous section, when you create a new account with Auth0, you are asked to pick a name for your tenant. This name, appended with `auth0.com`, will be your Auth0 *domain*. (You can also use [custom domains](#custom-domains).) It's the base URL you will use to access our API and the URL where your users are redirected in order to authenticate.
 
 Auth0 supports three regional subdomains: 
-- `auth0.com` for US
+- `us.auth0.com` for US
 - `eu.auth0.com` for Europe
 - `au.auth0.com` for Australia
 
 When you create your tenant, you are asked for the region you want to use. This choice affects which regional subdomain will be assigned to you and where your data will be hosted. So if you pick US then the name format will be `YOUR-TENANT-NAME.auth0.com`, for Europe it will be `YOUR-TENANT-NAME.eu.auth0.com`, and so forth.
 
 In our example, `Example-Co` picked the name `example-co` and Americas as their region. Therefore their domain is `example-co.auth0.com`.
+
+::: note
+Tenants created on or after 10 June 2020 in the US region will be appended with `us.auth0.com` (instead of `auth0.com`) to create the domain URL that you use to access Auth0 services. 
+:::
 
 ### Custom domains
 
