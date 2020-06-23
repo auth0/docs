@@ -56,7 +56,7 @@ app.post("/api/logs", require("./api/logs"));
 
 const port = process.env.PORT || 3000;
 http.createServer(app).listen(port, () => {
-  console.log(`Listening on port \${port}`);
+  console.log(\\`Listening on port ${port}\\`);
 });
 ```
 
@@ -91,9 +91,9 @@ module.exports = async (req, res, next) => {
       attachments: failedLogs.map((log) => {
         return {
           pretext: "*Auth0 log alert*",
-          title: `\${log.data.description } [type: \${log.data.type}]`,
+          title: \\`${log.data.description } [type: ${log.data.type}]\\`,
           color: "#ff0000",
-          title_link: `https://manage.auth0.com/#/logs/\${log.data.log_id}`
+          title_link: \\`https://manage.auth0.com/#/logs/${log.data.log_id}\\`
         };
       }),
     },
