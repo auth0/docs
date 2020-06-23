@@ -23,10 +23,7 @@ If you are following along with the sample project you downloaded from the top o
   If you are following along with the sample project you downloaded from the top of this page, you should set the **Allowed Web Origins** to `${webOriginUrl}`.
   :::
   <% } %>
-
 <% } %>
-
-<%= include('../../../_includes/_token_signature') %>
 
 <% if (typeof show_install_info === 'undefined' || (typeof show_install_info !== 'undefined' && show_install_info !== false)) { %>
   <% if (typeof new_js_sdk !== 'undefined' && new_js_sdk === true) { %>

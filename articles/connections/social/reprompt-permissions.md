@@ -1,5 +1,5 @@
 ---
-description: How to handle declined authorization permissions and how to re-prompt for these permissions.
+description: Describes how to handle declined authorization permissions and how to re-prompt for these permissions.
 topics:
   - connections
   - social
@@ -27,7 +27,5 @@ Alternatively, you can set this with [Auth0.js](https://github.com/auth0/auth0.j
 
 ## Keep reading
 
-::: next-steps
 * [Learn more about handling declined Facebook permissions](https://developers.facebook.com/docs/facebook-login/handling-declined-permissions)
 * [Learn more about GitHub scopes](https://developer.github.com/v3/oauth/#scopes)
-:::

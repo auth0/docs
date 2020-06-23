@@ -18,6 +18,28 @@ If you came to this page directly, go to the [first page of this lab](/identity-
 
 In this exercise, you will explore the use of refresh tokens. A refresh token is a special kind of token that can be used to obtain a renewed access token. You are able to request new access tokens until the refresh token is blacklisted. It’s important that refresh tokens are stored securely by the application because they essentially allow a user to remain authenticated forever.
 
+<div>
+  <div>
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <a href="#video-tutorial" data-toggle="tab">
+          Video Tutorial
+        </a>
+      </li>
+      <li>
+        <a href="#text-tutorial" data-toggle="tab">
+          Lab
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="tab-content">
+    <div id="video-tutorial" class="tab-pane active">
+      <div class="video-wrapper" data-video="vm4lx2twdh"></div>
+      <hr>
+    </div>
+    <div id="text-tutorial" class="tab-pane">
+
 For native applications such as our iOS application, refresh tokens improve the authentication experience significantly. The user has to authenticate only once, through the web authentication process. Subsequent re-authentication can take place without user interaction, using the refresh token.
 
 1. Go to **File > Open** in Xcode and select `lab-03/exercise-03/begin/exercise-03.xcworkspace` (make sure you pick the right file extension), then open `exercise-03/ViewController.swift`. This code picks up where the previous exercise left off and adds a new button to refresh the access token.
@@ -202,5 +224,9 @@ Now that you are able to obtain a fresh access token by using the refresh token,
 16. Tap **Refresh Token** and check the debug area to see the refresh token grant happen. Then, tap **Call API**, and you should get a `Status Code: 200` along with the expenses data again.
 
 🎉 **You have completed Lab 3 by building a native mobile application calling a secure API with refresh capability!** 🎉
+
+</div>
+  </div>
+</div>
 
 <a href="/identity-labs/" class="btn btn-transparent">← All Identity Labs</a>

@@ -74,17 +74,19 @@ For most, the Auth0.js and Lock libraries retrieve the tenant name (required for
 
 ## Embedded Lock
 
-If you use [Lock](/libraries/lock) v11 embedded in your application, you must update the code to use your custom domain when initializing Lock. You will also need to set the `configurationBaseUrl` to the appropriate CDN URL.
+If you use [Lock](/libraries/lock) v11 embedded in your application, you must update the code to use your custom domain when initializing Lock. You will also need to set the `configurationBaseUrl` to the appropriate CDN URL. 
+
+::: note
+The CDN URL varies by region. Tenants created before 11 June 2020 should use `https://cdn.auth0.com` if the region is the United States, or add `eu` or `au` for Europe or Australia. If your tenant was created after 11 June 2020, use `https://cdn.us.auth0.com` if the region is the United States. 
+:::
 
 ```js
 var lock = new Auth0Lock('${account.clientId}', 'YOUR_CUSTOM_DOMAIN', {
   //code omitted for brevity
-  configurationBaseUrl: 'https://cdn.auth0.com'
+  configurationBaseUrl: 'https://cdn.us.auth0.com'
   //code omitted for brevity
 });
 ```
-
-The CDN URL varies by region. For regions outside of the US, use `https://cdn.[eu|au].auth0.com` (`eu` for Europe or `au` for Australia).
 
 ## Auth0 SPA SDK, Auth0.js, and other SDKs
 

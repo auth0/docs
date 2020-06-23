@@ -40,7 +40,7 @@ Part of the integration process is to set Auth0 up for use as the event source (
 
 4. Select **Amazon EventBridge** and enter a unique name for your new Amazon EventBridge Event Stream.
 
-5. Create the AWS Event Source by providing your **AWS Account ID** and **AWS Region**. Note that the region you select must match the region in which your AWS EventBridge resides.
+5. Create the AWS Event Source by providing your **AWS Account ID** and **AWS Region**. Note that the region you select must match the region in which your Amazon EventBridge resides.
 
 6. Click **Save**. Auth0 provides you with an **Event Source Name**. Make sure to save your **Event Source Name** value since you will be providing it to AWS at a later point to complete the integration.
 

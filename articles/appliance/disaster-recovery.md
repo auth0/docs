@@ -20,7 +20,7 @@ In cases where the data centers have very low latency, you can run individual PS
 
 ## Geographic High-Availability PSaaS Appliance Implementation
 
-If your requirements demand regional resilience with little downtime, we recommend a [Geographic High-Availability PSaaS Appliance](/appliance/geo-ha) implementation. This is the only implementation that has automatic failover between data centers.
+If your requirements demand regional resilience with little downtime, we recommend a [Geographic High-Availability PSaaS Appliance](/appliance/geo-ha) implementation. This is the only implementation that has failover between regions.
 
 Issue detection and failover typically occur at the database level in 30 seconds or less. However, switching over and rerouting traffic from one data center to another is an expensive operation, so we've configured the infrastructure to detect false positives and *not* switch over if one occurs. This secondary detection process reroutes client traffic through failure detection time-out mechanisms that result in an *effective* failover time of approximately ten minutes.
 
@@ -28,7 +28,7 @@ Issue detection and failover typically occur at the database level in 30 seconds
 
 Geo-HA is a PSaaS Appliance implementation that provides:
 * Data center redundancy;
-* Automatic failure handling;
+* Rapid failure response;
 * The highest form of PSaaS Appliance availability offered by Auth0.
 
 **Disadvantages**:

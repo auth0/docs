@@ -79,7 +79,7 @@ Auth0's dedicated deployments are ISO27001, SOC 2 Type II, ISO27018 and HIPAA BA
 
 With the Geographic High Availability (GEO-HA) add-on, you will have the highest form of dedicated deployment availability offered by Auth0.
 
-The standard dedicated deployment is a single-region, high availability solution, but the GEO-HA add-on extends the cluster with a geographically-distributed region where the maximum round-trip latency does not exceed 100 milliseconds. This is referred to as a *high-availability GEO cluster*, which is an active hot standby configuration with automated failure handling that can survive a regional outage.
+The standard dedicated deployment is a single-region, high availability solution, but the GEO-HA add-on extends the cluster with a geographically-distributed region where the maximum round-trip latency does not exceed 100 milliseconds. This is referred to as a high-availability GEO cluster, which is a warm standby configuration with failure handling for rapid recovery during a regional outage.
 
 ## Additional Pre-Production Environment
 

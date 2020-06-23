@@ -171,7 +171,7 @@ Note that when users enroll with Push, they also get enrolled in OTP, as Guardia
 
 ### 3. Challenge the user with Push
 
-To trigger an SMS challenge, `POST` to the to `mfa/challenge` endpoint, using the corresponding `authenticator_id` ID and the `mfa_token`. 
+To trigger an Push challenge, `POST` to the to `mfa/challenge` endpoint, using the corresponding `authenticator_id` ID and the `mfa_token`. 
 
 ```har
 {

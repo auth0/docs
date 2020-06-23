@@ -25,7 +25,7 @@ With the Password Reset Page, Auth0 handles all required functionality, includin
 * Ensuring that the user's password meets your stated requirements and is updated accordingly
 * Automatically redirecting the user after they reset their password
 
-The Password Reset Page includes use of the Password Reset Widget. You can, however, [customize the page](/universal-login/advanced-customization) to display the personalized information you deem appropriate and to maintain consistency in the appearance of your Auth0 pages (e.g., Login, Password Reset, and MFA).
+The Password Reset Page includes use of the Password Reset Widget. You can, however, [customize the page](/universal-login/customization-classic) to display the personalized information you deem appropriate and to maintain consistency in the appearance of your Auth0 pages (e.g., Login, Password Reset, and MFA).
 
 ## Enable Customization of the Password Reset Page
 

@@ -3,7 +3,8 @@ title: Connect Apps to Exact
 connection: Exact
 image: /media/connections/exact.png
 seo_alias: exact
-description: Learn how to connect your application to Exact.
+description: Learn how to add login functionality to your app with Exact.
+index: 12
 topics:
   - connections
   - social
@@ -16,30 +17,40 @@ useCase:
 
 # Connect Apps to Exact
 
-To configure an Exact OAuth2 connection, you will need to register your Auth0 tenant on the [Exact Online App Center](https://apps.exactonline.com/).
+You can add functionality to your web app that allows your users to log in with Exact. 
 
-1. Register a new app by logging into the Exact Online App Center and clicking on **Manage Apps**, then **Add a new application**.
+## Prerequisites
 
-2. Enter your app name.
+Before you connect your Auth0 app to Exact, you must have a [Exact Online App Center](https://apps.exactonline.com/) account.
 
-3. Enter your <dfn data-key="callback">callback URL</dfn>: `https://${account.namespace}/login/callback`.
+## Steps
 
-    <%= include('../_find-auth0-domain-redirects') %>
+To connect your app to Exact, you will:
 
-4. Click **Save**.
+1. [Set up your app in Exact](#set-up-your-app-in-exact)
+2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
+3. [Test the connection](#test-the-connection)
 
-5. Click **Edit** below your app. 
+### Set up your app in Exact
 
-6. On the **Manage App** page, under the **Authorization** section, copy the `Client Id` and `Client Secret` provided.
+Set up an app in Exact using Exact's [Register a new app](https://support.exactonline.com/community/s/article/All-All-HNO-Tutorial-resources-eol-files-hlp-eol-app-center---user-eol-appcenter-user-registerapikey-u?language=en_GB) knowledge base article. You will need to log in to see this documentation. During this process, Exact will generate a **Client ID** and **Client Secret** for your application; make note of these.
 
-7. In the Auth0 Dashboard, navigate to [Connections > Social](${manage_url}/#/connections/social), and choose **Exact**. 
-
-8. Copy the `Client Id` and `Client Secret` from the **Manage App** page of your app in the Exact Online App Center into the fields on this page.
-
-![Exact Connection Settings](/media/articles/connections/social/exact/exact-register-6.png)
-
-::: note
 You can register applications in multiple regions with Exact. By default, Auth0 will use `https://start.exactonline.nl`, but this value can be overridden with the `Base URL` parameter.
-:::
+
+While setting up your app, make sure you use the following settings:
+
+| Field | Value to Provide |
+| - | - |
+| Callback URL | `https://${account.namespace}/login/callback` |
+
+<%= include('../_find-auth0-domain-redirects') %>
+
+### Create and enable a connection in Auth0
+
+[Set up the Exact social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the generated **Client ID** and **Client Secret**.
+
+### Test the connection
+
+You're ready to [test your connection](/dashboard/guides/connections/test-connections-social). After logging in, you'll be prompted to allow your app access. To do so, click **Install unlisted app**.
 
 <%= include('../_quickstart-links.md') %>

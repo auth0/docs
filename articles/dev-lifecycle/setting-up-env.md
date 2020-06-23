@@ -8,15 +8,13 @@ useCase: development
 ---
 # Set Up Multiple Environments
 
-__Development__, __Test__, __QA__ environments are easy to setup in Auth0. Simply create a new tenant for each to guarantee the maximum isolation between these environments. You can easily switch between tenants using the tenant chooser from the top right menu on the dashboard. You can also configure different administrators for each.
+__Development__, __staging__, and __production__ environments are easy to set up in Auth0. Create a new tenant for each environment to guarantee isolation between them. You can easily switch between tenants using the tenant chooser from the top right menu on the Dashboard. You can also configure different administrators for each.
 
 ::: warning
 Production [rate limits](/policies/rate-limits) only apply to tenants tagged as `Production`. Ensure your tenant's environment tag is set to `Production` before going live.
 :::
 
-![](/media/articles/lifecycle/environments.png)
-
-The example above uses a simple naming convention to distinguish each environment, though you can name your multiple environments any way you prefer. **For production environments, we strongly recommend using [custom domains](/custom-domains).**
+You can name your multiple environments any way you prefer. For production environments, we strongly recommend using [custom domains](/custom-domains).
 
 ::: note
 If you have a subscription plan costing at least **$167 (USD) per month**, you can request a [child account](/dev-lifecycle/child-tenants) that is identical to your Production account in terms of paid/upgraded features for use in a development/staging/testing environment. Free accounts do *not* include a child account.
@@ -30,7 +28,7 @@ For each new tenant created, you should specify its environment. You can assign 
 If your tenant is mixed use, choose the higher environment. For example, a tenant used for both development and production should be set to `Production`.
 :::
 
-To assign an environment tag to a tenant, go to the [Auth0 Support Center > Tenants](${env.DOMAIN_URL_SUPPORT}/tenants/public). Locate your tenant and click the gear icon to bring up the **Settings** section.
+1. To assign an environment tag to a tenant, go to the [Auth0 Support Center > Tenants](${env.DOMAIN_URL_SUPPORT}/tenants/public). Locate your tenant, and click the gear icon to bring up the **Settings** section.
 
 ![Support Center Tenants](/media/articles/clients/support-tenants.png)
 
@@ -39,6 +37,10 @@ Next, select the **Assign Environment Tag** option. Use the form to identify you
 After selecting the environment, click on **Save Changes**.
 
 ![Support Center Tenants Settings](/media/articles/clients/support-tenants-settings.png)
+
+::: note
+Environment Tags are not available in [Private Cloud deployments ](/private-cloud). All tenants in the same environment will have the same limits.
+:::
 
 ## Migration
 

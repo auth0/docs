@@ -79,7 +79,8 @@ Here is the example of a `config.json` file:
   },
   "AUTH0_EXCLUDED_RULES": [ "auth0-account-link-extension" ],
   "AUTH0_EXCLUDED_CLIENTS": [ "auth0-account-link" ],
-  "AUTH0_EXCLUDED_RESOURCE_SERVERS": [ "SSO Dashboard API" ]
+  "AUTH0_EXCLUDED_RESOURCE_SERVERS": [ "SSO Dashboard API" ],
+  "AUTH0_EXCLUDED_DEFAULTS": ["emailProvider"]
 }
 ```
 

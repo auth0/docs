@@ -9,20 +9,20 @@ useCase:
   - support
 ---
 
-# Endpoints Used by Auth0 Public Cloud Service 
+# Auth0 Public Cloud Service Endpoints
 
 The following endpoints are used by Auth0 public cloud service:
 
-## US Region
+## United States Region
 
 * https://manage.auth0.com
 * https://auth0.com
-* https://login.auth0.com
-* https://cdn.auth0.com
-* https://{YOUR ACCOUNT}.auth0.com
-* https://{YOUR ACCOUNT}.guardian.auth0.com 
+* https://login.us.auth0.com
+* https://cdn.us.auth0.com (or https://cdn.auth0.com if your tenant was created prior to 11 June 2020)
+* https://{YOUR ACCOUNT}.us.auth0.com
+* https://{YOUR ACCOUNT}.guardian.us.auth0.com 
 
-## EU & AU Regions
+## Europe and Australia Regions
 
 * https://manage.auth0.com
 * https://auth0.com

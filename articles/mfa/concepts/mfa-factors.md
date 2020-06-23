@@ -38,7 +38,7 @@ Send users push notifications to a their pre-registered devices - typically a mo
 
 ## Email notifications
 
-You can [use email](/mfa/guides/configure-email-universal-login) when you want to provide users a way to perform MFA when they don't have their phone to receive an SMS or push notification.
+You can [use email](/mfa/guides/configure-email) when you want to provide users a way to perform MFA when they don't have their phone to receive an SMS or push notification.
 
 ## Duo Security
 
@@ -62,7 +62,9 @@ There are different ways to manage MFA depending on your environment:
 * B2C: End users manage their own MFA factors via the My MFA Settings Page.
 * B2E: You manage MFA factors for your users.
 
-Applications that allow access to different types of resources can require users to authenticate with a stronger authentication mechanism to access sensitive resources. See [Step-Up Authentication](/mfa/concepts/step-up-authentication) for details. 
+To learn about the API endpoints you can use to build a user interface that allows users to manage MFA factors, see [Manage Authenticator Factors using the MFA API](/mfa/guides/mfa-api/manage).
+
+Applications that allow access to different types of resources can require users to authenticate with a stronger authentication mechanism to access sensitive resources. For details, see [Step-Up Authentication](/mfa/concepts/step-up-authentication). 
 
 You can configure a rule in **Dashboard > Rules** to define the conditions that will trigger additional authentication challenges. Use rules to force MFA for users of certain applications, or for users with particular user metadata or IP ranges, among other triggers.
 

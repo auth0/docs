@@ -338,8 +338,8 @@ module.exports = [
   /* --- Connections --- */
 
   {
-    from: '/37signals-clientid',
-    to: '/connections/social/37signals'
+    from: ['/37signals-clientid', '/connections/social/37signals'],
+    to: '/connections/social/basecamp'
   },
   {
     from: '/amazon-clientid',
@@ -842,7 +842,11 @@ module.exports = [
   },
   {
     from: '/multifactor-authentication/factors/email',
-    to: '/mfa/guides/configure-email-universal-login'
+    to: '/mfa/guides/configure-email'
+  },
+  {
+    from: '/mfa/guides/configure-email-universal-login',
+    to: '/mfa/guides/configure-email'
   },
   {
     from: '/multifactor-authentication/factors/duo',
@@ -2441,8 +2445,12 @@ module.exports = [
     },
     {
       from: '/connections/apple-siwa/add-siwa-to-native-app',
-      to: '/connections/nativesocial/add-siwa-to-native-app'
-    },    
+      to: '/connections/nativesocial/apple'
+    },
+    {
+      from: '/connections/nativesocial/add-siwa-to-native-app',
+      to: '/connections/nativesocial/apple'
+    },
     {
       from: '/connections/passwordless/email',
       to: '/connections/passwordless/guides/email-otp'
@@ -2462,10 +2470,6 @@ module.exports = [
     {
       from: '/connections/passwordless/faq',
       to: '/connections/passwordless/reference/troubleshoot'
-    },
-    {
-      from: '/migrations/guides/passwordless-start',
-      to: '/connections/passwordless'
     },
     {
       from: '/best-practices/custom-db-connections-scripts',

@@ -18,6 +18,27 @@ If you came to this page directly, go to the [first page of this lab](/identity-
 
 In this exercise, you will sign up for your application (which will also log you in) while exploring some of the relevant network traces of the authentication process.
 
+<div>
+  <div>
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <a href="#video-tutorial" data-toggle="tab">
+          Video Tutorial
+        </a>
+      </li>
+      <li>
+        <a href="#text-tutorial" data-toggle="tab">
+          Lab
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="tab-content">
+    <div id="video-tutorial" class="tab-pane active">
+      <div class="video-wrapper" data-video="7tqnyttxfb"></div>
+    </div>
+    <div id="text-tutorial" class="tab-pane">
+
 1. Using Chrome, open **Developer Tools**. Switch to the **Network** tab then open your local application. You should immediately be redirected to Auth0 to login.
 
 2. The first request you should see is a GET request to your application homepage:
@@ -104,5 +125,9 @@ Note the following:
 - The claim `exp` shows when the token expires (seconds since Unix epoch).
 
 🎉 **You have completed Lab 1 by building a web application with sign-on using OpenID Connect!** 🎉
+
+</div>
+  </div>
+</div>
 
 <a href="/identity-labs/" class="btn btn-transparent">← All Identity Labs</a>

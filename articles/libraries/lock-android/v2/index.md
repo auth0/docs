@@ -115,7 +115,7 @@ Add the `LockActivity`.
   android:label="@string/app_name"
   android:launchMode="singleTask"
   android:screenOrientation="portrait"
-  android:theme="@style/MyLock.Theme"/>
+  android:theme="@style/Lock.Theme"/>
 ```
 
 ::: note
@@ -130,7 +130,7 @@ In case you are using an older version of Lock the **intent-filter** must be add
   android:label="@string/app_name"
   android:launchMode="singleTask"
   android:screenOrientation="portrait"
-  android:theme="@style/MyLock.Theme">
+  android:theme="@style/Lock.Theme">
     <intent-filter>
         <action android:name="android.intent.action.VIEW" />
         <category android:name="android.intent.category.DEFAULT" />

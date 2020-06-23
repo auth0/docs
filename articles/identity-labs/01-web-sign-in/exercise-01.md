@@ -22,6 +22,28 @@ In this exercise, you will learn how to add sign-in to an app using:
 - An Express middleware to handle checking authentication and redirecting to login
 - Auth0 as an Authorization Server
 
+<div>
+  <div>
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <a href="#video-tutorial" data-toggle="tab">
+          Video Tutorial
+        </a>
+      </li>
+      <li>
+        <a href="#text-tutorial" data-toggle="tab">
+          Lab
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="tab-content">
+    <div id="video-tutorial" class="tab-pane active">
+      <div class="video-wrapper" data-video="0divx974tx"></div>
+      <hr>
+    </div>
+    <div id="text-tutorial" class="tab-pane">
+
 A simple Node.js Express application has been created to get you started. This is a web application with two pages. The first page, served under the root path `/`, shows “Hello World” and a link (“Expenses”) to the second page. The second page, served at `/expenses`, shows a table with expenses. At this point, these expenses are hard-coded; you will learn how to consume them from an API secured with Auth0 in the next lab.
 
 1. Open your Terminal app, clone the [identity exercise repo](https://github.com/auth0/identity-102-exercises/), then go to the `/lab-01/begin` folder:
@@ -174,5 +196,8 @@ listening on http://localhost:3000
 
 listening on http://localhost:3000
 ```
+</div>
+  </div>
+</div>
 
 <a href="/identity-labs/01-web-sign-in/exercise-02" class="btn btn-transparent">Next →</a>

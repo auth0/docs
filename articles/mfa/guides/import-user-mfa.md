@@ -155,3 +155,9 @@ Any failures will appear in your tenant logs as failed logins, and will be disti
   "strategy_type": "database"
 }
 ```
+
+## Recovery Codes
+
+Auth0 does not provide a way to import Recovery Codes. When the users's MFA factors are imported, they won't have a recovery code.
+
+If you want to provide users for a recovery code, you can check if they have one enrolled, and if not, use the [recovery code regeneration](/api/management/v2#!/Users/post_recovery_code_regeneration) API endpoint to generate a new one.

@@ -88,18 +88,19 @@ When you run a Hook based on the starter code, the response object is:
 
 ## Sample script: Send a notification email upon password change
 
-In this example, we use a Hook to have SendGrid send a notification email to the user upon password change.
+In this example, we use a Hook to have SendGrid send a notification email to the user upon password change. The example requires a valid SendGrid API key to be stored in [Hook Secrets](/hooks/secrets) as `SENDGRID_API_KEY`.
 
 ```js
 module.exports = function (user, context, cb) {
 
   const request = require('request');
+  const sendgridApiKey = context.webtask.secrets.SENDGRID_API_KEY;
 
   // https://sendgrid.api-docs.io/v3.0/mail-send
   request.post({
     url: 'https://api.sendgrid.com/v3/mail/send',
     headers: {
-      'Authorization': 'Bearer YOUR_API_KEY'
+      'Authorization': 'Bearer ' + sendgridApiKey
     },
     json: {
       personalizations: [{

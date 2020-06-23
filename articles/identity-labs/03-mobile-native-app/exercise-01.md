@@ -18,6 +18,30 @@ If you came to this page directly, go to the [first page of this lab](/identity-
 
 In this exercise, you will add authentication to an existing iOS application. A simple iOS application has been provided to get you started. This is a single-view application with a button to launch the Auth0 authentication process.
 
+<div>
+  <div>
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <a href="#video-tutorial" data-toggle="tab">
+          Video Tutorial
+        </a>
+      </li>
+      <li>
+        <a href="#text-tutorial" data-toggle="tab">
+          Lab
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="tab-content">
+    <div id="video-tutorial" class="tab-pane active">
+      <div class="video-wrapper" data-video="qt3p9kdk2c"></div>
+      <hr>
+      <div class="video-wrapper" data-video="98q7d16ieg"></div>
+      <hr>
+    </div>
+    <div id="text-tutorial" class="tab-pane">
+
 1. Launch Xcode, go to **File > Open**, and open `/lab-03/exercise-01/begin/exercise-01.xcworkspace` in your locally-cloned copy of the [identity exercise repo](https://github.com/auth0/identity-102-exercises/).
 
 <%= include('../_includes/_git-clone-note') %>
@@ -242,5 +266,9 @@ Content-Type: application/json
 ```
 
 In the next exercise, you will use a token to validate and authorize the user and authorize against a protected API.
+
+</div>
+  </div>
+</div>
 
 <a href="/identity-labs/03-mobile-native-app/exercise-02" class="btn btn-transparent">Next →</a>

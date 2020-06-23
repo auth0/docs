@@ -12,11 +12,11 @@ contentType:
 useCase:
   - customize-mfa
 ---
-# Enroll and Challenge SMS Authenticators
+# Enroll and Challenge Email Authenticators
 
 Auth0 provides a built-in MFA enrollment and authentication flow using [Universal Login](/universal-login). However, if you want to create your own user interface, you can use the MFA API to accomplish it. 
 
-This guide will explain how to enroll and challenge users with Email using the MFA API. Make sure that Email is [enabled as factor](/mfa/guides/configure-email-universal-login) in the Dashboard or using the [Management API](/api/management/v2#!/Guardian/put_factors_by_name).
+This guide will explain how to enroll and challenge users with Email using the MFA API. Make sure that Email is [enabled as factor](/mfa/guides/configure-email) in the Dashboard or using the [Management API](/api/management/v2#!/Guardian/put_factors_by_name).
 
 
 ::: note
@@ -37,7 +37,7 @@ If you want to enable users enroll additional emails, in addition of the verifie
 
 ### 2. Enroll the Authenticator 
 
-To enroll with SMS, you need to use the following parameters:
+To enroll with Email, you need to use the following parameters:
 
 - `authentication_types` = `[oob]`
 - `oob_channels` = `[email]`

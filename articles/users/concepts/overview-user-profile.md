@@ -58,7 +58,7 @@ Auth0 provides a REST API that allows applications and services to access and ma
 
 The [API Explorer](/api/v2) allows users to interactively explore the Management API, view the API calls available, the information required for each call, and the information returned by each call. The explorer allows users to try out each endpoint in the explorer UI or via a CuRL command on the command line. To try out one of the Management API commands, select the access required under **Scopes** within that command, such as `update:users`, and then click on "TRY".
 
-Finally, there is the Authentication API specifically used for authentication flows. See [Authentication API Explorer](/api/authentication) for more information. Typically, most of these endpoints are used by the various Auth0 SDKs, not your own code. However, one endpoint that is particularly important for User Profile is [`/userinfo`](/api/authentication/reference#get-user-info), which will be discussed later in this article.
+Finally, there is the Authentication API specifically used for authentication flows. See [Authentication API Explorer](/api/authentication) for more information. Typically, most of these endpoints are used by the various Auth0 SDKs, not your own code.
 
 ## User profile vs. tokens
 

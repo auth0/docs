@@ -9,19 +9,34 @@ contentType: how-to
 toc: true
 useCase: customize-hosted-pages
 ---
-# Auth0 Universal Login - Advanced Customization
+# Classic Universal Login UI Customization
 
-In addition to the simple settings that are set in the Dashboard, such as logo and colors, the actual code of some <dfn data-key="universal-login">Universal Login</dfn> pages may be altered and added to. You can customize the HTML code for Login, Password Reset and MFA pages.
+![Customization Settings for Login Page](/media/articles/universal-login/settings.png)
 
-Note that if you use the New Universal Login experience and decide to customize the login page using <dfn data-key="lock">Lock</dfn>, it will not have the same look and feel by default. The login page will look similar to the Classic Universal Login experience and the rest of the pages will look like the New Universal Login experience. Given that the New Experience still does not have feature parity with the Classic one, this provides a way to mix both approaches (e.g. customizing the Login page so you can use <dfn data-key="passwordless">Passwordless</dfn> or Home Realm Discovery with the Lock widget, but use the MFA page from the New Experience to support multiple factors).
+In the [Dashboard](${manage_url}), you can see the settings for your login page by navigating to [Universal Login](${manage_url}/#/login_setting) and looking at the Settings tab.
+
+The settings available here are:
+
+* Logo (recommended size: 150 x 150 pixels)
+* Primary Color
+* Background Color
+
+These settings, once changed, will take effect on all your Universal Login pages if you have not enabled customization of the pages' code. The settings will also work if you have enabled customization but are using the predefined templates and have not changed those options in the code.
+
+## Advanced Customization
+
+In addition to the basic settings described above, you can alter the actual code of the <dfn data-key="universal-login">Universal Login</dfn> flow. You can customize the HTML code for Login, Password Reset and MFA pages.
 
 ![Login Page](/media/articles/universal-login/login.png)
 
 ::: panel-warning Responsibility for Updates
 When the customization toggle is flipped on, you then become responsible for updates and maintenance of the pages, as it can no longer be automatically updated by Auth0. This includes updating the version numbers for any included Auth0 SDK or widget.
 
+You should also exercise caution regarding the use of third-party JavaScript on your Login Page, since sensitive security-related information often flows through the page and the introduction of cross-site scripting ([XSS](/security/common-threats#cross-site-request-forgery)) vulnerabilities is of particular concern.
+
 If you have enabled customization to inspect the page code, and then decide **not** to customize your login page, you should make sure to disable the **Customize Login Page** toggle, so Auth0 will render the default pages.
 :::
+
 
 ## Login
 
@@ -38,6 +53,7 @@ These libraries can be used within the Universal Login page, but they can also b
 - [Lock](/libraries/lock) - Lock is a pre-built, customizable login widget that will allow your users to quickly and easily login to your application.
 - [Lock (Passwordless Mode)](/libraries/lock/v11#passwordless) - Lock in Passwordless Mode uses the same Lock interface, but rather than offering identity providers as login options, will simply ask the user to enter an email or SMS number to begin a passwordless authentication transaction.
 - [Auth0.js](/libraries/auth0js) - Auth0.js is the SDK used for interacting with the Auth0 [authentication API](/api/authentication). Primarily, you would use the SDK if you need to build your own custom login UI, or implement more complex functionality than simply allowing your users to login. 
+
 
 
 ### Modify the code of the login page
@@ -60,4 +76,4 @@ Auth0 offers you the ability to customize and display several other pages contai
 * [Multi-factor Authentication Page](/universal-login/multifactor-authentication)
 * [Error Pages](/universal-login/error-pages)
 
-While Auth0 hosts these custom pages, you can still [manage your pages using the version control system of your choice](/universal-login/version-control).
+While Auth0 hosts these custom pages, you can still manage your pages using the [version control system of your choice](https://auth0.com/docs/universal-login/version-control).

@@ -14,7 +14,21 @@ Auth0's New <dfn data-key="universal-login">Universal Login</dfn> Experience pro
 
 The key structural difference from the [Classic Experience](/universal-login/classic) is that the former uses Javascript widgets in all the pages, while the New Experience is rendered on the server and does not require Javascript. 
 
-From a functional perspective, the New Experience has much better support for [Localization](/universal-login/i18n), a better MFA experience, and several improvements across all pages. The New Experience is being actively developed, so new features are regularly added. However, there is still a [feature gap](/universal-login/new-experience-limitations) with the Classic Experience, and some pages in the New Experience have certain differences detailed below.
+From a functional perspective, the New Experience has much better support for [Localization](/universal-login/i18n), consistent UI customization with [Page Templates](/universal-login/page-templates), a better MFA experience, and several improvements across all pages. 
+
+The New Experience is being actively developed, so new features are regularly added. However, there is still a [feature gap](/universal-login/new-experience-limitations) with the Classic Experience, and some pages in the New Experience have certain differences detailed below.
+
+## User Interface Customization
+
+Learn how to [customize](/universal-login/customization-new) the New Universal Login user interface.
+
+## Internationalization
+
+The New Experience provides a consistent approach for [Internationalization](/universal-login/i18n). 
+
+## Text Customization
+
+You can override any text in the New Experience by using the [Text Customization API](/universal-login/text-customization). 
 
 ## Login
 
@@ -79,18 +93,6 @@ When using [Custom DB Connections](/connections/database/custom-db):
 
 - The password reset flow will function properly even if you return errors from the change password script.
 - The [errors](/connections/database/custom-db/error-handling) returned in `ValidationErrors` or `WrongUsernameOrPasswordError` will be displayed in the corresponding pages.
-
-## Internationalization
-
-- The New Experience provides a more consistent approach for [Internationalization](/universal-login/i18n). 
-
-## Text Customization
-
-- You can override any text in the New Experience by using the [Text Customization API](/universal-login/text-customization). 
-
-## Branding
-
-- You can configure the favicon URL and a custom logo URL by using [the Branding API](/api/management/v2#!/Branding/get_branding).
 
 ## Implement Universal Login
 
