@@ -134,7 +134,7 @@ If you are testing this locally or hosting this endpoint yourself, these can be 
 
 Once configured locally or deployed to your host, you can test the endpoint and its connection to Slack with the following:
 
-```bash
+```text
 $ npm install # If running yourself
 added XX packages from XX contributors in XX.XXs
 
