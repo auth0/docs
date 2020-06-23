@@ -16,7 +16,7 @@ useCase:
 ```json
 {
  "audience":  "https://sso.online.tableau.com/public/sp/metadata?alias={YOUR TABLEAU ALIAS}",
- "recipient": "https://sso.online.tableau.com/public/sp/SSO?alias={YOUR TABLEAU ALIAS}",
+ "recipient": "https://sso.online.tableau.com/public/sp/SSO/{YOUR TABLEAU ALIAS}",
  "mappings": {
     "email": "Email"
  },
@@ -26,7 +26,7 @@ useCase:
  "mapIdentities":        false,
  "signatureAlgorithm":   "rsa-sha1",
  "digestAlgorithm":      "sha1",
- "destination":          "https://sso.online.tableau.com/public/sp/SSO?alias={YOUR TABLEAU ALIAS}",
+ "destination":          "https://sso.online.tableau.com/public/sp/SSO/{YOUR TABLEAU ALIAS}",
  "lifetimeInSeconds":    3600,
  "signResponse":         false,
  "nameIdentifierFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
@@ -35,7 +35,6 @@ useCase:
  ]
 }
 ```
-
-The **<dfn data-key="callback">Callback URL</dfn>** is `https://sso.online.tableau.com/public/sp/SSO?alias={YOUR TABLEAU ALIAS}`.
-
+The **<dfn data-key="callback">Callback URL</dfn>** is `https://sso.online.tableau.com/public/sp/SSO/{YOUR TABLEAU ALIAS}`.
+The recipient, destination and callback URLL value is same as Assertion Consumer Service URL from Tableau Authentication Page.
 See [https://onlinehelp.tableau.com/current/online/en-us/saml_config_site.htm](https://onlinehelp.tableau.com/current/online/en-us/saml_config_site.htm) for more information.
