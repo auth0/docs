@@ -63,8 +63,8 @@ Where:
 ## Limitations
 
 - Only [root fields](/users/references/user-profile-structure#attributes) (such as `user.email` or `user.phone_number`) can be blacklisted
-  - If `user.name` or `user.nickname` are blacklisted they will not be included in tokens 
-  - If `user.email` is blacklisted the value cannot be mapped to a custom claim (for example, in a rule, `context.idToken[namespace + 'work_email'] = user.email` would not work)
+  - If `user.name` or `user.nickname` are blacklisted they will not be included in tokens.
+  - If `user.email` is blacklisted the value cannot be mapped to a custom claim. For example, in a rule, `context.idToken[namespace + 'work_email'] = user.email` would not work.
 - When you blacklist attributes, they will be still be available via rules and outgoing tokens. However, if any of the following apply, the blacklist attributes will **not** be included in tokens:
   - You have enabled <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn>
   - You have performed a redirect via rules
