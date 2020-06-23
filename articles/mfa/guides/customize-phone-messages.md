@@ -15,7 +15,7 @@ To customize the SMS or Voice messages sent by Auth0 during enrollment or verifi
 
 First, go to the [Multi-factor Auth page](${manage_url}/#/mfa), then click on the **Phone** box to configure your Phone Messaging settings.
 
-![MFA Phone Settings](/media/articles/mfa/sms-settings.png)
+![MFA Phone Settings](/media/articles/mfa/mfa-phone-templates.png)
 
 You have two fields to customize your messages:
 

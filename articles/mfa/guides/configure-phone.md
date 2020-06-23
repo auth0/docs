@@ -36,7 +36,7 @@ TBD
 
 ## Administrative setup
 
-![MFA Phone Message Settings](/media/articles/mfa/phone-settings.png)
+![MFA Phone Message Settings](/media/articles/mfa/mfa-phone-settings.png)
 
 ## Message Delivery Provider and Method
 
@@ -56,7 +56,7 @@ You can also choose if you want to give users the option of getting text message
 
 If you choose to deliver SMS via Twilio, follow these steps to configure your SMS factor.
 
-![MFA Phone Settings](/media/articles/mfa/sms-settings.png)
+![MFA Phone Settings](/media/articles/mfa/mfa-phone-twilio.png)
 
 1. Open an account with Twilio. You will need a [Twilio Account SID](https://www.twilio.com/help/faq/twilio-basics/what-is-an-application-sid) and a [Twilio Auth Token](https://www.twilio.com/help/faq/twilio-basics/what-is-the-auth-token-and-how-can-i-change-it). These are the Twilio API credentials that Auth0 will use to send messages to your users.
 
