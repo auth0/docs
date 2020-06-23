@@ -50,7 +50,7 @@ However, your React application needs to pass an access token when it calls a ta
 
 The `audience` prop lets the API verify that it has received an access token intended for it and not for some other API.
 
-The `scope` prop informs Auth0 about which scopes the client needs to operate. Auth0 will decide whether or not to issue an access token with those scopes. The decision is based on multiple factors ranging from user authentication to policies running in [Auth0 Rules](https://auth0.com/docs/rules). If it is successful, then the access token will contain the scopes requested and the API will check for those scopes when it validates the access token.
+The `scope` prop informs Auth0 about which scopes the client needs to operate. Auth0 will decide whether or not to issue an access token with those scopes. The decision is based on multiple factors ranging from user authentication to policies running in [Auth0 Rules](https://auth0.com/docs/rules). If it is successful, then the access token will contain the scopes requested, and the API will check for those scopes when it validates the access token.
 
 :::note
 When you [set up an API](https://auth0.com/docs/getting-started/set-up-api) with Auth0, you define its audience value and scopes.
