@@ -20,15 +20,17 @@ You can configure this factor to send messages through SMS, Voice, or to let the
 - Voice as an MFA factor is not available when using the [Classic Universal Login Experience](/universal-login/classic).
 ::: 
 
-## End user experience - SMS
+## End user experience - Voice and SMS
 
-![SMS End User 1](/media/articles/mfa/mfa-sms1.png)
+When Voice and SMS are enabled, users are given the option to enroll by getting the code sent by SMS or Voice:
 
-After signing up and entering a country code and phone number, the user will receive a six-digit code on their device, which they must enter to authenticate.
+![Voice and SMS - End User](/media/articles/mfa/mfa-sms-voice.png)
 
-![SMS End User 2](/media/articles/mfa/mfa-sms2.png)
+When only SMS is enabled, the flow is simpler:
 
-To use this option, your users must have a device capable of receiving text messages or phone calls. If users cannot receive text messages or phone calls, they will not be able to authenticate with this factor. If they already enrolled with one of these methods and do not have such a device, they will need to use their recovery code to complete the MFA flow (and then enroll another MFA method in place of this one).
+![SMS - End User](/media/articles/mfa/mfa-sms.png)
+
+After users are enrolled, the next time they authenticate they will get the Voice or SMS message in their registered phone. 
 
 ## End user experience - SMS and Voice
 
