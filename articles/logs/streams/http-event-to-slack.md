@@ -159,7 +159,7 @@ The `ok` above signals that the request was accepted and processed correctly. In
 
 The final step is to configure Auth0 to send log events to this webhook using an HTTP event stream.
 
-Follow [the instructions here](/logs/streams/http-event) to create a new stream pointing to your deployed Express application. The field values to use are:
+Follow [HTTP Event](/logs/streams/http-event) to create a new stream pointing to your deployed Express application. The field values to use are:
 
 - **Payload URL** - URL to your deployed webhook like `https://[host domain]/api/logs`
 - **Authorization Token** - value configured above
@@ -168,14 +168,14 @@ Follow [the instructions here](/logs/streams/http-event) to create a new stream 
 
 Once this is saved, your log stream is ready to use. To test, you'll need to trigger a failing log event. The simplest way to do that is to attempt to login with an incorrect email or password. If the stream is configured correctly, you should see a Slack message saying:
 
-> Wrong email or password. [type: fu]
+`Wrong email or password. [type: fu]`
 
 ## Troubleshooting
 
 If you're not seeing the Slack message appear after several seconds, you'll need to walk down the same path a log event would:
 
 1. First, check the Dashboard **Logs > Search** screen to make sure the record is there.
-2. Then, check the **Health** tab for the stream ([more information here](/logs/streams/http-event#delivery-attempts-and-retries)).
+2. Then, check the **Health** tab for the stream ([delivery attempts and retries](/logs/streams/http-event#delivery-attempts-and-retries)).
 3. If the webhook delivery is succeeding, check the logs for your deployed application to see if anything is going wrong there.
 
 ## More on Log Streams
