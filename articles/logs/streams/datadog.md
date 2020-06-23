@@ -58,3 +58,12 @@ To send Auth0 events to Datadog, you will need:
 ## Delivery attempts and retries
 
 Auth0 events are delivered to your server via a streaming mechanism that sends each event as it is triggered. If your server is unable to receive the event, Auth0 will try to redeliver it up to three times. If still unsuccessful, Auth0 will log the failure to deliver, and you will be able see these failures in the Health tab for your log stream.
+
+## More on Log Streams
+
+::: next-steps
+* [HTTP Event Log Streams](/logs/streams/http-event)
+* [Example: Stream Auth0 Log Events to Slack](/logs/streams/http-event-to-slack)
+* [Amazon EventBridge Log Streams](/logs/streams/amazon-eventbridge)
+* [Azure Event Grid Log Streams](/logs/streams/azure-event-grid)
+:::

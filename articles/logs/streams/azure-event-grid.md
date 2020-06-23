@@ -88,7 +88,7 @@ Go to your Azure subscription and spin up a service that is supported as an even
 
 ## Testing
 
-At this point, your Event Grid workflow should be complete. 
+At this point, your Event Grid workflow should be complete.
 
 ### Verify the integration
 
@@ -102,3 +102,12 @@ To verify that the integration is working as expected:
 ## Delivery attempts and retries
 
 Auth0 events are delivered to your server via a streaming mechanism that sends each event as it is triggered. If your server is unable to receive the event, Auth0 will try to redeliver it up to three times. If still unsuccessful, Auth0 will log the failure to deliver, and you will be able see these failures in the Health tab for your log stream.
+
+## More on Log Streams
+
+::: next-steps
+* [HTTP Event Log Streams](/logs/streams/http-event)
+* [Example: Stream Auth0 Log Events to Slack](/logs/streams/http-event-to-slack)
+* [Amazon EventBridge Log Streams](/logs/streams/amazon-eventbridge)
+* [Datadog Event Log Streams](/logs/streams/datadog)
+:::

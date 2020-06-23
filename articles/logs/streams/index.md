@@ -43,9 +43,9 @@ To help diagnose issues with your stream, you can see the last ten errors we enc
 
 ![Stream Errors](/media/articles/logs/health/health-errors.png)
 
-
 <%= include('../../_includes/_topic-links', { links: [
   'logs/streams/http-event',
+  'logs/streams/http-event-to-slack',
   'logs/streams/amazon-eventbridge',
   'logs/streams/datadog',
   'logs/streams/azure-event-grid'
