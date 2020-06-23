@@ -56,7 +56,7 @@ app.post("/api/logs", require("./api/logs"));
 
 const port = process.env.PORT || 3000;
 http.createServer(app).listen(port, () => {
-  console.log(\\`Listening on port ${port}\\`);
+  console.log(`Listening on port <%= "${port}" %>`);
 });
 ```
 
