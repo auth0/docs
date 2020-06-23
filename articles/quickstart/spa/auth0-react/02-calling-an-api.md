@@ -16,7 +16,7 @@ useCase: quickstart
 
 Your React application may need to access protected data from an API that you are also [securing with Auth0](https://auth0.com/docs/microsites/protect-api/protect-api). For that use case, you'll need to retrieve an access token to authorize any calls you make to that secured API.
 
-For this example, you'll use the [Auth0 Management API](https://auth0.com/docs/api/management/v2) to quickly test how to make calls to a protected external API.
+You'll practice making calls to protected endpoints using the [Auth0 Management API](https://auth0.com/docs/api/management/v2), which comes bundled with your Auth0 tenant. This will save you time by not having to create a demo API for testing. However, the integration steps here apply to any of your APIs as long as you have set them up with Auth0.
 
 :::note
 If you followed the [previous section where you added user log in](/quickstart/spa/auth0-react#add-login-to-your-application), make sure that you log out of your application as you'll need a new access token to call APIs.
@@ -35,8 +35,8 @@ ReactDOM.render(
     domain="${account.namespace}"
     clientId="${account.clientId}"
     redirectUri={window.location.origin}
-    audience={`https:// <%= "${process.env.REACT_APP_AUTH0_DOMAIN}" %>/api/v2/`}
-    scope="read:users update:current_user_metadata"
+    audience={"https://${account.namespace}/api/v2/"}
+    scope={"read:current_user update:current_user_metadata"}
   >
     <App />
   </Auth0Provider>,
@@ -48,10 +48,12 @@ The set up is similar to the one discussed in the [Configure the `Auth0Provider`
 
 However, your React application needs to pass an access token when it calls a target API to access private user data. You [request an access token](https://auth0.com/docs/tokens/guides/get-access-tokens) in a format that the API can verify by passing the `audience` and `scope` to `Auth0Provider`.
 
-The `audience` lets the API verify that it has received an access token intended for it and not for some other API. The `scope` lets the API understand the permissions that the client application has in order to apply authorization properly.
+The `audience` prop lets the API verify that it has received an access token intended for it and not for some other API.
+
+The `scope` prop informs Auth0 about which scopes the client needs to operate. Auth0 will decide whether or not to issue an access token with those scopes. The decision is based on multiple factors ranging from user authentication to policies running in [Auth0 Rules](https://auth0.com/docs/rules). If it is successful, then the access token will contain the scopes requested and the API will check for those scopes when it validates the access token.
 
 :::note
-When you [set up an API](https://auth0.com/docs/getting-started/set-up-api) with Auth0, you define its audience value.
+When you [set up an API](https://auth0.com/docs/getting-started/set-up-api) with Auth0, you define its audience value and scopes.
 :::
 
 Once you configure `Auth0Provider`, you can easily get the access token using the `getAccessTokenSilently()` method from the `useAuth0()` custom React Hook wherever you need it. 
