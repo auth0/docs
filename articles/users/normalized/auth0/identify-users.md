@@ -15,7 +15,7 @@ v2: true
 
 There are two recommended options to uniquely identify your users:
 
-1. By the `user_id` property. This is guaranteed to be unique per user (such as `{identity provider id}|{unique id in the provider}`, or `facebook|1234567890`).
+1. By the `user_id` property. This is guaranteed to be unique (within a tenant) per user (such as `{identity provider id}|{unique id in the provider}`, or `facebook|1234567890`). A user may have the same `user_id` property across multiple Auth0 tenants, but consistency is not guaranteed.
 2. By a *natural* key, like the `email` property. In this case, it is recommended that you enable email verification and only use this option with providers that require that users verify their emails.
 
 If you use [custom databases](/connections/database/mysql), you must return a unique `user_id` property. If you have multiple custom databases and expect possible collisions between ids from different connections, you should use a prefix identifying the connection. For example:
