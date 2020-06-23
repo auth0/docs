@@ -135,7 +135,7 @@ To check a job's status, make a `GET` request to the [get a job](/api/management
 
 Depending on the status of the user import job, you'll receive a response similar to one of the following:
 
-**Pending**
+### Pending
 
 ```json
 {
@@ -148,7 +148,7 @@ Depending on the status of the user import job, you'll receive a response simila
 }
 ```
 
-**Processing**
+### Processing
 
 ```json
 {
@@ -163,7 +163,7 @@ Depending on the status of the user import job, you'll receive a response simila
 }
 ```
 
-**Completed**
+### Completed
 
 If a job is completed, the job status response will include totals of successful, failed, inserted, and updated records.
 
@@ -185,7 +185,7 @@ If a job is completed, the job status response will include totals of successful
 }
 ```
 
-**Failed**
+## Failed
 
 If there is an error in the job, it will return as failed. However, note that invalid user information, such as an invalid email, will not make the entire job fail.
 
@@ -206,7 +206,9 @@ If there is an error in the job, it will return as failed. However, note that in
 }
 ```
 
-**Expired**
+To learn how to get details for failed entries, see [Retrieve failed entries](#retrieve-failed-entries). 
+
+### Expired
 
 Expired jobs are completed jobs that were created more than 2 hours ago.
 
@@ -225,11 +227,13 @@ Additionally, the job status is added to [Tenant Logs](${manage_url}/#/logs), wh
 
 ## Job timeouts
 
-All user import jobs timeout after **two (2) hours**. If your job does not complete within this time frame, it is marked as failed.
-
-Furthermore, all of your job-related data is automatically deleted after 24 hours and cannot be accessed afterward. As such, **we strongly recommend storing the job results using the storage mechanism of your choice**.
+All user import jobs timeout after two (2) hours. If your job does not complete within this time frame, it is marked as failed.
 
 ## Retrieve failed entries
+
+::: warning
+All of the job-related data is automatically deleted after 24 hours and cannot be accessed thereafter. Because of this, we strongly recommend storing the job results using the storage mechanism of your choice.
+:::
 
 If there were errors in the user import job, you can get the error details by making a `GET` request to the [get job error details](/api/management/v2#!/Jobs/get_errors) endpoint. Be sure to replace the `MGMT_API_ACCESS_TOKEN` and `JOB_ID` placeholder values with your Management API Access Token and user import job ID.
 
