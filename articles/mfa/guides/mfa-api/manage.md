@@ -117,7 +117,7 @@ If the authenticator was deleted, a 204 response is returned.
 
 :::note
 - When you enroll a Push authenticator, Auth0 also enrolls an OTP one. If you delete any of them, the other one will be also deleted.
-- If SMS and Voice are enabled, when a user enrolls with SMS or Voice, Auth0 will create two authenticators, one for `sms` and another for `voice`. When you delete one, the other will be also deleted.
+- If both SMS and Voice are enabled, when a user enrolls with either SMS or Voice, Auth0 will automatically create two authenticators for the phone number, one for `sms` and another for `voice`.  When you delete one, the other will also be deleted.
 - If Email MFA is enabled, all verified emails will be listed as authenticators, but you can't delete them. You can only delete email authenticators that were enrolled explicitly.
 :::
 
