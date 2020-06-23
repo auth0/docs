@@ -23,7 +23,12 @@ By default, Auth0 generates Access Tokens for [API Authorization scenarios](/api
 - The signature is used to validate that the token is trustworthy and has not been tampered with.
 :::
 
-The permissions represented by the Access Token, in OAuth terms are known as <dfn data-key="scope">**scopes**</dfn>. When an application authenticates with Auth0, it specifies the scopes it wants. If those scopes are authorized by the user, then the Access Token will represent these authorized scopes. For example, a Contacts API may accept three different levels of authorization: reading contacts (scope `read:contacts`), creating contacts (scope `create:contacts`) and deleting contacts (scope `delete:contacts`). When an application asks the API to create a new contact, then the Access Token should contain the `create:contacts` scope. In a similar fashion, in order to delete existing contacts, the Access Token should contain the `delete:contacts` scope. For more information refer to [Scopes](/scopes).
+The permissions represented by the access token, in OAuth terms are known as <dfn data-key="scope">**scopes**</dfn>. When an application authenticates with Auth0, it specifies the scopes it wants. If those scopes are authorized by the user, then the access token will represent these authorized scopes. For example, a Contacts API may accept three different authorization levels specifying the corresponding scopes: 
+- Reading contacts (`read:contacts`)
+- Creating contacts (scope `create:contacts`)
+- Deleting contacts (scope `delete:contacts`)
+
+For more information refer to [Scopes](/scopes).
 
 ## OAuth roles
 
@@ -77,7 +82,7 @@ OAuth 2.0 utilizes two endpoints: the **Authorization** endpoint and the **Token
 
 ### Authorization endpoint
 
-The Authorization endpoint is used to interact with the resource owner and get the authorization to access the protected resource. To better understand this, imagine that you want to log in to a service using your Google account. First, the service will redirect you to Google in order to authenticate (if you are not already logged in) and then you will get a consent screen, where you will be asked to authorize the service to access some of your data (protected resources), for example your email address and your list of contacts.
+The Authorization endpoint is used to interact with the resource owner and get the authorization to access the protected resource. To better understand this, imagine that you want to log in to a service using your Google account. First, the service redirects you to Google in order to authenticate (if you are not already logged in) and then you will get a consent screen, where you will be asked to authorize the service to access some of your data (protected resources); for example, your email address and your list of contacts.
 
 The request parameters of the Authorization endpoint are:
 - `response_type`: Tells the authorization server which grant to execute. Refer to the [How Response Type Works paragraph](#how-response-type-works) for details.
@@ -88,17 +93,17 @@ The request parameters of the Authorization endpoint are:
 
 #### How response type works
 
-This endpoint is used by the **Authorization Code** and the **Implicit** [grant types](#authorization-grant-types). The authorization server needs to know which grant type the application wants to use, since it affects the kind of credential it will issue: for **Authorization Code** grant it will issue an authorization code  (which later can be exchanged with an Access Token), while for **Implicit** grant it will issue an **Access Token**.
+This endpoint is used by the **Authorization Code** and the **Implicit** [grant types](#authorization-grant-types). The authorization server needs to know which grant type the application wants to use, since it affects the kind of credential it will issue: 
+- For **Authorization Code** grant it will issue an authorization code (which can later be exchanged with an access token)
+- For **Implicit** grant it will issue an **access token**.
 
-::: panel Authorization Code vs Access Token
-An authorization code is an opaque string, meant to be exchanged with an Access Token at the [token endpoint](#token-endpoint). An Access Token is an opaque string (or a [JWT](/tokens/concepts/jwts) in Auth0 implementation) that denotes who has authorized which permissions (scopes) to which application.
-:::
+An access token is an opaque string (or a [JWT](/tokens/concepts/jwts) in an Auth0 implementation) that denotes who has authorized which permissions (scopes) to which application. It is meant to be exchanged with an access token at the [token endpoint](#token-endpoint). 
 
-In order to inform the authorization server which grant type to use, the `response_type` request parameter is used:
+To inform the authorization server which grant type to use, the `response_type` request parameter is used as follows:
 
-- For **Authorization Code** grant set `response_type=code`. This way the response will include an authorization code.
+- For **Authorization Code** grant, use `response_type=code` to include an authorization code.
 
-- For **Implicit** grant set `response_type=token`. This way the response will include an Access Token. An alternative is to set `response_type=id_token token`. In this case the response will include both an Access Token and an ID Token.
+- For **Implicit** grant, use `response_type=token` to include an access token. An alternative is to set `response_type=id_token token` to include both an access token and an ID token.
 
 ::: panel ID Token
 The ID Token is a JWT that contains information about the logged in user. It was introduced by <dfn data-key="openid">**OpenID Connect (OIDC)**</dfn>. For more info, see [OpenID Connect](/protocols/oidc) and [ID Token](/tokens/concepts/id-tokens).
@@ -106,7 +111,7 @@ The ID Token is a JWT that contains information about the logged in user. It was
 
 #### How response mode works
 
-The [OAuth 2.0 Multiple Response Type Encoding Practices](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html) specification, added a new parameter that specifies how the result of the authorization request is formatted. This parameter is called `response_mode`, it's optional, and it can take the following values:
+The [OAuth 2.0 Multiple Response Type Encoding Practices](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html) specification added a new parameter that specifies how the result of the authorization request is formatted. This parameter is called `response_mode`, it's optional and can take the following values:
 
 - `query`: This is the default for **Authorization Code** grant. A successful response is `302 Found`, which triggers a redirect to the `redirect_uri`. The response parameters are embedded in the query component (the part after `?`) of the `redirect_uri` in the `Location` header.
 
@@ -130,7 +135,7 @@ The [OAuth 2.0 Multiple Response Type Encoding Practices](https://openid.net/spe
 
   Where, the `redirect_uri` is `https://my-redirect-uri/callback`, the Access Token is `eyB...78f`, it's a Bearer token and it expires in 3600 seconds.
 
-- `form_post`: This response mode is defined by the [OAuth 2.0 Form Post Response Mode](https://openid.net/specs/oauth-v2-form-post-response-mode-1_0.html) specification. A successful response is `200 OK` and the response parameters are embedded in an HTML form as hidden params. The `action` of the form is the `redirect_uri` and the `onload` attribute is configured to submit the form. Hence, after the HTML is loaded by the browser, a redirection to the `redirect_uri` is done.
+- `form_post`: This response mode is defined in the [OAuth 2.0 Form Post Response Mode](https://openid.net/specs/oauth-v2-form-post-response-mode-1_0.html) specification. A successful response is `200 OK` and the response parameters are embedded in an HTML form as hidden params. The `action` of the form is the `redirect_uri` and the `onload` attribute is configured to submit the form. After the HTML is loaded by the browser, a redirect to the `redirect_uri` is done.
 
   For example, a response might be:
 
@@ -147,15 +152,15 @@ The [OAuth 2.0 Multiple Response Type Encoding Practices](https://openid.net/spe
   </html>
   ```
 
-- `web_message`: This response mode is defined by the [OAuth 2.0 Web Message Response Mode specification](https://tools.ietf.org/html/draft-sakimura-oauth-wmrm-00). It uses HTML5 Web Messaging instead of the redirect for the Authorization Response from the Authorization Endpoint. This is particularly useful when using [Silent Authentication](/api-auth/tutorials/silent-authentication). To use this response mode you have to register your app's URL at the __Allowed Web Origins__ field of your [Application's settings](${manage_url}/#/applications/${account.clientId}/settings).
+- `web_message`: This response mode is defined in the [OAuth 2.0 Web Message Response Mode specification](https://tools.ietf.org/html/draft-sakimura-oauth-wmrm-00). It uses HTML5 Web Messaging instead of the redirect for the Authorization Response from the Authorization Endpoint. This is particularly useful when using [Silent Authentication](/api-auth/tutorials/silent-authentication). To use this response mode you have to register your app's URL at the __Allowed Web Origins__ field of your [Application's settings](${manage_url}/#/applications/${account.clientId}/settings).
 
 ### Token endpoint
 
-The Token endpoint is used by the application in order to get an [Access Token](/tokens/concepts/access-tokens) or a <dfn data-key="refresh-token">[Refresh Token](/tokens/concepts/refresh-tokens)</dfn>. It is used by all flows, except for the [Implicit Flow](/flows/concepts/implicit) (since an Access Token is issued directly).
+The Token endpoint is used by the application in order to get an [access token](/tokens/concepts/access-tokens) or a <dfn data-key="refresh-token">[refresh token](/tokens/concepts/refresh-tokens)</dfn>. It is used by all flows, except for the [Implicit Flow](/flows/concepts/implicit) (since an access token is issued directly).
 
-In the [Authorization Code Flow](/flows/concepts/auth-code), the application exchanges the authorization code it got from the Authorization endpoint for an Access Token.
+- In the [Authorization Code Flow](/flows/concepts/auth-code), the application exchanges the authorization code it got from the Authorization endpoint for an access token.
 
-In the [Client Credentials Flow](/flows/concepts/client-credentials) and [Resource Owner Password Credentials Grant](/api-auth/grant/password), the application authenticates using a set of credentials and then gets an Access Token.
+- In the [Client Credentials Flow](/flows/concepts/client-credentials) and [Resource Owner Password Credentials Grant](/api-auth/grant/password), the application authenticates using a set of credentials and then gets an access token.
 
 ## Keep reading
 
