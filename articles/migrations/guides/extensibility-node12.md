@@ -67,7 +67,7 @@ Changing the runtime may break your existing Rules, Hooks, and Custom Database/S
 
 ## Whitelist the new URLs
 
-The [Authorization Extension](/extensions/authorization), the [Delegated Administration Extension](/extensions/delegated-admin) and the [Single Sign-on (SSO) Dashboard Extension](/extensions/sso-dashboard) require whitelisting the URLs used to access extensions and custom webtasks. When you upgrade to Node 12, the URLs you use to access extensions and custom webtasks will change. This is a breaking change for these extensions.
+The [Delegated Administration Extension](/extensions/delegated-admin) and the [Single Sign-on (SSO) Dashboard Extension](/extensions/sso-dashboard) require whitelisting the URLs used to access extensions and custom webtasks. When you upgrade to Node 12, the URLs you use to access extensions and custom webtasks will change. This is a breaking change for these extensions.
 
 If you use any of these extensions, **you must whitelist the new URLs** both as Allowed <dfn data-key="callback">Callback</dfn> and as Allowed Logout URLs.
 
