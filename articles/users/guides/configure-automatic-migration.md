@@ -61,7 +61,7 @@ After you've enabled migration, you can verify the users that have migrated by d
 
 ## Convert the database 
 
-Once all your users are in the Auth0 database, you are ready to convert the database to Auth0.
+Once all your users are in the Auth0 database, you are ready to convert the database so that it uses only users stored in Auth0.
 
 1. Go to your custom database connection on the [Dashboard](${manage_url}/#/connections/database).
 
@@ -81,13 +81,17 @@ function getByEmail (email, callback) {
 }
 ```
 
-By doing this, you are changing the **Login** and **Get User** [Database Action Scripts](/connections/database/mysql#3-provide-action-scripts) to NO-OP functions.
+By doing this, you are changing the **Login** and **Get User** [Database Action Scripts](/connections/database/mysql#3-provide-action-scripts) to NO-OP functions, essentially making it behave as a non-custom database connection.
+
+:::panel-warning Leave Import Users to Auth0 turned on
+Make sure to leave the **Import Users to Auth0** option turned on. If you turn this option off Auth0 will only use the scripts to authenticate and perform other user actions instead of using the users that were imported locally.
+:::
 
 ## Disconnect the legacy database
 
-1. After you have verified the migration, you can disconnect your legacy database (**not** the Auth0 database). 
+1. After you have verified the migration, you can disconnect your legacy database (**not** the Auth0 database). If you modified the scripts as instructed above, Auth0 will not try to connect to your legacy database.
 
-2. Keep **Import Users to Auth0** (on the **Settings** page) enabled. Your users will then be directed to use the new database workflow. 
+2. Keep **Import Users to Auth0** (on the **Settings** page) enabled. This, combined with the NO-OP script changes, will ensure that only the Auth0 users database is used. 
 
 3. Configure [rules](/rules) to execute other functions when a user authenticates to your application.
 
