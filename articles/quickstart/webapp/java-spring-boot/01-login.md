@@ -322,6 +322,7 @@ You can then use this profile information in your view, as shown below.
 <div sec:authorize="isAuthenticated()">
     <img th:src="<%= "${profile.get('picture')}" %>" th:attr="<%= "alt=%{profile.get('name')}" %>"/>
     <h2 th:text="<%= "${profile.get('name')}" %>"></h2>
+    <p th:text="<%= "${profile.get('email')}" %>"></p>
     <a th:href="@{/logout}">Log Out</a>
 </div>
 ```
