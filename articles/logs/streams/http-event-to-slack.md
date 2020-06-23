@@ -54,9 +54,9 @@ app.use(express.json());
 
 app.post("/api/logs", require("./api/logs"));
 
-const port = process.env.PORT || 3000;
-http.createServer(app).listen(port, () => {
-  console.log(`Listening on port ${port}`);
+//const port = process.env.PORT || 3000;
+//http.createServer(app).listen(port, () => {
+//  console.log(`Listening on port ${port}`);
 });
 ```
 
@@ -139,6 +139,7 @@ $ npm install # If running yourself
 added XX packages from XX contributors in XX.XXs
 
 $ npm start # If running yourself 
+# Listening on port 3000
 
 # Replace the Authorization header below
 $ curl \
