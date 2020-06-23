@@ -15,9 +15,9 @@ contentType: how-to
 
 This guide explains how to use [Auth0 Log Streaming](/logs/streams) to send specific logged events to Slack. The events sent in this guide include all failures (e.g., logins, signups, token exchange) and limits (e.g., rate limits, anomaly detection).
 
-![Stream Auth0 Log Events to Slack](/media/articles/logs/log-stream-to-slack-diagram.png)
+Using this guide, you will build the following:
 
-The diagram above describes what you will build using this guide:
+![Stream Auth0 Log Events to Slack](/media/articles/logs/log-stream-to-slack-diagram.png)
 
 1. Application 1 and 2 both redirect to Auth0 to log in
 2. The login for Application 2 succeeds, but the login for Application 1 fails; both events create a distinct log record
@@ -26,7 +26,7 @@ The diagram above describes what you will build using this guide:
 5. The webhook filters out the successful event
 6. The webhook sends the failed event to Slack
 
-See our [Log Event Type Codes](/logs/references/log-event-type-codes) reference for how to adjust the filter used here for different scenarios.
+To learn how to adjust the filter used here for different scenarios, see our [Log Event Type Codes](/logs/references/log-event-type-codes) reference.
 
 ## What is Slack
 
@@ -34,13 +34,13 @@ Slack is a business communication platform that can be extended using custom app
 
 ## Get started with Slack
 
-Go to the [Slack API Applications section](https://api.slack.com/apps) and log in to your Slack account. Follow the [Incoming Webhooks for Slack](https://slack.com/help/articles/115005265063-Incoming-Webhooks-for-Slack) guide to create a Slack endpoint that will accept the failed log events. Make sure to leave your browser tab open or copy the URL provided as you'll need that later in this guide.
+Go to [Slack API Applications](https://api.slack.com/apps), and log in to your Slack account. Follow instructions in the [Incoming Webhooks for Slack](https://slack.com/help/articles/115005265063-Incoming-Webhooks-for-Slack) guide to create a Slack endpoint that will accept the failed log events. Make sure to leave your browser tab open or copy the URL provided as you'll need that later in this guide.
 
 ## Deploy the webhook
 
-We'll build a simple Express API that provides a single `/api/logs` route accepting POST requests. When any log event happens, it will be sent to this endpoint. If the request is formatted properly, the log events for failures are parsed and sent to Slack.
+You'll build a simple Express API that provides a single `/api/logs` route accepting POST requests. When any log event happens, it will be sent to this endpoint. If the request is formatted properly, the log events for failures will be parsed and sent to Slack.
 
-We'll start with a very simple Express application:
+ Start with a simple Express application:
 
 ```text
 // app.js
@@ -60,56 +60,11 @@ app.post("/api/logs", require("./api/logs"));
 //});
 ```
 
-Then we'll add the endpoint middleware:
+Then add the endpoint middleware:
 
-```text
-// api/logs/index.js
-const got = require("got");
 
-module.exports = async (req, res, next) => {
-  const { body, headers } = req;
 
-  if (!body || !Array.isArray(body)) {
-    return res.sendStatus(400);
-  }
-
-  if (headers.authorization !== process.env.AUTH0_LOG_STREAM_TOKEN) {
-    return res.sendStatus(401);
-  }
-
-  const failedLogs = body.filter((log) => {
-    return "f" === log.data.type[0] || /limit/.test(log.data.type);
-  });
-
-  if (failedLogs.length === 0) {
-    return res.sendStatus(204);
-  }
-
-  const reqUrl = process.env.SLACK_WEBHOOK_URL;
-  const reqOpts = {
-    json: {
-      attachments: failedLogs.map((log) => {
-        return {
-          pretext: "*Auth0 log alert*",
-          title: `${log.data.description } [type: ${log.data.type}]`,
-          color: "#ff0000",
-          title_link: `https://manage.auth0.com/#/logs/${log.data.log_id}`
-        };
-      }),
-    },
-  };
-
-  try {
-    const slackResponse = await got.post(reqUrl, reqOpts);
-    res.status(slackResponse.statusCode);
-    return res.end(slackResponse.body);
-  } catch (error) {
-    next(error);
-  }
-};
-```
-
-Finally, we'll add the NPM package file:
+Finally, add the NPM package file:
 
 ```json
 // package.json
@@ -139,7 +94,7 @@ $ npm install # If running yourself
 added XX packages from XX contributors in XX.XXs
 
 $ npm start # If running yourself 
-# Listening on port 3000
+Listening on port 3000
 
 # Replace the Authorization header below
 $ curl \
@@ -159,7 +114,7 @@ The `ok` above signals that the request was accepted and processed correctly. In
 
 The final step is to configure Auth0 to send log events to this webhook using an HTTP event stream.
 
-Follow the instructions in [HTTP Event](/logs/streams/http-event) to create a new stream pointing to your deployed Express application. The field values to use are:
+To create a new stream poinint to your deployed Express application, follow the instructions in [HTTP Event](/logs/streams/http-event). Use the following field values:
 
 - **Payload URL**: URL to your deployed webhook like `https://[host domain]/api/logs`
 - **Authorization Token**: Value configured above
@@ -170,7 +125,7 @@ Once this is saved, your log stream is ready to use. To test, you'll need to tri
 
 `Wrong email or password. [type: fu]`
 
-## Troubleshooting
+## Troubleshoot
 
 If you're not seeing the Slack message appear after several seconds, you'll need to walk down the same path a log event would:
 
