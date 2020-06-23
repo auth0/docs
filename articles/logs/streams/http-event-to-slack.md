@@ -138,7 +138,7 @@ Once configured locally or deployed to your host, you can test the endpoint and 
 $ npm install # If running yourself
 added XX packages from XX contributors in XX.XXs
 
-$ npm start # If running yourself Listening on port 3000
+$ npm start # If running yourself 
 
 # Replace the Authorization header below
 $ curl \
