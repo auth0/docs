@@ -23,14 +23,6 @@ The library is [hosted on GitHub](https://github.com/auth0/auth0-react) where yo
 
 ## Installation
 
-You have a few options for using auth0-react in your project:
-
-From the CDN:
-
-```html
-<script src="${auth0react_url}"></script>
-```
-
 Using [npm](https://npmjs.org):
 
 ```sh
