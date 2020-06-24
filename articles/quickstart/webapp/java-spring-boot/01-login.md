@@ -1,6 +1,6 @@
 ---
 title: Login
-description: Spring Boot enables you to add authentication to your application quickly and to gain access to user profile information. This guide demonstrates how to integrate Auth0 with any new or existing Spring Boot 2 web application.
+description: Spring Boot and Spring Security support OIDC natively, enabling you to add authentication to your application without the need for any additional libraries. This guide demonstrates how to integrate Auth0 with any new or existing Spring Boot 2 web application.
 budicon: 448
 topics:
   - quickstarts
@@ -81,7 +81,9 @@ If you are using Maven:
 Spring Security makes it easy to configure your application for authentication with OIDC providers such as Auth0. In your application's configuration, configure the OAuth2 client and provider. The sample below uses an `application.yml` file, though you can also use properties files or any of the other [supported externalization mechanisms](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-external-config).
 
 :::note
-Spring Security supports [additional property mappings](https://docs.spring.io/spring-security/site/docs/current/reference/html5/#oauth2login-boot-property-mappings) for further customization.
+Spring Security will use the `issuer-uri` property value to retrieve all the information necessary to enable login and validation of the ID token at runtime.
+
+[Additional property mappings](https://docs.spring.io/spring-security/site/docs/current/reference/html5/#oauth2login-boot-property-mappings) are available for further customization, if required.
 :::
 
 ```yaml
@@ -195,12 +197,14 @@ Now that users can log into your application, they need [a way to log out](https
 ```java
 package com.auth0.example;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.client.registration.ClientRegistration;
 import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -215,10 +219,25 @@ public class LogoutHandler extends SecurityContextLogoutHandler {
 
     private final ClientRegistrationRepository clientRegistrationRepository;
 
+    /**
+     * Create a new instance with a {@code ClientRegistrationRepository}, so that we can look up information about the
+     * configured provider to call the Auth0 logout endpoint. Called by the Spring framework.
+     *
+     * @param clientRegistrationRepository the {@code ClientRegistrationRepository} for this application.
+     */
+    @Autowired
     public LogoutHandler(ClientRegistrationRepository clientRegistrationRepository) {
         this.clientRegistrationRepository = clientRegistrationRepository;
     }
 
+    /**
+     * Delegates to {@linkplain SecurityContextLogoutHandler} to log the user out of the application, and then logs
+     * the user out of Auth0.
+     *
+     * @param httpServletRequest the request.
+     * @param httpServletResponse the response.
+     * @param authentication the current authentication.
+     */
     @Override
     public void logout(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse,
                        Authentication authentication) {
@@ -226,14 +245,18 @@ public class LogoutHandler extends SecurityContextLogoutHandler {
         // Invalidate the session and clear the security context
         super.logout(httpServletRequest, httpServletResponse, authentication);
 
-        // Log user out of Auth0 and redirect them to the application's home page
+        // Build the URL to log the user out of Auth0 and redirect them to the home page.
+        // URL will look like https://YOUR-DOMAIN/v2/logout?clientId=YOUR-CLIENT-ID&returnTo=http://localhost:3000
+        String issuer = (String) getClientRegistration().getProviderDetails().getConfigurationMetadata().get("issuer");
+        String clientId = getClientRegistration().getClientId();
         String returnTo = ServletUriComponentsBuilder.fromCurrentContextPath().build().toString();
-        String logoutUrl = String.format(
-                "%sv2/logout?client_id=%s&returnTo=%s",
-                getClientRegistration().getProviderDetails().getConfigurationMetadata().get("issuer"),
-                getClientRegistration().getClientId(),
-                returnTo
-        );
+
+        String logoutUrl = UriComponentsBuilder
+                .fromHttpUrl(issuer + "v2/logout?client_id={clientId}&returnTo={returnTo}")
+                .encode()
+                .buildAndExpand(clientId, returnTo)
+                .toUriString();
+
         try {
             httpServletResponse.sendRedirect(logoutUrl);
         } catch (IOException ioe) {
