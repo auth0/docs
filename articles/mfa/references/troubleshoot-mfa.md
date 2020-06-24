@@ -32,25 +32,19 @@ When logging in via MFA, there is a five-minute maximum between providing your f
 
 If more than five minutes has elapsed, you will need to log in again and obtain a new code or notification.
 
-If you are requesting SMS messages, make sure you are not [exceeding rate limits](#sms-rate-limits).
+If you are requesting SMS or Voice messages, make sure you are not [exceeding rate limits](#sms-rate-limits).
 
 ### If you need to remove or delete MFA from a user in your tenant
 
 If you need to remove, delete, or reset MFA for a user, you should [reset MFA](/mfa/guides/reset-user-mfa).
 
-## SMS-related issues
-
-### If you did not receive an SMS message
-
-If you did not receive your six-digit code via SMS, check that the phone number you provided is correct. If it is, make sure you have a cellular signal.
-
-If you still are not receiving the messages, check with your service provider to confirm that messages are not getting blocked.
+## Phone messaging-related issues
 
 ### SMS message rate limits
 
-If you attempt to send more than ten SMS messages to your device within one hour, you will see an error message about a rate limit exception.
+If a user attempts to send more than ten SMS or Voice messages within one hour, they will see an error message saying so.
 
-When you exceed your messaging limit, you'll need to wait at least an hour after your request for your first message before requesting another. You will receive an additional attempt after the passage of each additional hour.
+When they exceed your messaging limit, they'll need to wait at least an hour after they sent the first message before sending another. They will receive an additional attempt after the passage of each additional hour.
 
 ## Rejected Codes
 

@@ -183,7 +183,7 @@ The following [JSON schema](http://json-schema.org) describes valid users:
                         "value": {
                             "type": "string",
                             "pattern": "^\\+[0-9]{1,15}$",
-                            "description": "The phone number for SMS MFA. The phone number should include a country code and begin with +, such as: +12125550001"
+                            "description": "The phone number for SMS or Voice MFA. The phone number should include a country code and begin with +, such as: +12125550001"
                         },
                         },
                         "additionalProperties": false,
@@ -404,7 +404,7 @@ The `user.mfa_factors` array contains [MFA enrollments](/mfa) for the user. Impo
 | `email` | object | &nbsp; |
 | `email.value` | string | The email address for MFA. |
 | `phone` | object | &nbsp; |
-| `phone.value` | string | The phone number for SMS MFA. Must have a country code and begin with `+`, such as: `"+12125550001"` |
+| `phone.value` | string | The phone number for SMS or Voice MFA. Must have a country code and begin with `+`, such as: `"+12125550001"` |
 | `totp` | object | &nbsp; |
 | `totp.secret` | string | The OTP secret for MFA authentication with authenticator apps (Google Authenticator, Microsoft Authenticator, Authy, 1Password, LastPass). Must be in un-padded Base32 encoding, for example: `"JBTWY3DPEHPK3PNP"` |
 
@@ -537,7 +537,7 @@ Some example users with hashes provided:
 
 As you might expect, the `user.mfa_factors` array allows you to provide the user's [MFA enrollments](/mfa). The supported enrollment types are:
 
-* Phone: Used for sms-based verification.
+* Phone: Used for sms or voice-based verification.
 * TOTP: OTP secret for use with MFA type apps (Google Authenticator, Microsoft Authenticator, Authy, 1Password, LastPass).
 * Email: Used for email-based verification.
 

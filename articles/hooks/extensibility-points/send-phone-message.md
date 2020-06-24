@@ -1,13 +1,14 @@
 ---
 title: Send Phone Message
-description: Learn how to provide your own code to send SMS messages for MFA
+description: Learn how to provide your own code to send phone messages for MFA
 toc: true
 topics:
     - hooks
     - extensibility-points
     - send-phone-message
-    - custom-sms-gateway
+    - custom-messaging-gateway
     - sms
+    - voice
 contentType:
   - how-to
 useCase: extensibility-hooks
@@ -15,9 +16,9 @@ v2: true
 ---
 # Send Phone Message
 
-If you decide to use SMS as a factor for <dfn data-key="multifactor-authentication">Multi-factor Authentication (MFA)</dfn>, you can configure how you want Auth0 to send the messages in the [SMS configuration dialog](/mfa/guides/configure-sms#administrative-setup).
+If you decide to use SMS or Voice as a factor for <dfn data-key="multifactor-authentication">Multi-factor Authentication (MFA)</dfn>, you can configure how you want Auth0 to send the messages in the [MFA Phone configuration dialog](/mfa/guides/configure-phone#administrative-setup).
 
-If you select the 'Custom' SMS delivery method, you must create a **Send Phone Message Hook** that will let you write your own code to send the message. This allows you to use whatever SMS provider you want.
+If you select the 'Custom' delivery method, you must create a **Send Phone Message Hook** that will let you write your own code to send the message. This allows you to use whatever messaging provider you want.
 
 Hooks at this extensibility point are blocking (synchronous), which means they execute as part of the trigger's process and will prevent the rest of the Auth0 pipeline from running until the Hook is complete.
 
@@ -119,16 +120,19 @@ The `context.language` parameter will always have one of the [languages configur
 
 - If you use the Classic Universal Login Experience, we will set the language to 'N/A'. This is a limitation that will be fixed in upcoming releases.
 
-## Keep reading
+## Examples
 
-::: next-steps
-- [Configure a Custom SMS Provider for MFA using Amazon SNS](/mfa/send-phone-message-hook-amazon-sns)
-- [Configure a Custom SMS Provider for MFA using Twilio](/mfa/send-phone-message-hook-twilio)
-- [Configure a Custom SMS Provider for MFA using Infobip](/mfa/send-phone-message-hook-infobip)
-- [Configure a Custom SMS Provider for MFA using TeleSign](/mfa/send-phone-message-hook-telesign)
-- [Configure a Custom SMS Provider for MFA using Vonage](/mfa/send-phone-message-hook-vonage)
-- [Configure a Custom SMS Provider for MFA using Esendex](/mfa/send-phone-message-hook-esendex)
-- [Configure a Custom SMS Provider for MFA using Mitto](/mfa/send-phone-message-hook-mitto)
-- [Configure SMS Notifications for MFA](/mfa/guides/configure-sms)
+Learn how to integrate different messaging providers with the examples below:
+
+* [Amazon SNS](/mfa/send-phone-message-hook-amazon-sns)
+* [Twilio](/mfa/send-phone-message-hook-twilio)
+* [Infobip](/mfa/send-phone-message-hook-infobip)
+* [TeleSign](/mfa/send-phone-message-hook-telesign)
+* [Vonage](/mfa/send-phone-message-hook-vonage)
+* [Esendex](/mfa/send-phone-message-hook-esendex)
+* [Mitto](/mfa/send-phone-message-hook-mitto)
+
+## Keep Reading
+
+- [Configure SMS or Voice Notifications for MFA](/mfa/guides/configure-phone)
 - [Extensibility Points](/hooks/extensibility-points)
-:::

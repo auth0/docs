@@ -5,7 +5,6 @@ topics:
   - mfa
   - mfa-api
   - mfa-authenticators
-  - sms
 contentType:
   - how-to
   - reference

@@ -303,10 +303,10 @@ articles:
                 url: /mfa/guides/guardian/create-enrollment-ticket
                 hidden: true
 
-              - title: Customize SMS Messages
-                url: /mfa/guides/guardian/customize-sms-messages
-                hidden: true
-
+              - title: Customize SMS or Voice Messages
+                url: /mfa/guides/customize-phone-messages
+                hidden: true 
+                
               - title: Install Guardian SDK
                 url: /mfa/guides/guardian/install-guardian-sdk
                 hidden: true

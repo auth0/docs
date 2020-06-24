@@ -67,7 +67,7 @@ For more information and steps to follow, see [Breached Password Detection](/ano
 
 With multi-factor authentication (MFA), you can add an additional layer of security to your applications. It is a method of verifying a user's identity by asking them to present more than one piece of identifying information.
 
-We support MFA using push notifications, SMS, one-time password authentication services, and custom providers. You can enable MFA for specific users or specific actions (for example, access screens with sensitive data). You can also define the conditions that will trigger additional authentication challenges, such as changes in geographic location or logins from unrecognized devices.
+We support MFA using push notifications, SMS, Voice, one-time password authentication services, and custom providers. You can enable MFA for specific users or specific actions (for example, access to screens with sensitive data). You can also define the conditions that will trigger additional authentication challenges, such as changes in geographic location or logins from unrecognized devices.
 
 To review all available options and their features, and get implementation details for the one that suits your needs, see [Multi-factor Authentication in Auth0](/mfa).
 

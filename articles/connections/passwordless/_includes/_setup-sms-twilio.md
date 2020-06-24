@@ -20,7 +20,7 @@ To learn how to find your Twilio SID and Auth Token, see Twilio docs: [How to cr
 2. Select your **SMS Source** and depending on your selection, enter either your **Twilio Messaging Service SID** or a **From** phone number. Users will see what you enter as the sender of the SMS.
 
 ::: note
-To learn about using Twilio Copilot, see Twilio docs: [Sending Messages with Copilot](https://www.twilio.com/docs/api/rest/sending-messages-copilot).
+To learn about using Twilio Messaging Services, see Twilio docs: [Sending Messages with Messaging Services](https://www.twilio.com/docs/sms/services/services-send-messages).
 :::
 
 ### Configure a custom SMS gateway

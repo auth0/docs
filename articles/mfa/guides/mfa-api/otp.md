@@ -216,6 +216,6 @@ The user will collect a one-time password, which you will then collect from them
 * [Configure One-Time Passwords for MFA](/mfa/guides/configure-otp)
 * [Managing MFA Enrollments](/mfa/guides/mfa-api/manage)
 * [Enroll and Challenge Push Authenticators](/mfa/guides/mfa-api/push)
-* [Enroll and Challenge SMS Authenticators](/mfa/guides/mfa-api/sms)
+* [Enroll and Challenge SMS or Voice Authenticators](/mfa/guides/mfa-api/phone)
 * [Enroll and Challenge Email Authenticators](/mfa/guides/mfa-api/email)
 * [Challenge a Recovery Code](/mfa/guides/mfa-api/recovery-code)

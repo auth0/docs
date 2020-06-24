@@ -39,7 +39,7 @@ The [`global`](/best-practices/rules#global-object) object can be used to cache 
 :::
 
 ### Limit calls to paid services
-If you have rules that call paid services, such as sending SMS messages via Twilio, make sure that you only use those services when necessary. This not only provides performance enhancement, but also helps to avoid extra charges. To help reduce calls to paid services:
+If you have rules that call paid services, such as sending messages via Twilio, make sure that you only use those services when necessary. This not only provides performance enhancement, but also helps to avoid extra charges. To help reduce calls to paid services:
 
 * Disallow public sign-ups to reduce the number of users who can sign up and trigger calls to paid services
 * Ensure that a rule only gets triggered for an authorized subset of users or other appropriate conditions. For example, you may want to add logic that checks if a user has a particular email domain, role/group, or subscription level before triggering the call to the paid service.

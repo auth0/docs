@@ -27,7 +27,7 @@
 <% } else if (screen === "hooks") { %>
   Here you can configure Node.js code that is executed against extensibility points (which are comparable to webhooks that come with a server). This way you can customize the behavior of Auth0 when you use Database Connections. [More info on Hooks](/hooks).
 <% } else if (screen === "mfa") { %>
-  Use this page to configure <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> for your apps. This way you can add an additional factor to conventional logins to prevent unauthorized access. You can use Push Notifications, SMS or both. [More info on MFA](/mfa).
+  Use this page to configure <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> for your apps. This way you can add an additional factor to conventional logins to prevent unauthorized access. You can use Push Notifications, SMS, Voice, etc. [More info on MFA](/mfa).
 <% } else if (screen === "emails") { %>
   Here you can configure the email templates for verification emails, welcome emails, change password emails, and more. You can also configure a custom SMTP email provider which is a requirement for production purposes. Auth0 does offer a built-in email infrastructure but it should be used for testing purposes only. [More info on emails](/email).
 <% } else if (screen === "logs") { %>

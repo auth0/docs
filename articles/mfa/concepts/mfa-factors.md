@@ -26,7 +26,11 @@ Send users push notifications to a their pre-registered devices - typically a mo
 
 ## SMS notifications
 
-[Send users a one-time code over SMS](/mfa/guides/configure-sms) which the user is then prompted to enter before they can finish authenticating.
+[Send users a one-time code over SMS](/mfa/guides/configure-phone) which the user is then prompted to enter before they can finish authenticating.
+
+## Voice notifications
+
+[Deliver users a one-time code through a voice call](/mfa/guides/configure-phone) which the user is then prompted to enter before they can finish authenticating.
 
 ## One-Time passwords
 

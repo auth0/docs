@@ -17,7 +17,7 @@ You can also customize your MFA flow with Auth0 [Rules](/rules/references/use-ca
 
 ![MFA Dashboard Page](/media/articles/mfa/mfa-dashboard.png)
 
-Any or all of these factors can be enabled simultaneously. When logging in the first time, the user will be shown the most secure factor available, but will be allowed to choose another factor to use if you have more than one factor enabled in the Dashboard. The SMS and the Duo factors require further setup. You will have to click on the factor and fill in a few further settings before continuing.
+Any or all of these factors can be enabled simultaneously. When logging in the first time, the user will be shown the most secure factor available, but will be allowed to choose another factor to use if you have more than one factor enabled in the Dashboard. The Phone messaging and the Duo factors require further setup. You will have to click on the factor and fill in a few further settings before continuing.
 
 ::: note
 Duo will only be available to end-users as a factor if it is the only factor that is enabled.
@@ -33,8 +33,8 @@ Duo will only be available to end-users as a factor if it is the only factor tha
 
 * [Configure Push Notifications for MFA](/mfa/guides/configure-push)
 * [Configure One Time Passwords for MFA](/mfa/guides/configure-otp)
-* [Configure SMS Notifications for MFA](/mfa/guides/configure-sms)
+* [Configure SMS or Voice Notifications for MFA](/mfa/guides/configure-phone)
 * [Configure Email Notifications for MFA](/mfa/guides/configure-email)
 * [Configure Cisco Duo](/mfa/guides/configure-cisco-duo)
-* [Customize SMS Messages](/mfa/guides/guardian/customize-sms-messages)
+* [Customize SMS or Voice Messages](/mfa/guides/customize-phone-messages)
 * [Customize Multi-factor Authentication](/mfa/guides/customize-mfa-universal-login)
