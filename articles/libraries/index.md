@@ -47,6 +47,9 @@ contentType:
     <i class="icon icon-budicon-715"></i><a href="https://auth0.com/docs/libraries/auth0-spa-js"> Auth0 Single Page Application SDK</a>
   </li>
   <li>
+    <i class="icon icon-budicon-715"></i><a href="https://auth0.com/docs/libraries/auth0-react"> Auth0 React SDK</a>
+  </li>
+  <li>
     <i class="icon icon-budicon-715"></i><a href="https://auth0.com/docs/libraries/auth0js"> Auth0.js</a>
   </li>
   <li>

@@ -2135,6 +2135,9 @@ libraries:
       - title: "Migrate from auth0.js"
         url: /libraries/auth0-spa-js/migrate-from-auth0js
 
+  - title: "Auth0 React SDK"
+    url: "/libraries/auth0-react"
+
   - title: "Lock for Web"
     url: "/libraries/lock/v11"
     children:
