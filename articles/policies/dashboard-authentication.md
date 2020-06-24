@@ -44,4 +44,4 @@ This policy is effective April 4, 2016
 
 This policy may be revised when we are able to make configuration and troubleshooting visibility available on a self-service basis for other forms of authentication.
 
-Any accounts with special dashboard authentication implemented before the effective date of this policy shall be grandfathered and allowed to continue.
+Any accounts with special dashboard authentication implemented before the effective date of this policy shall be allowed to continue.
