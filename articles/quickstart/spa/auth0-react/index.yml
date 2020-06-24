@@ -25,9 +25,10 @@ snippets:
   setup: application-platforms/react/setup
   use: application-platforms/react/use
 seo_alias: react
-default_article: "01"
+default_article: "01-login"
 articles:
-  - "01"
+  - "01-login"
+  - "02-calling-an-api"
 show_steps: true
 github:
   org: auth0-samples
@@ -36,7 +37,12 @@ github:
 requirements:
   - React 16.8
 next_steps:
-  - path: 01
+  - path: 01-login
+    list:
+      - text: "Part 2: Calling an API using an access token"
+        icon: 345
+        href: "/quickstart/spa/auth0-react/02-calling-an-api"
+  - path: 02-calling-an-api
     list:
       - text: Configure other identity providers
         icon: 345

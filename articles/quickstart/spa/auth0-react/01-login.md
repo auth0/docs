@@ -8,7 +8,7 @@ topics:
   - react
   - login
 github:
-  path: 01-Login
+  path: Sample-01
 contentType: tutorial
 useCase: quickstart
 ---
