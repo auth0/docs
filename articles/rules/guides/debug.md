@@ -15,7 +15,7 @@ To debug any [Rule](/rules) you have created in Auth0, you can use `console.log`
 
 ## Try this Rule
 
-In the [Rules Editor](${manage_url}/#/rules/create)], the **TRY THIS RULE** button lets you run a Rule in isolation with mock **user** and **context** objects. Clicking **TRY** will run the Rule with those two objects as input and will display any `console.log` output.
+In the [Rules Editor](${manage_url}/#/rules/create), the **TRY THIS RULE** button lets you run a Rule in isolation with mock **user** and **context** objects. Clicking **TRY** will run the Rule with those two objects as input and will display any `console.log` output.
 
 ![Try this Rule](/media/articles/rules/try-rule.png)
 

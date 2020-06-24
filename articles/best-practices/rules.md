@@ -75,7 +75,7 @@ By default, a large list of publicly available npm modules are [supported out-of
 ::: panel Best Practice
 When using `npm` modules to access external services, [keep API requests to a minimum](/best-practices/performance#minimize-api-requests), [avoid excessive calls to paid services](/best-practices/performance#limit-calls-to-paid-services), and avoid potential security exposure by [limiting what is sent](#do-not-send-entire-context-object-to-external-services). For more information, see [Performance Best Practices](/best-practices/performance) and [Security Best Practices](/best-practices/custom-db-connections/security).
 
-When requiring a module in a rule, if the version is not specified, the package manager uses the first version it finds on the internal list. Only specify a version if that package contains specific logic needed in the rule. 
+When requiring a module in a rule, if the version is not specified, the package manager uses the first version it finds on the internal list. A version may be specified to force the package manager to use a non-default version. This allows rule code to take advantage of fixes or features from the specified version that are not available in the default module version. 
 :::
 
 ### Environment variables

@@ -46,7 +46,7 @@ Use the following checklist to make sure your scripts achieve the results you in
 * When indicating an error condition, we recommend using the `Error` object to provide Auth0 with a clear indication of the error condition. For example, `callback(new Error(“an error message”))`.
 
 * **Set a `user_id` on the returned user profile that is consistent for the same user every time.**
-   In the migration scenario, this is important because if you set a random `user_id` in the `get_user` script and then call `forgot password` and change the password, the user will get duplicated every time they log in. In the non-migration scenario, if you set a random `user_id`, you can end up with duplicate users for every login.
+   This is important in the non-migration scenario, because if you return a different `user_id` you will end up with duplicated users.
 
 * **If using a `username`, ensure that you aren't returning the same email address for two different users in the `get_user` or `login` script.**
    Auth0 will produce an error if you do this, but it is better to catch it in the script itself. 

@@ -27,10 +27,10 @@ If you want to use the MFA API as part of an authentication flow, you can follow
 
 If you are building a user interface to manage authentication factors, you'll need to obtain a token you can use for the MFA API at any moment, not only during authentication:
 
-* If you are using [Universal Login](/universal-login), redirect to the `/authorize` endpoint, specifying the `https://${account.namespace}/mfa` audience, before using calling the MFA API.
+* If you are using [Universal Login](/universal-login), redirect to the `/authorize` endpoint, specifying the `https://${account.namespace}/mfa/` audience, before using calling the MFA API.
 * If you are using the Resource Owner Password Grant, you have two options:
-    * Ask for the `https://${account.namespace}/mfa` audience when logging-in, and use a [Refresh Token](/tokens/concepts/refresh-tokens) to refresh it later.
-    * If you need to list and delete authenticators, ask the user to [authenticate again](/mfa/guides/mfa-api/authenticate) with `/oauth/token`, specifying the `https://${account.namespace}/mfa` audience. Users will need to complete MFA before being able to list/delete the authentication factors. 
+    * Ask for the `https://${account.namespace}/mfa/` audience when logging-in, and use a [Refresh Token](/tokens/concepts/refresh-tokens) to refresh it later.
+    * If you need to list and delete authenticators, ask the user to [authenticate again](/mfa/guides/mfa-api/authenticate) with `/oauth/token`, specifying the `https://${account.namespace}/mfa/` audience. Users will need to complete MFA before being able to list/delete the authentication factors. 
     * If you only need to list authenticators, ask the user to [authenticate again](/mfa/guides/mfa-api/authenticate) using `/oauth/token`, with username/password. The endpoint will return an `mfa_required` error, and an `mfa_token` you can use to list authenticators. Users will need to provide their password to see their authenticators.
 
 When you request a token for the MFA audience, you can request the following scopes:
