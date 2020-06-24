@@ -41,8 +41,9 @@ When creating a Hook executed at the Pre-User Registration extensibility point, 
 @param {string} user.phoneNumber - user's phone number
 @param {boolean} user.phoneNumberVerified - indicates whether phone number is verified
 @param {object} context - Auth0 context info, such as connection
-@param {string} context.requestLanguage - language of the application agent
-@param {string} context.renderLanguage - language of the signup floww
+@param {string} context.renderLanguage - language of the signup flow
+@param {string} context.request.ip - ip address
+@param {string} context.request.language - language of the application agent
 @param {object} context.connection - connection info
 @param {object} context.connection.id - connection ID
 @param {object} context.connection.name - connection name
@@ -130,7 +131,10 @@ When you run a Hook based on the starter code, the response object is:
     }
   },
   "context": {
-    "requestLanguage": "en-us",
+    "request": {
+        "language": "en-us",
+        "ip": "123.123.123.123"
+    },
     "connection": {
       "id": "con_xxxxxxxxxxxxxxxx",
       "name": "Username-Password-Authentication",
