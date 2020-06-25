@@ -58,9 +58,9 @@ The following table lists the codes associated with the each log event.
 | `fui` | Failed users import | Failed to import users | [User Import/Export](/extensions/user-import-export) |
 | `fv` | Failed Verification Email | Failed to send verification email | [Verification Email](/email/custom#verification-email) |
 | `fvr` | Failed Verification Email Request | Failed to process verification email request | [Verification Email](/email/custom#verification-email) |
-| `gd_auth_failed` | OTP Auth failed | One-time password authentication failed. | [Multi-factor Authentication](/mfa) |
-| `gd_auth_rejected` | OTP Auth rejected | One-time password authentication rejected. | [Multi-factor Authentication](/mfa) |
-| `gd_auth_succeed` | OTP Auth success | One-time password authentication success. | [Multi-factor Authentication](/mfa) |
+| `gd_auth_failed` | MFA Auth failed | One-time password authentication failed. | [Multi-factor Authentication](/mfa) |
+| `gd_auth_rejected` | MFA Auth rejected | One-time password authentication rejected. | [Multi-factor Authentication](/mfa) |
+| `gd_auth_succeed` | MFA Auth success | One-time password authentication success. | [Multi-factor Authentication](/mfa) |
 | `gd_enrollment_complete` | Guardian enrollment complete | | |
 | `gd_module_switch` | Module switch | | |
 | `gd_otp_rate_limit_exceed` | Too many failures | | |
