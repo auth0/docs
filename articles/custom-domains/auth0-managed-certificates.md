@@ -60,6 +60,10 @@ If Auth0 was able to verify your domain name, you'll see a confirmation window. 
 
 <%= include('./_additional-steps') %>
 
+::: note
+If your DNS provider enables a proxy on the CNAME record by default, it will leave the custom domain in a pending state indefinitely. You may need to check your DNS provider settings and disable the proxy.
+:::
+
 ## Keep reading
 
 * [Troubleshooting Custom Domains](/custom-domains/troubleshoot)
