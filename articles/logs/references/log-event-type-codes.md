@@ -15,7 +15,6 @@ The following table lists the codes associated with the each log event.
 
 | **Event Code** | **Event** | **Event Description** | **Additional Info** |
 | --- | --- | --- | --- |
-| `admin_update_launch` | Auth0 Update Launched | |
 | `api_limit` | Rate Limit on the Authentication API | The maximum number of requests to the Authentication API in given time has reached. | [Rate Limit Policy](/policies/rate-limits) |
 | `cls` | Code/Link Sent | <dfn data-key="passwordless">Passwordless</dfn> login code/link has been sent | [Passwordless](/connections/passwordless) |
 | `coff` | Connector Offline | AD/LDAP Connector is offline | [Active Directory/LDAP Connector](/connector) |
@@ -108,12 +107,20 @@ The following table lists the codes associated with the each log event.
 | `sui` | Success users import | Successfully imported users | [User Import/Export](/extensions/user-import-export) |
 | `sv` | Success Verification Email | | |
 | `svr` | Success Verification Email Request | | |
+| `ublkdu` | User login block released | User block setup by anomaly detection has been released | |
+| `w` | Warnings During Login | | |
+
+# PSaaS Only
+
+These events are only generated in the [Managed Private Cloud](https://auth0.com/docs/private-cloud/managed-private-cloud) deployment model of Auth0.
+
+| **Event Code** | **Event** | **Event Description** | **Additional Info** |
+| --- | --- | --- | --- |
+| `admin_update_launch` | Auth0 Update Launched | |
 | `sys_os_update_end` | Auth0 OS Update Ended | | |
 | `sys_os_update_start` | Auth0 OS Update Started | | |
 | `sys_update_end` | Auth0 Update Ended | | |
 | `sys_update_start` | Auth0 Update Started | | |
-| `ublkdu` | User login block released | User block setup by anomaly detection has been released | |
-| `w` | Warnings During Login | | |
 
 ## Keep reading
 
