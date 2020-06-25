@@ -34,9 +34,7 @@ Before you can use the domain with Auth0, you'll need to verify that you own it.
   It may take a few minutes before Auth0 is able to verify your CNAME record, depending on your DNS settings. If Auth0 was able to verify your domain name, you'll see a confirmation window. This means the verification process is complete and within 1 to 2 minutes, your custom domain should be ready to use.
 
 ::: panel Add the CNAME verification record to your domain's DNS record
-Once added, the CNAME record must be present at all times to avoid issues during certificate renewal.
-
-The following steps may vary for your domain host provider.
+Once added, the CNAME record must be present at all times to avoid issues during certificate renewal. If your DNS provider enables a proxy on the CNAME record by default, it will leave the custom domain in a pending state indefinitely. You may need to check your DNS provider settings and disable the proxy. The following steps may vary for your domain host provider.
 
 1. Log in to your domain management service.
 
@@ -59,10 +57,6 @@ If Auth0 was able to verify your domain name, you'll see a confirmation window. 
 <%= include('./_warning-repeat-steps') %>
 
 <%= include('./_additional-steps') %>
-
-::: note
-If your DNS provider enables a proxy on the CNAME record by default, it will leave the custom domain in a pending state indefinitely. You may need to check your DNS provider settings and disable the proxy.
-:::
 
 ## Keep reading
 
