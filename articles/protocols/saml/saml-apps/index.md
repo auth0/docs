@@ -23,6 +23,7 @@ useCase:
 ## SAML Configuration Tutorials
 
 <%= include('../../../_includes/_topic-links', { links: [
+  'protocols/saml/saml-apps/atlassian',
   'protocols/saml/saml-apps/cisco-webex',
   'protocols/saml/saml-apps/datadog',
   'protocols/saml/saml-apps/egencia',
