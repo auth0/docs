@@ -43,8 +43,8 @@ ReactDOM.render(
     domain="${account.namespace}"
     clientId="${account.clientId}"
     redirectUri={window.location.origin}
-    audience={"https://${account.namespace}/api/v2/"}
-    scope={"read:current_user update:current_user_metadata"}
+    audience="https://${account.namespace}/api/v2/"
+    scope="read:current_user update:current_user_metadata"
   >
     <App />
   </Auth0Provider>,
