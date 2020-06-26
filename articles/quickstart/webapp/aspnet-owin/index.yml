@@ -29,7 +29,7 @@ github:
   branch: master
 requirements:
   - Microsoft Visual Studio 2017
-  - Microsoft.Owin.Security.OpenIdConnect v4.0.0 and up
+  - Microsoft.Owin.Security.OpenIdConnect v4.1.0 and up
 next_steps:
   - path: 03-authorization
     list:
