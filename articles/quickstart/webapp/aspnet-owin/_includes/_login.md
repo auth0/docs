@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD002 MD041 -->
+
 ## Configure your application to use Auth0
 
 [Universal Login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features. This guide will use it to provide a way for your users to log in to your ASP.NET MVC 5 application.
@@ -18,16 +20,29 @@ The easiest way to enable authentication with Auth0 in your ASP.NET MVC applicat
 Install-Package Microsoft.Owin.Security.OpenIdConnect
 ```
 
-There is a bug in Microsoft's OWIN implementation for System.Web, which can cause cookies to disappear on some occasions. To work around this issue, you will also need to install the `Kentor.OwinCookieSaver` NuGet package:
+You must also install the following middleware library to enable cookie authentication in your project:
 
 ```bash
-Install-Package Kentor.OwinCookieSaver
+Install-Package Microsoft.Owin.Security.Cookies
 ```
 
-Now go to the `Configuration` method of your `Startup` class and configure the cookie middleware as well as the Auth0 middleware. Also, be sure to register the [Kentor OWIN Cookie saver middleware](https://github.com/KentorIT/owin-cookie-saver) which must be added *before* any cookie handling middleware.
+:::note
+There are issues when configuring the OWIN cookie middleware and System.Web cookies at the same time. Please read about the [System.Web cookie integration issues doc](https://github.com/aspnet/AspNetKatana/wiki/System.Web-response-cookie-integration-issues) to learn about how to mitigate these problems
+:::
+
+Now go to the `Configuration` method of your `Startup` class and configure the cookie middleware as well as the Auth0 middleware.
 
 ```cs
 // Startup.cs
+using Microsoft.IdentityModel.Protocols.OpenIdConnect;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.Owin;
+using Microsoft.Owin.Host.SystemWeb;
+using Microsoft.Owin.Security;
+using Microsoft.Owin.Security.Cookies;
+using Microsoft.Owin.Security.OpenIdConnect;
+using MvcApplication.Support;
+using Owin;
 
 public void Configuration(IAppBuilder app)
 {
@@ -38,15 +53,17 @@ public void Configuration(IAppBuilder app)
     string auth0RedirectUri = ConfigurationManager.AppSettings["auth0:RedirectUri"];
     string auth0PostLogoutRedirectUri = ConfigurationManager.AppSettings["auth0:PostLogoutRedirectUri"];
 
-    // Enable the Cookie saver middleware to work around a bug in the OWIN implementation
-    app.UseKentorOwinCookieSaver();
-
     // Set Cookies as default authentication type
     app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
     app.UseCookieAuthentication(new CookieAuthenticationOptions
     {
         AuthenticationType = CookieAuthenticationDefaults.AuthenticationType,
-        LoginPath = new PathString("/Account/Login")
+        LoginPath = new PathString("/Account/Login"),
+
+        // Configure SameSite as needed for your app. Lax works well for most scenarios here but
+        // you may want to set SameSiteMode.None for HTTPS
+        CookieSameSite = SameSiteMode.Lax,
+        CookieSecure = CookieSecureOption.SameAsRequest
     });
 
     // Configure Auth0 authentication
@@ -100,7 +117,7 @@ public void Configuration(IAppBuilder app)
 }
 ```
 
-It is essential that you register both the Kentor Cookie Saver middleware, the cookie middleware, and the OpenID Connect middleware as all of them are required (in that order) for the authentication to work. The OpenID Connect middleware will handle the authentication with Auth0. Once the user has authenticated, their identity will be stored in the cookie middleware.
+It is essential that you register both the cookie middleware and the OpenID Connect middleware, as they are required (in that order) for the authentication to work. The OpenID Connect middleware will handle the authentication with Auth0. Once the user has authenticated, their identity will be stored in the cookie middleware.
 
 In the code snippet above, note that the `AuthenticationType` is set to **Auth0**. This will be used in the next section to challenge the OpenID Connect middleware and start the authentication flow. Also note code in the `RedirectToIdentityProvider` notification event which constructs the correct [logout URL](/logout).
 
