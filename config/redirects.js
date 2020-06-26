@@ -259,6 +259,14 @@ module.exports = [
     from: '/quickstart/spa/auth0-react',
     to: '/quickstart/spa/react'
   },
+  {
+    from: '/quickstart/spa/auth0-react/01',
+    to: '/quickstart/spa/react'
+  },
+  {
+    from: '/quickstart/spa/auth0-react/02',
+    to: '/quickstart/spa/react/02-calling-an-api'
+  },
 
   /* --- Renamed quickstart articles --- */
 
