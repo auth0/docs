@@ -138,7 +138,7 @@ Adding a database connection:
 
 ```swift
 .withConnections {
-    connections.database(name: "Username-Password-Authentication", requiresUsername: true)
+    $0.database(name: "Username-Password-Authentication", requiresUsername: true)
 }
 ```
 
@@ -146,8 +146,8 @@ Adding multiple social connections:
 
 ```swift
 .withConnections {
-    connections.social(name: "facebook", style: .Facebook)
-    connections.social(name: "google-oauth2", style: .Google)
+    $0.social(name: "facebook", style: .Facebook)
+    $0.social(name: "google-oauth2", style: .Google)
 }
 ```
 
