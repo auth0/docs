@@ -28,9 +28,9 @@ In this section you will configure Auth0 to serve as an Identity Provider. You w
 1. Go back to [Dashboard > Applications](${manage_url}/#/applications).
 1. Find the row for the application you just created, and click on the **Settings** icon to the right of the application name. (the round gear icon)
 1. Scroll down and click on the **Advanced Settings** link.
-1. In the expanded window, scroll down to the **CERTIFICATES** section and click on the **DOWNLOAD CERTIFICATES** button.  In the popup which appears, select `PEM` to select a PEM-formatted certificate.  The certificate will be downloaded to a file called `${account.tenant}.pem`.  Save this file as you will need to upload it when you configure the Service Provider.
+1. In the expanded window, select the **Certificates** tab and click on the **DOWNLOAD CERTIFICATE** button.  In the popup which appears, select `PEM` to select a PEM-formatted certificate.  The certificate will be downloaded to a file called `${account.tenant}.pem`.  Save this file as you will need to upload it when you configure the Service Provider.
     ![Download Certificate](/media/articles/saml/saml-idp-generic/saml-idp-generic1.png)
-1. Scroll down further to the **ENDPOINTS** section and click on **SAML**.  Copy the contents of the **SAML Protocol URL** field and save it as you will need to provide it to the Service Provider.
+1. Select the **Endpoints** tab and scroll down to **SAML**.  Copy the contents of the **SAML Protocol URL** field and save it as you will need to provide it to the Service Provider.
     ![SAML Protocol URL](/media/articles/saml/saml-idp-generic/saml-idp-generic2.png)
 1. Scroll back up and click on the **Addons** tab.  Then click on **SAML2 WEB APP**.
     ![SAML2 WEB APP](/media/articles/saml/saml-idp-generic/saml-idp-generic3.png)
