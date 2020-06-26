@@ -48,7 +48,7 @@ const checkJwt = jwt({
 
   audience: authConfig.audience,
   issuer: `https://<%= "${authConfig.domain}" %>/`,
-  algorithm: ["RS256"]
+  algorithms: ["RS256"]
 });
 
 // Define an endpoint that must be called with an access token

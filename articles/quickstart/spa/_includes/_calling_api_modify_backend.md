@@ -50,7 +50,7 @@ const checkJwt = jwt({
   // Modify the audience to include both the client ID and the audience from configuration in an array
   audience: [authConfig.clientID, authConfig.audience],
   issuer: `https://<%= "${authConfig.domain}" %>/`,
-  algorithm: ["RS256"]
+  algorithms: ["RS256"]
 });
 ```
 

@@ -61,7 +61,7 @@ const checkJwt = jwt({
 
   audience: authConfig.audience,
   issuer: `https://<%= "${authConfig.domain}" %>/`,
-  algorithm: ["RS256"]
+  algorithms: ["RS256"]
 });
 ```
 
@@ -147,7 +147,7 @@ const checkJwt = jwt({
 
   audience: authConfig.audience,
   issuer: `https://<%= "${authConfig.domain}" %>/`,
-  algorithm: ["RS256"]
+  algorithms: ["RS256"]
 });
 
 // Create an endpoint that uses the above middleware to

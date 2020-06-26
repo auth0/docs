@@ -221,7 +221,8 @@ var displayName = require('./routes/displayName');
 
 var authenticate = jwt({
   secret: process.env.AUTH0_CLIENT_SECRET,
-  audience: process.env.AUTH0_CLIENT_ID
+  audience: process.env.AUTH0_CLIENT_ID,
+  algorithms: ['RS256']
 });
 
 app.use('/genres', authenticate, genres);

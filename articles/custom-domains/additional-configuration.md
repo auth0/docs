@@ -139,6 +139,7 @@ If you use Auth0 with a custom domain to issue Access Tokens for your APIs, you 
 ```js
 app.use(jwt({ 
   issuer: 'https://<YOUR-CUSTOM-DOMAIN>',
+  algorithms: ["RS256"],
   //code omitted for brevity
 }));
 ```
