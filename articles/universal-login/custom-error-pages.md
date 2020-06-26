@@ -68,6 +68,13 @@ If you use the API instead, use the `PATCH /api/v2/tenants/settings` endpoint. U
     "comment" : ""
 }
 ```
+The following parameters are appended to the `url` as query string to include the error information. Note that the parameters presented in the `url` vary depending on the error type.
+* `client_id`
+* `connection`
+* `lang`
+* `error`
+* `error_description`
+* `tracking`
 
 ### Render a custom error page
 
