@@ -132,7 +132,7 @@ The first screen to present to the user. The default is `.Login`, other options 
 
 ```swift
 .withOptions {
-  $0.initialScreen = .Login
+  $0.initialScreen = .login
 }
 ```
 
