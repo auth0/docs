@@ -255,6 +255,10 @@ module.exports = [
     from: '/quickstart/native/react-native-android',
     to: '/quickstart/native/react-native'
   },
+  {
+    from: '/quickstart/spa/auth0-react',
+    to: '/quickstart/spa/react'
+  },
 
   /* --- Renamed quickstart articles --- */
 
