@@ -20,7 +20,7 @@
         },
         {
           "name": "client_id",
-          "value": "${account.clientId}"
+          "value": "YOUR_CLIENT_ID"
         },
         {
           "name": "client_secret",
