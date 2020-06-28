@@ -28,7 +28,7 @@ If you followed the [previous section where you added user log in to React](/qui
 
 ## Set Up the Auth0 Service
 
-The `Auth0Provider` setup is similar to the one discussed in the [Configure the `Auth0Provider` component](/quickstart/spa/auth0-react#configure-the-auth0provider-component) section: you wrap your root component with `Auth0Provider` to which you pass the `domain` and `clientId` props. The values of these two props come from the ["Settings" values](http://localhost:3000/docs/quickstart/spa/auth0-react/01-login) of the single-page application you've registered with Auth0.
+The `Auth0Provider` setup is similar to the one discussed in the [Configure the `Auth0Provider` component](/quickstart/spa/auth0-react#configure-the-auth0provider-component) section: you wrap your root component with `Auth0Provider` to which you pass the `domain` and `clientId` props. The values of these two props come from the ["Settings" values](https://auth0.com/docs/quickstart/spa/react#configure-auth0) of the single-page application you've registered with Auth0.
 
 However, your React application needs to pass an access token when it calls a target API to access private resources. You can [request an access token](https://auth0.com/docs/tokens/guides/get-access-tokens) in a format that the API can verify by passing the `audience` and `scope` props to `Auth0Provider` as follows:
 
