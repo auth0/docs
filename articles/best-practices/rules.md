@@ -175,7 +175,7 @@ The [`context`](/rules/references/context-object) object provides information ab
               .
           })
           .catch(function (error) {
-            return callback(new UnauthorizedError(“unauthorized”), user, context);
+            return callback(new UnauthorizedError("unauthorized"), user, context);
           });
         } break;
 
@@ -340,7 +340,7 @@ if( _.findIndex(connection.options.domain_aliases, function(d){
 
 the code (above) would return `true` given emails such as:
 * `user.domain.com@not-domain.com`
-* `“user@domain.com”@not-domain.com` (quotes included)
+* `"user@domain.com"@not-domain.com` (quotes included)
 
 which may not be as desired. Instead, prefer to perform exact matches using code such as:
 
