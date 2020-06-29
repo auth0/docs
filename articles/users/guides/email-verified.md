@@ -68,3 +68,4 @@ As a general recommendation, **you should not use the email's domain to make aut
 * [Account Link Extension](/extensions/account-link)
 * [User Initiated Account Linking - Client-Side Implementation](/users/references/link-accounts-client-side-scenario)
 * [Suggested Account Linking - Server-Side Implementation](/users/references/link-accounts-server-side-scenario)
+* [Email Verification for Azure AD and ADFS connections](/connections/azuread-adfs-email-verification)
