@@ -15,7 +15,6 @@ The following table lists the codes associated with the each log event.
 
 | **Event Code** | **Event** | **Event Description** | **Additional Info** |
 | --- | --- | --- | --- |
-| `admin_update_launch` | Auth0 Update Launched | |
 | `api_limit` | Rate Limit on the Authentication API | The maximum number of requests to the Authentication API in given time has reached. | [Rate Limit Policy](/policies/rate-limits) |
 | `cls` | Code/Link Sent | <dfn data-key="passwordless">Passwordless</dfn> login code/link has been sent | [Passwordless](/connections/passwordless) |
 | `coff` | Connector Offline | AD/LDAP Connector is offline | [Active Directory/LDAP Connector](/connector) |
@@ -58,26 +57,24 @@ The following table lists the codes associated with the each log event.
 | `fui` | Failed users import | Failed to import users | [User Import/Export](/extensions/user-import-export) |
 | `fv` | Failed Verification Email | Failed to send verification email | [Verification Email](/email/custom#verification-email) |
 | `fvr` | Failed Verification Email Request | Failed to process verification email request | [Verification Email](/email/custom#verification-email) |
-| `gd_auth_failed` | OTP Auth failed | One-time password authentication failed. | [Multi-factor Authentication](/mfa) |
-| `gd_auth_rejected` | OTP Auth rejected | One-time password authentication rejected. | [Multi-factor Authentication](/mfa) |
-| `gd_auth_succeed` | OTP Auth success | One-time password authentication success. | [Multi-factor Authentication](/mfa) |
-| `gd_enrollment_complete` | Guardian enrollment complete | | |
-| `gd_module_switch` | Module switch | | |
-| `gd_otp_rate_limit_exceed` | Too many failures | | |
-| `gd_recovery_failed` | Recovery failed | Multi-factor recovery code failed. | [Multi-factor Authentication](/mfa) |
-| `gd_recovery_rate_limit_exceed` | Too many failures | Multi-factor recovery code has failed too many times. | [Multi-factor Authentication](/mfa) |
-| `gd_recovery_succeed` | Recovery success | Multi-factor recovery code succeeded authorization. | [Multi-factor Authentication](/mfa) |
+| `gd_auth_failed` | MFA Auth failed | Multi-factor authentication failed. This could happen due to a wrong code entered for SMS/Voice/Email/TOTP factors, or a system failure.  | [Multi-factor Authentication](/mfa) |
+| `gd_auth_rejected` | MFA Auth rejected | A user rejected a Multi-factor authentication request via push-notification. | [Multi-factor Authentication](/mfa) |
+| `gd_auth_succeed` | MFA Auth success | Multi-factor authentication success. | [Multi-factor Authentication](/mfa) |
+| `gd_enrollment_complete` | MFA enrollment complete | A first time MFA user has successfully enrolled using one of the factors.| |
+| `gd_otp_rate_limit_exceed` | Too many failures | A user, during enrollment or authentication, enters an incorrect code more than the maximum allowed number of times. Ex: A user enrolling in SMS enters the 6-digit code wrong more than 10 times in a row.| |
+| `gd_recovery_failed` | Recovery failed | A user enters a wrong recovery code when attempting to authenticate. | [Multi-factor Authentication](/mfa) |
+| `gd_recovery_rate_limit_exceed` | Too many failures | A user enters a wrong recovery code too many times. | [Multi-factor Authentication](/mfa) |
+| `gd_recovery_succeed` | Recovery success | A user successfully authenticates with a recovery code. | [Multi-factor Authentication](/mfa) |
 | `gd_send_pn` | Push notification sent | Push notification for MFA sent successfully sent. | [MFA with Push Notifications](/mfa/concepts/mfa-factors#push-notifications) |
-| `gd_send_sms` | SMS sent | SMS for MFA sent successfully. | [Using SMS for MFA](/mfa/concepts/mfa-factors#sms-notifications) |
-| `gd_send_sms_failure` | SMS sent failures | SMS for MFA sent failed. | [Using SMS for MFA](/mfa/concepts/mfa-factors#sms-notifications) |
-| `gd_send_voice` | Voice call made | Voice call for MFA made successfully. | [Using Voice for MFA](/mfa/concepts/mfa-factors#voice-notifications) |
-| `gd_send_voice_failure` | Voice call failure | Voice call for MFA failed. | [Using Voice for MFA](/mfa/concepts/mfa-factors#voice-notifications) |
+| `gd_send_sms` | SMS sent | SMS for MFA successfully sent. | [Using SMS for MFA](/mfa/concepts/mfa-factors#sms-notifications) |
+| `gd_send_sms_failure` | SMS sent failures | Attempt to send SMS for MFA failed. | [Using SMS for MFA](/mfa/concepts/mfa-factors#sms-notifications) |
+| `gd_send_voice` | Voice call made | Voice call for MFA successfully made. | [Using Voice for MFA](/mfa/concepts/mfa-factors#voice-notifications) |
+| `gd_send_voice_failure` | Voice call failure | Attempt to make Voice call for MFA failed. | [Using Voice for MFA](/mfa/concepts/mfa-factors#voice-notifications) |
 | `gd_start_auth` | Second factor started | Second factor authentication event started for MFA. | [Multi-factor Authentication](/mfa) |
 | `gd_start_enroll` | Enroll started | Multi-factor authentication enroll has started. | [Multi-factor Authentication](/mfa) |
 | `gd_tenant_update` | Guardian tenant update | | [Hosted MFA Page](/universal-login/multifactor-authentication) |
 | `gd_unenroll` | Unenroll device account | Device used for second factor authentication has been unenrolled. | [Multi-factor Authentication](/mfa) |
 | `gd_update_device_account` | Update device account | Device used for second factor authentication has been updated. | [Multi-factor Authentication](/mfa) |
-| `gd_user_delete` | User delete | Deleted multi-factor user account. | [User Profile](/users/concepts/overview-user-profile) |
 | `limit_delegation` | Too Many Calls to /delegation | Rate limit exceeded to `/delegation` endpoint | [API Rate Limit Policy](/policies/rate-limits) |
 | `limit_mu` | Blocked IP Address | An IP address is blocked with 100 failed login attempts using different usernames, all with incorrect passwords in 24 hours, or 50 sign-up attempts per minute from the same IP address. | [Anomaly Detection](/anomaly-detection) |
 | `limit_wc` | Blocked Account | An IP address is blocked with 10 failed login attempts into a single account from the same IP address. | [Anomaly Detection](/anomaly-detection) |
@@ -108,12 +105,20 @@ The following table lists the codes associated with the each log event.
 | `sui` | Success users import | Successfully imported users | [User Import/Export](/extensions/user-import-export) |
 | `sv` | Success Verification Email | | |
 | `svr` | Success Verification Email Request | | |
+| `ublkdu` | User login block released | User block setup by anomaly detection has been released | |
+| `w` | Warnings During Login | | |
+
+# Managed Private Cloud Only
+
+These events are only generated in the [Managed Private Cloud](https://auth0.com/docs/private-cloud/managed-private-cloud) deployment model of Auth0.
+
+| **Event Code** | **Event** | **Event Description** | **Additional Info** |
+| --- | --- | --- | --- |
+| `admin_update_launch` | Auth0 Update Launched | |
 | `sys_os_update_end` | Auth0 OS Update Ended | | |
 | `sys_os_update_start` | Auth0 OS Update Started | | |
 | `sys_update_end` | Auth0 Update Ended | | |
 | `sys_update_start` | Auth0 Update Started | | |
-| `ublkdu` | User login block released | User block setup by anomaly detection has been released | |
-| `w` | Warnings During Login | | |
 
 ## Keep reading
 
