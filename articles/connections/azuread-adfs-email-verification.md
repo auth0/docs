@@ -50,5 +50,5 @@ This new screen is rendered using the New Universal Login Experience, even if yo
 To learn how to customize the email that is sent to users, check the [Verification Email template documentation](/email/templatesverification-email-using-code-)
 
 :::warning
-When Azure AD does not return an `email` claim, Auth0 maps the [Azure UserPrincipalName](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/plan-connect-userprincipalname) as the email. Given there's no guarantee that the UserPrincipalName has a mailbox, Auth0 will **NOT** display the email verification prompt, the user will have `email_verified` = `false`.
+When Azure AD does not return an `email` claim, Auth0 maps the [Azure UserPrincipalName](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/plan-connect-userprincipalname) as the email. Given there is no guarantee that the UserPrincipalName is a mailbox, Auth0 will **NOT** display the email verification prompt and the user will have `email_verified` = `false`.
 :::
