@@ -39,7 +39,7 @@ When this setting is disabled, `email_verified` will always be `true` for Azure 
 
 If your application requires that the emails from Azure AD/ADFS connection's users are always verified, you can enable the **Enable email verification flow during login for Azure AD and ADFS connections** option in the tenant's Advanced Settings section.
 
-After the user authenticates for the first time, with an non-verified email, Auth0 will ask the user to verify their email by entering a one-time-use code that was sent to their email account:
+After the user authenticates for the first time with an non-verified email, Auth0 will ask the user to verify their email by entering a one-time-use code that will be sent to their email account:
 
 ![](/media/articles/connections/azuread-adfs-email-verification.png)
 
