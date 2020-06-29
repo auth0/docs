@@ -246,7 +246,8 @@ The target URL handler should be prepared to gracefully handle other possible me
 
 ### Verification Email (Using Code)
 
-Azure AD and ADFS connections support an [email verification flow](/connections/azuread-email-verification#email-verification-flow-for-azure-ad/adfs- connections) using a one-time-use code. If you enable tat feature, users will be prompted to enter the code before continuing the authentication flow.
+Azure AD and ADFS connections support an [email verification flow](/connections/azuread-email-verification#email-verification-flow-for-azure-ad/adfs- connections) using a one-time-use code. If you enable this feature, users will be prompted to enter the code before continuing the authentication flow.
+
 
 ### Welcome Email
 
