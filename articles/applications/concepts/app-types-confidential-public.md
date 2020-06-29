@@ -10,7 +10,7 @@ useCase:
 ---
 # Confidential and Public Applications
 
-According to the [OAuth 2.0 spec](https://tools.ietf.org/html/rfc6749#section-2.1), applications can be classified as either confidential or public. The main difference relates to whether or not the application is able to hold credentials (such as a client ID and secret) securely.
+According to the [OAuth 2.0 spec](https://tools.ietf.org/html/rfc6749#section-2.1), applications can be classified as either confidential or public. The main difference relates to whether or not the application is able to hold credentials (such as a client secret) securely.
 
 When you create an application using the Dashboard, Auth0 will ask you what [Auth0 application type](/applications) you want to assign to the new application and use that information to determine whether the application is confidential or public. 
 
