@@ -108,7 +108,7 @@ The following table lists the codes associated with the each log event.
 | `ublkdu` | User login block released | User block setup by anomaly detection has been released | |
 | `w` | Warnings During Login | | |
 
-# PSaaS Only
+# Managed Private Cloud Only
 
 These events are only generated in the [Managed Private Cloud](https://auth0.com/docs/private-cloud/managed-private-cloud) deployment model of Auth0.
 
