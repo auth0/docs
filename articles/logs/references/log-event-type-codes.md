@@ -57,7 +57,7 @@ The following table lists the codes associated with the each log event.
 | `fui` | Failed users import | Failed to import users | [User Import/Export](/extensions/user-import-export) |
 | `fv` | Failed Verification Email | Failed to send verification email | [Verification Email](/email/custom#verification-email) |
 | `fvr` | Failed Verification Email Request | Failed to process verification email request | [Verification Email](/email/custom#verification-email) |
-| `gd_auth_failed` | MFA Auth failed | Multi-factor authentication failed. This could happen due to a wrong code entered for SMS/Email/TOTP factors, or a system failure.  | [Multi-factor Authentication](/mfa) |
+| `gd_auth_failed` | MFA Auth failed | Multi-factor authentication failed. This could happen due to a wrong code entered for SMS/Voice/Email/TOTP factors, or a system failure.  | [Multi-factor Authentication](/mfa) |
 | `gd_auth_rejected` | MFA Auth rejected | A user rejected a Multi-factor authentication request via push-notification. | [Multi-factor Authentication](/mfa) |
 | `gd_auth_succeed` | MFA Auth success | Multi-factor authentication success. | [Multi-factor Authentication](/mfa) |
 | `gd_enrollment_complete` | MFA enrollment complete | A first time MFA user has successfully enrolled using one of the factors.| |
