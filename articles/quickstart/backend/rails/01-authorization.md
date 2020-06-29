@@ -45,7 +45,7 @@ class JsonWebToken
   def self.verify(token)
     JWT.decode(token, nil,
                true, # Verify the signature of this token
-               algorithm: 'RS256',
+               algorithms: 'RS256',
                iss: 'https://${account.namespace}/',
                verify_iss: true,
                aud: Rails.application.secrets.auth0_api_audience,
