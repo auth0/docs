@@ -18,7 +18,7 @@ Amazon EventBridge is a serverless event bus that acts as an intermediary allowi
 
 You can create an event-driven workflow using EventBridge to send your Auth0 tenant logs to the targets of your choice (e.g., AWS EC2 instances, Lambda functions, Kinesis streams, and ECS tasks).
 
-## Send events from Auth0 to AWS EventBridge
+## Send events from Auth0 to Amazon EventBridge
 
 To send Auth0 events to Amazon EventBridge, you will need:
 
@@ -40,7 +40,7 @@ Part of the integration process is to set Auth0 up for use as the event source (
 
 4. Select **Amazon EventBridge** and enter a unique name for your new Amazon EventBridge Event Stream.
 
-5. Create the AWS Event Source by providing your **AWS Account ID** and **AWS Region**. Note that the region you select must match the region in which your Amazon EventBridge resides.
+5. Create the Event Source by providing your **AWS Account ID** and **AWS Region**. Note that the region you select must match the region in which your Amazon EventBridge resides.
 
 6. Click **Save**. Auth0 provides you with an **Event Source Name**. Make sure to save your **Event Source Name** value since you will be providing it to AWS at a later point to complete the integration.
 
@@ -49,12 +49,12 @@ Go to AWS to complete the final steps of the integration.
 ## Create an event bus
 1. Go to the [Amazon EventBridge partners tab](https://console.aws.amazon.com/events/home?region=us-east-1#/partners) in your AWS account and make sure you are in the **AWS Region** where the event source was created.
 
-2. Paste the **Event Source Name** in the event source search box to find the newly created AWS Event Source and click on it to associate it with an Event Bus.
-**Note**: The AWS Event Source will remain in pending state until it gets associated with an Event Bus and all the events sent to that Event Source will be dropped.
+2. Paste the **Event Source Name** in the event source search box to find the newly created Event Source and click on it to associate it with an Event Bus.
+**Note**: The Event Source will remain in pending state until it gets associated with an Event Bus and all the events sent to that Event Source will be dropped.
 
 3. Once you click in the Event Source, click on **Associate with Event Bus**.
 
-4. Name the AWS Event Bus the same name as the AWS Event Source. At this point, you can specify permission for this Event Bus or simply associate it.
+4. Name the Event Bus the same name as the Event Source. At this point, you can specify permission for this Event Bus or simply associate it.
 
 ## Create your rules
 
@@ -62,7 +62,7 @@ At this point, the events that you send will be made available on your event bus
 
 Amazon EventBridge uses rules, which are definitions specifying how you want incoming events routed to the desired targets.
 
-Targets are the services, such as AWS EC2 instances, Lambda functions, Kinesis streams, or ECS tasks, that processes the event-driven data that it receives. The data received by targets are JSON-formatted.
+Targets are the services, such as EC2 instances, Lambda functions, Kinesis streams, or ECS tasks, that processes the event-driven data that it receives. The data received by targets are JSON-formatted.
 
 A single rule can route to one or more targets (if there are more than one, AWS processes all in parallel).
 
@@ -70,7 +70,7 @@ To create a rule:
 
 1. Go to the [EventBridge page](https://console.aws.amazon.com/events/home?region=us-east-1#/), and click **Create rule**
 
-2. Provide the name of the AWS Event Bus and specify your targets
+2. Provide the name of the Event Bus and specify your targets
 
 ## Testing
 
