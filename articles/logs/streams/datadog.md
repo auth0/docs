@@ -59,6 +59,24 @@ To send Auth0 events to Datadog, you will need:
 
 Auth0 events are delivered to your server via a streaming mechanism that sends each event as it is triggered. If your server is unable to receive the event, Auth0 will try to redeliver it up to three times. If still unsuccessful, Auth0 will log the failure to deliver, and you will be able see these failures in the Health tab for your log stream.
 
+## Enhancement to log data
+
+Some of the unique value of Datadog as a monitoring tool, and specifically when it comes to their integrations, is the data enhancement they do to make sure customers can rely on specific data fields regardless of the system they are integrating with. As part of this Log Streaming integration, Datadog has added some enhancements to our data. Here is the list of the new fields found in our logs when using the Log Streaming integration with Datadog:
+
+| Fiels | Auth0 attribute |
+|---------|-------------|
+| Official Log date | data.date |
+| data.network.ip | data.ip |
+| data.client.geoip |	data.ip (parsed) |
+| http.useragent |	data.user_agent |
+| http.useragent_details |	data.user_agent (parsed) |
+| usr.id |	data.user_name |
+| usr.name |	data.user_name |
+| usr.email |	data.details.request.auth.user.email (when available) |
+| evt.name | Event name expanded (list can be found [here](/logs/references/log-event-type-codes)) |
+| message |	Event description  (list can be found [here](/logs/references/log-event-type-codes))|
+
+
 ## More on Log Streams
 
 ::: next-steps
