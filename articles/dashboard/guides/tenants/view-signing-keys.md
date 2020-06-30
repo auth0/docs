@@ -55,7 +55,7 @@ The **List of Revoked Keys** section lists the last three revoked keys for your 
 
 ## Get all signing keys
 
-1. Make a `GET` call to the [Get All Signing Keys endpoint](/api/management/v2#!/signing_keys/get_signing_keys). Be sure to replace the `YOUR_KEY_ID` and `MGMT_API_ACCESS_TOKEN` placeholder values with your signing key's kid and Management API Access Token, respectively.
+1. Make a `GET` call to the [Get All Signing Keys endpoint](/api/management/v2#!/signing_keys/get_signing_keys). Be sure to replace the `YOUR_KEY_ID` and `MGMT_API_ACCESS_TOKEN` placeholder values with your signing key's ID and Management API Access Token, respectively.
 
 ```har
 {
@@ -73,7 +73,7 @@ The **List of Revoked Keys** section lists the last three revoked keys for your 
 
 ## Get a single signing key
 
-1. Make a `GET` call to the [Get a Signing Key endpoint](/api/management/v2#!/signing_keys/get_signing_key). Be sure to replace the `YOUR_KEY_ID` and `MGMT_API_ACCESS_TOKEN` placeholder values with your signing key's kid and Management API Access Token, respectively.
+1. Make a `GET` call to the [Get a Signing Key endpoint](/api/management/v2#!/signing_keys/get_signing_key). Be sure to replace the `YOUR_KEY_ID` and `MGMT_API_ACCESS_TOKEN` placeholder values with your signing key's ID and Management API Access Token, respectively.
 
 ```har
 {

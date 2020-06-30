@@ -73,7 +73,7 @@ Make sure you have updated your application with the new key before you revoke t
 You may only revoke the previously used signing key.
 :::
 
-1. Make a `PUT` call to the [Revoke Signing Key endpoint](/api/management/v2#!/signing_keys/post_signing_key). Be sure to replace the `YOUR_KEY_ID` and `MGMT_API_ACCESS_TOKEN` placeholder values with your signing key's kid and Management API Access Token, respectively.
+1. Make a `PUT` call to the [Revoke Signing Key endpoint](/api/management/v2#!/signing_keys/post_signing_key). Be sure to replace the `YOUR_KEY_ID` and `MGMT_API_ACCESS_TOKEN` placeholder values with your signing key's ID and Management API Access Token, respectively.
 
 ```har
 {
