@@ -6,6 +6,13 @@ seo_alias: bankid
 description: Connecting Swedish BankID with Auth0 through the Criipto Verify service
 toc: true
 crews: crew-2
+topics:
+    - connections
+    - criipto
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Log in with Swedish BankID through Auth0

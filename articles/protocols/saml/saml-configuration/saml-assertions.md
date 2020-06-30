@@ -1,10 +1,17 @@
 ---
-  description: How to customize SAML assertions
+description: How to customize SAML assertions
+topics:
+  - saml
+  - saml-assertions
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
 # Customize SAML Assertions
 
-You can customize your SAML assertions, as well as the SAML and WS-Fed protocol parameters.
+You can customize your <dfn data-key="security-assertion-markup-language">SAML</dfn> assertions, as well as the SAML and WS-Fed protocol parameters.
 
 ## Auth0 as the Identity Provider
 
@@ -12,7 +19,7 @@ To customize your SAML assertions when Auth0 acts as the identity provider, you 
 
 ### Use the Application Addon
 
-To customize your SAML assertion using the application addon, navigate to [Applications > Settings > Addons](${manage_url}/#/applications/${account.clientId}/addons). Click on **SAML2 Web App** to launch the *Settings* tab that allows you to make several types of customizations including:
+To customize your SAML assertion using the application add-on, navigate to [Applications > Settings > Addons](${manage_url}/#/applications/${account.clientId}/addons). Click on **SAML2 Web App** to launch the *Settings* tab that allows you to make several types of customizations including:
 
 * Specifying an audience other than the default issuer of the SAML request;
 * Specifying a recipient;
@@ -26,6 +33,10 @@ You can use rules to add more extensive or dynamic customizations to the SAML re
 
 Customizations done in Rules override customizations done using the Application Addons tab.
 
+::: note
+The `context.samlConfiguration.mappings` object is used to override default SAML attributes or add new attributes. The object keys are the name of the SAML attribute to override or add and the values are a string of the `user` object property to use as the attribute value.
+:::
+
 #### Example: Changing the SAML Token Lifetime and Using UPN as NameID
 
 ```js
@@ -36,7 +47,7 @@ function (user, context, callback) {
   // if available, use upn as NameID
   if (user.upn) {
     context.samlConfiguration.mappings = {
-      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "upn"
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "upn" // use user.upn as the value
     }
   }
 
@@ -49,13 +60,9 @@ function (user, context, callback) {
 ```js
 function (user, context, callback) {
   user.user_metadata = user.user_metadata || {};
-  user.user_metadata.color2 = "purple";
+  user.user_metadata.color = "purple";
   context.samlConfiguration.mappings = {
-    //Attribute already in user_metadata
-    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/color": "user_metadata.color",
-
-    //Attribute dynamically added to user_metadata above
-    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/color": "user_metadata.color",
+    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/color": "user_metadata.color", // use user.user_metadata.color as the value
   };
   callback(null, user, context);
 }
@@ -69,7 +76,7 @@ The following is a list of customization options for your SAML assertions.
 
 * **recipient** (string): The recipient of the SAML Assertion (SubjectConfirmationData). Default is `AssertionConsumerUrl` on SAMLRequest or Callback URL if no SAMLRequest was sent.
 
-* **mappings** (Array): The mappings between Auth0 profile and the output attributes on the SAML Assertion. Default mapping is shown above.
+* **mappings** (Object): The mappings between Auth0 profile and the output attributes on the SAML Assertion. Default mapping is shown above.
 
 * **createUpnClaim** (bool): Whether or not a UPN claim should be created. Default is true.
 
@@ -77,15 +84,15 @@ The following is a list of customization options for your SAML assertions.
 
 * **mapUnknownClaimsAsIs** (bool): if `passthroughClaimsWithNoMapping` is true and this is false (default), for each claim that is not mapped to the common profile Auth0 will add a prefix `http://schema.auth0.com`. If true it will passthrough the claim as-is. Default is false.
 
-* **mapIdentities**: If true, it will will add more information in the token like the provider used (google, adfs, ad, and so on) and the access_token if available. Default is true.
+* **mapIdentities**: If true, it will will add more information in the token like the provider used (google, adfs, ad, and so on) and the <dfn data-key="access-token">Access Token</dfn> if available. Default is true.
 
-* **signatureAlgorithm**: Signature algorithm to sign the SAML Assertion or response. Default is `sha1` and it could be `sha256`.
+* **signatureAlgorithm**: Signature algorithm to sign the SAML Assertion or response. Default is `rsa-sha1` and it could be `rsa-sha256`.
 
 * **digestAlgorithm**: Digest algorithm to calculate digest of the SAML Assertion or response. Default is `sha1` and it could be `sha256`.
 
 * **destination**: Destination of the SAML Response. If not specified, it will be `AssertionConsumerUrl` of SAMLRequest or Callback URL if there was no SAMLRequest.
 
-* **lifetimeInSeconds** (int): Expiration of the token. Default is 3600 seconds (1 hour).
+* **lifetimeInSeconds** (int): Expiration of the token. Default is `3600` seconds (1 hour).
 
 * **signResponse** (bool): Whether or not the SAML Response should be signed. By default the SAML Assertion will be signed, but not the SAML Response. If true, SAML Response will be signed instead of SAML Assertion.
 
@@ -93,8 +100,18 @@ The following is a list of customization options for your SAML assertions.
 
 * **nameIdentifierProbes** (Array): Auth0 will try each of the attributes of this array in order. If one of them has a value, it will use that for the Subject/NameID. The order is: http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier (mapped from user_id), http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress (mapped from email), http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name (mapped from name).
 
-* **authnContextClassRef**: Default is `urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified`.
+* **authnContextClassRef** (string): Default is `urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified`.
 
-* **typedAttributes**: Default is true. When set to true, we infer the xs:type of the element. Types are `xs:string`, `xs:boolean`, `xs:double `and `xs:anyType`. When set to false all `xs:type` are `xs:anyType`
+* **typedAttributes** (bool): Default is `true`. When set to true, we infer the xs:type of the element. Types are `xs:string`, `xs:boolean`, `xs:double `and `xs:anyType`. When set to false all `xs:type` are `xs:anyType`
 
-* **includeAttributeNameFormat**: Default is true. When set to `true`, we infer the NameFormat based on the attribute name. NameFormat values are `urn:oasis:names:tc:SAML:2.0:attrname-format:uri`, `urn:oasis:names:tc:SAML:2.0:attrname-format:basic` and `urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified`. If set to `false`, the attribute NameFormat is not set in the assertion
+* **includeAttributeNameFormat** (bool): Default is `true`. When set to `true`, we infer the NameFormat based on the attribute name. NameFormat values are `urn:oasis:names:tc:SAML:2.0:attrname-format:uri`, `urn:oasis:names:tc:SAML:2.0:attrname-format:basic` and `urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified`. If set to `false`, the attribute NameFormat is not set in the assertion.
+
+* **logout** (object): An object that controls SAML logout. It can contain two properties:`callback` (of type `string`), that contains the service provider (client application)'s **Single Logout Service URL**, where Auth0 will send logout requests and responses, and `slo_enabled`(boolean) that controls whether Auth0 should notify service providers of session termination. The default value is`true` (notify service providers).
+
+* **binding** (string): Optionally indicates the protocol binding used for SAML logout responses. By default Auth0 uses `HTTP-POST`, but you can switch to `HTTP-Redirect` by setting `"binding"` to `"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"`.
+
+* **signingCert** (string): Optionally indicates the public key certificate used to validate SAML requests. If set, SAML requests will be required to be signed. A sample value would be
+
+  ```
+  "-----BEGIN PUBLIC KEY-----\nMIGf...bpP/t3\n+JGNGIRMj1hF1rnb6QIDAQAB\n-----END PUBLIC KEY-----\n"
+  ```

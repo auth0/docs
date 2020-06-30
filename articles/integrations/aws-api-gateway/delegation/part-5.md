@@ -1,18 +1,23 @@
 ---
 title: Amazon API Gateway Tutorial - Flowing Identity
 description: Step 5 of Amazon API Gateway Tutorial
+topics:
+  - integrations
+  - aws
+  - api-gateway
+contentType: tutorial
+useCase:
+  - secure-an-api
 ---
 # AWS API Gateway Tutorial
 
-::: version-warning
-Delegation is considered deprecated in Auth0. Please integrate Auth0 using custom authorizers. Use the drop-down to switch to these docs.
-:::
+<%= include('./_delegation-version-warning') %>
 
 ## Step 5 - Use Identity Tokens to Flow Identity
 
 In this final step, you will:
 
-* Flow identity to the service by passing your OpenID JSON Web Token (JWT);
+* Flow identity to the service by passing your <dfn data-key="openid">OpenID</dfn> <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn>;
 * Validate the token;
 * Extract profile information to assign a buyer for a pet.
 
@@ -37,7 +42,7 @@ There are several ways of adding a user's information to the JWT. The following 
 
 One way to add a user's email address to the JWT is to use a [rule](/rules). This is a good approach if you want to make sure that this value is always available in the JWT for an authenticating user.
 
-In `login.js`, you can see this scope specified in the parameters passed to `auth.signin`:
+In `login.js`, you can see this <dfn data-key="scope">scope</dfn> specified in the parameters passed to `auth.signin`:
 
 ```js
 $scope.login = function() {
@@ -162,7 +167,7 @@ In this tutorial, you have:
 
 * Created an API using AWS API Gateway that includes methods using AWS Lamdba functions;
 * Secured access to your API using IAM roles;
-* Integrated a SAML identity provider with IAM to tie access to the API to your user base;
+* Integrated a <dfn data-key="security-assertion-markup-language">SAML</dfn> identity provider with IAM to tie access to the API to your user base;
 * Provided different levels of access based on whether a user authenticated from the Database or Social Connection;
 * Used an Auth0 rule to enforce role assignment;
 * Used a JWT to provide further authorization context and pass identity information into the appropriate Lambda function.

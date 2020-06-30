@@ -1,5 +1,6 @@
 ---
-addon: Azure Mobile Services
+addon: Windows Azure Mobile Services
+title: Windows Azure Mobile Services Add-on
 thirdParty: true
 url: /addons/azure-mobile-services
 image: /media/platforms/azure.png
@@ -12,14 +13,28 @@ alias:
   - windows-azure-vm
   - azure-websites
   - azure-vm
-description: This tutorial will show you how to use the Auth0 to authenticate and authorize Azure Mobile Services.
+topics:
+  - azure
+  - mobile
+  - addons
+contentType: how-to
+useCase: integrate-third-party-apps
+description: Learn how to use Auth0 to authenticate and authorize Windows Azure Mobile Services (WAMS).
 ---
 
-# Azure Mobile Services Addon
+# Windows Azure Mobile Services Add-on
+
+<%= include('../_includes/_uses-delegation') %>
 
 ## 1. Create an application
 
-WAMS endpoints can be used from anywhere. For example: [Android](/native-platforms/android), [iOS](/native-platforms/ios-objc), [Windows UWP C#](/native-platforms/windows-uwp-csharp), [JavaScript](/application-platforms/vanillajs) or [Windows Phone](/native-platforms/windowsphone). You can use any of these tutorials for configuring an app that interacts with WAMS.
+Windows Azure Mobile Services (WAMS) endpoints can be used from anywhere. To configure an app that interacts with WAMS, you can use any of the following tutorials:
+
+- [Android](/quickstart/native/android)
+- [iOS](/quickstart/native/ios-objc)
+- [Windows UWP C#](/quickstart/native/windows-uwp-csharp)
+- [JavaScript](/quickstart/spa/vanillajs)
+- [Windows Phone](/quickstart/native/wpf-winforms)
 
 The samples that you can download from the Azure Portal are a good starting point.
 
@@ -37,7 +52,7 @@ The important aspects of these lines are:
 
 1. The `Auth0Client` class takes 2 parameters: your `namespace` and the `clientId` of the application.
 2. There are various overloads for the  `LoginAsync` method. In the example above, all options will be presented to the user. You can use other versions of `LoginAsync` to direct login to a specific provider. For example: `LoginAsync("github")` will have users login exclusively with GitHub.
-3. The `GetDelegationToken` call exchanges the application token (received in step #2) for another token to be used for with WAMS.
+3. The `GetDelegationToken` call exchanges the application token (received in step #2) for another token to be used with WAMS.
 4. The input for the `GetDelegationToken` method is the `clientID` of your WAMS enabled app.
 5. A new `MobileServiceUser` object is created with the new information.
 
@@ -45,7 +60,7 @@ The `GetDelegationToken` call allows your app to interact with multiple WAMS API
 
 For example, you can login a user with GitHub, then connect them to WAMS and also interact with an AWS hosted endpoint. The delegation call allows you to flow the identity of the user securely across multiple environments.
 
-## 3. Using the user identity in the WAMS backend
+## 3. Use the user identity in the WAMS backend
 
 The final step is to use the information in the token in the server code. Most likely you will have to do the following two things:
 

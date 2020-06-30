@@ -2,6 +2,16 @@
 title: Authentication for Mobile & Desktop Apps
 description: Explains how to authenticate users in a mobile or desktop application.
 toc: true
+topics:
+  - authentication
+  - oauth2
+  - mobile-apps
+  - desktop-apps
+contentType: 
+    - concept
+    - how-to
+useCase:
+  - add-login
 ---
 # Authentication for Mobile & Desktop Apps
 
@@ -11,7 +21,7 @@ You can authenticate users of your mobile/desktop applications by:
 * Using one of the [Auth0 SDKs](/libraries), which are client-side libraries that **do not** include a user interface but allow for expanded customization of the authentication behavior and appearance of the login screen;
 * Calling the Auth0 [Authentication API](/api/authentication) endpoints, which allows you to integrate with Auth0 without requiring the user of Auth0's libraries.
 
-This article will cover how to call the Auth0 [Authentication API](/api/authentication) endpoints using [Proof Key for Code Exchange (PKCE)](/api-auth/grant/authorization-code-pkce) during the authentication process.
+This article will cover how to call the Auth0 [Authentication API](/api/authentication) endpoints using [Proof Key for Code Exchange (PKCE)](/api-auth/grant/authorization-code-pkce) during the authentication and authorization process.
 
 If you would like to implement this functionality using either Lock or one of the Auth0 SDKs, please refer to the following resources:
 
@@ -26,15 +36,17 @@ If you would like to implement this functionality using either Lock or one of th
 
 ## Overview
 
-Auth0 exposes OAuth 2.0 endpoints that you can use to authenticate users. You can call these endpoints through an embedded browser in your **native** application. After authentication completes, you can return an [ID Token](/tokens/id-token) that contains the user's profile information.
+Auth0 exposes endpoints that you can use to authenticate users and get their authorization. 
+
+You can call these endpoints through an embedded browser in your **native** application. After authentication completes, you can return an [ID Token](/tokens/concepts/id-tokens) (which contains information about the identity of the user) and an [Access Token](/tokens/concepts/access-tokens).
 
 ::: note
-Instead of following this tutorial, you can use any of Auth0's client libraries. These encapsulate all the logic required and make it easier for your to implement authentication. Please refer to our [Native Quickstarts](/quickstart/native) to get started.
+Instead of following this tutorial, you can use any of Auth0's client libraries. They encapsulate all the logic required and make it easier for your to implement authentication. Please refer to our [Native Quickstarts](/quickstart/native) to get started.
 :::
 
-## Register Your Application
+## Register your application
 
-If you haven't already created a new [Application](/applications) in Auth0, you'll need to do so before implementing your authentication flow. The Auth0 Application maps to your application and allows your application to use Auth0 for authentication purposes.
+If you haven't already created a new [application](/applications) in Auth0, you'll need to do so before implementing your authentication flow. The Auth0 Application maps to your application and allows your application to use Auth0 for authentication purposes.
 
 Go to the [Auth0 Dashboard](${manage_url}) and click on [Applications](${manage_url}/#/applications) in the left-hand navigation bar. Click **Create Application**.
 
@@ -71,7 +83,7 @@ Once you've created the `code_verifier` and the `code_challenge`, you'll need to
 
 * Authenticating the user;
 * Redirecting the user to an Identity Provider to handle authentication;
-* Checking for active SSO sessions.
+* Checking for active <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> [sessions](/sessions).
 
 To authorize the user, your application must send the user to the [authorization URL](/api/authentication#authorization-code-grant-pkce-) (which includes the `code_challenge` you generated in the previous step, as well as the method you used to generate the `code_challenge`). Your URL should follow this format:
 
@@ -121,11 +133,32 @@ Using the authorization code obtained in step 2, you can obtain the ID Token by 
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
   "headers": [
-    { "name": "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
-    "mimeType": "application/json",
-    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"code_verifier\": \"YOUR_GENERATED_CODE_VERIFIER\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"https://${account.namespace}/mobile\" }"
+    "mimeType": "application/x-www-form-urlencoded",
+    "params": [
+      {
+        "name": "grant_type",
+        "value": "authorization_code"
+      },
+      {
+        "name": "client_id",
+        "value": "${account.clientId}"
+      },
+      {
+        "name": "code_verifier",
+        "value": "YOUR_GENERATED_CODE_VERIFIER"
+      },
+      {
+        "name": "code",
+        "value": "YOUR_AUTHORIZATION_CODE"
+      },
+      {
+        "name": "redirect_uri",
+        "value": "https://${account.namespace}/mobile"
+      }
+    ]
   }
 }
 ```
@@ -145,7 +178,7 @@ If all goes well, you'll receive an HTTP 200 response with the following payload
 ```
 
 ::: note
-You can use the `access_token` to call the [Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info).
+You can use the Access Token to call the [Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info).
 :::
 
 ## The ID Token
@@ -165,7 +198,7 @@ Once you've decoded the ID Token, you can extract user information from it. The 
 }
 ```
 
-For additional details, please see our docs [on the ID Token and its claims](/tokens/id-token#id-token-payload).
+For additional details, please see our docs [on the ID Token and its claims](/tokens/id-tokens#id-token-payload).
 
 ::: note
 For a list of libraries you can use to verify and decode tokens refer to [JWT.io](https://jwt.io/#libraries-io).
@@ -202,11 +235,32 @@ Using the authorization code, you can obtain the ID Token by making a `POST` cal
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
   "headers": [
-    { "name": "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
-    "mimeType": "application/json",
-    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"code_verifier\": \"YOUR_GENERATED_CODE_VERIFIER\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"${account.namespace}/mobile\" }"
+    "mimeType": "application/x-www-form-urlencoded",
+    "params": [
+      {
+        "name": "grant_type",
+        "value": "authorization_code"
+      },
+      {
+        "name": "client_id",
+        "value": "${account.clientId}"
+      },
+      {
+        "name": "code_verifier",
+        "value": "YOUR_GENERATED_CODE_VERIFIER"
+      },
+      {
+        "name": "code",
+        "value": "YOUR_AUTHORIZATION_CODE"
+      },
+      {
+        "name": "redirect_uri",
+        "value": "https://${account.namespace}/mobile"
+      }
+    ]
   }
 }
 ```
@@ -223,7 +277,7 @@ If all goes well, you'll receive an HTTP 200 response with the following payload
 }
 ```
 
-By extracting the `id_token`, which now contains the additional `name` and `picture` claims you requested, you'll see something similar to the following once you've decoded the payload:
+By extracting the ID Token, which now contains the additional `name` and `picture` claims you requested, you'll see something similar to the following once you've decoded the payload:
 
 ```json
 {
@@ -272,11 +326,32 @@ Using the authorization code, you can obtain the ID Token by making a `POST` cal
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
   "headers": [
-    { "name": "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
-    "mimeType": "application/json",
-    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"code_verifier\": \"YOUR_GENERATED_CODE_VERIFIER\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"${account.namespace}/mobile\" }"
+    "mimeType": "application/x-www-form-urlencoded",
+    "params": [
+      {
+        "name": "grant_type",
+        "value": "authorization_code"
+      },
+      {
+        "name": "client_id",
+        "value": "${account.clientId}"
+      },
+      {
+        "name": "code_verifier",
+        "value": "YOUR_GENERATED_CODE_VERIFIER"
+      },
+      {
+        "name": "code",
+        "value": "YOUR_AUTHORIZATION_CODE"
+      },
+      {
+        "name": "redirect_uri",
+        "value": "https://${account.namespace}/mobile"
+      }
+    ]
   }
 }
 ```
@@ -293,7 +368,7 @@ If all goes well, you'll receive an `HTTP 200` response with the following paylo
 }
 ```
 
-You can pull the user's name, profile picture, and email address from the `name`, `picture`, and `email` claims of the returned `id_token`. Note that the `sub` claim contains the user's unique ID as returned from GitHub:
+You can pull the user's name, profile picture, and email address from the `name`, `picture`, and `email` claims of the returned ID Token. Note that the `sub` claim contains the user's unique ID as returned from GitHub:
 
 ```json
 {

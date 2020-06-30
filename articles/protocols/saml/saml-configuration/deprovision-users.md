@@ -1,5 +1,12 @@
 ---
-  description: Best practices on deprovision users of your SAML integration
+description: Best practices on deprovision users of your SAML integration
+topics:
+  - saml
+contentType:
+  - how-to
+  - concept
+useCase:
+  - add-idp
 ---
 
 # Deprovision Users

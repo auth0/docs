@@ -9,7 +9,7 @@ For simplicity reasons we will keep our implementation solely focused on the aut
 First we need to define the endpoints of our API.
 
 ::: panel What is an API endpoint?
-An **API endpoint** is a unique URL that represents an object. In order to interact with this object you need to point your client towards that URL. For example, if you had an API that could return either order or customers, you might configure two endpoints: `/orders` and `/customers`. Your client would interact with these endpoints using different HTTP methods, for example `POST /orders` to create a new order, or `GET /orders` to retrieve the dataset of one or more orders.
+An **API endpoint** is a unique URL that represents an object. In order to interact with this object you need to point your application towards that URL. For example, if you had an API that could return either order or customers, you might configure two endpoints: `/orders` and `/customers`. Your client would interact with these endpoints using different HTTP methods, for example `POST /orders` to create a new order, or `GET /orders` to retrieve the dataset of one or more orders.
 :::
 
 For this implementation we will only define two endpoints; one for retrieving a list of all timesheets for an employee, and another which will allow an employee to create a new timesheet entry.
@@ -36,7 +36,7 @@ The validations that the API should perform are:
 
 Part of the validation process is to also check the Client permissions (scopes), but we will address this separately in the next paragraph of this document.
 
-For more information on validating Access Tokens, refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
+For more information on validating Access Tokens, see [Validate Access Tokens](/tokens/guides/validate-access-tokens).
 
 ::: note
 See the implementation in [Node.js](/architecture-scenarios/application/mobile-api/api-implementation-nodejs#2-secure-the-api-endpoints)
@@ -60,7 +60,7 @@ For retrieving the list of timesheets this is to ensure that we only return the 
 
 One of the standard JWT claims is the `sub` claim which identifies the principal that is the subject to the claim. In the case of the Implicit Grant flow this claim will contain the user's identity, which will be the unique identifier for the Auth0 user. You can use this to associate any information in external systems with a particular user.
 
-You can also use a custom claim to add another attribute of the user - such as their email address - to the `access_token` and use that to uniquely identify the user.
+You can also use a custom claim to add another attribute of the user - such as their email address - to the Access Token and use that to uniquely identify the user.
 
 ::: note
 See the implementation in [Node.js](/architecture-scenarios/application/mobile-api/api-implementation-nodejs#4-determine-the-user-identity)

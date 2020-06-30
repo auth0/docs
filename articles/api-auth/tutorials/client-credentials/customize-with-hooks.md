@@ -2,34 +2,39 @@
 description: How to use Hooks to change the scopes and add custom claims to the tokens you got using Client Credentials Grant.
 crews: crew-2
 toc: true
+beta: true
+topics:
+  - api-authentication
+  - oidc
+  - client-credentials
+  - hooks
+contentType: tutorial
+useCase:
+  - secure-api
+  - call-api
+  - extensibility-hooks
 ---
 
-# Using Hooks with Client Credentials Grant
+# Use Hooks with Client Credentials Grant
 
-<%= include('../../../_includes/_pipeline2') %>
+You can now add [Hooks](/hooks) into your [client credentials](/api-auth/grant/client-credentials) flow. This way you can change the <dfn data-key="scope">scopes</dfn> and add custom claims to the tokens issued by Auth0.
 
-You can now add [Hooks](/hooks) into your [client credentials](/api-auth/grant/client-credentials) flow. This way you can change the scopes and add custom claims to the tokens issued by Auth0.
+Hooks allow you to customize the behavior of Auth0 using Node.js code. They are secure, self-contained functions associated with specific extensibility points of the Auth0 platform (like the Client Credentials grant). Auth0 invokes the Hooks at runtime to execute your custom logic.
 
-## Overview
-
-Hooks allow you to customize the behavior of Auth0 using Node.js code.
-
-They are actually [Webtasks](https://webtask.io/), associated with specific extensibility points of the Auth0 platform (like the Client Credentials grant). Auth0 invokes the Hooks at runtime to execute your custom logic.
-
-You can manage Hooks using the [Auth0 Dashboard](/hooks/dashboard) or the [Auth0 Command Line Interface (CLI)](/hooks/cli). In this article we will see how you can do either.
+You can manage Hooks using the Auth0 Dashboard or the Management API. 
 
 ## Before you start
 
-Please ensure that:
+Create the following:
 
-- You have created an [API defined with the appropriate scopes](${manage_url}/#/apis)
-- You have created a [machine to machine application](${manage_url}/#/applications) that is authorized to use the API created in the previous step
+- [API defined with the appropriate scopes](${manage_url}/#/apis)
+- [Machine-to-machine application](/applications) authorized to use the API
 
-If you haven't done these yet, refer to these docs for details:
-- How to set up a Client Credentials Grant:
+For details on how to set up the API and the machine-to-machine app, see:
+- Set up a Client Grant:
   - [Using the Dashboard](/api-auth/config/using-the-auth0-dashboard)
   - [Using the Management API](/api-auth/config/using-the-management-api)
-- [How to execute a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
+- [Execute a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
 
 ## Use the Dashboard
 
@@ -47,11 +52,11 @@ If you haven't done these yet, refer to these docs for details:
 You can create more than one hooks per extensibility point but __only one__ can be enabled. The enabled hook will then be executed for __all__ applications and APIs.
 :::
 
-3. Click the __Pencil and Paper__ icon to the right of the Hook to open the Webtask Editor.
+3. Click the __Pencil and Paper__ icon to the right of the Hook to open the Hook Editor.
 
   ![Edit Client Credentials Hook](/media/articles/api-auth/hooks/edit-cc-hook.png)
 
-4. Using the Webtask Editor, write your Node.js code. As an example, we will add an extra scope. The claim's name will be `https://foo.com/claim` and its value `bar`. Copy the sample code below and paste it in the Editor.
+4. Using the Hook Editor, write your Node.js code. As an example, we will add an extra scope. The claim's name will be `https://foo.com/claim` and its value `bar`. Copy the sample code below and paste it in the Editor.
 
   ```js
   module.exports = function(client, scope, audience, context, cb) {
@@ -64,64 +69,22 @@ You can create more than one hooks per extensibility point but __only one__ can 
   ```
 
   This sample hook will:
-  - add an arbitrary claim (`https://foo.com/claim`) to the `access_token`
+  - add an arbitrary claim (`https://foo.com/claim`) to the Access Token
   - add an `extra` scope to the default scopes configured on your [API](${manage_url}/#/apis).
 
   ::: panel Custom claims namespaced format
-  In order to improve compatibility for applications, Auth0 now returns profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that in order to add custom claims to ID Tokens or Access Tokens, they must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims) to avoid possible collisions with standard OIDC claims. For example, if you choose the namespace `https://foo.com/` and you want to add a custom claim named `claim`, you would name the claim `https://foo.com/claim`, instead of just `claim`.
+  In order to improve compatibility for applications, Auth0 now returns profile information in a [structured claim format as defined by the OpenID Connect (OIDC) specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that in order to add custom claims to ID Tokens or <dfn data-key="access-token">Access Tokens</dfn>, they must [conform to a namespaced format](/tokens/guides/create-namespaced-custom-claims) to avoid possible collisions with standard OIDC claims.
   :::
 
-  ![Webtask Editor](/media/articles/api-auth/hooks/cc-webtask-editor.png)
+  ![Hook Editor](/media/articles/api-auth/hooks/cc-webtask-editor.png)
 
   Click __Save__ (or hit Ctrl+S/Cmd+S) and close the Editor.
 
 5. That's it! Now you only need to test your hook. You can find detailed instructions at the [Test your Hook](#test-your-hook) paragraph.
 
-## Use the Auth0 CLI
-
-1. Make sure you have installed the Webtask CLI. You can find detailed instructions in the [Dashboard's Webtask page](${manage_url}/#/account/webtasks).
-
-2. Create a file with your Node.js code. For our example, we will name the file `myrule.js` and copy the following code:
-
-  ```js
-  module.exports = function(client, scope, audience, context, cb) {
-    var access_token = {};
-    access_token['https://foo.com/claim'] = 'bar';
-    access_token.scope = scope;
-    access_token.scope.push('extra');
-    cb(null, access_token);
-  };
-  ```
-
-3. Create the Webtask. The command is the following:
-
-  ```text
-  auth0 create -t credentials-exchange -n client-credentials-exchange-hook -p ${account.namespace}-default file.js
-  ```
-
-  Let's break this down:
-  - `auth0`: The binary to use.
-  - `create`: The sub-command for creating or updating a Hook. Run in your terminal `auth0 -h` to see the rest.
-  - `-t credentials-exchange`: The hook type. For this use case, set to `credentials-exchange`.
-  - `-n client-credentials-exchange-hook`: The webtask's name. Set this to your preference, we chose `client-credentials-exchange-hook`.
-  - `-p ${account.namespace}-default`: Your account's profile name. Get this value from _Step 2_ of the instructions on the [Dashboard's Webtask page](${manage_url}/#/account/webtasks).
-  - `file.js`: The name of the file you created in the previous step.
-
-  Run the command.
-
-4. You will see a message that your hook was created, but in disabled state. To enable the hook, run the command:
-
-  ```text
-  auth0 enable --profile ${account.namespace}-default client-credentials-exchange-hook
-  ```
-
-  Where `client-credentials-exchange-hook` is the name of the webtask, and `${account.namespace}-default` the name of your profile (the same as the one used in the previous step).
-
-5. That's it! Now you only need to test your hook. You can find detailed instructions at the [Test your Hook](#test-your-hook) paragraph.
-
 ## Test your Hook
 
-To test the hook you just created you need to run a Client Credentials exchange, get the `access_token`, decode it and review its contents.
+To test the hook you just created you need to run a Client Credentials exchange, get the Access Token, decode it and review its contents.
 
 To get a token, make a `POST` request at the `https://${account.namespace}/oauth/token` API endpoint, with a payload in the following format.
 
@@ -130,11 +93,28 @@ To get a token, make a `POST` request at the `https://${account.namespace}/oauth
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
   "headers": [
-    { "name": "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
-    "mimeType": "application/json",
-    "text": "{\"grant_type\":\"client_credentials\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"audience\": \"YOUR_API_IDENTIFIER\"}"
+    "mimeType": "application/x-www-form-urlencoded",
+    "params": [
+      {
+        "name": "grant_type",
+        "value": "client_credentials"
+      },
+      {
+        "name": "client_id",
+        "value": "${account.clientId}"
+      },
+      {
+        "name": "client_secret",
+        "value": "YOUR_CLIENT_SECRET"
+      },
+      {
+        "name": "audience",
+        "value": "YOUR_API_IDENTIFIER"
+      }
+    ]
   }
 }
 ```
@@ -160,11 +140,11 @@ Content-Type: application/json
 }
 ```
 
-Copy the `access_token`.
+Copy the Access Token.
 
 The easiest way to decode it and review its contents is to use the [JWT.io Debugger](https://jwt.io/#debugger-io).
 
-Paste your `access_token` at the left-hand editor. Automatically the JWT is decoded and its contents are displayed on the right-hand editor.
+Paste your Access Token at the left-hand editor. Automatically the JWT is decoded and its contents are displayed on the right-hand editor.
 
 ![Decode Token with JWT.io](/media/articles/api-auth/hooks/cc-decode-token.png)
 
@@ -174,7 +154,7 @@ Look into the last two items of the __Payload__. Both have been set by our hook:
 
 ## Manage your Hooks
 
-You can disable, enable, delete or edit hooks using either the Auth0 CLI or the [dashboard]((${manage_url}/#/hooks)). You can also review your logs using the Auth0 CLI. For details, refer to the articles below.
+You can disable, enable, delete or edit hooks using either the Auth0 CLI or the [dashboard](${manage_url}/#/hooks). You can also review your logs using the Auth0 CLI. For details, refer to the articles below.
 
 Use the Dashboard to:
 - [Delete Hooks](/auth0-hooks/dashboard/create-delete)
@@ -187,9 +167,9 @@ Use the Auth0 CLI to:
 - [Enable or disable Hooks](/auth0-hooks/cli/enable-disable)
 - [Review Logs](/auth0-hooks/cli/logs)
 
-## Webtask Input Parameters
+## Input Parameters
 
-As you saw in our example, the webtask takes five input parameters. You can use these values for your custom logic.
+The hook takes five input parameters. You can use these values for your custom logic.
 
 Let's see what each one contains.
 
@@ -222,14 +202,12 @@ Let's see what each one contains.
     }
     ```
 
-- __cb__: The callback. In our example we returned the token (`cb(null, access_token)`). If you decide, however, not to issue a token, you can return `Error (cb(new Error('access denied')))`.
+- __cb__: The <dfn data-key="callback">callback</dfn>. In our example we returned the token (`cb(null, access_token)`). If you decide, however, not to issue a token, you can return `Error (cb(new Error('access denied')))`.
 
 ## Keep reading
 
-:::next-steps
 * [What are Hooks and how you can work with them](/hooks)
 * [Overview of the Client Credentials Grant](/api-auth/grant/client-credentials)
-* [How to set up a Client Credentials Grant using the Dashboard](/api-auth/config/using-the-auth0-dashboard)
-* [How to set up a Client Credentials Grant using the Management API](/api-auth/config/using-the-management-api)
+* [How to set up a Client Grant using the Dashboard](/api-auth/config/using-the-auth0-dashboard)
+* [How to set up a Client Grant using the Management API](/api-auth/config/using-the-management-api)
 * [How to execute a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
-:::

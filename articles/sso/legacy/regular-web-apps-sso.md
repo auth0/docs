@@ -1,22 +1,30 @@
 ---
 toc: true
-description: Server-side SSO with regular web applications.
+description: Server-side Single Sign-on (SSO) with regular web applications.
+topics:
+  - sso
+  - web-apps
+contentType:
+  - how-to
+  - concept
+useCase:
+  - integrate-saas-sso
 ---
 
-# Server-side SSO (Regular Web Apps)
+# Server-side Single Sign-On (Regular Web Apps)
 
 To log a user in silently (that is, without displaying the Lock screen) the following conditions need to be met:
 
-1. The Application needs to be configured to **Use Auth0 instead of the IdP to do Single Sign On** in the [Applications section of the Auth0 Management Dashboard](${manage_url}/#/applications)
-2. An SSO cookie must exist for the tenant's domain. In other words the user must have signed in previously, and the SSO cookie which was saved is still valid.
+1. The Application needs to be configured to **Use Auth0 instead of the IdP to do Single Sign-on** in the [Applications section of the Auth0 Management Dashboard](${manage_url}/#/applications)
+2. A <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> cookie must exist for the tenant's domain. In other words the user must have signed in previously, and the SSO cookie which was saved is still valid.
 3. When calling the Auth0 authentication endpoint, the connection name is passed along for which the user must be signed in. This connection name is the same as the one specified in the SSO cookie. You can pass the connection name along either as a parameter when calling the `signin` function of the [**auth0.js** Library](https://auth0.com/docs/libraries/auth0js), or by passing the `connection` query string parameter when calling the `/authorize` endpoint of the [Authentication API](/api/authentication)
 
 ## The SSO scenario
 
 In our SSO scenario, let's say we have 3 applications
 
-* App 1: app1.com (Single Page App)
-* App 2: app2.com (Single Page App)
+* App 1: app1.com (Single-Page App)
+* App 2: app2.com (Single-Page App)
 * App 3: app3.com (Regular Web app)
 
 If a user logs in to any of these applications, and then subsequently navigates from this application to any of the other applications, we would want the user to be logged in automatically.
@@ -25,7 +33,7 @@ In this document we will be looking specifically how to achieve this in a Regula
 
 ## Case 1: The user is already logged in and clicks on a link that redirects to a specific URL app3.com
 
-The user logs in on one of the Single Page Applications and click on a link that should take them to a particular URL on app3.com. In this case, you can create an endpoint on the target application (app3) that will redirect to the URL the user wanted to go after SSO. For example:
+The user logs in on one of the Single-Page Applications and click on a link that should take them to a particular URL on app3.com. In this case, you can create an endpoint on the target application (app3) that will redirect to the URL the user wanted to go after SSO. For example:
 
 ```text
 https://app3.com/sso?targetUrl=/foo/bar&connection=CONNECTION_NAME

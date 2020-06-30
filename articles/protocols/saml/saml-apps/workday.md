@@ -1,9 +1,17 @@
 ---
 title: Workday SAML Configuration
 description: Workday SAML Configuration
+topics:
+    - saml
+    - identity-providers
+    - workday
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
-${include('./_header')}
+<%= include('./_header') %>
 
 ```json
 {
@@ -15,6 +23,7 @@ ${include('./_header')}
   "passthroughClaimsWithNoMapping": false,
   "mapUnknownClaimsAsIs": false,
   "mapIdentities":        false,
+  "signResponse":         true,
   "nameIdentifierFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName",
   "nameIdentifierProbes": [
     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress",
@@ -23,4 +32,4 @@ ${include('./_header')}
 }
 ```
 
-The **Callback URL** is `https://impl.workday.com/<tenant>/fx/home.flex`.
+The **<dfn data-key="callback">Callback URL</dfn>** is `https://impl.workday.com/<tenant>/login-saml.htmld`. You may want to change the subdomain `impl` depending on the Workday data center you are using.

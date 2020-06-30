@@ -2,8 +2,19 @@
 title: Installing the Authorization Extension
 description: How to install the Authorization Extension
 toc: true
+topics:
+  - extensions
+  - authorization_v2
+contentType:
+  - how-to
+  - concept
+useCase: extensibility-extensions
 ---
 # Authorization Extension: Installation
+
+::: note
+<%= include('../../../../_includes/_rbac_methods') %>
+:::
 
 This doc walks you through the process of installing the Authorization Extension.
 
@@ -11,7 +22,7 @@ Before you begin, make sure that you have an existing [application](/application
 
 * Native
 * Regular Web Applications
-* Single Page Applications
+* Single-Page Applications
 
 Applications without an assigned type or Machine to Machine Applications cannot be used with this extension.
 
@@ -73,7 +84,7 @@ This extension has limitations in terms of performance and is not meant to be us
 ```
 
 ::: note
-Amazon S3 is a file-based storage platform, which means it writes in parallel. This may cause issues, but the extension's storage logic attempts to take this into account. However, if you automate the creation of groups/roles/permissions, we suggest that you do so using sequential calls to the API.
+Amazon S3 is a file-based storage platform, which means it writes in parallel. This may cause issues, but the extension's storage logic attempts to take this into account. However, if you automate the creation of groups/<dfn data-key="role">roles</dfn>/permissions, we suggest that you do so using sequential calls to the API.
 :::
 
 ![Install Authorization Extension](/media/articles/extensions/authorization/app-install-v2.png)

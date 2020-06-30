@@ -21,7 +21,7 @@ GET https://${account.namespace}/authorize?
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}'
   });
-  
+
   // Trigger login with google
   webAuth.authorize({
     connection: 'google-oauth2'
@@ -61,7 +61,7 @@ Social connections only support browser-based (passive) authentication because m
 | `connection`     | The name of a social identity provider configured to your application, for example `google-oauth2` or `facebook`. If null, it will redirect to the [Auth0 Login Page](https://${account.namespace}/login) and show the Login Widget. |
 | `redirect_uri` <br/><span class="label label-danger">Required</span> | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
 | `state` <br/><span class="label label-primary">Recommended</span> | An opaque value the applications adds to the initial request that the authorization server includes when redirecting the back to the application. This value must be used by the application to prevent CSRF attacks. |
-| `ADDITIONAL_PARAMETERS` | Append any additional parameter to the end of your request, and it will be sent to the provider. For example, `access_type=offline` (for Google Refresh Tokens) , `display=popup` (for Windows Live popup mode). |
+| `ADDITIONAL_PARAMETERS` | Append any additional parameter to the end of your request, and it will be sent to the provider. For example, `access_type=offline` (for Google <dfn data-key="refresh-token">Refresh Tokens</dfn>) , `display=popup` (for Windows Live popup mode). |
 
 ### Test with Authentication API Debugger
 
@@ -69,24 +69,24 @@ Social connections only support browser-based (passive) authentication because m
 
 1. At the *Configuration* tab, set the fields **Application** (select the application you want to use for the test) and **Connection** (the name of the social connection to use).
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
+1. Copy the <dfn data-key="callback">**Callback URL**</dfn> and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
 
 1. At the *OAuth2 / OIDC* tab, click **OAuth2 / OIDC Login**.
 
 ### Remarks
 
-- The `redirect_uri` value must be specified as a valid callback URL under your [Application's Settings](${manage_url}/#/applications/${account.clientId}/settings).
+- The `redirect_uri` value must be specified as a valid callback URL under your [Application's Settings](${manage_url}/#/applications).
 
-- If `response_type=token`, after the user authenticates on the provider, it will redirect to your application `callback URL` passing the `access_token` and `id_token` in the address `location.hash`. This is used for Single Page Apps and also on Native Mobile SDKs.
+- If `response_type=token`, after the user authenticates on the provider, it will redirect to your application `callback URL` passing the <dfn data-key="access-token">Access Token</dfn> and ID Token in the address `location.hash`. This is used for Single-Page Apps and also on Native Mobile SDKs.
 
 - The sample auth0.js script uses the library version 8. If you are using auth0.js version 7, please see this [reference guide](/libraries/auth0js/v7).
 
 
 ### More Information
 
-- [Supported Social Identity Providers](/identityproviders#social)
+- [Supported Social Identity Providers](/connections/identity-providers-social)
 - [Custom Social Connections](/connections/social/oauth2)
-- [Using the State Parameter](/protocols/oauth2/oauth-state)
+- [State Parameter](/protocols/oauth2/oauth-state)
 - [Auth0.js /authorize Method Reference](/libraries/auth0js#webauth-authorize-)
 
 
@@ -98,6 +98,7 @@ GET https://${account.namespace}/authorize?
   client_id=${account.clientId}&
   connection=CONNECTION&
   redirect_uri=${account.callback}&
+  scope=openid%20profile%20email&
   state=STATE
 ```
 
@@ -110,15 +111,16 @@ GET https://${account.namespace}/authorize?
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}'
   });
-  
+
   // Calculate URL to redirect to
   var url = webAuth.client.buildAuthorizeUrl({
     clientID: '${account.clientId}', // string
     responseType: 'token', // code or token
     redirectUri: '${account.callback}',
+    scope: 'openid profile email'
     state: 'YOUR_STATE'
   });
-  
+
   // Redirect to url
   // ...
 </script>
@@ -141,6 +143,7 @@ Use this endpoint for browser based (passive) authentication. It returns a `302`
 | `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your application. |
 | `connection`     | The name of the connection configured to your application. If null, it will redirect to the [Auth0 Login Page](https://${account.namespace}/login) and show the Login Widget using the first database connection. |
 | `redirect_uri` <br/><span class="label label-danger">Required</span> | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
+| `scope` | OIDC scopes and custom API scopes. For example: `openid read:timesheets`. |
 | `state` <br/><span class="label label-primary">Recommended</span> | An opaque value the applications adds to the initial request that the authorization server includes when redirecting the back to the application. This value must be used by the application to prevent CSRF attacks. |
 
 
@@ -150,15 +153,15 @@ Use this endpoint for browser based (passive) authentication. It returns a `302`
 
 1. At the *Configuration* tab, set the fields **Application** (select the application you want to use for the test) and **Connection** (the name of the social connection to use).
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
+1. Copy the <dfn data-key="callback">**Callback URL**</dfn> and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
 
 1. At the *OAuth2 / OIDC* tab, click **OAuth2 / OIDC Login**.
 
 
 ### Remarks
 
-- The `redirect_uri` value must be specified as a valid callback URL under your [Application's Settings](${manage_url}/#/applications/${account.clientId}/settings).
-- If `response_type=token`, after the user authenticates, it will redirect to your application `callback URL` passing the `access_token` and `id_token` in the address `location.hash`. This is used for Single Page Apps and also on Native Mobile SDKs.
+- The `redirect_uri` value must be specified as a valid callback URL under your [Application's Settings](${manage_url}/#/applications).
+- If `response_type=token`, after the user authenticates, it will redirect to your application `callback URL` passing the <dfn data-key="access-token">Access Token</dfn> and ID Token in the address `location.hash`. This is used for Single-Page Apps and also on Native Mobile SDKs.
 - The main difference between passive and active authentication is that the former happens in the browser through the [Auth0 Login Page](https://${account.namespace}/login) and the latter can be invoked from anywhere (a script, server to server, and so forth).
 - The sample auth0.js script uses the library version 8. If you are using auth0.js version 7, please see this [reference guide](/libraries/auth0js/v7).
 
@@ -167,7 +170,7 @@ Use this endpoint for browser based (passive) authentication. It returns a `302`
 - [Database Identity Providers](/connections/database)
 - [Rate Limits on User/Password Authentication](/connections/database/rate-limits)
 - [Active Directory/LDAP Connector](/connector)
-- [Using the State Parameter](/protocols/oauth2/oauth-state)
+- [State Parameter](/protocols/oauth2/oauth-state)
 - [Auth0.js /authorize Method Reference](/libraries/auth0js#webauth-authorize-)
 
 ## Enterprise (SAML and Others)
@@ -190,8 +193,8 @@ GET https://${account.namespace}/authorize?
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}'
   });
-  
-  // Trigger login using redirect with credentials to enterprise connections 
+
+  // Trigger login using redirect with credentials to enterprise connections
   webAuth.redirect.loginWithCredentials({
     connection: 'Username-Password-Authentication',
     username: 'testuser',
@@ -216,7 +219,7 @@ GET https://${account.namespace}/authorize?
   "link": "#enterprise-saml-and-others-"
 }) %>
 
-Use this endpoint for passive authentication. It returns a `302` redirect to the SAML Provider (or Windows Azure AD and the rest, as specified in the `connection`) to enter their credentials.
+Use this endpoint for passive authentication. It returns a `302` redirect to the <dfn data-key="security-assertion-markup-language">SAML</dfn> Provider (or Windows Azure AD and the rest, as specified in the `connection`) to enter their credentials.
 
 
 ### Request Parameters
@@ -236,7 +239,7 @@ Use this endpoint for passive authentication. It returns a `302` redirect to the
 
 1. At the *Configuration* tab, set the fields **Application** (select the application you want to use for the test) and **Connection** (the name of the social connection to use).
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
+1. Copy the <dfn data-key="callback">**Callback URL**</dfn> and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
 
 1. At the *OAuth2 / OIDC* tab, click **OAuth2 / OIDC Login**.
 
@@ -244,15 +247,15 @@ Use this endpoint for passive authentication. It returns a `302` redirect to the
 ### Remarks
 
 - If no `connection` is specified, it will redirect to the [Login Page](https://${account.namespace}/login) and show the Login Widget.
-- The `redirect_uri` value must be specified as a valid callback URL under your [Application's Settings](${manage_url}/#/applications/${account.clientId}/settings).
-- If `response_type=token`, after the user authenticates, it will redirect to your application `callback URL` passing the `access_token` and `id_token` in the address `location.hash`. This is used for Single Page Apps and also on Native Mobile SDKs.
+- The `redirect_uri` value must be specified as a valid callback URL under your [Application's Settings](${manage_url}/#/applications).
+- If `response_type=token`, after the user authenticates, it will redirect to your application `callback URL` passing the <dfn data-key="access-token">Access Token</dfn> and ID Token in the address `location.hash`. This is used for Single-Page Apps and also on Native Mobile SDKs.
 - Additional parameters can be sent that will be passed to the provider.
 - The sample auth0.js script uses the library version 8. If you are using auth0.js version 7, please see this [reference guide](/libraries/auth0js/v7).
-- In order to use `loginWithCredentials`, auth0.js needs to make cross-origin calls. Check the [Cross-Origin Authentication](/cross-origin-authentication) article to understand the limitations of this approach.
+- In order to use `loginWithCredentials`, auth0.js needs to make cross-origin calls. See [Cross-Origin Authentication](/cross-origin-authentication#limitations) to understand the limitations of this approach.
 
 ### More Information
 
 - [SAML](/protocols/saml)
 - [Obtain a Client Id and Client Secret for Microsoft Azure Active Directory](/connections/enterprise/azure-active-directory)
-- [Using the State Parameter](/protocols/oauth2/oauth-state)
+- [State Parameter](/protocols/oauth2/oauth-state)
 - [Auth0.js /authorize Method Reference](/libraries/auth0js#webauth-authorize-)

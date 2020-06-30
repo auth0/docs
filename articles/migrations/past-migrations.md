@@ -1,10 +1,38 @@
 ---
 toc: true
 description: List of Auth0 migrations that have already been enabled for all customers
+topics:
+  - migrations
+contentType:
+  - reference
+useCase:
+  - migrate
 ---
 # Past Migrations
 
 These are migrations that have already been enabled for all customers.
+
+## Introducing Lock v11 and Auth0.js v9
+
+| Severity | Grace Period Start | Mandatory Opt-In|
+| --- | --- | --- |
+| Medium | 2017-12-21 |  2018-08-06 |
+
+We are continually improving the security of our service. As part of this effort, we have deprecated the Legacy Lock API, which consists of the /usernamepassword/login and /ssodata endpoints. These endpoints are used by Lock.js v8, v9, and v10 and Auth0.js, v6, v7, and v8, and can also be called directly from applications.
+
+As of August 6, 2018, Auth0 has permanently disabled the Legacy Lock API. This removal of service fully mitigates the CSRF vulnerability [disclosed in April 2018](https://auth0.com/blog/managing-and-mitigating-security-vulnerabilities-at-auth0/). This also ends the soft removal grace period that was [first announced on July 16, 2018](https://community.auth0.com/t/auth0-legacy-lock-api-disabled-grace-period-available/12949), meaning the Legacy Lock API can no longer be re-enabled.
+
+If your Legacy Lock API migration has not yet been completed, your users may experience an outage, failed logins, or other adverse effects. You will need to complete your migration in order to restore normal functionality. See [Check Deprecation Errors](/troubleshoot/guides/check-deprecation-errors) to identify the source(s) of any errors in your tenant logs related to deprecations. 
+
+### Am I affected by the change?
+
+If you are currently implementing login in your application with Lock v8, v9, or v10, or Auth0.js v6, v7, or v8, you are affected by these changes. Additionally, you are affected if your application calls the /usernamepassword/login or /ssodata endpoints directly via the API.
+
+We **recommend** that applications using [Universal Login](/universal-login) update the library versions they use inside of the login page.
+
+However, those who are using Lock or Auth0.js embedded within their applications, or are calling the affected API endpoints directly, are **required** to update, and applications which still use deprecated endpoints will cease to function properly after the removal of service date.
+
+Libraries and SDKs not explicitly named here are not affected by this migration.
 
 ## New IP Addresses for Whitelisting in Australia
 
@@ -52,7 +80,7 @@ The existing Auth0 CDN service is one of our older services. It was been built a
 
 ### Am I using the CDN?
 
-If you use Lock (hosted by our CDN) in Europe or Australia, yes.
+If you use <dfn data-key="lock">Lock</dfn> (hosted by our CDN) in Europe or Australia, yes.
 
 ### Do I need to do something?
 
@@ -103,11 +131,11 @@ Even if you are not using Lock, the vulnerable reset flow can be accessed direct
 | --- | --- | --- |
 | Medium | 2017-01-03 |  2017-03-01 |
 
-As part of Auth0's efforts to improve security and standards compliance, we will stop supporting account linking as part of the authorization callback (that is, accepting an [Access Token](/tokens/access-token) as part of the [authorize](/api/authentication#authorization-code-grant) call as stated [in the account linking section](/api/authentication?http#account-linking).
+As part of Auth0's efforts to improve security and standards compliance, we will stop supporting account linking as part of the authorization callback (that is, accepting an <dfn data-key="access-token">Access Token</dfn> as part of the [authorize](/api/authentication#authorization-code-grant) call as stated [in the account linking section](/api/authentication?http#account-linking).
 
 ### Am I affected by the change?
 
-If you received an email notification about it, then you are impacted by this change. As you work to update your applications to [use the Management API to link accounts](/api/management/v2#!/Users/post_identities), you can check if you are still impacted, by checking your tenant logs for warnings indicating _"Account linking via /authorize is being deprecated. Please refer to https://auth0.com/docs/link-accounts for supported ways to link an account."_. These entries will be logged if you are sending an Access Token in your [authorize](/api/authentication#authorization-code-grant) calls.
+If you received an email notification about it, then you are impacted by this change. As you work to update your applications to [use the Management API to link accounts](/api/management/v2#!/Users/post_identities), you can check if you are still impacted, by checking your tenant logs for warnings indicating _"Account linking via /authorize is being deprecated. See [User Account Linking](/users/concepts/overview-user-account-linking) for supported ways to link an account."_. These entries will be logged if you are sending an Access Token in your [authorize](/api/authentication#authorization-code-grant) calls.
 
 If you need help with the migration, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT})
 
@@ -117,7 +145,7 @@ If you need help with the migration, create a ticket in our [Support Center](${e
 | --- | --- | --- |
 | Medium | 2017-02-23 |  2017-05-31 |
 
-As part of Auth0's efforts to improve security, we recently added the ability to execute rules during the OAuth 2.0 Resource Owner Password Grant exchange (the password exchange) and the Refresh Token exchange.
+As part of Auth0's efforts to improve security, we recently added the ability to execute rules during the OAuth 2.0 Resource Owner Password Grant exchange (the password exchange) and the <dfn data-key="refresh-token">Refresh Token</dfn> exchange.
 
 You are using this feature if you are calling the [/oauth/token](/api/authentication#authorization-code) endpoint of our Authentication API with `grant_type = "password"` , `grant_type = "http://auth0.com/oauth/grant-type/password-realm"`, or `grant_type = "refresh_token"`.
 
@@ -127,7 +155,7 @@ You could be impacted if you are currently using these exchanges and have Rules 
 
 You can add logic to your rules to alter their behavior for these exchanges by checking the `context.protocol` property:
 - `oauth2-password` indicates the password (and password-realm) exchange
-- `oauth2-refresh-token` indicates the refresh token exchange
+- `oauth2-refresh-token` indicates the Refresh Token exchange
 
 If you would like to enable the new behavior on this tenant for testing before the mandatory opt-in date, login to [Dashboard](${manage_url}) and enable the __Run Rules on Password and Refresh Token Exchanges__ toggle in [Tenant Settings > Advanced](${manage_url}/#/tenant/advanced).
 
@@ -151,13 +179,13 @@ For more information, see: [Emails in Auth0](/email).
 | --- | --- |
 | Low | 2016-06-01 |
 
-When calling the [TokenInfo](/api/authentication/reference#get-token-info) endpoint, the URL of the API call (for example `https://${account.namespace}/`) must match the value of the `iss` attribute of the `id_token` being validated.
+When calling the [TokenInfo](/api/authentication/reference#get-token-info) endpoint, the URL of the API call (for example `https://${account.namespace}/`) must match the value of the `iss` attribute of the ID Token being validated.
 
 If these values do not match, the response will be `HTTP 400 - Bad Request`.
 
 ### Am I affected by the change?
 
-If you are calling the [tokeninfo](/api/authentication#get-token-info) endpoint directly, make sure that the value of the `iss` attribute of the `id_token` being validated matches your Auth0 tenant namespace: `https://${account.namespace}/`.
+If you are calling the [tokeninfo](/api/authentication#get-token-info) endpoint directly, make sure that the value of the `iss` attribute of the ID Token being validated matches your Auth0 tenant namespace: `https://${account.namespace}/`.
 
 ::: note
 You can use [jwt.io](https://jwt.io/) to decode the token to confirm the `iss` attribute value.
@@ -169,9 +197,9 @@ You can use [jwt.io](https://jwt.io/) to decode the token to confirm the `iss` a
 | --- | --- | --- | --- |
 | Medium | 2016-07-11 | 2016-08-18 |
 
-The format of the user profile JSON object (id_token) that is returned by Auth0 Authentication APIs has been changed to remove the Identity Provider's Access Token, which had been included in the user profile `identities` array.
+The format of the user profile JSON object (ID Token) that is returned by Auth0 Authentication APIs has been changed to remove the Identity Provider's Access Token, which had been included in the user profile `identities` array.
 
-Now, to obtain a user's IdP Access Token, you will need to make an HTTP GET call to the `/api/v2/users/{user-id}` endpoint containing an API token generated with  `read:user_idp_tokens` scope.
+Now, to obtain a user's IdP Access Token, you will need to make an HTTP GET call to the `/api/v2/users/{user-id}` endpoint containing an API token generated with  `read:user_idp_tokens` <dfn data-key="scope">scope</dfn>.
 
 ::: note
 You will still have access to the Identity Provider Access Token in the `user` argument in Auth0 [rules](/rules).
@@ -181,7 +209,7 @@ You will still have access to the Identity Provider Access Token in the `user` a
 
 You are affected by the change only if you are using the Identity Provider Access Token (`identities[0].access_token` in the user profile) outside of rules to call other services from the Identity Provider (such as Facebook Graph API, Google APIs, and so on).
 
-For more information on how to obtain an Access Token, see: [Call an Identity Provider API](/what-to-do-once-the-user-is-logged-in/calling-an-external-idp-api) and [Identity Provider Access Token](/tokens/idp).
+For more information on how to obtain an Access Token, see: [Call an Identity Provider API](/what-to-do-once-the-user-is-logged-in/calling-an-external-idp-api) and [Identity Provider Access Tokens](/tokens/overview-idp-access-tokens).
 
 ::: note
 If your tenant was created after the change, this update will be applied automatically.

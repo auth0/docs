@@ -1,69 +1,84 @@
 ---
 title: Login
-description: Ruby on Rails Login with Auth0
+description: This tutorial demonstrates how to add user login to a Ruby on Rails application.
 budicon: 448
+topics:
+  - quickstarts
+  - webapp
+  - login
+  - rails
+contentType: tutorial
+useCase: quickstart
+github:
+  path: 01-Login
 ---
 
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-rubyonrails-sample',
-  path: '01-Login',
-  requirements: [
-    'Ruby 2.3.1',
-    'Rails 5.0.0'
-  ]
-}) %>
+<%= include('../_includes/_getting_started', { library: 'Rails', callback: 'http://localhost:3000/auth/auth0/callback' }) %>
 
-The first step in adding authentication to your Ruby on Rails application is to provide a way for your users to log in. The fastest, most secure, and most feature-rich way to do this with Auth0 is to use [universal login](/hosted-pages/login).
+<%= include('../../../_includes/_logout_url', { returnTo: 'http://localhost:3000' }) %>
 
-## Create an Application
+## Configure Rails to Use Auth0
 
-Create a new application in your [Auth0 dashboard](${manage_url}) and retrieve the __Domain__, __Client ID__ and __Client Secret__ for the app. The downloadable samples throughout the quickstart steps will be configured with the credentials for your default application.
+### Install the Dependencies
 
-![App Dashboard](/media/articles/server-platforms/rails/app_dashboard.png)
+To follow along with this guide, add the following dependencies to your `Gemfile`:
 
-<%= include('../../../_includes/_callback_url') %>
-
-${include('../_callbackRegularWebApp')}
-
-In this case, the callbackURL should look something like:
-
-```bash
-https://example.com/auth/oauth2/callback
+```ruby
+gem 'omniauth-auth0', '~> 2.2'
 ```
 
-## Install the Dependencies
+To prevent forged authentication requests, we need to also include CSRF protection. If you're using OmniAuth with Rails, include:
 
-To follow along with this guide, add the following dependencies to your `Gemfile` and run `bundle install`.
+```ruby
+gem 'omniauth-rails_csrf_protection', '~> 0.1'
+```
+
+Once your gems are added, install with the following command:
+
+```bash
+bundle install
+```
 
 ::: note
 If you are using Windows, uncomment the `tzinfo-data` gem in the Gemfile.
 :::
 
-${snippet(meta.snippets.dependencies)}
-
-## Initialize Omniauth Auth0
+### Initialize OmniAuth Auth0
 
 Create a file named `auth0.rb` under `config/initializers` and configure the **OmniAuth** middleware in it.
 
-${snippet(meta.snippets.setup)}
+```ruby
+Rails.application.config.middleware.use OmniAuth::Builder do
+  provider(
+    :auth0,
+    '${account.clientId}',
+    'YOUR_CLIENT_SECRET',
+    '${account.namespace}',
+    callback_path: '/auth/auth0/callback',
+    authorize_params: {
+      scope: 'openid email profile'
+    }
+  )
+end
+```
 
 ::: note
 This tutorial uses omniauth-auth0, a custom [OmniAuth strategy](https://github.com/intridea/omniauth#omniauth-standardized-multi-provider-authentication).
 :::
 
-## Add the Auth0 Callback Handler
+### Add the Auth0 Callback Handler
 
 Use the following command to create the controller that will handle the Auth0 callback:
 
 ```bash
-rails generate controller auth0 callback failure --skip-template-engine --skip-assets
+rails generate controller auth0 --skip-template-engine --skip-assets --no-helper
 ```
 
-In the newly created controller, add a callback success and failure handler.
+In the newly created controller, add success and failure callback handlers.
 
 ```ruby
 # app/controllers/auth0_controller.rb
+
 class Auth0Controller < ApplicationController
   def callback
     # This stores all the user information that came from Auth0
@@ -81,63 +96,58 @@ class Auth0Controller < ApplicationController
 end
 ```
 
-Replace the generated routes on `routes.rb` with the following:
+Replace the generated routes with the following:
 
 ```ruby
-get "/auth/oauth2/callback" => "auth0#callback"
-get "/auth/failure" => "auth0#failure"
-```
+# config/routes.rb
 
-## Trigger Login with Omniauth
-
-Create a file called `session_helper.rb`:
-
-```ruby
-# app/helpers/session_helper.rb
-
-module SessionHelper
-  def get_state
-    state = SecureRandom.hex(24)
-    session['omniauth.state'] = state
-
-    state
-  end
+Rails.application.routes.draw do
+  get 'auth/auth0/callback' => 'auth0#callback'
+  get 'auth/failure' => 'auth0#failure'
 end
 ```
 
-Use the following command to create the controller that will handle user login:
+## Trigger Authentication
+
+We need a way for users to trigger authentication. Add a link to `/auth/auth0` anywhere in an existing template or use the steps below to generate a homepage in a new app.
+
+::: warning
+To prevent forged authentication requests, make sure that you add a link with a method of `:post` (as described below using the `link_to` function in Rails) or create a form with a CSRF token included.
+:::
+
+Run the following command to generate the homepage controller and views:
 
 ```bash
-rails generate controller home
+rails generate controller home show --skip-assets
 ```
 
-In the controller `home_controller.rb` add the `show` action.
+Add the following to the generated `show.html.erb` file:
+
+```
+<!-- app/views/home/show.html.erb -->
+
+<img src="https://cdn.auth0.com/styleguide/1.0.0/img/badge.svg">
+<h1>RoR Auth0 Sample</h1>
+<p>Step 1 - Login.</p>
+${ "<%= button_to 'Login', 'auth/auth0', method: :post %>" }
+```
+
+Finally, point the `root` path to generated controller:
 
 ```ruby
-# app/controllers/home_controller.rb
+# config/routes.rb
 
-class HomeController < ApplicationController
-  def show
-  end
+Rails.application.routes.draw do
+  root 'home#show'
+  # ...
 end
 ```
 
-Create a file called `show.html.erb` to add the template for `show` action. Add a link to `/auth/auth0` to trigger user login.
+Run `bin/rails server` and go to [localhost:3000](http://localhost:3000) in your browser. You should see the Auth0 logo and a link to log in.
 
-```html
-<!-- app/views/home/show.html.erb -->
+### Check the User's Authentication Status
 
-<section class="jumbotron text-center">
-  <h2><img class="jumbo-thumbnail" src="https://cdn.auth0.com/styleguide/1.0.0/img/badge.svg"></h2>
-  <h1>RoR Auth0 Sample</h1>
-  <p>Step 1 - Login.</p>
-  <a class="btn btn-success btn-lg" href="/auth/auth0">Login</a>
-</section>
-```
-
-## Check the User's Authentication Status
-
-You can use a controller `concern` to control access to routes that require the user to be authenticated.
+You can use a controller `concern` to control access to routes that require the user to be authenticated:
 
 ```ruby
 # app/controllers/concerns/secured.rb
@@ -155,13 +165,13 @@ module Secured
 end
 ```
 
-Use the following command to create the controller for the dashboard view:
+Now generate a controller for the dashboard view that users will see once they are authenticated:
 
 ```bash
-rails generate controller dashboard show --skip-template-engine --skip-assets
+rails generate controller dashboard show --skip-assets
 ```
 
-Include the `concern` in the newly-created controller to prevent unauthenticated users from accessing its routes:
+Include the `concern` in this new controller to prevent unauthenticated users from accessing its routes:
 
 ```ruby
 # app/controllers/dashboard_controller.rb
@@ -174,11 +184,38 @@ class DashboardController < ApplicationController
 end
 ```
 
-## Display Error Descriptions
+Add the session data for `userinfo` to the dashboard view to see what is returned:
 
-Configure the application to display errors by adding the following to `config/environments/production.rb`:
+```html
+<!-- app/views/dashboard/show.html.erb -->
+
+<h1>Dashboard#show</h1>
+${ '<%= session[:userinfo].inspect %>' }
+```
+
+Finally, adjust your routes to point `/dashboard` to this new, secured controller:
 
 ```ruby
+# config/routes.rb
+
+Rails.application.routes.draw do
+  # ...
+  get 'dashboard' => 'dashboard#show'
+  # ...
+end
+```
+
+With the Rails server still running, go to [localhost:3000/dashboard](http://localhost:3000/dashboard) in your browser and you should be redirected to the homepage.
+
+Click the **Login** link and log in or sign up. Accept the consent modal that appears (for `localhost` only) and you should end up on at `/dashboard` with your user info showing.
+
+### Display Error Descriptions
+
+Configure the application to display errors by adding the following to the `production` environment config:
+
+```ruby
+# config/environments/production.rb
+
 OmniAuth.config.on_failure = Proc.new { |env|
   message_key = env['omniauth.error.type']
   error_description = Rack::Utils.escape(env['omniauth.error'].error_reason)
@@ -187,7 +224,90 @@ OmniAuth.config.on_failure = Proc.new { |env|
 }
 ```
 
+## Logout
+
+Use the following command to create the controller that will handle user logout:
+
+```bash
+rails generate controller logout
+```
+
+To clear out all the objects stored within the session, call the `reset_session` method within the `logout_controller/logout` method. [Learn more about reset_session here](http://api.rubyonrails.org/classes/ActionController/Base.html#M000668).
+
+```ruby
+# app/controllers/logout_controller.rb
+
+class LogoutController < ApplicationController
+  include LogoutHelper
+  def logout
+    reset_session
+    redirect_to logout_url.to_s
+  end
+end
+```
+
+In `logout_helper.rb` file add the methods to generate the logout URL.
+
+```ruby
+# app/helpers/logout_helper.rb
+
+module LogoutHelper
+  def logout_url
+    domain = Rails.application.secrets.auth0_domain
+    client_id = Rails.application.secrets.auth0_client_id
+    request_params = {
+      returnTo: root_url,
+      client_id: client_id
+    }
+
+    URI::HTTPS.build(host: domain, path: '/v2/logout', query: to_query(request_params))
+  end
+
+  private
+
+  def to_query(hash)
+    hash.map { |k, v| "#{k}=#{CGI.escape(v)}" unless v.nil? }.reject(&:nil?).join('&')
+  end
+end
+```
+
+::: note
+The final destination URL (the `returnTo` value) needs to be in the list of `Allowed Logout URLs`. See the [logout documentation](/logout/guides/redirect-users-after-logout) for more.
+:::
+
 ## Troubleshooting
+
+### Using a reverse proxy
+
+The `redirect_uri` parameter that OmniAuth generates when redirecting to login is based on the `Host` header that is passed to Rails. This can cause incorrect callback URLs to be passed when using this strategy (and OmniAuth in general) with a reverse proxy. You can adjust the host used by OmniAuth with the following snippet:
+
+```ruby
+OmniAuth.config.full_host = lambda do |env|
+    scheme         = env['rack.url_scheme']
+    local_host     = env['HTTP_HOST']
+    forwarded_host = env['HTTP_X_FORWARDED_HOST']
+    forwarded_host.blank? ? "#{scheme}://#{local_host}" : "#{scheme}://#{forwarded_host}"
+end
+```
+
+[See this StackOverflow thread for more information](https://stackoverflow.com/a/7135029/728480). 
+
+### ActionController::InvalidAuthenticityToken
+
+This is likely caused by a missing CSRF token needed to POST the login request. If you inspect the login button in your browser, you should see something like this:
+
+```html
+<a data-method="post" href="auth/auth0">Login</a>
+```
+
+... and in the `<head>` element for the page, you should have CSRF meta tags like these:
+
+```html
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="UY2XpKwxzwBWalxFVJ8yKsao/33it7If09BnZewpHifVPSpFJd2LrA7xgQn6VQrhZNGjgZoLI3kV+bkQHtr+Rw==">
+```
+
+With those elements in place, Rails will convert the login link to POST the CSRF token to the backend to verify it before redirecting to login.
 
 ### ActionDispatch::Cookies::CookieOverflow
 
@@ -214,12 +334,14 @@ Under some configurations, Ruby may not be able to find certification authority 
 Download the CA certs bundle to the project directory:
 
 ```bash
-$ curl -o lib/ca-bundle.crt http://curl.haxx.se/ca/ca-bundle.crt
+curl -L -o lib/ca-bundle.crt http://curl.haxx.se/ca/ca-bundle.crt
 ```
 
 Add this initializer to `config/initializers/fix_ssl.rb`:
 
 ```ruby
+# config/initializers/fix_ssl.rb
+
 require 'open-uri'
 require 'net/https'
 

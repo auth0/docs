@@ -1,6 +1,13 @@
 ---
 description: Describes the Billing policy which governs requests for billing mechanisms within the Auth0 dashboard
 crews: crew-2
+topics:
+    - auth0-policies
+    - billing
+contentType:
+  - reference
+useCase:
+  - support
 ---
 
 # Billing Policy
@@ -79,21 +86,34 @@ Please note that you have to be a Tenant admin to do this request.
 
 Also, more than often the email which receives the receipt is the one that created the Auth0 tenant. Please make sure that you are in touch with the owner of that email. That person can also forward you the receipt of the payment. If you want to change this setting, please let us know through our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 
+## Do you charge sales tax?
+
+For US-based customers, we will charge sales tax where applicable. This is dependent on your state's sales tax laws and requirements. For non-US customers, we will not charge sales tax.
+
+You can determine if you will be responsible for sales tax during the checkout process after you provide your billing address. If the billing address provided is tax-eligible, you'll see the sales tax added to your total. You will also see the sales tax amount on all of your Auth0 invoices and receipts.
+
 ## In our pricing, what is the difference between internal and external users? Are they different technically?
 
-An active user is a user that has authenticated with username/password, a passwordless connection or any social provider in the last 30 days, counted per application (client in the Dashboard).
+An active user is a user that has authenticated with a username/password combination, a <dfn data-key="passwordless">Passwordless</dfn> connection, or any social provider in a given calendar month.
 
-For example, if a person logs in to Client 1 through Facebook, then logs in to Client 2 through Google and then logs in to Client 2 using username/password, that would count as 3 active users, even if it's just one individual.
+Auth0 counts users on a per-tenant basis. That means that somebody who logs in to multiple applications still counts as one user as long as you've created all of the applications using a single tenant.
 
 You will find that for certain plans, you have the ability to select between being charged for external users or for internal users. There are no technical differences between these types of users, they simply refer to whether someone is external to your company, or an internal employee.
 
 External users are most likely not going to be using Auth0 on a daily basis, and therefore this plan uses the active users criteria to calculate the price.
 
-On the other hand, internal users have to login everyday to their different tools and platforms in order to get the work done, so for this case you would pay a flat rate per user, rather than per active user/per app.
+On the other hand, internal users have to login everyday to their different tools and platforms in order to get the work done, so for this case you would pay a flat rate per user.
 
 ## Can we scale the number of users as needed each month?
 
 Definitely. In the Dashboard, you can do this by going to the upper right corner, and selecting **Settings** from the drop down menu. Then in the **Subscriptions** tab you can select them depending on your needs. More information about it can be found there or in our [Pricing page](https://auth0.com/pricing/).
+
+## Can we combine billing for multiple tenants?
+
+Unfortunately combined billing is not supported for regular self-service tenants. The only two cases where we support combined billing are:
+
+1. For enterprise customers
+2. For customers whose master tenant is billed at $167 per month (or more). In this case, we mark the testing tenant as [a child tenant](https://auth0.com/docs/dev-lifecycle/child-tenants) and bill only the master tenant.
 
 ## How can I convert my tenant from a free trial to any other version?
 

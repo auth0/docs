@@ -2,6 +2,16 @@
 section: libraries
 title: Lock Android v2 Internationalization
 description: Internationalization support in Lock for Android
+topics:
+  - libraries
+  - lock
+  - android
+  - i18n
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Lock Android: Internationalization
 

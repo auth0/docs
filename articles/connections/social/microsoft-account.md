@@ -1,102 +1,63 @@
 ---
-title: Connect your app to Microsoft Account
+title: Connect Apps to Microsoft
 connection: Microsoft Account
 image: /media/connections/ms.png
-index: 12
+index: 22
 alias:
  - live-id
  - microsoft-live
  - windowslive
  - windows-live
 seo_alias: microsoft-account
-description: How to configure your Auth0 app for an OAuth connection to Microsoft Account.
+description: Learn how to add login functionality to your app with Microsoft Accounts. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
 toc: true
+topics:
+  - authentication
+  - connections
+  - social
+  - microsoft
+contentType: how-to
+useCase:
+  - add-login
+  - customize-connections
+  - add-idp
 ---
+# Connect Apps to Microsoft Account
 
-# Connect your app to Microsoft Account
+You can add functionality to your web app that allows your users to log in with a Microsoft Account. 
 
-To connect your Auth0 app to Microsoft Account, you will need to create an app on the Microsoft Application Registration Portal, generate an `Application Id` and `Secret`, copy these credentials into Auth0, and enable the connection.
+## Prerequisites
 
-## 1. Create an application
+Before you connect your Auth0 app to Microsoft Account, you must have:
 
-Login to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com).
+* An account on the [Azure](https://azure.microsoft.com/en-us/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) portal
+* An [Azure AD Tenant](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-create-new-tenant).
 
-Click **Add an app**.
+## Steps
 
-![](/media/articles/connections/social/microsoft-account/ma-portal-1a.png)
+To connect your app to Microsoft Account, you will:
 
-::: note
-If you have existing apps, there may be two **Add an app** buttons. Select the first.
-:::
+1. [Set up your app in Microsoft Account](#set-up-your-app-in-microsoft-account)
+2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
+3. [Test the connection](#test-the-connection)
 
-Name your new app and click **Create application**:
+### Set up your app in Microsoft Account
 
-![](/media/articles/connections/social/microsoft-account/ma-portal-1.png)
+1. Follow the instructions in [Quickstart: Register an application with the Microsoft identity platform (Preview)](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app).
 
-## 2. Copy your Application Id
+2. While setting up your app, when asked to set a **Redirect URI**, enter your <dfn data-key="callback">callback URL</dfn>:
+  `https://${account.namespace}/login/callback`
 
-On the **Registration** page that follows, copy the **Application Id**. This is your `client_id`.
+<%= include('../_find-auth0-domain-redirects.md') %>
 
-![](/media/articles/connections/social/microsoft-account/ma-portal-2.png)
+Microsoft will generate an **Application (client) ID** for your application. You can find this on the app's **Overview** screen. 
 
-## 3. Get your password
+### Create and enable a connection in Auth0
 
-Click **Generate New Password**.
+[Set up the Microsoft Account social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the generated **Application (client) ID** and **Application (client) Secret**.
 
-Copy your password. This is your `client_secret`.
+### Test the connection
 
-![](/media/articles/connections/social/microsoft-account/ma-portal-3.png)
-
-## 4. Enter your callback URL
-
-Click **Add Platform**, then select **Web**.
-
-![](/media/articles/connections/social/microsoft-account/ma-portal-4a.png)
-
-Enter the following under **Redirect URIs**:
-
-`https://${account.namespace}/login/callback`
-
-![](/media/articles/connections/social/microsoft-account/ma-portal-4.png)
-
-Scroll down to **Advanced Options** and make sure **Live SDK support** is checked.
-
-![](/media/articles/connections/social/microsoft-account/ma-portal-4b.png)
-
-Click **Save**.
-
-## 5. Copy your Client ID and Client Secret
-
-Go to the [Auth0 Dashboard](${manage_url}) and select **Connections > Social** from the left menu.
-
-Select the **Microsoft** connection.
-
-Copy the `Client Id` and `Client Secret` you saved earlier into the fields on this page on Auth0.
-
-Click **Save**.
-
-![](/media/articles/connections/social/microsoft-account/ma-portal-5.png)
-
-## 6. Enable your apps
-
-Select the **Apps** tab of the Microsoft Account settings page in Auth0 and enable the applications you want to use with this connection.
-
-Click **Save**.
-
-![](/media/articles/connections/social/microsoft-account/ma-portal-6.png)
-
-## 7. Test your connection
-
-On the [Social Connections](${manage_url}/#/connections/social) page in the Auth0 dashboard, click the **Try** button next to the Microsoft connection.
-
-![](/media/articles/connections/social/microsoft-account/ma-portal-7.png)
-
-Click Yes to allow your Microsoft app to access your information.
-
-![](/media/articles/connections/social/microsoft-account/ma-portal-8.png)
-
-If you see the **It Works!** page, you have successfully configured your connection to Microsoft Account.
-
-![](/media/articles/connections/social/microsoft-account/ma-portal-9.png)
+You're ready to [test your connection](/dashboard/guides/connections/test-connections-social). After logging in, you'll be prompted to allow your app access. To do so, click **Install unlisted app**.
 
 <%= include('../_quickstart-links.md') %>

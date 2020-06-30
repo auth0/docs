@@ -1,5 +1,0 @@
----
-public: false
----
-
-# SAML Errors

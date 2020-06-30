@@ -1,6 +1,13 @@
 ---
 title: PSaaS Appliance Remote Access Options
 description: Remote Access Options Available for those with PSaaS Appliance
+topics:
+    - appliance
+    - remote-access
+contentType: reference
+useCase: appliance
+applianceId: appliance63
+sitemap: false
 ---
 # PSaaS Appliance Remote Access Options
 
@@ -43,25 +50,7 @@ Similar to option 1, this configuration permits an external Auth0 Jumphost to co
 
 * Additional virtual Jumphost required in customer infrastructure
 
-### Option 3: VPN
-
-This configuration provides VPN access to the customer’s network either to Auth0 engineers individually or a dedicated, Jumphost-like Auth0 server.
-
-![](/media/articles/appliance/remote-access/vpn.png)
-
-*Pros*:
-
-* Customers usually have VPN infrastructure in place
-* No additional servers are required
-* Auth0 access can be enabled and disabled using existing VPN account procedures
-
-*Cons*: 
-
-* Inability to audit management activity on the command line
-* Customer responsible for provisioning VPN accounts for Auth0 engineers and Identity Management
-* Customer responsible for securing VPN traffic only to PSaaS appliance
-* Customer is responsible for VPN availability (critical to allow access during support events)
 
 ### Unsupported Configurations
 
-We do not support other methods, such as VDI or Screen Sharing mechanisms. They introduce compliance concerns, including (but not limited to) Auth0’s inability to internally audit connections and SSH sessions, enforce identity management on Auth0 employee accounts,exposure to untrusted systems on customer’s end running non-standard software (from where the connections are generated to Auth0 VMs), and inability to verify the identity of participants on the other end.
+We do not support other methods, such as VDI or Screen Sharing mechanisms. They introduce compliance concerns, including (but not limited to) Auth0’s inability to internally audit connections and SSH sessions, enforce identity management on Auth0 employee accounts, exposure to untrusted systems on customer’s end running non-standard software (from where the connections are generated to Auth0 VMs), and inability to verify the identity of participants on the other end.

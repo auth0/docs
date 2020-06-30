@@ -4,10 +4,25 @@ toc: true
 title: Lock v2 for iOS
 description: A widget that provides a frictionless login and signup experience for your native iOS apps.
 mobileimg: media/articles/libraries/lock-ios.png
+topics:
+  - libraries
+  - lock
+  - ios
+contentType:
+  - reference
+  - index
+  - how-to
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Lock v2 for iOS
 
-This reference guide will show you how to implement the Lock user interface, and give you the details on configuring and customizing Lock in order to use it as the UI for your authentication needs. However, if you'd like to learn how to do more with Auth0 and Swift, such as how to save, call and refresh Access Tokens, get user profile info, and more, check out the [Auth0.Swift SDK](/libraries/auth0-swift). Or, take a look at the [Swift QuickStart](/quickstart/native/ios-swift) to walk through complete examples and see options, both for using Lock as the interface, and for using a custom interface. 
+::: warning
+Auth0 encourages the use of [web authentication via Universal Login](/guides/login/universal-vs-embedded) rather than native username/password authentication whenever possible.
+:::
+
+This reference guide will show you how to implement the <dfn data-key="lock">Lock</dfn> user interface, and give you the details on configuring and customizing Lock in order to use it as the UI for your authentication needs. However, if you'd like to learn how to do more with Auth0 and Swift, such as how to save, call and refresh <dfn data-key="access-token">Access Tokens</dfn>, get user profile info, and more, check out the [Auth0.swift SDK](/libraries/auth0-swift). Or, take a look at the [Swift Quickstart](/quickstart/native/ios-swift) to walk through complete examples and see options, both for using Lock as the interface, and for using a custom interface. 
 
 ::: note
 Check out the [Lock.swift repository](https://github.com/auth0/Lock.swift) on GitHub.
@@ -15,9 +30,9 @@ Check out the [Lock.swift repository](https://github.com/auth0/Lock.swift) on Gi
 
 ## Requirements
 
-- iOS 9 or later
-- Xcode 8
-- Swift 3.0
+- iOS 9+
+- Xcode 10+
+- Swift 4+
 
 <%= include('../_includes/_dependencies') %>
 
@@ -28,7 +43,7 @@ Check out the [Lock.swift repository](https://github.com/auth0/Lock.swift) on Gi
 Lock needs to be notified when the application is asked to open a URL. You can do this in the `AppDelegate` file.
 
 ```swift
-func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
+func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
   return Lock.resumeAuth(url, options: options)
 }
 ```
@@ -123,7 +138,7 @@ Adding a database connection:
 
 ```swift
 .withConnections {
-    connections.database(name: "Username-Password-Authentication", requiresUsername: true)
+    $0.database(name: "Username-Password-Authentication", requiresUsername: true)
 }
 ```
 
@@ -131,8 +146,8 @@ Adding multiple social connections:
 
 ```swift
 .withConnections {
-    connections.social(name: "facebook", style: .Facebook)
-    connections.social(name: "google-oauth2", style: .Google)
+    $0.social(name: "facebook", style: .Facebook)
+    $0.social(name: "google-oauth2", style: .Google)
 }
 ```
 

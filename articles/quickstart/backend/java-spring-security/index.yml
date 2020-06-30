@@ -1,19 +1,21 @@
-title: Spring Security Java API
+title: Spring Security 4 Java API
 thirdParty: false
+author:
+  name: Jim Anderson
+  email: jim.anderson@auth0.com
+  community: false
 alias:
   - spring security
   - spring
-author:
-  name: Luciano Balmaceda
-  email: luciano.balmaceda@auth0.com
-  community: false
 languages:
   - Java
 framework:
   - Spring
 image: /media/platforms/java.png
-tags:
+topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   configure: server-apis/java-spring-security/configure
   dependencies: server-apis/java-spring-security/dependencies
@@ -27,3 +29,27 @@ snippets:
 articles:
   - 01-authorization
   - 02-using
+  - 03-troubleshooting
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-spring-security-api-sample
+requirements:
+  - Java 8 or above
+  - Gradle 5.4.1
+  - Spring Boot 1.5.21
+next_steps:
+  - path: 01-authorization
+    list:
+    - text: Configure other identity providers
+      icon: 345
+      href: "/identityproviders"
+    - text: Enable multifactor authentication
+      icon: 345
+      href: "/multifactor-authentication"
+    - text: Learn about anomaly detection
+      icon: 345
+      href: "/anomaly-detection"
+    - text: Learn about rules
+      icon: 345
+      href: "/rules"

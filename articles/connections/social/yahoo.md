@@ -1,71 +1,64 @@
 ---
-title: Connect your app to Yahoo!
+title: Connect Apps to Yahoo
 connection: Yahoo!
+index: 36
 image: /media/connections/yahoo.png
+description: Learn how to add login functionality to your app with Yahoo. You will need to obtain a Consumer Key and Consumer Secret for Yahoo.
 seo_alias: yahoo
-index: 15
-description: How to obtain a Consumer Key and Consumer Secret for Yahoo!
 toc: true
+topics:
+  - connections
+  - social
+  - yahoo
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
+# Connect Apps to Yahoo
 
-# Connect your app to Yahoo!
+You can add functionality to your web app that allows your users to log in with Yahoo. 
 
-These steps will guide you through how to create an application with Yahoo! and how to add it as a social connection in the Auth0 Dashboard.
+## Prerequisites
 
-## 1. Add a New Application
+Before connecting your Auth0 app to Shopify, you must have:
 
-To begin, you need a Yahoo user ID. If you don’t have one ([login.yahoo.com](https://login.yahoo.com) or [admanager.yahoo.com](https://admanager.yahoo.com)), you need to create one.
+* [Yahoo User ID](https://login.yahoo.com)
+* [Yahoo Developer](https://developer.yahoo.com/) account
 
-Then, go to [Yahoo Developer Apps](https://developer.yahoo.com/apps/) and click on the **Create an App** button.
+## Steps
 
-![Click the Create an App button](/media/articles/connections/social/yahoo/create-an-app.png)
+To connect your app to Yahoo, you will:
 
-Create an **Application Name** and select **Web Application** as the **Application Type**. 
+1. [Set up your app in Yahoo](#set-up-your-app-in-yahoo)
+2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
+3. [Test the connection](#test-the-connection)
 
-![Enter your app data](/media/articles/connections/social/yahoo/enter-fields.png)
+### Set up your app in Yahoo
 
-In the **Callback Domain** field enter:
+Set up an app in Yahoo. During this process, Yahoo will generate a **Client ID** and **Client Secret** for your application; make note of these.
 
-`https://${account.namespace}`
+1. Log in to [Yahoo Developer Apps](https://developer.yahoo.com/apps/) and click **Create an App**.
 
-For the **API Permissions** make sure to select at least one user data API:
+2. Complete information about your app including the following values:
 
-![API Permissions](/media/articles/connections/social/yahoo/api-permissions.png)
+| Field | Value to Provide |
+| - | - |
+| App URL | `https://${account.namespace}` |
+| Redirect URL(s) | `https://${account.namespace}/login/callback` |
+namespace}` |
+| API Permissions | **Profiles (Social Directory)** (and its subset of available app permissions. You may select additional API permissions, but you must include this option to ensure that Yahoo returns the user's email address. |
 
-## 2. Get your **Client Key** and **Client Secret**
+<%= include('../_find-auth0-domain-redirects') %>
 
-Once the application is created you will see a **Client ID** (Consumer Key) and **Client Secret** (Consumer Secret). Copy these values as you will use them to set up the connection in Auth0.
+3. Click **Create App**. Yahoo displays your **Client ID** (Consumer Key) and **Client Secret** (Consumer Secret). 
 
-![Get Client ID and Client Secret](/media/articles/connections/social/yahoo/client-id-and-secret.png)
+### Create and enable a connection in Auth0
 
-## 3. Set up the Connection in Auth0
+[Set up the Yahoo social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the **Client ID** and the **Client Secret** generated.
 
-In a seperate tab or page, go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard.
+### Test the connection
 
-Click on the **Yahoo!** connection.
-
-Enter your **Client Key** and **Client Secret** from Yahoo! then click **SAVE**.
-
-![Enter your key and secret](/media/articles/connections/social/yahoo/setup-connection.png)
-
-Next click on the **Applications** tab next to **Settings** and enable which of your applications will be able to use this connection.
-
-![Enable Applications](/media/articles/connections/social/yahoo/enable-clients.png)
-
-When finished, click **SAVE**.
-
-## 4. Test the Connection
-
-On the [Connections > Social](${manage_url}/#/connections/social) page of the Auth0 dashboard you should now see a **TRY** button with the Yahoo! connection.
-
-![Try button](/media/articles/connections/social/yahoo/try-button.png)
-
-Click on this to test the new connection. This should bring up a confirmation page for the connection:
-
-![Connection Approval](/media/articles/connections/social/yahoo/approve-connection.png)
-
-If accepted, you should be able to see the **It Works!** confirmation page that your connection has been configured correctly.
+You're ready to [test your connection](/dashboard/guides/connections/test-connections-social). After logging in, you'll be prompted to allow your app access. To do so, click **Install unlisted app**.
 
 <%= include('../_quickstart-links.md') %>
-
-

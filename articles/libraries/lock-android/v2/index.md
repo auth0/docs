@@ -4,14 +4,25 @@ toc: true
 title: Lock for Android v2
 description: A widget that provides a frictionless login and signup experience for your native Android apps.
 mobileimg: media/articles/libraries/lock-android.png
+topics:
+  - libraries
+  - lock
+  - android
+contentType:
+  - index
+  - how-to
+  - reference
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Lock Android: Getting Started
 
 ::: warning
-Username/Email & Password authentication from native applications is disabled by default for new tenants as of 8 June 2017. Users are encouraged to use [universal login](/hosted-pages/login) and perform Web Authentication instead. If you still want to proceed you'll need to enable the Password Grant Type on your dashboard first. See [Application Grant Types](/applications/application-grant-types) for more information.
+Auth0 encourages the use of [web authentication via Universal Login](/guides/login/universal-vs-embedded) rather than native username/password authentication whenever possible.
 :::
 
-Lock for Android can integrate into your native Android apps to provide a beautiful way to log your users in and to sign them up in your app. It provides support for social identity providers such as Facebook, Google, or Twitter, as well as enterprise providers such as Active Directory.
+<dfn data-key="lock">Lock</dfn> for Android can integrate into your native Android apps to provide a beautiful way to log your users in and to sign them up in your app. It provides support for social identity providers such as Facebook, Google, or Twitter, as well as enterprise providers such as Active Directory.
 
 Get started using Lock for Android below, or if you're looking for a specific document beyond basic setup of Lock, try the listing of [next steps](#next-steps) for working with Lock for Android.
 
@@ -43,7 +54,7 @@ You need to fill in a few settings in your [Auth0 Dashboard](${manage_url}) befo
 
 ### Callback URL
 
-Head over to your Auth0 Dashboard and go to the application's settings. Add the following URL to the application's "Allowed Callback URLs"
+Head over to your Auth0 Dashboard and go to the application's settings. Add the following URL to the application's "Allowed <dfn data-key="callback">Callback URLs</dfn>"
 
 ```text
 https://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
@@ -63,7 +74,7 @@ For a release keystore, replace the file, alias, store password and key password
 
 ## Implementing Lock (Social, Database, Enterprise)
 
-The following instructions discuss implementing Lock for Android. If you specifically are looking to implement Passwordless Lock for Android, read the [Passwordless Authentication with Lock for Android](/libraries/lock-android/v2/passwordless) page.
+The following instructions discuss implementing Lock for Android. If you specifically are looking to implement <dfn data-key="passwordless">Passwordless</dfn> Lock for Android, read the [Passwordless Authentication with Lock for Android](/libraries/lock-android/v2/passwordless) page.
 
 ### Configuring the SDK
 
@@ -104,7 +115,7 @@ Add the `LockActivity`.
   android:label="@string/app_name"
   android:launchMode="singleTask"
   android:screenOrientation="portrait"
-  android:theme="@style/MyLock.Theme"/>
+  android:theme="@style/Lock.Theme"/>
 ```
 
 ::: note
@@ -119,7 +130,7 @@ In case you are using an older version of Lock the **intent-filter** must be add
   android:label="@string/app_name"
   android:launchMode="singleTask"
   android:screenOrientation="portrait"
-  android:theme="@style/MyLock.Theme">
+  android:theme="@style/Lock.Theme">
     <intent-filter>
         <action android:name="android.intent.action.VIEW" />
         <category android:name="android.intent.category.DEFAULT" />
@@ -182,14 +193,14 @@ private LockCallback callback = new AuthenticationCallback() {
 ```
 
 ::: note
-The results of the AuthenticationCallback are in a `credentials` object. This object contains the tokens that you will require for authentication related operations in your app; see the [Tokens documentation](/tokens) for more specifics.
+The results of the AuthenticationCallback are in a `credentials` object. This object contains the tokens that you will require for authentication related operations in your app; see [Tokens](/tokens) for more specifics.
 :::
 
 ### Lock.Builder
 
 To create a new `Lock` instance and configure it, use the `Lock.Builder` class. Call the static method `Lock.newBuilder(Auth0, LockCallback)`, passing the account details and the callback implementation, and start configuring the Options as you need. After you're done, build the Lock instance and use it to start the `LockActivity`.
 
-To ensure an Open ID Connect compliant responses you must either request an `audience` or enable the **OIDC Conformant** switch in your Auth0 dashboard under `Application / Settings / Advanced OAuth`. You can read more about this [here](/api-auth/intro#how-to-use-the-new-flows).
+To ensure a response that complies with <dfn data-key="openid">OpenID Connect (OIDC)</dfn>, you must either request an <dfn data-key="audience">`audience`</dfn> or enable the **OIDC Conformant** switch in your Auth0 dashboard under `Application / Settings / Advanced OAuth`. You can read more about this [here](/api-auth/intro#how-to-use-the-new-flows).
 
 This is an example of what your `Activity` should look:
 

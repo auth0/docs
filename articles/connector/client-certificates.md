@@ -1,26 +1,39 @@
 ---
 description: How to setup authentication using client certificates.
+topics:
+  - connector
+  - ad/ldap
+  - client-certificates
+contentType: how-to
+useCase:
+  - add-login
+  - customize-connections
+  - add-idp
 ---
 
 # Client Certificate Support
 
-In addition to Kerberos, the AD/LDAP Connector also allows users to authenticate using __client certificates__. With this, users authenticate with a certificate installed on their machine or device.
+In addition to Kerberos, the [AD/LDAP Connector](/connector) also allows users to authenticate using **client certificates**. With this, users authenticate with a certificate installed on their machine or device.
 
-## Configuration
+## Configure the AD/LDAP connection
 
-To activate Client Certificates on an LDAP connection, simply enable the option in the dashboard:
+To activate client certificates on an AD/LDAP connection:
+
+1. Go to [Connections > Enterprise](${manage_url}/#/connections/enterprise) and select your AD/LDAP connection.
+2. Toggle the **Use client SSL certificate authentication** option in the settings.
+3. Provide IP address ranges in the **IP Ranges** field. Only users coming from the given IP ranges are prompted to authenticate using client certificates. Users from different IP ranges are prompted to login with the username/password login form.
 
 ![](/media/articles/connector/client-certs/connector-client-cert-enable.png)
 
-::: note
-Note that you'll also need to configure the IP Ranges. Only users coming from these IP Ranges will be prompted to authenticate using Client Certificates. Users that originate from different IP Ranges will be presented with the traditional username/password login form.
-:::
+## Configure the certificates
 
-Once this has been configured in Auth0 you'll need to configure the certificates in the AD/LDAP Connector. Supporting Client Certificates will require the following:
+Once the AD/LDAP connection has been configured in Auth0, you'll need to configure the certificates in the AD/LDAP Connector. Supporting client certificates will require the following:
 
  1. An __SSL certificate__ for the **Front Facing Url**, because the interaction between the end user and the Connector will need to happen over HTTPS.
  2. One or more __CA certificates__.
  3. A __Client Certificate__ signed by the CA for each user that needs to authenticate using Client Certificates.
+
+Before uploading certificates to the AD/LDAP connector, convert X509 certificates to Base64. To do this you can use a simple online tool like [this one](https://www.base64decode.org/), or you can use [Certutil.exe](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/certutil#BKMK_encode) on Windows Server.
 
 The SSL certificate and the CA certificate can be uploaded in the AD/LDAP Connector:
 

@@ -10,7 +10,7 @@
   <tbody>
     <tr>
       <td><span class="badge badge-info">200</span></td>
-      <td><code>{"error": "invalid_request", "error_description": "..."}</code></br>The Refresh Token is revoked, does not exist, or was not issued to the client making the revocation request.</td>
+      <td><code>{"error": "invalid_request", "error_description": "..."}</code></br>The <dfn data-key="refresh-token">Refresh Token</dfn> is revoked, does not exist, or was not issued to the client making the revocation request.</td>
     </tr>
     <tr>
       <td><span class="badge badge-danger">400</span></td>

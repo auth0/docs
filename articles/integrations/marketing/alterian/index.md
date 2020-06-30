@@ -1,19 +1,19 @@
 ---
-title: Alterian Integration
-description: Learn how to import your Auth0 user data into Alterian.
+title: Export User Data To Alterian
+description: Learn how to export your Auth0 user data and import it into Alterian.
 toc: true
+topics:
+    - marketing
+    - alterian
+contentType: how-to
+useCase: export-users-marketing
 ---
 
-# Alterian Integration
+# Export User Data To Alterian
 
-## Import Users to Alterian
+In this article, you’ll learn how to export user data in Auth0 to a CSV file then import it into Alterian with the campaign manager's data import tool.
 
-To import your Auth0 users into Alterian:
-
-- Export your user data as a CSV file with the [User Import / Export Extension](/extensions/user-import-export).
-- Import the file into Alterian with the Campaign Manager's Data Import tool.
-
-### Create a User Data File
+## Create a user data file
 
 Start by navigating to the [Extensions](${manage_url}/#/extensions) section of the Dashboard and open the **User Import / Export Extension**. On the extension page, select **Export** from the menu.
 
@@ -34,7 +34,7 @@ User Field | Column Name
 
 After adding the user fields, click on the **Export Users** button to start the export. Once the export is complete, download the CSV file to use in the following section.
 
-### Import a User Data File
+## Import a user data file
 
 ::: note
 [Alterian Campaign Manager: Data Import](http://cm.help.alterian.com/CM404/Default.htm#Customer_Analytics/Import_Export/Data_Import.htm)
@@ -56,6 +56,6 @@ To import your CSV file into Alterian, follow these steps:
     
     ![Data Import: New Imports](/media/articles/integrations/marketing/alterian/new-data-imports.png)
 
-7. After you've reviewed your settings, click **Run Processess**.
+7. After you've reviewed your settings, click **Run Processes**.
 
 That's it! You successfully imported your Auth0 users into Alterian.

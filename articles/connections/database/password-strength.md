@@ -1,7 +1,13 @@
 ---
 title: Password Strength in Auth0 Database Connections
 description: Auth0's Password Strength feature allows you to customize the level of enforced complexity for passwords entered during user sign-up. Auth0 offers 5 levels of security to match OWASP password recommendations.
-crews: crew-2
+topics:
+    - connections
+    - database
+    - db-connections
+    - passwords
+contentType: concept
+useCase: customize-connections
 ---
 # Password Strength in Auth0 Database Connections
 
@@ -19,16 +25,91 @@ The following characteristics define a strong password:
 
 ## Password policies
 
-Auth0's Password Strength feature allows you to customize the level of enforced complexity for passwords entered during user sign-up. Auth0 offers 5 levels of security to match [OWASP password recommendations](https://www.owasp.org/index.php/Authentication_Cheat_Sheet#Implement_Proper_Password_Strength_Controls).
+Auth0's Password Strength feature allows you to customize the level of enforced complexity for passwords entered during user sign-up. Auth0 offers 5 levels of security to match [OWASP password recommendations](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Authentication_Cheat_Sheet.md).
 
 At each level, new passwords must meet the following criteria:
 
- * **None** (default): at least 1 character of any type.
- * **Low**: at least 6 characters.
- * **Fair**: at least 8 characters including a lower-case letter, an upper-case letter, and a number.
- * **Good**: at least 8 characters including at least 3 of the following 4 types of characters: a lower-case letter, an upper-case letter, a number, a special character (such as !@#$%^&*).
- * **Excellent**: at least 10 characters including at least 3 of the following 4 types of characters: a lower-case letter, an upper-case letter, a number, a special character (such as `!@#$%^&*`). Not more than 2 identical characters in a row (such as `111` is not allowed).
+* **None** (default): at least 1 character of any type.
+* **Low**: at least 6 characters.
+* **Fair**: at least 8 characters including a lower-case letter, an upper-case letter, and a number.
+* **Good**: at least 8 characters including at least 3 of the following 4 types of characters: a lower-case letter, an upper-case letter, a number, a special character (such as !@#$%^&*).
+* **Excellent**: at least 10 characters including at least 3 of the following 4 types of characters: a lower-case letter, an upper-case letter, a number, a special character (such as `!@#$%^&*`). Not more than 2 identical characters in a row (such as `111` is not allowed).
 
+::: note
+The password policy for Auth0 Dashboard Admins will mirror the criteria set for the **Fair** level.
+:::
+
+## Minimum password length
+
+You can set a minimum length requirement for passwords that is independent of the policy strength requirements described in the [section immediately above](#password-policies). 
+
+The minimum password length you can set is **1**, while the maximum is **128**.
+
+If you opt for a higher-level password policy, but you do not specify a minimum length value, the minimum password length for the policy level will automatically be used:
+
+| Password Policy Level | Minimum Password Length |
+| - | - |
+| None | 1 |
+| Low | 6 |
+| Fair | 8 |
+| Good | 8 |
+| Excellent | 10 |
+
+If you provide a minimum password length, this value supercedes that indicated by the password policy.
+
+### Minimum password length when using Universal Login Pages
+
+If you are using either the [Universal Login Page](/universal-login) or the [Universal Login Password Reset Page](/universal-login/password-reset), and you want to set the minimum password length value, you will need to complete a few additional configuration steps using the [Dashboard](${manage_url}).
+
+#### Set minimum password length when using Hosted Password Reset Pages
+
+If you're using a customized [Password Reset Page](/universal-login/password-reset) and you want to set the password length parameter, you must:
+
+1. Update your templates to include library version 1.5.1 or later
+2. Add `password_complexity_options` to leverage the new parameter
+
+If you do not [update the Password Reset Page](/universal-login/password-reset#edit-the-password-reset-page), Auth0 ignores any attempt to set the minimum password length.
+
+##### Step 1: Update the change password library version
+
+To use the new minimum password length feature, you should update the change password library used to version 1.5.1 (or later):
+
+```text
+<script src="https://cdn.auth0.com/js/change-password-1.5.1.min.js"></script>
+```
+
+##### Step 2: Add `password_complexity_options` to leverage the new parameter
+
+You'll need to add `password_complexity_options` to leverage the new parameter. Add this option to the page's script as follows:
+
+```text
+<script>
+    //code omitted for brevity
+    new Auth0ChangePassword({
+    container:                    "change-password-widget-container",     // required
+    email:                        '{{email}}',                            // DO NOT CHANGE THIS
+    csrf_token:                   '{{csrf_token}}',                       // DO NOT CHANGE THIS
+    ticket:                       '{{ticket}}',                           // DO NOT CHANGE THIS
+    password_policy:              '{{password_policy}}',                  // DO NOT CHANGE THIS
+    password_complexity_options:  {{password_complexity_options}}         // DO NOT CHANGE THIS
+    
+    //code omitted for brevity
+  
+  });
+</script>
+```
+
+Scroll to the bottom and click **Save**.
+
+#### Set minimum password length when using Universal Login Pages
+
+If you're using a customized [Login Page](/universal-login) and you want to set the password length parameter, you must [update the page to use Lock version 11.9 or later](/universal-login/classic).
+
+```text
+<script src="https://cdn.auth0.com/js/lock/11.9/lock.min.js"></script>
+```
+
+Scroll to the bottom and click **Save**.
 
 ## Change Your Policy
 
@@ -44,7 +125,7 @@ Existing passwords that were created prior to the change in policy will continue
 
 ### Lock
 
-After password policies have been enabled, users will be notified on sign-up and reset password Lock modes if their password does not meet the required criteria.
+After password policies have been enabled, users will be notified on sign-up and reset password <dfn data-key="lock">Lock</dfn> modes if their password does not meet the required criteria.
 
 This is how Lock will appear on the desktop:
 
@@ -54,13 +135,18 @@ and on mobile:
 
 ![Auth0 Lock Password Strength checks on Mobile](/media/articles/connections/database/password-strength/moUbn4XXxR.png)
 
-## Custom Signup Errors
+
+::: note
+If Auth0 rejects a provided password, the notification will display in English. If you would like to display notifications in another language, you will need to do so via client-side translation.
+:::
+
+## Custom signup errors
 
 Sign-up errors will return a 400 HTTP status code. The JSON response will contain `code: invalid_password` when the password does not meet the selected password policy criteria.
 
 The response will also contain additional information that can be used to guide the user to what is incorrect in the selected password:
 
-* A `message` is ready to be formated using the `printf` function (or Node.js `util.format`).
+* A `message` is ready to be formatted using the `printf` function (or Node.js `util.format`).
 * `format` is an array with values to be used in the `message`. (`message` is separate from the `format` to allow easier i18n of error messages in custom UIs.)
 * `verified` can be either `true` or `false`. Returns `false` if the rule has been violated.
 
@@ -106,6 +192,6 @@ This is a sample `description` error report from a `good` policy with `hello1234
     }
 ```
 
-## Password Options
+## Password options
 
 In addition to the Password Strength feature explained here, the Password Policy settings for a database connection also include various Password Options that can further enhance your connection's password policy and ensure that your users have more secure passwords. Take a look at the [Password Options](/connections/database/password-options) documentation for more information.

@@ -2,11 +2,22 @@
 title: Setting Up the Authorization Extension
 description: How to set up the Authorization Extension
 toc: true
+topics:
+  - extensions
+  - authorization_v2
+contentType:
+  - how-to
+  - concept
+useCase: extensibility-extensions
 ---
 
 # Authorization Extension: Setup
 
-In this paragraph, we'll briefly cover the basics of users, groups, roles, and permissions.
+::: note
+<%= include('../../../../_includes/_rbac_methods') %>
+:::
+
+In this article we'll cover the basics of users, groups, <dfn data-key="role">roles</dfn>, and permissions.
 
 Let's say that you have an application that is accessible to everyone within your corporation. The **users** are the individuals to whom you'd like to grant access to your application.
 
@@ -39,7 +50,7 @@ Rather than assigning both permissions to groups/users, you can roll the two (al
 
 ## Users
 
-The **Users** section lists all the current users of your applications. You can use this to search for and select a specific user to see their profile, view or edit their group affiliations, and view or edit their roles.
+The **Users** section lists all the current users of your applications. Here you can find a specific user, see their profile, change their group affiliations, and change their roles.
 
 ![Users Section](/media/articles/extensions/authorization/users.png)
 
@@ -105,7 +116,7 @@ You can create different types of Roles such as: Expense Admins, Expense Manager
 
 ![Roles](/media/articles/extensions/authorization/roles.png)
 
-To add a role, click the **CREATE ROLE** button from the **Roles** section of the dashboard. Then choose the application this Role applies to (such as Expense Management Tool) and then add a name of the role (such as Expense Admins) and a description of the role. Then select the permissions you wish to grant to this role. If you haven't yet created your permissions you can add them later to an exisiting Role.
+To add a role, click the **CREATE ROLE** button from the **Roles** section of the dashboard. Then choose the application this Role applies to (such as Expense Management Tool) and then add a name of the role (such as Expense Admins) and a description of the role. Then select the permissions you wish to grant to this role. If you haven't yet created your permissions you can add them later to an existing Role.
 
 ![Add a New Role](/media/articles/extensions/authorization/add-role.png)
 

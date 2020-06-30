@@ -1,18 +1,26 @@
 ---
-description: How to SSO with Heroku.
+description: Learn how to configure Single Sign-on (SSO) with Heroku.
+topics:
+    - saml
+    - identity-providers
+    - heroku
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
-# Configure SSO with Heroku
+# Configure Single Sign-on with Heroku
 
 ::: note
-You must have administrative rights to your organization account on Heroku to configure SSO. Organization accounts are included with Heroku Enterprise plans.
+You must have administrative rights to your organization account on Heroku to configure <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn>. Organization accounts are included with Heroku Enterprise plans.
 :::
 
-You can configure SSO so that your users can log into Heroku using any of Auth0's supported [identity providers](/identityproviders).
+You can configure <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> so that your users can log into Heroku using any of Auth0's supported [identity providers](/identityproviders).
 
 ## 1. Obtain Your Heroku Identifiers
 
-On the Settings page for your organization in Heroku, scroll to the **Single Sign On (SSO) section.
+On the Settings page for your organization in Heroku, scroll to the **Single Sign-On (SSO)** section.
 
 ![](/media/articles/saml/saml-apps/heroku/heroku-dashboard.png)
 
@@ -23,7 +31,7 @@ You will need the following two parameters from this section to integrate with A
 
 ## 2. Register Heroku with Auth0
 
-Log in to your [Auth0 Dashboard](${manage_url}/#/applications) and select the [application](/applications) for which you want to enable SSO with Heroku. Go to the __Addons__ section of your Application, and enable __SAML2 Web App__:
+Log in to your [Auth0 Dashboard](${manage_url}/#/applications) and select the [application](/applications) for which you want to configure SSO with Heroku. Go to the __Addons__ section of your Application, and enable __SAML2 Web App__:
 
 ![](/media/articles/saml/saml-apps/heroku/auth0-dashboard.png)
 

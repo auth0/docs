@@ -1,57 +1,50 @@
 ---
-title: Connect your app to Evernote
+title: Connect Apps to Evernote
 connection: Evernote
 image: /media/connections/evernote.png
 seo_alias: evernote
-description: How to obtain a Consumer Key and Consumer Secret for Evernote.
+description: Learn how to add login functionality to your app with Evernote. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
 toc: true
+index: 10
+topics:
+  - connections
+  - social
+  - evernote
+contentType: how-to
+useCase:
+  - customize-connections
+  - add-idp
+  - add-login
 ---
 
-# Connect your app to Evernote
+# Connect Apps to Evernote
 
-To configure Evernote OAuth connections, you will need to create an API Key on the Evernote Developers portal.
+This guide will show you how to add functionality to your web app that allows your users to log in with Evernote.
 
-## 1. Log into the Developers portal
+## Prerequisites
 
-Log into the [Evernote Developers](http://dev.evernote.com) portal and click **Get an API Key**:
+Before connecting your Auth0 app to Evernote's production environment, you should have already set up a connection to Evernote's Sandbox. To learn how, see [Connect Apps to Evernote Sandbox](/connections/social/evernote-sandbox).
 
-![](/media/articles/connections/social/evernote/evernote-1.png)
+## Steps
 
-## 2. Request an API Key
+To connect your app to Evernote, you will:
 
-Complete the information on this page and click **Request Key**.
+1. [Request that Evernote activate your API Key on production](#request-that-evernote-activate-your-api-key-on-production)
+2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
+3. [Test the connection](#test-the-connection)
 
-![](/media/articles/connections/social/evernote/evernote-2.png)
+### Request that Evernote activate your API Key on production
 
-## 3. Get your *Consumer Key* and *Consumer Secret*
+When you [connected your app to Evernote Sandbox](/connections/social/evernote-sandbox), Evernote generated a **Consumer Key** and **Consumer Secret** for you. You now need to request that Evernote activate your **Consumer Key** on production.
 
-Your `Consumer Key` and `Consumer Secret` will be displayed on the following page:
+To do this, navigate to [Support Resources for Evernote Developers](https://dev.evernote.com/support/), click **Activate an API Key**, and enter the requested information.
 
-![](/media/articles/connections/social/evernote/evernote-3.png)
+### Create and enable a connection in Auth0
 
-## 4. Copy your *Consumer Key* and *Consumer Secret*
+[Set up the Evernote social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Now that they have been activated in production, use the **Consumer Key** and the **Consumer Secret** generated when you [connected your app to Evernote Sandbox](/connections/social/evernote-sandbox).
 
-Go to the [Social Connections](${manage_url}/#/connections/social) section of your Auth0 Dashboard and choose **Evernote Sandbox**. Copy the `Consumer Key` and `Consumer Secret` from the Evernote API Key page into the fields on this page on Auth0:
+### Test the connection
 
-![](/media/articles/connections/social/evernote/evernote-4.png)
-
-## 5. Move your key to production
-
-When ready to deploy your application, you must request your API key be activated on production.
-
-Go to [Support Resources for Evernote Developers](https://dev.evernote.com/support/) and click **Activate an API Key**:
-
-![](/media/articles/connections/social/evernote/evernote-5.png)
-
-Complete the information on this page, including you *API Consumer Key*, and click **Submit**:
-
-![](/media/articles/connections/social/evernote/evernote-6.png)
-
-## 6. Copy your *Consumer Key* and *Consumer Secret*
-
-Go to the [Social Connections](${manage_url}/#/connections/social) section of your Auth0 Dashboard and choose **Evernote**. Copy the `Consumer Key` and `Consumer Secret` from the Evernote API Key page into the fields on this page on Auth0:
-
-![](/media/articles/connections/social/evernote/evernote-7.png)
+You're ready to [test your connection](/dashboard/guides/connections/test-connections-social). After logging in, you'll be prompted to allow your app access. To do so, click **Install unlisted app**.
 
 <%= include('../_quickstart-links.md') %>
-

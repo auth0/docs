@@ -1,15 +1,19 @@
 ---
 section: appliance
 description: PSaaS Appliance infrastructure information about virtual machines
+topics:
+    - appliance
+    - infrastructure
+    - virtual-machines
+contentType: reference
+useCase: appliance
+applianceId: appliance41
+sitemap: false
 ---
 
 # PSaaS Appliance Infrastructure Requirements: Virtual Machines
 
-You may deploy the PSaaS Appliance on your premises using your own infrastructure or the infrastructure of a cloud provider. Currently, Auth0 supports the following PSaaS Appliance usage on the following virtualization environments:
-
-* Amazon Web Services (AWS);
-* Microsoft Azure;
-* VMware.
+You may deploy the PSaaS Appliance on your premises using your own infrastructure or the infrastructure of a cloud provider. Currently, Auth0 supports PSaaS Appliance usage on Amazon Web Services (AWS).
 
 ## Virtual Machine Templates
 
@@ -19,8 +23,8 @@ Auth0 provides the PSaaS Appliance via a Virtual Machine Template for you to pro
 
 When provisioning the PSaaS Appliance from the templates, Auth0 recommends the following specifications for the Virtual Machine infrastructure. For multi-node clusters, each node requires a separate VM that meet the specifications.
 
-* **Memory**: 32 GB RAM (16 GB RAM minimum);
-* **CPU**: 8 vCPU (4 vCPU minimum);
+* **Memory**: 32 GB RAM (minimum);
+* **CPU**: 8 vCPU (minimum);
 * **Storage**:
     * *For Non-Production Nodes*: 4 drives: 60 GB for system/operating system storage, 50 GB for data storage, 50 GB for User Search, and 50 GB for backup purposes (if you want to test the backup process).
     * *For three-node, high availability Production clusters*:
@@ -37,7 +41,7 @@ For multi-node clusters, Auth0 recommends deploying the PSaaS Appliance virtual 
 
 ## For AWS Users
 
-* The *recommended* [instance type](https://aws.amazon.com/ec2/instance-types/) is **M4.2xlarge** (M4.xlarge minimum).
+* The *recommended* [instance type](https://aws.amazon.com/ec2/instance-types/) is **m5.2xlarge** (minimum).
 * Auth0 will need the following pieces of information to share the AMI with you:
     * AWS account number;
     * AWS region name. The region should have at least three [availability zones](https://aws.amazon.com/about-aws/global-infrastructure) for your Production cluster.

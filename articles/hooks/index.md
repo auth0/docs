@@ -1,51 +1,46 @@
 ---
-url: /hooks
-classes: topic-page
 title: Hooks
-description: Working with Hooks
-beta: true
+description: Learn about Auth0 Hooks for Database Connections and Passwordless Connections.
+topics:
+    - hooks
+    - extensibility-points
+contentType:
+  - index
+  - concept
+useCase: extensibility-hooks
 ---
+# Hooks
 
-<div class="topic-page-header">
-  <div data-name="example" class="topic-page-badge"></div>
-  <h1>Hooks</h1>
-  <p>
-    Hooks allow you to extend the Auth0 platform with custom code.
-  </p>
-</div>
+<%= include('../_includes/_ip_whitelist') %>
 
-## What are Hooks?
+Hooks are secure, self-contained functions that allow you to customize the behavior of Auth0 when executed for selected [extensibility points](/hooks/extensibility-points) of the Auth0 platform. Auth0 invokes Hooks during runtime to execute your custom Node.js code.
 
-When using [Database Connections](/connections/database), Hooks allow you to customize the behavior of Auth0 using Node.js code that is executed against extensibility points (which are comparable to webhooks that come with a server). Hooks allow you modularity when configuring your Auth0 implementation, and extend the functionality of base Auth0 features.
+Depending on the extensibility point, you can use Hooks with [Database Connections](/connections/database) and/or [Passwordless Connections](/connections/passwordless).
 
-## Work with Hooks
+## Manage Hooks
 
-<ul class="topic-links">
-  <li>
-    <i class="icon icon-budicon-715"></i><a href="/hooks/overview">Overview of Hooks</a>
-    <p>
-      Hooks provide an easy-to-use method for extending the functionality of the base Auth0 platform.
-    </p>
-    <ul>
-      <li>
-        <i class="icon icon-budicon-695"></i><a href="/hooks/extensibility-points">Auth0 Extensibility Points</a>
-      </li>
-    </ul>
-  </li>
-  <li>
-    <i class="icon icon-budicon-715"></i><a href="/hooks/dashboard">Work with Hooks in the Management Dashboard</a>
-    <p>
-      How to work with Hooks using the Auth0 Management Dashboard
-    </p>
-  </li>
-  <li>
-    <i class="icon icon-budicon-715"></i><a href="/hooks/cli">Work with Hooks using the Command-Line Interface</a>
-    <p>
-      How to work with Hooks using the Auth0 Command-Line Interface
-    </p>
-  </li>
-</ul>
+You can create, update, delete, enable/disable, and view Hooks from the Dashboard or Management API. To learn more, see:
 
-## Use the Webtask Editor
+- [Create Hooks](/hooks/create)
+- [Update Hooks](/hooks/update)
+- [Delete Hooks](/hooks/delete)
+- [Enable/Disable Hooks](/hooks/enable-disable)
+- [View Hooks](/hooks/view)
 
-You can edit Hooks directly using the Webtask Editor. Please see the [Webtask documentation](https://webtask.io/docs/editor) for detailed information.
+Hooks may also be imported and exported using the [Deploy Command-Line Interface (CLI) Extension](/extensions/deploy-cli).
+
+<%= include('./_includes/_handle_rate_limits') %>
+
+## Manage Hook Secrets
+
+Hooks feature integrated secret management to securely store secrets while making them conveniently available in code. To learn more, see [Hook Secrets](/hooks/secrets).
+
+## Test Hooks
+
+The Hooks editor in the Dashboard has an integrated Runner, which allows you to test your code without leaving the editor.
+
+<%= include('./_includes/_test_runner_save_warning') %>
+
+## View Logs
+
+You can view real-time logging information for specific configured Hooks using the Dashboard. To learn more, see [View Logs for Hooks](/hooks/view-logs).

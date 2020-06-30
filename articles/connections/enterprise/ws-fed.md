@@ -2,9 +2,17 @@
 title: Connecting WS-Federation Providers with Auth0
 connection: WS-Federation
 image: /media/connections/wsfed.png
-public: true
+public: false
 seo_alias: ws-fed
 description: Connecting WS-Federation Providers with Auth0
+topics:
+    - connections
+    - enterprise
+    - ws-fed
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connecting WS-Federation Providers with Auth0
@@ -18,15 +26,13 @@ To configure this connection, navigate to [Dashboard > Connections > Enterprise]
 Click __Create New Connection__ and enter the following information:
 
 * __Connection Name__ - A descriptive name for the connection
-* __Email Domains__ - (Optional) A comma-separated list of valid domains. Only needed if you want to use the [Lock login widget](/libraries/lock).
+* __Email Domains__ - (Optional) A comma-separated list of valid domains. Only needed if you want to use the <dfn data-key="lock">Lock login widget</dfn>.
 
 Next, you must either provide the URL for your WS-Federation server in the __ADFS URL__ field or upload a Federation Metadata file.
 
-![New Connection](/media/articles/connections/enterprise/ws-fed/new.png)
+If you configure the connection with a WS-Federation server URL, Auth0 will retrieve the Federation Metadata endpoint and import the required parameters, certificates, and URLs. You must make sure that the URL is publicly accessible and the SSL certificate on your ADFS installation is valid.
 
-::: note
-If you configure the connection with a WS-Federation server URL, Auth0 will retrieve the Federation Metadata endpoint and import the required parameters, certificates, and URLs.
-:::
+![New Connection](/media/articles/connections/enterprise/ws-fed/new.png)
 
 Click __Save__.
 

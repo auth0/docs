@@ -1,6 +1,11 @@
 ---
 description: How to authenticate and authorize devices using MQTT with Auth0.
 toc: true
+topics:
+  - integrations
+  - mqtt
+contentType: how-to
+useCase: integrate-saas-sso
 ---
 # Authenticating & Authorizing Devices using MQTT with Auth0
 
@@ -90,7 +95,7 @@ Auth0Mosca.prototype.authenticateWithJWT = function(){
 
     if( username !== 'JWT' ) { return callback("Invalid Credentials", false); }
 
-    // console.log('Passsord:'+password);
+    // console.log('Password:'+password);
 
     jwt.verify(password, self.clientSecret, function(err,profile){
           if( err ) { return callback("Error getting UserInfo", false); }
@@ -107,8 +112,8 @@ Auth0Mosca.prototype.authenticateWithCredentials = function(){
   var self = this;
 
   return function(client, username, password, callback) {
-
-     var data = {
+    
+    var data = {
         client_id:   self.clientId, // {client-name}
         username:    username.toString(),
         password:    password.toString(),
@@ -156,7 +161,7 @@ module.exports = Auth0Mosca;
 
 ```
 
-`authenticateWithCredentials` uses the [OAuth2 Resource Owner Password Credential Grant](/protocols#oauth-resource-owner-password-credentials-grant) to authenticate the broker and all connections to it. Each time a `publisher` or a `subscriber` send a __CONNECT__ message to the broker the `authenticate` function is called. In it we call the Auth0 endpoint and forward the device's `username`/`password`. Auth0 validates this against it's account store (that is the first `request.post` in the code). If successful, it validates and parses the Json Web Token to obtain the device profile and adds it to the `client` object that represents either the `subscriber` or the `publisher`. That's done in the `jwt.verify` call.
+`authenticateWithCredentials` uses the [OAuth2 Resource Owner Password Credential Grant](/protocols#oauth-resource-owner-password-credentials-grant) to authenticate the broker and all connections to it. Each time a `publisher` or a `subscriber` send a __CONNECT__ message to the broker the `authenticate` function is called. In it we call the Auth0 endpoint and forward the device's `username`/`password`. Auth0 validates this against its account store (that is the first `request.post` in the code). If successful, it validates and parses the <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn> to obtain the device profile and adds it to the `client` object that represents either the `subscriber` or the `publisher`. That's done in the `jwt.verify` call.
 
 By convention, all devices connected to the broker have an account in Auth0:
 

@@ -1,14 +1,18 @@
 title: Xamarin
 author:
-  community: true
+  name: Damien Guard
+  email: damien.guard@auth0.com
+  community: false
 language:
   - C#
 framework:
   - Xamarin
 hybrid: false
 image: /media/platforms/xamarin.png
-tags:
+topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   dependencies: native-platforms/xamarin/dependencies
   setup: native-platforms/xamarin/setup
@@ -16,3 +20,27 @@ seo_alias: xamarin
 default_article: 01-login
 articles:
   - 01-login
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-xamarin-oidc-samples
+requirements:
+  - Visual Studio 2017 or Visual Studio for Mac
+  - Xamarin for Visual Studio 4.5
+  - Auth0.OidcClient.Android 3.1.3
+  - Auth0.OidcClient.iOS 3.1.3
+next_steps:
+  - path: 01-login
+    list:
+    - text: Configure other identity providers
+      icon: 345
+      href: "/identityproviders"
+    - text: Enable multifactor authentication
+      icon: 345
+      href: "/multifactor-authentication"
+    - text: Learn about anomaly detection
+      icon: 345
+      href: "/anomaly-detection"
+    - text: Learn about rules
+      icon: 345
+      href: "/rules"

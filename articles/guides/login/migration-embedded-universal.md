@@ -1,20 +1,28 @@
 ---
 title: Migrating from Embedded to Universal Login
 description: Learn how to migrate from Embedded Login using Lock to Universal Login
+topics:
+  - lock
+  - migrations
+  - universal-login
+  - embedded-login
+contentType:
+    - index
+useCase: migrate
 ---
 
 # Migrating to Universal Login
 
-When you integrate Auth0 in our applications, you have to decide whether you will use embedded or universal login.
+When you integrate Auth0 in our applications, you have to decide whether you will use embedded or Universal Login.
 
 - With embedded login the login dialog is hosted in your application. You can use [Lock](/libraries/lock) or create your own UI and use [auth0.js](/libraries/auth0js).
-- With universal login, you redirect to an Auth0-hosted [login page](/hosted-pages/login) where the authentication flow is performed.
+- With Universal Login, you redirect to an Auth0-hosted [login page](/universal-login) where the authentication flow is performed.
 
-Universal login has several advantages over embedded login. For a detailed analysis refer to [Centralized vs Embedded Login](/guides/login/universal-vs-embedded).
+Universal Login has several advantages over embedded login. For a detailed analysis refer to [Centralized vs Embedded Login](/guides/login/universal-vs-embedded).
 
-We put together a set of articles to help you migrate to universal login in different scenarios. 
+We put together a set of articles to help you migrate to Universal Login in different scenarios. 
 
-You can also find how to implement universal login in multiple technology stacks using [our Quickstarts](/quickstart).
+You can also find how to implement Universal Login in multiple technology stacks using [our Quickstarts](/quickstart).
 
 ## Migration Guides per Application Type
 

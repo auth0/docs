@@ -1,34 +1,45 @@
 ---
 title: Authorization
 name: How to secure your Spring Security API with Auth0
-description: This tutorial demonstrates how to add authorization to your Spring Security API using Auth0.
+description: This tutorial demonstrates how to add authorization to a Spring Security API.
 budicon: 500
+topics:
+    - quickstart
+    - backend
+    - java
+    - spring-security
+github:
+    path: 01-Authorization
+contentType: tutorial
+useCase: quickstart
 ---
 
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-spring-security-api-sample',
-  path: '01-Authorization',
-  requirements: [
-    'Java 8 or above',
-    'Maven 3.0.x or above'
-  ]
-}) %>
+:::note
+This Quickstart demonstrates securing an API using **Spring Boot 1** and **Spring Security 4**.
 
-This tutorial shows you how to protect your Spring Security API endpoints and limit access to resources in your API.
+See the [Spring Security 5 API Quickstart](quickstart/backend/java-spring-security5) to learn how to use Auth0 to secure an API built using Spring Boot 2 and Spring Security 5.
+:::
 
-## Create an API
+<%= include('../../../_includes/_api_auth_intro') %>
 
-Create a new API in the [APIs](${manage_url}/#/apis) section of the Auth0 dashboard.
+<%= include('../_includes/_api_create_new') %>
 
-Enter a name and an identifier for the API. These values represent the `auth0.apiAudience` value in the configuration file.
+<%= include('../_includes/_api_auth_preamble') %>
 
-Select the signing algorithm. In the **Settings** tab,  you can change the token expiration time and allow to refresh a token for that API.
-In the **Scopes** tab, add scopes you will use later to limit access to resources in your API.
+## Configure the Sample Project
 
-<%= include('../_includes/_api_scopes_access_resources') %>
+The sample project has a `/src/main/resources/auth0.properties` file which configures it to use the correct Auth0 **Domain** and **API Identifier** for your API. If you download the code from this page it will be automatically filled. If you use the example from Github, you will need to fill it yourself.
 
-## Install the Dependencies
+${snippet(meta.snippets.setup)}
+
+| Attribute | Description|
+| --- | --- |
+| `auth0.issuer` | The issuer of the JWT Token. Typically, this is your Auth0 domain with an `https://` prefix and a `/` suffix. For example, if your Auth0 domain is `example.auth0.com`, the `auth0.issuer` must be set to `https://example.auth0.com/` (the trailing slash is important). |
+| `auth0.apiAudience` | The unique identifier for your API. If you are following the steps in this tutorial it would be `https://quickstarts/api`.|
+
+## Validate Access Tokens
+
+### Install dependencies
 
 Add the `auth0-spring-security-api` dependency.
 
@@ -40,37 +51,16 @@ If you are using Gradle, add the dependency to the dependencies block:
 
 ${snippet(meta.snippets.dependenciesGradle)}
 
-## Configure Your Spring Security API
+### Configure JSON Web Token signature algorithm
 
-Your Spring Security API needs some information to authenticate against your Auth0 account.
-
-The sample project you can download from the top of this page comes with a configuration file. You may need to update some of the entries with the values for your API. The filename is `/src/main/resources/auth0.properties` and it contains the following:
-
-${snippet(meta.snippets.setup)}
-
-| Attribute | Description|
-| --- | --- |
-| `auth0.issuer` | The issuer of the JWT Token. Typically, this is your Auth0 domain with a `https://` prefix and a `/` suffix. For example, if your Auth0 domain is `example.auth0.com`, the `auth0.issuer` must be set to `https://example.auth0.com/` (the trailing slash is important). |
-| `auth0.apiAudience` | The unique identifier for your API. You can find the correct value in the [APIs](${manage_url}/#/apis) section in your Auth0 dashboard. |
-
-::: note
-If you download the sample project, the `issuer` attribute is filled out for you. You must manually set the `apiAudience` attribute.
-:::
-
-## Configure JSON Web Token Signature Algorithm
-
-Configure your API to use the RS256 signing algorithm.
-
-::: note
-If you download the sample project, the signing algorithm is set to `RS256` by default.
-:::
+Configure your API to use the RS256 [signing algorithm](/tokens/concepts/signing-algorithms). 
 
 ```java
 // src/main/java/com/auth0/example/AppConfig.java
 
-@EnableWebSecurity
 @Configuration
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+@EnableWebSecurity
+public class AppConfig extends WebSecurityConfigurerAdapter {
 
     @Value(value = "<%= "${auth0.apiAudience}" %>")
     private String apiAudience;
@@ -86,28 +76,39 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 }
 ```
 
-## Configure the Protected Endpoints
-
-The example below shows how to implement secure API methods.
-
-In the `AppConfig` class, add route matchers to the snippet. The `hasAuthority()` method provides a way to specify the required scope for the resource.
+## Protect API Endpoints
 
 <%= include('../_includes/_api_endpoints') %>
+
+The example below shows how to implement secure API methods. In the `AppConfig` class, add route matchers to the snippet. The `hasAuthority()` method provides a way to specify the required scope for the resource.
 
 ```java
 // src/main/java/com/auth0/example/AppConfig.java
 
-@EnableWebSecurity
 @Configuration
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+@EnableWebSecurity
+public class AppConfig extends WebSecurityConfigurerAdapter {
 
     @Value(value = "<%= "${auth0.apiAudience}" %>")
     private String apiAudience;
     @Value(value = "<%= "${auth0.issuer}" %>")
     private String issuer;
 
+    @Bean
+    CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000"));
+        configuration.setAllowedMethods(Arrays.asList("GET","POST"));
+        configuration.setAllowCredentials(true);
+        configuration.addAllowedHeader("Authorization");
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
+    }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        http.cors();
         JwtWebSecurityConfigurer
                 .forRS256(apiAudience, issuer)
                 .configure(http)
@@ -119,7 +120,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 }
 ```
 
-## Create the API Controller
+### Create the API Controller
 
 Create a new class called `APIController` to handle each request to the endpoints.
 
@@ -162,8 +163,63 @@ public class APIController {
                 .put("message", "Hello from a private endpoint! You need to be authenticated and have a scope of read:messages to see this.")
                 .toString();
     }
-
 }
 ```
 
-To build and run the seed project, use the command: `mvn spring-boot:run`.
+## Run and Test Your API
+
+To build and run the project, use the command:
+
+```bash
+./gradlew bootRun
+```
+
+or if you are on Windows:
+
+```bash
+gradlew.bat bootRun
+```
+
+Using a REST client such as Postman or cURL, issue a `GET` request to `http://localhost:3010/api/public`. You should receive the response:
+
+```json
+{"message":"All good. You DO NOT need to be authenticated to call /api/public."}
+```
+
+Next, issue a `GET` request to `http://localhost:3010/api/private`. You should receive a `401 Unauthorized` response:
+
+```json
+{"timestamp":1559321750022,"status":401,"error":"Unauthorized","message":"Unauthorized","path":"/api/private"}
+```
+
+To test that your API is properly secured, you can obtain a test token in the Auth0 Dashboard:
+
+1. Go to the **Machine to Machine Applications** tab for the API you created above.
+2. Ensure that your API test application is marked as authorized.
+3. Click the **Test** tab, then **COPY TOKEN**.
+
+Issue a `GET` request to the `/api/private` endpoint, this time passing the token you obtained above as an `Authorization` header set to `Bearer YOUR-API-TOKEN-HERE`. You should then see the response:
+
+```json
+{"message":"All good. You can see this because you are Authenticated."}
+```
+
+Finally, to test that our `/api/private-scoped` is properly protected by the `read:messages` scope, make a `GET` request to the `/api/private-scoped` endpoint using the same token as above. You should see a `403 Forbidden` response, as this token does not possess the `read:messages` scope:
+
+```json
+{"timestamp":1559322174584,"status":403,"error":"Forbidden","message":"Access is denied","path":"/api/private-scoped"}
+```
+
+Back in the Auth0 Dashboard:
+
+1. Go to the **Permissions** tab for the API you created above.
+2. Add a permission of `read:messages` and provide a description.
+3. Go to the **Machine to Machine Applications** tab.
+4. Expand your authorized test application, select the `read:messages` scope, then click **UPDATE** and then **CONTINUE**.
+5. Click the **Test** tab, then **COPY TOKEN**.
+
+Issue a GET request to `/api/private-scoped`, this time passing the token you obtained above (with the `read:messages` scope) as an `Authorization` header set to `Bearer YOUR-API-TOKEN-HERE`. You should see the response:
+
+```json
+{"message":"All good. You can see this because you are Authenticated with a Token granted the 'read:messages' scope"}
+```

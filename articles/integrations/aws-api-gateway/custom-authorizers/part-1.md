@@ -1,5 +1,12 @@
 ---
-desc: Configure Auth0 for use with AWS API Gateway
+description: Configure Auth0 for use with AWS API Gateway
+topics:
+  - integrations
+  - aws
+  - api-gateway
+contentType: tutorial
+useCase:
+  - secure-an-api
 ---
 
 # AWS API Gateway Tutorial, Part 1: Create an Auth0 API
@@ -14,9 +21,9 @@ You'll be asked to provide values for the following fields:
 
 | Field | Description |
 | - | - |
-| Name | A friendly name for your API. This is the name you'll see in your list of Auth0 APIs |
-| Identifier | A logical identifier for your API (we recommend formatting this identifier like a URL `https://your-api-gateway`) |
-| Signing Algorithm | The algorithm you want Auth0 to use to sign the issued Access Tokens |
+| Name | A friendly name for your API. This is the name you'll see in your list of Auth0 APIs. |
+| Identifier | A logical identifier for your API. We recommend formatting this identifier like a URL `https://your-api-gateway`. |
+| Signing Algorithm | The algorithm you want Auth0 to use to sign the issued <dfn data-key="access-token">Access Tokens</dfn>. To learn more, see [Signing Algorithms](/tokens/concepts/signing-algorithms). |
 
 Click **Create** to proceed.
 

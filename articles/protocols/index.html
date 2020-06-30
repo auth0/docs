@@ -4,6 +4,17 @@ section: articles
 classes: topic-page
 title: Protocols
 description: Which authentication and authorization protocols Auth0 supports and how they work.
+topics:
+  - protocols
+  - oauth2
+  - oidc
+  - saml
+  - ws-fed
+  - ldap
+contentType:
+  - index
+useCase:
+  - add-idp
 ---
 
 <div class="topic-page-header">
@@ -15,7 +26,7 @@ description: Which authentication and authorization protocols Auth0 supports and
 </div>
 
 <p>
-  Auth0 implements proven, common and popular identity protocols used in consumer oriented web products (OAuth 2.0, OpenID Connect) and in enterprise deployments (SAML, WS-Federation, LDAP).
+  Auth0 implements proven, common and popular identity protocols used in consumer oriented web products (OAuth 2.0, <dfn data-key="openid">OpenID Connect (OIDC)</dfn>) and in enterprise deployments (<dfn data-key="security-assertion-markup-language">SAML</dfn>, WS-Federation, LDAP).
 </p>
 
 <ul class="topic-links">
@@ -26,23 +37,23 @@ description: Which authentication and authorization protocols Auth0 supports and
     </p>
     <ul>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/protocols/oauth2/oauth-state">How to use the state parameter in authentication requests to help prevent CSRF attacks</a>
+        <i class="icon icon-budicon-695"></i><a href="/protocols/oauth2/oauth-state">Use the state parameter in authentication requests</a>
       </li>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/application-auth/server-side-web">How to integrate a server-side web app with Auth0</a>
+        <i class="icon icon-budicon-695"></i><a href="/flows/concepts/auth-code">Integrate a server-side web app with Auth0</a>
       </li>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/application-auth/client-side-web">How to integrate a client-side web app with Auth0</a>
+        <i class="icon icon-budicon-695"></i><a href="/flows/concepts/implicit">Integrate a client-side web app with Auth0</a>
       </li>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/application-auth/mobile-desktop">How to integrate a mobile or desktop app with Auth0</a>
+        <i class="icon icon-budicon-695"></i><a href="/flows/concepts/auth-code-pkce">Integrate a mobile or desktop app with Auth0</a>
       </li>
     </ul>
   </li>
   <li>
     <i class="icon icon-budicon-715"></i><a href="/protocols/oidc">OpenID Connect</a>
     <p>
-      OpenID Connect (OIDC) is an identity layer built on top of the OAuth 2.0 framework. It allows third-party applications to verify the identity of the end-user and to obtain basic user profile information. At the core, OIDC is about user authentication.
+      <dfn data-key="openid">OpenID Connect (OIDC)</dfn> is an identity layer built on top of the OAuth 2.0 framework. It allows third-party applications to verify the identity of the end-user and to obtain basic user profile information. At the core, OIDC is about user authentication.
     </p>
   </li>
   <li>

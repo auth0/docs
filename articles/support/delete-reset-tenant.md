@@ -1,13 +1,35 @@
 ---
-description: How to manage your tenant
+description: How to delete or reset your tenant
+topics:
+    - support
+    - delete-tenant
+    - reset-tenant
+    - tenants
+contentType:
+  - how-to
+useCase:
+  - support
 ---
 
-# Delete/Reset Your Tenant
+# Delete or Reset Tenants
 
-Using the [Reset Tenant Extension](https://github.com/auth0-extensions/auth0-reset-tenant), you can programmatically make changes to your Auth0 tenant. Not only is this useful for creating new environments for development or test purposes, you can use the extension to "clean" your tenant and remove unwanted items.
+::: warning
+If you are using custom domains, when deleting a tenant, first delete the custom domain. If you delete the tenant before removing the custom domain, you will not be able to reuse your custom domain elsewhere.
+:::
 
-## Delete vs. Reset
+If you want to completely remove an unwanted tenant, we recommend deleting it. This option is useful if you have created a test or demo tenant that you won't be using again, so you don't care about keeping your tenant name.
 
-In some cases, users have opted to delete their tenant to begin with a clean slate. Unfortunately, doing so means that you don't keep your tenant name. Because tenant names have to be unique, they can only used once. As such, we recommend using the Reset Tenant Extension to remove the unwanted items and return your tenant to its initial state, since this means that you do *not* have to start over with a new tenant name.
+If you want to keep using your tenant name, we recommend resetting your tenant by using the **Deploy CLI Tool** to remove any unwanted items. This will return your tenant to its initial state and retain your tenant name.
 
 <%= include('./_delete-tenant') %>
+
+<%= include('./_reset-tenant') %>
+
+## Keep reading
+
+* If you've deleted your tenant, and you require the use of a particular domain name, we recommend configuring a [custom domain name](/custom-domains) for your new tenant.
+* [Cancel Your Auth0 Subscription](/support/cancel-paid-subscriptions) to downgrade to a free account.
+* [Change or Upgrade Your Auth0 Subscription](/support/subscription)
+* [Update a Tenant Admin](/dashboard/manage-dashboard-admins#update-admin) to change ownership of the tenant.
+* [Export Data Out of Auth0](/support/removing-auth0-exporting-data)
+* [Reset Your Auth0 Account Password](/support/reset-account-password)

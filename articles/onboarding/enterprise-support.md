@@ -1,7 +1,15 @@
 ---
 toc: true
 section: appliance
-description: Outlines the Auth0 enterprise support options, definitions, coverage offered and procedures to follow for the best support experience. 
+description: Outlines the Auth0 enterprise support options, definitions, coverage offered and procedures to follow for the best support experience.
+topics:
+  - appliance
+  - onboarding 
+contentType:
+  - concept
+useCase:
+  - appliance
+applianceId: appliance66
 ---
 # Enterprise Support Guidance
 
@@ -14,7 +22,7 @@ Refer to your subscription agreement to confirm which support offering is includ
 For general queries related to functionality, integration, best practice, or advice, you can use the following resources:
 
 - The [Auth0 Community](https://community.auth0.com/): Post questions to our audience of Customer Success Engineers, as well as other Auth0 users, or search and read existing posts for useful information.
-- Your __Customer Success Manager__: Your Auth0 Customer Success Manager is always available for general queries and helping you navigate to the right Auth0 resource.  The orientation information you received during onboarding should have the contact details for your Customer Success Manager.
+- Your __Technical Account Manager__: Your Auth0 Technical Account Manager is always available for general queries and helping you navigate to the right Auth0 resource.  The orientation information you received during onboarding should have the contact details for your Technical Account Manager.
 - The [Auth0 Docs](/search#gsc.tab=0)
 
 ## For Issues Impacting Production Environments (SLA Applicable)
@@ -73,9 +81,9 @@ To speed resolution, please check the following before logging an issue:
 * Is the issue experienced by all users or just a few?
   * All? - Could be a service or configuration issue
     * Check status of Auth0 service
-      * Americas: (http://status.auth0.com)
-      * EU Region: (http://status.eu.auth0.com)
-      * APAC Region: (http://status.au.auth0.com)
+      * Americas: (https://status.auth0.com)
+      * EU Region: (https://status.auth0.com/?region=EU)
+      * APAC Region: (https://status.auth0.com/?region=AU)
       * You can subscribe to updates via the button on those pages
     * Check authentication services (connections) are up and reachable
     * Check application components - make sure they are functioning
@@ -106,10 +114,10 @@ To speed resolution, please provide the following when logging an issue:
 * Issue experienced by users every time or just some times?
 * Issue experienced with all browsers or just one?
 * Screenshot of error message (if any)
-* HTTP trace in the form of a [.har file](/har)
+* HTTP trace in the form of a [HAR file](/troubleshoot/guides/generate-har-files)
 
-*For PSaaS Appliance Customers*:
+*For Private Cloud Customers*:
 
-* PSaaS Appliance version/build number (top left hand corner of configuration screen on config tenant, such as https://yourmanage.yourdomain.com/configuration#/)
+* Private Cloud version/build number (top left hand corner of configuration screen on config tenant, such as https://yourmanage.yourdomain.com/configuration#/)
 * Status of nodes (https://yourmanage.yourdomain.com/configuration#/nodes)
 * Status of health check (https://yourmanage.yourdomain.com/configuration#/troubleshoot)

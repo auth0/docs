@@ -1,6 +1,14 @@
 ---
 section: appliance
 description: Overview of the PSaaS Appliance Dashboard Settings page
+topics:
+    - appliance
+    - dashboard
+    - settings
+contentType: reference
+useCase: appliance
+applianceId: appliance24
+sitemap: false
 ---
 
 # Auth0 Appliance Dashboard: Settings
@@ -70,13 +78,22 @@ The Settings page is broken down into the following sections:
 * **MFA Session Absolute Timeout**: the absolute time window for which the user can have an MFA session. After this period of time elapses, the user will be prompted again for MFA;
 * **MFA Session Inactive Timeout**: the maximum time window for which the user can have an MFA session without logging in again. If the user logs in prior to the expiration of this time period, the window will be extended.
 
+### Units of time
+
+When providing time values to Auth0, please use the following abbreviations to ensure the correct units are used:
+
+| Abbreviation | Description |
+| - | - |
+| w | weeks |
+| d | days |
+| h | hours |
+| m | minutes |
+| s | seconds |
+| ms | milliseconds |
+
 ## Update Settings
 
 * **Update Proxy**: unless your specific configuration is set up for offline updates, please leave this field blank.
-
-## Monitoring
-
-* **New Relic License Key**: if you use New Relic for monitoring, enter your license key here to monitor your PSaaS Appliance instances.
 
 ## API Keys
 
@@ -88,7 +105,7 @@ The Settings page is broken down into the following sections:
 
 ## Advanced Settings
 
-* **Enable Large Cookie Size**: if enabled, cookies larger than 4kb will be permitted (this might be required for protocols such as SAML and WS-Federation).
+* **Enable Large Cookie Size**: if enabled, cookies larger than 4kb will be permitted (this might be required for protocols such as <dfn data-key="security-assertion-markup-language">SAML</dfn> and WS-Federation).
 * **Max Custom Database Timeout**: the maximum time allowed in seconds to make a query to your database (in seconds) for a custom database connection.
 
 ## Deprecated

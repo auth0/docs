@@ -18,20 +18,20 @@ curl --request GET \
 // Script uses auth0.js. See Remarks for details.
 <script src="${auth0js_url}"></script>
 <script type="text/javascript">
-  // Initialize the Auth0 client
+  // Initialize the Auth0 application
   var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}'
   });
-  
-  // Parse the URL and extract the access_token
+
+  // Parse the URL and extract the Access Token
   webAuth.parseHash(window.location.hash, function(err, authResult) {
     if (err) {
       return console.log(err);
     }
     webAuth.client.userInfo(authResult.accessToken, function(err, user) {
-        // This method will make a request to the /userinfo endpoint 
-        // and return the user object, which contains the user's information, 
+        // This method will make a request to the /userinfo endpoint
+        // and return the user object, which contains the user's information,
         // similar to the response below.
     });
   });
@@ -42,15 +42,28 @@ curl --request GET \
 
 ```json
 {
-  "email_verified": false,
-  "email": "test.account@userinfo.com",
-  "updated_at": "2016-12-05T15:15:40.545Z",
-  "name": "test.account@userinfo.com",
-  "picture": "https://s.gravatar.com/avatar/dummy.png",
-  "user_id": "auth0|58454...",
-  "nickname": "test.account",
-  "created_at": "2016-12-05T11:16:59.640Z",
-  "sub": "auth0|58454..."
+  "sub": "248289761001",
+  "name": "Jane Josephine Doe",
+  "given_name": "Jane",
+  "family_name": "Doe",
+  "middle_name": "Josephine",
+  "nickname": "JJ",
+  "preferred_username": "j.doe",
+  "profile": "http://exampleco.com/janedoe",
+  "picture": "http://exampleco.com/janedoe/me.jpg",
+  "website": "http://exampleco.com",
+  "email": "janedoe@exampleco.com",
+  "email_verified": true,
+  "gender": "female",
+  "birthdate": "1972-03-31",
+  "zoneinfo": "America/Los_Angeles",
+  "locale": "en-US",
+  "phone_number": "+1 (111) 222-3434",
+  "phone_number_verified": false,
+  "address": {
+    "country": "us"
+  },
+  "updated_at": "1556845729"
 }
 ```
 
@@ -61,15 +74,15 @@ curl --request GET \
   "link": "#get-user-info"
 }) %>
 
-Given the Auth0 [Access Token](/tokens/access-token) obtained during login, this endpoint returns a user's profile.
+Given the Auth0 <dfn data-key="access-token">Access Token</dfn> obtained during login, this endpoint returns a user's profile.
 
-This endpoint will work only if `openid` was granted as a scope for the `access_token`.
+This endpoint will work only if `openid` was granted as a <dfn data-key="scope">scope</dfn> for the Access Token. The user profile information included in the response depends on the scopes requested. For example, a scope of just `openid` may return less information than a a scope of `openid profile email`.
 
 ### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `access_token` <br/><span class="label label-danger">Required</span> | The Auth0 `access_token` obtained during login. |
+| `access_token` <br/><span class="label label-danger">Required</span> | The Auth0 Access Token obtained during login. |
 
 ### Test with Postman
 
@@ -86,7 +99,7 @@ This endpoint will work only if `openid` was granted as a scope for the `access_
   - `X-RateLimit-Reset`: Remaining time until the rate limit (`X-RateLimit-Limit`) resets. The value is in [UTC epoch seconds](https://en.wikipedia.org/wiki/Unix_time).
 - The `Email` claim returns a snapshot of the email at the time of login
 - Standard claims (other than `email`) return the latest value (unless the value comes from an external IdP)
-- Custom claims return a snapshot of the value at the time of login
+- Custom claims always returns the latest value of the claim
 - To access the most up-to-date values for the `email` or custom claims, you must get new tokens. You can log in using silent authentication (where the `prompt` parameter for your call to the [`authorize` endpoint](/api/authentication#authorization-code-grant) equals `none`)
 - To access the most up-to-date values for standard claims that were changed using an external IdP (for example, the user changed their email address in Facebook)., you must get new tokens. Log in again using the external IdP, but *not* with silent authentication.
 

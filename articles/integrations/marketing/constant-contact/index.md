@@ -1,19 +1,19 @@
 ---
-title: Constant Contact Integration
-description: Learn how to import your Auth0 user data into Constant Contact.
+title: Export User Data To Constant Contact
+description: Learn how to export your Auth0 user data and import it into Constant Contact.
 toc: true
+topics:
+    - marketing
+    - constant-contact
+contentType: how-to
+useCase: export-users-marketing
 ---
 
-# Constant Contact Integration
+# Export User Data To Constant Contact
 
-## Import Users to Constant Contact
+In this article, you’ll learn how to export user data in Auth0 to a CSV file then import it into the Constant Contact dashboard.
 
-To import your Auth0 users into Constant Contact:
-
-- Export your user data as a CSV file with the [User Import / Export Extension](/extensions/user-import-export).
-- Import the file on the Constant Contact dashboard.
-
-### Create a User Data File
+## Create a user data file
 
 Start by navigating to the [Extensions](${manage_url}/#/extensions) section of the Dashboard and open the **User Import / Export Extension**. On the extension page, select **Export** from the menu.
 
@@ -34,7 +34,7 @@ User Field | Column Name
 
 After adding the user fields, click on the **Export Users** button to start the export. Once the export is complete, download the CSV file to use in the following section.
 
-### Import a User Data File
+## Import a user data file
 
 ::: note
 [Constant Contact Knowledge Base: Import or Upload a File of Contact Email Addresses](https://knowledgebase.constantcontact.com/articles/KnowledgeBase/5296-import-or-upload-a-file-of-contact-email-addresses)

@@ -1,5 +1,11 @@
 ---
-  description: How to configure Auth0 for use as a SAML service AND identity provider
+description: How to configure Auth0 for use as a SAML service AND identity provider
+topics:
+    - saml  
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
 # Configure Auth0 as a Service and Identity Provider
@@ -10,11 +16,11 @@ Auth0 provides a non-exhaustive [list of SAML-compliant providers](/samlp-provid
 
 ::: warning
 Auth0 only supports:
-* Using Auth0 as the service provider in SAML configurations with **SAML 1.1** or **SAML 2.0**.
+* Using Auth0 as the service provider in <dfn data-key="security-assertion-markup-language">SAML</dfn> configurations with **SAML 1.1** or **SAML 2.0**.
 * Using Auth0 as the identity provider in SAML configurations with **SAML 2.0**.
 :::
 
-When using Auth0 as both the SAML Service and Identity Provider, you need to configure **two** federations:
+When using Auth0 as both the <dfn data-key="security-assertion-markup-language">SAML</dfn> Service and Identity Provider, you need to configure **two** federations:
 
 * [Configure Auth0 as a Service Provider](/protocols/saml/saml-configuration/auth0-as-service-provider)
 * [Configure Auth0 as an Identity Provider](/protocols/saml/saml-configuration/auth0-as-identity-provider).

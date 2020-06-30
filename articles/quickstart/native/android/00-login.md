@@ -1,22 +1,41 @@
 ---
 title: Login
-description: This tutorial will show you how to integrate the Auth0 Universal Login in your Android project in order to present the login box.
+description: This tutorial demonstrates how to add user login to an Android application using Auth0.
 seo_alias: android
 budicon: 448
+topics:
+  - quickstarts
+  - native
+  - android
+github:
+  path: 00-Login
+contentType: tutorial
+useCase: quickstart
 ---
 
-This tutorial shows you how to integrate Auth0 in your Android project and present the login box.
+<%= include('../_includes/_getting_started', { library: 'Android' }) %>
 
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-android-sample',
-  path: '00-Login',
-  requirements: [
-    'Android Studio 2.3',
-    'Android SDK 25',
-    'Emulator - Nexus 5X - Android 6.0'
-  ]
-}) %>
+We suggest you do not hardcode these values as you may need to change them in the future. Instead, use [String Resources](https://developer.android.com/guide/topics/resources/string-resource.html), such as `@string/com_auth0_domain`, to define the values. 
+
+Edit your `res/values/strings.xml` file as follows:
+
+```xml
+<resources>
+    <string name="com_auth0_client_id">${account.clientId}</string>
+    <string name="com_auth0_domain">${account.namespace}</string>
+</resources>
+```
+
+<%= include('../../../_includes/_callback_url') %>
+
+::: note
+If you are following along with the sample project you downloaded from the top of this page, you should set the **Allowed Callback URL** to  `demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback`.
+:::
+
+Replace `YOUR_APP_PACKAGE_NAME` with your application's package name, available as the `applicationId` attribute in the `app/build.gradle` file.
+
+<%= include('../../../_includes/_logout_url', { returnTo: 'demo://' + account.namespace + '/android/YOUR_APP_PACKAGE_NAME/callback' }) %>
+Replace `YOUR_APP_PACKAGE_NAME` with your application's package name, available as the `applicationId` attribute in the `app/build.gradle` file.
 
 <%= include('_includes/_auth0') %>
 

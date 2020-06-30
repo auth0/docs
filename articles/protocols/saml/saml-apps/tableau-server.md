@@ -1,9 +1,17 @@
 ---
 title: Tableau Server SAML Configuration
 description: Tableau Server SAML Configuration
+topics:
+    - saml
+    - identity-providers
+    - tableau
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
-${include('./_header')}
+<%= include('./_header') %>
 
 ```json
 {
@@ -28,4 +36,4 @@ ${include('./_header')}
 }
 ```
 
-The **Callback URL** is `http://{YOUR TABLEAU SERVER}/wg/saml/SSO/index.html`.
+The **<dfn data-key="callback">Callback URL</dfn>** is `http://{YOUR TABLEAU SERVER}/wg/saml/SSO/index.html`.

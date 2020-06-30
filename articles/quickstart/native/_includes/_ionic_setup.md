@@ -23,7 +23,7 @@ Add `file` as an allowed origin to the **Allowed Origins (CORS)** box.
 file://*
 ```
 
-Lastly, be sure that the **Client Type** for your application is set to **Native** in the client settings.
+Lastly, be sure that the **Application Type** for your application is set to **Native** in the application settings.
 
 ## Install the Dependencies
 
@@ -39,7 +39,7 @@ yarn add auth0-js @auth0/cordova
 
 ## Add Cordova Plugins
 
-You must install the `SafariViewController` plugin from Cordova to be able to use universal login. The downloadable sample project already has this plugin added, but if you are embedding Auth0 in your own application, install the plugin via the command line.
+You must install the `SafariViewController` plugin from Cordova to be able to use Universal Login. The downloadable sample project already has this plugin added, but if you are embedding Auth0 in your own application, install the plugin via the command line.
 
 ```bash
 ionic cordova plugin add cordova-plugin-safariviewcontroller

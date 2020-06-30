@@ -1,12 +1,19 @@
 ---
 section: appliance
 description: How to manage the time on PSaaS Appliance
+topics:
+    - appliance
+    - time-sync
+contentType: how-to
+useCase: appliance
+applianceId: appliance53
+sitemap: false
 ---
 # Time Synchronization
 
 Auth0 uses several cryptographic functions that depend on the system clock.
 
-If you are running Auth0 on an IaaS (Infrastracture as a Service) provider (such as AWS, Microsoft Azure, and so on), time synchronization is managed automatically and you can skip these instructions.
+If you are running Auth0 on an IaaS (Infrastructure as a Service) provider (such as AWS, Microsoft Azure, and so on), time synchronization is managed automatically and you can skip these instructions.
 
 If you are running Auth0 on your own hardware or a VM host, the PSaaS Appliance must have NTP configured correctly. In most cases, the NTP server is your Domain Controller. Contact your IT administrator for details.
 

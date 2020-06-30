@@ -1,106 +1,126 @@
 ---
-  description: How to use multiple APIs and represent them as a single API in Auth0.
+
+description: Learn how to use a single logical API in Auth0 to represent and control access to multiple APIs.
+topics:
+  - api-authentication
+  - oidc
+  - apis
+  - scopes
+  - permissions
+contentType: how-to
+useCase:
+  - secure-api
+  - call-api
 ---
 
-# How to Represent Multiple APIs Using a Single Auth0 API
+# Represent Multiple APIs Using a Single Logical API
 
-To simplify your authentication process, you can create a single [API](/apis) using the Auth0 Dashboard to represent all of your existing APIs. Doing this allows you to implement just one authentication flow. You can then control access to the individual APIs by assigning the appropriate scopes.
+If you have multiple distinct API implementations that are all logically a part of the same API, you can simplify your authorization process by representing them with a single logical [API](/apis) in the Auth0 Dashboard. Doing this allows you to implement just one authorization flow, while still controlling access to the individual APIs by assigning the appropriate <dfn data-key="scope">scopes</dfn>.
 
-This article shows you how to use and represent multiple APIs as a single Resource Server in Auth0 using a [sample application you can download](https://github.com/auth0-samples/auth0-api-auth-implicit-sample) if you would like to follow along as you read.
+This tutorial explains how to use and represent multiple APIs as a single Resource Server in Auth0. As a learning tool, we provide a sample application that you can follow along with as you read.
 
 ## The Sample Application
 
-The sample application contains:
+The sample application uses a microservices architecture and contains:
 
-* 1 Single Page Application (SPA);
-* 2 APIs (called `contacts` and `calendar`).
+* 1 Single-Page Application (SPA)
+* 2 APIs (services), called `contacts` and `calendar`
 
-We will represent the two APIs using just one Auth0 API called `Organizer Service`. We will then create two namespaced scopes to demonstrate how you can use the [Implicit Grant](/api-auth/grant/implicit) to access the `calendar` and `contacts` APIs from the SPA. The SPA also uses [Lock](/libraries/lock) to implement the signin screen.
+We will represent the two APIs using just one Auth0 API called `Organizer Service`. We will then create two scopes to demonstrate how you can use the [Implicit Flow](/flows/concepts/implicit) to access the `calendar` and `contacts` APIs from the SPA.
 
-Please see the `README` for additional information on setting up the sample on your local environment.
+## Prerequisites
 
-## The Auth0 Application
+Before beginning this tutorial:
 
-If you don't already have an Auth0 Application (of type **Single Page Web Applications**) with the **OIDC Conformant** flag enabled, you'll need to create one. This represents your application.
+* [Register your Application with Auth0](/dashboard/guides/applications/register-app-spa)
+  * Select an **Application Type** of **Single-Page App**.
+  * Add <dfn data-key="callback">**Allowed Callback URLs**</dfn> of `http://localhost:3000` and `http://localhost:3000/callback.html`.
+* [Download the sample application](https://github.com/auth0-samples/auth0-api-auth-implicit-sample), so you can follow along as you read. Please see the `README` for additional information on setting up the sample on your local environment.
 
-1. In the [Auth0 Dashboard](${manage_url}), click on [Applications](${manage_url}/#/applications) in the left-hand navigation bar. Click **Create Application**.
-2. The **Create Application** window will open, allowing you to enter the name of your new Application. Choose **Single Page Web Applications** as the **Application Type**. When done, click on **Create** to proceed.
-3. Navigate to the [Auth0 Application Settings](${manage_url}/#/applications/${account.clientId}/settings) page. Add `http://localhost:3000` and `http://localhost:3000/callback.html` to the Allowed Callback URLs field of your [Auth0 Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
-4. Scroll to the bottom of the [Settings](${manage_url}/#/applications/${account.clientId}/settings) page, where you'll find the *Advanced Settings* section. Under the *OAuth* tab, enable the **OIDC Conformant** Flag under the *OAuth* area of *Advanced Settings*.
+## Steps
 
-### Enable a Connection for Your Application
+1. [Enable a Connection for your Application](#enable-a-connection-for-your-application): Configure a source of users for your new application.
+2. [Create a test user](#create-a-test-user): Associate a test user with your new connection.
+3. [Register a logical API in Auth0](#register-a-logical-api-in-auth0): Register a single logical API to represent your multiple APIs.
+4. [Configure scopes for the logical API](#configure-scopes-for-the-logical-API): Create the scopes that will allow the logical API to represent your multiple APIs.
+5. [Grant access to the logical API](#grant-access-to-the-logical-api): Configure the login link in your sample application, initiate the authorization flow, and extract the Access Token to be used to call your multiple APIs.
+Optional: [Implement Single Logout (SLO) or Single Sign-on (SSO)](#implement-single-log-out-slo-or-single-sign-on-sso)
 
-[Connections](/identityproviders) are sources of users to your application, and if you don't have a sample Connection you can use with your newly-created Application, you will need to configure one. For the purposes of this sample, we'll create a simple [Database Connection](/connections/database) that asks only for the user's email address and a password.
+## Enable a connection for your Application
 
-1. In the [Auth0 Dashboard](${manage_url}), click on [Connections > Database](${manage_url}/#/connections/database) in the left-hand navigation bar. Click **Create Application**.
-2. Click **Create DB Connection**. Provide a **Name** for your Connection, and click **Create** to proceed.
-3. Once your Connection is ready, click over to the *Applications* tab, and enable the Connection for your Application.
+You will need a source of users for your newly-registered application, so you will need to configure a [Connection](/identityproviders). For the purpose of this sample, we'll create a simple [Database Connection](/connections/database) that asks only for the user's email address and a password.
 
-### Create a Test User
+1. Navigate to the [Auth0 Dashboard](${manage_url}), and click on [Connections > Database](${manage_url}/#/connections/database) in the left-hand nav. Click **Create DB Connection**.
+2. The **Create DB Connection** window will open. Provide a **Name** for your Connection, and click **Create** to proceed.
+3. Click the **Applications** tab, and enable the Connection.
 
-If you're working with a newly-created Connection, you won't have any users associated with the Connection. Before you can test your sample's login process, you'll need to create and associate a user with your Connection.
+## Create a test user
 
-1. In the [Auth0 Dashboard](${manage_url}), click on [Users](${manage_url}/#/users) in the left-hand navigation bar. Click **Create User**.
+Since you're working with a newly-created Connection, there won't be any users associated with it. Before we can test the sample application's login process, we'll need to create and associate a user with the Connection.
+
+1. Navigate to the [Auth0 Dashboard](${manage_url}), and click on [Users](${manage_url}/#/users) in the left-hand nav. Click **Create User**.
 2. Provide the requested information about the new user (**email address** and **password**), and select your newly-created **Connection**.
-3. Click **Save** to proceed.
+3. Click **Save**.
 
-## Create the Auth0 API
+## Register a logical API in Auth0
 
-Log in to your Auth0 Dashboard, and navigate to the APIs section.
+Register a single logical [API](/apis) that you will use to represent the multiple APIs contained within the sample application.
 
-::: note
-  For detailed information on working with APIs in the <a href="${manage_url}">Dashboard</a>, refer to <a href="/apis">APIs</a>.
-:::
-
-Click **Create API**.
+1. Navigate to the [Auth0 Dashboard](${manage_url}), and click on [APIs](${manage_url}/#/apis) in the left-hand nav. Click **Create API**.
 
 ![](/media/articles/api-auth/tutorials/represent-multiple-apis/dashboard-apis.png)
 
-You will be prompted to provide a **name** and **identifier**, as well as choose the **signing algorithm**, for your new API.
+2. When prompted, provide a **name** and **identifier** for the new API, and choose the **signing algorithm** for the tokens obtained for this API.
 
-For the purposes of this article, we'll call our API `Organizer Service` and set its unique identifier to `organize`. By default, the signing algorithm for the tokens this API issues is **RS256**, which we will leave as is.
+For the purpose of this sample, we'll call our API `Organizer Service` and set its unique identifier to `organize`. By default, the [signing algorithm](/tokens/concepts/signing-algorithms) for the tokens obtained for this API is **RS256**, which we will leave as is.
+
+When finished, click **Create**.
 
 ![](/media/articles/api-auth/tutorials/represent-multiple-apis/create-new-api.png)
 
-Once you've provided the required details, click **Create** to proceed.
+## Configure scopes for the logical API
 
-### Configure the Auth0 API
+To allow the logical API to represent the APIs included within the sample application, you will need to create the proper scopes.
 
-After Auth0 creates your API, you'll be directed to its *Quick Start* page. At this point, you'll need to create the appropriate **Scopes**, which you can do via the *Scopes* page.
+Scopes allow you to define which API actions will be accessible to calling applications. One scope will represent one API/action combination. 
 
-![](/media/articles/api-auth/tutorials/represent-multiple-apis/scopes-page.png)
-
-Scopes allow you to define the API data accessible to your applications. You'll need one scope for each API represented and action. For example, if you want to `read` and `delete` from an API called `samples`, you'll need to create the following scopes:
+For example, if you want calling applications to be able to `read` and/or `delete` from one API called `samples` and another one called `examples`, you would need to create the following permissions:
 
 * `read:samples`
 * `delete:samples`
-
-For our sample application, we'll add two scopes:
-
-* `read:calendar`;
-* `read:contacts`.
+* `read:examples`
+* `delete:examples`
 
 You can think of each one as a microservice.
 
+1. In your newly-created logical API, click the **Scopes** (or **Permissions**) tab. 
+
+![](/media/articles/api-auth/tutorials/represent-multiple-apis/scopes-page.png)
+
+2. Add two scopes:
+
+* `read:calendar`
+* `read:contacts`
+
+**Save** your changes.
+
 ![](/media/articles/api-auth/tutorials/represent-multiple-apis/new-scopes.png)
 
-Add these two scopes to your API and **Save** your changes.
+## Grant access to the logical API
 
-## Grant Access to the Auth0 API
-
-You are now ready to provide access to your APIs by granting Access Tokens to the Auth0 API. By including specific scopes, you can control an application to some or all of the APIs represented by the Auth0 API.
+You are now ready to provide access to your APIs by allowing the logical API to obtain <dfn data-key="access-token">Access Tokens</dfn>. By including the necessary scopes, you can control an application's access to the APIs represented by the logical API.
 
 :::panel Authorization Flows
 
-The rest of this article covers use of the [Implicit Grant](/api-auth/grant/implicit) to reflect the sample. You can, however, use whichever flow best suits your needs.
+The rest of this article covers use of the [Implicit Flow](/flows/concepts/implicit) to reflect the sample. However, you can use whichever flow best suits your needs. For example:
 
-* If you have a **Machine to Machine Application**, you can authorize it to request Access Tokens to your API by executing a [client credentials exchange](/api-auth/grant/client-credentials).
-* If you are building a **Native App**, you can implement the use of [Authorization Codes using PKCE](/api-auth/grant/authorization-code-pkce).
+* If you have a **Machine-to-Machine Application**, you can authorize it to request Access Tokens for your API by executing a [Client Credentials Flow](/flows/concepts/client-credentials).
+* If you are building a **Native App**, you can implement the [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce).
 
 For a full list of available Authorization flows, see [API Authorization](/api-auth).
 :::
 
-The app initiates the flow and redirects the browser to Auth0 (specifically to the `/authorize` endpoint), so the user can authenticate.
+1. The user clicks Login within the SPA, and the app redirects the user to the Auth0 Authorization Server (`/authorize` endpoint).
 
 ```text
 https://YOUR_AUTH0_DOMAIN/authorize?
@@ -112,21 +132,21 @@ redirect_uri=http://localhost:3000&
 nonce=NONCE
 ```
 
-For additional information on the call's parameters, refer to the [docs on executing an implementing the Implicit Grant](/api-auth/tutorials/implicit-grant#1-get-the-user-s-authorization).
-
-The SPA executes this call whenever the user clicks **Login**.
+::: note
+For additional information on the call's parameters, refer to our tutorial, [Call Your API Using the Implicit Flow](/flows/guides/implicit/call-api-implicit#authorize-the-user).
+:::
 
 ![SPA Home before Login](/media/articles/api-auth/tutorials/represent-multiple-apis/home.png)
 
-Lock handles the login process.
+2. Your Auth0 Authorization Server redirects the user to the login page, where the user authenticates using one of the configured login options.
 
 ![SPA Login](/media/articles/api-auth/tutorials/represent-multiple-apis/lock.png)
 
-Next, Auth0 authenticates the user. If this is the first time the user goes through this flow, they will be asked to consent to the scopes that are given to the Application. In this case, the user's asked to consent to the app reading their contacts and calendar.
+3. If this is the first time the user has been through this flow, they see a consent prompt listing the permissions Auth0 will give to the SPA. In this case, the user is asked to consent to the app reading their contacts and calendar.
 
 ![Consent Screen](/media/articles/api-auth/tutorials/represent-multiple-apis/consent-screen.png)
 
-If the user consents, Auth0 continues the authentication process, and upon completion, redirects them back to the app with an `access_token` in the hash fragment of the URI. The app can now extract the tokens from the hash fragment. In a Single Page Application (SPA) this is done using JavaScript.
+4. If the user consents, Auth0 redirects the user back to the SPA with tokens in the hash fragment of the URI. The SPA can now extract the tokens from the hash fragment using JavaScript and use the Access Token to call your APIs on behalf of the user.
 
 ```js
 function getParameterByName(name) {
@@ -139,8 +159,11 @@ function getAccessToken() {
 }
 ```
 
-The app can then use the `access_token` to call the API on behalf of the user.
-
-After logging in, you can see buttons that allow you to call either of your APIs.
+In our sample, after you successfully log in, you will see buttons that allow you to call either of your APIs using the Access Token obtained from the logical API.
 
 ![SPA Home after Login](/media/articles/api-auth/tutorials/represent-multiple-apis/apis.png)
+
+
+## Implement Single Logout (SLO) or Single Sign-on (SSO)
+
+<%= include('../../_includes/_checksession_polling') %>

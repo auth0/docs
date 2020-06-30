@@ -2,6 +2,14 @@
 classes: topic-page
 title: Auth0 Integrations
 description: Learn how to integrate Auth0 with other applications and services.
+topics:
+  - integrations
+contentType: index
+useCase:
+  - integrate-third-party-apps
+  - integrate-analytics
+  - integrate-marketing
+  - integrate-saas-sso
 ---
 <!-- markdownlint-disable MD041 MD002 MD026 -->
 <div class="topic-page-header">
@@ -14,21 +22,33 @@ description: Learn how to integrate Auth0 with other applications and services.
 
 <ul class="topic-links">
   <li>
-    <i class="icon icon-budicon-292"></i><a href="/analytics/integrations">Analytics Integrations</a>
+    <i class="icon icon-budicon-546"></i>API Management Integrations
     <p>
-        Learn how to set up and configure analytics integrations with Auth0.
+      Learn how to use Auth0 with API Management Systems and other services.
     </p>
     <ul>
       <li>
-        <img class="icon-logo" src="/img/icons/facebook.svg" /><a href="/analytics/integrations/facebook-analytics">Facebook Analytics Integration</a>
+        <i class="icon icon-budicon-715"></i><a href="/integrations/google-cloud-platform">Secure Google Cloud Endpoints with Auth0</a>
       </li>
       <li>
-        <img class="icon-logo" src="/img/icons/google.svg" /><a href="/analytics/integrations/google-analytics">Google Analytics Integration</a>
+        <i class="icon icon-budicon-715"></i><a href="/integrations/azure-api-management">
+        Integrate Azure API Management Service with Auth0
+        </a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-715"></i><a href="/integrations/aws">
+        Integrate Auth0 with Amazon Web Services
+        </a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-715"></i><a href="/integrations/aws-api-gateway">
+        Secure AWS API Gateway Endpoints Using Custom Authorizers
+        </a>
       </li>
     </ul>
   </li>
   <li>
-    <i class="icon icon-budicon-705"></i><a href="/analytics/integrations">Marketing Integrations</a>
+    <i class="icon icon-budicon-705"></i><a href="/integrations/marketing">Marketing Integrations</a>
     <p>
         Learn how to import your Auth0 user data into marketing tools.
     </p>
@@ -66,9 +86,9 @@ description: Learn how to integrate Auth0 with other applications and services.
     </ul>
   </li>
   <li>
-    <i class="icon icon-budicon-334"></i><a href="/integrations/sso">Single Sign On Integrations</a>
+    <i class="icon icon-budicon-334"></i><a href="/integrations/sso">Single Sign-On (SSO) Integrations</a>
     <p>
-        Learn how to set up Single Sign On between Auth0 and various services.
+        Learn how to set up <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> between Auth0 and various services.
     </p>
     <ul>
       <li>
@@ -102,7 +122,7 @@ description: Learn how to integrate Auth0 with other applications and services.
         <i class="icon icon-budicon-715"></i><a href="/integrations/sso/office-365">Office 365</a>
       </li>
       <li>
-        <i class="icon icon-budicon-715"></i><a href="/integrations/sso/salesforce">SalesForce</a>
+        <i class="icon icon-budicon-715"></i><a href="/integrations/sso/salesforce">Salesforce</a>
       </li>
       <li>
         <i class="icon icon-budicon-715"></i><a href="/integrations/sso/sharepoint">SharePoint</a>
@@ -118,6 +138,23 @@ description: Learn how to integrate Auth0 with other applications and services.
       </li>
       <li>
         <i class="icon icon-budicon-715"></i><a href="/integrations/sso/zoom">Zoom</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <i class="icon icon-budicon-334"></i><a href="/log-streams">Log Streaming Integrations</a>
+    <p>
+        Learn how to set up and configure log streaming integrations with Auth0.
+    </p>
+    <ul>
+      <li>
+        <i class="icon icon-budicon-715"></i><a href="/logs/streams/amazon-eventbridge">Amazon Eventbridge</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-715"></i><a href="/logs/streams/datadog">Datadog</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-715"></i><a href="/logs/streams/azure-event-grid">Azure Event Grid</a>
       </li>
     </ul>
   </li>

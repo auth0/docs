@@ -3,10 +3,16 @@ alias:
   - Django
 languages:
   - Python
+author:
+  name: Luciano Balmaceda
+  email: luciano.balmaceda@auth0.com
+  community: false
 thirdParty: false
 image: /media/platforms/django.png
-tags:
+topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   dependencies: server-apis/django/dependencies
   setup: server-apis/django/setup
@@ -14,5 +20,30 @@ snippets:
 articles:
   - 01-authorization
   - 02-using
+  - 03-troubleshooting
 seo_alias: django
 default_article: 01-authorization
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-django-api
+requirements:
+  - Python 3.5 and up
+  - Django 2.2.*
+  - djangorestframework 3.10.*
+  - drf-jwt 1.13.*
+next_steps:
+  - path: 01-authorization
+    list:
+    - text: Configure other identity providers
+      icon: 345
+      href: "/identityproviders"
+    - text: Enable multifactor authentication
+      icon: 345
+      href: "/multifactor-authentication"
+    - text: Learn about anomaly detection
+      icon: 345
+      href: "/anomaly-detection"
+    - text: Learn about rules
+      icon: 345
+      href: "/rules"

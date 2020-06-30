@@ -1,45 +1,59 @@
 ---
-title: Connect your app to Planning Center
+title: Connect Apps to Planning Center
 connection: Planning Center
 image: /media/connections/planning-center.png
 seo_alias: planning-center
-description: How to obtain a Client Id and Client Secret for Planning Center.
+description: Learn how to add login functionality to your app with Planning Center. You will need to get a Client Id and Client Secret for Planning Center.
 toc: true
+index: 25
+topics:
+  - connections
+  - social
+  - planning-center
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
-# Connect your app to Planning Center
+# Connect Apps to Planning Center
 
-To configure an OAuth2 connection with Planning Center Online, you will need to register Auth0 with Planning Center on their Developer portal.
+You can add functionality to your web app that allows your users to log in with Planning Center. 
 
-## 1. Log into the Planning Center Developer portal
+## Prerequisites
 
-Go to the [Planning Center Developer](https://api.planningcenteronline.com/) portal. Log in with your credentials and click **Register** on the **Developer Applications** page:
+Before connecting your Auth0 app to Planning Center, you must have a [Planning Center Developer](https://api.planningcenteronline.com/) account.
 
-![](/media/articles/connections/social/planning-center/planning-center-api-1.png)
+## Steps
 
-## 2. Complete information about your instance of Auth0
+To connect your app to Planning Center, you will:
 
-Complete the form. In the **Authorization callback URLs** field, enter this URL:
+1. [Set up your app in Planning Center](#set-up-your-app-in-planning-center)
+2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
+3. [Test the connection](#test-the-connection)
 
-  https://${account.namespace}/login/callback
+### Set up your app in Planning Center
 
-and click **Submit**:
+Set up an app in Planning Center. During this process, Planning Center will generate a **Client ID** and **Secret** for your application; make note of these.
 
-![](/media/articles/connections/social/planning-center/planning-center-api-2.png)
+1. Log in to the [Planning Center Developer](https://api.planningcenteronline.com/) portal and click **Register** on the **Developer Applications** page.
+2. Complete form including the following information.
 
-## 3. Get your *Client ID* and *Secret*
+| Field | Value to Provide |
+| - | - |
+| App URL | `https://${account.namespace}` |
+| Whitelisted redirection URL(s) | `https://${account.namespace}/login/callback` |
 
-Once your app is registered, your `Client Id` and `Secret` will be displayed:
+<%= include('../_find-auth0-domain-redirects') %>
 
-![](/media/articles/connections/social/planning-center/planning-center-api-3.png)
+4. Click **Submit**. Your **Client Id** and **Secret** will be displayed.
 
-## 4. Copy your *Client Id* and *Secret*
+### Create and enable a connection in Auth0
 
-Go to the [Social Connections](${manage_url}/#/connections/social) page of your Auth0 Dashboard and select **Planning Center**.
+[Set up the Planning Center social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the generated **Client Id** and **Secret**.
 
-Copy the `Client Id` and `Secret` from the **Developer Applications** page of the Planning Center Developer portal into the fields on this page on Auth0.
+### Test the connection
 
-![](/media/articles/connections/social/planning-center/planning-center-api-4.png)
+You're ready to [test your connection](/dashboard/guides/connections/test-connections-social). After logging in, you'll be prompted to allow your app access. To do so, click **Install unlisted app**.
 
 <%= include('../_quickstart-links.md') %>
-

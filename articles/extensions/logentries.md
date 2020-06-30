@@ -1,5 +1,11 @@
 ---
 description: How to enable and use the Logentries extension.
+topics:
+  - extensions
+  - logentries
+contentType:
+  - how-to
+useCase: extensibility-extensions
 ---
 
 # Auth0 Logs to Logentries
@@ -14,12 +20,14 @@ To install and configure this extension, click on the _Auth0 Logs to Logentries_
 
 At this point you should set the following configuration variables:
 - **Schedule**: The frequency with which logs should be exported. The schedule can be customized even further after creation.
-- **BATCH_SIZE**: The ammount of logs to be read on each execution. Maximun is 100.
+- **BATCH_SIZE**: The amount of logs to be read on each execution. Maximun is 100.
 - **LOGENTRIES_TOKEN**: The Logentries Token for your log set to which the Auth0 logs will be exported.
 - **LOG_LEVEL**: The minimal log level of events that you would like sent to Logentries.
 - **LOG_TYPES**: The events for which logs should be exported.  If you want you can send only events with a specific type (for example, failed logins).
 
 Once you have provided this information, click the *Install* button to finish installing the extension.
+
+<%= include('./_includes/_batch-size') %>
 
 ## Retrieve the required information from Logentries
 

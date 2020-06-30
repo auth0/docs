@@ -1,10 +1,19 @@
 ---
 description: How to configure Okta for use as an OpenID Connect identity provider.
 toc: true
+topics:
+    - protocols
+    - oidc
+    - okta
+contentType:
+  - concept
+useCase:
+  - development
+  - add-idp
 ---
 # Configure Okta as an OpenID Connect Identity Provider
 
-This article walks you through configuring Okta for use as an OpenID Connect identity provider.
+This article walks you through configuring Okta for use as an <dfn data-key="openid">OpenID Connect (OIDC)</dfn> identity provider.
 
 ## 1. Create an Okta Application
 
@@ -51,7 +60,7 @@ Auth0 supports creating custom OpenID Connections by using the [Custom Social Co
 - __Client Secret__: Use the **Client Secret** you obtained in the *General* page of your application in Okta;
 - __Authorization URL__: Set `https://{okta-account}/oauth2/v1/authorize`, replacing *{okta-account}* with the DNS name of the Okta account where you registered the application;
 - __Token URL__: Set `https://{okta-account}/oauth2/v1/token`, replacing *{okta-account}* with the DNS name of the Okta account where you registered the application;
-- __Scope__: The scope parameters to get the profile, as a first approach you can use `openid email profile`;
+- __Scope__: The <dfn data-key="scope">scope</dfn> parameters to get the profile, as a first approach you can use `openid email profile`;
 - __Fetch User Profile Script__: Use the following Script, replacing *{okta-account}* with the DNS name of the Okta account where you registered the application.
     ```javascript
     function(accessToken, ctx, cb) {
@@ -163,3 +172,7 @@ function(accessToken, ctx, cb) {
 
 Next, click the **Try** button to test the connection. If accepted, you should see the **It Works!** confirmation page.
 
+## Keep reading
+
+* [Configure Applications with OpenID Connect Discovery](/protocols/oidc/openid-connect-discovery)
+* [OIDC Handbook](https://auth0.com/resources/ebooks/the-openid-connect-handbook)

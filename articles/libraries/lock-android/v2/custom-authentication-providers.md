@@ -2,6 +2,16 @@
 section: libraries
 title: Lock Android v2 Custom Authentication Providers
 description: Implementing custom authentication providers
+topics:
+  - libraries
+  - lock
+  - android
+contentType:
+  - how-to
+  - reference
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Lock Android: Custom Authentication Providers
 

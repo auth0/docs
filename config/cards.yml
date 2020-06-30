@@ -12,67 +12,83 @@
   url: "/getting-started"
   articles:
 
-    - title: Auth0 Overview
-      url: /getting-started/overview
+    - title: "Create a Tenant"
+      url: "/getting-started/create-tenant"
+    
+    - title: "Set Up An App"
+      url: "/getting-started/set-up-app"
 
-    - title: The Basics
-      url: /getting-started/the-basics
-
-    - title: Dashboard Overview
-      url: /getting-started/dashboard-overview
+    - title: "Add Login"
+      url: "/application-auth/current"
 
 - id: "ui-components"
-  title: "UI Components"
+  title: "Login"
   icon: "icon-budicon-342"
-  color: "blue-light"
-  description: "Integrate Auth0 login and signup UI into your app."
-  url: "/libraries/when-to-use-lock"
+  color: "oil"
+  description: "Integrate Auth0 login into your app."
+  url: "/login"
   articles:
 
-    - title: "Lock for Web"
-      url: "/libraries/lock/v11"
+    - title: "Universal Login"
+      url: "/universal-login"
 
-    - title: "Lock for iOS"
-      url: "/libraries/lock-ios/v2"
+    - title: "Authentication Flows"
+      url: "/flows"
 
-    - title: "Lock for Android"
-      url: "/libraries/lock-android/v2"
+    - title: "Custom Domains"
+      url: "/custom-domains"
+
+- id: "identity-providers"
+  title: "Identity Providers"
+  icon: "icon-budicon-297"
+  color: "yellow"
+  description: "Integrating Auth0 with identity providers."
+  url: "/identityproviders"
+  articles:
+
+    - title: "Social Identity Providers"
+      url: "/identityproviders#social"
+
+    - title: "Enterprise Identity Providers"
+      url: "/identityproviders#enterprise"
+
+    - title: "Databases"
+      url: "/connections/database"
+
 
 - id: "authentication-flows"
-  title: "Authentication Flows"
+  title: "Authorization"
   icon: "icon-budicon-295"
   color: "oil"
-  description: "Learn about our new authentication flows and how you can adopt them."
-  url: "/api-auth/intro"
+  description: "Learn how to set up access control."
+  url: "/authorization"
   articles:
 
-    - title: "Introduction"
-      url: "/api-auth/intro"
+    - title: "Authorization Flows"
+      url: "/authorization"
 
-    - title: "Adoption Guide"
-      url: "/api-auth/tutorials/adoption"
+    - title: "Role-based Access Control"
+      url: "/authorization/concepts/rbac"
 
-    - title: "API Authorization"
-      url: "/api-auth"
+    - title: "Authorization Extension"
+      url: /extensions/authorization-extension
 
-
-- id: "guides"
-  title: "Guides"
-  icon: "icon-budicon-399"
-  color: "green"
-  description: "Guidance and tutorials about common solutions."
-  url: "/topics/guides"
+- id: "enterprise-identity"
+  title: "Manage Users"
+  icon: "icon-budicon-292"
+  color: "oil"
+  description: "Learn about working with users, user profiles, and user metadata."
+  url: "/users"
   articles:
 
-    - title: "Architecture Scenarios"
-      url: /architecture-scenarios
-      
-    - title: "Tokens used by Auth0"
-      url: "/tokens"
+    - title: "User Management"
+      url: "/users"
 
-    - title: "Migration Guides"
-      url: "/migrations"
+    - title: "User Profiles"
+      url: "/users/concepts/overview-user-profile"
 
+    - title: "Import & Export Users"
+      url: "/users/concepts/overview-user-migration"
 
 - id: "apis"
   title: "APIs"
@@ -93,29 +109,30 @@
       url: "/api/management/v2"
       forceFullReload: true
 
-- id: "appliance"
-  title: "PSaaS Appliance"
-  icon: "icon-budicon-359"
-  color: "pink"
-  description: "Deploying and managing a private instance of Auth0."
-  url: "/appliance"
+
+- id: "guides"
+  title: "Learn Identity"
+  icon: "icon-budicon-678"
+  color: "green"
+  description: "Learn about identity concepts, terminology, protocols, and more!"
+  url: "/videos/learn-identity"
   articles:
 
-    - title: "PSaaS Appliance Planning"
-      url: "/appliance/appliance-overview"
+    - title: "Introduction to Identity"
+      url: "/videos/learn-identity/01-introduction-to-identity"
+      
+    - title: "OpenID Connect and OAuth2"
+      url: "/videos/learn-identity/02-oidc-and-oauth"
 
-    - title: Administrator's Manual
-      url: /appliance/admin
-
-    - title: Onboarding Process
-      url: /onboarding/appliance-sprint
+    - title: "Web Sign-In"
+      url: "/videos/learn-identity/03-web-sign-in"
 
 - id: "extensibility"
   title: "Extensibility"
   icon: "icon-budicon-173"
   color: "red"
-  description: "Adding to and customizing Auth0's standard feature set."
-  url: "/topics/extensibility"
+  description: "Customize Auth0's standard feature set."
+  url: "/extend-integrate"
   articles:
 
     - title: "Rules"
@@ -124,41 +141,22 @@
     - title: "Extensions"
       url: "/extensions"
 
-    - title: "Webtasks"
-      url: "https://webtask.io/docs/101"
-      external: true
+    - title: "Internationalization"
+      url: "/i18n"
 
-
-- id: "identity-providers"
-  title: "Identity Providers"
-  icon: "icon-budicon-297"
-  color: "yellow"
-  description: "Integrating Auth0 with identity providers."
-  url: "/identityproviders"
+- id: "appliance"
+  title: "Guides"
+  icon: "icon-budicon-399"
+  color: "green"
+  description: "Guides and tutorials on working with Auth0."
+  url: "/topics/guides"
   articles:
 
-    - title: "Database Connections"
-      url: "/connections/database"
+    - title: "Architecture Scenarios"
+      url: /architecture-scenarios
+      
+    - title: "Monitoring"
+      url: "/monitoring"
 
-    - title: "Social Connections"
-      url: "/identityproviders#social"
-
-    - title: "Passwordless"
-      url: "/connections/passwordless"
-
-- id: "enterprise-identity"
-  title: "Enterprise Identity"
-  icon: "icon-budicon-606"
-  color: "oil"
-  description: "Integrating and integrating enterprise identity solutions."
-  url: "/identityproviders#enterprise"
-  articles:
-
-    - title: "Active Directory"
-      url: "/connections/enterprise/active-directory"
-
-    - title: "Active Directory Connector"
-      url: "/connections/passwordless"
-
-    - title: "SAML"
-      url: "/saml-configuration"
+    - title: "Deployments"
+      url: "/deploy"

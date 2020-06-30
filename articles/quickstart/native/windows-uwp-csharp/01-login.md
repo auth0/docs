@@ -1,32 +1,23 @@
 ---
 title: Login
 default: true
-description: This tutorial will show you how to use the Auth0 Windows Universal App C# SDK to add authentication and authorization to your app.
+description: This tutorial demonstrates how to add user login to a Windows Universal C# application using Auth0.
 budicon: 448
+topics:
+  - quickstarts
+  - native
+  - windows
+  - uwp
+  - csharp
+github:
+    path: Quickstart/00-Starter-Seed
+contentType: tutorial
+useCase: quickstart
 ---
 
-<%= include('../../../_includes/_package', {
-  org: 'auth0-community',
-  repo: 'auth0-uwp-oidc-samples',
-  path: 'Quickstart/00-Starter-Seed',
-  requirements: [
-    'Microsoft Visual Studio 2017',
-    'Windows 10 SDK (10.0.10586.0)',
-    'Auth0.OidcClient.UWP 1.0.0'
-  ]
-}) %>
+<%= include('../_includes/_getting_started', { library: 'Windows Universal' }) %>
 
-This tutorial explains how to integrate the Auth0 OIDC Application with a Windows UWP (Universal Windows Platform) C# application. The NuGet package `Auth0.OidcClient.UWP` helps you authenticate users with any [Auth0 supported identity provider](/identityproviders).
-
-<%= include('../_includes/_dotnet-oidc-client-configuration') %>
-
-## Install the Auth0.OidcClient.UWP NuGet Package
-
-Use the NuGet Package Manager Console (Tools -> NuGet Package Manager -> Package Manager Console) to install the `Auth0.OidcClient.UWP` package, running the command:
-
-${snippet(meta.snippets.dependencies)}
-
-## Set Up the Auth0 Callback URL
+<%= include('../../../_includes/_callback_url') %>
 
 For UWP applications, the callback URL needs to be in the format **ms-app://SID**, where **SID** is the **Package SID** for your application. Assuming you have associated your application with and application on the Windows Store, you can go to the Windows Developer Centre, go to the settings for your application, and then go to the App management > App identity section, where you will see the **Package SID** listed.
 
@@ -48,17 +39,21 @@ protected override void OnLaunched(LaunchActivatedEventArgs e)
 }
 ```
 
-This will print out the callback URL to your Debug window in Visual Studio.
+This will print out the callback URL to your Debug window in Visual Studio. This is a bit of a painful process to obtain this URL, but it is important to use this URL otherwise the authentication process will not function correctly.
 
-<div class="setup-callback">
-<p>Once you have the correct callback URL, go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Application Settings</a> section in the Auth0 dashboard and make sure that <strong>Allowed Callback URLs</strong> contains the value of the callback URL, such as</p>
+<%= include('../../../_includes/_logout_url') %>
 
-<pre><code>ms-app://S-1-xxx...</pre></code>
-</div>
+The logout URL you need to whitelist in the **Allowed Logout URLs** field is the same as the callback URL obtained in the previous step. For more information check Web authenticator broker [documentation](https://docs.microsoft.com/en-us/windows/uwp/security/web-authentication-broker#connecting-with-single-sign-on-sso).
 
-This is a bit of a painful process to obtain this URL, but it is important to use this URL otherwise the SSO will not function correctly.
+## Integrate Auth0 in your Application
 
-## Integration
+### Install Dependencies
+
+Use the NuGet Package Manager Console (Tools -> NuGet Package Manager -> Package Manager Console) to install the `Auth0.OidcClient.UWP` package, running the command:
+
+${snippet(meta.snippets.dependencies)}
+
+## Trigger Authentication
 
 To integrate Auth0 login into your application, simply instantiate an instance of the `Auth0Client` class, configuring the Auth0 Domain and Client ID:
 
@@ -70,7 +65,9 @@ ${snippet(meta.snippets.use)}
 
 ![](/media/articles/native-platforms/windows-uwp-csharp/lock-widget-screenshot.png)
 
-## Accessing the User's Information
+This will load the Auth0 login page into a web view. You can learn how to customize the login page in [this document](/universal-login#simple-customization).
+
+## Handle Authentication Tokens
 
 The returned login result will indicate whether authentication was successful, and if so contain the tokens and claims of the user.
 
@@ -91,7 +88,7 @@ if (loginResult.IsError)
 
 ### Accessing the tokens
 
-On successful login, the login result will contain the `id_token` and `access_token` in the `IdentityToken` and `AccessToken` properties respectively.
+On successful login, the login result will contain the ID Token and Access Token in the `IdentityToken` and `AccessToken` properties respectively.
 
 ```csharp
 // MainPage.xaml.cs
@@ -125,7 +122,7 @@ if (!loginResult.IsError)
 The exact claims returned will depend on the scopes that were requested. For more information see @scopes.
 :::
 
-You can obtain a list of all the claims contained in the `id_token` by iterating through the `Claims` collection:
+You can obtain a list of all the claims contained in the ID Token by iterating through the `Claims` collection:
 
 ```csharp
 // MainPage.xaml.cs
@@ -139,6 +136,12 @@ if (!loginResult.IsError)
 }
 ```
 
-## More Information
+## Logout
 
-For more information, please refer to the [Auth0 OIDC Client Documentation](https://auth0.github.io/auth0-oidc-client-net/documentation/intro.html).
+To log the user out call the `LogoutAsync` method.
+
+```csharp
+// MainPage.xaml.cs
+
+await client.LogoutAsync();
+```

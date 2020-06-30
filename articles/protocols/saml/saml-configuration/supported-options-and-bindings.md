@@ -1,10 +1,17 @@
 ---
-  description: Supported SAML bindings and options
+description: Supported SAML bindings and options
+topics:
+  - saml
+  - saml-bindings
+contentType:
+  - reference
+useCase:
+  - add-idp
 ---
 
 # Supported SAML Bindings and Options
 
-Auth0 supports the following SAML bindings:
+Auth0 supports the following <dfn data-key="security-assertion-markup-language">SAML</dfn> bindings:
 
 * HTTP Redirect
 * HTTP POST

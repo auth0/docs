@@ -1,11 +1,18 @@
 ---
 description: How to troubleshoot SAML-related configuration issues when Auth0 is the identity provider
 toc: true
+  topics:
+    - saml
+    - sso
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
 # Troubleshooting SAML when Auth0 is the Identity Provider
 
-When troubleshooting a SAML login, there are four primary stages to check:
+When troubleshooting a <dfn data-key="security-assertion-markup-language">SAML</dfn> login, there are four primary stages to check:
 
 * Stage 1: The user is successfully redirected to IDP and is able to login.
 * Stage 2: After login with the IDP, the user returns to Auth0 with a successful login event recorded.
@@ -14,7 +21,7 @@ When troubleshooting a SAML login, there are four primary stages to check:
 
 The following sections describe how to check each stage and how to identify if there are any issues with a given stage.
 
-## Issue: A Successful Login Event Does Not Show Up in Auth0 Logs
+## A successful login event does not show up in Auth0 logs
 
 In this case, the user successfully logs in with the idp, but a successful login event does *not* show up in auth0 logs.
 
@@ -24,13 +31,13 @@ In this case, the user successfully logs in with the idp, but a successful login
 
   * Disable your [rules](/rules) temporarily to make sure that nothing is interfering with the login process.
 
-  * If you've enabled [multifactor authentication](/multifactor-authentication), disable it temporarily to make sure that it is not interfering with the login process.
+  * If you've enabled <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn>, disable it temporarily to make sure that it is not interfering with the login process.
 
 * If you're using an Auth0 Database Connection **or** a remote SAML connection:
 
   * Check that the SAML Connection works by [using **Try** to run a Connection test](#issue-the-idp-login-page-doesn-t-display).
 
-## Issue: The User's Profile Attributes are Incorrect
+## The user's profile attributes are incorrect
 
 In this case, the user successfully logs in with the idp, a successful login event shows up in auth0 logs, but the user's profile attributes are incorrect.
 
@@ -42,7 +49,7 @@ If the user:
 
 The next step is to check that the user's profile contains the necessary user profile attributes.
 
-### Checking the User Profile
+### Checking the user profile
 
 1. After logging in to the [Auth0 Dashboard, navigate to *Users*](${manage_url}/#/users).
 
@@ -52,7 +59,7 @@ The next step is to check that the user's profile contains the necessary user pr
 
 If an attribute is missing, check with the identity provider to confirm that it has the attribute and that it is returning that attribute to Auth0.
 
-## Issue: The User Cannot Access the Application
+## The user cannot access the application
 
 In this case, the user successfully logs in with the idp, a successful login event shows up in auth0 logs, and the user's profile attributes are correct, but the user cannot access the application.
 
@@ -68,7 +75,7 @@ In this case, the user successfully logs in with the idp, a successful login eve
 
 * Check the application's log files to see if there are any error messages indicating why the user is unable to access the application. The two most common causes for this issue are missing user profile information or incorrect/missing authorization information.
 
-* Check the information that Auth0 sends to the application by [capturing an HTTP trace of the login sequence](/har). To analyze the HTTP trace:
+* Check the information that Auth0 sends to the application by [capturing an HTTP trace of the login sequence](/troubleshoot/guides/generate-har-files). To analyze the HTTP trace:
 
   1. View the trace in a HAR file analyzer, such as [Google's HAR Analyzer](https://toolbox.googleapps.com/apps/har_analyzer/).
 
@@ -78,7 +85,7 @@ In this case, the user successfully logs in with the idp, a successful login eve
 
     * There will then by a redirect to an Auth0 URL (such as `${account.namespace}`).
 
-    * After one or more intervening URLS, there will be a POST back to your application containing the SAML assertion with user inforation. The URL should be for the Assertion Consumer Service (ACS) of your application, which consumes the assertion and extracts the needed information. Be sure that the assertion includes this information:
+    * After one or more intervening URLS, there will be a POST back to your application containing the SAML assertion with user information. The URL should be for the Assertion Consumer Service (ACS) of your application, which consumes the assertion and extracts the needed information. Be sure that the assertion includes this information:
 
       1. Click on the row for the POST call in the HAR analyzer.
 
@@ -86,7 +93,7 @@ In this case, the user successfully logs in with the idp, a successful login eve
 
       3. Copy and paste the SAML response into a [SAML debugger](https://samltool.io/).
 
-      4. Remve the SAML response at the beginning, as well as anything beginning with `&RelayState=` at the end.
+      4. Remove the SAML response at the beginning, as well as anything beginning with `&RelayState=` at the end.
 
       5. Click **Decode SAML message** and check the following fields:
 
@@ -127,3 +134,7 @@ In this case, the user successfully logs in with the idp, a successful login eve
     ```
 
     ![](/media/articles/protocols/saml/saml-configuration/saml-rules.png)
+
+## When I try to logout I get the error: No active session(s) found matching LogoutRequest
+
+The `SessionIndex` and `NameID` values in the SAML Logout request need to match the ones received by the service provider in the original SAML assertion.

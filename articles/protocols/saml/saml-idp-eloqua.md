@@ -1,5 +1,13 @@
 ---
 description: How to configure Auth0 to serve as an Identity Provider for Oracle Eloqua.
+topics:
+  - saml
+  - oracle
+  - eloqua
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
 # Configure Auth0 as Identity Provider for Oracle Eloqua
@@ -83,14 +91,12 @@ Login to Eloqua with Auth0 should be enabled now. You can sign in to Eloqua with
 
 ### SP Initiated Login
 
-Navigate to [https://login.eloqua.com/auth/saml2](https://login.eloqua.com/auth/saml2) , enter your company name and start the SAML login process with Auth0.
+Navigate to [https://login.eloqua.com/auth/saml2](https://login.eloqua.com/auth/saml2) , enter your company name and start the <dfn data-key="security-assertion-markup-language">SAML</dfn> login process with Auth0.
 
 ![Eloqua SP Initiated Login](/media/articles/protocols/saml/eloqua/sp-login.png)
 
 
 ### IdP Initiated Login
-
-**Beginning with auth0.js v9.3.4, you must [enable the impersonation flags](/user-profile/user-impersonation#enable-impersonation) to use IdP-initiated login.**
 
 For IDP Initiated login use the **Identity Provider Login URL** defined under the **Dashboard > Applications > select your application > Addons > SAML 2 Web App > Usage**.
 

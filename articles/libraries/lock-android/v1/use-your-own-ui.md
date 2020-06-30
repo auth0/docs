@@ -1,13 +1,25 @@
 ---
 title: Lock Android v1 Customize Your UI
 description: Customize the UI of Lock in your App
+topics:
+  - libraries
+  - lock
+  - android
+  - lock-ui
+contentType:
+  - how-to
+  - concept
+  - reference
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Lock Android: Customize Your UI
 
 <%= include('../_includes/_lock-version') %>
 
 :::note
-We are going to use the library [EventBus](https://github.com/greenrobot/EventBus) in order to post authentication related events like **authentication done** and **uthentication failed**
+We are going to use the library [EventBus](https://github.com/greenrobot/EventBus) in order to post authentication related events like **authentication done** and **Authentication failed**
 :::
 
 Add the following dependencies to your project:

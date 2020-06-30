@@ -1,33 +1,30 @@
 ---
 title: User Profile
-description: Access the user profile information using OmniAuth-Auth0 strategy.
+description: This tutorial demonstrates shows how to access the user profile information using OmniAuth-Auth0 strategy.
 budicon: 448
+topics:
+  - quickstarts
+  - webapp
+  - login
+  - user-profile
+contentType: tutorial
+useCase: quickstart
+github:
+  path: 03-User-Profile
 ---
 
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-rubyonrails-sample',
-  path: '03-User-Profile',
-  requirements: [
-    'Ruby 2.3.1',
-    'Rails 5.0.0'
-  ]
-}) %>
+## Process the Callback
 
-## The OmniAuth Auth Hash
-
-After receiving a successful callback at `/auth/oauth2/callback`, the **OmniAuth** strategy provides available user profile information via the `request.env['omniauth.auth']` hash.
+After receiving a successful callback at `/auth/auth0/callback`, the **OmniAuth** strategy provides available user profile information via the `request.env['omniauth.auth']` hash.
 
 ::: note
 The full contents of the authentication hash retrieved by the Auth0 strategy are detailed [here](https://github.com/auth0/omniauth-auth0#auth-hash).
 :::
 
-## Retrieve the Auth Hash
-
 In the [login](/quickstart/webapp/rails/01-login) step, you configured the application for **OmniAuth** to start the **OmniAuth-Auth0** strategy and for **OmniAuth** to take over and complete the authentication process. You also set a route that matches the callback URL in the application routes.
 
 ```ruby
-get "/auth/oauth2/callback" => "auth0#callback"
+get "/auth/auth0/callback" => "auth0#callback"
 ```
 
 The `callback` action in the `auth0` controller retrieves the auth hash and stores it in the application's session hash. It then redirects to the dashboard controller `show` action, which renders the dashboard view.
@@ -42,9 +39,9 @@ def callback
 end
 ```
 
-## Display the User Profile Data
+## Display the User Profile
 
-The auth hash built by the **OmniAuth** Auth0 strategy has the user profile data under the `info` key. Each element is named according to [the normalized user profile definition](/user-profile/normalized).
+The auth hash built by the **OmniAuth** Auth0 strategy has the user profile data under the `info` key. Each element is named according to [the normalized user profile definition](/users/normalized).
 
 The auth hash also contains the full user profile under the `raw` key. The difference is that the normalized user profile data is pre-processed and guaranteed to be present, while the full user profile data may vary depending on several factors, including which social identity provider is used to log the user in.
 

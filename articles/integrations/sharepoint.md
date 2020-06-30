@@ -1,10 +1,15 @@
 ---
-description: How to integrate with SharePoint 2010/2013, including setup, troubleshooting, acessing logs and next steps.
+description: How to integrate with SharePoint 2010/2013, including setup, troubleshooting, accessing logs and next steps.
+topics:
+  - integrations
+  - sharepoint
+contentType: how-to
+useCase: integrate-saas-sso
 ---
 
 # SharePoint 2010/2013 Integration
 
-Auth0 can help to radically simplify the authentication process for SharePoint. In this tutorial, you'll learn how to add Single Sign On (SSO) to Sharepoint using Auth0. Your users will be able to log in using any of our [Social Identity Providers](/identityproviders) (Facebook, Twitter, Github, and so on), [Enterprise Providers](/identityproviders) (LDAP, Active Directory, ADFS, and so on) or with a username and password.
+Auth0 can help to radically simplify the authentication process for SharePoint. In this tutorial, you'll learn how to add <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> to Sharepoint using Auth0. Your users will be able to log in using any of our [Social Identity Providers](/identityproviders) (Facebook, Twitter, Github, and so on), [Enterprise Providers](/identityproviders) (LDAP, Active Directory, ADFS, and so on) or with a username and password.
 
 ## Setup
 
@@ -74,11 +79,11 @@ Depending on which claims have been mapped when installing the claims provider t
 
 ## Customizing the Login Page
 
-You can customize the login page by following the instructions in the [documentation on customizing the login page](/hosted-pages/login#how-to-customize-your-login-page).
+You can customize the login page by following the instructions in the [documentation on customizing the login page](/universal-login#simple-customization).
 
 You might wish to provide a way to let users authenticate with Sharepoint using Windows Authentication, bypassing Auth0. You can do that by customizing the login page, adding a link to the Windows Authentication endpoint (usually similar to `https://yoursharepointserver/_windows/default.aspx?ReturnUrl=/_layouts/15/Authenticate.aspx`).
 
-On way of doing it is by using jQuery to modify the Lock widget and add a link to the Windows Authentication endpoint.
+On way of doing it is by using jQuery to modify the <dfn data-key="lock">Lock widget</dfn> and add a link to the Windows Authentication endpoint.
 
 You need to add a reference to jQuery at the top of the `<body>` section of the customized login page.
 
@@ -89,14 +94,43 @@ You need to add a reference to jQuery at the top of the `<body>` section of the 
 Before calling `lock.show()`, add code to modify the HTML DOM that adds the link.
 
 ```js
-lock.on('signin ready', function() {
-  $('.auth0-lock-tabs-container')
-    .after('<div><p class="auth0-lock-alternative" style="padding:5px 0;">' +
-            '<a class="auth0-lock-alternative-link" ' + 
-            'href="https://yoursharepointserver/_windows/default.aspx?ReturnUrl=/_layouts/15/Authenticate.aspx">' + 
-            'Login with Windows Authentication</a>' +
-            '</p><p><span>or</span></p></div>');
-        });
+// construct Lock
+// var lock = ...
+[...]
+// One or more SharePoint client IDs here for which you want
+// a Windows Auth button
+var sharepointClientIDs = ['your_sharepoint_client_id'];
+
+if (sharepointClientIDs.indexOf(config.clientID) >= 0) {
+  lock.on('signin ready', function() { 
+    var getParameterByName = function(name) {
+      name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+      var regexS = "[\\?&]" + name + "=([^&#]*)";
+      var regex = new RegExp(regexS);
+      var results = regex.exec(window.location.search);
+      if (results == null) return null;
+      else return results[1];
+    };
+    // get the host from the callback URL
+    var parser = document.createElement('a');
+    parser.href = config.callbackURL;
+    var host = parser.host;
+    var windowsAuthURL = "https://" + host + "/_windows/default.aspx?ReturnUrl=/_layouts/15/Authenticate.aspx";
+    var wctx = getParameterByName("wctx");
+    if (wctx) {
+      windowsAuthURL += "&Source=" + wctx;
+    }
+
+    $('.auth0-lock-tabs-container') 
+    .after('<div><p class="auth0-lock-alternative" style="padding:5px 0;">' + 
+      '<a class="auth0-lock-alternative-link" ' + 
+      'href="'+ windowsAuthURL + '">' + 
+      'Login with Windows Authentication!!!</a>' + 
+      '</p><p><span>or</span></p></div>').attr('href','https://nowhere');
+  });
+}
+
+lock.show();
 ```
 
 ![SharePoint Login Page Windows Auth](/media/articles/integrations/sharepoint/sharepoint-login-page-windows-auth.png)
@@ -135,7 +169,7 @@ When David logs in using his Azure AD account (and the Security Groups attribute
 
 ![User Groups](/media/articles/integrations/sharepoint/sharepoint-profile-groups.png)
 
-If we want to make these groups available as Roles in SharePoint we'll need to write a [Rule](${manage_url}/#/rules) that adds this to the SAML configuration. This rule will only run for the application named **Fabrikam Intranet (SharePoint)**.
+If we want to make these groups available as Roles in SharePoint we'll need to write a [Rule](${manage_url}/#/rules) that adds this to the <dfn data-key="security-assertion-markup-language">SAML</dfn> configuration. This rule will only run for the application named **Fabrikam Intranet (SharePoint)**.
 
 ```
 function (user, context, callback) {

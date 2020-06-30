@@ -1,0 +1,48 @@
+title: ASP.NET Core v3.1
+image: /media/platforms/asp.png
+author:
+  name: Damien Guard
+  email: damien.guard@auth0.com
+  community: false
+topics:
+  - quickstart
+contentType: tutorial
+useCase: quickstart
+snippets:
+  dependencies: server-platforms/aspnet-core/dependencies
+alias:
+  - aspnetcore
+  - aspnetcore-3.1
+seo_alias: aspnet-core
+default_article: 01-login
+articles:
+  - 01-login
+  - 02-user-profile
+  - 03-authorization
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-aspnetcore-mvc-samples
+  branch: master
+requirements:
+  - .NET Core SDK 3.1.101
+  - .NET Core 3.1.1
+  - ASP.NET Core 3.1.1
+  - Visual Studio 2019 16.4, Visual Studio for Mac 8.4, or Visual Studio Code + C# for Visual Studio Code 1.21.10
+sample_download_required_data:
+  - client
+next_steps:
+  - path: 03-authorization
+    list:
+    - text: Configure other identity providers
+      icon: 345
+      href: "/identityproviders"
+    - text: Enable multifactor authentication
+      icon: 345
+      href: "/multifactor-authentication"
+    - text: Learn about anomaly detection
+      icon: 345
+      href: "/anomaly-detection"
+    - text: Learn about rules
+      icon: 345
+      href: "/rules"

@@ -3,7 +3,15 @@ section: libraries
 toc: true
 description: How to install, initialize and use Auth0.Swift
 url: /libraries/auth0-swift
+topics:
+  - libraries
+  - swift
+contentType:
+    - how-to
+    - index
+useCase: enable-mobile-auth
 ---
+
 # Auth0.swift
 
 Auth0.swift is a client-side library for Auth0.
@@ -14,15 +22,29 @@ Check out the [Auth0.swift repository](https://github.com/auth0/Auth0.swift) on 
 
 ## Requirements
 
-- iOS 9 or later
-- Xcode 8
-- Swift 3.0
+- iOS 9+
+- Xcode 10+
+- Swift 4+
 
 ## Installation
 
+### Cocoapods
+
+If you are using [Cocoapods](https://cocoapods.org), add this line to your `Podfile`:
+
+```ruby
+pod 'Auth0', '~> 1.0'
+```
+
+Then run `pod install`.
+
+::: note
+For more information on Cocoapods, check [their official documentation](https://guides.cocoapods.org/using/getting-started.html).
+:::
+
 ### Carthage
 
-If you are using Carthage, add the following lines to your `Cartfile`:
+If you are using [Carthage](https://github.com/Carthage/Carthage), add the following line to your `Cartfile`:
 
 ```ruby
 github "auth0/Auth0.swift" ~> 1.0
@@ -31,22 +53,7 @@ github "auth0/Auth0.swift" ~> 1.0
 Then run `carthage bootstrap`.
 
 ::: note
-For more information about Carthage usage, check [the official documentation](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
-:::
-
-### Cocoapods
-
-If you are using [Cocoapods](https://cocoapods.org/), add these lines to your `Podfile`:
-
-```ruby
-use_frameworks!
-pod 'Auth0', '~> 1.0'
-```
-
-Then, run `pod install`.
-
-::: note
-For further reference on Cocoapods, check [the official documentation](http://guides.cocoapods.org/using/getting-started.html).
+For more information about Carthage usage, check [their official documentation](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
 :::
 
 ## Adding Auth0 Credentials
@@ -66,9 +73,9 @@ You will need to add an `Auth0.plist` file, containing your Auth0 client id and 
 </plist>
 ```
 
-### Web-based Auth (iOS Only)
+### Web-based Auth (iOS / macOS 10.15+)
 
-First go to [Auth0 Dashboard](${manage_url}/#/applications) and go to application's settings. Make sure you have in **Allowed Callback URLs** a URL with the following format:
+First go to [Auth0 Dashboard](${manage_url}/#/applications) and go to application's settings. Make sure you have in **Allowed <dfn data-key="callback">Callback URLs</dfn>** a URL with the following format:
 
 ```text
 {YOUR_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{YOUR_BUNDLE_IDENTIFIER}/callback
@@ -100,20 +107,30 @@ If your `Info.plist` is not shown in this format, you can **Right Click** on `In
 Auth0.swift will only handle URLs with your Auth0 domain as host, for example `com.auth0.MyApp://samples.auth0.com/ios/com.auth0.MyApp/callback`
 :::
 
-Allow Auth0 to handle authentication callbacks. In your `AppDelegate.swift` add the following:
+Allow Auth0 to handle authentication callbacks. In your `AppDelegate.swift`, add the following:
+
+##### iOS
 
 ```swift
-func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
-    return Auth0.resumeAuth(url, options: options)
+func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey: Any]) -> Bool {
+    return Auth0.resumeAuth(url)
 }
 ```
 
-#### Authenticate with universal login
+##### macOS
 
-The first step in adding authentication to your iOS application is to provide a way for your users to log in. The fastest, most secure, and most feature-rich way to do this with Auth0 is to use [universal login](/hosted-pages/login).
+```swift
+func application(_ application: NSApplication, open urls: [URL]) {
+    Auth0.resumeAuth(urls)
+}
+```
+
+#### Authenticate with Universal Login
+
+The first step in adding authentication to your application is to provide a way for your users to log in. The fastest, most secure, and most feature-rich way to do this with Auth0 is to use <dfn data-key="universal-login">Universal Login</dfn>.
 
 ::: note
-To ensure an [OpenID Connect compliant response](/api-auth/intro), you must either request an `audience` or enable the **OIDC Conformant** switch in your [Auth0 dashboard](${manage_url}), under **Application > Settings > Show Advanced Settings > OAuth**. For more information, refer to [How to use the new flows](/api-auth/intro#how-to-use-the-new-flows).
+For more information on the two types of login flows, please refer to [Browser-Based vs. Native Login Flows on Mobile Devices](/design/browser-based-vs-native-experience-on-mobile)
 :::
 
 ```swift
@@ -121,17 +138,21 @@ Auth0
     .webAuth()
     .audience("https://${account.namespace}/userinfo")
     .start { result in
-        switch result {
+        switch result { // Auth0.Result
         case .success(let credentials):
-            print("credentials: \(credentials)")
+            print("Credentials: \(credentials)")
         case .failure(let error):
             print(error)
         }
     }
 ```
 
+::: warning
+If you're using **Swift 5+**, `Auth0.Result` may shadow Swift's `Result` type. To prevent that, replace it with `Swift.Result` whenever you want to refer to Swift's built-in type. This will be fixed in the next major version of Auth0.swift.
+:::
+
 ::: note
-If you need help between the two types of login flows, refer to [Browser-Based vs. Native Login Flows on Mobile Devices](/tutorials/browser-based-vs-native-experience-on-mobile)
+To ensure a response that complies with <dfn data-key="openid">OpenID Connect (OIDC)</dfn>, you must either request an <dfn data-key="audience">`audience`</dfn> or enable the **OIDC Conformant** switch in your [Auth0 dashboard](${manage_url}), under **Application > Settings > Show Advanced Settings > OAuth**. For more information, refer to [How to use the new flows](/api-auth/tutorials/adoption#how-to-use-the-new-flows).
 :::
 
 #### Authenticate with a specific Auth0 connection
@@ -146,7 +167,7 @@ Auth0
     .start { result in
         switch result {
         case .success(let credentials):
-            print("credentials: \(credentials)")
+            print("Credentials: \(credentials)")
         case .failure(let error):
             print(error)
         }
@@ -155,7 +176,7 @@ Auth0
 
 #### Authenticate using a specific scope
 
-Using scopes can allow you to return specific claims for specfic fields in your request. Adding parameters to `scope` will allow you to add more scopes. The default scope is `openid`, and you should read our [documentation on scopes](/scopes) for further details about them.
+Using <dfn data-key="scope">scopes</dfn> can allow you to return specific claims for specific fields in your request. Adding parameters to `scope` will allow you to add more scopes. The default scope is `openid`, and you should read our [documentation on scopes](/scopes/current) for further details about them.
 
 ```swift
 Auth0
@@ -166,7 +187,7 @@ Auth0
     .start { result in
         switch result {
         case .success(let credentials):
-            print("credentials: \(credentials)")
+            print("Credentials: \(credentials)")
         case .failure(let error):
             print(error)
         }
@@ -175,7 +196,7 @@ Auth0
 
 ### Getting user information
 
-In order to retrieve a user's profile, you call the `userInfo` method and pass it the user's `accessToken`.  Although the call returns a [UserInfo](https://github.com/auth0/Auth0.swift/blob/master/Auth0/UserInfo.swift) instance, this is a basic OIDC conformant profile and the only guaranteed claim is the `sub` which contains the user's id, but depending on the requested scope the claims returned may vary.  You can also use the `sub` value to call the [Management API](#Management-API) and return a full user profile.
+In order to retrieve a user's profile, you call the `userInfo` method and pass it the user's `accessToken`.  Although the call returns a [UserInfo](https://github.com/auth0/Auth0.swift/blob/master/Auth0/UserInfo.swift) instance, this is a basic OIDC conformant profile and the only guaranteed claim is the `sub`, which contains the user's ID. Depending on the requested scope, the claims returned may vary.  You can also use the `sub` value to call the [Management API](https://auth0.com/docs/api/management/v2#!/Users/get_users_by_id) and return a full user profile.
 
 ```swift
 Auth0
@@ -193,12 +214,12 @@ Auth0
 
 ## Next Steps
 
-Take a look at the following resources to see how the Auth0.Swift SDK can be customized for your needs:
+Take a look at the following resources to see how the Auth0.swift SDK can be customized for your needs:
 
 ::: next-steps
 * [Auth0.Swift Database Authentication](/libraries/auth0-swift/database-authentication)
 * [Auth0.Swift Passwordless Authentication](/libraries/auth0-swift/passwordless)
 * [Auth0.Swift Refresh Tokens](/libraries/auth0-swift/save-and-refresh-jwt-tokens)
 * [Auth0.Swift User Management](/libraries/auth0-swift/user-management)
-* [Auth0.Swift TouchID Authentication](/libraries/auth0-swift/touchid-authentication)
+* [Auth0.Swift Touch ID / Face ID Authentication](/libraries/auth0-swift/touchid-authentication)
 :::

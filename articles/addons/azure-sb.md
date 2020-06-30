@@ -1,20 +1,27 @@
 ---
 addon: Azure Service Bus
+title: Azure Service Bus Add-on
 thirdParty: true
 url: /addons/azure-sb
 alias:
   - Azure Service Bus
 image: /media/platforms/azure.png
-tags:
+topics:
   - quickstart
+  - azure
+  - addons
 articles:
   - authenticate
-description: This tutorial will show you how to use the Auth0 to authenticate and authorize Azure Service Bus.
+contentType: how-to
+useCase: integrate-third-party-apps
+description: Learn how to use Auth0 to authenticate and authorize Azure Service Bus.
 ---
 
-# Azure Service Bus Addon
+# Azure Service Bus Add-on
 
-Here's a sample call to the delegation endpoint to get the SAS:
+<%= include('../_includes/_uses-delegation') %>
+
+Here's a sample call to the delegation endpoint to get the Shared Access Signature (SAS):
 
 ```text
 POST https://${account.namespace}/delegation

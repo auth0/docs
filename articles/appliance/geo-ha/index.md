@@ -2,11 +2,21 @@
 url: /appliance/geo-ha
 section: appliance
 description: Descriptions of Appliance Geo HA
+topics:
+    - appliance
+    - geo-ha
+    - disaster-recovery
+contentType: 
+    - index
+    - reference
+useCase: appliance
+applianceId: appliance30
+sitemap: false
 ---
 
 # Private SaaS (PSaaS) Appliance: High Availability Geo Cluster (Geo HA)
 
-The high availability geo cluster is a PSaaS Appliance implementation that provides data center redundancy and automatic failure handling. This is the highest form of PSaaS Appliance availability offered by Auth0.
+The high availability geo cluster is a PSaaS Appliance implementation that provides regional data center redundancy and rapid failure response. This is the highest form of PSaaS Appliance availability offered by Auth0.
 
 ## Overview
 
@@ -36,6 +46,8 @@ The Arbiter node acts as an independent witness to the primary and secondary dat
 The Arbiter does not store data or execute application logic, but acts as a witness between the primary and standby data centers. By independently verifying if a data center is down or not, it prevents both from becoming active (such a scenario is known as the "split-brain" condition).
 
 Since the Arbiter isn’t storing data and doesn’t run any services, it can be a small instance with two cores and 4GB of memory.
+
+You must enable outbound [internet connectivity](/appliance/infrastructure/network#internet-connectivity) from the Arbiter for system updates.
 
 ### Global Load Balancer/DNS Failover Configuration
 

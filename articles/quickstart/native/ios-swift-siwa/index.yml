@@ -1,0 +1,44 @@
+title: iOS Swift - Sign In With Apple
+alias:
+  - ios
+  - swift
+language:
+  - Swift
+framework:
+  - Swift
+author:
+  name: Martin Walsh
+  email: martin.walsh@auth0.com
+  community: false
+image: /media/platforms/ios.png
+topics:
+  - quickstart
+contentType: tutorial
+useCase: quickstart
+seo_alias: ios-siwa
+default_article: 00-login-siwa
+articles:
+  - 00-login-siwa
+next_steps:
+  - path: 00-login-siwa
+    list:
+    - text: Configure other identity providers
+      icon: 345
+      href: "/identityproviders"
+    - text: Enable multifactor authentication
+      icon: 345
+      href: "/multifactor-authentication"
+    - text: Learn about anomaly detection
+      icon: 345
+      href: "/anomaly-detection"
+    - text: Learn about rules
+      icon: 345
+      href: "/rules"
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-ios-swift-native-social-samples
+requirements:
+  - CocoaPods
+  - Xcode 11 Beta 6
+  - iOS 13 Beta 8 Device

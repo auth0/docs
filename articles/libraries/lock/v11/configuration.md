@@ -2,64 +2,69 @@
 section: libraries
 toc: true
 description: Lock v11 has many configurable options that allow you to change the behavior, appearance, and connectivity of the Lock widget - this resource provides the details on those options for you!
+topics:
+  - libraries
+  - lock
+contentType:
+  - how-to
+  - reference
+useCase:
+  - add-login
 ---
 # Lock Configuration Options
 
-The **Auth0Lock** can be configured through the `options` parameter sent to the constructor. These options can alter the way that the Lock widget behaves, how it deals with connections, additional signup fields that you require for your project, the language and text values, colors, and images on the widget, and many more. Take a look at the index below if you know what you are looking for, or browse the options for more details.
+The **Auth0Lock** can be configured through the `options` parameter sent to the constructor. These options can alter the way that the <dfn data-key="lock">Lock widget</dfn> behaves, how it deals with connections, additional signup fields that you require for your project, the language and text values, colors, and images on the widget, and many more. Take a look at the index below if you know what you are looking for, or browse the options for more details.
 
 ```js
 var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 ```
 
-## Index of Configurable Options
-
-### Display
+## UI
 
 | Option | Description |
 | --- | --- |
-| [allowAutocomplete](#allowautocomplete-boolean-) | Whether or not to allow autocomplete in the widget |
-| [allowedConnections](#allowedconnections-array-) | limit the application connections shown in Lock to a particular set |
-| [allowShowPassword](#allowshowpassword-boolean-) | Whether to allow the user to show password as typing |
-| [autoclose](#autoclose-boolean-) | Whether or not Lock auto closes after a login |
-| [autofocus](#autofocus-boolean-) | Whether or not focus is set on first input field |
-| [avatar](#avatar-object-) | Obtain avatar from a non gravatar source |
-| [closable](#closable-boolean-) | Whether or not Lock is closable |
-| [container](#container-string-) | Embed Lock in a container |
-| [language](#language-string-) | Change the language of Lock |
+| [allowAutocomplete](#allowautocomplete-boolean-) | Enable or disable autocompletion on the email or username inputs |
+| [allowPasswordAutocomplete](#allowpasswordautocomplete-boolean-) | Enable or disable autocompletion on password input |
+| [allowShowPassword](#allowshowpassword-boolean-) | Specifies if the user can choose to show password while typing it |
+| [allowedConnections](#allowedconnections-array-) | List of connections that will be available to perform authentication |
+| [autoclose](#autoclose-boolean-) | Specifies if Lock closes after a login |
+| [autofocus](#autofocus-boolean-) | Specifies if focus is set on the first input field |
+| [avatar](#avatar-object-) | Specifies if an avatar and a username should be displayed on the Lock's header once an email or username has been entered and how to obtain it |
+| [closable](#closable-boolean-) | Determines whether or not Lock can be closed |
+| [container](#container-string-) | The HTML element where Lock will be rendered. This causes Lock to appear inline instead of in a modal window |
+| [flashMessage](#) | Shows an `error` or `success` flash message when Lock is shown |
+| [language](#language-string-) | Specifies the language of the widget |
 | [languageDictionary](#languagedictionary-object-) | Change text in particular sections of Lock |
-| [popupOptions](#popupoptions-object-) | Customize the location of the popup |
-| [rememberLastLogin](#rememberlastlogin-boolean-) | Whether to remember the last login option chosen |
+| [popupOptions](#popupoptions-object-) | Customize the location of the popup in the screen |
+| [rememberLastLogin](#rememberlastlogin-boolean-) | Whether or not to show a screen that allows you to quickly log in with the account you used the last time |
+| [scrollGlobalMessagesIntoView](#scrollglobalmessagesintoview-boolean-) | Specify if a globalMessage should be scrolled into the user's viewport |
 
-### Theming
+## Theme
+
+Theme options are grouped in the `theme` property of the `options` object.
 
 | Option | Description |
 | --- | --- |
-| [theme](#theme-object-) | The theme object contains the below theming options |
 | [authButtons](#authbuttons-object-) | Customize the appearance of specific connection buttons |
 | [labeledSubmitButton](#labeledsubmitbutton-boolean-) | whether or not the submit button has text |
 | [logo](#logo-string-) | What logo should be used |
 | [primaryColor](#primarycolor-string-) | Color of the primary button on the widget |
 
-### Social
+## Authentication
+
+Authentication options are grouped in the `auth` property of the `options` object.
 
 | Option | Description |
 | --- | --- |
-| [socialButtonStyle](#socialbuttonstyle-string-) | Force small or large social connection buttons |
-
-### Authentication
-
-| Option | Description |
-| --- | --- |
-| [auth](#auth-object-) | The auth object contains the below auth options |
-| [audience](#audience-string-) | The API which will be consuming your `access_token` |
+| [audience](#audience-string-) | The API which will be consuming your <dfn data-key="access-token">Access Token</dfn> |
 | [autoParseHash](#autoparsehash-boolean-) | Whether or not to automatically parse hash and continue |
-| [connectionScopes](#connectionscopes-object-) | Specify connection scopes |
+| [connectionScopes](#connectionscopes-object-) | Specify connection <dfn data-key="scope">scopes</dfn> |
 | [params](#params-object-) | Option to send parameters at login |
 | [redirect](#redirect-boolean-) | Whether or not to use redirect mode |
 | [redirectUrl](#redirecturl-string-) | The URL to redirect to after auth |
 | [responseMode](#responsemode-string-) | Option to send response as POST |
 | [responseType](#responsetype-string-) | Response as a code or token |
-| [sso](#sso-boolean-) | Whether or not to enable Single Sign On behavior in Lock |
+| [sso](#sso-boolean-) | Determines whether Single Sign-On is enabled or not in Lock |
 
 ### Database
 
@@ -73,39 +78,72 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | [initialScreen](#initialscreen-string-) | Which screen to show when the widget is opened |
 | [loginAfterSignUp](#loginaftersignup-boolean-) | After signup, whether or not to auto login |
 | [forgotPasswordLink](#forgotpasswordlink-string-) | Link to a custom forgot password page |
+| [showTerms](#showterms-boolean-) | Specify if signup terms should be display |
 | [mustAcceptTerms](#mustacceptterms-boolean-) | Whether or not terms must be accepted (checkbox) |
 | [prefill](#prefill-object-) | Prefill values for email/username fields |
 | [signUpLink](#signuplink-string-) | Set a custom url to fire when clicking "sign up" |
-| [usernameStyle](#usernamestyle-string-) | Toggle "username", "password" or "username and password" |
+| [usernameStyle](#usernamestyle-string-) | Limit username field to accept only "username" values or only "email" values |
 
-### Enterprise
+## Enterprise
 
 | Option | Description |
 | --- | --- |
 | [defaultEnterpriseConnection](#defaultenterpriseconnection-string-) | Specifies a connection if more than one present |
 
+## Passwordless
+
+| Option | Description |
+| --- | --- |
+| [passwordlessMethod](#passwordlessmethod-string-) | When using `Auth0LockPasswordless` with an email connection, you can use this option to pick between sending a [code](/connections/passwordless/spa-email-code) or a [magic link](/connections/passwordless/spa-email-link) to authenticate the user |
+
 ### Other
 
 | Option | Description |
 | --- | --- |
-| [clientBaseUrl](#clientbaseurl-string-) | Override your application's base URL |
+| [configurationBaseUrl](#configurationbaseurl-string-) | Override your application's base URL |
 | [languageBaseUrl](#languagebaseurl-string-) | Override your language file base URL |
 | [hashCleanup](#hashcleanup-boolean-) | Override the default removal of the hash from the URL |
-| [leeway](#leeway-integer-) | Add leeway for clock skew to JWT expiration times |
+| [connectionResolver](#connectionresolver-function-) | Optional callback function for choosing a connection based on the username information |
 
 ---
 
-## Display Options
+## UI Options
 
 ### allowAutocomplete {Boolean}
 
-Determines whether or not the email or username inputs will allow autocomplete (`<input autocomplete />`). Defaults to `false`.
+Determines whether or not the email or username fields will allow autocomplete (`<input autocomplete />`). Defaults to `false`.
 
 ```js
 var options = {
   allowAutocomplete: true
 };
 ```
+
+### allowPasswordAutocomplete {Boolean}
+
+Determines whether or not the password field will allow autocomplete (`<input autocomplete />`). Defaults to `false`.
+
+Set `allowPasswordAutocomplete` to `true` for password manager support and to avoid other cases of adverse behavior.
+
+```js
+var options = {
+  allowPasswordAutocomplete: true
+};
+```
+
+### allowShowPassword {Boolean}
+
+This option determines whether or not to add a checkbox to the UI which, when selected, will allow the user to show their password when typing it. The option defaults to `false`.
+
+```js
+var options = {
+  allowShowPassword: true
+};
+```
+
+Lock with `allowShowPassword` set to `true` and toggled to show the password:
+
+![Lock - Avatar](/media/articles/libraries/lock/v11/customization/lock-allowshowpassword.png)
 
 ### allowedConnections {Array}
 
@@ -131,23 +169,9 @@ var options = {
 
 Examples of `allowedConnections`:
 
-![Lock - Allowed Connections](/media/articles/libraries/lock/v10/customization/lock-allowedconnections-database.png)
+![Lock - Allowed Connections](/media/articles/libraries/lock/v11/customization/lock-allowedconnections-database.png)
 
-![Lock - Allowed Connections](/media/articles/libraries/lock/v10/customization/lock-allowedconnections-social.png)
-
-### allowShowPassword {Boolean}
-
-This option determines whether or not to add a checkbox to the UI which, when selected, will allow the user to show their password when typing it. The option defaults to `false`.
-
-```js
-var options = {
-  allowShowPassword: true
-};
-```
-
-Lock with `allowShowPassword` set to `true` and toggled to show the password:
-
-![Lock - Avatar](/media/articles/libraries/lock/v10/customization/lock-allowshowpassword.png)
+![Lock - Allowed Connections](/media/articles/libraries/lock/v11/customization/lock-allowedconnections-social.png)
 
 ### autoclose {Boolean}
 
@@ -209,7 +233,7 @@ var options = {
 
 Default behavior with Gravatar:
 
-![Lock - Avatar](/media/articles/libraries/lock/v10/customization/lock-avatar.png)
+![Lock - Avatar](/media/articles/libraries/lock/v11/customization/lock-avatar.png)
 
 ### closable {Boolean}
 
@@ -221,15 +245,13 @@ var options = {
 };
 ```
 
-![Lock - Closable](/media/articles/libraries/lock/v10/customization/lock-closable.png)
+![Lock - Closable](/media/articles/libraries/lock/v11/customization/lock-closable.png)
 
 ### container {String}
 
 The `id` of the html element where the widget will be shown.
 
-::: note
 This makes the widget appear inline within your `div` instead of in a modal pop-out window.
-:::
 
 ```html
 <div id="hiw-login-container"></div>
@@ -247,7 +269,23 @@ This makes the widget appear inline within your `div` instead of in a modal pop-
 </script>
 ```
 
-![Lock - Container](/media/articles/libraries/lock/v10/customization/lock-container.png)
+![Lock - Container](/media/articles/libraries/lock/v11/customization/lock-container.png)
+
+### flashMessage {Object}
+
+Shows an `error` or `success` flash message when Lock is shown. This object has the following properties:
+
+- type {String}: The message type, supported types are `error`, `info`, and `success`
+- text {String}: The text to show.
+
+```js
+var options = {
+  flashMessage: {
+    type: 'success',
+    text: 'Welcome!'
+  }
+};
+```
 
 ### language {String}
 
@@ -260,7 +298,7 @@ var options = {
 };
 ```
 
-![Lock - Language](/media/articles/libraries/lock/v10/customization/lock-language.png)
+![Lock - Language](/media/articles/libraries/lock/v11/customization/lock-language.png)
 
 ### languageDictionary {Object}
 
@@ -275,7 +313,7 @@ var options = {
 };
 ```
 
-![Lock - Language Dictionary](/media/articles/libraries/lock/v10/customization/lock-languagedictionary.png)
+![Lock - Language Dictionary](/media/articles/libraries/lock/v11/customization/lock-languagedictionary.png)
 
 Additionally, check out the [Customizing Error Messages](/libraries/lock/v11/customizing-error-messages) page or the [Internationalization](/libraries/lock/v11/i18n) page for more information about the use of the `languageDictionary` option.
 
@@ -287,31 +325,63 @@ Options for the `window.open` [position and size][windowopen-link] features. Thi
 
 ```js
 var options = {
-  redirect: false,
+  auth: {
+      redirect: false
+  },
   popupOptions: { width: 300, height: 400, left: 200, top: 300 }
 };
 ```
 
 ### rememberLastLogin {Boolean}
 
-Determines whether or not to show a screen that allows you to quickly log in with the account you used the last time. Defaults to true.
-Request for SSO data and enable **Last time you signed in with[...]** message. Defaults to `true`.
+Determines whether or not to show a screen that allows you to quickly log in with the account you used the last time.
+Requests <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> data and enables a **Last time you signed in with[...]** message. Defaults to `true`. This information comes from the user's Auth0 session, so this ability will last as long as their Auth0 session would (which is [configurable](/dashboard/reference/settings-tenant#login-session-management).
 
 ```js
 var options = {
   rememberLastLogin: false
 };
 ```
+::: note
+New tenants [automatically have Seamless SSO enabled](https://auth0.com/docs/dashboard/guides/tenants/enable-sso-tenant). With this enabled, the `rememberLastLogin` option will not be relevant because if there is a session in place then the hosted login page will not be displayed at all. Using Seamless SSO is highly recommended because it provides a seamless authentication experience: users log in once and won’t have to enter credentials again when they navigate either through the applications you have built, or third party apps. If the user is not logged in they will be redirected to the login screen, as expected.
+:::
 
-## Theming Options
+::: note
+The **Last time you signed in with [...]** message will not be available under the following circumstances:
 
-### theme {Object}
+- You used Lock in a [Hosted Login Page](/universal-login) with the session established using <dfn data-key="passwordless">[Passwordless authentication](/connections/passwordless)</dfn>.
+- You used Lock in an [embedded login scenario](/guides/login/universal-vs-embedded#embedded-login-with-auth0) where `responseType: code` (indicating the [Authorization Code Flow](/flows/concepts/auth-code), which is used for Regular Web Apps).
+:::
+
+### scrollGlobalMessagesIntoView {Boolean}
+
+Determines whether or not a `globalMessage` should be scrolled into the user's viewport. Defaults to `true`.
+
+## Theme Options
 
 Theme options are grouped in the `theme` property of the `options` object.
 
-#### authButtons {Object}
+```js
+var options = {
+  theme: {
+    labeledSubmitButton: false,
+    logo: "https://example.com/assets/logo.png",
+    primaryColor: "green",
+    authButtons: {
+      connectionName: {
+        displayName: "...",
+        primaryColor: "...",
+        foregroundColor: "...",
+        icon: "https://.../logo.png"
+      }
+    }
+  }
+};
+```
 
-Allows the customization of buttons in Lock. Each custom connection whose button you desire to customize should be listed by name, each with their own set of parameters. The customizable parameters are listed below:
+### authButtons {Object}
+
+Allows the customization of buttons in Lock with custom OAuth2 connections. Each custom connection whose button you desire to customize should be listed by name, each with their own set of parameters. The customizable parameters are listed below:
 
 - **displayName** {String}: The name to show instead of the connection name when building the button title, such as `LOGIN WITH MYCONNECTION` for login).
 - **primaryColor** {String}: The button's background color. Defaults to `#eb5424`.
@@ -337,7 +407,7 @@ var options = {
 };
 ```
 
-#### labeledSubmitButton {Boolean}
+### labeledSubmitButton {Boolean}
 
 This option indicates whether or not the submit button should have a label, and defaults to `true`. When set to `false`, an icon will be shown instead.
 
@@ -349,11 +419,11 @@ var options = {
 };
 ```
 
-![Lock - Labeled Submit Button](/media/articles/libraries/lock/v10/customization/lock-theme-labeledsubmitbutton.png)
+![Lock - Labeled Submit Button](/media/articles/libraries/lock/v11/customization/lock-theme-labeledsubmitbutton.png)
 
 If the label is set to true, which is the default, the label's text can be customized through the [languageDictionary](#languagedictionary-object-) option.
 
-#### logo {String}
+### logo {String}
 
 The value for `logo` is a URL for an image that will be placed in the Lock's header, and defaults to Auth0's logo. It has a recommended max height of `58px` for a better user experience.
 
@@ -365,9 +435,9 @@ var options = {
 };
 ```
 
-![Lock - Theme - Logo](/media/articles/libraries/lock/v10/customization/lock-theme-logo.png)
+![Lock - Theme - Logo](/media/articles/libraries/lock/v11/customization/lock-theme-logo.png)
 
-#### primaryColor {String}
+### primaryColor {String}
 
 The `primaryColor` property defines the primary color of the Lock; all colors used in the widget will be calculated from it. This option is useful when providing a custom `logo`, to ensure all colors go well together with the `logo`'s color palette. Defaults to `#ea5323`.
 
@@ -380,74 +450,37 @@ var options = {
 };
 ```
 
-![Lock - Theme - Primary Color](/media/articles/libraries/lock/v10/customization/lock-theme-primarycolor.png)
-
-## Social Options
-
-### socialButtonStyle {String}
-
-Determines the size of the buttons for the social providers. Possible values are `big` and `small`. The default style depends on the connections that are available:
-
-- If only social connections are available, it will default to `big` when there are 5 connections at most, and default to `small` otherwise.
-- If connections from types other than social are also available, it will default to `big` when there are 3 social connections at most, and default to `small` otherwise.
-
-First example, with three social connections, and other connections (in this case, a username-password connection) - with forced small buttons.
-
-```js
-var options = {
-  socialButtonStyle: 'small'
-};
-```
-
-![Lock - Social Button Style](/media/articles/libraries/lock/v10/customization/lock-socialbuttonstyle-small.png)
-
-Second example, with `socialButtonStyle` remaining at default behavior - three social connections, with no other connections enabled for this application in the dashboard.
-
-```js
-var options = {};
-```
-
-![Lock - Social Button Style](/media/articles/libraries/lock/v10/customization/lock-socialbuttonstyle-default-social.png)
-
-Third example, with `socialButtonStyle` remaining at default behavior - the app has three social connections, with other connections turned on in the dashboard (in this case, a username-password connection).
-
-```js
-var options = {};
-```
-
-![Lock - Social Button Style](/media/articles/libraries/lock/v10/customization/lock-socialbuttonstyle-default.png)
-
-Fourth example, with three social connections, and no other connections enabled in the dasbboard, but with forced small buttons.
-
-```js
-var options = {
-  socialButtonStyle: 'small'
-};
-```
-
-![Lock - Social Button Style](/media/articles/libraries/lock/v10/customization/lock-socialbuttonstyle-small-social.png)
+![Lock - Theme - Primary Color](/media/articles/libraries/lock/v11/customization/lock-theme-primarycolor.png)
 
 ## Authentication Options
 
-### auth {Object}
+Authentication options are grouped in the `auth` property of the `options` object.
 
-Authentication options are grouped in the auth property of the options object.
+The default scope used by Lock is `openid profile email`.
 
 ```js
 var options = {
   auth: {
-   params: {param1: "value1"},
+   params: {
+    param1: "value1",
+    scope: "openid profile email"
+   },
+   autoParseHash: true,
    redirect: true,
    redirectUrl: "some url",
+   responseMode: "form_post",
    responseType: "token",
-   sso: true
+   sso: true,
+   connectionScopes: {
+    connectionName: [ 'scope1', 'scope2' ]
+   }
   }
 };
 ```
 
 ### audience {String}
 
-The `audience` option indicates the API which will be consuming the `access_token` that is received after authentication.
+The `audience` option indicates the API which will be consuming the Access Token that is received after authentication.
 
 ```js
 var options = {
@@ -457,7 +490,7 @@ var options = {
 }
 ```
 
-#### autoParseHash {Boolean}
+### autoParseHash {Boolean}
 
 When `autoParseHash` is set to `true`, Lock will parse the `window.location.hash` string when instantiated. If set to `false`, you'll have to manually resume authentication using the [resumeAuth](/libraries/lock/v11/api#resumeauth-) method.
 
@@ -469,9 +502,9 @@ var options = {
 };
 ```
 
-#### connectionScopes {Object}
+### connectionScopes {Object}
 
-This option allows you to set scopes to be sent to the oauth2/social connection for authentication.
+This option allows you to set <dfn data-key="scope">scopes</dfn> to be sent to the oauth2/social connection for authentication.
 
 ```js
 var options = {
@@ -485,7 +518,7 @@ var options = {
 
 A listing of particular scopes for your social connections can be acquired from the provider in question. For example, [Facebook for Developers](https://developers.facebook.com/docs/facebook-login/permissions/) reference has a listing of separate permissions that can be requested for your connection.
 
-#### params {Object}
+### params {Object}
 
 You can send parameters when starting a login by adding them to the options object. The example below adds a `state` parameter with a value equal to `foo` and also adds a `scope` parameter (which includes the scope, and then the requested attributes). [Read here][authparams-link] to learn more about what `authParams` can be set.
 
@@ -504,13 +537,9 @@ var options = {
 For more details about supported parameters check the [Authentication Parameters][authparams-link] documentation page.
 :::
 
-#### redirect {Boolean}
+### redirect {Boolean}
 
 Defaults to true. When set to true, redirect mode will be used. If set to false, [popup mode](/libraries/lock/v11/authentication-modes#popup-mode) is chosen.
-
-::: warning
-There is a known bug that prevents popup mode from functioning properly in Android or Firefox on iOS, and in Internet Explorer under certain circumstances. As such we recommend either only using redirect mode or detecting these special cases and selectively enabling redirect mode.
-:::
 
 ```js
 var options = {
@@ -520,7 +549,7 @@ var options = {
 };
 ```
 
-#### redirectUrl {String}
+### redirectUrl {String}
 
 The URL Auth0 will redirect back to after authentication. Defaults to the empty string "" (no redirect URL).
 
@@ -536,7 +565,7 @@ var options = {
 When the `redirectUrl` is provided (set to non blank value) the `responseType` option will be defaulted to `code` if not manually set.
 :::
 
-#### responseMode {String}
+### responseMode {String}
 
 Should be set to `"form_post"` if you want the code or the token to be transmitted via an HTTP POST request to the `redirectUrl`, instead of being included in its query or fragment parts.
 
@@ -550,9 +579,9 @@ var options = {
 };
 ```
 
-#### responseType {String}
+### responseType {String}
 
-The value of `responseType` should be set to "token" for Single Page Applications, and "code" otherwise. Defaults to "code" when redirectUrl is provided, and to "token" otherwise.
+The value of `responseType` should be set to "token" for Single-Page Applications, and "code" otherwise. Defaults to "code" when redirectUrl is provided, and to "token" otherwise.
 
 ```js
 var options = {
@@ -566,30 +595,14 @@ var options = {
 When the `responseType` is set to `code`, Lock will never show the **Last time you logged in with** message, and will always prompt the user for credentials.
 :::
 
-#### sso {Boolean}
-
-Tells Lock to use or not the Single Sign On session created by Auth0 so it can prompt the user to login with the last logged in user. The Auth0 session is not tied to this value since it depends on the application's or tenant' settings.
-
-::: warning
-Failing to set this to true will result in multifactor authentication not working correctly.
-:::
-
-```js
-var options = {
-  auth: {
-    sso: true
-  }
-};
-```
-
 ## Database Options
 
 ### additionalSignUpFields {Array}
 
-Extra input fields can be added to the sign up screen with the `additionalSignUpFields` option. Each option added in this manner will then be added to that user's `user_metadata`. See the [user metadata documentation](/metadata) for more information. Every input must have a `name` and a `placeholder`, and an `icon` URL can also be provided. Also, the initial value can be provided with the `prefill` option, which can be a string with the value or a function that obtains it. Other options depend on the type of the field, which is defined via the type option and defaults to "text".
+Extra input fields can be added to the sign up screen with the `additionalSignUpFields` option. Each option added in this manner will then be added to that user's `user_metadata`. See [Metadata](/users/concepts/overview-user-metadata) for more information. Every input must have a `name` and a `placeholder`, and an `icon` URL can also be provided. Also, the initial value can be provided with the `prefill` option, which can be a string with the value or a function that obtains it. Other options depend on the type of the field, which is defined via the type option and defaults to "text".
 
 ::: panel Intended for use with database signup only
-`additionalSignupFields` are intended for use with database signups only. If you have social sign ups too, you can ask for the additional information after the users sign up (see this [page about custom signup](/libraries/custom-signup) for more details). You can use the `databaseAlternativeSignupInstructions` i18n key to display these instructions.
+`additionalSignUpFields` are intended for use with database signups only. If you have social sign ups too, you can ask for the additional information after the users sign up (see this [page about custom signup](/libraries/custom-signup) for more details). You can use the `databaseAlternativeSignupInstructions` i18n key to display these instructions.
 :::
 
 The new fields are rendered below the regular sign up input fields in the order they are provided.
@@ -620,7 +633,32 @@ var options = {
 }
 ```
 
-![Lock - Additional Signup Fields](/media/articles/libraries/lock/v10/customization/lock-additionalsignupfields.png)
+If you don't specify a `validator` the text field will be **required**. If you want to make the text field optional, use a validator that always returns `true` like this:
+
+```js
+var options = {
+  additionalSignUpFields: [{
+    name: "favorite_color",
+    placeholder: "Enter your favorite color (optional)",
+    validator: function() { 
+      return true;
+    }
+  }]
+}
+```
+
+If you want to save the value of the attribute in the root of your profile, use `storage: 'root'`. Only a subset of values can be stored this way. The list of attributes that can be added to your root profile is [here](/api/management/v2#!/Users/patch_users_by_id). By default, every additional sign up field is stored inside the user_metadata object.
+
+```js
+var options = {
+  additionalSignUpFields: [{
+    name: "name",
+    storage: "root"
+  }]
+};
+```
+
+![Lock - Additional Signup Fields](/media/articles/libraries/lock/v11/customization/lock-additionalsignupfields.png)
 
 #### Select Field
 
@@ -685,8 +723,22 @@ var options = {
 }
 ```
 
+#### Hidden field
+
+The signup field `type: "hidden"` will allow you to use a hidden input with a fixed value.
+
+```js
+var options = {
+  additionalSignUpFields: [{
+    type: "hidden",
+    name: "signup_code",
+    value: "abc123"
+  }]
+}
+```
+
 ::: note
-Some use cases may be able to use `additionalSignupFields` data for email templates, such as an option for language preferences, the value of which could then be used to set the language of templated email communications.
+Some use cases may be able to use `additionalSignUpFields` data for email templates, such as an option for language preferences, the value of which could then be used to set the language of templated email communications.
 :::
 
 ### allowLogin {Boolean}
@@ -700,7 +752,7 @@ var options = {
 };
 ```
 
-![Lock - Allow Login](/media/articles/libraries/lock/v10/customization/lock-allowlogin.png)
+![Lock - Allow Login](/media/articles/libraries/lock/v11/customization/lock-allowlogin.png)
 
 ### allowForgotPassword {Boolean}
 
@@ -717,7 +769,7 @@ var options = {
 };
 ```
 
-![Lock - Allow Forgot Password](/media/articles/libraries/lock/v10/customization/lock-allowforgotpassword.png)
+![Lock - Allow Forgot Password](/media/articles/libraries/lock/v11/customization/lock-allowforgotpassword.png)
 
 ### allowSignUp {Boolean}
 
@@ -731,7 +783,7 @@ var options = {
 };
 ```
 
-![Lock - Social Button Style](/media/articles/libraries/lock/v10/customization/lock-allowsignup.png)
+![Lock - Social Button Style](/media/articles/libraries/lock/v11/customization/lock-allowsignup.png)
 
 ### defaultDatabaseConnection {String}
 
@@ -758,7 +810,7 @@ var options = {
 Determines whether or not the user will be automatically signed in after a successful sign up. Defaults to `true`.
 
 ```js
-var option = {
+var options = {
   loginAfterSignUp: false
 };
 ```
@@ -772,6 +824,10 @@ var options = {
   forgotPasswordLink: 'https://yoursite.com/reset-password'
 };
 ```
+
+### showTerms {Boolean}
+
+When set to `true` displays the `languageDictionary.signUpTerms` string. Defaults to `true`.
 
 ### mustAcceptTerms {Boolean}
 
@@ -791,7 +847,8 @@ Allows to set the initial value for the email and/or username inputs. When omitt
 var options = {
   prefill: {
     email: "someone@auth0.com",
-    username: "someone"
+    username: "someone",
+    phoneNumber: "+1234567890"
   }
 };
 ```
@@ -843,15 +900,21 @@ var options = {
 };
 ```
 
+## Passwordless Options
+
+### passwordlessMethod {String}
+
+When using `Auth0LockPasswordless` with an email connection, you can use this option to pick between sending a [code](/connections/passwordless/spa-email-code) or a [magic link](/connections/passwordless/spa-email-link) to authenticate the user. Available values for email connections are `code` and `link`. Defaults to `code`. SMS passwordless connections will always use `code`.
+
 ## Other Options
 
-### clientBaseUrl {String}
+### configurationBaseUrl {String}
 
-This option can provide a URL to override the application settings base URL. By default, it uses Auth0's CDN URL when the domain has the format `*.auth0.com`. For example, if your URL is `contoso.eu.auth0.com`, then by default, the `clientBaseUrl` is `cdn.eu.auth0.com`. If the `clientBaseUrl` option is set instead, it uses the provided domain. This would only be necessary if your specific use case dictates that your application not use the default behavior.
+This option can provide a URL to override the application settings base URL. By default, it uses Auth0's CDN URL when the domain has the format `*.auth0.com`. For example, if your URL is `contoso.eu.auth0.com`, then by default, the `clientBaseUrl` is `cdn.eu.auth0.com`. If the `clientBaseUrl` option is set to something else instead, it uses the provided domain. This would only be necessary if your specific use case dictates that your application not use the default behavior.
 
 ```js
 var options = {
-  clientBaseUrl: "http://www.example.com"
+  clientBaseUrl: "https://www.example.com"
 };
 ```
 
@@ -861,13 +924,13 @@ Overrides the language source url for Auth0's provided translations. By default,
 
 ```js
 var options = {
-  languageBaseUrl: "http://www.example.com"
+  languageBaseUrl: "https://www.example.com"
 };
 ```
 
 ### hashCleanup {Boolean}
 
-When the `hashCleanup` option is enabled, it will remove the hash part of the callback url after the user authentication. It defaults to true.
+When the `hashCleanup` option is enabled, it will remove the hash part of the <dfn data-key="callback">callback URL</dfn> after the user authentication. It defaults to true.
 
 ```js
 var options = {
@@ -875,9 +938,17 @@ var options = {
 };
 ```
 
+### connectionResolver {Function}
+
+When in use, provides an extensibility point to make it possible to choose which connection to use based on the username information.
+
+Has `username`, `context`, and `callback` as parameters. The callback expects an object like: `{type: 'database', name: 'connection name'}`. **This only works for database connections.** Keep in mind that this resolver will run in the form's `onSubmit` event, so keep it simple and fast.
+
+This is a beta feature. If you find a bug, please open a GitHub [issue](https://github.com/auth0/lock/issues/new).
+
 ### leeway {Integer}
 
-The `leeway` option can be set to an integer - a value in seconds - which can be used to account for clock skew in JWT expirations. Typically the value is no more than a minute or two at maximum.
+The `leeway` option can be set to an integer - a value in seconds - which can be used to account for clock skew in ID Token expirations. Typically the value is no more than a minute or two at maximum.
 
 ```js
 var options = {

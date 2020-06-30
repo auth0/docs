@@ -3,21 +3,16 @@ title: Custom Login Form
 description: This tutorial will show you how to use the Auth0 authentication API in your Android project to create a custom login form.
 seo_alias: android
 budicon: 448
+topics:
+  - quickstarts
+  - native
+  - android
+github:
+    path: 02-Custom-Login-Form
+    branch: embedded-login
+contentType: tutorial
+useCase: quickstart
 ---
-
-This quickstart will show you how to add Auth0 login capabilities while using a customized login form.
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-android-sample',
-  branch: 'embedded-login',
-  path: '02-Custom-Login-Form',
-  requirements: [
-    'Android Studio 2.3',
-    'Android SDK 25',
-    'Emulator - Nexus 5X - Android 6.0'
-  ]
-}) %>
 
 ## Before Starting
 
@@ -88,7 +83,7 @@ You'll use the `WebAuthProvider#init` method. If no connection name is given, th
 private void login() {
     Auth0 auth0 = new Auth0(this);
     auth0.setOIDCConformant(true);
-    WebAuthProvider.init(auth0)
+    WebAuthProvider.login(auth0)
         .withScheme("demo")
         .withAudience(String.format("https://%s/userinfo", getString(R.string.com_auth0_domain)))
         .withConnection("twitter")

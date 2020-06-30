@@ -14,12 +14,33 @@ framework:
   - React Native
 hybrid: true
 image: /media/platforms/react.png
-tags:
+topics:
   - quickstart
-snippets:
-  setup: native-platforms/reactnative/setup
-  use: native-platforms/reactnative/use
+contentType: tutorial
+useCase: quickstart
 seo_alias: react-native
-default_article: dashboard-default
+default_article: 00-login
 articles:
   - 00-login
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-react-native-sample
+requirements:
+  - React Native 0.62.2
+  - NodeJS 10.16
+next_steps:
+  - path: 00-login
+    list:
+    - text: Configure other identity providers
+      icon: 345
+      href: "/identityproviders"
+    - text: Enable multifactor authentication
+      icon: 345
+      href: "/multifactor-authentication"
+    - text: Learn about anomaly detection
+      icon: 345
+      href: "/anomaly-detection"
+    - text: Learn about rules
+      icon: 345
+      href: "/rules"

@@ -1,38 +1,44 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how to use the Auth0 PHP Laravel SDK to add authentication and authorization to your web app.
+description: This tutorial demonstrates how to add user login to a Laravel application.
 budicon: 448
+topics:
+  - quickstarts
+  - webapp
+  - login
+  - laravel
+contentType: tutorial
+useCase: quickstart
+github:
+    path: 01-Login
 ---
 
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-laravel-php-web-app',
-  path: '01-Login',
-  requirements: [
-    'Composer 1.5',
-    'PHP 7.0',
-    'Laravel 5.5'
-  ]
-}) %>
+<!-- markdownlint-disable MD002 -->
 
-## Install and Configure Laravel 5.5
+<%= include('../_includes/_getting_started', { library: 'Laravel', callback: 'http://localhost:3000/auth0/callback' }) %>
+
+<%= include('../../../_includes/_logout_url', { returnTo: 'http://localhost:3000' }) %>
+
+## Install and Configure Laravel 6
 
 If you are installing Auth0 to an existing app, you can skip this section. Otherwise, walk through the Laravel guides below to get started with a sample project.
 
-1. **[Installation](https://laravel.com/docs/5.5/installation)**
+1. **[Installation](https://laravel.com/docs/6.x#installation)**
     * Use any of the install methods listed to start a new project
     * PHP can be served any way that works for your development process (we use Homebrew-installed Apache and PHP)
     * Walk through the "Configuration" section completely
-2. **[Configuration](https://laravel.com/docs/5.5/configuration)**
+2. **[Configuration](https://laravel.com/docs/6.x#configuration)**
     * Create a .env file, used later for critical and sensitive Auth0 connection values
     * Make sure `APP_DEBUG` is set to `true`
-    
+
 By the end of those 2 sections, you should have a Laravel application up and running locally or on a test server.
 
-## Install Auth0 Login and Dependencies
+## Integrate Auth0 in your application
 
-${snippet(meta.snippets.dependencies)}
+### Install the Auth0 plugin and its dependencies
+
+To install this plugin run `composer require auth0/login`
 
 ::: note
 **[Composer](https://getcomposer.org/)** is a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you. See Composer's [getting started](https://getcomposer.org/doc/00-intro.md) doc for information on how to use it.
@@ -43,21 +49,28 @@ This will install:
 * The [Auth0 PHP SDK](https://github.com/auth0/auth0-PHP) in `vendor\auth0\auth0-php`
 * The [Auth0 Laravel plugin](https://github.com/auth0/laravel-auth0) in `vendor\auth0\login`
 
-## Enable Auth0 Login in Laravel
+### Enable Auth0 Login in Laravel
 
 First, we need to add the Auth0 Services to the list of Providers in `config/app.php`:
-
-${snippet(meta.snippets.setup)}
-
-If you want to use an `Auth0` facade, add an alias in the same file (not required, [more information on facades here](http://laravel.com/docs/5.5/facades)):
 
 ```php
 // config/app.php
 
-'aliases' => array(
+'providers' => array(
     // ...
-    'Auth0' => Auth0\Login\Facade\Auth0::class
+    Auth0\Login\LoginServiceProvider::class,
 );
+```
+
+If you want to use an `Auth0` facade, add an alias in the same file (not required, [more information on facades here](http://laravel.com/docs/6.x/facades)):
+
+```php
+// config/app.php
+
+'aliases' => [
+    // ...
+    'Auth0' => Auth0\Login\Facade\Auth0::class,
+];
 ```
 
 Finally, you will need to bind a class that provides the app's User model each time a user is logged in or a JWT is decoded. You can use the `Auth0UserRepository` provided by this package or build your own (see the "Custom User Handling" section below).
@@ -66,27 +79,23 @@ Add the following to your `AppServiceProvider::register()` method:
 
 ```php
 // app/Providers/AppServiceProvider.php
-
 // ...
-use Auth0\Login\Contract\Auth0UserRepository as Auth0Contract;
-use Auth0\Login\Repository\Auth0UserRepository as UserRepo;
-
 class AppServiceProvider extends ServiceProvider
 {
     // ...
     public function register()
     {
         $this->app->bind(
-            Auth0Contract::class,
-            UserRepo::class
+            \Auth0\Login\Contract\Auth0UserRepository::class,
+            \Auth0\Login\Repository\Auth0UserRepository::class
         );
     }
 }
 ```
 
-## Configure It
+### Configure It
 
-To configure the plugin, you must publish the plugin configuration and complete the file `config/laravel-auth0.php` using  information from your Auth0 account and details of your implementation.
+To configure the plugin, you must publish the plugin configuration and complete the file `config/laravel-auth0.php` using information from your Auth0 account and details of your implementation.
 
 Publish the default configuration file with the following command:
 
@@ -103,10 +112,10 @@ Select the option for `Auth0\Login\LoginServiceProvider` and look for `Publishin
 * `persist_user` - Should the user information persist in a PHP session? Default is `true`
 * `persist_access_token` - Should the Access Token persist in a PHP session? Default is `false`
 * `persist_id_token` - Should the ID Token persist in a PHP session? Default is `false`
-* `authorized_issuers` - An array of authorized token issuers, should include at least your tenant domain
-* `api_identifier` - The authorized token audience
+* `authorized_issuers` - An array of authorized token issuers; this should include your tenant domain as a URL
+* `api_identifier` - The optional Identifier for an API meant for individual users. This is created during the [Laravel API quickstart](quickstart/backend/laravel), if needed.
 * `secret_base64_encoded` - Is the Client Secret Base64 encoded? Look below the Client Secret field in the Auth0 dashboard to see how to set this; default is `false`
-* `supported_algs` - JWT decoding algorithms supported by your application; default is `RS256`
+* `supported_algs` - An array of JWT decoding algorithms supported by your application; the default is `[ 'RS256' ]` and the array should typically only have a single value.
 * `guzzle_options` - Specify additional [request options for Guzzle](http://docs.guzzlephp.org/en/stable/request-options.html)
 
 To keep sensitive data out of version control and allow for different testing and production instances, we recommend using the `.env` file Laravel uses to load other environment-specific variables:
@@ -119,25 +128,11 @@ AUTH0_CLIENT_ID=${account.clientId}
 AUTH0_CLIENT_SECRET=YOUR_CLIENT_SECRET
 ```
 
-Call `env()` in `laravel-auth0.php` to get the correct setting:
+In `laravel-auth0.php`, the global helper `env()` is used to retrieve these values and load them in your Laravel app.
 
-```php
-// config/laravel-auth0.php
+### Set Up Routes
 
-return array(
-    // ...
-    'domain'        => env( 'AUTH0_DOMAIN' ),
-    // ...
-    'client_id'     => env( 'AUTH0_CLIENT_ID' ),
-    // ...
-    'client_secret' => env( 'AUTH0_CLIENT_SECRET' ),
-    // ...
-);
-```
-
-## Set Up Routes
-
-The plugin works with the [Laravel authentication system](https://laravel.com/docs/5.5/authentication) by creating a callback route to handle the authentication data from the Auth0 server.
+The plugin works with the [Laravel authentication system](https://laravel.com/docs/6.x/authentication) by creating a callback route to handle the authentication data from the Auth0 server.
 
 First, we'll add our route and controller to `routes/web.php`. The route used here must match the `redirect_uri` configuration option set previously:
 
@@ -147,9 +142,9 @@ First, we'll add our route and controller to `routes/web.php`. The route used he
 Route::get( '/auth0/callback', '\Auth0\Login\Auth0Controller@callback' )->name( 'auth0-callback' );
 ```
 
-If you load this callback URL now, you should be immediately redirected back to the homepage rather than getting a 404 error. This tells us that the route is setup and being handled. 
+If you load this callback URL now, you should be immediately redirected back to the homepage rather than getting a 404 error. This tells us that the route is set up and being handled.
 
-Now we need to add this URL to the **Allowed Callback URLs** field in the Application settings screen for the Application used with this app. Add the complete URL, like `https://myapp.com/auth0/callback`.
+Now we need to add this URL to the **Allowed Callback URLs** field in the Application settings screen for the Application used with this app. This should be your Laravel app's `APP_URL` followed by `/auth0/callback`. If you downloaded a sample from this quickstart, you may have already configured this above.
 
 Lastly, we need to set up how users log in and out of our app. This is handled by redirecting users to Auth0 for the former and clearing out session data for the latter. Let's start by creating a generic route handling controller. In the console:
 
@@ -166,23 +161,34 @@ class Auth0IndexController extends Controller
 {
     /**
      * Redirect to the Auth0 hosted login page
-     * 
+     *
      * @return mixed
      */
     public function login()
     {
-        return \App::make('auth0')->login(null, null, ['scope' => 'openid email email_verified'], 'code');
+        $authorize_params = [
+            'scope' => 'openid profile email',
+            // Use the key below to get an access token for your API.
+            // 'audience' => config('laravel-auth0.api_identifier'),
+        ];
+        return \App::make('auth0')->login(null, null, $authorize_params);
     }
 
     /**
      * Log out of Auth0
-     * 
+     *
      * @return mixed
      */
     public function logout()
     {
         \Auth::logout();
-        return  \Redirect::intended('/');
+        $logoutUrl = sprintf(
+            'https://%s/v2/logout?client_id=%s&returnTo=%s',
+            config('laravel-auth0.domain'),
+            config('laravel-auth0.client_id'),
+            url('/')
+        );
+        return  \Redirect::intended($logoutUrl);
     }
 }
 ```
@@ -192,15 +198,15 @@ Now, add the routes tied to the correct handler method along with names we can u
 ```php
 // routes/web.php
 // ...
-Route::get('/login', 'Auth\Auth0IndexController@login' )->name( 'login' );
-Route::get('/logout', 'Auth\Auth0IndexController@logout' )->name( 'logout' )->middleware('auth');
+Route::get( '/login', 'Auth\Auth0IndexController@login' )->name( 'login' );
+Route::get( '/logout', 'Auth\Auth0IndexController@logout' )->name( 'logout' )->middleware('auth');
 ```
 
-## Defining a User and a User Provider
+### Integrate with Laravel authentication system
 
-The [Laravel authentication system](https://laravel.com/docs/5.5/authentication) needs a *User Object* given by a *User Provider*. With these two abstractions, the user entity can have any structure you like and can be stored anywhere. You configure the *User Provider* indirectly, by selecting a user provider in `app/config/auth.php`. The default provider is Eloquent, which persists the User model in a database using the ORM.
+The [Laravel authentication system](https://laravel.com/docs/6.x/authentication) needs a *User Object* given by a *User Provider*. With these two abstractions, the user entity can have any structure you like and can be stored anywhere. You configure the *User Provider* indirectly, by selecting a user provider in `config/auth.php`. The default provider is Eloquent, which persists the User model in a database using the ORM.
 
-The plugin comes with an authentication driver called `auth0` which defines a user structure that wraps the [Normalized User Profile](/user-profile) defined by Auth0. This driver does not actually persist the User, it just stores it in session for future calls. This works fine for basic testing or if you don't really need to persist the user. For persistence in the database, see the "Custom User Handling" section below.
+The plugin comes with an authentication driver called `auth0` which defines a user structure that wraps the [Normalized User Profile](/users/normalized) defined by Auth0. This driver does not actually persist the User, it just stores it in session for future calls. This works fine for basic testing or if you don't really need to persist the user. For persistence in the database, see the "Custom User Handling" section below.
 
 At any point you can call `Auth::check()` to see if there is a user logged in and `Auth::user()` to get the wrapper with the user information.
 
@@ -237,11 +243,11 @@ Load the homepage of your app and you should see a **Login** link at the top rig
 1. A Laravel debug screen (is `APP_DEBUG` is set to `true`) which, along with the steps above, should help diagnose the issues
 1. An Auth0 error page with more information under the "Technical Details" heading (click **See details for this error**)
 
-Once you're able to successfully log in, you will be redirected to your homepage with a **Logout** link at the top right. This tells us that the login process was successful and the Auth0 user provider is functioning properly. Click **Logout** and you should be back where you started. 
+Once you're able to successfully log in, you will be redirected to your homepage with a **Logout** link at the top right. This tells us that the login process was successful and the Auth0 user provider is functioning properly. Click **Logout** and you should be back where you started.
 
-At this point you should have a fully-functioning authentication process using Auth0! 
+At this point you should have a fully-functioning authentication process using Auth0!
 
-## Extra: Custom User Handling
+## Optional: Custom User Handling
 
 What if you need to customize how users are handled beyond what Auth0 provides? You may want to, for example, store the user profile in a database. These kind of customizations can be done by extending the `Auth0UserRepository` class with your own custom class.
 
@@ -260,7 +266,7 @@ DB_USERNAME=db_user
 DB_PASSWORD=db_password
 ```
 
-In the `database/migrations` folder for the default Laravel project there will be two files, one for creating a users table and one for creating a password reset table. We can delete the password reset one since that's handled by Auth0 but we want to change the users one to remove unnecessary columns and add a new one. 
+In the `database/migrations` folder for the default Laravel project there will be two files, one for creating a users table and one for creating a password reset table. We can delete the password reset one since that's handled by Auth0 but we want to change the users one to remove unnecessary columns and add a new one.
 
 Edit the migration file with a name similar to `create_users_table` and change the `CreateUsersTable::up()` method to remove the `password` field and add one for `sub` (the Auth0 user ID):
 
@@ -289,7 +295,24 @@ Save this file and run the artisan command to create this table:
 
 ```bash
 php artisan migrate
-``` 
+```
+
+After running this migration, the `sub` field must also be added as field in `$fillable` in the User model. Failing to do so will cause SQL insert errors when the `upsertUser()` function tries to add a new User record. The `sub` field won't be included in the query and the query will attemt to insert a NULL value for `sub`.
+
+```
+// app/User.php
+
+class User extends Authenticatable
+{
+    // ...
+
+    protected $fillable = [
+        'name', 'email', 'sub',
+    ];
+
+    // ...
+}
+```
 
 Next, make a `CustomUserRepository.php` class we can modify:
 
@@ -310,6 +333,7 @@ use App\User;
 use Auth0\Login\Auth0User;
 use Auth0\Login\Auth0JWTUser;
 use Auth0\Login\Repository\Auth0UserRepository;
+use Illuminate\Contracts\Auth\Authenticatable;
 
 class CustomUserRepository extends Auth0UserRepository
 {
@@ -321,33 +345,22 @@ class CustomUserRepository extends Auth0UserRepository
      *
      * @return User
      */
-    protected function upsertUser( $profile ) {
-
-        // See if we have a user that matches the Auth0 user_id
-        $user = User::where( 'sub', $profile['sub'] )->first();
-
-        // In not, add them to the database
-        if ( ! $user ) {
-            $user = new User();
-
-            // All are required, no default set
-            $user->setAttribute( 'email', $profile['email'] );
-            $user->setAttribute( 'sub', $profile['sub'] );
-            $user->setAttribute( 'name', isset( $profile['name'] ) ? $profile['name'] : '' );
-
-            $user->save();
-        }
-        return $user;
+    protected function upsertUser( $profile ) {  
+        return User::firstOrCreate(['sub' => $profile['sub']], [
+            'email' => $profile['email'] ?? '',
+            'name' => $profile['name'] ?? '',
+        ]);
     }
 
     /**
      * Authenticate a user with a decoded ID Token
      *
-     * @param object $jwt
+     * @param array $decodedJwt
      *
      * @return Auth0JWTUser
      */
-    public function getUserByDecodedJWT( $jwt ) {
+    public function getUserByDecodedJWT(array $decodedJwt) : Authenticatable
+    {
         $user = $this->upsertUser( (array) $jwt );
         return new Auth0JWTUser( $user->getAttributes() );
     }
@@ -359,10 +372,12 @@ class CustomUserRepository extends Auth0UserRepository
      *
      * @return Auth0User
      */
-    public function getUserByUserInfo( $userinfo ) {
+    public function getUserByUserInfo(array $userinfo) : Authenticatable
+    {
         $user = $this->upsertUser( $userinfo['profile'] );
         return new Auth0User( $user->getAttributes(), $userinfo['accessToken'] );
     }
+
 }
 ```
 
@@ -374,29 +389,18 @@ Finally, we'll change the binding in the `AppServiceProvider` to point to this n
 
 ```php
 // app/Providers/AppServiceProvider.php
-
 // ...
-use \Auth0\Login\Contract\Auth0UserRepository as Auth0Contract;
-use \App\Repositories\CustomUserRepository as UserRepo;
-
 class AppServiceProvider extends ServiceProvider
 {
     // ...
     public function register()
     {
         $this->app->bind(
-            Auth0Contract::class,
-            UserRepo::class
+            \Auth0\Login\Contract\Auth0UserRepository::class,
+            \App\Repositories\CustomUserRepository::class
         );
     }
 }
 ```
 
-Logging in for the first time should create a new entry in the database with the Auth0 `sub` ID and email address used. Subsequent logins should simply access that same user and not create any new records. 
-
-## Extra: More About the QuickStart Project
-
-The Sample Project linked at the start of this guide implements everything here and more. 
-
-* A simple Profile screen that displays user data from Auth0
-* Additional work with templates 
+Logging in for the first time should create a new entry in the database with the Auth0 `sub` ID and email address used. Subsequent logins should simply access that same user and not create any new records.

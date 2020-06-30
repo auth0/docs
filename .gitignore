@@ -8,3 +8,16 @@ config.json
 
 # IDE
 .idea
+
+# Visual Studio Code
+.vscode
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+Session.vim
+.netrwhist

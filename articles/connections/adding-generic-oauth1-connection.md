@@ -1,6 +1,13 @@
 ---
 title: Adding a generic OAuth1 Authorization Server to Auth0
 description: How to add a generic Oauth1 Authorization Server to Auth0.
+topics:
+  - connections
+  - oauth1
+contentType: how-to
+useCase:
+  - customize-connections
+  - add-idp
 ---
 # Adding a generic OAuth1 Authorization Server to Auth0
 
@@ -18,7 +25,7 @@ curl -X POST
 ```
 
 :::note
-Replace `YOUR_MANAGEMENT_API_TOKEN` with a valid token. For info on how to get one, see [The Auth0 Management APIv2 Token](/api/management/v2/tokens).
+Replace `YOUR_MANAGEMENT_API_TOKEN` with a valid token. For info on how to get one, see [Access Tokens for the Management API](/api/management/v2/tokens).
 :::
 
 ```json
@@ -70,7 +77,7 @@ function(token, tokenSecret, ctx, callback){
 The `token` and `tokenSecret` parameters will often be used for authenticating requests to the provider's API.
 
 ::: note
-We recommend using the field names in the [normalized profile](/user-profile).
+We recommend using the field names in the [normalized profile](/users/normalized).
 :::
 
 Notice that you can manipulate the profile returned from the provider to filter/remove/add anything in it. However, we recommend you keep this script as simple as possible. More sophisticated manipulation of the user information can be achieved through [Rules](/rules). 
@@ -81,7 +88,7 @@ One advantage of using Rules is that they apply to __any__ connection.
 
 ## Using your new connection
 
-You can use any of the Auth0 standard mechanisms to login a user with the new connection (such as direct links, [Auth0 Lock](lock), [auth0.js](auth0js), and so on). 
+You can use any of the Auth0 standard mechanisms to login a user with the new connection (such as direct links, Auth0 <dfn data-key="lock">Lock</dfn>, [auth0.js](auth0js), and so on). 
 
 A direct link would look like:
 

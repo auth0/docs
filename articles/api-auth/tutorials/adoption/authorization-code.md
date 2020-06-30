@@ -1,12 +1,20 @@
 ---
 description: OIDC-conformant Authorization Code grant
+topics:
+  - api-authentication
+  - oidc
+  - authorization-code
+contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 
-# Authorization Code grant
+# Authorization Code Grant
 
 <%= include('./_about.md') %>
 
-The [Authorization Code grant](/api-auth/grant/authorization-code) is used by server-side applications that are capable of securely storing secrets, or by [native applications through PKCE](/api-auth/grant/authorization-code-pkce).
+The [Authorization Code Grant](/flows/concepts/auth-code) is used by server-side applications that are capable of securely storing secrets, or by [native applications through PKCE](/flows/concepts/auth-code-pkce).
 This document describes the differences of this flow between the legacy and OIDC-conformant authentication pipelines.
 
 ## Authentication request
@@ -28,7 +36,7 @@ This document describes the differences of this flow between the legacy and OIDC
     &redirect_uri=https://app.example.com/callback
     &device=my-device-name</code></pre>
     <ul>
-        <li>The <code>device</code> parameter is only needed if <a href="/tokens/refresh-token">requesting a Refresh Token</a> by passing the <code>offline_access</code> scope.</li>
+        <li>The <code>device</code> parameter is only needed if <a href="/tokens/concepts/refresh-tokens">requesting a <dfn data-key="refresh-token">Refresh Token</dfn></a> by passing the <code>offline_access</code> <dfn data-key="scope">scope</dfn>.</li>
     </ul>
     </div>
     <div id="request-oidc" class="tab-pane">
@@ -42,7 +50,7 @@ This document describes the differences of this flow between the legacy and OIDC
     <ul>
         <li><code>favorite_color</code> is no longer a valid scope value.</li>
         <li>The <code>device</code> parameter is removed.</li>
-        <li>The <code>audience</code> parameter is optional.</li>
+        <li>The <dfn data-key="audience"><code>audience</code></dfn> parameter is optional.</li>
     </ul>
     </div>
   </div>
@@ -64,15 +72,38 @@ Location: https://app.example.com/callback?
 
 An authorization code can be exchanged in the same way in both pipelines:
 
-```text
-POST /oauth/token HTTP/1.1
-Content-Type: application/json
+```har
 {
-    "grant_type": "authorization_code",
-    "client_id": "123",
-    "client_secret": "...",
-    "code": "SplxlOBeZQQYbYS6WxSbIA",
-    "redirect_uri": "https://app.example.com/callback"
+    "method": "POST",
+    "url": "https://${account.namespace}/oauth/token",
+    "headers": [
+      { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
+    ],
+    "postData" : {
+      "mimeType": "application/x-www-form-urlencoded",
+      "params": [
+        {
+          "name": "grant_type",
+          "value": "authorization_code"
+        },
+        {
+          "name": "client_id",
+          "value": "${account.clientId}"
+        },
+        {
+          "name": "client_secret",
+          "value": "YOUR_CLIENT_SECRET"
+        },
+        {
+          "name": "code",
+          "value": "YOUR_AUTHORIZATION_CODE"
+        },
+        {
+          "name": "redirect_uri",
+          "value": "${account.callback}"
+        }
+      ]
+    }
 }
 ```
 
@@ -99,8 +130,8 @@ Pragma: no-cache
     "id_token": "eyJ..."
 }</code></pre>
     <ul>
-        <li>The returned Access Token is only valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a>.</li>
-        <li>A Refresh Token will be returned only if a <code>device</code> parameter was passed and the <code>offline_access</code> scope was requested.</li>
+        <li>The returned <dfn data-key="access-token">Access Token</dfn> is only valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a>.</li>
+        <li>A <dfn data-key="refresh-token">Refresh Token</dfn> will be returned only if a <code>device</code> parameter was passed and the <code>offline_access</code> scope was requested.</li>
     </ul>
     </div>
     <div id="exchange-oidc" class="tab-pane">
@@ -116,7 +147,7 @@ Pragma: no-cache
     "id_token": "eyJ..."
 }</code></pre>
         <ul>
-            <li>The returned Access Token is valid for optionally calling the API specified in the <code>audience</code> parameter and the <a href="/api/authentication#get-user-info">/userinfo endpoint</a> (provided that the API uses <code>RS256</code> as the signing algorithm and <code>openid</code> is used as a <code>scope</code> parameter). If you are not implementing your own Resource Server (API), then you can use <code>https://{$account.namespace}/userinfo</code> as the <code>audience</code> parameter, which will return an opaque Access Token.</li>
+            <li>The returned Access Token is valid for optionally calling the API specified in the <code>audience</code> parameter and the <a href="/api/authentication#get-user-info">/userinfo endpoint</a> (provided that the API uses <code>RS256</code> as the <a href="/tokens/concepts/signing-algorithms">signing algorithm</a> and <code>openid</code> is used as a <code>scope</code> parameter). If you are not implementing your own Resource Server (API), then you can use <code>https://{$account.namespace}/userinfo</code> as the <code>audience</code> parameter, which will return an opaque Access Token.</li>
             <li>A Refresh Token will be returned only if the <code>offline_access</code> scope was granted.</li>
         </ul>
     </div>
@@ -157,7 +188,7 @@ Pragma: no-cache
     "https://app.example.com/favorite_color": "blue"
 }</code></pre>
         <ul>
-            <li>The <code>favorite_color</code> claim must be namespaced and added through a rule.</li>
+            <li>The <code>favorite_color</code> claim must be <a href="/tokens/guides/create-namespaced-custom-claims">namespaced</a> and added through a rule.</li>
         </ul>
     </div>
   </div>
@@ -193,12 +224,12 @@ Pragma: no-cache
     "scope": "openid email"
 }</code></pre>
         <ul>
-            <li>The returned Access Token is valid for optionally calling the API specified in the <code>audience</code> parameter and the <a href="/api/authentication#get-user-info">/userinfo endpoint</a> (provided that the API uses <code>RS256</code> as the signing algorithm and <code>openid</code> is used as a <code>scope</code> parameter). If you are not implementing your own Resource Server (API), then you can use <code>https://{$account.namespace}/userinfo</code> as the <code>audience</code> parameter, which will return an opaque Access Token.</li>
+            <li>The returned Access Token is valid for optionally calling the API specified in the <code>audience</code> parameter and the <a href="/api/authentication#get-user-info">/userinfo endpoint</a> (provided that the API uses <code>RS256</code> as the <a href="/tokens/concepts/signing-algorithms">signing algorithm</a> and <code>openid</code> is used as a <code>scope</code> parameter). If you are not implementing your own Resource Server (API), then you can use <code>https://{$account.namespace}/userinfo</code> as the <code>audience</code> parameter, which will return an opaque Access Token.</li>
         </ul>
     </div>
   </div>
 </div>
 
-## Further reading
+## Keep reading
 
 <%= include('./_index.md') %>

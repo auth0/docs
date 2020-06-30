@@ -3,6 +3,15 @@ section: libraries
 title: Migrating to from Auth0.js v8 to v9
 description: How to migrate from Auth0.js v8 to v9
 toc: true
+topics:
+  - libraries
+  - auth0js
+  - migrations
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - migrate
 ---
 # Migrating from Auth0.js v8 to v9
 
@@ -26,6 +35,8 @@ This guide includes all the information you need to update [Auth0.js](/libraries
 <%= include('../../_includes/_configure_custom_domain', { library : 'Auth0.js v9'}) %>
 
 <%= include('../../_includes/_legacy_flows') %>
+
+<%= include('../../_includes/_verifying_migration') %>
 
 ## Behavioral Changes
 

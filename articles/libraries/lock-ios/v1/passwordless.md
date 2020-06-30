@@ -2,6 +2,16 @@
 section: libraries
 title: Passwordless in Lock iOS v1
 description: How to implement Passwordless authentication in Lock v1
+topics:
+  - libraries
+  - lock
+  - ios
+  - passwordless
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Passwordless in Lock iOS v1
 
@@ -13,9 +23,9 @@ description: How to implement Passwordless authentication in Lock v1
 
 `A0SMSLockViewController` authenticates without using a password with SMS. In order to be able to authenticate the user, your application must have the SMS connection enabled and configured in your [dashboard](${manage_url}/#/connections/passwordless).
 
-First instantiate `A0SMSLockViewController` and register the authentication callback that will receive the authenticated user's credentials.
+First instantiate `A0SMSLockViewController` and register the authentication <dfn data-key="callback">callback</dfn> that will receive the authenticated user's credentials.
 
-The next step is register a block to return an API Token used to register the  phone number and send the login code with SMS. This token can be generated in  [Auth0 API v2 page](/api/v2), just select the scope `create:users` and copy the generated API Token.
+The next step is register a block to return an API Token used to register the  phone number and send the login code with SMS. This token can be generated in  [Auth0 API v2 page](/api/v2), just select the <dfn data-key="scope">scope</dfn> `create:users` and copy the generated API Token.
 
 Finally present it to the user:
 ```objc
@@ -50,7 +60,7 @@ And you'll see SMS login screen
 
 ## Passwordless with Touch ID
 
-Lock provides passwordless authentication with Touch ID for your Auth0 DB connection. To start authenticating your users with Touch ID please follow those steps:
+Lock provides <dfn data-key="passwordless">passwordless</dfn> authentication with Touch ID for your Auth0 DB connection. To start authenticating your users with Touch ID please follow those steps:
 
 1. Add `TouchID` subspec module of **Lock** to your `Podfile`
   ```ruby

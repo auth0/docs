@@ -4,10 +4,22 @@ toc: true
 url: /libraries/lock-ios/v2/migration
 title: Migrating from v1 to v2 of Lock for iOS
 description: A migration guide to assist with migration from Lock v1 (Swift) to Lock v2 (Swift).
+topics:
+  - libraries
+  - lock
+  - ios
+  - migrations
+contentType:
+  - reference
+  - how-to
+useCase:
+  - add-login
+  - enable-mobile-auth
+  - migrate
 ---
 # Migrating from Lock iOS v1 to v2
 
-Lock 2.0 is the latest major release of Lock iOS-OSX. This guide is provided in order to ease the transition of existing applications using Lock 1.x to the latest APIs.
+<dfn data-key="lock">Lock</dfn> 2.0 is the latest major release of Lock iOS-OSX. This guide is provided in order to ease the transition of existing applications using Lock 1.x to the latest APIs.
 
 ## Requirements
 
@@ -19,7 +31,7 @@ Lock 2.0 is the latest major release of Lock iOS-OSX. This guide is provided in 
 
 Lock v2 cannot be used from Objective-C, since its public API relies on Swift features and that makes them unavailable in ObjC codebases.
 
-If you are willing to have some Swift code in your existing application you can follow this [guide](https://developer.apple.com/library/content/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html) on how to mix Objective-C and Swift and then use Lock v2 from the Swift files.
+If you are willing to have some Swift code in your existing application, you can follow this [guide](https://developer.apple.com/library/content/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html) on how to mix Objective-C and Swift and then use Lock v2 from the Swift files.
 
 If that's not an option, we recommend sticking with Lock v1 or using [Auth0.swift](/libraries/auth0-swift) to build your own interface for user logins and signups.
 
@@ -58,22 +70,22 @@ In Lock v2, this is no longer required.
 In Lock v1 you'd add the following:
 
 ```swift
-func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-  return A0Lock.shared().handle(url, sourceApplication: sourceApplication)
+func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+  return A0Lock.shared().handle(url, sourceApplication: app)
 }
 ```
 
 In Lock v2 you need to instead use the following:
 
 ```swift
-func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
+func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
   return Lock.resumeAuth(url, options: options)
 }
 ```
 
 #### Application is asked to continue a User Activity
 
-If you are using Lock passwordless and have specified the `.magicLink` option to send the user a universal link then you will need to add the following to your `AppDelegate.swift`:
+If you are using Lock <dfn data-key="passwordless">passwordless</dfn> and have specified the `.magicLink` option to send the user a universal link then you will need to add the following to your `AppDelegate.swift`:
 
 ```swift
 func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
@@ -131,13 +143,13 @@ Lock
   .present(from: self)
 ```
 
-So, in the `onAuth` callback, you'd only recieve the credentials of the user when the authentication is successful.
+So, in the `onAuth` <dfn data-key="callback">callback</dfn>, you'd only receive the credentials of the user when the authentication is successful.
 
 ::: note
-In constrast with Lock v1, in v2, Lock will dismiss itself so there is no need to call `dismissViewController(animated:, completion:)` in any of the callbacks.
+In contrast with Lock v1, in v2, Lock will dismiss itself so there is no need to call `dismissViewController(animated:, completion:)` in any of the callbacks.
 :::
 
-In the case you need to know about the errors or signup there are the corresponding `onError` and `onSignUp` callbacks that can be employed.
+In the case you need to know about the errors or signup, there are the corresponding `onError` and `onSignUp` callbacks that can be employed.
 
 ```swift
 Lock
@@ -210,7 +222,7 @@ Lock
 
 #### Configuration options
 
-If you needed to tweak Lock behaviour using it's options in v1, you would use the following format:
+If you needed to tweak Lock behaviour using its options in v1, you would use the following format:
 
 ```swift
 let controller = A0Lock.shared().newLockViewController()
@@ -272,6 +284,8 @@ Auth0
 
 ### Delegation
 
-Delegation is not available through Lock. It can be implemented via a legacy method in [Auth0.Swift](/libraries/auth0-swift) for tenants which existed prior to June 2017, but delegation is deprecated and not recommended for most use cases. See the [migrations notice](/migrations#introducing-api-authorization-with-third-party-vendor-apis) for more details.
+<%= include('../../../_includes/_deprecate-delegation') %>
+
+Delegation is not available through Lock. It can be implemented via a legacy method in [Auth0.Swift](/libraries/auth0-swift) for tenants which existed prior to June 2017.
 
 <%= include('../_includes/_roadmap') %>

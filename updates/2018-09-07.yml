@@ -1,0 +1,39 @@
+added:
+  -
+    title: "Recommended Tenant Settings"
+    tags:
+      - best-practices
+      - tenant
+      - configuration
+    description: |
+      A new document, [Recommended Tenant Settings](https://auth0.com/docs/best-practices/tenant-settings), was added with best practices and tips on tenant configuration.
+  -
+    title: "Recommended Application Settings"
+    tags:
+      - best-practices
+      - application
+      - configuration
+    description: |
+      A new document, [Recommended Application Settings](https://auth0.com/docs/best-practices/application-settings), was added with best practices and tips on application configuration.
+  -
+    title: "Recommended Connection Settings"
+    tags:
+      - best-practices
+      - connection
+      - configuration
+    description: |
+      A new document, [Recommended Connection Settings](https://auth0.com/docs/best-practices/connection-settings), was added with best practices and tips on connection configuration.
+  -
+    title: "Best Practices: General Operations"
+    tags:
+      - best-practices
+      - operations
+    description: |
+      A new document, [Best Practices: General Operations](https://auth0.com/docs/best-practices/operations), was added with best practices on general Auth0 usage and operation.
+  -
+    title: "Best Practices: Rules"
+    tags:
+      - best-practices
+      - rules
+    description: |
+      A new document, [Best Practices: Rules](https://auth0.com/docs/best-practices/rules), was added with best practices for writing and managing rules.

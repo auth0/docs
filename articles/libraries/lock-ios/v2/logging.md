@@ -2,10 +2,20 @@
 section: libraries
 title: Logging in Lock for iOS v2
 description: Logging in Lock for iOS v2
+topics:
+  - libraries
+  - lock
+  - ios
+  - logs
+contentType:
+  - reference
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Logging in Lock for iOS v2
 
-Lock provides options to easily turn on and off logging capabilities, as well as adjust other logging related settings.
+<dfn data-key="lock">Lock</dfn> provides options to easily turn on and off logging capabilities, as well as adjust other logging related settings.
 
 ## logLevel
 

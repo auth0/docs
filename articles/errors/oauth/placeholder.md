@@ -1,5 +1,0 @@
----
-public: false
----
-
-# OAuth Errors

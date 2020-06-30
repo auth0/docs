@@ -1,86 +1,34 @@
 ---
-title: Set up a Client Credentials Grant using the Management API
-description: How to set up a Client Credentials Grant using the Management API.
+description: Learn how to set up a Client Credentials Grant using the Management API.
 crews: crew-2
+topics:
+  - client-credentials
+  - api-authorization
+contentType: how-to
+useCase: secure-api
 ---
 
-# Set up a Client Credentials Grant using the Management API
+# Set Up Client Credentials Grants Using the Management API
 
-<%= include('../../_includes/_pipeline2') %>
+Auth0 lets you authorize applications that have the Client Credentials grant type enabled to call APIs using the [Client Credentials Flow](/flows/concepts/client-credentials). 
 
-If you do not want to use the Auth0 Dashboard to create a Resource Server or you need to create one programmatically, you can use our Management API v2.
+By default, all Machine-to-Machine Applications and Regular Web Applications have the 'Client Credentials' grant enabled, but they are not authorized to call any API.
+
+If you want to call an API from these applications, you first need to authorize the application to call the API and specify the <dfn data-key="scope">scopes</dfn> that will be granted. You can do that [using the Dashboard](/api-auth/config/using-the-auth0-dashboard), or follow the steps below to use the API.
 
 You will need the following:
 
-- A Management APIv2 token with the appropriate scopes. For details on how to get one refer to [The Auth0 Management APIv2 Token](/api/management/v2/tokens).
-- The Application information (`Client_Id` and `Client_Secret`) for the Machine to Machine Application that should already be created and visible in your [Auth0 dashboard](${manage_url}/#/applications).
+- A Management API <dfn data-key="access-token">Access Token</dfn> with the `create:client_grants` scopes. For details on how to get one, refer to [Access Tokens for the Management API](/api/management/v2/tokens).
 
-## 1. Create your Resource Server
+- The application information (`Client_Id` and `Client_Secret`) for the application you want to authorize [Auth0 dashboard](${manage_url}/#/applications).
 
-Let's start by creating the Resource Server. This is the entity that represents the API that you want to issue Access Tokens for, identified by a friendly name and a URN identifier.
+- The API identifier for the API you want to invoke (${manage_url}/#/apis).
 
-The following restrictions apply to the identifier:
-- It must be a valid URN.
-- It cannot be modified after creation.
-- It must be unique throughout your tenant.
+##  Authorize the Application
 
-We recommend using your public API endpoint as an identifier.
+To authorize your Application, send a `POST` request to the [/client-grants endpoint of the Management APIv2](/api/management/v2#!/Client_Grants/post_client_grants) with the Management API Access Token.
 
-To create a Resource Server send a `POST` request to the [/resource-servers endpoint of the Management APIv2](/api/management/v2#!/Resource_Servers/post_resource_servers) with an `access_token` that has the resource server scope (`scope:resource_server`).
-
-The following example uses _"My Sample API"_ as the name and _"https://my-api-uri"_ as the identifier.
-
-```har
-{
-  "method": "POST",
-  "url": "https://${account.namespace}/api/v2/resource-servers",
-  "headers": [
-    { "name": "Content-Type", "value": "application/json" },
-    { "name": "authorization", "value": "Bearer Auth0_MGMT_API_ACCESS_TOKEN" }
-  ],
-  "postData": {
-    "mimeType": "application/json",
-    "text": "{\"name\":\"My Sample API\",\"identifier\": \"https://my-api-urn\",\"signing_alg\": \"RS256\",\"scopes\": [{ \"value\": \"sample-scope\", \"description\": \"Description for Sample Scope\"}]}"
-  }
-}
-```
-
-::: note
-  You can include multiple scopes. This array represents the universe of scopes your API will support. You can modify this later by issuing a <code>PATCH</code> operation.
-:::
-
-Sample response:
-
-```json
-{
-    "id": "56f0131ffdf1c311694f4cc7",
-    "name": "My Sample API",
-    "identifier": "https://my-api-urn",
-    "scopes": [
-        {
-            "value": "sample-scope",
-            "description": "Description for Sample Scope"
-        }
-    ],
-    "signing_alg": "RS256",
-    "signing_secret": "FF1prn9UxZotnolsDVwEJhqqyRmwdSu5",
-    "token_lifetime": 86400
-}
-```
-
-Note the following:
-- The `identifier` value (`https://my-api-urn`) will be used from now on as the `audience` for any OAuth 2.0 grant, that wants to access this API.
-- The algorithm that your API will use to sign tokens will be the __RS256__ (`signing_alg`).
-- The secret used to sign the tokens will be `FF1prn9UxZotnolsDVwEJhqqyRmwdSu5` (`signing_secret`).
-- The generated tokens will expire after `86400` seconds (`token_lifetime`).
-
-## 2. Authorize the Application
-
-Now that the API and the Application are defined in Auth0, you can create a trust relationship between them. To do so, authorize the Application to access the API, while defining the scopes that should be given to the Application (meaning the actions the Application will be able to perform on the API).
-
-To authorize your Application send a `POST` request to the [/client-grants endpoint of the Management APIv2](/api/management/v2#!/Client_Grants/post_client_grants) with an `access_token` that has the create application grants scope (`create:client_grantss`).
-
-The following example authorizes the Application with Id `${account.clientId}`, to access the API with Identifier `https://my-api-urn`, while granting the scope `sample-scope`.
+The following example authorizes the application with Id `${account.clientId}`, to access the API with Identifier `https://my-api-urn`, while granting the scope `sample-scope`.
 
 ```har
 {
@@ -110,8 +58,12 @@ Sample response:
 }
 ```
 
-## 3. That's it!
+That's it, you are done! Now that all the elements are in place, you can request Access Tokens for your API from Auth0 using the Client Credentials Flow.
 
-Now that all the elements are in place, you can request Access Tokens for your API from Auth0.
+## Keep reading
 
-For details on how to do so, refer to [Execute a Client Credentials Grant](/api-auth/tutorials/client-credentials).
+:::next-steps
+* [Call API using the Client Credentials Flow](/flows/guides/client-credentials/call-api-client-credentials)
+* [How to change the scopes and add custom claims to a token using Hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
+* [How to add custom claims to a token using Rules](/scopes/current/sample-use-cases#add-custom-claims-to-a-token)
+:::

@@ -1,12 +1,40 @@
 title: PHP (Laravel)
 image: /media/platforms/php.png
-tags:
+languages:
+  - PHP
+topics:
   - quickstart
-snippets:
-  dependencies: server-platforms/laravel/dependencies
-  setup: server-platforms/laravel/setup
-  use: server-platforms/laravel/use
+contentType: tutorial
+useCase: quickstart
+author:
+  name: Josh Cunningham
+  email: josh.cunningham@auth0.com
+  community: false
 seo_alias: laravel
 default_article: 01-login
 articles:
   - 01-login
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-laravel-php-web-app
+  branch: master
+requirements:
+  - Composer 1.5 and up
+  - PHP 7.2 and up
+  - Laravel 6.0 and up
+next_steps:
+  - path: 01-login
+    list:
+    - text: Configure other identity providers
+      icon: 345
+      href: "/identityproviders"
+    - text: Enable multifactor authentication
+      icon: 345
+      href: "/multifactor-authentication"
+    - text: Learn about anomaly detection
+      icon: 345
+      href: "/anomaly-detection"
+    - text: Learn about rules
+      icon: 345
+      href: "/rules"

@@ -1,12 +1,19 @@
 ---
 description: How to call AWS APIs and Resources Using Tokens
 toc: true
+topics:
+  - integrations
+  - aws
+  - tokens
+contentType: tutorial
+useCase:
+  - secure-an-api
+  - integrate-third-party-apps
+  - integrate-saas-sso
 ---
 # Call AWS APIs and Resources Securely with Tokens
 
-::: panel-warning Legacy Grant Types
-As of 8 June 2017, new Auth0 customers cannot add any of the legacy grant types to their applications, which are required for use with the [Delegation endpoint](/api/authentication#get-token-info). Legacy grant types are only available for previous customers while they migrate to new flows, to avoid breaking changes. To find the secure alternative for your case refer to [Secure Alternatives to the Legacy Grant Types](/applications/application-grant-types#secure-alternatives-to-the-legacy-grant-types). If you have any questions about which alternative you should use, please contact [Support](${env.DOMAIN_URL_SUPPORT}).
-:::
+<%= include('../../_includes/_uses-delegation') %>
 
 Auth0 integrates with the AWS Security Token Service (STS) to obtain an limited-privilege credentials for AWS Identity and Access Management (IAM) users or for users that you authenticate (federated users). These credentials can then be used to call the AWS API of any Auth0-supported [identity provider](/identityproviders).
 
@@ -30,7 +37,7 @@ Log in to Auth0's Management Dashboard, navigate to the [Applications](${manage_
 ![](/media/articles/integrations/aws/aws-addon.png)
 
 ::: panel Username Length with AWS
-Users of Auth0's database or a custom database should note that [AWS usernames must be between 2-64 characters in length](http://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_saml.html#troubleshoot_saml_invalid-rolesessionname). If you're using an Auth0 database, you can enforce this by setting your [username length settings](/connections/database/require-username#length) accordingly. If you're using a custom database, you can implement a similar policy within your application. 
+Users of Auth0's database or a custom database should note that [AWS usernames must be between 2-64 characters in length](http://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_saml.html#troubleshoot_saml_invalid-rolesessionname). If you're using an Auth0 database, you can enforce this by setting your [username length settings](/connections/database/require-username#length) accordingly. If you're using a custom database, you can implement a similar policy within your application.
 :::
 
 #### IAM policy
@@ -57,13 +64,13 @@ The following is a sample AWS IAM policy:
 }
 ```
 
-The IAM policy is a dynamic policy that gives access to a folder in a bucket. The folder name is set based on an attribute of the digitally-signed SAML token that Auth0 exchanges with AWS on your behalf.
+The IAM policy is a dynamic policy that gives access to a folder in a bucket. The folder name is set based on an attribute of the digitally-signed <dfn data-key="security-assertion-markup-language">SAML</dfn> token that Auth0 exchanges with AWS on your behalf.
 
 The `<%= "${saml:sub}" %>` will be automatically mapped from the authenticated user (`sub` means `subject` and is equal to the user identifier), which allows the *original* identity of the user to be used throughout your app and AWS.
 
 ### Get the AWS Token for an Authenticated User
 
-When a user successfully authenticates, Auth0 returns an `id_token`, which is a [JWT](/jwt)). This `id_token` is then used to request an Auth0 and AWS token using the delegation endpoint.
+When a user successfully authenticates, Auth0 returns an ID Token, which is a [JWT](/tokens/concepts/jwts)). This ID Token is then used to request an Auth0 and AWS token using the delegation endpoint.
 
 Here is a sample request on the delegation endpoint:
 

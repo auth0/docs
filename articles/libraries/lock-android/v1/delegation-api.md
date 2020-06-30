@@ -2,10 +2,22 @@
 toc: true
 title: Lock for Android v1 Delegation
 description: Integrate with third-party apps with the delegation API.
+topics:
+  - libraries
+  - lock
+  - delegation
+  - android
+contentType:
+  - reference
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Lock Android: Delegation API
 
 <%= include('../_includes/_lock-version') %>
+
+<%= include('../../../_includes/_deprecate-delegation') %>
 
 After a successful authentication, you can request credentials to access third party apps like Firebase or AWS that are configured in your Auth0 App's Add-On section. In order to do that you need to make a request to our [Delegation API](/auth-api#!#post--delegation) using a valid JWT.
 
@@ -15,7 +27,7 @@ Here's an example
 Lock lock = LockContext.getLock(this);
 AuthenticationAPIClient client = lock.getAuthenticationAPIClient();
 String apiType = "firebase";
-String token = .... //Your Auth0 id_token of the logged in User
+String token = .... //Your Auth0 ID Token of the logged in User
 Map<String, Object> parameters = ParameterBuilder.newEmptyBuilder()
         .set("id_token", token)
         .set("api_type", apiType)

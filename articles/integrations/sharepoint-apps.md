@@ -1,9 +1,14 @@
 ---
 description: How to connect provider hosted apps to SharePoint Online.
+topics:
+  - integrations
+  - sharepoint
+contentType: how-to
+useCase: integrate-saas-sso
 ---
 # Connecting Provider Hosted Apps to SharePoint Online
 
-Auth0 can help radically simplify the authentication process for SharePoint Apps. Auth0 will negotiate an Access Token you can the use to call SharePoint APIs.
+Auth0 can help radically simplify the authentication process for SharePoint Apps. Auth0 will negotiate an <dfn data-key="access-token">Access Token</dfn> you can the use to call SharePoint APIs.
 
 You won't need any special libraries. You can use any of the SDKs supported by Auth0.
 
@@ -41,7 +46,7 @@ Since Auth0 is in between your app and the Office 365 infrastructure, you need t
 
 * `connection` is just the name you will use in Auth0's connections (such as "sharepoint").
 * `client_id` identifies your app in Auth0 (created in steps 1).
-* `redirect_uri` is the location in your actual app, where your users will land eventually after all negotiations complete. If you don't specify it, it will always be the app's callback URL defined in Auth0 (it could be localhost)
+* `redirect_uri` is the location in your actual app, where your users will land eventually after all negotiations complete. If you don't specify it, it will always be the app's <dfn data-key="callback">callback URL</dfn> defined in Auth0 (it could be localhost)
 
 ### Package the app and upload to SharePoint:
 
@@ -76,7 +81,7 @@ Users will install your app from the Office Marketplace. When they click on the 
 ![](/media/articles/integrations/sharepoint-apps/8Xp6x.png)
 
 ::: note
-Notice that the following properties will be included: `cacheKey`, `refresh_token`, `host` and `site`. These will allow you to call back SharePoint APIs (such as lists).
+Notice that the following properties will be included: `cacheKey`, `refresh_token`, `host`, and `site`. These will allow you to call back SharePoint APIs (such as lists).
 :::
 
 ```text

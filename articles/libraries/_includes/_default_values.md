@@ -1,6 +1,6 @@
 ### Default values
 
-Auth0.js v9 will default the value of the [scope](/scopes) parameter to `openid profile email`.
+Auth0.js v9 will default the value of the <dfn data-key="scope">scope</dfn> parameter to `openid profile email`.
 
 If you are running your website from `http://localhost` or `http://127.0.0.1` and you do not specify the `openid profile email` scope when initializing auth0.js, calling the `getSSOData()` method will result in the following error in the browser console:
 

@@ -12,55 +12,51 @@ You can call the API from your application by passing an Access Token in the `Au
 }
 ```
 
-The exact implementation will be dependent on the type of application you are developing and the framework you are using. For more information refer to the relevant application Quickstarts which contain detailed instructions:
+## Obtaining an Access Token
 
-* [Single Page Applications](/quickstart/spa)
+If you are calling the API from a Single-Page Application or a Mobile/Native application, after the authorization flow is completed, you will get an Access Token. How you get the token and how you make the call to the API will be dependent on the type of application you are developing and the framework you are using. For more information refer to the relevant application Quickstarts which contain detailed instructions:
+
+* [Single-Page Applications](/quickstart/spa)
 * [Mobile / Native Application](/quickstart/native)
 
-## Obtaining an Access Token for testing
-
-If you want to test your API outside your application, for example from the command line or a tool like Postman, you can obtain an Access Token using the [Authentication API Debugger Extension](/extensions/authentication-api-debugger) or from the **Test** tab in your [API settings](${manage_url}/#/apis).
-
-You can also obtain an Access Token using [cUrl](https://curl.haxx.se/) by using the [Client Credentials](/api/authentication#client-credentials) or [Resource Owner Password](api/authentication#resource-owner-password) authorization flows.
-
-**1. Using Client Credentials**
-
+If you are calling the API from a command-line tool or another service, where there isn't a user entering their credentials, you need to use the [OAuth Client Credentials flow](/api/authentication#client-credentials). To do that, register a [Machine to Machine Application](${manage_url}/#/applications), and then subsequently use the **Client ID** and **Client Secret** of this application when making the request below and pass those along in the `client_id` and `client_secret` parameters respectively. Also include the Audience for the API you want to call.
 
 ```har
 {
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
   "headers": [
-    { "name": "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
-    "mimeType": "application/json",
-    "text": "{\"grant_type\":\"client_credentials\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"audience\": \"YOUR_API_IDENTIFIER\"}"
+    "mimeType": "application/x-www-form-urlencoded",
+    "params": [
+      {
+        "name": "grant_type",
+        "value": "client_credentials"
+      },
+      {
+        "name": "client_id",
+        "value": "${account.clientId}"
+      },
+      {
+        "name": "client_secret",
+        "value": "YOUR_CLIENT_SECRET"
+      },
+      {
+        "name": "audience",
+        "value": "YOUR_API_IDENTIFIER"
+      }
+    ]
   }
 }
 ```
-
-When using the Client Credentials flow, you will need to register a [Machine to Machine Application](/applications). You should then subsequently use the **Client ID** and **Client Secret** of this Machine to Machine Application when making the request shown above and pass those along in the `client_id` and `client_secret` parameters respectively.
 
 :::note
-Auth0 customers are billed based on the number of Client Credential Access Tokens issued by Auth0. Once your application gets an Access Token it should keep using it until it expires, to minimize the number of tokens requested.
+Auth0 customers are billed based on the number of Machine to Machine Access Tokens issued by Auth0. Once your application gets an Access Token it should keep using it until it expires, to minimize the number of tokens requested.
 :::
 
-**2. Using Resource Owner Password**
-
-```har
-{
-  "method": "POST",
-  "url": "https://${account.namespace}/oauth/token",
-  "headers": [
-    { "name": "Content-Type", "value": "application/json" }
-  ],
-  "postData": {
-    "mimeType": "application/json",
-    "text": "{\"grant_type\":\"password\",\"username\": \"user@example.com\",\"password\": \"pwd\",\"audience\": \"YOUR_API_IDENTIFIER\", \"scope\": \"read:messages\", \"client_id\": \"${account.clientId}\", \"client_secret\": \"YOUR_CLIENT_SECRET\"}"
-  }
-}
-```
+For testing purposes, you can also get an Access Token from the **Test** tab in your [API settings](${manage_url}/#/apis).
 
 ## Test Your API 
 
@@ -97,7 +93,7 @@ This time the API will return a successful response:
 
 **2. Testing the scoped endpoint**
 
-To test the endpoint that require a scope, pass the Access Token containing the correct scope as a Bearer token in the Authorization header:
+To test the endpoint that requires a scope, pass the Access Token containing the correct scope as a Bearer token in the Authorization header:
 
 ```har
 {

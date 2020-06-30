@@ -1,31 +1,23 @@
 ---
 description: This page details Auth0's deleted tenant restoration policy.
+topics:
+    - auth0-policies
+    - tenants
+    - tenant-restoration
+contentType:
+  - reference
+useCase:
+  - support
 ---
 
 # Tenant Restoration Policy
 
-The following policy governs requests for restoration of Auth0 tenants that were previously deleted.
-
-::: note
-If you are considering deleting your tenant, please see our [Resetting/Deleting Tenant](/tutorials/delete-reset-tenant) page for alternative options.
+::: warning
+**Deleted tenants cannot be restored** and the **tenant name may not be used again** when creating new tenants.
 :::
 
-A customer may request a tenant restoration if the tenant was deleted by human error and restoration is critical for the continuity of customer's operations. Please note that before deleting a tenant, from the Auth0 Dashboard, a warning explains that this cannot be undone. However, in some cases we might opt for support this kind of request.
+**Before you delete your tenant, please check out the following resources for alternative options:**
+* [Updating a Tenant Admin](https://auth0.com/docs/dashboard/manage-dashboard-admins#update-admin) **for changing ownership of the tenant**
+* [Delete or Reset Tenants](/tutorials/delete-reset-tenant) for reseting tenant configuration.
 
-## Considerations
-
-* We support tenant restoration for all paying customers.
-
-* Tenant restoration is not supported for non-paying customers.
-
-* The restoration can take up to seven days, for paying customers.
-
-* Tenant restoration will be allowed if the request is made before 20 days have passed from the date the tenant was deleted.
-
-## How to request
-
-* Customers must file a tenant restoration request in writing, via the [Auth0 support center](${env.DOMAIN_URL_SUPPORT}) or via email.
-
-* Please specify the name that the deleted tenant had and the region where it belonged.
-
-* A member of the Auth0 team will respond your request.
+If you've deleted your tenant, and you require the use of a particular domain name, we recommend configuring a [custom domain name](/custom-domains) for your new tenant.

@@ -50,21 +50,21 @@ HTTP/1.1 200 OK
   "link": "#revoke-refresh-token"
 }) %>
 
-Use this endpoint to invalidate a Refresh Token if it has been compromised.
+Use this endpoint to invalidate a <dfn data-key="refresh-token">Refresh Token</dfn> if it has been compromised.
 
-Each revocation request invalidates not only the specific token, but all other tokens based on the same authorization grant. This means that **all Refresh Tokens that have been issued for the same user, application, and audience will be revoked**.
+Each revocation request invalidates not only the specific token, but all other tokens based on the same authorization grant. This means that **all Refresh Tokens that have been issued for the same user, application, and <dfn data-key="audience">audience</dfn> will be revoked**.
 
 ### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. The application should match the one the Refresh Token was issued for. |
-| `client_secret` | Your application's Client Secret. Required for [confidential applications](/applications/application-types#confidential-applications). |
+| `client_secret` | Your application's Client Secret. Required for [confidential applications](/applications/concepts/app-types-confidential-public#confidential-applications). |
 | `token` <br/><span class="label label-danger">Required</span> | The Refresh Token you want to revoke. |
 
 ### Remarks
 
-- For non-confidential applications that cannot keep the Client Secret safe (for example, native apps), the endpoint supports passing no Client Secret but the application itself must have the property `tokenEndpointAuthMethod` set to `none`. You can do this either from the UI ([Dashboard > Applications > Application Settings](${manage_url}/#/applications/${account.clientId}/settings)) or using the [Management API](/api/management/v2#!/Applications/patch_applications_by_id).
+- For non-confidential applications that cannot keep the Client Secret safe (for example, native apps), the endpoint supports passing no Client Secret but the application itself must have the property `tokenEndpointAuthMethod` set to `none`. You can do this either from the UI ([Dashboard > Applications > Application Settings](${manage_url}/#/applications)) or using the [Management API](/api/management/v2#!/Applications/patch_applications_by_id).
 
 ### Error Codes
 
@@ -72,4 +72,4 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 
 ### More Information
 
-- [Refresh Token](/tokens/refresh-token)
+- [Refresh Tokens](/tokens/concepts/refresh-tokens)

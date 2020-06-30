@@ -2,9 +2,18 @@
 toc: true
 description: This page explains query string syntax, which you can use to construct custom queries when searching using Auth0's Management API.
 crews: crew-2
+topics:
+  - users
+  - user-management
+  - search
+  - query-syntax
+contentType:
+  - reference
+useCase:
+  - manage-users
 ---
 
-# Query String Syntax
+# User Search Query Syntax
 
 ::: version-warning
 This document covers a previous version of user search. We recommend you use [user search v3](/users/search/v3).
@@ -16,7 +25,25 @@ When searching using Auth0's [List or search users](/api/v2/#!/Users/get_users) 
 
 The query string is parsed into a series of *terms* and *operators*. A term can be a single word  (`john` or `smith`) or a phrase surrounded by double quotes (`"john smith"`) which will match all the words in the phrase in the same order.
 
-### Field Name Examples
+## Searchable fields
+
+You can search for users using the following fields:
+
+* All the [normalized user profile](/users/normalized/auth0/normalized-user-profile-schema) fields
+
+* __Only__ the profile information under the `user_metadata` object:
+  - `name`
+  - `nickname`
+  - `given_name`
+  - `family_name`
+
+::: warning
+New tenants, starting September 1st 2017, cannot search any of the `app_metadata` fields. Paid tenants (that is, tenants that have a credit card associated in the [Dashboard](${manage_url}/#/tenant/billing/payment)), that were created up to August 31st 2017, can search using the `app_metadata` fields.
+Note that [Search v3](/users/search/v3/query-syntax) does not have this restriction.
+:::
+For more information, see the [Metadata Overview](/users/concepts/overview-user-metadata).
+
+### Field name examples
 
 Some examples of query string syntax are:
 
@@ -35,13 +62,13 @@ Some examples of query string syntax are:
 
 * Your query can search across more than one field by using the `AND` & `OR` condition. Where the username field is exactly `"john"` AND the field `nickname` has any non-null value: `username: "john" AND _exists_: nickname`
 
-### Wildcards
+## Wildcards
 
 Wildcard searches can be run on individual terms, using `?` to replace a single character, and `*` to replace zero or more characters: `2016-0?-*`
 
 Note that certain wildcard queries will require an enormous amount of memory and perform poorly. (For example, imagine how many terms need to be queried to match the query string `"a* b* c*"`.)
 
-### Regular expressions
+## Regular expressions
 
 Regular expression patterns can be embedded in the query string by wrapping them in forward-slashes ("/"): `name:/joh?n(ath[oa]n)/`
 
@@ -49,21 +76,23 @@ Regular expression patterns can be embedded in the query string by wrapping them
 A detailed explanation of the supported regular expression syntax is explained on the Elastic's site at [Regular Expression Syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-regexp-query.html#regexp-syntax).
 :::
 
-### Fuzziness
+## Fuzziness
 
 You can search for terms that are similar to, but not exactly like, your search terms using the `~` as a "fuzzy" operator: `oauth~`
 
 This is useful for commonly misspelled fields.
 
-### Proximity searches
+## Proximity searches
 
 While a phrase query (eg `"john smith"`) matches all of the terms in  the exact same order, a proximity query allows the specified words to be further apart or in a different order. In the same way that a fuzzy query can specify a maximum edit distance between characters in a word, a proximity search allows you to specify a maximum distance between words in a phrase: `"fox quick"~5`
 
 The closer the text in a field is to the original order specified in the query string, the more relevant that result is ranked. When compared to the above example query, the phrase `"quick fox"` would be considered more relevant than `"quick brown fox"`.
 
-### Ranges
+## Ranges
 
-Ranges can be specified for date, numeric or string fields. Inclusive ranges are specified with square brackets: `[min TO max]` and exclusive ranges with curly brackets: `{min TO max}`.
+Inclusive ranges are specified with square brackets: `[min TO max]` and exclusive ranges with curly brackets: `{min TO max}`. Curly and square brackets can be combined in the same range expression: `logins_count:[100 TO 200}`.
+
+Ranges can be specified for date, numeric or string fields.
 
 Some examples of range queries are:
 
@@ -107,7 +136,7 @@ To combine an upper and lower bound with the simplified syntax, you need to join
 
 The parsing of ranges in query strings can be complex and error prone. It is more reliable to use an explicit [range query](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-range-query.html).
 
-### Boosting
+## Boosting
 
 Use the boost operator ^ to make one term more relevant than another. For instance, if you want to find all documents about foxes, but are especially interested in quick foxes:
 
@@ -119,7 +148,7 @@ Boosts can also be applied to phrases or groups:
 
 `"john smith"^2   (foo bar)^4`
 
-### Boolean operators
+## Boolean operators
 
 By default, all terms are optional as long as one term matches. A search for `foo bar baz` will find any document that contains one or more of `foo` or `bar` or `baz`.
 
@@ -137,7 +166,7 @@ states that:
 
 The familiar operators `AND`,` OR` and `NOT `(also written `&&`,`||` and `!`) are also supported. However, the effects of these operators can be more complicated than is obvious at first. `NOT` takes precedence over `AND`, which takes precedence over `OR`. While the `+` and `-` only affect the term to the right of the operator, `AND` and `OR` can affect both the terms to the left and to the right.
 
-### Grouping
+## Grouping
 
 Multiple terms or clauses can be grouped together with parentheses to form sub-queries:
 
@@ -147,7 +176,7 @@ Groups can be used to target a particular field, or to boost the result of a sub
 
 `status:(active OR pending) title:(full text search)^2`
 
-### Reserved characters
+## Reserved characters
 
 If you need to use any of the characters which function as operators in the query itself as literal text (not as operators), then you must escape them with a leading backslash. For instance, to search for "(1+1)=2", you would need to write your query as `\(1\+1\)\=2`.
 
@@ -155,7 +184,7 @@ The reserved characters are: `+ - = && || > < ! ( ) { } [ ] ^ " ~ * ? : \ /`
 
 Failing to escape these special characters correctly could lead to a syntax error which will prevent your query from executing correctly.
 
-### Empty Query
+## Empty query
 
 If the query string is empty or contains only whitespaces, the query will yield an empty result set.
 

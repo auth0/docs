@@ -2,13 +2,22 @@
 section: libraries
 title: Logging
 description: Learn how to debug Lock by enabling logging.
+topics:
+  - libraries
+  - lock
+  - ios
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 
 # Lock iOS: Logging
 
 <%= include('../_includes/_lock-version-1') %>
 
-__Lock__ logs several pieces of useful debugging information using [CocoaLumberjack](https://github.com/CocoaLumberjack/CocoaLumberjack).
+<dfn data-key="lock">Lock</dfn> logs several pieces of useful debugging information using [CocoaLumberjack](https://github.com/CocoaLumberjack/CocoaLumberjack).
 
 
 ::: note

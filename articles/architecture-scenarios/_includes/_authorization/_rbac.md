@@ -1,0 +1,1 @@
+Auth0 has out-of-box support for Role Based Access Control ([RBAC](/authorization/concepts/rbac)). RBAC refers to assigning permissions to users based on their _role_ within an organization, and provides for simpler access control by offering a more manageable approach that is less prone to error. 

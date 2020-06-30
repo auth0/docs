@@ -3,6 +3,15 @@ section: libraries
 title: Migrating from Auth0.js v6 to v9
 description: How to migrate from Auth0.js v6 to v9
 toc: true
+topics:
+  - libraries
+  - auth0js
+  - migrations
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - migrate
 ---
 # Migrating from Auth0.js v6 to v9
 

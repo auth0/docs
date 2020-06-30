@@ -2,22 +2,33 @@
 title: Using Rules with the Authorization Extension
 description: How to use information from the extension in rules
 toc: true
+topics:
+  - extensions
+  - authorization_v2
+contentType:
+  - how-to
+  - concept
+useCase: extensibility-extensions
 ---
 
 # Authorization Extension: Rules
 
+::: note
+<%= include('../../../_includes/_rbac_methods') %>
+:::
+
 You can use [rules](/rules) with the Authorization Extension to do things like:
 
-* Add [custom claims](/scopes/current#custom-claims) to the issued token
-* Determining the user's group membership, roles and permissions
+* Add [custom claims](/tokens/concepts/jwt-claims#custom-claims) to the issued token
+* Determining the user's group membership, <dfn data-key="role">roles</dfn> and permissions
 * Storing the user's groups, roles and permissions info as [part of the `app_metadata`](/extensions/authorization-extension/v2/configuration#persistence)
-* Adding the user's groups, roles and permissions to the [outgoing token]((/extensions/authorization-extension/v2/configuration#token-contents)) (which can be requested via the `openid groups permissions roles` scope)
+* Adding the user's groups, roles and permissions to the [outgoing token](/extensions/authorization-extension/v2/configuration#token-contents) (which can be requested via the `openid groups permissions roles` scope)
 
 Because the above logic is part of a rule, it will only be executed in the context of a login. If users are added to or removed from a group, this change will only be reflected in Auth0 after the user's next login.
 
 ## Add Custom Claims to the Issued Token
 
-If you'd like to add custom claims to your tokens, you can do so by creating additional [rule](/rules) that allows the Authorization Extension to do so.
+If you'd like to add custom claims to your tokens, you can do so by creating additional [rule](/rules) that allows the Authorization Extension to do so. Custom claims should be [namespaced](/tokens/guides/create-namespaced-custom-claims).
 
 ::: note
 You should [limit the number of claims](/extensions/authorization-extension/v2/configuration#data-limitations) you add to the token.
@@ -48,7 +59,7 @@ You can also write rules that are executed after the Authorization Extension rul
 
 ### Step 1: Set the Application Metadata's `required_roles`
 
-In this step, you'll set the Application's metadata with it's roles, which are groups of permissions that you've grouped together to create a specific set of functionality. You can think of this step as "tagging" the Application so that the rules you'll set up in the next step know which Application to act on.
+In this step, you'll set the Application's metadata with its roles, which are groups of permissions that you've grouped together to create a specific set of functionality. You can think of this step as "tagging" the Application so that the rules you'll set up in the next step know which Application to act on.
 
 ⁠⁠⁠⁠1. To set the `context.clientMetadata` field with `required_roles`, begin by selecting the application you want to work with [in the dashboard](${manage_url}/#/applications).
 

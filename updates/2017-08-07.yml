@@ -7,4 +7,4 @@ added:
       - api-gatway
       - tutorials
     description: |
-      A [new tutorial](https://auth0.com/docs/integrations/aws-api-gateway) was added on how to secure your API Gateway APIs using custom authorizers that handle Auth0 access tokens.
+      A [new tutorial](https://auth0.com/docs/integrations/aws-api-gateway) was added on how to secure your API Gateway APIs using custom authorizers that handle Auth0 Access Tokens.

@@ -1,5 +1,11 @@
 ---
 description: How to install and configure the Auth0 Logs to Loggly Extension.
+topics:
+  - extensions
+  - loggly
+contentType:
+  - how-to
+useCase: extensibility-extensions
 ---
 # Auth0 Logs to Loggly
 
@@ -28,6 +34,8 @@ You can find the __Global Client ID__ and __Global Client Secret__ information a
 - __Log_Types__: The events for which logs should be exported.
 
 Once you have provided this information, click the *Install* button to finish installing the extension.
+
+<%= include('./_includes/_batch-size') %>
 
 ## Retrieve the required information from Loggly
 

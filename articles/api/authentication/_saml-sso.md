@@ -1,6 +1,6 @@
 # SAML
 
-The SAML protocol is used for 3rd party SaaS applications mostly, like Salesforce and Box. Auth0 supports SP and IDP Initiated Sign On. For more information refer to: [SAML](/protocols/saml).
+The <dfn data-key="security-assertion-markup-language">SAML</dfn> protocol is used for 3rd party SaaS applications mostly, like Salesforce and Box. Auth0 supports SP and IDP Initiated Sign On. For more information, see [SAML](/protocols/saml).
 
 ## Accept Request
 
@@ -25,7 +25,7 @@ include('../../_includes/_http-method', {
   "link": "#accept-request"
 }) %>
 
-Use this endpoint to accept a SAML request to initiate a login.
+Use this endpoint to accept a <dfn data-key="security-assertion-markup-language">SAML</dfn> request to initiate a login.
 
 Optionally, it accepts a connection parameter to login with a specific provider. If no connection is specified, the [Auth0 Login Page](/login_page) will be shown.
 
@@ -46,7 +46,7 @@ Optionally, it accepts a connection parameter to login with a specific provider.
 ### Remarks
 
 - All the parameters of the SAML response can be modified with [Rules](/rules).
-- The SAML request `AssertionConsumerServiceURL` will be used to `POST` back the assertion. It must match the application's `callback_URL`.
+- The SAML request `AssertionConsumerServiceURL` will be used to `POST` back the assertion. It must match the application's <dfn data-key="callback">`callback_URL`</dfn>.
 
 ### More Information
 - [SAML](/protocols/saml)
@@ -71,7 +71,7 @@ include('../../_includes/_http-method', {
   "link": "#get-metadata"
 }) %>
 
-This endpoint returns the SAML 2.0 metadata.
+This endpoint returns the <dfn data-key="security-assertion-markup-language">SAML</dfn> 2.0 metadata.
 
 ### Request Parameters
 
@@ -89,7 +89,7 @@ This endpoint returns the SAML 2.0 metadata.
 - [SAML](/protocols/saml)
 
 
-## IdP-Initiated SSO Flow
+## IdP-Initiated Single Sign-On (SSO) Flow
 
 ```http
 POST https://${account.namespace}/login/callback?connection=CONNECTION
@@ -113,7 +113,7 @@ include('../../_includes/_http-method', {
   "link": "#idp-initiated-sso-flow"
 }) %>
 
-This endpoint accepts an IdP-Initiated Sign On SAMLResponse from a SAML Identity Provider. The connection corresponding to the identity provider is specified in the querystring. The user will be redirected to the application that is specified in the SAML Provider IdP-Initiated Sign On section.
+This endpoint accepts an IdP-Initiated Sign On SAMLResponse from a <dfn data-key="security-assertion-markup-language">SAML</dfn> Identity Provider. The connection corresponding to the identity provider is specified in the querystring. The user will be redirected to the application that is specified in the SAML Provider IdP-Initiated Sign On section.
 
 
 ### Request Parameters
@@ -130,7 +130,7 @@ This endpoint accepts an IdP-Initiated Sign On SAMLResponse from a SAML Identity
 
 1. At the *Configuration* tab, set the field **Application** (select the application you want to use for the test) and **Connection** (the name of the configured identity provider).
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
+1. Copy the <dfn data-key="callback">**Callback URL**</dfn> and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
 
 1. At the *Other Flows* tab, click **SAML**.
 

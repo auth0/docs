@@ -2,6 +2,10 @@
 
 ## Link
 
+::: warning
+This endpoint is **deprecated** for account linking. The [POST /api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) should be used instead. For more information refer to the [Migration Notice](/migrations/past-migrations#account-linking-removal).
+:::
+
 ```http
 GET https://${account.namespace}/authorize?
   response_type=code|token&
@@ -18,13 +22,9 @@ GET https://${account.namespace}/authorize?
   "link": "#link"
 }) %>
 
-::: warning
-This endpoint is **deprecated** for account linking. The [POST /api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) should be used instead. For more information refer to the [Migration Notice](/migrations/past-migrations#account-linking-removal).
-:::
-
 Call this endpoint when a user wants to link a second authentication method (for example, a user/password database connection, with Facebook).
 
-This endpoint will trigger the login flow to link an existing account with a new one. This will return a 302 redirect to the `connection` that the current user wants to add. The user is identified by the `access_token` that was returned on login success.
+This endpoint will trigger the login flow to link an existing account with a new one. This will return a 302 redirect to the `connection` that the current user wants to add. The user is identified by the <dfn data-key="access-token">Access Token</dfn> that was returned on login success.
 
 
 ### Request Parameters
@@ -40,14 +40,14 @@ This endpoint will trigger the login flow to link an existing account with a new
 
 ### Remarks
 
-- The `redirect_uri` value must be specified as a valid callback URL under your [Application's Settings](${manage_url}/#/applications/${account.clientId}/settings).
+- The `redirect_uri` value must be specified as a valid <dfn data-key="callback">callback URL</dfn> under your [Application's Settings](${manage_url}/#/applications).
 
 
 ### More Information
 
-- [Linking Accounts](/link-accounts)
-- [User Initiated Account Linking](/link-accounts/user-initiated-linking)
-- [Account Linking from Server Side Code](/link-accounts/suggested-linking)
+- [Link User Accounts](/users/guides/link-user-accounts)
+- [Link User Accounts Initiated by Users Scenario](/users/references/link-accounts-user-initiated-scenario)
+- [Link User Accounts Server-Side Scenario](/users/references/link-accounts-server-side-scenario)
 
 
 ## Unlink
@@ -56,7 +56,7 @@ This endpoint will trigger the login flow to link an existing account with a new
 POST https://${account.namespace}/login/unlink
 Content-Type: application/json
 {
-  "access_token": "LOGGED_IN_USER_ACCESS_TOKEN", // Primary identity access_token
+  "access_token": "LOGGED_IN_USER_ACCESS_TOKEN", // Primary identity Access Token
   "user_id": "LINKED_USER_ID" // (provider|id)
 }
 ```
@@ -95,7 +95,7 @@ xhr.send(params);
 }) %>
 
 ::: warning
-This endpoint is **deprecated**. The [DELETE /api/v2/users/{id}/identities/{provider}/{user_id}](/api/management/v2#!/Users/delete_provider_by_user_id) should be used instead.
+This endpoint is **deprecated**. The [DELETE /api/v2/users/{id}/identities/{provider}/{user_id}](/api/management/v2#!/Users/delete_user_identity_by_user_id) should be used instead.
 :::
 
 Given a logged-in user's `access_token` and `user_id`, this endpoint will unlink a user's account from the identity provider.
@@ -105,7 +105,7 @@ Given a logged-in user's `access_token` and `user_id`, this endpoint will unlink
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `access_token`<br/><span class="label label-danger">Required</span>   | The logged-in user's `Access Token` |
+| `access_token`<br/><span class="label label-danger">Required</span>   | The logged-in user's <dfn data-key="access-token">Access Token</dfn> |
 | `user_id`<br/><span class="label label-danger">Required</span>        | The logged-in user's `user_id` |
 
 
@@ -116,4 +116,4 @@ Given a logged-in user's `access_token` and `user_id`, this endpoint will unlink
 
 ### More Information
 
-- [Unlinking Accounts](/link-accounts#unlinking-accounts)
+- [Unlink User Accounts](/users/guides/unlink-user-accounts)

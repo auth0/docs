@@ -2,7 +2,7 @@
 
 The deprecated `getSSOData()` function was reimplemented in Auth0.js v9 to simplify migration from older versions, but the behavior is not exactly the same. 
 
-The function will not work as expected when you use it in Web Applications that use the [Authorization Code Flow](/api-auth/grant/authorization-code) (such as when you specify `response_type='code'`). It will always return that there is not a current session.
+The function will not work as expected when you use it in Web Applications that use the [Authorization Code Flow](/flows/concepts/auth-code) (such as when you specify `response_type='code'`). It will always return that there is not a current session.
 
 If you want to avoid showing the Lock dialog when there is an existing session in the server, you can use the [checkSession()](/libraries/auth0js#using-checksession-to-acquire-new-tokens) function in Auth0.js.
 
@@ -21,6 +21,6 @@ If you are going to keep using `getSSOData()`, take into account the changes in 
 | lastUsedClientId | The client id for the last active connection | The last application used when authenticating from the current browsers |
 | lastUsedUserId | The user id for the current session | The same  |
 | lastUsedUsername | User's email or name | The same (requires `scope=’openid profile email’)` |
-| lastUsedConnection | Last used connection and strategy. | Last connection used when authenticated from the current browser. It will be `null` if the user authenticated via [universal login](/hosted-pages/login). It will not return `strategy`, only `name` |
+| lastUsedConnection | Last used connection and strategy. | Last connection used when authenticated from the current browser. It will be `null` if the user authenticated via <dfn data-key="universal-login">Universal Login</dfn>. It will not return `strategy`, only `name` |
 
-In order for the function to work properly, you need to ask for `scope='openid profile email'` when you initialize Auth0.js.
+For the function to work properly, you need to ask for `scope='openid profile email'` when you initialize Auth0.js.

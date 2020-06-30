@@ -1,19 +1,20 @@
 ---
-title: Oracle Eloqua Integration
-description: Learn how to import your Auth0 user data into Eloqua.
+title: Export User Data To Oracle Eloqua
+description: Learn how to export your Auth0 user data and import it into Oracle Eloqua.
 toc: true
+topics:
+    - marketing
+    - eloqua
+    - oracle
+contentType: how-to
+useCase: export-users-marketing
 ---
 
-# Oracle Eloqua Integration
+# Export User Data To Oracle Eloqua
 
-## Import Users to Eloqua
+In this article, you’ll learn how to export user data in Auth0 to a CSV file then import it into Eloqua with the contact upload wizard.
 
-To import your Auth0 users into Eloqua:
-
-- Export your user data as a CSV file with the [User Import / Export Extension](/extensions/user-import-export).
-- Import the file using Oracl Eloqua's contact upload wizard.
-
-### Create a User Data File
+## Create a user data file
 
 Start by navigating to the [Extensions](${manage_url}/#/extensions) section of the Dashboard and open the **User Import / Export Extension**. On the extension page, select **Export** from the menu.
 
@@ -34,7 +35,7 @@ User Field | Column Name
 
 After adding the user fields, click on the **Export Users** button to start the export. Once the export is complete, download the CSV file to use in the following section.
 
-### Import a User Data File
+## Import a user data file
 
 ::: note
 [Oracle Eloqua Help Center: Uploading Contacts](https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAA/index.html#Help/Contacts/Tasks/UploadingContacts.htm)

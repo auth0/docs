@@ -2,6 +2,15 @@
 title: Authentication for Server-side Web Apps
 description: Explains how to authenticate users in a Server-side Web application.
 toc: true
+topics:
+  - oauth2
+  - authentication
+  - server-side-apps
+contentType:
+    - concept
+    - how-to
+useCase:
+  - add-login
 ---
 # Authentication for Server-side Web Apps
 
@@ -13,7 +22,7 @@ You can use the Auth0 Authentication API to create server-side web applications 
 
 ## Overview
 
-Auth0 exposes OAuth 2.0 endpoints for authenticating any user. You can redirect the user from your web application to these endpoints in the web browser. Auth0 will handle the authentication of the user, and then redirect the user back to the `redirect_uri` (also referred to as the Callback URL), returning an `authorization_code` in the query string parameters of the Callback URL. This `authorization_code` can then be exchanged for an `id_token` which contains the identity of the user.
+Auth0 exposes OAuth 2.0 endpoints for authenticating any user. You can redirect the user from your web application to these endpoints in the web browser. Auth0 will handle the authentication of the user, and then redirect the user back to the `redirect_uri` (also referred to as the Callback URL), returning an `authorization_code` in the query string parameters of the Callback URL. This `authorization_code` can then be exchanged for an ID Token which contains the identity of the user.
 
 ## The Authentication Flow
 
@@ -21,9 +30,9 @@ The OAuth 2.0 Authorization Framework allows for different kinds of authorizatio
 
 The Authorization Code flow is initiated by redirecting the user in the web browser to the Auth0 `/authorize` endpoint. Auth0 will then display the Auth0 Lock dialog, allowing the user to enter their credentials or alternatively sign in with any other configured [Identity Provider](/identityproviders).
 
-After the user has authenticated, Auth0 will redirect the browser back to the **Redirect URI** (also called **Callback URL**), passing along an `authorization_code` parameter in the query string of the Callback URL. This code can then be exchanged for an `id_token` by making a request to the `/oauth/token` endpoint.
+After the user has authenticated, Auth0 will redirect the browser back to the **Redirect URI** (also called **Callback URL**), passing along an `authorization_code` parameter in the query string of the Callback URL. This code can then be exchanged for an ID Token by making a request to the `/oauth/token` endpoint.
 
-The `id_token` is a [JSON Web Token (JWT)](/jwt) and contains various attributes - referred to as _Claims_ - regarding the user, such as the user's name, email address, profile picture and so on.. The `id_token` can be decoded to extract the claims and you are free to use these inside of your application, to display a user's name and profile image for example.
+The ID Token is a [JSON Web Token (JWT)](/tokens/concepts/jwts) and contains various attributes - referred to as _Claims_ - regarding the user, such as the user's name, email address, profile picture and so on.. The ID Token can be decoded to extract the claims and you are free to use these inside of your application, to display a user's name and profile image for example.
 
 ![](/media/articles/client-auth/server-side-web/server-side-web-flow.png)
 
@@ -31,7 +40,7 @@ The `id_token` is a [JSON Web Token (JWT)](/jwt) and contains various attributes
 2. The user authenticates.
 3. The Authorization Server redirects to the `redirect_uri` with an `authorization_code` in the query string.
 4. The Application sends the `authorization_code` together with the `redirect_uri` and the Client Id/Client Secret to the Authorization Server.
-5. The Authorization Server validates this information and returns an `id_token`.
+5. The Authorization Server validates this information and returns an ID Token.
 
 ## Register your Application
 
@@ -45,13 +54,13 @@ The **Create Application** window will open, allowing you to enter the name of y
 
 Once the application has been created you can navigate to the **Settings** tab of the application and in the **Allowed Callback URLs** field add a URL where Auth0 must redirect to after the user has authenticated, such as `${account.callback}`.
 
-This URL must be part of your application, as your application will need to retrieve the `code` and exchange it for the `id_token`.
+This URL must be part of your application, as your application will need to retrieve the `code` and exchange it for the ID Token.
 
 ![](/media/articles/client-auth/server-side-web/allowed-callback-url.png)
 
 ## Call the Authorization URL
 
-The URL used when authenticating a user is `https://${account.namespace}/authorize`. This is the initial endpoint to which a user must be redirected. This will handle checking whether any SSO session is active, authenticating the user and also potentially redirect the user directly to any Identity Provider to handle authentication.
+The URL used when authenticating a user is `https://${account.namespace}/authorize`. This is the initial endpoint to which a user must be redirected. This will handle checking whether any <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> [session](/sessions) is active, authenticating the user and also potentially redirect the user directly to any Identity Provider to handle authentication.
 
 This endpoint supports the following query string parameters:
 
@@ -59,7 +68,7 @@ This endpoint supports the following query string parameters:
 |:------------------|:---------|
 | response_type | The response type specifies the Grant Type you want to use. This can be either `code` or `token`. For server-side web applications using the Authorization Code Flow this **must be set** to `code` |
 | client_id | The Client ID of the Application you registered in Auth0. This can be found on the **Settings** tab of your Application in the Auth0 Dashboard |
-| scope | Specifies the claims (or attributes) of the user you want the be returned in the `id_token`. To obtain an `id_token` you need to specify at least a scope of `openid` (if no scope is specified then `openid` is implied). You can also request other scopes, so for example to return the user's name and profile picture you can request a scope of `openid name picture`.<br/><br/>You can read up more about [scopes](/scopes). |
+| scope | Specifies the claims (or attributes) of the user you want the be returned in the ID Token. To obtain an ID Token you need to specify at least a scope of `openid` (if no scope is specified then `openid` is implied). You can also request other scopes, so for example to return the user's name and profile picture you can request a scope of `openid name picture`.<br/><br/>You can read up more about [scopes](/scopes). |
 | redirect_uri | The URL in your application where the user will be redirected to after they have authenticated, such as `${account.callback}`|
 | connection | This is an optional parameter which allows you to force the user to sign in with a specific connection. You can for example pass a value of `github` to send the user directly to GitHub to log in with their GitHub account.<br /><br /> If this parameter is not specified the user will be presented with the normal Auth0 Lock screen from where they can sign in with any of the available connections. You can see the list of configured connections on the **Connections** tab of your application.  |
 | state | The state parameter will be sent back should be used for CSRF and contextual information (like a return url) |
@@ -68,7 +77,7 @@ This endpoint supports the following query string parameters:
   Be sure to add the **redirect_uri** URL to the list of **Allowed Callback URLs** in the **Settings** tab of your Application inside the [Auth0 Dashboard](${manage_url}).
 :::
 
-## Exhange the `access_code` for an `id_token`
+## Exchange the `access_code` for an ID Token
 
 After the user has authenticated, Auth0 will call back to the URL specified in the `redirect_uri` query string parameter which was passed to the `/authorize` endpoint. When calling back to this URL, Auth0 will pass along an `access_token` in the `code` query string parameter of the URL, such as
 
@@ -76,18 +85,39 @@ After the user has authenticated, Auth0 will call back to the URL specified in t
 ${account.callback}?code=2OKj...
 ```
 
-You application will need to handle the request to this callback URL, extract the `access_code` from the `code` query string parameter and call the `/oauth/token` endpoint of the Auth0 Authentication API in order to exchange the `access_code` for the `id_token`:
+You application will need to handle the request to this callback URL, extract the `access_code` from the `code` query string parameter and call the `/oauth/token` endpoint of the Auth0 Authentication API in order to exchange the `access_code` for the ID Token:
 
 ```har
 {
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
   "headers": [
-    { "name": "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
-    "mimeType": "application/json",
-    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"${account.callback}\"}"
+    "mimeType": "application/x-www-form-urlencoded",
+    "params": [
+      {
+        "name": "grant_type",
+        "value": "authorization_code"
+      },
+      {
+        "name": "client_id",
+        "value": "${account.clientId}"
+      },
+      {
+        "name": "client_secret",
+        "value": "YOUR_CLIENT_SECRET"
+      },
+      {
+        "name": "code",
+        "value": "YOUR_AUTHORIZATION_CODE"
+      },
+      {
+        "name": "redirect_uri",
+        "value": "https://${account.callback}"
+      }
+    ]
   }
 }
 ```
@@ -102,15 +132,15 @@ The response from `/oauth/token` contains an `access_token`, `id_token` and `tok
 }
 ```
 
-The `token_type` will be set to **Bearer** and the `id_token` will be a [JSON Web Token (JWT)](/jwt) containing information about the user. You will need to decode the `id_token` in order to read the claims (or attributes) of the user. The [JWT section of our website](/jwt) contains more information about the structure of a JWT.
+The `token_type` will be set to **Bearer** and the `id_token` will be a [JSON Web Token (JWT)](/tokens/concepts/jwts) containing information about the user. You will need to decode the ID Token in order to read the claims (or attributes) of the user. The [JWT section of our website](/tokens/concepts/jwts) contains more information about the structure of a JWT.
 
-You can refer to the [libraries section on the JWT.io website](https://jwt.io/#libraries-io) in order to obtain a library for your programming language of choice which will assist you in decoding the `id_token`.
+You can refer to the [libraries section on the JWT.io website](https://jwt.io/#libraries-io) in order to obtain a library for your programming language of choice which will assist you in decoding the ID Token.
 
-Once the JWT is decoded, you can extract the information about the user from the Payload of the `id_token`. This is a JSON structure and will contain the claims (attributes) about the user as well as some other metadata.
+Once the JWT is decoded, you can extract the information about the user from the Payload of the ID Token. This is a JSON structure and will contain the claims (attributes) about the user as well as some other metadata.
 
-### The `id_token` Payload
+### The ID Token Payload
 
-An example payload for an `id_token` may look something like this:
+An example payload for an ID Token may look something like this:
 
 ```json
 {
@@ -133,12 +163,12 @@ The payload above contains the following claims:
 | email | The email address of the user which is returned from the Identity Provider. |
 | picture | The profile picture of the user which is returned from the Identity Provider. |
 | sub | The unique identifier of the user. This is guaranteed to be unique per user and will be in the format (identity provider)&#124;(unique id in the provider), such as github&#124;1234567890. |
-| iss | The _issuer_. A case-sensitive string or URI that uniquely identiﬁes the party that issued the JWT. For an Auth0 issued `id_token`, this will be **the URL of your Auth0 tenant**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
-| aud | The _audience_. Either a single case-sensitive string or URI or an array of such values that uniquely identify the intended recipients of this JWT. For an Auth0 issued `id_token`, this will be the **Client ID of your Auth0 Application**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
+| iss | The _issuer_. A case-sensitive string or URI that uniquely identiﬁes the party that issued the JWT. For an Auth0 issued ID Token, this will be **the URL of your Auth0 tenant**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
+| aud | The _audience_. Either a single case-sensitive string or URI or an array of such values that uniquely identify the intended recipients of this JWT. For an Auth0 issued ID Token, this will be the **Client ID of your Auth0 Application**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
 | exp | The _expiration time_. A number representing a speciﬁc date and time in the format “seconds since epoch” as [deﬁned by POSIX6](https://en.wikipedia.org/wiki/Unix_time). This claim sets the exact moment from which this **JWT is considered invalid**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
 | iat | The _issued at time_. A number representing a speciﬁc date and time (in the same format as `exp`) at which this **JWT was issued**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
 
-The exact claims contained in the `id_token` will depend on the `scope` parameter you sent to the `/authorize` endpoint. In an `id_token` issued by Auth0, the **registered claims** and the `sub` claim will always be present, but the other claims depends on the `scope`. You can refer to the [examples below](#examples) to see examples of how the scope influences the claims being returned.
+The exact claims contained in the ID Token will depend on the `scope` parameter you sent to the `/authorize` endpoint. In an ID Token issued by Auth0, the **registered claims** and the `sub` claim will always be present, but the other claims depends on the `scope`. You can refer to the [examples below](#examples) to see examples of how the scope influences the claims being returned.
 
 ::: note
 The [JWT.io website](https://jwt.io) has a handy debugger which will allow you to debug any JSON Web Token. This is useful is you quickly want to decode a JWT to see the information contained in the token.
@@ -146,7 +176,7 @@ The [JWT.io website](https://jwt.io) has a handy debugger which will allow you t
 
 ### Keep the user logged in
 
-Auth0 will assist you in authenticating a user, but it is up to you to keep track in your application of whether or not a user is logged in. You can use a cookie or other session storage to keep track of whether a user is logged in or not, and also to store the claims of the user which was extracted from the `id_token`.
+Auth0 will assist you in authenticating a user, but it is up to you to keep track in your application of whether or not a user is logged in. You can use a cookie or other session storage to keep track of whether a user is logged in or not, and also to store the claims of the user which was extracted from the ID Token.
 
 You can then use those claims inside of your application to display the user's information or otherwise personalize the user's experience.
 
@@ -169,7 +199,7 @@ After the user has authenticated, they will be redirected back to the `redirect_
 ${account.callback}?code=2OKj...
 ```
 
-You can then exchange the `access_code` for an `id_token`. This is an example of the decoded payload of the `id_token` which will be returned:
+You can then exchange the `access_code` for an ID Token. This is an example of the decoded payload of the ID Token which will be returned:
 
 ```json
 {
@@ -199,7 +229,7 @@ After the user has authenticated, they will be redirected back to the `redirect_
 ${account.callback}?code=2OKj...
 ```
 
-You can then exchange the `access_code` for an `id_token`. The name and profile picture will be available in the `name` and `picture` claims of the returned `id_token`:
+You can then exchange the `access_code` for an ID Token. The name and profile picture will be available in the `name` and `picture` claims of the returned ID Token:
 
 ```json
 {
@@ -232,7 +262,7 @@ You can just as easily request a user log in with other social providers, like G
 - [Social Login using the Authentication API](/api/authentication#social)
 :::
 
-After the user has authenticated, they will be redirected back to the `redirect_uri` with the `id_token` and `token_type` passed as parameters in the hash fragment:
+After the user has authenticated, they will be redirected back to the `redirect_uri` with the ID Token and `token_type` passed as parameters in the hash fragment:
 
 After the user has authenticated, they will be redirected back to the `redirect_uri` with the `access_code` in the `code` query string parameter:
 
@@ -240,7 +270,7 @@ After the user has authenticated, they will be redirected back to the `redirect_
 ${account.callback}?code=2OKj...
 ```
 
-You can then exchange the `access_code` for an `id_token`. The user's name and profile picture and email address will be available in the `name`, `picture` and `email` claims of the returned `id_token`. You will also notice that the `sub` claim contains the User's unique ID returned from GitHub:
+You can then exchange the `access_code` for an ID Token. The user's name and profile picture and email address will be available in the `name`, `picture` and `email` claims of the returned ID Token. You will also notice that the `sub` claim contains the User's unique ID returned from GitHub:
 
 ```json
 {

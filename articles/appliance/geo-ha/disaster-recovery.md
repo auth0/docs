@@ -1,6 +1,13 @@
 ---
 section: appliance
 description: Descriptions of PSaaS Appliance Geo HA Failure Scenarios and Testing
+topics:
+    - appliance
+    - geo-ha
+contentType: reference
+useCase: appliance
+applianceId: appliance28
+sitemap: false
 ---
 
 <!-- markdownlint-disable MD033 -->
@@ -70,7 +77,7 @@ The following table details some of the ways in which the Geographic High-Availa
         </tr>
         <tr>
             <td>Connection between the Global Load Balancer and the Primary Site Unavailable</td>
-            <td>All requests are routed to the secondary site, but the secondary nodes continue to use data on the primary site</td>
+            <td>All requests are routed to the secondary site, but the secondary nodes continue to use data on the primary site.</td>
             <td>Some performance degradation due to cross-geography data requests.</td>
         </tr>
         <tr>
@@ -95,7 +102,7 @@ The following table details some of the ways in which the Geographic High-Availa
 
 To test the Geographic High-Availability PSaaS Appliance (GEO HA) failover/failback procedure, you should:
 
-1. Take all nodes in the primary data center offline.
+1. Take all nodes in the primary data center offline;
 2. Run tests against the global load balancer to ensure that traffic gets rerouted to the secondary site.
 
 GEO HA does not support having both the primary and secondary sites disconnected and active at the same time. Because the data layer is arranged in one stretched cluster, the cluster only permits one data node to act as primary.
@@ -110,7 +117,7 @@ As a customer, it is your responsibility to perform regular backups on your Geog
 
 Typically, Auth0 recommends performing a daily backup. However, if you have concerns about a logical data corruption, or you need greater assurance of up-to-date data, you might choose to backup more frequently.
 
-Because the backup process puts a substantial load on the backup node, please contact your Auth0 Customer Success Manager to schedule a discussion about performance impact if backups are performed more frequently/during peak usage times.
+Because the backup process puts a substantial load on the backup node, please contact your Auth0 Technical Account Manager to schedule a discussion about performance impact if backups are performed more frequently/during peak usage times.
 
 ## Further Reading
 

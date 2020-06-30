@@ -3,20 +3,17 @@ title: Authorization
 description: This tutorial will show you how to use the Auth0 authentication API in your Android project to create a custom login screen.
 seo_alias: android
 budicon: 500
+topics:
+  - quickstarts
+  - native
+  - android
+github:
+  path: 07-Authorization
+contentType: tutorial
+useCase: quickstart
 ---
 
 This tutorial shows you how to use Auth0 to create access roles for your users. With access roles, you can authorize or deny access to your content to different users based on the level of access they have.
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-android-sample',
-  path: '07-Authorization',
-  requirements: [
-    'Android Studio 2.3',
-    'Android SDK 25',
-    'Emulator - Nexus 5X - Android 6.0'
-  ]
-}) %>
 
 ## Before You Start
 
@@ -24,27 +21,17 @@ This tutorial shows you how to use Auth0 to create access roles for your users. 
 Be sure that you have completed the [Login](/quickstart/native/android/00-login) quickstart.
 :::
 
-Create a rule that assigns the users either an `admin` role, or a simple `user` role. Go to the [new rule page](${manage_url}/#/rules/new) and select the "Set Roles To A User" template, under **Access Control**. Replace the default script contents with the following snippet:
+Create a [Rule](https://auth0.com/docs/rules) that assigns the users either an `admin` role, or a simple `user` role. Go to the [new rule page](${manage_url}/#/rules/new) and select the **Set Roles To A User** template, under **Access Control**. Edit the following lines from the default script to match the conditions that fit your needs:
 
 ```js
-function (user, context, callback) {
+const addRolesToUser = function (user) {
+    const endsWith = '@example.com';
 
-  //Define the name of the claim. Must look like a url:
-  //Have 'http' or 'https' scheme and a hostname other than
-  //'auth0.com', 'webtask.io' and 'webtask.run'.
-  var claimName = 'https://access.control/roles';
-
-  //Check if the email has the 'admin.com' domain and give the 'admin' role.
-  //Otherwise, keep a default 'user' role.
-  var roles = ['user'];
-  if (user.email && user.email.indexOf('@admin.com') > -1) {
-      roles.push('admin');
-  }
-  //Set the role claim in the id_token
-  context.idToken[claimName] = roles;
-
-  callback(null, user, context);
-}
+    if (user.email && (user.email.substring(user.email.length - endsWith.length, user.email.length) === endsWith)) {
+      return ['admin'];
+    }
+    return ['user'];
+};
 ```
 
 The default rules for assigning access roles are:
@@ -52,7 +39,7 @@ The default rules for assigning access roles are:
 * If the email contains anything else, the user gets the regular user role.
 
 ::: note
-The rule can be customized to grant the user different roles other than the ones explained here, depending on the conditions required in a project. There is a restriction on the name of the claims added to the ID Token which must be name-spaced (look like a URL). Read [this article](/rules/current#hello-world) for more context about Rules.
+The rule can be customized to grant the user different roles other than the ones explained here, depending on the conditions required in a project. There is a restriction on the name of the claims added to the ID Token which must be [namespaced](/tokens/guides/create-namespaced-custom-claims). Read [this article](/rules/current#hello-world) for more context about Rules.
 :::
 
 
@@ -66,24 +53,26 @@ The claims added to the ID Token via a Rule are included in the userinfo endpoin
 // app/src/main/java/com/auth0/samples/activities/MainActivity.java
 
 authenticationClient.userInfo(accessToken)
-  .start(new BaseCallback<UserProfile, AuthenticationException>() {
-      @Override
-      public void onSuccess(UserProfile userInfo) {
-        //Obtain the claim from the "extra info" of the user info
-        List<String> roles = userInfo.getExtraInfo().containsKey("https://access.control/roles") ? (List<String>) userInfo.getExtraInfo().get("https://access.control/roles") : Collections.<String>emptyList();
-        
-        if (!roles.contains("admin")) {
-          // User is not authorized
-        } else {
-          // User is authorized  
-        }
-      }
+      .start(new BaseCallback<UserProfile, AuthenticationException>() {
+          @Override
+          public void onSuccess(UserProfile userInfo) {
+              // Obtain the claim from the "extra info" of the user info
+              List<String> roles = userInfo.getExtraInfo().containsKey("https://example.com/roles") ?
+                  (List<String>) userInfo.getExtraInfo().get("https://example.com/roles") :
+                  Collections.<String>emptyList();
 
-      @Override
-      public void onFailure(AuthenticationException error) {
-          // Show error
-      }
-  });
+              if (!roles.contains("admin")) {
+                  // User is not authorized
+              } else {
+                  // User is authorized
+              }
+          }
+
+          @Override
+          public void onFailure(AuthenticationException error) {
+              // Show error
+          }
+      });
 ```
 
 ## Restrict Content Based On Access Level

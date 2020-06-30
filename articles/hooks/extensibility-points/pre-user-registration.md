@@ -1,49 +1,61 @@
 ---
-title: Using the Pre-User Registration Extensibility Point
-description: The pre-user-registration extensibility point for use with Hooks
+title: Pre-User Registration
+description: Learn how hooks can be used with the Pre-User Registration extensibility point, which is available for database connections and passwordless connections.
 toc: true
-beta: true
+topics:
+    - hooks
+    - extensibility-points
+    - pre-user-registration
+contentType:
+  - how-to
+useCase: extensibility-hooks
+v2: true
 ---
 
-# Extensibility Point: Pre-User Registration
+# Pre-User Registration
 
-For [Database Connections](/connections/database), the `pre-user-registration` extensibility point allows you to add custom `app_metadata` or `user_metadata` to a newly-created user.
+At the Pre-User Registration extensibility point, Hooks allow custom actions to be executed when a new user is created. For example, you may add custom `app_metadata` or `user_metadata` to the newly-created user, or even prevent the creation of the user in the database.
 
-This allows you to implement scenarios such as setting conditional [metadata](/metadata) on users that do not exist yet.
+Hooks at this extensibility point are blocking (synchronous), which means they execute as part of the trigger's process and will prevent the rest of the Auth0 pipeline from running until the Hook is complete.
 
-## How to Implement This
+The Pre-User Registration extensibility point is available for [Database Connections](/connections/database) and [Passwordless Connections](/connections/passwordless).
 
-You can implement a [Hook](/hooks#work-with-hooks) using this extensibility point with either the [Dashboard](/hooks/dashboard) or the [Command Line Interface](/hooks/cli). 
+::: note
+The `triggerId` for the Pre-User Registration extensibility point is `pre-user-registration`. To learn how to create Hooks for this extensibility point, see [Create New Hooks](/hooks/create).
+:::
 
-## Starter Code and Parameters
+To learn about other extensibility points, see [Extensibility Points](/hooks/extensibility-points).
 
-After you've created a new Hook that uses the Pre-User Registration extensibility point, you can open up the Hook and edit it using the Webtask Editor embedded in the Dashboard. 
+## Starter code and parameters
 
-The parameters listed in the comment at the top of the code indicate the Auth0 objects (and the parameters within the objects) that can be passed into and used by the Hook's function. For example, the `client` object comes with the following parameters: application name, client ID, the Auth0 tenant name with which the application is associated, and application metadata. 
+When creating a Hook executed at the Pre-User Registration extensibility point, you may find the following starter code helpful. Parameters that can be passed into and used by the Hook function are listed at the top of the code sample.
 
 ```js
 /**
-@param {object} user - The user being created
+@param {object} user - user being created
 @param {string} user.tenant - Auth0 tenant name
-@param {string} user.username - user name
+@param {string} user.username - user's username
 @param {string} user.password - user's password
-@param {string} user.email - email
-@param {boolean} user.emailVerified - is e-mail verified?
-@param {string} user.phoneNumber - phone number
-@param {boolean} user.phoneNumberVerified - is phone number verified?
-@param {object} context - Auth0 connection and other context info
-@param {string} context.requestLanguage - language of the application agent
-@param {object} context.connection - information about the Auth0 connection
-@param {object} context.connection.id - connection id
+@param {string} user.email - user's email
+@param {boolean} user.emailVerified - indicates whether email is verified
+@param {string} user.phoneNumber - user's phone number
+@param {boolean} user.phoneNumberVerified - indicates whether phone number is verified
+@param {object} context - Auth0 context info, such as connection
+@param {string} context.renderLanguage - language of the signup flow
+@param {string} context.request.ip - ip address
+@param {string} context.request.language - language of the application agent
+@param {object} context.connection - connection info
+@param {object} context.connection.id - connection ID
 @param {object} context.connection.name - connection name
 @param {object} context.connection.tenant - connection tenant
-@param {object} context.webtask - webtask context
-@param {function} cb - function (error, response)
+@param {object} context.webtask - Hook (webtask) context
+@param {function} cb - Function (error, response)
 */
+
 module.exports = function (user, context, cb) {
   var response = {};
 
-  // Add user or app metadata to the newly created user
+  // Add user or app metadata to the newly-created user
   // response.user = {
   //   user_metadata: { foo: 'bar' },
   //   app_metadata: { vip: true, score: 7 }
@@ -55,17 +67,30 @@ module.exports = function (user, context, cb) {
 };
 ```
 
-The callback function `cb` at the end of the sample code is used to signal completion and must not be omitted.
+Please note:
 
-### Response
+* The callback function (`cb`) at the end of the sample code signals completion and *must* be included.
 
-The default response object every time the Hook runs is as follows:
+### Default response
+
+When you run a Hook executed at the Pre-User Registration extensibility point, the default response object is:
 
 ```json
 {
   "user": {
-    "user_metadata": "object",
-    "app_metadata": "object",
+    "tenant": "my-tenant",
+    "username": "user1",
+    "password": "xxxxxxx",
+    "email": "user1@foo.com",
+    "emailVerified": false,
+    "phoneNumber": "1-000-000-0000",
+    "phoneNumberVerified": false,
+    "user_metadata": {
+      "hobby": "surfing"
+    },
+    "app_metadata": {
+      "plan": "full"
+    }
   }
 }
 ```
@@ -76,13 +101,17 @@ If you specify `app_metadata` and `user_metadata` in the response object, Auth0 
 Metadata property names must not start with the `$` character or contain the `.` character.
 :::
 
-## Testing Your Hook
-
 ::: note
-Executing the code using the Runner requires a save, which means that your original code will be overwritten.
+Hooks executed at the Pre-User Registration extensibility point do not pass error messages to any Auth0 APIs.
 :::
 
-Once you've modified the sample code with the specific scopes of additional claims you'd like added to your Access Tokens, you can test your Hook using the Runner. The runner simulates a call to the Hook with the appropriate user information body/payload. The following is the sample body that populates the Runner by default (these are the same objects/parameters detailed in the comment at the top of the sample Hook code):
+### Starter code response
+
+Once you've customized the starter code, you can test the Hook using the Runner embedded in the Hook Editor. The Runner simulates a call to the Hook with the appropriate body and response.
+
+<%= include('../_includes/_test_runner_save_warning') %>
+
+When you run a Hook based on the starter code, the response object is:
 
 ```json
 {
@@ -102,7 +131,10 @@ Once you've modified the sample code with the specific scopes of additional clai
     }
   },
   "context": {
-    "requestLanguage": "en-us",
+    "request": {
+        "language": "en-us",
+        "ip": "123.123.123.123"
+    },
     "connection": {
       "id": "con_xxxxxxxxxxxxxxxx",
       "name": "Username-Password-Authentication",
@@ -112,7 +144,9 @@ Once you've modified the sample code with the specific scopes of additional clai
 }
 ```
 
-## Example: Add Metadata to New Users
+## Sample script: Add metadata to new users
+
+In this example, we use a Hook to add metadata to new users upon creation.
 
 ```js
 module.exports = function (user, context, cb) {
@@ -127,7 +161,9 @@ module.exports = function (user, context, cb) {
 };
 ```
 
-Using the [test runner](https://webtask.io/docs/editor/runner), we see that the response, reflecting the updated metadata, is as follows:
+### Response
+
+When we run this Hook, the response object is:
 
 ```json
 {
@@ -143,6 +179,27 @@ Using the [test runner](https://webtask.io/docs/editor/runner), we see that the 
 }
 ```
 
-::: note
-The Pre-Registration Hook does not currently pass error messages to any Auth0 APIs.
-:::
+## Sample script: Customize the error message and language for user messages
+
+In this example, we use a Hook to prevent a user from registering, then return a custom error message in our tenant logs and show a custom, translated error message to the user when they are denied. To return the user message and use the translation functionality, your tenant must be configured to use the [Universal Login - New Experience](/universal-login/new).
+
+```js
+module.exports = function (user, context, cb) {
+  const isUserDenied = ...; // determine if a user should be allowed to register
+
+  if (isUserDenied) {
+    const LOCALIZED_MESSAGES = {
+      en: 'You are not allowed to register.',
+      es: 'No tienes permitido registrarte.'
+    };
+
+    const localizedMessage = LOCALIZED_MESSAGES[context.renderLanguage] || LOCALIZED_MESSAGES['en'];
+    return cb(new PreUserRegistrationError('Denied user registration in Pre-User Registration Hook', localizedMessage));
+  }
+};
+```
+
+Please note:
+* The custom `PreUserRegistrationError` class allows you to control the message seen by the user who is attempting to register.
+* The first parameter passed to `PreUserRegistrationError` controls the error message that appears in your tenant logs.
+* The second parameter controls the error message seen by the user who is attempting to register. In this example, the `context.renderLanguage` parameter generates a user-facing message in the appropriate language for the user. You can use these parameters only if your tenant is configured to use the [Universal Login - New Experience](/universal-login/new).

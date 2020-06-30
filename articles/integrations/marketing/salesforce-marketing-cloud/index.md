@@ -1,19 +1,20 @@
 ---
-title: Salesforce Marketing Cloud Integration
-description: Learn how to import your Auth0 user data into Salesforce Marketing Cloud.
+title: Export User Data To Salesforce Marketing Cloud
+description: Learn how to export your Auth0 user data and import it into Salesforce Marketing Cloud.
 toc: true
+topics:
+    - marketing
+    - salesforce
+    - marketing-cloud
+contentType: how-to
+useCase: export-users-marketing
 ---
 
-# Salesforce Marketing Cloud Integration
+# Export User Data To Salesforce Marketing Cloud
 
-## Import Users to Salesforce Marketing Cloud
+In this article, you’ll learn how to export user data in Auth0 to a CSV file then import it into Salesforce Marketing Cloud using [Email Studio](https://help.salesforce.com/articleView?id=mc_es_get_started_with_email_studio.htm&type=5).
 
-To import your Auth0 users into Salesforce Marketing Cloud:
-
-- Export your user data as a CSV file with the [User Import / Export Extension](/extensions/user-import-export).
-- Import the file into Salesforce Marketing Cloud using [Email Studio](https://help.marketingcloud.com/en/documentation/exacttarget/getting_started/).
-
-### Create a User Data File
+## Create a user data file
 
 Start by navigating to the [Extensions](${manage_url}/#/extensions) section of the Dashboard and open the **User Import / Export Extension**. On the extension page, select **Export** from the menu.
 
@@ -34,7 +35,7 @@ User Field | Column Name
 
 After adding the user fields, click on the **Export Users** button to start the export. Once the export is complete, download the CSV file to use in the following section.
 
-### Import a User Data File
+## Import a user data file
 
 ::: note
 [Email Studio: Import Subscribers](https://help.marketingcloud.com/en/documentation/exacttarget/subscribers/subscribers_for_interactive_marketing_hub/imports/importing_subscribers/)

@@ -1,22 +1,28 @@
 ---
-  description: How to configure Auth0 for use as a SAML identity provider
+description: How to configure Auth0 for use as a SAML identity provider
+topics:
+  - saml
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
 # Configure Auth0 as an Identity Provider
 
 ::: warning
-Auth0 only supports using Auth0 as the identity provider in SAML configurations with **SAML 2.0**.
+Auth0 only supports using Auth0 as the identity provider in <dfn data-key="security-assertion-markup-language">SAML</dfn> configurations with **SAML 2.0**.
 :::
 
 Depending on the type of application you're working with, configuring Auth0 to serve as the SAML Identity Provider (IdP) is done in several places.
 
-## SSO Integrations with Built-in Auth0 Support
+## Single Sign-on Integrations with Built-in Auth0 Support
 
-For some SSO Integrations that support SAML, the configuring Auth0 is done using the [**SSO Integrations** area of the Management Dashboard](${manage_url}/#/externalapps). To create a new integration, click **Create SSO Integration**.
+For some <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> Integrations that support SAML, the configuring Auth0 is done using the [**SSO Integrations** area of the Management Dashboard](${manage_url}/#/externalapps). To create a new integration, click **Create SSO Integration**.
 
 ![](/media/articles/protocols/saml/saml-configuration/sso-integrations.png)
 
- On the *New Single Sign On Integration* page, select the integration in which you're interested. Currently, your options are as follows:
+ On the *New Single Sign-On Integration* page, select the integration in which you're interested. Currently, your options are as follows:
 
 * Active Directory
 * Box
@@ -28,7 +34,7 @@ For some SSO Integrations that support SAML, the configuring Auth0 is done using
 * Egnyte
 * New Relic
 * Office 365
-* SalesForce
+* Salesforce
 * SharePoint
 * Slack
 * SpringCM

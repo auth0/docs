@@ -11,18 +11,42 @@ author:
   email: martin.walsh@auth0.com
   community: false
 image: /media/platforms/ios.png
-tags:
+topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 seo_alias: swift
 snippets:
   setup: native-platforms/ios-swift/setup
   use: native-platforms/ios-swift/use
-default_article: dashboard-default
+default_article: 00-login
 articles:
-  - getting-started
   - 00-login
   - 03-user-sessions
   - 04-calling-apis
   - 05-authorization
   - 07-linking-accounts
   - 08-touch-id-authentication
+next_steps:
+  - path: 09-sign-in-with-apple
+    list:
+    - text: Configure other identity providers
+      icon: 345
+      href: "/identityproviders"
+    - text: Enable multifactor authentication
+      icon: 345
+      href: "/multifactor-authentication"
+    - text: Learn about anomaly detection
+      icon: 345
+      href: "/anomaly-detection"
+    - text: Learn about rules
+      icon: 345
+      href: "/rules"
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-ios-swift-sample
+requirements:
+  - CocoaPods 1.6 (Beta)
+  - Xcode 10.1
+  - iOS 9+

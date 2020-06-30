@@ -2,18 +2,18 @@
 
 To begin an OAuth 2.0 Authorization flow, your application should first send the user to the authorization URL.
 
-The purpose of this call is to obtain consent from the user to invoke the API (specified in `audience`) and do certain things (specified in `scope`) on behalf of the user. Auth0 will authenticate the user and obtain consent, unless consent has been previously given. If you alter the value in `scope`, Auth0 will require consent to be given again.
+The purpose of this call is to obtain consent from the user to invoke the API (specified in <dfn data-key="audience">`audience`</dfn>) and do certain things (specified in <dfn data-key="scope">`scope`</dfn>) on behalf of the user. Auth0 will authenticate the user and obtain consent, unless consent has been previously given. If you alter the value in `scope`, Auth0 will require consent to be given again.
 
 The OAuth 2.0 flows that require user authorization are:
-- [Authorization Code Grant](/api-auth/grant/authorization-code)
-- [Authorization Code Grant using Proof Key for Code Exchange (PKCE)](/api-auth/grant/authorization-code-pkce)
-- [Implicit Grant](/api-auth/grant/implicit)
+- [Authorization Code Flow](/flows/concepts/auth-code)
+- [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce)
+- [Implicit Flow](/flows/concepts/implicit)
 
-On the other hand, the [Resource Owner Password Grant](/api-auth/grant/password) and [Client Credentials](/api-auth/grant/client-credentials) flows do not use this endpoint since there is no user authorization involved. Instead they invoke directly the `POST /oauth/token` endpoint to retrieve an Access Token.
+On the other hand, the [Resource Owner Password Grant](/api-auth/grant/password) and [Client Credentials Flow](/flows/concepts/client-credentials) do not use this endpoint since there is no user authorization involved. Instead, they directly invoke the `POST /oauth/token` endpoint to retrieve an <dfn data-key="access-token">Access Token</dfn>.
 
-Based on the OAuth 2.0 flow you are implementing, the parameters slightly change. To determine which flow is best suited for your case refer to: [Which OAuth 2.0 flow should I use?](/api-auth/which-oauth-flow-to-use).
+Based on the OAuth 2.0 flow you are implementing, the parameters slightly change. To determine which flow is best suited for your case, refer to: [Which OAuth 2.0 flow should I use?](/api-auth/which-oauth-flow-to-use).
 
-## Authorization Code Grant
+## Authorization Code Flow
 
 ```http
 GET https://${account.namespace}/authorize?
@@ -46,11 +46,12 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 | Parameter        | Description |
 |:-----------------|:------------|
 | `audience` <br/> | The unique identifier of the target API you want to access. |
-| `scope` | The scopes which you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims), or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a Refresh Token. |
+| `scope` | The <dfn data-key="scope">scopes</dfn> which you want to request authorization for. These must be separated by a space. You can request any of the [standard OpenID Connect (OIDC) scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must [conform to a namespaced format](/tokens/guides/create-namespaced-custom-claims), or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a <dfn data-key="refresh-token">Refresh Token</dfn>. |
 | `response_type` <br/><span class="label label-danger">Required</span> | Indicates to Auth0 which OAuth 2.0 flow you want to perform. Use `code` for Authorization Code Grant Flow. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's ID. |
 | `state` <br/><span class="label label-primary">Recommended</span> | An opaque value the application adds to the initial request that Auth0 includes when redirecting the back to the application. This value must be used by the application to prevent CSRF attacks. |
 | `redirect_uri` | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
+| `connection` | The name of the connection configured to your application. |
 | `prompt` | To initiate a [silent authentication](/api-auth/tutorials/silent-authentication) request, use `prompt=none` (see Remarks for more info). |
 
 ### Test with Authentication API Debugger
@@ -59,7 +60,7 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 
 1. At the *Configuration* tab, set the **Client** field to the application you want to use for the test.
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
+1. Copy the <dfn data-key="callback">**Callback URL**</dfn> and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
 
 1. At the *OAuth2 / OIDC* tab, set the fields **Audience** (to the unique identifier of the API you want to access), **Response Type** (set to `code`) and enable the **Audience** switch.
 
@@ -67,20 +68,20 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 
 ### Remarks
 
-- In order to improve compatibility for applications, Auth0 will now return profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that in order to add custom claims to ID Tokens or Access Tokens, they must conform to a namespaced format to avoid possible collisions with standard OIDC claims. For example, if you choose the namespace `https://foo.com/` and you want to add a custom claim named `myclaim`, you would name the claim `https://foo.com/myclaim`, instead of `myclaim`.
+- In order to improve compatibility for applications, Auth0 will now return profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that in order to add custom claims to ID Tokens or Access Tokens, they must [conform to a namespaced format](/tokens/guides/create-namespaced-custom-claims) to avoid possible collisions with standard OIDC claims.
 - Include `offline_access` to the `scope` request parameter to get a Refresh Token from [POST /oauth/token](#authorization-code). Make sure that the **Allow Offline Access** field is enabled in the [API Settings](${manage_url}/#/apis).
-- The `redirect_uri` value must be specified as a valid callback URL under your [Application's Settings](${manage_url}/#/applications/${account.clientId}/settings).
-- Silent authentication lets you perform an authentication flow where Auth0 will only reply with redirects, and never with a login page. When an Access Token has expired, silent authentication can be used to retrieve a new one without user interaction, assuming the user's SSO session has not expired.
+- The `redirect_uri` value must be specified as a valid callback URL under your [Application's Settings](${manage_url}/#/applications).
+- Silent authentication lets you perform an authentication flow where Auth0 will only reply with redirects, and never with a login page. When an Access Token has expired, silent authentication can be used to retrieve a new one without user interaction, assuming the user's <dfn data-key="single-sign-on">Single Sign-on</dfn> session has not expired.
 
 ### More Information
 
-- [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code)
-- [Executing an Authorization Code Grant Flow](/api-auth/tutorials/authorization-code-grant)
-- [Using the State Parameter](/protocols/oauth2/oauth-state)
+- [Authorization Code Flow](/flows/concepts/auth-code)
+- [Call API Using the Authorization Code Flow](/flows/guides/auth-code/call-api-auth-code)
+- [State Parameter](/protocols/oauth2/oauth-state)
 - [Silent Authentication](/api-auth/tutorials/silent-authentication)
 
 
-## Authorization Code Grant (PKCE)
+## Authorization Code Flow with PKCE
 
 ```http
 GET https://${account.namespace}/authorize?
@@ -115,13 +116,14 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 | Parameter        | Description |
 |:-----------------|:------------|
 | `audience` <br/> | The unique identifier of the target API you want to access. |
-| `scope` | The scopes which you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format, or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a Refresh Token. |
+| `scope` | The <dfn data-key="scope">scopes</dfn> which you want to request authorization for. These must be separated by a space. You can request any of the [standard OpenID Connect (OIDC) scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must [conform to a namespaced format](/tokens/guides/create-namespaced-custom-claims), or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a <dfn data-key="refresh-token">Refresh Token</dfn>. |
 | `response_type` <br/><span class="label label-danger">Required</span> | Indicates to Auth0 which OAuth 2.0 Flow you want to perform. Use `code` for Authorization Code Grant (PKCE) Flow. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
 | `state` <br/><span class="label label-primary">Recommended</span> | An opaque value the clients adds to the initial request that Auth0 includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
 | `redirect_uri` | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
 | `code_challenge_method` <br/><span class="label label-danger">Required</span> | Method used to generate the challenge. The PKCE spec defines two methods, `S256` and `plain`, however, Auth0 supports only `S256` since the latter is discouraged. |
 | `code_challenge` <br/><span class="label label-danger">Required</span> | Generated challenge from the `code_verifier`. |
+| `connection` | The name of the connection configured to your application. |
 | `prompt` | To initiate a [silent authentication](/api-auth/tutorials/silent-authentication) request, use `prompt=none` (see Remarks for more info). |
 
 
@@ -131,29 +133,29 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 
 1. At the *Configuration* tab, set the **Application** field to the app you want to use for the test.
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
+1. Copy the <dfn data-key="callback">**Callback URL**</dfn> and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
 
 1. At the *OAuth2 / OIDC* tab, set the fields **Audience** (to the unique identifier of the API you want to access), **Response Type** (set to `code`) and enable the **Audience** and **PKCE** switches.
 
-1. Click **OAuth / OIDC Login**. Following the redirect, the URL will contain the authorization code. Note, that the code will be set at the **Authorization Code** field, and the **Code Verifier** will be automatically set as well, so you can proceed with exchanging the code for an Access Token.
+1. Click **OAuth / OIDC Login**. Following the redirect, the URL will contain the authorization code. Note, that the code will be set at the **Authorization Code** field, and the **Code Verifier** will be automatically set as well, so you can proceed with exchanging the code for an <dfn data-key="access-token">Access Token</dfn>.
 
 
 ### Remarks
 
-- In order to improve compatibility for applications, Auth0 will now return profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that in order to add custom claims to ID Tokens or Access Tokens, they must conform to a namespaced format to avoid possible collisions with standard OIDC claims. For example, if you choose the namespace `https://foo.com/` and you want to add a custom claim named `myclaim`, you would name the claim `https://foo.com/myclaim`, instead of `myclaim`.
+- In order to improve compatibility for applications, Auth0 will now return profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that in order to add custom claims to ID Tokens or Access Tokens, they must [conform to a namespaced format](/tokens/guides/create-namespaced-custom-claims) to avoid possible collisions with standard OIDC claims.
 - Include `offline_access` to the `scope` request parameter to get a Refresh Token from [POST /oauth/token](#authorization-code-pkce-). Make sure that the **Allow Offline Access** field is enabled in the [API Settings](${manage_url}/#/apis).
-- The `redirect_uri` value must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/applications/${account.clientId}/settings).
-- Silent authentication lets you perform an authentication flow where Auth0 will only reply with redirects, and never with a login page. When an Access Token has expired, silent authentication can be used to retrieve a new one without user interaction, assuming the user's SSO session has not expired.
+- The `redirect_uri` value must be specified as a valid callback URL under your [Application's Settings](${manage_url}/#/applications).
+- Silent authentication lets you perform an authentication flow where Auth0 will only reply with redirects, and never with a login page. When an Access Token has expired, silent authentication can be used to retrieve a new one without user interaction, assuming the user's <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> session has not expired.
 
 
 ### More Information
 
-- [Calling APIs from Mobile Apps](/api-auth/grant/authorization-code-pkce)
-- [Executing an Authorization Code Grant Flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce)
+- [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce)
+- [Call API Using the Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/call-api-auth-code-pkce)
 - [Silent Authentication](/api-auth/tutorials/silent-authentication)
 
 
-## Implicit Grant
+## Implicit Flow
 
 ```http
 GET https://${account.namespace}/authorize?
@@ -188,8 +190,8 @@ This is the OAuth 2.0 grant that web apps utilize in order to access an API.
 | Parameter        | Description |
 |:-----------------|:------------|
 | `audience` <br/> | The unique identifier of the target API you want to access. |
-| `scope` | The scopes which you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format, or any scopes supported by the target API (for example, `read:contacts`). |
-| `response_type` <br/><span class="label label-danger">Required</span> | This will specify the type of token you will receive at the end of the flow. Use `token` to get only an `access_token`, `id_token` to get only an `id_token` (if you don't plan on accessing an API), or `id_token token` to get both an `id_token` and an `access_token`. |
+| `scope` | The <dfn data-key="scope">scopes</dfn> which you want to request authorization for. These must be separated by a space. You can request any of the [standard OpenID Connect (OIDC) scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must [conform to a namespaced format](/tokens/guides/create-namespaced-custom-claims), or any scopes supported by the target API (for example, `read:contacts`). |
+| `response_type` <br/><span class="label label-danger">Required</span> | This will specify the type of token you will receive at the end of the flow. Use `token` to get only an <dfn data-key="access-token">Access Token</dfn>, `id_token` to get only an ID Token (if you don't plan on accessing an API), or `id_token token` to get both an ID Token and an Access Token. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's ID. |
 | `state` <br/><span class="label label-primary">Recommended</span> | An opaque value the application adds to the initial request that Auth0 includes when redirecting the back to the application. This value must be used by the application to prevent CSRF attacks. |
 | `redirect_uri` | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
@@ -204,7 +206,7 @@ This is the OAuth 2.0 grant that web apps utilize in order to access an API.
 
 1. At the *Configuration* tab, set the **Application** field to the app you want to use for the test.
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [application Settings](${manage_url}/#/applications/${account.clientId}/settings).
+1. Copy the <dfn data-key="callback">**Callback URL**</dfn> and set it as part of the **Allowed Callback URLs** of your [application Settings](${manage_url}/#/applications).
 
 1. At the *OAuth2 / OIDC* tab, set the fields **Audience** (to the unique identifier of the API you want to access), **Response Type** (set to `token`) and enable the **Audience** switch.
 
@@ -213,16 +215,15 @@ This is the OAuth 2.0 grant that web apps utilize in order to access an API.
 
 ### Remarks
 
-- The `redirect_uri` value must be specified as a valid callback URL under your [Application's Settings](${manage_url}/#/applications/${account.clientId}/settings).
-- If `response_type=token`, after the user authenticates with the provider, this will redirect them to your application callback URL while passing the `access_token` in the address `location.hash`. This is used for Single Page Apps and on Native Mobile SDKs.
+- The `redirect_uri` value must be specified as a valid callback URL under your [Application's Settings](${manage_url}/#/applications).
+- If `response_type=token`, after the user authenticates with the provider, this will redirect them to your application callback URL while passing the `access_token` in the address `location.hash`. This is used for Single-Page Apps and on Native Mobile SDKs.
 - The Implicit Grant does not support the issuance of Refresh Tokens. You can use [Silent Authentication](/api-auth/tutorials/silent-authentication) instead.
-- In order to improve compatibility for applications, Auth0 will now return profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that in order to add custom claims to ID Tokens or Access Tokens, they must conform to a namespaced format to avoid possible collisions with standard OIDC claims. For example, if you choose the namespace `https://foo.com/` and you want to add a custom claim named `myclaim`, you would name the claim `https://foo.com/myclaim`, instead of `myclaim`.
-- Silent authentication lets you perform an authentication flow where Auth0 will only reply with redirects, and never with a login page. When an Access Token has expired, silent authentication can be used to retrieve a new one without user interaction, assuming the user's SSO session has not expired.
+- In order to improve compatibility for applications, Auth0 will now return profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that in order to add custom claims to ID Tokens or Access Tokens, they must [conform to a namespaced format](/tokens/guides/create-namespaced-custom-claims) to avoid possible collisions with standard OIDC claims.
+- Silent authentication lets you perform an authentication flow where Auth0 will only reply with redirects, and never with a login page. When an Access Token has expired, silent authentication can be used to retrieve a new one without user interaction, assuming the user's <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> session has not expired.
 
 ### More Information
 
-- [Calling APIs from Client-side Web Apps](/api-auth/grant/implicit)
-- [Executing the Implicit Grant Flow](/api-auth/tutorials/implicit-grant)
-- [Using the State Parameter](/protocols/oauth2/oauth-state)
+- [Implicit Flow](/flows/concepts/implicit)
+- [State Parameter](/protocols/oauth2/oauth-state)
 - [Mitigate replay attacks when using the Implicit Grant](/api-auth/tutorials/nonce)
 - [Silent Authentication](/api-auth/tutorials/silent-authentication)

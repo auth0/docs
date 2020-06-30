@@ -2,10 +2,16 @@
 title: Auth0 as Identity Provider
 description: How to configure Auth0 to serve as an Identity Provider in a SAML federation.
 toc: true
+topics:
+  - saml
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 # Auth0 as Identity Provider
 
-These instructions explain how to configure Auth0 to serve as an Identity Provider in a SAML federation.
+These instructions explain how to configure Auth0 to serve as an Identity Provider in a <dfn data-key="security-assertion-markup-language">SAML</dfn> federation.
 
 ## 1. Obtain Information from the Service Provider
 
@@ -16,19 +22,19 @@ You will need to obtain from the Service Provider (application) the URL to which
 In this section you will configure Auth0 to serve as an Identity Provider. You will do this by registering an application and using an addon.
 
 1. Go to [Dashboard > Applications](${manage_url}/#/applications).
-1. Click the **+ CREATE CLIENT** button on the right.
-1. In the **Name** field, enter a name like `MySAMLApp`, and select the [application type](/applications/application-settings).
+1. Click the **+ CREATE APPLICATION** button on the right.
+1. In the **Name** field, enter a name like `MySAMLApp`, and select the [application type](/applications).
 1. Click **SAVE**.
 1. Go back to [Dashboard > Applications](${manage_url}/#/applications).
 1. Find the row for the application you just created, and click on the **Settings** icon to the right of the application name. (the round gear icon)
 1. Scroll down and click on the **Advanced Settings** link.
-1. In the expanded window, scroll down to the **CERTIFICATES** section and click on the **DOWNLOAD CERTIFICATES** button.  In the popup which appears, select `PEM` to select a PEM-formatted certificate.  The certificate will be downloaded to a file called `${account.tenant}.pem`.  Save this file as you will need to upload it when you configure the Service Provider.
+1. In the expanded window, select the **Certificates** tab and click on the **DOWNLOAD CERTIFICATE** button.  In the popup which appears, select `PEM` to select a PEM-formatted certificate.  The certificate will be downloaded to a file called `${account.tenant}.pem`.  Save this file as you will need to upload it when you configure the Service Provider.
     ![Download Certificate](/media/articles/saml/saml-idp-generic/saml-idp-generic1.png)
-1. Scroll down further to the **ENDPOINTS** section and click on **SAML**.  Copy the contents of the **SAML Protocol URL** field and save it as you will need to provide it to the Service Provider.
+1. Select the **Endpoints** tab and scroll down to **SAML**.  Copy the contents of the **SAML Protocol URL** field and save it as you will need to provide it to the Service Provider.
     ![SAML Protocol URL](/media/articles/saml/saml-idp-generic/saml-idp-generic2.png)
 1. Scroll back up and click on the **Addons** tab.  Then click on **SAML2 WEB APP**.
     ![SAML2 WEB APP](/media/articles/saml/saml-idp-generic/saml-idp-generic3.png)
-1. In the **Application Callback URL** field, enter the URL of the Service Provider (or application) to which the SAML assertions should be sent after Auth0 has authenticated the user.  
+1. In the **Application Callback URL** field, enter the URL of the Service Provider (or application) to which the SAML assertions should be sent after Auth0 has authenticated the user. This is the Assertion Consumer Service (ACS) URL. If your Service Provider is sending multiple ACS URLs in the SAML Request, you will need to whitelist them by adding them to the Application's **Allowed Callback URLs** setting in Application Settings.
     ![Application Callback URL](/media/articles/saml/saml-idp-generic/saml-idp-generic4.png)
 1.  In the Addon SAML2 Web App popup, click on the **Usage** tab.  This tab will provide you with the information needed to configure the Service Provider application.
     ![Usage](/media/articles/saml/saml-idp-generic/saml-idp-generic5.png)
@@ -67,7 +73,7 @@ This section has a few ideas for things to check if your sample doesn't work.
 
 - If your application doesn't work the first time, you should clear your browser history and ideally cookies each time before you test again. Otherwise, the browser may not be picking up the latest version of your html page or it may have stale cookies that impact execution.
 
-- When troubleshooting SSO, it is often helpful to capture an HTTP trace of the interaction. There are many tools that will capture the HTTP traffic from your browser for analysis.  Search for `HTTP Trace` to find some. Once you have an http trace tool, capture the login sequence from start to finish and analyze the trace to see the sequence of GETs to see how far in the expected sequence you get. You should see a redirect from the Service Provider to the Identity Provider, a post of credentials if you had to log in, and then a redirect back to the callback URL or the Service Provider application.
+- When troubleshooting <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn>, it is often helpful to capture an HTTP trace of the interaction. There are many tools that will capture the HTTP traffic from your browser for analysis.  Search for `HTTP Trace` to find some. Once you have an http trace tool, capture the login sequence from start to finish and analyze the trace to see the sequence of GETs to see how far in the expected sequence you get. You should see a redirect from the Service Provider to the Identity Provider, a post of credentials if you had to log in, and then a redirect back to the callback URL or the Service Provider application.
 
 - Make sure cookies and javascript are enabled for your browser.
 

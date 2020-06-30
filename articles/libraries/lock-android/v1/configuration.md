@@ -2,6 +2,15 @@
 toc: true
 title: Lock for Android v1 Configuration
 description: Configuration options and methods for Lock for Android v1
+topics:
+  - libraries
+  - lock
+  - android
+contentType:
+  - reference
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Lock Android: Configuration
 
@@ -193,7 +202,7 @@ After a successful sign up of a user, sign him/her in too.
 public Builder authenticationParameters(Map<String, Object> parameters);
 ```
 
-Extra parameters sent to Auth0 Auth API during authentication. By default it has `scope` defined as `openid offline_access` and a device name stored in `device` parameter key.  For more information check out our [documentation on sending authentication parameters](/libraries/lock-android/v1/sending-authentication-parameters)
+Extra parameters sent to Auth0 Auth API during authentication. By default it has <dfn data-key="scope">`scope`</dfn> defined as `openid offline_access` and a device name stored in `device` parameter key.  For more information check out our [documentation on sending authentication parameters](/libraries/lock-android/v1/sending-authentication-parameters)
 
 ```java
 public Builder useEmail(boolean useEmail);

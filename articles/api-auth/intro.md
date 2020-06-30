@@ -1,23 +1,29 @@
 ---
-title: Introducing OIDC Conformant Authentication
 description: An overview of the OIDC Conformant authentication flows, why these changes were made and how you can adopt them.
 toc: true
+topics:
+  - api-authentication
+  - oidc
+contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
-# Introducing OIDC Conformant Authentication
+# OIDC-Conformant Authentication Overview
 
 **Released Date**: May 10, 2017
 
-As part of our efforts to improve security and standards-based interoperability, we have implemented several new features in our authentication flows and made changes to existing ones. This document presents an overview of these changes, explain why they were made and point you to other detailed tutorials to help you adopt these changes.
+As part of our efforts to improve security and standards-based interoperability, we have implemented several new features in our authentication flows and made changes to existing ones. This document presents an overview of these changes, explains why they were made and points you to other detailed tutorials to help you adopt these changes.
 
-We will start by reviewing the [new features](#what-s-new), continue with [what changed](#what-is-changing) and how you can [distinguish which authentication flow is used](#how-to-use-the-new-flows) (the latest or the legacy). Towards the end of this doc, you can find a [summarizing table](#legacy-vs-new) and [links for further reading](#keep-reading).
+We will start by reviewing the [new features](#what-s-new), and then continue with [what changed](#what-is-changing) and how you can [distinguish which authentication flow is used](#how-to-use-the-new-flows) (the latest or the legacy). Towards the end of this doc, you can find a [summarizing table](#legacy-vs-new) and [links for further reading](#keep-reading).
 
 ## What should I read?
 
 If you are new to Auth0, go through the [What’s New](#what-s-new) section of this doc. There you can find all the cool new features we introduced, like the ability to create APIs, call them from services, or enable external parties or partners to access protected resources at your API in a secure way. Then head off to the [How to use the new flows](#how-to-use-the-new-flows) section and make sure that your new implementation follows our latest, and more secure, authentication pipeline.
 
-If you are already using Auth0 in your app, you should read the complete doc. We have taken great care to make sure that we do not break our existing customers with this new OIDC conformant implementation, however you should be aware of all changes and new features, and how you can use them (or avoid doing so). It goes without saying that we strongly encourage you to adopt this authentication pipeline, to improve your app’s security.
+If you are already using Auth0 in your app, you should read the complete doc. We have taken great care to make sure that we do not break our existing customers with this new OIDC conformant implementation. However, you should be aware of all changes and new features, and how you can use them (or avoid doing so). It goes without saying that we strongly encourage you to adopt this authentication pipeline, to improve your app’s security.
 
-If you using Auth0 as a [SAML or WS-Federation identity provider](/protocols/saml/saml-idp-generic) to your application (that is, you're not using OIDC/OAuth), then you do not need to make any changes.
+If you are using Auth0 as a [SAML or WS-Federation identity provider](/protocols/saml/saml-idp-generic) for your application (that is, you're not using OIDC/OAuth), then you do not need to make any changes.
 
 ## What's New
 
@@ -37,27 +43,27 @@ For more information on APIs, their role in OAuth and how to configure an API in
 
 Up until recently we were treating every application as first-party application. This means that all applications were considered trusted. Now you have the option to define an application as either first-party or third-party.
 
-Third-party applications, are applications that are controlled by different people or organizations who most likely should not have administrative access to your Auth0 domain. They enable external parties or partners to access protected resources at your API in a secure way. A practical application of third-party applications is the creation of "developer centers", which allow users to obtain credentials in order to integrate their applications with your API. Similar functionality is provided by well-known APIs such as Facebook, Twitter, Github, and many others.
+Third-party applications are applications that are controlled by different people or organizations who most likely should not have administrative access to your Auth0 domain. They enable external parties or partners to access protected resources at your API in a secure way. A practical application of third-party applications is the creation of "developer centers", which allow users to obtain credentials in order to integrate their applications with your API. Similar functionality is provided by well-known APIs such as Facebook, Twitter, Github, and many others.
 
-So far, third-party applications cannot be created from the dashboard. They must be created through the management API. We have also implemented [Dynamic Application Registration](/api-auth/dynamic-application-registration) functionality. All applications registered through that will be third-party applications.
+So far, third-party applications cannot be created from the dashboard. They must be created through the management API. We have also implemented [Dynamic Client Registration](/api-auth/dynamic-client-registration) functionality. All applications registered through that will be third-party applications.
 
 ::: note
 For more information, refer to [User consent and third-party applications](/api-auth/user-consent).
 :::
 
-### Calling APIs from a Service (machine-to-machine)
+### Calling APIs from a Service (machine to machine)
 
-We implemented the OAuth 2.0 Client Credentials grant which allows applications to authenticate as themselves (that is, not on behalf of any user), in order to programatically and securely obtain access to an API.
+We implemented the OAuth 2.0 Client Credentials grant which allows applications to authenticate as themselves (that is, not on behalf of any user), in order to programmatically and securely obtain access to an API.
 
 ::: note
-For more information on the Client Credentials grant, refer to [Calling APIs from a Service](/api-auth/grant/client-credentials).
+For more information on the Client Credentials grant, refer to [How to Implement the Client Credentials Grant](/flows/guides/client-credentials/call-api-client-credentials).
 :::
 
 ## What is Changing
 
 ### Calling APIs with Access Tokens
 
-Historically, protecting resources on your API has been accomplished using ID Tokens issued to your users after they authenticate in your applications. From now on, you should only use Access Tokens when calling APIs. ID Tokens should only be used by the application to verify that the user is authenticated and get basic user information. The main reason behind this change is security. For details on refer to [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis).
+Historically, protecting resources on your API has been accomplished using ID Tokens issued to your users after they authenticate in your applications. From now on, you should only use Access Tokens when calling APIs. ID Tokens should only be used by the application to verify that the user is authenticated and get basic user information. The main reason behind this change is security. For details, refer to [Tokens](/tokens).
 
 ::: note
 For more information, refer to [Calling your APIs with Auth0 tokens](/api-auth/tutorials/adoption/api-tokens).
@@ -65,24 +71,24 @@ For more information, refer to [Calling your APIs with Auth0 tokens](/api-auth/t
 
 ### User Profile Claims and Scope
 
-Historically, you were able to define and request arbitrary application-specific claims. From now on, your application can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims), as [defined by the OIDC Specification](https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims), or any scopes supported by your [API](/apis).
+Historically, you were able to define and request arbitrary application-specific claims. From now on, your application can request any of the [standard OpenID Connect (OIDC) scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims), as [defined by the OIDC Specification](https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims), or any <dfn data-key="scope">scopes</dfn> supported by your [API](/apis).
 
-In order to add custom claims to ID Tokens or Access Tokens, they must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims) to avoid possible collisions with standard OIDC claims.
+In order to add custom claims to ID Tokens or Access Tokens, they must [conform to a namespaced format](/tokens/guides/create-namespaced-custom-claims) to avoid possible collisions with standard OIDC claims.
 
-To customize the tokens, use Hooks for Client Credentials, and Rules for the rest of the grants:
-- __Client Credentials__: [Customize Tokens using Hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
-- __Resource Owner__: [Customize Tokens using Rules](/api-auth/grant/password#customizing-the-returned-tokens)
-- __Implicit Grant__: [Customize Tokens using Rules](/api-auth/tutorials/implicit-grant#optional-customize-the-tokens)
-- __Authorization Code__: [Customize Tokens using Rules](/api-auth/tutorials/authorization-code-grant#optional-customize-the-tokens)
-- __Authorization Code (PKCE)__: [Customize Tokens using Rules](/api-auth/tutorials/authorization-code-grant-pkce#optional-customize-the-tokens)
+To customize the tokens, use Hooks for the Client Credentials Flow, and Rules for the rest of the flows:
+- __Client Credentials Flow__: [Customize Tokens using Hooks](/flows/guides/client-credentials/call-api-client-credentials#customize-tokens)
+- __Trusted App Flow__: [Customize Tokens using Rules](/api-auth/grant/password#customizing-the-returned-tokens)
+- __Single-Page Flow__: [Customize Tokens using Rules](/flows/guides/implicit/call-api-auth-code-pkce#customize-tokens)
+- __Regular Web App Flow__: [Customize Tokens using Rules](/flows/guides/auth-code/call-api-auth-code#customize-tokens)
+- __Native/Mobile Flow__: [Customize Tokens using Rules](/flows/guides/auth-code-pkce/call-api-auth-code-pkce#customize-tokens)
 
 ::: note
 For more information, refer to [User profile claims and scope](/api-auth/tutorials/adoption/scope-custom-claims).
 :::
 
-### Single Sign On (SSO)
+### Single Sign-on (SSO)
 
-Initiating an SSO session must now happen __only__ from an Auth0-hosted page and not from applications. This means that for SSO to work, you must be using [universal login](/hosted-pages/login). Users must be redirected to the login page and then redirected to your application once authentication is complete.
+Initiating an <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> session must now happen __only__ from an Auth0-hosted page and not from applications. This means that for SSO to work, you must be using <dfn data-key="universal-login">Universal Login</dfn>. Users must be redirected to the login page and then redirected to your application once authentication is complete.
 
 ::: note
 Support for SSO from applications is planned for a future release.
@@ -99,15 +105,15 @@ Not all [OAuth 2.0 grants](/protocols/oauth2#authorization-grant-types) support 
   </thead>
   <tbody>
     <tr>
-      <th><a href="/api-auth/grant/authorization-code">Authorization Code</a></th>
+      <th><a href="/flows/concepts/auth-code">Authorization Code</a></th>
       <td>Yes</td>
     </tr>
     <tr>
-      <th><a href="/api-auth/grant/authorization-code-pkce">Authorization Code (PKCE)</a></th>
+      <th><a href="/flows/concepts/auth-code-pkce">Authorization Code (PKCE)</a></th>
       <td>Yes</td>
     </tr>
     <tr>
-      <th><a href="/api-auth/grant/implicit">Implicit</a></th>
+      <th><a href="/flows/concepts/implicit">Implicit</a></th>
       <td>Yes</td>
     </tr>
     <tr>
@@ -118,7 +124,7 @@ Not all [OAuth 2.0 grants](/protocols/oauth2#authorization-grant-types) support 
 </table>
 
 ::: note
-For more information, refer to [OIDC Single sign-on](/api-auth/tutorials/adoption/single-sign-on).
+For more information, refer to [OIDC Single Sign-on (SSO)](/api-auth/tutorials/adoption/single-sign-on).
 :::
 
 ### Authorization Code Grant
@@ -127,8 +133,8 @@ Some changes were introduced in the implementation of Authorization Code grant:
 
 - The `device` request parameter has been removed.
 - The `audience` request parameter has been introduced. This denotes the target API for which the token should be issued.
-- The returned Access Token is a [JWT](/jwt), valid for calling the [/userinfo endpoint](/api/authentication#get-user-info) and the API specified by the `audience` parameter.
-- A Refresh Token will be returned only if the `offline_access` scope was granted.
+- The returned Access Token is a [JWT](/tokens/concepts/jwts), valid for calling the [/userinfo endpoint](/api/authentication#get-user-info) and the API specified by the `audience` parameter.
+- A <dfn data-key="refresh-token">Refresh Token</dfn> will be returned only if the `offline_access` scope was granted.
 
 ::: note
 For more information, refer to [Authorization Code grant](/api-auth/tutorials/adoption/authorization-code).
@@ -142,8 +148,8 @@ Some changes were introduced in the implementation of Implicit grant:
 - The `audience` request parameter has been introduced. This denotes the target API for which the token should be issued.
 - The `response_type` request parameter indicates whether we want to receive both an Access Token and ID Token. If using `response_type=id_token`, we will return only an ID Token.
 - Refresh Tokens are not allowed. [Use `prompt=none` instead](/api-auth/tutorials/silent-authentication).
-- The `nonce` request parameter must be a [cryptographically secure random string](/api-auth/tutorials/nonce). After validating the ID Token, the application must [validate the nonce to mitigate replay attacks](/api-auth/tutorials/nonce). Requests made without a `nonce` parameter will be rejected.
-- The returned Access Token is a [JWT](/jwt), valid for calling the [/userinfo endpoint](/api/authentication#get-user-info) and the API specified by the `audience` parameter.
+- The <dfn data-key="nonce">`nonce`</dfn> request parameter must be a [cryptographically-secure random string](/api-auth/tutorials/nonce). After validating the ID Token, the application must [validate the nonce to mitigate replay attacks](/api-auth/tutorials/nonce). Requests made without a `nonce` parameter will be rejected.
+- The returned Access Token is a [JWT](/tokens/concepts/jwts), valid for calling the [/userinfo endpoint](/api/authentication#get-user-info) and the API specified by the `audience` parameter.
 - ID Tokens will be signed asymmetrically using `RS256`.
 
 ::: note
@@ -158,8 +164,8 @@ Some changes were introduced in the implementation of Resource Owner Password gr
 - The `audience` request parameter has been introduced. This denotes the target API for which the token should be issued.
 - The endpoint to execute token exchanges is [/oauth/token](/api/authentication#resource-owner-password).
 - [Auth0's own grant type](/api-auth/tutorials/password-grant#realm-support) is used to authenticate users from a specific connection (`realm`). The [standard OIDC password grant](/api-auth/tutorials/password-grant) is also supported, but it does not accept Auth0-specific parameters such as `realm`.
-- The returned Access Token is a [JWT](/jwt), valid for calling the [/userinfo endpoint](/api/authentication#get-user-info) and the API specified by the `audience` parameter.
-- The ID Token will be forcibly signed using `RS256` if requested by a [public application](/applications/application-types#public-applications).
+- The returned Access Token is a [JWT](/tokens/concepts/jwts), valid for calling the [/userinfo endpoint](/api/authentication#get-user-info) and the API specified by the `audience` parameter.
+- The ID Token will be forcibly signed using `RS256` if requested by a [public application](/applications/concepts/app-types-confidential-public#public-applications).
 - A Refresh Token will be returned only if the `offline_access` scope was granted.
 
 ::: note
@@ -168,6 +174,8 @@ For more information, refer to [Resource Owner Password Credentials exchange](/a
 
 ### Delegation
 
+<%= include('../_includes/_deprecate-delegation') %>
+
 [Delegation](/api/authentication#delegation) is used for many operations:
 - Exchanging an ID Token issued to one application for a new one issued to a different application
 - Using a Refresh Token to obtain a fresh ID Token
@@ -175,13 +183,11 @@ For more information, refer to [Resource Owner Password Credentials exchange](/a
 
 Given that [ID Tokens should no longer be used as API tokens](/api-auth/tutorials/adoption/api-tokens) and that [Refresh Tokens should be used only at the token endpoint](/api-auth/tutorials/adoption/refresh-tokens), this endpoint is now considered deprecated.
 
-At the moment there is no OIDC-compliant mechanism to obtain third-party API tokens. In order to facilitate a gradual migration to the new authentication pipeline, delegation can still be used to obtain third-party API tokens. This will be deprecated in future releases.
-
 ### Passwordless
 
-Our new implementation only supports an [OIDC-conformant](/api-auth/tutorials/adoption) passwordless authentication mechanism when using web applications (with Lock.js or auth0.js).
+Our new implementation only supports an [OIDC-conformant](/api-auth/tutorials/adoption) <dfn data-key="passwordless">passwordless</dfn> authentication mechanism when using web applications (with Lock.js or auth0.js).
 
-Native applications need to use Universal Login (with an Auth0-hosted login page). Customers can use the Lock (Passwordless) template in the [Dashboard](${manage_url}/#/login) under **Hosted Pages -> Login -> Default Templates**, or customize it to fit specific requirements.
+Native applications need to use Universal Login (with an Auth0-hosted login page). Customers can use the <dfn data-key="lock">Lock</dfn> (Passwordless) template in the [Dashboard](${manage_url}/#/login_settings) under **Universal Login -> Login -> Default Templates**, or customize it to fit specific requirements.
 
 ### Other Authentication API endpoints
 
@@ -198,7 +204,7 @@ Native applications need to use Universal Login (with an Auth0-hosted login page
 To use the new pipeline, at least one of the following should apply:
 
 - The application is flagged as __OIDC Conformant__, or
-- The `audience` parameter is set in the [/authorize](/api/authentication#authorize-client) or [/token](/api/authentication#get-token) endpoints
+- The `audience` parameter is set in the [/authorize](/api/authentication#authorize-application) or [/token](/api/authentication#get-token) endpoints
 
 If none of these applies, then the legacy flows will be used.
 
@@ -206,7 +212,7 @@ To mark your application as OIDC Conformant: go to [Dashboard](${manage_url}) > 
 
 ![OIDC Conformant flag](/media/articles/api-auth/oidc-conformant-flag.png)
 
-To use the `audience` param instead, configure your app to send it when initiating an authorization request.
+To use the `audience` parameter instead, configure your app to send it when initiating an authorization request.
 
 ## Legacy vs New
 
@@ -242,12 +248,12 @@ To use the `audience` param instead, configure your app to send it when initiati
     <tr>
       <th><strong>Add arbitrary claims in Tokens</strong></th>
       <td>Supported</td>
-      <td>Supported. The namespaced format has to be used.</td>
+      <td>Supported. The <a href="/tokens/guides/create-namespaced-custom-claims">namespaced format</a> has to be used.</td>
     </tr>
     <tr>
       <th><strong>SSO</strong></th>
       <td>Supported</td>
-      <td>Not supported for Resource Owner grant. For the rest, universal login must be employed and users redirected to the login page.
+      <td>Not supported for Resource Owner grant. For the rest, Universal Login must be employed and users redirected to the login page.
     </tr>
     <tr>
       <th><strong>Access Token format</strong></th>
@@ -314,10 +320,8 @@ should be used instead with <code>"grant_type": "refresh_token"</code></td>
   </tbody>
 </table>
 
-## Keep Reading
+## Keep reading
 
-::: next-steps
 * [API Authorization index](/api-auth)
-* [Why you should use Access Tokens to secure APIs?](/api-auth/why-use-access-tokens-to-secure-apis)
-* [Tokens used by Auth0](/tokens)
-:::
+* [Tokens](/tokens)
+

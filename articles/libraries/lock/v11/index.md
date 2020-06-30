@@ -4,10 +4,20 @@ toc: true
 title: Lock v11 for Web
 description: A widget that provides a frictionless login and signup experience for your web apps.
 img: media/articles/libraries/lock-web.png
+topics:
+  - libraries
+  - lock
+contentType:
+  - how-to
+  - index
+useCase:
+  - add-login
 ---
 # Lock v11 for Web
 
-Lock is an embeddable login form, [configurable to your needs](/libraries/lock/v11/configuration), and recommended for use in single page apps. It enables you to easily add social identity providers, so that your users can login seamlessly using any provider they want.
+Lock is an embeddable login form that can be [configured to your needs](/libraries/lock/v11/configuration) and is recommended for use in single-page apps, preferably in conjunction with [Universal Login](/universal-login), which should be used whenever possible. Lock enables you to easily add social identity providers, so that your users can log in seamlessly using any desired provider.
+
+<%= include('../../../_includes/_embedded_login_warning') %>
 
 ## Lock Installation
 
@@ -55,11 +65,13 @@ If you are using browserify or webpack to build your project and bundle its depe
 
 ### Cross-Origin Authentication
 
+<%= include('../../../_includes/_embedded_login_warning') %>
+
 Embedding Lock within your application requires [cross-origin authentication](/cross-origin-authentication) to be properly configured. Specifically, you need to set the **Allowed Web Origins** property to the domain making the request. You can find this field in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
 
 ![Allowed Web Origins](/media/articles/libraries/lock/allowed-origins.png)
 
-Make sure you read about the [limitations of cross-origin authentication](/cross-origin-authentication#limitations-of-cross-origin-authentication) before implementing Lock. 
+Make sure you read about the [limitations of cross-origin authentication](/cross-origin-authentication#limitations) before implementing Lock. 
 
 ## Usage
 
@@ -75,26 +87,56 @@ var lock = new Auth0Lock(
 );
 ```
 
-## 2. Authenticating and Getting User Info
+### 2. Authenticating and Getting User Info
 
-Next, listen using the `on` method for the `authenticated` event. When the event occurs, use the `accessToken` which was received to call the `getUserInfo` method and acquire the user's profile information (as needed). You can also save the token or profile to `localStorage` for later use.
+Next, listen using the `on` method for the `authenticated` event. When the event occurs, use the `accessToken` which was received to call the `getUserInfo` method and acquire the user's profile information (as needed).
 
 ```js
-// Listening for the authenticated event
-lock.on("authenticated", function(authResult) {
-  // Use the token in authResult to getUserInfo() and save it to localStorage
-  lock.getUserInfo(authResult.accessToken, function(error, profile) {
-    if (error) {
-      // Handle error
-      return;
-    }
+var Auth = (function() {
 
-    document.getElementById('nick').textContent = profile.nickname;
+  var wm = new WeakMap();
+  var privateStore = {};
+  var lock;
 
-    localStorage.setItem('accessToken', authResult.accessToken);
-    localStorage.setItem('profile', JSON.stringify(profile));
-  });
-});
+  function Auth() {
+    this.lock = new Auth0Lock(
+      '<YOUR_CLIENT_ID>',
+      '<YOUR_DOMAIN>'
+    );
+    wm.set(privateStore, {
+      appName: "example"
+    });
+  }
+
+  Auth.prototype.getProfile = function() {
+    return wm.get(privateStore).profile;
+  };
+
+  Auth.prototype.authn = function() {
+    // Listening for the authenticated event
+    this.lock.on("authenticated", function(authResult) {
+      // Use the token in authResult to getUserInfo() and save it if necessary
+      this.getUserInfo(authResult.accessToken, function(error, profile) {
+        if (error) {
+          // Handle error
+          return;
+        }
+
+        //we recommend not storing Access Tokens unless absolutely necessary
+        wm.set(privateStore, {
+          accessToken: authResult.accessToken
+        });
+
+        wm.set(privateStore, {
+          profile: profile
+        });
+
+      });
+    });
+  };
+  return Auth;
+}());
+
 ```
 
 You can then manipulate page content and display profile information to the user (for example, displaying their name in a welcome message).
@@ -122,7 +164,7 @@ document.getElementById('btn-login').addEventListener('click', function() {
 ## Passwordless
 
 ::: note
-Lock's Passwordless Mode is only available in Lock v11.2.0 and later. Please use the [latest release of Lock](https://github.com/auth0/lock/releases) for this feature!
+Lock's <dfn data-key="passwordless">Passwordless</dfn> Mode is only available in Lock v11.2.0 and later. Please use the [latest release of Lock](https://github.com/auth0/lock/releases) for this feature!
 :::
 
 You can use Lock's Passwordless Mode to allow users to authenticate using just an email or mobile number. They will receive the code and then return to input it, or click the link, and they can be authenticated without remembering a password.
@@ -199,7 +241,7 @@ The below widget displays brief examples of implementing Auth0 in several ways: 
 
 ## Next Steps
 
-This document has shown how to use Lock 11 within a Single Page Application (SPA). Take a look at the following resources to see how Lock can be used with other kinds of web apps, or how it can be customized for your needs:
+This document has shown how to use Lock 11 within a Single-Page Application (SPA). Take a look at the following resources to see how Lock can be used with other kinds of web apps, or how it can be customized for your needs:
 
 ::: next-steps
 * [Lock v11 API Reference](/libraries/lock/v11/api)

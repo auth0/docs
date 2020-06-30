@@ -1,5 +1,11 @@
 ---
 description: How to install and configure the Auth0 Logs to Logstash extension.
+topics:
+  - extensions
+  - logstash
+contentType:
+  - how-to
+useCase: extensibility-extensions
 ---
 
 # Auth0 Logs to Logstash
@@ -17,7 +23,7 @@ At this point you should set the following configuration variables:
 | Parameter        | Description |
 |:-----------------|:------------|
 | **Schedule** | The frequency with which logs should be exported. The schedule can be customized even further after creation. |
-| **BATCH_SIZE** | The ammount of logs to be read on each execution. Maximun, and default, is `100`. |
+| **BATCH_SIZE** | The amount of logs to be read on each execution. Maximun, and default, is `100`. |
 | **LOGSTASH_URL** <br/><span class="label label-danger">Required</span> | Your Logstash URL as defined for use with `logstash-input-http` plugin. |
 | **LOGSTASH_INDEX** <br/><span class="label label-danger">Required</span> | Your Logstash Index to which the logs will be routed. |
 | **LOGSTASH_TOKEN** | The token required for your Logstash deployments that will be included in the querystring. |
@@ -30,6 +36,12 @@ At this point you should set the following configuration variables:
 | **LOG_TYPES** | The events for which logs should be exported. |
 
 Once you have provided this information, click the _Install_ button to finish installing the extension.
+
+<%= include('./_includes/_batch-size') %>
+
+### Using extension with ElasticSearch
+
+The extension is sending logs to the logstash instance as they are, including `_id`, which cannot be accepted by ElasticSearch. To fix that, you need rename `_id` to something else. You can do that by adding pipeline with `filter { mutate { rename => { "_id" => "log_id" } } }`.
 
 ## Use the Extension
 
@@ -45,7 +57,7 @@ You can view more details by clicking on the job you created. In this page you c
 
 ## Replay Logs
 
-In the event of a Logstash failure or service interuption you can replay the logs starting from the failed log.
+In the event of a Logstash failure or service interruption you can replay the logs starting from the failed log.
 
 To replay logs: 
 

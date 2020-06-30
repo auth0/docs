@@ -1,8 +1,14 @@
 ---
-description: How to configure and retrieve information using the Auth0 Logs to Splunk extension.
+description: Learn how to configure and retrieve information using the Auth0 Logs to Splunk extension.
+topics:
+  - extensions
+  - splunk
+contentType:
+  - how-to
+useCase: extensibility-extensions
 ---
 
-# Auth0 Logs to Splunk
+# Export Logs to Splunk Using the Auth0 Extension
 
 The _Auth0 Logs to Splunk_ is a scheduled job that takes all of your Auth0 logs and exports them to [Splunk](http://www.splunk.com/).
 
@@ -15,15 +21,18 @@ To install and configure this extension, click on the _Auth0 Logs to Splunk_ box
 At this point you should set the following configuration variables:
 
 - **Schedule**: How often the job will run. The schedule can be customized even further after creation.
+- **START_FROM**: The checkpoint ID of the log from where you want to start. The value will be the log id (GUID).
 - **SPLUNK_URL**: Your Splunk Cloud URL.
 - **SPLUNK_TOKEN**: Your Splunk Token.
 - **SPLUNK_COLLECTOR_PORT**: The Port of your HTTP Collector Endpoint.
 - **SPLUNK_COLLECTOR_PATH**: The [HTTP Collector Endpoint](http://dev.splunk.com/view/event-collector/SP-CAAAE7H) to be used. If you use the `/raw` endpoint, make sure to append a channel as a querystring parameter, like this: `/services/collector/raw?channel=FE0ECFAD-13D5-401B-847D-77833BD77131`. More information can be found in the [Splunk documentation](http://dev.splunk.com/view/event-collector/SP-CAAAE8Y).
-- **BATCH_SIZE**: The ammount of logs to be read on each execution. Maximun is 100.
+- **BATCH_SIZE**: The amount of logs to be read on each execution. Maximum is 100.
 - **LOG_LEVEL**: The minimal log level of events that you would like sent to Splunk.
 - **LOG_TYPES**: The events for which logs should be exported.
 
 Once you have provided this information, click the *Install* button to finish installing the extension.
+
+<%= include('./_includes/_batch-size') %>
 
 ## Retrieve the required information from Splunk
 
@@ -65,7 +74,7 @@ curl -k https://<host>:8088/services/collector -H 'Authorization: Splunk <token>
 The `<host>` value is based on your _Splunk Cloud URL_. When creating requests to Splunk Cloud, you must add a prefix to the URI of the hostname according to your subscription. For self-service Splunk Cloud plans, pre-pend the hostname with `input-`. For all other Splunk Cloud plans, pre-pend the hostname with `http-inputs-`. For this example we have subscribed for a self-service Splunk Cloud plan, so we will use the `input-` prefix. You can find more details [here](http://dev.splunk.com/view/event-collector/SP-CAAAE7F).
 :::
 
-As a response you should receive the followins JSON:
+As a response you should receive the following JSON:
 
 ```json
 {

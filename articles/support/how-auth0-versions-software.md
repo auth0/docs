@@ -1,6 +1,14 @@
 ---
 title: How Auth0 versioning works
-description: This page explains how Auth0 versioning works.
+description: Understand how Auth0 versioning works.
+topics:
+    - support
+    - auth0-versioning
+    - versioning
+contentType:
+  - reference
+useCase:
+  - support
 ---
 # Versioning
 
@@ -9,7 +17,7 @@ We believe versioning is a crucial part of our offering. By providing a consiste
 ## Semantic versioning
 
 ::: note
-This scheme is used in [Auth0 Lock](https://github.com/auth0/lock), [Auth0 AD Connector](https://github.com/auth0/ad-ldap-connector), [Auth0.js](https://github.com/auth0/auth0.js) and SDKs.
+This scheme is used in <dfn data-key="lock">Auth0 Lock</dfn>, [Auth0 AD Connector](https://github.com/auth0/ad-ldap-connector), [Auth0.js](https://github.com/auth0/auth0.js) and SDKs.
 :::
 
 [Semantic versioning](http://semver.org) (also known as semver) is a versioning strategy whose main feature is making breaking changes discoverable. A version is composed of 3 numbers separated by dots: `{major}.{minor}.{patch}`. For instance, `2.12.5`, `0.1.0` and `10.5.35` are valid semver numbers. 
@@ -20,9 +28,9 @@ This scheme is used in [Auth0 Lock](https://github.com/auth0/lock), [Auth0 AD Co
 
 More information about this versioning scheme can be found at [semver](http://semver.org)
 
-### Production Usage
+### Production usage
 
-Auth0 provides links to our [Content Delivery Network (CDN)](https://en.wikipedia.org/wiki/Content_delivery_network) where we serve some of our libraries. The way you reference a component in your code will impact whether and when you automatically pick up changes.  For instance, Auth0 Lock can be found at the following URLs:
+Auth0 provides links to our [Content Delivery Network (CDN)](https://en.wikipedia.org/wiki/Content_delivery_network) where we serve some of our libraries. The way you reference a component in your code will impact whether and when you automatically pick up changes.  For instance, if you link to the major release from within a script, and there is a new minor, you will get the update as soon as it is released. We encourage this practice for development environments and experimenting with Auth0. Here are examples of embedding the source files:
 
 ```js
 <!-- major release -->
@@ -34,8 +42,6 @@ Auth0 provides links to our [Content Delivery Network (CDN)](https://en.wikipedi
 <!-- patch release (recommended for production) -->
 <script src="https://cdn.auth0.com/example/1.0.1/library.js"></script>
 ```
-
-If you link to the major release (the first script) and we release a new minor, you will get the update as soon as it is released. We encourage this practice for development environments and experimenting with Auth0. 
 
 **When Auth0 components are deployed to production, we encourage our users to anchor to a full version and thoroughly test using that version**. Although adding new features in a backwards compatible way shouldn’t break your code, the interactions with the component outcome could be hard to predict.  Even trivial bug fixes may introduce changes in the assumptions you were making about the component which may no longer be true.
 

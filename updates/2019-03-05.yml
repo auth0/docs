@@ -1,0 +1,7 @@
+changed:
+  -
+    title: "Updated tutorial on using Resource Owner Password from Server side"
+    tags:
+      - oidc
+      - client-secret
+    description: Updated [tutorial](https://auth0.com/docs/applications/guides/rotate-client-secret-dashboard) to reflect updates to the UI.

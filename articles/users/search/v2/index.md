@@ -2,47 +2,36 @@
 description: This page lists several examples of user search queries using query string syntax.
 crews: crew-2
 toc: true
+topics:
+  - users
+  - user-management
+  - search
+contentType:
+  - reference
+  - how-to
+  - index
+useCase:
+  - manage-users
 ---
-
 # User Search
 
 ::: version-warning
-This document covers a previous version of user search. We recommend you use [user search v3](/users/search/v3).
+For all deployment models except Private Cloud, user search v2 has reached its end of life as of **June 30, 2019**. For information on migrating from user search v2 to v3, see [Migrate from search engine v2 to v3](/users/search/v3/migrate-search-v2-v3).
 :::
 
 Auth0 allows you, as an administrator, to search for users using [Lucene Query Syntax](http://www.lucenetutorial.com/lucene-query-syntax.html).
 
-This document will demonstrate how you can search for users and give some example queries. It is however suggested that you also reference the [Query String Syntax document](/api/management/v2/query-string-syntax) for more examples of the query string syntax.
+This document provides sample queries and demonstrates how you can search for users. We also suggest that you refer to [Query String Syntax](/api/management/v2/query-string-syntax) for more examples of query string syntax.
 
 ::: warning
 The user search endpoint allows you to return a maximum of **10,000** users. For additional results, please use either the [User Export Job endpoint](/api/management/v2#!/Jobs/post_users_exports) or the [User Export Extension](/extensions/user-import-export).
 :::
 
-## Searchable Fields
-
-You can search for users using the following fields:
-
-* All the [normalized user profile](/user-profile/normalized) fields
-
-* __Only__ the profile information under the `user_metadata` object:
-  - `name`
-  - `nickname`
-  - `given_name`
-  - `family_name`
-
-::: warning
-New tenants, starting September 1st 2017, cannot search any of the `app_metadata` fields. Paid tenants (that is, tenants that have a credit card associated in the [Dashboard](${manage_url}/#/tenant/billing/payment)), that were created up to August 31st 2017, can search using the `app_metadata` fields.
-:::
-
-::: note
-For more information on user related metadata refer to [User Metadata](/metadata).
-:::
-
-## Search for Users Using the Management API
+## Search for users using the Management API
 
 You can also search for users using the [Management API](/api/v2). Two of the easiest ways to do this is by either making use of the **API Explorer** or by using **Postman**. These two techniques are discussed briefly below, but please note that the Auth0 Management API is a REST API, so you can make API calls using anything that can make HTTP requests, or by using one of the [Auth0 SDKs](/support/matrix#sdks).
 
-In order to make requests to the Management API, you will need a token. Please refer to [The Auth0 Management APIv2 Token](/api/management/v2/tokens) for more information.
+In order to make requests to the Management API, you will need a token. Please refer to [Access Tokens for the Management API](/api/management/v2/tokens) for more information.
 
 ### Search using the API Explorer
 
@@ -62,23 +51,23 @@ Once you have downloaded the collection, and configured your environment, select
 For general information on making Postman request, please refer to the [Postman documentation](https://www.getpostman.com/docs/requests).
 :::
 
-### Sorting Search Results 
+## Sorting search results 
 
-To sort the list of users returned from the Management API, you can make use of the `sort` parameter.  Use the format `field:order` for the value of the `sort` field, where `field` is the name of the field you want to sort by, and `order` can be `1` for ascending and `-1` for descending. For example, to sort users in ascending order by the `created_at` field you can pass the value of `created_at:1` for the `sort` parameter. 
+To sort the list of users returned from the Management API, you can make use of the `sort` parameter.  Use the format `field:order` for the value of the `sort` field, where `field` is the name of the field you want to sort by, and `order` can be `1` for ascending and `-1` for descending. For example, to sort users in ascending order by the `created_at` field you can pass the value of `created_at:1` for the `sort` parameter. Sorting by `app_metadata` or `user_metadata` is not supported.
 
-For more information on the `sort` and other parameters, please refer to the [Management API Explorer documentation](/api/v2#!/users/get_users).
+For more information on the `sort` and other parameters, please refer to the [Management API Explorer documentation](/api/v2#!/Users/get_users).
 
 ::: note
 If there is no default sort field specified, some users that have never logged in, may not appear. No default sort field may also result in duplicate records returned and the order of list of users may appear random.
 :::
 
-## Exact Matching and Tokenization
+## Exact matching and tokenization
 
 Because of the manner in which ElasticSearch handles tokenization on `+` and `-`, unexpected results can occur when searching by some fields. For example, when searching for a user whose `name` is `jane` (`name:"jane"`), the results will be both for `jane` and `jane-doe`, because both of these _contain_ the exact search term that you used. The difference may not affect some searches, but it will affect others, and provide unanticipated results.
 
 You can solve this problem either by using structured JSON in your metadata, or by using the raw subfield.
 
-### Using the `raw` Subfield
+## Using the `raw` subfield
 
 If you wish to avoid the potential pitfalls of analyzed data and search for an exact match to your term - an exact string comparison - then for some fields you can use the `raw` subfield, which will be `not_analyzed`.
 
@@ -97,7 +86,7 @@ The fields that support `raw` subfield queries are:
 * ⁠⁠⁠⁠`name⁠⁠`
 * ⁠⁠⁠⁠`nickname`
 
-## Example Queries
+## Example queries
 
 Below are some example queries to illustrate the kinds of queries that are possible using the Management API V2.
 
@@ -115,8 +104,12 @@ Search for users from a specific connection or provider | `identities.provider:"
 Search for all users that have never logged in | `(NOT _exists_:logins_count OR logins_count:0)` 
 Search for all users who logged in before 2015 | `last_login:[* TO 2014-12-31]`
 Fuzziness: Search for terms that are similar to, but not exactly like, `jhn` | `name:jhn~`
+All users with more than 100 logins | `logins_count:>100`
+Logins count >= 100 and <= 200 | `logins_count:[100 TO 200]`
+Logins count >= 100 | `logins_count:[100 TO *]`
+Logins count > 100 and < 200 | `logins_count:{100 TO 200}`
 
-### Example Request
+### Example request
 
 Below is an example request for searching all users whose email is exactly "john@contoso.com".
 
@@ -142,20 +135,7 @@ Below is an example request for searching all users whose email is exactly "john
 }
 ```
 
-### Search using ranges
+## Keep reading
 
-Inclusive ranges are specified with square brackets: `[min TO max]` and exclusive ranges with curly brackets: `{min TO max}`. Curly and square brackets can be combined in the same range expression: `logins_count:[100 TO 200}`.
-
-Use Case | Query
----------|----------
-All users with more than 100 logins | `logins_count:>100`
-Logins count >= 100 and <= 200 | `logins_count:[100 TO 200]`
-Logins count >= 100 | `logins_count:[100 TO *]`
-Logins count > 100 and < 200 | `logins_count:{100 TO 200}`
-
-## Next Steps
-
-::: next-steps
-* [Learn how you can use the query string syntax to build custom queries](/users/search/v2/query-syntax)
-* [Learn about the Auth0 best practices for user search](/users/search/best-practices)
-:::
+* [Query Syntax](/users/search/v2/query-syntax)
+* [Search Best Practices](/best-practices/search-best-practices)

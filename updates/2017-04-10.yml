@@ -1,6 +1,6 @@
 added:
   -
-    title: "New doc: Why you should always use access tokens to secure an API"
+    title: "New doc: Why you should always use Access Tokens to secure an API"
     tags:
       - API Authorization
       - OAuth 2.0
@@ -8,4 +8,4 @@ added:
       - access_token
       - id_token
     description: |
-      A [new doc](https://auth0.com/docs/api-auth/why-use-access-tokens-to-secure-apis) was created. It explains the differences between Access Token and ID Token and why the later should never be used to secure an API.
+      A [new doc](https://auth0.com/docs/api-auth/why-use-access-tokens-to-secure-apis) was created. It explains the differences between Access Token and ID Token and why the latter should never be used to secure an API.

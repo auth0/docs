@@ -1,19 +1,19 @@
 ---
-title: Watson Campaign Automation Integration
-description: Learn how to import your Auth0 user data into Watson Campaign Automation.
+title: Export User Data To Watson Campaign Automation
+description: Learn how to export your Auth0 user data and import it into Watson Campaign Automation.
 toc: true
+topics:
+    - marketing
+    - watson-campaign
+contentType: how-to
+useCase: export-users-marketing
 ---
 
-# Watson Campaign Automation Integration
+# Export User Data To Watson Campaign Automation
 
-## Import Users to Watson Campaign Automation
+In this article, you’ll learn how to export user data in Auth0 to a CSV file then import it into the Watson Campaign Automation dashboard.
 
-To import your Auth0 users into Watson Campaign Automation:
-
-- Export your user data as a CSV file with the [User Import / Export Extension](/extensions/user-import-export).
-- Import the file (database) on your Watson Campaign Automation dashboard.
-
-### Create a User Data File
+## Create a user data file
 
 Start by navigating to the [Extensions](${manage_url}/#/extensions) section of the Dashboard and open the **User Import / Export Extension**. On the extension page, select **Export** from the menu.
 
@@ -38,7 +38,7 @@ User Field | Column Name
 
 After adding the user fields, click on the **Export Users** button to start the export. Once the export is complete, download the CSV file to use in the following section.
 
-### Import a User Data File
+## Import a user data file
 
 ::: note
 [Watson Campaign Automation: About importing a database](https://www.ibm.com/support/knowledgecenter/en/SSWU4L/Data/imc_Data/Import_a_Database.html)

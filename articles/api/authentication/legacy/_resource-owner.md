@@ -68,7 +68,7 @@ request(options, function (error, response, body) {
 This endpoint is part of the legacy authentication pipeline and has been replaced in favor of the [Password Grant](#resource-owner-password). For more information on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
 :::
 
-Given the user's credentials, this endpoint will authenticate the user with the provider and return a JSON object with the `access_token` and an `id_token`.
+Given the user's credentials, this endpoint will authenticate the user with the provider and return a JSON object with the <dfn data-key="access-token">Access Token</dfn> and an ID Token.
 
 ### Request Parameters
 
@@ -79,7 +79,7 @@ Given the user's credentials, this endpoint will authenticate the user with the 
 | `grant_type` <br/><span class="label label-danger">Required</span> | Use the value `password` |
 | `username` <br/><span class="label label-danger">Required</span> | The user's username |
 | `password` <br/><span class="label label-danger">Required</span> | The user's password |
-| `scope` | Use `openid` to get an `id_token`, `openid profile email` to get an `id_token` and the user profile, or `openid offline_access` to get an `id_token` and a `refresh_token`. |
+| <dfn data-key="scope">`scope`</dfn> | Use `openid` to get an ID Token, `openid profile email` to get an ID Token and the user profile, or `openid offline_access` to get an ID Token and a <dfn data-key="refresh-token">Refresh Token</dfn>. |
 | `id_token` | Used to authenticate using a token instead of username/password, in [Touch ID](/libraries/lock-ios/touchid-authentication) scenarios. |
 | `device` | You should set this to a string, if you are requesting a Refresh Token (`scope=offline_access`). |
 
@@ -89,13 +89,13 @@ Given the user's credentials, this endpoint will authenticate the user with the 
 
 1. At the *Configuration* tab, set the **Application** field to the application you want to use for the test, and **Connection** to the name of the connection to use.
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
+1. Copy the <dfn data-key="callback">**Callback URL**</dfn> and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
 
 1. At the *OAuth2 / OIDC* tab, set the **Username** and **Password**, and click **Resource Owner Endpoint**.
 
 ### Remarks
 
-- This endpoint only works for database connections, passwordless connections, Active Directory/LDAP, Windows Azure AD and ADFS.
+- This endpoint only works for database connections, <dfn data-key="passwordless">passwordless</dfn> connections, Active Directory/LDAP, Windows Azure AD and ADFS.
 
 - The `profile` scope value requests access to the End-User's default profile Claims, which are: `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `preferred_username`, `profile`, `picture`, `website`, `gender`, `birthdate`, `zoneinfo`, `locale`, and `updated_at`.
 

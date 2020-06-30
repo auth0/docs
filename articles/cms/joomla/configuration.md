@@ -1,5 +1,11 @@
 ---
 description: How to configure your Joomla instance for use with Auth0.
+topics:
+    - joomla
+    - cms
+contentType: how-to
+useCase:
+  - add-login
 ---
 
 # Joomla Integration
@@ -14,7 +20,7 @@ To use Auth0 with Joomla, be sure you have a valid [Application](/applications).
 
     ![](/media/articles/cms/joomla/configuration/joomla-1.png)
 
-2. Provide the requested values for your Auth0 application. You can find the **Domain**, **Client ID**, and **Client Secret** values using the the [Application Settings page](${manage_url}/#/applications/${account.clientId}/settings). Click **Save & Close** to proceed.
+2. Provide the requested values for your Auth0 application. You can find the **Domain**, **Client ID**, and **Client Secret** values using the [Application Settings page](${manage_url}/#/applications/${account.clientId}/settings). Click **Save & Close** to proceed.
 
     ![](/media/articles/cms/joomla/configuration/joomla-2.png)
 
@@ -36,7 +42,7 @@ To use Auth0 with Joomla, be sure you have a valid [Application](/applications).
 
     ![](/media/articles/cms/joomla/configuration/joomla-6.png)
 
-4. Switch over the the **Menu Assignment** tab, and using the **Module Assignment** drop-down menu, select **On all pages**.
+4. Switch over the **Menu Assignment** tab, and using the **Module Assignment** drop-down menu, select **On all pages**.
 
 ![](/media/articles/cms/joomla/configuration/joomla-7.png)
 
@@ -66,5 +72,5 @@ You can configure your Auth0-Joomla Extension by adjusting the **Module** and **
 | - | - |
 | Translation | A valid JSON object representing the [Lock's `dict` parameter](/libraries/lock/customization#dict-string-object-). If set, this overrides the Title setting |
 | Username style | Toggles whether the username should be a value selected by the user or their email address |
-| Remember last login | Requests SS0 data and [enables SSO](/libraries/lock/customization#rememberlastlogin-boolean-) |
+| Remember last login | Requests <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> data and [enables SSO](/libraries/lock/customization#rememberlastlogin-boolean-) |
 | Widget URL | The URL of the [latest Lock version](https://github.com/auth0/lock#install) |

@@ -1,3 +1,3 @@
 ::: panel-warning Lock and Auth0.js Deprecations
-The Lock v8, v9, and v10 widgets as well as the Auth0.js v6, v7, and v8 SDKs will be deprecated and should be migrated away from on or before March 31, 2018. The [migration guide for Lock v11](/libraries/lock/v11/migration-guide) and [Auth0.js v9](/libraries/auth0js/v9/migration-guide) provide details about the steps required to update. For more information, the [migrations page](/migrations) can also be consulted. 
+The Lock v8, v9, and v10 widgets as well as the Auth0.js v6, v7, and v8 SDKs are deprecated and should be migrated away from prior to their removal from service on July 16, 2018. 
 :::

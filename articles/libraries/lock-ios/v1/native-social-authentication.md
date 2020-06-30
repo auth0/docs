@@ -2,6 +2,17 @@
 section: libraries
 title: Native Social Authentication
 description: How to enable native login for some the supported social social connections.
+topics:
+  - libraries
+  - lock
+  - ios
+  - native
+  - social-connections
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 
 # Lock iOS: Native Social Authentication
@@ -9,7 +20,7 @@ description: How to enable native login for some the supported social social con
 <%= include('../_includes/_lock-version-1') %>
 
 ::: warning
-This feature relies on a deprecated grant type. Applications created after June 8th 2017 won't be able to use this feature. 
+This feature relies on a deprecated grant type. Applications created after June 8th 2017 won't be able to use this feature.
 We recommend using browser-based flows, as explained in [Web-based auth](/libraries/auth0-swift#web-based-auth-ios-only-).
 :::
 
@@ -32,7 +43,7 @@ Before following these steps, please check our [documentation](/libraries/lock-i
 
 ### Facebook
 
-Lock uses Facebook iOS SDK to obtain user's Access Token so you'll need to configure it using your Facebook App info:
+Lock uses Facebook iOS SDK to obtain user's <dfn data-key="access-token">Access Token</dfn> so you'll need to configure it using your Facebook App info:
 
 First, add the following entries to the `Info.plist`:
 * _FacebookAppID_: `YOUR_FACEBOOK_APP_ID`
@@ -54,7 +65,7 @@ A0FacebookAuthenticator *facebook = [A0FacebookAuthenticator newAuthenticationWi
 
 ### Twitter
 
-Twitter authentication is done using [Reverse Auth](https://dev.twitter.com/docs/ios/using-reverse-auth) in order to obtain a valid access_token that can be sent to Auth0 Server and validate the user. By default we use iOS Twitter Integration but we support OAuth Web Flow (with Safari) as a fallback mechanism in case a user has no accounts configured in his/her Apple Device.
+Twitter authentication is done using [Reverse Auth](https://dev.twitter.com/docs/ios/using-reverse-auth) in order to obtain a valid Access Token that can be sent to Auth0 Server and validate the user. By default we use iOS Twitter Integration but we support OAuth Web Flow (with Safari) as a fallback mechanism in case a user has no accounts configured in his/her Apple Device.
 
 To support Twitter authentication you need to register `A0TwitterAuthenticator` with your instance of `A0Lock`:
 
@@ -72,7 +83,7 @@ We need your twitter app's key & secret in order to sign the reverse auth reques
 
 Google authentication uses [Google Sign-In](https://developers.google.com/identity/sign-in/ios/) iOS library, so you'll need to register your iOS application in [Google Developer Console](https://console.developers.google.com/project) and get your clientId.
 
-We recommend follwing [this wizard](https://developers.google.com/mobile/add?platform=ios) instead and download the file `GoogleServices-Info.plist` that is generated at the end.
+We recommend following [this wizard](https://developers.google.com/mobile/add?platform=ios) instead and download the file `GoogleServices-Info.plist` that is generated at the end.
 
 Then add that file to your application's target and the last step is to register two custom URL for your application.
 

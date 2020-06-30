@@ -20,7 +20,7 @@
     </tr>
     <tr>
       <td><span class="badge badge-danger">400</span></td>
-      <td><code>{"error": "invalid_grant", "error_description": "..."}</code></br>Errors related to an invalid <code>id_token</code> or user</td>
+      <td><code>{"error": "invalid_grant", "error_description": "..."}</code></br>Errors related to an invalid ID Token or user</td>
     </tr>
   </tbody>
 </table>
@@ -28,25 +28,13 @@
 ## Grant type: password
 
 <table class="table">
-    <thead>
-      <tr>
-        <th width="20%">Status</th>
-        <th width="80%">Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="badge badge-danger">400</span></td>
-        <td><code>{"error": "invalid_request", "error_description": "missing username parameter"}</code></td>
-      </tr>
-      <tr>
-        <td><span class="badge badge-danger">400</span></td>
-        <td><code>{"error": "invalid_request", "error_description": "missing password parameter"}</code></td>
-      </tr>
-      <tr>
-        <td><span class="badge badge-danger">400</span></td>
-        <td><code>{"error": "invalid_request", "error_description": "missing connection parameter"}</code></td>
-      </tr>
+  <thead>
+    <tr>
+      <th width="20%">Status</th>
+      <th width="80%">Description</th>
+    </tr>
+  </thead>
+  <tbody>
       <tr>
         <td><span class="badge badge-danger">400</span></td>
         <td><code>{"error": "invalid_request", "error_description": "scope parameter must be a string"}</code></br>Incorrect scope formatting; each scope must be separated by whitespace</td>
@@ -94,10 +82,6 @@
       </tr>
       <tr>
         <td><span class="badge badge-danger">400</span></td>
-        <td><code>{"error": "invalid_request", "error_description": "the connection was not found"}</code></td>
-      </tr>
-      <tr>
-        <td><span class="badge badge-danger">400</span></td>
         <td><code>{"error": "invalid_request", "error_description": "the connection was disabled"}</code></br>Check the connection in the dashboard, you may have turned it off for the provided <code>client_id</code></td>
       </tr>
       <tr>
@@ -121,4 +105,4 @@
         <td><code>{"error": "access_denied", "error_description": "..."}</code></br>Validation of specific points raised an access issue</td>
       </tr>
     </tbody>
-  </table>
+</table>

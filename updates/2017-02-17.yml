@@ -15,7 +15,7 @@ added:
     description: |
       Released new version of [Refresh Tokens (API Authorization)](https://auth0.com/docs/tokens/preview/refresh-token). The legacy version is still in place and you can find it at [Refresh Tokens](https://auth0.com/docs/tokens/refresh-token). The legacy doc will be served as default, with a panel at the top referring to the updated one.
   -
-    title: "New doc on how to verify an access token"
+    title: "New doc on how to verify an Access Token"
     tags:
       - api
       - access_token

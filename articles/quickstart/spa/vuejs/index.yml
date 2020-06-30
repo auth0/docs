@@ -1,11 +1,21 @@
 title: Vue
 language:
   - Javascript
+author:
+  name: Steve Hobbs
+  email: steve.hobbs@auth0.com
+  community: false
 framework:
   - Vue.js
 image: /media/platforms/vue.png
-tags:
+topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
+show_releases: true
+sdk:
+  name: auth0-spa-js
+  url: https://www.github.com/auth0/auth0-spa-js/
 snippets:
   dependencies: application-platforms/vuejs/dependencies
   setup: application-platforms/vuejs/setup
@@ -15,6 +25,35 @@ alias:
   - vuejs
   - vue.js
 seo_alias: vuejs
-default_article: dashboard-default
+default_article: 01-login
 articles:
   - 01-login
+  - 02-calling-an-api
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-vue-samples
+  branch: master
+requirements:
+  - Vue 2.6.11
+  - Vue CLI 4.2.2
+next_steps:
+  - path: 01-login
+    list:
+    - text: "Part 2: Calling an API using an access token"
+      icon: 345
+      href: "/quickstart/spa/vuejs/02-calling-an-api"
+  - path: 02-calling-an-api
+    list:
+    - text: Configure other identity providers
+      icon: 345
+      href: "/identityproviders"
+    - text: Enable multifactor authentication
+      icon: 345
+      href: "/multifactor-authentication"
+    - text: Learn about anomaly detection
+      icon: 345
+      href: "/anomaly-detection"
+    - text: Learn about rules
+      icon: 345
+      href: "/rules"

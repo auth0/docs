@@ -1,43 +1,55 @@
 ---
-title: Connect your app to Dwolla
+title: Connect Apps to Dwolla
 connection: Dwolla
 image: /media/connections/dwolla.png
 seo_alias: dwolla
-description: How to obtain a Client Id and Client Secret for Dwolla.
+description: Learn how to add login functionality to your app with Dwolla. You will need to obtain a Client Id and Client Secret for Dwolla.
 toc: true
+index: 9
+topics:
+  - connections
+  - social
+  - dwolla
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
-# Connect your app to Dwolla
+# Connect Apps to Dwolla
 
-To configure OAuth2 connections with Dwolla, you will need to register Auth0 on the Dwolla Developer portal.
+You can add functionality to your web app that allows your users to log in with Dwolla. 
 
-## 1. Log into the developer portal
+## Prerequisites
 
-Log into the Dwolla [Developer portal](https://uat.dwolla.com/applications) and click **Create an application**:
+Before you connect your Auth0 app to Dwolla, you must have a [Dwolla Developer](https://accounts-sandbox.dwolla.com/login) account.
 
-![](/media/articles/connections/social/dwolla/dwolla-1.png)
+## Steps
 
-## 2. Register your new app
+To connect your app to Dwolla, you will:
 
-Complete the information on this page. Enter the following URL in the **OAuth Redirect URL** field:
+1. [Set up your app in Dwolla](#set-up-your-app-in-dwolla)
+2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
+3. [Test the connection](#test-the-connection)
 
-  https://${account.namespace}/login/callback
+### Set up your app in Dwolla
 
-![](/media/articles/connections/social/dwolla/dwolla-2.png)
+Set up an app in Dwolla using Dwolla's [OAuth: Creating an Application](https://developers.dwolla.com/guides/auth#creating-an-application) doc. During this process, Dwolla will generate a **Key** and **Secret** for your application; make note of these.
 
-Click **Create application**.
+While setting up your app, make sure you use the following settings:
 
-## 3. Get your *Key* and *Secret*
+| Field | Value to Provide |
+| - | - |
+| OAuth Redirect URL | `https://${account.namespace}/login/callback` |
 
-Once the application is registered, your app's `Key` and `Secret` will be displayed on the following page:
+<%= include('../_find-auth0-domain-redirects') %>
 
-![](/media/articles/connections/social/dwolla/dwolla-3.png)
+### Create and enable a connection in Auth0
 
-## 4. Copy your *Key* and *Secret*
+[Set up the Dwolla social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the generated **Key** and **Secret**.
 
-Go to the [Social Connections](${manage_url}/#/connections/social) section of your Auth0 Dashboard and choose **Dwolla**. Copy the `Key` and `Secret` from the **Application** page of your app on Dwolla into the `Client Id` and `Client Secret` fields on this page on Auth0:
+### Test the connection
 
-![](/media/articles/connections/social/dwolla/dwolla-4.png)
+You're ready to [test your connection](/dashboard/guides/connections/test-connections-social). After logging in, you'll be prompted to allow your app access. To do so, click **Install unlisted app**.
 
 <%= include('../_quickstart-links.md') %>
-

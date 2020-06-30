@@ -2,6 +2,11 @@
 title: Securing Google Cloud Endpoints with Auth0
 description: How to secure a Google Cloud Endpoints API with Auth0.
 toc: true
+topics:
+  - integrations
+  - google-cloud
+contentType: how-to
+useCase: integrate-saas-sso
 ---
 
 # Securing Google Cloud Endpoints with Auth0
@@ -56,7 +61,7 @@ Field | Description
 `flow` | The flow used by the OAuth2 security scheme. Valid values are `"implicit"`, `"password"`, `"application"` or `"accessCode"`.
 `type` | The type of the security scheme. Valid values are `"basic"`, `"apiKey"` or `"oauth2"`
 `x-google-issuer` | The issuer of a credential, should be set to `"https://${account.namespace}/"`
-`x-google-jwks_uri` | The URI of the public key set to validate the JSON Web Token signature. Set this to `"https://${account.namespace}/.well-known/jwks.json"`
+`x-google-jwks_uri` | The URI of the public key set to validate the <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn> signature. Set this to `"https://${account.namespace}/.well-known/jwks.json"`
 `x-google-audiences` | The API's identifier, make sure this value matches what you defined on the Auth0 dashboard for the API.
 
 
@@ -187,7 +192,7 @@ You'll get the following response:
 
 Which is exactly what we want!
 
-Now go to the **Test** page of your Google Endpoints API definition on the [Auth0 Dashboard](${manage_url}/#/apis), and copy the `access_token`:
+Now go to the **Test** page of your Google Endpoints API definition on the [Auth0 Dashboard](${manage_url}/#/apis), and copy the <dfn data-key="access-token">Access Token</dfn>:
 
 ![Copy Token](/media/articles/tutorials/gce-copy-token.png)
 

@@ -1,16 +1,21 @@
 ---
 title: Amazon API Gateway Tutorial - Building the App
 description: Step 3 of Amazon API Gateway Tutorial
+topics:
+  - integrations
+  - aws
+  - api-gateway
+contentType: tutorial
+useCase:
+  - secure-an-api
 ---
 # AWS API Gateway Tutorial
 
-::: version-warning
-Delegation is considered deprecated in Auth0. Please integrate Auth0 using custom authorizers. Use the drop-down to switch to these docs.
-:::
+<%= include('./_delegation-version-warning') %>
 
 ## Step 3 - Build the Application
 
-In this step, you will build a single page, serverless application using the AngularJS framework that you will serve out of an AWS S3 bucket configured to act as a static website.
+In this step, you will build a single-page, serverless application using the AngularJS framework that you will serve out of an AWS S3 bucket configured to act as a static website.
 
 ### 1. Set Up Your Sample Application
 
@@ -51,11 +56,11 @@ You should also see the page for viewing pets.
 
 ### Use Delegation to Get an AWS Token
 
-At this point, you have authentication set up with Auth0, and you have an OpenId JWT. Here is the directory structure for the generated code:
+At this point, you have authentication set up with Auth0, and you have an OpenID JWT. Here is the directory structure for the generated code:
 
 ![S3 website directory structure](/media/articles/integrations/aws-api-gateway/aws-api-gateway-project.png)
 
-You can use Auth0's delegation capability to obtain an AWS Access Token that is based on the Auth0 identity token. Behind the scenes, Auth0 authenticates your identity token, and then uses SAML based on the addon that you configured.
+You can use Auth0's delegation capability to obtain an AWS Access Token that is based on the Auth0 identity token. Behind the scenes, Auth0 authenticates your identity token, and then uses <dfn data-key="security-assertion-markup-language">SAML</dfn> based on the addon that you configured.
 
 Update `pets/login/login.js` as follows to get an AWS delegation token from the identity token after a successful signin with `auth.signin`. Note that you are treating any user not logged in using a Social Connection as an admin. Later, we'll code a second role and show better ways to enforce role selection.
 

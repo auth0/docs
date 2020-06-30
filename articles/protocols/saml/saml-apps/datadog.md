@@ -1,9 +1,17 @@
 ---
 title: Datadog SAML Configuration
 description: Datadog SAML Configuration
+topics:
+    - saml
+    - identity-providers
+    - datadog
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
-${include('./_header')}
+<%= include('./_header') %>
 
 ```json
 {
@@ -21,6 +29,6 @@ ${include('./_header')}
 }
 ```
 
-**Callback URL**: `https://app.datadoghq.com/account/saml/assertion`
+The **<dfn data-key="callback">Callback URL</dfn>** is `https://app.datadoghq.com/account/saml/assertion`.
 
-Notice that Datadog has an option to automatically provision new users. Check [here](http://docs.datadoghq.com/guides/saml/) for more details.
+Notice that Datadog has an option to automatically provision new users. Check [Datadog docs](http://docs.datadoghq.com/guides/saml/) for more details.

@@ -1,20 +1,27 @@
 ---
 description: How to execute an Authorization Code Grant flow with PKCE for a Mobile Application
 toc: true
+topics:
+  - api-authentication
+  - oidc
+  - authorization-code
+  - pkce
+contentType: tutorial
+useCase:
+  - secure-api
+  - call-api
 ---
 # Execute an Authorization Code Grant Flow with PKCE
 
-<%= include('../../_includes/_pipeline2') %>
-
 ::: note
-This tutorial will help you implement the Authorization Code (PKCE) grant. If you are looking for some theory on the flow refer to [Calling APIs from Mobile App](/api-auth/grant/authorization-code-pkce).
+This tutorial will help you implement the Authorization Code (PKCE) grant. If you are looking for some theory on the flow refer to [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce).
 :::
 
 The __Authorization Code with PKCE__ is the OAuth 2.0 grant that [native apps](/quickstart/native) use in order to access an API. In this document we will work through the steps needed in order to implement this: create a code verifier and a code challenge, get the user's authorization, get a token and access the API using the token.
 
 Before beginning this tutorial, please:
 
-* Check that your Application's [Grant Type property](/Applications/Application-grant-types) is set appropriately
+* Check that your Application's [Grant Type property](/applications/concepts/application-grant-types) is set appropriately
 * [Register the API](/apis#how-to-configure-an-api-in-auth0) with Auth0
 
 ## 1. Create a Code Verifier
@@ -153,7 +160,7 @@ Where:
 
 * `audience`: The unique identifier of the API the native app wants to access. Use the **Identifier** value on the [Settings](${manage_url}/#/apis) tab for the API you created as part of the prerequisites for this tutorial.
 
-* `scope`: The [scopes](/scopes) that you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format, or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a Refresh Token (make sure that the __Allow Offline Access__ field is enabled in the [API Settings](${manage_url}/#/apis)). The custom scopes must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims). For more information on this, refer to the [Namespacing Custom Claims](#optional-customize-the-tokens) panel.
+* `scope`: The <dfn data-key="scope">scopes</dfn> that you want to request authorization for. These must be separated by a space. You can request any of the [standard OpenID Connect (OIDC) scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must [conform to a namespaced format](/tokens/guides/create-namespaced-custom-claims), or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a <dfn data-key="refresh-token">Refresh Token</dfn> (make sure that the __Allow Offline Access__ field is enabled in the [API Settings](${manage_url}/#/apis)).
 
 * `response_type`: Denotes the kind of credential that Auth0 will return (code vs token). For this flow, the value must be `code`.
 
@@ -179,18 +186,39 @@ For example:
 
 ## 4. Exchange the Authorization Code for an Access Token
 
-Now that you have an Authorization Code, you must exchange it for an Access Token that can be used to call your API. Using the Authorization Code (`code`) from the previous step, you will need to `POST` to the [Token URL](/api/authentication#authorization-code-pkce-) sending also the `code_verifier`:
+Now that you have an Authorization Code, you must exchange it for an <dfn data-key="access-token">Access Token</dfn> that can be used to call your API. Using the Authorization Code (`code`) from the previous step, you will need to `POST` to the [Token URL](/api/authentication#authorization-code-pkce-) sending also the `code_verifier`:
 
 ```har
 {
   "method": "POST",
   "url": "https://${account.namespace}/oauth/token",
   "headers": [
-    { "name": "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
-    "mimeType": "application/json",
-    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"code_verifier\": \"YOUR_GENERATED_CODE_VERIFIER\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"com.myclientapp://myclientapp.com/callback\", }"
+    "mimeType": "application/x-www-form-urlencoded",
+    "params": [
+      {
+        "name": "grant_type",
+        "value": "authorization_code"
+      },
+      {
+        "name": "client_id",
+        "value": "${account.clientId}"
+      },
+      {
+        "name": "code_verifier",
+        "value": "YOUR_GENERATED_CODE_VERIFIER"
+      },
+      {
+        "name": "code",
+        "value": "YOUR_AUTHORIZATION_CODE"
+      },
+      {
+        "name": "redirect_uri",
+        "value": "${account.callback}"
+      }
+    ]
   }
 }
 ```
@@ -214,15 +242,15 @@ The response contains `access_token`, `refresh_token`, `id_token`, and `token_ty
 }
 ```
 
-Note that `refresh_token` will only be present in the response if you included the `offline_access` scope AND enabled __Allow Offline Access__ for your API in the Dashboard. For more information about Refresh Tokens and how to use them, see [our documentation](/tokens/refresh-token).
+Note that `refresh_token` will only be present in the response if you included the `offline_access` scope AND enabled __Allow Offline Access__ for your API in the Dashboard. See [Refresh Tokens](/tokens/concepts/refresh-tokens) for more information.
 
 ::: warning
-The Authorization Code flow with PKCE can only be used for Applications whose type is `Native` in the Dashboard.
+The Authorization Code flow with PKCE can only be used for Applications whose type is `Native` or `Single Page Application` in the Dashboard.
 :::
 
 ## 5. Call the API
 
-Once you have the `access_token`, you can use it to make calls to the API, by passing it as a Bearer Token in the `Authorization` header of the HTTP request:
+Once you have the Access Token, you can use it to make calls to the API, by passing it as a Bearer Token in the `Authorization` header of the HTTP request:
 
 ```har
 {
@@ -237,9 +265,9 @@ Once you have the `access_token`, you can use it to make calls to the API, by pa
 
 ## 6. Verify the Token
 
-Once your API receives a request with a Bearer `access_token`, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
+Once your API receives a request with a Bearer Access Token, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
 
-For details on the validations that should be performed refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
+For details on the validations that should be performed, see [Validate Access Tokens](/tokens/guides/validate-access-tokens).
 
 ## Optional: Customize the Tokens
 
@@ -249,16 +277,13 @@ If you wish to execute special logic unique to the Authorization Code (PKCE) gra
 
 ## Sample application
 
-For an example implementation see the [Mobile + API](/architecture-scenarios/application/mobile-api) architecture scenario. 
+For an example implementation see the [Mobile + API](/architecture-scenarios/application/mobile-api) architecture scenario.
 
 This is a series of tutorials that describe a scenario for a fictitious company. The company wants to implement a mobile app that the employees can use to send their timesheets to the company's Timesheets API using OAuth 2.0. The tutorials are accompanied by a sample that you can access in [GitHub](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets).
 
 ## Keep reading
 
-::: next-steps
-- [Why you should always use Access Tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
+- [Tokens](/tokens)
 - [Application Authentication for Mobile & Desktop Apps](/Application-auth/mobile-desktop)
 - [The OAuth 2.0 protocol](/protocols/oauth2)
 - [The OpenID Connect protocol](/protocols/oidc)
-- [Tokens used by Auth0](/tokens)
-:::

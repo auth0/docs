@@ -1,39 +1,41 @@
 ---
 title: Login
 default: true
-description: This tutorial will show you how to use the Auth0 WPF and Winforms SDK to add authentication and authorization to your app.
+description: This tutorial demonstrates how to add user login to a Windows Forms C# application using Auth0.
 budicon: 448
+topics:
+  - quickstarts
+  - native
+  - windows
+  - wpf
+  - winforms
+github:
+    path: Quickstart/00-Starter-Seed
+contentType: tutorial
+useCase: quickstart
 ---
 
-<%= include('../../../_includes/_package', {
-  org: 'auth0-community',
-  repo: 'auth0-WinFormsWPF-oidc-samples',
-  path: 'Quickstart/00-Starter-Seed',
-  requirements: [
-    'Microsoft Visual Studio 2017',
-    '.NET Framework 4.5.2'
-  ]
-}) %>
+<!-- markdownlint-disable MD002 MD034 MD041 -->
 
-This tutorial explains how to integrate Auth0 with a WPF or Windows Forms application. The `Auth0.OidcClient.WPF` or `Auth0.OidcClient.WinForms` NuGet packages helps you authenticate users with any [Auth0 supported identity provider](/identityproviders).
+<%= include('../_includes/_getting_started', { library: 'Windows Forms or WPF' }) %>
 
-<%= include('../_includes/_dotnet-oidc-client-configuration') %>
+<%= include('../../../_includes/_callback_url') %>
 
-## Install Auth0.OidcClient.WPF or Auth0.OidcClient.WinForms NuGet Package
+::: note
+If you are following along with the sample project you downloaded from the top of this page, you should set the **Allowed Callback URLs** to `https://${account.namespace}/mobile`.
+:::
+
+<%= include('../../../_includes/_logout_url', { returnTo: 'https://' + account.namespace + '/mobile' }) %>
+
+## Integrate Auth0 in your Application
+
+### Install Dependencies
+
+The `Auth0.OidcClient.WPF` or `Auth0.OidcClient.WinForms` NuGet packages helps you authenticate users with any [Auth0 supported identity provider](/identityproviders).
 
 Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the `Auth0.OidcClient.WPF` or `Auth0.OidcClient.WinForms` package, depending on whether you are building a WPF or Windows Forms application:
 
-${snippet(meta.snippets.dependencies)}
-
-## Set up the Auth0 Callback URL
-
-<div class="setup-callback">
-<p>Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Applications Settings</a> section in the Auth0 dashboard and make sure that <strong>Allowed Callback URLs</strong> contains the following value:</p>
-
-<pre><code>https://${account.namespace}/mobile</pre></code>
-</div>
-
-## Integration
+## Trigger Authentication
 
 To integrate Auth0 login into your application, simply instantiate an instance of the `Auth0Client` class, passing your Auth0 Domain and Client ID in the constructor.
 
@@ -45,9 +47,9 @@ ${snippet(meta.snippets.use)}
 
 ![](/media/articles/native-platforms/wpf-winforms/wpf-winforms-step1.png)
 
-This will load Lock into a web view. If you want to customize Lock you need to enable the [Custom Login Page](${manage_url}/#/login_page) from your hosted pages. Please refer to [Lock documentation](/libraries/lock) for available options.
+This will load the Auth0 login page into a web view. You can learn how to customize the login page in [this document](/universal-login#simple-customization).
 
-## Accessing the User's Information
+## Handle Authentication Tokens
 
 The returned login result will indicate whether authentication was successful, and if so contain the tokens and claims of the user.
 
@@ -62,13 +64,13 @@ var loginResult = await client.LoginAsync();
 
 if (loginResult.IsError)
 {
-    Debug.WriteLine($"An error occurred during login: {loginResult.Error}")
+    Debug.WriteLine($"An error occurred during login: {loginResult.Error}");
 }
 ```
 
 ### Accessing the tokens
 
-On successful login, the login result will contain the `id_token` and `access_token` in the `IdentityToken` and `AccessToken` properties respectively.
+On successful login, the login result will contain the ID Token and Access Token in the `IdentityToken` and `AccessToken` properties respectively.
 
 ```csharp
 // Form1.cs
@@ -102,7 +104,7 @@ if (!loginResult.IsError)
 The exact claims returned will depend on the scopes that were requested. For more information see @scopes.
 :::
 
-You can obtain a list of all the claims contained in the `id_token` by iterating through the `Claims` collection:
+You can obtain a list of all the claims contained in the ID Token by iterating through the `Claims` collection:
 
 ```csharp
 // Form1.cs
@@ -116,6 +118,11 @@ if (!loginResult.IsError)
 }
 ```
 
-## More Information
+## Logout
 
-For more information, please refer to the [Auth0 OIDC Application Documentation](https://auth0.github.io/auth0-oidc-client-net/documentation/intro.html).
+To log the user out call the `LogoutAsync` method.
+
+```csharp
+// Form1.cs
+await client.LogoutAsync();
+```

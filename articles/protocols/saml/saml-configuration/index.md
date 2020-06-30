@@ -1,10 +1,17 @@
 ---
 description: An overview of the SAML configuration process
+topics:
+  - saml
+  - saml-configuration
+contentType:
+  - index
+useCase:
+  - add-idp
 ---
 
 # SAML Configuration
 
-SAML-based federation involves two parties:
+<dfn data-key="security-assertion-markup-language">SAML</dfn>-based federation involves two parties:
 
 1. An **identity provider** (IdP): authenticates users and provides to Service Providers an Authentication Assertion if successful;
 2. A **service provider** (SP): relies on the Identity Provider to authenticate users.
@@ -13,7 +20,7 @@ Auth0 supports the SAML protocol and can serve as the identity provider, the ser
 
 ## SAML Identity Providers
 
-Some applications (such as SalesForce, Box, and Workday) allow users to authenticate against an external IdP using the SAML protocol. You can then integrate the application with Auth0, which serves as the application's SAML IdP.
+Some applications (such as Salesforce, Box, and Workday) allow users to authenticate against an external IdP using the SAML protocol. You can then integrate the application with Auth0, which serves as the application's SAML IdP.
 
 Application users will be redirected to Auth0 to log in, and Auth0 can authenticate them using any backend authentication connection, such as an LDAP directory, a database, or another SAML IdP or Social Provider.
 
@@ -23,7 +30,7 @@ Once the user is authenticated, Auth0 returns a SAML assertion to the applicatio
 
 ## SAML Service Providers
 
-Applications, especially custom ones, can authenticate users against an external IdP using protocols such as OpenID Connect or OAuth 2.0. However, you might want to leverage an enterprise SAML provider for authentication, even if you wrote your application to utilize either protocol.
+Applications, especially custom ones, can authenticate users against an external IdP using protocols such as <dfn data-key="openid">OpenID Connect (OIDC)</dfn> or OAuth 2.0. However, you might want to leverage an enterprise SAML provider for authentication, even if you wrote your application to utilize either protocol.
 
 ![](/media/articles/saml/saml-configuration/saml-case1.png)
 
@@ -44,7 +51,7 @@ The following documentation cover the different aspects of SAML configuration:
 * [Supported SAML Options and Bindings](/protocols/saml/saml-configuration/supported-options-and-bindings)
 * [Special Configuration Scenarios](/protocols/saml/saml-configuration/special-configuration-scenarios)
 * [Customize SAML Assertions](/protocols/saml/saml-configuration/saml-assertions)
-* [Select Between Multiple Identity Providers](/protocols/saml/saml-configuration/selecting-between-multiple-idp)
+* [Select Between Multiple Identity Providers](/hrd)
 * [Logout](/protocols/saml/saml-configuration/logout)
 * [Deprovision Users](/protocols/saml/saml-configuration/deprovision-users)
 * [Troubleshoot](/protocols/saml/saml-configuration/troubleshoot)

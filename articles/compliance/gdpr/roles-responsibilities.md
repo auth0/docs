@@ -1,6 +1,11 @@
 ---
 title: Roles and Responsibilities under GDPR
 description: The roles and responsibilities of data controllers and processors under GDPR
+topics:
+    - compliance
+    - gdpr
+contentType: reference
+useCase: compliance
 ---
 # Roles and Responsibilities under GDPR
 

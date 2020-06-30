@@ -2,6 +2,12 @@
 title: Design Your Auth0 Implementation
 description: Guidance for designing your Auth0 implementation
 classes: topic-page
+topics:
+  - design
+contentType:
+    - index
+    - how-to
+useCase: strategize
 ---
 
 <div class="topic-page-header">
@@ -22,9 +28,9 @@ classes: topic-page
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/design/creating-invite-only-applications">Invite-Only Applications</a>
+    <i class="icon icon-budicon-715"></i><a href="/design/creating-invite-only-applications">User Invitation Applications</a>
     <p>
-      Using Auth0 with invite-only applications, which are those where access is limited to a select group of previously-identified users.
+      Using Auth0 with applications where an administrator creates the user account and then invites the user to complete the signup process by setting a password.
     </p>
   </li>
   <li>

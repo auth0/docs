@@ -1,10 +1,16 @@
 ---
 description: Overview of Microsoft Office 365 Integration with Auth0.
 toc: true
+topics:
+  - integrations
+  - microsoft
+  - office-365
+contentType: how-to
+useCase: integrate-saas-sso
 ---
 # Office 365 Integration
 
-Auth0 can help radically simplify the authentication process for Office 365. In this tutorial, you'll learn how to add Single Sign On (SSO) to Office 365 using Auth0.
+Auth0 can help radically simplify the authentication process for Office 365. In this tutorial, you'll learn how to add <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> to Office 365 using Auth0.
 
 ## Why use Auth0 for Office 365
 
@@ -24,7 +30,7 @@ Office 365 uses Azure AD as an identity store which supports different account m
 
 1. **Cloud Identity**: Users are created in the cloud (Office 365/Azure AD) with no relation to an on-premises directory. Authentication happens with Azure AD.
 2. **Synchronized Identity**: Users are synchronized from an on-premises LDAP directory (like Active Directory) to Azure AD. This means the user management can happen on-premises but authentication will always happen in the cloud using Azure AD.
-3. **Federated Identity**: Users are synchronized from an on-premises LDAP directory (like Active Directory) to Azure AD. In this case Azure AD will act as the user store, but authentication will happen with a SAML 2.0 identity provider configured by the customer. This can be an ADFS server, Shibboleth, or in our case, Auth0. With this third model you can add SSO support to Office 365.
+3. **Federated Identity**: Users are synchronized from an on-premises LDAP directory (like Active Directory) to Azure AD. In this case Azure AD will act as the user store, but authentication will happen with a <dfn data-key="security-assertion-markup-language">SAML</dfn> 2.0 identity provider configured by the customer. This can be an ADFS server, Shibboleth, or in our case, Auth0. With this third model you can add SSO support to Office 365.
 
 This means that even if you use Auth0 for SSO support in Office 365, you will always need to synchronize your on-premises users to Office 365/Azure AD because it will be used as a user store (for user information, assigning licenses to those users, and so on.).
 
@@ -76,7 +82,7 @@ Set-MsolDomainAuthentication
     -Authentication Federated
     -PassiveLogOnUri "https://fabrikam.auth0.com/wsfed/yNqQMENaYIONxAaQmrct341tZ9joEjTi"
     -ActiveLogonUri "https://fabrikam.auth0.com/yNqQMENaYIONxAaQmrct341tZ9joEjTi/trust/usernamemixed?connection=FabrikamAD"
-    -MetadataExchangeUri "https://fabrikam.auth0.com/wsfed/yNqQMENaYIONxAaQmrct341tZ9joEjTi/FederationMetadata/2007-06/FederationMetadata.xml?connection=FabrikamAD"
+    -MetadataExchangeUri "https://fabrikam.auth0.com/wsfed/FederationMetadata/2007-06/FederationMetadata.xml?connection=FabrikamAD"
     -SigningCertificate "MIID..."
     -IssuerUri "urn:fabrikam"
     -LogOffUri "https://fabrikam.auth0.com/logout"
@@ -159,19 +165,23 @@ You will need the `YOUR_CLIENT_ID` part of the segment.
 
 2. Go to the **Rules** section and create a new rule. Start from the **Empty** template, name it `Set Issuer for Office 365 SSO Integration` and write code similar to this to set the issuer according to the domain of the user's email:
 
-```JavaScript
+```js
 function (user, context, callback) {
-  const office365ClientId = 'xxxxxx'; // put the right client id
+  // retrieve values from the configuration object
+  const office365ClientId = configuration.OFFICE365_CLIENT_ID; // put the right client id
+  const primaryDomain = configuration.PRIMARY_DOMAIN; // for example, exampleco.com
+  const secondaryDomain = configuration.SECONDARY_DOMAIN;
+
   if (context.clientID !== office365ClientId)
       return callback(null, user, context);
 
   var getIssuerURI = function(domain) {
     // write code that returns the right issuer URI
     // for each domain
-    if (domain === 'fabrikam.be') {
-      return 'urn:fabrikam.be';
-    } else if (domain === 'contoso.com') {
-      return 'urn:contoso.com';
+    if (domain === primaryDomain) {
+      return 'urn:' + primaryDomain;
+    } else if (domain === secondaryDomain) {
+      return 'urn:' + secondaryDomain;
     }
     return null;
   }

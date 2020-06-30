@@ -1,7 +1,13 @@
 title: ASP.NET (OWIN)
 image: /media/platforms/asp.png
-tags:
+author:
+  name: Damien Guard
+  email: damien.guard@auth0.com
+  community: false
+topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   dependencies: server-platforms/aspnet-owin/dependencies
   setup: server-platforms/aspnet-owin/setup
@@ -10,10 +16,32 @@ alias:
   - aspnetowin
   - owin
 seo_alias: aspnet-owin
-default_article: dashboard-default
+default_article: 01-login
 articles:
-  - 00-intro
   - 01-login
-  - 02-storing-tokens
-  - 03-user-profile
-  - 04-authorization
+  - 02-user-profile
+  - 03-authorization
+  - 04-migrating
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-aspnet-owin-mvc-samples
+  branch: master
+requirements:
+  - Microsoft Visual Studio 2017
+  - Microsoft.Owin.Security.OpenIdConnect v4.1.0 and up
+next_steps:
+  - path: 03-authorization
+    list:
+    - text: Configure other identity providers
+      icon: 345
+      href: "/identityproviders"
+    - text: Enable multifactor authentication
+      icon: 345
+      href: "/multifactor-authentication"
+    - text: Learn about anomaly detection
+      icon: 345
+      href: "/anomaly-detection"
+    - text: Learn about rules
+      icon: 345
+      href: "/rules"

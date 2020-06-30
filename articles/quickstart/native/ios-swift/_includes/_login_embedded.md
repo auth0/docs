@@ -40,7 +40,7 @@ For further reference on the `credentials` object, please see
 
 This sets you up for handling Database connections.
 
-### Log In with Enterprise & Social Connections
+### Log in with enterprise & social connections
 
 In order to use browser based Auth mechanism through social and enterprise connections, all you have to do is enable them in your account's [connections dashboard](${manage_url}/#/connections/social). Every connection you switch on there, will appear in the Login screen of your app.
 
@@ -61,5 +61,5 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 ```
 
 ::: note
-Please ensure you have configured your callback URL as demonstrated in [Configure Callback](/quickstart/native/ios-swift/00-getting-started#configure-callback-urls).
+Please ensure you have configured your callback URL as demonstrated in [Configure Callback](/quickstart/native/ios-swift#configure-callback-urls).
 :::

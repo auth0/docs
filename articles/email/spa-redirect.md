@@ -1,5 +1,10 @@
 ---
 description: How to work around the limitation of single-page application email redirects.
+topics:
+  - email
+  - spa
+contentType: how-to
+useCase: customize-emails
 ---
 # Single-Page App Email Redirect Issue
 
@@ -29,7 +34,7 @@ For example, with the above URL, the app will be routed to `/` instead of `/#/re
 
 ## Using a Query String Parameter 
 
-To work around this limitation of SPA frameworks, it is recommended to use a server-side callback URL as the **redirect To** URL with a `route` parameter that preserves the SPA app route for the redirect. Once in this server-side URL, simply redirect to the SPA route saved in the `route` parameter along with rest of the query string.
+To work around this limitation of SPA frameworks, it is recommended to use a server-side <dfn data-key="callback">callback URL</dfn> as the **redirect To** URL with a `route` parameter that preserves the SPA app route for the redirect. Once in this server-side URL, simply redirect to the SPA route saved in the `route` parameter along with rest of the query string.
 
 1. Add a server-side URL as the **redirect To** URL with a `route` parameter that records the SPA route for the redirect.
 

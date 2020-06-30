@@ -2,7 +2,7 @@
 
 The Authentication API enables you to manage all aspects of user identity when you use Auth0. It offers endpoints so your users can log in, sign up, log out, access APIs, and more. 
 
-The API supports various identity protocols, like [OpenID Connect](/protocols/oidc), [OAuth 2.0](/protocols/oauth2), and [SAML](/protocols/saml).
+The API supports various identity protocols, like <dfn data-key="openid">[OpenID Connect](/protocols/oidc)</dfn>, [OAuth 2.0](/protocols/oauth2), and <dfn data-key="security-assertion-markup-language">[SAML](/protocols/saml)</dfn>.
 
 :::note
 This API is designed for people who feel comfortable integrating with RESTful APIs. If you prefer a more guided approach check out our [Quickstarts](/quickstarts) or our [Libraries](/libraries).
@@ -15,7 +15,7 @@ The Authentication API is served over HTTPS. All URLs referenced in the document
 ## Authentication methods
 
 There are three ways to authenticate with this API: 
-- with an OAuth2 Access Token in the `Authorization` request header field (which uses the `Bearer` authentication scheme to transmit the Access Token)
+- with an OAuth2 <dfn data-key="access-token">Access Token</dfn> in the `Authorization` request header field (which uses the `Bearer` authentication scheme to transmit the Access Token)
 - with your Client ID and Client Secret credentials
 - only with your Client ID
 
@@ -23,7 +23,7 @@ Each endpoint supports only one option.
 
 ### OAuth2 token
 
-In this case, you have to send a valid [Access Token](/tokens/access-token) in the `Authorization` header, using the `Bearer` authentication scheme. An example is the [Get User Info endpoint](#get-user-info). In this scenario, you get an Access Token when you authenticate a user, and then you can make a request to the [Get User Info endpoint](#get-user-info), using that token in the `Authorization` header, in order to retrieve the user's profile.
+In this case, you have to send a valid Access Token in the `Authorization` header, using the `Bearer` authentication scheme. An example is the [Get User Info endpoint](#get-user-info). In this scenario, you get an Access Token when you authenticate a user, and then you can make a request to the [Get User Info endpoint](#get-user-info), using that token in the `Authorization` header, in order to retrieve the user's profile.
 
 ### Client ID and Client Secret
 
@@ -31,7 +31,7 @@ In this case, you have to send your Client ID and Client Secret information in t
 
 ### Client ID
 
-For public applications (such as applications that cannot hold credentials securely, like SPAs or mobile apps) we offer some endpoints that can be accessed using only the Client ID. An example is the [Implicit Grant](#implicit-grant).
+For public applications (such as applications that cannot hold credentials securely, like SPAs or mobile apps), we offer some endpoints that can be accessed using only the Client ID. An example is the [Implicit Grant](#implicit-grant).
 
 ## Parameters
 
@@ -44,25 +44,27 @@ For POST requests, parameters not included in the URL should be encoded as JSON 
 `curl --request POST --url 'https://${account.namespace}/some-endpoint' --header 'content-type: application/json' --data '{"param": "value", "param": "value"}'`
 
 ::: note
-An exception to that is the [SAML IdP-Initiated SSO Flow](#idp-initiated-sso-flow) that uses both a query string parameter and a `x-www-form-urlencoded` value.
+An exception to that is the [SAML IdP-Initiated Single Sign-on (SSO) Flow](#idp-initiated-sso-flow), which uses both a query string parameter and a `x-www-form-urlencoded` value.
 :::
 
 ## Code samples
 
-For each endpoint you will find sample snippets you can use, in three available formats:
+For each endpoint, you will find sample snippets you can use, in three available formats:
 - HTTP request
 - Curl command
 - JavaScript: depending on the endpoint each snippet may use the [Auth0.js library](/libraries/auth0js), Node.js code or simple JavaScript
 
+Each request should be sent with a Content-Type of `application/json`.
+
 ## Testing
 
-You can test the endpoints using either the [Authentication API Debugger](/extensions/authentication-api-debugger) or our preconfigured [Postman collection](https://app.getpostman.com/run-collection/2a9bc47495ab00cda178). For some endpoints both options are available.
+You can test the endpoints using either the [Authentication API Debugger](/extensions/authentication-api-debugger) or our preconfigured [Postman collection](https://app.getpostman.com/run-collection/2a9bc47495ab00cda178). For some endpoints, both options are available.
 
 ### Test with the Authentication API Debugger
 
 The [Authentication API Debugger](/extensions/authentication-api-debugger) is an Auth0 extension you can use to test several endpoints of the Authentication API. 
 
-If it's the first time you use it, you have to install it using the [dashboard](https://${manage_url}/#/extensions). Once you do you are ready to configure your app's settings and run your tests. 
+If it's the first time you use it, you have to install it using the [dashboard](${manage_url}/#/extensions). Once you do, you are ready to configure your app's settings and run your tests. 
 
 Note that its URL varies according to your tenant's region:
 - <a href="https://${account.tenant}.us.webtask.io/auth0-authentication-api-debugger" target="_blank">US West</a>
@@ -77,7 +79,7 @@ We have preconfigured a collection that you can [download](https://app.getpostma
 
 ## Errors
 
-When an error occurs, you will receive an error object. All error objects have an error code and an error description so that your applications can tell what the problem is.
+When an error occurs, you will receive an error object. Most of these error objects contain an error code and an error description so that your applications can more efficiently identify the problem.
 
 If you get an `4xx` HTTP response code, then you can assume that there is a bad request from your end. In this case, check the [Standard Error Responses](#standard-error-responses) for more context. 
 
@@ -97,6 +99,6 @@ Note that for database connections Auth0 limits certain types of repeat login at
 
 ## Support
 
-If you have problems or need help with your case you can always reach out to our [Support](${env.DOMAIN_URL_SUPPORT}).
+If you have problems or need help with your case, you can always reach out to our [Support](${env.DOMAIN_URL_SUPPORT}).
 
 Note that if you have a free subscription plan, and you are not in your 22-day trial period, you will not be able to access or open tickets in the [Support Center](${env.DOMAIN_URL_SUPPORT}). In this case, you can seek support through the [Auth0 Community](https://community.auth0.com/). For more info on our support program, refer to [Support Options](/support).

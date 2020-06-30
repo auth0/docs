@@ -3,16 +3,25 @@ section: libraries
 title: Migrating from Lock v9 to v11
 description: How to migrate from Lock v9 to v11
 toc: true
+topics:
+  - libraries
+  - lock
+  - migrations
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - migrate
 ---
 # Migrating from Lock v9 to v11
 
-This guide includes all the information you need to update your Lock v9 applications to [Lock v11](/libraries/lock).
+This guide includes all the information you need to update your <dfn data-key="lock">Lock</dfn> v9 applications to [Lock v11](/libraries/lock).
 
 ## Migration Steps
 
 Given that Lock v10 is very similar to Lock v11 you can read the [Lock v9 to Lock v10 migration guide](/libraries/lock/v10/migration-guide).
 
-Building Single Page Applications with Lock v9 has some key differences with the way they should be built in Lock v11. Lock v11 uses OIDC conformant APIs that are more secure, and some of the coding patterns with Lock v9 need to be changed.
+Building Single-Page Applications with Lock v9 has some key differences with the way they should be built in Lock v11. Lock v11 uses OIDC conformant APIs that are more secure, and some of the coding patterns with Lock v9 need to be changed.
 
 <%= include('../../_includes/_get_lock_latest_version') %>
 
@@ -77,7 +86,7 @@ function login()
 }
 ```
 
-Note that the parameters that were passed to `show()` in Lock v9 are used to initialize Lock in Lock v11, and that the callback specified in `show()` is replaced by an `authenticated` event handler. 
+Note that the parameters that were passed to `show()` in Lock v9 are used to initialize Lock in Lock v11, and that the <dfn data-key="callback">callback</dfn> specified in `show()` is replaced by an `authenticated` event handler. 
 
 ### Using Lock in SPAs with Redirect Mode
 

@@ -1,13 +1,18 @@
 ---
-decription: How to upgrade or change your Auth0 subscription.
+title: Change or Upgrade Your Auth0 Subscription
+description: How to upgrade or change your Auth0 subscription.
+topics:
+    - support
+    - subscriptions
+contentType:
+  - how-to
+  - reference
+useCase:
+  - support
 ---
 # Change or Upgrade Your Auth0 Subscription
 
 You can make changes to your Auth0 subscription plan via the [Auth0 Management Dashboard](${manage_url}).
-
-::: note
-While you can change your subscription plan using the Management Dashboard, you will need to [contact Support](https://support.auth0.com/) to change or enable certain *features* (such as [Impersonation](/user-profile/user-impersonation)) available to your account.
-:::
 
 1. Log in to the Auth0 [Management Dashboard](${manage_url}).
 2. Click on your tenant name in the top right corner to bring up the associated dropdown box.
@@ -19,7 +24,7 @@ While you can change your subscription plan using the Management Dashboard, you 
 
   ![](/media/articles/support/subscriptions/subscription.png)
 
-## Upgrade a Subscription
+## Upgrade a subscription
 
 You can use the [Management Dashboard](${manage_url}) to upgrade your subscription from:
 
@@ -40,7 +45,7 @@ To select a new plan, click **Checkout** in the associated box to upgrade. If yo
 
 Click **Subscribe Now** to confirm your information and activate your new subscription.
 
-## Downgrade a Paid Subscription to a Free Subscription
+## Downgrade to a free subscription
 
 On the **Subscription** tab, scroll down to the box associated with the **Free** plan and click **Checkout**.
 

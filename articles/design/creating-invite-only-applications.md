@@ -1,114 +1,73 @@
 ---
-description: How to customize the signup process for an invite-only application with Auth0
+description: Describes how to customize the signup process for an invite-only application with Auth0.
 toc: true
 crews: crew-2
+topics:
+  - design
+contentType: how-to
+useCase: invite-only
 ---
-# Invite-Only Applications
+# User Invitation Applications
 
-Many SaaS apps allow self-service provisioning, where users can register themselves and begin using the app. Other types of apps, however, do not allow such signups. Instead, the customer (typically an organization of some type) pay upfront for a number of users, and only the end user with the appropriate credentials may sign up and access the app. In such cases, you can use an invite-only workflow for authorization purposes.
+You can restrict users signups to an application. One way to do this is with user invitations as a provisioning workflow, either in conjunction with or as an alternative to self-provisioning. In this case, an administrator creates the user accounts then invites users to complete the signup process by creating passwords for those accounts. The user experience consists of the following steps:
 
-## Example Scenario: ExampleCo
+1. User receives an email inviting them to register.
+2. User follows a link to the **Set Up Password** page. 
+3. User creates and verifies a password.
+4. User signs in.
+5. User has access to the target application.
 
-In this tutorial, we will work through a sample setup for the fictional company, ExampleCo. 
+A user invitation is basically a change password link repurposed as an invitation. There are two common approaches for this: 
 
-ExampleCo is a multi-tenant SaaS solution offering cloud-based analytics. Customers purchasing licenses send ExampleCo lists of users whom they want to access the application.
+* Send an Auth0 [change password email](/email/custom#change-password-confirmation-email) using a [customized email template](/email/templates)
+* Create a password change ticket
 
-You can handle this requirement in Auth0 using an [Enterprise Connection](/identityproviders#enterprise) (using federation) with the individual customers using ADFS, SAML-P, and so on. This allows the customer to authenticate users with their own Active Directory specifying who gets access to the app.
+## Generate invitations
 
-The invite-only authorization flow includes the following steps:
+You can allow a user to access an existing account that you have created on their behalf. Then, send the user a unique link to set their password. You generate the unique link by creating a Password Change ticket where your invitation app calls the /password-change Management API endpoint. You will need to: 
 
-1. Creating new users in ExampleCo and bulk importing the same users into Auth0
-1. Triggering the email verification process via Auth0
-1. Triggering the password reset process via Auth0
+* Create an [Auth0 database](/connections/database) user with the `user.email_verified` parameter set to `false`
+* Have access to an [external email service](/email/providers)
+* Obtain a [Management API access token](/api/management/v2/tokens)
 
-### Setup your Application
+### Create Password Change tickets
 
-You can store all ExampleCo end users in a single database, since everyone will provide their unique corporate email addresses.
+1. Specify the user using `user_id` or `email` and `connection_id`.
+2. Specify where the user will be redirected. The `result_url` parameter is the location the user will be redirected to once they have set their password. In this case, this should be back to the target app login page. See [Redirect Users to other URLs](/users/guides/redirect-users-after-login#redirect-users-to-other-urls) for details.
+3. Specify the lifespan of the invitation link. Use the `ttl_sec` parameter to set how long the invitation link will remain active. This should align with your relevant security concerns. The link is one time use, so once the user has set their password, it is not vulnerable to reuse.
+4. Verify the email address. As long as this invitation is being sent to the email registered to the account, you should set the email as `verified` once the user has set their password. Use the `mark_email_as_verified` parameter as `true`. If this invitation is sent to anywhere other than the user's registered email address, you **should not** set the email verification to `true`. A successful request to this endpoint will result in a ticket URL to be returned. The URL will then be used to create the user invitation.
 
-![](/media/articles/invite-only/invite-only-connections.png)
+### Add query parameters to the ticket URL
 
-To prevent users from signing themselves up and adding themselves to the database connection, be sure to select the **Disable Sign Ups** option on the connection to make sure users can only be created on the backend.
- 
-You will need to create a [application](/applications) in the [Dashboard](${manage_url}/#/applications) with the correct parameters:
+The query parameters are used to customize the password reset UI. The returned URL will have the unique code value that allows the user to set their password followed by a `#`. For the link to work, you do not want to edit anything before the hash. 
 
- - **Name**: give your application a clear name as this will be used in the emails being sent out during the invite-only workflow
- - **Application Type**: this will be a regular web application.
- - **Allowed Callback URLs**: this should be the URL of your app
+1. Add hash parameters to the generated password ticket URL. 
+2. Add a parameter to identify that the UI should represent a set password workflow rather than a change password workflow. 
+3. Add a parameter to identify the target app in the case that invites might be sent for more than one app. 
 
-![](/media/articles/invite-only/invite-only-app.png)
+### Create an email template
 
-Since this application needs to access the [Management API](/api/v2), you'll need to authorize it and set its scopes as follows:
+The email invitation needs to be sent with your existing email service provider. The language in the email should align with your use case. Include the link generated from the steps above. The text in the email should explain:
+* The next steps to claiming the user account.
+* The expiration of the link.
+* Steps to generate a new invite if it has expired.
 
-* Go to the [APIs section](${manage_url}/#/apis) of the Dashboard.
-* Select **Auth0 Management API**.
-* Click over to the **Machine to Machine Applications** tab.
-* Find the application you just created, and set its toggle to **Authorized**.
-* Use the **down arrow** to open up the scopes selection area. Select the following scopes: `read:users`, `update:users`, `delete:users`, `create:users`, and `create:user_tickets`.
-* Click **Update**.
+## Customize the Password Reset UI
 
-![Authorize Application](/media/articles/invite-only/invite-only-authorize-application.png)
+Once the user clicks the link in the invitation they will be brought to the [Universal Login Password Reset](/universal-login/password-reset) page. Here they will set a password for their account. Since this page is used both for the forgot password workflow and for your user invitations, you will want to use the query parameters you defined earlier to identify the invite workflow and customize the UI accordingly.
 
-### Import Users
+## Complete the user experience
 
-Every user that exists in ExampleCo should be created in your Auth0 database connection as well. Auth0 offers a [bulk user import functionality](/users/bulk-importing-users-into-auth0) for this purpose.
+In most cases, once the user has set their password, you grant them access to the target app. The target app initiates the login sequence with the following steps:
 
-### Email Verification
+1. User submits password.
+2. Change password screen redirects return URL.
+3. Target app redirects to /authorize.
+4. User submits their credentials.
+5. User is authenticated into the app.
 
-Once you've created the user in Auth0, you'll send the appropriate `POST` call from your app to the [Create an Email Verification Ticket endpoint](/api/management/v2#!/Tickets/post_email_verification) to trigger an email that verifies the user's email.
+The workflow involves redirects but it is possible for the transition from the set password form to the login form to appear seamless to the end user.
 
-Be sure to update the following placeholder values:
+The `return_url` you set when you created the Password Change ticket is where the user will be redirected after creating their password. In this case you want the URL to be on the site the user has been invited to so that it can initiate the login workflow. Your target app will need to parse the `success` parameter to confirm no errors occurred then immediately initiate the redirect back to Auth0 to log the user in.
 
-* `MGMT_API_ACCESS_TOKEN`: replace with your [API Access Token](/api/management/v2/tokens)
-* `YOUR_APP_CALLBACK_URL`: replace with the callback/return URL for your app
-* `USER_ID`: replace with the Auth0 user ID for the end user
-```har
-{
-	"method": "POST",
-	"url": "https://${account.namespace}/api/v2/tickets/email-verification",
-	"httpVersion": "HTTP/1.1",
-	"cookies": [],
-	"headers": [{
-		"name": "Authorization",
-		"value": "Bearer MGMT_API_ACCESS_TOKEN"
-	}],
-	"queryString": [],
-	"postData": {
-		"mimeType": "application/json",
-		"text": "{ \"result_url\": \"YOUR_APP_CALLBACK_URL\", \"user_id\": \"USER_ID\", \"ttl_sec\": 0 }"
-	},
-	"headersSize": -1,
-	"bodySize": -1,
-	"comment": ""
-}
-```
-
-### Password Reset
-
-Once you've verified the user's password, you will need to initiate the [password change process](/connections/database/password-change). To do so, your app should make a `POST` request to Auth0's Management API.
-
-Be sure to replace the placeholder values for your [API Access Token](/api/management/v2/tokens), as well as those within the body of the call, including the callback/return URL for your app and the user's details.
-
-```har
-{
-	"method": "POST",
-	"url": "https://${account.namespace}/api/v2/tickets/password-change",
-	"httpVersion": "HTTP/1.1",
-	"cookies": [],
-	"headers": [{
-		"name": "Authorization",
-		"value": "Bearer MGMT_API_ACCESS_TOKEN"
-	}],
-	"queryString": [],
-	"postData": {
-		"mimeType": "application/json",
-		"text": "{ \"result_url\": \"YOUR_APP_CALLBACK_URL\", \"user_id\": \"USER_ID\", \"new_password\": \"secret\", \"connection_id\": \"con_0000000000000001\", \"email\": \"EMAIL\", \"ttl_sec\": 0 }"
-	},
-	"headersSize": -1,
-	"bodySize": -1,
-	"comment": ""
-}
-```
-
-## Summary
-
-This tutorial walked you through implementing an invite-only sign-up flow using the [Management API](/api/v2) to customize the sign-up process and the email handling.
+To optimize the user experience, you can have the target app parse the `email` parameter and include it with the authentication request as the `login_hint` parameter. This will prefill the user's email in the login form.

@@ -1,98 +1,67 @@
 ---
-title: Connect your app to vKontakte
+title: Connect Apps to vKontakte
 connection: vKontakte
 image: /media/connections/vkontakte.png
 seo_alias: vkontakte
-description: How to connect your Auth0 app to vKontakte.
+description: Learn how to add login functionality to your app with vKontakte.
 toc: true
+index: 33
+topics:
+  - connections
+  - social
+  - vkontakte
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
-# Connect your app to vKontakte
+# Connect Apps to vKontakte
 
-To connect your Auth0 app to vKontakte, you will need to generate an `Application ID` and `Secure Key` in a vKontakte app, copy these keys into your Auth0 settings, and enable the connection.
+You can add functionality to your web app that allows your users to log in with vKontakte. 
 
-## 1. Create a new vKontakte application
+## Prerequisites
 
-Login to [vKontakte Developers](https://new.vk.com/dev). 
+Before connecting your Auth0 app to vKontakte, you must have a [vKontakte Developer](https://new.vk.com/dev) account.
 
-Go to **My Apps** and click **Create an Application**:
+## Steps
 
-![](/media/articles/connections/social/vkontakte/vkontakte-login.png)
+To connect your app to vKontakte, you will:
 
-Select **Website** as the **Category**. 
+1. [Set up your app in vKontakte](#set-up-your-app-in-vkontakte)
+2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
+3. [Test the connection](#test-the-connection)
 
-Provide a name for your app.
+### Set up your app in vKontakte
 
-In the **Site address** field, enter the following:
+Set up an app in vKontakte. During this process, vKontakte will generate an **Application ID** and **Secure Key** for your application; make note of these.
 
-`https://${account.namespace}`
+1. Log in to [vKontakte Developers](https://new.vk.com/dev), go to **My Apps** and click **Create an Application**.
 
-In the **Base domain** field, enter the following:
+2. Select **Website** as the **Category**. 
 
-`${account.namespace}`
+3. Complete information about your app including the following values:
 
-![](/media/articles/connections/social/vkontakte/vkontakte-create-app.png)
+| Field | Value to Provide |
+| - | - |
+| Site address | `https://${account.namespace}` |
+| Base domain | `${account.namespace}` |
 
-Click **Connect Site** to create the app.
+4. Click **Connect Site** to create the app. You will be required to confirm your request with a code send via SMS.
 
-You will be required to confirm your request with a code send via SMS:
+5. Once the application is created, select **Settings** in the left nav. In the **Authorized redirect URI** field, enter your <dfn data-key="callback">callback URL</dfn>:
+  `https://${account.namespace}/login/callback`
 
-![](/media/articles/connections/social/vkontakte/vkontakte-validate-create-app.png)
+  <%= include('../_find-auth0-domain-redirects') %>
 
+6. Click **Save**. The top of the page displays the **Application ID** and the **Secure Key**.
 
-## 2. Enter your *redirect URL*
+### Create and enable a connection in Auth0
 
-Once the application is created, select **Settings** in the left nav.
+[Set up the vKontakte social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the generated **Application ID** and **Secure Key**.
 
-In the **Authorized redirect URI** field, enter the following:
+### Test the connection
 
-`https://${account.namespace}/login/callback`
-
-Click **Save**.
-
-![](/media/articles/connections/social/vkontakte/vkontakte-redirect.png)
-
-## 3. Get your *Application ID* and *Secure Key*
-
-From the top of the same page, copy the `Application ID` and `Secure Key` for use in the next step.
-
-![](/media/articles/connections/social/vkontakte/vkontakte-keys.png)
-
-## 4. Enter your *Application ID* and *Secure Key* into Auth0
-
-In a separate window, go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard.
-
-Select **vKontakte**:
-
-![](/media/articles/connections/social/vkontakte/vkontakte-logo.png)
-
-Copy the `Application ID` and `Secure Key` from the **Settings** page of your app on vKontakte into the fields on this page on Auth0.
-
-Select the Permissions you want to enable.
-
-Click **SAVE**.
-
-![](/media/articles/connections/social/vkontakte/vkontakte-add-connection.png)
-
-## 5. Enable the Connection
-
-Go to the **Apps** tab of the vKontakte connection on Auth0 and select each of your existing Auth0 apps for which you want to enable this connection and click **Save**:
-
-![](/media/articles/connections/social/vkontakte/vkontakte-add-apps.png)
-
-## 6. Test the connection
-
-Close the **Settings** window to return to the **Connections > Social** section of the Auth0 dashboard.
-
-A **TRY** icon will now be displayed next to the vKontakte logo:
-
-![](/media/articles/connections/social/vkontakte/vkontakte-try.png)
-
-Click **TRY**.
-
-If you have configured everything correctly, you will see the **It works!!!** page:
-
-![](/media/articles/connections/social/vkontakte/vkontakte-works.png)
+You're ready to [test your connection](/dashboard/guides/connections/test-connections-social). After logging in, you'll be prompted to allow your app access. To do so, click **Install unlisted app**.
 
 <%= include('../_quickstart-links.md') %>
-

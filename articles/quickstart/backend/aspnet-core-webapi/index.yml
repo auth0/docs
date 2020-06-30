@@ -1,28 +1,50 @@
-title: ASP.NET Core Web API
+title: ASP.NET Core Web API v2.0
 alias:
   - asp.net core webapi
   - aspnet core webapi
+  - asp.net core webapi 2.0
 language:
   - C#
 framework:
   - ASP.NET Core
+author:
+  name: Damien Guard
+  email: damien.guard@auth0.com
+  community: false
 thirdParty: false
 image: /media/platforms/asp.png
-tags:
+topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   dependencies: server-apis/aspnet-core-webapi/dependencies
-current_version: v2
-versions:
-  v1:
-    title: v1.1
-    articles:
-      - 01-authorization
-      - 02-using
-      - 03-troubleshooting
-  v2:
-    title: v2.0
-    articles:
-      - 01-authorization
-      - 02-using
-      - 03-troubleshooting
+articles:
+  - 01-authorization
+  - 02-using
+  - 03-troubleshooting
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-aspnetcore-webapi-samples
+  branch: master
+requirements:
+  - .NET Core SDK 2.1.300
+  - .NET Core 2.1.0
+  - ASP.NET Core 2.1.0
+  - Visual Studio 2017 15.7 or Visual Studio Code (Optional)
+next_steps:
+  - path: 01-authorization
+    list:
+    - text: Configure other identity providers
+      icon: 345
+      href: "/identityproviders"
+    - text: Enable multifactor authentication
+      icon: 345
+      href: "/multifactor-authentication"
+    - text: Learn about anomaly detection
+      icon: 345
+      href: "/anomaly-detection"
+    - text: Learn about rules
+      icon: 345
+      href: "/rules"

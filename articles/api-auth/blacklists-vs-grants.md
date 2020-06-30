@@ -1,10 +1,20 @@
 ---
-description: This document covers blacklists vs. grants when it comes handling tokens.
+description: Understand blacklists vs. grants when it comes handling tokens.
+topics:
+  - api-authentication
+  - oidc
+  - security
+  - blacklists
+  - application-grants
+contentType: concept
+useCase:
+  - secure-api
+  - call-api
 ---
 
 # Blacklists and Application Grants
 
-Let's say that you're using a non-interactive [application](/application) to access your API. You have a partner that calls your API, and at the end of your existing contract, you and your partner decide not to renew your partnership. As such, you now want to remove your partner's access to your API. The issue, however, is that you've given your partner an [Access Token](/tokens/access-token) that lasts for a month.
+Let's say that you're using a machine to machine [application](/application) to access your API. You have a partner that calls your API, and at the end of your existing contract, you and your partner decide not to renew your partnership. As such, you now want to remove your partner's access to your API. The issue, however, is that you've given your partner an <dfn data-key="access-token">Access Token</dfn> that lasts for a month.
 
 * What can you do in this situation?
 * How might you configure your Auth0 environment to make such situations easier to handle in the future?
@@ -24,10 +34,10 @@ Let's say that you grant access to your API to anyone in possession of the appro
 Please see the Auth0 blog for an in-depth treatment on [Blacklisting JSON Web Token API Keys](https://auth0.com/blog/blacklist-json-web-token-api-keys/).
 :::
 
-Auth0-issued tokens are [JWTs](/jwt), so you can set the JWT ID, or `jti`, for the token by including it in the token payload's `jwtid` field. With the `jti` in hand, you can make the appropriate `POST` call to the Management API's [blacklist a token endpoint](/api/management/v2#!/Blacklists/post_tokens). You'll need to provide the JWT's `aud` and `jti` claims. 
+Auth0-issued tokens are [JWTs](/tokens/concepts/jwts), so you can set the JWT ID, or `jti`, for the token by including it in the token payload's `jwtid` field. With the `jti` in hand, you can make the appropriate `POST` call to the Management API's [blacklist a token endpoint](/api/management/v2#!/Blacklists/post_tokens). You'll need to provide the JWT's `aud` and `jti` claims. 
 
 ::: panel Add a JWT ID
-You can add `jti` via a [rule](/rule). Here's a simple example using UUID:
+You can add `jti` via a [rule](/rules). Here's a simple example using UUID:
 
 ```js
 function (user, context, callback) {

@@ -3,6 +3,18 @@ title: Connect your app to Azure Active Directory (Classic Portal)
 description: How to obtain a ClientId and Client Secret for a Microsoft Azure Active Directory with the Classic Portal.
 crews: crew-2
 toc: true
+topics:
+    - connections
+    - enterprise
+    - azure
+    - active-directory
+    - microsoft
+contentType: 
+    - index
+    - how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to Azure Active Directory (Classic Portal)

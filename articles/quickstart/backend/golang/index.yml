@@ -5,9 +5,15 @@ alias:
   - golang
 languages:
   - Go
+author:
+  name: Jim Anderson
+  email: jim.anderson@auth0.com
+  community: false
 image: /media/platforms/golang.png
-tags:
+topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   dependencies: server-apis/golang/dependencies
   setup: server-apis/golang/setup
@@ -15,3 +21,25 @@ snippets:
 articles:
   - 01-authorization
   - 02-using
+  - 03-troubleshooting
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-golang-api-samples
+requirements:
+  - Go 1.8.2
+next_steps:
+  - path: 01-authorization
+    list:
+    - text: Configure other identity providers
+      icon: 345
+      href: "/identityproviders"
+    - text: Enable multifactor authentication
+      icon: 345
+      href: "/multifactor-authentication"
+    - text: Learn about anomaly detection
+      icon: 345
+      href: "/anomaly-detection"
+    - text: Learn about rules
+      icon: 345
+      href: "/rules"

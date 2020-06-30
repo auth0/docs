@@ -1,115 +1,64 @@
 ---
-title: Connect your app to Instagram
+title: Connect Apps to Instagram
 connection: Instagram
-index: 4
+index: 19
 image: /media/connections/instagram.png
 seo_alias: instagram
-description: This article shows you how to connect your Auth0 app to Instagram. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
+description: Learn how to add login functionality to your app with Instagram. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
 toc: true
+topics:
+  - connections
+  - social
+  - instagram
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
-# Connect your app to Instagram
+# Connect Apps to Instagram
 
-This article describes how to add login with Instagram to your app. It also discusses how you can get an Access Token in order to access the Instagram API.
+You can add functionality to your web app that allows your users to log in with Instagram. 
 
-First you need to connect your Auth0 application to Instagram. This is summarized in the following steps:
+::: note 
+Instagram hass deprecated their legacy APIs in favor of the new [Instagram Graph API](https://developers.facebook.com/docs/instagram-basic-display-api), which requires users to authenticate using Facebook Login. For more information, see [this blog post](https://developers.facebook.com/blog/post/2019/10/15/launch-instagram-basic-display-api/).
+:::
 
-- Register a client at the Instagram Developer Portal
-- Get the **Client ID** and **Client Secret**
-- Copy these keys into your Auth0 settings
-- Enable the Instagram social connection in Auth0
+## Prerequisites
 
-## 1. Log into the developer portal
+Before you connect your Auth0 app to Instagram, you must have a [Facebook Developer](https://developers.facebook.com/) account. Follow the instructions in [Getting Started with the Instagram Graph API](https://developers.facebook.com/docs/instagram-api/getting-started/). You must get an <dfn data-key="access-token">access token</dfn> that allows you to access the Facebook API. 
 
-Go to the Instagram [Developer portal](http://instagram.com/developer) and log in with your Instagram credentials. 
+## Steps
 
-If asked, complete the Developer Signup:
+To connect your app to Instagram, you will:
 
-![](/media/articles/connections/social/instagram/instagram-devportal-0.png)
+1. [Set up your app with the Graph API](#set-up-your-app-with-the-graph-api)
+2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
+3. [Test the connection](#test-the-connection)
 
-On the page that follows, click **Register Your Application**:
+### Set up your app with the Graph API
 
-![](/media/articles/connections/social/instagram/instagram-devportal-1.png)
+1. Log in to the [Facebook Developer](https://developers.facebook.com/) portal. 
+2. Follow steps for [App Development](https://developers.facebook.com/docs/apps#register) to register your app. 
+3. Add **Facebook Login** to your app in the **App Dashboard**. 
+4. On the **Facebook Login > Settings** page, under **Valid Oauth Redirect URIs**, enter your <dfn data-key="callback">callback URL</dfn>:
+  `https://${account.namespace}/login/callback`
 
-## 2. Register your app
+  You can also set a **Deauthorize Callback URL** that will be called when a user deauthorizes your app.
 
-Click **Register a New Client**:
-
-![](/media/articles/connections/social/instagram/instagram-devportal-2.png)
-
-## 3. Enter your callback URL
-
-Complete the form. Enter these values in the following fields:
-
-**Website URL**: `https://${account.namespace}`
-
-**Valid redirect URI**: `https://${account.namespace}/login/callback`
-  
-Click **Register**.
-
-![](/media/articles/connections/social/instagram/instagram-devportal-3.png)
-
-## 4. Get your Client ID and Client Secret
-
-Once your app is registered, you will be navigated to the **Manage Clients** page. Click on the **Manage** button for your new client.
-
-![](/media/articles/connections/social/instagram/instagram-devportal-4.png)
-
-This will bring you to the page that contains your **Client ID** and **Client Secret**. Copy these for use in the next step.
-
-![](/media/articles/connections/social/instagram/instagram-devportal-4-1.png)
-
-## 5. Copy your **Client Id** and **Client Secret** into Auth0
-
-In a separate window, go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth Dashboard. 
-
-Select **Instagram**. 
-
-Copy the `Client Id` and `Client Secret` from the **Manage Client** page of the Instagram Developer portal into the fields on this page on Auth0.
-
-Select the **Permissions** you want to enable.
-
-Click **SAVE**.
-
-![](/media/articles/connections/social/instagram/instagram-devportal-5.png)
-
-## 6. Enable the Connection
-
-Go to the **Apps** tab of the Instagram connection on Auth0 and select each of your existing Auth0 apps for which you want to enable this connection:
-
-![](/media/articles/connections/social/instagram/instagram-devportal-6.png)
-
-## 7. Test the connection
-
-Close the **Settings** window to return to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard.
-
-A **TRY** icon will now be displayed next to the Instagram logo:
-
-![](/media/articles/connections/social/instagram/instagram-devportal-7.png)
-
-Click **TRY**.
-
-Click **Authorize** to allow your app access.
-
-![](/media/articles/connections/social/instagram/instagram-devportal-7a.png)
-
-If you have configured everything correctly, you will see the **It works!!!** page:
-
-![](/media/articles/connections/social/instagram/instagram-devportal-7b.png)
-
-[Click here to learn more about authentication with Instagram](https://www.instagram.com/developer/authentication/)
-
-## 8. Access Instagram API
-
-Once you successfully authenticate a user, Instagram includes an [Access Token](/tokens/access-token) in the user profile it returns to Auth0. 
-
-You can then use this token to call their API.
-
-In order to get a Instagram Access Token, you have to retrieve the full user's profile, using the Auth0 Management API, and extrach the Access Token from the response. For detailed steps refer to [Call an Identity Provider API](/connections/calling-an-external-idp-api).
-
-Once you have the token you can call the API, following Instagram's documentation.
+<%= include('../_find-auth0-domain-redirects') %>
 
 ::: note
-For more information on these tokens, refer to [Identity Provider Access Tokens](/tokens/idp).
+If your application requests sensitive permissions, it may be [subject to review by Facebook](https://developers.facebook.com/docs/apps/review/). Only the `default` and `email` permissions do not currently require app review. For info on Facebook permissions, see Facebook's [Facebook Login Permissions Reference](https://developers.facebook.com/docs/facebook-login/permissions/).
 :::
+
+Once you are done you should have two pieces of information: the **Client ID** and **Client Secret** for your app.
+
+### Create and enable a connection in Auth0
+
+[Set up the Instagram social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the generated **Client ID** and **Client Secret**.
+
+### Test the connection
+
+You're ready to [test your connection](/dashboard/guides/connections/test-connections-social). After logging in, you'll be prompted to allow your app access. To do so, click **Install unlisted app**.
 
 <%= include('../_quickstart-links.md') %>

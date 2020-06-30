@@ -1,20 +1,15 @@
 ---
 title: Authorization
-description: This tutorial will show you how to use the Auth0 to add authorization to your Python API.
+description:  This tutorial demonstrates how to add authorization to a Python API built with Flask.
+topics:
+    - quickstart
+    - backend
+    - python
+github:
+  path: 00-Starter-Seed
+contentType: tutorial
+useCase: quickstart
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-python-api-samples',
-  path: '00-Starter-Seed',
-  requirements: [
-    'python 2.7, 3.3 and up',
-    'flask 0.11.1',
-    'python-jose-cryptodome 1.3.2',
-    'flask-cors 3.0.2',
-    'six 1.10.0'
-  ]
-}) %>
 
 <%= include('../../../_includes/_api_auth_intro') %>
 
@@ -22,23 +17,25 @@ description: This tutorial will show you how to use the Auth0 to add authorizati
 
 <%= include('../_includes/_api_auth_preamble') %>
 
-## Install the Dependencies
+## Validate Access Tokens
 
-This quickstart demonstrates how to add authorization to your Python API using [Flask](http://flask.pocoo.org/). Add the following dependencies to your `requirements.txt`:
+### Install dependencies
+
+ Add the following dependencies to your `requirements.txt`:
 
 ```python
 # /requirements.txt
 
 flask
 python-dotenv
-python-jose-cryptodome
+python-jose
 flask-cors
 six
 ```
 
-## Create the Flask APP
+### Create a Flask application
 
-Create a `server.py` file and initializate the Flask App. Set the domain, audience and the error handling.
+Create a `server.py` file and initialize the [Flask](http://flask.pocoo.org/) application. Set the domain, audience and the error handling.
 
 ```python
 # /server.py
@@ -62,7 +59,7 @@ class AuthError(Exception):
     def __init__(self, error, status_code):
         self.error = error
         self.status_code = status_code
-    
+
 @APP.errorhandler(AuthError)
 def handle_auth_error(ex):
     response = jsonify(ex.error)
@@ -70,11 +67,9 @@ def handle_auth_error(ex):
     return response
 ```
 
-## Create the JWT Validation Decorator
+### Create the JWT validation decorator
 
-<%= include('../_includes/_api_jwks_description_no_link') %>
-
-Add a decorator which verifies the `access_token` against your JWKS.
+Add a decorator which verifies the Access Token against your JWKS.
 
 ```python
 # /server.py
@@ -88,9 +83,9 @@ def get_token_auth_header():
         raise AuthError({"code": "authorization_header_missing",
                         "description":
                             "Authorization header is expected"}, 401)
-    
+
     parts = auth.split()
-    
+
     if parts[0].lower() != "bearer":
         raise AuthError({"code": "invalid_header",
                         "description":
@@ -157,15 +152,9 @@ def requires_auth(f):
     return decorated
 ```
 
-## Use this Decorator in your Methods
+### Validate scopes
 
-You can now use the decorator in any routes that require authentication.
-
-${snippet(meta.snippets.use)}
-
-## Protect individual endpoints
-
-Individual routes can be configured to look for a particular `scope` in the `access_token` by using the following:
+Individual routes can be configured to look for a particular `scope` in the Access Token by using the following:
 
 ```python
 # /server.py
@@ -185,23 +174,10 @@ def requires_scope(required_scope):
     return False
 ```
 
-Then, establish what scopes are needed in order to access the route. In this case `read:messages` is used:
+## Protect API Endpoints
 
-```python
-# /server.py
+<%= include('../_includes/_api_endpoints') %>
 
-@APP.route("/api/private-scoped")
-@cross_origin(headers=["Content-Type", "Authorization"])
-@cross_origin(headers=["Access-Control-Allow-Origin", "*"])
-@requires_auth
-def private_scoped():
-    """A valid Access Token and an appropriate scope are required to access this route
-    """
-    if requires_scope("read:messages"):
-        response = "Hello from a private endpoint! You need to be authenticated and have a scope of read:messages to see this."
-        return jsonify(message=response)
-    raise AuthError({
-        "code": "Unauthorized",
-        "description": "You don't have access to this resource."
-    }, 403)
-```
+You can use the decorators and functions define above in the corresponding endpoints.
+
+${snippet(meta.snippets.use)}

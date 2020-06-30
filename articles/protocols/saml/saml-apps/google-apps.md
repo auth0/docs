@@ -1,9 +1,17 @@
 ---
-title: Google Apps SAML Configuration
-description: Google Apps SAML Configuration
+title: G Suite SAML Configuration
+description: G Suite SAML Configuration
+topics:
+    - saml
+    - identity-providers
+    - g-suite
+contentType:
+  - how-to
+useCase:
+  - add-idp
 ---
 
-${include('./_header')}
+<%= include('./_header') %>
 
 ```json
 {
@@ -24,4 +32,4 @@ ${include('./_header')}
 }
 ```
 
-The **Callback URL** is `https://www.google.com/a/{YOUR-GOOGLE-DOMAIN}/acs`.
+The **<dfn data-key="callback">Callback URL</dfn>** is `https://www.google.com/a/{YOUR-GOOGLE-DOMAIN}/acs`.

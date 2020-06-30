@@ -1,106 +1,143 @@
 ---
-description: How to keep users logged in to your application
+description: Learn how to keep users logged in to your application using silent authentication.
+toc: true
+topics:
+  - api-authentication
+  - oidc
+  - silent-authentication
+contentType: how-to
+useCase:
+  - secure-api
+  - call-api
 ---
 
-# Silent Authentication
+# Configure Silent Authentication
 
-<%= include('../../_includes/_pipeline2') %>
+The <dfn data-key="openid">OpenID Connect protocol</dfn> supports a `prompt=none` parameter on the authentication request that allows applications to indicate that the authorization server must not display any user interaction (such as authentication, consent or MFA). Auth0 will either return the requested response back to the application or return an error if the user is not already authenticated, or that some type of consent or prompt is required before proceeding.
 
-There are two main participants involved in a [single sign-on (SSO)](/sso) scenario: an Authorization Server (Auth0), and multiple applications.
+Use of the [Implicit Flow](/flows/concepts/implicit) in SPAs presents security challenges requiring explicit mitigation strategies. You can use the [Authorization Code Flow with PKCE](/flows/concepts/auth-code-pkce) in conjunction with Silent Authentication to renew sessions in SPAs.
 
-For privacy reasons, applications cannot query Auth0 directly to determine if a user has logged in via SSO. This means that users must be redirected to Auth0 for SSO authentication.
+<%= include('../../_includes/_refresh_token_rotation_recommended.md') %>
 
-However, redirecting users away from your application is usually considered disruptive and should be avoided, from a UX perspective. **Silent authentication** lets you perform an authentication flow where Auth0 will only reply with redirects, and never with a login page.
+## Initiate Silent Authentication requests
 
-## Initiate a Silent Authentication request
-
-To initiate a silent authentication request, add the `prompt=none` parameter when you redirect a user to the [`/authorize` endpoint of Auth0's authentication API](/api/authentication#authorize-client).
+To initiate a silent authentication request, add the `prompt=none` parameter when you redirect a user to the [`/authorize` endpoint of Auth0's authentication API](/api/authentication#authorize-application). (The individual parameters on the authentication request will vary depending on the specific needs of your app.
+)
 
 For example:
 
 ```text
 GET https://${account.namespace}/authorize
-    ?response_type=code&
+    ?response_type=id_token token&
     client_id=...&
     redirect_uri=...&
     state=...&
     scope=openid...&
+    nonce=...&
+    audience=...&
+    response_mode=...&
     prompt=none
 ```
 
-::: note
-  The specific parameters on the authentication request will depend on what kind of application is authenticating (<a href="/api/authentication#authorization-code-grant">regular web application</a>, <a href="/api/authentication#implicit-grant">single page app</a>), and so forth).
-:::
-
-The `prompt=none` parameter will cause Auth0 to immediately redirect to the specified `redirect_uri` (callback URL) with two possible responses:
-
-* A successful authentication response if the user was already logged in via SSO
-* An error response if the user is not logged in via SSO and therefore cannot be silently authenticated
+The `prompt=none` parameter causes Auth0 to immediately send a result to the specified `redirect_uri` (<dfn data-key="callback">callback URL</dfn>) using the specified `response_mode` with one of two possible responses: success or error. 
 
 ::: note
 Any applicable [rules](/rules) will be executed as part of the silent authentication process.
 :::
 
-### Successful authentication response
+### Successful authentication responses
 
-If the user was already logged in via SSO, Auth0 will respond exactly as if the user had authenticated manually through the SSO login page.
+If the user was already logged in to Auth0 and no other interactive prompts are required, Auth0 will respond exactly as if the user had authenticated manually through the login page.
 
-For example, when using the [Authorization Code Grant](/api-auth/grant/authorization-code) (`response_type=code`, used for regular web applications), Auth0 will respond with an authorization code that can be exchanged for an ID Token and optionally an Access Token:
+For example, when using the Implicit Flow, (`response_type=id_token token`, used for single-page applications), Auth0 will respond with the requested tokens:
 
 ```text
 GET ${account.callback}
-    ?code=...&
+    #id_token=...&
+    access_token=...&
     state=...&
     expires_in=...
 ```
 
-Note that this response is indistinguishable from a login performed directly without the `prompt=none` parameter.
+This response is indistinguishable from a login performed directly without the `prompt=none` parameter.
 
-### Error response
+### Error responses
 
-If the user was not logged in via SSO or their SSO session had expired, Auth0 will redirect to the specified `redirect_uri` (callback URL) with an error:
+If the user was not logged in via <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> or their SSO session had expired, Auth0 will redirect to the specified `redirect_uri` (callback URL) with an error:
 
 ```
 GET https://your_callback_url/
-    ?error=ERROR_CODE&
+    #error=ERROR_CODE&
     error_description=ERROR_DESCRIPTION&
     state=...
 ```
 
-When using the [Authorization Code Grant](/api-auth/grant/authorization-code), the error response parameters are returned in the query string. When using the [Implicit Grant](/api-auth/grant/implicit), they are returned in the hash fragment instead.
-
 The possible values for `ERROR_CODE` are defined by the [OpenID Connect specification](https://openid.net/specs/openid-connect-core-1_0.html#AuthError):
 
-* `login_required`: The user was not logged in at Auth0, so silent authentication is not possible
-* `consent_required`: The user was logged in at Auth0, but needs to give consent to authorize the application
-* `interaction_required`: The user was logged in at Auth0 and has authorized the application, but needs to be redirected elsewhere before authentication can be completed; for example, when using a [redirect rule](/rules/redirect).
+| Response | Description |
+| -- | -- |
+| `login_required` | The user was not logged in at Auth0, so silent authentication is not possible. This error can occur based on the way the tenant-level **Log In Session Management** settings are configured; specifically, it can occur after the time period set in the **Require log in after** setting. See [Configure Session Lifetime Settings](/dashboard/guides/tenants/configure-session-lifetime-settings) for details. |
+| `consent_required` | The user was logged in at Auth0, but needs to give consent to authorize the application. |
+| `interaction_required` | The user was logged in at Auth0 and has authorized the application, but needs to be redirected elsewhere before authentication can be completed; for example, when using a [redirect rule](/rules/redirect). |
 
 If any of these errors are returned, the user must be redirected to the Auth0 login page without the `prompt=none` parameter to authenticate.
 
 ## Renew expired tokens
 
-Access Tokens are opaque to applications. This means that applications are unable to inspect the contents of Access Tokens to determine their expiration date.
+You can make a silent authentication request to get new tokens as long as the user still has a valid session at Auth0. The [`checkSession` method from auth0.js](/libraries/auth0js#using-checksession-to-acquire-new-tokens) uses a silent token request in combination with `response_mode=web_message` for SPAs so that the request happens in a hidden iframe. With SPAs, Auth0.js handles the result processing (either the token or the error code) and passes the information through a callback function provided by the application. This results in no UX disruption (no page refresh or lost state).
+
+::: note
+See [Renew Tokens When Using Safari](/api-auth/token-renewal-in-safari) for other important limitations and workarounds with the Safari browser. 
+:::
+
+### Access Token expiration
+
+<dfn data-key="access-token">Access Tokens</dfn> are opaque to applications. This means that applications are unable to inspect the contents of Access Tokens to determine their expiration date.
 
 There are two options to determine when an Access Token expires:
 
-1. Read the `expires_in` response parameter returned by Auth0
-2. Ignore expiration dates altogether. Instead, try to renew the Access Token if your API rejects a request from the application (such as with a 401).
+* Read the `expires_in` response parameter returned by Auth0.
+* Ignore expiration dates altogether. Instead, renew the Access Token if your API rejects a request from the application (such as with a 401).
 
-In the case of the [Implicit Grant](/api-auth/grant/implicit), the `expires_in` parameter is returned by Auth0 as a hash parameter following a successful authentication. For the [Authorization Code Grant](/api-auth/grant/code), it is returned to the backend server when performing the authorization code exchange.
+In the case of the [Implicit Flow](/flows/concepts/implicit), the `expires_in` parameter is returned by Auth0 as a hash parameter following a successful authentication. In the [Authorization Code Flow](/flows/concepts/auth-code), it is returned to the backend server when performing the authorization code exchange.
 
 The `expires_in` parameter indicates how many seconds the Access Token will be valid for, and can be used to anticipate expiration of the Access Token.
 
-When the Access Token has expired, silent authentication can be used to retrieve a new one without user interaction, assuming the user's SSO session has not expired.
+### Error response
 
-In the case of single-page applications, the [`checkSession` method from auth0.js](/libraries/auth0js#using-checksession-to-acquire-new-tokens) can be used to perform silent authentication within a hidden iframe, which results in no UX disruption at all.
+You may receive the `timeout` error response which indicates that timeout during executing `web_message` communication has occurred. This error is typically associated with fallback to cross-origin authentication. To resolve, make sure to add all of the URLs from which you want to perform silent authentication in the **Allowed Web Origins** field for your Application using the Auth0 Dashboard.
 
-### How to implement
+## Poll with `checkSession()`
 
-Implementation of token renewal will depend on the type of application and framework being used. Sample implementations for some of the common platforms can be found below:
+<%= include('../../_includes/_checksession_polling') %>
 
-* [Plain JavaScript](/quickstart/spa/vanillajs/05-token-renewal)
-* [jQuery](/quickstart/spa/jquery/05-token-renewal)
-* [React](/quickstart/spa/react/05-token-renewal)
-* [Angular](/quickstart/spa/angular2/05-token-renewal)
-* [ASP.NET Core MVC](https://github.com/auth0-samples/auth0-aspnetcore-mvc-samples/tree/master/Samples/silent-auth)
+## Silent authentication with MFA
+
+In some scenarios, you may want to avoid prompting the user for MFA each time they log in from the same browser. To do this, set up a rule so that MFA occurs only once per session. This is useful when performing silent authentication (`prompt=none`) to renew short-lived Access Tokens in a SPA during the duration of a user's session without having to rely on setting `allowRememberBrowser` to `true`.
+
+```js
+function (user, context, callback) {
+  const completedMfa = !!context.authentication.methods.find(
+    (method) => method.name === 'mfa'
+  );
+ 
+  if (completedMfa) {
+    return callback(null, user, context);
+  }
+ 
+  context.multifactor = {
+    provider: 'any',
+    allowRememberBrowser: false
+  };
+ 
+  callback(null, user, context);
+}
+```
+
+See [Change Authentication Request Frequency](/mfa/guides/customize-mfa-universal-login#change-authentication-request-frequency) for details.
+
+## Keep reading
+
+* [Refresh Token Rotation](/tokens/concepts/refresh-token-rotation)
+* [Configure Refresh Token Rotation](/tokens/guides/configure-refresh-token-rotation)
 

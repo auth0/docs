@@ -1,69 +1,66 @@
 ---
-title: Connect your app to Docomo dAccount
+title: Connect Apps to Docomo dAccount
 connection: Docomo
 image: /media/connections/daccount.png
 seo_alias: docomo
-description: How to obtain a Client ID and Client Secret for Docomo dAccount.
+description: Learn how to add login functionality to your app with Docomo dAccount. You will need to obtain a Client Id and Client Secret for Docomo.
 toc: true
+index: 7
+topics:
+  - connections
+  - social
+  - docomo
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
-# Connect your app to Docomo dAccount
+# Connect Apps to Docomo dAccounts
 
-To configure a Docomo dAccount connection you will need to register Auth0 on the [dAccount Connect Portal](https://dac-g.apl01.spmode.ne.jp/VIEW_OC01/GOCA00004/).
+You can add functionality to your web app that allows your users to log in with Docomo dAccount. 
 
-## 1. Add a new Service
+## Prerequisites
 
-First log in into your [dAccount Connect Portal](https://dac-g.apl01.spmode.ne.jp/VIEW_OC01/GOCA00004/), once you have logged in click on the **RP site information management (RPサイト情報管理画面)** link on the side navigation.
+Before connecting your Auth0 app to Docomo dAccount, you must have a [dAccount Connect Portal](https://dac-g.apl01.spmode.ne.jp/VIEW_OC01/GOCA00004/) account.
 
-![dAccount Connect Top](/media/articles/connections/social/docomo/connect-top.png)
+## Steps
 
-This will bring up RP site information management page. Click the **Add new RP site info (新規RPサイト情報追加)** button to add a new service.
+To connect your app to Docomo dAccount, you will:
 
-![dAccount RP Site Info](/media/articles/connections/social/docomo/rp-info-1.png)
+1. [Set up your app in Docomo dAccount](#set-up-your-app-in-docomo-daccount)
+2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
+3. [Test the connection](#test-the-connection)
 
-Fill out the form by providing the following information:
+### Set up your app in Docomo dAccount
 
-| Field | Description
---------|------------
-Service name (サービス名) | Your application's name.
-Service overview (サービス概要) | A brief description of your application.
-Access Token lifetime (アクセストークン有効期間 秒) | The lifetime of your Access Token in seconds.
-Redirect URI (リダイレクトURI) | The callback url for your application (`https://${account.namespace}/login/callback`)
-Available scopes (利用可能スコープ) | The scopes for the information you are requesting for your app.
+1. Log in to the [dAccount Connect Portal](https://dac-g.apl01.spmode.ne.jp/VIEW_OC01/GOCA00004/), and click on the **RP site information management (RPサイト情報管理画面)** link on the side navigation.
 
-![dAccount RP Site Registration](/media/articles/connections/social/docomo/rp-register.png)
+2. Click the **Add new RP site info (新規RPサイト情報追加)** button to add a new service.
 
-When finished, click **Register (登録)**.
+3. Fill out the form by providing the following information:
 
-## 2. Get your **Client ID** and **Client Secret**
+| Field | Value to enter |
+--------|----------------|
+| Service name (サービス名) | Application name. |
+| Service overview (サービス概要) | Brief description of your application. |
+| <dfn data-key="access-token">Access Token</dfn> lifetime (アクセストークン有効期間 秒) | Lifetime of your Access Token in seconds. |
+| Redirect URI (リダイレクトURI) | `https://${account.namespace}/login/callback` |
+| Available scopes (利用可能スコープ) | <dfn data-key="scope">Scopes</dfn> for the information you are requesting for your app. |
 
-Go to the details page for your service by clicking on the **Details (詳細)** button.
+<%= include('../_find-auth0-domain-redirects') %>
 
-![dAccount RP site info](/media/articles/connections/social/docomo/rp-info-2.png)
+4. When finished, click **Register (登録)**.
 
-This page will contain your **Client ID (クライアントID)** and **Client Secret (クライアントシークット)**, to be used in the next step.
+5. Go to the details page for your service by clicking on the **Details (詳細)** button. This page contains your **Client ID (クライアントID)** and **Client Secret (クライアントシークット)**; make note of these.
 
-![dAccount Service Details](/media/articles/connections/social/docomo/service-details.png)
+### Create and enable a connection in Auth0
 
-## 3. Setup the Connection to Auth0
+[Set up the Docomo dAccount social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the generated **Client ID** and **Client Secret**.
 
-In a seperate tab or page, go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard.
+### Test the connection
 
-Click on the **NTT Docomo** connection.
-
-Enter your **Client ID** and **Client ID** from the dAccount Connect service you created, select your **Attributes** then click **SAVE**.
-
-![Paste your Client ID and Client Secret](/media/articles/connections/social/docomo/enter-keys.png)
-
-Next on the **Clients** tab, enable which of your applications will be able to use this connection. After enabling the applications, click **SAVE**.
-
-## 4. Test the Connection
-
-On the [Connections > Social](${manage_url}/#/connections/social) page of the Auth0 dashboard you should now see a **TRY** button with the NTT Docomo connection.
-
-![Try Button](/media/articles/connections/social/docomo/try-connection.png)
-
-Click on this to test the new connection. If your connection has been correctly configured, this should take you to a login page where you can log in with your dAccount.
+You're ready to [test your connection](/dashboard/guides/connections/test-connections-social). After logging in, you'll be prompted to allow your app access. To do so, click **Install unlisted app**.
 
 <%= include('../_quickstart-links.md') %>
 

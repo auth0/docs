@@ -1,28 +1,32 @@
 ---
-description: How to reset your Auth0 account password
+description: Learn how to reset your Auth0 account password.
 crews: crew-2
+topics:
+    - support
+    - passwords
+    - password-reset
+contentType: how-to
+useCase:
+  - support
+  - reset-passwrod
 ---
 
-# Reset Your Auth0 Account Password
+# Reset Auth0 Account Password
 
-You can reset the password associated with your Auth0 account at any time by invoking the password reset flow.
+If you need to change your password or you have forgotten the password to your Auth0 account, in most cases, you can set a new password from the Auth0 Dashboard. Password resets cause Auth0 sessions to expire. 
 
-1. If you are already logged in to your Auth0 account, click on your username in the top right corner. Select **Logout**.
+1. On the Auth0 account login screen, click **Don't remember your password?**
 
-    ![Management Dashboard Logout](/media/articles/tutorials/reset-password/logout.png)
+2. Provide your email address, and click the **right arrow** to submit. You will receive an email that provides further instructions on resetting your password.
 
-2. When you see the log in screen, click **Don't remember your password?**
+3. If your request was successfully received, you'll be directed back to the login screen with a message that says, "We've just sent you an email to reset your password."
 
-    ![Management Dashboard Logout](/media/articles/tutorials/reset-password/login-screen.png)
+## Special password reset circumstances
 
-3. Provide your email address and click the **right arrow** to submit. You will receive an email that provides further instructions on resetting your password.
+- If you've enabled <dfn data-key="multifactor-authentication">multi-factor authentication (MFA)</dfn> and need an MFA reset for your admin account, you will need to contact [Auth0 Support](https://auth0.com/docs/support).
+- If you're using a social or enterprise account to log in to Auth0, you will need to reset your password with the appropriate identity provider.
+- If you are an administrator trying to reset a *user's* password, see [Change Users' Passwords](/connections/database/password-change).
 
-    ![Management Dashboard Logout](/media/articles/tutorials/reset-password/provide-email.png)
+## Keep reading
 
-4. If your request was successfully received, you'll be directed back to the log in screen with a message that says, "We've just sent you an email to reset your password."
-
-    ![Management Dashboard Logout](/media/articles/tutorials/reset-password/message-sent.png)
-
-::: note
-If you have enabled multifactor authentication and you need your account reset, please [contact Support](${env.DOMAIN_URL_SUPPORT}).
-:::
+* [Customize Hosted Password Reset Page](/universal-login/password-reset)

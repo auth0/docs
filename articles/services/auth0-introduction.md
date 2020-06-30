@@ -1,5 +1,12 @@
 ---
 description: Training covering fundamentals of the Auth0 service.
+topics:
+  - professional services
+  - auth0-101
+contentType:
+  - reference
+useCase:
+  - development
 ---
 
 # Training: Auth0 Introduction
@@ -21,6 +28,6 @@ This course is **Level 200** and assumes basic or little knowledge of Auth0.
 * Architecture Scenarios
 * Features
 * Platform extensibility points
-* Proven practices around identity providers, AD/LDAP Connector, API Authentication and Authorization, Anomaly Detection, SSO, Multifactor Authentication.
+* Proven practices around identity providers, AD/LDAP Connector, API Authentication and Authorization, Anomaly Detection, <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn>, Multi-factor Authentication.
 
 <%= include('../_includes/_contact-sales') %>

@@ -1,7 +1,13 @@
 title: Go
 image: /media/platforms/golang.png
-tags:
+topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
+author:
+  name: Jim Anderson
+  email: jim.anderson@auth0.com
+  community: false
 snippets:
   dependencies: server-platforms/golang/dependencies
   setup: server-platforms/golang/setup
@@ -10,3 +16,25 @@ seo_alias: golang
 default_article: 01-login
 articles:
   - 01-login
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-golang-web-app
+  branch: master
+requirements:
+	- Go 1.12+
+next_steps:
+  - path: 01-login
+    list:
+    - text: Configure other identity providers
+      icon: 345
+      href: "/identityproviders"
+    - text: Enable multifactor authentication
+      icon: 345
+      href: "/multifactor-authentication"
+    - text: Learn about anomaly detection
+      icon: 345
+      href: "/anomaly-detection"
+    - text: Learn about rules
+      icon: 345
+      href: "/rules"

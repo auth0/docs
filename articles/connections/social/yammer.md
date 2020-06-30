@@ -1,71 +1,58 @@
 ---
-title: Connect your app to Yammer
+title: Connect Apps to Yammer
 connection: Yammer
 image: /media/connections/yammer.png
 description: How to obtain the credentials required to configure your Auth0 connection to Yammer.
 seo_alias: yammer
+index: 37
 toc: true
+topics:
+  - connections
+  - social
+  - yammer
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
-# Connect your app to Yammer
+# Connect Apps to Yammer
 
-To configure Yammer for OAuth connections, you will need to register your Auth0 namespace on the Yammer Developer Center.
+You can add functionality to your web app that allows your users to log in with Yammer. 
 
-## 1. Login to Yammer Developer Center
+## Prerequisites
 
-Go to [Yammer Developer Center](https://developer.yammer.com/) and login with your account. Click on **Apps** in the top menu:
+Before connecting your Auth0 app to Yammer, you must have a [Yammer Developer](https://developer.yammer.com/) account.
 
-![](/media/articles/connections/social/yammer/yammer-connect-1.png)
+## Steps
 
-Click on **Register an App**:
+To connect your app to Yammer, you will:
 
-![](/media/articles/connections/social/yammer/yammer-connect-2.png)
+1. [Set up your app in Yammer](#set-up-your-app-in-yammer)
+2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
+3. [Test the connection](#test-the-connection)
 
-Then click **Register New App**:
+### Set up your app in Yammer
 
-![](/media/articles/connections/social/yammer/yammer-connect-3.png)
+Set up an app in Yammer. During this process, Yammer will generate a **Client ID** and **Client Secret** for your application; make note of these.
 
-## 2. Name your application
+1. Log in to [Yammer Developer Center](https://developer.yammer.com/) and click on **Apps** in the top menu.
+2. Click on **Register an App**.
+3. Then click **Register New App**.
+4. Name your app and complete the form. For the **Redirect URI**, enter your <dfn data-key="callback">callback URL</dfn>:
+  `https://${account.namespace}/login/callback`
 
-Name your app and complete the form.
-For the **Redirect URI**, enter `https://${account.namespace}/login/callback`.
-Click **Continue**.
+<%= include('../_find-auth0-domain-redirects') %>
 
-![](/media/articles/connections/social/yammer/yammer-connect-4.png)
+5. Click **Continue**. Once your app is created, your **Client ID** and **Client Secret** will be displayed.
 
-## 3. Get your *Client ID* and *Client Secret*
+### Create and enable a connection in Auth0
 
-Once your app is created, your `Client ID` and `Client Secret` will be displayed:
+[Set up the Yammer social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the generated **Client ID** and the **Client Secret**.
 
-![](/media/articles/connections/social/yammer/yammer-connect-5.png)
+### Test the connection
 
-## 4. Copy the *Client ID* and *Client Secret* into Auth0
-
-Go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard and select **Yammer**.
-Copy the `Client ID` and `Client Secret` from the **Basic Info** page of your app on Yammer into the fields on this page on Auth0.
-Click **Save**:
-
-![](/media/articles/connections/social/yammer/yammer-connect-6.png)
-
-## 5. Test your app
-
-Go back to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard.
-
-If you have configured your app correctly, you will see a Try icon next to the Yammer logo.
-Toggle on the switch to enable Yammer authentication:
-
-![](/media/articles/connections/social/yammer/yammer-connect-7.png)
-
-Select the apps you would like to use Yammer authentication with.
-Click **Continue**:
-
-![](/media/articles/connections/social/yammer/yammer-connect-8.png)
-
-Now you can test your new app by clicking **Try**:
-
-![](/media/articles/connections/social/yammer/yammer-connect-9.png)
-
-![](/media/articles/connections/social/yammer/yammer-connect-10.png)
+You're ready to [test your connection](/dashboard/guides/connections/test-connections-social). After logging in, you'll be prompted to allow your app access. To do so, click **Install unlisted app**.
 
 <%= include('../_quickstart-links.md') %>
 

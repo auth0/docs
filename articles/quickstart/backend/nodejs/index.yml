@@ -7,9 +7,15 @@ alias:
   - express
 languages:
   - Javascript
+author:
+  name: David Patrick
+  email: david.patrick@auth0.com
+  community: false
 image: /media/platforms/node.png
-tags:
+topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   dependencies: server-apis/nodejs/dependencies
   setup: server-apis/nodejs/setup
@@ -17,3 +23,27 @@ snippets:
 articles:
   - 01-authorization
   - 02-using
+  - 03-troubleshooting
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-express-api-samples
+requirements:
+  - express.js 4.4.0
+  - express-jwt 5.1.0
+  - express-jwt-authz 1.0.0
+next_steps:
+  - path: 01-authorization
+    list:
+    - text: Configure other identity providers
+      icon: 345
+      href: "/identityproviders"
+    - text: Enable multifactor authentication
+      icon: 345
+      href: "/multifactor-authentication"
+    - text: Learn about anomaly detection
+      icon: 345
+      href: "/anomaly-detection"
+    - text: Learn about rules
+      icon: 345
+      href: "/rules"

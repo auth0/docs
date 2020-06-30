@@ -1,12 +1,21 @@
 ---
-title: Connect your app to SharePoint Apps
+title: Connect Your App to SharePoint Apps
 connection: SharePoint Apps
 image: /media/connections/sharepoint.png
+public: false
 alias:
   - sharepoint-online
   - sharepoint
 seo_alias: sharepoint-apps
-description: About connecting SharePoint Apps with Auth0.
+description: Learn how to connect your app to SharePoint Apps with Auth0.
+topics:
+    - connections
+    - enterprise
+    - sharepoint
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
 # Connect your app to SharePoint Apps

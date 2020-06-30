@@ -2,6 +2,17 @@
 section: libraries
 title: Lock Android v2 Native Social Authentication
 description: Lock for Android - Native Social Authentication
+topics:
+  - libraries
+  - lock
+  - android
+  - native
+  - social-connections
+contentType:
+  - how-to
+useCase:
+  - add-login
+  - enable-mobile-auth
 ---
 # Lock Android: Native Social Authentication
 
@@ -12,7 +23,7 @@ We recommend using browser-based flows, as explained in [Authentication via Auth
 
 ## Native Provider - Google
 
-You can use Google AuthProvider to log in with or without **Lock**. Make sure to follow the instructions in the [setup](#setup) section.
+You can use Google AuthProvider to log in with or without <dfn data-key="lock">**Lock**</dfn>. Make sure to follow the instructions in the [setup](#setup) section.
 
 [Lock-Google.Android](https://github.com/auth0/Lock-Google.Android)
  requires Android API 15 or later & Google Play Services 10.+
@@ -36,7 +47,7 @@ You can check for the latest version on the repository [Readme](https://github.c
 1. Go to the [Google Developers Console](https://console.developers.google.com/) and create a new Project.
 2. Complete the [OAuth Consent Screen](https://console.developers.google.com/apis/credentials/consent) by at least providing a valid Email Address and Name.
 3. On the left side you have the navigation drawer, click [Credentials](https://console.developers.google.com/apis/credentials).
-4. Create a new credential by clicking the [Create Credentials](https://console.developers.google.com/apis/credentials/oauthclient) button and choosing **OAuth client ID**. Next, choose **Web Application** and give it a name like "Auth0 Server Google-OAuth". Complete the **Authorized redirect URIs** by filling the field with your callback URL, which should look like `https://${account.namespace}/login/callback`. Make sure to press ENTER before leaving the field and then click the Create button. Take note of the `CLIENT ID` and `CLIENT SECRET` values as we're going to use them later.
+4. Create a new credential by clicking the [Create Credentials](https://console.developers.google.com/apis/credentials/oauthclient) button and choosing **OAuth client ID**. Next, choose **Web Application** and give it a name like "Auth0 Server Google-OAuth". Complete the **Authorized redirect URIs** by filling the field with your <dfn data-key="callback">callback URL</dfn>, which should look like `https://${account.namespace}/login/callback`. Make sure to press ENTER before leaving the field and then click the Create button. Take note of the `CLIENT ID` and `CLIENT SECRET` values as we're going to use them later.
 5. Create a new credential by clicking the [Create Credentials](https://console.developers.google.com/apis/credentials/oauthclient) button and choosing **OAuth client ID**. Next, choose **Android** and give it a name like "Auth0 Android Google-OAuth". Obtain the **SHA-1** of the certificate you're using to sign your application and complete the first field with it. If you need help obtaining the SHA-1 check [this](#certificate-fingerprints) section. Finally, complete the last field with your android application **Package Name** and then click the Create button. Take note of the `CLIENT ID` value as we're going to use it later.
 
 #### Auth0 Dashboard
@@ -48,7 +59,7 @@ You can check for the latest version on the repository [Readme](https://github.c
 5. Complete the "Allowed Mobile Client IDs" field with the `CLIENT ID` obtained in the step 5 of the **Google Developers Console** section above.
 6. Click the Save button.
 7. Go to the Auth0 Dashboard and click [Applications](${manage_url}/#/applications). If you haven't created yet one, do that first and get into your application configuration page.
-8. At the bottom of the page, click the "Show Advanced Settings" link and go to the "Mobile Settings" tab.
+8. At the bottom of the page, click the "Show Advanced Settings" link and go to the "Device Settings" tab.
 9. In the Android section, complete the **Package Name** with your application's package name. Finally, complete the **Key Hashes** field with the SHA-256 of the certificate you're using to sign your application. If you need help obtaining the SHA-256 check [this](#certificate-fingerprints) section. Click the "Save Changes" button.
 
 #### Android application
@@ -149,7 +160,7 @@ provider.setParameters(parameters);
 
 #### Requesting a custom Google scope
 
-By default, the scope `Scopes.PLUS_LOGIN` is requested. You can customize the Scopes by calling `setScopes` with the list of Scopes. Each Google API (Auth, Drive, Plus..) specify it's own list of Google Scopes.
+By default, the <dfn data-key="scope">scope</dfn> `Scopes.PLUS_LOGIN` is requested. You can customize the Scopes by calling `setScopes` with the list of Scopes. Each Google API (Auth, Drive, Plus..) specify its own list of Google Scopes.
 
 ```java
 provider.setScopes(Arrays.asList(new Scope(Scopes.PLUS_ME), new Scope(Scopes.PLUS_LOGIN)));
@@ -225,7 +236,7 @@ _You can check for the latest version on the repository [Readme](https://github.
 3. Add the **SHA-1** Base64 encoded Key Hashes of the certificates you're using to sign your application and click the Next button. If you need help obtaining the SHA-1 check [this](#certificate-fingerprints) section.
 4. Finally, scroll to the top of the page and click the Skip Quickstart button to go to your Facebook app's page.
 5. On the top of the page, you will find the `APP ID` and `APP SECRET` values. Save them as you're going to need them later.
-6. On the left side you have the navigation drawer. Click Settings and then Basic. Turn ON the **Single Sign On** switch and click the Save button.
+6. On the left side you have the navigation drawer. Click Settings and then Basic. Turn ON the <dfn data-key="single-sign-on">**Single Sign-On**</dfn> switch and click the Save button.
 7. Click Settings and then Advanced. Turn ON the **Native or desktop app?** switch.
 
 #### Auth0 dashboard
@@ -236,7 +247,7 @@ _You can check for the latest version on the repository [Readme](https://github.
 4. Complete the "App Secret" field with the `APP SECRET` value obtained in the step 5 of the **Facebook Developers Console** section above.
 5. Click the Save button.
 6. Go to the Auth0 Dashboard and click [Applications](${manage_url}/#/applications). If you haven't created yet one, do that first and get into your application configuration page.
-7. At the bottom of the page, click the "Show Advanced Settings" link and go to the "Mobile Settings" tab.
+7. At the bottom of the page, click the "Show Advanced Settings" link and go to the "Device Settings" tab.
 8. In the Android section, complete the **Package Name** with your application's package name. Finally, complete the **Key Hashes** field with the SHA-256 of the certificate you're using to sign your application. If you need help obtaining the SHA-256 check [this](#certificate-fingerprints) section. Click the "Save Changes" button.
 
 #### Android application

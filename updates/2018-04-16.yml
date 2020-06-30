@@ -1,0 +1,8 @@
+changed:
+  -
+    title: "Updated guidance on user consent and third-party applications"
+    tags:
+      - api-auth
+      - user-consent
+    description: |
+      Updated [User consent and third-party applications](https://auth0.com/docs/api-auth/user-consent#skipping-consent-for-first-party-clients) to fix a code example.

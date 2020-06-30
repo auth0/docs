@@ -1,47 +1,60 @@
 ## Add the Auth0 Android Dependency
 
-Add the [Auth0 Android](https://github.com/auth0/Auth0.Android) SDK into your project. The library makes requests to the Auth0's Authentication and Management APIs.
+<%= include('./_gradle.md') %>
 
-### Add Auth0 to Gradle
-
-In your app's `build.gradle` dependencies section, add the following:
-
-```xml
-apply plugin: 'com.android.application'
-android {
-  //..
-}
-dependencies {
-  //---> Add the next line
-  compile 'com.auth0.android:auth0:1.+'
-  //<---
-}
-```
-
-::: note
-You can check for the latest version on the [repository Readme](https://github.com/auth0/auth0.android#installation), in [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22auth0%22%20g%3A%22com.auth0.android%22), or in [JCenter](https://bintray.com/auth0/android/auth0).
-:::
-
-Add manifest placeholders required by the SDK. The placeholders are used internally to define an `intent-filter` that captures the authentication callback URL. 
+Add manifest placeholders required by the SDK. The placeholders are used internally to define an `intent-filter` that captures the authentication callback URL.
 
 To add the manifest placeholders, add the next line:
 
 ```xml
+// app/build.gradle
+
 apply plugin: 'com.android.application'
+compileSdkVersion 28
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.3"
     defaultConfig {
         applicationId "com.auth0.samples"
         minSdkVersion 15
-        targetSdkVersion 25
-        //...
+        targetSdkVersion 28
+        // ...
 
-        //---> Add the next line
+        // ---> Add the next line
         manifestPlaceholders = [auth0Domain: "@string/com_auth0_domain", auth0Scheme: "demo"]
-        //<---
+        // <---
     }
 }
+```
+
+::: note
+You do not need to declare a specific `intent-filter` for your activity, because you have defined the manifest placeholders with your Auth0 **Domain** and **Scheme** values and the library will handle the redirection for you.
+:::
+
+The `AndroidManifest.xml` file should look like this:
+
+```xml
+<!-- app/src/main/AndroidManifest.xml -->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.auth0.samples">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+
+        <activity android:name="com.auth0.samples.MainActivity">
+          <intent-filter>
+              <action android:name="android.intent.action.MAIN" />
+              <category android:name="android.intent.category.LAUNCHER" />
+          </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>
 ```
 
 Run **Sync Project with Gradle Files** inside Android Studio or execute `./gradlew clean assembleDebug` from the command line.

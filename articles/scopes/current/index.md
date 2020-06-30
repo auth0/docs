@@ -1,193 +1,62 @@
 ---
+url: /scopes/current
+section: articles
+classes: topic-page
 title: Scopes
-description: Overview of scopes.
-toc: true
+description: Understand the principle of scopes and explore general examples of their use.
+topics:
+  - scopes
+  - permissions
+contentType:
+  - concept
+  - index
+useCase:
+  - development
+  - add-login
+  - secure-api
+  - call-api
 ---
-
 # Scopes
 
-The OAuth2 protocol is a delegated authorization mechanism, where an application requests access to resources controlled by the user (the resource owner) and hosted by an API (the resource server), and the authorization server issues the application a more restricted set of credentials than those of the user.
+Different pieces of user information are often stored across a number of online resources. Users may upload and store photos with a service like Flickr, keep digital files on Dropbox, and store contacts and events in Google Calendar or on Facebook.
 
-The `scope` parameter allows the application to express the desired scope of the access request. In turn, the `scope` parameter can be used by the authorization server in the response to indicate which scopes were actually granted (if they are different than the ones requested).
+Often, new applications will want to make use of the information that has already been created in an online resource. To do so, the application must ask for authorization to access this information on a user's behalf. _Scopes_ define the specific actions applications can be allowed to do on a user's behalf.
 
-You can use scopes to:
+## Ways to use scopes
 
-- Let an application authenticate users and get additional information about them, such as their email or picture. For details, refer to [OpenID Connect Scopes](#openid-connect-scopes).
+When an app requests permission to access a resource through an authorization server, it uses the `scope` parameter to specify what access it needs, and the authorization server uses the `scope` parameter to respond with the access that was actually granted (if the granted access was different from what was requested).
 
-- Implement granular access control to your API. In this case, you need to define custom scopes for your API and add these newly-created scopes to your `scope` request parameter: `scope=read:contacts`. For details, refer to [API Scopes](#api-scopes).
+Generally, you use scopes in three ways:
 
-## OpenID Connect Scopes
+* From an [application](/applications), to verify the identity of a user and get basic profile information about the user, such as their email or picture. In this scenario, the scopes available to you include those implemented by the <dfn data-key="openid">OpenID Connect (OIDC) protocol</dfn>. For details, see [OpenID Connect Scopes](/scopes/current/oidc-scopes).
 
-OpenID Connect (OIDC) is an authentication protocol that sits on top of OAuth2, and allows the application to verify the identity of the users and obtain basic profile information about them in a interoperable way. This information can be returned in the `id_token` and/or in the response from [the /userinfo endpoint](/api/authentication#get-user-info) (depending on the type of request).
+* In an [API](/apis), to implement access control. In this case, you need to define custom scopes for your API and then identify these scopes so that calling applications can use them. For details, see [API Scopes](/scopes/current/api-scopes).
 
-The basic (and required) scope for OpenID Connect is the `openid` scope. This scope represents the intent of the application to use the OIDC protocol to verify the identity of the user.
+* From an application, to call an API that has implemented its own custom scopes. In this case, you need to know which custom scopes are defined for the API you are calling. For an example of calling a custom API from an application, see [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases#request-custom-API-access)
 
-In OpenID Connect (OIDC), we have the notion of __claims__. There are two types of claims:
+## Best practices
 
-* [Standard](#standard-claims) (which means that they meet OIDC specification)
-* [Custom](#custom-claims)
+Understand your use case and choose the most restrictive scopes possible. 
 
-### Standard Claims
+If you are requesting scopes, make sure you ask for enough access for your application to function, but only request what you absolutely need. Are you establishing a user's identity or asking the user to allow you to interact with their data? There's a big difference between importing a user's Facebook profile information and posting to their wall. By only requesting what you need, you are more likely to gain user consent when required since users are more likely to grant access for limited, clearly-specified scopes. 
 
-OpenID Connect specifies a set of [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). These claims are user attributes and are intended to provide the application with user details such as email, name and picture.
+Similarly, when creating custom scopes for an API, consider what levels of granular access applications may need and design accordingly.
 
-The basic claim returned for the `openid` scope is the `sub` claim, which uniquely identifies the user (`iss`, `aud`, `exp`, `iat` and `at_hash` claims will also be present in the `id_token`). Applications can ask for additional scopes, separated by spaces, to request more information about the user. The following additional scopes apply:
+## Requested scopes versus granted scopes
 
-- `profile`: will request the claims representing basic profile information. These are `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `picture` and `updated_at`.
-- `email`: will request the `email` and `email_verified` claims.
+In certain cases, users get to consent to the access being requested. While usually the scopes returned will be identical to those requested, users can edit granted scopes (both during initial consent and sometimes after, depending on the resource), thereby granting an app less access than it requested. 
 
-### Example: Ask for Standard Claims
-
-In this example, we will use the [OAuth 2.0 Implicit Grant](/api-auth/grant/implicit) to authenticate a user and retrieve an `id_token` that contains the user's name, nickname, profile picture, and email information.
-
-To initiate the authentication flow, send the user to the authorization URL and request an `id_token`:
-
-```text
-https://${account.namespace}/authorize?
-  scope=openid%20profile%20email&
-  response_type=id_token&
-  client_id=${account.clientId}&
-  redirect_uri=${account.callback}&
-  nonce=YOUR_CRYPTOGRAPHIC_NONCE
-  state=YOUR_OPAQUE_VALUE
-```
+As an application developer, you should be aware of this possibility and handle these cases in your app. For example, your app could warn the user that they will see reduced functionality. It could also send the user back through the authorization flow to ask for additional permissions. But again, remember that when asked for consent, users can always say no.
 
 ::: note
-For details on the params and how to implement this flow refer to [How to implement the Implicit Grant](/api-auth/tutorials/implicit-grant).
+By default, Auth0 skips user consent for first-party applications, which are applications that are registered under the same Auth0 domain as the API they are calling; however, you can configure your API in Auth0 to require user consent from first-party applications. Third-party applications, which are external applications, require user consent.
 :::
 
-Notice that we included three values at the `scope` param: `openid`, `profile` (to get `name`, `nickname` and `picture`) and email (to get the `email` claim).
+## Keep reading
 
-After Auth0 has redirected back to the app, you can extract the `id_token` from the hash fragment of the URL.
-
-When decoded, the `id_token` contains the following claims:
-
-```json
-{
-  "name": "John Doe",
-  "nickname": "john.doe",
-  "picture": "https://myawesomeavatar.com/avatar.png",
-  "updated_at": "2017-03-30T15:13:40.474Z",
-  "email": "john.doe@test.com",
-  "email_verified": false,
-  "iss": "https://${account.namespace}/",
-  "sub": "auth0|USER-ID",
-  "aud": "${account.clientId}",
-  "exp": 1490922820,
-  "iat": 1490886820,
-  "nonce": "crypto-value",
-  "at_hash": "IoS3ZGppJKUn3Bta_LgE2A"
-}
-```
-
-Your app now can retrieve these values and use them to personalize the UI.
-
-## Custom Claims
-
-When adding custom claims to ID or Access Tokens, they must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims). This is to avoid any possible collision with standard OIDC claims.
-
-### Example: Add Custom Claims
-
-Suppose that:
-
-* The identity provider returns a `favorite_color` claim as part of the user's profile 
-* We've used the Auth0 Management API to set application-specific information for this user
-* We've saved the `preferred_contact` information as part of the `user_metadata`
-
-This would be the profile stored by Auth0:
-
-```json
-{
-  "email": "jane@example.com",
-  "email_verified": true,
-  "user_id": "custom|123",
-  "favorite_color": "blue",
-  "user_metadata": {
-    "preferred_contact": "email"
-  }
-}
-```
-
-In order to add these claims to the `id_token`, we need to create a [rule](/rules) to: 
-
-* Customize the token 
-* Add these claims using namespaced format in the rule
-
-Sample Rule:
-
-```js
-function (user, context, callback) {
-  const namespace = 'https://myapp.example.com/';
-  context.idToken[namespace + 'favorite_color'] = user.favorite_color;
-  context.idToken[namespace + 'preferred_contact'] = user.user_metadata.preferred_contact;
-  callback(null, user, context);
-}
-```
-
-Any non-Auth0 HTTP or HTTPS URL can be used as a namespace identifier, and any number of namespaces can be used. 
-
-::: warning 
-`auth0.com`, `webtask.io` and `webtask.run` are Auth0 domains and therefore cannot be used as a namespace identifier. 
-:::
-
-The namespace URL does not have to point to an actual resource, since it’s only used as an identifier and will not be called by Auth0. This follows the [recommendation from the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#AdditionalClaims) stating that custom claim identifiers should be collision-resistant. While this is not required by the the specification, Auth0 will always enforce namespacing, which means that any non-namespaced claims will be silently excluded from tokens.
-
-::: note
-Adding custom claims to the Access Token is very similar to the process of adding custom claims to the ID Token. However, you would use `context.accessToken` instead of `context.idToken`.
-:::
-
-Custom claims added to ID Tokens using this method allows you to obtain them when calling the `/userinfo` endpoint. However, note that rules run during the user authentication process only, not when `/userinfo` is called.
-
-## API Scopes
-
-Scopes allow you to define the API data accessible to your applications. When you [create an API in Auth0](/apis), you'll need to define one scope for each API represented and action. For example, if you want to `read` and `delete` contact information, you would create two scopes: `read:contacts` and `delete:contacts`.
-
-Once you create an API and define the scopes, the applications can request these defined permissions when they initiate an authorization flow and include them in the Access Token as part of the scope request parameter.
-
-If you wanted to expand [our example](#example-asking-for-standard-claims) to include also the `read:contacts` permission, then you would using something like the following sample URL to initiate the authentication flow using the Implicit grant:
-
-```text
-https://${account.namespace}/authorize?
-  audience=YOUR_API_AUDIENCE&
-  scope=openid%20profile%20email%20read:contacts&
-  response_type=id_token%20token&
-  client_id=${account.clientId}&
-  redirect_uri=${account.callback}&
-  nonce=YOUR_CRYPTOGRAPHIC_NONCE
-  state=YOUR_OPAQUE_VALUE
-```
-
-Note the differences between the two examples. In the latest, we want to get an `access_token`, that will allow us to access the API, with the rights to do specific actions. To do so, we changed two parameters and added a new one:
-
-- `audience`: New parameter added for this example. Its value is the unique identifier of the API we want to get access to.
-
-- `scope`: We appended the value `read:contacts`. This denotes the rights that we want to be granted at the API (in this case, read contact information).
-
-- `response_type`: We appended the value `token`. This tells the Authorization Server (Auth0 in our case) to issue an `access_token` as well, not only an `id_token`. The `access_token` will be sent to the API as credentials.
-
-### Define Scopes Using the Dashboard
-
-::: warning
-By default, any user of any application can ask for any scope defined here. You can implement access policies to limit this behaviour via [Rules](/rules).
-:::
-
-You can define API scopes using the [Dashboard](${manage_url}/#/apis). Select the API you want to edit, and open up its **Scopes** tab.
-
-Provide the following parameters:
-
-| Parameter | Description |
-| - | - |
-| Name | The name of your scope |
-| Description | A friendly description for your scope |
-
-Click **Add** when you've provided the requested values.
-
-![API Scopes](/media/articles/scopes/api-scopes.png)
-
-### Limiting API Scopes being Issued
-
-An application can request any scope and the user will be prompted to approve those scopes during the authorization flow. This may not be a desirable situation, as you may want to limit the scopes based on, for example, the permissions (or role) of a user.
-
-You can make use of the [Authorization Extension](/extensions/authorization-extension) in conjunction with a custom [Rule](/rules) to ensure that scopes are granted based on the permissions of a user.
-
-This approach is discussed in more depth in some of our [Architecture Scenarios](/architecture-scenarios). Specifically, you can review the entire [Configure the Authorization Extension](/architecture-scenarios/application/spa-api/part-2#configure-the-authorization-extension) section of our SPA+API Architecture Scenario which demonstrates how to configure the Authorization Extension, and also create a custom Rule which will ensure scopes are granted based on the permissions of a user. 
+- [OpenID Connect Scopes](/scopes/current/oidc-scopes)
+- [API Scopes](/scopes/current/api-scopes)
+- [Sample Use Cases: Scopes and Claims](/scopes/current/sample-use-cases)
+- [Represent Multiple APIs Using a Single Logical API in Auth0](/api-auth/tutorials/represent-multiple-apis)
+- [Restrict Access to APIs](/api-auth/restrict-access-api)
+- [SPA + API Architecture Scenario: Restrict API Scopes Based on Authorization Extension Groups](/architecture-scenarios/spa-api/part-2#configure-the-authorization-extension)

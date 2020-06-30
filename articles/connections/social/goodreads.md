@@ -1,43 +1,52 @@
 ---
-title: Connect your app to Goodreads
+title: Connect Apps to Goodreads
 connection: Goodreads
 image: /media/connections/goodreads.png
 seo_alias: goodreads
-description: How to obtain a Consumer Key and Consumer Secret for Goodreads.
+index: 17
+description: Learn how to add login functionality to your app with Goodreads.
+topics:
+  - connections
+  - social
+  - goodreads
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
-# Connect your app to Goodreads
+# Connect Apps to Goodreads
 
-This doc refers to the steps required to configure a Goodreads social connection in your Auth0 [dashboard](${manage_url}). If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
+You can add functionality to your web app that allows your users to log in with Goodreads. 
 
-To configure a Goodreads connection with Auth0, you will need to register your app on the Goodreads developers site.
+## Prerequisites
 
-## 1. Apply for a developer key
+Before you connect your Auth0 app to Goodreads, you must have a [Goodreads Developer](https://www.goodreads.com/api) account.
 
-Log into the [Goodreads developer site](https://www.goodreads.com/api), and select *developer key*:
+## Steps
 
-![Apply for a developer key](/media/articles/connections/social/goodreads/goodreads-register-1.png)
+To connect your app to Goodreads, you will:
 
-## 2. Enter information about your app
+1. [Set up your app in Goodreads](#set-up-your-app-in-goodreads)
+2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
+3. [Test the connection](#test-the-connection)
 
-Complete the form then click **Apply for a Developer Key**. Enter this in the `Callback URL` field:
+### Set up your app in Goodreads
 
-```text
-https://${account.namespace}/login/callback
-```
+1. Log in to the [Goodreads developer portal](https://www.goodreads.com/api) and select *developer key*.
 
-![Enter information about your app](/media/articles/connections/social/goodreads/goodreads-register-2.png)
+2. Complete the form then click **Apply for a Developer Key**. 
+3. Enter your <dfn data-key="callback">callback URL</dfn> in the `Callback URL` field:
+  `https://${account.namespace}/login/callback`
 
-## 3. Get your Consumer Key and Consumer Secret
+<%= include('../_find-auth0-domain-redirects') %>
 
-Once the application is registered, the **Key** and **Secret** for your new app will be displayed on the following page:
+Once the application is registered, the **Key** and **Secret** for your new app will be displayed.
 
-![Get your Consumer Key and Consumer Secret](/media/articles/connections/social/goodreads/goodreads-register-3.png)
+### Create and enable a connection in Auth0
 
-## 4. Create the Goodreads connection
+Use the [/post_connections endpoint](/api/management/v2#!/Connections/post_connections) to create a custom `oauth1` connection for Goodreads.
 
-You will need to use [this endpoint of our Management API v2](/api/management/v2#!/Connections/post_connections) to create a custom `oauth1` connection for Goodreads.
-
-[Read our documentation on creating generic OAuth1 connections](/tutorials/adding-generic-oauth1-connection) for more information on the individual fields used in the sample payload to follow. For Goodreads, this is a sample payload to create the connection:
+See [Add Generic OAuth1 Connections](/tutorials/adding-generic-oauth1-connection) for more information on the individual fields used in the sample payload to follow. For Goodreads, this is a sample payload to create the connection:
 
 ```har
  {
@@ -58,7 +67,7 @@ You will need to use [this endpoint of our Management API v2](/api/management/v2
  ```
 
 ::: note
-You have to replace `YOUR_API_V2_TOKEN_HERE` with a Management API v2 token. You can [get one from the dashboard](${manage_url}/#/apis/management/explorer) or [follow this process](/api/management/v2/tokens#get-a-token-manually) if this is the first time.
+Replace `YOUR_API_V2_TOKEN_HERE` with a Management API v2 access token. For more information on how to get one see [Access Tokens for the Management API](/api/management/v2/tokens).
 :::
 
 This sample uses the following `fetchUserProfile` script, you can change it as you please:
@@ -85,7 +94,6 @@ function(token, tokenSecret, ctx, cb) {
 }
 ```
 
-
 ::: panel-warning Goodreads returns limited user profile data
 If you have any [Rules](/rules) configured that rely on `user.email` for example, user authentication will likely fail - the sample Rule above currently only returns `user.id`, `user.name`, and `user.link` properties [from Goodreads' API](https://www.goodreads.com/api/index#auth.user). Please add appropriate error handling to any Rules or Hooks that may rely on other user-profile data that may be missing. You may use [our Real-time Webtask Logs extension](/extensions/realtime-webtask-logs) to help debug these sorts of issues further.
 :::
@@ -98,9 +106,9 @@ JSON.stringify(`function(token, tokenSecret, ctx, cb) {
 }`);
 ```
 
-## 5. Test the connection
+### Test the connection
 
-You can use the [/authorize endpoint](/api/authentication?shell#authorize-application) with custom `client_id` and `connection` parameters to test your connection. For example:
+Use the [/authorize endpoint](/api/authentication?shell#authorize-application) with custom `client_id` and `connection` parameters to test your connection. For example:
 
 ```text
 https://${account.namespace}/authorize?
@@ -109,8 +117,7 @@ https://${account.namespace}/authorize?
   client_id=YOUR_ENABLED_CLIENT_ID&
   redirect_uri=${account.callback}&
   connection=custom-goodreads&
-  nonce=YOUR_CRYPTOGRAPHIC_NONCE
+  nonce=YOUR_NONCE
 ```
-
 
 <%= include('../_quickstart-links.md') %>

@@ -1,17 +1,24 @@
 ---
-description: How to integrate Auth0 with Amazon Cognito using an OpenID Connect Provider.
+description: How to integrate Auth0 with Amazon Cognito using an OpenID Connect (OIDC) Provider.
+topics:
+  - integrations
+  - amazon
+  - cognito
+  - oidc
+contentType: how-to
+useCase: integrate-saas-sso
 ---
 # Integrate Auth0 with Amazon Cognito
 
 **Amazon Cognito** is a backend as a service that lets you focus on writing a fantastic user experience for your application (native or web).
 
-This document will explain how you can integrate your app with two solutions: Auth0 to get authentication with either [Social Providers](/identityproviders#social) (Facebook, Twitter, and so on), [Enterprise providers](/identityproviders#enterprise) or regular Username and Password, and [Amazon Cognito](http://aws.amazon.com/cognito/), to get a backend for your app without writing a line of code.
+This document will explain how you can integrate your app with two solutions: Auth0 to get authentication with either [Social Providers](/connections/identity-providers-social) (Facebook, Twitter, and so on), [Enterprise providers](/connections/identity-providers-enterprise) or regular Username and Password, and [Amazon Cognito](http://aws.amazon.com/cognito/), to get a backend for your app without writing a line of code.
 
 ## Configure Amazon Web Services
 
 ### Create a new OpenID Connect Provider
 
-The first step is to create an OpenID Connect Provider pointing to your Auth0 account. Please take a note of your Auth0 **domain** (`${account.namespace}`) and your **applicationId** these values can be found in the [Settings of your chosen Application](${manage_url}/#/clients/). These values will be used to create the Identity Pool in the [IAM Console](https://console.aws.amazon.com/iam/home).
+The first step is to create an <dfn data-key="openid">OpenID Connect (OIDC)</dfn> Provider pointing to your Auth0 account. Please take a note of your Auth0 **domain** (`${account.namespace}`) and your **applicationId** these values can be found in the [Settings of your chosen Application](${manage_url}/#/clients/). These values will be used to create the Identity Pool in the [IAM Console](https://console.aws.amazon.com/iam/home).
 
 1. In the [IAM Console](https://console.aws.amazon.com/iam/home) click on the **Identity Providers** link in the left sidebar. Click the **Create Provider** button.
 
@@ -57,7 +64,7 @@ Now, you need to create an Identity Pool in the [Cognito Console](https://consol
 
     ![Confirmation page](/media/articles/scenarios/amazon-cognito/allow-role.png)
 
-1. Click **Edit Identity Pool** to view the the Identity Pool ID.
+1. Click **Edit Identity Pool** to view the Identity Pool ID.
 
     ![View the Identity Pool ID](/media/articles/scenarios/amazon-cognito/pool-id.png)
 
@@ -67,7 +74,7 @@ Now, you need to create an Identity Pool in the [Cognito Console](https://consol
 
 ## Auth0 Configuration
 
-Amazon will use the public signing key from the [OpenID Provider Metadata](https://subscription.auth0.com/.well-known/jwks.json) to validate the signature of the JSON Web Token.
+Amazon will use the public signing key from the [OpenID Provider Metadata](https://subscription.auth0.com/.well-known/jwks.json) to validate the signature of the <dfn data-key="json-web-token">JSON Web Token (JWT)</dfn>.
 
 By default Auth0 will use the HS256 signature algorithm which is not supported in this scenario (this will result in "Invalid login token" errors). Go to your application in the [dashboard](${manage_url}/#/applications), click the **Show Advanced Settings** link and then **OAuth** and change the algorithm to **RS256**.
 
@@ -75,7 +82,7 @@ By default Auth0 will use the HS256 signature algorithm which is not supported i
 
 ## Implementation
 
-You can use [Auth0 Lock](https://github.com/auth0/lock) to log the user in. You can read detailed instructions on how to implement Lock in [the libraries documentation](/libraries#lock-login-signup-widgets).
+You can use <dfn data-key="lock">Auth0 Lock</dfn> to log the user in. You can read detailed instructions on how to implement Lock in [the libraries documentation](/libraries#lock-login-signup-widgets).
 
 Once the user is successfully logged in with Auth0, the next step is to send their credentials to Amazon Cognito [see the Cognito docs](http://docs.aws.amazon.com/cognito/latest/developerguide/open-id.html) to see how to implement this with depending on the platform.
 
@@ -102,6 +109,6 @@ dataset.synchronize()
 ## Keep reading
 
 ::: next-steps
-* [Amazon Cognito: Open ID Connect Providers](http://docs.aws.amazon.com/cognito/latest/developerguide/open-id.html)
+* [Amazon Cognito: OpenID Connect Providers](http://docs.aws.amazon.com/cognito/latest/developerguide/open-id.html)
 * [Amazon IAM: Creating OpenID Connect (OIDC) Identity Providers](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html)
 :::

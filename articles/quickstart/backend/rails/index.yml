@@ -6,10 +6,16 @@ languages:
   - Ruby
 framework:
   - Ruby on Rails
+author:
+  name: Josh Cunningham
+  email: josh.cunningham@auth0.com
+  community: false
 thirdParty: false
 image: /media/platforms/rails.png
-tags:
+topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   dependencies: server-apis/rails/dependencies
   setup: server-apis/rails/setup
@@ -17,3 +23,26 @@ snippets:
 articles:
   - 01-authorization
   - 02-using
+  - 03-troubleshooting
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-rubyonrails-api-samples
+requirements:
+  - Ruby 2.1.8
+  - Rails 4.2.5
+next_steps:
+  - path: 01-authorization
+    list:
+    - text: Configure other identity providers
+      icon: 345
+      href: "/identityproviders"
+    - text: Enable multifactor authentication
+      icon: 345
+      href: "/multifactor-authentication"
+    - text: Learn about anomaly detection
+      icon: 345
+      href: "/anomaly-detection"
+    - text: Learn about rules
+      icon: 345
+      href: "/rules"

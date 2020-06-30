@@ -1,64 +1,71 @@
 ---
 description: This page details Auth0's Load Testing Policy.
+topics:
+    - auth0-policies
+    - load-testing
+    - testing
+contentType:
+  - reference
+useCase:
+  - support
 ---
-
 # Load Testing Policy
 
-Load testing against the Auth0 production cloud service is not permitted at any time, as stated in our [Terms of Service](https://auth0.com/terms).
+Auth0 recognizes that customers may occasionally need to perform load tests against its production cloud service. In order to ensure a successful test and maintain a high quality of service for all customers, Auth0 has established the following guidelines. Any load testing in Auth0 must be conducted in accordance with this Policy.
 
-Customers who have purchased an enterprise support plan that includes load testing may request one load test (with up to 2 repeats) to conduct load testing against an Auth0 test instance. For load tests that require more than 100 RPS a separate environment will have to be created and it will have a different time schedule than normal load tests.
+Only customers who have purchased an Enterprise subscription may conduct load testing. Free, Developer, Developer Pro and other non-Enterprise customers may not conduct load testing. Customers with an Enterprise subscription may request one load test (with up to 2 repeats) per year against an Auth0 production tenant. Performance and load testing is only allowed with Auth0's prior written approval. Once approved, testing can only target tenants that we have approved.
+
+::: note
+Auth0 reserves the right to reject the load test request or ask for modifications. Failure to abide by this policy may result in temporary blocking of access to a tenant until the issue is remediated.
+:::
 
 ## How to request
 
-* Customers must file a load testing request in writing, via the [Auth0 support center](${env.DOMAIN_URL_SUPPORT}).
-* Requests must be filed at least two (2) weeks in advance of the desired test date.
-* Requests must be approved in writing before any load/performance testing is conducted.
+Customers must file a load testing request via the Auth0 Support Center. Under the Issue typefield, select Public Cloud Support Incident.
 
-* Customers must have configured their own email provider within the Auth0 dashboard (Email -> Providers) before a load testing request will be approved.
+To be considered for approval, the request must:
 
-## Test windows
-Approved load testing windows are subject to availability of testing windows on a first-come first-served basis. Customers are encouraged to submit requests well in advance of the 2-week advance notice period.
-
-Testing windows will have a scheduled start and end time assigned by Auth0 and all testing must begin and complete during the window.
-
-It is common for an initial load test to experience some unexpected issues, resulting in a need for repeat tests.  Customers should plan in advance and allow sufficient time for repeat tests before any planned golive.
+* Be filed at least two (2) weeks prior to the desired test date; in many cases, Auth0 encourages one (1) month of advance notice to ensure time for a thorough review and any required modifications.
+* Be approved in writing before any testing is conducted.
+* Stay within our [published production rate limits](/policies/rate-limits).
+* Include all information described below.
 
 ## Information to include in requests
-The load testing request must include the following information:
+
+The load testing request must include the following:
 
 * A description of the test to be done
-* The Auth0 tenant to be used during the test
+* The name and region of the Auth0 tenant to be used during the test
+* The requested date and time of the test, including time zone
 * The requested duration of the test (2 hour maximum)
-* The Auth0 features, such as rules, email, used during the test
-* The Auth0 API endpoints to be used
+* The platforms to be used for the test (desktop/laptop, iOS, Android, other)
+* The Auth0 features (such as rules or email) used during the test
+* The Auth0 API methods and endpoints to be used (for example `GET /api/v2/clients`)
+* The maximum requests per second for each type of request or endpoint
 * The types of Auth0 connections involved in the test
 * Which Auth0 Rules, if any, will execute during the test
 * Which Custom DB, if any, will be used
 * Which Auth0 Webtasks, if any, will be used
 * Whether verification, welcome or other emails will be sent
-* The peak load, specified in requests-per-second, expected for each API endpoint or Auth0 feature involved in the test.
-* An explanation/justification for the peak load numbers.  The justification should include the size of the target user population and realistic estimates of logins per hour to justify TPS numbers.
+* The peak load, specified in requests-per-second, expected for each API endpoint or Auth0 feature involved in the test
+* An explanation/justification for the peak load numbers, including the size of the target user population and realistic estimates of logins per hour
 * The ramp-up rate for the test
 * Contacts who will be available during the test and how to reach them
+* Number of unique users participating in the load test
 
-## Test requirements
-Note that load testing will require customer to:
+## Email considerations
+
+Before any testing, customers must:
 
 * Configure their own email provider in Auth0
 * Receive approval from their email provider to send the expected volume of email
 * Make arrangements for bounced emails
 * Establish a mechanism for testing that emails arrived
 
-## Limitations
-Auth0 reserves the right to reject or request modifications to load test plans.
+## Test requirements
 
-A load testing approval will specify pre-arranged dates/times in which load testing can be performed.  All load testing must be limited to those pre-arranged dates/times. Load testing windows will be a maximum of 2 hours in duration. Failure to abide by this policy may result in temporary blocking of access to an tenant until the issue is remediated.
+Load testing windows are subject to availability so advance notice is highly recommended. Once approved, load testing windows will have a scheduled start and end time not to exceed two (2) hours in duration. All testing must begin and end during this window.
 
-## Effectivity
-This policy is effective April 4, 2016
+Auth0 strongly recommends including a brief "ramp up" period to the desired load test target numbers. For example, a load test request of 100 RPS might be preceded by three five minute periods: 5 minutes at 25 RPS, 5 minutes at 50 RPS, and 5 minutes at 75 RPS. This ramp up period allows Auth0 and the customer to observe and compare effects at increasing RPS levels prior to peak RPS. If a ramp up period is not possible, please indicate why.
 
-
-
-
-
-
+_Updated February 4, 2019_

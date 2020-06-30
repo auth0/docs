@@ -1,5 +1,12 @@
 ---
 description: Directions on how to install the Connector with Windows.
+topics:
+  - connector
+contentType: how-to
+useCase:
+  - add-login
+  - customize-connections
+  - add-idp
 ---
 
 # Installing the Connector on Windows

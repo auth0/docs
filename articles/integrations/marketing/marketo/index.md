@@ -1,19 +1,19 @@
 ---
-title: Marketo Integration
-description: Learn how to import your Auth0 user data into Marketo.
+title: Export User Data To Marketo
+description: Learn how to export your Auth0 user data and import it into Marketo.
 toc: true
+topics:
+    - marketing
+    - marketo
+contentType: how-to
+useCase: export-users-marketing
 ---
 
-# Marketo Integration
+# Export User Data To Marketo
 
-## Import Users to Marketo
+In this article, you’ll learn how to export user data in Auth0 to a CSV file then import it into Marketo using the [Bulk Leads endpoint](http://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#/Bulk_Leads) of the Marketo REST API.
 
-To import your Auth0 users into Marketo:
-
-- Export your user data as a CSV file with the [User Import / Export Extension](/extensions/user-import-export).
-- Import the file into Marketo using the [Bulk Leads endpoint](http://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#/Bulk_Leads) of the Marketo REST API.
-
-### Create a User Data File
+## Create a user data file
 
 Start by navigating to the [Extensions](${manage_url}/#/extensions) section of the Dashboard and open the **User Import / Export Extension**. On the extension page, select **Export** from the menu.
 
@@ -34,7 +34,7 @@ User Field | Column Name
 
 After adding the user fields, click on the **Export Users** button to start the export. Once the export is complete, download the CSV file to use in the following section.
 
-### Import a User Data File
+### Import a user data file
 
 ::: note
 [Marketo Documentation: Bulk Lead Import](http://developers.marketo.com/rest-api/bulk-import/bulk-lead-import/)

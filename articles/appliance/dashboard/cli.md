@@ -1,6 +1,14 @@
 ---
 section: appliance
 description: Overview of the PSaaS Appliance Dashboard CLI page
+topics:
+    - appliance
+    - dashboard
+    - cli
+contentType: concept
+useCase: appliance
+applianceId: appliance18
+sitemap: false
 ---
 
 # PSaaS Appliance Dashboard: CLI
@@ -13,7 +21,7 @@ If your PSaaS Appliance instances requires integration with the PSaaS Appliance 
 
 ![](/media/articles/appliance/dashboard/cli-keys.png)
 
-Please see your vender for instructions on generating the public access keys. Once you are in possession of the required key(s), you may associate them with your PSaaS Appliance instance by clicking on "Add Key". You will then be asked for the following pieces of information:
+Please see your vendor for instructions on generating the public access keys. Once you are in possession of the required key(s), you may associate them with your PSaaS Appliance instance by clicking on "Add Key". You will then be asked for the following pieces of information:
 
 * **Name**: the name that identifies your key;
 * **Key**: the public key string.

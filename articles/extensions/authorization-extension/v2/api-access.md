@@ -1,10 +1,21 @@
 ---
 title: Enabling API Access to the Authorization Extension
 description: How to enable API access to the Authorization Extension
+topics:
+  - extensions
+  - authorization_v2
+contentType:
+  - how-to
+  - concept
+useCase: extensibility-extensions
 ---
 # Authorization Extension: API Access
 
-Once configured and set up, your extension should contain users, as well as groups, roles, and permissions. You can automate provisioning and query the authorization context of your users in real-time if you enable API access to your extension.
+::: note
+<%= include('../../../_includes/_rbac_methods') %>
+:::
+
+Once configured and set up, your extension should contain users, as well as groups, <dfn data-key="role">roles</dfn>, and permissions. You can automate provisioning and query the authorization context of your users in real-time if you enable API access to your extension.
 
 ## Enable API Access
 
@@ -34,27 +45,27 @@ You'll be redirected to the **Quick Start** page of the Application, where you c
 
 Since this is the first time you're working with the API and Application together, you'll see a message that says, "This application is not authorized for this API." To authorize the application for use with the API, click **Navigate to the API and Authorize**.
 
-![Application Quick Start Page](/media/articles/extensions/authorization/application-quick-start.png)
+![Application Quick Start Page](/media/articles/extensions/authorization/client-quick-start.png)
 
 You'll see a list of Machine to Machine Applications you can use with your API. Click the slider next to the Application you just created to authorize it.
 
-![Authorize Application](/media/articles/extensions/authorization/applications-for-api.png)
+![Authorize Application](/media/articles/extensions/authorization/clients-for-api.png)
 
 Once you've authorized the Application, you'll see the **Grant ID**. You can also select the **Scopes** to be granted to the Application. The scopes you grant depends on the endpoints you want to access. For example, you'd grant `read:users` to [get all users](hapi/authorization-extension#get-all-users).
 
 If you make any changes to the scopes, click **Update** to save.
 
-![Scopes](/media/articles/extensions/authorization/application-scopes.png)
+![Scopes](/media/articles/extensions/authorization/client-scopes.png)
 
 ### Get the Access Token
 
-To access the API, you'll need to [ask for and obtain the appropriate token](https://auth0.com/docs/api-auth/tutorials/client-credentials#ask-for-a-token).
+To access the API, you'll need to [ask for and obtain the appropriate token](/flows/guides/client-credentials/call-api-client-credentials#request-token).
 
 ### Call the API
 
 You can call the API via:
 
-* An HTTML request
+* An HTML request
 * A cURL command
 
 You can also find detailed information about the endpoints, as well as samples on how to call each endpoint using the three methods above, in the [Authorization Extension API Explorer](/api/authorization-extension).

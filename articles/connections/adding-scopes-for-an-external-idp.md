@@ -1,7 +1,14 @@
 ---
 description: How to add scopes to your IdP connection.
+topics:
+  - connections
+  - scopes
+contentType: how-to
+useCase:
+  - customize-connections
+  - add-idp
 ---
-# Add scopes/permissions to call  Identity Provider's APIs
+# Add scopes/permissions to call Identity Provider's APIs
 
 Once user is logged in, you can get the user profile and then the associated `accessToken` to call the Identity Provider APIs as described in: [Call an Identity Provider API](/what-to-do-once-the-user-is-logged-in/calling-an-external-idp-api)
 
@@ -11,7 +18,7 @@ There are two ways you can use to request the correct permissions.
 
 ## 1. Change Identity Provider Settings
 
-To configure the scopes/permissions needed from the user, go to the [Connections > Social](${manage_url}/#/connections/social) section of Auth0 Dashboard. There, you can click on an IdP to select the particular scopes required. 
+To configure the <dfn data-key="scope">scopes</dfn>/permissions needed from the user, go to the [Connections > Social](${manage_url}/#/connections/social) section of Auth0 Dashboard. There, you can click on an IdP to select the particular scopes required. 
 
 For example, if you click the Google connection, you can select the required scopes listed in the configuration pop-up:
 

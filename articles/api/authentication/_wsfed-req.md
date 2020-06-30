@@ -30,7 +30,7 @@ This endpoint accepts a WS-Federation request to initiate a login.
 | `wtrealm`        | Can be used in place of `client-id`. |
 | `whr`            | The name of the connection (used to skip the login page). |
 | `wctx`           | Your application's state. |
-| `wreply`         | The callback URL. |
+| `wreply`         | The <dfn data-key="callback">callback URL</dfn>. |
 
 
 ### Test with Postman
@@ -44,7 +44,7 @@ This endpoint accepts a WS-Federation request to initiate a login.
 
 1. At the *Configuration* tab, set the field **Application** (select the application you want to use for the test) and **Connection** (the name of the configured identity provider).
 
-1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Application Settings](${manage_url}/#/applications).
 
 1. At the *Other Flows* tab, click **WS-Federation**.
 
@@ -64,15 +64,15 @@ This endpoint accepts a WS-Federation request to initiate a login.
 ## Get Metadata
 
 ```http
-GET https://${account.namespace}/wsfed/${account.clientId}/FederationMetadata/2007-06/FederationMetadata.xml
+GET https://${account.namespace}/wsfed/FederationMetadata/2007-06/FederationMetadata.xml
 ```
 
 ```shell
 curl --request GET \
-  --url 'https://${account.namespace}/wsfed/${account.clientId}/FederationMetadata/2007-06/FederationMetadata.xml'
+  --url 'https://${account.namespace}/wsfed/FederationMetadata/2007-06/FederationMetadata.xml'
 ```
 
-<% var getMetadataPath = '/wsfed/YOUR_CLIENT_ID/FederationMetadata/2007-06/FederationMetadata.xml'; %>
+<% var getMetadataPath = '/wsfed/FederationMetadata/2007-06/FederationMetadata.xml'; %>
 <%=
 include('../../_includes/_http-method', {
   "http_badge": "badge-primary",

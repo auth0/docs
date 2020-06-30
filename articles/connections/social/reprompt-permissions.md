@@ -1,20 +1,31 @@
 ---
-description: How to handle declined authorization permissions and how to reprompt for these permissions.
+description: Describes how to handle declined authorization permissions and how to re-prompt for these permissions.
+topics:
+  - connections
+  - social
+contentType: how-to
+useCase:
+    - customize-connections
+    - add-idp
 ---
 
-# Handling Declined Authorization Permissions
+# Handle Declined Authorization Permissions
 
-When your users are authorizing your application some providers such as Facebook allow the user to be selective over which attributes they wish to share. By default, this selection is only made when the user is first authorizing the app. If your user chooses not to allow certain attributes which are required by your application(such as email) the user will not be able to access your application. Your user will need to be reprompted for permissions and grant the required attribute to be able to login.
+When your users are authorizing your application, some providers (such as Facebook) allow the user to select the attributes they wish to share.
 
-## How to Re-prompt for Permissions
+By default, this selection is made only when the user authorizes the app for the first time. If your user chooses to *not* allow certain attributes (such as their email) that are required by your application, the user will not be able to access your application.
 
-By setting the `prompt=consent` parameter for [/authorize](/api/authentication/reference#social) in the [Authorization API](/api/authentication), your user will be prompted to grant permissions for your application again.
+In such instances, your user will need to be re-prompted to grant permission to the required attribute(s) to login.
 
-This parameter can also be set using [Lock](/libraries/lock) as an [Authentication Parameter](/libraries/lock/sending-authentication-parameters) with `prompt: 'consent'`.
+## Re-prompt for permissions
 
-Alternatively it can be set with [Auth0.js](https://github.com/auth0/auth0.js), with `prompt: 'consent'`.
+By setting the **prompt=consent** parameter when calling the [/authorize](/api/authentication/reference#social) endpoint of the [Authorization API](/api/authentication), your user will be prompted again to grant permissions for your application.
 
-## Learn More
+This parameter can also be set using <dfn data-key="lock">Lock</dfn> as an [Authentication Parameter](/libraries/lock/sending-authentication-parameters) with **prompt: 'consent'**.
 
-[Click here to learn more about handling declined Facebook permissions.](https://developers.facebook.com/docs/facebook-login/handling-declined-permissions)
-[Click here to learn more about GitHub scopes](https://developer.github.com/v3/oauth/#scopes)
+Alternatively, you can set this with [Auth0.js](https://github.com/auth0/auth0.js) using **prompt: 'consent'**.
+
+## Keep reading
+
+* [Learn more about handling declined Facebook permissions](https://developers.facebook.com/docs/facebook-login/handling-declined-permissions)
+* [Learn more about GitHub scopes](https://developer.github.com/v3/oauth/#scopes)

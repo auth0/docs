@@ -1,38 +1,33 @@
 ---
-description: How to set up a Client Credentials Grant using the Auth0 Dashboard
+description: How to set up a Client Grant using the Auth0 Dashboard
 crews: crew-2
+topics:
+  - client-credentials
+  - api-authorization
+contentType: how-to
+useCase: secure-api
 ---
 
-# Set up a Client Credentials Grant using the Dashboard
+# Set Up Client Credentials Grants Using the Dashboard
 
-<%= include('../../_includes/_pipeline2') %>
+Auth0 lets you authorize applications that have the **Client Credentials** grant type enabled to call APIs using the [Client Credentials Flow](/flows/concepts/client-credentials). 
 
-1. Open the Auth0 Management Dashboard and browse to the [Applications section](${manage_url}/#/applications).
+By default, the **Client Credentials** grant is enabled for all Machine-to-Machine Applications and Regular Web Applications, but they are _not yet_ authorized to call any API.
 
-2. Click on **Create Application** to begin creating a new application (if you have multiple applications needing access to the API, you'll need to create an Auth0 app for *each*). You'll be asked what type of application you'd like to create, so select **Machine to Machine Application**. Click **Create** to proceed.
+To authorize the applications to call an API:
 
-![Create an Application](/media/articles/api-auth/create-client.png)
+1. Open the Auth0 Management Dashboard and browse to the [API section](${manage_url}/#/apis).
 
-3. Navigate to the [API section](${manage_url}/#/apis) and create a new API.
+2. Select the API you want to invoke using the **Client Credentials** Grant.
 
-Enter a friendly name and an identifier. Ideally, this identifier should be the public endpoint of the API, but any valid URN is acceptable. This API will be represented by your **Resource Server**.
+3. Under the **Authorized Application** tab, look for the application you want to authorize, click the Authorize button, and optionally, select the list of <dfn data-key="scope">scopes</dfn> that will be granted in the <dfn data-key="access-token">Access Token</dfn>. This will create a 'client grant' in Auth0, which will allow the application to call the API.
 
-The selection of the **Signing Algorithm** will dictate how the API will validate the Access Tokens it receives:
-* HS256 (symmetric): signed using the resource server's signing secret
-* RS256 (asymmetric): signed using Auth0's private key for your account. Verification is done using the corresponding public key, which can be found at the following standard [JWKS (JSON Web Key set)](/jwks) URL: [https://${account.namespace}/.well-known/jwks.json](https://${account.namespace}/.well-known/jwks.json)
+![Authorize the Application](/media/articles/api-auth/apis-authorize-client-tab.png)
 
-![Create an API](/media/articles/api-auth/apis-create.png)
+4. In the Test tab, you can select the application to which you granted access, and see the Access Tokens that will be generated for it.
 
-::: note
-  There will already be an <strong>Auth0 Management API</strong> that represents Auth0's APIv2. You can authorize applications to request tokens from this API as well.
-:::
+## Keep reading
 
-4. (Optional) Define some scopes by browsing to the **Scopes** tab. A scope is a claim that may be issued as part of the Access Token. With this information, the API can enforce fine-grained authorization.
-
-  ![Define Scopes](/media/articles/api-auth/apis-scope-tab.png)
-
-5. Authorize a consumer application. Under the **Machine to Machine Application** tab, you can authorize your applications that will be the consumers of the API. This will create a `client grant` for each application and will allow you to generate Access Tokens for these applications to call your API. Optionally, you can select a subset of scopes to be granted to this application as part of the Access Token. Scopes allow the API to enforce fine-grained authorization.
-
-  ![Authorize the Application](/media/articles/api-auth/apis-authorize-client-tab.png)
-
-6. Setup your API to accept Access Tokens. The **Quickstart** tab provides you with code snippets for different languages and will guide you through bootstrapping your API, depending on the selected **Signing Algorithm**.
+* [Call API using the Client Credentials Flow](/flows/guides/client-credentials/call-api-client-credentials)
+* [Use Hooks with Client Credentials Grant](/api-auth/tutorials/client-credentials/customize-with-hooks)
+* [Add Custom Claims Tokens Using Rules](/scopes/current/sample-use-cases#add-custom-claims-to-a-token)

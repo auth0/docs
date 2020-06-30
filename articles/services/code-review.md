@@ -1,5 +1,12 @@
 ---
 description: Project to help customers analyze common design patterns.
+topics:
+  - professional services
+  - code-review
+contentType:
+  - reference
+useCase:
+  - development
 ---
 
 # Advisory Sessions: Code Review

@@ -6,4 +6,4 @@ added:
       - access control
       - migration
     description: |
-      A new tutorial, [Migrate from Azure Access Control Service to Auth0](https://auth0.com/docs/users/migrations/azure-access-control), was added with instructions on migrating from Azure Access Control to Auth0 and connecting to a WS-Federation identity provider.
+      A new tutorial, [Migrate from Azure Access Control Service to Auth0](https://auth0.com/docs/users/guides/azure-access-control), was added with instructions on migrating from Azure Access Control to Auth0 and connecting to a WS-Federation identity provider.

@@ -1,0 +1,7 @@
+added:
+  -
+    title: "Added documentation for the Auth0 Deploy CLI Tool"
+    tags:
+      - extensions
+      - deploy-cli
+    description: New documentation has been added describing the Auth0 Deploy CLI tool which allows you to import/export tenant configuration objects.

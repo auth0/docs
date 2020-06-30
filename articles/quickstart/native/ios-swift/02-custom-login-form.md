@@ -2,19 +2,17 @@
 title: Custom Login Form
 description: This tutorial demonstrates how to perform Login and Sign Up by creating your own Login form.
 budicon: 448
+topics:
+  - quickstarts
+  - native
+  - ios
+  - swift
+github:
+  path: 02-Custom-Login-Form
+  branch: embedded-login
+contentType: tutorial
+useCase: quickstart
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-ios-swift-sample',
-  branch: 'embedded-login',
-  path: '02-Custom-Login-Form',
-  requirements: [
-    'CocoaPods 1.2.1',
-    'Version 8.3.2 (8E2002)',
-    'iPhone 7 - iOS 10.3 (14E269)'
-  ]
-}) %>
 
 ## Implement the Login
 
@@ -118,6 +116,12 @@ First, go to your [Application Dashboard](${manage_url}/#/applications/${account
 {YOUR_APP_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{YOUR_APP_BUNDLE_IDENTIFIER}/callback
 ```
 
+e.g. If your bundle identifier was com.company.myapp and your domain was company.auth0.com then this value would be
+
+```text
+com.company.myapp://company.auth0.com/ios/com.company.myapp/callback
+```
+
 In your application's `Info.plist` file, register your iOS Bundle Identifier as a custom scheme. To do so, open the `Info.plist` as source code, and add this chunk of code under the main `<dict>` entry:
 
 ```xml
@@ -149,12 +153,12 @@ import Auth0
 ```
 
 ```swift
-func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
     return Auth0.resumeAuth(url, options: options)
 }
 ```
 
-### Web Authentication
+### Web authentication
 
 Finally, you can now perform webAuth authentication by specifying the social connection name, for example with Facebook.
 
@@ -176,7 +180,7 @@ Auth0
 
 Once you obtain the `credentials` object upon a successful authentication, you can deal with them as usual.
 
-#### Connection Scopes
+#### Connection scopes
 
 If you need additional provider permissions these can be specified using the `connectionScope` method and providing
 a comma separated list of provider permissions.

@@ -1,9 +1,17 @@
 ---
-title: Troubleshooting the Active Directory/LDAP Connector
+title: Troubleshoot Active Directory/LDAP Connector
 description: Common issues and troubleshooting information for the Active Directory/LDAP Connector.
 toc: true
+topics:
+  - connector
+  - ad/ldap
+contentType: reference
+useCase:
+  - add-login
+  - customize-connections
+  - add-idp
 ---
-# Troubleshooting the Active Directory/LDAP Connector
+# Troubleshoot Active Directory/LDAP Connector
 
 We do our best to support many scenarios and different configurations.
 
@@ -55,12 +63,12 @@ These are the most common problems:
 
 ### Clock skew
 
-Make sure the clock of your server is current.
+Make sure the clock of your server is current. If the time is not correct, it will cause authentication requests to fail. This can be fixed by ensuring the system is properly configured to poll a sync server via the Network Time Protocol (NTP).
 
-If the time is not correct, it will cause authentication requests to fail. This can be fixed by ensuring that the System is properly configured to use to pool a sync server via the NTP (Network Time Protocol).
+For instructions on synchronizing your Active Directory environment with an external time server check out this blog post: [How to configure NTP server in Active Directory, Step by step](https://www.renanrodrigues.com/post/how-to-configure-ntp-server-in-active-directory-step-by-step).
 
 ::: note
-On windows environments the ntp provider is usually the same domain controller. Make sure that your Domain Controller is synchronized with some external service.
+On Windows environments the NTP provider is usually the same domain controller. Make sure that your Domain Controller is synchronized with some external service.
 :::
 
 ### No connection to Active Directory
@@ -77,9 +85,9 @@ When the domain does not exist or is unreachable `nltest` will return an error m
 
 ### UNABLE_TO_VERIFY_LEAF_SIGNATURE error message
 
-This error applies to the AD/LDAP Connector in combination with the PSaaS Appliance.
+This error applies to the AD/LDAP Connector in combination with the Private Cloud.
 
-When the connector will fail to start if unable to validate the SSL certificate configured in the PSaaS Appliance. This can happen when the Root Certificate (or any Intermediate Certificates) are missing in the machine's Certificate Store (Windows). In order to solve this you should import the certificate chain in the **Local Machine > Trusted Root** certificate store on the machine where the AD/LDAP Connector is installed.
+When the connector will fail to start if unable to validate the SSL certificate configured in the Private Cloud. This can happen when the Root Certificate (or any Intermediate Certificates) are missing in the machine's Certificate Store (Windows). In order to solve this you should import the certificate chain in the **Local Machine > Trusted Root** certificate store on the machine where the AD/LDAP Connector is installed.
 
 ### Running the connector behind a proxy
 
@@ -143,4 +151,8 @@ In some AD/LDAP installations, user attributes synchronization takes few minutes
 
 To avoid the requirement of an open inbound port in your servers, the Connector creates a websocket connection to an available node in Auth0's server cluster and keeps it open to listen to incoming messages from Auth0. 
 
-Approximately once a day (though this frequency might vary under certain circumstances) each server node will terminate the connection to allow internal deployment processes to occurr. The Connector will detect the closed connection and terminate the process, allowing the service stack to restart the process, create a new connection to an available node and resume operations. To avoid any downtime, make sure you enable [the cache for the connection](/connector/overview#cache).
+Approximately once a day (though this frequency might vary under certain circumstances) each server node will terminate the connection to allow internal deployment processes to occur. The Connector will detect the closed connection and terminate the process, allowing the service stack to restart the process, create a new connection to an available node and resume operations. To avoid any downtime, make sure you enable [the cache for the connection](/connector/overview#cache).
+
+### Receive a "postUrl is required" error
+
+This is usually thrown if additional configuration for custom domains have not been made. See [the custom domains documentation](/custom-domains/additional-configuration#configure-ad-ldap-connections) for more info.

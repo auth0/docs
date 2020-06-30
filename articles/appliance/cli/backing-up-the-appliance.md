@@ -2,6 +2,14 @@
 section: appliance
 description: How to back up the PSaaS Appliance using its CLI
 toc: true
+topics:
+    - appliance
+    - cli
+    - backups
+contentType: how-to
+useCase: appliance
+applianceId: appliance12
+sitemap: false
 ---
 
 # How to Back Up the PSaaS Appliance Using the CLI
@@ -24,7 +32,7 @@ Please be aware that we use the following sample values throughout this document
 
 * IP address of the node on the replica set to be backed up: `192.168.1.186`. Generically, the node may also be referred to as `<target node>`.
 * Password used for encryption: `Passw0rd`.
-* The replica set connection string: `a0/a0-1:27017,a0-2:27017,a0-3:27017`
+* The replica set connection string: `a0/a0-1:27017,a0-2:27017,a0-3:27017`.
 
 ## Generate a New Backup
 
@@ -58,10 +66,10 @@ To do this, you can use the `backup-sensitive` command, which works the same way
 
 The full instructions (along with the commands you'll need to run) are as follows:
 
-1. Request a backup: `a0cli -t node_IP_address backup-sensitive --password 0therPassw0rd`
-2. Check the status of a backup: `a0cli -t node_IP_address backup-sensitive-status`
-3. Retrieve backup of sensitive information: `a0cli -t node_IP_address backup-sensitive-retrieve`
-4. Delete the sensitive backup from the node: `a0cli -t node_IP_address backup-sensitive-delete`
+1. Request a backup: `a0cli -t node_IP_address backup-sensitive --password 0therPassw0rd`;
+2. Check the status of a backup: `a0cli -t node_IP_address backup-sensitive-status`;
+3. Retrieve backup of sensitive information: `a0cli -t node_IP_address backup-sensitive-retrieve`;
+4. Delete the sensitive backup from the node: `a0cli -t node_IP_address backup-sensitive-delete`.
 
 ## Check the Status of the Backup
 
