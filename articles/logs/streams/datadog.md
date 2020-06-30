@@ -63,7 +63,7 @@ Auth0 events are delivered to your server via a streaming mechanism that sends e
 
 Some of the unique value of Datadog as a monitoring tool, and specifically when it comes to their integrations, is the data enhancement they do to make sure customers can rely on specific data fields regardless of the system they are integrating with. As part of this Log Streaming integration, Datadog has added some enhancements to our data. Here is the list of the new fields found in our logs when using the Log Streaming integration with Datadog:
 
-| Fiels | Auth0 attribute |
+| Fields | Auth0 attribute |
 |---------|-------------|
 | Official Log date | data.date |
 | network.client.ip | data.ip |
