@@ -37,9 +37,9 @@ When this setting is disabled, `email_verified` will always be `true` for Azure 
 
 ## Email Verification Flow for Azure AD/ADFS connections
 
-If your application requires that the emails from Azure AD/ADFS connection's users are always verified, you can enable the **Enable email verification flow during login for Azure AD and ADFS connections** option in the tenant's Advanced Settings section.
+If your application requires that the emails from an Azure AD/ADFS connection's users are always verified, you can enable the **Enable email verification flow during login for Azure AD and ADFS connections** option in the tenant's **Advanced Settings** section.
 
-After the user authenticates for the first time with an non-verified email, Auth0 will ask the user to verify their email by entering a one-time-use code that will be sent to their email account:
+After the user authenticates for the first time with a non-verified email, Auth0 will ask the user to verify their email by entering a one-time-use code that will be sent to their email account:
 
 ![](/media/articles/connections/azuread-adfs-email-verification.png)
 
@@ -50,5 +50,5 @@ This new screen is rendered using the New Universal Login Experience, even if yo
 To learn how to customize the email that is sent to users, check the [Verification Email template documentation](/email/templatesverification-email-using-code-)
 
 :::warning
-When Azure AD does not return an `email` claim, Auth0 maps the [Azure UserPrincipalName](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/plan-connect-userprincipalname) as the email. Given there is no guarantee that the UserPrincipalName is a mailbox, Auth0 will **NOT** display the email verification prompt and the user will have `email_verified` = `false`.
+When Azure AD does not return an `email` claim, Auth0 maps the [Azure UserPrincipalName](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/plan-connect-userprincipalname) as the email. There is no guarantee that the UserPrincipalName value is a mailbox, so Auth0 will **NOT** display the email verification prompt and the user will have the field `email_verified` set to `false`.
 :::
