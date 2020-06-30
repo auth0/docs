@@ -66,7 +66,7 @@ Some of the unique value of Datadog as a monitoring tool, and specifically when 
 | Fiels | Auth0 attribute |
 |---------|-------------|
 | Official Log date | data.date |
-| data.network.ip | data.ip |
+| network.client.ip | data.ip |
 | data.client.geoip |	data.ip (parsed) |
 | http.useragent |	data.user_agent |
 | http.useragent_details |	data.user_agent (parsed) |
