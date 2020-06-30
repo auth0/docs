@@ -220,7 +220,7 @@ Hello @@user.given_name@@ @@user.family_name@@
 
 ## Individual Templates Descriptions
 
-### Verification Email
+### Verification Email (Using Link)
 
 If you turn on the **Verification Email**, users who sign up on a database connection will receive a message asking to confirm their email address by clicking on a URL included in the message.
 
@@ -243,6 +243,11 @@ You can [configure a **Redirect To** URL](#configuring-redirect-to) to send the 
 * `email` if `Include Email In Redirect` is enabled in the template. By default, `email` is not included
 
 The target URL handler should be prepared to gracefully handle other possible messages as well. 
+
+### Verification Email (Using Code)
+
+Azure AD and ADFS connections support an [email verification flow](/connections/azuread-email-verification#email-verification-flow-for-azure-ad/adfs- connections) using a one-time-use code. If you enable this feature, users will be prompted to enter the code before continuing the authentication flow.
+
 
 ### Welcome Email
 
