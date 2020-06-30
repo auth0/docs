@@ -35,7 +35,7 @@ This document describes the major differences between Auth0's Management API v1 
 | [GET /api/connections/{connection}/users?search={criteria}](/api/v1#!#get--api-connections--connection--users-search--criteria-) | Changed to use search. | Available using `q=identities.connection:"{connection}"` and `search_engine=v3` in the query string. Other conditions and criteria may be added to the search. See the [get_users](/api/v2#!/Users/get_users) documentation. **For enterprise connections**, only supports searching users that have previously logged in; **external user search is no longer supported.** |
 | [GET /api/enterpriseconnections/users?search={criteria}](/api/v1#!#get--api-enterpriseconnections-users-search--criteria-) | Changed to use search. | Available using `q=identities.isSocial:false AND NOT identities.provider:auth0` and `search_engine=v3` in the query string. Other conditions may be added to the search. See the [get_users](/api/v2#!/Users/get_users) documentation. Only supports searching users that have previously logged in; **external user search is no longer supported.** |
 | [GET /api/socialconnections/users?search={criteria}](/api/v1#!#get--api-socialconnections-users-search--criteria-) |  Changed to use search. | Available using `q=identities.isSocial:true` and `search_engine=v3` in the query string. Other conditions may be added to the search. See the [get_users](/api/v2#!/Users/get_users) documentation. |
-| [GET /api/clients/{client-id}/users](/api/v1#!#get--api-socialconnections-users-search--criteria-) | Not available. | Not available. |
+| [GET /api/clients/{client-id}/users](/api/v1#!#get--api-socialconnections-users-search--criteria-) | Removed. | Removed. |
 | [POST /api/users](/api/v1#!#post--api-users) | None. | [POST /api/v2/users](/api/v2#!/Users/post_users) |
 | [POST /api/users/{user\_id}/change\_password\_ticket](/api/v1#!#post--api-users--user_id--change_password_ticket) | None. | [POST /api/v2/tickets/password-change](/api/v2#!/tickets/post_password_change) |
 | [POST /api/users/{user\_id}/verification\_ticket](/api/v1#!#post--api-users--user_id--verification_ticket) | None. | [POST /api/v2/tickets/email-verification](/api/v2#!/tickets/post_email_verification) |
@@ -58,7 +58,7 @@ This document describes the major differences between Auth0's Management API v1 
 | ----------- | ------ | ----------- |
 | [GET /api/clients](/api/v1#!#get--api-clients) | None. | [GET /api/v2/clients](/api/v2#!/Clients/get_clients) |
 | [POST /api/clients](/api/v1#!#post--api-clients) | None. | [POST /api/v2/clients](/api/v2#!/Clients/post_clients) |
-| [PUT /api/clients/{client-id}](/api/v1#!#put--api-clients--client-id-) | Not available. | [PUT /api/v2/clients/{id}](/api/v2#!/Clients/patch_clients_by_id) |
+| [PUT /api/clients/{client-id}](/api/v1#!#put--api-clients--client-id-) | Removed. | [PUT /api/v2/clients/{id}](/api/v2#!/Clients/patch_clients_by_id) |
 | [PATCH /api/clients/{client-id}](/api/v1#!#patch--api-clients--client-id-) | None. | [PATCH /api/v2/clients/{id}](/api/v2#!/Clients/patch_clients_by_id) |
 | [DELETE /api/clients/{client-id}](/api/v1#!#delete--api-clients--client-id-) | None. | [DELETE /api/v2/clients/{id}](/api/v2#!/Clients/delete_clients_by_id) |
 
@@ -67,10 +67,10 @@ This document describes the major differences between Auth0's Management API v1 
 | v1 Endpoint | Change | v2 Endpoint |
 | ----------- | ------ | ----------- |
 | [GET /api/connections](/api/v1#!#get--api-connections) | None. | [GET /api/v2/connections](/api/v2#!/Connections/get_connections) |
-| [GET /api/connections/{connection-name}](/api/v1#!#get--api-connections--connection-name-) | Changed `connection-name` to `id`. | [GET /api/connections/{id}](/api/v2#!/Connections/get_connections_by_id) |
+| [GET /api/connections/{connection-name}](/api/v1#!#get--api-connections--connection-name-) |  Use `id` instead of `connection-name`. | [GET /api/connections/{id}](/api/v2#!/Connections/get_connections_by_id) |
 | [POST /api/connections](/api/v1#!#post--api-connections) | Added `enabled_clients` property. | [POST /api/v2/connections](/api/v2#!/Connections/post_connections) |
-| [PUT /api/connections/{connection-name}](/api/v1#!#put--api-connections--connection-name-) | Not available. Changed `connection-name` to `id`. | [PATCH /api/v2/connections/{id}](/api/v2#!/Connections/patch_connections_by_id) |
-| [DELETE /api/connections/{connection-name}](/api/v1#!#delete--api-connections--connection-name-) | Changed `connection-name` to `id`. | [DELETE /api/v2/clients/{id}](/api/v2#!/Connections/delete_connections_by_id) |
+| [PUT /api/connections/{connection-name}](/api/v1#!#put--api-connections--connection-name-) | Removed; use `id` instead of `connection-name`. | [PATCH /api/v2/connections/{id}](/api/v2#!/Connections/patch_connections_by_id) |
+| [DELETE /api/connections/{connection-name}](/api/v1#!#delete--api-connections--connection-name-) | Use `id` instead of `connection-name`. | [DELETE /api/v2/clients/{id}](/api/v2#!/Connections/delete_connections_by_id) |
 | [GET /api/connections/{connection}/users](/api/v1) | None. | [GET /api/v2/users](/api/v2#!/Users/get_users) (see note) |
 | [GET /api/connections/{connection}/socket](/api/v1) | None. | [GET /api/v2/connections/{id}/status](/api/v2#!/Connections/get_status) |
 
@@ -84,10 +84,10 @@ For Private Cloud (search_engine:v2), use `q=identities.connection:"connection_n
 | ----------- | ------ | ----------- |
 | [GET /api/rules](/api/v1#!#get--api-rules-) | None. | [GET /api/v2/rules](/api/v2#!/Rules/get_rules) |
 | [POST /api/rules](/api/v1#!#post--api-rules) | None. | [POST /api/v2/rules](/api/v2#!/Rules/post_rules-) |
-| [PUT /api/rules/{rule-name}](/api/v1#!#put--api-rules--rule-name-) | Uses `{id}` instead of `rule-name`. | [PATCH /api/v2/rules/{id}](/api/v2#!/Rules/patch_rules_by_id) |
-| [DELETE /api/rules/{rule-name}](/api/v1#!#delete--api-rules--rule-name-) | Uses `{id}` instead of `rule-name`. | [DELETE /api/v2/rules/{id}](/api/v2#!/Rules/delete_rules_by_id) |
+| [PUT /api/rules/{rule-name}](/api/v1#!#put--api-rules--rule-name-) | Removed; use `id` instead of `rule-name`. | [PATCH /api/v2/rules/{id}](/api/v2#!/Rules/patch_rules_by_id) |
+| [DELETE /api/rules/{rule-name}](/api/v1#!#delete--api-rules--rule-name-) | Use `id` instead of `rule-name`. | [DELETE /api/v2/rules/{id}](/api/v2#!/Rules/delete_rules_by_id) |
 | [GET /api/rules-configs](/api/v1) | None. | [GET /api/v2/rules-configs](/api/v2#!/Rules_Configs/get_rules_configs) |
-| [POST /api/rules-configs](/api/v1) | Not available; perform one call per variable to update. | [PUT /api/v2/rules-configs/{key}](/api/v2#!/Rules_Configs/put_rules_configs_by_key) |
+| [POST /api/rules-configs](/api/v1) | Removed; perform one call per variable to update. | [PUT /api/v2/rules-configs/{key}](/api/v2#!/Rules_Configs/put_rules_configs_by_key) |
 
 ### Logs endpoints
 
