@@ -73,9 +73,12 @@ Some of the unique value of Datadog as a monitoring tool, and specifically when 
 | usr.id |	data.user_name |
 | usr.name |	data.user_name |
 | usr.email |	data.details.request.auth.user.email (when available) |
-| evt.name | Event name expanded (list can be found [here](/logs/references/log-event-type-codes)) |
+| data.type | evt.name |
 | message |	Event description  (list can be found [here](/logs/references/log-event-type-codes))|
 
+For more information of the Datadog transformations please go to:
+* For US: https://app.datadoghq.com/logs/pipelines
+* For EU: https://app.datadoghq.EU/logs/pipelines
 
 ## More on Log Streams
 
