@@ -54,5 +54,5 @@ When Azure AD does not return an `email` claim, Auth0 maps the [Azure UserPrinci
 :::
 
 :::warning
-This feature is in Beta state, so please do not use it in production tenants
+This feature is in Beta state, so please do not use it in production tenants.
 :::
