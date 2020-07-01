@@ -255,7 +255,7 @@ roles:
 
 To export your current tenant configuration, run a command that's similar to:
 
-`a0deploy export --config_file config.json --format yaml --output_folder path/to/export`
+`a0deploy export --config_file config.yaml --format yaml --output_folder path/to/export`
 
 <%= include('../_includes/_strip-option') %>
 
