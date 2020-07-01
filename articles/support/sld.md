@@ -29,4 +29,4 @@ If Auth0 fails to meet its availability service level  during any given month an
 
 Auth0 publishes [status](https://status.auth0.com) and [uptime](http://uptime.auth0.com) monthly reports.
 
-If you require a higher availability commitment or a dedicated instance of Auth0 in your own IT environment, please [contact sales](https://auth0.com/?contact=true) for additional information.
+If you require a higher availability commitment or a dedicated instance of Auth0 in your own IT environment, please [contact Auth0 Sales](https://auth0.com/get-started?place=documentation%20post&type=link&text=contact%20auth0%20sales) for additional information.
