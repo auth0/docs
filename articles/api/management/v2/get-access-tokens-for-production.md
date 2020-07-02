@@ -61,7 +61,7 @@ The request parameters are:
 | __Request Parameter__ | __Description__ |
 | ------ | ----------- |
 | __grant_type__ | Denotes which [OAuth 2.0 flow](/protocols/oauth2#authorization-grant-types) you want to run. For machine to machine communication use the value `client_credentials`. |
-| __client_id__ | This is the value of the __Client ID__ field of the Machine-to-Machine Application you created. You can find it at the [Settings tab of your Application](${manage_url}/#/applications/${account.clientId}/settings). |
+| __client_id__ | This is the value of the __Client ID__ field of the Machine-to-Machine Application you created. You can find it on the [Settings tab of your Application](${manage_url}/#/applications/${account.clientId}/settings). |
 | __client_secret__ | This is the value of the __Client Secret__ field of the Machine-to-Machine Application you created. You can find it at the [Settings tab of your Application](${manage_url}/#/applications/${account.clientId}/settings). |
 | __audience__ | This is the value of the __Identifier__ field of the `Auth0 Management API`. You can find it at the [Settings tab of the API](${manage_url}/#/apis). |
 
@@ -119,50 +119,52 @@ You can get the curl command for each endpoint from the Management API v2 Explor
 This python script gets a Management API v2 Access Token, uses it to call the [Get all applications](/api/management/v2#!/Clients/get_clients) endpoint, and prints the response in the console.
 
 Before you run it make sure that the following variables hold valid values:
-- `AUDIENCE`: The __Identifier__ of the `Auth0 Management API`. You can find it at the [Settings tab of the API](${manage_url}/#/apis).
-- `DOMAIN`: The __Domain__ of the Machine-to-Machine Application you created.
-- `CLIENT_ID`: The __Client ID__ of the Machine to Machine Application you created.
-- `CLIENT_SECRET`: The __Client Secret__ of the Machine-to-Machine Application you created.
+- `audience`: The __Identifier__ of the `Auth0 Management API`. You can find it at the [Settings tab of the API](${manage_url}/#/apis).
+- `domain`: The __Domain__ of the Machine-to-Machine Application you created.
+- `client_id`: The __Client ID__ of the Machine to Machine Application you created.
+- `client_secret`: The __Client Secret__ of the Machine-to-Machine Application you created.
 
 ```python
 def main():
-  import json, urllib, urllib2
-
+  import json, requests
+  from requests.exceptions import RequestException, HTTPError, URLRequired
+  
   # Configuration Values
-  AUDIENCE = "https://${account.namespace}/api/v2/"
-  DOMAIN = "${account.namespace}"
-  CLIENT_ID = "${account.clientId}"
-  CLIENT_SECRET = "YOUR_CLIENT_SECRET"
-  GRANT_TYPE = "client_credentials" # OAuth 2.0 flow to use
+  audience = f"https://${account.namespace}/api/v2/"
+  domain = "${account.namespace}"
+  client_id = "${account.clientId}"
+  client_secret = "YOUR_CLIENT_SECRET"
+  grant_type = "client_credentials" # OAuth 2.0 flow to use
 
   # Get an Access Token from Auth0
-  base_url = "https://{domain}".format(domain=DOMAIN)
-  data = urllib.urlencode([('client_id', CLIENT_ID),
-                          ('client_secret', CLIENT_SECRET),
-                          ('audience', AUDIENCE),
-                          ('grant_type', GRANT_TYPE)])
-  req = urllib2.Request(base_url + "/oauth/token", data)
-  response = urllib2.urlopen(req)
-  oauth = json.loads(response.read())
-  access_token = oauth['access_token']
+  base_url = f"https://{domain}"
+  payload =  {'grant_type': 'client_credentials',
+               'client_id': client_id,
+               'client_secret': client_secret,
+               'audience': audience}
+  res = requests.get(base_url, data=payload)
+  oauth = json.loads(response.json())
+  access_token = oauth.get('access_token')
 
   # Get all Applications using the token
-  req = urllib2.Request(base_url + "/api/v2/clients")
-  req.add_header('Authorization', 'Bearer ' + access_token)
-  req.add_header('Content-Type', 'application/json')
+  res = requests.get(base_url + "/api/v2/clients")
+  header = {
+    'Authorization', 'Bearer ' + access_token,
+    'Content-Type', 'application/json'
+    }
 
   try:
-    response = urllib2.urlopen(req)
-    res = json.loads(response.read())
-    print res
-  except urllib2.HTTPError, e:
-    print 'HTTPError = ' + str(e.code) + ' ' + str(e.reason)
-  except urllib2.URLError, e:
-    print 'URLError = ' + str(e.reason)
-  except urllib2.HTTPException, e:
-    print 'HTTPException'
-  except Exception:
-    print 'Generic Exception'
+    res = request.get(req, header = header)
+    output = json.loads(res.json())
+    print(output)
+  except HTTPError as e:
+    print('HTTPError = ' + str(e.code) + ' ' + str(e.reason))
+  except URLRequired as e:
+    print(f'URLRequired = str(e.reason)')
+  except RequestException as e:
+    print('RequestException: {e}')
+  except Exception as e:
+    print(f'Generic Exception: {e}')
 
 # Standard boilerplate to call the main() function.
 if __name__ == '__main__':
