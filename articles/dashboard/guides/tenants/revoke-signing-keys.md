@@ -87,13 +87,9 @@ You may only revoke the previously used signing key.
 
 | **Value** | **Description** |
 | - | - |
-| `YOUR_KEY_ID` | ID of the signing key to be revoked. |
+| `YOUR_KEY_ID` | ID of the signing key to be revoked. To learn how to find your signing key ID, see [Locate JSON Web Key Sets](/tokens/guides/locate-jwks). |
 | `MGMT_API_ACCESS_TOKEN`  | [Access Token for the Management API](/api/management/v2/tokens) with the <dfn data-key="scope">scope</dfn> `update:signing_keys`. |
 
 </div>
   </div>
 </div>
-
-
-
-
