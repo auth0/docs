@@ -11,9 +11,9 @@ useCase:
 ---
 # Get User Script Templates
 
-The **Get User** script implements the function executed to determine the current state of existence of a user. We recommend naming this function `getUser`. The script is optional for both legacy authentication and for automatic migration, though we recommend its implementation. 
+The **Get User** script implements the function executed to determine the current state of existence of a user. We recommend naming this function `getUser`. For automatic migration, the script is mandatory. In legacy authentication, it is used for sign up, email verification, password reset, and delete user functionality, so we recommend its implementation.
 
-For automatic migration the script is executed during the password reset workflow, for example, with a forgotten password in Universal Login. For legacy authentication, it is executed whenever the following out-of-box operations occur: create user, change email, change password and password reset (e.g via forgot password workflow). 
+For automatic migration, the script is executed during the password reset workflow (e.g., with a forgotten password in Universal Login). For legacy authentication, it is executed whenever the following out-of-box operations occur: create user, change email, change password, and password reset (e.g., via forgot password workflow). 
 
 The `getUser` function should be defined as follows:
 
