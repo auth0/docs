@@ -24,7 +24,7 @@ The **GitLab Deployments** extension allows you to deploy [rules](/rules), rules
 * **REPOSITORY**: The name of your GitLab repository.
 * **BRANCH**: The branch of your GitLab repository your extension should monitor.
 * **URL**: The URL of your GitLab instance, in case of gitlab.com use `https://gitlab.com`
-* **TOKEN**: The personal Access Token to your GitLab repository for this account. For details on how to configure one refer to [Configure a GitLab Token](configure-a-gitlab-token).
+* **TOKEN**: The personal Access Token to your GitLab repository for this account. To learn how to configure one, see [Configure a GitLab Token](#configure-a-gitlab-token).
 * **BASE_DIR**: The base directory, where all your tenant settings are stored. If you want to keep your tenant settings under `org/repo/tenant/production`, `org/repo` goes to the `REPOSITORY` and `tenant/production` - to `BASE_DIR`
 * **AUTO_REDEPLOY**: If enabled, the extension redeploys the last successful configuration in the event of a deployment failure. Manual deployments and validation errors does not trigger auto-redeployment
 * **SLACK_INCOMING_WEBHOOK**: The URL used to integrate with Slack to deliver notifications.
