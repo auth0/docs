@@ -130,7 +130,7 @@ The following table describes feature differences of each Auth0 support plan:
 | Enhanced Hours of Support | No | Yes | Yes | Yes |
 | Ticket Review | No | No | Yes | Yes |
 | Phone Support | No | No | No | Yes |
-| Dedicated team of Developer Support Engineers | No | No | No | Yes |
+| Designated team of Developer Support Engineers | No | No | No | Yes |
 
 ## Defect Resolution Procedures
 
