@@ -23,7 +23,26 @@ We are actively migrating customers to new behaviors for all <dfn data-key="depr
     </tr>
   </thead>
   <tbody>
-      <tr>
+    <tr>
+      <td><a href="/migrations/guides/unpaginated-api2-requests">Unpaginated Managment API v2 Request deprecation</a></td>
+      <td>14 July 2020</td>
+      <td>14 January 2021</td>
+      <td>
+        After the end-of-life date, all requests to the following Management API v2 endpoints will return up to 50 items, instead of all available items. To retrieve more items, you will have to add the <code>page</code> and <code>per_page</code> parameters to your request. If <code>page</code> is not specified, it will default to 0. <code>per_page</code> has a maximum value of 100. 
+        <ul>
+          <li><code>GET /api/v2/clients</code>
+          <li><code>GET /api/v2/client-grants</code>
+          <li><code>GET /api/v2/grants</code>
+          <li><code>GET /api/v2/connects</code>
+          <li><code>GET /api/v2/device-crecentials</code> (when <code>type</code> query parameter is used)
+          <li><code>GET /api/v2/resource-servers</code>
+          <li><code>GET /api/v2/rules</code>
+        </ul>
+        All tenants are affected that are created before 14 July 2020 and are actively calling affected endpoints without passing the <code>per_page</code> parameter for queries that can return more than 1 result. 
+        Tenants are not affected if they are created after 14 July 2020, are not using the affected endpoints, are using the affected endpoints and passing the <code>per_page</code> parameter, or are making queries that always return only 1 result.
+      </td>
+    </tr>
+    <tr>
       <td><a href="/migrations/guides/extensibility-node12">Node.js v8 Extensibility Runtime</a></td>
       <td>15 April 2020</td>
       <td>TBA</td>
