@@ -121,6 +121,7 @@ The following template will show the login box to the left, and an image to the 
         background-color: rgb(60,60,60);
       }
     </style>
+    <title>{{ prompt.screen.texts.pageTitle }}</title>
   </head>
   <body>
     {% if prompt.name == "login" or prompt.name == "signup" %} 
@@ -133,6 +134,7 @@ The following template will show the login box to the left, and an image to the 
   </body>
 </html>
 ```
+![Page Templates Layout](/media/articles/universal-login/page-templates-layout.png)
 
 ### Page Footers
 
@@ -182,6 +184,7 @@ The example below adds a gray footer with links to Privacy Policy and Terms of S
         color: white;
       }
     </style>
+     <title>{{ prompt.screen.texts.pageTitle }}</title>
   </head>
   <body>
     {%- auth0:widget -%}
@@ -195,6 +198,7 @@ The example below adds a gray footer with links to Privacy Policy and Terms of S
 </html>
 ```
 
+![Page Templates Footer](/media/articles/universal-login/page-templates-footer.png)
 ## Page Templates API
 
 To set the Page Template you need to use the Management API. You first need to get a Management API token with the `update:branding`,`read:branding`, `delete:branding` scopes. If you are using the 'API Explorer Application' to generate tokens, make sure those scopes are enabled for the 'Auth0 Management API'.
