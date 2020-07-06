@@ -54,7 +54,7 @@ Deprecation notices will be recorded in your tenant logs for all requests withou
 
 2. Confirm that you are no longer seeing deprecation notices in your tenant logs. Check if a request returned more than 50 items. Look at the `details.size_exceeded` field and check if it’s `true`. 
     - Use the following log query to return all calls without pagination options with more than 1 result: `type:depnote AND description:*Unpaginated*`
-    - Use the following log query will return all calls without pagination options with more than 50 results: `type:depnote AND description:*Unpaginated* AND details.size_exceeded:true`
+    - Use the following log query to return all calls without pagination options with more than 50 results: `type:depnote AND description:*Unpaginated* AND details.size_exceeded:true`
 
     To identify the application making request, logs will include the `client_id` used to make the request. You can also find the endpoint being used in the logs `details.path` field.
 
