@@ -76,6 +76,10 @@ If you are using Maven:
 </dependencies>
 ```
 
+:::note
+The Spring Security 5.4.0 release will include [a fix](https://github.com/spring-projects/spring-security/pull/8357) to validate the issuer claim of the ID token. You should update to this release when available.
+:::
+
 ### Configure Spring Security
 
 Spring Security makes it easy to configure your application for authentication with OIDC providers such as Auth0. In your application's configuration, configure the OAuth2 client and provider. The sample below uses an `application.yml` file, though you can also use properties files or any of the other [supported externalization mechanisms](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-external-config).
