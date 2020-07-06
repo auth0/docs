@@ -1,6 +1,6 @@
 ---
-title: Configure a Custom SMS Provider for MFA using Infobip
-description: Learn how to configure a Custom SMS Provider for multifactor authentication (MFA) using Infobip.
+title: Configure a Custom Custom Phone Messaging Provider for MFA using Infobip
+description: Learn how to configure a Custom Phone Messaging Provider for multifactor authentication (MFA) using Infobip.
 topics:
   - mfa
   - sms
@@ -10,7 +10,7 @@ contentType:
 useCase:
   - customize-mfa
 ---
-# Configure a Custom SMS Provider for MFA using Infobip
+# Configure a Custom Phone Messaging Provider for MFA using InfoBip
 
 This guide explains how to send <dfn data-key="multifactor-authentication">Multi-factor Authentication (MFA)</dfn> text messages using Infohip.
 
@@ -18,7 +18,7 @@ This guide explains how to send <dfn data-key="multifactor-authentication">Multi
 
 ## What is Infobip?
 
-Infobip SMS is a messaging platform that enables Auth0 to deliver multi-factor verification via text messages. To learn more, see [Infobip's SMS Overview](https://www.infobip.com/products/sms).
+Infobip is a messaging platform that enables Auth0 to deliver multi-factor verification via text messages. To learn more, see Infobip's [SMS](https://www.infobip.com/products/sms) or [Phone](https://www.infobip.com/products/voice) docs.
 
 ## Prerequisites
 
@@ -29,13 +29,13 @@ Before you begin this tutorial, please:
 
 ## Steps
 
-To configure a custom SMS provider for MFA using Infobip, you will:
+To configure a custom phone messaging provider for MFA using Infobip, you will:
 
 1. [Create a Send Phone Message Hook](#create-a-send-phone-message-hook)
 2. [Configure Hook Secrets](#configure-hook-secrets)
 3. [Add the Infobip call](#add-the-infobip-call)
 4. [Test your Hook implementation](#test-your-hook-implementation)
-5. [Activate the custom SMS factor](#activate-the-custom-sms-factor)
+5. [Activate the custom phone messaging delivery provider](#activate-the-custom-delivery-provider)
 6. [Test the MFA flow](#test-the-mfa-flow)
 
 Optional: [Troubleshoot](#troubleshoot)
@@ -60,7 +60,7 @@ You're going to store the value needed from the Infobip portal in a [Hook Secret
 
 To make the call to Infobip, add the appropriate code to the Hook.
 
-Copy the code block below and [edit](/hooks/update) the Send Phone Message Hook code to include it. This function will run each time a user requires MFA, calling Infobip to send a verification code via SMS.
+Copy the code block below and [edit](/hooks/update) the Send Phone Message Hook code to include it. This function will run each time a user requires MFA, calling Infobip to send a verification code.
 
 ```js
 /**
@@ -83,7 +83,7 @@ Copy the code block below and [edit](/hooks/update) the Send Phone Message Hook 
 module.exports = function(recipient, text, context, cb) {
 
     const axios = require('axios').default;
-    const API_KEY = context.webtask.secrets.API_KEY;;
+    const API_KEY = context.webtask.secrets.API_KEY;
     const BASE_URL = 'https://2622w.api.infobip.com';
     const instance = axios.create({
         baseURL: BASE_URL,
@@ -93,41 +93,59 @@ module.exports = function(recipient, text, context, cb) {
             'Content-Type': 'application/json'
         },
     });
-    instance({
-        method: 'post',
-        url: '/sms/2/text/advanced',
-        data: {
-            "messages": [
-                {
-                    "destinations": [
-                        { "to": recipient }
-                    ],
-                    "text": text
-                }
-            ]
-        }
-    })
-    .then((response) => {
-        cb(null, {});
-    })
-    .catch((error) => {
-        cb(error);
-    });
 
+    if (context.message_type === "sms") {
+        instance({
+            method: 'post',
+            url: '/sms/2/text/advanced',
+            data: {
+                "messages": [
+                    {
+                        "destinations": [
+                            { "to": recipient }
+                        ],
+                        "text": text
+                    }
+                ]
+            }
+        })
+        .then((response) => {
+            cb(null, {});
+        })
+        .catch((error) => {
+            cb(error);
+        });
+    }
+    else {
+         instance({
+            method: 'post',
+            url: '/tts/3/single',
+            data: {
+                "text": text,
+                "to" : recipient
+            }
+        })
+        .then((response) => {
+            cb(null, {});
+        })
+        .catch((error) => {
+            cb(error);
+        });    
+    }
 };
 ```
 
 ### Test your Hook implementation
 
-Click the **Run** icon on the top right to test the Hook. Edit the parameters to specify the phone number to receive the SMS, and click the **Run** button.
+Click the **Run** icon on the top right to test the Hook. Edit the parameters to specify the phone number to receive the message, and click the **Run** button.
 
-### Activate the custom SMS factor
+### Activate the custom delivery provider
 
-The Hook is now ready to send MFA codes via Infobip. The last steps are to configure the SMS Factor to use the custom code and test the MFA flow.
+The Hook is now ready to send MFA codes via Infobip. The last steps are to configure the Phone Message Factor to use the custom code and test the MFA flow.
 
-1. Navigate to the [Multifactor Auth](${manage_url}/#/mfa) page in the [Auth0 Dashboard](${manage_url}/), and click the **SMS** factor box.
+1. Navigate to the [Multifactor Auth](${manage_url}/#/mfa) page in the [Auth0 Dashboard](${manage_url}/), and click the **Phone Message** factor box.
 
-2. In the modal that appears, select **Custom** for the **SMS Delivery Provider**, then make any adjustments you'd like to the templates. Click **Save** when complete, and close the modal.
+2. In the modal that appears, select **Custom** for the **Delivery Provider**, then make any adjustments you'd like to the templates. Click **Save** when complete, and close the modal.
 
 3. Enable the SMS factor using the toggle switch.
 
@@ -147,9 +165,9 @@ If you do not receive the SMS, please look at the logs for clues and make sure t
 ## Additional providers
 
 ::: next-steps
+* [Configure a Custom Phone Messaging Provider for MFA using Twilio](/mfa/send-phone-message-hook-twilio)
+* [Configure a Custom Phone Messaging Provider for MFA using TeleSign](/mfa/send-phone-message-hook-telesign)
 * [Configure a Custom SMS Provider for MFA using Amazon SNS](/mfa/send-phone-message-hook-amazon-sns)
-* [Configure a Custom SMS Provider for MFA using Twilio](/mfa/send-phone-message-hook-twilio)
-* [Configure a Custom SMS Provider for MFA using TeleSign](/mfa/send-phone-message-hook-telesign)
 * [Configure a Custom SMS Provider for MFA using Vonage](/mfa/send-phone-message-hook-vonage)
 * [Configure a Custom SMS Provider for MFA using Esendex](/mfa/send-phone-message-hook-esendex)
 * [Configure a Custom SMS Provider for MFA using Mitto](/mfa/send-phone-message-hook-mitto)

@@ -36,7 +36,7 @@ To configure a custom SMS provider for MFA using Vonage, you will:
 3. [Include the nexmo module](#include-the-nexmo-module)
 4. [Add the Vonage API Call](#add-the-vonage-api-call)
 5. [Test your Hook implementation](#test-your-hook-implementation)
-6. [Activate the custom SMS factor](#activate-the-custom-sms-factor)
+6. [Activate the custom phone messaging delivery provider](#activate-the-custom-delivery-provider)
 7. [Test the MFA flow](#test-the-mfa-flow)
 
 Optional: [Troubleshoot](#troubleshoot)
@@ -108,33 +108,7 @@ module.exports = function(toNumber, text, context, cb) {
   });
 };
 ```
-
-### Test your Hook implementation
-
-Click the **Runner** button to try the completed Hook. Make sure to change the `recipient` value in the body to your test number from the Vonage API.
-
-You should receive a test text message, and the webtask should complete successfully.
-
-![Auth0 Dashboard: Run SMS Hook](/media/articles/mfa/06-guide-auth0-run-sms-hook.png)
-
-### Activate the custom SMS factor
-
-The Hook is now ready to send MFA codes via the Vonage SMS API. The last steps are to configure the SMS Factor to use the custom code and test the MFA flow.
-
-1. Navigate to the [Multifactor Auth](${manage_url}/#/mfa) page in the [Auth0 Dashboard](${manage_url}/), and click the **SMS** factor box.
-
-2. In the modal that appears, select **Custom** for the **SMS Delivery Provider**, then make any adjustments you'd like to the templates. Click **Save** when complete, and close the modal.
-
-3. Enable the SMS factor using the toggle switch.
-
-![Auth0 Dashboard: Activate SMS Factor](/media/articles/mfa/07-guide-auth0-activate-sms-factor.png)
-
-::: note
-To use the SMS factor, your tenant needs to have MFA enabled globally or required for specific contexts using Rules. To learn how to enable the MFA feature itself, see the following docs:
-
-- [Enable Multi-Factor Authentication](/mfa/guides/enable-mfa)
-- [Customize Multi-Factor Authentication](/mfa/guides/customize-mfa-universal-login)
-:::
+<%= include('./_includes/_test_activate_hook') %>
 
 ### Test the MFA flow
 
@@ -163,10 +137,10 @@ If this does not solve your issue, the next step would be to check the [Vonage S
 ## Additional providers
 
 ::: next-steps
+* [Configure a Custom Phone Messaging Provider for MFA using Twilio](/mfa/send-phone-message-hook-twilio)
+* [Configure a Custom Phone Messaging Provider for MFA using InfoBip](/mfa/send-phone-message-hook-infobip)
+* [Configure a Custom Phone Messaging Provider for MFA using TeleSign](/mfa/send-phone-message-hook-telesign)
 * [Configure a Custom SMS Provider for MFA using Amazon SNS](/mfa/send-phone-message-hook-amazon-sns)
-* [Configure a Custom SMS Provider for MFA using Twilio](/mfa/send-phone-message-hook-twilio)
-* [Configure a Custom SMS Provider for MFA using Infobip](/mfa/send-phone-message-hook-infobip)
-* [Configure a Custom SMS Provider for MFA using TeleSign](/mfa/send-phone-message-hook-telesign)
 * [Configure a Custom SMS Provider for MFA using Esendex](/mfa/send-phone-message-hook-esendex)
 * [Configure a Custom SMS Provider for MFA using Mitto](/mfa/send-phone-message-hook-mitto)
 :::

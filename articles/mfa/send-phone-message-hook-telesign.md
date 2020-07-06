@@ -1,6 +1,6 @@
 ---
-title: Configure a Custom SMS Provider for MFA using TeleSign
-description: Learn how to configure a Custom SMS Provider for multifactor authentication (MFA) using TeleSign.
+title: Configure a Custom Phone Messaging Provider for MFA using TeleSign
+description: Learn how to configure a Custom Phone Messaging Provider for multifactor authentication (MFA) using TeleSign.
 topics:
   - mfa
   - sms
@@ -10,7 +10,7 @@ contentType:
 useCase:
   - customize-mfa
 ---
-# Configure a Custom SMS Provider for MFA using TeleSign
+# Configure a Custom Phone Messaging Provider for MFA using TeleSign
 
 This guide explains how to send <dfn data-key="multifactor-authentication">Multi-factor Authentication (MFA)</dfn> text messages using Telesign.
 
@@ -21,7 +21,10 @@ This guide explains how to send <dfn data-key="multifactor-authentication">Multi
 Telesign provides two different APIs, both of which may be used alongside Auth0 to deliver multi-factor verification via text messages:
 
 * [TeleSign SMS](https://www.telesign.com/products/sms-api): Allows you to build and manage SMS communications and security verification processes.
-* [TeleSign SMS Verify](https://www.telesign.com/products/sms-verify): Helps you manage the SMS verification process and is available in the Enterprise plan.
+
+* [TeleSign Voice](https://www.telesign.com/products/voice-api): Allows you to build and manage voice communications and security verification processes.
+
+* [TeleSign Verify](https://www.telesign.com/products/sms-verify): Helps you manage the phone verification process and is available in the Enterprise plan.
 
 ## Prerequisites
 
@@ -32,13 +35,13 @@ Before you begin this tutorial, please:
 
 ## Steps
 
-To configure a custom SMS provider for MFA using Telesign, you will:
+To configure a custom phone messaging provider for MFA using Telesign, you will:
 
 1. [Create a Send Phone Message Hook](#create-a-send-phone-message-hook)
 2. [Configure Hook Secrets](#configure-hook-secrets)
 3. [Add the Telesign call](#add-the-telesign-call)
 4. [Test your Hook implementation](#test-your-hook-implementation)
-5. [Activate the custom SMS factor](#activate-the-custom-sms-factor)
+5. [Activate the custom phone messaging delivery provider](#activate-the-custom-delivery-provider)
 6. [Test the MFA flow](#test-the-mfa-flow)
 
 Optional: [Troubleshoot](#troubleshoot)
@@ -110,7 +113,7 @@ module.exports = function (recipient, text, context, cb) {
       username: customerId,
       password: restApiKey
     },
-    url: '/v1/messaging',
+    url: message_type === "sms" ? '/v1/messaging' : '/v1/voice' 
     data: querystring.stringify({
       phone_number: recipient,
       message_type: 'ARN',
@@ -127,9 +130,9 @@ module.exports = function (recipient, text, context, cb) {
 }
 ```
 
-#### SMS Verify API
+#### Verify API
 
-If you are calling the SMS Verify API, use the following code:
+If you are calling the Verify API, use the following code:
 
 ```js
 module.exports = function(recipient, text, context, cb) {
@@ -147,44 +150,52 @@ module.exports = function(recipient, text, context, cb) {
     },
   });
 
-  instance({
-    method: 'post',
-    auth: {
-      username: customerId,
-      password: restApiKey
-    },
-    url: '/v1/verify/sms',
-    data: querystring.stringify({
-      phone_number: recipient,
-      template: text
+  if (message_type === "sms") {
+    instance({
+      method: 'post',
+      auth: {
+        username: customerId,
+        password: restApiKey
+      },
+      url: '/v1/verify/sms',
+      data: querystring.stringify({
+        phone_number: recipient,
+        template: text
+      })
     })
-  })
-  .then((response) => {
-      cb(null, {});
-  })
-  .catch((error) => {
-      cb(error);
-  });
+    .then((response) => {
+        cb(null, {});
+    })
+    .catch((error) => {
+        cb(error);
+    });
+  }
+  else {
+    instance({
+      method: 'post',
+      auth: {
+        username: customerId,
+        password: restApiKey
+      },
+      url: '/v1/verify/call',
+      data: querystring.stringify({
+        phone_number: recipient,
+        verify_code: context.code,
+        tts_message: "Your code is $$CODE$$"
+      })
+    })
+    .then((response) => {
+        cb(null, {});
+    })
+    .catch((error) => {
+        cb(error);
+    });
+  }
+  
 }
 ```
 
-### Test your Hook implementation
-
-Click the **Run** icon on the top right to test the Hook. Edit the parameters to specify the phone number to receive the SMS, and click the **Run** button.
-
-### Activate the custom SMS factor
-
-The Hook is now ready to send MFA codes via the Telesign. The last steps are to configure the SMS Factor to use the custom code and test the MFA flow.
-
-1. Navigate to the [Multifactor Auth](${manage_url}/#/mfa) page in the [Auth0 Dashboard](${manage_url}/), and click the **SMS** factor box.
-
-2. In the modal that appears, select **Custom** for the **SMS Delivery Provider**, then make any adjustments you'd like to the templates. Click **Save** when complete, and close the modal.
-
-3. Enable the SMS factor using the toggle switch.
-
-### Test the MFA flow
-
-Trigger an MFA flow and double check that everything works as intended. If you do not receive the SMS, please take a look at the [Hook Logs](/hooks/view-logs).
+<%= include('./_includes/_test_activate_hook') %>
 
 ## Troubleshoot
 
@@ -198,10 +209,10 @@ If you do not receive the SMS, please look at the logs for clues and make sure t
 ## Additional providers
 
 ::: next-steps
+* [Configure a Custom Phone Messaging Provider for MFA using Twilio](/mfa/send-phone-message-hook-twilio)
+* [Configure a Custom Phone Messaging Provider for MFA using InfoBip](/mfa/send-phone-message-hook-infobip)
+* [Configure a Custom SMS Provider for MFA using Mitto](/mfa/send-phone-message-hook-mitto)
 * [Configure a Custom SMS Provider for MFA using Amazon SNS](/mfa/send-phone-message-hook-amazon-sns)
-* [Configure a Custom SMS Provider for MFA using Twilio](/mfa/send-phone-message-hook-twilio)
-* [Configure a Custom SMS Provider for MFA using Infobip](/mfa/send-phone-message-hook-infobip)
 * [Configure a Custom SMS Provider for MFA using Vonage](/mfa/send-phone-message-hook-vonage)
 * [Configure a Custom SMS Provider for MFA using Esendex](/mfa/send-phone-message-hook-esendex)
-* [Configure a Custom SMS Provider for MFA using Mitto](/mfa/send-phone-message-hook-mitto)
 :::

@@ -38,7 +38,7 @@ To configure a custom SMS provider for MFA using Amazon SNS, you will:
 3. [Add the AWS SNS call](#add-the-aws-sns-call)
 4. [Add the AWS SDK NPM package](#add-the-aws-sdk-npm-package)
 5. [Test your Hook implementation](#test-your-hook-implementation)
-6. [Activate the custom SMS factor](#activate-the-custom-sms-factor)
+6. [Activate the custom phone messaging delivery provider](#activate-the-custom-delivery-provider)
 7. [Test the MFA flow](#test-the-mfa-flow)
 
 Optional: [Troubleshoot](#troubleshoot)
@@ -111,23 +111,7 @@ The Hook uses the [AWS SDK for JavaScript in Node.js](https://aws.amazon.com/sdk
 
 2. Search for `aws-sdk` and add the module that appears.
 
-### Test your Hook implementation
-
-Click the **Run** icon on the top right to test the Hook. Edit the parameters to specify the phone number to receive the SMS, and click the **Run** button.
-
-### Activate the custom SMS factor
-
-The Hook is now ready to send MFA codes via the Vonage SMS API. The last steps are to configure the SMS Factor to use the custom code and test the MFA flow.
-
-1. Navigate to the [Multifactor Auth](${manage_url}/#/mfa) page in the [Auth0 Dashboard](${manage_url}/), and click the **SMS** factor box.
-
-2. In the modal that appears, select **Custom** for the **SMS Delivery Provider**, then make any adjustments you'd like to the templates. Click **Save** when complete, and close the modal.
-
-3. Enable the SMS factor using the toggle switch.
-
-### Test the MFA flow
-
-Trigger an MFA flow and double check that everything works as intended. If you do not receive the SMS, please take a look at the [Hook Logs](/hooks/view-logs).
+<%= include('./_includes/_test_activate_hook') %>
 
 ## Troubleshoot
 
@@ -143,9 +127,9 @@ If you do not receive the SMS, please look at the logs for clues and ensure that
 ## Additional providers
 
 ::: next-steps
-* [Configure a Custom SMS Provider for MFA using Twilio](/mfa/send-phone-message-hook-twilio)
-* [Configure a Custom SMS Provider for MFA using Infobip](/mfa/send-phone-message-hook-infobip)
-* [Configure a Custom SMS Provider for MFA using TeleSign](/mfa/send-phone-message-hook-telesign)
+* [Configure a Custom Phone Messaging Provider for MFA using Twilio](/mfa/send-phone-message-hook-twilio)
+* [Configure a Custom Phone Messaging Provider for MFA using Infobip](/mfa/send-phone-message-hook-infobip)
+* [Configure a Custom Phone Messaging Provider for MFA using TeleSign](/mfa/send-phone-message-hook-telesign)
 * [Configure a Custom SMS Provider for MFA using Vonage](/mfa/send-phone-message-hook-vonage)
 * [Configure a Custom SMS Provider for MFA using Esendex](/mfa/send-phone-message-hook-esendex)
 * [Configure a Custom SMS Provider for MFA using Mitto](/mfa/send-phone-message-hook-mitto)
