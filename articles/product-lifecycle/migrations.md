@@ -25,10 +25,10 @@ We are actively migrating customers to new behaviors for all <dfn data-key="depr
   <tbody>
     <tr>
       <td><a href="/migrations/guides/unpaginated-api2-requests">Unpaginated Managment API v2 Request deprecation</a></td>
-      <td>14 July 2020</td>
-      <td>14 January 2021</td>
+      <td>14 July 2020 (Public Cloud) <br>August 2020 (Private Cloud)</br></td>
+      <td>14 January 2021 (Public Cloud) <br>February 2021 (Private Cloud) </td>
       <td>
-        After the end-of-life date, all requests to the following Management API v2 endpoints will return up to 50 items, instead of all available items. To retrieve more items, you will have to add the <code>page</code> and <code>per_page</code> parameters to your request. If <code>page</code> is not specified, it will default to 0. <code>per_page</code> has a maximum value of 100. 
+        After the End of Life date, all requests to the following Management API v2 endpoints will return up to 50 items, instead of all available items. To retrieve more items, you will have to add the <code>page</code> and <code>per_page</code> parameters to your request. If <code>page</code> is not specified, it will default to 0. <code>per_page</code> has a maximum value of 100. 
         <ul>
           <li><code>GET /api/v2/clients</code>
           <li><code>GET /api/v2/client-grants</code>

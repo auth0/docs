@@ -12,11 +12,12 @@ useCase:
 ---
 # Migrate to Management API v2 Endpoint Paginated Queries
 
-**Deprecation**: 14 July 2020
+|  | Public Cloud | Private Cloud |
+| -- | -- | -- |
+| Deprecation | 14 July 2020 | August 2020 |
+| End of Life | 14 January 2021 | February 2021 |
 
-**End of Life**: 14 January 2021
-
-After the End of Life date, specific Management API v2 endpoints will return up to 50 items instead of all the available items. To retrieve more items, you must include the `page` and `per_page` parameters. If `page` is not specified, it will default to 0. `per_page` has a maximum value of 100.
+After the End of Life date, specific Management API v2 endpoints will return up to 50 items instead of all the available items. To retrieve more items, you must include the `page` and `per_page` parameters. 
 
 Affected tenants are those who meet the following criteria:
 
@@ -49,8 +50,8 @@ Deprecation notices will be recorded in your tenant logs for all requests withou
 
 | Parameter | Type | Description |
 | -- | -- | -- |
-| `page` | Integer | Page index of the results to return. First page is 0. |
-| `per_page` | Integer | Number of results per page. Paging is disabled if the parameter is not sent. |
+| `page` | Integer | Page index of the results to return. First page is 0. If `page` is not specified, it will default to 0.  |
+| `per_page` | Integer | Number of results per page. Paging is disabled if the parameter is not sent. `per_page` has a maximum value of 100. |
 
 2. Confirm that you are no longer seeing deprecation notices in your tenant logs. Check if a request returned more than 50 items. Look at the `details.size_exceeded` field and check if it’s `true`. 
     - Use the following log query to return all calls without pagination options with more than 1 result: `type:depnote AND description:*Unpaginated*`
