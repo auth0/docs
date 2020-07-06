@@ -29,7 +29,7 @@ The following tenants are not affected:
 * Not using any of the affected endpoints
 * Using the affected endpoints and passing the `per_page` parameter, or making queries that will always return a single result.
 
-## Affected queries
+## Endpoints affected
 
 Calls to the following Management API v2 endpoints are affected:
 
@@ -43,7 +43,7 @@ Calls to the following Management API v2 endpoints are affected:
 
 Deprecation notices will be recorded in your tenant logs for all requests without pagination options that are currently returning more than 1 item, once per hour, for each different client and endpoint.
 
-## Migration steps
+## Actions
 
 1. Replace all calls to the affected endpoints by providing the `page` and `per_page` parameters.
 
