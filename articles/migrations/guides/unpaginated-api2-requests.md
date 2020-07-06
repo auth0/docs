@@ -13,6 +13,7 @@ useCase:
 # Migrate to Management API v2 Endpoint Paginated Queries
 
 **Deprecation**: 14 July 2020
+
 **End of Life**: 14 January 2021
 
 After the End of Life date, specific Management API v2 endpoints will return up to 50 items instead of all the available items. To retrieve more items, you must include the `page` and `per_page` parameters. If `page` is not specified, it will default to 0. `per_page` has a maximum value of 100.
@@ -60,4 +61,4 @@ Deprecation notices will be recorded in your tenant logs for all requests withou
 
 3. Disable Management API Unpaginated Requests for your tenant. Go to [**Dashboard > Tenant Settings > Advanced > Migration**](${manage_url}/#/tenant/advanced). This will simulate the expected behavior after the End of Life date, causing calls to affected endpoints to return up to 50 results. 
 
-You will be able to re-enable unpaginated requests any time before the End of Life date.
+  You will be able to re-enable unpaginated requests any time before the End of Life date.
