@@ -52,8 +52,7 @@ Deprecation notices will be recorded in your tenant logs for all requests withou
 | `page` | Integer | Page index of the results to return. First page is 0. |
 | `per_page` | Integer | Number of results per page. Paging is disabled if the parameter is not sent. |
 
-2. Confirm that you are no longer seeing deprecation notices in your tenant logs.
-    - Check if a request returned more than 50 items. Look at the `details.size_exceeded` field and check if it’s `true`. 
+2. Confirm that you are no longer seeing deprecation notices in your tenant logs. Check if a request returned more than 50 items. Look at the `details.size_exceeded` field and check if it’s `true`. 
     - Use the following log query to return all calls without pagination options with more than 1 result: `type:depnote AND description:*Unpaginated*`
     - Use the following log query will return all calls without pagination options with more than 50 results: `type:depnote AND description:*Unpaginated* AND details.size_exceeded:true`
 
