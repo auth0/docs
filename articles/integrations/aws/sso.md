@@ -24,11 +24,15 @@ Leave this page open in your browser, as you'll need to complete configuration i
 
 ## Configure Auth0
 
-1. Log in to the [Auth0 Dashboard](${manage_url}/#/applications), and create a new [Application](/application) (you can also use an existing Application if you'd like). On the **Addons** tab, enable the **SAML2 Web App** addon. A configuration pop-up will appear.
+1. Log in to the [Auth0 Dashboard](${manage_url}/#/applications), and create a new [Application](/application) (you can also use an existing Application if you'd like). On the **Addons** tab, enable the **SAML2 Web App** addon.
 
     ![Applications](/media/articles/dashboard/guides/app-list.png)
 
-2. On the **Settings** tab, populate **Application <dfn data-key="callback">Callback URL</dfn>** with `https://signin.aws.amazon.com/saml` and paste the following <dfn data-key="security-assertion-markup-language">SAML</dfn> configuration code into **Settings**. Be sure to replace the AWS_SSO_ISSUER_URL and AWS_SSO_ACS_URL placeholders with the values you copied from AWS in the previous section.
+2. When the configuration pop-up appears, on the **Settings** tab, populate **Application <dfn data-key="callback">Callback URL</dfn>** with `https://signin.aws.amazon.com/saml`.
+
+  ![SAML2 Web App Settings](/media/articles/integrations/aws/configure.png)
+
+Then paste the following <dfn data-key="security-assertion-markup-language">SAML</dfn> configuration code into **Settings**. Be sure to replace the AWS_SSO_ISSUER_URL and AWS_SSO_ACS_URL placeholders with the values you copied from AWS in the previous section.
 
 ```js
 {
@@ -49,9 +53,7 @@ Leave this page open in your browser, as you'll need to complete configuration i
 }
 ```
 
-  ![SAML2 Web App Settings](/media/articles/integrations/aws/configure.png)
-
-3. Scroll to the bottom and click **Enable**.
+3. Scroll to the bottom, and click **Enable**.
 
 4. Click over to the **Usage** tab. You'll need to complete your AWS configuration of Auth0 as the external identity provider (IdP) in the next section, which requires you to provide the appropriate metadata to AWS. To download a file containing this information, click **Identity Provider Metadata**.
 
