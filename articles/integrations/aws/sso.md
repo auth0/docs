@@ -16,7 +16,7 @@ useCase:
 
 By integrating Auth0 with AWS, you'll allow your users to log in to AWS using any supported [identity provider](/identityproviders). 
 
-## Configure AWS
+## Configure external Identity Provider in AWS
 
 Set up an external identity provider in AWS using AWS's [Connect to your External Identity Provider](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source-idp.html) doc--with one slight change. Rather than downloading the AWS metadata file, click **Show Individual Metadata Values**, and copy the **AWS SSO issuer URL** and **AWS SSO ACS URL**. You will use these in the next section.
 
@@ -59,7 +59,7 @@ Then paste the following <dfn data-key="security-assertion-markup-language">SAML
 
   ![SAML2 Web App Usage](/media/articles/integrations/aws/idp-download.png)
 
-## Complete AWS Configuration
+## Complete external Identity Provider configuration in AWS
 
 Return to the AWS SSO page you left open during the first section, and upload the metadata file you downloaded and saved in the previous section. Review and Confirm that you are changing the identity source.
 
