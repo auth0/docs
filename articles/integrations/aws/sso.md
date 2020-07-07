@@ -61,7 +61,7 @@ Then paste the following <dfn data-key="security-assertion-markup-language">SAML
 
 ## Complete AWS Configuration
 
-Return to the AWS SSO page you left open during the first section, and upload the metadata file you downloaded and saved in the previous section. Review and Confirm that you ae changing the identity source.
+Return to the AWS SSO page you left open during the first section, and upload the metadata file you downloaded and saved in the previous section. Review and Confirm that you are changing the identity source.
 
 ## Create an AWS IAM Role
 
