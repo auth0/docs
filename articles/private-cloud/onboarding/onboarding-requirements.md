@@ -32,7 +32,7 @@ For Standard and Auth0-hosted Private Cloud deployment options, we will set up P
   </tr>
   <tr>
     <td>Tenant names</td>
-    <td>Yes (Prod only)</td>
+    <td>Yes (production only)</td>
     <td>Yes</td>
     <td>Yes</td>
   </tr>
@@ -66,7 +66,7 @@ For Standard and Auth0-hosted Private Cloud deployment options, we will set up P
     <td>Yes (AWS region)</td>
   </tr>
   <tr>
-    <td>Preferred development region</td>
+    <td>Preferred pre-production region</td>
     <td>N/A</td>
     <td>Yes</td>
     <td>Yes (AWS region)</td>
@@ -103,9 +103,9 @@ The domain name you use for tenants hosted in the Private Cloud cannot be the sa
 
 ### Sample domain name sets
 
-The following is a sample set of domain names for a typical Development and Production environment setup where the App Tenant's name is **identity**:
+The following is a sample set of domain names for a typical Pre-production and Production environment setup where the App Tenant's name is **identity**:
 
-**Development**
+**Pre-production**
 
 * **identity**.mycompany-dev.auth0.com
 * **manage**.mycompany-dev.auth0.com
@@ -218,7 +218,7 @@ We will ask whether you control the requested DNS zone and whether you will able
 
 ## Tenant administrators
 
-We will request a list of email addresses for your tenant administrators for you App Tenant and Auth0 Dashboard. Note that tenant administrators can invite other administrators. If you have a Development environment, these can be different for Development and Production.
+We will request a list of email addresses for your tenant administrators for you App Tenant and Auth0 Dashboard. Note that tenant administrators can invite other administrators. If you have a Pre-production environment, these can be different for Pre-production and Production.
 
 ## Group email address
 
@@ -230,7 +230,7 @@ We will ask whether you would like to set up Single Sign-On, and if so, whether 
 
 ## Preferred region
 
-We will ask for your preferred region. For Standard and Auth0-hosted Managed Private Cloud, these will correspond to a preferred Auth0 region. For Customer-hosted Managed Private Cloud, this will correspond to a preferred AWS region. If you have a Development environemnt, these can be different for Development and Production. To learn more, see [Private Cloud Deployable Regions](/private-cloud/regions).
+We will ask for your preferred region. For Standard and Auth0-hosted Managed Private Cloud, these will correspond to a preferred Auth0 region. For Customer-hosted Managed Private Cloud, this will correspond to a preferred AWS region. If you have a Pre-production environment, these can be different for Pre-production and Production. To learn more, see [Private Cloud Deployable Regions](/private-cloud/regions).
 
 ## Geographic High Availability needs
 

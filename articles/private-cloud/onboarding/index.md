@@ -36,13 +36,13 @@ The timeline for Private Cloud deployments is as follows:
     <td colspan=3>No later than five (5) days after contract signing</td>
   </tr>
   <tr>
-    <td>Dev handover</td>
+    <td>Pre-production handover</td>
     <td>N/A</td>
     <td>Five (5) business days from Kickoff meeting</td>
     <td>Five (5) business days from customer infrastructure ready</td>
   </tr>
   <tr>
-    <td>Prod handover</td>
+    <td>Production handover</td>
     <td>Ten (10) business days from Kickoff meeting</td>
     <td>Ten (10) business days from Dev handover</td>
     <td>Ten (10) business days from customer infrastructure ready</td>
@@ -71,7 +71,7 @@ Once we validate your onboarding requirements, we will host a kickoff meeting wi
 
 Immediately after the kickoff meeting, we begin the implementation process, the length of which varies according to the table above depending on your deployment option. If you have chosen the Customer-hosted deployment option, the implementation process will depend highly on the amount of time you need to [provision your infrastructure per Auth0 requirements](/private-cloud/onboarding/managed-private-cloud/infrastructure).
 
-At the end of this process, you're ready for the Prod handover, when your Private Cloud deployment is ready for Production use.
+At the end of this process, you're ready for the Production handover, when your Private Cloud deployment is ready for Production use.
 
 ## Infrastructure requirements
 
