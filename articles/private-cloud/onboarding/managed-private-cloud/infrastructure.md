@@ -5,7 +5,7 @@ topics: private-cloud
 contentType: concept
 useCase: private-cloud
 ---
-# Infrastructure Requirements for the Customer-Hosted Managed Private Cloud
+# Customer-Hosted Managed Private Cloud Infrastructure Requirements
 
 If you are a Managed Private Cloud customer who is hosting Auth0 using Amazon Web Services, be aware of the following requirements.
 
@@ -129,7 +129,3 @@ STARTTLS is supported by Auth0, but is not required.
 Amazon RDS for PostgreSQL is currently used to support the Authorization Roles-Based Access Control (RBAC) functionality, but it will be used to support other functionality in the future.
 
 We ask that, at minimum, you use **postgres10, db.r3.xlarge** with 10 GB of storage. You should also allow automated snapshots with seven-day snapshot retention and multi-AZ deployments with automated failover.
-
-## Remote Access
-
-Forthcoming.

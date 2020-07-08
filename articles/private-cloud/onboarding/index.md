@@ -15,7 +15,7 @@ When you choose the Private Cloud deployment option, you will participate in our
 
 The timeline for Private Cloud deployments is as follows:
 
-<table>
+<table width="100%">
   <th>
     <td>Task</td>
     <td>Standard Private Cloud</td>
@@ -28,7 +28,7 @@ The timeline for Private Cloud deployments is as follows:
     <td>Customer-hosted</td>
   </tr>
   <tr>
-    <td>Customer onboarding requirements submitted</td>
+    <td>Customer onboarding requirements</td>
     <td colspan=3>Upon contract signing</td>
   </tr>
   <tr>

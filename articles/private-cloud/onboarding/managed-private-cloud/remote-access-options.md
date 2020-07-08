@@ -5,7 +5,7 @@ topics: private-cloud
 contentType: concept
 useCase: private-cloud
 ---
-# Remote Access Options for the Managed Private Cloud
+# Managed Private Cloud Remote Access Options
 
 Auth0 provides multiple remote access options for Managed Private Cloud customers.
 

@@ -18,7 +18,7 @@ sitemap: false
 
 For Standard and Auth0-hosted Private Cloud deployment options, we will set up Private Cloud on your behalf. Upon contract signing, we will ask you to provide key information regarding your onboarding requirements through an onboarding form, which we will then validate.
 
-<table>
+<table width="100%">
   <tr>
     <td>Requirement</td>
     <td>Standard Private Cloud</td>
