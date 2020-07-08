@@ -401,13 +401,8 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
-      <td><a href="/quickstart/webapp/java-spring-mvc">Java Spring MVC</a></td>
-      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-spring-mvc-sample"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
-      <td><div class="label label-primary">Supported</div></td>
-    </tr>
-    <tr>
-      <td><a href="/quickstart/webapp/java-spring-security-mvc">Java Spring Security</a></td>
-      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-spring-security-mvc-sample"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
+      <td><a href="/quickstart/webapp/java-spring-boot">Java Spring Boot</a></td>
+      <td class="text-center"><a href="https://github.com/auth0-samples/auth0-spring-boot-login-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
       <td><div class="label label-primary">Supported</div></td>
     </tr>
     <tr>
