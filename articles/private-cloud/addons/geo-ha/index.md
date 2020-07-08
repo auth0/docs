@@ -78,5 +78,5 @@ If the primary data center becomes available again and its instances are visible
 ### Keep reading
 
 ::: next-steps
-* [Geographic High-Availability Private Cloud Failure Scenarios and Testing](/private-cloud/addons/geo-ha/disaster-recovery)
+* [Private Cloud Geographic High-Availability Failure & Disaster Recovery](/private-cloud/addons/geo-ha/disaster-recovery)
 :::
