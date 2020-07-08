@@ -18,9 +18,9 @@ The timeline for Private Cloud deployments is as follows:
 <table class="table">
   <thead>
     <tr>
-      <th><strong>Task</strong></td>
-      <th><strong>Standard Private Cloud</strong></td>
-      <th colspan=2><strong>Managed Private Cloud</strong></td>
+      <td><strong>Task</strong></td>
+      <td><strong>Standard Private Cloud</strong></td>
+      <td colspan=2><strong>Managed Private Cloud</strong></td>
     </tr>
     <tr>
       <th>&nbsp;</td>
@@ -32,11 +32,11 @@ The timeline for Private Cloud deployments is as follows:
   <tbody>
     <tr>
       <td>Customer onboarding requirements</td>
-      <td colspan=3>Upon contract signing</td>
+      <td colspan=3 center>Upon contract signing</td>
     </tr>
     <tr>
       <td>Kickoff meeting</td>
-      <td colspan=3>No later than five (5) days after contract signing</td>
+      <td colspan=3 center>No later than five (5) days after contract signing</td>
     </tr>
     <tr>
       <td>Pre-production handover</td>
