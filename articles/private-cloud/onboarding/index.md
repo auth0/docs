@@ -15,38 +15,42 @@ When you choose the Private Cloud deployment option, you will participate in our
 
 The timeline for Private Cloud deployments is as follows:
 
-<table width="100%">
-  <th>
-    <td>Task</td>
-    <td>Standard Private Cloud</td>
-    <td colspan=2>Managed Private Cloud</td>
-  </th>
- <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>Auth0-hosted</td>
-    <td>Customer-hosted</td>
-  </tr>
-  <tr>
-    <td>Customer onboarding requirements</td>
-    <td colspan=3>Upon contract signing</td>
-  </tr>
-  <tr>
-    <td>Kickoff meeting</td>
-    <td colspan=3>No later than five (5) days after contract signing</td>
-  </tr>
-  <tr>
-    <td>Pre-production handover</td>
-    <td>N/A</td>
-    <td>Five (5) business days from Kickoff meeting</td>
-    <td>Five (5) business days from customer infrastructure ready</td>
-  </tr>
-  <tr>
-    <td>Production handover</td>
-    <td>Ten (10) business days from Kickoff meeting</td>
-    <td>Ten (10) business days from Dev handover</td>
-    <td>Ten (10) business days from customer infrastructure ready</td>
-  </tr>
+<table class="table">
+  <thead>
+    <tr>
+      <th><strong>Task</strong></td>
+      <th><strong>Standard Private Cloud</strong></td>
+      <th colspan=2><strong>Managed Private Cloud</strong></td>
+    </tr>
+    <tr>
+      <th>&nbsp;</td>
+      <th>&nbsp;</td>
+      <th><strong>Auth0-hosted</strong></td>
+      <th><strong>Customer-hosted</strong></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Customer onboarding requirements</td>
+      <td colspan=3>Upon contract signing</td>
+    </tr>
+    <tr>
+      <td>Kickoff meeting</td>
+      <td colspan=3>No later than five (5) days after contract signing</td>
+    </tr>
+    <tr>
+      <td>Pre-production handover</td>
+      <td>N/A</td>
+      <td>Five (5) business days from Kickoff meeting</td>
+      <td>Five (5) business days from customer infrastructure ready</td>
+    </tr>
+    <tr>
+      <td>Production handover</td>
+      <td>Ten (10) business days from Kickoff meeting</td>
+      <td>Ten (10) business days from Dev handover</td>
+      <td>Ten (10) business days from customer infrastructure ready</td>
+    </tr>
+  </tbody>
 </table>
 
 ### Customer onboarding requirements

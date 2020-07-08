@@ -18,71 +18,75 @@ sitemap: false
 
 For Standard and Auth0-hosted Private Cloud deployment options, we will set up Private Cloud on your behalf. Upon contract signing, we will ask you to provide key information regarding your onboarding requirements through an onboarding form, which we will then validate.
 
-<table width="100%">
-  <tr>
-    <td>Requirement</td>
-    <td>Standard Private Cloud</td>
-    <td colspan=2>Managed Private Cloud</td>
-  </tr>
- <tr>
-    <td></td>
-    <td></td>
-    <td>Auth0-hosted</td>
-    <td>Customer-hosted</td>
-  </tr>
-  <tr>
-    <td>Tenant names</td>
-    <td>Yes (production only)</td>
-    <td>Yes</td>
-    <td>Yes</td>
-  </tr>
-  <tr>
-    <td>DNS records and SSL certificates</td>
-    <td>Yes</td>
-    <td>Yes</td>
-    <td>Yes</td>
-  </tr>
-  <tr>
-    <td>Tenant administrators</td>
-    <td>Yes</td>
-    <td>Yes</td>
-    <td>Yes</td>
-  </tr>
-  <tr>
-    <td>Communication group email</td>
-    <td>Yes</td>
-    <td>Yes</td>
-    <td>Yes</td>
-  </tr>
-  <tr>
-    <td>SSO setup needs</td>
-    <td>Yes</td>
-    <td>Yes</td>
-    <td>Yes</td>
-  <tr>
-    <td>Preferred production region</td>
-    <td>Yes</td>
-    <td>Yes</td>
-    <td>Yes (AWS region)</td>
-  </tr>
-  <tr>
-    <td>Preferred pre-production region</td>
-    <td>N/A</td>
-    <td>Yes</td>
-    <td>Yes (AWS region)</td>
-  </tr>
-  <tr>
-    <td>GeoHA needs</td>
-    <td>N/A</td>
-    <td>Yes</td>
-    <td>Yes</td>
-  </tr>
-  <tr>
-    <td>Data sovereignty needs</td>
-    <td>N/A</td>
-    <td>Yes</td>
-    <td>Yes</td>
-  </tr>
+<table class="table">
+  <thead>
+    <tr>
+        <th>Requirement</td>
+        <th>Standard Private Cloud</td>
+        <th colspan=2>Managed Private Cloud</td>
+    </tr>
+    <tr>
+        <th></td>
+        <th></td>
+        <th>Auth0-hosted</td>
+        <th>Customer-hosted</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td>Tenant names</td>
+        <td>Yes (production only)</td>
+        <td>Yes</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td>DNS records and SSL certificates</td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td>Tenant administrators</td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td>Communication group email</td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td>SSO setup needs</td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>Yes</td>
+    <tr>
+        <td>Preferred production region</td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>Yes (AWS region)</td>
+    </tr>
+    <tr>
+        <td>Preferred pre-production region</td>
+        <td>N/A</td>
+        <td>Yes</td>
+        <td>Yes (AWS region)</td>
+    </tr>
+    <tr>
+        <td>GeoHA needs</td>
+        <td>N/A</td>
+        <td>Yes</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td>Data sovereignty needs</td>
+        <td>N/A</td>
+        <td>Yes</td>
+        <td>Yes</td>
+    </tr>
+  </tbody>
 </table>
 
 ## Tenant names

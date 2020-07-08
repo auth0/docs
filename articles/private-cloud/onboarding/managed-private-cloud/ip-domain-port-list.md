@@ -198,4 +198,4 @@ Auth0 tries to keep these IP addresses stable, though this is not a given. From 
 ## Notes
 
 * If you are using social providers for logins, the cluster must be able to connect to the social providers' endpoints.
-* The jump host IP is stable and provided at the time of setup.
+* The Jump Host IP is stable and provided at the time of setup.
