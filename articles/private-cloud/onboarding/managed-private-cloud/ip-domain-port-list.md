@@ -9,7 +9,7 @@ useCase: private-cloud
 
 Private Cloud deployments require certain ports within the cluster to be open and able to communicate with one another and with selected external sites.
 
-## Between Cluster Nodes
+## Between cluster nodes
 
 When possible, instances within a cluster should have full connectivity to each other so that you do not need to introduce new firewall rules if Auth0 adds new features. However, since this isn't possible in every environment, the following table lists the ports that are required to be open and accessible to other Private Cloud instances in the same cluster:
 
@@ -80,9 +80,9 @@ When possible, instances within a cluster should have full connectivity to each 
   </tbody>
 </table>
 
-## External Connectivity
+## External connectivity
 
-Auth0 strives to keep these IP addresses stable, though this is not a given. From time to time, Auth0 may add IP addresses or additional servers. During updates and metrics, you must allow your Private Cloud instances to connect to these addresses.
+Auth0 tries to keep these IP addresses stable, though this is not a given. From time to time, Auth0 may add IP addresses or additional servers. During updates and metrics, you must allow your Private Cloud instances to connect to these addresses.
 
 <table class="table">
   <thead>

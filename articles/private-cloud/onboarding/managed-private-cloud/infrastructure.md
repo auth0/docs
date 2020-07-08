@@ -98,14 +98,14 @@ You will need DNS records for the following namespaces:
 
 You must use either an ALB or ELB. For HTTP health check monitoring, you can use the `testall` endpoint provided by Auth0.
 
-### Software Load Balancers
+### Software load balancers
 
 You can use either NGINX or HA Proxy as the software load balancer in front of the Auth0 environment or for IP whitelisting and/or endpoint filtering (only authentication endpoints are publicly available). If you are using NGINX or HA Proxy as the software load balancer, you must
 
 * Use TCP mode with Proxy Protocol or HTTPS mode (SSL offloading). In HTTPS mode, the connector will not work.
 * Forward the incoming hostname to the nodes
 
-## SSL Certificates
+## SSL certificates
 
 Your SSL certificates must
 
