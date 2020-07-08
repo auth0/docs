@@ -1,6 +1,6 @@
 ---
 section: private-cloud
-description: Overview of the add-on options available to Private Cloud customers
+description: Learn about the add-on options available to Private Cloud customers.
 topics: private-cloud
 contentType: concept
 useCase: private-cloud
@@ -59,13 +59,13 @@ The follow add-on options are available to Private Cloud customers:
     </tbody>
 </table>
 
-## Enhanced Uptime Guarantee (SLA)
+## Enhanced uptime guarantee (SLA)
 
 The Enhanced Uptime Guarantee (SLA) increases the Private Cloud standard SLA of 99.95% to 99.99%.
 
 While Auth0's Public Cloud offers a 99.9% uptime guarantee, the Private Cloud's single tenant instances with dedicated resources can offer a higher SLA of 99.95%. For an additional cost, you can request the highest SLA of 99.99% uptime.
 
-## High Capacity
+## High capacity
 
 The High Capacity add-on increases the maximum requests per second (RPS) the Private Cloud can handle from 500 RPS to 1500 RPS.
 
@@ -75,16 +75,18 @@ Auth0 guarantees that the Private Cloud can handle up to 500 requests per second
 
 Auth0's dedicated deployments are ISO27001, SOC 2 Type II, ISO27018 and HIPAA BAA compliant, but the PCI Certified add-on ensures that your deployment is compliant with PCI-DSS requirements as well.
 
-## GEO-HA
+## Geographic High Acailability
 
 With the Geographic High Availability (GEO-HA) add-on, you will have the highest form of dedicated deployment availability offered by Auth0.
 
 The standard dedicated deployment is a single-region, high availability solution, but the GEO-HA add-on extends the cluster with a geographically-distributed region where the maximum round-trip latency does not exceed 100 milliseconds. This is referred to as a high-availability GEO cluster, which is a warm standby configuration with failure handling for rapid recovery during a regional outage.
 
-## Additional Pre-Production Environment
+To learn more, see [Private Cloud High Availability Geo Cluster (Geo HA)](/private-cloud/addons/geo-ha).
 
-The Managed Private Cloud includes a fully-isolated and independently-updated instance for development and testing. You can add additional Pre-Production Environments to meet your business requirements. 
+## Additional pre-production environment
+
+The Managed Private Cloud includes a fully-isolated and independently-updated instance for development and testing. You can add additional pre-production environments to meet your business requirements. 
 
 ::: note
-Guaranteed Requests per Second and SLA do not apply to Pre-Production Environments.
+Guaranteed Requests per Second and SLA do not apply to pre-production environments.
 :::
