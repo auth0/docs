@@ -1610,9 +1610,11 @@ articles:
 
           - title: Private Cloud Onboarding
             url: /private-cloud/onboarding/private-cloud
+            hidden: true
 
           - title: Managed Private Cloud Onboarding
             url: /private-cloud/onboarding/managed-private-cloud
+            hidden: true
 
   # - title: "Protocols"
   #   url: "/protocols"
