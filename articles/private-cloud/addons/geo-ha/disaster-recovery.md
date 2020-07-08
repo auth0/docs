@@ -68,7 +68,7 @@ The following table summarizes potential failure scenarios and their possible pe
   </tbody>
 </table>
 
-## Geographic High-Availability testing
+## Geographic High-Availability Private Cloud testing
 
 To test the Geographic High-Availability (GEO-HA) failover/failback procedure, you should:
 
@@ -81,7 +81,7 @@ The arbiter determines which site stays active in the case of severed connectivi
 
 The application layer is always active on all nodes. For performance reasons, only the site containing the primary data node typically serves traffic. This is managed by the global load balancer.
 
-## Backing up the Geographic High-Availability (GEO-HA) 
+## Backing up the Geographic High-Availability (GEO-HA) Private Cloud
 
 As a customer, it is your responsibility to perform regular backups on your Geographic High-Availability (GEO-HA) Private Cloud. We recommend a single backup, since the GEO-HA is a single cluster stretched over a distance, typically recommend that backup be performed daily. However, if you have concerns about a logical data corruption, or you need greater assurance of up-to-date data, you may choose to backup more frequently.
 

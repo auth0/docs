@@ -18,7 +18,7 @@ The high availability geo cluster (GEO-HA) is a Private Cloud implementation tha
 
 ## Overview
 
-The standard dedicated deployment is a single-region, high availability solution, but the GEO-HA add-on extends the cluster with a geographically-distributed region where the maximum round-trip latency does not exceed 100 milliseconds. This is referred to as a *high-availability GEO cluster*, which is an active hot standby configuration with automated failure handling that can survive a regional outage.
+The standard dedicated deployment is a single-region, high availability solution, but the GEO-HA add-on extends the cluster with a geographically-distributed region where the maximum round-trip latency does not exceed 100 milliseconds. This is referred to as a high-availability GEO cluster, which is an active hot standby configuration with automated failure handling that can survive a regional outage.
 
 ## Standard configuration
 

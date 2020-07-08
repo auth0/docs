@@ -75,7 +75,7 @@ Auth0 guarantees that the Private Cloud can handle up to 500 requests per second
 
 Auth0's dedicated deployments are ISO27001, SOC 2 Type II, ISO27018 and HIPAA BAA compliant, but the PCI Certified add-on ensures that your deployment is compliant with PCI-DSS requirements as well.
 
-## Geographic High Acailability
+## Geographic High Availability (GEO-HA)
 
 With the Geographic High Availability (GEO-HA) add-on, you will have the highest form of dedicated deployment availability offered by Auth0.
 
