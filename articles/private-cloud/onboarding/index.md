@@ -18,13 +18,13 @@ The timeline for Private Cloud deployments is as follows:
 <table class="table">
   <thead>
     <tr>
-      <td><strong>Task</strong></td>
-      <td><strong>Standard Private Cloud</strong></td>
-      <td colspan=2><strong>Managed Private Cloud</strong></td>
+      <th><strong>Task</strong></td>
+      <th><strong>Standard Private Cloud</strong></td>
+      <th colspan=2><strong>Managed Private Cloud</strong></td>
     </tr>
     <tr>
-      <th>&nbsp;</td>
-      <th>&nbsp;</td>
+      <th></td>
+      <th></td>
       <th><strong>Auth0-hosted</strong></td>
       <th><strong>Customer-hosted</strong></td>
     </tr>
@@ -32,23 +32,27 @@ The timeline for Private Cloud deployments is as follows:
   <tbody>
     <tr>
       <td>Customer onboarding requirements</td>
-      <td colspan=3 center>Upon contract signing</td>
+      <td>Upon contract signing</td>
+      <td>Upon contract signing</td>
+      <td>Upon contract signing</td>
     </tr>
     <tr>
       <td>Kickoff meeting</td>
-      <td colspan=3 center>No later than five (5) days after contract signing</td>
+      <td>No later than five (5) days after contract signing</td>
+      <td>No later than five (5) days after contract signing</td>
+      <td>No later than five (5) days after contract signing</td>
     </tr>
     <tr>
       <td>Pre-production handover</td>
       <td>N/A</td>
-      <td>Five (5) business days from Kickoff meeting</td>
-      <td>Five (5) business days from customer infrastructure ready</td>
+      <td>Five (5) business days from kickoff meeting</td>
+      <td>Five (5) business days from ready customer infrastructure</td>
     </tr>
     <tr>
       <td>Production handover</td>
-      <td>Ten (10) business days from Kickoff meeting</td>
-      <td>Ten (10) business days from Dev handover</td>
-      <td>Ten (10) business days from customer infrastructure ready</td>
+      <td>Ten (10) business days from kickoff meeting</td>
+      <td>Ten (10) business days from pre-production handover</td>
+      <td>Ten (10) business days from ready customer infrastructure</td>
     </tr>
   </tbody>
 </table>
@@ -65,7 +69,7 @@ Information we request may include:
 * SSO requirements
 * Data sovereignty details
 
-To learn more about Private Cloud onboarding requirements, see [Onboarding Requirements](/private-cloud/onboarding-requirements).
+To learn more about Private Cloud onboarding requirements, see [Onboarding Requirements](/private-cloud/onboarding/onboarding-requirements).
 
 ### Kickoff meeting
 
