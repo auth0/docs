@@ -230,7 +230,7 @@ We will ask whether you would like to set up Single Sign-On, and if so, whether 
 
 ## Preferred region
 
-We will ask for your preferred region. For Standard and Auth0-hosted Managed Private Cloud, these will correspond to a preferred Auth0 region. For Customer-hosted Managed Private Cloud, this will correspond to a preferred AWS region. If you have a Development environemnt, these can be different for Development and Production. For Customer-hosted Managed Private Cloud, the selected AWS region for the Production cluster must have at least three [availability zones](https://aws.amazon.com/about-aws/global-infrastructure)).
+We will ask for your preferred region. For Standard and Auth0-hosted Managed Private Cloud, these will correspond to a preferred Auth0 region. For Customer-hosted Managed Private Cloud, this will correspond to a preferred AWS region. If you have a Development environemnt, these can be different for Development and Production. To learn more, see [Private Cloud Deployable Regions](/private-cloud/regions).
 
 ## Geographic High Availability needs
 
@@ -238,4 +238,4 @@ We will ask whether you require a high availability geo cluster (Geo HA), which 
 
 ## Data sovereignty needs
 
-We will ask you to provide details about any requirements you have regarding data sovereignty.
+We will ask you to provide details about any requirements you have regarding data sovereignty. To learn more, see [Private Cloud Deployable Regions: Data sovereignty](/private-cloud/regions).
