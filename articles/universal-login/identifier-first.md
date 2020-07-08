@@ -28,4 +28,6 @@ Auth0 currently supports this flow using the Classic Universal Login Experience:
 
 - When using Passwordless, users will be able to enter a phone or an email and be able to complete authentication using a code or magic link.
 
-
+:::warning
+To support Home Realm Discovery, Auth0 provides a publicly accessible file that lists the IdP domains available to a specific application. You can can disable that behavior by turning off the  **Enable Publishing of Enterprise Connections Information with IdP domains** setting in the [Tenants Advanced Settings](${manage_url}/#/tenant/advanced) section.
+:::
