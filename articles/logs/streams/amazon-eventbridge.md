@@ -1,6 +1,6 @@
 ---
 title: Amazon EventBridge Log Streams
-description: Learn how to create an event-driven workflow using Amazon EventBridge to send your tenant logs to the targers of your choice such as AWS EC2 instances, Lambda functions, Kinesis streams, and ECS tasks.
+description: Learn how to create an event-driven workflow using Amazon EventBridge to send your tenant logs to the targets of your choice, such as AWS EC2 instances, Lambda functions, Kinesis streams, and ECS tasks.
 toc: true
 topics:
  - integrations
