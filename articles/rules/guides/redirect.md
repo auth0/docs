@@ -12,8 +12,9 @@ useCase: extensibility-rules
 
 # Redirect Users From Within Rules
 
-You can use [Rules](/rules) to redirect users before an authentication transaction is complete. This lets you implement custom authentication flows that require additional user interaction beyond the standard login form. Redirect rules are commonly used to do [custom Multi-factor Authentication (MFA)](/mfa) in Auth0, but they can also be used for:
+You can use [Rules](/rules) to redirect users before an authentication transaction is complete. This lets you implement custom authentication flows that require additional user interaction beyond the standard login form. Redirect rules can be used for:
 
+* [Custom Multi-factor Authentication (MFA)](/mfa/guides/customize-mfa-universal-login).
 * Custom privacy policy acceptance, terms of service, and data disclosure forms.
 * Securely performing a one-time collection of additional required profile data.
 * Allowing remote Active Directory users to change their password.
