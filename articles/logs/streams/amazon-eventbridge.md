@@ -1,5 +1,5 @@
 ---
-title: Integrate Amazon EventBridge with Auth0
+title: Amazon EventBridge Log Streams
 description: Learn how to create an event-driven workflow using Amazon EventBridge to send your tenant logs to the targers of your choice such as AWS EC2 instances, Lambda functions, Kinesis streams, and ECS tasks.
 toc: true
 topics:
@@ -12,7 +12,7 @@ topics:
  - amazon
 contentType: how-to
 ---
-# Integrate Amazon EventBridge with Auth0
+# Amazon EventBridge Log Streams
 
 Amazon EventBridge is a serverless event bus that acts as an intermediary allowing you to send data from your applications to AWS services.
 
