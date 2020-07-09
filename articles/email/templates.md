@@ -10,7 +10,7 @@ toc: true
 # Customizing Your Emails
 
 ::: warning
-You must setup your own email provider using a [third-party service](/email/providers) (such as Amazon SES, Mandrill, SendGrid, SparkPost, Mailgun, or a custom SMTP provider) to be able to customize your emails.
+You must set up your own email provider using a [third-party service](/email/providers) (such as Amazon SES, Mandrill, SendGrid, SparkPost, Mailgun, or a custom SMTP provider) to be able to customize your emails.
 :::
 
 Auth0 provides an [Emails](${manage_url}/#/emails) dashboard that allows you to customize your HTML-based emails, including templating with some contextual attributes [using Liquid syntax](/email/liquid-syntax). This can include references to the context of the current application or user.
