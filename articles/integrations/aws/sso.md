@@ -89,14 +89,12 @@ To use the provider, you must create an IAM role using the provider in the role'
 ## Map the AWS Role to a User
 
 ::: note
-For an example of how to define a server-side rule for assigning a role in an advanced use case, see the [Amazon API Gateway tutorial](/integrations/aws-api-gateway).
+For an example of defining a server-side rule that assigns a role in an advanced use case, see the [Amazon API Gateway tutorial](/integrations/aws-api-gateway).
 :::
 
-The **AWS roles** specified will be associated with an **IAM policy** that enforces the type of access allowed to a resource, including the AWS Consoles. To map an AWS role to a user, you'll need to create a [rule](/rules) for this purpose.
+The **AWS roles** specified will be associated with an **IAM policy** that enforces the type of access allowed to a resource, including the AWS Consoles. To learn more about roles and policies, see [Creating IAM Roles](http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-creatingrole.html).
 
-::: note
-For more information on roles and policies, see [Creating IAM Roles](http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-creatingrole.html).
-:::
+To map an AWS role to a user, you'll need to create a [rule](/rules):
 
 ```js
 function (user, context, callback) {
@@ -114,11 +112,11 @@ function (user, context, callback) {
 }
 ```
 
-In the code snippet above, `user.awsRole` identifies the AWS role and the IdP. The AWS role identifier comes before the comma, and the IdP identifier comes after the comma. You can obtain these values by going (in) the IAM Console) to the left sidebar and selecting the items you created in the steps above. Both the Identity Provider and the Role you created have an ARN available to copy if you select them in the Console.
+In the code snippet above, `user.awsRole` identifies the AWS role and the IdP. The AWS role identifier comes before the comma, and the IdP identifier comes after the comma.
 
-There are multiple ways by which your rule can obtain these two values. In the example above, both of these values are hard-coded into the rules. You might also store these values in the [user profile](/users/concepts/overview-user-profile), or you might derive them using other attributes.
+Your rule can obtain these two values in multiple ways. You can get these values from the IAM Console by selecting the items you created in AWS in the previous steps from the left sidebar. Both the Identity Provider and the Role you created have an ARN available to copy if you select them in the Console.
 
-For example, if you're using Active Directory, you can map properties associated with users, such as `group` to the appropriate AWS role:
+In the example above, both of these values are hard-coded into the rule. Alternatively, you might also store these values in the [user profile](/users/concepts/overview-user-profile) or derive them using other attributes. For example, if you're using Active Directory, you can map properties associated with users, such as group to the appropriate AWS role:
 
 ```js
 var awsRoles = {
@@ -203,8 +201,11 @@ function (user, context, callback) {
 }
 ```
 
-## Test Your Setup
+## Test setup
 
-You are now set up for <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> to AWS. You can find the `Identity Provider Login URL` on the [Management Dashboard](${manage_url}). Open up your [application](${manage_url}/#/applications) to the **SAML2 Addon** settings area, and click over to the **Usage** tab.
+You are now set up for Single Sign-on (SSO) to AWS and can test your setup.
 
-To test the SSO, navigate to the URL indicated. You should be redirected to the Auth0 sign in page. If you successfully sign in, you'll be redirected again, this time to AWS.
+1. Go to [Auth0 Dashboard > Application](${manage_url}/#/applications), and click the name of your application.
+2. Click the **Addons** tab, and select the **SAML2 Web App** add-on.
+3. Click the **Usage** tab.
+4. Navigate to the **Identity Provider Login URL**. You should be redirected to the Auth0 login page. If you successfully sign in, you'll be redirected again--this time to AWS.
