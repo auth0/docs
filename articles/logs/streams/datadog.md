@@ -1,6 +1,6 @@
 ---
-title: Datadog Event Log Streams
-description: Learn about Datadog Event Log Streams and how they let you export your events in near real-time to Datadog.
+title: Datadog Log Streams
+description: Learn how to export your log events in near real-time to Datadog.
 toc: false
 topics:
  - logs
@@ -9,19 +9,24 @@ topics:
 contentType: how-to
 ---
 
-# Datadog Event Log Streams
+# Datadog Log Streams
 
-Datadog is the essential monitoring platform for cloud applications. It brings together data from servers, containers, databases, and third-party services to make your stack entirely observable.
+Datadog is a monitoring platform for cloud applications. It brings together data from servers, containers, databases, and third-party services to make your stack entirely observable. You can use it to create monitoring, alerting, and analysis dashboards for Auth0 tenants.
 
-You can create monitoring, alerting, and analysis dashboards for Auth0 tenants.
-
-## Send events from Auth0 to Datadog
+## Prerequisites
 
 To send Auth0 events to Datadog, you will need:
 
-1. A `Log Management` plan with Datadog. To learn more, see [Datadog plans](https://www.datadoghq.com/pricing/).
-2. A Datadog API Key.
-3. Your Datadog dashboard region.
+* a `Log Management` plan with Datadog. See [Datadog plans](https://www.datadoghq.com/pricing/).
+* a Datadog API Key. See below.
+* your Datadog dashboard region.
+
+## Steps
+
+To send Auth0 events to Datadog, you will need to:
+
+1. Copy your API Key from Datadog
+2. Set up an Event Stream in Auth0
 
 ### Copy API Key from Datadog
 
@@ -57,7 +62,29 @@ To send Auth0 events to Datadog, you will need:
 
 ## Delivery attempts and retries
 
-Auth0 events are delivered to your server via a streaming mechanism that sends each event as it is triggered. If your server is unable to receive the event, Auth0 will try to redeliver it up to three times. If still unsuccessful, Auth0 will log the failure to deliver, and you will be able see these failures in the Health tab for your log stream.
+Auth0 events are delivered to your server via a streaming mechanism that sends each event as it is triggered. If your server is unable to receive the event, Auth0 will retry delivering it up to three times. If still unsuccessful, Auth0 will log the failure, and you will see these failure in the **Health** tab for your log stream.
+
+## Enhancement to log data
+
+One of the unique values of Datadog as a monitoring tool, specifically when it comes to integrations, is the data enhancement they provide to ensure customers can rely on receiving specific data fields regardless of the system with which they are integrating. As part of this Auth0 Log Streaming integration, Datadog has enhanced our data. The following new fields can be found in our logs when using the Log Streaming integration with Datadog:
+
+| Fields | Auth0 attribute |
+|---------|-------------|
+| Official Log date | `data.date` |
+| `network.client.ip` | `data.ip` |
+| `network.client.geoip` |	`data.ip` (parsed) |
+| `http.useragent` |	`data.user_agent` |
+| `http.useragent_details` |	`data.user_agent` (parsed) |
+| `usr.id` |	`data.user_name` |
+| `usr.name` |	`data.user_name` |
+| `usr.email` |	`data.details.request.auth.user.email` (when available) |
+| `data.type` | `evt.name` |
+| `message` |	Event description (For a list of descriptions, see [Log Event Type Codes](/logs/references/log-event-type-codes).) |
+
+To learn more about Datadog transformations, see:
+
+* For US: [Datadog US Log Pipelines](https://app.datadoghq.com/logs/pipelines)
+* For EU: [Datadog EU Log Pipelines](https://app.datadoghq.EU/logs/pipelines)
 
 ## More on Log Streams
 
