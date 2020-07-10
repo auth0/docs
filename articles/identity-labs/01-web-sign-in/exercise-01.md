@@ -94,7 +94,7 @@ If you see a message like "Error: listen EADDRINUSE :::3000" in your terminal af
 # Continuing from previous terminal session ...
 listening on http://localhost:3000
 ^C # Command to stop the server
-❯ npm install express-openid-connect@0.6.0 --save
+❯ npm install express-openid-connect@1.0.2 --save
 # Ignore any warnings
 
 + express-openid-connect@0.6.0
