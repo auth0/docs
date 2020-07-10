@@ -133,7 +133,6 @@ app.use(auth({
   baseURL: appUrl,
 
   // Add the additional configuration keys below 👇
-  appSessionSecret: false,
   authorizationParams: {
     response_type: 'code id_token',
     response_mode: 'form_post',
