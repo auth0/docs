@@ -230,7 +230,7 @@ $auth0_api = new Authentication(
 );
 
 // Get the Auth0 logout URL to end the Auth0 session.
-$auth0_logout_url = $auth0_auth_api->get_logout_link(
+$auth0_logout_url = $auth0_api->get_logout_link(
     // Save this in the "Allowed Logout URLs" field in your Application settings.
     getenv('AUTH0_LOGOUT_RETURN_URL')
 );
