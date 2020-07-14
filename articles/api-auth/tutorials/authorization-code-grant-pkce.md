@@ -33,6 +33,7 @@ First, you need to generate and store a `code_verifier`.
     <ul>
       <li class="active"><a href="#verifier-javascript" data-toggle="tab">JavaScript</a></li>
       <li><a href="#verifier-java" data-toggle="tab">Java</a></li>
+      <li><a href="#verifier-android" data-toggle="tab">Android</a></li>
       <li><a href="#verifier-swift" data-toggle="tab">Swift 3</a></li>
       <li><a href="#verifier-objc" data-toggle="tab">Objective-C</a></li>
     </ul>
@@ -50,6 +51,13 @@ First, you need to generate and store a `code_verifier`.
 var verifier = base64URLEncode(crypto.randomBytes(32));</code></pre>
     </div>
     <div id="verifier-java" class="tab-pane">
+      <pre>
+<code class="java hljs">SecureRandom sr = new SecureRandom();
+byte[] code = new byte[32];
+sr.nextBytes(code);
+String verifier = Base64.getUrlEncoder().withoutPadding().encodeToString(code);</code></pre>
+    </div>
+    <div id="verifier-android" class="tab-pane">
       <pre>
 <code class="java hljs">SecureRandom sr = new SecureRandom();
 byte[] code = new byte[32];
