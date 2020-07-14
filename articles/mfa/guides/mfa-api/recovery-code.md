@@ -1,18 +1,17 @@
 ---
-title: Enroll and Challenge Email Authenticators
-description: Build your own MFA flows using email as a factor.
+description: Use the MFA API to challenge users who lose access to their device or account using recovery codes.
 topics:
   - mfa
   - mfa-api
   - mfa-authenticators
-  - email
+  - recovery-codes
 contentType:
   - how-to
   - reference
 useCase:
   - customize-mfa
 ---
-# Challenge with Recovery Code
+# Challenge with Recovery Codes
 
 Auth0 automatically generates recovery codes when users enroll with MFA. These codes can be used when users lost access to the device or account they used to enroll MFA.
 
