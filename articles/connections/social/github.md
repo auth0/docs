@@ -16,13 +16,13 @@ useCase:
     - add-idp
 ---
 
-<%= include('../snippets/github/1-intro.md') %>
-<%= include('../snippets/github/2-prerequisites.md') %>
-<%= include('../snippets/github/3-steps.md') %>
-<%= include('../snippets/github/4-create.md') %>
-<%= include('../snippets/github/5-setup.md') %>
-<%= include('../snippets/github/6-test.md') %>
-<%= include('../snippets/github/7-troubleshooting.md') %>
+<%= include('../snippets/social/github/1-intro.md') %>
+<%= include('../snippets/social/github/2-prerequisites.md') %>
+<%= include('../snippets/social/github/3-steps.md') %>
+<%= include('../snippets/social/github/4-create.md') %>
+<%= include('../snippets/social/github/5-setup.md') %>
+<%= include('../snippets/social/github/6-test.md') %>
+<%= include('../snippets/social/github/7-troubleshooting.md') %>
 
 
 <%= include('../_quickstart-links.md') %>
