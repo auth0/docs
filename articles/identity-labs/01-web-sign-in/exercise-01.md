@@ -97,7 +97,7 @@ listening on http://localhost:3000
 ❯ npm install express-openid-connect@1.0.2 --save
 # Ignore any warnings
 
-+ express-openid-connect@0.6.0
++ express-openid-connect@1.0.2
 added XX packages in X.XXs
 ```
 
