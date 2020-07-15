@@ -133,6 +133,8 @@ app.use(auth({
   baseURL: appUrl,
 
   // Add the additional configuration keys below 👇
+
+  appSession: false,
   authorizationParams: {
     response_type: 'code id_token',
     response_mode: 'form_post',
@@ -159,7 +161,7 @@ This change updates the configuration object passed to `auth()` and defines how 
 - `audience` - this tells the middleware that you want access tokens valid for a specific resource server (your API, in this case). As you will see soon, you will configure an `API_AUDIENCE` environment variable to point to the identifier of an API that you will register with Auth0.
 - `scope` - securing your API uses a delegated authorization mechanism where an application (your web app) requests access to resources controlled by the user (the resource owner) and hosted by an API (the resource server). Scopes, in this case, are the permissions that the access token grants to the application on behalf of the user. In your case, you are defining four scopes: the first three (`openid`, `profile`, and `email`) are scopes related to the user profile (part of OpenID Connect specification). The last one, `read:reports`, is a custom scope that will be used to determine whether the caller is authorized to retrieve the expenses report from the API on behalf of a user.
 
-The `appSessionSecret`, `handleCallback`, and `getUser` additions change how the user session is handled and stores the incoming access and refresh tokens somewhere we can access later.
+The `appSession`, `handleCallback`, and `getUser` additions change how the user session is handled and stores the incoming access and refresh tokens somewhere we can access later.
 
 10. Back in the `webapp/server.js` file, find the `/expenses` endpoint definition. In this code, you are making a request to the API, without any authorization information, to get a JSON resource. Note the use of the `requiresAuth()` middleware. This will enforce authentication for all requests to this endpoint.
 

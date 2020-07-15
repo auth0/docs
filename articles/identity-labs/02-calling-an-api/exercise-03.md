@@ -54,7 +54,7 @@ To change this behavior, you can make your web app take advantage of yet another
 app.use(auth({
   required: false,
   auth0Logout: true,
-  appSessionSecret: false,
+  appSession: false,
   authorizationParams: {
     response_type: 'code id_token',
     response_mode: 'form_post',
