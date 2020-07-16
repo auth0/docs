@@ -59,13 +59,13 @@ Limits are only applied to requests related to the Native Social Login flows, wh
 | `grant_type` | `urn:ietf:params:oauth:grant-type:token-exchange` |
 | `subject_token_type` | `http://auth0.com/oauth/token-type/apple-authz-code` |
 
-### Enterprise production tenant limits
+### Limits for production tenants of paying customers
 
 | Endpoint | Path | Limited By | Rate Limit |
 | - | - | - | - |
 | Get Token | `/oauth/token` | Any native social login request | 50 per minute with bursts up to 500 requests |
 
-### Enterprise free tenant and non-production tenant limits
+### Limits for non-production tenants of paying customers and all tenants of free customers
 
 | Endpoint | Path | Limited By | Rate Limit |
 | - | - | - | - |

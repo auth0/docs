@@ -31,7 +31,7 @@ For some API endpoints, the rate limits are defined per bucket, so the origins o
 If you are using an API endpoint **not** listed below and you receive rate limit headers as part of your response, see [Anomaly Detection](/anomaly-detection) for more information.
 :::
 
-## Production tenant limits for enterprise users
+## Limits for production tenants of paying customers
 
 | Endpoint | Path | Limited By | Rate Limit |
 | - | - | - | - |
@@ -42,7 +42,7 @@ If you are using an API endpoint **not** listed below and you receive rate limit
 | Change Password | `/dbconnections/change_password` | User Email, IP Address | 1 request per minute with bursts up to 10 requests |
 | Get Passwordless Code or Link | `/passwordless/start` | IP Address | 50 requests per hour when using non-authenticated calls. It's considered an Authentication API endpoint otherwise. |
 
-## Non-production tenant limits for enterprise users
+## Limits for non-production tenants of paying customers and all tenants of free customers
 
 | Endpoint | Path | Limited By | Rate Limit |
 | - | - | - | - |
