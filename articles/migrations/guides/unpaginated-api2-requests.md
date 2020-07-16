@@ -54,13 +54,13 @@ Deprecation notices will be recorded in your tenant logs for all requests withou
 
     To identify the application making request, logs will include the `client_id` used to make the request. You can also find the endpoint being used in the logs `details.path` field.
 
-3. Disable Management API Unpaginated Requests for your tenant. Go to [**Dashboard > Tenant Settings > Advanced > Migration**](${manage_url}/#/tenant/advanced). This will simulate the expected behavior after the End of Life date, causing calls to affected endpoints to return up to 50 results.
+3. Disable Management API unpaginated requests for your tenant. Go to [**Dashboard > Tenant Settings > Advanced > Migration**](${manage_url}/#/tenant/advanced). This will simulate the expected behavior after the migration window closes, causing calls to affected endpoints to return up to 50 results.
 
-  You will be able to re-enable unpaginated requests any time before the End of Life date.
+    You will be able to re-enable unpaginated requests any time before that date.
 
 ## Auth0 Extensions
 
-Previous versions of [Auth0 Extensions](/extensions) and Custom Extensions may need to be updated to their latest versions to make sure they are only performing paginated queries.
+Previous versions of [Auth0 Extensions](/extensions) and custom extensions may need to be updated to their latest versions to make sure they are only performing paginated queries.
 
 If your tenant logs shows deprecation notices for clients with an ID matching an extension URL, it means you will need to update that extension.
 
