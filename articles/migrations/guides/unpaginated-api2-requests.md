@@ -19,7 +19,7 @@ useCase:
 
 After the migration window closes, specific Management API v2 endpoints will return up to 50 items instead of all the available items. To retrieve more items, you must include the `page` and `per_page` parameters. 
 
-Affected tenants are those who meet the following criteria:
+Affected tenants are those that meet the following criteria:
 
 * Created **before 21 July 2020**
 * Actively making calls to the affected endpoints without passing the `per_page` parameter for queries that can return more than 1 result.
