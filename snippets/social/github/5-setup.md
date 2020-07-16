@@ -11,6 +11,6 @@ Set up an app in GitHub. During this process, GitHub will generate a **Client ID
 | Homepage URL | `https://${account.namespace}` |
 | Authorization callback URL | `https://${account.namespace}/login/callback` |
 
-<%= include('../_find-auth0-domain-redirects') %>
+<%= include('../../../articles/connections/_find-auth0-domain-redirects.md') %>
 
 4. Click **Register application** to proceed. Your app's **Client ID** and **Client Secret** will be displayed.
