@@ -48,12 +48,20 @@ Deprecation notices will be recorded in your tenant logs for all requests withou
 | `page` | Integer | Page index of the results to return. First page is 0. If `page` is not specified, it will default to 0.  |
 | `per_page` | Integer | Number of results per page. Paging is disabled if the parameter is not sent. `per_page` has a maximum value of 100. |
 
-2. Confirm that you are no longer seeing deprecation notices in your tenant logs. Check if a request returned more than 50 items. Look at the `details.size_exceeded` field and check if it’s `true`. 
+2. Confirm that you are no longer seeing deprecation notices in your tenant logs. Check if a request returned more than 50 items. Look at the `details.size_exceeded` field and check if it’s `true`.
     - Use the following log query to return all calls without pagination options with more than 1 result: `type:depnote AND description:*Unpaginated*`
     - Use the following log query to return all calls without pagination options with more than 50 results: `type:depnote AND description:*Unpaginated* AND details.size_exceeded:true`
 
     To identify the application making request, logs will include the `client_id` used to make the request. You can also find the endpoint being used in the logs `details.path` field.
 
-3. Disable Management API Unpaginated Requests for your tenant. Go to [**Dashboard > Tenant Settings > Advanced > Migration**](${manage_url}/#/tenant/advanced). This will simulate the expected behavior after the End of Life date, causing calls to affected endpoints to return up to 50 results. 
+3. Disable Management API Unpaginated Requests for your tenant. Go to [**Dashboard > Tenant Settings > Advanced > Migration**](${manage_url}/#/tenant/advanced). This will simulate the expected behavior after the End of Life date, causing calls to affected endpoints to return up to 50 results.
 
   You will be able to re-enable unpaginated requests any time before the End of Life date.
+
+## Auth0 Extensions
+
+Previous versions of [Auth0 Extensions](/extensions) and Custom Extensions may need to be updated to their latest versions to make sure they are only performing paginated queries.
+
+If your tenant logs shows deprecation notices for clients with an ID matching an extension URL, it means you will need to update that extension.
+
+To do so, go to [**Dashboard > Extensions**](${manage_url}/#/extensions), select Installed Extensions, and click on the extension's Update link if present.
