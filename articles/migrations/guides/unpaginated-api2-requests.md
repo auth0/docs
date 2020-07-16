@@ -12,12 +12,9 @@ useCase:
 ---
 # Migrate to Management API v2 Endpoint Paginated Queries
 
-|  | Start | End |
-| -- | -- | -- |
 | Public Cloud | 21 July 2020 | 14 January 2021 |
-| Private Cloud | August 2020 | February 2021 |
 
-After the migration window closes, specific Management API v2 endpoints will return up to 50 items instead of all the available items. To retrieve more items, you must include the `page` and `per_page` parameters. 
+Beginning on **21 July 2020**, specific Management API v2 endpoints will return up to 50 items instead of all the available items. To retrieve more items, you must include the `page` and `per_page` parameters. The migration period ends on **26 January 2021**.
 
 Affected tenants are those that meet the following criteria:
 
