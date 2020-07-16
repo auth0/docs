@@ -128,12 +128,12 @@ Right now, even though the application requires authentication, the API does not
 // webapp/server.js
 
 app.use(auth({
+  baseURL: appUrl,
   required: false,
   auth0Logout: true,
-  baseURL: appUrl,
-
   // Add the additional configuration keys below 👇
-
+  
+  routes: false,
   appSession: false,
   authorizationParams: {
     response_type: 'code id_token',
@@ -161,11 +161,44 @@ This change updates the configuration object passed to `auth()` and defines how 
 - `audience` - this tells the middleware that you want access tokens valid for a specific resource server (your API, in this case). As you will see soon, you will configure an `API_AUDIENCE` environment variable to point to the identifier of an API that you will register with Auth0.
 - `scope` - securing your API uses a delegated authorization mechanism where an application (your web app) requests access to resources controlled by the user (the resource owner) and hosted by an API (the resource server). Scopes, in this case, are the permissions that the access token grants to the application on behalf of the user. In your case, you are defining four scopes: the first three (`openid`, `profile`, and `email`) are scopes related to the user profile (part of OpenID Connect specification). The last one, `read:reports`, is a custom scope that will be used to determine whether the caller is authorized to retrieve the expenses report from the API on behalf of a user.
 
-The `appSession`, `handleCallback`, and `getUser` additions change how the user session is handled and stores the incoming access and refresh tokens somewhere we can access later.
+The `handleCallback` and `getUser` additions change how the user session is handled and stores the incoming access and refresh tokens somewhere we can access later.
 
-10. Back in the `webapp/server.js` file, find the `/expenses` endpoint definition. In this code, you are making a request to the API, without any authorization information, to get a JSON resource. Note the use of the `requiresAuth()` middleware. This will enforce authentication for all requests to this endpoint.
+By default, the `express-openid-connect` middleware will manage user sessions using an encrypted cookies. This application is already using `express-session` to manage user sessions server side.
 
-11. Update the endpoint definition to include authorization information in the request:
+- `appSession` - this tells the middleware to disable the built in user session handling.
+
+- `routes` - this tells the middlware to disable the default routes and allows you to write your own route handler.
+
+10. Add the following two routes to `webapp/server.js`:
+
+```js
+// webapp/server.js
+
+// Add the additional authentication routes below 👇
+  
+app.get("/login", (req, res) => res.openid.login({ returnTo: "/" }));
+
+app.get("/logout", (req, res) => {
+  req.session.destroy();
+  res.openid.logout();
+});
+
+// 👆 place them above the home route
+app.get("/", (req, res) => {
+  res.render("home", { user: req.openid && req.openid.user });
+});
+
+```
+
+With the default middeware session management and routing disabled, these two routes implement the login and logout endpoints. 
+
+The `/login` route handler initates a login call provided by the `express-openid-connect` middleware. 
+
+The `/logout` route handeler first destroys the `express-session` middleware based session and then initiates a logout call via the `express-openid-connect` middleware.
+
+11. Back in the `webapp/server.js` file, find the `/expenses` endpoint definition. In this code, you are making a request to the API, without any authorization information, to get a JSON resource. Note the use of the `requiresAuth()` middleware. This will enforce authentication for all requests to this endpoint.
+
+12. Update the endpoint definition to include authorization information in the request:
 
 ```js
 // webapp/server.js
@@ -195,7 +228,7 @@ app.get('/expenses', requiresAuth(), async (req, res, next) => {
 
 In the new version of this endpoint, you are sending the access token in an `Authorization` header when sending requests to the API. By doing so, the web application consumes the API on behalf of the logged in user.
 
-12. Add the following two environment variables to the `webapp/.env` file:
+13. Add the following two environment variables to the `webapp/.env` file:
 
 ```text
 API_AUDIENCE=https://expenses-api
