@@ -12,21 +12,21 @@ useCase:
 ---
 # Migrate to Management API v2 Endpoint Paginated Queries
 
-|  | Public Cloud | Private Cloud |
+|  | Start | End |
 | -- | -- | -- |
-| Deprecation | 14 July 2020 | August 2020 |
-| End of Life | 14 January 2021 | February 2021 |
+| Public Cloud | 21 July 2020 | 14 January 2021 |
+| Private Cloud | August 2020 | February 2021 |
 
-After the End of Life date, specific Management API v2 endpoints will return up to 50 items instead of all the available items. To retrieve more items, you must include the `page` and `per_page` parameters. 
+After the migration window closes, specific Management API v2 endpoints will return up to 50 items instead of all the available items. To retrieve more items, you must include the `page` and `per_page` parameters. 
 
 Affected tenants are those who meet the following criteria:
 
-* Created **before 14 July 2020**
+* Created **before 21 July 2020**
 * Actively making calls to the affected endpoints without passing the `per_page` parameter for queries that can return more than 1 result.
 
 The following tenants are not affected:
 
-* Created **after 14 July 2020**
+* Created **on or after 21 July 2020**
 * Not using any of the affected endpoints
 * Using the affected endpoints and passing the `per_page` parameter, or making queries that will always return a single result.
 
