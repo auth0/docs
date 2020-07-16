@@ -151,7 +151,7 @@ The [auth0-spa-js](https://github.com/auth0/auth0-spa-js) SDK is a simple, light
 <!-- ... -->
 
     <!-- Add the tag below 👇 -->
-    <script src="https://cdn.auth0.com/js/auth0-spa-js/1.1.1/auth0-spa-js.production.js"></script>
+    <script src="https://cdn.auth0.com/js/auth0-spa-js/1.10.0/auth0-spa-js.production.js"></script>
 
     <script src="app.js"></script>
   </body>
@@ -359,8 +359,39 @@ If you are using a content blocker or browser setting that blocks third-party co
 
 For this to work properly, the silent authentication process requires the referrer URL to be whitelisted. This is why you added `http://localhost:5000` to the **Allowed Web Origins** field for your Auth0 Application. Otherwise, the silent authentication process would fail, and your users would need to log in again interactively.
 
-</div>
-  </div>
-</div>
+In some cases, you will see this call to the `authorize` endpoint, but there is no response. And, to make matters worse you will appear to have been logged out. Recent developments in browser privacy technology, such as Intelligent Tracking Prevention (ITP) prevent access to the Auth0 session cookie, thereby requiring users to reauthenticate.
+
+To resolve this issue, you will need to modify how the `auth0-spa-js` SDK handles token storage.
+
+31. Open `spa/app.js`. In the `window.onload` function, modify the configuration values to specify usage of local storage.
+
+
+```js
+// spa/app.js
+// ...
+
+window.onload = async function() {
+  let requestedView = window.location.hash;
+
+  auth0Client = await createAuth0Client({
+    domain: '${account.namespace}',
+    client_id: '${account.clientId}',
+    // Add the code below 👇
+    cacheLocation: "localstorage",
+  });
+
+  // ...
+};
+```
+
+32. Refresh the SPA to update the configuration in your browser. Log in again by clicking **Log In**.
+
+33. After successful authentication, if you refresh the SPA and change **Developer Tools** you will see the call to `authorize` is no longer made.
+
+Switch to the **Application** tab and look for **Local Storage** in the tree on the left hand side of **Developer Tools**. You see the tokens are now cached in **Local Storage**. 
+
+![Tokens stored in browser local storage](/media/articles/identity-labs/lab-04-token-local-storage.png)
+
+The SDK uses the values and no longer calls to the Authorization Server to check the session. Which allows the session to appear to still be valid to the user on a browser refresh.
 
 <a href="/identity-labs/04-single-page-app/exercise-02" class="btn btn-transparent">Next →</a>
