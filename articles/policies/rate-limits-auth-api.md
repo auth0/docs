@@ -40,6 +40,7 @@ If you are using an API endpoint **not** listed below and you receive rate limit
 |  | `/userinfo` | User ID | 5 requests per minute with bursts up to 10 requests |
 | Delegation | `/delegation` | User ID, IP Address | 10 requests per second |
 | Change Password | `/dbconnections/change_password` | User Email, IP Address | 1 request per minute with bursts up to 10 requests |
+| Signup | `/dbconnections/signup` | IP Address | 50 requests per minute |
 | Get Passwordless Code or Link | `/passwordless/start` | IP Address | 50 requests per hour when using non-authenticated calls. It's considered an Authentication API endpoint otherwise. |
 
 ## Limits for non-production tenants of paying customers and all tenants of free customers
@@ -50,6 +51,7 @@ If you are using an API endpoint **not** listed below and you receive rate limit
 |  | `/userinfo` | User ID | 5 requests per minute with bursts up to 10 requests |
 | Delegation | `/delegation` | User ID, IP Address | 10 requests per second |
 | Change Password | `/dbconnections/change_password` | User Email, IP Address | 1 request per minute with bursts up to 10 requests |
+| Signup | `/dbconnections/signup` | IP Address | 50 requests per minute |
 | Get Passwordless Code or Link | `/passwordless/start` | IP Address | 50 requests per hour |
 | Get Token | `/oauth/token` | Any request | 30 requests per second |
 | Cross Origin Authentication | `/co/authenticate` | Any request | 5 requests per second |
