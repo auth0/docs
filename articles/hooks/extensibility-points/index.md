@@ -12,7 +12,7 @@ useCase: extensibility-hooks
 
 Extensibility points are places in the Auth0 platform where [Hooks](/hooks) can be executed.
 
-Depending on the extensibility point, some Hooks can only be used with certain kinds of Connections, such as [Database Connections](/connections/database) or [Passwordless Connections](/connections/passwordless).
+Whether Hooks can be used with connections varies according to extensibility point. Hooks that can be used with connections only work with [Database Connections](/connections/database) and [Passwordless Connections](/connections/passwordless).
 
 Extensibility points may also block processes from executing. Synchronous extensibility points are blocking, which means they execute the Hook as part of the trigger's process and will prevent that process from executing until the Hook is complete. Aynchronous extensibility points will not wait for the Hook to finish its execution before proceeding.
 
