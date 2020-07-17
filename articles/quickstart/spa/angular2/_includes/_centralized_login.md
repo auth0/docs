@@ -174,7 +174,7 @@ export class AuthService {
       // Response will be an array of user and login status
       authComplete$.subscribe(([user, loggedIn]) => {
         // Redirect to target route after callback processing
-        this.router.navigate([targetRoute]);
+        this.router.navigateByUrl(targetRoute);
       });
     }
   }
