@@ -6,6 +6,7 @@ alias:
 url: /addons/sap-odata
 image: /media/addons/sap_api.svg
 description: Learn how to use Auth0 to authenticate and authorize your SAP OData services.
+public: false
 topics:
   - sap
   - addons

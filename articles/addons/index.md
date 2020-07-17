@@ -2,6 +2,7 @@
 url: /addons
 title: Add-ons
 description: Learn about add-ons and how they are related to Auth0-registered Applications.
+public: false
 topics:
   - applications
   - add-ons
