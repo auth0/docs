@@ -2,6 +2,7 @@
 addon: Salesforce (sandbox)
 title: Salesforce (Sandbox) Add-on
 thirdParty: true
+public: false
 url: /addons/salesforce-sandbox
 alias:
   - salesforce

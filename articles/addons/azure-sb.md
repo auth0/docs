@@ -2,6 +2,7 @@
 addon: Azure Service Bus
 title: Azure Service Bus Add-on
 thirdParty: true
+public: false
 url: /addons/azure-sb
 alias:
   - Azure Service Bus

@@ -1096,6 +1096,7 @@ articles:
 
       - title: Add-ons
         url: /addons
+        hidden: true
 
 ## ------------------------------------------------------------
 ## Integrations

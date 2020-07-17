@@ -2,6 +2,7 @@
 addon: Windows Azure Mobile Services
 title: Windows Azure Mobile Services Add-on
 thirdParty: true
+public: false
 url: /addons/azure-mobile-services
 image: /media/platforms/azure.png
 snippets:
