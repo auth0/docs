@@ -1,6 +1,7 @@
 ---
 title: Lock Android v1 Passwordless with Magic Link
 description: Passwordless with Magic Link with Lock Android
+public: false
 topics:
   - libraries
   - lock

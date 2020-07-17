@@ -2,6 +2,7 @@
 section: libraries
 title: Delegation API
 description: Integrate with third-party apps with the delegation API.
+public: false
 topics:
   - libraries
   - lock

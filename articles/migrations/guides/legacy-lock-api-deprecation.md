@@ -96,12 +96,6 @@ Embedded login (embedding Lock or a custom authentication UI) should be used onl
 
 <ul class="topic-links">
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/libraries/lock/v11/migration-guide"> Lock v11 Migration Guide</a>
-    <p>
-      This document presents an overview of the updates to Lock in version 11 and points to technology and version-specific tutorials to help you with your migration.
-    </p>
-  </li>
-  <li>
     <i class="icon icon-budicon-715"></i><a href="/libraries/auth0js/v9/migration-guide"> Auth0.js v9 Migration Guide</a>
     <p>
       This document presents an overview of the updates to Auth0.js in version 9 and points to technology and version-specific tutorials to help you with your migration.
@@ -147,7 +141,7 @@ The `getSSOData()` and `checkSession()` functions should only be used from a Sin
 
 ##### getSSOData()
 
-* The Auth0.js v9 `getSSOData()` function will continue to work, but it now [behaves differently than in the past](/libraries/auth0js/v9/migration-v8-v9#review-calls-to-getssodata-).
+* The Auth0.js v9 `getSSOData()` function will continue to work, but it now behaves differently than in the past.
 * In Auth0.js v9, `getSSOData()` will check if a user has an existing session and perform a further check to determine if the user is the same one as in the last interactive authentication transaction. This supports Lock’s feature of showing the last logged-in user to facilitate subsequent logins.
 * Invoking the `getSSOData()` function will now trigger a call to the [/authorize](/api/authentication#authorize-application) endpoint, which will in turn result in the execution of [rules](/rules).
 

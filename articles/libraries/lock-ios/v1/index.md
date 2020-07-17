@@ -6,6 +6,7 @@ title: Lock v1 for iOS and macOS
 snippets:
   dependencies: native-platforms/ios-objc/dependencies
 description: A widget that provides a frictionless login and signup experience for your native iOS and macOS apps.
+public: false
 topics:
   - libraries
   - lock

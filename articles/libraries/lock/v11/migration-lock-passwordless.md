@@ -2,6 +2,7 @@
 section: libraries
 toc: true
 description: Migration Guide from lock-passwordless to Lock v11 with Passwordless Mode
+public: false
 topics:
   - libraries
   - lock

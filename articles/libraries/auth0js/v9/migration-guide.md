@@ -2,6 +2,7 @@
 section: libraries
 title: Migrating to Auth0.js v9
 description: How to migrate to Auth0.js v9
+public: false
 toc: true
 topics:
   - libraries

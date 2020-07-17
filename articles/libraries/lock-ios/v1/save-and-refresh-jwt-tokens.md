@@ -2,6 +2,7 @@
 section: libraries
 title: Saving and Refreshing JWT Tokens
 description: Keeping your user logged in
+public: false
 topics:
   - libraries
   - lock
