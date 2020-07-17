@@ -244,6 +244,10 @@ To delete the template, you need to use the following endpoint:
 }
 ```
 
+:::note
+The maximum size for the Page Template is 100KB. If that is not big enough, consider moving images/css files outside of the Page Template code.
+:::
+
 ## Troubleshooting
 
 If the template is not being applied, check that you are navigating to `<custom_domain>/authorize`. When you navigate to `${account.namespace}/authorize` Auth0 will not render the page template.
