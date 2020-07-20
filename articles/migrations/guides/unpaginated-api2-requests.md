@@ -16,13 +16,12 @@ After **26 January 2021**, requests to API v2 will return a maximum of 50 items 
 
 Affected tenants are those that meet the following criteria:
 
-* Auth0 Public Cloud
+* Auth0 Public Cloud (currently)
 * Created **before 21 July 2020**
 * Actively making calls to the affected endpoints without passing the `per_page` parameter for queries that can return more than 1 result.
 
 The following tenants are not affected:
 
-* Auth0 Private Cloud
 * Created **on or after 21 July 2020**
 * Not using any of the affected endpoints
 * Using the affected endpoints and passing the `per_page` parameter, or making queries that will always return a single result.
