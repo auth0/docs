@@ -7,11 +7,11 @@ topics:
 contentType: concept
 useCase: anomaly-detection
 ---
-# Automated Attack and Credential Stuffing Protection
+# Bot and Credential Stuffing Protection
 
 Credential stuffing attacks (or *list validation attacks*) occur when bad actors automate the process of trying username and password combinations (usually stolen from another site) for many accounts in a short period of time.  According to recent statistics, as many as 71% of accounts use the same password across multiple sites so a credential stuffing attack represents a legitimate threat to your system.  
 
-Use **Automated Attack Protection** to provide a standard level of protection against credential stuffing attacks with minimal friction for legitimate users. This protection is enabled by default for all connections.  
+Use **Bot Protection** to provide a standard level of protection against credential stuffing attacks with minimal friction for legitimate users. This protection is enabled by default for all connections.  
 
 ::: panel Credential Stuffing Attacks: What Are They and How to Combat Them
 Download this free [whitepaper](https://auth0.com/resources/whitepapers/credential-stuffing-attacks) to learn how Auth0 can help you combat credential stuffing attacks.
@@ -25,7 +25,7 @@ Auth0 uses a large amount of data to identify patterns that signal that a creden
 
 ## Restrictions and limitations
 
-Automated Attack Protection works for web and mobile apps that use Auth0's Universal Login. This feature is not supported in the sign-up or account recovery flows. This protection works on most authentication flows but not all.
+Bot Protection works for web and mobile apps that use Auth0's Universal Login. This feature is not supported in the sign-up or account recovery flows. This protection works on most authentication flows but not all.
 
 | Flow | Limitation | 
 | -- | -- |

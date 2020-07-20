@@ -1,13 +1,13 @@
 ---
 title: Set Anomaly Detection Preferences
-description: Learn how to set anomaly detection preferences in the Dashboard for Automated Attack Protection, Brute-force Protection, and Breached Password Detection.
+description: Learn how to set anomaly detection preferences in the Dashboard for Bot Protection, Brute-force Protection, and Breached Password Detection.
 toc: true
 topics:
     - security
     - anomaly-detection
     - brute-force-protection
     - breached-password-detection
-    - automatic-attack-protection
+    - bot-protection
 contentType: how-to
 useCase: anomaly-detection
 ---
@@ -21,16 +21,16 @@ Auth0 recommends that you **do not** make changes to your anomaly detection feat
 
 ![Anomaly Detection Dashboard](/media/articles/anomaly-detection/anomaly-detection-overview.png)
 
-## Automated attack protection preferences
+## Bot protection preferences
 
-Automated attack protection mitigates scripted attacks by detecting when a request is likely to be coming from a bot. These are sometimes called  [credential stuffing](/anomaly-detection/concepts/credential-stuffing) attacks. It is enabled by default for all connections. It provides a basic level of protection against certain attacks that adds very little friction to legitimate users. When such an attack is detected, it displays a CAPTCHA step in the login experience to eliminate bot and scripted traffic.
+Bot protection mitigates scripted attacks by detecting when a request is likely to be coming from a bot. These are sometimes called  [credential stuffing](/anomaly-detection/concepts/credential-stuffing) attacks. It is enabled by default for all connections. It provides a basic level of protection against certain attacks that adds very little friction to legitimate users. When such an attack is detected, it displays a CAPTCHA step in the login experience to eliminate bot and scripted traffic.
 
 ::: warning
-Auth0 strongly recommends that you **do not** disable **Automated Attack Protection**, however if you do, you can enable it in the [Dashboard](${manage_url}/#/anomaly).
+Auth0 strongly recommends that you **do not** disable **Bot Protection**, however if you do, you can enable it in the [Dashboard](${manage_url}/#/anomaly).
 ::: 
 
 1. Go to [Dashboard > Anomaly Detection](${manage_url}/#/anomaly)
-2. Click on the **Automated Attack Protection** shield.
+2. Click on the **Bot Protection** shield.
 3. Choose whether you wish to use the simple CAPTCHA provided by Auth0, or Google reCAPTCHA (requires external setup and registration). 
 
     - If you choose simple CAPTCHA, you are done with set up.
@@ -76,6 +76,6 @@ Set preferences for [breached password](/anomaly-detection/concepts/breached-pas
 
 ## Keep reading
 
-* [Automated Attack and Credential Stuffing Protection](/anomaly-detection/concepts/credential-stuffing)
+* [Bot and Credential Stuffing Protection](/anomaly-detection/concepts/credential-stuffing)
 * [Customize Blocked Account Emails](/anomaly-detection/guides/customize-blocked-account-emails)
 * [View Anomaly Detection Events](/anomaly-detection/guides/view-anomaly-detection-events)

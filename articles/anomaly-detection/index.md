@@ -19,7 +19,7 @@ In the event of an ongoing attack, traffic can be blocked from thousands of IP a
 
 Auth0 anomaly detection provides the following options to mitigate attacks: 
 
-* [**Automated Attack Protection**](/anomaly-detection/concepts/credential-stuffing) prevents credential stuffing attacks by detecting when a request is likely coming from a bot or script and presents a CAPTCHA challenge at login. 
+* [**Bot Protection**](/anomaly-detection/concepts/credential-stuffing) prevents credential stuffing attacks by detecting when a request is likely coming from a bot or script and presents a CAPTCHA challenge at login. 
 * [**Brute-force Protection**](/anomaly-detection/concepts/brute-force-protection) blocks traffic from an IP address if Auth0 sees an abnormal number of login errors using multiple accounts within 24 hours. 
 * [**Breached Password Detection**](/anomaly-detection/concepts/breached-passwords) detects that a username/password combination is in a list of external breached credentials.
 * [**Multi-factor Authentication**](/mfa) can be effective in preventing unauthorized logins, but it adds friction to the user experience. During sign in, MFA presents an extra challenge to make sure the person logging in is the owner of the account.     
