@@ -12,7 +12,7 @@ useCase:
 ---
 # Migrate to Management API v2 Endpoint Paginated Queries
 
-Beginning on **21 July 2020**, specific Management API v2 endpoints will return up to 50 items instead of all the available items. To retrieve more items, you must include the `page` and `per_page` parameters. The migration period ends on **26 January 2021**.
+After **26 January 2021**, requests to API v2 will return a maximum of 50 items for tenants in the Public Cloud. To retrieve more items, you must include the `page` and `per_page` parameters. Beginning on **21 July 2020**, Auth0 will display tenant logs and a migration toggle to help you prepare for this change. **Only tenants in the Auth0 Public Cloud are affected by this change.**
 
 Affected tenants are those that meet the following criteria:
 
