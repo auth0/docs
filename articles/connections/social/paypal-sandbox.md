@@ -44,7 +44,7 @@ While setting up your app, make sure you use the following settings:
 
 | Field | Value to Provide |
 | - | - |
-| Return URL | `${account.callback}` |
+| Return URL | `https://${account.namespace}/login/callback` |
 | Log In with PayPal | Enable, then under **Advanced Options**, select **Full Name**, **Date of Birth**, **Timezone**, **Locale**, and **Language**. |
 
 <%= include('../../connections/_find-auth0-domain-redirects') %>
