@@ -63,5 +63,5 @@ Deprecation notices will be recorded in your tenant logs for all requests withou
 
 You may need to update from previous versions of [Auth0 Extensions](/extensions) and custom extensions may need to be updated to their latest versions to make sure they are only performing paginated queries.
 
-1. Check your tenant logs for deprecation notices for clients with an ID matching an extension URL, it means you will need to update that extension.
+1. Check your tenant logs for deprecation notices for clients with an ID matching an extension URL. It means you will need to update that extension.
 2. Go to [**Dashboard > Extensions**](${manage_url}/#/extensions), select **Installed Extensions**, and click on the extension's **Update** link if present.
