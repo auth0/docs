@@ -107,7 +107,7 @@ useEffect(() => {
 
     try {
       const accessToken = await getAccessTokenSilently({
-        audience: `https://<%= "${domain}" %>/api/v2`,
+        audience: `https://<%= "${domain}" %>/api/v2/`,
         scope: "read:current_user",
       });
 
