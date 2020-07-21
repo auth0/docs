@@ -25,10 +25,10 @@ We are actively migrating customers to new behaviors for all <dfn data-key="depr
   <tbody>
     <tr>
       <td><a href="/migrations/guides/unpaginated-api2-requests">Unpaginated Managment API v2 Request deprecation</a></td>
-      <td>14 July 2020 (Public Cloud)</td>
-      <td>14 January 2021 (Public Cloud)</td>
+      <td>21 July 2020 (Public Cloud)</td>
+      <td>26 January 2021</td>
       <td>
-        After the End of Life date, all requests to the following Management API v2 endpoints will return up to 50 items, instead of all available items. To retrieve more items, you will have to add the <code>page</code> and <code>per_page</code> parameters to your request. If <code>page</code> is not specified, it will default to 0. <code>per_page</code> has a maximum value of 100. 
+        After 26 January 2021, requests to the following Management API v2 endpoints will return a maximum of 50 items for Public Cloud tenants. To retrieve more items, you must include the <code>page</code> and <code>per_page</code> parameters. Beginning on 21 July 2020, Auth0 will display tenant logs and a migration toggle to help you prepare for this change.   
         <ul>
           <li><code>GET /api/v2/clients</code>
           <li><code>GET /api/v2/client-grants</code>
@@ -38,8 +38,8 @@ We are actively migrating customers to new behaviors for all <dfn data-key="depr
           <li><code>GET /api/v2/resource-servers</code>
           <li><code>GET /api/v2/rules</code>
         </ul>
-        All tenants are affected that are created before 14 July 2020 and are actively calling affected endpoints without passing the <code>per_page</code> parameter for queries that can return more than 1 result. 
-        Tenants are not affected if they are created after 14 July 2020, are not using the affected endpoints, are using the affected endpoints and passing the <code>per_page</code> parameter, or are making queries that always return only 1 result.
+        All Public Cloud tenants are affected that are created before 21 July 2020 and are actively calling affected endpoints without passing the <code>per_page</code> parameter for queries that can return more than 1 result. 
+        Tenants are not affected if they are created after 21 July 2020, are not using the affected endpoints, are using the affected endpoints and passing the <code>per_page</code> parameter, or are making queries that always return only 1 result.
       </td>
     </tr>
     <tr>
