@@ -12,7 +12,7 @@ useCase:
 ---
 # Migrate to Management API v2 Endpoint Paginated Queries
 
-After **26 January 2021**, requests to API v2 will return a maximum of 50 items for tenants in the Public Cloud. To retrieve more items, you must include the `page` and `per_page` parameters. Beginning on **21 July 2020**, Auth0 will display tenant logs and a migration toggle to help you prepare for this change. 
+After **26 January 2021**, requests to Management API v2 endpoints will return a maximum of 50 items for tenants in the Public Cloud. To retrieve more items, you must include the `page` and `per_page` parameters. Beginning on **21 July 2020**, Auth0 will display tenant logs and a migration toggle to help you prepare for this change. 
 
 Affected tenants are those that meet the following criteria:
 
@@ -59,10 +59,9 @@ Deprecation notices will be recorded in your tenant logs for all requests withou
 
     You will be able to re-enable unpaginated requests any time before that date.
 
-## Auth0 Extensions
+### Update extensions
 
-Previous versions of [Auth0 Extensions](/extensions) and custom extensions may need to be updated to their latest versions to make sure they are only performing paginated queries.
+You may need to update from previous versions of [Auth0 Extensions](/extensions) and custom extensions may need to be updated to their latest versions to make sure they are only performing paginated queries.
 
-If your tenant logs shows deprecation notices for clients with an ID matching an extension URL, it means you will need to update that extension.
-
-To do so, go to [**Dashboard > Extensions**](${manage_url}/#/extensions), select Installed Extensions, and click on the extension's Update link if present.
+1. Check your tenant logs for deprecation notices for clients with an ID matching an extension URL, it means you will need to update that extension.
+2. Go to [**Dashboard > Extensions**](${manage_url}/#/extensions), select **Installed Extensions**, and click on the extension's **Update** link if present.
