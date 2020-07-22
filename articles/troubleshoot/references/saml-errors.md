@@ -30,6 +30,35 @@ This message indicates that the Application doesn't have an active Connection as
 3. Switch to the *Applications* tab.
 4. Enable at least one Application (if you don't see any in the list, you will need to [create an application](/applications) before proceeding).
 
+## IdP-Initiated Login Is Not Enabled
+
+```json
+{
+  "invalid_request": "IdP-Initiated login is not enabled for connection 'CONNECTION_NAME'."
+}
+```
+
+### Cause
+
+This error appears when you try to perform an IdP-Initiated login with a connection configured to reject unsolicited logins.
+
+### Solution
+
+1. Navigate to [Connections > Enterprise](${manage_url}/#/connections/enterprise).
+2. Find your Connection, and click on **Settings**.
+3. Switch to the *IdP-Initiated SSO* tab.
+4. Next to **IdP-Initiated SSO Behavior** select **Accept Requests** to enable IdP-Initiated logins.
+5. Select the **Default Application** and the **Response Protocol** used by that Application, and (optionally) specify any additional parameters you want passed to the Application.
+
+::: panel SP-Initiated Login
+If you see this error when using a SP-initiated flow, one of the following is missing or empty:
+
+* The `RelayState` parameter
+* The `InResponseTo` attribute in the SAML response
+
+If these are missing or empty, Auth0 treats the login as IdP-initiated. You can fix this error by checking your configuration to ensure that both fields are populated and returned appropriately.
+:::
+
 ## IdP-Initiated Default App Not Configured
 
 ```json
@@ -40,13 +69,13 @@ This message indicates that the Application doesn't have an active Connection as
 
 ### Cause
 
-This error appears if you haven't provided the necessary information to support IdP-initiated login flows.
+This error appears if you have enabled IdP-Initiated flows but you haven't provided the necessary information to execute the flow.
 
 ### Solution
 
 1. Navigate to [Connections > Enterprise](${manage_url}/#/connections/enterprise).
 2. Find your Connection, and click on **Settings**.
-3. Switch to the *IdP-Initiated* tab.
+3. Switch to the *IdP-Initiated SSO* tab.
 4. Select the **Default Application** and the **Response Protocol** used by that Application, and (optionally) specify any additional parameters you want passed to the Application.
 
 ::: panel SP-Initiated Login
@@ -87,7 +116,7 @@ There is an incorrect response protocol on the **IdP-Initiated** tab. The respon
 
 1. Navigate to [Connections > Enterprise](${manage_url}/#/connections/enterprise).
 2. Find your Connection, and click on **Settings**.
-3. Switch to the *IdP-Initiated* tab.
+3. Switch to the *IdP-Initiated SSO* tab.
 4. Check the value you have set in the **Response Protocol** field.
 
 ## User isn't logged out from the IdP

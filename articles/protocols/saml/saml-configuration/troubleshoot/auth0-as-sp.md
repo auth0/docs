@@ -183,6 +183,8 @@ If you're using an IdP-initiated flow (for example, the user starts at the ident
 
 * The IdP-initiated configuration tab for the Connection is properly filled in, including:
 
+  * The Idp-initiated SSO behavior is set to **Accept Requests**;
+
   * The application to which the user should be sent;
 
   * The protocol between the application and Auth0 (which is not necessarily **SAML** like the connection, and most likely is <dfn data-key="openid">**OpenID Connect**</dfn>);

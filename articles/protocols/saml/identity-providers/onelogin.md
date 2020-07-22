@@ -78,7 +78,7 @@ If you don't have a OneLogin user, please read the following section on configur
 
 OneLogin offers an Application Portal/Launcher to their users. If you want to take advantage of this functionality, you will have to change the **SAML Consumer URL** in OneLogin dashboard to include the `connection` parameter (e.g., `https://${account.namespace}/login/callback?connection=onelogin-customer`). Be sure to replace `onelogin-customer` with the name of your Auth0 connection.
 
-Finally, be sure to pick the application to which your user is redirected *after* the SAML assertion is consumed. You can find more information in the [IdP-Initiated SSO page](/protocols/saml/idp-initiated-sso).
+Finally, be sure to enable IdP-Initiated login for the connection and pick the application to which your user is redirected *after* the SAML assertion is consumed. You can find more information in the [IdP-Initiated SSO page](/protocols/saml/idp-initiated-sso).
 
 ## Edit connection mappings
 

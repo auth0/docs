@@ -41,6 +41,8 @@ To setup IdP-Initiated SSO, go to the [Enterprise Connections](${manage_url}/#/c
 
 ![Configure SAML Idp-Initiated SSO Settings](/media/articles/dashboard/connections/enterprise/conn-enterprise-saml-idp-initiated-sso.png)
 
+**IdP-Initiated SSO Behavior:** This option allows you to enable IdP-Initiated logins for the SAML connection. Select **Accept Requests** and complete all the required fields.
+
 **Default Application:** When the IdP initiated login succeeds this is the application where users are routed. This setting shows available applications enabled for this connection. Select the application from the dropdown that you want the users to login with IdP initiated. Only one application can be selected for an IdP-initiated login per SAML connection.
 
 **Response Protocol:** This is the protocol used to connect your selected **Default Application**. Most commonly applications are configured with the OpenID Connect protocol (read [here](#on-idp-initiated-flows-and-OIDC) for possible pitfalls). However if you have configured a SAML2 Web App addon for your application and want to route the SAML assertion you will need to select SAML.
