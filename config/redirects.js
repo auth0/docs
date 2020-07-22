@@ -2631,5 +2631,1628 @@ module.exports = [
     {
       from: '/api-auth/tutorials/multifactor-resource-owner-password',
       to: '/mfa/guides/mfa-api/multifactor-resource-owner-password'
+    },
+  
+    /* Contentful Redirects */
+  
+    {
+        from: "/email/spa-redirect",
+        to: "/auth0-email-services/spa-redirect"
+    },
+    {
+        from: "/extensions/deploy-cli/guides/call-deploy-cli-programmatically",
+        to: "/call-deploy-cli-tool-programmatically"
+    },
+    {
+        from: "/extensions/authorization-extension/v2/rules",
+        to: "/auth0-extensions/authorization-dashboard-extension/use-rules-with-the-authorization-extension"
+    },
+    {
+        from: "/extensions/authorization-extension/v2/import-export-data",
+        to: "/auth0-extensions/authorization-dashboard-extension/import-and-export-authorization-extension-data"
+    },
+    {
+        from: "/extensions/authorization-extension/v2/troubleshooting",
+        to: "/auth0-extensions/authorization-dashboard-extension/troubleshoot-authorization-extension"
+    },
+    {
+        from: "/extensions/authorization-extension/v2/implementation/setup",
+        to: "/auth0-extensions/authorization-dashboard-extension/set-up-authorization-extension-users"
+    },
+    {
+        from: "/extensions/authorization-extension/v2/implementation/configuration",
+        to: "/auth0-extensions/authorization-dashboard-extension/configure-authorization-extension"
+    },
+    {
+        from: "/extensions/sso-dashboard",
+        to: "/auth0-extensions/single-sign-on-dashboard-extension"
+    },
+    {
+        from: "/extensions",
+        to: "/auth0-extensions"
+    },
+    {
+        from: "/extensions/deploy-cli/guides/import-export-directory-structure",
+        to: "/import-export-tenant-configuration-to-directory-structure"
+    },
+    {
+        from: "/extensions/deploy-cli",
+        to: "/deploy-cli-tool"
+    },
+    {
+        from: "/extensions/deploy-cli/references/troubleshooting",
+        to: "/troubleshoot-the-deploy-cli-tool"
+    },
+    {
+        from: "/extensions/authorization-extension/v2",
+        to: "/auth0-extensions/authorization-dashboard-extension"
+    },
+    {
+        from: "/extensions/deploy-cli/references/deploy-cli-options",
+        to: "/deploy-cli-options"
+    },
+    {
+        from: "/extensions/deploy-cli/guides/create-deploy-cli-application-manually",
+        to: "/create-and-configure-the-deploy-cli-application-manually"
+    },
+    {
+        from: "/extensions/deploy-cli/guides/incorporate-deploy-cli-into-build-environment",
+        to: "/incorporate-deploy-cli-into-build-environment"
+    },
+    {
+        from: "/extensions/authorization-extension/v2/api-access",
+        to: "/auth0-extensions/authorization-dashboard-extension/enable-api-access-to-authorization-extension"
+    },
+    {
+        from: "/extensions/deploy-cli/guides/install-deploy-cli",
+        to: "/install-and-configure-the-deploy-cli-tool"
+    },
+    {
+        from: "/extensions/deploy-cli/references/environment-variables-keyword-mappings",
+        to: "/environment-variables-and-keyword-mappings"
+    },
+    {
+        from: "/cms/joomla/configuration",
+        to: "/cms/integrate-with-joomla"
+    },
+    {
+        from: "/cms/joomla/installation",
+        to: "/cms/joomla-installation"
+    },
+    {
+        from: "/cms/wordpress/configuration",
+        to: "/cms/wordpress-plugin/configure-login-by-auth0"
+    },
+    {
+        from: "/cms/wordpress/extending",
+        to: "/cms/wordpress-plugin/extend-login-by-auth0"
+    },
+    {
+        from: "/cms/wordpress",
+        to: "/cms/wordpress-plugin"
+    },
+    {
+        from: "/cms/wordpress/installation",
+        to: "/cms/wordpress-plugin/install-login-by-auth0"
+    },
+    {
+        from: "/cms/wordpress/invalid-state",
+        to: "/cms/wordpress-plugin/troubleshoot-wordpress-plugin-invalid-state-errors"
+    },
+    {
+        from: "/cms/wordpress/troubleshoot",
+        to: "/cms/wordpress-plugin/troubleshoot-login-by-auth0"
+    },
+    {
+        from: "/migrations/guides/calling-api-with-idtokens",
+        to: "/product-lifecycle/deprecations-and-migrations/migrate-to-calling-api-with-access-tokens"
+    },
+    {
+        from: "/migrations/guides/extensibility-node12",
+        to: "/product-lifecycle/deprecations-and-migrations/migrate-to-nodejs-12"
+    },
+    {
+        from: "/migrations/guides/management-api-v1-v2",
+        to: "/product-lifecycle/deprecations-and-migrations/migrate-to-management-api-v2"
+    },
+    {
+        from: "/migrations/guides/passwordless-start",
+        to: "/product-lifecycle/deprecations-and-migrations/migrate-to-passwordless"
+    },
+    {
+        from: "/cms/wordpress/user-migration",
+        to: "/cms/wordpress-plugin/user-migration-in-login-by-auth0"
+    },
+    {
+        from: "/troubleshoot/concepts/auth-issues",
+        to: "/troubleshoot/troubleshoot-authentication-issues"
+    },
+    {
+        from: "/troubleshoot/concepts/basics",
+        to: "/troubleshoot/basic-troubleshooting"
+    },
+    {
+        from: "/troubleshoot/concepts/integration-extensibility-issues",
+        to: "/troubleshoot/troubleshoot-integration-and-extensibility"
+    },
+    {
+        from: "/troubleshoot/guides/check-api-calls",
+        to: "/troubleshoot/troubleshoot-authentication-issues/check-api-calls"
+    },
+    {
+        from: "/troubleshoot/guides/check-deprecation-errors",
+        to: "/troubleshoot/troubleshoot-authentication-issues/check-deprecation-errors"
+    },
+    {
+        from: "/troubleshoot/guides/check-error-messages",
+        to: "/troubleshoot/check-error-messages"
+    },
+    {
+        from: "/troubleshoot/guides/check-login-logout-issues",
+        to: "/troubleshoot/troubleshoot-authentication-issues/check-login-and-logout-issues"
+    },
+    {
+        from: "/troubleshoot/guides/check-user-profiles",
+        to: "/troubleshoot/troubleshoot-authentication-issues/check-user-profiles"
+    },
+    {
+        from: "/troubleshoot/guides/generate-har-files",
+        to: "/troubleshoot/generate-and-analyze-har-files"
+    },
+    {
+        from: "/troubleshoot/guides/verify-connections",
+        to: "/troubleshoot/basic-troubleshooting/verify-connections"
+    },
+    {
+        from: "/troubleshoot/guides/verify-domain",
+        to: "/troubleshoot/basic-troubleshooting/verify-domain"
+    },
+    {
+        from: "/troubleshoot/guides/verify-platform",
+        to: "/troubleshoot/basic-troubleshooting/verify-platform"
+    },
+    {
+        from: "/troubleshoot/guides/verify-rules",
+        to: "/troubleshoot/verify-rules"
+    },
+    {
+        from: "/troubleshoot/references/invalid-token",
+        to: "/troubleshoot/invalid-token-errors"
+    },
+    {
+        from: "/pre-deployment/how-to-run-test",
+        to: "/pre-deployment/how-to-run-production-checks"
+    },
+    {
+        from: "/pre-deployment/prelaunch-tips",
+        to: "/pre-deployment/pre-launch-tips"
+    },
+    {
+        from: "/pre-deployment/tests/best-practice",
+        to: "/pre-deployment/how-to-run-production-checks/production-checks:-best-practices"
+    },
+    {
+        from: "/pre-deployment/tests/recommended",
+        to: "/pre-deployment/how-to-run-production-checks/production-checks:-recommended-fixes"
+    },
+    {
+        from: "/pre-deployment/tests/required",
+        to: "/pre-deployment/how-to-run-production-checks/production-checks:-required-fixes"
+    },
+    {
+        from: "/services",
+        to: "/auth0-professional-services"
+    },
+    {
+        from: "/i18n",
+        to: "/internationalization-and-multilingual-settings"
+    },
+    {
+        from: "/i18n/password-options",
+        to: "/password-options-translation"
+    },
+    {
+        from: "/logs/streams/amazon-eventbridge",
+        to: "/auth0-logs/export-log-events-with-log-streaming/stream-logs-to-amazon-eventbridge"
+    },
+    {
+        from: "/logs/streams/datadog",
+        to: "/auth0-logs/export-log-events-with-log-streaming/stream-logs-to-datadog"
+    },
+    {
+        from: "/logs/streams/http-event",
+        to: "/auth0-logs/export-log-events-with-log-streaming/stream-http-event-logs"
+    },
+    {
+        from: "/logs/streams",
+        to: "/auth0-logs/export-log-events-with-log-streaming"
+    },
+    {
+        from: "/compliance",
+        to: "/compliance-and-certifications"
+    },
+    {
+        from: "/best-practices/error-handling",
+        to: "/best-practices/error-handling-best-practices"
+    },
+    {
+        from: "/best-practices/rules",
+        to: "/best-practices/rules-best-practices"
+    },
+    {
+        from: "/logs",
+        to: "/auth0-logs/export-logs-with-extensions"
+    },
+    {
+        from: "/deploy/checklist",
+        to: "/deploy/deploy-checklist"
+    },
+    {
+        from: "/login/embedded",
+        to: "/login/embedded-login"
+    },
+    {
+        from: "/hooks/create",
+        to: "/hooks/create-hooks"
+    },
+    {
+        from: "/hooks/delete",
+        to: "/hooks/delete-hooks"
+    },
+    {
+        from: "/hooks/enable-disable",
+        to: "/hooks/enable-disable-hooks"
+    },
+    {
+        from: "/hooks/extensibility-points/post-change-password",
+        to: "/hooks/post-change-password"
+    },
+    {
+        from: "/hooks/extensibility-points/post-user-registration",
+        to: "/hooks/post-user-registration"
+    },
+    {
+        from: "/hooks/extensibility-points/pre-user-registration",
+        to: "/hooks/pre-user-registration"
+    },
+    {
+        from: "/hooks/extensibility-points/send-phone-message",
+        to: "/hooks/send-phone-message"
+    },
+    {
+        from: "/hooks/secrets/create",
+        to: "/hooks/hook-secrets/create-hook-secrets"
+    },
+    {
+        from: "/hooks/secrets/delete",
+        to: "/hooks/hook-secrets/delete-hook-secrets"
+    },
+    {
+        from: "/hooks/secrets",
+        to: "/hooks/hook-secrets"
+    },
+    {
+        from: "/hooks/secrets/update",
+        to: "/hooks/hook-secrets/update-hook-secrets"
+    },
+    {
+        from: "/hooks/secrets/view",
+        to: "/hooks/hook-secrets/view-hook-secrets"
+    },
+    {
+        from: "/hooks/update",
+        to: "/hooks/update-hooks"
+    },
+    {
+        from: "/hooks/view-logs",
+        to: "/hooks/view-logs-for-hooks"
+    },
+    {
+        from: "/hooks/view",
+        to: "/hooks/view-hooks"
+    },
+    {
+        from: "/protocols/oidc/identity-providers/okta",
+        to: "/protocols/configure-okta-as-oidc-identity-provider"
+    },
+    {
+        from: "/protocols/oidc/openid-connect-discovery",
+        to: "/protocols/configure-applications-with-oidc-discovery"
+    },
+    {
+        from: "/protocols/saml/adfs",
+        to: "/protocols/saml-configuration-options/configure-adfs-saml-connections"
+    },
+    {
+        from: "/protocols/saml/identity-providers/onelogin",
+        to: "/protocols/saml-configuration-options/configure-onelogin-as-saml-identity-provider"
+    },
+    {
+        from: "/protocols/saml/identity-providers/ping7",
+        to: "/protocols/saml-configuration-options/configure-pingfederate-as-saml-identity-provider"
+    },
+    {
+        from: "/protocols/saml/identity-providers/salesforce",
+        to: "/protocols/saml-configuration-options/configure-salesforce-as-saml-identity-provider"
+    },
+    {
+        from: "/protocols/saml/identity-providers/siteminder",
+        to: "/protocols/saml-configuration-options/configure-siteminder-as-saml-identity-provider"
+    },
+    {
+        from: "/protocols/saml/identity-providers/ssocircle",
+        to: "/protocols/saml-configuration-options/configure-ssocircle-as-saml-identity-provider"
+    },
+    {
+        from: "/protocols/saml/idp-initiated-sso",
+        to: "/protocols/saml-configuration-options/configure-saml-identity-provider-initiated-single-sign-on"
+    },
+    {
+        from: "/protocols/saml/saml-apps/cisco-webex",
+        to: "/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-cisco-webex"
+    },
+    {
+        from: "/protocols/saml/saml-apps/datadog",
+        to: "/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-datadog"
+    },
+    {
+        from: "/protocols/saml/saml-apps/egencia",
+        to: "/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-egencia"
+    },
+    {
+        from: "/protocols/saml/saml-apps/freshdesk",
+        to: "/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-freshdesk"
+    },
+    {
+        from: "/protocols/saml/saml-apps/github-cloud",
+        to: "/protocols/saml-configuration-options/configure-saml2-web-app-addon-for-github-enterprise-cloud"
+    },
+    {
+        from: "/protocols/saml/saml-apps/github-server",
+        to: "/protocols/saml-configuration-options/configure-saml2-web-app-addon-for-github-enterprise-server"
+    },
+    {
+        from: "/protocols/saml/saml-apps/hosted-graphite",
+        to: "/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-hosted-graphite"
+    },
+    {
+        from: "/protocols/saml/saml-apps/litmos",
+        to: "/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-litmos"
+    },
+    {
+        from: "/protocols/saml/saml-apps/pluralsight",
+        to: "/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-pluralsight"
+    },
+    {
+        from: "/protocols/saml/saml-apps/sprout-video",
+        to: "/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-sprout-video"
+    },
+    {
+        from: "/protocols/saml/saml-apps/tableau-online",
+        to: "/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-tableau-online"
+    },
+    {
+        from: "/protocols/saml/saml-apps/tableau-server",
+        to: "/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-tableau-server"
+    },
+    {
+        from: "/protocols/saml/saml-apps/workday",
+        to: "/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-workday"
+    },
+    {
+        from: "/protocols/saml/saml-apps/workpath",
+        to: "/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-workpath"
+    },
+    {
+        from: "/protocols/saml/saml-configuration/auth0-as-identity-and-service-provider",
+        to: "/protocols/saml-configuration-options/configure-auth0-as-service-and-identity-provider"
+    },
+    {
+        from: "/protocols/saml/saml-idp-generic",
+        to: "/protocols/saml-configuration-options/configure-auth0-as-saml-identity-provider"
+    },
+    {
+        from: "/protocols/saml/saml2webapp-tutorial",
+        to: "/protocols/saml-configuration-options/configure-saml2-web-applications"
+    },
+    {
+        from: "/libraries/auth0-android/configuration",
+        to: "/auth0-libraries/auth0-android/auth0-android-configuration"
+    },
+    {
+        from: "/libraries/auth0-android",
+        to: "/auth0-libraries/auth0-android"
+    },
+    {
+        from: "/libraries/lock/v11/configuration",
+        to: "/auth0-libraries/lock-v11-for-web/lock-configuration"
+    },
+    {
+        from: "/applications/concepts/app-types-first-third-party",
+        to: "/auth0-applications/first-party-and-third-party-applications"
+    },
+    {
+        from: "/applications",
+        to: "/auth0-applications"
+    },
+    {
+        from: "/applications/reference/wildcard-subdomains",
+        to: "/auth0-applications/wildcards-for-subdomains"
+    },
+    {
+        from: "/email/custom",
+        to: "/auth0-email-services/manage-email-flow"
+    },
+    {
+        from: "/email",
+        to: "/auth0-email-services"
+    },
+    {
+        from: "/email/testing",
+        to: "/auth0-email-services/configure-external-smtp-email-providers/configure-test-smtp-email-servers"
+    },
+    {
+        from: "/sso/current/relevant-api-endpoints",
+        to: "/single-sign-on/api-endpoints-for-single-sign-on"
+    },
+    {
+        from: "/dev-lifecycle/local-testing-and-development",
+        to: "/development-lifecycle/work-with-auth0-locally"
+    },
+    {
+        from: "/dev-lifecycle/setting-up-env",
+        to: "/development-lifecycle/set-up-multiple-environments"
+    },
+    {
+        from: "/rules/guides/cache-resources",
+        to: "/rules/cache-expensive-resources-in-rules"
+    },
+    {
+        from: "/rules/guides/configuration",
+        to: "/rules/configuration"
+    },
+    {
+        from: "/rules/guides/debug",
+        to: "/rules/debug-rules"
+    },
+    {
+        from: "/rules/guides/management-api",
+        to: "/rules/use-management-api"
+    },
+    {
+        from: "/rules/guides/metadata",
+        to: "/rules/metadata"
+    },
+    {
+        from: "/rules/guides/redirect",
+        to: "/rules/redirect-users"
+    },
+    {
+        from: "/rules/references/context-object",
+        to: "/rules/context-object"
+    },
+    {
+        from: "/rules/references/samples",
+        to: "/rules/examples"
+    },
+    {
+        from: "/rules/references/use-cases",
+        to: "/rules/use-cases"
+    },
+    {
+        from: "/rules/references/user-object",
+        to: "/rules/user-object-in-rules"
+    },
+    {
+        from: "/custom-domains/additional-configuration",
+        to: "/custom-domains/configure-features-to-use-custom-domains"
+    },
+    {
+        from: "/universal-login/customization-classic",
+        to: "/universal-login/classic-experience/classic-experience-customization"
+    },
+    {
+        from: "/universal-login/classic",
+        to: "/universal-login/classic-experience"
+    },
+    {
+        from: "/universal-login/multifactor-authentication",
+        to: "/universal-login/classic-experience/mfa-classic-experience"
+    },
+    {
+        from: "/universal-login/new-experience-limitations",
+        to: "/universal-login/new-experience/new-experience-limitations"
+    },
+    {
+        from: "/universal-login/new",
+        to: "/universal-login/new-experience"
+    },
+    {
+        from: "/universal-login/password-reset",
+        to: "/universal-login/customize-password-reset-page"
+    },
+    {
+        from: "/universal-login/version-control",
+        to: "/universal-login/version-control-universal-login-pages"
+    },
+    {
+        from: "/sessions",
+        to: "/sessions-and-cookies"
+    },
+    {
+        from: "/design/creating-invite-only-applications",
+        to: "/auth0-email-services/send-email-invitations-for-application-signup"
+    },
+    {
+        from: "/design/using-auth0-with-multi-tenant-apps",
+        to: "/best-practices/multi-tenant-applications-best-practices"
+    },
+    {
+        from: "/logout/guides/logout-applications",
+        to: "/logout/log-users-out-of-applications"
+    },
+    {
+        from: "/logout/guides/logout-auth0",
+        to: "/logout/log-users-out-of-auth0"
+    },
+    {
+        from: "/tokens/concepts/delegation-tokens",
+        to: "/tokens/delegation-tokens"
+    },
+    {
+        from: "/tokens/concepts/jwks",
+        to: "/tokens/json-web-tokens/json-web-key-sets"
+    },
+    {
+        from: "/tokens/guides/disable-refresh-token-rotation",
+        to: "/tokens/access-tokens/refresh-tokens/disable-refresh-token-rotation"
+    },
+    {
+        from: "/tokens/guides/get-id-tokens",
+        to: "/tokens/id-tokens/get-id-tokens"
+    },
+    {
+        from: "/tokens/guides/use-refresh-token-rotation",
+        to: "/tokens/access-tokens/refresh-tokens/refresh-token-rotation/use-refresh-token-rotation"
+    },
+    {
+        from: "/tokens/references/jwt-structure",
+        to: "/tokens/json-web-tokens/json-web-token-structure"
+    },
+    {
+        from: "/scopes/current/api-scopes",
+        to: "/scopes/api-scopes"
+    },
+    {
+        from: "/scopes/current/guides/customize-consent-prompt",
+        to: "/scopes/customize-consent-prompts"
+    },
+    {
+        from: "/scopes/current",
+        to: "/scopes"
+    },
+    {
+        from: "/scopes/current/oidc-scopes",
+        to: "/scopes/openid-connect-scopes"
+    },
+    {
+        from: "/scopes/current/sample-use-cases",
+        to: "/scopes/sample-use-cases-scopes-and-claims"
+    },
+    {
+        from: "/anomaly-detection/concepts/breached-passwords",
+        to: "/anomaly-detection/breached-password-security"
+    },
+    {
+        from: "/anomaly-detection/guides/customize-blocked-account-emails",
+        to: "/anomaly-detection/customize-blocked-account-emails"
+    },
+    {
+        from: "/anomaly-detection/guides/prevent-credential-stuffing-attacks",
+        to: "/anomaly-detection-do-not-publish/automated-attack-and-credential-stuffing-protection-do-not-publish"
+    },
+    {
+        from: "/anomaly-detection/guides/set-anomaly-detection-preferences",
+        to: "/anomaly-detection/set-anomaly-detection-preferences-do-not-publish"
+    },
+    {
+        from: "/anomaly-detection/guides/use-tenant-data-for-anomaly-detection",
+        to: "/anomaly-detection/view-anomaly-detection-events"
+    },
+    {
+        from: "/dashboard/guides/apis/enable-rbac",
+        to: "/authorization/rbac/enable-role-based-access-control-for-apis"
+    },
+    {
+        from: "/dashboard/guides/apis/update-token-lifetime",
+        to: "/tokens/access-tokens/update-access-token-lifetime"
+    },
+    {
+        from: "/dashboard/guides/applications/enable-android-app-links",
+        to: "/auth0-applications/enable-android-app-links-support"
+    },
+    {
+        from: "/dashboard/guides/applications/enable-sso-app",
+        to: "/single-sign-on/enable-sso-for-applications"
+    },
+    {
+        from: "/dashboard/guides/applications/enable-universal-links",
+        to: "/enable-universal-links-support-in-apple-xcode"
+    },
+    {
+        from: "/dashboard/guides/applications/register-app-native",
+        to: "/auth0-applications/register-native-applications"
+    },
+    {
+        from: "/dashboard/guides/applications/register-app-regular-web",
+        to: "/auth0-applications/register-regular-web-applications"
+    },
+    {
+        from: "/dashboard/guides/applications/remove-app",
+        to: "/auth0-applications/remove-applications"
+    },
+    {
+        from: "/dashboard/guides/applications/set-up-addon-saml2-aws",
+        to: "/protocols/saml-configuration-options/configure-saml2-web-app-addon-for-aws"
+    },
+    {
+        from: "/dashboard/guides/applications/set-up-cors",
+        to: "/auth0-applications/set-up-cors"
+    },
+    {
+        from: "/dashboard/guides/applications/update-app-connections",
+        to: "/auth0-applications/update-application-connections"
+    },
+    {
+        from: "/dashboard/guides/applications/update-grant-types",
+        to: "/auth0-applications/update-grant-types"
+    },
+    {
+        from: "/dashboard/guides/applications/update-signing-algorithm",
+        to: "/auth0-applications/change-application-signing-algorithms"
+    },
+    {
+        from: "/dashboard/guides/applications/update-token-lifetime",
+        to: "/tokens/id-tokens/update-id-token-lifetime"
+    },
+    {
+        from: "/dashboard/guides/applications/view-app-type-confidential-public",
+        to: "/auth0-applications/check-an-applications-confidential-or-public-authentication-method"
+    },
+    {
+        from: "/dashboard/guides/connections/configure-connection-sync",
+        to: "/users/configure-connection-sync-with-auth0"
+    },
+    {
+        from: "/dashboard/guides/connections/disable-cache-ad-ldap",
+        to: "/ad-ldap-connector/disable-credential-caching"
+    },
+    {
+        from: "/dashboard/guides/connections/set-up-connections-database",
+        to: "/auth0-applications/set-up-database-connections"
+    },
+    {
+        from: "/dashboard/guides/extensions/delegated-admin-install-extension",
+        to: "/delegated-administration-extension/install-delegated-admin-extension"
+    },
+    {
+        from: "/dashboard/guides/extensions/sso-dashboard-add-apps",
+        to: "/auth0-extensions/single-sign-on-dashboard-extension/add-applications-to-the-sso-dashboard"
+    },
+    {
+        from: "/dashboard/guides/extensions/sso-dashboard-create-app",
+        to: "/get-started/auth0-dashboard-overview/create-sso-dashboard-application"
+    },
+    {
+        from: "/dashboard/guides/extensions/sso-dashboard-install-extension",
+        to: "/auth0-extensions/single-sign-on-dashboard-extension/install-sso-dashboard-extension"
+    },
+    {
+        from: "/dashboard/guides/extensions/sso-dashboard-update-apps",
+        to: "/auth0-extensions/single-sign-on-dashboard-extension/update-applications-on-the-sso-dashboard"
+    },
+    {
+        from: "/dashboard/guides/roles/add-permissions-roles",
+        to: "/authorization/rbac/roles/add-permissions-to-roles"
+    },
+    {
+        from: "/dashboard/guides/roles/create-roles",
+        to: "/authorization/rbac/roles/create-roles"
+    },
+    {
+        from: "/dashboard/guides/roles/delete-roles",
+        to: "/authorization/rbac/roles/delete-roles"
+    },
+    {
+        from: "/dashboard/guides/roles/edit-role-definitions",
+        to: "/authorization/rbac/roles/edit-role-definitions"
+    },
+    {
+        from: "/dashboard/guides/roles/remove-role-permissions",
+        to: "/authorization/rbac/roles/remove-permissions-from-roles"
+    },
+    {
+        from: "/dashboard/guides/roles/remove-role-users",
+        to: "/users/remove-users-from-roles"
+    },
+    {
+        from: "/dashboard/guides/roles/view-role-permissions",
+        to: "/authorization/rbac/roles/view-role-permissions"
+    },
+    {
+        from: "/dashboard/guides/roles/view-role-users",
+        to: "/authorization/rbac/roles/view-users-assigned-to-roles"
+    },
+    {
+        from: "/dashboard/guides/rules/configure-variables",
+        to: "/rules/configure-global-variables-for-rules"
+    },
+    {
+        from: "/dashboard/guides/rules/create-rules",
+        to: "/rules/create-rules"
+    },
+    {
+        from: "/dashboard/guides/tenants/configure-device-user-code-settings",
+        to: "/get-started/auth0-dashboard-overview/configure-device-user-code-settings"
+    },
+    {
+        from: "/dashboard/guides/tenants/configure-session-lifetime-settings",
+        to: "/get-started/auth0-dashboard-overview/configure-session-lifetime-settings"
+    },
+    {
+        from: "/dashboard/guides/tenants/enable-sso-tenant",
+        to: "/get-started/auth0-dashboard-overview/enable-sso-for-legacy-tenants"
+    },
+    {
+        from: "/dashboard/guides/tenants/revoke-signing-keys",
+        to: "/get-started/auth0-dashboard-overview/revoke-signing-keys"
+    },
+    {
+        from: "/dashboard/guides/tenants/rotate-signing-keys",
+        to: "/get-started/auth0-dashboard-overview/rotate-signing-keys"
+    },
+    {
+        from: "/dashboard/guides/tenants/view-signing-keys",
+        to: "/get-started/auth0-dashboard-overview/view-client-secrets-and-signing-keys"
+    },
+    {
+        from: "/dashboard/guides/universal-login/configure-login-page-passwordless",
+        to: "/universal-login/configure-universal-login-with-passwordless"
+    },
+    {
+        from: "/dashboard/guides/users/assign-permissions-users",
+        to: "/users/assign-permissions-to-users"
+    },
+    {
+        from: "/dashboard/guides/users/assign-roles-users",
+        to: "/users/assign-roles-to-users"
+    },
+    {
+        from: "/dashboard/guides/users/remove-user-permissions",
+        to: "/users/remove-permissions-from-users"
+    },
+    {
+        from: "/dashboard/guides/users/remove-user-roles",
+        to: "/users/remove-roles-from-users"
+    },
+    {
+        from: "/dashboard/guides/users/unlink-user-devices",
+        to: "/users/unlink-devices-from-users"
+    },
+    {
+        from: "/dashboard/guides/users/view-user-permissions",
+        to: "/users/view-user-permissions"
+    },
+    {
+        from: "/dashboard/guides/users/view-user-roles",
+        to: "/users/view-user-roles"
+    },
+    {
+        from: "/dashboard/manage-dashboard-admins",
+        to: "/get-started/auth0-dashboard-overview/manage-dashboard-users"
+    },
+    {
+        from: "/dashboard/reference/settings-api",
+        to: "/get-started/auth0-dashboard-overview/api-settings"
+    },
+    {
+        from: "/dashboard/reference/settings-application",
+        to: "/get-started/auth0-dashboard-overview/application-settings"
+    },
+    {
+        from: "/dashboard/reference/settings-tenant",
+        to: "/get-started/auth0-dashboard-overview/tenant-settings"
+    },
+    {
+        from: "/api/info",
+        to: "/auth0-apis"
+    },
+    {
+        from: "/api/management/guides/applications/update-ownership",
+        to: "/auth0-applications/update-application-ownership"
+    },
+    {
+        from: "/api/management/guides/connections/promote-connection-domain-level",
+        to: "/get-started/auth0-dashboard-overview/promote-connections-to-domain-level"
+    },
+    {
+        from: "/api/management/guides/connections/retrieve-connection-options",
+        to: "/get-started/auth0-dashboard-overview/retrieve-connection-options"
+    },
+    {
+        from: "/api/management/guides/users/set-root-attributes-user-import",
+        to: "/users/set-root-attributes-during-user-import"
+    },
+    {
+        from: "/api/management/guides/users/set-root-attributes-user-signup",
+        to: "/users/set-root-attributes-during-user-sign-up"
+    },
+    {
+        from: "/api/management/guides/users/update-root-attributes-users",
+        to: "/users/update-root-attributes-for-users"
+    },
+    {
+        from: "/api/management/v1/reference",
+        to: "/auth0-management-api-reference"
+    },
+    {
+        from: "/api/management/v2/get-access-tokens-for-spas",
+        to: "/get-management-api-tokens-for-single-page-applications"
+    },
+    {
+        from: "/api/management/v2/tokens-flows",
+        to: "/changes-in-auth0-management-apiv2-tokens"
+    },
+    {
+        from: "/api/postman",
+        to: "/use-auth0-apis-with-postman-collections"
+    },
+    {
+        from: "/application-auth/current",
+        to: "/authentication"
+    },
+    {
+        from: "/application-auth/legacy",
+        to: "/application-auth"
+    },
+    {
+        from: "/authorization/concepts/authz-and-authn",
+        to: "/authorization/authentication-and-authorization"
+    },
+    {
+        from: "/authorization/concepts/authz-rules",
+        to: "/authorization/rules-for-authorization-policies"
+    },
+    {
+        from: "/authorization/concepts/core-vs-extension",
+        to: "/authorization/authorization-core-vs-authorization-extension"
+    },
+    {
+        from: "/authorization/concepts/policies",
+        to: "/authorization/authorization-policies"
+    },
+    {
+        from: "/authorization/concepts/rbac",
+        to: "/authorization/rbac"
+    },
+    {
+        from: "/authorization/concepts/sample-use-cases-rbac",
+        to: "/authorization/sample-use-cases-role-based-access-control"
+    },
+    {
+        from: "/authorization/concepts/sample-use-cases-rules",
+        to: "/authorization/sample-use-cases-rules-with-authorization"
+    },
+    {
+        from: "/authorization/concepts/troubleshooting",
+        to: "/authorization/troubleshoot-role-based-access-control-and-authorization"
+    },
+    {
+        from: "/authorization/guides/how-to",
+        to: "/authorization/how-to-use-auth0s-core-authorization-feature-set"
+    },
+    {
+        from: "/authorization/guides/manage-permissions",
+        to: "/authorization/manage-permissions"
+    },
+    {
+        from: "/authorization/guides/manage-roles",
+        to: "/authorization/rbac/roles"
+    },
+    {
+        from: "/authorization/guides/manage-users",
+        to: "/authorization/rbac-users"
+    },
+    {
+        from: "/flows/concepts/auth-code",
+        to: "/authentication-and-authorization-flows/authorization-code-flow"
+    },
+    {
+        from: "/flows/concepts/client-credentials",
+        to: "/authentication-and-authorization-flows/client-credentials-flow"
+    },
+    {
+        from: "/flows/concepts/device-auth",
+        to: "/authentication-and-authorization-flows/device-authorization-flow"
+    },
+    {
+        from: "/flows/concepts/implicit",
+        to: "/authentication-and-authorization-flows/implicit-flow-with-form-post"
+    },
+    {
+        from: "/flows/guides/auth-code/add-login-auth-code",
+        to: "/authentication-and-authorization-flows/add-login-auth-code-flow"
+    },
+    {
+        from: "/flows/guides/auth-code/call-api-auth-code",
+        to: "/authentication-and-authorization-flows/call-your-api-using-the-authorization-code-flow"
+    },
+    {
+        from: "/flows/guides/auth-code-pkce/add-login-auth-code-pkce",
+        to: "/authentication-and-authorization-flows/add-login-using-the-authorization-code-flow-with-pkce"
+    },
+    {
+        from: "/flows/guides/auth-code-pkce/call-api-auth-code-pkce",
+        to: "/authentication-and-authorization-flows/call-your-api-using-the-authorization-code-flow-with-pkce"
+    },
+    {
+        from: "/flows/guides/client-credentials/call-api-client-credentials",
+        to: "/authentication-and-authorization-flows/call-your-api-using-the-client-credentials-flow"
+    },
+    {
+        from: "/flows/guides/device-auth/call-api-device-auth",
+        to: "/authentication-and-authorization-flows/call-your-api-using-the-device-authorization-flow"
+    },
+    {
+        from: "/flows/guides/implicit/add-login-implicit",
+        to: "/authentication-and-authorization-flows/add-login-using-the-implicit-flow-with-form-post"
+    },
+    {
+        from: "/flows",
+        to: "/authentication-and-authorization-flows"
+    },
+    {
+        from: "/api-auth/blacklists-vs-grants",
+        to: "/blacklists-vs-application-grants"
+    },
+    {
+        from: "/api-auth/config/using-the-auth0-dashboard",
+        to: "/set-up-client-credentials-grants-using-the-dashboard"
+    },
+    {
+        from: "/api-auth/config/using-the-management-api",
+        to: "/set-up-client-credentials-grants-using-the-management-api"
+    },
+    {
+        from: "/api-auth/dynamic-client-registration",
+        to: "/dynamic-client-registration"
+    },
+    {
+        from: "/api-auth/faq",
+        to: "/api-authentication-and-authorization-faq"
+    },
+    {
+        from: "/api-auth/grant/authorization-code-pkce",
+        to: "/call-apis-from-mobile-apps"
+    },
+    {
+        from: "/api-auth/grant/authorization-code",
+        to: "/call-apis-from-server-side-web-apps"
+    },
+    {
+        from: "/api-auth/grant/client-credentials",
+        to: "/client-credentials-grant"
+    },
+    {
+        from: "/api-auth/grant/hybrid",
+        to: "/call-apis-using-the-hybrid-flow"
+    },
+    {
+        from: "/api-auth/grant/implicit",
+        to: "/call-apis-from-client-side-web-apps"
+    },
+    {
+        from: "/api-auth/grant/password",
+        to: "/call-apis-from-highly-trusted-applications"
+    },
+    {
+        from: "/api-auth/passwordless",
+        to: "/oidc-conformant-passwordless-authentication"
+    },
+    {
+        from: "/api-auth/token-renewal-in-safari",
+        to: "/renew-tokens-when-using-safari"
+    },
+    {
+        from: "/api-auth/tutorials/adoption/api-tokens",
+        to: "/call-apis-with-auth0-tokens"
+    },
+    {
+        from: "/api-auth/tutorials/adoption/authorization-code",
+        to: "/authorization-code-grant"
+    },
+    {
+        from: "/api-auth/tutorials/adoption/delegation",
+        to: "/delegation-and-the-oidc-conformant-pipeline"
+    },
+    {
+        from: "/api-auth/tutorials/adoption/implicit",
+        to: "/implicit-grant"
+    },
+    {
+        from: "/api-auth/tutorials/adoption",
+        to: "/oidc-conformant-authentication-adoption-guide"
+    },
+    {
+        from: "/api-auth/tutorials/adoption/oidc-conformant",
+        to: "/oidc-conformant-applications"
+    },
+    {
+        from: "/api-auth/tutorials/adoption/password",
+        to: "/resource-owner-password-credentials-exchange"
+    },
+    {
+        from: "/api-auth/tutorials/adoption/scope-custom-claims",
+        to: "/user-profile-claims-and-the-scope-parameter"
+    },
+    {
+        from: "/api-auth/tutorials/authorization-code-grant-pkce",
+        to: "/execute-an-authorization-code-grant-flow-with-pkce"
+    },
+    {
+        from: "/api-auth/tutorials/authorization-code-grant",
+        to: "/execute-an-authorization-code-grant-flow"
+    },
+    {
+        from: "/api-auth/tutorials/client-credentials/customize-with-hooks",
+        to: "/use-hooks-with-client-credentials-grant"
+    },
+    {
+        from: "/api-auth/tutorials/client-credentials",
+        to: "/implement-the-client-credentials-grant"
+    },
+    {
+        from: "/api-auth/tutorials/hybrid-flow",
+        to: "/implement-the-hybrid-flow"
+    },
+    {
+        from: "/api-auth/tutorials/implicit-grant",
+        to: "/implement-the-implicit-grant"
+    },
+    {
+        from: "/api-auth/tutorials/nonce",
+        to: "/mitigate-replay-attacks-when-using-the-implicit-flow"
+    },
+    {
+        from: "/api-auth/tutorials/password-grant",
+        to: "/implement-the-resource-owner-password-grant"
+    },
+    {
+        from: "/api-auth/tutorials/represent-multiple-apis",
+        to: "/represent-multiple-apis-using-a-single-logical-api"
+    },
+    {
+        from: "/api-auth/tutorials/silent-authentication",
+        to: "/configure-silent-authentication"
+    },
+    {
+        from: "/api-auth/tutorials/using-resource-owner-password-from-server-side",
+        to: "/use-resource-owner-password-grant-from-the-server-side"
+    },
+    {
+        from: "/api-auth/user-consent",
+        to: "/user-consent-and-third-party-applications"
+    },
+    {
+        from: "/mfa/concepts/guardian",
+        to: "/mfa-in-auth0/auth0-guardian"
+    },
+    {
+        from: "/mfa/concepts/mfa-api",
+        to: "/mfa-in-auth0/mfa-api"
+    },
+    {
+        from: "/mfa/concepts/mfa-developer-resources",
+        to: "/mfa-in-auth0/mfa-developer-resources"
+    },
+    {
+        from: "/mfa/concepts/mfa-factors",
+        to: "/mfa-in-auth0/mfa-factors"
+    },
+    {
+        from: "/mfa/concepts/step-up-authentication",
+        to: "/mfa-in-auth0/step-up-authentication"
+    },
+    {
+        from: "/mfa/guides/configure-cisco-duo",
+        to: "/mfa-in-auth0/configure-cisco-duo-for-mfa"
+    },
+    {
+        from: "/mfa/guides/configure-otp",
+        to: "/mfa-in-auth0/configure-otp-notifications-for-mfa"
+    },
+    {
+        from: "/mfa/guides/configure-phone",
+        to: "/mfa-in-auth0/configure-sms-and-voice-notifications-for-mfa"
+    },
+    {
+        from: "/mfa/guides/configure-step-up-apis",
+        to: "/mfa-in-auth0/step-up-authentication/configure-step-up-authentication-for-apis"
+    },
+    {
+        from: "/mfa/guides/configure-step-up-web-apps",
+        to: "/mfa-in-auth0/step-up-authentication/configure-step-up-authentication-for-web-apps"
+    },
+    {
+        from: "/mfa/guides/customize-mfa-universal-login",
+        to: "/mfa-in-auth0/customize-mfa-user-pages"
+    },
+    {
+        from: "/mfa/guides/enable-mfa",
+        to: "/mfa-in-auth0/enable-mfa"
+    },
+    {
+        from: "/mfa/guides/guardian/create-enrollment-ticket",
+        to: "/mfa-in-auth0/auth0-guardian/create-custom-enrollment-tickets"
+    },
+    {
+        from: "/mfa/guides/guardian/guardian-ios-sdk",
+        to: "/mfa-in-auth0/auth0-guardian/guardian-for-ios-sdk"
+    },
+    {
+        from: "/mfa/guides/guardian/install-guardian-sdk",
+        to: "/mfa-in-auth0/auth0-guardian/install-guardian-sdk"
+    },
+    {
+        from: "/mfa/guides/import-user-mfa",
+        to: "/mfa-in-auth0/import-user-mfa-authenticator-enrollments"
+    },
+    {
+        from: "/mfa/guides/mfa-api/email",
+        to: "/mfa-in-auth0/authenticate-with-ropg-and-mfa/enroll-and-challenge-email-authenticators"
+    },
+    {
+        from: "/mfa/guides/mfa-api/manage",
+        to: "/mfa-in-auth0/authenticate-with-ropg-and-mfa/manage-authenticator-factors-mfa-api"
+    },
+    {
+        from: "/mfa/guides/mfa-api/otp",
+        to: "/mfa-in-auth0/authenticate-with-ropg-and-mfa/enroll-and-challenge-otp-authenticators"
+    },
+    {
+        from: "/mfa/guides/reset-user-mfa",
+        to: "/mfa-in-auth0/reset-user-mfa"
+    },
+    {
+        from: "/mfa",
+        to: "/mfa-in-auth0"
+    },
+    {
+        from: "/mfa/references/guardian-error-code-reference",
+        to: "/mfa-in-auth0/auth0-guardian/guardian-error-code-reference"
+    },
+    {
+        from: "/mfa/references/language-dictionary",
+        to: "/mfa-in-auth0/customize-mfa-user-pages/mfa-theme-language-dictionary"
+    },
+    {
+        from: "/mfa/references/mfa-widget-reference",
+        to: "/mfa-in-auth0/customize-mfa-user-pages/mfa-widget-theme-options"
+    },
+    {
+        from: "/mfa/references/troubleshoot-mfa",
+        to: "/mfa-in-auth0/troubleshoot-mfa-issues"
+    },
+    {
+        from: "/mfa/send-phone-message-hook-amazon-sns",
+        to: "/mfa-in-auth0/configure-amazon-sns-as-mfa-sms-provider"
+    },
+    {
+        from: "/mfa/send-phone-message-hook-esendex",
+        to: "/mfa-in-auth0/configure-esendex-as-mfa-sms-provider"
+    },
+    {
+        from: "/mfa/send-phone-message-hook-infobip",
+        to: "/mfa-in-auth0/configure-infobip-as-mfa-sms-provider"
+    },
+    {
+        from: "/mfa/send-phone-message-hook-mitto",
+        to: "/mfa-in-auth0/configure-mitto-as-mfa-sms-provider"
+    },
+    {
+        from: "/mfa/send-phone-message-hook-telesign",
+        to: "/mfa-in-auth0/configure-telesign-as-mfa-sms-provider"
+    },
+    {
+        from: "/mfa/send-phone-message-hook-twilio",
+        to: "/mfa-in-auth0/configure-twilio-as-mfa-sms-provider"
+    },
+    {
+        from: "/mfa/send-phone-message-hook-vonage",
+        to: "/mfa-in-auth0/configure-vonage-as-mfa-sms-provider"
+    },
+    {
+        from: "/integrations/authenticating-a-tessel-device",
+        to: "/integrations/authenticating-and-authorizing-a-tessel-device-with-auth0"
+    },
+    {
+        from: "/integrations/authenticating-devices-using-mqtt",
+        to: "/integrations/authenticate-devices-using-mqtt"
+    },
+    {
+        from: "/aws-api-setup",
+        to: "/integrations/how-to-set-up-aws-for-delegated-authentication"
+    },
+    {
+        from: "/integrations/aws/sso",
+        to: "/configure-amazon-web-services-for-sso"
+    },
+    {
+        from: "/integrations/aws/tokens",
+        to: "/integrations/call-aws-apis-and-resources-with-tokens"
+    },
+    {
+        from: "/integrations/aws-api-gateway/custom-authorizers",
+        to: "/integrations/aws-api-gateway-custom-authorizers"
+    },
+    {
+        from: "/integrations/aws-api-gateway/delegation",
+        to: "/build-a-serverless-application-using-token-based-authentication-with-aws-api"
+    },
+    {
+        from: "/integrations/aws-api-gateway/delegation/part-1",
+        to: "/aws-api-gateway-tutorial-step-1"
+    },
+    {
+        from: "/integrations/aws-api-gateway/delegation/part-2",
+        to: "/aws-api-gateway-tutorial-step-2"
+    },
+    {
+        from: "/integrations/aws-api-gateway/delegation/part-3",
+        to: "/aws-api-gateway-tutorial-step-3"
+    },
+    {
+        from: "/integrations/aws-api-gateway/delegation/part-4",
+        to: "/aws-api-gateway-tutorial-step-4"
+    },
+    {
+        from: "/integrations/aws-api-gateway/delegation/part-5",
+        to: "/aws-api-gateway-tutorial-step-5"
+    },
+    {
+        from: "/integrations/aws-api-gateway/delegation/secure-api-with-cognito",
+        to: "/secure-aws-api-gateway-using-cognito"
+    },
+    {
+        from: "/integrations/configure-wsfed-application",
+        to: "/protocols/configure-ws-fed-applications"
+    },
+    {
+        from: "/integrations/google-cloud-platform",
+        to: "/integrations/google-cloud-endpoints"
+    },
+    {
+        from: "/integrations/integrating-auth0-amazon-cognito-mobile-apps",
+        to: "/integrations/integrate-with-amazon-cognito"
+    },
+    {
+        from: "/integrations/marketing/salesforce",
+        to: "/integrations/marketing/export-user-data-salesforce"
+    },
+    {
+        from: "/integrations/office-365-custom-provisioning",
+        to: "/office-365-custom-provisioning"
+    },
+    {
+        from: "/integrations/sharepoint-apps",
+        to: "/integrations/connecting-provider-hosted-apps-to-sharepoint-online"
+    },
+    {
+        from: "/integrations/sharepoint",
+        to: "/integrations/sharepoint-2010-2013"
+    },
+    {
+        from: "/integrations/using-auth0-to-secure-a-cli",
+        to: "/integrations/secure-a-cli-with-auth0"
+    },
+    {
+        from: "/identity-labs/01-web-sign-in",
+        to: "/auth0-identity-labs/lab-1-web-sign-in"
+    },
+    {
+        from: "/identity-labs/01-web-sign-in/exercise-01",
+        to: "/auth0-identity-labs/lab-1-web-sign-in/identity-lab-1-exercise-1"
+    },
+    {
+        from: "/identity-labs/01-web-sign-in/exercise-02",
+        to: "/auth0-identity-labs/lab-1-web-sign-in/identity-lab-1-exercise-2"
+    },
+    {
+        from: "/identity-labs/02-calling-an-api",
+        to: "/auth0-identity-labs/identity-lab-2-calling-api"
+    },
+    {
+        from: "/identity-labs/04-single-page-app",
+        to: "/auth0-identity-labs/lab-4-single-page-app"
+    },
+    {
+        from: "/identity-labs/02-calling-an-api/exercise-01",
+        to: "/auth0-identity-labs/identity-lab-2-calling-api/identity-lab-2-exercise-1"
+    },
+    {
+        from: "/identity-labs/02-calling-an-api/exercise-02",
+        to: "/auth0-identity-labs/identity-lab-2-calling-api/identity-lab-2-exercise-2"
+    },
+    {
+        from: "/identity-labs/02-calling-an-api/exercise-03",
+        to: "/auth0-identity-labs/identity-lab-2-calling-api/identity-lab-2-exercise-3"
+    },
+    {
+        from: "/identity-labs/03-mobile-native-app/exercise-01",
+        to: "/auth0-identity-labs/lab-3-mobile-native-app/identity-lab-3-exercise-1"
+    },
+    {
+        from: "/identity-labs/03-mobile-native-app/exercise-02",
+        to: "/auth0-identity-labs/lab-3-mobile-native-app/identity-lab-3-exercise-2"
+    },
+    {
+        from: "/identity-labs/03-mobile-native-app/exercise-03",
+        to: "/auth0-identity-labs/lab-3-mobile-native-app/identity-lab-3-exercise-3"
+    },
+    {
+        from: "/identity-labs/04-single-page-app/exercise-01",
+        to: "/auth0-identity-labs/lab-4-single-page-app/identity-lab-4-exercise-1"
+    },
+    {
+        from: "/identity-labs/04-single-page-app/exercise-02",
+        to: "/auth0-identity-labs/lab-4-single-page-app/identity-lab-4-exercise-2"
+    },
+    {
+        from: "/users/concepts/overview-progressive-profiling",
+        to: "/users/progressive-profiling"
+    },
+    {
+        from: "/users/concepts/overview-user-account-linking",
+        to: "/users/user-account-linking"
+    },
+    {
+        from: "/users/concepts/overview-user-metadata",
+        to: "/users/metadata"
+    },
+    {
+        from: "/users/concepts/overview-user-migration",
+        to: "/users/import-and-export-users"
+    },
+    {
+        from: "/users/concepts/overview-user-profile",
+        to: "/users/user-profiles"
+    },
+    {
+        from: "/users/guides/block-and-unblock-users",
+        to: "/users/block-and-unblock-users"
+    },
+    {
+        from: "/users/guides/bulk-user-exports",
+        to: "/users/bulk-user-exports"
+    },
+    {
+        from: "/users/guides/bulk-user-imports",
+        to: "/users/bulk-user-imports"
+    },
+    {
+        from: "/users/guides/change-user-pictures",
+        to: "/users/change-user-pictures"
+    },
+    {
+        from: "/users/guides/configure-automatic-migration",
+        to: "/users/configure-automatic-migration-from-your-database"
+    },
+    {
+        from: "/users/guides/create-users",
+        to: "/users/create-users"
+    },
+    {
+        from: "/users/guides/delete-users",
+        to: "/users/delete-users"
+    },
+    {
+        from: "/users/guides/email-verified",
+        to: "/users/verified-email-usage"
+    },
+    {
+        from: "/users/guides/get-user-information-with-unbounce-landing-pages",
+        to: "/users/get-user-information-on-unbounce-landing-pages"
+    },
+    {
+        from: "/users/guides/link-user-accounts",
+        to: "/users/link-user-accounts"
+    },
+    {
+        from: "/users/guides/manage-user-access-to-applications",
+        to: "/users/manage-user-access-to-applications"
+    },
+    {
+        from: "/users/guides/manage-user-metadata",
+        to: "/users/manage-user-metadata"
+    },
+    {
+        from: "/users/guides/manage-users-using-the-dashboard",
+        to: "/users/manage-users-using-the-dashboard"
+    },
+    {
+        from: "/users/guides/manage-users-using-the-management-api",
+        to: "/users/manage-users-using-the-management-api"
+    },
+    {
+        from: "/users/guides/read-metadata",
+        to: "/users/read-metadata"
+    },
+    {
+        from: "/users/guides/redirect-users-after-login",
+        to: "/users/redirect-users-after-login"
+    },
+    {
+        from: "/users/guides/set-metadata-properties-on-creation",
+        to: "/users/set-metadata-properties-on-creation"
+    },
+    {
+        from: "/users/guides/unlink-user-accounts",
+        to: "/users/unlink-user-accounts"
+    },
+    {
+        from: "/users/guides/update-metadata-properties-with-management-api",
+        to: "/users/update-metadata-with-the-management-api"
+    },
+    {
+        from: "/users/guides/update-user-profiles-using-your-database",
+        to: "/users/update-user-profiles-using-your-database"
+    },
+    {
+        from: "/users/guides/view-users",
+        to: "/users/view-users"
+    },
+    {
+        from: "/users/normalized/auth0/identify-users",
+        to: "/users/identify-users"
+    },
+    {
+        from: "/users/normalized/auth0",
+        to: "/users/normalized-user-profiles"
+    },
+    {
+        from: "/users/normalized/auth0/normalized-user-profile-schema",
+        to: "/users/normalized-user-profile-schema"
+    },
+    {
+        from: "/users/normalized/auth0/sample-user-profiles",
+        to: "/users/sample-user-profiles"
+    },
+    {
+        from: "/users/normalized/auth0/store-user-data",
+        to: "/users/store-user-data"
+    },
+    {
+        from: "/users/normalized/auth0/update-root-attributes",
+        to: "/users/updating-user-profile-root-attributes"
+    },
+    {
+        from: "/users/normalized/oidc",
+        to: "/users/user-profiles-returned-from-oidc-compliant-pipelines"
+    },
+    {
+        from: "/users/references/bulk-import-database-schema-examples",
+        to: "/users/bulk-user-import-database-schema-and-examples"
+    },
+    {
+        from: "/users/references/link-accounts-client-side-scenario",
+        to: "/users/user-initiated-account-linking-client-side-implementation"
+    },
+    {
+        from: "/users/references/link-accounts-server-side-scenario",
+        to: "/users/suggested-account-linking-server-side-implementation"
+    },
+    {
+        from: "/users/references/user-data-storage-scenario",
+        to: "/users/user-data-storage-scenario"
+    },
+    {
+        from: "/users/references/user-migration-scenarios",
+        to: "/users/user-migration-scenarios"
+    },
+    {
+        from: "/users/references/user-profile-structure",
+        to: "/users/user-profile-structure"
+    },
+    {
+        from: "/users/search/v3/get-users-by-email-endpoint",
+        to: "/users/user-search/retrieve-users-with-the-get-users-by-email-endpoint"
+    },
+    {
+        from: "/users/search/v3/get-users-by-id-endpoint",
+        to: "/users/user-search/retrieve-users-with-the-get-users-by-id-endpoint"
+    },
+    {
+        from: "/users/search/v3/get-users-endpoint",
+        to: "/users/user-search/retrieve-users-with-the-get-users-endpoint"
+    },
+    {
+        from: "/users/search/v3",
+        to: "/users/user-search"
+    },
+    {
+        from: "/users/search/v3/query-syntax",
+        to: "/users/user-search/user-search-query-syntax"
+    },
+    {
+        from: "/users/search/v3/sort-search-results",
+        to: "/users/user-search/sort-search-results"
+    },
+    {
+        from: "/users/search/v3/view-search-results-by-page",
+        to: "/users/user-search/view-search-results-by-page"
+    },
+    {
+        from: "/email/providers",
+        to: "/auth0-email-services/configure-external-smtp-email-providers/configure-amazon-ses-as-external-smtp-email-provider"
+    },
+    {
+        from: "/protocols/saml/saml-apps/atlassian",
+        to: "/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-atlassian"
+    },
+    {
+        from: "/protocols/oauth2",
+        to: "/protocols/protocol-oauth2"
+    },
+    {
+        from: "/protocols/oidc",
+        to: "/protocols/openid-connect-protocol"
+    },
+    {
+        from: "/protocols/saml",
+        to: "/protocols/saml-protocol"
+    },
+    {
+        from: "/protocols/ws-fed",
+        to: "/protocols/ws-fed-protocol"
+    },
+    {
+        from: "/protocols/ldap",
+        to: "/protocols/ldap-protocol"
+    },
+    {
+        from: "/tokens/concepts/signing-algorithms",
+        to: "/tokens/signing-algorithms"
+    },
+    {
+        from: "/dashboard/guides/applications/register-app-spa",
+        to: "/auth0-applications/register-single-page-app"
+    },
+    {
+        from: "/universal-login/text-customization-prompts/consent",
+        to: "/universal-login/prompt-consent"
+    },
+    {
+        from: "/logs/streams/azure-event-grid",
+        to: "/auth0-logs/export-log-events-with-log-streaming/stream-logs-to-azure-event-grid"
+    },
+    {
+        from: "/logs/streams/http-event-to-slack",
+        to: "/auth0-logs/export-log-events-with-log-streaming/stream-auth0-log-events-to-slack"
+    },
+    {
+        from: "/mfa/guides/mfa-api/phone",
+        to: "/mfa-in-auth0/authenticate-with-ropg-and-mfa/enroll-and-challenge-sms-and-voice-authenticators"
+    },
+    {
+        from: "/mfa/guides/mfa-api/push",
+        to: "/mfa-in-auth0/authenticate-with-ropg-and-mfa/enroll-and-challenge-push-authenticators"
+    },
+    {
+        from: "/mfa/guides/mfa-api/recovery-code",
+        to: "/mfa-in-auth0/authenticate-with-ropg-and-mfa/manage-authenticator-factors-mfa-api/challenge-with-recovery-codes"
+    },
+    {
+        from: "/anomaly-detection/references/brute-force-protection-triggers-actions",
+        to: "/anomaly-detection/brute-force-protection-triggers-and-actions"
     }
 ];
