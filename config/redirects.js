@@ -2633,6 +2633,10 @@ module.exports = [
       to: '/mfa/guides/mfa-api/multifactor-resource-owner-password'
     },
   
+    /* Private Cloud Redirects */
+
+
+  
     /* Contentful Redirects */
   
     {
