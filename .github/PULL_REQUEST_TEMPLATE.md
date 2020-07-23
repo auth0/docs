@@ -1,8 +1,3 @@
 <!---
-Notes:
-- Your PR should conform to our [Contributing Guidelines](https://github.com/auth0/docs/blob/master/CONTRIBUTING.md)
-- If applicable, add details to the [update feed](https://github.com/auth0/docs/tree/master/updates)
-- Make sure your PR gets deployed to a Heroku [Review App](https://github.com/auth0/docs/blob/master/CONTRIBUTING.md#review-apps) without errors
-- Please include a short description
-- If your PR is a work in progress, title it [DO NOT MERGE]
+Pull Requests for Quickstart Guides can still be submitted here, but most other documentation content is no longer hosted on GitHub and therefore no longer open-sourced. If you are an Auth0 employee trying to make a change, please [submit a ticket](https://auth0team.atlassian.net/servicedesk/customer/portal/9). Thank you!
 --->
