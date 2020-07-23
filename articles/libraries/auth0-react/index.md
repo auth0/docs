@@ -104,7 +104,7 @@ function LoginButton() {
   );
 }
 
-export default Login;
+export default LoginButton;
 ```
 
 ### Logout
