@@ -10,6 +10,8 @@ beta: true
 
 You can customize the New <dfn data-key="universal-login">Universal Login</dfn> pages by providing a Page Template using the [Liquid template language](https://shopify.github.io/liquid/). 
 
+This is **Beta** feature. Make sure you read and comply with our [Beta Terms](https://cdn.auth0.com/website/legal/terms/beta-service-terms-11-18-19.pdf) before using it.
+
 ::: warning
 This capability can only be used if the tenant has [Custom Domains](/custom-domains) enabled.
 :::

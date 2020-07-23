@@ -16,7 +16,8 @@ If you use SMS or Voice as an authentication factor, when an end user attempts t
 You can configure this factor to send messages through SMS, Voice, or to let the end users choose how they want the code to be delivered.
 
 ::: warning
-- Using Voice as an MFA factor is currently a Beta feature. It should not be used in production environments.
+- Using Voice as an MFA factor is currently a **Beta** feature. Make sure you read and comply with our [Beta Terms](https://cdn.auth0.com/website/legal/terms/beta-service-terms-11-18-19.pdf) before using it.
+
 - Voice as an MFA factor is not available when using the [Classic Universal Login Experience](/universal-login/classic).
 ::: 
 
