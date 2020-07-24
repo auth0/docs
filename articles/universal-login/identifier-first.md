@@ -6,7 +6,7 @@ topics:
 toc: true
 ---
 # Identifier-First Authentication
-
+ 
 An identifier-first authentication flow prompts users for their identifier and their authentication factor in two separate steps.
 
 Google was the first major website that adopted this flow. When you authenticate to Google websites, you enter your email first, click ‘Next’, and then enter your password.
