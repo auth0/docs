@@ -26,8 +26,6 @@ articles:
       - title: Set Up Multiple Environments
         url: /dev-lifecycle/set-up-multiple-environments
         hidden: true
-      - title: Deployment Models
-        url: /get-started/deployment-options
   - title: Architecture Scenarios
     url: /architecture-scenarios
     children:
