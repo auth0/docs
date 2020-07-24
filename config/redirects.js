@@ -1281,10 +1281,6 @@ module.exports = [
     to: '/dev-lifecycle/setting-up-env'
   },
   {
-    from: ['/tokens/id_token', '/tokens/id-token'],
-    to: '/tokens/concepts/id-tokens'
-  },
-  {
     from: '/tokens/add-custom-claims',
     to: '/scopes/current/sample-use-cases#add-custom-claims-to-a-token'
   },
@@ -3142,7 +3138,7 @@ module.exports = [
         to: '/tokens/identity-provider-access-tokens'
     },
     {
-        from: ['/tokens/overview-id-tokens','/tokens/id-token', '/tokens/concepts/id-tokens'],
+        from: ['/tokens/overview-id-tokens','/tokens/id-token', '/tokens/concepts/id-tokens', '/tokens/id_token', '/tokens/id-token'],
         to: '/tokens/id-tokens'
     },
     {
