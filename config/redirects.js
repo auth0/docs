@@ -5433,10 +5433,6 @@ module.exports = [
         to: '/product-lifecycle/deprecations-and-migrations/google-firebase-migration'
     },
     {
-        from: '/libraries/auth0-react',
-        to: '/libraries/auth0-react'
-    },
-    {
         from: '/tokens/guides/manage-signing-keys',
         to: '/tokens/signing-algorithms-and-keys'
     },
