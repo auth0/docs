@@ -817,10 +817,6 @@ module.exports = [
     to: '/mfa/guides/customize-phone-messages'
   },
   {
-    from: '/mfa/guides/guardian/customize-sms-messages',
-    to: '/mfa/guides/customize-phone-messages'
-  },
-  {
     from: '/multifactor-authentication/reset-user',
     to: '/mfa/guides/reset-user-mfa'
   },
@@ -5080,7 +5076,7 @@ module.exports = [
         to: '/mfa/auth0-guardian/guardian-error-code-reference'
     },
     {
-        from: '/mfa/guides/guardian/customize-sms-messages',
+        from: ['/mfa/guides/guardian/customize-sms-messages','/mfa/guides/customize-phone-messages'],
         to: '/mfa/customize-sms-or-voice-messages'
     },
     {
