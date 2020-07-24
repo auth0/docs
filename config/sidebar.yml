@@ -317,12 +317,6 @@ articles:
             url: /authorization/flows/call-your-api-using-the-client-credentials-flow
           - title: Device Authorization
             url: /authorization/flows/call-your-api-using-the-device-authorization-flow
-          - title: Implicit
-            url: /flows/guides/implicit/call-api-implicit
-            children:
-              - title: Mitigate Replay Attacks
-                url: /authorization/mitigate-replay-attacks-when-using-the-implicit-flow
-                hidden: true
       - title: Role-based Access Control (RBAC)
         url: /authorization/rbac
       - title: Authorization Policies
@@ -623,8 +617,6 @@ articles:
         url: /rules/user-object-in-rules
       - title: Context Object
         url: /rules/context-object
-      - title: Available Node.js Modules
-        url: /rules/references/modules
       - title: Deploy Rules with Bitbucket
         url: /extensions/bitbucket-deployments
         hidden: true
