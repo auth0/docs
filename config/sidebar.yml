@@ -185,14 +185,8 @@ articles:
           - title: Guardian
             url: /mfa/auth0-guardian
             children:
-              - title: Configure Guardian
-                url: /mfa/guides/guardian/configure-guardian
-                hidden: true
               - title: Create Custom Enrollment Ticket
                 url: /mfa/auth0-guardian/create-custom-enrollment-tickets
-                hidden: true
-              - title: Customize SMS or Voice Messages
-                url: /mfa/guides/customize-phone-messages
                 hidden: true
               - title: Install Guardian SDK
                 url: /mfa/auth0-guardian/install-guardian-sdk
@@ -349,7 +343,7 @@ articles:
           - title: Manage Tenant Administrators
             url: /get-started/dashboard/manage-dashboard-users
           - title: Manage Signing Keys
-            url: /tokens/guides/manage-signing-keys
+            url: /tokens/signing-algorithms-and-keys
           - title: Configure Session Lifetime Settings
             url: /get-started/dashboard/configure-session-lifetime-settings
           - title: Enable SSO for Tenants
@@ -377,8 +371,6 @@ articles:
             url: /applications/enable-android-app-links-support
           - title: Apple Universal Links
             url: /enable-universal-links-support-in-apple-xcode
-          - title: Set Up Add-ons
-            url: /dashboard/guides/applications/set-up-addons
           - title: Remove Applications
             url: /applications/remove-applications
           - title: Check App Type
@@ -393,7 +385,7 @@ articles:
         url: /get-started/dashboard/api-settings
         children:
           - title: Signing Algorithms
-            url: /applications/concepts/signing-algorithms
+            url: /tokens/signing-algorithms
           - title: Represent Multiple APIs with a Single API
             url: /authorization/represent-multiple-apis-using-a-single-logical-api
           - title: Dashboard Views for APIs
@@ -502,9 +494,6 @@ articles:
             url: /users/link-user-accounts
           - title: Unlink User Accounts
             url: /users/unlink-user-accounts
-          - title: Link Accounts using Authentication API
-            url: /users/guides/link-user-accounts-auth-api
-            hidden: true
           - title: Client-Side SPA Scenario
             url: /users/user-initiated-account-linking-client-side-implementation
           - title: Server-Side Regular Web App Scenario
@@ -610,7 +599,7 @@ articles:
       - title: Management API in Rules
         url: /rules/use-management-api
       - title: Metadata in Rules
-        url: /rules/guides/metadata
+        url: /rules/metadata
       - title: Redirect Users from Rules
         url: /rules/redirect-users
       - title: User Object
@@ -720,16 +709,6 @@ articles:
   - title: Integrations
     url: /integrations
     children:
-      - title: Analytics
-        url: /analytics
-        hidden: true
-        children:
-          - title: Facebook Analytics
-            url: /analytics/guides/facebook-analytics
-            hidden: true
-          - title: Google Analytics
-            url: /analytics/guides/google-analytics
-            hidden: true
       - title: Amazon Web Services (AWS)
         url: /integrations/aws
       - title: AWS API Gateway
@@ -826,11 +805,8 @@ articles:
         url: /logs/log-event-type-codes
       - title: Log Search Query Syntax
         url: /logs/log-search-query-syntax
-      - title: Log Usage Examples
-        url: /logs/concepts/logs-admins-devs
       - title: Migrate from Logs Search v2 to v3
-        url: /monitor/logs/guides/migrate-logs-v2-v3
-        hidden: true
+        url: /logs/migrate-to-tenant-log-search-v3
   - title: Monitor
     url: /monitor-auth0
     children:
@@ -844,27 +820,6 @@ articles:
         url: /monitor-auth0/monitor-applications
       - title: Monitor Using SCOM
         url: /monitor-auth0/monitor-using-scom
-      - title: Monitoring the AD/LDAP Connector with System Center Operations Manager
-        url: /ad-ldap-connector/ad-ldap-connector-scorm
-        hidden: true
-      - title: AD/LDAP Connector Health Monitor
-        url: /extensions/ad-ldap-connector-health-monitor
-        hidden: true
-      - title: Send Events to Keen
-        url: /monitoring/guides/send-events-to-keenio
-        hidden: true
-      - title: Send Events to Segment
-        url: /monitoring/guides/send-events-to-segmentio
-        hidden: true
-      - title: Send Events to Splunk
-        url: /monitoring/guides/send-events-to-splunk
-        hidden: true
-      - title: Track New Leads in Salesforce
-        url: /monitor-auth0/track-new-leads-in-salesforce
-        hidden: true
-      - title: Track New Sign-ups in Salesforce
-        url: /monitor-auth0/track-new-sign-ups-in-salesforce
-        hidden: true
   - title: Deploy
     url: /deploy
     children:
@@ -1102,13 +1057,10 @@ articles:
                     url: /tokens/create-namespaced-custom-claims
                     hidden: true
               - title: Signing Algorithms
-                url: /tokens/signing-algorithms
                 hidden: true
               - title: JSON Web Token Structure
                 url: /tokens/json-web-tokens/json-web-token-structure
                 hidden: true
-          - title: Token Storage
-            url: /tokens/concepts/token-storage
           - title: Revoke Tokens
             url: /tokens/revoke-tokens
       - title: Cookies
