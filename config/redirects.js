@@ -2488,10 +2488,6 @@ module.exports = [
       to: '/best-practices/custom-db-connections'
     },
     {
-      from: '/errors/deprecation-errors',
-      to: '/troubleshoot/guides/check-deprecation-errors'
-    },
-    {
     from: '/api/management/v1/use-cases',
     to: '/migrations/guides/management-api-v1-v2'
     },
