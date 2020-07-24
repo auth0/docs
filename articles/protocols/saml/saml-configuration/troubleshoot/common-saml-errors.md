@@ -41,14 +41,6 @@ This message indicates that the Application doesn't have an active Connection as
 }
 ```
 
-### How to Fix
-
-1. Navigate to [Connections > Enterprise](${manage_url}/#/connections/enterprise).
-2. Find your Connection, and click on **Settings**.
-3. Switch to the *IdP-Initiated SSO* tab.
-4. Next to **IdP-Initiated SSO Behavior** select **Accept Requests** to enable IdP-Initiated logins.
-5. Select the **Default Application** and the **Response Protocol** used by that Application, and (optionally) specify any additional parameters you want passed to the Application.
-
 ::: panel SP-Initiated Login
 If you see this error when using a SP-initiated flow, one of the following is missing or empty:
 
@@ -57,6 +49,14 @@ If you see this error when using a SP-initiated flow, one of the following is mi
 
 If these are missing or empty, Auth0 treats the login as IdP-initiated. You can fix this error by checking your configuration to ensure that both fields are populated and returned appropriately.
 :::
+
+### How to Fix
+
+1. Navigate to [Connections > Enterprise](${manage_url}/#/connections/enterprise).
+2. Find your Connection, and click on **Settings**.
+3. Switch to the *IdP-Initiated SSO* tab.
+4. Next to **IdP-Initiated SSO Behavior** select **Accept Requests** to enable IdP-Initiated logins.
+5. Select the **Default Application** and the **Response Protocol** used by that Application, and (optionally) specify any additional parameters you want passed to the Application.
 
 ## Error: IdP-Initiated Default App Not Configured
 
@@ -70,13 +70,6 @@ This error typically occurs because the ACS URL configured in the IdP used the d
 
 The ACS URL should use the same domain as the initial authentication request. If using custom domains, this should use the custom domain callback URL.
 
-### How to Fix
-
-1. Navigate to [Connections > Enterprise](${manage_url}/#/connections/enterprise).
-2. Find your Connection, and click on **Settings**.
-3. Switch to the **IdP-Initiated** tab.
-4. Select the **Default Application** and the **Response Protocol** used by that Application, and (optionally) specify any additional parameters you want passed to the Application.
-
 ::: panel SP-Initiated Login
 If you see this error when using a SP-initiated flow, one of the following is missing or empty:
 
@@ -85,6 +78,14 @@ If you see this error when using a SP-initiated flow, one of the following is mi
 
 If these are missing or empty, Auth0 treats the login as IdP-initiated. You can fix this error by checking your configuration to ensure that both fields are populated and returned appropriately.
 :::
+
+
+### How to Fix
+
+1. Navigate to [Connections > Enterprise](${manage_url}/#/connections/enterprise).
+2. Find your Connection, and click on **Settings**.
+3. Switch to the **IdP-Initiated** tab.
+4. Select the **Default Application** and the **Response Protocol** used by that Application, and (optionally) specify any additional parameters you want passed to the Application.
 
 ## Error: Missing RelayState
 
