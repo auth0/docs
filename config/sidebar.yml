@@ -1084,31 +1084,6 @@ articles:
           - title: Auth0 Data Processing
             hidden: true
             url: /compliance-and-certifications/data-processing
-          - title: How Auth0 can help
-            url: /compliance/gdpr/features-aiding-compliance
-            children:
-              - title: User Consent
-                hidden: true
-                url: /compliance-and-certifications/auth0-gdpr-compliance/gdpr-conditions-for-consent
-                children:
-                  - title: Track Consent with Lock
-                    hidden: true
-                    url: /compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-lock
-                  - title: Track Consent with custom UI
-                    hidden: true
-                    url: /compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-custom-ui
-              - title: 'Access, correct, and erase data'
-                hidden: true
-                url: /compliance-and-certifications/auth0-gdpr-compliance/gdpr-right-to-access-correct-and-erase-data
-              - title: Data Minimization
-                hidden: true
-                url: /compliance-and-certifications/auth0-gdpr-compliance/gdpr-data-minimization
-              - title: Data Portability
-                hidden: true
-                url: /compliance-and-certifications/auth0-gdpr-compliance/gdpr-data-portability
-              - title: Protect and secure user data
-                hidden: true
-                url: /compliance-and-certifications/auth0-gdpr-compliance/gdpr-protect-and-secure-user-data
           - title: Security Advice
             hidden: true
             url: /compliance/gdpr/security-advice-for-customers
