@@ -913,7 +913,7 @@ articles:
         url: /troubleshoot/generate-and-analyze-har-files
       - title: Authentication API Debugger
         url: /extensions/authentication-api-debugger-extension
-  - title: Private Cloud Deployments
+  - title: Private Cloud
     url: /private-cloud
     children:
       - title: Operations
@@ -1188,10 +1188,8 @@ articles:
             url: /policies/billing-policy
           - title: Dashboard Authentication
             url: /policies/dashboard-authentication-policy
-          - title: Data Export
+          - title: Data Export and Transfer
             url: /policies/data-export-and-transfer-policy
-          - title: Data Transfer
-            url: /policies/data-transfer
           - title: Endpoints
             url: /security/public-cloud-service-endpoints
           - title: Load Testing
@@ -1212,19 +1210,15 @@ articles:
                 hidden: true
           - title: Entity Limits
             url: /policies/entity-limit-policy
-          - title: Restore Deleted Tenant
-            url: /policies/restore-deleted-tenant
-          - title: Unsupported Requests
-            url: /policies/unsupported-requests
   - title: Professional Services
     url: /professional-services
     children:
-      - title: Discover & Design
-        url: /services/discover-and-design
+      - title: Solution Design
+        url: /professional-services/solution-design
       - title: Implement
-        url: /services/implement
+        url: /professional-services/implement
       - title: Maintain and Improve
-        url: /services/maintain-and-improve
+        url: /professional-services/maintain-and-improve
       - title: Packages
         url: /services/packages
       - title: Architectural Design Sessions
