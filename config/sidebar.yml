@@ -274,8 +274,6 @@ articles:
             url: /connections/database/password-options
           - title: Password Strength
             url: /connections/database/password-strength
-      - title: SAML Identity Providers
-        url: /protocols/saml/identity-providers/
       - title: Pass Parameters to Identity Providers
         url: /connections/pass-parameters-to-idps
       - title: Passwordless
@@ -349,7 +347,7 @@ articles:
           - title: Enable RBAC for APIs
             url: /authorization/rbac/enable-role-based-access-control-for-apis
   - title: Configuration
-    url: /configure
+    url: /dashboard/dashboard-tenant-settings
     children:
       - title: Tenant Configuration
         url: /dashboard/dashboard-tenant-settings
@@ -458,7 +456,6 @@ articles:
             url: /protocols/saml-configuration-options/deprovision-users-in-saml-integrations
           - title: SAML Configurations for SSO Integrations
             url: /protocols/saml/saml-apps
-          - title: Special SAML Configuration Scenarios
             url: /protocols/saml/saml-configuration/special-configuration-scenarios
             children:
               - title: IdP-Initiated Single Sign-On
@@ -532,7 +529,7 @@ articles:
           - title: Bulk Export
             url: /users/bulk-user-exports
           - title: User Import/Export Extension
-            url: /auth0-extensions/user-import-export-extension
+            url: /extensions/user-import-export-extension
           - title: Examples
             url: /users/user-migration-scenarios
       - title: User Search
@@ -629,13 +626,13 @@ articles:
       - title: Available Node.js Modules
         url: /rules/references/modules
       - title: Deploy Rules with Bitbucket
-        url: /auth0-extensions/bitbucket-deployments
+        url: /extensions/bitbucket-deployments
         hidden: true
       - title: Deploy Rules with GitLab
-        url: /auth0-extensions/gitlab-deployments
+        url: /extensions/gitlab-deployments
         hidden: true
       - title: Deploy Rules with Github
-        url: /auth0-extensions/github-deployments
+        url: /extensions/github-deployments
         hidden: true
   - title: Hooks
     url: /hooks
@@ -677,54 +674,54 @@ articles:
           - title: View Secrets
             url: /hooks/hook-secrets/view-hook-secrets
   - title: Extensions
-    url: /auth0-extensions
+    url: /extensions
     children:
       - title: Authorization Extension
-        url: /auth0-extensions/authorization-dashboard-extension
+        url: /extensions/authorization-dashboard-extension
       - title: Delegated Administration
-        url: /auth0-extensions/delegated-administration-extension
+        url: /extensions/delegated-administration-extension
       - title: Custom Social Connections
-        url: /auth0-extensions/custom-social-connections
+        url: /extensions/custom-social-connections
       - title: SSO Dashboard Extension
-        url: /auth0-extensions/single-sign-on-dashboard-extension
+        url: /extensions/single-sign-on-dashboard-extension
       - title: Authentication API Webhooks
-        url: /auth0-extensions/auth0-authentication-api-webhooks
+        url: /extensions/auth0-authentication-api-webhooks
       - title: Management API Webhooks
-        url: /auth0-extensions/auth0-management-api-webhooks
+        url: /extensions/auth0-management-api-webhooks
       - title: GitHub Deployments
-        url: /auth0-extensions/github-deployments
+        url: /extensions/github-deployments
       - title: Bitbucket Deployments
-        url: /auth0-extensions/bitbucket-deployments
+        url: /extensions/bitbucket-deployments
       - title: GitLab Deployments
-        url: /auth0-extensions/gitlab-deployments
+        url: /extensions/gitlab-deployments
       - title: Visual Studio Team Services Deployments
-        url: /auth0-extensions/visual-studio-team-services-deployments
+        url: /extensions/visual-studio-team-services-deployments
       - title: Authentication API Debugger
-        url: /auth0-extensions/authentication-api-debugger-extension
+        url: /extensions/authentication-api-debugger-extension
       - title: AD/LDAP Connector Health Monitor
-        url: /auth0-extensions/ad-ldap-connector-health-monitor
+        url: /extensions/ad-ldap-connector-health-monitor
       - title: Real-time Webtask Logs
-        url: /auth0-extensions/real-time-webtask-logs
+        url: /extensions/real-time-webtask-logs
       - title: Auth0 Logs to Application Insights
-        url: /auth0-extensions/export-logs-to-application-insights
+        url: /extensions/export-logs-to-application-insights
       - title: Auth0 Logs to AWS Cloudwatch
-        url: /auth0-extensions/export-logs-to-cloudwatch
+        url: /extensions/export-logs-to-cloudwatch
       - title: Auth0 Logs to Azure Blob Storage
         url: /extensions/azure-blog-storage
       - title: Auth0 Logs to Logentries
-        url: /auth0-extensions/export-logs-to-logentries
+        url: /extensions/export-logs-to-logentries
       - title: Auth0 Logs to Loggly
-        url: /auth0-extensions/export-logs-to-loggly
+        url: /extensions/export-logs-to-loggly
       - title: Auth0 Logs to Logstash
-        url: /auth0-extensions/export-logs-to-logstash
+        url: /extensions/export-logs-to-logstash
       - title: Auth0 Logs to Mixpanel
-        url: /auth0-extensions/export-logs-to-mixpanel
+        url: /extensions/export-logs-to-mixpanel
       - title: Auth0 Logs to Papertrail
-        url: /auth0-extensions/export-logs-to-papertrail
+        url: /extensions/export-logs-to-papertrail
       - title: Auth0 Logs to Sumo Logic
-        url: /auth0-extensions/auth0-logs-to-sumo-logic
+        url: /extensions/auth0-logs-to-sumo-logic
       - title: Auth0 Logs to Splunk
-        url: /auth0-extensions/export-logs-to-splunk
+        url: /extensions/export-logs-to-splunk
       - title: Add-ons
         url: /addons
         hidden: true
@@ -859,7 +856,7 @@ articles:
         url: /ad-ldap-connector/ad-ldap-connector-scorm
         hidden: true
       - title: AD/LDAP Connector Health Monitor
-        url: /auth0-extensions/ad-ldap-connector-health-monitor
+        url: /extensions/ad-ldap-connector-health-monitor
         hidden: true
       - title: Send Events to Keen
         url: /monitoring/guides/send-events-to-keenio
@@ -891,27 +888,27 @@ articles:
           - title: Pre-Launch Tips
             url: /pre-deployment/pre-launch-tips
       - title: Deploy CLI Tool
-        url: /auth0-extensions/deploy-cli-tool
+        url: /extensions/deploy-cli-tool
         children:
           - title: Install Deploy CLI
-            url: /auth0-extensions/deploy-cli-tool/install-and-configure-the-deploy-cli-tool
+            url: /extensions/deploy-cli-tool/install-and-configure-the-deploy-cli-tool
           - title: Call Deploy CLI
-            url: /auth0-extensions/deploy-cli-tool/call-deploy-cli-tool-programmatically
+            url: /extensions/deploy-cli-tool/call-deploy-cli-tool-programmatically
           - title: Incorporate into Build
-            url: /auth0-extensions/deploy-cli-tool/incorporate-deploy-cli-into-build-environment
+            url: /extensions/deploy-cli-tool/incorporate-deploy-cli-into-build-environment
           - title: Import/Export Directory Structure
-            url: /auth0-extensions/deploy-cli-tool/import-export-tenant-configuration-to-directory-structure
+            url: /extensions/deploy-cli-tool/import-export-tenant-configuration-to-directory-structure
           - title: Import/Export YAML File
-            url: /auth0-extensions/deploy-cli-tool/import-export-tenant-configuration-to-yaml-file
+            url: /extensions/deploy-cli-tool/import-export-tenant-configuration-to-yaml-file
           - title: Environment Variables
-            url: /auth0-extensions/deploy-cli-tool/environment-variables-and-keyword-mappings
+            url: /extensions/deploy-cli-tool/environment-variables-and-keyword-mappings
           - title: Deploy CLI Options
-            url: /auth0-extensions/deploy-cli-tool/deploy-cli-tool-options
+            url: /extensions/deploy-cli-tool/deploy-cli-tool-options
           - title: What's New
             url: /extensions/deploy-cli/references/whats-new
             hidden: true
           - title: Troubleshoot Deploy CLI
-            url: /auth0-extensions/deploy-cli-tool/troubleshoot-the-deploy-cli-tool
+            url: /extensions/deploy-cli-tool/troubleshoot-the-deploy-cli-tool
             hidden: true
   - title: Troubleshoot
     url: /troubleshoot
@@ -949,7 +946,7 @@ articles:
           - title: SAML
             url: /troubleshoot/troubleshoot-saml-configurations
           - title: Authorization Extension
-            url: /auth0-extensions/authorization-dashboard-extension/troubleshoot-authorization-extension
+            url: /extensions/authorization-dashboard-extension/troubleshoot-authorization-extension
       - title: Integration and Extensibility Issues
         url: /troubleshoot/troubleshoot-integration-and-extensibility
         children:
@@ -962,13 +959,13 @@ articles:
           - title: Active Directory/LDAP Connector
             url: /ad-ldap-connector/troubleshoot-ad-ldap-connector
           - title: Extensions
-            url: /auth0-extensions/troubleshoot-extensions
+            url: /extensions/troubleshoot-extensions
           - title: Auth0 PHP SDK
             url: /auth0-libraries/auth0-php/troubleshoot-auth0-php-library
       - title: Generate and Analyze HAR Files
         url: /troubleshoot/generate-and-analyze-har-files
       - title: Authentication API Debugger
-        url: /auth0-extensions/authentication-api-debugger-extension
+        url: /extensions/authentication-api-debugger-extension
   - title: Private Cloud Deployments
     url: /private-cloud
     children:
