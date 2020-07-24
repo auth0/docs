@@ -957,24 +957,21 @@ articles:
   - title: Security
     url: /security
     children:
-      - title: Bulletins
-        url: /security/bulletins
-        children:
-          - title: CVE 2018-6874
-            url: /security/security-bulletings-cve-2018-6874
-            hidden: true
-          - title: CVE 2018-6873
-            url: /security/security-bulletin-cve-2018-6873
-            hidden: true
-          - title: CVE 2018-7307
-            url: /security/security-bulletin-cve-2018-7307
-            hidden: true
-          - title: CVE 2017-16897
-            url: /security/security-bulletins-cve-2017-16897
-            hidden: true
-          - title: CVE 2017-17068
-            url: /security/security-bulletins-cve-2017-17068
-            hidden: true
+      - title: CVE 2018-6874
+        url: /security/security-bulletings-cve-2018-6874
+        hidden: true
+      - title: CVE 2018-6873
+        url: /security/security-bulletin-cve-2018-6873
+        hidden: true
+      - title: CVE 2018-7307
+        url: /security/security-bulletin-cve-2018-7307
+        hidden: true
+      - title: CVE 2017-16897
+        url: /security/security-bulletins-cve-2017-16897
+        hidden: true
+      - title: CVE 2017-17068
+        url: /security/security-bulletins-cve-2017-17068
+        hidden: true
       - title: Tokens
         url: /tokens
         children:
