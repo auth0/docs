@@ -2625,39 +2625,39 @@ module.exports = [
 
     {
       from: ['/private-cloud', '/appliance', '/appliance/appliance-overview'],
-      to: '/auth0-private-cloud'
+      to: '/private-cloud'
     },
     {
       from: ['/private-cloud/managed-private-cloud', '/private-cloud/standard-private-cloud', '/private-cloud/managed-private-cloud/raci', '/private-cloud/managed-private-cloud/zones','/private-saas-deployment/private-cloud'],
-      to: '/auth0-private-cloud/private-cloud-deployments'
+      to: '/private-cloud/private-cloud-deployments'
     },
     {
       from: ['/appliance/admin', '/appliance/cli', '/appliance/custom-domains', '/appliance/dashboard', '/appliance/monitoring', '/appliance/webtasks'],
-      to: '/auth0-private-cloud/private-cloud-operations'
+      to: '/private-cloud/private-cloud-operations'
     },
     {
       from: ['/private-cloud/onboarding', '/appliance/infrastructure', '/appliance/infrastructure/dns', '/appliance/infrastructure/extensions', '/appliance/infrastructure/faq', '/appliance/infrastructure/infrastructure-overview', '/appliance/infrastructure/installation', '/appliance/infrastructure/internet-restricted-deployment', '/appliance/infrastructure/network', '/appliance/infrastructure/security', '/appliance/infrastructure/virtual-machine'],
-      to: '/auth0-private-cloud/private-cloud-onboarding'
+      to: '/private-cloud/private-cloud-onboarding'
     },
     {
       from: '/private-cloud/custom-domain-migration',
-      to: '/auth0-private-cloud/migrate-private-cloud-custom-domains'
+      to: '/private-cloud/migrate-private-cloud-custom-domains'
     },
     {
       from: ['/private-cloud/onboarding/private-cloud', '/appliance/private-cloud-requirements', '/private-cloud/private-cloud-onboarding/standard-private-cloud-infrastructure-requirements'],
-      to: '/auth0-private-cloud/standard-private-cloud-infrastructure-requirements'
+      to: '/private-cloud/private-cloud-onboarding/standard-private-cloud-infrastructure-requirements'
     },
     {
       from: '/private/cloud/onboarding/managed-private-cloud/infrastructure', 
-      to: '/auth0-private-cloud/customer-hosted-managed-private-cloud-infrastructure-requirements'
+      to: '/private-cloud/private-cloud-onboarding/customer-hosted-managed-private-cloud-infrastructure-requirements'
     },
     {
       from: ['/private-cloud/onboarding/managed-private-cloud/ip-domain-port-list', '/appliance/infrastructure/ip-domain-port-list'],
-      to: '/auth0-private-cloud/private-cloud-ip-domain-and-port-list'
+      to: '/private-cloud/private-cloud-onboarding/private-cloud-ip-domain-and-port-list'
     },
     {
       from: '/private-cloud/onboarding/managed-private-cloud/remote-access-options',
-      to: '/auth0-private-cloud/private-cloud-remote-access-options'
+      to: '/private-cloud/private-cloud-onboarding/private-cloud-remote-access-options'
     },
 
   
@@ -5430,26 +5430,6 @@ module.exports = [
     {
         from: '/extensions/delegated-admin/v3/hooks/write',
         to: '/auth0-extensions/delegated-administration-extension/delegated-administration-hooks/delegated-administration-write-hook'
-    },
-    {
-        from: '/private-cloud/onboarding/managed-private-cloud/ip-domain-port-list',
-        to: '/private-cloud/private-cloud-onboarding/private-cloud-ip-domain-and-port-list'
-    },
-    {
-        from: '/private-cloud/onboarding/managed-private-cloud/remote-access-options',
-        to: '/private-cloud/private-cloud-onboarding/private-cloud-remote-access-options'
-    },
-    {
-        from: '/private-cloud/onboarding',
-        to: '/private-cloud/private-cloud-onboarding'
-    },
-    {
-        from: '/private-cloud/onboarding/managed-private-cloud/infrastructure',
-        to: '/private-cloud/private-cloud-onboarding/customer-hosted-managed-private-cloud-infrastructure-requirements'
-    },
-    {
-        from: '/private-cloud/custom-domain-migration',
-        to: '/private-cloud/private-cloud-migrations/migrate-private-cloud-custom-domains'
     },
     {
         from: '/extensions/delegated-admin/v3/hooks',
