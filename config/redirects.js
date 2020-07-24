@@ -2420,10 +2420,6 @@ module.exports = [
       to: '/private-cloud/onboarding/private-cloud'
     },
     {
-      from: '/private-saas-deployment/private-cloud', 
-      to: '/private-cloud/standard-private-cloud'
-    },
-    {
       from: '/private-saas-deployment/add-ons', 
       to: '/private-cloud/add-ons'
     },
@@ -2632,7 +2628,7 @@ module.exports = [
       to: '/auth0-private-cloud'
     },
     {
-      from: ['/private-cloud/managed-private-cloud', '/private-cloud/standard-private-cloud', '/private-cloud/managed-private-cloud/raci', '/private-cloud/managed-private-cloud/zones'],
+      from: ['/private-cloud/managed-private-cloud', '/private-cloud/standard-private-cloud', '/private-cloud/managed-private-cloud/raci', '/private-cloud/managed-private-cloud/zones','/private-saas-deployment/private-cloud'],
       to: '/auth0-private-cloud/private-cloud-deployments'
     },
     {
@@ -2648,7 +2644,7 @@ module.exports = [
       to: '/auth0-private-cloud/migrate-private-cloud-custom-domains'
     },
     {
-      from: ['/private-cloud/onboarding/private-cloud', '/appliance/private-cloud-requirements'],
+      from: ['/private-cloud/onboarding/private-cloud', '/appliance/private-cloud-requirements', '/private-cloud/private-cloud-onboarding/standard-private-cloud-infrastructure-requirements'],
       to: '/auth0-private-cloud/standard-private-cloud-infrastructure-requirements'
     },
     {
@@ -5434,10 +5430,6 @@ module.exports = [
     {
         from: '/extensions/delegated-admin/v3/hooks/write',
         to: '/auth0-extensions/delegated-administration-extension/delegated-administration-hooks/delegated-administration-write-hook'
-    },
-    {
-        from: '/private-cloud/onboarding/private-cloud',
-        to: '/private-cloud/private-cloud-onboarding/standard-private-cloud-infrastructure-requirements'
     },
     {
         from: '/private-cloud/onboarding/managed-private-cloud/ip-domain-port-list',
