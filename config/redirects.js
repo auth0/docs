@@ -2138,10 +2138,6 @@ module.exports = [
      to: '/tokens/concepts/access-tokens'
    },
    {
-    from: ['/tokens/overview-id-tokens','/tokens/id-token', '/tokens/id-tokens'],
-    to: '/tokens/concepts/id-tokens'
-  },
-   {
      from: ['/api-auth/tutorials/verify-access-token', '/tokens/guides/access-token/validate-access-token'],
      to: '/tokens/guides/validate-access-tokens'
    },
@@ -3122,10 +3118,6 @@ module.exports = [
         to: '/tokens/id-tokens/validate-id-tokens'
     },
     {
-        from: '/tokens/concepts/access-tokens',
-        to: '/tokens/access-tokens'
-    },
-    {
         from: '/tokens/guides/configure-refresh-token-rotation',
         to: '/tokens/access-tokens/refresh-tokens/configure-refresh-token-rotation'
     },
@@ -3158,7 +3150,7 @@ module.exports = [
         to: '/tokens/identity-provider-access-tokens'
     },
     {
-        from: '/tokens/concepts/id-tokens',
+        from: ['/tokens/overview-id-tokens','/tokens/id-token', '/tokens/concepts/id-tokens'],
         to: '/tokens/id-tokens'
     },
     {
@@ -3224,6 +3216,10 @@ module.exports = [
     {
         from: '/tokens/guides/use-refresh-tokens',
         to: '/tokens/access-tokens/refresh-tokens/use-refresh-tokens'
+    },
+    {
+        from: '/tokens/concepts/access-tokens',
+        to: '/tokens/access-tokens'
     },
     {
         from: '/protocols/oidc/openid-connect-discovery',
