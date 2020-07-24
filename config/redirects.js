@@ -2724,28 +2724,16 @@ module.exports = [
         to: '/dev-lifecycle/set-up-multiple-environments'
     },
     {
-        from: '/libraries',
-        to: '/auth0-libraries'
-    },
-    {
-        from: '/libraries/auth0-php',
-        to: '/auth0-libraries/auth0-php'
-    },
-    {
         from: '/libraries/auth0js/v9',
-        to: '/auth0-libraries/auth0js-v9-reference'
+        to: '/libraries/auth0js-v9-reference'
     },
     {
         from: '/policies/endpoints',
         to: '/security/public-cloud-service-endpoints'
     },
     {
-        from: '/libraries/custom-signup',
-        to: '/auth0-libraries/custom-signup'
-    },
-    {
         from: '/libraries/error-messages',
-        to: '/auth0-libraries/common-auth0-library-authentication-errors'
+        to: '/libraries/common-auth0-library-authentication-errors'
     },
     {
         from: '/users/search/v3',
@@ -2805,39 +2793,39 @@ module.exports = [
     },
     {
         from: '/libraries/auth0-spa-js',
-        to: '/auth0-libraries/auth0-single-page-app-sdk'
+        to: '/libraries/auth0-single-page-app-sdk'
     },
     {
         from: '/libraries/auth0-spa-js/migrate-from-auth0js',
-        to: '/auth0-libraries/auth0-single-page-app-sdk/migrate-from-auth0-js-to-the-auth0-single-page-app-sdk'
+        to: '/libraries/auth0-single-page-app-sdk/migrate-from-auth0-js-to-the-auth0-single-page-app-sdk'
     },
     {
         from: '/libraries/lock/v11',
-        to: '/auth0-libraries/lock'
+        to: '/libraries/lock'
     },
     {
         from: '/libraries/lock/v11/customizing-error-messages',
-        to: '/auth0-libraries/lock/customize-lock-error-messages'
+        to: '/libraries/lock/customize-lock-error-messages'
     },
     {
         from: '/libraries/lock/v11/authentication-modes',
-        to: '/auth0-libraries/lock/lock-authentication-modes'
+        to: '/libraries/lock/lock-authentication-modes'
     },
     {
         from: '/libraries/lock/v11/sending-authentication-parameters',
-        to: '/auth0-libraries/lock/lock-authentication-parameters'
+        to: '/libraries/lock/lock-authentication-parameters'
     },
     {
         from: '/libraries/lock/v11/i18n',
-        to: '/auth0-libraries/lock/lock-internationalization'
+        to: '/libraries/lock/lock-internationalization'
     },
     {
         from: '/libraries/lock/v11/api',
-        to: '/auth0-libraries/lock/lock-api-reference'
+        to: '/libraries/lock/lock-api-reference'
     },
     {
         from: '/libraries/secure-local-development',
-        to: '/auth0-libraries/secure-local-development'
+        to: '/libraries/secure-local-development'
     },
     {
         from: '/protocols/oauth2/oauth-state',
@@ -2857,7 +2845,7 @@ module.exports = [
     },
     {
         from: '/libraries/lock/v11/selecting-the-connection-for-multiple-logins',
-        to: '/auth0-libraries/lock/selecting-from-multiple-connection-options'
+        to: '/libraries/lock/selecting-from-multiple-connection-options'
     },
     {
         from: '/protocols/saml/saml-apps/heroku',
@@ -2865,11 +2853,11 @@ module.exports = [
     },
     {
         from: '/libraries/lock/v11/ui-customization',
-        to: '/auth0-libraries/lock/lock-ui-customization'
+        to: '/libraries/lock/lock-ui-customization'
     },
     {
         from: '/libraries/auth0-php/jwt-validation',
-        to: '/auth0-libraries/auth0-php/validating-jwts-with-auth0-php'
+        to: '/libraries/auth0-php/validating-jwts-with-auth0-php'
     },
     {
         from: '/protocols/saml/saml-apps/hosted-graphite',
@@ -2897,7 +2885,7 @@ module.exports = [
     },
     {
         from: '/libraries/auth0-php/authentication-api',
-        to: '/auth0-libraries/auth0-php/using-the-authentication-api-with-auth0-php'
+        to: '/libraries/auth0-php/using-the-authentication-api-with-auth0-php'
     },
     {
         from: '/protocols/saml/saml-apps/tableau-server',
@@ -2925,7 +2913,7 @@ module.exports = [
     },
     {
         from: '/libraries/auth0-php/basic-use',
-        to: '/auth0-libraries/auth0-php/auth0-php-basic-use'
+        to: '/libraries/auth0-php/auth0-php-basic-use'
     },
     {
         from: '/protocols/saml/saml-apps/github-server',
@@ -2937,7 +2925,7 @@ module.exports = [
     },
     {
         from: '/libraries/auth0-php/management-api',
-        to: '/auth0-libraries/auth0-php/using-the-management-api-with-auth0-php'
+        to: '/libraries/auth0-php/using-the-management-api-with-auth0-php'
     },
     {
         from: '/protocols/saml/adfs',
@@ -2945,19 +2933,19 @@ module.exports = [
     },
     {
         from: '/libraries/lock-android/v2/keystore',
-        to: '/auth0-libraries/auth0-android/android-development-keystores-hashes'
+        to: '/libraries/auth0-android/android-development-keystores-hashes'
     },
     {
         from: '/libraries/auth0-php/troubleshooting',
-        to: '/auth0-libraries/auth0-php/troubleshoot-auth0-php-library'
+        to: '/libraries/auth0-php/troubleshoot-auth0-php-library'
     },
     {
         from: '/libraries/auth0-android/user-management',
-        to: '/auth0-libraries/auth0-android/auth0-android-user-management'
+        to: '/libraries/auth0-android/auth0-android-user-management'
     },
     {
         from: '/libraries/lock-android/v2/custom-fields',
-        to: '/auth0-libraries/lock-android/lock-android-custom-fields-at-signup'
+        to: '/libraries/lock-android/lock-android-custom-fields-at-signup'
     },
     {
         from: '/users/concepts/overview-user-migration',
@@ -2965,11 +2953,11 @@ module.exports = [
     },
     {
         from: '/libraries/auth0-android/database-authentication',
-        to: '/auth0-libraries/auth0-android/auth0-android-database-authentication'
+        to: '/libraries/auth0-android/auth0-android-database-authentication'
     },
     {
         from: '/libraries/auth0-android/passwordless',
-        to: '/auth0-libraries/auth0-android/auth0-android-passwordless'
+        to: '/libraries/auth0-android/auth0-android-passwordless'
     },
     {
         from: '/users/guides/bulk-user-exports',
@@ -2977,7 +2965,7 @@ module.exports = [
     },
     {
         from: '/libraries/auth0-android/save-and-refresh-tokens',
-        to: '/auth0-libraries/auth0-android/auth0-android-save-and-renew-tokens'
+        to: '/libraries/auth0-android/auth0-android-save-and-renew-tokens'
     },
     {
         from: '/users/guides/configure-automatic-migration',
@@ -3004,28 +2992,24 @@ module.exports = [
         to: '/protocols/saml-configuration-options/configure-okta-as-saml-identity-provider'
     },
     {
-        from: '/libraries/auth0-swift',
-        to: '/auth0-libraries/auth0-swift'
-    },
-    {
         from: '/libraries/auth0-swift/passwordless',
-        to: '/auth0-libraries/auth0-swift/auth0-swift-passwordless'
+        to: '/libraries/auth0-swift/auth0-swift-passwordless'
     },
     {
         from: '/libraries/auth0-swift/save-and-refresh-jwt-tokens',
-        to: '/auth0-libraries/auth0-swift/auth0-swift-save-and-renew-tokens'
+        to: '/libraries/auth0-swift/auth0-swift-save-and-renew-tokens'
     },
     {
         from: '/libraries/auth0-swift/touchid-authentication',
-        to: '/auth0-libraries/auth0-swift/auth0-swift-touchid-faceid'
+        to: '/libraries/auth0-swift/auth0-swift-touchid-faceid'
     },
     {
         from: '/libraries/auth0-swift/user-management',
-        to: '/auth0-libraries/auth0-swift/auth0-swift-user-management'
+        to: '/libraries/auth0-swift/auth0-swift-user-management'
     },
     {
         from: '/libraries/auth0-swift/database-authentication',
-        to: '/auth0-libraries/auth0-swift/auth0-swift-database-connections'
+        to: '/libraries/auth0-swift/auth0-swift-database-connections'
     },
     {
         from: '/protocols/saml/idp-initiated-sso',
@@ -3045,19 +3029,19 @@ module.exports = [
     },
     {
         from: '/libraries/lock-ios/v2/customization',
-        to: '/auth0-libraries/lock-swift/lock-swift-customization'
+        to: '/libraries/lock-swift/lock-swift-customization'
     },
     {
         from: '/libraries/lock-ios/v2/passwordless',
-        to: '/auth0-libraries/lock-swift/lock-swift-passwordless'
+        to: '/libraries/lock-swift/lock-swift-passwordless'
     },
     {
         from: '/libraries/lock-ios/v2/logging',
-        to: '/auth0-libraries/lock-swift/lock-swift-logging'
+        to: '/libraries/lock-swift/lock-swift-logging'
     },
     {
         from: '/libraries/lock-ios/v2',
-        to: '/auth0-libraries/lock-swift'
+        to: '/libraries/lock-swift'
     },
     {
         from: '/protocols/saml/identity-providers/salesforce',
@@ -3073,7 +3057,7 @@ module.exports = [
     },
     {
         from: '/libraries/lock-ios/v2/internationalization',
-        to: '/auth0-libraries/lock-swift/lock-swift-internationalization'
+        to: '/libraries/lock-swift/lock-swift-internationalization'
     },
     {
         from: '/protocols/saml/samlp',
@@ -3081,7 +3065,7 @@ module.exports = [
     },
     {
         from: '/libraries/lock-ios/v2/custom-fields',
-        to: '/auth0-libraries/lock-swift/lock-swift-custom-fields-at-signup'
+        to: '/libraries/lock-swift/lock-swift-custom-fields-at-signup'
     },
     {
         from: '/protocols/saml/saml-idp-generic',
@@ -3089,7 +3073,7 @@ module.exports = [
     },
     {
         from: '/libraries/lock-ios/v2/configuration',
-        to: '/auth0-libraries/lock-swift/lock-swift-configuration-options'
+        to: '/libraries/lock-swift/lock-swift-configuration-options'
     },
     {
         from: '/protocols/saml/identity-providers/onelogin',
@@ -3097,11 +3081,11 @@ module.exports = [
     },
     {
         from: '/libraries/lock-android/v2',
-        to: '/auth0-libraries/lock-android'
+        to: '/libraries/lock-android'
     },
     {
         from: '/libraries/lock-android/v2/passwordless-magic-link',
-        to: '/auth0-libraries/lock-android/lock-android-passwordless-with-magic-link'
+        to: '/libraries/lock-android/lock-android-passwordless-with-magic-link'
     },
     {
         from: '/protocols/saml/saml-configuration/auth0-as-service-provider',
@@ -3109,35 +3093,35 @@ module.exports = [
     },
     {
         from: '/libraries/lock-android/v2/passwordless',
-        to: '/auth0-libraries/lock-android/lock-android-passwordless'
+        to: '/libraries/lock-android/lock-android-passwordless'
     },
     {
         from: '/libraries/lock-android/v2/internationalization',
-        to: '/auth0-libraries/lock-android/lock-android-internationalization'
+        to: '/libraries/lock-android/lock-android-internationalization'
     },
     {
         from: '/libraries/lock-android/v2/delegation-api',
-        to: '/auth0-libraries/lock-android/lock-android-delegation'
+        to: '/libraries/lock-android/lock-android-delegation'
     },
     {
         from: '/libraries/lock-android/v2/custom-authentication-providers',
-        to: '/auth0-libraries/lock-android/lock-android-custom-authentication-providers'
+        to: '/libraries/lock-android/lock-android-custom-authentication-providers'
     },
     {
         from: '/libraries/lock-android/v2/refresh-jwt-tokens',
-        to: '/auth0-libraries/lock-android/lock-android-refresh-jwt'
+        to: '/libraries/lock-android/lock-android-refresh-jwt'
     },
     {
         from: '/libraries/lock-android/v2/custom-theming',
-        to: '/auth0-libraries/lock-android/lock-android-custom-theming'
+        to: '/libraries/lock-android/lock-android-custom-theming'
     },
     {
         from: '/libraries/lock-android/v2/configuration',
-        to: '/auth0-libraries/lock-android/lock-android-configuration'
+        to: '/libraries/lock-android/lock-android-configuration'
     },
     {
         from: '/libraries/lock-android/v2/native-social-authentication',
-        to: '/auth0-libraries/lock-android/lock-android-native-social-authentication'
+        to: '/libraries/lock-android/lock-android-native-social-authentication'
     },
     {
         from: '/protocols/saml/saml-configuration/auth0-as-identity-and-service-provider',
@@ -4812,12 +4796,8 @@ module.exports = [
         to: '/cms/wordpress-plugin/troubleshoot-wordpress-plugin-invalid-state-errors'
     },
     {
-        from: '/libraries/auth0-android',
-        to: '/auth0-libraries/auth0-android'
-    },
-    {
         from: '/libraries/auth0-android/configuration',
-        to: '/auth0-libraries/auth0-android/auth0-android-configuration'
+        to: '/libraries/auth0-android/auth0-android-configuration'
     },
     {
         from: '/scopes/current',
@@ -4937,7 +4917,7 @@ module.exports = [
     },
     {
         from: '/libraries/lock/v11/configuration',
-        to: '/auth0-libraries/lock/lock-configuration'
+        to: '/libraries/lock/lock-configuration'
     },
     {
         from: '/cms/joomla/installation',
