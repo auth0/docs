@@ -161,9 +161,9 @@ articles:
         url: /login/embedded-login
         children:
           - title: Lock for Web
-            url: /auth0-libraries/lock
+            url: /libraries/lock
           - title: Auth0.js
-            url: /auth0-libraries/auth0js-v9-reference
+            url: /libraries/auth0js-v9-reference
           - title: Cross-Origin Authentication
             url: /login/embedded-login/cross-origin-authentication
       - title: Authentication Flows
@@ -907,7 +907,7 @@ articles:
           - title: Extensions
             url: /extensions/troubleshoot-extensions
           - title: Auth0 PHP SDK
-            url: /auth0-libraries/auth0-php/troubleshoot-auth0-php-library
+            url: /libraries/auth0-php/troubleshoot-auth0-php-library
       - title: Generate and Analyze HAR Files
         url: /troubleshoot/generate-and-analyze-har-files
       - title: Authentication API Debugger
@@ -1256,102 +1256,102 @@ apis:
         external: true
 libraries:
   - title: Overview
-    url: /auth0-libraries
+    url: /libraries
   - title: Auth0 Single Page App SDK
-    url: /auth0-libraries/auth0-single-page-app-sdk
+    url: /libraries/auth0-single-page-app-sdk
     children:
       - title: Migrate from auth0.js
-        url: /auth0-libraries/auth0-single-page-app-sdk/migrate-from-auth0-js-to-the-auth0-single-page-app-sdk
+        url: /libraries/auth0-single-page-app-sdk/migrate-from-auth0-js-to-the-auth0-single-page-app-sdk
   - title: Auth0 React SDK
     url: /auth0-react
   - title: Lock for Web
-    url: /auth0-libraries/lock
+    url: /libraries/lock
     children:
       - title: Overview
-        url: /auth0-libraries/lock
+        url: /libraries/lock
       - title: Configuration Options
-        url: /auth0-libraries/lock/lock-configuration
+        url: /libraries/lock/lock-configuration
       - title: API Reference
-        url: /auth0-libraries/lock/lock-api-reference
+        url: /libraries/lock/lock-api-reference
       - title: UI Customization
-        url: /auth0-libraries/lock/lock-ui-customization
+        url: /libraries/lock/lock-ui-customization
       - title: Migration Guide
         url: /libraries/lock/v11/migration-guide
       - title: Internationalization
-        url: /auth0-libraries/lock/lock-internationalization
+        url: /libraries/lock/lock-internationalization
       - title: Customizing Errors
-        url: /auth0-libraries/lock/customize-lock-error-messages
+        url: /libraries/lock/customize-lock-error-messages
       - title: Authentication Modes
-        url: /auth0-libraries/lock/lock-authentication-modes
+        url: /libraries/lock/lock-authentication-modes
   - title: Lock for iOS
-    url: /auth0-libraries/lock-swift
+    url: /libraries/lock-swift
     children:
       - title: Overview
-        url: /auth0-libraries/lock-swift
+        url: /libraries/lock-swift
       - title: Styles Customization
-        url: /auth0-libraries/lock-swift/lock-swift-customization
+        url: /libraries/lock-swift/lock-swift-customization
       - title: Behavior Configuration
-        url: /auth0-libraries/lock-swift/lock-swift-configuration-options
+        url: /libraries/lock-swift/lock-swift-configuration-options
       - title: Custom Fields
-        url: /auth0-libraries/lock-swift/lock-swift-custom-fields-at-signup
+        url: /libraries/lock-swift/lock-swift-custom-fields-at-signup
       - title: Internationalization
-        url: /auth0-libraries/lock-swift/lock-swift-internationalization
+        url: /libraries/lock-swift/lock-swift-internationalization
       - title: Migration Guide
         url: /libraries/lock-ios/v2/migration
   - title: Lock for Android
-    url: /auth0-libraries/lock-android
+    url: /libraries/lock-android
     children:
       - title: Overview
-        url: /auth0-libraries/lock-android
+        url: /libraries/lock-android
       - title: Configuration Options
-        url: /auth0-libraries/lock-android/lock-android-configuration
+        url: /libraries/lock-android/lock-android-configuration
       - title: Custom Auth Providers
-        url: /auth0-libraries/lock-android/lock-android-custom-authentication-providers
+        url: /libraries/lock-android/lock-android-custom-authentication-providers
       - title: Android Dev Keystores
-        url: /auth0-libraries/auth0-android/android-development-keystores-hashes
+        url: /libraries/auth0-android/android-development-keystores-hashes
       - title: Custom Signup Fields
-        url: /auth0-libraries/lock-android/lock-android-custom-fields-at-signup
+        url: /libraries/lock-android/lock-android-custom-fields-at-signup
       - title: Custom Theming
-        url: /auth0-libraries/lock-android/lock-android-custom-theming
+        url: /libraries/lock-android/lock-android-custom-theming
       - title: Migration v1 to v2
         url: /libraries/lock-android/v2/migration-guide
       - title: Internationalization
-        url: /auth0-libraries/lock-android/lock-android-internationalization
+        url: /libraries/lock-android/lock-android-internationalization
   - title: Lock vs. Custom UI
     url: /universal-login/universal-login-page-customization
   - title: Auth0 SDK for Web
-    url: /auth0-libraries/auth0js-v9-reference
+    url: /libraries/auth0js-v9-reference
     children:
       - title: Auth0.js
-        url: /auth0-libraries/auth0js-v9-reference
+        url: /libraries/auth0js-v9-reference
       - title: Migration Guide
         url: /libraries/auth0js/v9/migration-guide
   - title: Auth0 SDK for iOS
-    url: /auth0-libraries/auth0-swift
+    url: /libraries/auth0-swift
     children:
       - title: Overview
-        url: /auth0-libraries/auth0-swift
+        url: /libraries/auth0-swift
       - title: Database Authentication
-        url: /auth0-libraries/auth0-swift/auth0-swift-database-connections
+        url: /libraries/auth0-swift/auth0-swift-database-connections
       - title: User Management
-        url: /auth0-libraries/auth0-swift/auth0-swift-user-management
+        url: /libraries/auth0-swift/auth0-swift-user-management
       - title: Refresh Tokens
-        url: /auth0-libraries/auth0-swift/auth0-swift-save-and-renew-tokens
+        url: /libraries/auth0-swift/auth0-swift-save-and-renew-tokens
       - title: Touch ID / Face ID
-        url: /auth0-libraries/auth0-swift/auth0-swift-touchid-faceid
+        url: /libraries/auth0-swift/auth0-swift-touchid-faceid
   - title: Auth0 SDK for Android
-    url: /auth0-libraries/auth0-android
+    url: /libraries/auth0-android
     children:
       - title: Overview
-        url: /auth0-libraries/auth0-android
+        url: /libraries/auth0-android
       - title: Configuration
-        url: /auth0-libraries/auth0-android/auth0-android-configuration
+        url: /libraries/auth0-android/auth0-android-configuration
       - title: Database Authentication
-        url: /auth0-libraries/auth0-android/auth0-android-database-authentication
+        url: /libraries/auth0-android/auth0-android-database-authentication
       - title: User Management
-        url: /auth0-libraries/auth0-android/auth0-android-user-management
+        url: /libraries/auth0-android/auth0-android-user-management
       - title: Refresh Tokens
-        url: /auth0-libraries/auth0-android/auth0-android-save-and-renew-tokens
+        url: /libraries/auth0-android/auth0-android-save-and-renew-tokens
 videos:
   - title: Learn Identity
     url: /videos/learn-identity-series
