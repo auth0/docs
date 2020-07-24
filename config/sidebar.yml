@@ -441,7 +441,6 @@ articles:
           - title: Deprovision Users
             url: /protocols/saml-configuration-options/deprovision-users-in-saml-integrations
           - title: SAML Configurations for SSO Integrations
-            url: /protocols/saml/saml-apps
             url: /protocols/saml/saml-configuration/special-configuration-scenarios
             children:
               - title: IdP-Initiated Single Sign-On
