@@ -2511,24 +2511,6 @@ module.exports = [
       to: '/hooks/extensibility-points/client-credentials-exchange'
     },
     {
-      from: [
-        '/hooks/concepts/post-user-registration-extensibility-point',
-        '/hooks/guides/use-the-post-user-registration-extensibility-point'
-      ],
-      to: '/hooks/extensibility-points/post-user-registration'
-    },
-    {
-      from: [
-        '/hooks/concepts/pre-user-registration-extensibility-point',
-        '/hooks/guides/use-the-pre-user-registration-extensibility-point'
-      ],
-      to: '/hooks/extensibility-points/pre-user-registration'
-    },
-    {
-      from: '/hooks/guides/post-change-password',
-      to: '/hooks/extensibility-points/post-change-password'
-    },
-    {
       from: '/hooks/concepts/extensibility-points',
       to: '/hooks/extensibility-points'
     },
@@ -2569,15 +2551,15 @@ module.exports = [
       to: '/hooks/extensibility-points/client-credentials-exchange'
     },
     {
-      from: '/hooks/post-change-password',
+      from: ['/hooks/post-change-password','/hooks/guides/post-change-password'],
       to: '/hooks/extensibility-points/post-change-password'
     },
     {
-      from: '/hooks/post-user-registration',
+      from: ['/hooks/post-user-registration','/hooks/concepts/post-user-registration-extensibility-point','/hooks/guides/use-the-post-user-registration-extensibility-point'],
       to: '/hooks/extensibility-points/post-user-registration'
     },
     {
-      from: '/hooks/pre-user-registration',
+      from: ['/hooks/pre-user-registration','/hooks/concepts/pre-user-registration-extensibility-point','/hooks/guides/use-the-pre-user-registration-extensibility-point'],
       to: '/hooks/extensibility-points/pre-user-registration'
     },
     {
