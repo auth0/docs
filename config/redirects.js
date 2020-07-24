@@ -925,15 +925,6 @@ module.exports = [
     to: `/users/search`
   },
   {
-    from: [
-      '/appliance/checksum',
-      '/appliance/proxy-updater',
-      '/appliance/update',
-      '/updating-appliance'
-    ],
-    to: '/private-cloud'
-  },
-  {
     from: '/enterprise-support',
     to: '/onboarding/enterprise-support'
   },
@@ -2376,14 +2367,6 @@ module.exports = [
       to: '/best-practices/user-data-storage-best-practices'
     },
     {
-      from: '/enterprise/private-cloud/overview',
-      to: '/private-cloud'
-    },
-    {
-      from: '/private-saas-deployment',
-      to: '/private-cloud'
-    },
-    {
       from: '/topics/identity-glossary',
       to: '/glossary'
     },
@@ -2602,7 +2585,16 @@ module.exports = [
     /* Private Cloud Redirects */
 
     {
-      from: ['/private-cloud', '/appliance', '/appliance/appliance-overview'],
+      from: [
+      '/appliance/checksum',
+      '/appliance/proxy-updater',
+      '/appliance/update',
+      '/updating-appliance',
+      '/private-saas-deployment',
+      '/enterprise/private-cloud/overview',
+      '/appliance',
+      '/appliance/appliance-overview'
+      ],
       to: '/private-cloud'
     },
     {
