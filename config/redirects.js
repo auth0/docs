@@ -3558,6 +3558,10 @@ module.exports = [
         to: '/product-lifecycle/deprecations-and-migrations'
     },
     {
+        from: '/security/bulletins',
+        to: '/security'
+    },
+    {
         from: '/security/bulletins/cve-2019-20174',
         to: '/security/security-update-for-auth0-lock-library'
     },
