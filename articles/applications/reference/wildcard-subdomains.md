@@ -15,6 +15,7 @@ You can use wildcards for subdomain URL registration in your application configu
 * **Allowed Callback URLs**: Set of URLs to which Auth0 is allowed to redirect users after they authenticate.
 * **Allowed Logout URLs**: List of URLs to which you can redirect users after they log out from Auth0.
 * **Allowed Origins (CORS)**: Set of URLs that will be allowed to make requests from JavaScript to Auth0 API (typically used with CORS).
+* **Allowed Web Origins**: List of URLs from where an authorization request using [`web_message` as the response mode](/protocols/oauth2#how-response-mode-works) can originate.
 
 ::: warning
 Avoid using wildcards for subdomains in application callbacks and allowed origins as it can make your application vulnerable to attacks. See [Application Settings Best Practices](/best-practices/application-settings) for this and other recommended settings.

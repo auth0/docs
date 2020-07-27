@@ -38,7 +38,7 @@ These issues are another reason why the more practical solution is to use [Unive
 
 Configuring your application for cross-origin authentication is a process that requires a few steps:
 
-1. Ensure that the **Allowed Web Origins** field in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) is set to the domain making the request. Note that the URLs specified for Allowed Web Origins **cannot** contain wildcards or relative paths after the domain.
+1. Ensure that the **Allowed Web Origins** field in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) is set to the domain making the request. The URLs specified for Allowed Web Origins can contain [wildcards for subdomains](/applications/reference/wildcard-subdomains) and **cannot** contain relative paths after the domain.
 1. Ensure that your application is using [Lock](/libraries/lock) 11 or higher, or [Auth0.js](/libraries/auth0js) version 9 or higher.
 1. If you don't enable [Custom Domains](/custom-domains), you will need to create a page which uses auth0.js to act as a fallback for the cross-origin transaction. More information on setting up this page is provided below.
 
