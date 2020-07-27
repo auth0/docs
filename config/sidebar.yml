@@ -784,7 +784,7 @@ articles:
       - title: Log Search Query Syntax
         url: /logs/log-search-query-syntax
       - title: Migrate from Logs Search v2 to v3
-        url: /logs/migrate-to-tenant-log-search-v3
+        url: /product-lifecycle/deprecations-and-migrations/migrate-to-tenant-log-search-v3
   - title: Monitor
     url: /monitor-auth0
     children:
