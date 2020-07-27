@@ -1093,16 +1093,8 @@ module.exports = [
     to: '/overview/deployment-models'
   },
   {
-    from: '/overview',
-    to: '/getting-started/overview'
-  },
-  {
     from: '/overview/apis',
     to: '/api-auth/apis'
-  },
-  {
-    from: '/overview/deployment-models',
-    to: '/getting-started/deployment-models'
   },
   {
     from: '/java-overview',
@@ -5144,10 +5136,6 @@ module.exports = [
     {
         from: '/api/management/guides/applications/view-ownership',
         to: '/applications/view-application-ownership'
-    },
-    {
-        from: '/extensions',
-        to: '/extensions'
     },
     {
         from: '/extensions/sso-dashboard',
