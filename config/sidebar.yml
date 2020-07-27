@@ -1164,13 +1164,9 @@ articles:
     url: /professional-services
     children:
       - title: Solution Design
-        url: /professional-services/solution-design
+        url: /professional-services/solution-design-services
       - title: Implement
-        url: /professional-services/implement
-      - title: Maintain and Improve
-        url: /professional-services/maintain-and-improve
-      - title: Packages
-        url: /services/packages
+        url: /professional-services/custom-implementation-services
       - title: Architectural Design Sessions
         url: /professional-services/architectural-design-services
         hidden: true
