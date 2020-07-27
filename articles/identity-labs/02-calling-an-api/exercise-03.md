@@ -52,8 +52,10 @@ To change this behavior, you can make your web app take advantage of yet another
 // webapp/server.js
 
 app.use(auth({
+  baseURL: appUrl,
   required: false,
   auth0Logout: true,
+  routes: false,
   appSession: false,
   authorizationParams: {
     response_type: 'code id_token',
