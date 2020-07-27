@@ -817,10 +817,6 @@ module.exports = [
     to: '/mfa/guides/customize-phone-messages'
   },
   {
-    from: '/multifactor-authentication/reset-user',
-    to: '/mfa/guides/reset-user-mfa'
-  },
-  {
     from: '/multifactor-authentication/step-up-authentication',
     to: '/mfa/concepts/step-up-authentication'
   },
@@ -2556,10 +2552,6 @@ module.exports = [
     {
       from: '/product-lifecycle/deprecation-eol',
       to: '/product-lifecycle/migration-process'
-    },
-    {
-      from: ['/mfa/reset-user-mfa','/mfa/reset-user-MFA'],
-      to: '/mfa/guides/reset-user-mfa'
     },
     {
       from: '/connections/social/miicard',
@@ -4674,7 +4666,7 @@ module.exports = [
         to: '/mfa/auth0-guardian'
     },
     {
-        from: '/mfa/guides/reset-user-mfa',
+        from: ['/mfa/guides/reset-user-mfa','/multifactor-authentication/reset-user'],
         to: '/mfa/reset-user-mfa'
     },
     {
