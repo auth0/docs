@@ -3,13 +3,11 @@ articles:
     url: /get-started
     children:
       - title: Auth0 Overview
-        url: /getting-started/overview
+        url: /get-started
       - title: Learn the Basics
         url: /get-started/learn-the-basics
       - title: Dashboard Overview
-        url: /getting-started/dashboard-overview
-      - title: Create a Tenant
-        url: /getting-started/create-tenant
+        url: /get-started/dashboard
       - title: Set Up An App
         url: /applications/set-up-an-application
         children:
@@ -388,8 +386,6 @@ articles:
             url: /tokens/signing-algorithms
           - title: Represent Multiple APIs with a Single API
             url: /authorization/represent-multiple-apis-using-a-single-logical-api
-          - title: Dashboard Views for APIs
-            url: /dashboard/reference/views-api
       - title: Single Sign-On
         url: /sso
         children:
@@ -1321,11 +1317,6 @@ libraries:
     url: /universal-login/universal-login-page-customization
   - title: Auth0 SDK for Web
     url: /libraries/auth0js-v9-reference
-    children:
-      - title: Auth0.js
-        url: /libraries/auth0js-v9-reference
-      - title: Migration Guide
-        url: /libraries/auth0js/v9/migration-guide
   - title: Auth0 SDK for iOS
     url: /libraries/auth0-swift
     children:
