@@ -409,10 +409,6 @@ articles:
             url: /anomaly-detection/customize-blocked-account-emails
           - title: Enable/Disable Brute Force Protection
             url: /anomaly-detection/enable-and-disable-brute-force-protection
-          - title: Breached Password Triggers
-            url: /anomaly-detection/references/breached-password-detection-triggers-actions
-          - title: Brute-Force Protection Triggers
-            url: /anomaly-detection/references/brute-force-protection-triggers-actions
           - title: View Anomaly Detection Events
             url: /anomaly-detection/view-anomaly-detection-events
       - title: SAML Configuration
@@ -423,28 +419,15 @@ articles:
           - title: Configure Auth0 as a Service Provider
             url: /protocols/saml-configuration-options/configure-auth0-saml-service-provider
           - title: Configure Auth0 as an Identity Provider
-            url: /protocols/saml/saml-configuration/auth0-as-identity-provider
+            url: /protocols/saml-configuration-options/configure-auth0-as-saml-identity-provider
           - title: Configure Auth0 as Both Service and Identity Provider
             url: /protocols/saml-configuration-options/configure-auth0-as-service-and-identity-provider
-          - title: SAML Design Considerations
-            url: /protocols/saml/saml-configuration/design-considerations
           - title: Supported SAML Options and Bindings
-            url: /protocols/saml/saml-configuration/supported-options-and-bindings
+            url: /protocols/saml-configuration-options/saml-identity-provider-configuration-settings
           - title: Customize SAML Assertions
             url: /protocols/saml-configuration-options/customize-saml-assertions
-          - title: Logout
-            url: /protocols/saml/saml-configuration/logout
           - title: Deprovision Users
             url: /protocols/saml-configuration-options/deprovision-users-in-saml-integrations
-          - title: SAML Configurations for SSO Integrations
-            url: /protocols/saml/saml-configuration/special-configuration-scenarios
-            children:
-              - title: IdP-Initiated Single Sign-On
-                url: /protocols/saml/saml-configuration/special-configuration-scenarios/idp-initiated-sso
-                hidden: true
-              - title: Signing and Encrypting SAML Requests
-                url: /protocols/saml/saml-configuration/special-configuration-scenarios/signing-and-encrypting-saml-requests
-                hidden: true
       - title: Whitelist IP Addresses
         url: /security/whitelist-ip-addresses
   - title: Manage Users
