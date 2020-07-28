@@ -730,10 +730,6 @@ module.exports = [
     to: '/tutorials/wsfed-web-app'
   },
   {
-    from: '/api',
-    to: '/api/info'
-  },
-  {
     from: ['/auth-api', '/api/authentication/reference'],
     to: '/api/authentication'
   },
@@ -5223,7 +5219,7 @@ module.exports = [
     },
     {
         from: '/api/info',
-        to: '/apis'
+        to: '/api'
     },
     {
         from: '/api/postman',
