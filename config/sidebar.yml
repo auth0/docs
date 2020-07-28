@@ -3,13 +3,11 @@ articles:
     url: /get-started
     children:
       - title: Auth0 Overview
-        url: /getting-started/overview
+        url: /get-started
       - title: Learn the Basics
         url: /get-started/learn-the-basics
       - title: Dashboard Overview
-        url: /getting-started/dashboard-overview
-      - title: Create a Tenant
-        url: /getting-started/create-tenant
+        url: /get-started/dashboard
       - title: Set Up An App
         url: /applications/set-up-an-application
         children:
@@ -388,8 +386,6 @@ articles:
             url: /tokens/signing-algorithms
           - title: Represent Multiple APIs with a Single API
             url: /authorization/represent-multiple-apis-using-a-single-logical-api
-          - title: Dashboard Views for APIs
-            url: /dashboard/reference/views-api
       - title: Single Sign-On
         url: /sso
         children:
@@ -413,10 +409,6 @@ articles:
             url: /anomaly-detection/customize-blocked-account-emails
           - title: Enable/Disable Brute Force Protection
             url: /anomaly-detection/enable-and-disable-brute-force-protection
-          - title: Breached Password Triggers
-            url: /anomaly-detection/references/breached-password-detection-triggers-actions
-          - title: Brute-Force Protection Triggers
-            url: /anomaly-detection/references/brute-force-protection-triggers-actions
           - title: View Anomaly Detection Events
             url: /anomaly-detection/view-anomaly-detection-events
       - title: SAML Configuration
@@ -427,28 +419,15 @@ articles:
           - title: Configure Auth0 as a Service Provider
             url: /protocols/saml-configuration-options/configure-auth0-saml-service-provider
           - title: Configure Auth0 as an Identity Provider
-            url: /protocols/saml/saml-configuration/auth0-as-identity-provider
+            url: /protocols/saml-configuration-options/configure-auth0-as-saml-identity-provider
           - title: Configure Auth0 as Both Service and Identity Provider
             url: /protocols/saml-configuration-options/configure-auth0-as-service-and-identity-provider
-          - title: SAML Design Considerations
-            url: /protocols/saml/saml-configuration/design-considerations
           - title: Supported SAML Options and Bindings
-            url: /protocols/saml/saml-configuration/supported-options-and-bindings
+            url: /protocols/saml-configuration-options/saml-identity-provider-configuration-settings
           - title: Customize SAML Assertions
             url: /protocols/saml-configuration-options/customize-saml-assertions
-          - title: Logout
-            url: /protocols/saml/saml-configuration/logout
           - title: Deprovision Users
             url: /protocols/saml-configuration-options/deprovision-users-in-saml-integrations
-          - title: SAML Configurations for SSO Integrations
-            url: /protocols/saml/saml-configuration/special-configuration-scenarios
-            children:
-              - title: IdP-Initiated Single Sign-On
-                url: /protocols/saml/saml-configuration/special-configuration-scenarios/idp-initiated-sso
-                hidden: true
-              - title: Signing and Encrypting SAML Requests
-                url: /protocols/saml/saml-configuration/special-configuration-scenarios/signing-and-encrypting-saml-requests
-                hidden: true
       - title: Whitelist IP Addresses
         url: /security/whitelist-ip-addresses
   - title: Manage Users
@@ -805,7 +784,7 @@ articles:
       - title: Log Search Query Syntax
         url: /logs/log-search-query-syntax
       - title: Migrate from Logs Search v2 to v3
-        url: /logs/migrate-to-tenant-log-search-v3
+        url: /product-lifecycle/deprecations-and-migrations/migrate-to-tenant-log-search-v3
   - title: Monitor
     url: /monitor-auth0
     children:
@@ -1185,13 +1164,9 @@ articles:
     url: /professional-services
     children:
       - title: Solution Design
-        url: /professional-services/solution-design
+        url: /professional-services/solution-design-services
       - title: Implement
-        url: /professional-services/implement
-      - title: Maintain and Improve
-        url: /professional-services/maintain-and-improve
-      - title: Packages
-        url: /services/packages
+        url: /professional-services/custom-implementation-services
       - title: Architectural Design Sessions
         url: /professional-services/architectural-design-services
         hidden: true
@@ -1229,9 +1204,9 @@ articles:
     url: 'https://auth0.com/blog/'
 apis:
   - title: Overview
-    url: /auth0-apis
+    url: /api
   - title: Testing with Postman
-    url: /auth0-apis/use-auth0-apis-with-postman-collections
+    url: /api/use-auth0-apis-with-postman-collections
   - title: Authentication API
     url: /api/authentication
     external: true
@@ -1248,7 +1223,7 @@ apis:
           - title: Changes
             url: /tokens/management-api-access-tokens/changes-in-auth0-management-apiv2-tokens
       - title: Changes in v2
-        url: /auth0-apis/management-api-changes-v1-to-v2
+        url: /api/management-api-changes-v1-to-v2
         forceFullReload: true
       - title: API Explorer
         url: /api/management/v2/
@@ -1263,7 +1238,7 @@ libraries:
       - title: Migrate from auth0.js
         url: /libraries/auth0-single-page-app-sdk/migrate-from-auth0-js-to-the-auth0-single-page-app-sdk
   - title: Auth0 React SDK
-    url: /auth0-react
+    url: /libraries/auth0-react
   - title: Lock for Web
     url: /libraries/lock
     children:
@@ -1275,8 +1250,6 @@ libraries:
         url: /libraries/lock/lock-api-reference
       - title: UI Customization
         url: /libraries/lock/lock-ui-customization
-      - title: Migration Guide
-        url: /libraries/lock/v11/migration-guide
       - title: Internationalization
         url: /libraries/lock/lock-internationalization
       - title: Customizing Errors
@@ -1296,8 +1269,6 @@ libraries:
         url: /libraries/lock-swift/lock-swift-custom-fields-at-signup
       - title: Internationalization
         url: /libraries/lock-swift/lock-swift-internationalization
-      - title: Migration Guide
-        url: /libraries/lock-ios/v2/migration
   - title: Lock for Android
     url: /libraries/lock-android
     children:
@@ -1313,19 +1284,12 @@ libraries:
         url: /libraries/lock-android/lock-android-custom-fields-at-signup
       - title: Custom Theming
         url: /libraries/lock-android/lock-android-custom-theming
-      - title: Migration v1 to v2
-        url: /libraries/lock-android/v2/migration-guide
       - title: Internationalization
         url: /libraries/lock-android/lock-android-internationalization
   - title: Lock vs. Custom UI
     url: /universal-login/universal-login-page-customization
   - title: Auth0 SDK for Web
     url: /libraries/auth0js-v9-reference
-    children:
-      - title: Auth0.js
-        url: /libraries/auth0js-v9-reference
-      - title: Migration Guide
-        url: /libraries/auth0js/v9/migration-guide
   - title: Auth0 SDK for iOS
     url: /libraries/auth0-swift
     children:

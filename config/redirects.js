@@ -541,12 +541,8 @@ module.exports = [
     to: '/applications/addons'
   },
   {
-    from: '/clients/client-grant-types',
+    from: ['/clients/client-grant-types','/applications/concepts/application-grant-types'],
     to: '/applications/application-grant-types'
-  },
-  {
-    from: '/applications/application-grant-types',
-    to: '/applications/concepts/application-grant-types'
   },
   {
     from: '/applications/concepts/signing-algorithms',
@@ -734,10 +730,6 @@ module.exports = [
     to: '/tutorials/wsfed-web-app'
   },
   {
-    from: '/api',
-    to: '/api/info'
-  },
-  {
     from: ['/auth-api', '/api/authentication/reference'],
     to: '/api/authentication'
   },
@@ -815,10 +807,6 @@ module.exports = [
   {
     from: '/multifactor-authentication/sms-templates',
     to: '/mfa/guides/customize-phone-messages'
-  },
-  {
-    from: '/multifactor-authentication/reset-user',
-    to: '/mfa/guides/reset-user-mfa'
   },
   {
     from: '/multifactor-authentication/step-up-authentication',
@@ -1097,16 +1085,8 @@ module.exports = [
     to: '/overview/deployment-models'
   },
   {
-    from: '/overview',
-    to: '/getting-started/overview'
-  },
-  {
     from: '/overview/apis',
     to: '/api-auth/apis'
-  },
-  {
-    from: '/overview/deployment-models',
-    to: '/getting-started/deployment-models'
   },
   {
     from: '/java-overview',
@@ -2526,18 +2506,6 @@ module.exports = [
       to: '/hooks/extensibility-points/client-credentials-exchange'
     },
     {
-      from: ['/hooks/post-change-password','/hooks/guides/post-change-password'],
-      to: '/hooks/extensibility-points/post-change-password'
-    },
-    {
-      from: ['/hooks/post-user-registration','/hooks/concepts/post-user-registration-extensibility-point','/hooks/guides/use-the-post-user-registration-extensibility-point'],
-      to: '/hooks/extensibility-points/post-user-registration'
-    },
-    {
-      from: ['/hooks/pre-user-registration','/hooks/concepts/pre-user-registration-extensibility-point','/hooks/guides/use-the-pre-user-registration-extensibility-point'],
-      to: '/hooks/extensibility-points/pre-user-registration'
-    },
-    {
       from: '/hooks/logs',
       to: '/hooks/view-logs'
     },
@@ -2556,10 +2524,6 @@ module.exports = [
     {
       from: '/product-lifecycle/deprecation-eol',
       to: '/product-lifecycle/migration-process'
-    },
-    {
-      from: ['/mfa/reset-user-mfa','/mfa/reset-user-MFA'],
-      to: '/mfa/guides/reset-user-mfa'
     },
     {
       from: '/connections/social/miicard',
@@ -3878,10 +3842,6 @@ module.exports = [
         to: '/applications/first-party-and-third-party-applications'
     },
     {
-        from: '/applications/concepts/application-grant-types',
-        to: '/applications/application-grant-types'
-    },
-    {
         from: '/applications/reference/wildcard-subdomains',
         to: '/applications/wildcards-for-subdomains'
     },
@@ -3891,95 +3851,95 @@ module.exports = [
     },
     {
         from: '/extensions/visual-studio-team-services-deploy',
-        to: '/auth0-extensions/visual-studio-team-services-deployments'
+        to: '/extensions/visual-studio-team-services-deployments'
     },
     {
         from: '/extensions/user-import-export',
-        to: '/auth0-extensions/user-import-export-extension'
+        to: '/extensions/user-import-export-extension'
     },
     {
         from: '/extensions/troubleshoot',
-        to: '/auth0-extensions/troubleshoot-extensions'
+        to: '/extensions/troubleshoot-extensions'
     },
     {
         from: '/extensions/sumologic',
-        to: '/auth0-extensions/auth0-logs-to-sumo-logic'
+        to: '/extensions/auth0-logs-to-sumo-logic'
     },
     {
         from: '/extensions/splunk',
-        to: '/auth0-extensions/export-logs-to-splunk'
+        to: '/extensions/export-logs-to-splunk'
     },
     {
         from: '/extensions/segment',
-        to: '/auth0-extensions/export-logs-to-segment'
+        to: '/extensions/export-logs-to-segment'
     },
     {
         from: '/extensions/papertrail',
-        to: '/auth0-extensions/export-logs-to-papertrail'
+        to: '/extensions/export-logs-to-papertrail'
     },
     {
         from: '/extensions/mixpanel',
-        to: '/auth0-extensions/export-logs-to-mixpanel'
+        to: '/extensions/export-logs-to-mixpanel'
     },
     {
         from: '/extensions/logstash',
-        to: '/auth0-extensions/export-logs-to-logstash'
+        to: '/extensions/export-logs-to-logstash'
     },
     {
         from: '/extensions/loggly',
-        to: '/auth0-extensions/export-logs-to-loggly'
+        to: '/extensions/export-logs-to-loggly'
     },
     {
         from: '/extensions/logentries',
-        to: '/auth0-extensions/export-logs-to-logentries'
+        to: '/extensions/export-logs-to-logentries'
     },
     {
         from: '/extensions/cloudwatch',
-        to: '/auth0-extensions/export-logs-to-cloudwatch'
+        to: '/extensions/export-logs-to-cloudwatch'
     },
     {
         from: '/extensions/application-insight',
-        to: '/auth0-extensions/export-logs-to-application-insights'
+        to: '/extensions/export-logs-to-application-insights'
     },
     {
         from: '/extensions/azure-blob-storage',
-        to: '/auth0-extensions/export-logs-to-azure-blob-storage'
+        to: '/extensions/export-logs-to-azure-blob-storage'
     },
     {
         from: '/extensions/realtime-webtask-logs',
-        to: '/auth0-extensions/real-time-webtask-logs'
+        to: '/extensions/real-time-webtask-logs'
     },
     {
         from: '/extensions/management-api-webhooks',
-        to: '/auth0-extensions/auth0-management-api-webhooks'
+        to: '/extensions/auth0-management-api-webhooks'
     },
     {
         from: '/extensions/authentication-api-webhooks',
-        to: '/auth0-extensions/auth0-authentication-api-webhooks'
+        to: '/extensions/auth0-authentication-api-webhooks'
     },
     {
         from: '/extensions/adldap-connector',
-        to: '/auth0-extensions/ad-ldap-connector-health-monitor'
+        to: '/extensions/ad-ldap-connector-health-monitor'
     },
     {
         from: '/extensions/authentication-api-debugger',
-        to: '/auth0-extensions/authentication-api-debugger-extension'
+        to: '/extensions/authentication-api-debugger-extension'
     },
     {
         from: '/extensions/custom-social-extensions',
-        to: '/auth0-extensions/custom-social-connections'
+        to: '/extensions/custom-social-connections'
     },
     {
         from: '/extensions/bitbucket-deploy',
-        to: '/auth0-extensions/bitbucket-deployments'
+        to: '/extensions/bitbucket-deployments'
     },
     {
         from: '/extensions/github-deploy',
-        to: '/auth0-extensions/github-deployments'
+        to: '/extensions/github-deployments'
     },
     {
         from: '/extensions/gitlab-deploy',
-        to: '/auth0-extensions/gitlab-deployments'
+        to: '/extensions/gitlab-deployments'
     },
     {
         from: '/branding-customization',
@@ -4395,7 +4355,7 @@ module.exports = [
     },
     {
         from: '/dashboard/guides/extensions/sso-dashboard-update-apps',
-        to: '/auth0-extensions/single-sign-on-dashboard-extension/update-applications-on-the-sso-dashboard'
+        to: '/extensions/single-sign-on-dashboard-extension/update-applications-on-the-sso-dashboard'
     },
     {
         from: '/integrations/marketing/salesforce',
@@ -4403,19 +4363,19 @@ module.exports = [
     },
     {
         from: '/dashboard/guides/extensions/sso-dashboard-install-extension',
-        to: '/auth0-extensions/single-sign-on-dashboard-extension/install-sso-dashboard-extension'
+        to: '/extensions/single-sign-on-dashboard-extension/install-sso-dashboard-extension'
     },
     {
         from: '/dashboard/guides/extensions/sso-dashboard-add-apps',
-        to: '/auth0-extensions/single-sign-on-dashboard-extension/add-applications-to-the-sso-dashboard'
+        to: '/extensions/single-sign-on-dashboard-extension/add-applications-to-the-sso-dashboard'
     },
     {
         from: '/dashboard/guides/extensions/delegated-admin-install-extension',
-        to: '/auth0-extensions/delegated-administration-extension/install-delegated-admin-extension'
+        to: '/extensions/delegated-administration-extension/install-delegated-admin-extension'
     },
     {
         from: '/dashboard/guides/extensions/delegated-admin-create-app',
-        to: '/auth0-extensions/delegated-administration-extension/create-delegated-admin-applications'
+        to: '/extensions/delegated-administration-extension/create-delegated-admin-applications'
     },
     {
         from: '/dashboard/guides/connections/configure-connection-sync',
@@ -4674,7 +4634,7 @@ module.exports = [
         to: '/mfa/auth0-guardian'
     },
     {
-        from: '/mfa/guides/reset-user-mfa',
+        from: ['/mfa/guides/reset-user-mfa','/multifactor-authentication/reset-user'],
         to: '/mfa/reset-user-mfa'
     },
     {
@@ -5083,35 +5043,35 @@ module.exports = [
     },
     {
         from: '/extensions/authorization-extension/v2/implementation/configuration',
-        to: '/auth0-extensions/authorization-dashboard-extension/configure-authorization-extension'
+        to: '/extensions/authorization-dashboard-extension/configure-authorization-extension'
     },
     {
         from: '/extensions/authorization-extension/v2/migration',
-        to: '/auth0-extensions/authorization-dashboard-extension/migrate-to-authorization-extension-v2'
+        to: '/extensions/authorization-dashboard-extension/migrate-to-authorization-extension-v2'
     },
     {
         from: '/extensions/authorization-extension/v2/implementation/installation',
-        to: '/auth0-extensions/authorization-dashboard-extension/install-authorization-extension'
+        to: '/extensions/authorization-dashboard-extension/install-authorization-extension'
     },
     {
         from: '/extensions/authorization-extension/v2/implementation/setup',
-        to: '/auth0-extensions/authorization-dashboard-extension/set-up-authorization-extension-users'
+        to: '/extensions/authorization-dashboard-extension/set-up-authorization-extension-users'
     },
     {
         from: '/extensions/authorization-extension/v2/api-access',
-        to: '/auth0-extensions/authorization-dashboard-extension/enable-api-access-to-authorization-extension'
+        to: '/extensions/authorization-dashboard-extension/enable-api-access-to-authorization-extension'
     },
     {
         from: '/extensions/authorization-extension/v2/import-export-data',
-        to: '/auth0-extensions/authorization-dashboard-extension/import-and-export-authorization-extension-data'
+        to: '/extensions/authorization-dashboard-extension/import-and-export-authorization-extension-data'
     },
     {
         from: '/extensions/authorization-extension/v2/troubleshooting',
-        to: '/auth0-extensions/authorization-dashboard-extension/troubleshoot-authorization-extension'
+        to: '/extensions/authorization-dashboard-extension/troubleshoot-authorization-extension'
     },
     {
         from: '/extensions/authorization-extension/v2',
-        to: '/auth0-extensions/authorization-dashboard-extension'
+        to: '/extensions/authorization-dashboard-extension'
     },
     {
         from: '/integrations/aws-api-gateway/custom-authorizers',
@@ -5119,7 +5079,7 @@ module.exports = [
     },
     {
         from: '/extensions/authorization-extension/v2/rules',
-        to: '/auth0-extensions/authorization-dashboard-extension/use-rules-with-the-authorization-extension'
+        to: '/extensions/authorization-dashboard-extension/use-rules-with-the-authorization-extension'
     },
     {
         from: '/integrations/aws/tokens',
@@ -5166,23 +5126,19 @@ module.exports = [
         to: '/applications/view-application-ownership'
     },
     {
-        from: '/extensions',
-        to: '/auth0-extensions'
-    },
-    {
         from: '/extensions/sso-dashboard',
-        to: '/auth0-extensions/single-sign-on-dashboard-extension'
+        to: '/extensions/single-sign-on-dashboard-extension'
     },
     {
-        from: '/hooks/extensibility-points/pre-user-registration',
+        from: ['/hooks/extensibility-points/pre-user-registration','/hooks/concepts/pre-user-registration-extensibility-point','/hooks/guides/use-the-pre-user-registration-extensibility-point'],
         to: '/hooks/pre-user-registration'
     },
     {
-        from: '/hooks/extensibility-points/post-user-registration',
+        from: ['/hooks/extensibility-points/post-user-registration','/hooks/concepts/post-user-registration-extensibility-point','/hooks/guides/use-the-post-user-registration-extensibility-point'],
         to: '/hooks/post-user-registration'
     },
     {
-        from: '/hooks/extensibility-points/post-change-password',
+        from: ['/hooks/extensibility-points/post-change-password','/hooks/guides/post-change-password','/hooks/extensibility-points/post-change-password'],
         to: '/hooks/post-change-password'
     },
     {
@@ -5259,15 +5215,15 @@ module.exports = [
     },
     {
         from: '/api/management/v2/changes',
-        to: '/auth0-apis/management-api-changes-v1-to-v2'
+        to: '/api/management-api-changes-v1-to-v2'
     },
     {
         from: '/api/info',
-        to: '/auth0-apis'
+        to: '/api'
     },
     {
         from: '/api/postman',
-        to: '/auth0-apis/use-auth0-apis-with-postman-collections'
+        to: '/api/use-auth0-apis-with-postman-collections'
     },
     {
         from: '/api-auth/faq',
@@ -5319,75 +5275,75 @@ module.exports = [
     },
     {
         from: '/extensions/deploy-cli/references/troubleshooting',
-        to: '/auth0-extensions/deploy-cli-tool/troubleshoot-the-deploy-cli-tool'
+        to: '/extensions/deploy-cli-tool/troubleshoot-the-deploy-cli-tool'
     },
     {
         from: '/extensions/deploy-cli/references/environment-variables-keyword-mappings',
-        to: '/auth0-extensions/deploy-cli-tool/environment-variables-and-keyword-mappings'
+        to: '/extensions/deploy-cli-tool/environment-variables-and-keyword-mappings'
     },
     {
         from: '/extensions/deploy-cli/references/deploy-cli-options',
-        to: '/auth0-extensions/deploy-cli-tool/deploy-cli-tool-options'
+        to: '/extensions/deploy-cli-tool/deploy-cli-tool-options'
     },
     {
         from: '/extensions/deploy-cli/guides/install-deploy-cli',
-        to: '/auth0-extensions/deploy-cli-tool/install-and-configure-the-deploy-cli-tool'
+        to: '/extensions/deploy-cli-tool/install-and-configure-the-deploy-cli-tool'
     },
     {
         from: '/extensions/deploy-cli/guides/incorporate-deploy-cli-into-build-environment',
-        to: '/auth0-extensions/deploy-cli-tool/incorporate-deploy-cli-into-build-environment'
+        to: '/extensions/deploy-cli-tool/incorporate-deploy-cli-into-build-environment'
     },
     {
         from: '/extensions/deploy-cli/guides/import-export-yaml-file',
-        to: '/auth0-extensions/deploy-cli-tool/import-export-tenant-configuration-to-yaml-file'
+        to: '/extensions/deploy-cli-tool/import-export-tenant-configuration-to-yaml-file'
     },
     {
         from: '/extensions/deploy-cli/guides/import-export-directory-structure',
-        to: '/auth0-extensions/deploy-cli-tool/import-export-tenant-configuration-to-directory-structure'
+        to: '/extensions/deploy-cli-tool/import-export-tenant-configuration-to-directory-structure'
     },
     {
         from: '/extensions/deploy-cli/guides/create-deploy-cli-application-manually',
-        to: '/auth0-extensions/deploy-cli-tool/create-and-configure-the-deploy-cli-application-manually'
+        to: '/extensions/deploy-cli-tool/create-and-configure-the-deploy-cli-application-manually'
     },
     {
         from: '/extensions/deploy-cli/guides/call-deploy-cli-programmatically',
-        to: '/auth0-extensions/deploy-cli-tool/call-deploy-cli-tool-programmatically'
+        to: '/extensions/deploy-cli-tool/call-deploy-cli-tool-programmatically'
     },
     {
         from: '/extensions/deploy-cli',
-        to: '/auth0-extensions/deploy-cli-tool'
+        to: '/extensions/deploy-cli-tool'
     },
     {
         from: '/extensions/delegated-admin/v3',
-        to: '/auth0-extensions/delegated-administration-extension'
+        to: '/extensions/delegated-administration-extension'
     },
     {
         from: '/extensions/delegated-admin/v3/hooks/access',
-        to: '/auth0-extensions/delegated-administration-extension/delegated-administration-hooks/delegated-administration-access-hook'
+        to: '/extensions/delegated-administration-extension/delegated-administration-hooks/delegated-administration-access-hook'
     },
     {
         from: '/extensions/delegated-admin/v3/hooks/filter',
-        to: '/auth0-extensions/delegated-administration-extension/delegated-administration-hooks/delegated-administration-filter-hook'
+        to: '/extensions/delegated-administration-extension/delegated-administration-hooks/delegated-administration-filter-hook'
     },
     {
         from: '/extensions/delegated-admin/v3/hooks/membership',
-        to: '/auth0-extensions/delegated-administration-extension/delegated-administration-hooks/delegated-administration-memberships-query-hook'
+        to: '/extensions/delegated-administration-extension/delegated-administration-hooks/delegated-administration-memberships-query-hook'
     },
     {
         from: '/extensions/delegated-admin/v3/hooks/settings',
-        to: '/auth0-extensions/delegated-administration-extension/delegated-administration-hooks/delegated-administration-settings-query-hook'
+        to: '/extensions/delegated-administration-extension/delegated-administration-hooks/delegated-administration-settings-query-hook'
     },
     {
         from: '/extensions/delegated-admin/v3/hooks/write',
-        to: '/auth0-extensions/delegated-administration-extension/delegated-administration-hooks/delegated-administration-write-hook'
+        to: '/extensions/delegated-administration-extension/delegated-administration-hooks/delegated-administration-write-hook'
     },
     {
         from: '/extensions/delegated-admin/v3/hooks',
-        to: '/auth0-extensions/delegated-administration-extension/delegated-administration-hooks'
+        to: '/extensions/delegated-administration-extension/delegated-administration-hooks'
     },
     {
         from: '/extensions/delegated-admin/v3/manage-users',
-        to: '/auth0-extensions/delegated-administration-extension/delegated-administration-manage-users'
+        to: '/extensions/delegated-administration-extension/delegated-administration-manage-users'
     },
     {
         from: '/i18n/password-options',
@@ -5411,7 +5367,7 @@ module.exports = [
     },
     {
         from: '/extensions/account-link',
-        to: '/auth0-extensions/account-link-extension'
+        to: '/extensions/account-link-extension'
     },
     {
         from: '/authorization/guides/manage-roles',
