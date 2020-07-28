@@ -541,12 +541,8 @@ module.exports = [
     to: '/applications/addons'
   },
   {
-    from: '/clients/client-grant-types',
+    from: ['/clients/client-grant-types','/applications/concepts/application-grant-types']
     to: '/applications/application-grant-types'
-  },
-  {
-    from: '/applications/application-grant-types',
-    to: '/applications/concepts/application-grant-types'
   },
   {
     from: '/applications/concepts/signing-algorithms',
@@ -3848,10 +3844,6 @@ module.exports = [
     {
         from: '/applications/concepts/app-types-first-third-party',
         to: '/applications/first-party-and-third-party-applications'
-    },
-    {
-        from: '/applications/concepts/application-grant-types',
-        to: '/applications/application-grant-types'
     },
     {
         from: '/applications/reference/wildcard-subdomains',
