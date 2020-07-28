@@ -694,10 +694,6 @@ module.exports = [
     to: '/integrations/sharepoint-apps'
   },
   {
-    from: '/auth0js',
-    to: '/libraries/auth0js'
-  },
-  {
     from: '/aws',
     to: '/integrations/aws'
   },
@@ -2209,13 +2205,10 @@ module.exports = [
      to: '/hooks/create'
    },
    {
-     from: ['/libraries/lock/v10/auth0js', '/libraries/lock/v11/auth0js'],
+     from: ['/libraries/lock/v10/auth0js', '/libraries/lock/v11/auth0js','/auth0js'],
      to: '/libraries/auth0js'
    },
-  //  {
-  //    from: '/metadata/lock',
-  //    to: '/users/guides/manage-user-metadata'
-  //  }
+
   { from: '/rules/current', to: '/rules' },
   { from: '/rules/legacy', to: '/rules/references/legacy' },
   { from: '/rules/current/context', to: '/rules/references/context-object' },
