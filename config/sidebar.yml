@@ -1204,9 +1204,9 @@ articles:
     url: 'https://auth0.com/blog/'
 apis:
   - title: Overview
-    url: /auth0-apis
+    url: /api
   - title: Testing with Postman
-    url: /auth0-apis/use-auth0-apis-with-postman-collections
+    url: /api/use-auth0-apis-with-postman-collections
   - title: Authentication API
     url: /api/authentication
     external: true
@@ -1223,7 +1223,7 @@ apis:
           - title: Changes
             url: /tokens/management-api-access-tokens/changes-in-auth0-management-apiv2-tokens
       - title: Changes in v2
-        url: /auth0-apis/management-api-changes-v1-to-v2
+        url: /api/management-api-changes-v1-to-v2
         forceFullReload: true
       - title: API Explorer
         url: /api/management/v2/
