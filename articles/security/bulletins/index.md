@@ -27,6 +27,7 @@ Each bulletin contains a description of the vulnerability, how to identify if yo
 
 | **Date** | **Bulletin number** | **Title** | **Affected software** |
 |-|-|-|-|
+| July 28, 2020 | [CVE-2020-15125](/security/bulletins/cve-2020-15125) | Auth0 Security Bulletin for node-auth0 <= 2.27.0 | [node-auth0](https://github.com/auth0/node-auth0) |
 | June 30, 2020 | [CVE 2020-15084](/security/bulletins/cve-2020-15084) | Auth0 Security Bulletin for express-jwt versions < 6.0.0 | [express-jwt](https://github.com/auth0/express-jwt) |
 | April 09, 2020 | [CVE 2020-5263](/security/bulletins/cve-2020-5263) | Auth0 Security Bulletin for auth0.js versions <= 9.13.1 | [Auth0.js](/libraries/auth0js) |
 | March 31, 2020 | [Auth0 Bulletin](/security/bulletins/2020-03-31_wpauth0) | Auth0 Security Bulletin for WordPress Plugin for Auth0 versions < 4.0.0 | [WordPress Plugin for Auth0](https://github.com/auth0/wp-auth0) |
