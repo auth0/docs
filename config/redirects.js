@@ -5227,15 +5227,15 @@ module.exports = [
     },
     {
         from: '/api/management/v2/changes',
-        to: '/auth0-apis/management-api-changes-v1-to-v2'
+        to: '/api/management-api-changes-v1-to-v2'
     },
     {
         from: '/api/info',
-        to: '/auth0-apis'
+        to: '/apis'
     },
     {
         from: '/api/postman',
-        to: '/auth0-apis/use-auth0-apis-with-postman-collections'
+        to: '/api/use-auth0-apis-with-postman-collections'
     },
     {
         from: '/api-auth/faq',
