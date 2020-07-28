@@ -17,7 +17,7 @@
 
 - id: "apis"
   title: "Auth0 APIs"
-  url: "/api/info"
+  url: "/api"
   folder: "api"
 
 - id: "libraries"
