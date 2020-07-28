@@ -48,7 +48,12 @@ To set up Cloudflare as a reverse proxy, a Cloudflare Enterprise Plan with the f
 
 ## Configure Auth0
 
-Once you've configured Cloudflare, you'll need to [contact Auth0](https://support.auth0.com/). Auth0 will enable your tenant to accept the **True-Client-IP** header as the remote client IP address.
+Once you've configured Cloudflare, you'll need to Enable **True-Client-IP** header using the management API [/api/v2/custom-domains/{id}](https://auth0.com/docs/api/management/v2#!/Custom_Domains/patch_custom_domains_by_id) 
+```curl
+curl -X PATCH  -H "Content-Type: application/json" -d '{"custom_client_ip_header":"true-client-ip"}' https://login.auth0.com/api/v2/custom-domains/{id}
+
+```
+
 
 ## Keep reading
 
