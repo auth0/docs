@@ -541,7 +541,7 @@ module.exports = [
     to: '/applications/addons'
   },
   {
-    from: ['/clients/client-grant-types','/applications/concepts/application-grant-types']
+    from: ['/clients/client-grant-types','/applications/concepts/application-grant-types'],
     to: '/applications/application-grant-types'
   },
   {
