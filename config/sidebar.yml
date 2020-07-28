@@ -1238,7 +1238,7 @@ libraries:
       - title: Migrate from auth0.js
         url: /libraries/auth0-single-page-app-sdk/migrate-from-auth0-js-to-the-auth0-single-page-app-sdk
   - title: Auth0 React SDK
-    url: /auth0-react
+    url: /libraries/auth0-react
   - title: Lock for Web
     url: /libraries/lock
     children:
