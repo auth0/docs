@@ -1186,7 +1186,7 @@ module.exports = [
   },
   {
     from: '/saml-configuration',
-    to: '/protocols/saml/saml-configuration'
+    to: '/protocols/saml/saml-configuration-options'
   },
   {
     from: '/saml-idp-generic',
@@ -2093,10 +2093,6 @@ module.exports = [
      to: '/applications/spa#settings'
    },
    {
-     from: '/protocols/saml/saml-configuration/selecting-between-multiple-idp',
-     to: '/hrd'
-   },
-   {
      from: ['/tokens/overview-access-tokens','/tokens/access-token','/tokens/access_token', '/tokens/access-tokens'],
      to: '/tokens/concepts/access-tokens'
    },
@@ -2707,6 +2703,18 @@ module.exports = [
         to: '/troubleshoot/troubleshoot-saml-configurations'
     },
     {
+        from: '/protocols/saml/saml-configuration/signing-and-encrypting-saml-requests',
+        to: '/protocols/saml-configuration-options/sign-and-encrypt-saml-requests'
+    },
+    {
+        from: `/protocols/saml/saml-configuration/special-configuration-scenarios`,
+        to: `/protocols/saml-configuration-options/special-saml-configuration-scenarios`
+    },
+    {
+        from: `/protocols/saml/saml-configuration/special-configuration-scenarios/idp-initiated-sso`,
+        to: `/protocols/saml-configuration-options/identity-provider-initiated-single-sign-on`
+    },
+    {
         from: '/protocols/saml/saml2webapp-tutorial',
         to: '/protocols/saml-configuration-options/configure-saml2-web-applications'
     },
@@ -3243,36 +3251,44 @@ module.exports = [
         to: '/best-practices/custom-database-connection-and-action-script-best-practices'
     },
     {
-        from: '/compliance/gdpr/data-processing',
-        to: '/compliance-and-certifications/data-processing'
+        from: ['/compliance/gdpr/data-processing', '/compliance-and-certifications/data-processing', '/compliance/gdpr', '/compliance-and-certifications/auth0-gdpr-compliance'],
+        to: `/compliance/auth0-gdpr-compliance`
     },
     {
-        from: '/compliance/gdpr',
-        to: '/compliance-and-certifications/auth0-gdpr-compliance'
+        from: ['/compliance', '/compliance-and-certifications'],
+        to: `/compliance`
     },
     {
-        from: '/compliance',
-        to: '/compliance-and-certifications'
+        from: ['/compliance/gdpr/features-aiding-compliance/data-minimization', '/compliance-and-certifications/auth0-gdpr-compliance/gdpr-data-minimization'],
+        to: `/compliance/auth0-gdpr-compliance/gdpr-data-minimization`
     },
     {
-        from: '/compliance/gdpr/features-aiding-compliance/data-minimization',
-        to: '/compliance-and-certifications/auth0-gdpr-compliance/gdpr-data-minimization'
+        from: ['/compliance-and-certifications/auth0-gdpr-compliance/gdpr-data-portability', '/compliance/gdpr/features-aiding-compliance/data-portability'],
+        to: `/compliance/auth0-gdpr-compliance/gdpr-data-portability`
     },
     {
-        from: '/compliance/gdpr/features-aiding-compliance/data-portability',
-        to: '/compliance-and-certifications/auth0-gdpr-compliance/gdpr-data-portability'
+        from: ['/compliance/gdpr/features-aiding-compliance/right-to-access-data', '/compliance-and-certifications/auth0-gdpr-compliance/gdpr-right-to-access-correct-and-erase-data'],
+        to: '/compliance/auth0-gdpr-compliance/gdpr-right-to-access-correct-and-erase-data'
     },
     {
-        from: '/compliance/gdpr/features-aiding-compliance/right-to-access-data',
-        to: '/compliance-and-certifications/auth0-gdpr-compliance/gdpr-right-to-access-correct-and-erase-data'
+        from: ['/compliance/gdpr/features-aiding-compliance/user-consent', '/compliance-and-certifications/auth0-gdpr-compliance/gdpr-conditions-for-consent'],
+        to: `/compliance/auth0-gdpr-compliance/gdpr-conditions-for-consent`
     },
     {
-        from: '/compliance/gdpr/features-aiding-compliance/user-consent',
-        to: '/compliance-and-certifications/auth0-gdpr-compliance/gdpr-conditions-for-consent'
+        from: ['/compliance/gdpr/features-aiding-compliance/protect-user-data', '/compliance-and-certifications/auth0-gdpr-compliance/gdpr-protect-and-secure-user-data'],
+        to: `/compliance/auth0-gdpr-compliance/gdpr-protect-and-secure-user-data`
     },
     {
-        from: '/compliance/gdpr/features-aiding-compliance/protect-user-data',
-        to: '/compliance-and-certifications/auth0-gdpr-compliance/gdpr-protect-and-secure-user-data'
+        from: `/compliance//features-aiding-compliance/user-consent/track-consent-with-lock`,
+        to: `/compliance/auth0-gdpr-compliance/gdpr-track-consent-with-lock`
+    },
+    {
+        from: `/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-custom-ui`,
+        to: `/compliance/auth0-gdpr-compliance/gdpr-track-consent-with-custom-ui`
+    },
+    {
+        from: `/compliance/gdpr/features-aiding-compliance/user-consent/webtask-redirect`,
+        to: `/compliance/auth0-gdpr-compliance/gdpr-redirect-users-to-consent-form-hosted-using-webtask`
     },
     {
         from: '/connector/client-certificates',
@@ -3513,6 +3529,14 @@ module.exports = [
     {
         from: '/security/bulletins/cve-2020-5263',
         to: '/security/security-update-for-auth0-js-library'
+    },
+    {
+        from: `/security/bulletins/cve-2020-15125`,
+        to: `/security/security-update-for-node-auth0-library`
+    },
+    {
+        from: `/security/bulletins/cve-2020-15084`,
+        to: `/security/security-update-for-express-jwt-library`
     },
     {
         from: '/security/bulletins/cve-2019-20173',
@@ -5399,7 +5423,7 @@ module.exports = [
     },
     {
         from: '/troubleshoot/references/saml-errors',
-        to: '/troubleshoot/troubleshoot-authentication/saml-errors'
+        to: '/troubleshoot/troubleshoot-authentication-issues/saml-errors'
     },
     {
         from: '/mfa/guides/configure-phone.md',
