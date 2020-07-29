@@ -2088,10 +2088,10 @@ module.exports = [
      from: '/applications/application-settings/single-page-app',
      to: '/applications/spa#settings'
    },
-   {
-     from: ['/tokens/overview-access-tokens','/tokens/access-token','/tokens/access_token', '/tokens/access-tokens'],
-     to: '/tokens/concepts/access-tokens'
-   },
+   // {
+   //   from: ['/tokens/overview-access-tokens','/tokens/access-token','/tokens/access_token', '/tokens/access-tokens'],
+   //   to: '/tokens/concepts/access-tokens'
+   // },
    {
      from: ['/api-auth/tutorials/verify-access-token', '/tokens/guides/access-token/validate-access-token'],
      to: '/tokens/guides/validate-access-tokens'
@@ -3139,7 +3139,7 @@ module.exports = [
         to: '/tokens/access-tokens/refresh-tokens/use-refresh-tokens'
     },
     {
-        from: '/tokens/concepts/access-tokens',
+        from: ['/tokens/overview-access-tokens','/tokens/access-token','/tokens/access_token', '/tokens/concepts/access-tokens'],
         to: '/tokens/access-tokens'
     },
     {
