@@ -5440,5 +5440,9 @@ module.exports = [
     {
         from: '/rules/guides/metadata',
         to: '/rules/metadata'
-    }
+    },
+    {
+        from: '/api/management/v1',
+        to: '/api/management-api-v1-deprecated'
+    }  
 ];
