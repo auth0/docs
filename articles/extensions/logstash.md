@@ -26,7 +26,7 @@ At this point you should set the following configuration variables:
 | **BATCH_SIZE** | The amount of logs to be read on each execution. Maximun, and default, is `100`. |
 | **LOGSTASH_URL** <br/><span class="label label-danger">Required</span> | Your Logstash URL as defined for use with `logstash-input-http` plugin. |
 | **LOGSTASH_INDEX** <br/><span class="label label-danger">Required</span> | Your Logstash Index to which the logs will be routed. |
-| **LOGSTASH_TOKEN** | The token required for your Logstash deployments that will be included in the querystring. |
+| **LOGSTASH_TOKEN** | The token required for your Logstash deployments that will be included in the query string. |
 | **LOGSTASH_USER** | The Logstash user. |
 | **LOGSTASH_PASSWORD** | The password associated with your Logstash user. |
 | **START_FROM** | The checkpoint ID of the log from where you want to start. |

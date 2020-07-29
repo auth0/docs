@@ -29,7 +29,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=client_credentials&client_id=${account.clientId}&client_secret=YOUR_CLIENT_SECRET
 ```
 
-Once authenticated, the Access Token can be included in the request as part of the querystring ( `?access_token=...`) or in an HTTP header (`Authorization: Bearer ...access_token...`).
+Once authenticated, the Access Token can be included in the request as part of the query string ( `?access_token=...`) or in an HTTP header (`Authorization: Bearer ...access_token...`).
 
 
 ## Users

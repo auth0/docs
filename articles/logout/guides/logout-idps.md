@@ -14,7 +14,7 @@ Although this is not common practice, you can force the user to log out of their
 
 For many providers, Auth0 will give you this behavior by simply having you add the `federated` query parameter to the redirect to `/v2/logout`. This will then additionally redirect the user to their identity provider and log them out there as well.  
 
-To do this, add a `federated` querystring parameter to the logout URL:
+To do this, add a `federated` query string parameter to the logout URL:
 
 ```text
 https://${account.namespace}/v2/logout?federated
@@ -24,7 +24,7 @@ https://${account.namespace}/v2/logout?federated
 
 There are a few limitations to federated logout to keep in mind:
  
-* No validation is performed on any URL provided as a value to the returnTo parameter, nor any querystring or hash information provided as part of the URL.
+* No validation is performed on any URL provided as a value to the returnTo parameter, nor any query string or hash information provided as part of the URL.
 
 * The behavior of federated logouts with social providers is inconsistent. Each provider will handle the returnTo parameter differently and for some, it will not work. Please check your social provider's settings to determine how it will behave.
 

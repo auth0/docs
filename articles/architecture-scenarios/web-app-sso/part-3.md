@@ -85,9 +85,9 @@ If they do so, they are signed in without having to re-enter their credentials w
 When logging the user out, you will once again need to think about the three layers of sessions which we spoke about before:
 - __Application Session__: You need to log out the user from your Web Application, by clearing their session.
 - __Auth0 session__: You need to log out the user from Auth0. To do this you redirect the user to `https://${account.namespace}/v2/logout`. Redirecting the user to this URL clears all single sign-on cookies set by Auth0 for the user.
-- __Identity Provider session__: Although this is not common practice, you can force the user to log out from the Identity Provider used, for example Facebook or Google. To do this add a `federated` querystring parameter to the logout URL: `https://${account.namespace}/v2/logout?federated`.
+- __Identity Provider session__: Although this is not common practice, you can force the user to log out from the Identity Provider used, for example Facebook or Google. To do this add a `federated` query string parameter to the logout URL: `https://${account.namespace}/v2/logout?federated`.
 
-To redirect a user after logout, add a `returnTo` querystring parameter with the target URL as the value: `https://${account.namespace}/v2/logout?returnTo=http://www.example.com`. Note, that you will need to add the `returnTo` URL as an __Allowed Logout URLs__. For more information on how to implement this refer to: [Logout](/logout).
+To redirect a user after logout, add a `returnTo` query string parameter with the target URL as the value: `https://${account.namespace}/v2/logout?returnTo=http://www.example.com`. Note, that you will need to add the `returnTo` URL as an __Allowed Logout URLs__. For more information on how to implement this refer to: [Logout](/logout).
 
 The logout flow (not including federated logout) is as follows:
 
@@ -97,7 +97,7 @@ The logout flow (not including federated logout) is as follows:
 1. __Clear user’s local session__: The user's Application Session / Cookie will be cleared.
 1. __Redirect browser to Auth0 Logout__: The user's browser will be redirected to the Auth0 Logout URL.
 1. __Clear SSO Cookie__: Auth0 will clear the user's SSO Cookie.
-1. __Redirect to post-logout URL__: Auth0 will return a redirect response and redirect the user's browser to the `returnTo` querystring parameter.
+1. __Redirect to post-logout URL__: Auth0 will return a redirect response and redirect the user's browser to the `returnTo` query string parameter.
 
 **See the implementation in [ASP.NET Core](/architecture-scenarios/application/web-app-sso/implementation-aspnetcore#implement-the-logout)**.
 

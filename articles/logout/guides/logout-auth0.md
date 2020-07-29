@@ -18,7 +18,7 @@ The [logout endpoint](/api/authentication?javascript#logout) in Auth0 works in o
 https://${account.namespace}/v2/logout
 ```
 
-2. **Clears the SSO cookie in Auth0 and sign out the user from the IdP (such as ADFS or Google).** To [log the user out of both Auth0 *and* the IdP](/logout/guides/logout-idps), you must include the `federated` querystring parameter with your call to the logout endpoint.
+2. **Clears the SSO cookie in Auth0 and sign out the user from the IdP (such as ADFS or Google).** To [log the user out of both Auth0 *and* the IdP](/logout/guides/logout-idps), you must include the `federated` query string parameter with your call to the logout endpoint.
 
 Redirecting the user to this URL clears all <dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> cookies set by Auth0 for the user.
 

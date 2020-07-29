@@ -72,7 +72,7 @@ Alternatively you may desire to also log the users out of the Identity Provider 
 
 There are a few limitations with logout to keep in mind:
  
-* No validation is performed on any URL provided as a value to the `returnTo` parameter, nor any querystring or hash information provided as part of the URL.
+* No validation is performed on any URL provided as a value to the `returnTo` parameter, nor any query string or hash information provided as part of the URL.
 
 * The behavior of federated logouts with social providers is inconsistent. Each provider will handle the `returnTo` parameter differently and for some, it will not work. Please check your social provider's settings to determine how it will behave.
 

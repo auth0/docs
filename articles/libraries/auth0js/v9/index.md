@@ -379,7 +379,7 @@ To log out a user, use the `logout` method. This method accepts an options objec
 | --- | --- | --- |
 | `returnTo` | optional | (String) URL to redirect the user to after the logout. |
 | `clientID` | optional | (String) Your Auth0 client ID |
-| `federated` | optional | (Querystring parameter) Add this querystring parameter to the logout URL, to log the user out of their identity provider, as well: `https://${account.namespace}/v2/logout?federated`. |
+| `federated` | optional | (query string parameter) Add this query string parameter to the logout URL, to log the user out of their identity provider, as well: `https://${account.namespace}/v2/logout?federated`. |
 
 ::: panel returnTo parameter
 Note that if the `clientID` parameter is included, the `returnTo` URL that is provided must be listed in the Application's **Allowed Logout URLs** in the [Auth0 dashboard](${manage_url}). However, if the `clientID` parameter _is not_ included, the `returnTo` URL must be listed in the **Allowed Logout URLs** at the *account level* in the [Auth0 dashboard](${manage_url}).

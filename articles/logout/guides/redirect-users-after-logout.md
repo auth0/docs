@@ -13,7 +13,7 @@ useCase:
 
 You can redirect users to a specific URL after they logout. You will need to register the redirect URL in your tenant or application settings. Auth0 only redirects to whitelisted URLs after logout. If you need different redirects for each application, you can whitelist the URLs in your application settings.
 
-1. Add a `returnTo` querystring parameter with the target URL as the value. Encode the target URL being passed in. For example, to redirect the user to `http://www.example.com` after logout, make the following request:
+1. Add a `returnTo` query string parameter with the target URL as the value. Encode the target URL being passed in. For example, to redirect the user to `http://www.example.com` after logout, make the following request:
 
    ```text
    https://${account.namespace}/v2/logout?returnTo=http%3A%2F%2Fwww.example.com
@@ -56,7 +56,7 @@ In order to avoid validation errors, make sure that you include the protocol par
 
 ## Limitations
 
-* The validation of URLs provided as values to the `returnTo` parameter, the querystring, and hash information provided as part of the URL are not taken into account.
+* The validation of URLs provided as values to the `returnTo` parameter, the query string, and hash information provided as part of the URL are not taken into account.
 
 * The behavior of federated logouts with social providers is inconsistent. Each provider will handle the `returnTo` parameter differently and for some it will not work. Please check your social provider's settings to ensure that they will accept the `returnTo` parameter and how it will behave.
 

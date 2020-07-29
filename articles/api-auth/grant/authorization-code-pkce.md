@@ -29,7 +29,7 @@ With PKCE, the application creates, for every authorization request, a cryptogra
 
  1. The native application initiates the flow and redirects the user to Auth0 (specifically to the [/authorize endpoint](/api/authentication#authorization-code-grant-pkce-)), sending the `code_challenge` and `code_challenge_method` parameters.
 
- 2. Auth0 redirects the user to the native application with an `authorization_code` in the querystring.
+ 2. Auth0 redirects the user to the native application with an `authorization_code` in the query string.
 
  3. The native application sends the `authorization_code` and `code_verifier` together with the `redirect_uri` and the `client_id` to Auth0. This is done using the [/oauth/token endpoint](/api/authentication?http#authorization-code-pkce-).
 

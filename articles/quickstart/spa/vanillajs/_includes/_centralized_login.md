@@ -294,7 +294,7 @@ window.onload = async () => {
     
     updateUI();
 
-    // Use replaceState to redirect the user away and remove the querystring parameters
+    // Use replaceState to redirect the user away and remove the query string parameters
     window.history.replaceState({}, document.title, "/");
   }
 };

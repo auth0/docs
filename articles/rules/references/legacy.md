@@ -166,10 +166,10 @@ function (user, context, callback) {
 }
 ```
 
-This will cause a redirect to your <dfn data-key="callback">callback URL</dfn> with an `error` querystring parameter containing the message you set. (such as `https://yourapp.com/callback?error=unauthorized&error_description=Only%20admins%20can%20use%20this`). Make sure to call the callback with an instance of `UnauthorizedError` (not `Error`).
+This will cause a redirect to your <dfn data-key="callback">callback URL</dfn> with an `error` query string parameter containing the message you set. (such as `https://yourapp.com/callback?error=unauthorized&error_description=Only%20admins%20can%20use%20this`). Make sure to call the callback with an instance of `UnauthorizedError` (not `Error`).
 
 ::: note
-Error reporting to the app depends on the protocol. <dfn data-key="openid">OpenID Connect (OIDC)</dfn> apps will receive the error in the querystring. <dfn data-key="security-assertion-markup-language">SAML</dfn> apps will receive the error in a `SAMLResponse`.
+Error reporting to the app depends on the protocol. <dfn data-key="openid">OpenID Connect (OIDC)</dfn> apps will receive the error in the query string. <dfn data-key="security-assertion-markup-language">SAML</dfn> apps will receive the error in a `SAMLResponse`.
 :::
 
 ## Create Rules with the Management API

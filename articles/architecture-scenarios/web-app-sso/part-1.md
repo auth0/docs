@@ -55,7 +55,7 @@ OpenID Connect supports more than one flow for authentication. Since our scenari
 The flow goes as follows:
 1. The web app (called the __Client__ in OIDC terms) initiates the authentication request by redirecting the __user-agent__ (browser) to Auth0 (the __Authorization Server__ in OIDC terms).
 1. Auth0 authenticates the user (via the user-agent). The first time the user goes through this flow a consent page will be shown where the permissions that will be given to the Application are listed (for example, post messages, list contacts). The user logs in to the service (unless they are already logged in) and authorizes the application access.
-1. Assuming the user grants access, Auth0 redirects the __user-agent__ back to the __Application__, along with an _authorization code_ in the querystring.
+1. Assuming the user grants access, Auth0 redirects the __user-agent__ back to the __Application__, along with an _authorization code_ in the query string.
 1. The Application sends the _authorization code_ to Auth0, along with the application credentials (`client_id` and `client_secret`), and asks for a token.
 1. Auth0 authenticates the __Application__ (using the `client_id` and `client_secret`) and validates the _authorization code_. If valid, Auth0 responds back with an __ID Token__.
 

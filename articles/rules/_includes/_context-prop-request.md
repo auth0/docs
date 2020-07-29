@@ -2,7 +2,7 @@ An object containing useful information of the request. It has the following pro
 - `userAgent`: the user-agent of the application that is trying to log in.
 - `ip`: the originating IP address of the user trying to log in.
 - `hostname`: the hostname that is being used for the authentication flow.
-- `query`: an object containing the querystring properties of the login transaction sent by the application. 
+- `query`: an object containing the query string properties of the login transaction sent by the application. 
 - `body`: the body of the POST request on login transactions used on `oauth2-resource-owner`, `oauth2-resource-owner-jwt-bearer` or `wstrust-usernamemixed` protocols.
 - `geoip`: an object containing geographic IP information. It has the following properties:
   - `country_code`: a two-character code for the country associated with the IP address
