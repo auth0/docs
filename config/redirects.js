@@ -26,7 +26,7 @@ const apiNames = [
   'webapi-owin'
 ];
 
-const apis = `:api(${apiNames.join('|')})`;
+const apis = ':api(${apiNames.join('|')})';
 
 module.exports = [
 
@@ -317,22 +317,22 @@ module.exports = [
     from: [
       '/quickstart/hybrid/:platform',
       '/quickstart/native-mobile/:platform',
-      `/quickstart/hybrid/:platform/${apis}`,
-      `/quickstart/native-mobile/:platform/${apis}`,
-      `/quickstart/native/:platform/${apis}`
+      '/quickstart/hybrid/:platform/${apis}',
+      '/quickstart/native-mobile/:platform/${apis}',
+      '/quickstart/native/:platform/${apis}'
     ],
     to: '/quickstart/native/:platform'
   },
   {
-    from: `/quickstart/spa/:platform/${apis}`,
+    from: '/quickstart/spa/:platform/${apis}',
     to: '/quickstart/spa/:platform'
   },
   {
-    from: `/quickstart/backend/:platform/${apis}`,
+    from: '/quickstart/backend/:platform/${apis}',
     to: '/quickstart/backend/:platform'
   },
   {
-    from: `/quickstart/spa/emberjs`,
+    from: '/quickstart/spa/emberjs',
     to: '/quickstart/spa/ember'
   },
 
@@ -906,7 +906,7 @@ module.exports = [
   },
   {
     from: '/users/normalized/auth0/retrieve-user-profiles',
-    to: `/users/search`
+    to: '/users/search'
   },
   {
     from: '/enterprise-support',
@@ -1600,10 +1600,6 @@ module.exports = [
     from: '/dashboard-account-settings',
     to: '/dashboard-tenant-settings'
   },
-  // {
-  //   from: '/metadata/lock',
-  //   to: '/metadata#using-lock-to-manage-metadata'
-  // },
   {
     from: ['/libraries/lock/v11/customization'],
     to: '/libraries/lock/v11/configuration',
@@ -1885,20 +1881,20 @@ module.exports = [
     to: '/users/references/user-migration-scenarios'
   },
   {
-    from: `/metadata/management-api`,
-    to: `/metadata/apis`
+    from: '/metadata/management-api',
+    to: '/metadata/apis'
   },
   {
-    from: `/connections/grean/bankid-no`,
-    to: `/connections/criipto/bankid-no`
+    from: '/connections/grean/bankid-no',
+    to: '/connections/criipto/bankid-no'
   },
   {
-    from: `/connections/grean/bankid-se`,
-    to: `/connections/criipto/bankid-se`
+    from: '/connections/grean/bankid-se',
+    to: '/connections/criipto/bankid-se'
   },
   {
-    from: `/connections/grean/nemid`,
-    to: `/connections/criipto/nemid`
+    from: '/connections/grean/nemid',
+    to: '/connections/criipto/nemid'
   },
   {
     from: '/sso/current/integrations',
@@ -1993,12 +1989,12 @@ module.exports = [
     to: '/rules/current#video-using-rules'
   },
   {
-    from: `/guides/login/migration-embedded-centralized`,
-    to: `/guides/login/migration-embedded-universal`
+    from: '/guides/login/migration-embedded-centralized',
+    to: '/guides/login/migration-embedded-universal'
   },
   {
-    from: [`/link-accounts/auth-api`, `/link-accounts`],
-    to: `/users/concepts/overview-user-account-linking`
+    from: ['/link-accounts/auth-api', '/link-accounts'],
+    to: '/users/concepts/overview-user-account-linking'
   },
   {
     from: ['/videos/session-and-cookies', '/security/store-tokens', '/tokens/guides/store-tokens'],
@@ -2104,34 +2100,10 @@ module.exports = [
      from: '/user-profile',
      to: '/users/concepts/overview-user-profile'
    },
-  //  {
-  //    from: '/user-profile#block-and-unblock-a-user',
-  //    to: '/users/guides/block-and-unblock-users'
-  //  },
    {
      from: '/user-profile/user-picture',
      to: '/users/guides/change-user-pictures'
    },
-  //  {
-  //    from: '/user-profile#create-a-user',
-  //    to: '/users/guides/create-users'
-  //  },
-  //  {
-  //    from: '/user-profile#delete-a-user',
-  //    to: '/users/guides/delete-users'
-  //  },
-  //  {
-  //    from: '/user-profile#user-access-to-applications',
-  //    to: '/users/guides/manage-user-access-to-applications'
-  //  },
-  //  {
-  //    from: '/user-profile#manage-users-using-the-dashboard',
-  //    to: '/users/guides/manage-users-using-the-dashboard'
-  //  },
-  //  {
-  //    from: '/user-profile#manage-users-using-the-management-api',
-  //    to: '/users/guides/manage-users-using-the-management-api'
-  //  },
    {
      from: '/user-profile/progressive-profiling',
      to: '/users/concepts/overview-progressive-profiling'
@@ -2140,10 +2112,6 @@ module.exports = [
      from: '/user-profile/customdb.md',
      to: '/users/guides/update-user-profiles-using-your-database'
    },
-  //  {
-  //    from: '/user-profile#view-users',
-  //    to: '/users/guides/view-users'
-  //  },
    {
      from: '/user-profile/normalized/auth0',
      to: '/users/normalized/auth0'
@@ -2707,12 +2675,12 @@ module.exports = [
         to: '/protocols/saml-configuration-options/sign-and-encrypt-saml-requests'
     },
     {
-        from: `/protocols/saml/saml-configuration/special-configuration-scenarios`,
-        to: `/protocols/saml-configuration-options/special-saml-configuration-scenarios`
+        from: '/protocols/saml/saml-configuration/special-configuration-scenarios',
+        to: '/protocols/saml-configuration-options/special-saml-configuration-scenarios'
     },
     {
-        from: `/protocols/saml/saml-configuration/special-configuration-scenarios/idp-initiated-sso`,
-        to: `/protocols/saml-configuration-options/identity-provider-initiated-single-sign-on`
+        from: '/protocols/saml/saml-configuration/special-configuration-scenarios/idp-initiated-sso',
+        to: '/protocols/saml-configuration-options/identity-provider-initiated-single-sign-on'
     },
     {
         from: '/protocols/saml/saml2webapp-tutorial',
@@ -3252,19 +3220,19 @@ module.exports = [
     },
     {
         from: ['/compliance/gdpr/data-processing', '/compliance-and-certifications/data-processing', '/compliance/gdpr', '/compliance-and-certifications/auth0-gdpr-compliance'],
-        to: `/compliance/auth0-gdpr-compliance`
+        to: '/compliance/auth0-gdpr-compliance'
     },
     {
         from: ['/compliance', '/compliance-and-certifications'],
-        to: `/compliance`
+        to: '/compliance'
     },
     {
         from: ['/compliance/gdpr/features-aiding-compliance/data-minimization', '/compliance-and-certifications/auth0-gdpr-compliance/gdpr-data-minimization'],
-        to: `/compliance/auth0-gdpr-compliance/gdpr-data-minimization`
+        to: '/compliance/auth0-gdpr-compliance/gdpr-data-minimization'
     },
     {
         from: ['/compliance-and-certifications/auth0-gdpr-compliance/gdpr-data-portability', '/compliance/gdpr/features-aiding-compliance/data-portability'],
-        to: `/compliance/auth0-gdpr-compliance/gdpr-data-portability`
+        to: '/compliance/auth0-gdpr-compliance/gdpr-data-portability'
     },
     {
         from: ['/compliance/gdpr/features-aiding-compliance/right-to-access-data', '/compliance-and-certifications/auth0-gdpr-compliance/gdpr-right-to-access-correct-and-erase-data'],
@@ -3272,23 +3240,23 @@ module.exports = [
     },
     {
         from: ['/compliance/gdpr/features-aiding-compliance/user-consent', '/compliance-and-certifications/auth0-gdpr-compliance/gdpr-conditions-for-consent'],
-        to: `/compliance/auth0-gdpr-compliance/gdpr-conditions-for-consent`
+        to: '/compliance/auth0-gdpr-compliance/gdpr-conditions-for-consent'
     },
     {
         from: ['/compliance/gdpr/features-aiding-compliance/protect-user-data', '/compliance-and-certifications/auth0-gdpr-compliance/gdpr-protect-and-secure-user-data'],
-        to: `/compliance/auth0-gdpr-compliance/gdpr-protect-and-secure-user-data`
+        to: '/compliance/auth0-gdpr-compliance/gdpr-protect-and-secure-user-data'
     },
     {
-        from: `/compliance//features-aiding-compliance/user-consent/track-consent-with-lock`,
-        to: `/compliance/auth0-gdpr-compliance/gdpr-track-consent-with-lock`
+        from: '/compliance/features-aiding-compliance/user-consent/track-consent-with-lock',
+        to: '/compliance/auth0-gdpr-compliance/gdpr-track-consent-with-lock'
     },
     {
-        from: `/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-custom-ui`,
-        to: `/compliance/auth0-gdpr-compliance/gdpr-track-consent-with-custom-ui`
+        from: '/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-custom-ui',
+        to: '/compliance/auth0-gdpr-compliance/gdpr-track-consent-with-custom-ui'
     },
     {
-        from: `/compliance/gdpr/features-aiding-compliance/user-consent/webtask-redirect`,
-        to: `/compliance/auth0-gdpr-compliance/gdpr-redirect-users-to-consent-form-hosted-using-webtask`
+        from: '/compliance/gdpr/features-aiding-compliance/user-consent/webtask-redirect',
+        to: '/compliance/auth0-gdpr-compliance/gdpr-redirect-users-to-consent-form-hosted-using-webtask'
     },
     {
         from: '/connector/client-certificates',
@@ -3531,12 +3499,12 @@ module.exports = [
         to: '/security/security-update-for-auth0-js-library'
     },
     {
-        from: `/security/bulletins/cve-2020-15125`,
-        to: `/security/security-update-for-node-auth0-library`
+        from: '/security/bulletins/cve-2020-15125',
+        to: '/security/security-update-for-node-auth0-library'
     },
     {
-        from: `/security/bulletins/cve-2020-15084`,
-        to: `/security/security-update-for-express-jwt-library`
+        from: '/security/bulletins/cve-2020-15084',
+        to: '/security/security-update-for-express-jwt-library'
     },
     {
         from: '/security/bulletins/cve-2019-20173',
