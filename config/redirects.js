@@ -3223,7 +3223,7 @@ module.exports = [
         to: '/compliance/auth0-gdpr-compliance'
     },
     {
-        from: ['/compliance', '/compliance-and-certifications'],
+        from: ['/compliance-and-certifications'],
         to: '/compliance'
     },
     {
