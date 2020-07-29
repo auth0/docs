@@ -2531,11 +2531,11 @@ module.exports = [
       to: '/private-cloud/migrate-private-cloud-custom-domains'
     },
     {
-      from: ['/private-cloud/onboarding/private-cloud', '/appliance/private-cloud-requirements', '/private-cloud/private-cloud-onboarding/standard-private-cloud-infrastructure-requirements'],
+      from: ['/private-cloud/onboarding/private-cloud', '/appliance/private-cloud-requirements'],
       to: '/private-cloud/private-cloud-onboarding/standard-private-cloud-infrastructure-requirements'
     },
     {
-      from: '/private/cloud/onboarding/managed-private-cloud/infrastructure', 
+      from: '/private-cloud/onboarding/managed-private-cloud/infrastructure', 
       to: '/private-cloud/private-cloud-onboarding/customer-hosted-managed-private-cloud-infrastructure-requirements'
     },
     {
