@@ -1045,10 +1045,10 @@ articles:
       - title: Blacklist User Attributes
         url: /security/blacklisting-attributes
   - title: Data Privacy
-    url: /compliance-and-certifications
+    url: /compliance
     children:
       - title: GDPR
-        url: /compliance-and-certifications/auth0-gdpr-compliance
+        url: /compliance/auth0-gdpr-compliance
         children:
           - title: Terminology
             hidden: true
@@ -1061,7 +1061,7 @@ articles:
             url: /compliance/gdpr/roles-responsibilities
           - title: Auth0 Data Processing
             hidden: true
-            url: /compliance-and-certifications/data-processing
+            url: /compliance/data-processing
           - title: Security Advice
             hidden: true
             url: /compliance/gdpr/security-advice-for-customers
