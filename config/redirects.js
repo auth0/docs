@@ -764,10 +764,6 @@ module.exports = [
     to: '/tokens/concepts/id-tokens'
   },
   {
-    from: '/tokens/add-custom-claims',
-    to: '/scopes/current/sample-use-cases#add-custom-claims-to-a-token'
-  },
-  {
     from: '/tokens/guides/update-signing-algorithm-application',
     to: '/dashboard/guides/applications/update-signing-algorithm'
   },
@@ -2951,26 +2947,7 @@ module.exports = [
       from: ['/tokens/references/jwt-structure'],
       to: '/tokens/json-web-tokens/json-web-token-structure'
   },
-  {
-      from: ['/scopes/current/api-scopes'],
-      to: '/scopes/api-scopes'
-  },
-  {
-      from: ['/scopes/current/guides/customize-consent-prompt'],
-      to: '/scopes/customize-consent-prompts'
-  },
-  {
-      from: ['/scopes/current'],
-      to: '/scopes'
-  },
-  {
-      from: ['/scopes/current/oidc-scopes'],
-      to: '/scopes/openid-connect-scopes'
-  },
-  {
-      from: ['/scopes/current/sample-use-cases'],
-      to: '/scopes/sample-use-cases-scopes-and-claims'
-  },
+  
   {
       from: ['/anomaly-detection/concepts/breached-passwords'],
       to: '/anomaly-detection/breached-password-security'
@@ -4075,6 +4052,29 @@ module.exports = [
   {
     from: ['/libraries/auth0-android/configuration'],
     to: '/libraries/auth0-android/auth0-android-configuration'
+  },
+
+  /* Scopes */
+
+  {
+    from: ['/scopes/current'],
+    to: '/scopes'
+  },
+  {
+    from: ['/scopes/current/api-scopes'],
+    to: '/scopes/api-scopes'
+  },
+  {
+    from: ['/scopes/current/guides/customize-consent-prompt'],
+    to: '/scopes/customize-consent-prompts'
+  },
+  {
+    from: ['/scopes/current/oidc-scopes'],
+    to: '/scopes/openid-connect-scopes'
+  },
+  {
+    from: ['/tokens/add-custom-claims','/scopes/current/sample-use-cases'],
+    to: '/scopes/sample-use-cases-scopes-and-claims'
   },
 
   /* Universal Login */
