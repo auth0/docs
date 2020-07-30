@@ -6,7 +6,7 @@
 
 - id: "articles"
   title: "Articles"
-  url: "/get-started"
+  url: "/getting-started"
   folder: ""
   default: true
 
@@ -17,7 +17,7 @@
 
 - id: "apis"
   title: "Auth0 APIs"
-  url: "/api"
+  url: "/api/info"
   folder: "api"
 
 - id: "libraries"
