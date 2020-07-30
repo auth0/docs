@@ -3856,58 +3856,6 @@ module.exports = [
         to: '/integrations/secure-a-cli-with-auth0'
     },
     {
-        from: ['/identity-labs/01-web-sign-in'],
-        to: '/auth0-identity-labs/lab-1-web-sign-in'
-    },
-    {
-        from: ['/identity-labs/01-web-sign-in/exercise-01'],
-        to: '/auth0-identity-labs/lab-1-web-sign-in/identity-lab-1-exercise-1'
-    },
-    {
-        from: ['/identity-labs/01-web-sign-in/exercise-02'],
-        to: '/auth0-identity-labs/lab-1-web-sign-in/identity-lab-1-exercise-2'
-    },
-    {
-        from: ['/identity-labs/02-calling-an-api'],
-        to: '/auth0-identity-labs/identity-lab-2-calling-api'
-    },
-    {
-        from: ['/identity-labs/04-single-page-app'],
-        to: '/auth0-identity-labs/lab-4-single-page-app'
-    },
-    {
-        from: ['/identity-labs/02-calling-an-api/exercise-01'],
-        to: '/auth0-identity-labs/identity-lab-2-calling-api/identity-lab-2-exercise-1'
-    },
-    {
-        from: ['/identity-labs/02-calling-an-api/exercise-02'],
-        to: '/auth0-identity-labs/identity-lab-2-calling-api/identity-lab-2-exercise-2'
-    },
-    {
-        from: ['/identity-labs/02-calling-an-api/exercise-03'],
-        to: '/auth0-identity-labs/identity-lab-2-calling-api/identity-lab-2-exercise-3'
-    },
-    {
-        from: ['/identity-labs/03-mobile-native-app/exercise-01'],
-        to: '/auth0-identity-labs/lab-3-mobile-native-app/identity-lab-3-exercise-1'
-    },
-    {
-        from: ['/identity-labs/03-mobile-native-app/exercise-02'],
-        to: '/auth0-identity-labs/lab-3-mobile-native-app/identity-lab-3-exercise-2'
-    },
-    {
-        from: ['/identity-labs/03-mobile-native-app/exercise-03'],
-        to: '/auth0-identity-labs/lab-3-mobile-native-app/identity-lab-3-exercise-3'
-    },
-    {
-        from: ['/identity-labs/04-single-page-app/exercise-01'],
-        to: '/auth0-identity-labs/lab-4-single-page-app/identity-lab-4-exercise-1'
-    },
-    {
-        from: ['/identity-labs/04-single-page-app/exercise-02'],
-        to: '/auth0-identity-labs/lab-4-single-page-app/identity-lab-4-exercise-2'
-    },
-    {
         from: ['/users/concepts/overview-progressive-profiling'],
         to: '/users/progressive-profiling'
     },
@@ -4150,6 +4098,61 @@ module.exports = [
     {
         from: ['/anomaly-detection/references/brute-force-protection-triggers-actions'],
         to: '/anomaly-detection/brute-force-protection-triggers-and-actions'
+    },
+
+    /* Identity Labs */
+
+    {
+      from: ['/identity-labs/01-web-sign-in'],
+      to: '/identity-labs/lab-1-web-sign-in'
+    },
+    {
+        from: ['/identity-labs/01-web-sign-in/exercise-01'],
+        to: '/identity-labs/lab-1-web-sign-in/identity-lab-1-exercise-1'
+    },
+    {
+        from: ['/identity-labs/01-web-sign-in/exercise-02'],
+        to: '/identity-labs/lab-1-web-sign-in/identity-lab-1-exercise-2'
+    },
+    {
+        from: ['/identity-labs/02-calling-an-api'],
+        to: '/identity-labs/identity-lab-2-calling-api'
+    },
+    {
+        from: ['/identity-labs/02-calling-an-api/exercise-01'],
+        to: '/identity-labs/identity-lab-2-calling-api/identity-lab-2-exercise-1'
+    },
+    {
+        from: ['/identity-labs/02-calling-an-api/exercise-02'],
+        to: '/identity-labs/identity-lab-2-calling-api/identity-lab-2-exercise-2'
+    },
+    {
+        from: ['/identity-labs/02-calling-an-api/exercise-03'],
+        to: '/identity-labs/identity-lab-2-calling-api/identity-lab-2-exercise-3'
+    },
+    {
+        from: ['/identity-labs/03-mobile-native-app/exercise-01'],
+        to: '/identity-labs/lab-3-mobile-native-app/identity-lab-3-exercise-1'
+    },
+    {
+        from: ['/identity-labs/03-mobile-native-app/exercise-02'],
+        to: '/identity-labs/lab-3-mobile-native-app/identity-lab-3-exercise-2'
+    },
+    {
+        from: ['/identity-labs/03-mobile-native-app/exercise-03'],
+        to: '/identity-labs/lab-3-mobile-native-app/identity-lab-3-exercise-3'
+    },
+    {
+      from: ['/identity-labs/04-single-page-app'],
+      to: '/identity-labs/lab-4-single-page-app'
+    },
+    {
+        from: ['/identity-labs/04-single-page-app/exercise-01'],
+        to: '/identity-labs/lab-4-single-page-app/identity-lab-4-exercise-1'
+    },
+    {
+        from: ['/identity-labs/04-single-page-app/exercise-02'],
+        to: '/identity-labs/lab-4-single-page-app/identity-lab-4-exercise-2'
     },
 
     /* Universal Login */
