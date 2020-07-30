@@ -940,38 +940,6 @@ module.exports = [
     to: '/tokens'
   },
   {
-    from: ['/hosted-pages/hosted-login-auth0js', '/hosted-pages/login/auth0js', '/hosted-pages/login/lock', '/hosted-pages/login/lock-passwordless', '/hosted-pages/hosted-login-auth0js', '/hosted-pages/hosted-login-auth0js/v7', '/hosted-pages/hosted-login-auth0js/v8', '/hosted-pages/login', '/hosted-pages'],
-    to: '/universal-login'
-  },
-  {
-    from: ['/error-pages', '/error-pages/generic', '/hosted-pages/error-pages'],
-    to: '/universal-login/error-pages'
-  },
-  {
-    from: ['/error-pages/custom', '/hosted-pages/custom-error-pages'],
-    to: '/universal-login/custom-error-pages'
-  },
-  {
-    from: '/hosted-pages/default-login-url',
-    to: '/universal-login/default-login-url'
-  },
-  {
-    from: '/hosted-pages/version-control',
-    to: '/universal-login/version-control'
-  },
-  {
-    from: '/hosted-pages/guardian',
-    to: '/universal-login/multifactor-authentication'
-  },
-  {
-    from: '/universal-login/guardian',
-    to: '/universal-login/multifactor-authentication'
-  },
-  {
-    from: '/hosted-pages/password-reset',
-    to: '/universal-login/password-reset'
-  },
-  {
     from: '/dashboard-account-settings',
     to: '/dashboard-tenant-settings'
   },
@@ -3112,34 +3080,6 @@ module.exports = [
         to: '/custom-domains/configure-features-to-use-custom-domains'
     },
     {
-        from: ['/universal-login/customization-classic'],
-        to: '/universal-login/classic-experience/classic-experience-customization'
-    },
-    {
-        from: ['/universal-login/classic'],
-        to: '/universal-login/classic-experience'
-    },
-    {
-        from: ['/universal-login/multifactor-authentication'],
-        to: '/universal-login/classic-experience/mfa-classic-experience'
-    },
-    {
-        from: ['/universal-login/new-experience-limitations'],
-        to: '/universal-login/new-experience/new-experience-limitations'
-    },
-    {
-        from: ['/universal-login/new'],
-        to: '/universal-login/new-experience'
-    },
-    {
-        from: ['/universal-login/password-reset'],
-        to: '/universal-login/customize-password-reset-page'
-    },
-    {
-        from: ['/universal-login/version-control'],
-        to: '/universal-login/version-control-universal-login-pages'
-    },
-    {
         from: ['/sessions'],
         to: '/sessions-and-cookies'
     },
@@ -3378,10 +3318,6 @@ module.exports = [
     {
         from: ['/dashboard/guides/tenants/view-signing-keys'],
         to: '/get-started/auth0-dashboard-overview/view-client-secrets-and-signing-keys'
-    },
-    {
-        from: ['/dashboard/guides/universal-login/configure-login-page-passwordless'],
-        to: '/universal-login/configure-universal-login-with-passwordless'
     },
     {
         from: ['/dashboard/guides/users/assign-permissions-users'],
@@ -4192,10 +4128,6 @@ module.exports = [
         to: '/auth0-applications/register-single-page-app'
     },
     {
-        from: ['/universal-login/text-customization-prompts/consent'],
-        to: '/universal-login/prompt-consent'
-    },
-    {
         from: ['/logs/streams/azure-event-grid'],
         to: '/auth0-logs/export-log-events-with-log-streaming/stream-logs-to-azure-event-grid'
     },
@@ -4218,5 +4150,60 @@ module.exports = [
     {
         from: ['/anomaly-detection/references/brute-force-protection-triggers-actions'],
         to: '/anomaly-detection/brute-force-protection-triggers-and-actions'
+    },
+
+    /* Universal Login */
+
+    {
+      from: ['/hosted-pages/hosted-login-auth0js', '/hosted-pages/login/auth0js', '/hosted-pages/login/lock', '/hosted-pages/login/lock-passwordless', '/hosted-pages/hosted-login-auth0js', '/hosted-pages/hosted-login-auth0js/v7', '/hosted-pages/hosted-login-auth0js/v8', '/hosted-pages/login', '/hosted-pages'],
+      to: '/universal-login'
+    },
+    {
+      from: ['/error-pages', '/error-pages/generic', '/hosted-pages/error-pages'],
+      to: '/universal-login/error-pages'
+    },
+    {
+      from: ['/error-pages/custom', '/hosted-pages/custom-error-pages'],
+      to: '/universal-login/custom-error-pages'
+    },
+    {
+      from: ['/hosted-pages/default-login-url'],
+      to: '/universal-login/default-login-url'
+    },
+    {
+        from: ['/universal-login/customization-classic'],
+        to: '/universal-login/classic-experience/classic-experience-customization'
+    },
+    {
+        from: ['/universal-login/classic'],
+        to: '/universal-login/classic-experience'
+    },
+    {
+        from: ['/universal-login/multifactor-authentication','/hosted-pages/guardian','/universal-login/guardian'],
+        to: '/universal-login/classic-experience/mfa-classic-experience'
+    },
+    {
+        from: ['/universal-login/new-experience-limitations'],
+        to: '/universal-login/new-experience/new-experience-limitations'
+    },
+    {
+        from: ['/universal-login/new'],
+        to: '/universal-login/new-experience'
+    },
+    {
+        from: ['/universal-login/password-reset','/hosted-pages/password-reset'],
+        to: '/universal-login/customize-password-reset-page'
+    },
+    {
+        from: ['/universal-login/version-control','/hosted-pages/version-control'],
+        to: '/universal-login/version-control-universal-login-pages'
+    },
+    {
+      from: ['/dashboard/guides/universal-login/configure-login-page-passwordless'],
+      to: '/universal-login/configure-universal-login-with-passwordless'
+    },
+    {
+        from: ['/universal-login/text-customization-prompts/consent'],
+        to: '/universal-login/prompt-consent'
     }
 ];
