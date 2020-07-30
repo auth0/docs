@@ -16,7 +16,6 @@ If you use SMS or Voice as an authentication factor, when an end user attempts t
 You can configure this factor to send messages through SMS, Voice, or to let the end users choose how they want the code to be delivered.
 
 ::: warning
-- Using Voice as an MFA factor is currently a Beta feature. It should not be used in production environments.
 - Voice as an MFA factor is not available when using the [Classic Universal Login Experience](/universal-login/classic).
 ::: 
 
@@ -30,7 +29,7 @@ When only SMS is enabled, the flow is simpler:
 
 ![SMS - End User](/media/articles/mfa/mfa-sms.png)
 
-After users are enrolled, the next time they authenticate they will get the Voice or SMS message in their registered phone. 
+After users are enrolled, the next time they authenticate they will get the Voice or SS message in their registered phone. 
 
 ## Administrative setup
 
