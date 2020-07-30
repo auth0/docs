@@ -1989,8 +1989,8 @@ module.exports = [
     to: '/users/concepts/overview-user-account-linking'
   },
   {
-    from: ['/videos/session-and-cookies', '/security/store-tokens', '/tokens/guides/store-tokens'],
-    to: '/tokens/concepts/token-storage'
+    from: ['/tokens/concepts/token-storage', '/videos/session-and-cookies', '/security/store-tokens', '/tokens/guides/store-tokens'],
+    to: '/tokens/token-storage'
   },
   {
     from: '/support/sla',
