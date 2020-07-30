@@ -797,10 +797,6 @@ module.exports = [
     to: '/mfa/guides/mfa-api/manage'
   },
   {
-    from: '/multifactor-authentication/twilio-configuration',
-    to: '/mfa/guides/configure-phone'
-  },
-  {
     from: '/multifactor-authentication/sms-templates',
     to: '/mfa/guides/customize-phone-messages'
   },
@@ -819,10 +815,6 @@ module.exports = [
   {
     from: '/multifactor-authentication/factors',
     to: '/mfa/concepts/mfa-factors'
-  },
-  {
-    from: ['/multifactor-authentication/factors/sms','/mfa/guides/configure-sms'],
-    to: '/mfa/guides/configure-phone'
   },
   {
     from: '/multifactor-authentication/factors/push',
@@ -5394,8 +5386,8 @@ module.exports = [
         to: '/troubleshoot/troubleshoot-authentication-issues/saml-errors'
     },
     {
-        from: '/mfa/guides/configure-phone.md',
-        to: '/mfa/configure-sms-voice-notifications-mfa'
+      from: ['/multifactor-authentication/twilio-configuration','/multifactor-authentication/factors/sms','/mfa/guides/configure-sms','/mfa/guides/configure-phone'],
+      to: '/mfa/configure-sms-voice-notifications-mfa'
     },
     {
         from: '/mfa/guides/mfa-api/phone',
