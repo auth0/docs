@@ -797,6 +797,10 @@ module.exports = [
     to: '/mfa/guides/mfa-api/manage'
   },
   {
+    from: '/multifactor-authentication/twilio-configuration',
+    to: '/mfa/guides/configure-phone'
+  },
+  {
     from: '/multifactor-authentication/sms-templates',
     to: '/mfa/guides/customize-phone-messages'
   },
@@ -815,6 +819,10 @@ module.exports = [
   {
     from: '/multifactor-authentication/factors',
     to: '/mfa/concepts/mfa-factors'
+  },
+  {
+    from: ['/multifactor-authentication/factors/sms','/mfa/guides/configure-sms'],
+    to: '/mfa/guides/configure-phone'
   },
   {
     from: '/multifactor-authentication/factors/push',
@@ -2523,11 +2531,11 @@ module.exports = [
       to: '/private-cloud/migrate-private-cloud-custom-domains'
     },
     {
-      from: ['/private-cloud/onboarding/private-cloud', '/appliance/private-cloud-requirements'],
+      from: ['/private-cloud/onboarding/private-cloud', '/appliance/private-cloud-requirements', '/private-cloud/private-cloud-onboarding/standard-private-cloud-infrastructure-requirements'],
       to: '/private-cloud/private-cloud-onboarding/standard-private-cloud-infrastructure-requirements'
     },
     {
-      from: '/private-cloud/onboarding/managed-private-cloud/infrastructure', 
+      from: '/private/cloud/onboarding/managed-private-cloud/infrastructure', 
       to: '/private-cloud/private-cloud-onboarding/customer-hosted-managed-private-cloud-infrastructure-requirements'
     },
     {
@@ -5386,8 +5394,8 @@ module.exports = [
         to: '/troubleshoot/troubleshoot-authentication-issues/saml-errors'
     },
     {
-      from: ['/multifactor-authentication/twilio-configuration','/multifactor-authentication/factors/sms','/mfa/guides/configure-sms','/mfa/guides/configure-phone'],
-      to: '/mfa/configure-sms-voice-notifications-mfa'
+        from: '/mfa/guides/configure-phone.md',
+        to: '/mfa/configure-sms-voice-notifications-mfa'
     },
     {
         from: '/mfa/guides/mfa-api/phone',
@@ -5432,9 +5440,5 @@ module.exports = [
     {
         from: '/rules/guides/metadata',
         to: '/rules/metadata'
-    },
-    {
-        from: '/api/management/v1',
-        to: '/api/management-api-v1-deprecated'
-    }  
+    }
 ];
