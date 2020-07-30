@@ -2520,38 +2520,6 @@ module.exports = [
       to: '/environment-variables-and-keyword-mappings'
   },
   {
-      from: ['/cms/joomla/configuration'],
-      to: '/cms/integrate-with-joomla'
-  },
-  {
-      from: ['/cms/joomla/installation'],
-      to: '/cms/joomla-installation'
-  },
-  {
-      from: ['/cms/wordpress/configuration'],
-      to: '/cms/wordpress-plugin/configure-login-by-auth0'
-  },
-  {
-      from: ['/cms/wordpress/extending'],
-      to: '/cms/wordpress-plugin/extend-login-by-auth0'
-  },
-  {
-      from: ['/cms/wordpress'],
-      to: '/cms/wordpress-plugin'
-  },
-  {
-      from: ['/cms/wordpress/installation'],
-      to: '/cms/wordpress-plugin/install-login-by-auth0'
-  },
-  {
-      from: ['/cms/wordpress/invalid-state'],
-      to: '/cms/wordpress-plugin/troubleshoot-wordpress-plugin-invalid-state-errors'
-  },
-  {
-      from: ['/cms/wordpress/troubleshoot'],
-      to: '/cms/wordpress-plugin/troubleshoot-login-by-auth0'
-  },
-  {
       from: ['/migrations/guides/calling-api-with-idtokens'],
       to: '/product-lifecycle/deprecations-and-migrations/migrate-to-calling-api-with-access-tokens'
   },
@@ -2566,10 +2534,6 @@ module.exports = [
   {
       from: ['/migrations/guides/passwordless-start'],
       to: '/product-lifecycle/deprecations-and-migrations/migrate-to-passwordless'
-  },
-  {
-      from: ['/cms/wordpress/user-migration'],
-      to: '/cms/wordpress-plugin/user-migration-in-login-by-auth0'
   },
   {
       from: ['/troubleshoot/concepts/auth-issues'],
@@ -3962,6 +3926,45 @@ module.exports = [
   {
       from: ['/anomaly-detection/references/brute-force-protection-triggers-actions'],
       to: '/anomaly-detection/brute-force-protection-triggers-and-actions'
+  },
+
+  /* CMS */
+
+  {
+    from: ['/cms/joomla/configuration'],
+    to: '/cms/integrate-with-joomla'
+  },
+  {
+    from: ['/cms/joomla/installation'],
+    to: '/cms/joomla-installation'
+  },
+  {
+    from: ['/cms/wordpress'],
+    to: '/cms/wordpress-plugin'
+  },
+  {
+    from: ['/cms/wordpress/installation'],
+    to: '/cms/wordpress-plugin/install-login-by-auth0'
+  },
+  {
+    from: ['/cms/wordpress/configuration'],
+    to: '/cms/wordpress-plugin/configure-login-by-auth0'
+  },
+  {
+    from: ['/cms/wordpress/extending'],
+    to: '/cms/wordpress-plugin/extend-login-by-auth0'
+  },
+  {
+    from: ['/cms/wordpress/troubleshoot'],
+    to: '/cms/wordpress-plugin/troubleshoot-login-by-auth0'
+  },
+  {
+    from: ['/cms/wordpress/invalid-state'],
+    to: '/cms/wordpress-plugin/troubleshoot-wordpress-plugin-invalid-state-errors'
+  },
+  {
+    from: ['/cms/wordpress/user-migration'],
+    to: '/cms/wordpress-plugin/user-migration-in-login-by-auth0'
   },
 
   /* Identity Labs */
