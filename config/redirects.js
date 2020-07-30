@@ -30,12 +30,10 @@ const apis = `:api(${apiNames.join('|')})`;
 
 module.exports = [
 
-  
   {
     from: '/awsapi-tutorial',
     to: '/integrations/aws'
   },
-  
   {
     from: '/firebaseapi-tutorial',
     to: '/applications/addons'
@@ -69,238 +67,6 @@ module.exports = [
     to: '/applications/addons'
   },
 
-
-  /* --- Two-step quickstarts to single-step quickstarts --- */
-
-  {
-    from: '/quickstart/webapp/nodejs/02-user-profile',
-    to: '/quickstart/webapp/nodejs/01-login'
-  },
-
-  {
-    from: [
-      '/quickstart/hybrid',
-      '/quickstart/native-mobile'
-    ],
-    to: '/quickstart/native'
-  },
-  {
-    from: [
-      '/quickstart/hybrid/:platform',
-      '/quickstart/native-mobile/:platform',
-      `/quickstart/hybrid/:platform/${apis}`,
-      `/quickstart/native-mobile/:platform/${apis}`,
-      `/quickstart/native/:platform/${apis}`
-    ],
-    to: '/quickstart/native/:platform'
-  },
-  {
-    from: `/quickstart/spa/:platform/${apis}`,
-    to: '/quickstart/spa/:platform'
-  },
-  {
-    from: `/quickstart/backend/:platform/${apis}`,
-    to: '/quickstart/backend/:platform'
-  },
-  {
-    from: `/quickstart/spa/emberjs`,
-    to: '/quickstart/spa/ember'
-  },
-
-  /* --- Removed Quickstarts --- */
-
-  {
-    from: [
-      '/quickstart/spa/aurelia',
-      '/quickstart/spa/ember',
-      '/quickstart/spa/jquery'
-    ],
-    to: '/quickstart/spa'
-  },
-  
-  /* --- Connections --- */
-
-  {
-    from: ['/37signals-clientid', '/connections/social/37signals'],
-    to: '/connections/social/basecamp'
-  },
-  {
-    from: '/amazon-clientid',
-    to: '/connections/social/amazon'
-  },
-  {
-    from: '/aol-clientid',
-    to: '/connections/social/aol'
-  },
-  {
-    from: '/connections/enterprise/azure-active-directory',
-    to: '/connections/enterprise/azure-active-directory/v2'
-  },
-  {
-    from: '/connections/enterprise/azure-active-directory-classic',
-    to: '/connections/enterprise/azure-active-directory/v1'
-  },
-  {
-    from: '/connections/enterprise/samlp',
-    to: '/connections/enterprise/saml'
-  },
-  {
-    from: '/dwolla-clientid',
-    to: '/connections/social/dwolla'
-  },
-  {
-    from: '/baidu-clientid',
-    to: '/connections/social/baidu'
-  },
-  {
-    from: '/box-clientid',
-    to: '/connections/social/box'
-  },
-  {
-    from: '/evernote-clientid',
-    to: '/connections/social/evernote'
-  },
-  {
-    from: '/exact-clientid',
-    to: '/connections/social/exact'
-  },
-  {
-    from: '/facebook-clientid',
-    to: '/connections/social/facebook'
-  },
-  {
-    from: '/fitbit-clientid',
-    to: '/connections/social/fitbit'
-  },
-  {
-    from: '/github-clientid',
-    to: '/connections/social/github'
-  },
-  {
-    from: '/goodreads-clientid',
-    to: '/connections/social/goodreads'
-  },
-  {
-    from: '/goog-clientid',
-    to: '/connections/social/google'
-  },
-  {
-    from: '/miicard-clientid',
-    to: '/connections/social/miicard'
-  },
-  {
-    from: '/ms-account-clientid',
-    to: '/connections/social/microsoft-account'
-  },
-  {
-    from: '/oauth2',
-    to: '/connections/social/oauth2'
-  },
-  {
-    from: '/connections/social/auth0-oidc',
-    to: '/connections/enterprise/oidc'
-  },
-  {
-    from: '/paypal-clientid',
-    to: '/connections/social/paypal'
-  },
-  {
-    from: '/planningcenter-clientid',
-    to: '/connections/social/planning-center'
-  },
-  {
-    from: ['/salesforce-clientid', '/salesforce-community'],
-    to: '/connections/social/salesforce'
-  },
-  {
-    from: '/renren-clientid',
-    to: '/connections/social/renren'
-  },
-  {
-    from: '/sharepoint-clientid',
-    to: '/connections/enterprise/sharepoint-apps'
-  },
-  {
-    from: '/shopify-clientid',
-    to: '/connections/social/shopify'
-  },
-  {
-    from: '/soundcloud-clientid',
-    to: '/connections/social/soundcloud'
-  },
-  {
-    from: '/thecity-clientid',
-    to: '/connections/social/thecity'
-  },
-  {
-    from: '/twitter-clientid',
-    to: '/connections/social/twitter'
-  },
-  {
-    from: '/vkontakte-clientid',
-    to: '/connections/social/vkontakte'
-  },
-  {
-    from: '/waad-clientid',
-    to: '/connections/enterprise/azure-active-directory'
-  },
-  {
-    from: '/weibo-clientid',
-    to: '/connections/social/weibo'
-  },
-  {
-    from: '/wordpress-clientid',
-    to: '/connections/social/wordpress'
-  },
-  {
-    from: '/yahoo-clientid',
-    to: '/connections/social/yahoo'
-  },
-  {
-    from: '/yandex-clientid',
-    to: '/connections/social/yandex'
-  },
-  {
-    from: '/instagram-clientid',
-    to: '/connections/social/instagram'
-  },
-  {
-    from: '/linkedin-clientid',
-    to: '/connections/social/linkedin'
-  },
-  {
-    from: '/mysql-connection-tutorial',
-    to: '/connections/database/mysql'
-  },
-  {
-    from: '/migrating',
-    to: '/connections/database/migrating'
-  },
-  {
-    from: '/ad',
-    to: '/connections/enterprise/active-directory-ldap'
-  },
-  {
-    from: '/connections/enterprise/ldap',
-    to: '/connections/enterprise/active-directory-ldap'
-  },
-    {
-    from: '/connections/enterprise/active-directory',
-    to: '/connections/enterprise/active-directory-ldap'
-  },
-  {
-    from: '/adfs',
-    to: '/connections/enterprise/adfs'
-  },
-  {
-    from: ['/passwordless','/dashboard/guides/connections/set-up-connections-passwordless'],
-    to: '/connections/passwordless'
-  },
-  {
-    from: '/connections/passwordless/ios-sms',
-    to: '/connections/passwordless/ios-sms-objc'
-  },
-
 /* --- Clients --- */
 
   {
@@ -332,24 +98,12 @@ module.exports = [
     to: '/applications'
   },
   {
-    from: '/applications/concepts/connections',
-    to: '/connections'
-  },
-  {
     from: '/applications/machine-to-machine',
     to: '/applications'
   },
   {
     from: '/applications/concepts/app-types-auth0',
     to: '/applications'
-  },
-  {
-    from: '/clients/connections',
-    to: '/connections'
-  },
-  {
-    from: '/applications/connections',
-    to: '/connections'
   },
   {
     from: '/clients/enable-android-app-links',
@@ -449,9 +203,6 @@ module.exports = [
     from: '/scenarios',
     to: '/tutorials'
   },
-
-  /* --- Miscellaneous --- */
-
   {
     from: '/widget',
     to: '/login-widget2'
@@ -660,10 +411,6 @@ module.exports = [
     to: '/mfa/guides/customize-mfa-universal-login'
   },
   {
-    from: '/quickstart',
-    to: '/'
-  },
-  {
     from: ['/link-accounts/user-initiated', '/link-accounts/user-initiated-linking'],
     to: '/users/references/link-accounts-client-side-scenario'
   },
@@ -682,10 +429,6 @@ module.exports = [
   {
     from: '/premium-support',
     to: '/support'
-  },
-  {
-    from: '/password-strength',
-    to: '/connections/database/password-strength'
   },
   {
     from: '/users-search',
@@ -715,11 +458,6 @@ module.exports = [
   {
     from: '/extensions/azure-blog-storage',
     to: '/extensions/azure-blob-storage'
-  },
-  {
-    from: '/quickstart/backend/java',
-    to: '/quickstart/backend/java-spring-security',
-    status: 302
   },
   {
     from: ['/rate-limits', '/policies/rate-limit'],
@@ -867,14 +605,6 @@ module.exports = [
   {
     from: '/office365-deprecated',
     to: '/tutorials/office365-connection-deprecation-guide'
-  },
-  {
-    from: '/sequence-diagrams',
-    to: '/architecture-scenarios/application/spa-api'
-  },
-  {
-    from: '/architecture-scenarios/sequence-diagrams',
-    'to:': '/architecture-scenarios/application/spa-api'
   },
   {
     from: '/deployment',
@@ -1129,10 +859,6 @@ module.exports = [
     to: '/tokens/concepts/idp-access-tokens'
   },
   {
-    from: '/connections',
-    to: '/identityproviders'
-  },
-  {
     from: '/libraries/lock-android/error-messages',
     to: '/libraries/error-messages'
   },
@@ -1192,146 +918,7 @@ module.exports = [
     from: '/protocols/oauth2/oauth-implicit-protocol',
     to: '/api-auth/tutorials/implicit-grant'
   },
-  {
-    from: '/quickstart/native/ios',
-    to: '/quickstart/native/ios-swift'
-  },
-  {
-    from: '/rules/metadata-in-rules',
-    to: '/rules/current/metadata-in-rules'
-  },
-  {
-    from: '/quickstart/native/ionic/00-intro',
-    to: '/quickstart/native/ionic'
-  },
-  {
-    from: '/quickstart/native/ionic/02-custom-login',
-    to: '/quickstart/native/ionic'
-  },
-  {
-    from: '/quickstart/native/ionic/03-user-profile',
-    to: '/quickstart/native/ionic'
-  },
-  {
-    from: '/quickstart/native/ionic/04-linking-accounts',
-    to: '/quickstart/native/ionic'
-  },
-  {
-    from: '/quickstart/native/ionic/05-rules',
-    to: '/quickstart/native/ionic'
-  },
-  {
-    from: '/quickstart/native/ionic/06-authorization',
-    to: '/quickstart/native/ionic'
-  },
-  {
-    from: '/quickstart/native/ionic/08-mfa',
-    to: '/quickstart/native/ionic'
-  },
-  {
-    from: '/quickstart/native/ionic/09-customizing-lock',
-    to: '/quickstart/native/ionic'
-  },
-  {
-    from: '/quickstart/backend/nodejs/00-getting-started',
-    to: '/quickstart/backend/nodejs'
-  },
-  {
-    from: '/quickstart/backend/aspnet-core-webapi/00-getting-started',
-    to: '/quickstart/backend/aspnet-core-webapi'
-  },
-  {
-    from: '/quickstart/backend/falcor/00-getting-started',
-    to: '/quickstart/backend/falcor'
-  },
-  {
-    from: '/quickstart/backend/golang/00-getting-started',
-    to: '/quickstart/backend/golang'
-  },
-  {
-    from: '/quickstart/backend/hapi/00-getting-started',
-    to: '/quickstart/backend/hapi'
-  },
-  {
-    from: '/quickstart/backend/java-spring-security/00-getting-started',
-    to: '/quickstart/backend/java-spring-security'
-  },
-  {
-    from: '/quickstart/backend/laravel/00-getting-started',
-    to: '/quickstart/backend/laravel'
-  },
-  {
-    from: '/quickstart/backend/php/00-getting-started',
-    to: '/quickstart/backend/php'
-  },
-  {
-    from: '/quickstart/backend/python/00-getting-started',
-    to: '/quickstart/backend/python'
-  },
-  {
-    from: '/quickstart/backend/rails/00-getting-started',
-    to: '/quickstart/backend/rails'
-  },
-  {
-    from: '/quickstart/backend/ruby/00-getting-started',
-    to: '/quickstart/backend/ruby'
-  },
-  {
-    from: '/quickstart/backend/symfony/00-getting-started',
-    to: '/quickstart/backend/symfony'
-  },
-  {
-    from: '/quickstart/backend/webapi-owin/00-getting-started',
-    to: '/quickstart/backend/webapi-owin'
-  },
-  {
-    from: '/quickstart/webapp/rails/00-introduction',
-    to: '/quickstart/webapp/rails'
-  },
-  {
-    from: '/quickstart/webapp/rails/02-custom-login',
-    to: '/quickstart/webapp/rails'
-  },
-  {
-    from: '/quickstart/webapp/rails/03-session-handling',
-    to: '/quickstart/webapp/rails/02-session-handling'
-  },
-  {
-    from: '/quickstart/webapp/rails/04-user-profile',
-    to: '/quickstart/webapp/rails/03-user-profile'
-  },
-  {
-    from: '/quickstart/webapp/rails/05-linking-accounts',
-    to: '/quickstart/webapp/rails'
-  },
-  {
-    from: '/quickstart/webapp/rails/06-rules',
-    to: '/quickstart/webapp/rails'
-  },
-  {
-    from: '/quickstart/webapp/rails/07-authorization',
-    to: '/quickstart/webapp/rails'
-  },
-  {
-    from: '/quickstart/webapp/rails/08-mfa',
-    to: '/quickstart/webapp/rails'
-  },
-  {
-    from: '/quickstart/webapp/rails/09-customizing-lock',
-    to: '/quickstart/webapp/rails'
-  },
-  {
-    from: '/quickstart/webapp/java/getting-started',
-    to: '/quickstart/webapp/java'
-  },
-  {
-    from: '/quickstart/webapp/java-spring-mvc/getting-started',
-    to: '/quickstart/webapp/java-spring-mvc'
-  },
-  {
-    from: '/quickstart/webapp/java-spring-security-mvc/00-intro',
-    to: '/quickstart/webapp/java-spring-security-mvc'
-  },
+  
   {
     from: '/tutorials/step-up-authentication',
     to: '/multifactor-authentication/step-up-authentication'
@@ -1347,26 +934,6 @@ module.exports = [
   {
     from: '/multifactor-authentication/developer/step-up-authentication/step-up-for-web-apps',
     to: '/multifactor-authentication/step-up-authentication/step-up-for-web-apps'
-  },
-  {
-    from: '/quickstart/spa/angular2/00-login',
-    to: '/quickstart/spa/angular2'
-  },
-  {
-    from: '/quickstart/spa/angular2/03-user-profile',
-    to: '/quickstart/spa/angular2/02-user-profile'
-  },
-  {
-    from: '/quickstart/spa/angular2/04-calling-an-api',
-    to: '/quickstart/spa/angular2/03-calling-an-api'
-  },
-  {
-    from: '/quickstart/spa/angular2/05-authorization',
-    to: '/quickstart/spa/angular2/04-authorization'
-  },
-  {
-    from: '/quickstart/spa/angular2/06-token-renewal',
-    to: '/quickstart/spa/angular2/05-token-renewal'
   },
   {
     from: '/security/token-exp',
@@ -1405,17 +972,9 @@ module.exports = [
     to: '/universal-login/password-reset'
   },
   {
-    from: '/connections/database/mysql',
-    to: '/connections/database/custom-db'
-  },
-  {
     from: '/dashboard-account-settings',
     to: '/dashboard-tenant-settings'
   },
-  // {
-  //   from: '/metadata/lock',
-  //   to: '/metadata#using-lock-to-manage-metadata'
-  // },
   {
     from: ['/libraries/lock/v11/customization'],
     to: '/libraries/lock/v11/configuration',
@@ -1439,22 +998,6 @@ module.exports = [
   {
     from: '/tutorials/using-auth0-with-multi-tenant-apps',
     to: '/design/using-auth0-with-multi-tenant-apps',
-  },
-  {
-    from: '/tutorials/adding-generic-oauth1-connection',
-    to: '/connections/adding-generic-oauth1-connection',
-  },
-  {
-    from: '/tutorials/adding-scopes-for-an-external-idp',
-    to: '/connections/adding-scopes-for-an-external-idp',
-  },
-  {
-    from: '/tutorials/generic-oauth2-connection-examples',
-    to: '/connections/generic-oauth2-connection-examples',
-  },
-  {
-    from: '/tutorials/calling-an-external-idp-api',
-    to: '/connections/calling-an-external-idp-api',
   },
   {
     from: '/tutorials/tracking-new-leads-in-salesforce-and-raplead',
@@ -1491,10 +1034,6 @@ module.exports = [
   {
     from: '/tutorials/delete-reset-tenant',
     to: '/support/delete-reset-tenant',
-  },
-  {
-    from: '/tutorials/how-to-test-partner-connection',
-    to: '/connections/how-to-test-partner-connection',
   },
   {
     from: '/tutorials/how-auth0-versions-software',
@@ -1689,28 +1228,8 @@ module.exports = [
     to: '/users/guides/bulk-user-imports'
   },
   {
-    from: ['/connections/database/migrating', '/users/migrations/automatic'],
-    to: '/users/guides/configure-automatic-migration'
-  },
-  {
-    from: ['/connections/database/migrating-okta', '/users/migrations/okta'],
-    to: '/users/references/user-migration-scenarios'
-  },
-  {
     from: `/metadata/management-api`,
     to: `/metadata/apis`
-  },
-  {
-    from: `/connections/grean/bankid-no`,
-    to: `/connections/criipto/bankid-no`
-  },
-  {
-    from: `/connections/grean/bankid-se`,
-    to: `/connections/criipto/bankid-se`
-  },
-  {
-    from: `/connections/grean/nemid`,
-    to: `/connections/criipto/nemid`
   },
   {
     from: '/sso/current/integrations',
@@ -1821,70 +1340,6 @@ module.exports = [
     to: '/support/sld'
   },
   {
-    from: '/architecture-scenarios/application/mobile-api',
-    to: '/architecture-scenarios/mobile-api'
-  },
-  {
-    from: '/architecture-scenarios/application/server-api',
-    to: '/architecture-scenarios/server-api'
-  },
-  {
-    from: '/architecture-scenarios/application/spa-api',
-    to: '/architecture-scenarios/spa-api'
-  },
-  {
-    from: '/architecture-scenarios/application/web-app-sso',
-    to: '/architecture-scenarios/web-app-sso'
-  },
-  {
-    from: '/architecture-scenarios/application/web-saml',
-    to: '/architecture-scenarios/web-saml'
-  },
-  {
-    from: '/architecture-scenarios/business/b2b-b2e',
-    to: '/architecture-scenarios/b2b-b2e'
-  },
-  {
-    from: '/architecture-scenarios/business/b2b',
-    to: '/architecture-scenarios/b2b'
-  },
-  {
-    from: '/architecture-scenarios/business/b2c',
-    to: '/architecture-scenarios/b2c'
-  },
-  {
-    from: '/architecture-scenarios/business/b2e',
-    to: '/architecture-scenarios/b2e'
-  },
-  {
-    from: '/architecture-scenarios/application/mobile-api/api-implementation-nodejs',
-    to: '/architecture-scenarios/mobile-api/api-implementation-nodejs'
-  },
-  {
-    from: '/architecture-scenarios/application/mobile-api/mobile-implementation-android',
-    to: '/architecture-scenarios/mobile-api/mobile-implementation-android'
-  },
-  {
-    from: '/architecture-scenarios/application/server-api/api-implementation-nodejs',
-    to: '/architecture-scenarios/server-api/api-implementation-nodejs'
-  },
-  {
-    from: '/architecture-scenarios/application/server-api/cron-implementation-python',
-    to: '/architecture-scenarios/server-api/cron-implementation-python'
-  },
-  {
-    from: '/architecture-scenarios/application/spa-api/spa-implementation-angular2',
-    to: '/architecture-scenarios/spa-api/spa-implementation-angular2'
-  },
-  {
-    from: '/architecture-scenarios/application/spa-api/api-implementation-nodejs',
-    to: '/architecture-scenarios/spa-api/api-implementation-nodejs'
-  },
-  {
-    from: '/architecture-scenarios/application/web-app-sso/implementation-aspnetcore',
-    to: '/architecture-scenarios/web-app-sso/implementation-aspnetcore'
-  },
-  {
      from: '/applications/application-settings/non-interactive',
      to: '/applications/machine-to-machine#settings'
    },
@@ -1924,34 +1379,10 @@ module.exports = [
      from: '/user-profile',
      to: '/users/concepts/overview-user-profile'
    },
-  //  {
-  //    from: '/user-profile#block-and-unblock-a-user',
-  //    to: '/users/guides/block-and-unblock-users'
-  //  },
    {
      from: '/user-profile/user-picture',
      to: '/users/guides/change-user-pictures'
    },
-  //  {
-  //    from: '/user-profile#create-a-user',
-  //    to: '/users/guides/create-users'
-  //  },
-  //  {
-  //    from: '/user-profile#delete-a-user',
-  //    to: '/users/guides/delete-users'
-  //  },
-  //  {
-  //    from: '/user-profile#user-access-to-applications',
-  //    to: '/users/guides/manage-user-access-to-applications'
-  //  },
-  //  {
-  //    from: '/user-profile#manage-users-using-the-dashboard',
-  //    to: '/users/guides/manage-users-using-the-dashboard'
-  //  },
-  //  {
-  //    from: '/user-profile#manage-users-using-the-management-api',
-  //    to: '/users/guides/manage-users-using-the-management-api'
-  //  },
    {
      from: '/user-profile/progressive-profiling',
      to: '/users/concepts/overview-progressive-profiling'
@@ -1960,10 +1391,6 @@ module.exports = [
      from: '/user-profile/customdb.md',
      to: '/users/guides/update-user-profiles-using-your-database'
    },
-  //  {
-  //    from: '/user-profile#view-users',
-  //    to: '/users/guides/view-users'
-  //  },
    {
      from: '/user-profile/normalized/auth0',
      to: '/users/normalized/auth0'
@@ -2024,10 +1451,6 @@ module.exports = [
      from: ['/libraries/lock/v10/auth0js', '/libraries/lock/v11/auth0js'],
      to: '/libraries/auth0js'
    },
-  //  {
-  //    from: '/metadata/lock',
-  //    to: '/users/guides/manage-user-metadata'
-  //  }
   { from: '/rules/current', to: '/rules' },
   { from: '/rules/legacy', to: '/rules/references/legacy' },
   { from: '/rules/current/context', to: '/rules/references/context-object' },
@@ -2207,52 +1630,12 @@ module.exports = [
       to: '/private-cloud/custom-domain-migration'
     },
     {
-      from: '/connections/passwordless/sms-gateway',
-      to: '/connections/passwordless/guides/use-sms-gateway-passwordless'
-    },
-    {
       from: '/policies/requests',
       to: '/policies/unsupported-requests'
     },
     {
       from: '/rules/guides/create',
       to: '/dashboard/guides/rules/create-rules'
-    },
-    {
-      from: '/connections/apple-setup',
-      to: '/connections/apple-siwa/set-up-apple'
-    },
-    {
-      from: '/connections/apple-siwa/add-siwa-web-app',
-      to: '/connections/social/apple'
-    },
-    {
-      from: '/connections/apple-siwa/add-siwa-to-native-app',
-      to: '/connections/nativesocial/apple'
-    },
-    {
-      from: '/connections/nativesocial/add-siwa-to-native-app',
-      to: '/connections/nativesocial/apple'
-    },
-    {
-      from: '/connections/passwordless/email',
-      to: '/connections/passwordless/guides/email-otp'
-    },
-    {
-      from: '/connections/passwordless/sms',
-      to: '/connections/passwordless/guides/sms-otp'
-    },
-    {
-      from: '/connections/passwordless/spa',
-      to: '/connections/passwordless/guides/universal-login'
-    },
-    {
-      from: '/connections/passwordless/regular-web-app',
-      to: '/connections/passwordless/guides/universal-login'
-    },
-    {
-      from: '/connections/passwordless/faq',
-      to: '/connections/passwordless/reference/troubleshoot'
     },
     {
       from: '/best-practices/custom-db-connections-scripts',
@@ -2388,16 +1771,8 @@ module.exports = [
       to: '/mfa/guides/reset-user-mfa'
     },
     {
-      from: '/connections/social/miicard',
-      to: '/connections/identity-providers-social'
-    },
-    {
       from: '/mfa/references/troubleshooting',
       to: '/mfa/references/troubleshoot-mfa'
-    },
-    {
-      from: '/line',
-      to: '/connections/social/line'
     },
     {
       from: '/api-auth/tutorials/multifactor-resource-owner-password',
@@ -2637,10 +2012,511 @@ module.exports = [
       from: '/quickstart/spa/react/03-user-profile',
       to: '/quickstart/spa/react/04-user-profile'
     },
+    {
+      from: '/quickstart/webapp/nodejs/02-user-profile',
+      to: '/quickstart/webapp/nodejs/01-login'
+    },
+    {
+      from: [
+        '/quickstart/hybrid',
+        '/quickstart/native-mobile'
+      ],
+      to: '/quickstart/native'
+    },
+    {
+      from: [
+        '/quickstart/hybrid/:platform',
+        '/quickstart/native-mobile/:platform',
+        `/quickstart/hybrid/:platform/${apis}`,
+        `/quickstart/native-mobile/:platform/${apis}`,
+        `/quickstart/native/:platform/${apis}`
+      ],
+      to: '/quickstart/native/:platform'
+    },
+    {
+      from: `/quickstart/spa/:platform/${apis}`,
+      to: '/quickstart/spa/:platform'
+    },
+    {
+      from: `/quickstart/backend/:platform/${apis}`,
+      to: '/quickstart/backend/:platform'
+    },
+    {
+      from: `/quickstart/spa/emberjs`,
+      to: '/quickstart/spa/ember'
+    },
+    {
+      from: [
+        '/quickstart/spa/aurelia',
+        '/quickstart/spa/ember',
+        '/quickstart/spa/jquery'
+      ],
+      to: '/quickstart/spa'
+    },
+    {
+      from: '/quickstart',
+      to: '/'
+    },
+    {
+      from: '/quickstart/backend/java',
+      to: '/quickstart/backend/java-spring-security',
+      status: 302
+    },
+    {
+      from: '/quickstart/native/ios',
+      to: '/quickstart/native/ios-swift'
+    },
+    {
+      from: '/rules/metadata-in-rules',
+      to: '/rules/current/metadata-in-rules'
+    },
+    {
+      from: '/quickstart/native/ionic/00-intro',
+      to: '/quickstart/native/ionic'
+    },
+    {
+      from: '/quickstart/native/ionic/02-custom-login',
+      to: '/quickstart/native/ionic'
+    },
+    {
+      from: '/quickstart/native/ionic/03-user-profile',
+      to: '/quickstart/native/ionic'
+    },
+    {
+      from: '/quickstart/native/ionic/04-linking-accounts',
+      to: '/quickstart/native/ionic'
+    },
+    {
+      from: '/quickstart/native/ionic/05-rules',
+      to: '/quickstart/native/ionic'
+    },
+    {
+      from: '/quickstart/native/ionic/06-authorization',
+      to: '/quickstart/native/ionic'
+    },
+    {
+      from: '/quickstart/native/ionic/08-mfa',
+      to: '/quickstart/native/ionic'
+    },
+    {
+      from: '/quickstart/native/ionic/09-customizing-lock',
+      to: '/quickstart/native/ionic'
+    },
+    {
+      from: '/quickstart/backend/nodejs/00-getting-started',
+      to: '/quickstart/backend/nodejs'
+    },
+    {
+      from: '/quickstart/backend/aspnet-core-webapi/00-getting-started',
+      to: '/quickstart/backend/aspnet-core-webapi'
+    },
+    {
+      from: '/quickstart/backend/falcor/00-getting-started',
+      to: '/quickstart/backend/falcor'
+    },
+    {
+      from: '/quickstart/backend/golang/00-getting-started',
+      to: '/quickstart/backend/golang'
+    },
+    {
+      from: '/quickstart/backend/hapi/00-getting-started',
+      to: '/quickstart/backend/hapi'
+    },
+    {
+      from: '/quickstart/backend/java-spring-security/00-getting-started',
+      to: '/quickstart/backend/java-spring-security'
+    },
+    {
+      from: '/quickstart/backend/laravel/00-getting-started',
+      to: '/quickstart/backend/laravel'
+    },
+    {
+      from: '/quickstart/backend/php/00-getting-started',
+      to: '/quickstart/backend/php'
+    },
+    {
+      from: '/quickstart/backend/python/00-getting-started',
+      to: '/quickstart/backend/python'
+    },
+    {
+      from: '/quickstart/backend/rails/00-getting-started',
+      to: '/quickstart/backend/rails'
+    },
+    {
+      from: '/quickstart/backend/ruby/00-getting-started',
+      to: '/quickstart/backend/ruby'
+    },
+    {
+      from: '/quickstart/backend/symfony/00-getting-started',
+      to: '/quickstart/backend/symfony'
+    },
+    {
+      from: '/quickstart/backend/webapi-owin/00-getting-started',
+      to: '/quickstart/backend/webapi-owin'
+    },
+    {
+      from: '/quickstart/webapp/rails/00-introduction',
+      to: '/quickstart/webapp/rails'
+    },
+    {
+      from: '/quickstart/webapp/rails/02-custom-login',
+      to: '/quickstart/webapp/rails'
+    },
+    {
+      from: '/quickstart/webapp/rails/03-session-handling',
+      to: '/quickstart/webapp/rails/02-session-handling'
+    },
+    {
+      from: '/quickstart/webapp/rails/04-user-profile',
+      to: '/quickstart/webapp/rails/03-user-profile'
+    },
+    {
+      from: '/quickstart/webapp/rails/05-linking-accounts',
+      to: '/quickstart/webapp/rails'
+    },
+    {
+      from: '/quickstart/webapp/rails/06-rules',
+      to: '/quickstart/webapp/rails'
+    },
+    {
+      from: '/quickstart/webapp/rails/07-authorization',
+      to: '/quickstart/webapp/rails'
+    },
+    {
+      from: '/quickstart/webapp/rails/08-mfa',
+      to: '/quickstart/webapp/rails'
+    },
+    {
+      from: '/quickstart/webapp/rails/09-customizing-lock',
+      to: '/quickstart/webapp/rails'
+    },
+    {
+      from: '/quickstart/webapp/java/getting-started',
+      to: '/quickstart/webapp/java'
+    },
+    {
+      from: '/quickstart/webapp/java-spring-mvc/getting-started',
+      to: '/quickstart/webapp/java-spring-mvc'
+    },
+    {
+      from: '/quickstart/webapp/java-spring-security-mvc/00-intro',
+      to: '/quickstart/webapp/java-spring-security-mvc'
+    },
+    {
+      from: '/quickstart/spa/angular2/00-login',
+      to: '/quickstart/spa/angular2'
+    },
+    {
+      from: '/quickstart/spa/angular2/03-user-profile',
+      to: '/quickstart/spa/angular2/02-user-profile'
+    },
+    {
+      from: '/quickstart/spa/angular2/04-calling-an-api',
+      to: '/quickstart/spa/angular2/03-calling-an-api'
+    },
+    {
+      from: '/quickstart/spa/angular2/05-authorization',
+      to: '/quickstart/spa/angular2/04-authorization'
+    },
+    {
+      from: '/quickstart/spa/angular2/06-token-renewal',
+      to: '/quickstart/spa/angular2/05-token-renewal'
+    },
 
     /* CONNECTIONS */
 
-
+    {
+      from: ['/37signals-clientid', '/connections/social/37signals'],
+      to: '/connections/social/basecamp'
+    },
+    {
+      from: '/amazon-clientid',
+      to: '/connections/social/amazon'
+    },
+    {
+      from: '/aol-clientid',
+      to: '/connections/social/aol'
+    },
+    {
+      from: '/connections/enterprise/azure-active-directory',
+      to: '/connections/enterprise/azure-active-directory/v2'
+    },
+    {
+      from: '/connections/enterprise/azure-active-directory-classic',
+      to: '/connections/enterprise/azure-active-directory/v1'
+    },
+    {
+      from: '/connections/enterprise/samlp',
+      to: '/connections/enterprise/saml'
+    },
+    {
+      from: '/dwolla-clientid',
+      to: '/connections/social/dwolla'
+    },
+    {
+      from: '/baidu-clientid',
+      to: '/connections/social/baidu'
+    },
+    {
+      from: '/box-clientid',
+      to: '/connections/social/box'
+    },
+    {
+      from: '/evernote-clientid',
+      to: '/connections/social/evernote'
+    },
+    {
+      from: '/exact-clientid',
+      to: '/connections/social/exact'
+    },
+    {
+      from: '/facebook-clientid',
+      to: '/connections/social/facebook'
+    },
+    {
+      from: '/fitbit-clientid',
+      to: '/connections/social/fitbit'
+    },
+    {
+      from: '/github-clientid',
+      to: '/connections/social/github'
+    },
+    {
+      from: '/goodreads-clientid',
+      to: '/connections/social/goodreads'
+    },
+    {
+      from: '/goog-clientid',
+      to: '/connections/social/google'
+    },
+    {
+      from: '/miicard-clientid',
+      to: '/connections/social/miicard'
+    },
+    {
+      from: '/ms-account-clientid',
+      to: '/connections/social/microsoft-account'
+    },
+    {
+      from: '/oauth2',
+      to: '/connections/social/oauth2'
+    },
+    {
+      from: '/connections/social/auth0-oidc',
+      to: '/connections/enterprise/oidc'
+    },
+    {
+      from: '/paypal-clientid',
+      to: '/connections/social/paypal'
+    },
+    {
+      from: '/planningcenter-clientid',
+      to: '/connections/social/planning-center'
+    },
+    {
+      from: ['/salesforce-clientid', '/salesforce-community'],
+      to: '/connections/social/salesforce'
+    },
+    {
+      from: '/renren-clientid',
+      to: '/connections/social/renren'
+    },
+    {
+      from: '/sharepoint-clientid',
+      to: '/connections/enterprise/sharepoint-apps'
+    },
+    {
+      from: '/shopify-clientid',
+      to: '/connections/social/shopify'
+    },
+    {
+      from: '/soundcloud-clientid',
+      to: '/connections/social/soundcloud'
+    },
+    {
+      from: '/thecity-clientid',
+      to: '/connections/social/thecity'
+    },
+    {
+      from: '/twitter-clientid',
+      to: '/connections/social/twitter'
+    },
+    {
+      from: '/vkontakte-clientid',
+      to: '/connections/social/vkontakte'
+    },
+    {
+      from: '/waad-clientid',
+      to: '/connections/enterprise/azure-active-directory'
+    },
+    {
+      from: '/weibo-clientid',
+      to: '/connections/social/weibo'
+    },
+    {
+      from: '/wordpress-clientid',
+      to: '/connections/social/wordpress'
+    },
+    {
+      from: '/yahoo-clientid',
+      to: '/connections/social/yahoo'
+    },
+    {
+      from: '/yandex-clientid',
+      to: '/connections/social/yandex'
+    },
+    {
+      from: '/instagram-clientid',
+      to: '/connections/social/instagram'
+    },
+    {
+      from: '/linkedin-clientid',
+      to: '/connections/social/linkedin'
+    },
+    {
+      from: '/mysql-connection-tutorial',
+      to: '/connections/database/mysql'
+    },
+    {
+      from: '/migrating',
+      to: '/connections/database/migrating'
+    },
+    {
+      from: '/ad',
+      to: '/connections/enterprise/active-directory-ldap'
+    },
+    {
+      from: '/connections/enterprise/ldap',
+      to: '/connections/enterprise/active-directory-ldap'
+    },
+      {
+      from: '/connections/enterprise/active-directory',
+      to: '/connections/enterprise/active-directory-ldap'
+    },
+    {
+      from: '/adfs',
+      to: '/connections/enterprise/adfs'
+    },
+    {
+      from: ['/passwordless','/dashboard/guides/connections/set-up-connections-passwordless'],
+      to: '/connections/passwordless'
+    },
+    {
+      from: '/connections/passwordless/ios-sms',
+      to: '/connections/passwordless/ios-sms-objc'
+    },
+    {
+      from: '/applications/concepts/connections',
+      to: '/connections'
+    },
+    {
+      from: '/clients/connections',
+      to: '/connections'
+    },
+    {
+      from: '/applications/connections',
+      to: '/connections'
+    },
+    {
+      from: '/password-strength',
+      to: '/connections/database/password-strength'
+    },
+    {
+      from: '/connections',
+      to: '/identityproviders'
+    },
+    {
+      from: '/connections/database/mysql',
+      to: '/connections/database/custom-db'
+    },
+    {
+      from: '/tutorials/adding-generic-oauth1-connection',
+      to: '/connections/adding-generic-oauth1-connection',
+    },
+    {
+      from: '/tutorials/adding-scopes-for-an-external-idp',
+      to: '/connections/adding-scopes-for-an-external-idp',
+    },
+    {
+      from: '/tutorials/generic-oauth2-connection-examples',
+      to: '/connections/generic-oauth2-connection-examples',
+    },
+    {
+      from: '/tutorials/calling-an-external-idp-api',
+      to: '/connections/calling-an-external-idp-api',
+    },
+    {
+      from: '/tutorials/how-to-test-partner-connection',
+      to: '/connections/how-to-test-partner-connection',
+    },
+    {
+      from: ['/connections/database/migrating', '/users/migrations/automatic'],
+      to: '/users/guides/configure-automatic-migration'
+    },
+    {
+      from: ['/connections/database/migrating-okta', '/users/migrations/okta'],
+      to: '/users/references/user-migration-scenarios'
+    },
+    {
+      from: `/connections/grean/bankid-no`,
+      to: `/connections/criipto/bankid-no`
+    },
+    {
+      from: `/connections/grean/bankid-se`,
+      to: `/connections/criipto/bankid-se`
+    },
+    {
+      from: `/connections/grean/nemid`,
+      to: `/connections/criipto/nemid`
+    },
+    {
+      from: '/connections/passwordless/sms-gateway',
+      to: '/connections/passwordless/guides/use-sms-gateway-passwordless'
+    },
+    {
+      from: '/connections/apple-setup',
+      to: '/connections/apple-siwa/set-up-apple'
+    },
+    {
+      from: '/connections/apple-siwa/add-siwa-web-app',
+      to: '/connections/social/apple'
+    },
+    {
+      from: '/connections/apple-siwa/add-siwa-to-native-app',
+      to: '/connections/nativesocial/apple'
+    },
+    {
+      from: '/connections/nativesocial/add-siwa-to-native-app',
+      to: '/connections/nativesocial/apple'
+    },
+    {
+      from: '/connections/passwordless/email',
+      to: '/connections/passwordless/guides/email-otp'
+    },
+    {
+      from: '/connections/passwordless/sms',
+      to: '/connections/passwordless/guides/sms-otp'
+    },
+    {
+      from: '/connections/passwordless/spa',
+      to: '/connections/passwordless/guides/universal-login'
+    },
+    {
+      from: '/connections/passwordless/regular-web-app',
+      to: '/connections/passwordless/guides/universal-login'
+    },
+    {
+      from: '/connections/passwordless/faq',
+      to: '/connections/passwordless/reference/troubleshoot'
+    },
+    {
+      from: '/connections/social/miicard',
+      to: '/connections/identity-providers-social'
+    },
+    {
+      from: '/line',
+      to: '/connections/social/line'
+    },
   
     /* MICROSITES */
  
@@ -2648,7 +2524,78 @@ module.exports = [
   
     /* ARCHITECTURE SCENARIOS */
 
-  
+    {
+      from: '/sequence-diagrams',
+      to: '/architecture-scenarios/application/spa-api'
+    },
+    {
+      from: '/architecture-scenarios/sequence-diagrams',
+      to: '/architecture-scenarios/application/spa-api'
+    },
+    {
+      from: '/architecture-scenarios/application/mobile-api',
+      to: '/architecture-scenarios/mobile-api'
+    },
+    {
+      from: '/architecture-scenarios/application/server-api',
+      to: '/architecture-scenarios/server-api'
+    },
+    {
+      from: '/architecture-scenarios/application/spa-api',
+      to: '/architecture-scenarios/spa-api'
+    },
+    {
+      from: '/architecture-scenarios/application/web-app-sso',
+      to: '/architecture-scenarios/web-app-sso'
+    },
+    {
+      from: '/architecture-scenarios/application/web-saml',
+      to: '/architecture-scenarios/web-saml'
+    },
+    {
+      from: '/architecture-scenarios/business/b2b-b2e',
+      to: '/architecture-scenarios/b2b-b2e'
+    },
+    {
+      from: '/architecture-scenarios/business/b2b',
+      to: '/architecture-scenarios/b2b'
+    },
+    {
+      from: '/architecture-scenarios/business/b2c',
+      to: '/architecture-scenarios/b2c'
+    },
+    {
+      from: '/architecture-scenarios/business/b2e',
+      to: '/architecture-scenarios/b2e'
+    },
+    {
+      from: '/architecture-scenarios/application/mobile-api/api-implementation-nodejs',
+      to: '/architecture-scenarios/mobile-api/api-implementation-nodejs'
+    },
+    {
+      from: '/architecture-scenarios/application/mobile-api/mobile-implementation-android',
+      to: '/architecture-scenarios/mobile-api/mobile-implementation-android'
+    },
+    {
+      from: '/architecture-scenarios/application/server-api/api-implementation-nodejs',
+      to: '/architecture-scenarios/server-api/api-implementation-nodejs'
+    },
+    {
+      from: '/architecture-scenarios/application/server-api/cron-implementation-python',
+      to: '/architecture-scenarios/server-api/cron-implementation-python'
+    },
+    {
+      from: '/architecture-scenarios/application/spa-api/spa-implementation-angular2',
+      to: '/architecture-scenarios/spa-api/spa-implementation-angular2'
+    },
+    {
+      from: '/architecture-scenarios/application/spa-api/api-implementation-nodejs',
+      to: '/architecture-scenarios/spa-api/api-implementation-nodejs'
+    },
+    {
+      from: '/architecture-scenarios/application/web-app-sso/implementation-aspnetcore',
+      to: '/architecture-scenarios/web-app-sso/implementation-aspnetcore'
+    },
 
     /* CONTENTFUL REDIRECTS (ALL LIVE SITE PAGES NOT LISTED ABOVE) */
   
