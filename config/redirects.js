@@ -2900,10 +2900,6 @@ module.exports = [
       to: '/rules/user-object-in-rules'
   },
   {
-      from: ['/custom-domains/additional-configuration'],
-      to: '/custom-domains/configure-features-to-use-custom-domains'
-  },
-  {
       from: ['/sessions'],
       to: '/sessions-and-cookies'
   },
@@ -3905,6 +3901,12 @@ module.exports = [
       to: '/anomaly-detection/brute-force-protection-triggers-and-actions'
   },
 
+  /* Brand and Customize */
+
+  {
+    from: ['branding-customization'],
+    to: '/brand-and-customize'
+  },
   /* CMS */
 
   {
@@ -3942,6 +3944,25 @@ module.exports = [
   {
     from: ['/cms/wordpress/user-migration'],
     to: '/cms/wordpress-plugin/user-migration-in-login-by-auth0'
+  },
+
+  /* Custom Domains */
+
+  {
+    from: ['/custom-domains/troubleshoot'],
+    to: '/custom-domains/troubleshoot-custom-domains'
+  },
+  {
+    from: ['/custom-domains/self-managed-certificates'],
+    to: '/custom-domains/configure-custom-domains-with-self-managed-certificates'
+  },
+  {
+    from: ['/custom-domains/auth0-managed-certificates'],
+    to: '/custom-domains/configure-custom-domains-with-auth0-managed-certificates'
+  },
+  {
+    from: ['/custom-domains/additional-configuration'],
+    to: '/custom-domains/configure-features-to-use-custom-domains'
   },
 
   /* Identity Labs */
