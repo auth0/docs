@@ -1938,10 +1938,6 @@ module.exports = [
     to: '/authorization/sample-use-cases-role-based-access-control'
   },
   {
-    from: ['/authorization/concepts/sample-use-cases-rules'],
-    to: '/authorization/sample-use-cases-rules-with-authorization'
-  },
-  {
     from: ['/authorization/concepts/troubleshooting'],
     to: '/authorization/troubleshoot-role-based-access-control-and-authorization'
   },
@@ -1970,7 +1966,7 @@ module.exports = [
     to: '/authorization'
   },
   {
-    from: ['/api-auth/restrict-access-api','/api-auth/restrict-requests-for-scopes'],
+    from: ['/api-auth/restrict-access-api','/api-auth/restrict-requests-for-scopes','/authorization/concepts/sample-use-cases-rules'],
     to: '/authorization/sample-use-cases-rules-with-authorization'
   },
   {
@@ -1991,7 +1987,7 @@ module.exports = [
   },
   {
     from: ['/api-auth/tutorials/represent-multiple-apis'],
-     to: '/authorization/represent-multiple-apis-using-a-single-logical-api'
+    to: '/authorization/represent-multiple-apis-using-a-single-logical-api'
   },
   {
     from: ['/api-auth/tutorials/silent-authentication'],
