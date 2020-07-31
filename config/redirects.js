@@ -2247,10 +2247,6 @@ module.exports = [
       to: '/pre-deployment/how-to-run-production-checks/production-checks:-required-fixes'
   },
   {
-      from: ['/services'],
-      to: '/auth0-professional-services'
-  },
-  {
       from: ['/i18n'],
       to: '/internationalization-and-multilingual-settings'
   },
@@ -3726,6 +3722,33 @@ module.exports = [
   {
     from: ['/private-saas-deployment/custom-domain-migration','/private-cloud/custom-domain-migration'], 
     to: '/private-cloud/private-cloud-migrations/migrate-private-cloud-custom-domains'
+  },
+
+  /* PROFESSIONAL SERVICES */
+
+  {
+    from: ['/services','/auth0-professional-services'],
+    to: '/professional-services'
+  },
+  {
+    from: ['/services/scenario-guidance'],
+    to: '/professional-services/advisory-sessions'
+  },
+  {
+    from: ['/services/architectural-design'],
+    to: '/professional-services/architectural-design-services'
+  },
+  {
+    from: ['/services/custom-implementation'],
+    to: '/professional-services/custom-implementation-services'
+  },
+  {
+    from: ['/services/performance-scalability'],
+    to: '/professional-services/performance-and-scalability-services'
+  },
+  {
+    from: ['/services/solution-design'],
+    to: '/professional-services/solution-design-services'
   },
 
   /* Scopes */
