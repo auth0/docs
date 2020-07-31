@@ -172,26 +172,6 @@ module.exports = [
     to: '/integrations/aws'
   },
   {
-    from: ['/okta', '/saml/identity-providers/okta'],
-    to: '/protocols/saml/identity-providers/okta'
-  },
-  {
-    from: ['/onelogin', '/saml/identity-providers/onelogin'],
-    to: '/protocols/saml/identity-providers/onelogin'
-  },
-  {
-    from: ['/ping7', '/saml/identity-providers/ping7'],
-    to: '/protocols/saml/identity-providers/ping7'
-  },
-  {
-    from: ['/siteminder', '/saml/identity-providers/siteminder'],
-    to: '/protocols/saml/identity-providers/siteminder'
-  },
-  {
-    from: '/ssocircle',
-    to: '/protocols/saml/identity-providers/ssocircle'
-  },
-  {
     from: '/wsfedwebapp-tutorial',
     to: '/tutorials/wsfed-web-app'
   },
@@ -320,76 +300,8 @@ module.exports = [
     to: '/dev-centers/java'
   },
   {
-    from: '/oauth-implicit-protocol',
-    to: '/protocols/oauth2/oauth-implicit-protocol'
-  },
-  {
-    from: '/protocols/oauth-state',
-    to: '/protocols/oauth2/oauth-state'
-  },
-  {
     from: '/metadata/apiv2',
     to: '/metadata/management-api'
-  },
-  {
-    from: '/saml-apps',
-    to: '/protocols/saml/saml-apps'
-  },
-  {
-    from: '/saml-configuration',
-    to: '/protocols/saml/saml-configuration'
-  },
-  {
-    from: '/saml-idp-generic',
-    to: '/protocols/saml/saml-idp-generic'
-  },
-  {
-    from: '/saml-sp-generic',
-    to: '/protocols/saml/saml-sp-generic'
-  },
-  {
-    from: '/saml2webapp-tutorial',
-    to: '/protocols/saml/saml2webapp-tutorial'
-  },
-  {
-    from: '/samlp-providers',
-    to: '/protocols/saml/samlp-providers'
-  },
-  {
-    from: '/samlp',
-    to: '/protocols/saml/samlp'
-  },
-  {
-    from: '/samlsso-auth0-to-auth0',
-    to: '/protocols/saml/samlsso-auth0-to-auth0'
-  },
-  {
-    from: '/saml/identity-providers/salesforce',
-    to: '/protocols/saml/identity-providers/salesforce'
-  },
-  {
-    from: '/saml-apps/cisco-webex',
-    to: '/protocols/saml/saml-apps/cisco-webex'
-  },
-  {
-    from: '/saml-apps/datadog',
-    to: '/protocols/saml/saml-apps/datadog'
-  },
-  {
-    from: '/saml-apps/freshdesk',
-    to: '/protocols/saml/saml-apps/freshdesk'
-  },
-  {
-    from: '/saml-apps/heroku-sso',
-    to: '/protocols/saml/saml-apps/heroku'
-  },
-  {
-    from: '/saml-apps/litmos',
-    to: '/protocols/saml/saml-apps/litmos'
-  },
-  {
-    from: '/saml-apps/sprout-video',
-    to: '/protocols/saml/saml-apps/sprout-video'
   },
   {
     from: '/tutorials/local-testing-and-development',
@@ -482,10 +394,6 @@ module.exports = [
   {
     from: '/tutorials/configure-wsfed-application',
     to: '/integrations/configure-wsfed-application',
-  },
-  {
-    from: '/tutorials/openid-connect-discovery',
-    to: '/protocols/oidc/openid-connect-discovery',
   },
   {
     from: '/tutorials',
@@ -620,10 +528,6 @@ module.exports = [
     to: '/applications/spa#settings'
   },
   {
-    from: '/protocols/saml/saml-configuration/selecting-between-multiple-idp',
-    to: '/hrd'
-  },
-  {
     from: '/users/search/best-practices',
     to: '/best-practices/search-best-practices'
   },
@@ -644,10 +548,6 @@ module.exports = [
   {
     from: '/rules/redirect',
     to: '/rules/guides/redirect'
-  },
-  {
-    from: '/integrations/using-auth0-as-an-identity-provider-with-github-enterprise',
-    to: '/protocols/saml/saml-apps/github-server'
   },
   {
     from: '/users/references/user-data-storage-best-practices',
@@ -1697,110 +1597,6 @@ module.exports = [
       to: '/login/embedded-login'
   },
   {
-      from: ['/protocols/oidc/identity-providers/okta'],
-      to: '/protocols/configure-okta-as-oidc-identity-provider'
-  },
-  {
-      from: ['/protocols/oidc/openid-connect-discovery'],
-      to: '/protocols/configure-applications-with-oidc-discovery'
-  },
-  {
-      from: ['/protocols/saml/adfs'],
-      to: '/protocols/saml-configuration-options/configure-adfs-saml-connections'
-  },
-  {
-      from: ['/protocols/saml/identity-providers/onelogin'],
-      to: '/protocols/saml-configuration-options/configure-onelogin-as-saml-identity-provider'
-  },
-  {
-      from: ['/protocols/saml/identity-providers/ping7'],
-      to: '/protocols/saml-configuration-options/configure-pingfederate-as-saml-identity-provider'
-  },
-  {
-      from: ['/protocols/saml/identity-providers/salesforce'],
-      to: '/protocols/saml-configuration-options/configure-salesforce-as-saml-identity-provider'
-  },
-  {
-      from: ['/protocols/saml/identity-providers/siteminder'],
-      to: '/protocols/saml-configuration-options/configure-siteminder-as-saml-identity-provider'
-  },
-  {
-      from: ['/protocols/saml/identity-providers/ssocircle'],
-      to: '/protocols/saml-configuration-options/configure-ssocircle-as-saml-identity-provider'
-  },
-  {
-      from: ['/protocols/saml/idp-initiated-sso'],
-      to: '/protocols/saml-configuration-options/configure-saml-identity-provider-initiated-single-sign-on'
-  },
-  {
-      from: ['/protocols/saml/saml-apps/cisco-webex'],
-      to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-cisco-webex'
-  },
-  {
-      from: ['/protocols/saml/saml-apps/datadog'],
-      to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-datadog'
-  },
-  {
-      from: ['/protocols/saml/saml-apps/egencia'],
-      to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-egencia'
-  },
-  {
-      from: ['/protocols/saml/saml-apps/freshdesk'],
-      to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-freshdesk'
-  },
-  {
-      from: ['/protocols/saml/saml-apps/github-cloud'],
-      to: '/protocols/saml-configuration-options/configure-saml2-web-app-addon-for-github-enterprise-cloud'
-  },
-  {
-      from: ['/protocols/saml/saml-apps/github-server'],
-      to: '/protocols/saml-configuration-options/configure-saml2-web-app-addon-for-github-enterprise-server'
-  },
-  {
-      from: ['/protocols/saml/saml-apps/hosted-graphite'],
-      to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-hosted-graphite'
-  },
-  {
-      from: ['/protocols/saml/saml-apps/litmos'],
-      to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-litmos'
-  },
-  {
-      from: ['/protocols/saml/saml-apps/pluralsight'],
-      to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-pluralsight'
-  },
-  {
-      from: ['/protocols/saml/saml-apps/sprout-video'],
-      to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-sprout-video'
-  },
-  {
-      from: ['/protocols/saml/saml-apps/tableau-online'],
-      to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-tableau-online'
-  },
-  {
-      from: ['/protocols/saml/saml-apps/tableau-server'],
-      to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-tableau-server'
-  },
-  {
-      from: ['/protocols/saml/saml-apps/workday'],
-      to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-workday'
-  },
-  {
-      from: ['/protocols/saml/saml-apps/workpath'],
-      to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-workpath'
-  },
-  {
-      from: ['/protocols/saml/saml-configuration/auth0-as-identity-and-service-provider'],
-      to: '/protocols/saml-configuration-options/configure-auth0-as-service-and-identity-provider'
-  },
-  {
-      from: ['/protocols/saml/saml-idp-generic'],
-      to: '/protocols/saml-configuration-options/configure-auth0-as-saml-identity-provider'
-  },
-  {
-      from: ['/protocols/saml/saml2webapp-tutorial'],
-      to: '/protocols/saml-configuration-options/configure-saml2-web-applications'
-  },
-  {
     from: ['/applications/concepts/app-types-first-third-party'],
     to: '/auth0-applications/first-party-and-third-party-applications'
   },
@@ -2561,6 +2357,10 @@ module.exports = [
   {
       from: ['/dashboard/guides/applications/view-app-type-confidential-public'],
       to: '/applications/view-application-ownership'
+  },
+  {
+    from: ['/dashboard/guides/applications/register-app-spa'],
+    to: '/applications/register-single-page-app'
   },
 
   /* Authorization */
@@ -3605,6 +3405,300 @@ module.exports = [
     from: ['/dashboard/guides/applications/set-up-addon-saml2-aws'],
     to: '/protocols/saml-configuration-options/configure-saml2-web-app-addon-for-aws'
   },
+  /* PROTOCOLS */
+
+  {
+    from: ['/tutorials/openid-connect-discovery','/protocols/oidc/openid-connect-discovery'],
+    to: '/protocols/configure-applications-with-oidc-discovery'
+  },
+  {
+    from: ['/protocols/oidc/identity-providers/okta'],
+    to: '/protocols/configure-okta-as-oidc-identity-provider'
+  },
+  {
+    from: ['/integrations/configure-wsfed-application'],
+    to: '/protocols/configure-ws-fed-applications'
+  },
+  {
+    from: ['/protocols/ldap'],
+    to: '/protocols/ldap-protocol'
+  },
+  {
+    from: ['/protocols/oauth2'],
+    to: '/protocols/protocol-oauth2'
+  },
+  {
+    from: ['/protocols/oidc'],
+    to: '/protocols/openid-connect-protocol'
+  },
+  {
+    from: ['/samlp-providers','/protocols/saml/samlp-providers', '/protocols/saml'],
+    to: '/protocols/saml-protocol'
+  },
+  {
+    from: ['/protocols/oauth2/oauth-state','/protocols/oauth-state'],
+    to: '/protocols/state-parameters'
+  },
+  {
+    from: ['/protocols/ws-fed'],
+    to: '/protocols/ws-fed-protocol'
+  },
+  {
+    from: ['/saml-apps','/protocols/saml/saml-apps','/saml-configuration','/protocols/saml/saml-configuration'],
+    to: '/protocols/saml-configuration-options'
+  },
+  {
+    from: ['/protocols/saml/adfs'],
+    to: '/protocols/saml-configuration-options/configure-adfs-saml-connections'
+  },
+  {
+    from: ['/protocols/saml/saml-apps/atlassian'],
+    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-atlassian'
+  },
+  {
+    from: ['/saml-apps/cisco-webex','/protocols/saml/saml-apps/cisco-webex'],
+    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-cisco-webex'
+  },
+  {
+    from: ['/saml-apps/datadog','/protocols/saml/saml-apps/datadog'],
+    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-datadog'
+  },
+  {
+    from: ['/protocols/saml/saml-apps/egencia'],
+    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-egencia'
+  },
+  {
+    from: ['/saml-apps/freshdesk','/protocols/saml/saml-apps/freshdesk'],
+    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-freshdesk'
+  },
+  {
+    from: ['/protocols/saml/saml-apps/google-apps'],
+    to: '/protocols/saml-configuration-options/configure-auth0-as-idp-for-google-g-suite'
+  },
+  {
+    from: ['/protocols/saml/saml-apps/hosted-graphite'],
+    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-hosted-graphite'
+  },
+  {
+    from: ['/saml-apps/litmos','/protocols/saml/saml-apps/litmos'],
+    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-litmos'
+  },
+  {
+    from: ['/protocols/saml/saml-apps/pluralsight'],
+    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-pluralsight'
+  },
+  {
+    from: ['/saml-apps/sprout-video','/protocols/saml/saml-apps/sprout-video'],
+    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-sprout-video'
+  },
+  {
+    from: ['/protocols/saml/saml-apps/tableau-online'],
+    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-tableau-online'
+  },
+  {
+    from: ['/protocols/saml/saml-apps/tableau-server'],
+    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-tableau-server'
+  },
+  {
+    from: ['/protocols/saml/saml-apps/workday'],
+    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-workday'
+  },
+  {
+    from: ['/protocols/saml/saml-apps/workpath'],
+    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-workpath'
+  },
+  {
+    from: ['/saml-idp-generic','/protocols/saml/saml-idp-generic'],
+    to: '/protocols/saml-configuration-options/configure-auth0-as-saml-identity-provider'
+  },
+  {
+    from: ['/protocols/saml/saml-sp-generic','/saml-sp-generic','/protocols/saml/saml-configuration/auth0-as-service-provider'],
+    to: '/protocols/saml-configuration-options/configure-auth0-saml-service-provider'
+  },
+  {
+    from: ['/protocols/saml/saml-configuration/auth0-as-identity-and-service-provider'],
+    to: '/protocols/saml-configuration-options/configure-auth0-as-service-and-identity-provider'
+  },
+  {
+    from: ['/protocols/saml/identity-providers/okta','/okta', '/saml/identity-providers/okta'],
+    to: '/protocols/saml-configuration-options/configure-okta-as-saml-identity-provider'
+  },
+  {
+    from: ['/onelogin', '/saml/identity-providers/onelogin','/protocols/saml/identity-providers/onelogin'],
+    to: '/protocols/saml-configuration-options/configure-onelogin-as-saml-identity-provider'
+  },
+  {
+    from: ['/ping7', '/saml/identity-providers/ping7','/protocols/saml/identity-providers/ping7'],
+    to: '/protocols/saml-configuration-options/configure-pingfederate-as-saml-identity-provider'
+  },
+  {
+    from: ['/saml/identity-providers/salesforce','/protocols/saml/identity-providers/salesforce'],
+    to: '/protocols/saml-configuration-options/configure-salesforce-as-saml-identity-provider'
+  },
+  {
+    from: ['/protocols/saml/saml-apps/github-cloud'],
+    to: '/protocols/saml-configuration-options/configure-saml2-web-app-addon-for-github-enterprise-cloud'
+  },
+  {
+    from: ['/integrations/using-auth0-as-an-identity-provider-with-github-enterprise','/protocols/saml/saml-apps/github-server'],
+    to: '/protocols/saml-configuration-options/configure-saml2-web-app-addon-for-github-enterprise-server'
+  },
+  {
+    from: ['/protocols/saml/saml-apps/heroku','/saml-apps/heroku-sso'],
+    to: '/protocols/saml-configuration-options/configure-saml2-web-app-addon-for-heroku'
+  },
+  {
+    from: ['/protocols/saml/saml-apps/eloqua'],
+    to: '/protocols/saml-configuration-options/configure-saml2-addon-eloqua'
+  },
+  {
+    from: ['/protocols/saml/idp-initiated-sso'],
+    to: '/protocols/saml-configuration-options/configure-saml-identity-provider-initiated-single-sign-on'
+  },
+  {
+    from: ['/siteminder', '/saml/identity-providers/siteminder','/protocols/saml/identity-providers/siteminder'],
+    to: '/protocols/saml-configuration-options/configure-siteminder-as-saml-identity-provider'
+  },
+  {
+    from: ['/ssocircle','/protocols/saml/identity-providers/ssocircle'],
+    to: '/protocols/saml-configuration-options/configure-ssocircle-as-saml-identity-provider'
+  },
+  {
+    from: ['/protocols/saml/saml-configuration/saml-assertions'],
+    to: '/protocols/saml-configuration-options/customize-saml-assertions'
+  },
+  {
+    from: ['/protocols/saml/saml-configuration/deprovision-users'],
+    to: '/protocols/saml-configuration-options/deprovision-users-in-saml-integrations'
+  },
+  {
+    from: ['/saml2webapp-tutorial','/protocols/saml/saml2webapp-tutorial'],
+    to: '/protocols/saml-configuration-options/enable-saml2-web-app-addon'
+  },
+  {
+    from: ['/protocols/saml/saml-configuration/special-configuration-scenarios'],
+    to: '/protocols/saml-configuration-options/special-saml-configuration-scenarios'
+  },
+  {
+    from: ['/protocols/saml/saml-configuration/special-configuration-scenarios/idp-initiated-sso'],
+    to: '/protocols/saml-configuration-options/identity-provider-initiated-single-sign-on'
+  },
+  {
+    from: ['/protocols/saml/saml-configuration//special-configuration-scenarios/signing-and-encrypting-saml-requests'],
+    to: '/protocols/saml-configuration-options/sign-and-encrypt-saml-requests'
+  },
+  {
+    from: ['/samlp', '/protocols/saml/samlp'],
+    to: '/protocols/saml-configuration-options/saml-identity-provider-configuration-settings'
+  },
+  {
+    from: ['/protocols/saml/samlsso-auth0-to-auth0','/samlsso-auth0-to-auth0'],
+    to: '/protocols/saml-configuration-options/test-saml-sso-with-auth0-as-service-and-identity-provider'
+  },
+  {
+    from: ['/protocols/oidc/identity-providers/okta'],
+    to: '/protocols/configure-okta-as-oidc-identity-provider'
+  },
+  {
+    from: ['/protocols/oidc/openid-connect-discovery'],
+    to: '/protocols/configure-applications-with-oidc-discovery'
+  },
+  {
+    from: ['/protocols/saml/adfs'],
+    to: '/protocols/saml-configuration-options/configure-adfs-saml-connections'
+  },
+  {
+    from: ['/protocols/saml/identity-providers/onelogin'],
+    to: '/protocols/saml-configuration-options/configure-onelogin-as-saml-identity-provider'
+  },
+  {
+    from: ['/protocols/saml/identity-providers/ping7'],
+    to: '/protocols/saml-configuration-options/configure-pingfederate-as-saml-identity-provider'
+  },
+  {
+    from: ['/protocols/saml/identity-providers/salesforce'],
+    to: '/protocols/saml-configuration-options/configure-salesforce-as-saml-identity-provider'
+  },
+  {
+    from: ['/protocols/saml/identity-providers/siteminder'],
+    to: '/protocols/saml-configuration-options/configure-siteminder-as-saml-identity-provider'
+  },
+  {
+    from: ['/protocols/saml/identity-providers/ssocircle'],
+    to: '/protocols/saml-configuration-options/configure-ssocircle-as-saml-identity-provider'
+  },
+  {
+    from: ['/protocols/saml/idp-initiated-sso'],
+    to: '/protocols/saml-configuration-options/configure-saml-identity-provider-initiated-single-sign-on'
+  },
+  {
+    from: ['/protocols/saml/saml-apps/cisco-webex'],
+    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-cisco-webex'
+  },
+  {
+    from: ['/protocols/saml/saml-apps/datadog'],
+    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-datadog'
+  },
+  {
+    from: ['/protocols/saml/saml-apps/egencia'],
+    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-egencia'
+  },
+  {
+    from: ['/protocols/saml/saml-apps/freshdesk'],
+    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-freshdesk'
+  },
+  {
+    from: ['/protocols/saml/saml-apps/github-cloud'],
+    to: '/protocols/saml-configuration-options/configure-saml2-web-app-addon-for-github-enterprise-cloud'
+  },
+  {
+    from: ['/protocols/saml/saml-apps/github-server'],
+    to: '/protocols/saml-configuration-options/configure-saml2-web-app-addon-for-github-enterprise-server'
+  },
+  {
+    from: ['/protocols/saml/saml-apps/hosted-graphite'],
+    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-hosted-graphite'
+  },
+  {
+    from: ['/protocols/saml/saml-apps/litmos'],
+    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-litmos'
+  },
+  {
+    from: ['/protocols/saml/saml-apps/pluralsight'],
+    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-pluralsight'
+  },
+  {
+    from: ['/protocols/saml/saml-apps/sprout-video'],
+    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-sprout-video'
+  },
+  {
+    from: ['/protocols/saml/saml-apps/tableau-online'],
+    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-tableau-online'
+  },
+  {
+    from: ['/protocols/saml/saml-apps/tableau-server'],
+    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-tableau-server'
+  },
+  {
+    from: ['/protocols/saml/saml-apps/workday'],
+    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-workday'
+  },
+  {
+    from: ['/protocols/saml/saml-apps/workpath'],
+    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-workpath'
+  },
+  {
+    from: ['/protocols/saml/saml-configuration/auth0-as-identity-and-service-provider'],
+    to: '/protocols/saml-configuration-options/configure-auth0-as-service-and-identity-provider'
+  },
+  {
+    from: ['/protocols/saml/saml-idp-generic'],
+    to: '/protocols/saml-configuration-options/configure-auth0-as-saml-identity-provider'
+  },
+  {
+    from: ['/protocols/saml/saml2webapp-tutorial'],
+    to: '/protocols/saml-configuration-options/configure-saml2-web-applications'
+  },
 
   /* Rules */
 
@@ -4487,6 +4581,6 @@ module.exports = [
   {
     from: ['/dashboard/guides/users/view-user-roles','/api/management/guides/users/view-user-roles'],
     to: '/users/view-user-roles'
-  },
+  }
 
 ];
