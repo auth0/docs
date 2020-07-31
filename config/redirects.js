@@ -47,10 +47,6 @@ module.exports = [
     to: '/tutorials/aspnet-mvc4-enterprise-providers'
   },
   {
-    from: '/migrations',
-    to: '/product-lifecycle/migrations'
-  },
-  {
     from: '/phonegap-plugin-tutorial',
     to: '/native-platforms/cordova'
   },
@@ -200,16 +196,8 @@ module.exports = [
     to: '/tutorials/wsfed-web-app'
   },
   {
-    from: '/api/v1',
-    to: '/migrations/guides/management-api-v1-v2'
-  },
-  {
     from: ['/metadata-in-rules', '/metadata/rules'],
     to: '/rules/metadata-in-rules'
-  },
-  {
-    from: '/users/guides/link-user-accounts-auth-api',
-    to: '/migrations/guides/account-linking'
   },
   {
     from: '/enterprise-support',
@@ -684,10 +672,6 @@ module.exports = [
   {
     from: '/errors/deprecation-errors',
     to: '/troubleshoot/guides/check-deprecation-errors'
-  },
-  {
-  from: '/api/management/v1/use-cases',
-  to: '/migrations/guides/management-api-v1-v2'
   },
   {
     from: '/logs/query-syntax',
@@ -1587,22 +1571,6 @@ module.exports = [
   {
     from: ['/email/spa-redirect'],
     to: '/auth0-email-services/spa-redirect'
-  },
-  {
-      from: ['/migrations/guides/calling-api-with-idtokens'],
-      to: '/product-lifecycle/deprecations-and-migrations/migrate-to-calling-api-with-access-tokens'
-  },
-  {
-      from: ['/migrations/guides/extensibility-node12'],
-      to: '/product-lifecycle/deprecations-and-migrations/migrate-to-nodejs-12'
-  },
-  {
-      from: ['/migrations/guides/management-api-v1-v2'],
-      to: '/product-lifecycle/deprecations-and-migrations/migrate-to-management-api-v2'
-  },
-  {
-      from: ['/migrations/guides/passwordless-start'],
-      to: '/product-lifecycle/deprecations-and-migrations/migrate-to-passwordless'
   },
   {
       from: ['/troubleshoot/concepts/auth-issues'],
@@ -3339,8 +3307,83 @@ module.exports = [
     to: '/libraries/auth0-android/auth0-android-configuration'
   },
 
-  /* MFA */
+  /* Migrations */
 
+  /* All in this section were redirected to /product-lifecycle */
+
+  /* Product-Lifecycle */
+
+  {
+      from: ['/product-lifecycle/deprecation-eol'],
+      to: '/product-lifecycle/migration-process'
+  },
+  {
+      from: ['/product-lifecycle/migrations','/migrations'],
+      to: '/product-lifecycle/deprecations-and-migrations'
+  },
+  {
+      from: ['/migrations/guides/account-linking','/users/guides/link-user-accounts-auth-api'],
+      to: '/product-lifecycle/deprecations-and-migrations/link-user-accounts-with-access-tokens-migration'
+  },
+  {
+      from: ['/migrations/guides/calling-api-with-idtokens'],
+      to: '/product-lifecycle/deprecations-and-migrations/migrate-to-calling-api-with-access-tokens'
+  },
+  {
+      from: ['/migrations/guides/clickjacking-protection'],
+      to: '/product-lifecycle/deprecations-and-migrations/clickjacking-protection-for-universal-login'
+  },
+  {
+      from: ['/migrations/guides/extensibility-node12'],
+      to: '/product-lifecycle/deprecations-and-migrations/migrate-to-nodejs-12'
+  },
+  {
+      from: ['/migrations/guides/facebook-graph-api-deprecation'],
+      to: '/product-lifecycle/deprecations-and-migrations/facebook-graph-api-changes'
+  },
+  {
+      from: ['/migrations/guides/facebook-social-context'],
+      to: '/product-lifecycle/deprecations-and-migrations/facebook-social-context-field-deprecation'
+  },
+  {
+      from: ['/migrations/guides/google_cloud_messaging'],
+      to: '/product-lifecycle/deprecations-and-migrations/google-firebase-migration'
+  },
+  {
+      from: ['/migrations/guides/instagram-deprecation'],
+      to: '/product-lifecycle/deprecations-and-migrations/instagram-connection-deprecation'
+  },
+  {
+      from: ['/migrations/guides/management-api-v1-v2','/api/management/v1/use-cases','/api/v1'],
+      to: '/product-lifecycle/deprecations-and-migrations/migrate-to-management-api-v2'
+  },
+  {
+      from: ['/migrations/guides/migration-oauthro-oauthtoken'],
+      to: '/product-lifecycle/deprecations-and-migrations/migration-oauthro-oauthtoken'
+  },
+  {
+      from: ['/migrations/guides/migration-oauthro-oauthtoken-pwdless'],
+      to: '/product-lifecycle/deprecations-and-migrations/resource-owner-passwordless-credentials-exchange'
+  },
+  {
+      from: ['/migrations/guides/passwordless-start'],
+      to: '/product-lifecycle/deprecations-and-migrations/migrate-to-passwordless'
+  },
+  {
+      from: ['/migrations/guides/unpaginated-requests'],
+      to: '/product-lifecycle/deprecations-and-migrations/migrate-to-paginated-queries'
+  },
+  {
+      from: ['/migrations/guides/yahoo-userinfo-updates'],
+      to: '/product-lifecycle/deprecations-and-migrations/yahoo-api-changes'
+  },
+  {
+      from: ['migrations/past-migrations'],
+      to: '/product-lifecycle/deprecations-and-migrations/past-migrations'
+  },
+
+  /* MFA */
+  
   {
     from: ['/multi-factor-authentication','/multi-factor-authentication2','/multifactor-authentication/custom-provider','/multifactor-authentication','/mfa-in-auth0','/multifactor-authentication/yubikey','/multifactor-authentication/guardian','/multifactor-authentication/guardian/user-guide','/multi-factor-authentication/yubikey','/multifactor-authentication/yubikey'],
     to: '/mfa'
