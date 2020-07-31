@@ -459,11 +459,11 @@ module.exports = [
     from: ['/api-auth/grant/authorization-code-pkce'],
     to: '/flows/concepts/mobile-login-flow'
   },
-    {
+  {
     from: ['/flows/concepts/mobile-login-flow'],
     to: '/flows/concepts/auth-code-pkce'
   },
-    {
+  {
     from: ['/api-auth/grant/implicit'],
     to: '/flows/concepts/single-page-login-flow'
   },
@@ -479,7 +479,7 @@ module.exports = [
     from: ['/flows/concepts/regular-web-app-login-flow'],
     to: '/flows/concepts/auth-code'
   },
-    {
+  {
     from: ['/api-auth/grant/client-credentials'],
     to: '/flows/concepts/m2m-flow'
   },
@@ -694,70 +694,6 @@ module.exports = [
   {
     from: '/tutorials',
     to: '/',
-  },
-  {
-    from: '/integrations/slack',
-    to: '/sso/current/integrations/slack'
-  },
-  {
-    from: '/integrations/integrating-with-slack',
-    to: '/sso/current/integrations/slack'
-  },
-  {
-    from: '/integrations/ad-rms',
-    to: '/sso/current/integrations/ad-rms'
-  },
-  {
-    from: '/integrations/box',
-    to: '/sso/current/integrations/box'
-  },
-  {
-    from: '/integrations/cloudbees',
-    to: '/sso/current/integrations/cloudbees'
-  },
-  {
-    from: '/integrations/concur',
-    to: '/sso/current/integrations/concur'
-  },
-  {
-    from: '/integrations/disqus',
-    to: '/sso/current/integrations/disqus'
-  },
-  {
-    from: '/integrations/dropbox',
-    to: '/sso/current/integrations/dropbox'
-  },
-  {
-    from: '/integrations/dynamic-crm',
-    to: '/sso/current/integrations/dynamics-crm'
-  },
-  {
-    from: '/integrations/echosign',
-    to: '/sso/current/integrations/echosign'
-  },
-  {
-    from: '/integrations/egnyte',
-    to: '/sso/current/integrations/egnyte'
-  },
-  {
-    from: '/integrations/new-relic',
-    to: '/sso/current/integrations/new-relic'
-  },
-  {
-    from: '/integrations/salesforce',
-    to: '/sso/current/integrations/salesforce'
-  },
-  {
-    from: '/integrations/springcm',
-    to: '/sso/current/integrations/springcm'
-  },
-  {
-    from: '/integrations/zendesk',
-    to: '/sso/current/integrations/zendesk'
-  },
-  {
-    from: '/integrations/zoom',
-    to: '/sso/current/integrations/zoom'
   },
   {
     from: '/analytics/integrations',
