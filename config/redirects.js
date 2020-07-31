@@ -2352,24 +2352,16 @@ module.exports = [
   /* Flows */
 
   {
-    from: ['/flows/concepts/auth-code','/flows/concepts/regular-web-app-login-flow'],
+    from: ['/flows/concepts/auth-code','/flows/concepts/regular-web-app-login-flow','/api-auth/grant/authorization-code','/api-auth/tutorials/adoption/authorization-code'],
     to: '/flows/authorization-code-flow'
   },
   {
-    from: ['/flows/concepts/auth-code-pkce','/api-auth/grant/authorization-code-pkce','/flows/concepts/mobile-login-flow','/flows/concepts/single-page-login-flow'],
+    from: ['/flows/concepts/auth-code-pkce','/api-auth/grant/authorization-code-pkce','/flows/concepts/mobile-login-flow','/flows/concepts/single-page-login-flow','/api-auth/grant/authorization-code-pkce'],
     to: '/flows/authorization-code-flow-with-proof-key-for-code-exchange-pkce'
   },
   {
-    from: ['/flows/concepts/client-credentials','/flows/concepts/m2m-flow'],
+    from: ['/flows/concepts/client-credentials','/flows/concepts/m2m-flow','/api-auth/grant/client-credentials','/api-auth/tutorials/adoption/client-credentials'],
     to: '/flows/client-credentials-flow'
-  },
-  {
-    from: ['/flows/concepts/device-auth'],
-    to: '/flows/device-authorization-flow'
-  },
-  {
-    from: ['/flows/concepts/implicit'],
-    to: '/flows/implicit-flow-with-form-post'
   },
   {
     from: ['/flows/guides/auth-code/add-login-auth-code','/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow','/oauth-web-protocol', '/protocols/oauth-web-protocol', '/protocols/oauth2/oauth-web-protocol','/application-auth/current/server-side-web'],
@@ -2380,7 +2372,7 @@ module.exports = [
     to: '/flows/add-login-auth-code-flow'
   },
   {
-    from: ['/flows/guides/auth-code/call-api-auth-code','/flows/guides/auth-code/includes/authorize-user-call-api','/flows/guides/auth-code/includes/sample-use-cases-call-api','/flows/guides/auth-code/includes/call-api','/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow'],
+    from: ['/flows/guides/auth-code/call-api-auth-code','/flows/guides/auth-code/includes/authorize-user-call-api','/flows/guides/auth-code/includes/sample-use-cases-call-api','/flows/guides/auth-code/includes/call-api','/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow','/api-auth/tutorials/authorization-code-grant'],
     to: '/flows/call-your-api-using-the-authorization-code-flow'
   },
   {
@@ -2388,15 +2380,15 @@ module.exports = [
     to: 'add-login-using-the-authorization-code-flow-with-pkce'
   },
   {
-    from: ['/flows/guides/auth-code-pkce/call-api-auth-code-pkce','/flows/guides/auth-code-pkce/includes/sample-use-cases-call-api','/flows/guides/auth-code-pkce/includes/call-api','/flows/guides/auth-code-pkce/includes/authorize-user-call-api','/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow'],
+    from: ['/flows/guides/auth-code-pkce/call-api-auth-code-pkce','/flows/guides/auth-code-pkce/includes/sample-use-cases-call-api','/flows/guides/auth-code-pkce/includes/call-api','/flows/guides/auth-code-pkce/includes/authorize-user-call-api','/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow','/api-auth/tutorials/authorization-code-grant-pkce'],
     to: '/flows/call-your-api-using-the-authorization-code-flow-with-pkce'
   },
   {
-    from: ['/flows/guides/client-credentials/call-api-client-credentials','/flows/guides/client-credentials/includes/sample-use-cases','/flows/guides/client-credentials/includes/call-api','/flows/guides/client-credentials/includes/request-token','/flows/guides/m2m-flow/call-api-using-m2m-flow'],
+    from: ['/flows/guides/client-credentials/call-api-client-credentials','/flows/guides/client-credentials/includes/sample-use-cases','/flows/guides/client-credentials/includes/call-api','/flows/guides/client-credentials/includes/request-token','/flows/guides/m2m-flow/call-api-using-m2m-flow','/api-auth/tutorials/client-credentials','/api-auth/config/asking-for-access-tokens'],
     to: '/flows/call-your-api-using-the-client-credentials-flow'
   },
   {
-    from: ['/flows/guides/device-auth/call-api-device-auth'],
+    from: ['/flows/concepts/device-auth','/flows/guides/device-auth/call-api-device-auth'],
     to: '/flows/device-authorization-flow'
   },
   {
@@ -2404,44 +2396,12 @@ module.exports = [
     to: '/flows/add-login-using-the-implicit-flow-with-form-post'
   },
   {
-    from: ['/flows/guides/implicit/call-api-implicit','/flows/guides/implicit/includes/sample-use-cases-call-api','/flows/guides/implicit/includes/call-api','/flows/guides/implicit/includes/authorize-user-call-api','/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow'],
-    to: '/flows/implicit-flow-with-form-post'
-  },
-  {
-    from: ['/api-auth/grant/authorization-code-pkce'],
-    to: '/flows/authorization-code-flow-with-proof-key-for-code-exchange-pkce'
-  },
-  {
-    from: ['/api-auth/grant/authorization-code','/api-auth/tutorials/adoption/authorization-code'],
-    to: '/flows/authorization-code-flow'
-  },
-  {
-    from: ['/api-auth/grant/client-credentials','/api-auth/tutorials/adoption/client-credentials'],
-    to: '/flows/client-credentials-flow'
-  },
-  {
-    from: ['/api-auth/grant/implicit','/api-auth/tutorials/adoption/implicit'],
+    from: ['/flows/guides/implicit/call-api-implicit','/flows/guides/implicit/includes/sample-use-cases-call-api','/flows/guides/implicit/includes/call-api','/flows/guides/implicit/includes/authorize-user-call-api','/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow','/api-auth/grant/implicit','/api-auth/tutorials/adoption/implicit','/api-auth/tutorials/implicit-grant','/protocols/oauth2/oauth-implicit-protocol','/flows/concepts/implicit'],
     to: '/flows/implicit-flow-with-form-post'
   },
   {
     from: ['/api-auth/grant/password','/api-auth/tutorials/adoption/password'],
     to: '/flows/resource-owner-password-flow'
-  },
-  {
-    from: ['/api-auth/tutorials/authorization-code-grant-pkce'],
-    to: '/flows/call-your-api-using-the-authorization-code-flow-with-pkce'
-  },
-  {
-    from: ['/api-auth/tutorials/authorization-code-grant'],
-    to: '/flows/call-your-api-using-the-authorization-code-flow'
-  },
-  {
-    from: ['/api-auth/tutorials/client-credentials','/api-auth/config/asking-for-access-tokens'],
-    to: '/flows/call-your-api-using-the-client-credentials-flow'
-  },
-  {
-    from: ['/api-auth/tutorials/implicit-grant','/protocols/oauth2/oauth-implicit-protocol'],
-    to: '/flows/implicit-flow-with-form-post'
   },
 
   /* Get Started */
