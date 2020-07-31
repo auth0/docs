@@ -2535,10 +2535,6 @@ module.exports = [
       to: '/rules/user-object-in-rules'
   },
   {
-      from: ['/sessions'],
-      to: '/sessions-and-cookies'
-  },
-  {
       from: ['/design/creating-invite-only-applications'],
       to: '/auth0-email-services/send-email-invitations-for-application-signup'
   },
@@ -3753,6 +3749,29 @@ module.exports = [
   {
     from: ['/tokens/add-custom-claims','/scopes/current/sample-use-cases'],
     to: '/scopes/sample-use-cases-scopes-and-claims'
+  },
+
+  /* SESSIONS */
+
+  {
+    from: ['/sessions'],
+    to: '/sessions-and-cookies'
+  },
+  {
+    from: ['/sessions/concepts/cookie-attributes'],
+    to: '/sessions-and-cookies/samesite-cookie-attribute-changes'
+  },
+  {
+    from: ['/sessions/references/sample-use-cases-sessions'],
+    to: '/sessions-and-cookies/session-use-cases'
+  },
+  {
+    from: ['/sessions/references/example-short-lived-session-mgmt'],
+    to: '/sessions-and-cookies/manage-multi-site-short-long-lived-sessions'
+  },
+  {
+    from: ['/sessions/concepts/cookies'],
+    to: '/sessions-and-cookies/cookies'
   },
 
   /* SSO */
