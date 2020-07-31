@@ -1249,14 +1249,6 @@ module.exports = [
     from: '/onboarding/appliance-outage',
     to: '/onboarding/enterprise-support'
   },
-  {
-    from: '/services/private-saas-configuration',
-    to: '/services/private-cloud-configuration'
-  },
-  {
-    from: '/services/private-saas-management',
-    to: '/services/private-cloud-management'
-  },
 
   /* - - - - - - - - - - - - - - - - - - - 
       NOTHING SHOULD REMAIN ABOVE THIS LINE
@@ -3696,7 +3688,7 @@ module.exports = [
     to: '/private-cloud'
   },
   {
-    from: ['/private-saas-deployment/onboarding','/private-saas-deployment/onboarding/private-cloud','/private-cloud/onboarding','/private-cloud/onboarding/private-cloud'], 
+    from: ['/services/private-cloud-configuration','/services/private-saas-configuration','/private-saas-deployment/onboarding','/private-saas-deployment/onboarding/private-cloud','/private-cloud/onboarding','/private-cloud/onboarding/private-cloud'], 
     to: '/private-cloud/private-cloud-onboarding'
   },
   {
@@ -3723,6 +3715,10 @@ module.exports = [
     from: ['/private-saas-deployment/custom-domain-migration','/private-cloud/custom-domain-migration'], 
     to: '/private-cloud/private-cloud-migrations/migrate-private-cloud-custom-domains'
   },
+  {
+    from: ['/services/private-saas-management','/services/private-cloud-management'],
+    to: '/private-cloud/private-cloud-operations'
+  }
 
   /* PROFESSIONAL SERVICES */
 
