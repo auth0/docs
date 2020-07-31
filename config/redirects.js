@@ -1629,31 +1629,6 @@ module.exports = [
       from: ['/logout/guides/logout-auth0'],
       to: '/logout/log-users-out-of-auth0'
   },
-  
-  {
-      from: ['/anomaly-detection/concepts/breached-passwords'],
-      to: '/anomaly-detection/breached-password-security'
-  },
-  {
-    from: ['/anomaly-detection/references/brute-force-protection-triggers-actions'],
-    to: '/anomaly-detection/brute-force-protection-triggers-and-actions'
-  },
-  {
-      from: ['/anomaly-detection/guides/customize-blocked-account-emails'],
-      to: '/anomaly-detection/customize-blocked-account-emails'
-  },
-  {
-      from: ['/anomaly-detection/guides/prevent-credential-stuffing-attacks'],
-      to: '/anomaly-detection-do-not-publish/automated-attack-and-credential-stuffing-protection-do-not-publish'
-  },
-  {
-      from: ['/anomaly-detection/guides/set-anomaly-detection-preferences'],
-      to: '/anomaly-detection/set-anomaly-detection-preferences-do-not-publish'
-  },
-  {
-      from: ['/anomaly-detection/guides/use-tenant-data-for-anomaly-detection'],
-      to: '/anomaly-detection/view-anomaly-detection-events'
-  },
   {
       from: ['/application-auth/current'],
       to: '/authentication'
@@ -1661,50 +1636,6 @@ module.exports = [
   {
       from: ['/application-auth/legacy'],
       to: '/application-auth'
-  },
-  {
-      from: ['/authorization/concepts/authz-and-authn'],
-      to: '/authorization/authentication-and-authorization'
-  },
-  {
-      from: ['/authorization/concepts/authz-rules'],
-      to: '/authorization/rules-for-authorization-policies'
-  },
-  {
-      from: ['/authorization/concepts/core-vs-extension'],
-      to: '/authorization/authorization-core-vs-authorization-extension'
-  },
-  {
-      from: ['/authorization/concepts/policies'],
-      to: '/authorization/authorization-policies'
-  },
-  {
-      from: ['/authorization/concepts/rbac'],
-      to: '/authorization/rbac'
-  },
-  {
-      from: ['/authorization/concepts/sample-use-cases-rbac'],
-      to: '/authorization/sample-use-cases-role-based-access-control'
-  },
-  {
-      from: ['/authorization/concepts/sample-use-cases-rules'],
-      to: '/authorization/sample-use-cases-rules-with-authorization'
-  },
-  {
-      from: ['/authorization/concepts/troubleshooting'],
-      to: '/authorization/troubleshoot-role-based-access-control-and-authorization'
-  },
-  {
-      from: ['/authorization/guides/how-to'],
-      to: '/authorization/how-to-use-auth0s-core-authorization-feature-set'
-  },
-  {
-      from: ['/authorization/guides/manage-permissions'],
-      to: '/authorization/manage-permissions'
-  },
-  {
-      from: ['/authorization/guides/manage-roles'],
-      to: '/authorization/rbac/roles'
   },
   {
       from: ['/dashboard/guides/applications/view-app-type-confidential-public'],
@@ -1850,21 +1781,36 @@ module.exports = [
       from: ['/logs/streams/http-event-to-slack'],
       to: '/auth0-logs/export-log-events-with-log-streaming/stream-auth0-log-events-to-slack'
   },
+
+  /* Anomaly Detection */
+
   {
-      from: ['/mfa/guides/mfa-api/phone'],
-      to: '/mfa-in-auth0/authenticate-with-ropg-and-mfa/enroll-and-challenge-sms-and-voice-authenticators'
+    from: ['/anomaly-detection/concepts/breached-passwords'],
+    to: '/anomaly-detection/breached-password-security'
   },
   {
-      from: ['/mfa/guides/mfa-api/push'],
-      to: '/mfa-in-auth0/authenticate-with-ropg-and-mfa/enroll-and-challenge-push-authenticators'
+    from: ['/anomaly-detection/references/brute-force-protection-triggers-actions'],
+    to: '/anomaly-detection/brute-force-protection-triggers-and-actions'
   },
   {
-      from: ['/mfa/guides/mfa-api/recovery-code'],
-      to: '/mfa-in-auth0/authenticate-with-ropg-and-mfa/manage-authenticator-factors-mfa-api/challenge-with-recovery-codes'
+    from: ['/anomaly-detection/guides/customize-blocked-account-emails'],
+    to: '/anomaly-detection/customize-blocked-account-emails'
   },
   {
-      from: ['/anomaly-detection/references/brute-force-protection-triggers-actions'],
-      to: '/anomaly-detection/brute-force-protection-triggers-and-actions'
+    from: ['/anomaly-detection/guides/prevent-credential-stuffing-attacks'],
+    to: '/anomaly-detection-do-not-publish/automated-attack-and-credential-stuffing-protection-do-not-publish'
+  },
+  {
+    from: ['/anomaly-detection/guides/set-anomaly-detection-preferences'],
+    to: '/anomaly-detection/set-anomaly-detection-preferences-do-not-publish'
+  },
+  {
+    from: ['/anomaly-detection/guides/use-tenant-data-for-anomaly-detection'],
+    to: '/anomaly-detection/view-anomaly-detection-events'
+  },
+  {
+    from: ['/anomaly-detection/references/brute-force-protection-triggers-actions'],
+    to: '/anomaly-detection/brute-force-protection-triggers-and-actions'
   },
 
   /* API-Auth */
@@ -1916,42 +1862,6 @@ module.exports = [
   {
       from: ['/api-auth/config/using-the-auth0-dashboard','/api-auth/config/using-the-management-api'],
       to: '/applications/update-grant-types'
-  },
-  {
-      from: ['/api-auth/grant/authorization-code-pkce'],
-      to: '/flows/authorization-code-flow-with-proof-key-for-code-exchange-pkce'
-  },
-  {
-      from: ['/api-auth/grant/authorization-code','/api-auth/tutorials/adoption/authorization-code'],
-      to: '/flows/authorization-code-flow'
-  },
-  {
-      from: ['/api-auth/grant/client-credentials','/api-auth/tutorials/adoption/client-credentials'],
-      to: '/flows/client-credentials-flow'
-  },
-  {
-      from: ['/api-auth/grant/implicit','/api-auth/tutorials/adoption/implicit'],
-      to: '/flows/implicit-flow-with-form-post'
-  },
-  {
-      from: ['/api-auth/grant/password','/api-auth/tutorials/adoption/password'],
-      to: '/flows/resource-owner-password-flow'
-  },
-  {
-      from: ['/api-auth/tutorials/authorization-code-grant-pkce'],
-      to: '/flows/call-your-api-using-the-authorization-code-flow-with-pkce'
-  },
-  {
-      from: ['/api-auth/tutorials/authorization-code-grant'],
-      to: '/flows/call-your-api-using-the-authorization-code-flow'
-  },
-  {
-      from: ['/api-auth/tutorials/client-credentials','/api-auth/config/asking-for-access-tokens'],
-      to: '/flows/call-your-api-using-the-client-credentials-flow'
-  },
-  {
-      from: ['/api-auth/tutorials/implicit-grant','/protocols/oauth2/oauth-implicit-protocol'],
-      to: '/flows/implicit-flow-with-form-post'
   },
   {
       from: ['/api-auth/tutorials/nonce'],
@@ -2189,6 +2099,50 @@ module.exports = [
   {
     from: ['/api/management/guides/roles/create-roles'],
     to: '/authorization/rbac/roles/create-roles'
+  },
+  {
+    from: ['/authorization/concepts/authz-and-authn'],
+    to: '/authorization/authentication-and-authorization'
+  },
+  {
+    from: ['/authorization/concepts/authz-rules'],
+    to: '/authorization/rules-for-authorization-policies'
+  },
+  {
+    from: ['/authorization/concepts/core-vs-extension'],
+    to: '/authorization/authorization-core-vs-authorization-extension'
+  },
+  {
+    from: ['/authorization/concepts/policies'],
+    to: '/authorization/authorization-policies'
+  },
+  {
+    from: ['/authorization/concepts/rbac'],
+    to: '/authorization/rbac'
+  },
+  {
+    from: ['/authorization/concepts/sample-use-cases-rbac'],
+    to: '/authorization/sample-use-cases-role-based-access-control'
+  },
+  {
+    from: ['/authorization/concepts/sample-use-cases-rules'],
+    to: '/authorization/sample-use-cases-rules-with-authorization'
+  },
+  {
+    from: ['/authorization/concepts/troubleshooting'],
+    to: '/authorization/troubleshoot-role-based-access-control-and-authorization'
+  },
+  {
+    from: ['/authorization/guides/how-to'],
+    to: '/authorization/how-to-use-auth0s-core-authorization-feature-set'
+  },
+  {
+    from: ['/authorization/guides/manage-permissions'],
+    to: '/authorization/manage-permissions'
+  },
+  {
+    from: ['/authorization/guides/manage-roles'],
+    to: '/authorization/rbac/roles'
   },
 
   /* Brand and Customize */
@@ -2571,6 +2525,42 @@ module.exports = [
   },
   {
     from: ['/flows/guides/implicit/call-api-implicit','/flows/guides/implicit/includes/sample-use-cases-call-api','/flows/guides/implicit/includes/call-api','/flows/guides/implicit/includes/authorize-user-call-api','/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow'],
+    to: '/flows/implicit-flow-with-form-post'
+  },
+  {
+    from: ['/api-auth/grant/authorization-code-pkce'],
+    to: '/flows/authorization-code-flow-with-proof-key-for-code-exchange-pkce'
+  },
+  {
+    from: ['/api-auth/grant/authorization-code','/api-auth/tutorials/adoption/authorization-code'],
+    to: '/flows/authorization-code-flow'
+  },
+  {
+    from: ['/api-auth/grant/client-credentials','/api-auth/tutorials/adoption/client-credentials'],
+    to: '/flows/client-credentials-flow'
+  },
+  {
+    from: ['/api-auth/grant/implicit','/api-auth/tutorials/adoption/implicit'],
+    to: '/flows/implicit-flow-with-form-post'
+  },
+  {
+    from: ['/api-auth/grant/password','/api-auth/tutorials/adoption/password'],
+    to: '/flows/resource-owner-password-flow'
+  },
+  {
+    from: ['/api-auth/tutorials/authorization-code-grant-pkce'],
+    to: '/flows/call-your-api-using-the-authorization-code-flow-with-pkce'
+  },
+  {
+    from: ['/api-auth/tutorials/authorization-code-grant'],
+    to: '/flows/call-your-api-using-the-authorization-code-flow'
+  },
+  {
+    from: ['/api-auth/tutorials/client-credentials','/api-auth/config/asking-for-access-tokens'],
+    to: '/flows/call-your-api-using-the-client-credentials-flow'
+  },
+  {
+    from: ['/api-auth/tutorials/implicit-grant','/protocols/oauth2/oauth-implicit-protocol'],
     to: '/flows/implicit-flow-with-form-post'
   },
 
@@ -3013,6 +3003,18 @@ module.exports = [
   {
     from: ['/multifactor-authentication/custom','/mfa/guides/customize-mfa-universal-login'],
     to: '/mfa/customize-mfa-user-pages'
+  },
+  {
+    from: ['/mfa/guides/mfa-api/phone'],
+    to: '/mfa-in-auth0/authenticate-with-ropg-and-mfa/enroll-and-challenge-sms-and-voice-authenticators'
+  },
+  {
+    from: ['/mfa/guides/mfa-api/push'],
+    to: '/mfa-in-auth0/authenticate-with-ropg-and-mfa/enroll-and-challenge-push-authenticators'
+  },
+  {
+    from: ['/mfa/guides/mfa-api/recovery-code'],
+    to: '/mfa-in-auth0/authenticate-with-ropg-and-mfa/manage-authenticator-factors-mfa-api/challenge-with-recovery-codes'
   },
   
   /* Monitoring */
