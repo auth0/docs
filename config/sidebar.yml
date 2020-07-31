@@ -700,7 +700,7 @@ articles:
                 hidden: true
 
       - title: Whitelist IP Addresses
-        url: /security/whitelist-ip-addresses
+        url: /guides/ip-whitelist
 
 ## ------------------------------------------------------------
 ## Manage Users
@@ -778,7 +778,7 @@ articles:
             url: /users/references/link-accounts-server-side-scenario
 
       - title: Blacklist User Attributes
-        url: /security/blacklist-user-attributes
+        url: /security/blacklisting-attributes
 
       - title: Import & Export Users
         url: /users/concepts/overview-user-migration
@@ -1655,6 +1655,29 @@ articles:
     url: "/security"
     children:
 
+      - title: "Bulletins"
+        url: "/security/bulletins"
+        children:
+          - title: "CVE 2018-6874"
+            url: "/security/bulletins/cve-2018-6874"
+            hidden: true
+
+          - title: "CVE 2018-6873"
+            url: "/security/bulletins/cve-2018-6873"
+            hidden: true
+
+          - title: "CVE 2018-7307"
+            url: "/security/bulletins/cve-2018-7307"
+            hidden: true
+
+          - title: "CVE 2017-16897"
+            url: "/security/bulletins/cve-2017-16897"
+            hidden: true
+
+          - title: "CVE 2017-17068"
+            url: "/security/bulletins/cve-2017-17068"
+            hidden: true
+
       - title: "Tokens"
         url: "/tokens"
         children:
@@ -1777,13 +1800,13 @@ articles:
             url: "/tokens/guides/revoke-tokens"
 
       - title: "Cookies"
-        url: "/sessions-and-cookies/cookies"
+        url: "/sessions/concepts/cookies"
 
       - title: "Common Threats"
-        url: "/security/prevent-common-cybersecurity-threats"
+        url: "/security/common-threats"
 
       - title: "Blacklist User Attributes"
-        url: "/security/blacklist-user-attributes"
+        url: "/security/blacklisting-attributes"
 
   - title: "Data Privacy"
     url: "/compliance"
@@ -1949,7 +1972,7 @@ articles:
             url: "/policies/data-transfer"
 
           - title: "Endpoints"
-            url: "/security/public-cloud-service-endpoints"
+            url: "/policies/endpoints"
 
           - title: "Load Testing"
             url: "/policies/load-testing"
