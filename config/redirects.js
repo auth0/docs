@@ -388,10 +388,6 @@ module.exports = [
     to: '/troubleshoot/guides/generate-har-files'
   },
   {
-    from: ['/blacklist-attributes', '/security/blacklist-user-attributes'],
-    to: '/security/blacklisting-attributes'
-  },
-  {
     from: '/office365-deprecated',
     to: '/tutorials/office365-connection-deprecation-guide'
   },
@@ -594,10 +590,6 @@ module.exports = [
   {
     from: '/tutorials/azure-tutorial',
     to: '/integrations/azure-tutorial',
-  },
-  {
-    from: '/tutorials/blacklisting-attributes',
-    to: '/security/blacklisting-attributes',
   },
   {
     from: '/tutorials/integrating-with-slack',
@@ -3602,7 +3594,7 @@ module.exports = [
     to: '/private-cloud/private-cloud-operations'
   },
 
-  /* PROFESSIONAL SERVICES */
+  /* Professional Services */
 
   {
     from: ['/services','/auth0-professional-services'],
@@ -3652,7 +3644,101 @@ module.exports = [
     to: '/scopes/sample-use-cases-scopes-and-claims'
   },
 
-  /* SESSIONS */
+  /* Security */
+
+  {
+    from: ['/security/blacklisting-attributes','/tutorials/blacklisting-attributes','/blacklist-attributes'],
+    to: '/security/blacklist-user-attributes'
+  },
+  {
+    from: ['/guides/ip-whitelist'],
+    to: '/security/whitelist-ip-addresses'
+  },
+  {
+    from: ['/security/common-threats'],
+    to: '/security/prevent-common-cybersecurity-threats'
+  },
+  {
+    from: ['/policies/endpoints'],
+    to: '/security/public-cloud-service-endpoints'
+  },
+
+  /* SECURITY BULLETINS */
+
+  {
+    from: ['/security/bulletins/cve-2020-15125'],
+    to: '/security/cve-2020-15125'
+  },
+  {
+    from: ['/security/bulletins/cve-2020-15084'],
+    to: '/security/cve-2020-15084'
+  },
+  {
+    from: ['/security/bulletins/2020-03-31_wpauth0'],
+    to: '/security/2020-03-31-wpauth0'
+  },
+  {
+    from: ['/security/bulletins/cve-2020-5263'],
+    to: '/security/cve-2020-5263'
+  },
+  {
+    from: ['/security/bulletins/2019-01-10_rules'],
+    to: '/security/2019-01-10-rules'
+  },
+  {
+    from: ['/security/bulletins/2019-09-05_scopes'],
+    to: '/security/2019-09-05-scopes'
+  },
+  {
+    from: ['/security/bulletins/cve-2019-20174'],
+    to: '/security/cve-2019-20174'
+  },
+  {
+    from: ['/security/bulletins/cve-2019-20173'],
+    to: '/security/cve-2019-20173'
+  },
+  {
+    from: ['/security/bulletins/cve-2019-16929'],
+    to: '/security/cve-2019-16929'
+  },
+  {
+    from: ['/security/bulletins/cve-2019-13483'],
+    to: '/security/cve-2019-13483'
+  },
+  {
+    from: ['/security/bulletins/cve-2019-7644'],
+    to: '/security/cve-2019-7644'
+  },
+  {
+    from: ['/security/bulletins/cve-2018-15121'],
+    to: '/security/cve-2018-15121'
+  },
+  {
+    from: ['/security/bulletins/cve-2018-11537'],
+    to: '/security/cve-2018-11537'
+  },
+  {
+    from: ['/security/bulletins/cve-2018-7307'],
+    to: '/security/cve-2018-7307'
+  },
+  {
+    from: ['/security/bulletins/cve-2018-6874'],
+    to: '/security/cve-2018-6874'
+  },
+  {
+    from: ['/security/bulletins/cve-2018-6873'],
+    to: '/security/cve-2018-6873'
+  },
+  {
+    from: ['/security/bulletins/cve-2017-16897'],
+    to: '/security/cve-2017-16897'
+  },
+  {
+    from: ['/security/bulletins/cve-2017-17068'],
+    to: '/security/cve-2017-17068'
+  },
+
+  /* Sessions */
 
   {
     from: ['/sessions'],
