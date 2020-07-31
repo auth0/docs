@@ -447,10 +447,6 @@ module.exports = [
     to: '/i18n/password-options'
   },
   {
-    from: '/sso/single-sign-on',
-    to: '/sso'
-  },
-  {
     from: '/cancel-paid-subscriptions',
     to: '/tutorials/cancel-paid-subscriptions'
   },
@@ -986,18 +982,6 @@ module.exports = [
   {
     from: '/tutorials',
     to: '/',
-  },
-  {
-    from: '/sso/current/single-page-apps-sso',
-    to: '/sso/current/single-page-apps'
-  },
-  {
-    from: '/sso/current/introduction',
-    to: '/sso/current/sso-auth0'
-  },
-  {
-    from: '/sso/legacy/single-page-apps-sso',
-    to: '/sso/legacy/single-page-apps'
   },
   {
     from: '/integrations/slack',
@@ -2791,10 +2775,6 @@ module.exports = [
       to: '/auth0-email-services/configure-external-smtp-email-providers/configure-test-smtp-email-servers'
   },
   {
-      from: ['/sso/current/relevant-api-endpoints'],
-      to: '/single-sign-on/api-endpoints-for-single-sign-on'
-  },
-  {
       from: ['/dev-lifecycle/local-testing-and-development'],
       to: '/development-lifecycle/work-with-auth0-locally'
   },
@@ -4129,5 +4109,25 @@ module.exports = [
   {
     from: ['/universal-login/text-customization-prompts/consent'],
     to: '/universal-login/prompt-consent'
-  }
+  },
+
+  /* SSO */
+
+  {
+    from: ['/sso/legacy/single-page-apps','/sso/legacy/single-page-apps-sso','/sso/current/single-page-apps-sso','/sso/current/single-page-apps','/sso/current/sso-auth0','/sso/current/introduction','/sso/single-sign-on'],
+    to: '/sso'
+  },
+  {
+    from: ['/sso/current/inbound'],
+    to: '/sso/inbound-single-sign-on'
+  },
+  {
+    from: ['/sso/current/outbound'],
+    to: '/sso/outbound-single-sign-on'
+  },
+  {
+    from: ['/single-sign-on/api-endpoints-for-single-sign-on','/sso/current/relevant-api-endpoints'],
+    to: ['/sso/api-endpoints-for-single-sign-on']
+  },
+
 ];
