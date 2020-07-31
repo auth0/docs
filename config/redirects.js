@@ -86,10 +86,6 @@ module.exports = [
     to: '/applications/concepts/application-grant-types'
   },
   {
-    from: '/applications/concepts/signing-algorithms',
-    to: '/tokens/concepts/signing-algorithms'
-  },
-  {
     from: '/clients/client-types',
     to: '/applications/application-types'
   },
@@ -368,10 +364,6 @@ module.exports = [
     to: '/tutorials/generic-oauth2-connection-examples'
   },
   {
-    from: ['/refresh-token', '/tokens/refresh_token', '/tokens/refresh-token'],
-    to: '/tokens/concepts/refresh-tokens'
-  },
-  {
     from: '/update-client-secret',
     to: '/dashboard/guides/applications/rotate-client-secret'
   },
@@ -616,66 +608,6 @@ module.exports = [
     to: '/dev-lifecycle/setting-up-env'
   },
   {
-    from: ['/tokens/id_token', '/tokens/id-token'],
-    to: '/tokens/concepts/id-tokens'
-  },
-  {
-    from: '/tokens/guides/update-signing-algorithm-application',
-    to: '/dashboard/guides/applications/update-signing-algorithm'
-  },
-  {
-    from: ['/scopes/current/custom-claims', '/tokens/jwt-claims#custom-claims'],
-    to: '/tokens/concepts/jwt-claims'
-  },
-  {
-    from: ['/tokens/guides/jwt/verify-jwt-signature-using-jwks', '/tokens/guides/jwt/use-jwks'],
-    to: '/tokens/guides/locate-jwks'
-  },
-  {
-    from: ['/tokens/guides/jwt/parse-validate-jwt-programmatically', '/tokens/guides/jwt/validate-jwt'],
-    to: '/tokens/guides/validate-jwts'
-  },
-  {
-    from: '/tokens/concepts/claims-namespacing',
-    to: '/tokens/guides/create-namespaced-custom-claims'
-  },
-  {
-    from: ['/tokens/concepts/why-use-jwt', '/tokens/jwt'],
-    to: '/tokens/concepts/jwts'
-  },
-  {
-    from: '/tokens/guides/id-token/get-id-tokens',
-    to: '/tokens/guides/get-id-tokens'
-  },
-  {
-    from: '/tokens/guides/id-token/validate-id-token',
-    to: '/tokens/guides/validate-id-tokens'
-  },
-  {
-    from: '/tokens/reference/jwt/jwks-properties',
-    to: '/tokens/references/jwks-properties'
-  },
-  {
-    from: '/tokens/reference/jwt/jwt-structure',
-    to: '/tokens/references/jwt-structure'
-  },
-  {
-    from: '/tokens/delegation',
-    to: '/tokens/concepts/delegation-tokens'
-  },
-  {
-    from: ['/tokens/jwks', '/jwks'],
-    to: '/tokens/concepts/jwks'
-  },
-  {
-    from: '/tokens/jwt-claims',
-    to: '/tokens/concepts/jwt-claims'
-  },
-  {
-    from: '/tokens/overview-idp-access-tokens',
-    to: '/tokens/concepts/idp-access-tokens'
-  },
-  {
     from: '/api-auth/grant/using-rules',
     to: '/api-auth/tutorials/client-credentials/customize-with-hooks'
   },
@@ -686,10 +618,6 @@ module.exports = [
   {
     from: '/protocols/oauth2/oauth-implicit-protocol',
     to: '/api-auth/tutorials/implicit-grant'
-  },
-  {
-    from: '/security/token-exp',
-    to: '/tokens'
   },
   {
     from: '/dashboard-account-settings',
@@ -1048,10 +976,6 @@ module.exports = [
     to: `/users/concepts/overview-user-account-linking`
   },
   {
-    from: ['/videos/session-and-cookies', '/security/store-tokens', '/tokens/guides/store-tokens'],
-    to: '/tokens/concepts/token-storage'
-  },
-  {
     from: '/support/sla',
     to: '/support/sld'
   },
@@ -1078,18 +1002,6 @@ module.exports = [
   {
     from: '/protocols/saml/saml-configuration/selecting-between-multiple-idp',
     to: '/hrd'
-  },
-  {
-    from: ['/tokens/overview-access-tokens','/tokens/access-token','/tokens/access_token', '/tokens/access-tokens'],
-    to: '/tokens/concepts/access-tokens'
-  },
-  {
-    from: ['/tokens/overview-id-tokens','/tokens/id-token', '/tokens/id-tokens'],
-    to: '/tokens/concepts/id-tokens'
-  },
-  {
-    from: ['/api-auth/tutorials/verify-access-token', '/tokens/guides/access-token/validate-access-token'],
-    to: '/tokens/guides/validate-access-tokens'
   },
   {
     from: '/user-profile',
@@ -1223,14 +1135,6 @@ module.exports = [
   {
     from: '/integrations/using-auth0-as-an-identity-provider-with-github-enterprise',
     to: '/protocols/saml/saml-apps/github-server'
-  },
-  {
-    from: ['/tokens/get-access-tokens', '/tokens/guides/access-token/get-access-tokens'],
-    to: '/tokens/guides/get-access-tokens'
-  },
-  {
-    from: ['/tokens/use-access-tokens', '/tokens/guides/access-token/use-access-tokens'],
-    to: '/tokens/guides/use-access-tokens'
   },
   {
     from: '/api-auth/intro',
@@ -2703,31 +2607,6 @@ module.exports = [
       to: '/logout/log-users-out-of-auth0'
   },
   {
-      from: ['/tokens/concepts/delegation-tokens'],
-      to: '/tokens/delegation-tokens'
-  },
-  {
-      from: ['/tokens/concepts/jwks'],
-      to: '/tokens/json-web-tokens/json-web-key-sets'
-  },
-  {
-      from: ['/tokens/guides/disable-refresh-token-rotation'],
-      to: '/tokens/access-tokens/refresh-tokens/disable-refresh-token-rotation'
-  },
-  {
-      from: ['/tokens/guides/get-id-tokens'],
-      to: '/tokens/id-tokens/get-id-tokens'
-  },
-  {
-      from: ['/tokens/guides/use-refresh-token-rotation'],
-      to: '/tokens/access-tokens/refresh-tokens/refresh-token-rotation/use-refresh-token-rotation'
-  },
-  {
-      from: ['/tokens/references/jwt-structure'],
-      to: '/tokens/json-web-tokens/json-web-token-structure'
-  },
-  
-  {
       from: ['/anomaly-detection/concepts/breached-passwords'],
       to: '/anomaly-detection/breached-password-security'
   },
@@ -2750,10 +2629,6 @@ module.exports = [
   {
       from: ['/dashboard/guides/apis/enable-rbac'],
       to: '/authorization/rbac/enable-role-based-access-control-for-apis'
-  },
-  {
-      from: ['/dashboard/guides/apis/update-token-lifetime'],
-      to: '/tokens/access-tokens/update-access-token-lifetime'
   },
   {
       from: ['/dashboard/guides/applications/enable-android-app-links'],
@@ -2798,10 +2673,6 @@ module.exports = [
   {
       from: ['/dashboard/guides/applications/update-signing-algorithm'],
       to: '/auth0-applications/change-application-signing-algorithms'
-  },
-  {
-      from: ['/dashboard/guides/applications/update-token-lifetime'],
-      to: '/tokens/id-tokens/update-id-token-lifetime'
   },
   {
       from: ['/dashboard/guides/applications/view-app-type-confidential-public'],
@@ -3524,10 +3395,6 @@ module.exports = [
     to: '/protocols/ldap-protocol'
   },
   {
-    from: ['/tokens/concepts/signing-algorithms'],
-    to: '/tokens/signing-algorithms'
-  },
-  {
     from: ['/dashboard/guides/applications/register-app-spa'],
     to: '/auth0-applications/register-single-page-app'
   },
@@ -3880,7 +3747,7 @@ module.exports = [
   {
     from: ['/mfa/references/mfa-widget-reference'],
     to: '/mfa-in-auth0/customize-mfa-user-pages/mfa-widget-theme-options'
-  }
+  },
 
   /* Private Cloud */
 
@@ -3940,6 +3807,157 @@ module.exports = [
     to: '/scopes/sample-use-cases-scopes-and-claims'
   },
 
+  /* Tokens */
+
+  {
+    from: '/security/token-exp',
+    to: '/tokens'
+  },
+  {
+    from: ['tokens/concepts/access-tokens','/tokens/overview-access-tokens','/tokens/access-token','/tokens/access_token', '/tokens/access-tokens'],
+    to: '/tokens/access-tokens'
+  },
+  {
+    from: ['/tokens/guides/get-access-tokens','/tokens/get-access-tokens', '/tokens/guides/access-token/get-access-tokens'],
+    to: '/tokens/access-tokens/get-access-tokens'
+  },
+  {
+    from: ['/dashboard/guides/apis/update-token-lifetime'],
+    to: '/tokens/access-tokens/update-access-token-lifetime'
+  },
+  {
+    from: ['/tokens/guides/use-access-tokens','/tokens/use-access-tokens', '/tokens/guides/access-token/use-access-tokens'],
+    to: '/tokens/access-tokens/use-access-tokens'
+  },
+  {
+    from: ['/tokens/guides/validate-access-tokens', '/api-auth/tutorials/verify-access-token', '/tokens/guides/access-token/validate-access-token'],
+    to: '/tokens/access-tokens/validate-access-tokens'
+  },
+  {
+    from: ['/tokens/guides/create-namespaced-custom-claims','/tokens/concepts/claims-namespacing'],
+    to: '/tokens/create-namespaced-custom-claims'
+  },
+  {
+    from: ['/tokens/delegation','/tokens/concepts/delegation-tokens'],
+    to: '/tokens/delegation-tokens'
+  },
+  {
+    from: ['/tokens/concepts/idp-access-tokens', '/tokens/overview-idp-access-tokens'],
+    to: '/tokens/identity-provider-access-tokens'
+  },
+  {
+    from: ['/tokens/overview-id-tokens','/tokens/id-token', '/tokens/id-tokens', '/tokens/concepts/id-tokens'],
+    to: '/tokens/id-tokens'
+  },
+  {
+    from: ['/tokens/guides/id-token/get-id-tokens', '/tokens/guides/get-id-tokens'],
+    to: '/tokens/id-tokens/get-id-tokens'
+  },
+  {
+    from: ['/tokens/references/id-token-structure'],
+    to: '/tokens/id-tokens/id-token-structure'
+  },
+  {
+    from: ['/dashboard/guides/applications/update-token-lifetime'],
+    to: '/tokens/id-tokens/update-id-token-lifetime'
+  },
+  {
+    from: ['/tokens/guides/validate-id-tokens','/tokens/guides/id-token/validate-id-token'],
+    to: '/tokens/id-tokens/validate-id-tokens'
+  },
+  {
+    from: ['/tokens/concepts/jwts', '/tokens/concepts/why-use-jwt', '/tokens/jwt'],
+    to: '/tokens/json-web-tokens'
+  },
+  {
+    from: ['/tokens/jwks', '/jwks','/tokens/concepts/jwks'],
+    to: '/tokens/json-web-tokens/json-web-key-sets'
+  },
+  {
+    from: ['/tokens/references/jwks-properties', '/tokens/reference/jwt/jwks-properties'],
+    to: '/tokens/json-web-tokens/json-web-key-set-properties'
+  },
+  {
+    from: ['/tokens/guides/locate-jwks', '/tokens/guides/jwt/verify-jwt-signature-using-jwks', '/tokens/guides/jwt/use-jwks'],
+    to: '/tokens/json-web-tokens/json-web-key-sets/locate-json-web-key-sets'
+  },
+  {
+    from: ['/tokens/jwt-claims', '/tokens/concepts/jwt-claims','/scopes/current/sample-use-cases#add-custom-claims-to-a-token','/tokens/add-custom-claims','/scopes/current/custom-claims', '/tokens/jwt-claims#custom-claims'],
+    to: '/tokens/json-web-tokens/json-web-token-claims'
+  },
+  {
+    from: ['/tokens/references/jwt-structure','/tokens/reference/jwt/jwt-structure'],
+    to: '/tokens/json-web-tokens/json-web-token-structure'
+  },
+  {
+    from: ['/tokens/guides/validate-jwts', '/tokens/guides/jwt/parse-validate-jwt-programmatically', '/tokens/guides/jwt/validate-jwt'],
+    to: '/tokens/json-web-tokens/validate-json-web-tokens'
+  },
+  {
+    from: ['/tokens/guides/manage-signing-keys'],
+    to: '/tokens/manage-signing-keys'
+  },
+  {
+    from: ['/api/management/v2/tokens'],
+    to: '/tokens/management-api-access-tokens'
+  },
+  {
+    from: ['/refresh-token','/tokens/refresh_token','/tokens/concepts/refresh-tokens'],
+    to: '/tokens/refresh-tokens'
+  },
+  {
+    from: ['/tokens/guides/configure-refresh-token-rotation'],
+    to: '/tokens/refresh-tokens/configure-refresh-token-rotation'
+  },
+  {
+    from: ['/tokens/guides/disable-refresh-token-rotation'],
+    to: '/tokens/refresh-tokens/disable-refresh-token-rotation'
+  },
+  {
+    from: ['/tokens/guides/get-refresh-tokens'],
+    to: '/tokens/refresh-tokens/get-refresh-tokens'
+  },
+  {
+    from: ['/tokens/concepts/refresh-token-rotation','/tokens/access-tokens/refresh-tokens/disable-refresh-token-rotation'],
+    to: '/tokens/refresh-tokens/refresh-token-rotation'
+  },
+  {
+    from: ['/tokens/guides/use-refresh-token-rotation', '/tokens/refresh-token-rotation/use-refresh-token-rotation'],
+    to: '/tokens/refresh-tokens/refresh-token-rotation/use-refresh-token-rotation'
+  },
+  {
+    from: ['/tokens/guides/revoke-refresh-tokens'],
+    to: '/tokens/refresh-tokens/revoke-refresh-tokens'
+  },
+  {
+    from: ['/tokens/guides/use-refresh-tokens'],
+    to: '/tokens/refresh-tokens/use-refresh-tokens'
+  },
+  {
+    from: ['/dashboard/guides/tenants/revoke-signing-keys'],
+    to: '/tokens/revoke-signing-keys'
+  },
+  {
+    from: ['/tokens/guides/revoke-tokens'],
+    to: '/tokens/revoke-tokens'
+  },
+  {
+    from: ['/dashboard/guides/tenants/rotate-signing-keys'],
+    to: '/tokens/rotate-signing-keys'
+  },
+  {
+    from: ['/applications/concepts/signing-algorithms','/tokens/concepts/signing-algorithms'],
+    to: '/tokens/signing-algorithms'
+  },
+  {
+    from: ['/tokens/concepts/token-storage','/videos/session-and-cookies', '/security/store-tokens', '/tokens/guides/store-tokens'],
+    to: '/tokens/token-storage'
+  },
+  {
+    from: ['/get-started/auth0-dashboard-overview/view-client-secrets-and-signing-keys', '/dashboard/guides/tenants/view-signing-keys'],
+    to: '/tokens/view-client-secrets-and-signing-keys'
+  },
+
   /* Universal Login */
 
   {
@@ -3994,4 +4012,5 @@ module.exports = [
     from: ['/universal-login/text-customization-prompts/consent'],
     to: '/universal-login/prompt-consent'
   }
+
 ];
