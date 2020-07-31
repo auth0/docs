@@ -280,129 +280,6 @@ module.exports = [
     to: '/rules/metadata-in-rules'
   },
   {
-    from: [
-      '/multi-factor-authentication',
-      '/multi-factor-authentication2',
-      '/multifactor-authentication/custom-provider',
-      '/multifactor-authentication'
-    ],
-    to: '/mfa'
-  },
-  {
-    from: [
-      '/multifactor-authentication/google-auth/user-guide',
-      '/multifactor-authentication/troubleshooting'
-    ],
-    to: '/mfa/references/troubleshoot-mfa'
-  },
-  {
-    from: [
-      '/multi-factor-authentication/yubikey',
-      '/multifactor-authentication/yubikey'
-    ],
-    to: '/mfa'
-  },
-  {
-    from: '/multifactor-authentication/api/email',
-    to: '/mfa/guides/mfa-api/email'
-  },
-  {
-    from: '/multifactor-authentication/api/oob',
-    to: '/mfa/guides/mfa-api/oob'
-  },
-  {
-    from: '/multifactor-authentication/api/otp',
-    to: '/mfa/guides/mfa-api/otp'
-  },
-  {
-    from: ['/multifactor-authentication/api', '/multifactor-authentication/api/faq'],
-    to: '/mfa/concepts/mfa-api'
-  },
-  {
-    from: '/multifactor-authentication/api/manage',
-    to: '/mfa/guides/mfa-api/manage'
-  },
-  {
-    from: '/multifactor-authentication/twilio-configuration',
-    to: '/mfa/guides/configure-phone'
-  },
-  {
-    from: '/multifactor-authentication/sms-templates',
-    to: '/mfa/guides/customize-phone-messages'
-  },
-  {
-    from: '/mfa/guides/guardian/customize-sms-messages',
-    to: '/mfa/guides/customize-phone-messages'
-  },
-  {
-    from: '/multifactor-authentication/reset-user',
-    to: '/mfa/guides/reset-user-mfa'
-  },
-  {
-    from: '/multifactor-authentication/step-up-authentication',
-    to: '/mfa/concepts/step-up-authentication'
-  },
-  {
-    from: '/multifactor-authentication/step-up-authentication/step-up-for-web-apps',
-    to: '/mfa/guides/configure-step-up-web-apps'
-  },
-  {
-    from: '/multifactor-authentication/step-up-authentication/step-up-for-apis',
-    to: '/mfa/guides/configure-step-up-apis'
-  },
-  {
-    from: '/multifactor-authentication/factors',
-    to: '/mfa/concepts/mfa-factors'
-  },
-  {
-    from: ['/multifactor-authentication/factors/sms','/mfa/guides/configure-sms'],
-    to: '/mfa/guides/configure-phone'
-  },
-  {
-    from: '/multifactor-authentication/factors/push',
-    to: '/mfa/guides/configure-push'
-  },
-  {
-    from: '/multifactor-authentication/factors/otp',
-    to: '/mfa/guides/configure-otp'
-  },
-  {
-    from: '/multifactor-authentication/factors/email',
-    to: '/mfa/guides/configure-email'
-  },
-  {
-    from: '/mfa/guides/configure-email-universal-login',
-    to: '/mfa/guides/configure-email'
-  },
-  {
-    from: '/multifactor-authentication/factors/duo',
-    to: '/mfa/guides/configure-cisco-duo'
-  },
-  {
-    from: '/multifactor-authentication/developer',
-    to: '/mfa/concepts/developer-resources'
-  },
-  {
-    from: '/multifactor-authentication/developer/sns-configuration',
-    to: '/mfa/guides/configure-push'
-  },
-  {
-    from: '/multifactor-authentication/developer/libraries/ios',
-    to: '/mfa/guides/guardian/guardian-ios-sdk'
-  },
-  {
-    from: '/multifactor-authentication/developer/libraries/android',
-    to: '/mfa/guides/guardian/guardian-android-sdk'
-  },
-  {
-    from: '/multifactor-authentication/developer/custom-enrollment-ticket',
-    to: '/mfa/guides/guardian/create-enrollment-ticket'
-  },
-  {
-    from: '/multifactor-authentication/custom',
-    to: '/mfa/guides/customize-mfa-universal-login'
-  },
-  {
     from: ['/link-accounts/user-initiated', '/link-accounts/user-initiated-linking'],
     to: '/users/references/link-accounts-client-side-scenario'
   },
@@ -489,10 +366,6 @@ module.exports = [
   {
     from: '/oauth2-examples',
     to: '/tutorials/generic-oauth2-connection-examples'
-  },
-  {
-    from: '/tutorials/setup-up-authentication',
-    to: '/multifactor-authentication/step-up-authentication'
   },
   {
     from: ['/refresh-token', '/tokens/refresh_token', '/tokens/refresh-token'],
@@ -813,23 +686,6 @@ module.exports = [
   {
     from: '/protocols/oauth2/oauth-implicit-protocol',
     to: '/api-auth/tutorials/implicit-grant'
-  },
-  
-  {
-    from: '/tutorials/step-up-authentication',
-    to: '/multifactor-authentication/step-up-authentication'
-  },
-  {
-    from: '/multifactor-authentication/developer/step-up-authentication',
-    to: '/multifactor-authentication/step-up-authentication'
-  },
-  {
-    from: '/multifactor-authentication/developer/step-up-authentication/step-up-for-apis',
-    to: '/multifactor-authentication/step-up-authentication/step-up-for-apis'
-  },
-  {
-    from: '/multifactor-authentication/developer/step-up-authentication/step-up-for-web-apps',
-    to: '/multifactor-authentication/step-up-authentication/step-up-for-web-apps'
   },
   {
     from: '/security/token-exp',
@@ -1300,10 +1156,6 @@ module.exports = [
     to: '/hooks'
   },
   {
-    from: ['/multifactor-authentication/yubikey', '/multifactor-authentication/guardian', '/multifactor-authentication/guardian/user-guide'],
-    to: '/mfa'
-  },
-  {
     from: '/hooks/dashboard/create-delete',
     to: '/hooks/create'
   },
@@ -1536,18 +1388,6 @@ module.exports = [
   {
     from: '/product-lifecycle/deprecation-eol',
     to: '/product-lifecycle/migration-process'
-  },
-  {
-    from: ['/mfa/reset-user-mfa','/mfa/reset-user-MFA'],
-    to: '/mfa/guides/reset-user-mfa'
-  },
-  {
-    from: '/mfa/references/troubleshooting',
-    to: '/mfa/references/troubleshoot-mfa'
-  },
-  {
-    from: '/api-auth/tutorials/multifactor-resource-owner-password',
-    to: '/mfa/guides/mfa-api/multifactor-resource-owner-password'
   },
   {
     from: '/onboarding/appliance-outage',
@@ -3388,134 +3228,6 @@ module.exports = [
       to: '/user-consent-and-third-party-applications'
   },
   {
-      from: ['/mfa/concepts/guardian'],
-      to: '/mfa-in-auth0/auth0-guardian'
-  },
-  {
-      from: ['/mfa/concepts/mfa-api'],
-      to: '/mfa-in-auth0/mfa-api'
-  },
-  {
-      from: ['/mfa/concepts/mfa-developer-resources'],
-      to: '/mfa-in-auth0/mfa-developer-resources'
-  },
-  {
-      from: ['/mfa/concepts/mfa-factors'],
-      to: '/mfa-in-auth0/mfa-factors'
-  },
-  {
-      from: ['/mfa/concepts/step-up-authentication'],
-      to: '/mfa-in-auth0/step-up-authentication'
-  },
-  {
-      from: ['/mfa/guides/configure-cisco-duo'],
-      to: '/mfa-in-auth0/configure-cisco-duo-for-mfa'
-  },
-  {
-      from: ['/mfa/guides/configure-otp'],
-      to: '/mfa-in-auth0/configure-otp-notifications-for-mfa'
-  },
-  {
-      from: ['/mfa/guides/configure-phone'],
-      to: '/mfa-in-auth0/configure-sms-and-voice-notifications-for-mfa'
-  },
-  {
-      from: ['/mfa/guides/configure-step-up-apis'],
-      to: '/mfa-in-auth0/step-up-authentication/configure-step-up-authentication-for-apis'
-  },
-  {
-      from: ['/mfa/guides/configure-step-up-web-apps'],
-      to: '/mfa-in-auth0/step-up-authentication/configure-step-up-authentication-for-web-apps'
-  },
-  {
-      from: ['/mfa/guides/customize-mfa-universal-login'],
-      to: '/mfa-in-auth0/customize-mfa-user-pages'
-  },
-  {
-      from: ['/mfa/guides/enable-mfa'],
-      to: '/mfa-in-auth0/enable-mfa'
-  },
-  {
-      from: ['/mfa/guides/guardian/create-enrollment-ticket'],
-      to: '/mfa-in-auth0/auth0-guardian/create-custom-enrollment-tickets'
-  },
-  {
-      from: ['/mfa/guides/guardian/guardian-ios-sdk'],
-      to: '/mfa-in-auth0/auth0-guardian/guardian-for-ios-sdk'
-  },
-  {
-      from: ['/mfa/guides/guardian/install-guardian-sdk'],
-      to: '/mfa-in-auth0/auth0-guardian/install-guardian-sdk'
-  },
-  {
-      from: ['/mfa/guides/import-user-mfa'],
-      to: '/mfa-in-auth0/import-user-mfa-authenticator-enrollments'
-  },
-  {
-      from: ['/mfa/guides/mfa-api/email'],
-      to: '/mfa-in-auth0/authenticate-with-ropg-and-mfa/enroll-and-challenge-email-authenticators'
-  },
-  {
-      from: ['/mfa/guides/mfa-api/manage'],
-      to: '/mfa-in-auth0/authenticate-with-ropg-and-mfa/manage-authenticator-factors-mfa-api'
-  },
-  {
-      from: ['/mfa/guides/mfa-api/otp'],
-      to: '/mfa-in-auth0/authenticate-with-ropg-and-mfa/enroll-and-challenge-otp-authenticators'
-  },
-  {
-      from: ['/mfa/guides/reset-user-mfa'],
-      to: '/mfa-in-auth0/reset-user-mfa'
-  },
-  {
-      from: ['/mfa'],
-      to: '/mfa-in-auth0'
-  },
-  {
-      from: ['/mfa/references/guardian-error-code-reference'],
-      to: '/mfa-in-auth0/auth0-guardian/guardian-error-code-reference'
-  },
-  {
-      from: ['/mfa/references/language-dictionary'],
-      to: '/mfa-in-auth0/customize-mfa-user-pages/mfa-theme-language-dictionary'
-  },
-  {
-      from: ['/mfa/references/mfa-widget-reference'],
-      to: '/mfa-in-auth0/customize-mfa-user-pages/mfa-widget-theme-options'
-  },
-  {
-      from: ['/mfa/references/troubleshoot-mfa'],
-      to: '/mfa-in-auth0/troubleshoot-mfa-issues'
-  },
-  {
-      from: ['/mfa/send-phone-message-hook-amazon-sns'],
-      to: '/mfa-in-auth0/configure-amazon-sns-as-mfa-sms-provider'
-  },
-  {
-      from: ['/mfa/send-phone-message-hook-esendex'],
-      to: '/mfa-in-auth0/configure-esendex-as-mfa-sms-provider'
-  },
-  {
-      from: ['/mfa/send-phone-message-hook-infobip'],
-      to: '/mfa-in-auth0/configure-infobip-as-mfa-sms-provider'
-  },
-  {
-      from: ['/mfa/send-phone-message-hook-mitto'],
-      to: '/mfa-in-auth0/configure-mitto-as-mfa-sms-provider'
-  },
-  {
-      from: ['/mfa/send-phone-message-hook-telesign'],
-      to: '/mfa-in-auth0/configure-telesign-as-mfa-sms-provider'
-  },
-  {
-      from: ['/mfa/send-phone-message-hook-twilio'],
-      to: '/mfa-in-auth0/configure-twilio-as-mfa-sms-provider'
-  },
-  {
-      from: ['/mfa/send-phone-message-hook-vonage'],
-      to: '/mfa-in-auth0/configure-vonage-as-mfa-sms-provider'
-  },
-  {
       from: ['/integrations/authenticating-a-tessel-device'],
       to: '/integrations/authenticating-and-authorizing-a-tessel-device-with-auth0'
   },
@@ -3620,228 +3332,216 @@ module.exports = [
       to: '/users/user-profiles'
   },
   {
-      from: ['/users/guides/block-and-unblock-users'],
-      to: '/users/block-and-unblock-users'
+    from: ['/users/guides/block-and-unblock-users'],
+    to: '/users/block-and-unblock-users'
   },
   {
-      from: ['/users/guides/bulk-user-exports'],
-      to: '/users/bulk-user-exports'
+    from: ['/users/guides/bulk-user-exports'],
+    to: '/users/bulk-user-exports'
   },
   {
-      from: ['/users/guides/bulk-user-imports'],
-      to: '/users/bulk-user-imports'
+    from: ['/users/guides/bulk-user-imports'],
+    to: '/users/bulk-user-imports'
   },
   {
-      from: ['/users/guides/change-user-pictures'],
-      to: '/users/change-user-pictures'
+    from: ['/users/guides/change-user-pictures'],
+    to: '/users/change-user-pictures'
   },
   {
-      from: ['/users/guides/configure-automatic-migration'],
-      to: '/users/configure-automatic-migration-from-your-database'
+    from: ['/users/guides/configure-automatic-migration'],
+    to: '/users/configure-automatic-migration-from-your-database'
   },
   {
-      from: ['/users/guides/create-users'],
-      to: '/users/create-users'
+    from: ['/users/guides/create-users'],
+    to: '/users/create-users'
   },
   {
-      from: ['/users/guides/delete-users'],
-      to: '/users/delete-users'
+    from: ['/users/guides/delete-users'],
+    to: '/users/delete-users'
   },
   {
-      from: ['/users/guides/email-verified'],
-      to: '/users/verified-email-usage'
+    from: ['/users/guides/email-verified'],
+    to: '/users/verified-email-usage'
   },
   {
-      from: ['/users/guides/get-user-information-with-unbounce-landing-pages'],
-      to: '/users/get-user-information-on-unbounce-landing-pages'
+    from: ['/users/guides/get-user-information-with-unbounce-landing-pages'],
+    to: '/users/get-user-information-on-unbounce-landing-pages'
   },
   {
-      from: ['/users/guides/link-user-accounts'],
-      to: '/users/link-user-accounts'
+    from: ['/users/guides/link-user-accounts'],
+    to: '/users/link-user-accounts'
   },
   {
-      from: ['/users/guides/manage-user-access-to-applications'],
-      to: '/users/manage-user-access-to-applications'
+    from: ['/users/guides/manage-user-access-to-applications'],
+    to: '/users/manage-user-access-to-applications'
   },
   {
-      from: ['/users/guides/manage-user-metadata'],
-      to: '/users/manage-user-metadata'
+    from: ['/users/guides/manage-user-metadata'],
+    to: '/users/manage-user-metadata'
   },
   {
-      from: ['/users/guides/manage-users-using-the-dashboard'],
-      to: '/users/manage-users-using-the-dashboard'
+    from: ['/users/guides/manage-users-using-the-dashboard'],
+    to: '/users/manage-users-using-the-dashboard'
   },
   {
-      from: ['/users/guides/manage-users-using-the-management-api'],
-      to: '/users/manage-users-using-the-management-api'
+    from: ['/users/guides/manage-users-using-the-management-api'],
+    to: '/users/manage-users-using-the-management-api'
   },
   {
-      from: ['/users/guides/read-metadata'],
-      to: '/users/read-metadata'
+    from: ['/users/guides/read-metadata'],
+    to: '/users/read-metadata'
   },
   {
-      from: ['/users/guides/redirect-users-after-login'],
-      to: '/users/redirect-users-after-login'
+    from: ['/users/guides/redirect-users-after-login'],
+    to: '/users/redirect-users-after-login'
   },
   {
-      from: ['/users/guides/set-metadata-properties-on-creation'],
-      to: '/users/set-metadata-properties-on-creation'
+    from: ['/users/guides/set-metadata-properties-on-creation'],
+    to: '/users/set-metadata-properties-on-creation'
   },
   {
-      from: ['/users/guides/unlink-user-accounts'],
-      to: '/users/unlink-user-accounts'
+    from: ['/users/guides/unlink-user-accounts'],
+    to: '/users/unlink-user-accounts'
   },
   {
-      from: ['/users/guides/update-metadata-properties-with-management-api'],
-      to: '/users/update-metadata-with-the-management-api'
+    from: ['/users/guides/update-metadata-properties-with-management-api'],
+    to: '/users/update-metadata-with-the-management-api'
   },
   {
-      from: ['/users/guides/update-user-profiles-using-your-database'],
-      to: '/users/update-user-profiles-using-your-database'
+    from: ['/users/guides/update-user-profiles-using-your-database'],
+    to: '/users/update-user-profiles-using-your-database'
   },
   {
-      from: ['/users/guides/view-users'],
-      to: '/users/view-users'
+    from: ['/users/guides/view-users'],
+    to: '/users/view-users'
   },
   {
-      from: ['/users/normalized/auth0/identify-users'],
-      to: '/users/identify-users'
+    from: ['/users/normalized/auth0/identify-users'],
+    to: '/users/identify-users'
   },
   {
-      from: ['/users/normalized/auth0'],
-      to: '/users/normalized-user-profiles'
+    from: ['/users/normalized/auth0'],
+    to: '/users/normalized-user-profiles'
   },
   {
-      from: ['/users/normalized/auth0/normalized-user-profile-schema'],
-      to: '/users/normalized-user-profile-schema'
+    from: ['/users/normalized/auth0/normalized-user-profile-schema'],
+    to: '/users/normalized-user-profile-schema'
   },
   {
-      from: ['/users/normalized/auth0/sample-user-profiles'],
-      to: '/users/sample-user-profiles'
+    from: ['/users/normalized/auth0/sample-user-profiles'],
+    to: '/users/sample-user-profiles'
   },
   {
-      from: ['/users/normalized/auth0/store-user-data'],
-      to: '/users/store-user-data'
+    from: ['/users/normalized/auth0/store-user-data'],
+    to: '/users/store-user-data'
   },
   {
-      from: ['/users/normalized/auth0/update-root-attributes'],
-      to: '/users/updating-user-profile-root-attributes'
+    from: ['/users/normalized/auth0/update-root-attributes'],
+    to: '/users/updating-user-profile-root-attributes'
   },
   {
-      from: ['/users/normalized/oidc'],
-      to: '/users/user-profiles-returned-from-oidc-compliant-pipelines'
+    from: ['/users/normalized/oidc'],
+    to: '/users/user-profiles-returned-from-oidc-compliant-pipelines'
   },
   {
-      from: ['/users/references/bulk-import-database-schema-examples'],
-      to: '/users/bulk-user-import-database-schema-and-examples'
+    from: ['/users/references/bulk-import-database-schema-examples'],
+    to: '/users/bulk-user-import-database-schema-and-examples'
   },
   {
-      from: ['/users/references/link-accounts-client-side-scenario'],
-      to: '/users/user-initiated-account-linking-client-side-implementation'
+    from: ['/users/references/link-accounts-client-side-scenario'],
+    to: '/users/user-initiated-account-linking-client-side-implementation'
   },
   {
-      from: ['/users/references/link-accounts-server-side-scenario'],
-      to: '/users/suggested-account-linking-server-side-implementation'
+    from: ['/users/references/link-accounts-server-side-scenario'],
+    to: '/users/suggested-account-linking-server-side-implementation'
   },
   {
-      from: ['/users/references/user-data-storage-scenario'],
-      to: '/users/user-data-storage-scenario'
+    from: ['/users/references/user-data-storage-scenario'],
+    to: '/users/user-data-storage-scenario'
   },
   {
-      from: ['/users/references/user-migration-scenarios'],
-      to: '/users/user-migration-scenarios'
+    from: ['/users/references/user-migration-scenarios'],
+    to: '/users/user-migration-scenarios'
   },
   {
-      from: ['/users/references/user-profile-structure'],
-      to: '/users/user-profile-structure'
+    from: ['/users/references/user-profile-structure'],
+    to: '/users/user-profile-structure'
   },
   {
-      from: ['/users/search/v3/get-users-by-email-endpoint'],
-      to: '/users/user-search/retrieve-users-with-the-get-users-by-email-endpoint'
+    from: ['/users/search/v3/get-users-by-email-endpoint'],
+    to: '/users/user-search/retrieve-users-with-the-get-users-by-email-endpoint'
   },
   {
-      from: ['/users/search/v3/get-users-by-id-endpoint'],
-      to: '/users/user-search/retrieve-users-with-the-get-users-by-id-endpoint'
+    from: ['/users/search/v3/get-users-by-id-endpoint'],
+    to: '/users/user-search/retrieve-users-with-the-get-users-by-id-endpoint'
   },
   {
-      from: ['/users/search/v3/get-users-endpoint'],
-      to: '/users/user-search/retrieve-users-with-the-get-users-endpoint'
+    from: ['/users/search/v3/get-users-endpoint'],
+    to: '/users/user-search/retrieve-users-with-the-get-users-endpoint'
   },
   {
-      from: ['/users/search/v3'],
-      to: '/users/user-search'
+    from: ['/users/search/v3'],
+    to: '/users/user-search'
   },
   {
-      from: ['/users/search/v3/query-syntax'],
-      to: '/users/user-search/user-search-query-syntax'
+    from: ['/users/search/v3/query-syntax'],
+    to: '/users/user-search/user-search-query-syntax'
   },
   {
-      from: ['/users/search/v3/sort-search-results'],
-      to: '/users/user-search/sort-search-results'
+    from: ['/users/search/v3/sort-search-results'],
+    to: '/users/user-search/sort-search-results'
   },
   {
-      from: ['/users/search/v3/view-search-results-by-page'],
-      to: '/users/user-search/view-search-results-by-page'
+    from: ['/users/search/v3/view-search-results-by-page'],
+    to: '/users/user-search/view-search-results-by-page'
   },
   {
-      from: ['/email/providers'],
-      to: '/auth0-email-services/configure-external-smtp-email-providers/configure-amazon-ses-as-external-smtp-email-provider'
+    from: ['/email/providers'],
+    to: '/auth0-email-services/configure-external-smtp-email-providers/configure-amazon-ses-as-external-smtp-email-provider'
   },
   {
-      from: ['/protocols/saml/saml-apps/atlassian'],
-      to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-atlassian'
+    from: ['/protocols/saml/saml-apps/atlassian'],
+    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-atlassian'
   },
   {
-      from: ['/protocols/oauth2'],
-      to: '/protocols/protocol-oauth2'
+    from: ['/protocols/oauth2'],
+    to: '/protocols/protocol-oauth2'
   },
   {
-      from: ['/protocols/oidc'],
-      to: '/protocols/openid-connect-protocol'
+    from: ['/protocols/oidc'],
+    to: '/protocols/openid-connect-protocol'
   },
   {
-      from: ['/protocols/saml'],
-      to: '/protocols/saml-protocol'
+    from: ['/protocols/saml'],
+    to: '/protocols/saml-protocol'
   },
   {
-      from: ['/protocols/ws-fed'],
-      to: '/protocols/ws-fed-protocol'
+    from: ['/protocols/ws-fed'],
+    to: '/protocols/ws-fed-protocol'
   },
   {
-      from: ['/protocols/ldap'],
-      to: '/protocols/ldap-protocol'
+    from: ['/protocols/ldap'],
+    to: '/protocols/ldap-protocol'
   },
   {
-      from: ['/tokens/concepts/signing-algorithms'],
-      to: '/tokens/signing-algorithms'
+    from: ['/tokens/concepts/signing-algorithms'],
+    to: '/tokens/signing-algorithms'
   },
   {
-      from: ['/dashboard/guides/applications/register-app-spa'],
-      to: '/auth0-applications/register-single-page-app'
+    from: ['/dashboard/guides/applications/register-app-spa'],
+    to: '/auth0-applications/register-single-page-app'
   },
   {
-      from: ['/logs/streams/azure-event-grid'],
-      to: '/auth0-logs/export-log-events-with-log-streaming/stream-logs-to-azure-event-grid'
+    from: ['/logs/streams/azure-event-grid'],
+    to: '/auth0-logs/export-log-events-with-log-streaming/stream-logs-to-azure-event-grid'
   },
   {
       from: ['/logs/streams/http-event-to-slack'],
       to: '/auth0-logs/export-log-events-with-log-streaming/stream-auth0-log-events-to-slack'
   },
   {
-      from: ['/mfa/guides/mfa-api/phone'],
-      to: '/mfa-in-auth0/authenticate-with-ropg-and-mfa/enroll-and-challenge-sms-and-voice-authenticators'
-  },
-  {
-      from: ['/mfa/guides/mfa-api/push'],
-      to: '/mfa-in-auth0/authenticate-with-ropg-and-mfa/enroll-and-challenge-push-authenticators'
-  },
-  {
-      from: ['/mfa/guides/mfa-api/recovery-code'],
-      to: '/mfa-in-auth0/authenticate-with-ropg-and-mfa/manage-authenticator-factors-mfa-api/challenge-with-recovery-codes'
-  },
-  {
-      from: ['/anomaly-detection/references/brute-force-protection-triggers-actions'],
-      to: '/anomaly-detection/brute-force-protection-triggers-and-actions'
+    from: ['/anomaly-detection/references/brute-force-protection-triggers-actions'],
+    to: '/anomaly-detection/brute-force-protection-triggers-and-actions'
   },
 
   /* Brand and Customize */
@@ -3850,6 +3550,7 @@ module.exports = [
     from: ['branding-customization'],
     to: '/brand-and-customize'
   },
+
   /* CMS */
 
   {
@@ -3994,7 +3695,7 @@ module.exports = [
     to: '/libraries/lock-swift'
   },
   {
-    from: ['/libraries/lock-ios/logging','/libraries/lock-ios/v1/logging']
+    from: ['/libraries/lock-ios/logging','/libraries/lock-ios/v1/logging'],
     to: '/libraries/lock-swift/lock-swift-logging'
   },
   {
@@ -4017,6 +3718,169 @@ module.exports = [
     from: ['/libraries/auth0-android/configuration'],
     to: '/libraries/auth0-android/auth0-android-configuration'
   },
+
+  /* MFA */
+
+  {
+    from: ['/multi-factor-authentication','/multi-factor-authentication2','/multifactor-authentication/custom-provider','/multifactor-authentication','/mfa-in-auth0','/multifactor-authentication/yubikey','/multifactor-authentication/guardian','/multifactor-authentication/guardian/user-guide','/multi-factor-authentication/yubikey','/multifactor-authentication/yubikey'],
+    to: '/mfa'
+  },
+  {
+    from: ['/multifactor-authentication/api', '/multifactor-authentication/api/faq','/mfa/concepts/mfa-api'],
+    to: '/mfa/mfa-api'
+  },
+  {
+    from: ['/api-auth/tutorials/multifactor-resource-owner-password','/mfa/guides/mfa-api/multifactor-resource-owner-password'],
+    to: '/mfa/authenticate-with-ropg-and-mfa'
+  },
+  {
+    from: ['/mfa/guides/mfa-api/manage','/multifactor-authentication/api/manage'],
+    to: '/mfa/authenticate-with-ropg-and-mfa/manage-authenticator-factors-mfa-api'
+  },
+  {
+    from: ['/mfa/guides/mfa-api/phone','/multifactor-authentication/api/oob','/mfa/guides/mfa-api/oob'],
+    to: '/mfa/authenticate-with-ropg-and-mfa/enroll-and-challenge-sms-and-voice-authenticators'
+  },
+  {
+    from: ['/mfa/guides/mfa-api/push'],
+    to: '/mfa/authenticate-with-ropg-and-mfa/enroll-and-challenge-push-authenticators'
+  },
+  {
+    from: ['/multifactor-authentication/api/otp','/mfa/guides/mfa-api/otp'],
+    to: '/mfa/authenticate-with-ropg-and-mfa/enroll-and-challenge-otp-authenticators'
+  },
+  {
+    from: ['/multifactor-authentication/api/email','/mfa/guides/mfa-api/email'],
+    to: '/mfa/authenticate-with-ropg-and-mfa/enroll-and-challenge-email-authenticators'
+  },
+  {
+    from: ['/mfa/guides/mfa-api/recovery-code'],
+    to: '/mfa-in-auth0/authenticate-with-ropg-and-mfa/manage-authenticator-factors-mfa-api/challenge-with-recovery-codes'
+  },
+  {
+    from: ['/mfa/send-phone-message-hook-amazon-sns'],
+    to: '/mfa/configure-amazon-sns-as-mfa-sms-provider'
+  },
+  {
+    from: ['/mfa/send-phone-message-hook-esendex'],
+    to: '/mfa/configure-esendex-as-mfa-sms-provider'
+  },
+  {
+    from: ['/mfa/send-phone-message-hook-infobip'],
+    to: '/mfa/configure-infobip-as-mfa-sms-provider'
+  },
+  {
+    from: ['/mfa/send-phone-message-hook-mitto'],
+    to: '/mfa/configure-mitto-as-mfa-sms-provider'
+  },
+  {
+    from: ['/mfa/send-phone-message-hook-telesign'],
+    to: '/mfa/configure-telesign-as-mfa-sms-provider'
+  },
+  {
+    from: ['/mfa/send-phone-message-hook-twilio'],
+    to: '/mfa/configure-twilio-as-mfa-sms-provider'
+  },
+  {
+    from: ['/mfa/send-phone-message-hook-vonage'],
+    to: '/mfa/configure-vonage-as-mfa-sms-provider'
+  },
+  {
+    from: ['/multifactor-authentication/factors','/mfa/concepts/mfa-factors'],
+    to: '/mfa/mfa-factors'
+  },
+  {
+    from: ['/multifactor-authentication/factors/duo','/mfa/guides/configure-cisco-duo'],
+    to: '/mfa-in-auth0/configure-cisco-duo-for-mfa'
+  },
+  {
+    from: ['/multifactor-authentication/factors/otp','/mfa/guides/configure-otp'],
+    to: '/mfa/configure-otp-notifications-for-mfa'
+  },
+  {
+    from: ['/mfa/guides/configure-email-universal-login','/multifactor-authentication/factors/email','/mfa/guides/configure-email'],
+    to: '/mfa/configure-email-notifications-for-mfa'
+  },
+  {
+    from: ['/multifactor-authentication/developer/sns-configuration','/multifactor-authentication/factors/push','/mfa/guides/configure-push'],
+    to: '/mfa/configure-push-notifications-for-mfa'
+  },
+  {
+    from: ['/multifactor-authentication/twilio-configuration','/multifactor-authentication/factors/sms','/mfa/guides/configure-sms','/mfa/guides/configure-phone'],
+    to: '/mfa/configure-sms-and-voice-notifications-for-mfa'
+  },
+  {
+    from: ['/mfa/guides/guardian/customize-sms-messages','/multifactor-authentication/sms-templates','/mfa/guides/customize-phone-messages'],
+    to: '/mfa/customize-sms-or-voice-messages'
+  },
+  {
+    from: ['/multifactor-authentication/google-auth/user-guide','/multifactor-authentication/troubleshooting','/mfa/references/troubleshoot-mfa','/mfa/references/troubleshooting','/mfa/references/troubleshoot-mfa'],
+    to: '/mfa/troubleshoot-mfa-issues'
+  },
+  {
+    from: ['/multifactor-authentication/developer/step-up-authentication','/tutorials/step-up-authentication','/tutorials/setup-up-authentication','/multifactor-authentication/step-up-authentication','/mfa/concepts/step-up-authentication','/mfa/concepts/step-up-authentication'],
+    to: '/mfa/step-up-authentication'
+  },
+  {
+    from: ['/multifactor-authentication/developer/step-up-authentication/step-up-for-apis','/multifactor-authentication/step-up-authentication/step-up-for-apis','/mfa/guides/configure-step-up-apis'],
+    to: '/mfa/step-up-authentication/configure-step-up-authentication-for-apis'
+  },
+  {
+    from: ['/multifactor-authentication/developer/step-up-authentication/step-up-for-web-apps','/multifactor-authentication/step-up-authentication/step-up-for-web-apps','/mfa/guides/configure-step-up-web-apps'],
+    to: '/mfa/step-up-authentication/configure-step-up-authentication-for-web-apps'
+  },
+  {
+    from: ['/multifactor-authentication/reset-user','/mfa/guides/reset-user-mfa'],
+    to: '/mfa/reset-user-mfa'
+  },
+  {
+    from: ['/mfa/concepts/guardian'],
+    to: '/mfa/auth0-guardian'
+  },
+  {
+    from: ['/multifactor-authentication/developer/custom-enrollment-ticket','/mfa/guides/guardian/create-enrollment-ticket'],
+    to: '/mfa/auth0-guardian/create-custom-enrollment-tickets'
+  },
+  {
+    from: ['/multifactor-authentication/developer/libraries/ios','/mfa/guides/guardian/guardian-ios-sdk'],
+    to: '/mfa/auth0-guardian/guardian-for-ios-sdk'
+  },
+  {
+    from: ['/multifactor-authentication/developer/libraries/android','/mfa/guides/guardian/guardian-android-sdk'],
+    to: '/mfa/auth0-guardian/guardian-for-android-sdk'
+  },
+  {
+    from: ['/mfa/guides/guardian/install-guardian-sdk'],
+    to: '/mfa/auth0-guardian/install-guardian-sdk'
+  },
+  {
+    from: ['/mfa/references/guardian-error-code-reference'],
+    to: '/mfa/auth0-guardian/guardian-error-code-reference'
+  },
+  {
+    from: ['/mfa/guides/import-user-mfa'],
+    to: '/mfa/import-user-mfa-authenticator-enrollments'
+  },
+  {
+    from: ['/mfa/concepts/mfa-developer-resources','/multifactor-authentication/developer','/mfa/concepts/developer-resources'],
+    to: '/mfa/mfa-developer-resources'
+  },  
+  {
+    from: ['/mfa/guides/enable-mfa'],
+    to: '/mfa/enable-mfa'
+  },
+  {
+    from: ['/multifactor-authentication/custom','/mfa/guides/customize-mfa-universal-login'],
+    to: '/mfa/customize-mfa-user-pages'
+  },
+  {
+    from: ['/mfa/references/language-dictionary'],
+    to: '/mfa-in-auth0/customize-mfa-user-pages/mfa-theme-language-dictionary'
+  },
+  {
+    from: ['/mfa/references/mfa-widget-reference'],
+    to: '/mfa-in-auth0/customize-mfa-user-pages/mfa-widget-theme-options'
+  }
 
   /* Private Cloud */
 
@@ -4041,7 +3905,7 @@ module.exports = [
     to: '/private-cloud/private-cloud-onboarding/standard-private-cloud-infrastructure-requirements'
   },
   {
-    from: ['/private-saas-deployment',], 
+    from: ['/private-saas-deployment'], 
     to: '/private-cloud/private-cloud-deployments'
   },
   {
