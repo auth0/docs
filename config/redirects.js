@@ -65,10 +65,7 @@ module.exports = [
 
 /* --- Clients --- */
 
-  {
-    from: '/clients',
-    to: '/applications'
-  },
+
   {
     from: '/clients/addons',
     to: '/applications/addons'
@@ -85,18 +82,7 @@ module.exports = [
     from: '/clients/client-types',
     to: '/applications/application-types'
   },
-  {
-    from: '/applications/application-types',
-    to: '/applications'
-  },
-  {
-    from: '/applications/machine-to-machine',
-    to: '/applications'
-  },
-  {
-    from: '/applications/concepts/app-types-auth0',
-    to: '/applications'
-  },
+
 
   /* --- Scenarios to Tutorials --- */
 
@@ -1309,6 +1295,10 @@ module.exports = [
     from: '/line',
     to: '/connections/social/line'
   },
+  {
+    from: ['/api-auth/passwordless'],
+    to: '/connections/passwordless'
+  },
 
   /* MICROSITES */
 
@@ -1681,10 +1671,6 @@ module.exports = [
     to: '/anomaly-detection/breached-password-security'
   },
   {
-    from: ['/anomaly-detection/references/brute-force-protection-triggers-actions'],
-    to: '/anomaly-detection/brute-force-protection-triggers-and-actions'
-  },
-  {
     from: ['/anomaly-detection/guides/customize-blocked-account-emails'],
     to: '/anomaly-detection/customize-blocked-account-emails'
   },
@@ -1705,30 +1691,6 @@ module.exports = [
     to: '/anomaly-detection/brute-force-protection-triggers-and-actions'
   },
 
-  /* API-Auth */
-
-  
-  {
-      from: ['/api-auth/blacklists-vs-grants','/blacklists-vs-application-grants'],
-      to: '/authorization/revoke-access-to-apis-using-blacklists-or-application-grants'
-  },
-  {
-      from: ['/api-auth/dynamic-client-registration','/api-auth/dynamic-application-registration'],
-      to: '/applications/dynamic-client-registration'
-  },
-  {
-      from: ['/api-auth/passwordless'],
-      to: '/connections/passwordless'
-  },
-  {
-      from: ['/api-auth/tutorials/password-grant'],
-      to: '/flows/call-your-api-using-resource-owner-password-flow'
-  },
-  {
-      from: ['/api-auth/tutorials/adoption/oidc-conformant'],
-       to: '/applications'
-  },
-
   /* API */
 
   {
@@ -1742,10 +1704,6 @@ module.exports = [
   {
     from: ['/apiv2', '/api/v2'],
     to: '/api/management/v2'
-  },
-  {
-    from: ['/users-search', '/api/v2/user-search'],
-    to: '/api/management/v2/user-search'
   },
   {
     from: ['/auth0-apis', '/api/info'],
@@ -1766,6 +1724,14 @@ module.exports = [
 
   /* Applications */
 
+  {
+    from: ['/api-auth/dynamic-client-registration','/api-auth/dynamic-application-registration'],
+    to: '/applications/dynamic-client-registration'
+  },
+  {
+    from: ['/applications/concepts/app-types-auth0','/applications/machine-to-machine','/clients','/applications/application-types','/api-auth/tutorials/adoption/oidc-conformant'],
+    to: '/applications'
+  },
   {
     from: ['/dashboard/guides/applications/enable-android-app-links','/clients/enable-android-app-links','/applications/enable-android-app-links','/applications/guides/enable-android-app-links-dashboard'],
     to: '/applications/enable-android-app-links-support'
@@ -1792,22 +1758,10 @@ module.exports = [
   },
   {
     from: ['/dashboard/guides/applications/remove-app'],
-    to: '/auth0-applications/remove-applications'
-  },
-  {
-    from: ['/dashboard/guides/applications/remove-app'],
     to: '/applications/remove-applications'
   },
   {
-    from: ['/api/management/guides/applications/remove-app'],
-    to: '/applications/remove-applications'
-  },
-  {
-    from: ['/api-auth/config/using-the-auth0-dashboard','/api-auth/config/using-the-management-api','/api/management/guides/applications/update-grant-types'],
-    to: '/applications/update-grant-types'
-  },
-  {
-    from: ['/api/management/guides/applications/update-ownership'],
+    from: ['/api/management/guides/applications/update-ownership','/api/management/guides/applications/remove-app'],
     to: '/applications/update-application-ownership'
   },
   {
@@ -1827,7 +1781,7 @@ module.exports = [
     to: '/applications/update-application-connections'
   },
   {
-    from: ['/dashboard/guides/applications/update-grant-types'],
+    from: ['/api-auth/config/using-the-auth0-dashboard','/api-auth/config/using-the-management-api','/api/management/guides/applications/update-grant-types','/dashboard/guides/applications/update-grant-types'],
     to: '/applications/update-grant-types'
   },
   {
@@ -1846,63 +1800,35 @@ module.exports = [
   /* Authorization */
 
   {
-    from: ['/dashboard/guides/roles/add-permissions-roles'],
-    to: '/authorization/rbac/roles/add-permissions-to-roles'
-  },
-  {
-    from: ['/dashboard/guides/roles/create-roles'],
-    to: '/authorization/rbac/roles/create-roles'
-  },
-  {
-    from: ['/dashboard/guides/roles/delete-roles'],
-    to: '/authorization/rbac/roles/delete-roles'
-  },
-  {
-    from: ['/dashboard/guides/roles/edit-role-definitions'],
-    to: '/authorization/rbac/roles/edit-role-definitions'
-  },
-  {
-    from: ['/dashboard/guides/roles/remove-role-permissions'],
-    to: '/authorization/rbac/roles/remove-permissions-from-roles'
+    from: ['/api-auth/blacklists-vs-grants','/blacklists-vs-application-grants'],
+    to: '/authorization/revoke-access-to-apis-using-blacklists-or-application-grants'
   },
   {
     from: ['/dashboard/guides/roles/remove-role-users'],
     to: '/authorization/rbac/roles/remove-users-from-roles'
   },
   {
-    from: ['/dashboard/guides/roles/view-role-permissions'],
-    to: '/authorization/rbac/roles/view-role-permissions'
-  },
-  {
-    from: ['/dashboard/guides/roles/view-role-users'],
+    from: ['/api/management/guides/roles/view-role-users','/dashboard/guides/roles/view-role-users'],
     to: '/authorization/rbac/roles/view-users-assigned-to-roles'
   },
   {
-    from: ['/api/management/guides/roles/delete-roles'],
+    from: ['/dashboard/guides/roles/delete-roles','/api/management/guides/roles/delete-roles'],
     to: '/authorization/rbac/roles/delete-roles'
   },
   {
-    from: ['/api/management/guides/roles/edit-role-definitions'],
+    from: ['/dashboard/guides/roles/edit-role-definitions','/api/management/guides/roles/edit-role-definitions'],
     to: '/authorization/rbac/roles/edit-role-definitions'
   },
   {
-    from: ['/api/management/guides/roles/remove-role-permissions'],
+    from: ['/dashboard/guides/roles/remove-role-permissions','/api/management/guides/roles/remove-role-permissions'],
     to: '/authorization/rbac/roles/remove-permissions-from-roles'
   },
   {
-    from: ['/api/management/guides/roles/view-role-permissions'],
+    from: ['/dashboard/guides/roles/view-role-permissions','/api/management/guides/roles/view-role-permissions'],
     to: '/authorization/rbac/roles/view-role-permissions'
   },
   {
-    from: ['/api/management/guides/roles/view-role-users'],
-    to: '/authorization/rbac/roles/view-users-assigned-to-roles'
-  },
-  {
-    from: ['/dashboard/guides/apis/enable-rbac','/authorization/guides/dashboard/enable-rbac'],
-    to: '/authorization/rbac/enable-role-based-access-control-for-apis'
-  },
-  {
-    from: ['/api/management/guides/apis/enable-rbac'],
+    from: ['/api/management/guides/apis/enable-rbac','/dashboard/guides/apis/enable-rbac','/authorization/guides/dashboard/enable-rbac'],
     to: '/authorization/rbac/enable-role-based-access-control-for-apis'
   },
   {
@@ -2312,6 +2238,10 @@ module.exports = [
 
   /* Flows */
 
+  {
+    from: ['/api-auth/tutorials/password-grant'],
+    to: '/flows/call-your-api-using-resource-owner-password-flow'
+  },
   {
     from: ['/flows/concepts/auth-code','/flows/concepts/regular-web-app-login-flow','/api-auth/grant/authorization-code','/api-auth/tutorials/adoption/authorization-code'],
     to: '/flows/authorization-code-flow'
