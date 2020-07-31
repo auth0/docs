@@ -567,10 +567,6 @@ module.exports = [
     to: '/logs/streams/amazon-eventbridge'
   },
   {
-    from: '/product-lifecycle/deprecation-eol',
-    to: '/product-lifecycle/migration-process'
-  },
-  {
     from: '/onboarding/appliance-outage',
     to: '/onboarding/enterprise-support'
   },
@@ -3195,9 +3191,6 @@ module.exports = [
     from: ['/dashboard/guides/applications/set-up-addon-saml2-aws'],
     to: '/protocols/saml-configuration-options/configure-saml2-web-app-addon-for-aws'
   },
-
-  /* PROTOCOLS */
-
   {
     from: ['/tutorials/openid-connect-discovery','/protocols/oidc/openid-connect-discovery'],
     to: '/protocols/configure-applications-with-oidc-discovery'
