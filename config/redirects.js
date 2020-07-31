@@ -288,10 +288,6 @@ module.exports = [
     to: '/migrations/guides/account-linking'
   },
   {
-    from: '/premium-support',
-    to: '/support'
-  },
-  {
     from: '/users-search',
     to: '/api/v2/user-search'
   },
@@ -390,10 +386,6 @@ module.exports = [
   {
     from: '/saas-apps',
     to: '/tutorials/using-auth0-with-multi-tenant-apps'
-  },
-  {
-    from: '/sla',
-    to: '/support/sla'
   },
   {
     from: '/versioning',
@@ -668,22 +660,6 @@ module.exports = [
     to: '/monitoring/guides/send-events-to-keenio',
   },
   {
-    from: '/tutorials/cancel-paid-subscriptions',
-    to: '/support/cancel-paid-subscriptions',
-  },
-  {
-    from: '/tutorials/reset-account-password',
-    to: '/support/reset-account-password',
-  },
-  {
-    from: '/tutorials/delete-reset-tenant',
-    to: '/support/delete-reset-tenant',
-  },
-  {
-    from: '/tutorials/how-auth0-versions-software',
-    to: '/support/how-auth0-versions-software',
-  },
-  {
     from: '/tutorials/authenticating-a-tessel-device',
     to: '/integrations/authenticating-a-tessel-device',
   },
@@ -762,10 +738,6 @@ module.exports = [
   {
     from: '/tutorials/openid-connect-discovery',
     to: '/protocols/oidc/openid-connect-discovery',
-  },
-  {
-    from: '/tutorials/removing-auth0-exporting-data',
-    to: '/support/removing-auth0-exporting-data',
   },
   {
     from: '/tutorials',
@@ -974,10 +946,6 @@ module.exports = [
   {
     from: [`/link-accounts/auth-api`, `/link-accounts`],
     to: `/users/concepts/overview-user-account-linking`
-  },
-  {
-    from: '/support/sla',
-    to: '/support/sld'
   },
   {
      from: '/applications/application-settings/non-interactive',
@@ -3807,6 +3775,53 @@ module.exports = [
     to: '/scopes/sample-use-cases-scopes-and-claims'
   },
 
+  /* Support */
+
+  {
+    from: '/premium-support',
+    to: '/support'
+  },
+  {
+    from: ['/sla', '/support/sla','/support/sld'],
+    to: '/support/service-level-descriptions'
+  },
+  {
+    from: ['/support/subscription'],
+    to: '/support/manage-subscriptions'
+  },
+  {
+    from: ['/tutorials/removing-auth0-exporting-data','/support/removing-auth0-exporting-data'],
+    to: '/support/export-data'
+  },
+  {
+    from: ['/support/testing'],
+    to: '/support/predeployment-tests'
+  },
+  {
+    from: ['/support/cancel-paid-subscriptions','/tutorials/cancel-paid-subscriptions'],
+    to: '/support/downgrade-or-cancel-subscriptions'
+  },
+  {
+    from: ['/support/how-auth0-versions-software','/tutorials/how-auth0-versions-software'],
+    to: '/support/versioning-strategy'
+  },
+  {
+    from: ['/support/matrix'],
+    to: '/support/product-support-matrix'
+  },  
+  {
+    from: ['/support/reset-account-password','/tutorials/reset-account-password'],
+    to: '/support/reset-account-passwords'
+  },
+  {
+    from: ['/support/tickets'],
+    to: '/support/open-and-manage-support-tickets'
+  },
+  {
+    from: ['/tutorials/delete-reset-tenant'],
+    to: '/support/delete-or-reset-tenant'
+  },
+
   /* Tokens */
 
   {
@@ -4011,6 +4026,6 @@ module.exports = [
   {
     from: ['/universal-login/text-customization-prompts/consent'],
     to: '/universal-login/prompt-consent'
-  }
+  },
 
 ];
