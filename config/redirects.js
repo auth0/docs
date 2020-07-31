@@ -2090,10 +2090,7 @@ module.exports = [
     from: ['/custom-domains/additional-configuration'],
     to: '/custom-domains/configure-features-to-use-custom-domains'
   },
-
-  /* Dashboard */
  
-
   /* Extensions */
 
   {
@@ -2327,18 +2324,6 @@ module.exports = [
   {
     from: ['/dashboard/guides/connections/disable-cache-ad-ldap'],
     to: '/extensions/ad-ldap-connector/disable-credential-caching'
-  },
-  {
-    from: ['/dashboard/guides/extensions/delegated-admin-create-app'],
-    to: '/extensions/delegated-administration-extension/create-delegated-admin-applications'
-  },
-  {
-    from: ['/dashboard/guides/extensions/delegated-admin-install-extension','/dashboard/guides/extensions/delegated-admin-use-extension'],
-    to: '/extensions/delegated-administration-extension/install-delegated-admin-extension'
-  },
-  {
-    from: ['/dashboard/guides/extensions/sso-dashboard-add-apps'],
-    to: '/extensions/single-sign-on-dashboard-extension/add-applications-to-the-sso-dashboard'
   },
   {
     from: ['/dashboard/guides/extensions/sso-dashboard-install-extension'],
