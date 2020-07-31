@@ -3771,7 +3771,7 @@ module.exports = [
   },
   {
     from: ['/single-sign-on/api-endpoints-for-single-sign-on','/sso/current/relevant-api-endpoints'],
-    to: ['/sso/api-endpoints-for-single-sign-on']
+    to: '/sso/api-endpoints-for-single-sign-on'
   },
 
   /* Support */
