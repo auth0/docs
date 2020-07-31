@@ -323,30 +323,7 @@ module.exports = [
     from: '/tutorials/using-auth0-with-multi-tenant-apps',
     to: '/design/using-auth0-with-multi-tenant-apps',
   },
-  {
-    from: '/tutorials/tracking-new-leads-in-salesforce-and-raplead',
-    to: '/monitoring/guides/track-leads-salesforce',
-  },
-  {
-    from: '/tutorials/track-signups-enrich-user-profile-generate-leads',
-    to: '/monitoring/guides/track-signups-salesforce',
-  },
-  {
-    from: '/tutorials/how-to-monitor-auth0',
-    to: '/monitoring',
-  },
-  {
-    from: '/tutorials/sending-events-to-splunk',
-    to: '/monitoring/guides/send-events-to-splunk',
-  },
-  {
-    from: '/tutorials/sending-events-to-segmentio',
-    to: '/monitoring/guides/send-events-to-segmentio',
-  },
-  {
-    from: '/tutorials/sending-events-to-keenio',
-    to: '/monitoring/guides/send-events-to-keenio',
-  },
+  
   {
     from: '/tutorials/authenticating-a-tessel-device',
     to: '/integrations/authenticating-a-tessel-device',
@@ -3037,6 +3014,45 @@ module.exports = [
     from: ['/multifactor-authentication/custom','/mfa/guides/customize-mfa-universal-login'],
     to: '/mfa/customize-mfa-user-pages'
   },
+  
+  /* Monitoring */
+
+  {
+    from: ['/monitoring','/tutorials/how-to-monitor-auth0'],
+    to: '/monitor-auth0',
+  },
+  {
+    from: ['/monitoring/guides/check-external-services'],
+    to: '/monitor-auth0/check-external-services-status',
+  },
+  {
+    from: ['/monitoring/guides/check-status'],
+    to: '/monitor-auth0/check-auth0-status',
+  },
+  {
+    from: ['/monitoring/guides/monitor-applications'],
+    to: '/monitor-auth0/monitor-applications',
+  },
+  {
+    from: ['/monitoring/guides/monitor-using-SCOM'],
+    to: '/monitor-auth0/monitor-using-scom',
+  },
+  {
+    from: ['/monitoring/guides/send-events-to-splunk','/monitoring/guides/send-events-to-segmentio','/monitoring/guides/send-events-to-keenio','/tutorials/sending-events-to-splunk','/tutorials/sending-events-to-segmentio','/tutorials/sending-events-to-keenio'],
+    to: '/logs/export-log-events-with-rules',
+  },
+  {
+    from: ['/monitoring/guides/test-testall-endpoints'],
+    to: '/monitor-auth0/check-auth-and-supporting-services',
+  },
+  {
+    from: ['/monitoring/guides/track-leads-salesforce','/tutorials/tracking-new-leads-in-salesforce-and-raplead'],
+    to: '/monitor-auth0/track-new-leads-in-salesforce',
+  },
+  {
+    from: ['/monitoring/guides/track-signups-salesforce','/tutorials/track-signups-enrich-user-profile-generate-leads'],
+    to: '/monitor-auth0/track-new-sign-ups-in-salesforce',
+  },
 
   /* Policies */
 
@@ -4103,7 +4119,7 @@ module.exports = [
     to: '/users/update-metadata-with-the-management-api'
   },
   {
-    from: ['/user-profile/customdb.md','/users/guides/update-user-profiles-using-your-database'],
+    from: ['/user-profile/customdb','/users/guides/update-user-profiles-using-your-database'],
     to: '/users/update-user-profiles-using-your-database'
   },
   {
