@@ -3741,6 +3741,73 @@ module.exports = [
     to: '/tokens/management-api-access-tokens/management-api-access-token-faqs'
   },
 
+  /* Troubleshoot */
+
+  {
+    from: ['/troubleshoot/guides/check-error-messages'],
+    to: '/troubleshoot/check-error-messages'
+  },
+  {
+    from: ['/har', '/tutorials/troubleshooting-with-har-files', '/troubleshoot/har', '/support/troubleshooting-with-har-files','/troubleshoot/guides/generate-har-files'],
+    to: '/troubleshoot/generate-and-analyze-har-files'
+  },
+  {
+    from: ['/troubleshoot/references/invalid-token'],
+    to: '/troubleshoot/invalid-token-errors'
+  },
+  {
+    from: ['/troubleshoot/concepts/auth-issues'],
+    to: '/troubleshoot/troubleshoot-authentication-issues'
+  },
+  {
+    from: ['/troubleshoot/guides/check-api-calls'],
+    to: '/troubleshoot/troubleshoot-authentication-issues/check-api-calls'
+  },
+  {
+    from: ['/errors/deprecation-errors','/troubleshoot/guides/check-deprecation-errors'],
+    to: '/troubleshoot/troubleshoot-authentication-issues/check-deprecation-errors'
+  },
+  {
+    from: ['/troubleshoot/guides/check-login-logout-issues'],
+    to: '/troubleshoot/troubleshoot-authentication-issues/check-login-and-logout-issues'
+  },
+  {
+    from: ['/troubleshoot/guides/check-user-profiles'],
+    to: '/troubleshoot/troubleshoot-authentication-issues/check-user-profiles'
+  },
+  {
+    from: ['/troubleshoot/references/saml-errors'],
+    to: '/troubleshoot/troubleshoot-authentication-issues/saml-errors'
+  },
+  {
+    from: ['/troubleshoot/basic-troubleshooting','/troubleshoot/concepts/basics'],
+    to: '/troubleshoot/troubleshoot-basic'
+  },
+  {
+    from: ['/troubleshoot/basic-troubleshooting/verify-connections','/troubleshoot/guides/verify-connections'],
+    to: '/troubleshoot/troubleshoot-basic/verify-connections'
+  },
+  {
+    from: ['/troubleshoot/basic-troubleshooting/verify-domain','/troubleshoot/guides/verify-domain'],
+    to: '/troubleshoot/troubleshoot-basic/verify-domain'
+  },
+  {
+    from: ['/troubleshoot/basic-troubleshooting/verify-platform','/troubleshoot/guides/verify-platform'],
+    to: '/troubleshoot/troubleshoot-basic/verify-platform'
+  },
+  {
+    from: ['/troubleshoot/concepts/integration-extensibility-issues'],
+    to: '/troubleshoot/troubleshoot-integration-and-extensibility'
+  },
+  {
+    from: ['/troubleshoot/references/self_change_password'],
+    to: '/troubleshoot/self-change-password-errors'
+  },
+  {
+    from: ['/troubleshoot/guides/verify-rules'],
+    to: '/troubleshoot/verify-rules'
+  },
+
   /* Universal Login */
 
   {
@@ -4029,73 +4096,6 @@ module.exports = [
   {
     from: ['/dashboard/guides/users/view-user-roles','/api/management/guides/users/view-user-roles'],
     to: '/users/view-user-roles'
-  },
-
-  /* Troubleshoot */
-
-  {
-    from: ['/troubleshoot/guides/check-error-messages'],
-    to: '/troubleshoot/check-error-messages'
-  },
-  {
-    from: ['/har', '/tutorials/troubleshooting-with-har-files', '/troubleshoot/har', '/support/troubleshooting-with-har-files','/troubleshoot/guides/generate-har-files'],
-    to: '/troubleshoot/generate-and-analyze-har-files'
-  },
-  {
-    from: ['/troubleshoot/references/invalid-token'],
-    to: '/troubleshoot/invalid-token-errors'
-  },
-  {
-    from: ['/troubleshoot/concepts/auth-issues'],
-    to: '/troubleshoot/troubleshoot-authentication-issues'
-  },
-  {
-    from: ['/troubleshoot/guides/check-api-calls'],
-    to: '/troubleshoot/troubleshoot-authentication-issues/check-api-calls'
-  },
-  {
-    from: ['/errors/deprecation-errors','/troubleshoot/guides/check-deprecation-errors'],
-    to: '/troubleshoot/troubleshoot-authentication-issues/check-deprecation-errors'
-  },
-  {
-    from: ['/troubleshoot/guides/check-login-logout-issues'],
-    to: '/troubleshoot/troubleshoot-authentication-issues/check-login-and-logout-issues'
-  },
-  {
-    from: ['/troubleshoot/guides/check-user-profiles'],
-    to: '/troubleshoot/troubleshoot-authentication-issues/check-user-profiles'
-  },
-  {
-    from: ['/troubleshoot/references/saml-errors'],
-    to: '/troubleshoot/troubleshoot-authentication-issues/saml-errors'
-  },
-  {
-    from: ['/troubleshoot/basic-troubleshooting','/troubleshoot/concepts/basics'],
-    to: '/troubleshoot/troubleshoot-basic'
-  },
-  {
-    from: ['/troubleshoot/basic-troubleshooting/verify-connections','/troubleshoot/guides/verify-connections'],
-    to: '/troubleshoot/troubleshoot-basic/verify-connections'
-  },
-  {
-    from: ['/troubleshoot/basic-troubleshooting/verify-domain','/troubleshoot/guides/verify-domain'],
-    to: '/troubleshoot/troubleshoot-basic/verify-domain'
-  },
-  {
-    from: ['/troubleshoot/basic-troubleshooting/verify-platform','/troubleshoot/guides/verify-platform'],
-    to: '/troubleshoot/troubleshoot-basic/verify-platform'
-  },
-  {
-    from: ['/troubleshoot/concepts/integration-extensibility-issues'],
-    to: '/troubleshoot/troubleshoot-integration-and-extensibility'
-  },
-  {
-    from: ['/troubleshoot/references/self_change_password'],
-    to: '/troubleshoot/self-change-password-errors'
-  },
-  {
-    from: ['/troubleshoot/guides/verify-rules'],
-    to: '/troubleshoot/verify-rules'
   },
 
 ];
