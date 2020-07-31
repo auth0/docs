@@ -184,10 +184,6 @@ module.exports = [
     to: '/onboarding/enterprise-support'
   },
   {
-    from: ['/rate-limits', '/policies/rate-limit'],
-    to: '/policies/rate-limits'
-  },
-  {
     from: '/i18n/password-strength',
     to: '/i18n/password-options'
   },
@@ -560,10 +556,6 @@ module.exports = [
   {
     from: '/topics/extensibility',
     to: '/extend-integrate'
-  },
-  {
-    from: '/policies/requests',
-    to: '/policies/unsupported-requests'
   },
   {
     from: '/best-practices/custom-db-connections-scripts',
@@ -3690,7 +3682,7 @@ module.exports = [
   /* Support */
 
   {
-    from: '/premium-support',
+    from: ['/policies/unsupported-requests','/policies/requests','/premium-support'],
     to: '/support'
   },
   {
@@ -4195,5 +4187,49 @@ module.exports = [
     from: ['/dashboard/guides/users/view-user-roles','/api/management/guides/users/view-user-roles'],
     to: '/users/view-user-roles'
   }
+
+  /* Policies */
+
+  {
+    from: ['/policies/billing'],
+    to: '/policies/billing-policy'
+  },
+  {
+    from: ['/policies/dashboard-authentication'],
+    to: '/policies/dashboard-authentication-policy'
+  },
+  {
+    from: ['policies/data-export'],
+    to: '/policies/data-export-and-transfer-policy'
+  },
+  {
+    from: ['/policies/entity-limits'],
+    to: '/policies/entity-limit-policy'
+  },
+  {
+    from: ['/policies/load-testing'],
+    to: '/policies/load-testing-policy'
+  },
+  {
+    from: ['/rate-limits', '/policies/rate-limit', '/policies/rate-limits'],
+    to: '/policies/rate-limit-policy'
+  },
+  {
+    from: ['/policies/rate-limits-api'],
+    to: '/policies/rate-limit-policy/authentication-api-endpoint-rate-limits'
+  },
+  {
+    from: ['/policies/rate-limits-mgmt-api'],
+    to: '/policies/rate-limit-policy/management-api-endpoint-rate-limits'
+  },
+  {
+    from: ['/policies/legacy-rate-limits'],
+    to: '/policies/rate-limit-policy/mgmt-api-endpoint-rate-limits-before-19-may-2020'
+  },
+  {
+    from: ['/policies/penetration-testing'],
+    to: '/policies/penetration-testing-policy'
+  },
+
 
 ];
