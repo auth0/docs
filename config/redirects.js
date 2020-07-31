@@ -1874,10 +1874,6 @@ module.exports = [
       to: '/protocols/ldap-protocol'
   },
   {
-      from: ['/tokens/concepts/signing-algorithms'],
-      to: '/tokens/signing-algorithms'
-  },
-  {
       from: ['/logs/streams/azure-event-grid'],
       to: '/auth0-logs/export-log-events-with-log-streaming/stream-logs-to-azure-event-grid'
   },
@@ -2013,20 +2009,8 @@ module.exports = [
       to: '/authorization/customize-tokens-using-hooks-with-client-credentials-flow'
   },
   {
-      from: ['/api-auth/tutorials/adoption/api-tokens'],
-      to: '/tokens/access-tokens'
-  },
-  {
-      from: ['/api-auth/tutorials/adoption/delegation'],
-      to: '/tokens/delegation-tokens'
-  },
-  {
       from: ['/api-auth/tutorials/adoption/oidc-conformant'],
        to: '/applications'
-  },
-  {
-      from: ['/api-auth/tutorials/adoption/refresh-tokens'],
-      to: '/tokens/refresh-tokens'
   },
   {
       from: ['/api-auth/tutorials/adoption/scope-custom-claims'],
@@ -3757,16 +3741,12 @@ module.exports = [
     to: '/tokens'
   },
   {
-    from: ['tokens/concepts/access-tokens','/tokens/overview-access-tokens','/tokens/access-token','/tokens/access_token', '/tokens/access-tokens'],
+    from: ['/api-auth/tutorials/adoption/api-tokens','tokens/concepts/access-tokens','/tokens/overview-access-tokens','/tokens/access-token','/tokens/access_token', '/tokens/access-tokens'],
     to: '/tokens/access-tokens'
   },
   {
     from: ['/tokens/guides/get-access-tokens','/tokens/get-access-tokens', '/tokens/guides/access-token/get-access-tokens'],
     to: '/tokens/access-tokens/get-access-tokens'
-  },
-  {
-    from: ['/dashboard/guides/apis/update-token-lifetime'],
-    to: '/tokens/access-tokens/update-access-token-lifetime'
   },
   {
     from: ['/tokens/guides/use-access-tokens','/tokens/use-access-tokens', '/tokens/guides/access-token/use-access-tokens'],
@@ -3779,10 +3759,6 @@ module.exports = [
   {
     from: ['/tokens/guides/create-namespaced-custom-claims','/tokens/concepts/claims-namespacing'],
     to: '/tokens/create-namespaced-custom-claims'
-  },
-  {
-    from: ['/tokens/delegation','/tokens/concepts/delegation-tokens'],
-    to: '/tokens/delegation-tokens'
   },
   {
     from: ['/tokens/concepts/idp-access-tokens', '/tokens/overview-idp-access-tokens'],
@@ -3799,10 +3775,6 @@ module.exports = [
   {
     from: ['/tokens/references/id-token-structure'],
     to: '/tokens/id-tokens/id-token-structure'
-  },
-  {
-    from: ['/dashboard/guides/applications/update-token-lifetime'],
-    to: '/tokens/id-tokens/update-id-token-lifetime'
   },
   {
     from: ['/tokens/guides/validate-id-tokens','/tokens/guides/id-token/validate-id-token'],
@@ -3841,11 +3813,7 @@ module.exports = [
     to: '/tokens/manage-signing-keys'
   },
   {
-    from: ['/api/management/v2/tokens'],
-    to: '/tokens/management-api-access-tokens'
-  },
-  {
-    from: ['/refresh-token','/tokens/refresh_token','/tokens/concepts/refresh-tokens'],
+    from: ['/api-auth/tutorials/adoption/refresh-tokens','/refresh-token','/tokens/refresh_token','/tokens/concepts/refresh-tokens'],
     to: '/tokens/refresh-tokens'
   },
   {
@@ -3902,7 +3870,7 @@ module.exports = [
   },
 
   {
-    from: ['/tokens/concepts/delegation-tokens'],
+    from: ['/api-auth/tutorials/adoption/delegation','/tokens/delegation','/tokens/concepts/delegation-tokens'],
     to: '/tokens/delegation-tokens'
   },
   {
@@ -3936,10 +3904,6 @@ module.exports = [
   {
     from: ['/dashboard/guides/applications/update-token-lifetime'],
     to: '/tokens/id-tokens/update-id-token-lifetime'
-  },
-  {
-    from: ['/dashboard/guides/tenants/view-signing-keys'],
-    to: '/tokens/view-client-secrets-and-signing-keys'
   },
 
   /* Universal Login */
@@ -3995,10 +3959,6 @@ module.exports = [
   {
     from: ['/universal-login/text-customization-prompts/consent'],
     to: '/universal-login/prompt-consent'
-  },
-  {
-    from: ['/dashboard/guides/universal-login/configure-login-page-passwordless'],
-    to: '/universal-login/configure-universal-login-with-passwordless'
   },
 
   /* Users */
@@ -4071,7 +4031,6 @@ module.exports = [
     from: ['/users/guides/link-user-accounts'],
     to: '/users/link-user-accounts'
   },
-  // above
   {
     from: ['/users/guides/manage-user-access-to-applications'],
     to: '/users/manage-user-access-to-applications'
