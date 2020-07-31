@@ -2451,10 +2451,6 @@ module.exports = [
     to: '/get-started/dashboard/configure-device-user-code-settings'
   },
   {
-    from: ['/dashboard/guides/tenants/configure-session-lifetime-settings'],
-    to: '/get-started/dashboard/configure-session-lifetime-settings'
-  },
-  {
     from: ['/dashboard/guides/tenants/create-multiple-tenants'],
     to: '/get-started/dashboard/create-multiple-tenants'
   },
@@ -2477,10 +2473,6 @@ module.exports = [
   {
     from: ['/dashboard'],
     to: '/get-started/dashboard'
-  },
-  {
-    from: ['/dashboard/guides/apis/add-permissions-apis'],
-    to: '/get-started/dashboard/add-api-permissions'
   },
   {
     from: ['/dashboard/guides/apis/delete-permissions-apis'],
@@ -2515,11 +2507,7 @@ module.exports = [
     to: '/get-started/dashboard/create-sso-dashboard-application'
   },
   {
-    from: ['/dashboard/guides/applications/rotate-client-secret','/tutorials/how-to-update-applications-client-secret','/clients/how-to-update-client-secret','/update-client-secret','/clients/how-to-rotate-client-secret','/applications/how-to-rotate-client-secret','/applications/how-to-rotate-application-secret'],
-    to: '/get-started/dashboard/rotate-client-secret'
-  },
-  {
-    from: ['/api/management/guides/apis/update-permissions-apis'],
+    from: ['/dashboard/guides/apis/add-permissions-apis','/api/management/guides/apis/update-permissions-apis'],
     to: '/get-started/dashboard/add-api-permissions'
   },
   {
