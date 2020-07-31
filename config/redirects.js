@@ -457,20 +457,8 @@ module.exports = [
     to: '/integrations/sso/zoom'
   },
   {
-    from: '/guides/login/centralized-vs-embedded',
-    to: '/guides/login/universal-vs-embedded'
-  },
-  {
-    from: '/guides/login/migration-embedded-centralized',
-    to: '/guides/login/migration-embedded-universal'
-  },
-  {
     from: '/videos/rules',
     to: '/rules/current'
-  },
-  {
-    from: `/guides/login/migration-embedded-centralized`,
-    to: `/guides/login/migration-embedded-universal`
   },
   {
     from: [`/link-accounts/auth-api`, `/link-accounts`],
@@ -1733,10 +1721,6 @@ module.exports = [
       to: '/connections/passwordless'
   },
   {
-      from: ['/api-auth/config/using-the-auth0-dashboard','/api-auth/config/using-the-management-api'],
-      to: '/applications/update-grant-types'
-  },
-  {
       from: ['/api-auth/tutorials/password-grant'],
       to: '/flows/call-your-api-using-resource-owner-password-flow'
   },
@@ -1819,7 +1803,7 @@ module.exports = [
     to: '/applications/remove-applications'
   },
   {
-    from: ['/api/management/guides/applications/update-grant-types'],
+    from: ['/api-auth/config/using-the-auth0-dashboard','/api-auth/config/using-the-management-api','/api/management/guides/applications/update-grant-types'],
     to: '/applications/update-grant-types'
   },
   {
@@ -1827,7 +1811,7 @@ module.exports = [
     to: '/applications/update-application-ownership'
   },
   {
-    from: ['/api/management/guides/applications/view-ownership'],
+    from: ['/api/management/guides/applications/view-ownership','/dashboard/guides/applications/view-app-type-confidential-public'],
     to: '/applications/view-application-ownership'
   },
   {
@@ -1853,10 +1837,6 @@ module.exports = [
   {
     from: ['/dashboard/guides/connections/set-up-connections-database'],
     to: '/applications/set-up-database-connections'
-  },
-  {
-    from: ['/dashboard/guides/applications/view-app-type-confidential-public'],
-    to: '/applications/view-application-ownership'
   },
   {
     from: ['/dashboard/guides/applications/register-app-spa'],
@@ -1918,7 +1898,7 @@ module.exports = [
     to: '/authorization/rbac/roles/view-users-assigned-to-roles'
   },
   {
-    from: ['/authorization/guides/dashboard/enable-rbac'],
+    from: ['/dashboard/guides/apis/enable-rbac','/authorization/guides/dashboard/enable-rbac'],
     to: '/authorization/rbac/enable-role-based-access-control-for-apis'
   },
   {
@@ -2970,6 +2950,14 @@ module.exports = [
     to: '/product-lifecycle/deprecations-and-migrations/migrate-to-calling-api-with-access-tokens'
   },
   {
+    from: ['/guides/login/migration-embedded-universal','/guides/login/migration-embedded-centralized'],
+    to: '/product-lifecycle/deprecations-and-migrations/migrate-from-embedded-login-to-universal-login'
+  },
+  {
+    from: ['/guides/migration-legacy-flows'],
+    to: '/product-lifecycle/deprecations-and-migrations/migrate-from-legacy-auth-flows'
+  },
+  {
     from: ['/migrations/guides/clickjacking-protection'],
     to: '/product-lifecycle/deprecations-and-migrations/clickjacking-protection-for-universal-login'
   },
@@ -3789,6 +3777,10 @@ module.exports = [
   {
     from: ['/universal-login/text-customization-prompts/consent'],
     to: '/universal-login/prompt-consent'
+  },
+  {
+    from: ['/guides/login/universal-vs-embedded','/guides/login/centralized-vs-embedded'],
+    to: '/unversal-login/universal-vs-embedded'
   },
 
   /* Users */
