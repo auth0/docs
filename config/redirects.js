@@ -276,28 +276,8 @@ module.exports = [
     to: '/rules/metadata-in-rules'
   },
   {
-    from: ['/link-accounts/user-initiated', '/link-accounts/user-initiated-linking'],
-    to: '/users/references/link-accounts-client-side-scenario'
-  },
-  {
-    from: '/users/references/link-accounts-user-initiated-scenario',
-    to: '/users/references/link-accounts-client-side-scenario'
-  },
-  {
     from: '/users/guides/link-user-accounts-auth-api',
     to: '/migrations/guides/account-linking'
-  },
-  {
-    from: '/users-search',
-    to: '/api/v2/user-search'
-  },
-  {
-    from: '/api/v2/user-search',
-    to: '/api/management/v2/user-search'
-  },
-  {
-    from: '/users/normalized/auth0/retrieve-user-profiles',
-    to: `/users/search`
   },
   {
     from: '/enterprise-support',
@@ -664,10 +644,6 @@ module.exports = [
     to: '/integrations/authenticating-devices-using-mqtt',
   },
   {
-    from: '/tutorials/creating-users-in-the-management-portal',
-    to: '/users/guides/create-users',
-  },
-  {
     from: '/tutorials/dashboard-tenant-settings',
     to: '/dashboard/dashboard-tenant-settings',
   },
@@ -710,18 +686,6 @@ module.exports = [
   {
     from: '/tutorials/office365-connection-deprecation-guide',
     to: '/integrations/office365-connection-deprecation-guide',
-  },
-  {
-    from: '/tutorials/redirecting-users',
-    to: '/users/guides/redirect-users-after-login',
-  },
-  {
-    from: '/tutorials/get-user-information-with-unbounce-landing-pages',
-    to: '/users/guides/get-user-information-with-unbounce-landing-pages',
-  },
-  {
-    from: ['/tutorials/bulk-importing-users-into-auth0', '/users/migrations/bulk-import', '/users/guides/bulk-user-import'],
-    to: '/users/guides/bulk-user-imports',
   },
   {
     from: '/tutorials/using-auth0-as-an-identity-provider-with-github-enterprise',
@@ -824,10 +788,6 @@ module.exports = [
     to: '/i18n'
   },
   {
-    from: ['/users/bulk-importing-users-into-auth0', '/users/migrations/bulk-import'],
-    to: '/users/guides/bulk-user-imports'
-  },
-  {
     from: `/metadata/management-api`,
     to: `/metadata/apis`
   },
@@ -908,14 +868,6 @@ module.exports = [
     to: '/guides/login/migration-embedded-universal'
   },
   {
-    from: '/api/management/v2/user-search',
-    to: '/users/search/v2'
-  },
-  {
-    from: '/api/management/v2/query-string-syntax',
-    to: '/users/search/v2/query-syntax'
-  },
-  {
     from: '/api-auth/dynamic-application-registration',
     to: '/api-auth/dynamic-client-registration'
   },
@@ -956,22 +908,6 @@ module.exports = [
     to: '/hrd'
   },
   {
-    from: '/user-profile',
-    to: '/users/concepts/overview-user-profile'
-  },
-  {
-    from: '/user-profile/user-picture',
-    to: '/users/guides/change-user-pictures'
-  },
-  {
-    from: '/user-profile/progressive-profiling',
-    to: '/users/concepts/overview-progressive-profiling'
-  },
-  {
-    from: '/user-profile/customdb.md',
-    to: '/users/guides/update-user-profiles-using-your-database'
-  },
-  {
     from: '/user-profile/normalized/auth0',
     to: '/users/normalized/auth0'
   },
@@ -986,22 +922,6 @@ module.exports = [
   {
     from: '/users/user-data-storage',
     to: '/best-practices/user-data-storage-best-practices'
-  },
-  {
-    from: '/user-profile/user-profile-structure',
-    to: '/users/references/user-profile-structure'
-  },
-  {
-    from: '/metadata',
-    to: '/users/concepts/overview-user-metadata'
-  },
-  {
-    from: '/metadata/apis',
-    to: '/users/guides/manage-user-metadata'
-  },
-  {
-    from: '/metadata/lock',
-    to: '/users/guides/manage-user-metadata'
   },
   {
     from: '/hooks/cli/edit',
@@ -1071,10 +991,6 @@ module.exports = [
   {
   from: '/hooks/overview',
   to: '/hooks'
-  },
-  {
-    from: '/users/redirecting-users',
-    to: '/users/guides/redirect-users-after-login'
   },
   {
     from: '/applications/spa',
@@ -1248,6 +1164,18 @@ module.exports = [
   {
     from: '/onboarding/appliance-outage',
     to: '/onboarding/enterprise-support'
+  },
+  {
+    from: '/users/guides/link-user-accounts-auth-api',
+    to: '/migrations/guides/account-linking'
+  },
+  {
+    from: '/users/search/best-practices',
+    to: '/best-practices/search-best-practices'
+  },
+  {
+    from: '/users/user-data-storage',
+    to: '/best-practices/user-data-storage-best-practices'
   },
 
   /* - - - - - - - - - - - - - - - - - - - 
@@ -1921,14 +1849,6 @@ module.exports = [
     to: '/connections/how-to-test-partner-connection',
   },
   {
-    from: ['/connections/database/migrating', '/users/migrations/automatic'],
-    to: '/users/guides/configure-automatic-migration'
-  },
-  {
-    from: ['/connections/database/migrating-okta', '/users/migrations/okta'],
-    to: '/users/references/user-migration-scenarios'
-  },
-  {
     from: `/connections/grean/bankid-no`,
     to: `/connections/criipto/bankid-no`
   },
@@ -1990,8 +1910,6 @@ module.exports = [
   },
 
   /* MICROSITES */
-
-
 
   /* ARCHITECTURE SCENARIOS */
 
@@ -3139,14 +3057,6 @@ module.exports = [
     to: '/users/block-and-unblock-users'
   },
   {
-    from: ['/users/guides/bulk-user-exports'],
-    to: '/users/bulk-user-exports'
-  },
-  {
-    from: ['/users/guides/bulk-user-imports'],
-    to: '/users/bulk-user-imports'
-  },
-  {
     from: ['/users/guides/change-user-pictures'],
     to: '/users/change-user-pictures'
   },
@@ -3269,34 +3179,6 @@ module.exports = [
   {
     from: ['/users/references/user-profile-structure'],
     to: '/users/user-profile-structure'
-  },
-  {
-    from: ['/users/search/v3/get-users-by-email-endpoint'],
-    to: '/users/user-search/retrieve-users-with-the-get-users-by-email-endpoint'
-  },
-  {
-    from: ['/users/search/v3/get-users-by-id-endpoint'],
-    to: '/users/user-search/retrieve-users-with-the-get-users-by-id-endpoint'
-  },
-  {
-    from: ['/users/search/v3/get-users-endpoint'],
-    to: '/users/user-search/retrieve-users-with-the-get-users-endpoint'
-  },
-  {
-    from: ['/users/search/v3'],
-    to: '/users/user-search'
-  },
-  {
-    from: ['/users/search/v3/query-syntax'],
-    to: '/users/user-search/user-search-query-syntax'
-  },
-  {
-    from: ['/users/search/v3/sort-search-results'],
-    to: '/users/user-search/sort-search-results'
-  },
-  {
-    from: ['/users/search/v3/view-search-results-by-page'],
-    to: '/users/user-search/view-search-results-by-page'
   },
   {
     from: ['/email/providers'],
@@ -3718,7 +3600,7 @@ module.exports = [
   {
     from: ['/services/private-saas-management','/services/private-cloud-management'],
     to: '/private-cloud/private-cloud-operations'
-  }
+  },
 
   /* PROFESSIONAL SERVICES */
 
@@ -4064,5 +3946,400 @@ module.exports = [
     from: ['/universal-login/text-customization-prompts/consent'],
     to: '/universal-login/prompt-consent'
   },
+
+  /* Users */
+
+  {
+    from: ['/users/concepts/overview-progressive-profiling'],
+    to: '/users/progressive-profiling'
+  },
+  {
+    from: ['/users/concepts/overview-user-account-linking'],
+    to: '/users/user-account-linking'
+  },
+  {
+    from: ['/users/concepts/overview-user-metadata'],
+    to: '/users/metadata'
+  },
+  {
+    from: ['/users/concepts/overview-user-migration'],
+    to: '/users/import-and-export-users'
+  },
+  {
+    from: ['/users/concepts/overview-user-profile'],
+    to: '/users/user-profiles'
+  },
+  {
+    from: ['/users/guides/block-and-unblock-users'],
+    to: '/users/block-and-unblock-users'
+  },
+  {
+    from: ['/users/guides/bulk-user-exports'],
+    to: '/users/bulk-user-exports'
+  },
+  {
+    from: ['/users/guides/change-user-pictures'],
+    to: '/users/change-user-pictures'
+  },
+  {
+    from: ['/users/guides/configure-automatic-migration'],
+    to: '/users/configure-automatic-migration-from-your-database'
+  },
+  {
+    from: ['/users/guides/create-users'],
+    to: '/users/create-users'
+  },
+  {
+    from: ['/users/guides/delete-users'],
+    to: '/users/delete-users'
+  },
+  {
+    from: ['/users/guides/email-verified'],
+    to: '/users/verified-email-usage'
+  },
+  {
+    from: ['/users/guides/get-user-information-with-unbounce-landing-pages'],
+    to: '/users/get-user-information-on-unbounce-landing-pages'
+  },
+  {
+    from: ['/users/guides/link-user-accounts'],
+    to: '/users/link-user-accounts'
+  },
+  {
+    from: ['/users/guides/manage-user-access-to-applications'],
+    to: '/users/manage-user-access-to-applications'
+  },
+  {
+    from: ['/users/guides/manage-user-metadata'],
+    to: '/users/manage-user-metadata'
+  },
+  {
+    from: ['/users/guides/manage-users-using-the-dashboard'],
+    to: '/users/manage-users-using-the-dashboard'
+  },
+  {
+    from: ['/users/guides/manage-users-using-the-management-api'],
+    to: '/users/manage-users-using-the-management-api'
+  },
+  {
+    from: ['/users/guides/read-metadata'],
+    to: '/users/read-metadata'
+  },
+  {
+    from: ['/users/guides/redirect-users-after-login'],
+    to: '/users/redirect-users-after-login'
+  },
+  {
+    from: ['/users/guides/set-metadata-properties-on-creation'],
+    to: '/users/set-metadata-properties-on-creation'
+  },
+  {
+    from: ['/users/guides/unlink-user-accounts'],
+    to: '/users/unlink-user-accounts'
+  },
+  {
+    from: ['/users/guides/update-metadata-properties-with-management-api'],
+    to: '/users/update-metadata-with-the-management-api'
+  },
+  {
+    from: ['/users/guides/update-user-profiles-using-your-database'],
+    to: '/users/update-user-profiles-using-your-database'
+  },
+  {
+    from: ['/users/guides/view-users'],
+    to: '/users/view-users'
+  },
+  {
+    from: ['/users/normalized/auth0/identify-users'],
+    to: '/users/identify-users'
+  },
+  {
+    from: ['/users/normalized/auth0'],
+    to: '/users/normalized-user-profiles'
+  },
+  {
+    from: ['/users/normalized/auth0/normalized-user-profile-schema'],
+    to: '/users/normalized-user-profile-schema'
+  },
+  {
+    from: ['/users/normalized/auth0/sample-user-profiles'],
+    to: '/users/sample-user-profiles'
+  },
+  {
+    from: ['/users/normalized/auth0/store-user-data'],
+    to: '/users/store-user-data'
+  },
+  {
+    from: ['/users/normalized/auth0/update-root-attributes'],
+    to: '/users/updating-user-profile-root-attributes'
+  },
+  {
+    from: ['/users/normalized/oidc'],
+    to: '/users/user-profiles-returned-from-oidc-compliant-pipelines'
+  },
+  {
+    from: ['/users/references/link-accounts-user-initiated-scenario','/link-accounts/user-initiated','/link-accounts/user-initiated-linking','/users/references/link-accounts-client-side-scenario'],
+    to: '/users/user-initiated-account-linking-client-side-implementation'
+  },
+  {
+    from: ['/users/references/link-accounts-server-side-scenario'],
+    to: '/users/suggested-account-linking-server-side-implementation'
+  },
+  {
+    from: ['/users/references/user-data-storage-scenario'],
+    to: '/users/user-data-storage-scenario'
+  },
+  {
+    from: ['/users/references/user-migration-scenarios'],
+    to: '/users/user-migration-scenarios'
+  },
+  {
+    from: ['/users/references/user-profile-structure'],
+    to: '/users/user-profile-structure'
+  },
+  {
+    from: ['/dashboard/guides/roles/remove-role-users'],
+    to: '/users/remove-users-from-roles'
+  },
+  {
+    from: ['/dashboard/guides/users/assign-permissions-users'],
+    to: '/users/assign-permissions-to-users'
+  },
+  {
+    from: ['/dashboard/guides/users/assign-roles-users'],
+    to: '/users/assign-roles-to-users'
+  },
+  {
+    from: ['/dashboard/guides/users/remove-user-permissions'],
+    to: '/users/remove-permissions-from-users'
+  },
+  {
+    from: ['/dashboard/guides/users/remove-user-roles'],
+    to: '/users/remove-roles-from-users'
+  },
+  {
+    from: ['/dashboard/guides/users/unlink-user-devices'],
+    to: '/users/unlink-devices-from-users'
+  },
+  {
+    from: ['/dashboard/guides/users/view-user-permissions'],
+    to: '/users/view-user-permissions'
+  },
+  {
+    from: ['/dashboard/guides/users/view-user-roles'],
+    to: '/users/view-user-roles'
+  },
+  {
+    from: ['/api/management/guides/users/set-root-attributes-user-import'],
+    to: '/users/set-root-attributes-during-user-import'
+  },
+  {
+    from: ['/api/management/guides/users/set-root-attributes-user-signup'],
+    to: '/users/set-root-attributes-during-user-sign-up'
+  },
+  {
+    from: ['/api/management/guides/users/update-root-attributes-users'],
+    to: '/users/update-root-attributes-for-users'
+  },
+  {
+    from: ['/user-profile/progressive-profiling','/users/concepts/overview-progressive-profiling'],
+    to: '/users/progressive-profiling'
+  },
+  {
+    from: ['/link-accounts/auth-api','/link-accounts','/users/concepts/overview-user-account-linking'],
+    to: '/users/user-account-linking'
+  },
+  {
+    from: ['/users/concepts/overview-user-metadata', '/metadata'],
+    to: '/users/metadata'
+  },
+  {
+    from: ['/users/concepts/overview-user-migration'],
+    to: '/users/import-and-export-users'
+  },
+  {
+    from: ['/user-profile','/users/concepts/overview-user-profile'],
+    to: '/users/user-profiles'
+  },
+  {
+    from: ['/users/guides/block-and-unblock-users'],
+    to: '/users/block-and-unblock-users'
+  },
+  {
+    from: ['/users/guides/bulk-user-exports'],
+    to: '/users/bulk-user-exports'
+  },
+  {
+    from: ['/tutorials/bulk-importing-users-into-auth0','/users/guides/bulk-user-imports', '/users/guides/bulk-user-import','/users/bulk-importing-users-into-auth0', '/users/migrations/bulk-import'],
+    to: '/users/bulk-user-imports'
+  },
+  {
+    from: ['/user-profile/user-picture','/users/guides/change-user-pictures'],
+    to: '/users/change-user-pictures'
+  },
+  {
+    from: ['/connections/database/migrating', '/users/migrations/automatic','/users/guides/configure-automatic-migration'],
+    to: '/users/configure-automatic-migration-from-your-database'
+  },
+  {
+    from: ['/tutorials/creating-users-in-the-management-portal','/users/guides/create-users'],
+    to: '/users/create-users'
+  },
+  {
+    from: ['/users/guides/delete-users'],
+    to: '/users/delete-users'
+  },
+  {
+    from: ['/users/guides/email-verified'],
+    to: '/users/verified-email-usage'
+  },
+  {
+    from: ['/tutorials/get-user-information-with-unbounce-landing-pages','/users/guides/get-user-information-with-unbounce-landing-pages'],
+    to: '/users/get-user-information-on-unbounce-landing-pages'
+  },
+  {
+    from: ['/users/guides/link-user-accounts'],
+    to: '/users/link-user-accounts'
+  },
+  {
+    from: ['/users/guides/manage-user-access-to-applications'],
+    to: '/users/manage-user-access-to-applications'
+  },
+  {
+    from: ['/metadata/apis','/metadata/lock','/users/guides/manage-user-metadata'],
+    to: '/users/manage-user-metadata'
+  },
+  {
+    from: ['/users/guides/manage-users-using-the-dashboard'],
+    to: '/users/manage-users-using-the-dashboard'
+  },
+  {
+    from: ['/users/guides/manage-users-using-the-management-api'],
+    to: '/users/manage-users-using-the-management-api'
+  },
+  {
+    from: ['/users/guides/read-metadata'],
+    to: '/users/read-metadata'
+  },
+  {
+    from: ['/tutorials/redirecting-users','/users/redirecting-users','/users/redirecting-users','/tutorials/redirecting-users','/users/guides/redirect-users-after-login'],
+    to: '/users/redirect-users-after-login'
+  },
+  {
+    from: ['/users/guides/set-metadata-properties-on-creation'],
+    to: '/users/set-metadata-properties-on-creation'
+  },
+  {
+    from: ['/users/guides/unlink-user-accounts'],
+    to: '/users/unlink-user-accounts'
+  },
+  {
+    from: ['/users/guides/update-metadata-properties-with-management-api'],
+    to: '/users/update-metadata-with-the-management-api'
+  },
+  {
+    from: ['/user-profile/customdb.md','/users/guides/update-user-profiles-using-your-database'],
+    to: '/users/update-user-profiles-using-your-database'
+  },
+  {
+    from: ['/users/guides/view-users'],
+    to: '/users/view-users'
+  },
+  {
+    from: ['/users/normalized/auth0/identify-users'],
+    to: '/users/identify-users'
+  },
+  {
+    from: ['/user-profile/normalized/auth0','/users/normalized/auth0'],
+    to: '/users/normalized-user-profiles'
+  },
+  {
+    from: ['/users/normalized/auth0/normalized-user-profile-schema'],
+    to: '/users/normalized-user-profile-schema'
+  },
+  {
+    from: ['/users/normalized/auth0/sample-user-profiles'],
+    to: '/users/sample-user-profiles'
+  },
+  {
+    from: ['/users/normalized/auth0/store-user-data'],
+    to: '/users/store-user-data'
+  },
+  {
+    from: ['/users/normalized/auth0/update-root-attributes'],
+    to: '/users/updating-user-profile-root-attributes'
+  },
+  {
+    from: ['/users/normalized/oidc'],
+    to: '/users/user-profiles-returned-from-oidc-compliant-pipelines'
+  },
+  {
+    from: ['/users/references/bulk-import-database-schema-examples'],
+    to: '/users/bulk-user-import-database-schema-and-examples'
+  },
+  {
+    from: ['/link-accounts/user-initiated', '/link-accounts/user-initiated-linking','/users/references/link-accounts-user-initiated-scenario','/users/references/link-accounts-client-side-scenario'],
+    to: '/users/user-initiated-account-linking-client-side-implementation'
+  },
+  {
+    from: ['/users/references/link-accounts-server-side-scenario'],
+    to: '/users/suggested-account-linking-server-side-implementation'
+  },
+  {
+    from: ['/users/references/user-data-storage-scenario'],
+    to: '/users/user-data-storage-scenario'
+  },
+  {
+    from: ['/connections/database/migrating-okta', '/users/migrations/okta','/users/references/user-migration-scenarios'],
+    to: '/users/user-migration-scenarios'
+  },
+  {
+    from: ['/user-profile/user-profile-structure','/users/references/user-profile-structure'],
+    to: '/users/user-profile-structure'
+  },
+  {
+    from: ['/dashboard/guides/connections/configure-connection-sync'],
+    to: '/users/configure-connection-sync-with-auth0'
+  },
+  {
+    from: ['/api/management/guides/users/set-root-attributes-user-import'],
+    to: '/users/set-root-attributes-during-user-import'
+  },
+  {
+    from: ['/api/management/guides/users/set-root-attributes-user-signup'],
+    to: '/users/set-root-attributes-during-user-sign-up'
+  },
+  {
+    from: ['/api/management/guides/users/update-root-attributes-users'],
+    to: '/users/update-root-attributes-for-users'
+  },
+  {
+    from: ['/api/management/v2/user-search','/users/search/v2','/users/search/v3','/users/normalized/auth0/retrieve-user-profiles','/users/search','/users-search','/api/v2/user-search'],
+    to: '/users/user-search'
+  },
+  {
+    from: ['/api/management/v2/query-string-syntax','/users/search/v2/query-syntax','/users/search/v3/query-syntax'],
+    to: '/users/user-search/user-search-query-syntax'
+  },
+  {
+    from: ['/users/search/v3/get-users-by-email-endpoint'],
+    to: '/users/user-search/retrieve-users-with-the-get-users-by-email-endpoint'
+  },
+  {
+    from: ['/users/search/v3/get-users-by-id-endpoint'],
+    to: '/users/user-search/retrieve-users-with-the-get-users-by-id-endpoint'
+  },
+  {
+    from: ['/users/search/v3/get-users-endpoint'],
+    to: '/users/user-search/retrieve-users-with-the-get-users-endpoint'
+  },
+  {
+    from: ['/users/search/v3/sort-search-results'],
+    to: '/users/user-search/sort-search-results'
+  },
+  {
+    from: ['/users/search/v3/view-search-results-by-page'],
+    to: '/users/user-search/view-search-results-by-page'
+  }
 
 ];
