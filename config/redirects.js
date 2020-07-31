@@ -431,15 +431,6 @@ module.exports = [
     to: `/users/search`
   },
   {
-    from: [
-      '/appliance/checksum',
-      '/appliance/proxy-updater',
-      '/appliance/update',
-      '/updating-appliance'
-    ],
-    to: '/private-cloud'
-  },
-  {
     from: '/enterprise-support',
     to: '/onboarding/enterprise-support'
   },
@@ -742,14 +733,6 @@ module.exports = [
   {
     from: '/saml-apps/sprout-video',
     to: '/protocols/saml/saml-apps/sprout-video'
-  },
-  {
-    from: '/onboarding/appliance-outage',
-    to: '/onboarding/enterprise-support'
-  },
-  {
-    from: '/appliance/dashboard/instrumentation',
-    to: '/appliance/instrumentation'
   },
   {
     from: '/tutorials/local-testing-and-development',
@@ -1398,14 +1381,6 @@ module.exports = [
     to: '/tokens/guides/use-access-tokens'
   },
   {
-    from: '/services/private-saas-configuration',
-    to: '/services/private-cloud-configuration'
-  },
-  {
-    from: '/services/private-saas-management',
-    to: '/services/private-cloud-management'
-  },
-  {
     from: '/api-auth/intro',
     to: '/api-auth/tutorials/adoption'
   },
@@ -1418,56 +1393,12 @@ module.exports = [
     to: '/best-practices/user-data-storage-best-practices'
   },
   {
-    from: '/enterprise/private-cloud/overview',
-    to: '/private-cloud'
-  },
-  {
-    from: '/private-saas-deployment',
-    to: '/private-cloud'
-  },
-  {
     from: '/topics/identity-glossary',
     to: '/glossary'
   },
   {
     from: '/topics/extensibility',
     to: '/extend-integrate'
-  },
-  {
-    from: '/private-saas-deployment/managed-private-cloud', 
-    to: '/private-cloud/managed-private-cloud'
-  },
-  {
-    from: '/private-saas-deployment/onboarding/managed-private-cloud', 
-    to: '/private-cloud/onboarding/managed-private-cloud'
-  },
-  {
-    from: '/private-saas-deployment/onboarding/managed-private-cloud/infrastructure', 
-    to: '/private-cloud/onboarding/managed-private-cloud/infrastructure'
-  },
-  {
-    from: '/private-saas-deployment/onboarding/managed-private-cloud/ip-domain-port-list', 
-    to: '/private-cloud/onboarding/managed-private-cloud/ip-domain-port-list'
-  },
-  {
-    from: '/private-saas-deployment/onboarding', 
-    to: '/private-cloud/onboarding'
-  },
-  {
-    from: '/private-saas-deployment/onboarding/private-cloud', 
-    to: '/private-cloud/onboarding/private-cloud'
-  },
-  {
-    from: '/private-saas-deployment/private-cloud', 
-    to: '/private-cloud/standard-private-cloud'
-  },
-  {
-    from: '/private-saas-deployment/add-ons', 
-    to: '/private-cloud/add-ons'
-  },
-  {
-    from: '/private-saas-deployment/custom-domain-migration', 
-    to: '/private-cloud/custom-domain-migration'
   },
   {
     from: '/policies/requests',
@@ -1617,6 +1548,18 @@ module.exports = [
   {
     from: '/api-auth/tutorials/multifactor-resource-owner-password',
     to: '/mfa/guides/mfa-api/multifactor-resource-owner-password'
+  },
+  {
+    from: '/onboarding/appliance-outage',
+    to: '/onboarding/enterprise-support'
+  },
+  {
+    from: '/services/private-saas-configuration',
+    to: '/services/private-cloud-configuration'
+  },
+  {
+    from: '/services/private-saas-management',
+    to: '/services/private-cloud-management'
   },
 
   /* - - - - - - - - - - - - - - - - - - - 
@@ -4073,6 +4016,41 @@ module.exports = [
   {
     from: ['/libraries/auth0-android/configuration'],
     to: '/libraries/auth0-android/auth0-android-configuration'
+  },
+
+  /* Private Cloud */
+
+  {
+    from: ['/appliance/checksum','/appliance/proxy-updater','/appliance/update','/updating-appliance','/enterprise/private-cloud/overview','/appliance/dashboard/instrumentation','/appliance/instrumentation'],
+    to: '/private-cloud'
+  },
+  {
+    from: ['/private-saas-deployment/onboarding','/private-saas-deployment/onboarding/private-cloud','/private-cloud/onboarding','/private-cloud/onboarding/private-cloud'], 
+    to: '/private-cloud/private-cloud-onboarding'
+  },
+  {
+    from: ['/private-saas-deployment/onboarding/managed-private-cloud/ip-domain-port-list','/private-cloud/onboarding/managed-private-cloud/ip-domain-port-list'],
+    to: '/private-cloud/private-cloud-onboarding/private-cloud-ip-domain-and-port-list'
+  },
+  {
+    from: ['/private-saas-deployment/onboarding/managed-private-cloud/infrastructure','/private-cloud/onboarding/managed-private-cloud/infrastructure','/private-saas-deployment/managed-private-cloud','/private-cloud/onboarding/managed-private-cloud','/private-saas-deployment/onboarding/managed-private-cloud','/private-cloud/onboarding/managed-private-cloud'], 
+    to: '/private-cloud/private-cloud-onboarding/customer-hosted-managed-private-cloud-infrastructure-requirements'
+  },
+  {
+    from: ['/private-saas-deployment/private-cloud','/private-cloud/standard-private-cloud'], 
+    to: '/private-cloud/private-cloud-onboarding/standard-private-cloud-infrastructure-requirements'
+  },
+  {
+    from: ['/private-saas-deployment',], 
+    to: '/private-cloud/private-cloud-deployments'
+  },
+  {
+    from: ['/private-saas-deployment/add-ons','/private-cloud/add-ons'], 
+    to: '/private-cloud/private-cloud-deployments/private-cloud-addon-options'
+  },
+  {
+    from: ['/private-saas-deployment/custom-domain-migration','/private-cloud/custom-domain-migration'], 
+    to: '/private-cloud/private-cloud-migrations/migrate-private-cloud-custom-domains'
   },
 
   /* Scopes */
