@@ -1,13 +1,13 @@
 ---
 title: Configure Custom Domains with Self-Managed Certificates
-description: Learn how to configure custom domains where you are responsible for SSL/TLS certificates, the reverse proxy to handle SSL termination, and forwarding requests to Auth0. 
+description: Learn how to configure custom domains where you are responsible for SSL/TLS certificates, the reverse proxy to handle SSL termination, and forwarding requests to Auth0.
 topics:
   - custom-domains
   - certificates
   - reverse-proxy
   - SSL/TLS-certificates
 contentType: how-to
-useCase: 
+useCase:
   - configure-customize-domains
   - forward-requests-to-auth0
   - configure-reverse-proxy

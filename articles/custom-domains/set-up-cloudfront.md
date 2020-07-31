@@ -7,7 +7,7 @@ topics:
   - cloudfront
   - reverse-proxy
 contentType: how-to
-useCase: 
+useCase:
   - customize-domains
   - self-managed-certificates
 ---
