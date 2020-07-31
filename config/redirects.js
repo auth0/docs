@@ -3307,81 +3307,6 @@ module.exports = [
     to: '/libraries/auth0-android/auth0-android-configuration'
   },
 
-  /* Migrations */
-
-  /* All in this section were redirected to /product-lifecycle */
-
-  /* Product-Lifecycle */
-
-  {
-      from: ['/product-lifecycle/deprecation-eol'],
-      to: '/product-lifecycle/migration-process'
-  },
-  {
-      from: ['/product-lifecycle/migrations','/migrations'],
-      to: '/product-lifecycle/deprecations-and-migrations'
-  },
-  {
-      from: ['/migrations/guides/account-linking','/users/guides/link-user-accounts-auth-api'],
-      to: '/product-lifecycle/deprecations-and-migrations/link-user-accounts-with-access-tokens-migration'
-  },
-  {
-      from: ['/migrations/guides/calling-api-with-idtokens'],
-      to: '/product-lifecycle/deprecations-and-migrations/migrate-to-calling-api-with-access-tokens'
-  },
-  {
-      from: ['/migrations/guides/clickjacking-protection'],
-      to: '/product-lifecycle/deprecations-and-migrations/clickjacking-protection-for-universal-login'
-  },
-  {
-      from: ['/migrations/guides/extensibility-node12'],
-      to: '/product-lifecycle/deprecations-and-migrations/migrate-to-nodejs-12'
-  },
-  {
-      from: ['/migrations/guides/facebook-graph-api-deprecation'],
-      to: '/product-lifecycle/deprecations-and-migrations/facebook-graph-api-changes'
-  },
-  {
-      from: ['/migrations/guides/facebook-social-context'],
-      to: '/product-lifecycle/deprecations-and-migrations/facebook-social-context-field-deprecation'
-  },
-  {
-      from: ['/migrations/guides/google_cloud_messaging'],
-      to: '/product-lifecycle/deprecations-and-migrations/google-firebase-migration'
-  },
-  {
-      from: ['/migrations/guides/instagram-deprecation'],
-      to: '/product-lifecycle/deprecations-and-migrations/instagram-connection-deprecation'
-  },
-  {
-      from: ['/migrations/guides/management-api-v1-v2','/api/management/v1/use-cases','/api/v1'],
-      to: '/product-lifecycle/deprecations-and-migrations/migrate-to-management-api-v2'
-  },
-  {
-      from: ['/migrations/guides/migration-oauthro-oauthtoken'],
-      to: '/product-lifecycle/deprecations-and-migrations/migration-oauthro-oauthtoken'
-  },
-  {
-      from: ['/migrations/guides/migration-oauthro-oauthtoken-pwdless'],
-      to: '/product-lifecycle/deprecations-and-migrations/resource-owner-passwordless-credentials-exchange'
-  },
-  {
-      from: ['/migrations/guides/passwordless-start'],
-      to: '/product-lifecycle/deprecations-and-migrations/migrate-to-passwordless'
-  },
-  {
-      from: ['/migrations/guides/unpaginated-requests'],
-      to: '/product-lifecycle/deprecations-and-migrations/migrate-to-paginated-queries'
-  },
-  {
-      from: ['/migrations/guides/yahoo-userinfo-updates'],
-      to: '/product-lifecycle/deprecations-and-migrations/yahoo-api-changes'
-  },
-  {
-      from: ['migrations/past-migrations'],
-      to: '/product-lifecycle/deprecations-and-migrations/past-migrations'
-  },
-
   /* MFA */
   
   {
@@ -3574,6 +3499,77 @@ module.exports = [
   {
     from: ['/services/private-saas-management','/services/private-cloud-management'],
     to: '/private-cloud/private-cloud-operations'
+  },
+
+  /* Product-Lifecycle */
+
+  {
+    from: ['/product-lifecycle/deprecation-eol'],
+    to: '/product-lifecycle/migration-process'
+  },
+  {
+    from: ['/product-lifecycle/migrations','/migrations'],
+    to: '/product-lifecycle/deprecations-and-migrations'
+  },
+  {
+    from: ['/migrations/guides/account-linking','/users/guides/link-user-accounts-auth-api'],
+    to: '/product-lifecycle/deprecations-and-migrations/link-user-accounts-with-access-tokens-migration'
+  },
+  {
+    from: ['/migrations/guides/calling-api-with-idtokens'],
+    to: '/product-lifecycle/deprecations-and-migrations/migrate-to-calling-api-with-access-tokens'
+  },
+  {
+    from: ['/migrations/guides/clickjacking-protection'],
+    to: '/product-lifecycle/deprecations-and-migrations/clickjacking-protection-for-universal-login'
+  },
+  {
+    from: ['/migrations/guides/extensibility-node12'],
+    to: '/product-lifecycle/deprecations-and-migrations/migrate-to-nodejs-12'
+  },
+  {
+    from: ['/migrations/guides/facebook-graph-api-deprecation'],
+    to: '/product-lifecycle/deprecations-and-migrations/facebook-graph-api-changes'
+  },
+  {
+    from: ['/migrations/guides/facebook-social-context'],
+    to: '/product-lifecycle/deprecations-and-migrations/facebook-social-context-field-deprecation'
+  },
+  {
+    from: ['/migrations/guides/google_cloud_messaging'],
+    to: '/product-lifecycle/deprecations-and-migrations/google-firebase-migration'
+  },
+  {
+    from: ['/migrations/guides/instagram-deprecation'],
+    to: '/product-lifecycle/deprecations-and-migrations/instagram-connection-deprecation'
+  },
+  {
+    from: ['/migrations/guides/management-api-v1-v2','/api/management/v1/use-cases','/api/v1'],
+    to: '/product-lifecycle/deprecations-and-migrations/migrate-to-management-api-v2'
+  },
+  {
+    from: ['/migrations/guides/migration-oauthro-oauthtoken'],
+    to: '/product-lifecycle/deprecations-and-migrations/migration-oauthro-oauthtoken'
+  },
+  {
+    from: ['/migrations/guides/migration-oauthro-oauthtoken-pwdless'],
+    to: '/product-lifecycle/deprecations-and-migrations/resource-owner-passwordless-credentials-exchange'
+  },
+  {
+    from: ['/migrations/guides/passwordless-start'],
+    to: '/product-lifecycle/deprecations-and-migrations/migrate-to-passwordless'
+  },
+  {
+    from: ['/migrations/guides/unpaginated-requests'],
+    to: '/product-lifecycle/deprecations-and-migrations/migrate-to-paginated-queries'
+  },
+  {
+    from: ['/migrations/guides/yahoo-userinfo-updates'],
+    to: '/product-lifecycle/deprecations-and-migrations/yahoo-api-changes'
+  },
+  {
+    from: ['migrations/past-migrations'],
+    to: '/product-lifecycle/deprecations-and-migrations/past-migrations'
   },
 
   /* Professional Services */
