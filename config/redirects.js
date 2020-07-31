@@ -1698,10 +1698,6 @@ module.exports = [
       to: '/secure-aws-api-gateway-using-cognito'
   },
   {
-      from: ['/integrations/configure-wsfed-application'],
-      to: '/protocols/configure-ws-fed-applications'
-  },
-  {
       from: ['/integrations/google-cloud-platform'],
       to: '/integrations/google-cloud-endpoints'
   },
@@ -1750,30 +1746,6 @@ module.exports = [
       to: '/auth0-email-services/configure-external-smtp-email-providers/configure-amazon-ses-as-external-smtp-email-provider'
   },
   {
-      from: ['/protocols/saml/saml-apps/atlassian'],
-      to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-atlassian'
-  },
-  {
-      from: ['/protocols/oauth2'],
-      to: '/protocols/protocol-oauth2'
-  },
-  {
-      from: ['/protocols/oidc'],
-      to: '/protocols/openid-connect-protocol'
-  },
-  {
-      from: ['/protocols/saml'],
-      to: '/protocols/saml-protocol'
-  },
-  {
-      from: ['/protocols/ws-fed'],
-      to: '/protocols/ws-fed-protocol'
-  },
-  {
-      from: ['/protocols/ldap'],
-      to: '/protocols/ldap-protocol'
-  },
-  {
       from: ['/logs/streams/azure-event-grid'],
       to: '/auth0-logs/export-log-events-with-log-streaming/stream-logs-to-azure-event-grid'
   },
@@ -1815,10 +1787,7 @@ module.exports = [
 
   /* API-Auth */
 
-  {
-      from: ['/api-auth/apis','/overview/apis'],
-      to: '/authorization/apis'
-  },
+  
   {
       from: ['/api-auth/blacklists-vs-grants','/blacklists-vs-application-grants'],
       to: '/authorization/revoke-access-to-apis-using-blacklists-or-application-grants'
@@ -1828,76 +1797,20 @@ module.exports = [
       to: '/applications/dynamic-client-registration'
   },
   {
-      from: ['/api-auth/faq'],
-      to: '/authorization/authentication-and-authorization-api-faq'
-  },
-  {
-      from: ['/api-auth'],
-      to: '/authorization'
-  },
-  {
-      from: ['/api-auth/intro','/api-auth/tutorials/adoption'],
-      to: '/protocols/openid-connect-protocol'
-  },
-  {
       from: ['/api-auth/passwordless'],
       to: '/connections/passwordless'
-  },
-  {
-      from: ['/api-auth/restrict-access-api','/api-auth/restrict-requests-for-scopes'],
-      to: '/authorization/sample-use-cases-rules-with-authorization'
-  },
-  {
-      from: ['/api-auth/token-renewal-in-safari'],
-      to: '/authorization/renew-tokens-when-using-safari'
-  },
-  {
-      from: ['/api-auth/user-consent'],
-      to: '/authorization/user-consent-and-third-party-applications'
-  },
-  {
-      from: ['/api-auth/which-oauth-flow-to-use'],
-      to: '/authorization/which-oauth-2-0-flow-should-i-use'
   },
   {
       from: ['/api-auth/config/using-the-auth0-dashboard','/api-auth/config/using-the-management-api'],
       to: '/applications/update-grant-types'
   },
   {
-      from: ['/api-auth/tutorials/nonce'],
-      to: '/authorization/mitigate-replay-attacks-when-using-the-implicit-flow'
-  },
-  {
       from: ['/api-auth/tutorials/password-grant'],
       to: '/flows/call-your-api-using-resource-owner-password-flow'
   },
   {
-      from: ['/api-auth/tutorials/represent-multiple-apis'],
-       to: '/authorization/represent-multiple-apis-using-a-single-logical-api'
-  },
-  {
-      from: ['/api-auth/tutorials/silent-authentication'],
-       to: '/authorization/configure-silent-authentication'
-  },
-  {
-      from: ['/api-auth/tutorials/using-resource-owner-password-from-server-side'],
-      to: '/authorization/avoid-common-issues-with-resource-owner-password-flow-and-anomaly-detection'
-  },
-  {
-      from: ['/api-auth/tutorials/client-credentials/customize-with-hooks','/api-auth/grant/using-rules'],
-      to: '/authorization/customize-tokens-using-hooks-with-client-credentials-flow'
-  },
-  {
       from: ['/api-auth/tutorials/adoption/oidc-conformant'],
        to: '/applications'
-  },
-  {
-      from: ['/api-auth/tutorials/adoption/scope-custom-claims'],
-      to: '/scopes/openid-connect-scopes'
-  },
-  {
-      from: ['/api-auth/tutorials/adoption/single-sign-on'],
-      to: '/sso'
   },
 
   /* API */
@@ -1931,16 +1844,8 @@ module.exports = [
     to: '/api/management-api-changes-v1-to-v2'
   },
   {
-    from: ['/api/management/v2/create-m2m-app'],
-    to: '/tokens/management-api-access-tokens/create-and-authorize-a-machine-to-machine-application'
-  },
-  {
-    from: ['/api/management/v2/faq-management-api-access-tokens'],
-    to: '/tokens/management-api-access-tokens/management-api-access-token-faqs'
-  },
-  {
     from: ['/api/postman'],
-    to: '/use-auth0-apis-with-postman-collections'
+    to: '/api/use-auth0-apis-with-postman-collections'
   },
 
   /* Applications */
@@ -1950,40 +1855,36 @@ module.exports = [
     to: '/applications/enable-android-app-links-support'
   },
   {
-      from: ['/dashboard/guides/applications/enable-universal-links','/clients/enable-universal-links','/applications/enable-universal-links','/applications/guides/enable-universal-links-dashboard'],
-      to: '/applications/enable-universal-links-support-in-apple-xcode'
+    from: ['/dashboard/guides/applications/enable-universal-links','/clients/enable-universal-links','/applications/enable-universal-links','/applications/guides/enable-universal-links-dashboard'],
+    to: '/applications/enable-universal-links-support-in-apple-xcode'
   },
   {
-      from: ['/dashboard/guides/applications/register-app-m2m'],
-      to: '/applications/set-up-an-application/register-machine-to-machine-applications'
+    from: ['/dashboard/guides/applications/register-app-m2m'],
+    to: '/applications/set-up-an-application/register-machine-to-machine-applications'
   },
   {
-      from: ['/dashboard/guides/applications/register-app-native'],
-      to: '/applications/set-up-an-application/register-native-applications'
+    from: ['/dashboard/guides/applications/register-app-native'],
+    to: '/applications/set-up-an-application/register-native-applications'
   },
   {
-      from: ['/dashboard/guides/applications/register-app-regular-web'],
-      to: '/applications/set-up-an-application/register-regular-web-applications'
+    from: ['/dashboard/guides/applications/register-app-regular-web'],
+    to: '/applications/set-up-an-application/register-regular-web-applications'
   },
   {
-      from: ['/dashboard/guides/applications/register-app-spa','/applications/spa'],
-      to: '/applications/set-up-an-application/register-single-page-app'
+    from: ['/dashboard/guides/applications/register-app-spa','/applications/spa'],
+    to: '/applications/set-up-an-application/register-single-page-app'
   },
   {
-      from: ['/dashboard/guides/applications/remove-app'],
-      to: '/auth0-applications/remove-applications'
+    from: ['/dashboard/guides/applications/remove-app'],
+    to: '/auth0-applications/remove-applications'
   },
   {
-      from: ['/dashboard/guides/applications/remove-app'],
-      to: '/applications/remove-applications'
+    from: ['/dashboard/guides/applications/remove-app'],
+    to: '/applications/remove-applications'
   },
   {
     from: ['/api/management/guides/applications/remove-app'],
     to: '/applications/remove-applications'
-  },
-  {
-    from: ['/api/management/guides/applications/rotate-client-secret'],
-    to: '/get-started/dashboard/rotate-client-secret'
   },
   {
     from: ['/api/management/guides/applications/update-grant-types'],
@@ -2018,12 +1919,12 @@ module.exports = [
     to: '/applications/change-application-signing-algorithms'
   },
   {
-      from: ['/dashboard/guides/connections/set-up-connections-database'],
-      to: '/applications/set-up-database-connections'
+    from: ['/dashboard/guides/connections/set-up-connections-database'],
+    to: '/applications/set-up-database-connections'
   },
   {
-      from: ['/dashboard/guides/applications/view-app-type-confidential-public'],
-      to: '/applications/view-application-ownership'
+    from: ['/dashboard/guides/applications/view-app-type-confidential-public'],
+    to: '/applications/view-application-ownership'
   },
   {
     from: ['/dashboard/guides/applications/register-app-spa'],
@@ -2037,32 +1938,32 @@ module.exports = [
     to: '/authorization/rbac/roles/add-permissions-to-roles'
   },
   {
-      from: ['/dashboard/guides/roles/create-roles'],
-      to: '/authorization/rbac/roles/create-roles'
+    from: ['/dashboard/guides/roles/create-roles'],
+    to: '/authorization/rbac/roles/create-roles'
   },
   {
-      from: ['/dashboard/guides/roles/delete-roles'],
-      to: '/authorization/rbac/roles/delete-roles'
+    from: ['/dashboard/guides/roles/delete-roles'],
+    to: '/authorization/rbac/roles/delete-roles'
   },
   {
-      from: ['/dashboard/guides/roles/edit-role-definitions'],
-      to: '/authorization/rbac/roles/edit-role-definitions'
+    from: ['/dashboard/guides/roles/edit-role-definitions'],
+    to: '/authorization/rbac/roles/edit-role-definitions'
   },
   {
-      from: ['/dashboard/guides/roles/remove-role-permissions'],
-      to: '/authorization/rbac/roles/remove-permissions-from-roles'
+    from: ['/dashboard/guides/roles/remove-role-permissions'],
+    to: '/authorization/rbac/roles/remove-permissions-from-roles'
   },
   {
-      from: ['/dashboard/guides/roles/remove-role-users'],
-      to: '/authorization/rbac/roles/remove-users-from-roles'
+    from: ['/dashboard/guides/roles/remove-role-users'],
+    to: '/authorization/rbac/roles/remove-users-from-roles'
   },
   {
-      from: ['/dashboard/guides/roles/view-role-permissions'],
-      to: '/authorization/rbac/roles/view-role-permissions'
+    from: ['/dashboard/guides/roles/view-role-permissions'],
+    to: '/authorization/rbac/roles/view-role-permissions'
   },
   {
-      from: ['/dashboard/guides/roles/view-role-users'],
-      to: '/authorization/rbac/roles/view-users-assigned-to-roles'
+    from: ['/dashboard/guides/roles/view-role-users'],
+    to: '/authorization/rbac/roles/view-users-assigned-to-roles'
   },
   {
     from: ['/api/management/guides/roles/delete-roles'],
@@ -2143,6 +2044,54 @@ module.exports = [
   {
     from: ['/authorization/guides/manage-roles'],
     to: '/authorization/rbac/roles'
+  },
+  {
+    from: ['/api-auth/apis','/overview/apis'],
+    to: '/authorization/apis'
+  },
+  {
+    from: ['/api-auth/faq'],
+    to: '/authorization/authentication-and-authorization-api-faq'
+  },
+  {
+    from: ['/api-auth'],
+    to: '/authorization'
+  },
+  {
+    from: ['/api-auth/restrict-access-api','/api-auth/restrict-requests-for-scopes'],
+    to: '/authorization/sample-use-cases-rules-with-authorization'
+  },
+  {
+    from: ['/api-auth/token-renewal-in-safari'],
+    to: '/authorization/renew-tokens-when-using-safari'
+  },
+  {
+    from: ['/api-auth/user-consent'],
+    to: '/authorization/user-consent-and-third-party-applications'
+  },
+  {
+    from: ['/api-auth/which-oauth-flow-to-use'],
+    to: '/authorization/which-oauth-2-0-flow-should-i-use'
+  },
+  {
+    from: ['/api-auth/tutorials/nonce'],
+    to: '/authorization/mitigate-replay-attacks-when-using-the-implicit-flow'
+  },
+  {
+    from: ['/api-auth/tutorials/represent-multiple-apis'],
+     to: '/authorization/represent-multiple-apis-using-a-single-logical-api'
+  },
+  {
+    from: ['/api-auth/tutorials/silent-authentication'],
+    to: '/authorization/configure-silent-authentication'
+  },
+  {
+    from: ['/api-auth/tutorials/using-resource-owner-password-from-server-side'],
+    to: '/authorization/avoid-common-issues-with-resource-owner-password-flow-and-anomaly-detection'
+  },
+  {
+    from: ['/api-auth/tutorials/client-credentials/customize-with-hooks','/api-auth/grant/using-rules'],
+    to: '/authorization/customize-tokens-using-hooks-with-client-credentials-flow'
   },
 
   /* Brand and Customize */
@@ -2665,6 +2614,10 @@ module.exports = [
   {
     from: ['/dashboard/manage-dashboard-admins','/tutorials/manage-dashboard-admins'],
     to: '/get-started/dashboard/manage-dashboard-users'
+  },
+  {
+    from: ['/api/management/guides/applications/rotate-client-secret'],
+    to: '/get-started/dashboard/rotate-client-secret'
   },
 
   /* Hooks */
@@ -3258,18 +3211,6 @@ module.exports = [
     to: '/protocols/configure-ws-fed-applications'
   },
   {
-    from: ['/protocols/ldap'],
-    to: '/protocols/ldap-protocol'
-  },
-  {
-    from: ['/protocols/oauth2'],
-    to: '/protocols/protocol-oauth2'
-  },
-  {
-    from: ['/protocols/oidc'],
-    to: '/protocols/openid-connect-protocol'
-  },
-  {
     from: ['/samlp-providers','/protocols/saml/samlp-providers', '/protocols/saml'],
     to: '/protocols/saml-protocol'
   },
@@ -3278,20 +3219,12 @@ module.exports = [
     to: '/protocols/state-parameters'
   },
   {
-    from: ['/protocols/ws-fed'],
-    to: '/protocols/ws-fed-protocol'
-  },
-  {
     from: ['/saml-apps','/protocols/saml/saml-apps','/saml-configuration','/protocols/saml/saml-configuration'],
     to: '/protocols/saml-configuration-options'
   },
   {
     from: ['/protocols/saml/adfs'],
     to: '/protocols/saml-configuration-options/configure-adfs-saml-connections'
-  },
-  {
-    from: ['/protocols/saml/saml-apps/atlassian'],
-    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-atlassian'
   },
   {
     from: ['/saml-apps/cisco-webex','/protocols/saml/saml-apps/cisco-webex'],
@@ -3314,48 +3247,12 @@ module.exports = [
     to: '/protocols/saml-configuration-options/configure-auth0-as-idp-for-google-g-suite'
   },
   {
-    from: ['/protocols/saml/saml-apps/hosted-graphite'],
-    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-hosted-graphite'
-  },
-  {
-    from: ['/saml-apps/litmos','/protocols/saml/saml-apps/litmos'],
-    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-litmos'
-  },
-  {
-    from: ['/protocols/saml/saml-apps/pluralsight'],
-    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-pluralsight'
-  },
-  {
-    from: ['/saml-apps/sprout-video','/protocols/saml/saml-apps/sprout-video'],
-    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-sprout-video'
-  },
-  {
-    from: ['/protocols/saml/saml-apps/tableau-online'],
-    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-tableau-online'
-  },
-  {
-    from: ['/protocols/saml/saml-apps/tableau-server'],
-    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-tableau-server'
-  },
-  {
-    from: ['/protocols/saml/saml-apps/workday'],
-    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-workday'
-  },
-  {
-    from: ['/protocols/saml/saml-apps/workpath'],
-    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-workpath'
-  },
-  {
     from: ['/saml-idp-generic','/protocols/saml/saml-idp-generic'],
     to: '/protocols/saml-configuration-options/configure-auth0-as-saml-identity-provider'
   },
   {
     from: ['/protocols/saml/saml-sp-generic','/saml-sp-generic','/protocols/saml/saml-configuration/auth0-as-service-provider'],
     to: '/protocols/saml-configuration-options/configure-auth0-saml-service-provider'
-  },
-  {
-    from: ['/protocols/saml/saml-configuration/auth0-as-identity-and-service-provider'],
-    to: '/protocols/saml-configuration-options/configure-auth0-as-service-and-identity-provider'
   },
   {
     from: ['/protocols/saml/identity-providers/okta','/okta', '/saml/identity-providers/okta'],
@@ -3434,30 +3331,6 @@ module.exports = [
     to: '/protocols/saml-configuration-options/test-saml-sso-with-auth0-as-service-and-identity-provider'
   },
   {
-    from: ['/protocols/oidc/identity-providers/okta'],
-    to: '/protocols/configure-okta-as-oidc-identity-provider'
-  },
-  {
-    from: ['/protocols/oidc/openid-connect-discovery'],
-    to: '/protocols/configure-applications-with-oidc-discovery'
-  },
-  {
-    from: ['/protocols/saml/adfs'],
-    to: '/protocols/saml-configuration-options/configure-adfs-saml-connections'
-  },
-  {
-    from: ['/protocols/saml/identity-providers/onelogin'],
-    to: '/protocols/saml-configuration-options/configure-onelogin-as-saml-identity-provider'
-  },
-  {
-    from: ['/protocols/saml/identity-providers/ping7'],
-    to: '/protocols/saml-configuration-options/configure-pingfederate-as-saml-identity-provider'
-  },
-  {
-    from: ['/protocols/saml/identity-providers/salesforce'],
-    to: '/protocols/saml-configuration-options/configure-salesforce-as-saml-identity-provider'
-  },
-  {
     from: ['/protocols/saml/identity-providers/siteminder'],
     to: '/protocols/saml-configuration-options/configure-siteminder-as-saml-identity-provider'
   },
@@ -3468,30 +3341,6 @@ module.exports = [
   {
     from: ['/protocols/saml/idp-initiated-sso'],
     to: '/protocols/saml-configuration-options/configure-saml-identity-provider-initiated-single-sign-on'
-  },
-  {
-    from: ['/protocols/saml/saml-apps/cisco-webex'],
-    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-cisco-webex'
-  },
-  {
-    from: ['/protocols/saml/saml-apps/datadog'],
-    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-datadog'
-  },
-  {
-    from: ['/protocols/saml/saml-apps/egencia'],
-    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-egencia'
-  },
-  {
-    from: ['/protocols/saml/saml-apps/freshdesk'],
-    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-freshdesk'
-  },
-  {
-    from: ['/protocols/saml/saml-apps/github-cloud'],
-    to: '/protocols/saml-configuration-options/configure-saml2-web-app-addon-for-github-enterprise-cloud'
-  },
-  {
-    from: ['/protocols/saml/saml-apps/github-server'],
-    to: '/protocols/saml-configuration-options/configure-saml2-web-app-addon-for-github-enterprise-server'
   },
   {
     from: ['/protocols/saml/saml-apps/hosted-graphite'],
@@ -3506,7 +3355,7 @@ module.exports = [
     to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-pluralsight'
   },
   {
-    from: ['/protocols/saml/saml-apps/sprout-video'],
+    from: ['/protocols/saml/saml-apps/sprout-video','/saml-apps/sprout-video'],
     to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-sprout-video'
   },
   {
@@ -3530,10 +3379,6 @@ module.exports = [
     to: '/protocols/saml-configuration-options/configure-auth0-as-service-and-identity-provider'
   },
   {
-    from: ['/protocols/saml/saml-idp-generic'],
-    to: '/protocols/saml-configuration-options/configure-auth0-as-saml-identity-provider'
-  },
-  {
     from: ['/protocols/saml/saml2webapp-tutorial'],
     to: '/protocols/saml-configuration-options/configure-saml2-web-applications'
   },
@@ -3546,12 +3391,8 @@ module.exports = [
     to: '/protocols/protocol-oauth2'
   },
   {
-    from: ['/protocols/oidc'],
+    from: ['/protocols/oidc','/api-auth/intro','/api-auth/tutorials/adoption'],
     to: '/protocols/openid-connect-protocol'
-  },
-  {
-    from: ['/protocols/saml'],
-    to: '/protocols/saml-protocol'
   },
   {
     from: ['/protocols/ws-fed'],
@@ -3592,7 +3433,7 @@ module.exports = [
     to: '/scopes/customize-consent-prompts'
   },
   {
-    from: ['/scopes/current/oidc-scopes'],
+    from: ['/scopes/current/oidc-scopes','/api-auth/tutorials/adoption/scope-custom-claims'],
     to: '/scopes/openid-connect-scopes'
   },
   {
@@ -3720,7 +3561,7 @@ module.exports = [
   /* SSO */
 
   {
-    from: ['/sso/legacy/single-page-apps','/sso/legacy/single-page-apps-sso','/sso/current/single-page-apps-sso','/sso/current/single-page-apps','/sso/current/sso-auth0','/sso/current/introduction','/sso/single-sign-on'],
+    from: ['/api-auth/tutorials/adoption/single-sign-on','/sso/legacy/single-page-apps','/sso/legacy/single-page-apps-sso','/sso/current/single-page-apps-sso','/sso/current/single-page-apps','/sso/current/sso-auth0','/sso/current/introduction','/sso/single-sign-on'],
     to: '/sso'
   },
   {
@@ -3957,6 +3798,14 @@ module.exports = [
   {
     from: ['/dashboard/guides/applications/update-token-lifetime'],
     to: '/tokens/id-tokens/update-id-token-lifetime'
+  },
+  {
+    from: ['/api/management/v2/create-m2m-app'],
+    to: '/tokens/management-api-access-tokens/create-and-authorize-a-machine-to-machine-application'
+  },
+  {
+    from: ['/api/management/v2/faq-management-api-access-tokens'],
+    to: '/tokens/management-api-access-tokens/management-api-access-token-faqs'
   },
 
   /* Universal Login */
