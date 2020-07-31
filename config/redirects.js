@@ -2092,7 +2092,6 @@ module.exports = [
   },
 
   /* Dashboard */
-
  
 
   /* Extensions */
@@ -2770,10 +2769,6 @@ module.exports = [
     to: '/mfa/authenticate-with-ropg-and-mfa/enroll-and-challenge-email-authenticators'
   },
   {
-    from: ['/mfa/guides/mfa-api/recovery-code'],
-    to: '/mfa-in-auth0/authenticate-with-ropg-and-mfa/manage-authenticator-factors-mfa-api/challenge-with-recovery-codes'
-  },
-  {
     from: ['/mfa/send-phone-message-hook-amazon-sns'],
     to: '/mfa/configure-amazon-sns-as-mfa-sms-provider'
   },
@@ -2906,39 +2901,39 @@ module.exports = [
 
   {
     from: ['/monitoring','/tutorials/how-to-monitor-auth0'],
-    to: '/monitor-auth0',
+    to: '/monitor-auth0'
   },
   {
     from: ['/monitoring/guides/check-external-services'],
-    to: '/monitor-auth0/check-external-services-status',
+    to: '/monitor-auth0/check-external-services-status'
   },
   {
     from: ['/monitoring/guides/check-status'],
-    to: '/monitor-auth0/check-auth0-status',
+    to: '/monitor-auth0/check-auth0-status'
   },
   {
     from: ['/monitoring/guides/monitor-applications'],
-    to: '/monitor-auth0/monitor-applications',
+    to: '/monitor-auth0/monitor-applications'
   },
   {
     from: ['/monitoring/guides/monitor-using-SCOM'],
-    to: '/monitor-auth0/monitor-using-scom',
+    to: '/monitor-auth0/monitor-using-scom'
   },
   {
     from: ['/monitoring/guides/send-events-to-splunk','/monitoring/guides/send-events-to-segmentio','/monitoring/guides/send-events-to-keenio','/tutorials/sending-events-to-splunk','/tutorials/sending-events-to-segmentio','/tutorials/sending-events-to-keenio'],
-    to: '/logs/export-log-events-with-rules',
+    to: '/logs/export-log-events-with-rules'
   },
   {
     from: ['/monitoring/guides/test-testall-endpoints'],
-    to: '/monitor-auth0/check-auth-and-supporting-services',
+    to: '/monitor-auth0/check-auth-and-supporting-services'
   },
   {
     from: ['/monitoring/guides/track-leads-salesforce','/tutorials/tracking-new-leads-in-salesforce-and-raplead'],
-    to: '/monitor-auth0/track-new-leads-in-salesforce',
+    to: '/monitor-auth0/track-new-leads-in-salesforce'
   },
   {
     from: ['/monitoring/guides/track-signups-salesforce','/tutorials/track-signups-enrich-user-profile-generate-leads'],
-    to: '/monitor-auth0/track-new-sign-ups-in-salesforce',
+    to: '/monitor-auth0/track-new-sign-ups-in-salesforce'
   },
 
   /* Policies */
