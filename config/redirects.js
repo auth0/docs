@@ -143,10 +143,6 @@ module.exports = [
     to: '/tutorials/configuration-to-query-users-from-google-apps'
   },
   {
-    from: '/invite-only',
-    to: '/tutorials/creating-invite-only-applications'
-  },
-  {
     from: '/saas-apps',
     to: '/tutorials/using-auth0-with-multi-tenant-apps'
   },
@@ -489,10 +485,6 @@ module.exports = [
   {
     from: '/users/user-data-storage',
     to: '/best-practices/user-data-storage-best-practices'
-  },
-  {
-    from: ['/email/providers'],
-    to: '/auth0-email-services/configure-external-smtp-email-providers/configure-amazon-ses-as-external-smtp-email-provider'
   },
   {
     from: ['/dashboard/guides/applications/register-app-spa'],
@@ -1322,10 +1314,6 @@ module.exports = [
   /* CONTENTFUL REDIRECTS (ALL LIVE SITE PAGES NOT LISTED ABOVE) */
 
   {
-    from: ['/email/spa-redirect'],
-    to: '/auth0-email-services/spa-redirect'
-  },
-  {
       from: ['/pre-deployment/how-to-run-test'],
       to: '/pre-deployment/how-to-run-production-checks'
   },
@@ -1409,18 +1397,6 @@ module.exports = [
     to: '/auth0-applications/wildcards-for-subdomains'
   },
   {
-      from: ['/email/custom'],
-      to: '/auth0-email-services/manage-email-flow'
-  },
-  {
-      from: ['/email'],
-      to: '/auth0-email-services'
-  },
-  {
-      from: ['/email/testing'],
-      to: '/auth0-email-services/configure-external-smtp-email-providers/configure-test-smtp-email-servers'
-  },
-  {
       from: ['/dev-lifecycle/local-testing-and-development'],
       to: '/development-lifecycle/work-with-auth0-locally'
   },
@@ -1467,10 +1443,6 @@ module.exports = [
   {
       from: ['/rules/references/user-object'],
       to: '/rules/user-object-in-rules'
-  },
-  {
-      from: ['/design/creating-invite-only-applications'],
-      to: '/auth0-email-services/send-email-invitations-for-application-signup'
   },
   {
       from: ['/design/using-auth0-with-multi-tenant-apps'],
@@ -1595,10 +1567,6 @@ module.exports = [
   {
       from: ['/users/guides/get-user-information-with-unbounce-landing-pages'],
       to: '/users/get-user-information-on-unbounce-landing-pages'
-  },
-  {
-      from: ['/email/providers'],
-      to: '/auth0-email-services/configure-external-smtp-email-providers/configure-amazon-ses-as-external-smtp-email-provider'
   },
   {
       from: ['/logs/streams/azure-event-grid'],
@@ -3925,6 +3893,41 @@ module.exports = [
   {
     from: ['/dashboard/guides/users/view-user-roles','/api/management/guides/users/view-user-roles'],
     to: '/users/view-user-roles'
+  },
+
+  /* Email Services */
+
+  {
+    from: ['/email'],
+    to: '/auth0-email-services'
+  },
+  {
+    from: ['/email/providers'],
+    to: '/auth0-email-services/configure-external-smtp-email-providers'
+  },
+  {
+    from: ['/email/testing'],
+    to: '/auth0-email-services/configure-external-smtp-email-providers/configure-test-smtp-email-servers'
+  },
+  {
+    from: ['/email/custom'],
+    to: '/auth0-email-services/manage-email-flow'
+  },
+  {
+    from: ['/email/templates'],
+    to: '/auth0-email-services/customize-email-templates'
+  },
+  {
+    from: ['/email/liquid-syntax'],
+    to: '/auth0-email-services/customize-email-templates/use-liquid-syntax-in-email-templates'
+  },
+  {
+    from: ['/invite-only','/tutorials/creating-invite-only-applications','/design/creating-invite-only-applications'],
+    to: '/auth0-email-services/send-email-invitations-for-application-signup'
+  },
+  {
+    from: ['/email/spa-redirect'],
+    to: '/auth0-email-services/spa-redirect'
   },
 
 ];
