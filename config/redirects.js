@@ -412,6 +412,7 @@ module.exports = [
     from: `/metadata/management-api`,
     to: `/metadata/apis`
   },
+<<<<<<< contentful-launch-2
   {
     from: '/users/search/best-practices',
     to: '/best-practices/search-best-practices'
@@ -419,10 +420,21 @@ module.exports = [
   {
     from: '/users/user-data-storage',
     to: '/best-practices/user-data-storage-best-practices'
-  },
+=======
+  { from: '/rules/current', to: '/rules' },
+  { from: '/rules/legacy', to: '/rules/references/legacy' },
+  { from: '/rules/current/context', to: '/rules/references/context-object' },
+  { from: '/rules/context', to: '/rules/references/context-object' },
+  { from: '/rules/current/redirect', to: '/rules/guides/redirect' },
+  { from: '/rules/current/metadata-in-rules', to: '/rules/guides/metadata' },
+  { from: '/rules/current/csharp', to: '/rules' },
+  { from: '/rules/guides/csharp', to: '/rules' },
+  { from: '/rules/current/management-api', to: '/rules/guides/management-api' },
+
   {
-    from: '/users/references/user-data-storage-best-practices',
-    to: '/best-practices/user-data-storage-best-practices'
+    from: '/rules/redirect',
+    to: '/rules/guides/redirect'
+>>>>>>> Complete redirects for best practices
   },
   {
     from: '/topics/identity-glossary',
@@ -432,18 +444,12 @@ module.exports = [
     from: '/topics/extensibility',
     to: '/extend-integrate'
   },
-  {
-    from: '/best-practices/custom-db-connections-scripts',
-    to: '/best-practices/custom-db-connections'
-  },
+
   {
     from: '/logs/query-syntax',
     to: '/logs/references/query-syntax'
   },
-  {
-    from: '/tokens/concepts/token-best-practices',
-    to: '/best-practices/token-best-practices'
-  },
+ 
   {
     from: '/logs/references/log-event-data',
     to: '/logs/references/log-event-types-codes'
@@ -468,14 +474,7 @@ module.exports = [
     from: '/users/guides/link-user-accounts-auth-api',
     to: '/migrations/guides/account-linking'
   },
-  {
-    from: '/users/search/best-practices',
-    to: '/best-practices/search-best-practices'
-  },
-  {
-    from: '/users/user-data-storage',
-    to: '/best-practices/user-data-storage-best-practices'
-  },
+ 
   {
     from: ['/logs/streams/azure-event-grid'],
     to: '/auth0-logs/export-log-events-with-log-streaming/stream-logs-to-azure-event-grid'
@@ -1344,14 +1343,6 @@ module.exports = [
       to: '/compliance-and-certifications'
   },
   {
-      from: ['/best-practices/error-handling'],
-      to: '/best-practices/error-handling-best-practices'
-  },
-  {
-      from: ['/best-practices/rules'],
-      to: '/best-practices/rules-best-practices'
-  },
-  {
       from: ['/logs'],
       to: '/auth0-logs/export-logs-with-extensions'
   },
@@ -1413,10 +1404,6 @@ module.exports = [
   {
       from: ['/rules/references/user-object'],
       to: '/rules/user-object-in-rules'
-  },
-  {
-      from: ['/design/using-auth0-with-multi-tenant-apps'],
-      to: '/best-practices/multi-tenant-applications-best-practices'
   },
   {
       from: ['/logout/guides/logout-applications'],
@@ -1660,7 +1647,7 @@ module.exports = [
     to: '/applications/set-up-database-connections'
   },
   {
-    from: ['/clients/client-grant-types','/applications/concepts/application-grant-types']
+    from: ['/clients/client-grant-types','/applications/concepts/application-grant-types'],
     to: '/applications/application-grant-types'
   },
   {
@@ -1807,6 +1794,89 @@ module.exports = [
   {
     from: ['/api-auth/tutorials/client-credentials/customize-with-hooks','/api-auth/grant/using-rules'],
     to: '/authorization/customize-tokens-using-hooks-with-client-credentials-flow'
+  },
+
+  /* Best Practices */
+
+  {
+    from: ['/best-practices/custom-db-connections','/best-practices/custom-db-connections-scripts'],
+    to: '/best-practices/custom-database-connection-and-action-script-best-practices'
+  },
+  {
+      from: ['/best-practices/custom-db-connections/anatomy'],
+      to: '/best-practices/custom-database-connection-and-action-script-best-practices/custom-db-connection-anatomy-best-practices'
+  },
+  {
+      from: ['/best-practices/custom-db-connections/environment'],
+      to: '/best-practices/custom-database-connection-and-action-script-best-practices/custom-db-action-script-environment-best-practices'
+  },
+  {
+      from: ['/best-practices/custom-db-connections/execution'],
+      to: '/best-practices/custom-database-connection-and-action-script-best-practices/custom-database-action-script-execution-best-practices'
+  },
+  {
+      from: ['/best-practices/custom-db-connections/security'],
+      to: '/best-practices/custom-database-connection-and-action-script-best-practices/custom-db-connection-security-best-practices'
+  },
+  {
+      from: ['/best-practices/custom-db-connections/size'],
+      to: '/best-practices/custom-database-connection-and-action-script-best-practices/custom-db-connection-anatomy-best-practices'
+  },
+  {
+      from: ['/best-practices/application-settings'],
+      to: '/best-practices/app-settings-best-practices'
+  },
+  {
+      from: ['/best-practices/connection-settings'],
+      to: '/best-practices/connection-settings-best-practices'
+  },
+  {
+      from: ['/best-practices/debugging'],
+      to: '/best-practices/debugging-best-practices'
+  },
+  {
+      from: ['/best-practices/deployment'],
+      to: '/best-practices/deployment-best-practices'
+  },
+  {
+      from: ['/best-practices/error-handling'],
+      to: '/best-practices/error-handling-best-practices'
+  },
+  {
+      from: ['/best-practices/operations'],
+      to: '/best-practices/general-usage-and-operations-best-practices'
+  },
+  {
+      from: ['/best-practices/performance'],
+      to: '/best-practices/performance-best-practices'
+  },
+  {
+      from: ['/best-practices/rules'],
+      to: '/best-practices/rules-best-practices'
+  },
+  {
+    from: ['/best-practices/search-best-practices','/users/search/best-practices'],
+    to: '/best-practices/user-search-best-practices'
+  },
+  {
+    from: ['/best-practices/tenant-settings'],
+    to: '/best-practices/tenant-settings-best-practices'
+  },
+  {
+    from: ['/best-practices/testing'],
+    to: '/best-practices/rules-testing-best-practices'
+  },
+  {
+    from: ['/tokens/concepts/token-best-practices'],
+    to: '/best-practices/token-best-practices'
+  },
+  {
+    from: ['/users/references/user-data-storage-best-practices','/users/user-data-storage'],
+    to: '/best-practices/user-data-storage-best-practices'
+  },
+  {
+      from: ['/design/using-auth0-with-multi-tenant-apps'],
+      to: '/best-practices/multi-tenant-applications-best-practices'
   },
 
   /* Brand and Customize */
