@@ -170,6 +170,13 @@ module.exports = [
     from: '/office365-deprecated',
     to: '/tutorials/office365-connection-deprecation-guide'
   },
+  {
+    from: '/tutorials',
+    to: '/',
+  },
+
+
+
 
 
   {
@@ -180,6 +187,7 @@ module.exports = [
     from: '/adldap-x',
     to: '/connector/install-other-platforms'
   },
+
 
 
 
@@ -322,6 +330,21 @@ module.exports = [
     from: '/rules/redirect',
     to: '/rules/guides/redirect'
   },
+  {
+    from: ['/firebaseapi-tutorial','/salesforcesandboxapi-tutorial','/salesforceapi-tutorial','/sapapi-tutorial','/clients/addons','/applications/addons'],
+    to: '/addons'
+  },
+  {
+    from: '/phonegap-plugin-tutorial',
+    to: '/native-platforms/cordova'
+  },
+  {
+    from: ['/metadata-in-rules', '/metadata/rules'],
+    to: '/rules/metadata-in-rules'
+  },
+
+
+
 
 
   {
@@ -340,10 +363,11 @@ module.exports = [
     from: '/tutorials/creating-invite-only-applications',
     to: '/design/creating-invite-only-applications',
   },
-  {
-    from: ['/metadata-in-rules', '/metadata/rules'],
-    to: '/rules/metadata-in-rules'
-  },
+
+
+
+
+
   {
     from: '/enterprise-support',
     to: '/onboarding/enterprise-support'
@@ -355,14 +379,6 @@ module.exports = [
   {
     from: '/deployment',
     to: '/overview/deployment-models'
-  },
-  {
-    from: '/overview',
-    to: '/getting-started/overview'
-  },
-  {
-    from: '/overview/deployment-models',
-    to: '/getting-started/deployment-models'
   },
   {
     from: '/java-overview',
@@ -381,28 +397,12 @@ module.exports = [
     to: '/dev-lifecycle/setting-up-env'
   },
   {
-    from: '/tutorials',
-    to: '/',
-  },
-  {
     from: ['/firebaseapi-tutorial','/salesforcesandboxapi-tutorial','/salesforceapi-tutorial','/sapapi-tutorial','/clients/addons','/applications/addons'],
     to: '/addons'
   },
   {
     from: '/phonegap-plugin-tutorial',
     to: '/native-platforms/cordova'
-  },
-  {
-    from: '/analytics/integrations',
-    to: '/analytics',
-  },
-  {
-    from: '/analytics/integrations/facebook-analytics',
-    to: '/analytics/guides/facebook-analytics',
-  },
-  {
-    from: '/analytics/integrations/google-analytics',
-    to: '/analytics/guides/google-analytics',
   },
   {
     from: '/i18n/i18n-custom-login-page',
@@ -412,16 +412,6 @@ module.exports = [
     from: `/metadata/management-api`,
     to: `/metadata/apis`
   },
-  
-  {
-    from: '/videos/rules',
-    to: '/rules/current'
-  },
-  {
-    from: [`/link-accounts/auth-api`, `/link-accounts`],
-    to: `/users/concepts/overview-user-account-linking`
-  },
-  
   {
     from: '/users/search/best-practices',
     to: '/best-practices/search-best-practices'
@@ -487,16 +477,8 @@ module.exports = [
     to: '/best-practices/user-data-storage-best-practices'
   },
   {
-    from: ['/dashboard/guides/applications/register-app-spa'],
-    to: '/auth0-applications/register-single-page-app'
-  },
-  {
     from: ['/logs/streams/azure-event-grid'],
     to: '/auth0-logs/export-log-events-with-log-streaming/stream-logs-to-azure-event-grid'
-  },
-  {
-    from: ['/dashboard/guides/applications/enable-android-app-links'],
-    to: '/auth0-applications/enable-android-app-links-support'
   },
 
   /* - - - - - - - - - - - - - - - - - - - 
@@ -1385,18 +1367,6 @@ module.exports = [
       to: '/login/embedded-login'
   },
   {
-    from: ['/applications/concepts/app-types-first-third-party'],
-    to: '/auth0-applications/first-party-and-third-party-applications'
-  },
-  {
-    from: ['/applications'],
-    to: '/auth0-applications'
-  },
-  {
-    from: ['/applications/reference/wildcard-subdomains'],
-    to: '/auth0-applications/wildcards-for-subdomains'
-  },
-  {
       from: ['/dev-lifecycle/local-testing-and-development'],
       to: '/development-lifecycle/work-with-auth0-locally'
   },
@@ -1553,22 +1523,6 @@ module.exports = [
       to: '/integrations/secure-a-cli-with-auth0'
   },
   {
-      from: ['/users/concepts/overview-progressive-profiling'],
-      to: '/users/progressive-profiling'
-  },
-  {
-      from: ['/users/concepts/overview-user-account-linking'],
-      to: '/users/user-account-linking'
-  },
-  {
-      from: ['/users/concepts/overview-user-metadata'],
-      to: '/users/metadata'
-  },
-  {
-      from: ['/users/guides/get-user-information-with-unbounce-landing-pages'],
-      to: '/users/get-user-information-on-unbounce-landing-pages'
-  },
-  {
       from: ['/logs/streams/azure-event-grid'],
       to: '/auth0-logs/export-log-events-with-log-streaming/stream-logs-to-azure-event-grid'
   },
@@ -1642,7 +1596,7 @@ module.exports = [
     to: '/applications/dynamic-client-registration'
   },
   {
-    from: ['/applications/concepts/app-types-auth0','/applications/machine-to-machine','/clients','/applications/application-types','/api-auth/tutorials/adoption/oidc-conformant'],
+    from: ['/applications/concepts/app-types-auth0','/applications/machine-to-machine','/clients','/applications/application-types','/api-auth/tutorials/adoption/oidc-conformant','/clients/client-types','/applications/application-types'],
     to: '/applications'
   },
   {
@@ -1654,19 +1608,19 @@ module.exports = [
     to: '/applications/enable-universal-links-support-in-apple-xcode'
   },
   {
-    from: ['/dashboard/guides/applications/register-app-m2m'],
+    from: ['/dashboard/guides/applications/register-app-m2m','/applications/application-settings/non-interactive','/applications/application-settings/machine-to-machine','/applications/machine-to-machine'],
     to: '/applications/set-up-an-application/register-machine-to-machine-applications'
   },
   {
-    from: ['/dashboard/guides/applications/register-app-native'],
+    from: ['/dashboard/guides/applications/register-app-native','/applications/application-settings/native','/applications/native'],
     to: '/applications/set-up-an-application/register-native-applications'
   },
   {
-    from: ['/dashboard/guides/applications/register-app-regular-web'],
+    from: ['/dashboard/guides/applications/register-app-regular-web','/applications/application-settings/regular-web-app','/applications/webapps'],
     to: '/applications/set-up-an-application/register-regular-web-applications'
   },
   {
-    from: ['/dashboard/guides/applications/register-app-spa','/applications/spa'],
+    from: ['/dashboard/guides/applications/register-app-spa','/applications/spa','/applications/application-settings/single-page-app','/applications/register-single-page-app'],
     to: '/applications/set-up-an-application/register-single-page-app'
   },
   {
@@ -1706,47 +1660,23 @@ module.exports = [
     to: '/applications/set-up-database-connections'
   },
   {
-    from: ['/dashboard/guides/applications/register-app-spa'],
-    to: '/applications/register-single-page-app'
-  },
-
-
- 
-  {
-    from: '/clients/client-grant-types',
+    from: ['/clients/client-grant-types','/applications/concepts/application-grant-types']
     to: '/applications/application-grant-types'
   },
   {
-    from: '/applications/application-grant-types',
-    to: '/applications/concepts/application-grant-types'
-  },
-  {
-    from: '/clients/client-types',
-    to: '/applications/application-types'
-  },
-  {
-     from: '/applications/application-settings/non-interactive',
-     to: '/applications/machine-to-machine#settings'
-  },
-  {
-    from: '/applications/application-settings/machine-to-machine',
-    to: '/applications/machine-to-machine#settings'
-  },
-  {
-    from: '/applications/application-settings/native',
-    to: '/applications/native#settings'
-  },
-  {
-    from: '/applications/application-settings/regular-web-app',
-    to: '/applications/webapps#settings'
-  },
-  {
-    from: '/applications/application-settings/single-page-app',
-    to: '/applications/spa#settings'
+    from: ['/applications/concepts/app-types-first-third-party'],
+    to: '/applications/first-party-and-third-party-applications'
   },
 
-
-
+  {
+    from: ['/applications/reference/wildcard-subdomains'],
+    to: '/applications/wildcards-for-subdomains'
+  },
+  
+  {
+    from: ['/dashboard/guides/applications/enable-android-app-links'],
+    to: '/applications/enable-android-app-links-support'
+  },
 
   /* Authorization */
 
@@ -1942,6 +1872,41 @@ module.exports = [
   {
     from: ['/custom-domains/additional-configuration'],
     to: '/custom-domains/configure-features-to-use-custom-domains'
+  },
+
+  /* Email Services */
+
+  {
+    from: ['/email'],
+    to: '/auth0-email-services'
+  },
+  {
+    from: ['/email/providers'],
+    to: '/auth0-email-services/configure-external-smtp-email-providers'
+  },
+  {
+    from: ['/email/testing'],
+    to: '/auth0-email-services/configure-external-smtp-email-providers/configure-test-smtp-email-servers'
+  },
+  {
+    from: ['/email/custom'],
+    to: '/auth0-email-services/manage-email-flow'
+  },
+  {
+    from: ['/email/templates'],
+    to: '/auth0-email-services/customize-email-templates'
+  },
+  {
+    from: ['/email/liquid-syntax'],
+    to: '/auth0-email-services/customize-email-templates/use-liquid-syntax-in-email-templates'
+  },
+  {
+    from: ['/invite-only','/tutorials/creating-invite-only-applications','/design/creating-invite-only-applications'],
+    to: '/auth0-email-services/send-email-invitations-for-application-signup'
+  },
+  {
+    from: ['/email/spa-redirect'],
+    to: '/auth0-email-services/spa-redirect'
   },
  
   /* Extensions */
@@ -2271,6 +2236,10 @@ module.exports = [
   {
     from: ['/api/management/guides/tenants/configure-session-lifetime-settings'],
     to: '/get-started/dashboard/configure-session-lifetime-settings'
+  },
+  {
+    from: ['/overview','/get-started/overview'],
+    to: '/get-started'
   },
   {
     from: ['/dashboard'],
@@ -3894,40 +3863,21 @@ module.exports = [
     from: ['/dashboard/guides/users/view-user-roles','/api/management/guides/users/view-user-roles'],
     to: '/users/view-user-roles'
   },
-
-  /* Email Services */
-
   {
-    from: ['/email'],
-    to: '/auth0-email-services'
+    from: ['/users/concepts/overview-progressive-profiling'],
+    to: '/users/progressive-profiling'
   },
   {
-    from: ['/email/providers'],
-    to: '/auth0-email-services/configure-external-smtp-email-providers'
+    from: ['/link-accounts/auth-api','/link-accounts','/users/concepts/overview-user-account-linking'],
+    to: '/users/user-account-linking'
   },
   {
-    from: ['/email/testing'],
-    to: '/auth0-email-services/configure-external-smtp-email-providers/configure-test-smtp-email-servers'
+    from: ['/users/concepts/overview-user-metadata'],
+    to: '/users/metadata'
   },
   {
-    from: ['/email/custom'],
-    to: '/auth0-email-services/manage-email-flow'
-  },
-  {
-    from: ['/email/templates'],
-    to: '/auth0-email-services/customize-email-templates'
-  },
-  {
-    from: ['/email/liquid-syntax'],
-    to: '/auth0-email-services/customize-email-templates/use-liquid-syntax-in-email-templates'
-  },
-  {
-    from: ['/invite-only','/tutorials/creating-invite-only-applications','/design/creating-invite-only-applications'],
-    to: '/auth0-email-services/send-email-invitations-for-application-signup'
-  },
-  {
-    from: ['/email/spa-redirect'],
-    to: '/auth0-email-services/spa-redirect'
+    from: ['/users/guides/get-user-information-with-unbounce-landing-pages'],
+    to: '/users/get-user-information-on-unbounce-landing-pages'
   },
 
 ];
