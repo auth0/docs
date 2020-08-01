@@ -412,30 +412,6 @@ module.exports = [
     from: `/metadata/management-api`,
     to: `/metadata/apis`
   },
-<<<<<<< contentful-launch-2
-  {
-    from: '/users/search/best-practices',
-    to: '/best-practices/search-best-practices'
-  },
-  {
-    from: '/users/user-data-storage',
-    to: '/best-practices/user-data-storage-best-practices'
-=======
-  { from: '/rules/current', to: '/rules' },
-  { from: '/rules/legacy', to: '/rules/references/legacy' },
-  { from: '/rules/current/context', to: '/rules/references/context-object' },
-  { from: '/rules/context', to: '/rules/references/context-object' },
-  { from: '/rules/current/redirect', to: '/rules/guides/redirect' },
-  { from: '/rules/current/metadata-in-rules', to: '/rules/guides/metadata' },
-  { from: '/rules/current/csharp', to: '/rules' },
-  { from: '/rules/guides/csharp', to: '/rules' },
-  { from: '/rules/current/management-api', to: '/rules/guides/management-api' },
-
-  {
-    from: '/rules/redirect',
-    to: '/rules/guides/redirect'
->>>>>>> Complete redirects for best practices
-  },
   {
     from: '/topics/identity-glossary',
     to: '/glossary'
