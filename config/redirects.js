@@ -31,61 +31,9 @@ const apis = `:api(${apiNames.join('|')})`;
 module.exports = [
 
   {
-    from: '/awsapi-tutorial',
-    to: '/integrations/aws'
-  },
-  {
-    from: '/firebaseapi-tutorial',
-    to: '/applications/addons'
-  },
-  {
-    from: '/applications/addons',
-    to: '/addons'
-  },
-  {
     from: '/mvc-tutorial-enterprise',
     to: '/tutorials/aspnet-mvc4-enterprise-providers'
   },
-  {
-    from: '/phonegap-plugin-tutorial',
-    to: '/native-platforms/cordova'
-  },
-  {
-    from: '/salesforcesandboxapi-tutorial',
-    to: '/applications/addons'
-  },
-  {
-    from: '/salesforceapi-tutorial',
-    to: '/applications/addons'
-  },
-  {
-    from: '/sapapi-tutorial',
-    to: '/applications/addons'
-  },
-
-/* --- Clients --- */
-
-
-  {
-    from: '/clients/addons',
-    to: '/applications/addons'
-  },
-  {
-    from: '/clients/client-grant-types',
-    to: '/applications/application-grant-types'
-  },
-  {
-    from: '/applications/application-grant-types',
-    to: '/applications/concepts/application-grant-types'
-  },
-  {
-    from: '/clients/client-types',
-    to: '/applications/application-types'
-  },
-
-
-  /* --- Scenarios to Tutorials --- */
-
   {
     from: '/scenarios/amazon-cognito',
     to: '/tutorials/integrating-auth0-amazon-cognito-mobile-apps'
@@ -99,10 +47,7 @@ module.exports = [
     to: '/tutorials/sending-events-to-keenio'
   },
   {
-    from: [
-      '/scenarios-mixpanel-fullcontact-salesforce',
-      '/scenarios/mixpanel-fullcontact-salesforce'
-    ],
+    from: ['/scenarios-mixpanel-fullcontact-salesforce','/scenarios/mixpanel-fullcontact-salesforce'],
     to: '/tutorials/track-signups-enrich-user-profile-generate-leads'
   },
   {
@@ -138,40 +83,8 @@ module.exports = [
     to: '/tutorials'
   },
   {
-    from: '/widget',
-    to: '/login-widget2'
-  },
-  {
-    from: '/adldap-auth',
-    to: '/connector/install'
-  },
-  {
-    from: '/adldap-x',
-    to: '/connector/install-other-platforms'
-  },
-  {
-    from: '/sharepoint-apps',
-    to: '/integrations/sharepoint-apps'
-  },
-  {
-    from: '/aws',
-    to: '/integrations/aws'
-  },
-  {
     from: '/wsfedwebapp-tutorial',
     to: '/tutorials/wsfed-web-app'
-  },
-  {
-    from: ['/metadata-in-rules', '/metadata/rules'],
-    to: '/rules/metadata-in-rules'
-  },
-  {
-    from: '/enterprise-support',
-    to: '/onboarding/enterprise-support'
-  },
-  {
-    from: '/i18n/password-strength',
-    to: '/i18n/password-options'
   },
   {
     from: '/cancel-paid-subscriptions',
@@ -261,33 +174,30 @@ module.exports = [
     from: '/office365-deprecated',
     to: '/tutorials/office365-connection-deprecation-guide'
   },
+
+
   {
-    from: '/deployment',
-    to: '/overview/deployment-models'
+    from: '/adldap-auth',
+    to: '/connector/install'
   },
   {
-    from: '/overview',
-    to: '/getting-started/overview'
+    from: '/adldap-x',
+    to: '/connector/install-other-platforms'
+  },
+
+
+
+  {
+    from: '/awsapi-tutorial',
+    to: '/integrations/aws'
   },
   {
-    from: '/overview/deployment-models',
-    to: '/getting-started/deployment-models'
+    from: '/sharepoint-apps',
+    to: '/integrations/sharepoint-apps'
   },
   {
-    from: '/java-overview',
-    to: '/dev-centers/java'
-  },
-  {
-    from: '/metadata/apiv2',
-    to: '/metadata/management-api'
-  },
-  {
-    from: '/tutorials/local-testing-and-development',
-    to: '/dev-lifecycle/local-testing-and-development'
-  },
-  {
-    from: '/tutorials/development-lifecycle-with-auth0',
-    to: '/dev-lifecycle/setting-up-env'
+    from: '/aws',
+    to: '/integrations/aws'
   },
   {
     from: '/tutorials/azure-tutorial',
@@ -298,15 +208,6 @@ module.exports = [
     to: '/integrations/integrating-with-slack',
   },
   {
-    from: '/tutorials/browser-based-vs-native-experience-on-mobile',
-    to: '/design/browser-based-vs-native-experience-on-mobile',
-  },
-  {
-    from: '/tutorials/using-auth0-with-multi-tenant-apps',
-    to: '/design/using-auth0-with-multi-tenant-apps',
-  },
-  
-  {
     from: '/tutorials/authenticating-a-tessel-device',
     to: '/integrations/authenticating-a-tessel-device',
   },
@@ -315,16 +216,8 @@ module.exports = [
     to: '/integrations/authenticating-devices-using-mqtt',
   },
   {
-    from: '/tutorials/web-apps-vs-web-apis-cookies-vs-tokens',
-    to: '/design/web-apps-vs-web-apis-cookies-vs-tokens',
-  },
-  {
     from: '/tutorials/using-auth0-to-secure-a-cli',
     to: '/integrations/using-auth0-to-secure-a-cli',
-  },
-  {
-    from: '/tutorials/creating-invite-only-applications',
-    to: '/design/creating-invite-only-applications',
   },
   {
     from: '/tutorials/google-cloud-platform',
@@ -349,30 +242,6 @@ module.exports = [
   {
     from: '/tutorials/configure-wsfed-application',
     to: '/integrations/configure-wsfed-application',
-  },
-  {
-    from: '/tutorials',
-    to: '/',
-  },
-  {
-    from: '/analytics/integrations',
-    to: '/analytics',
-  },
-  {
-    from: '/analytics/integrations/facebook-analytics',
-    to: '/analytics/guides/facebook-analytics',
-  },
-  {
-    from: '/analytics/integrations/google-analytics',
-    to: '/analytics/guides/google-analytics',
-  },
-  {
-    from: '/i18n/i18n-custom-login-page',
-    to: '/i18n'
-  },
-  {
-    from: `/metadata/management-api`,
-    to: `/metadata/apis`
   },
   {
     from: '/sso/current/integrations',
@@ -442,42 +311,8 @@ module.exports = [
     from: '/sso/current/integrations/zoom',
     to: '/integrations/sso/zoom'
   },
-  {
-    from: '/videos/rules',
-    to: '/rules/current'
-  },
-  {
-    from: [`/link-accounts/auth-api`, `/link-accounts`],
-    to: `/users/concepts/overview-user-account-linking`
-  },
-  {
-     from: '/applications/application-settings/non-interactive',
-     to: '/applications/machine-to-machine#settings'
-  },
-  {
-    from: '/applications/application-settings/machine-to-machine',
-    to: '/applications/machine-to-machine#settings'
-  },
-  {
-    from: '/applications/application-settings/native',
-    to: '/applications/native#settings'
-  },
-  {
-    from: '/applications/application-settings/regular-web-app',
-    to: '/applications/webapps#settings'
-  },
-  {
-    from: '/applications/application-settings/single-page-app',
-    to: '/applications/spa#settings'
-  },
-  {
-    from: '/users/search/best-practices',
-    to: '/best-practices/search-best-practices'
-  },
-  {
-    from: '/users/user-data-storage',
-    to: '/best-practices/user-data-storage-best-practices'
-  },
+
+
   { from: '/rules/current', to: '/rules' },
   { from: '/rules/legacy', to: '/rules/references/legacy' },
   { from: '/rules/current/context', to: '/rules/references/context-object' },
@@ -487,10 +322,117 @@ module.exports = [
   { from: '/rules/current/csharp', to: '/rules' },
   { from: '/rules/guides/csharp', to: '/rules' },
   { from: '/rules/current/management-api', to: '/rules/guides/management-api' },
-
   {
     from: '/rules/redirect',
     to: '/rules/guides/redirect'
+  },
+
+
+  {
+    from: '/tutorials/browser-based-vs-native-experience-on-mobile',
+    to: '/design/browser-based-vs-native-experience-on-mobile',
+  },
+  {
+    from: '/tutorials/using-auth0-with-multi-tenant-apps',
+    to: '/design/using-auth0-with-multi-tenant-apps',
+  },
+  {
+    from: '/tutorials/web-apps-vs-web-apis-cookies-vs-tokens',
+    to: '/design/web-apps-vs-web-apis-cookies-vs-tokens',
+  },
+  {
+    from: '/tutorials/creating-invite-only-applications',
+    to: '/design/creating-invite-only-applications',
+  },
+  {
+    from: ['/metadata-in-rules', '/metadata/rules'],
+    to: '/rules/metadata-in-rules'
+  },
+  {
+    from: '/enterprise-support',
+    to: '/onboarding/enterprise-support'
+  },
+  {
+    from: '/i18n/password-strength',
+    to: '/i18n/password-options'
+  },
+  {
+    from: '/deployment',
+    to: '/overview/deployment-models'
+  },
+  {
+    from: '/overview',
+    to: '/getting-started/overview'
+  },
+  {
+    from: '/overview/deployment-models',
+    to: '/getting-started/deployment-models'
+  },
+  {
+    from: '/java-overview',
+    to: '/dev-centers/java'
+  },
+  {
+    from: '/metadata/apiv2',
+    to: '/metadata/management-api'
+  },
+  {
+    from: '/tutorials/local-testing-and-development',
+    to: '/dev-lifecycle/local-testing-and-development'
+  },
+  {
+    from: '/tutorials/development-lifecycle-with-auth0',
+    to: '/dev-lifecycle/setting-up-env'
+  },
+  {
+    from: '/tutorials',
+    to: '/',
+  },
+  {
+    from: ['/firebaseapi-tutorial','/salesforcesandboxapi-tutorial','/salesforceapi-tutorial','/sapapi-tutorial','/clients/addons','/applications/addons'],
+    to: '/addons'
+  },
+  {
+    from: '/phonegap-plugin-tutorial',
+    to: '/native-platforms/cordova'
+  },
+  {
+    from: '/analytics/integrations',
+    to: '/analytics',
+  },
+  {
+    from: '/analytics/integrations/facebook-analytics',
+    to: '/analytics/guides/facebook-analytics',
+  },
+  {
+    from: '/analytics/integrations/google-analytics',
+    to: '/analytics/guides/google-analytics',
+  },
+  {
+    from: '/i18n/i18n-custom-login-page',
+    to: '/i18n'
+  },
+  {
+    from: `/metadata/management-api`,
+    to: `/metadata/apis`
+  },
+  
+  {
+    from: '/videos/rules',
+    to: '/rules/current'
+  },
+  {
+    from: [`/link-accounts/auth-api`, `/link-accounts`],
+    to: `/users/concepts/overview-user-account-linking`
+  },
+  
+  {
+    from: '/users/search/best-practices',
+    to: '/best-practices/search-best-practices'
+  },
+  {
+    from: '/users/user-data-storage',
+    to: '/best-practices/user-data-storage-best-practices'
   },
   {
     from: '/users/references/user-data-storage-best-practices',
@@ -1447,6 +1389,9 @@ module.exports = [
       from: ['/deploy/checklist'],
       to: '/deploy/deploy-checklist'
   },
+
+  
+
   {
       from: ['/login/embedded'],
       to: '/login/embedded-login'
@@ -1796,6 +1741,44 @@ module.exports = [
     from: ['/dashboard/guides/applications/register-app-spa'],
     to: '/applications/register-single-page-app'
   },
+
+
+ 
+  {
+    from: '/clients/client-grant-types',
+    to: '/applications/application-grant-types'
+  },
+  {
+    from: '/applications/application-grant-types',
+    to: '/applications/concepts/application-grant-types'
+  },
+  {
+    from: '/clients/client-types',
+    to: '/applications/application-types'
+  },
+  {
+     from: '/applications/application-settings/non-interactive',
+     to: '/applications/machine-to-machine#settings'
+  },
+  {
+    from: '/applications/application-settings/machine-to-machine',
+    to: '/applications/machine-to-machine#settings'
+  },
+  {
+    from: '/applications/application-settings/native',
+    to: '/applications/native#settings'
+  },
+  {
+    from: '/applications/application-settings/regular-web-app',
+    to: '/applications/webapps#settings'
+  },
+  {
+    from: '/applications/application-settings/single-page-app',
+    to: '/applications/spa#settings'
+  },
+
+
+
 
   /* Authorization */
 
@@ -2529,7 +2512,7 @@ module.exports = [
     to: '/libraries/error-messages'
   },
   {
-    from: ['/lock','/migrations/guides/legacy-lock-api-deprecation','/libraries/lock/v9','/libraries/lock/v9/display-modes','/libraries/lock/v9/types-of-applications','/libraries/lock/v10','/libraries/lock/v10/installation','/libraries/lock/v11','/libraries/lock/using-refresh-tokens','/libraries/lock/using-a-refresh-token'],
+    from: ['/widget','/login-widget2','/lock','/migrations/guides/legacy-lock-api-deprecation','/libraries/lock/v9','/libraries/lock/v9/display-modes','/libraries/lock/v9/types-of-applications','/libraries/lock/v10','/libraries/lock/v10/installation','/libraries/lock/v11','/libraries/lock/using-refresh-tokens','/libraries/lock/using-a-refresh-token'],
     to: '/libraries/lock'
   },
   {
