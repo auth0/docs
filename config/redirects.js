@@ -1709,7 +1709,7 @@ module.exports = [
   },
   {
     from: ['/extensions/deploy-cli'],
-    to: 'extensions/deploy-cli-tool'
+    to: '/extensions/deploy-cli-tool'
   },
   {
     from: ['/extensions/deploy-cli/guides/call-deploy-cli-programmatically'],
@@ -1908,7 +1908,7 @@ module.exports = [
   },
   {
     from: ['/flows/guides/auth-code-pkce/add-login-auth-code-pkce','/flows/guides/auth-code-pkce/includes/sample-use-cases-add-login','/flows/guides/auth-code-pkce/includes/request-tokens','/flows/guides/auth-code-pkce/includes/refresh-tokens','/flows/guides/auth-code-pkce/includes/create-code-verifier','/flows/guides/auth-code-pkce/includes/create-code-challenge','/flows/guides/auth-code-pkce/includes/authorize-user-add-login','/application-auth/current/mobile-desktop','/flows/guides/mobile-login-flow/add-login-using-mobile-login-flow'],
-    to: 'add-login-using-the-authorization-code-flow-with-pkce'
+    to: '/add-login-using-the-authorization-code-flow-with-pkce'
   },
   {
     from: ['/flows/guides/auth-code-pkce/call-api-auth-code-pkce','/flows/guides/auth-code-pkce/includes/sample-use-cases-call-api','/flows/guides/auth-code-pkce/includes/call-api','/flows/guides/auth-code-pkce/includes/authorize-user-call-api','/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow','/api-auth/tutorials/authorization-code-grant-pkce'],
@@ -2426,7 +2426,7 @@ module.exports = [
     to: '/libraries/lock-swift/lock-swift-customization'
   },
   {
-    from: ['auth0js','/libraries/auth0js/v7','/libraries/auth0js/v8','/libraries/auth0js/v9','/libraries/lock/v10/auth0js','/libraries/lock/v11/auth0js'],
+    from: ['/auth0js','/libraries/auth0js/v7','/libraries/auth0js/v8','/libraries/auth0js/v9','/libraries/lock/v10/auth0js','/libraries/lock/v11/auth0js'],
     to: '/libraries/auth0js'
   },
   {
@@ -2674,7 +2674,7 @@ module.exports = [
     to: '/policies/dashboard-authentication-policy'
   },
   {
-    from: ['policies/data-export'],
+    from: ['/policies/data-export'],
     to: '/policies/data-export-and-transfer-policy'
   },
   {
@@ -2820,7 +2820,7 @@ module.exports = [
     to: '/product-lifecycle/deprecations-and-migrations/yahoo-api-changes'
   },
   {
-    from: ['migrations/past-migrations'],
+    from: ['/migrations/past-migrations'],
     to: '/product-lifecycle/deprecations-and-migrations/past-migrations'
   },
 
@@ -3370,7 +3370,7 @@ module.exports = [
     to: '/tokens'
   },
   {
-    from: ['/api-auth/tutorials/adoption/api-tokens','tokens/concepts/access-tokens','/tokens/overview-access-tokens','/tokens/access-token','/tokens/access_token', '/tokens/access-tokens'],
+    from: ['/api-auth/tutorials/adoption/api-tokens','/tokens/concepts/access-tokens','/tokens/overview-access-tokens','/tokens/access-token','/tokens/access_token', '/tokens/access-tokens'],
     to: '/tokens/access-tokens'
   },
   {
