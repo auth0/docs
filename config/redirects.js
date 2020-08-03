@@ -1399,7 +1399,7 @@ module.exports = [
   },
   {
       from: ['/dashboard/guides/applications/view-app-type-confidential-public'],
-      to: '/auth0-applications/check-an-applications-confidential-or-public-authentication-method'
+      to: '/applications/check-an-applications-confidential-or-public-authentication-method'
   },
   {
       from: ['/authorization/guides/manage-users'],
