@@ -1559,7 +1559,7 @@ module.exports = [
     to: '/applications/dynamic-client-registration'
   },
   {
-    from: ['/applications/concepts/app-types-auth0','/applications/machine-to-machine','/clients','/applications/application-types','/api-auth/tutorials/adoption/oidc-conformant','/clients/client-types','/applications/application-types'],
+    from: ['/applications/concepts/app-types-auth0','/clients','/applications/application-types','/api-auth/tutorials/adoption/oidc-conformant','/clients/client-types','/applications/application-types'],
     to: '/applications'
   },
   {
@@ -1595,7 +1595,7 @@ module.exports = [
     to: '/applications/update-application-ownership'
   },
   {
-    from: ['/api/management/guides/applications/view-ownership','/dashboard/guides/applications/view-app-type-confidential-public'],
+    from: ['/api/management/guides/applications/view-ownership'],
     to: '/applications/view-application-ownership'
   },
   {
