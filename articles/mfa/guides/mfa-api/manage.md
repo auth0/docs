@@ -127,7 +127,7 @@ To delete a Recovery Code, you need to use Management API's `/api/v2/users/USER_
 
 ```har
 {
-	"method": "DELETE",
+	"method": "POST",
 	"url": "https://${account.namespace}/api/v2/users/USER_ID/recovery-code-regeneration",
 	"headers": [{
 		"name": "Authorization",
