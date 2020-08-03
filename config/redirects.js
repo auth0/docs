@@ -236,25 +236,12 @@ module.exports = [
   },
 
   {
-    from: '/logs/query-syntax',
-    to: '/logs/references/query-syntax'
-  },
- 
-  {
-    from: '/logs/references/log-event-data',
-    to: '/logs/references/log-event-types-codes'
-  },
-  {
     from: '/anomaly-detection/references/anomaly-detection-faqs',
     to: '/anomaly-detection'
   },
   {
     from: '/anomaly-detection/references/anomaly-detection-restrictions-limitations',
     to: '/anomaly-detection/guides/set-anomaly-detection-preferences'
-  },
-  {
-    from: ['/integrations/aws-eventbridge','/logs/streams/aws-eventbridge'],
-    to: '/logs/streams/amazon-eventbridge'
   },
   {
     from: '/onboarding/appliance-outage',
@@ -265,10 +252,6 @@ module.exports = [
     to: '/migrations/guides/account-linking'
   },
  
-  {
-    from: ['/logs/streams/azure-event-grid'],
-    to: '/auth0-logs/export-log-events-with-log-streaming/stream-logs-to-azure-event-grid'
-  },
 
   /* - - - - - - - - - - - - - - - - - - - 
       NOTHING SHOULD REMAIN ABOVE THIS LINE
@@ -1109,28 +1092,8 @@ module.exports = [
       to: '/password-options-translation'
   },
   {
-      from: ['/logs/streams/amazon-eventbridge'],
-      to: '/auth0-logs/export-log-events-with-log-streaming/stream-logs-to-amazon-eventbridge'
-  },
-  {
-      from: ['/logs/streams/datadog'],
-      to: '/auth0-logs/export-log-events-with-log-streaming/stream-logs-to-datadog'
-  },
-  {
-      from: ['/logs/streams/http-event'],
-      to: '/auth0-logs/export-log-events-with-log-streaming/stream-http-event-logs'
-  },
-  {
-      from: ['/logs/streams'],
-      to: '/auth0-logs/export-log-events-with-log-streaming'
-  },
-  {
       from: ['/compliance'],
       to: '/compliance-and-certifications'
-  },
-  {
-      from: ['/logs'],
-      to: '/auth0-logs/export-logs-with-extensions'
   },
   {
       from: ['/deploy/checklist'],
@@ -1166,14 +1129,6 @@ module.exports = [
   {
       from: ['/authorization/guides/manage-users'],
       to: '/authorization/rbac-users'
-  },
-  {
-      from: ['/logs/streams/azure-event-grid'],
-      to: '/auth0-logs/export-log-events-with-log-streaming/stream-logs-to-azure-event-grid'
-  },
-  {
-      from: ['/logs/streams/http-event-to-slack'],
-      to: '/auth0-logs/export-log-events-with-log-streaming/stream-auth0-log-events-to-slack'
   },
 
   /* Anomaly Detection */
@@ -2643,10 +2598,6 @@ module.exports = [
     to: '/monitor-auth0/monitor-using-scom'
   },
   {
-    from: ['/monitoring/guides/send-events-to-splunk','/monitoring/guides/send-events-to-segmentio','/monitoring/guides/send-events-to-keenio','/tutorials/sending-events-to-splunk','/tutorials/sending-events-to-segmentio','/tutorials/sending-events-to-keenio'],
-    to: '/logs/export-log-events-with-rules'
-  },
-  {
     from: ['/monitoring/guides/test-testall-endpoints'],
     to: '/monitor-auth0/check-auth-and-supporting-services'
   },
@@ -3914,6 +3865,61 @@ module.exports = [
   {
     from: ['/users/guides/get-user-information-with-unbounce-landing-pages'],
     to: '/users/get-user-information-on-unbounce-landing-pages'
+  },
+
+  /* Logs */
+
+  {
+    from: ['/logs/streams'],
+    to: '/logs/export-log-events-with-log-streaming'
+  },
+  {
+    from: ['/logs/streams/http-event-to-slack'],
+    to: '/logs/export-log-events-with-log-streaming/stream-auth0-log-events-to-slack'
+  },
+  {
+    from: ['/logs/streams/http-event'],
+    to: '/logs/export-log-events-with-log-streaming/stream-http-event-logs'
+  },
+  {
+    from: ['/logs/streams/aws-eventbridge','/integrations/aws-eventbridge','/logs/streams/amazon-eventbridge'],
+    to: '/logs/export-log-events-with-log-streaming/stream-logs-to-amazon-eventbridge'
+  },
+  {
+    from: ['/logs/streams/azure-event-grid'],
+    to: '/logs/export-log-events-with-log-streaming/stream-logs-to-azure-event-grid'
+  },
+  {
+    from: ['/logs/streams/datadog'],
+    to: '/logs/export-log-events-with-log-streaming/stream-logs-to-datadog'
+  },
+  {
+    from: ['/monitoring/guides/send-events-to-splunk','/monitoring/guides/send-events-to-keenio','/monitoring/guides/send-events-to-segmentio'],
+    to: '/logs/export-log-events-with-rules'
+  },
+  {
+    from: ['/logs/references/log-data-retention'],
+    to: '/logs/log-data-retention'
+  },
+  {
+    from: ['/logs/references/log-event-filters'],
+    to: '/logs/log-event-filters'
+  },
+  {
+    from: ['/logs/references/log-event-data','/logs/references/log-event-type-codes'],
+    to: '/logs/log-event-type-codes'
+  },
+  {
+    from: ['/logs/references/query-syntax','/logs/query-syntax'],
+    to: '/logs/log-search-query-syntax'
+  },
+  {
+    from: ['/logs/guides/retrieve-logs-mgmt-api'],
+    to: '/logs/retrieve-log-events-using-mgmt-api'
+  },
+  {
+    from: ['/logs/guides/view-log-data-dashboard'],
+    to: '/logs/view-log-events-in-the-dashboard'
   },
 
 ];
