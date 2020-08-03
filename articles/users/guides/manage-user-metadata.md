@@ -28,7 +28,7 @@ If you have a [custom database connection](/connections/database#using-your-own-
 
 <%= include('../../_includes/_metadata_on_signup_warning') %>
 
-You can also use the [GET /userinfo endpoint](/api/authentication#get-user-info) to get a user's `user_metadata`, however you must first [write a Rule](/rules#copy-user-metadata-to-id-token) to copy `user_metadata` properties to the ID Token.
+You can also use the [GET /userinfo endpoint](/api/authentication#get-user-info) to get a user's `user_metadata`, however you must first [write a Rule](/rules/guides/metadata) to copy `user_metadata` properties to the ID Token.
 
 ## Management API
 
