@@ -1757,7 +1757,7 @@ module.exports = [
     to: '/get-started/dashboard/configure-session-lifetime-settings'
   },
   {
-    from: ['/overview','/get-started/overview'],
+    from: ['/overview','/get-started/overview','/getting-started','/getting-started/overview'],
     to: '/get-started'
   },
   {
@@ -2664,7 +2664,7 @@ module.exports = [
     to: '/protocols/saml-protocol'
   },
   {
-    from: ['/protocols/saml/saml-configuration/troubleshoot'],
+    from: ['/protocols/saml/saml-configuration/troubleshoot','/protocols/saml/saml-configuration/troubleshoot/common-saml-errors'],
     to: '/protocols/saml-protocol/troubleshoot-saml-configurations'
   },
   {
@@ -3086,7 +3086,7 @@ module.exports = [
   /* SSO */
 
   {
-    from: ['/api-auth/tutorials/adoption/single-sign-on','/sso/legacy/single-page-apps','/sso/legacy/single-page-apps-sso','/sso/current/single-page-apps-sso','/sso/current/single-page-apps','/sso/current/sso-auth0','/sso/current/introduction','/sso/single-sign-on'],
+    from: ['/api-auth/tutorials/adoption/single-sign-on','/sso/legacy','/sso/legacy/single-page-apps','/sso/legacy/regular-web-apps-sso','/sso/legacy/single-page-apps-sso','/sso/current/single-page-apps-sso','/sso/current/single-page-apps','/sso/current/sso-auth0','/sso/current/introduction','/sso/single-sign-on'],
     to: '/sso'
   },
   {
@@ -3560,7 +3560,7 @@ module.exports = [
     to: '/users/read-metadata'
   },
   {
-    from: ['/tutorials/redirecting-users','/users/redirecting-users','/users/redirecting-users','/tutorials/redirecting-users','/users/guides/redirect-users-after-login'],
+    from: ['/tutorials/redirecting-users','/users/redirecting-users','/users/redirecting-users','/tutorials/redirecting-users','/users/guides/redirect-users-after-login','/protocols/oauth2/redirect-users'],
     to: '/users/redirect-users-after-login'
   },
   {
