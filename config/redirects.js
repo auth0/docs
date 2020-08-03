@@ -1170,14 +1170,6 @@ module.exports = [
       to: '/development-lifecycle/set-up-multiple-environments'
   },
   {
-      from: ['/logout/guides/logout-applications'],
-      to: '/logout/log-users-out-of-applications'
-  },
-  {
-      from: ['/logout/guides/logout-auth0'],
-      to: '/logout/log-users-out-of-auth0'
-  },
-  {
       from: ['/application-auth/current'],
       to: '/authentication'
   },
@@ -3871,5 +3863,29 @@ module.exports = [
     from: ['/users/guides/get-user-information-with-unbounce-landing-pages'],
     to: '/users/get-user-information-on-unbounce-landing-pages'
   },
+
+  /* Logout */
+
+  {
+    from: ['/logout/guides/logout-applications'],
+    to: '/logout/log-users-out-of-applications'
+  },
+  {
+    from: ['/logout/guides/logout-auth0'],
+    to: '/logout/log-users-out-of-auth0'
+  },
+  {
+    from: ['/logout/guides/logout-idps'],
+    to: '/logout/log-users-out-of-idps'
+  },
+  {
+    from: ['/logout/guides/logout-saml-idps'],
+    to: '/logout/log-users-out-of-saml-idps'
+  },
+  {
+    from: ['/logout/guides/redirect-users-after-logout'],
+    to: '/logout/redirect-users-after-logout'
+  },
+
 
 ];
