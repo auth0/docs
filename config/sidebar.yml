@@ -636,7 +636,7 @@ articles:
     url: /extensions
     children:
       - title: Authorization Extension
-        url: /extensions/authorization-dashboard-extension
+        url: /extensions/authorization-extension
       - title: Delegated Administration
         url: /extensions/delegated-administration-extension
       - title: Custom Social Connections
@@ -871,7 +871,7 @@ articles:
           - title: SAML
             url: /troubleshoot/troubleshoot-saml-configurations
           - title: Authorization Extension
-            url: /extensions/authorization-dashboard-extension/troubleshoot-authorization-extension
+            url: /extensions/authorization-extension/troubleshoot-authorization-extension
       - title: Integration and Extensibility Issues
         url: /troubleshoot/troubleshoot-integration-and-extensibility
         children:
@@ -1085,7 +1085,7 @@ articles:
             url: /best-practices/custom-db-connections/size
             hidden: true
           - title: Custom Database Action Script Environment
-            url: /best-practices/custom-database-connection-and-action-script-best-practices/custom-db-action-script-best-practices
+            url: /best-practices/custom-database-connection-and-action-script-best-practices/custom-db-action-script-environment-best-practices
             hidden: true
           - title: Error Handling
             url: /best-practices/error-handling-best-practices
