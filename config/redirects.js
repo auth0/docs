@@ -80,11 +80,6 @@ module.exports = [
     to: '/glossary'
   },
   {
-    from: '/topics/extensibility',
-    to: '/extend-integrate'
-  },
-
-  {
     from: '/anomaly-detection/references/anomaly-detection-faqs',
     to: '/anomaly-detection'
   },
@@ -100,7 +95,6 @@ module.exports = [
     from: '/users/guides/link-user-accounts-auth-api',
     to: '/migrations/guides/account-linking'
   },
- 
 
   /* - - - - - - - - - - - - - - - - - - - 
       NOTHING SHOULD REMAIN ABOVE THIS LINE
@@ -758,7 +752,7 @@ module.exports = [
     to: '/connections/adding-scopes-for-an-external-idp',
   },
   {
-    from: '/tutorials/generic-oauth2-connection-examples',
+    from: ['/tutorials/generic-oauth2-connection-examples','/oauth2-examples'],
     to: '/connections/generic-oauth2-connection-examples',
   },
   {
@@ -766,7 +760,7 @@ module.exports = [
     to: '/connections/calling-an-external-idp-api',
   },
   {
-    from: '/tutorials/how-to-test-partner-connection',
+    from: ['/tutorials/how-to-test-partner-connection','/test-partner-connection'],
     to: '/connections/how-to-test-partner-connection',
   },
   {
@@ -1338,7 +1332,7 @@ module.exports = [
     to: '/best-practices/user-data-storage-best-practices'
   },
   {
-      from: ['/design/using-auth0-with-multi-tenant-apps','tutorials/using-auth0-with-multi-tenant-apps'],
+      from: ['/design/using-auth0-with-multi-tenant-apps','tutorials/using-auth0-with-multi-tenant-apps','/saas-apps'],
       to: '/best-practices/multi-tenant-applications-best-practices'
   },
 
@@ -1444,6 +1438,10 @@ module.exports = [
  
   /* Extensions */
 
+  {
+    from: ['/topics/extensibility','/extend-integrate'],
+    to: '/auth0-extensions'
+  },
   {
     from: ['/extensions/authorization-extension/v2','/extensions/authorization-extension'],
     to: '/auth0-extensions/authorization-extension'
@@ -1980,11 +1978,11 @@ module.exports = [
     to: '/integrations/amazon-cognito'
   },
   {
-    from: ['/scenarios-mqtt', '/scenarios/mqtt', '/tutorials/authenticating-devices-using-mqtt', '/integrations/authenticating-devices-using-mqtt'],
+    from: ['/scenarios-mqtt','/tutorials/authenticating-devices-using-mqtt','/integrations/authenticating-devices-using-mqtt'],
     to: '/integrations/authenticate-devices-using-mqtt'
   },
   {
-    from: ['/scenarios-tessel', '/scenarios/tessel', '/tutorials/authenticating-a-tessel-device', '/integrations/authenticating-a-tessel-device'],
+    from: ['/scenarios-tessel', '/tutorials/authenticating-a-tessel-device', '/integrations/authenticating-a-tessel-device'],
     to: '/integrations/authenticating-and-authorizing-a-tessel-device-with-auth0'
   },
   {
@@ -2040,7 +2038,7 @@ module.exports = [
     to: '/integrations/marketing/export-user-data-salesforce'
   },
     {
-    from: ['/tutorials/office365-connection-deprecation-guide', '/integrations/office365-connection-deprecation-guide'],
+    from: ['/tutorials/office365-connection-deprecation-guide', '/integrations/office365-connection-deprecation-guide','/office365-deprecated'],
     to: '/integrations/migrate-office365-connections-to-windows-azure-ad'
   },
   {
@@ -2048,7 +2046,7 @@ module.exports = [
     to: '/integrations/office-365-custom-provisioning'
   },
   {
-    from: ['/tutorials/using-auth0-to-secure-a-cli', '/integrations/using-auth0-to-secure-a-cli'],
+    from: ['/tutorials/using-auth0-to-secure-a-cli', '/integrations/using-auth0-to-secure-a-cli','/tutorials/using-auth0-to-secure-an-api','/cli'],
     to: '/integrations/secure-a-cli-with-auth0'
   },
   {
@@ -2108,7 +2106,7 @@ module.exports = [
     to: '/integrations/sso-integrations/salesforce'
   },
   {
-    from: ['/sso/current/integrations/slack', '/integrations/sso/slack'],
+    from: ['/sso/current/integrations/slack', '/integrations/sso/slack','/integrations/integrating-with-slack','/tutorials/integrating-with-slack','/scenarios/slack'],
     to: '/integrations/sso-integrations/slack'
   },
   {
@@ -2130,6 +2128,10 @@ module.exports = [
   {
     from: ['/sso/current/integrations/zoom', '/integrations/sso/zoom'],
     to: '/integrations/sso-integrations/zoom'
+  },
+  {
+    from: ['/integrations/azure-tutorial','/tutorials/azure-tutorial'],
+    to: '/integrations/azure-api-management'
   },
 
   /* LDAP Connector */
@@ -2236,6 +2238,10 @@ module.exports = [
   {
     from: ['/libraries/auth0-android/configuration'],
     to: '/libraries/auth0-android/auth0-android-configuration'
+  },
+  {
+    from: ['/tutorials/local-testing-and-development','/local-testing-and-development'],
+    to: 'libraries/secure-local-development'
   },
 
   /* Logout */
@@ -2654,7 +2660,7 @@ module.exports = [
     to: '/protocols/saml-configuration-options/configure-saml2-web-app-addon-for-aws'
   },
   {
-    from: ['/tutorials/openid-connect-discovery','/protocols/oidc/openid-connect-discovery'],
+    from: ['/tutorials/openid-connect-discovery','/protocols/oidc/openid-connect-discovery','/oidc-rs256-owin'],
     to: '/protocols/configure-applications-with-oidc-discovery'
   },
   {
@@ -2734,7 +2740,7 @@ module.exports = [
     to: '/protocols/saml-configuration-options/configure-saml2-web-app-addon-for-github-enterprise-cloud'
   },
   {
-    from: ['/integrations/using-auth0-as-an-identity-provider-with-github-enterprise','/protocols/saml/saml-apps/github-server'],
+    from: ['/integrations/using-auth0-as-an-identity-provider-with-github-enterprise','/protocols/saml/saml-apps/github-server','/tutorials/using-auth0-as-an-identity-provider-with-github-enterprise','/scenarios/github'],
     to: '/protocols/saml-configuration-options/configure-saml2-web-app-addon-for-github-enterprise-server'
   },
   {
@@ -2854,7 +2860,7 @@ module.exports = [
     to: '/protocols/openid-connect-protocol'
   },
   {
-    from: ['/protocols/ws-fed'],
+    from: ['/protocols/ws-fed','/tutorials/wsfed-web-app','/wsfedwebapp-tutorial'],
     to: '/protocols/ws-fed-protocol'
   },
   {
@@ -3139,7 +3145,7 @@ module.exports = [
     to: '/support/downgrade-or-cancel-subscriptions'
   },
   {
-    from: ['/support/how-auth0-versions-software','/tutorials/how-auth0-versions-software'],
+    from: ['/support/how-auth0-versions-software','/tutorials/how-auth0-versions-software','/versioning'],
     to: '/support/versioning-strategy'
   },
   {
@@ -3411,136 +3417,7 @@ module.exports = [
     from: ['/scenarios', '/tutorials'],
     to: '/'
   },
-  {
-    from: '/scenarios/amazon-cognito',
-    to: '/tutorials/integrating-auth0-amazon-cognito-mobile-apps'
-  },
-  {
-    from: '/scenarios/github',
-    to: '/tutorials/using-auth0-as-an-identity-provider-with-github-enterprise'
-  },
-  {
-    from: ['/scenarios-mqtt', '/scenarios/mqtt'],
-    to: '/tutorials/authenticating-devices-using-mqtt'
-  },
-  {
-    from: '/scenarios/slack',
-    to: '/tutorials/integrating-with-slack'
-  },
-  {
-    from: ['/scenarios-tessel', '/scenarios/tessel'],
-    to: '/tutorials/authenticating-a-tessel-device'
-  },
-  {
-    from: '/wsfedwebapp-tutorial',
-    to: '/tutorials/wsfed-web-app'
-  },
-  {
-    from: '/pricing-per-app-per-connection',
-    to: '/tutorials/pricing-per-app-per-connection'
-  },
-  {
-    from: '/local-testing-and-development',
-    to: '/tutorials/local-testing-and-development'
-  },
-  {
-    from: '/enable-simple-connection',
-    to: '/tutorials/enabling-a-connection'
-  },
-  {
-    from: '/oauth2-examples',
-    to: '/tutorials/generic-oauth2-connection-examples'
-  },
-  {
-    from: '/test-partner-connection',
-    to: '/tutorials/how-to-test-partner-connection'
-  },
-  {
-    from: '/bulk-import',
-    to: '/tutorials/bulk-importing-users-into-auth0'
-  },
-  {
-    from: '/google-admin-sdk',
-    to: '/tutorials/configuration-to-query-users-from-google-apps'
-  },
-  {
-    from: '/saas-apps',
-    to: '/tutorials/using-auth0-with-multi-tenant-apps'
-  },
-  {
-    from: '/versioning',
-    to: '/tutorials/how-auth0-versions-software'
-  },
-  {
-    from: '/oidc-rs256-owin',
-    to: '/tutorials/openid-connect-discovery'
-  },
-  {
-    from: '/cli',
-    to: '/tutorials/using-auth0-to-secure-a-cli'
-  },
-  {
-    from: '/tutorials/using-auth0-to-secure-an-api',
-    to: '/tutorials/using-auth0-to-secure-a-cli'
-  },
-
-  {
-    from: '/office365-deprecated',
-    to: '/tutorials/office365-connection-deprecation-guide'
-  },
-  {
-    from: '/tutorials/azure-tutorial',
-    to: '/integrations/azure-tutorial',
-  },
-  {
-    from: '/tutorials/integrating-with-slack',
-    to: '/integrations/integrating-with-slack',
-  },
-  {
-    from: '/tutorials/authenticating-a-tessel-device',
-    to: '/integrations/authenticating-a-tessel-device',
-  },
-  {
-    from: '/tutorials/authenticating-devices-using-mqtt',
-    to: '/integrations/authenticating-devices-using-mqtt',
-  },
-  {
-    from: '/tutorials/using-auth0-to-secure-a-cli',
-    to: '/integrations/using-auth0-to-secure-a-cli',
-  },
-  {
-    from: '/tutorials/google-cloud-platform',
-    to: '/integrations/google-cloud-platform',
-  },
-  {
-    from: '/tutorials/configuration-to-query-users-from-google-apps',
-    to: '/integrations/configuration-to-query-users-from-google-apps',
-  },
-  {
-    from: '/tutorials/integrating-auth0-amazon-cognito-mobile-apps',
-    to: '/integrations/integrating-auth0-amazon-cognito-mobile-apps',
-  },
-  {
-    from: '/tutorials/office365-connection-deprecation-guide',
-    to: '/integrations/office365-connection-deprecation-guide',
-  },
-  {
-    from: '/tutorials/using-auth0-as-an-identity-provider-with-github-enterprise',
-    to: '/integrations/using-auth0-as-an-identity-provider-with-github-enterprise',
-  },
-  {
-    from: '/tutorials/browser-based-vs-native-experience-on-mobile',
-    to: '/design/browser-based-vs-native-experience-on-mobile',
-  },
-  {
-    from: ['/tutorials/web-apps-vs-web-apis-cookies-vs-tokens','/apps-apis'],
-    to: '/design/web-apps-vs-web-apis-cookies-vs-tokens',
-  },
-  {
-    from: '/tutorials/creating-invite-only-applications',
-    to: '/design/creating-invite-only-applications',
-  },
-
+  
   /* Universal Login */
 
   {
@@ -3643,7 +3520,7 @@ module.exports = [
     to: '/users/bulk-user-exports'
   },
   {
-    from: ['/tutorials/bulk-importing-users-into-auth0','/users/guides/bulk-user-imports', '/users/guides/bulk-user-import','/users/bulk-importing-users-into-auth0', '/users/migrations/bulk-import'],
+    from: ['/tutorials/bulk-importing-users-into-auth0','/users/guides/bulk-user-imports', '/users/guides/bulk-user-import','/users/bulk-importing-users-into-auth0', '/users/migrations/bulk-import','/bulk-import'],
     to: '/users/bulk-user-imports'
   },
   {
