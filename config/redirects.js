@@ -91,10 +91,6 @@ module.exports = [
     from: '/onboarding/appliance-outage',
     to: '/onboarding/enterprise-support'
   },
-  {
-    from: '/users/guides/link-user-accounts-auth-api',
-    to: '/migrations/guides/account-linking'
-  },
 
   /* - - - - - - - - - - - - - - - - - - - 
       NOTHING SHOULD REMAIN ABOVE THIS LINE
