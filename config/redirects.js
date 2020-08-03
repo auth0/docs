@@ -175,19 +175,6 @@ module.exports = [
     from: '/adldap-x',
     to: '/connector/install-other-platforms'
   },
-  { from: '/rules/current', to: '/rules' },
-  { from: '/rules/legacy', to: '/rules/references/legacy' },
-  { from: '/rules/current/context', to: '/rules/references/context-object' },
-  { from: '/rules/context', to: '/rules/references/context-object' },
-  { from: '/rules/current/redirect', to: '/rules/guides/redirect' },
-  { from: '/rules/current/metadata-in-rules', to: '/rules/guides/metadata' },
-  { from: '/rules/current/csharp', to: '/rules' },
-  { from: '/rules/guides/csharp', to: '/rules' },
-  { from: '/rules/current/management-api', to: '/rules/guides/management-api' },
-  {
-    from: '/rules/redirect',
-    to: '/rules/guides/redirect'
-  },
   {
     from: ['/firebaseapi-tutorial','/salesforcesandboxapi-tutorial','/salesforceapi-tutorial','/sapapi-tutorial','/clients/addons','/applications/addons'],
     to: '/addons'
@@ -196,15 +183,6 @@ module.exports = [
     from: '/phonegap-plugin-tutorial',
     to: '/native-platforms/cordova'
   },
-  {
-    from: ['/metadata-in-rules', '/metadata/rules'],
-    to: '/rules/metadata-in-rules'
-  },
-
-
-
-
-
   {
     from: '/tutorials/browser-based-vs-native-experience-on-mobile',
     to: '/design/browser-based-vs-native-experience-on-mobile',
@@ -596,10 +574,6 @@ module.exports = [
   {
     from: '/quickstart/native/ios',
     to: '/quickstart/native/ios-swift'
-  },
-  {
-    from: '/rules/metadata-in-rules',
-    to: '/rules/current/metadata-in-rules'
   },
   {
     from: '/quickstart/native/ionic/00-intro',
@@ -1194,46 +1168,6 @@ module.exports = [
   {
       from: ['/dev-lifecycle/setting-up-env'],
       to: '/development-lifecycle/set-up-multiple-environments'
-  },
-  {
-      from: ['/rules/guides/cache-resources'],
-      to: '/rules/cache-expensive-resources-in-rules'
-  },
-  {
-      from: ['/rules/guides/configuration'],
-      to: '/rules/configuration'
-  },
-  {
-      from: ['/rules/guides/debug'],
-      to: '/rules/debug-rules'
-  },
-  {
-      from: ['/rules/guides/management-api'],
-      to: '/rules/use-management-api'
-  },
-  {
-      from: ['/rules/guides/metadata'],
-      to: '/rules/metadata'
-  },
-  {
-      from: ['/rules/guides/redirect'],
-      to: '/rules/redirect-users'
-  },
-  {
-      from: ['/rules/references/context-object'],
-      to: '/rules/context-object'
-  },
-  {
-      from: ['/rules/references/samples'],
-      to: '/rules/examples'
-  },
-  {
-      from: ['/rules/references/use-cases'],
-      to: '/rules/use-cases'
-  },
-  {
-      from: ['/rules/references/user-object'],
-      to: '/rules/user-object-in-rules'
   },
   {
       from: ['/logout/guides/logout-applications'],
@@ -3086,17 +3020,89 @@ module.exports = [
 
   /* Rules */
 
+  { 
+    from: ['/rules/current', '/rules/current/csharp', '/rules/guides/csharp', '/rules/legacy', '/rules/references/legacy'],
+    to: '/rules'
+  },
+  {
+    from: '/rules/guides/automatically-generate-leads-in-shopify',
+    to: '/rules/automatically-generate-leads-in-shopify'
+  },
+  {
+    from: '/rules/guides/cache-resources',
+    to: '/rules/cache-resources'
+  },
+  {
+    from: ['/rules/guides/configuration'],
+    to: '/rules/configuration'
+  },
   {
     from: ['/dashboard/guides/rules/configure-variables'],
     to: '/rules/configure-global-variables-for-rules'
   },
   {
-    from: ['/dashboard/guides/rules/create-rules','/rules/guides/create'],
+    from: ['/rules/current/context', '/rules/context', '/rules/references/context-object'],
+    to: '/rules/context-object'
+  },
+  {
+    from: ['/api/management/guides/rules/create-rules', '/dashboard/guides/rules/create-rules','/rules/guides/create'],
     to: '/rules/create-rules'
   },
   {
-    from: ['/api/management/guides/rules/create-rules'],
-    to: '/rules/create-rules'
+    from: ['/rules/guides/debug'],
+    to: '/rules/debug-rules'
+  },
+  {
+    from: ['/rules/references/samples'],
+    to: '/rules/examples'
+  },
+  {
+    from: '/rules/guides/integrate-user-id-verification',
+    to: '/rules/integrate-user-id-verification'
+  },
+  {
+    from: '/rules/guides/integrate-efm-solutions',
+    to: '/rules/integrate-efm-solutions'
+  },
+  {
+    from: '/rules/guides/integrate-erfm-solutions',
+    to: '/rules/integrate-erfm-solutions'
+  },
+  {
+    from: '/rules/guides/integrate-hubspot',
+    to: '/rules/integrate-hubspot'
+  },
+  {
+    from: '/rules/guides/integrate-maxmind',
+    to: '/rules/integrate-maxmind'
+  },
+  {
+    from: '/rules/guides/integrate-mixpanel',
+    to: '/rules/integrate-mixpanel'
+  },
+  {
+    from: '/rules/guides/integrate-salesforce',
+    to: '/rules/integrate-salesforce'
+  },
+  {
+    from: ['/rules/current/metadata-in-rules', '/rules/guides/metadata', '/rules/metadata-in-rules', '/metadata-in-rules', '/metadata/rules'],
+    to: '/rules/metadata'
+  },
+  {
+    from: ['/rules/current/redirect', '/rules/redirect', '/rules/guides/redirect'],
+      to: '/rules/redirect-users'
+  },
+  {
+    from: ['/rules/references/use-cases'],
+    to: '/rules/use-cases'
+  },
+  {
+    from: ['/rules/current/management-api', '/rules/guides/management-api'],
+    to: '/rules/use-management-api'
+  },
+  {
+    from: ['/rules/references/user-object'],
+    to: '/rules/user-object-in-rules'
   },
 
   /* Scopes */
