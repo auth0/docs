@@ -162,19 +162,6 @@ module.exports = [
     from: '/tutorials',
     to: '/',
   },
-
-
-
-
-
-  {
-    from: '/adldap-auth',
-    to: '/connector/install'
-  },
-  {
-    from: '/adldap-x',
-    to: '/connector/install-other-platforms'
-  },
   {
     from: ['/firebaseapi-tutorial','/salesforcesandboxapi-tutorial','/salesforceapi-tutorial','/sapapi-tutorial','/clients/addons','/applications/addons'],
     to: '/addons'
@@ -195,11 +182,6 @@ module.exports = [
     from: '/tutorials/web-apps-vs-web-apis-cookies-vs-tokens',
     to: '/design/web-apps-vs-web-apis-cookies-vs-tokens',
   },
-
-
-
-
-
   {
     from: '/enterprise-support',
     to: '/onboarding/enterprise-support'
@@ -2350,6 +2332,57 @@ module.exports = [
     to: '/integrations/sso-integrations/zoom'
   },
 
+  /* LDAP Connector */
+
+  {
+    from: ['/connector'],
+    to: '/ad-ldap-connector'
+  },
+  {
+    from: ['/connector/prerequisites'],
+    to: '/ad-ldap-connector/ad-ldap-connector-requirements'
+  },
+  {
+    from: ['/connector/client-certificates'],
+    to: '/ad-ldap-connector/configure-ad-ldap-connector-client-certificates'
+  },
+  {
+    from: ['/connector/kerberos'],
+    to: '/ad-ldap-connector/configure-ad-ldap-connector-with-kerberos'
+  },
+  {
+    from: ['/connector/high-availability'],
+    to: '/ad-ldap-connector/ad-ldap-high-availability'
+  },
+  {
+    from: ['/dashboard/guides/connections/disable-cache-ad-ldap'],
+    to: '/ad-ldap-connector/disable-credential-caching'
+  },
+  {
+    from: ['/adldap-x','/connector/install-other-platforms','/connector/install','/adldap-auth'],
+    to: '/ad-ldap-connector/install-configure-ad-ldap-connector'
+  },
+  {
+    from: ['/connector/scom-monitoring'],
+    to: '/ad-ldap-connector/ad-ldap-connector-scom'
+  },
+  {
+    from: ['/connector/modify'],
+    to: '/ad-ldap-connector/ad-ldap-connector-to-auth0'
+  },
+  {
+    from: ['/connector/test-dc'],
+    to: '/ad-ldap-connector/ad-ldap-connector-test-environment'
+  },
+  {
+    from: ['/connector/troubleshooting'],
+    to: '/ad-ldap-connector/troubleshoot-ad-ldap-connector'
+  },
+  {
+    from: ['/connector/update'],
+    to: '/ad-ldap-connector/update-ad-ldap-connectors'
+  },
+
   /* Libraries */
 
   {
@@ -2403,6 +2436,29 @@ module.exports = [
   {
     from: ['/libraries/auth0-android/configuration'],
     to: '/libraries/auth0-android/auth0-android-configuration'
+  },
+
+  /* Logout */
+
+  {
+    from: ['/logout/guides/logout-applications'],
+    to: '/logout/log-users-out-of-applications'
+  },
+  {
+    from: ['/logout/guides/logout-auth0'],
+    to: '/logout/log-users-out-of-auth0'
+  },
+  {
+    from: ['/logout/guides/logout-idps'],
+    to: '/logout/log-users-out-of-idps'
+  },
+  {
+    from: ['/logout/guides/logout-saml-idps'],
+    to: '/logout/log-users-out-of-saml-idps'
+  },
+  {
+    from: ['/logout/guides/redirect-users-after-logout'],
+    to: '/logout/redirect-users-after-logout'
   },
 
   /* MFA */
@@ -3863,29 +3919,5 @@ module.exports = [
     from: ['/users/guides/get-user-information-with-unbounce-landing-pages'],
     to: '/users/get-user-information-on-unbounce-landing-pages'
   },
-
-  /* Logout */
-
-  {
-    from: ['/logout/guides/logout-applications'],
-    to: '/logout/log-users-out-of-applications'
-  },
-  {
-    from: ['/logout/guides/logout-auth0'],
-    to: '/logout/log-users-out-of-auth0'
-  },
-  {
-    from: ['/logout/guides/logout-idps'],
-    to: '/logout/log-users-out-of-idps'
-  },
-  {
-    from: ['/logout/guides/logout-saml-idps'],
-    to: '/logout/log-users-out-of-saml-idps'
-  },
-  {
-    from: ['/logout/guides/redirect-users-after-logout'],
-    to: '/logout/redirect-users-after-logout'
-  },
-
 
 ];
