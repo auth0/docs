@@ -1868,10 +1868,6 @@ module.exports = [
     to: '/extensions/single-sign-on-dashboard-extension/add-applications-to-the-sso-dashboard'
   },
   {
-    from: ['/dashboard/guides/connections/disable-cache-ad-ldap'],
-    to: '/extensions/ad-ldap-connector/disable-credential-caching'
-  },
-  {
     from: ['/dashboard/guides/extensions/sso-dashboard-install-extension'],
     to: '/extensions/single-sign-on-dashboard-extension/install-sso-dashboard-extension'
   },
