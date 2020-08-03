@@ -31,156 +31,12 @@ const apis = `:api(${apiNames.join('|')})`;
 module.exports = [
 
   {
-    from: '/mvc-tutorial-enterprise',
-    to: '/tutorials/aspnet-mvc4-enterprise-providers'
-  },
-  {
-    from: '/scenarios/github',
-    to: '/tutorials/using-auth0-as-an-identity-provider-with-github-enterprise'
-  },
-  {
-    from: ['/scenarios/keenio', '/scenarios-keenio'],
-    to: '/tutorials/sending-events-to-keenio'
-  },
-  {
-    from: ['/scenarios-mixpanel-fullcontact-salesforce','/scenarios/mixpanel-fullcontact-salesforce'],
-    to: '/tutorials/track-signups-enrich-user-profile-generate-leads'
-  },
-  {
-    from: ['/scenarios-rapleaf-salesforce', '/scenarios/rapleaf-salesforce'],
-    to: '/tutorials/tracking-new-leads-in-salesforce-and-raplead'
-  },
-  {
-    from: ['/scenarios-segmentio', '/scenarios/segmentio'],
-    to: '/tutorials/sending-events-to-segmentio'
-  },
-  {
-    from: '/scenarios/slack',
-    to: '/tutorials/integrating-with-slack'
-  },
-  {
-    from: ['/scenarios-splunk', '/scenarios/splunk'],
-    to: '/tutorials/sending-events-to-splunk'
-  },
-  {
-    from: ['/scenarios-unbounce', '/scenarios/unbounce'],
-    to: '/tutorials/get-user-information-with-unbounce-landing-pages'
-  },
-  {
-    from: '/scenarios',
-    to: '/tutorials'
-  },
-  {
-    from: '/wsfedwebapp-tutorial',
-    to: '/tutorials/wsfed-web-app'
-  },
-  {
-    from: '/cancel-paid-subscriptions',
-    to: '/tutorials/cancel-paid-subscriptions'
-  },
-  {
-    from: '/pricing-per-app-per-connection',
-    to: '/tutorials/pricing-per-app-per-connection'
-  },
-  {
-    from: '/local-testing-and-development',
-    to: '/tutorials/local-testing-and-development'
-  },
-  {
-    from: '/moving-out',
-    to: '/tutorials/removing-auth0-exporting-data'
-  },
-  {
-    from: '/lifecycle',
-    to: '/tutorials/development-lifecycle-with-auth0'
-  },
-  {
-    from: '/what-to-do-once-the-user-is-logged-in/adding-scopes-for-an-external-idp',
-    to: '/tutorials/adding-scopes-for-an-external-idp'
-  },
-  {
-    from: '/what-to-do-once-the-user-is-logged-in/calling-an-external-idp-api',
-    to: '/tutorials/calling-an-external-idp-api'
-  },
-  {
-    from: '/enable-simple-connection',
-    to: '/tutorials/enabling-a-connection'
-  },
-  {
-    from: '/oauth1',
-    to: '/tutorials/adding-generic-oauth1-connection'
-  },
-  {
-    from: '/oauth2-examples',
-    to: '/tutorials/generic-oauth2-connection-examples'
-  },
-  {
-    from: '/test-partner-connection',
-    to: '/tutorials/how-to-test-partner-connection'
-  },
-  {
-    from: '/bulk-import',
-    to: '/tutorials/bulk-importing-users-into-auth0'
-  },
-  {
-    from: '/creating-users',
-    to: '/tutorials/creating-users-in-the-management-portal'
-  },
-  {
-    from: '/google-admin-sdk',
-    to: '/tutorials/configuration-to-query-users-from-google-apps'
-  },
-  {
-    from: '/saas-apps',
-    to: '/tutorials/using-auth0-with-multi-tenant-apps'
-  },
-  {
-    from: '/versioning',
-    to: '/tutorials/how-auth0-versions-software'
-  },
-  {
-    from: '/oidc-rs256-owin',
-    to: '/tutorials/openid-connect-discovery'
-  },
-  {
-    from: '/cli',
-    to: '/tutorials/using-auth0-to-secure-a-cli'
-  },
-  {
-    from: '/tutorials/using-auth0-to-secure-an-api',
-    to: '/tutorials/using-auth0-to-secure-a-cli'
-  },
-  {
-    from: '/apps-apis',
-    to: '/tutorials/web-apps-vs-web-apis-cookies-vs-tokens'
-  },
-  {
-    from: '/office365-deprecated',
-    to: '/tutorials/office365-connection-deprecation-guide'
-  },
-  {
-    from: '/tutorials',
-    to: '/',
-  },
-  {
     from: ['/firebaseapi-tutorial','/salesforcesandboxapi-tutorial','/salesforceapi-tutorial','/sapapi-tutorial','/clients/addons','/applications/addons'],
     to: '/addons'
   },
   {
     from: '/phonegap-plugin-tutorial',
     to: '/native-platforms/cordova'
-  },
-  {
-    from: '/tutorials/browser-based-vs-native-experience-on-mobile',
-    to: '/design/browser-based-vs-native-experience-on-mobile',
-  },
-  {
-    from: '/tutorials/using-auth0-with-multi-tenant-apps',
-    to: '/design/using-auth0-with-multi-tenant-apps',
-  },
-  {
-    from: '/tutorials/web-apps-vs-web-apis-cookies-vs-tokens',
-    to: '/design/web-apps-vs-web-apis-cookies-vs-tokens',
   },
   {
     from: '/enterprise-support',
@@ -202,14 +58,7 @@ module.exports = [
     from: '/metadata/apiv2',
     to: '/metadata/management-api'
   },
-  {
-    from: '/tutorials/local-testing-and-development',
-    to: '/dev-lifecycle/local-testing-and-development'
-  },
-  {
-    from: '/tutorials/development-lifecycle-with-auth0',
-    to: '/dev-lifecycle/setting-up-env'
-  },
+ 
   {
     from: ['/firebaseapi-tutorial','/salesforcesandboxapi-tutorial','/salesforceapi-tutorial','/sapapi-tutorial','/clients/addons','/applications/addons'],
     to: '/addons'
@@ -231,11 +80,6 @@ module.exports = [
     to: '/glossary'
   },
   {
-    from: '/topics/extensibility',
-    to: '/extend-integrate'
-  },
-
-  {
     from: '/anomaly-detection/references/anomaly-detection-faqs',
     to: '/anomaly-detection'
   },
@@ -251,7 +95,6 @@ module.exports = [
     from: '/users/guides/link-user-accounts-auth-api',
     to: '/migrations/guides/account-linking'
   },
- 
 
   /* - - - - - - - - - - - - - - - - - - - 
       NOTHING SHOULD REMAIN ABOVE THIS LINE
@@ -287,7 +130,8 @@ module.exports = [
     from: [
       '/aspnetwebapi-tutorial',
       '/tutorials/aspnet-mvc4-enterprise-providers',
-      '/webapi'
+      '/webapi',
+      '/mvc-tutorial-enterprise'
     ],
     to: '/quickstart/backend/aspnet-webapi'
   },
@@ -900,23 +744,23 @@ module.exports = [
     to: '/connections/database/custom-db'
   },
   {
-    from: '/tutorials/adding-generic-oauth1-connection',
+    from: ['/tutorials/adding-generic-oauth1-connection','/oauth1'],
     to: '/connections/adding-generic-oauth1-connection',
   },
   {
-    from: '/tutorials/adding-scopes-for-an-external-idp',
+    from: ['/tutorials/adding-scopes-for-an-external-idp','/what-to-do-once-the-user-is-logged-in/adding-scopes-for-an-external-idp'],
     to: '/connections/adding-scopes-for-an-external-idp',
   },
   {
-    from: '/tutorials/generic-oauth2-connection-examples',
+    from: ['/tutorials/generic-oauth2-connection-examples','/oauth2-examples'],
     to: '/connections/generic-oauth2-connection-examples',
   },
   {
-    from: '/tutorials/calling-an-external-idp-api',
+    from: ['/tutorials/calling-an-external-idp-api','/what-to-do-once-the-user-is-logged-in/calling-an-external-idp-api'],
     to: '/connections/calling-an-external-idp-api',
   },
   {
-    from: '/tutorials/how-to-test-partner-connection',
+    from: ['/tutorials/how-to-test-partner-connection','/test-partner-connection'],
     to: '/connections/how-to-test-partner-connection',
   },
   {
@@ -1488,7 +1332,7 @@ module.exports = [
     to: '/best-practices/user-data-storage-best-practices'
   },
   {
-      from: ['/design/using-auth0-with-multi-tenant-apps'],
+      from: ['/design/using-auth0-with-multi-tenant-apps','tutorials/using-auth0-with-multi-tenant-apps','/saas-apps'],
       to: '/best-practices/multi-tenant-applications-best-practices'
   },
 
@@ -1594,6 +1438,10 @@ module.exports = [
  
   /* Extensions */
 
+  {
+    from: ['/topics/extensibility','/extend-integrate'],
+    to: '/auth0-extensions'
+  },
   {
     from: ['/extensions/authorization-extension/v2','/extensions/authorization-extension'],
     to: '/auth0-extensions/authorization-extension'
@@ -2125,17 +1973,16 @@ module.exports = [
     from: ['/integrations/aws/tokens'],
     to: '/integrations/call-aws-apis-and-resources-with-tokens'
   },
-
   {
     from: ['/scenarios/amazon-cognito', '/tutorials/integrating-auth0-amazon-cognito-mobile-apps', '/integrations/integrating-auth0-amazon-cognito-mobile-apps', '/integrations/integrate-with-amazon-cognito'],
     to: '/integrations/amazon-cognito'
   },
   {
-    from: ['/scenarios-mqtt', '/scenarios/mqtt', '/tutorials/authenticating-devices-using-mqtt', '/integrations/authenticating-devices-using-mqtt'],
+    from: ['/scenarios-mqtt','/tutorials/authenticating-devices-using-mqtt','/integrations/authenticating-devices-using-mqtt'],
     to: '/integrations/authenticate-devices-using-mqtt'
   },
   {
-    from: ['/scenarios-tessel', '/scenarios/tessel', '/tutorials/authenticating-a-tessel-device', '/integrations/authenticating-a-tessel-device'],
+    from: ['/scenarios-tessel', '/tutorials/authenticating-a-tessel-device', '/integrations/authenticating-a-tessel-device'],
     to: '/integrations/authenticating-and-authorizing-a-tessel-device-with-auth0'
   },
   {
@@ -2191,7 +2038,7 @@ module.exports = [
     to: '/integrations/marketing/export-user-data-salesforce'
   },
     {
-    from: ['/tutorials/office365-connection-deprecation-guide', '/integrations/office365-connection-deprecation-guide'],
+    from: ['/tutorials/office365-connection-deprecation-guide', '/integrations/office365-connection-deprecation-guide','/office365-deprecated'],
     to: '/integrations/migrate-office365-connections-to-windows-azure-ad'
   },
   {
@@ -2199,7 +2046,7 @@ module.exports = [
     to: '/integrations/office-365-custom-provisioning'
   },
   {
-    from: ['/tutorials/using-auth0-to-secure-a-cli', '/integrations/using-auth0-to-secure-a-cli'],
+    from: ['/tutorials/using-auth0-to-secure-a-cli', '/integrations/using-auth0-to-secure-a-cli','/tutorials/using-auth0-to-secure-an-api','/cli'],
     to: '/integrations/secure-a-cli-with-auth0'
   },
   {
@@ -2259,7 +2106,7 @@ module.exports = [
     to: '/integrations/sso-integrations/salesforce'
   },
   {
-    from: ['/sso/current/integrations/slack', '/integrations/sso/slack'],
+    from: ['/sso/current/integrations/slack', '/integrations/sso/slack','/integrations/integrating-with-slack','/tutorials/integrating-with-slack','/scenarios/slack'],
     to: '/integrations/sso-integrations/slack'
   },
   {
@@ -2281,6 +2128,10 @@ module.exports = [
   {
     from: ['/sso/current/integrations/zoom', '/integrations/sso/zoom'],
     to: '/integrations/sso-integrations/zoom'
+  },
+  {
+    from: ['/integrations/azure-tutorial','/tutorials/azure-tutorial'],
+    to: '/integrations/azure-api-management'
   },
 
   /* LDAP Connector */
@@ -2387,6 +2238,10 @@ module.exports = [
   {
     from: ['/libraries/auth0-android/configuration'],
     to: '/libraries/auth0-android/auth0-android-configuration'
+  },
+  {
+    from: ['/tutorials/local-testing-and-development','/local-testing-and-development'],
+    to: 'libraries/secure-local-development'
   },
 
   /* Logout */
@@ -2598,15 +2453,11 @@ module.exports = [
     to: '/monitor-auth0/monitor-using-scom'
   },
   {
-    from: ['/monitoring/guides/test-testall-endpoints'],
-    to: '/monitor-auth0/check-auth-and-supporting-services'
-  },
-  {
-    from: ['/monitoring/guides/track-leads-salesforce','/tutorials/tracking-new-leads-in-salesforce-and-raplead'],
+    from: ['/monitoring/guides/track-leads-salesforce','/tutorials/tracking-new-leads-in-salesforce-and-raplead','/scenarios-rapleaf-salesforce', '/scenarios/rapleaf-salesforce'],
     to: '/monitor-auth0/track-new-leads-in-salesforce'
   },
   {
-    from: ['/monitoring/guides/track-signups-salesforce','/tutorials/track-signups-enrich-user-profile-generate-leads'],
+    from: ['/monitoring/guides/track-signups-salesforce','/tutorials/track-signups-enrich-user-profile-generate-leads','/scenarios-mixpanel-fullcontact-salesforce','/scenarios/mixpanel-fullcontact-salesforce'],
     to: '/monitor-auth0/track-new-sign-ups-in-salesforce'
   },
 
@@ -2693,6 +2544,10 @@ module.exports = [
   },
 
   /* Product-Lifecycle */
+  {
+    from: '/lifecycle',
+    to: '/product-lifecycle'
+  },
 
   {
     from: ['/product-lifecycle/deprecation-eol'],
@@ -2805,7 +2660,7 @@ module.exports = [
     to: '/protocols/saml-configuration-options/configure-saml2-web-app-addon-for-aws'
   },
   {
-    from: ['/tutorials/openid-connect-discovery','/protocols/oidc/openid-connect-discovery'],
+    from: ['/tutorials/openid-connect-discovery','/protocols/oidc/openid-connect-discovery','/oidc-rs256-owin'],
     to: '/protocols/configure-applications-with-oidc-discovery'
   },
   {
@@ -2813,7 +2668,7 @@ module.exports = [
     to: '/protocols/configure-okta-as-oidc-identity-provider'
   },
   {
-    from: ['/integrations/configure-wsfed-application'],
+    from: ['/integrations/configure-wsfed-application','/tutorials/configure-wsfed-application'],
     to: '/protocols/configure-ws-fed-applications'
   },
   {
@@ -2885,7 +2740,7 @@ module.exports = [
     to: '/protocols/saml-configuration-options/configure-saml2-web-app-addon-for-github-enterprise-cloud'
   },
   {
-    from: ['/integrations/using-auth0-as-an-identity-provider-with-github-enterprise','/protocols/saml/saml-apps/github-server'],
+    from: ['/integrations/using-auth0-as-an-identity-provider-with-github-enterprise','/protocols/saml/saml-apps/github-server','/tutorials/using-auth0-as-an-identity-provider-with-github-enterprise','/scenarios/github'],
     to: '/protocols/saml-configuration-options/configure-saml2-web-app-addon-for-github-enterprise-server'
   },
   {
@@ -3005,7 +2860,7 @@ module.exports = [
     to: '/protocols/openid-connect-protocol'
   },
   {
-    from: ['/protocols/ws-fed'],
+    from: ['/protocols/ws-fed','/tutorials/wsfed-web-app','/wsfedwebapp-tutorial'],
     to: '/protocols/ws-fed-protocol'
   },
   {
@@ -3278,7 +3133,7 @@ module.exports = [
     to: '/support/manage-subscriptions'
   },
   {
-    from: ['/tutorials/removing-auth0-exporting-data','/support/removing-auth0-exporting-data'],
+    from: ['/tutorials/removing-auth0-exporting-data','/support/removing-auth0-exporting-data','/moving-out'],
     to: '/support/export-data'
   },
   {
@@ -3286,11 +3141,11 @@ module.exports = [
     to: '/support/predeployment-tests'
   },
   {
-    from: ['/support/cancel-paid-subscriptions','/tutorials/cancel-paid-subscriptions'],
+    from: ['/support/cancel-paid-subscriptions','/tutorials/cancel-paid-subscriptions','/cancel-paid-subscriptions'],
     to: '/support/downgrade-or-cancel-subscriptions'
   },
   {
-    from: ['/support/how-auth0-versions-software','/tutorials/how-auth0-versions-software'],
+    from: ['/support/how-auth0-versions-software','/tutorials/how-auth0-versions-software','/versioning'],
     to: '/support/versioning-strategy'
   },
   {
@@ -3444,7 +3299,6 @@ module.exports = [
     from: ['/get-started/auth0-dashboard-overview/view-client-secrets-and-signing-keys', '/dashboard/guides/tenants/view-signing-keys'],
     to: '/tokens/view-client-secrets-and-signing-keys'
   },
-
   {
     from: ['/api-auth/tutorials/adoption/delegation','/tokens/delegation','/tokens/concepts/delegation-tokens'],
     to: '/tokens/delegation-tokens'
@@ -3557,6 +3411,13 @@ module.exports = [
     to: '/troubleshoot/verify-rules'
   },
 
+  /* Tutorials */
+
+  {
+    from: ['/scenarios', '/tutorials'],
+    to: '/'
+  },
+  
   /* Universal Login */
 
   {
@@ -3659,7 +3520,7 @@ module.exports = [
     to: '/users/bulk-user-exports'
   },
   {
-    from: ['/tutorials/bulk-importing-users-into-auth0','/users/guides/bulk-user-imports', '/users/guides/bulk-user-import','/users/bulk-importing-users-into-auth0', '/users/migrations/bulk-import'],
+    from: ['/tutorials/bulk-importing-users-into-auth0','/users/guides/bulk-user-imports', '/users/guides/bulk-user-import','/users/bulk-importing-users-into-auth0', '/users/migrations/bulk-import','/bulk-import'],
     to: '/users/bulk-user-imports'
   },
   {
@@ -3671,7 +3532,7 @@ module.exports = [
     to: '/users/configure-automatic-migration-from-your-database'
   },
   {
-    from: ['/tutorials/creating-users-in-the-management-portal','/users/guides/create-users'],
+    from: ['/tutorials/creating-users-in-the-management-portal','/users/guides/create-users','/creating-users'],
     to: '/users/create-users'
   },
   {
@@ -3679,8 +3540,12 @@ module.exports = [
     to: '/users/verified-email-usage'
   },
   {
-    from: ['/tutorials/get-user-information-with-unbounce-landing-pages','/users/guides/get-user-information-with-unbounce-landing-pages'],
+    from: ['/tutorials/get-user-information-with-unbounce-landing-pages','/users/guides/get-user-information-with-unbounce-landing-pages','/scenarios-unbounce'],
     to: '/users/get-user-information-on-unbounce-landing-pages'
+  },
+    {
+    from: [],
+    to: '/tutorials/get-user-information-with-unbounce-landing-pages'
   },
   {
     from: ['/users/guides/link-user-accounts'],
