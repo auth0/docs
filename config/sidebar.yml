@@ -571,7 +571,7 @@ articles:
       - title: Store Configuration for Rules
         url: /rules/configuration
       - title: Cache Expensive Resources
-        url: /rules/cache-expensive-resources-in-rules
+        url: /rules/cache-resources
       - title: Debug Rules
         url: /rules/debug-rules
       - title: Management API in Rules
