@@ -477,7 +477,7 @@ articles:
           - title: Server-Side Regular Web App Scenario
             url: /users/suggested-account-linking-server-side-implementation
       - title: Blacklist User Attributes
-        url: /security/blacklisting-attributes
+        url: /security/blacklist-user-attributes
       - title: Import & Export Users
         url: /users/import-and-export-users
         children:
@@ -936,19 +936,19 @@ articles:
     url: /security
     children:
       - title: CVE 2018-6874
-        url: /security/security-bulletings-cve-2018-6874
+        url: /security/cve-2018-6874
         hidden: true
       - title: CVE 2018-6873
-        url: /security/security-bulletin-cve-2018-6873
+        url: /security/cve-2018-6873
         hidden: true
       - title: CVE 2018-7307
-        url: /security/security-bulletin-cve-2018-7307
+        url: /security/cve-2018-7307
         hidden: true
       - title: CVE 2017-16897
-        url: /security/security-bulletins-cve-2017-16897
+        url: /security/cve-2017-16897
         hidden: true
       - title: CVE 2017-17068
-        url: /security/security-bulletins-cve-2017-17068
+        url: /security/cve-2017-17068
         hidden: true
       - title: Tokens
         url: /tokens
@@ -1043,7 +1043,7 @@ articles:
       - title: Common Threats
         url: /security/prevent-common-cybersecurity-threats
       - title: Blacklist User Attributes
-        url: /security/blacklisting-attributes
+        url: /security/blacklist-user-attributes
   - title: Data Privacy
     url: /compliance
     children:
