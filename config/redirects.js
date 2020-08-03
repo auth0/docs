@@ -31,22 +31,6 @@ const apis = `:api(${apiNames.join('|')})`;
 module.exports = [
 
   {
-    from: ['/firebaseapi-tutorial','/salesforcesandboxapi-tutorial','/salesforceapi-tutorial','/sapapi-tutorial','/clients/addons','/applications/addons'],
-    to: '/addons'
-  },
-  {
-    from: '/phonegap-plugin-tutorial',
-    to: '/native-platforms/cordova'
-  },
-  {
-    from: '/enterprise-support',
-    to: '/onboarding/enterprise-support'
-  },
-  {
-    from: '/i18n/password-strength',
-    to: '/i18n/password-options'
-  },
-  {
     from: '/deployment',
     to: '/overview/deployment-models'
   },
@@ -55,11 +39,6 @@ module.exports = [
     to: '/dev-centers/java'
   },
   {
-    from: '/metadata/apiv2',
-    to: '/metadata/management-api'
-  },
- 
-  {
     from: ['/firebaseapi-tutorial','/salesforcesandboxapi-tutorial','/salesforceapi-tutorial','/sapapi-tutorial','/clients/addons','/applications/addons'],
     to: '/addons'
   },
@@ -68,27 +47,11 @@ module.exports = [
     to: '/native-platforms/cordova'
   },
   {
-    from: '/i18n/i18n-custom-login-page',
-    to: '/i18n'
-  },
-  {
-    from: `/metadata/management-api`,
-    to: `/metadata/apis`
-  },
-  {
     from: '/topics/identity-glossary',
     to: '/glossary'
   },
   {
-    from: '/anomaly-detection/references/anomaly-detection-faqs',
-    to: '/anomaly-detection'
-  },
-  {
-    from: '/anomaly-detection/references/anomaly-detection-restrictions-limitations',
-    to: '/anomaly-detection/guides/set-anomaly-detection-preferences'
-  },
-  {
-    from: '/onboarding/appliance-outage',
+    from: ['/enterprise-support','/onboarding/appliance-outage'],
     to: '/onboarding/enterprise-support'
   },
 
@@ -924,12 +887,12 @@ module.exports = [
       to: '/pre-deployment/how-to-run-production-checks/production-checks:-required-fixes'
   },
   {
-      from: ['/i18n'],
-      to: '/internationalization-and-multilingual-settings'
+      from: ['/i18n/i18n-custom-login-page'],
+      to: '/i18n'
   },
   {
-      from: ['/i18n/password-options'],
-      to: '/password-options-translation'
+      from: ['/i18n/password-options', '/i18n/password-strength'],
+      to: '/i18n/password-options-translation'
   },
   {
       from: ['/compliance'],
@@ -974,6 +937,10 @@ module.exports = [
   /* Anomaly Detection */
 
   {
+    from: ['/anomaly-detection/references/anomaly-detection-faqs'],
+    to: '/anomaly-detection'
+  },
+  {
     from: ['/anomaly-detection/concepts/breached-passwords'],
     to: '/anomaly-detection/breached-password-security'
   },
@@ -983,11 +950,11 @@ module.exports = [
   },
   {
     from: ['/anomaly-detection/guides/prevent-credential-stuffing-attacks'],
-    to: '/anomaly-detection-do-not-publish/automated-attack-and-credential-stuffing-protection-do-not-publish'
+    to: '/anomaly-detection/automated-attack-and-credential-stuffing-protection'
   },
   {
-    from: ['/anomaly-detection/guides/set-anomaly-detection-preferences'],
-    to: '/anomaly-detection/set-anomaly-detection-preferences-do-not-publish'
+    from: ['/anomaly-detection/references/anomaly-detection-restrictions-limitations', '/anomaly-detection/guides/set-anomaly-detection-preferences'],
+    to: '/anomaly-detection/set-anomaly-detection-preferences'
   },
   {
     from: ['/anomaly-detection/guides/use-tenant-data-for-anomaly-detection'],
@@ -3536,7 +3503,7 @@ module.exports = [
     to: '/users/manage-user-access-to-applications'
   },
   {
-    from: ['/metadata/apis','/metadata/lock','/users/guides/manage-user-metadata'],
+    from: ['/metadata/apiv2','/metadata/management-api','/metadata/apis','/metadata/lock','/users/guides/manage-user-metadata'],
     to: '/users/manage-user-metadata'
   },
   {
