@@ -1858,7 +1858,7 @@ module.exports = [
   /* Brand and Customize */
 
   {
-    from: ['branding-customization'],
+    from: ['/branding-customization'],
     to: '/brand-and-customize'
   },
 
