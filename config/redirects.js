@@ -2335,7 +2335,7 @@ module.exports = [
   },
   {
     from: ['/multifactor-authentication/factors/duo','/mfa/guides/configure-cisco-duo'],
-    to: '/mfa-in-auth0/configure-cisco-duo-for-mfa'
+    to: '/mfa/configure-cisco-duo-for-mfa'
   },
   {
     from: ['/multifactor-authentication/factors/otp','/mfa/guides/configure-otp'],
@@ -2418,16 +2418,8 @@ module.exports = [
     to: '/mfa/customize-mfa-user-pages'
   },
   {
-    from: ['/mfa/guides/mfa-api/phone'],
-    to: '/mfa-in-auth0/authenticate-with-ropg-and-mfa/enroll-and-challenge-sms-and-voice-authenticators'
-  },
-  {
-    from: ['/mfa/guides/mfa-api/push'],
-    to: '/mfa-in-auth0/authenticate-with-ropg-and-mfa/enroll-and-challenge-push-authenticators'
-  },
-  {
     from: ['/mfa/guides/mfa-api/recovery-code'],
-    to: '/mfa-in-auth0/authenticate-with-ropg-and-mfa/manage-authenticator-factors-mfa-api/challenge-with-recovery-codes'
+    to: '/mfa/authenticate-with-ropg-and-mfa/manage-authenticator-factors-mfa-api/challenge-with-recovery-codes'
   },
   
   /* Monitoring */
@@ -3417,7 +3409,7 @@ module.exports = [
     from: ['/scenarios', '/tutorials'],
     to: '/'
   },
-  
+
   /* Universal Login */
 
   {
@@ -3543,7 +3535,7 @@ module.exports = [
     from: ['/tutorials/get-user-information-with-unbounce-landing-pages','/users/guides/get-user-information-with-unbounce-landing-pages','/scenarios-unbounce'],
     to: '/users/get-user-information-on-unbounce-landing-pages'
   },
-    {
+  {
     from: [],
     to: '/tutorials/get-user-information-with-unbounce-landing-pages'
   },
