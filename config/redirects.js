@@ -30,6 +30,8 @@ const apis = `:api(${apiNames.join('|')})`;
 
 module.exports = [
 
+  /* MISCELLANEOUS AND OUTDATED */
+
   {
     from: '/deployment',
     to: '/overview/deployment-models'
@@ -54,6 +56,42 @@ module.exports = [
     from: ['/enterprise-support','/onboarding/appliance-outage'],
     to: '/onboarding/enterprise-support'
   },
+  {
+    from: ['/i18n/i18n-custom-login-page'],
+    to: '/i18n'
+},
+{
+    from: ['/i18n/password-options', '/i18n/password-strength'],
+    to: '/i18n/password-options-translation'
+},
+{
+    from: ['/compliance'],
+    to: '/compliance-and-certifications'
+},
+{
+    from: ['/deploy/checklist'],
+    to: '/deploy/deploy-checklist'
+},
+{
+    from: ['/login/embedded'],
+    to: '/login/embedded-login'
+},
+{
+    from: ['/dev-lifecycle/local-testing-and-development'],
+    to: '/development-lifecycle/work-with-auth0-locally'
+},
+{
+    from: ['/dev-lifecycle/setting-up-env'],
+    to: '/development-lifecycle/set-up-multiple-environments'
+},
+{
+    from: ['/dashboard/guides/applications/view-app-type-confidential-public'],
+    to: '/applications/check-an-applications-confidential-or-public-authentication-method'
+},
+{
+    from: ['/authorization/guides/manage-users'],
+    to: '/authorization/rbac-users'
+},
 
   /* - - - - - - - - - - - - - - - - - - - 
       NOTHING SHOULD REMAIN ABOVE THIS LINE
@@ -864,75 +902,7 @@ module.exports = [
     to: '/architecture-scenarios/web-app-sso/implementation-aspnetcore'
   },
 
-  /* CONTENTFUL REDIRECTS (ALL LIVE SITE PAGES NOT LISTED ABOVE) */
-
-  {
-      from: ['/pre-deployment/how-to-run-test'],
-      to: '/pre-deployment/how-to-run-production-checks'
-  },
-  {
-      from: ['/pre-deployment/prelaunch-tips'],
-      to: '/pre-deployment/pre-launch-tips'
-  },
-  {
-      from: ['/pre-deployment/tests/best-practice'],
-      to: '/pre-deployment/how-to-run-production-checks/production-checks:-best-practices'
-  },
-  {
-      from: ['/pre-deployment/tests/recommended'],
-      to: '/pre-deployment/how-to-run-production-checks/production-checks:-recommended-fixes'
-  },
-  {
-      from: ['/pre-deployment/tests/required'],
-      to: '/pre-deployment/how-to-run-production-checks/production-checks:-required-fixes'
-  },
-  {
-      from: ['/i18n/i18n-custom-login-page'],
-      to: '/i18n'
-  },
-  {
-      from: ['/i18n/password-options', '/i18n/password-strength'],
-      to: '/i18n/password-options-translation'
-  },
-  {
-      from: ['/compliance'],
-      to: '/compliance-and-certifications'
-  },
-  {
-      from: ['/deploy/checklist'],
-      to: '/deploy/deploy-checklist'
-  },
-
-  
-
-  {
-      from: ['/login/embedded'],
-      to: '/login/embedded-login'
-  },
-  {
-      from: ['/dev-lifecycle/local-testing-and-development'],
-      to: '/development-lifecycle/work-with-auth0-locally'
-  },
-  {
-      from: ['/dev-lifecycle/setting-up-env'],
-      to: '/development-lifecycle/set-up-multiple-environments'
-  },
-  {
-      from: ['/application-auth/current'],
-      to: '/authentication'
-  },
-  {
-      from: ['/application-auth/legacy'],
-      to: '/application-auth'
-  },
-  {
-      from: ['/dashboard/guides/applications/view-app-type-confidential-public'],
-      to: '/applications/check-an-applications-confidential-or-public-authentication-method'
-  },
-  {
-      from: ['/authorization/guides/manage-users'],
-      to: '/authorization/rbac-users'
-  },
+  /* CONTENTFUL REDIRECTS */
 
   /* Anomaly Detection */
 
@@ -1128,7 +1098,7 @@ module.exports = [
     to: '/authorization/rbac/roles/create-roles'
   },
   {
-    from: ['/authorization/concepts/authz-and-authn'],
+    from: ['/authorization/concepts/authz-and-authn','/application-auth/current','/application-auth/legacy','/application-auth','/authentication'],
     to: '/authorization/authentication-and-authorization'
   },
   {
@@ -2455,6 +2425,29 @@ module.exports = [
     to: '/policies/penetration-testing-policy'
   },
 
+  /* Pre-deployment */
+
+  {
+    from: ['/pre-deployment/how-to-run-test'],
+    to: '/pre-deployment/how-to-run-production-checks'
+  },
+  {
+      from: ['/pre-deployment/prelaunch-tips'],
+      to: '/pre-deployment/pre-launch-tips'
+  },
+  {
+      from: ['/pre-deployment/tests/best-practice'],
+      to: '/pre-deployment/how-to-run-production-checks/production-checks-best-practices'
+  },
+  {
+      from: ['/pre-deployment/tests/recommended'],
+      to: '/pre-deployment/how-to-run-production-checks/production-checks-recommended-fixes'
+  },
+  {
+      from: ['/pre-deployment/tests/required'],
+      to: '/pre-deployment/how-to-run-production-checks/production-checks-required-fixes'
+  },
+
   /* Private Cloud */
 
   {
@@ -3175,7 +3168,7 @@ module.exports = [
     to: '/tokens/json-web-tokens/json-web-key-sets/locate-json-web-key-sets'
   },
   {
-    from: ['/tokens/jwt-claims', '/tokens/concepts/jwt-claims','/scopes/current/sample-use-cases#add-custom-claims-to-a-token','/tokens/add-custom-claims','/scopes/current/custom-claims', '/tokens/jwt-claims#custom-claims'],
+    from: ['/tokens/jwt-claims', '/tokens/concepts/jwt-claims','/tokens/add-custom-claims','/scopes/current/custom-claims', '/tokens/jwt-claims'],
     to: '/tokens/json-web-tokens/json-web-token-claims'
   },
   {
