@@ -217,10 +217,6 @@ module.exports = [
     from: '/tutorials/web-apps-vs-web-apis-cookies-vs-tokens',
     to: '/design/web-apps-vs-web-apis-cookies-vs-tokens',
   },
-  {
-    from: '/tutorials/creating-invite-only-applications',
-    to: '/design/creating-invite-only-applications',
-  },
 
 
 
