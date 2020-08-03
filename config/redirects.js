@@ -35,10 +35,6 @@ module.exports = [
     to: '/tutorials/aspnet-mvc4-enterprise-providers'
   },
   {
-    from: '/scenarios/amazon-cognito',
-    to: '/tutorials/integrating-auth0-amazon-cognito-mobile-apps'
-  },
-  {
     from: '/scenarios/github',
     to: '/tutorials/using-auth0-as-an-identity-provider-with-github-enterprise'
   },
@@ -49,10 +45,6 @@ module.exports = [
   {
     from: ['/scenarios-mixpanel-fullcontact-salesforce','/scenarios/mixpanel-fullcontact-salesforce'],
     to: '/tutorials/track-signups-enrich-user-profile-generate-leads'
-  },
-  {
-    from: ['/scenarios-mqtt', '/scenarios/mqtt'],
-    to: '/tutorials/authenticating-devices-using-mqtt'
   },
   {
     from: ['/scenarios-rapleaf-salesforce', '/scenarios/rapleaf-salesforce'],
@@ -69,10 +61,6 @@ module.exports = [
   {
     from: ['/scenarios-splunk', '/scenarios/splunk'],
     to: '/tutorials/sending-events-to-splunk'
-  },
-  {
-    from: ['/scenarios-tessel', '/scenarios/tessel'],
-    to: '/tutorials/authenticating-a-tessel-device'
   },
   {
     from: ['/scenarios-unbounce', '/scenarios/unbounce'],
@@ -187,136 +175,6 @@ module.exports = [
     from: '/adldap-x',
     to: '/connector/install-other-platforms'
   },
-
-
-
-
-  {
-    from: '/awsapi-tutorial',
-    to: '/integrations/aws'
-  },
-  {
-    from: '/sharepoint-apps',
-    to: '/integrations/sharepoint-apps'
-  },
-  {
-    from: '/aws',
-    to: '/integrations/aws'
-  },
-  {
-    from: '/tutorials/azure-tutorial',
-    to: '/integrations/azure-tutorial',
-  },
-  {
-    from: '/tutorials/integrating-with-slack',
-    to: '/integrations/integrating-with-slack',
-  },
-  {
-    from: '/tutorials/authenticating-a-tessel-device',
-    to: '/integrations/authenticating-a-tessel-device',
-  },
-  {
-    from: '/tutorials/authenticating-devices-using-mqtt',
-    to: '/integrations/authenticating-devices-using-mqtt',
-  },
-  {
-    from: '/tutorials/using-auth0-to-secure-a-cli',
-    to: '/integrations/using-auth0-to-secure-a-cli',
-  },
-  {
-    from: '/tutorials/google-cloud-platform',
-    to: '/integrations/google-cloud-platform',
-  },
-  {
-    from: '/tutorials/configuration-to-query-users-from-google-apps',
-    to: '/integrations/configuration-to-query-users-from-google-apps',
-  },
-  {
-    from: '/tutorials/integrating-auth0-amazon-cognito-mobile-apps',
-    to: '/integrations/integrating-auth0-amazon-cognito-mobile-apps',
-  },
-  {
-    from: '/tutorials/office365-connection-deprecation-guide',
-    to: '/integrations/office365-connection-deprecation-guide',
-  },
-  {
-    from: '/tutorials/using-auth0-as-an-identity-provider-with-github-enterprise',
-    to: '/integrations/using-auth0-as-an-identity-provider-with-github-enterprise',
-  },
-  {
-    from: '/tutorials/configure-wsfed-application',
-    to: '/integrations/configure-wsfed-application',
-  },
-  {
-    from: '/sso/current/integrations',
-    to: '/integrations/sso'
-  },
-  {
-    from: '/sso/current/integrations/ad-rms',
-    to: '/integrations/sso/ad-rms'
-  },
-  {
-    from: '/sso/current/integrations/box',
-    to: '/integrations/sso/box'
-  },
-  {
-    from: '/sso/current/integrations/cloudbees',
-    to: '/integrations/sso/cloudbees'
-  },
-  {
-    from: '/sso/current/integrations/concur',
-    to: '/integrations/sso/concur'
-  },
-  {
-    from: '/sso/current/integrations/disqus',
-    to: '/integrations/sso/disqus'
-  },
-  {
-    from: '/sso/current/integrations/dropbox',
-    to: '/integrations/sso/dropbox'
-  },
-  {
-    from: '/sso/current/integrations/dynamics-crm',
-    to: '/integrations/sso/dynamics-crm'
-  },
-  {
-    from: '/sso/current/integrations/echosign',
-    to: '/integrations/sso/echosign'
-  },
-  {
-    from: '/sso/current/integrations/egnyte',
-    to: '/integrations/sso/egnyte'
-  },
-  {
-    from: '/sso/current/integrations/new-relic',
-    to: '/integrations/sso/new-relic'
-  },
-  {
-    from: '/sso/current/integrations/office-365',
-    to: '/integrations/sso/office-365'
-  },
-  {
-    from: '/sso/current/integrations/salesforce',
-    to: '/integrations/sso/salesforce'
-  },
-  {
-    from: '/sso/current/integrations/slack',
-    to: '/integrations/sso/slack'
-  },
-  {
-    from: '/sso/current/integrations/springcm',
-    to: '/integrations/sso/springcm'
-  },
-  {
-    from: '/sso/current/integrations/zendesk',
-    to: '/integrations/sso/zendesk'
-  },
-  {
-    from: '/sso/current/integrations/zoom',
-    to: '/integrations/sso/zoom'
-  },
-
-
   { from: '/rules/current', to: '/rules' },
   { from: '/rules/legacy', to: '/rules/references/legacy' },
   { from: '/rules/current/context', to: '/rules/references/context-object' },
@@ -1406,86 +1264,6 @@ module.exports = [
       to: '/authorization/rbac-users'
   },
   {
-      from: ['/integrations/authenticating-a-tessel-device'],
-      to: '/integrations/authenticating-and-authorizing-a-tessel-device-with-auth0'
-  },
-  {
-      from: ['/integrations/authenticating-devices-using-mqtt'],
-      to: '/integrations/authenticate-devices-using-mqtt'
-  },
-  {
-      from: ['/aws-api-setup'],
-      to: '/integrations/how-to-set-up-aws-for-delegated-authentication'
-  },
-  {
-      from: ['/integrations/aws/sso'],
-      to: '/configure-amazon-web-services-for-sso'
-  },
-  {
-      from: ['/integrations/aws/tokens'],
-      to: '/integrations/call-aws-apis-and-resources-with-tokens'
-  },
-  {
-      from: ['/integrations/aws-api-gateway/custom-authorizers'],
-      to: '/integrations/aws-api-gateway-custom-authorizers'
-  },
-  {
-      from: ['/integrations/aws-api-gateway/delegation'],
-      to: '/build-a-serverless-application-using-token-based-authentication-with-aws-api'
-  },
-  {
-      from: ['/integrations/aws-api-gateway/delegation/part-1'],
-      to: '/aws-api-gateway-tutorial-step-1'
-  },
-  {
-      from: ['/integrations/aws-api-gateway/delegation/part-2'],
-      to: '/aws-api-gateway-tutorial-step-2'
-  },
-  {
-      from: ['/integrations/aws-api-gateway/delegation/part-3'],
-      to: '/aws-api-gateway-tutorial-step-3'
-  },
-  {
-      from: ['/integrations/aws-api-gateway/delegation/part-4'],
-      to: '/aws-api-gateway-tutorial-step-4'
-  },
-  {
-      from: ['/integrations/aws-api-gateway/delegation/part-5'],
-      to: '/aws-api-gateway-tutorial-step-5'
-  },
-  {
-      from: ['/integrations/aws-api-gateway/delegation/secure-api-with-cognito'],
-      to: '/secure-aws-api-gateway-using-cognito'
-  },
-  {
-      from: ['/integrations/google-cloud-platform'],
-      to: '/integrations/google-cloud-endpoints'
-  },
-  {
-      from: ['/integrations/integrating-auth0-amazon-cognito-mobile-apps'],
-      to: '/integrations/integrate-with-amazon-cognito'
-  },
-  {
-      from: ['/integrations/marketing/salesforce'],
-      to: '/integrations/marketing/export-user-data-salesforce'
-  },
-  {
-      from: ['/integrations/office-365-custom-provisioning'],
-      to: '/office-365-custom-provisioning'
-  },
-  {
-      from: ['/integrations/sharepoint-apps'],
-      to: '/integrations/connecting-provider-hosted-apps-to-sharepoint-online'
-  },
-  {
-      from: ['/integrations/sharepoint'],
-      to: '/integrations/sharepoint-2010-2013'
-  },
-  {
-      from: ['/integrations/using-auth0-to-secure-a-cli'],
-      to: '/integrations/secure-a-cli-with-auth0'
-  },
-  {
       from: ['/logs/streams/azure-event-grid'],
       to: '/auth0-logs/export-log-events-with-log-streaming/stream-logs-to-azure-event-grid'
   },
@@ -2483,6 +2261,176 @@ module.exports = [
   },
 
   /* Integrations */
+
+  {
+    from: ['/aws-api-setup'],
+    to: '/integrations/how-to-set-up-aws-for-delegated-authentication'
+  },
+  {
+    from: ['/integrations/aws/sso'],
+    to: '/integrations/configure-amazon-web-services-for-sso'
+  },
+  {
+    from: ['/integrations/aws/tokens'],
+    to: '/integrations/call-aws-apis-and-resources-with-tokens'
+  },
+
+  {
+    from: ['/scenarios/amazon-cognito', '/tutorials/integrating-auth0-amazon-cognito-mobile-apps', '/integrations/integrating-auth0-amazon-cognito-mobile-apps', '/integrations/integrate-with-amazon-cognito'],
+    to: '/integrations/amazon-cognito'
+  },
+  {
+    from: ['/scenarios-mqtt', '/scenarios/mqtt', '/tutorials/authenticating-devices-using-mqtt', '/integrations/authenticating-devices-using-mqtt'],
+    to: '/integrations/authenticate-devices-using-mqtt'
+  },
+  {
+    from: ['/scenarios-tessel', '/scenarios/tessel', '/tutorials/authenticating-a-tessel-device', '/integrations/authenticating-a-tessel-device'],
+    to: '/integrations/authenticating-and-authorizing-a-tessel-device-with-auth0'
+  },
+  {
+    from: ['/aws', '/awsapi-tutorial'],
+    to: '/integrations/aws'
+  },
+  {
+    from: ['/integrations/aws-api-gateway/delegation'],
+    to: '/integrations/aws-api-gateway-delegation'
+  },
+  {
+    from: ['/integrations/aws-api-gateway/delegation/part-1'],
+    to: '/integrations/aws-api-gateway-delegation-1'
+  },
+  {
+    from: ['/integrations/aws-api-gateway/delegation/part-2'],
+    to: '/integrations/aws-api-gateway-delegation-2'
+  },
+  {
+    from: ['/integrations/aws-api-gateway/delegation/part-3'],
+    to: '/integrations/aws-api-gateway-delegation-3'
+  },
+  {
+    from: ['/integrations/aws-api-gateway/delegation/part-4'],
+    to: '/integrations/aws-api-gateway-delegation-4'
+  },
+  {
+    from: ['/integrations/aws-api-gateway/delegation/part-5'],
+    to: '/integrations/aws-api-gateway-delegation-5'
+  },
+  {
+    from: ['/integrations/aws-api-gateway/delegation/secure-api-with-cognito'],
+    to: '/aws-api-gateway-cognito'
+  },
+  {
+    from: ['/integrations/aws-api-gateway/custom-authorizers', '/integrations/aws-api-gateway/custom-authorizers/part-1', '/integrations/aws-api-gateway/custom-authorizers/part-2', '/integrations/aws-api-gateway/custom-authorizers/part-3', '/integrations/aws-api-gateway/custom-authorizers/part-4'],
+    to: '/integrations/aws-api-gateway-custom-authorizers'
+  },
+  {
+    from: ['/tutorials/configure-wsfed-application', '/integrations/configure-wsfed-application'],
+    to: '/integrations/configure-ws-fed-applications',
+  },
+  {
+    from: ['/sharepoint-apps', '/integrations/sharepoint-apps'],
+    to: '/integrations/connecting-provider-hosted-apps-to-sharepoint-online'
+  },
+  {
+    from: ['/integrations/google-cloud-platform', '/tutorials/google-cloud-platform'],
+    to: '/integrations/google-cloud-endpoints'
+  },
+  {
+    from: ['/integrations/marketing/salesforce'],
+    to: '/integrations/marketing/export-user-data-salesforce'
+  },
+    {
+    from: ['/tutorials/office365-connection-deprecation-guide', '/integrations/office365-connection-deprecation-guide'],
+    to: '/integrations/migrate-office365-connections-to-windows-azure-ad'
+  },
+  {
+    from: ['/integrations/office-365-custom-provisioning'],
+    to: '/integrations/office-365-custom-provisioning'
+  },
+  {
+    from: ['/tutorials/using-auth0-to-secure-a-cli', '/integrations/using-auth0-to-secure-a-cli'],
+    to: '/integrations/secure-a-cli-with-auth0'
+  },
+  {
+    from: ['/integrations/sharepoint'],
+    to: '/integrations/sharepoint-2010-2013'
+  },
+  {
+    from: ['/sso/current/integrations', '/integrations/sso'],
+    to: '/integrations/sso-integrations'
+  },
+  {
+    from: ['/sso/current/integrations/ad-rms', '/integrations/sso/ad-rms'],
+    to: '/integrations/sso-integrations/ad-rms-sso-integration'
+  },
+  {
+    from: ['/sso/current/integrations/box', '/integrations/sso/box'],
+    to: '/integrations/sso-integrations/box'
+  },
+  {
+    from: ['/sso/current/integrations/cloudbees', '/integrations/sso/cloudbees'],
+    to: '/integrations/sso-integrations/cloudbees'
+  },
+  {
+    from: ['/sso/current/integrations/concur', '/integrations/sso/concur'],
+    to: '/integrations/sso-integrations/concur'
+  },
+  {
+    from: ['/sso/current/integrations/disqus', '/integrations/sso/disqus'],
+    to: '/integrations/sso-integrations/disqus'
+  },
+  {
+    from: ['/sso/current/integrations/dropbox', '/integrations/sso/dropbox'],
+    to: '/integrations/sso-integrations/dropbox'
+  },
+  {
+    from: ['/sso/current/integrations/dynamics-crm', '/integrations/sso/dynamics-crm'],
+    to: '/integrations/sso-integrations/dynamics-crm'
+  },
+  {
+    from: ['/sso/current/integrations/echosign', '/integrations/sso/echosign'],
+    to: '/integrations/sso-integrations/echosign'
+  },
+  {
+    from: ['/sso/current/integrations/egnyte', '/integrations/sso/egnyte'],
+    to: '/integrations/sso-integrations/egnyte'
+  },
+  {
+    from: ['/sso/current/integrations/new-relic', '/integrations/sso/new-relic'],
+    to: '/integrations/sso-integrations/new-relic'
+  },
+  {
+    from: ['/sso/current/integrations/office-365', '/integrations/sso/office-365'],
+    to: '/integrations/sso-integrations/office-365'
+  },
+  {
+    from: ['/sso/current/integrations/salesforce', '/integrations/sso/salesforce'],
+    to: '/integrations/sso-integrations/salesforce'
+  },
+  {
+    from: ['/sso/current/integrations/slack', '/integrations/sso/slack'],
+    to: '/integrations/sso-integrations/slack'
+  },
+  {
+    from: ['/sso/current/integrations/sentry', '/integrations/sso/sentry'],
+    to: '/integrations/sso-integrations/sentry'
+  },
+  {
+    from: ['/sso/current/integrations/sharepoint', '/integrations/sso/sharepoint'],
+    to: '/integrations/sso-integrations/sharepoint'
+  },
+  {
+    from: ['/sso/current/integrations/springcm', '/integrations/sso/springcm'],
+    to: '/integrations/sso-integrations/springcm'
+  },
+  {
+    from: ['/sso/current/integrations/zendesk', '/integrations/sso/zendesk'],
+    to: '/integrations/sso-integrations/zendesk'
+  },
+  {
+    from: ['/sso/current/integrations/zoom', '/integrations/sso/zoom'],
+    to: '/integrations/sso-integrations/zoom'
+  },
 
   /* Libraries */
 
