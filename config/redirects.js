@@ -1540,7 +1540,7 @@ module.exports = [
   },
   {
     from: ['/extensions/deploy-cli/references/environment-variables-keyword-mappings'],
-    to: '/extensions/deploy-cli-tool//environment-variables-and-keyword-mappings'
+    to: '/extensions/deploy-cli-tool/environment-variables-and-keyword-mappings'
   },
   {
     from: ['/extensions/deploy-cli/references/troubleshooting'],
@@ -2016,10 +2016,6 @@ module.exports = [
   {
     from: ['/integrations/aws-api-gateway/custom-authorizers', '/integrations/aws-api-gateway/custom-authorizers/part-1', '/integrations/aws-api-gateway/custom-authorizers/part-2', '/integrations/aws-api-gateway/custom-authorizers/part-3', '/integrations/aws-api-gateway/custom-authorizers/part-4'],
     to: '/integrations/aws-api-gateway-custom-authorizers'
-  },
-  {
-    from: ['/tutorials/configure-wsfed-application', '/integrations/configure-wsfed-application'],
-    to: '/integrations/configure-ws-fed-applications',
   },
   {
     from: ['/sharepoint-apps', '/integrations/sharepoint-apps'],
@@ -2664,7 +2660,7 @@ module.exports = [
     to: '/protocols/saml-protocol'
   },
   {
-    from: ['/protocols/saml/saml-configuration/troubleshoot','/protocols/saml/saml-configuration/troubleshoot/common-saml-errors'],
+    from: ['/protocols/saml/saml-configuration/troubleshoot','/protocols/saml/saml-configuration/troubleshoot/common-saml-errors','/protocols/saml/saml-configuration/troubleshoot/auth0-as-sp'],
     to: '/protocols/saml-protocol/troubleshoot-saml-configurations'
   },
   {
@@ -2772,7 +2768,7 @@ module.exports = [
     to: '/protocols/saml-configuration-options/identity-provider-initiated-single-sign-on'
   },
   {
-    from: ['/protocols/saml/saml-configuration//special-configuration-scenarios/signing-and-encrypting-saml-requests'],
+    from: ['/protocols/saml/saml-configuration/special-configuration-scenarios/signing-and-encrypting-saml-requests'],
     to: '/protocols/saml-configuration-options/sign-and-encrypt-saml-requests'
   },
   {
