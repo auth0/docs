@@ -3269,7 +3269,7 @@ module.exports = [
   /* Sessions */
 
   {
-    from: ['/sessions'],
+    from: ['/sessions', '/sessions/concepts/session', '/sessions/concepts/session-layers', '/sessions/concepts/session-lifetime'],
     to: '/sessions-and-cookies'
   },
   {
@@ -3438,7 +3438,7 @@ module.exports = [
     to: '/tokens/manage-signing-keys'
   },
   {
-    from: ['/api-auth/tutorials/adoption/refresh-tokens','/refresh-token','/tokens/refresh_token','/tokens/concepts/refresh-tokens'],
+    from: ['/api-auth/tutorials/adoption/refresh-tokens','/refresh-token','/tokens/refresh_token', '/tokens/refresh-token/current','/tokens/concepts/refresh-tokens'],
     to: '/tokens/refresh-tokens'
   },
   {
