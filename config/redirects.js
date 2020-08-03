@@ -1332,7 +1332,7 @@ module.exports = [
     to: '/best-practices/user-data-storage-best-practices'
   },
   {
-      from: ['/design/using-auth0-with-multi-tenant-apps','tutorials/using-auth0-with-multi-tenant-apps','/saas-apps'],
+      from: ['/design/using-auth0-with-multi-tenant-apps','/tutorials/using-auth0-with-multi-tenant-apps','/saas-apps'],
       to: '/best-practices/multi-tenant-applications-best-practices'
   },
 
