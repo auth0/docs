@@ -179,14 +179,6 @@ module.exports = [
 
 
 
-  {
-    from: '/adldap-auth',
-    to: '/connector/install'
-  },
-  {
-    from: '/adldap-x',
-    to: '/connector/install-other-platforms'
-  },
 
 
 
@@ -3924,6 +3916,57 @@ module.exports = [
   {
     from: ['/users/guides/get-user-information-with-unbounce-landing-pages'],
     to: '/users/get-user-information-on-unbounce-landing-pages'
+  },
+
+  /* LDAP Connector */
+
+  {
+    from: ['/connector'],
+    to: '/ad-ldap-connector'
+  },
+  {
+    from: ['/connector/prerequisites'],
+    to: '/ad-ldap-connector/ad-ldap-connector-requirements'
+  },
+  {
+    from: ['/connector/client-certificates'],
+    to: '/ad-ldap-connector/configure-ad-ldap-connector-client-certificates'
+  },
+  {
+    from: ['/connector/kerberos'],
+    to: '/ad-ldap-connector/configure-ad-ldap-connector-with-kerberos'
+  },
+  {
+    from: ['/connector/high-availability'],
+    to: '/ad-ldap-connector/ad-ldap-high-availability'
+  },
+  {
+    from: ['/dashboard/guides/connections/disable-cache-ad-ldap'],
+    to: '/ad-ldap-connector/disable-credential-caching'
+  },
+  {
+    from: ['/adldap-x','/connector/install-other-platforms','/connector/install','/adldap-auth'],
+    to: '/ad-ldap-connector/install-configure-ad-ldap-connector'
+  },
+  {
+    from: ['/connector/scom-monitoring'],
+    to: '/ad-ldap-connector/ad-ldap-connector-scom'
+  },
+  {
+    from: ['/connector/modify'],
+    to: '/ad-ldap-connector/ad-ldap-connector-to-auth0'
+  },
+  {
+    from: ['/connector/test-dc'],
+    to: '/ad-ldap-connector/ad-ldap-connector-test-environment'
+  },
+  {
+    from: ['/connector/troubleshooting'],
+    to: '/ad-ldap-connector/troubleshoot-ad-ldap-connector'
+  },
+  {
+    from: ['/connector/update'],
+    to: '/ad-ldap-connector/update-ad-ldap-connectors'
   },
 
 ];
