@@ -2828,10 +2828,6 @@ module.exports = [
     to: '/protocols/saml-configuration-options/configure-auth0-as-service-and-identity-provider'
   },
   {
-    from: ['/protocols/saml/saml2webapp-tutorial'],
-    to: '/protocols/saml-configuration-options/configure-saml2-web-applications'
-  },
-  {
     from: ['/protocols/saml/saml-apps/atlassian'],
     to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-atlassian'
   },
