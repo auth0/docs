@@ -93,10 +93,6 @@ module.exports = [
     to: '/authorization/rbac-users'
 },
 
-  /* - - - - - - - - - - - - - - - - - - - 
-      NOTHING SHOULD REMAIN ABOVE THIS LINE
-      - - - - - - - - - - - - - - - - - - - */
-
   /* QUICKSTARTS */
 
   {
@@ -973,7 +969,7 @@ module.exports = [
     to: '/applications/dynamic-client-registration'
   },
   {
-    from: ['/applications/concepts/app-types-auth0','/clients','/applications/application-types','/api-auth/tutorials/adoption/oidc-conformant','/clients/client-types','/applications/application-types'],
+    from: ['/applications/concepts/app-types-auth0','/clients','/api-auth/tutorials/adoption/oidc-conformant','/clients/client-types','/applications/application-types'],
     to: '/applications'
   },
   {
@@ -1049,11 +1045,7 @@ module.exports = [
     from: ['/applications/reference/wildcard-subdomains'],
     to: '/applications/wildcards-for-subdomains'
   },
-  
-  {
-    from: ['/dashboard/guides/applications/enable-android-app-links'],
-    to: '/applications/enable-android-app-links-support'
-  },
+
 
   /* Authorization */
 
@@ -1189,7 +1181,7 @@ module.exports = [
     to: '/best-practices/custom-database-connection-and-action-script-best-practices'
   },
   {
-      from: ['/best-practices/custom-db-connections/anatomy'],
+      from: ['/best-practices/custom-db-connections/anatomy','/best-practices/custom-db-connections/size'],
       to: '/best-practices/custom-database-connection-and-action-script-best-practices/custom-db-connection-anatomy-best-practices'
   },
   {
@@ -1203,10 +1195,6 @@ module.exports = [
   {
       from: ['/best-practices/custom-db-connections/security'],
       to: '/best-practices/custom-database-connection-and-action-script-best-practices/custom-db-connection-security-best-practices'
-  },
-  {
-      from: ['/best-practices/custom-db-connections/size'],
-      to: '/best-practices/custom-database-connection-and-action-script-best-practices/custom-db-connection-anatomy-best-practices'
   },
   {
       from: ['/best-practices/application-settings'],
@@ -1369,11 +1357,11 @@ module.exports = [
 
   {
     from: ['/topics/extensibility','/extend-integrate'],
-    to: '/auth0-extensions'
+    to: '/extensions'
   },
   {
-    from: ['/extensions/authorization-extension/v2','/extensions/authorization-extension'],
-    to: '/auth0-extensions/authorization-extension'
+    from: ['/extensions/authorization-extension/v2'],
+    to: '/extensions/authorization-extension'
   },
   {
     from: ['/extensions/authorization-extension/v2/implementation/configuration'],
@@ -1619,7 +1607,7 @@ module.exports = [
     to: '/flows/authorization-code-flow'
   },
   {
-    from: ['/flows/concepts/auth-code-pkce','/api-auth/grant/authorization-code-pkce','/flows/concepts/mobile-login-flow','/flows/concepts/single-page-login-flow','/api-auth/grant/authorization-code-pkce'],
+    from: ['/flows/concepts/auth-code-pkce','/api-auth/grant/authorization-code-pkce','/flows/concepts/mobile-login-flow','/flows/concepts/single-page-login-flow'],
     to: '/flows/authorization-code-flow-with-proof-key-for-code-exchange-pkce'
   },
   {
@@ -1757,7 +1745,7 @@ module.exports = [
   /* Hooks */
 
   {
-    from: ['/hooks/cli','/hooks/cli','/hooks/dashboard','/hooks/overview'],
+    from: ['/hooks/cli','/hooks/dashboard','/hooks/overview'],
     to: '/hooks'
   },
   {
@@ -1957,10 +1945,6 @@ module.exports = [
     {
     from: ['/tutorials/office365-connection-deprecation-guide', '/integrations/office365-connection-deprecation-guide','/office365-deprecated'],
     to: '/integrations/migrate-office365-connections-to-windows-azure-ad'
-  },
-  {
-    from: ['/integrations/office-365-custom-provisioning'],
-    to: '/integrations/office-365-custom-provisioning'
   },
   {
     from: ['/tutorials/using-auth0-to-secure-a-cli', '/integrations/using-auth0-to-secure-a-cli','/tutorials/using-auth0-to-secure-an-api','/cli'],
