@@ -2149,10 +2149,6 @@ module.exports = [
     to: '/libraries/auth0js'
   },
   {
-    from: ['/libraries/auth0-android'],
-    to: '/libraries/auth0-android'
-  },
-  {
     from: ['/libraries/auth0-android/configuration'],
     to: '/libraries/auth0-android/auth0-android-configuration'
   },
@@ -2243,7 +2239,7 @@ module.exports = [
   /* MFA */
   
   {
-    from: ['/multi-factor-authentication','/multi-factor-authentication2','/multifactor-authentication/custom-provider','/multifactor-authentication','/mfa-in-auth0','/multifactor-authentication/yubikey','/multifactor-authentication/guardian','/multifactor-authentication/guardian/user-guide','/multi-factor-authentication/yubikey','/multifactor-authentication/yubikey'],
+    from: ['/multi-factor-authentication','/multi-factor-authentication2','/multifactor-authentication/custom-provider','/multifactor-authentication','/mfa-in-auth0','/multifactor-authentication/yubikey','/multifactor-authentication/guardian','/multifactor-authentication/guardian/user-guide','/multi-factor-authentication/yubikey'],
     to: '/mfa'
   },
   {
@@ -2331,11 +2327,11 @@ module.exports = [
     to: '/mfa/customize-sms-or-voice-messages'
   },
   {
-    from: ['/multifactor-authentication/google-auth/user-guide','/multifactor-authentication/troubleshooting','/mfa/references/troubleshoot-mfa','/mfa/references/troubleshooting','/mfa/references/troubleshoot-mfa'],
+    from: ['/multifactor-authentication/google-auth/user-guide','/multifactor-authentication/troubleshooting','/mfa/references/troubleshoot-mfa','/mfa/references/troubleshooting'],
     to: '/mfa/troubleshoot-mfa-issues'
   },
   {
-    from: ['/multifactor-authentication/developer/step-up-authentication','/tutorials/step-up-authentication','/tutorials/setup-up-authentication','/multifactor-authentication/step-up-authentication','/mfa/concepts/step-up-authentication','/mfa/concepts/step-up-authentication'],
+    from: ['/multifactor-authentication/developer/step-up-authentication','/tutorials/step-up-authentication','/tutorials/setup-up-authentication','/multifactor-authentication/step-up-authentication','/mfa/concepts/step-up-authentication'],
     to: '/mfa/step-up-authentication'
   },
   {
