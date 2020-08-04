@@ -45,10 +45,6 @@ module.exports = [
     to: '/onboarding/enterprise-support'
   },
   {
-    from: ['/compliance'],
-    to: '/compliance-and-certifications'
-  },
-  {
     from: ['/deploy/checklist'],
     to: '/deploy/deploy-checklist'
   },
@@ -1261,6 +1257,54 @@ module.exports = [
     from: ['/cms/wordpress/user-migration'],
     to: '/cms/wordpress-plugin/user-migration-in-login-by-auth0'
   },
+
+  /* Compliance */
+
+  {
+    from: ['/compliance-and-certifications'],
+    to: '/compliance'
+  },
+  {
+    from: ['/compliance/gdpr/data-processing'],
+    to: '/compliance/data-processing'
+  },
+  {
+    from: ['/compliance/gdpr/features-aiding-compliance','/compliance/gdpr/security-advice-for-customers','/compliance/gdpr/roles-responsibilities','/compliance/gdpr/gdpr-summary','/compliance/gdpr/definitions'],
+    to: '/compliance/gdpr'
+  },
+  {
+    from: ['/compliance/gdpr/features-aiding-compliance/user-consent'],
+    to: '/compliance/gdpr/gdpr-conditions-for-consent'
+  },
+  {
+    from: ['/compliance/gdpr/features-aiding-compliance/data-minimization'],
+    to: '/compliance/gdpr/gdpr-data-minimization'
+  },
+  {
+    from: ['/compliance/gdpr/features-aiding-compliance/data-portability'],
+    to: '/compliance/gdpr/gdpr-data-portability'
+  },
+  {
+    from: ['/compliance/gdpr/features-aiding-compliance/protect-user-data'],
+    to: '/compliance/gdpr/gdpr-protect-and-secure-user-data'
+  },
+  {
+    from: ['/compliance/gdpr/features-aiding-compliance/user-consent/webtask-redirect'],
+    to: '/compliance/gdpr/gdpr-redirect-users-consent-form-hosted-webtask'
+  },
+  {
+    from: ['/compliance/gdpr/features-aiding-compliance/right-to-access-data'],
+    to: '/compliance/gdpr/gdpr-right-to-access-correct-and-erase-data'
+  },
+  {
+    from: ['/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-custom-ui'],
+    to: '/compliance/gdpr/gdpr-track-consent-with-custom-ui'
+  },
+  {
+    from: ['/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-lock'],
+    to: '/compliance/gdpr/gdpr-track-consent-with-lock'
+  },
+
 
   /* Custom Domains */
 
