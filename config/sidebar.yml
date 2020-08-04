@@ -1048,23 +1048,34 @@ articles:
     url: /compliance
     children:
       - title: GDPR
-        url: /compliance/auth0-gdpr-compliance
+        url: /compliance/gdpr
         children:
-          - title: Terminology
-            hidden: true
-            url: /compliance/gdpr/definitions
-          - title: Summary
-            hidden: true
-            url: /compliance/gdpr/gdpr-summary
-          - title: Roles and Responsibilities
-            hidden: true
-            url: /compliance/gdpr/roles-responsibilities
-          - title: Auth0 Data Processing
-            hidden: true
-            url: /compliance/data-processing
-          - title: Security Advice
-            hidden: true
-            url: /compliance/gdpr/security-advice-for-customers
+          - title: Conditions for Consent
+            url: /compliance/gdpr/gdpr-conditions-for-consent
+            hidden: true 
+          - title: Right to Access, Correct, and Erase Data
+            url: /compliance/gdpr/gdpr-right-to-access-correct-and-erase-data
+            hidden: true 
+          - title: Data Minimization
+            url: /compliance/gdpr/gdpr-data-minimization
+            hidden: true 
+          - title: Data Portability
+            url: /compliance/gdpr/gdpr-data-portability
+            hidden: true 
+          - title: Protect and Secure User Data
+            url: /compliance/gdpr/gdpr-protect-and-secure-user-data
+            hidden: true 
+          - title: Redirect Users to Consent Form
+            url: /compliance/gdpr/gdpr-redirect-users-consent-form-hosted-webtask
+            hidden: true 
+          - title: Track Consent with Custom UI
+            url: /compliance/gdpr/gdpr-track-consent-with-custom-ui
+            hidden: true 
+          - title: Track Consent with Lock
+            url: /compliance/gdpr/gdpr-track-consent-with-lock
+            hidden: true 
+      - title: Data Processing
+        url: /compliance/data-processing
   - title: Best Practices
     url: /best-practices
     children:
