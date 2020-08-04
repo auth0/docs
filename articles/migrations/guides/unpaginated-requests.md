@@ -20,7 +20,7 @@ Affected tenants are those that meet the following criteria:
 * Created **before 21 July 2020**
 * Actively making calls to the affected endpoints without passing the `per_page` parameter for queries that can return more than 1 result.
 
-The following tenants are not affected:
+The following tenants will default to the new pagination behavior and will continue to operate as they do today after 26 January 2021:
 
 * Created **on or after 21 July 2020**
 * Not using any of the affected endpoints
