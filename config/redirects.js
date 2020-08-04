@@ -1062,10 +1062,6 @@ module.exports = [
     to: '/authorization/revoke-access-to-apis-using-blacklists-or-application-grants'
   },
   {
-    from: ['/dashboard/guides/roles/remove-role-users'],
-    to: '/authorization/rbac/roles/remove-users-from-roles'
-  },
-  {
     from: ['/api/management/guides/roles/view-role-users','/dashboard/guides/roles/view-role-users'],
     to: '/authorization/rbac/roles/view-users-assigned-to-roles'
   },
@@ -3472,10 +3468,6 @@ module.exports = [
     to: '/users/delete-users'
   },
   {
-    from: ['/dashboard/guides/roles/remove-role-users'],
-    to: '/users/remove-users-from-roles'
-  },
-  {
     from: ['/dashboard/guides/users/unlink-user-devices'],
     to: '/users/unlink-devices-from-users'
   },
@@ -3684,7 +3676,7 @@ module.exports = [
     to: '/users/remove-permissions-from-users'
   },
   {
-    from: ['/dashboard/guides/users/remove-user-roles','/api/management/guides/users/remove-user-roles'],
+    from: ['/dashboard/guides/users/remove-user-roles','/dashboard/guides/roles/remove-role-users','/api/management/guides/users/remove-user-roles'],
     to: '/users/remove-roles-from-users'
   },
   {
