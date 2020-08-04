@@ -25,7 +25,6 @@ You can use your tenant log data `event` field to view tenant traffic data. We r
 | `fepft` | Failed exchange |
 | `fsa` | Failed silent authentication |
 | `fu` | Failed login (invalid email/username) |
-| `ip` | Source IP (Use in conjunction with `fu` event traffic to determine where the failure traffic is coming from) |
 | `sepft` | Success exchange |
 
 These failure events depend on the flow you have set up with Auth0. 
@@ -67,7 +66,7 @@ Here's an example of what that data might look like.
 Look for a high number of IPs from locales that do not make sense. For example: Do you expect traffic from 10,000 IPs from Russia every day? Observe `ip` address data in conjunction with `fu` event traffic to determine where the failure traffic is coming from.  
 
 ::: note
-IP geolocation data isn't available in the tenant logs unless you're able to enrich it from another location. The IP locale is only available from Kibana where the logs are already enriched with the information. 
+IP geolocation data isn't available in the tenant logs unless you're able to enrich it from another location. 
 :::
 
 Here's an example of what that data might look like.

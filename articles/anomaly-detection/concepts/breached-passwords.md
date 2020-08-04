@@ -17,7 +17,7 @@ Auth0 tracks large security breaches that are happening on major third-party sit
 
 You can configure the **URL Lifetime** and **Redirect To** values in the Dashboard by going to [Emails > Templates > Change Password Template](${manage_url}/#/emails).
 
-Breached password detection works when logging in using the Resource Owner Password Grant (ROPG) and when using custom databases with your tenants.
+Breached password detection also works when logging in using the Resource Owner Password Grant (ROPG) and when using custom databases with your tenants.
 
 When a user receives an email requesting that they change their password immediately, it is because their account could be the victim of a security breach. You can [customize blocked account emails](/anomaly-detection/guides/customize-blocked-account-emails). This may be the result of a compromise by a third-party application that experienced a security breach. The breach may not have happened to this account, but based on available data, the user's credentials may have been released. Since many people reuse passwords, the request to change passwords is a precaution to make sure the user stays protected. Users may also want to change their password at any other sites where they suspect they used a shared password. 
 

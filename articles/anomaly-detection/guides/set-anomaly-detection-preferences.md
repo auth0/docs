@@ -48,7 +48,7 @@ Auth0 strongly recommends that you **do not** disable **Bot Protection**, howeve
 [Brute-force protection](/anomaly-detection/concepts/brute-force-protection) is enabled by default for all connections. Once enabled, you can customize the brute-force protection settings. You can limit the number of signups and failed logins from a suspicious IP address.
 
 ::: warning
-Auth0 strongly recommends that you **do not** disable **Brute-force Protection**, however if you do, you can enable it in the [Dashboard](${manage_url}/#/anomaly).
+Auth0 strongly recommends that you **do not** disable **Brute-force Protection**, however if you do, you can enable it back in the [Dashboard](${manage_url}/#/anomaly).
 :::  
 
 1. Go to [Dashboard > Anomaly Detection](${manage_url}/#/anomaly)

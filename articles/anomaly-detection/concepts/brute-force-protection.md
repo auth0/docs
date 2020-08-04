@@ -36,7 +36,7 @@ If blocks are triggered, they can be removed in the following ways:
 
 Brute-force protection depends on the IP address of the user. Because of this, the following use cases are *not* supported:
 
-* If you use the [Resource Owner](/api/authentication#resource-owner) from the backend of the application. Using this call does not get the IP address of the user. 
+* If you use the legacy [Resource Owner](/api/authentication#resource-owner) from the backend of the application. Using this call does not get the IP address of the user. 
 
 * If you use [Resource Owner Password Grant](/api-auth/grant/password) from the backend of the application. Using this call does not get the IP address of the user, however, you can [configure your application and send the IP address of the user as part of the request](/api-auth/tutorials/using-resource-owner-password-from-server-side) to make brute-force protection work correctly.
 
