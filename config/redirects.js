@@ -32,7 +32,6 @@ module.exports = [
 
   /* MISCELLANEOUS AND OUTDATED */
 
-
   {
     from: ['/firebaseapi-tutorial','/salesforcesandboxapi-tutorial','/salesforceapi-tutorial','/sapapi-tutorial','/clients/addons','/applications/addons'],
     to: '/addons'
@@ -1974,7 +1973,7 @@ module.exports = [
     to: '/integrations/sso-integrations/new-relic'
   },
   {
-    from: ['/sso/current/integrations/office-365', '/integrations/sso/office-365'],
+    from: ['/sso/current/integrations/office-365', '/integrations/sso/office-365','/integrations/office-365'],
     to: '/integrations/sso-integrations/office-365'
   },
   {
@@ -2099,7 +2098,7 @@ module.exports = [
     to: '/libraries/lock/selecting-from-multiple-connection-options'
   },
   {
-    from: ['/libraries/lock-ios/delegation-api','/libraries/lock-ios/v1/delegation-api','/libraries/lock-ios','/libraries/lock-ios/lock-ios-api','/libraries/lock-ios/v1/lock-ios-api','/libraries/lock-ios/native-social-authentication','/libraries/lock-ios/v1/native-social-authentication','/libraries/lock-ios/password-reset-ios','/libraries/lock-ios/v1/password-reset-ios','/libraries/lock-ios/save-and-refresh-jwt-tokens','/libraries/lock-ios/v1/save-and-refresh-jwt-tokens','/libraries/lock-ios/sending-authentication-parameters','/libraries/lock-ios/v1/sending-authentication-parameters','/libraries/lock-ios/swift','/libraries/lock-ios/v1/swift'],
+    from: ['/libraries/lock-ios/delegation-api','/libraries/lock-ios/v1/delegation-api','/libraries/lock-ios','/libraries/lock-ios/v1','/libraries/lock-ios/lock-ios-api','/libraries/lock-ios/v1/lock-ios-api','/libraries/lock-ios/native-social-authentication','/libraries/lock-ios/v1/native-social-authentication','/libraries/lock-ios/password-reset-ios','/libraries/lock-ios/v1/password-reset-ios','/libraries/lock-ios/save-and-refresh-jwt-tokens','/libraries/lock-ios/v1/save-and-refresh-jwt-tokens','/libraries/lock-ios/sending-authentication-parameters','/libraries/lock-ios/v1/sending-authentication-parameters','/libraries/lock-ios/swift','/libraries/lock-ios/v1/swift'],
     to: '/libraries/lock-swift'
   },
   {
@@ -2641,7 +2640,7 @@ module.exports = [
     to: '/protocols/saml-protocol/troubleshoot-saml-configurations'
   },
   {
-    from: ['/protocols/oauth2/oauth-state','/protocols/oauth-state'],
+    from: ['/protocols/oauth2/oauth-state','/protocols/oauth-state','/protocols/oauth2/mitigate-csrf-attacks'],
     to: '/protocols/state-parameters'
   },
   {
@@ -2673,7 +2672,7 @@ module.exports = [
     to: '/protocols/saml-configuration-options/configure-auth0-as-idp-for-google-g-suite'
   },
   {
-    from: ['/saml-idp-generic','/protocols/saml/saml-idp-generic'],
+    from: ['/saml-idp-generic','/protocols/saml/saml-idp-generic','/protocols/saml/saml-configuration/auth0-as-identity-provider'],
     to: '/protocols/saml-configuration-options/configure-auth0-as-saml-identity-provider'
   },
   {
@@ -3051,6 +3050,10 @@ module.exports = [
     from: ['/sessions/concepts/cookies'],
     to: '/sessions-and-cookies/cookies'
   },
+  {
+    from: ['/login/spa/authenticate-with-cookies'],
+    to: '/sessions-and-cookies/spa-authenticate-using-cookies'
+  },
 
   /* SSO */
 
@@ -3169,7 +3172,7 @@ module.exports = [
     to: '/tokens/id-tokens/validate-id-tokens'
   },
   {
-    from: ['/tokens/concepts/jwts', '/tokens/concepts/why-use-jwt', '/tokens/jwt'],
+    from: ['/tokens/concepts/jwts', '/tokens/concepts/why-use-jwt','/tokens/jwt','/jwt'],
     to: '/tokens/json-web-tokens'
   },
   {
@@ -3428,6 +3431,10 @@ module.exports = [
   {
     from: ['/guides/login/universal-vs-embedded','/guides/login/centralized-vs-embedded'],
     to: '/unversal-login/universal-vs-embedded'
+  },
+  {
+    from: ['/universal-login/page-templates'],
+    to: '/universal-login/new-experience/universal-login-page-templates'
   },
 
   /* Users */
