@@ -1682,10 +1682,6 @@ module.exports = [
     to: '/get-started/dashboard/enable-sso-for-legacy-tenants'
   },
   {
-    from: ['/dashboard/guides/tenants/rotate-signing-keys'],
-    to: '/get-started/dashboard/rotate-signing-keys'
-  },
-  {
     from: ['/api/management/guides/tenants/configure-session-lifetime-settings'],
     to: '/get-started/dashboard/configure-session-lifetime-settings'
   },
