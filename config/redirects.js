@@ -2914,7 +2914,7 @@ module.exports = [
     to: '/scopes/openid-connect-scopes'
   },
   {
-    from: ['/tokens/add-custom-claims','/scopes/current/sample-use-cases'],
+    from: ['/scopes/current/sample-use-cases'],
     to: '/scopes/sample-use-cases-scopes-and-claims'
   },
 
