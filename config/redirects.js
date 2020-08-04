@@ -3192,7 +3192,7 @@ module.exports = [
     to: '/tokens/refresh-tokens/configure-refresh-token-rotation'
   },
   {
-    from: ['/tokens/guides/disable-refresh-token-rotation'],
+    from: ['/tokens/guides/disable-refresh-token-rotation','/tokens/access-tokens/refresh-tokens/disable-refresh-token-rotation'],
     to: '/tokens/refresh-tokens/disable-refresh-token-rotation'
   },
   {
@@ -3200,7 +3200,7 @@ module.exports = [
     to: '/tokens/refresh-tokens/get-refresh-tokens'
   },
   {
-    from: ['/tokens/guides/disable-refresh-token-rotation','/tokens/concepts/refresh-token-rotation','/tokens/access-tokens/refresh-tokens/disable-refresh-token-rotation'],
+    from: ['/tokens/concepts/refresh-token-rotation'],
     to: '/tokens/refresh-tokens/refresh-token-rotation'
   },
   {
