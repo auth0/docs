@@ -85,7 +85,7 @@ Features not in the list are **not supported** by Auth0 with custom domains.
 
 ### Auth0-managed certificates
 
-With the [Auth0-managed certificate approach](/custom-domains/auth0-managed-certificates), Auth0 uses obtains certificates for your domain and then manages the SSL handshake directly with the client.
+With the [Auth0-managed certificate approach](/custom-domains/auth0-managed-certificates), Auth0 obtains certificates for your domain and then manages the SSL handshake directly with the client.
 
 ### Self-managed certificates
 
