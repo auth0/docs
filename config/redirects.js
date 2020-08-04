@@ -1682,10 +1682,6 @@ module.exports = [
     to: '/get-started/dashboard/enable-sso-for-legacy-tenants'
   },
   {
-    from: ['/dashboard/guides/tenants/revoke-signing-keys'],
-    to: '/get-started/dashboard/revoke-signing-keys'
-  },
-  {
     from: ['/dashboard/guides/tenants/rotate-signing-keys'],
     to: '/get-started/dashboard/rotate-signing-keys'
   },
