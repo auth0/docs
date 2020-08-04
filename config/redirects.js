@@ -1877,23 +1877,23 @@ module.exports = [
     to: '/integrations/aws-api-gateway-delegation'
   },
   {
-    from: ['/integrations/aws-api-gateway/delegation/part-1'],
+    from: ['/integrations/aws-api-gateway/delegation/part-1','/integrations/aws-api-gateway/part-1'],
     to: '/integrations/aws-api-gateway-delegation-1'
   },
   {
-    from: ['/integrations/aws-api-gateway/delegation/part-2'],
+    from: ['/integrations/aws-api-gateway/delegation/part-2','/integrations/aws-api-gateway/part-2'],
     to: '/integrations/aws-api-gateway-delegation-2'
   },
   {
-    from: ['/integrations/aws-api-gateway/delegation/part-3'],
+    from: ['/integrations/aws-api-gateway/delegation/part-3','/integrations/aws-api-gateway/part-3'],
     to: '/integrations/aws-api-gateway-delegation-3'
   },
   {
-    from: ['/integrations/aws-api-gateway/delegation/part-4'],
+    from: ['/integrations/aws-api-gateway/delegation/part-4','/integrations/aws-api-gateway/part-4'],
     to: '/integrations/aws-api-gateway-delegation-4'
   },
   {
-    from: ['/integrations/aws-api-gateway/delegation/part-5'],
+    from: ['/integrations/aws-api-gateway/delegation/part-5','/integrations/aws-api-gateway/part-5'],
     to: '/integrations/aws-api-gateway-delegation-5'
   },
   {
@@ -2124,6 +2124,10 @@ module.exports = [
   {
     from: ['/tutorials/local-testing-and-development','/local-testing-and-development'],
     to: 'libraries/secure-local-development'
+  },
+  {
+    from: ['/libraries/lock-android/v1/refresh-jwt-tokens'],
+    to: '/libraries/lock-android/lock-android-refresh-jwt'
   },
 
   /* Login */
