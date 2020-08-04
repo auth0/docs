@@ -2188,6 +2188,62 @@ module.exports = [
     to: '/logout/redirect-users-after-logout'
   },
 
+  /* Logs */
+
+  {
+    from: ['/logs/streams'],
+    to: '/logs/export-log-events-with-log-streaming'
+  },
+  {
+    from: ['/logs/streams/http-event-to-slack'],
+    to: '/logs/export-log-events-with-log-streaming/stream-auth0-log-events-to-slack'
+  },
+  {
+    from: ['/logs/streams/http-event'],
+    to: '/logs/export-log-events-with-log-streaming/stream-http-event-logs'
+  },
+  {
+    from: ['/logs/streams/aws-eventbridge','/integrations/aws-eventbridge','/logs/streams/amazon-eventbridge'],
+    to: '/logs/export-log-events-with-log-streaming/stream-logs-to-amazon-eventbridge'
+  },
+  {
+    from: ['/logs/streams/azure-event-grid'],
+    to: '/logs/export-log-events-with-log-streaming/stream-logs-to-azure-event-grid'
+  },
+  {
+    from: ['/logs/streams/datadog'],
+    to: '/logs/export-log-events-with-log-streaming/stream-logs-to-datadog'
+  },
+  {
+    from: ['/monitoring/guides/send-events-to-splunk','/monitoring/guides/send-events-to-keenio','/monitoring/guides/send-events-to-segmentio'],
+    to: '/logs/export-log-events-with-rules'
+  },
+  {
+    from: ['/logs/references/log-data-retention'],
+    to: '/logs/log-data-retention'
+  },
+  {
+    from: ['/logs/references/log-event-filters'],
+    to: '/logs/log-event-filters'
+  },
+  {
+    from: ['/logs/references/log-event-data','/logs/references/log-event-type-codes'],
+    to: '/logs/log-event-type-codes'
+  },
+  {
+    from: ['/logs/references/query-syntax','/logs/query-syntax'],
+    to: '/logs/log-search-query-syntax'
+  },
+  {
+    from: ['/logs/guides/retrieve-logs-mgmt-api'],
+    to: '/logs/retrieve-log-events-using-mgmt-api'
+  },
+  {
+    from: ['/logs/guides/view-log-data-dashboard'],
+    to: '/logs/view-log-events-in-the-dashboard'
+  },
+
+
   /* MFA */
   
   {
@@ -3104,7 +3160,7 @@ module.exports = [
     to: '/tokens'
   },
   {
-    from: ['/api-auth/tutorials/adoption/api-tokens','/tokens/concepts/access-tokens','/tokens/overview-access-tokens','/tokens/access-token','/tokens/access_token', '/tokens/access-tokens'],
+    from: ['/api-auth/tutorials/adoption/api-tokens','/tokens/concepts/access-tokens','/tokens/overview-access-tokens','/tokens/access-token','/tokens/access_token'],
     to: '/tokens/access-tokens'
   },
   {
@@ -3128,7 +3184,7 @@ module.exports = [
     to: '/tokens/identity-provider-access-tokens'
   },
   {
-    from: ['/tokens/overview-id-tokens','/tokens/id-token', '/tokens/id-tokens', '/tokens/concepts/id-tokens'],
+    from: ['/tokens/overview-id-tokens','/tokens/id-token', '/tokens/concepts/id-tokens'],
     to: '/tokens/id-tokens'
   },
   {
@@ -3160,7 +3216,7 @@ module.exports = [
     to: '/tokens/json-web-tokens/json-web-key-sets/locate-json-web-key-sets'
   },
   {
-    from: ['/tokens/jwt-claims', '/tokens/concepts/jwt-claims','/tokens/add-custom-claims','/scopes/current/custom-claims', '/tokens/jwt-claims'],
+    from: ['/tokens/jwt-claims', '/tokens/concepts/jwt-claims','/tokens/add-custom-claims','/scopes/current/custom-claims'],
     to: '/tokens/json-web-tokens/json-web-token-claims'
   },
   {
@@ -3349,7 +3405,7 @@ module.exports = [
   /* Universal Login */
 
   {
-    from: ['/hosted-pages/hosted-login-auth0js', '/hosted-pages/login/auth0js', '/hosted-pages/login/lock', '/hosted-pages/login/lock-passwordless', '/hosted-pages/hosted-login-auth0js', '/hosted-pages/hosted-login-auth0js/v7', '/hosted-pages/hosted-login-auth0js/v8', '/hosted-pages/login', '/hosted-pages'],
+    from: ['/hosted-pages/hosted-login-auth0js', '/hosted-pages/login/auth0js', '/hosted-pages/login/lock', '/hosted-pages/login/lock-passwordless', '/hosted-pages/hosted-login-auth0js/v7', '/hosted-pages/hosted-login-auth0js/v8', '/hosted-pages/login', '/hosted-pages'],
     to: '/universal-login'
   },
   {
@@ -3472,10 +3528,6 @@ module.exports = [
     to: '/users/get-user-information-on-unbounce-landing-pages'
   },
   {
-    from: [],
-    to: '/tutorials/get-user-information-with-unbounce-landing-pages'
-  },
-  {
     from: ['/users/guides/link-user-accounts'],
     to: '/users/link-user-accounts'
   },
@@ -3500,7 +3552,7 @@ module.exports = [
     to: '/users/read-metadata'
   },
   {
-    from: ['/tutorials/redirecting-users','/users/redirecting-users','/users/redirecting-users','/tutorials/redirecting-users','/users/guides/redirect-users-after-login','/protocols/oauth2/redirect-users'],
+    from: ['/tutorials/redirecting-users','/users/redirecting-users','/users/guides/redirect-users-after-login','/protocols/oauth2/redirect-users'],
     to: '/users/redirect-users-after-login'
   },
   {
@@ -3658,61 +3710,6 @@ module.exports = [
   {
     from: ['/users/guides/get-user-information-with-unbounce-landing-pages'],
     to: '/users/get-user-information-on-unbounce-landing-pages'
-  },
-
-  /* Logs */
-
-  {
-    from: ['/logs/streams'],
-    to: '/logs/export-log-events-with-log-streaming'
-  },
-  {
-    from: ['/logs/streams/http-event-to-slack'],
-    to: '/logs/export-log-events-with-log-streaming/stream-auth0-log-events-to-slack'
-  },
-  {
-    from: ['/logs/streams/http-event'],
-    to: '/logs/export-log-events-with-log-streaming/stream-http-event-logs'
-  },
-  {
-    from: ['/logs/streams/aws-eventbridge','/integrations/aws-eventbridge','/logs/streams/amazon-eventbridge'],
-    to: '/logs/export-log-events-with-log-streaming/stream-logs-to-amazon-eventbridge'
-  },
-  {
-    from: ['/logs/streams/azure-event-grid'],
-    to: '/logs/export-log-events-with-log-streaming/stream-logs-to-azure-event-grid'
-  },
-  {
-    from: ['/logs/streams/datadog'],
-    to: '/logs/export-log-events-with-log-streaming/stream-logs-to-datadog'
-  },
-  {
-    from: ['/monitoring/guides/send-events-to-splunk','/monitoring/guides/send-events-to-keenio','/monitoring/guides/send-events-to-segmentio'],
-    to: '/logs/export-log-events-with-rules'
-  },
-  {
-    from: ['/logs/references/log-data-retention'],
-    to: '/logs/log-data-retention'
-  },
-  {
-    from: ['/logs/references/log-event-filters'],
-    to: '/logs/log-event-filters'
-  },
-  {
-    from: ['/logs/references/log-event-data','/logs/references/log-event-type-codes'],
-    to: '/logs/log-event-type-codes'
-  },
-  {
-    from: ['/logs/references/query-syntax','/logs/query-syntax'],
-    to: '/logs/log-search-query-syntax'
-  },
-  {
-    from: ['/logs/guides/retrieve-logs-mgmt-api'],
-    to: '/logs/retrieve-log-events-using-mgmt-api'
-  },
-  {
-    from: ['/logs/guides/view-log-data-dashboard'],
-    to: '/logs/view-log-events-in-the-dashboard'
   },
 
 ];
