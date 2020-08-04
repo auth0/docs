@@ -3236,10 +3236,6 @@ module.exports = [
     to: '/tokens/delegation-tokens'
   },
   {
-    from: ['/tokens/guides/use-refresh-token-rotation'],
-    to: '/tokens/access-tokens/refresh-tokens/refresh-token-rotation/use-refresh-token-rotation'
-  },
-  {
     from: ['/api/management/v2/get-access-tokens-for-production'],
     to: '/tokens/management-api-access-tokens/get-management-api-access-tokens-for-production'
   },
