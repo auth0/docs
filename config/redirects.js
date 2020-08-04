@@ -32,21 +32,10 @@ module.exports = [
 
   /* MISCELLANEOUS AND OUTDATED */
 
-  {
-    from: '/deployment',
-    to: '/overview/deployment-models'
-  },
-  {
-    from: '/java-overview',
-    to: '/dev-centers/java'
-  },
+
   {
     from: ['/firebaseapi-tutorial','/salesforcesandboxapi-tutorial','/salesforceapi-tutorial','/sapapi-tutorial','/clients/addons','/applications/addons'],
     to: '/addons'
-  },
-  {
-    from: '/phonegap-plugin-tutorial',
-    to: '/native-platforms/cordova'
   },
   {
     from: '/topics/identity-glossary',
@@ -57,41 +46,13 @@ module.exports = [
     to: '/onboarding/enterprise-support'
   },
   {
-    from: ['/i18n/i18n-custom-login-page'],
-    to: '/i18n'
-},
-{
-    from: ['/i18n/password-options', '/i18n/password-strength'],
-    to: '/i18n/password-options-translation'
-},
-{
     from: ['/compliance'],
     to: '/compliance-and-certifications'
-},
-{
+  },
+  {
     from: ['/deploy/checklist'],
     to: '/deploy/deploy-checklist'
-},
-{
-    from: ['/login/embedded'],
-    to: '/login/embedded-login'
-},
-{
-    from: ['/dev-lifecycle/local-testing-and-development'],
-    to: '/development-lifecycle/work-with-auth0-locally'
-},
-{
-    from: ['/dev-lifecycle/setting-up-env'],
-    to: '/development-lifecycle/set-up-multiple-environments'
-},
-{
-    from: ['/dashboard/guides/applications/view-app-type-confidential-public'],
-    to: '/applications/check-an-applications-confidential-or-public-authentication-method'
-},
-{
-    from: ['/authorization/guides/manage-users'],
-    to: '/authorization/rbac-users'
-},
+  },
 
   /* QUICKSTARTS */
 
@@ -1046,7 +1007,6 @@ module.exports = [
     to: '/applications/wildcards-for-subdomains'
   },
 
-
   /* Authorization */
 
   {
@@ -1173,6 +1133,10 @@ module.exports = [
     from: ['/api-auth/tutorials/client-credentials/customize-with-hooks','/api-auth/grant/using-rules'],
     to: '/authorization/customize-tokens-using-hooks-with-client-credentials-flow'
   },
+  {
+    from: ['/authorization/guides/manage-users'],
+    to: '/authorization/rbac-users'
+  }, 
 
   /* Best Practices */
 
@@ -1316,6 +1280,17 @@ module.exports = [
   {
     from: ['/custom-domains/additional-configuration'],
     to: '/custom-domains/configure-features-to-use-custom-domains'
+  },
+
+  /* Dev Lifecycle */
+
+  {
+    from: ['/dev-lifecycle/local-testing-and-development'],
+    to: '/dev-lifecycle/work-with-auth0-locally'
+  },
+  {
+    from: ['/dev-lifecycle/setting-up-env'],
+    to: '/dev-lifecycle/set-up-multiple-environments'
   },
 
   /* Email Services */
@@ -2035,6 +2010,17 @@ module.exports = [
     to: '/integrations/azure-api-management'
   },
 
+  /* Internationalization */
+
+  {
+    from: ['/i18n/i18n-custom-login-page'],
+    to: '/i18n'
+  },
+  {
+    from: ['/i18n/password-options', '/i18n/password-strength'],
+    to: '/i18n/password-options-translation'
+  },
+
   /* LDAP Connector */
 
   {
@@ -2139,6 +2125,13 @@ module.exports = [
   {
     from: ['/tutorials/local-testing-and-development','/local-testing-and-development'],
     to: 'libraries/secure-local-development'
+  },
+
+  /* Login */
+
+  {
+    from: ['/login/embedded'],
+    to: '/login/embedded-login'
   },
 
   /* Logout */
@@ -2475,7 +2468,7 @@ module.exports = [
   /* Private Cloud */
 
   {
-    from: ['/appliance/checksum','/appliance/proxy-updater','/appliance/update','/updating-appliance','/enterprise/private-cloud/overview','/appliance/dashboard/instrumentation','/appliance/instrumentation'],
+    from: ['/appliance/checksum','/appliance/proxy-updater','/appliance/update','/updating-appliance','/enterprise/private-cloud/overview','/appliance/dashboard/instrumentation','/appliance/instrumentation','/overview/deployment-models','/deployment'],
     to: '/private-cloud'
   },
   {
