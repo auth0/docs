@@ -165,14 +165,14 @@ articles:
           - title: Cross-Origin Authentication
             url: /login/embedded-login/cross-origin-authentication
       - title: Authentication Flows
-        url: /authorization/flows
+        url: /flows
         children:
           - title: Regular Web App
-            url: /authorization/flows/add-login-auth-code-flow
+            url: /flows/add-login-auth-code-flow
           - title: Single-Page App
-            url: /authorization/flows/add-login-using-the-implicit-flow-with-form-post
+            url: /flows/add-login-using-the-implicit-flow-with-form-post
           - title: Native App
-            url: /authorization/flows/add-login-using-the-authorization-code-flow-with-pkce
+            url: /flows/add-login-using-the-authorization-code-flow-with-pkce
       - title: Multi-factor Authentication
         url: /mfa
         children:
@@ -299,16 +299,16 @@ articles:
     url: /authorization
     children:
       - title: Authorization Flows
-        url: /authorization/flows
+        url: /flows
         children:
           - title: Authorization Code
-            url: /authorization/flows/call-your-api-using-the-authorization-code-flow
+            url: /flows/call-your-api-using-the-authorization-code-flow
           - title: Authorization Code with PKCE
-            url: /authorization/flows/call-your-api-using-the-authorization-code-flow-with-pkce
+            url: /flows/call-your-api-using-the-authorization-code-flow-with-pkce
           - title: Client Credentials
-            url: /authorization/flows/call-your-api-using-the-client-credentials-flow
+            url: /flows/call-your-api-using-the-client-credentials-flow
           - title: Device Authorization
-            url: /authorization/flows/call-your-api-using-the-device-authorization-flow
+            url: /flows/call-your-api-using-the-device-authorization-flow
       - title: Role-based Access Control (RBAC)
         url: /authorization/rbac
       - title: Authorization Policies
