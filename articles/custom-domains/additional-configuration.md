@@ -57,8 +57,8 @@ If you use [Auth0.js](/libraries/auth0js) on the Universal Login page, you must 
 
 ```js
 var webAuth = new auth0.WebAuth({
-  clientID: config.clientID, 
-  domain: config.auth0Domain, 
+  clientID: config.clientID,
+  domain: config.auth0Domain,
   //code omitted for brevity
   overrides: {
   	__tenant: config.auth0Tenant,
@@ -74,10 +74,10 @@ For most, the Auth0.js and Lock libraries retrieve the tenant name (required for
 
 ## Embedded Lock
 
-If you use [Lock](/libraries/lock) v11 embedded in your application, you must update the code to use your custom domain when initializing Lock. You will also need to set the `configurationBaseUrl` to the appropriate CDN URL. 
+If you use [Lock](/libraries/lock) v11 embedded in your application, you must update the code to use your custom domain when initializing Lock. You will also need to set the `configurationBaseUrl` to the appropriate CDN URL.
 
 ::: note
-The CDN URL varies by region. Tenants created before 11 June 2020 should use `https://cdn.auth0.com` if the region is the United States, or add `eu` or `au` for Europe or Australia. If your tenant was created after 11 June 2020, use `https://cdn.us.auth0.com` if the region is the United States. 
+The CDN URL varies by region. Tenants created before 11 June 2020 should use `https://cdn.auth0.com` if the region is the United States, or add `eu` or `au` for Europe or Australia. If your tenant was created after 11 June 2020, use `https://cdn.us.auth0.com` if the region is the United States.
 :::
 
 ```js
@@ -114,7 +114,7 @@ Note that the Management API only accepts Auth0 domains. If you use a custom dom
 
 ## Use custom domains in emails
 
-If you want to use your custom domain with your Auth0 emails, you must enable this feature. 
+If you want to use your custom domain with your Auth0 emails, you must enable this feature.
 
 Go to [Dashboard > Tenant Settings > Custom Domains](${manage_url}/#/tenant/custom_domains), and enable the **Use Custom Domain in Emails** toggle. When the toggle is green, this feature is enabled.
 
@@ -127,7 +127,7 @@ If you want to use your custom domain with social identity providers, you must u
 ::: warning
 You cannot use [Auth0 developer keys](/connections/social/devkeys) with custom domains unless you are using the [New Universal Login Experience](/universal-login/new).
 :::
-  
+
 ## Configure G Suite connections
 
 If you want to use your custom domain with G Suite connections, you must update the Authorized redirect URI in your OAuth Client Settings. In the Google Developer Console, go to **Credentials**, choose your OAuth client in the list, and you will see a settings page with the app Client ID, secret, and other fields. In the **Authorized redirect URIs** field, add a URL in the format `https://<YOUR-CUSTOM-DOMAIN>/login/callback` that includes your custom domain (such as `https://login.northwind.com/login/callback`).
@@ -137,7 +137,7 @@ If you want to use your custom domain with G Suite connections, you must update 
 If you use Auth0 with a custom domain to issue Access Tokens for your APIs, you must validate the JWT issuer(s) against your custom domain. For example, if you use the [express-jwt](https://github.com/auth0/express-jwt) middleware, you must make the following change:
 
 ```js
-app.use(jwt({ 
+app.use(jwt({
   issuer: 'https://<YOUR-CUSTOM-DOMAIN>',
   algorithms: ["RS256"],
   //code omitted for brevity

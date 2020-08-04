@@ -1,12 +1,12 @@
 ---
 title: Custom Domains
-description: Understand how Auth0 custom domains work so that you can map your tenant domain to a domain of your choosing instead of redirecting users to Auth0's domain. 
+description: Understand how Auth0 custom domains work so that you can map your tenant domain to a domain of your choosing instead of redirecting users to Auth0's domain.
 topics:
   - custom-domains
   - whitelisting
   - custom-domain features
   - certificates
-contentType: 
+contentType:
   - index
   - concept
 useCase: customize-domains
@@ -17,11 +17,11 @@ useCase: customize-domains
 
 Auth0 allows you to map the domain for your tenant to **one custom domain** of your choosing. This allows you to maintain a consistent experience for your users by keeping them on your domain instead of redirecting or using Auth0's domain. You must register and own the domain name to which you are mapping your Auth0 domain. For example, if your Auth0 domain is **northwind.auth0.com**, you can have your users to see, use, and remain on **login.northwind.com**.
 
-We recommend that you use custom domains with Universal Login for the most seamless and secure experience for your users. See [Universal Login](/universal-login) to determine if your use case requires custom domains. 
+We recommend that you use custom domains with Universal Login for the most seamless and secure experience for your users. See [Universal Login](/universal-login) to determine if your use case requires custom domains.
 
 ## Token issuance
 
-Auth0 issues tokens with the **iss** claim of whichever domain you used with the request. For example: 
+Auth0 issues tokens with the **iss** claim of whichever domain you used with the request. For example:
 
 | If you use | **iss** claim value with custom domain |
 | -- | -- |
@@ -85,7 +85,7 @@ Features not in the list are **not supported** by Auth0 with custom domains.
 
 ### Auth0-managed certificates
 
-With the [Auth0-managed certificate approach](/custom-domains/auth0-managed-certificates), Auth0 uses **Let’s Encrypt** to get certificates for your domain and then manages the SSL handshake directly with the client.
+With the [Auth0-managed certificate approach](/custom-domains/auth0-managed-certificates), Auth0 obtains certificates for your domain and then manages the SSL handshake directly with the client.
 
 ### Self-managed certificates
 

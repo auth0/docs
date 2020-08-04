@@ -1,11 +1,11 @@
 ---
 title: Troubleshoot Custom Domains
-description: Learn how to troubleshoot issues with custom domains. 
+description: Learn how to troubleshoot issues with custom domains.
 topics:
   - custom-domains
   - certificates
 contentType: reference
-useCase: 
+useCase:
   - configure-customize-domains
   - configure-auth0-managed-certificates
 ---
@@ -56,7 +56,7 @@ When both the Auth0 domain and the app domain are in the same trusted or local i
 
 If you see any of these errors and you are using Embedded Login, you can move one of the sites out of the trusted or local intranet zone. To do this:
 
-1. Go to **Internet Options > Security**. 
+1. Go to **Internet Options > Security**.
 2. Select the **Local Intranet Zone** tab and go to Sites > Advanced. Add your domain.
 3. Return to the **Security** tab, and make sure the proper zone has been selected.
 4. Click **Custom Level** and look for **Access data sources across domains** under the **Miscellaneous** section. Check the radio button next to **Enable.**.

@@ -15,7 +15,7 @@ useCase:
 
 <%= include('./_subscription') %>
 
-If you want Auth0 to manage the certificates for your custom domain, you only need to add a CNAME record on the domain. Auth0 validates the record and then generates the certificate on Auth0 servers using Let’s Encrypt. These certificates are renewed automatically every three months. You can configure this easily, and you won't have to maintain the certificates yourself. 
+If you want Auth0 to manage the certificates for your custom domain, you only need to add a CNAME record on the domain. Auth0 validates the record and then generates the certificate on Auth0 servers. These certificates are renewed automatically every three months. You can configure this easily, and you won't have to maintain the certificates yourself.
 
 To set up your custom domain using Auth0-managed certificates, you must provide your domain name to Auth0 and verify that you own that domain. Once verified, you will need to configure your Auth0 features to start using your custom domain.
 
@@ -23,7 +23,7 @@ To set up your custom domain using Auth0-managed certificates, you must provide 
 
 ## Verify ownership
 
-Before you can use the domain with Auth0, you'll need to verify that you own it. 
+Before you can use the domain with Auth0, you'll need to verify that you own it.
 
 1. Go to [Dashboard > Tenant Settings](${manage_url}/#/tenant), and add the CNAME verification record listed in the Dashboard to your domain's DNS record.
 
