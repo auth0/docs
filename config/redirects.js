@@ -33,16 +33,12 @@ module.exports = [
   /* MISCELLANEOUS AND OUTDATED */
 
   {
-    from: ['/firebaseapi-tutorial','/salesforcesandboxapi-tutorial','/salesforceapi-tutorial','/sapapi-tutorial','/clients/addons','/applications/addons'],
+    from: ['/firebaseapi-tutorial','/salesforcesandboxapi-tutorial','/salesforceapi-tutorial','/sapapi-tutorial','/clients/addons','/applications/addons','/addons/azure-blob-storage','/addons/azure-mobile-services','/addons/azure-sb'],
     to: '/addons'
   },
   {
     from: '/topics/identity-glossary',
     to: '/glossary'
-  },
-  {
-    from: ['/enterprise-support','/onboarding/appliance-outage'],
-    to: '/onboarding/enterprise-support'
   },
   {
     from: ['/compliance'],
@@ -1370,7 +1366,7 @@ module.exports = [
     to: '/extensions/authorization-extension/troubleshoot-authorization-extension'
   },
   {
-    from: ['/extensions/delegated-admin/v3'],
+    from: ['/extensions/delegated-admin/v3','/extensions/delegated-admin/'],
     to: '/extensions/delegated-administration-extension'
   },
   {
@@ -1450,7 +1446,7 @@ module.exports = [
     to: '/extensions/account-link-extension'
   },
   {
-    from: ['/extensions/adldap-connector'],
+    from: ['/extensions/adldap-connector','/connector/overview'],
     to: '/extensions/ad-ldap-connector'
   },
   {
@@ -1648,7 +1644,7 @@ module.exports = [
     to: '/get-started'
   },
   {
-    from: ['/dashboard'],
+    from: ['/dashboard','/getting-started/dashboard-overview'],
     to: '/get-started/dashboard'
   },
   {
@@ -1714,6 +1710,10 @@ module.exports = [
   {
     from: ['/api/management/guides/applications/rotate-client-secret'],
     to: '/get-started/dashboard/rotate-client-secret'
+  },
+  {
+    from: ['/getting-started/create-tenant'],
+    to: '/get-started/learn-the-basics'
   },
 
   /* Hooks */
@@ -2106,7 +2106,7 @@ module.exports = [
     to: '/libraries/lock-swift/lock-swift-logging'
   },
   {
-    from: ['/libraries/lock-ios/sms-lock-ios','/libraries/lock-ios/v1/sms-lock-ios','/libraries/lock-ios/touchid-authentication','/libraries/lock-ios/v1/touchid-authentication'],
+    from: ['/libraries/lock-ios/sms-lock-ios','/libraries/lock-ios/v1/sms-lock-ios','/libraries/lock-ios/touchid-authentication','/libraries/lock-ios/v1/touchid-authentication','/libraries/lock-ios/passwordless'],
     to: '/libraries/lock-swift/lock-swift-passwordless'
   },
   {
@@ -2129,6 +2129,11 @@ module.exports = [
     from: ['/libraries/lock-android/v1/refresh-jwt-tokens'],
     to: '/libraries/lock-android/lock-android-refresh-jwt'
   },
+  {
+    from: ['/libraries/lock-android/passwordless'],
+    to: '/libraries/lock-android/lock-android-passwordless'
+  },
+
 
   /* Login */
 
@@ -2162,6 +2167,10 @@ module.exports = [
 
   /* Logs */
 
+  {
+    from: ['/logs/concepts/logs-admins-devs'],
+    to: '/logs'
+  },
   {
     from: ['/logs/streams'],
     to: '/logs/export-log-events-with-log-streaming'
@@ -2199,7 +2208,7 @@ module.exports = [
     to: '/logs/log-event-filters'
   },
   {
-    from: ['/logs/references/log-event-data','/logs/references/log-event-type-codes'],
+    from: ['/logs/references/log-event-data','/logs/references/log-events-data','/logs/references/log-event-type-codes'],
     to: '/logs/log-event-type-codes'
   },
   {
@@ -2413,7 +2422,7 @@ module.exports = [
     to: '/policies/dashboard-authentication-policy'
   },
   {
-    from: ['/policies/data-export'],
+    from: ['/policies/data-export','/policies/data-transfer'],
     to: '/policies/data-export-and-transfer-policy'
   },
   {
@@ -2475,7 +2484,7 @@ module.exports = [
     to: '/private-cloud'
   },
   {
-    from: ['/services/private-cloud-configuration','/services/private-saas-configuration','/private-saas-deployment/onboarding','/private-saas-deployment/onboarding/private-cloud','/private-cloud/onboarding','/private-cloud/onboarding/private-cloud'], 
+    from: ['/services/private-cloud-configuration','/services/private-saas-configuration','/private-saas-deployment/onboarding','/private-saas-deployment/onboarding/private-cloud','/private-cloud/onboarding','/private-cloud/onboarding/private-cloud','/enterprise-support','/onboarding/appliance-outage','/onboarding/enterprise-support'], 
     to: '/private-cloud/private-cloud-onboarding'
   },
   {
@@ -3125,7 +3134,7 @@ module.exports = [
     to: '/support/open-and-manage-support-tickets'
   },
   {
-    from: ['/tutorials/delete-reset-tenant'],
+    from: ['/tutorials/delete-reset-tenant','/policies/restore-deleted-tenant'],
     to: '/support/delete-or-reset-tenant'
   },
 
@@ -3429,8 +3438,56 @@ module.exports = [
     to: '/universal-login/configure-universal-login-with-passwordless'
   },
   {
+    from: ['/universal-login/text-customization-prompts/common'],
+    to: '/universal-login/prompt-common'
+  },
+  {
     from: ['/universal-login/text-customization-prompts/consent'],
     to: '/universal-login/prompt-consent'
+  },
+  {
+    from: ['/universal-login/text-customization-prompts/device-flow'],
+    to: '/universal-login/prompt-device-flow'
+  },
+  {
+    from: ['/universal-login/text-customization-prompts/email-verification'],
+    to: '/universal-login/prompt-email-verification'
+  },
+  {
+    from: ['/universal-login/text-customization-prompts/login'],
+    to: '/universal-login/prompt-login'
+  },
+  {
+    from: ['/universal-login/text-customization-prompts/mfa'],
+    to: '/universal-login/prompt-mfa'
+  },
+  {
+    from: ['/universal-login/text-customization-prompts/mfa-email'],
+    to: '/universal-login/prompt-mfa-email'
+  },
+  {
+    from: ['/universal-login/text-customization-prompts/mfa-otp'],
+    to: '/universal-login/prompt-mfa-otp'
+  },
+  {
+    from: ['/universal-login/text-customization-prompts/mfa-push'],
+    to: '/universal-login/prompt-mfa-push'
+  },
+  {
+    from: ['/universal-login/text-customization-prompts/mfa-recovery-code'],
+    to: '/universal-login/prompt-mfa-recovery-code'
+  },
+  {
+    from: ['/universal-login/text-customization-prompts/mfa-sms'],
+    to: '/universal-login/prompt-mfa-sms'
+  },
+  {
+    from: ['/universal-login/text-customization-prompts/reset-password'],
+    to: '/universal-login/prompt-reset-password'
+  },
+  {
+    from: ['/universal-login/text-customization-prompts/signup'],
+    to: '/universal-login/prompt-signup'
   },
   {
     from: ['/guides/login/universal-vs-embedded','/guides/login/centralized-vs-embedded'],

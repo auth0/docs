@@ -161,7 +161,7 @@ articles:
           - title: Lock for Web
             url: /libraries/lock
           - title: Auth0.js
-            url: /libraries/auth0js-v9-reference
+            url: /libraries/auth0js
           - title: Cross-Origin Authentication
             url: /login/embedded-login/cross-origin-authentication
       - title: Authentication Flows
@@ -514,11 +514,11 @@ articles:
             url: /users/search/v3/migrate-search-v2-v3
             hidden: true
       - title: User Search
-        url: /users/search/v2
+        url: /users/user-search
         hidden: true
         children:
           - title: Query Syntax
-            url: /users/search/v2/query-syntax
+            url: /users/user-search/user-search-query-syntax
             hidden: true
           - title: Best Practices
             url: /best-practices/user-search-best-practices
