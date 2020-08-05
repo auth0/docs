@@ -2161,7 +2161,7 @@ module.exports = [
     to: '/logout/log-users-out-of-idps'
   },
   {
-    from: ['/logout/guides/logout-saml-idps'],
+    from: ['/protocols/saml/saml-configuration/logout','/logout/guides/logout-saml-idps'],
     to: '/logout/log-users-out-of-saml-idps'
   },
   {
@@ -2649,7 +2649,7 @@ module.exports = [
     to: '/protocols/configure-ws-fed-applications'
   },
   {
-    from: ['/samlp-providers','/protocols/saml/samlp-providers', '/protocols/saml'],
+    from: ['/protocols/saml/saml-apps','/protocols/saml/identity-providers','/samlp-providers','/protocols/saml/samlp-providers', '/protocols/saml'],
     to: '/protocols/saml-protocol'
   },
   {
@@ -2661,7 +2661,7 @@ module.exports = [
     to: '/protocols/state-parameters'
   },
   {
-    from: ['/saml-apps','/protocols/saml/saml-apps','/saml-configuration','/protocols/saml/saml-configuration'],
+    from: ['/protocols/saml/saml-configuration/supported-options-and-bindings','/protocols/saml/saml-configuration/design-considerations','/protocols/saml/saml-configuration-options','/saml-apps','/protocols/saml/saml-apps','/saml-configuration','/protocols/saml/saml-configuration'],
     to: '/protocols/saml-configuration-options'
   },
   {
@@ -2725,7 +2725,7 @@ module.exports = [
     to: '/protocols/saml-configuration-options/configure-saml2-web-app-addon-for-heroku'
   },
   {
-    from: ['/protocols/saml/saml-apps/eloqua'],
+    from: ['/protocols/saml/saml-idp-eloqua','/protocols/saml/saml-apps/eloqua'],
     to: '/protocols/saml-configuration-options/configure-saml2-addon-eloqua'
   },
   {
@@ -2737,7 +2737,7 @@ module.exports = [
     to: '/protocols/saml-configuration-options/configure-siteminder-as-saml-identity-provider'
   },
   {
-    from: ['/ssocircle','/protocols/saml/identity-providers/ssocircle'],
+    from: ['/ssocircle','/saml/identity-providers/ssocircle','/protocols/saml/identity-providers/ssocircle'],
     to: '/protocols/saml-configuration-options/configure-ssocircle-as-saml-identity-provider'
   },
   {
@@ -2771,14 +2771,6 @@ module.exports = [
   {
     from: ['/protocols/saml/samlsso-auth0-to-auth0','/samlsso-auth0-to-auth0'],
     to: '/protocols/saml-configuration-options/test-saml-sso-with-auth0-as-service-and-identity-provider'
-  },
-  {
-    from: ['/protocols/saml/identity-providers/siteminder'],
-    to: '/protocols/saml-configuration-options/configure-siteminder-as-saml-identity-provider'
-  },
-  {
-    from: ['/protocols/saml/identity-providers/ssocircle'],
-    to: '/protocols/saml-configuration-options/configure-ssocircle-as-saml-identity-provider'
   },
   {
     from: ['/protocols/saml/idp-initiated-sso'],
