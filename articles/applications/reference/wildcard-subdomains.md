@@ -18,7 +18,7 @@ You can use wildcards for subdomain URL registration in your application configu
 * **Allowed Web Origins**: List of URLs from where an authorization request using [Cross-Origin Authentication](/cross-origin-authentication), [Device Flow](/flows/guides/device-auth), and [`web_message` as the response mode](/protocols/oauth2#how-response-mode-works) can originate.
 
 ::: warning
-Avoid using wildcards for subdomains in application callbacks and allowed origins as it can make your application vulnerable to attacks. See [Application Settings Best Practices](/best-practices/application-settings) for this and other recommended settings.
+Avoid using wildcards for subdomains in production application callbacks and allowed origins as it can make your application vulnerable to attacks. See [Application Settings Best Practices](/best-practices/application-settings) for this and other recommended settings.
 :::
 
 You can use the star symbol (`*`) as a wildcard for subdomains, but it must be used in accordance with the following rules in order to properly function:
