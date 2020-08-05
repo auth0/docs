@@ -2690,7 +2690,7 @@ module.exports = [
     to: '/protocols/configure-ws-fed-applications'
   },
   {
-    from: ['/protocols/saml/saml-apps','/protocols/saml/identity-providers','/samlp-providers','/protocols/saml/samlp-providers', '/protocols/saml'],
+    from: ['/protocols/saml/saml-apps','/saml-apps','/protocols/saml/identity-providers','/samlp-providers','/protocols/saml/samlp-providers', '/protocols/saml'],
     to: '/protocols/saml-protocol'
   },
   {
@@ -2702,7 +2702,7 @@ module.exports = [
     to: '/protocols/state-parameters'
   },
   {
-    from: ['/protocols/saml/saml-configuration/supported-options-and-bindings','/protocols/saml/saml-configuration/design-considerations','/protocols/saml/saml-configuration-options','/saml-apps','/protocols/saml/saml-apps','/saml-configuration','/protocols/saml/saml-configuration'],
+    from: ['/protocols/saml/saml-configuration/supported-options-and-bindings','/protocols/saml/saml-configuration/design-considerations','/protocols/saml/saml-configuration-options','/saml-configuration','/protocols/saml/saml-configuration'],
     to: '/protocols/saml-configuration-options'
   },
   {
