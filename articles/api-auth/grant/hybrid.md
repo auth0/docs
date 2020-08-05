@@ -1,5 +1,6 @@
 ---
 description: Describes how to call APIs from applications using the Hybrid Flow
+public: false
 topics:
   - authorization-code
   - api-authorization

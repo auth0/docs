@@ -38,7 +38,6 @@ useCase: troubleshooting
 * [Call APIs Using the Authorization Code Flow](/flows/guides/auth-code/call-api-auth-code)
 * [Call APIs Using Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/call-api-auth-code-pkce)
 * [Call APIs Using Device Authorization Flow](/flows/guides/device-auth/call-api-device-auth)
-* [Call APIs Using Hybrid Flow](/api-auth/grant/hybrid)
 * [Call Identity Provider APIs](/connections/calling-an-external-idp-api)
 * [Call APIs with Auth0 Tokens](/api-auth/tutorials/adoption/api-tokens)
 * [Call APIs from Highly Trusted Applications](/api-auth/grant/password)
