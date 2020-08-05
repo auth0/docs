@@ -937,7 +937,7 @@ module.exports = [
     to: '/applications/enable-android-app-links-support'
   },
   {
-    from: ['/dashboard/guides/applications/enable-universal-links','/clients/enable-universal-links','/applications/enable-universal-links','/applications/guides/enable-universal-links-dashboard'],
+    from: ['/dashboard/guides/applications/enable-universal-links','/clients/enable-universal-links','/applications/enable-universal-links','/applications/guides/enable-universal-links-dashboard','/enable-universal-links-support-in-apple-xcode'],
     to: '/applications/enable-universal-links-support-in-apple-xcode'
   },
   {
@@ -949,7 +949,7 @@ module.exports = [
     to: '/applications/set-up-an-application/register-native-applications'
   },
   {
-    from: ['/dashboard/guides/applications/register-app-regular-web','/applications/application-settings/regular-web-app','/applications/webapps'],
+    from: ['/dashboard/guides/applications/register-app-regular-web','/applications/application-settings/regular-web-app','/applications/webapps','/applications/register-regular-web-applications'],
     to: '/applications/set-up-an-application/register-regular-web-applications'
   },
   {
@@ -1386,7 +1386,7 @@ module.exports = [
     to: '/extensions'
   },
   {
-    from: ['/extensions/authorization-extension/v2','/api/authorization-dashboard-extension'],
+    from: ['/extensions/authorization-extension/v2','/api/authorization-dashboard-extension','/extensions/authorization-dashboard-extension'],
     to: '/extensions/authorization-extension'
   },
   {
@@ -1418,11 +1418,11 @@ module.exports = [
     to: '/extensions/authorization-extension/use-rules-with-the-authorization-extension'
   },
   {
-    from: ['/extensions/authorization-extension/v2/troubleshooting'],
+    from: ['/extensions/authorization-extension/v2/troubleshooting','/extensions/authorization-dashboard-extension/troubleshoot-authorization-extension'],
     to: '/extensions/authorization-extension/troubleshoot-authorization-extension'
   },
   {
-    from: ['/extensions/delegated-admin/v3','/extensions/delegated-admin/v2','/extensions/delegated-admin/'],
+    from: ['/extensions/delegated-admin/v3','/extensions/delegated-admin/v2','/extensions/delegated-admin'],
     to: '/extensions/delegated-administration-extension'
   },
   {
@@ -1787,7 +1787,7 @@ module.exports = [
     to: '/hooks'
   },
   {
-    from: '/hooks/concepts/extensibility-points','/hooks/concepts/overview-extensibility-points',
+    from: ['/hooks/concepts/extensibility-points','/hooks/concepts/overview-extensibility-points'],
     to: '/hooks/extensibility-points'
   },
   {
@@ -2170,7 +2170,7 @@ module.exports = [
     to: '/libraries/lock/lock-authentication-modes'
   },
   {
-    from: ['/hrd','/libraries/lock/v11/selecting-the-connection-for-multiple-logins','/protocols/saml/saml-configuration/selecting-between-multiple-idp'],
+    from: ['/hrd','/libraries/lock/v11/selecting-the-connection-for-multiple-logins','/protocols/saml/saml-configuration/selecting-between-multiple-idp','/libraries/lock/v10/selecting-the-connection-for-multiple-logins'],
     to: '/libraries/lock/selecting-from-multiple-connection-options'
   },
   {
@@ -2746,7 +2746,7 @@ module.exports = [
     to: '/protocols/saml-protocol'
   },
   {
-    from: ['/protocols/saml/saml-configuration/troubleshoot','/protocols/saml/saml-configuration/troubleshoot/common-saml-errors','/protocols/saml/saml-configuration/troubleshoot/auth0-as-sp'],
+    from: ['/protocols/saml/saml-configuration/troubleshoot','/protocols/saml/saml-configuration/troubleshoot/common-saml-errors','/protocols/saml/saml-configuration/troubleshoot/auth0-as-sp','/troubleshoot/troubleshoot-saml-configurations'],
     to: '/protocols/saml-protocol/troubleshoot-saml-configurations'
   },
   {
@@ -3270,7 +3270,7 @@ module.exports = [
     to: '/tokens/id-tokens/id-token-structure'
   },
   {
-    from: ['/tokens/guides/validate-id-tokens','/tokens/guides/id-token/validate-id-token'],
+    from: ['/tokens/guides/validate-id-token','/tokens/guides/validate-id-tokens','/tokens/guides/id-token/validate-id-token'],
     to: '/tokens/id-tokens/validate-id-tokens'
   },
   {
@@ -3479,7 +3479,7 @@ module.exports = [
   /* Universal Login */
 
   {
-    from: ['/hosted-pages/hosted-login-auth0js', '/hosted-pages/login/auth0js', '/hosted-pages/login/lock', '/hosted-pages/login/lock-passwordless', '/hosted-pages/hosted-login-auth0js/v7', '/hosted-pages/hosted-login-auth0js/v8', '/hosted-pages/login', '/hosted-pages','/universal-login/customization-new'],
+    from: ['/hosted-pages/hosted-login-auth0js', '/hosted-pages/login/auth0js', '/hosted-pages/login/lock', '/hosted-pages/login/lock-passwordless', '/hosted-pages/hosted-login-auth0js/v7', '/hosted-pages/hosted-login-auth0js/v8', '/hosted-pages/login', '/hosted-pages','/universal-login/customization-new','/login_page'],
     to: '/universal-login'
   },
   {
