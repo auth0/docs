@@ -1104,7 +1104,7 @@ module.exports = [
     to: '/authorization'
   },
   {
-    from: ['/api-auth/restrict-access-api','/api-auth/restrict-requests-for-scopes','/authorization/concepts/sample-use-cases-rules','authorization/restrict-access-api'],
+    from: ['/api-auth/restrict-access-api','/api-auth/restrict-requests-for-scopes','/authorization/concepts/sample-use-cases-rules','/authorization/restrict-access-api'],
     to: '/authorization/sample-use-cases-rules-with-authorization'
   },
   {
