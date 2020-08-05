@@ -37,7 +37,7 @@ For details on how to implement this using Auth0, see [Implement the Resource Ow
 
 A extension grant that offers similar functionality with the **Resource Owner Password Grant**, including the ability to indicate a specific realm, is the `http://auth0.com/oauth/grant-type/password-realm`.
 
-Realms allow you to keep separate user directories and specify which one to use to the token endpoint. For example, you may have an application where both employees and customers can log in but their credentials are kept in separate user directories. You can present a user interface with a dropdown containing `Employees` or `Customers` as realms (which would be connections in [Auth0 dashboard](${manage_url})). The realm value, along with the username and password credentials, will be submitted to the token endpoint. Auth0 will use the realm value to determine which directory (connection) to use when verifying the password.
+Realms allow you to keep separate user directories and specify which one to use to the token endpoint. For example, you may have an application where both employees and customers can log in but their credentials are kept in separate user directories. You can present a user interface with a dropdown containing `Employees` or `Customers` as realms (which would be connections in [Auth0 dashboard](${manage_url}). The realm value, along with the username and password credentials, will be submitted to the token endpoint. Auth0 will use the realm value to determine which directory (connection) to use when verifying the password.
 
 For more information on how to implement this extension grant refer to [Executing a Resource Owner Password Grant > Realm Support](/api-auth/tutorials/password-grant#realm-support).
 

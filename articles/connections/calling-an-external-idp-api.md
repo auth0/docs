@@ -49,7 +49,7 @@ You will need an Access Token to call the [Management API](/api/management/v2).
 
 If this is the first time you are requesting a [Management APIv2 Token](/api/management/v2/tokens), you will need to create and configure an application that can be used to call the Management API:
 
-1. From the [registered Auth0 Management API](${manage_url}/#/apis/management/authorized-clients) in the [Dashboard], click the **API Explorer** tab.
+1. From the [registered Auth0 Management API](${manage_url}/#/apis/management/authorized-clients) in the [Dashboard](${manage_url}), click the **API Explorer** tab.
 
 2. Click **Create & Authorize a Test Application**.
 

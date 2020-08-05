@@ -4,7 +4,7 @@ added:
     tags:
       - impersonation
     description: |
-      A [new document](/users/guides/impersonate-users-using-the-dashboard) was added on how to impersonate users.
+      A new document was added on how to impersonate users (deprecated).
 changed:
   -
     title: "Updated User Profile doc"
@@ -15,7 +15,7 @@ changed:
       - unblock user
       - delete user
     description: |
-      Updated [doc](/users/concepts/overview-user-profile) with sections on how to [impersonate a user](/users/guides/impersonate-users-using-the-dashboard), [block/unblock a user](/user-profile#blocking-and-unblocking-a-user), and [delete a user](/user-profile#deleting-a-user).
+      Updated [doc](/users/concepts/overview-user-profile) with sections on how to impersonate a user (deprecated), [block/unblock a user](/user-profile#blocking-and-unblocking-a-user), and [delete a user](/user-profile#deleting-a-user).
   -
     title: "Updated Custom Extensions doc"
     tags:

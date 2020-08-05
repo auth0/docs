@@ -131,7 +131,7 @@ For this example, we assume that we have already done the following:
 
 | Parameter | Setting |
 | --- | --- |
-| `audience` | Set to the **Identifier** of your API (find it at [API Settings](${manage_url}/#/apis/)). We set ours to `https://my-banking-api`. |
+| `audience` | Set to the **Identifier** of your API (find it at [API Settings](${manage_url}/#/apis/). We set ours to `https://my-banking-api`. |
 | `response_type` | Set to `id_token token` so we get both an ID Token and an Access Token in the response. |
 | `client_id` | Set to the Client ID of your application (find it at [Application Settings](${manage_url}/#/applications/${account.clientId}/settings)). |
 | `redirect_uri` | Set to a URL in your application that Auth0 should redirect back to after authentication (find it at [Application Settings](${manage_url}/#/applications/${account.clientId}/settings)). |

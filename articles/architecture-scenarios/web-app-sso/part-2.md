@@ -85,7 +85,7 @@ For more information on database connections refer to [Database Identity Provide
 
 ### Create an Active Directory / LDAP Connection
 
-Next you need to configure your Active Directory / LDAP connection. Go to the [Auth0 dashboard](${manage_url}) and in the side navigation select the [Connections > Enterprise](${manage_url}/#/connections/enterprise)).
+Next you need to configure your Active Directory / LDAP connection. Go to the [Auth0 dashboard](${manage_url}) and in the side navigation select the [Connections > Enterprise](${manage_url}/#/connections/enterprise).
 
 There you need to create the AD / LDAP connection and install the AD Connector. You can find details in these documents:
 - [How to connect your Active Directory with Auth0](/connections/enterprise/active-directory-ldap)

@@ -69,7 +69,7 @@ Where:
 The application should match the one for which the Refresh Token was issued.
 
 ::: panel Revoke a token without the Client Secret
-For applications that cannot keep the Client Secret safe (e.g., native apps), the [Revoke endpoint](/api/authentication#revoke-refresh-token) supports access without the Client Secret. However, the application itself must have the property `tokenEndpointAuthMethod` set to `none`. You can change the `tokenEndpointAuthMethod` value, either from the UI ([Dashboard > Clients > Application Settings](${manage_url}/#/applications/${account.clientId}/settings)), or using the [Management API](/api/management/v2#!/Clients/patch_clients_by_id).
+For applications that cannot keep the Client Secret safe (e.g., native apps), the [Revoke endpoint](/api/authentication#revoke-refresh-token) supports access without the Client Secret. However, the application itself must have the property `tokenEndpointAuthMethod` set to `none`. You can change the `tokenEndpointAuthMethod` value, either from the UI ([Dashboard > Clients > Application Settings](${manage_url}/#/applications/${account.clientId}/settings), or using the [Management API](/api/management/v2#!/Clients/patch_clients_by_id)).
 :::
 
 If the request is valid, the Refresh Token is revoked, and the response is `HTTP 200`, with an empty response body. Otherwise, the response body contains the error code and description.

@@ -64,7 +64,7 @@ Each revocation request invalidates not only the specific token, but all other t
 
 ### Remarks
 
-- For non-confidential applications that cannot keep the Client Secret safe (for example, native apps), the endpoint supports passing no Client Secret but the application itself must have the property `tokenEndpointAuthMethod` set to `none`. You can do this either from the UI ([Dashboard > Applications > Application Settings](${manage_url}/#/applications)) or using the [Management API](/api/management/v2#!/Applications/patch_applications_by_id).
+- For non-confidential applications that cannot keep the Client Secret safe (for example, native apps), the endpoint supports passing no Client Secret but the application itself must have the property `tokenEndpointAuthMethod` set to `none`. You can do this either from the UI ([Dashboard > Applications > Application Settings](${manage_url}/#/applications) or using the [Management API](/api/management/v2#!/Applications/patch_applications_by_id).
 
 ### Error Codes
 
