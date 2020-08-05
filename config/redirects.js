@@ -1258,56 +1258,53 @@ module.exports = [
     to: '/cms/wordpress-plugin/user-migration-in-login-by-auth0'
   },
 
-  /* Compliance */
+/* Compliance */
 
-  {
-    from: ['/compliance-and-certifications'],
-    to: '/compliance'
-  },
-  {
-    from: ['/compliance/gdpr/data-processing'],
-    to: '/compliance/data-processing'
-  },
-  {
-    from: ['/compliance/gdpr/features-aiding-compliance','/compliance/gdpr/security-advice-for-customers','/compliance/gdpr/roles-responsibilities','/compliance/gdpr/gdpr-summary','/compliance/gdpr/definitions'],
-    to: '/compliance/gdpr'
-  },
-  {
-    from: ['/compliance/gdpr/features-aiding-compliance/user-consent'],
-    to: '/compliance/gdpr/gdpr-conditions-for-consent'
-  },
-  {
-    from: ['/compliance/gdpr/features-aiding-compliance/data-minimization'],
-    to: '/compliance/gdpr/gdpr-data-minimization'
-  },
-  {
-    from: ['/compliance/gdpr/features-aiding-compliance/data-portability'],
-    to: '/compliance/gdpr/gdpr-data-portability'
-  },
-  {
-    from: ['/compliance/gdpr/features-aiding-compliance/protect-user-data'],
-    to: '/compliance/gdpr/gdpr-protect-and-secure-user-data'
-  },
-  {
-    from: ['/compliance/gdpr/features-aiding-compliance/user-consent/webtask-redirect'],
-    to: '/compliance/gdpr/gdpr-redirect-users-consent-form-hosted-webtask'
-  },
-  {
-    from: ['/compliance/gdpr/features-aiding-compliance/right-to-access-data'],
-    to: '/compliance/gdpr/gdpr-right-to-access-correct-and-erase-data'
-  },
-  {
-    from: ['/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-custom-ui'],
-    to: '/compliance/gdpr/gdpr-track-consent-with-custom-ui'
-  },
-  {
-    from: ['/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-lock'],
-    to: '/compliance/gdpr/gdpr-track-consent-with-lock'
-  },
-
-
+{
+  from: ['/compliance-and-certifications'],
+  to: '/compliance'
+},
+{
+  from: ['/compliance/gdpr/data-processing'],
+  to: '/compliance/data-processing'
+},
+{
+  from: ['/compliance/gdpr/features-aiding-compliance','/compliance/gdpr/security-advice-for-customers','/compliance/gdpr/roles-responsibilities','/compliance/gdpr/gdpr-summary','/compliance/gdpr/definitions'],
+  to: '/compliance/gdpr'
+},
+{
+  from: ['/compliance/gdpr/features-aiding-compliance/user-consent'],
+  to: '/compliance/gdpr/gdpr-conditions-for-consent'
+},
+{
+  from: ['/compliance/gdpr/features-aiding-compliance/data-minimization'],
+  to: '/compliance/gdpr/gdpr-data-minimization'
+},
+{
+  from: ['/compliance/gdpr/features-aiding-compliance/data-portability'],
+  to: '/compliance/gdpr/gdpr-data-portability'
+},
+{
+  from: ['/compliance/gdpr/features-aiding-compliance/protect-user-data'],
+  to: '/compliance/gdpr/gdpr-protect-and-secure-user-data'
+},
+{
+  from: ['/compliance/gdpr/features-aiding-compliance/user-consent/webtask-redirect'],
+  to: '/compliance/gdpr/gdpr-redirect-users-consent-form-hosted-webtask'
+},
+{
+  from: ['/compliance/gdpr/features-aiding-compliance/right-to-access-data'],
+  to: '/compliance/gdpr/gdpr-right-to-access-correct-and-erase-data'
+},
+{
+  from: ['/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-custom-ui'],
+  to: '/compliance/gdpr/gdpr-track-consent-with-custom-ui'
+},
+{
+  from: ['/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-lock'],
+  to: '/compliance/gdpr/gdpr-track-consent-with-lock'
+},
   /* Custom Domains */
-
   {
     from: ['/custom-domains/troubleshoot'],
     to: '/custom-domains/troubleshoot-custom-domains'
@@ -3796,26 +3793,24 @@ module.exports = [
     to: '/videos/learn-identity-series/introduction-to-identity'
   },
   {
-    from: ['/videos/learn-identity/02-'],
-    to: '/videos/learn-identity-series/'
+    from: ['/videos/learn-identity/02-oidc-and-oauth'],
+    to: '/videos/learn-identity-series/openid-connect-and-oauth2'
   },
   {
-    from: ['/videos/learn-identity/03-'],
-    to: '/videos/learn-identity-series/'
+    from: ['/videos/learn-identity/03-web-sign-in'],
+    to: '/videos/learn-identity-series/web-sign-in'
   },
   {
-    from: ['/videos/learn-identity/04-'],
-    to: '/videos/learn-identity-series/'
+    from: ['/videos/learn-identity/04-calling-an-api'],
+    to: '/videos/learn-identity-series/calling-an-api'
   },
   {
-    from: ['/videos/learn-identity/05-'],
-    to: '/videos/learn-identity-series/'
+    from: ['/videos/learn-identity/05-desktop-and-mobile-apps'],
+    to: '/videos/learn-identity-series/desktop-and-mobile-apps'
   },
   {
-    from: ['/videos/learn-identity/06-'],
-    to: '/videos/learn-identity-series/'
+    from: ['/videos/learn-identity/06-single-page-apps'],
+    to: '/videos/learn-identity-series/single-page-apps'
   },
-
-
 
 ];
