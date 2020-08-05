@@ -37,6 +37,10 @@ module.exports = [
     to: '/addons'
   },
   {
+    from: '/topics/guides',
+    to: '/'
+  },
+  {
     from: ['/design/web','/design/web-apps-vs-web-apis-cookies-vs-tokens'],
     to: '/design'
   },
@@ -501,7 +505,7 @@ module.exports = [
     to: '/connections/social/aol'
   },
   {
-    from: '/connections/enterprise/azure-active-directory',
+    from: ['/connections/enterprise/azure-active-directory','/connections/social/active-directory','/waad-clientid'],
     to: '/connections/enterprise/azure-active-directory/v2'
   },
   {
@@ -613,10 +617,6 @@ module.exports = [
     to: '/connections/social/vkontakte'
   },
   {
-    from: '/waad-clientid',
-    to: '/connections/enterprise/azure-active-directory'
-  },
-  {
     from: '/weibo-clientid',
     to: '/connections/social/weibo'
   },
@@ -693,8 +693,12 @@ module.exports = [
     to: '/identityproviders'
   },
   {
-    from: '/connections/database/mysql',
+    from: ['/connections/database/mysql','/connections/database/custom-db/custom-db-connection-overview'],
     to: '/connections/database/custom-db'
+  },
+  {
+    from: ['/connections/database/password'],
+    to: '/connections/database/password-options'
   },
   {
     from: ['/tutorials/adding-generic-oauth1-connection','/oauth1'],
@@ -737,7 +741,7 @@ module.exports = [
     to: '/connections/apple-siwa/set-up-apple'
   },
   {
-    from: '/connections/apple-siwa/add-siwa-web-app',
+    from: ['/connections/apple-siwa/add-siwa-web-app','/docs/connections/apple-siwa/add-siwa-to-web-app'],
     to: '/connections/social/apple'
   },
   {
@@ -769,7 +773,7 @@ module.exports = [
     to: '/connections/passwordless/reference/troubleshoot'
   },
   {
-    from: ['/connections/social/miicard','/connections/social'],
+    from: ['/connections/social/miicard','/connections/social','/connections/nativesocial/'],
     to: '/connections/identity-providers-social'
   },
   {
@@ -996,10 +1000,13 @@ module.exports = [
     from: ['/applications/concepts/app-types-first-third-party'],
     to: '/applications/first-party-and-third-party-applications'
   },
-
   {
     from: ['/applications/reference/wildcard-subdomains'],
     to: '/applications/wildcards-for-subdomains'
+  },
+  {
+    from: ['/applications/guides/enable-third-party-applications'],
+    to: '/applications/enable-third-party-applications'
   },
 
   /* Authorization */
@@ -1017,7 +1024,7 @@ module.exports = [
     to: '/authorization/rbac/roles/delete-roles'
   },
   {
-    from: ['/dashboard/guides/roles/edit-role-definitions','/api/management/guides/roles/edit-role-definitions'],
+    from: ['/dashboard/guides/roles/edit-role-definitions','/api/management/guides/roles/edit-role-definitions','/authorization/guides/api/edit-role-definitions'],
     to: '/authorization/rbac/roles/edit-role-definitions'
   },
   {
@@ -1093,11 +1100,11 @@ module.exports = [
     to: '/authorization/authentication-and-authorization-api-faq'
   },
   {
-    from: ['/api-auth','/api-auth/tutorials'],
+    from: ['/api-auth','/api-auth/tutorials','/api/tutorials'],
     to: '/authorization'
   },
   {
-    from: ['/api-auth/restrict-access-api','/api-auth/restrict-requests-for-scopes','/authorization/concepts/sample-use-cases-rules'],
+    from: ['/api-auth/restrict-access-api','/api-auth/restrict-requests-for-scopes','/authorization/concepts/sample-use-cases-rules','authorization/restrict-access-api'],
     to: '/authorization/sample-use-cases-rules-with-authorization'
   },
   {
@@ -1208,11 +1215,11 @@ module.exports = [
     to: '/best-practices/token-best-practices'
   },
   {
-    from: ['/users/references/user-data-storage-best-practices','/users/user-data-storage'],
+    from: ['/users/references/user-data-storage-best-practices','/users/user-data-storage','/user-profile/user-data-storage'],
     to: '/best-practices/user-data-storage-best-practices'
   },
   {
-      from: ['/design/using-auth0-with-multi-tenant-apps','/tutorials/using-auth0-with-multi-tenant-apps','/saas-apps'],
+      from: ['/design/using-auth0-with-multi-tenant-apps','/applications/concepts/multiple-tenants','/tutorials/using-auth0-with-multi-tenant-apps','/saas-apps'],
       to: '/best-practices/multi-tenant-applications-best-practices'
   },
 
@@ -1234,7 +1241,7 @@ module.exports = [
     to: '/cms/joomla-installation'
   },
   {
-    from: ['/cms/wordpress'],
+    from: ['/cms/wordpress','/cms/wordpress/jwt-authentication'],
     to: '/cms/wordpress-plugin'
   },
   {
@@ -1379,7 +1386,7 @@ module.exports = [
     to: '/extensions'
   },
   {
-    from: ['/extensions/authorization-extension/v2'],
+    from: ['/extensions/authorization-extension/v2','/api/authorization-dashboard-extension'],
     to: '/extensions/authorization-extension'
   },
   {
@@ -1622,7 +1629,7 @@ module.exports = [
     to: '/flows/call-your-api-using-resource-owner-password-flow'
   },
   {
-    from: ['/flows/concepts/auth-code','/flows/concepts/regular-web-app-login-flow','/api-auth/grant/authorization-code','/api-auth/tutorials/adoption/authorization-code'],
+    from: ['/flows/concepts/auth-code','/flows/concepts/regular-web-app-login-flow','/api-auth/grant/authorization-code','/api-auth/tutorials/adoption/authorization-code','/api-auth/adoption/authorization-code'],
     to: '/flows/authorization-code-flow'
   },
   {
@@ -1630,11 +1637,11 @@ module.exports = [
     to: '/flows/authorization-code-flow-with-proof-key-for-code-exchange-pkce'
   },
   {
-    from: ['/flows/concepts/client-credentials','/flows/concepts/m2m-flow','/api-auth/grant/client-credentials','/api-auth/tutorials/adoption/client-credentials'],
+    from: ['/flows/concepts/client-credentials','/flows/concepts/m2m-flow','/api-auth/grant/client-credentials','/api-auth/tutorials/adoption/client-credentials','/authorization/flows/client-credential-flow'],
     to: '/flows/client-credentials-flow'
   },
   {
-    from: ['/flows/guides/auth-code/add-login-auth-code','/flows/guides/auth-code/includes/authorize-user-add-login','/flows/guides/auth-code/includes/sample-use-cases-add-login','/flows/guides/auth-code/includes/refresh-tokens','/flows/guides/auth-code/includes/request-tokens','/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow','/oauth-web-protocol', '/protocols/oauth-web-protocol', '/protocols/oauth2/oauth-web-protocol','/application-auth/current/server-side-web'],
+    from: ['/flows/guides/auth-code/add-login-auth-code','/flows/guides/auth-code/includes/authorize-user-add-login','/flows/guides/auth-code/includes/sample-use-cases-add-login','/flows/guides/auth-code/includes/refresh-tokens','/flows/guides/auth-code/includes/request-tokens','/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow','/oauth-web-protocol', '/protocols/oauth-web-protocol', '/protocols/oauth2/oauth-web-protocol','/application-auth/current/server-side-web','/client-auth/server-side-web'],
     to: '/flows/add-login-auth-code-flow'
   },
   {
@@ -1658,7 +1665,7 @@ module.exports = [
     to: '/flows/device-authorization-flow'
   },
   {
-    from: ['/flows/guides/implicit/add-login-implicit','/flows/guides/implicit/includes/sample-use-cases-add-login','/flows/guides/implicit/includes/refresh-tokens','/flows/guides/implicit/includes/request-tokens','/flows/guides/implicit/includes/authorize-user-add-login','/application-auth/current/client-side-web','/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow'],
+    from: ['/flows/guides/implicit/add-login-implicit','/flows/guides/implicit/includes/sample-use-cases-add-login','/flows/guides/implicit/includes/refresh-tokens','/flows/guides/implicit/includes/request-tokens','/flows/guides/implicit/includes/authorize-user-add-login','/application-auth/current/client-side-web','/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow','/client-auth/client-side-web'],
     to: '/flows/add-login-using-the-implicit-flow-with-form-post'
   },
   {
@@ -1685,12 +1692,16 @@ module.exports = [
     to: '/get-started/dashboard/enable-sso-for-legacy-tenants'
   },
   {
-    from: ['/api/management/guides/tenants/configure-session-lifetime-settings'],
+    from: ['/api/management/guides/tenants/configure-session-lifetime-settings','/sso/current/configure-session-lifetime-limits'],
     to: '/get-started/dashboard/configure-session-lifetime-settings'
   },
   {
     from: ['/overview','/get-started/overview','/getting-started','/getting-started/overview'],
     to: '/get-started'
+  },
+  {
+    from: ['/dashboard/reference/views-api'],
+    to: '/get-started/set-up-apis'
   },
   {
     from: ['/overview/deployment-models','/deployment'],
@@ -1733,7 +1744,7 @@ module.exports = [
     to: '/get-started/dashboard/create-sso-dashboard-application'
   },
   {
-    from: ['/dashboard/guides/apis/add-permissions-apis','/api/management/guides/apis/update-permissions-apis'],
+    from: ['/dashboard/guides/apis/add-permissions-apis','/api/management/guides/apis/update-permissions-apis','/scopes/current/guides/define-scopes-using-dashboard','/scopes/current/guides/define-api-scope-dashboard'],
     to: '/get-started/dashboard/add-api-permissions'
   },
   {
@@ -1776,7 +1787,7 @@ module.exports = [
     to: '/hooks'
   },
   {
-    from: '/hooks/concepts/extensibility-points',
+    from: '/hooks/concepts/extensibility-points','/hooks/concepts/overview-extensibility-points',
     to: '/hooks/extensibility-points'
   },
   {
@@ -1804,7 +1815,7 @@ module.exports = [
     to: '/hooks/extensibility-points/post-user-registration'
   },
   {
-    from: ['/hooks/concepts/pre-user-registration-extensibility-point','/hooks/guides/use-the-pre-user-registration-extensibility-point'],
+    from: ['/hooks/concepts/pre-user-registration-extensibility-point','/hooks/guides/use-the-pre-user-registration-extensibility-point','/auth0-hooks/extensibility-points/pre-user-registration'],
     to: '/hooks/extensibility-points/pre-user-registration'
   },
   {
@@ -1898,6 +1909,10 @@ module.exports = [
   /* Integrations */
 
   {
+    from: ['/integration'],
+    to: '/integrations'
+  },
+  {
     from: ['/aws-api-setup'],
     to: '/integrations/how-to-set-up-aws-for-delegated-authentication'
   },
@@ -1950,7 +1965,7 @@ module.exports = [
     to: '/integrations/aws-api-gateway-delegation-5'
   },
   {
-    from: ['/integrations/aws-api-gateway/delegation/secure-api-with-cognito'],
+    from: ['/integrations/aws-api-gateway/delegation/secure-api-with-cognito','/integrations/aws-api-gateway/secure-api-with-cognito'],
     to: '/integrations/aws-api-gateway-cognito'
   },
   {
@@ -2127,12 +2142,20 @@ module.exports = [
   /* Libraries */
 
   {
+    from: '/sdks',
+    to: '/libraries'
+  },
+  {
     from: ['/custom-signup', '/libraries/lock/v10/custom-signup', '/libraries/lock/v11/custom-signup'],
     to: '/libraries/custom-signup'
   },
   {
     from: '/libraries/lock-android/error-messages',
     to: '/libraries/error-messages'
+  },
+  {
+    from: '/errors/libraries/auth0-js/invalid-token',
+    to: '/libraries/common-auth0-library-authentication-errors'
   },
   {
     from: ['/widget','/login-widget2','/lock','/migrations/guides/legacy-lock-api-deprecation','/libraries/lock/v9','/libraries/lock/v9/display-modes','/libraries/lock/v9/types-of-applications','/libraries/lock/v10','/libraries/lock/v10/installation','/libraries/lock/v11','/libraries/lock/using-refresh-tokens','/libraries/lock/using-a-refresh-token'],
@@ -2147,7 +2170,7 @@ module.exports = [
     to: '/libraries/lock/lock-authentication-modes'
   },
   {
-    from: ['/hrd','/libraries/lock/v11/selecting-the-connection-for-multiple-logins'],
+    from: ['/hrd','/libraries/lock/v11/selecting-the-connection-for-multiple-logins','/protocols/saml/saml-configuration/selecting-between-multiple-idp'],
     to: '/libraries/lock/selecting-from-multiple-connection-options'
   },
   {
@@ -2167,12 +2190,20 @@ module.exports = [
     to: '/libraries/lock-swift/lock-swift-customization'
   },
   {
+    from: ['/docs/i18n/i18n-guide-ios'],
+    to: '/libraries/lock-swift/lock-swift-internationalization'
+  },
+  {
     from: ['/auth0js','/libraries/auth0js/v7','/libraries/auth0js/v8','/libraries/auth0js/v9','/libraries/lock/v10/auth0js','/libraries/lock/v11/auth0js','/libraries/auth0js-v9-reference'],
     to: '/libraries/auth0js'
   },
   {
     from: ['/libraries/auth0-android/configuration'],
     to: '/libraries/auth0-android/auth0-android-configuration'
+  },
+  {
+    from: ['/docs/libraries/lock-android/v2/custom-oauth-connections'],
+    to: '/libraries/lock-android/lock-android-custom-authentication-providers'
   },
   {
     from: ['/tutorials/local-testing-and-development','/local-testing-and-development'],
@@ -2183,9 +2214,22 @@ module.exports = [
     to: '/libraries/lock-android/lock-android-refresh-jwt'
   },
   {
-    from: ['/libraries/lock-android/passwordless'],
+    from: ['/docs/libraries/lock-android/custom-fields'],
+    to: '/libraries/lock-android/lock-android-custom-fields-at-signup'
+  },
+  {
+    from: ['/libraries/lock-android/passwordless','/connections/passwordless/android-email'],
     to: '/libraries/lock-android/lock-android-passwordless'
   },
+  {
+    from: ['/docs/i18n/i18n-guide-android'],
+    to: '/libraries/lock-android/lock-android-internationalization'
+  },
+  {
+    from: ['/libraries/auth0-spa-js'],
+    to: '/libraries/auth0-single-page-app-sdk'
+  },
+
 
 
   /* Login */
@@ -2373,7 +2417,7 @@ module.exports = [
     to: '/mfa/troubleshoot-mfa-issues'
   },
   {
-    from: ['/multifactor-authentication/developer/step-up-authentication','/tutorials/step-up-authentication','/tutorials/setup-up-authentication','/multifactor-authentication/step-up-authentication','/mfa/concepts/step-up-authentication'],
+    from: ['/multifactor-authentication/developer/step-up-authentication','/tutorials/step-up-authentication','/tutorials/setup-up-authentication','/multifactor-authentication/step-up-authentication','/mfa/concepts/step-up-authentication','/multifactor-authentication/developer/step-up-with-acr'],
     to: '/mfa/step-up-authentication'
   },
   {
@@ -2389,7 +2433,7 @@ module.exports = [
     to: '/mfa/reset-user-mfa'
   },
   {
-    from: ['/mfa/concepts/guardian'],
+    from: ['/mfa/concepts/guardian','/multifactor-authentication/guardian/dev-guide'],
     to: '/mfa/auth0-guardian'
   },
   {
@@ -2397,7 +2441,7 @@ module.exports = [
     to: '/mfa/auth0-guardian/create-custom-enrollment-tickets'
   },
   {
-    from: ['/multifactor-authentication/developer/libraries/ios','/mfa/guides/guardian/guardian-ios-sdk'],
+    from: ['/multifactor-authentication/developer/libraries/ios','/mfa/guides/guardian/guardian-ios-sdk','/docs/mfa/guides/guardian/configure-guardian-ios'],
     to: '/mfa/auth0-guardian/guardian-for-ios-sdk'
   },
   {
@@ -2425,7 +2469,7 @@ module.exports = [
     to: '/mfa/enable-mfa'
   },
   {
-    from: ['/multifactor-authentication/custom','/mfa/guides/customize-mfa-universal-login'],
+    from: ['/multifactor-authentication/custom','/mfa/guides/customize-mfa-universal-login','/multifactor-authentication/google-auth/dev-guide'],
     to: '/mfa/customize-mfa-user-pages'
   },
   {
@@ -2436,7 +2480,7 @@ module.exports = [
   /* Monitoring */
 
   {
-    from: ['/monitoring','/tutorials/how-to-monitor-auth0'],
+    from: ['/monitoring','/tutorials/how-to-monitor-auth0','/monitoring/how-to-monitor-auth0'],
     to: '/monitor-auth0'
   },
   {
@@ -2479,7 +2523,7 @@ module.exports = [
     to: '/policies/data-export-and-transfer-policy'
   },
   {
-    from: ['/policies/entity-limits'],
+    from: ['/policies/entity-limits','/policies/global-limit'],
     to: '/policies/entity-limit-policy'
   },
   {
@@ -2889,7 +2933,7 @@ module.exports = [
     to: '/rules'
   },
   {
-    from: '/rules/guides/automatically-generate-leads-in-shopify',
+    from: ['/rules/guides/automatically-generate-leads-in-shopify','/rules/guides/automatically-generate-leads-shopify'],
     to: '/rules/automatically-generate-leads-in-shopify'
   },
   {
@@ -2905,7 +2949,7 @@ module.exports = [
     to: '/rules/configure-global-variables-for-rules'
   },
   {
-    from: ['/rules/current/context', '/rules/context', '/rules/references/context-object'],
+    from: ['/rules/current/context', '/rules/context', '/rules/references/context-object','/rules/context-prop-authentication'],
     to: '/rules/context-object'
   },
   {
@@ -2972,7 +3016,7 @@ module.exports = [
   /* Scopes */
 
   {
-    from: ['/scopes/current','/scopes/legacy'],
+    from: ['/scopes/current','/scopes/legacy','/scopes/preview'],
     to: '/scopes'
   },
   {
@@ -2984,7 +3028,7 @@ module.exports = [
     to: '/scopes/customize-consent-prompts'
   },
   {
-    from: ['/scopes/current/oidc-scopes','/api-auth/tutorials/adoption/scope-custom-claims'],
+    from: ['/scopes/current/oidc-scopes','/api-auth/tutorials/adoption/scope-custom-claims','/scopes/oidc-scopes'],
     to: '/scopes/openid-connect-scopes'
   },
   {
@@ -3210,7 +3254,7 @@ module.exports = [
     to: '/tokens/create-namespaced-custom-claims'
   },
   {
-    from: ['/tokens/concepts/idp-access-tokens', '/tokens/overview-idp-access-tokens'],
+    from: ['/tokens/concepts/idp-access-tokens', '/tokens/overview-idp-access-tokens','/tokens/idp'],
     to: '/tokens/identity-provider-access-tokens'
   },
   {
@@ -3262,7 +3306,7 @@ module.exports = [
     to: '/tokens/manage-signing-keys'
   },
   {
-    from: ['/api-auth/tutorials/adoption/refresh-tokens','/refresh-token','/tokens/refresh_token', '/tokens/refresh-token/current','/tokens/concepts/refresh-tokens','/tokens/access-tokens/refresh-tokens'],
+    from: ['/api-auth/tutorials/adoption/refresh-tokens','/refresh-token','/tokens/refresh_token', '/tokens/refresh-token/current','/tokens/concepts/refresh-tokens','/tokens/access-tokens/refresh-tokens','/tokens/preview/refresh-token'],
     to: '/tokens/refresh-tokens'
   },
   {
@@ -3451,7 +3495,7 @@ module.exports = [
     to: '/universal-login/default-login-url'
   },
   {
-    from: ['/universal-login/customization-classic'],
+    from: ['/universal-login/customization-classic','/universal-login/advanced-customization'],
     to: '/universal-login/classic-experience/classic-experience-customization'
   },
   {
@@ -3479,7 +3523,7 @@ module.exports = [
     to: '/universal-login/version-control-universal-login-pages'
   },
   {
-    from: ['/dashboard/guides/universal-login/configure-login-page-passwordless'],
+    from: ['/dashboard/guides/universal-login/configure-login-page-passwordless','/dashboard/guides/connections/configure-passwordless-sms'],
     to: '/universal-login/configure-universal-login-with-passwordless'
   },
   {
@@ -3558,12 +3602,8 @@ module.exports = [
     to: '/users/unlink-devices-from-users'
   },
   {
-    from: ['/user-profile/progressive-profiling','/users/concepts/overview-progressive-profiling'],
+    from: ['/user-profile/progressive-profiling','/users/concepts/overview-progressive-profiling','/users/guides/implement-progressive-profiling'],
     to: '/users/progressive-profiling'
-  },
-  {
-    from: ['/link-accounts/auth-api','/link-accounts','/users/concepts/overview-user-account-linking'],
-    to: '/users/user-account-linking'
   },
   {
     from: ['/users/concepts/overview-user-metadata', '/metadata'],
@@ -3574,7 +3614,7 @@ module.exports = [
     to: '/users/import-and-export-users'
   },
   {
-    from: ['/user-profile','/users/concepts/overview-user-profile'],
+    from: ['/user-profile','/users/concepts/overview-user-profile','/user-profile/user-profile-details'],
     to: '/users/user-profiles'
   },
   {
@@ -3606,7 +3646,7 @@ module.exports = [
     to: '/users/get-user-information-on-unbounce-landing-pages'
   },
   {
-    from: ['/users/guides/link-user-accounts'],
+    from: ['/users/guides/link-user-accounts','/link-accounts/suggested-linking'],
     to: '/users/link-user-accounts'
   },
   {
@@ -3630,7 +3670,7 @@ module.exports = [
     to: '/users/read-metadata'
   },
   {
-    from: ['/tutorials/redirecting-users','/users/redirecting-users','/users/guides/redirect-users-after-login','/protocols/oauth2/redirect-users'],
+    from: ['/tutorials/redirecting-users','/users/redirecting-users','/users/guides/redirect-users-after-login','/protocols/oauth2/redirect-users','/users/concepts/redirect-users-after-login'],
     to: '/users/redirect-users-after-login'
   },
   {
@@ -3642,7 +3682,7 @@ module.exports = [
     to: '/users/unlink-user-accounts'
   },
   {
-    from: ['/users/guides/update-metadata-properties-with-management-api'],
+    from: ['/users/guides/update-metadata-properties-with-management-api','/update-metadata-with-the-management-api'],
     to: '/users/update-metadata-with-the-management-api'
   },
   {
@@ -3690,7 +3730,7 @@ module.exports = [
     to: '/users/bulk-user-import-database-schema-and-examples'
   },
   {
-    from: ['/link-accounts/user-initiated', '/link-accounts/user-initiated-linking','/users/references/link-accounts-user-initiated-scenario','/users/references/link-accounts-client-side-scenario'],
+    from: ['/link-accounts/user-initiated', '/link-accounts/user-initiated-linking','/users/references/link-accounts-user-initiated-scenario','/users/references/link-accounts-client-side-scenario','/user/references/link-accounts-client-side-scenario'],
     to: '/users/user-initiated-account-linking-client-side-implementation'
   },
   {
@@ -3702,7 +3742,7 @@ module.exports = [
     to: '/users/user-data-storage-scenario'
   },
   {
-    from: ['/connections/database/migrating-okta', '/users/migrations/okta','/users/references/user-migration-scenarios'],
+    from: ['/connections/database/migrating-okta', '/users/migrations/okta','/users/references/user-migration-scenarios','/users/migrations'],
     to: '/users/user-migration-scenarios'
   },
   {
@@ -3782,7 +3822,7 @@ module.exports = [
     to: '/users/progressive-profiling'
   },
   {
-    from: ['/link-accounts/auth-api','/link-accounts','/users/concepts/overview-user-account-linking'],
+    from: ['/link-accounts/auth-api','/link-accounts','/users/concepts/overview-user-account-linking','/users/guide/concepts/overview-user-account-linking'],
     to: '/users/user-account-linking'
   },
   {
@@ -3796,6 +3836,10 @@ module.exports = [
 
   /* Videos */
 
+  {
+    from: ['/video-series/main/videos'],
+    to: '/videos'
+  },
   {
     from: ['/videos/learn-identity'],
     to: '/videos/learn-identity-series'
