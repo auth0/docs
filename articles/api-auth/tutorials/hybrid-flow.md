@@ -1,6 +1,7 @@
 ---
 description: Learn how to execute the Hybrid Flow so your app can use an ID token to access information about the user while obtaining an authorization code that can be exchanged for an Access Token. 
 toc: true
+public: false
 topics:
   - api-authentication
   - oidc

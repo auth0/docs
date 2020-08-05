@@ -64,7 +64,6 @@ When the SPA calls multiple APIs that reside in a different domain, access and o
 -  If the SPA backend can handle the API calls, handle tokens server-side using:
     - [Authorization Code Flow](/flows/concepts/auth-code)
     - [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/concepts/auth-code-pkce)
-    - [Hybrid Flow](/api-auth/grant/hybrid)
 
 - If the SPA backend cannot handle the API calls, the tokens should be stored in the SPA backend but the SPA needs to fetch the tokens from the backend to perform requests to the API. A protocol needs to be established between the backend and the SPA to allow the secure transfer of the token from the backend to the SPA.
 
