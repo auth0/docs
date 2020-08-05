@@ -9,17 +9,17 @@
   icon: "icon-budicon-499"
   color: "orange"
   description: "Learn the basics of using Auth0."
-  url: "/getting-started"
+  url: "/get-started"
   articles:
 
     - title: "Create a Tenant"
-      url: "/getting-started/create-tenant"
+      url: "/get-started/learn-the-basics"
     
     - title: "Set Up An App"
-      url: "/getting-started/set-up-app"
+      url: "/get-started/learn-the-basics"
 
     - title: "Add Login"
-      url: "/application-auth/current"
+      url: "/authorization/authentication-and-authorization"
 
 - id: "ui-components"
   title: "Login"
@@ -68,7 +68,7 @@
       url: "/authorization"
 
     - title: "Role-based Access Control"
-      url: "/authorization/concepts/rbac"
+      url: "/authorization/rbac"
 
     - title: "Authorization Extension"
       url: /extensions/authorization-extension
@@ -85,10 +85,10 @@
       url: "/users"
 
     - title: "User Profiles"
-      url: "/users/concepts/overview-user-profile"
+      url: "/users/user-profiles"
 
     - title: "Import & Export Users"
-      url: "/users/concepts/overview-user-migration"
+      url: "/users/import-and-export-users"
 
 - id: "apis"
   title: "APIs"
@@ -99,7 +99,7 @@
   articles:
 
     - title: "API Overview"
-      url: "/api/info"
+      url: "/api"
 
     - title: "Authentication API"
       url: "/api/authentication"
@@ -119,13 +119,13 @@
   articles:
 
     - title: "Introduction to Identity"
-      url: "/videos/learn-identity/01-introduction-to-identity"
+      url: "/videos/learn-identity-series/learn-identity-series/introduction-to-identity"
       
     - title: "OpenID Connect and OAuth2"
-      url: "/videos/learn-identity/02-oidc-and-oauth"
+      url: "/videos/learn-identity-series/openid-connect-and-oauth2"
 
     - title: "Web Sign-In"
-      url: "/videos/learn-identity/03-web-sign-in"
+      url: "/videos/learn-identity-series/web-sign-in"
 
 - id: "extensibility"
   title: "Extensibility"
@@ -136,7 +136,7 @@
   articles:
 
     - title: "Rules"
-      url: "/rules/current"
+      url: "/rules"
 
     - title: "Extensions"
       url: "/extensions"
@@ -149,14 +149,14 @@
   icon: "icon-budicon-399"
   color: "green"
   description: "Guides and tutorials on working with Auth0."
-  url: "/topics/guides"
+  url: "/architecture-scenarios"
   articles:
 
-    - title: "Architecture Scenarios"
-      url: /architecture-scenarios
+    - title: "Private Cloud"
+      url: "/private-cloud"
       
     - title: "Monitoring"
-      url: "/monitoring"
+      url: "/monitor-auth0"
 
     - title: "Deployments"
       url: "/deploy"
