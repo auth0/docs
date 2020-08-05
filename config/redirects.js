@@ -37,6 +37,10 @@ module.exports = [
     to: '/addons'
   },
   {
+    from: ['/design/web','/design/web-apps-vs-web-apis-cookies-vs-tokens'],
+    to: '/design'
+  },
+  {
     from: '/topics/identity-glossary',
     to: '/glossary'
   },
@@ -765,7 +769,7 @@ module.exports = [
     to: '/connections/passwordless/reference/troubleshoot'
   },
   {
-    from: '/connections/social/miicard',
+    from: ['/connections/social/miicard','/connections/social'],
     to: '/connections/identity-providers-social'
   },
   {
@@ -773,7 +777,7 @@ module.exports = [
     to: '/connections/social/line'
   },
   {
-    from: ['/api-auth/passwordless'],
+    from: ['/api-auth/passwordless','/connections/passwordless/ios','/connections/passwordless/native-passwordless-universal','/connections/passwordless/reference/troubleshoot','/connections/passwordless/spa-email-code','/connections/passwordless/spa-email-link','/connections/passwordless/spa-sms','/connections/passwordless/guides/'],
     to: '/connections/passwordless'
   },
 
@@ -859,7 +863,7 @@ module.exports = [
   /* Anomaly Detection */
 
   {
-    from: ['/anomaly-detection/references/anomaly-detection-faqs'],
+    from: ['/anomaly-detection/references/anomaly-detection-faqs','/anomaly-detection/references/breached-password-detection-triggers-actions'],
     to: '/anomaly-detection'
   },
   {
@@ -1366,35 +1370,35 @@ module.exports = [
     to: '/extensions/authorization-extension/troubleshoot-authorization-extension'
   },
   {
-    from: ['/extensions/delegated-admin/v3','/extensions/delegated-admin/'],
+    from: ['/extensions/delegated-admin/v3','/extensions/delegated-admin/v2','/extensions/delegated-admin/'],
     to: '/extensions/delegated-administration-extension'
   },
   {
-    from: ['/extensions/delegated-admin/v3/hooks'],
+    from: ['/extensions/delegated-admin/v3/hooks','/extensions/delegated-admin/v2/hooks','/extensions/delegated-admin/hooks'],
     to: '/extensions/delegated-administration-extension/delegated-administration-hooks'
   },
   {
-    from: ['/extensions/delegated-admin/v3/hooks/access'],
+    from: ['/extensions/delegated-admin/v3/hooks/access','/extensions/delegated-admin/v2/hooks/access','/extensions/delegated-admin/hooks/access'],
     to: '/extensions/delegated-administration-extension/delegated-administration-hooks/delegated-administration-access-hook'
   },
   {
-    from: ['/extensions/delegated-admin/v3/hooks/filter'],
+    from: ['/extensions/delegated-admin/v3/hooks/filter','/extensions/delegated-admin/v2/hooks/filter','/extensions/delegated-admin/hooks/filter'],
     to: '/extensions/delegated-administration-extension/delegated-administration-hooks/delegated-administration-filter-hook'
   },
   {
-    from: ['/extensions/delegated-admin/v3/hooks/membership'],
+    from: ['/extensions/delegated-admin/v3/hooks/membership','/extensions/delegated-admin/v2/hooks/membership','/extensions/delegated-admin/hooks/membership'],
     to: '/extensions/delegated-administration-extension/delegated-administration-hooks/delegated-administration-memberships-query-hook'
   },
   {
-    from: ['/extensions/delegated-admin/v3/hooks/settings'],
+    from: ['/extensions/delegated-admin/v3/hooks/settings','/extensions/delegated-admin/v2/hooks/settings','/extensions/delegated-admin/hooks/settings'],
     to: '/extensions/delegated-administration-extension/delegated-administration-hooks/delegated-administration-settings-query-hook'
   },
   {
-    from: ['/extensions/delegated-admin/v3/hooks/write'],
+    from: ['/extensions/delegated-admin/v3/hooks/write','/extensions/delegated-admin/v2/hooks/write','/extensions/delegated-admin/hooks/write'],
     to: '/extensions/delegated-administration-extension/delegated-administration-hooks/delegated-administration-write-hook'
   },
   {
-    from: ['/extensions/delegated-admin/v3/manage-users'],
+    from: ['/extensions/delegated-admin/v3/manage-users','/extensions/delegated-admin/v2/manage-users','/extensions/delegated-admin/manage-users'],
     to: '/extensions/delegated-administration-extension/delegated-administration-manage-users'
   },
   {
@@ -1446,7 +1450,7 @@ module.exports = [
     to: '/extensions/account-link-extension'
   },
   {
-    from: ['/extensions/adldap-connector','/connector/overview'],
+    from: ['/extensions/adldap-connector','/connector/overview','/connector/considerations-non-ad',],
     to: '/extensions/ad-ldap-connector'
   },
   {
@@ -1849,7 +1853,7 @@ module.exports = [
     to: '/integrations/how-to-set-up-aws-for-delegated-authentication'
   },
   {
-    from: ['/integrations/aws/sso'],
+    from: ['/integrations/aws/sso','/configure-amazon-web-services-for-sso'],
     to: '/integrations/configure-amazon-web-services-for-sso'
   },
   {
@@ -1877,23 +1881,23 @@ module.exports = [
     to: '/integrations/aws-api-gateway-delegation'
   },
   {
-    from: ['/integrations/aws-api-gateway/delegation/part-1','/integrations/aws-api-gateway/part-1'],
+    from: ['/integrations/aws-api-gateway/delegation/part-1','/integrations/aws-api-gateway/part-1','/integrations/aws-api-gateway/aws-api-gateway-step-1'],
     to: '/integrations/aws-api-gateway-delegation-1'
   },
   {
-    from: ['/integrations/aws-api-gateway/delegation/part-2','/integrations/aws-api-gateway/part-2'],
+    from: ['/integrations/aws-api-gateway/delegation/part-2','/integrations/aws-api-gateway/part-2','/integrations/aws-api-gateway/aws-api-gateway-step-2'],
     to: '/integrations/aws-api-gateway-delegation-2'
   },
   {
-    from: ['/integrations/aws-api-gateway/delegation/part-3','/integrations/aws-api-gateway/part-3'],
+    from: ['/integrations/aws-api-gateway/delegation/part-3','/integrations/aws-api-gateway/part-3','/integrations/aws-api-gateway/aws-api-gateway-step-3'],
     to: '/integrations/aws-api-gateway-delegation-3'
   },
   {
-    from: ['/integrations/aws-api-gateway/delegation/part-4','/integrations/aws-api-gateway/part-4'],
+    from: ['/integrations/aws-api-gateway/delegation/part-4','/integrations/aws-api-gateway/part-4','/integrations/aws-api-gateway/aws-api-gateway-step-4'],
     to: '/integrations/aws-api-gateway-delegation-4'
   },
   {
-    from: ['/integrations/aws-api-gateway/delegation/part-5','/integrations/aws-api-gateway/part-5'],
+    from: ['/integrations/aws-api-gateway/delegation/part-5','/integrations/aws-api-gateway/part-5','/integrations/aws-api-gateway/aws-api-gateway-step-5'],
     to: '/integrations/aws-api-gateway-delegation-5'
   },
   {
@@ -2005,7 +2009,7 @@ module.exports = [
     to: '/integrations/sso-integrations/zoom'
   },
   {
-    from: ['/integrations/azure-tutorial','/tutorials/azure-tutorial'],
+    from: ['/integrations/azure-tutorial','/azure-tutorial','/tutorials/azure-tutorial','/integrations/azure-api-management/configure-auth0','/integrations/azure-api-management/configure-azure'],
     to: '/integrations/azure-api-management'
   },
 
@@ -2090,7 +2094,7 @@ module.exports = [
     to: '/libraries/lock/lock-configuration'
   },
   {
-    from: ['/libraries/lock/v10/popup-mode','/libraries/lock/v10/authentication-modes','/libraries/lock/v11/popup-mode','/libraries/lock/v11/authentication-modes'],
+    from: ['/libraries/lock/v10/popup-mode','/libraries/lock/v10/authentication-modes','/libraries/lock/v11/popup-mode','/libraries/lock/v11/authentication-modes','/libraries/lock/authentication-modes'],
     to: '/libraries/lock/lock-authentication-modes'
   },
   {
@@ -2114,7 +2118,7 @@ module.exports = [
     to: '/libraries/lock-swift/lock-swift-customization'
   },
   {
-    from: ['/auth0js','/libraries/auth0js/v7','/libraries/auth0js/v8','/libraries/auth0js/v9','/libraries/lock/v10/auth0js','/libraries/lock/v11/auth0js'],
+    from: ['/auth0js','/libraries/auth0js/v7','/libraries/auth0js/v8','/libraries/auth0js/v9','/libraries/lock/v10/auth0js','/libraries/lock/v11/auth0js','/libraries/auth0js-v9-reference'],
     to: '/libraries/auth0js'
   },
   {
@@ -2126,7 +2130,7 @@ module.exports = [
     to: 'libraries/secure-local-development'
   },
   {
-    from: ['/libraries/lock-android/v1/refresh-jwt-tokens'],
+    from: ['/libraries/lock-android/v1/refresh-jwt-tokens','/libraries/lock-android/refresh-jwt-tokens'],
     to: '/libraries/lock-android/lock-android-refresh-jwt'
   },
   {
@@ -2539,7 +2543,7 @@ module.exports = [
     to: '/product-lifecycle/deprecations-and-migrations/migrate-to-calling-api-with-access-tokens'
   },
   {
-    from: ['/guides/login/migration-embedded-universal','/guides/login/migration-embedded-centralized'],
+    from: ['/guides/login/migration-embedded-universal','/guides/login/migration-embedded-centralized','/guides/login/migrating-lock-v10-webapp','/guides/login/migrating-lock-v9-spa','/guides/login/migrating-lock-v9-spa-popup','/guides/login/migrating-lock-v9-webapp','/guides/login/migration-sso'],
     to: '/product-lifecycle/deprecations-and-migrations/migrate-from-embedded-login-to-universal-login'
   },
   {
@@ -2602,7 +2606,7 @@ module.exports = [
   /* Professional Services */
 
   {
-    from: ['/services','/auth0-professional-services'],
+    from: ['/services','/auth0-professional-services','/services/auth0-advanced','/services/auth0-introduction','/services/discover-and-design','/services/maintain-and-improve','/services/packages'],
     to: '/professional-services'
   },
   {
@@ -2614,7 +2618,7 @@ module.exports = [
     to: '/professional-services/architectural-design-services'
   },
   {
-    from: ['/services/custom-implementation'],
+    from: ['/services/custom-implementation','/services/implement'],
     to: '/professional-services/custom-implementation-services'
   },
   {
@@ -2927,7 +2931,7 @@ module.exports = [
   /* Scopes */
 
   {
-    from: ['/scopes/current'],
+    from: ['/scopes/current','/scopes/legacy'],
     to: '/scopes'
   },
   {
@@ -3233,7 +3237,7 @@ module.exports = [
     to: '/tokens/refresh-tokens/get-refresh-tokens'
   },
   {
-    from: ['/tokens/concepts/refresh-token-rotation'],
+    from: ['/tokens/concepts/refresh-token-rotation','/tokens/access-tokens/refresh-tokens/refresh-token-rotation'],
     to: '/tokens/refresh-tokens/refresh-token-rotation'
   },
   {
@@ -3390,7 +3394,7 @@ module.exports = [
   /* Universal Login */
 
   {
-    from: ['/hosted-pages/hosted-login-auth0js', '/hosted-pages/login/auth0js', '/hosted-pages/login/lock', '/hosted-pages/login/lock-passwordless', '/hosted-pages/hosted-login-auth0js/v7', '/hosted-pages/hosted-login-auth0js/v8', '/hosted-pages/login', '/hosted-pages'],
+    from: ['/hosted-pages/hosted-login-auth0js', '/hosted-pages/login/auth0js', '/hosted-pages/login/lock', '/hosted-pages/login/lock-passwordless', '/hosted-pages/hosted-login-auth0js/v7', '/hosted-pages/hosted-login-auth0js/v8', '/hosted-pages/login', '/hosted-pages','/universal-login/customization-new'],
     to: '/universal-login'
   },
   {
@@ -3549,7 +3553,7 @@ module.exports = [
     to: '/users/configure-automatic-migration-from-your-database'
   },
   {
-    from: ['/tutorials/creating-users-in-the-management-portal','/users/guides/create-users','/creating-users'],
+    from: ['/tutorials/creating-users-in-the-management-portal','/users/guides/create-users','/creating-users','/dashboard/guides/users/create-users'],
     to: '/users/create-users'
   },
   {
