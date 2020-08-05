@@ -49,7 +49,7 @@ Customers with Auth0's free community subscription plan can seek support through
 If you have a free account and your account has been compromised, please post in Community and reach out to us via DM on [Twitter](https://twitter.com/auth0community).
 
 :::panel Trial Subscriptions
-New Auth0 customers receive Standard Support during the 22-day trial period (customers may check on how many trial days they have left by logging into the [Dashboard](${manage_url}).
+New Auth0 customers receive Standard Support during the 22-day trial period (customers may check on how many trial days they have left by logging into the [Dashboard](${manage_url})).
 
 At the end of the trial period, customers who have not opted to purchase a paid subscription can use the [Auth0 Community](${auth0_community}) for assistance. They will no longer be able to access or open tickets in the [Support Center](https://support.auth0.com/).
 :::

@@ -46,7 +46,7 @@ You can access the following common variables when using Liquid Syntax in the **
   * `user.name`
   * `user.app_metadata` - stores information (such as a user's support plan, security <dfn data-key="role">roles</dfn>, or access control groups) that can impact a user's core functionality, such as how an application functions or what the user can access.
   * `user.user_metadata` - stores user attributes (such as user preferences) that do not impact a user's core functionality.
-* Tenant-related information (defined in the [Tenant Settings](${manage_url}/#/tenant):
+* Tenant-related information (defined in the [Tenant Settings](${manage_url}/#/tenant)):
   * `tenant` - the raw tenant name
   * `friendly_name` 
   * `support_email`
