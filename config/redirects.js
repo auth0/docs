@@ -3812,5 +3812,56 @@ module.exports = [
     from: ['/videos/learn-identity/06-single-page-apps'],
     to: '/videos/learn-identity-series/single-page-apps'
   },
-
+  {
+    from: ['/videos/get-started'],
+    to: '/videos/get-started-series'
+  },
+  {
+    from: ['/videos/get-started/01-architecture-your-tenant'],
+    to: '/videos/get-started-series/architect-your-tenant'
+  },
+  {
+    from: ['/videos/get-started/02-provision-user-stores'],
+    to: '/videos/get-started-series/provision-user-stores'
+  },
+  {
+    from: ['/videos/get-started/03-provision-import-users'],
+    to: '/videos/get-started-series/provision-import-users'
+  },
+  {
+    from: ['/videos/get-started/04_01-authenticate-how-it-works'],
+    to: '/videos/get-started-series/authenticate-how-it-works'
+  },
+  {
+    from: ['/videos/get-started/04_02-authenticate-spa-example'],
+    to: '/videos/get-started-series/authenticate-spa-example'
+  },
+  {
+    from: ['/videos/get-started/05_01-authorize-id-tokens-access-control'],
+    to: '/videos/get-started-series/authorize-id-tokens-and-access-control'
+  },
+  {
+    from: ['/videos/get-started/05_02-authorize-get-validate-id-tokens'],
+    to: '/videos/get-started-series/authorize-get-and-validate-id-tokens'
+  },
+  {
+    from: ['/videos/get-started/06-user-profiles'],
+    to: '/videos/get-started-series/learn-user-profiles'
+  },
+  {
+    from: ['/videos/get-started/07_01-brand-how-it-works'],
+    to: '/videos/get-started-series/brand-how-it-works'
+  },
+  {
+    from: ['/videos/get-started/07_02-brand-signuop-login-pages'],
+    to: '/videos/get-started-series/brand-signup-and-login-pages'
+  },
+  {
+    from: ['/videos/get-started/08-brand-emails-error-pages'],
+    to: '/videos/get-started-series/brand-emails-and-error-pages'
+  },
+  {
+    from: ['/videos/get-started/10-logout'],
+    to: '/videos/get-started-series/learn-logout'
+  }
 ];
