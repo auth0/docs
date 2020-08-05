@@ -513,6 +513,10 @@ module.exports = [
     to: '/connections/enterprise/saml'
   },
   {
+    from: ['/connections/enterprise','/connections/enterprise/sharepoint-online','/connections/enterprise/ws-fed'],
+    to: '/connections/enterprise/saml'
+  },
+  {
     from: '/dwolla-clientid',
     to: '/connections/social/dwolla'
   },
@@ -894,10 +898,6 @@ module.exports = [
     to: '/api/authentication'
   },
   {
-    from: ['/api-reference', '/api/v1/reference'],
-    to: '/api/management/v1/reference'
-  },
-  {
     from: ['/apiv2', '/api/v2'],
     to: '/api/management/v2'
   },
@@ -906,7 +906,7 @@ module.exports = [
     to: '/api'
   },
   {
-    from: ['/api/management/v1'],
+    from: ['/api/management/v1','/api-reference','/api/v1/reference','/api/management/v1/reference'],
     to: '/api/management-api-v1-deprecated'
   },
   {
@@ -1041,6 +1041,10 @@ module.exports = [
     to: '/authorization/rbac/roles/create-roles'
   },
   {
+    from: ['/authorization/reference/rbac-limits'],
+    to: '/authorization/rbac/roles/authorization-core-rbac-limits'
+  },
+  {
     from: ['/authorization/concepts/authz-and-authn','/application-auth/current','/application-auth/legacy','/application-auth','/authentication'],
     to: '/authorization/authentication-and-authorization'
   },
@@ -1089,7 +1093,7 @@ module.exports = [
     to: '/authorization/authentication-and-authorization-api-faq'
   },
   {
-    from: ['/api-auth'],
+    from: ['/api-auth','/api-auth/tutorials'],
     to: '/authorization'
   },
   {
@@ -1689,6 +1693,10 @@ module.exports = [
     to: '/get-started'
   },
   {
+    from: ['/overview/deployment-models','/deployment'],
+    to: '/get-started/deployment-options'
+  },
+  {
     from: ['/dashboard','/getting-started/dashboard-overview'],
     to: '/get-started/dashboard'
   },
@@ -1745,7 +1753,7 @@ module.exports = [
     to: '/get-started/dashboard/application-settings'
   },
   {
-    from: ['/dashboard/reference/settings-tenant','/tutorials/dashboard-tenant-settings','/dashboard-account-settings','/dashboard/dashboard-tenant-settings'],
+    from: ['/dashboard/reference/settings-tenant','/tutorials/dashboard-tenant-settings','/dashboard-account-settings','/dashboard/dashboard-tenant-settings','/configure'],
     to: '/get-started/dashboard/tenant-settings'
   },
   {
@@ -1764,7 +1772,7 @@ module.exports = [
   /* Hooks */
 
   {
-    from: ['/hooks/cli','/hooks/dashboard','/hooks/overview'],
+    from: ['/hooks/cli','/hooks/dashboard','/hooks/overview','/auth0-hooks','/auth0-hooks/dashboard'],
     to: '/hooks'
   },
   {
@@ -1776,7 +1784,7 @@ module.exports = [
     to: '/hooks/extensibility-points/client-credentials-exchange'
   },
   {
-    from: ['/hooks/create','/hooks/dashboard/create-delete','/hooks/cli/create-delete','/hooks/guides/create-hooks-using-cli','/hooks/guides/create-hooks-using-dashboard'],
+    from: ['/hooks/create','/hooks/dashboard/create-delete','/hooks/cli/create-delete','/hooks/guides/create-hooks-using-cli','/hooks/guides/create-hooks-using-dashboard','/auth0-hooks/cli/create-delete'],
     to: '/hooks/create-hooks'
   },
   {
@@ -1784,7 +1792,7 @@ module.exports = [
     to: '/hooks/delete-hooks'
   },
   {
-    from: ['/hooks/enable-disable','/hooks/cli/enable-disable','/hooks/dashboard/enable-disable','/hooks/guides/enable-disable-hooks-using-cli','/hooks/guides/enable-disable-hooks-using-dashboard'],
+    from: ['/hooks/enable-disable','/hooks/cli/enable-disable','/hooks/dashboard/enable-disable','/hooks/guides/enable-disable-hooks-using-cli','/hooks/guides/enable-disable-hooks-using-dashboard','/auth0-hooks/cli/enable-disable'],
     to: '/hooks/enable-disable-hooks'
   },
   {
@@ -1824,7 +1832,7 @@ module.exports = [
     to: '/hooks/update-hooks'
   },
   {
-    from: ['/hooks/view-logs','/hooks/cli/logs','/hooks/logs','/hooks/guides/logging-hooks-using-cli'],
+    from: ['/hooks/view-logs','/hooks/cli/logs','/hooks/logs','/hooks/guides/logging-hooks-using-cli','/auth0-hooks/cli/logs'],
     to: '/hooks/view-logs-for-hooks'
   },
   {
@@ -2337,7 +2345,7 @@ module.exports = [
     to: '/mfa/mfa-factors'
   },
   {
-    from: ['/multifactor-authentication/factors/duo','/mfa/guides/configure-cisco-duo'],
+    from: ['/multifactor-authentication/factors/duo','/multifactor-authentication/duo/admin-guide','/mfa/guides/configure-cisco-duo','/multifactor-authentication/duo/dev-guide','/multifactor-authentication/duo/user-guide'],
     to: '/mfa/configure-cisco-duo-for-mfa'
   },
   {
@@ -2525,7 +2533,7 @@ module.exports = [
   /* Private Cloud */
 
   {
-    from: ['/appliance/checksum','/appliance/proxy-updater','/appliance/update','/updating-appliance','/enterprise/private-cloud/overview','/appliance/dashboard/instrumentation','/appliance/instrumentation','/overview/deployment-models','/deployment'],
+    from: ['/appliance/checksum','/appliance/proxy-updater','/appliance/update','/updating-appliance','/enterprise/private-cloud/overview','/appliance/dashboard/instrumentation','/appliance/instrumentation'],
     to: '/private-cloud'
   },
   {
@@ -2553,7 +2561,7 @@ module.exports = [
     to: '/private-cloud/private-cloud-deployments/private-cloud-addon-options'
   },
   {
-    from: ['/private-saas-deployment/custom-domain-migration','/private-cloud/custom-domain-migration'], 
+    from: ['/private-saas-deployment/custom-domain-migration','/private-cloud/custom-domain-migration','/private-cloud/migrate-private-cloud-custom-domains'], 
     to: '/private-cloud/private-cloud-migrations/migrate-private-cloud-custom-domains'
   },
   {
@@ -3108,7 +3116,7 @@ module.exports = [
   /* SSO */
 
   {
-    from: ['/api-auth/tutorials/adoption/single-sign-on','/sso/legacy','/sso/legacy/single-page-apps','/sso/legacy/regular-web-apps-sso','/sso/legacy/single-page-apps-sso','/sso/current/single-page-apps-sso','/sso/current/single-page-apps','/sso/current/sso-auth0','/sso/current/introduction','/sso/single-sign-on','/sso/current'],
+    from: ['/api-auth/tutorials/adoption/single-sign-on','/sso/legacy','/sso/legacy/single-page-apps','/sso/legacy/regular-web-apps-sso','/sso/legacy/single-page-apps-sso','/sso/current/single-page-apps-sso','/sso/current/single-page-apps','/sso/current/sso-auth0','/sso/current/introduction','/sso/single-sign-on','/sso/current','/sso/current/setup'],
     to: '/sso'
   },
   {
@@ -3178,11 +3186,11 @@ module.exports = [
   /* Tokens */
 
   {
-    from: '/security/token-exp',
+    from: ['/security/token-exp','/token','/tokens/concepts'],
     to: '/tokens'
   },
   {
-    from: ['/api-auth/tutorials/adoption/api-tokens','/tokens/concepts/access-tokens','/tokens/overview-access-tokens','/tokens/access-token','/tokens/access_token'],
+    from: ['/api-auth/tutorials/adoption/api-tokens','/tokens/concepts/access-tokens','/tokens/overview-access-tokens','/tokens/access-token','/tokens/access_token','/api-auth/why-use-access-tokens-to-secure-apis','/api-auth/asking-for-access-tokens'],
     to: '/tokens/access-tokens'
   },
   {
@@ -3644,6 +3652,10 @@ module.exports = [
   {
     from: ['/users/guides/view-users'],
     to: '/users/view-users'
+  },
+  {
+    from: ['/users/normalized'],
+    to: '/users/normalized-user-profiles'
   },
   {
     from: ['/users/normalized/auth0/identify-users'],
