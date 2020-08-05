@@ -1898,7 +1898,7 @@ module.exports = [
   },
   {
     from: ['/integrations/aws-api-gateway/delegation/secure-api-with-cognito'],
-    to: '/aws-api-gateway-cognito'
+    to: '/integrations/aws-api-gateway-cognito'
   },
   {
     from: ['/integrations/aws-api-gateway/custom-authorizers', '/integrations/aws-api-gateway/custom-authorizers/part-1', '/integrations/aws-api-gateway/custom-authorizers/part-2', '/integrations/aws-api-gateway/custom-authorizers/part-3', '/integrations/aws-api-gateway/custom-authorizers/part-4'],
@@ -3071,7 +3071,7 @@ module.exports = [
   /* SSO */
 
   {
-    from: ['/api-auth/tutorials/adoption/single-sign-on','/sso/legacy','/sso/legacy/single-page-apps','/sso/legacy/regular-web-apps-sso','/sso/legacy/single-page-apps-sso','/sso/current/single-page-apps-sso','/sso/current/single-page-apps','/sso/current/sso-auth0','/sso/current/introduction','/sso/single-sign-on'],
+    from: ['/api-auth/tutorials/adoption/single-sign-on','/sso/legacy','/sso/legacy/single-page-apps','/sso/legacy/regular-web-apps-sso','/sso/legacy/single-page-apps-sso','/sso/current/single-page-apps-sso','/sso/current/single-page-apps','/sso/current/sso-auth0','/sso/current/introduction','/sso/single-sign-on','/sso/current'],
     to: '/sso'
   },
   {
@@ -3217,7 +3217,7 @@ module.exports = [
     to: '/tokens/manage-signing-keys'
   },
   {
-    from: ['/api-auth/tutorials/adoption/refresh-tokens','/refresh-token','/tokens/refresh_token', '/tokens/refresh-token/current','/tokens/concepts/refresh-tokens'],
+    from: ['/api-auth/tutorials/adoption/refresh-tokens','/refresh-token','/tokens/refresh_token', '/tokens/refresh-token/current','/tokens/concepts/refresh-tokens','/tokens/access-tokens/refresh-tokens'],
     to: '/tokens/refresh-tokens'
   },
   {
@@ -3744,5 +3744,38 @@ module.exports = [
     from: ['/users/guides/get-user-information-with-unbounce-landing-pages'],
     to: '/users/get-user-information-on-unbounce-landing-pages'
   },
+
+  /* Videos */
+
+  {
+    from: ['/videos/learn-identity'],
+    to: '/videos/learn-identity-series'
+  },
+  {
+    from: ['/videos/learn-identity/01-introduction-to-identity'],
+    to: '/videos/learn-identity-series/introduction-to-identity'
+  },
+  {
+    from: ['/videos/learn-identity/02-'],
+    to: '/videos/learn-identity-series/'
+  },
+  {
+    from: ['/videos/learn-identity/03-'],
+    to: '/videos/learn-identity-series/'
+  },
+  {
+    from: ['/videos/learn-identity/04-'],
+    to: '/videos/learn-identity-series/'
+  },
+  {
+    from: ['/videos/learn-identity/05-'],
+    to: '/videos/learn-identity-series/'
+  },
+  {
+    from: ['/videos/learn-identity/06-'],
+    to: '/videos/learn-identity-series/'
+  },
+
+
 
 ];
