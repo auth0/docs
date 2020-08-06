@@ -43,7 +43,7 @@ Register an app in Basecamp and generate credentials for it through the [Basecam
 
 | Field | Value to Provide |
 | - | - |
-| Redirect URI | `${manage_url}.auth0.com/login/callback` |
+| Redirect URI | `https://${account.namespace}/login/callback` |
 | Products | Select the Basecamp products with which you want your app to integrate. |
 
 <%= include('../_find-auth0-domain-redirects') %>
