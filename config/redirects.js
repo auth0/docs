@@ -33,16 +33,16 @@ module.exports = [
   /* MISCELLANEOUS AND OUTDATED */
 
   {
-    from: ['/firebaseapi-tutorial','/salesforcesandboxapi-tutorial','/salesforceapi-tutorial','/sapapi-tutorial','/clients/addons','/applications/addons','/addons/azure-blob-storage','/addons/azure-mobile-services','/addons/azure-sb'],
-    to: '/addons'
+    from: ['/addons','/firebaseapi-tutorial','/salesforcesandboxapi-tutorial','/salesforceapi-tutorial','/sapapi-tutorial','/clients/addons','/applications/addons','/addons/azure-blob-storage','/addons/azure-mobile-services','/addons/azure-sb'],
+    to: '/'
   },
   {
     from: '/topics/guides',
     to: '/'
   },
   {
-    from: ['/design/web','/design/web-apps-vs-web-apis-cookies-vs-tokens'],
-    to: '/design'
+    from: ['/design','/design/web','/design/web-apps-vs-web-apis-cookies-vs-tokens','/design/browser-based-vs-native-experience-on-mobile','/tutorials/browser-based-vs-native-experience-on-mobile'],
+    to: '/'
   },
   {
     from: '/topics/identity-glossary',
@@ -70,6 +70,10 @@ module.exports = [
   {
     from: '/client-platforms/angular2',
     to: '/quickstart/spa/angular2'
+  },
+    {
+    from: '/quickstarts/spa/vanillajs/01-login',
+    to: '/quickstart/spa/vanillajs/01-login'
   },
   {
     from: ['/aspnet-tutorial', '/mvc3-tutorial'],
@@ -741,7 +745,7 @@ module.exports = [
     to: '/connections/apple-siwa/set-up-apple'
   },
   {
-    from: ['/connections/apple-siwa/add-siwa-web-app','/docs/connections/apple-siwa/add-siwa-to-web-app'],
+    from: ['/connections/apple-siwa/add-siwa-web-app','/connections/apple-siwa/add-siwa-to-web-app'],
     to: '/connections/social/apple'
   },
   {
@@ -826,6 +830,14 @@ module.exports = [
     to: '/architecture-scenarios/b2b'
   },
   {
+    from: '/architecture-scenarios/b2b/b2b-authentication',
+    to: '/architecture-scenarios/implementation/b2b/b2b-authentication'
+  },
+    {
+    from: '/architecture-scenarios/b2b/b2b-architecture',
+    to: '/architecture-scenarios/implementation/b2b/b2b-architecture'
+  },
+  {
     from: '/architecture-scenarios/business/b2c',
     to: '/architecture-scenarios/b2c'
   },
@@ -883,7 +895,7 @@ module.exports = [
     to: '/anomaly-detection/automated-attack-and-credential-stuffing-protection'
   },
   {
-    from: ['/anomaly-detection/references/anomaly-detection-restrictions-limitations', '/anomaly-detection/guides/set-anomaly-detection-preferences'],
+    from: ['/anomaly-detection/references/anomaly-detection-restrictions-limitations', '/anomaly-detection/guides/set-anomaly-detection-preferences','/anomaly-detection/guides/enable-disable-brute-force-protection'],
     to: '/anomaly-detection/set-anomaly-detection-preferences'
   },
   {
@@ -929,7 +941,7 @@ module.exports = [
     to: '/applications/dynamic-client-registration'
   },
   {
-    from: ['/applications/concepts/app-types-auth0','/clients','/api-auth/tutorials/adoption/oidc-conformant','/clients/client-types','/applications/application-types'],
+    from: ['/applications/concepts/app-types-auth0','/clients','/api-auth/tutorials/adoption/oidc-conformant','/clients/client-types','/applications/application-types','/applications/concepts/client-secret'],
     to: '/applications'
   },
   {
@@ -939,6 +951,10 @@ module.exports = [
   {
     from: ['/dashboard/guides/applications/enable-universal-links','/clients/enable-universal-links','/applications/enable-universal-links','/applications/guides/enable-universal-links-dashboard','/enable-universal-links-support-in-apple-xcode'],
     to: '/applications/enable-universal-links-support-in-apple-xcode'
+  },
+  {
+    from: ['/getting-started/set-up-app'],
+    to: '/applications/set-up-an-application'
   },
   {
     from: ['/dashboard/guides/applications/register-app-m2m','/applications/application-settings/non-interactive','/applications/application-settings/machine-to-machine','/applications/machine-to-machine'],
@@ -970,7 +986,7 @@ module.exports = [
   },
   {
     from: ['/dashboard/guides/applications/view-app-type-confidential-public'],
-    to: '/applications/check-an-applications-confidential-or-public-authentication-method'
+    to: '/applications/view-application-type'
   },
   {
     from: ['/dashboard/guides/applications/set-up-cors'],
@@ -993,7 +1009,7 @@ module.exports = [
     to: '/applications/set-up-database-connections'
   },
   {
-    from: ['/clients/client-grant-types','/applications/concepts/application-grant-types'],
+    from: ['/applications/reference/grant-types-available','/applications/reference/grant-types-auth0-mapping','/clients/client-grant-types','/applications/concepts/application-grant-types','/applications/concepts/grant-types-legacy'],
     to: '/applications/application-grant-types'
   },
   {
@@ -1005,12 +1021,21 @@ module.exports = [
     to: '/applications/wildcards-for-subdomains'
   },
   {
-    from: ['/applications/guides/enable-third-party-applications'],
+    from: ['/applications/guides/enable-third-party-applications','/applications/guides/enable-third-party-apps'],
     to: '/applications/enable-third-party-applications'
   },
+  {
+    from: ['/applications/concepts/app-types-confidential-public'],
+    to: '/applications/confidential-and-public-applications'
+  },
 
+  
   /* Authorization */
 
+  {
+    from: ['/apis'],
+    to: '/authorization/apis'
+  },
   {
     from: ['/api-auth/blacklists-vs-grants','/blacklists-vs-application-grants'],
     to: '/authorization/revoke-access-to-apis-using-blacklists-or-application-grants'
@@ -1040,16 +1065,16 @@ module.exports = [
     to: '/authorization/rbac/enable-role-based-access-control-for-apis'
   },
   {
-    from: ['/api/management/guides/roles/add-permissions-roles'],
+    from: ['/dashboard/guides/roles/add-permissions-roles','/api/management/guides/roles/add-permissions-roles'],
     to: '/authorization/rbac/roles/add-permissions-to-roles'
   },
   {
-    from: ['/api/management/guides/roles/create-roles'],
+    from: ['/dashboard/guides/roles/create-roles','/api/management/guides/roles/create-roles'],
     to: '/authorization/rbac/roles/create-roles'
   },
   {
     from: ['/authorization/reference/rbac-limits'],
-    to: '/authorization/rbac/roles/authorization-core-rbac-limits'
+    to: '/authorization/rbac/authorization-core-rbac-limits'
   },
   {
     from: ['/authorization/concepts/authz-and-authn','/application-auth/current','/application-auth/legacy','/application-auth','/authentication'],
@@ -1220,7 +1245,7 @@ module.exports = [
   },
   {
       from: ['/design/using-auth0-with-multi-tenant-apps','/applications/concepts/multiple-tenants','/tutorials/using-auth0-with-multi-tenant-apps','/saas-apps'],
-      to: '/best-practices/multi-tenant-applications-best-practices'
+      to: '/best-practices/multi-tenant-apps-best-practices'
   },
 
   /* Brand and Customize */
@@ -1268,6 +1293,16 @@ module.exports = [
     from: ['/cms/wordpress/user-migration'],
     to: '/cms/wordpress-plugin/user-migration-in-login-by-auth0'
   },
+  {
+    from: ['/cms/wordpress/user-migration'],
+    to: '/cms/wordpress-plugin/user-migration-in-login-by-auth0'
+  },
+  {
+    from: ['/cms/wordpress/how-does-it-work'],
+    to: '/cms/wordpress-plugin/integrate-with-wordpress'
+  },
+
+  
 
 /* Compliance */
 
@@ -1332,6 +1367,20 @@ module.exports = [
     from: ['/custom-domains/additional-configuration'],
     to: '/custom-domains/configure-features-to-use-custom-domains'
   },
+    {
+    from: ['/custom-domains/set-up-azure-cdn'],
+    to: '/custom-domains/configure-custom-domains-with-self-managed-certificates/configure-azure-cdn-for-use-as-reverse-proxy'
+  },
+    {
+    from: ['/custom-domains/set-up-cloudflare'],
+    to: '/custom-domains/configure-custom-domains-with-self-managed-certificates/configure-cloudflare-for-use-as-reverse-proxy'
+  },
+    {
+    from: ['/custom-domains/set-up-cloudfront'],
+    to: '/custom-domains/configure-custom-domains-with-self-managed-certificates/configure-aws-cloudfront-for-use-as-reverse-proxy'
+  },
+
+  
 
   /* Dev Lifecycle */
 
@@ -1386,7 +1435,7 @@ module.exports = [
     to: '/extensions'
   },
   {
-    from: ['/extensions/authorization-extension/v2','/api/authorization-dashboard-extension','/extensions/authorization-dashboard-extension'],
+    from: ['/extensions/authorization-extension/v2','/extensions/authorization-extension/v1','/api/authorization-dashboard-extension','/extensions/authorization-dashboard-extension'],
     to: '/extensions/authorization-extension'
   },
   {
@@ -1641,7 +1690,7 @@ module.exports = [
     to: '/flows/client-credentials-flow'
   },
   {
-    from: ['/flows/guides/auth-code/add-login-auth-code','/flows/guides/auth-code/includes/authorize-user-add-login','/flows/guides/auth-code/includes/sample-use-cases-add-login','/flows/guides/auth-code/includes/refresh-tokens','/flows/guides/auth-code/includes/request-tokens','/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow','/oauth-web-protocol', '/protocols/oauth-web-protocol', '/protocols/oauth2/oauth-web-protocol','/application-auth/current/server-side-web','/client-auth/server-side-web'],
+    from: ['/flows/guides/auth-code/add-login-auth-code','/flows/guides/auth-code/includes/authorize-user-add-login','/flows/guides/auth-code/includes/sample-use-cases-add-login','/flows/guides/auth-code/includes/refresh-tokens','/flows/guides/auth-code/includes/request-tokens','/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow','/oauth-web-protocol', '/protocols/oauth-web-protocol', '/protocols/oauth2/oauth-web-protocol','/application-auth/current/server-side-web','/client-auth/server-side-web','/application-auth/legacy/server-side-web'],
     to: '/flows/add-login-auth-code-flow'
   },
   {
@@ -1649,8 +1698,8 @@ module.exports = [
     to: '/flows/call-your-api-using-the-authorization-code-flow'
   },
   {
-    from: ['/flows/guides/auth-code-pkce/add-login-auth-code-pkce','/flows/guides/auth-code-pkce/includes/sample-use-cases-add-login','/flows/guides/auth-code-pkce/includes/request-tokens','/flows/guides/auth-code-pkce/includes/refresh-tokens','/flows/guides/auth-code-pkce/includes/create-code-verifier','/flows/guides/auth-code-pkce/includes/create-code-challenge','/flows/guides/auth-code-pkce/includes/authorize-user-add-login','/application-auth/current/mobile-desktop','/flows/guides/mobile-login-flow/add-login-using-mobile-login-flow'],
-    to: '/add-login-using-the-authorization-code-flow-with-pkce'
+    from: ['/flows/guides/auth-code-pkce/add-login-auth-code-pkce','/flows/guides/auth-code-pkce/includes/sample-use-cases-add-login','/flows/guides/auth-code-pkce/includes/request-tokens','/flows/guides/auth-code-pkce/includes/refresh-tokens','/flows/guides/auth-code-pkce/includes/create-code-verifier','/flows/guides/auth-code-pkce/includes/create-code-challenge','/flows/guides/auth-code-pkce/includes/authorize-user-add-login','/application-auth/current/mobile-desktop','/application-auth/legacy/mobile-desktop','/application-auth/legacy/mobile-desktop','/flows/guides/mobile-login-flow/add-login-using-mobile-login-flow'],
+    to: '/flows/add-login-using-the-authorization-code-flow-with-pkce'
   },
   {
     from: ['/flows/guides/auth-code-pkce/call-api-auth-code-pkce','/flows/guides/auth-code-pkce/includes/sample-use-cases-call-api','/flows/guides/auth-code-pkce/includes/call-api','/flows/guides/auth-code-pkce/includes/authorize-user-call-api','/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow','/api-auth/tutorials/authorization-code-grant-pkce'],
@@ -1665,7 +1714,7 @@ module.exports = [
     to: '/flows/device-authorization-flow'
   },
   {
-    from: ['/flows/guides/implicit/add-login-implicit','/flows/guides/implicit/includes/sample-use-cases-add-login','/flows/guides/implicit/includes/refresh-tokens','/flows/guides/implicit/includes/request-tokens','/flows/guides/implicit/includes/authorize-user-add-login','/application-auth/current/client-side-web','/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow','/client-auth/client-side-web'],
+    from: ['/flows/guides/implicit/add-login-implicit','/flows/guides/implicit/includes/sample-use-cases-add-login','/flows/guides/implicit/includes/refresh-tokens','/flows/guides/implicit/includes/request-tokens','/flows/guides/implicit/includes/authorize-user-add-login','/application-auth/current/client-side-web','/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow','/client-auth/client-side-web','/application-auth/legacy/client-side-web'],
     to: '/flows/add-login-using-the-implicit-flow-with-form-post'
   },
   {
@@ -1692,7 +1741,7 @@ module.exports = [
     to: '/get-started/dashboard/enable-sso-for-legacy-tenants'
   },
   {
-    from: ['/api/management/guides/tenants/configure-session-lifetime-settings','/sso/current/configure-session-lifetime-limits'],
+    from: ['/dashboard/guides/tenants/configure-session-lifetime-settings','/api/management/guides/tenants/configure-session-lifetime-settings','/sso/current/configure-session-lifetime-limits'],
     to: '/get-started/dashboard/configure-session-lifetime-settings'
   },
   {
@@ -1700,11 +1749,11 @@ module.exports = [
     to: '/get-started'
   },
   {
-    from: ['/dashboard/reference/views-api'],
+    from: ['/getting-started/set-up-api','/dashboard/reference/views-api'],
     to: '/get-started/set-up-apis'
   },
   {
-    from: ['/overview/deployment-models','/deployment'],
+    from: ['/getting-started/deployment-models','/overview/deployment-models','/deployment'],
     to: '/get-started/deployment-options'
   },
   {
@@ -1768,15 +1817,15 @@ module.exports = [
     to: '/get-started/dashboard/tenant-settings'
   },
   {
-    from: ['/dashboard/manage-dashboard-admins','/tutorials/manage-dashboard-admins'],
+    from: ['/dasxshboard/manage-dashboard-admins','/tutorials/manage-dashboard-admins'],
     to: '/get-started/dashboard/manage-dashboard-users'
   },
   {
-    from: ['/api/management/guides/applications/rotate-client-secret'],
+    from: ['/dashboard/guides/applications/rotate-client-secret','/api/management/guides/applications/rotate-client-secret'],
     to: '/get-started/dashboard/rotate-client-secret'
   },
   {
-    from: ['/getting-started/create-tenant'],
+    from: ['/getting-started/the-basics','/getting-started/create-tenant'],
     to: '/get-started/learn-the-basics'
   },
 
@@ -1882,6 +1931,10 @@ module.exports = [
     to: '/identity-labs/identity-lab-2-calling-api/identity-lab-2-exercise-3'
   },
   {
+    from: ['/identity-labs/03-mobile-native-app'],
+    to: '/identity-labs/lab-3-mobile-native-app'
+  },
+  {
     from: ['/identity-labs/03-mobile-native-app/exercise-01'],
     to: '/identity-labs/lab-3-mobile-native-app/identity-lab-3-exercise-1'
   },
@@ -1918,7 +1971,7 @@ module.exports = [
   },
   {
     from: ['/integrations/aws/sso','/configure-amazon-web-services-for-sso'],
-    to: '/integrations/configure-amazon-web-services-for-sso'
+    to: '/integrations/aws/configure-amazon-web-services-for-sso'
   },
   {
     from: ['/integrations/aws/tokens'],
@@ -2088,55 +2141,57 @@ module.exports = [
     to: '/i18n/password-options-translation'
   },
 
+
+
   /* LDAP Connector */
 
   {
     from: ['/connector'],
-    to: '/ad-ldap-connector'
+    to: '/extensions/ad-ldap-connector'
   },
   {
     from: ['/connector/prerequisites'],
-    to: '/ad-ldap-connector/ad-ldap-connector-requirements'
+    to: '/extensions/ad-ldap-connector/ad-ldap-connector-requirements'
   },
   {
     from: ['/connector/client-certificates'],
-    to: '/ad-ldap-connector/configure-ad-ldap-connector-client-certificates'
+    to: '/extensions/ad-ldap-connector/configure-ad-ldap-connector-client-certificates'
   },
   {
     from: ['/connector/kerberos'],
-    to: '/ad-ldap-connector/configure-ad-ldap-connector-with-kerberos'
+    to: '/extensions/ad-ldap-connector/configure-ad-ldap-connector-with-kerberos'
   },
   {
     from: ['/connector/high-availability'],
-    to: '/ad-ldap-connector/ad-ldap-high-availability'
+    to: '/extensions/ad-ldap-connector/ad-ldap-high-availability'
   },
   {
     from: ['/dashboard/guides/connections/disable-cache-ad-ldap'],
-    to: '/ad-ldap-connector/disable-credential-caching'
+    to: '/extensions/ad-ldap-connector/disable-credential-caching'
   },
   {
     from: ['/adldap-x','/connector/install-other-platforms','/connector/install','/adldap-auth'],
-    to: '/ad-ldap-connector/install-configure-ad-ldap-connector'
+    to: '/extensions/ad-ldap-connector/install-configure-ad-ldap-connector'
   },
   {
     from: ['/connector/scom-monitoring'],
-    to: '/ad-ldap-connector/ad-ldap-connector-scom'
+    to: '/extensions/ad-ldap-connector/ad-ldap-connector-scom'
   },
   {
     from: ['/connector/modify'],
-    to: '/ad-ldap-connector/ad-ldap-connector-to-auth0'
+    to: '/extensions/ad-ldap-connector/ad-ldap-connector-to-auth0'
   },
   {
     from: ['/connector/test-dc'],
-    to: '/ad-ldap-connector/ad-ldap-connector-test-environment'
+    to: '/extensions/ad-ldap-connector/ad-ldap-connector-test-environment'
   },
   {
     from: ['/connector/troubleshooting'],
-    to: '/ad-ldap-connector/troubleshoot-ad-ldap-connector'
+    to: '/extensions/ad-ldap-connector/troubleshoot-ad-ldap-connector'
   },
   {
     from: ['/connector/update'],
-    to: '/ad-ldap-connector/update-ad-ldap-connectors'
+    to: '/extensions/ad-ldap-connector/update-ad-ldap-connectors'
   },
 
   /* Libraries */
@@ -2154,7 +2209,7 @@ module.exports = [
     to: '/libraries/error-messages'
   },
   {
-    from: '/errors/libraries/auth0-js/invalid-token',
+    from: ['/libraries/error-messages','/errors/libraries/auth0-js/invalid-token'],
     to: '/libraries/common-auth0-library-authentication-errors'
   },
   {
@@ -2174,24 +2229,51 @@ module.exports = [
     to: '/libraries/lock/selecting-from-multiple-connection-options'
   },
   {
-    from: ['/libraries/lock-ios/delegation-api','/libraries/lock-ios/v1/delegation-api','/libraries/lock-ios','/libraries/lock-ios/v1','/libraries/lock-ios/lock-ios-api','/libraries/lock-ios/v1/lock-ios-api','/libraries/lock-ios/native-social-authentication','/libraries/lock-ios/v1/native-social-authentication','/libraries/lock-ios/password-reset-ios','/libraries/lock-ios/v1/password-reset-ios','/libraries/lock-ios/save-and-refresh-jwt-tokens','/libraries/lock-ios/v1/save-and-refresh-jwt-tokens','/libraries/lock-ios/sending-authentication-parameters','/libraries/lock-ios/v1/sending-authentication-parameters','/libraries/lock-ios/swift','/libraries/lock-ios/v1/swift'],
+    from: ['/libraries/lock/v11/api'],
+    to: '/libraries/lock/lock-api-reference'
+  },
+  {
+    from: ['/libraries/lock/v11/customizing-error-messages','/libraries/lock/customizing-error-messages'],
+    to: '/libraries/lock/customize-lock-error-messages'
+  },
+  {
+    from: ['/libraries/lock/v11/i18n'],
+    to: '/libraries/lock/lock-internationalization'
+  },
+  {
+    from: ['/libraries/lock/v11/sending-authentication-parameters','/libraries/lock/sending-authentication-parameters'],
+    to: '/libraries/lock/lock-authentication-parameters'
+  },
+  {
+    from: ['/libraries/lock/v11/ui-customization','/libraries/lock/v9/ui-customization'],
+    to: '/libraries/lock/lock-ui-customization'
+  },
+  {
+    from: ['/libraries/lock-ios/v2','/libraries/lock-ios/delegation-api','/libraries/lock-ios/v1/delegation-api','/libraries/lock-ios','/libraries/lock-ios/v1','/libraries/lock-ios/lock-ios-api','/libraries/lock-ios/v1/lock-ios-api','/libraries/lock-ios/native-social-authentication','/libraries/lock-ios/v1/native-social-authentication','/libraries/lock-ios/password-reset-ios','/libraries/lock-ios/v1/password-reset-ios','/libraries/lock-ios/save-and-refresh-jwt-tokens','/libraries/lock-ios/v1/save-and-refresh-jwt-tokens','/libraries/lock-ios/sending-authentication-parameters','/libraries/lock-ios/v1/sending-authentication-parameters','/libraries/lock-ios/swift','/libraries/lock-ios/v1/swift'],
     to: '/libraries/lock-swift'
   },
   {
-    from: ['/libraries/lock-ios/logging','/libraries/lock-ios/v1/logging'],
+    from: ['/libraries/lock-ios/logging','/libraries/lock-ios/v2/logging','/libraries/lock-ios/v1/logging'],
     to: '/libraries/lock-swift/lock-swift-logging'
   },
   {
-    from: ['/libraries/lock-ios/sms-lock-ios','/libraries/lock-ios/v1/sms-lock-ios','/libraries/lock-ios/touchid-authentication','/libraries/lock-ios/v1/touchid-authentication','/libraries/lock-ios/passwordless'],
+    from: ['/libraries/lock-ios/v2/passwordless','/libraries/lock-ios/sms-lock-ios','/libraries/lock-ios/v1/sms-lock-ios','/libraries/lock-ios/touchid-authentication','/libraries/lock-ios/v1/touchid-authentication','/libraries/lock-ios/passwordless','/libraries/lock-ios/v1/passwordless'],
     to: '/libraries/lock-swift/lock-swift-passwordless'
   },
   {
-    from: ['/libraries/lock-ios/use-your-own-ui','/libraries/lock-ios/v1/use-your-own-uis'],
+    from: ['/libraries/lock-ios/v2/customization','/libraries/lock-ios/use-your-own-ui','/libraries/lock-ios/v1/use-your-own-uis','/libraries/lock-ios/v1/use-your-own-ui','/libraries/lock-ios/v1/customization'],
     to: '/libraries/lock-swift/lock-swift-customization'
   },
   {
-    from: ['/docs/i18n/i18n-guide-ios'],
+    from: ['/i18n/i18n-guide-ios','/libraries/lock-ios/v2/internationalization'],
     to: '/libraries/lock-swift/lock-swift-internationalization'
+  {
+    from: ['/libraries/lock-ios/v2/custom-fields'],
+    to: '/libraries/lock-swift/lock-swift-custom-fields-at-signup'
+  },
+  {
+    from: ['/libraries/lock-ios/v2/configuration'],
+    to: '/libraries/lock-swift/lock-swift-configuration-options'
   },
   {
     from: ['/auth0js','/libraries/auth0js/v7','/libraries/auth0js/v8','/libraries/auth0js/v9','/libraries/lock/v10/auth0js','/libraries/lock/v11/auth0js','/libraries/auth0js-v9-reference'],
@@ -2202,32 +2284,108 @@ module.exports = [
     to: '/libraries/auth0-android/auth0-android-configuration'
   },
   {
-    from: ['/docs/libraries/lock-android/v2/custom-oauth-connections'],
+    from: ['/libraries/lock-android/v2','/libraries/lock-android/v1','/libraries/lock-android/v1/sending-authentication-parameters','/libraries/lock-android/v1/use-your-own-ui'],
+    to: '/libraries/lock-android'
+  },
+  {
+    from: ['/libraries/lock-android/v2/custom-authentication-providers','/docs/libraries/lock-android/v2/custom-oauth-connections'],
     to: '/libraries/lock-android/lock-android-custom-authentication-providers'
   },
   {
     from: ['/tutorials/local-testing-and-development','/local-testing-and-development'],
-    to: 'libraries/secure-local-development'
+    to: '/libraries/secure-local-development'
   },
   {
-    from: ['/libraries/lock-android/v1/refresh-jwt-tokens','/libraries/lock-android/refresh-jwt-tokens'],
+    from: ['/libraries/lock-android/v2/refresh-jwt-tokens','/libraries/lock-android/v1/refresh-jwt-tokens','/libraries/lock-android/refresh-jwt-tokens','/libraries/auth0-android/save-and-refresh-tokens'],
     to: '/libraries/lock-android/lock-android-refresh-jwt'
   },
   {
-    from: ['/docs/libraries/lock-android/custom-fields'],
+    from: ['/docs/libraries/lock-android/custom-fields','/libraries/lock-android/v2/custom-fields'],
     to: '/libraries/lock-android/lock-android-custom-fields-at-signup'
   },
   {
-    from: ['/libraries/lock-android/passwordless','/connections/passwordless/android-email'],
+    from: ['/libraries/auth0-android/passwordless','/libraries/lock-android/passwordless','/connections/passwordless/android-email','/libraries/lock-android/v2/passwordless','/libraries/lock-android/v1/passwordless'],
     to: '/libraries/lock-android/lock-android-passwordless'
   },
   {
-    from: ['/docs/i18n/i18n-guide-android'],
+    from: ['/i18n/i18n-guide-android','/libraries/lock-android/v2/internationalization','/libraries/lock-android/v1/internationalization'],
     to: '/libraries/lock-android/lock-android-internationalization'
+  },
+  {
+    from: ['/libraries/lock-android/v2/configuration','/libraries/lock-android/v1/configuration'],
+    to: '/libraries/lock-android/lock-android-configuration'
+  },
+  {
+    from: ['/libraries/lock-android/v2/delegation-api','/libraries/lock-android/v1/delegation-api'],
+    to: '/libraries/lock-android/lock-android-delegation'
+  },
+  {
+    from: ['/libraries/lock-android/v2/custom-theming'],
+    to: '/libraries/lock-android/lock-android-custom-theming'
+  },
+  {
+    from: ['/libraries/lock-android/v2/native-social-authentication','/libraries/lock-android/v1/native-social-authentication'],
+    to: '/libraries/lock-android/lock-android-native-social-authentication'
+  },
+  {
+    from: ['/libraries/lock-android/v2/passwordless-magic-link','/libraries/lock-android/v1/passwordless-magic-link'],
+    to: '/libraries/lock-android/lock-android-passwordless-with-magic-link'
+  },
+  {
+    from: ['/libraries/lock-android/v2/keystore'],
+    to: '/libraries/lock-android/android-development-keystores-hashes'
   },
   {
     from: ['/libraries/auth0-spa-js'],
     to: '/libraries/auth0-single-page-app-sdk'
+  },
+  {
+    from: ['/libraries/auth0-android/database-authentication'],
+    to: '/libraries/auth0-android/auth0-android-database-authentication'
+  },
+  {
+    from: ['/libraries/auth0-spa-js/migrate-from-auth0js'],
+    to: '/libraries/auth0-single-page-app-sdk/migrate-from-auth0-js-to-the-auth0-single-page-app-sdk'
+  },
+  {
+    from: ['/libraries/auth0-swift/database-authentication'],
+    to: '/libraries/auth0-swift/auth0-swift-database-connections'
+  },
+  {
+    from: ['/libraries/auth0-swift/passwordless'],
+    to: '/libraries/auth0-swift/auth0-swift-passwordless'
+  },
+  {
+    from: ['/libraries/auth0-swift/save-and-refresh-jwt-tokens'],
+    to: '/libraries/auth0-swift/auth0-swift-save-and-renew-tokens'
+  },
+  {
+    from: ['/libraries/auth0-swift/touchid-authentication'],
+    to: '/libraries/auth0-swift/auth0-swift-touchid-faceid'
+  },
+  {
+    from: ['/libraries/auth0-swift/user-management'],
+    to: 'auth0-swift-user-management'
+  },
+  {
+    from: ['/libraries/auth0-php/authentication-api'],
+    to: '/libraries/auth0-php/using-the-authentication-api-with-auth0-php'
+  },
+  {
+    from: ['/libraries/auth0-php/basic-use'],
+    to: '/libraries/auth0-php/auth0-php-basic-use'
+  },
+  {
+    from: ['/libraries/auth0-php/jwt-validation'],
+    to: '/libraries/auth0-php/validating-jwts-with-auth0-php'
+  },
+  {
+    from: ['/libraries/auth0-php/management-api'],
+    to: '/libraries/auth0-php/using-the-management-api-with-auth0-php'
+  },
+  {
+    from: ['/libraries/auth0-php/troubleshooting'],
+    to: '/libraries/auth0-php/troubleshoot-auth0-php-library'
   },
 
 
@@ -2238,7 +2396,12 @@ module.exports = [
     from: ['/login/embedded'],
     to: '/login/embedded-login'
   },
+  {
+    from: ['/cross-origin-authentication'],
+    to: '/login/embedded-login/cross-origin-authentication'
+  },
 
+  
   /* Logout */
 
   {
@@ -2321,7 +2484,6 @@ module.exports = [
     to: '/logs/view-log-events-in-the-dashboard'
   },
 
-
   /* MFA */
   
   {
@@ -2333,7 +2495,7 @@ module.exports = [
     to: '/mfa/mfa-api'
   },
   {
-    from: ['/api-auth/tutorials/multifactor-resource-owner-password','/mfa/guides/mfa-api/multifactor-resource-owner-password'],
+    from: ['/api-auth/tutorials/multifactor-resource-owner-password','/mfa/guides/mfa-api/authenticate','/mfa/guides/mfa-api/multifactor-resource-owner-password'],
     to: '/mfa/authenticate-with-ropg-and-mfa'
   },
   {
@@ -2342,7 +2504,7 @@ module.exports = [
   },
   {
     from: ['/mfa/guides/mfa-api/phone','/multifactor-authentication/api/oob','/mfa/guides/mfa-api/oob'],
-    to: '/mfa/authenticate-with-ropg-and-mfa/enroll-and-challenge-sms-and-voice-authenticators'
+    to: '/mfa/authenticate-with-ropg-and-mfa/enroll-challenge-sms-voice-authenticators'
   },
   {
     from: ['/mfa/guides/mfa-api/push'],
@@ -2406,7 +2568,7 @@ module.exports = [
   },
   {
     from: ['/multifactor-authentication/twilio-configuration','/multifactor-authentication/factors/sms','/mfa/guides/configure-sms','/mfa/guides/configure-phone'],
-    to: '/mfa/configure-sms-and-voice-notifications-for-mfa'
+    to: '/mfa/configure-sms-voice-notifications-mfa'
   },
   {
     from: ['/mfa/guides/guardian/customize-sms-messages','/multifactor-authentication/sms-templates','/mfa/guides/customize-phone-messages'],
@@ -2476,7 +2638,16 @@ module.exports = [
     from: ['/mfa/guides/mfa-api/recovery-code'],
     to: '/mfa/authenticate-with-ropg-and-mfa/manage-authenticator-factors-mfa-api/challenge-with-recovery-codes'
   },
-  
+  {
+    from: ['/mfa/references/language-dictionary'],
+    to: '/mfa/customize-mfa-user-pages/mfa-theme-language-dictionary'
+  },
+  {
+    from: ['/mfa/references/mfa-widget-reference'],
+    to: '/mfa/customize-mfa-user-pages/mfa-widget-theme-options'
+  },
+
+
   /* Monitoring */
 
   {
@@ -2507,6 +2678,11 @@ module.exports = [
     from: ['/monitoring/guides/track-signups-salesforce','/tutorials/track-signups-enrich-user-profile-generate-leads','/scenarios-mixpanel-fullcontact-salesforce','/scenarios/mixpanel-fullcontact-salesforce'],
     to: '/monitor-auth0/track-new-sign-ups-in-salesforce'
   },
+  {
+    from: ['/monitoring/guides/test-testall-endpoints'],
+    to: '/monitor-auth0/check-auth-and-supporting-services'
+  },
+  
 
   /* Policies */
 
@@ -2535,7 +2711,7 @@ module.exports = [
     to: '/policies/rate-limit-policy'
   },
   {
-    from: ['/policies/rate-limits-api'],
+    from: ['/policies/rate-limits-auth-api','/policies/rate-limits-api'],
     to: '/policies/rate-limit-policy/authentication-api-endpoint-rate-limits'
   },
   {
@@ -2581,7 +2757,7 @@ module.exports = [
     to: '/private-cloud'
   },
   {
-    from: ['/services/private-cloud-configuration','/services/private-saas-configuration','/private-saas-deployment/onboarding','/private-saas-deployment/onboarding/private-cloud','/private-cloud/onboarding','/private-cloud/onboarding/private-cloud','/enterprise-support','/onboarding/appliance-outage','/onboarding/enterprise-support'], 
+    from: ['/services/private-cloud-configuration','/services/private-saas-configuration','/private-saas-deployment/onboarding','/private-saas-deployment/onboarding/private-cloud','/private-cloud/onboarding','/private-cloud/onboarding/private-cloud','/enterprise-support','/onboarding/appliance-outage','/onboarding/enterprise-support','/private-cloud/managed-private-cloud/zones','/private-cloud/managed-private-cloud/raci'], 
     to: '/private-cloud/private-cloud-onboarding'
   },
   {
@@ -2597,7 +2773,7 @@ module.exports = [
     to: '/private-cloud/private-cloud-onboarding/standard-private-cloud-infrastructure-requirements'
   },
   {
-    from: ['/private-saas-deployment'], 
+    from: ['/private-saas-deployment','/private-cloud/managed-private-cloud',], 
     to: '/private-cloud/private-cloud-deployments'
   },
   {
@@ -2612,13 +2788,18 @@ module.exports = [
     from: ['/services/private-saas-management','/services/private-cloud-management'],
     to: '/private-cloud/private-cloud-operations'
   },
+  {
+    from: ['/private-cloud/onboarding/managed-private-cloud/remote-access-options'],
+    to: '/private-cloud/private-cloud-onboarding/private-cloud-remote-access-options'
+  }, 
+
+
 
   /* Product-Lifecycle */
   {
     from: '/lifecycle',
     to: '/product-lifecycle'
   },
-
   {
     from: ['/product-lifecycle/deprecation-eol'],
     to: '/product-lifecycle/migration-process'
@@ -2636,7 +2817,7 @@ module.exports = [
     to: '/product-lifecycle/deprecations-and-migrations/migrate-to-calling-api-with-access-tokens'
   },
   {
-    from: ['/guides/login/migration-embedded-universal','/guides/login/migration-embedded-centralized','/guides/login/migrating-lock-v10-webapp','/guides/login/migrating-lock-v9-spa','/guides/login/migrating-lock-v9-spa-popup','/guides/login/migrating-lock-v9-webapp','/guides/login/migration-sso'],
+    from: ['/guides/login/migration-embedded-universal','/guides/login/migration-embedded-centralized','/guides/login/migrating-lock-v10-webapp','/guides/login/migrating-lock-v9-spa','/guides/login/migrating-lock-v9-spa-popup','/guides/login/migrating-lock-v9-webapp','/guides/login/migrating-lock-v10-spa','/guides/login/migrating-lock-v8','/guides/login/migration-sso'],
     to: '/product-lifecycle/deprecations-and-migrations/migrate-from-embedded-login-to-universal-login'
   },
   {
@@ -2695,6 +2876,11 @@ module.exports = [
     from: ['/migrations/past-migrations'],
     to: '/product-lifecycle/deprecations-and-migrations/past-migrations'
   },
+  {
+    from: ['/logs/guides/migrate-logs-v2-v3'],
+    to: '/product-lifecycle/deprecations-and-migrations/migrate-to-tenant-log-search-v3'
+  },
+    
 
   /* Professional Services */
 
@@ -2703,7 +2889,7 @@ module.exports = [
     to: '/professional-services'
   },
   {
-    from: ['/services/scenario-guidance'],
+    from: ['/services/scenario-guidance','/services/code-review','/services/pair-programming'],
     to: '/professional-services/advisory-sessions'
   },
   {
@@ -2746,7 +2932,7 @@ module.exports = [
     to: '/protocols/saml-protocol'
   },
   {
-    from: ['/protocols/saml/saml-configuration/troubleshoot','/protocols/saml/saml-configuration/troubleshoot/common-saml-errors','/protocols/saml/saml-configuration/troubleshoot/auth0-as-sp','/troubleshoot/troubleshoot-saml-configurations'],
+    from: ['/protocols/saml/saml-configuration/troubleshoot/auth0-as-idp','/protocols/saml/saml-configuration/troubleshoot','/protocols/saml/saml-configuration/troubleshoot/common-saml-errors','/protocols/saml/saml-configuration/troubleshoot/auth0-as-sp','/troubleshoot/troubleshoot-saml-configurations'],
     to: '/protocols/saml-protocol/troubleshoot-saml-configurations'
   },
   {
@@ -2929,7 +3115,7 @@ module.exports = [
   /* Rules */
 
   { 
-    from: ['/rules/current', '/rules/current/csharp', '/rules/guides/csharp', '/rules/legacy', '/rules/references/legacy'],
+    from: ['/rules/current', '/rules/current/csharp', '/rules/guides/csharp', '/rules/legacy', '/rules/references/legacy','/rules/references/modules'],
     to: '/rules'
   },
   {
@@ -3012,6 +3198,7 @@ module.exports = [
     from: ['/rules/references/user-object'],
     to: '/rules/user-object-in-rules'
   },
+ 
 
   /* Scopes */
 
@@ -3057,6 +3244,10 @@ module.exports = [
 
   /* Security Bulletins */
 
+  {
+    from: ['/security/bulletins'],
+    to: '/security'
+  },
   {
     from: ['/security/bulletins/cve-2020-15125'],
     to: '/security/cve-2020-15125'
@@ -3160,7 +3351,7 @@ module.exports = [
   /* SSO */
 
   {
-    from: ['/api-auth/tutorials/adoption/single-sign-on','/sso/legacy','/sso/legacy/single-page-apps','/sso/legacy/regular-web-apps-sso','/sso/legacy/single-page-apps-sso','/sso/current/single-page-apps-sso','/sso/current/single-page-apps','/sso/current/sso-auth0','/sso/current/introduction','/sso/single-sign-on','/sso/current','/sso/current/setup'],
+    from: ['/api-auth/tutorials/adoption/single-sign-on','/sso/legacy','/sso/legacy/single-page-apps','/sso/legacy/regular-web-apps-sso','/sso/legacy/single-page-apps-sso','/sso/current/single-page-apps-sso','/sso/current/single-page-apps','/sso/current/sso-auth0','/sso/current/introduction','/sso/single-sign-on','/sso/current','/sso/current/setup','/sso/current/index_old'],
     to: '/sso'
   },
   {
@@ -3188,7 +3379,7 @@ module.exports = [
   },
   {
     from: ['/sla', '/support/sla','/support/sld'],
-    to: '/support/service-level-descriptions'
+    to: '/support/services-level-descriptions'
   },
   {
     from: ['/support/subscription'],
@@ -3223,7 +3414,7 @@ module.exports = [
     to: '/support/open-and-manage-support-tickets'
   },
   {
-    from: ['/tutorials/delete-reset-tenant','/policies/restore-deleted-tenant'],
+    from: ['/support/delete-reset-tenant','/tutorials/delete-reset-tenant','/policies/restore-deleted-tenant'],
     to: '/support/delete-or-reset-tenant'
   },
 
@@ -3405,6 +3596,10 @@ module.exports = [
   /* Troubleshoot */
 
   {
+    from: ['/troubleshoot/basics'],
+    to: '/troubleshoot'
+  },
+  {
     from: ['/troubleshoot/guides/check-error-messages'],
     to: '/troubleshoot/check-error-messages'
   },
@@ -3580,12 +3775,31 @@ module.exports = [
   },
   {
     from: ['/guides/login/universal-vs-embedded','/guides/login/centralized-vs-embedded'],
-    to: '/unversal-login/universal-vs-embedded'
+    to: '/universal-login/universal-vs-embedded'
   },
   {
     from: ['/universal-login/page-templates'],
     to: '/universal-login/new-experience/universal-login-page-templates'
   },
+  {
+    from: ['/libraries/when-to-use-lock'],
+    to: '/universal-login/universal-login-page-customization'
+  },
+  {
+    from: ['/universal-login/default-login-url'],
+    to: '/universal-login/configure-default-login-routes'
+  },
+  {
+    from: ['/universal-login/i18n'],
+    to: '/universal-login/universal-login-internationalization'
+  },
+  {
+    from: ['/universal-login/text-customization'],
+    to: '/universal-login/new-experience/text-customization-new-universal-login'
+  },
+  
+  
+
 
   /* Users */
 
@@ -3627,7 +3841,7 @@ module.exports = [
   },
   {
     from: ['/user-profile/user-picture','/users/guides/change-user-pictures'],
-    to: '/users/change-user-pictures'
+    to: '/users/change-user-picture'
   },
   {
     from: ['/connections/database/migrating', '/users/migrations/automatic','/users/guides/configure-automatic-migration'],
@@ -3722,8 +3936,8 @@ module.exports = [
     to: '/users/updating-user-profile-root-attributes'
   },
   {
-    from: ['/users/normalized/oidc'],
-    to: '/users/user-profiles-returned-from-oidc-compliant-pipelines'
+    from: ['/users/normalized/oidc','/users/user-profiles-returned-from-oidc-compliant-pipelines'],
+    to: 'user-profiles'
   },
   {
     from: ['/users/references/bulk-import-database-schema-examples'],
@@ -3845,7 +4059,7 @@ module.exports = [
     to: '/videos/learn-identity-series'
   },
   {
-    from: ['/videos/learn-identity/01-introduction-to-identity'],
+    from: ['/videos/learn-identity/01-introduction-to-identity','/videos/learn-identity-series/learn-identity-series/introduction-to-identity'],
     to: '/videos/learn-identity-series/introduction-to-identity'
   },
   {
@@ -3889,7 +4103,7 @@ module.exports = [
     to: '/videos/get-started-series/authenticate-how-it-works'
   },
   {
-    from: ['/videos/get-started/04_02-authenticate-spa-example'],
+    from: ['/videos/get-started/04_02-authenticate-spa-example','/videos/get-started/04_01-authenticate-spa-example'],
     to: '/videos/get-started-series/authenticate-spa-example'
   },
   {
@@ -3909,7 +4123,7 @@ module.exports = [
     to: '/videos/get-started-series/brand-how-it-works'
   },
   {
-    from: ['/videos/get-started/07_02-brand-signuop-login-pages'],
+    from: ['/videos/get-started/07_02-brand-signup-login-pages'],
     to: '/videos/get-started-series/brand-signup-and-login-pages'
   },
   {
