@@ -2275,6 +2275,7 @@ module.exports = [
   {
     from: ['/i18n/i18n-guide-ios','/libraries/lock-ios/v2/internationalization'],
     to: '/libraries/lock-swift/lock-swift-internationalization'
+  },
   {
     from: ['/libraries/lock-ios/v2/custom-fields'],
     to: '/libraries/lock-swift/lock-swift-custom-fields-at-signup'
