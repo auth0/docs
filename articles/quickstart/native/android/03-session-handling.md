@@ -118,7 +118,7 @@ private final AuthCallback loginCallback = new AuthCallback() {
 ```
 
 ::: note
-A Storage defines how data is going to be persisted in the device. The Storage implementation given to the Credentials Manager in the seed project uses a SharedPreferences file to store the user credentials in [Private mode](https://developer.android.com/reference/android/content/Context.html#MODE_PRIVATE). You can modify this behavior by implementing a custom Storage.
+A Storage defines how data is going to be persisted in the device. The Storage implementation given to the Credentials Manager in the seed project uses a SharedPreferences file to store the user credentials in [Private mode](https://developer.android.com/reference/android/content/Context#MODE_PRIVATE). You can modify this behavior by implementing a custom Storage.
 :::
 
 ## Recover the User's Credentials
