@@ -343,7 +343,7 @@ articles:
           - title: Manage Tenant Administrators
             url: /get-started/dashboard/manage-dashboard-users
           - title: Manage Signing Keys
-            url: /tokens/signing-algorithms-and-keys
+            url: /tokens/manage-signing-keys
           - title: Configure Session Lifetime Settings
             url: /get-started/dashboard/configure-session-lifetime-settings
           - title: Enable SSO for Tenants

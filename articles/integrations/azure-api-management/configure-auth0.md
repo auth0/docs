@@ -70,7 +70,7 @@ Once Auth0 has created your Connection, you'll be redirected to your Connection'
 
 Finally, we'll create a user that we use later on to test the integration.
 
-Go to the [Users section]((${manage_url}/#/users)) of the Management Dashboard. Click **Create User**.
+Go to the [Users section](${manage_url}/#/users) of the Management Dashboard. Click **Create User**.
 
 ![](/media/articles/integrations/azure-api-mgmt/auth0/user.png)
 

@@ -79,8 +79,3 @@ Use this endpoint to obtain an impersonation URL to login as another user. Usefu
 - To distinguish between real logins and impersonation logins, the profile of the impersonated user will contain additional impersonated and impersonator properties. For example: `"impersonated": true, "impersonator": {"user_id": "auth0|...", "email": "admin@example.com"}`.
 
 - For a regular web app, you should set the `additionalParameters`: set the `response_type` to be `code`, the `callback_url` to be the <dfn data-key="callback">callback URL</dfn> to which Auth0 will redirect with the authorization code, and the <dfn data-key="scope">`scope`</dfn> to be the JWT claims that you want included in the JWT.
-
-
-### More Information
-
-- [Impersonate Users](/users/guides/impersonate-users-using-the-dashboard)
