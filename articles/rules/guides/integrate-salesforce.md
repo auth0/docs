@@ -36,7 +36,7 @@ While setting up your app, make sure you use the following settings:
 
 | Field | Value to Provide |
 | - | - |
-| App URL | `${manage_url}.auth0.com` |
+| App URL | `https://${account.namespace}` |
 | Callback URL | `https://${account.namespace}/login/callback` |
 
 <%= include('../../connections/_find-auth0-domain-redirects') %>
