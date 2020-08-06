@@ -34,7 +34,7 @@ The Auth0 developer keys are to be used for testing purposes so there are a few 
 
 When using the Auth0 developer keys, the authentication flow for the various Identity Providers will at times display Auth0's name, logo and information to your users. When you register your own application, you have the opportunity to use your own logo and other application information instead.
 
-![Consent Screen](/media/articles/connections/social/devkeys/login-screen.png)
+![Consent Screen](/media/articles/connections/social/devkeys/consent-screen.png)
 
 ## Limitations of Developer Keys when using Classic Universal Login
 
