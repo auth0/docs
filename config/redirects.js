@@ -861,6 +861,14 @@ module.exports = [
     from: '/architecture-scenarios/application/web-app-sso/implementation-aspnetcore',
     to: '/architecture-scenarios/web-app-sso/implementation-aspnetcore'
   },
+  {
+    from: '/architecture-scenarios/b2b/b2b-architecture',
+    to: '/architecture-scenarios/implementation/b2b/b2b-architecture'
+  },
+  {
+    from: '/architecture-scenarios/b2b/b2b-authentication',
+    to: '/architecture-scenarios/implementation/b2b/b2b-authentication'
+  },
 
   /* CONTENTFUL REDIRECTS */
 
@@ -2937,7 +2945,7 @@ module.exports = [
     to: '/rules/automatically-generate-leads-in-shopify'
   },
   {
-    from: '/rules/guides/cache-resources',
+    from: ['/rules/guides/cache-resources','/rules/cache-expensive-resources-in-rules'],
     to: '/rules/cache-resources'
   },
   {

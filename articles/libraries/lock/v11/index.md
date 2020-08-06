@@ -77,7 +77,7 @@ Make sure you read about the [limitations of cross-origin authentication](/cross
 
 ### 1. Initializing Lock
 
-First, you'll need to initialize a new `Auth0Lock` object, and provide it with your Auth0 client ID (the unique client ID for each Auth0 application, which you can get from the [management dashboard](${manage_url})) and your Auth0 domain (for example `yourname.auth0.com`).
+First, you'll need to initialize a new `Auth0Lock` object, and provide it with your Auth0 client ID (the unique client ID for each Auth0 application, which you can get from the [management dashboard](${manage_url})) and your Auth0 domain (for example, `yourname.auth0.com`).
 
 ```js
 // Initializing our Auth0Lock
