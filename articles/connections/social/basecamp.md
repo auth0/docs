@@ -20,7 +20,7 @@ useCase:
   - add-idp
   - add-login
 ---
-
+ 
 # Connect Apps to Basecamp
 
 This guide will show you how to add functionality to your web app that allows your users to log in with Basecamp (formerly 37Signals).
