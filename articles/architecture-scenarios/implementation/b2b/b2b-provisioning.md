@@ -46,7 +46,7 @@ You need to provision those users at the IdP level. Each of the organizations wi
     * You convince them to create (or find that they already have) one master IdP that can route to their individual IdPs.
     * You create separate organizations (e.g. customerorg-department1 and customerorg-department2) in your applications.
     * You set up a new Auth0 tenant just for them and add as many IdPs as they need (which may include a database in Auth0) to that tenant, along with their own custom domain and branding.
-    * You make your existing tenant and login page more complex to handle [Home Realm Discovery](/architecture-scenarios/b2b/b2b-authentication#home-real-discovery) just for organizations that have more than one IdP.
+    * You make your existing tenant and login page more complex to handle [Home Realm Discovery](/architecture-scenarios/implementation/b2b/b2b-authentication#home-real-discovery) just for organizations that have more than one IdP.
 
 We recommend using Auth0 as an IdP as a starting point because it’s simple to implement a user invite workflow: an administrator creates a user; a randomly-generated password is created for that user, but never stored or shown to anyone; and then the user receives a welcome email with a link to set their password. Compared to other invite flows, the only thing special about this is that the person who is creating the user will have to either select the organization ahead of time, or the system will force the organization to match that of the user doing the inviting (in situations where there is an organization administrator who belongs to that organization only). To learn more, see [User invite](#user-invite).
 
