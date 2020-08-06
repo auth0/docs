@@ -616,13 +616,13 @@ articles:
           - title: Client Credentials Exchange
             url: /hooks/extensibility-points/client-credentials-exchange
           - title: Post-Change Password
-            url: /hooks/post-change-password
+            url: /hooks/extensibility-points/post-change-password
           - title: Post-User Registration
-            url: /hooks/post-user-registration
+            url: /hooks/extensibility-points/post-user-registration
           - title: Pre-User Registration
-            url: /hooks/pre-user-registration
+            url: /hooks/extensibility-points/pre-user-registration
           - title: Send Phone Message
-            url: /hooks/send-phone-message
+            url: /hooks/extensibility-points/send-phone-message
       - title: Hook Secrets
         url: /hooks/hook-secrets
         children:
@@ -668,7 +668,7 @@ articles:
       - title: Auth0 Logs to AWS Cloudwatch
         url: /extensions/export-logs-to-cloudwatch
       - title: Auth0 Logs to Azure Blob Storage
-        url: /extensions/azure-blog-storage
+        url: /extensions/export-logs-to-azure-blob-storage
       - title: Auth0 Logs to Logentries
         url: /extensions/export-logs-to-logentries
       - title: Auth0 Logs to Loggly
@@ -884,7 +884,7 @@ articles:
           - title: Custom Databases
             url: /connections/database/custom-db/error-handling
           - title: Active Directory/LDAP Connector
-            url: /ad-ldap-connector/troubleshoot-ad-ldap-connector
+            url: /extensions/ad-ldap-connector
           - title: Extensions
             url: /extensions/troubleshoot-extensions
           - title: Auth0 PHP SDK
