@@ -49,7 +49,7 @@ While setting up your app, make sure you use the following settings:
 | Field | Value to Provide |
 | - | - |
 | API (Enable OAuth Settings) | Click `Enable OAuth Settings` |
-| Callback URL | `${manage_url}.auth0.com/login/callback` |
+| Callback URL | `https://${account.namespace}/login/callback` |
 | Selected OAuth Scopes | Add `Access your basic information` |
 
 <%= include('../../connections/_find-auth0-domain-redirects') %>
