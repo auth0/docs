@@ -23,7 +23,7 @@ There are two main approaches that can be taken for creating a new organization.
   Live Updates do come with some things to consider.  There are certain operations that must be done in serial to avoid issues.  Enabling clients on a connection, adding callback URL's to an Application are two examples.  Any operation in the Management API where you must retrieve an entire list and re-submit the entire list with the new value added to it are operations that must be done in serial to avoid two parallel operations overwriting one of the values.
 :::
 
-* **Change the Repository and Re-deploy**: If you are taking advantage of the Deploy CLI (or a custom CLI) as part of your [CI/CD pipeline]( /architecture-scenarios/implementation/${platform}}/${platform}-deployment), you may prefer to push your changes directly to your repository and then kickoff a new deployment instead.  This can take a little more time, but it has benefits associated with version history and the ability to backout a change by re-deploying the previous version.
+* **Change the Repository and Re-deploy**: If you are taking advantage of the Deploy CLI (or a custom CLI) as part of your [CI/CD pipeline]( /architecture-scenarios/implementation/${platform}/${platform}-deployment), you may prefer to push your changes directly to your repository and then kickoff a new deployment instead.  This can take a little more time, but it has benefits associated with version history and the ability to backout a change by re-deploying the previous version.
 
 ::: panel Best Practice
 You may want to have a separate repository just for the items that the organizations need so that you don't have to re-deploy other common components and risk making an error.
