@@ -29,6 +29,7 @@ fi
 
 
 echo "Moving content into docs folder"
+rm -rf "./docs/"
 mkdir -p "./docs/"
 shopt -s extglob
 mv !(docs) docs
@@ -38,8 +39,10 @@ git clone ssh://git@github.com/auth0/auth0-docs.git auth0-docs-repo
 
 echo "Moving docs site into root folder"
 shopt -s dotglob
+rm -rf "./.github"
 mv auth0-docs-repo/* .
 rm -rf auth0-docs-repo
 shopt -u dotglob
 
-echo "Docs site successfully setup."
+commitHash=$(git rev-parse --short HEAD)
+echo "Docs site successfully setup. auth0-docs commit: $commitHash"
