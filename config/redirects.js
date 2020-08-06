@@ -3594,7 +3594,7 @@ module.exports = [
   },
 
   /* Troubleshoot */
-
+ 
   {
     from: ['/troubleshoot/basics'],
     to: '/troubleshoot'
