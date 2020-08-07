@@ -59,4 +59,5 @@ Once you have imported the Security Dashboard from Auth0, you can use the follow
 
 * [Log Streams](/logs/streams)
 * [Stream Logs to Datadog](/logs/streams/datadog)
+* [View Anomaly Detection Events](/anomaly-detection/guides/use-tenant-data-for-anomaly-detection)
 * [Configure Auth0 as Identity Provider for Datadog](/protocols/saml/saml-apps/datadog)
