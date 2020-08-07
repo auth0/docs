@@ -1825,7 +1825,7 @@ module.exports = [
     to: '/get-started/dashboard/tenant-settings'
   },
   {
-    from: ['/dasxshboard/manage-dashboard-admins','/tutorials/manage-dashboard-admins'],
+    from: ['/dashboard/manage-dashboard-admins','/tutorials/manage-dashboard-admins'],
     to: '/get-started/dashboard/manage-dashboard-users'
   },
   {
