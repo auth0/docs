@@ -3788,7 +3788,7 @@ module.exports = [
   },
   {
     from: ['/guides/login/universal-vs-embedded','/guides/login/centralized-vs-embedded'],
-    to: '/universal-login/universal-vs-embedded'
+    to: '/universal-login/universal-vs-embedded-login'
   },
   {
     from: ['/universal-login/page-templates'],
