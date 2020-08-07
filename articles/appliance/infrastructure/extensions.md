@@ -21,7 +21,7 @@ The PSaaS Appliance supports:
 
 ## Extensions
 
-You can find a list of extensions available to you [on the Dashboard]({$manage_url}/#/extensions).
+You can find a list of extensions available to you [in the Dashboard](${manage_url}/#/extensions).
 
 Some of the [Extensions available to users of the Auth0 public cloud](/extensions) are unavailable in the PSaaS Appliance. As such, these do not appear as options in the PSaaS Appliance's Dashboard.
 

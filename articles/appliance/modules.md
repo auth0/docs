@@ -38,7 +38,7 @@ The current sandbox supports:
 | [mysql](https://github.com/felixge/node-mysql) | ~2.15.0 |  |
 | [pbkdf2](https://github.com/davidmurdoch/easy-pbkdf2) | 0.0.2 |  |
 | [pg](https://github.com/brianc/node-postgres) | 6.1.2 |  |
-| [pubnub](https://github.com/pubnub/javascript/tree/master/node.js) | 3.7.11 |  |
+| [pubnub](https://github.com/pubnub) | 3.7.11 |  |
 | [q](https://github.com/kriskowal/q) | ~1.4.1 |  |
 | [querystring](http://nodejs.org/api/querystring.html) | 0.2.0 |  |
 | [request](https://github.com/mikeal/request) | ~2.81.0 |  |
