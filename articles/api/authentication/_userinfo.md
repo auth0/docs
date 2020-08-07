@@ -91,7 +91,7 @@ This endpoint will work only if `openid` was granted as a <dfn data-key="scope">
 ### Remarks
 
 - The sample auth0.js script uses the library version 8. If you are using auth0.js version 7, please see this [reference guide](/libraries/auth0js/v7).
-- The auth0.js `parseHash` method, requires that your tokens are signed with `RS256`, rather than `HS256`. For more information about this, check the [Auth0.js v8 Migration Guide](/libraries/auth0js/migration-guide#the-parsehash-method).
+- The auth0.js `parseHash` method, requires that your tokens are signed with `RS256`, rather than `HS256`.
 - If you want this endpoint to return `user_metadata` or other custom information, you can use [rules](/rules/guides/metadata). For more information refer to [User profile claims and scope](/api-auth/tutorials/adoption/scope-custom-claims).
 - This endpoint will return three HTTP Response Headers, that provide relevant data on its rate limits:
   - `X-RateLimit-Limit`: Number of requests allowed per minute.

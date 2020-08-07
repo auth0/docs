@@ -16,7 +16,7 @@ On the other hand, if your organization *owns* the application(s), the user data
 Though you can configure your applications to be first-party and subsequently configure your APIs to allow first-party clients to ignore consent, if you are using `localhost` then Auth0 cannot verify that the application is truly a first-party app so your users will be prompted for consent anyway. To work around this constraint, when testing on your local machine during development, create a [fake local hostname and use that instead](https://community.auth0.com/t/how-do-i-skip-the-consent-page-for-my-api-authorization-flow/6035).
 :::
 
-Alternatively, you may have data relating to a user for which additional [functionality is provided](/scopes/current/api-scopes#example-an-api-called-by-a-back-end-service) and for which explicit user consent cannot be obtained (i.e. there is no authenticated user who can provide it). In this scenario, a [list of applications for which Client Credentials grant is enabled](docs/flows/concepts/client-credentials) can be defined. 
+Alternatively, you may have data relating to a user for which additional [functionality is provided](/scopes/current/api-scopes#example-an-api-called-by-a-back-end-service) and for which explicit user consent cannot be obtained (i.e. there is no authenticated user who can provide it). In this scenario, a [list of applications for which Client Credentials grant is enabled](/flows/concepts/client-credentials) can be defined. 
 
 ### Access Token claims
 
