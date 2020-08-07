@@ -2345,6 +2345,10 @@ module.exports = [
     to: '/libraries/lock-android/android-development-keystores-hashes'
   },
   {
+    from: ['/libraries/auth0-android/user-management'],
+    to: '/libraries/lock-android/auth0-android-user-management'
+  },
+  {
     from: ['/libraries/auth0-spa-js'],
     to: '/libraries/auth0-single-page-app-sdk'
   },
