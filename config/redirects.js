@@ -1682,10 +1682,6 @@ module.exports = [
   /* Flows */
 
   {
-    from: ['/api-auth/tutorials/password-grant'],
-    to: '/flows/call-your-api-using-resource-owner-password-flow'
-  },
-  {
     from: ['/flows/concepts/auth-code','/flows/concepts/regular-web-app-login-flow','/api-auth/grant/authorization-code','/api-auth/tutorials/adoption/authorization-code','/api-auth/adoption/authorization-code'],
     to: '/flows/authorization-code-flow'
   },
@@ -1733,6 +1729,20 @@ module.exports = [
     from: ['/api-auth/grant/password','/api-auth/tutorials/adoption/password'],
     to: '/flows/resource-owner-password-flow'
   },
+  {
+    from: ['/api-auth/tutorials/password-grant'],
+    to: '/flows/call-your-api-using-resource-owner-password-flow'
+  },
+  {
+    from: ['/api-auth/grant/hybrid'],
+    to: '/flows/hybrid-flow'
+  },
+  {
+    from: ['/api-auth/tutorials/hybrid-flow'],
+    to: '/flows/call-api-hybrid-flow'
+  },
+
+  
 
   /* Get Started */
 
