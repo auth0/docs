@@ -403,15 +403,17 @@ articles:
       - title: Anomaly Detection
         url: /anomaly-detection
         children:
-          - title: Breached Password Security
+          - title: Bot Protection
+            url: /anomaly-detection/bot-protection
+          - title: Breached Passwords
             url: /anomaly-detection/breached-password-security
+          - title: Brute Force Attacks
+            url: /anomaly-detection/brute-force-protection
           - title: Set Preferences
             url: /anomaly-detection/set-anomaly-detection-preferences
           - title: Customize Emails
             url: /anomaly-detection/customize-blocked-account-emails
-          - title: Enable/Disable Brute Force Protection
-            url: /anomaly-detection/enable-and-disable-brute-force-protection
-          - title: View Anomaly Detection Events
+          - title: View Events
             url: /anomaly-detection/view-anomaly-detection-events
       - title: SAML Configuration
         url: /protocols/saml-protocol
@@ -773,6 +775,8 @@ articles:
             url: /logs/export-log-events-with-log-streaming/stream-logs-to-datadog
           - title: Azure Event Grid Streams
             url: /logs/export-log-events-with-log-streaming/stream-logs-to-azure-event-grid
+          - title: Datadog Dashboard Templates
+            url: /logs/export-log-events-with-log-streaming/datadog-dashboard-templates
       - title: Log Data Retention
         url: /logs/log-data-retention
       - title: View Log Data in the Dashboard
