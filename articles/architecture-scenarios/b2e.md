@@ -97,7 +97,7 @@ Log events each have an event type. You can use event types as filters when quer
 
 ## Monitoring
 
-Monitoring the infrastructure and services that your applications depend on is critical. [Auth0 provides monitoring endpoints](/monitoring/guides/test-testall-endpoints) as well as an [Auth0 Status](https://status.auth0.com) page you can subscribe to.
+Monitoring the infrastructure and services that your applications depend on is critical. Auth0 provides an [Auth0 Status](https://status.auth0.com) page you can subscribe to.
 
 Auth0 makes every effort to minimize outages, but if there is any disruption to service, it will appear on the status page. To support requirements for root cause analysis documentation after a disruption, Auth0 conducts internal analysis and publishes the results on the disruption notice when the analysis is completed.
 
