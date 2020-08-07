@@ -18,4 +18,4 @@ It is a best practice to check the Auth0 [Security Bulletins](/security/bulletin
 
 ### Change log
 
-Auth0 provides information on changes to the service in the Auth0 [change log](https://auth0.com/changelog). You should make a regular practice of reviewing Auth0 change logs to be aware of changes. Support teams researching an issue may find it useful to review the change log to determine if recent changes might be related, especially if these are [breaking changes](docs/migrations). Development teams will also want to review the change logs to identify new features that may be beneficial.
+Auth0 provides information on changes to the service in the Auth0 [change log](https://auth0.com/changelog). You should make a regular practice of reviewing Auth0 change logs to be aware of changes. Support teams researching an issue may find it useful to review the change log to determine if recent changes might be related, especially if these are [breaking changes](/migrations). Development teams will also want to review the change logs to identify new features that may be beneficial.
