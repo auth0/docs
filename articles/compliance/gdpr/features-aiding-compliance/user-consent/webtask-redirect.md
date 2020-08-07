@@ -3,6 +3,7 @@ section: compliance
 description: Learn how to host a redirect form using Webtask and redirect users to the form.
 contentType: how-to
 sitemap: false
+public: false
 ---
 # Redirect Users to Consent Form Hosted Using Webtask
 
