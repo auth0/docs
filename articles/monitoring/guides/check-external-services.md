@@ -42,6 +42,5 @@ Your customers may have some of the same concerns, so you may want to document a
 ## Keep reading
 
 * [Check Auth0 Status](/monitoring/guides/check-status)
-* [Check Auth0 Authentication and Supporting Services](/monitoring/guides/test-testall-endpoints)
 * [Monitor Auth0 Using System Center Operations Manager](/monitoring/guides/monitor-using-SCOM)
 * [Monitor Applications](/monitoring/guides/monitor-applications)

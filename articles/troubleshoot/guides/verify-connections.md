@@ -33,6 +33,5 @@ Most identity provider connections have a **TRY** button to see if the connectio
 * [Verify Domain](/troubleshoot/guides/verify-domain)
 * [Verify Rules](/troubleshoot/verify/rules)
 * [Check Auth0 Status](/monitoring/guides/check-status)
-* [Check Supporting Services Status](/monitoring/guides/test-testall-endpoints)
 * [Monitor Applications](/monitoring/guides/monitor-applications)
 * [Monitor Using System Center Operations Manager](/monitoring/guides/monitor-using-SCOM)

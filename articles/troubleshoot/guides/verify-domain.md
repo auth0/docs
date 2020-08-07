@@ -21,7 +21,6 @@ useCase: troubleshooting
 * [Verify Platform](/troubleshoot/guides/verify-platform)
 * [Verify Rules](/troubleshoot/guides/verify-rules)
 * [Check Auth0 Status](/monitoring/guides/check-status)
-* [Check Supporting Services Status](/monitoring/guides/test-testall-endpoints)
 * [Check External Services Status](/monitoring/guides/check-external-services)
 * [Monitor Applications](/monitoring/guides/monitor-applications)
 * [Monitor Using System Center Operations Manager](/monitoring/guides/monitor-using-SCOM)

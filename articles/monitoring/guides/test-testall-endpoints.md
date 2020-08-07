@@ -1,6 +1,7 @@
 ---
 title: Check Auth0 Authentication and Supporting Services
-description: Learn how check the status of the Auth0 authentication service as well as supporting services such as the Dashboard and documentation using the test and testall endpoints. 
+description: Learn how check the status of the Auth0 authentication service as well as supporting services such as the Dashboard and documentation using the test and testall endpoints.
+public: false 
 topics:
   - monitoring
 contentType:

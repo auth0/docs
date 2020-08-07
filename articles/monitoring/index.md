@@ -21,7 +21,6 @@ You can monitor your Auth0 implementation and Auth0 status and services, as well
 
 * [Check Auth0 Status](/monitoring/guides/check-status)
 * [Check External Services Status](/monitoring/guides/check-external-services)
-* [Check Auth0 Authentication and Supporting Services](/monitoring/guides/test-testall-endpoints)
 * [Monitor Auth0 Using System Center Operations Manager](/monitoring/guides/monitor-using-SCOM)
 * [Monitor Applications](/monitoring/guides/monitor-applications)
 

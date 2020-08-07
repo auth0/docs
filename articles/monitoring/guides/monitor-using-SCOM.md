@@ -17,7 +17,7 @@ useCase:
 
 You can monitor Auth0 as a standard web application using System Center Operations Manager (SCOM) or any tool that supports synthetic transactions.
 
-In addition to a synthetic login transaction that includes the extensions your applications rely on (such as rules that execute custom code for integration with your company's other services), Auth0 recommends adding SCOM probes for the `test` and `testall` endpoints. For more information, see [Check Auth0 Authentication and Supporting Services](/monitoring/guides/test-testall-endpoints).
+We recommend monitoring a synthetic login transaction that includes the extensions your applications rely on (such as rules that execute custom code for integration with your company's other services).
 
 ## Set up SCOM
 
@@ -76,6 +76,5 @@ Click **Web Application Status** to bring up the information SCOM has gathered.
 
 * [Monitoring the AD/LDAP Connector with System Center Operations Manager](/connector/scom-monitoring)
 * [Check Auth0 Status](/monitoring/guides/check-status)
-* [Check Auth0 Authentication and Supporting Services](/monitoring/guides/test-testall-endpoints)
 * [Check External Services Status](/monitoring/guides/check-external-services)
 * [Monitor Applications](/monitoring/guides/monitor-applications)
