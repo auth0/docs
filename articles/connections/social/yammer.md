@@ -15,44 +15,9 @@ useCase:
     - customize-connections
     - add-idp
 ---
-
-# Connect Apps to Yammer
-
-You can add functionality to your web app that allows your users to log in with Yammer. 
-
-## Prerequisites
-
-Before connecting your Auth0 app to Yammer, you must have a [Yammer Developer](https://developer.yammer.com/) account.
-
-## Steps
-
-To connect your app to Yammer, you will:
-
-1. [Set up your app in Yammer](#set-up-your-app-in-yammer)
-2. [Create and enable a connection in Auth0](#create-and-enable-a-connection-in-auth0)
-3. [Test the connection](#test-the-connection)
-
-### Set up your app in Yammer
-
-Set up an app in Yammer. During this process, Yammer will generate a **Client ID** and **Client Secret** for your application; make note of these.
-
-1. Log in to [Yammer Developer Center](https://developer.yammer.com/) and click on **Apps** in the top menu.
-2. Click on **Register an App**.
-3. Then click **Register New App**.
-4. Name your app and complete the form. For the **Redirect URI**, enter your <dfn data-key="callback">callback URL</dfn>:
-  `https://${account.namespace}/login/callback`
-
-<%= include('../_find-auth0-domain-redirects') %>
-
-5. Click **Continue**. Once your app is created, your **Client ID** and **Client Secret** will be displayed.
-
-### Create and enable a connection in Auth0
-
-[Set up the Yammer social connection](/dashboard/guides/connections/set-up-connections-social) in Auth0. Make sure you have the generated **Client ID** and the **Client Secret**.
-
-### Test the connection
-
-You're ready to [test your connection](/dashboard/guides/connections/test-connections-social). After logging in, you'll be prompted to allow your app access. To do so, click **Install unlisted app**.
-
+<%= include('../../../snippets/social/yammer/0') %> 
+<%= include('../../../snippets/social/yammer/1') %> 
+<%= include('../../../snippets/social/yammer/2') %> 
+<%= include('../../../snippets/social/yammer/3') %> 
+<%= include('../../../snippets/social/yammer/4') %> 
 <%= include('../_quickstart-links.md') %>
-
