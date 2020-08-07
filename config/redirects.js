@@ -887,7 +887,7 @@ module.exports = [
   /* Anomaly Detection */
 
   {
-    from: ['/anomaly-detection/references/anomaly-detection-faqs','/anomaly-detection/references/breached-password-detection-triggers-actions'],
+    from: ['/anomaly-detection/references/brute-force-protection-triggers-actions','/anomaly-detection/references/anomaly-detection-faqs','/anomaly-detection/references/breached-password-detection-triggers-actions'],
     to: '/anomaly-detection'
   },
   {
@@ -900,7 +900,7 @@ module.exports = [
   },
   {
     from: ['/anomaly-detection/guides/prevent-credential-stuffing-attacks'],
-    to: '/anomaly-detection/automated-attack-and-credential-stuffing-protection'
+    to: '/anomaly-detection/bot-protection'
   },
   {
     from: ['/anomaly-detection/references/anomaly-detection-restrictions-limitations', '/anomaly-detection/guides/set-anomaly-detection-preferences','/anomaly-detection/guides/enable-disable-brute-force-protection'],
@@ -911,9 +911,11 @@ module.exports = [
     to: '/anomaly-detection/view-anomaly-detection-events'
   },
   {
-    from: ['/anomaly-detection/references/brute-force-protection-triggers-actions'],
-    to: '/anomaly-detection/brute-force-protection-triggers-and-actions'
+    from: ['/anomaly-detection/concepts/brute-force-protection'],
+    to: '/anomaly-detection/brute-force-protection'
   },
+
+  
 
   /* API */
 
@@ -2931,6 +2933,7 @@ module.exports = [
     from: ['/services/solution-design'],
     to: '/professional-services/solution-design-services'
   },
+
 
   /* Protocols */
 
