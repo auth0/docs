@@ -796,8 +796,6 @@ articles:
     children:
       - title: Check Auth0 Status
         url: /monitor-auth0/check-auth0-status
-      - title: Check Supporting Services Status
-        url: /monitor-auth0/check-auth-and-supporting-services
       - title: Check External Services Status
         url: /monitor-auth0/check-external-services-status
       - title: Monitor Applications

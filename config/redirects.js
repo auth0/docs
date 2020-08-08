@@ -565,10 +565,6 @@ module.exports = [
     to: '/connections/social/google'
   },
   {
-    from: '/miicard-clientid',
-    to: '/connections/social/miicard'
-  },
-  {
     from: '/ms-account-clientid',
     to: '/connections/social/microsoft-account'
   },
@@ -645,14 +641,6 @@ module.exports = [
     to: '/connections/social/linkedin'
   },
   {
-    from: '/mysql-connection-tutorial',
-    to: '/connections/database/mysql'
-  },
-  {
-    from: '/migrating',
-    to: '/connections/database/migrating'
-  },
-  {
     from: '/ad',
     to: '/connections/enterprise/active-directory-ldap'
   },
@@ -677,27 +665,15 @@ module.exports = [
     to: '/connections/passwordless/ios-sms-objc'
   },
   {
-    from: '/applications/concepts/connections',
-    to: '/connections'
-  },
-  {
-    from: '/clients/connections',
-    to: '/connections'
-  },
-  {
-    from: '/applications/connections',
-    to: '/connections'
-  },
-  {
     from: '/password-strength',
     to: '/connections/database/password-strength'
   },
   {
-    from: '/connections',
+    from: ['/connections','/applications/concepts/connections','/applications/connections','/clients/connections'],
     to: '/identityproviders'
   },
   {
-    from: ['/connections/database/mysql','/connections/database/custom-db/custom-db-connection-overview'],
+    from: ['/connections/database/mysql','/mysql-connection-tutorial','/connections/database/custom-db/custom-db-connection-overview'],
     to: '/connections/database/custom-db'
   },
   {
@@ -773,11 +749,7 @@ module.exports = [
     to: '/connections/passwordless/guides/universal-login'
   },
   {
-    from: '/connections/passwordless/faq',
-    to: '/connections/passwordless/reference/troubleshoot'
-  },
-  {
-    from: ['/connections/social/miicard','/connections/social','/connections/nativesocial/'],
+    from: ['/connections/social/miicard','/miicard-clientid','/connections/social','/connections/nativesocial/'],
     to: '/connections/identity-providers-social'
   },
   {
@@ -785,7 +757,7 @@ module.exports = [
     to: '/connections/social/line'
   },
   {
-    from: ['/api-auth/passwordless','/connections/passwordless/ios','/connections/passwordless/native-passwordless-universal','/connections/passwordless/reference/troubleshoot','/connections/passwordless/spa-email-code','/connections/passwordless/spa-email-link','/connections/passwordless/spa-sms','/connections/passwordless/guides/'],
+    from: ['/api-auth/passwordless','/connections/passwordless/ios','/connections/passwordless/native-passwordless-universal','/connections/passwordless/reference/troubleshoot','/connections/passwordless/faq','/connections/passwordless/spa-email-code','/connections/passwordless/spa-email-link','/connections/passwordless/spa-sms','/connections/passwordless/guides/'],
     to: '/connections/passwordless'
   },
 
@@ -793,14 +765,6 @@ module.exports = [
 
   /* ARCHITECTURE SCENARIOS */
 
-  {
-    from: '/sequence-diagrams',
-    to: '/architecture-scenarios/application/spa-api'
-  },
-  {
-    from: '/architecture-scenarios/sequence-diagrams',
-    to: '/architecture-scenarios/application/spa-api'
-  },
   {
     from: '/architecture-scenarios/application/mobile-api',
     to: '/architecture-scenarios/mobile-api'
@@ -810,7 +774,7 @@ module.exports = [
     to: '/architecture-scenarios/server-api'
   },
   {
-    from: '/architecture-scenarios/application/spa-api',
+    from: ['/architecture-scenarios/application/spa-api','/architecture-scenarios/sequence-diagrams','/sequence-diagrams']
     to: '/architecture-scenarios/spa-api'
   },
   {
@@ -2225,11 +2189,7 @@ module.exports = [
     to: '/libraries/custom-signup'
   },
   {
-    from: '/libraries/lock-android/error-messages',
-    to: '/libraries/error-messages'
-  },
-  {
-    from: ['/libraries/error-messages','/errors/libraries/auth0-js/invalid-token'],
+    from: ['/libraries/error-messages','/libraries/lock-android/error-messages','/errors/libraries/auth0-js/invalid-token'],
     to: '/libraries/common-auth0-library-authentication-errors'
   },
   {
@@ -3712,10 +3672,6 @@ module.exports = [
     to: '/universal-login/custom-error-pages'
   },
   {
-    from: ['/hosted-pages/default-login-url'],
-    to: '/universal-login/default-login-url'
-  },
-  {
     from: ['/universal-login/customization-classic','/universal-login/advanced-customization'],
     to: '/universal-login/classic-experience/classic-experience-customization'
   },
@@ -3812,7 +3768,7 @@ module.exports = [
     to: '/universal-login/universal-login-page-customization'
   },
   {
-    from: ['/universal-login/default-login-url'],
+    from: ['/universal-login/default-login-url','/hosted-pages/default-login-url'],
     to: '/universal-login/configure-default-login-routes'
   },
   {
@@ -3870,7 +3826,7 @@ module.exports = [
     to: '/users/change-user-picture'
   },
   {
-    from: ['/connections/database/migrating', '/users/migrations/automatic','/users/guides/configure-automatic-migration'],
+    from: ['/connections/database/migrating','/migrating','/users/migrations/automatic','/users/guides/configure-automatic-migration'],
     to: '/users/configure-automatic-migration-from-your-database'
   },
   {
