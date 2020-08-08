@@ -189,6 +189,7 @@ Create a `.env` file in the root of the project directory and populate it with t
 ISSUER_BASE_URL=<YOUR OIDC URL>
 CLIENT_ID=<YOUR OIDC CLIENT ID>
 BASE_URL=http://localhost:3000
+APP_SESSION_SECRET=<your secret value>
 ```
 ### Setting up an Auth0 app
 If you don't already have an Auth0 account, you can [sign up for a free Auth0 account here](https://auth0.com/signup).
@@ -207,6 +208,7 @@ These are the two values that need to be configured as part of the application. 
 ISSUER_BASE_URL=${account.namespace}
 CLIENT_ID=${account.clientId}
 BASE_URL=http://localhost:3000
+APP_SESSION_SECRET=<your secret value>
 ```
 ### Running the application
 With the server and environment configuration done, find your browser window that has the application open. If you've closed the browser and stopped the server, run the following from the terminal to restart the application
