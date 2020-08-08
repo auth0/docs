@@ -505,10 +505,6 @@ module.exports = [
     to: '/connections/social/amazon'
   },
   {
-    from: '/aol-clientid',
-    to: '/connections/social/aol'
-  },
-  {
     from: ['/connections/enterprise/azure-active-directory','/connections/social/active-directory','/waad-clientid'],
     to: '/connections/enterprise/azure-active-directory/v2'
   },
@@ -593,20 +589,12 @@ module.exports = [
     to: '/connections/social/renren'
   },
   {
-    from: '/sharepoint-clientid',
-    to: '/connections/enterprise/sharepoint-apps'
-  },
-  {
     from: '/shopify-clientid',
     to: '/connections/social/shopify'
   },
   {
     from: '/soundcloud-clientid',
     to: '/connections/social/soundcloud'
-  },
-  {
-    from: '/thecity-clientid',
-    to: '/connections/social/thecity'
   },
   {
     from: '/twitter-clientid',
@@ -657,12 +645,8 @@ module.exports = [
     to: '/connections/enterprise/adfs'
   },
   {
-    from: ['/passwordless','/dashboard/guides/connections/set-up-connections-passwordless'],
+    from: ['/passwordless','/dashboard/guides/connections/set-up-connections-passwordless','/api-auth/passwordless','/connections/passwordless/ios','/connections/passwordless/native-passwordless-universal','/connections/passwordless/reference/troubleshoot','/connections/passwordless/faq','/connections/passwordless/spa-email-code','/connections/passwordless/spa-email-link','/connections/passwordless/spa-sms','/connections/passwordless/guides/','/connections/passwordless/ios-sms-objc','/connections/passwordless/ios-sms'],
     to: '/connections/passwordless'
-  },
-  {
-    from: '/connections/passwordless/ios-sms',
-    to: '/connections/passwordless/ios-sms-objc'
   },
   {
     from: '/password-strength',
@@ -749,17 +733,18 @@ module.exports = [
     to: '/connections/passwordless/guides/universal-login'
   },
   {
-    from: ['/connections/social/miicard','/miicard-clientid','/connections/social','/connections/nativesocial/'],
+    from: ['/connections/social/aol','/aol-clientid','/connections/social/thecity','/thecity-clientid','/connections/social/miicard','/miicard-clientid','/connections/social','/connections/nativesocial/'],
     to: '/connections/identity-providers-social'
+  },
+  {
+    from: ['/connections/enterprise/sharepoint-apps','/sharepoint-clientid'],
+    to: '/connections/identity-providers-enterprise'
   },
   {
     from: '/line',
     to: '/connections/social/line'
   },
-  {
-    from: ['/api-auth/passwordless','/connections/passwordless/ios','/connections/passwordless/native-passwordless-universal','/connections/passwordless/reference/troubleshoot','/connections/passwordless/faq','/connections/passwordless/spa-email-code','/connections/passwordless/spa-email-link','/connections/passwordless/spa-sms','/connections/passwordless/guides/'],
-    to: '/connections/passwordless'
-  },
+  
 
   /* MICROSITES */
 
@@ -1307,10 +1292,6 @@ module.exports = [
 {
   from: ['/compliance/gdpr/features-aiding-compliance/protect-user-data'],
   to: '/compliance/gdpr/gdpr-protect-and-secure-user-data'
-},
-{
-  from: ['/compliance/gdpr/features-aiding-compliance/user-consent/webtask-redirect'],
-  to: '/compliance/gdpr/gdpr-redirect-users-consent-form-hosted-webtask'
 },
 {
   from: ['/compliance/gdpr/features-aiding-compliance/right-to-access-data'],
@@ -2350,7 +2331,7 @@ module.exports = [
   },
   {
     from: ['/libraries/auth0-swift/user-management'],
-    to: 'auth0-swift-user-management'
+    to: '/libraries/auth0-swift/auth0-swift-user-management'
   },
   {
     from: ['/libraries/auth0-php/authentication-api'],
@@ -2422,7 +2403,7 @@ module.exports = [
   },
   {
     from: ['/logs/streams/http-event-to-slack'],
-    to: '/logs/export-log-events-with-log-streaming/stream-auth0-log-events-to-slack'
+    to: '/logs/export-log-events-with-log-streaming/stream-log-events-to-slack'
   },
   {
     from: ['/logs/streams/http-event'],
@@ -2663,10 +2644,6 @@ module.exports = [
     from: ['/monitoring/guides/track-signups-salesforce','/tutorials/track-signups-enrich-user-profile-generate-leads','/scenarios-mixpanel-fullcontact-salesforce','/scenarios/mixpanel-fullcontact-salesforce'],
     to: '/monitor-auth0/track-new-sign-ups-in-salesforce'
   },
-  {
-    from: ['/monitoring/guides/test-testall-endpoints'],
-    to: '/monitor-auth0/check-auth-and-supporting-services'
-  },
   
 
   /* Policies */
@@ -2728,11 +2705,11 @@ module.exports = [
   },
   {
       from: ['/pre-deployment/tests/recommended'],
-      to: '/pre-deployment/how-to-run-production-checks/production-checks-recommended-fixes'
+      to: '/pre-deployment/how-to-run-production-checks/production-check-recommended-fixes'
   },
   {
       from: ['/pre-deployment/tests/required'],
-      to: '/pre-deployment/how-to-run-production-checks/production-checks-required-fixes'
+      to: '/pre-deployment/how-to-run-production-checks/production-check-required-fixes'
   },
 
   /* Private Cloud */
@@ -3331,7 +3308,7 @@ module.exports = [
   },
   {
     from: ['/login/spa/authenticate-with-cookies'],
-    to: '/sessions-and-cookies/spa-authenticate-using-cookies'
+    to: '/sessions-and-cookies/spa-authenticate-with-cookies'
   },
 
   /* SSO */
@@ -3673,7 +3650,7 @@ module.exports = [
   },
   {
     from: ['/universal-login/customization-classic','/universal-login/advanced-customization'],
-    to: '/universal-login/classic-experience/classic-experience-customization'
+    to: '/universal-login/classic-experience/customization-classic'
   },
   {
     from: ['/universal-login/classic'],
@@ -3810,7 +3787,7 @@ module.exports = [
     to: '/users/import-and-export-users'
   },
   {
-    from: ['/user-profile','/users/concepts/overview-user-profile','/user-profile/user-profile-details'],
+    from: ['/user-profile','/users/concepts/overview-user-profile','/user-profile/user-profile-details','/users/normalized/oidc','/users/user-profiles-returned-from-oidc-compliant-pipelines'],
     to: '/users/user-profiles'
   },
   {
@@ -3887,7 +3864,7 @@ module.exports = [
   },
   {
     from: ['/users/guides/view-users'],
-    to: '/users/view-users'
+    to: '/users/view-user-details'
   },
   {
     from: ['/users/normalized'],
@@ -3916,10 +3893,6 @@ module.exports = [
   {
     from: ['/users/normalized/auth0/update-root-attributes'],
     to: '/users/updating-user-profile-root-attributes'
-  },
-  {
-    from: ['/users/normalized/oidc','/users/user-profiles-returned-from-oidc-compliant-pipelines'],
-    to: 'user-profiles'
   },
   {
     from: ['/users/references/bulk-import-database-schema-examples'],
@@ -3971,15 +3944,15 @@ module.exports = [
   },
   {
     from: ['/users/search/v3/get-users-by-email-endpoint'],
-    to: '/users/user-search/retrieve-users-with-the-get-users-by-email-endpoint'
+    to: '/users/user-search/retrieve-users-with-get-users-by-email-endpoint'
   },
   {
     from: ['/users/search/v3/get-users-by-id-endpoint'],
-    to: '/users/user-search/retrieve-users-with-the-get-users-by-id-endpoint'
+    to: '/users/user-search/retrieve-users-with-get-users-by-id-endpoint'
   },
   {
     from: ['/users/search/v3/get-users-endpoint'],
-    to: '/users/user-search/retrieve-users-with-the-get-users-endpoint'
+    to: '/users/user-search/retrieve-users-with-get-users-endpoint'
   },
   {
     from: ['/users/search/v3/sort-search-results'],

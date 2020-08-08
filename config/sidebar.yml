@@ -501,7 +501,7 @@ articles:
         url: /users/user-search
         children:
           - title: Get Users
-            url: /users/user-search/retrieve-users-with-the-get-users-endpoint
+            url: /users/user-search/retrieve-users-with-get-users-endpoint
           - title: Get Users by Email
             url: /users/user-search/retrieve-users-with-get-users-by-email-endpoint
           - title: Get Users by ID
