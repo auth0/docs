@@ -759,7 +759,7 @@ module.exports = [
     to: '/architecture-scenarios/server-api'
   },
   {
-    from: ['/architecture-scenarios/application/spa-api','/architecture-scenarios/sequence-diagrams','/sequence-diagrams']
+    from: ['/architecture-scenarios/application/spa-api','/architecture-scenarios/sequence-diagrams','/sequence-diagrams'],
     to: '/architecture-scenarios/spa-api'
   },
   {
