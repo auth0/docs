@@ -1797,7 +1797,7 @@ module.exports = [
   /* Hooks */
 
   {
-    from: ['/hooks/cli','/hooks/dashboard','/hooks/overview','/auth0-hooks','/auth0-hooks/dashboard'],
+    from: ['/hooks/cli','/auth0-hooks/cli','/hooks/dashboard','/hooks/overview','/auth0-hooks','/auth0-hooks/dashboard'],
     to: '/hooks'
   },
   {
@@ -2715,7 +2715,7 @@ module.exports = [
   /* Private Cloud */
 
   {
-    from: ['/appliance/checksum','/appliance/proxy-updater','/appliance/update','/updating-appliance','/enterprise/private-cloud/overview','/appliance/dashboard/instrumentation','/appliance/instrumentation','/appliance/appliance-overview'],
+    from: ['/appliance','/appliance/checksum','/appliance/proxy-updater','/appliance/update','/updating-appliance','/enterprise/private-cloud/overview','/appliance/dashboard/instrumentation','/appliance/instrumentation','/appliance/appliance-overview'],
     to: '/private-cloud'
   },
   {
