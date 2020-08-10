@@ -1274,7 +1274,7 @@ module.exports = [
   to: '/compliance/data-processing'
 },
 {
-  from: ['/compliance/gdpr/features-aiding-compliance','/compliance/gdpr/security-advice-for-customers','/compliance/gdpr/roles-responsibilities','/compliance/gdpr/gdpr-summary','/compliance/gdpr/definitions'],
+  from: ['/compliance/gdpr/features-aiding-compliance','/compliance/gdpr/security-advice-for-customers','/compliance/gdpr/roles-responsibilities','/compliance/gdpr/gdpr-summary','/compliance/gdpr/definitions','/compliance/auth0-gdpr-compliance'],
   to: '/compliance/gdpr'
 },
 {
