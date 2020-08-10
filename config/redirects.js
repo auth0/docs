@@ -1770,7 +1770,7 @@ module.exports = [
     to: '/get-started/dashboard/retrieve-connection-options'
   },
   {
-    from: ['/dashboard/reference/settings-api'],
+    from: ['/dashboard/reference/settings-api','/api-auth/references/dashboard/api-settings'],
     to: '/get-started/dashboard/api-settings'
   },
   {
