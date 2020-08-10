@@ -900,7 +900,7 @@ module.exports = [
     to: '/applications/dynamic-client-registration'
   },
   {
-    from: ['/applications/concepts/app-types-auth0','/clients','/api-auth/tutorials/adoption/oidc-conformant','/api-auth/client-types','/clients/client-types','/applications/application-types','/applications/concepts/client-secret'],
+    from: ['/application','/applications/concepts/app-types-auth0','/clients','/api-auth/tutorials/adoption/oidc-conformant','/api-auth/client-types','/clients/client-types','/applications/application-types','/applications/concepts/client-secret'],
     to: '/applications'
   },
   {
