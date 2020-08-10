@@ -900,7 +900,7 @@ module.exports = [
     to: '/applications/dynamic-client-registration'
   },
   {
-    from: ['/applications/concepts/app-types-auth0','/clients','/api-auth/tutorials/adoption/oidc-conformant','/clients/client-types','/applications/application-types','/applications/concepts/client-secret'],
+    from: ['/applications/concepts/app-types-auth0','/clients','/api-auth/tutorials/adoption/oidc-conformant','/api-auth/client-types','/clients/client-types','/applications/application-types','/applications/concepts/client-secret'],
     to: '/applications'
   },
   {
@@ -1274,7 +1274,7 @@ module.exports = [
   to: '/compliance/data-processing'
 },
 {
-  from: ['/compliance/gdpr/features-aiding-compliance','/compliance/gdpr/security-advice-for-customers','/compliance/gdpr/roles-responsibilities','/compliance/gdpr/gdpr-summary','/compliance/gdpr/definitions'],
+  from: ['/compliance/gdpr/features-aiding-compliance','/compliance/gdpr/security-advice-for-customers','/compliance/gdpr/roles-responsibilities','/compliance/gdpr/gdpr-summary','/compliance/gdpr/definitions','/compliance/auth0-gdpr-compliance'],
   to: '/compliance/gdpr'
 },
 {
@@ -1645,7 +1645,7 @@ module.exports = [
     to: '/flows/add-login-auth-code-flow'
   },
   {
-    from: ['/flows/guides/auth-code/call-api-auth-code','/flows/guides/auth-code/includes/authorize-user-call-api','/flows/guides/auth-code/includes/sample-use-cases-call-api','/flows/guides/auth-code/includes/call-api','/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow','/api-auth/tutorials/authorization-code-grant'],
+    from: ['/authorization/flows/call-your-api-using-the-authorization-code-flow','/flows/guides/auth-code/call-api-auth-code','/flows/guides/auth-code/includes/authorize-user-call-api','/flows/guides/auth-code/includes/sample-use-cases-call-api','/flows/guides/auth-code/includes/call-api','/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow','/api-auth/tutorials/authorization-code-grant'],
     to: '/flows/call-your-api-using-the-authorization-code-flow'
   },
   {
@@ -1770,7 +1770,7 @@ module.exports = [
     to: '/get-started/dashboard/retrieve-connection-options'
   },
   {
-    from: ['/dashboard/reference/settings-api'],
+    from: ['/dashboard/reference/settings-api','/api-auth/references/dashboard/api-settings'],
     to: '/get-started/dashboard/api-settings'
   },
   {
@@ -2079,7 +2079,7 @@ module.exports = [
     to: '/integrations/sso-integrations/sharepoint'
   },
   {
-    from: ['/sso/current/integrations/springcm', '/integrations/sso/springcm'],
+    from: ['/sso/current/integrations/springcm','/integrations/sso/springcm','/integrations/springcm'],
     to: '/integrations/sso-integrations/springcm'
   },
   {
@@ -2294,7 +2294,7 @@ module.exports = [
     to: '/libraries/lock-android/lock-android-passwordless-with-magic-link'
   },
   {
-    from: ['/libraries/lock-android/v2/keystore'],
+    from: ['/libraries/lock-android/v2/keystore','/libraries/lock-android/keystore'],
     to: '/libraries/lock-android/android-development-keystores-hashes'
   },
   {
@@ -2557,7 +2557,7 @@ module.exports = [
     to: '/mfa/step-up-authentication/configure-step-up-authentication-for-web-apps'
   },
   {
-    from: ['/multifactor-authentication/reset-user','/mfa/guides/reset-user-mfa'],
+    from: ['/multifactor-authentication/reset-user','/multifactor-authentication/administrator/reset-user','/mfa/guides/reset-user-mfa'],
     to: '/mfa/reset-user-mfa'
   },
   {
@@ -2715,7 +2715,7 @@ module.exports = [
   /* Private Cloud */
 
   {
-    from: ['/appliance/checksum','/appliance/proxy-updater','/appliance/update','/updating-appliance','/enterprise/private-cloud/overview','/appliance/dashboard/instrumentation','/appliance/instrumentation'],
+    from: ['/appliance/checksum','/appliance/proxy-updater','/appliance/update','/updating-appliance','/enterprise/private-cloud/overview','/appliance/dashboard/instrumentation','/appliance/instrumentation','/appliance/appliance-overview'],
     to: '/private-cloud'
   },
   {
@@ -2727,7 +2727,7 @@ module.exports = [
     to: '/private-cloud/private-cloud-onboarding/private-cloud-ip-domain-and-port-list'
   },
   {
-    from: ['/private-saas-deployment/onboarding/managed-private-cloud/infrastructure','/private-cloud/onboarding/managed-private-cloud/infrastructure','/private-saas-deployment/managed-private-cloud','/private-cloud/onboarding/managed-private-cloud','/private-saas-deployment/onboarding/managed-private-cloud','/private-cloud/onboarding/managed-private-cloud'], 
+    from: ['/private-saas-deployment/onboarding/managed-private-cloud/infrastructure','/private-cloud/onboarding/managed-private-cloud/infrastructure','/private-saas-deployment/managed-private-cloud','/private-cloud/onboarding/managed-private-cloud','/private-saas-deployment/onboarding/managed-private-cloud','/private-cloud/onboarding/managed-private-cloud','/appliance/infrastructure','/appliance/infrastructure/security'], 
     to: '/private-cloud/private-cloud-onboarding/customer-hosted-managed-private-cloud-infrastructure-requirements'
   },
   {
@@ -3388,7 +3388,7 @@ module.exports = [
     to: '/tokens'
   },
   {
-    from: ['/api-auth/tutorials/adoption/api-tokens','/tokens/concepts/access-tokens','/tokens/overview-access-tokens','/tokens/access-token','/tokens/access_token','/api-auth/why-use-access-tokens-to-secure-apis','/api-auth/asking-for-access-tokens'],
+    from: ['/api-auth/tutorials/adoption/api-tokens','/tokens/concepts/access-tokens','/tokens/concepts/access-token','/tokens/overview-access-tokens','/tokens/access-token','/tokens/access_token','/api-auth/why-use-access-tokens-to-secure-apis','/api-auth/asking-for-access-tokens'],
     to: '/tokens/access-tokens'
   },
   {
