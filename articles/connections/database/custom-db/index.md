@@ -37,6 +37,5 @@ Whatever the use case, Auth0 extensibility allows you to tailor IdAM operations 
   'connections/database/custom-db/overview-custom-db-connections',
   'connections/database/custom-db/create-db-connection',
   'connections/database/custom-db/templates',
-  'best-practices/custom-db-connections',
   'connections/database/custom-db/error-handling'
 ] }) %>
