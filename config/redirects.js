@@ -2079,7 +2079,7 @@ module.exports = [
     to: '/integrations/sso-integrations/sharepoint'
   },
   {
-    from: ['/sso/current/integrations/springcm', '/integrations/sso/springcm'],
+    from: ['/sso/current/integrations/springcm','/integrations/sso/springcm','/integrations/springcm'],
     to: '/integrations/sso-integrations/springcm'
   },
   {
