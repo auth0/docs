@@ -2557,7 +2557,7 @@ module.exports = [
     to: '/mfa/step-up-authentication/configure-step-up-authentication-for-web-apps'
   },
   {
-    from: ['/multifactor-authentication/reset-user','/mfa/guides/reset-user-mfa'],
+    from: ['/multifactor-authentication/reset-user','/multifactor-authentication/administrator/reset-user','/mfa/guides/reset-user-mfa'],
     to: '/mfa/reset-user-mfa'
   },
   {
