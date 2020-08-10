@@ -2743,7 +2743,7 @@ module.exports = [
     to: '/private-cloud/private-cloud-deployments/private-cloud-addon-options'
   },
   {
-    from: ['/private-saas-deployment/custom-domain-migration','/private-cloud/custom-domain-migration','/private-cloud/migrate-private-cloud-custom-domains'], 
+    from: ['/appliance/custom-domains','/private-saas-deployment/custom-domain-migration','/private-cloud/custom-domain-migration','/private-cloud/migrate-private-cloud-custom-domains'], 
     to: '/private-cloud/private-cloud-migrations/migrate-private-cloud-custom-domains'
   },
   {
