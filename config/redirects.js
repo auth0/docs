@@ -2545,7 +2545,7 @@ module.exports = [
     to: '/mfa/troubleshoot-mfa-issues'
   },
   {
-    from: ['/multifactor-authentication/developer/step-up-authentication','/tutorials/step-up-authentication','/tutorials/setup-up-authentication','/multifactor-authentication/step-up-authentication','/mfa/concepts/step-up-authentication','/multifactor-authentication/developer/step-up-with-acr'],
+    from: ['/multifactor-authentication/developer/step-up-authentication','/step-up-authentication','/tutorials/step-up-authentication','/tutorials/setup-up-authentication','/multifactor-authentication/step-up-authentication','/mfa/concepts/step-up-authentication','/multifactor-authentication/developer/step-up-with-acr'],
     to: '/mfa/step-up-authentication'
   },
   {
