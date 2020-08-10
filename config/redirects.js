@@ -3388,7 +3388,7 @@ module.exports = [
     to: '/tokens'
   },
   {
-    from: ['/api-auth/tutorials/adoption/api-tokens','/tokens/concepts/access-tokens','/tokens/overview-access-tokens','/tokens/access-token','/tokens/access_token','/api-auth/why-use-access-tokens-to-secure-apis','/api-auth/asking-for-access-tokens'],
+    from: ['/api-auth/tutorials/adoption/api-tokens','/tokens/concepts/access-tokens','/tokens/concepts/access-token','/tokens/overview-access-tokens','/tokens/access-token','/tokens/access_token','/api-auth/why-use-access-tokens-to-secure-apis','/api-auth/asking-for-access-tokens'],
     to: '/tokens/access-tokens'
   },
   {
