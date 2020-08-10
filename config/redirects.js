@@ -1645,7 +1645,7 @@ module.exports = [
     to: '/flows/add-login-auth-code-flow'
   },
   {
-    from: ['/flows/guides/auth-code/call-api-auth-code','/flows/guides/auth-code/includes/authorize-user-call-api','/flows/guides/auth-code/includes/sample-use-cases-call-api','/flows/guides/auth-code/includes/call-api','/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow','/api-auth/tutorials/authorization-code-grant'],
+    from: ['/authorization/flows/call-your-api-using-the-authorization-code-flow','/flows/guides/auth-code/call-api-auth-code','/flows/guides/auth-code/includes/authorize-user-call-api','/flows/guides/auth-code/includes/sample-use-cases-call-api','/flows/guides/auth-code/includes/call-api','/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow','/api-auth/tutorials/authorization-code-grant'],
     to: '/flows/call-your-api-using-the-authorization-code-flow'
   },
   {
