@@ -2262,7 +2262,7 @@ module.exports = [
     to: '/libraries/lock-android/lock-android-refresh-jwt'
   },
   {
-    from: ['/docs/libraries/lock-android/custom-fields','/libraries/lock-android/v2/custom-fields'],
+    from: ['/libraries/lock-android/custom-fields','/libraries/lock-android/v2/custom-fields'],
     to: '/libraries/lock-android/lock-android-custom-fields-at-signup'
   },
   {
