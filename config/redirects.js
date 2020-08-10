@@ -3935,12 +3935,24 @@ module.exports = [
     to: '/users/update-root-attributes-for-users'
   },
   {
-    from: ['/api/management/v2/user-search','/users/search/v2','/users/search/v3','/users/normalized/auth0/retrieve-user-profiles','/users/search','/users-search','/api/v2/user-search'],
+    from: ['/users/search/v3','/users/normalized/auth0/retrieve-user-profiles','/users/search','/users-search'],
     to: '/users/user-search'
   },
   {
-    from: ['/api/management/v2/query-string-syntax','/users/search/v2/query-syntax','/users/search/v3/query-syntax'],
+    from: ['/users/search/v3/query-syntax'],
     to: '/users/user-search/user-search-query-syntax'
+  },
+  {
+    from: ['/api/management/v2/user-search','/users/search/v2', '/api/v2/user-search'],
+    to: '/users/user-search/v2'
+  },
+  {
+    from: ['/api/management/v2/query-string-syntax', '/users/search/v2/query-syntax'],
+    to: '/users/user-search/v2/query-syntax'
+  },
+  {
+    from: ['/users/search/v3/migrate-search-v2-v3'],
+    to: '/users/user-search/migrate-search-v2-v3'
   },
   {
     from: ['/users/search/v3/get-users-by-email-endpoint'],
