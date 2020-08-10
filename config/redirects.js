@@ -2294,7 +2294,7 @@ module.exports = [
     to: '/libraries/lock-android/lock-android-passwordless-with-magic-link'
   },
   {
-    from: ['/libraries/lock-android/v2/keystore'],
+    from: ['/libraries/lock-android/v2/keystore','/libraries/lock-android/keystore'],
     to: '/libraries/lock-android/android-development-keystores-hashes'
   },
   {
