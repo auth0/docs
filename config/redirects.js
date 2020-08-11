@@ -2477,7 +2477,7 @@ module.exports = [
     to: '/mfa/authenticate-with-ropg-and-mfa/enroll-and-challenge-otp-authenticators'
   },
   {
-    from: ['/multifactor-authentication/api/email','/mfa/guides/mfa-api/email'],
+    from: ['/multifactor-authentication/api/email','/mfa/guides/mfa-api/email','/multifactor-authentication/administrator/guardian-enrollment-email'],
     to: '/mfa/authenticate-with-ropg-and-mfa/enroll-and-challenge-email-authenticators'
   },
   {
