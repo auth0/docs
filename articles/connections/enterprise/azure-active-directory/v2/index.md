@@ -173,3 +173,11 @@ Signing keys are used by the identity provider to sign the authentication token 
 For security purposes, Azure AD’s signing key [rolls on a periodic basis](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-signing-key-rollover). If this happens, **you do not need to take any action**. Auth0 will use the new key automatically.
 
 <%= include('../../../_quickstart-links.md') %>
+
+## Remove unverified label
+
+If you're using a custom domain, the application consent prompt for Azure AD login may label your domain as "unverified". To remove the unverified label:
+
+1. Verify the domain for the Auth0 application: [Add your custom domain name using the Azure Active Directory portal](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-custom-domain#add-your-custom-domain-name-to-azure-ad)
+2. Assign the verified domain to the Auth0 application: [How to: Configure an application's publisher domain](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-configure-publisher-domain#configure-publisher-domain-using-the-azure-portal)
+
