@@ -3951,11 +3951,11 @@ module.exports = [
     to: '/users/user-search/v2/query-syntax'
   },
   {
-    from: ['/users/search/v3/migrate-search-v2-v3'],
-    to: '/users/user-search/migrate-search-v2-v3'
+    from: ['/users/search/v3/migrate-search-v2-v3','/users/user-search/migrate-search-v2-v3'],
+    to: '/users/user-search/migrate-v2-v3'
   },
   {
-    from: ['/users/search/v3/get-users-by-email-endpoint'],
+    from: ['/users/search/v3/get-users-by-email-endpoint','/users/user-search/retrieve-users-with-get-users-by-email-endpoint'],
     to: '/users/user-search/retrieve-users-with-get-users-by-email-endpoint'
   },
   {
@@ -3963,7 +3963,7 @@ module.exports = [
     to: '/users/user-search/retrieve-users-with-get-users-by-id-endpoint'
   },
   {
-    from: ['/users/search/v3/get-users-endpoint'],
+    from: ['/users/search/v3/get-users-endpoint','/docs/users/user-search/retrieve-users-with-the-get-users-endpoint'],
     to: '/users/user-search/retrieve-users-with-get-users-endpoint'
   },
   {
