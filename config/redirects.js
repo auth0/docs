@@ -1506,10 +1506,6 @@ module.exports = [
     to: '/extensions/account-link-extension'
   },
   {
-    from: ['/extensions/adldap-connector','/connector/overview','/connector/considerations-non-ad',],
-    to: '/extensions/ad-ldap-connector'
-  },
-  {
     from: ['/extensions/application-insight'],
     to: '/extensions/export-logs-to-application-insights'
   },
@@ -2111,23 +2107,23 @@ module.exports = [
   /* LDAP Connector */
 
   {
-    from: ['/connector'],
+    from: ['/connector','/extensions/adldap-connector','/connector/overview','/connector/considerations-non-ad','/ad-ldap-connector'],
     to: '/extensions/ad-ldap-connector'
   },
   {
-    from: ['/connector/prerequisites'],
+    from: ['/connector/prerequisites','/ad-ldap-connector/ad-ldap-connector-requirements'],
     to: '/extensions/ad-ldap-connector/ad-ldap-connector-requirements'
   },
   {
-    from: ['/connector/client-certificates'],
+    from: ['/connector/client-certificates','/ad-ldap-connector/configure-ad-ldap-connector-authentication-with-client-certificates'],
     to: '/extensions/ad-ldap-connector/configure-ad-ldap-connector-client-certificates'
   },
   {
-    from: ['/connector/kerberos'],
+    from: ['/connector/kerberos','/ad-ldap-connector/configure-ad-ldap-connector-authentication-with-kerberos'],
     to: '/extensions/ad-ldap-connector/configure-ad-ldap-connector-with-kerberos'
   },
   {
-    from: ['/connector/high-availability'],
+    from: ['/connector/high-availability','/ad-ldap-connector/ad-ldap-high-availability'],
     to: '/extensions/ad-ldap-connector/ad-ldap-high-availability'
   },
   {
@@ -2139,23 +2135,23 @@ module.exports = [
     to: '/extensions/ad-ldap-connector/install-configure-ad-ldap-connector'
   },
   {
-    from: ['/connector/scom-monitoring'],
+    from: ['/connector/scom-monitoring','/ad-ldap-connector/ad-ldap-connector-scorm'],
     to: '/extensions/ad-ldap-connector/ad-ldap-connector-scom'
   },
   {
-    from: ['/connector/modify'],
+    from: ['/connector/modify','/ad-ldap-connector/ad-ldap-connectors-to-auth0'],
     to: '/extensions/ad-ldap-connector/ad-ldap-connector-to-auth0'
   },
   {
-    from: ['/connector/test-dc'],
+    from: ['/connector/test-dc','/ad-ldap-connector/ad-ldap-connector-test-environment'],
     to: '/extensions/ad-ldap-connector/ad-ldap-connector-test-environment'
   },
   {
-    from: ['/connector/troubleshooting'],
+    from: ['/connector/troubleshooting','/ad-ldap-connector/troubleshoot-ad-ldap-connector'],
     to: '/extensions/ad-ldap-connector/troubleshoot-ad-ldap-connector'
   },
   {
-    from: ['/connector/update'],
+    from: ['/connector/update','/ad-ldap-connector/update-ad-ldap-connectors'],
     to: '/extensions/ad-ldap-connector/update-ad-ldap-connectors'
   },
 
