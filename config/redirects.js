@@ -2198,7 +2198,7 @@ module.exports = [
     to: '/libraries/lock/customize-lock-error-messages'
   },
   {
-    from: ['/libraries/lock/v11/i18n'],
+    from: ['/libraries/lock/v11/i18n', '/libraries/lock/v10/i18n'],
     to: '/libraries/lock/lock-internationalization'
   },
   {
