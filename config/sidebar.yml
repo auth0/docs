@@ -773,10 +773,11 @@ articles:
             url: /logs/streams/aws-eventbridge
           - title: Datadog Event Streams
             url: /logs/export-log-events-with-log-streaming/stream-logs-to-datadog
+            children:
+              - title: Datadog Dashboard Templates
+                url: /logs/export-log-events-with-log-streaming/datadog-dashboard-templates
           - title: Azure Event Grid Streams
             url: /logs/export-log-events-with-log-streaming/stream-logs-to-azure-event-grid
-          - title: Datadog Dashboard Templates
-            url: /logs/export-log-events-with-log-streaming/datadog-dashboard-templates
       - title: Log Data Retention
         url: /logs/log-data-retention
       - title: View Log Data in the Dashboard

@@ -836,11 +836,11 @@ module.exports = [
   /* Anomaly Detection */
 
   {
-    from: ['/anomaly-detection/references/brute-force-protection-triggers-actions','/anomaly-detection/references/anomaly-detection-faqs','/anomaly-detection/references/breached-password-detection-triggers-actions'],
+    from: ['/anomaly-','/anomaly','/anomaly-detection/references/brute-force-protection-triggers-actions','/anomaly-detection/references/anomaly-detection-faqs','/anomaly-detection/references/breached-password-detection-triggers-actions'],
     to: '/anomaly-detection'
   },
   {
-    from: ['/anomaly-detection/concepts/breached-passwords'],
+    from: ['/anomaly-detection/concepts/breached-passwords','/anomaly-detection/breached-passwords'],
     to: '/anomaly-detection/breached-password-security'
   },
   {
@@ -848,7 +848,7 @@ module.exports = [
     to: '/anomaly-detection/customize-blocked-account-emails'
   },
   {
-    from: ['/anomaly-detection/guides/prevent-credential-stuffing-attacks'],
+    from: ['/anomaly-detection/guides/prevent-credential-stuffing-attacks','/anomaly-detection/bot-and-credential-stuffing-protection'],
     to: '/anomaly-detection/bot-protection'
   },
   {
@@ -860,7 +860,7 @@ module.exports = [
     to: '/anomaly-detection/view-anomaly-detection-events'
   },
   {
-    from: ['/anomaly-detection/concepts/brute-force-protection'],
+    from: ['/anomaly-detection/concepts/brute-force-protection','/anomaly-detection/enable-and-disable-brute-force-protection'],
     to: '/anomaly-detection/brute-force-protection'
   },
 
@@ -873,7 +873,7 @@ module.exports = [
     to: '/api/authentication'
   },
   {
-    from: ['/apiv2', '/api/v2'],
+    from: ['/apiv2', '/api/v2','/api/management'],
     to: '/api/management/v2'
   },
   {
@@ -900,7 +900,7 @@ module.exports = [
     to: '/applications/dynamic-client-registration'
   },
   {
-    from: ['/applications/concepts/app-types-auth0','/clients','/api-auth/tutorials/adoption/oidc-conformant','/api-auth/client-types','/clients/client-types','/applications/application-types','/applications/concepts/client-secret'],
+    from: ['/application','/applications/concepts/app-types-auth0','/clients','/api-auth/tutorials/adoption/oidc-conformant','/api-auth/client-types','/clients/client-types','/applications/application-types','/applications/concepts/client-secret'],
     to: '/applications'
   },
   {
@@ -1506,10 +1506,6 @@ module.exports = [
     to: '/extensions/account-link-extension'
   },
   {
-    from: ['/extensions/adldap-connector','/connector/overview','/connector/considerations-non-ad',],
-    to: '/extensions/ad-ldap-connector'
-  },
-  {
     from: ['/extensions/application-insight'],
     to: '/extensions/export-logs-to-application-insights'
   },
@@ -1797,7 +1793,7 @@ module.exports = [
   /* Hooks */
 
   {
-    from: ['/hooks/cli','/hooks/dashboard','/hooks/overview','/auth0-hooks','/auth0-hooks/dashboard'],
+    from: ['/hooks/cli','/auth0-hooks/cli','/hooks/dashboard','/hooks/overview','/auth0-hooks','/auth0-hooks/dashboard'],
     to: '/hooks'
   },
   {
@@ -2111,23 +2107,23 @@ module.exports = [
   /* LDAP Connector */
 
   {
-    from: ['/connector'],
+    from: ['/connector','/extensions/adldap-connector','/connector/overview','/connector/considerations-non-ad','/ad-ldap-connector'],
     to: '/extensions/ad-ldap-connector'
   },
   {
-    from: ['/connector/prerequisites'],
+    from: ['/connector/prerequisites','/ad-ldap-connector/ad-ldap-connector-requirements'],
     to: '/extensions/ad-ldap-connector/ad-ldap-connector-requirements'
   },
   {
-    from: ['/connector/client-certificates'],
+    from: ['/connector/client-certificates','/ad-ldap-connector/configure-ad-ldap-connector-authentication-with-client-certificates'],
     to: '/extensions/ad-ldap-connector/configure-ad-ldap-connector-client-certificates'
   },
   {
-    from: ['/connector/kerberos'],
+    from: ['/connector/kerberos','/ad-ldap-connector/configure-ad-ldap-connector-authentication-with-kerberos'],
     to: '/extensions/ad-ldap-connector/configure-ad-ldap-connector-with-kerberos'
   },
   {
-    from: ['/connector/high-availability'],
+    from: ['/connector/high-availability','/ad-ldap-connector/ad-ldap-high-availability'],
     to: '/extensions/ad-ldap-connector/ad-ldap-high-availability'
   },
   {
@@ -2139,23 +2135,23 @@ module.exports = [
     to: '/extensions/ad-ldap-connector/install-configure-ad-ldap-connector'
   },
   {
-    from: ['/connector/scom-monitoring'],
+    from: ['/connector/scom-monitoring','/ad-ldap-connector/ad-ldap-connector-scorm'],
     to: '/extensions/ad-ldap-connector/ad-ldap-connector-scom'
   },
   {
-    from: ['/connector/modify'],
+    from: ['/connector/modify','/ad-ldap-connector/ad-ldap-connectors-to-auth0'],
     to: '/extensions/ad-ldap-connector/ad-ldap-connector-to-auth0'
   },
   {
-    from: ['/connector/test-dc'],
+    from: ['/connector/test-dc','/ad-ldap-connector/ad-ldap-connector-test-environment'],
     to: '/extensions/ad-ldap-connector/ad-ldap-connector-test-environment'
   },
   {
-    from: ['/connector/troubleshooting'],
+    from: ['/connector/troubleshooting','/ad-ldap-connector/troubleshoot-ad-ldap-connector'],
     to: '/extensions/ad-ldap-connector/troubleshoot-ad-ldap-connector'
   },
   {
-    from: ['/connector/update'],
+    from: ['/connector/update','/ad-ldap-connector/update-ad-ldap-connectors'],
     to: '/extensions/ad-ldap-connector/update-ad-ldap-connectors'
   },
 
@@ -2198,7 +2194,7 @@ module.exports = [
     to: '/libraries/lock/customize-lock-error-messages'
   },
   {
-    from: ['/libraries/lock/v11/i18n'],
+    from: ['/libraries/lock/v11/i18n', '/libraries/lock/v10/i18n'],
     to: '/libraries/lock/lock-internationalization'
   },
   {
@@ -2262,7 +2258,7 @@ module.exports = [
     to: '/libraries/lock-android/lock-android-refresh-jwt'
   },
   {
-    from: ['/docs/libraries/lock-android/custom-fields','/libraries/lock-android/v2/custom-fields'],
+    from: ['/libraries/lock-android/custom-fields','/libraries/lock-android/v2/custom-fields'],
     to: '/libraries/lock-android/lock-android-custom-fields-at-signup'
   },
   {
@@ -2294,8 +2290,8 @@ module.exports = [
     to: '/libraries/lock-android/lock-android-passwordless-with-magic-link'
   },
   {
-    from: ['/libraries/lock-android/v2/keystore','/libraries/lock-android/keystore'],
-    to: '/libraries/lock-android/android-development-keystores-hashes'
+    from: ['/libraries/lock-android/v2/keystore','/libraries/lock-android/keystore','/libraries/lock-android/android-development-keystores-hashes'],
+    to: '/libraries/auth0-android/android-development-keystores-hashes'
   },
   {
     from: ['/libraries/auth0-android/user-management'],
@@ -2477,7 +2473,7 @@ module.exports = [
     to: '/mfa/authenticate-with-ropg-and-mfa/enroll-and-challenge-push-authenticators'
   },
   {
-    from: ['/multifactor-authentication/api/otp','/mfa/guides/mfa-api/otp'],
+    from: ['/multifactor-authentication/api/otp','/mfa/guides/mfa-api/otp','/multifactor-authentication/google-authenticator'],
     to: '/mfa/authenticate-with-ropg-and-mfa/enroll-and-challenge-otp-authenticators'
   },
   {
@@ -2517,7 +2513,7 @@ module.exports = [
     to: '/mfa/mfa-factors'
   },
   {
-    from: ['/multifactor-authentication/factors/duo','/multifactor-authentication/duo/admin-guide','/mfa/guides/configure-cisco-duo','/multifactor-authentication/duo/dev-guide','/multifactor-authentication/duo/user-guide'],
+    from: ['/multifactor-authentication/factors/duo','/multifactor-authentication/duo','/multifactor-authentication/duo/admin-guide','/mfa/guides/configure-cisco-duo','/multifactor-authentication/duo/dev-guide','/multifactor-authentication/duo/user-guide'],
     to: '/mfa/configure-cisco-duo-for-mfa'
   },
   {
@@ -2541,11 +2537,11 @@ module.exports = [
     to: '/mfa/customize-sms-or-voice-messages'
   },
   {
-    from: ['/multifactor-authentication/google-auth/user-guide','/multifactor-authentication/troubleshooting','/mfa/references/troubleshoot-mfa','/mfa/references/troubleshooting'],
+    from: ['/multifactor-authentication/google-auth/admin-guide','/multifactor-authentication/google-auth/user-guide','/multifactor-authentication/troubleshooting','/mfa/references/troubleshoot-mfa','/mfa/references/troubleshooting'],
     to: '/mfa/troubleshoot-mfa-issues'
   },
   {
-    from: ['/multifactor-authentication/developer/step-up-authentication','/tutorials/step-up-authentication','/tutorials/setup-up-authentication','/multifactor-authentication/step-up-authentication','/mfa/concepts/step-up-authentication','/multifactor-authentication/developer/step-up-with-acr'],
+    from: ['/multifactor-authentication/developer/step-up-authentication','/step-up-authentication','/tutorials/step-up-authentication','/tutorials/setup-up-authentication','/multifactor-authentication/step-up-authentication','/mfa/concepts/step-up-authentication','/multifactor-authentication/developer/step-up-with-acr'],
     to: '/mfa/step-up-authentication'
   },
   {
@@ -2561,7 +2557,7 @@ module.exports = [
     to: '/mfa/reset-user-mfa'
   },
   {
-    from: ['/mfa/concepts/guardian','/multifactor-authentication/guardian/dev-guide'],
+    from: ['/mfa/concepts/guardian','/multifactor-authentication/guardian/dev-guide','/multifactor-authentication/guardian/admin-guide'],
     to: '/mfa/auth0-guardian'
   },
   {
@@ -2715,7 +2711,7 @@ module.exports = [
   /* Private Cloud */
 
   {
-    from: ['/appliance/checksum','/appliance/proxy-updater','/appliance/update','/updating-appliance','/enterprise/private-cloud/overview','/appliance/dashboard/instrumentation','/appliance/instrumentation','/appliance/appliance-overview'],
+    from: ['/appliance','/appliance/checksum','/appliance/proxy-updater','/appliance/update','/updating-appliance','/enterprise/private-cloud/overview','/appliance/dashboard/instrumentation','/appliance/instrumentation','/appliance/appliance-overview'],
     to: '/private-cloud'
   },
   {
@@ -2743,7 +2739,7 @@ module.exports = [
     to: '/private-cloud/private-cloud-deployments/private-cloud-addon-options'
   },
   {
-    from: ['/private-saas-deployment/custom-domain-migration','/private-cloud/custom-domain-migration','/private-cloud/migrate-private-cloud-custom-domains'], 
+    from: ['/appliance/custom-domains','/private-saas-deployment/custom-domain-migration','/private-cloud/custom-domain-migration','/private-cloud/migrate-private-cloud-custom-domains'], 
     to: '/private-cloud/private-cloud-migrations/migrate-private-cloud-custom-domains'
   },
   {
@@ -3951,11 +3947,11 @@ module.exports = [
     to: '/users/user-search/v2/query-syntax'
   },
   {
-    from: ['/users/search/v3/migrate-search-v2-v3'],
-    to: '/users/user-search/migrate-search-v2-v3'
+    from: ['/users/search/v3/migrate-search-v2-v3','/users/user-search/migrate-search-v2-v3'],
+    to: '/users/user-search/migrate-v2-v3'
   },
   {
-    from: ['/users/search/v3/get-users-by-email-endpoint'],
+    from: ['/users/search/v3/get-users-by-email-endpoint','/users/user-search/retrieve-users-with-get-users-by-email-endpoint'],
     to: '/users/user-search/retrieve-users-with-get-users-by-email-endpoint'
   },
   {
@@ -3963,7 +3959,7 @@ module.exports = [
     to: '/users/user-search/retrieve-users-with-get-users-by-id-endpoint'
   },
   {
-    from: ['/users/search/v3/get-users-endpoint'],
+    from: ['/users/search/v3/get-users-endpoint','/docs/users/user-search/retrieve-users-with-the-get-users-endpoint'],
     to: '/users/user-search/retrieve-users-with-get-users-endpoint'
   },
   {
