@@ -873,7 +873,7 @@ module.exports = [
     to: '/api/authentication'
   },
   {
-    from: ['/apiv2', '/api/v2'],
+    from: ['/apiv2', '/api/v2','/api/management'],
     to: '/api/management/v2'
   },
   {
@@ -2290,8 +2290,8 @@ module.exports = [
     to: '/libraries/lock-android/lock-android-passwordless-with-magic-link'
   },
   {
-    from: ['/libraries/lock-android/v2/keystore','/libraries/lock-android/keystore'],
-    to: '/libraries/lock-android/android-development-keystores-hashes'
+    from: ['/libraries/lock-android/v2/keystore','/libraries/lock-android/keystore','/libraries/lock-android/android-development-keystores-hashes'],
+    to: '/libraries/auth0-android/android-development-keystores-hashes'
   },
   {
     from: ['/libraries/auth0-android/user-management'],
@@ -2473,7 +2473,7 @@ module.exports = [
     to: '/mfa/authenticate-with-ropg-and-mfa/enroll-and-challenge-push-authenticators'
   },
   {
-    from: ['/multifactor-authentication/api/otp','/mfa/guides/mfa-api/otp'],
+    from: ['/multifactor-authentication/api/otp','/mfa/guides/mfa-api/otp','/multifactor-authentication/google-authenticator'],
     to: '/mfa/authenticate-with-ropg-and-mfa/enroll-and-challenge-otp-authenticators'
   },
   {
@@ -2513,7 +2513,7 @@ module.exports = [
     to: '/mfa/mfa-factors'
   },
   {
-    from: ['/multifactor-authentication/factors/duo','/multifactor-authentication/duo/admin-guide','/mfa/guides/configure-cisco-duo','/multifactor-authentication/duo/dev-guide','/multifactor-authentication/duo/user-guide'],
+    from: ['/multifactor-authentication/factors/duo','/multifactor-authentication/duo','/multifactor-authentication/duo/admin-guide','/mfa/guides/configure-cisco-duo','/multifactor-authentication/duo/dev-guide','/multifactor-authentication/duo/user-guide'],
     to: '/mfa/configure-cisco-duo-for-mfa'
   },
   {
@@ -2537,7 +2537,7 @@ module.exports = [
     to: '/mfa/customize-sms-or-voice-messages'
   },
   {
-    from: ['/multifactor-authentication/google-auth/user-guide','/multifactor-authentication/troubleshooting','/mfa/references/troubleshoot-mfa','/mfa/references/troubleshooting'],
+    from: ['/multifactor-authentication/google-auth/admin-guide','/multifactor-authentication/google-auth/user-guide','/multifactor-authentication/troubleshooting','/mfa/references/troubleshoot-mfa','/mfa/references/troubleshooting'],
     to: '/mfa/troubleshoot-mfa-issues'
   },
   {
@@ -2557,7 +2557,7 @@ module.exports = [
     to: '/mfa/reset-user-mfa'
   },
   {
-    from: ['/mfa/concepts/guardian','/multifactor-authentication/guardian/dev-guide'],
+    from: ['/mfa/concepts/guardian','/multifactor-authentication/guardian/dev-guide','/multifactor-authentication/guardian/admin-guide'],
     to: '/mfa/auth0-guardian'
   },
   {
