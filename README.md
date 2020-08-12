@@ -24,7 +24,7 @@ If you find a bug or inaccuracy in the documentation content, please report it i
 ## Author 
 
 [Auth0](https://auth0.com)
- 
+
  
 ## License
 
