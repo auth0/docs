@@ -505,7 +505,7 @@ module.exports = [
     to: '/connections/social/amazon'
   },
   {
-    from: ['/connections/enterprise/azure-active-directory','/connections/social/active-directory','/waad-clientid'],
+    from: ['/connections/enterprise/azure-active-directory','/connections/social/active-directory','/waad-clientid','/users/guides/azure-access-control'],
     to: '/connections/enterprise/azure-active-directory/v2'
   },
   {
@@ -3384,7 +3384,7 @@ module.exports = [
   /* Tokens */
 
   {
-    from: ['/security/token-exp','/token','/tokens/concepts'],
+    from: ['/security/token-exp','/token','/tokens/concepts','/tokens/guides'],
     to: '/tokens'
   },
   {
@@ -3412,7 +3412,7 @@ module.exports = [
     to: '/tokens/identity-provider-access-tokens'
   },
   {
-    from: ['/tokens/overview-id-tokens','/tokens/id-token', '/tokens/concepts/id-tokens'],
+    from: ['/tokens/overview-id-tokens','/tokens/id-token', '/tokens/concepts/id-tokens','/tokens/id_token'],
     to: '/tokens/id-tokens'
   },
   {
@@ -3460,7 +3460,7 @@ module.exports = [
     to: '/tokens/manage-signing-keys'
   },
   {
-    from: ['/api-auth/tutorials/adoption/refresh-tokens','/refresh-token','/tokens/refresh_token', '/tokens/refresh-token/current','/tokens/concepts/refresh-tokens','/tokens/access-tokens/refresh-tokens','/tokens/preview/refresh-token'],
+    from: ['/api-auth/tutorials/adoption/refresh-tokens','/refresh-token','/tokens/refresh_token','/tokens/refresh-token','/tokens/refresh-token/legacy','/tokens/refresh-token/current','/tokens/concepts/refresh-tokens','/tokens/access-tokens/refresh-tokens','/tokens/preview/refresh-token'],
     to: '/tokens/refresh-tokens'
   },
   {
@@ -3763,6 +3763,10 @@ module.exports = [
   /* Users */
 
   {
+    from: ['/users/concepts/overview-users'],
+    to: '/users'
+  },
+  {
     from: ['/users/guides/block-and-unblock-users'],
     to: '/users/block-and-unblock-users'
   },
@@ -3779,7 +3783,7 @@ module.exports = [
     to: '/users/progressive-profiling'
   },
   {
-    from: ['/users/concepts/overview-user-metadata', '/metadata'],
+    from: ['/users/concepts/overview-user-metadata','/metadata','/users/references/metadata-field-name-rules'],
     to: '/users/metadata'
   },
   {
@@ -3787,7 +3791,7 @@ module.exports = [
     to: '/users/import-and-export-users'
   },
   {
-    from: ['/user-profile','/users/concepts/overview-user-profile','/user-profile/user-profile-details','/users/normalized/oidc','/users/user-profiles-returned-from-oidc-compliant-pipelines'],
+    from: ['/user-profile/normalized','/user-profile/normalized/oidc','/user-profile','/users/concepts/overview-user-profile','/user-profile/user-profile-details','/users/normalized/oidc','/users/user-profiles-returned-from-oidc-compliant-pipelines'],
     to: '/users/user-profiles'
   },
   {
