@@ -61,7 +61,7 @@ We use the [`forRoot()` pattern](https://angular.io/guide/singleton-services#the
 <%= include('../_includes/_auth_note_custom_domains') %>
 
 :::panel Checkpoint
-Now that you have imported `AuthModule`, run your application to verify that the SDK is initializing correctly, and your application is not throwing any errors related to Auth0.
+Now that you have imported `AuthModule`, run your application to verify that the SDK is initializing correctly and that your application is not throwing any errors related to Auth0.
 :::
 
 ## Add Login to Your Application
