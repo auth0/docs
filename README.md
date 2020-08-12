@@ -8,6 +8,7 @@ This repository contains the Auth0 Quickstarts, but most other documentation con
 * If you would like to modify the Management API v2 API docs, they are generated from the [api2](https://github.com/auth0/api2) repository.
 
 Both of the above repositories require team access.
+\
 
 ## Editing Docs Content
 
