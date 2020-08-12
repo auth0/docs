@@ -2,6 +2,12 @@
   "name": "auth0-docs-content",
   "scripts": {
   },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "standard-2x"
+    }
+  },
   "env": {
     "NPM_CONFIG_PRODUCTION": {
       "required": true
