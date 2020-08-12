@@ -58,10 +58,99 @@ export class AppModule {}
 
 We use the [`forRoot()` pattern](https://angular.io/guide/singleton-services#the-forroot-pattern) to configure the module, which takes the properties `domain` and `clientId`; the values of these properties correspond to the "Domain" and "Client ID" values present under the "Settings" of the single-page application that you registered with Auth0.
 
-:::note
-If you are using a [custom domain with Auth0](https://auth0.com/docs/custom-domains), the value of the domain prop is the value of your custom domain instead of the value reflected in the "Settings" tab.
-:::
+<%= include('../_includes/_auth_note_custom_domains') %>
 
 :::panel Checkpoint
 Now that you have imported `AuthModule`, run your application to verify that the SDK is initializing correctly, and your application is not throwing any errors related to Auth0.
+:::
+
+## Add Login to Your Application
+
+The Auth0 Angular SDK gives you tools to quickly implement user authentication in your Angular application, such as creating a [login](https://auth0.com/docs/login) button using the `loginWithRedirect()` method from the `AuthService` service class. Executing `loginWithRedirect()` redirects your users to the Auth0 Universal Login Page, where Auth0 can authenticate them. Upon successful authentication, Auth0 will redirect your users back to your application.
+
+```javascript
+import { Component } from '@angular/core';
+
+// Import the AuthService type from the SDK
+import { AuthService } from '@auth0/auth0-angular';
+
+@Component({
+  selector: 'app-login-button',
+  template: '<button (click)="auth.loginWithRedirect()">Log in</button>'
+})
+export class AuthButtonComponent {
+  // Inject the authentication service into your component through the constructor
+  constructor(public auth: AuthService) {}
+}
+```
+
+:::panel Checkpoint
+Add the `AuthButtonComponent` component to your application. When you click it, verify that your Angular application redirects you to the [Auth0 Universal Login](https://auth0.com/universal-login) page and that you can now log in or sign up using a username and password or a social provider.
+
+Once that's complete, verify that Auth0 redirects you to your application using the value of the `redirectUri` that you used to configure `AuthModule`.
+:::
+
+![Auth0 Universal Login](https://cdn.auth0.com/blog/universal-login/lightweight-login.png)
+
+<%= include('../_includes/_auth_note_dev_keys') %>
+
+## Add Logout to Your Application
+
+Now that you can log in to your Angular application, you need [a way to log out](https://auth0.com/docs/logout/guides/logout-auth0). You can create a logout button using the `logout()` method from the `AuthService` service. Executing `logout()` redirects your users to your [Auth0 logout endpoint](https://auth0.com/docs/api/authentication?javascript#logout) (`https://YOUR_DOMAIN/v2/logout`) and then immediately redirects them to your application.
+
+Here is a modified version of the `AuthButtonComponent` component above that uses both `loginWithRedirect()` and `logout()`, as well as checking the authentication state using the `isAuthenticated$` observable:
+
+```javascript
+import { Component } from '@angular/core';
+import { AuthService } from '@auth0/auth0-angular';
+
+@Component({
+  selector: 'app-logout-button',
+  template: `
+    <button 
+      *ngIf="(auth.isAuthenticated$ | async) === false"
+      (click)="auth.loginWithRedirect()">
+        Log in
+      </button>
+
+    <button 
+      *ngIf="auth.isAuthenticated$ | async"
+      (click)="auth.logout({ returnTo: 'http://localhost:4200' })">
+        Log out
+      </button>`
+})
+export class AuthButtonComponent {
+  constructor(public auth: AuthService) {}
+}
+```
+
+:::panel Checkpoint
+Add a button that logs the user out to your application. When you click it, verify that your Angular application redirects you the address you specified as one of the "Allowed Logout URLs" in the "Settings" and that you are no longer logged in to your application.
+:::
+
+## Show User Profile Information
+
+The Auth0 Angular SDK helps you retrieve the [profile information](https://auth0.com/docs/users/concepts/overview-user-profile) associated with logged-in users quickly in whatever component you need, such as their name or profile picture, to personalize the user interface. The profile information is available through the `user$` observable exposed by the `AuthService` service. Take this `Profile` component as an example of how to use it:
+
+```javascript
+import { Component } from '@angular/core';
+import { AuthService } from '@auth0/auth0-angular';
+
+@Component({
+  selector: 'app-user-profile',
+  template: `
+    <ul *ngIf="auth.user$ | async as user">
+      <li>{{ user.name }}</li>
+      <li>{{ user.email }}</li>
+    </ul>`
+})
+export class UserProfileComponent {
+  constructor(public auth: AuthService) {}
+}
+```
+
+The `user$` observable contains sensitive information and artifacts related to the user's identity. As such, its availability depends on the user's authentication status. Fortunately, the `user$` observable is configured so that it only starts to emit values once the `isAuthenticated$` observable is true, so there is no need to manually check the authentication state before accessing the user profile data.
+
+:::panel Checkpoint
+Verify that you can display the `user.name` or [any other `user` property](https://auth0.com/docs/users/references/user-profile-structure#user-profile-attributes) within a component correctly after you have logged in.
 :::
