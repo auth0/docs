@@ -87,7 +87,7 @@ You need to specify `send` = `link`.
   }],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"grant_type\": \"http://auth0.com/oauth/grant-type/passwordless/otp\", \"client_id\": \"${account.clientId}\", \"client_secret\": \"YOUR_CLIENT_SECRET\", \"username\": \"USER_PHONE_NUMBER\", \"otp\": \"code\", \"realm\": \"sms\", \"audience\": \"your-api-audience\",\"scope\": \"opend profile email\"}"
+    "text": "{\"grant_type\": \"http://auth0.com/oauth/grant-type/passwordless/otp\", \"client_id\": \"${account.clientId}\", \"client_secret\": \"YOUR_CLIENT_SECRET\", \"username\": \"USER_PHONE_NUMBER\", \"otp\": \"code\", \"realm\": \"sms\", \"audience\": \"your-api-audience\",\"scope\": \"openid profile email\"}"
   }
 }
 ```
@@ -104,7 +104,7 @@ You need to specify `send` = `link`.
   }],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"grant_type\": \"http://auth0.com/oauth/grant-type/passwordless/otp\", \"client_id\": \"${account.clientId}\", \"client_secret\": \"YOUR_CLIENT_SECRET\", \"username\": \"USER_EMAIL\", \"otp\": \"code\", \"realm\": \"email\", \"audience\": \"your-api-audience\", \"scope\": \"opend profile email\"}"}
+    "text": "{\"grant_type\": \"http://auth0.com/oauth/grant-type/passwordless/otp\", \"client_id\": \"${account.clientId}\", \"client_secret\": \"YOUR_CLIENT_SECRET\", \"username\": \"USER_EMAIL\", \"otp\": \"code\", \"realm\": \"email\", \"audience\": \"your-api-audience\", \"scope\": \"openid profile email\"}"}
 }
 ```
 
