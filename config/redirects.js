@@ -1959,7 +1959,7 @@ module.exports = [
     to: '/integrations/aws'
   },
   {
-    from: ['/integrations/aws-api-gateway/delegation'],
+    from: ['/integrations/aws-api-gateway/delegation','/integrations/aws-api-gateway'],
     to: '/integrations/aws-api-gateway-delegation'
   },
   {
@@ -2035,27 +2035,27 @@ module.exports = [
     to: '/integrations/sso-integrations/concur'
   },
   {
-    from: ['/sso/current/integrations/disqus', '/integrations/sso/disqus'],
+    from: ['/sso/current/integrations/disqus', '/integrations/sso/disqus','/integrations/disqus'],
     to: '/integrations/sso-integrations/disqus'
   },
   {
-    from: ['/sso/current/integrations/dropbox', '/integrations/sso/dropbox'],
+    from: ['/sso/current/integrations/dropbox', '/integrations/sso/dropbox','/integrations/dropbox'],
     to: '/integrations/sso-integrations/dropbox'
   },
   {
-    from: ['/sso/current/integrations/dynamics-crm', '/integrations/sso/dynamics-crm'],
+    from: ['/sso/current/integrations/dynamics-crm', '/integrations/sso/dynamics-crm','/integrations/dynamics-crm'],
     to: '/integrations/sso-integrations/dynamics-crm'
   },
   {
-    from: ['/sso/current/integrations/echosign', '/integrations/sso/echosign'],
+    from: ['/sso/current/integrations/echosign', '/integrations/sso/echosign','/integrations/echosign'],
     to: '/integrations/sso-integrations/echosign'
   },
   {
-    from: ['/sso/current/integrations/egnyte', '/integrations/sso/egnyte'],
+    from: ['/sso/current/integrations/egnyte', '/integrations/sso/egnyte','/integrations/egnyte'],
     to: '/integrations/sso-integrations/egnyte'
   },
   {
-    from: ['/sso/current/integrations/new-relic', '/integrations/sso/new-relic'],
+    from: ['/sso/current/integrations/new-relic', '/integrations/sso/new-relic','/integrations/new-relic'],
     to: '/integrations/sso-integrations/new-relic'
   },
   {
@@ -2063,19 +2063,19 @@ module.exports = [
     to: '/integrations/sso-integrations/office-365'
   },
   {
-    from: ['/sso/current/integrations/salesforce', '/integrations/sso/salesforce'],
+    from: ['/sso/current/integrations/salesforce', '/integrations/sso/salesforce','/integrations/salesforce'],
     to: '/integrations/sso-integrations/salesforce'
   },
   {
-    from: ['/sso/current/integrations/slack', '/integrations/sso/slack','/integrations/integrating-with-slack','/tutorials/integrating-with-slack','/scenarios/slack'],
+    from: ['/sso/current/integrations/slack', '/integrations/sso/slack','/integrations/integrating-with-slack','/tutorials/integrating-with-slack','/scenarios/slack','/integrations/slack'],
     to: '/integrations/sso-integrations/slack'
   },
   {
-    from: ['/sso/current/integrations/sentry', '/integrations/sso/sentry'],
+    from: ['/sso/current/integrations/sentry', '/integrations/sso/sentry','/integrations/sentry'],
     to: '/integrations/sso-integrations/sentry'
   },
   {
-    from: ['/sso/current/integrations/sharepoint', '/integrations/sso/sharepoint'],
+    from: ['/sso/current/integrations/sharepoint', '/integrations/sso/sharepoint','/integrations/sharepoint'],
     to: '/integrations/sso-integrations/sharepoint'
   },
   {
@@ -2083,11 +2083,11 @@ module.exports = [
     to: '/integrations/sso-integrations/springcm'
   },
   {
-    from: ['/sso/current/integrations/zendesk', '/integrations/sso/zendesk'],
+    from: ['/sso/current/integrations/zendesk', '/integrations/sso/zendesk','/integrations/zendesk'],
     to: '/integrations/sso-integrations/zendesk'
   },
   {
-    from: ['/sso/current/integrations/zoom', '/integrations/sso/zoom'],
+    from: ['/sso/current/integrations/zoom', '/integrations/sso/zoom','/integrations/zoom'],
     to: '/integrations/sso-integrations/zoom'
   },
   {
