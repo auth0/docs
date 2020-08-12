@@ -25,7 +25,7 @@ Run the following command within your project directory to install the Auth0 Ang
 npm install @auth0/auth0-angular
 ```
 
-The SDK exposes a module and a service that help you integrate Auth0 with your Angular application idiomatically.
+The SDK exposes several types that help you integrate Auth0 with your Angular application idiomatically, including a module and an authentication service.
 
 ### Register and configure `AuthModule`
 
