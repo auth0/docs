@@ -1801,7 +1801,7 @@ module.exports = [
     to: '/hooks/extensibility-points'
   },
   {
-    from: ['/hooks/concepts/credentials-exchange-extensibility-point','/hooks/guides/use-the-credentials-exchange-extensibility-point','/hooks/client-credentials-exchange'],
+    from: ['/hooks/concepts/credentials-exchange-extensibility-point','/hooks/guides/use-the-credentials-exchange-extensibility-point','/hooks/client-credentials-exchange','/hooks/extensibility-points/credentials-exchange'],
     to: '/hooks/extensibility-points/client-credentials-exchange'
   },
   {
@@ -1817,15 +1817,15 @@ module.exports = [
     to: '/hooks/enable-disable-hooks'
   },
   {
-    from: ['/hooks/guides/post-change-password'],
+    from: ['/hooks/guides/post-change-password','/hooks/post-change-password'],
     to: '/hooks/extensibility-points/post-change-password'
   },
   {
-    from: ['/hooks/concepts/post-user-registration-extensibility-point','/hooks/guides/use-the-post-user-registration-extensibility-point'],
+    from: ['/hooks/concepts/post-user-registration-extensibility-point','/hooks/guides/use-the-post-user-registration-extensibility-point','/hooks/post-user-registration'],
     to: '/hooks/extensibility-points/post-user-registration'
   },
   {
-    from: ['/hooks/concepts/pre-user-registration-extensibility-point','/hooks/guides/use-the-pre-user-registration-extensibility-point','/auth0-hooks/extensibility-points/pre-user-registration'],
+    from: ['/hooks/concepts/pre-user-registration-extensibility-point','/hooks/guides/use-the-pre-user-registration-extensibility-point','/auth0-hooks/extensibility-points/pre-user-registration','/hooks/pre-user-registration'],
     to: '/hooks/extensibility-points/pre-user-registration'
   },
   {
@@ -2250,7 +2250,7 @@ module.exports = [
     to: '/libraries/lock-android'
   },
   {
-    from: ['/libraries/lock-android/v2/custom-authentication-providers','/docs/libraries/lock-android/v2/custom-oauth-connections'],
+    from: ['/libraries/lock-android/v2/custom-authentication-providers','/libraries/lock-android/v2/custom-oauth-connections'],
     to: '/libraries/lock-android/lock-android-custom-authentication-providers'
   },
   {
@@ -2569,7 +2569,7 @@ module.exports = [
     to: '/mfa/auth0-guardian/create-custom-enrollment-tickets'
   },
   {
-    from: ['/multifactor-authentication/developer/libraries/ios','/mfa/guides/guardian/guardian-ios-sdk','/docs/mfa/guides/guardian/configure-guardian-ios'],
+    from: ['/multifactor-authentication/developer/libraries/ios','/mfa/guides/guardian/guardian-ios-sdk','/mfa/guides/guardian/configure-guardian-ios'],
     to: '/mfa/auth0-guardian/guardian-for-ios-sdk'
   },
   {
@@ -3078,7 +3078,7 @@ module.exports = [
   /* Rules */
 
   { 
-    from: ['/rules/current', '/rules/current/csharp', '/rules/guides/csharp', '/rules/legacy', '/rules/references/legacy','/rules/references/modules'],
+    from: ['/rules/current', '/rules/current/csharp', '/rules/guides/csharp', '/rules/legacy', '/rules/references/legacy','/rules/references/modules','/rule'],
     to: '/rules'
   },
   {
@@ -3967,7 +3967,7 @@ module.exports = [
     to: '/users/user-search/retrieve-users-with-get-users-by-id-endpoint'
   },
   {
-    from: ['/users/search/v3/get-users-endpoint','/docs/users/user-search/retrieve-users-with-the-get-users-endpoint'],
+    from: ['/users/search/v3/get-users-endpoint','/users/user-search/retrieve-users-with-the-get-users-endpoint'],
     to: '/users/user-search/retrieve-users-with-get-users-endpoint'
   },
   {
