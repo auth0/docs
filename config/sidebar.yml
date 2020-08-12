@@ -556,7 +556,7 @@ articles:
           - title: Customizing Your Emails
             url: /auth0-email-services/customize-email-templates
           - title: Use your own SMTP Email Provider
-            url: /auth0-email-services/configure-external-smtp-email-providers/configure-amazon-ses-as-external-smtp-email-provider
+            url: /auth0-email-services/configure-external-smtp-email-providers
           - title: Liquid Syntax in Email Templates
             url: /auth0-email-services/customize-email-templates/use-liquid-syntax-in-email-templates
           - title: Set up a Test SMTP Provider
