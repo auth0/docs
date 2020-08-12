@@ -1864,6 +1864,10 @@ module.exports = [
   /* Identity Labs */
 
   {
+    from: ['/labs'],
+    to: '/identity-labs'
+  },
+  {
     from: ['/identity-labs/01-web-sign-in'],
     to: '/identity-labs/lab-1-web-sign-in'
   },
@@ -2481,31 +2485,31 @@ module.exports = [
     to: '/mfa/authenticate-with-ropg-and-mfa/enroll-and-challenge-email-authenticators'
   },
   {
-    from: ['/mfa/send-phone-message-hook-amazon-sns'],
+    from: ['/multifactor-authentication/send-phone-message-hook-amazon-sns','/mfa/send-phone-message-hook-amazon-sns'],
     to: '/mfa/configure-amazon-sns-as-mfa-sms-provider'
   },
   {
-    from: ['/mfa/send-phone-message-hook-esendex'],
+    from: ['/multifactor-authentication/send-phone-message-hook-esendex','/mfa/send-phone-message-hook-esendex'],
     to: '/mfa/configure-esendex-as-mfa-sms-provider'
   },
   {
-    from: ['/mfa/send-phone-message-hook-infobip'],
+    from: ['/multifactor-authentication/send-phone-message-hook-infobip','/mfa/send-phone-message-hook-infobip'],
     to: '/mfa/configure-infobip-as-mfa-sms-provider'
   },
   {
-    from: ['/mfa/send-phone-message-hook-mitto'],
+    from: ['/multifactor-authentication/send-phone-message-hook-mitto','/mfa/send-phone-message-hook-mitto'],
     to: '/mfa/configure-mitto-as-mfa-sms-provider'
   },
   {
-    from: ['/mfa/send-phone-message-hook-telesign'],
+    from: ['/multifactor-authentication/send-phone-message-hook-telesign','/mfa/send-phone-message-hook-telesign'],
     to: '/mfa/configure-telesign-as-mfa-sms-provider'
   },
   {
-    from: ['/mfa/send-phone-message-hook-twilio'],
+    from: ['/multifactor-authentication/send-phone-message-hook-twilio','/mfa/send-phone-message-hook-twilio'],
     to: '/mfa/configure-twilio-as-mfa-sms-provider'
   },
   {
-    from: ['/mfa/send-phone-message-hook-vonage'],
+    from: ['/multifactor-authentication/send-phone-message-hook-vonage','/mfa/send-phone-message-hook-vonage'],
     to: '/mfa/configure-vonage-as-mfa-sms-provider'
   },
   {
@@ -2525,15 +2529,15 @@ module.exports = [
     to: '/mfa/configure-email-notifications-for-mfa'
   },
   {
-    from: ['/multifactor-authentication/developer/sns-configuration','/multifactor-authentication/factors/push','/mfa/guides/configure-push'],
+    from: ['/multifactor-authentication/developer/sns-configuration','/multifactor-authentication/factors/push','/mfa/guides/configure-push','/multifactor-authentication/administrator/push-notifications'],
     to: '/mfa/configure-push-notifications-for-mfa'
   },
   {
-    from: ['/multifactor-authentication/twilio-configuration','/multifactor-authentication/factors/sms','/mfa/guides/configure-sms','/mfa/guides/configure-phone'],
+    from: ['/multifactor-authentication/administrator/twilio-configuration','/multifactor-authentication/administrator/sms-notifications','/multifactor-authentication/twilio-configuration','/multifactor-authentication/factors/sms','/mfa/guides/configure-sms','/mfa/guides/configure-phone'],
     to: '/mfa/configure-sms-voice-notifications-mfa'
   },
   {
-    from: ['/mfa/guides/guardian/customize-sms-messages','/multifactor-authentication/sms-templates','/mfa/guides/customize-phone-messages'],
+    from: ['/multifactor-authentication/administrator/sms-templates','/mfa/guides/guardian/customize-sms-messages','/multifactor-authentication/sms-templates','/mfa/guides/customize-phone-messages'],
     to: '/mfa/customize-sms-or-voice-messages'
   },
   {
@@ -2553,7 +2557,7 @@ module.exports = [
     to: '/mfa/step-up-authentication/configure-step-up-authentication-for-web-apps'
   },
   {
-    from: ['/multifactor-authentication/reset-user','/multifactor-authentication/administrator/reset-user','/mfa/guides/reset-user-mfa'],
+    from: ['/multifactor-authentication/reset-user','/multifactor-authentication/administrator/reset-user','/mfa/guides/reset-user-mfa','/multifactor-authentication/administrator/disabling-mfa'],
     to: '/mfa/reset-user-mfa'
   },
   {
