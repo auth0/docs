@@ -505,7 +505,7 @@ module.exports = [
     to: '/connections/social/amazon'
   },
   {
-    from: ['/connections/enterprise/azure-active-directory','/connections/social/active-directory','/waad-clientid'],
+    from: ['/connections/enterprise/azure-active-directory','/connections/social/active-directory','/waad-clientid','/users/guides/azure-access-control'],
     to: '/connections/enterprise/azure-active-directory/v2'
   },
   {
@@ -1801,7 +1801,7 @@ module.exports = [
     to: '/hooks/extensibility-points'
   },
   {
-    from: ['/hooks/concepts/credentials-exchange-extensibility-point','/hooks/guides/use-the-credentials-exchange-extensibility-point','/hooks/client-credentials-exchange'],
+    from: ['/hooks/concepts/credentials-exchange-extensibility-point','/hooks/guides/use-the-credentials-exchange-extensibility-point','/hooks/client-credentials-exchange','/hooks/extensibility-points/credentials-exchange'],
     to: '/hooks/extensibility-points/client-credentials-exchange'
   },
   {
@@ -1817,15 +1817,15 @@ module.exports = [
     to: '/hooks/enable-disable-hooks'
   },
   {
-    from: ['/hooks/guides/post-change-password'],
+    from: ['/hooks/guides/post-change-password','/hooks/post-change-password'],
     to: '/hooks/extensibility-points/post-change-password'
   },
   {
-    from: ['/hooks/concepts/post-user-registration-extensibility-point','/hooks/guides/use-the-post-user-registration-extensibility-point'],
+    from: ['/hooks/concepts/post-user-registration-extensibility-point','/hooks/guides/use-the-post-user-registration-extensibility-point','/hooks/post-user-registration'],
     to: '/hooks/extensibility-points/post-user-registration'
   },
   {
-    from: ['/hooks/concepts/pre-user-registration-extensibility-point','/hooks/guides/use-the-pre-user-registration-extensibility-point','/auth0-hooks/extensibility-points/pre-user-registration'],
+    from: ['/hooks/concepts/pre-user-registration-extensibility-point','/hooks/guides/use-the-pre-user-registration-extensibility-point','/auth0-hooks/extensibility-points/pre-user-registration','/hooks/pre-user-registration'],
     to: '/hooks/extensibility-points/pre-user-registration'
   },
   {
@@ -1863,6 +1863,10 @@ module.exports = [
 
   /* Identity Labs */
 
+  {
+    from: ['/labs'],
+    to: '/identity-labs'
+  },
   {
     from: ['/identity-labs/01-web-sign-in'],
     to: '/identity-labs/lab-1-web-sign-in'
@@ -1955,7 +1959,7 @@ module.exports = [
     to: '/integrations/aws'
   },
   {
-    from: ['/integrations/aws-api-gateway/delegation'],
+    from: ['/integrations/aws-api-gateway/delegation','/integrations/aws-api-gateway'],
     to: '/integrations/aws-api-gateway-delegation'
   },
   {
@@ -2031,27 +2035,27 @@ module.exports = [
     to: '/integrations/sso-integrations/concur'
   },
   {
-    from: ['/sso/current/integrations/disqus', '/integrations/sso/disqus'],
+    from: ['/sso/current/integrations/disqus', '/integrations/sso/disqus','/integrations/disqus'],
     to: '/integrations/sso-integrations/disqus'
   },
   {
-    from: ['/sso/current/integrations/dropbox', '/integrations/sso/dropbox'],
+    from: ['/sso/current/integrations/dropbox', '/integrations/sso/dropbox','/integrations/dropbox'],
     to: '/integrations/sso-integrations/dropbox'
   },
   {
-    from: ['/sso/current/integrations/dynamics-crm', '/integrations/sso/dynamics-crm'],
+    from: ['/sso/current/integrations/dynamics-crm', '/integrations/sso/dynamics-crm','/integrations/dynamics-crm'],
     to: '/integrations/sso-integrations/dynamics-crm'
   },
   {
-    from: ['/sso/current/integrations/echosign', '/integrations/sso/echosign'],
+    from: ['/sso/current/integrations/echosign', '/integrations/sso/echosign','/integrations/echosign'],
     to: '/integrations/sso-integrations/echosign'
   },
   {
-    from: ['/sso/current/integrations/egnyte', '/integrations/sso/egnyte'],
+    from: ['/sso/current/integrations/egnyte', '/integrations/sso/egnyte','/integrations/egnyte'],
     to: '/integrations/sso-integrations/egnyte'
   },
   {
-    from: ['/sso/current/integrations/new-relic', '/integrations/sso/new-relic'],
+    from: ['/sso/current/integrations/new-relic', '/integrations/sso/new-relic','/integrations/new-relic'],
     to: '/integrations/sso-integrations/new-relic'
   },
   {
@@ -2059,15 +2063,15 @@ module.exports = [
     to: '/integrations/sso-integrations/office-365'
   },
   {
-    from: ['/sso/current/integrations/salesforce', '/integrations/sso/salesforce'],
+    from: ['/sso/current/integrations/salesforce', '/integrations/sso/salesforce','/integrations/salesforce'],
     to: '/integrations/sso-integrations/salesforce'
   },
   {
-    from: ['/sso/current/integrations/slack', '/integrations/sso/slack','/integrations/integrating-with-slack','/tutorials/integrating-with-slack','/scenarios/slack'],
+    from: ['/sso/current/integrations/slack', '/integrations/sso/slack','/integrations/integrating-with-slack','/tutorials/integrating-with-slack','/scenarios/slack','/integrations/slack'],
     to: '/integrations/sso-integrations/slack'
   },
   {
-    from: ['/sso/current/integrations/sentry', '/integrations/sso/sentry'],
+    from: ['/sso/current/integrations/sentry', '/integrations/sso/sentry','/integrations/sentry'],
     to: '/integrations/sso-integrations/sentry'
   },
   {
@@ -2079,11 +2083,11 @@ module.exports = [
     to: '/integrations/sso-integrations/springcm'
   },
   {
-    from: ['/sso/current/integrations/zendesk', '/integrations/sso/zendesk'],
+    from: ['/sso/current/integrations/zendesk', '/integrations/sso/zendesk','/integrations/zendesk'],
     to: '/integrations/sso-integrations/zendesk'
   },
   {
-    from: ['/sso/current/integrations/zoom', '/integrations/sso/zoom'],
+    from: ['/sso/current/integrations/zoom', '/integrations/sso/zoom','/integrations/zoom'],
     to: '/integrations/sso-integrations/zoom'
   },
   {
@@ -2246,7 +2250,7 @@ module.exports = [
     to: '/libraries/lock-android'
   },
   {
-    from: ['/libraries/lock-android/v2/custom-authentication-providers','/docs/libraries/lock-android/v2/custom-oauth-connections'],
+    from: ['/libraries/lock-android/v2/custom-authentication-providers','/libraries/lock-android/v2/custom-oauth-connections'],
     to: '/libraries/lock-android/lock-android-custom-authentication-providers'
   },
   {
@@ -2477,35 +2481,35 @@ module.exports = [
     to: '/mfa/authenticate-with-ropg-and-mfa/enroll-and-challenge-otp-authenticators'
   },
   {
-    from: ['/multifactor-authentication/api/email','/mfa/guides/mfa-api/email'],
+    from: ['/multifactor-authentication/api/email','/mfa/guides/mfa-api/email','/multifactor-authentication/administrator/guardian-enrollment-email'],
     to: '/mfa/authenticate-with-ropg-and-mfa/enroll-and-challenge-email-authenticators'
   },
   {
-    from: ['/mfa/send-phone-message-hook-amazon-sns'],
+    from: ['/multifactor-authentication/send-phone-message-hook-amazon-sns','/mfa/send-phone-message-hook-amazon-sns'],
     to: '/mfa/configure-amazon-sns-as-mfa-sms-provider'
   },
   {
-    from: ['/mfa/send-phone-message-hook-esendex'],
+    from: ['/multifactor-authentication/send-phone-message-hook-esendex','/mfa/send-phone-message-hook-esendex'],
     to: '/mfa/configure-esendex-as-mfa-sms-provider'
   },
   {
-    from: ['/mfa/send-phone-message-hook-infobip'],
+    from: ['/multifactor-authentication/send-phone-message-hook-infobip','/mfa/send-phone-message-hook-infobip'],
     to: '/mfa/configure-infobip-as-mfa-sms-provider'
   },
   {
-    from: ['/mfa/send-phone-message-hook-mitto'],
+    from: ['/multifactor-authentication/send-phone-message-hook-mitto','/mfa/send-phone-message-hook-mitto'],
     to: '/mfa/configure-mitto-as-mfa-sms-provider'
   },
   {
-    from: ['/mfa/send-phone-message-hook-telesign'],
+    from: ['/multifactor-authentication/send-phone-message-hook-telesign','/mfa/send-phone-message-hook-telesign'],
     to: '/mfa/configure-telesign-as-mfa-sms-provider'
   },
   {
-    from: ['/mfa/send-phone-message-hook-twilio'],
+    from: ['/multifactor-authentication/send-phone-message-hook-twilio','/mfa/send-phone-message-hook-twilio'],
     to: '/mfa/configure-twilio-as-mfa-sms-provider'
   },
   {
-    from: ['/mfa/send-phone-message-hook-vonage'],
+    from: ['/multifactor-authentication/send-phone-message-hook-vonage','/mfa/send-phone-message-hook-vonage'],
     to: '/mfa/configure-vonage-as-mfa-sms-provider'
   },
   {
@@ -2525,15 +2529,15 @@ module.exports = [
     to: '/mfa/configure-email-notifications-for-mfa'
   },
   {
-    from: ['/multifactor-authentication/developer/sns-configuration','/multifactor-authentication/factors/push','/mfa/guides/configure-push'],
+    from: ['/multifactor-authentication/developer/sns-configuration','/multifactor-authentication/factors/push','/mfa/guides/configure-push','/multifactor-authentication/administrator/push-notifications'],
     to: '/mfa/configure-push-notifications-for-mfa'
   },
   {
-    from: ['/multifactor-authentication/twilio-configuration','/multifactor-authentication/factors/sms','/mfa/guides/configure-sms','/mfa/guides/configure-phone'],
+    from: ['/multifactor-authentication/administrator/twilio-configuration','/multifactor-authentication/administrator/sms-notifications','/multifactor-authentication/twilio-configuration','/multifactor-authentication/factors/sms','/mfa/guides/configure-sms','/mfa/guides/configure-phone'],
     to: '/mfa/configure-sms-voice-notifications-mfa'
   },
   {
-    from: ['/mfa/guides/guardian/customize-sms-messages','/multifactor-authentication/sms-templates','/mfa/guides/customize-phone-messages'],
+    from: ['/multifactor-authentication/administrator/sms-templates','/mfa/guides/guardian/customize-sms-messages','/multifactor-authentication/sms-templates','/mfa/guides/customize-phone-messages'],
     to: '/mfa/customize-sms-or-voice-messages'
   },
   {
@@ -2553,7 +2557,7 @@ module.exports = [
     to: '/mfa/step-up-authentication/configure-step-up-authentication-for-web-apps'
   },
   {
-    from: ['/multifactor-authentication/reset-user','/multifactor-authentication/administrator/reset-user','/mfa/guides/reset-user-mfa'],
+    from: ['/multifactor-authentication/reset-user','/multifactor-authentication/administrator/reset-user','/mfa/guides/reset-user-mfa','/multifactor-authentication/administrator/disabling-mfa'],
     to: '/mfa/reset-user-mfa'
   },
   {
@@ -2565,7 +2569,7 @@ module.exports = [
     to: '/mfa/auth0-guardian/create-custom-enrollment-tickets'
   },
   {
-    from: ['/multifactor-authentication/developer/libraries/ios','/mfa/guides/guardian/guardian-ios-sdk','/docs/mfa/guides/guardian/configure-guardian-ios'],
+    from: ['/multifactor-authentication/developer/libraries/ios','/mfa/guides/guardian/guardian-ios-sdk','/mfa/guides/guardian/configure-guardian-ios'],
     to: '/mfa/auth0-guardian/guardian-for-ios-sdk'
   },
   {
@@ -3074,7 +3078,7 @@ module.exports = [
   /* Rules */
 
   { 
-    from: ['/rules/current', '/rules/current/csharp', '/rules/guides/csharp', '/rules/legacy', '/rules/references/legacy','/rules/references/modules'],
+    from: ['/rules/current', '/rules/current/csharp', '/rules/guides/csharp', '/rules/legacy', '/rules/references/legacy','/rules/references/modules','/rule'],
     to: '/rules'
   },
   {
@@ -3380,7 +3384,7 @@ module.exports = [
   /* Tokens */
 
   {
-    from: ['/security/token-exp','/token','/tokens/concepts'],
+    from: ['/security/token-exp','/token','/tokens/concepts','/tokens/guides'],
     to: '/tokens'
   },
   {
@@ -3408,7 +3412,7 @@ module.exports = [
     to: '/tokens/identity-provider-access-tokens'
   },
   {
-    from: ['/tokens/overview-id-tokens','/tokens/id-token', '/tokens/concepts/id-tokens'],
+    from: ['/tokens/overview-id-tokens','/tokens/id-token', '/tokens/concepts/id-tokens','/tokens/id_token'],
     to: '/tokens/id-tokens'
   },
   {
@@ -3456,7 +3460,7 @@ module.exports = [
     to: '/tokens/manage-signing-keys'
   },
   {
-    from: ['/api-auth/tutorials/adoption/refresh-tokens','/refresh-token','/tokens/refresh_token', '/tokens/refresh-token/current','/tokens/concepts/refresh-tokens','/tokens/access-tokens/refresh-tokens','/tokens/preview/refresh-token'],
+    from: ['/api-auth/tutorials/adoption/refresh-tokens','/refresh-token','/tokens/refresh_token','/tokens/refresh-token','/tokens/refresh-token/legacy','/tokens/refresh-token/current','/tokens/concepts/refresh-tokens','/tokens/access-tokens/refresh-tokens','/tokens/preview/refresh-token'],
     to: '/tokens/refresh-tokens'
   },
   {
@@ -3759,6 +3763,10 @@ module.exports = [
   /* Users */
 
   {
+    from: ['/users/concepts/overview-users'],
+    to: '/users'
+  },
+  {
     from: ['/users/guides/block-and-unblock-users'],
     to: '/users/block-and-unblock-users'
   },
@@ -3775,7 +3783,7 @@ module.exports = [
     to: '/users/progressive-profiling'
   },
   {
-    from: ['/users/concepts/overview-user-metadata', '/metadata'],
+    from: ['/users/concepts/overview-user-metadata','/metadata','/users/references/metadata-field-name-rules'],
     to: '/users/metadata'
   },
   {
@@ -3783,7 +3791,7 @@ module.exports = [
     to: '/users/import-and-export-users'
   },
   {
-    from: ['/user-profile','/users/concepts/overview-user-profile','/user-profile/user-profile-details','/users/normalized/oidc','/users/user-profiles-returned-from-oidc-compliant-pipelines'],
+    from: ['/user-profile/normalized','/user-profile/normalized/oidc','/user-profile','/users/concepts/overview-user-profile','/user-profile/user-profile-details','/users/normalized/oidc','/users/user-profiles-returned-from-oidc-compliant-pipelines'],
     to: '/users/user-profiles'
   },
   {
@@ -3959,7 +3967,7 @@ module.exports = [
     to: '/users/user-search/retrieve-users-with-get-users-by-id-endpoint'
   },
   {
-    from: ['/users/search/v3/get-users-endpoint','/docs/users/user-search/retrieve-users-with-the-get-users-endpoint'],
+    from: ['/users/search/v3/get-users-endpoint','/users/user-search/retrieve-users-with-the-get-users-endpoint'],
     to: '/users/user-search/retrieve-users-with-get-users-endpoint'
   },
   {
