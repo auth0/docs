@@ -3959,7 +3959,7 @@ module.exports = [
     to: '/users/user-search/migrate-v2-v3'
   },
   {
-    from: ['/users/search/v3/get-users-by-email-endpoint','/users/user-search/retrieve-users-with-get-users-by-email-endpoint'],
+    from: ['/users/search/v3/get-users-by-email-endpoint'],
     to: '/users/user-search/retrieve-users-with-get-users-by-email-endpoint'
   },
   {
