@@ -125,6 +125,8 @@ export class AuthButtonComponent {
 }
 ```
 
+Specify the `returnTo` option when calling `logout` to tell Auth0 where it should redirect to after a successful logout. This value must be specified in [the **Allowed Logout URLs** setting](#configure-logout-urls) in the dashboard.
+
 :::panel Checkpoint
 Add a button that logs the user out to your application. When you click it, verify that your Angular application redirects you the address you specified as one of the "Allowed Logout URLs" in the "Settings" and that you are no longer logged in to your application.
 :::
