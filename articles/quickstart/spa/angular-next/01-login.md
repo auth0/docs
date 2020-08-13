@@ -112,13 +112,13 @@ import { AuthService } from '@auth0/auth0-angular';
       *ngIf="(auth.isAuthenticated$ | async) === false"
       (click)="auth.loginWithRedirect()">
         Log in
-      </button>
+    </button>
 
     <button 
       *ngIf="auth.isAuthenticated$ | async"
       (click)="auth.logout({ returnTo: 'http://localhost:4200' })">
         Log out
-      </button>`
+    </button>`
 })
 export class AuthButtonComponent {
   constructor(public auth: AuthService) {}
@@ -128,7 +128,7 @@ export class AuthButtonComponent {
 Specify the `returnTo` option when calling `logout` to tell Auth0 where it should redirect to after a successful logout. This value must be specified in [the **Allowed Logout URLs** setting](#configure-logout-urls) in the dashboard.
 
 :::panel Checkpoint
-Add a button that logs the user out to your application. When you click it, verify that your Angular application redirects you the address you specified as one of the "Allowed Logout URLs" in the "Settings" and that you are no longer logged in to your application.
+Add a button to the component template that logs the user out of your application. When you click it, verify that your Angular application redirects you the address you specified as one of the "Allowed Logout URLs" in the "Settings" and that you are no longer logged in to your application.
 :::
 
 ## Show User Profile Information
