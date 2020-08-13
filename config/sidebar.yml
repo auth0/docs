@@ -6,21 +6,12 @@ articles:
         url: /get-started
       - title: Glossary
         url: /glossary
-      - title: Learn the Basics
+      - title: Create a Tenant
         url: /get-started/learn-the-basics
       - title: Dashboard Overview
         url: /get-started/dashboard
-      - title: Set Up An App
+      - title: Set Up an App
         url: /applications/set-up-an-application
-        children:
-          - title: Regular Web App
-            url: /applications/register-regular-web-applications
-          - title: Native App
-            url: /applications/set-up-an-application/register-native-applications
-          - title: Single-Page App
-            url: /applications/register-single-page-app
-          - title: Backend/Service
-            url: /applications/set-up-an-application/register-machine-to-machine-applications
       - title: Set Up an API
         url: /get-started/set-up-apis
       - title: Set Up Multiple Environments
