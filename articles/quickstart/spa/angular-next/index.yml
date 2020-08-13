@@ -15,6 +15,7 @@ topics:
 contentType: tutorial
 useCase: quickstart
 show_releases: true
+beta: true
 sdk:
   name: auth0-angular
   url: https://github.com/auth0/auth0-angular
