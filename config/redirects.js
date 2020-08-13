@@ -2851,10 +2851,6 @@ module.exports = [
     to: '/professional-services'
   },
   {
-    from: ['/services/scenario-guidance','/services/code-review','/services/pair-programming'],
-    to: '/professional-services/advisory-sessions'
-  },
-  {
     from: ['/services/architectural-design'],
     to: '/professional-services/architectural-design-services'
   },
@@ -2871,7 +2867,7 @@ module.exports = [
     to: '/professional-services/solution-design-services'
   },
   {
-    from: ['/services/scenario-guidance','/services/code-review','/services/pair-programming','/services/private-cloud-configuration','/services/private-cloud-management'],
+    from: ['/services/scenario-guidance','/services/code-review','/services/pair-programming'],
     to: '/professional-services/advisory-sessions'
   },
   {
