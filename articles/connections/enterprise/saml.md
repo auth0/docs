@@ -206,7 +206,7 @@ To use your new SAML enterprise connection, you must first [enable the connectio
 If you're configuring a SAML enterprise connection for a non-standard PingFederate Server, you **must** update the attribute mappings.
 :::
 
-1. If necessary, click on the **Mappings** tab, enter mappings between the `{}`, and click **Save**.
+Click on the **Mappings** tab, enter mappings between the `{}`, and click **Save**.
 
 ![Configure SAML Mappings](/media/articles/dashboard/connections/enterprise/conn-enterprise-saml-mappings.png)
 
@@ -226,6 +226,29 @@ If you're configuring a SAML enterprise connection for a non-standard PingFedera
   "email": "EmailAddress",
   "given_name": "FirstName",
   "family_name": "LastName"
+}
+```
+
+**Map either of two claims to one user attribute**
+
+```json
+{
+  "given_name": [
+    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname",
+    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"
+  ]
+}
+````
+
+**How to map name identifier to a user attribute**
+
+```json
+{
+  "user_id": [
+    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier",
+    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn",
+    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"
+  ]
 }
 ```
 
