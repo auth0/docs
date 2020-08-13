@@ -1172,37 +1172,16 @@ articles:
   - title: Professional Services
     url: /professional-services
     children:
+      - title: Architectural Design
+        url: /professional-services/architectural-design-services
       - title: Solution Design
         url: /professional-services/solution-design-services
-      - title: Implement
+      - title: Custom Implementation
         url: /professional-services/custom-implementation-services
-      - title: Architectural Design Sessions
-        url: /professional-services/architectural-design-services
-        hidden: true
       - title: Performance and Scalability
         url: /professional-services/performance-and-scalability-services
-        hidden: true
-      - title: Scenario guidance
+      - title: Advisory Sessions
         url: /professional-services/advisory-sessions
-        hidden: true
-      - title: Code Review
-        url: /services/code-review
-        hidden: true
-      - title: Pair Programming
-        url: /services/pair-programming
-        hidden: true
-      - title: Private Cloud reconfiguration
-        url: /services/private-cloud-configuration
-        hidden: true
-      - title: Auth0 Introduction
-        url: /services/auth0-introduction
-        hidden: true
-      - title: Auth0 Advanced Topics
-        url: /services/auth0-advanced
-        hidden: true
-      - title: Private Cloud Management Workshop
-        url: /services/private-cloud-management
-        hidden: true
   - title: Auth0 Community
     external: true
     forceFullReload: true
