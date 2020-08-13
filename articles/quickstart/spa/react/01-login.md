@@ -111,7 +111,8 @@ const LogoutButton = () => {
   return (
     <button onClick={() => logout({ returnTo: window.location.origin })}>
       Log Out
-    </button>;
+    </button>
+  );
 };
 
 export default LogoutButton;
