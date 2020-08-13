@@ -76,7 +76,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
-  selector: 'app-login-button',
+  selector: 'app-auth-button',
   template: '<button (click)="auth.loginWithRedirect()">Log in</button>'
 })
 export class AuthButtonComponent {
@@ -106,7 +106,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
-  selector: 'app-logout-button',
+  selector: 'app-auth-button',
   template: `
     <button 
       *ngIf="(auth.isAuthenticated$ | async) === false"
