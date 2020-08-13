@@ -4,6 +4,8 @@ articles:
     children:
       - title: Auth0 Overview
         url: /get-started
+      - title: Glossary
+        url: /glossary
       - title: Learn the Basics
         url: /get-started/learn-the-basics
       - title: Dashboard Overview
