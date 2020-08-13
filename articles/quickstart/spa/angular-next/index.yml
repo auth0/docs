@@ -31,7 +31,7 @@ show_steps: true
 github:
   org: auth0-samples
   repo: auth0-angular-samples
-  branch: next
+  branch: update/new-sdk
 requirements:
   - Angular 9+
 next_steps:
