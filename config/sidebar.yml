@@ -1182,6 +1182,8 @@ articles:
         url: /professional-services/performance-and-scalability-services
       - title: Advisory Sessions
         url: /professional-services/advisory-sessions
+      - title: Services Packages
+        url: /professional-services/packages
   - title: Auth0 Community
     external: true
     forceFullReload: true
