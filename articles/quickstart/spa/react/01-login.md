@@ -52,9 +52,7 @@ The `Auth0Provider` component takes the following props:
 
 - `domain` and `clientId`: The values of these properties correspond to the "Domain" and "Client ID" values present under the "Settings" of the single-page application that you registered with Auth0.
 
-:::note
-If you are using a [custom domain with Auth0](https://auth0.com/docs/custom-domains), the value of the domain prop is the value of your custom domain instead of the value reflected in the "Settings" tab.
-:::
+<%= include('../_includes/_auth_note_custom_domains') %>
 
 - `redirectUri`: The URL to where you'd like to redirect your users after they authenticate with Auth0. 
 
@@ -93,9 +91,7 @@ Once that's complete, verify that Auth0 redirects you to your application using 
 
 ![Auth0 Universal Login](https://cdn.auth0.com/blog/universal-login/lightweight-login.png)
 
-:::note
-Auth0 enables the Google social provider by default on new tenants and offers you developer keys to test logging in with [social identity providers](https://auth0.com/docs/connections/identity-providers-social). However, these developer keys have some limitations that may cause your application to behave differently. For more details on what this behavior may look like and how to fix it, consult the [Test Social Connections with Auth0 Developer Keys](https://auth0.com/docs/connections/social/devkeys#limitations-of-developer-keys) document.
-:::
+<%= include('../_includes/_auth_note_dev_keys') %>
 
 ## Add Logout to Your Application
 
