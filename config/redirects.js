@@ -2847,12 +2847,8 @@ module.exports = [
   /* Professional Services */
 
   {
-    from: ['/services','/auth0-professional-services','/services/auth0-advanced','/services/auth0-introduction','/services/discover-and-design','/services/maintain-and-improve','/services/packages'],
+    from: ['/services','/auth0-professional-services','/services/auth0-advanced','/services/auth0-introduction','/services/discover-and-design','/services/maintain-and-improve'],
     to: '/professional-services'
-  },
-  {
-    from: ['/services/scenario-guidance','/services/code-review','/services/pair-programming'],
-    to: '/professional-services/advisory-sessions'
   },
   {
     from: ['/services/architectural-design'],
@@ -2869,6 +2865,14 @@ module.exports = [
   {
     from: ['/services/solution-design'],
     to: '/professional-services/solution-design-services'
+  },
+  {
+    from: ['/services/scenario-guidance','/services/code-review','/services/pair-programming'],
+    to: '/professional-services/advisory-sessions'
+  },
+  {
+    from: ['/services/packages'],
+    to: '/professional-services/packages'
   },
 
 
