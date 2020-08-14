@@ -773,6 +773,9 @@ articles:
             url: /logs/export-log-events-with-log-streaming/stream-logs-to-azure-event-grid
           - title: Splunk Event Streams
             url: /logs/streams/splunk
+            children:
+            - title: Auth0 App for Splunk
+              url: /logs/export-log-events-with-log-streaming/splunk-dashboard
       - title: Log Data Retention
         url: /logs/log-data-retention
       - title: View Log Data in the Dashboard
