@@ -41,7 +41,7 @@ module.exports = [
     to: '/'
   },
   {
-    from: ['/design','/design/web','/design/web-apps-vs-web-apis-cookies-vs-tokens','/design/browser-based-vs-native-experience-on-mobile','/tutorials/browser-based-vs-native-experience-on-mobile'],
+    from: ['/design','/design/web','/design/browser-based-vs-native-experience-on-mobile','/tutorials/browser-based-vs-native-experience-on-mobile'],
     to: '/'
   },
   {
@@ -1195,7 +1195,7 @@ module.exports = [
     to: '/best-practices/rules-testing-best-practices'
   },
   {
-    from: ['/tokens/concepts/token-best-practices'],
+    from: ['/tokens/concepts/token-best-practices','/design/web-apps-vs-web-apis-cookies-vs-tokens'],
     to: '/best-practices/token-best-practices'
   },
   {
