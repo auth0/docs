@@ -13,26 +13,33 @@ useCase:
   - synthetic-transactions
 ---
 # Monitor Applications
-Auth0 is a critical dependency of your application and/or service. Monitoring Auth0's health can be important as it allows you to report specific errors to your customers and/or take mitigating actions in case of an issue with Auth0.
+Your applications and services depend on Auth0. Monitoring Auth0's health allows you to report specific errors to your customers and/or take mitigating actions in case of an issue with Auth0.
 
-You can monitor Auth0 using many approaches, each of them complementary with the others. Picking the approaches to use depends on your needs and investment possibilities.
+There's many ways to monitor Auth0 and each approach complements the others. You should pick based on your needs and investment possibilities.
 
 ## Synthetic transactions
-The simplest approach to monitor Auth0. This involves setting up a periodic request to perform an authentication transaction. If the request works successfully, Auth0 is working fine. If the request fails this _might_ indicate an issue with Auth0.
+The simplest approach to monitor Auth0:
+- Set up a periodic request to perform an authentication transaction.
+- If the request succeeds, Auth0 is working fine.
+- If the request fails, this may indicate:
+  - an issue with Auth0
+  - an issue specific to the tenant used for the synthetic transaction
+  - or just a single failed request.
+  
+For synthetic transactions we recommend using setups that are close to your production tenant configuration as possible. You may potentially even use the same production tenant. Since setting up synthetic transactions with redirect flows and third party providers can be tricky, using the [Resource Owner Password Grant](/api-auth/tutorials/password-grant) is recommended. This flow neither involves browser redirects nor requires a UI.
 
-> There _might_ be an issue with Auth0, but the issue could also either be specific to the tenant used for the synthetic transaction or just a single failed request.
-
-For synthetic transactions we recommend using setups that are close to your production tenant configuration as possible, potentially even using the same production tenant. Since setting up synthetic transactions with redirect flows and third party providers can be tricky, using the [Resource Owner Password Grant](/api-auth/tutorials/password-grant) is recommended. This flow neither involves browser redirects nor requires a UI.
-
-If you are using [rules](/rules) or [custom database connection(s)](/connections/database/custom-db) or other extensibility points, the synthetic transaction(s) should be configured to go through their logic.
+If you are using [rules](/rules) or [custom database connection(s)](/connections/database/custom-db) or other extensibility points, the synthetic transaction(s) should be configured to utilize the rules and/or custom DB scripts to ensure that aspect of the system is working.
 
 Tools like [Pingdom](http://pingdom.com) make setting up synthetic transactions a simple thing.
 
 ### Check Period
-We recommend synthetic transactions happen with a periodicity of one minute. For this simple monitoring approach, that's a frequency that will not consume a lot of your Auth0 rate limit quota, while also providing timely responses if an issue were to be happening.
+We recommend running synthetic transactions on one minute intervals. With this simple approach, that frequency won't consume a lot of your Auth0 rate limit quota, while also providing timely responses.
 
 ### Limitations of synthetic transactions
-Synthetic transactions do not represent your end user's experience, but instead aim to provide a proxy metric for them. They might not be exercising the same flows your users are, they lack atomicity (typically run once a minute) and do not report on errors your end users might have seen. However, they are a simple and inexpensive way of getting good signal on the health of an Auth0 tenant.
+Synthetic transactions are a simple and inexpensive way monitoring an Auth0 tenant's health. However, they do have some limitations:
+- Synthetic transactions do not represent your end user's experience. Instead they give you a proxy metric for them.
+- Synthetic transactions might not use the same flows as your users
+- They lack "time atomicity" (typically run once a minute) and do not report on errors your end users might have seen.
 
 If you are interested in getting more granular data read about [Error Tracking](#error-tracking) and [Metrics and Logs](#metrics-and-logs).
 
