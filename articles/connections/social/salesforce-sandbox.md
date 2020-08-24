@@ -21,4 +21,5 @@ useCase:
 <%= include('../../../snippets/social/salesforce-sandbox/2') %> 
 <%= include('../../../snippets/social/salesforce-sandbox/3') %> 
 <%= include('../../../snippets/social/salesforce-sandbox/4') %> 
+<%= include('../../../snippets/social/salesforce-sandbox/5') %> 
 <%= include('../_quickstart-links.md') %>

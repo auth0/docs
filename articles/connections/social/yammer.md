@@ -20,4 +20,5 @@ useCase:
 <%= include('../../../snippets/social/yammer/2') %> 
 <%= include('../../../snippets/social/yammer/3') %> 
 <%= include('../../../snippets/social/yammer/4') %> 
+<%= include('../../../snippets/social/yammer/5') %> 
 <%= include('../_quickstart-links.md') %>

@@ -22,4 +22,5 @@ useCase:
 <%= include('../../../snippets/social/shopify/2') %> 
 <%= include('../../../snippets/social/shopify/3') %> 
 <%= include('../../../snippets/social/shopify/4') %> 
+<%= include('../../../snippets/social/shopify/5') %> 
 <%= include('../_quickstart-links.md') %>

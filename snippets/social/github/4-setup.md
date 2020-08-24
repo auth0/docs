@@ -1,4 +1,4 @@
-### Set up your app in GitHub
+### Set up app in GitHub
 
 Set up an app in GitHub. During this process, GitHub will generate a **Client ID** and **Client Secret** for your application; make note of these.
 

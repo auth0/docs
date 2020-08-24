@@ -20,4 +20,5 @@ useCase:
 <%= include('../../../snippets/social/wordpress/2') %> 
 <%= include('../../../snippets/social/wordpress/3') %> 
 <%= include('../../../snippets/social/wordpress/4') %> 
+<%= include('../../../snippets/social/wordpress/5') %> 
 <%= include('../_quickstart-links.md') %>

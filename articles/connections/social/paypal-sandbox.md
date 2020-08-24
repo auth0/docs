@@ -22,4 +22,5 @@ useCase:
 <%= include('../../../snippets/social/paypal-sandbox/2') %> 
 <%= include('../../../snippets/social/paypal-sandbox/3') %> 
 <%= include('../../../snippets/social/paypal-sandbox/4') %> 
+<%= include('../../../snippets/social/paypal-sandbox/5') %>
 <%= include('../_quickstart-links.md') %>

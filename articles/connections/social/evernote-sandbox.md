@@ -21,5 +21,6 @@ useCase:
 <%= include('../../../snippets/social/evernote-sandbox/1') %> 
 <%= include('../../../snippets/social/evernote-sandbox/2') %> 
 <%= include('../../../snippets/social/evernote-sandbox/3') %> 
-<%= include('../../../snippets/social/evernote-sandbox/4') %> 
+<%= include('../../../snippets/social/evernote-sandbox/4') %>  
+<%= include('../../../snippets/social/evernote-sandbox/5') %> 
 <%= include('../_quickstart-links.md') %>
