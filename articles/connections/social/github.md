@@ -19,8 +19,8 @@ useCase:
 <%= include('../../../snippets/social/github/1-intro.md') %>
 <%= include('../../../snippets/social/github/2-prerequisites.md') %>
 <%= include('../../../snippets/social/github/3-steps.md') %>
-<%= include('../../../snippets/social/github/4-create.md') %>
-<%= include('../../../snippets/social/github/5-setup.md') %>
+<%= include('../../../snippets/social/github/4-setup.md') %>
+<%= include('../../../snippets/social/github/5-create.md') %>
 <%= include('../../../snippets/social/github/6-test.md') %>
 <%= include('../../../snippets/social/github/7-troubleshooting.md') %>
 

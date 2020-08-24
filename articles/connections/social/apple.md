@@ -25,3 +25,4 @@ useCase:
 <%= include('../../../snippets/social/apple/4') %> 
 <%= include('../../../snippets/social/apple/5') %> 
 <%= include('../../../snippets/social/apple/6') %> 
+<%= include('../../../snippets/social/apple/7') %> 

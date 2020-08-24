@@ -19,4 +19,6 @@ useCase:
 <%= include('../../../snippets/social/weibo/1') %> 
 <%= include('../../../snippets/social/weibo/2') %> 
 <%= include('../../../snippets/social/weibo/3') %> 
+<%= include('../../../snippets/social/weibo/4') %> 
+<%= include('../../../snippets/social/weibo/5') %> 
 <%= include('../_quickstart-links.md') %>

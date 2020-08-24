@@ -19,4 +19,5 @@ useCase:
 <%= include('../../../snippets/social/goodreads/2') %> 
 <%= include('../../../snippets/social/goodreads/3') %> 
 <%= include('../../../snippets/social/goodreads/4') %> 
+<%= include('../../../snippets/social/goodreads/5') %> 
 <%= include('../_quickstart-links.md') %>

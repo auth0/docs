@@ -27,4 +27,5 @@ useCase:
 <%= include('../../../snippets/social/microsoft-account/2') %> 
 <%= include('../../../snippets/social/microsoft-account/3') %> 
 <%= include('../../../snippets/social/microsoft-account/4') %> 
+<%= include('../../../snippets/social/microsoft-account/5') %> 
 <%= include('../_quickstart-links.md') %>

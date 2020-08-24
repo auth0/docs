@@ -19,4 +19,5 @@ useCase:
 <%= include('../../../snippets/social/bitbucket/2') %> 
 <%= include('../../../snippets/social/bitbucket/3') %> 
 <%= include('../../../snippets/social/bitbucket/4') %> 
+<%= include('../../../snippets/social/bitbucket/5') %> 
 <%= include('../_quickstart-links.md') %>

@@ -20,4 +20,5 @@ useCase:
 <%= include('../../../snippets/social/fitbit/2') %> 
 <%= include('../../../snippets/social/fitbit/3') %> 
 <%= include('../../../snippets/social/fitbit/4') %> 
+<%= include('../../../snippets/social/fitbit/5') %> 
 <%= include('../_quickstart-links.md') %>
