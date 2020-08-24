@@ -41,8 +41,12 @@ module.exports = [
     to: '/'
   },
   {
-    from: ['/design','/design/web','/design/browser-based-vs-native-experience-on-mobile','/tutorials/browser-based-vs-native-experience-on-mobile'],
+    from: ['/design','/design/web'],
     to: '/'
+  },     
+  {
+    from: ['/design/browser-based-vs-native-experience-on-mobile','/tutorials/browser-based-vs-native-experience-on-mobile'],
+    to: '/best-practices/mobile-device-login-flow-best-practices'
   },
   {
     from: '/topics/identity-glossary',
