@@ -135,7 +135,7 @@
   articles:
   
     - title: "Marketplace"
-      url: "https://cybertronn.herokuapp.com/"
+      url: "https://marketplace.stage.auth0.com/"
 
     - title: "Rules"
       url: "/rules"
