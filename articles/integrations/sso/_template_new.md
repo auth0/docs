@@ -13,7 +13,7 @@ The steps in this guide are valid for Active Directory Rights Management Service
 Before you begin this tutorial, please:
 
 * Sign up for a ${service} account.
-* [Set up a connection](), which is a source of users. Connections can be databases, social identity providers, or enterprise identity providers, and can be shared among different applications. You may set up more than one connection for use with SSO integrations.
+* [Set up a connection](/connections), which is a source of users. Connections can be databases, social identity providers, or enterprise identity providers, and can be shared among different applications. You may set up more than one connection for use with SSO integrations.
 
 <% if (service === "Zendesk") { %>
 ::: warning
@@ -320,7 +320,7 @@ Once you have configured your Auth0 SSO integration, you will see a **Tutorial**
 <% } else { %>
     <% if (service === "Active Directory RMS") { %>
 1. Add Federation Support to your AD RMS Cluster
-<screenshot>
+screenshot
 
 2. Enter your Auth0 RMS URL: `khoriander2.auth0.com/rms/xwBS484sQcx63zUWcmqeakK30mycS2E0`
 
@@ -400,7 +400,7 @@ In this case, Auth0 will redirect users to the specified connection and will not
 `MIIDBTCCAe2gAwIBAgIJB5261iSST6iWMA0GCSqGSIb3DQEBCwUAMCAxHjAcBgNVBAMTFWtob3JpYW5kZXIyLmF1dGgwLmNvbTAeFw0xOTAxMTcxMjI1NDBaFw0zMjA5MjUxMjI1NDBaMCAxHjAcBgNVBAMTFWtob3JpYW5kZXIyLmF1dGgwLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALXNYeaudfn0nZfdy54SHx8BoltEdMVCqlN5Hrn2GCmmlCnytAEzGFseTkYGa3XV/gkqskBAtRItKCv3JPw1ud8ac9kNksLhxVBCoZxom5neg2jJu5LdEF/1ig0LVugwBvFTppLCfA9ARDClX7ahy7cAS7agdPMNKzVwRVq9Ls1lMCLuwaFGDp/rb9BeGWP/+Nafwc/4eujEZB6BQvQdGY9s2PyF9OhP3o1COj6VTtT1kKvdvPQ05OMlMVF2frCnaMXJ07zoviui+EVs+Xd30Lr0HwZcSgqYdJ59xds8cQgcAuV2E08yzTb+PCAS57wgmb1yfHeBNlxOWDHJa528ptcCAwEAAaNCMEAwDwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQU9hhXEXDy9WKe5dqM0SJfpKiA8fUwDgYDVR0PAQH/BAQDAgKEMA0GCSqGSIb3DQEBCwUAA4IBAQBy2Zpp9e4Owo3l3Sh5apcjow3wIyul2JuTXS1mq+HSKukUn5+s1leNFYHMezijceexE7YN2XBti8eHweMvnyiqKUAWdWu6L95HEC35Tu463ba/sxg40Z7ApdnvoeMxkqb788ZypFCBpCsgPx4HGoOLxbq2yRMKABFisDChoAgBehzMRkXHAzsFReXO2EOf+dW4P0+lyc30XVRZcO7ELScQEsRChkb2Vr8mo0sdWVd9mzf0lQhsASTv0XohIq7XH06euuP7E6/qHiDlsGeVV9DNHnLymIELdZJunXPBvlrOGJx62NG6jWYMV4kOqBtEht87MQNuxdsCUd9tWo/TTSwS`
 
 5. [Verify your domain](https://support.cloudbees.com/hc/en-us/articles/360017607331-How-to-set-up-SSO-with-SAML-based-IdP-to-access-CloudBees-services-).
-<screenshot>
+screenshot
     <% } %>
 
     <% if (service === "Eloqua") { %>
