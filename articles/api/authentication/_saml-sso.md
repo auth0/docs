@@ -113,7 +113,7 @@ include('../../_includes/_http-method', {
   "link": "#idp-initiated-sso-flow"
 }) %>
 
-This endpoint accepts an IdP-Initiated Sign On SAMLResponse from a <dfn data-key="security-assertion-markup-language">SAML</dfn> Identity Provider. The connection corresponding to the identity provider is specified in the querystring. The user will be redirected to the application that is specified in the SAML Provider IdP-Initiated Sign On section.
+This endpoint accepts an IdP-Initiated Sign On SAMLResponse from a <dfn data-key="security-assertion-markup-language">SAML</dfn> Identity Provider. The connection corresponding to the identity provider is specified in the query string. The user will be redirected to the application that is specified in the SAML Provider IdP-Initiated Sign On section.
 
 
 ### Request Parameters
