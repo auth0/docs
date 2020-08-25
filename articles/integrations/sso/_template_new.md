@@ -21,3 +21,12 @@ Zendesk **requires** that all users have an email address. When enabling enterpr
 :::
 
 <% } %>
+
+## Steps
+
+To configure a ${service} SSO integration, you will:
+
+1. [Configure Auth0 SSO integration](#configuree-auth0-sso-integration)
+2. [Configure integration with ${service}](#configure-integration-with-${service})
+3. [Enable connections](#enable-connections)
+
