@@ -201,7 +201,7 @@ if (services.indexOf(${service}) !== -1) { %>
         <% if (service === "Sentry") { %>
         <tr>
             <td>Organization Slug</td>
-            <td>Generated slug for your Sentry organization found in your URL (for example, the slug for `https://sentry.travel0.com/travel0-org/` would be `travel0-org`.</td>
+            <td>Generated slug for your Sentry organization found in your URL (for example, the slug for `https://sentry.travel0.com/travel0-org/` would be `travel0-org`).</td>
         </tr>
         <tr>
             <td>Sentry URL Prefix</td>
