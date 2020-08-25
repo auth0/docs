@@ -30,3 +30,12 @@ To configure a ${service} SSO integration, you will:
 2. [Configure integration with ${service}](#configure-integration-with-${service})
 3. [Enable connections](#enable-connections)
 
+### Configure Auth0 SSO integration
+
+1. Navigate to [Auth0 Dashboard > SSO Integrations](${manage_url}/#/externalapps), and click **+ Create SSO Integration**.
+![](/media/articles/sso/integrations/new.png)
+
+<% if (guide === "marketplace") { %>
+1. Click **Continue** to grant the integration access to the listed permissions.
+
+<% } %>
