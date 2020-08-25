@@ -39,3 +39,17 @@ To configure a ${service} SSO integration, you will:
 1. Click **Continue** to grant the integration access to the listed permissions.
 
 <% } %>
+
+1. Select a provider.
+
+![](/media/articles/sso/integrations/options.png)
+
+
+<% var services = ['Active Directory RMS', 'EchoSign', 'Egencia', 'Egnyte', 'Eloqua', 'Freshdesk', 'G Suite', 'GitHub Enterprise Cloud', 'GitHub Enterprise Server', 'Heroku', 'Hosted Graphite', 'Litmos', 'New Relic', 'Microsoft Dynamics CRM', 'Office 365', 'Salesforce', 'Sentry', 'SharePoint', 'Slack', 'SpringCM', 'Sprout Video', 'Tableau Online', 'Tableau Server', 'Workday', 'Workpath', 'ZenDesk', 'Zoom'];
+if (services.indexOf(${service}) !== -1) { %>
+
+1. Enter a name for your SSO Integration, and click **Create**.
+
+![](/media/articles/sso/integrations/name.png)
+
+<% } %>
