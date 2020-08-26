@@ -1,10 +1,11 @@
 ---
 title: Login
-description: This tutorial demonstrates how to add user login to an Angular (versions 2 and above) application using Auth0.
+description: This tutorial demonstrates how to add user login to an Angular application using Auth0.
 budicon: 448
 topics:
   - quickstarts
   - spa
+  - angular
   - angular2
   - login
 github:
