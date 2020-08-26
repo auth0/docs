@@ -2657,8 +2657,8 @@ module.exports = [
     to: '/policies/billing-policy'
   },
   {
-    from: ['/policies/dashboard-authentication'],
-    to: '/policies/dashboard-authentication-policy'
+    from: ['/policies/dashboard-authentication','/policies/restore-deleted-tenant','/policies/unsupported-requests'],
+    to: '/policies'
   },
   {
     from: ['/policies/data-export','/policies/data-transfer'],
@@ -3345,7 +3345,7 @@ module.exports = [
   /* Support */
 
   {
-    from: ['/policies/unsupported-requests','/policies/requests','/premium-support'],
+    from: ['/policies/requests','/premium-support'],
     to: '/support'
   },
   {
@@ -3385,7 +3385,7 @@ module.exports = [
     to: '/support/open-and-manage-support-tickets'
   },
   {
-    from: ['/support/delete-reset-tenant','/tutorials/delete-reset-tenant','/policies/restore-deleted-tenant'],
+    from: ['/support/delete-reset-tenant','/tutorials/delete-reset-tenant'],
     to: '/support/delete-or-reset-tenant'
   },
 
