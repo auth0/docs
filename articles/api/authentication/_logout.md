@@ -49,7 +49,7 @@ Use this endpoint to logout a user. If you want to navigate the user to a specif
 |:-----------------|:------------|
 | `returnTo `      | URL to redirect the user after the logout. |
 | `client_id`      | The `client_id` of your application. |
-| `federated`      | Add this querystring parameter to the logout URL, to log the user out of their identity provider, as well: `https://${account.namespace}/v2/logout?federated`. |
+| `federated`      | Add this query string parameter to the logout URL, to log the user out of their identity provider, as well: `https://${account.namespace}/v2/logout?federated`. |
 
 
 ### Test with Authentication API Debugger
@@ -65,7 +65,7 @@ Use this endpoint to logout a user. If you want to navigate the user to a specif
 
 ### Remarks
 
-- Logging the user out of their identity provider is not common practice, so think about the user experience before you use the `federated` querystring parameter.
+- Logging the user out of their identity provider is not common practice, so think about the user experience before you use the `federated` query string parameter.
 - The sample auth0.js script uses the library version 8. If you are using auth0.js version 7, please see this [reference guide](/libraries/auth0js/v7).
 
 ### More Information
