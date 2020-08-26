@@ -35,12 +35,9 @@ To configure a ${service} SSO integration, you will:
 1. Navigate to [Auth0 Dashboard > SSO Integrations](${manage_url}/#/externalapps), and click **+ Create SSO Integration**.
 ![](/media/articles/sso/integrations/new.png)
 
-<% if (guide === "marketplace") { %>
-1. Click **Continue** to grant the integration access to the listed permissions.
+2. Click **Continue** to grant the integration access to the listed permissions.
 
-<% } %>
-
-1. Select a provider.
+3. Select a provider.
 
 ![](/media/articles/sso/integrations/options.png)
 
@@ -48,12 +45,12 @@ To configure a ${service} SSO integration, you will:
 <% var services = ['Active Directory RMS', 'EchoSign', 'Egencia', 'Egnyte', 'Eloqua', 'Freshdesk', 'G Suite', 'GitHub Enterprise Cloud', 'GitHub Enterprise Server', 'Heroku', 'Hosted Graphite', 'Litmos', 'New Relic', 'Microsoft Dynamics CRM', 'Office 365', 'Salesforce', 'Sentry', 'SharePoint', 'Slack', 'SpringCM', 'Sprout Video', 'Tableau Online', 'Tableau Server', 'Workday', 'Workpath', 'ZenDesk', 'Zoom'];
 if (services.indexOf(service) !== -1) { %>
 
-1. Enter a name for your SSO Integration, and click **Create**.
+4. Enter a name for your SSO Integration, and click **Create**.
 
 ![](/media/articles/sso/integrations/name.png)
 <% } else { %>
 
-1. Enter a name for your SSO Integration, configure the following values, and click **Create**.
+4. Enter a name for your SSO Integration, configure the following values, and click **Create**.
 
 <table class="table">
     <thead>
@@ -433,8 +430,8 @@ In this case, Auth0 will redirect users to the specified connection and will not
 
 ### Enable connections
 
- Choose the connections to use with your SSO integration. Users in enabled connections will be allowed to log in to ${service}. By default, all configured connections are enabled.
+Choose the connections to use with your SSO integration. Users in enabled connections will be allowed to log in to ${service}. By default, all configured connections are enabled.
 
- 1. Switch back to your open Auth0 tab, and click **Connections**.
- 2. Toggle the sliders next to connection names to enable or disable them.
+1. Switch back to your open Auth0 tab, and click **Connections**.
+2. Toggle the sliders next to connection names to enable or disable them.
 
