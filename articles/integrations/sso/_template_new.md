@@ -43,7 +43,7 @@ To configure a ${service} SSO integration, you will:
 
 
 <% var services = ['Active Directory RMS', 'EchoSign', 'Egencia', 'Egnyte', 'Eloqua', 'Freshdesk', 'G Suite', 'GitHub Enterprise Cloud', 'GitHub Enterprise Server', 'Heroku', 'Hosted Graphite', 'Litmos', 'New Relic', 'Microsoft Dynamics CRM', 'Office 365', 'Salesforce', 'Sentry', 'SharePoint', 'Slack', 'SpringCM', 'Sprout Video', 'Tableau Online', 'Tableau Server', 'Workday', 'Workpath', 'ZenDesk', 'Zoom'];
-if (services.indexOf(service) !== -1) { %>
+if (!services.indexOf(service)) { %>
 
 4. Enter a name for your SSO Integration, and click **Create**.
 
@@ -318,13 +318,13 @@ Once you have configured your Auth0 SSO integration, you will see a **Tutorial**
 <% } else { %>
     <% if (service === "Active Directory RMS") { %>
 1. Add Federation Support to your AD RMS Cluster
-screenshot
 
 2. Enter your Auth0 RMS URL: `khoriander2.auth0.com/rms/xwBS484sQcx63zUWcmqeakK30mycS2E0`
 
-Make sure you validate the URL to verify connectivity.
-    <% } %>
-    <% if (service === "Box") { %>
+    Make sure you validate the URL to verify connectivity.
+
+<% } %>
+<% if (service === "Box") { %>
 
 ::: warning
 The following steps only work for Box Enterprise accounts.
@@ -348,9 +348,10 @@ Configuring SAML SSO with Box requires you to call their support team. They will
 http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname
 http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname
 ```
-    <% } %>
 
-    <% if (service === "Cisco WebEx") { %>
+<% } %>
+
+<% if (service === "Cisco WebEx") { %>
 Provide the following SAML protocol configuration parameters:
 * SAML Version:
 `2.0`
@@ -374,9 +375,10 @@ https://khoriander2.auth0.com/samlp/ALsFQaez0nq7nYyumgB0P7uPON4ISIga?connection=
 
 In this case, Auth0 will redirect users to the specified connection and will not display the Login widget. Make sure you send the SAMLRequest using HTTP POST.
 
-    <% } %>
+<% } %>
 
-    <% if (service === "CloudBees") { %>
+<% if (service === "CloudBees") { %>
+
 1. Log in to CloudBees as an administrator.
 
 2. Select Account > SSO Integration.
@@ -398,10 +400,11 @@ In this case, Auth0 will redirect users to the specified connection and will not
 `MIIDBTCCAe2gAwIBAgIJB5261iSST6iWMA0GCSqGSIb3DQEBCwUAMCAxHjAcBgNVBAMTFWtob3JpYW5kZXIyLmF1dGgwLmNvbTAeFw0xOTAxMTcxMjI1NDBaFw0zMjA5MjUxMjI1NDBaMCAxHjAcBgNVBAMTFWtob3JpYW5kZXIyLmF1dGgwLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALXNYeaudfn0nZfdy54SHx8BoltEdMVCqlN5Hrn2GCmmlCnytAEzGFseTkYGa3XV/gkqskBAtRItKCv3JPw1ud8ac9kNksLhxVBCoZxom5neg2jJu5LdEF/1ig0LVugwBvFTppLCfA9ARDClX7ahy7cAS7agdPMNKzVwRVq9Ls1lMCLuwaFGDp/rb9BeGWP/+Nafwc/4eujEZB6BQvQdGY9s2PyF9OhP3o1COj6VTtT1kKvdvPQ05OMlMVF2frCnaMXJ07zoviui+EVs+Xd30Lr0HwZcSgqYdJ59xds8cQgcAuV2E08yzTb+PCAS57wgmb1yfHeBNlxOWDHJa528ptcCAwEAAaNCMEAwDwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQU9hhXEXDy9WKe5dqM0SJfpKiA8fUwDgYDVR0PAQH/BAQDAgKEMA0GCSqGSIb3DQEBCwUAA4IBAQBy2Zpp9e4Owo3l3Sh5apcjow3wIyul2JuTXS1mq+HSKukUn5+s1leNFYHMezijceexE7YN2XBti8eHweMvnyiqKUAWdWu6L95HEC35Tu463ba/sxg40Z7ApdnvoeMxkqb788ZypFCBpCsgPx4HGoOLxbq2yRMKABFisDChoAgBehzMRkXHAzsFReXO2EOf+dW4P0+lyc30XVRZcO7ELScQEsRChkb2Vr8mo0sdWVd9mzf0lQhsASTv0XohIq7XH06euuP7E6/qHiDlsGeVV9DNHnLymIELdZJunXPBvlrOGJx62NG6jWYMV4kOqBtEht87MQNuxdsCUd9tWo/TTSwS`
 
 5. [Verify your domain](https://support.cloudbees.com/hc/en-us/articles/360017607331-How-to-set-up-SSO-with-SAML-based-IdP-to-access-CloudBees-services-).
-screenshot
-    <% } %>
 
-    <% if (service === "Eloqua") { %>
+<% } %>
+
+<% if (service === "Eloqua") { %>
+
 Provide the following SAML protocol configuration parameters:
 * SAML Version:
 `2.0`
@@ -417,6 +420,7 @@ Provide the following SAML protocol configuration parameters:
 `https://khoriander-marketplace.us.auth0.com/samlp/metadata/3DH1RsT6ZA141xRcJMQ0hA7mjoZdWCcC`
 
 Alternatively, to log in with a specific identity provider, you can add a `connection` parameter:
+
 ```text
 https://khoriander2.auth0.com/samlp/3DH1RsT6ZA141xRcJMQ0hA7mjoZdWCcC?connection=email
 https://khoriander2.auth0.com/3DH1RsT6ZA141xRcJMQ0hA7mjoZdWCcC?connection=google-oauth2
@@ -424,7 +428,8 @@ https://khoriander2.auth0.com/3DH1RsT6ZA141xRcJMQ0hA7mjoZdWCcC?connection=Userna
 ```
 
 In this case, Auth0 will redirect users to the specified connection and will not display the Login widget. Make sure you send the SAMLRequest using HTTP POST.
-    <% } %>
+
+<% } %>
 
 <% } %>
 
@@ -434,4 +439,3 @@ Choose the connections to use with your SSO integration. Users in enabled connec
 
 1. Switch back to your open Auth0 tab, and click **Connections**.
 2. Toggle the sliders next to connection names to enable or disable them.
-
