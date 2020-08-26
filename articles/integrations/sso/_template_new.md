@@ -43,7 +43,7 @@ To configure a ${service} SSO integration, you will:
 
 
 <% var services = ['Active Directory RMS', 'EchoSign', 'Egencia', 'Egnyte', 'Eloqua', 'Freshdesk', 'G Suite', 'GitHub Enterprise Cloud', 'GitHub Enterprise Server', 'Heroku', 'Hosted Graphite', 'Litmos', 'New Relic', 'Microsoft Dynamics CRM', 'Office 365', 'Salesforce', 'Sentry', 'SharePoint', 'Slack', 'SpringCM', 'Sprout Video', 'Tableau Online', 'Tableau Server', 'Workday', 'Workpath', 'ZenDesk', 'Zoom'];
-if (!services.indexOf(service)) { %>
+if (services.indexOf(service)) { %>
 
 4. Enter a name for your SSO Integration, and click **Create**.
 
