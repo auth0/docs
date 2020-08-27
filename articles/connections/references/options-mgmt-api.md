@@ -30,3 +30,4 @@ The following elements are available for the `options` attribute. These are opti
 | `ext_assigned_plans` | boolean | Indicates that you want to store a list of the Office 365 assigned plans for the user. Used with the Office 365 enterprise connection, which is deprecated; these connections should be [migrated to Azure AD connections](/integrations/office365-connection-deprecation-guide). |
 | `api_enable_users` | boolean | When enabled, allows users to make calls to the Google Directory API. Used with enterprise connections. |
 | `upstream_params` | object | <%= include('./_includes/_options-upstream-params.md') %> Used with connections that use [Identity Providers](/connections). |
+| `requires_username` | boolean | Indicates whether or not a user must provide a username in addition to their email address. |
