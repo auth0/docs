@@ -14,6 +14,7 @@ contentType: how-to
 useCase:
     - customize-connections
     - add-idp
+public: false
 ---
 <%= include('../../../snippets/social/stripe-connect/0') %> 
 <%= include('../../../snippets/social/stripe-connect/1') %> 

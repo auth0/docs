@@ -14,6 +14,7 @@ contentType: how-to
 useCase:
     - customize-connections
     - add-idp
+public: false
 ---
 <%= include('../../../snippets/social/dribbble/0') %> 
 <%= include('../../../snippets/social/dribbble/1') %> 
