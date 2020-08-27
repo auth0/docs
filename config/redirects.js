@@ -1641,7 +1641,7 @@ module.exports = [
     to: '/flows/client-credentials-flow'
   },
   {
-    from: ['/flows/guides/auth-code/add-login-auth-code','/flows/guides/auth-code/includes/authorize-user-add-login','/flows/guides/auth-code/includes/sample-use-cases-add-login','/flows/guides/auth-code/includes/refresh-tokens','/flows/guides/auth-code/includes/request-tokens','/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow','/oauth-web-protocol', '/protocols/oauth-web-protocol', '/protocols/oauth2/oauth-web-protocol','/application-auth/current/server-side-web','/client-auth/server-side-web','/application-auth/legacy/server-side-web'],
+    from: ['/flows/concepts/token-exchange','/flows/guides/auth-code/add-login-auth-code','/flows/guides/auth-code/includes/authorize-user-add-login','/flows/guides/auth-code/includes/sample-use-cases-add-login','/flows/guides/auth-code/includes/refresh-tokens','/flows/guides/auth-code/includes/request-tokens','/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow','/oauth-web-protocol', '/protocols/oauth-web-protocol', '/protocols/oauth2/oauth-web-protocol','/application-auth/current/server-side-web','/client-auth/server-side-web','/application-auth/legacy/server-side-web'],
     to: '/flows/add-login-auth-code-flow'
   },
   {
@@ -2065,6 +2065,10 @@ module.exports = [
   {
     from: ['/sso/current/integrations/office-365', '/integrations/sso/office-365','/integrations/office-365'],
     to: '/integrations/sso-integrations/office-365'
+  },
+  {
+    from: ['/integrations/office-365-custom-provisioning'],
+    to: '/integrations/sso-integrations/office-365-custom-provisioning'
   },
   {
     from: ['/sso/current/integrations/salesforce', '/integrations/sso/salesforce','/integrations/salesforce'],
@@ -3645,7 +3649,7 @@ module.exports = [
   /* Universal Login */
 
   {
-    from: ['/hosted-pages/hosted-login-auth0js', '/hosted-pages/login/auth0js', '/hosted-pages/login/lock', '/hosted-pages/login/lock-passwordless', '/hosted-pages/hosted-login-auth0js/v7', '/hosted-pages/hosted-login-auth0js/v8', '/hosted-pages/login', '/hosted-pages','/universal-login/customization-new','/login_page'],
+    from: ['/universal-login/identifier-first','/hosted-pages/hosted-login-auth0js', '/hosted-pages/login/auth0js', '/hosted-pages/login/lock', '/hosted-pages/login/lock-passwordless', '/hosted-pages/hosted-login-auth0js/v7', '/hosted-pages/hosted-login-auth0js/v8', '/hosted-pages/login', '/hosted-pages','/universal-login/customization-new','/login_page'],
     to: '/universal-login'
   },
   {
