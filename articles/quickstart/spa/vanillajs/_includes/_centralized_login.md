@@ -307,7 +307,7 @@ The callback is now handled properly and the authentication can be completed suc
 Run the project and click the **Log in** button. You should be taken to the Universal Login Page configured for your application. Go ahead and create a new user or log in using a social connection. After authenticating successfully, you will be redirected to the page you were before. This time, the result will be present in the URL query and the exchange will happen automatically. If everything went fine, you will end up with no query parameters in the URL, the user would now be logged in and the "Log out" button will be enabled.
 
 :::note
-If you see any errors from the Auth0 server, check that you have not forgotten to whitelist the callback URL or the allowed origins as explained initially.
+If you see any errors from the Auth0 server, check that you have not forgotten to register the callback URL or the allowed origins as explained initially.
 :::
 
 ## Log the User Out
@@ -328,7 +328,7 @@ const logout = () => {
 
 > **Checkpoint:** Being authenticated click the **Log out** button. You should be taken to the Universal Login Page configured for your application and then back to the page you were before. Now the authentication cookies were cleared and the user is logged out. The "Log in" button will be enabled back again.
 
-If you see any errors from the Auth0 server, check that you have not forgotten to whitelist the logout URL as explained initially.
+If you see any errors from the Auth0 server, check that you have not forgotten to register the logout URL as explained initially.
 
 ## Read the User Profile
 

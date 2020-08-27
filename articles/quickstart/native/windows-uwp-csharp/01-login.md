@@ -15,6 +15,8 @@ contentType: tutorial
 useCase: quickstart
 ---
 
+<!-- markdownlint-disable MD002 MD041 -->
+
 <%= include('../_includes/_getting_started', { library: 'Windows Universal' }) %>
 
 <%= include('../../../_includes/_callback_url') %>
@@ -43,7 +45,7 @@ This will print out the callback URL to your Debug window in Visual Studio. This
 
 <%= include('../../../_includes/_logout_url') %>
 
-The logout URL you need to whitelist in the **Allowed Logout URLs** field is the same as the callback URL obtained in the previous step. For more information check Web authenticator broker [documentation](https://docs.microsoft.com/en-us/windows/uwp/security/web-authentication-broker#connecting-with-single-sign-on-sso).
+The logout URL you need to add to the **Allowed Logout URLs** field is the same as the callback URL obtained in the previous step. For more information check Web authenticator broker [documentation](https://docs.microsoft.com/en-us/windows/uwp/security/web-authentication-broker#connecting-with-single-sign-on-sso).
 
 ## Integrate Auth0 in your Application
 

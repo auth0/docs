@@ -14,9 +14,11 @@ contentType: tutorial
 useCase: quickstart
 ---
 
+<!-- markdownlint-disable MD002 MD041 -->
+
 ## Before Starting
 
-You'll first need to whitelist the **Callback URL** in the "Allowed Callback URLs" section of the [Application settings](${manage_url}/#/applications) by adding the URL below. Remember to replace `YOUR_APP_PACKAGE_NAME` with your actual application's package name, available in the `app/build.gradle` file as the `applicationId` attribute:
+You'll first need to add your application callback URL to the "Allowed Callback URLs" section of the [Application settings](${manage_url}/#/applications) by adding the URL below. Remember to replace `YOUR_APP_PACKAGE_NAME` with your actual application's package name, available in the `app/build.gradle` file as the `applicationId` attribute:
 
 ```text
 demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback
