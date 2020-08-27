@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD002 MD041 -->
+
 ## Configure your application to use Auth0
 
 [Universal Login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features. This guide will use it to provide a way for your users to log in to your ASP.NET Core application.
@@ -206,7 +208,7 @@ public class AccountController : Controller
         await HttpContext.SignOutAsync("Auth0", new AuthenticationProperties
         {
             // Indicate here where Auth0 should redirect the user after a logout.
-            // Note that the resulting absolute Uri must be whitelisted in the
+            // Note that the resulting absolute Uri must be added to the
             // **Allowed Logout URLs** settings for the app.
             RedirectUri = Url.Action("Index", "Home")
         });

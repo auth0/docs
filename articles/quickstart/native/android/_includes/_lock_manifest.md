@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD002 MD041 -->
+
 ## Configure the Manifest File
 
 Declare the `LockActivity` in your project's `AndroidManifest.xml`:
@@ -37,14 +39,13 @@ Declare the `LockActivity` in your project's `AndroidManifest.xml`:
 
 It's very important to specify the `android:launchMode="singleTask"` in your activity to ensure the authentication state it's not lost along redirects and that the result arrives back in the same activity instance that first requested it.
 
-The next step is to whitelist the **Callback URL** of your app. Edit the "Allowed Callback URLs" section of the [Application Settings](${manage_url}/#/applications) and add a URL that looks like this:
+The next step is to register the **Callback URL** of your app. Edit the "Allowed Callback URLs" section of the [Application Settings](${manage_url}/#/applications) and add a URL that looks like this:
 
 ```text
 demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback
 ```
 
 Replace `YOUR_APP_PACKAGE_NAME` with your actual application's package name, available in the app's `build.gradle` file as the `applicationId` attribute.
-
 
 ::: note
 Do not add `<android:noHistory="true">` to the `LockActivity` as this will alter the correct functionality of **Lock**.
