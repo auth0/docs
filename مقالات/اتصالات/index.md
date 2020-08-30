@@ -49,6 +49,7 @@ If you want to create your own user store, instead of using external identity pr
   <li>
       <i class="icon icon-budicon-715"></i><a href="/connections/passwordless">Passwordless</a>
 
-<dfn data-key="passwordless">Passwordless</dfn> connections allow users to log in without the need to remember a password. Instead, users enter their mobile phone number or email address and receive a one-time code or link, which they can then use to log in.
+<dfn data-key="passwordless"
+>Passwordless</dfn> connections allow users to log in without the need to remember a password. Instead, users enter their mobile phone number or email address and receive a one-time code or link, which they can then use to log in.
   </li>
 </ul>
