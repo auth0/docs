@@ -20,19 +20,23 @@ github:
 
 <%= include('../../../_includes/_logout_url', { returnTo: 'http://localhost:3000' }) %>
 
-## Install and Configure Laravel 6
+## Install and Configure Laravel 7
 
 If you are installing Auth0 to an existing app, you can skip this section. Otherwise, walk through the Laravel guides below to get started with a sample project.
 
-1. **[Installation](https://laravel.com/docs/6.x#installation)**
+1. **[Installation](https://laravel.com/docs/7.x#installation)**
     * Use any of the install methods listed to start a new project
     * PHP can be served any way that works for your development process (we use Homebrew-installed Apache and PHP)
     * Walk through the "Configuration" section completely
-2. **[Configuration](https://laravel.com/docs/6.x#configuration)**
+2. **[Configuration](https://laravel.com/docs/7.x#configuration)**
     * Create a .env file, used later for critical and sensitive Auth0 connection values
     * Make sure `APP_DEBUG` is set to `true`
+3. **[Authentication](https://laravel.com/docs/7.x/authentication)**
+    * Run composer require laravel/ui
+    * php artisan ui vue --auth
+    * Make sure you have runned npm install && npm run dev.
 
-By the end of those 2 sections, you should have a Laravel application up and running locally or on a test server.
+By the end of those 3 sections, you should have a Laravel application up and running locally or on a test server.
 
 ## Integrate Auth0 in your application
 
