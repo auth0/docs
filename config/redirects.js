@@ -2553,7 +2553,7 @@ module.exports = [
     to: '/mfa/step-up-authentication'
   },
   {
-    from: ['/multifactor-authentication/developer/step-up-authentication/step-up-for-apis','/multifactor-authentication/step-up-authentication/step-up-for-apis','/mfa/guides/configure-step-up-apis'],
+    from: ['/multifactor-authentication/api/challenges','/multifactor-authentication/developer/step-up-authentication/step-up-for-apis','/multifactor-authentication/step-up-authentication/step-up-for-apis','/mfa/guides/configure-step-up-apis'],
     to: '/mfa/step-up-authentication/configure-step-up-authentication-for-apis'
   },
   {
@@ -2739,7 +2739,7 @@ module.exports = [
     to: '/private-cloud/private-cloud-onboarding/standard-private-cloud-infrastructure-requirements'
   },
   {
-    from: ['/private-saas-deployment','/private-cloud/managed-private-cloud',], 
+    from: ['/appliance/infrastructure/internet-restricted-deployment','/private-saas-deployment','/private-cloud/managed-private-cloud',], 
     to: '/private-cloud/private-cloud-deployments'
   },
   {
