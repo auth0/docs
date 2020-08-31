@@ -1145,8 +1145,6 @@ articles:
         children:
           - title: Billing
             url: /policies/billing-policy
-          - title: Dashboard Authentication
-            url: /policies/dashboard-authentication-policy
           - title: Data Export and Transfer
             url: /policies/data-export-and-transfer-policy
           - title: Endpoints
