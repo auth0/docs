@@ -23,7 +23,7 @@ Auth0 provides SSO Integrations for the following services:
 - [Datadog](/integrations/sso/datadog)
 - [Dropbox](/integrations/sso/dropbox)
 - [Dynamics CRM](/integrations/sso/dynamics-crm)
-- [Echosign](/integrations/sso/echosign)
+- [EchoSign](/integrations/sso/echosign)
 - [Egencia](/integrations/sso/egencia)
 - [Egnyte](/integrations/sso/egnyte)
 - [Eloqua](/integrations/sso/eloqua)
