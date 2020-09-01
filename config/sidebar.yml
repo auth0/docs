@@ -693,42 +693,42 @@ articles:
       - title: Google Cloud Endpoints
         url: /integrations/google-cloud-endpoints
       - title: Single Sign-On
-        url: /integrations/sso-integrations
+        url: /integrations/sso
         children:
           - title: Active Directory RMS
-            url: /integrations/sso-integrations/ad-rms-sso-integration
+            url: /integrations/sso/ad-rms
           - title: Box
-            url: /integrations/sso-integrations/box
+            url: /integrations/sso/box
           - title: CloudBees
-            url: /integrations/sso-integrations/cloudbees
+            url: /integrations/sso/cloudbees
           - title: Concur
-            url: /integrations/sso-integrations/concur
+            url: /integrations/sso/concur
           - title: Dropbox
-            url: /integrations/sso-integrations/dropbox
+            url: /integrations/sso/dropbox
           - title: Microsoft Dynamics CRM
-            url: /integrations/sso-integrations/dynamics-crm
+            url: /integrations/sso/dynamics-crm
           - title: Adobe Echosign
-            url: /integrations/sso-integrations/echosign
+            url: /integrations/sso/echosign
           - title: Egnyte
-            url: /integrations/sso-integrations/egnyte
+            url: /integrations/sso/egnyte
           - title: New Relic
-            url: /integrations/sso-integrations/new-relic
+            url: /integrations/sso/new-relic
           - title: Office 365
-            url: /integrations/sso-integrations/office-365
+            url: /integrations/sso/office-365
           - title: Salesforce
-            url: /integrations/sso-integrations/salesforce
+            url: /integrations/sso/salesforce
           - title: Sentry
-            url: /integrations/sso-integrations/sentry
+            url: /integrations/sso/sentry
           - title: SharePoint
-            url: /integrations/sso-integrations/sharepoint
+            url: /integrations/sso/sharepoint
           - title: Slack
-            url: /integrations/sso-integrations/slack
+            url: /integrations/sso/slack
           - title: SpringCM
-            url: /integrations/sso-integrations/springcm
+            url: /integrations/sso/springcm
           - title: Zendesk
-            url: /integrations/sso-integrations/zendesk
+            url: /integrations/sso/zendesk
           - title: Zoom
-            url: /integrations/sso-integrations/zoom
+            url: /integrations/sso/zoom
       - title: Marketing
         url: /integrations/marketing
         children:
