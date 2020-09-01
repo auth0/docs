@@ -9,8 +9,10 @@ topics:
 contentType: how-to
 useCase: integrate-saas-sso
 ---
-
-<%= include('./_template', {
-  service: "EchoSign",
-  img: "echosign"
-}) %>
+<%= include('../../../snippets/sso-integrations/echosign/0') %> 
+<%= include('../../../snippets/sso-integrations/echosign/1') %> 
+<%= include('../../../snippets/sso-integrations/echosign/2') %> 
+<%= include('../../../snippets/sso-integrations/echosign/3') %> 
+<%= include('../../../snippets/sso-integrations/echosign/4') %> 
+<%= include('../../../snippets/sso-integrations/echosign/5') %> 
+<%= include('../../../snippets/sso-integrations/echosign/6') %>

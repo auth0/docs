@@ -13,7 +13,7 @@ The steps in this guide are valid for Active Directory Rights Management Service
 Before you begin this tutorial, please:
 
 * Sign up for a ${service} account.
-* [Set up a connection](/connections), which is a source of users. Connections can be databases, social identity providers, or enterprise identity providers, and can be shared among different applications. You may set up more than one connection for use with SSO integrations.
+* [Set up a connection](/identityproviders), which is a source of users. Connections can be databases, social identity providers, or enterprise identity providers, and can be shared among different applications. You may set up more than one connection for use with SSO integrations.
 
 <% if (service === "Zendesk") { %>
 ::: warning
@@ -26,31 +26,161 @@ Zendesk **requires** that all users have an email address. When enabling enterpr
 
 To configure a ${service} SSO integration, you will:
 
-1. [Configure Auth0 SSO integration](#configuree-auth0-sso-integration)
+1. [Create Auth0 SSO integration](#create-auth0-sso-integration)
 2. [Configure integration with ${service}](#configure-integration-with-${service})
-3. [Enable connections](#enable-connections)
+3. [Configure Auth0 SSO integration](#configure-auth0-sso-integration)
+4. [Enable connections](#enable-connections)
 
-### Configure Auth0 SSO integration
+### Create Auth0 SSO integration
 
 1. Navigate to [Auth0 Dashboard > SSO Integrations](${manage_url}/#/externalapps), and click **+ Create SSO Integration**.
-![](/media/articles/sso/integrations/new.png)
+![Create SSO Integration](/media/articles/dashboard/sso-integrations/create.png)
 
-2. Click **Continue** to grant the integration access to the listed permissions.
+2. Select a provider.
 
-3. Select a provider.
+![Select Service](/media/articles/dashboard/sso-integrations/create-select-service.png)
 
-![](/media/articles/sso/integrations/options.png)
+3. Click **Continue** to grant the integration access to the listed permissions.
 
+![Authorize Service](/media/articles/dashboard/sso-integrations/create-authorize-adrms.png)
+
+4. Enter a name for your SSO Integration, and click **Save**.
+
+![Save Integration](/media/articles/dashboard/sso-integrations/create-save-adrms.png)
+
+### Configure integration with ${service}
+
+Once you have configured your Auth0 SSO integration, you will see a **Tutorial** that will guide you through completing the integration with ${service}. Open a new tab to perform the tutorial steps.
+
+#### $(service) SSO Integration Tutorial
+
+<% if (service === "Active Directory RMS") { %>
+1. Add Federation Support to your AD RMS Cluster
+
+2. Enter your Auth0 RMS URL: `khoriander2.auth0.com/rms/xwBS484sQcx63zUWcmqeakK30mycS2E0`
+
+    Make sure you validate the URL to verify connectivity.
+
+<% } %>
+<% if (service === "Box") { %>
+
+::: warning
+The following steps only work for Box Enterprise accounts.
+:::
+
+Configuring SAML SSO with Box requires you to call their support team. They will ask for a few pieces of information:
+
+1. The [signing certificate](https://khoriander2.auth0.com/pem).
+
+2. The **EntityID**: `urn:khoriander2.auth0.com`.
+
+3. The identifier that maps to Box usernames. By default we use the `emailaddress` claim:
+`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+
+4. The **Redirect URL**, which is the login endpoint in Auth0:
+`https://khoriander2.auth0.com/samlp/2H8FjZTXRSkEyPyYaO9kvE5kVQ7ylzBC`
+
+5. OPTIONAL: If you would like your Box user accounts to be created automatically, request that the Box support team enable automatic account provisioning for your account. To do so, you will need to provide the claims that we use for first name and last name. By default, we use `givenname` as the first name and `surname` as the last name.
+
+```text
+http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname
+http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname
+```
+
+<% } %>
+
+<% if (service === "Cisco WebEx") { %>
+Provide the following SAML protocol configuration parameters:
+* SAML Version:
+`2.0`
+* Issuer: 
+`urn:khoriander-marketplace.us.auth0.com`
+* Identity Provider Certificate: 
+`https://khoriander-marketplace.us.auth0.com/pem`
+* Identity Provider SHA1 fingerprint
+`A6:14:84:AC:34:55:FA:14:87:19:15:81:67:77:D2:59:EB:13:4B:FC`
+* Identity Provider Login URL
+`https://khoriander-marketplace.us.auth0.com/samlp/ALsFQaez0nq7nYyumgB0P7uPON4ISIga`
+* Identity Provider Metadata
+`https://khoriander-marketplace.us.auth0.com/samlp/metadata/ALsFQaez0nq7nYyumgB0P7uPON4ISIga`
+
+Alternatively, to log in with a specific identity provider, you can add a `connection` parameter:
+```text
+https://khoriander2.auth0.com/samlp/ALsFQaez0nq7nYyumgB0P7uPON4ISIga?connection=email
+https://khoriander2.auth0.com/samlp/ALsFQaez0nq7nYyumgB0P7uPON4ISIga?connection=google-oauth2
+https://khoriander2.auth0.com/samlp/ALsFQaez0nq7nYyumgB0P7uPON4ISIga?connection=Username-Password-Authentication
+```
+
+In this case, Auth0 will redirect users to the specified connection and will not display the Login widget. Make sure you send the SAMLRequest using HTTP POST.
+
+<% } %>
+
+<% if (service === "CloudBees") { %>
+
+1. Log in to CloudBees as an administrator.
+
+2. Select Account > SSO Integration.
+
+3. Enter the Remote login URL: `https://khoriander2.auth0.com/samlp/JwwWjJqlQ8zEZzMXfuY2n2oAnrVzYORw`.
+
+Alternatively, to log in with a specific identity provider, you can add a `connection` parameter:
+
+```text
+https://khoriander2.auth0.com/samlp/JwwWjJqlQ8zEZzMXfuY2n2oAnrVzYORw?connection=email
+https://khoriander2.auth0.com/samlp/JwwWjJqlQ8zEZzMXfuY2n2oAnrVzYORw?connection=google-oauth2
+https://khoriander2.auth0.com/samlp/JwwWjJqlQ8zEZzMXfuY2n2oAnrVzYORw?connection=Username-Password-Authentication
+```
+
+In this case, Auth0 will redirect users to the specified connection and will not display the Login widget.
+
+4. Provide the Certificate:
+
+`MIIDBTCCAe2gAwIBAgIJB5261iSST6iWMA0GCSqGSIb3DQEBCwUAMCAxHjAcBgNVBAMTFWtob3JpYW5kZXIyLmF1dGgwLmNvbTAeFw0xOTAxMTcxMjI1NDBaFw0zMjA5MjUxMjI1NDBaMCAxHjAcBgNVBAMTFWtob3JpYW5kZXIyLmF1dGgwLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALXNYeaudfn0nZfdy54SHx8BoltEdMVCqlN5Hrn2GCmmlCnytAEzGFseTkYGa3XV/gkqskBAtRItKCv3JPw1ud8ac9kNksLhxVBCoZxom5neg2jJu5LdEF/1ig0LVugwBvFTppLCfA9ARDClX7ahy7cAS7agdPMNKzVwRVq9Ls1lMCLuwaFGDp/rb9BeGWP/+Nafwc/4eujEZB6BQvQdGY9s2PyF9OhP3o1COj6VTtT1kKvdvPQ05OMlMVF2frCnaMXJ07zoviui+EVs+Xd30Lr0HwZcSgqYdJ59xds8cQgcAuV2E08yzTb+PCAS57wgmb1yfHeBNlxOWDHJa528ptcCAwEAAaNCMEAwDwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQU9hhXEXDy9WKe5dqM0SJfpKiA8fUwDgYDVR0PAQH/BAQDAgKEMA0GCSqGSIb3DQEBCwUAA4IBAQBy2Zpp9e4Owo3l3Sh5apcjow3wIyul2JuTXS1mq+HSKukUn5+s1leNFYHMezijceexE7YN2XBti8eHweMvnyiqKUAWdWu6L95HEC35Tu463ba/sxg40Z7ApdnvoeMxkqb788ZypFCBpCsgPx4HGoOLxbq2yRMKABFisDChoAgBehzMRkXHAzsFReXO2EOf+dW4P0+lyc30XVRZcO7ELScQEsRChkb2Vr8mo0sdWVd9mzf0lQhsASTv0XohIq7XH06euuP7E6/qHiDlsGeVV9DNHnLymIELdZJunXPBvlrOGJx62NG6jWYMV4kOqBtEht87MQNuxdsCUd9tWo/TTSwS`
+
+5. [Verify your domain](https://support.cloudbees.com/hc/en-us/articles/360017607331-How-to-set-up-SSO-with-SAML-based-IdP-to-access-CloudBees-services-).
+
+<% } %>
+
+<% if (service === "Eloqua") { %>
+
+Provide the following SAML protocol configuration parameters:
+* SAML Version:
+`2.0`
+* Issuer: 
+`urn:khoriander-marketplace.us.auth0.com`
+* Identity Provider Certificate: 
+`https://khoriander-marketplace.us.auth0.com/pem`
+* Identity Provider SHA1 fingerprint
+`A6:14:84:AC:34:55:FA:14:87:19:15:81:67:77:D2:59:EB:13:4B:FC`
+* Identity Provider Login URL
+`https://khoriander-marketplace.us.auth0.com/samlp/3DH1RsT6ZA141xRcJMQ0hA7mjoZdWCcC`
+* Identity Provider Metadata
+`https://khoriander-marketplace.us.auth0.com/samlp/metadata/3DH1RsT6ZA141xRcJMQ0hA7mjoZdWCcC`
+
+Alternatively, to log in with a specific identity provider, you can add a `connection` parameter:
+
+```text
+https://khoriander2.auth0.com/samlp/3DH1RsT6ZA141xRcJMQ0hA7mjoZdWCcC?connection=email
+https://khoriander2.auth0.com/3DH1RsT6ZA141xRcJMQ0hA7mjoZdWCcC?connection=google-oauth2
+https://khoriander2.auth0.com/3DH1RsT6ZA141xRcJMQ0hA7mjoZdWCcC?connection=Username-Password-Authentication
+```
+
+In this case, Auth0 will redirect users to the specified connection and will not display the Login widget. Make sure you send the SAMLRequest using HTTP POST.
+<% } %>
+
+<% if (guide !== "marketplace") { %>
+![](/media/articles/sso/integrations/${img}.png)
+<% } %>
 
 <% var services = ['Active Directory RMS', 'EchoSign', 'Egencia', 'Egnyte', 'Eloqua', 'Freshdesk', 'G Suite', 'GitHub Enterprise Cloud', 'GitHub Enterprise Server', 'Heroku', 'Hosted Graphite', 'Litmos', 'New Relic', 'Microsoft Dynamics CRM', 'Office 365', 'Salesforce', 'Sentry', 'SharePoint', 'Slack', 'SpringCM', 'Sprout Video', 'Tableau Online', 'Tableau Server', 'Workday', 'Workpath', 'ZenDesk', 'Zoom'];
-if (services.indexOf(service)) { %>
+if (!services.indexOf(service)) { %>
 
-4. Enter a name for your SSO Integration, and click **Create**.
+### Configure Auth0 SSO Integration
 
-![](/media/articles/sso/integrations/name.png)
-<% } else { %>
+1. Switch back to the tab that contains your open Auth0 Dashboard, and select the **Settings** tab.
 
-4. Enter a name for your SSO Integration, configure the following values, and click **Create**.
+
+2. Configure the following values, and click **Save**.
 
 <table class="table">
     <thead>
@@ -305,131 +435,7 @@ if (services.indexOf(service)) { %>
     </tbody>
 </table>
 
-![](/media/articles/sso/integrations/name.png)
-
-<% } %>
-
-### Configure integration with ${service}
-
-Once you have configured your Auth0 SSO integration, you will see a **Tutorial** that will guide you through completing the integration with ${service}. Open a new tab to perform the tutorial steps.
-
-<% if (guide !== "marketplace") { %>
-![](/media/articles/sso/integrations/${img}.png)
-<% } else { %>
-    <% if (service === "Active Directory RMS") { %>
-1. Add Federation Support to your AD RMS Cluster
-
-2. Enter your Auth0 RMS URL: `khoriander2.auth0.com/rms/xwBS484sQcx63zUWcmqeakK30mycS2E0`
-
-    Make sure you validate the URL to verify connectivity.
-
-<% } %>
-<% if (service === "Box") { %>
-
-::: warning
-The following steps only work for Box Enterprise accounts.
-:::
-
-Configuring SAML SSO with Box requires you to call their support team. They will ask for a few pieces of information:
-
-1. The [signing certificate](https://khoriander2.auth0.com/pem).
-
-2. The **EntityID**: `urn:khoriander2.auth0.com`.
-
-3. The identifier that maps to Box usernames. By default we use the `emailaddress` claim:
-`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
-
-4. The **Redirect URL**, which is the login endpoint in Auth0:
-`https://khoriander2.auth0.com/samlp/2H8FjZTXRSkEyPyYaO9kvE5kVQ7ylzBC`
-
-5. OPTIONAL: If you would like your Box user accounts to be created automatically, request that the Box support team enable automatic account provisioning for your account. To do so, you will need to provide the claims that we use for first name and last name. By default, we use `givenname` as the first name and `surname` as the last name.
-
-```text
-http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname
-http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname
-```
-
-<% } %>
-
-<% if (service === "Cisco WebEx") { %>
-Provide the following SAML protocol configuration parameters:
-* SAML Version:
-`2.0`
-* Issuer: 
-`urn:khoriander-marketplace.us.auth0.com`
-* Identity Provider Certificate: 
-`https://khoriander-marketplace.us.auth0.com/pem`
-* Identity Provider SHA1 fingerprint
-`A6:14:84:AC:34:55:FA:14:87:19:15:81:67:77:D2:59:EB:13:4B:FC`
-* Identity Provider Login URL
-`https://khoriander-marketplace.us.auth0.com/samlp/ALsFQaez0nq7nYyumgB0P7uPON4ISIga`
-* Identity Provider Metadata
-`https://khoriander-marketplace.us.auth0.com/samlp/metadata/ALsFQaez0nq7nYyumgB0P7uPON4ISIga`
-
-Alternatively, to log in with a specific identity provider, you can add a `connection` parameter:
-```text
-https://khoriander2.auth0.com/samlp/ALsFQaez0nq7nYyumgB0P7uPON4ISIga?connection=email
-https://khoriander2.auth0.com/samlp/ALsFQaez0nq7nYyumgB0P7uPON4ISIga?connection=google-oauth2
-https://khoriander2.auth0.com/samlp/ALsFQaez0nq7nYyumgB0P7uPON4ISIga?connection=Username-Password-Authentication
-```
-
-In this case, Auth0 will redirect users to the specified connection and will not display the Login widget. Make sure you send the SAMLRequest using HTTP POST.
-
-<% } %>
-
-<% if (service === "CloudBees") { %>
-
-1. Log in to CloudBees as an administrator.
-
-2. Select Account > SSO Integration.
-
-3. Enter the Remote login URL: `https://khoriander2.auth0.com/samlp/JwwWjJqlQ8zEZzMXfuY2n2oAnrVzYORw`.
-
-Alternatively, to log in with a specific identity provider, you can add a `connection` parameter:
-
-```text
-https://khoriander2.auth0.com/samlp/JwwWjJqlQ8zEZzMXfuY2n2oAnrVzYORw?connection=email
-https://khoriander2.auth0.com/samlp/JwwWjJqlQ8zEZzMXfuY2n2oAnrVzYORw?connection=google-oauth2
-https://khoriander2.auth0.com/samlp/JwwWjJqlQ8zEZzMXfuY2n2oAnrVzYORw?connection=Username-Password-Authentication
-```
-
-In this case, Auth0 will redirect users to the specified connection and will not display the Login widget.
-
-4. Provide the Certificate:
-
-`MIIDBTCCAe2gAwIBAgIJB5261iSST6iWMA0GCSqGSIb3DQEBCwUAMCAxHjAcBgNVBAMTFWtob3JpYW5kZXIyLmF1dGgwLmNvbTAeFw0xOTAxMTcxMjI1NDBaFw0zMjA5MjUxMjI1NDBaMCAxHjAcBgNVBAMTFWtob3JpYW5kZXIyLmF1dGgwLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALXNYeaudfn0nZfdy54SHx8BoltEdMVCqlN5Hrn2GCmmlCnytAEzGFseTkYGa3XV/gkqskBAtRItKCv3JPw1ud8ac9kNksLhxVBCoZxom5neg2jJu5LdEF/1ig0LVugwBvFTppLCfA9ARDClX7ahy7cAS7agdPMNKzVwRVq9Ls1lMCLuwaFGDp/rb9BeGWP/+Nafwc/4eujEZB6BQvQdGY9s2PyF9OhP3o1COj6VTtT1kKvdvPQ05OMlMVF2frCnaMXJ07zoviui+EVs+Xd30Lr0HwZcSgqYdJ59xds8cQgcAuV2E08yzTb+PCAS57wgmb1yfHeBNlxOWDHJa528ptcCAwEAAaNCMEAwDwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQU9hhXEXDy9WKe5dqM0SJfpKiA8fUwDgYDVR0PAQH/BAQDAgKEMA0GCSqGSIb3DQEBCwUAA4IBAQBy2Zpp9e4Owo3l3Sh5apcjow3wIyul2JuTXS1mq+HSKukUn5+s1leNFYHMezijceexE7YN2XBti8eHweMvnyiqKUAWdWu6L95HEC35Tu463ba/sxg40Z7ApdnvoeMxkqb788ZypFCBpCsgPx4HGoOLxbq2yRMKABFisDChoAgBehzMRkXHAzsFReXO2EOf+dW4P0+lyc30XVRZcO7ELScQEsRChkb2Vr8mo0sdWVd9mzf0lQhsASTv0XohIq7XH06euuP7E6/qHiDlsGeVV9DNHnLymIELdZJunXPBvlrOGJx62NG6jWYMV4kOqBtEht87MQNuxdsCUd9tWo/TTSwS`
-
-5. [Verify your domain](https://support.cloudbees.com/hc/en-us/articles/360017607331-How-to-set-up-SSO-with-SAML-based-IdP-to-access-CloudBees-services-).
-
-<% } %>
-
-<% if (service === "Eloqua") { %>
-
-Provide the following SAML protocol configuration parameters:
-* SAML Version:
-`2.0`
-* Issuer: 
-`urn:khoriander-marketplace.us.auth0.com`
-* Identity Provider Certificate: 
-`https://khoriander-marketplace.us.auth0.com/pem`
-* Identity Provider SHA1 fingerprint
-`A6:14:84:AC:34:55:FA:14:87:19:15:81:67:77:D2:59:EB:13:4B:FC`
-* Identity Provider Login URL
-`https://khoriander-marketplace.us.auth0.com/samlp/3DH1RsT6ZA141xRcJMQ0hA7mjoZdWCcC`
-* Identity Provider Metadata
-`https://khoriander-marketplace.us.auth0.com/samlp/metadata/3DH1RsT6ZA141xRcJMQ0hA7mjoZdWCcC`
-
-Alternatively, to log in with a specific identity provider, you can add a `connection` parameter:
-
-```text
-https://khoriander2.auth0.com/samlp/3DH1RsT6ZA141xRcJMQ0hA7mjoZdWCcC?connection=email
-https://khoriander2.auth0.com/3DH1RsT6ZA141xRcJMQ0hA7mjoZdWCcC?connection=google-oauth2
-https://khoriander2.auth0.com/3DH1RsT6ZA141xRcJMQ0hA7mjoZdWCcC?connection=Username-Password-Authentication
-```
-
-In this case, Auth0 will redirect users to the specified connection and will not display the Login widget. Make sure you send the SAMLRequest using HTTP POST.
-
-<% } %>
+![Configure SSO Integration](/media/articles/dashboard/sso-integrations/configure-settings-adrms.png)
 
 <% } %>
 
@@ -438,4 +444,9 @@ In this case, Auth0 will redirect users to the specified connection and will not
 Choose the connections to use with your SSO integration. Users in enabled connections will be allowed to log in to ${service}. By default, all configured connections are enabled.
 
 1. Switch back to your open Auth0 tab, and click **Connections**.
+
+![Select Connections](/media/articles/dashboard/sso-integrations/configure-settings-adrms.png)
+
 2. Toggle the sliders next to connection names to enable or disable them.
+
+![Enable/Disable Connections](/media/articles/dashboard/sso-integrations/configure-connections-adrms.png)

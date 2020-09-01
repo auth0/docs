@@ -9,8 +9,10 @@ topics:
 contentType: how-to
 useCase: integrate-saas-sso
 ---
-
-<%= include('./_template', {
-  service: "Box",
-  img: "box"
-}) %>
+<%= include('../../../snippets/sso-integrations/box/0') %> 
+<%= include('../../../snippets/sso-integrations/box/1') %> 
+<%= include('../../../snippets/sso-integrations/box/2') %> 
+<%= include('../../../snippets/sso-integrations/box/3') %> 
+<%= include('../../../snippets/sso-integrations/box/4') %> 
+<%= include('../../../snippets/sso-integrations/box/5') %> 
+<%= include('../../../snippets/sso-integrations/box/6') %>

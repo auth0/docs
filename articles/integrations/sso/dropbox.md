@@ -9,8 +9,10 @@ topics:
 contentType: how-to
 useCase: integrate-saas-sso
 ---
-
-<%= include('./_template', {
-  service: "Dropbox",
-  img: "dropbox"
-}) %>
+<%= include('../../../snippets/sso-integrations/dropbox/0') %> 
+<%= include('../../../snippets/sso-integrations/dropbox/1') %> 
+<%= include('../../../snippets/sso-integrations/dropbox/2') %> 
+<%= include('../../../snippets/sso-integrations/dropbox/3') %> 
+<%= include('../../../snippets/sso-integrations/dropbox/4') %> 
+<%= include('../../../snippets/sso-integrations/dropbox/5') %> 
+<%= include('../../../snippets/sso-integrations/dropbox/6') %>

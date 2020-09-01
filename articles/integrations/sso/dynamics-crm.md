@@ -10,8 +10,10 @@ topics:
 contentType: how-to
 useCase: integrate-saas-sso
 ---
-
-<%= include('./_template', {
-  service: "Microsoft Dynamics CRM",
-  img: "dynamics-crm"
-}) %>
+<%= include('../../../snippets/sso-integrations/dynamics-crm/0') %> 
+<%= include('../../../snippets/sso-integrations/dynamics-crm/1') %> 
+<%= include('../../../snippets/sso-integrations/dynamics-crm/2') %> 
+<%= include('../../../snippets/sso-integrations/dynamics-crm/3') %> 
+<%= include('../../../snippets/sso-integrations/dynamics-crm/4') %> 
+<%= include('../../../snippets/sso-integrations/dynamics-crm/5') %> 
+<%= include('../../../snippets/sso-integrations/dynamics-crm/6') %>

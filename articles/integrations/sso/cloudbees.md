@@ -9,8 +9,10 @@ topics:
 contentType: how-to
 useCase: integrate-saas-sso
 ---
-
-<%= include('./_template', {
-  service: "CloudBees",
-  img: "cloudbees"
-}) %>
+<%= include('../../../snippets/sso-integrations/cloudbees/0') %> 
+<%= include('../../../snippets/sso-integrations/cloudbees/1') %> 
+<%= include('../../../snippets/sso-integrations/cloudbees/2') %> 
+<%= include('../../../snippets/sso-integrations/cloudbees/3') %> 
+<%= include('../../../snippets/sso-integrations/cloudbees/4') %> 
+<%= include('../../../snippets/sso-integrations/cloudbees/5') %> 
+<%= include('../../../snippets/sso-integrations/cloudbees/6') %>
