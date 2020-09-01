@@ -5,6 +5,7 @@ toc: true
 public: true
 topics:
   - sso
+  - adobe
   - echosign
 contentType: how-to
 useCase: integrate-saas-sso
