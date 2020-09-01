@@ -9,8 +9,10 @@ topics:
 contentType: how-to
 useCase: integrate-saas-sso
 ---
-
-<%= include('./_template', {
-  service: "Office 365",
-  img: "office-365"
-}) %>
+<%= include('../../../snippets/sso-integrations/office-365/0') %> 
+<%= include('../../../snippets/sso-integrations/office-365/1') %> 
+<%= include('../../../snippets/sso-integrations/office-365/2') %> 
+<%= include('../../../snippets/sso-integrations/office-365/3') %> 
+<%= include('../../../snippets/sso-integrations/office-365/4') %> 
+<%= include('../../../snippets/sso-integrations/office-365/5') %> 
+<%= include('../../../snippets/sso-integrations/office-365/6') %>

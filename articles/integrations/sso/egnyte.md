@@ -9,8 +9,11 @@ topics:
 contentType: how-to
 useCase: integrate-saas-sso
 ---
-
-<%= include('./_template', {
-  service: "Egnyte",
-  img: "egnyte"
-}) %>
+<%= include('../../../snippets/sso-integrations/egnyte/0') %> 
+<%= include('../../../snippets/sso-integrations/egnyte/1') %> 
+<%= include('../../../snippets/sso-integrations/egnyte/2') %> 
+<%= include('../../../snippets/sso-integrations/egnyte/3') %> 
+<%= include('../../../snippets/sso-integrations/egnyte/4') %> 
+<%= include('../../../snippets/sso-integrations/egnyte/5') %> 
+<%= include('../../../snippets/sso-integrations/egnyte/6') %>
+<%= include('../../../snippets/sso-integrations/egnyte/7') %>

@@ -9,8 +9,11 @@ topics:
 contentType: how-to
 useCase: integrate-saas-sso
 ---
-
-<%= include('./_template', {
-  service: "SpringCM",
-  img: "springcm"
-}) %>
+<%= include('../../../snippets/sso-integrations/springcm/0') %> 
+<%= include('../../../snippets/sso-integrations/springcm/1') %> 
+<%= include('../../../snippets/sso-integrations/springcm/2') %> 
+<%= include('../../../snippets/sso-integrations/springcm/3') %> 
+<%= include('../../../snippets/sso-integrations/springcm/4') %> 
+<%= include('../../../snippets/sso-integrations/springcm/5') %> 
+<%= include('../../../snippets/sso-integrations/springcm/6') %>
+<%= include('../../../snippets/sso-integrations/springcm/7') %>

@@ -9,8 +9,11 @@ topics:
 contentType: how-to
 useCase: integrate-saas-sso
 ---
+<%= include('../../../snippets/sso-integrations/new-relic/0') %> 
+<%= include('../../../snippets/sso-integrations/new-relic/1') %> 
+<%= include('../../../snippets/sso-integrations/new-relic/2') %> 
+<%= include('../../../snippets/sso-integrations/new-relic/3') %> 
+<%= include('../../../snippets/sso-integrations/new-relic/4') %> 
+<%= include('../../../snippets/sso-integrations/new-relic/5') %> 
+<%= include('../../../snippets/sso-integrations/new-relic/6') %>
 
-<%= include('./_template', {
-  service: "New Relic",
-  img: "new-relic"
-}) %>
