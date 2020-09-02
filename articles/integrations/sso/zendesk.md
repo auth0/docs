@@ -9,8 +9,11 @@ topics:
 contentType: how-to
 useCase: integrate-saas-sso
 ---
-
-<%= include('./_template', {
-  service: "Zendesk",
-  img: "zendesk"
-}) %>
+<%= include('../../../snippets/sso-integrations/zendesk/0') %> 
+<%= include('../../../snippets/sso-integrations/zendesk/1') %> 
+<%= include('../../../snippets/sso-integrations/zendesk/2') %> 
+<%= include('../../../snippets/sso-integrations/zendesk/3') %> 
+<%= include('../../../snippets/sso-integrations/zendesk/4') %> 
+<%= include('../../../snippets/sso-integrations/zendesk/5') %> 
+<%= include('../../../snippets/sso-integrations/zendesk/6') %>
+<%= include('../../../snippets/sso-integrations/zendesk/7') %>

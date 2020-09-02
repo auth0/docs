@@ -9,8 +9,11 @@ topics:
 contentType: how-to
 useCase: integrate-saas-sso
 ---
-
-<%= include('./_template', {
-  service: "SharePoint",
-  img: "sharepoint"
-}) %>
+<%= include('../../../snippets/sso-integrations/sharepoint/0') %> 
+<%= include('../../../snippets/sso-integrations/sharepoint/1') %> 
+<%= include('../../../snippets/sso-integrations/sharepoint/2') %> 
+<%= include('../../../snippets/sso-integrations/sharepoint/3') %> 
+<%= include('../../../snippets/sso-integrations/sharepoint/4') %> 
+<%= include('../../../snippets/sso-integrations/sharepoint/5') %> 
+<%= include('../../../snippets/sso-integrations/sharepoint/6') %>
+<%= include('../../../snippets/sso-integrations/sharepoint/7') %>

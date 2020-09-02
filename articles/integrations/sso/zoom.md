@@ -9,8 +9,11 @@ topics:
 contentType: how-to
 useCase: integrate-saas-sso
 ---
-
-<%= include('./_template', {
-  service: "Zoom",
-  img: "zoom"
-}) %>
+<%= include('../../../snippets/sso-integrations/zoom/0') %> 
+<%= include('../../../snippets/sso-integrations/zoom/1') %> 
+<%= include('../../../snippets/sso-integrations/zoom/2') %> 
+<%= include('../../../snippets/sso-integrations/zoom/3') %> 
+<%= include('../../../snippets/sso-integrations/zoom/4') %> 
+<%= include('../../../snippets/sso-integrations/zoom/5') %> 
+<%= include('../../../snippets/sso-integrations/zoom/6') %>
+<%= include('../../../snippets/sso-integrations/zoom/7') %>
