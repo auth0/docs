@@ -107,17 +107,16 @@ import { AuthService } from '@auth0/auth0-angular';
 @Component({
   selector: 'app-auth-button',
   template: `
-    <button 
-      *ngIf="(auth.isAuthenticated$ | async) === false"
-      (click)="auth.loginWithRedirect()">
-        Log in
-    </button>
-
-    <button 
-      *ngIf="auth.isAuthenticated$ | async"
-      (click)="auth.logout({ returnTo: 'http://localhost:4200' })">
+    <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
+      <button (click)="auth.logout({ returnTo: 'http://localhost:4200' })">
         Log out
-    </button>`
+      </button>
+    </ng-container>
+
+    <ng-template #loggedOut>
+      <button (click)="auth.loginWithRedirect()">Log in</button>
+    </ng-template>
+  `
 })
 export class AuthButtonComponent {
   constructor(public auth: AuthService) {}
