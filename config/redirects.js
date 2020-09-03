@@ -852,8 +852,8 @@ module.exports = [
     to: '/anomaly-detection/customize-blocked-account-emails'
   },
   {
-    from: ['/anomaly-detection/guides/prevent-credential-stuffing-attacks','/anomaly-detection/bot-and-credential-stuffing-protection'],
-    to: '/anomaly-detection/bot-protection'
+    from: ['/anomaly-detection/bot-protection','/anomaly-detection/guides/prevent-credential-stuffing-attacks','/anomaly-detection/bot-and-credential-stuffing-protection'],
+    to: '/anomaly-detection/bot-detection'
   },
   {
     from: ['/anomaly-detection/references/anomaly-detection-restrictions-limitations', '/anomaly-detection/guides/set-anomaly-detection-preferences','/anomaly-detection/guides/enable-disable-brute-force-protection'],
