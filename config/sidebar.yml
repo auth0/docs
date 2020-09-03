@@ -396,8 +396,8 @@ articles:
       - title: Anomaly Detection
         url: /anomaly-detection
         children:
-          - title: Bot Protection
-            url: /anomaly-detection/bot-protection
+          - title: Bot Detection
+            url: /anomaly-detection/bot-detection
           - title: Breached Passwords
             url: /anomaly-detection/breached-password-security
           - title: Brute Force Attacks
