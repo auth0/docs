@@ -523,6 +523,8 @@ articles:
   - title: Brand & Customize
     url: /brand-and-customize
     children:
+      - title: Universal Login Pasges
+        url: /universal-login/new-experience/universal-login-page-templates
       - title: Custom Domains
         url: /custom-domains
         children:
