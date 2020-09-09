@@ -14,13 +14,7 @@ useCase: quickstart
 ---
 <!-- markdownlint-disable MD002 MD034 MD041 -->
 
-When you use Auth0, you delegate the authentication process to a centralized service. Auth0 provides you with functionality to log in and log out users from your Angular application. However, your application may need to access resources from a secured API.
-
-You can also [protect an API with Auth0](https://auth0.com/docs/microsites/protect-api/protect-api). We offer multiple [Auth0 API quickstarts](https://auth0.com/docs/quickstart/backend) to help you integrate Auth0 with your backend platform.
-
-When you use Auth0 to protect your API, you delegate the authentication process to a centralized service that ensures only approved applications can access private resources. Your Angular application authenticates the user and receives an [access token from Auth0](https://auth0.com/docs/tokens/concepts/access-tokens). The application can then pass that access token to your API as a credential. In turn, your API can use [Auth0 libraries](https://auth0.com/docs/libraries) to verify the access tokens it receives from the calling application and issue a response with the desired data.
-
-The focus of this guide is to show you how to configure the SDK to call APIs that require an access token. Instead of creating a demo API to test the client-server connection, you'll use the [Auth0 Management API](https://auth0.com/docs/api/management/v2), which comes bundled with your Auth0 tenant. However, you can adapt this guide to work with any API that you are securing with Auth0.
+<%= include('../_includes/_calling_api_preamble_api2") %>
 
 :::note
 If you followed the [previous section where you added user log in to Angular](/quickstart/spa/angular-next#add-login-to-your-application), make sure that you log out of your application as you'll need a new access token to call APIs.
