@@ -1,6 +1,6 @@
 ---
 title: Call an API
-description: This tutorial demonstrates how to make API calls for protected resources on your server.
+description: This tutorial demonstrates how to make API calls to the Auth0 Management API.
 budicon: 448
 topics:
   - quickstarts
