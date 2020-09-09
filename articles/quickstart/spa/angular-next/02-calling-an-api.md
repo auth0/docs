@@ -28,7 +28,7 @@ If you followed the [previous section where you added user log in to Angular](/q
 
 ## Configure Your App to Make Authorized API Calls
 
-To facilitate calling APIs, the Angular SDK exports an [`HttpInterceptor`](https://angular.io/api/common/http/HttpInterceptor) that automatically adds an `Authorization` header with the access token to outgoing requests. However, only requests that are specified through configuration will have this header attached, preventing unintended leakage of access tokens to unexpected URLs.
+To facilitate calling APIs, the Angular SDK exports an [`HttpInterceptor`](https://angular.io/api/common/http/HttpInterceptor) that automatically adds an `Authorization` header with the appropriate access token to outgoing requests. However, only requests that are specified through configuration will have this header attached, preventing unintended leakage of access tokens to unexpected URLs.
 
 To make use of the HTTP interceptor, follow these steps:
 
@@ -43,9 +43,9 @@ The following section demonstrates how to configure the application module to ca
 
 ### Configure the Auth Module
 
-The `AuthModule` setup is similar to the one discussed in the [Configure the `Auth0Provider` component](/quickstart/spa/angular-next##register-and-configure-the-authentication-module) section: you import the `AuthModule` type from the SDK into your Angular application module and call the static `forRoot` method, passing the `domain` and `clientId` properties. The values of these two props come from the ["Settings" values](https://auth0.com/docs/quickstart/spa/angular-next#configure-auth0) of the single-page application you've registered with Auth0.
+The `AuthModule` setup is similar to the one discussed in the [Configure the `Auth0Provider` component](/quickstart/spa/angular-next/01-login#register-and-configure-the-authentication-module) section: you import the `AuthModule` type from the SDK into your Angular application module and call the static `forRoot` method, passing the `domain` and `clientId` properties. These values come from the ["Settings" values](https://auth0.com/docs/quickstart/spa/angular-next#configure-auth0) of the single-page application you've registered with Auth0.
 
-However, your Angular application needs to pass an access token when it calls a target API to access private resources. You can [request an access token](https://auth0.com/docs/tokens/guides/get-access-tokens) in a format that the API can verify by passing the `audience` and `scope` props to `AuthModule.forRoot`.
+However, your Angular application needs to pass an access token when it calls a target API to access private resources. You can [request an access token](https://auth0.com/docs/tokens/guides/get-access-tokens) at user authentication time in a format that the API can verify, by passing the `audience` and `scope` properties to `AuthModule.forRoot`.
 
 In addition, the configuration should specify which requests should have an `Authorization` header added to them with the access token.
 
@@ -122,7 +122,7 @@ In the case of the Auth0 Management API, the `read:current_user` and `update:cur
 
 ## Make an API Call
 
-With your app module configured with the HTTP interceptor from the Angular SDK, calls you make to the Auth0 Management API will have a valid access token specified in the `Authorization` header. Let's use this as an example for showing user metadata.
+With your app module configured with the HTTP interceptor from the Angular SDK, calls you make to the Auth0 Management API will have the appropriate access token specified in the `Authorization` header. Let's use this as an example for showing user metadata.
 
 Consider the following component that displays user profile information:
 
@@ -163,7 +163,7 @@ ngOnInit(): void {
     .pipe(
       concatMap((user) =>
         this.http.get(
-          `https://angular-workshop.us.auth0.com/api/v2/users/<%= "${user.sub}" %>`
+          encodeURI(`https://${account.namespace}/api/v2/users/<%= "${user.sub}" %>`)
         )
       ),
       pluck('user_metadata'),
