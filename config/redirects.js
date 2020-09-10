@@ -1000,8 +1000,8 @@ module.exports = [
     to: '/authorization/apis'
   },
   {
-    from: ['/api-auth/blacklists-vs-grants','/blacklists-vs-application-grants'],
-    to: '/authorization/revoke-access-to-apis-using-blacklists-or-application-grants'
+    from: ['/authorization/revoke-access-to-apis-using-blacklists-or-application-grants','/api-auth/blacklists-vs-grants','/blacklists-vs-application-grants'],
+    to: '/authorization/revoke-api-access'
   },
   {
     from: ['/api/management/guides/roles/view-role-users','/dashboard/guides/roles/view-role-users'],
@@ -3197,12 +3197,12 @@ module.exports = [
   /* Security */
 
   {
-    from: ['/security/blacklisting-attributes','/tutorials/blacklisting-attributes','/blacklist-attributes'],
-    to: '/security/blacklist-user-attributes'
+    from: ['/security/blacklist-user-attributes','/security/blacklisting-attributes','/tutorials/blacklisting-attributes','/blacklist-attributes'],
+    to: '/security/denylist-user-attributes'
   },
   {
-    from: ['/guides/ip-whitelist'],
-    to: '/security/whitelist-ip-addresses'
+    from: ['/security/whitelist-ip-addresses','/guides/ip-whitelist'],
+    to: '/security/allowlist-ip-addresses'
   },
   {
     from: ['/security/common-threats'],

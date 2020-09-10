@@ -43,7 +43,7 @@ You need to provision those users at the IdP level. Each of the organizations wi
 * **Your Auth0 Tenant is the IdP**: A Database Connection in your main tenant dedicated to this organization.
 * **Organizations bring their own IdP**: You set up an Enterprise Connection for them.
 * **Organizations with more than one IdP**: This situation is a little more tricky becasue you have multiple options for approaching this situation. In descending order of complexity, these include:
-    * You convince them to create (or find that they already have) one master IdP that can route to their individual IdPs.
+    * You convince them to create (or find that they already have) one main IdP that can route to their individual IdPs.
     * You create separate organizations (e.g. customerorg-department1 and customerorg-department2) in your applications.
     * You set up a new Auth0 tenant just for them and add as many IdPs as they need (which may include a database in Auth0) to that tenant, along with their own custom domain and branding.
     * You make your existing tenant and login page more complex to handle [Home Realm Discovery](/architecture-scenarios/implementation/b2b/b2b-authentication#home-real-discovery) just for organizations that have more than one IdP.
