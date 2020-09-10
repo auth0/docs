@@ -1173,17 +1173,13 @@ articles:
   - title: Professional Services
     url: /professional-services
     children:
-      - title: Architectural Design
-        url: /professional-services/architectural-design-services
-      - title: Solution Design
-        url: /professional-services/solution-design-services
-      - title: Custom Implementation
-        url: /professional-services/custom-implementation-services
-      - title: Performance and Scalability
-        url: /professional-services/performance-and-scalability-services
-      - title: Advisory Sessions
-        url: /professional-services/advisory-sessions
-      - title: Services Packages
+      - title: Design and Discover
+        url: /professional-services/design-discover
+      - title: Implement
+        url: /professional-services/implement
+      - title: Maintain and Improve
+        url: /professional-services/maintain-improve
+      - title: Packages
         url: /professional-services/packages
   - title: Auth0 Community
     external: true
