@@ -1165,6 +1165,9 @@ articles:
               - title: Authentication API Endpoint Rate Limits
                 url: /policies/rate-limit-policy/management-api-endpoint-rate-limits
                 hidden: true
+              - title: User/Password Authentication Rate Limits
+                url: /policies/rate-limit-policy/database-connections-rate-limits
+                hidden: true 
           - title: Entity Limits
             url: /policies/entity-limit-policy
   - title: Professional Services

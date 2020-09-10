@@ -3212,6 +3212,10 @@ module.exports = [
     from: ['/policies/endpoints'],
     to: '/security/public-cloud-service-endpoints'
   },
+  {
+    from: ['/connections/database/rate-limits'],
+    to: '/policies/rate-limit-policy/database-connections-rate-limits'
+  },
 
   /* Security Bulletins */
 

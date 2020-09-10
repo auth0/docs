@@ -44,7 +44,7 @@ For scripts and rules that call Auth0 APIs, you should always handle rate limiti
 
 ## Database login limits
 
-For database connections, Auth0 limits certain types of repeat login attempts depending on the user account and IP address. For more information, see [Rate Limits on User/Password Authentication](/connections/database/rate-limits).
+For database connections, Auth0 limits certain types of repeat login attempts depending on the user account and IP address. For more information, see [Rate Limits on User/Password Authentication](/policies/rate-limit-policy/database-connections-rate-limits).
 
 ## SMS/Voice message limits for multi-factor authentication
 
