@@ -3214,7 +3214,7 @@ module.exports = [
   },
   {
     from: ['/connections/database/rate-limits'],
-    to: '/policies/database-connections-rate-limits'
+    to: '/policies/rate-limit-policy/database-connections-rate-limits'
   },
 
   /* Security Bulletins */

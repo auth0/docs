@@ -216,6 +216,6 @@ For the complete error code reference for this endpoint, refer to [Errors > POST
 
 - [Database Identity Providers](/connections/database)
 
-- [Rate Limits on User/Password Authentication](/policies/database-connections-rate-limits)
+- [Rate Limits on User/Password Authentication](/policies/rate-limit-policy/database-connections-rate-limits)
 
 - [Active Directory/LDAP Connector](/connector)

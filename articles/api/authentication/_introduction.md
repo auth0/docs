@@ -95,7 +95,7 @@ If you exceed the provided rate limit for a given endpoint, you will receive the
 
 For details on rate limiting, refer to [Auth0 API Rate Limit Policy](/policies/rate-limits).
 
-Note that for database connections Auth0 limits certain types of repeat login attempts depending on the user account and IP address. For details, refer to [Rate Limits on User/Password Authentication](/policies/database-connections-rate-limits).
+Note that for database connections Auth0 limits certain types of repeat login attempts depending on the user account and IP address. For details, refer to [Rate Limits on User/Password Authentication](/policies/rate-limit-policy/database-connections-rate-limits).
 
 ## Support
 

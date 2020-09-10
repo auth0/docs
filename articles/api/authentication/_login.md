@@ -168,7 +168,7 @@ Use this endpoint for browser based (passive) authentication. It returns a `302`
 ### More Information
 
 - [Database Identity Providers](/connections/database)
-- [Rate Limits on User/Password Authentication](/policies/database-connections-rate-limits)
+- [Rate Limits on User/Password Authentication](/policies/rate-limit-policy/database-connections-rate-limits)
 - [Active Directory/LDAP Connector](/connector)
 - [State Parameter](/protocols/oauth2/oauth-state)
 - [Auth0.js /authorize Method Reference](/libraries/auth0js#webauth-authorize-)
