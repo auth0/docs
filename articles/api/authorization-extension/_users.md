@@ -32,7 +32,7 @@ GET https://{extension_url}/users
          ],
          "user_id":"auth0|59091da1b3c34a15589c780d",
          "last_login":"2017-06-25T07:28:54.719Z",
-         "name":"dummy.user@example.com",
+         "name":"placeholder.user@example.com",
          "picture":"https://s.gravatar.com/avatar/your-gravatar.png",
          "email":"richard.dowinton@auth0.com"
       }
@@ -78,11 +78,11 @@ GET https://{extension_url}/users/{user_id}
 
 ```text
 {
-   "email":"dummy.user@example.com",
+   "email":"placeholder.user@example.com",
    "email_verified":true,
    "user_id":"auth0|59091da1b3c34a15589c780d",
    "picture":"https://s.gravatar.com/avatar/your-gravatar.png",
-   "nickname":"dummy.user",
+   "nickname":"placeholder.user",
    "identities":[
       {
          "user_id":"59091da1b3c34a15589c780d",
@@ -93,7 +93,7 @@ GET https://{extension_url}/users/{user_id}
    ],
    "updated_at":"2017-06-25T07:28:54.719Z",
    "created_at":"2017-06-08T15:30:41.237Z",
-   "name":"dummy.user@example.com",
+   "name":"placeholder.user@example.com",
    "app_metadata":{
       "authorization":{
          "roles":[

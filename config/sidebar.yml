@@ -425,8 +425,8 @@ articles:
             url: /protocols/saml-configuration-options/customize-saml-assertions
           - title: Deprovision Users
             url: /protocols/saml-configuration-options/deprovision-users-in-saml-integrations
-      - title: Whitelist IP Addresses
-        url: /security/whitelist-ip-addresses
+      - title: Add IP Addresses to AllowList
+        url: /security/allowlist-ip-addresses
   - title: Manage Users
     url: /users
     children:
@@ -473,8 +473,6 @@ articles:
             url: /users/user-initiated-account-linking-client-side-implementation
           - title: Server-Side Regular Web App Scenario
             url: /users/suggested-account-linking-server-side-implementation
-      - title: Blacklist User Attributes
-        url: /security/blacklist-user-attributes
       - title: Import & Export Users
         url: /users/import-and-export-users
         children:
@@ -1042,8 +1040,8 @@ articles:
         url: /sessions-and-cookies/cookies
       - title: Common Threats
         url: /security/prevent-common-cybersecurity-threats
-      - title: Blacklist User Attributes
-        url: /security/blacklist-user-attributes
+      - title: Add User Attributes to DenyList
+        url: /security/denylist-user-attributes
   - title: Data Privacy
     url: /compliance
     children:
