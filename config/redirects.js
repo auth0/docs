@@ -2019,80 +2019,80 @@ module.exports = [
     to: '/integrations/sharepoint-2010-2013'
   },
   {
-    from: ['/sso/current/integrations'],
-    to: '/integrations/sso'
+    from: ['/sso/current/integrations', '/integrations/sso'],
+    to: '/integrations/sso-integrations'
   },
   {
-    from: ['/sso/current/integrations/ad-rms'],
-    to: '/integrations/sso/ad-rms'
+    from: ['/sso/current/integrations/ad-rms', '/integrations/sso/ad-rms'],
+    to: '/integrations/sso-integrations/ad-rms-sso-integration'
   },
   {
-    from: ['/sso/current/integrations/box'],
-    to: '/integrations/sso/box'
+    from: ['/sso/current/integrations/box', '/integrations/sso/box'],
+    to: '/integrations/sso-integrations/box'
   },
   {
-    from: ['/sso/current/integrations/cloudbees'],
-    to: '/integrations/sso/cloudbees'
+    from: ['/sso/current/integrations/cloudbees', '/integrations/sso/cloudbees'],
+    to: '/integrations/sso-integrations/cloudbees'
   },
   {
-    from: ['/sso/current/integrations/concur'],
-    to: '/integrations/sso/concur'
+    from: ['/sso/current/integrations/concur', '/integrations/sso/concur'],
+    to: '/integrations/sso-integrations/concur'
   },
   {
-    from: ['/sso/current/integrations/disqus','/integrations/disqus'],
-    to: '/integrations/sso/disqus'
+    from: ['/sso/current/integrations/disqus', '/integrations/sso/disqus','/integrations/disqus'],
+    to: '/integrations/sso-integrations/disqus'
   },
   {
-    from: ['/sso/current/integrations/dropbox','/integrations/dropbox'],
-    to: '/integrations/sso/dropbox'
+    from: ['/sso/current/integrations/dropbox', '/integrations/sso/dropbox','/integrations/dropbox'],
+    to: '/integrations/sso-integrations/dropbox'
   },
   {
-    from: ['/sso/current/integrations/dynamics-crm','/integrations/dynamics-crm'],
-    to: '/integrations/sso/dynamics-crm'
+    from: ['/sso/current/integrations/dynamics-crm', '/integrations/sso/dynamics-crm','/integrations/dynamics-crm'],
+    to: '/integrations/sso-integrations/dynamics-crm'
   },
   {
-    from: ['/sso/current/integrations/echosign','/integrations/echosign'],
-    to: '/integrations/sso/echosign'
+    from: ['/sso/current/integrations/echosign', '/integrations/sso/echosign','/integrations/echosign'],
+    to: '/integrations/sso-integrations/echosign'
   },
   {
-    from: ['/sso/current/integrations/egnyte','/integrations/egnyte'],
-    to: '/integrations/sso/egnyte'
+    from: ['/sso/current/integrations/egnyte', '/integrations/sso/egnyte','/integrations/egnyte'],
+    to: '/integrations/sso-integrations/egnyte'
   },
   {
-    from: ['/sso/current/integrations/new-relic','/integrations/new-relic'],
-    to: '/integrations/sso/new-relic'
+    from: ['/sso/current/integrations/new-relic', '/integrations/sso/new-relic','/integrations/new-relic'],
+    to: '/integrations/sso-integrations/new-relic'
   },
   {
-    from: ['/sso/current/integrations/office-365','/integrations/office-365'],
-    to: '/integrations/sso/office-365'
+    from: ['/sso/current/integrations/office-365', '/integrations/sso/office-365','/integrations/office-365'],
+    to: '/integrations/sso-integrations/office-365'
   },
   {
-    from: ['/sso/current/integrations/salesforce','/integrations/salesforce'],
-    to: '/integrations/sso/salesforce'
+    from: ['/sso/current/integrations/salesforce', '/integrations/sso/salesforce','/integrations/salesforce'],
+    to: '/integrations/sso-integrations/salesforce'
   },
   {
-    from: ['/sso/current/integrations/slack','/integrations/integrating-with-slack','/tutorials/integrating-with-slack','/scenarios/slack','/integrations/slack'],
-    to: '/integrations/sso/slack'
+    from: ['/sso/current/integrations/slack', '/integrations/sso/slack','/integrations/integrating-with-slack','/tutorials/integrating-with-slack','/scenarios/slack','/integrations/slack'],
+    to: '/integrations/sso-integrations/slack'
   },
   {
-    from: ['/sso/current/integrations/sentry','/integrations/sentry'],
-    to: '/integrations/sso/sentry'
+    from: ['/sso/current/integrations/sentry', '/integrations/sso/sentry','/integrations/sentry'],
+    to: '/integrations/sso-integrations/sentry'
   },
   {
-    from: ['/sso/current/integrations/sharepoint'],
-    to: '/integrations/sso/sharepoint'
+    from: ['/sso/current/integrations/sharepoint', '/integrations/sso/sharepoint'],
+    to: '/integrations/sso-integrations/sharepoint'
   },
   {
-    from: ['/sso/current/integrations/springcm','/integrations/springcm'],
-    to: '/integrations/sso/springcm'
+    from: ['/sso/current/integrations/springcm','/integrations/sso/springcm','/integrations/springcm'],
+    to: '/integrations/sso-integrations/springcm'
   },
   {
-    from: ['/sso/current/integrations/zendesk','/integrations/zendesk'],
-    to: '/integrations/sso/zendesk'
+    from: ['/sso/current/integrations/zendesk', '/integrations/sso/zendesk','/integrations/zendesk'],
+    to: '/integrations/sso-integrations/zendesk'
   },
   {
-    from: ['/sso/current/integrations/zoom','/integrations/zoom'],
-    to: '/integrations/sso/zoom'
+    from: ['/sso/current/integrations/zoom', '/integrations/sso/zoom','/integrations/zoom'],
+    to: '/integrations/sso-integrations/zoom'
   },
   {
     from: ['/integrations/azure-tutorial','/azure-tutorial','/tutorials/azure-tutorial','/integrations/azure-api-management/configure-auth0','/integrations/azure-api-management/configure-azure'],
