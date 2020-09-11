@@ -54,7 +54,7 @@ module.exports = [
   },
   {
     from: ['/deploy/checklist'],
-    to: '/deploy/deploy-checklists'
+    to: '/deploy/deploy-checklist'
   },
 
   /* QUICKSTARTS */
