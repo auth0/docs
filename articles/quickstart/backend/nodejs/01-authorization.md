@@ -1,6 +1,6 @@
 ---
 title: Authorization
-description: This tutorial demonstrates how to add authentication and authorization to an Express.js API.
+description: This tutorial demonstrates how to add authorization to an Express.js API.
 topics:
     - quickstart
     - backend
@@ -43,7 +43,7 @@ const jwt = require('express-jwt');
 const jwtAuthz = require('express-jwt-authz');
 const jwksRsa = require('jwks-rsa');
 
-// Authentication middleware. When used, the
+// Authorization middleware. When used, the
 // Access Token must exist and be verified against
 // the Auth0 JSON Web Key Set
 const checkJwt = jwt({
