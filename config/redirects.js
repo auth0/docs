@@ -2855,24 +2855,16 @@ module.exports = [
     to: '/professional-services'
   },
   {
-    from: ['/services/architectural-design'],
-    to: '/professional-services/architectural-design-services'
+    from: ['/services/architectural-design','/professional-services/architectural-design-services','/professional-services/solution-design-services','/services/solution-design'],
+    to: '/professional-services/discover-design'
   },
   {
-    from: ['/services/custom-implementation','/services/implement'],
-    to: '/professional-services/custom-implementation-services'
+    from: ['/professional-services/custom-implementation-services','/services/custom-implementation','/services/implement'],
+    to: '/professional-services/implement'
   },
   {
-    from: ['/services/performance-scalability'],
-    to: '/professional-services/performance-and-scalability-services'
-  },
-  {
-    from: ['/services/solution-design'],
-    to: '/professional-services/solution-design-services'
-  },
-  {
-    from: ['/services/scenario-guidance','/services/code-review','/services/pair-programming'],
-    to: '/professional-services/advisory-sessions'
+    from: ['/services/performance-scalability','/professional-services/performance-and-scalability-services','/professional-services/advisory-sessions','/services/scenario-guidance','/services/code-review','/services/pair-programming'],
+    to: '/professional-services/maintain-improve'
   },
   {
     from: ['/services/packages'],

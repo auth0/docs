@@ -1173,8 +1173,8 @@ articles:
   - title: Professional Services
     url: /professional-services
     children:
-      - title: Design and Discover
-        url: /professional-services/design-discover
+      - title: Discover and Design
+        url: /professional-services/discover-design
       - title: Implement
         url: /professional-services/implement
       - title: Maintain and Improve
