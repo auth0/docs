@@ -25,7 +25,7 @@ If you followed the [previous section where you added user log in to Angular](/q
 To install and configure the HTTP interceptor, perform the following steps:
 
 * Import the `AuthHttpInterceptor` type from the Auth0 Angular SDK
-* Import `HttpClientModule` and `HTTP_INTERCEPTOR` from `@angular/common/http`
+* Import `HttpClientModule` and `HTTP_INTERCEPTORS` from `@angular/common/http`
 * Register `AuthHttpInterceptor` in the `providers` section of your application module
 * Add configuration to specify which requests should have an `Authorization` header
 
@@ -103,7 +103,7 @@ import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-metadata',
-  template: `<div *ngIf="auth.user$ | async as user">
+  template: `<div *ngIf="metadata">
     <pre>{{ metadata | json }}</pre>
   </div>`,
   styles: [],
