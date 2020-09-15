@@ -16,6 +16,8 @@ useCase: quickstart
 
 <%= include('../_includes/_calling_api_preamble_api2") %>
 
+This article builds upon [the previous chapter](/quickstart/spa/angular-next), adding the capability to automatically attach an access token to outgoing requests made using Angular's built-in `HttpClient` service.
+
 :::note
 If you followed the [previous section where you added user log in to Angular](/quickstart/spa/angular-next#add-login-to-your-application), make sure that you log out of your application as you'll need a new access token to call APIs.
 :::
