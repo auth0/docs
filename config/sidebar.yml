@@ -168,6 +168,8 @@ articles:
             url: /flows/add-login-using-the-implicit-flow-with-form-post
           - title: Native App
             url: /flows/add-login-using-the-authorization-code-flow-with-pkce
+      - title: Authenticate Single-Page Apps with Cookies
+        url: /sessions-and-cookies/spa-authenticate-with-cookies
       - title: Multi-factor Authentication
         url: /mfa
         children:
