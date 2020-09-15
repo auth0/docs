@@ -762,6 +762,7 @@ articles:
         children:
           - title: HTTP Event Streams
             url: /logs/export-log-events-with-log-streaming/stream-http-event-logs
+            children: 
             - title: HTTP Stream to Slack Example
               url: /logs/export-log-events-with-log-streaming/stream-log-events-to-slack
               hidden: true 
