@@ -22,7 +22,7 @@ This article builds upon [the previous chapter](/quickstart/spa/angular-next), a
 If you followed the [previous section where you added user log in to Angular](/quickstart/spa/angular-next#add-login-to-your-application), make sure that you log out of your application as you'll need a new access token to call APIs.
 :::
 
-## Install the HTTP Interceptor
+## Provide the HTTP Interceptor
 
 To install and configure the HTTP interceptor, perform the following steps:
 
