@@ -762,17 +762,25 @@ articles:
         children:
           - title: HTTP Event Streams
             url: /logs/export-log-events-with-log-streaming/stream-http-event-logs
-          - title: HTTP Stream to Slack Example
-            url: /logs/export-log-events-with-log-streaming/stream-log-events-to-slack
+            - title: HTTP Stream to Slack Example
+              url: /logs/export-log-events-with-log-streaming/stream-log-events-to-slack
+              hidden: true 
           - title: AWS EventBridge
             url: /logs/streams/aws-eventbridge
-          - title: Datadog Event Streams
+          - title: Azure Event Grid
+            url: /logs/export-log-events-with-log-streaming/stream-logs-to-azure-event-grid
+          - title: Datadog
             url: /logs/export-log-events-with-log-streaming/stream-logs-to-datadog
             children:
               - title: Datadog Dashboard Templates
                 url: /logs/export-log-events-with-log-streaming/datadog-dashboard-templates
-          - title: Azure Event Grid Streams
-            url: /logs/export-log-events-with-log-streaming/stream-logs-to-azure-event-grid
+                hidden: true 
+          - title: Splunk
+            url: /logs/export-log-events-with-log-streaming/stream-logs-to-splunk
+            children:
+              - title: Auth0 App for Splunk
+                url: /logs/export-log-events-with-log-streaming/splunk-dashboard
+                hidden: true 
       - title: Log Data Retention
         url: /logs/log-data-retention
       - title: View Log Data in the Dashboard
