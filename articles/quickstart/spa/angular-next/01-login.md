@@ -101,26 +101,27 @@ Now that you can log in to your Angular application, you need [a way to log out]
 Here is a modified version of the `AuthButtonComponent` component above that uses both `loginWithRedirect()` and `logout()`, as well as checking the authentication state using the `isAuthenticated$` observable:
 
 ```javascript
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-auth-button',
   template: `
-    <button 
-      *ngIf="(auth.isAuthenticated$ | async) === false"
-      (click)="auth.loginWithRedirect()">
-        Log in
-    </button>
-
-    <button 
-      *ngIf="auth.isAuthenticated$ | async"
-      (click)="auth.logout({ returnTo: 'http://localhost:4200' })">
+    <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
+      <button (click)="auth.logout({ returnTo: document.location.origin })">
         Log out
-    </button>`
+      </button>
+    </ng-container>
+
+    <ng-template #loggedOut>
+      <button (click)="auth.loginWithRedirect()">Log in</button>
+    </ng-template>
+  `,
+  styles: [],
 })
 export class AuthButtonComponent {
-  constructor(public auth: AuthService) {}
+  constructor(@Inject(DOCUMENT) public document: Document, public auth: AuthService) {}
 }
 ```
 
