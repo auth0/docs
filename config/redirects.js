@@ -66,8 +66,7 @@ module.exports = [
   {
     from: [
       '/angular-tutorial',
-      '/client-platforms/angularjs',
-      '/quickstart/spa/angular/:client?'
+      '/client-platforms/angularjs'
     ],
     to: '/quickstart/spa/angularjs'
   },
@@ -76,11 +75,7 @@ module.exports = [
     to: '/quickstart/spa/angular'
   },
   {
-    from: '/quickstart/spa/angular2',
-    to: '/quickstart/spa/angular'
-  },
-  {
-    from: '/quickstart/spa/angular-next',
+    from: ['/quickstart/spa/angularjs', '/quickstart/spa/angular2', '/quickstart/spa/angular-next'],
     to: '/quickstart/spa/angular'
   },
   {
