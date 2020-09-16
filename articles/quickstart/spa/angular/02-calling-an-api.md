@@ -12,6 +12,7 @@ github:
 contentType: tutorial
 useCase: quickstart
 ---
+
 <!-- markdownlint-disable MD002 MD034 MD041 -->
 
 <%= include('../_includes/_calling_api_preamble_api2") %>

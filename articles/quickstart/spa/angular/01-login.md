@@ -8,7 +8,7 @@ topics:
   - angular
   - login
 github:
-    path: Sample-01
+  path: Sample-01
 contentType: tutorial
 useCase: quickstart
 ---
