@@ -73,9 +73,17 @@ module.exports = [
   },
   {
     from: '/client-platforms/angular2',
-    to: '/quickstart/spa/angular2'
+    to: '/quickstart/spa/angular'
   },
-    {
+  {
+    from: '/quickstart/spa/angular2',
+    to: '/quickstart/spa/angular'
+  },
+  {
+    from: '/quickstart/spa/angular-next',
+    to: '/quickstart/spa/angular'
+  },
+  {
     from: '/quickstarts/spa/vanillajs/01-login',
     to: '/quickstart/spa/vanillajs/01-login'
   },
@@ -479,23 +487,23 @@ module.exports = [
   },
   {
     from: '/quickstart/spa/angular2/00-login',
-    to: '/quickstart/spa/angular2'
+    to: '/quickstart/spa/angular'
   },
   {
     from: '/quickstart/spa/angular2/03-user-profile',
-    to: '/quickstart/spa/angular2/02-user-profile'
+    to: '/quickstart/spa/angular'
   },
   {
     from: '/quickstart/spa/angular2/04-calling-an-api',
-    to: '/quickstart/spa/angular2/03-calling-an-api'
+    to: '/quickstart/spa/angular'
   },
   {
     from: '/quickstart/spa/angular2/05-authorization',
-    to: '/quickstart/spa/angular2/04-authorization'
+    to: '/quickstart/spa/angular'
   },
   {
     from: '/quickstart/spa/angular2/06-token-renewal',
-    to: '/quickstart/spa/angular2/05-token-renewal'
+    to: '/quickstart/spa/angular'
   },
 
   /* CONNECTIONS */
