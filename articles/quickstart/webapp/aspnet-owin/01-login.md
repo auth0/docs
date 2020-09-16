@@ -11,6 +11,9 @@ github:
   path: Quickstart/01-Login
 contentType: tutorial
 useCase: quickstart
+sample_download_required_data:
+  - client
+  - api
 ---
 <%= include('../../../_includes/_new_app', { showClientSecret: true }) %>
 

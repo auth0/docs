@@ -43,6 +43,9 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OpenIdConnect;
 using MvcApplication.Support;
 using Owin;
+using System;
+using System.Configuration;
+using System.Threading.Tasks;
 
 public void Configuration(IAppBuilder app)
 {
@@ -63,7 +66,6 @@ public void Configuration(IAppBuilder app)
         // Configure SameSite as needed for your app. Lax works well for most scenarios here but
         // you may want to set SameSiteMode.None for HTTPS
         CookieSameSite = SameSiteMode.Lax,
-        CookieSecure = CookieSecureOption.SameAsRequest
     });
 
     // Configure Auth0 authentication
@@ -86,6 +88,8 @@ public void Configuration(IAppBuilder app)
         {
             NameClaimType = "name"
         },
+
+        CookieManager = new SameSiteCookieManager(new SystemWebCookieManager()),
 
         Notifications = new OpenIdConnectAuthenticationNotifications
         {
@@ -214,25 +218,23 @@ public void Configuration(IAppBuilder app)
 {
     // Some code omitted for brevity...
 
+    string auth0Audience = ConfigurationManager.AppSettings["auth0:Audience"];
+
     // Configure Auth0 authentication
     app.UseOpenIdConnectAuthentication(new OpenIdConnectAuthenticationOptions
     {
         //...
 
         ResponseType = OpenIdConnectResponseType.CodeIdTokenToken,
-        Scope = "openid profile",
-
-        TokenValidationParameters = new TokenValidationParameters
-        {
-            NameClaimType = "name"
-        },
+        
+        //...
 
         Notifications = new OpenIdConnectAuthenticationNotifications
         {
             SecurityTokenValidated = notification =>
             {
-                notification.AuthenticationTicket.Identity.AddClaim(new Claim("id_token",notification.ProtocolMessage.IdToken));
-                notification.AuthenticationTicket.Identity.AddClaim(new Claim("access_token",notification.ProtocolMessage.AccessToken));
+                notification.AuthenticationTicket.Identity.AddClaim(new Claim("id_token", notification.ProtocolMessage.IdToken));
+                notification.AuthenticationTicket.Identity.AddClaim(new Claim("access_token", notification.ProtocolMessage.AccessToken));
 
                 return Task.FromResult(0);
             },
@@ -240,7 +242,7 @@ public void Configuration(IAppBuilder app)
             {
                 if (notification.ProtocolMessage.RequestType == OpenIdConnectRequestType.Authentication)
                 {
-                    notification.ProtocolMessage.SetParameter("audience", "https://quickstarts/api");
+                    notification.ProtocolMessage.SetParameter("audience", auth0Audience);
                 }
                 else if (notification.ProtocolMessage.RequestType == OpenIdConnectRequestType.Logout)
                 {
@@ -254,7 +256,17 @@ public void Configuration(IAppBuilder app)
 }
 ```
 
-To access these tokens from one of your controllers, cast the `User.Identity` property to a `ClaimsIdentity`, and then find the particular claim by calling the `FindFirst` method.
+As the above snippet is reading the `Auth0:Audience` from the appSettings, ensure it exists in your web.config and has its value set to the corresponding API Identifier for which you want to be retrieving an Access Token.
+
+``` xml
+<configuration>
+  <appSettings>
+    <add key="auth0:Audience" value="{API_IDENTIFIER}" />
+  </appSettings>
+</configuration>
+```
+
+To access the ID Token and Access Token from one of your controllers, cast the `User.Identity` property to a `ClaimsIdentity`, and then find the particular claim by calling the `FindFirst` method. In this examle, we will be adding a Tokens action to the Account controller.
 
 ``` csharp
 // Controllers/AccountController.cs
@@ -264,10 +276,37 @@ public ActionResult Tokens()
 {
     var claimsIdentity = User.Identity as ClaimsIdentity;
 
-    // Extract tokens
-    string accessToken = claimsIdentity?.FindFirst(c => c.Type == "access_token")?.Value;
-    string idToken = claimsIdentity?.FindFirst(c => c.Type == "id_token")?.Value;
+    ViewBag.AccessToken = claimsIdentity?.FindFirst(c => c.Type == "access_token")?.Value;
+    ViewBag.IdToken = claimsIdentity?.FindFirst(c => c.Type == "id_token")?.Value;
 
-    // Now you can use the tokens as appropriate...
+    return View();
 }
+```
+
+To accompany the above actionm also add the corresponding view by adding a file called `Tokens.cshtml` to `Views/Account`:
+
+``` html
+<!-- Views/Account/Tokens.cshtml -->
+
+<div class="row">
+    <div class="col-md-12">
+
+        <h3>Tokens for the User</h3>
+        <p>Tokens can be extracted from the user's claims. You can use these tokens when calling your APIs</p>
+
+        <p><strong>Access Token:</strong> @ViewBag.AccessToken</p>
+        <p><strong>ID Token:</strong> @ViewBag.IdToken</p>
+    </div>
+</div>
+
+```
+
+To make navigating to the route above a little bit easier, lets move over to `_Layout.cshtml` and add a navigation item to the `ul` that represents the main navigation. 
+
+``` html
+<!-- Views/Shared/_Layout_.cshtml -->
+<ul class="nav navbar-nav">
+    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+    <li>@Html.ActionLink("Tokens", "Tokens", "Account")</li>
+</ul>
 ```
