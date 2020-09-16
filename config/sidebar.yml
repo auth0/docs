@@ -1194,6 +1194,10 @@ articles:
         url: /professional-services/maintain-improve
       - title: Packages
         url: /professional-services/packages
+  - title: Auth0 Marketplace
+    external: true
+    forceFullReload: true
+    url: 'https://marketplace.stage.auth0.com/'
   - title: Auth0 Community
     external: true
     forceFullReload: true
