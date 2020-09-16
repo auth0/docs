@@ -134,7 +134,7 @@
   url: "/extend-integrate"
   articles:
   
-    - title: "Marketplace"
+    - title: "Auth0 Marketplace"
       url: "https://marketplace.stage.auth0.com/"
 
     - title: "Rules"
