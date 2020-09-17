@@ -56,7 +56,7 @@ The `User.Identity.Name` property looks for a claim of a type `http://schemas.xm
 
 You can control the claim type that ASP.NET Core retrieves when accessing the name through `User.Identity.Name`. To achieve this, update the OIDC authentication handler registration in the `Startup` class. Set the `NameClaimType` of the `TokenValidationParameters` property to `name`. ASP.NET Core will retrieve the value of the `name` claim passed in the ID Token when you access the name of the user with the `User.Identity.Name` property.
 
-You must update the list of scopes to request the `profile` scope. The user's profile information is returned as claims in the ID Token.
+You must update the list of scopes to request the `profile` and `email` scope. The user's profile information is returned as claims in the ID Token.
 
 ```csharp
 // Startup.cs
@@ -67,37 +67,30 @@ public void ConfigureServices(IServiceCollection services)
 
     // Add authentication services
     services.AddAuthentication(options => {
-        options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-        options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-        options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+        //...
     })
     .AddCookie()
     .AddOpenIdConnect("Auth0", options => {
         // ...
 
         // Configure the scope
+        options.Scope.Clear();
         options.Scope.Add("openid");
         options.Scope.Add("profile");
         options.Scope.Add("email");
+
         // Set the correct name claim type
         options.TokenValidationParameters = new TokenValidationParameters
         {
             NameClaimType = "name"
         };
 
-        options.Events = new OpenIdConnectEvents
-        {
-            // handle the logout redirection 
-            OnRedirectToIdentityProviderForSignOut = (context) =>
-            {
-                //...
-            }
-        };
+        //...
     });
 }
 ```
 
-Next create a view. For the view, display user's profile card at the top with the user's name, email address and profile image.
+Next create a view called Profile.cshtml inside `Views/Account` and display the user's name, email address and profile image.
 
 ```html
 <!-- Views/Account/Profile.cshtml -->
@@ -136,26 +129,23 @@ Go to the `Views/Shared/_Layout.cshtml` file and update the `Navbar` section to 
 
 ```html
 <!-- Views/Shared/_Layout.cshtml -->
-
-<div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-    <ul class="navbar-nav flex-grow-1">
-        @if (User.Identity.IsAuthenticated)
-        {
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-controller="Account" asp-action="Profile">Hello @User.Identity.Name!</a>
-            </li>
-            <li class="nav-item">
-                <a id="qsLogoutBtn" class="nav-link text-dark" asp-controller="Account" asp-action="Logout">Logout</a>
-            </li>
-        }
-        else
-        {
-            <li class="nav-item">
-                <a id="qsLoginBtn" class="nav-link text-dark" asp-controller="Account" asp-action="Login">Login</a>
-            </li>
-        }
-    </ul>
-</div>
+<ul class="nav navbar-nav navbar-right">
+    @if (User.Identity.IsAuthenticated)
+    {
+        <li>
+            <a asp-controller="Account" asp-action="Profile">Hello @User.Identity.Name!</a>
+        </li>
+        <li>
+            <a id="qsLogoutBtn" asp-controller="Account" asp-action="Logout">Logout</a>
+        </li>
+    }
+    else
+    {
+        <li>
+            <a id="qsLoginBtn" asp-controller="Account" asp-action="Login">Login</a>
+        </li>
+    }
+</ul>
 ```
 
 Now, after the user has logged in, the user's name is displayed in the top-right corner of the navigation bar:
