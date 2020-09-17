@@ -50,8 +50,10 @@ npm install express express-openid-connect --save
 ### 5. Configure Router
 The Express OpenID Connect library provides the `auth` router in order to attach authentication routes to your application. You will need to configure the router with the following configuration keys:
 
+- `authRequired` - Controls whether authentication is required for all routes
+- `auth0Logout` - Uses Auth0 logout feature
 - `baseURL` - The URL where the application is served
-- `appSessionSecret` - A long, random string
+- `secret` - A long, random string
 - `issuerBaseURL`  - The Domain as a secure URL found in your [Application settings](${manage_url}/#/applications/${account.clientId}/settings)
 - `clientID` - The Client ID found in your [Application settings](${manage_url}/#/applications/${account.clientId}/settings)
 
@@ -61,14 +63,12 @@ Here is an example configuration using this router:
 const { auth } = require('express-openid-connect');
 
 const config = {
-  required: false,
+  authRequired: false,
   auth0Logout: true,
-  appSession: {
-    secret: 'a long, randomly-generated string stored in env'
-  },
   baseURL: 'http://localhost:3000',
   clientID: '${account.clientId}',
   issuerBaseURL: 'https://${account.namespace}',
+  secret: 'LONG_RANDOM_STRING'
 };
 
 // auth router attaches /login, /logout, and /callback routes to the baseURL
@@ -76,14 +76,14 @@ app.use(auth(config));
 
 // req.isAuthenticated is provided from the auth router
 app.get('/', (req, res) => {
-  res.send(req.isAuthenticated() ? 'Logged in' : 'Logged out')
+  res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out')
 });
 ```
 
-For additional configuration options visit the [API documentation](https://github.com/auth0/express-openid-connect/blob/master/API.md).
+For additional configuration options visit the [API documentation](https://auth0.github.io/express-openid-connect).
 
 :::note
-You can generate a suitable string for `appSessionSecret` using `openssl rand -hex 32` on the command line.
+You can generate a suitable string for `LONG_RANDOM_STRING` using `openssl rand -hex 32` on the command line.
 :::
 
 ## Login
@@ -98,7 +98,7 @@ Add the `requiresAuth` middleware for routes that require authentication.  Any r
 const { requiresAuth } = require('express-openid-connect');
 
 app.get('/profile', requiresAuth(), (req, res) => {
-  res.send(JSON.stringify(req.openid.user));
+  res.send(JSON.stringify(req.oidc.user));
 });
 ```
 
@@ -109,6 +109,5 @@ A user can log out of your application by visiting the `/logout` route provided 
 We put together a few examples of how to use [Express OpenID Connect](https://github.com/auth0/express-openid-connect) in more advanced use cases:
 
 * [Route Customization](https://github.com/auth0/express-openid-connect/blob/master/EXAMPLES.md#3-route-customization)
-* [Custom user session handling](https://github.com/auth0/express-openid-connect/blob/master/EXAMPLES.md#4-custom-user-session-handling)
-* [Obtaining access tokens for external APIs](https://github.com/auth0/express-openid-connect/blob/master/EXAMPLES.md#5-obtaining-and-storing-access-tokens-to-call-external-apis)
+* [Obtaining access tokens for external APIs](https://github.com/auth0/express-openid-connect/blob/master/EXAMPLES.md#4-obtaining-and-storing-access-tokens-to-call-external-apis)
 * [Require auth for specific routes](https://github.com/auth0/express-openid-connect/blob/master/EXAMPLES.md#2-require-authentication-for-specific-routes)
