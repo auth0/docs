@@ -11,8 +11,8 @@ Set up an app in GitHub. During this process, GitHub will generate a **Client ID
 | Homepage URL | `https://${account.namespace}` |
 | Authorization callback URL | `https://${account.namespace}/login/callback` |
 
-::: panel Find your Auth0 domain name for redirects
-If your Auth0 domain name is not shown above and you are not using our custom domains feature, your domain name is your tenant name, plus `.auth0.com`. For example, if your tenant name were `exampleco-enterprises`, your Auth0 domain name would be `exampleco-enterprises.auth0.com` and your redirect URI would be `https://exampleco-enterprises.auth0.com/login/callback`.
+::: panel Find your Auth0 domain name
+If your Auth0 domain name is not shown above and you are not using our custom domains feature, your domain name is your tenant name, your regional subdomain (unless your tenant is in the US region and was created before June 2020), plus`.auth0.com`. For example, if your tenant name were `exampleco-enterprises`, your Auth0 domain name would be `exampleco-enterprises.us.auth0.com` and your redirect URI would be `https://exampleco-enterprises.us.auth0.com/login/callback`. (If your tenant is in the US and was created before June 2020, then your domain name would be `https://exampleco-enterprises.auth0.com`.)
 
 If you are using [custom domains](https://auth0.com/docs/custom-domains), your <dfn data-key="callback">redirect URI</dfn> will have the following format: `https://<YOUR CUSTOM DOMAIN>/login/callback`.
 :::
