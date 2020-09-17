@@ -76,11 +76,11 @@ app.use(auth(config));
 
 // req.isAuthenticated is provided from the auth router
 app.get('/', (req, res) => {
-  res.send(req.isAuthenticated() ? 'Logged in' : 'Logged out')
+  res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out')
 });
 ```
 
-For additional configuration options visit the [API documentation](https://github.com/auth0/express-openid-connect/blob/master/API.md).
+For additional configuration options visit the [API documentation](https://auth0.github.io/express-openid-connect).
 
 :::note
 You can generate a suitable string for `LONG_RANDOM_STRING` using `openssl rand -hex 32` on the command line.
@@ -98,7 +98,7 @@ Add the `requiresAuth` middleware for routes that require authentication.  Any r
 const { requiresAuth } = require('express-openid-connect');
 
 app.get('/profile', requiresAuth(), (req, res) => {
-  res.send(JSON.stringify(req.openid.user));
+  res.send(JSON.stringify(req.oidc.user));
 });
 ```
 
