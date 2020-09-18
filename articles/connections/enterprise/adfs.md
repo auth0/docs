@@ -146,5 +146,4 @@ Now that you have a working connection, the next step is to configure your appli
 * [Configure your application using our Lock login form](/libraries/lock)
 * [Configure your application using our Auth0.js library and your own UI](/libraries/auth0js)
 * [Use our Authentication API to authenticate](/api/authentication)
-* [Authenticate PHP with ADFS using Auth0](https://auth0.com/authenticate/php/adfs)
 :::
