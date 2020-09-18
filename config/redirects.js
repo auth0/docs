@@ -2405,28 +2405,32 @@ module.exports = [
     to: '/logs'
   },
   {
-    from: ['/logs/streams'],
-    to: '/logs/export-log-events-with-log-streaming'
+    from: ['/logs/export-log-events-with-log-streaming'],
+    to: '/logs/streams'
   },
   {
-    from: ['/logs/streams/http-event-to-slack'],
-    to: '/logs/export-log-events-with-log-streaming/stream-log-events-to-slack'
+    from: ['/logs/export-log-events-with-log-streaming/stream-log-events-to-slack','/logs/streams/http-event-to-slack'],
+    to: '/logs/streams/stream-log-events-to-slack'
   },
   {
-    from: ['/logs/streams/http-event'],
-    to: '/logs/export-log-events-with-log-streaming/stream-http-event-logs'
+    from: ['/logs/export-log-events-with-log-streaming/stream-logs-to-splunk','/logs/streams/splunk'],
+    to: '/logs/streams/stream-logs-to-splunk'
   },
   {
-    from: ['/logs/streams/aws-eventbridge','/integrations/aws-eventbridge','/logs/streams/amazon-eventbridge'],
-    to: '/logs/export-log-events-with-log-streaming/stream-logs-to-amazon-eventbridge'
+    from: ['/logs/export-log-events-with-log-streaming/stream-http-event-logs','/logs/streams/http-event'],
+    to: '/logs/streams/stream-http-event-logs'
   },
   {
-    from: ['/logs/streams/azure-event-grid'],
-    to: '/logs/export-log-events-with-log-streaming/stream-logs-to-azure-event-grid'
+    from: ['/logs/export-log-events-with-log-streaming/stream-logs-to-amazon-eventbridge','/logs/streams/aws-eventbridge','/integrations/aws-eventbridge','/logs/streams/amazon-eventbridge'],
+    to: '/logs/streams/stream-logs-to-amazon-eventbridge'
   },
   {
-    from: ['/logs/streams/datadog'],
-    to: '/logs/export-log-events-with-log-streaming/stream-logs-to-datadog'
+    from: ['/logs/export-log-events-with-log-streaming/stream-logs-to-azure-event-grid','/logs/streams/azure-event-grid'],
+    to: '/logs/streams/stream-logs-to-azure-event-grid'
+  },
+  {
+    from: ['/logs/export-log-events-with-log-streaming/stream-logs-to-datadog','/logs/streams/datadog'],
+    to: '/logs/streams/stream-logs-to-datadog'
   },
   {
     from: ['/monitoring/guides/send-events-to-splunk','/monitoring/guides/send-events-to-keenio','/monitoring/guides/send-events-to-segmentio'],
