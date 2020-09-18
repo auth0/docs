@@ -711,7 +711,7 @@ articles:
             url: /integrations/sso-integrations/dropbox
           - title: Microsoft Dynamics CRM
             url: /integrations/sso-integrations/dynamics-crm
-          - title: Echosign
+          - title: Adobe Echosign
             url: /integrations/sso-integrations/echosign
           - title: Egnyte
             url: /integrations/sso-integrations/egnyte
