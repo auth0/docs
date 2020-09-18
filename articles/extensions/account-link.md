@@ -97,3 +97,4 @@ For example, if a user logs in with their Facebook account using the email `john
 The extension does not automatically link users with the same email, even if emails are verified. Verified emails are not enough evidence to prove that the user can currently authenticate to both accounts.
 
 If the user clicks **Continue**, they will be redirected to Facebook to authenticate. If the user is already logged in, Facebook will redirect back to the application, and the user will be automatically linked. If they are not logged in, they will be prompted first to authenticate with their Facebook credentials. Then, the account will be linked with the Google account after Facebook redirects back to Auth0. This process ensures that it is the same user who has the credentials to authenticate to both accounts. This allows the accounts to be linked safely without fear of linking accounts incorrectly.
+Note that the extension does not support passwordless connections.
