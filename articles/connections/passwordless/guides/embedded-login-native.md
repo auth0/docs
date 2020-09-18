@@ -82,7 +82,7 @@ Below we list a few code snippets that can be used to call these API endpoints f
   }],
   "postData": {
     "mimeType": "application/json",
-    "text": "{ \"grant_type\": \"http://auth0.com/oauth/grant-type/passwordless/otp\",  \"client_id\": \"${account.clientId}\",  \"username\": \"USER_PHONE_NUMBER\",  \"otp\": \"code\",  \"realm\": \"sms\", \"audience\": \"your-api-audience\", \"scope\": \"opend profile email\"}"
+    "text": "{ \"grant_type\": \"http://auth0.com/oauth/grant-type/passwordless/otp\",  \"client_id\": \"${account.clientId}\",  \"username\": \"USER_PHONE_NUMBER\",  \"otp\": \"code\",  \"realm\": \"sms\", \"audience\": \"your-api-audience\", \"scope\": \"openid profile email\"}"
   }
 }
 ```
@@ -99,7 +99,7 @@ Below we list a few code snippets that can be used to call these API endpoints f
   }],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"grant_type\": \"http://auth0.com/oauth/grant-type/passwordless/otp\", \"client_id\": \"${account.clientId}\", \"username\": \"USER_EMAIL\", \"otp\": \"code\", \"realm\": \"email\", \"audience\": \"your-api-audience\", \"scope\": \"opend profile email\"}"
+    "text": "{\"grant_type\": \"http://auth0.com/oauth/grant-type/passwordless/otp\", \"client_id\": \"${account.clientId}\", \"username\": \"USER_EMAIL\", \"otp\": \"code\", \"realm\": \"email\", \"audience\": \"your-api-audience\", \"scope\": \"openid profile email\"}"
   }
 }
 ```
