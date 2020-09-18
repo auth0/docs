@@ -16,12 +16,12 @@ useCase: integrate-saas-sso
 Auth0 provides SSO Integrations for the following services:
 
 - [Active Directory RMS](/integrations/sso/ad-rms)
+- [Adobe Sign](/integrations/sso/adobe-sign)
 - [Box](/integrations/sso/box)
 - [CloudBees](/integrations/sso/cloudbees)
 - [Concur](/integrations/sso/concur)
 - [Dropbox](/integrations/sso/dropbox)
 - [Microsoft Dynamics CRM](/integrations/sso/dynamics-crm)
-- [Adobe Echosign](/integrations/sso/echosign)
 - [Egnyte](/integrations/sso/egnyte)
 - [New Relic](/integrations/sso/new-relic)
 - [Office 365](/integrations/sso/office-365)

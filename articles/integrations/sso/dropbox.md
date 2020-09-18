@@ -16,3 +16,4 @@ useCase: integrate-saas-sso
 <%= include('../../../snippets/sso-integrations/dropbox/4') %> 
 <%= include('../../../snippets/sso-integrations/dropbox/5') %> 
 <%= include('../../../snippets/sso-integrations/dropbox/6') %>
+<%= include('../../../snippets/sso-integrations/dropbox/7') %>

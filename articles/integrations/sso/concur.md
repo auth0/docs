@@ -16,3 +16,4 @@ useCase: integrate-saas-sso
 <%= include('../../../snippets/sso-integrations/concur/4') %> 
 <%= include('../../../snippets/sso-integrations/concur/5') %> 
 <%= include('../../../snippets/sso-integrations/concur/6') %>
+<%= include('../../../snippets/sso-integrations/concur/7') %>

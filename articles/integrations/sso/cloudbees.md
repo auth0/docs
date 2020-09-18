@@ -15,4 +15,5 @@ useCase: integrate-saas-sso
 <%= include('../../../snippets/sso-integrations/cloudbees/3') %> 
 <%= include('../../../snippets/sso-integrations/cloudbees/4') %> 
 <%= include('../../../snippets/sso-integrations/cloudbees/5') %> 
-<%= include('../../../snippets/sso-integrations/cloudbees/6') %>
+<%= include('../../../snippets/sso-integrations/cloudbees/6') %> 
+<%= include('../../../snippets/sso-integrations/cloudbees/7') %>
