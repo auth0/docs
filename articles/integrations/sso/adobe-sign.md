@@ -17,4 +17,5 @@ useCase: integrate-saas-sso
 <%= include('../../../snippets/sso-integrations/adobe-sign/3') %> 
 <%= include('../../../snippets/sso-integrations/adobe-sign/4') %> 
 <%= include('../../../snippets/sso-integrations/adobe-sign/5') %> 
-<%= include('../../../snippets/sso-integrations/adobe-sign/6') %>
+<%= include('../../../snippets/sso-integrations/adobe-sign/6') %> 
+<%= include('../../../snippets/sso-integrations/adobe-sign/7') %>

@@ -16,3 +16,4 @@ useCase: integrate-saas-sso
 <%= include('../../../snippets/sso-integrations/cisco-webex/4') %> 
 <%= include('../../../snippets/sso-integrations/cisco-webex/5') %> 
 <%= include('../../../snippets/sso-integrations/cisco-webex/6') %>
+<%= include('../../../snippets/sso-integrations/cisco-webex/7') %>

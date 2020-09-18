@@ -15,4 +15,5 @@ useCase: integrate-saas-sso
 <%= include('../../../snippets/sso-integrations/datadog/3') %> 
 <%= include('../../../snippets/sso-integrations/datadog/4') %> 
 <%= include('../../../snippets/sso-integrations/datadog/5') %> 
-<%= include('../../../snippets/sso-integrations/datadog/6') %>
+<%= include('../../../snippets/sso-integrations/datadog/6') %> 
+<%= include('../../../snippets/sso-integrations/datadog/7') %>

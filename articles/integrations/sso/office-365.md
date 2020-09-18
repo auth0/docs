@@ -16,3 +16,4 @@ useCase: integrate-saas-sso
 <%= include('../../../snippets/sso-integrations/office-365/4') %> 
 <%= include('../../../snippets/sso-integrations/office-365/5') %> 
 <%= include('../../../snippets/sso-integrations/office-365/6') %>
+<%= include('../../../snippets/sso-integrations/office-365/7') %>

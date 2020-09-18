@@ -16,3 +16,4 @@ useCase: integrate-saas-sso
 <%= include('../../../snippets/sso-integrations/pluralsight/4') %> 
 <%= include('../../../snippets/sso-integrations/pluralsight/5') %> 
 <%= include('../../../snippets/sso-integrations/pluralsight/6') %>
+<%= include('../../../snippets/sso-integrations/pluralsight/7') %>

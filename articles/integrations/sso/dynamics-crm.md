@@ -17,3 +17,4 @@ useCase: integrate-saas-sso
 <%= include('../../../snippets/sso-integrations/dynamics-crm/4') %> 
 <%= include('../../../snippets/sso-integrations/dynamics-crm/5') %> 
 <%= include('../../../snippets/sso-integrations/dynamics-crm/6') %>
+<%= include('../../../snippets/sso-integrations/dynamics-crm/7') %>

@@ -16,4 +16,5 @@ useCase: integrate-saas-sso
 <%= include('../../../snippets/sso-integrations/new-relic/4') %> 
 <%= include('../../../snippets/sso-integrations/new-relic/5') %> 
 <%= include('../../../snippets/sso-integrations/new-relic/6') %>
+<%= include('../../../snippets/sso-integrations/new-relic/7') %>
 
