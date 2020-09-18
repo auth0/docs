@@ -701,8 +701,6 @@ articles:
         children:
           - title: Active Directory RMS
             url: /integrations/sso-integrations/ad-rms-sso-integration
-          - title: Adobe Sign
-            url: /integrations/sso-integrations/adobe-sign
           - title: Box
             url: /integrations/sso-integrations/box
           - title: CloudBees
@@ -713,6 +711,8 @@ articles:
             url: /integrations/sso-integrations/dropbox
           - title: Microsoft Dynamics CRM
             url: /integrations/sso-integrations/dynamics-crm
+          - title: Echosign
+            url: /integrations/sso-integrations/echosign
           - title: Egnyte
             url: /integrations/sso-integrations/egnyte
           - title: New Relic
