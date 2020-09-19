@@ -26,6 +26,5 @@ useCase:
 <%= include('../../../snippets/social/google/2') %> 
 <%= include('../../../snippets/social/google/3') %> 
 <%= include('../../../snippets/social/google/4') %> 
-<%= include('../../../snippets/social/google/5') %> 
-<%= include('../../../snippets/social/google/6') %> 
+<%= include('../../../snippets/social/google/5') %>
 <%= include('../_quickstart-links.md') %>
