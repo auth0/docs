@@ -134,14 +134,14 @@
   url: "/extend-integrate"
   articles:
   
-    - title: "Auth0 Marketplace"
-      url: "https://marketplace.stage.auth0.com/"
-
     - title: "Rules"
       url: "/rules"
 
     - title: "Extensions"
       url: "/extensions"
+
+    - title: "Internationalization"
+      url: "/i18n"
      
 
 - id: "appliance"
