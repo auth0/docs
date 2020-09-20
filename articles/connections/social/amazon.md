@@ -1,7 +1,7 @@
 ---
 title: Connect Apps to Amazon
 connection: Amazon Web Services
-image: /media/connections/amazon-avatar.png
+image: /media/connections/aws.png
 alias:
   - aws
   - amazon-web-services

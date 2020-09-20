@@ -1,7 +1,7 @@
 ---
 title: Connect Apps to QuickBooks Online
 connection: QuickBooks Online
-image: /media/connections/quickbooks-online.png
+image: /media/connections/quickbooks.png
 seo_alias: quickbooks-online
 description: Learn how to add login functionality to your app with QuickBooks Online. You will need to obtain a Client ID and Client Secret for QuickBooks Online.
 toc: true

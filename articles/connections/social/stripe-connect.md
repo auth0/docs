@@ -1,7 +1,7 @@
 ---
 title: Connect Apps to Stripe Connect
 connection: Stripe Connect
-image: /media/connections/stripe-connect.png
+image: /media/connections/stripe.png
 seo_alias: stripe-connect
 description: Learn how to add login functionality to your app with Stripe Connect. You will need to obtain a Client ID and Client Secret for Stripe Connect.
 toc: true
