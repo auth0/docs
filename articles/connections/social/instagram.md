@@ -6,6 +6,7 @@ image: /media/connections/instagram.png
 seo_alias: instagram
 description: Learn how to add login functionality to your app with Instagram. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
 toc: true
+public: true
 topics:
   - connections
   - social

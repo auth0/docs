@@ -2,7 +2,7 @@
 title: Datadog Single Sign-On Integration
 description: Learn how to set up a Single Sign-on (SSO) integration with Datadog and Auth0.
 toc: true
-public: false
+public: true
 topics:
   - sso
   - dropxbox

@@ -5,6 +5,7 @@ image: /media/connections/renren.png
 seo_alias: renren
 description: Learn how to add login functionality to your app with RenRen. You will need to obtain an API Key and Secret Key for RenRen.
 toc: true
+public: true
 index: 26
 topics:
   - connections

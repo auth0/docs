@@ -1,8 +1,8 @@
 ---
 title: GitHub Enterprise Cloud Single Sign-On Integration
-description: How to set up a Single Sign-on (SSO) integration with GitHub Enterprise Cloud and Auth0.
+description: Learn how to set up a Single Sign-on (SSO) integration with GitHub Enterprise Cloud and Auth0.
 toc: true
-public: false
+public: true
 topics:
   - sso
   - github-enterprise-cloud

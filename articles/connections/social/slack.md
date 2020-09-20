@@ -5,6 +5,7 @@ image: /media/connections/slack.png
 seo_alias: slack
 description: Learn how to add login functionality to your app with Slack. You will need to obtain a Client ID and Client Secret for Slack.
 toc: true
+public: true
 index: 6
 topics:
   - connections
@@ -14,7 +15,6 @@ contentType: how-to
 useCase:
     - customize-connections
     - add-idp
-public: false
 ---
 <%= include('../../../snippets/social/slack/0') %> 
 <%= include('../../../snippets/social/slack/1') %> 

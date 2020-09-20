@@ -1,10 +1,11 @@
 ---
 title: Connect Apps to Yandex
+description: How to obtain an Application ID and Application Password for Yandex.
 connection: Yandex
 image: /media/connections/yandex.png
 seo_alias: yandex
+public: true
 index: 38
-description: How to obtain an Application ID and Application Password for Yandex.
 toc: true
 topics:
   - connections

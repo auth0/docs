@@ -5,6 +5,7 @@ image: /media/connections/vimeo.png
 seo_alias: vimeo
 description: Learn how to add login functionality to your app with Vimeo. You will need to obtain a Client Id and Client Secret for Vimeo.
 toc: true
+public: true
 index: 6
 topics:
   - connections
@@ -14,7 +15,6 @@ contentType: how-to
 useCase:
     - customize-connections
     - add-idp
-public: false
 ---
 <%= include('../../../snippets/social/vimeo/0') %> 
 <%= include('../../../snippets/social/vimeo/1') %> 

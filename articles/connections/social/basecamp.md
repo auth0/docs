@@ -8,6 +8,7 @@ alias:
 seo_alias: 37signals
 description: How to obtain a Client Id and Client Secret for Basecamp (formerly 37Signals).
 toc: true
+public: true
 index: 4
 topics:
   - connections

@@ -2,7 +2,7 @@
 title: Sprout Video Single Sign-On Integration
 description: Learn how to set up a Single Sign-on (SSO) integration with Sprout Video and Auth0.
 toc: true
-public: false
+public: true
 topics:
   - sso
   - sprout-video

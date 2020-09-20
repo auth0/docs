@@ -2,6 +2,8 @@
 title: Connect Apps to Microsoft
 connection: Microsoft Account
 image: /media/connections/ms.png
+toc: true
+public: true
 index: 22
 alias:
  - live-id
@@ -10,7 +12,6 @@ alias:
  - windows-live
 seo_alias: microsoft-account
 description: Learn how to add login functionality to your app with Microsoft Accounts. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
-toc: true
 topics:
   - authentication
   - connections

@@ -1,10 +1,11 @@
 ---
 title: Connect Apps to Weibo
+description: Learn how to add login functionality to your app with Weibo.
 connection: Weibo
 image: /media/connections/weibo.png
 seo_alias: weibo
+public: true
 index: 34
-description: Learn how to add login functionality to your app with Weibo.
 toc: true
 topics:
   - connections

@@ -5,6 +5,7 @@ image: /media/connections/twitch.png
 seo_alias: twitch
 description: Learn how to add login functionality to your app with Twitch. You will need to obtain a Client ID and Client Secret for Twitch.
 toc: true
+public: true
 index: 6
 topics:
   - connections
@@ -14,7 +15,6 @@ contentType: how-to
 useCase:
     - customize-connections
     - add-idp
-public: false
 ---
 <%= include('../../../snippets/social/twitch/0') %> 
 <%= include('../../../snippets/social/twitch/1') %> 

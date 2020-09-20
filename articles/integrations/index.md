@@ -30,103 +30,103 @@ useCase:
             <i class="icon icon-budicon-334"></i><a href="/integrations/sso">SSO Integrations</a>
             <ul>
                 <li>
-                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso-integrations/ad-rms">Active Directory RMS</a>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/ad-rms">Active Directory RMS</a>
                 </li>
                 <li>
-                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso-integrations/adobe-sign">Adobe Sign</a>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/adobe-sign">Adobe Sign</a>
                 </li>
                 <li>
-                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso-integrations/box">Box</a>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/box">Box</a>
                 </li>
                 <li>
-                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso-integrations/cisco-webex">Cisco WebEx</a>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/cisco-webex">Cisco WebEx</a>
                 </li>
                 <li>
-                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso-integrations/cloudbees">CloudBees</a>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/cloudbees">CloudBees</a>
                 </li>
                 <li>
-                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso-integrations/concur">Concur</a>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/concur">Concur</a>
                 </li>
                 <li>
-                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso-integrations/datadog">Datadog</a>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/datadog">Datadog</a>
                 </li>
                 <li>
-                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso-integrations/dropbox">Dropbox</a>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/dropbox">Dropbox</a>
                 </li>
                 <li>
-                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso-integrations/dynamics-crm">Dynamics CRM</a>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/dynamics-crm">Dynamics CRM</a>
                 </li>
                 <li>
-                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso-integrations/egencia">Egencia</a>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/egencia">Egencia</a>
                 </li>
                 <li>
-                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso-integrations/egnyte">Egnyte</a>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/egnyte">Egnyte</a>
                 </li>
                 <li>
-                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso-integrations/eloqua">Eloqua</a>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/eloqua">Eloqua</a>
                 </li>
                 <li>
-                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso-integrations/freshdesk">Freshdesk</a>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/freshdesk">Freshdesk</a>
                 </li>
                 <li>
-                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso-integrations/g-suite">G Suite</a>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/g-suite">G Suite</a>
                 </li>
                 <li>
-                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso-integrations/github-enterprise-cloud">GitHub Enterprise Cloud</a>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/github-enterprise-cloud">GitHub Enterprise Cloud</a>
                 </li>
                 <li>
-                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso-integrations/github-enterprise-server">GitHub Enterprise Server</a>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/github-enterprise-server">GitHub Enterprise Server</a>
                 </li>
                 <li>
-                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso-integrations/heroku">Heroku</a>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/heroku">Heroku</a>
                 </li>
                 <li>
-                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso-integrations/hosted-graphite">Hosted Graphite</a>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/hosted-graphite">Hosted Graphite</a>
                 </li>
                 <li>
-                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso-integrations/litmos">Litmos</a>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/litmos">Litmos</a>
                 </li>
                 <li>
-                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso-integrations/new-relic">New Relic</a>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/new-relic">New Relic</a>
                 </li>
                 <li>
-                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso-integrations/office-365">Office 365</a>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/office-365">Office 365</a>
                 </li>
                 <li>
-                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso-integrations/pluralsight">Pluralsight</a>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/pluralsight">Pluralsight</a>
                 </li>
                 <li>
-                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso-integrations/salesforce">Salesforce</a>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/salesforce">Salesforce</a>
                 </li>
                 <li>
-                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso-integrations/sentry">Sentry</a>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/sentry">Sentry</a>
                 </li>
                 <li>
-                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso-integrations/slack">Slack</a>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/slack">Slack</a>
                 </li>
                 <li>
-                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso-integrations/springcm">SpringCM</a>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/springcm">SpringCM</a>
                 </li>
                 <li>
-                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso-integrations/sprout-video">Sprout Video</a>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/sprout-video">Sprout Video</a>
                 </li>
                 <li>
-                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso-integrations/tableau-online">Tableau Online</a>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/tableau-online">Tableau Online</a>
                 </li>
                 <li>
-                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso-integrations/tableau-server">Tableau Server</a>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/tableau-server">Tableau Server</a>
                 </li>
                 <li>
-                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso-integrations/workday">Workday</a>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/workday">Workday</a>
                 </li>
                 <li>
-                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso-integrations/workpath">Workpath</a>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/workpath">Workpath</a>
                 </li>
                 <li>
-                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso-integrations/zendesk">Zendesk</a>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/zendesk">Zendesk</a>
                 </li>
                 <li>
-                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso-integrations/zoom">Zoom</a>
+                    <i class="icon icon-budicon-715"></i><a href="/integrations/sso/zoom">Zoom</a>
                 </li>
             </ul>
         </li>

@@ -1,11 +1,12 @@
 ---
 title: Connect Apps to SoundCloud
 connection: SoundCloud
+toc: true
+public: true
 index: 31
 image: /media/connections/soundcloud.png
 seo_alias: soundcloud
 description: Learn how to add login functionality to your app with SoundCloud. You will need to obtain a Client Id and Client Secret for SoundCloud.
-toc: true
 topics:
   - connections
   - social

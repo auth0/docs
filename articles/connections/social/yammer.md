@@ -1,9 +1,10 @@
 ---
 title: Connect Apps to Yammer
+description: How to obtain the credentials required to configure your Auth0 connection to Yammer.
 connection: Yammer
 image: /media/connections/yammer.png
-description: How to obtain the credentials required to configure your Auth0 connection to Yammer.
 seo_alias: yammer
+public: true
 index: 37
 toc: true
 topics:

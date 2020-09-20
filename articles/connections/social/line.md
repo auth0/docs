@@ -1,11 +1,12 @@
 ---
 title: Connect Apps to LINE
 connection: LINE
+toc: true
+public: true
 index: 20
 image: /media/connections/line.png
 seo_alias: line
 description: Learn how to add login functionality to your app with LINE. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
-toc: true
 topics:
   - authentication
   - connections
