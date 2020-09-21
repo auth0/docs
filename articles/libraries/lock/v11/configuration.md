@@ -83,6 +83,7 @@ Authentication options are grouped in the `auth` property of the `options` objec
 | [prefill](#prefill-object-) | Prefill values for email/username fields |
 | [signUpLink](#signuplink-string-) | Set a custom url to fire when clicking "sign up" |
 | [usernameStyle](#usernamestyle-string-) | Limit username field to accept only "username" values or only "email" values |
+| [signUpFieldsStrictValidation](#signUpFieldsStrictValidation-boolean-) | Strict format validation for username and email fields at signup |
 
 ## Enterprise
 
@@ -875,6 +876,16 @@ Determines what will be used to identify the user for a Database connection that
 var options = {
   // Limits logins to usernames only, not emails
   usernameStyle: 'username'
+};
+```
+
+### signUpFieldsStrictValidation {Boolean}
+
+This option enables strict format validation for username and email fields at the signup screen. This ensures presenting validation errors instead of the generic "We're sorry, something went wrong when attempting to sign up." message. Defaults to `false`.
+
+```js
+var options = {
+  signUpFieldsStrictValidation: true
 };
 ```
 
