@@ -1537,8 +1537,8 @@ module.exports = [
     to: '/extensions/export-logs-to-cloudwatch'
   },
   {
-    from: ['/extensions/custom-social-extensions'],
-    to: '/extensions/custom-social-connections'
+    from: ['/extensions/custom-social-connections','/extensions/custom-social-extensions'],
+    to: '/connections/identity-providers-social'
   },
   {
     from: ['/extensions/github-deploy'],
@@ -2026,7 +2026,7 @@ module.exports = [
     to: '/integrations/sso'
   },
   {
-    from: ['/integrations/sso-integrations/ad-rms-sso-integration','/sso/current/integrations/ad-rms'],
+    from: ['/integrations/sso-integrations/ad-rms','/integrations/sso-integrations/ad-rms-sso-integration','/sso/current/integrations/ad-rms'],
     to: '/integrations/sso/ad-rms'
   },
   {
@@ -2054,7 +2054,7 @@ module.exports = [
     to: '/integrations/sso/dynamics-crm'
   },
   {
-    from: ['/integrations/sso-integrations/echosign','/sso/current/integrations/echosign','/integrations/echosign'],
+    from: ['/integrations/sso-integrations/adobe-sign','/integrations/sso-integrations/echosign','/sso/current/integrations/echosign','/integrations/echosign'],
     to: '/integrations/sso/adobe-sign'
   },
   {
@@ -2096,6 +2096,74 @@ module.exports = [
   {
     from: ['/integrations/sso-integrations/zoom','/sso/current/integrations/zoom','/integrations/zoom'],
     to: '/integrations/sso/zoom'
+  },
+  {
+    from: ['/integrations/sso-integrations/cisco-webex'],
+    to: '/integrations/sso/cisco-webex'
+  },
+  {
+    from: ['/integrations/sso-integrations/datadog'],
+    to: '/integrations/sso/datadog'
+  },
+  {
+    from: ['/integrations/sso-integrations/egencia'],
+    to: '/integrations/sso/egencia'
+  },
+    {
+  from: ['/integrations/sso-integrations/eloqua'],
+    to: '/integrations/sso/eloqua'
+  },
+  {
+    from: ['/integrations/sso-integrations/freshdesk'],
+    to: '/integrations/sso/freshdesk'
+  },
+  {
+    from: ['/integrations/sso-integrations/g-suite'],
+    to: '/integrations/sso/g-suite'
+  },
+  {
+    from: ['/integrations/sso-integrations/github-enterprise-cloud'],
+    to: '/integrations/sso/github-enterprise-cloud'
+  },
+  {
+    from: ['/integrations/sso-integrations/github-enterprise-server'],
+    to: '/integrations/sso/github-enterprise-server'
+  },
+  {
+    from: ['/integrations/sso-integrations/heroku'],
+    to: '/integrations/sso/heroku'
+  },
+  {
+    from: ['/integrations/sso-integrations/hosted-graphite'],
+    to: '/integrations/sso/hosted-graphite'
+  },
+  {
+    from: ['/integrations/sso-integrations/litmos'],
+    to: '/integrations/sso/litmos'
+  },
+  {
+    from: ['/integrations/sso-integrations/pluralsight'],
+    to: '/integrations/sso/pluralsight'
+  },
+  {
+    from: ['/integrations/sso-integrations/sprout-video'],
+    to: '/integrations/sso/sprout-video'
+  },
+  {
+    from: ['/integrations/sso-integrations/tableau-online'],
+    to: '/integrations/sso/tableau-online'
+  },
+  {
+    from: ['/integrations/sso-integrations/tableau-server'],
+    to: '/integrations/sso/tableau-server'
+  },
+  {
+    from: ['/integrations/sso-integrations/workday'],
+    to: '/integrations/sso/workday'
+  },
+  {
+    from: ['/integrations/sso-integrations/workpath'],
+    to: '/integrations/sso/workpath'
   },
   {
     from: ['/integrations/azure-tutorial','/azure-tutorial','/tutorials/azure-tutorial','/integrations/azure-api-management/configure-auth0','/integrations/azure-api-management/configure-azure'],

@@ -642,6 +642,7 @@ articles:
         url: /extensions/delegated-administration-extension
       - title: Custom Social Connections
         url: /extensions/custom-social-connections
+        hidden: true
       - title: SSO Dashboard Extension
         url: /extensions/single-sign-on-dashboard-extension
       - title: Authentication API Webhooks
@@ -757,9 +758,9 @@ articles:
             url: /integrations/sso/tableau-online
           - title: Tableau Server
             url: /integrations/sso/tableau-server
-          - title: Zendesk
+          - title: Workday
             url: /integrations/sso/workday
-          - title: Zendesk
+          - title: Workpath
             url: /integrations/sso/workpath
           - title: Zendesk
             url: /integrations/sso/zendesk
