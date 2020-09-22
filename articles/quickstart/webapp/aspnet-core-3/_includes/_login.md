@@ -1,6 +1,6 @@
 <!-- markdownlint-disable MD002 MD041 -->
 
-## Configure your application to use Auth0
+## Configure Your Application to Use Auth0
 
 [Universal Login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features. This guide will use it to provide a way for your users to log in to your ASP.NET Core application.
 
@@ -8,7 +8,7 @@
 You can also create a custom login for prompting the user for their username and password. To learn how to do this in your application, follow the [Custom Login sample](https://github.com/auth0-samples/auth0-aspnetcore-mvc-samples/tree/master/Samples/custom-login).
 :::
 
-### Install dependencies
+### Install Dependencies
 
 To integrate Auth0 with ASP.NET Core you will use the Cookie and OpenID Connect (OIDC) authentication handlers.
 
@@ -19,7 +19,7 @@ Install-Package Microsoft.AspNetCore.Authentication.Cookies
 Install-Package Microsoft.AspNetCore.Authentication.OpenIdConnect
 ```
 
-### Install and configure OpenID Connect Middleware
+### Install and Configure OpenID Connect Middleware
 
 To enable authentication in your ASP.NET Core application, use the OpenID Connect (OIDC) middleware.
 Go to the `ConfigureServices` method of your `Startup` class. To add the authentication services, call the `AddAuthentication` method. To enable cookie authentication, call the `AddCookie` method.
@@ -110,7 +110,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-## Trigger authentication
+## Trigger Authentication
 
 ### Add the `Login` and `Logout` Methods
 
@@ -154,7 +154,7 @@ public class AccountController : Controller
 
 ASP.NET Core calls `SignOutAsync` for the "Auth0" authentication scheme. You need to provide the OIDC middleware with the URL for logging the user out of Auth0. To set the URL, handle the `OnRedirectToIdentityProviderForSignOut` event when you register the OIDC authentication handler.
 
-When the application calls `SignOutAsync` for the OIDC middleware, it also calls the `/v2/logout` endpoint of the Auth0 Authentication API which will ensure the user is logged out of Auth0.
+When the application calls `SignOutAsync` for the OIDC middleware, it also calls the `/v2/logout` endpoint of the Auth0 Authentication API, which will ensure the user is logged out of Auth0.
 
 If you specify the `returnTo` parameter, the users will be redirected there after they are logged out. Specify the URL for redirecting users in the **Allowed Logout URLs** field in your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
 
@@ -231,7 +231,7 @@ Add the **Log In** and **Log Out** buttons to the navigation bar. In the `/Views
 
 When the user selects the **Log In** button, the OIDC middleware redirects them to the hosted version of the [Lock](/libraries/lock/v10/customization) widget in your Auth0 domain.
 
-#### About the login flow
+#### About the Login Flow
 
 1. The user clicks on the **Log In** button and is directed to the `Login` route.
 2. The `ChallengeAsync` tells the ASP.NET authentication middleware to issue a challenge to the authentication handler registered with the Auth0 `authenticationScheme` parameter. The parameter uses the "Auth0" value you passed in the call to `AddOpenIdConnect` in the `Startup` class.
@@ -267,6 +267,11 @@ public void ConfigureServices(IServiceCollection services)
         {
             OnRedirectToIdentityProvider = context =>
             {
+                // The context's ProtocolMessage can be used to pass along additional query parameters
+                // to Auth0's /authorize endpoint.
+                // 
+                // Set the audience query parameter to the API identifier to ensure the returned Access Tokens can be used
+                // to call protected endpoints on the corresponding API.
                 context.ProtocolMessage.SetParameter("audience", Configuration["Auth0:Audience"]);
 
                 return Task.FromResult(0);
@@ -285,7 +290,7 @@ Be sure to also update your application's `appsettings.json` file to include the
 }
 ```
 
-### Store and retrieve the Tokens
+### Store and Retrieve the Tokens
 
 The OIDC middleware in ASP.NET Core automatically decodes the ID Token returned from Auth0 and adds the claims from the ID Token as claims in the `ClaimsIdentity`. This means that you can use `User.Claims.FirstOrDefault("<claim type>").Value` to obtain the value of any claim inside any action in your controllers.
 

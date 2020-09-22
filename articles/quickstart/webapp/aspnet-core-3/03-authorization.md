@@ -18,12 +18,12 @@ ASP.NET Core supports [Role based Authorization](https://docs.microsoft.com/en-u
 To follow the tutorial, make sure you are familiar with [Rules](/rules/current).
 :::
 
-## Create and assign roles
+## Create and Assign Roles
 
-Before we can add Role Based Access Control, we will need to ensure the required roles are created and assigned to the corresponding user(s).
+Before you can add Role Based Access Control, you will need to ensure the required roles are created and assigned to the corresponding user(s).
 Follow the guidance explained in [assign-roles-to-users](/users/assign-roles-to-users) to ensure your user gets assigned the `admin` role.
 
-Once the role is created and assigned to the required user(s), we will need to create a [rule](/rules/current) that adds the role(s) to the IdToken so that it is available for our backend. To do so, go to the [new rule page](${manage_url}/#/rules/new) and create an empty rule. Then, use the following code for your rule:
+Once the role is created and assigned to the required user(s), you will need to create a [rule](/rules/current) that adds the role(s) to the IdToken so that it is available for your backend. To do so, go to the [new rule page](${manage_url}/#/rules/new) and create an empty rule. Then, use the following code for your rule:
 
 ``` js
 function (user, context, callback) {
@@ -83,32 +83,4 @@ public IActionResult Admin()
 {
     return View();
 }
-```
-
-We will also need to add a view that represents the Admin route:
-
-``` html
-<!-- Views/Home/Admin.cshtml -->
-@{
-    ViewData["Title"] = "Admin Page";
-}
-
-<div class="row">
-    <div class="col-md-12">
-        <h2>Welcome to the Admin section</h2>
-        <p>This page is only visible to administators</p>
-    </div>
-</div>
-```
-To make it a bit easier to navigate to the Admin route, let's also add a navigation item to `_Layout.cshtml`:
-
-``` html
-<!-- Views/Shared/_Layout.cshtml -->
-<ul class="nav navbar-nav">
-    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-    @if (User.Identity.IsAuthenticated)
-    {
-        <li><a asp-area="" asp-controller="Home" asp-action="Admin">Admin Section</a></li>
-    }
-</ul>
 ```
