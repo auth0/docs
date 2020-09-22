@@ -49,7 +49,7 @@ The ASP.NET Core JWT Bearer authentication handler downloads the JSON Web Key Se
 
 In your application, register the authentication services:
 
-1. Make a call to the `AddAuthentication` method. Configure JwtBearerDefaults.AuthenticationScheme as the default schemes.  
+1. Make a call to the `AddAuthentication` method. Configure `JwtBearerDefaults.AuthenticationScheme` as the default schemes.  
 2. Make a call to the `AddJwtBearer` method to register the JWT Bearer authentication scheme. Configure your Auth0 domain as the authority, and your Auth0 API identifier as the audience. In some cases the access token will not have a `sub` claim which will lead to `User.Identity.Name` being `null`. If you want to map a different claim to `User.Identity.Name` then add it to `options.TokenValidationParameters` within the `AddAuthentication()` call.
 
 ```csharp
@@ -75,7 +75,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-To add the authentication and authorization middleware to the middleware pipeline, add a call to the `UseAuthentication` and `UseAuthorization` methods in your Startup's Configure method:
+To add the authentication and authorization middleware to the middleware pipeline, add a call to the `UseAuthentication` and `UseAuthorization` methods in your Startup's `Configure` method:
 
 ```csharp
 // Startup.cs
