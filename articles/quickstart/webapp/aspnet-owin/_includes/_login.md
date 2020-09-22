@@ -8,7 +8,7 @@
 You can also create a custom login for prompting the user for their username and password. To learn how to do this in your application, follow the [Custom Login sample](https://github.com/auth0-samples/auth0-aspnet-owin-mvc-samples/tree/master/Samples/custom-login).
 :::
 
-### Install and Configure the OpenID Connect Middleware
+### Install and configure the OpenID Connect middleware
 
 ::: note
   This quickstart makes use of OWIN middleware and as such, you need to use OWIN in your application. If your application is not currently making use of OWIN, please refer to Microsoft's <a href="https://docs.microsoft.com/en-us/aspnet/aspnet/overview/owin-and-katana/">OWIN documentation</a> to enable it in your application.
@@ -124,7 +124,7 @@ In the code snippet above, note that the `AuthenticationType` is set to **Auth0*
 
 ## Trigger Authentication
 
-### Add Login and Logout Methods
+### Add Login and Logout methods
 
 Next, you will need to add `Login` and `Logout` actions to the `AccountController`.
 
@@ -160,7 +160,7 @@ public class AccountController : Controller
 }
 ```
 
-### Add Login and Logout Links
+### Add Login and Logout links
 
 To add the Login and Logout links to the navigation bar, head over to `/Views/Shared/_Layout.cshtml` and add code to the navigation bar section which displays a Logout link when the user is authenticated, otherwise a Login link. These will link to the `Logout` and `Login` actions of the `AccountController` respectively:
 
@@ -196,7 +196,7 @@ To add the Login and Logout links to the navigation bar, head over to `/Views/Sh
 </div>
 ```
 
-### Obtain an Access Token for Calling an API
+### Obtain an Access Token for calling an API
 
 If you want to call an API from your MVC application, you need to obtain an Access Token issued for the API you want to call. To receive and Access Token, pass an additional audience parameter containing the API identifier to the Auth0 authorization endpoint.
 
