@@ -8,7 +8,7 @@
 You can also create a custom login for prompting the user for their username and password. To learn how to do this in your application, follow the [Custom Login sample](https://github.com/auth0-samples/auth0-aspnetcore-mvc-samples/tree/master/Samples/custom-login).
 :::
 
-### Install Dependencies
+### Install dependencies
 
 To integrate Auth0 with ASP.NET Core you will use the Cookie and OpenID Connect (OIDC) authentication handlers.
 
@@ -19,7 +19,7 @@ Install-Package Microsoft.AspNetCore.Authentication.Cookies
 Install-Package Microsoft.AspNetCore.Authentication.OpenIdConnect
 ```
 
-### Install and Configure OpenID Connect Middleware
+### Install and configure OpenID Connect middleware
 
 To enable authentication in your ASP.NET Core application, use the OpenID Connect (OIDC) middleware.
 Go to the `ConfigureServices` method of your `Startup` class. To add the authentication services, call the `AddAuthentication` method. To enable cookie authentication, call the `AddCookie` method.
@@ -112,7 +112,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 ## Trigger Authentication
 
-### Add the `Login` and `Logout` Methods
+### Add the `Login` and `Logout` methods
 
 Add the `Login` and `Logout` actions to `AccountController`.
 
@@ -204,7 +204,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-### Add the Log In and Log Out Buttons
+### Add the Login and Logout buttons
 
 Add the **Log In** and **Log Out** buttons to the navigation bar. In the `/Views/Shared/_Layout.cshtml` file, in the navigation bar section, add code that displays the **Log Out** button when the user is authenticated and the **Log In** button if not. The buttons link to the `Logout` and `Login` actions in the `AccountController`:
 
@@ -227,11 +227,11 @@ Add the **Log In** and **Log Out** buttons to the navigation bar. In the `/Views
 </div>
 ```
 
-### Run the Application
+### Run the application
 
 When the user selects the **Log In** button, the OIDC middleware redirects them to the hosted version of the [Lock](/libraries/lock/v10/customization) widget in your Auth0 domain.
 
-#### About the Login Flow
+#### About the login flow
 
 1. The user clicks on the **Log In** button and is directed to the `Login` route.
 2. The `ChallengeAsync` tells the ASP.NET authentication middleware to issue a challenge to the authentication handler registered with the Auth0 `authenticationScheme` parameter. The parameter uses the "Auth0" value you passed in the call to `AddOpenIdConnect` in the `Startup` class.
@@ -290,7 +290,7 @@ Be sure to also update your application's `appsettings.json` file to include the
 }
 ```
 
-### Store and Retrieve the Tokens
+### Store and retrieve the tokens
 
 The OIDC middleware in ASP.NET Core automatically decodes the ID Token returned from Auth0 and adds the claims from the ID Token as claims in the `ClaimsIdentity`. This means that you can use `User.Claims.FirstOrDefault("<claim type>").Value` to obtain the value of any claim inside any action in your controllers.
 
