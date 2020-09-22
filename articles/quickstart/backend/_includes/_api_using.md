@@ -1,4 +1,4 @@
-## Calling the API from your application
+## Calling the API From Your Application
 
 You can call the API from your application by passing an Access Token in the `Authorization` header of your HTTP request as a Bearer token.
 

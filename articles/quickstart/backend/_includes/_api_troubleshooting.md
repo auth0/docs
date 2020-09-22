@@ -4,7 +4,7 @@ If you configured JWT validation correctly, you will be able to get proper respo
 
 This document will help you troubleshoot your JWT middleware configuration.
 
-## How does a token get validated?
+## How Does a Token Get Validated?
 
 In terms of validating a JWT, there are various things to consider:
 
@@ -22,7 +22,7 @@ In terms of validating a JWT, there are various things to consider:
 
 5. **Is the token intended for the current application?** So does the `aud` claim of the JWT match with what your application is expecting?
 
-## Inspecting a token
+## Inspecting a Token
 
 A quick way to inspect a JWT is by using the [JWT.io](https://jwt.io/) website. It has a handy debugger which allows you to quickly check that a JWT is well-formed, and also inspect the values of the various claims.
 

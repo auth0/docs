@@ -91,7 +91,7 @@ To debug potential configuration issues, inspect the log files for your applicat
 
 In this example, we run the application from the command line and inspect the console log output.
 
-### 1. Are you Passing the JWT in the Authorization Header?
+### 1. Are you passing the JWT in the Authorization header?
 
 Check if you are passing the JWT as a Bearer token in the `Authorization` header of the HTTP request.
 

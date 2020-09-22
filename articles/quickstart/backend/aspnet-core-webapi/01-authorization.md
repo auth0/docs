@@ -34,7 +34,7 @@ The sample code has an `appsettings.json` file which configures it to use the co
 ```
 ## Validate Access Tokens
 
-### Install Dependencies
+### Install dependencies
 
 The seed project already contains a reference to the `Microsoft.AspNetCore.Authentication.JwtBearer`, which is needed in order to validate Access Tokens.
 However, if you are not using the seed project, add the package to your application by installing it using Nuget:
@@ -43,7 +43,7 @@ However, if you are not using the seed project, add the package to your applicat
 Install-Package Microsoft.AspNetCore.Authentication.JwtBearer
 ```
 
-### Configure the Middleware
+### Configure the middleware
 
 The ASP.NET Core JWT Bearer authentication handler downloads the JSON Web Key Set (JWKS) file with the public key. The handler uses the JWKS file and the public key to verify the Access Token's signature.
 
@@ -96,7 +96,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-### Validate Scopes
+### Validate scopes
 
 To make sure that an Access Token contains the correct scope, use the [Policy-Based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies) in ASP.NET Core.
 
