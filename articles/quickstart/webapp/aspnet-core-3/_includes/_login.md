@@ -112,7 +112,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 ## Trigger Authentication
 
-### Add the `Login` and `Logout` methods
+### Add the Login and Logout methods
 
 Add the `Login` and `Logout` actions to `AccountController`.
 
