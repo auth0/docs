@@ -9,6 +9,9 @@ topics:
   - api
 github:
   path: Sample-01
+sample_download_required_data:
+  - client
+  - api
 contentType: tutorial
 useCase: quickstart
 ---
@@ -67,14 +70,14 @@ In this case, the audience and scope for the Auth0 Management API are given, whi
 ```javascript
 AuthModule.forRoot({
   // The domain and clientId were configured in the previous chapter
-  domain: "${account.namespace}",
-  clientId: "${account.clientId}",
+  domain: '${account.namespace}',
+  clientId: '${account.clientId}',
 
   // Request this audience at user authentication time
-  audience: "https://${account.namespace}/api/v2/",
+  audience: 'https://${account.namespace}/api/v2/',
 
   // Request this scope at user authentication time
-  scope: "read:current_user",
+  scope: 'read:current_user',
 
   // Specify configuration for the interceptor              
   httpInterceptor: {
