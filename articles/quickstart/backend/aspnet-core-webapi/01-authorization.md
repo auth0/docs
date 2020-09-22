@@ -20,7 +20,7 @@ useCase: quickstart
 
 <%= include('../_includes/_api_auth_preamble') %>
 
-## Configure the Sample project
+## Configure the Sample Project
 
 The sample code has an `appsettings.json` file which configures it to use the correct Auth0 **Domain** and **API Identifier** for your API. If you download the code from this page while logged in, it will be automatically filled. If you use the example from Github, you will need to fill it yourself.
 
@@ -34,7 +34,7 @@ The sample code has an `appsettings.json` file which configures it to use the co
 ```
 ## Validate Access Tokens
 
-### Install dependencies
+### Install Dependencies
 
 The seed project already contains a reference to the `Microsoft.AspNetCore.Authentication.JwtBearer`, which is needed in order to validate Access Tokens.
 However, if you are not using the seed project, add the package to your application by installing it using Nuget:
@@ -43,7 +43,7 @@ However, if you are not using the seed project, add the package to your applicat
 Install-Package Microsoft.AspNetCore.Authentication.JwtBearer
 ```
 
-### Configure the middleware
+### Configure the Middleware
 
 The ASP.NET Core JWT Bearer authentication handler downloads the JSON Web Key Set (JWKS) file with the public key. The handler uses the JWKS file and the public key to verify the Access Token's signature.
 
@@ -75,7 +75,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-To add the authentication middleware to the middleware pipeline, add a call to the `UseAuthentication` method in your Startup's Configure method:
+To add the authentication and authorization middleware to the middleware pipeline, add a call to the `UseAuthentication` and `UseAuthorization` methods in your Startup's Configure method:
 
 ```csharp
 // Startup.cs
@@ -85,6 +85,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     // Some code omitted for brevity...
 
     app.UseAuthentication();
+    app.UseAuthorization();
 
     app.UseMvc(routes =>
     {
@@ -95,7 +96,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-### Validate scopes
+### Validate Scopes
 
 To make sure that an Access Token contains the correct scope, use the [Policy-Based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies) in ASP.NET Core.
 
@@ -183,7 +184,7 @@ public class ApiController : ControllerBase
 }
 ```
 
-To secure endpoints that require specific scopes, we need to make sure that the correct scope is present in the `access_token`. To do that, add an action named `Scoped`, apply the `Authorize` attribute and pass `read:messages` as the `policy` parameter. 
+To secure endpoints that require specific scopes, we need to make sure that the correct scope is present in the `access_token`. To do that, add the `Authorize` attribute to the `Scoped` action and pass `read:messages` as the `policy` parameter. 
 
 ```csharp
 // Controllers/ApiController.cs
