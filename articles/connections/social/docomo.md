@@ -5,6 +5,7 @@ image: /media/connections/daccount.png
 seo_alias: docomo
 description: Learn how to add login functionality to your app with Docomo dAccount. You will need to obtain a Client Id and Client Secret for Docomo.
 toc: true
+public: true
 index: 7
 topics:
   - connections

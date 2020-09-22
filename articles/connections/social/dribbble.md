@@ -5,6 +5,7 @@ image: /media/connections/dribbble.png
 seo_alias: dribbble
 description: Learn how to add login functionality to your app with Dribbble. You will need to obtain a Client ID and Client Secret for Dribbble.
 toc: true
+public: true
 index: 6
 topics:
   - connections
@@ -14,7 +15,6 @@ contentType: how-to
 useCase:
     - customize-connections
     - add-idp
-public: false
 ---
 <%= include('../../../snippets/social/dribbble/0') %> 
 <%= include('../../../snippets/social/dribbble/1') %> 

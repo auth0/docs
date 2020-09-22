@@ -5,6 +5,7 @@ image: /media/connections/dwolla.png
 seo_alias: dwolla
 description: Learn how to add login functionality to your app with Dwolla. You will need to obtain a Client Id and Client Secret for Dwolla.
 toc: true
+public: true
 index: 9
 topics:
   - connections

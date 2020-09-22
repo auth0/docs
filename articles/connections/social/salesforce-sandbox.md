@@ -3,9 +3,10 @@ title: Connect Apps to Salesforce Sandbox
 connection: Salesforce Sandbox
 image: /media/connections/salesforce.png
 seo_alias: salesforce-sandbox
+toc: true
+public: true
 index: 28
 description: Learn how to add login functionality to your app with Salesforce Sandbox. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
-toc: true
 topics:
   - connections
   - social

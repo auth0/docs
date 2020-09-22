@@ -1,10 +1,11 @@
 ---
 title: Connect Apps to Yahoo
-connection: Yahoo!
-index: 36
-image: /media/connections/yahoo.png
 description: Learn how to add login functionality to your app with Yahoo. You will need to obtain a Consumer Key and Consumer Secret for Yahoo.
+connection: Yahoo!
+image: /media/connections/yahoo.png
 seo_alias: yahoo
+public: true
+index: 36
 toc: true
 topics:
   - connections

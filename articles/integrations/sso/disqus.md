@@ -2,7 +2,7 @@
 title: Disqus Single Sign-On Integration
 description: Learn how to set up Single Sign-on (SSO) integration with Disqus and Auth0.
 toc: true
-public: true
+public: false
 topics:
   - sso
   - disqus

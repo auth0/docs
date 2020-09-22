@@ -2,7 +2,7 @@
 title: Tableau Server Single Sign-On Integration
 description: Learn how to set up a Single Sign-on (SSO) integration with Tableau Server and Auth0.
 toc: true
-public: false
+public: true
 topics:
   - sso
   - tableau-server

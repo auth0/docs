@@ -5,6 +5,7 @@ image: /media/connections/digitalocean.png
 seo_alias: digitalocean
 description: Learn how to add login functionality to your app with DigitalOcean. You will need to obtain a Client ID and Client Secret for DigitalOcean.
 toc: true
+public: true
 index: 6
 topics:
   - connections
@@ -14,7 +15,6 @@ contentType: how-to
 useCase:
     - customize-connections
     - add-idp
-public: false
 ---
 <%= include('../../../snippets/social/digitalocean/0') %> 
 <%= include('../../../snippets/social/digitalocean/1') %> 

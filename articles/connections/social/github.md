@@ -3,9 +3,10 @@ title: Connect Apps to GitHub
 connection: Github
 image: /media/connections/github.png
 seo_alias: github
+toc: true
+public: true
 index: 16
 description: Learn how to add login functionality to your app with GitHub. You can also access the GitHub API.
-toc: true
 topics:
   - connections
   - social

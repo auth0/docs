@@ -5,6 +5,7 @@ image: /media/connections/spotify.png
 seo_alias: spotify
 description: Learn how to add login functionality to your app with Spotify. You will need to obtain a Client ID and Client Secret for Spotify.
 toc: true
+public: true
 index: 6
 topics:
   - connections
@@ -14,7 +15,6 @@ contentType: how-to
 useCase:
     - customize-connections
     - add-idp
-public: false
 ---
 <%= include('../../../snippets/social/spotify/0') %> 
 <%= include('../../../snippets/social/spotify/1') %> 

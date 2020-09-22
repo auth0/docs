@@ -5,6 +5,7 @@ image: /media/connections/figma.png
 seo_alias: figma
 description: Learn how to add login functionality to your app with Figma. You will need to obtain a Client ID and Client Secret for Figma.
 toc: true
+public: true
 index: 6
 topics:
   - connections
@@ -14,7 +15,6 @@ contentType: how-to
 useCase:
     - customize-connections
     - add-idp
-public: false
 ---
 <%= include('../../../snippets/social/figma/0') %> 
 <%= include('../../../snippets/social/figma/1') %> 

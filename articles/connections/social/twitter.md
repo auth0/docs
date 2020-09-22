@@ -2,10 +2,11 @@
 title: Connect Apps to Twitter
 connection: Twitter
 image: /media/connections/twitter.png
-description: Learn how to add login functionality to your app with Twitter. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
 seo_alias: twitter
-index: 32
+description: Learn how to add login functionality to your app with Twitter. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
 toc: true
+public: true
+index: 32
 topics:
   - connections
   - social

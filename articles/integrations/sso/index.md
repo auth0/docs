@@ -1,34 +1,48 @@
 ---
 title: Single Sign-On Integrations
-description: Overview of Auth0 Single Sign-on (SSO) Integrations.
+description: Learn about Auth0 Single Sign-on (SSO) Integrations.
 topics:
   - sso
 contentType:
-  - how-to
   - index
 useCase: integrate-saas-sso
 ---
-
 # Single Sign-On Integrations
 
-<dfn data-key="single-sign-on">Single Sign-on (SSO)</dfn> Integrations are client applications that enable the use of external services (e.g., Dropbox, Slack, or Zoom) for SSO. The integration allows your users to log in using Auth0's [identity providers](/identityproviders).
+Single Sign-on (SSO) Integrations are client applications that enable the use of external services (e.g., Dropbox, Slack, or Zoom) for SSO. The integration allows your users to log in using Auth0's [identity providers](/identityproviders).
 
 Auth0 provides SSO Integrations for the following services:
 
 - [Active Directory RMS](/integrations/sso/ad-rms)
 - [Adobe Sign](/integrations/sso/adobe-sign)
 - [Box](/integrations/sso/box)
+- [Cisco WebEx](/integrations/sso/cisco-webex)
 - [CloudBees](/integrations/sso/cloudbees)
 - [Concur](/integrations/sso/concur)
+- [Dropbox](/integrations/sso/datadog)
 - [Dropbox](/integrations/sso/dropbox)
-- [Microsoft Dynamics CRM](/integrations/sso/dynamics-crm)
+- [Dynamics CRM](/integrations/sso/dynamics-crm)
+- [Egencia](/integrations/sso/egencia)
 - [Egnyte](/integrations/sso/egnyte)
+- [Eloqua](/integrations/sso/eloqua)
+- [Freshdesk](/integrations/sso/freshdesk)
+- [G Suite](/integrations/sso/g-suite)
+- [GitHub Enterprise Cloud](/integrations/sso/github-enterprise-cloud)
+- [GitHub Enterprise Server](/integrations/sso/github-enterprise-server)
+- [Heroku](/integrations/sso/heroku)
+- [Hosted Graphite](/integrations/sso/hosted-graphite)
+- [Litmos](/integrations/sso/litmos)
 - [New Relic](/integrations/sso/new-relic)
 - [Office 365](/integrations/sso/office-365)
+- [Pluralsight](/integrations/sso/pluralsight)
 - [Salesforce](/integrations/sso/salesforce)
 - [Sentry](/integrations/sso/sentry)
-- [SharePoint](/integrations/sso/sharepoint)
 - [Slack](/integrations/sso/slack)
 - [SpringCM](/integrations/sso/springcm)
+- [Sprout Video](/integrations/sso/sprout-video)
+- [Tableau Online](/integrations/sso/tableau-online)
+- [Tableau Server](/integrations/sso/tableau-server)
+- [Workday](/integrations/sso/workday)
+- [Workpath](/integrations/sso/workpath)
 - [Zendesk](/integrations/sso/zendesk)
 - [Zoom](/integrations/sso/zoom)

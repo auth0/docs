@@ -4,6 +4,8 @@ connection: Exact
 image: /media/connections/exact.png
 seo_alias: exact
 description: Learn how to add login functionality to your app with Exact.
+toc: true
+public: true
 index: 12
 topics:
   - connections

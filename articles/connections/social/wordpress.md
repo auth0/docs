@@ -1,10 +1,11 @@
 ---
 title: Connect Apps to WordPress
+description: Learn how to add login functionality to your app with WordPress. You will need to obtain a Client Id and Client Secret for WordPress.
 connection: WordPress
 image: /media/connections/wordpress.png
 seo_alias: wordpress
+public: true
 index: 35
-description: Learn how to add login functionality to your app with WordPress. You will need to obtain a Client Id and Client Secret for WordPress.
 toc: true
 topics:
   - connections

@@ -700,39 +700,71 @@ articles:
         url: /integrations/sso-integrations
         children:
           - title: Active Directory RMS
-            url: /integrations/sso-integrations/ad-rms-sso-integration
+            url: /integrations/sso/ad-rms
+          - title: Adobe Sign
+            url: /integrations/sso/adobe-sign
           - title: Box
-            url: /integrations/sso-integrations/box
+            url: /integrations/sso/box
+          - title: Cisco WebEx
+            url: /integrations/sso/cisco-webex
           - title: CloudBees
-            url: /integrations/sso-integrations/cloudbees
+            url: /integrations/sso/cloudbees
           - title: Concur
-            url: /integrations/sso-integrations/concur
+            url: /integrations/sso/concur
+          - title: Datadog
+            url: /integrations/sso/datadog
           - title: Dropbox
-            url: /integrations/sso-integrations/dropbox
-          - title: Microsoft Dynamics CRM
-            url: /integrations/sso-integrations/dynamics-crm
-          - title: Adobe Echosign
-            url: /integrations/sso-integrations/echosign
+            url: /integrations/sso/dropbox
+          - title: Dynamics CRM
+            url: /integrations/sso/dynamics-crm
+          - title: Egencia
+            url: /integrations/sso/egencia
           - title: Egnyte
-            url: /integrations/sso-integrations/egnyte
+            url: /integrations/sso/egnyte
+          - title: Eloqua
+            url: /integrations/sso/eloqua
+          - title: Freshdesk
+            url: /integrations/sso/freshdesk
+          - title: G Suite
+            url: /integrations/sso/g-suite
+          - title: GitHub Enterprise Cloud
+            url: /integrations/sso/github-enterprise-cloud
+          - title: GitHub Enterprise Server
+            url: /integrations/sso/github-enterprise-server
+          - title: Heroku
+            url: /integrations/sso/heroku
+          - title: Hosted Graphite
+            url: /integrations/sso/hosted-graphite
+          - title: Litmos
+            url: /integrations/sso/litmos
           - title: New Relic
-            url: /integrations/sso-integrations/new-relic
+            url: /integrations/sso/new-relic
           - title: Office 365
-            url: /integrations/sso-integrations/office-365
+            url: /integrations/sso/office-365
+          - title: Pluralsight
+            url: /integrations/sso/pluralsight
           - title: Salesforce
-            url: /integrations/sso-integrations/salesforce
+            url: /integrations/sso/salesforce
           - title: Sentry
-            url: /integrations/sso-integrations/sentry
-          - title: SharePoint
-            url: /integrations/sso-integrations/sharepoint
+            url: /integrations/sso/sentry
           - title: Slack
-            url: /integrations/sso-integrations/slack
+            url: /integrations/sso/slack
           - title: SpringCM
-            url: /integrations/sso-integrations/springcm
+            url: /integrations/sso/springcm
+          - title: Sprout Video
+            url: /integrations/sso/sprout-video
+          - title: Tableau Online
+            url: /integrations/sso/tableau-online
+          - title: Tableau Server
+            url: /integrations/sso/tableau-server
           - title: Zendesk
-            url: /integrations/sso-integrations/zendesk
+            url: /integrations/sso/workday
+          - title: Zendesk
+            url: /integrations/sso/workpath
+          - title: Zendesk
+            url: /integrations/sso/zendesk
           - title: Zoom
-            url: /integrations/sso-integrations/zoom
+            url: /integrations/sso/zoom
       - title: Marketing
         url: /integrations/marketing
         children:
@@ -1194,6 +1226,10 @@ articles:
         url: /professional-services/maintain-improve
       - title: Packages
         url: /professional-services/packages
+  - title: Auth0 Marketplace
+    external: true
+    forceFullReload: true
+    url: 'https://marketplace.auth0.com/'
   - title: Auth0 Community
     external: true
     forceFullReload: true

@@ -1,8 +1,8 @@
 ---
 title: G Suite Single Sign-On Integration
-description: How to set up a Single Sign-on (SSO) integration with G Suite and Auth0.
+description: Learn how to set up a Single Sign-on (SSO) integration with G Suite and Auth0.
 toc: true
-public: false
+public: true
 topics:
   - sso
   - g-suite

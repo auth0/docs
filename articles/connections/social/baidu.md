@@ -5,6 +5,7 @@ image: /media/connections/baidu.png
 seo_alias: baidu
 description: Learn how to add login functionality to your app with Baidy. You will need to obtain a Client Id and Client Secret for Baidu.
 toc: true
+public: true
 index: 3
 topics:
   - connections

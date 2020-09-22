@@ -5,6 +5,7 @@ image: /media/connections/clever.png
 seo_alias: clever
 description: Learn how to add login functionality to your app with Clever. You will need to obtain a Client ID and Client Secret for Clever.
 toc: true
+public: true
 index: 6
 topics:
   - connections
@@ -14,7 +15,6 @@ contentType: how-to
 useCase:
     - customize-connections
     - add-idp
-public: false
 ---
 <%= include('../../../snippets/social/clever/0') %> 
 <%= include('../../../snippets/social/clever/1') %> 

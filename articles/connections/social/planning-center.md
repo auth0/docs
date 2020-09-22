@@ -5,6 +5,7 @@ image: /media/connections/planning-center.png
 seo_alias: planning-center
 description: Learn how to add login functionality to your app with Planning Center. You will need to get a Client Id and Client Secret for Planning Center.
 toc: true
+public: true
 index: 25
 topics:
   - connections
