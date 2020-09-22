@@ -1229,7 +1229,7 @@ articles:
   - title: Auth0 Marketplace
     external: true
     forceFullReload: true
-    url: 'https://marketplace.stage.auth0.com/'
+    url: 'https://marketplace.auth0.com/'
   - title: Auth0 Community
     external: true
     forceFullReload: true
