@@ -239,6 +239,11 @@ public void Configuration(IAppBuilder app)
             {
                 if (notification.ProtocolMessage.RequestType == OpenIdConnectRequestType.Authentication)
                 {
+                    // The context's ProtocolMessage can be used to pass along additional query parameters
+                    // to Auth0's /authorize endpoint.
+                    // 
+                    // Set the audience query parameter to the API identifier to ensure the returned Access Tokens can be used
+                    // to call protected endpoints on the corresponding API.
                     notification.ProtocolMessage.SetParameter("audience", auth0Audience);
                 }
                 else if (notification.ProtocolMessage.RequestType == OpenIdConnectRequestType.Logout)
