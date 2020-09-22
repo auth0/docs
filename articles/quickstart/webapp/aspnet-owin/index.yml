@@ -18,7 +18,6 @@ alias:
 seo_alias: aspnet-owin
 default_article: 01-login
 articles:
-  - 00-intro
   - 01-login
   - 02-user-profile
   - 03-authorization

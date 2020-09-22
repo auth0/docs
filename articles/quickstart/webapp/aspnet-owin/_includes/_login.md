@@ -1,6 +1,6 @@
 <!-- markdownlint-disable MD002 MD041 -->
 
-## Configure your application to use Auth0
+## Configure Your Application to Use Auth0
 
 [Universal Login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features. This guide will use it to provide a way for your users to log in to your ASP.NET MVC 5 application.
 
@@ -8,7 +8,7 @@
 You can also create a custom login for prompting the user for their username and password. To learn how to do this in your application, follow the [Custom Login sample](https://github.com/auth0-samples/auth0-aspnet-owin-mvc-samples/tree/master/Samples/custom-login).
 :::
 
-### Install and configure the OpenID Connect middleware
+### Install and Configure the OpenID Connect Middleware
 
 ::: note
   This quickstart makes use of OWIN middleware and as such, you need to use OWIN in your application. If your application is not currently making use of OWIN, please refer to Microsoft's <a href="https://docs.microsoft.com/en-us/aspnet/aspnet/overview/owin-and-katana/">OWIN documentation</a> to enable it in your application.
@@ -43,9 +43,6 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OpenIdConnect;
 using MvcApplication.Support;
 using Owin;
-using System;
-using System.Configuration;
-using System.Threading.Tasks;
 
 public void Configuration(IAppBuilder app)
 {
@@ -266,7 +263,7 @@ As the above snippet is reading the `Auth0:Audience` from the appSettings, ensur
 </configuration>
 ```
 
-To access the ID Token and Access Token from one of your controllers, cast the `User.Identity` property to a `ClaimsIdentity`, and then find the particular claim by calling the `FindFirst` method. In this examle, we will be adding a Tokens action to the Account controller.
+To access the ID Token and Access Token from one of your controllers, cast the `User.Identity` property to a `ClaimsIdentity`, and then find the particular claim by calling the `FindFirst` method.
 
 ``` csharp
 // Controllers/AccountController.cs
@@ -276,37 +273,10 @@ public ActionResult Tokens()
 {
     var claimsIdentity = User.Identity as ClaimsIdentity;
 
-    ViewBag.AccessToken = claimsIdentity?.FindFirst(c => c.Type == "access_token")?.Value;
-    ViewBag.IdToken = claimsIdentity?.FindFirst(c => c.Type == "id_token")?.Value;
+    // Extract tokens
+    string accessToken = claimsIdentity?.FindFirst(c => c.Type == "access_token")?.Value;
+    string idToken = claimsIdentity?.FindFirst(c => c.Type == "id_token")?.Value;
 
-    return View();
+    // Now you can use the tokens as appropriate...
 }
-```
-
-To accompany the above actionm also add the corresponding view by adding a file called `Tokens.cshtml` to `Views/Account`:
-
-``` html
-<!-- Views/Account/Tokens.cshtml -->
-
-<div class="row">
-    <div class="col-md-12">
-
-        <h3>Tokens for the User</h3>
-        <p>Tokens can be extracted from the user's claims. You can use these tokens when calling your APIs</p>
-
-        <p><strong>Access Token:</strong> @ViewBag.AccessToken</p>
-        <p><strong>ID Token:</strong> @ViewBag.IdToken</p>
-    </div>
-</div>
-
-```
-
-To make navigating to the route above a little bit easier, lets move over to `_Layout.cshtml` and add a navigation item to the `ul` that represents the main navigation. 
-
-``` html
-<!-- Views/Shared/_Layout_.cshtml -->
-<ul class="nav navbar-nav">
-    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-    <li>@Html.ActionLink("Tokens", "Tokens", "Account")</li>
-</ul>
 ```

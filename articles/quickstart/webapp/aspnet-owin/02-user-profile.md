@@ -106,7 +106,7 @@ Next, create a view. For the view, display the user's name, email address and pr
 
 Now when you log in and then go to the URL `/Account/UserProfile` you will see the user's profile displayed.
 
-## Displaying the user's name in the navigation bar
+## Displaying the User's Name in the Navigation Bar
 
 You may also want to put a link in the top navigation bar to display the user's name, and when the user clicks on that, you can navigate them to their Profile page.
 
