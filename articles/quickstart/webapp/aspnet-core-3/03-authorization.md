@@ -18,57 +18,25 @@ ASP.NET Core supports [Role based Authorization](https://docs.microsoft.com/en-u
 To follow the tutorial, make sure you are familiar with [Rules](/rules/current).
 :::
 
-## Create a Rule to Assign Roles
+## Create and Assign Roles
 
-Create a rule that assigns the following access roles to your user:
-* An admin role
-* A regular user role
+Before you can add Role Based Access Control, you will need to ensure the required roles are created and assigned to the corresponding user(s).
+Follow the guidance explained in [assign-roles-to-users](/users/assign-roles-to-users) to ensure your user gets assigned the `admin` role.
 
-To assign roles, go to the [New rule page](${manage_url}/#/rules/new). In the **Access Control** section, create an empty rule.
+Once the role is created and assigned to the required user(s), you will need to create a [rule](/rules/current) that adds the role(s) to the IdToken so that it is available for your backend. To do so, go to the [new rule page](${manage_url}/#/rules/new) and create an empty rule. Then, use the following code for your rule:
 
-Use the following code for your rule:
-
-```js
+``` js
 function (user, context, callback) {
+  const assignedRoles = (context.authorization || {}).roles;
+  const idTokenClaims = context.idToken || {};
 
-    // Roles should only be set to verified users.
-    if (!user.email || !user.email_verified) {
-        return callback(null, user, context);
-    }
+  idTokenClaims['https://schemas.quickstarts.com/roles'] = assignedRoles;
 
-    user.app_metadata = user.app_metadata || {};
-    // You can add a Role based on what you want
-    // In this case I check domain
-    const addRolesToUser = function(user) {
-        const endsWith = '@example.com';
-
-        if (user.email && (user.email.substring(user.email.length - endsWith.length, user.email.length) === endsWith)) {
-            return ['admin'];
-        }
-        return ['user'];
-    };
-
-    const roles = addRolesToUser(user);
-
-    user.app_metadata.roles = roles;
-    auth0.users.updateAppMetadata(user.user_id, user.app_metadata)
-        .then(function() {
-            context.idToken['https://schemas.quickstarts.com/roles'] = user.app_metadata.roles;
-            callback(null, user, context);
-        })
-        .catch(function (err) {
-            callback(err);
-        });
+  callback(null, user, context);
 }
 ```
 
-Update the code to check for your own email domain, or match your custom condition.
-
-::: note
-You can define more roles other than `admin` and `user`, or customize the whole rule, depending on your product requirements.
-:::
-
-This quickstart guide uses `https://schemas.quickstarts.com/roles` for the claim [namespace](/tokens/guides/create-namespaced-custom-claims). We recommend that you use a namespace related to your own Auth0 tenant for your claims, for example, `https://schemas.YOUR_TENANT_NAME.com`.
+This quickstart uses `https://schemas.quickstarts.com/roles` for the claim [namespace](/tokens/guides/create-namespaced-custom-claims), but it is suggested that you use a namespace related to your own Auth0 tenant for your claims, e.g. `https://schemas.YOUR_TENANT_NAME.com/roles`.
 
 ::: note
 For more information on custom claims, read [User profile claims and scope](/api-auth/tutorials/adoption/scope-custom-claims).
@@ -85,18 +53,11 @@ public void ConfigureServices(IServiceCollection services)
 
     // Add authentication services
     services.AddAuthentication(options => {
-        options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-        options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-        options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+        //...
     })
     .AddCookie()
     .AddOpenIdConnect("Auth0", options => {
         // ...
-
-        // Configure the scope
-        options.Scope.Add("openid");
-        options.Scope.Add("profile");
-        options.Scope.Add("email");
 
         // Set the correct name claim type
         options.TokenValidationParameters = new TokenValidationParameters
@@ -105,14 +66,7 @@ public void ConfigureServices(IServiceCollection services)
             RoleClaimType = "https://schemas.quickstarts.com/roles"
         };
 
-        options.Events = new OpenIdConnectEvents
-        {
-            // handle the logout redirection 
-            OnRedirectToIdentityProviderForSignOut = (context) =>
-            {
-                // ...
-            }
-        };
+        //...
     });
 }
 ```
