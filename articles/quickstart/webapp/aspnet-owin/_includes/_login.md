@@ -1,6 +1,6 @@
 <!-- markdownlint-disable MD002 MD041 -->
 
-## Configure your application to use Auth0
+## Configure Your Application to Use Auth0
 
 [Universal Login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features. This guide will use it to provide a way for your users to log in to your ASP.NET MVC 5 application.
 
@@ -63,7 +63,6 @@ public void Configuration(IAppBuilder app)
         // Configure SameSite as needed for your app. Lax works well for most scenarios here but
         // you may want to set SameSiteMode.None for HTTPS
         CookieSameSite = SameSiteMode.Lax,
-        CookieSecure = CookieSecureOption.SameAsRequest
     });
 
     // Configure Auth0 authentication
@@ -86,6 +85,8 @@ public void Configuration(IAppBuilder app)
         {
             NameClaimType = "name"
         },
+
+        CookieManager = new SameSiteCookieManager(new SystemWebCookieManager()),
 
         Notifications = new OpenIdConnectAuthenticationNotifications
         {
@@ -123,7 +124,7 @@ In the code snippet above, note that the `AuthenticationType` is set to **Auth0*
 
 ## Trigger Authentication
 
-### Add Login and Logout Methods
+### Add Login and Logout methods
 
 Next, you will need to add `Login` and `Logout` actions to the `AccountController`.
 
@@ -159,7 +160,7 @@ public class AccountController : Controller
 }
 ```
 
-### Add Login and Logout Links
+### Add Login and Logout links
 
 To add the Login and Logout links to the navigation bar, head over to `/Views/Shared/_Layout.cshtml` and add code to the navigation bar section which displays a Logout link when the user is authenticated, otherwise a Login link. These will link to the `Logout` and `Login` actions of the `AccountController` respectively:
 
@@ -195,7 +196,7 @@ To add the Login and Logout links to the navigation bar, head over to `/Views/Sh
 </div>
 ```
 
-### Obtain an Access Token for Calling an API
+### Obtain an Access Token for calling an API
 
 If you want to call an API from your MVC application, you need to obtain an Access Token issued for the API you want to call. To receive and Access Token, pass an additional audience parameter containing the API identifier to the Auth0 authorization endpoint.
 
@@ -214,25 +215,23 @@ public void Configuration(IAppBuilder app)
 {
     // Some code omitted for brevity...
 
+    string auth0Audience = ConfigurationManager.AppSettings["auth0:Audience"];
+
     // Configure Auth0 authentication
     app.UseOpenIdConnectAuthentication(new OpenIdConnectAuthenticationOptions
     {
         //...
 
         ResponseType = OpenIdConnectResponseType.CodeIdTokenToken,
-        Scope = "openid profile",
-
-        TokenValidationParameters = new TokenValidationParameters
-        {
-            NameClaimType = "name"
-        },
+        
+        //...
 
         Notifications = new OpenIdConnectAuthenticationNotifications
         {
             SecurityTokenValidated = notification =>
             {
-                notification.AuthenticationTicket.Identity.AddClaim(new Claim("id_token",notification.ProtocolMessage.IdToken));
-                notification.AuthenticationTicket.Identity.AddClaim(new Claim("access_token",notification.ProtocolMessage.AccessToken));
+                notification.AuthenticationTicket.Identity.AddClaim(new Claim("id_token", notification.ProtocolMessage.IdToken));
+                notification.AuthenticationTicket.Identity.AddClaim(new Claim("access_token", notification.ProtocolMessage.AccessToken));
 
                 return Task.FromResult(0);
             },
@@ -240,7 +239,12 @@ public void Configuration(IAppBuilder app)
             {
                 if (notification.ProtocolMessage.RequestType == OpenIdConnectRequestType.Authentication)
                 {
-                    notification.ProtocolMessage.SetParameter("audience", "https://quickstarts/api");
+                    // The context's ProtocolMessage can be used to pass along additional query parameters
+                    // to Auth0's /authorize endpoint.
+                    // 
+                    // Set the audience query parameter to the API identifier to ensure the returned Access Tokens can be used
+                    // to call protected endpoints on the corresponding API.
+                    notification.ProtocolMessage.SetParameter("audience", auth0Audience);
                 }
                 else if (notification.ProtocolMessage.RequestType == OpenIdConnectRequestType.Logout)
                 {
@@ -254,7 +258,17 @@ public void Configuration(IAppBuilder app)
 }
 ```
 
-To access these tokens from one of your controllers, cast the `User.Identity` property to a `ClaimsIdentity`, and then find the particular claim by calling the `FindFirst` method.
+As the above snippet is reading the `Auth0:Audience` from the appSettings, ensure it exists in your web.config and has its value set to the corresponding API Identifier for which you want to be retrieving an Access Token.
+
+``` xml
+<configuration>
+  <appSettings>
+    <add key="auth0:Audience" value="{API_IDENTIFIER}" />
+  </appSettings>
+</configuration>
+```
+
+To access the ID Token and Access Token from one of your controllers, cast the `User.Identity` property to a `ClaimsIdentity`, and then find the particular claim by calling the `FindFirst` method.
 
 ``` csharp
 // Controllers/AccountController.cs
