@@ -29,7 +29,7 @@
 |There was a problem sending the SMS|`send-sms-failed`|
 |Phone number can only include digits.|`invalid-phone-format`|
 |Seems that your phone number is not valid. Please check and retry.|`invalid-phone`|
-|You have exceeded the amount of SMSs per hour. Wait a few minutes and try again.|`too-many-sms`|
+|You have exceeded the maximum number of phone messages per hour. Wait a few minutes and try again.|`too-many-sms`|
 |Your enrollment transaction expired, you will need to start again.|`transaction-not-found`|
 |Please enter a phone number|`no-phone`|
 
@@ -51,6 +51,9 @@
 |Remember this device for 30 days|`rememberMeText`|
 |Resend|`resendActionText`|
 |Didn't receive a code?|`resendText`|
+|or|`resendVoiceActionSeparatorTextBefore`|
+|get a call|`resendVoiceActionText`|
+||`resendVoiceActionSeparatorTextAfter`|
 |OTP Code must have 6 numeric characters|`invalid-otp-code-format`|
 |The code you entered is invalid|`invalid-code`|
 |Invalid or expired user code|`invalid-expired-code`|
@@ -59,7 +62,7 @@
 |We couldn't send the SMS. Please try again later.|`sms-authenticator-error`|
 |Notification was not sent. Try resending the code.|`no-transaction-in-progress`|
 |Too many failed codes. Wait for some minutes before retrying.|`too-many-failures`|
-|You have exceeded the amount of SMSs per hour. Wait a few minutes and try again.|`too-many-sms`|
+|You have exceeded the maximum number of phone messages per hour. Wait a few minutes and try again.|`too-many-sms`|
 |Your enrollment transaction expired, you will need to start again.|`transaction-not-found`|
 
 ## Screen: mfa-sms-list

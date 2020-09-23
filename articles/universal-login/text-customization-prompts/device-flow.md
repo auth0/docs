@@ -51,6 +51,7 @@
 |----------|----------|
 |Connect to <%= "${clientName}" %>|`pageTitle`|
 |Please confirm this is the code displayed on your <%= "${clientName}" %>:|`description`|
+|Secure code|`inputCodeLabel`|
 |Device Confirmation|`title`|
 |Confirm|`confirmButtonText`|
 |Cancel|`cancelButtonText`|

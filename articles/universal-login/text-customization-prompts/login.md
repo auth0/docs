@@ -19,12 +19,10 @@
 |Forgot password?|`forgotPasswordText`|
 |Password|`passwordPlaceholder`|
 |Username or email address|`usernamePlaceholder`|
-|Enter the code shown above|`captchaCodePlaceholder`|
-|Solve the challenge shown above|`captchaMatchExprPlaceholder`|
 |Email address|`emailPlaceholder`|
+|Edit|`editEmailText`|
 |Alerts|`alertListTitle`|
 |Wrong username or password|`wrong-credentials`|
-|Please solve the challenge to continue|`wrong-captcha`|
 |The code you entered is invalid|`invalid-code`|
 |Invalid or expired user code|`invalid-expired-code`|
 |Email is not valid.|`invalid-email-format`|

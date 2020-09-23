@@ -11,6 +11,7 @@
 |Authorize <%= "${clientName}" %>|`pageTitle`|
 |Authorize App|`title`|
 |Hi <%= "${userName}" %>,|`pickerTitle`|
+|Tenant and Audience selector|`audiencePickerAltText`|
 |<%= "${clientName}" %> is requesting access to your account.|`messageMultipleTenants`|
 |<%= "${clientName}" %> is requesting access to your <%= "${companyName}" %> account.|`messageSingleTenant`|
 |Accept|`acceptButtonText`|
