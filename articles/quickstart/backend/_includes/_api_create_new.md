@@ -12,5 +12,5 @@ In the [APIs](${manage_url}/#/apis) section of the Auth0 dashboard, click **Crea
 <%= include('./_api_jwks_description') %>
 <% }  %>
 
-### Define Permissions
+### Define permissions
 <%= include('./_api_scopes_access_resources') %>

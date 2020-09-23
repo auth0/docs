@@ -107,7 +107,7 @@ Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authori
 
 To resolve this issue, make sure you are passing the JWT as the Bearer token in the `Authorization` header of the HTTP request.
 
-## 2. Did you configure the JWT middleware for the correct signing algorithm?
+### 2. Did you configure the JWT middleware for the correct signing algorithm?
 
 Make sure that the [signing algorithm](/tokens/concepts/signing-algorithms) you used to sign your token matches the signing algorithm configured in your middleware. 
 
@@ -139,7 +139,7 @@ Bearer was not authenticated. Failure message: IDX10501: Signature validation fa
 
 To resolve this issue, make sure that the algorithm for the JWT matches with the configuration of your middleware. 
 
-## 3. Has your token expired?
+### 3. Has your token expired?
 
 Each JSON Web Token is valid until the time defined in the `exp` claim runs out. If you send an expired token, the token will be rejected:
 
@@ -157,7 +157,7 @@ To resolve this issue, check if the token you are sending has not expired.
 The value of the `exp` claim is a numeric value representing the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date/time. If you want to see the date/time for the value, visit [EpochConverter](http://www.epochconverter.com/).
 :::
 
-## 4. Did you configure the correct Issuer?
+### 4. Did you configure the correct issuer?
 
 The Issuer specified in your token must match exactly with your JWT middleware configuration. 
 
@@ -183,7 +183,7 @@ For RS256 tokens, the JWT middleware downloads the OIDC discovery document from 
 If you are using RS256 tokens, the system checks their signature before it checks the Issuer.
 :::
 
-## 5. Does the audience match your JWT middleware configuration?
+### 5. Does the audience match your JWT middleware configuration?
 
 Check if the audience specified in your token matches your JWT middleware configuration.
 
