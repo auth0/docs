@@ -13,8 +13,8 @@ Content-Type: application/json
   "client_id": "${account.clientId}",
   "client_secret": "YOUR_CLIENT_SECRET", // for web applications
   "connection": "email|sms",
-  "email": "EMAIL", //set for connection=email
-  "phone_number": "PHONE_NUMBER", //set for connection=sms
+  "email": "USER_EMAIL", //set for connection=email
+  "phone_number": "USER_PHONE_NUMBER", //set for connection=sms
   "send": "link|code", //if left null defaults to link
   "authParams": { // any authentication parameters that you would like to add
     "scope": "openid",
@@ -27,7 +27,7 @@ Content-Type: application/json
 curl --request POST \
   --url 'https://${account.namespace}/passwordless/start' \
   --header 'content-type: application/json' \
-  --data '{"client_id":"${account.clientId}", "connection":"email|sms", "email":"EMAIL", "phone_number":"PHONE_NUMBER", "send":"link|code", "authParams":{"scope": "openid","state": "YOUR_STATE"}}'
+  --data '{"client_id":"${account.clientId}", "connection":"email|sms", "email":"USER_EMAIL", "phone_number":"USER_PHONE_NUMBER", "send":"link|code", "authParams":{"scope": "openid","state": "YOUR_STATE"}}'
 ```
 
 ```javascript
@@ -119,23 +119,25 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 ## Authenticate User
 
 ```http
-POST https://${account.namespace}/passwordless/verify
+POST https://${account.namespace}/oauth/token
 Content-Type: application/json
 {
+  "grant_type" : "http://auth0.com/oauth/grant-type/passwordless/otp",
   "client_id": "${account.clientId}",
-  "connection": "email|sms",
-  "grant_type": "password",
-  "username": "EMAIL|PHONE", //email or phone number
-  "password": "VERIFICATION_CODE", //the verification code
+  "client_secret": "YOUR_CLIENT_SECRET", // for web applications
+  "otp": "CODE",
+  "realm": "email|sms" //email or sms
+  "username":"USER_EMAIL|USER_PHONE_NUMBER", // depends on which realm you chose
+  "audience" : "API_IDENTIFIER", // in case you need an access token for a specific API
   "scope": "SCOPE"
 }
 ```
 
 ```shell
 curl --request POST \
-  --url 'https://${account.namespace}/passwordless/verify' \
+  --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/json' \
-  --data '{"client_id":"${account.clientId}", "connection":"email|sms", "grant_type":"password", "username":"EMAIL|PHONE", "password":"VERIFICATION_CODE", "scope":"SCOPE"}'
+  --data '{"grant_type":"http://auth0.com/oauth/grant-type/passwordless/otp", "client_id":"${account.clientId}", "client_secret":"CLIENT_SECRET", "otp":"CODE", "realm":"email|sms", "username":"USER_EMAIL|USER_PHONE_NUMBER", "audience":"API_IDENTIFIER", "scope":"SCOPE"}'
 ```
 
 ```javascript
@@ -196,12 +198,12 @@ Once you have a verification code, use this endpoint to login the user with thei
 |:-----------------|:------------|
 | `grant_type` <br/><span class="label label-danger">Required</span> | It should be `http://auth0.com/oauth/grant-type/passwordless/otp`. |
 | `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your application. |
-| `client_secret` <br/><span class="label label-danger">Required</span> | The `client_secret` of your application. Only required for Regular Web Applications|
+| `client_secret` <br/><span class="label label-danger">Required</span> | The `client_secret` of your application. Only required for Regular Web Applications. |
 | `username` <br/><span class="label label-danger">Required</span> | The user's phone number if `realm=sms`, or the user's email if `realm=email`. |
 | `realm` <br/><span class="label label-danger">Required</span> | Use `sms` or `email` (should be the same as [POST /passwordless/start](#get-code-or-link)) |
 | `otp` <br/><span class="label label-danger">Required</span> | The user's verification code.  |
-| <dfn data-key="audience">`audience`</dfn> | The API identifier you want to get an Access Token for. |
-| <dfn data-key="scope">`scope`</dfn> | Use `openid` to get an ID Token, or `openid profile email` to include also user profile information in the ID Token. |
+| <dfn data-key="audience">`audience`</dfn> | API Identifier of the API for which you want to get an Access Token. |
+| <dfn data-key="scope">`scope`</dfn> | Use `openid` to get an ID Token, or `openid profile email` to also include user profile information in the ID Token. |
 
 ### Test with Postman
 
