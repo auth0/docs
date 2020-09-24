@@ -10,23 +10,24 @@ useCase: extensibility-extensions
 ---
 # Deploy CLI Tool
 
-Auth0 supports continuous integration and deployment (CI/CD) of Auth0 tenants through our [source control extensions](/extensions#deploy-hosted-pages-rules-and-database-connections-scripts-from-external-repositories) and integration into existing CI/CD pipelines using the Deploy CLI tool.
+Auth0 supports continuous integration and deployment (CI/CD) of Auth0 tenants through our [source control extensions](/extensions#deploy-hosted-pages-rules-and-database-connections-scripts-from-external-repositories) and using the Deploy CLI tool.
 
-The Deploy CLI tool (`auth0-deploy-cli`) supports two methods to import and export the following Auth0 tenant configuration objects: 
+The Deploy CLI tool (`auth0-deploy-cli`) supports import and export of the following Auth0 tenant configuration objects: 
 
 - Tenant settings
 - Rules (including secrets/settings)
-- Hooks
-- Hook Secrets
+- Hooks (including secrets/settings)
 - Connections
 - Custom databases
 - Clients/applications
+- Client grants
 - Resource servers (APIs)
 - Pages
 - Email templates and providers
 - Guardian settings
+- Roles
 
-You can export the data to a predefined [directory structure](/extensions/deploy-cli/guides/import-export-directory-structure) or a [YAML configuration file](/extensions/deploy-cli/guides/import-export-yaml-file). You can call the tool [programmatically](/extensions/deploy-cli/guides/call-deploy-cli-programmatically). You can also use the tool to replace environment variables. 
+You can export the data to a predefined [directory structure](/extensions/deploy-cli/guides/import-export-directory-structure) or a [YAML configuration file](/extensions/deploy-cli/guides/import-export-yaml-file). You can call the tool [programmatically](/extensions/deploy-cli/guides/call-deploy-cli-programmatically). The tool also supports replacing keywords in your exported tenant configuration using [Environment Variables and Keyword Mappings](/extensions/deploy-cli-tool/environment-variables-and-keyword-mappings).
 
 ::: warning
 This tool can be destructive to your Auth0 tenant. Please ensure you have read the documentation and tested the tool on a development tenant before using it in production.
