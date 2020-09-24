@@ -6,6 +6,7 @@ author:
   community: false
 alias:
   - angular
+logo_name: angular2
 language:
   - Javascript
 framework:
