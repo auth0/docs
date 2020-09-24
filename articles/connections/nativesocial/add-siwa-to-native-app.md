@@ -26,7 +26,10 @@ For a native app, the Sign in with Apple login flow works as follows:
 
 ![Sign In with Apple Authentication Flow](/media/articles/connections/social/apple/apple-siwa-authn-flow.png)
 
-* **Steps 1 & 2**: User authenticates via Apple's SDK on their iOS device, and receive an authorization code in the response. The user does not have to leave the app and use a browser to log in.
+* **Steps 1 & 2**: User authenticates via Apple's SDK on their iOS device, and receive an authorization code in the response. The user does not have to leave the app and use a browser to log in. 
+  ``` warning
+  Avoid using a nonce. It will cause the request to Apple to fail in step 4 and Auth0 will return a 400 error to the user: "Error from Apple connection."
+  ```
 * **Step 3**: The application calls Auth0's `/oauth/token` endpoint to exchange the Apple authorization code for Auth0 tokens.
 * **Step 4 & 5**: The Auth0 platform exchanges the Authorization code with Apple for tokens.  Auth0 validates the tokens, and uses the claims in the tokens to construct the identity of the user.
 * **Step 6**: Auth0 saves the user profile, executes rules and authorization, then issues Auth0 access tokens (refresh tokens and ID tokens) as requested. These tokens are used to protect your APIs and users managed by Auth0.
