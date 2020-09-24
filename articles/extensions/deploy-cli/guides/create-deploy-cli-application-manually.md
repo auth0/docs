@@ -14,10 +14,10 @@ useCase: extensibility-extensions
 To use the Deploy CLI tool, your tenant must be configured appropriately.
 
 ::: note
-Generally, you do this programmatically by [installing the **Auth0 Deploy CLI** extension](/extensions/deploy-cli/guides/install-deploy-cli#install-the-deploy-cli-extension), which will create and configure an Application that is authorized to call the Management API.
+Generally, you do this programmatically by [installing the Auth0 Deploy CLI extension](/extensions/deploy-cli/guides/install-deploy-cli#install-the-deploy-cli-extension), which will create and configure an Application that is authorized to call the Management API.
 :::
 
-Sometimes, you may wish to create and configure this application manually. At a later time, you may also want to modify scopes for an application that has been created previously.
+Sometimes, you may wish to create and configure this application manually. You may also want to modify scopes for an application that has been created previously.
 
 ## Create the Initial Deploy CLI Application
 
