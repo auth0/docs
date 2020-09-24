@@ -87,7 +87,7 @@ export class AuthButtonComponent {
 :::panel Checkpoint
 Add the `AuthButtonComponent` component to your application. When you click it, verify that your Angular application redirects you to the [Auth0 Universal Login](https://auth0.com/universal-login) page and that you can now log in or sign up using a username and password or a social provider.
 
-Once that's complete, verify that Auth0 redirects you to your application using the value of the `redirectUri` that you used to configure `AuthModule`.
+Once that's complete, verify that Auth0 redirects back to your application's homepage.
 :::
 
 ![Auth0 Universal Login](https://cdn.auth0.com/blog/universal-login/lightweight-login.png)
