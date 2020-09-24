@@ -462,6 +462,8 @@ articles:
         url: /users/manage-users-using-the-dashboard
       - title: Using the API
         url: /users/manage-users-using-the-management-api
+      - title: Verify Emails
+        url: /users/verify-emails
       - title: Email Verified Usage
         url: /users/verified-email-usage
       - title: Link User Accounts
