@@ -11,6 +11,7 @@
 |Sign up to <%= "${clientName}" %>|`pageTitle`|
 |Almost There!|`title`|
 |Copy this recovery code and keep it somewhere safe. You’ll need it if you ever need to log in without your device.|`description`|
+|Secure code to copy|`altText`|
 |Continue|`buttonText`|
 |I have safely recorded this number|`checkboxText`|
 |Copy code|`copyCodeButtonText`|

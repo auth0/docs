@@ -33,6 +33,7 @@
 |Secure your Account|`pageTitle`|
 |Go back|`backText`|
 |Continue|`buttonText`|
+|Secure code to copy|`altText`|
 |Copy code|`copyCodeButtonText`|
 |Manually enter the following code into your preferred authenticator app and then enter the provided one-time code below.|`description`|
 |Try another method|`pickAuthenticatorText`|
