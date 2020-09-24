@@ -1,4 +1,0 @@
-```js
-// ...
-webAuth.authorize();
-```
