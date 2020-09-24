@@ -2501,6 +2501,10 @@ module.exports = [
     to: '/logs/streams/stream-logs-to-datadog'
   },
   {
+    from: ['/logs/export-log-events-with-log-streaming/datadog-dashboard-templates'],
+    to: '/logs/streams/datadog-dashboard-templates'
+  }, 
+  {
     from: ['/monitoring/guides/send-events-to-splunk','/monitoring/guides/send-events-to-keenio','/monitoring/guides/send-events-to-segmentio'],
     to: '/logs/export-log-events-with-rules'
   },
