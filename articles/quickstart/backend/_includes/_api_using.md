@@ -5,7 +5,7 @@ You can call the API from your application by passing an Access Token in the `Au
 ```har
 {
   "method": "GET",
-  "url": "http://localhost:5000/api/private",
+  "url": "http://localhost:3010/api/private",
   "headers": [
     { "name": "Authorization", "value": "Bearer YOUR_ACCESS_TOKEN" }
   ]
@@ -67,7 +67,7 @@ You can make a request to the `/api/private` endpoint without passing any Access
 ```har
 {
   "method": "GET",
-  "url": "http://localhost:5000/api/private"
+  "url": "http://localhost:3010/api/private"
 }
 ```
 
@@ -80,7 +80,7 @@ Once again, make the same request but this time pass along the Access Token as a
 ```har
 {
   "method": "GET",
-  "url": "http://localhost:5000/api/private",
+  "url": "http://localhost:3010/api/private",
   "headers": [
     { "name": "Authorization", "value": "Bearer YOUR_ACCESS_TOKEN" }
   ]
@@ -98,7 +98,7 @@ To test the endpoint that requires a scope, pass the Access Token containing the
 ```har
 {
   "method": "GET",
-  "url": "http://localhost:5000/api/private-scoped",
+  "url": "http://localhost:3010/api/private-scoped",
   "headers": [
     { "name": "Authorization", "value": "Bearer YOUR_ACCESS_TOKEN" }
   ]
