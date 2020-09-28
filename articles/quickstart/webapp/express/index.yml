@@ -12,6 +12,7 @@ alias:
   - node
   - express
 seo_alias: express
+logo_name: nodejs
 default_article: 01-login
 articles:
   - 01-login
