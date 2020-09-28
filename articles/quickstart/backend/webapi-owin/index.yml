@@ -25,7 +25,6 @@ github:
   repo: auth0-aspnet-owin-webapi-samples
 requirements:
   - Microsoft Visual Studio 2015 Update 3
-  - Auth0.OpenIdConnectSigningKeyResolver NuGet Package v2.0.0
   - System.IdentityModel.Tokens.Jwt NuGet Package v5.2.2
   - Microsoft.Owin.Security.Jwt NuGet Package V4.0.0
 next_steps:

@@ -12,10 +12,6 @@ contentType: tutorial
 useCase: quickstart
 ---
 
-::: panel-warning OWIN 4
-Please note that the **Auth0.OpenIdConnectSigningKeyResolver** NuGet package used in this tutorial is only compatible with the **OWIN 4.x** packages. Attempting to use **Auth0.OpenIdConnectSigningKeyResolver** with OWIN 3.x will result in errors.
-:::
-
 <%= include('../../../_includes/_api_auth_intro') %>
 
 <%= include('../_includes/_api_create_new') %>
@@ -39,16 +35,37 @@ The sample code has an `appsettings` section in `Web.config` which configures it
 
 ### Install dependencies
 
-To use Auth0 Access Tokens with ASP.NET Core you will use the OWIN JWT Middleware which is available in the `Microsoft.Owin.Security.Jwt` NuGet package. Also install the `Auth0.OpenIdConnectSigningKeyResolver` NuGet package which will assist you in verifying the token signature.
+To use Auth0 Access Tokens with ASP.NET you will use the OWIN JWT Middleware which is available in the `Microsoft.Owin.Security.Jwt` NuGet package.
 
 ```bash
 Install-Package Microsoft.Owin.Security.Jwt
-Install-Package Auth0.OpenIdConnectSigningKeyResolver
 ```
 
-### Configuration
+### Verifying the token signature
+As the OWIN JWT middleware doesn't use Open ID Connect Discovery by default, you will need to provide a custom `IssuerSigningKeyResolver`. Such a custom resolver was previously published as part of the `Auth0.OpenIdConnectSigningKeyResolver` package through Nuget. As this package is not available anymore because it was only a thin wrapper, you will need to provide this yourself.
 
-The `Auth0.OpenIdConnectSigningKeyResolver` package which you installed will automatically download the JSON Web Key Set which was used to sign the RS256 tokens by interrogating the OpenID Connect Configuration endpoint (at `/.well-known/openid-configuration`). You can then use it subsequently to resolve the Issuer Signing Key, as will be demonstrated in the JWT registration code below.
+```javascript
+// Support/OpenIdConnectSigningKeyResolver.cs
+public class OpenIdConnectSigningKeyResolver
+{
+    private readonly OpenIdConnectConfiguration openIdConfig;
+
+    public OpenIdConnectSigningKeyResolver(string authority)
+    {
+        var cm = new ConfigurationManager<OpenIdConnectConfiguration>($"{authority.TrimEnd('/')}/.well-known/openid-configuration", new OpenIdConnectConfigurationRetriever());
+        openIdConfig = AsyncHelper.RunSync(async () => await cm.GetConfigurationAsync());
+    }
+
+    public SecurityKey[] GetSigningKey(string kid)
+    {
+        return new[] { openIdConfig.JsonWebKeySet.GetSigningKeys().FirstOrDefault(t => t.KeyId == kid) };
+    }
+}
+```
+
+The `OpenIdConnectSigningKeyResolver` will automatically download the JSON Web Key Set which was used to sign the RS256 tokens by interrogating the OpenID Connect Configuration endpoint (at `/.well-known/openid-configuration`). You can then use it subsequently to resolve the Issuer Signing Key, as will be demonstrated in the JWT registration code below.
+
+### Configuration
 
 Go to the `Configuration` method of your `Startup` class and add a call to `UseJwtBearerAuthentication` passing in the configured `JwtBearerAuthenticationOptions`.
 
@@ -61,8 +78,8 @@ public void Configuration(IAppBuilder app)
 {
     var domain = $"https://{ConfigurationManager.AppSettings["Auth0Domain"]}/";
     var apiIdentifier = ConfigurationManager.AppSettings["Auth0ApiIdentifier"];
-
     var keyResolver = new OpenIdConnectSigningKeyResolver(domain);
+
     app.UseJwtBearerAuthentication(
         new JwtBearerAuthenticationOptions
         {
