@@ -28,10 +28,9 @@ Once the role is created and assigned to the required user(s), you will need to 
 ``` js
 function (user, context, callback) {
   const assignedRoles = (context.authorization || {}).roles;
+  const namespace = 'https://schemas.quickstarts.com';
   const idTokenClaims = context.idToken || {};
-
-  idTokenClaims['https://schemas.quickstarts.com/roles'] = assignedRoles;
-
+  idTokenClaims[namespace + '/roles'] = assignedRoles;
   callback(null, user, context);
 }
 ```
