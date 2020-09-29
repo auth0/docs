@@ -42,10 +42,13 @@ Install-Package Microsoft.Owin.Security.Jwt
 ```
 
 ### Verifying the token signature
-As the OWIN JWT middleware doesn't use Open ID Connect Discovery by default, you will need to provide a custom `IssuerSigningKeyResolver`. Such a custom resolver was previously published as part of the `Auth0.OpenIdConnectSigningKeyResolver` package through Nuget. As this package is not available anymore because it was only a thin wrapper, you will need to provide this yourself.
+As the OWIN JWT middleware doesn't use Open ID Connect Discovery by default, you will need to provide a custom `IssuerSigningKeyResolver`. To do this, add the following to the `Support/OpenIdConnectSigningKeyResolver.cs` file:
+
+:::note
+Such a custom resolver was previously published as part of the `Auth0.OpenIdConnectSigningKeyResolver` package through Nuget. As [this package is not available anymore](https://github.com/auth0/auth0-aspnet-owin/blob/master/SECURITY-NOTICE.md), you will need to provide this yourself.
+:::
 
 ```javascript
-// Support/OpenIdConnectSigningKeyResolver.cs
 public class OpenIdConnectSigningKeyResolver
 {
     private readonly OpenIdConnectConfiguration openIdConfig;
@@ -63,7 +66,7 @@ public class OpenIdConnectSigningKeyResolver
 }
 ```
 
-The `OpenIdConnectSigningKeyResolver` will automatically download the JSON Web Key Set which was used to sign the RS256 tokens by interrogating the OpenID Connect Configuration endpoint (at `/.well-known/openid-configuration`). You can then use it subsequently to resolve the Issuer Signing Key, as will be demonstrated in the JWT registration code below.
+The `OpenIdConnectSigningKeyResolver` will automatically download the JSON Web Key Set used to sign the RS256 tokens from the OpenID Connect Configuration endpoint (at `/.well-known/openid-configuration`). You can then use it subsequently to resolve the Issuer Signing Key, as will be demonstrated in the JWT registration code below.
 
 ### Configuration
 
