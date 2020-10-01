@@ -111,6 +111,10 @@ To configure the application as a Resource Server and validate the JWTs, create 
 ```java
 // src/main/java/com/auth0/example/security/SecurityConfig.java
 
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -127,6 +131,11 @@ In addition to validating the JWT, you also need to validate that the JWT is int
 
 ```java
 // src/main/java/com/auth0/example/security/AudienceValidator.java
+
+import org.springframework.security.oauth2.core.OAuth2Error;
+import org.springframework.security.oauth2.core.OAuth2TokenValidator;
+import org.springframework.security.oauth2.core.OAuth2TokenValidatorResult;
+import org.springframework.security.oauth2.jwt.Jwt;
 
 class AudienceValidator implements OAuth2TokenValidator<Jwt> {
     private final String audience;
@@ -150,6 +159,19 @@ Update the `SecurityConfig` class to configure a `JwtDecoder` bean that uses the
 
 ```java
 // src/main/java/com/auth0/example/security/SecurityConfig.java
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.oauth2.core.DelegatingOAuth2TokenValidator;
+import org.springframework.security.oauth2.core.OAuth2TokenValidator;
+import org.springframework.security.oauth2.jwt.Jwt;
+import org.springframework.security.oauth2.jwt.JwtDecoder;
+import org.springframework.security.oauth2.jwt.JwtDecoders;
+import org.springframework.security.oauth2.jwt.JwtValidators;
+import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -185,6 +207,11 @@ The example below shows how to secure API methods using the `HttpSecurity` objec
 ```java
 // src/main/java/com/auth0/example/security/SecurityConfig.java
 
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+
+@EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
@@ -229,6 +256,12 @@ Create a new class named `APIController` to handle requests to the endpoints:
 
 ```java
 // src/main/java/com/auth0/example/web/APIController.java
+
+import com.auth0.example.model.Message;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(path = "api", produces = MediaType.APPLICATION_JSON_VALUE)
