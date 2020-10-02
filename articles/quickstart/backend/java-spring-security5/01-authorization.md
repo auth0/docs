@@ -220,8 +220,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .mvcMatchers("/api/public").permitAll()
                 .mvcMatchers("/api/private").authenticated()
                 .mvcMatchers("/api/private-scoped").hasAuthority("SCOPE_read:messages")
-                .and()
-                .oauth2ResourceServer().jwt();
+                .and().cors()
+                .and().oauth2ResourceServer().jwt();
     }
 }
 ```
@@ -259,12 +259,15 @@ Create a new class named `APIController` to handle requests to the endpoints:
 
 import com.auth0.example.model.Message;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(path = "api", produces = MediaType.APPLICATION_JSON_VALUE)
+// For simplicity of this sample, allow all origins. Real applications should configure CORS for their use case.
+@CrossOrigin(origins = "*")
 public class APIController {
 
     @GetMapping(value = "/public")
