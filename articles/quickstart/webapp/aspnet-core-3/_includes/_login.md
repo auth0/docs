@@ -39,8 +39,14 @@ In the code sample below, only the `openid` scope is requested.
 
 public void ConfigureServices(IServiceCollection services)
 {
-    // Only needed when using HTTP to support cookies with SameSite=None
+    // Cookie configuration for HTTP to support cookies with SameSite=None
     services.ConfigureSameSiteNoneCookies();
+
+    // Cookie configuration for HTTPS
+    // services.Configure<CookiePolicyOptions>(options =>
+    // {
+    //    options.MinimumSameSitePolicy = SameSiteMode.None
+    // })
 
     // Add authentication services
     services.AddAuthentication(options => {
