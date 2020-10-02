@@ -46,7 +46,7 @@ public void ConfigureServices(IServiceCollection services)
     // services.Configure<CookiePolicyOptions>(options =>
     // {
     //    options.MinimumSameSitePolicy = SameSiteMode.None
-    // })
+    // });
 
     // Add authentication services
     services.AddAuthentication(options => {
