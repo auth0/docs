@@ -10,7 +10,7 @@ If you deploy your application to a different URL you will also need to ensure t
 
 <%= include('../../../../_includes/_logout_url', { returnTo: 'http://localhost:3000' }) %>
 
-### Configure JSON Web Token Signature Algorithm
+### Configure JSON Web Token signature algorithm
 
 The ASP.NET Core OpenID Connect (OIDC) middleware which will be used to authenticate the user, requires that the JSON Web Token (JWT) be signed with an asymmetric key. To configure this go to the settings for your application in the Auth0 Dashboard, scroll down and click on **Show Advanced Settings**. Go to the **OAuth** tab and set the **JsonWebToken Signature Algorithm** to **RS256**.
 

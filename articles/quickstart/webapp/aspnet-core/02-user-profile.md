@@ -65,9 +65,7 @@ public void ConfigureServices(IServiceCollection services)
 
     // Add authentication services
     services.AddAuthentication(options => {
-        options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-        options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-        options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+        //...
     })
     .AddCookie()
     .AddOpenIdConnect("Auth0", options => {
@@ -84,19 +82,12 @@ public void ConfigureServices(IServiceCollection services)
             NameClaimType = "name"
         };
 
-        options.Events = new OpenIdConnectEvents
-        {
-            // handle the logout redirection 
-            OnRedirectToIdentityProviderForSignOut = (context) =>
-            {
-                //...
-            }
-        };
+        //...
     });
 }
 ```
 
-Next create a view. For the view, display user's profile card at the top with the user's name, email address and profile image.
+Next create a view called Profile.cshtml inside `Views/Account` and display the user's name, email address and profile image.
 
 ```html
 <!-- Views/Account/Profile.cshtml -->
