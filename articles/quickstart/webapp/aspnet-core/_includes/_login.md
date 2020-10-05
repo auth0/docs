@@ -217,7 +217,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ### Add the Login and Logout buttons
 
-Add the **Login** and **Logout** buttons to the navigation bar. In the `/Views/Shared/_Layout.cshtml` file, in the navigation bar section, add code that displays the **Log Out** button when the user is authenticated and the **Log In** button if not. The buttons link to the `Logout` and `Login` actions in the `AccountController`:
+Add the **Login** and **Logout** buttons to the navigation bar. In the `/Views/Shared/_Layout.cshtml` file, in the navigation bar section, add code that displays the **Log Out** button when the user is authenticated and the **Login** button if not. The buttons link to the `Logout` and `Login` actions in the `AccountController`:
 
 ```html
 <!-- Views/Shared/_Layout.cshtml -->
