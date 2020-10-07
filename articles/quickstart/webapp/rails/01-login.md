@@ -13,6 +13,8 @@ github:
   path: 01-Login
 ---
 
+<!-- markdownlint-disable MD041 MD002 MD034 -->
+
 <%= include('../_includes/_getting_started', { library: 'Rails', callback: 'http://localhost:3000/auth/auth0/callback' }) %>
 
 <%= include('../../../_includes/_logout_url', { returnTo: 'http://localhost:3000' }) %>
@@ -75,6 +77,10 @@ rails generate controller auth0 --skip-template-engine --skip-assets --no-helper
 ```
 
 In the newly created controller, add success and failure callback handlers.
+
+:::note
+Rails uses a cookie by default to store session data. If you run into `CookieOverflow` error when trying to save the user info into the session, please read [the troubleshooting section](#actiondispatch-cookies-cookieoverflow) on how to store session data in memory instead.
+:::
 
 ```ruby
 # app/controllers/auth0_controller.rb
@@ -311,9 +317,9 @@ With those elements in place, Rails will convert the login link to POST the CSRF
 
 ### ActionDispatch::Cookies::CookieOverflow
 
-This error means that a cookie session is being used and because the whole profile is being stored, it overflows the max-size of 4 kb. If you are unable to access the user profile and you get an error similar to `NoMethodError`, `undefined method '[]' for nil:NilClass`, try using In-Memory store for development.
+This error means that a cookie session is being used and because the whole profile is being stored, it overflows the max-size of 4 kb. If you are unable to access the user profile, or you get an error similar to `NoMethodError`, `undefined method '[]' for nil:NilClass`, try using In-Memory store for development.
 
-Go to `/config/initializers/session_store.rb` and add the following:
+Go to `/config/initializers/session_store.rb` (or create it if it does not exist) and add the following:
 
 ```ruby
 Rails.application.config.session_store :cache_store
@@ -322,10 +328,14 @@ Rails.application.config.session_store :cache_store
 Go to `/config/environments/development.rb` and add the following:
 
 ```ruby
-config.cachestore = :memorystore
+config.cache_store = :memory_store
 ```
 
+Restart your Rails server for these changes to take effect.
+
+:::note
 It is recommended that a memory store such as MemCached being used for production applications.
+:::
 
 ### SSL Issues
 
