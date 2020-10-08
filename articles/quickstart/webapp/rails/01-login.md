@@ -47,7 +47,7 @@ If you are using Windows, uncomment the `tzinfo-data` gem in the Gemfile.
 
 ### Initialize OmniAuth Auth0
 
-Add Auth0 configurations to the `secrets.yml` file for later use:
+Add your Auth0 configuration to the `secrets.yml` file for later use:
 
 ```yaml
 development:
