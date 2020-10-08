@@ -29,7 +29,11 @@ The SDK exposes several types that help you integrate Auth0 with your Angular ap
 
 ### Register and configure the authentication module
 
-The SDK exports a module with the components and services used to perform the authentication. Import this module into your application module so that they can be accessed through Angular's dependency injection framework:
+The SDK exports `AuthModule`, a module that contains all the services required for the SDK to function. To register this with your application:
+
+* Open the `app.module.ts` file
+* Import the `AuthModule` type from the `@auth0/auth0-angular` package
+* Add `AuthModule` to the application by calling `AuthModule.forRoot` and adding to your application module's `imports` array
 
 ```javascript
 import { BrowserModule } from '@angular/platform-browser';
