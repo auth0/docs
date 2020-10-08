@@ -3,7 +3,7 @@
 Before you can add Role Based Access Control, you will need to ensure the required roles are created and assigned to the corresponding user(s).
 Follow the guidance explained in [assign-roles-to-users](/users/assign-roles-to-users) to ensure your user gets assigned the `admin` role.
 
-Once the role is created and assigned to the required user(s), you will need to create a [rule](/rules/current) that adds the role(s) to the IdToken so that it is available for your backend. To do so, go to the [new rule page](${manage_url}/#/rules/new) and create an empty rule. Then, use the following code for your rule:
+Once the role is created and assigned to the required user(s), you will need to create a [rule](/rules/current) that adds the role(s) to the Id Token so that it is available to your backend. To do so, go to the [new rule page](${manage_url}/#/rules/new) and create an empty rule. Then, use the following code for your rule:
 
 ``` js
 function (user, context, callback) {

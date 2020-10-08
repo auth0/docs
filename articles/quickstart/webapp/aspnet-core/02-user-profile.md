@@ -87,7 +87,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Next create a view called Profile.cshtml inside `Views/Account` and display the user's name, email address and profile image.
+Next create a view called `Profile.cshtml` inside `Views/Account` and display the user's name, email address and profile image.
 
 ```html
 <!-- Views/Account/Profile.cshtml -->

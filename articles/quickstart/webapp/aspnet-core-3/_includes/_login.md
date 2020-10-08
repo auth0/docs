@@ -84,7 +84,7 @@ public void ConfigureServices(IServiceCollection services)
 ```
 
 ::: note
-The `ConfigureSameSiteNoneCookies` method used above was added as part of the [sample application](https://github.com/auth0-samples/auth0-aspnetcore-mvc-samples/blob/master/Quickstart/01-Login/Support/SameSiteServiceCollectionExtensions.cs) in order to make cookies with SameSite=None work over HTTP when using Chrome ([read more here](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html)). We recommend using HTTPS instead of HTTP, which removes the need for the `ConfigureSameSiteNoneCookies` method.
+The `ConfigureSameSiteNoneCookies` method used above was added as part of the [sample application](https://github.com/auth0-samples/auth0-aspnetcore-mvc-samples/blob/master/Quickstart/01-Login/Support/SameSiteServiceCollectionExtensions.cs) in order to ([make cookies with SameSite=None work over HTTP when using Chrome](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html)). We recommend using HTTPS instead of HTTP, which removes the need for the `ConfigureSameSiteNoneCookies` method.
 :::
 
 Next, add the authentication middleware. In the `Configure` method of the `Startup` class, call the `UseAuthentication` and `UseAuthorization` methods.
@@ -339,7 +339,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-To retrieve the tokens, you can call `HttpContext.GetTokenAsync` and use it as needed:
+To retrieve the tokens, call `HttpContext.GetTokenAsync` and use them as required:
 
 ```csharp
 // Inside one of your controller actions
