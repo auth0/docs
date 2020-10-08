@@ -18,61 +18,7 @@ ASP.NET Core supports [Role based Authorization](https://docs.microsoft.com/en-u
 To follow the tutorial, make sure you are familiar with [Rules](/rules/current).
 :::
 
-## Create a Rule to Assign Roles
-
-Create a rule that assigns the following access roles to your user:
-* An admin role
-* A regular user role
-
-To assign roles, go to the [New rule page](${manage_url}/#/rules/new). In the **Access Control** section, create an empty rule.
-
-Use the following code for your rule:
-
-```js
-function (user, context, callback) {
-
-  // Roles should only be set to verified users.
-  if (!user.email || !user.email_verified) {
-    return callback(null, user, context);
-  }
-
-  user.app_metadata = user.app_metadata || {};
-  // You can add a Role based on what you want
-  // In this case I check domain
-  const addRolesToUser = function(user) {
-    const endsWith = '@example.com';
-
-    if (user.email && (user.email.substring(user.email.length - endsWith.length, user.email.length) === endsWith)) {
-      return ['admin'];
-    }
-    return ['user'];
-  };
-
-  const roles = addRolesToUser(user);
-
-  user.app_metadata.roles = roles;
-  auth0.users.updateAppMetadata(user.user_id, user.app_metadata)
-    .then(function() {
-      context.idToken['https://schemas.quickstarts.com/roles'] = user.app_metadata.roles;
-      callback(null, user, context);
-    })
-    .catch(function (err) {
-      callback(err);
-    });
-}
-```
-
-Update the code to check for your own email domain, or match your custom condition.
-
-::: note
-You can define more roles other than `admin` and `user`, or customize the whole rule, depending on your product requirements.
-:::
-
-This quickstart guide uses `https://schemas.quickstarts.com/roles` for the claim [namespace](/tokens/guides/create-namespaced-custom-claims). We recommend that you use a namespace related to your own Auth0 tenant for your claims, for example, `https://schemas.YOUR_TENANT_NAME.com`.
-
-::: note
-For more information on custom claims, read [User profile claims and scope](/api-auth/tutorials/adoption/scope-custom-claims).
-:::
+<%= include('../_includes/_create_and_assign_roles') %>
 
 ## Restrict Access Based on User Roles
 
@@ -85,19 +31,11 @@ public void ConfigureServices(IServiceCollection services)
 
     // Add authentication services
     services.AddAuthentication(options => {
-        options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-        options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-        options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+        //...
     })
     .AddCookie())
     .AddOpenIdConnect("Auth0", options => {
         // ...
-
-        // Configure the scope
-        options.Scope.Clear();
-        options.Scope.Add("openid");
-        options.Scope.Add("profile");
-        options.Scope.Add("email");
 
         // Set the correct name claim type
         options.TokenValidationParameters = new TokenValidationParameters
@@ -106,14 +44,7 @@ public void ConfigureServices(IServiceCollection services)
             RoleClaimType = "https://schemas.quickstarts.com/roles"
         };
 
-        options.Events = new OpenIdConnectEvents
-        {
-            // handle the logout redirection 
-            OnRedirectToIdentityProviderForSignOut = (context) =>
-            {
-                // ...
-            }
-        };
+        //...
     });
 }
 ```

@@ -39,12 +39,14 @@ In the code sample below, only the `openid` scope is requested.
 
 public void ConfigureServices(IServiceCollection services)
 {
-    services.Configure<CookiePolicyOptions>(options =>
-    {
-        // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-        options.CheckConsentNeeded = context => true;
-        options.MinimumSameSitePolicy = SameSiteMode.None;
-    });
+    // Cookie configuration for HTTP to support cookies with SameSite=None
+    services.ConfigureSameSiteNoneCookies();
+
+    // Cookie configuration for HTTPS
+    // services.Configure<CookiePolicyOptions>(options =>
+    // {
+    //     options.MinimumSameSitePolicy = SameSiteMode.None;
+    // });
 
     // Add authentication services
     services.AddAuthentication(options => {
@@ -62,7 +64,7 @@ public void ConfigureServices(IServiceCollection services)
         options.ClientSecret = Configuration["Auth0:ClientSecret"];
 
         // Set response type to code
-        options.ResponseType = "code";
+        options.ResponseType = OpenIdConnectResponseType.Code;
 
         // Configure the scope
         options.Scope.Clear();
@@ -74,32 +76,6 @@ public void ConfigureServices(IServiceCollection services)
 
         // Configure the Claims Issuer to be Auth0
         options.ClaimsIssuer = "Auth0";
-
-        options.Events = new OpenIdConnectEvents
-        {
-            // handle the logout redirection
-            OnRedirectToIdentityProviderForSignOut = (context) =>
-            {
-                var logoutUri = $"https://{Configuration["Auth0:Domain"]}/v2/logout?client_id={Configuration["Auth0:ClientId"]}";
-
-                var postLogoutUri = context.Properties.RedirectUri;
-                if (!string.IsNullOrEmpty(postLogoutUri))
-                {
-                    if (postLogoutUri.StartsWith("/"))
-                    {
-                        // transform to absolute
-                        var request = context.Request;
-                        postLogoutUri = request.Scheme + "://" + request.Host + request.PathBase + postLogoutUri;
-                    }
-                    logoutUri += $"&returnTo={ Uri.EscapeDataString(postLogoutUri)}";
-                }
-
-                context.Response.Redirect(logoutUri);
-                context.HandleResponse();
-
-                return Task.CompletedTask;
-            }
-        };
     });
 
     // Add framework services.
@@ -107,6 +83,10 @@ public void ConfigureServices(IServiceCollection services)
         .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 }
 ```
+
+::: note
+The `ConfigureSameSiteNoneCookies` method used above was added as part of the [sample application](https://github.com/auth0-samples/auth0-aspnetcore-mvc-samples/blob/netcore2.1/Quickstart/01-Login/Support/SameSiteServiceCollectionExtensions.cs) in order to ([make cookies with SameSite=None work over HTTP when using Chrome](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html)). We recommend using HTTPS instead of HTTP, which removes the need for the `ConfigureSameSiteNoneCookies` method.
+:::
 
 Next, add the authentication middleware. In the `Configure` method of the `Startup` class, call the `UseAuthentication` method.
 
@@ -125,7 +105,6 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         app.UseHsts();
     }
 
-    app.UseHttpsRedirection();
     app.UseStaticFiles();
     app.UseCookiePolicy();
 
@@ -142,44 +121,9 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-### Obtain an Access Token for Calling an API
+## Trigger Authentication
 
-If you want to call an API from your MVC application, you need to obtain an Access Token issued for the API you want to call. To obtain the token, pass an additional `audience` parameter containing the API identifier to the Auth0 authorization endpoint.
-
-In the configuration for the `OpenIdConnectOptions` object, handle the `OnRedirectToIdentityProvider` event and add the `audience` parameter to `ProtocolMessage`.
-
-```csharp
-// Startup.cs
-
-public void ConfigureServices(IServiceCollection services)
-{
-    // Some code omitted for brevity...
-
-    services.AddAuthentication(options => {
-        options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-        options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-        options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-    })
-    .AddCookie()
-    .AddOpenIdConnect("Auth0", options => {
-        // ...
-
-        options.Events = new OpenIdConnectEvents
-        {
-            OnRedirectToIdentityProvider = context =>
-            {
-                context.ProtocolMessage.SetParameter("audience", "${apiIdentifier}");
-
-                return Task.FromResult(0);
-            }
-        };
-    });
-}
-```
-
-## Trigger authentication
-
-### Add the `Login` and `Logout` Methods
+### Add the Login and Logout methods
 
 Add the `Login` and `Logout` actions to `AccountController`.
 
@@ -236,9 +180,7 @@ public void ConfigureServices(IServiceCollection services)
 
     // Add authentication services
     services.AddAuthentication(options => {
-        options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-        options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-        options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+        //...
     })
     .AddCookie()
     .AddOpenIdConnect("Auth0", options => {
@@ -273,9 +215,9 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-### Add the Log In and Log Out Buttons
+### Add the Login and Logout buttons
 
-Add the **Log In** and **Log Out** buttons to the navigation bar. In the `/Views/Shared/_Layout.cshtml` file, in the navigation bar section, add code that displays the **Log Out** button when the user is authenticated and the **Log In** button if not. The buttons link to the `Logout` and `Login` actions in the `AccountController`:
+Add the **Login** and **Logout** buttons to the navigation bar. In the `/Views/Shared/_Layout.cshtml` file, in the navigation bar section, add code that displays the **Log Out** button when the user is authenticated and the **Login** button if not. The buttons link to the `Logout` and `Login` actions in the `AccountController`:
 
 ```html
 <!-- Views/Shared/_Layout.cshtml -->
@@ -312,11 +254,11 @@ Add the **Log In** and **Log Out** buttons to the navigation bar. In the `/Views
 
 ### Run the Application
 
-When the user selects the **Log In** button, the OIDC middleware redirects them to the hosted version of the [Lock](/libraries/lock/v10/customization) widget in your Auth0 domain.
+When the user selects the **Login** button, the OIDC middleware redirects them to the hosted version of the [Lock](/libraries/lock/v10/customization) widget in your Auth0 domain.
 
 #### About the login flow
 
-1. The user clicks on the **Log In** button and is directed to the `Login` route.
+1. The user clicks on the **Login** button and is directed to the `Login` route.
 2. The `ChallengeAsync` tells the ASP.NET authentication middleware to issue a challenge to the authentication handler registered with the Auth0 `authenticationScheme` parameter. The parameter uses the "Auth0" value you passed in the call to `AddOpenIdConnect` in the `Startup` class.
 3. The OIDC handler redirects the user to the Auth0 `/authorize` endpoint, which displays the Lock widget. The user can log in with their username and password, social provider or any other identity provider.
 4. Once the user has logged in, Auth0 calls back to the `/callback` endpoint in your application and passes along an authorization code.
@@ -326,7 +268,54 @@ When the user selects the **Log In** button, the OIDC middleware redirects them 
 8. The OIDC middleware extracts the user information from the claims on the ID Token.
 9. The OIDC middleware returns a successful authentication response and a cookie which indicates that the user is authenticated. The cookie contains claims with the user's information. The cookie is stored, so that the cookie middleware will automatically authenticate the user on any future requests. The OIDC middleware receives no more requests, unless it is explicitly challenged.
 
-### Store the Tokens
+## Obtain an Access Token for Calling an API
+
+If you want to call an API from your MVC application, you need to obtain an Access Token issued for the API you want to call. To obtain the token, pass an additional `audience` parameter containing the API identifier to the Auth0 authorization endpoint.
+
+In the configuration for the `OpenIdConnectOptions` object, handle the `OnRedirectToIdentityProvider` event and add the `audience` parameter to `ProtocolMessage`.
+
+```csharp
+// Startup.cs
+
+public void ConfigureServices(IServiceCollection services)
+{
+    // Some code omitted for brevity...
+
+    services.AddAuthentication(options => {
+        //...
+    })
+    .AddCookie()
+    .AddOpenIdConnect("Auth0", options => {
+        // ...
+
+        options.Events = new OpenIdConnectEvents
+        {
+            OnRedirectToIdentityProvider = context =>
+            {
+                // The context's ProtocolMessage can be used to pass along additional query parameters
+                // to Auth0's /authorize endpoint.
+                // 
+                // Set the audience query parameter to the API identifier to ensure the returned Access Tokens can be used
+                // to call protected endpoints on the corresponding API.
+                context.ProtocolMessage.SetParameter("audience", Configuration["Auth0:Audience"]);
+
+                return Task.FromResult(0);
+            }
+        };
+    });
+}
+```
+
+Be sure to also update your application's `appsettings.json` file to include the Audience configuration:
+
+``` xml
+"Auth0": {
+    ...
+    "Audience": "${apiIdentifier}"
+}
+```
+
+### Store and retrieve the tokens
 
 The OIDC middleware in ASP.NET Core automatically decodes the ID Token returned from Auth0 and adds the claims from the ID Token as claims in the `ClaimsIdentity`. This means that you can use `User.Claims.FirstOrDefault("<claim type>").Value` to obtain the value of any claim inside any action in your controllers.
 
@@ -343,9 +332,7 @@ public void ConfigureServices(IServiceCollection services)
 
     // Add authentication services
     services.AddAuthentication(options => {
-        options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-        options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-        options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+        //...
     })
     .AddCookie()
     .AddOpenIdConnect("Auth0", options => {
@@ -366,7 +353,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-To retrieve the tokens, you can call `GetTokenAsync`:
+To retrieve the tokens, call `HttpContext.GetTokenAsync` and use them as required:
 
 ```csharp
 // Inside one of your controller actions
