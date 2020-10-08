@@ -51,11 +51,15 @@ Add your Auth0 configuration to the `secrets.yml` file for later use:
 
 ```yaml
 development:
-  secret_key_base: d2b31d76ebec2f43b57eca7ee896e88b03177bddbb6511f7301c96e516ebf84a090520a8f6575e4047c693ebc6a96784afe18bc9b34b85827eb17b4ad0758639
+  secret_key_base: <YOUR APPLICATION SECRET KEY>
   auth0_domain: ${account.namespace}
   auth0_client_id: ${account.clientId}
   auth0_client_secret: <YOUR AUTH0 CLIENT SECRET>
 ```
+
+:::note
+`secret_key_base` is not used for authentication but should already exist as part of your Rails app.
+:::
 
 Create a file named `auth0.rb` under `config/initializers` and configure the **OmniAuth** middleware in it.
 
