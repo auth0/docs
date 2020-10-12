@@ -157,10 +157,6 @@ The returned login result will indicate whether authentication was successful an
 You can check the `IsError` property of the result to see whether the login has failed. The `ErrorMessage` will contain more information regarding the error which occurred.
 
 ```csharp
-// For Android
-var loginResult = await client.ProcessResponseAsync(intent.DataString, authorizeState);
-
-// For iOS
 var loginResult = await client.LoginAsync();
 
 if (loginResult.IsError)
@@ -174,7 +170,7 @@ if (loginResult.IsError)
 On successful login, the login result will contain the ID Token and Access Token in the `IdentityToken` and `AccessToken` properties respectively.
 
 ```csharp
-var loginResult = await client.ProcessResponseAsync(intent.DataString, authorizeState);
+var loginResult = await client.LoginAsync();
 
 if (!loginResult.IsError)
 {
