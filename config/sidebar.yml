@@ -522,6 +522,26 @@ articles:
           - title: Best Practices
             url: /best-practices/user-search-best-practices
             hidden: true
+  - title: Manage Dashboard Access
+    url: /dashboard-access
+    children:
+      - title: Manage Administrators and Support Center Users
+        url: /dashboard-access/manage-dashboard-users
+      - title: Dashboard Roles Feature Preview (Beta)
+        url: /dashboard-access/dashboard-roles
+        children:
+          - title: Dashboard Feature Access by Member Role
+            url: /dashboard-access/dashboard-roles/dashboard-feature-access-by-role
+          - title: Add Dashboard Members
+            url: /dashboard-access/dashboard-roles/add-dashboard-members
+          - title: Edit Dashboard Members
+            url: /dashboard-access/dashboard-roles/edit-dashboard-members
+          - title: Remove Dashboard Members
+            url: /dashboard-access/dashboard-roles/remove-tenant-members
+      - title: Manage Dashboard Access with Multi-factor Authentication
+        url: /dashboard-access/add-change-remove-mfa
+      - title: Update Dashboard Member Email Addresses
+        url: /dashboard-access/update-dashboard-member-email
   - title: Brand & Customize
     url: /brand-and-customize
     children:
