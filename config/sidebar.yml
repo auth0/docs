@@ -530,8 +530,8 @@ articles:
       - title: Dashboard Roles Feature Preview (Beta)
         url: /dashboard-access/dashboard-roles
         children:
-          - title: Dashboard Feature Access by Member Role
-            url: /dashboard-access/dashboard-roles/dashboard-feature-access-by-role
+          - title: Dashboard Access by Role
+            url: /dashboard-access/dashboard-roles/feature-access-by-role
           - title: Add Dashboard Members
             url: /dashboard-access/dashboard-roles/add-dashboard-members
           - title: Edit Dashboard Members
