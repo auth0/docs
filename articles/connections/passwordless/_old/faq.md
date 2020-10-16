@@ -136,4 +136,4 @@ Since you are using Auth0 passwordless logins, there are no passwords to phish, 
 
 ### Q: Our company uses an email security system that scans URLs and invalidates the token. What can we do?
 
-**A:** The only solution to this is to ask your users to whitelist the passwordless emails.
+**A:** The only solution to this is to ask your users to add the passwordless emails to the allow list.
