@@ -56,6 +56,10 @@
         <td><code>{ "error": "password_leaked", "error_description": "This login has been blocked because your password has been leaked in another website. We’ve sent you an email with instructions on how to unblock it."}</code></td>
       </tr>
       <tr>
+        <td><span class="badge badge-danger">401</span></td>
+        <td><code>{ "error": "requires_verification", "error_description": "Suspicious request requires verification" }</code></td>
+      </tr>
+      <tr>
         <td><span class="badge badge-danger">429</span></td>
         <td><code>{"error": "too_many_attempts", "error_description": "..."}</code></br>Some anomaly detections will return this error</td>
       </tr>
