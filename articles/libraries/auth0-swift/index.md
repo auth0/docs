@@ -22,9 +22,9 @@ Check out the [Auth0.swift repository](https://github.com/auth0/Auth0.swift) on 
 
 ## Requirements
 
-- iOS 9+
-- Xcode 10+
-- Swift 4+
+- iOS 9+ / macOS 10.11+ / tvOS 9.0+ / watchOS 2.0+
+- Xcode 11.4+ / 12.x
+- Swift 4.x / 5.x
 
 ## Installation
 
