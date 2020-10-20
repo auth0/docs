@@ -56,6 +56,22 @@ Then run `carthage bootstrap`.
 For more information about Carthage usage, check [their official documentation](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
 :::
 
+### SPM
+
+If you are using the Swift Package Manager, open the following menu item in Xcode:
+
+**File > Swift Packages > Add Package Dependency...**
+
+In the **Choose Package Repository** prompt add this url: 
+
+```
+https://github.com/auth0/Auth0.swift.git
+```
+
+Then press **Next** and complete the remaining steps.
+
+> For further reference on SPM, check [its official documentation](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app).
+
 ## Adding Auth0 Credentials
 
 You will need to add an `Auth0.plist` file, containing your Auth0 client id and domain, to your main bundle. Here is an example of the file contents:
