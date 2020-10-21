@@ -64,7 +64,7 @@ If you are using the Swift Package Manager, open the following menu item in Xcod
 
 In the **Choose Package Repository** prompt add this url: 
 
-```
+```text
 https://github.com/auth0/Auth0.swift.git
 ```
 
