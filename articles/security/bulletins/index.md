@@ -27,6 +27,7 @@ Each bulletin contains a description of the vulnerability, how to identify if yo
 
 | **Date** | **Bulletin number** | **Title** | **Affected software** |
 |-|-|-|-|
+| October 21, 2020 | [CVE-2020-15240](/security/bulletins/cve-2020-15240) | Security Update for omniauth-auth0 >= 2.3.0 | [omniauth-auth0](https://github.com/auth0/omniauth-auth0) |
 | August 16, 2020 | [CVE-2020-15119](/security/bulletins/cve-2020-15119) | Security Update for Auth0 Lock <= 11.25.1 | [Auth0 Lock](https://github.com/auth0/lock) |
 | July 28, 2020 | [CVE-2020-15125](/security/bulletins/cve-2020-15125) | Auth0 Security Bulletin for node-auth0 <= 2.27.0 | [node-auth0](https://github.com/auth0/node-auth0) |
 | June 30, 2020 | [CVE 2020-15084](/security/bulletins/cve-2020-15084) | Auth0 Security Bulletin for express-jwt versions < 6.0.0 | [express-jwt](https://github.com/auth0/express-jwt) |
