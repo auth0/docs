@@ -16,7 +16,9 @@ useCase:
 ---
 # Connect Apps to Generic OAuth2 Authorization Servers
 
-The most common [identity providers](/identityproviders) are available on Auth0's Dashboard. However, you can add any other OAuth2 provider using the **Custom Social Connections** [extension](${manage_url}/#/extensions). For details on how to install and configure the extension, refer to [Auth0 Extension: Custom Social Connections](/extensions/custom-social-extensions).
+The most common [identity providers](/identityproviders) are available on Auth0's Dashboard and in the [Auth0 Marketplace](https://marketplace.auth0.com/features/social-connections). However, you can add any other OAuth2 provider using a **Custom Social Connection**.
+
+To create a new Custom Social Connection, either [click this link](https://manage.auth0.com/select-tenant?path=/connections/social/create/custom) and select your tenant or go to **Connections > Social** in the Auth0 Dashboard, scroll to the bottom, and click **Create Custom**.
 
 ## Fetch user profile script
 
@@ -128,7 +130,7 @@ You can pass provider-specific parameters to the Authorization endpoint of an OA
 
 To pass any static parameters, you can use the `authParams` element of the `options` when configuring an OAuth 2.0 connection via the [Management API](/api/management/v2#!/Connections/patch_connections_by_id).
 
-Let's use WordPress as an example, which allows you to pass an optional `blog` parameter to their OAuth 2.0 authorization endpoint (see their [OAuth 2.0 documentation](https://developer.wordpress.com/docs/oauth2/) for more information). Let's assume that you want to always request a user to grant access to the `myblog.wordpress.com` blog when logging in using WordPress. 
+Let's use WordPress as an example, which allows you to pass an optional `blog` parameter to their OAuth 2.0 authorization endpoint (see their [OAuth 2.0 documentation](https://developer.wordpress.com/docs/oauth2/) for more information). Let's assume that you want to always request a user to grant access to the `myblog.wordpress.com` blog when logging in using WordPress.
 
 Using the Management API, you can configure the WordPress connection to always pass this value in the `blog` parameter when authorizing a user via WordPress.
 
