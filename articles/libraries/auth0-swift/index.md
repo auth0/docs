@@ -22,9 +22,9 @@ Check out the [Auth0.swift repository](https://github.com/auth0/Auth0.swift) on 
 
 ## Requirements
 
-- iOS 9+
-- Xcode 10+
-- Swift 4+
+- iOS 9+ / macOS 10.11+ / tvOS 9.0+ / watchOS 2.0+
+- Xcode 11.4+ / 12.x
+- Swift 4.x / 5.x
 
 ## Installation
 
@@ -55,6 +55,22 @@ Then run `carthage bootstrap`.
 ::: note
 For more information about Carthage usage, check [their official documentation](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
 :::
+
+### SPM
+
+If you are using the Swift Package Manager, open the following menu item in Xcode:
+
+**File > Swift Packages > Add Package Dependency...**
+
+In the **Choose Package Repository** prompt add this url: 
+
+```text
+https://github.com/auth0/Auth0.swift.git
+```
+
+Then press **Next** and complete the remaining steps.
+
+> For further reference on SPM, check [its official documentation](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app).
 
 ## Adding Auth0 Credentials
 
