@@ -16,7 +16,7 @@ useCase:
 ---
 # Connect Apps to Generic OAuth2 Authorization Servers
 
-The most common [identity providers](/identityproviders) are available on Auth0's Dashboard and in the [Auth0 Marketplace](https://marketplace.auth0.com/features/social-connections). However, you can add any other OAuth2 provider using a **Custom Social Connection**.
+The most common [identity providers](/identityproviders) are available on Auth0's Dashboard and in the [Auth0 Marketplace](https://marketplace.auth0.com/features/social-connections). However, you can add any other <dfn data-key="oauth2">OAuth2</dfn> provider using a **Custom Social Connection**.
 
 To create a new Custom Social Connection, either [click this link](${manage_url}/select-tenant?path=/connections/social/create/custom) and select your tenant or go to **Connections > Social** in the Auth0 Dashboard, scroll to the bottom, and click **Create Custom**.
 
