@@ -30,6 +30,10 @@ The form that appears contains several fields which are used to configure the cu
 - **Client Secret** - The Client Secret for Auth0 as an application used to exchange the authorization code. You will need to register with the identity provider in order to get a Client Secret.
 - **Fetch User Profile Script** - A Node.js script to call a userinfo URL with the provided access token. Please see the section below for details on this script.
 
+:::note
+When configuring the custom identity provider, use the callback URL `https://${account.namespace}/login/callback`.
+:::
+
 Once the custom connection is created, the **Applications** tab will be active where you can select when the Connection will appear.
 
 ## Fetch User Profile Script
