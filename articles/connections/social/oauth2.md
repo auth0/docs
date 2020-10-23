@@ -93,6 +93,10 @@ https://${account.namespace}/authorize
 
 To add an icon to the identity provider's login button or change the text used on the login button, you can use the `icon_url` property of the `options` object and the `display_name` property, respectively, via the [Management API](/api/management/v2#!/Connections/patch_connections_by_id).
 
+:::note
+These fields will only affect how the Connection is displayed in the [New Universal Login Experience](https://auth0.com/docs/universal-login/new-experience).
+:::
+
 ```har
 {
   "method": "PATCH",
