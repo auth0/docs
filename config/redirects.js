@@ -1786,7 +1786,7 @@ module.exports = [
   },
   {
     from: ['/dashboard/manage-dashboard-admins','/tutorials/manage-dashboard-admins','/get-started/dashboard/manage-dashboard-users'],
-    to: '/dashboard-access'
+    to: '/dashboard-access/manage-dashboard-users'
   },
   {
     from: ['/dashboard/guides/applications/rotate-client-secret','/api/management/guides/applications/rotate-client-secret'],
