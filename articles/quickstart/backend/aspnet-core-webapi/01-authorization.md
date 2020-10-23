@@ -155,6 +155,8 @@ public void ConfigureServices(IServiceCollection services)
         options.AddPolicy("read:messages", policy => policy.Requirements.Add(new HasScopeRequirement("read:messages", domain)));
     });
 
+    services.AddSingleton<IAuthorizationHandler, HasScopeHandler>();
+
     //...
 }
 ```
