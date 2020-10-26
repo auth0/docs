@@ -537,7 +537,7 @@ articles:
           - title: Edit Dashboard Users
             url: /dashboard-access/dashboard-roles/edit-dashboard-users
           - title: Remove Dashboard Users
-            url: /dashboard-access/dashboard-roles/remove-tenant-users
+            url: /dashboard-access/dashboard-roles/remove-dashboard-users
       - title: Manage Dashboard Access with Multi-factor Authentication
         url: /dashboard-access/add-change-remove-mfa
       - title: Update Dashboard User Email Addresses
