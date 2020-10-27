@@ -98,7 +98,7 @@ First, import the `Auth0` module in the file where you want to present the login
 
 ${snippet(meta.snippets.setup)}
 
-Then, present the login screen:
+Then, in the action of your **Login** button, add the following snippet to present the login screen:
 
 ${snippet(meta.snippets.use)}
 
@@ -114,19 +114,16 @@ To learn more about the `Credentials` object, read the [Credentials](https://git
 
 ## Implement Logout
 
-To clear the session on the server side you need to invoke the `clearSession` method. Add the following snippet:
+To clear the Universal Login session you need to invoke the `clearSession` method. Add the following snippet in the action of your **Logout** button:
 
 ```swift
 // HomeViewController.swift
 
 Auth0
     .webAuth()
-    .clearSession(federated:false) {
-        switch $0 {
-            case true:
-                ...
-            case false:
-                ...
+    .clearSession(federated: false) { result in
+        if result {
+            // Session cleared
         }
     }
 ```
