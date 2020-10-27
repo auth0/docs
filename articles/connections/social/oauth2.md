@@ -4,7 +4,7 @@ image: /media/connections/oauth2.png
 seo_alias: oauth2
 toc: true
 index: 15
-description: You can add any OAuth2 provider using the Auth0 Custom Social Connections extension.
+description: Learn how to add any OAuth2 provider using Auth0 Custom Social Connections.
 topics:
   - connections
   - social
@@ -18,23 +18,23 @@ useCase:
 
 The most common [identity providers](/identityproviders) are available on Auth0's Dashboard and in the [Auth0 Marketplace](https://marketplace.auth0.com/features/social-connections). However, you can add any other <dfn data-key="oauth2">OAuth2</dfn> provider using a **Custom Social Connection**.
 
-To create a new Custom Social Connection, either [click this link](${manage_url}/select-tenant?path=/connections/social/create/custom) and select your tenant or go to **Connections > Social** in the Auth0 Dashboard, scroll to the bottom, and click **Create Custom**.
+To create a new Custom Social Connection, navigate to [**Auth0 Dashboard > Connections > Social**](${manage_url}/#/connections/social), scroll to the bottom, and click **Create Custom**.
 
-The form that appears contains several fields which are used to configure the custom connection:
+The form that appears contains several fields that you must use to configure the custom connection:
 
-- **Connection Name** - The logical identifier for the Connection being created. This name cannot be changed, must start and end with an alphanumeric character, and can only contain alphanumeric characters and dashes.
-- **Authorization URL** - The URL where users are redirected to login.
-- **Token URL** - The URL used to exchange the authorization code received for access and, if requested, ID tokens.
-- **Scope** - The `scope` parameters to send with the authroization request. Separate multiple scopes with spaces.
-- **Client ID** - The Client ID for Auth0 as an application used to request authorization and exchange the authorization code. You will need to register with the identity provider in order to get a Client ID.
-- **Client Secret** - The Client Secret for Auth0 as an application used to exchange the authorization code. You will need to register with the identity provider in order to get a Client Secret.
-- **Fetch User Profile Script** - A Node.js script to call a userinfo URL with the provided access token. Please see the section below for details on this script.
+- **Connection Name**: Logical identifier for the Connection you are creating. This name cannot be changed, must start and end with an alphanumeric character, and can only contain alphanumeric characters and dashes.
+- **Authorization URL**: URL to which users are redirected tp log in.
+- **Token URL**: URL used to exchange the received authorization code for access tokens and, if requested, ID tokens.
+- **Scope** - `scope` parameters to send with the authorization request. Separate multiple scopes with spaces.
+- **Client ID**: Client ID for Auth0 as an application used to request authorization and exchange the authorization code. To get a Client ID, you will need to register with the identity provider.
+- **Client Secret**: Client Secret for Auth0 as an application used to exchange the authorization code. To get a Client Secret, you will need to register with the identity provider.
+- **Fetch User Profile Script**: Node.js script used to call a userinfo URL with the provided access token. To learn more about this script, see [Fetch User Profile Script](#fetch-user-profile-script).
 
 :::note
 When configuring the custom identity provider, use the callback URL `https://${account.namespace}/login/callback`.
 :::
 
-Once the custom connection is created, the **Applications** tab will be active where you can select when the Connection will appear.
+Once you create the custom connection, you will see the **Applications** view. Here, you can enable and disable applications for which you would like the connection to appear.
 
 ## Fetch User Profile Script
 
@@ -76,13 +76,13 @@ function fetchUserProfile(accessToken, context, callback) {
 }
 ```
 
-The `user_id` property in the returned profile is required and the `email` property is optional but highly recommended. See the [User Profile Root Attributes reference](/users/updating-user-profile-root-attributes) for more information on  what attributes can be returned.
+The `user_id` property in the returned profile is required, and the `email` property is optional but highly recommended. To learn more about what attributes can be returend, see [User Profile Root Attributes](/users/updating-user-profile-root-attributes).
 
-You can filter, add or remove anything from the profile returned from the provider. However, it is recommended that you keep this script as simple as possible. More sophisticated manipulation of user information can be achieved through the use of [Rules](/rules). One advantage of using Rules is that they apply to *any* connection.
+You can filter, add, or remove anything from the profile returned from the provider. However, it is recommended that you keep this script as simple as possible. More sophisticated manipulation of user information can be achieved through the use of [Rules](/rules). One advantage of using Rules is that they apply to any connection.
 
 ## Log in using the custom connection
 
-You can use any of the Auth0 standard mechanisms to login a user with the your custom connection. A direct link would look like:
+You can use any of the Auth0 standard mechanisms to log a user in with your custom connection. A direct link would look like:
 
 ```text
 https://${account.namespace}/authorize
@@ -90,7 +90,7 @@ https://${account.namespace}/authorize
   &client_id=${account.clientId}
   &redirect_uri=${account.callback}
   &scope=openid%20profile%20email
-  &connection=THE_NAME_OF_THE_CONNECTION
+  &connection=NAME_OF_CONNECTION
 ```
 
 ## Modify the icon and display name
@@ -119,7 +119,7 @@ These fields will only affect how the Connection is displayed in the [New Univer
 
 ## Pass provider-specific parameters
 
-You can pass provider-specific parameters to the Authorization endpoint of an OAuth 2.0 providers. These can be either static or dynamic.
+You can pass provider-specific parameters to the Authorization endpoint of OAuth 2.0 providers. These can be either static or dynamic.
 
 ### Pass static parameters
 
@@ -141,11 +141,11 @@ To pass static parameters (parameters that are sent with every authorization req
 
 ### Pass dynamic parameters
 
-There are certain circumstances where you may want to pass a dynamic value to OAuth 2.0 Identity Provider. In this case you can use the `authParamsMap` element of the `options` to specify a mapping between one of the existing additional parameters accepted by [the Auth0 `/authorize` endpoint](/api/authentication#social) to the parameter accepted by the Identity Provider.
+In certain circumstances, you may want to pass a dynamic value to an OAuth 2.0 Identity Provider. In this case, you can use the `authParamsMap` element of the `options` to specify a mapping between one of the existing additional parameters accepted by the [Auth0 `/authorize` endpoint](/api/authentication#social) to the parameter accepted by the Identity Provider.
 
 Using the same example above, let's assume that you want to pass the `custom_param` parameter to the authorization endpoint, but you want to specify the actual value of the parameter when calling the Auth0 `/authorize` endpoint.
 
-In this case you can use one of the existing addition parameters accepted by the `/authorize` endpoint, such as `access_type`, and map that to the `custom_param` parameter:
+In this case, you can use one of the existing addition parameters accepted by the `/authorize` endpoint, such as `access_type`, and map that to the `custom_param` parameter:
 
 ```har
 {
@@ -161,11 +161,11 @@ In this case you can use one of the existing addition parameters accepted by the
 }
 ```
 
-Now when calling the `/authorize` endpoint you can pass the name of the blog in the `access_type` parameter, and that value will in turn be passed along to the WordPress authorization endpoint in the `custom_param` parameter.
+Now when calling the `/authorize` endpoint, you can pass the access type in the `access_type` parameter, and that value will in turn be passed along to the authorization endpoint in the `custom_param` parameter.
 
 ## Pass Extra Headers
 
-In some instances you will need to pass extra headers to the Token endpoint of an OAuth 2.0 provider. To configure extra headers, open the Settings for the Connection and in the **Custom Headers** field, specify a JSON object with the custom headers as key-value pairs:
+In some instances, you will need to pass extra headers to the Token endpoint of an OAuth 2.0 provider. To configure extra headers, open the Settings for the Connection, and in the **Custom Headers** field, specify a JSON object with the custom headers as key-value pairs:
 
 ```json
 {
@@ -174,7 +174,7 @@ In some instances you will need to pass extra headers to the Token endpoint of a
 }
 ```
 
-Let us use an example where an Identity Provider may require you to pass an `Authorization` header with [Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) credentials. In this scenario you can specify the following JSON object in the **Custom Headers** field:
+Let's use an example where an Identity Provider may require you to pass an `Authorization` header with [Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) credentials. In this scenario, you can specify the following JSON object in the **Custom Headers** field:
 
 ```json
 {
@@ -182,7 +182,7 @@ Let us use an example where an Identity Provider may require you to pass an `Aut
 }
 ```
 
-Where `[your credentials]` is the actual credentials to send to the Identity Provider.
+Where `[your credentials]` are the actual credentials to send to the Identity Provider.
 
 ## Keep Reading
 
