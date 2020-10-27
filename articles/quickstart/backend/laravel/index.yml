@@ -26,7 +26,7 @@ github:
 requirements:
   - Composer 1.5 and up
   - PHP 7.2 and up
-  - Laravel 6 and up
+  - Laravel 8.0 and up
 next_steps:
   - path: 01-authorization
     list:
