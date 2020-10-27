@@ -45,8 +45,8 @@ Auth0
     .webAuth()
     .scope("openid profile offline_access")
     .audience("https://${account.namespace}/userinfo")
-    .start {
-        switch $0 {
+    .start { result in
+        switch result {
         case .failure(let error):
             // Handle the error
             print("Error: \(error)")
@@ -179,8 +179,8 @@ Auth0
     .webAuth()
     .scope("openid profile offline_access read:current_user update:current_user_metadata")
     .audience("https://${account.namespace}/api/v2/")
-    .start {
-        switch $0 {
+    .start { result in
+        switch result {
         case .failure(let error):
             // Handle the error
             print("Error: \(error)")

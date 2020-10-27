@@ -44,8 +44,8 @@ Auth0
     .webAuth()
     .scope("openid profile")
     .audience(APIIdentifier)
-    .start {
-        switch $0 {
+    .start { result in
+        switch result {
         case .failure(let error):
             // Handle the error
             print("Error: \(error)")
