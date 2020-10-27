@@ -134,8 +134,8 @@
   url: "/extend-integrate"
   articles:
   
-    - title: "Rules"
-      url: "/rules"
+    - title: "Actions"
+      url: "/actions"
 
     - title: "Extensions"
       url: "/extensions"

@@ -584,6 +584,24 @@ articles:
         url: /scopes/customize-consent-prompts
       - title: Internationalization
         url: /i18n
+  - title: Actions
+    url: /actions
+    children:
+      - title: Build Action Flows
+        url: /actions/build-actions-flows
+        children:
+          - title: Actions Context Object
+            url: /actions/actions-context-object
+          - title: Actions Event Object
+            url: /actions/actions-event-object
+      - title: Edit Actions
+        url: /actions/edit-actions
+      - title: Manage Action Versions
+        url: /actions/manage-action-versions
+      - title: Troubleshoot Actions
+        url: /actions/troubleshoot-actions
+      - title: Actions Blueprints
+        url: /actions/blueprints
   - title: Rules
     url: /rules
     children:
