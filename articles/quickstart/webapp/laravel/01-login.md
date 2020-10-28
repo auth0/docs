@@ -361,7 +361,7 @@ class CustomUserRepository extends Auth0UserRepository
      */
     public function getUserByDecodedJWT(array $decodedJwt) : Authenticatable
     {
-        $user = $this->upsertUser( (array) $jwt );
+        $user = $this->upsertUser( $decodedJwt );
         return new Auth0JWTUser( $user->getAttributes() );
     }
 
