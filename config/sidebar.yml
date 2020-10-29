@@ -1242,9 +1242,6 @@ articles:
           - title: Rate Limits
             url: /policies/rate-limit-policy
             children:
-              - title: Legacy Rate Limits
-                url: /policies/rate-limit-policy/mgmt-api-endpoint-rate-limits-before-19-may-2020
-                hidden: true
               - title: Managment API Endpoint Rate Limits
                 url: /policies/rate-limit-policy/management-api-endpoint-rate-limits
                 hidden: true
