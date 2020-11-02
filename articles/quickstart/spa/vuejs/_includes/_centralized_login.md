@@ -91,11 +91,11 @@ export const useAuth0 = ({
     },
     methods: {
       /** Authenticates the user using a popup window */
-      async loginWithPopup(o) {
+      async loginWithPopup(options, config) {
         this.popupOpen = true;
 
         try {
-          await this.auth0Client.loginWithPopup(o);
+          await this.auth0Client.loginWithPopup(options, config);
         } catch (e) {
           // eslint-disable-next-line
           console.error(e);
@@ -145,9 +145,8 @@ export const useAuth0 = ({
     async created() {
       // Create a new instance of the SDK client using members of the given options object
       this.auth0Client = await createAuth0Client({
-        domain: options.domain,
+        ...options,
         client_id: options.clientId,
-        audience: options.audience,
         redirect_uri: redirectUri
       });
 
