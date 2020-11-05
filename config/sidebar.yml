@@ -400,6 +400,11 @@ articles:
         children:
           - title: Bot Detection
             url: /anomaly-detection/bot-detection
+            children: 
+              - title: Custom Login Pages
+                url: /anomaly-detection/bot-detection/add-bot-detection-custom-login-pages
+              - title: Native Applications
+                url: /anomaly-detection/bot-detection/bot-detection-native-apps
           - title: Breached Passwords
             url: /anomaly-detection/breached-password-security
           - title: Brute Force Attacks
