@@ -72,7 +72,7 @@ During this process, Microsoft generates an **Application (client) ID** for your
 
 ### Create a client secret
 
-To create a client secret, see Microsoft's [Quickstart: Configure a client application to access web APIs - Add Credentials to your web application](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-access-web-apis#add-credentials-to-your-web-application). 
+To create a client secret, see Microsoft's [Quickstart: Configure a client application to access web APIs - Add Credentials to your web application](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app#add-credentials). 
 
 Once generated, **make note of this value**.
 
