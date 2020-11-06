@@ -54,6 +54,9 @@ While we strongly recommend that you use our hosted universal login page, if you
 ::: guides
   * [Auth0 Mobile/Native App Quickstarts](/quickstart/native)
   * [Add login using the Authorization Code Flow with PKCE](/flows/guides/auth-code-pkce/add-login-auth-code-pkce)
+  * [Add Facebook Login to Native Apps](/connections/nativesocial/facebook)
+  * [Add Sign In with Apple to Native iOS Apps](/connections/nativesocial/apple)
+  * [Embedded Passwordless Login in Native Applications](/connections/passwordless/guides/embedded-login-native)
   * [Customize the universal login page](/universal-login)
   * [Token Storage](/tokens/concepts/token-storage)
 :::
