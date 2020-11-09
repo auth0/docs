@@ -1,5 +1,5 @@
 ---
-title: Define organization behavior
+title: Define Organization Behavior
 description: Learn to define organization behavior within applications for Auth0's Organizations feature.
 topics:
   - organizations
@@ -11,9 +11,9 @@ useCase:
 toc: true
 ---
 
-# Define organization behavior
+# Define Organization Behavior
 
-You may be familiar with applications like Heroku that present different behaviors depending on whether a user logs in with a personal account or selects an organization associated with their business account. Auth0 allows you to define similar organization behavior at the application level. For each application you create in Auth0, you can decide whether end-users should log in directly or be required to authenticate in the context of an organization. For applications that require users to log in via an organization, you can specify what happens if one is not provided to the login flow, as well.
+You may be familiar with applications like Heroku that present different behaviors depending on whether a user logs in with a personal account or selects an organization associated with their business account. Auth0 allows you to define similar organization behavior at the application level. For each application you create in Auth0, you can decide whether end-users should log in directly or be required to authenticate in the context of an organization. For applications that require users to log in via an organization, you can also specify what happens if one is not provided to the login flow.
 
 You can define organization behavior using either the Auth0 Dashboard or the Management API.
 
@@ -26,13 +26,8 @@ To define organization behavior via the Auth0 Dashboard:
 
 | Field | Description | 
 | - | - |
-| **Organization Behavior** | Dictates whether your application can support users logging into an organization. Options include:
-* **Deny**: Users cannot log in using an organization.
-* **Allow**: Users can log in either with an organization or without one. When selected, you must provide an organization when you redirect users to the `/authorize` endpoint.
-* **Require**: Users must log in using an organization. When selected, you must either provide an organization when you redirect users to the `/authorize` endpoint or choose Pre-login prompt as your Organization Prompt Type to allow users to choose an organization before they log in. |
-| **Organization Prompt Type** | Specifies what type of prompt to use when your application requires that users select their organization. Only applicable when **Organization Behavior** is set to **Require**. Options include:
-* **No prompt**: Display no prompt. Requests without a valid organization parameter will be rejected.
-* **Pre-login prompt**: Display Auth0’s out-of-box pre-login Organization prompt. |
+| <strong>Organization&nbsp;Behavior</strong> | Dictates whether your application can support users logging into an organization. Options include:<ul><li><strong>Deny</strong>: Users cannot log in using an organization.</li><li><strong>Allow</strong>: Users can log in either with an organization or without one. When selected, you must provide an organization when you redirect users to the <code>/authorize</code> endpoint.</li><li><strong>Require</strong>: Users must log in using an organization. When selected, you must either provide an organization when you redirect users to the <code>/authorize</code> endpoint or choose Pre-login prompt as your Organization Prompt Type to allow users to choose an organization before they log in.</li></ul> |
+| **Organization Prompt Type** | Specifies what type of prompt to use when your application requires that users select their organization. Only applicable when **Organization Behavior** is set to **Require**. Options include:<ul><li><strong>No prompt</strong>: Display no prompt. Requests without a valid organization parameter will be rejected.</li><li><strong>Pre-login prompt</strong>: Display Auth0’s out-of-box pre-login Organization prompt.</li></ul> |
 
 3. Select **Save changes**.
 
@@ -60,10 +55,5 @@ Make a `PATCH` call to the [Update a Client endpoint](/api/management/v2#!/Clien
 | - | - |
 | `CLIENT_ID` | ID of the application for which you want to add organization behavior. |
 | `MGMT_API_ACCESS_TOKEN` | [Access Tokens for the Management API](/tokens/management-api-access-tokens) with the scope `update:clients`. |
-| `ORG_USAGE` | Dictates whether your application can support users logging into an organization. Options include:
-`deny`: (Default) Users cannot log in using an organization.
-`allow`: Users can log in either with an organization or without one. When selected, you must provide an organization when you redirect users to the `/authorize` endpoint.
-`require`: Users must log in using an organization. When selected, you must either provide an organization when you redirect users to the `/authorize` endpoint or set ORG_REQUIRE_BEHAVIOR to `pre_login_prompt` to allow users to choose an organization before they log in. |
-| `ORG_REQUIRE_BEHAVIOR` | Specifies what type of prompt to use when your application requires that users select their organization. Only applicable when ORG_USAGE is `require`. Options include:
-`no_prompt`: (Default) Display no prompt. Requests without a valid organization parameter will be rejected.
-`pre_login_prompt`: Display Auth0’s out-of-box pre-login Organization prompt. |
+| `ORG_USAGE` | Dictates whether your application can support users logging into an organization. Options include:<ul><li><code>deny</code>: (Default) Users cannot log in using an organization.<li><code>allow</code>: Users can log in either with an organization or without one. When selected, you must provide an organization when you redirect users to the `/authorize` endpoint.</li><li><code>require</code>: Users must log in using an organization. When selected, you must either provide an organization when you redirect users to the `/authorize` endpoint or set ORG_REQUIRE_BEHAVIOR to `pre_login_prompt` to allow users to choose an organization before they log in.</li></ul> |
+| `ORG_REQUIRE_BEHAVIOR` | Specifies what type of prompt to use when your application requires that users select their organization. Only applicable when ORG_USAGE is `require`. Options include:<ul><li><code>no_prompt</code>: (Default) Display no prompt. Requests without a valid organization parameter will be rejected.</li><li><code>pre_login_prompt</code>: Display Auth0’s out-of-box pre-login Organization prompt.</li></ul> |

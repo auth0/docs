@@ -1,5 +1,5 @@
 ---
-title: Custom development
+title: Custom Development
 description: Learn to use Rules and SDKs for Auth0's Organizations feature.
 topics:
   - organizations
@@ -11,7 +11,7 @@ useCase:
 toc: true
 ---
 
-# Custom development
+# Custom Development
 
 You can extend Auth0 capabilities using organization metadata and Rules, or use our APIs and SDKs to build organization administration dashboards for your users.
 
@@ -19,7 +19,7 @@ You can extend Auth0 capabilities using organization metadata and Rules, or use 
 
 Organizations supports our extensibility points, so you can define properties within organization metadata and expose that data to rules. This allows you to customize capabilities for individual customers; for example, you can execute custom logic in Rules for certain customers based on their subscription plan by storing that information in organization metadata.
 
-### Rules Context Object
+### Rules context object
 
 The rule `context` object stores contextual information about the current authentication transaction, such as the user's IP address, application, or location.
 

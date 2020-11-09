@@ -72,11 +72,11 @@ Using our Travel0 Adventure Management example, let’s assume the following use
 * Emilio**: A guide who freelances for both Rocky Mountain High Adventures and Granite Outpost Rafting and Ziplines and should be able to log in to both organizations. If we want Emilio to be able to use the same credentials for both organizations, then Emilio’s credentials should be stored in the Travel0 database connection, and Emilio should be assigned membership in both Rocky Mountain and Granite Outpost organizations. Otherwise, Emilio will need to set up one set of credentials in the Travel0 database connection for Rocky Mountain High Adventures and be assigned membership in the Rocky Mountain High organization, then set up another set of credentials in either the Travel0 database connection or Granite Outpost’s enterprise connection and be assigned membership in the Granite Outpost organization. Finally, if using Granite Outpost’s IdP, the configured enterprise connection must be enabled for the Granite Outpost organization.
 * **Sumana**: A guide who is directly employed by AdventureZ, but sometimes freelances for Rocky Mountain High Adventures under the contract Rocky Mountain has with AdventureZ. AdventureZ and Rocky Mountain have rating systems for their guides, and Sumana’s ratings need to carry over from AdventureZ to Rocky Mountain and be combined between organizations. Either Sumana’s credentials should be stored in the Travel0 database connection and membership should be assigned for both the Rocky Mountain and AdventureZ organizations, or if AdventureZ wants to share their IdP, then Sumana’s credentials should be stored in an enterprise connection that AdventureZ has set up to represent their IdP and the configured enterprise connection must be enabled for both the Rocky Mountain and AdventureZ organizations. If Sumana is also invited to freelance for Granite Outpost Rafting and Ziplines, then her credentials could be stored in the Travel0 database connection or she could be added to Granite Outpost’s IdP, and membership should be assigned to the Granite Outpost organization.
 
-Once you have determined how many organizations you will have and what your connection model should look like, you can set up [database](/connections/database), [social](/connections/identity-providers-social), or [enterprise](/connections/identity-providers-enterprise) connections; [create organizations](/organizations/create-organizations); and [configure organization membership](/organizations/configure-membership) or [enable organization connections](/organizations/configure-connections#enable-connections).
+Once you have determined how many organizations you will have and what your connection model should look like, you can set up [database](/connections/database), [social](/connections/identity-providers-social), or [enterprise](/connections/identity-providers-enterprise) connections; [configure organizations](/organizations/configure-organizations); and [configure organization membership](/organizations/configure-membership) or [enable organization connections](/organizations/configure-connections#enable-connections).
 
 ##### Roles
 
-Members of organizations can be [assigned roles](/organizations/configure-membership#assign-roles-to-members), which are added to the member’s Access Token. You can use these roles to define access control for your application. For example, if you built a dashboard for your users using our API and SDKs, you could assign an administrator role to certain members and allow them to self-manage their organizations through your dashboard.
+Members of organizations can be [assigned roles](/organizations/configure-membership#add-roles-to-members), which are added to the member’s Access Token. You can use these roles to define access control for your application. For example, if you built a dashboard for your users using our API and SDKs, you could assign an administrator role to certain members and allow them to self-manage their organizations through your dashboard.
 
 ::: warning
 If you build a custom dashboard for your product, note that API use is subject to Auth0 Management API rate limits.
@@ -96,8 +96,8 @@ Organizations currently has the following limitations:
 ### Entity limits
 
 * Each organization may have a maximum of 10 metadata properties.
-* Each organization may have a maximum of 10 members.
-* Each organization member may have a maximum of 100 roles.
+* Each organization may have a maximum of 10 enabled connections.
+* Each organization member may have a maximum of 50 roles.
 * Up to 1000 organizations can be displayed using the Auth0 Dashboard or Management API, though more may exist.
 
 ## Upcoming changes

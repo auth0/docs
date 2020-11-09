@@ -1,5 +1,5 @@
 ---
-title: Create organizations
+title: Configure Organizations
 description: Learn to create organizations using Auth0's Organizations feature.
 topics:
   - organizations
@@ -11,7 +11,7 @@ useCase:
 toc: true
 ---
 
-# Configure organizations
+# Configure Organizations
 
 To begin using the Organizations feature, you must create and configure your organizations.
 
@@ -37,7 +37,7 @@ To create an organization via the Auth0 Dashboard:
 | **Display Name** | User-friendly name to display. |
 | **Organization Logo** | Logo to display. |
 | **Primary Color** | Color for primary elements. |
-| **Page Background Color** | Color for background. |
+| **Page&nbsp;Background Color** | Color for background. |
 
 4. Select **Save**.
 

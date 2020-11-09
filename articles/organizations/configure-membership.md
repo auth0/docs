@@ -1,5 +1,5 @@
 ---
-title: Configure membership
+title: Configure Membership
 description: Learn to assign members and add roles to members using Auth0's Organizations feature.
 topics:
   - organizations
@@ -11,7 +11,7 @@ useCase:
 toc: true
 ---
 
-# Configure membership
+# Configure Membership
 
 Each organization has its own associated members, which represent the users who will be allowed to log in through its configured login page. You can add members to organizations by assigning them if they are already in the data store, or by inviting them if they are not.
 
@@ -201,11 +201,11 @@ Possible responses are as follows:
 | `404` | | No organization found by that id. | |
 | `429` | | Too many requests. Check the X-RateLimit-Limit, X-RateLimit-Remaining and X-RateLimit-Reset headers. | |
  
-## Assign roles to members
+## Add roles to members
  
 Each organization member can be assigned one or more roles. Roles are applied when users log in through the organization. To enable a role for an organization member, you must have already [created the role](/authorization/rbac/roles/create-roles) in your tenant.
  
-You can assign roles to members in organizations using either the Auth0 Dashboard or the Management API.
+You can add roles to members in organizations using either the Auth0 Dashboard or the Management API.
  
 ### Auth0 Dashboard
  

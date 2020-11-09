@@ -389,15 +389,15 @@ articles:
   - title: Organizations
     url: /organizations
     children:
-      - title: Configure organizations
+      - title: Configure Organizations
         url: /organizations/configure-organizations
-      - title: Configure connections
+      - title: Configure Connections
         url: /organizations/configure-connections
-      - title: Configure membership
+      - title: Configure Membership
         url: /organizations/configure-membership
-      - title: Define organization Behavior
+      - title: Define Organization Behavior
         url: /organizations/define-organization-behavior
-      - title: Custom development
+      - title: Custom Development
         url: /organizations/custom-development
   - title: Authorization
     url: /authorization

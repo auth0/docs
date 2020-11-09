@@ -1,5 +1,5 @@
 ---
-title: Configure connections
+title: Configure Connections
 description: Learn to enable and disable connections for Auth0's Organizations feature.
 topics:
   - organizations
@@ -11,7 +11,7 @@ useCase:
 toc: true
 ---
 
-# Configure connections
+# Configure Connections
 
 Each organization can have specific connections enabled, which represent the login options you can offer your users for that organization. To enable a connection for an organization, you must have already created the connection in your tenant. Available connections include [database connections](/connections/database), [social connections](/connections/identity-providers-social), and [enterprise connections](/connections/identity-providers-enterprise).
 
