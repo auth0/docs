@@ -67,22 +67,22 @@ Each organization will usually map directly to one of our business customers or 
 
 Using our Travel0 Adventure Management example, let’s assume the following users:
 
-* **Jonno**: A guide who is directly employed by Rocky Mountain High Adventures and who should be able to log in to only Rocky Mountain’s organization. 
+* **Jonno**: A guide who is directly employed by Rocky Mountain High Adventures and who should be able to log in to only Rocky Mountain’s organization.
 
-Because Rocky Mountain does not have its own IdP, Jonno’s credentials are stored in the Travel0 database connection and Jonno is assigned membership to the Rocky Mountain organization.
+  Because Rocky Mountain does not have its own IdP, Jonno’s credentials are stored in the Travel0 database connection and Jonno is assigned membership to the Rocky Mountain organization.
 * **Hiroko**: A guide who is directly employed by Granite Outpost Rafting and Ziplines and who should be able to log in to only Granite Outpost’s organization. 
 
-Because Granite Outpost has its own IdP, Hiroko’s credentials may be stored in either the Travel0 database connection or an enterprise connection that Granite Outpost has set up to represent their IdP, and then Hiroko must also be assigned membership in Granite Outpost’s organization. If using Granite Outpost’s IdP, then the enterprise connection must also be enabled for the organization.
+  Because Granite Outpost has its own IdP, Hiroko’s credentials may be stored in either the Travel0 database connection or an enterprise connection that Granite Outpost has set up to represent their IdP, and then Hiroko must also be assigned membership in Granite Outpost’s organization. If using Granite Outpost’s IdP, then the enterprise connection must also be enabled for the organization.
 * **Emilio**: A guide who freelances for both Rocky Mountain High Adventures and Granite Outpost Rafting and Ziplines and should be able to log in to both organizations. 
 
-If we want Emilio to be able to use the same credentials for both organizations, then Emilio’s credentials should be stored in the Travel0 database connection, and Emilio should be assigned membership in both Rocky Mountain and Granite Outpost organizations. 
+  If we want Emilio to be able to use the same credentials for both organizations, then Emilio’s credentials should be stored in the Travel0 database connection, and Emilio should be assigned membership in both Rocky Mountain and Granite Outpost organizations. 
 
-Otherwise, Emilio will need to set up one set of credentials in the Travel0 database connection for Rocky Mountain High Adventures and be assigned membership in the Rocky Mountain High organization, then set up another set of credentials in either the Travel0 database connection or Granite Outpost’s enterprise connection and be assigned membership in the Granite Outpost organization. Finally, if using Granite Outpost’s IdP, the configured enterprise connection must be enabled for the Granite Outpost organization.
+  Otherwise, Emilio will need to set up one set of credentials in the Travel0 database connection for Rocky Mountain High Adventures and be assigned membership in the Rocky Mountain High organization, then set up another set of credentials in either the Travel0 database connection or Granite Outpost’s enterprise connection and be assigned membership in the Granite Outpost organization. Finally, if using Granite Outpost’s IdP, the configured enterprise connection must be enabled for the Granite Outpost organization.
 * **Sumana**: A guide who is directly employed by AdventureZ, but sometimes freelances for Rocky Mountain High Adventures under the contract Rocky Mountain has with AdventureZ. AdventureZ and Rocky Mountain have rating systems for their guides, and Sumana’s ratings need to carry over from AdventureZ to Rocky Mountain and be combined between organizations. 
 
-Either Sumana’s credentials should be stored in the Travel0 database connection and membership should be assigned for both the Rocky Mountain and AdventureZ organizations, or if AdventureZ wants to share their IdP, then Sumana’s credentials should be stored in an enterprise connection that AdventureZ has set up to represent their IdP and the configured enterprise connection must be enabled for both the Rocky Mountain and AdventureZ organizations.
+  Either Sumana’s credentials should be stored in the Travel0 database connection and membership should be assigned for both the Rocky Mountain and AdventureZ organizations, or if AdventureZ wants to share their IdP, then Sumana’s credentials should be stored in an enterprise connection that AdventureZ has set up to represent their IdP and the configured enterprise connection must be enabled for both the Rocky Mountain and AdventureZ organizations.
 
-If Sumana is also invited to freelance for Granite Outpost Rafting and Ziplines, then her credentials could be stored in the Travel0 database connection or she could be added to Granite Outpost’s IdP, and membership should be assigned to the Granite Outpost organization.
+  If Sumana is also invited to freelance for Granite Outpost Rafting and Ziplines, then her credentials could be stored in the Travel0 database connection or she could be added to Granite Outpost’s IdP, and membership should be assigned to the Granite Outpost organization.
 
 Once you have determined how many organizations you will have and what your connection model should look like, you can set up [database](/connections/database), [social](/connections/identity-providers-social), or [enterprise](/connections/identity-providers-enterprise) connections; [configure organizations](/organizations/configure-organizations); and [configure organization membership](/organizations/configure-membership) or [enable organization connections](/organizations/configure-connections#enable-connections).
 
