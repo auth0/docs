@@ -46,7 +46,7 @@ Make a `POST` call to the `Create Organization Members` endpoint. Be sure to rep
    ],
    "postData": {
    "mimeType": "application/json",
-   "text" : "{ \"members\": [ \"USER_ID\", \"USER_ID\", \”USER_ID\" ] }"
+   "text" : "{ \"members\": [ \"USER_ID\", \"USER_ID\", \"USER_ID\" ] }"
    }
 }
 ```
