@@ -1,11 +1,11 @@
 ---
-title: Organizations - Beta
+url: /organizations
+section: articles
+title: "Organizations - Beta"
 description: Learn about Auth0's Organizations feature, which is currently in beta.
 topics:
   - organizations
-contentType: 
-    - index
-    - concept
+contentType: index
 useCase:
   - build-an-app
 toc: true
