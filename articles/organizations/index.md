@@ -4,6 +4,7 @@ description: Learn about Auth0's Organizations feature, which is currently in be
 topics:
   - organizations
 contentType: 
+    - index
     - concept
 useCase:
   - build-an-app
