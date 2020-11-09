@@ -58,8 +58,7 @@ Make a `POST` call to the `Create Organizations` endpoint. Be sure to replace `M
    ],
    "postData": {
    "mimeType": "application/json",
-   "text" : "{ \"name\": \"ORG_NAME\", \"display_name\": \"ORG_DISPLAY_NAME\", \"branding\": [ { \"logo_uri\": \"ORG_LOGO\", \"colors\": [ { \"primary\": \"ORG_PRIMARY_COLOR\", \"page_background\": \"ORG_PAGE_BACKGROUND\" } ] } ],
-\"metadata\": [ { \"KEY\": \"VALUE\", \"KEY\": \"VALUE\", \"KEY\": \"VALUE\", \"KEY\": \"VALUE\", \"KEY\": \"VALUE\" } ] }"
+   "text" : "{ \"name\": \"ORG_NAME\", \"display_name\": \"ORG_DISPLAY_NAME\", \"branding\": [ { \"logo_uri\": \"ORG_LOGO\", \"colors\": [ { \"primary\": \"ORG_PRIMARY_COLOR\", \"page_background\": \"ORG_PAGE_BACKGROUND\" } ] } ], \"metadata\": [ { \"KEY\": \"VALUE\", \"KEY\": \"VALUE\", \"KEY\": \"VALUE\" } ] }"
    }
 }
 ```
