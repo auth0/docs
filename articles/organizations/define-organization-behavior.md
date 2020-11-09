@@ -51,7 +51,7 @@ Make a `PATCH` call to the [Update a Client endpoint](/api/management/v2#!/Clien
 	],
 	"postData": {
       	"mimeType": "application/json",
-      	"text" : "{ \"organization_usage\": \"ORG_USAGE\", \”organization_require_behavior\”: \”ORG_REQUIRE_BEHAVIOR\” }"
+      	"text" : "{ \"organization_usage\": \"ORG_USAGE\", \"organization_require_behavior\": \"ORG_REQUIRE_BEHAVIOR\" }"
 	}
 }
 ```
