@@ -21,7 +21,7 @@ You can define organization behavior using either the Auth0 Dashboard or the Man
 
 To define organization behavior via the Auth0 Dashboard:
 
-1. Navigate to [Auth0 Dashboard > Applications](${MANAGE_URL}/#/applications), and select the application for which you want to configure organizations.
+1. Navigate to [Auth0 Dashboard > Applications](${manage_url}/#/applications), and select the application for which you want to configure organizations.
 2. Select the **Organizations** view, and configure the appropriate settings:
 
 | Field | Description | 

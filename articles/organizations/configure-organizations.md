@@ -27,7 +27,7 @@ You can create organizations using either the Auth0 Dashboard or the Management 
 
 To create an organization via the Auth0 Dashboard:
 
-1. Navigate to [Auth0 Dashboard > Organizations](${MANAGE_URL}/#/organizations).
+1. Navigate to [Auth0 Dashboard > Organizations](${manage_url}/#/organizations).
 2. Select **Create Organization**.
 3. Enter the following fields for your organization:
 
@@ -160,7 +160,7 @@ You can delete organizations using either the Auth0 Dashboard or the Management 
 
 To delete an organization via the Auth0 Dashboard:
 
-1. Navigate to [Auth0 Dashboard > Organizations](${MANAGE_URL}/#/organizations), and select the organization you want to delete.
+1. Navigate to [Auth0 Dashboard > Organizations](${manage_url}/#/organizations), and select the organization you want to delete.
 2. Scroll to locate the **Danger Zone** section, select **Delete**, and confirm.
 
 ### Management API

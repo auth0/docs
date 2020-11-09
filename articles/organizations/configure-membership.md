@@ -25,7 +25,7 @@ You can assign members to organizations using either the Auth0 Dashboard or the 
 
 To assign members via the Auth0 Dashboard:
 
-1. Navigate to [Auth0 Dashboard > Organizations](${MANAGE_URL}/#/organizations), and select the organization for which you want to configure membership.
+1. Navigate to [Auth0 Dashboard > Organizations](${manage_url}/#/organizations), and select the organization for which you want to configure membership.
 2. Select the **Members** view, select **Add members**, and select **Add Users**.
 3. Enter the name(s) of the user you would like to assign as a member to the organization, and select **Add user(s) to organization**.
 
@@ -82,7 +82,7 @@ You can remove members from organizations using either the Auth0 Dashboard or th
  
 To remove a member via the Auth0 Dashboard:
  
-1. Navigate to [Auth0 Dashboard > Organizations](${MANAGE_URL}/#/organizations), and select the organization for which you want to configure membership.
+1. Navigate to [Auth0 Dashboard > Organizations](${manage_url}/#/organizations), and select the organization for which you want to configure membership.
 2. Select the **Members** view, locate the member you want to remove, and expand its **More Options** (**...**) menu.
 3. Select **Remove member**, and confirm.
  
@@ -141,7 +141,7 @@ You can invite users to organizations using either the Auth0 Dashboard or the Ma
  
 To invite members via the Auth0 Dashboard:
  
-1. Navigate to [Auth0 Dashboard > Organizations](${MANAGE_URL}/#/organizations), and select the organization for which you want to configure membership.
+1. Navigate to [Auth0 Dashboard > Organizations](${manage_url}/#/organizations), and select the organization for which you want to configure membership.
 2. Select the **Members** view, select **Add members**, and select **Invite Users**.
 3. Enter the names of the user you would like to invite to the organization, and select **Add user(s) to organization**.
  
@@ -211,7 +211,7 @@ You can assign roles to members in organizations using either the Auth0 Dashboar
  
 To add roles to an organization member via the Auth0 Dashboard:
  
-1. Navigate to [Auth0 Dashboard > Organizations](${MANAGE_URL}/#/organizations), and select the organization for which you want to configure membership.
+1. Navigate to [Auth0 Dashboard > Organizations](${manage_url}/#/organizations), and select the organization for which you want to configure membership.
 2. Select the **Members** view, and click the name of the member to which you would like to add a role.
 3. Click **Assign role**.
 4. Enter the role name(s) you would like to assign to the member, and select **Add role(s) to organization**.
@@ -269,7 +269,7 @@ You can remove roles from organization members using either the Auth0 Dashboard 
  
 To remove a role from an organization member via the Auth0 Dashboard:
  
-1. Navigate to [Auth0 Dashboard > Organizations](${MANAGE_URL}/#/organizations), and select the organization for which you want to configure membership.
+1. Navigate to [Auth0 Dashboard > Organizations](${manage_url}/#/organizations), and select the organization for which you want to configure membership.
 2. Select the **Members** view, and click the name of the member from which you would like to remove a role.
 3. Locate the role you would like to remove, click its trash can icon, and confirm.
  

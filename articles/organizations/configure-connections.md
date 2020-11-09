@@ -27,7 +27,7 @@ You can enable connections for organizations using either the Auth0 Dashboard or
 
 To enable a connection via the Auth0 Dashboard:
 
-1. Navigate to [Auth0 Dashboard > Organizations](${MANAGE_URL}/#/organizations), and select the organization for which you want to configure connections.
+1. Navigate to [Auth0 Dashboard > Organizations](${manage_url}/#/organizations), and select the organization for which you want to configure connections.
 2.  Select the **Connections** view, and select **Enable Connections**.
 3. Select the connection you want to enable, and select **Enable Connection**.
 
@@ -84,7 +84,7 @@ You can disable connections for organizations using either the Auth0 Dashboard o
 
 To disable a connection via the Auth0 Dashboard:
 
-1. Navigate to [Auth0 Dashboard > Organizations](${MANAGE_URL}/#/organizations), and select the organization for which you want to configure connections.
+1. Navigate to [Auth0 Dashboard > Organizations](${manage_url}/#/organizations), and select the organization for which you want to configure connections.
 2. Select the **Connections** view, locate the connection you want to remove, and expand its **More Options** (**...**) menu.
 3. Select **Remove Connection**, and confirm.
 
