@@ -17,7 +17,7 @@ Each organization has its own associated members, which represent the users who 
 
 ## Assign members
 
-To assign a member to your organization, you must have already [created the user](/users/create-users) in your tenant. If you cannot find a user, you can [invite them](#invite-users) instead.
+To assign a member to your organization, you must have already [created the user](/users/create-users) in your tenant. If you cannot find a user, you can [invite them](#invite-members) instead.
 
 You can assign members to organizations using either the Auth0 Dashboard or the Management API.
 
@@ -248,6 +248,7 @@ Make a `POST` call to the `Create Organization Member Roles` endpoint. Be sure t
 | `ROLE_ID` | ID of the role you want to add to the specified user for the specified organization. Maximum of 100 roles per user. |
  
 #### Responses
+
 Possible responses are as follows:
  
 | Code | Error code | Message | Cause |

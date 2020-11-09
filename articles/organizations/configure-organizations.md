@@ -93,7 +93,7 @@ Possible responses are as follows:
 
 ## Customize page and email templates
 
-When using Organizations out-of-the-box, the settings you configure when you [create organizations](#create-organizations)override the settings for the new Universal Login pages and email templates. If you would like to further modify the Universal login pages and emails that the end-user receives, you can customize page and email templates.
+When using Organizations out-of-the-box, the settings you configure when you [create organizations](#create-organizations) override the settings for the new Universal Login pages and email templates. If you would like to further modify the Universal login pages and emails that the end-user receives, you can customize page and email templates.
 
 ### Page templates
 
@@ -128,7 +128,7 @@ The following email templates can be further customized for organizations:
 
 * **Welcome**: Received by the end-user once they verify their email address or, if email verification is disabled, when they sign up (or log in for the first time).
 * **Password Change**: Received by the end-user when they request a password change. Contains a link that redirects them to the Password Reset page.
-* **Invite User**: Received by the end-user when they are invited to an organization. Contains a link that redirects them to a custom invitation page. To learn more, see [Invite users](/organizations/configure-membership#invite-users).
+* **Invite User**: Received by the end-user when they are invited to an organization. Contains a link that redirects them to a custom invitation page. To learn more, see [Invite members](/organizations/configure-membership#invite-members).
 
 ### Template variables
 
