@@ -8,6 +8,7 @@ contentType:
     - concept
 useCase:
   - build-an-app
+toc: true
 ---
 
 # Configure membership

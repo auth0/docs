@@ -7,6 +7,7 @@ contentType:
     - concept
 useCase:
   - build-an-app
+toc: true
 ---
 
 # Organizations - Beta

@@ -8,6 +8,7 @@ contentType:
     - concept
 useCase:
   - build-an-app
+toc: true
 ---
 
 # Configure organizations
@@ -18,7 +19,7 @@ To begin using the Organizations feature, you must create and configure your org
 
 When you create an organization, the settings you define are used to customize the login page and email templates that end-users see when they authenticate in the context of the organization.
 
-When using Organizations out-of-the-box, these settings will override the settings for the new Universal Login pages. If you'd like to further customize the login page, see [Configure login page](#configure-login-page).
+When using Organizations out-of-the-box, these settings will override the settings for the new Universal Login pages. If you'd like to further customize the login page or email templates, see [Customize page and email templates](#customize-page-and-email-templates).
 
 You can create organizations using either the Auth0 Dashboard or the Management API.
 
@@ -91,11 +92,13 @@ Possible responses are as follows:
 | `409` | `organization_conflict` | An organization with the same name already exists. | An organization with the same name already exists. |
 | `429` | | Too many requests. Check the X-RateLimit-Limit, X-RateLimit-Remaining and X-RateLimit-Reset headers. | |
 
-## Configure login page
+## Customize page and email templates
 
-When using Organizations out-of-the-box, the settings you configure when you [create organizations](#create-organizations)override the settings for the new Universal Login pages. If you'd like to further customize the login page, you can customize a Page Template using the [Liquid template language](https://shopify.github.io/liquid/) and apply it using the [Universal Login Page Templates API](/universal-login/new-experience/universal-login-page-templates#page-templates-api).
+When using Organizations out-of-the-box, the settings you configure when you [create organizations](#create-organizations)override the settings for the new Universal Login pages and email templates. If you would like to further modify the Universal login pages and emails that the end-user receives, you can customize page and email templates.
 
 ### Page templates
+
+To modify Universal Login pages, customize a page template using the [Liquid template language](https://shopify.github.io/liquid/) and [template variables](#template-variables), then apply the template using the [Universal Login Page Templates API](/universal-login/new-experience/universal-login-page-templates#page-templates-api).
 
 Because the same template is used for all pages, you can implement consistent login pages with minimum effort.
 
@@ -118,11 +121,23 @@ The following tags must be present in the template:
 
 To center the widget in the page, replace the `<body>` tag with  `<body class="_widget-auto-layout">`.
 
-#### Variables
+### Email templates
 
-Page templates may access a set of context variables that you can use to impact how the page is rendered.
+To modify emails the end-user receives, customize an email template using the [Liquid template language](https://shopify.github.io/liquid/) and [template variables](#template-variables).
 
-For a list of available page template variables, see [Available variables](/universal-login/new-experience/universal-login-page-templates#available-variables). Additional variables are available to the page template when an end-user logs in through an organization:
+The following email templates can be further customized for organizations:
+
+* **Welcome**: Received by the end-user once they verify their email address or, if email verification is disabled, when they sign up (or log in for the first time).
+* **Password Change**: Received by the end-user when they request a password change. Contains a link that redirects them to the Password Reset page.
+* **Invite User**: Received by the end-user when they are invited to an organization. Contains a link that redirects them to a custom invitation page. To learn more, see [Invite users](/organizations/configure-membership#invite-users).
+
+### Template variables
+
+Page and email templates may access a set of context variables that you can use to impact how the template is rendered.
+
+For lists of available variables, see [Available page template variables](/universal-login/new-experience/universal-login-page-templates#available-variables) and [Common email template variables](/auth0-email-services/customize-email-templates#common-variables).
+
+Additional variables are available to the page template when an end-user logs in through an organization:
 
 * `organization.id`
 * `organization.display_name`
