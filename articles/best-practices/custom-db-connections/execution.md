@@ -24,7 +24,7 @@ Action script execution supports the asynchronous nature of JavaScript, and cons
 The `callback` function supplied to each action script effectively acts as a signal to indicate completion of operation. An action script should complete immediately following a call to the callback function&mdash;either implicitly or, preferably, by explicitly executing a (JavaScript) `return` statement&mdash;and should refrain from any other operation. The (Auth0) supplied callback function must be called exactly once; calling the function more than once within an action script will lead to unpredictable results and/or errors.
 
 ::: note
-Where callback is executed with no parameters, as in `callback()`, the implication is that function has been called as though `callback(null)` had been executed. 
+Where callback is executed with no parameters, as in `callback()`, the implication is that function has been called as though `callback(null)` had been executed.
 :::
 
 If an action script is making use of asynchronous processing, then a call to the (Auth0) supplied `callback` function must be deferred to the point where asynchronous processing completes and must be the final thing called. Asynchronous execution will result in a (JavaScript) callback being executed after the asynchronous operation is complete; this callback is typically fired at some point after the main (synchronous) body of a JavaScript function completes. 
@@ -50,13 +50,6 @@ Use the following checklist to make sure your scripts achieve the results you in
 
 * **If using a `username`, ensure that you aren't returning the same email address for two different users in the `get_user` or `login` script.**
    Auth0 will produce an error if you do this, but it is better to catch it in the script itself. 
-
-* **If setting `app_metadata`, call it `metadata` in the script.**
-   To support backwards compatibility, `app_metadata` is called `metadata` in custom DB scripts. If you don't use `metadata` in the script, you will get an error where `app_metadata` will work, but if you use the API to merge `app_metadata` with a user, it will appear as if all of your metadata was lost. 
-
-   ::: note
-   `user_metadata` is not affected by this and can simply be called `user_metadata`.
-   :::
 
 * **If using Auth0 to do machine-to-machine to the legacy database, restrict access to that audience with a rule.**
    As with any API that you create, if you create it solely for client credentials, then you will want to restrict access to the API in a rule. By default, Auth0 gives you a token for any API if you authenticate successfully and include the <dfn data-key="audience">audience</dfn>. Someone could intercept the redirect to authorize and add the audience to your legacy database API. If you don’t block this in a rule, they will get an Access Token.
@@ -127,7 +120,6 @@ You can use action scripts as anonymous functions; however, anonymous functions 
 The [Login script](/connections/database/custom-db/templates/login) implements the function executed each time a user is required to authenticate. 
 
 * The profile returned by the **Login** script for a user should be consistent with the profile returned in the **Get User** script and vice versa.
-* If you are providing `app_metadata` as part of the user profile, then you should refer to this as "metadata" in the profile object returned. Failure to do this will result in a loss of the metadata if any modifications are made to the users’ `app_metadata` in the future.
 * While a user does not need to use an email address to login, it is recommended best practice that they have an email address defined against their user profile. This ensures that Auth0 out-of-box functionality works as designed.
 * To update `name`, `nickname`, `given_name`, `family_name`, and/or `picture` attributes associated with the root of the normalized user profile, you must configure user profile sync so that user attributes will be updated from the identity provider. Auth0 does not support update of these attributes for a custom database connection used for legacy authentication.
 
@@ -142,7 +134,6 @@ The [Get User](/connections/database/custom-db/templates/get-user) script implem
 The [Create](/connections/database/custom-db/templates/create) script implements the function executed to create a user in your database. 
 
 * If the custom database connection has `Requires Username` enabled, then `username` also needs to be used by any subsequent `login` or `getUser` script execution, so you should store it in the legacy identity store.
-* Unlike with `login`, `app_metadata` is specified as-is and will not be renamed as `metadata`.
 * If you create and use [custom fields](/libraries/custom-signup#using-the-api) during the registration process, these properties are included in the `user` object as well.
 
 ### Verify action scripts
