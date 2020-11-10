@@ -1538,7 +1538,7 @@ module.exports = [
   },
   {
     from: ['/extensions/custom-social-connections','/extensions/custom-social-extensions'],
-    to: '/connections/identity-providers-social'
+    to: '/connections/social/oauth2'
   },
   {
     from: ['/extensions/github-deploy'],
