@@ -38,6 +38,23 @@
     - title: "Business to Enterprise"
       url: "/architecture-scenarios/b2e"
 
+- id: "guides"
+  title: "Security"
+  icon: "icon-budicon-678"
+  color: "green"
+  description: ""
+  url: "/security"
+  articles:
+
+    - title: "Data Privacy and Compliance"
+      url: "/compliance"
+      
+    - title: "Tokens"
+      url: "/tokens"
+
+    - title: "Common Threats"
+      url: "/security/prevent-common-cybersecurity-threats"
+      
 - id: "ui-components"
   title: "Configure Login"
   icon: "icon-budicon-342"
@@ -73,10 +90,10 @@
       url: "/connections/database"
 
 - id: "authentication-flows"
-  title: "Flows"
+  title: "Workflows"
   icon: "icon-budicon-295"
   color: "oil"
-  description: "Authentication and authorization flows"
+  description: "Authentication and authorization workflows"
   url: "/flows"
   articles:
 
@@ -126,27 +143,27 @@
       forceFullReload: true
 
 - id: "guides"
-  title: "Videos"
+  title: "Security"
   icon: "icon-budicon-678"
   color: "green"
-  description: "Learn identity concepts, terminology, and protocols"
-  url: "/videos/learn-identity"
+  description: ""
+  url: "/security"
   articles:
 
-    - title: "Introduction to Identity"
-      url: "/videos/learn-identity-series/learn-identity-series/introduction-to-identity"
+    - title: "Data Privacy and Compliance"
+      url: "/compliance"
       
-    - title: "OpenID Connect and OAuth2"
-      url: "/videos/learn-identity-series/openid-connect-and-oauth2"
+    - title: "Tokens"
+      url: "/tokens"
 
-    - title: "Web Sign-In"
-      url: "/videos/learn-identity-series/web-sign-in"
+    - title: "Common Threats"
+      url: "/security/prevent-common-cybersecurity-threats"
       
 - id: "extensibility"
   title: "Extensibility"
   icon: "icon-budicon-173"
   color: "red"
-  description: "Customize Auth0 feature"
+  description: "Customize Auth0 features"
   url: "/extend-integrate"
   articles:
   
