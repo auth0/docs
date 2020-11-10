@@ -458,6 +458,9 @@ articles:
             url: /best-practices/metadata-best-practices
       - title: Sessions & Cookies
         url: /sessions-and-cookies
+        children:
+          - title: Authentication API Cookies
+          - url: /sessions-and-cookies/authentication-api-cookies
       - title: Using the Dashboard
         url: /users/manage-users-using-the-dashboard
       - title: Using the API
