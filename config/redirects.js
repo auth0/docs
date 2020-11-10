@@ -2540,6 +2540,10 @@ module.exports = [
     to: '/mfa'
   },
   {
+    from: ['/mfa/configure-webauthn-with-security-keys-for-mfa'],
+    to: '/mfa/configure-webauthn-security-keys-for-mfa'
+  },
+  {
     from: ['/multifactor-authentication/api', '/multifactor-authentication/api/faq','/mfa/concepts/mfa-api'],
     to: '/mfa/mfa-api'
   },
