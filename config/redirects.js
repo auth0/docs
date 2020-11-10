@@ -1538,7 +1538,7 @@ module.exports = [
   },
   {
     from: ['/extensions/custom-social-connections','/extensions/custom-social-extensions'],
-    to: '/connections/identity-providers-social'
+    to: '/connections/social/oauth2'
   },
   {
     from: ['/extensions/github-deploy'],
@@ -2962,8 +2962,8 @@ module.exports = [
     to: '/protocols/configure-applications-with-oidc-discovery'
   },
   {
-    from: ['/protocols/oidc/identity-providers/okta'],
-    to: '/protocols/configure-okta-as-oidc-identity-provider'
+    from: ['/protocols/oidc/identity-providers/okta','/protocols/configure-okta-as-oidc-identity-provider'],
+    to: '/protocols/configure-okta-as-oauth2-identity-provider'
   },
   {
     from: ['/integrations/configure-wsfed-application','/tutorials/configure-wsfed-application'],
