@@ -142,23 +142,6 @@
       url: "/api/management/v2"
       forceFullReload: true
 
-- id: "guides"
-  title: "Security"
-  icon: "icon-budicon-678"
-  color: "green"
-  description: ""
-  url: "/security"
-  articles:
-
-    - title: "Data Privacy and Compliance"
-      url: "/compliance"
-      
-    - title: "Tokens"
-      url: "/tokens"
-
-    - title: "Common Threats"
-      url: "/security/prevent-common-cybersecurity-threats"
-      
 - id: "extensibility"
   title: "Extensibility"
   icon: "icon-budicon-173"
