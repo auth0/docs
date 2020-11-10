@@ -76,7 +76,7 @@
   title: "Identity Providers"
   icon: "icon-budicon-297"
   color: "yellow"
-  description: "Integrate Auth0 with identity providers."
+  description: "Integrate with identity providers"
   url: "/identityproviders"
   articles:
 
