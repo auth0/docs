@@ -93,7 +93,7 @@ Possible responses are as follows:
 
 ## Customize page and email templates
 
-When using Organizations out-of-the-box, the settings you configure when you [create organizations](#create-organizations) override the settings for the new Universal Login pages and email templates. If you would like to further modify the Universal login pages and emails that the end-user receives, you can customize page and email templates.
+When using Organizations with Universal Login out-of-the-box prompts, the branding settings you configure when you [create organizations](#create-organizations) override the branding for the new Universal Login pages and email templates. If you would like to further modify the Universal Login pages and emails that the end-user receives, you can customize page and email templates.
 
 ### Page templates
 
