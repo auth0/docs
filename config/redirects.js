@@ -2962,8 +2962,8 @@ module.exports = [
     to: '/protocols/configure-applications-with-oidc-discovery'
   },
   {
-    from: ['/protocols/oidc/identity-providers/okta'],
-    to: '/protocols/configure-okta-as-oidc-identity-provider'
+    from: ['/protocols/oidc/identity-providers/okta','/protocols/configure-okta-as-oidc-identity-provider'],
+    to: '/protocols/configure-okta-as-oauth2-identity-provider'
   },
   {
     from: ['/integrations/configure-wsfed-application','/tutorials/configure-wsfed-application'],
