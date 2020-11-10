@@ -22,7 +22,7 @@
       url: "/get-started/set-up-apis"
 
 - id: "appliance"
-  title: "Planning and Deployment"
+  title: "Plan and Deploy"
   icon: "icon-budicon-399"
   color: "green"
   description: "Planning and deployment guidance"
@@ -39,7 +39,7 @@
       url: "/architecture-scenarios/b2e"
 
 - id: "ui-components"
-  title: "Understand Login"
+  title: "Configure Login"
   icon: "icon-budicon-342"
   color: "oil"
   description: "Integrate Auth0 login"
@@ -59,7 +59,7 @@
   title: "Identity Providers"
   icon: "icon-budicon-297"
   color: "yellow"
-  description: "Integrating Auth0 with identity providers."
+  description: "Integrate Auth0 with identity providers."
   url: "/identityproviders"
   articles:
 
@@ -93,7 +93,7 @@
   title: "Users"
   icon: "icon-budicon-292"
   color: "oil"
-  description: "Users, user profiles, and user metadata"
+  description: "Manage users, profiles, and sessions"
   url: "/users"
   articles:
 
