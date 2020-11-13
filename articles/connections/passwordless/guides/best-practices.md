@@ -53,8 +53,6 @@ Auth0 has the following protections against brute force attacks:
 * Only three failed attempts to input any single one-time-use code are allowed. After this, a new code will need to be requested.
 * The one-time-use code issued will be valid for three minutes (by default) before it expires. 
 
-If you choose to extend the amount of time it takes for your one-time-use code to expire, you should also extend the length of the one-time code. Otherwise, an attacker has a larger window of time to attempt to guess a short code.
-
 The one-time-use code expiration time can be altered in the passwordless connection settings in the [Dashboard](${manage_url}/#/connections/passwordless).
 
 ## Link accounts
