@@ -13,14 +13,15 @@ toc: true
 
 # Organizations - Beta
 
-The Organizations feature represents a broad update to the Auth0 platform that allows our Business-to-Business (B2B) customers to better manage their partners and customers, and customize the ways that end-users in those organizations access their applications. Auth0 customers can use Organizations to:
+The Organizations feature represents a broad update to the Auth0 platform that allows our Business-to-Business (B2B) customers to better manage their partners and customers, and customize the ways that end-users in those organizations access their applications. Auth0 customers can use Organizations to:s
 
-* manage the businesses that access their applications.
-* build administration dashboards in their products that allow those businesses to manage their organizations, invite users, and define users’ roles within organizations.
+* represent their business customers and partners in Auth0 and manage their membership.
+* configure branded, federated login flows for each business.
+* build administration capabilities into their products, using Organizations APIs, so that those businesses can manage their own organizations.
 
 ## Business cases
 
-Organizations best supports customers who are building applications that end-users access in the context of the customer’s business.
+Organizations best supports customers who are building applications that end-users access in the context of their business.
 
 ![B2B Business Case](/media/articles/organizations/b2b-business-case.png)
 
@@ -98,7 +99,8 @@ If you build a custom dashboard for your product, note that API use is subject t
 
 Organizations currently has the following limitations:
 
-* Supported in only new Universal Login (cannot be used with classic Universal Login or Lock.js)
+* Supported in only New Universal Login (cannot be used with classic Universal Login or Lock.js)
+* Not compatible with New Universal Login's Identifier-First Login flow, which is currently in Early Access (though we do plan to integrate the two in the future).
 * Does not support:
   * custom domains per organization (For example, using the sample scenario, if Rocky Mountain High Adventures and Granite Outpost Rafting and Ziplining could both use `login.travel0.com` as login domains, then Organizations would be useful. Alternatively, if Rocky Mountain High Adventures wanted to use `login.rockymountain.com` and Granite Outpost wanted to use `login.graniteoutpost.com`, then we would need to use multiple Auth0 tenants instead.)
   * the following grants and protocols: Client Credentials, SAML (Auth0 as IdP, WS-Fed (Auth0 as IdP)
@@ -109,7 +111,7 @@ Organizations currently has the following limitations:
 
 * Each organization may have a maximum of 10 metadata properties.
 * Each organization may have a maximum of 10 enabled connections.
-* Each organization member may have a maximum of 50 roles.
+* Each organization member may have a maximum of 50 role assignments per organization.
 * Up to 1000 organizations can be displayed using the Auth0 Dashboard or Management API, though more may exist.
 
 ## Upcoming changes
@@ -118,5 +120,5 @@ Organizations is currently in beta, and based on customer feedback, we have alre
 
 * **Organization connections on the Login prompt**: Currently, connections defined at the application-level and connections defined at the organization-level are merged and displayed on the organization Login prompt. Eventually, only the connections defined at the organization level will be displayed.
 * **Application URI parameters**: We plan to allow for parameterized application URIs (for example, callback URLs, login/logout URLs) that enable developers to allow-list URIs that contain organizations’ names in their subdomains.
-* **User invitation redirect URLs**: To allow custom redirection after an end-user has accepted a membership invitation, we plan to allow organizations to be assigned their own redirect URLs.
+* **User invitation redirect URLs**: We plan to modify the user invitation flow to allow more flexible redirection after an end-user has accepted a membership invitation.
 * **Just-In-Time (JIT) organization membership**: We plan to add a configuration option to connections enabled at the organization level that will automatically assign membership in the organization to any user that is able to successfully log in via the connection.
