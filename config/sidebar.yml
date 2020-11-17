@@ -836,29 +836,35 @@ articles:
     url: /logs
     children:
       - title: Log Streams
-        url: /logs/export-log-events-with-log-streaming
+        url: /logs/streams
         children:
           - title: HTTP Event Streams
-            url: /logs/export-log-events-with-log-streaming/stream-http-event-logs
+            url: /logs/streams/stream-http-event-logs
             children: 
             - title: HTTP Stream to Slack Example
-              url: /logs/export-log-events-with-log-streaming/stream-log-events-to-slack
+              url: /logs/streams/stream-log-events-to-slack
               hidden: true 
           - title: AWS EventBridge
             url: /logs/streams/aws-eventbridge
           - title: Azure Event Grid
-            url: /logs/export-log-events-with-log-streaming/stream-logs-to-azure-event-grid
+            url: /logs/streams/stream-logs-to-azure-event-grid
           - title: Datadog
-            url: /logs/export-log-events-with-log-streaming/stream-logs-to-datadog
+            url: /logs/streams/stream-logs-to-datadog
             children:
               - title: Datadog Dashboard Templates
-                url: /logs/export-log-events-with-log-streaming/datadog-dashboard-templates
+                url: /logs/streams/datadog-dashboard-templates
                 hidden: true 
           - title: Splunk
-            url: /logs/export-log-events-with-log-streaming/stream-logs-to-splunk
+            url: /logs/streams/stream-logs-to-splunk
             children:
               - title: Auth0 App for Splunk
-                url: /logs/export-log-events-with-log-streaming/splunk-dashboard
+                url: /logs/streams/splunk-dashboard
+                hidden: true 
+          - title: Sumo Logic
+            url: /logs/streams/stream-logs-to-sumo-logic
+            children:
+              - title: Auth0 App for Sumo Logic
+                url: /logs/streams/sumo-logic-dashboard
                 hidden: true 
       - title: Log Data Retention
         url: /logs/log-data-retention
