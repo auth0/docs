@@ -42,6 +42,7 @@ If you are using an API endpoint **not** listed below and you receive rate limit
 | Change Password | `/dbconnections/change_password` | User Email, IP Address | 1 request per minute with bursts up to 10 requests |
 | Signup | `/dbconnections/signup` | IP Address | 50 requests per minute |
 | Get Passwordless Code or Link | `/passwordless/start` | IP Address | 50 requests per hour when using non-authenticated calls. It's considered an Authentication API endpoint otherwise. |
+| Classic Experience with MFA | `/login` and others | Sum of all combined requests to any Authentication API endpoint | 100 requests per second |
 
 ## Limits for non-production tenants of paying customers and all tenants of free customers
 
