@@ -75,11 +75,11 @@ Make a `POST` call to the `Create Organizations` endpoint. Be sure to replace `M
 | `ORG_BACKGROUND_COLOR` | HEX color code for background. |
 | `KEY`/`VALUE` | String key/value pairs that represent metadata for the organization. Maximum of 255 characters each. Maximum of 10 metadata pairs. |
 
-##### Responses
+#### Response status codes
 
-Possible responses are as follows:
+Possible response status codes are as follows:
 
-| Code | Error code | Message | Cause |
+| Status code | Error code | Message | Cause |
 | - | - | - | - |
 | `201` | | Organization successfully created. | |
 | `400` | `invalid_body` | Invalid request body. The message will vary depending on the cause. | The request payload is not valid. |
@@ -180,14 +180,15 @@ Make a `DELETE` call to the `Delete Organization` endpoint. Be sure to replace t
 <%= include('./_includes/_find_domain') %>
 
 | Value | Description |
+| - | - |
 | `ORG_ID` | ID of the organization you want to delete. |
 | `MGMT_API_ACCESS_TOKEN` | [Access Token for the Management API](/tokens/management-api-access-tokens) with the scope `delete:organizations`. |
 
-#### Responses
+#### Response status codes
 
-Possible responses are as follows:
+Possible response status codes are as follows:
 
-| Code | Error code | Message | Cause |
+| Status code | Error code | Message | Cause |
 | - | - | - | - |
 | `204` | | The organization was deleted. | |
 | `400` | `invalid_uri` | Invalid request URI. The message will vary depending on the cause. | The path is not valid. |
@@ -196,7 +197,6 @@ Possible responses are as follows:
 | `403` | `insufficient_scope` | Insufficient scope; expected any of: `delete:organizations`. | Tried to read/write a field that is not allowed with provided bearer token scopes. |
 | `404` | | The organization does not exist. | |
 | `429` | | Too many requests. Check the X-RateLimit-Limit, X-RateLimit-Remaining and X-RateLimit-Reset headers. | |
-
 
 ## Retrieve organizations
 
@@ -227,13 +227,14 @@ Make a `GET` call to the `Get Organizations` endpoint. Be sure to replace the `M
 <%= include('./_includes/_find_domain') %>
 
 | Value | Description |
+| - | - |
 | `MGMT_API_ACCESS_TOKEN` | [Access Token for the Management API](/tokens/management-api-access-tokens) with the scope `read:organizations`. |
 
-#### Responses
+#### Response status codes
 
-Possible responses are as follows:
+Possible response status codes are as follows:
 
-| Code | Error code | Message | Cause |
+| Status code | Error code | Message | Cause |
 | - | - | - | - |
 | `200` | | Organizations successfully retrieved. | |
 | `400` | `invalid_paging` | Requesting page exceeds the allowed maximum of 1000 records. | API has been limited to only return up to 1000 records. |
@@ -263,14 +264,15 @@ Make a `GET` call to the `Get Organization` endpoint. Be sure to replace the `OR
 <%= include('./_includes/_find_domain') %>
 
 | Value | Description |
+| - | - |
 | `ORG_ID` | ID of the organization you want to retrieve. |
 | `MGMT_API_ACCESS_TOKEN` | [Access Token for the Management API](/tokens/management-api-access-tokens) with the scope `read:organizations`. |
 
-#### Responses
+#### Response status codes
 
-Possible responses are as follows:
+Possible response status codes are as follows:
 
-| Code | Error code | Message | Cause |
+| Status code | Error code | Message | Cause |
 | - | - | - | - |
 | `200` | | Organization successfully retrieved. | |
 | `400` | `invalid_query_string` | Invalid request query string. The message will vary depending on the cause. | The query string is not valid. |
@@ -299,14 +301,15 @@ Make a `GET` call to the `Get Organization by Name` endpoint. Be sure to replace
 <%= include('./_includes/_find_domain') %>
 
 | Value | Description |
+| - | - |
 | `ORG_ NAME` | Name of the organization you want to retrieve. Maximum length of 50 characters. |
 | `MGMT_API_ACCESS_TOKEN` | [Access Token for the Management API](/tokens/management-api-access-tokens) with the scope `read:organizations`. |
 
-#### Responses
+#### Response status codes
 
-Possible responses are as follows:
+Possible response status codes are as follows:
 
-| Code | Error code | Message | Cause |
+| Status code | Error code | Message | Cause |
 | - | - | - | - |
 | `200` | | Organizations successfully retrieved. | |
 | `400` | `invalid_query_string` | Invalid request query string. The message will vary depending on the cause. | The query string is not valid. |

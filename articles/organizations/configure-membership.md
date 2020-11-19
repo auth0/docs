@@ -59,11 +59,11 @@ Make a `POST` call to the `Create Organization Members` endpoint. Be sure to rep
 | `MGMT_API_ACCESS_TOKEN` | [Access Token for the Management API](/tokens/management-api-access-tokens) with the scope `create:organization_members`. |
 | `USER_ID` | ID of the user(s) you want to assign to the specified organization. Maximum of 10 members per organization. | 
 
-#### Responses
+#### Response status codes
 
-Possible responses are as follows:
+Possible response status codes are as follows:
 
-| Code | Error code | Message | Cause |
+| Status code | Error code | Message | Cause |
 | - | - | - | - |
 | `204` | | Members successfully added to organization. | |
 | `400` | `invalid_body` | Invalid request body. The message will vary depending on the cause. | The request payload is not valid. |
@@ -116,11 +116,11 @@ Make a `DELETE` call to the `Delete Organization Members` endpoint. Be sure to r
 | `MGMT_API_ACCESS_TOKEN` | [Access Token for the Management API](/tokens/management-api-access-tokens) with the scope `delete:organization_members`. |
 | `USER_ID` | ID of the user(s) you want to remove from the specified organization. |
  
-#### Responses
+#### Response status codes
+
+Possible response status codes are as follows:
  
-Possible responses are as follows:
- 
-| Code | Error code | Message | Cause |
+| Status code | Error code | Message | Cause |
 | - | - | - | - |
 | `204` | | Users successfully removed from organization. | |
 | `400` | `invalid_body` | Invalid request body. The message will vary depending on the cause. | The request payload is not valid. |
@@ -180,11 +180,11 @@ Make a `POST` call to the `Create Organization Invitations` endpoint. Be sure to
 | `EXP_TIME` | Number of seconds before the invitation expires. If unspecified or set to 0, defaults to 604800 seconds (7 days). Maximum of 2592000 seconds (30 days). |
 | `ROLE_ID` | ID of the role(s) you want to assign to the invited user for the specified organization. Maximum of 50 roles per member. |
  
-#### Responses
+#### Response status codes
+
+Possible response status codes are as follows:
  
-Possible responses are as follows:
- 
-| Code | Error code | Message | Cause |
+| Status code | Error code | Message | Cause |
 | - | - | - | - |
 | `200` | | Invitation successfully created. | |
 | `400` | `invalid_body` | The specified client_id does not exist. | The request payload is not valid. |
@@ -233,11 +233,11 @@ Make a `GET` call to the `Get Organization Members` endpoint. Be sure to replace
 | `ORG_ID` | ID of the organization for which you want to retrieve members. |
 | `MGMT_API_ACCESS_TOKEN` | [Access Token for the Management API](/tokens/management-api-access-tokens) with the scope `read:organization_members`. |
 
-#### Responses
+#### Response status codes
 
-Possible responses are as follows:
+Possible response status codes are as follows:
 
-| Code | Error code | Message | Cause |
+| Status code | Error code | Message | Cause |
 | - | - | - | - |
 | `200` | | Members successfully retrieved. | |
 | `400` | `invalid_paging` | Requesting page exceeds the allowed maximum of 1000 records. | API has been limited to only return up to 1000 records. |
@@ -274,11 +274,11 @@ Make a `GET` call to the `Get User Organizations` endpoint. Be sure to replace t
 | `USER_ID` | ID of the user for which you want to retrieve organization membership. |
 | `MGMT_API_ACCESS_TOKEN` | [Access Token for the Management API](/tokens/management-api-access-tokens) with the scope `read:organizations`. |
 
-#### Responses
+#### Response status codes
 
-Possible responses are as follows:
+Possible response status codes are as follows:
 
-| Code | Error code | Message | Cause |
+| Status code | Error code | Message | Cause |
 | - | - | - | - |
 | `200` | | Organizations successfully retrieved. | |
 | `400` | `invalid_uri` | `invalid_request_uri` | The path is not valid. |
@@ -335,11 +335,11 @@ Make a `POST` call to the `Create Organization Member Roles` endpoint. Be sure t
 | `USER_ID` | ID of the user to which you want to add the specified role(s). |
 | `ROLE_ID` | ID of the role you want to add to the specified user for the specified organization. Maximum of 100 roles per user. |
  
-#### Responses
+#### Response status codes
 
-Possible responses are as follows:
+Possible response status codes are as follows:
  
-| Code | Error code | Message | Cause |
+| Status code | Error code | Message | Cause |
 | - | - | - | - |
 | `204` | | Roles successfully associated with user. | |
 | `400` | `invalid_body` | Invalid request body. The message will vary depending on the cause. | The request payload is not valid. |
@@ -393,11 +393,11 @@ Make a `DELETE` call to the `Delete Organization Member Roles` endpoint. Be sure
 | `USER_ID` | ID of the user from which you want to remove the specified role(s). |
 | `ROLE_ID` | ID of the role you want to remove from the specified user for the specified organization. |
  
-#### Responses
+#### Response status codes
+
+Possible response status codes are as follows:
  
-Possible responses are as follows:
- 
-| Code | Error code | Message | Cause |
+| Status code | Error code | Message | Cause |
 | - | - | - | - |
 | `204` | | Roles successfully removed from organization member. | |
 | `400` | `invalid_body` | Invalid request body. The message will vary depending on the cause. | The request payload is not valid. |
@@ -429,15 +429,16 @@ Make a `GET` call to the `Get Organization Member Roles` endpoint. Be sure to re
 <%= include('./_includes/_find_domain') %>
 
 | Value | Description |
+| - | - |
 | `ORG_ID` | ID of the organization for which you want to retrieve a member's roles. |
 | `USER_ID` | User ID of the member for which you want to retrieve roles. |
 | `MGMT_API_ACCESS_TOKEN` | [Access Token for the Management API](/tokens/management-api-access-tokens) with the scope `read:organization_member_roles`. |
 
-#### Responses
+### Response status codes
 
-Possible responses are as follows:
+Possible response status codes are as follows:
 
-| Code | Error code | Message | Cause |
+| Status code | Error code | Message | Cause |
 | - | - | - | - |
 | `200` | | Roles successfully retrieved. | |
 | `400` | `invalid_query_string` | Invalid request query string. The message will vary depending on the cause. | The query string is not valid. |
