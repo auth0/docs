@@ -201,6 +201,94 @@ Possible responses are as follows:
 | `404` | | No organization found by that id. | |
 | `429` | | Too many requests. Check the X-RateLimit-Limit, X-RateLimit-Remaining and X-RateLimit-Reset headers. | |
  
+## Retrieve organization membership
+
+ When working with organizations programmatically, you may need to retrieve either a list of members for an organizations or a list of organizations to which a user is assigned membership. 
+
+Although you can can locate this information through the Auth0 Dashboard by navigating to [Auth0 Dashboard > Organizations](${manage_url}/#/organizations) or [Auth0 Dashboard > Organizations](${manage_url}/#/users), retrieving organization membership is mainly useful when using the Management API.
+
+### Retrieve organization members
+
+You can retrieve a list of members for an organization via the Management API.
+
+::: warning
+Up to 1000 organization memberss can be displayed using the Auth0 Dashboard or Management API, though more may exist.
+:::
+
+Make a `GET` call to the `Get Organization Members` endpoint. Be sure to replace the `ORG_ID` and `MGMT_API_ACCESS_TOKEN` placeholder values with your organization ID and Management API Access Token, respectively.
+
+```har
+{
+	"method": "GET",
+	"url": "https://${account.namespace}/api/v2/organizations/ORG_ID/members",
+	"headers": [
+   	{ "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" }
+	]
+}
+```
+
+<%= include('./_includes/_find_domain') %>
+
+| Value | Description |
+| `ORG_ID` | ID of the organization for which you want to retrieve members. |
+| `MGMT_API_ACCESS_TOKEN` | [Access Token for the Management API](/tokens/management-api-access-tokens) with the scope `read:organization_members`. |
+
+#### Responses
+
+Possible responses are as follows:
+
+| Code | Error code | Message | Cause |
+| - | - | - | - |
+| `200` | | Members successfully retrieved. | |
+| `400` | `invalid_paging` | Requesting page exceeds the allowed maximum of 1000 records. | API has been limited to only return up to 1000 records. |
+| `400` | `invalid_body` | Invalid request body. The message will vary depending on the cause. | The request payload is not valid. |
+| `401` | | Invalid token. | |
+| `401` | | Invalid signature received for JSON Web Token validation. | |
+| `401` | | Client is not global. | |
+| `403` | `insufficient_scope` | Insufficient scope; expected any of: `read:organization_members`. | Tried to read/write a field that is not allowed with provided bearer token scopes. |
+| `429` | | Too many requests. Check the X-RateLimit-Limit, X-RateLimit-Remaining and X-RateLimit-Reset headers. | |
+
+### Retrieve user's organizations
+
+You can retrieve a list of organizations to which a user is assigned membership via the Management API.
+
+::: warning
+Up to 1000 organization memberss can be displayed using the Auth0 Dashboard or Management API, though more may exist.
+:::
+
+Make a `GET` call to the `Get User Organizations` endpoint. Be sure to replace the `USER_ID` and `MGMT_API_ACCESS_TOKEN` placeholder values with the user ID and your Management API Access Token, respectively.
+
+```har
+{
+	"method": "GET",
+	"url": "https://${account.namespace}/api/v2/users/USER_ID/organizations",
+	"headers": [
+   	{ "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" }
+	]
+}
+```
+
+<%= include('./_includes/_find_domain') %>
+
+| Value | Description |
+| `USER_ID` | ID of the user for which you want to retrieve organization membership. |
+| `MGMT_API_ACCESS_TOKEN` | [Access Token for the Management API](/tokens/management-api-access-tokens) with the scope `read:organizations`. |
+
+#### Responses
+
+Possible responses are as follows:
+
+| Code | Error code | Message | Cause |
+| - | - | - | - |
+| `200` | | Organizations successfully retrieved. | |
+| `400` | `invalid_uri` | `invalid_request_uri` | The path is not valid. |
+| `400` | `invalid_query_string` | Invalid request query string. The message will vary depending on the cause. | The query string is not valid. |
+| `401` | | Invalid token. | |
+| `401` | | Invalid signature received for JSON Web Token validation. | |
+| `403` | `insufficient_scope` | Insufficient scope; expected any of: `read:organizations`. | Tried to read/write a field that is not allowed with provided bearer token scopes. |
+| `404` | | User not found | |
+| `429` | | Too many requests. Check the X-RateLimit-Limit, X-RateLimit-Remaining and X-RateLimit-Reset headers. | |
+
 ## Add roles to members
  
 Each organization member can be assigned one or more roles. Roles are applied when users log in through the organization. To enable a role for an organization member, you must have already [created the role](/authorization/rbac/roles/create-roles) in your tenant.
@@ -318,4 +406,43 @@ Possible responses are as follows:
 | `401` | | Invalid signature received for JSON Web Token validation. | |
 | `401` | | Client is not global. | |
 | `403` | `insufficient_scope` | Insufficient scope; expected any of: `delete:organization_member_roles`. | Tried to read/write a field that is not allowed with provided bearer token scopes. |
+| `429` | | Too many requests. Check the X-RateLimit-Limit, X-RateLimit-Remaining and X-RateLimit-Reset headers. | |
+
+## Retrieve member roles
+
+When working with organizations programmatically, you may need to retrieve a list of roles assigned to a member of an organization.
+
+Although you can can see roles assigned to a member of an organization through the Auth0 Dashboard by navigating to [Auth0 Dashboard > Organizations](${manage_url}/#/organizations), selecting the organization, selecting the **Members** view, and selecting the member, retrieving member roles is mainly useful when using the Management API.
+
+Make a `GET` call to the `Get Organization Member Roles` endpoint. Be sure to replace the `ORG_ID`, `USER_ID`, and `MGMT_API_ACCESS_TOKEN` placeholder values with your organization ID, member's user ID, and Management API Access Token, respectively.
+
+```har
+{
+	"method": "GET",
+	"url": "https://${account.namespace}/api/v2/organizations/ORG_ID/members/USER_ID/roles",
+	"headers": [
+   	{ "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" }
+	]
+}
+```
+
+<%= include('./_includes/_find_domain') %>
+
+| Value | Description |
+| `ORG_ID` | ID of the organization for which you want to retrieve a member's roles. |
+| `USER_ID` | User ID of the member for which you want to retrieve roles. |
+| `MGMT_API_ACCESS_TOKEN` | [Access Token for the Management API](/tokens/management-api-access-tokens) with the scope `read:organization_member_roles`. |
+
+#### Responses
+
+Possible responses are as follows:
+
+| Code | Error code | Message | Cause |
+| - | - | - | - |
+| `200` | | Roles successfully retrieved. | |
+| `400` | `invalid_query_string` | Invalid request query string. The message will vary depending on the cause. | The query string is not valid. |
+| `401` | | Invalid token. | |
+| `401` | | Invalid signature received for JSON Web Token validation. | |
+| `401` | | Client is not global. | |
+| `403` | `insufficient_scope` | Insufficient scope; expected any of: `read:organization_member_roles`. | Tried to read/write a field that is not allowed with provided bearer token scopes. |
 | `429` | | Too many requests. Check the X-RateLimit-Limit, X-RateLimit-Remaining and X-RateLimit-Reset headers. | |

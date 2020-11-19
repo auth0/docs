@@ -73,7 +73,7 @@ Make a `POST` call to the `Create Organizations` endpoint. Be sure to replace `M
 | `ORG_LOGO` | URL of the organization’s logo. |
 | `ORG_PRIMARY_COLOR` | HEX color code for primary elements. |
 | `ORG_BACKGROUND_COLOR` | HEX color code for background. |
-| `KEY`/`VALUE` | String key/value pairs (max 255 chars) that represent metadata for the organization.  Maximum of 10 metadata pairs. |
+| `KEY`/`VALUE` | String key/value pairs that represent metadata for the organization. Maximum of 255 characters each. Maximum of 10 metadata pairs. |
 
 ##### Responses
 
@@ -195,4 +195,123 @@ Possible responses are as follows:
 | `401` | | Invalid signature received for JSON Web Token validation. | |
 | `403` | `insufficient_scope` | Insufficient scope; expected any of: `delete:organizations`. | Tried to read/write a field that is not allowed with provided bearer token scopes. |
 | `404` | | The organization does not exist. | |
+| `429` | | Too many requests. Check the X-RateLimit-Limit, X-RateLimit-Remaining and X-RateLimit-Reset headers. | |
+
+
+## Retrieve organizations
+
+When working with organizations programmatically, you may need to retrieve either a list of all organizations or organizations individually by name or ID.
+
+Although you can can see organizations through the Auth0 Dashboard by navigating to [Auth0 Dashboard > Organizations](${manage_url}/#/organizations), retrieving organizations is mainly useful when using the Management API.
+
+### Retrieve organizations
+
+You can retrieve organizations for a tenant via the Management API.
+
+::: warning
+Up to 1000 organizations can be displayed using the Auth0 Dashboard or Management API, though more may exist.
+:::
+
+Make a `GET` call to the `Get Organizations` endpoint. Be sure to replace the `MGMT_API_ACCESS_TOKEN` placeholder value with your Management API Access Token.
+
+```har
+{
+	"method": "GET",
+	"url": "https://${account.namespace}/api/v2/organizations",
+	"headers": [
+   	{ "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" }
+	]
+}
+```
+
+<%= include('./_includes/_find_domain') %>
+
+| Value | Description |
+| `MGMT_API_ACCESS_TOKEN` | [Access Token for the Management API](/tokens/management-api-access-tokens) with the scope `read:organizations`. |
+
+#### Responses
+
+Possible responses are as follows:
+
+| Code | Error code | Message | Cause |
+| - | - | - | - |
+| `200` | | Organizations successfully retrieved. | |
+| `400` | `invalid_paging` | Requesting page exceeds the allowed maximum of 1000 records. | API has been limited to only return up to 1000 records. |
+| `400` | `invalid_query_string` | Invalid request query string. The message will vary depending on the cause. | The query string is not valid. |
+| `401` | | Invalid token. | |
+| `401` | | Invalid signature received for JSON Web Token validation. | |
+| `401` | | Client is not global. | |
+| `403` | `insufficient_scope` | Insufficient scope; expected any of: `read:organizations`. | Tried to read/write a field that is not allowed with provided bearer token scopes. |
+| `429` | | Too many requests. Check the X-RateLimit-Limit, X-RateLimit-Remaining and X-RateLimit-Reset headers. | |
+
+### Retrieve organization by ID
+
+You can retrieve an organization by its ID through the Management API.
+
+Make a `GET` call to the `Get Organization` endpoint. Be sure to replace the `ORG_ID` and `MGMT_API_ACCESS_TOKEN` placeholder values with your organization ID and Management API Access Token, respectively.
+
+```har
+{
+	"method": "GET",
+	"url": "https://${account.namespace}/api/v2/organizations/ORG_ID",
+	"headers": [
+   	{ "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" }
+	]
+}
+```
+
+<%= include('./_includes/_find_domain') %>
+
+| Value | Description |
+| `ORG_ID` | ID of the organization you want to retrieve. |
+| `MGMT_API_ACCESS_TOKEN` | [Access Token for the Management API](/tokens/management-api-access-tokens) with the scope `read:organizations`. |
+
+#### Responses
+
+Possible responses are as follows:
+
+| Code | Error code | Message | Cause |
+| - | - | - | - |
+| `200` | | Organization successfully retrieved. | |
+| `400` | `invalid_query_string` | Invalid request query string. The message will vary depending on the cause. | The query string is not valid. |
+| `401` | | Invalid token. | |
+| `401` | | Invalid signature received for JSON Web Token validation. | |
+| `401` | | Client is not global. | |
+| `403` | `insufficient_scope` | Insufficient scope; expected any of: `read:organizations`. | Tried to read/write a field that is not allowed with provided bearer token scopes. |
+| `429` | | Too many requests. Check the X-RateLimit-Limit, X-RateLimit-Remaining and X-RateLimit-Reset headers. | |
+
+### Retrieve organization by name
+
+You can retrieve an organization by its name through the Management API.
+
+Make a `GET` call to the `Get Organization by Name` endpoint. Be sure to replace the `ORG_NAME` and `MGMT_API_ACCESS_TOKEN` placeholder values with your organization ID and Management API Access Token, respectively.
+
+```har
+{
+	"method": "GET",
+	"url": "https://${account.namespace}/api/v2/organizations/name/ORG_NAME",
+	"headers": [
+   	{ "name": "Authorization", "value": "Bearer MGMT_API_ACCESS_TOKEN" }
+	]
+}
+```
+
+<%= include('./_includes/_find_domain') %>
+
+| Value | Description |
+| `ORG_ NAME` | Name of the organization you want to retrieve. Maximum length of 50 characters. |
+| `MGMT_API_ACCESS_TOKEN` | [Access Token for the Management API](/tokens/management-api-access-tokens) with the scope `read:organizations`. |
+
+#### Responses
+
+Possible responses are as follows:
+
+| Code | Error code | Message | Cause |
+| - | - | - | - |
+| `200` | | Organizations successfully retrieved. | |
+| `400` | `invalid_query_string` | Invalid request query string. The message will vary depending on the cause. | The query string is not valid. |
+| `401` | | Invalid token. | |
+| `401` | | Invalid signature received for JSON Web Token validation. | |
+| `401` | | Client is not global. | |
+| `403` | `insufficient_scope` | Insufficient scope; expected any of: `read:organizations`. | Tried to read/write a field that is not allowed with provided bearer token scopes. |
 | `429` | | Too many requests. Check the X-RateLimit-Limit, X-RateLimit-Remaining and X-RateLimit-Reset headers. | |
