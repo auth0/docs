@@ -47,6 +47,11 @@ The Authentication API may return the following HTTP Status Codes:
         <td><code>{"error": "access_denied", "error_description": "Unknown or invalid refresh token"}</code></td>
       </tr>
       <tr>
+        <td><span class="badge badge-danger">403</span></td>
+        <td>Forbidden</td>
+        <td><code>{"error": "invalid_grant", "error_description": "..."}</code></td>
+      </tr> 
+      <tr>
         <td><span class="badge badge-danger">404</span></td>
         <td>Not Found</td>
         <td><code>{"error": "endpoint_disabled", "error_description": "..."}</code></td>
@@ -70,6 +75,11 @@ The Authentication API may return the following HTTP Status Codes:
         <td><span class="badge badge-danger">501</span></td>
         <td>Not Implemented</td>
         <td><code>{"error": "unsupported_response_type", "error_description": "..."}</code></td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-danger">501</span></td>
+        <td>Not Implemented</td>
+        <td><code>{"error": "unsupported_grant_type", "error_description": "..."}</code></td>
       </tr>
       <tr>
         <td><span class="badge badge-danger">503</span></td>
