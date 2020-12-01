@@ -16,7 +16,7 @@
   },
   "beta": {
     "title": "Beta",
-    "definition": "Product release stage during which the referemced feature or behavior is provided to subscribers to give them time to explore and adopt new product capabilities while providing final feedback prior to a General Availability (GA) release. Functionality is code-complete, stable, useful in a variety of scenarios, and believed to meet or almost meet quality expectations for a GA release. Beta releases may be restricted to a select number of subscribers (private) or open to all subscribers (public).",
+    "definition": "Product release stage during which the referenced feature or behavior is provided to subscribers to give them time to explore and adopt new product capabilities while providing final feedback prior to a General Availability (GA) release. Functionality is code-complete, stable, useful in a variety of scenarios, and believed to meet or almost meet quality expectations for a GA release. Beta releases may be restricted to a select number of subscribers (private) or open to all subscribers (public).",
     "short": "Product release stage during which the referemced feature or behavior is provided to subscribers to give them time to explore and adopt new product capabilities while providing final feedback prior to a General Availability (GA) release. Functionality is code-complete, stable, useful in a variety of scenarios, and believed to meet or almost meet quality expectations for a GA release. Beta releases may be restricted to a select number of subscribers (private) or open to all subscribers (public)."
   },
   "breaking-change": {
