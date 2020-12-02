@@ -56,10 +56,15 @@ First, we need to add the Auth0 Services to the list of Providers in `config/app
 ```php
 // config/app.php
 
-'providers' => array(
-    // ...
-    Auth0\Login\LoginServiceProvider::class,
-);
+<?php
+
+    return [
+        // ...
+
+      'providers' => [
+          // ...
+          Auth0\Login\LoginServiceProvider::class,
+      ],
 ```
 
 If you want to use an `Auth0` facade, add an alias in the same file (not required, [more information on facades here](http://laravel.com/docs/8.x/facades)):
@@ -67,22 +72,32 @@ If you want to use an `Auth0` facade, add an alias in the same file (not require
 ```php
 // config/app.php
 
-'aliases' => [
-    // ...
-    'Auth0' => Auth0\Login\Facade\Auth0::class,
-];
+<?php
+
+    return [
+        // ...
+
+      'aliases' => [
+          // ...
+          'Auth0' => Auth0\Login\Facade\Auth0::class,
+      ],
 ```
 
 Finally, you will need to bind a class that provides the app's User model each time a user is logged in or a JWT is decoded. You can use the `Auth0UserRepository` provided by this package or build your own (see the "Custom User Handling" section below).
 
-Add the following to your `AppServiceProvider::register()` method:
+Replace the contents of that file with the following:
 
 ```php
 // app/Providers/AppServiceProvider.php
-// ...
+
+<?php
+
+namespace App\Providers;
+
+use Illuminate\Support\ServiceProvider;
+
 class AppServiceProvider extends ServiceProvider
 {
-    // ...
     public function register()
     {
         $this->app->bind(
@@ -90,7 +105,10 @@ class AppServiceProvider extends ServiceProvider
             \Auth0\Login\Repository\Auth0UserRepository::class
         );
     }
+
+    public function boot() {}
 }
+
 ```
 
 ### Configure It
@@ -120,7 +138,7 @@ Select the option for `Auth0\Login\LoginServiceProvider` and look for `Publishin
 
 To keep sensitive data out of version control and allow for different testing and production instances, we recommend using the `.env` file Laravel uses to load other environment-specific variables:
 
-```
+```ini
 // .env
 // ...
 AUTH0_DOMAIN=${account.namespace}
@@ -138,8 +156,16 @@ First, we'll add our route and controller to `routes/web.php`. The route used he
 
 ```php
 // routes/web.php
-// ...
-Route::get( '/auth0/callback', '\Auth0\Login\Auth0Controller@callback' )->name( 'auth0-callback' );
+
+<?php
+
+use Illuminate\Support\Facades\Route;
+use Auth0\Login\Auth0Controller;
+use App\Http\Controllers\Auth\Auth0IndexController;
+
+Route::view('/', 'welcome');
+
+Route::get('/auth0/callback', [Auth0Controller::class, 'callback'])->name('auth0-callback');
 ```
 
 If you load this callback URL now, you should be immediately redirected back to the homepage rather than getting a 404 error. This tells us that the route is set up and being handled.
@@ -156,39 +182,56 @@ This creates a controller file to handle the routes used to log in and out. Let'
 
 ```php
 // app/Http/Controllers/Auth/Auth0IndexController.php
-// ...
+
+<?php
+
+namespace App\Http\Controllers\Auth;
+
+use App;
+use Auth;
+use Redirect;
+use App\Http\Controllers\Controller;
+
 class Auth0IndexController extends Controller
 {
-    /**
-     * Redirect to the Auth0 hosted login page
-     *
-     * @return mixed
-     */
     public function login()
     {
-        $authorize_params = [
-            'scope' => 'openid profile email',
-            // Use the key below to get an access token for your API.
-            // 'audience' => config('laravel-auth0.api_identifier'),
-        ];
-        return \App::make('auth0')->login(null, null, $authorize_params);
+        if (Auth::check()) {
+            return redirect()->intended('/');
+        }
+
+        return App::make('auth0')->login(
+            null,
+            null,
+            ['scope' => 'openid name email email_verified'],
+            'code'
+        );
     }
 
-    /**
-     * Log out of Auth0
-     *
-     * @return mixed
-     */
     public function logout()
     {
-        \Auth::logout();
+        Auth::logout();
+
         $logoutUrl = sprintf(
             'https://%s/v2/logout?client_id=%s&returnTo=%s',
             config('laravel-auth0.domain'),
             config('laravel-auth0.client_id'),
-            url('/')
+            config('app.url')
         );
-        return  \Redirect::intended($logoutUrl);
+
+        return Redirect::intended($logoutUrl);
+    }
+
+    public function profile()
+    {
+        if (!Auth::check()) {
+            return redirect()->route('login');
+        }
+
+        return view('profile')->with(
+            'user',
+            print_r(Auth::user()->getUserInfo(), true)
+        );
     }
 }
 ```
@@ -198,8 +241,9 @@ Now, add the routes tied to the correct handler method along with names we can u
 ```php
 // routes/web.php
 // ...
-Route::get( '/login', 'Auth\Auth0IndexController@login' )->name( 'login' );
-Route::get( '/logout', 'Auth\Auth0IndexController@logout' )->name( 'logout' )->middleware('auth');
+Route::get('/login', [Auth0IndexController::class, 'login'])->name('login');
+Route::get('/logout', [Auth0IndexController::class, 'logout'])->name('logout');
+Route::get('/profile', [Auth0IndexController::class, 'profile'])->name('profile');
 ```
 
 ### Integrate with Laravel authentication system
@@ -228,11 +272,11 @@ To test all this out, let's add links to our site to access these routes. If you
 
 ```blade
 @if (Route::has('login'))
-    <div class="top-right links">
+    <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
         @auth
-            <a href="{{ route('logout') }}">Logout</a>
+            <a href="{{ route('logout') }}" class="text-sm text-gray-700 underline">Sign out</a>
         @else
-            <a href="{{ route('login') }}">Login/Signup</a>
+            <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Sign in / Register</a>
         @endauth
     </div>
 @endif
@@ -241,7 +285,7 @@ To test all this out, let's add links to our site to access these routes. If you
 Load the homepage of your app and you should see a **Login** link at the top right. If you click on that, you should be redirected to an Auth0 login page for your application. If this does not happen then you should see one of two things:
 
 1. A Laravel debug screen (is `APP_DEBUG` is set to `true`) which, along with the steps above, should help diagnose the issues
-1. An Auth0 error page with more information under the "Technical Details" heading (click **See details for this error**)
+2. An Auth0 error page with more information under the "Technical Details" heading (click **See details for this error**)
 
 Once you're able to successfully log in, you will be redirected to your homepage with a **Logout** link at the top right. This tells us that the login process was successful and the Auth0 user provider is functioning properly. Click **Logout** and you should be back where you started.
 
@@ -257,7 +301,7 @@ The database information below is an example and is based on a new, default Lara
 
 Let's walk through how to add user database persistence using this a custom Repository class called `CustomUserRepository`. You'll need to have a database configured and a `users` table created. If you're starting with the default project, update your MySQL information in your `.env` file:
 
-```
+```ini
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
@@ -272,23 +316,34 @@ Edit the migration file with a name similar to `create_users_table` and change t
 
 ```php
 // database/migrations/x_x_x_create_users_table.php
-// ...
+
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
 class CreateUsersTable extends Migration
 {
-    // ...
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('name');
-            $table->string('sub')->unique();
             $table->string('email')->unique();
+            $table->string('sub')->unique();
+            $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });
     }
-    // ...
+
+    public function down()
+    {
+        Schema::dropIfExists('users');
+    }
 }
+
 ```
 
 Save this file and run the artisan command to create this table:
@@ -299,18 +354,30 @@ php artisan migrate
 
 After running this migration, the `sub` field must also be added as field in `$fillable` in the User model. Failing to do so will cause SQL insert errors when the `upsertUser()` function tries to add a new User record. The `sub` field won't be included in the query and the query will attemt to insert a NULL value for `sub`.
 
-```
-// app/User.php
+```php
+// app/Models/User.php
+
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    // ...
+    use HasFactory, Notifiable;
 
     protected $fillable = [
-        'name', 'email', 'sub',
+        'name',
+        'email',
+        'sub'
     ];
 
-    // ...
+    protected $hidden = [
+        'remember_token'
+    ];
 }
 ```
 
@@ -326,6 +393,9 @@ We're going to implement a method called `upsertUser()` to retrieve or add users
 
 ```php
 // app/Repositories/CustomUserRepository.php
+
+<?php
+
 namespace App\Repositories;
 
 use App\User;
@@ -337,14 +407,6 @@ use Illuminate\Contracts\Auth\Authenticatable;
 
 class CustomUserRepository extends Auth0UserRepository
 {
-
-    /**
-     * Get an existing user or create a new one
-     *
-     * @param array $profile - Auth0 profile
-     *
-     * @return User
-     */
     protected function upsertUser( $profile ) {
         return User::firstOrCreate(['sub' => $profile['sub']], [
             'email' => $profile['email'] ?? '',
@@ -352,32 +414,17 @@ class CustomUserRepository extends Auth0UserRepository
         ]);
     }
 
-    /**
-     * Authenticate a user with a decoded ID Token
-     *
-     * @param array $decodedJwt
-     *
-     * @return Auth0JWTUser
-     */
     public function getUserByDecodedJWT(array $decodedJwt) : Authenticatable
     {
         $user = $this->upsertUser( $decodedJwt );
         return new Auth0JWTUser( $user->getAttributes() );
     }
 
-    /**
-     * Get a User from the database using Auth0 profile information
-     *
-     * @param array $userinfo
-     *
-     * @return Auth0User
-     */
     public function getUserByUserInfo(array $userinfo) : Authenticatable
     {
         $user = $this->upsertUser( $userinfo['profile'] );
         return new Auth0User( $user->getAttributes(), $userinfo['accessToken'] );
     }
-
 }
 ```
 
@@ -390,9 +437,9 @@ Finally, we'll change the binding in the `AppServiceProvider` to point to this n
 ```php
 // app/Providers/AppServiceProvider.php
 // ...
+
 class AppServiceProvider extends ServiceProvider
 {
-    // ...
     public function register()
     {
         $this->app->bind(
@@ -400,7 +447,8 @@ class AppServiceProvider extends ServiceProvider
             \App\Repositories\CustomUserRepository::class
         );
     }
-}
+
+    // ...
 ```
 
 Logging in for the first time should create a new entry in the database with the Auth0 `sub` ID and email address used. Subsequent logins should simply access that same user and not create any new records.
