@@ -912,7 +912,7 @@ articles:
             url: /extensions/deploy-cli-tool/install-and-configure-the-deploy-cli-tool
           - title: Call Deploy CLI
             url: /extensions/deploy-cli-tool/call-deploy-cli-tool-programmatically
-          - title: Incorporate into Build
+          - title: Incorporate into CI/CD Environment
             url: /extensions/deploy-cli-tool/incorporate-deploy-cli-into-build-environment
           - title: Import/Export Directory Structure
             url: /extensions/deploy-cli-tool/import-export-tenant-configuration-to-directory-structure
