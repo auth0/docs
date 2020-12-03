@@ -55,37 +55,27 @@ First, we need to add the Auth0 Services to the list of Providers in `config/app
 
 ```php
 // config/app.php
-
-<?php
-
-    return [
-        // ...
-
-      'providers' => [
-          // ...
-          Auth0\Login\LoginServiceProvider::class,
-      ],
+// ...
+'providers' => [
+    // ...
+    Auth0\Login\LoginServiceProvider::class,
+],
 ```
 
 If you want to use an `Auth0` facade, add an alias in the same file (not required, [more information on facades here](http://laravel.com/docs/8.x/facades)):
 
 ```php
 // config/app.php
-
-<?php
-
-    return [
-        // ...
-
-      'aliases' => [
-          // ...
-          'Auth0' => Auth0\Login\Facade\Auth0::class,
-      ],
+// ...
+'aliases' => [
+    // ...
+    'Auth0' => Auth0\Login\Facade\Auth0::class,
+],
 ```
 
 Finally, you will need to bind a class that provides the app's User model each time a user is logged in or a JWT is decoded. You can use the `Auth0UserRepository` provided by this package or build your own (see the "Custom User Handling" section below).
 
-Replace the contents of that file with the following:
+Replace the contents of your `app/Providers/AppServiceProvider` file with the following:
 
 ```php
 // app/Providers/AppServiceProvider.php
