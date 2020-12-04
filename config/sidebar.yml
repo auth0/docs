@@ -1074,28 +1074,31 @@ articles:
                 url: /tokens/access-tokens/validate-access-tokens
                 hidden: true
           - title: Refresh Tokens
-            url: /tokens/access-tokens/refresh-tokens
+            url: /tokens/refresh-tokens
             children:
               - title: Get Refresh Tokens
-                url: /tokens/access-tokens/refresh-tokens/get-refresh-tokens
+                url: /tokens/refresh-tokens/get-refresh-tokens
                 hidden: true
               - title: Use Refresh Tokens
-                url: /tokens/access-tokens/refresh-tokens/use-refresh-tokens
+                url: /tokens/refresh-tokens/use-refresh-tokens
                 hidden: true
               - title: Revoke Refresh Tokens
-                url: /tokens/access-tokens/refresh-tokens/revoke-refresh-tokens
+                url: /tokens/refresh-tokens/revoke-refresh-tokens
                 hidden: true
+              - title: Configure Refresh Token Expiration
+                url: /tokens/refresh-tokens/configure-refresh-token-expiration
+                hidden: true 
           - title: Refresh Token Rotation
-            url: /tokens/access-tokens/refresh-tokens/refresh-token-rotation
+            url: /tokens/refresh-tokens/refresh-token-rotation
             children:
               - title: Configure Refresh Token Rotation
-                url: /tokens/access-tokens/refresh-tokens/configure-refresh-token-rotation
+                url: /tokens/refresh-tokens/configure-refresh-token-rotation
                 hidden: true
               - title: Use Refresh Token Rotation
-                url: /tokens/access-tokens/refresh-tokens/refresh-token-rotation/use-refresh-token-rotation
+                url: /tokens/refresh-tokens/refresh-token-rotation/use-refresh-token-rotation
                 hidden: true
               - title: Disable Refresh Token Rotation
-                url: /tokens/access-tokens/refresh-tokens/disable-refresh-token-rotation
+                url: /tokens/refresh-tokens/disable-refresh-token-rotation
                 hidden: true
           - title: Delegation Tokens
             url: /tokens/delegation-tokens
