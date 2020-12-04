@@ -25,7 +25,8 @@ const jwksRsa = require("jwks-rsa");
 // Create a new Express app
 const app = express();
 
-// Set up Auth0 configuration
+// Set up Auth0 configuration. These values should be
+// the domain and audience for the API that you want to call.
 const authConfig = {
   domain: "${account.namespace}",
   audience: "${apiIdentifier}"
@@ -58,3 +59,7 @@ app.listen(3001, () => console.log('API listening on 3001'));
 ```
 
 The above API has one available endpoint, `/api/external`, that returns a JSON response to the caller. This endpoint uses the `checkJwt` middleware to validate the supplied bearer token using your tenant's [JSON Web Key Set](https://auth0.com/docs/jwks). If the token is valid, the request is allowed to continue. Otherwise, the server returns a 401 Unauthorized response.
+
+:::note
+Ensure that the values for `domain` and `audience` in the code snippet above are correct for the API that you want to call.
+:::
