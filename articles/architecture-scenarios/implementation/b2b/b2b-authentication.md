@@ -90,7 +90,7 @@ The other simple option is to allow your users to choose from a list, if you don
 
 ## Anomaly detection
 
-<%= include('../../_includes/_authentication/_anomaly-detection.md', { platform: 'b2b' }) %>
+<%= include('../../_includes/_authentication/_attack-protection.md', { platform: 'b2b' }) %>
 
 ## SSO with legacy systems
 

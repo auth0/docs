@@ -4,6 +4,16 @@
     "definition": "A credential that can be used by an application to access an API. It informs the API that the bearer of the token has been authorized to access the API and perform specific actions specified by the scope that has been granted. An Access Token can be in any format, but two popular options include opaque strings and JSON Web Tokens (JWT). They should be transmitted to the API as a Bearer credential in an HTTP Authorization header.",
     "short": "An authorization credential, in the form of an opaque string or JWT, used to access an API."
   },
+  "adaptive-multifactor-authentication": {
+    "title": "Adaptive Multi-factor Authentication",
+    "definition": "Multi-factor authentication (MFA) that is only triggered for users when an attempted login is determined to be a low confidence login. With Adaptive MFA, Auth0 triggers MFA only when needed to add friction for bad actors while keeping the login experience unchanged for good actors.",
+    "short": "Multi-factor authentication (MFA) that is only triggered for users when an attempted login is determined to be a low confidence login. With Adaptive MFA, Auth0 triggers MFA only when needed to add friction for bad actors while keeping the login experience unchanged for good actors."
+  },
+  "attack-protection": {
+    "title": "Attack Protection",
+    "definition": "Features that Auth0 provides to detect and mitigate attacks, including brute-force protection, suspicious IP throttling, breached password detection, bot detection, and contextual multi-factor authentication.",
+    "short": "Features that Auth0 provides to detect and mitigate attacks, including brute-force protection, suspicious IP throttling, breached password detection, bot detection, and contextual multi-factor authentication."
+  },
   "audience": {
     "title": "Audience",
     "definition": "The unique identifier of the audience for an issued token, identified within a JSON Web Token as the `aud` claim. The audience value is either the application (`Client ID`) for an ID Token or the API that is being called (`API Identifier`) for an Access Token. At Auth0, the Audience value sent in a request for an Access Token dictates whether that token is returned in an opaque or JWT format.",
@@ -19,10 +29,25 @@
     "definition": "Product release stage during which the referenced feature or behavior is provided to subscribers to give them time to explore and adopt new product capabilities while providing final feedback prior to a General Availability (GA) release. Functionality is code-complete, stable, useful in a variety of scenarios, and believed to meet or almost meet quality expectations for a GA release. Beta releases may be restricted to a select number of subscribers (private) or open to all subscribers (public).",
     "short": "Product release stage during which the referemced feature or behavior is provided to subscribers to give them time to explore and adopt new product capabilities while providing final feedback prior to a General Availability (GA) release. Functionality is code-complete, stable, useful in a variety of scenarios, and believed to meet or almost meet quality expectations for a GA release. Beta releases may be restricted to a select number of subscribers (private) or open to all subscribers (public)."
   },
+  "bot-detection": {
+    "title": "Bot Detection",
+    "definition": "A form of attack protection in which Auth0 blocks suspected bot traffic by enabling a CAPTCHA during the login process.",
+    "short": "A form of attack protection in which Auth0 blocks suspected bot traffic by enabling a CAPTCHA during the login process."
+  },
+  "breached-password-protection": {
+    "title": "Breached Password Protection",
+    "definition": "A form of attack protection in which Auth0 notifies your users if they use a username/password combination that has been compromised in a data leak on a third-party website or app.",
+    "short": "A form of attack protection in which Auth0 notifies your users if they use a username/password combination that has been compromised in a data leak on a third-party website or app."
+  },
   "breaking-change": {
     "title": "Breaking Change",
     "definition": "Change to the Auth0 platform that, to Auth0's knowledge, will cause failures in the interoperation of the Auth0 platform and customer applications.",
     "short": "Change to the Auth0 platform that, to Auth0's knowledge, will cause failures in the interoperation of the Auth0 platform and customer applications."
+  },
+  "brute-force-protection": {
+    "title": "Brute-force Protection",
+    "definition": "A form of attack protection that safeguards against brute-force attacks that occur from a single IP address and target a single user account.",
+    "short": "A form of attack protection that safeguards against brute-force attacks that occur from a single IP address and target a single user account."
   },
   "callback": {
     "title": "Callback",
@@ -86,8 +111,8 @@
   },
   "general-availability": {
     "title": "General Availability",
-    "definition": "A product release stage during which the referemced feature or behavior is fully functional and available to all subscribers (limited by pricing tier) for production use. If a new release replaces an existing feature, we provide a period of backward compatibility in accordance with our deprecation policy and inform customers so they have time to adopt the new release.",
-    "short": "A product release stage during which the referemced feature or behavior is fully functional and available to all subscribers (limited by pricing tier) for production use. If a new release replaces an existing feature, we provide a period of backward compatibility in accordance with our deprecation policy and inform customers so they have time to adopt the new release."
+    "definition": "A product release stage during which the referenced feature or behavior is fully functional and available to all subscribers (limited by pricing tier) for production use. If a new release replaces an existing feature, Auth0 provides a period of backward compatibility in accordance with our deprecation policy and informs customers so they have time to adopt the new release.",
+    "short": "A product release stage during which the referemced feature or behavior is fully functional and available to all subscribers (limited by pricing tier) for production use. If a new release replaces an existing feature, Auth0 provides a period of backward compatibility in accordance with our deprecation policy and informs customers so they have time to adopt the new release."
   },
   "id-token": {
     "title": "ID Token",
@@ -136,8 +161,8 @@
   },
   "product-release-stages": {
     "title": "Product Release Stages",
-    "definition": "Phases that describe how we stage, release, and retire product functionality. Product features may not progress through all release stages, and the time in each stage will vary depending on the scope and impact of the feature.",
-    "short": "Phases that describe how we stage, release, and retire product functionality."
+    "definition": "Phases that describe how Auth0 stages, releases, and retires product functionality. Product features may not progress through all release stages, and the time in each stage will vary depending on the scope and impact of the feature.",
+    "short": "Phases that describe how Auth0 stages, releases, and retires product functionality."
   },
   "public-client": {
     "title": "Public Client",
@@ -188,6 +213,11 @@
     "title": "Single Sign-On (SSO)",
     "definition": "A service that, after a user logs into one application, automatically logs that user in to other applications, regardless of the platform, technology, or domain the user is using. The user signs in only one time (hence the name of the feature). Similarly, Single Logout (SLO) occurs when, after a user logs out from one application, they are logged out of each application or service where they were logged in. SSO and SLO are possible through the use of sessions. See <a href='/docs/sso'>Single Sign-On and Single Logout</a>.",
     "short": "A service that, after a user logs into one applicaton, automatically logs that user in to other applications."
+  },
+  "suspicious-ip-throttling": {
+    "title": "Suspicious IP Throttling",
+    "definition": "A form of attack protection that protects your tenant against suspicious logins targeting too many accounts from a single IP address.",
+    "short": "A form of attack protection that protects your tenant against suspicious logins targeting too many accounts from a single IP address."
   },
   "tenant": {
     "title": "Tenant",

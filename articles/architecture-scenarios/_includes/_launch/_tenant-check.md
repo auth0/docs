@@ -107,6 +107,6 @@ You should also have aligned your rules with Auth0 [rules best practices](/best-
 
 <%= include('../../_includes/_branding/_email-templates.md', { platform: 'b2b' }) %>
 
-### Anomaly detection configured
+### Attack protection configured
 
-<%= include('../../_includes/_authentication/_anomaly-detection.md', { platform: 'b2b' }) %>
+<%= include('../../_includes/_authentication/_attack-protection.md', { platform: 'b2b' }) %>

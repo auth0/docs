@@ -101,7 +101,7 @@ When implementing Passwordless Authentication in Single Page Applications or in 
 
 ## Rate Limiting in Passwordless Endpoints
 
-Auth0 rate limits and anomaly detection features only consider the IP from the machine that is making the API call. When the API call is made from a backend server, you usually want Auth0 to consider the IP from the end user, not the one from the server.
+Auth0 rate limits and attack protection features only consider the IP from the machine that is making the API call. When the API call is made from a backend server, you usually want Auth0 to consider the IP from the end user, not the one from the server.
 
 Auth0 supports specifying an `auth0-forwarded-for` header in API calls, but it is only considered when:
 

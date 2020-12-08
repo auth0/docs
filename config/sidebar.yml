@@ -395,21 +395,23 @@ articles:
           - title: Single Sign-On with Auth0
             url: /sso/current/sso-auth0
             hidden: true
-      - title: Anomaly Detection
-        url: /anomaly-detection
+      - title: Attack Protection
+        url: /attack-protection
         children:
           - title: Bot Detection
-            url: /anomaly-detection/bot-detection
+            url: /attack-protection/bot-detection
           - title: Breached Passwords
-            url: /anomaly-detection/breached-password-security
+            url: /attack-protection/breached-password-security
           - title: Brute Force Attacks
-            url: /anomaly-detection/brute-force-protection
+            url: /attack-protection/brute-force-protection
+          - title: Suspicious IP Throttling
+            url: /attack-protection/suspicious-ip-throttling
           - title: Set Preferences
-            url: /anomaly-detection/set-anomaly-detection-preferences
+            url: /attack-protection/set-attack-protection-preferences
           - title: Customize Emails
-            url: /anomaly-detection/customize-blocked-account-emails
+            url: /attack-protection/customize-blocked-account-emails
           - title: View Events
-            url: /anomaly-detection/view-anomaly-detection-events
+            url: /attack-protection/view-attack-protection-events
       - title: SAML Configuration
         url: /protocols/saml-protocol
         children:

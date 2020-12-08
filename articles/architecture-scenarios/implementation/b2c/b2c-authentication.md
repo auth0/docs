@@ -29,7 +29,7 @@ useCase:
 
 ## Anomaly detection
 
-<%= include('../../_includes/_authentication/_anomaly-detection.md', { platform: 'b2c' }) %>
+<%= include('../../_includes/_authentication/_attack-protection.md', { platform: 'b2c' }) %>
 
 ## SSO with legacy systems
 
