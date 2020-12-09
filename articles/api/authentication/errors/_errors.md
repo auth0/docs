@@ -32,6 +32,11 @@ The Authentication API may return the following HTTP Status Codes:
         <td><code>{"error": "invalid_client", "error_description": "..."}</code></td>
       </tr>
       <tr>
+        <td><span class="badge badge-danger">401</span></td>
+        <td>Unauthorized</td>
+        <td><code>{"error": "requires_validation", "error_description": "Suspicious request requires verification"}</code></td>
+      </tr>
+      <tr>
         <td><span class="badge badge-danger">403</span></td>
         <td>Forbidden</td>
         <td><code>{"error": "unauthorized_client", "error_description": "..."}</code></td>
