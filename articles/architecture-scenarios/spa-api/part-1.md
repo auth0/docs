@@ -22,7 +22,7 @@ useCase:
 
 ## Authorization Code Flow with Proof Key for Code Exchange (PKCE)
 
-As you may have read, SPAs are public clients and cannot securely store a Client Secret since the entire source is available to the browser. With this consideration, you will want to use the [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](https://auth0.com/docs/flows/authorization-code-flow-with-proof-key-for-code-exchange-pkce) with your SPA. 
+SPAs are public clients and cannot securely store a Client Secret since the source code is available to the browser. With this consideration, you will want to use the [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](https://auth0.com/docs/flows/authorization-code-flow-with-proof-key-for-code-exchange-pkce) with your SPA. 
 
 With this flow, the calling application requests an Authorization Token over HTTPS with a transformative value, a Code Verifier (or another type of client secret), that can be verified by the authorization server. 
 
@@ -30,23 +30,11 @@ This flow is the most secure for Single-Page Applications.
 
 ## Implicit Grant
 
-The [implicit grant](https://auth0.com/docs/flows/implicit-flow-with-form-post) is built on the standard [Authorization Code Flow](/flows/concepts/auth-code) in which the source is not publicly available; therefore, the implicit grant is meant to be used for traditional, server-side web applications. The Client Secret is passed along in the request for an authorization code, but this grant is problematic for SPAs as the implicit grant stores ID Tokens in the browser – and can expose those tokens on the client-side to possible attacks or redirects. 
+The original specifications for OAuth2 introduced implicit grants, a way for SPAs without a backend to obtain access tokens and call APIs directly from the browser. However, mitigations strategies are necessary to use the implicit grant as tokens are returned in the URL directly from the authorization endpoint as opposed to the token endpoint. As web technologies have evolved since the introduction of the implicit grant, returning an access token in a URL pvoides multiple opportunities for an attack, such as cross-side scripting, token injection, or crediential leakage.
 
-Auth0 recommends you use Authorization Code Flow with PKCE to maintain your SPA security.
+With the introduction of the Authorization Code Flow with PKCE, mitigating the risks using the implicit grant in SPAs is a thing of the past. While you still may use the implicit grant with your SPA, Auth0 recommends using implicit grants with traditional server-side applications of which can maintain a Client Secret.
 
-Defined in [RFC 6749, section 4.1](https://tools.ietf.org/html/rfc6749#section-4.2), the implicit grant allows an application to receive an Access Token directly, without the need for an `authorization_code`. This happens because the application, which is typically a JavaScript app running within a browser, is less trusted than a web app running on the server, hence cannot be trusted with the `client_secret` (which is required in the Authorization Code Grant).
-
-Once the user authenticates, the application receives the ID Token and Access Token in the hash fragment of the URI. The application can now use the ID Token to obtain information about the user, and Access Token to call the API on behalf of the user.
-
-![Implicit Grant](/media/articles/api-auth/implicit-grant.png)
-
-1. The app initiates the flow and redirects the browser to Auth0 (specifically to the [/authorize endpoint](/api/authentication#implicit-grant)), so the user can authenticate.
-
-1. Auth0 authenticates the user. The first time the user goes through this flow, and if the application is a third party application, a consent page will be shown where the permissions, that will be given to the Client, are listed (for example, post messages, list contacts, and so forth).
-
-1. Auth0 redirects the user to the app with an Access Token (and optionally an ID Token) in the hash fragment of the URI. The app can now extract the tokens from the hash fragment.
-
-1. The app can use the Access Token to call the API on behalf of the user.
+You can click [here](https://auth0.com/blog/oauth2-implicit-grant-and-spa/#The-Implicit-Grant) to read further about SPAs and implicit grants. 
 
 ## Authorization Extension
 
