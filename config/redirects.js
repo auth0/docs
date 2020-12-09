@@ -851,7 +851,7 @@ module.exports = [
     to: '/attack-protection/breached-password-detection'
   },
   {
-    from: ['/anomaly-detection/guides/customize-blocked-account-emails','anomaly-detection/customize-blocked-account-emails'],
+    from: ['/anomaly-detection/guides/customize-blocked-account-emails','/anomaly-detection/customize-blocked-account-emails'],
     to: '/attack-protection/customize-blocked-account-emails'
   },
   {
