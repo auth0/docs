@@ -23,7 +23,7 @@ github:
   branch: master
 requirements:
   - Apache 2.4.4
-  - PHP 7.1 and up
+  - PHP 7.3 and up
   - Auth0-PHP 7.0 and up
 next_steps:
   - path: 01-login
