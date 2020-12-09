@@ -400,6 +400,13 @@ articles:
         children:
           - title: Bot Detection
             url: /attack-protection/bot-detection
+            children: 
+              - title: Custom Login Pages
+                url: /attack-protection/bot-detection/bot-detection-custom-login-pages
+                hidden: true 
+              - title: Native Applications
+                url: /attack-protection/bot-detection/bot-detection-native-apps
+                hidden: true 
           - title: Breached Passwords
             url: /attack-protection/breached-password-detection
           - title: Brute Force Attacks
