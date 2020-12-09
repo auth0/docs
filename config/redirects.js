@@ -2532,6 +2532,10 @@ module.exports = [
     from: ['/logs/guides/view-log-data-dashboard'],
     to: '/logs/view-log-events-in-the-dashboard'
   },
+  {
+    from: ['/logs/export-log-events-with-log-streaming/splunk-dashboard'],
+    to: '/logs/streams/splunk-dashboard'
+  },
 
   /* MFA */
   
