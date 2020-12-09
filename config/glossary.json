@@ -11,8 +11,8 @@
   },
   "attack-protection": {
     "title": "Attack Protection",
-    "definition": "Features that Auth0 provides to detect and mitigate attacks, including brute-force protection, suspicious IP throttling, breached password detection, bot detection, and contextual multi-factor authentication.",
-    "short": "Features that Auth0 provides to detect and mitigate attacks, including brute-force protection, suspicious IP throttling, breached password detection, bot detection, and contextual multi-factor authentication."
+    "definition": "Features that Auth0 provides to detect and mitigate attacks, including brute-force protection, suspicious IP throttling, breached password detection, bot detection, and adaptive multi-factor authentication.",
+    "short": "Features that Auth0 provides to detect and mitigate attacks, including brute-force protection, suspicious IP throttling, breached password detection, bot detection, and adaptive multi-factor authentication."
   },
   "audience": {
     "title": "Audience",
