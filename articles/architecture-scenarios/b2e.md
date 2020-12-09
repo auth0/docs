@@ -105,7 +105,7 @@ Auth0 makes every effort to minimize outages, but if there is any disruption to 
 
 An unfortunate part of modern life on the internet is hackers. Hackers are constantly trying to find a way into applications. For example, they may try to log in using common passwords. Or they may use credentials stolen from elsewhere, hoping that users re-used the same passwords at other sites.
 
-Auth0's [Anomaly Detection](/anomaly-detection) detects these situations for Auth0 Database connections and provides options for how to respond. Turn on Anomaly Detection and configure the response options so you can respond appropriately if such an event occurs.
+Auth0's [Attack Protection](/attack-protection) detects these situations for Auth0 Database connections and provides options for how to respond. Turn on Attack Protection and configure the response options so you can respond appropriately if such an event occurs.
 
 ## Github Deployment
 

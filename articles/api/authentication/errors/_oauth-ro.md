@@ -61,11 +61,11 @@
       </tr>
       <tr>
         <td><span class="badge badge-danger">429</span></td>
-        <td><code>{"error": "too_many_attempts", "error_description": "..."}</code></br>Some anomaly detections will return this error</td>
+        <td><code>{"error": "too_many_attempts", "error_description": "..."}</code></br>Some attack protection features will return this error</td>
       </tr>
       <tr>
         <td><span class="badge badge-danger">429</span></td>
-        <td><code>{"error": "too_many_logins", "error_description": "..."}</code></br>Some anomaly detections will return this error</td>
+        <td><code>{"error": "too_many_logins", "error_description": "..."}</code></br>Some attack protection features will return this error</td>
       </tr>
     </tbody>
   </table>
