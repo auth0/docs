@@ -399,12 +399,12 @@ articles:
         url: /anomaly-detection
         children:
           - title: Bot Detection
-            url: /anomaly-detection/bot-detection
+            url: /attack-protection/bot-detection
             children: 
               - title: Custom Login Pages
-                url: /anomaly-detection/bot-detection/bot-detection-custom-login-pages
+                url: /attack-protection/bot-detection/bot-detection-custom-login-pages
               - title: Native Applications
-                url: /anomaly-detection/bot-detection/bot-detection-native-apps
+                url: /attack-protection/bot-detection/bot-detection-native-apps
           - title: Breached Passwords
             url: /anomaly-detection/breached-password-security
           - title: Brute Force Attacks
