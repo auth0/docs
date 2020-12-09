@@ -402,7 +402,7 @@ articles:
             url: /anomaly-detection/bot-detection
             children: 
               - title: Custom Login Pages
-                url: /anomaly-detection/bot-detection/add-bot-detection-custom-login-pages
+                url: /anomaly-detection/bot-detection/bot-detection-custom-login-pages
               - title: Native Applications
                 url: /anomaly-detection/bot-detection/bot-detection-native-apps
           - title: Breached Passwords
