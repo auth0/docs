@@ -401,7 +401,7 @@ articles:
           - title: Bot Detection
             url: /attack-protection/bot-detection
           - title: Breached Passwords
-            url: /attack-protection/breached-password-security
+            url: /attack-protection/breached-password-detection
           - title: Brute Force Attacks
             url: /attack-protection/brute-force-protection
           - title: Suspicious IP Throttling
