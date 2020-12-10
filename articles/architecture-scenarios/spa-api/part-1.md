@@ -26,7 +26,7 @@ Because SPAs are public clients and cannot securely store a Client Secret since 
 
 With this flow, the calling application requests an Access Token over HTTPS with a transformative value&mdash;a Code Verifier (or another type of client secret)&mdash;that can be verified by the authorization server. 
 
-This flow is the most secure for Single-Page Applications.
+This flow is the most secure for Single-Page Applications
 
 ## Implicit Flow
 
