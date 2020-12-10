@@ -37,7 +37,7 @@ You can find the new tenant setting in the [Auth0 Dashboard > Advanced Tenant Se
 You must have the correct Azure configuration for this option to be available.
 :::
 
-![Dashboard: Advanced Tenant Settings - Migrations](media/connections/migration-section.png)
+![Dashboard: Advanced Tenant Settings - Migrations](/media/connections/migration-section.png)
 
 When this setting is disabled, `email_verified` will always be `true` for Azure AD/ADFS connections. When enabled, it will use the 'Email Verification' setting at the connection level.
 
