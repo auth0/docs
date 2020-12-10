@@ -31,13 +31,13 @@ When the property is set to **Always set `email_verified` to `false`**, users wi
 
 In previous versions, Auth0 always set the `email_verified` field to true in Azure AD and ADFS connections. If you were using Azure AD and ADFS connections in the past, you will have a tenant setting that will override the Connection Setting for **Email Verification** and keep the previous behavior. 
 
-The new tenant setting is in the **Migrations** section of the [Dashboard Advanced Tenant Settings](/#/tenant/advanced) page. Start by clicking the drop-down menu next to your tenant name in the top, right-hand corner of the screen. Once you are in the menu **Tenant Settings**, click on **Advanced** and scroll down until you see the Migrations heading. Look for Default to 'Email Verification' setting for Azure AD/ADFS connections.
+You can find the new tenant setting in the [Auth0 Dashboard > Advanced Tenant Settings](${manage_url}/#/tenant/advanced). Scroll to locate the **Migrations** section, and find **Default to 'Email Verification' setting for Azure AD/ADFS connections**.
 
 :::note
 You must have the correct Azure configuration for this option to be available.
 :::
 
-![](media/connections/migration-section.png)
+![Dashboard: Advanced Tenant Settings - Migrations](media/connections/migration-section.png)
 
 When this setting is disabled, `email_verified` will always be `true` for Azure AD/ADFS connections. When enabled, it will use the 'Email Verification' setting at the connection level.
 
