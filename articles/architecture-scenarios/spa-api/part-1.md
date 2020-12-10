@@ -22,7 +22,7 @@ useCase:
 
 ## Authorization Code Flow with Proof Key for Code Exchange (PKCE)
 
-SPAs are public clients and cannot securely store a Client Secret since the source code is available to the browser. With this consideration, you will want to use the [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](https://auth0.com/docs/flows/authorization-code-flow-with-proof-key-for-code-exchange-pkce) with your SPA. 
+SPAs are public clients and cannot securely store a Client Secret since the source code is available to the browser. With this consideration, you will want to use the [Authorization Code Flow with Proof Key for Code Exchange (PKCE)](/flows/authorization-code-flow-with-proof-key-for-code-exchange-pkce) with your SPA. 
 
 With this flow, the calling application requests an Authorization Token over HTTPS with a transformative value, a Code Verifier (or another type of client secret), that can be verified by the authorization server. 
 
