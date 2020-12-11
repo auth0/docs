@@ -90,7 +90,7 @@ You have three options for [passwordless authentication](/connections/passwordle
 | Parameter        | Description |
 |:-----------------|:------------|
 | `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your application. |
-| `client_secret` <br/><span class="label label-danger">Required for web apps only</span> | The `client_secret` of your application, required for Regular Web Applications. |
+| `client_secret` <br/><span class="label label-danger">Required</span> | The `client_secret` of your application. Required for Regular Web Applications **only**. |
 | `connection` <br/><span class="label label-danger">Required</span> | How to send the code/link to the user. Use `email` to send the code/link using email, or `sms` to use SMS. |
 | `email` | Set this to the user's email address, when `connection=email`. |
 | `phone_number` | Set this to the user's phone number, when `connection=sms`. |
