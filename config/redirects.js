@@ -3643,8 +3643,8 @@ module.exports = [
     to: '/tokens/management-api-access-tokens/create-and-authorize-a-machine-to-machine-application'
   },
   {
-    from: ['/api/management/v2/faq-management-api-access-tokens'],
-    to: '/tokens/management-api-access-tokens/management-api-access-token-faqs'
+    from: ['/api/management/v2/faq-management-api-access-tokens', '/tokens/management-api-access-tokens/management-api-access-token-faqs'],
+    to: '/tokens/management-api-access-tokens'
   },
 
   /* Troubleshoot */
