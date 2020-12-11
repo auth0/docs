@@ -26,13 +26,12 @@ Because SPAs are public clients and cannot securely store a Client Secret since 
 
 With this flow, the calling application requests an Access Token over HTTPS with a transformative value&mdash;a Code Verifier (or another type of client secret)&mdash;that can be verified by the authorization server. 
 
-This flow is the most secure for Single-Page Applications.
 
 ## Implicit Flow
 
 The original specifications for OAuth2 introduced the Implicit Flow, a way for SPAs without a backend to obtain Access Tokens and call APIs directly from the browser. However, mitigation strategies are necessary to use the Implicit Flow because tokens are returned in the URL directly from the authorization endpoint as opposed to the token endpoint. Because web technologies have evolved since the introduction of the Implicit Flow, returning an Access Token in a URL provides multiple opportunities for an attack, such as cross-side scripting, token injection, or credential leakage.
 
-With the introduction of the Authorization Code Flow with PKCE, mitigating the risks using the Implicit Flow in SPAs is a thing of the past. While you may still use the Implicit Flow with your SPA, Auth0 recommends using Implicit Flow with traditional server-side applications that can maintain a Client Secret.
+With the introduction of the Authorization Code Flow with PKCE, mitigating the risks using the Implicit Flow in SPAs is a thing of the past. 
 
 To learn more, read our blog post: [OAuth2 Implicit Grant and SPA](https://auth0.com/blog/oauth2-implicit-grant-and-spa/#The-Implicit-Grant). 
 
