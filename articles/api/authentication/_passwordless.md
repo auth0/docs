@@ -90,7 +90,7 @@ You have three options for [passwordless authentication](/connections/passwordle
 | Parameter        | Description |
 |:-----------------|:------------|
 | `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your application. |
-| `client_secret` <br/><span class="label label-danger">Required</span> | The `client_secret` of your application, required for Regular Web Applications. |
+| `client_secret` <br/><span class="label label-danger">Required for web apps only</span> | The `client_secret` of your application, required for Regular Web Applications. |
 | `connection` <br/><span class="label label-danger">Required</span> | How to send the code/link to the user. Use `email` to send the code/link using email, or `sms` to use SMS. |
 | `email` | Set this to the user's email address, when `connection=email`. |
 | `phone_number` | Set this to the user's phone number, when `connection=sms`. |
@@ -104,7 +104,7 @@ You have three options for [passwordless authentication](/connections/passwordle
 ### Remarks
 
 - If you sent a verification code, using either email or SMS, after you get the code, you have to authenticate the user using the [/passwordless/verify endpoint](#authenticate-user), using `email` or `phone_number` as the `username`, and the verification code as the `password`.
-- This endpoint is designed to be called from the client-side, and has a [rate limit](/policies/rate-limits#authentication-api) of 50 requests per hour per IP.
+- This endpoint is designed to be called from the client-side, and is subject to [rate limits](/policies/rate-limit-policy/authentication-api-endpoint-rate-limits).
 - The sample auth0.js script uses the library version 8. If you are using auth0.js version 7, please see this [reference guide](/libraries/auth0js/v7).
 
 ### Error Codes
