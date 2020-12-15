@@ -1097,7 +1097,7 @@ articles:
               - title: Disable Refresh Token Rotation
                 url: /tokens/refresh-tokens/disable-refresh-token-rotation
                 hidden: true
-          - title: Refresh Token Expiration
+          - title: Refresh  Token Expiration
             url: /tokens/refresh-tokens/configure-refresh-token-expiration
           - title: Delegation Tokens
             url: /tokens/delegation-tokens
