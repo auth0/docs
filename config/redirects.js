@@ -1043,8 +1043,8 @@ module.exports = [
     to: '/authorization/rbac/authorization-core-rbac-limits'
   },
   {
-    from: ['/authorization/concepts/authz-and-authn','/application-auth/current','/application-auth/legacy','/application-auth','/authentication'],
-    to: '/authorization/authentication-and-authorization'
+    from: ['/authorization/authentication-and-authorization', '/authorization/concepts/authz-and-authn','/application-auth/current','/application-auth/legacy','/application-auth'],
+    to: '/flows'
   },
   {
     from: ['/authorization/concepts/authz-rules'],
@@ -1087,10 +1087,6 @@ module.exports = [
     to: '/authorization/apis'
   },
   {
-    from: ['/api-auth/faq'],
-    to: '/authorization/authentication-and-authorization-api-faq'
-  },
-  {
     from: ['/api-auth','/api-auth/tutorials','/api/tutorials'],
     to: '/authorization'
   },
@@ -1107,7 +1103,7 @@ module.exports = [
     to: '/authorization/user-consent-and-third-party-applications'
   },
   {
-    from: ['/api-auth/which-oauth-flow-to-use'],
+    from: ['/api-auth/which-oauth-flow-to-use', '/api-auth/faq', '/authorization/authentication-and-authorization-api-faq'],
     to: '/authorization/which-oauth-2-0-flow-should-i-use'
   },
   {
