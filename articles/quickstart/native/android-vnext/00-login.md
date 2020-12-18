@@ -25,11 +25,35 @@ If you are following along with the sample project you downloaded from the top o
 Replace `YOUR_APP_PACKAGE_NAME` with your application's package name, available as the `applicationId` attribute in the `app/build.gradle` file.
 
 <%= include('../../../_includes/_logout_url', { returnTo: 'demo://' + account.namespace + '/android/YOUR_APP_PACKAGE_NAME/callback' }) %>
+
 Replace `YOUR_APP_PACKAGE_NAME` with your application's package name, available as the `applicationId` attribute in the `app/build.gradle` file.
 
 ## Install the Auth0 Android SDK
 
-<%= include('./_includes/_gradle.md') %>
+Add the [Auth0 Android](https://github.com/auth0/Auth0.Android) SDK into your project. The library will make requests to the Auth0's Authentication and Management APIs.
+
+### Add Auth0 to Gradle
+
+In your app's `build.gradle` dependencies section, add the following:
+
+```groovy
+apply plugin: 'com.android.application'
+android {
+  // ...
+}
+dependencies {
+  // Add the Auth0 Android SDK
+  implementation 'com.auth0.android:auth0:1.+'
+}
+```
+
+::: note
+If Android Studio lints the `+` sign, or if you want to use a fixed version, check for the latest in [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22auth0%22%20g%3A%22com.auth0.android%22) or [JCenter](https://bintray.com/auth0/android/auth0).
+:::
+
+::: panel Sync Project with Gradle Files
+Remember to synchronize using the Android Studio prompt or run `./gradlew clean build` from the command line. For more information about Gradle usage, check [their official documentation](http://tools.android.com/tech-docs/new-build-system/user-guide).
+:::
 
 Add manifest placeholders required by the SDK. The placeholders are used internally to define an `intent-filter` that captures the authentication callback URL.
 
@@ -92,8 +116,6 @@ Run **Sync Project with Gradle Files** inside Android Studio or execute `./gradl
 For more information about using Gradle, check the [Gradle official documentation](https://gradle.org/getting-started-android-build/).
 :::
 
-<!-- markdownlint-disable MD002 MD041 -->
-
 ## Add Login to your App
 
 [Universal Login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features.
@@ -129,7 +151,7 @@ class MainActivity : AppCompatActivity() {
 ```
 
 :::note
-We suggest you do not hardcode these values as you may need to change them in the future. Instead, use [String Resources](https://developer.android.com/guide/topics/resources/string-resource.html), such as `@string/com_auth0_domain`, to define the values. 
+We suggest you do not hardcode the values for `clientId` and `domain` as you may need to change them in the future. Instead, use [String Resources](https://developer.android.com/guide/topics/resources/string-resource.html), such as `@string/com_auth0_domain`, to define the values. 
 :::
 
 Finally, create a `loginWithBrowser` method and use the `WebAuthProvider` class to authenticate with any connection you enabled on your application in the [Auth0 dashboard](${manage_url}/#/).
