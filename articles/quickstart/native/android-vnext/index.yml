@@ -2,8 +2,7 @@ title: Android
 alias:
   - Android
 language:
-  - Java
-  - C
+  - Kotlin
 hybrid: false
 author:
   name: Luciano Balmaceda
@@ -14,6 +13,7 @@ topics:
   - quickstart
 contentType: tutorial
 useCase: quickstart
+beta: true
 snippets:
   dependencies: native-platforms/android/dependencies
   setup: native-platforms/android/setup
@@ -22,13 +22,8 @@ seo_alias: android
 default_article: 00-login
 articles:
   - 00-login
-  - 03-session-handling
-  - 04-user-profile
-  - 05-linking-accounts
-  - 06-calling-apis
-  - 07-authorization
 next_steps:
-  - path: 07-authorization
+  - path: 00-login
     list:
     - text: Configure other identity providers
       icon: 345
