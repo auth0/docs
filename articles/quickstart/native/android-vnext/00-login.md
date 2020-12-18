@@ -128,8 +128,6 @@ To learn how to embed the Lock widget in your application, follow the [Embedded 
 In the `onCreate` method, create a new instance of the `Auth0` class to hold user credentials:
 
 ```kotlin
-// app/src/main/java/com/auth0/samples/MainActivity.kt
-
 // Import the parts needed by the SDK
 import com.auth0.android.Auth0
 import com.auth0.android.provider.WebAuthProvider
