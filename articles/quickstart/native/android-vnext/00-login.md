@@ -222,3 +222,7 @@ The logout is achieved by using the WebAuthProvider class. This call will open t
 :::panel Checkpoint
 Add a button to your app that calls `logout` and logs the user out of your application. When you click it, verify that your Android app redirects you logout page and back again, and that you are no longer logged in to your application.
 :::
+
+## Show User Profile Information
+
+[placeholder]
