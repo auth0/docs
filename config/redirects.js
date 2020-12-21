@@ -1386,8 +1386,8 @@ module.exports = [
     to: '/auth0-email-services/send-email-invitations-for-application-signup'
   },
   {
-    from: ['/email/spa-redirect'],
-    to: '/auth0-email-services/spa-redirect'
+    from: ['/email/spa-redirect', '/auth0-email-services/spa-redirect'],
+    to: '/auth0-email-services/customize-email-templates'
   },
  
   /* Extensions */
