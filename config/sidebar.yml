@@ -4,19 +4,19 @@ articles:
     children:
       - title: Auth0 Overview
         url: /get-started
-      - title: Glossary
-        url: /glossary
-      - title: Create a Tenant
-        url: /get-started/learn-the-basics
       - title: Dashboard Overview
         url: /get-started/dashboard
-      - title: Set Up an App
+      - title: Create Tenants
+        url: /get-started/learn-the-basics
+      - title: Register Applications
         url: /applications/set-up-an-application
-      - title: Set Up an API
+      - title: Register APIs
         url: /get-started/set-up-apis
       - title: Set Up Multiple Environments
         url: /dev-lifecycle/set-up-multiple-environments
         hidden: true
+      - title: Glossary
+        url: /glossary
   - title: Architecture Scenarios
     url: /architecture-scenarios
     children:
