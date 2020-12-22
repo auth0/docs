@@ -8,7 +8,7 @@ articles:
         url: /get-started/dashboard
       - title: Create Tenants
         url: /get-started/learn-the-basics
-      - title: Set Up Applications
+      - title: Register Applications
         url: /applications/set-up-an-application
       - title: Register APIs
         url: /get-started/set-up-apis
