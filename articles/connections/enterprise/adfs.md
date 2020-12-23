@@ -90,6 +90,10 @@ Set-ADFSRelyingPartyTrust –TargetName $realm –IssuanceAuthorizationRules $rS
 
 ## Manual setup
 
+::: note
+These instructions use the Microsoft Windows Server 2016 management console. Different versions have different user interface details. Please consult your Windows Server documentation.
+:::
+
 1. Open the ADFS Management Console.
 1. On the right side of the console, click **Add Relying Party Trust**.
 1. Click **Start**.
