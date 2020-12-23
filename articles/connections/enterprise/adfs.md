@@ -91,7 +91,7 @@ Set-ADFSRelyingPartyTrust –TargetName $realm –IssuanceAuthorizationRules $rS
 ## Manual setup
 
 1. Open the ADFS Management Console.
-1. Click **Add Relying Party Trust**.
+1. On the right side of the console, click **Add Relying Party Trust**.
 1. Click **Start**.
 1. Select **Enter data about the relying party manually** and click **Next**.
 1. Enter a name (such as `${account.appName}`) and click **Next**.
@@ -109,10 +109,13 @@ Set-ADFSRelyingPartyTrust –TargetName $realm –IssuanceAuthorizationRules $rS
 1. Click **Add** and then **Next**.
 1. Leave the default `Permit all users...` and click **Next**.
 1. Click **Next** and then **Close**.
-1. In the **Claim Rules** window, click **Add Rule...**.
+1. In the console tree, under ADFS, click **Relying Party Trusts**. 
+1. On the right side of the console, find the relying party trust you just created. Right-click it and click **Edit Claim Issuance Policy**.
+1. In the Edit Claim Issuance Policy Window, under Issuance Transform Rules, click **Add Rule...**.
 1. Leave the default `Send LDAP Attributes as Claims`.
 1. Give the rule a name that describes what it does. 
-1. Select the following mappings under `Mapping of LDAP attributes to outgoing claim types` and click **Finish**.
+1. Under Attribute Store, select **Active Directory**.
+1. Select these mappings under `Mapping of LDAP attributes to outgoing claim types` and click **Finish**.
 
     | LDAP Attribute | Outgoing Claim Type |
     | --- | --- |
