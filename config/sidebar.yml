@@ -1021,8 +1021,6 @@ articles:
         children:
           - title: Standard Infra Reqs
             url: /private-cloud/private-cloud-onboarding/standard-private-cloud-infrastructure-requirements
-          - title: Customer Hosted Infra Reqs
-            url: /private-cloud/private-cloud-onboarding/customer-hosted-managed-private-cloud-infrastructure-requirements
           - title: IP/Domain and Port List
             url: /private-cloud/private-cloud-onboarding/private-cloud-ip-domain-and-port-list
           - title: Remote Access Options
