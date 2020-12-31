@@ -2810,15 +2810,11 @@ module.exports = [
     to: '/private-cloud/private-cloud-onboarding'
   },
   {
-    from: ['/private-saas-deployment/onboarding/managed-private-cloud/ip-domain-port-list','/private-cloud/onboarding/managed-private-cloud/ip-domain-port-list'],
+    from: ['/private-saas-deployment/onboarding/managed-private-cloud/ip-domain-port-list','/private-cloud/onboarding/managed-private-cloud/ip-domain-port-list', '/appliance/infrastructure/ip-domain-port-list'],
     to: '/private-cloud/private-cloud-onboarding/private-cloud-ip-domain-and-port-list'
   },
   {
-    from: ['/private-saas-deployment/onboarding/managed-private-cloud/infrastructure','/private-cloud/onboarding/managed-private-cloud/infrastructure','/private-saas-deployment/managed-private-cloud','/private-cloud/onboarding/managed-private-cloud','/private-saas-deployment/onboarding/managed-private-cloud','/private-cloud/onboarding/managed-private-cloud','/appliance/infrastructure','/appliance/infrastructure/security'], 
-    to: '/private-cloud/private-cloud-onboarding/customer-hosted-managed-private-cloud-infrastructure-requirements'
-  },
-  {
-    from: ['/private-saas-deployment/private-cloud','/private-cloud/standard-private-cloud'], 
+    from: ['/private-saas-deployment/private-cloud','/private-cloud/standard-private-cloud', '/private-cloud/private-cloud-onboarding/customer-hosted-managed-private-cloud-infrastructure-requirements', '/private-saas-deployment/onboarding/managed-private-cloud/infrastructure','/private-cloud/onboarding/managed-private-cloud/infrastructure','/private-saas-deployment/managed-private-cloud','/private-cloud/onboarding/managed-private-cloud','/private-saas-deployment/onboarding/managed-private-cloud','/private-cloud/onboarding/managed-private-cloud','/appliance/infrastructure','/appliance/infrastructure/security'], 
     to: '/private-cloud/private-cloud-onboarding/standard-private-cloud-infrastructure-requirements'
   },
   {
