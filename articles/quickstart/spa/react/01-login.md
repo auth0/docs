@@ -126,25 +126,32 @@ The Auth0 React SDK helps you retrieve the [profile information](https://auth0.c
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 
-const Profile = () => {
+const UserProfile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
 
   if (isLoading) {
     return <div>Loading ...</div>;
   }
 
-  return (
-    isAuthenticated && (
+  if (isAuthenticated) {
+    return (
       <div>
         <img src={user.picture} alt={user.name} />
         <h2>{user.name}</h2>
         <p>{user.email}</p>
       </div>
-    )
+    );
+  }
+
+  return (
+    <div>
+      <p>User Not Authenticated</p>
+    </div>
   );
 };
 
-export default Profile;
+export default UserProfile;
+
 ```
 
 The `user` property contains sensitive information and artifacts related to the user's identity. As such, its availability depends on the user's authentication status. To prevent any render errors, use the `isAuthenticated` property from `useAuth0()` to check if Auth0 has authenticated the user before React renders any component that consumes the `user` property. Ensure that the SDK has completed loading before accessing the `isAuthenticated` property, by checking that `isLoading` is `false`.
