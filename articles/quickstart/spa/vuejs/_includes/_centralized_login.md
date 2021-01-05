@@ -96,7 +96,11 @@ export const useAuth0 = ({
 
         try {
           await this.auth0Client.loginWithPopup(options, config);
+          this.user = await this.auth0Client.getUser();
+          this.isAuthenticated = await this.auth0Client.isAuthenticated();
+          this.error = null;
         } catch (e) {
+          this.error = e;
           // eslint-disable-next-line
           console.error(e);
         } finally {
@@ -113,6 +117,7 @@ export const useAuth0 = ({
           await this.auth0Client.handleRedirectCallback();
           this.user = await this.auth0Client.getUser();
           this.isAuthenticated = true;
+          this.error = null;
         } catch (e) {
           this.error = e;
         } finally {
@@ -158,6 +163,8 @@ export const useAuth0 = ({
         ) {
           // handle the redirect and retrieve tokens
           const { appState } = await this.auth0Client.handleRedirectCallback();
+
+          this.error = null;
 
           // Notify subscribers that the redirect callback has happened, passing the appState
           // (useful for retrieving any pre-authentication state)
