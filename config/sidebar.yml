@@ -120,6 +120,74 @@ articles:
         url: /architecture-scenarios/checklists
       - title: Implementation Resources
         url: /architecture-scenarios/implementation-resources
+  - title: Deploy
+    url: /deploy
+    children:
+      - title: Deployment Options
+        url: /get-started/deployment-options
+        children:
+        - title: Private Cloud
+          url: /private-cloud
+          children:
+            - title: Operations
+              url: /private-cloud/private-cloud-operations
+            - title: Migrations
+              url: /private-cloud/private-cloud-migrations
+              children:
+                - title: Standard to Managed
+                  url: /private-cloud/private-cloud-migrations/migrate-from-standard-private-cloud-to-managed-private-cloud
+                - title: Custom Domains
+                  url: /private-cloud/private-cloud-migrations/migrate-private-cloud-custom-domains
+                - title: Public to Private
+                  url: /private-cloud/private-cloud-migrations/migrate-from-public-cloud-to-private-cloud
+            - title: Onboarding
+              url: /private-cloud/private-cloud-onboarding
+              children:
+                - title: Infrastructure Requirements
+                  url: /private-cloud/private-cloud-onboarding/standard-private-cloud-infrastructure-requirements
+                - title: IP/Domain and Port List
+                  url: /private-cloud/private-cloud-onboarding/private-cloud-ip-domain-and-port-list
+                - title: Remote Access Options
+                  url: /private-cloud/private-cloud-onboarding/private-cloud-remote-access-options
+            - title: Deployments
+              url: /private-cloud/private-cloud-deployments
+              children:
+                - title: Limitations
+                  url: /private-cloud/private-cloud-deployments/private-cloud-limitations
+                - title: Addon Options
+                  url: /private-cloud/private-cloud-deployments/private-cloud-addon-options
+      - title: Deployment Checklist
+        url: /deploy/deploy-checklist
+      - title: Pre-Deployment
+        url: /pre-deployment
+        children:
+          - title: Run Checks
+            url: /pre-deployment/how-to-run-production-checks
+          - title: Pre-Launch Tips
+            url: /pre-deployment/pre-launch-tips
+      - title: Deploy CLI Tool
+        url: /extensions/deploy-cli-tool
+        children:
+          - title: Install Deploy CLI
+            url: /extensions/deploy-cli-tool/install-and-configure-the-deploy-cli-tool
+          - title: Call Deploy CLI
+            url: /extensions/deploy-cli-tool/call-deploy-cli-tool-programmatically
+          - title: Incorporate into CI/CD Environment
+            url: /extensions/deploy-cli-tool/incorporate-deploy-cli-into-build-environment
+          - title: Import/Export Directory Structure
+            url: /extensions/deploy-cli-tool/import-export-tenant-configuration-to-directory-structure
+          - title: Import/Export YAML File
+            url: /extensions/deploy-cli-tool/import-export-tenant-configuration-to-yaml-file
+          - title: Environment Variables
+            url: /extensions/deploy-cli-tool/environment-variables-and-keyword-mappings
+          - title: Deploy CLI Options
+            url: /extensions/deploy-cli-tool/deploy-cli-tool-options
+          - title: What's New
+            url: /extensions/deploy-cli/references/whats-new
+            hidden: true
+          - title: Troubleshoot Deploy CLI
+            url: /extensions/deploy-cli-tool/troubleshoot-the-deploy-cli-tool
+            hidden: true
   - title: Login
     url: /login
     children:
@@ -918,43 +986,6 @@ articles:
         url: /monitor-auth0/monitor-applications
       - title: Monitor Using SCOM
         url: /monitor-auth0/monitor-using-scom
-  - title: Deploy
-    url: /deploy
-    children:
-      - title: Deployment Options
-        url: /get-started/deployment-options
-      - title: Deploy Checklist
-        url: /deploy/deploy-checklist
-      - title: Pre-Deployment
-        url: /pre-deployment
-        children:
-          - title: Run Checks
-            url: /pre-deployment/how-to-run-production-checks
-          - title: Pre-Launch Tips
-            url: /pre-deployment/pre-launch-tips
-      - title: Deploy CLI Tool
-        url: /extensions/deploy-cli-tool
-        children:
-          - title: Install Deploy CLI
-            url: /extensions/deploy-cli-tool/install-and-configure-the-deploy-cli-tool
-          - title: Call Deploy CLI
-            url: /extensions/deploy-cli-tool/call-deploy-cli-tool-programmatically
-          - title: Incorporate into CI/CD Environment
-            url: /extensions/deploy-cli-tool/incorporate-deploy-cli-into-build-environment
-          - title: Import/Export Directory Structure
-            url: /extensions/deploy-cli-tool/import-export-tenant-configuration-to-directory-structure
-          - title: Import/Export YAML File
-            url: /extensions/deploy-cli-tool/import-export-tenant-configuration-to-yaml-file
-          - title: Environment Variables
-            url: /extensions/deploy-cli-tool/environment-variables-and-keyword-mappings
-          - title: Deploy CLI Options
-            url: /extensions/deploy-cli-tool/deploy-cli-tool-options
-          - title: What's New
-            url: /extensions/deploy-cli/references/whats-new
-            hidden: true
-          - title: Troubleshoot Deploy CLI
-            url: /extensions/deploy-cli-tool/troubleshoot-the-deploy-cli-tool
-            hidden: true
   - title: Troubleshoot
     url: /troubleshoot
     children:
@@ -1011,36 +1042,6 @@ articles:
         url: /troubleshoot/generate-and-analyze-har-files
       - title: Authentication API Debugger
         url: /extensions/authentication-api-debugger-extension
-  - title: Private Cloud
-    url: /private-cloud
-    children:
-      - title: Operations
-        url: /private-cloud/private-cloud-operations
-      - title: Migrations
-        url: /private-cloud/private-cloud-migrations
-        children:
-          - title: Standard to Managed
-            url: /private-cloud/private-cloud-migrations/migrate-from-standard-private-cloud-to-managed-private-cloud
-          - title: Custom Domains
-            url: /private-cloud/private-cloud-migrations/migrate-private-cloud-custom-domains
-          - title: Public to Private
-            url: /private-cloud/private-cloud-migrations/migrate-from-public-cloud-to-private-cloud
-      - title: Onboarding
-        url: /private-cloud/private-cloud-onboarding
-        children:
-          - title: Infrastructure Requirements
-            url: /private-cloud/private-cloud-onboarding/standard-private-cloud-infrastructure-requirements
-          - title: IP/Domain and Port List
-            url: /private-cloud/private-cloud-onboarding/private-cloud-ip-domain-and-port-list
-          - title: Remote Access Options
-            url: /private-cloud/private-cloud-onboarding/private-cloud-remote-access-options
-      - title: Deployments
-        url: /private-cloud/private-cloud-deployments
-        children:
-          - title: Limitations
-            url: /private-cloud/private-cloud-deployments/private-cloud-limitations
-          - title: Addon Options
-            url: /private-cloud/private-cloud-deployments/private-cloud-addon-options
   - title: Product Lifecycle
     url: /product-lifecycle
     children:
