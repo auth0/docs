@@ -88,11 +88,7 @@ $rSet = New-ADFSClaimRuleSet –ClaimRule '=> issue(Type = "http://schemas.micro
 Set-ADFSRelyingPartyTrust –TargetName $realm –IssuanceAuthorizationRules $rSet.ClaimRulesString
 ```
 
-## Manual setup
-
-::: note
-These instructions use the Microsoft Windows Server 2016 management console. Different versions have different user interface details. Please consult your Windows Server documentation.
-:::
+## Manual setup part 1: Add a relying party trust
 
 1. Open the ADFS Management Console.
 1. On the right side of the console, click **Add Relying Party Trust**.
@@ -101,25 +97,31 @@ These instructions use the Microsoft Windows Server 2016 management console. Dif
 1. Enter a name (such as `${account.appName}`) and click **Next**.
 1. Use the default (`ADFS 2.0 profile`) and click **Next**.
 1. Use the default (`no encryption certificate`) and click **Next**.
-1. Check **Enable support for the WS-Federation...** and enter the following value in the textbox:
+1. Check **Enable support for the WS-Federation...** and enter this value in the textbox:
 
     `https://${account.namespace}/login/callback` or if you are using a [custom domain](/custom-domains), use `https://<YOUR CUSTOM DOMAIN>/login/callback`
 
 1. Click **Next**.
-1. Add a Relying Party Trust identifier with the following value:
+1. Add a Relying Party Trust identifier with this value:
 
     `urn:auth0:${account.tenant}`
 
 1. Click **Add** and then **Next**.
 1. Leave the default `Permit all users...` and click **Next**.
 1. Click **Next** and then **Close**.
-1. In the console tree, under ADFS, click **Relying Party Trusts**. 
-1. On the right side of the console, find the relying party trust you just created. Right-click it and click **Edit Claim Issuance Policy**.
-1. In the Edit Claim Issuance Policy Window, under Issuance Transform Rules, click **Add Rule...**.
-1. Leave the default `Send LDAP Attributes as Claims`.
-1. Give the rule a name that describes what it does. 
-1. Under Attribute Store, select **Active Directory**.
-1. Select these mappings under `Mapping of LDAP attributes to outgoing claim types` and click **Finish**.
+
+## Manual setup part 2: Add a claim issuance policy rule
+
+1. Open the relying party trust you created:
+    |  In Windows Server 2016  | In Windows Server 2019 |
+    | --- | --- |
+    | In the console tree, under ADFS, click **Relying Party Trusts**. On the right side of the console, find the relying party trust you just created. Right-click it and click **Edit Claim Issuance Policy**. | In the Actions panel on the right side of the console, find the relying party trust you just created. Beneath it, click **Edit Claim Issuance Policy**. |
+
+2. In the Edit Claim Issuance Policy Window, under Issuance Transform Rules, click **Add Rule...**.
+3. Leave the default `Send LDAP Attributes as Claims`.
+4. Give the rule a name that describes what it does. 
+5. Under Attribute Store, select **Active Directory**.
+6. Select these mappings under `Mapping of LDAP attributes to outgoing claim types` and click **Finish**.
 
     | LDAP Attribute | Outgoing Claim Type |
     | --- | --- |
