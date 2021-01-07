@@ -21,11 +21,11 @@ useCase: quickstart
 
 ### Install dependencies
 
-The [**dgrijalva/jwt-go**](https://github.com/dgrijalva/jwt-go) package can be used to verify incoming JWTs. The [**auth0/go-jwt-middleware**](https://github.com/auth0/go-jwt-middleware) library can be used alongside it to fetch your Auth0 public key and complete the verification process. Finally, we'll use the [**gorilla/mux**](https://github.com/gorilla/mux) package to handle our routes and [**codegangsta/negroni**](https://github.com/urfave/negroni) for HTTP middleware.
+The [**form3tech-oss/jwt-go**](https://github.com/form3tech-oss/jwt-go) package can be used to verify incoming JWTs. The [**auth0/go-jwt-middleware**](https://github.com/auth0/go-jwt-middleware) library can be used alongside it to fetch your Auth0 public key and complete the verification process. Finally, we'll use the [**gorilla/mux**](https://github.com/gorilla/mux) package to handle our routes and [**codegangsta/negroni**](https://github.com/urfave/negroni) for HTTP middleware.
 
 ```bash
 go get -d github.com/auth0/go-jwt-middleware
-go get -d github.com/dgrijalva/jwt-go
+go get -d github.com/form3tech-oss/jwt-go
 go get -d github.com/codegangsta/negroni
 go get -d github.com/gorilla/mux
 ```
@@ -51,7 +51,7 @@ import (
 
 	"github.com/codegangsta/negroni"
 	"github.com/auth0/go-jwt-middleware"
-	"github.com/dgrijalva/jwt-go"
+	"github.com/form3tech-oss/jwt-go"
 	"github.com/gorilla/mux"
 )
 
