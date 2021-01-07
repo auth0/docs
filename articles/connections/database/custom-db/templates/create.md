@@ -11,11 +11,9 @@ useCase:
 ---
 # Create Script Templates
 
-The **Create** script implements the function executed to create a user in your database. We recommend naming this function `create`. The script is only used in a legacy authentication scenario. 
+The **Create** script implements the function executed to create a user in your database. We recommend naming this function `create`. Use this script if you want new users to signup via Auth0 so that Auth0 creates the users in your legacy data store. Not using the script doesn't prevent the creation of users by a mechanism external to Auth0. 
 
-This script executes when a user signs up or when an administrator creates the user via the Dashboard or API. When creating users, Auth0 calls the **Get User** script before the **Create** script. Be sure to implement both database action scripts if you are creating new users. When the script finishes execution, the **Login** script runs to verify that the user was created successfully. 
-
-Use this script if you want new users to signup via Auth0 so that Auth0 creates the users in your legacy data store. Not using the script doesn't prevent the creation of users by a mechanism external to Auth0. 
+This script executes when a user signs up or when an administrator creates the user via the Dashboard or API. When creating users, Auth0 calls the **Get User** script before the **Create** script. Be sure to implement both database action scripts if you are creating new users. When the script finishes execution, the **Login** script runs to verify that the user was created successfully.
 
 The `create` function implemented in the script should be defined as follows:
 
