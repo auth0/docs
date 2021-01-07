@@ -16,7 +16,6 @@ topics:
   - quickstart
 contentType: tutorial
 useCase: quickstart
-show_releases: true
 beta: true
 sdk:
   name: nextjs-auth0
