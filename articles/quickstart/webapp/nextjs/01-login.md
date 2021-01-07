@@ -1,6 +1,6 @@
 ---
 title: Login
-description: "Auth0 allows you to add authentication to your Next.js application quickly and to gain access to user profile information. This guide demonstrates how to integrate Auth0 with any new or existing Next.js application using the Auth0 Next.js SDK."
+description: "This guide demonstrates how to integrate Auth0 with any new or existing Next.js application using the Auth0 Next.js SDK."
 budicon: 448
 topics:
   - quickstarts
