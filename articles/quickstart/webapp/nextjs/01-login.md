@@ -93,7 +93,7 @@ Now that you have added the dynamic route and `UserProvider`, run your applicati
 
 A user can now log in to your application by visiting the `/api/auth/login` route provided by the SDK. Add a link to your login route using an anchor tag.
 
-```jsx
+```html
 <a href="/api/auth/login">Login</a>
 ```
 
@@ -111,7 +111,7 @@ Once that's complete, verify that Auth0 redirects back to your application.
 
 Now that you can log in to your Next.js application, you need [a way to log out](https://auth0.com/docs/logout/log-users-out-of-auth0). You can add a link that points to the `/api/auth/logout` API route. Clicking it redirects your users to your [Auth0 logout endpoint](https://auth0.com/docs/api/authentication?javascript#logout) (`https://YOUR_DOMAIN/v2/logout`) and then immediately redirects them back to your application.
 
-```jsx
+```html
 <a href="/api/auth/logout">Logout</a>
 ```
 
