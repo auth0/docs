@@ -17,6 +17,6 @@ You need the following information:
 
 <% if(typeof hideDownloadSample === 'undefined' || hideDownloadSample !== true) { %>
 ::: note
-If you download the sample from the top of this page these details are filled out for you.
+If you download the sample from the top of this page, these details are filled out for you.
 :::
 <% } %>

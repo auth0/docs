@@ -152,5 +152,5 @@ The `user` property contains sensitive information and artifacts related to the 
 - Check the `user` property to ensure that Auth0 has authenticated the user before React renders any component that consumes it.
 
 :::panel Checkpoint
-Verify that you can display the `user.name` or [any other](https://auth0.com/docs/users/user-profile-structure#user-profile-attributes) user property within a component correctly after you have logged in.
+Verify that you can display the `user.name` or [any other](https://auth0.com/docs/users/user-profile-structure#user-profile-attributes) `user` property within a component correctly after you have logged in.
 :::                                              
