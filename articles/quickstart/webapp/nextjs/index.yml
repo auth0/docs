@@ -17,9 +17,6 @@ topics:
 contentType: tutorial
 useCase: quickstart
 beta: true
-sdk:
-  name: nextjs-auth0
-  url: https://github.com/auth0/nextjs-auth0/
 seo_alias: nextjs
 default_article: 01-login
 articles:
