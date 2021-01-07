@@ -70,7 +70,7 @@ This creates the following routes:
 
 On the frontend side, the SDK uses React Context to manage the authentication state of your users. To make that state available to all your Pages, you need to override the [App component](https://nextjs.org/docs/advanced-features/custom-app) and wrap its inner component with a `UserProvider`. Create the file `pages/_app.js` as follows:
 
-```jsx
+```javascript
 import React from 'react';
 import { UserProvider } from '@auth0/nextjs-auth0';
 
@@ -93,7 +93,7 @@ Now that you have added the dynamic route and `UserProvider`, run your applicati
 
 A user can now log in to your application by visiting the `/api/auth/login` route provided by the SDK. Add a link to your login route using an anchor tag.
 
-```jsx
+```javascript
 <a href="/api/auth/login">Login</a>
 ```
 
@@ -111,7 +111,7 @@ Once that's complete, verify that Auth0 redirects back to your application.
 
 Now that you can log in to your Next.js application, you need [a way to log out](https://auth0.com/docs/logout/log-users-out-of-auth0). You can add a link that points to the `/api/auth/logout` API route. Clicking it redirects your users to your [Auth0 logout endpoint](https://auth0.com/docs/api/authentication?javascript#logout) (`https://YOUR_DOMAIN/v2/logout`) and then immediately redirects them back to your application.
 
-```jsx
+```javascript
 <a href="/api/auth/logout">Logout</a>
 ```
 
@@ -123,7 +123,7 @@ Add the logout link to your application. When you click it, verify that your Nex
 
 The Auth0 Next.js SDK helps you retrieve the [profile information](https://auth0.com/docs/users/user-profiles) associated with the logged-in user, such as their name or profile picture, to personalize the user interface. The profile information is available through the `user` property exposed by the `useUser()` hook. Take this `Profile` component as an example of how to use it:
 
-```jsx
+```javascript
 import React from 'react';
 import { useUser } from '@auth0/nextjs-auth0';
 
