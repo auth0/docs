@@ -1,0 +1,49 @@
+title: Next.js
+alias:
+  - next
+  - nextjs
+  - next.js
+language:
+  - Javascript
+author:
+  name: Rita Zerrizuela
+  email: rita.zerrizuela@auth0.com
+  community: false
+framework:
+  - Next.js
+image: /media/platforms/react.png
+topics:
+  - quickstart
+contentType: tutorial
+useCase: quickstart
+show_releases: true
+beta: true
+sdk:
+  name: nextjs-auth0
+  url: https://github.com/auth0/nextjs-auth0
+seo_alias: nextjs
+default_article: "01-login"
+articles:
+  - "01-login"
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-nextjs-samples
+  branch: master
+requirements:
+  - Next.js 10+
+next_steps:
+  - path: 01-login
+    list:
+      - text: Configure other identity providers
+        icon: 345
+        href: "/identityproviders"
+      - text: Enable multifactor authentication
+        icon: 345
+        href: "/mfa"
+      - text: Learn about attack protection
+        icon: 345
+        href: "/attack-protection"
+      - text: Learn about rules
+        icon: 345
+        href: "/rules"
