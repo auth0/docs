@@ -98,6 +98,10 @@ AuthModule.forRoot({
 })
 ```
 
+:::note
+As Auth0 can only issue tokens for custom scopes that exist on your API, ensure that you define the scopes used above when [setting up an API](https://auth0.com/docs/getting-started/set-up-api) with Auth0.
+:::
+
 Please [refer to the docs](https://github.com/auth0/auth0-angular#configure-authhttpinterceptor-to-attach-access-tokens) for more information on the available options for the HTTP interceptor.
 
 ## Make an API Call
