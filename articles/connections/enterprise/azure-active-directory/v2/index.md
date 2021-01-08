@@ -33,6 +33,19 @@ You can integrate with Microsoft Azure Active Directory (AD) if you want to let 
 * From within your company use your application from an Azure AD controlled by you or your organization.
 * From other companies' Azure ADs use your application. (We recommend that you configure  external directories as different connections.)
 
+::: note
+Claims returned from the Azure AD enterprise connection are static; custom or optional claims will not appear in user profiles. If you need to include custom or optional claims in user profiles, use a SAML or OIDC connection instead.
+:::
+
+## Prerequisites
+
+* [Register your app with Auth0](/getting-started/set-up-app) 
+* Select an appropriate **Application Type**.
+* Add an **Allowed Callback URL** of **`${account.callback}`**.
+* Make sure your Application's **[Grant Types](/dashboard/guides/applications/update-grant-types)** include the appropriate flows.
+
+## Steps
+
 To connect your application to Azure AD, you must:
 
 1. [Register your app in the Azure portal](#register-your-app-in-the-azure-portal).
@@ -40,12 +53,6 @@ To connect your application to Azure AD, you must:
 3. [Enable the enterprise connection for your Auth0 Application](#enable-the-enterprise-connection-for-your-auth0-application).
 4. [Test the connection](#test-the-connection).
 
-## Prerequisites
-
-[Register your app with Auth0](/getting-started/set-up-app) 
-* Select an appropriate **Application Type**.
-* Add an **Allowed Callback URL** of **`${account.callback}`**.
-* Make sure your Application's **[Grant Types](/dashboard/guides/applications/update-grant-types)** include the appropriate flows.
 
 ## Register your app in the Azure portal
 
