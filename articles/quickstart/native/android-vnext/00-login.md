@@ -8,7 +8,7 @@ topics:
   - native
   - android
 github:
-  path: 00-Login
+  path: 00-Login-Kt
 contentType: tutorial
 useCase: quickstart
 ---
