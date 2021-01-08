@@ -167,16 +167,16 @@ private fun loginWithBrowser() {
             override fun onFailure(exception: AuthenticationException) {
                 Snackbar.make(
                     binding.root,
-                    "Failure: <%= "${exception.code}" %>",
+                    "Failure: <%= "${exception.getcode()}" %>",
                     Snackbar.LENGTH_LONG
                 ).show()
             }
 
             // Called when authentication completed successfully
-            override fun onSuccess(credentials: Credentials) {
+            override fun onSuccess(credentials: Credentials?) {
               Snackbar.make(
                   binding.root,
-                  "Success: <%= "${credentials.idToken}" %>",
+                  "Success: <%= "${credentials?.idToken}" %>",
                   Snackbar.LENGTH_LONG
               ).show()
             }
