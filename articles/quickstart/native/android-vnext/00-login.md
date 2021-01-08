@@ -162,33 +162,23 @@ private fun loginWithBrowser() {
         .withScheme("demo")
         .withScope("openid profile email")
         // Launch the authentication passing the callback where the results will be received
-        .start(this, object : AuthCallback {
-            override fun onFailure(dialog: Dialog) {
-                runOnUiThread {
-                    dialog.show()
-                }
-            }
-
+        .start(this, object : Callback<Credentials, AuthenticationException> {
             // Called when there is an authentication failure
             override fun onFailure(exception: AuthenticationException) {
-                runOnUiThread {
-                    Snackbar.make(
-                        binding.root,
-                        "Failure: <%= "${exception.code}" %>",
-                        Snackbar.LENGTH_LONG
-                    ).show()
-                }
+                Snackbar.make(
+                    binding.root,
+                    "Failure: <%= "${exception.code}" %>",
+                    Snackbar.LENGTH_LONG
+                ).show()
             }
 
             // Called when authentication completed successfully
             override fun onSuccess(credentials: Credentials) {
-                runOnUiThread {
-                    Snackbar.make(
-                        binding.root,
-                        "Success: <%= "${credentials.idToken}" %>",
-                        Snackbar.LENGTH_LONG
-                    ).show()
-                }
+              Snackbar.make(
+                  binding.root,
+                  "Success: <%= "${credentials.idToken}" %>",
+                  Snackbar.LENGTH_LONG
+              ).show()
             }
         })
 }
