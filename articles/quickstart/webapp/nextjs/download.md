@@ -13,7 +13,7 @@ http://localhost:3000
 ```
 3) Make sure [Node.JS LTS](https://nodejs.org/en/download/) is installed and execute the following commands in the root directory:
 ```bash
-npm run install && npm start
+npm install && npm run dev
 ```
 
 You can also run it from a [Docker](https://www.docker.com) image with the following commands:

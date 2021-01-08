@@ -32,18 +32,3 @@ github:
   org: auth0-samples
   repo: auth0-nextjs-samples
   branch: master
-next_steps:
-  - path: 01-login
-    list:
-      - text: Configure other identity providers
-        icon: 345
-        href: "/identityproviders"
-      - text: Enable multifactor authentication
-        icon: 345
-        href: "/mfa"
-      - text: Learn about attack protection
-        icon: 345
-        href: "/attack-protection"
-      - text: Learn about rules
-        icon: 345
-        href: "/rules"

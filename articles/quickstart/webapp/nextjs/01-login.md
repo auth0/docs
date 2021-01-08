@@ -154,3 +154,12 @@ The `user` property contains sensitive information and artifacts related to the 
 :::panel Checkpoint
 Verify that you can display the `user.name` or [any other](https://auth0.com/docs/users/user-profile-structure#user-profile-attributes) `user` property within a component correctly after you have logged in.
 :::                                              
+
+## What's next?
+
+We put together a few examples of how to use [nextjs-auth0](https://github.com/auth0/nextjs-auth0) in more advanced use cases:
+
+- [Protecting a Server Side Rendered (SSR) Page](https://github.com/auth0/nextjs-auth0/blob/beta/EXAMPLES.md#protecting-a-server-side-rendered-ssr-page)
+- [Protecting a Client Side Rendered (CSR) Page](https://github.com/auth0/nextjs-auth0/blob/beta/EXAMPLES.md#protecting-a-client-side-rendered-csr-page)
+- [Protect an API Route](https://github.com/auth0/nextjs-auth0/blob/beta/EXAMPLES.md#protect-an-api-route)
+- [Access an External API from an API Route](https://github.com/auth0/nextjs-auth0/blob/beta/EXAMPLES.md#access-an-external-api-from-an-api-route)
