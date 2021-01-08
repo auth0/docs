@@ -25,10 +25,6 @@ requirements:
 default_article: 01-login
 articles:
   - 01-login
-snippets:
-  dependencies: server-platforms/nextjs/dependencies
-  setup: server-platforms/nextjs/setup
-  use: server-platforms/nextjs/use
 sdk:
   name: nextjs-auth0
   url: https://github.com/auth0/nextjs-auth0/
