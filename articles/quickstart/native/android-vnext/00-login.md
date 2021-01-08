@@ -82,32 +82,10 @@ android {
 You do not need to declare a specific `intent-filter` for your activity, because you have defined the manifest placeholders with your Auth0 **Domain** and **Scheme** values and the library will handle the redirection for you.
 :::
 
-The `AndroidManifest.xml` file should look like this:
+Finally, ensure that the `android.permissions.INTERNET` permission is specified in the  `AndroidManifest.xml` file:
 
 ```xml
-<!-- app/src/main/AndroidManifest.xml -->
-
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.auth0.samples">
-
-    <uses-permission android:name="android.permission.INTERNET" />
-
-    <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:theme="@style/AppTheme">
-
-        <activity android:name="com.auth0.samples.MainActivity">
-          <intent-filter>
-              <action android:name="android.intent.action.MAIN" />
-              <category android:name="android.intent.category.LAUNCHER" />
-          </intent-filter>
-        </activity>
-
-    </application>
-
-</manifest>
+<uses-permission android:name="android.permission.INTERNET" />
 ```
 
 Run **Sync Project with Gradle Files** inside Android Studio or execute `./gradlew clean assembleDebug` from the command line.
