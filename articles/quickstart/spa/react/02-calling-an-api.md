@@ -46,6 +46,10 @@ ReactDOM.render(
 );
 ```
 
+:::note
+As Auth0 can only issue tokens for custom scopes that exist on your API, ensure that you define the scopes used above when [setting up an API](https://auth0.com/docs/getting-started/set-up-api) with Auth0.
+:::
+
 Auth0 uses the value of the `audience` prop to determine which resource server (API) the user is authorizing your React application to access. 
 
 :::note
