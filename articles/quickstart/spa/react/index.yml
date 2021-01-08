@@ -19,10 +19,6 @@ show_releases: true
 sdk:
   name: auth0-react
   url: https://www.github.com/auth0/auth0-react/
-snippets:
-  dependencies: application-platforms/react/dependencies
-  setup: application-platforms/react/setup
-  use: application-platforms/react/use
 seo_alias: react
 default_article: "01-login"
 articles:
@@ -55,4 +51,3 @@ next_steps:
       - text: Learn about rules
         icon: 345
         href: "/rules"
-    
