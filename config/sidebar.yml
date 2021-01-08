@@ -479,6 +479,8 @@ articles:
         children:
           - title: Authentication API Cookies
             url: /sessions-and-cookies/authentication-api-cookies
+      - title: Deny Access to an API Using Rules
+        url: /users/deny-api-access
       - title: Using the Dashboard
         url: /users/manage-users-using-the-dashboard
       - title: Using the API
