@@ -185,16 +185,15 @@ private fun logout() {
     .withScheme("demo")
     .start(this, object: VoidCallback {
       override fun onSuccess(payload: Void?) {
+        // The user has been logged out!
       }
 
       override fun onFailure(error: Auth0Exception) {
-        runOnUiThread {
-          Snackbar.make(
-                  binding.root,
-                  "Failure: <%= "${error.message}" %>",
-                  Snackbar.LENGTH_LONG
-          ).show()
-        }
+        Snackbar.make(
+                binding.root,
+                "Failure: <%= "${error.message}" %>",
+                Snackbar.LENGTH_LONG
+        ).show()
       }
     })
 }
