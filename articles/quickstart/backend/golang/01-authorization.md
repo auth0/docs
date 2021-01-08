@@ -11,6 +11,10 @@ contentType: tutorial
 useCase: quickstart
 ---
 
+::: warning
+**Important security note:** This solution uses a 3rd party library with an unresolved [security issue](https://cve.mitre.org/cgi-bin/cvename.cgi?name=2020-26160). Please review the details of the vulnerability, including any of the documented mitigations, before implementing the solution.
+:::
+
 <%= include('../../../_includes/_api_auth_intro') %>
 
 <%= include('../_includes/_api_create_new') %>
