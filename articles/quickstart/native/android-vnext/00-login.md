@@ -183,12 +183,12 @@ Add a `logout` method to your app to remove the user's session and log them out 
 private fun logout() {
   WebAuthProvider.logout(account)
     .withScheme("demo")
-    .start(this, object: VoidCallback {
+    .start(this, object: Callback<Void, AuthenticationException> {
       override fun onSuccess(payload: Void?) {
         // The user has been logged out!
       }
 
-      override fun onFailure(error: Auth0Exception) {
+      override fun onFailure(error: AuthenticationException) {
         Snackbar.make(
                 binding.root,
                 "Failure: <%= "${error.message}" %>",
