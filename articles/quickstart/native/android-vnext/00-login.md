@@ -207,4 +207,48 @@ Add a button to your app that calls `logout` and logs the user out of your appli
 
 ## Show User Profile Information
 
-[placeholder]
+Use the `AuthenticationAPIClient` class to [retrieve the user's profile from Auth0](https://auth0.com/docs/users/user-profiles#user-profile-management-api-access). This requires:
+
+* The access token as received during the login phase
+* The `profile` scope to be included when `WebAuthProvider.login` is called
+
+The `email` scope must also be specified if the user's email address is to be retrieved.
+
+:::note
+This quickstart sets the `openid profile email` scopes by default during the login step above.
+:::
+
+The following demonstrates a function that can be used to retrieve the user's profile and show it on the screen:
+
+```kotlin
+private fun showUserProfile(credentials: Credentials?) {
+    var client = AuthenticationAPIClient(account)
+
+    // If an access token is available, call `userInfo` and get the profile from Auth0
+    credentials?.accessToken?.let {
+        client.userInfo(it)
+            .start(object : Callback<UserProfile, AuthenticationException> {
+                override fun onFailure(error: AuthenticationException) {
+                    Snackbar.make(
+                        binding.root,
+                        "Failure: ${error.getCode()}",
+                        Snackbar.LENGTH_LONG
+                    ).show()
+                }
+
+                override fun onSuccess(payload: UserProfile?) {
+                  // We have the user's profile!
+                  Snackbar.make(
+                    binding.root,
+                    "Name: ${payload?.name}\n" +
+                      "Email: ${payload?.email}",
+                    Snackbar.LENGTH_LONG
+                  ).show()
+                }
+    })}
+}
+```
+
+:::panel Checkpoint
+Call the `showUserProfile` function after login and verify that the user's profile information is displayed on the screen.
+:::
