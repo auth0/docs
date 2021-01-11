@@ -231,7 +231,7 @@ private fun showUserProfile(credentials: Credentials?) {
                 override fun onFailure(error: AuthenticationException) {
                     Snackbar.make(
                         binding.root,
-                        "Failure: ${error.getCode()}",
+                        "Failure: <%= "${error.getCode()}" %>",
                         Snackbar.LENGTH_LONG
                     ).show()
                 }
@@ -240,8 +240,8 @@ private fun showUserProfile(credentials: Credentials?) {
                   // We have the user's profile!
                   Snackbar.make(
                     binding.root,
-                    "Name: ${payload?.name}\n" +
-                      "Email: ${payload?.email}",
+                    "Name: <%= "${payload?.name}" %>\n" +
+                      "Email: <%= "${payload?.email}" %>",
                     Snackbar.LENGTH_LONG
                   ).show()
                 }
