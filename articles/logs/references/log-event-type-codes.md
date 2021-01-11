@@ -99,6 +99,7 @@ The following table lists the codes associated with the each log event.
 | `sepft` | Success Exchange | Successful exchange of Password for Access Token | |
 | `sercft` | Success Exchange | Successful exchange of Password and MFA Recovery code for Access Token | |
 | `sertft` | Success Exchange | Successful exchange of Refresh Token for Access Token | |
+| `srrt` | Success Revocation | Successfully revoked a Refresh Token | |
 | `slo` | Success Logout | User successfully logged out | [Logout](/logout) |
 | `ss` | Success Signup | | |
 | `ssa` | Success Silent Auth | | |
