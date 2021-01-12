@@ -168,10 +168,6 @@ articles:
             url: /flows/add-login-using-the-implicit-flow-with-form-post
           - title: Native App
             url: /flows/add-login-using-the-authorization-code-flow-with-pkce
-          - title: Hybrid Flow
-            url: /flows/hybrid-flow
-            - title: Call Your API Using the Hybrid Flow
-              url: flows/call-api-hybrid-flow
       - title: Authenticate Single-Page Apps with Cookies
         url: /sessions-and-cookies/spa-authenticate-with-cookies
       - title: Multi-factor Authentication
@@ -319,6 +315,9 @@ articles:
             url: /flows/call-your-api-using-the-client-credentials-flow
           - title: Device Authorization
             url: /flows/call-your-api-using-the-device-authorization-flow
+          - title: Hybrid
+            url: /flows/call-api-hybrid-flow
+            hidden: true
       - title: Role-based Access Control (RBAC)
         url: /authorization/rbac
       - title: Authorization Policies
@@ -581,6 +580,8 @@ articles:
             url: /custom-domains/configure-custom-domains-with-auth0-managed-certificates
           - title: Self-Managed Certificates
             url: /custom-domains/configure-custom-domains-with-self-managed-certificates
+          - title: SSL (TLS) Versions and Ciphers
+            url: /custom-domains/ssl-tls
             children:
               - title: Cloudflare Reverse Proxy
                 url: /custom-domains/
