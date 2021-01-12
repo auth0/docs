@@ -168,6 +168,8 @@ articles:
             url: /flows/add-login-using-the-implicit-flow-with-form-post
           - title: Native App
             url: /flows/add-login-using-the-authorization-code-flow-with-pkce
+          - title: Hybrid Flow
+            url: /flows/hybrid-flow
       - title: Authenticate Single-Page Apps with Cookies
         url: /sessions-and-cookies/spa-authenticate-with-cookies
       - title: Multi-factor Authentication
@@ -577,9 +579,9 @@ articles:
             url: /custom-domains/configure-custom-domains-with-auth0-managed-certificates
           - title: Self-Managed Certificates
             url: /custom-domains/configure-custom-domains-with-self-managed-certificates
-          - title: SSL/TLS Versions and Ciphers
-            url: /custom-domains/ssl-tls
             children:
+              - title: Cloudflare Reverse Proxy
+                url: /custom-domains/
               - title: Cloudflare Reverse Proxy
                 url: /custom-domains/configure-custom-domains-with-self-managed-certificates/configure-cloudflare-for-use-as-reverse-proxy
               - title: Cloudfront Reverse Proxy
