@@ -1,25 +1,28 @@
-# Prompt: signup
+# Prompt: signup-password
 
-## Screen: signup
+## Screen: signup-password
 
 <p style="text-align: center;">
-  <img alt="signup reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="signup" src="/media/articles/universal-login/text-customization/signup.png" style="width: 400px;"/>
+  <img alt="signup-password reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="signup-password" src="/media/articles/universal-login/text-customization/signup-password.png" style="width: 400px;"/>
 </p>
 
 |Text|Key|
 |----------|----------|
 |Sign up to <%= "${clientName}" %>|`pageTitle`|
-|Welcome|`title`|
-|Sign Up to <%= "${companyName}" %> to continue to <%= "${clientName}" %>.|`description`|
+|Create Your Account|`title`|
+|Set your password for <%= "${companyName}" %> to continue to <%= "${clientName}" %>|`description`|
 |Or|`separatorText`|
 |Continue|`buttonText`|
 |Email address|`emailPlaceholder`|
+|Edit|`editEmailText`|
 |Continue with <%= "${connectionName}" %>|`federatedConnectionButtonText`|
 |Log in|`loginActionLinkText`|
 |Already have an account?|`loginActionText`|
 |Password|`passwordPlaceholder`|
 |Your password must contain:|`passwordSecurityText`|
 |Username|`usernamePlaceholder`|
+|You've Been Invited!|`invitationTitle`|
+|Sign Up to accept <%= "${inviterName}" %>'s invitation to join <%= "${companyName}" %> on <%= "${clientName}" %>.|`invitationDescription`|
 |<%= "${companyName}" %>|`logoAltText`|
 |The user already exists.|`email-in-use`|
 |Email is not valid.|`invalid-email-format`|

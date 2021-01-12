@@ -1,15 +1,15 @@
-# Prompt: signup
+# Prompt: signup-id
 
-## Screen: signup
+## Screen: signup-id
 
 <p style="text-align: center;">
-  <img alt="signup reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="signup" src="/media/articles/universal-login/text-customization/signup.png" style="width: 400px;"/>
+  <img alt="signup-id reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="signup-id" src="/media/articles/universal-login/text-customization/signup-id.png" style="width: 400px;"/>
 </p>
 
 |Text|Key|
 |----------|----------|
 |Sign up to <%= "${clientName}" %>|`pageTitle`|
-|Welcome|`title`|
+|Create Your Account|`title`|
 |Sign Up to <%= "${companyName}" %> to continue to <%= "${clientName}" %>.|`description`|
 |Or|`separatorText`|
 |Continue|`buttonText`|
@@ -39,6 +39,7 @@
 |We have detected suspicious login behavior and further attempts will be blocked. Please contact the administrator.|`ip-blocked`|
 |Too many signups from the same IP|`ip-signup-blocked`|
 |Invalid connection|`no-db-connection`|
+|Email does not match any enterprise directory|`no-hrd-connection`|
 |Please enter an email address|`no-email`|
 |Password is required|`no-password`|
 |New password confirmation is missing|`no-re-enter-password`|

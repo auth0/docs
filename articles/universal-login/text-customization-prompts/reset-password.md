@@ -16,6 +16,7 @@
 |Enter your username and we will send you instructions to reset your password.|`descriptionUsername`|
 |Email address|`placeholderEmail`|
 |Username|`placeholderUsername`|
+|<%= "${companyName}" %>|`logoAltText`|
 |Email is not valid.|`invalid-email-format`|
 |This ticket was expired.|`auth0-users-expired-ticket`|
 |Something went wrong, please try again later.|`custom-script-error-code`|
@@ -39,7 +40,6 @@
 |Check Your Email|`title`|
 |Please check the email address <%= "${email}" %> for instructions to reset your password.|`emailDescription`|
 |Resend email|`resendLinkText`|
-|Didn't receive an email?|`resendText`|
 |Please check the email address associated with the username <%= "${email}" %> for instructions to reset your password.|`usernameDescription`|
 
 ## Screen: reset-password
@@ -57,6 +57,7 @@
 |New password|`passwordPlaceholder`|
 |Re-enter new password|`reEnterpasswordPlaceholder`|
 |Your password must contain:|`passwordSecurityText`|
+|<%= "${companyName}" %>|`logoAltText`|
 |This ticket was expired.|`auth0-users-expired-ticket`|
 |Something went wrong, please try again later.|`custom-script-error-code`|
 |This ticket was already used.|`auth0-users-used-ticket`|

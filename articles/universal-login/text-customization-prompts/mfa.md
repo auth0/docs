@@ -17,8 +17,8 @@
 |This link is expired.|`expiredTicketDescription`|
 |Already used|`alreadyUsedTitle`|
 |This link has already been used. Please get a new link to enroll with Multi-factor Authentication.|`alreadyUsedDescription`|
-|Factor Already Exists|`alreadyEnrolledTitle`|
-|Two-factor verification has already been enabled.|`alreadyEnrolledDescription`|
+|Two-factor Verification has Already Been Enabled.|`alreadyEnrolledDescription`|
+|Something Went Wrong|`genericError`|
 
 ## Screen: mfa-login-options
 
@@ -51,8 +51,9 @@
 |----------|----------|
 |Log in to <%= "${clientName}" %>|`pageTitle`|
 |Go back|`backText`|
-|Keep your account safe|`title`|
-|Add another authentication factor.|`description`|
+|Keep Your Account Safe|`title`|
+|Add another authentication method.|`description`|
+|<%= "${companyName}" %>|`logoAltText`|
 |SMS|``authenticatorNames.sms``|
 |Phone|``authenticatorNames.phone``|
 |Phone|``authenticatorNames.voice``|

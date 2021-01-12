@@ -1,16 +1,16 @@
-# Prompt: login
+# Prompt: login-password
 
-## Screen: login
+## Screen: login-password
 
 <p style="text-align: center;">
-  <img alt="login reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="login" src="/media/articles/universal-login/text-customization/login.png" style="width: 400px;"/>
+  <img alt="login-password reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="login-password" src="/media/articles/universal-login/text-customization/login-password.png" style="width: 400px;"/>
 </p>
 
 |Text|Key|
 |----------|----------|
 |Log in to <%= "${clientName}" %>|`pageTitle`|
-|Welcome|`title`|
-|Log in to <%= "${companyName}" %> to continue to <%= "${clientName}" %>.|`description`|
+|Enter Your Password|`title`|
+|Enter your password for <%= "${companyName}" %> to continue to <%= "${clientName}" %>|`description`|
 |Or|`separatorText`|
 |Continue|`buttonText`|
 |Continue with <%= "${connectionName}" %>|`federatedConnectionButtonText`|
