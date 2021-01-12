@@ -170,6 +170,8 @@ articles:
             url: /flows/add-login-using-the-authorization-code-flow-with-pkce
           - title: Hybrid Flow
             url: /flows/hybrid-flow
+            - title: Call Your API Using the Hybrid Flow
+              url: flows/call-api-hybrid-flow
       - title: Authenticate Single-Page Apps with Cookies
         url: /sessions-and-cookies/spa-authenticate-with-cookies
       - title: Multi-factor Authentication
