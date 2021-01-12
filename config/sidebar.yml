@@ -573,6 +573,8 @@ articles:
       - title: Custom Domains
         url: /custom-domains
         children:
+          - title: SSL/TLS Versions and Ciphers
+            url: /custom-domains/ssl-tls
           - title: Auth0-Managed Certificates
             url: /custom-domains/configure-custom-domains-with-auth0-managed-certificates
           - title: Self-Managed Certificates
