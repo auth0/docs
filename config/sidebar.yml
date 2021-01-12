@@ -120,7 +120,7 @@ articles:
         url: /architecture-scenarios/checklists
       - title: Implementation Resources
         url: /architecture-scenarios/implementation-resources
-  - title: Deployment Options
+  - title: Deploy
     url: /deploy
     children:
       - title: Deployment Checklist
@@ -162,7 +162,7 @@ articles:
             url: /private-cloud/private-cloud-onboarding
             children:
               - title: Infrastructure Requirements
-                url: /private-cloud/private-cloud-onboarding/standard-private-cloud-infrastructure-requirements
+                url: /private-cloud/private-cloud-onboarding/customer-hosted-managed-private-cloud-infrastructure-requirements
               - title: IP/Domain and Port List
                 url: /private-cloud/private-cloud-onboarding/private-cloud-ip-domain-and-port-list
               - title: Remote Access Options
@@ -172,12 +172,12 @@ articles:
           - title: Migrations
             url: /private-cloud/private-cloud-migrations
             children:
-              - title: Standard to Managed
+              - title: Public to Private
+                url: /private-cloud/private-cloud-migrations/migrate-from-public-cloud-to-private-cloud
+              - title: Performance to Performance Plus
                 url: /private-cloud/private-cloud-migrations/migrate-from-standard-private-cloud-to-managed-private-cloud
               - title: Custom Domains
                 url: /private-cloud/private-cloud-migrations/migrate-private-cloud-custom-domains
-              - title: Public to Private
-                url: /private-cloud/private-cloud-migrations/migrate-from-public-cloud-to-private-cloud
   - title: Login
     url: /login
     children:
