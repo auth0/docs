@@ -1,5 +1,5 @@
 ---
-title: Connect Your App to ADFS
+title: Connect Your App to ADFS 
 connection: ADFS
 image: /media/connections/adfs.png
 public: true
