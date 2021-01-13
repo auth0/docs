@@ -63,6 +63,9 @@ Next, you will need to create and configure a SAML Enterprise Connection in Auth
 | Field | Description |
 | ----- | ----------- |
 | **Connection name** | Logical identifier for your connection; it must be unique for your tenant. Once set, this name can't be changed. |
+| **Display name** (optional) | Text used to customize the login button for Universal Login. When set, the Universal Login login button reads: "Continue with {Display name}". |
+| **Logo URL** (optional) | URL of image used to customize the login button for Universal Login. When set, the Universal Login login button displays the image as a 20px by 20px square. |
+| **IdP Domains** (optional) | Comma-separated list of valid domains. Only needed if using the <dfn data-key="lock">Lock</dfn> login widget. |
 | **Sign In URL** | SAML single login URL. |
 
 ![Configure General SAML Settings](/media/articles/dashboard/connections/enterprise/conn-enterprise-saml-settings-1.png)
@@ -91,11 +94,7 @@ Next, you will need to create and configure a SAML Enterprise Connection in Auth
 
 ![Configure Advanced SAML Settings](/media/articles/dashboard/connections/enterprise/conn-enterprise-saml-settings-3.png)
 
-5. On the **Login Experience** tab you can configure how users log in with this connection.
-
-<%= include('./_login-experience-tab.md') %>
-
-6. If you have appropriate administrative permissions to complete the integration, click **Continue** to learn about the custom parameters needed to configure your IdP. Otherwise, provide the given URL to your administrator so that they can adjust the required settings.
+5. If you have appropriate administrative permissions to complete the integration, click **Continue** to learn about the custom parameters needed to configure your IdP. Otherwise, provide the given URL to your administrator so that they can adjust the required settings.
 
 ### Create an enterprise connection using the Management API
 

@@ -91,6 +91,8 @@ Next, you will need to create and configure a Google G Suite Enterprise Connecti
 | Field | Description |
 | ----- | ----------- |
 | **Connection name** | Logical identifier for your connection; it must be unique for your tenant. Once set, this name can't be changed. |
+| **Display name** (optional) | Text used to customize the login button for Universal Login. When set, the Universal Login login button reads: "Continue with {Display name}". |
+| **Logo URL** (optional) | URL of image used to customize the login button for Universal Login. When set, the Universal Login login button displays the image as a 20px by 20px square. |
 | **G Suite Domain** | Google G Suite domain name for your organization. |
 | **Domain Aliases** (optional) | Comma-separated list of domains registered as aliases for the primary domain. |
 
@@ -108,11 +110,7 @@ Next, you will need to create and configure a Google G Suite Enterprise Connecti
 
 ![Configure Advanced Google G Suite Settings](/media/articles/dashboard/connections/enterprise/conn-enterprise-gsuite-settings-2.png)
 
-4. On the **Login Experience** tab you can configure how users log in with this connection.
-
-<%= include('./_login-experience-tab.md') %>
-
-5. If you have appropriate administrative permissions to configure your G Suite settings so you can use Google's Admin APIs, then click **Continue**. Otherwise, provide the given URL to your administrator so that they can adjust the required settings.
+4. If you have appropriate administrative permissions to configure your G Suite settings so you can use Google's Admin APIs, then click **Continue**. Otherwise, provide the given URL to your administrator so that they can adjust the required settings.
 
 ## Enable the enterprise connection for your Auth0 application
 
