@@ -26,6 +26,7 @@
 |Continue|`buttonText`|
 |Try another method|`pickAuthenticatorText`|
 |Enter your phone number|`placeholder`|
+|<%= "${companyName}" %>|`logoAltText`|
 |There was a problem sending the SMS|`send-sms-failed`|
 |Phone number can only include digits.|`invalid-phone-format`|
 |Seems that your phone number is not valid. Please check and retry.|`invalid-phone`|
@@ -54,6 +55,7 @@
 |or|`resendVoiceActionSeparatorTextBefore`|
 |get a call|`resendVoiceActionText`|
 ||`resendVoiceActionSeparatorTextAfter`|
+|<%= "${companyName}" %>|`logoAltText`|
 |OTP Code must have 6 numeric characters|`invalid-otp-code-format`|
 |The code you entered is invalid|`invalid-code`|
 |Invalid or expired user code|`invalid-expired-code`|

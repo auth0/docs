@@ -13,8 +13,9 @@
 |Copy this recovery code and keep it somewhere safe. You’ll need it if you ever need to log in without your device.|`description`|
 |Secure code to copy|`altText`|
 |Continue|`buttonText`|
-|I have safely recorded this number|`checkboxText`|
+|I have safely recorded this code|`checkboxText`|
 |Copy code|`copyCodeButtonText`|
+|<%= "${companyName}" %>|`logoAltText`|
 |Please confirm you have recorded the code|`no-confirmation`|
 
 ## Screen: mfa-recovery-code-challenge
@@ -31,6 +32,7 @@
 |Continue|`buttonText`|
 |Try another method|`pickAuthenticatorText`|
 |Enter your recovery code|`placeholder`|
+|<%= "${companyName}" %>|`logoAltText`|
 |The code you entered is invalid|`invalid-code`|
 |Recovery code must have 24 alphanumeric characters|`invalid-code-format`|
 |Invalid or expired user code|`invalid-expired-code`|
