@@ -22,6 +22,7 @@ seo_alias: android
 default_article: 00-login
 articles:
   - 00-login
+  - 01-user-metadata
 next_steps:
   - path: 00-login
     list:

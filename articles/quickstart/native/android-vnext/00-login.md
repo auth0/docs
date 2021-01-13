@@ -1,6 +1,6 @@
 ---
 title: Login
-description: This tutorial demonstrates how to add user login to an Android application using Auth0.
+description: This quickstart demonstrates how to add user login to an Android application using Auth0.
 seo_alias: android
 budicon: 448
 topics:
@@ -225,23 +225,23 @@ private fun showUserProfile(credentials: Credentials?) {
     var client = AuthenticationAPIClient(account)
 
     // If an access token is available, call `userInfo` and get the profile from Auth0
-    credentials?.accessToken?.let {
-        client.userInfo(it)
+    credentials?.accessToken?.let { accessToken ->
+        client.userInfo(accessToken)
             .start(object : Callback<UserProfile, AuthenticationException> {
-                override fun onFailure(error: AuthenticationException) {
+                override fun onFailure(exception: AuthenticationException) {
                     Snackbar.make(
                         binding.root,
-                        "Failure: <%= "${error.getCode()}" %>",
+                        "Failure: <%= "${exception.getCode()}" %>",
                         Snackbar.LENGTH_LONG
                     ).show()
                 }
 
-                override fun onSuccess(payload: UserProfile?) {
+                override fun onSuccess(profile: UserProfile?) {
                   // We have the user's profile!
                   Snackbar.make(
                     binding.root,
-                    "Name: <%= "${payload?.name}" %>\n" +
-                      "Email: <%= "${payload?.email}" %>",
+                    "Name: <%= "${profile?.name}" %>\n" +
+                      "Email: <%= "${profile?.email}" %>",
                     Snackbar.LENGTH_LONG
                   ).show()
                 }
