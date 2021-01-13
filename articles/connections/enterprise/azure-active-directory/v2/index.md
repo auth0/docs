@@ -137,7 +137,7 @@ Create and configure an Azure AD Enterprise Connection in Auth0. Make sure you h
 
 5. On the **Login Experience** tab you can configure how users log in with this connection.
 
-<%= include('./_login-experience-tab.md') %>
+<%= include('../../_login-experience-tab.md') %>
 
 6. If you have appropriate Azure AD administrative permissions to *give consent* to the application so users can log in, then click **Continue**. 
 
