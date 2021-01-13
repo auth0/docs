@@ -82,6 +82,33 @@ end
 This tutorial uses omniauth-auth0, a custom [OmniAuth strategy](https://github.com/intridea/omniauth#omniauth-standardized-multi-provider-authentication).
 :::
 
+#### For Rails 5.2 and greater
+
+Starting in Rails 5.2, the default storage location is 
+```config/credentials.yml.enc```. This is an encrypted file, which you can
+ edit using this Rails command ```EDITOR=vim bin/rails credentials:edit```.
+
+You will also have to change ```auth0.rb``` in ```config/initializers``` to:
+
+```ruby
+Rails.application.config.middleware.use OmniAuth::Builder do
+  provider(
+    :auth0,
+    Rails.application.credentials.auth0_client_id,
+    Rails.application.credentials.auth0_client_secret,
+    Rails.application.credentials.auth0_domain,
+    callback_path: '/auth/auth0/callback',
+    authorize_params: {
+      scope: 'openid email profile'
+    }
+  )
+end
+```
+
+For more information about setting and using secrets, check out [this portion
+](https://guides.rubyonrails.org/security.html#custom-credentials) of the
+ Rails documentation.
+
 ### Add the Auth0 Callback Handler
 
 Use the following command to create the controller that will handle the Auth0 callback:
