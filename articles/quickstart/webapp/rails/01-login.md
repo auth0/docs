@@ -85,8 +85,8 @@ This tutorial uses omniauth-auth0, a custom [OmniAuth strategy](https://github.c
 #### For Rails 5.2 and greater
 
 Starting in Rails 5.2, the default storage location is 
-```config/credentials.yml.enc```. This is an encrypted file, which you can
- edit using this Rails command ```EDITOR=vim bin/rails credentials:edit```.
+```config/credentials.yml.enc```. Instead of creating a secrets.yml, we should edit this encrypted file using this Rails command ```EDITOR=vim
+ bin/rails credentials:edit```.
 
 You will also have to change ```auth0.rb``` in ```config/initializers``` to:
 
@@ -104,6 +104,10 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   )
 end
 ```
+
+:::note
+Note the change from ```Rails.application.secrets``` to ```Rails.application.credentials```
+:::
 
 For more information about setting and using secrets, check out [this portion
 ](https://guides.rubyonrails.org/security.html#custom-credentials) of the
