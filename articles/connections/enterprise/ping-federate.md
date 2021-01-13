@@ -68,9 +68,6 @@ If additional setup is required for your server (such as attribute mapping), the
 | Field | Description |
 | ----- | ----------- |
 | **Connection name** | Logical identifier for your connection; it must be unique for your tenant. Once set, this name can't be changed. |
-| **Display name** (optional) | Text used to customize the login button for Universal Login. When set, the Universal Login login button reads: "Continue with {Display name}". |
-| **Logo URL** (optional) | URL of image used to customize the login button for Universal Login. When set, the Universal Login login button displays the image as a 20px by 20px square. |
-| **IdP Domains** (optional) | Comma-separated list of valid domains. Only needed if using the <dfn data-key="lock">Lock</dfn> login widget. |
 | **PingFederate Server URL** | URL for your PingFederate Server. |
 
 ![Configure General PingFederate Settings](/media/articles/dashboard/connections/enterprise/conn-enterprise-ping-federate-settings-1.png)
@@ -86,6 +83,10 @@ If additional setup is required for your server (such as attribute mapping), the
 | **Sync user profile attributes at each login** | When enabled, Auth0 automatically syncs user profile data with each user login, thereby ensuring that changes made in the connection source are automatically updated in Auth0. |
 
 ![Configure Signing SAML Settings](/media/articles/dashboard/connections/enterprise/conn-enterprise-ping-federate-settings-2.png)
+
+4. On the **Login Experience** tab you can configure how users log in with this connection.
+
+<%= include('./_login-experience-tab.md') %>
 
 ## Enable the enterprise connection for your Auth0 application
 

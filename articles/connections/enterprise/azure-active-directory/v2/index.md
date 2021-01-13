@@ -116,10 +116,7 @@ Create and configure an Azure AD Enterprise Connection in Auth0. Make sure you h
 | Field | Description |
 | ----- | ----------- |
 | **Connection name** | Logical identifier for your connection; it must be unique for your tenant. Once set, this name can't be changed. |
-| **Display name** (optional) | Text used to customize the login button for Universal Login. When set, the Universal Login login button reads: "Continue with {Display name}". |
-| **Logo URL** (optional) | URL of image used to customize the login button for Universal Login. When set, the Universal Login login button displays the image as a 20px by 20px square. |
 | **Microsoft Azure AD Domain** | Your Azure AD domain name. You can find this on your Azure AD directory's overview page in the Microsoft Azure portal. |
-| **IdP Domains** | Comma-separated list of domains that can be authenticated in the Identity Provider. Only needed for Identifier First authentication flows. |
 
 3. Enter credentials, select attributes, and configure advanced settings for your connection.
 
@@ -138,7 +135,11 @@ Create and configure an Azure AD Enterprise Connection in Auth0. Make sure you h
 
 4. Click **Create**.
 
-5. If you have appropriate Azure AD administrative permissions to *give consent* to the application so users can log in, then click **Continue**. 
+5. On the **Login Experience** tab you can configure how users log in with this connection.
+
+<%= include('./_login-experience-tab.md') %>
+
+6. If you have appropriate Azure AD administrative permissions to *give consent* to the application so users can log in, then click **Continue**. 
 
     You will be asked to [log in to your Azure AD account](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#requesting-consent-for-an-entire-tenant) and give consent. Otherwise, provide the given URL to your administrator so that they can give consent.
 
