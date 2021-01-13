@@ -12,11 +12,13 @@
 |Verify Your Identity|`title`|
 |We will send a 6-digit code to the following phone number:|`description`|
 |Continue|`continueButtonText`|
+|Choose another phone number.|`changePhoneText`|
 |Text message|`smsButtonText`|
 |Voice call|`voiceButtonText`|
 |How do you want to receive the code?|`chooseMessageTypeText`|
 |Try another method|`pickAuthenticatorText`|
 |Enter your phone number|`placeholder`|
+|<%= "${companyName}" %>|`logoAltText`|
 |There was a problem sending the SMS|`send-sms-failed`|
 |There was a problem making the voice call|`send-voice-failed`|
 |Phone number can only include digits.|`invalid-phone-format`|
@@ -43,6 +45,7 @@
 |How do you want to receive the code?|`chooseMessageTypeText`|
 |Try another method|`pickAuthenticatorText`|
 |Enter your phone number|`placeholder`|
+|<%= "${companyName}" %>|`logoAltText`|
 |There was a problem sending the SMS|`send-sms-failed`|
 |There was a problem making the voice call|`send-voice-failed`|
 |Phone number can only include digits.|`invalid-phone-format`|

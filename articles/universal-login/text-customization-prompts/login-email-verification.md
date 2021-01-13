@@ -15,6 +15,7 @@
 |Resend|`resendActionText`|
 |Didn't receive an email?|`resendText`|
 |Verify Your Email|`title`|
+|<%= "${companyName}" %>|`logoAltText`|
 |OTP Code must have 6 numeric characters|`invalid-otp-code-format`|
 |The code you entered is invalid|`invalid-code`|
 |Invalid or expired user code|`invalid-expired-code`|

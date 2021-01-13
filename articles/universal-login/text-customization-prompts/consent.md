@@ -16,6 +16,7 @@
 |<%= "${clientName}" %> is requesting access to your <%= "${companyName}" %> account.|`messageSingleTenant`|
 |Accept|`acceptButtonText`|
 |Decline|`declineButtonText`|
+|<%= "${companyName}" %>|`logoAltText`|
 |Invalid action|`invalid-action`|
 |Audience is required|`invalid-audience`|
 |Invalid scope, must be an array|`invalid-scope`|

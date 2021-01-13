@@ -15,6 +15,7 @@
 |Continue|`buttonText`|
 |App Store|`iosButtonText`|
 |Try another method|`pickAuthenticatorText`|
+|<%= "${companyName}" %>|`logoAltText`|
 
 ## Screen: mfa-push-enrollment-qr
 
@@ -29,6 +30,7 @@
 |Scan the QR Code below using the <%= "${appName}" %> app on your mobile device.|`description`|
 |Try another method|`pickAuthenticatorText`|
 |Continue|`buttonText`|
+|<%= "${companyName}" %>|`logoAltText`|
 |You must scan the QR code with the <%= "${appName}" %> app on your mobile device.|`enrollment-transaction-pending`|
 
 ## Screen: mfa-push-challenge-push
@@ -42,7 +44,6 @@
 |Log in to <%= "${clientName}" %>|`pageTitle`|
 |Verify Your Identity|`title`|
 |We’ve sent a notification to the following device via the <%= "${appName}" %> app:|`description`|
-|Awaiting confirmation|`awaitingConfirmation`|
 |I've responded on my device|`buttonText`|
 |Try another method|`pickAuthenticatorText`|
 |Remember this device for 30 days|`rememberMeText`|
@@ -50,6 +51,7 @@
 |Didn't receive a notification?|`resendText`|
 |Manually Enter Code|`enterOtpCode`|
 |OR|`separatorText`|
+|<%= "${companyName}" %>|`logoAltText`|
 |You must accept the notification via the <%= "${appName}" %> app on your mobile device.|`challenge-transaction-pending`|
 |We have not received a confirmation, please slow down.|`polling-interval-exceeded`|
 |We have received too many notification requests. Wait a few minutes and try again.|`too-many-push`|
@@ -75,6 +77,7 @@
 |Enter the one-time code|`placeholder`|
 |Remember this device for 30 days|`rememberMeText`|
 |Verify Your Identity|`title`|
+|<%= "${companyName}" %>|`logoAltText`|
 |OTP Code must have 6 numeric characters|`invalid-otp-code-format`|
 |The code you entered is invalid|`invalid-code`|
 |Invalid or expired user code|`invalid-expired-code`|
