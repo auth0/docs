@@ -128,7 +128,7 @@ articles:
       - title: Pre-Deployment
         url: /deploy/pre-deployment
         children:
-          - title: Run Checks
+          - title: Run Production Checks
             url: /deploy/pre-deployment/how-to-run-production-checks
           - title: Pre-Launch Tips
             url: /deploy/pre-deployment/pre-launch-tips
@@ -155,7 +155,7 @@ articles:
           - title: Troubleshoot Deploy CLI
             url: /extensions/deploy-cli-tool/troubleshoot-the-deploy-cli-tool
             hidden: true
-      - title: Private Cloud
+      - title: Private Cloud Options
         url: /private-cloud
         children:
           - title: Onboarding
@@ -163,10 +163,13 @@ articles:
             children:
               - title: Infrastructure Requirements
                 url: /private-cloud/private-cloud-onboarding/customer-hosted-managed-private-cloud-infrastructure-requirements
+                hidden: true 
               - title: IP/Domain and Port List
                 url: /private-cloud/private-cloud-onboarding/private-cloud-ip-domain-and-port-list
+                hidden: true 
               - title: Remote Access Options
                 url: /private-cloud/private-cloud-onboarding/private-cloud-remote-access-options
+                hidden: true 
           - title: Operations
             url: /private-cloud/private-cloud-operations
           - title: Migrations
@@ -174,10 +177,13 @@ articles:
             children:
               - title: Public to Private
                 url: /private-cloud/private-cloud-migrations/migrate-from-public-cloud-to-private-cloud
+                hidden: true 
               - title: Performance to Performance Plus
                 url: /private-cloud/private-cloud-migrations/migrate-from-standard-private-cloud-to-managed-private-cloud
+                hidden: true 
               - title: Custom Domains
                 url: /private-cloud/private-cloud-migrations/migrate-private-cloud-custom-domains
+                hidden: true 
   - title: Login
     url: /login
     children:
