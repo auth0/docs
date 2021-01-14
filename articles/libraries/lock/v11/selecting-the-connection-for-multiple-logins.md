@@ -75,7 +75,7 @@ You can use the [`defaultDatabaseConnection` option](/libraries/lock/v11/configu
 
 The [`allowedConnections` option](/libraries/lock/v11/configuration#allowedconnections-array-) in Lock lets you indicate which of the available connections should be presented as an option to the user.
 
-This lets you tailor the experience based on additional input or context (e.g. "Click here to log in as a student, or here to log in as a faculty member").
+This lets you tailor the experience based on additional input or context (e.g. "Click here to log in as a student, or here to log in as a faculty member"). 
 
 
 ```js
