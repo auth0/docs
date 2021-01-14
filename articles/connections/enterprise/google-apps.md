@@ -82,7 +82,7 @@ Next, you will need to create and configure a Google Workspace Enterprise Connec
 
 1. Navigate to the [Connections > Enterprise](${manage_url}/#/connections/enterprise) page in the [Auth0 Dashboard](${manage_url}/), and click the `+` next to **Google Workspace**.
 
-![Create Connection Type](/media/articles/dashboard/connections/enterprise/conn-enterprise-list.png)
+![Create Connection Type](/media/articles/dashboard/connections/enterprise/conn-enterprise-list-2.png)
 
 2. Enter general information for your connection:
 
