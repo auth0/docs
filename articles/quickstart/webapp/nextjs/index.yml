@@ -31,4 +31,4 @@ sdk:
 github:
   org: auth0-samples
   repo: auth0-nextjs-samples
-  branch: master
+  branch: main
