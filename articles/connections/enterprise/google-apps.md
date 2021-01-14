@@ -108,7 +108,7 @@ Next, you will need to create and configure a Google Workspace Enterprise Connec
 
 ![Configure Advanced Google G Suite Settings](/media/articles/dashboard/connections/enterprise/conn-enterprise-gsuite-settings-2.png)
 
-4. If you have appropriate administrative permissions to configure your G Suite settings so you can use Google's Admin APIs, then click **Continue**. Otherwise, provide the given URL to your administrator so that they can adjust the required settings.
+4. If you have appropriate administrative permissions to configure your Google Workspace settings so you can use Google's Admin APIs, then click **Continue**. Otherwise, provide the given URL to your administrator so that they can adjust the required settings.
 
 ## Enable the enterprise connection for your Auth0 application
 
