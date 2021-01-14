@@ -28,7 +28,7 @@ If you have an existing [Google Social Connection](/connections/social/google) f
   * [Register your Application with Auth0](/getting-started/set-up-app). 
   * Select an appropriate **Application Type**.
   * Add an **Allowed Callback URL** of **`${account.callback}`**.
-  * Make sure your Application's **[Grant Types](/dashboard/guides/applications/update-grant-types)** include the appropriate flows. 
+  * Make sure your Application's **[Grant Types](/dashboard/guides/applications/update-grant-types)** include the appropriate flows.
 
 ## Steps
 
