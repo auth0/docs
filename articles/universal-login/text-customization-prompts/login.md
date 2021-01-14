@@ -14,14 +14,17 @@
 |Or|`separatorText`|
 |Continue|`buttonText`|
 |Continue with <%= "${connectionName}" %>|`federatedConnectionButtonText`|
-|Sign up|`footerLinkText`|
-|Don't have an account?|`footerText`|
+|Sign up|`signupActionLinkText`|
+|Don't have an account?|`signupActionText`|
 |Forgot password?|`forgotPasswordText`|
 |Password|`passwordPlaceholder`|
 |Username or email address|`usernamePlaceholder`|
 |Email address|`emailPlaceholder`|
 |Edit|`editEmailText`|
 |Alerts|`alertListTitle`|
+|You've Been Invited!|`invitationTitle`|
+|Log in to accept <%= "${inviterName}" %>'s invitation to join <%= "${companyName}" %> on <%= "${clientName}" %>.|`invitationDescription`|
+|<%= "${companyName}" %>|`logoAltText`|
 |Wrong username or password|`wrong-credentials`|
 |The code you entered is invalid|`invalid-code`|
 |Invalid or expired user code|`invalid-expired-code`|

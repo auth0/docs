@@ -13,6 +13,7 @@
 |Enter the code displayed on your device|`description`|
 |Enter your one-time code|`placeholder`|
 |Device Activation|`title`|
+|<%= "${companyName}" %>|`logoAltText`|
 |Invalid or expired user code|`invalid-expired-code`|
 |Please enter the code displayed on your device|`no-code`|
 |The code you entered is invalid|`invalid-code`|
@@ -56,3 +57,4 @@
 |Confirm|`confirmButtonText`|
 |Cancel|`cancelButtonText`|
 |If you did not initiate this action or you do not recognize this device select cancel.|`confirmationText`|
+|<%= "${companyName}" %>|`logoAltText`|

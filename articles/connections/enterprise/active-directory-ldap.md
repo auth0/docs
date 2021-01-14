@@ -63,7 +63,7 @@ To connect your application to Active Directory/LDAP, you must:
 | **Connection name** | Logical identifier for your connection; it must be unique for your tenant. Once set, this name can't be changed. |
 | **Display name** (optional) | Text used to customize the login button for Universal Login. When set, the Universal Login login button reads: "Continue with {Display name}". |
 | **Logo URL** (optional) | URL of image used to customize the login button for Universal Login. When set, the Universal Login login button displays the image as a 20px by 20px square. |
-| **Email Domains** (optional) | Comma-separated list of valid email domains that will be allowed to log in using this connection. Only needed if using the <dfn data-key="lock">Lock</dfn> login widget. |
+| **IdP Domains** (optional) | Comma-separated list of valid email domains that will be allowed to log in using this connection. Only needed if using the <dfn data-key="lock">Lock</dfn> login widget. |
 
 ![Configure General AD/LDAP Settings](/media/articles/dashboard/connections/enterprise/conn-enterprise-ad-ldap-settings-1.png)
 

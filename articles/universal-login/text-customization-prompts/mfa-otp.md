@@ -15,6 +15,7 @@
 |Trouble Scanning?|`codeEnrollmentText`|
 |Try another method|`pickAuthenticatorText`|
 |Enter your one-time code|`placeholder`|
+|<%= "${companyName}" %>|`logoAltText`|
 |OTP Code must have 6 numeric characters|`invalid-otp-code-format`|
 |The code you entered is invalid|`invalid-code`|
 |Invalid or expired user code|`invalid-expired-code`|
@@ -39,6 +40,7 @@
 |Try another method|`pickAuthenticatorText`|
 |Enter your one-time code|`placeholder`|
 |Secure Your Account|`title`|
+|<%= "${companyName}" %>|`logoAltText`|
 |Too many failed codes. Wait for some minutes before retrying.|`too-many-failures`|
 |Your enrollment transaction expired, you will need to start again.|`transaction-not-found`|
 
@@ -57,6 +59,7 @@
 |Try another method|`pickAuthenticatorText`|
 |Enter your one-time code|`placeholder`|
 |Remember this device for 30 days|`rememberMeText`|
+|<%= "${companyName}" %>|`logoAltText`|
 |We couldn't verify the code. Please try again later.|`authenticator-error`|
 |Too many failed codes. Wait for some minutes before retrying.|`too-many-failures`|
 |Your enrollment transaction expired, you will need to start again.|`transaction-not-found`|

@@ -106,7 +106,12 @@ Next, you will need to create and configure a Google Workspace Enterprise Connec
 | **Extended Attributes** | Extended attributes for the signed-in user that your app can access. Options include: **Groups** (distribution list(s) to which the user belongs), **Is Domain Administrator** (indicates whether the user is a domain administrator), **Is Account Suspended** (indicates whether the user's account is suspended), and **Agreed to Terms** (indicates whether the user has agreed to the terms of service). |
 | **Auth0 APIs** | When **Enable Users API** is selected, indicates that you require the ability to make calls to the Google Directory API. |
 
+
 4. If you have appropriate administrative permissions to configure your Google Workspace settings so you can use Google's Admin APIs, then click **Continue**. Otherwise, provide the given URL to your administrator so that they can adjust the required settings.
+
+5. On the **Login Experience** tab you can configure how users log in with this connection.
+
+<%= include('./_login-experience-tab.md') %>
 
 ## Enable the enterprise connection for your Auth0 application
 

@@ -15,11 +15,12 @@
 |Continue|`buttonText`|
 |Email address|`emailPlaceholder`|
 |Continue with <%= "${connectionName}" %>|`federatedConnectionButtonText`|
-|Log in|`footerLinkText`|
-|Already have an account?|`footerText`|
+|Log in|`loginActionLinkText`|
+|Already have an account?|`loginActionText`|
 |Password|`passwordPlaceholder`|
 |Your password must contain:|`passwordSecurityText`|
 |Username|`usernamePlaceholder`|
+|<%= "${companyName}" %>|`logoAltText`|
 |The user already exists.|`email-in-use`|
 |Email is not valid.|`invalid-email-format`|
 |The password is too weak|`password-too-weak`|
