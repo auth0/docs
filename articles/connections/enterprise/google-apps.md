@@ -1,5 +1,5 @@
 ---
-title: Connect Your App to Google Google Workspace
+title: Connect Your App to Google Workspace
 connection: Google Workspace
 image: /media/connections/gsuite.png
 public: true
@@ -40,7 +40,7 @@ To connect your application to Google Workspace, you must:
 4. [Test the connection](#test-the-connection).
 
 ::: panel Google Workspace Account
-Before proceeding, you will need a valid Google G Suite account and must have **your own** Google Workspace Organization for which you are an administrator. 
+Before proceeding, you will need a valid Google Workspace account and must have **your own** Google Workspace Organization for which you are an administrator. 
 :::
 
 ## Set up your app in Google
@@ -91,7 +91,7 @@ Next, you will need to create and configure a Google Workspace Enterprise Connec
 | **Connection name** | Logical identifier for your connection; it must be unique for your tenant. Once set, this name can't be changed. |
 | **Display name** (optional) | Text used to customize the login button for Universal Login. When set, the Universal Login login button reads: "Continue with {Display name}". |
 | **Logo URL** (optional) | URL of image used to customize the login button for Universal Login. When set, the Universal Login login button displays the image as a 20px by 20px square. |
-| **G Suite Domain** | Google Workspace domain name for your organization. |
+| **Google Workspace Domain** | Google Workspace domain name for your organization. |
 | **Domain Aliases** (optional) | Comma-separated list of domains registered as aliases for the primary domain. |
 
 ![Configure General Google G Suite Settings](/media/articles/dashboard/connections/enterprise/conn-enterprise-gsuite-settings-1.png)
