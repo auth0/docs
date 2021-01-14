@@ -9,7 +9,7 @@ You need the following information:
 * **Domain**
 
 ::: note
-If you download the sample from the top of this page, these details are filled out for you. If you have more than one application in your account, the sample comes with the values for your **Default App**.
+If you download the sample from the top of this page, these details are filled out for you.
 :::
 
 Add your credentials in `Auth0.plist`. If the file does not exist in your project yet, create one with the information below ([Apple documentation on Property List Files](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html)):

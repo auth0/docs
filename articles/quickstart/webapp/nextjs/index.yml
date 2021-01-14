@@ -1,0 +1,34 @@
+title: Next.js
+beta: true
+alias:
+  - next
+  - nextjs
+  - next.js
+language:
+  - Javascript
+framework:
+  - Next.js
+author:
+  name: Rita Zerrizuela
+  email: rita.zerrizuela@auth0.com
+  community: false
+image: /media/platforms/node.png
+topics:
+  - quickstart
+contentType: tutorial
+useCase: quickstart
+seo_alias: nextjs
+show_releases: true
+show_steps: true
+requirements:
+  - Next.js 10+
+default_article: 01-login
+articles:
+  - 01-login
+sdk:
+  name: nextjs-auth0
+  url: https://github.com/auth0/nextjs-auth0/
+github:
+  org: auth0-samples
+  repo: auth0-nextjs-samples
+  branch: master
