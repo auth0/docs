@@ -9,6 +9,11 @@
     "definition": "Multi-factor authentication (MFA) that is only triggered for users when an attempted login is determined to be a low confidence login. With Adaptive MFA, Auth0 triggers MFA only when needed to add friction for bad actors while keeping the login experience unchanged for good actors.",
     "short": "Multi-factor authentication (MFA) that is only triggered for users when an attempted login is determined to be a low confidence login. With Adaptive MFA, Auth0 triggers MFA only when needed to add friction for bad actors while keeping the login experience unchanged for good actors."
   },
+  "application": {
+    "title": "Application",
+    "definition": "Your software that relies on Auth0 for authentication and identity management. Auth0 supports single-page, regular web, native, and machine-to-machine applications.",
+    "short": "A unique identifier, <b>aud</b> in a token, for an application (ID Token) or an API (Access Token)."
+  },
   "attack-protection": {
     "title": "Attack Protection",
     "definition": "Features that Auth0 provides to detect and mitigate attacks, including brute-force protection, suspicious IP throttling, breached password detection, bot detection, and adaptive multi-factor authentication.",
@@ -74,6 +79,11 @@
     "definition": "The term confused deputy refers to a situation in which an attacker tricks a client or service into performing an action on their behalf.",
     "short": "The term confused deputy refers to a situation in which an attacker tricks a client or service into performing an action on their behalf."
   },
+  "connection": {
+    "title": "Connection",
+    "definition": "The relationship between Auth0 and the sources of users for your applications. Examples include identity providers (such as Google or Active Directory), passwordless authentication methods, or user databases.",
+    "short": "The relationship between Auth0 and the sources of users for your applications. "
+  },
   "deprecation": {
     "title": "Deprecation",
     "definition": "Product release stage indicating that the referenced feature or behavior is not supported for use by new subscribers, is not actively being enhanced, and is being only minimally maintained. Tenants using the feature or behavior at the time of deprecation will continue to have access.",
@@ -114,10 +124,20 @@
     "definition": "A product release stage during which the referenced feature or behavior is fully functional and available to all subscribers (limited by pricing tier) for production use. If a new release replaces an existing feature, Auth0 provides a period of backward compatibility in accordance with our deprecation policy and informs customers so they have time to adopt the new release.",
     "short": "A product release stage during which the referemced feature or behavior is fully functional and available to all subscribers (limited by pricing tier) for production use. If a new release replaces an existing feature, Auth0 provides a period of backward compatibility in accordance with our deprecation policy and informs customers so they have time to adopt the new release."
   },
+  "group": {
+    "title": "General Availability",
+    "definition": "A set of one or more users. In the Auth0 Authorization Extension, use groups to grant access to many users at a time.",
+    "short": "A set of one or more users. In the Auth0 Authorization Extension, use groups to grant access to many users at a time."
+  },
   "id-token": {
     "title": "ID Token",
     "definition": "A credential meant for the client itself, rather than for accessing a resource. It has a fixed format that clients can parse and validate.",
     "short": "A credential meant for the client itself, rather than for accessing a resource."
+  },
+  "idp": {
+    "title": "Identity Provider (IdP)",
+    "definition": "A service that stores and manages digital identities. Auth0 supports trusted social, enterprise, and legal identity providers. Auth0 also can function as an identity provider for your applications.",
+    "short": "A service that stores and manages digital identities."
   },
   "json-web-token": {
     "title": "JSON Web Token (JWT)",
@@ -179,6 +199,11 @@
     "definition": "A special kind of token that can be used to obtain a renewed Access Token. It is useful for renewing expiring Access Tokens without forcing the user to log in again. Using the Refresh Token, you can request a new Access Token at any time until the Refresh Token is blacklisted. See <a href='/tokens/concepts/refresh-tokens'>Refresh Tokens</a>.",
     "short": "A token used to obtain a renewed Access Token without forcing users to log in again."
   },
+  "refresh-token-rotation": {
+    "title": "Refresh Token Rotation",
+    "definition": "A strategy of frequently replacing refresh tokens to minimize vulnerability. With refresh token rotation, every time your application exchanges a refresh token to get a new access token, Auth0 also returns a new refresh token.",
+    "short": "A strategy of frequently replacing refresh tokens to minimize vulnerability. With refresh token rotation, every time your application exchanges a refresh token to get a new access token, Auth0 also returns a new refresh token."
+  },
   "role": {
     "title": "Role",
     "definition": "An aspect of a user’s identity assigned to the user to indicate the level of access they should have to the system. Roles are essentially collections of permissions. See <a href='/docs/authorization/concepts/rbac'>Role-based Access Control (RBAC)</a>.",
@@ -213,6 +238,11 @@
     "title": "Single Sign-On (SSO)",
     "definition": "A service that, after a user logs into one application, automatically logs that user in to other applications, regardless of the platform, technology, or domain the user is using. The user signs in only one time (hence the name of the feature). Similarly, Single Logout (SLO) occurs when, after a user logs out from one application, they are logged out of each application or service where they were logged in. SSO and SLO are possible through the use of sessions. See <a href='/docs/sso'>Single Sign-On and Single Logout</a>.",
     "short": "A service that, after a user logs into one applicaton, automatically logs that user in to other applications."
+  },
+  "subscription": {
+    "title": "Subscription",
+    "definition": "An agreement that defines the features and quotas available for each of your tenants. Auth0 has multiple subscription levels to meet the needs of different developers and organizations.",
+    "short": "An agreement that defines the features and quotas available for each of your tenants. Auth0 has multiple subscription levels to meet the needs of different developers and organizations."
   },
   "suspicious-ip-throttling": {
     "title": "Suspicious IP Throttling",
