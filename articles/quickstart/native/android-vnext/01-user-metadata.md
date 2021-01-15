@@ -34,7 +34,7 @@ To be able to correctly read and update the user metadata, ensure the authorizat
 Find the code in your project that initializes the `WebAuthProvider` class, and make the following changes if necessary:
 
 * amend the argument given to `withScope` to be `"openid profile email offline_access read:current_user update:current_user_metadata"`
-* add a call to `withAudience` and pass the audience for the Auth0 Management API: `"https://${account.namespace}/api/v2"`.
+* add a call to `withAudience` and pass the audience for the Auth0 Management API: `"https://${account.namespace}/api/v2/"`.
 
 ```kotlin
 WebAuthProvider.login(account)
@@ -52,7 +52,7 @@ In the case of the Auth0 Management API, the `read:current_user` and `update:cur
 In addition, in the case of the Auth0 Management API, the audience is `https://${account.namespace}/api/v2/`. In the case of your APIs, you create an _Identifier_ value that serves as the _Audience_ value whenever you [set up an API](https://auth0.com/docs/getting-started/set-up-api) with Auth0.
 :::
 
-Once you have a `UserProfile` instance (retrived by calling `userInfo` from the previous chapter), get the user's ID and then use the `UsersAPIClient` to get the full profile for the user in another `UserProfile` instance. This profile will include all of the user profile information, as well as additional fields such as `user_metadata` and `app_metadata`.
+Once you have a `UserProfile` instance (retrieved by calling `userInfo` from the previous chapter), get the user's ID and then use the `UsersAPIClient` to get the full profile for the user in another `UserProfile` instance. This profile will include all of the previous user profile information, as well as additional fields such as `user_metadata` and `app_metadata`.
 
 :::note
 Fields such as `user_metadata` and `app_metadata` are not available on the user profile that is returned by calling `userInfo`, as these fields are proprietary fields to Auth0 and not part of the OIDC spec. You must call the [Auth0 Management API](https://auth0.com/docs/users/manage-user-metadata#management-api) to get these fields, which is what you are doing by using the `UsersAPIClient` in the snippet below.
@@ -76,7 +76,7 @@ profile?.getId()?.let { userId ->
 
             override fun onSuccess(profile: UserProfile?) {
                 // Retrieve the "country" field, if one appears in the metadata
-                val country = profile?.getUserMetadata()?.get("country") as String? ?: ""
+                val country: String? = profile?.getUserMetadata()?.get("country")
             }
         })
 }
