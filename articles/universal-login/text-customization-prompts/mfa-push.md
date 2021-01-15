@@ -61,31 +61,6 @@
 |We couldn't send the notification. Please try again later.|`mfa-push-challenge-authenticator-error`|
 |Notification rejected|`transaction-rejected`|
 
-## Screen: mfa-push-challenge-code
-
-<p style="text-align: center;">
-  <img alt="mfa-push-challenge-code reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-push-challenge-code" src="/media/articles/universal-login/text-customization/mfa-push-challenge-code.png" style="width: 400px;"/>
-</p>
-
-|Text|Key|
-|----------|----------|
-|Log in to <%= "${clientName}" %>|`pageTitle`|
-|Back|`backText`|
-|Continue|`buttonText`|
-|Enter the one-time code found at the bottom of the <%= "${appName}" %> app.|`description`|
-|Try another method|`pickAuthenticatorText`|
-|Enter the one-time code|`placeholder`|
-|Remember this device for 30 days|`rememberMeText`|
-|Verify Your Identity|`title`|
-|<%= "${companyName}" %>|`logoAltText`|
-|OTP Code must have 6 numeric characters|`invalid-otp-code-format`|
-|The code you entered is invalid|`invalid-code`|
-|Invalid or expired user code|`invalid-expired-code`|
-|We couldn't verify the code. Please try again later.|`authenticator-error`|
-|Notification was not sent. Try resending the code.|`no-transaction-in-progress`|
-|Too many failed codes. Wait for some minutes before retrying.|`too-many-failures`|
-|Your enrollment transaction expired, you will need to start again.|`transaction-not-found`|
-|We couldn't verify the enrollment. Please try again later.|`mfa-push-verify-authenticator-error`|
 
 ## Screen: mfa-push-list
 
