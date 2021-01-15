@@ -29,15 +29,20 @@ As an example of using the SDK to call APIs that may require custom scopes and a
 
 In [the previous chapter](/quickstart/native/android-vnext/00-login#show-user-profile-information), you saw how to access [basic user profile information](https://auth0.com/docs/users/user-profiles) using the `/userinfo` endpoint. This profile information may not include everything about a user that you might need. For example, in order to access the user's metadata, you must make an API call to the Management API using the user ID and the access token. With the Android SDK, this is done using the `UsersAPIClient` object.
 
-To be able to correctly read and update the user metadata, ensure the authorization server allows you to read and edit the current user profile by specifying the `profile email read:current_user update:current_user_metadata` scopes. In addition, specify the audience for the Auth0 Management API, which happens to include the User Info audience as well.
+To be able to correctly read and update the user metadata, ensure the authorization server allows you to read and edit the current user profile by specifying the `profile email read:current_user update:current_user_metadata` scopes. In addition, specify the audience for the [Auth0 Management API](https://auth0.com/docs/api), which happens to include the User Info audience as well.
 
-Find the code in your project that initializes the `WebAuthProvider` class, and amend the argument given to `withScope` to be `"openid profile email offline_access read:current_user update:current_user_metadata"`. Finally, add a call to `withAudience` and pass the audience for the Auth0 Management API: `"https://${account.namespace}/api/v2"`.
+Find the code in your project that initializes the `WebAuthProvider` class, and make the following changes if necessary:
+
+* amend the argument given to `withScope` to be `"openid profile email offline_access read:current_user update:current_user_metadata"`
+* add a call to `withAudience` and pass the audience for the Auth0 Management API: `"https://${account.namespace}/api/v2"`.
 
 ```kotlin
 WebAuthProvider.login(account)
   .withScheme("demo")
-  .withScope("openid profile email read:current_user update:current_user_metadata")     // modify the scopes
-  .withAudience("https://${account.namespace}/api/v2/")                                 // specify the audience for the Auth0 Management API
+  // modify the scopes to enable read and write of user_metadata
+  .withScope("openid profile email read:current_user update:current_user_metadata")
+  // specify the audience for the Auth0 Management API  
+  .withAudience("https://${account.namespace}/api/v2/")
   .start(this, /* .. callback .. */)
 ```
 
@@ -99,7 +104,7 @@ profile?.getId()?.let { userId ->
     // In this case, we're adding/updating a custom "country" field
     val metadata = mapOf("country" to "United States")
 
-    // Call updateUserMetadata with the id of the user to update, and the map of data
+    // Call updateMetadata with the id of the user to update, and the map of data
     usersClient.updateMetadata(userId, metadata)
       .start(object: Callback<UserProfile, ManagementException> {
           override fun onFailure(exception: ManagementException) {

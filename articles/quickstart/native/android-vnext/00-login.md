@@ -232,5 +232,5 @@ private fun showUserProfile(credentials: Credentials?) {
 ```
 
 :::panel Checkpoint
-Call the `showUserProfile` function after login and verify that the user's profile information is displayed on the screen.
+Call the `showUserProfile` function after login and verify that the user's profile information has been returned in the `onSuccess` callback.
 :::
