@@ -82,7 +82,7 @@
   "connection": {
     "title": "Connection",
     "definition": "The relationship between Auth0 and the sources of users for your applications. Examples include identity providers (such as Google or Active Directory), passwordless authentication methods, or user databases.",
-    "short": "The relationship between Auth0 and the sources of users for your applications. "
+    "short": "The relationship between Auth0 and the sources of users for your applications."
   },
   "deprecation": {
     "title": "Deprecation",
