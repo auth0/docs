@@ -125,7 +125,7 @@
     "short": "A product release stage during which the referemced feature or behavior is fully functional and available to all subscribers (limited by pricing tier) for production use. If a new release replaces an existing feature, Auth0 provides a period of backward compatibility in accordance with our deprecation policy and informs customers so they have time to adopt the new release."
   },
   "group": {
-    "title": "General Availability",
+    "title": "Group",
     "definition": "A set of one or more users. In the Auth0 Authorization Extension, use groups to grant access to many users at a time.",
     "short": "A set of one or more users. In the Auth0 Authorization Extension, use groups to grant access to many users at a time."
   },
