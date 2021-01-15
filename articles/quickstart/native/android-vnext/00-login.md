@@ -138,20 +138,14 @@ private fun loginWithBrowser() {
         .start(this, object : Callback<Credentials, AuthenticationException> {
             // Called when there is an authentication failure
             override fun onFailure(exception: AuthenticationException) {
-                Snackbar.make(
-                    binding.root,
-                    "Failure: <%= "${exception.getcode()}" %>",
-                    Snackbar.LENGTH_LONG
-                ).show()
+                // Something went wrong!
             }
 
             // Called when authentication completed successfully
             override fun onSuccess(credentials: Credentials?) {
-              Snackbar.make(
-                  binding.root,
-                  "Success: <%= "${credentials?.idToken}" %>",
-                  Snackbar.LENGTH_LONG
-              ).show()
+              // Get the access token from the credentials object.
+              // This can be used to call APIs
+              val accessToken = credentials?.accessToken
             }
         })
 }
@@ -189,11 +183,7 @@ private fun logout() {
       }
 
       override fun onFailure(error: AuthenticationException) {
-        Snackbar.make(
-                binding.root,
-                "Failure: <%= "${error.message}" %>",
-                Snackbar.LENGTH_LONG
-        ).show()
+        // Something went wrong!
       }
     })
 }
@@ -229,21 +219,13 @@ private fun showUserProfile(credentials: Credentials?) {
         client.userInfo(accessToken)
             .start(object : Callback<UserProfile, AuthenticationException> {
                 override fun onFailure(exception: AuthenticationException) {
-                    Snackbar.make(
-                        binding.root,
-                        "Failure: <%= "${exception.getCode()}" %>",
-                        Snackbar.LENGTH_LONG
-                    ).show()
+                    // Something went wrong!
                 }
 
                 override fun onSuccess(profile: UserProfile?) {
                   // We have the user's profile!
-                  Snackbar.make(
-                    binding.root,
-                    "Name: <%= "${profile?.name}" %>\n" +
-                      "Email: <%= "${profile?.email}" %>",
-                    Snackbar.LENGTH_LONG
-                  ).show()
+                  val email = profile?.email
+                  val name = profile?.name
                 }
     })}
 }
