@@ -76,7 +76,7 @@ fun getUserMetadata(userId: String, accessToken: String) {
 
       override fun onSuccess(profile: UserProfile?) {
           // Retrieve the "country" field, if one appears in the metadata
-          val country = profile!!.getUserMetadata()["country"] as String? ?: ""
+          val country = profile!!.getUserMetadata()["country"] as String?
       }
   })
 }
@@ -114,7 +114,7 @@ fun patchUserMetadata(userId: String, accessToken: String) {
       override fun onSuccess(profile: UserProfile?) {
           // The metadata was updated and we're given the updated user profile.
           // Retrieve the "country" field, if one appears in the metadata
-          val country = profile!!.getUserMetadata()["country"] as String
+          val country = profile!!.getUserMetadata()["country"] as String?
       }
   })
 }
