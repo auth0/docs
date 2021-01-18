@@ -61,24 +61,24 @@ Fields such as `user_metadata` and `app_metadata` are not available on the user 
 The metadata can then be retrieved by using the `getUserMetadata` method on the `UserProfile` object.
 
 ```kotlin
-// Get the user ID and call the full getUser Management API endpoint, to retrieve the full profile information
-profile?.getId()?.let { userId ->
-    // Create the user API client using the account details and the access token from Credentials
-    val usersClient = UsersAPIClient(account, accessToken)
+fun getUserMetadata(userId: String, accessToken: String) {
+  // Get the user ID and call the full getUser Management API endpoint, to retrieve the full profile information
+  // Create the user API client using the account details and the access token from Credentials
+  val usersClient = UsersAPIClient(account, accessToken)
 
-    // Get the full user profile
-    usersClient
-        .getProfile(userId)
-        .start(object: Callback<UserProfile, ManagementException> {
-            override fun onFailure(exception: ManagementException) {
-                // Something went wrong!
-            }
+  // Get the full user profile
+  usersClient
+    .getProfile(userId)
+    .start(object: Callback<UserProfile, ManagementException> {
+      override fun onFailure(exception: ManagementException) {
+          // Something went wrong!
+      }
 
-            override fun onSuccess(profile: UserProfile?) {
-                // Retrieve the "country" field, if one appears in the metadata
-                val country: String? = profile?.getUserMetadata()?.get("country")
-            }
-        })
+      override fun onSuccess(profile: UserProfile?) {
+          // Retrieve the "country" field, if one appears in the metadata
+          val country = profile!!.getUserMetadata()["country"] as String
+      }
+  })
 }
 ```
 
@@ -95,28 +95,28 @@ Add the above code to your application at the point where you already get the ba
 Updating user metadata is done in a very similar fashion. Call the `updateMetadata` method on the `UsersAPIClient` object to update the metadata for a specific user. You must also supply a map of data that is used to update the user metadata with.
 
 ```kotlin
-profile?.getId()?.let { userId ->
-    // Create the UsersAPIClient with the account details
-    // and the access token from the Credentials object
-    val usersClient = UsersAPIClient(account, accessToken)
+fun patchUserMetadata(userId: String, accessToken: String) {
+  // Create the UsersAPIClient with the account details
+  // and the access token from the Credentials object
+  val usersClient = UsersAPIClient(account, accessToken)
 
-    // Create a map of data to update the user metadata with.
-    // In this case, we're adding/updating a custom "country" field
-    val metadata = mapOf("country" to "United States")
+  // Create a map of data to update the user metadata with.
+  // In this case, we're adding/updating a custom "country" field
+  val metadata = mapOf("country" to "United States")
 
-    // Call updateMetadata with the id of the user to update, and the map of data
-    usersClient.updateMetadata(userId, metadata)
-      .start(object: Callback<UserProfile, ManagementException> {
-          override fun onFailure(exception: ManagementException) {
-              // Something went wrong!
-          }
+  // Call updateMetadata with the id of the user to update, and the map of data
+  usersClient.updateMetadata(userId, metadata)
+    .start(object: Callback<UserProfile, ManagementException> {
+      override fun onFailure(exception: ManagementException) {
+          // Something went wrong!
+      }
 
-          override fun onSuccess(profile: UserProfile?) {
-              // The metadata was updated and we're given the updated user profile.
-              // Retrieve the "country" field, if one appears in the metadata
-              val country: String? = profile?.getUserMetadata()?.get("country")
-          }
-      })
+      override fun onSuccess(profile: UserProfile?) {
+          // The metadata was updated and we're given the updated user profile.
+          // Retrieve the "country" field, if one appears in the metadata
+          val country = profile!!.getUserMetadata()["country"] as String
+      }
+  })
 }
 ```
 

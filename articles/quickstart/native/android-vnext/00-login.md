@@ -145,7 +145,7 @@ private fun loginWithBrowser() {
             override fun onSuccess(credentials: Credentials?) {
               // Get the access token from the credentials object.
               // This can be used to call APIs
-              val accessToken = credentials?.accessToken
+              val accessToken = credentials!!.accessToken!!
             }
         })
 }
@@ -211,23 +211,22 @@ This quickstart sets the `openid profile email` scopes by default during the log
 The following demonstrates a function that can be used to retrieve the user's profile and show it on the screen:
 
 ```kotlin
-private fun showUserProfile(credentials: Credentials?) {
-    var client = AuthenticationAPIClient(account)
+private fun showUserProfile(credentials: Credentials) {
+  var client = AuthenticationAPIClient(account)
 
-    // If an access token is available, call `userInfo` and get the profile from Auth0
-    credentials?.accessToken?.let { accessToken ->
-        client.userInfo(accessToken)
-            .start(object : Callback<UserProfile, AuthenticationException> {
-                override fun onFailure(exception: AuthenticationException) {
-                    // Something went wrong!
-                }
+  // If an access token is available, call `userInfo` and get the profile from Auth0.
+  client.userInfo(credentials.accessToken!!)
+    .start(object : Callback<UserProfile, AuthenticationException> {
+        override fun onFailure(exception: AuthenticationException) {
+            // Something went wrong!
+        }
 
-                override fun onSuccess(profile: UserProfile?) {
-                  // We have the user's profile!
-                  val email = profile?.email
-                  val name = profile?.name
-                }
-    })}
+        override fun onSuccess(profile: UserProfile?) {
+          // We have the user's profile!
+          val email = profile!!.email
+          val name = profile!!.name
+        }
+  })
 }
 ```
 
