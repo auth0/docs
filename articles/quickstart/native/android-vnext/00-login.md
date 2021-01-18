@@ -1,6 +1,6 @@
 ---
 title: Login
-description: This tutorial demonstrates how to add user login to an Android application using Auth0.
+description: This quickstart demonstrates how to add user login to an Android application using Auth0.
 seo_alias: android
 budicon: 448
 topics:
@@ -138,20 +138,14 @@ private fun loginWithBrowser() {
         .start(this, object : Callback<Credentials, AuthenticationException> {
             // Called when there is an authentication failure
             override fun onFailure(exception: AuthenticationException) {
-                Snackbar.make(
-                    binding.root,
-                    "Failure: <%= "${exception.getcode()}" %>",
-                    Snackbar.LENGTH_LONG
-                ).show()
+                // Something went wrong!
             }
 
             // Called when authentication completed successfully
             override fun onSuccess(credentials: Credentials?) {
-              Snackbar.make(
-                  binding.root,
-                  "Success: <%= "${credentials?.idToken}" %>",
-                  Snackbar.LENGTH_LONG
-              ).show()
+              // Get the access token from the credentials object.
+              // This can be used to call APIs
+              val accessToken = credentials!!.accessToken!!
             }
         })
 }
@@ -189,11 +183,7 @@ private fun logout() {
       }
 
       override fun onFailure(error: AuthenticationException) {
-        Snackbar.make(
-                binding.root,
-                "Failure: <%= "${error.message}" %>",
-                Snackbar.LENGTH_LONG
-        ).show()
+        // Something went wrong!
       }
     })
 }
@@ -221,34 +211,25 @@ This quickstart sets the `openid profile email` scopes by default during the log
 The following demonstrates a function that can be used to retrieve the user's profile and show it on the screen:
 
 ```kotlin
-private fun showUserProfile(credentials: Credentials?) {
-    var client = AuthenticationAPIClient(account)
+private fun showUserProfile(accessToken: String) {
+  var client = AuthenticationAPIClient(account)
 
-    // If an access token is available, call `userInfo` and get the profile from Auth0
-    credentials?.accessToken?.let {
-        client.userInfo(it)
-            .start(object : Callback<UserProfile, AuthenticationException> {
-                override fun onFailure(error: AuthenticationException) {
-                    Snackbar.make(
-                        binding.root,
-                        "Failure: <%= "${error.getCode()}" %>",
-                        Snackbar.LENGTH_LONG
-                    ).show()
-                }
+  // If an access token is available, call `userInfo` and get the profile from Auth0.
+  client.userInfo(accessToken)
+    .start(object : Callback<UserProfile, AuthenticationException> {
+        override fun onFailure(exception: AuthenticationException) {
+            // Something went wrong!
+        }
 
-                override fun onSuccess(payload: UserProfile?) {
-                  // We have the user's profile!
-                  Snackbar.make(
-                    binding.root,
-                    "Name: <%= "${payload?.name}" %>\n" +
-                      "Email: <%= "${payload?.email}" %>",
-                    Snackbar.LENGTH_LONG
-                  ).show()
-                }
-    })}
+        override fun onSuccess(profile: UserProfile?) {
+          // We have the user's profile!
+          val email = profile!!.email
+          val name = profile!!.name
+        }
+  })
 }
 ```
 
 :::panel Checkpoint
-Call the `showUserProfile` function after login and verify that the user's profile information is displayed on the screen.
+Call the `showUserProfile` function after login and verify that the user's profile information has been returned in the `onSuccess` callback.
 :::
