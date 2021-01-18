@@ -211,11 +211,11 @@ This quickstart sets the `openid profile email` scopes by default during the log
 The following demonstrates a function that can be used to retrieve the user's profile and show it on the screen:
 
 ```kotlin
-private fun showUserProfile(credentials: Credentials) {
+private fun showUserProfile(accessToken: String) {
   var client = AuthenticationAPIClient(account)
 
   // If an access token is available, call `userInfo` and get the profile from Auth0.
-  client.userInfo(credentials.accessToken!!)
+  client.userInfo(accessToken)
     .start(object : Callback<UserProfile, AuthenticationException> {
         override fun onFailure(exception: AuthenticationException) {
             // Something went wrong!
