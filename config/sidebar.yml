@@ -156,33 +156,33 @@ articles:
             url: /extensions/deploy-cli-tool/troubleshoot-the-deploy-cli-tool
             hidden: true
       - title: Private Cloud Options
-        url: /private-cloud
+        url: /deploy/private-cloud
         children:
           - title: Onboarding
-            url: /private-cloud/private-cloud-onboarding
+            url: /deploy/private-cloud/private-cloud-onboarding
             children:
               - title: Infrastructure Requirements
-                url: /private-cloud/private-cloud-onboarding/customer-hosted-managed-private-cloud-infrastructure-requirements
+                url: /deploy/private-cloud/private-cloud-onboarding/customer-hosted-managed-private-cloud-infrastructure-requirements
                 hidden: true 
               - title: IP/Domain and Port List
-                url: /private-cloud/private-cloud-onboarding/private-cloud-ip-domain-and-port-list
+                url: /deploy/private-cloud/private-cloud-onboarding/private-cloud-ip-domain-and-port-list
                 hidden: true 
               - title: Remote Access Options
-                url: /private-cloud/private-cloud-onboarding/private-cloud-remote-access-options
+                url: /deploy/private-cloud/private-cloud-onboarding/private-cloud-remote-access-options
                 hidden: true 
           - title: Operations
-            url: /private-cloud/private-cloud-operations
+            url: /deploy/private-cloud/private-cloud-operations
           - title: Migrations
-            url: /private-cloud/private-cloud-migrations
+            url: /deploy/private-cloud/private-cloud-migrations
             children:
               - title: Public to Private
-                url: /private-cloud/private-cloud-migrations/migrate-from-public-cloud-to-private-cloud
+                url: /deploy/private-cloud/private-cloud-migrations/migrate-from-public-cloud-to-private-cloud
                 hidden: true 
               - title: Performance to Performance Plus
-                url: /private-cloud/private-cloud-migrations/migrate-from-standard-private-cloud-to-managed-private-cloud
+                url: /deploy/private-cloud/private-cloud-migrations/migrate-from-standard-private-cloud-to-managed-private-cloud
                 hidden: true 
               - title: Custom Domains
-                url: /private-cloud/private-cloud-migrations/migrate-private-cloud-custom-domains
+                url: /deploy/private-cloud/private-cloud-migrations/migrate-private-cloud-custom-domains
                 hidden: true 
   - title: Login
     url: /login

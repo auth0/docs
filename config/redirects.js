@@ -1338,7 +1338,52 @@ module.exports = [
     to: '/custom-domains/configure-custom-domains-with-self-managed-certificates/configure-aws-cloudfront-for-use-as-reverse-proxy'
   },
 
+  /* Deploy */
   
+  {
+    from: ['/get-started/deployment-options', '/getting-started/deployment-models','/overview/deployment-models','/deployment'],
+    to: '/deploy'
+  },
+  {
+    from: ['/private-cloud'],
+    to: '/deploy/private-cloud'
+  },
+  {
+    from: ['/private-cloud/private-cloud-onboarding'],
+    to: '/deploy/private-cloud/private-cloud-onboarding'
+  },
+  {
+    from: ['/private-cloud/private-cloud-onboarding/customer-hosted-managed-private-cloud-infrastructure-requirements'],
+    to: '/deploy/private-cloud/private-cloud-onboarding/customer-hosted-managed-private-cloud-infrastructure-requirements'
+  },
+  {
+    from: ['/private-cloud/private-cloud-onboarding/private-cloud-ip-domain-and-port-list'],
+    to: '/deploy/private-cloud/private-cloud-onboarding/private-cloud-ip-domain-and-port-list'
+  },
+  {
+    from: ['/private-cloud/private-cloud-onboarding/private-cloud-remote-access-options'],
+    to: '/deploy/private-cloud/private-cloud-onboarding/private-cloud-remote-access-options'
+  },
+  {
+    from: ['/private-cloud/private-cloud-operations'],
+    to: '/deploy/private-cloud/private-cloud-operations'
+  },
+  {
+    from: ['/private-cloud/private-cloud-migrations'],
+    to: '/deploy/private-cloud/private-cloud-migrations'
+  },
+  {
+    from: ['/private-cloud/private-cloud-migrations/migrate-from-public-cloud-to-private-cloud'],
+    to: '/deploy/private-cloud/private-cloud-migrations/migrate-from-public-cloud-to-private-cloud'
+  },
+  {
+    from: ['/private-cloud/private-cloud-migrations/migrate-from-standard-private-cloud-to-managed-private-cloud'],
+    to: '/private-cloud/private-cloud-migrations/migrate-from-standard-private-cloud-to-managed-private-cloud'
+  },
+  {
+    from: ['/private-cloud/private-cloud-migrations/migrate-private-cloud-custom-domains'],
+    to: '/deploy/private-cloud/private-cloud-migrations/migrate-private-cloud-custom-domains'
+  },
 
   /* Dev Lifecycle */
 
@@ -1715,10 +1760,6 @@ module.exports = [
   {
     from: ['/getting-started/set-up-api','/dashboard/reference/views-api'],
     to: '/get-started/set-up-apis'
-  },
-  {
-    from: ['/getting-started/deployment-models','/overview/deployment-models','/deployment'],
-    to: '/get-started/deployment-options'
   },
   {
     from: ['/dashboard','/getting-started/dashboard-overview'],
