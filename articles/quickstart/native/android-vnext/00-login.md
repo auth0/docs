@@ -43,7 +43,7 @@ android {
 }
 dependencies {
   // Add the Auth0 Android SDK
-  implementation 'com.auth0.android:auth0:2.+'
+implementation 'com.auth0.android:auth0:2.0.0-beta.0'
 }
 ```
 
