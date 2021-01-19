@@ -1365,7 +1365,7 @@ module.exports = [
     to: '/deploy/private-cloud/private-cloud-onboarding/private-cloud-remote-access-options'
   },
   {
-    from: ['/private-cloud/private-cloud-onboarding/standard-private-cloud-infrastructure-requirements','/private-saas-deployment/private-cloud','/private-cloud/standard-private-cloud', '/private-cloud/private-cloud-onboarding/customer-hosted-managed-private-cloud-infrastructure-requirements', '/private-saas-deployment/onboarding/managed-private-cloud/infrastructure','/private-cloud/onboarding/managed-private-cloud/infrastructure','/private-saas-deployment/managed-private-cloud','/private-cloud/onboarding/managed-private-cloud','/private-saas-deployment/onboarding/managed-private-cloud','/private-cloud/onboarding/managed-private-cloud','/appliance/infrastructure','/appliance/infrastructure/security'], 
+    from: ['/private-cloud/private-cloud-onboarding/standard-private-cloud-infrastructure-requirements','/private-saas-deployment/private-cloud','/private-cloud/standard-private-cloud','/private-saas-deployment/onboarding/managed-private-cloud/infrastructure','/private-cloud/onboarding/managed-private-cloud/infrastructure','/private-saas-deployment/managed-private-cloud','/private-cloud/onboarding/managed-private-cloud','/private-saas-deployment/onboarding/managed-private-cloud','/private-cloud/onboarding/managed-private-cloud','/appliance/infrastructure','/appliance/infrastructure/security'], 
     to: '/deploy/private-cloud/private-cloud-onboarding/standard-private-cloud-infrastructure-requirements'
   },
   {
