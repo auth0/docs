@@ -155,7 +155,7 @@ articles:
           - title: Troubleshoot Deploy CLI
             url: /extensions/deploy-cli-tool/troubleshoot-the-deploy-cli-tool
             hidden: true
-      - title: Private Cloud Options
+      - title: Private Cloud  Options
         url: /deploy/private-cloud
         children:
           - title: Onboarding
