@@ -242,6 +242,27 @@ articles:
             url: /logout/log-users-out-of-saml-idps
           - title: Redirect After Logout
             url: /logout/redirect-users-after-logout
+      - title: Adopt OIDC Conformant Authentication
+        url: /login/adopt-oidc-conformant-authentication
+        children:
+          - title: APIs
+            url: /login/adopt-oidc-conformant-authentication/oidc-adoption-apis
+          - title: Access Tokens
+            url: /login/adopt-oidc-conformant-authentication/oidc-adoption-access-tokens
+          - title: Authorization Code Flow
+            url: /login/adopt-oidc-conformant-authentication/oidc-adoption-auth-code-flow
+          - title: Client Credentials Flow
+            url: /login/adopt-oidc-conformant-authentication/oidc-adoption-client-credentials-flow
+          - title: Delegation
+            url: /login/adopt-oidc-conformant-authentication/oidc-adoption-delegation
+          - title: Implicit Flow
+            url: /login/adopt-oidc-conformant-authentication/oidc-adoption-implicit-flow
+          - title: Refresh Tokens
+            url: /login/adopt-oidc-conformant-authentication/oidc-adoption-refresh-tokens
+          - title: Resource Owner Password Flow
+            url: /login/adopt-oidc-conformant-authentication/oidc-adoption-rop-flow
+          - title: Single Sign-On
+            url: /login/adopt-oidc-conformant-authentication/oidc-adoption-sso
   - title: Connections
     url: /connections
     children:
