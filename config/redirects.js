@@ -1345,11 +1345,11 @@ module.exports = [
     to: '/deploy'
   },
   {
-    from: ['/private-cloud'],
+    from: ['/private-cloud/private-cloud-deployments/private-cloud-addon-options','/private-saas-deployment/add-ons','/private-cloud/add-ons','/appliance/infrastructure/internet-restricted-deployment','/private-saas-deployment','/private-cloud/managed-private-cloud','/private-cloud','/appliance','/appliance/checksum','/appliance/proxy-updater','/appliance/update','/updating-appliance','/enterprise/private-cloud/overview','/appliance/dashboard/instrumentation','/appliance/instrumentation','/appliance/appliance-overview'],
     to: '/deploy/private-cloud'
   },
   {
-    from: ['/private-cloud/private-cloud-onboarding'],
+    from: ['/services/private-cloud-configuration','/services/private-saas-configuration','/private-saas-deployment/onboarding','/private-saas-deployment/onboarding/private-cloud','/private-cloud/onboarding','/private-cloud/onboarding/private-cloud','/enterprise-support','/onboarding/appliance-outage','/onboarding/enterprise-support','/private-cloud/managed-private-cloud/zones','/private-cloud/managed-private-cloud/raci', '/private-cloud/private-cloud-onboarding'],
     to: '/deploy/private-cloud/private-cloud-onboarding'
   },
   {
@@ -1357,15 +1357,19 @@ module.exports = [
     to: '/deploy/private-cloud/private-cloud-onboarding/customer-hosted-managed-private-cloud-infrastructure-requirements'
   },
   {
-    from: ['/private-cloud/private-cloud-onboarding/private-cloud-ip-domain-and-port-list'],
+    from: ['/private-cloud/private-cloud-onboarding/private-cloud-ip-domain-and-port-list','/private-saas-deployment/onboarding/managed-private-cloud/ip-domain-port-list','/private-cloud/onboarding/managed-private-cloud/ip-domain-port-list', '/appliance/infrastructure/ip-domain-port-list'],
     to: '/deploy/private-cloud/private-cloud-onboarding/private-cloud-ip-domain-and-port-list'
   },
   {
-    from: ['/private-cloud/private-cloud-onboarding/private-cloud-remote-access-options'],
+    from: ['/private-cloud/private-cloud-onboarding/private-cloud-remote-access-options','/private-cloud/onboarding/managed-private-cloud/remote-access-options','/private-cloud/private-cloud-onboarding/private-cloud-remote-access-options'],
     to: '/deploy/private-cloud/private-cloud-onboarding/private-cloud-remote-access-options'
   },
   {
-    from: ['/private-cloud/private-cloud-operations'],
+    from: ['/private-cloud/private-cloud-onboarding/standard-private-cloud-infrastructure-requirements','/private-saas-deployment/private-cloud','/private-cloud/standard-private-cloud', '/private-cloud/private-cloud-onboarding/customer-hosted-managed-private-cloud-infrastructure-requirements', '/private-saas-deployment/onboarding/managed-private-cloud/infrastructure','/private-cloud/onboarding/managed-private-cloud/infrastructure','/private-saas-deployment/managed-private-cloud','/private-cloud/onboarding/managed-private-cloud','/private-saas-deployment/onboarding/managed-private-cloud','/private-cloud/onboarding/managed-private-cloud','/appliance/infrastructure','/appliance/infrastructure/security'], 
+    to: '/deploy/private-cloud/private-cloud-onboarding/standard-private-cloud-infrastructure-requirements'
+  },
+  {
+    from: ['/private-cloud/private-cloud-operations','/services/private-saas-management','/services/private-cloud-management'],
     to: '/deploy/private-cloud/private-cloud-operations'
   },
   {
@@ -1378,11 +1382,31 @@ module.exports = [
   },
   {
     from: ['/private-cloud/private-cloud-migrations/migrate-from-standard-private-cloud-to-managed-private-cloud'],
-    to: '/private-cloud/private-cloud-migrations/migrate-from-standard-private-cloud-to-managed-private-cloud'
+    to: '/deploy/private-cloud/private-cloud-migrations/migrate-from-standard-private-cloud-to-managed-private-cloud'
   },
   {
-    from: ['/private-cloud/private-cloud-migrations/migrate-private-cloud-custom-domains'],
+    from: ['/private-cloud/private-cloud-migrations/migrate-private-cloud-custom-domains','/appliance/custom-domains','/private-saas-deployment/custom-domain-migration','/private-cloud/custom-domain-migration','/private-cloud/migrate-private-cloud-custom-domains'], 
     to: '/deploy/private-cloud/private-cloud-migrations/migrate-private-cloud-custom-domains'
+  },
+  {
+    from: ['/pre-deployment/how-to-run-production-checks','/pre-deployment/how-to-run-test'],
+    to: '/deploy/pre-deployment/how-to-run-production-checks'
+  },
+  {
+      from: ['/pre-deployment/pre-launch-tips','/pre-deployment/prelaunch-tips'],
+      to: '/deploy/pre-deployment/pre-launch-tips'
+  },
+  {
+      from: ['/pre-deployment/how-to-run-production-checks/production-checks-best-practices','/pre-deployment/tests/best-practice'],
+      to: '/deploy/pre-deployment/how-to-run-production-checks/production-checks-best-practices'
+  },
+  {
+      from: ['/pre-deployment/how-to-run-production-checks/production-check-recommended-fixes','/pre-deployment/tests/recommended'],
+      to: '/deploy/pre-deployment/how-to-run-production-checks/production-check-recommended-fixes'
+  },
+  {
+      from: ['/pre-deployment/how-to-run-production-checks/production-check-required-fixes','/pre-deployment/tests/required'],
+      to: '/deploy/pre-deployment/how-to-run-production-checks/production-check-required-fixes'
   },
 
   /* Dev Lifecycle */
@@ -2816,69 +2840,6 @@ module.exports = [
     from: ['/policies/penetration-testing'],
     to: '/policies/penetration-testing-policy'
   },
-
-  /* Pre-deployment */
-
-  {
-    from: ['/pre-deployment/how-to-run-test'],
-    to: '/pre-deployment/how-to-run-production-checks'
-  },
-  {
-      from: ['/pre-deployment/prelaunch-tips'],
-      to: '/pre-deployment/pre-launch-tips'
-  },
-  {
-      from: ['/pre-deployment/tests/best-practice'],
-      to: '/pre-deployment/how-to-run-production-checks/production-checks-best-practices'
-  },
-  {
-      from: ['/pre-deployment/tests/recommended'],
-      to: '/pre-deployment/how-to-run-production-checks/production-check-recommended-fixes'
-  },
-  {
-      from: ['/pre-deployment/tests/required'],
-      to: '/pre-deployment/how-to-run-production-checks/production-check-required-fixes'
-  },
-
-  /* Private Cloud */
-
-  {
-    from: ['/appliance','/appliance/checksum','/appliance/proxy-updater','/appliance/update','/updating-appliance','/enterprise/private-cloud/overview','/appliance/dashboard/instrumentation','/appliance/instrumentation','/appliance/appliance-overview'],
-    to: '/private-cloud'
-  },
-  {
-    from: ['/services/private-cloud-configuration','/services/private-saas-configuration','/private-saas-deployment/onboarding','/private-saas-deployment/onboarding/private-cloud','/private-cloud/onboarding','/private-cloud/onboarding/private-cloud','/enterprise-support','/onboarding/appliance-outage','/onboarding/enterprise-support','/private-cloud/managed-private-cloud/zones','/private-cloud/managed-private-cloud/raci'], 
-    to: '/private-cloud/private-cloud-onboarding'
-  },
-  {
-    from: ['/private-saas-deployment/onboarding/managed-private-cloud/ip-domain-port-list','/private-cloud/onboarding/managed-private-cloud/ip-domain-port-list', '/appliance/infrastructure/ip-domain-port-list'],
-    to: '/private-cloud/private-cloud-onboarding/private-cloud-ip-domain-and-port-list'
-  },
-  {
-    from: ['/private-saas-deployment/private-cloud','/private-cloud/standard-private-cloud', '/private-cloud/private-cloud-onboarding/customer-hosted-managed-private-cloud-infrastructure-requirements', '/private-saas-deployment/onboarding/managed-private-cloud/infrastructure','/private-cloud/onboarding/managed-private-cloud/infrastructure','/private-saas-deployment/managed-private-cloud','/private-cloud/onboarding/managed-private-cloud','/private-saas-deployment/onboarding/managed-private-cloud','/private-cloud/onboarding/managed-private-cloud','/appliance/infrastructure','/appliance/infrastructure/security'], 
-    to: '/private-cloud/private-cloud-onboarding/standard-private-cloud-infrastructure-requirements'
-  },
-  {
-    from: ['/appliance/infrastructure/internet-restricted-deployment','/private-saas-deployment','/private-cloud/managed-private-cloud',], 
-    to: '/private-cloud/private-cloud-deployments'
-  },
-  {
-    from: ['/private-saas-deployment/add-ons','/private-cloud/add-ons'], 
-    to: '/private-cloud/private-cloud-deployments/private-cloud-addon-options'
-  },
-  {
-    from: ['/appliance/custom-domains','/private-saas-deployment/custom-domain-migration','/private-cloud/custom-domain-migration','/private-cloud/migrate-private-cloud-custom-domains'], 
-    to: '/private-cloud/private-cloud-migrations/migrate-private-cloud-custom-domains'
-  },
-  {
-    from: ['/services/private-saas-management','/services/private-cloud-management'],
-    to: '/private-cloud/private-cloud-operations'
-  },
-  {
-    from: ['/private-cloud/onboarding/managed-private-cloud/remote-access-options'],
-    to: '/private-cloud/private-cloud-onboarding/private-cloud-remote-access-options'
-  }, 
-
 
 
   /* Product-Lifecycle */
