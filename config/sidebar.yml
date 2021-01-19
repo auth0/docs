@@ -583,7 +583,7 @@ articles:
           - title: SSL (TLS) Versions and Ciphers
             url: /custom-domains/ssl-tls
             children:
-              - title: Cloudflare Reverse Proxy
+              - title: Custom Domains
                 url: /custom-domains/
               - title: Cloudflare Reverse Proxy
                 url: /custom-domains/configure-custom-domains-with-self-managed-certificates/configure-cloudflare-for-use-as-reverse-proxy
