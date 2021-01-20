@@ -140,7 +140,7 @@ These examples will show you the variety of ways you can create the [connection]
 }
 ```
 
-**Use Front Channel specifying issuer settings**
+**Use Back Channel specifying issuer settings**
 
 ```har
 {
@@ -163,7 +163,7 @@ These examples will show you the variety of ways you can create the [connection]
 }
 ```
 
-**Use Back Channel specifying issuer settings**
+**Use Front Channel specifying issuer settings**
 
 ```har
 {
