@@ -112,7 +112,7 @@ For general software-industry styles and terminology, see the [Microsoft Writing
 
 * Endpoint names should be capitalized when used in-text: Discovery endpoint, Authorization endpoint, Token endpoint.
 * Endpoints with names longer than one or two words should also be capitalized with the exception of prepositions and articles (i.e. with, to, the, a, an) such as Update a Hook endpoint.
-* Endpoint names denoted as a path should not be capitalized but should be in monospace font: `/authorize,` `/post_user_import`
+* Endpoint names denoted as a path should not be capitalized but should be in monospace font: `/authorize,` `/post_user_import,` `/clients.`
 
 | **Incorrect** | **Correct** |
 | --- | --- |
