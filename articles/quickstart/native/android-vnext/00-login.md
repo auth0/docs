@@ -37,13 +37,23 @@ Add the [Auth0 Android](https://github.com/auth0/Auth0.Android) SDK into your pr
 In your app's `build.gradle` dependencies section, add the following:
 
 ```groovy
-apply plugin: 'com.android.application'
-android {
-  // ...
-}
 dependencies {
   // Add the Auth0 Android SDK
-implementation 'com.auth0.android:auth0:2.0.0-beta.0'
+  implementation 'com.auth0.android:auth0:2.0.0-beta.0'
+}
+```
+
+In the android section, target Java 8 byte code for Android and Kotlin plugins respectively.
+
+```groovy
+android {
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+  kotlinOptions {
+    jvmTarget = '1.8'
+  }
 }
 ```
 
