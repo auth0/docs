@@ -20,7 +20,7 @@ The query string is parsed into a series of terms and operators:
 
 * A term can be a single word such as `jane` or `smith`.
 * A term can be a phrase surrounded by double quotes (`"customer log"`), which will match all words in the phrase in the same order.
-* A term without a field name will only match [these selected fields](/logs/query-syntax#fields-searchable-against-bare-terms) fields.
+* A term without a field name will only match [these selected fields](/logs/log-search-query-syntax#fields-searchable-against-bare-terms).
 * Multiple terms can be grouped together with parentheses to form sub-queries.
 * All search fields are case sensitive.
 * Operators (`AND`, `OR`, `NOT`) work on all searchable fields.
@@ -40,7 +40,7 @@ The following list of fields are searchable and case sensitive:
 * `user_name`: The user name related to the event.
 * `description`: The description of the event.
 * `user_agent`: The user agent that is related to the event.
-* `type`: One of the [possible event types](/logs#log-data-event-listing).
+* `type`: One of the [possible event types](/logs/log-event-type-codes).
 * `strategy`: The connection strategy related to the event.
 * `strategy_type`: The connection strategy type related to the event.
 * `hostname`: the hostname that is being used for the authentication flow.
@@ -116,7 +116,7 @@ When calling the [GET /api/v2/logs](/api/v2#!/Logs/get_logs) or [GET /api/v2/use
 }
 ```
 
-When searching for logs, the `totals` field tells you how many logs are returned in the page (similar to what the `length` field returns). 
+When searching for logs, the `totals` field tells you how many logs are returned in the page (similar to what the `length` field returns).
 
 ## Keep reading
 
