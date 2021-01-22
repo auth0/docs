@@ -33,23 +33,27 @@ You can integrate with Microsoft Azure Active Directory (AD) if you want to let 
 * From within your company use your application from an Azure AD controlled by you or your organization.
 * From other companies' Azure ADs use your application. (We recommend that you configure  external directories as different connections.)
 
-To connect your application to Azure AD, you must:
-
-1. [Register your app in the Azure portal](#register-your-app-in-the-azure-portal).
-2. [Create an enterprise connection in Auth0](#create-an-enterprise-connection-in-auth0).
-3. [Enable the enterprise connection for your Auth0 Application](#enable-the-enterprise-connection-for-your-auth0-application).
-4. [Test the connection](#test-the-connection).
+::: note
+Claims returned from the Azure AD enterprise connection are static; custom or optional claims will not appear in user profiles. If you need to include custom or optional claims in user profiles, use a SAML or OIDC connection instead.
+:::
 
 ## Prerequisites
 
-[Register your app with Auth0](/getting-started/set-up-app) 
-* Select an appropriate **Application Type**.
-* Add an **Allowed Callback URL** of **`${account.callback}`**.
-* Make sure your Application's **[Grant Types](/dashboard/guides/applications/update-grant-types)** include the appropriate flows.
+* [Register your app with Auth0](/getting-started/set-up-app) 
+  * Select an appropriate **Application Type**.
+  * Add an **Allowed Callback URL** of **`${account.callback}`**.
+  * Make sure your Application's **[Grant Types](/dashboard/guides/applications/update-grant-types)** include the appropriate flows.
+* Have an Azure account. If you don't, you can [sign up for free](https://azure.microsoft.com/en-us/free).
+* Have an Azure AD directory. If you don't, you can create one by following Microsoft's [Quickstart: Create a new tenant in Azure Active Directory - Create a new tenant for your organization](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-access-create-new-tenant#create-a-new-tenant-for-your-organization).
 
-## Register your app in the Azure portal
+## Steps
 
-To allow users to log in using a Azure AD account, you must register your application in the Microsoft Azure portal. If you don't have a Azure account, you can [sign up](https://azure.microsoft.com/en-us/free) for free; then create an Azure AD directory by following Microsoft's [Quickstart: Create a new tenant in Azure Active Directory - Create a new tenant for your organization](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-access-create-new-tenant#create-a-new-tenant-for-your-organization).
+To connect your application to Azure AD, you must:
+
+1. [Register your app with Azure AD](#register-your-app-with-azure-ad).
+2. [Create an enterprise connection in Auth0](#create-an-enterprise-connection-in-auth0).
+3. [Enable the enterprise connection for your Auth0 Application](#enable-the-enterprise-connection-for-your-auth0-application).
+4. [Test the connection](#test-the-connection).
 
 ### Register your app with Azure AD
 
@@ -70,7 +74,7 @@ During registration, configure the following settings:
 
 During this process, Microsoft generates an **Application (client) ID** for your application; you can find this on the app's **Overview** screen. **Make note of this value.**
 
-### Create a client secret
+#### Create a client secret
 
 To create a client secret, see Microsoft's [Quickstart: Configure a client application to access web APIs - Add Credentials to your web application](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app#add-credentials). 
 
@@ -80,7 +84,7 @@ Once generated, **make note of this value**.
 If you configure an expiring secret, make sure to **record the expiration date**; you will need to renew the key before that day to avoid a service interruption.
 :::
 
-### Add permissions
+#### Add permissions
 
 To add permissions, see Microsoft's [Quickstart: Configure a client application to access web APIs - Add permissions to access web APIs](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-access-web-apis#add-permissions-to-access-web-apis). 
 
@@ -101,7 +105,7 @@ If you want to enable extended attributes (such as *Extended Profile* or *Securi
 | **Delegated permissions** | Under **Directory**, select **Directory.AccessAsUser.All** so your app can access the directory as the signed-in user. |
 | **Application Permissions** | Under **Directory**, select **Directory.Read.All** so your app can read directory data. |
 
-## Create an enterprise connection in Auth0
+### Create an enterprise connection in Auth0
 
 Create and configure an Azure AD Enterprise Connection in Auth0. Make sure you have the **Application (client) ID** and the **Client secret** generated when you set up your app in the Microsoft Azure portal.
 
@@ -143,11 +147,11 @@ Create and configure an Azure AD Enterprise Connection in Auth0. Make sure you h
 
     You will be asked to [log in to your Azure AD account](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#requesting-consent-for-an-entire-tenant) and give consent. Otherwise, provide the given URL to your administrator so that they can give consent.
 
-## Enable the enterprise connection for your Auth0 application
+### Enable the enterprise connection for your Auth0 application
 
 To use your new Azure AD enterprise connection, you must first [enable the connection](/dashboard/guides/connections/enable-connections-enterprise) for your Auth0 Applications.
 
-## Test the connection
+### Test the connection
 
 Now you're ready to [test your connection](/dashboard/guides/connections/test-connections-enterprise).
 
