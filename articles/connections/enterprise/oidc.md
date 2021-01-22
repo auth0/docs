@@ -15,7 +15,7 @@ useCase:
     - customize-connections
     - add-idp
 ---
-# Connect to OpenID Connect Identity Provider
+# Connect to OpenID Connect Identity Provider 
 
 ::: warning
 If you are using the Lock login widget with an OpenID Connect (OIDC) connection, you must use Lock version 11.16 or higher.
