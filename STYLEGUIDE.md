@@ -110,6 +110,16 @@ For general software-industry styles and terminology, see the [Microsoft Writing
 | Mar. 15 | March 15 |
 | 15 March 2048 | March 15, 2048 |
 
+* Endpoint names should be capitalized when used in-text: Discovery endpoint, Authorization endpoint, Token endpoint.
+* Endpoints with names longer than one or two words should also be capitalized with the exception of prepositions and articles (i.e. with, to, the, a, an) such as Update a Hook endpoint.
+* Endpoint names denoted as a path should not be capitalized but should be in monospace font: `/authorize,` `/post_user_import,` `/clients.`
+
+| **Incorrect** | **Correct** |
+| --- | --- |
+| You will need to access the discovery endpoint. | You will need to access the Discovery endpoint.|
+| The get user endpoint allows you to search based on a variety of criteria. | The Get User endpoint allows you to search based on a variety of criteria. |
+| The POST /login/callback endpoint can accept a sing-on SAML request from an identity provider. | The POST '/login/callback' endpoint can accept a sing-on SAML request from an identity provider. |
+
 * Spell out whole numbers from zero to nine.
 * Write numerically numbers from 10 up and fractions.
 * Spell out any number that starts a sentence.
