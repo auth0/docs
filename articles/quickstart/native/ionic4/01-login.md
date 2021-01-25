@@ -146,7 +146,7 @@ ionic cordova plugin add cordova-plugin-customurlscheme --variable URL_SCHEME=YO
 ```
 
 Replace `YOUR_PACKAGE_ID` with your application's package name.
-Replace `YOUR_DOMAIN` with your application domain.
+Replace `YOUR_DOMAIN` with your application's domain.
 
 ## Integrate Auth0 in your Application
 
