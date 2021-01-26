@@ -1846,8 +1846,8 @@ module.exports = [
     to: '/get-started/dashboard/tenant-settings'
   },
   {
-    from: ['/dashboard/manage-dashboard-admins','/tutorials/manage-dashboard-admins','/get-started/dashboard/manage-dashboard-users'],
-    to: '/dashboard-access/manage-dashboard-users'
+    from: ['/dashboard-access/add-change-remove-mfa','/dashboard-access/dashboard-roles','/dashboard-access/manage-dashboard-users','/dashboard/manage-dashboard-admins','/tutorials/manage-dashboard-admins','/get-started/dashboard/manage-dashboard-users'],
+    to: '/dashboard-access'
   },
   {
     from: ['/dashboard/guides/applications/rotate-client-secret','/api/management/guides/applications/rotate-client-secret'],

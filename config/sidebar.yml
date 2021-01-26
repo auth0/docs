@@ -155,7 +155,7 @@ articles:
           - title: Troubleshoot Deploy CLI
             url: /extensions/deploy-cli-tool/troubleshoot-the-deploy-cli-tool
             hidden: true
-      - title: Private Cloud  Options
+      - title: Private Cloud Options
         url: /deploy/private-cloud
         children:
           - title: Onboarding
@@ -411,8 +411,8 @@ articles:
       - title: Tenant Configuration
         url: /dashboard/dashboard-tenant-settings
         children:
-          - title: Manage Tenant Administrators
-            url: /get-started/dashboard/manage-dashboard-users
+          - title: Manage Dashboard Access
+            url: /dashboard-access
           - title: Manage Signing Keys
             url: /tokens/manage-signing-keys
           - title: Configure Session Lifetime Settings
@@ -615,21 +615,14 @@ articles:
   - title: Manage Dashboard Access
     url: /dashboard-access
     children:
-      - title: Manage Administrators and Support Center Users
-        url: /dashboard-access/manage-dashboard-users
-      - title: Dashboard Roles Feature Preview (Beta)
-        url: /dashboard-access/dashboard-roles
-        children:
-          - title: Dashboard Access by Role
-            url: /dashboard-access/dashboard-roles/feature-access-by-role
-          - title: Add Dashboard Users
-            url: /dashboard-access/dashboard-roles/add-dashboard-users
-          - title: Edit Dashboard Users
-            url: /dashboard-access/dashboard-roles/edit-dashboard-users
-          - title: Remove Dashboard Users
-            url: /dashboard-access/dashboard-roles/remove-dashboard-users
-      - title: Manage Dashboard Access with Multi-factor Authentication
-        url: /dashboard-access/add-change-remove-mfa
+      - title: Dashboard Access by Role
+        url: /dashboard-access/dashboard-roles/feature-access-by-role
+      - title: Add Tenant Members
+        url: /dashboard-access/dashboard-roles/add-dashboard-users
+      - title: Edit Tenant Members
+        url: /dashboard-access/dashboard-roles/edit-dashboard-users
+      - title: Remove Tenant Members
+        url: /dashboard-access/dashboard-roles/remove-dashboard-users
       - title: Update Dashboard User Email Addresses
         url: /dashboard-access/update-dashboard-user-email
   - title: Brand & Customize
