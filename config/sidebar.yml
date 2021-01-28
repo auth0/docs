@@ -306,7 +306,7 @@ articles:
             url: /logout/log-users-out-of-saml-idps
           - title: Redirect After Logout
             url: /logout/redirect-users-after-logout
-      - title: Adopt OIDC Conformant Authentication
+      - title: Adopt OIDC Conformant Auth
         url: /login/adopt-oidc-conformant-authentication
         children:
           - title: APIs
