@@ -1850,6 +1850,10 @@ module.exports = [
     to: '/dashboard-access/manage-dashboard-users'
   },
   {
+    from: ['/dashboard-access/dashboard-roles/feature-access-by-role'],
+    to: '/dashboard-access/feature-access-by-role'
+  },
+  {
     from: ['/dashboard/guides/applications/rotate-client-secret','/api/management/guides/applications/rotate-client-secret'],
     to: '/get-started/dashboard/rotate-client-secret'
   },
