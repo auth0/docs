@@ -623,7 +623,9 @@ articles:
         url: /dashboard-access/dashboard-roles/edit-dashboard-users
       - title: Remove Tenant Members
         url: /dashboard-access/dashboard-roles/remove-dashboard-users
-      - title: Update Dashboard User Email Addresses
+      - title: Manage Access with MFA
+        url: /dashboard-access/add-change-remove-mfa
+      - title: Update Dashboard User Email
         url: /dashboard-access/update-dashboard-user-email
   - title: Brand & Customize
     url: /brand-and-customize
