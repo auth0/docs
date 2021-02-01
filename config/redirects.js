@@ -1846,7 +1846,7 @@ module.exports = [
     to: '/get-started/dashboard/tenant-settings'
   },
   {
-    from: ['/dashboard-access/add-change-remove-mfa','/dashboard-access/dashboard-roles','/dashboard-access/manage-dashboard-users','/dashboard/manage-dashboard-admins','/tutorials/manage-dashboard-admins','/get-started/dashboard/manage-dashboard-users'],
+    from: ['/dashboard-access/dashboard-roles','/dashboard-access/manage-dashboard-users','/dashboard/manage-dashboard-admins','/tutorials/manage-dashboard-admins','/get-started/dashboard/manage-dashboard-users'],
     to: '/dashboard-access'
   },
   {
