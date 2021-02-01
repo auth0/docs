@@ -622,7 +622,7 @@ articles:
       - title: Edit Tenant Members
         url: /dashboard-access/edit-dashboard-users
       - title: Remove Tenant Members
-        url: /dashboard-accessremove-dashboard-users
+        url: /dashboard-access/remove-dashboard-users
       - title: Manage Access with MFA
         url: /dashboard-access/add-change-remove-mfa
       - title: Update Dashboard User Email
