@@ -1064,10 +1064,12 @@ articles:
     children:
       - title: Product Release Stages
         url: /product-lifecycle/product-release-stages
+      - title: Deprecations and Migrations
+        url: /product-lifecycle/deprecations-and-migrations
       - title: Migration Process
         url: /product-lifecycle/migration-process
-      - title: Active Migrations
-        url: /product-lifecycle/deprecations-and-migrations
+        title: Past Migrations
+        url: /product-lifecycle/deprecations-and-migrations/past-migrations
   - title: Security
     url: /security
     children:

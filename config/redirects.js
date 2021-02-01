@@ -2927,6 +2927,10 @@ module.exports = [
     from: ['/logs/guides/migrate-logs-v2-v3'],
     to: '/product-lifecycle/deprecations-and-migrations/migrate-to-tenant-log-search-v3'
   },
+  {
+    from: ['/deprecations-and-migrations/migrate-tenant-member-roles'],
+    to: '/product-lifecycle/deprecations-and-migrations/migrate-tenant-member-roles'
+  },
     
 
   /* Professional Services */
