@@ -616,13 +616,13 @@ articles:
     url: /dashboard-access
     children:
       - title: Dashboard Access by Role
-        url: /dashboard-access/dashboard-roles/feature-access-by-role
+        url: /dashboard-access/feature-access-by-role
       - title: Add Tenant Members
-        url: /dashboard-access/dashboard-roles/add-dashboard-users
+        url: /dashboard-access/add-dashboard-users
       - title: Edit Tenant Members
-        url: /dashboard-access/dashboard-roles/edit-dashboard-users
+        url: /dashboard-access/edit-dashboard-users
       - title: Remove Tenant Members
-        url: /dashboard-access/dashboard-roles/remove-dashboard-users
+        url: /dashboard-accessremove-dashboard-users
       - title: Manage Access with MFA
         url: /dashboard-access/add-change-remove-mfa
       - title: Update Dashboard User Email
