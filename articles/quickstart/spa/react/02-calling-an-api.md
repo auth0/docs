@@ -64,7 +64,7 @@ In the case of the Auth0 Management API, the `read:current_user` and `update:cur
 
 ## Get an Access Token 
 
-Once you configure `Auth0Provider`, you can easily get the access token using the [`getAccessTokenSilently()`](https://auth0.github.io/auth0-react/interfaces/auth0contextinterface.html#getaccesstokensilently) method from the [`useAuth0()`](https://auth0.github.io/auth0-react/globals.html#useauth0) custom React Hook wherever you need it. 
+Once you configure `Auth0Provider`, you can easily get the access token using the [`getAccessTokenSilently()`](https://auth0.github.io/auth0-react/interfaces/auth0_context.auth0contextinterface.html#getaccesstokensilently) method from the [`useAuth0()`](https://auth0.github.io/auth0-react/modules/use_auth0.html) custom React Hook wherever you need it. 
 
 Take this `Profile` component as an example:
 
