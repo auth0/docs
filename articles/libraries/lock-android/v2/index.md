@@ -280,7 +280,7 @@ As this library depends on `Auth0.Android`, you should keep the files up to date
 
 ## Lock configuration
 
-For a full list of Lock's configuration options, check out the [Lock for Android Configuration Reference](/libraries/lock-android/v2/configuration). Also, for users of v1 migrating to v2, read the [Migration Guide](/libraries/lock-android/v2/migration-guide) to see what options have changed.
+For a full list of Lock's configuration options, check out the [Lock for Android Configuration Reference](/libraries/lock-android/v2/configuration).
 
 ## Error messages
 

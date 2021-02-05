@@ -2,6 +2,7 @@
 section: libraries
 title: Customization
 description: Learn how to customize the look and feel of Lock
+public: false
 topics:
   - libraries
   - lock

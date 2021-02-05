@@ -2,6 +2,7 @@
 section: libraries
 title: Migrate from Auth0.js to the Auth0 Single Page App SDK
 description: How to migrate single page applications from Auth0.js to Auth0 Single Page App SDK
+public: false
 topics:
   - libraries
   - auth0-spa-js

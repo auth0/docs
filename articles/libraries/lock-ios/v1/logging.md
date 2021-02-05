@@ -2,6 +2,7 @@
 section: libraries
 title: Logging
 description: Learn how to debug Lock by enabling logging.
+public: false
 topics:
   - libraries
   - lock

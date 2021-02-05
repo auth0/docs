@@ -1351,6 +1351,7 @@ libraries:
     children:
       - title: Migrate from auth0.js
         url: /libraries/auth0-single-page-app-sdk/migrate-from-auth0-js-to-the-auth0-single-page-app-sdk
+        hidden: true
   - title: Auth0 React SDK
     url: /libraries/auth0-react
   - title: Auth0 Angular SPA SDK
