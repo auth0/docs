@@ -10,6 +10,9 @@ topics:
 github:
   path: Sample-01
 contentType: tutorial
+sample_download_required_data:
+  - client
+  - api
 useCase: quickstart
 ---
 <!-- markdownlint-disable MD002 MD034 MD041 -->
