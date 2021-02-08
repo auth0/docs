@@ -660,19 +660,17 @@ articles:
             url: /custom-domains/configure-custom-domains-with-auth0-managed-certificates
           - title: Self-Managed Certificates
             url: /custom-domains/configure-custom-domains-with-self-managed-certificates
-          - title: TLS (SSL) Versions and Ciphers
-            url: /custom-domains/tls-ssl
             children:
-              - title: Custom Domains
-                url: /custom-domains/
               - title: Cloudflare Reverse Proxy
                 url: /custom-domains/configure-custom-domains-with-self-managed-certificates/configure-cloudflare-for-use-as-reverse-proxy
               - title: Cloudfront Reverse Proxy
                 url: /custom-domains/configure-custom-domains-with-self-managed-certificates/configure-aws-cloudfront-for-use-as-reverse-proxy
               - title: Azure CDN Reverse Proxy
                 url: /custom-domains/configure-custom-domains-with-self-managed-certificates/configure-azure-cdn-for-use-as-reverse-proxy
-          - title: Specific Features
+          - title: Configure Features
             url: /custom-domains/configure-features-to-use-custom-domains
+          - title: TLS (SSL) Versions and Ciphers
+            url: /custom-domains/tls-ssl
           - title: Troubleshooting
             url: /custom-domains/troubleshoot-custom-domains
       - title: Email
