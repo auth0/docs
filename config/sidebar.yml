@@ -667,11 +667,11 @@ articles:
                 url: /custom-domains/configure-custom-domains-with-self-managed-certificates/configure-aws-cloudfront-for-use-as-reverse-proxy
               - title: Azure CDN Reverse Proxy
                 url: /custom-domains/configure-custom-domains-with-self-managed-certificates/configure-azure-cdn-for-use-as-reverse-proxy
-          - title: Configure Features
+              - title: TLS (SSL) Versions and Ciphers
+                url: /custom-domains/tls-ssl
+          - title: Configure Auth0 Features
             url: /custom-domains/configure-features-to-use-custom-domains
-          - title: TLS (SSL) Versions and Ciphers
-            url: /custom-domains/tls-ssl
-          - title: Troubleshooting
+          - title: Troubleshoot Custom Domains
             url: /custom-domains/troubleshoot-custom-domains
       - title: Email
         url: /auth0-email-services
