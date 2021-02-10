@@ -12,6 +12,8 @@ github:
 contentType: tutorial
 useCase: quickstart
 ---
+<!-- markdownlint-disable MD002 MD041 -->
+
 ## Get the Profile
 
 The OIDC middleware extracts the user's information from the ID Token and adds it as claims to the `ClaimsIdentity`.

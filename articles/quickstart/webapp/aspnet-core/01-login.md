@@ -12,6 +12,8 @@ github:
 contentType: tutorial
 useCase: quickstart
 ---
+<!-- markdownlint-disable MD041 -->
+
 <%= include('../../../_includes/_new_app', { showClientSecret: true }) %>
 
 <%= include('./_includes/_setup') %>
