@@ -25,10 +25,7 @@ github:
   repo: auth0-aspnetcore-mvc-samples
   branch: netcore2.1
 requirements:
-  - .NET Core SDK 2.1.300
-  - .NET Core 2.1.0
-  - ASP.NET Core 2.1.0
-  - Visual Studio 2017 15.7 or Visual Studio Code (Optional)
+  - .NET Core 2.1
 sample_download_required_data:
   - client
 next_steps:

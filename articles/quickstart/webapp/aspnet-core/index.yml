@@ -1,4 +1,4 @@
-title: ASP.NET Core v3.1
+title: ASP.NET Core
 image: /media/platforms/asp.png
 author:
   name: Damien Guard
@@ -25,10 +25,8 @@ github:
   repo: auth0-aspnetcore-mvc-samples
   branch: master
 requirements:
-  - .NET Core SDK 3.1.101
-  - .NET Core 3.1.1
-  - ASP.NET Core 3.1.1
-  - Visual Studio 2019 16.4, Visual Studio for Mac 8.4, or Visual Studio Code + C# for Visual Studio Code 1.21.10
+  - .NET Core 3.1
+  - .NET 5.0
 sample_download_required_data:
   - client
 next_steps:
