@@ -142,10 +142,10 @@ private fun loginWithBrowser() {
             }
 
             // Called when authentication completed successfully
-            override fun onSuccess(credentials: Credentials?) {
+            override fun onSuccess(credentials: Credentials) {
               // Get the access token from the credentials object.
               // This can be used to call APIs
-              val accessToken = credentials!!.accessToken!!
+              val accessToken = credentials.accessToken!!
             }
         })
 }
@@ -221,10 +221,10 @@ private fun showUserProfile(accessToken: String) {
             // Something went wrong!
         }
 
-        override fun onSuccess(profile: UserProfile?) {
+        override fun onSuccess(profile: UserProfile) {
           // We have the user's profile!
-          val email = profile!!.email
-          val name = profile!!.name
+          val email = profile.email
+          val name = profile.name
         }
   })
 }
