@@ -252,7 +252,7 @@ When the user selects the **Log In** button, the OIDC middleware redirects them 
 
 ## Obtain an Access Token for Calling an API
 
-If you want to call an API from your MVC application, you need to obtain an Access Token issued for the API you want to call. To obtain the token, pass an additional `audience` parameter containing the API identifier to the Auth0 authorization endpoint, which you can get from the API's [Application Settings](${manage_url}/#/applications).
+If you want to call an API from your MVC application, you need to obtain an Access Token issued for the API you want to call. To obtain the token, pass an additional `audience` parameter containing the API Identifier to the Auth0 authorization endpoint. You can get the API Identifier from the [API Settings](${manage_url}/#/apis) for the API you want to use.
 
 In the configuration for the `OpenIdConnectOptions` object, handle the `OnRedirectToIdentityProvider` event and add the `audience` parameter to `ProtocolMessage`.
 
