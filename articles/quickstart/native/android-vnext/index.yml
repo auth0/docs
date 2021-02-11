@@ -41,7 +41,7 @@ show_steps: true
 github:
   org: auth0-samples
   repo: auth0-android-sample
-  branch: feat-kotlin
+  branch: master
 requirements:
   - Android Studio 4.1.0
   - Android SDK 30
