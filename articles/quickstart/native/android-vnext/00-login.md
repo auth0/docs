@@ -39,7 +39,7 @@ In your app's `build.gradle` dependencies section, add the following:
 ```groovy
 dependencies {
   // Add the Auth0 Android SDK
-  implementation 'com.auth0.android:auth0:2.0.0-beta.0'
+  implementation 'com.auth0.android:auth0:2.+'
 }
 ```
 
@@ -65,7 +65,7 @@ Add manifest placeholders required by the SDK. The placeholders are used interna
 
 To add the manifest placeholders, add the next line:
 
-```xml
+```groovy
 // app/build.gradle
 
 apply plugin: 'com.android.application'
@@ -151,7 +151,7 @@ private fun loginWithBrowser() {
             override fun onSuccess(credentials: Credentials) {
               // Get the access token from the credentials object.
               // This can be used to call APIs
-              val accessToken = credentials.accessToken!!
+              val accessToken = credentials.accessToken
             }
         })
 }
@@ -183,7 +183,7 @@ Add a `logout` method to your app to remove the user's session and log them out 
 private fun logout() {
   WebAuthProvider.logout(account)
     .withScheme("demo")
-    .start(this, object: Callback<Void, AuthenticationException> {
+    .start(this, object: Callback<Void?, AuthenticationException> {
       override fun onSuccess(payload: Void?) {
         // The user has been logged out!
       }
@@ -220,7 +220,7 @@ The following demonstrates a function that can be used to retrieve the user's pr
 private fun showUserProfile(accessToken: String) {
   var client = AuthenticationAPIClient(account)
 
-  // If an access token is available, call `userInfo` and get the profile from Auth0.
+  // With the access token, call `userInfo` and get the profile from Auth0.
   client.userInfo(accessToken)
     .start(object : Callback<UserProfile, AuthenticationException> {
         override fun onFailure(exception: AuthenticationException) {
