@@ -1,4 +1,4 @@
-title: ASP.NET Core v2.1
+title: ASP.NET Core
 image: /media/platforms/asp.png
 author:
   name: Damien Guard
@@ -11,8 +11,8 @@ useCase: quickstart
 snippets:
   dependencies: server-platforms/aspnet-core/dependencies
 alias:
-  - aspnetcore
-  - aspnetcore-2.0
+  - aspnetcore-3.1
+  - net-5
 seo_alias: aspnet-core
 default_article: 01-login
 articles:
@@ -23,12 +23,10 @@ show_steps: true
 github:
   org: auth0-samples
   repo: auth0-aspnetcore-mvc-samples
-  branch: netcore2.1
+  branch: master
 requirements:
-  - .NET Core SDK 2.1.300
-  - .NET Core 2.1.0
-  - ASP.NET Core 2.1.0
-  - Visual Studio 2017 15.7 or Visual Studio Code (Optional)
+  - .NET Core 3.1
+  - .NET 5.0
 sample_download_required_data:
   - client
 next_steps:

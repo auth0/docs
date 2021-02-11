@@ -291,6 +291,10 @@ module.exports = [
     to: '/quickstart/backend/aspnet-core-webapi/06-authorization-legacy'
   },
   {
+    from: '/quickstart/webapp/aspnet-core-3',
+    to: '/quickstart/webapp/aspnet-core'
+  },
+  {
     from: '/quickstart/spa/react/03-user-profile',
     to: '/quickstart/spa/react/04-user-profile'
   },

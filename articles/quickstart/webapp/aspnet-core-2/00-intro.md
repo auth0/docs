@@ -10,6 +10,7 @@ topics:
 contentType: tutorial
 useCase: quickstart
 ---
+<!-- markdownlint-disable MD002 MD041 -->
 
 ## Seed Project
 

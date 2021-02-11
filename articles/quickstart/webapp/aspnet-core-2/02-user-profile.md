@@ -12,6 +12,8 @@ github:
 contentType: tutorial
 useCase: quickstart
 ---
+<!-- markdownlint-disable MD002 MD041 -->
+
 ## Get the Profile
 
 The OIDC middleware extracts the user's information from the ID Token and adds it as claims to the `ClaimsIdentity`.
@@ -56,11 +58,9 @@ The `User.Identity.Name` property looks for a claim of a type `http://schemas.xm
 
 You can control the claim type that ASP.NET Core retrieves when accessing the name through `User.Identity.Name`. To achieve this, update the OIDC authentication handler registration in the `Startup` class. Set the `NameClaimType` of the `TokenValidationParameters` property to `name`. ASP.NET Core will retrieve the value of the `name` claim passed in the ID Token when you access the name of the user with the `User.Identity.Name` property.
 
-You must update the list of scopes to request the `profile` and `email` scope. The user's profile information is returned as claims in the ID Token.
+You must update the list of scopes to request the `profile` scope. The user's profile information is returned as claims in the ID Token.
 
 ```csharp
-// Startup.cs
-
 public void ConfigureServices(IServiceCollection services)
 {
     // Some code omitted for brevity...
@@ -78,7 +78,6 @@ public void ConfigureServices(IServiceCollection services)
         options.Scope.Add("openid");
         options.Scope.Add("profile");
         options.Scope.Add("email");
-
         // Set the correct name claim type
         options.TokenValidationParameters = new TokenValidationParameters
         {
@@ -101,21 +100,22 @@ Next create a view called `Profile.cshtml` inside `Views/Account` and display th
 }
 
 <div class="row">
-    <div class="col-md-12">
-        <div class="row">
-            <h2>@ViewData["Title"].</h2>
+  <div class="col-md-12">
+    <div class="row">
+      <h2>@ViewData["Title"].</h2>
 
-            <div class="col-md-2">
-                <img src="@Model.ProfileImage" alt="" class="img-rounded img-responsive" />
-            </div>
-            <div class="col-md-4">
-                <h3>@Model.Name</h3>
-                <p>
-                    <i class="glyphicon glyphicon-envelope"></i> @Model.EmailAddress
-                </p>
-            </div>
-        </div>
+      <div class="col-md-2">
+        <img src="@Model.ProfileImage"
+             alt="" class="img-rounded img-responsive" />
+      </div>
+      <div class="col-md-4">
+        <h3>@Model.Name</h3>
+        <p>
+          <i class="glyphicon glyphicon-envelope"></i> @Model.EmailAddress
+        </p>
+      </div>
     </div>
+  </div>
 </div>
 ```
 
@@ -129,22 +129,17 @@ Go to the `Views/Shared/_Layout.cshtml` file and update the `Navbar` section to 
 
 ```html
 <!-- Views/Shared/_Layout.cshtml -->
+
 <ul class="nav navbar-nav navbar-right">
-    @if (User.Identity.IsAuthenticated)
-    {
-        <li>
-            <a asp-controller="Account" asp-action="Profile">Hello @User.Identity.Name!</a>
-        </li>
-        <li>
-            <a id="qsLogoutBtn" asp-controller="Account" asp-action="Logout">Logout</a>
-        </li>
-    }
-    else
-    {
-        <li>
-            <a id="qsLoginBtn" asp-controller="Account" asp-action="Login">Login</a>
-        </li>
-    }
+  @if (User.Identity.IsAuthenticated)
+  {
+    <li><a asp-controller="Account" asp-action="Profile">Hello @User.Identity.Name!</a></li>
+    <li><a  asp-controller="Account" asp-action="Logout">Logout</a></li>
+  }
+  else
+  {
+    <li><a asp-controller="Account" asp-action="Login">Login</a></li>
+  }
 </ul>
 ```
 
