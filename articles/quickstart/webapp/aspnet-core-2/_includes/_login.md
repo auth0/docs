@@ -1,6 +1,6 @@
 <!-- markdownlint-disable MD002 MD041 -->
 
-## Configure your application to use Auth0
+## Configure Your Application to Use Auth0
 
 [Universal Login](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using it for the best experience, best security and the fullest array of features. This guide will use it to provide a way for your users to log in to your ASP.NET Core application.
 
@@ -321,7 +321,7 @@ The OIDC middleware in ASP.NET Core automatically decodes the ID Token returned 
 
 The seed project contains a controller action and view that display the claims associated with a user. Once a user has logged in, you can go to `/Account/Claims` to see these claims.
 
-You may want to Access Tokens received from Auth0. For example, you can use the Access Token to authenticate the user in calls to your API. To achieve this, when calling `AddOpenIdConnect`, set the `SaveTokens` property to `true`. This saves the tokens to `AuthenticationProperties`:
+You may want to store the tokens received from Auth0. For example, you can use the Access Token later to authenticate the user in calls to your API. To achieve this, when calling `AddOpenIdConnect`, set the `SaveTokens` property to `true`. This saves the tokens to `AuthenticationProperties`:
 
 ```csharp
 // Startup.cs

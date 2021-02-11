@@ -35,7 +35,7 @@ public void ConfigureServices(IServiceCollection services)
     services.AddAuthentication(options => {
         //...
     })
-    .AddCookie())
+    .AddCookie()
     .AddOpenIdConnect("Auth0", options => {
         // ...
 
