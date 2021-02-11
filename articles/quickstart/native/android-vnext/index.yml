@@ -13,7 +13,6 @@ topics:
   - quickstart
 contentType: tutorial
 useCase: quickstart
-beta: true
 snippets:
   dependencies: native-platforms/android/dependencies
   setup: native-platforms/android/setup

@@ -29,7 +29,7 @@ As an example of using the SDK to call APIs that may require custom scopes and a
 
 In [the previous chapter](/quickstart/native/android-vnext/00-login#show-user-profile-information), you saw how to access [basic user profile information](https://auth0.com/docs/users/user-profiles) using the `/userinfo` endpoint. This profile information may not include everything about a user that you might need. For example, in order to access the user's metadata, you must make an API call to the Management API using the user ID and the access token. With the Android SDK, this is done using the `UsersAPIClient` object.
 
-To be able to correctly read and update the user metadata, ensure the authorization server allows you to read and edit the current user profile by specifying the `profile email read:current_user update:current_user_metadata` scopes. In addition, specify the audience for the [Auth0 Management API](https://auth0.com/docs/api), which happens to include the User Info audience as well.
+To be able to correctly read and update the user metadata, ensure the authorization server allows you to read and edit the current user profile by specifying the `openid profile email read:current_user update:current_user_metadata` scopes. In addition, specify the audience for the [Auth0 Management API](https://auth0.com/docs/api), which happens to include the User Info audience as well.
 
 Find the code in your project that initializes the `WebAuthProvider` class, and make the following changes if necessary:
 
