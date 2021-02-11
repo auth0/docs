@@ -1423,14 +1423,22 @@ libraries:
     children:
       - title: Overview
         url: /libraries/auth0-android
+      - title: Login, Logout, and User Profiles
+        url: /libraries/auth0-android/auth0-android-login-logout-and-user-profiles
       - title: Configuration
         url: /libraries/auth0-android/auth0-android-configuration
       - title: Database Authentication
         url: /libraries/auth0-android/auth0-android-database-authentication
+      - title: Passwordless Authentication
+        url: /libraries/auth0-android/auth0-android-passwordless
       - title: User Management
         url: /libraries/auth0-android/auth0-android-user-management
       - title: Refresh Tokens
         url: /libraries/auth0-android/auth0-android-save-and-renew-tokens
+      - title: Custom Networking Client
+        url: /libraries/auth0-android/auth0-android-custom-networking-client
+      - title: V2 Migration Guide
+        url: /libraries/auth0-android/auth0-android-v2-migration-guide
 videos:
   - title: Learn Identity
     url: /videos/learn-identity-series
