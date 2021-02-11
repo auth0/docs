@@ -11,8 +11,7 @@ useCase: quickstart
 snippets:
   dependencies: server-platforms/aspnet-core/dependencies
 alias:
-  - aspnetcore
-  - aspnetcore-2.0
+  - aspnetcore-2.1
 seo_alias: aspnet-core
 default_article: 01-login
 articles:
