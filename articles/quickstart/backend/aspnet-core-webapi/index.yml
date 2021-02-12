@@ -1,8 +1,9 @@
-title: ASP.NET Core Web API v3.1
+title: ASP.NET Core Web API
 alias:
   - asp.net core webapi
   - aspnet core webapi
   - asp.net core webapi 3.1
+  - asp.net 5.0
 language:
   - C#
 framework:
@@ -29,10 +30,8 @@ github:
   repo: auth0-aspnetcore-webapi-samples
   branch: master
 requirements:
-  - .NET Core SDK 3.1.101
-  - .NET Core 3.1.1
-  - ASP.NET Core 3.1.1
-  - Visual Studio 2017 15.7 or Visual Studio Code (Optional)
+  - .NET Core 3.1
+  - .NET 5.0
 next_steps:
   - path: 01-authorization
     list:

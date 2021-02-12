@@ -1,7 +1,6 @@
 ---
 title: Authorization
-name: This tutorial demonstrates how to add authorization to your ASP.NET Core Web API using the standard JWT middleware.
-description: This tutorial demonstrates how to add authorization to an ASP.NET Core Web API using the standard JWT middleware.
+description: This tutorial demonstrates how to add authorization to an ASP.NET Core Web API 2.1 application using the standard JWT middleware.
 budicon: 500
 topics:
     - quickstart
@@ -13,6 +12,7 @@ github:
 contentType: tutorial
 useCase: quickstart
 ---
+<!-- markdownlint-disable MD002 MD041 MD034-->
 
 <%= include('../../../_includes/_api_auth_intro') %>
 
@@ -32,6 +32,7 @@ The sample code has an `appsettings.json` file which configures it to use the co
   }
 }
 ```
+
 ## Validate Access Tokens
 
 ### Install dependencies
