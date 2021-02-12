@@ -60,7 +60,7 @@ module.exports = [
   /* QUICKSTARTS */
 
   {
-    from: ['/android-tutorial', '/native-platforms/android'],
+    from: ['/android-tutorial', '/native-platforms/android', '/quickstart/native/android-vnext'],
     to: '/quickstart/native/android'
   },
   {
