@@ -23,7 +23,7 @@ useCase: quickstart
 Run the following command within your project directory to install the Auth0 Next.js SDK:
 
 ```sh
-npm install @auth0/nextjs-auth0@beta
+npm install @auth0/nextjs-auth0
 ```
 
 The SDK exposes methods and variables that help you integrate Auth0 with your Next.js application using [API Routes](https://nextjs.org/docs/api-routes/introduction) on the backend and [React Context](https://reactjs.org/docs/context.html) with [React Hooks](https://reactjs.org/docs/hooks-overview.html) on the frontend.
@@ -159,7 +159,7 @@ Verify that you can display the `user.name` or [any other](https://auth0.com/doc
 
 We put together a few examples of how to use [nextjs-auth0](https://github.com/auth0/nextjs-auth0) in more advanced use cases:
 
-- [Protecting a Server Side Rendered (SSR) Page](https://github.com/auth0/nextjs-auth0/blob/beta/EXAMPLES.md#protecting-a-server-side-rendered-ssr-page)
-- [Protecting a Client Side Rendered (CSR) Page](https://github.com/auth0/nextjs-auth0/blob/beta/EXAMPLES.md#protecting-a-client-side-rendered-csr-page)
-- [Protect an API Route](https://github.com/auth0/nextjs-auth0/blob/beta/EXAMPLES.md#protect-an-api-route)
-- [Access an External API from an API Route](https://github.com/auth0/nextjs-auth0/blob/beta/EXAMPLES.md#access-an-external-api-from-an-api-route)
+- [Protecting a Server Side Rendered (SSR) Page](https://github.com/auth0/nextjs-auth0/blob/main/EXAMPLES.md#protecting-a-server-side-rendered-ssr-page)
+- [Protecting a Client Side Rendered (CSR) Page](https://github.com/auth0/nextjs-auth0/blob/main/EXAMPLES.md#protecting-a-client-side-rendered-csr-page)
+- [Protect an API Route](https://github.com/auth0/nextjs-auth0/blob/main/EXAMPLES.md#protect-an-api-route)
+- [Access an External API from an API Route](https://github.com/auth0/nextjs-auth0/blob/main/EXAMPLES.md#access-an-external-api-from-an-api-route)
