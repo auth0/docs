@@ -1,6 +1,5 @@
 ---
 title: Troubleshooting
-name: Shows how to troubleshoot the JWT middleware configuration
 description: This document will help you troubleshoot your configuration if you get 401 (Unauthorized) response from your API.
 budicon: 500
 topics:
@@ -11,6 +10,8 @@ topics:
 contentType: tutorial
 useCase: quickstart
 ---
+
+<!-- markdownlint-disable MD002 MD041-->
 
 If the configuration of your JSON Web Token (JWT) middleware does not match the JWT that was passed to the API, you get a 401 (Unauthorized) response from your API.
 
@@ -45,8 +46,8 @@ You can inspect a JWT with the [JWT.io](https://jwt.io/) website. Use the debugg
 
 The screenshot below shows the following information:
 * The token is signed with the RS256 algorithm
-* The issuer of the token is https://jerrie.auth0.com/
-* The audience of the token is https://rs256.test.api
+* The issuer of the token is `https://jerrie.auth0.com/`
+* The audience of the token is `https://rs256.test.api`
 
 ![Debugging a JWT on JWT.io](/media/articles/server-apis/aspnet-core-webapi/jwt-io-debugger-rs256.png)
 
@@ -65,8 +66,8 @@ If your token is signed with the HS256 algorithm, the debugger view is different
 
 The screenshot below shows the following information:
 * The token is signed with the HS256 algorithm
-* The issuer of the token is https://jerrie.auth0.com/
-* The audience of the token is https://hs256.test.api
+* The issuer of the token is `https://jerrie.auth0.com/`
+* The audience of the token is `https://hs256.test.api`
 
 ![Debugging a JWT on JWT.io](/media/articles/server-apis/aspnet-core-webapi/jwt-io-debugger-hs256.png)
 

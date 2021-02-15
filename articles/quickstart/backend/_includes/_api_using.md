@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD002 MD041 -->
+
 ## Calling the API From Your Application
 
 You can call the API from your application by passing an Access Token in the `Authorization` header of your HTTP request as a Bearer token.
@@ -20,6 +22,10 @@ If you are calling the API from a Single-Page Application or a Mobile/Native app
 * [Mobile / Native Application](/quickstart/native)
 
 If you are calling the API from a command-line tool or another service, where there isn't a user entering their credentials, you need to use the [OAuth Client Credentials flow](/api/authentication#client-credentials). To do that, register a [Machine to Machine Application](${manage_url}/#/applications), and then subsequently use the **Client ID** and **Client Secret** of this application when making the request below and pass those along in the `client_id` and `client_secret` parameters respectively. Also include the Audience for the API you want to call.
+
+:::note
+Read [Application Settings](https://auth0.com/docs/get-started/dashboard/application-settings) for more information on getting the Client ID and Client Secret for your machine-to-machine app.
+:::
 
 ```har
 {
