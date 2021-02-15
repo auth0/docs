@@ -36,7 +36,7 @@ Check the following two criteria:
 
     * **Issuer value**: The Issuer is defined in the `iss` claim. Check if this claim matches up with what your application expects.
 
-5. **Is the token intended for the current application?** 
+5. **Is the token intended for the current application?**
 Check if the `aud` claim of the JWT matches with what your application expects.
 
 ## Inspect a Token
@@ -45,7 +45,7 @@ You can inspect a JWT with the [JWT.io](https://jwt.io/) website. Use the debugg
 
 The screenshot below shows the following information:
 * The token is signed with the RS256 algorithm
-* The issuer of the token is `https://jerrie.auth0.com/`
+* The issuer of the token is `https://example.auth0.com/`
 * The audience of the token is `https://rs256.test.api`
 
 ![Debugging a JWT on JWT.io](/media/articles/server-apis/aspnet-core-webapi/jwt-io-debugger-rs256.png)
@@ -56,8 +56,9 @@ Check if the values of the JWT token match exactly the values in your JWT middle
 var options = new JwtBearerOptions
 {
     Audience = "https://rs256.test.api",
-    Authority = "https://jerrie.auth0.com/"
+    Authority = "https://example.auth0.com/"
 };
+
 app.UseJwtBearerAuthentication(options);
 ```
 
@@ -65,7 +66,7 @@ If your token is signed with the HS256 algorithm, the debugger view is different
 
 The screenshot below shows the following information:
 * The token is signed with the HS256 algorithm
-* The issuer of the token is `https://jerrie.auth0.com/`
+* The issuer of the token is `https://example.auth0.com/`
 * The audience of the token is `https://hs256.test.api`
 
 ![Debugging a JWT on JWT.io](/media/articles/server-apis/aspnet-core-webapi/jwt-io-debugger-hs256.png)
@@ -77,7 +78,7 @@ var options = new JwtBearerOptions
 {
     TokenValidationParameters =
     {
-        ValidIssuer = "https://jerrie.auth0.com/",
+        ValidIssuer = "https://example.auth0.com/",
         ValidAudience = "https://hs256.test.api",
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("your api secret"))
     }
