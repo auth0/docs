@@ -17,6 +17,7 @@ topics:
 contentType: tutorial
 useCase: quickstart
 seo_alias: nextjs
+logo_name: nodejs
 show_releases: true
 show_steps: true
 requirements:
