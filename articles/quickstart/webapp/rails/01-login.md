@@ -44,14 +44,14 @@ Create the following initializer file `./config/initializers/auth0.rb` and [conf
 
 ```ruby
 # ./config/initializers/auth0.rb
-auth0_config = Rails.application.config_for(:auth0)
+AUTH0_CONFIG = Rails.application.config_for(:auth0)
 
 Rails.application.config.middleware.use OmniAuth::Builder do
   provider(
     :auth0,
-    auth0_config['auth0_client_id'],
-    auth0_config['auth0_client_secret'],
-    auth0_config['auth0_domain'],
+    AUTH0_CONFIG['auth0_client_id'],
+    AUTH0_CONFIG['auth0_client_secret'],
+    AUTH0_CONFIG['auth0_domain'],
     callback_path: '/auth/auth0/callback',
     authorize_params: {
       scope: 'openid profile'
@@ -95,30 +95,12 @@ end
 A user can now log into your application by visiting the `/auth/auth0` endpoint.
 
 ::: warning
-To prevent forged authentication requests, use the link_to or button_to helper methods using the `:post` method
+To prevent forged authentication requests, use the `link_to` or `button_to` helper methods with the `:post` method
 :::
 
 ```ruby
   # Place the login button anywhere
   ${"<%= button_to 'Login', 'auth/auth0', method: :post %>"}
-```
-
-### Redirect User to Login
-In order for us to redirect the user to login without any user interaction, we will need to create a non-interactive redirect page. The redirect page will [prevent forged authentication requests](https://github.com/cookpad/omniauth-rails_csrf_protection) and handle the `:POST` request for us automatically using javascript.
-
-```erb
-<!-- ./app/views/auth0/redirect.html.erb -->
-<div class="redirecting">Redirecting...</div>
-${"<%= button_to 'Login', '/auth/auth0', method: :post,  style: 'display:none;', id: 'redirect' %>"}
-<script>document.getElementById('redirect').form.submit()</script>
-<noscript><style type="text/css"> #redirect { display:block !important; } .redirecting { display: none; }</style></noscript>
-```
-
-Add the following routes to your `./config/routes.rb` file:
-```ruby
-  # ./config/routes.rb
-  # ..
-  get '/auth/redirect' => 'auth0#redirect'
 ```
 
 ## Display User Profile
@@ -134,8 +116,7 @@ module Secured
   end
 
   def logged_in_using_omniauth?
-    # redirect user to the non-interactive redirect page
-    redirect_to '/auth/redirect/' unless session[:userinfo].present?
+    redirect_to '/', unless session[:userinfo].present?
   end
 end
 ```
@@ -189,21 +170,18 @@ In `logout_helper.rb` file add the methods to generate the logout URL.
 # app/helpers/logout_helper.rb
 
 module LogoutHelper
-  auth0_config = Rails.application.config_for(:auth0)
+  AUTH0_CONFIG = Rails.application.config_for(:auth0)
 
   def logout_url
-    domain = auth0_config['auth0_domain']
-    client_id = auth0_config['auth0_client_id']
     request_params = {
       returnTo: root_url,
-      client_id: client_id
+      client_id: AUTH0_CONFIG['auth0_client_id']
     }
 
-    URI::HTTPS.build(host: domain, path: '/v2/logout', query: to_query(request_params))
+    URI::HTTPS.build(host: AUTH0_CONFIG['auth0_domain'], path: '/v2/logout', query: to_query(request_params))
   end
 
   private
-
   def to_query(hash)
     hash.map { |k, v| "#{k}=#{CGI.escape(v)}" unless v.nil? }.reject(&:nil?).join('&')
   end
