@@ -30,7 +30,7 @@ Once your gems are added, install the gems with `$ bundle install`:
 
 ### Initialize OmniAuth Auth0
 
-Create an Auth0 config file in the root of your project's directory `./config/auth0.yml` .
+Create an Auth0 config file `./config/auth0.yml`
 
 ```yaml
 # ./config/auth0.yml
@@ -40,19 +40,18 @@ development:
   auth0_client_secret: <YOUR AUTH0 CLIENT SECRET>
 ```
 
-Create an initializer file in the root of your project's directory `./config/initializers/auth0.rb` and [configure](https://github.com/auth0/omniauth-auth0#additional-authentication-parameters) the **OmniAuth** middleware.
+Create the following initializer file `./config/initializers/auth0.rb` and [configure](https://github.com/auth0/omniauth-auth0#additional-authentication-parameters) the **OmniAuth** middleware.
 
 ```ruby
 # ./config/initializers/auth0.rb
-Rails.application.config.auth0 = Rails.application.config_for(:auth0)
+auth0_config = Rails.application.config_for(:auth0)
 
 Rails.application.config.middleware.use OmniAuth::Builder do
-  auth0_config = Rails.application.config_for(:auth0)
   provider(
     :auth0,
-    Rails.application.config.auth0['auth0_client_id'],
-    Rails.application.config.auth0['auth0_client_secret'],
-    Rails.application.config.auth0['auth0_domain'],
+    auth0_config['auth0_client_id'],
+    auth0_config['auth0_client_secret'],
+    auth0_config['auth0_domain'],
     callback_path: '/auth/auth0/callback',
     authorize_params: {
       scope: 'openid profile'
@@ -62,7 +61,7 @@ end
 ```
 
 ### Add an Auth0 controller
-Create an Auth0 controller file in the root of your project's directory `./config/controllers/auth0_controller.rb` for handling of the authentication callback.  Inside of the callback method assign the hash of user information, returned as `request.env['omniauth.auth']`, to the active session.
+Create an Auth0 controller `./config/controllers/auth0_controller.rb` for handling of the authentication callback.  Inside of the callback method assign the hash of user information, returned as `request.env['omniauth.auth']`, to the active session.
 
 ```ruby
 # ./app/controllers/auth0_controller.rb
@@ -190,9 +189,11 @@ In `logout_helper.rb` file add the methods to generate the logout URL.
 # app/helpers/logout_helper.rb
 
 module LogoutHelper
+  auth0_config = Rails.application.config_for(:auth0)
+
   def logout_url
-    domain = Rails.application.config.auth0.auth0_domain
-    client_id = Rails.application.config.auth0.auth0_client_id
+    domain = auth0_config['auth0_domain']
+    client_id = auth0_config['auth0_client_id']
     request_params = {
       returnTo: root_url,
       client_id: client_id
