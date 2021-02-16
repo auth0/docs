@@ -40,7 +40,7 @@ development:
   auth0_client_secret: <YOUR AUTH0 CLIENT SECRET>
 ```
 
-Create an initializer file in the root of your project's dierctory `./config/initializers/auth0.rb` and [configure](https://github.com/auth0/omniauth-auth0#additional-authentication-parameters) the **OmniAuth** middleware.
+Create an initializer file in the root of your project's directory `./config/initializers/auth0.rb` and [configure](https://github.com/auth0/omniauth-auth0#additional-authentication-parameters) the **OmniAuth** middleware.
 
 ```ruby
 # ./config/initializers/auth0.rb
@@ -62,7 +62,7 @@ end
 ```
 
 ### Add an Auth0 controller
-Create an Auth0 controller file in the root of your project's dierctory `./config/controllers/auth0_controller.rb` for handling of the authentication callback.  Inside of the callback method assign the hash of user information returned `request.env['omniauth.auth']` to the active session.
+Create an Auth0 controller file in the root of your project's directory `./config/controllers/auth0_controller.rb` for handling of the authentication callback.  Inside of the callback method assign the hash of user information, returned as `request.env['omniauth.auth']`, to the active session.
 
 ```ruby
 # ./app/controllers/auth0_controller.rb
@@ -105,7 +105,7 @@ To prevent forged authentication requests, use the link_to or button_to helper m
 ```
 
 ### Redirect User to Login
-In order for us to redirect the user to login without any user interaction, we will need to create a non-interactive redirect page.  The redirect page will [prevent forged authentication requests](https://github.com/cookpad/omniauth-rails_csrf_protection) and handle the `:POST` request for us automatically using javascript.
+In order for us to redirect the user to login without any user interaction, we will need to create a non-interactive redirect page. The redirect page will [prevent forged authentication requests](https://github.com/cookpad/omniauth-rails_csrf_protection) and handle the `:POST` request for us automatically using javascript.
 
 ```erb
 <!-- ./app/views/auth0/redirect.html.erb -->
@@ -123,7 +123,7 @@ Add the following routes to your `./config/routes.rb` file:
 ```
 
 ## Display User Profile
-To display the user's profile, your application should provide a protected route.  You can use a controller `concern` to control access to routes.  Create the following file `./app/controllers/concerns/secured.rb`
+To display the user's profile, your application should provide a protected route. You can use a controller `concern` to control access to routes. Create the following file `./app/controllers/concerns/secured.rb`
 
 ```ruby
 # ./app/controllers/concerns/secured.rb
@@ -141,7 +141,7 @@ module Secured
 end
 ```
 
-After you have created the secured controller concern, include it in any controllers requires a logged in user.
+After you have created the secured controller concern, include it in any controller that requires a logged in user.
 ```ruby
 # ./app/controllers/dashboard_controller.rb
 class DashboardController < ApplicationController
@@ -154,7 +154,7 @@ class DashboardController < ApplicationController
 end
 ```
 
-Here is an example of displaying that information on the page
+Here is an example of displaying the corresponding user's information
 ```erb
 <!-- ./app/views/dashboard/show.html.erb -->
 <div>

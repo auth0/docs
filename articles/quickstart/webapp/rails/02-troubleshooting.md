@@ -53,7 +53,7 @@ config.cache_store = :memory_store
 Restart your Rails server for these changes to take effect.
 
 :::note
-It is recommended that a memory store such as MemCached being used for production applications.
+It is recommended that a memory store, such as MemCached, is being used for production applications.
 :::
 
 ## SSL Issues
