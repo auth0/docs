@@ -15,9 +15,9 @@ useCase: quickstart
 
 <%= include('../../../_includes/_logout_url', { returnTo: 'http://localhost:3000' }) %>
 
-## Integrate Auth0
+## Install the Auth0 SDK
 
-### Install the Dependencies
+### Install Dependencies
 
 This tutorial uses `omniauth-auth0`, a custom [OmniAuth strategy](https://github.com/intridea/omniauth#omniauth-standardized-multi-provider-authentication), to handle the authentication flow.  Add the following dependencies to your `Gemfile`:
 
@@ -28,7 +28,7 @@ gem 'omniauth-rails_csrf_protection', '~> 0.1' # prevents forged authentication 
 
 Once your gems are added, install the gems with `$ bundle install`:
 
-### Initialize OmniAuth Auth0
+### Initialize Auth0 Configuration
 
 Create an Auth0 config file `./config/auth0.yml`
 
@@ -61,14 +61,19 @@ end
 ```
 
 ### Add an Auth0 controller
-Create an Auth0 controller `./config/controllers/auth0_controller.rb` for handling of the authentication callback.  Inside of the callback method assign the hash of user information, returned as `request.env['omniauth.auth']`, to the active session.
+Create an Auth0 controller for handling the authentication callback. Run the command `rails generate controller auth0 callback failure logout --skip-assets --skip-helper --skip-routes --skip-template-engine`. 
+
+Inside of the callback method assign the hash of user information, returned as `request.env['omniauth.auth']`, to the active session.
 
 ```ruby
 # ./app/controllers/auth0_controller.rb
 class Auth0Controller < ApplicationController
   def callback
-    # This stores all the user information that came from Auth0 and the IdP
-    session[:userinfo] = request.env['omniauth.auth']
+    # OmniAuth stores the informatin returned from Auth0 and the IdP in request.env['omniauth.auth'].
+    # In this code, you will pull the raw_info supplied from the id_token and assign it to the session.
+    # Refer to https://github.com/auth0/omniauth-auth0#authentication-hash for complete information on 'omniauth.auth' contents.
+    auth_info = request.env['omniauth.auth']
+    session[:userinfo] = auth_info['extra']['raw_info']
 
     # Redirect to the URL you want after successful auth
     redirect_to '/dashboard'
@@ -78,6 +83,10 @@ class Auth0Controller < ApplicationController
     # Handles failed authentication -- Show a failure page (you can also handle with a redirect)
     @error_msg = request.params['message']
   end
+
+  def logout
+    # you will finish this in a later step
+  end
 end
 ```
 
@@ -86,24 +95,72 @@ Add the following routes to your `./config/routes.rb` file:
 ```ruby
 # ./config/routes.rb
 Rails.application.routes.draw do
+  # ..
   get '/auth/auth0/callback' => 'auth0#callback'
   get '/auth/failure' => 'auth0#failure'
+  get '/auth/logout' => 'auth0#logout'
 end
 ```
 
-## Login
+## Add Login to Your Application
 A user can now log into your application by visiting the `/auth/auth0` endpoint.
 
 ::: warning
 To prevent forged authentication requests, use the `link_to` or `button_to` helper methods with the `:post` method
 :::
 
-```ruby
-  # Place the login button anywhere
+```erb
+  <!-- Place a login button anywhere on your application -->
   ${"<%= button_to 'Login', 'auth/auth0', method: :post %>"}
 ```
 
-## Display User Profile
+## Add Logout to Your Application
+Now that you can log in to your Rails application, you need [a way to log out](https://auth0.com/docs/logout/guides/logout-auth0). Revisit the Auth0Controller you created earlier, and finish up the logout method added there.
+
+You will need to clear out your session and then redirect the user to the Auth0 logout endpoint.
+
+To clear out all the objects stored within the session, call the `reset_session` method within the `auth0_controller/logout` method. [Learn more about reset_session here](http://api.rubyonrails.org/classes/ActionController/Base.html#M000668).  Add the following code to `./app/controllers/auth0_controller.rb`:
+
+```ruby
+# ./app/controllers/auth0_controller.rb
+class Auth0Controller < ApplicationController
+  # ..
+  # ..Insert the code below
+  def logout
+    reset_session
+    redirect_to logout_url
+  end
+
+  private
+  AUTH0_CONFIG = Rails.application.config_for(:auth0)
+
+  def logout_url
+    request_params = {
+      returnTo: root_url,
+      client_id: AUTH0_CONFIG['auth0_client_id']
+    }
+
+    URI::HTTPS.build(host: AUTH0_CONFIG['auth0_domain'], path: '/v2/logout', query: to_query(request_params)).to_s
+  end
+
+  def to_query(hash)
+    hash.map { |k, v| "#{k}=#{CGI.escape(v)}" unless v.nil? }.reject(&:nil?).join('&')
+  end
+end
+```
+
+::: note
+The final destination URL (the `returnTo` value) needs to be in the list of `Allowed Logout URLs` . See the [logout documentation](/logout/guides/redirect-users-after-logout) for more.
+:::
+
+The user will now be able to logout of your application by visiting the `/auth/logout` endpoint.
+
+```erb
+  <!-- Place a logout button anywhere on your application -->
+  ${"<%= button_to 'Logout', 'auth/logout', method: :get %>"}
+```
+
+## Show User Profile Information
 To display the user's profile, your application should provide a protected route. You can use a controller `concern` to control access to routes. Create the following file `./app/controllers/concerns/secured.rb`
 
 ```ruby
@@ -121,7 +178,8 @@ module Secured
 end
 ```
 
-After you have created the secured controller concern, include it in any controller that requires a logged in user.
+After you have created the secured controller concern, include it in any controller that requires a logged in user. You can then access the user from the session `session[:userinfo]`.
+
 ```ruby
 # ./app/controllers/dashboard_controller.rb
 class DashboardController < ApplicationController
@@ -134,7 +192,7 @@ class DashboardController < ApplicationController
 end
 ```
 
-Here is an example of displaying the corresponding user's information
+Now that you have loaded the user from the session, you can use it to display information in your frontend.
 ```erb
 <!-- ./app/views/dashboard/show.html.erb -->
 <div>
@@ -142,52 +200,3 @@ Here is an example of displaying the corresponding user's information
   <p>Full User Profile:${"<%= JSON.pretty_generate(@user[:extra][:raw_info])%>"}</p>
 </div>
 ```
-
-## Logout
-Use the following command to create the controller that will handle user logout:
-
-```bash
-rails generate controller logout
-```
-
-To clear out all the objects stored within the session, call the `reset_session` method within the `logout_controller/logout` method. [Learn more about reset_session here](http://api.rubyonrails.org/classes/ActionController/Base.html#M000668).
-
-```ruby
-# app/controllers/logout_controller.rb
-
-class LogoutController < ApplicationController
-  include LogoutHelper
-  def logout
-    reset_session
-    redirect_to logout_url.to_s
-  end
-end
-```
-
-In `logout_helper.rb` file add the methods to generate the logout URL.
-
-```ruby
-# app/helpers/logout_helper.rb
-
-module LogoutHelper
-  AUTH0_CONFIG = Rails.application.config_for(:auth0)
-
-  def logout_url
-    request_params = {
-      returnTo: root_url,
-      client_id: AUTH0_CONFIG['auth0_client_id']
-    }
-
-    URI::HTTPS.build(host: AUTH0_CONFIG['auth0_domain'], path: '/v2/logout', query: to_query(request_params))
-  end
-
-  private
-  def to_query(hash)
-    hash.map { |k, v| "#{k}=#{CGI.escape(v)}" unless v.nil? }.reject(&:nil?).join('&')
-  end
-end
-```
-
-::: note
-The final destination URL (the `returnTo` value) needs to be in the list of `Allowed Logout URLs`. See the [logout documentation](/logout/guides/redirect-users-after-logout) for more.
-:::
