@@ -1,6 +1,6 @@
 ---
 title: Login
-description: This tutorial demonstrates how to add user login to an ASP.NET Core 3.x application.
+description: This tutorial demonstrates how to add user login to an ASP.NET Core application.
 budicon: 448
 topics:
   - quickstarts
