@@ -1273,6 +1273,8 @@ articles:
         url: /support/sla
       - title: Tickets
         url: /support/open-and-manage-support-tickets
+      - title: Support Center Users
+        url: /support/support-center-users
       - title: Manage Subscription
         url: /support/manage-subscriptions
       - title: Operational Policies
