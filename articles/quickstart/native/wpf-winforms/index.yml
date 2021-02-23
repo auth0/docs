@@ -34,7 +34,7 @@ github:
   repo: auth0-WinFormsWPF-oidc-samples
 requirements:
   - Microsoft Visual Studio 2017
-  - .NET Framework 4.5.2
+  - .NET Framework 4.6.2
 next_steps:
   - path: 01-login
     list:
