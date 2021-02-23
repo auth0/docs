@@ -29,16 +29,20 @@ Auth0 lets you create <dfn data-key="security-assertion-markup-language">SAML</d
   * Select an appropriate **Application Type**.
   * Add an **Allowed Callback URL** of **`${account.callback}`**.
   * Make sure your Application's **[Grant Types](/dashboard/guides/applications/update-grant-types)** include the appropriate flows.
+* Decide on the name of this enterprise connection
+  * The Post-back URL (also called Assertion Consumer Service URL) becomes: `https://YOUR_DOMAIN/login/callback?connection=YOUR_CONNECTION_NAME`
+  * The Entity ID becomes: `urn:auth0:YOUR_TENANT:YOUR_CONNECTION_NAME`
 
 ## Steps
 
 To connect your application to a SAML Identity Provider, you must:
 
-1. [Get the signing certificate from the IdP](#get-the-signing-certificate-from-the-idp) and [convert it to Base64](#convert-signing-certificate-to-base64).
-2. [Create an enterprise connection in Auth0](#create-an-enterprise-connection-in-auth0).
-3. [Enable the enterprise connection for your Auth0 Application](#enable-the-enterprise-connection-for-your-auth0-application).
-4. [Set up mappings](#set-up-mappings) (unnecessary for most cases).
-5. [Test the connection](#test-the-connection).
+1. Enter the Post-back URL and Entity ID at the IdP (read the separate article here: https://auth0.com/docs/protocols/saml-configuration-options/saml-identity-provider-configuration-settings)
+2. [Get the signing certificate from the IdP](#get-the-signing-certificate-from-the-idp) and [convert it to Base64](#convert-signing-certificate-to-base64).
+3. [Create an enterprise connection in Auth0](#create-an-enterprise-connection-in-auth0).
+4. [Enable the enterprise connection for your Auth0 Application](#enable-the-enterprise-connection-for-your-auth0-application).
+5. [Set up mappings](#set-up-mappings) (unnecessary for most cases).
+6. [Test the connection](#test-the-connection).
 
 ## Get the signing certificate from the IdP
 
@@ -62,7 +66,7 @@ Next, you will need to create and configure a SAML Enterprise Connection in Auth
 
 | Field | Description |
 | ----- | ----------- |
-| **Connection name** | Logical identifier for your connection; it must be unique for your tenant. Once set, this name can't be changed. |
+| **Connection name** | Logical identifier for your connection; it must be unique for your tenant and the same name used when setting the Post-back URL and Entity ID at the IdP. Once set, this name can't be changed. |
 | **Sign In URL** | SAML single login URL. |
 
 ![Configure General SAML Settings](/media/articles/dashboard/connections/enterprise/conn-enterprise-saml-settings-1.png)
