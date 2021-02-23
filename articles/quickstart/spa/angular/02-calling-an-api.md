@@ -112,7 +112,7 @@ The following component demonstrates how to display the `user_metadata` field fr
 
 ```js
 import { Component, OnInit } from '@angular/core';
-import { concatMap, tap } from 'rxjs/operators';
+import { concatMap, tap, pluck } from 'rxjs/operators';
 
 // Import the HttpClient for making API requests
 import { HttpClient } from '@angular/common/http';
