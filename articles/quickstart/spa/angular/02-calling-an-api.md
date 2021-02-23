@@ -108,17 +108,13 @@ The following component demonstrates how to display the `user_metadata` field fr
 
 ```js
 import { Component, OnInit } from '@angular/core';
-import { concatMap, tap } from 'rxjs/operators';
+import { concatMap, tap, pluck } from 'rxjs/operators';
 
 // Import the HttpClient for making API requests
 import { HttpClient } from '@angular/common/http';
 
 // Import AuthService from the Auth0 Angular SDK to get access to the user
 import { AuthService } from '@auth0/auth0-angular';
-
-// Import Pluck from RXJS 
-import { pluck } from 'rxjs/operators';
-
 
 @Component({
   selector: 'app-metadata',
