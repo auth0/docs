@@ -63,6 +63,10 @@ public void Configuration(IAppBuilder app)
         // Configure SameSite as needed for your app. Lax works well for most scenarios here but
         // you may want to set SameSiteMode.None for HTTPS
         CookieSameSite = SameSiteMode.Lax,
+
+        // More information on why the CookieManager needs to be set can be found here: 
+        // https://github.com/aspnet/AspNetKatana/wiki/System.Web-response-cookie-integration-issues
+        CookieManager = new SameSiteCookieManager(new SystemWebCookieManager())
     });
 
     // Configure Auth0 authentication
@@ -86,6 +90,8 @@ public void Configuration(IAppBuilder app)
             NameClaimType = "name"
         },
 
+        // More information on why the CookieManager needs to be set can be found here: 
+        // https://docs.microsoft.com/en-us/aspnet/samesite/owin-samesite
         CookieManager = new SameSiteCookieManager(new SystemWebCookieManager()),
 
         Notifications = new OpenIdConnectAuthenticationNotifications
