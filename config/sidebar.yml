@@ -733,15 +733,6 @@ articles:
         url: /rules/user-object-in-rules
       - title: Context Object
         url: /rules/context-object
-      - title: Deploy Rules with Bitbucket
-        url: /extensions/bitbucket-deployments
-        hidden: true
-      - title: Deploy Rules with GitLab
-        url: /extensions/gitlab-deployments
-        hidden: true
-      - title: Deploy Rules with Github
-        url: /extensions/github-deployments
-        hidden: true
   - title: Hooks
     url: /hooks
     children:
@@ -797,14 +788,6 @@ articles:
         url: /extensions/auth0-authentication-api-webhooks
       - title: Management API Webhooks
         url: /extensions/auth0-management-api-webhooks
-      - title: GitHub Deployments
-        url: /extensions/github-deployments
-      - title: Bitbucket Deployments
-        url: /extensions/bitbucket-deployments
-      - title: GitLab Deployments
-        url: /extensions/gitlab-deployments
-      - title: Visual Studio Team Services Deployments
-        url: /extensions/visual-studio-team-services-deployments
       - title: Authentication API Debugger
         url: /extensions/authentication-api-debugger-extension
       - title: AD/LDAP Connector Health Monitor
