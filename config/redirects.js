@@ -1542,8 +1542,8 @@ module.exports = [
     to: '/extensions/deploy-cli-tool/call-deploy-cli-tool-programmatically'
   },
   {
-    from: ['/extensions/deploy-cli/guides/create-deploy-cli-application-manually'],
-    to: '/extensions/deploy-cli-tool/create-and-configure-the-deploy-cli-application-manually'
+    from: ['/extensions/deploy-cli/guides/create-deploy-cli-application-manually','/extensions/deploy-cli-tool/create-and-configure-the-deploy-cli-application-manually'],
+    to: '/extensions/deploy-cli-tool/create-and-configure-the-deploy-cli-application'
   },
   {
     from: ['/extensions/deploy-cli/guides/import-export-directory-structure'],
