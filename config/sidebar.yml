@@ -521,13 +521,13 @@ articles:
         children:
           - title: SAML SSO Integrations
             url: /protocols/saml-protocol/saml-configuration-options
-          - title: Configure Auth0 as a Service Provider
+          - title: Auth0 as SP
             url: /protocols/saml-protocol/configure-auth0-saml-service-provider
-          - title: Configure Auth0 as an Identity Provider
+          - title: Auth0 as IdP
             url: /protocols/saml-protocol/configure-auth0-as-saml-identity-provider
-          - title: Configure Auth0 as Both Service and Identity Provider
+          - title: Auth0 as SP and IdP (Test)
             url: /protocols/saml-protocol/configure-auth0-as-service-and-identity-provider
-          - title: Identity Provider Settings
+          - title: IdP Settings
             url: /protocols/saml-protocol/saml-identity-provider-configuration-settings
           - title: Special Scenarios
             url: /protocols/saml-protocol/special-saml-configuration-scenarios
@@ -535,6 +535,8 @@ articles:
             url: /protocols/saml-protocol/customize-saml-assertions
           - title: Deprovision Users
             url: /protocols/saml-protocol/deprovision-users-in-saml-integrations
+          - title: Troubleshoot SAML Configurations
+            url: /protocols/saml-protocol/troublshoot-saml-configurations
       - title: Add IP Addresses to AllowList
         url: /security/allowlist-ip-addresses
   - title: Manage Users
