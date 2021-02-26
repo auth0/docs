@@ -1598,8 +1598,8 @@ module.exports = [
     to: '/extensions/export-logs-to-azure-blob-storage'
   },
   {
-    from: ['/extensions/bitbucket-deploy'],
-    to: '/extensions/bitbucket-deployments'
+    from: ['/extensions/bitbucket-deploy','/extensions/bitbucket-deployments'],
+    to: '/extensions'
   },
   {
     from: ['/extensions/cloudwatch'],
@@ -1610,12 +1610,12 @@ module.exports = [
     to: '/connections/social/oauth2'
   },
   {
-    from: ['/extensions/github-deploy'],
-    to: '/extensions/github-deployments'
+    from: ['/extensions/github-deploy','/extensions/github-deployments'],
+    to: '/extensions'
   },
   {
-    from: ['/extensions/gitlab-deploy'],
-    to: '/extensions/gitlab-deployments'
+    from: ['/extensions/gitlab-deploy','/extensions/gitlab-deployments'],
+    to: '/extensions'
   },
   {
     from: ['/extensions/logentries'],
@@ -1674,8 +1674,8 @@ module.exports = [
     to: '/extensions'
   },
   {
-    from: ['/extensions/visual-studio-team-services-deploy'],
-    to: '/extensions/visual-studio-team-services-deployments'
+    from: ['/extensions/visual-studio-team-services-deploy','/extensions/visual-studio-team-services-deployments'],
+    to: '/extensions'
   },
   {
     from: ['/dashboard/guides/extensions/delegated-admin-create-app'],
