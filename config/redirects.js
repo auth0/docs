@@ -3028,12 +3028,12 @@ module.exports = [
     to: '/protocols/saml-configuration-options/configure-auth0-as-idp-for-google-g-suite'
   },
   {
-    from: ['/saml-idp-generic','/protocols/saml/saml-idp-generic','/protocols/saml/saml-configuration/auth0-as-identity-provider'],
-    to: '/protocols/saml-configuration-options/configure-auth0-as-saml-identity-provider'
+    from: ['/protocols/saml-configuration-options/configure-auth0-as-saml-identity-provider','/saml-idp-generic','/protocols/saml/saml-idp-generic','/protocols/saml/saml-configuration/auth0-as-identity-provider'],
+    to: '/protocols/saml-protocol/configure-auth0-as-saml-identity-provider'
   },
   {
-    from: ['/protocols/saml/saml-sp-generic','/saml-sp-generic','/protocols/saml/saml-configuration/auth0-as-service-provider'],
-    to: '/protocols/saml-configuration-options/configure-auth0-saml-service-provider'
+    from: ['/protocols/saml-configuration-options/configure-auth0-saml-service-provider','/protocols/saml/saml-sp-generic','/saml-sp-generic','/protocols/saml/saml-configuration/auth0-as-service-provider'],
+    to: '/protocols/saml-protocol/configure-auth0-saml-service-provider'
   },
   {
     from: ['/protocols/saml/identity-providers/okta','/okta', '/saml/identity-providers/okta'],
@@ -3068,10 +3068,6 @@ module.exports = [
     to: '/protocols/saml-configuration-options/configure-saml2-addon-eloqua'
   },
   {
-    from: ['/protocols/saml/idp-initiated-sso'],
-    to: '/protocols/saml-configuration-options/configure-saml-identity-provider-initiated-single-sign-on'
-  },
-  {
     from: ['/siteminder', '/saml/identity-providers/siteminder','/protocols/saml/identity-providers/siteminder'],
     to: '/protocols/saml-configuration-options/configure-siteminder-as-saml-identity-provider'
   },
@@ -3080,12 +3076,12 @@ module.exports = [
     to: '/protocols/saml-configuration-options/configure-ssocircle-as-saml-identity-provider'
   },
   {
-    from: ['/protocols/saml/saml-configuration/saml-assertions'],
-    to: '/protocols/saml-configuration-options/customize-saml-assertions'
+    from: ['/protocols/saml-configuration-options/customize-saml-assertions','/protocols/saml/saml-configuration/saml-assertions'],
+    to: '/protocols/saml-protocol/customize-saml-assertions'
   },
   {
-    from: ['/protocols/saml/saml-configuration/deprovision-users'],
-    to: '/protocols/saml-configuration-options/deprovision-users-in-saml-integrations'
+    from: ['/protocols/saml-configuration-options/deprovision-users-in-saml-integrations','/protocols/saml/saml-configuration/deprovision-users'],
+    to: '/protocols/saml-protocol/deprovision-users-in-saml-integrations'
   },
   {
     from: ['/saml2webapp-tutorial','/protocols/saml/saml2webapp-tutorial'],
@@ -3096,24 +3092,16 @@ module.exports = [
     to: '/protocols/saml-configuration-options/special-saml-configuration-scenarios'
   },
   {
-    from: ['/protocols/saml/saml-configuration/special-configuration-scenarios/idp-initiated-sso'],
-    to: '/protocols/saml-configuration-options/identity-provider-initiated-single-sign-on'
+    from: ['/protocols/saml/idp-initiated-sso','/protocols/saml-configuration-options/identity-provider-initiated-single-sign-on','/protocols/saml/saml-configuration/special-configuration-scenarios/idp-initiated-sso'],
+    to: '/protocols/saml-protocol/saml-configuration-options/identity-provider-initiated-single-sign-on'
   },
   {
-    from: ['/protocols/saml/saml-configuration/special-configuration-scenarios/signing-and-encrypting-saml-requests'],
-    to: '/protocols/saml-configuration-options/sign-and-encrypt-saml-requests'
+    from: ['/protocols/saml-configuration-options/sign-and-encrypt-saml-requests','/protocols/saml/saml-configuration/special-configuration-scenarios/signing-and-encrypting-saml-requests'],
+    to: '/protocols/saml-protocol/saml-configuration-options/sign-and-encrypt-saml-requests'
   },
   {
-    from: ['/samlp', '/protocols/saml/samlp'],
-    to: '/protocols/saml-configuration-options/saml-identity-provider-configuration-settings'
-  },
-  {
-    from: ['/protocols/saml/samlsso-auth0-to-auth0','/samlsso-auth0-to-auth0'],
-    to: '/protocols/saml-configuration-options/test-saml-sso-with-auth0-as-service-and-identity-provider'
-  },
-  {
-    from: ['/protocols/saml/idp-initiated-sso'],
-    to: '/protocols/saml-configuration-options/configure-saml-identity-provider-initiated-single-sign-on'
+    from: ['/protocols/saml-configuration-options/saml-identity-provider-configuration-settings','/samlp', '/protocols/saml/samlp'],
+    to: '/protocols/saml-protocol/saml-identity-provider-configuration-settings'
   },
   {
     from: ['/protocols/saml/saml-apps/hosted-graphite'],
@@ -3148,8 +3136,8 @@ module.exports = [
     to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-workpath'
   },
   {
-    from: ['/protocols/saml/saml-configuration/auth0-as-identity-and-service-provider'],
-    to: '/protocols/saml-configuration-options/configure-auth0-as-service-and-identity-provider'
+    from: ['/protocols/saml-configuration-options/test-saml-sso-with-auth0-as-service-and-identity-provider','/protocols/saml/samlsso-auth0-to-auth0','/samlsso-auth0-to-auth0','/protocols/saml-configuration-options/configure-auth0-as-service-and-identity-provider','/protocols/saml/saml-configuration/auth0-as-identity-and-service-provider'],
+    to: '/protocols/saml-protocol/configure-auth0-as-service-and-identity-provider'
   },
   {
     from: ['/protocols/saml/saml-apps/atlassian'],
