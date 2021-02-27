@@ -465,7 +465,7 @@ articles:
             url: /enable-universal-links-support-in-apple-xcode
           - title: Remove Applications
             url: /applications/remove-applications
-          - title: Check App Type
+          - title: View Application Type
             url: /applications/view-application-type
           - title: Rotate Client Secret
             url: /get-started/dashboard/rotate-client-secret
@@ -516,23 +516,32 @@ articles:
             url: /attack-protection/customize-blocked-account-emails
           - title: View Events
             url: /attack-protection/view-attack-protection-events
-      - title: SAML Configuration
+      - title: SAML Configuration Options
         url: /protocols/saml-protocol
         children:
-          - title: Overview
-            url: /protocols/saml-configuration-options
-          - title: Configure Auth0 as a Service Provider
-            url: /protocols/saml-configuration-options/configure-auth0-saml-service-provider
-          - title: Configure Auth0 as an Identity Provider
-            url: /protocols/saml-configuration-options/configure-auth0-as-saml-identity-provider
-          - title: Configure Auth0 as Both Service and Identity Provider
-            url: /protocols/saml-configuration-options/configure-auth0-as-service-and-identity-provider
-          - title: Supported SAML Options and Bindings
-            url: /protocols/saml-configuration-options/saml-identity-provider-configuration-settings
+          - title: SAML SSO Integrations
+            url: /protocols/saml-protocol/saml-configuration-options
+          - title: Auth0 as SP
+            url: /protocols/saml-protocol/configure-auth0-saml-service-provider
+          - title: Auth0 as IdP
+            url: /protocols/saml-protocol/configure-auth0-as-saml-identity-provider
+          - title: Test SAML SSO
+            url: /protocols/saml-protocol/configure-auth0-as-service-and-identity-provider
+          - title: IdP Settings
+            url: /protocols/saml-protocol/saml-identity-provider-configuration-settings
+          - title: Special Scenarios
+            url: /protocols/saml-protocol/special-saml-configuration-scenarios
+            children:
+              - title: Identity Provider-Initiated SSO
+                url: /protocols/saml-protocols/saml-configuration-options/identity-provider-initiated-single-sign-on
+                hidden: true 
+              - title: Sign and Encrypt SAML Requests
+                url: /protocols/saml-protocols/saml-configuration-options/sign-and-encrypt-saml-requests
+                hidden: true 
           - title: Customize SAML Assertions
-            url: /protocols/saml-configuration-options/customize-saml-assertions
+            url: /protocols/saml-protocol/customize-saml-assertions
           - title: Deprovision Users
-            url: /protocols/saml-configuration-options/deprovision-users-in-saml-integrations
+            url: /protocols/saml-protocol/deprovision-users-in-saml-integrations
       - title: Add IP Addresses to AllowList
         url: /security/allowlist-ip-addresses
   - title: Manage Users
