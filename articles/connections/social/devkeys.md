@@ -54,4 +54,4 @@ If you are using the [Classic Universal Login experience](/universal-login/class
 
 6. If Auth0 is acting as a <dfn data-key="security-assertion-markup-language">SAML</dfn> Identity Provider and you use a social connection with the Auth0 developer keys, the generated SAML response will have some errors, like a missing `InResponseTo` attribute or an empty `AudienceRestriction` element.
 
-7. Does not work with auth0 mfa solution 
+7. [Multi-factor Authentication in Auth0](/mfa) will not function properly. This is because when the MFA authentication is successful will do a post in `https://${account.namespace}/mf`. When using Auth0's developer keys, the session is established on a special endpoint that is generic and tenant agnostic, and calling `/mf` will not find your previous session, resulting in an error
