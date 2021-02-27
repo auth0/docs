@@ -53,3 +53,5 @@ If you are using the [Classic Universal Login experience](/universal-login/class
 5. `prompt=none` won't work on the [/authorize](/api/authentication/reference#social) endpoint. [Auth0.js' checkSession() method](/libraries/auth0js#using-checksession-to-acquire-new-tokens) uses `prompt=none` internally, so that won't work either.
 
 6. If Auth0 is acting as a <dfn data-key="security-assertion-markup-language">SAML</dfn> Identity Provider and you use a social connection with the Auth0 developer keys, the generated SAML response will have some errors, like a missing `InResponseTo` attribute or an empty `AudienceRestriction` element.
+
+7. Does not work with auth0 mfa solution 
