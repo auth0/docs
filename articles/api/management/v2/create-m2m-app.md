@@ -25,8 +25,7 @@ To create and authorize a Machine-to-Machine Application for the Management API:
 The application created in the steps above has been granted __all__ the Management API <dfn data-key="scope">scopes</dfn>. This means that it can access all endpoints.
 
 ::: panel How can I find out which scopes/permissions are required?
-Each [Auth0 Management API v2](/api/management/v2) endpoint requires specific scopes in the machine-to-machine token in order to get the data you want. Each endpoint
-in the [Management API Explorer](/api/management/v2#!) documentation has a section called scopes, listing all the scopes that the endpoint requires.
+Each [Auth0 Management API v2](/api/management/v2) endpoint requires specific scopes in the machine-to-machine token in order to get the data you want. Each endpoint in the [Management API Explorer](/api/management/v2#!) documentation has a section called scopes, listing all the scopes that the endpoint requires.
 :::
 
 ## Example: Get All Connections Endpoint
