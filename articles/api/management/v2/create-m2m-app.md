@@ -30,7 +30,7 @@ Each machine-to-machine application that accesses an API must be granted a set o
 
 ## Example: Get All Connections Endpoint
 
-The [Get all connections](/api/management/v2#!/Connections/get_connections) endpoint accepts the `read:connections` scope, whilst the [Create a connection](/api/management/v2#!/Connections/post_connections) endpoint accepts the `write:connections` scope. Using that we now know that our machine-to-machine token should only need the `read:connections` scope in order to get that data.
+The [Get all connections](/api/management/v2#!/Connections/get_connections) endpoint accepts the `read:connections` scope, whilst the [Create a connection](/api/management/v2#!/Connections/post_connections) endpoint accepts the `write:connections` scope. Using that we now know that our machine-to-machine token should only need the `read:connections` scope in order to access data from that endpoint.
 
 If you have multiple applications that should access the Management API then you should create separate machine-to-machine applications for each application in Auth0, instead of just a single machine-to-machine application.
 ## Keep reading
