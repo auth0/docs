@@ -32,7 +32,7 @@ Each machine-to-machine application that accesses an API must be granted a set o
 
 The [Get all connections](/api/management/v2#!/Connections/get_connections) endpoint requires the `read:connections` scope, whilst the [Create a connection](/api/management/v2#!/Connections/post_connections) endpoint requires the `write:connections` scope. Using that we now know that our machine-to-machine token should only require the `read:connections` scope in order to get that data.
 
-If you have multiple applications that should access the Management API then you should create separate machine-to-machine applications for each application in Auth0 instead of just a single machine-to-machine application.
+If you have multiple applications that should access the Management API then you should create separate machine-to-machine applications for each application in Auth0, instead of just a single machine-to-machine application.
 ## Keep reading
 
 * [Get Access Tokens for Testing](/api/management/v2/get-access-tokens-for-test)
