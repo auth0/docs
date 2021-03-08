@@ -19,14 +19,10 @@ This guide will show you how to test social [connections](/connections) for appl
 To properly test, you should have already [set up your social connection](/dashboard/guides/connections/set-up-connections-social).
 :::
 
-1. Navigate to the [Connections > Social](${manage_url}/#/connections/social) page in the [Auth0 Dashboard](${manage_url}/), and click **Try** next to the logo of the connection you want to test.
+1. Navigate to [Auth0 Dashboard > Authentication > Social](${manage_url}/#/connections/social), locate the connection you want to test, expand the More Options menu (**...**), and select **Try Connection**.
 
-![Try Connection](/media/articles/connections/social/connection-social-list-configured.png)
+    ![Try Connection](/media/articles/connections/social/dashboard-connections-social-try.png)
 
-2. Log in and consent to allow access to your app.
+2. Log in and consent to allow access to your app. If you have configured everything correctly, you will see the **It Works!** page:
 
-![Choose Account](/media/articles/connections/social/connection-social-try-choose-account.png)
-
-If you have configured everything correctly, you will see the **It Works!** page:
-
-![Success](/media/articles/connections/social/connection-social-try-success.png)
+    ![Success](/media/articles/connections/social/connection-social-try-success.png)

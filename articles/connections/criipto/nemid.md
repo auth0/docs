@@ -74,7 +74,7 @@ Click the check mark in the green area at the bottom to allow Criipto Verify to 
 
 ## 5. Verify the connections
 
-Go to the **Connections > Enterprise** section and open the **ADFS** connections to see the connections for
+Go to [Auth0 Dashboard > Authentication > Enterprise](${manage_url}/#/connections/enterprise), and open the **ADFS** connections to see the connections for
 Danish NemID  created from the previous steps.
 
 ::: note

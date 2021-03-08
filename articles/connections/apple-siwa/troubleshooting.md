@@ -24,7 +24,7 @@ Ensure that the correct configuration elements are in place, both in the Auth0 M
 - **Missing return URLS for Web Apps**: When using Sign In with Apple for web apps, the Auth0 callback endpoint must be added to the list of Return URLs in the Apple Developer Settings Console.  When not using custom domains, this will take the format: `https://TENANT.auth0.com/login/callback`.
 
 ::: warning
-Remember that it's not possible to test native apps from the Auth0 Management Dashboard.  The **Try** button in the Apple connection settings only tests the web app flow.  This is due to the fact that real devices are required for interaction with the Apple IdP using an App ID.
+Remember that it's not possible to test native apps from the Auth0 Management Dashboard.  The **Try Connection** button in the Apple connection only tests the web app flow. This is due to the fact that real devices are required for interaction with the Apple IdP using an App ID.
 :::
 
 ## Tenant logs

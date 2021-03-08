@@ -60,7 +60,7 @@ If you use a code, your application will need to prompt for that code, and then 
 
 If you are implementing passwordless for Native Applications or Regular Web Applications, you need to use `/oauth/token` to exchange the OTP code for authentication tokens. You cannot use this endpoint from Single Page Applications.
 
-To achieve this you first need to enable the **Passwordless OTP** grant for your application in [Dashboard > Applications > (YOUR APPLICATION) > Settings > Advanced Settings > Grant Types](${manage_url}). 
+To achieve this you first need to enable the **Passwordless OTP** grant for your application at [Dashboard > Applications > Applications](${manage_url}/#/applications) in your application's settings under **Advanced Settings** > **Grant Types**. 
 
 The user will receive the OTP code and your Native or Web application will prompt the user for it. When the user enters the code, you can complete the authentication flow by calling the `/oauth/token` endpoint with the following parameters:
 

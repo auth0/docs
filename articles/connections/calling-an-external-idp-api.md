@@ -49,36 +49,35 @@ You will need an Access Token to call the [Management API](/api/management/v2).
 
 If this is the first time you are requesting a [Management APIv2 Token](/api/management/v2/tokens), you will need to create and configure an application that can be used to call the Management API:
 
-1. From the [registered Auth0 Management API](${manage_url}/#/apis/management/authorized-clients) in the [Dashboard](${manage_url}), click the **API Explorer** tab.
+1. Navigate to [Auth0 Dashboard > Applications > APIs](${manage_url}/#/apis/, and select the [Auth0 Management API](${manage_url}/#/apis/management/authorized-clients).
 
-2. Click **Create & Authorize a Test Application**.
+2. Select the **API Explorer** view, and click **Create & Authorize a Test Application**.
 
 This will create a new application and grant **all <dfn data-key="scope">scopes</dfn> of the Management API**. This means that the tokens generated for this application will be able to access **all Management API endpoints**.
 
 ::: panel Can't see the button?
 If you don't see this button, it means that you already have at least one authorized application for the Management API. In this case, you can either update the scopes of the existing application and use that, or create a new one following these steps:
 
-1. Navigate to [Applications](${manage_url}/#/applications) in the [Dashboard](${manage_url}), and click **Create Application**. 
-2. Select **Machine to Machine Applications**, and click **Create**
+1. Navigate to [Auth0 Dashboard > Applications > Applications](${manage_url}/#/applications), and click **Create Application**. 
+2. Select **Machine to Machine Applications**, and then **Create**
 3. From the **Select an API** dropdown, select `Auth0 Management API`.
-4. Enable required scopes, and click **Authorize**.
-5. Click on the **APIs** tab.
-5. Enable the toggle for **Auth0 Management API**.
+4. Enable required scopes, and select **Authorize**.
+5. Select the **APIs** view, and enable the toggle for **Auth0 Management API**.
 :::
 
 ::: warning Security
 For security reasons, we recommend that you assign only the required scopes to the application you will be using. For this particular case, the scopes you need are: `read:users`, `read:user_idp_tokens`. Required scopes are listed for each endpoint in the [Management API Explorer](/api/management/v2/).
 :::
 
-To grant or remove scopes from the [registered Auth0 Management API](${manage_url}/#/apis/management/authorized-clients) in the [Dashboard](${manage_url}), click the [**Machine to Machine Applications** tab](${manage_url}/#/apis/management/authorized-clients):
+To grant or remove scopes from the [registered Auth0 Management API](${manage_url}/#/apis/management/authorized-clients), select the [**Machine to Machine Applications** view](${manage_url}/#/apis/management/authorized-clients):
 
-![Edit the scopes granted to the Application](/media/articles/connections/edit-granted-scopes.png)
+![Edit the scopes granted to the Application](/media/articles/connections/dashboard-apis-edit_view-m2m_mgmt-api-permissions.png)
 
 #### Get the Management API Token
 
 You are now done with configuration and are ready to get your Management API token:
 
-1. From the [registered Auth0 Management API](${manage_url}/#/apis/management/authorized-clients) in the [Dashboard](${manage_url}), click the [Test tab](${manage_url}/#/apis/management/test).
+1. From the [registered Auth0 Management API](${manage_url}/#/apis/management/authorized-clients), select the [Test view](${manage_url}/#/apis/management/test).
 
 2. Choose your application from the **Application** dropdown to pre-populate the ready-to-use snippets with customized variables.
 
@@ -94,9 +93,9 @@ The snippets make a `POST` operation to the [/oauth/token endpoint of the Auth0 
 
 By default, the token you received expires in 24 hours (86400 seconds). To change this:
 
-1. From the [registered Auth0 Management API](${manage_url}/#/apis/management/authorized-clients) in the [Dashboard](${manage_url}), click the [Settings tab](${manage_url}/#/apis/management/settings).
+1. Navigate to [Auth0 Dashboard > Applications > APIs](${manage_url}/#/apis/, and select the [Auth0 Management API](${manage_url}/#/apis/management/authorized-clients).
 
-2. Locate the **Token Expiration (Seconds)** field, enter a new value, and click **Save**. The maximum value you can set is 2592000 seconds (30 days), though we recommend that you keep the default value.
+2. Select the **Settings** view, locate the **Token Expiration (Seconds)** field, enter a new value, and click **Save**. The maximum value you can set is 2592000 seconds (30 days), though we recommend that you keep the default value.
 
 The next token you generate will use the updated expiration time. 
 
@@ -126,7 +125,7 @@ Replace these values:
 - `YOUR_ACCESS_TOKEN`: Access Token you extracted in the previous section.
 
 ::: panel Where do I find the User ID?
-- For testing purposes, you can find a user ID at [Users](${manage_url}/#/users/) in the [Auth0 Dashboard](${manage_url}). Locate a user, and copy the value of the **user_id** field.
+- For testing purposes, you can find a user ID at [Auth0 Dashboard > User Management > Users](${manage_url}/#/users/). Locate a user, and copy the value of the **user_id** field.
 - For your implementation, you can either extract the user ID from the `sub` claim in the [ID Token](/tokens/concepts/id-tokens), or call the [/userinfo endpoint](/api/authentication#get-user-info) of the Authentication API and extract it from the `user_id` response property.
 :::
 

@@ -1,7 +1,7 @@
 
 ## Configure the connection
 
-1. Navigate to the [Connections > Passwordless](${manage_url}/#/connections/passwordless) page in the [Auth0 Dashboard](${manage_url}/), and enable the Email toggle.
+1. Navigate to [Auth0 Dashboard > Authentication > Passwordless](${manage_url}/#/connections/passwordless), and enable the **Email** switch.
 
 ![Enable Email Passwordless](/media/articles/connections/passwordless/connections-passwordless-list.png)
 
@@ -53,7 +53,7 @@ The following parameters are available when defining the message template:
 
 ## Enable your apps
 
-Click the **Apps** tab, and enable the apps for which you would like to use Passwordless Email.
+Select the **Applications** view, and enable the applications for which you would like to use Passwordless Email.
 
 ## Email Providers
 

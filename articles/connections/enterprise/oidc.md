@@ -57,11 +57,11 @@ Next, you will need to create and configure a OIDC Enterprise Connection in Auth
 To be configurable through the Auth0 Dashboard, the OpenID Connect (OIDC) Identity Provider (IdP) needs to support [OIDC Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html). Otherwise, you can configure the connection using the [Management API](#configure-the-connection-using-the-management-api).
 :::
 
-1. Navigate to the [Connections > Enterprise](${manage_url}/#/connections/enterprise) page in the [Auth0 Dashboard](${manage_url}/), and click **Create Connection**.
+1. Navigate to [Auth0 Dashboard > Authentication > Enterprise](${manage_url}/#/connections/enterprise), locate **Open ID Connect**, and click its `+`.
 
-![Create Connection Type](/media/articles/dashboard/connections/enterprise/conn-enterprise-list.png)
+![Create Connection Type](/media/articles/connections/dashboard-connections-enterprise-list.png)
 
-2. Enter general information for your connection:
+2. Enter details for your connection, and select **Create**:
 
 | Field | Description |
 | ----- | ----------- |
@@ -73,9 +73,9 @@ To be configurable through the Auth0 Dashboard, the OpenID Connect (OIDC) Identi
 
 <%= include('../_find-auth0-domain-redirects.md') %>
 
-4. Click **Create**. The new enterprise connection settings screen appears. 
+![Enter OIDC Connection Details](/media/articles/connections/dashboard-connections-enterprise-create_oidc_default-empty.png)
 
-5. On the **Settings** tab, make additional configuration adjustments if necessary.
+3. In the **Settings** view, make additional configuration adjustments, if necessary.
 
 | Field | Description|
 | -- | -- |
@@ -83,11 +83,11 @@ To be configurable through the Auth0 Dashboard, the OpenID Connect (OIDC) Identi
 | **Type** | Set to **Front Channel** or **Back Channel**. Front Channel uses the OIDC protocol with `response_mode=form_post` and `response_type=id_token`. Back Channel uses `response_type=code`. |
 | **Scopes** | A comma-separated list of Auth0 scopes to request when connecting to the Identify Provider. This will affect the data stored in the user profile. You are required to include at least the `openid` scope. Note that the connection does not call `/userinfo` endpoint and expects the user claims to be present in the `id_token`.  |
 
-6. On the **Login Experience** tab you can configure how users log in with this connection.
+4. In the **Login Experience** view, configure how users log in with this connection.
 
 <%= include('./_login-experience-tab.md') %>
 
-7. Click **Save Changes**.
+5. Select **Save Changes**.
 
 ### Create an enterprise connection using the Management API
 

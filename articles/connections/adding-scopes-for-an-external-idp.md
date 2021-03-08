@@ -18,15 +18,15 @@ There are two ways you can use to request the correct permissions.
 
 ## 1. Change Identity Provider Settings
 
-To configure the <dfn data-key="scope">scopes</dfn>/permissions needed from the user, go to the [Connections > Social](${manage_url}/#/connections/social) section of Auth0 Dashboard. There, you can click on an IdP to select the particular scopes required. 
+To configure the <dfn data-key="scope">scopes</dfn>/permissions needed from the user, go to [Auth0 Dashboard > Authentication > Social](${manage_url}/#/connections/social), and select an IdP. You can select the required permissions listed on the configuration screen.
 
-For example, if you click the Google connection, you can select the required scopes listed in the configuration pop-up:
+For example, if you click the **Google / Gmail** connection, you can configure Google-specific permissions:
 
-![Scopes for Google](/media/articles/what-to-do-once-the-user-is-logged-in/adding-scopes-for-an-external-idp/scopes.png)
+![Permissions for Google](/media/articles/connections/social/dashboard-connections-social-create_google.png)
 
 ## 2. Pass Scopes to Authorize endpoint
 
-You can also pass the scopes you wish to request as a comma-separated list in the `connection_scope` parameter when calling the [authorize endpoint](/api/authentication#login). For example, if you want to request the `https://www.googleapis.com/auth/contacts.readonly` and `https://www.googleapis.com/auth/analytics` scopes from Google, you can pass these along with the `connection` parameter to ensure the user logs in with their Google account:
+You can also pass the scopes/permissions you wish to request as a comma-separated list in the `connection_scope` parameter when calling the [authorize endpoint](/api/authentication#login). For example, if you want to request the `https://www.googleapis.com/auth/contacts.readonly` and `https://www.googleapis.com/auth/analytics` scopes from Google, you can pass these along with the `connection` parameter to ensure the user logs in with their Google account:
 
 ```text
 https://${account.namespace}/authorize
@@ -40,5 +40,5 @@ https://${account.namespace}/authorize
 ```
 
 ::: note
-Please note that in the example request above, the value of the `connection_scope` parameter is URL Encoded. The decoded value which is passed to Google is `https://www.googleapis.com/auth/analytics, https://www.googleapis.com/auth/contacts.readonly`
+Please note that in the example request above, the value of the `connection_scope` parameter is URL encoded. The decoded value that is passed to Google is `https://www.googleapis.com/auth/analytics, https://www.googleapis.com/auth/contacts.readonly`
 :::

@@ -52,11 +52,11 @@ To connect your application to Active Directory/LDAP, you must:
 
 ## Create an enterprise connection in Auth0
 
-1. Navigate to the [Connections > Enterprise](${manage_url}/#/connections/enterprise) page in the [Auth0 Dashboard](${manage_url}/), and click the `+` next to **Active Directory / LDAP**.
+1. Navigate to [Auth0 Dashboard > Authentication > Enterprise](${manage_url}/#/connections/enterprise), locate **Active Directory / LDAP**, and select its `+`.
 
-![Create Connection Type](/media/articles/dashboard/connections/enterprise/conn-enterprise-list.png)
+    ![Create AD / LDAP Connection](/media/articles/connections/dashboard-connections-enterprise-list.png)
 
-2. Enter general information for your connection:
+2. Enter details for your connection, and select **Create**:
 
 | Field | Description |
 | ----- | ----------- |
@@ -64,21 +64,14 @@ To connect your application to Active Directory/LDAP, you must:
 | **Display name** (optional) | Text used to customize the login button for Universal Login. When set, the Universal Login login button reads: "Continue with {Display name}". |
 | **Logo URL** (optional) | URL of image used to customize the login button for Universal Login. When set, the Universal Login login button displays the image as a 20px by 20px square. |
 | **IdP Domains** (optional) | Comma-separated list of valid email domains that will be allowed to log in using this connection. Only needed if using the <dfn data-key="lock">Lock</dfn> login widget. |
-
-![Configure General AD/LDAP Settings](/media/articles/dashboard/connections/enterprise/conn-enterprise-ad-ldap-settings-1.png)
-
-3. Configure advanced settings for your connection, and click **Create**:
-
-| Field | Description |
-| ----- | ----------- |
 | **Disable cache** | When enabled, disables caching. |
 | **Use client SSL certificate authentication** | When enabled, uses client SSL certificate authentication. |
 | **Use Windows Integrated Auth (Kerberos)** | When enabled, you will be asked to enter a range of IP addresses. When users log in through these IP addresses, Kerberos will be used; otherwise, AD/LDAP username/password will be requested. Typically, the IP range entered represent intranet addresses. |
 | **Sync user profile attributes at each login** | When enabled, Auth0 automatically syncs user profile data with each user login, thereby ensuring that changes made in the connection source are automatically updated in Auth0. |
 
-![Configure Advanced Settings](/media/articles/dashboard/connections/enterprise/conn-enterprise-ad-ldap-settings-2.png)
+![Enter AD / LDAP Connection Details](/media/articles/connections/dashboard-connections-enterprise-create_ad-ldap_default-empty.png)
 
-4. Download the provided installer and make note of the provided **Provisioning Ticket URL**.
+3. Download the provided installer and make note of the provided **Provisioning Ticket URL**.
 
 ::: note
 We ship different versions of the connector to install on Windows or Linux platforms.

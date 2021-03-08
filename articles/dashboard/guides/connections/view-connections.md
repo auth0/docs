@@ -15,7 +15,7 @@ useCase:
 
 This guide will show you how to view all of the available and configured [connections](/connections) using Auth0's Dashboard. The configured connections can be used to log in to your applications.
 
-1. Navigate to the [Auth0 Dashboard](${manage_url}/#/), and click **Connections** in the left nav.
+1. Navigate to the [Auth0 Dashboard](${manage_url}/#/), and select **Authentication** in the left nav.
 
 2. Select a connection type:
 

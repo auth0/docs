@@ -134,36 +134,27 @@ For your **Web** app that you configured to expose an API, make sure you use the
 
 After creating both applications in Azure AD, you can configure the Auth0 connection.
 
-1. Navigate to the [Connections > Enterprise](${manage_url}/#/connections/enterprise) page in the [Auth0 Dashboard](${manage_url}/), and click the `+` next to **Microsoft Azure AD**.
+1. Navigate to the [Auth0 Dashboard > Authentication > Enterprise](${manage_url}/#/connections/enterprise), locate **Microsoft Azure AD**, and click its `+`.
 
-![Create Connection Type](/media/articles/dashboard/connections/enterprise/conn-enterprise-list.png)
+![Create Connection Type](/media/articles/connections/dashboard-connections-enterprise-list.png)
 
-2. Enter general information for your connection:
+2. Enter details for your connection, and select **Create**:
 
 | Field | Description |
 | ----- | ----------- |
 | **Connection name** | Logical identifier for your connection; it must be unique for your tenant. Once set, this name can't be changed. |
-| **Display name** (optional) | Text used to customize the login button for Universal Login. When set, the Universal Login login button reads: "Continue with {Display name}". |
-| **Logo URL** (optional) | URL of image used to customize the login button for Universal Login. When set, the Universal Login login button displays the image as a 20px by 20px square. |
 | **Microsoft Azure AD Domain** | Your Azure AD domain name. You can find this on your Azure AD directory's overview page in the Microsoft Azure portal. |
-| **Domain aliases (optional)** | Comma-separated list of domains registered as an alias of the primary one. These may include any email domains that correspond to the connection. |
-
-![Configure General Microsoft Azure AD Settings](/media/articles/dashboard/connections/enterprise/conn-enterprise-ms-azure-ad-settings-1.png)
-
-3. Enter credentials, select attributes, and configure advanced settings for your connection, then click **Create**:
-
-| Field | Description |
-| ----- | ----------- |
 | **Client ID** | Unique identifier for your registered Azure AD application. Enter the saved value of the **Application (client) ID** for the **Native** application you registered in Azure AD. |
 | **Client Secret** | String used to gain access to your registered Azure AD application. Enter the saved value of the **Client secret** for the **Native** app you registered in Azure AD. |
 | **Use common endpoint** (optional) | When enabled, your application will dynamically accept users from new directories. Typically enabled if you selected a multitenant option for **Supported account types** for the application you registered in Azure AD. When enabled, Auth0 will redirect users to Azure's common login endpoint, and Azure will perform *Home Realm Discovery* based on the domain of the user's email address. |
 | **Identity API** | API used by Auth0 to interact with Azure AD endpoints. Learn about the differences in behavior in Microsoft's [Why update to Microsoft identity platform (v2.0)](https://docs.microsoft.com/en-us/azure/active-directory/develop/azure-ad-endpoint-comparison) doc. Select `Azure Active Directory (v1)`, and for **App ID URI**, enter the saved value of the **Application ID URI** that was created when you configured your **Web** application to expose an API. |
 | **Attributes** | Basic attributes for the signed-in user that your app can access. Indicates how much information you want stored in the Auth0 User Profile. |
 | **Extended Attributes** (optional) | Extended attributes for the signed-in user that your app can access. |
-| **Auth0 APIs** (optional) | When selected, indicates that you require the ability to make calls to the Azure AD API. |
+| **Auth0 APIs** (optional) | When selected, indicates that you require the ability to make calls to the Azure AD Users API. |
 | **Sync user profile attributes at each login** | When enabled, Auth0 automatically syncs user profile data with each user login, thereby ensuring that changes made in the connection source are automatically updated in Auth0. |
+| **Email Verification** | Choose how Auth0 sets the `email_verified` field in the user profile. To learn more, see [Email Verification for Azure AD and ADFS](/connections/azuread-adfs-email-verification). |
 
-![Configure Advanced Microsoft Azure AD Settings](/media/articles/dashboard/connections/enterprise/conn-enterprise-ms-azure-ad-settings-2.png)
+![Configure Microsoft Azure AD Settings](/media/articles/connections/dashboard-connections-enterprise-create_azure-ad_default-empty.png)
 
 ## Enable the enterprise connection for your Auth0 application
 

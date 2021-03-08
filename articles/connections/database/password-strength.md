@@ -59,7 +59,7 @@ If you provide a minimum password length, this value supercedes that indicated b
 
 ### Minimum password length when using Universal Login Pages
 
-If you are using either the [Universal Login Page](/universal-login) or the [Universal Login Password Reset Page](/universal-login/password-reset), and you want to set the minimum password length value, you will need to complete a few additional configuration steps using the [Dashboard](${manage_url}).
+If you are using either the [Universal Login Page](/universal-login) or the [Universal Login Password Reset Page](/universal-login/password-reset), and you want to set the minimum password length value, you will need to complete a few additional configuration steps using the [Auth0 Dashboard](${manage_url}).
 
 #### Set minimum password length when using Hosted Password Reset Pages
 
@@ -113,9 +113,8 @@ Scroll to the bottom and click **Save**.
 
 ## Change Your Policy
 
-To change the password strength policy, go to [Database connections](${manage_url}/#/connections/database). Select the database connection you want to change and click on the **Password Strength** tab:
-
-![Password Strength Panel in Auth0](/media/articles/connections/database/password-strength/pw-manage.png)
+To change the password strength policy, navigate to [Auth0 Dashboard > Authentication > Database](${manage_url}/#/connections/database). Select the database connection you want to change, select the **Password Policy** view, and locate the **Password Strength** section:
+![Auth0 Database Authentication - Password Policy - Password Strength](/media/articles/connections/database/password-strength/dashboard-connections-database-edit_view-password-policy_password-strength.png)
 
 The new policy will be enforced on all subsequent user sign-ups and password changes. If the user enters a password that does not match the required criteria, the password will be rejected by Auth0 and the user will be asked to create one that complies with these requirements.
 

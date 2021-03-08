@@ -71,7 +71,7 @@ Click the check mark in the green area at the bottom to allow Criipto Verify to 
 
 ## 5. Verify the connections
 
-Go to the **Connections > Enterprise** section and open the **ADFS** connections to see the connections for Norwegian BankID created from the previous steps.
+Go to [Auth0 Dashboard > Authentication > Enterprise](${manage_url}/#/connections/enterprise), and open the **ADFS** connections to see the connections for Norwegian BankID created from the previous steps.
 
 ::: note
 One connection has been created for each kind of authentication supported by Norwegian BankID: Browser based and mobile. The mobile method requires a special SIM card issued by a Norwegian provider.
