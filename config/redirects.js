@@ -1393,6 +1393,10 @@ module.exports = [
     to: '/deploy/private-cloud/private-cloud-migrations/migrate-private-cloud-custom-domains'
   },
   {
+    from: ['/pre-deployment'],
+    to: '/deploy/pre-deployment'
+  },
+  {
     from: ['/pre-deployment/how-to-run-production-checks','/pre-deployment/how-to-run-test'],
     to: '/deploy/pre-deployment/how-to-run-production-checks'
   },
