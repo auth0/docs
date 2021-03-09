@@ -100,7 +100,7 @@ If you build a custom dashboard for your product, note that API use is subject t
 Organizations currently has the following limitations:
 
 * Supported in only New Universal Login (cannot be used with classic Universal Login or Lock.js)
-* Not compatible with New Universal Login's Identifier-First Login flow, which is currently in Early Access (though we do plan to integrate the two in the future).
+* Not compatible with New Universal Login's Identifier-First Login flow, which is currently in Early Access (though we plan to integrate the two in the future).
 * Does not support:
   * custom domains per organization (For example, using the sample scenario, if Rocky Mountain High Adventures and Granite Outpost Rafting and Ziplining could both use `login.travel0.com` as login domains, then Organizations would be useful. Alternatively, if Rocky Mountain High Adventures wanted to use `login.rockymountain.com` and Granite Outpost wanted to use `login.graniteoutpost.com`, then we would need to use multiple Auth0 tenants instead.)
   * the following grants and protocols: Client Credentials, SAML (Auth0 as IdP, WS-Fed (Auth0 as IdP)

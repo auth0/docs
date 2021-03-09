@@ -19,7 +19,7 @@ To begin using the Organizations feature, you must create and configure your org
 
 When you create an organization, the settings you define are used to customize the login page and email templates that end-users see when they authenticate in the context of the organization.
 
-When using Organizations out-of-the-box, these settings will override the settings for the new Universal Login pages. If you'd like to further customize the login page or email templates, see [Customize page and email templates](#customize-page-and-email-templates).
+When using Organizations out-of-the-box, these settings will override the settings for the new Universal Login pages. If you'd like to further customize the login page or email templates, see [Customize prompts and email templates](#customize-prompts-and-email-templates).
 
 You can create organizations using either the Auth0 Dashboard or the Management API.
 
@@ -29,17 +29,22 @@ To create an organization via the Auth0 Dashboard:
 
 1. Navigate to [Auth0 Dashboard > Organizations](${manage_url}/#/organizations).
 2. Select **Create Organization**.
-3. Enter the following fields for your organization:
+3. Enter basic information for your organization, and select **Add Organization**:
 
 | Field | Description |
 | - | - |
 | **Name** | Name of the organization you would like to create. This is the name that an end-user would type in the pre-login prompt to identify which organization they wanted to log in through. Unique logical identifier, which cannot be changed. May only contain lowercase, alphabetical characters and numbers. |
 | **Display Name** | User-friendly name to display. |
+
+4. Locate the **Branding** section and customize your organization, then select **Save changes**:
+
+| Field | Description |
+| - | - |
 | **Organization Logo** | Logo to display. |
 | **Primary Color** | Color for primary elements. |
 | **Page&nbsp;Background Color** | Color for background. |
 
-4. Select **Save**.
+4. Locate the **Metadata** section and add any necessary metadata key/value pairs to the organization, then select **Add**.
 
 ### Management API
 
@@ -91,13 +96,17 @@ Possible response status codes are as follows:
 | `409` | `organization_conflict` | An organization with the same name already exists. | An organization with the same name already exists. |
 | `429` | | Too many requests. Check the X-RateLimit-Limit, X-RateLimit-Remaining and X-RateLimit-Reset headers. | |
 
-## Customize page and email templates
+## Customize prompts and email templates
 
 When using Organizations with Universal Login out-of-the-box prompts, the branding settings you configure when you [create organizations](#create-organizations) override the branding for the new Universal Login pages and email templates. If you would like to further modify the Universal Login pages and emails that the end-user receives, you can customize page and email templates.
 
 ### Page templates
 
-To modify Universal Login pages, customize a page template using the [Liquid template language](https://shopify.github.io/liquid/) and [template variables](#template-variables), then apply the template using the [Universal Login Page Templates API](/universal-login/new-experience/universal-login-page-templates#page-templates-api).
+::: note
+To access page template customization, you must use custom domains, which is a feature of any paid pricing plan.
+:::
+
+To modify Universal Login page, customize a page template using the [Liquid template language](https://shopify.github.io/liquid/) and [template variables](#template-variables), then apply the template using the [Universal Login Page Templates API](/universal-login/new-experience/universal-login-page-templates#page-templates-api).
 
 Because the same template is used for all pages, you can implement consistent login pages with minimum effort.
 

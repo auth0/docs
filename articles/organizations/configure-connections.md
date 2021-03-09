@@ -16,7 +16,7 @@ toc: true
 Each organization can have specific connections enabled, which represent the login options you can offer your users for that organization. To enable a connection for an organization, you must have already created the connection in your tenant. Available connections include [database connections](/connections/database), [social connections](/connections/identity-providers-social), and [enterprise connections](/connections/identity-providers-enterprise).
 
 ::: warning
-Currently, when organizations are enabled for an organization, connections enabled for the application are merged with connections enabled for the organizations. This means that when an end-user navigates to an organization login page (either directly from your application, or selecting an organization in the pre-login organization prompt), they will see a combined list of the connections that are enabled at the organization and application level.
+Only connections enabled at the organization level are displayed when an end-user navigates to an organization login page (either directly from your application or by selecting an organization in the pre-login organization prompt).
 :::
 
 ## Enable connections
@@ -30,6 +30,8 @@ To enable a connection via the Auth0 Dashboard:
 1. Navigate to [Auth0 Dashboard > Organizations](${manage_url}/#/organizations), and select the organization for which you want to configure connections.
 2.  Select the **Connections** view, and select **Enable Connections**.
 3. Select the connection you want to enable, and select **Enable Connection**.
+4. Locate **Membership On Authentication**, and choose whether to enable or disable auto-membership which will allow all users logging in with the connection to automatically be added as members of the organization.
+5. Select **Save**.
 
 ### Management API
 
@@ -48,7 +50,8 @@ Make a `POST` call to the `Create Organization Connections` endpoint. Be sure to
    ],
    "postData": {
    "mimeType": "application/json",
-   "text" : "{ \"connection_id\": \"CONNECTION_ID\" }"
+   "text" : "{ \"connection_id\": \"CONNECTION_ID\",
+   \"assign_membership_on_login\": \"JIT_MEMBERSHIP_VALUE\" }"
    }
 }
 ```
@@ -60,6 +63,7 @@ Make a `POST` call to the `Create Organization Connections` endpoint. Be sure to
 | `ORG_ID` | ID of the organization for which you want to enable a connection. |
 | `MGMT_API_ACCESS_TOKEN` | [Access Token for the Management API](/tokens/management-api-access-tokens) with the scope `create:organization_connections`. |
 | `CONNECTION_ID` | ID of the connection you want to enable for the specified organization. |
+| `JIT_MEMBERSHIP_VALUE` | Indicates whether you want users that log in with this connection to automatically be granted membership in the organization. When set to `true`, users will automatically be granted membership. When set to `false`, they will not automatically be granted membership. |
 
 #### Response status codes
 
