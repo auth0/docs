@@ -177,7 +177,7 @@ If the URI should be shared across all of your applications, you can set the **T
 The route in your application must accept `invitation` and `organization` parameters through the query string. To start the invitation acceptance transaction, it should forward both parameters along with the end-user to your Auth0 `/authorize` endpoint. 
 
 ::: note
-To support ulti-tenant scenarios where the organization name is used as a subdomain or path variable in your application (for example, `acme.myapp.com`), an `organization_name` parameter is also included in the invitation link sent to users. This parameter does not need to be sent to `/authorize`.
+To support multi-tenant scenarios where the organization name is used as a subdomain or path variable in your application (for example, `acme.myapp.com`), an `organization_name` parameter is also included in the invitation link sent to users. This parameter does not need to be sent to `/authorize`.
 :::
 
 For example, if you have an organization-enabled application with an **Application Login URI** set to `https://myapp.com/login`, then the link sent in the email invitation that an end-user receives will be: `https://myapp.com/login?invitation={invitation_ticket_id}&organization={organization_id}&organization_name={organization_name}`.
