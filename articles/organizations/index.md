@@ -13,7 +13,7 @@ toc: true
 
 # Organizations - Beta
 
-The Organizations feature represents a broad update to the Auth0 platform that allows our Business-to-Business (B2B) customers to better manage their partners and customers, and customize the ways that end-users in those organizations access their applications. Auth0 customers can use Organizations to:s
+The Organizations feature represents a broad update to the Auth0 platform that allows our Business-to-Business (B2B) customers to better manage their partners and customers, and customize the ways that end-users in those organizations access their applications. Auth0 customers can use Organizations to:
 
 * represent their business customers and partners in Auth0 and manage their membership.
 * configure branded, federated login flows for each business.
@@ -100,7 +100,7 @@ If you build a custom dashboard for your product, note that API use is subject t
 Organizations currently has the following limitations:
 
 * Supported in only New Universal Login (cannot be used with classic Universal Login or Lock.js)
-* Not compatible with New Universal Login's Identifier-First Login flow, which is currently in Early Access (though we plan to integrate the two in the future).
+* Not compatible with New Universal Login's Identifier-First Login flow, though we plan to integrate the two in the future.
 * Does not support:
   * custom domains per organization (For example, using the sample scenario, if Rocky Mountain High Adventures and Granite Outpost Rafting and Ziplining could both use `login.travel0.com` as login domains, then Organizations would be useful. Alternatively, if Rocky Mountain High Adventures wanted to use `login.rockymountain.com` and Granite Outpost wanted to use `login.graniteoutpost.com`, then we would need to use multiple Auth0 tenants instead.)
   * the following grants and protocols: Client Credentials, SAML (Auth0 as IdP, WS-Fed (Auth0 as IdP)
@@ -116,9 +116,6 @@ Organizations currently has the following limitations:
 
 ## Upcoming changes
 
-Organizations is currently in beta, and based on customer feedback, we have already identified several areas that will change:
+Organizations is currently in beta, and based on customer feedback, we have already released some changes. Other identified areas that will change include:
 
-* **Organization connections on the Login prompt**: Currently, connections defined at the application-level and connections defined at the organization-level are merged and displayed on the organization Login prompt. Eventually, only the connections defined at the organization level will be displayed.
-* **Application URI parameters**: We plan to allow for parameterized application URIs (for example, callback URLs, login/logout URLs) that enable developers to allow-list URIs that contain organizations’ names in their subdomains.
 * **User invitation redirect URLs**: We plan to modify the user invitation flow to allow more flexible redirection after an end-user has accepted a membership invitation.
-* **Just-In-Time (JIT) organization membership**: We plan to add a configuration option to connections enabled at the organization level that will automatically assign membership in the organization to any user that is able to successfully log in via the connection.

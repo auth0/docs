@@ -166,7 +166,7 @@ For the user invitation flow to work properly, you must:
  
 ### Integrate the membership invitation flow into your application
 
-For user invitations to work appropriately, you must set up a route in your application as part of the invitation acceptance flow. A link to the URI will be included in the email invitation that is sent to users.
+For user invitations to work, you must set up a route in your application as part of the invitation acceptance flow and configure an associated [default login route](/universal-login/configure-default-login-routes) for your tenant or application. A link to the configured URI will be included in the email invitation that is sent to users.
 
 #### Configure the URI
 
