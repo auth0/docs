@@ -45,7 +45,7 @@ Action scripts can be implemented as anonymous functions, however anonymous func
 
 ### Legacy authentication scenario
 
-In a legacy authentication scenario, no new user record is created within Auth0 during the user's first login, but Auth0 does not store a hash of the user's password. Auth0 will use the legacy identity store and the identity it contains when authenticating the user. 
+In a legacy authentication scenario, a new user record is created within Auth0 during the user's first login, but Auth0 does not store a hash of the user's password. Auth0 will always use the legacy identity store and the identity it contains when authenticating the user. 
 
 ::: note
 Custom database connections are also used outside of Universal Login workflow. For example, a connection's `changePassword` action script is called when a password change operation occurs for a user that resides in a legacy identity store.
