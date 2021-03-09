@@ -37,7 +37,7 @@ To enable a connection via the Auth0 Dashboard:
 
 To enable a connection via the Management API:
 
-Make a `POST` call to the `Create Organization Connections` endpoint. Be sure to replace `ORG_ID`, `MGMT_API_ACCESS_TOKEN`, and `CONNECTION_ID` placeholder values with your organization ID, Management API Access Token, and connection ID, respectively.
+Make a `POST` call to the `Create Organization Connections` endpoint. Be sure to replace `ORG_ID`, `MGMT_API_ACCESS_TOKEN`, `CONNECTION_ID`, and `JIT_MEMBERSHIP_VALUE` placeholder values with your organization ID, Management API Access Token, and connection ID, respectively.
 
 ```har
 {
@@ -50,8 +50,7 @@ Make a `POST` call to the `Create Organization Connections` endpoint. Be sure to
    ],
    "postData": {
    "mimeType": "application/json",
-   "text" : "{ \"connection_id\": \"CONNECTION_ID\",
-   \"assign_membership_on_login\": \"JIT_MEMBERSHIP_VALUE\" }"
+   "text" : "{ \"connection_id\": \"CONNECTION_ID\", \"assign_membership_on_login\": \"JIT_MEMBERSHIP_VALUE\" }"
    }
 }
 ```
