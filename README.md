@@ -16,7 +16,7 @@ Both of the above repositories require team access.
 * You can also pull down the `/docs` repo to your computer via Git and edit files in your local editor, before pushing a new branch (or a branch to your own fork of the project). You can then go to GitHub.com and start a PR. We will be able to review the changes in a Heroku test application prior to merging.
 * Lastly, you can [run and test the docs site locally](https://github.com/auth0/auth0-docs/blob/master/README.md) (access available to Auth0 employees only). This option is best suited for repeat contributors or for complex contributions. You gain the benefit of locally testing and viewing your changed or added pages, navigation, and config, but you also gain the complexity of dealing with the local docs app, setting it up, and keeping it updated.
 
-Regardless of which option you use, again, please review any relevant sections of the [Contributing Guidelines](CONTRIBUTING.md) before sending a PR.
+Regardless of which option you use, please review any relevant sections of the [Contributing Guidelines](CONTRIBUTING.md) before sending a PR.
 
 ## Issue Reporting
 
