@@ -106,7 +106,7 @@ end
 A user can now log into your application by visiting the `/auth/auth0` endpoint.
 
 ::: warning
-To prevent forged authentication requests, use the `link_to` or `button_to` helper methods with the `:post` method
+To [prevent forged authentication requests](https://github.com/cookpad/omniauth-rails_csrf_protection), use the `link_to` or `button_to` helper methods with the `:post` method
 :::
 
 ```erb
