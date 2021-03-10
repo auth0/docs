@@ -3,6 +3,7 @@ image: /media/platforms/rails.png
 author:
   name: David Patrick
   email: david.patrick@auth0.com
+  community: false
 topics:
   - quickstart
   - ruby

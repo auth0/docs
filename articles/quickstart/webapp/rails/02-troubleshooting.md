@@ -1,3 +1,16 @@
+---
+title: Troubleshooting
+description: Troubleshooting tips for using Rails with Auth0.
+budicon: 448
+topics:
+  - quickstarts
+  - webapp
+  - login
+  - rails
+contentType: tutorial
+useCase: quickstart
+---
+
 # Troubleshooting
 
 The following are troubleshooting topics that you might run into when using the Rails quickstart.
