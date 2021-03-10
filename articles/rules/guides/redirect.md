@@ -73,7 +73,7 @@ You can redirect a user **once** per authentication flow. If you have one rule t
     When a user has been redirected to the `/continue` endpoint, **all rules will be run again**, however, the `context.redirect` will be ignored to allow authentication to continue.
 
 ::: note
-When a user has been redirected from a rule to the `/continue` endpoint, the user object won't be refreshed. So any updates to user account information during the redirect will not be reflected in the user object. For example, metadata updates that occurred during redirect will not be available.
+Any updates to user account information made during the prior to calling the /continue endpoint will be available to when they are run again. For example, metadata updates made via the Auth0 Management API will be available upon continuing the transaction.
 :::
 
 ## Validate resumed login
