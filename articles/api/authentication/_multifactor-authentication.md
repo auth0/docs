@@ -12,7 +12,7 @@ For more information, check out:
 - [Multi-factor Authentication API](/mfa/concepts/mfa-api)
 - [Multi-factor Authentication in Auth0](/mfa)
 
-## Challenge request
+## Challenge Request
 
 ```http
 POST https://${account.namespace}/mfa/challenge
@@ -122,7 +122,7 @@ If OTP is supported by the user and you don't want to request a different factor
 * [Authenticate With Resource Owner Password Grant and MFA](/mfa/guides/mfa-api/authenticate)
 * [Manage Authenticator Factors using the MFA API](/mfa/guides/mfa-api/manage)
 
-## Verify with one-time password (OTP)
+## Verify with One-Time Password (OTP)
 
 ```http
 POST https://${account.namespace}/oauth/token
@@ -197,7 +197,7 @@ The response is the same as responses for `password` or `http://auth0.com/oauth/
 
 - [Associate OTP Authenticators](/mfa/guides/mfa-api/otp)
 
-## Verify with out-of-band (OOB)
+## Verify with Out-of-Band (OOB)
 
 ```http
 POST https://${account.namespace}/oauth/token
@@ -295,11 +295,11 @@ When the challenge response includes a `binding_method: prompt`, your app needs 
 | `oob_code` <br/><span class="label label-danger">Required</span> | The oob code received from the challenge request. |
 | `binding_code`| A code used to bind the side channel (used to deliver the challenge) with the main channel you are using to authenticate. This is usually an OTP-like code delivered as part of the challenge message. |
 
-### More information
+### More Information
 
 - [Associate Out-of-Band Authenticators](/mfa/guides/mfa-api/oob)
 
-## Verify with recovery code
+## Verify with Recovery Code
 
 ```http
 POST https://${account.namespace}/oauth/token
@@ -371,7 +371,7 @@ To verify MFA using a recovery code your app must prompt the user for the recove
 | `mfa_token` <br/><span class="label label-danger">Required</span> | The `mfa_token` you received from `mfa_required` error. |
 | `recovery_code` <br/><span class="label label-danger">Required</span> | Recovery code provided by the end-user.
 
-## Add an authenticator
+## Add an Authenticator
 
 ```http
 POST https://${account.namespace}/mfa/associate
@@ -490,7 +490,7 @@ To access this endpoint, you must set an Access Token at the Authorization heade
 
 - [Multi-factor Authentication API](/mfa/concepts/mfa-api)
 
-## List authenticators
+## List Authenticators
 
 ```http
 GET https://${account.namespace}/mfa/authenticators
@@ -585,7 +585,7 @@ To access this endpoint you must set an <dfn data-key="access-token">Access Toke
 
 - [Manage Authenticators](/mfa/guides/mfa-api/manage)
 
-## Delete an authenticator
+## Delete an Authenticator
 
 ```http
 DELETE https://${account.namespace}/mfa/authenticators/AUTHENTICATOR_ID
