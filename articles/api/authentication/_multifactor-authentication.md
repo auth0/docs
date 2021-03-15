@@ -295,7 +295,7 @@ When the challenge response includes a `binding_method: prompt`, your app needs 
 | `oob_code` <br/><span class="label label-danger">Required</span> | The oob code received from the challenge request. |
 | `binding_code`| A code used to bind the side channel (used to deliver the challenge) with the main channel you are using to authenticate. This is usually an OTP-like code delivered as part of the challenge message. |
 
-### More Information
+### More information
 
 - [Associate Out-of-Band Authenticators](/mfa/guides/mfa-api/oob)
 
