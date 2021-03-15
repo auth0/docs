@@ -1,4 +1,4 @@
-With an SMS connection, the user is asked to enter a phone number. By default, Auth0 uses [Twilio](https://www.twilio.com) to send a one-time-use code to that phone number. (If you have a custom SMS gateway, you can [modify your connection to use that instead of Twilio](/connections/passwordless/guides/use-sms-gateway-passwordless).
+With an SMS connection, the user is asked to enter a phone number. By default, Auth0 uses [Twilio](https://www.twilio.com) to send a one-time-use code to that phone number. (If you have a custom SMS gateway, you can [modify your connection to use that instead of Twilio](/connections/passwordless/guides/use-sms-gateway-passwordless).)
 
 The user then enters the code into your application. If you are using Universal Login, make sure you [configure Universal Login with Passwordless](/dashboard/guides/universal-login/configure-login-page-passwordless).
 
