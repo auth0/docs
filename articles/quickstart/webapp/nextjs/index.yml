@@ -27,6 +27,7 @@ articles:
 sdk:
   name: nextjs-auth0
   url: https://github.com/auth0/nextjs-auth0/
+  logo: nextjs
 github:
   org: auth0-samples
   repo: auth0-nextjs-samples

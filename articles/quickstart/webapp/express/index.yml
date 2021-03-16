@@ -20,6 +20,10 @@ github:
   org: auth0-samples
   repo: auth0-express-webapp-sample
   branch: master
+sdk:
+  name: express-openid-connect
+  url: https://github.com/auth0/express-openid-connect
+  logo: javascript
 requirements:
   - NodeJS 10.13+
   - Express 4.17+

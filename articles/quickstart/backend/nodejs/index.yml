@@ -24,10 +24,15 @@ articles:
   - 01-authorization
   - 02-using
   - 03-troubleshooting
+default_article: 01-authorization
 show_steps: true
 github:
   org: auth0-samples
   repo: auth0-express-api-samples
+sdk:
+  name: jwks-rsa
+  url: https://github.com/auth0/node-jwks-rsa
+  logo: nodejs
 requirements:
   - express.js 4.4.0
   - express-jwt 5.1.0

@@ -21,6 +21,10 @@ github:
   org: auth0-samples
   repo: auth0-python-web-app
   branch: master
+sdk:
+  name: auth0-python
+  url: https://github.com/auth0/auth0-python
+  logo: python
 requirements:
   - Python 2.7, 3.0 and up
   - Flask 0.10.1 and up

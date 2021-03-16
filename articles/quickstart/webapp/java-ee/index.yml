@@ -25,6 +25,10 @@ github:
   org: auth0-samples
   repo: auth0-java-ee-sample
   branch: master
+sdk:
+  name: auth0-java-mvc-common
+  url: https://github.com/auth0/auth0-java-mvc-common
+  logo: java
 requirements:
   - Java 8
 next_steps:

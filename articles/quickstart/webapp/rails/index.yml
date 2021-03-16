@@ -26,6 +26,10 @@ github:
   repo: auth0-rubyonrails-sample
   branch: master
   path: sample
+sdk:
+  name: omniauth-auth0
+  url: https://github.com/auth0/omniauth-auth0
+  logo: rails
 requirements:
   - Ruby 2.5.0+ | Rails 6.0+ or Rails 5.0+ or Rails 4.2+
 next_steps:
