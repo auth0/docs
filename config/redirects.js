@@ -2522,6 +2522,10 @@ module.exports = [
     from: ['/cross-origin-authentication','/login/embedded-login/cross-origin-authentication'],
     to: '/flows/login/embedded-login/cross-origin-authentication'
   },
+  {
+    from: ['/login/max-age-reauthentication'],
+    to: '/flows/login/max-age-reauthentication'
+  }
 
   
   /* Logout */
