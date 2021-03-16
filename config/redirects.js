@@ -3423,8 +3423,8 @@ module.exports = [
     to: '/sso/api-endpoints-for-single-sign-on'
   },
   {
-    from: ['/dashboard/guides/applications/enable-sso-app'],
-    to: '/sso/enable-sso-for-applications'
+    from: ['/dashboard/guides/applications/enable-sso-app','/sso/enable-sso-for-applications'],
+    to: '/integrations/sso'
   },
 
   /* Support */
