@@ -185,7 +185,7 @@ articles:
                 url: /deploy/private-cloud/private-cloud-migrations/migrate-private-cloud-custom-domains
                 hidden: true 
   - title: Login
-    url: /login
+    url: /flows/login
     children:
       - title: Universal Login
         url: /universal-login
@@ -215,7 +215,7 @@ articles:
       - title: Universal vs. Embedded Login
         url: /universal-login/universal-vs-embedded-login
       - title: Embedded Login
-        url: /login/embedded-login
+        url: /flows/login/embedded-login
         children:
           - title: Lock for Web
             url: /libraries/lock

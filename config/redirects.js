@@ -2511,12 +2511,16 @@ module.exports = [
   /* Login */
 
   {
-    from: ['/login/embedded'],
-    to: '/login/embedded-login'
+    from: ['/login'],
+    to: '/flows/login'
   },
   {
-    from: ['/cross-origin-authentication'],
-    to: '/login/embedded-login/cross-origin-authentication'
+    from: ['/login/embedded','/login/embedded-login'],
+    to: '/flows/login/embedded-login'
+  },
+  {
+    from: ['/cross-origin-authentication','/login/embedded-login/cross-origin-authentication'],
+    to: '/flows/login/embedded-login/cross-origin-authentication'
   },
 
   
