@@ -2511,12 +2511,16 @@ module.exports = [
   /* Login */
 
   {
+    from: ['/login'],
+    to: '/flows/login'
+  },
+  {
     from: ['/login/embedded','/login/embedded-login'],
-    to: '/product-lifecycle/deprecations-and-migrations/migrate-from-embedded-login-to-universal-login'
+    to: '/flows/login/embedded-login'
   },
   {
     from: ['/cross-origin-authentication','/login/embedded-login/cross-origin-authentication'],
-    to: '/applications/set-up-cors'
+    to: '/flows/login/embedded-login/cross-origin-authentication'
   },
 
   
