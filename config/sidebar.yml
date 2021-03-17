@@ -438,8 +438,9 @@ articles:
             url: /tokens/manage-signing-keys
           - title: Configure Session Lifetime Settings
             url: /get-started/dashboard/configure-session-lifetime-settings
-          - title: Enable SSO for Tenants
+          - title: Enable SSO for Legacy Tenants
             url: /get-started/dashboard/enable-sso-for-legacy-tenants
+            hidden: true 
           - title: Configure Device User Code Settings
             url: /get-started/dashboard/configure-device-user-code-settings
           - title: Recommended Settings
@@ -455,8 +456,9 @@ articles:
       - title: Application Configuration
         url: /get-started/dashboard/application-settings
         children:
-          - title: Enable SSO for Applications
+          - title: Enable SSO for Legacy Applications
             url: /sso/enable-sso-for-applications
+            hidden: true           
           - title: Update Grant Types
             url: /applications/update-grant-types
           - title: Android App Links
@@ -838,7 +840,7 @@ articles:
       - title: Google Cloud Endpoints
         url: /integrations/google-cloud-endpoints
       - title: Single Sign-On
-        url: /integrations/sso-integrations
+        url: /integrations/sso
         children:
           - title: Active Directory RMS
             url: /integrations/sso/ad-rms
