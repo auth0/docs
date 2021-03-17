@@ -43,7 +43,7 @@ module.exports = [
   {
     from: ['/design','/design/web'],
     to: '/'
-  },     
+  },
   {
     from: ['/design/browser-based-vs-native-experience-on-mobile','/tutorials/browser-based-vs-native-experience-on-mobile'],
     to: '/best-practices/mobile-device-login-flow-best-practices'
@@ -504,6 +504,10 @@ module.exports = [
     from: '/quickstart/spa/angular2/06-token-renewal',
     to: '/quickstart/spa/angular'
   },
+  {
+    from: '/quickstart/webapp/nodejs',
+    to: '/quickstart/webapp/express'
+  },
 
   /* CONNECTIONS */
 
@@ -755,7 +759,7 @@ module.exports = [
     from: '/line',
     to: '/connections/social/line'
   },
-  
+
 
   /* MICROSITES */
 
@@ -875,7 +879,7 @@ module.exports = [
     to: '/attack-protection/brute-force-protection'
   },
 
-  
+
 
   /* API */
 
@@ -999,7 +1003,7 @@ module.exports = [
     to: '/applications/confidential-and-public-applications'
   },
 
-  
+
   /* Authorization */
 
   {
@@ -1133,7 +1137,7 @@ module.exports = [
   {
     from: ['/authorization/guides/manage-users'],
     to: '/authorization/rbac-users'
-  }, 
+  },
 
   /* Best Practices */
 
@@ -1268,7 +1272,7 @@ module.exports = [
     to: '/cms/wordpress-plugin/integrate-with-wordpress'
   },
 
-  
+
 
 /* Compliance */
 
@@ -1343,7 +1347,7 @@ module.exports = [
   },
 
   /* Deploy */
-  
+
   {
     from: ['/get-started/deployment-options', '/getting-started/deployment-models','/overview/deployment-models','/deployment'],
     to: '/deploy'
@@ -1369,7 +1373,7 @@ module.exports = [
     to: '/deploy/private-cloud/private-cloud-onboarding/private-cloud-remote-access-options'
   },
   {
-    from: ['/private-cloud/private-cloud-onboarding/standard-private-cloud-infrastructure-requirements','/private-saas-deployment/private-cloud','/private-cloud/standard-private-cloud','/private-saas-deployment/onboarding/managed-private-cloud/infrastructure','/private-cloud/onboarding/managed-private-cloud/infrastructure','/private-saas-deployment/managed-private-cloud','/private-cloud/onboarding/managed-private-cloud','/private-saas-deployment/onboarding/managed-private-cloud','/private-cloud/onboarding/managed-private-cloud','/appliance/infrastructure','/appliance/infrastructure/security'], 
+    from: ['/private-cloud/private-cloud-onboarding/standard-private-cloud-infrastructure-requirements','/private-saas-deployment/private-cloud','/private-cloud/standard-private-cloud','/private-saas-deployment/onboarding/managed-private-cloud/infrastructure','/private-cloud/onboarding/managed-private-cloud/infrastructure','/private-saas-deployment/managed-private-cloud','/private-cloud/onboarding/managed-private-cloud','/private-saas-deployment/onboarding/managed-private-cloud','/private-cloud/onboarding/managed-private-cloud','/appliance/infrastructure','/appliance/infrastructure/security'],
     to: '/deploy/private-cloud/private-cloud-onboarding/standard-private-cloud-infrastructure-requirements'
   },
   {
@@ -1389,7 +1393,7 @@ module.exports = [
     to: '/deploy/private-cloud/private-cloud-migrations/migrate-from-standard-private-cloud-to-managed-private-cloud'
   },
   {
-    from: ['/private-cloud/private-cloud-migrations/migrate-private-cloud-custom-domains','/appliance/custom-domains','/private-saas-deployment/custom-domain-migration','/private-cloud/custom-domain-migration','/private-cloud/migrate-private-cloud-custom-domains'], 
+    from: ['/private-cloud/private-cloud-migrations/migrate-private-cloud-custom-domains','/appliance/custom-domains','/private-saas-deployment/custom-domain-migration','/private-cloud/custom-domain-migration','/private-cloud/migrate-private-cloud-custom-domains'],
     to: '/deploy/private-cloud/private-cloud-migrations/migrate-private-cloud-custom-domains'
   },
   {
@@ -1462,7 +1466,7 @@ module.exports = [
     from: ['/email/spa-redirect', '/auth0-email-services/spa-redirect'],
     to: '/auth0-email-services/customize-email-templates'
   },
- 
+
   /* Extensions */
 
   {
@@ -1493,11 +1497,11 @@ module.exports = [
     from: ['/extensions/authorization-extension/v2/import-export-data'],
     to: '/extensions/authorization-extension/import-and-export-authorization-extension-data'
   },
-  { 
+  {
     from: ['/extensions/authorization-extension/v2/migration'],
     to: '/extensions/authorization-extension/migrate-to-authorization-extension-v2'
   },
-  { 
+  {
     from: ['/extensions/authorization-extension/v2/rules'],
     to: '/extensions/authorization-extension/use-rules-with-the-authorization-extension'
   },
@@ -1765,7 +1769,7 @@ module.exports = [
     to: '/flows/call-api-hybrid-flow'
   },
 
-  
+
 
   /* Get Started */
 
@@ -1858,7 +1862,7 @@ module.exports = [
     to: '/dashboard-access'
   },
   {
-    from: ['/dashboard-access/dashboard-roles/feature-access-by-role'], 
+    from: ['/dashboard-access/dashboard-roles/feature-access-by-role'],
     to: '/dashboard-access/feature-access-by-role'
   },
   {
@@ -2563,7 +2567,7 @@ module.exports = [
     to: '/flows/login/adopt-oidc-conformant-authentication/oidc-adoption-sso'
   },
 
-  
+
   /* Logout */
 
   {
@@ -2624,7 +2628,7 @@ module.exports = [
   {
     from: ['/logs/export-log-events-with-log-streaming/datadog-dashboard-templates'],
     to: '/logs/streams/datadog-dashboard-templates'
-  }, 
+  },
   {
     from: ['/monitoring/guides/send-events-to-splunk','/monitoring/guides/send-events-to-keenio','/monitoring/guides/send-events-to-segmentio'],
     to: '/logs/export-log-events-with-rules'
@@ -2659,7 +2663,7 @@ module.exports = [
   },
 
   /* MFA */
-  
+
   {
     from: ['/multi-factor-authentication','/multi-factor-authentication2','/multifactor-authentication/custom-provider','/multifactor-authentication','/mfa-in-auth0','/multifactor-authentication/yubikey','/multifactor-authentication/guardian','/multifactor-authentication/guardian/user-guide','/multi-factor-authentication/yubikey'],
     to: '/mfa'
@@ -2803,7 +2807,7 @@ module.exports = [
   {
     from: ['/mfa/concepts/mfa-developer-resources','/multifactor-authentication/developer','/mfa/concepts/developer-resources'],
     to: '/mfa/mfa-developer-resources'
-  },  
+  },
   {
     from: ['/mfa/guides/enable-mfa'],
     to: '/mfa/enable-mfa'
@@ -2856,7 +2860,7 @@ module.exports = [
     from: ['/monitoring/guides/track-signups-salesforce','/tutorials/track-signups-enrich-user-profile-generate-leads','/scenarios-mixpanel-fullcontact-salesforce','/scenarios/mixpanel-fullcontact-salesforce'],
     to: '/monitor-auth0/track-new-sign-ups-in-salesforce'
   },
-  
+
 
   /* Policies */
 
@@ -2991,7 +2995,7 @@ module.exports = [
     from: ['/deprecations-and-migrations/migrate-tenant-member-roles'],
     to: '/product-lifecycle/deprecations-and-migrations/migrate-tenant-member-roles'
   },
-    
+
 
   /* Professional Services */
 
@@ -3210,7 +3214,7 @@ module.exports = [
 
   /* Rules */
 
-  { 
+  {
     from: ['/rules/current', '/rules/current/csharp', '/rules/guides/csharp', '/rules/legacy', '/rules/references/legacy','/rules/references/modules','/rule'],
     to: '/rules'
   },
@@ -3294,7 +3298,7 @@ module.exports = [
     from: ['/rules/references/user-object'],
     to: '/rules/user-object-in-rules'
   },
- 
+
 
   /* Scopes */
 
@@ -3504,7 +3508,7 @@ module.exports = [
   {
     from: ['/support/matrix'],
     to: '/support/product-support-matrix'
-  },  
+  },
   {
     from: ['/support/reset-account-password','/tutorials/reset-account-password'],
     to: '/support/reset-account-passwords'
@@ -3694,7 +3698,7 @@ module.exports = [
   },
 
   /* Troubleshoot */
- 
+
   {
     from: ['/troubleshoot/basics'],
     to: '/troubleshoot'
@@ -3893,8 +3897,8 @@ module.exports = [
     from: ['/universal-login/text-customization'],
     to: '/universal-login/new-experience/text-customization-new-universal-login'
   },
-  
-  
+
+
 
 
   /* Users */
