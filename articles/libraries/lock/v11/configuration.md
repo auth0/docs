@@ -32,7 +32,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | [avatar](#avatar-object-) | Specifies if an avatar and a username should be displayed on the Lock's header once an email or username has been entered and how to obtain it |
 | [closable](#closable-boolean-) | Determines whether or not Lock can be closed |
 | [container](#container-string-) | The HTML element where Lock will be rendered. This causes Lock to appear inline instead of in a modal window |
-| [flashMessage](#) | Shows an `error` or `success` flash message when Lock is shown |
+| [flashMessage](#flashmessage-object-) | Shows an `error` or `success` flash message when Lock is shown |
 | [language](#language-string-) | Specifies the language of the widget |
 | [languageDictionary](#languagedictionary-object-) | Change text in particular sections of Lock |
 | [popupOptions](#popupoptions-object-) | Customize the location of the popup in the screen |
