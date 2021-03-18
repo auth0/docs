@@ -35,7 +35,7 @@ github:
 sdk:
   name: auth0-oidc-client-net
   url: https://github.com/auth0/auth0-oidc-client-net
-  logo: spring
+  logo: windows
 requirements:
   - Microsoft Visual Studio 2017
   - .NET Framework 4.6.2

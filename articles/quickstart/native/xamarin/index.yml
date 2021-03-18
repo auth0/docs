@@ -27,7 +27,7 @@ github:
 sdk:
   name: auth0-oidc-client-net
   url: https://github.com/auth0/auth0-oidc-client-net
-  logo: spring
+  logo: xamarin
 requirements:
   - Visual Studio 2017+ or Visual Studio for Mac
   - Xamarin for Visual Studio
