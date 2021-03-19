@@ -167,5 +167,5 @@ Verify that you can display the `user.name` or [any other `user` property](/user
 :::
 
 :::note
-For a deep dive into implementing user authentication in Angular, visit the [Complete Guide to Angular User Authentication with Auth0](https://auth0.com/blog/complete-guide-to-angular-user-authentication/#Get-the-Starter-Application). This guide provides you with additional details, such as creating a signup button.
+For a deep dive into implementing user authentication in Angular, visit the [Complete Guide to Angular User Authentication with Auth0](https://auth0.com/blog/complete-guide-to-angular-user-authentication/). This guide provides you with additional details, such as creating a signup button.
 :::
