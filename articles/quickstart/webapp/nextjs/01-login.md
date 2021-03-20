@@ -33,11 +33,11 @@ The SDK exposes methods and variables that help you integrate Auth0 with your Ne
 In the root directory of your project, add the file `.env.local` with the following [environment variables](https://nextjs.org/docs/basic-features/environment-variables):
 
 ```sh
-AUTH0_SECRET='LONG_RANDOM_VALUE'
+AUTH0_SECRET='use [openssl rand -hex 32] to generate a 32 bytes value'
 AUTH0_BASE_URL='http://localhost:3000'
-AUTH0_ISSUER_BASE_URL='https://YOUR_AUTH0_DOMAIN.auth0.com'
-AUTH0_CLIENT_ID='YOUR_AUTH0_CLIENT_ID'
-AUTH0_CLIENT_SECRET='YOUR_AUTH0_CLIENT_SECRET'
+AUTH0_ISSUER_BASE_URL='https://${account.namespace}'
+AUTH0_CLIENT_ID='${account.clientId}'
+AUTH0_CLIENT_SECRET='${account.clientSecret}'
 ```
 
 - `AUTH0_SECRET`: A long secret value used to encrypt the session cookie. You can generate a suitable string using `openssl rand -hex 32` on the command line.
