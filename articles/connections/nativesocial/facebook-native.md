@@ -41,9 +41,10 @@ Before you configure Native Facebook login for your native app via Auth0, you mu
 
 1. [Set up your application](/connections/social/facebook) with Facebook and as an Auth0 connection
 1. [Use the relevant Facebook SDK in your application](https://developers.facebook.com/docs/apis-and-sdks/)
-1. Create an application with Auth0 (if you have not already) and enable the Sign in with Facebook option in the [Dashboard > (Your Application) > Settings > Advanced Settings > Device Settings](${manage_url}).
-  ![Native Social Login Settings](/media/articles/connections/nativesocial/native-social-login.png)
-1. Follow the implementation details below
+1. Navigate to [Auth0 Dashboard > Applications > Applications](${manage_url}/#/applications), and create an application with Auth0 (if you have not already).
+1. At the bottom of the settings page, select **Show Advanced Settings** and then the **Device Settings** view. Under **Native Social Login**, enable the **Enable Sign In with Facebook** toggle.
+    ![Native Social Login Settings](/media/articles/connections/nativesocial/dashboard-applications-edit_view-settings-advanced_device-settings_facebook-enabled.png)
+1. Complete the following implementation details:
 
 ## Implementation details
 

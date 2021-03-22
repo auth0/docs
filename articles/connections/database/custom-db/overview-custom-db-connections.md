@@ -27,9 +27,9 @@ You can create and configure a custom database connection by doing one of the fo
 
 1. Use the [Create connections](/api/management/v2#!/Connections/post_connections) Management API endpoint with the `auth0` strategy.
 
-2. Navigate to the [Connections > Database](${manage_url}/#/connections/database) page in the [Auth0 Dashboard](${manage_url}/), create the connection, and then enable the **Use my own database** option to allow database action script editing. 
+2. Navigate to [Auth0 Dashboard > Authentication > Database](${manage_url}/#/connections/database), create the connection, and enable the **Use my own database** option to allow database action script editing. 
 
-![Enable Custom Database Use My Own Database Option](/media/articles/dashboard/connections/database/connections-db-settings-custom-1.png)
+![Enable Custom Database Use My Own Database Option](/media/articles/connections/database/dashboard-connections-database-edit_view-custom-database_use-my-own-database.png)
 
 ## How it works
 

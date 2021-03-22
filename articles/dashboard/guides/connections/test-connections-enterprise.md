@@ -19,12 +19,14 @@ This guide will show you how to test enterprise [connections](/connections) for 
 To properly test, you should have already [set up your enterprise connection](/connections/identity-providers-enterprise).
 :::
 
-1. Navigate to the [Connections > Enterprise](${manage_url}/#/connections/enterprise) page in the [Auth0 Dashboard](${manage_url}/), and click on the connection type to view.
+1. Navigate to [Auth0 Dashboard > Authentication > Enterprise](${manage_url}/#/connections/enterprise), and select the connection type to view.
 
-![Select Connection Type](/media/articles/dashboard/connections/enterprise/conn-enterprise-list.png)
+    ![Select Connection Type](/media/articles/connections/dashboard-connections-enterprise-list.png)
 
-2. Click the Try arrow next to the connection you want to test.
+2. Select the Try arrow next to the connection you want to test.
 
-![Select Connection](/media/articles/dashboard/connections/enterprise/conn-enterprise-saml-list.png)
+    ![Select Connection](/media/articles/connections/dashboard-connections-enterprise_adfs_try.png)
 
 3. Log in and consent to allow access to your app. If you have configured everything correctly, you will see the **It Works!** page.
+
+    ![Success](/media/articles/connections/social/connection-social-try-success.png)

@@ -21,7 +21,7 @@ This guide will show you how to update connection preferences for an upstream [I
 <%= include('../../../_includes/_users_update_normalized_profile_attributes') %>
 :::
 
-1. Navigate to the [Auth0 Dashboard](${manage_url}/#/), and click **Connections** in the left nav.
+1. Navigate to the [Auth0 Dashboard](${manage_url}/#/), and click **Authentication** in the left nav.
 
 2. Select a connection type:
 
@@ -33,4 +33,4 @@ This guide will show you how to update connection preferences for an upstream [I
 
 4. Toggle **Sync user profile attributes at each login** to the desired setting, and click **Save**.
 
-![Sync user profile attributes at each login](/media/articles/connections/allow-update-normalized-user-profile.png)
+    ![Sync user profile attributes at each login](/media/articles/connections/dashboard-connections-social-edit_sync-user-profile-attributes.png)

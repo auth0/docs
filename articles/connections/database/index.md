@@ -17,9 +17,9 @@ useCase:
 
 Auth0 provides database connections to authenticate users with an email/username and password. These credentials are securely stored in the Auth0 user store or in your own database.
 
-You can create a new database connection and manage existing ones in the [Dashboard](${manage_url}/#/connections/database):
+You can create a new database connection and manage existing ones at [Auth0 Dashboard > Authentication > Database](${manage_url}/#/connections/database):
 
-![](/media/articles/connections/database/database-connections.png)
+![](/media/articles/connections/database/dashboard-connections-database-list.png)
 
 ## Scenarios
 
@@ -44,7 +44,7 @@ For database connections, Auth0 limits the number of repeat login attempts per u
 
 If you have an existing user store, or wish to store user credentials on your own server, Auth0 enables you to connect to a [custom database](/connections/database/custom-db) or repository and use it as the identity provider.
 
-![Custom Database Configuration](/media/articles/dashboard/connections/database/connections-db-settings-custom-1.png)
+![Custom Database Configuration](/media/articles/connections/database/dashboard-connections-database-edit_view-custom-database.png)
 
 In this scenario, you provide the login script to authenticate the user that will execute each time a user attempts to log in. Optionally, you can create [scripts](/connections/database/custom-db/templates) for sign-up, email verification, password reset, and delete user functionality.
 

@@ -10,7 +10,7 @@ topics:
 
 # Embedded Passwordless Login in Native Applications
 
-To use the Embedded Passwordless APIs in Native applications, make sure you enable the **Passwordless OTP** grant in [Dashboard > Applications > (YOUR APPLICATION) > Settings > Advanced Settings > Grant Types](${manage_url}).
+To use the Embedded Passwordless APIs in Native applications, make sure you enable the **Passwordless OTP** grant at [Auth0 Dashboard > Applications > Applications](${manage_url}/#/applications) in your application's settings under **Advanced Settings** > **Grant Types**.
 
 Passwordless authentication for Native applications consists of two steps:
 

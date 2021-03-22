@@ -15,6 +15,6 @@ useCase:
 
 This guide will show you how to disable credential caching at the [connection](/identityproviders) level for an [AD/LDAP connection](/connector/overview) using Auth0's Dashboard.
 
-1. Navigate to the [Connections > Enterprise](${manage_url}/#/connections/enterprise) page in the [Auth0 Dashboard](${manage_url}/), and click the **Active Directory/LDAP** connection.
+1. Navigate to [Auth0 Dashboard > Authentication > Enterprise](${manage_url}/#/connections/enterprise), and click the **Active Directory/LDAP** connection.
 
-2. Enable the **Disable Cache** toggle.
+2. Enable the **Disable Cache** switch.

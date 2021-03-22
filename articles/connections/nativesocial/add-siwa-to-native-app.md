@@ -53,22 +53,23 @@ If you are using the Classic Universal Login flow or embedding `Lock.js` in your
 
 Once you have the credentials you need from your Apple Developer account, you need to configure the application client and the connection settings in Auth0.
 
-1. On the Dashboard, go to [Applications](${manage_url}/#/applications), choose your application, and click the gear icon to view the settings page.  
-1. At the bottom of the page, click **Show Advanced Settings** and go to the **Device Settings** tab. Under **Native Social Login**, enable the **Enable Sign In with Apple** toggle. 
-    ![Application Client Settings: Advanced Device Settings](/media/articles/connections/social/apple/apple-app-mobile-settings.png)
+1. Navigate to [Auth0 Dashboard > Applications > Applications](${manage_url}/#/applications), choose your application, and select the gear icon to view the settings page.
+1. At the bottom of the page, select **Show Advanced Settings** and then the **Device Settings** view. Under **Native Social Login**, enable the **Enable Sign In with Apple** toggle.
+    ![Application Client Settings: Advanced Device Settings](/media/articles/connections/social/apple/dashboard-applications-edit_view-settings-advanced_device-settings_native_apple-enabled.png)
 1. Under **iOS**, fill in the **App ID** field with the native app's App ID/Bundle Identifier.
-1. Go to [Connections > Social](${manage_url}/#/connections/social) and click on the **Apple** connection. 
+1. Navigate to [Auth0 Dashboard > Authentication > Social](${manage_url}/#/connections/social), and select **Create Connection**.
+1. Select the **Apple** connection and consent. 
 1. On the **Settings** tab, fill in the following fields:
     * **Apple Team ID**
     * **Client Secret Signing Key**
     * **Key ID**
 
-    ![Application Connection Settings](/media/articles/connections/social/apple/apple-connection.png)
-1. Click the **Applications** tab to enable this connection for your application.
+    ![Application Connection Settings](/media/articles/connections/social/apple/dashboard-connections-social-create_enter-details_apple.png)
+1. Select the **Applications** view to enable this connection for your application
 1. Click **Save**.
 
 ::: note
-Native apps cannot be tested from the browser. This means that the **TRY** button on the Apple connection is used exclusively for testing web-based flows.
+Native apps cannot be tested from the browser. This means that the **Try Connection** button on the Apple connection is used exclusively for testing web-based flows.
 :::
 
 ## Logout

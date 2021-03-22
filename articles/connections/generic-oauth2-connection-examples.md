@@ -12,7 +12,7 @@ useCase:
 
 # Generic OAuth 1.0 and 2.0 Examples
 
-Adding [OAuth 1.0](/oauth1) and [OAuth 2.0](/oauth2) providers as Connections allow you to support providers that are not currently built-in to the [Auth0 Management Dashboard](${manage_url}), like [DigitalOcean](#digitalocean), [Tumblr](#tumblr), and more.
+Adding [OAuth 1.0](/oauth1) and [OAuth 2.0](/oauth2) providers as Connections allow you to support providers that are not currently built-in to the [Auth0 Dashboard](${manage_url}), like [DigitalOcean](#digitalocean), [Tumblr](#tumblr), and more.
 
 This document covers examples of OAuth 1.0/2.0 Connections that you can create by making the appropriate `POST` call to the [Auth0 APIv2's Connections endpoint](/api/v2#!/Connections/post_connections). Please note that doing so requires an [APIv2 token](/api/v2/tokens) with `create:connections` <dfn data-key="scope">scope</dfn>.
 

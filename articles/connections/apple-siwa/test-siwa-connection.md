@@ -23,15 +23,15 @@ If you are using the Classic Universal Login flow, or embedding `Lock.js` in you
 
     ![Apple Login Page](/media/articles/connections/social/apple/apple-login-page.png)
 
-2. Click **Continue with Apple**, then enter your Apple ID and password.
+2. Select **Continue with Apple**, then enter your Apple ID and password.
 
-3. You will be asked to verify a new device. Click **Allow**.
+3. You will be asked to verify a new device. Select **Allow**.
 
-4. Next, you'll be given a verification code. Make a note of this code, click **Done**, and then enter the code on the **Two-Factor Authentication** screen.
+4. Next, you'll be given a verification code. Make a note of this code, select **Done**, and then enter the code on the **Two-Factor Authentication** screen.
 
     ![Apple Two-Factor Authentication](/media/articles/connections/social/apple/apple-2FA.png)
 
-5. When this is done, you'll have the option to edit your name and choose whether you'd like to share or hide your email. Make your choice, then click **Continue**.
+5. When this is done, you'll have the option to edit your name and choose whether you'd like to share or hide your email. Make your choice, then select **Continue**.
 
     ![Apple Email Preferences](/media/articles/connections/social/apple/apple-email-preferences.png)
 

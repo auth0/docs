@@ -82,15 +82,15 @@ If you need more design control, you can implement your own UI and call any of t
 
 **A:** By default, your passwordless connections will be set-up to use Auth0’s messaging provider. However, this limits your ability to monitor and manage availability, troubleshoot issues, and connect to analytics. Accordingly, we recommend that you set up your own high-volume email or SMS provider.
 
-Auth0 supports **Twilio SMS** for passwordless login with codes sent via SMS, and **SendGrid**, **Mandrill**, and **Amazon SES** for email-based passwordless authentication. These providers are all supported in the Auth0 dashboard. All you need are your API credentials.
+Auth0 supports **Twilio SMS** for passwordless login with codes sent via SMS, and **SendGrid**, **Mandrill**, and **Amazon SES** for email-based passwordless authentication. These providers are all supported in the Auth0 Dashboard. All you need are your API credentials.
 
 ### Q: Can I configure a different messaging provider than the ones you support directly?
 
-**A:** Currently it is supported only for codes sent via SMS, you can follow [this link](/connections/passwordless/sms-gateway) to read more on how to configure your own SMS gateway to handle the delivery of those codes.
+**A:** Currently, it is supported only for codes sent via SMS. To learn more about how to configure your own SMS gateway to handle the delivery of those codes, see [Set Up Custom SMS Gateway for Passwordless Connections](/connections/passwordless/sms-gateway).
 
 ### Q: How can I use Passwordless as another factor in multi-factor authentication?
 
-**A:** While Auth0’s passwordless connections (including SMS and email) are not built into the dashboard MFA capability at this time, Auth0’s flexible [rules execution pipeline](/rules) make it easy to use these passwordless authentication methods as part of an MFA flow. Rules are snippets of JavaScript that execute on the Auth0 server as part of the authentication pipeline and give you the flexibility to call APIs or perform arbitrary computations in order to implement customized authentication logic. Simply call the passwordless connection using a redirect rule, and treat it as a [custom MFA provider](/mfa).
+**A:** While Auth0’s passwordless connections (including SMS and email) are not built into the Auth0 Dashboard MFA capability at this time, Auth0’s flexible [rules execution pipeline](/rules) make it easy to use these passwordless authentication methods as part of an MFA flow. Rules are snippets of JavaScript that execute on the Auth0 server as part of the authentication pipeline and give you the flexibility to call APIs or perform arbitrary computations in order to implement customized authentication logic. Simply call the passwordless connection using a redirect rule, and treat it as a [custom MFA provider](/mfa).
 
 In future versions of passwordless connections, supported MFA providers will be built-in.
 

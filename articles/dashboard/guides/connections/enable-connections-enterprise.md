@@ -19,14 +19,14 @@ This guide will show you how to enable enterprise [connections](/connections) fo
 To enable your enterprise connection, you should have already [set it up](/connections/identity-providers-enterprise).
 :::
 
-1. Navigate to the [Connections > Enterprise](${manage_url}/#/connections/enterprise) page in the [Auth0 Dashboard](${manage_url}/), and click on the connection type to view.
+1. Navigate to [Auth0 Dashboard > Authentication > Enterprise](${manage_url}/#/connections/enterprise), and click on the connection type to view.
 
-![Select Connection Type](/media/articles/dashboard/connections/enterprise/conn-enterprise-list.png)
+    ![Select Connection Type](/media/articles/connections/dashboard-connections-enterprise-list.png)
 
-2. Click the name of the connection to view.
+2. Select the name of the connection to view.
 
-![Select Connection](/media/articles/dashboard/connections/enterprise/conn-enterprise-saml-list.png)
+    ![Select Connection](/media/articles/connections/criipto/adfs-connections-dk.png)
 
-3. Click the **Applications** tab, and enable or disable the connection for the appropriate application(s).
+3. Select the **Applications** view, and enable or disable the connection for the appropriate application(s).
 
-![Enable Connection for Applications](/media/articles/dashboard/connections/enterprise/conn-enterprise-saml-applications.png)
+    ![Enable Connection for Applications](/media/articles/connections/dashboard-connections-enterprise-edit_adfs_view-applications.png)

@@ -18,7 +18,7 @@ If you are trying to configure the custom Password Reset page for your tenant, s
 There are two basic methods of changing a password:
 
 - an [interactive password reset flow](#trigger-an-interactive-password-reset-flow) where the user receives an email with a link that opens the Auth0 password reset page to enter the new password.
-- [directly setting the new password](#directly-set-the-new-password) either using the Management API v2 or the Dashboard.
+- [directly setting the new password](#directly-set-the-new-password) either using the Management API v2 or the Auth0 Dashboard.
 
 Password resets cause Auth0 sessions to expire. 
 
@@ -46,7 +46,7 @@ This will fire off a POST request to Auth0 that will trigger the password reset 
 If your application uses an interactive password reset flow using the Authentication API, make a `POST` call specifying the email address of the user account whose password you would like to reset in the `email` field. If the call is successful, the user will receive an email prompting them to change their password.
 
 ::: note
-If you're calling this from the browser, don't forget to add your URL to the `Allowed Web Origins` list in the [Dashboard](${manage_url}/#/applications/${account.clientId}/settings).
+If you're calling this from the browser, don't forget to add your URL to the `Allowed Web Origins` list in your application's settings at [Auth0 Dashboard > Applications > Applications](${manage_url}/#/applications/${account.clientId}/settings).
 :::
 
 ```har
@@ -80,14 +80,14 @@ Clicking the link will send the user to the [password reset page](/universal-log
 After submitting the new password, confirmation that the user will be able to login with their new credentials appears:
 
 ::: note
-The reset password link in the email is valid for one use only, and it must be used before the time specified in the `URL Lifetime` field elapses. You can modify the `URL Lifetime` field in the Dashboard where you customize the Change Password email. See the [Change User Password for DB Connections](/api/authentication/reference#change-password) Authentication API endpoint for more information.
+The reset password link in the email is valid for one use only, and it must be used before the time specified in the `URL Lifetime` field elapses. You can modify the `URL Lifetime` field in the Auth0 Dashboard where you customize the Change Password email. See the [Change User Password for DB Connections](/api/authentication/reference#change-password) Authentication API endpoint for more information.
 
 If multiple password resets emails are requested, only the password link in the most recent email will be valid.
 :::
 
 :::panel Customize Change Password Emails
 
-You can change the content of the Change Password emails in the [Emails > Templates](${manage_url}/#/emails) section of the Dashboard. Select the **Change Password** template to edit the email fields.
+You can change the content of the Change Password emails at [Auth0 Dashboard > Branding > Email Templates](${manage_url}/#/templates). Select the **Change Password** template to edit the email fields.
 
 Email templates can only be changed for those *not* using Auth0's built-in email provider. For more information, please see: [Customizing Your Emails](/email/templates).
 :::
@@ -105,7 +105,7 @@ In the [Classic Universal Login Experience](/universal-login/classic) you can [c
 There are also two ways of directly setting a new password for the user rather than sending a password reset email:
 
 - [**Management API**](#using-the-management-api): Send a `PATCH` call to the Management API to update the user's password manually.
-- [**Dashboard**](#manually-set-users-passwords-using-the-dashboard): Use the [Users](${manage_url}/#/users) section of the Dashboard to manually change the user's password.
+- [**Auth0 Dashboard**](#manually-set-users-passwords-using-the-dashboard): Use the [User Management > Users](${manage_url}/#/users) section to manually change the user's password.
 
 ### Use the Management API
 
@@ -130,15 +130,15 @@ Users will not receive notification that their password has been manually change
 }
 ```
 
-### Manually set users' passwords using the Dashboard
+### Manually set users' passwords using the Auth0 Dashboard
 
 ::: warning
 Users will not receive notification that their password has been manually changed.
 :::
 
-Anyone with administrative privileges to your Auth0 tenant can manually change a user's password in the [Users](${manage_url}/#/users) section of the Dashboard.
+Anyone with administrative privileges to your Auth0 tenant can manually change a user's password at [Auth0 Dashboard > User Management > Users](${manage_url}/#/users).
 
-1. Click on the username to select the user for whom you want to change the password. 
-1. Scroll down to the bottom of the user page, then click on the red **CHANGE** button in the red **Change Password** box. 
-  ![](/media/articles/connections/database/manual-password-reset.png)
-1. Enter the new password, and click **Save**.
+1. Select the name of the user for whom you want to change the password.
+2. Scroll to the bottom of the page, locate the red **Change Password** box, and select the red **CHANGE** button. 
+  ![](/media/articles/connections/database/dashboard-users-edit_view-details_danger-zone.png)
+3. Enter the new password, and select **Save**.

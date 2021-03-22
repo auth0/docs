@@ -8,7 +8,7 @@
 
 ## Configuration
 
-Passwordless connections use an authentication channel like SMS or email, which need to be configured under [Connections > Passwordless](${manage_url}/#/connections/passwordless) in the [Auth0 Dashboard](${manage_url}/).
+Passwordless connections use an authentication channel like SMS or email, which need to be configured at [Auth0 Dashboard > Authentication > Passwordless](${manage_url}/#/connections/passwordless).
 
 ::: note
 We recommend implementing passwordless with <dfn data-key="universal-login">Universal Login</dfn>. If you are using embedded login with <dfn data-key="lock"></dfn> or Auth0.js, you will need to enable custom domains for your tenant. To learn more, see [Custom Domains](/custom-domains).

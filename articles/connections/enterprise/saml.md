@@ -58,23 +58,16 @@ Next, you will need to create and configure a SAML Enterprise Connection in Auth
 
 ### Create an enterprise connection using the Dashboard
 
-1. Navigate to the [Connections > Enterprise](${manage_url}/#/connections/enterprise) page in the [Auth0 Dashboard](${manage_url}/), and click the `+` next to **SAML**.
+1. Navigate to [Auth0 Dashboard > Authentication > Enterprise](${manage_url}/#/connections/enterprise), locate **SAML**, and select its `+`.
 
-![Create Connection Type](/media/articles/dashboard/connections/enterprise/conn-enterprise-list.png)
+![Create Connection Type](/media/articles/connections/dashboard-connections-enterprise-list.png)
 
-2. Enter general information for your connection:
+2. Enter details for your connection, and select **Create**:
 
 | Field | Description |
 | ----- | ----------- |
 | **Connection name** | Logical identifier for your connection; it must be unique for your tenant and the same name used when setting the Post-back URL and Entity ID at the IdP. Once set, this name can't be changed. |
 | **Sign In URL** | SAML single login URL. |
-
-![Configure General SAML Settings](/media/articles/dashboard/connections/enterprise/conn-enterprise-saml-settings-1.png)
-
-3. Enter signing information for your connection:
-
-| Field | Description |
-| ----- | ----------- |
 | **X.509 Signing Certificate** | Signing certificate (encoded in PEM or CER) you retrieved from the IdP earlier in this process. |
 | **Sign Out URL** (optional) | SAML single logout URL. |
 | **User ID Attribute** (optional) | Attribute in the SAML token that will be mapped to the `user_id` property in Auth0. |
@@ -83,23 +76,16 @@ Next, you will need to create and configure a SAML Enterprise Connection in Auth
 | **Sign Request Algorithm** | Algorithm Auth0 will use to sign the SAML assertions. |
 | **Sign Request Digest Algorithm** | Algorithm Auth0 will use for the sign request digest. |
 | **Protocol Binding** | HTTP binding supported by the IdP. |
-
-![Configure Signing SAML Settings](/media/articles/dashboard/connections/enterprise/conn-enterprise-saml-settings-2.png)
-
-4. Enter advanced settings for your connection, and click **Create**:
-
-| Field | Description |
-| ----- | ----------- |
 | **Request Template** (optional) | Template that formats the SAML request. |
 | **Sync user profile attributes at each login** | When enabled, Auth0 automatically syncs user profile data with each user login, thereby ensuring that changes made in the connection source are automatically updated in Auth0. |
 
-![Configure Advanced SAML Settings](/media/articles/dashboard/connections/enterprise/conn-enterprise-saml-settings-3.png)
+![Configure SAML Settings](/media/articles/connections/dashboard-connections-enterprise-create_saml_default-empty.png)
 
-5. On the **Login Experience** tab you can configure how users log in with this connection.
+3. In the **Login Experience** view, configure how users log in with this connection.
 
 <%= include('./_login-experience-tab.md') %>
 
-6. If you have appropriate administrative permissions to complete the integration, click **Continue** to learn about the custom parameters needed to configure your IdP. Otherwise, provide the given URL to your administrator so that they can adjust the required settings.
+4. If you have appropriate administrative permissions to complete the integration, click **Continue** to learn about the custom parameters needed to configure your IdP. Otherwise, provide the given URL to your administrator so that they can adjust the required settings.
 
 ### Create an enterprise connection using the Management API
 
@@ -211,9 +197,9 @@ To use your new SAML enterprise connection, you must first [enable the connectio
 If you're configuring a SAML enterprise connection for a non-standard PingFederate Server, you **must** update the attribute mappings.
 :::
 
-Click on the **Mappings** tab, enter mappings between the `{}`, and click **Save**.
+Select the **Mappings** view, enter mappings between the `{}`, and select **Save**.
 
-![Configure SAML Mappings](/media/articles/dashboard/connections/enterprise/conn-enterprise-saml-mappings.png)
+![Configure SAML Mappings](/media/articles/dashboard/connections/enterprise/dashboard-connections-enterprise-edit_view-mappings_saml.png)
 
 **Mappings for non-standard PingFederate Servers:**
 
