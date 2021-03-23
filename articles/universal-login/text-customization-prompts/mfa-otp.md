@@ -8,13 +8,14 @@
 
 |Text|Key|
 |----------|----------|
-|Secure your Account|`pageTitle`|
+|Secure Your Account|`pageTitle`|
 |Secure Your Account|`title`|
 |Scan the QR Code below using your preferred authenticator app and then enter the provided one-time code below.|`description`|
 |Continue|`buttonText`|
 |Trouble Scanning?|`codeEnrollmentText`|
 |Try another method|`pickAuthenticatorText`|
 |Enter your one-time code|`placeholder`|
+|Then|`separatorText`|
 |<%= "${companyName}" %>|`logoAltText`|
 |OTP Code must have 6 numeric characters|`invalid-otp-code-format`|
 |The code you entered is invalid|`invalid-code`|
@@ -31,7 +32,7 @@
 
 |Text|Key|
 |----------|----------|
-|Secure your Account|`pageTitle`|
+|Secure Your Account|`pageTitle`|
 |Go back|`backText`|
 |Continue|`buttonText`|
 |Secure code to copy|`altText`|

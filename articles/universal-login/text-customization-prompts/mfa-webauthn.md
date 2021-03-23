@@ -8,13 +8,35 @@
 
 |Text|Key|
 |----------|----------|
-|Waiting for your Security Key|`title`|
+|Waiting for Your Security Key|`title`|
 |Follow your browser's steps to register your Security Key.|`description`|
 |Awaiting Security Key|`awaitingConfirmation`|
 |Waiting for your Device|`titlePlatform`|
 |Follow your browser's steps to register your device's fingerprint or face recognition.|`descriptionPlatform`|
 |Awaiting device confirmation|`awaitingConfirmationPlatform`|
 |<%= "${companyName}" %>|`logoAltText`|
+|We could not start the security key enrollment. Please try again later.|`webauthn-associate-error`|
+|We could not start the device enrollment. Please try again later.|`webauthn-platform-associate-error`|
+
+## Screen: mfa-webauthn-enrollment-user-initiated
+
+<p style="text-align: center;">
+  <img alt="mfa-webauthn-enrollment-user-initiated reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-webauthn-enrollment-user-initiated" src="/media/articles/universal-login/text-customization/mfa-webauthn-enrollment-user-initiated.png" style="width: 400px;"/>
+</p>
+
+|Text|Key|
+|----------|----------|
+|Adding Your Security Key|`title`|
+|Security keys can be used as your second factor of authentication.|`description`|
+|Awaiting Security Key|`awaitingConfirmation`|
+|Log In Faster on This Device|`titlePlatform`|
+|Trust this device? You can quickly and securely log in the next time using this device's fingerprint or face recognition.|`descriptionPlatform`|
+|Awaiting device confirmation|`awaitingConfirmationPlatform`|
+|<%= "${companyName}" %>|`logoAltText`|
+|Use security key|`continueButtonText`|
+|Use this device|`continueButtonTextPlatform`|
+|Try another method|`pickAuthenticatorText`|
+|No Thanks|`refuseAddingDeviceText`|
 |We could not start the security key enrollment. Please try again later.|`webauthn-associate-error`|
 |We could not start the device enrollment. Please try again later.|`webauthn-platform-associate-error`|
 
@@ -30,7 +52,7 @@
 |Connect your Security Key and continue.|`instructions1`|
 |Follow the steps on the browser.|`instructions2`|
 |Name your Security Key to easily identify it later.|`instructions3`|
-|Adding your Security Key|`title`|
+|Adding Your Security Key|`title`|
 |Security Keys can be used as an additional authentication factor.|`description`|
 |Try another method|`pickAuthenticatorText`|
 |<%= "${companyName}" %>|`logoAltText`|
@@ -59,7 +81,7 @@
 
 |Text|Key|
 |----------|----------|
-|Waiting for your Security Key|`title`|
+|Waiting for Your Security Key|`title`|
 |Follow your browser's steps to register your Security Key.|`description`|
 |Awaiting Security Key|`awaitingConfirmation`|
 |Waiting for your Device|`titlePlatform`|
@@ -67,6 +89,29 @@
 |Awaiting device confirmation|`awaitingConfirmationPlatform`|
 |Too many failed authentication attempts. Please try again later.|`too-many-webauthn-challenge-attempts-error`|
 |<%= "${companyName}" %>|`logoAltText`|
+|We could not start the security key verification. Please try again later.|`webauthn-challenge-error`|
+|We could not start the device verification. Please try again later.|`webauthn-platform-challenge-error`|
+
+## Screen: mfa-webauthn-challenge-user-initiated
+
+<p style="text-align: center;">
+  <img alt="mfa-webauthn-challenge-user-initiated reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-webauthn-challenge-user-initiated" src="/media/articles/universal-login/text-customization/mfa-webauthn-challenge-user-initiated.png" style="width: 400px;"/>
+</p>
+
+|Text|Key|
+|----------|----------|
+|Waiting for your Security Key|`title`|
+|Follow your browser's steps to register your Security Key.|`description`|
+|Awaiting Security Key|`awaitingConfirmation`|
+|Use Fingerprint or Face Recognition to Verify your Identity|`titlePlatform`|
+|Press the button below and follow your browser's steps to log in.|`descriptionPlatform`|
+|Awaiting device confirmation|`awaitingConfirmationPlatform`|
+|Too many failed authentication attempts. Please try again later.|`too-many-webauthn-challenge-attempts-error`|
+|<%= "${companyName}" %>|`logoAltText`|
+|Use security key|`continueButtonText`|
+|Continue|`continueButtonTextPlatform`|
+|Try another method|`pickAuthenticatorText`|
+|Use password|`usePasswordText`|
 |We could not start the security key verification. Please try again later.|`webauthn-challenge-error`|
 |We could not start the device verification. Please try again later.|`webauthn-platform-challenge-error`|
 
@@ -104,25 +149,11 @@
 
 |Text|Key|
 |----------|----------|
-|Security Key added!|`title`|
+|Security Key Added!|`title`|
 |Device Added!|`titlePlatform`|
 |You have successfully enrolled your Security Key.|`description`|
 |You have successfully enrolled your device.|`descriptionPlatform`|
 |Continue|`buttonText`|
-|<%= "${companyName}" %>|`logoAltText`|
-
-## Screen: mfa-webauthn-login-faster
-
-<p style="text-align: center;">
-  <img alt="mfa-webauthn-login-faster reference screenshot" class="ul-prompt-screenshot" data-ul-prompt="mfa-webauthn-login-faster" src="/media/articles/universal-login/text-customization/mfa-webauthn-login-faster.png" style="width: 400px;"/>
-</p>
-
-|Text|Key|
-|----------|----------|
-|Log In Faster On This Device|`title`|
-|Trust this device? You can quickly and securely log in the next time using this device’s fingerprint or face recognition.|`description`|
-|Add this device now|`addThisDeviceButtonText`|
-|No Thanks|`refuseAddingDeviceText`|
 |<%= "${companyName}" %>|`logoAltText`|
 
 ## Screen: mfa-webauthn-error
@@ -135,8 +166,14 @@
 |----------|----------|
 |Try again|`tryAgainLinkText`|
 |Try another method|`pickAuthenticatorText`|
-|Security Key Verification Failed|`errorTitle`|
-|Device Key Verification Failed|`errorTitlePlatform`|
+|Security Key Registration Failed|`errorTitle`|
+|Security Key Verification Failed|`errorTitleChallenge`|
+|Device Registration Failed|`errorTitlePlatform`|
+|Something Went Wrong|`errorTitlePlatformChallenge`|
+|Something went wrong. Please try again or try using another method.|`description`|
+|If you already registered this device, please try again. If not, try using another method.|`descriptionPlatform`|
+|No Thanks|`refuseAddingAuthenticatorText`|
+|Use password|`usePasswordText`|
 
 ## Screen: mfa-webauthn-not-available-error
 
