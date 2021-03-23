@@ -847,35 +847,60 @@ module.exports = [
   /* Anomaly Detection */
 
   {
-    from: ['/anomaly-','/anomaly','/anomaly-detection/references/brute-force-protection-triggers-actions','/anomaly-detection/references/anomaly-detection-faqs','/anomaly-detection/references/breached-password-detection-triggers-actions','/anomaly-detection'],
+    from: [
+      '/anomaly-',
+      '/anomaly',
+      '/anomaly-detection/references/anomaly-detection-faqs',
+      '/anomaly-detection/references/anomaly-detection-restrictions-limitations',
+      '/anomaly-detection/guides/set-anomaly-detection-preferences',
+      '/anomaly-detection/set-anomaly-detection-preferences',
+      '/attack-protection/set-attack-protection-preferences',
+      '/anomaly-detection'
+    ],
     to: '/attack-protection'
   },
   {
-    from: ['/anomaly-detection/concepts/breached-passwords','/anomaly-detection/breached-passwords','/anomaly-detection/breached-password-security'],
+    from: [
+      '/anomaly-detection/references/breached-password-detection-triggers-actions',
+      '/anomaly-detection/concepts/breached-passwords',
+      '/anomaly-detection/breached-passwords',
+      '/anomaly-detection/breached-password-security'
+    ],
     to: '/attack-protection/breached-password-detection'
   },
   {
-    from: ['/anomaly-detection/guides/customize-blocked-account-emails','/anomaly-detection/customize-blocked-account-emails'],
+    from: [
+      '/anomaly-detection/guides/customize-blocked-account-emails',
+      '/anomaly-detection/customize-blocked-account-emails'
+    ],
     to: '/attack-protection/customize-blocked-account-emails'
   },
   {
-    from: ['/anomaly-detection/bot-protection','/anomaly-detection/guides/prevent-credential-stuffing-attacks','/anomaly-detection/bot-and-credential-stuffing-protection','/anomaly-detection/bot-detection'],
+    from: [
+      '/anomaly-detection/bot-protection',
+      '/anomaly-detection/guides/prevent-credential-stuffing-attacks',
+      '/anomaly-detection/bot-and-credential-stuffing-protection',
+      '/anomaly-detection/bot-detection'
+    ],
     to: '/attack-protection/bot-detection'
   },
   {
-    from: ['/anomaly-detection/references/anomaly-detection-restrictions-limitations', '/anomaly-detection/guides/set-anomaly-detection-preferences','/anomaly-detection/guides/enable-disable-brute-force-protection','/anomaly-detection/set-anomaly-detection-preferences'],
-    to: '/attack-protection/set-attack-protection-preferences'
-  },
-  {
-    from: ['/anomaly-detection/guides/use-tenant-data-for-anomaly-detection','/anomaly-detection/view-anomaly-detection-events'],
-    to: '/attack-protection/view-attack-protection-events'
-  },
-  {
-    from: ['/anomaly-detection/concepts/brute-force-protection','/anomaly-detection/enable-and-disable-brute-force-protection','/anomaly-detection/brute-force-protection'],
+    from: [
+      '/anomaly-detection/references/brute-force-protection-triggers-actions',
+      '/anomaly-detection/guides/enable-disable-brute-force-protection',
+      '/anomaly-detection/concepts/brute-force-protection',
+      '/anomaly-detection/enable-and-disable-brute-force-protection',
+      '/anomaly-detection/brute-force-protection'
+    ],
     to: '/attack-protection/brute-force-protection'
   },
-
-  
+  {
+    from: [
+      '/anomaly-detection/guides/use-tenant-data-for-anomaly-detection',
+      '/anomaly-detection/view-anomaly-detection-events'
+    ],
+    to: '/attack-protection/view-attack-protection-events'
+  },
 
   /* API */
 

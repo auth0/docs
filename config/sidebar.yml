@@ -512,8 +512,6 @@ articles:
             url: /attack-protection/brute-force-protection
           - title: Suspicious IP Throttling
             url: /attack-protection/suspicious-ip-throttling
-          - title: Set Preferences
-            url: /attack-protection/set-attack-protection-preferences
           - title: Customize Emails
             url: /attack-protection/customize-blocked-account-emails
           - title: View Events
@@ -1169,6 +1167,8 @@ articles:
         url: /sessions-and-cookies/cookies
       - title: Common Threats
         url: /security/prevent-common-cybersecurity-threats
+      - title: General Security Tips
+        url: /security/general-security-tips
       - title: Add User Attributes to DenyList
         url: /security/denylist-user-attributes
   - title: Data Privacy
