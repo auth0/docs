@@ -670,7 +670,7 @@ articles:
           - title: Self-Managed Certificates
             url: /custom-domains/configure-custom-domains-with-self-managed-certificates
             children:
-              - title: Google Cloud Platform  Reverse Proxy
+              - title: Google Cloud Platform Reverse Proxy
                 url: /custom-domains/configure-custom-domains-with-self-managed-certificates/configure-gcp-as-reverse-proxy
               - title: Cloudflare Reverse Proxy
                 url: /custom-domains/configure-custom-domains-with-self-managed-certificates/configure-cloudflare-for-use-as-reverse-proxy
