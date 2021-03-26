@@ -3445,7 +3445,7 @@ module.exports = [
   },
   {
     from: ['/sessions/concepts/cookies', '/sessions-and-cookies/cookies'],
-    to: '/security/cookies'
+    to: '/session/cookies'
   },
   {
     from: ['/login/spa/authenticate-with-cookies', '/sessions-and-cookies/spa-authenticate-with-cookies'],
