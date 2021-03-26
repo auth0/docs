@@ -233,7 +233,7 @@ articles:
           - title: Native App
             url: /flows/add-login-using-the-authorization-code-flow-with-pkce
       - title: Authenticate Single-Page Apps with Cookies
-        url: /sessions-and-cookies/spa-authenticate-with-cookies
+        url: /sessions/cookies/spa-authenticate-with-cookies
       - title: Multi-factor Authentication
         url: /mfa
         children:
@@ -571,11 +571,17 @@ articles:
             url: /users/update-metadata-with-the-management-api
           - title: Metadata Best Practices
             url: /best-practices/metadata-best-practices
-      - title: Sessions & Cookies
-        url: /sessions-and-cookies
+      - title: Sessions
+        url: /sessions
         children:
+          - title: Session Layers
+            url: /sessions/session-layers
+          - title: Session Lifetime Limits
+            url: /sessions/session-lifetime-limits
+          - title: Manage Multi-Site Sessions with Auth0 SDK
+            url: /sessions/manage-multi-site-sessions
           - title: Authentication API Cookies
-            url: /sessions-and-cookies/authentication-api-cookies
+            url: /sessions/cookies/authentication-api-cookies
       - title: Deny Access to an API Using Rules
         url: /users/deny-api-access
       - title: Using the Dashboard
@@ -1166,7 +1172,7 @@ articles:
           - title: Revoke Tokens
             url: /tokens/revoke-tokens
       - title: Cookies
-        url: /sessions-and-cookies/cookies
+        url: /sessions/cookies
       - title: Common Threats
         url: /security/prevent-common-cybersecurity-threats
       - title: General Security Tips

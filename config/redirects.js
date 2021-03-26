@@ -3408,28 +3408,28 @@ module.exports = [
   /* Sessions */
 
   {
-    from: ['/sessions', '/sessions/concepts/session', '/sessions/concepts/session-layers', '/sessions/concepts/session-lifetime'],
-    to: '/sessions-and-cookies'
+    from: ['/sessions-and-cookies', '/sessions/concepts/session', '/sessions/concepts/session-lifetime','/sessions/references/sample-use-cases-sessions', '/sessions-and-cookies/session-use-cases'],
+    to: '/sessions'
   },
   {
-    from: ['/sessions/concepts/cookie-attributes'],
-    to: '/sessions-and-cookies/samesite-cookie-attribute-changes'
+    from: ['/sessions/concepts/session-layers'],
+    to: '/sessions/session-layers'
   },
   {
-    from: ['/sessions/references/sample-use-cases-sessions'],
-    to: '/sessions-and-cookies/session-use-cases'
+    from: ['/sessions/concepts/cookie-attributes', '/sessions-and-cookies/samesite-cookie-attribute-changes'],
+    to: '/sessions/cookies/samesite-cookie-attribute-changes'
   },
   {
-    from: ['/sessions/references/example-short-lived-session-mgmt'],
-    to: '/sessions-and-cookies/manage-multi-site-short-long-lived-sessions'
+    from: ['/sessions/references/example-short-lived-session-mgmt', '/sessions-and-cookies/manage-multi-site-short-long-lived-sessions'],
+    to: '/sessions/manage-multi-site-sessions'
   },
   {
-    from: ['/sessions/concepts/cookies'],
-    to: '/sessions-and-cookies/cookies'
+    from: ['/sessions/concepts/cookies', '/sessions-and-cookies/cookies'],
+    to: '/sessions/cookies'
   },
   {
-    from: ['/login/spa/authenticate-with-cookies'],
-    to: '/sessions-and-cookies/spa-authenticate-with-cookies'
+    from: ['/login/spa/authenticate-with-cookies', '/sessions-and-cookies/spa-authenticate-with-cookies'],
+    to: '/sessions/spa-authenticate-with-cookies'
   },
 
   /* SSO */
