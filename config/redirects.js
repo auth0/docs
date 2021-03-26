@@ -1312,12 +1312,6 @@ module.exports = [
   from: ['/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-lock'],
   to: '/compliance/gdpr/gdpr-track-consent-with-lock'
 },
-  /* Cookies */
-{
-  from: [],
-  to: ''
-},
-
   /* Custom Domains */
   {
     from: ['/custom-domains/troubleshoot'],
@@ -3436,9 +3430,6 @@ module.exports = [
   {
     from: ['/sessions/concepts/session-layers'],
     to: '/session/session-layers'
-  },
-  { from: [],
-    to: '/sessions/session-lifetime-limits'
   },
   {
     from: ['/sessions/concepts/cookie-attributes', '/sessions-and-cookies/samesite-cookie-attribute-changes'],
