@@ -3424,7 +3424,7 @@ module.exports = [
   /* Sessions */
 
   {
-    from: ['/sessions-and-cookies', '/sessions/concepts/session', '/sessions/concepts/session-lifetime'],
+    from: ['/sessions-and-cookies', '/sessions/concepts/session', '/sessions/concepts/session-lifetime','/sessions/references/sample-use-cases-sessions', '/sessions-and-cookies/session-use-cases'],
     to: '/sessions'
   },
   {
@@ -3434,10 +3434,6 @@ module.exports = [
   {
     from: ['/sessions/concepts/cookie-attributes', '/sessions-and-cookies/samesite-cookie-attribute-changes'],
     to: '/sessions/cookies/samesite-cookie-attribute-changes'
-  },
-  {
-    from: ['/sessions/references/sample-use-cases-sessions', '/sessions-and-cookies/session-use-cases'],
-    to: '/sessions'
   },
   {
     from: ['/sessions/references/example-short-lived-session-mgmt', '/sessions-and-cookies/manage-multi-site-short-long-lived-sessions'],
