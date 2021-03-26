@@ -3429,7 +3429,7 @@ module.exports = [
   },
   {
     from: ['/sessions/concepts/session-layers'],
-    to: '/session/session-layers'
+    to: '/sessions/session-layers'
   },
   {
     from: ['/sessions/concepts/cookie-attributes', '/sessions-and-cookies/samesite-cookie-attribute-changes'],
@@ -3445,7 +3445,7 @@ module.exports = [
   },
   {
     from: ['/sessions/concepts/cookies', '/sessions-and-cookies/cookies'],
-    to: '/session/cookies'
+    to: '/sessions/cookies'
   },
   {
     from: ['/login/spa/authenticate-with-cookies', '/sessions-and-cookies/spa-authenticate-with-cookies'],
