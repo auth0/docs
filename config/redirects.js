@@ -2536,7 +2536,7 @@ module.exports = [
   /* Login */
 
   {
-    from: ['/login'],
+    from: ['/flows/login'],
     to: '/login'
   },
   {
@@ -3428,7 +3428,7 @@ module.exports = [
     to: '/sessions/cookies'
   },
   {
-    from: ['/login/spa/authenticate-with-cookies', '/sessions-and-cookies/spa-authenticate-with-cookies'],
+    from: ['/login/spa/authenticate-with-cookies','/sessions-and-cookies/spa-authenticate-with-cookies'],
     to: '/sessions/spa-authenticate-with-cookies'
   },
 
@@ -3758,7 +3758,18 @@ module.exports = [
   /* Universal Login */
 
   {
-    from: ['/hosted-pages/hosted-login-auth0js', '/hosted-pages/login/auth0js', '/hosted-pages/login/lock', '/hosted-pages/login/lock-passwordless', '/hosted-pages/hosted-login-auth0js/v7', '/hosted-pages/hosted-login-auth0js/v8', '/hosted-pages/login', '/hosted-pages','/universal-login/customization-new','/login_page'],
+    from: [
+      '/hosted-pages/hosted-login-auth0js', 
+      '/hosted-pages/login/auth0js', 
+      '/hosted-pages/login/lock', 
+      '/hosted-pages/login/lock-passwordless', 
+      '/hosted-pages/hosted-login-auth0js/v7', 
+      '/hosted-pages/hosted-login-auth0js/v8', 
+      '/hosted-pages/login', 
+      '/hosted-pages',
+      '/universal-login/customization-new',
+      '/login_page'
+    ],
     to: '/universal-login'
   },
   {
