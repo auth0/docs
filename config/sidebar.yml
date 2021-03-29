@@ -185,7 +185,7 @@ articles:
                 url: /deploy/private-cloud/private-cloud-migrations/migrate-private-cloud-custom-domains
                 hidden: true 
   - title: Login
-    url: /login
+    url: /flows/login
     children:
       - title: Universal Login
         url: /universal-login
@@ -215,14 +215,14 @@ articles:
       - title: Universal vs. Embedded Login
         url: /universal-login/universal-vs-embedded-login
       - title: Embedded Login
-        url: /login/embedded-login
+        url: /flows/login/embedded-login
         children:
           - title: Lock for Web
             url: /libraries/lock
           - title: Auth0.js
             url: /libraries/auth0js
           - title: Cross-Origin Authentication
-            url: /login/embedded-login/cross-origin-authentication
+            url: /flows/login/embedded-login/cross-origin-authentication
       - title: Authentication Flows
         url: /flows
         children:
@@ -307,26 +307,26 @@ articles:
           - title: Redirect After Logout
             url: /logout/redirect-users-after-logout
       - title: Adopt OIDC Conformant Auth
-        url: /login/adopt-oidc-conformant-authentication
+        url: /flows/login/adopt-oidc-conformant-authentication
         children:
           - title: APIs
-            url: /login/adopt-oidc-conformant-authentication/oidc-adoption-apis
+            url: /flows/login/adopt-oidc-conformant-authentication/oidc-adoption-apis
           - title: Access Tokens
-            url: /login/adopt-oidc-conformant-authentication/oidc-adoption-access-tokens
+            url: /flows/login/adopt-oidc-conformant-authentication/oidc-adoption-access-tokens
           - title: Authorization Code Flow
-            url: /login/adopt-oidc-conformant-authentication/oidc-adoption-auth-code-flow
+            url: /flows/login/adopt-oidc-conformant-authentication/oidc-adoption-auth-code-flow
           - title: Client Credentials Flow
-            url: /login/adopt-oidc-conformant-authentication/oidc-adoption-client-credentials-flow
+            url: /flows/login/adopt-oidc-conformant-authentication/oidc-adoption-client-credentials-flow
           - title: Delegation
-            url: /login/adopt-oidc-conformant-authentication/oidc-adoption-delegation
+            url: /flows/login/adopt-oidc-conformant-authentication/oidc-adoption-delegation
           - title: Implicit Flow
-            url: /login/adopt-oidc-conformant-authentication/oidc-adoption-implicit-flow
+            url: /flows/login/adopt-oidc-conformant-authentication/oidc-adoption-implicit-flow
           - title: Refresh Tokens
-            url: /login/adopt-oidc-conformant-authentication/oidc-adoption-refresh-tokens
+            url: /flows/login/adopt-oidc-conformant-authentication/oidc-adoption-refresh-tokens
           - title: Resource Owner Password Flow
-            url: /login/adopt-oidc-conformant-authentication/oidc-adoption-rop-flow
+            url: /flows/login/adopt-oidc-conformant-authentication/oidc-adoption-rop-flow
           - title: Single Sign-On
-            url: /login/adopt-oidc-conformant-authentication/oidc-adoption-sso
+            url: /flows/login/adopt-oidc-conformant-authentication/oidc-adoption-sso
   - title: Connections
     url: /connections
     children:

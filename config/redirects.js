@@ -2537,16 +2537,57 @@ module.exports = [
 
   {
     from: ['/login'],
-    to: '/login'
+    to: '/flows/login'
   },
   {
-    from: ['/login/embedded'],
-    to: '/login/embedded-login'
+    from: ['/login/embedded','/login/embedded-login'],
+    to: '/flows/login/embedded-login'
   },
   {
-    from: ['/cross-origin-authentication'],
-    to: '/login/embedded-login/cross-origin-authentication'
+    from: ['/cross-origin-authentication','/login/embedded-login/cross-origin-authentication'],
+    to: '/flows/login/embedded-login/cross-origin-authentication'
   },
+  {
+    from: ['/login/max-age-reauthentication'],
+    to: '/flows/login/max-age-reauthentication'
+  },
+  {
+    from: ['/login/adopt-oidc-conformant-authentication/oidc-adoption-apis'],
+    to: '/flows/login/adopt-oidc-conformant-authentication/oidc-adoption-apis'
+  },
+  {
+    from: ['/login/adopt-oidc-conformant-authentication/oidc-adoption-access-tokens'],
+    to: '/flows/login/adopt-oidc-conformant-authentication/oidc-adoption-access-tokens'
+  },
+  {
+    from: ['/login/adopt-oidc-conformant-authentication/oidc-adoption-auth-code-flow'],
+    to: '/flows/login/adopt-oidc-conformant-authentication/oidc-adoption-auth-code-flow'
+  },
+  {
+    from: ['/login/adopt-oidc-conformant-authentication/oidc-adoption-client-credentials-flow'],
+    to: '/flows/login/adopt-oidc-conformant-authentication/oidc-adoption-client-credentials-flow'
+  },
+  {
+    from: ['/login/adopt-oidc-conformant-authentication/oidc-adoption-delegation'],
+    to: '/flows/login/adopt-oidc-conformant-authentication/oidc-adoption-delegation'
+  },
+  {
+    from: ['/login/adopt-oidc-conformant-authentication/oidc-adoption-implicit-flow'],
+    to: '/flows/login/adopt-oidc-conformant-authentication/oidc-adoption-implicit-flow'
+  },
+  {
+    from: ['/login/adopt-oidc-conformant-authentication/oidc-adoption-refresh-tokens'],
+    to: '/flows/login/adopt-oidc-conformant-authentication/oidc-adoption-refresh-tokens'
+  },
+  {
+    from: ['/login/adopt-oidc-conformant-authentication/oidc-adoption-rop-flow'],
+    to: '/flows/login/adopt-oidc-conformant-authentication/oidc-adoption-rop-flow'
+  },
+  {
+    from: ['/login/adopt-oidc-conformant-authentication/oidc-adoption-sso'],
+    to: '/flows/login/adopt-oidc-conformant-authentication/oidc-adoption-sso'
+  },
+
   
   /* Logout */
 
