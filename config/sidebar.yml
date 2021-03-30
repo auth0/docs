@@ -427,7 +427,7 @@ articles:
           - title: Enable RBAC for APIs
             url: /authorization/rbac/enable-role-based-access-control-for-apis
   - title: Configuration
-    url: /dashboard/dashboard-tenant-settings
+    url: /configuration-overview
     children:
       - title: Tenant Configuration
         url: /dashboard/dashboard-tenant-settings
