@@ -24,52 +24,52 @@ articles:
         url: /architecture-scenarios/b2c
         children:
           - title: Architecture
-            url: /architecture-scenarios/implementation/b2c/b2c-architecture
+            url: /architecture-scenarios/b2c/architecture
           - title: Provisioning
-            url: /architecture-scenarios/implementation/b2c/b2c-provisioning
+            url: /architecture-scenarios/b2c/provisioning
           - title: Authentication
-            url: /architecture-scenarios/implementation/b2c/b2c-authentication
+            url: /architecture-scenarios/b2c/authentication
           - title: Branding
-            url: /architecture-scenarios/implementation/b2c/b2c-branding
+            url: /architecture-scenarios/b2c/branding
           - title: Deployment Automation
-            url: /architecture-scenarios/implementation/b2c/b2c-deployment
+            url: /architecture-scenarios/b2c/deployment
           - title: Quality Assurance
-            url: /architecture-scenarios/implementation/b2c/b2c-qa
+            url: /architecture-scenarios/b2c/quality-assurance
           - title: Profile Management
-            url: /architecture-scenarios/implementation/b2c/b2c-profile-mgmt
+            url: /architecture-scenarios/b2c/profile-management
           - title: Authorization
-            url: /architecture-scenarios/implementation/b2c/b2c-authorization
+            url: /architecture-scenarios/b2c/authorization
           - title: Logout
-            url: /architecture-scenarios/implementation/b2c/b2c-logout
+            url: /architecture-scenarios/b2c/logout
           - title: Operations
-            url: /architecture-scenarios/implementation/b2c/b2c-operations
+            url: /architecture-scenarios/b2c/operations
           - title: Launch Preparation
-            url: /architecture-scenarios/implementation/b2c/b2c-launch
+            url: /architecture-scenarios/b2c/launch
       - title: Business to Business
         url: /architecture-scenarios/b2b
         children:
           - title: Architecture
-            url: /architecture-scenarios/implementation/b2b/b2b-architecture
+            url: /architecture-scenarios/b2b/architecture
           - title: Provisioning
-            url: /architecture-scenarios/implementation/b2b/b2b-provisioning
+            url: /architecture-scenarios/b2b/provisioning
           - title: Authentication
-            url: /architecture-scenarios/implementation/b2b/b2b-authentication
+            url: /architecture-scenarios/b2b/authentication
           - title: Branding
-            url: /architecture-scenarios/implementation/b2b/b2b-branding
+            url: /architecture-scenarios/b2b/branding
           - title: Deployment Automation
-            url: /architecture-scenarios/implementation/b2b/b2b-deployment
+            url: /architecture-scenarios/b2b/deployment
           - title: Quality Assurance
-            url: /architecture-scenarios/implementation/b2b/b2b-qa
+            url: /architecture-scenarios/b2b/quality-assurance
           - title: Profile Management
-            url: /architecture-scenarios/implementation/b2b/b2b-profile-mgmt
+            url: /architecture-scenarios/b2b/profile-management
           - title: Authorization
-            url: /architecture-scenarios/implementation/b2b/b2b-authorization
+            url: /architecture-scenarios/b2b/authorization
           - title: Logout
-            url: /architecture-scenarios/implementation/b2b/b2b-logout
+            url: /architecture-scenarios/b2b/logout
           - title: Operations
-            url: /architecture-scenarios/implementation/b2b/b2b-operations
+            url: /architecture-scenarios/b2b/operations
           - title: Launch Preparation
-            url: /architecture-scenarios/implementation/b2b/b2b-launch
+            url: /architecture-scenarios/b2b/launch
       - title: Business to Employees
         url: /architecture-scenarios/b2e
       - title: SSO for Regular Web Apps

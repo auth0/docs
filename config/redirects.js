@@ -790,16 +790,232 @@ module.exports = [
     to: '/architecture-scenarios/b2b'
   },
   {
-    from: '/architecture-scenarios/b2b/b2b-authentication',
-    to: '/architecture-scenarios/implementation/b2b/b2b-authentication'
+    from: [
+            '/architecture-scenarios/b2b/b2b-architecture',
+            '/architecture-scenarios/implementation/b2b/b2b-architecture',
+          ],
+    to: '/architecture-scenarios/b2b/architecture'
   },
-    {
-    from: '/architecture-scenarios/b2b/b2b-architecture',
-    to: '/architecture-scenarios/implementation/b2b/b2b-architecture'
+  {
+    from: [ 
+            '/architecture-scenarios/b2b/b2b-authentication',
+            '/architecture-scenarios/implementation/b2b/b2b-authentication',
+          ],
+    to: '/architecture-scenarios/b2b/authentication'
+  },
+  {
+    from: [ 
+            '/architecture-scenarios/b2b/b2b-authorization',
+            '/architecture-scenarios/implementation/b2b/b2b-authorization',
+          ],
+    to: '/architecture-scenarios/b2b/authorization'
+  },
+  {
+    from: [ 
+            '/architecture-scenarios/b2b/b2b-branding',
+            '/architecture-scenarios/implementation/b2b/b2b-branding',
+          ],
+    to: '/architecture-scenarios/b2b/branding'
+  },
+  {
+    from: [ 
+            '/architecture-scenarios/b2b/b2b-deployment',
+            '/architecture-scenarios/implementation/b2b/b2b-deployment',
+          ],
+    to: '/architecture-scenarios/b2b/deployment'
+  },
+  {
+    from: [ 
+            '/architecture-scenarios/b2b/b2b-launch',
+            '/architecture-scenarios/implementation/b2b/b2b-launch',
+          ],
+    to: '/architecture-scenarios/b2b/launch'
+  },
+  {
+    from: [ 
+            '/architecture-scenarios/b2b/b2b-launch-compliance',
+            '/architecture-scenarios/implementation/b2b/b2b-launch/b2b-launch-compliance',
+          ],
+    to: '/architecture-scenarios/b2b/launch/compliance-readiness'
+  },
+  {
+    from: [ 
+            '/architecture-scenarios/b2b/b2b-launch-launch',
+            '/architecture-scenarios/implementation/b2b/b2b-launch/b2b-launch-launch',
+          ],
+    to: '/architecture-scenarios/b2b/launch/launch-day'
+  },
+  {
+    from: [ 
+            '/architecture-scenarios/b2b/b2b-launch-operations',
+            '/architecture-scenarios/implementation/b2b/b2b-launch/b2b-launch-operations',
+          ],
+    to: '/architecture-scenarios/b2b/launch/operations-readiness'
+  },
+  {
+    from: [ 
+            '/architecture-scenarios/b2b/b2b-launch-support',
+            '/architecture-scenarios/implementation/b2b/b2b-launch/b2b-launch-support',
+          ],
+    to: '/architecture-scenarios/b2b/launch/support-readiness'
+  },
+  {
+    from: [ 
+            '/architecture-scenarios/b2b/b2b-launch-testing',
+            '/architecture-scenarios/implementation/b2b/b2b-launch/b2b-launch-testing',
+          ],
+    to: '/architecture-scenarios/b2b/launch/testing'
+  },
+  {
+    from: [ 
+            '/architecture-scenarios/b2b/b2b-logout',
+            '/architecture-scenarios/implementation/b2b/b2b-logout',
+          ],
+    to: '/architecture-scenarios/b2b/logout'
+  },
+  {
+    from: [ 
+            '/architecture-scenarios/b2b/b2b-operations',
+            '/architecture-scenarios/implementation/b2b/b2b-operations',
+          ],
+    to: '/architecture-scenarios/b2b/operations'
+  },
+  {
+    from: [ 
+            '/architecture-scenarios/b2b/b2b-profile-mgmt',
+            '/architecture-scenarios/implementation/b2b/b2b-profile-mgmt',
+          ],
+    to: '/architecture-scenarios/b2b/profile-management'
+  },
+  {
+    from: [ 
+            '/architecture-scenarios/b2b/b2b-provisioning',
+            '/architecture-scenarios/implementation/b2b/b2b-provisioning',
+          ],
+    to: '/architecture-scenarios/b2b/provisioning'
+  },
+  {
+    from: [ 
+            '/architecture-scenarios/b2b/b2b-qa',
+            '/architecture-scenarios/implementation/b2b/b2b-qa',
+          ],
+    to: '/architecture-scenarios/b2b/quality-assurance'
   },
   {
     from: '/architecture-scenarios/business/b2c',
     to: '/architecture-scenarios/b2c'
+  },
+  {
+    from: [
+            '/architecture-scenarios/b2c/b2c-architecture',
+            '/architecture-scenarios/implementation/b2c/b2c-architecture',
+          ],
+    to: '/architecture-scenarios/b2c/architecture'
+  },
+  {
+    from: [ 
+            '/architecture-scenarios/b2c/b2c-authentication',
+            '/architecture-scenarios/implementation/b2c/b2c-authentication',
+          ],
+    to: '/architecture-scenarios/b2c/authentication'
+  },
+  {
+    from: [ 
+            '/architecture-scenarios/b2c/b2c-authorization',
+            '/architecture-scenarios/implementation/b2c/b2c-authorization',
+          ],
+    to: '/architecture-scenarios/b2c/authorization'
+  },
+  {
+    from: [ 
+            '/architecture-scenarios/b2c/b2c-branding',
+            '/architecture-scenarios/implementation/b2c/b2c-branding',
+          ],
+    to: '/architecture-scenarios/b2c/branding'
+  },
+  {
+    from: [ 
+            '/architecture-scenarios/b2c/b2c-deployment',
+            '/architecture-scenarios/implementation/b2c/b2c-deployment',
+          ],
+    to: '/architecture-scenarios/b2c/deployment'
+  },
+  {
+    from: [ 
+            '/architecture-scenarios/b2c/b2c-launch',
+            '/architecture-scenarios/implementation/b2c/b2c-launch',
+          ],
+    to: '/architecture-scenarios/b2c/launch'
+  },
+    {
+    from: [ 
+            '/architecture-scenarios/b2c/b2c-launch-compliance',
+            '/architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-compliance',
+          ],
+    to: '/architecture-scenarios/b2c/launch/compliance-readiness'
+  },
+  {
+    from: [ 
+            '/architecture-scenarios/b2c/b2c-launch-launch',
+            '/architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-launch',
+          ],
+    to: '/architecture-scenarios/b2c/launch/launch-day'
+  },
+  {
+    from: [ 
+            '/architecture-scenarios/b2c/b2c-launch-operations',
+            '/architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-operations',
+          ],
+    to: '/architecture-scenarios/b2c/launch/operations-readiness'
+  },
+  {
+    from: [ 
+            '/architecture-scenarios/b2c/b2c-launch-support',
+            '/architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-support',
+          ],
+    to: '/architecture-scenarios/b2c/launch/support-readiness'
+  },
+  {
+    from: [ 
+            '/architecture-scenarios/b2c/b2c-launch-testing',
+            '/architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-testing',
+          ],
+    to: '/architecture-scenarios/b2c/launch/testing'
+  },
+  {
+    from: [ 
+            '/architecture-scenarios/b2c/b2c-logout',
+            '/architecture-scenarios/implementation/b2c/b2c-logout',
+          ],
+    to: '/architecture-scenarios/b2c/logout'
+  },
+  {
+    from: [ 
+            '/architecture-scenarios/b2c/b2c-operations',
+            '/architecture-scenarios/implementation/b2c/b2c-operations',
+          ],
+    to: '/architecture-scenarios/b2c/operations'
+  },
+  {
+    from: [ 
+            '/architecture-scenarios/b2c/b2c-profile-mgmt',
+            '/architecture-scenarios/implementation/b2c/b2c-profile-mgmt',
+          ],
+    to: '/architecture-scenarios/b2c/profile-management'
+  },
+  {
+    from: [ 
+            '/architecture-scenarios/b2c/b2c-provisioning',
+            '/architecture-scenarios/implementation/b2c/b2c-provisioning',
+          ],
+    to: '/architecture-scenarios/b2c/provisioning'
+  },
+  {
+    from: [ 
+            '/architecture-scenarios/b2c/b2c-qa',
+            '/architecture-scenarios/implementation/b2c/b2c-qa',
+          ],
+    to: '/architecture-scenarios/b2c/quality-assurance'
   },
   {
     from: '/architecture-scenarios/business/b2e',
