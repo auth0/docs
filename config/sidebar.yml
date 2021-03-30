@@ -403,6 +403,8 @@ articles:
           - title: Hybrid
             url: /flows/call-api-hybrid-flow
             hidden: true
+      - title: Authorization Protocols
+        url: /authorization/protocols
       - title: Role-based Access Control (RBAC)
         url: /authorization/rbac
       - title: Authorization Policies

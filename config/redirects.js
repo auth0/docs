@@ -1032,6 +1032,10 @@ module.exports = [
     to: '/authorization/apis'
   },
   {
+    from: ['/protocols'],
+    to: '/authorization/protcols'
+  },
+  {
     from: ['/authorization/revoke-access-to-apis-using-blacklists-or-application-grants','/api-auth/blacklists-vs-grants','/blacklists-vs-application-grants'],
     to: '/authorization/revoke-api-access'
   },
