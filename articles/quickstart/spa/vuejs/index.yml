@@ -16,6 +16,7 @@ show_releases: true
 sdk:
   name: auth0-spa-js
   url: https://www.github.com/auth0/auth0-spa-js/
+  logo: vuejs
 snippets:
   dependencies: application-platforms/vuejs/dependencies
   setup: application-platforms/vuejs/setup

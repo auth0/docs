@@ -19,6 +19,7 @@ show_releases: true
 sdk:
   name: auth0-angular
   url: https://github.com/auth0/auth0-angular
+  logo: angular
 snippets:
   dependencies: application-platforms/angular2/dependencies
   setup: application-platforms/angular2/setup

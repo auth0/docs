@@ -30,10 +30,15 @@ articles:
   - 01-authorization
   - 02-using
   - 03-troubleshooting
+default_article: 01-authorization
 show_steps: true
 github:
   org: auth0-samples
   repo: auth0-spring-security-api-sample
+sdk:
+  name: auth0-spring-security-api
+  url: https://github.com/auth0/auth0-spring-security-api
+  logo: spring
 requirements:
   - Java 8 or above
   - Gradle 5.4.1

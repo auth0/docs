@@ -43,6 +43,10 @@ github:
   org: auth0-samples
   repo: auth0-android-sample
   branch: master
+sdk:
+  name: Auth0.Android
+  url: https://github.com/auth0/Auth0.Android
+  logo: android
 requirements:
   - Android Studio 4.1.0
   - Android SDK 30

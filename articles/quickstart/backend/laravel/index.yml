@@ -19,10 +19,15 @@ articles:
   - 01-authorization
   - 02-using
   - 03-troubleshooting
+default_article: 01-authorization
 show_steps: true
 github:
   org: auth0-samples
   repo: auth0-laravel-api-samples
+sdk:
+  name: laravel-auth0
+  url: https://github.com/auth0/laravel-auth0
+  logo: laravel
 requirements:
   - Composer 1.5 and up
   - PHP 7.3 and up

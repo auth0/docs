@@ -14,6 +14,7 @@ show_releases: true
 sdk:
   name: auth0-spa-js
   url: https://github.com/auth0/auth0-spa-js
+  logo: javascript
 snippets:
   dependencies: application-platforms/vanillajs/dependencies
   setup: application-platforms/vanillajs/setup

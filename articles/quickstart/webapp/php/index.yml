@@ -21,6 +21,10 @@ github:
   org: auth0-samples
   repo: auth0-php-web-app
   branch: master
+sdk:
+  name: auth0-php
+  url: https://github.com/auth0/auth0-php
+  logo: php
 requirements:
   - Apache 2.4.4
   - PHP 7.3 and up
