@@ -578,6 +578,8 @@ articles:
             url: /sessions/session-layers
           - title: Session Lifetime Limits
             url: /sessions/session-lifetime-limits
+          - title: Non-Persistent Sessions
+            url: /sessions/non-persistent-sessions
           - title: Manage Multi-Site Sessions with Auth0 SDK
             url: /sessions/manage-multi-site-sessions
           - title: Authentication API Cookies
