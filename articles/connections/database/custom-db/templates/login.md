@@ -74,7 +74,7 @@ Additionally, you can also provide metadata for a user as part of the user profi
 While a user does not need to use an email address to login, it’s recommended best practice that they have an email address defined against their user profile. This ensures that Auth0 out-of-box functionality works as designed.  
 :::
 
-For a legacy authentication scenario, you can also enable the `Sync user profile at each login` option in the settings for a custom database connection. This allows attribute updatess in the Auth0 user profile each time a login for the user occurs for attributes that would otherwise not be available for update via the Auth0 Management API. For legacy authentication scenarios there are a number of root profile attributes which cannot be updated directly via the Management API.
+For a legacy authentication scenario, you can also enable the `Sync user profile at each login` option in the settings for a custom database connection. This allows attribute updates in the Auth0 user profile each time a login for the user occurs for attributes that would otherwise not be available for update via the Auth0 Management API. For legacy authentication scenarios there are a number of root profile attributes which cannot be updated directly via the Management API.
 
 ::: note
 In order to update `name`, `nickname`, `given_name`, `family_name`, and/or `picture` attributes associated with the root of the normalized user profile, you must configure user profile sync so that user attributes will be updated from the identity provider. Auth0 does not support update of these attributes for a custom database connection used for legacy authentication.   
