@@ -19,7 +19,7 @@ Auth0 provides SSO Integrations for the following services:
 - [Cisco WebEx](/integrations/sso/cisco-webex)
 - [CloudBees](/integrations/sso/cloudbees)
 - [Concur](/integrations/sso/concur)
-- [Datadog](/integrations/sso/datadog) 
+- [Datadog](/integrations/sso/datadog)
 - [Dropbox](/integrations/sso/dropbox)
 - [Dynamics CRM](/integrations/sso/dynamics-crm)
 - [Egencia](/integrations/sso/egencia)
