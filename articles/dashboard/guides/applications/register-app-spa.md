@@ -1,5 +1,5 @@
 ---
-description: Learn how to register and configure a Single-Page Application (SPA) using the Auth0 Management Dashboard. These may include JavaScript applications that perform most of their user interface logic in a web browser, communicating with a web server primarily using APIs (e.g., AngularJS + Node.js, React).
+description: Learn how to register and configure a Single-Page Application (SPA) using the Auth0 Management Dashboard. These may include JavaScript applications that perform most of their user interface logic in a web browser, communicating with a web server primarily using APIs (e.g., Angular, React).
 topics:
   - applications
   - single-page-app

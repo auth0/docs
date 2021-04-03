@@ -15,7 +15,7 @@ Auth0 categorizes apps based on these characteristics:
 
 * **What type of app is it?**: To add authentication to your app, you must register it in the Auth0 Dashboard and select from one of the following app types: 
   - [Regular web app](/dashboard/guides/applications/register-app-regular-web): Traditional web apps that perform most of their application logic on the server (such as Express.js or ASP.NET).
-  - [Single-page app (SPA)](/dashboard/guides/applications/register-app-spa): JavaScript apps that perform most of their user interface logic in a web browser, communicating with a web server primarily using APIs (such as AngularJS + Node.js or React).
+  - [Single-page app (SPA)](/dashboard/guides/applications/register-app-spa): JavaScript apps that perform most of their user interface logic in a web browser, communicating with a web server primarily using APIs (such as Angular or React).
   - [Native app](/dashboard/guides/applications/register-app-native): Mobile or Desktop apps that run natively in a device (such as iOS or Android).
   - [Machine-to-machine (M2M) app](/dashboard/guides/applications/register-app-m2m): Non-interactive apps, such as command-line tools, daemons, IoT devices, or services running on your back-end. Typically, you use this option if you have a service that requires access to an API.
 
