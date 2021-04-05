@@ -43,7 +43,10 @@ The password policy for Auth0 Dashboard Admins will mirror the criteria set for 
 
 You can set a minimum length requirement for passwords that is independent of the policy strength requirements described in the [section immediately above](#password-policies). 
 
-The minimum password length you can set is **1**, while the maximum is **128**.
+The minimum password length you can set is **1 byte**, while the maximum is **72 bytes**.
+::: note
+The maximum limit may vary depending on the on the password hashing algorithm you use.
+:::
 
 If you opt for a higher-level password policy, but you do not specify a minimum length value, the minimum password length for the policy level will automatically be used:
 
