@@ -2940,8 +2940,15 @@ module.exports = [
     to: '/product-lifecycle/deprecations-and-migrations/instagram-connection-deprecation'
   },
   {
-    from: ['/migrations/guides/management-api-v1-v2','/api/management/v1/use-cases','/api/v1'],
-    to: '/product-lifecycle/deprecations-and-migrations/migrate-to-management-api-v2'
+    from: [      
+      '/product-lifecycle/deprecations-and-migrations/migrate-to-management-api-v2',
+      '/api/management-api-v1-deprecated',
+      '/api/management-api-changes-v1-to-v2',
+      '/migrations/guides/management-api-v1-v2',
+      '/api/management/v1/use-cases',
+      '/api/v1'
+    ],
+    to: '/product-lifecycle/deprecations-and-migrations/past-migrations'
   },
   {
     from: ['/migrations/guides/migration-oauthro-oauthtoken'],
