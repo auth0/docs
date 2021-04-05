@@ -2942,6 +2942,8 @@ module.exports = [
   {
     from: [      
       '/product-lifecycle/deprecations-and-migrations/migrate-to-management-api-v2',
+      '/api/management-api-v1-deprecated',
+      '/api/management-api-changes-v1-to-v2',
       '/migrations/guides/management-api-v1-v2',
       '/api/management/v1/use-cases',
       '/api/v1'
