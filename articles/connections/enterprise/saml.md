@@ -187,6 +187,22 @@ Use the `metadataUrl` option to provide the URL of the document:
 
 When providing the URL, content is downloaded only once; the connection will not automatically reconfigure if the content of the URL changes in the future.
 
+## Specify a custom Entity ID
+By default, the connection will expect the SAML IdP to return an Entity ID (or Audience) in the SAML assertion as `urn:auth0:YOUR_TENANT:YOUR_CONNECTION_NAME.` In some use cases, you can set your own custom Entity ID value using the Management API. You can set the `connection.options.entityID` property when the connection is first created or by updating an existing connection.
+
+The JSON example below can be used to create a new SAML connection using the SAML IdP’s metadata URL while also specifying a custom Entity ID. The Entity ID is still unique as it is created using the name of the connection.
+
+```json
+{
+  "strategy": "samlp", 
+  "name": "CONNECTION_NAME", 
+  "options": { 
+    "metadataUrl": "https://saml-idp/samlp/metadata/uarlU13n63e0feZNJxOCNZ1To3a9H7jX",
+    "entityId": "urn:your-custom-sp-name:YOUR_CONNECTION_NAME"
+  }
+}
+```
+
 ## Enable the enterprise connection for your Auth0 application
 
 To use your new SAML enterprise connection, you must first [enable the connection](/dashboard/guides/connections/enable-connections-enterprise) for your Auth0 Applications.
