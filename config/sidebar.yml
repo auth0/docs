@@ -20,7 +20,7 @@ articles:
   - title: Architecture Scenarios
     url: /architecture-scenarios
     children:
-      - title: Business to Consumer 
+      - title: Business to Consumer
         url: /architecture-scenarios/b2c
         children:
           - title: Architecture
