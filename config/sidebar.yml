@@ -386,6 +386,18 @@ articles:
                 url: /connections/passwordless/guides/embedded-login-spa
           - title: Best Practices
             url: /connections/passwordless/guides/best-practices
+  - title: Organizations
+    url: /organizations
+    children:
+      - title: Create Your First Organization
+        url: /organizations/create-first-organization
+      - title: Custom Development
+        url: /organizations/custom-development
+      - title: Work with Multiple Tenants
+        url: /organizations/using-multiple-tenants
+        hidden: true
+      - title: Work with Tokens
+        url: /organizations/using-tokens
   - title: Authorization
     url: /authorization
     children:
@@ -453,6 +465,43 @@ articles:
           - title: Child Tenant Request Process
             url: /dev-lifecycle/child-tenants
             hidden: true
+      - title: Organization Configuration
+        url: /organizations
+        children:
+          - title: Create Organizations
+            url: /organizations/create-organizations
+          - title: Delete Organizations
+            url: /organizations/delete-organizations
+          - title: Define Organization Behavior
+            url: /organizations/define-organization-behavior
+          - title: Enable Connections
+            url: /organizations/enable-connections
+          - title: Disable Connections
+            url: /organizations/disable-connections
+          - title: Invite Members
+            url: /organizations/invite-members
+          - title: Send Membership Invitations
+            url: /organizations/send-membership-invitations
+          - title: Grant Just-In-Time Membership
+            url: /organizations/grant-just-in-time-membership
+          - title: Assign Members Directly
+            url: /organizations/assign-members
+          - title: Remove Members Directly
+            url: /organizations/remove-members
+          - title: Add Roles to Members
+            url: /organizations/add-member-roles
+          - title: Remove Roles from Members
+            url: /organizations/remove-member-roles
+          - title: Retrieve Organizations
+            url: /organizations/retrieve-organizations
+          - title: Retrieve Connections
+            url: /organizations/retrieve-connections
+          - title: Retrieve Members
+            url: /organizations/retrieve-members
+          - title: Retrieve User's Membership
+            url: /organizations/retrieve-user-membership
+          - title: Retrieve Member Roles
+            url: /organizations/retrieve-member-roles
       - title: Application Configuration
         url: /get-started/dashboard/application-settings
         children:
