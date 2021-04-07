@@ -386,6 +386,19 @@ articles:
                 url: /connections/passwordless/guides/embedded-login-spa
           - title: Best Practices
             url: /connections/passwordless/guides/best-practices
+  - title: Organizations
+    url: /organizations
+    children:
+      - title: Configure Organizations
+        url: /organizations/configure-organizations
+      - title: Configure Connections
+        url: /organizations/configure-connections
+      - title: Configure Membership
+        url: /organizations/configure-membership
+      - title: Define Organization Behavior
+        url: /organizations/define-organization-behavior
+      - title: Custom Development
+        url: /organizations/custom-development
   - title: Authorization
     url: /authorization
     children:
