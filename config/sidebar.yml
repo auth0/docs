@@ -246,10 +246,13 @@ articles:
             children:
               - title: Enable Adaptive MFA
                 url: /mfa/adaptive-mfa/enable-adaptive-mfa
+                hidden: true 
               - title: Customize Adaptive MFA
                 url: /mfa/adaptive-mfa/adaptive-mfa-rule-actions
+                hidden: true 
               - title: Adaptive MFA Log Events
                 url: /mfa/adaptive-mfa/adaptive-mfa-log-events
+                hidden: true 
           - title: Guardian
             url: /mfa/auth0-guardian
             children:
