@@ -1043,10 +1043,6 @@ module.exports = [
     from: '/architecture-scenarios/application/web-app-sso/implementation-aspnetcore',
     to: '/architecture-scenarios/web-app-sso/implementation-aspnetcore'
   },
-  {
-    from: '/architecture-scenarios/b2b/b2b-authentication',
-    to: '/architecture-scenarios/implementation/b2b/b2b-authentication'
-  },
 
   /* CONTENTFUL REDIRECTS */
 
