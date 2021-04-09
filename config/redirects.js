@@ -790,17 +790,11 @@ module.exports = [
     to: '/architecture-scenarios/b2b'
   },
   {
-    from: [
-            '/architecture-scenarios/b2b/b2b-architecture',
-            '/architecture-scenarios/implementation/b2b/b2b-architecture'
-          ],
+    from: ['/architecture-scenarios/b2b/b2b-architecture','/architecture-scenarios/implementation/b2b/b2b-architecture'],
     to: '/architecture-scenarios/b2b/architecture'
   },
   {
-    from: [ 
-            '/architecture-scenarios/b2b/b2b-authentication',
-            '/architecture-scenarios/implementation/b2b/b2b-authentication'
-          ],
+    from: ['/architecture-scenarios/b2b/b2b-authentication','/architecture-scenarios/implementation/b2b/b2b-authentication'],
     to: '/architecture-scenarios/b2b/authentication'
   },
   {
@@ -1048,10 +1042,6 @@ module.exports = [
   {
     from: '/architecture-scenarios/application/web-app-sso/implementation-aspnetcore',
     to: '/architecture-scenarios/web-app-sso/implementation-aspnetcore'
-  },
-  {
-    from: '/architecture-scenarios/b2b/b2b-architecture',
-    to: '/architecture-scenarios/implementation/b2b/b2b-architecture'
   },
   {
     from: '/architecture-scenarios/b2b/b2b-authentication',
