@@ -59,7 +59,7 @@ const checkJwt = jwt({
 
   // Validate the audience and the issuer.
   audience: '${apiIdentifier}',
-  issuer: `https://${account.namespace}/`,
+  issuer: [`https://${account.namespace}/`],
   algorithms: ['RS256']
 });
 ```
