@@ -188,6 +188,7 @@ Use the `metadataUrl` option to provide the URL of the document:
 When providing the URL, content is downloaded only once; the connection will not automatically reconfigure if the content of the URL changes in the future.
 
 ## Specify a custom Entity ID
+
 To specify a custom Entity ID, use the Management API to override the default `urn:auth0:YOUR_TENANT:YOUR_CONNECTION_NAME.` Set the `connection.options.entityID` property when the connection is first created or by updating an existing connection. 
 
 The JSON example below can be used to create a new SAML connection using the SAML IdP’s metadata URL while also specifying a custom Entity ID. The Entity ID is still unique since it is created using the name of the connection.
