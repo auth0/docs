@@ -20,7 +20,9 @@ There are three different errors you can return from a database connection:
 | Error | Login Script | Description |
 | - | - | - |
 | `new WrongUsernameOrPasswordError(<email or user_id>, <message>)` | Login| occurs when the user's credentials are invalid |
-| `new ValidationError(<error code>, <message>)` | Create| occurs when a user already exists in your database |
+| `new ValidationError(<user_exists>, <message>)` | Create| occurs when a user already exists in your database |
+|`callback(<null>,<false>)`|Change Password| occurs when the user's password was not updated|
+|`callback(<null>)`|Get User| occurs when the user is not found|
 | `new Error(<message>)` | All Login Scripts| occurs when something went wrong while trying to reach the database |
 
 ## Return errors
