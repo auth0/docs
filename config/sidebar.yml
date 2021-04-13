@@ -1081,7 +1081,9 @@ articles:
             children:
               - title: Auth0 App for Sumo Logic
                 url: /logs/streams/sumo-logic-dashboard
-                hidden: true 
+                hidden: true
+          - title: Log Stream Filters
+            url: /logs/streams/event-filters
       - title: Log Data Retention
         url: /logs/log-data-retention
       - title: View Log Data in the Dashboard
