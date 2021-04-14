@@ -241,9 +241,12 @@ articles:
             url: /mfa/mfa-factors
           - title: Enable MFA
             url: /mfa/enable-mfa
-          - title: Enable Adaptive MFA
+          - title: Adaptive MFA
             url: /mfa/adaptive-mfa
             children:
+              - title: Enable Adaptive MFA
+                url: /mfa/adaptive-mfa/enable-adaptive-mfa
+                hidden: true 
               - title: Customize Adaptive MFA
                 url: /mfa/adaptive-mfa/adaptive-mfa-rule-actions
                 hidden: true 
