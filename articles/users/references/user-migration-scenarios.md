@@ -312,4 +312,3 @@ function getByEmail(email, callback) {
 * [Login Script Templates](/connections/database/custom-db/templates/login)
 * [Bulk User Imports](/users/guides/bulk-user-imports)
 * [User Import/Export Extension](/extensions/user-import-export)
-* [Migrating Stormpath Users to Auth0 Demo](https://github.com/auth0-blog/migrate-stormpath-users-to-auth0)
