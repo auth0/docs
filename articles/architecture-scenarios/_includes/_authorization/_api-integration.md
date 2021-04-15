@@ -34,4 +34,4 @@ When you are considering adding custom claims, we recommend that you store any a
 Even though you have the ability to fully manipulate Access Token Scopes via Auth0 extensibility, as a security best practice you should only remove scopes which are not authorized and refrain from adding scopes that were not requested.
 :::
 
-Though scopes are often used as a way to enforce access permissions for a user, there are situations where it can become [tricky when you use them in this manner](https://auth0.com/blog/on-the-nature-of-oauth2-scopes/). We therefore recommend that you use scopes for their intended purpose (i.e. delegating permission to an application) and use [custom claims](#access-token-claims) for your role-based or other access control scenarios.
+Though scopes are often used as a way to enforce access permissions for a user, there are situations where it can become tricky when you use them in this manner. We therefore recommend that you use scopes for their intended purpose (i.e. delegating permission to an application) and use [custom claims](#access-token-claims) for your role-based or other access control scenarios.

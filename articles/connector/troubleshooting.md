@@ -65,8 +65,6 @@ These are the most common problems:
 
 Make sure the clock of your server is current. If the time is not correct, it will cause authentication requests to fail. This can be fixed by ensuring the system is properly configured to poll a sync server via the Network Time Protocol (NTP).
 
-For instructions on synchronizing your Active Directory environment with an external time server check out this blog post: [How to configure NTP server in Active Directory, Step by step](https://www.renanrodrigues.com/post/how-to-configure-ntp-server-in-active-directory-step-by-step).
-
 ::: note
 On Windows environments the NTP provider is usually the same domain controller. Make sure that your Domain Controller is synchronized with some external service.
 :::

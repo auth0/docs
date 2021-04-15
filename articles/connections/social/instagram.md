@@ -21,7 +21,7 @@ useCase:
 You can add functionality to your web app that allows your users to log in with Instagram. 
 
 ::: note 
-Instagram hass deprecated their legacy APIs in favor of the new [Instagram Graph API](https://developers.facebook.com/docs/instagram-basic-display-api), which requires users to authenticate using Facebook Login. For more information, see [this blog post](https://developers.facebook.com/blog/post/2019/10/15/launch-instagram-basic-display-api/).
+Instagram hass deprecated their legacy APIs in favor of the new [Instagram Graph API](https://developers.facebook.com/docs/instagram-basic-display-api), which requires users to authenticate using Facebook Login. 
 :::
 
 ## Prerequisites

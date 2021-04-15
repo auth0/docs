@@ -20,9 +20,6 @@ Simple non-intrusive integration with any version of ASP.NET.
 * [Node.js application](/quickstart/backend/nodejs) <br />
 Integration using [passport](http://passportjs.org/).
 
-* [Microsoft Azure Mobile Services](https://auth0.com/blog/Authenticate-Azure-Mobile-Services-apps-with-Everything-using-Auth0/) <br />
-Blog post explaining how to integrate with a Microsoft Azure Mobile Services backend.
-
 ---
 
 ### Tip: change Auth0 configuration when deploying to Microsoft Azure

@@ -62,10 +62,6 @@ However, it's worth noting that the number of times a user logs in with the mobi
 
 As explained in the [RFC 8252 OAuth 2.0 for Native Apps](https://tools.ietf.org/html/rfc8252), OAuth 2.0 authorization requests from native apps should only be made through external user-agents, primarily the user's browser. The specification details the security and usability reasons why this is the case.
 
-::: note
-For an overview of RFC 8252, refer to [OAuth 2.0 Best Practices for Native Apps](https://auth0.com/blog/oauth-2-best-practices-for-native-apps).
-:::
-
 ## Conclusion
 
 If your platform supports it, you should use a **browser-based** login flow where your application presents an in-application (embedded) browser for login and signup. Using an in-application browser gives your application the benefits of browser-based authentication, such as shared authentication state and security context, without disrupting the user experience by switching applications.

@@ -46,7 +46,7 @@ One potential cause of issues is using out of date versions of SDKs or libraries
 
 ## Use Auth0 feedback portal
 
-Auth0 welcomes feedback and ideas from Auth0 customers. If you have a suggestion for our product team, you can submit product feedback directly on the [Product Feedback portal](https://auth0.com/feedback). The [product feedback blog post](https://auth0.com/blog/improve-auth0-new-feedback-page/) explains the feedback process.
+Auth0 welcomes feedback and ideas from Auth0 customers. If you have a suggestion for our product team, you can submit product feedback directly on the [Product Feedback portal](https://auth0.com/feedback). 
 
 ## Prepare real-time webtask log extension 
 

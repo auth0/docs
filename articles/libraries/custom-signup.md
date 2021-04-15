@@ -39,8 +39,6 @@ One way to use social provider signups with Lock and collect custom fields is to
 
 Another way to collect custom field data when signing users up with social providers is via [progressive profiling](/users/concepts/overview-progressive-profiling) whereby you can slowly build up user profile data over time. You collect the bare minimum details upon signup, but when a user later interacts with your app, you collect a small amount of data (perhaps one question) each time until their profile is complete. This allows you to collect the desired information but with less friction, since the goal of using a social IDP for signup is making it more effortless and streamlined for the user.
 
-For additional information, see this Auth0 [blog post](https://auth0.com/blog/progressive-profiling/) about progressive profiling.
-
 ## Using the API
 
 ### Create a signup form to capture custom fields
