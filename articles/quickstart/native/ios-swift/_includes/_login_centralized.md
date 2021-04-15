@@ -74,7 +74,11 @@ To learn how to embed the Lock widget in your application, follow the [Embedded 
 
 <%= include('../../_includes/_ios_dependency_centralized') %>
 
-## Add the Callback
+## Add the Callback (iOS < 12 only)
+
+::: note
+Skip this step if your app targets iOS 12+ (e.g. if it uses the SwiftUI app lifecycle).
+:::
 
 For Auth0 to handle the authentication callback, update your `AppDelegate` file.
 
