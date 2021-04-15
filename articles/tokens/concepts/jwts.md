@@ -25,7 +25,7 @@ Let's talk about the benefits of JWT when compared to Simple Web Token (SWT) and
   ![Comparing the length of an encoded JWT and an encoded SAML](/media/articles/jwt/comparing-jwt-vs-saml2.png)
   _Comparison of the length of an encoded JWT and an encoded SAML_
 
-* **More secure**: JWTs can use a public/private key pair in the form of an X.509 certificate for signing. A JWT can also be symmetrically signed by a shared secret using the HMAC algorithm. And while SAML tokens can use public/private key pairs like JWT, signing XML with XML Digital Signature without introducing obscure security holes is very difficult when compared to the simplicity of signing JSON. Read more about JWT [signing algorithms](/tokens/concepts/signing-algorithms) in our [blog](https://auth0.com/blog/json-web-token-signing-algorithms-overview/).
+* **More secure**: JWTs can use a public/private key pair in the form of an X.509 certificate for signing. A JWT can also be symmetrically signed by a shared secret using the HMAC algorithm. And while SAML tokens can use public/private key pairs like JWT, signing XML with XML Digital Signature without introducing obscure security holes is very difficult when compared to the simplicity of signing JSON. 
 
 * **More common**: JSON parsers are common in most programming languages because they map directly to objects. Conversely, XML doesn't have a natural document-to-object mapping. This makes it easier to work with JWT than SAML assertions.
 
@@ -55,5 +55,4 @@ Before a received JWT is used, it should be [properly validated using its signat
 * [Locate JSON Web Key Sets](/tokens/guides/locate-jwks)
 * [Tokens Best Practices](/best-practices/token-best-practices)
 * [Web Apps vs. Web APIs / Cookies vs Tokens](/design/web-apps-vs-web-apis-cookies-vs-tokens)
-* [10 Things You Should Know About Tokens](https://auth0.com/blog/ten-things-you-should-know-about-tokens-and-cookies/)
 * [JWT Handbook](https://auth0.com/resources/ebooks/jwt-handbook)

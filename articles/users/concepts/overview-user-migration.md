@@ -66,5 +66,4 @@ You can import and export user data using the User Import/Export Extension avail
 * [User Import/Export Extension](/extensions/user-import-export)
 * [Bulk Import Database Schema and Example](/users/references/bulk-import-database-schema-examples)
 * [User Migration Scenarios](/users/references/user-migration-scenarios)
-* [Migrate Stormpath Users to Auth0 Demo](https://github.com/auth0-blog/migrate-stormpath-users-to-auth0)
 * [Migrate a User Database to Auth0](https://auth0.com/learn/migrate-user-database-auth0/)

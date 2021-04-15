@@ -84,4 +84,3 @@ function (user, context, callback) {
 
 - [User Profile Structure](/users/references/user-profile-structure)
 - [View Users](/users/guides/view-users)
-- [Auth0 Blog: Update of the user's details section](https://auth0.com/blog/update-of-the-user-details-section/)

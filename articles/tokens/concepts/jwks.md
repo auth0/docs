@@ -37,4 +37,3 @@ Currently, Auth0 signs with only one JWK at a time; however, it is important to 
 * [Validate JSON Web Tokens](/tokens/guides/validate-jwts)
 * [Locate JSON Web Key Sets](/tokens/guides/locate-jwks)
 * [Backend/API Quickstarts](/quickstart/backend)
-* [Navigating RS256 and JWKS](https://auth0.com/blog/navigating-rs256-and-jwks/) (uses Node.js)

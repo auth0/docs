@@ -24,7 +24,7 @@ When [validating a JWT](/tokens/guides/validate-jwts) using a JWKS, you will nee
 4. Build a certificate using the corresponding `x5c` property in your JWKS.
 5. Use the certificate to verify the JWT's signature.
 
-For an example that uses JWKS to verify a JWT's signature, see [Navigating RS256 and JWKS](https://auth0.com/blog/navigating-rs256-and-jwks/) (uses Node.js), or check out our [Backend/API Quickstarts](/quickstart/backend).
+For an example that uses JWKS to verify a JWT's signature, check out our [Backend/API Quickstarts](/quickstart/backend).
 
 For more info about the structure of a JWT, see [JSON Web Token Structure](/tokens/references/jwt-structure).
 
@@ -43,4 +43,3 @@ You can cache your signing keys to improve application performance and avoid run
 * [JSON Web Token Structure](/tokens/references/jwt-structure)
 * [Validate a JSON Web Token](/tokens/guides/validate-jwt)
 * [Backend/API Quickstarts](/quickstart/backend)
-* [Navigating RS256 and JWKS](https://auth0.com/blog/navigating-rs256-and-jwks/) (uses Node.js)
