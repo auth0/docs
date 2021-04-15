@@ -36,8 +36,6 @@ Resources designed to help you learn the basics of Auth0 include:
 
 * [**Implementation guides**](/topics/guides): Learn how to implement commonly-used features, such as user management and multi-factor authentication (MFA). This information is useful for both architects and developers.
 
-* [**How to have a successful IDM Project blog post**](https://auth0.com/blog/how-to-have-a-successful-idm-project/): Learn how to create a realistic project plan that will ensure a satisfying Identity Management project deployment.
-
 ## Learn
 
 Auth0 provides numerous tutorials, guides, white papers, and blog posts that focus on both learning and providing quick reference checks. 

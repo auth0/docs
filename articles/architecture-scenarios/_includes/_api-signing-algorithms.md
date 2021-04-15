@@ -17,6 +17,3 @@ The most secure practice, and our recommendation, is to use __RS256__. Some of t
 - Under HS256, If the private key is compromised you would have to re-deploy the API with the new secret. With RS256 you can request a token that is valid for multiple audiences.
 - With RS256 you can implement key rotation without having to re-deploy the API with the new secret.
 
-::: note
-For a more detailed overview of the JWT signing algorithms refer to: [JSON Web Token (JWT) Signing Algorithms Overview](https://auth0.com/blog/json-web-token-signing-algorithms-overview/).
-:::

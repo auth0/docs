@@ -39,7 +39,6 @@ Need to analyze logs or store them long-term? Auth0 provides extensions to [expo
 * [Send Logging Events to Splunk](/monitoring/guides/send-events-to-splunk)
 * [Send Logging Events to Loggly](/extensions/loggly)
 * [Send Logging Events to Mixpanel](/extensions/mixpanel)
-* [Get Realtime Authentication Events with Realtime and Pusher](https://auth0.com/blog/get-realtime-auth-events-with-auth0-and-pusher/)
 
 ## Track new signups and leads
 

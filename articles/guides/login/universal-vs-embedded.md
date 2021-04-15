@@ -69,22 +69,20 @@ In addition, if you have not enabled [custom domains](/custom-domains), the end 
 
 ### Security risks
 
-Universal Login is more secure than embedded login. Authentication takes place over the same domain, eliminating cross-origin requests. Cross-origin authentication is inherently more dangerous. Collecting user credentials in an application served from one origin and then sending them to another origin can present certain security vulnerabilities. [Phishing attacks](https://auth0.com/blog/all-you-need-to-know-about-the-google-docs-phishing-attack/) are more likely, as are [man-in-the-middle attacks](/security/common-threats#man-in-the-middle-mitm-attacks). Universal Login does not send information between origins, thereby negating cross-origin concerns.
+Universal Login is more secure than embedded login. Authentication takes place over the same domain, eliminating cross-origin requests. Cross-origin authentication is inherently more dangerous. Collecting user credentials in an application served from one origin and then sending them to another origin can present certain security vulnerabilities. Phishing attacks are more likely, as are [man-in-the-middle attacks](/security/common-threats#man-in-the-middle-mitm-attacks). Universal Login does not send information between origins, thereby negating cross-origin concerns.
 
 Embedded user agents are unsafe for third parties, including the authorization server itself. If an embedded login is used, the app has access to both the authorization grant and the user's authentication credentials. As a consequence, this data is left vulnerable to recording or malicious use. Even if the app is trusted, allowing it to access the authorization grant as well as the user's **full credentials** is unnecessary. This violates the [principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) and increases the potential for attack.
 
 :::note
-As a matter of fact, Google no longer supports an embedded approach when implementing OAuth. For more information on this, refer to [Google Blocks OAuth Requests Made via embedded browsers](https://auth0.com/blog/google-blocks-oauth-requests-from-embedded-browsers/). 
+Google no longer supports an embedded approach when implementing OAuth.
 :::
 
-Furthermore, according to the [Internet Engineering Task Force (IETF)](https://www.ietf.org/), authorization requests from native apps should only be made through external user agents, primarily the user's browser. Using the browser to make native app authorization requests results in better security. When embedded agents are used, the app has access to the OAuth authorization grant as well as the user's credentials, leaving this data vulnerable to recording or malicious use. For more info refer to [OAuth 2.0 Best Practices for Native Apps](https://auth0.com/blog/oauth-2-best-practices-for-native-apps/).
+Furthermore, according to the [Internet Engineering Task Force (IETF)](https://www.ietf.org/), authorization requests from native apps should only be made through external user agents, primarily the user's browser. Using the browser to make native app authorization requests results in better security. When embedded agents are used, the app has access to the OAuth authorization grant as well as the user's credentials, leaving this data vulnerable to recording or malicious use.
 
 ## Keep reading
 
 :::next-steps
 - [Migrating from Embedded to Universal Login](/guides/login/migration-embedded-universal)
 - [Browser-Based vs. Native Login Flows on Mobile Devices](/design/browser-based-vs-native-experience-on-mobile)
-- [Authentication Provider Best Practices: Universal Login](https://auth0.com/blog/authentication-provider-best-practices-centralized-login/)
-- [OAuth 2.0 Best Practices for Native Apps](https://auth0.com/blog/oauth-2-best-practices-for-native-apps/)
 - [Modernizing OAuth interactions in Native Apps for Better Usability and Security](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html)
 :::

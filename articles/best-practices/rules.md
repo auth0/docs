@@ -46,7 +46,7 @@ A rule is essentially an anonymous JavaScript function that is passed three para
 Anonymous functions make it hard to interpret the call-stack generated as a result of any [exceptional error](/best-practices/error-handling#exceptions) condition. For convenience, use compact and unique naming conventions to assist with diagnostic analysis (e.g., `function MyRule1 (user, context, callback) {...}`).
 :::
 
-Rules execute in the pipeline associated with the generation of artifacts for authenticity that forms part of the overall [Auth0 engine](https://cdn.auth0.com/blog/auth0-raises-100m-to-fuel-the-growth/inside-the-auth0-engine-high-res.jpg). When a pipeline is executed, all enabled rules are packaged together in the order in which they are listed and sent as one code blob to be executed as an Auth0 serverless Webtask.
+Rules execute in the pipeline associated with the generation of artifacts for authenticity that forms part of the overall Auth0 engine. When a pipeline is executed, all enabled rules are packaged together in the order in which they are listed and sent as one code blob to be executed as an Auth0 serverless Webtask.
 
 ![Rules Pipeline](/media/articles/rules/rules-best-practice-pipeline.png)
 

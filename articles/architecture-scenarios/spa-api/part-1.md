@@ -31,9 +31,7 @@ With this flow, the calling application requests an Access Token over HTTPS with
 
 The original specifications for OAuth2 introduced the Implicit Flow, a way for SPAs without a backend to obtain Access Tokens and call APIs directly from the browser. However, mitigation strategies are necessary to use the Implicit Flow because tokens are returned in the URL directly from the authorization endpoint as opposed to the token endpoint. 
 
-We recommend using the [Authorization Code Flow with PKCE](https://auth0.com/docs/flows/authorization-code-flow) rather than Implicit Flow; however, if you are unable to update to the recommended flow, you should implement necessary mitigations to combat the risks.
-
-To learn more, read our blog post: [OAuth2 Implicit Grant and SPA](https://auth0.com/blog/oauth2-implicit-grant-and-spa/#The-Implicit-Grant). 
+We recommend using the [Authorization Code Flow with PKCE](https://auth0.com/docs/flows/authorization-code-flow) rather than Implicit Flow; however, if you are unable to update to the recommended flow, you should implement necessary mitigations to combat the risks. 
 
 ## Authorization Extension
 

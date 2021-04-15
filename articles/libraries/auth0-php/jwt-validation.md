@@ -12,7 +12,7 @@ contentType: how-to
 
 Auth0-PHP includes an interface to the [lcobucci/jwt library](https://github.com/lcobucci/jwt), used to validate and decode <dfn data-key="json-web-token">JSON Web Tokens (JWT)</dfn>. More information on JWTs and how to build and decode them can be found [jwt.io](https://jwt.io/).
 
-The decoder can work with both HS256 and RS256 tokens. Both types require the algorithm and valid <dfn data-key="audience">audiences</dfn> to be indicated before processing. Additionally, HS256 tokens require the client secret while RS256 tokens require an authorized issuer. The issuer is used to fetch a JWKs file during the decoding process as well. ([More about signing algorithms here](https://auth0.com/blog/navigating-rs256-and-jwks/).)
+The decoder can work with both HS256 and RS256 tokens. Both types require the algorithm and valid <dfn data-key="audience">audiences</dfn> to be indicated before processing. Additionally, HS256 tokens require the client secret while RS256 tokens require an authorized issuer. The issuer is used to fetch a JWKs file during the decoding process as well.
 
 Here is an example of a small, URL-based JWT decoder:
 

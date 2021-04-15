@@ -33,7 +33,7 @@ In this scenario, an Access Token is also returned, but it is rarely used becaus
 :::
 
 ::: warning
-If you are using Auth0 as a SAML Identity Provider (IdP) and are processing SAML responses in your own code, you will need to verify whether the libraries you use are vulnerable to SAML exploits. To learn more, see [Auth0 Not Affected by SAML Vulnerabilities Identified by Duo Security](https://auth0.com/blog/auth0-not-affected-by-saml-vulnerabilities-identified-by-duo-security/) . Note that the type of attack discussed in this blog can be prevented by Multi-factor Authentication (MFA), even if software used is vulnerable.
+If you are using Auth0 as a SAML Identity Provider (IdP) and are processing SAML responses in your own code, you will need to verify whether the libraries you use are vulnerable to SAML exploits.
 :::
 
 ## Read More
