@@ -22,8 +22,8 @@ useCase: quickstart
 This tutorial uses `omniauth-auth0`, a custom [OmniAuth strategy](https://github.com/intridea/omniauth#omniauth-standardized-multi-provider-authentication), to handle the authentication flow.  Add the following dependencies to your `Gemfile`:
 
 ```ruby
-gem 'omniauth-auth0', '~> 2.5'
-gem 'omniauth-rails_csrf_protection', '~> 0.1' # prevents forged authentication requests
+gem 'omniauth-auth0', '~> 3.0'
+gem 'omniauth-rails_csrf_protection', '~> 1.0' # prevents forged authentication requests
 ```
 
 Once your gems are added, install the gems with `$ bundle install`:
