@@ -1765,48 +1765,80 @@ module.exports = [
     to: '/extensions/delegated-administration-extension/delegated-administration-manage-users'
   },
   {
-    from: ['/extensions/deploy-cli'],
-    to: '/extensions/deploy-cli-tool'
+    from: ['/extensions/deploy-cli-tool','/extensions/deploy-cli'],
+    to: '/deploy/deploy-cli-tool'
   },
   {
-    from: ['/extensions/deploy-cli/guides/call-deploy-cli-programmatically'],
-    to: '/extensions/deploy-cli-tool/call-deploy-cli-tool-programmatically'
+    from: [
+      '/extensions/deploy-cli-tool/call-deploy-cli-tool-programmatically',
+      '/extensions/deploy-cli/guides/call-deploy-cli-programmatically'
+    ],
+    to: '/deploy/deploy-cli-tool/call-deploy-cli-tool-programmatically'
   },
   {
-    from: ['/extensions/deploy-cli/guides/create-deploy-cli-application-manually','/extensions/deploy-cli-tool/create-and-configure-the-deploy-cli-application-manually'],
-    to: '/extensions/deploy-cli-tool/create-and-configure-the-deploy-cli-application'
+    from: [
+      '/extensions/deploy-cli/guides/create-deploy-cli-application-manually',
+      '/extensions/deploy-cli-tool/create-and-configure-the-deploy-cli-application-manually',
+      '/extensions/deploy-cli-tool/create-and-configure-the-deploy-cli-application'
+    ],
+    to: '/deploy/deploy-cli-tool/create-and-configure-the-deploy-cli-application'
   },
   {
-    from: ['/extensions/deploy-cli/guides/import-export-directory-structure'],
-    to: '/extensions/deploy-cli-tool/import-export-tenant-configuration-to-directory-structure'
+    from: [
+      '/extensions/deploy-cli/guides/import-export-directory-structure',
+      '/extensions/deploy-cli-tool/import-export-tenant-configuration-to-directory-structure'
+    ],
+    to: '/deploy/deploy-cli-tool/import-export-tenant-configuration-to-directory-structure'
   },
   {
-    from: ['/extensions/deploy-cli/guides/import-export-yaml-file'],
-    to: '/extensions/deploy-cli-tool/import-export-tenant-configuration-to-yaml-file'
+    from: [
+      '/extensions/deploy-cli/guides/import-export-yaml-file',
+      '/extensions/deploy-cli-tool/import-export-tenant-configuration-to-yaml-file'
+    ],
+    to: '/deploy/deploy-cli-tool/import-export-tenant-configuration-to-yaml-file'
   },
   {
-    from: ['/extensions/deploy-cli/guides/incorporate-deploy-cli-into-build-environment'],
-    to: '/extensions/deploy-cli-tool/incorporate-deploy-cli-into-build-environment'
+    from: [
+      '/extensions/deploy-cli/guides/incorporate-deploy-cli-into-build-environment',
+      '/extensions/deploy-cli-tool/incorporate-deploy-cli-into-build-environment'
+    ],
+    to: '/deploy/deploy-cli-tool/incorporate-deploy-cli-into-build-environment'
   },
   {
-    from: ['/extensions/deploy-cli/guides/install-deploy-cli'],
-    to: '/extensions/deploy-cli-tool/install-and-configure-the-deploy-cli-tool'
+    from: [
+      '/extensions/deploy-cli/guides/install-deploy-cli',
+      '/extensions/deploy-cli-tool/install-and-configure-the-deploy-cli-tool'
+    ],
+    to: '/deploy/deploy-cli-tool/install-and-configure-the-deploy-cli-tool'
   },
   {
-    from: ['/extensions/deploy-cli/references/deploy-cli-options'],
-    to: '/extensions/deploy-cli-tool/deploy-cli-tool-options'
+    from: [
+      '/extensions/deploy-cli/references/deploy-cli-options',
+      '/extensions/deploy-cli-tool/deploy-cli-tool-options'
+    ],
+    to: '/deploy/deploy-cli-tool/deploy-cli-tool-options'
   },
   {
-    from: ['/extensions/deploy-cli/references/environment-variables-keyword-mappings'],
-    to: '/extensions/deploy-cli-tool/environment-variables-and-keyword-mappings'
+    from: [
+      '/extensions/deploy-cli/references/environment-variables-keyword-mappings',
+      '/extensions/deploy-cli-tool/environment-variables-and-keyword-mappings'
+    ],
+    to: '/deploy/deploy-cli-tool/environment-variables-and-keyword-mappings'
   },
   {
-    from: ['/extensions/deploy-cli/references/troubleshooting'],
-    to: '/extensions/deploy-cli-tool/troubleshoot-the-deploy-cli-tool'
+    from: [
+      '/extensions/deploy-cli/references/troubleshooting',
+      '/extensions/deploy-cli-tool/troubleshoot-the-deploy-cli-tool'
+    ],
+    to: '/deploy/deploy-cli-tool/troubleshoot-the-deploy-cli-tool'
   },
   {
-    from: ['/extensions/deploy-cli/references/whats-new','/extensions/deploy-cli/references/whats-new-v2'],
-    to: '/extensions/deploy-cli-tool/whats-new-in-deploy-cli-tool'
+    from: [
+      '/extensions/deploy-cli/references/whats-new',
+      '/extensions/deploy-cli/references/whats-new-v2',
+      '/extensions/deploy-cli-tool/whats-new-in-deploy-cli-tool'
+    ],
+    to: '/deploy/deploy-cli-tool/whats-new-in-deploy-cli-tool'
   },
   {
     from: ['/extensions/account-link'],
