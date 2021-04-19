@@ -143,6 +143,8 @@ articles:
   - title: Deploy
     url: /deploy
     children:
+      - title: Deployment Options
+        url: /deploy/deploy-options
       - title: Deployment Checklist
         url: /deploy/deploy-checklist
       - title: Pre-Deployment
@@ -153,27 +155,27 @@ articles:
           - title: Pre-Launch Tips
             url: /deploy/pre-deployment/pre-launch-tips
       - title: Deploy CLI Tool
-        url: /extensions/deploy-cli-tool
+        url: /deploy/deploy-cli-tool
         children:
           - title: Install Deploy CLI
-            url: /extensions/deploy-cli-tool/install-and-configure-the-deploy-cli-tool
+            url: /deploy/deploy-cli-tool/install-and-configure-the-deploy-cli-tool
           - title: Call Deploy CLI
-            url: /extensions/deploy-cli-tool/call-deploy-cli-tool-programmatically
-          - title: Incorporate into CI/CD Environment
-            url: /extensions/deploy-cli-tool/incorporate-deploy-cli-into-build-environment
+            url: /deploy/deploy-cli-tool/call-deploy-cli-tool-programmatically
+          - title: Incorporate into Build Environment
+            url: /deploy/deploy-cli-tool/incorporate-deploy-cli-into-build-environment
           - title: Import/Export Directory Structure
-            url: /extensions/deploy-cli-tool/import-export-tenant-configuration-to-directory-structure
+            url: /deploy/deploy-cli-tool/import-export-tenant-configuration-to-directory-structure
           - title: Import/Export YAML File
-            url: /extensions/deploy-cli-tool/import-export-tenant-configuration-to-yaml-file
+            url: /deploy/deploy-cli-tool/import-export-tenant-configuration-to-yaml-file
           - title: Environment Variables
-            url: /extensions/deploy-cli-tool/environment-variables-and-keyword-mappings
+            url: /deploy/deploy-cli-tool/environment-variables-and-keyword-mappings
           - title: Deploy CLI Options
-            url: /extensions/deploy-cli-tool/deploy-cli-tool-options
+            url: /deploy/deploy-cli-tool/deploy-cli-tool-options
           - title: What's New
-            url: /extensions/deploy-cli/references/whats-new
+            url: /deploy/deploy-cli/references/whats-new
             hidden: true
           - title: Troubleshoot Deploy CLI
-            url: /extensions/deploy-cli-tool/troubleshoot-the-deploy-cli-tool
+            url: /deploy/deploy-cli-tool/troubleshoot-the-deploy-cli-tool
             hidden: true
       - title: Private Cloud Options
         url: /deploy/private-cloud
