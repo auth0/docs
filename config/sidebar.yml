@@ -1251,8 +1251,10 @@ articles:
         url: /security/prevent-common-cybersecurity-threats
       - title: General Security Tips
         url: /security/general-security-tips
-      - title: Add User Attributes to DenyList
+      - title: Add User Attributes to Deny List
         url: /security/denylist-user-attributes
+      - title: Add IP Addresses to Allow List
+        url: /security/allowlist-ip-addresses
   - title: Data Privacy
     url: /compliance
     children:
