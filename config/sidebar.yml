@@ -86,11 +86,9 @@ articles:
       - title: Multiple Organization Architecture
         url: /architecture-scenarios/multiple-organization-architecture
         children:
-          - title: Users Isolated by Organization
-            url: /architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization
-            children:
-              - title: Single Identity Provider Organizations
-                url: /architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations
+          - title: Single Identity Provider Organizations
+            url: /architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations
+            chilren:
               - title: Provisioning
                 url: /architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/provisioning
               - title: Authentication
@@ -103,8 +101,8 @@ articles:
                 url: /architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/profile-management
               - title: Logout
                 url: /architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/logout
-              - title: Multiple Identity Provider Organizations
-                url: /architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/multiple-identity-provider-organizations
+          - title: Multiple Identity Provider Organizations
+            url: /architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/multiple-identity-provider-organizations
       - title: Server Application + API
         url: /architecture-scenarios/server-api
         children:
