@@ -91,19 +91,18 @@ articles:
             children:
               - title: Single Identity Provider Organizations
                 url: /architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations
-                children:
-                  - title: Provisioning
-                    url: /architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/provisioning
-                  - title: Authentication
-                    url: /architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/authentication
-                  - title: Branding
-                    url: /architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/branding
-                  - title: Authorization
-                    url: /architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/authorization
-                  - title: Profile Management
-                    url: /architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/profile-management
-                  - title: Logout
-                    url: /architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/logout
+              - title: Provisioning
+                url: /architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/provisioning
+              - title: Authentication
+                url: /architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/authentication
+              - title: Branding
+                url: /architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/branding
+              - title: Authorization
+                url: /architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/authorization
+              - title: Profile Management
+                url: /architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/profile-management
+              - title: Logout
+                url: /architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/logout
               - title: Multiple Identity Provider Organizations
                 url: /architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/multiple-identity-provider-organizations
       - title: Server Application + API
