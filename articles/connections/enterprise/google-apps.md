@@ -115,8 +115,6 @@ Now you're ready to [test your connection](/dashboard/guides/connections/test-co
 
 ## Requesting Refresh Tokens from Google
 
-Google always returns an Access Token which is stored in the user profile. If you add `access_type=offline&approval_prompt=force` to the authorization request, Auth0 will forward those parameters to Google. Google will return a Refresh Token, which will also be stored in the user profile. 
+Google always returns an Access Token, which is stored in the user profile. If you add `access_type=offline&approval_prompt=force` to the authorization request, Auth0 will forward these parameters to Google. Google will then return a Refresh Token, which will also be stored in the user profile. 
 
 <%= include('../_quickstart-links.md') %>
-
-
