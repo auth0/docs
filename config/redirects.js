@@ -1707,8 +1707,13 @@ module.exports = [
     to: '/email/configure-test-smtp-email-servers'
   },
   {
-    from: ['/invite-only','/tutorials/creating-invite-only-applications','/design/creating-invite-only-applications'],
-    to: '/auth0-email-services/send-email-invitations-for-application-signup'
+    from: [
+      '/design/creating-invite-only-applications',
+      '/invite-only',
+      '/tutorials/creating-invite-only-applications',
+      '/auth0-email-services/send-email-invitations-for-application-signup'
+    ],
+    to: '/email/send-email-invitations-for-application-signup'
   },
  
   /* Extensions */

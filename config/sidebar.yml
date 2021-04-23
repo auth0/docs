@@ -784,6 +784,8 @@ articles:
             url: /email/configure-custom-external-smtp-email-provider
           - title: Test SMTP Email Server
             url: /email/configure-test-smtp-email-servers
+          - title: Send Email Invitations for Application Signup
+            url: /email/send-email-invitations-for-application-signup
       - title: Consent Prompt
         url: /scopes/customize-consent-prompts
       - title: Internationalization
