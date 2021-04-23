@@ -1655,39 +1655,60 @@ module.exports = [
     to: '/dev-lifecycle/set-up-multiple-environments'
   },
 
-  /* Email Services */
+  /* Email */
 
   {
-    from: ['/email'],
-    to: '/auth0-email-services'
+    from: ['/auth0-email-services'],
+    to: '/email'
   },
   {
-    from: ['/email/providers'],
-    to: '/auth0-email-services/configure-external-smtp-email-providers'
+    from: [
+      '/email/custom',
+      '/auth0-email-services/manage-email-flow'
+    ],
+    to: '/email/manage-email-flow'
   },
   {
-    from: ['/email/testing'],
-    to: '/auth0-email-services/configure-external-smtp-email-providers/configure-test-smtp-email-servers'
+    from: [
+      '/email/templates',
+      '/auth0-email-services/customize-email-templates',
+      '/email/spa-redirect',
+      '/auth0-email-services/spa-redirect'
+    ],
+    to: '/email/customize-email-templates'
   },
   {
-    from: ['/email/custom'],
-    to: '/auth0-email-services/manage-email-flow'
+    from: [
+      '/email/liquid-syntax',
+      '/auth0-email-services/customize-email-templates/use-liquid-syntax-in-email-templates'
+    ],
+    to: '/email/customize-email-templates/use-liquid-syntax-in-email-templates'
   },
   {
-    from: ['/email/templates'],
-    to: '/auth0-email-services/customize-email-templates'
+    from: ['/auth0-email-services/email-template-descriptions'],
+    to: '/email/customize-email-templates/email-template-descriptions'
   },
   {
-    from: ['/email/liquid-syntax'],
-    to: '/auth0-email-services/customize-email-templates/use-liquid-syntax-in-email-templates'
+    from: [
+      '/auth0-email-services/configure-external-smtp-email-providers',
+      '/email/providers'
+    ],
+    to: '/email/configure-external-smtp-email-providers'
+  },
+  {
+    from: ['/auth0-email-services/configure-external-smtp-email-providers/configure-custom-external-smtp-email-provider'],
+    to: '/email/configure-custom-external-smtp-email-provider'
+  },
+  {
+    from: [
+      '/email/testing',
+      '/auth0-email-services/configure-external-smtp-email-providers/configure-test-smtp-email-servers'
+    ],
+    to: '/email/configure-test-smtp-email-servers'
   },
   {
     from: ['/invite-only','/tutorials/creating-invite-only-applications','/design/creating-invite-only-applications'],
     to: '/auth0-email-services/send-email-invitations-for-application-signup'
-  },
-  {
-    from: ['/email/spa-redirect', '/auth0-email-services/spa-redirect'],
-    to: '/auth0-email-services/customize-email-templates'
   },
  
   /* Extensions */

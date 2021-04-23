@@ -780,10 +780,10 @@ articles:
                 url: /email/customize-email-templates/email-template-descriptions
           - title: External SMTP Email Providers
             url: /email/configure-external-smtp-email-providers
-          - title: Custom SMTP Email Providers
+          - title: Custom SMTP Email Provider
             url: /email/configure-custom-external-smtp-email-provider
-          - title: Test SMTP Email Servers
-            url: /email/configure-external-smtp-email-providers/configure-test-smtp-email-servers
+          - title: Test SMTP Email Server
+            url: /email/configure-test-smtp-email-servers
       - title: Consent Prompt
         url: /scopes/customize-consent-prompts
       - title: Internationalization
