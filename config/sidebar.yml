@@ -769,20 +769,20 @@ articles:
       - title: Email
         url: /email
         children:
-          - title: Customize Email Handling
+          - title: Email Handling
             url: /email/manage-email-flow
-          - title: Customize Email Templates
+          - title: Email Templates
             url: /email/customize-email-templates
             children:
-              - title: Use Liquid Syntax
+              - title: Liquid Syntax
                 url: /email/customize-email-templates/use-liquid-syntax-in-email-templates
-              - title: Email Template Descriptions
+              - title: Template Descriptions
                 url: /email/customize-email-templates/email-template-descriptions
-          - title: Configure External SMTP Email Providers
+          - title: External SMTP Email Providers
             url: /email/configure-external-smtp-email-providers
-          - title: Configure Custom External SMTP Email Providers
+          - title: Custom SMTP Email Providers
             url: /email/configure-custom-external-smtp-email-provider
-          - title: Configure Test SMTP Email Servers
+          - title: Test SMTP Email Servers
             url: /email/configure-external-smtp-email-providers/configure-test-smtp-email-servers
       - title: Consent Prompt
         url: /scopes/customize-consent-prompts
