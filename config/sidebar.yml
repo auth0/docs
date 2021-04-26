@@ -586,7 +586,7 @@ articles:
             url: /attack-protection/brute-force-protection
           - title: Suspicious IP Throttling
             url: /attack-protection/suspicious-ip-throttling
-          - title: Customize Emails
+          - title: Customize Blocked Account Emails
             url: /attack-protection/customize-blocked-account-emails
           - title: View Events
             url: /attack-protection/view-attack-protection-events
@@ -767,20 +767,25 @@ articles:
           - title: Troubleshoot Custom Domains
             url: /custom-domains/troubleshoot-custom-domains
       - title: Email
-        url: /auth0-email-services
+        url: /email
         children:
-          - title: Custom Email Handling
-            url: /auth0-email-services/manage-email-flow
-          - title: Customizing Your Emails
-            url: /auth0-email-services/customize-email-templates
-          - title: Email Template Descriptions
-            url: /auth0-email-services/email-template-descriptions
-          - title: Use your own SMTP Email Provider
-            url: /auth0-email-services/configure-external-smtp-email-providers
-          - title: Liquid Syntax in Email Templates
-            url: /auth0-email-services/customize-email-templates/use-liquid-syntax-in-email-templates
-          - title: Set up a Test SMTP Provider
-            url: /auth0-email-services/configure-external-smtp-email-providers/configure-test-smtp-email-servers
+          - title: Email Handling
+            url: /email/manage-email-flow
+          - title: Email Templates
+            url: /email/customize-email-templates
+            children:
+              - title: Liquid Syntax
+                url: /email/customize-email-templates/use-liquid-syntax-in-email-templates
+              - title: Template Descriptions
+                url: /email/customize-email-templates/email-template-descriptions
+          - title: External SMTP Email Providers
+            url: /email/configure-external-smtp-email-providers
+          - title: Custom SMTP Email Provider
+            url: /email/configure-custom-external-smtp-email-provider
+          - title: Test SMTP Email Server
+            url: /email/configure-test-smtp-email-servers
+          - title: Send Email Invitations for Application Signup
+            url: /email/send-email-invitations-for-application-signup
       - title: Consent Prompt
         url: /scopes/customize-consent-prompts
       - title: Internationalization
