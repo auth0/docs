@@ -3,13 +3,13 @@
 To run the sample first set the **Callback URL** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) to
 
 ```text
-demo://${account.namespace}/android/com.auth0.samples/callback
+demo://${account.namespace}/android/com.auth0.androidsample/callback
 ```
 
 To run the sample first set the **Logout URL** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) to
 
 ```text
-demo://${account.namespace}/android/com.auth0.samples/callback
+demo://${account.namespace}/android/com.auth0.androidsample/callback
 ```
 
 Then, to run it from the **command line**:
