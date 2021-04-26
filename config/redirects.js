@@ -1701,7 +1701,7 @@ module.exports = [
   },
   {
     from: [
-      '/email/testing',
+      '/email/testing', 
       '/auth0-email-services/configure-external-smtp-email-providers/configure-test-smtp-email-servers'
     ],
     to: '/email/configure-test-smtp-email-servers'
