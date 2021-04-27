@@ -3287,10 +3287,6 @@ module.exports = [
     to: '/protocols/configure-ws-fed-applications'
   },
   {
-    from: ['/protocols/saml/saml-apps','/saml-apps','/protocols/saml/identity-providers','/samlp-providers','/protocols/saml/samlp-providers', '/protocols/saml'],
-    to: '/protocols/saml-protocol'
-  },
-  {
     from: ['/protocols/saml/saml-configuration/troubleshoot/auth0-as-idp','/protocols/saml/saml-configuration/troubleshoot','/protocols/saml/saml-configuration/troubleshoot/common-saml-errors','/protocols/saml/saml-configuration/troubleshoot/auth0-as-sp','/troubleshoot/troubleshoot-saml-configurations'],
     to: '/protocols/saml-protocol/troubleshoot-saml-configurations'
   },
@@ -3299,8 +3295,21 @@ module.exports = [
     to: '/protocols/state-parameters'
   },
   {
-    from: ['/protocols/saml/saml-configuration/supported-options-and-bindings','/protocols/saml/saml-configuration/design-considerations','/protocols/saml/saml-configuration-options','/saml-configuration','/protocols/saml/saml-configuration'],
-    to: '/protocols/saml-configuration-options'
+    from: [
+      '/saml-apps',
+      '/protocols/saml/identity-providers',
+      '/samlp-providers',
+      '/protocols/saml/samlp-providers',
+      '/protocols/saml',
+      '/protocols/saml/saml-apps',
+      '/protocols/saml/saml-configuration/supported-options-and-bindings',
+      '/protocols/saml/saml-configuration/design-considerations',
+      '/protocols/saml/saml-configuration-options',
+      '/saml-configuration',
+      '/protocols/saml/saml-configuration',
+      '/protocols/saml-configuration-options'
+    ],
+    to: '/protocols/saml-protocol'
   },
   {
     from: ['/protocols/saml/adfs'],
