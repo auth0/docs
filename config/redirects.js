@@ -4508,7 +4508,7 @@ module.exports = [
   /* Tenant Settings */
 
   {
-    from: ['/dashboard/tenant-settings'],
+    from: ['/dashboard/tenant-settings','/get-started/dashboard/tenant-settings'],
     to: '/config/tenant-settings'
   },
 
