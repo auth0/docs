@@ -14,11 +14,8 @@ useCase: customize-connections
 This topic describes different ways to reset the password for a user in your database. You can change passwords for users in your [database connections](/connections/database) only. Users signing in with [social](/connections/social) or [enterprise](/connections/enterprise) connections must reset their passwords with the identity provider (such as Google or Facebook).
 
 :::panel Not what you're looking for?
-
 - To configure the custom Password Reset page, read [Customize Hosted Password Reset Page](/universal-login/password-reset). 
-
 - To implement custom behavior after a successful password change, read  [Post Change Password Hook](/hooks/extensibility-points/post-change-password).
-
 - To reset the password to your personal Auth0 user account, read [Reset Your Auth0 Account Password](/support/reset-account-password).
 :::
 
@@ -27,7 +24,9 @@ There are two basic methods for changing a user's password:
 - [Trigger an interactive password reset flow](#trigger-an-interactive-password-reset-flow) that sends the user a link through email. The link opens the Auth0 password reset page where the user can enter a new password.
 - [Directly set the new password](#directly-set-the-new-password) using the Auth0 Management API v2 or the Auth0 Dashboard.
 
-Password resets cause Auth0 sessions to expire. 
+::: note
+Resetting a user's password makes their session expire. 
+:::
 
 ## Trigger an interactive password reset flow
 
@@ -37,11 +36,11 @@ There are two ways to trigger an interactive password reset flow, depending on y
 
 - **Authentication API**: If your application uses an interactive password reset flow using the Authentication API, make a `POST` call. In the `email` field, provide the email address of the user who needs to change their password. If the call is successful, the user [receives a password reset email](#password-reset-emails).
 
-::: panel-warning Are you calling the API from the browser? 
+::: panel Are you calling the API from the browser? 
 Be sure the origin URL is allowed: Go to [Auth0 Dashboard > Applications > Applications](${manage_url}/#/applications/${account.clientId}/settings) and add the URL to the `Allowed Origins (CORS)` list.
 :::
 
-:::panel-warning Is your connection a custom database?
+:::panel Is your connection a custom database?
 Check to see if the user exists in the database before you invoke the Authentication API for `changePassword`.
 :::
 
@@ -69,7 +68,10 @@ Clicking the link sends the user to the [password reset page](/universal-login/p
 
 After submitting the new password, the user sees confirmation that they can now log in with their new credentials.
 
-The reset password link in the email is valid for one use only. If the user receives multiple password resets emails, only the password link in the most recent email is valid. The `URL Lifetime` field determines how long the link is valid. From the Auth0 dashboard, you can [customize the Change Password email](/email/templates) and modify the link's [lifetime](/api/authentication/reference#change-password). 
+Notes on password resets:
+- The reset password link in the email is valid for one use only. 
+-If the user receives multiple password reset emails, only the password link in the most recent email is valid. 
+-The `URL Lifetime` field determines how long the link is valid. From the Auth0 dashboard, you can [customize the Change Password email](/email/templates) and modify the link's [lifetime](/api/authentication/reference#change-password). 
 
 In the [Classic Universal Login Experience](/universal-login/classic) you can [configure a url](/email/templates#configuring-the-redirect-to-url) to redirect users after completing the password reset. The URL receives a success indicator and a message. 
 
