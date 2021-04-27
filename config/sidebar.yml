@@ -616,8 +616,6 @@ articles:
             url: /protocols/saml-protocol/customize-saml-assertions
           - title: Deprovision Users
             url: /protocols/saml-protocol/deprovision-users-in-saml-integrations
-      - title: Add IP Addresses to AllowList
-        url: /security/allowlist-ip-addresses
   - title: Manage Users
     url: /users
     children:
@@ -1258,8 +1256,10 @@ articles:
         url: /security/prevent-common-cybersecurity-threats
       - title: General Security Tips
         url: /security/general-security-tips
-      - title: Add User Attributes to DenyList
+      - title: Add User Attributes to Deny List
         url: /security/denylist-user-attributes
+      - title: Auth0 IP Addresses for Allow Lists
+        url: /security/allowlist-ip-addresses
   - title: Data Privacy
     url: /compliance
     children:
