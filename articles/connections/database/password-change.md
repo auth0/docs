@@ -11,8 +11,8 @@ useCase: customize-connections
 ---
 # Change Users' Passwords
 
-:::panel About This Topic
-Are you in the right place? This topic describes how to reset end users' passwords. If you need to configure the custom Password Reset page for your applications, see [Customize Hosted Password Reset Page](/universal-login/password-reset). If you need to reset the password to your personal Auth0 user account, see [Reset Your Auth0 Account Password](/support/reset-account-password).
+:::panel Before you read...
+This topic describes how to reset end users' passwords. If you need to configure the custom Password Reset page for your applications, read [Customize Hosted Password Reset Page](/universal-login/password-reset). If you need to reset the password to your personal Auth0 user account, read [Reset Your Auth0 Account Password](/support/reset-account-password).
 :::
 
 There are two basic methods for changing a user's password:
