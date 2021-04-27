@@ -501,15 +501,25 @@ articles:
           - title: Enable RBAC for APIs
             url: /authorization/rbac/enable-role-based-access-control-for-apis
   - title: Configuration
-    url: /configuration-overview
+    url: /config
     children:
-      - title: Tenant Configuration
-        url: /dashboard/dashboard-tenant-settings
+      - title: Tenant Settings
+        url: /config/tenant-settings
         children:
-          - title: Manage Dashboard Access
+          - title: Dashboard Access
             url: /dashboard-access
-          - title: Manage Signing Keys
-            url: /tokens/manage-signing-keys
+          - title: Signing Keys
+            url: /config/tenant-settings/signing-keys
+            children:
+              - title: Rotate Signing Keys
+                url: /config/tenant-settings/signing-keys/rotate-signing-keys
+                hidden: true 
+              - title: Revoke Signing Keys
+                url: /config/tenant-settings/signing-keys/revoke-signing-keys
+                hidden: true 
+              - title: View Signing Certificates
+                url: /config/tenant-settings/signing-keys/view-signing-certificates
+                hidden: true 
           - title: Configure Session Lifetime Settings
             url: /get-started/dashboard/configure-session-lifetime-settings
           - title: Enable SSO for Legacy Tenants
@@ -527,7 +537,7 @@ articles:
           - title: Child Tenant Request Process
             url: /dev-lifecycle/child-tenants
             hidden: true
-      - title: Application Configuration
+      - title: Application Settings
         url: /get-started/dashboard/application-settings
         children:
           - title: Enable SSO for Legacy Applications

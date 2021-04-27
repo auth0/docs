@@ -3853,10 +3853,6 @@ module.exports = [
     to: '/tokens/json-web-tokens/validate-json-web-tokens'
   },
   {
-    from: ['/tokens/guides/manage-signing-keys'],
-    to: '/tokens/manage-signing-keys'
-  },
-  {
     from: ['/api-auth/tutorials/adoption/refresh-tokens','/refresh-token','/tokens/refresh_token','/tokens/refresh-token','/tokens/refresh-token/legacy','/tokens/refresh-token/current','/tokens/concepts/refresh-tokens','/tokens/access-tokens/refresh-tokens','/tokens/preview/refresh-token'],
     to: '/tokens/refresh-tokens'
   },
@@ -3889,16 +3885,8 @@ module.exports = [
     to: '/tokens/refresh-tokens/use-refresh-tokens'
   },
   {
-    from: ['/dashboard/guides/tenants/revoke-signing-keys'],
-    to: '/tokens/revoke-signing-keys'
-  },
-  {
     from: ['/tokens/guides/revoke-tokens'],
     to: '/tokens/revoke-tokens'
-  },
-  {
-    from: ['/dashboard/guides/tenants/rotate-signing-keys'],
-    to: '/tokens/rotate-signing-keys'
   },
   {
     from: ['/applications/concepts/signing-algorithms','/tokens/concepts/signing-algorithms'],
@@ -3907,10 +3895,6 @@ module.exports = [
   {
     from: ['/tokens/concepts/token-storage','/videos/session-and-cookies', '/security/store-tokens', '/tokens/guides/store-tokens'],
     to: '/tokens/token-storage'
-  },
-  {
-    from: ['/get-started/auth0-dashboard-overview/view-client-secrets-and-signing-keys', '/dashboard/guides/tenants/view-signing-keys'],
-    to: '/tokens/view-client-secrets-and-signing-keys'
   },
   {
     from: ['/api-auth/tutorials/adoption/delegation','/tokens/delegation','/tokens/concepts/delegation-tokens'],
@@ -4512,5 +4496,51 @@ module.exports = [
   {
     from: ['/videos/get-started/10-logout'],
     to: '/videos/get-started-series/learn-logout'
+  },
+
+  /* Configuration */
+
+  {
+    from: ['/configuration-overview'],
+    to: '/config' 
+  },
+  
+  /* Tenant Settings */
+
+  {
+    from: ['/dashboard/tenant-settings'],
+    to: '/config/tenant-settings'
+  },
+
+  /* Signing Keys */
+
+  {
+    from: [
+      '/tokens/manage-signing-keys',
+      '/tokens/guides/manage-signing-keys'
+    ],
+    to: '/config/tenant-settings/signing-keys'
+  },
+  {
+    from: [
+      '/dashboard/guides/tenants/rotate-signing-keys',
+      '/tokens/rotate-signing-keys'
+    ],
+    to: '/config/tenant-settings/signing-keys/rotate-signing-keys'
+  },
+  {
+    from: [
+      '/dashboard/guides/tenants/revoke-signing-keys',
+      '/tokens/revoke-signing-keys'
+    ],
+    to: '/config/tenant-settings/signing-keys/revoke-signing-keys'
+  },
+  {
+    from: [
+      '/get-started/auth0-dashboard-overview/view-client-secrets-and-signing-keys',
+      '/dashboard/guides/tenants/view-signing-keys',
+      '/tokens/view-client-secrets-and-signing-keys'
+    ],
+    to: '/config/tenant-settings/signing-keys/view-signing-certificates'
   }
 ];
