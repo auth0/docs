@@ -4502,7 +4502,7 @@ module.exports = [
 
   {
     from: ['/configuration-overview'],
-    to: '/config' 
+    to: '/config'
   },
   
   /* Tenant Settings */
