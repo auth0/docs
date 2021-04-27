@@ -4509,7 +4509,7 @@ module.exports = [
 
   {
     from: ['/dashboard/tenant-settings','/get-started/dashboard/tenant-settings'],
-    to: '/config/tenant-settings' 
+    to: '/config/tenant-settings'
   },
 
   /* Signing Keys */
