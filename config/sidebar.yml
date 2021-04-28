@@ -801,7 +801,7 @@ articles:
             url: /i18n/universal-login-internationalization 
             hidden: true 
           - title: Customize Translation of Lock Password Options
-            url: /i18n/password-options-translation
+            url: /i18n/password-options-translation 
             hidden: true 
   - title: Actions
     url: /actions
