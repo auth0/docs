@@ -798,7 +798,7 @@ articles:
         url: /i18n
         children:
           - title: Universal Login Internationalization
-            url: /i18n/universal-login-internationalization
+            url: /i18n/universal-login-internationalization 
             hidden: true 
           - title: Customize Translation of Lock Password Options
             url: /i18n/password-options-translation
