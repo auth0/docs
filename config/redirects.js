@@ -2542,6 +2542,10 @@ module.exports = [
     from: ['/i18n/password-options', '/i18n/password-strength'],
     to: '/i18n/password-options-translation'
   },
+  {
+    from: ['/universal-login/i18n','/universal-login/universal-login-internationalization'],
+    to: '/i18n/universal-login-internationalization'
+  },
 
 
 
@@ -4139,10 +4143,6 @@ module.exports = [
   {
     from: ['/universal-login/default-login-url','/hosted-pages/default-login-url'],
     to: '/universal-login/configure-default-login-routes'
-  },
-  {
-    from: ['/universal-login/i18n'],
-    to: '/universal-login/universal-login-internationalization'
   },
   {
     from: ['/universal-login/text-customization'],
