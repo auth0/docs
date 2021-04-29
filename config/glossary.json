@@ -134,6 +134,11 @@
     "definition": "The date that access to a feature or behavior is removed from the platform. End Of Life Dates can vary between different plan types.",
     "short": "The date that access to a feature or behavior is removed from the platform. End Of Life Dates can vary between different plan types."
   },
+  "flow": {
+    "title": "Flow",
+    "definition": "Processes that can be extended using Actions. Each Flow is made up of one or more Triggers and represents the logical pipeline through which information moves during a single point in the Auth0 journey.",
+    "short": "Processes that can be extended using Actions. Each Flow is made up of one or more Triggers and represents the logical pipeline through which information moves during a single point in the Auth0 journey."  
+  },
   "general-availability": {
     "title": "General Availability",
     "definition": "A product release stage during which the referenced feature or behavior is fully functional and available to all subscribers (limited by pricing tier) for production use. If a new release replaces an existing feature, Auth0 provides a period of backward compatibility in accordance with our deprecation policy and informs customers so they have time to adopt the new release.",
@@ -291,7 +296,7 @@
   },
   "trigger": {
     "title": "Trigger",
-    "definition": "An event that automatically invokes an Action when a specific operation, such as a user logging in, occurs at runtime.",
+    "definition": "An event that automatically invokes an Action when a specific operation, such as a user logging in, occurs at runtime. Some Triggers are executed synchronously, blocking the Flow in which they are involved, and some are executed asynchronously.",
     "short": "An event that automatically invokes an Action when a specific operation, such as a user logging in, occurs at runtime."  
   },
   "trust": {
