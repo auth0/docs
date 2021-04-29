@@ -228,8 +228,6 @@ articles:
             url: /universal-login/error-pages
           - title: Text Customization
             url: /universal-login/new-experience/text-customization-new-universal-login
-          - title: Internationalization
-            url: /universal-login/universal-login-internationalization
           - title: Default Login URL
             url: /universal-login/configure-default-login-routes
           - title: Version Control
@@ -796,8 +794,15 @@ articles:
             url: /email/send-email-invitations-for-application-signup
       - title: Consent Prompt
         url: /scopes/customize-consent-prompts
-      - title: Internationalization
+      - title: Internationalization and Localization
         url: /i18n
+        children:
+          - title: Universal Login Internationalization
+            url: /i18n/universal-login-internationalization 
+            hidden: true 
+          - title: Customize Translation of Lock Password Options
+            url: /i18n/password-options-translation 
+            hidden: true 
   - title: Actions
     url: /actions
     children:
