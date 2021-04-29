@@ -67,7 +67,7 @@ At this time, Apple does not require validation of the redirect URL, and doing s
 3. Enter a **Key Name** and check the **Sign In with Apple** option.
 4. Select **Configure** to make sure the **Choose a Primary App ID** field is filled with the correct App ID.
 5. Select **Save**, **Continue**, and then **Register**.
-6. On the page to which you're redirected after registering, make note of the Key ID. Then download the key, it will have a .p8 extension.
+6. On the page to which you're redirected after registering, make note of the Key ID. Then download the key; it will have a .p8 extension.
 
 Next, you will use these credentials on the [Auth0 Dashboard > Authentication > Social](${manage_url}/#/connections/social) page to continue to configure your application. Depending on which type of application you want to configure, choose one of the following methods:
 
