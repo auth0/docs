@@ -823,7 +823,7 @@ articles:
             url: /actions/triggers/pre-user-registration
           - title: post-user-registration
             url: /actions/triggers/post-user-registration
-           - title: post-change-password
+          - title: post-change-password
             url: /actions/triggers/post-change-password
           - title: send-phone-message
             url: /actions/triggers/send-phone-message
