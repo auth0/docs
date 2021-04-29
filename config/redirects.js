@@ -1275,7 +1275,7 @@ module.exports = [
   },
   {
     from: ['/authorization/authentication-and-authorization', '/authorization/concepts/authz-and-authn','/application-auth/current','/application-auth/legacy','/application-auth'],
-    to: '/flows'
+    to: '/get-started/authentication-and-authorization'
   },
   {
     from: ['/authorization/concepts/authz-rules'],
