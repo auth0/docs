@@ -289,6 +289,11 @@
     "definition": "The endpoint on the Authorization Server that is used to programmatically request tokens.",
     "short": "The endpoint on the Authorization Server that is used to programmatically request tokens."
   },
+  "trigger": {
+    "title": "Trigger",
+    "definition": "An event that automatically invokes an Action when a specific operation, such as a user logging in, occurs at runtime.",
+    "short": "An event that automatically invokes an Action when a specific operation, such as a user logging in, occurs at runtime."  
+  },
   "trust": {
     "title": "Trust",
     "definition": "A resource trusts an identity provider or authority when that resource is willing to believe what the authority says about its users.",
