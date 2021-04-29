@@ -1103,29 +1103,33 @@ articles:
           - title: Verify Domain
             url: /troubleshoot/troubleshoot-basic/verify-domain
           - title: Verify Rules
-            url: /troubleshoot/verify-rules
+            url: /troubleshoot/troubleshoot-basic/verify-rules
           - title: Check Error Messages
-            url: /troubleshoot/check-error-messages
-            children:
-              - title: Deprecation Errors
-                url: /troubleshoot/troubleshoot-authentication-issues/check-deprecation-errors
-                hidden: true
+            url: /troubleshoot/troubleshoot-basic/check-error-messages
+          - title: Invalid Token Errors
+            url: /troubleshoot/troubleshoot-basic/invalid-token-errors
+          - title: Deprecation Errors
+            url: /troubleshoot/troubleshoot-basic/check-deprecation-errors
       - title: Authentication Issues
-        url: /troubleshoot/troubleshoot-authentication-issues
+        url: /troubleshoot/troubleshoot-authentication
         children:
           - title: API Calls
-            url: /troubleshoot/troubleshoot-authentication-issues/check-api-calls
+            url: /troubleshoot/troubleshoot-authentication/check-api-calls
           - title: Login and Logout Issues
-            url: /troubleshoot/troubleshoot-authentication-issues/check-login-and-logout-issues
+            url: /troubleshoot/troubleshoot-authentication/check-login-and-logout-issues
           - title: User Profiles
-            url: /troubleshoot/troubleshoot-authentication-issues/check-user-profiles
-          - title: RBAC
-            url: /authorization/troubleshoot-role-based-access-control-and-authorization
-          - title: MFA
-            url: /mfa/references/troubleshooting
-          - title: SAML
-            url: /troubleshoot/troubleshoot-saml-configurations
-          - title: Authorization Extension
+            url: /troubleshoot/troubleshoot-authentication/check-user-profiles
+          - title: RBAC and Authorization
+            url: /troubleshoot/troubleshoot-authentication/troubleshoot-rbac-authorization
+          - title: MFA Issues
+            url: /mfa/troubleshoot-mfa-issues
+          - title: SAML Configurations
+            url: /troubleshoot/troubleshoot-authentication/troubleshoot-saml-configurations
+          - title: SAML Errors
+            url: /troubleshoot/troubleshoot-authentication/saml-errors
+          - title: Self Change Password Errors
+            url: /troubleshoot/troubleshoot-authentication/self-change-password-errors
+          - title: Authorization Extension Issues
             url: /extensions/authorization-extension/troubleshoot-authorization-extension
       - title: Integration and Extensibility Issues
         url: /troubleshoot/troubleshoot-integration-and-extensibility
@@ -1142,10 +1146,13 @@ articles:
             url: /extensions/troubleshoot-extensions
           - title: Auth0 PHP SDK
             url: /libraries/auth0-php/troubleshoot-auth0-php-library
-      - title: Generate and Analyze HAR Files
-        url: /troubleshoot/generate-and-analyze-har-files
-      - title: Authentication API Debugger
-        url: /extensions/authentication-api-debugger-extension
+      - title: Tools
+        url: /troubleshoot/tools
+        children:
+          - title: Generate and Analyze HAR Files
+            url: /troubleshoot/tools/generate-and-analyze-har-files
+          - title: Authentication API Debugger
+            url: /extensions/authentication-api-debugger-extension
   - title: Product Lifecycle
     url: /product-lifecycle
     children:
