@@ -12,6 +12,8 @@ articles:
         url: /applications/set-up-an-application
       - title: Register APIs
         url: /get-started/set-up-apis
+      - title: Authentication and Authorization
+        url: /get-started/authentication-and-authorization
       - title: Set Up Multiple Environments
         url: /dev-lifecycle/set-up-multiple-environments
         hidden: true
