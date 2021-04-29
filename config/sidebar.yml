@@ -806,21 +806,34 @@ articles:
   - title: Actions
     url: /actions
     children:
-      - title: Build Action Flows
-        url: /actions/build-actions-flows
+      - title: Write Your First Action
+        url: /actions/write-your-first-action
+      - title: Triggers
+        url: /actions/triggers
         children:
-          - title: Actions Context Object
-            url: /actions/actions-context-object
-          - title: Actions Event Object
-            url: /actions/actions-event-object
-      - title: Edit Actions
-        url: /actions/edit-actions
+          - title: post-login
+            url: /actions/triggers/post-login
+            children:
+              - title: Manage user metadata in post-login
+                url: /actions/triggers/post-login/manage-user-metadata
+                hidden: true
+              - title: Redirect with Actions
+                url: /actions/triggers/post-login/redirect-with-actions
+                hidden: true
+          - title: credentials-exchange
+            url: /actions/triggers/credentials-exchange
+          - title: pre-user-registration
+            url: /actions/triggers/pre-user-registration
+          - title: post-user-registration
+            url: /actions/triggers/post-user-registration
+           - title: post-change-password
+            url: /actions/triggers/post-change-password
+          - title: send-phone-message
+            url: /actions/triggers/send-phone-message
+      - title: Limitations
+        url: /actions/limitations
       - title: Manage Action Versions
         url: /actions/manage-action-versions
-      - title: Troubleshoot Actions
-        url: /actions/troubleshoot-actions
-      - title: Actions Blueprints
-        url: /actions/blueprints
   - title: Rules
     url: /rules
     children:
