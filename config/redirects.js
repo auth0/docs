@@ -1,4 +1,4 @@
-// This is the list of APIs used in the old two-step quickstarts. 
+// This is the list of APIs used in the old two-step quickstarts.
 const apiNames = [
   'aspnet-webapi',
   'aws',
@@ -30,7 +30,7 @@ const apis = `:api(${apiNames.join('|')})`;
 
 module.exports = [
 
-  /* MISCELLANEOUS AND OUTDATED */
+  /* MISCELLANEOUS AND OUTDATED  */
 
   {
     from: ['/addons','/firebaseapi-tutorial','/salesforcesandboxapi-tutorial','/salesforceapi-tutorial','/sapapi-tutorial','/clients/addons','/applications/addons','/addons/azure-blob-storage','/addons/azure-mobile-services','/addons/azure-sb'],
