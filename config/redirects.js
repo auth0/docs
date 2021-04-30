@@ -1433,10 +1433,6 @@ module.exports = [
     to: '/best-practices/token-best-practices'
   },
   {
-    from: ['/users/references/user-data-storage-best-practices','/users/user-data-storage','/user-profile/user-data-storage'],
-    to: '/best-practices/user-data-storage-best-practices'
-  },
-  {
       from: ['/design/using-auth0-with-multi-tenant-apps','/applications/concepts/multiple-tenants','/tutorials/using-auth0-with-multi-tenant-apps','/saas-apps'],
       to: '/best-practices/multi-tenant-apps-best-practices'
   },
@@ -3113,6 +3109,10 @@ module.exports = [
     to: '/policies/billing-policy'
   },
   {
+    from: ['/policies/endpoints','/security/public-cloud-service-endpoints'],
+    to: '/policies/public-cloud-service-endpoints'
+  },
+  {
     from: ['/policies/dashboard-authentication','/policies/restore-deleted-tenant','/policies/unsupported-requests'],
     to: '/policies'
   },
@@ -3147,6 +3147,10 @@ module.exports = [
   {
     from: ['/policies/penetration-testing'],
     to: '/policies/penetration-testing-policy'
+  },
+  {
+    from: ['/connections/database/rate-limits'],
+    to: '/policies/rate-limit-policy/database-connections-rate-limits'
   },
 
 
@@ -3586,103 +3590,140 @@ module.exports = [
   /* Security */
 
   {
-    from: ['/security/blacklist-user-attributes','/security/blacklisting-attributes','/tutorials/blacklisting-attributes','/blacklist-attributes'],
-    to: '/security/denylist-user-attributes'
+    from: ['/security/general-security-tips'],
+    to: '/security/tips'
   },
   {
-    from: ['/security/whitelist-ip-addresses','/guides/ip-whitelist'],
-    to: '/security/allowlist-ip-addresses'
+    from: [
+      '/security/blacklist-user-attributes',
+      '/security/blacklisting-attributes',
+      '/tutorials/blacklisting-attributes',
+      '/blacklist-attributes',
+      '/security/denylist-user-attributes'
+    ],
+    to: '/security/data-security/denylist'
   },
   {
-    from: ['/security/common-threats'],
-    to: '/security/prevent-common-cybersecurity-threats'
+    from: [
+      '/security/whitelist-ip-addresses',
+      '/guides/ip-whitelist',
+      '/security/allowlist-ip-addresses'
+    ],
+    to: '/security/data-security/allowlist'
   },
   {
-    from: ['/policies/endpoints'],
-    to: '/security/public-cloud-service-endpoints'
+    from: [
+      '/users/normalized/auth0/store-user-data',
+      '/users/store-user-data',
+      '/users/references/user-data-storage-scenario',
+      '/users/user-data-storage-scenario',
+      '/best-practices/user-data-storage-best-practices',
+      '/users/references/user-data-storage-best-practices',
+      '/users/user-data-storage',
+      '/user-profile/user-data-storage'
+    ],
+    to: '/security/data-security/user-data-storage'
   },
   {
-    from: ['/connections/database/rate-limits'],
-    to: '/policies/rate-limit-policy/database-connections-rate-limits'
+    from: [
+      '/tokens/concepts/token-storage',
+      '/videos/session-and-cookies', 
+      '/security/store-tokens', 
+      '/tokens/guides/store-tokens',
+      '/tokens/token-storage'
+    ],
+    to: '/security/data-security/token-storage'
+  },
+  {
+    from: ['/security/common-threats','/security/prevent-common-cybersecurity-threats'],
+    to: '/security/prevent-threats'
   },
 
   /* Security Bulletins */
 
   {
     from: ['/security/bulletins'],
-    to: '/security'
+    to: '/security/security-bulletins'
   },
   {
-    from: ['/security/bulletins/cve-2020-15125'],
-    to: '/security/cve-2020-15125'
+    from: '/security/cve-2020-15259',
+    to: '/security/security-bulletins/cve-2020-15259'
   },
   {
-    from: ['/security/bulletins/cve-2020-15084'],
-    to: '/security/cve-2020-15084'
+    from: 'security/cve-2020-15240',
+    to: 'security/security-bulletins/cve-2020-15240'
   },
   {
-    from: ['/security/bulletins/2020-03-31_wpauth0'],
-    to: '/security/2020-03-31-wpauth0'
+    from: ['/security/bulletins/cve-2020-15125','/security/cve-2020-15125'],
+    to: '/security/security-bulletins/cve-2020-15125'
   },
   {
-    from: ['/security/bulletins/cve-2020-5263'],
-    to: '/security/cve-2020-5263'
+    from: ['/security/bulletins/cve-2020-15084','/security/cve-2020-15084'],
+    to: '/security/security-bulletins/cve-2020-15084'
   },
   {
-    from: ['/security/bulletins/2019-01-10_rules'],
-    to: '/security/2019-01-10-rules'
+    from: ['/security/bulletins/2020-03-31_wpauth0','/security/2020-03-31-wpauth0'],
+    to: '/security/security-bulletins/2020-03-31-wpauth0'
   },
   {
-    from: ['/security/bulletins/2019-09-05_scopes'],
-    to: '/security/2019-09-05-scopes'
+    from: ['/security/bulletins/cve-2020-5263','/security/cve-2020-5263'],
+    to: '/security/security-bulletins/cve-2020-5263'
   },
   {
-    from: ['/security/bulletins/cve-2019-20174'],
-    to: '/security/cve-2019-20174'
+    from: ['/security/bulletins/2019-01-10_rules','/security/2019-01-10-rules'],
+    to: '/security/security-bulletins/2019-01-10-rules'
   },
   {
-    from: ['/security/bulletins/cve-2019-20173'],
-    to: '/security/cve-2019-20173'
+    from: ['/security/bulletins/2019-09-05_scopes','/security/2019-09-05-scopes'],
+    to: '/security/security-bulletins/2019-09-05-scopes'
   },
   {
-    from: ['/security/bulletins/cve-2019-16929'],
-    to: '/security/cve-2019-16929'
+    from: ['/security/bulletins/cve-2019-20174','/security/cve-2019-20174'],
+    to: '/security/security-bulletins/cve-2019-20174'
   },
   {
-    from: ['/security/bulletins/cve-2019-13483'],
-    to: '/security/cve-2019-13483'
+    from: ['/security/bulletins/cve-2019-20173','/security/cve-2019-20173'],
+    to: '/security/security-bulletins/cve-2019-20173'
   },
   {
-    from: ['/security/bulletins/cve-2019-7644'],
-    to: '/security/cve-2019-7644'
+    from: ['/security/bulletins/cve-2019-16929','/security/cve-2019-16929'],
+    to: '/security/security-bulletins/cve-2019-16929'
   },
   {
-    from: ['/security/bulletins/cve-2018-15121'],
-    to: '/security/cve-2018-15121'
+    from: ['/security/bulletins/cve-2019-13483','/security/cve-2019-13483'],
+    to: '/security/security-bulletins/cve-2019-13483'
   },
   {
-    from: ['/security/bulletins/cve-2018-11537'],
-    to: '/security/cve-2018-11537'
+    from: ['/security/bulletins/cve-2019-7644','/security/cve-2019-7644'],
+    to: '/security/security-bulletins/cve-2019-7644'
   },
   {
-    from: ['/security/bulletins/cve-2018-7307'],
-    to: '/security/cve-2018-7307'
+    from: ['/security/bulletins/cve-2018-15121','/security/cve-2018-15121'],
+    to: '/security/security-bulletins/cve-2018-15121'
   },
   {
-    from: ['/security/bulletins/cve-2018-6874'],
-    to: '/security/cve-2018-6874'
+    from: ['/security/bulletins/cve-2018-11537','/security/cve-2018-11537'],
+    to: '/security/security-bulletins/cve-2018-11537'
   },
   {
-    from: ['/security/bulletins/cve-2018-6873'],
-    to: '/security/cve-2018-6873'
+    from: ['/security/bulletins/cve-2018-7307','/security/cve-2018-7307'],
+    to: '/security/security-bulletins/cve-2018-7307'
   },
   {
-    from: ['/security/bulletins/cve-2017-16897'],
-    to: '/security/cve-2017-16897'
+    from: ['/security/bulletins/cve-2018-6874','/security/cve-2018-6874'],
+    to: '/security/security-bulletins/cve-2018-6874'
   },
   {
-    from: ['/security/bulletins/cve-2017-17068'],
-    to: '/security/cve-2017-17068'
+    from: ['/security/bulletins/cve-2018-6873','/security/cve-2018-6873'],
+    to: '/security/security-bulletins/cve-2018-6873'
+  },
+  {
+    from: ['/security/bulletins/cve-2017-16897','/security/cve-2017-16897'],
+    to: '/security/security-bulletins/cve-2017-16897'
+  },
+  {
+    from: ['/security/bulletins/cve-2017-17068','/security/cve-2017-17068'],
+    to: '/security/security-bulletins/cve-2017-17068'
   },
 
   /* Sessions */
@@ -3895,10 +3936,6 @@ module.exports = [
   {
     from: ['/applications/concepts/signing-algorithms','/tokens/concepts/signing-algorithms'],
     to: '/tokens/signing-algorithms'
-  },
-  {
-    from: ['/tokens/concepts/token-storage','/videos/session-and-cookies', '/security/store-tokens', '/tokens/guides/store-tokens'],
-    to: '/tokens/token-storage'
   },
   {
     from: ['/api-auth/tutorials/adoption/delegation','/tokens/delegation','/tokens/concepts/delegation-tokens'],
@@ -4283,10 +4320,6 @@ module.exports = [
     to: '/users/sample-user-profiles'
   },
   {
-    from: ['/users/normalized/auth0/store-user-data'],
-    to: '/users/store-user-data'
-  },
-  {
     from: ['/users/normalized/auth0/update-root-attributes'],
     to: '/users/updating-user-profile-root-attributes'
   },
@@ -4301,10 +4334,6 @@ module.exports = [
   {
     from: ['/users/references/link-accounts-server-side-scenario'],
     to: '/users/suggested-account-linking-server-side-implementation'
-  },
-  {
-    from: ['/users/references/user-data-storage-scenario'],
-    to: '/users/user-data-storage-scenario'
   },
   {
     from: ['/connections/database/migrating-okta', '/users/migrations/okta','/users/references/user-migration-scenarios','/users/migrations'],
