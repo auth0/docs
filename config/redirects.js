@@ -3613,7 +3613,7 @@ module.exports = [
   },
   {
     from: [
-      '/users/normalized/auth0/store-user-data',
+      '/users/normalized/auth0/store-user-data', 
       '/users/store-user-data',
       '/users/references/user-data-storage-scenario',
       '/users/user-data-storage-scenario',
