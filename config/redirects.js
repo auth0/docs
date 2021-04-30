@@ -30,7 +30,7 @@ const apis = `:api(${apiNames.join('|')})`;
 
 module.exports = [
 
-  /* MISCELLANEOUS AND OUTDATED */
+  /* MISCELLANEOUS AND OUTDATED  */
 
   {
     from: ['/addons','/firebaseapi-tutorial','/salesforcesandboxapi-tutorial','/salesforceapi-tutorial','/sapapi-tutorial','/clients/addons','/applications/addons','/addons/azure-blob-storage','/addons/azure-mobile-services','/addons/azure-sb'],
@@ -1296,10 +1296,6 @@ module.exports = [
   {
     from: ['/authorization/concepts/sample-use-cases-rbac'],
     to: '/authorization/sample-use-cases-role-based-access-control'
-  },
-  {
-    from: ['/authorization/concepts/troubleshooting'],
-    to: '/authorization/troubleshoot-role-based-access-control-and-authorization'
   },
   {
     from: ['/authorization/guides/how-to'],
@@ -3291,10 +3287,6 @@ module.exports = [
     to: '/protocols/configure-ws-fed-applications'
   },
   {
-    from: ['/protocols/saml/saml-configuration/troubleshoot/auth0-as-idp','/protocols/saml/saml-configuration/troubleshoot','/protocols/saml/saml-configuration/troubleshoot/common-saml-errors','/protocols/saml/saml-configuration/troubleshoot/auth0-as-sp','/troubleshoot/troubleshoot-saml-configurations'],
-    to: '/protocols/saml-protocol/troubleshoot-saml-configurations'
-  },
-  {
     from: ['/protocols/oauth2/oauth-state','/protocols/oauth-state','/protocols/oauth2/mitigate-csrf-attacks'],
     to: '/protocols/state-parameters'
   },
@@ -3948,40 +3940,64 @@ module.exports = [
     to: '/troubleshoot'
   },
   {
-    from: ['/troubleshoot/guides/check-error-messages'],
-    to: '/troubleshoot/check-error-messages'
+    from: ['/troubleshoot/guides/check-error-messages', '/troubleshoot/check-error-messages'],
+    to: '/troubleshoot/troubleshoot-basic/check-error-messages'
   },
   {
-    from: ['/har', '/tutorials/troubleshooting-with-har-files', '/troubleshoot/har', '/support/troubleshooting-with-har-files','/troubleshoot/guides/generate-har-files'],
-    to: '/troubleshoot/generate-and-analyze-har-files'
+    from: [
+      '/har', 
+      '/tutorials/troubleshooting-with-har-files', 
+      '/troubleshoot/har', 
+      '/support/troubleshooting-with-har-files',
+      '/troubleshoot/guides/generate-har-files',
+      '/troubleshoot/generate-and-analyze-har-files'
+      ],
+    to: '/troubleshoot/tools/generate-and-analyze-har-files'
   },
   {
-    from: ['/troubleshoot/references/invalid-token'],
-    to: '/troubleshoot/invalid-token-errors'
+    from: ['/troubleshoot/references/invalid-token','/troubleshoot/invalid-token-errors'],
+    to: '/troubleshoot/troubleshoot-basic/invalid-token-errors'
   },
   {
-    from: ['/troubleshoot/concepts/auth-issues'],
-    to: '/troubleshoot/troubleshoot-authentication-issues'
+    from: [
+      '/troubleshoot/concepts/auth-issues',
+      '/troubleshoot/troubleshoot-authentication-issues'
+      ],
+    to: '/troubleshoot/troubleshoot-authentication'
   },
   {
-    from: ['/troubleshoot/guides/check-api-calls'],
-    to: '/troubleshoot/troubleshoot-authentication-issues/check-api-calls'
+    from: [
+      '/protocols/saml/saml-configuration/troubleshoot/auth0-as-idp',
+      '/protocols/saml/saml-configuration/troubleshoot',
+      '/protocols/saml/saml-configuration/troubleshoot/common-saml-errors',
+      '/protocols/saml/saml-configuration/troubleshoot/auth0-as-sp',
+      '/troubleshoot/troubleshoot-saml-configurations',
+      '/protocols/saml-protocol/troubleshoot-saml-configurations'
+      ],
+    to: '/troubleshoot/troubleshoot-authentication/troubleshoot-saml-configurations'
   },
   {
-    from: ['/errors/deprecation-errors','/troubleshoot/guides/check-deprecation-errors'],
-    to: '/troubleshoot/troubleshoot-authentication-issues/check-deprecation-errors'
+    from: ['/troubleshoot/guides/check-api-calls', '/troubleshoot/troubleshoot-authentication-issues/check-api-calls'],
+    to: '/troubleshoot/troubleshoot-authentication/check-api-calls'
   },
   {
-    from: ['/troubleshoot/guides/check-login-logout-issues'],
-    to: '/troubleshoot/troubleshoot-authentication-issues/check-login-and-logout-issues'
+    from: [
+      '/errors/deprecation-errors',
+      '/troubleshoot/guides/check-deprecation-errors',
+      '/troubleshoot/troubleshoot-authentication-issues/check-deprecation-errors'],
+    to: '/troubleshoot/troubleshoot-basic/check-deprecation-errors'
   },
   {
-    from: ['/troubleshoot/guides/check-user-profiles'],
-    to: '/troubleshoot/troubleshoot-authentication-issues/check-user-profiles'
+    from: ['/troubleshoot/guides/check-login-logout-issues', '/troubleshoot/troubleshoot-authentication-issues/check-login-and-logout-issues'],
+    to: '/troubleshoot/troubleshoot-authentication/check-login-and-logout-issues'
   },
   {
-    from: ['/troubleshoot/references/saml-errors'],
-    to: '/troubleshoot/troubleshoot-authentication-issues/saml-errors'
+    from: ['/troubleshoot/guides/check-user-profiles', '/troubleshoot/troubleshoot-authentication-issues/check-user-profiles'],
+    to: '/troubleshoot/troubleshoot-authentication/check-user-profiles'
+  },
+  {
+    from: ['/troubleshoot/references/saml-errors', '/troubleshoot/troubleshoot-authentication-issues/saml-errors'],
+    to: '/troubleshoot/troubleshoot-authentication/saml-errors'
   },
   {
     from: ['/troubleshoot/basic-troubleshooting','/troubleshoot/concepts/basics'],
@@ -4008,9 +4024,14 @@ module.exports = [
     to: '/troubleshoot/self-change-password-errors'
   },
   {
-    from: ['/troubleshoot/guides/verify-rules'],
-    to: '/troubleshoot/verify-rules'
+    from: ['/troubleshoot/guides/verify-rules', '/troubleshoot/verify-rules'],
+    to: '/troubleshoot/troubleshoot-basic/verify-rules'
   },
+  {
+    from: ['/authorization/concepts/troubleshooting', '/authorization/troubleshoot-role-based-access-control-and-authorization'],
+    to: '/troubleshoot/troubleshoot-authentication/troubleshoot-rbac-authorization'
+  },
+
 
   /* Tutorials */
 
