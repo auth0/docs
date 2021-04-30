@@ -1188,7 +1188,7 @@ articles:
           - title: Auth0 IP Addresses for Allow Lists
             url: /security/data-security/allowlist
           - title: User Data Storage
-            url: /security/data-security/user-data-storage
+            url: /security/data-security/user-data-storage 
           - title: Token Storage
             url: /security/data-security/token-storage
       - title: Prevent Common Threats
