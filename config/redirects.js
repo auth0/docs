@@ -3646,11 +3646,11 @@ module.exports = [
     to: '/security/security-bulletins'
   },
   {
-    from: '/security/cve-2020-15259',
+    from: ['/security/bulletins/cve-2020-15259','/security/cve-2020-15259'],
     to: '/security/security-bulletins/cve-2020-15259'
   },
   {
-    from: 'security/cve-2020-15240',
+    from: ['/security/bulletins/cve-2020-15240','security/cve-2020-15240'],
     to: 'security/security-bulletins/cve-2020-15240'
   },
   {
