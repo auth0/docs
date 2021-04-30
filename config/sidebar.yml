@@ -1167,21 +1167,39 @@ articles:
   - title: Security
     url: /security
     children:
-      - title: CVE 2018-6874
-        url: /security/cve-2018-6874
-        hidden: true
-      - title: CVE 2018-6873
-        url: /security/cve-2018-6873
-        hidden: true
-      - title: CVE 2018-7307
-        url: /security/cve-2018-7307
-        hidden: true
-      - title: CVE 2017-16897
-        url: /security/cve-2017-16897
-        hidden: true
-      - title: CVE 2017-17068
-        url: /security/cve-2017-17068
-        hidden: true
+      - title: General Security Tips
+        url: /security/tips
+      - title: Security Bulletins
+        url: /security/security-bulletins
+        children: 
+          - title: CVE 2018-6874
+            url: /security/security-bulletins/cve-2018-6874
+            hidden: true
+          - title: CVE 2018-6873
+            url: /security/security-bulletins/cve-2018-6873
+            hidden: true
+          - title: CVE 2018-7307
+            url: /security/security-bulletins/cve-2018-7307
+            hidden: true
+          - title: CVE 2017-16897
+            url: /security/security-bulletins/cve-2017-16897
+            hidden: true
+          - title: CVE 2017-17068
+            url: /security/security-bulletins/cve-2017-17068
+            hidden: true
+      - title: Data Security
+        url: /security/data-security
+        children:
+          - title: Add User Attributes to Deny List
+            url: /security/data-security/denylist
+          - title: Auth0 IP Addresses for Allow Lists
+            url: /security/data-security/allowlist
+          - title: User Data Storage
+            url: /security/data-security/user-data-storage 
+          - title: Token Storage
+            url: /security/data-security/token-storage
+      - title: Prevent Common Threats
+        url: /security/prevent-threats
       - title: Tokens
         url: /tokens
         children:
@@ -1274,15 +1292,11 @@ articles:
             url: /tokens/revoke-tokens
       - title: Cookies
         url: /sessions/cookies
-      - title: Common Threats
-        url: /security/prevent-common-cybersecurity-threats
-      - title: General Security Tips
-        url: /security/general-security-tips
-      - title: Add User Attributes to Deny List
-        url: /security/denylist-user-attributes
-      - title: Auth0 IP Addresses for Allow Lists
-        url: /security/allowlist-ip-addresses
-  - title: Data Privacy
+        children: 
+          - title: Authenticate SPAs with Cookies
+            url: /sessions/cookies/spa-authenticate-with-cookies
+            hidden: true 
+  - title: Data Privacy and Compliance
     url: /compliance
     children:
       - title: GDPR
@@ -1365,8 +1379,6 @@ articles:
         hidden: true
       - title: Tokens
         url: /best-practices/token-best-practices
-      - title: User Data Storage
-        url: /best-practices/user-data-storage-best-practices
   - title: Support
     url: /support
     children:
