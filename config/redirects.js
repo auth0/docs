@@ -3356,8 +3356,8 @@ module.exports = [
     to: '/protocols/saml-configuration-options/configure-onelogin-as-saml-identity-provider'
   },
   {
-    from: ['/ping7', '/saml/identity-providers/ping7','/protocols/saml/identity-providers/ping7'],
-    to: '/protocols/saml-configuration-options/configure-pingfederate-as-saml-identity-provider'
+    from: ['/ping7', '/saml/identity-providers/ping7','/protocols/saml/identity-providers/ping7', '/protocols/saml-configuration-options/configure-pingfederate-as-saml-identity-provider'],
+    to: '/protocols/saml-protocol/saml-configuration-options/configure-pingfederate-as-saml-identity-provider'
   },
   {
     from: ['/saml/identity-providers/salesforce','/protocols/saml/identity-providers/salesforce'],
