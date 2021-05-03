@@ -4592,5 +4592,27 @@ module.exports = [
       '/tokens/view-client-secrets-and-signing-keys'
     ],
     to: '/config/tenant-settings/signing-keys/view-signing-certificates'
+  },
+  {
+    from: [
+      '/actions/build-actions-flows',
+      '/actions/edit-actions',
+      '/actions/troubleshoot-actions'
+    ],
+    to: '/actions/write-your-first-action'
+  },
+  {
+    from: [
+      '/actions/actions-context-object',
+      '/actions/actions-event-object',
+      '/actions/blueprints'
+    ],
+    to: '/actions/triggers'
+  },
+  {
+    from: [
+      '/actions/manage-action-versions'
+    ],
+    to: '/actions/manage-versions'
   }
 ];
