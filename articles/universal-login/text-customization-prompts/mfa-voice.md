@@ -8,7 +8,7 @@
 
 |Text|Key|
 |----------|----------|
-|Secure your Account|`pageTitle`|
+|Secure Your Account|`pageTitle`|
 |Secure Your Account|`title`|
 |Enter your phone number below. A voice call will be placed on that number with a code to enter on the next screen.|`description`|
 |Continue|`buttonText`|

@@ -8,7 +8,7 @@
 
 |Text|Key|
 |----------|----------|
-|Secure your Account|`pageTitle`|
+|Secure Your Account|`pageTitle`|
 |You're All Set!|`enrolledTitle`|
 |You have successfully added a new authentication factor.|`enrolledDescription`|
 |Invalid Link|`invalidTicketTitle`|
@@ -31,15 +31,16 @@
 |Log in to <%= "${clientName}" %>|`pageTitle`|
 |Go back|`backText`|
 |Other Methods|`title`|
-|SMS|``authenticatorNames.sms``|
-|Phone|``authenticatorNames.phone``|
-|Phone|``authenticatorNames.voice``|
-|Notification via <%= "${appName}" %> app|``authenticatorNames.push-notification``|
-|Google Authenticator or similar|``authenticatorNames.otp``|
-|Email|``authenticatorNames.email``|
-|Recovery code|``authenticatorNames.recovery-code``|
-|Notification via DUO app|``authenticatorNames.duo``|
-|Security Key|``authenticatorNames.webauthn-roaming``|
+|SMS|`authenticatorNamesSMS`|
+|Phone|`authenticatorNamesVoice`|
+|Phone|`authenticatorNamesPhone`|
+|Notification via <%= "${appName}" %> app|`authenticatorNamesPushNotification`|
+|Google Authenticator or similar|`authenticatorNamesOTP`|
+|Email|`authenticatorNamesEmail`|
+|Recovery code|`authenticatorNamesRecoveryCode`|
+|Notification via DUO app|`authenticatorNamesDUO`|
+|Security Key|`authenticatorNamesWebauthnRoaming`|
+|Fingerprint or Face Recognition|`authenticatorNamesWebauthnPlatform`|
 
 ## Screen: mfa-begin-enroll-options
 
@@ -54,12 +55,13 @@
 |Keep Your Account Safe|`title`|
 |Add another authentication method.|`description`|
 |<%= "${companyName}" %>|`logoAltText`|
-|SMS|``authenticatorNames.sms``|
-|Phone|``authenticatorNames.phone``|
-|Phone|``authenticatorNames.voice``|
-|Notification via <%= "${appName}" %> app|``authenticatorNames.push-notification``|
-|Google Authenticator or similar|``authenticatorNames.otp``|
-|Email|``authenticatorNames.email``|
-|Recovery code|``authenticatorNames.recovery-code``|
-|Notification via DUO app|``authenticatorNames.duo``|
-|Security Key|``authenticatorNames.webauthn-roaming``|
+|SMS|`authenticatorNamesSMS`|
+|Phone|`authenticatorNamesVoice`|
+|Phone|`authenticatorNamesPhone`|
+|Notification via <%= "${appName}" %> app|`authenticatorNamesPushNotification`|
+|Google Authenticator or similar|`authenticatorNamesOTP`|
+|Email|`authenticatorNamesEmail`|
+|Recovery code|`authenticatorNamesRecoveryCode`|
+|Notification via DUO app|`authenticatorNamesDUO`|
+|Security Key|`authenticatorNamesWebauthnRoaming`|
+|Fingerprint or Face Recognition|`authenticatorNamesWebauthnPlatform`|

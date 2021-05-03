@@ -36,7 +36,7 @@
 
 |Text|Key|
 |----------|----------|
-|Secure your Account|`pageTitle`|
+|Secure Your Account|`pageTitle`|
 |Secure Your Account|`title`|
 |Enter your country code and phone number to which we can send a 6-digit code:|`description`|
 |Continue|`continueButtonText`|
