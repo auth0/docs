@@ -2679,7 +2679,7 @@ module.exports = [
     to: '/libraries/auth0-android/auth0-android-configuration'
   },
   {
-    from: ['/libraries/lock-android/v2','/libraries/lock-android/v1','/libraries/lock-android/v1/sending-authentication-parameters','/libraries/lock-android/v1/use-your-own-ui', '/libraries/lock-android/lock-android-delegation'],
+    from: ['/libraries/lock-android/v2','/libraries/lock-android/v1','/libraries/lock-android/v1/sending-authentication-parameters','/libraries/lock-android/v1/use-your-own-ui'],
     to: '/libraries/lock-android'
   },
   {
@@ -2693,6 +2693,10 @@ module.exports = [
   {
     from: ['/libraries/lock-android/v2/refresh-jwt-tokens','/libraries/lock-android/v1/refresh-jwt-tokens','/libraries/lock-android/refresh-jwt-tokens','/libraries/auth0-android/save-and-refresh-tokens'],
     to: '/libraries/lock-android/lock-android-refresh-jwt'
+  },
+  {
+    from: ['/libraries/lock-android/lock-android-delegation'],
+    to: '/libraries/auth0-android/auth0-android-save-and-renew-tokens'
   },
   {
     from: ['/libraries/lock-android/custom-fields','/libraries/lock-android/v2/custom-fields'],

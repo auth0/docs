@@ -1535,6 +1535,10 @@ libraries:
         url: /libraries/lock-android/lock-android-custom-theming
       - title: Internationalization
         url: /libraries/lock-android/lock-android-internationalization
+      - title: Passwordless
+        url: /libraries/lock-android/lock-android-passwordless
+      - title: Passwordless with Magic Link
+        url: /libraries/lock-android/lock-android-passwordless-with-magic-link
   - title: Lock vs. Custom UI
     url: /universal-login/universal-login-page-customization
   - title: Auth0 SDK for Web
