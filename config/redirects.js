@@ -2696,7 +2696,7 @@ module.exports = [
   },
   {
     from: ['/libraries/lock-android/lock-android-delegation'],
-    to: '/libraries/auth0-android/auth0-android-save-and-renew-tokens'
+    to: '/libraries/lock-android/v2/refresh-jwt-tokens.md'
   },
   {
     from: ['/libraries/lock-android/custom-fields','/libraries/lock-android/v2/custom-fields'],
