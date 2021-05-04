@@ -1,3 +1,3 @@
-::: panel Feature availability
-Only **Enterprise** subscription plans include the ability to use a custom database for authentication requests. For more info, see [Auth0 pricing plans](https://auth0.com/pricing).
+::: panel Limited Access
+Your Auth0 subscription plan affects the availability of some features. For more information, see [Auth0 pricing plans](https://auth0.com/pricing).
 :::
