@@ -70,8 +70,8 @@ After submitting the new password, the user sees confirmation that they can now 
 
 Notes on password resets:
 - The reset password link in the email is valid for one use only. 
--If the user receives multiple password reset emails, only the password link in the most recent email is valid. 
--The `URL Lifetime` field determines how long the link is valid. From the Auth0 dashboard, you can [customize the Change Password email](/email/templates) and modify the link's [lifetime](/api/authentication/reference#change-password). 
+- If the user receives multiple password reset emails, only the password link in the most recent email is valid. 
+- The `URL Lifetime` field determines how long the link is valid. From the Auth0 dashboard, you can [customize the Change Password email](/email/templates) and modify the link's [lifetime](/api/authentication/reference#change-password). 
 
 In the [Classic Universal Login Experience](/universal-login/classic) you can [configure a url](/email/templates#configuring-the-redirect-to-url) to redirect users after completing the password reset. The URL receives a success indicator and a message. 
 
@@ -79,7 +79,7 @@ The [New Experience](/universal-login/new) redirects the user to the [default lo
 
 ::: panel Generate Password Reset Tickets
 
-The Management API v2 provides an additional endpoint, [Generate a password reset ticket]( /api/management/v2#!/Tickets/post_password_change), that generates a URL the one in the password reset email. You can use the generated URL for cases when the email delivery method is not appropriate. Keep in mind that, in the default flow, the email delivery verifies the identity of the user (an impostor wouldn't have access to the email inbox). If you use the ticket URL, your application is responsible for verifying the identity of the user in some other way.
+The Management API v2 provides an additional endpoint, [Generate a password reset ticket]( /api/management/v2#!/Tickets/post_password_change), that generates a URL like the one in the password reset email. You can use the generated URL when the email delivery method is not appropriate. Keep in mind that in the default flow, the email delivery verifies the identity of the user. (An impostor wouldn't have access to the email inbox.) If you use the ticket URL, your application is responsible for verifying the identity of the user in some other way.
 :::
 
 ## Directly set the new password
@@ -92,7 +92,7 @@ Users do not receive notification when you change their password.
 
 ### Use the Management API
 
-If you want to implement your own password reset flow, you can directly change a user's password from a server request to the Management API. To reset a user's password using the Management API, make a `PATCH` call to the [Update a User endpoint](/api/management/v2#!/Users/patch_users_by_id).
+If you want to implement your own password reset flow, you can directly change a user's password from a server request to the Management API: make a `PATCH` call to the [Update a User endpoint](/api/management/v2#!/Users/patch_users_by_id).
 
 ```har
 {
@@ -114,7 +114,7 @@ If you want to implement your own password reset flow, you can directly change a
 Anyone with administrative privileges to your Auth0 tenant can manually change a user's password at [Auth0 Dashboard > User Management > Users](${manage_url}/#/users).
 
 1. Select the name of the user whose password you want to change.
-2. Locate the Danger Zone at the bottom of the page.
-3. In the red **Change Password** box, click the **CHANGE** button. 
+2. Locate the **Danger Zone** at the bottom of the page.
+3. In the red **Change Password** box, click **CHANGE**. 
   ![](/media/articles/connections/database/dashboard-users-edit_view-details_danger-zone.png)
 3. Enter the new password and click **Save**.
