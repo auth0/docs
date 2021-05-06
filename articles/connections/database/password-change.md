@@ -18,15 +18,16 @@ There are two basic methods for changing a user's password:
 - [Trigger an interactive password reset flow](#trigger-an-interactive-password-reset-flow) that sends the user a link through email. The link opens the Auth0 password reset page where the user can enter a new password.
 - [Directly set the new password](#directly-set-the-new-password) using the Auth0 Management API or the Auth0 Dashboard.
 
+::: note
+Resetting a user's password makes their session expire. 
+:::
+
 :::panel Not what you're looking for?
 - To configure the custom Password Reset page, read [Customize Hosted Password Reset Page](/universal-login/password-reset). 
 - To implement custom behavior after a successful password change, read  [Post Change Password Hook](/hooks/extensibility-points/post-change-password).
 - To reset the password to your personal Auth0 user account, read [Reset Your Auth0 Account Password](/support/reset-account-password).
 :::
 
-::: note
-Resetting a user's password makes their session expire. 
-:::
 
 ## Trigger an interactive password reset flow
 
