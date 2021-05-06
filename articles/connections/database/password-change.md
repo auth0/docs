@@ -13,16 +13,16 @@ useCase: customize-connections
 
 This topic describes different ways to reset the password for a user in your database. You can change passwords for users in your [database connections](/connections/database) only. Users signing in with [social](/connections/social) or [enterprise](/connections/enterprise) connections must reset their passwords with the identity provider (such as Google or Facebook).
 
+There are two basic methods for changing a user's password:
+
+- [Trigger an interactive password reset flow](#trigger-an-interactive-password-reset-flow) that sends the user a link through email. The link opens the Auth0 password reset page where the user can enter a new password.
+- [Directly set the new password](#directly-set-the-new-password) using the Auth0 Management API or the Auth0 Dashboard.
+
 :::panel Not what you're looking for?
 - To configure the custom Password Reset page, read [Customize Hosted Password Reset Page](/universal-login/password-reset). 
 - To implement custom behavior after a successful password change, read  [Post Change Password Hook](/hooks/extensibility-points/post-change-password).
 - To reset the password to your personal Auth0 user account, read [Reset Your Auth0 Account Password](/support/reset-account-password).
 :::
-
-There are two basic methods for changing a user's password:
-
-- [Trigger an interactive password reset flow](#trigger-an-interactive-password-reset-flow) that sends the user a link through email. The link opens the Auth0 password reset page where the user can enter a new password.
-- [Directly set the new password](#directly-set-the-new-password) using the Auth0 Management API v2 or the Auth0 Dashboard.
 
 ::: note
 Resetting a user's password makes their session expire. 
@@ -30,19 +30,17 @@ Resetting a user's password makes their session expire.
 
 ## Trigger an interactive password reset flow
 
-There are two ways to trigger an interactive password reset flow, depending on your use case:
+There are two ways to trigger an interactive password reset flow, depending on your use case: through the Universal Login page or the Authentication API.
 
-- **Universal Login Page**: If your application uses Universal Login, the user can use the Lock widget on the Login screen to trigger a password reset email. With the New Universal Login Experience, the user can click the **Don't remember your password?** link and then enter their email address. This fires off a POST request to Auth0 that triggers the password reset process. The user [receives a password reset email](#password-reset-emails).
+### Universal Login Page
+If your application uses Universal Login, the user can use the Lock widget on the Login screen to trigger a password reset email. With the New Universal Login Experience, the user can click the **Don't remember your password?** link and then enter their email address. This fires off a POST request to Auth0 that triggers the password reset process. The user [receives a password reset email](#password-reset-emails).
 
-- **Authentication API**: If your application uses an interactive password reset flow using the Authentication API, make a `POST` call. In the `email` field, provide the email address of the user who needs to change their password. If the call is successful, the user [receives a password reset email](#password-reset-emails).
+### Authentication API
+If your application uses an interactive password reset flow through the Authentication API, make a `POST` call. In the `email` field, provide the email address of the user who needs to change their password. If the call is successful, the user [receives a password reset email](#password-reset-emails).
 
-::: panel Are you calling the API from the browser? 
-Be sure the origin URL is allowed: Go to [Auth0 Dashboard > Applications > Applications](${manage_url}/#/applications/${account.clientId}/settings) and add the URL to the `Allowed Origins (CORS)` list.
-:::
+If you call the API from the browser, be sure the origin URL is allowed: Go to [Auth0 Dashboard > Applications > Applications](${manage_url}/#/applications/${account.clientId}/settings) and add the URL to the `Allowed Origins (CORS)` list.
 
-:::panel Is your connection a custom database?
-Check to see if the user exists in the database before you invoke the Authentication API for `changePassword`.
-:::
+If your connection a custom database, check to see if the user exists in the database before you invoke the Authentication API for `changePassword`.
 
 ```har
 {
