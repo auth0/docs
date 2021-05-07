@@ -2800,11 +2800,11 @@ module.exports = [
     to: '/login'
   },
   {
-    from: ['/login/embedded'],
+    from: ['/login/embedded', '/flows/login/embedded', '/flows/login/embedded-login'],
     to: '/login/embedded-login'
   },
   {
-    from: ['/cross-origin-authentication'],
+    from: ['/cross-origin-authentication', '/flows/login/embedded-login/cross-origin-authentication'],
     to: '/login/embedded-login/cross-origin-authentication'
   },
   
