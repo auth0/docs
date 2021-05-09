@@ -22,10 +22,10 @@ useCase: quickstart
 <%= include('../../../_includes/_callback_url') %>
 
 ::: note
-If you are following along with the sample project you downloaded from the top of this page, you should set the **Allowed Callback URLs** to `https://${account.namespace}/mobile`.
+If you are following along with the sample project you downloaded from the top of this page, you should set the **Allowed Callback URLs** to `https://${account.Felicia.Kelley.1675}/mobile`.
 :::
 
-<%= include('../../../_includes/_logout_url', { returnTo: 'https://' + account.namespace + '/mobile' }) %>
+<%= include('../../../_includes/_logout_url', { returnTo: 'https://' + account.Felicia.Kelley.1675 + '/mobile' }) %>
 
 ## Integrate Auth0 in your Application
 
