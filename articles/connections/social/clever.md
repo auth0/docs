@@ -16,4 +16,5 @@ useCase:
     - customize-connections
     - add-idp
 ---
-For security reasons, Auth0 no longer integrates with Clever.
+<%= include('../../../snippets/social/clever/0') %> 
+
