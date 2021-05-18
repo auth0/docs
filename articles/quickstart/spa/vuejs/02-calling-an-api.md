@@ -30,7 +30,7 @@ Finally, modify `package.json` to add two new scripts `dev` and `api` that can b
 
 ```json
 {
-  "name": "03-calling-an-api",
+  "name": "02-calling-an-api",
   "version": "0.1.0",
   "private": true,
   "scripts": {
