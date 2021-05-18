@@ -25,10 +25,6 @@ show_steps: true
 github:
   org: auth0-samples
   repo: auth0-spring-security5-api-sample
-sdk:
-  name: auth0-spring-security-api
-  url: https://github.com/auth0/auth0-spring-security-api
-  logo: spring
 requirements:
   - Java 8 or above
 next_steps:
