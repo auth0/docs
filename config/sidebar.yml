@@ -558,7 +558,7 @@ articles:
           - title: Wildcards for Subdomains
             url: /applications/wildcards-for-subdomains
           - title: Manage Application Metadata
-            url: /applications/manage-application-metadata
+            url: /applications/configure-application-metadata
           - title: Recommended Settings
             url: /best-practices/app-settings-best-practices
       - title: API Configuration
