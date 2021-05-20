@@ -1,4 +1,4 @@
-// This is the list of APIs used in the old two-step quickstarts.  
+//  This is the list of APIs used in the old two-step quickstarts.  
 const apiNames = [
   'aspnet-webapi',
   'aws',
