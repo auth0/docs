@@ -3539,10 +3539,6 @@ module.exports = [
     to: '/rules/integrate-salesforce'
   },
   {
-    from: ['/rules/current/metadata-in-rules', '/rules/guides/metadata', '/rules/metadata-in-rules', '/metadata-in-rules', '/metadata/rules'],
-    to: '/rules/metadata'
-  },
-  {
     from: ['/rules/current/redirect', '/rules/redirect', '/rules/guides/redirect'],
       to: '/rules/redirect-users'
   },
@@ -4237,8 +4233,49 @@ module.exports = [
     to: '/users/progressive-profiling'
   },
   {
-    from: ['/users/concepts/overview-user-metadata','/metadata','/users/references/metadata-field-name-rules'],
-    to: '/users/metadata'
+    from: [
+      '/users/concepts/overview-user-metadata',
+      '/users/metadata',
+      '/users/read-metadata',
+      '/users/guides/read-metadata',
+      '/users/guides/manage-user-metadata',
+      '/users/manage-user-metadata'
+    ],
+    to: '/metadata'
+  },
+  {
+    from: [
+      '/users/references/metadata-field-name-rules', 
+      '/best-practices/metadata-best-practices'
+    ],
+    to: '/metadata/metadata-fields-data'
+  },
+  {
+    from: [
+      '/users/guides/update-metadata-properties-with-management-api',
+      '/users/update-metadata-with-the-management-api',
+      '/metadata/management-api',
+      '/metadata/apiv2',
+      '/metadata/apis',
+      '/users/guides/set-metadata-properties-on-creation',
+      '/users/set-metadata-properties-on-creation'
+    ],
+    to: '/metadata/manage-metadata-api'
+  },
+  {
+    from: ['/metadata/lock'],
+    to: '/metadata/manage-metadata-lock'
+  },
+  {
+    from: [
+      '/rules/current/metadata-in-rules', 
+      '/rules/guides/metadata', 
+      '/rules/metadata-in-rules', 
+      '/metadata-in-rules', 
+      '/metadata/rules',
+      '/rules/metadata'
+    ],
+    to: '/metadata/manage-metadata-rules'
   },
   {
     from: ['/users/concepts/overview-user-migration'],
@@ -4285,10 +4322,6 @@ module.exports = [
     to: '/users/manage-user-access-to-applications'
   },
   {
-    from: ['/metadata/apiv2','/metadata/management-api','/metadata/apis','/metadata/lock','/users/guides/manage-user-metadata'],
-    to: '/users/manage-user-metadata'
-  },
-  {
     from: ['/users/guides/manage-users-using-the-dashboard'],
     to: '/users/manage-users-using-the-dashboard'
   },
@@ -4297,24 +4330,12 @@ module.exports = [
     to: '/users/manage-users-using-the-management-api'
   },
   {
-    from: ['/users/guides/read-metadata'],
-    to: '/users/read-metadata'
-  },
-  {
     from: ['/tutorials/redirecting-users','/users/redirecting-users','/users/guides/redirect-users-after-login','/protocols/oauth2/redirect-users','/users/concepts/redirect-users-after-login'],
     to: '/users/redirect-users-after-login'
   },
   {
-    from: ['/users/guides/set-metadata-properties-on-creation'],
-    to: '/users/set-metadata-properties-on-creation'
-  },
-  {
     from: ['/users/guides/unlink-user-accounts'],
     to: '/users/unlink-user-accounts'
-  },
-  {
-    from: ['/users/guides/update-metadata-properties-with-management-api','/update-metadata-with-the-management-api'],
-    to: '/users/update-metadata-with-the-management-api'
   },
   {
     from: ['/user-profile/customdb','/users/guides/update-user-profiles-using-your-database'],
@@ -4455,10 +4476,6 @@ module.exports = [
   {
     from: ['/link-accounts/auth-api','/link-accounts','/users/concepts/overview-user-account-linking','/users/guide/concepts/overview-user-account-linking'],
     to: '/users/user-account-linking'
-  },
-  {
-    from: ['/users/concepts/overview-user-metadata'],
-    to: '/users/metadata'
   },
   {
     from: ['/users/guides/get-user-information-with-unbounce-landing-pages'],

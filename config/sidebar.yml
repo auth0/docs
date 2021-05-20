@@ -557,6 +557,8 @@ articles:
             url: /get-started/dashboard/rotate-client-secret
           - title: Wildcards for Subdomains
             url: /applications/wildcards-for-subdomains
+          - title: Manage Application Metadata
+            url: /applications/manage-application-metadata
           - title: Recommended Settings
             url: /best-practices/app-settings-best-practices
       - title: API Configuration
@@ -641,18 +643,16 @@ articles:
           - title: User Profile Structure
             url: /users/user-profile-structure
       - title: Metadata
-        url: /users/metadata
+        url: /metadata
         children:
-          - title: Manage User Metadata
-            url: /users/manage-user-metadata
-          - title: Read Metadata
-            url: /users/read-metadata
-          - title: Set Metadata Properties on Creation
-            url: /users/set-metadata-properties-on-creation
-          - title: Update Metadata with the Management API
-            url: /users/update-metadata-with-the-management-api
-          - title: Metadata Best Practices
-            url: /best-practices/metadata-best-practices
+          - title: Manage with Rules
+            url: /metadata/manage-metadata-rules
+          - title: Manage with Management API
+            url: /metadata/manage-metadata-api
+          - title: Manage with Lock
+            url: /metadata/manage-metadata-lock
+          - title: Field Names and Data Types
+            url: /metadata/metadata-fields-data
       - title: Sessions
         url: /sessions
         children:
