@@ -4235,6 +4235,7 @@ module.exports = [
   {
     from: [
       '/users/concepts/overview-user-metadata',
+      '/metadata',
       '/users/read-metadata',
       '/users/guides/read-metadata',
       '/users/guides/manage-user-metadata',
