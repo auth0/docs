@@ -4252,6 +4252,7 @@ module.exports = [
   {
     from: [
       '/users/guides/update-metadata-properties-with-management-api',
+      '/update-metadata-with-the-management-api', 
       '/users/update-metadata-with-the-management-api',
       '/metadata/management-api',
       '/metadata/apiv2',
