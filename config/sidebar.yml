@@ -643,16 +643,16 @@ articles:
           - title: User Profile Structure
             url: /users/user-profile-structure
       - title: Metadata
-        url: /metadata
+        url: /users/metadata
         children:
           - title: Manage with Rules
-            url: /metadata/manage-metadata-rules
+            url: /users/metadata/manage-metadata-rules
           - title: Manage with Management API
-            url: /metadata/manage-metadata-api
+            url: /users/metadata/manage-metadata-api
           - title: Manage with Lock
-            url: /metadata/manage-metadata-lock
+            url: /users/metadata/manage-metadata-lock
           - title: Field Names and Data Types
-            url: /metadata/metadata-fields-data
+            url: /users/metadata/metadata-fields-data
       - title: Sessions
         url: /sessions
         children:

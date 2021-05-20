@@ -4235,20 +4235,19 @@ module.exports = [
   {
     from: [
       '/users/concepts/overview-user-metadata',
-      '/users/metadata',
       '/users/read-metadata',
       '/users/guides/read-metadata',
       '/users/guides/manage-user-metadata',
       '/users/manage-user-metadata'
     ],
-    to: '/metadata'
+    to: '/users/metadata'
   },
   {
     from: [
       '/users/references/metadata-field-name-rules', 
       '/best-practices/metadata-best-practices'
     ],
-    to: '/metadata/metadata-fields-data'
+    to: '/users/metadata/metadata-fields-data'
   },
   {
     from: [
@@ -4260,11 +4259,11 @@ module.exports = [
       '/users/guides/set-metadata-properties-on-creation',
       '/users/set-metadata-properties-on-creation'
     ],
-    to: '/metadata/manage-metadata-api'
+    to: '/users/metadata/manage-metadata-api'
   },
   {
     from: ['/metadata/lock'],
-    to: '/metadata/manage-metadata-lock'
+    to: '/users/metadata/manage-metadata-lock'
   },
   {
     from: [
@@ -4275,7 +4274,7 @@ module.exports = [
       '/metadata/rules',
       '/rules/metadata'
     ],
-    to: '/metadata/manage-metadata-rules'
+    to: '/users/metadata/manage-metadata-rules'
   },
   {
     from: ['/users/concepts/overview-user-migration'],
