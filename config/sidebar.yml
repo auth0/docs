@@ -559,7 +559,7 @@ articles:
             url: /applications/wildcards-for-subdomains
           - title: Configure Application Metadata
             url: /applications/configure-application-metadata
-          - title: Recommended Settings
+          - title: Best Practices
             url: /best-practices/app-settings-best-practices
       - title: API Configuration
         url: /get-started/dashboard/api-settings
