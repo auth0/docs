@@ -527,8 +527,6 @@ articles:
             hidden: true 
           - title: Configure Device User Code Settings
             url: /get-started/dashboard/configure-device-user-code-settings
-          - title: Recommended Settings
-            url: /best-practices/tenant-settings-best-practices
           - title: Dynamic Client Registration
             url: /applications/dynamic-client-registration
           - title: Create Multiple Tenants
@@ -537,6 +535,8 @@ articles:
           - title: Child Tenant Request Process
             url: /dev-lifecycle/child-tenants
             hidden: true
+          - title: Best Practices
+            url: /best-practices/tenant-settings-best-practices
       - title: Application Settings
         url: /get-started/dashboard/application-settings
         children:
