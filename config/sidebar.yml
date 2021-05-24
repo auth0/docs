@@ -551,9 +551,9 @@ articles:
             url: /enable-universal-links-support-in-apple-xcode
           - title: Remove Applications
             url: /applications/remove-applications
-          - title: View Application Type
+          - title: Check Confidential or Public
             url: /applications/view-application-type
-          - title: Rotate Client Secret
+          - title: Rotate Client Secrets
             url: /get-started/dashboard/rotate-client-secret
           - title: Subdomain URL Placeholders
             url: /applications/wildcards-for-subdomains
@@ -561,7 +561,7 @@ articles:
             url: /applications/configure-application-metadata
           - title: Best Practices
             url: /best-practices/app-settings-best-practices
-      - title: API Configuration
+      - title: API Settings
         url: /get-started/dashboard/api-settings
         children:
           - title: Signing Algorithms
