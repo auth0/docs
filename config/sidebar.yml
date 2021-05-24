@@ -557,7 +557,7 @@ articles:
             url: /get-started/dashboard/rotate-client-secret
           - title: Subdomain URL Placeholders
             url: /applications/wildcards-for-subdomains
-          - title: Manage Application Metadata
+          - title: Configure Application Metadata
             url: /applications/configure-application-metadata
           - title: Recommended Settings
             url: /best-practices/app-settings-best-practices
