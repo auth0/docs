@@ -6,7 +6,7 @@ topics:
     - backend
     - php
 github:
-  path: 01-Authenticate-RS256
+  path: 01-Authenticate
 contentType: tutorial
 useCase: quickstart
 ---
