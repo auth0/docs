@@ -1095,6 +1095,8 @@ articles:
                     hidden: true
               - title: Log Stream Filters
                 url: /logs/streams/event-filters
+          - title: PII in Logs
+            url: /logs/pii-in-logs
           - title: Log Data Retention
             url: /logs/log-data-retention
           - title: View Log Data

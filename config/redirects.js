@@ -2870,6 +2870,10 @@ module.exports = [
     to: '/logs/streams/datadog-dashboard-templates'
   }, 
   {
+    from: ['/logs/personally-identifiable-information-pii-in-auth0-logs'],
+    to: '/logs/pii-in-logs'
+  },
+  {
     from: ['/monitoring/guides/send-events-to-splunk','/monitoring/guides/send-events-to-keenio','/monitoring/guides/send-events-to-segmentio'],
     to: '/logs/export-log-events-with-rules'
   },
