@@ -1065,6 +1065,8 @@ articles:
           - title: Log Streams
             url: /logs/streams
             children:
+              - title: Check Log Stream Health
+                url: /logs/check-log-stream-health
               - title: HTTP Event Streams
                 url: /logs/streams/stream-http-event-logs
                 children: 
