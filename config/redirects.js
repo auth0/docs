@@ -2850,8 +2850,12 @@ module.exports = [
     to: '/logs/streams/stream-logs-to-splunk'
   },
   {
-    from: ['/logs/export-log-events-with-log-streaming/stream-http-event-logs','/logs/streams/http-event'],
-    to: '/logs/streams/stream-http-event-logs'
+    from: [
+      '/logs/export-log-events-with-log-streaming/stream-http-event-logs',
+      '/logs/streams/http-event',
+      '/logs/streams/stream-http-event-logs'
+    ],
+    to: '/logs/streams/custom-log-streams'
   },
   {
     from: ['/logs/export-log-events-with-log-streaming/stream-logs-to-amazon-eventbridge','/logs/streams/aws-eventbridge','/integrations/aws-eventbridge','/logs/streams/amazon-eventbridge'],
