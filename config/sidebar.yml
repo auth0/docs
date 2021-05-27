@@ -1048,56 +1048,6 @@ articles:
             url: /integrations/marketing/salesforce-marketing-cloud
           - title: Watson Campaign Automation
             url: /integrations/marketing/watson-campaign-automation
-  - title: Logs
-    url: /logs
-    children:
-      - title: Log Streams
-        url: /logs/streams
-        children:
-          - title: HTTP Event Streams
-            url: /logs/streams/stream-http-event-logs
-            children: 
-            - title: HTTP Stream to Slack Example
-              url: /logs/streams/stream-log-events-to-slack
-              hidden: true 
-          - title: AWS EventBridge
-            url: /logs/streams/aws-eventbridge
-          - title: Azure Event Grid
-            url: /logs/streams/stream-logs-to-azure-event-grid
-          - title: Datadog
-            url: /logs/streams/stream-logs-to-datadog
-            children:
-              - title: Datadog Dashboard Templates
-                url: /logs/streams/datadog-dashboard-templates
-                hidden: true 
-          - title: Splunk
-            url: /logs/streams/stream-logs-to-splunk
-            children:
-              - title: Auth0 App for Splunk
-                url: /logs/streams/splunk-dashboard
-                hidden: true 
-          - title: Sumo Logic
-            url: /logs/streams/stream-logs-to-sumo-logic
-            children:
-              - title: Auth0 App for Sumo Logic
-                url: /logs/streams/sumo-logic-dashboard
-                hidden: true
-          - title: Log Stream Filters
-            url: /logs/streams/event-filters
-      - title: Log Data Retention
-        url: /logs/log-data-retention
-      - title: View Log Data in the Dashboard
-        url: /logs/view-log-events-in-the-dashboard
-      - title: Log Event Filters
-        url: /logs/log-event-filters
-      - title: Retrieve Logs Using the Management API
-        url: /logs/retrieve-log-events-using-mgmt-api
-      - title: Log Event Type Codes
-        url: /logs/log-event-type-codes
-      - title: Log Search Query Syntax
-        url: /logs/log-search-query-syntax
-      - title: Migrate from Logs Search v2 to v3
-        url: /product-lifecycle/deprecations-and-migrations/migrate-to-tenant-log-search-v3
   - title: Monitor
     url: /monitor-auth0
     children:
@@ -1109,6 +1059,56 @@ articles:
         url: /monitor-auth0/monitor-applications
       - title: Monitor Using SCOM
         url: /monitor-auth0/monitor-using-scom
+      - title: Logs
+        url: /logs
+        children:
+          - title: Log Streams
+            url: /logs/streams
+            children:
+              - title: HTTP Event Streams
+                url: /logs/streams/stream-http-event-logs
+                children: 
+                - title: HTTP Stream to Slack Example
+                  url: /logs/streams/stream-log-events-to-slack
+                  hidden: true 
+              - title: AWS EventBridge
+                url: /logs/streams/aws-eventbridge
+              - title: Azure Event Grid
+                url: /logs/streams/stream-logs-to-azure-event-grid
+              - title: Datadog
+                url: /logs/streams/stream-logs-to-datadog
+                children:
+                  - title: Datadog Dashboard Templates
+                    url: /logs/streams/datadog-dashboard-templates
+                    hidden: true 
+              - title: Splunk
+                url: /logs/streams/stream-logs-to-splunk
+                children:
+                  - title: Auth0 App for Splunk
+                    url: /logs/streams/splunk-dashboard
+                    hidden: true 
+              - title: Sumo Logic
+                url: /logs/streams/stream-logs-to-sumo-logic
+                children:
+                  - title: Auth0 App for Sumo Logic
+                    url: /logs/streams/sumo-logic-dashboard
+                    hidden: true
+              - title: Log Stream Filters
+                url: /logs/streams/event-filters
+          - title: Log Data Retention
+            url: /logs/log-data-retention
+          - title: View Log Data
+            url: /logs/view-log-events-in-the-dashboard
+          - title: Log Event Filters
+            url: /logs/log-event-filters
+          - title: Retrieve Logs
+            url: /logs/retrieve-log-events-using-mgmt-api
+          - title: Log Event Type Codes
+            url: /logs/log-event-type-codes
+          - title: Log Search Query Syntax
+            url: /logs/log-search-query-syntax
+          - title: Migrate from Logs Search v2 to v3
+            url: /product-lifecycle/deprecations-and-migrations/migrate-to-tenant-log-search-v3
   - title: Troubleshoot
     url: /troubleshoot
     children:
