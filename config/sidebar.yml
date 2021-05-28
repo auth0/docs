@@ -1062,7 +1062,7 @@ articles:
       - title: Logs
         url: /logs
         children:
-          - title: PII in Logs
+          - title: PII in Logs 
             url: /logs/pii-in-logs
           - title: Log Data Retention
             url: /logs/log-data-retention
