@@ -2910,7 +2910,7 @@ module.exports = [
     to: '/logs/log-data-retention'
   },
   {
-    from: ['/logs/references/log-event-filters','/logs/log-event-filters'],
+    from: ['/logs/references/log-event-filters'],
     to: '/logs/log-event-filters'
   },
   {

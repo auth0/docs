@@ -1088,7 +1088,7 @@ articles:
         url: /monitor-auth0/streams
         children:
           - title: AWS EventBridge
-            url: /monitor-auth0/streams/aws-eventbridge
+            url: /monitor-auth0/streams/stream-logs-to-amazon-eventbridge
           - title: Azure Event Grid
             url: /monitor-auth0/streams/stream-logs-to-azure-event-grid
           - title: Datadog
