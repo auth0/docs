@@ -1067,7 +1067,7 @@ articles:
           - title: Log Data Retention
             url: /logs/log-data-retention
           - title: View Log Events
-            url: /logs/view-log-events-in-the-dashboard
+            url: /logs/view-log
           - title: Retrieve Log Events
             url: /logs/retrieve-log-events-using-mgmt-api
           - title: Log Event Filters
@@ -1076,8 +1076,14 @@ articles:
             url: /logs/log-event-type-codes
           - title: Log Search Query Syntax
             url: /logs/log-search-query-syntax
-          - title: Migrate from Logs Search v2 to v3
-            url: /product-lifecycle/deprecations-and-migrations/migrate-to-tenant-log-search-v3
+            children: 
+              - title: Migrate to Tenant Log Search v3
+                url: /product-lifecycle/deprecations-and-migrations/migrate-to-tenant-log-search-v3
+                hidden: true 
+          - title: Export Log Events with Extensions
+            url: /logs/export-log-events-with-extensions
+          - title: Export Log Events with Rules
+            url: /logs/export-log-events-with-rules
       - title: Streams
         url: /logs/streams
         children:

@@ -2902,8 +2902,8 @@ module.exports = [
     to: '/logs/retrieve-log-events-using-mgmt-api'
   },
   {
-    from: ['/logs/guides/view-log-data-dashboard'],
-    to: '/logs/view-log-events-in-the-dashboard'
+    from: ['/logs/guides/view-log-data-dashboard','/logs/view-log-events-in-the-dashboard'],
+    to: '/logs/view-log-events'
   },
   {
     from: ['/logs/export-log-events-with-log-streaming/splunk-dashboard'],
