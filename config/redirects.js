@@ -2860,7 +2860,7 @@ module.exports = [
     from: [
       '/logs/export-log-events-with-log-streaming/stream-http-event-logs',
       '/logs/streams/http-event',
-      '/logs/streams/stream-http-event-logs'
+      '/logs/streams/stream-http-event-logs' 
     ],
     to: '/monitor-auth0/streams/custom-log-streams'
   },
