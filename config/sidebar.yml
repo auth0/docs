@@ -1116,7 +1116,7 @@ articles:
               url: /monitor-auth0/streams/stream-log-events-to-slack
               hidden: true 
           - title: Check Log Stream Health
-            url: /monitor-auth/streams/check-log-stream-health
+            url: /monitor-auth0/streams/check-log-stream-health
           - title: Log Stream Filters
             url: /monitor-auth0/streams/event-filters
   - title: Troubleshoot
