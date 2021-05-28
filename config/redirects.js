@@ -2916,7 +2916,7 @@ module.exports = [
   {
     from: ['/logs/event-filters'],
     to: '/monitor-auth0/streams/event-filters'
-  }
+  },
   {
     from: ['/logs/references/log-event-data','/logs/references/log-events-data','/logs/references/log-event-type-codes'],
     to: '/logs/log-event-type-codes'
