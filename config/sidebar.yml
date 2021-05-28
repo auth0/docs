@@ -1085,40 +1085,40 @@ articles:
           - title: Export Log Events with Rules
             url: /logs/export-log-events-with-rules
       - title: Streams
-        url: /logs/streams
+        url: /monitor-auth0/streams
         children:
           - title: AWS EventBridge
-            url: /logs/streams/aws-eventbridge
+            url: /monitor-auth0/streams/aws-eventbridge
           - title: Azure Event Grid
-            url: /logs/streams/stream-logs-to-azure-event-grid
+            url: /monitor-auth0/streams/stream-logs-to-azure-event-grid
           - title: Datadog
-            url: /logs/streams/stream-logs-to-datadog
+            url: /monitor-auth0/streams/stream-logs-to-datadog
             children:
               - title: Datadog Dashboard Templates
-                url: /logs/streams/datadog-dashboard-templates
+                url: /monitor-auth0/streams/datadog-dashboard-templates
                 hidden: true 
           - title: Splunk
-            url: /logs/streams/stream-logs-to-splunk
+            url: /monitor-auth0/streams/stream-logs-to-splunk
             children:
               - title: Auth0 App for Splunk
-                url: /logs/streams/splunk-dashboard
+                url: /monitor-auth0/streams/splunk-dashboard
                 hidden: true 
           - title: Sumo Logic
-            url: /logs/streams/stream-logs-to-sumo-logic
+            url: /monitor-auth0/streams/stream-logs-to-sumo-logic
             children:
               - title: Auth0 App for Sumo Logic
-                url: /logs/streams/sumo-logic-dashboard
+                url: /monitor-auth0/streams/sumo-logic-dashboard
                 hidden: true
           - title: Create Custom Log Streams
-            url: /logs/streams/custom-log-streams
+            url: /monitor-auth0/streams/custom-log-streams
             children: 
             - title: Stream Logs to Slack Using Webhooks
-              url: /logs/streams/stream-log-events-to-slack
+              url: /monitor-auth0/streams/stream-log-events-to-slack
               hidden: true 
           - title: Check Log Stream Health
-            url: /logs/check-log-stream-health
+            url: /monitor-auth/streams/check-log-stream-health
           - title: Log Stream Filters
-            url: /logs/streams/event-filters
+            url: /monitor-auth0/streams/event-filters
   - title: Troubleshoot
     url: /troubleshoot
     children:

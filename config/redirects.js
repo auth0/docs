@@ -2838,16 +2838,23 @@ module.exports = [
     to: '/logs'
   },
   {
-    from: ['/logs/export-log-events-with-log-streaming'],
-    to: '/logs/streams'
+    from: ['/logs/export-log-events-with-log-streaming','/logs/streams'],
+    to: '/monitor-auth0/streams'
   },
   {
-    from: ['/logs/export-log-events-with-log-streaming/stream-log-events-to-slack','/logs/streams/http-event-to-slack'],
-    to: '/logs/streams/stream-log-events-to-slack'
+    from: [
+      '/logs/export-log-events-with-log-streaming/stream-log-events-to-slack',
+      '/logs/streams/http-event-to-slack'
+    ],
+    to: '/monitor-auth0/streams/stream-log-events-to-slack'
   },
   {
-    from: ['/logs/export-log-events-with-log-streaming/stream-logs-to-splunk','/logs/streams/splunk'],
-    to: '/logs/streams/stream-logs-to-splunk'
+    from: [
+      '/logs/export-log-events-with-log-streaming/stream-logs-to-splunk',
+      '/logs/streams/splunk',
+      '/logs/streams/stream-logs-to-splunk'
+    ],
+    to: '/monitor-auth0/streams/stream-logs-to-splunk'
   },
   {
     from: [
@@ -2855,23 +2862,40 @@ module.exports = [
       '/logs/streams/http-event',
       '/logs/streams/stream-http-event-logs'
     ],
-    to: '/logs/streams/custom-log-streams'
+    to: '/monitor-auth0/streams/custom-log-streams'
   },
   {
-    from: ['/logs/export-log-events-with-log-streaming/stream-logs-to-amazon-eventbridge','/logs/streams/aws-eventbridge','/integrations/aws-eventbridge','/logs/streams/amazon-eventbridge'],
-    to: '/logs/streams/stream-logs-to-amazon-eventbridge'
+    from: [
+      '/logs/export-log-events-with-log-streaming/stream-logs-to-amazon-eventbridge',
+      '/logs/streams/aws-eventbridge',
+      '/integrations/aws-eventbridge',
+      '/logs/streams/amazon-eventbridge',
+      '/logs/streams/stream-logs-to-amazon-eventbridge'
+    ],
+    to: '/monitor-auth0/streams/stream-logs-to-amazon-eventbridge'
   },
   {
-    from: ['/logs/export-log-events-with-log-streaming/stream-logs-to-azure-event-grid','/logs/streams/azure-event-grid'],
-    to: '/logs/streams/stream-logs-to-azure-event-grid'
+    from: [
+      '/logs/export-log-events-with-log-streaming/stream-logs-to-azure-event-grid',
+      '/logs/streams/azure-event-grid',
+      '/logs/streams/stream-logs-to-azure-event-grid'
+    ],
+    to: '/monitor-auth0/streams/stream-logs-to-azure-event-grid'
   },
   {
-    from: ['/logs/export-log-events-with-log-streaming/stream-logs-to-datadog','/logs/streams/datadog'],
-    to: '/logs/streams/stream-logs-to-datadog'
+    from: [
+      '/logs/export-log-events-with-log-streaming/stream-logs-to-datadog',
+      '/logs/streams/datadog',
+      '/logs/streams/stream-logs-to-datadog'
+    ],
+    to: '/monitor-auth0/streams/stream-logs-to-datadog'
   },
   {
-    from: ['/logs/export-log-events-with-log-streaming/datadog-dashboard-templates'],
-    to: '/logs/streams/datadog-dashboard-templates'
+    from: [
+      '/logs/export-log-events-with-log-streaming/datadog-dashboard-templates',
+      '/logs/streams/datadog-dashboard-templates'
+    ],
+    to: '/monitor-auth0/streams/datadog-dashboard-templates'
   }, 
   {
     from: ['/logs/personally-identifiable-information-pii-in-auth0-logs'],
@@ -2886,8 +2910,8 @@ module.exports = [
     to: '/logs/log-data-retention'
   },
   {
-    from: ['/logs/references/log-event-filters'],
-    to: '/logs/log-event-filters'
+    from: ['/logs/references/log-event-filters','/logs/log-event-filters'],
+    to: '/monitor-auth0/streams/log-event-filters'
   },
   {
     from: ['/logs/references/log-event-data','/logs/references/log-events-data','/logs/references/log-event-type-codes'],
@@ -2906,8 +2930,19 @@ module.exports = [
     to: '/logs/view-log-events'
   },
   {
-    from: ['/logs/export-log-events-with-log-streaming/splunk-dashboard'],
-    to: '/logs/streams/splunk-dashboard'
+    from: [
+      '/logs/export-log-events-with-log-streaming/splunk-dashboard',
+      '/logs/streams/splunk-dashboard'
+    ],
+    to: '/monitor-auth0/streams/splunk-dashboard'
+  },
+  {
+    from: ['/logs/streams/stream-logs-to-sumo-logic'],
+    to: '/monitor-auth0/streams/stream-logs-to-sumo-logic'
+  },
+  {
+    from: ['/logs/streams/sumo-logic-dashboard'],
+    to: '/monitor-auth0/streams/sumo-logic-dashboard'
   },
 
   /* MFA */
