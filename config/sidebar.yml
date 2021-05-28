@@ -224,6 +224,11 @@ articles:
             url: /universal-login/classic-experience/mfa-classic-experience
           - title: Passwordless
             url: /universal-login/configure-universal-login-with-passwordless
+            children:
+              - title: WebAuthn with Device Biometrics
+                url: /universal-login/configure-universal-login-with-passwordless/webauthn-device-biometrics
+              - title: Email or SMS
+                url: /universal-login/configure-universal-login-with-passwordless/email-or-sms
           - title: Identifier-First Authentication
             url: /universal-login/identifier-first
           - title: Error Pages
