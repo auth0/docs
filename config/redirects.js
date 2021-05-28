@@ -3100,14 +3100,6 @@ module.exports = [
     from: ['/monitoring/guides/monitor-using-SCOM'],
     to: '/monitor-auth0/monitor-using-scom'
   },
-  {
-    from: ['/monitoring/guides/track-leads-salesforce','/tutorials/tracking-new-leads-in-salesforce-and-raplead','/scenarios-rapleaf-salesforce', '/scenarios/rapleaf-salesforce'],
-    to: '/monitor-auth0/track-new-leads-in-salesforce'
-  },
-  {
-    from: ['/monitoring/guides/track-signups-salesforce','/tutorials/track-signups-enrich-user-profile-generate-leads','/scenarios-mixpanel-fullcontact-salesforce','/scenarios/mixpanel-fullcontact-salesforce'],
-    to: '/monitor-auth0/track-new-sign-ups-in-salesforce'
-  },
   
 
   /* Policies */
@@ -3561,6 +3553,26 @@ module.exports = [
   {
     from: ['/rules/references/user-object'],
     to: '/rules/user-object-in-rules'
+  },
+  {
+    from: [
+      '/monitoring/guides/track-leads-salesforce',
+      '/tutorials/tracking-new-leads-in-salesforce-and-raplead',
+      '/scenarios-rapleaf-salesforce',
+      '/scenarios/rapleaf-salesforce',
+      '/monitor-auth0/track-new-leads-in-salesforce'
+    ],
+    to: '/rules/use-cases/track-new-leads-in-salesforce'
+  },
+  {
+    from: [
+      '/monitoring/guides/track-signups-salesforce',
+      '/tutorials/track-signups-enrich-user-profile-generate-leads',
+      '/scenarios-mixpanel-fullcontact-salesforce',
+      '/scenarios/mixpanel-fullcontact-salesforce',
+      '/monitor-auth0/track-new-sign-ups-in-salesforce'
+    ],
+    to: '/rules/use-cases/track-new-sign-ups-in-salesforce'
   },
  
 

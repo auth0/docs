@@ -1067,7 +1067,7 @@ articles:
           - title: Log Data Retention
             url: /logs/log-data-retention
           - title: View Log Events
-            url: /logs/view-log
+            url: /logs/view-log-events
           - title: Retrieve Log Events
             url: /logs/retrieve-log-events-using-mgmt-api
           - title: Log Event Filters
