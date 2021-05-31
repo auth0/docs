@@ -8,10 +8,9 @@
 
 To integrate Auth0 with ASP.NET Core you will use the Cookie and OpenID Connect (OIDC) authentication handlers.
 
-If you are adding this to your own existing project, then please make sure that you add the `Microsoft.AspNetCore.Authentication.Cookies` and `Microsoft.AspNetCore.Authentication.OpenIdConnect` packages to your application.
+If you are adding this to your own existing project, then please make sure that you add the `Microsoft.AspNetCore.Authentication.OpenIdConnect` package to your application.
 
 ```bash
-Install-Package Microsoft.AspNetCore.Authentication.Cookies
 Install-Package Microsoft.AspNetCore.Authentication.OpenIdConnect
 ```
 
