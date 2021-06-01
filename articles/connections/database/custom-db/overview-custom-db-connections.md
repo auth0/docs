@@ -1,5 +1,5 @@
 ---
-title: Custom Database Connections Overview
+title: Authenticate with Your Own User Store
 description: Learn about authenticating users using your database as an identity provider.
 toc: true
 topics:
@@ -11,7 +11,7 @@ useCase:
     - custom-db-connections
     - legacy-authentication
 ---
-# Custom Database Connections Overview
+# Authenticate with Your Own User Store
 
 <%= include('./_includes/_panel-feature-availability') %>
 
