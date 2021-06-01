@@ -505,7 +505,7 @@ articles:
             url: /authorization/manage-permissions
           - title: Enable RBAC for APIs
             url: /authorization/rbac/enable-role-based-access-control-for-apis
-  - title: Configure Auth0
+  - title: Configure
     url: /config
     children:
       - title: Tenant Settings
@@ -752,7 +752,7 @@ articles:
         url: /dashboard-access/add-change-remove-mfa
       - title: Update Dashboard User Email
         url: /dashboard-access/update-dashboard-user-email
-  - title: Brand & Customize
+  - title: Brand and Customize
     url: /brand-and-customize
     children:
       - title: Universal Login Pages
@@ -1053,7 +1053,7 @@ articles:
             url: /integrations/marketing/salesforce-marketing-cloud
           - title: Watson Campaign Automation
             url: /integrations/marketing/watson-campaign-automation
-  - title: Monitor Auth0
+  - title: Monitor
     url: /monitor-auth0
     children:
       - title: Check Auth0 Status
