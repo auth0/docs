@@ -165,3 +165,7 @@ The `user$` observable contains sensitive information and artifacts related to t
 :::panel Checkpoint
 Verify that you can display the `user.name` or [any other `user` property](/users/references/user-profile-structure#user-profile-attributes) within a component correctly after you have logged in.
 :::
+
+:::note
+For a deep dive into implementing user authentication in Angular, visit the [Complete Guide to Angular User Authentication with Auth0](https://auth0.com/blog/complete-guide-to-angular-user-authentication/). This guide provides you with additional details, such as creating a signup button.
+:::

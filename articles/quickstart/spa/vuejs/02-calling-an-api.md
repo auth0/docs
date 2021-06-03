@@ -230,3 +230,7 @@ Finally, modify the navigation bar to include a link to the new page:
 :::panel Checkpoint
 Now you will be able to run the application, browse to the "External API" page and press the "Call" button. The application will make a call to the external API endpoint and produce a message on the screen that says "Your Access Token was successfully validated!".
 :::
+
+:::note
+For a deep dive into making secure calls to an API from Vue, visit the [Complete Guide to Vue User Authentication with Auth0](https://auth0.com/blog/complete-guide-to-vue-user-authentication/#Calling-an-API). This guide provides you with additional details, such setting up a sample Express API server and getting test access tokens from the Auth0 Dashboard. 
+:::

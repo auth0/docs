@@ -155,3 +155,7 @@ The `getAccessTokenSilently()` method can renew the access and ID token for you 
 :::
 
 As a final reminder, consult the [Auth0 API quickstarts](https://auth0.com/docs/quickstart/backend) to learn how to integrate Auth0 with your backend platform.
+
+:::note
+For a deep dive into making secure calls to an API from React, visit the [Complete Guide to React User Authentication with Auth0](https://auth0.com/blog/complete-guide-to-react-user-authentication/#Calling-an-API). This guide provides you with additional details, such setting up a sample Express API server and getting test access tokens from the Auth0 Dashboard. 
+:::
