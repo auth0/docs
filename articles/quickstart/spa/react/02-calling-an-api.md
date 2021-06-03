@@ -62,7 +62,13 @@ In the case of the Auth0 Management API, the audience is `https://${account.name
 The actions that your React application can perform on the API depend on the [scopes](https://auth0.com/docs/scopes/current) that your access token contains, which you define as the value of `scope`. Your React application will request authorization from the user to access the requested scopes, and the user will approve or deny the request.
 
 :::note
-In the case of the Auth0 Management API, the `read:current_user` and `update:current_user_metadata` scopes let you get an access token that can retrieve user details and update the user's information. In the case of your APIs, you'll define custom [API scopes](https://auth0.com/docs/scopes/current/api-scopes) to implement access control, and you'll identify them in the calls that your client applications make to that API.
+In the case of the Auth0 Management API, the `read:current_user` and `update:current_user_metadata` scopes let you get an access token that can retrieve user details and update the user's information. However, the management API will need explicit authorization from the user which means that getAccessTokenSilently will need to be replaced by getTokenWithPopup for users that haven't already authorized. In the case of your APIs, you'll define custom [API scopes](https://auth0.com/docs/scopes/current/api-scopes) to implement access control, and you'll identify them in the calls that your client applications make to that API.
+:::
+
+:::note
+See the following answers to understand when consent is required:
+- https://community.auth0.com/t/consent-for-regular-web-client-against-auth0/6147/2?u=aus-it-orders
+- https://community.auth0.com/t/failed-silent-auth-due-to-consent-required/7226/6
 :::
 
 ## Get an Access Token 
