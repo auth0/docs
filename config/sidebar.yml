@@ -773,6 +773,8 @@ articles:
                 url: /custom-domains/configure-custom-domains-with-self-managed-certificates/configure-aws-cloudfront-for-use-as-reverse-proxy
               - title: Azure CDN Reverse Proxy
                 url: /custom-domains/configure-custom-domains-with-self-managed-certificates/configure-azure-cdn-for-use-as-reverse-proxy
+              - title: Configure Akamai Reverse Proxy
+                url: /custom-domains/configure-custom-domains-with-self-managed-certificates/configure-akamai-for-use-as-reverse-proxy
               - title: TLS (SSL) Versions and Ciphers
                 url: /custom-domains/tls-ssl
           - title: Configure Auth0 Features
