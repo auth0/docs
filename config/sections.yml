@@ -34,3 +34,38 @@
   title: "Identity Labs"
   url: "/identity-labs"
   folder: "identity-labs"
+
+- id: 'learn-the-basics'
+  title: 'Learn the basics'
+  url: '/learn-the-basics'
+  folder: 'learn-the-basics'
+
+- id: 'get-started'
+  title: 'Get Started'
+  url: '/get-started'
+  folder: 'get-started'
+
+- id: 'authenticate'
+  title: 'Authentication'
+  url: '/authenticate'
+  folder: 'authenticate'
+
+- id: 'manage-users'
+  title: 'Manage Users'
+  url: '/manage-users'
+  folder: 'manage-users'
+
+- id: 'customization'
+  title: 'Customization'
+  url: '/customization'
+  folder: 'customization'
+
+- id: 'secure'
+  title: 'Secure'
+  url: '/secure'
+  folder: 'secure'
+
+- id: 'get-support'
+  title: 'Get Support'
+  url: '/get-support'
+  folder: 'get-support'

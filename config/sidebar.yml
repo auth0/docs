@@ -1,3 +1,103 @@
+learn-the-basics:
+  - title: Identity Fundamentals
+    url: /learn-the-basics/identity-fundamentals
+    children:
+      - title: Authentication Standards
+        url: /learn-the-basics/identity-fundamentals/auth-standards
+        children:
+          - title: SAML
+            url: /learn-the-basics/identity-fundamentals/auth-standards/saml
+get-started:
+  - title: Auth0 Overview
+    url: /get-started/overview
+    children:
+      - title: Auth0 Overview
+        url: /get-started/overview/overview
+  - title: Configuring Auth0
+    url: /get-started/configuration
+    children:
+      - title: Create a Tenant
+        url: /get-started/configuration/tenant-creation
+authenticate:
+  - title: Auth0 Overview
+    url: /authenticate/login
+    children:
+      - title: Auth0 Overview
+        url: /authenticate/login/universal
+        children:
+          - title: New Experience
+            url: /authenticate/login/universal/new
+          - title: Classic Experience
+            url: /authenticate/login/universal/old
+manage-users:
+  - title: User Accounts
+    url: /manage-users/accounts
+    children:
+      - title: User Profiles
+        url: /manage-users/accounts/profiles
+        children:
+          - title: Normalized User Profile
+            url: /manage-users/accounts/profiles/normalized
+  - title: Sessions
+    url: /manage-users/sessions
+  - title: User Migration
+    url: /manage-users/migration
+  - title: User Search
+    url: /manage-users/search
+  - title: Access Control
+    url: /manage-users/access-control
+  - title: Organizations
+    url: /manage-users/organizations
+customization:
+  - title: Brand
+    url: /customization/brand
+    children:
+      - title: Universal Login Pages
+        url: /customization/brand/universal-login-pages
+      - title: Custom Domains
+        url: /customization/brand/custom-domains
+        children:
+          - title: Auth0 Managed Certificates
+            url: /customization/brand/custom-domains/auth0-managed-certificates
+          - title: Self Managed Certificates
+            url: /customization/brand/custom-domains/self-managed-certificates
+            children:
+              - title: Cloudflare Reverse Proxy
+                url: /customization/brand/custom-domains/auth0-managed-certificate/cloudflare-reverse-proxy
+secure:
+  - title: Attack Protection
+    url: /secure/attack-protection
+    children:
+      - title: Bot Protection
+        url: /secure/attack-protection/bot-attack
+      - title: Breached Passwords
+        url: /secure/attack-protection/breached-passwords
+      - title: Brute Force Attack
+        url: /secure/attack-protection/brute-force-attack
+  - title: Common Threats
+    url: /secure/common-threats
+  - title: Security Guidance
+    url: /secure/guidance
+  - title: Multi-Factor Authentication
+    url: /secure/multi-factor-authentication
+  - title: Tokens
+    url: /secure/tokens
+  - title: Logs
+    url: /secure/logs
+get-support:
+  - title: Support
+    url: /get-support/support
+    children:
+      - title: Support Option
+        url: /get-support/support/options
+  - title: Professional Services
+    url: /get-support/professional-services
+  - title: Troubleshoot
+    url: /get-support/troubleshoot
+  - title: Private Cloud
+    url: /get-support/private-cloud
+  - title: Product Lifecycle
+    url: /get-support/product-lifecycle
 articles:
   - title: Get Started
     url: /get-started
