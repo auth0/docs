@@ -30,8 +30,9 @@ The [**form3tech-oss/jwt-go**](https://github.com/form3tech-oss/jwt-go) package 
 ```bash
 go get -d github.com/auth0/go-jwt-middleware
 go get -d github.com/form3tech-oss/jwt-go
-go get -d github.com/codegangsta/negroni
+go get -d github.com/gorilla/handlers
 go get -d github.com/gorilla/mux
+go get -d github.com/joho/godotenv
 ```
 
 ### Create a middleware to validate Access Tokens
@@ -53,10 +54,11 @@ import (
 	"log"
 	"os"
 
-	"github.com/codegangsta/negroni"
-	"github.com/auth0/go-jwt-middleware"
-	"github.com/form3tech-oss/jwt-go"
+	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
+	jwtmiddleware "github.com/auth0/go-jwt-middleware"
+	"github.com/form3tech-oss/jwt-go"
+	"github.com/joho/godotenv"
 )
 
 type Response struct {
@@ -152,6 +154,7 @@ To protect individual routes pass the instance of `go-jwt-middleware` defined ab
 
 func main() {
     // ...
+    err := godotenv.Load() // load private keys and audience from env file
 
     r := mux.NewRouter()
 
@@ -164,9 +167,8 @@ func main() {
     // This route is only accessible if the user has a valid Access Token
     // We are chaining the jwtmiddleware middleware into the negroni handler function which will check
     // for a valid token.
-    r.Handle("/api/private", negroni.New(
-        negroni.HandlerFunc(jwtMiddleware.HandlerWithNext),
-        negroni.Wrap(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+    r.Handle("/api/private", jwtMiddleware.Handler(handlers.CompressHandler(handlers.LoggingHandler(os.Stdout, 
+        http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
             message := "Hello from a private endpoint! You need to be authenticated to see this."
             responseJSON(message, w, http.StatusOK)
     }))))
@@ -196,13 +198,9 @@ Let's create a function to check and ensure the Access Token has the correct sco
 ```go
 // main.go
 
-type CustomClaims struct {
-	Scope string `json:"scope"`
-	jwt.StandardClaims
-}
-
 func checkScope(scope string, tokenString string) bool {
-	token, _ := jwt.ParseWithClaims(tokenString, &CustomClaims{}, func (token *jwt.Token) (interface{}, error) {
+	claims := jwt.MapClaims{}
+	token, _ := jwt.ParseWithClaims(tokenString, claims, func (token *jwt.Token) (interface{}, error) {
 		cert, err := getPemCert(token)
 		if err != nil {
 			return nil, err
@@ -210,20 +208,16 @@ func checkScope(scope string, tokenString string) bool {
 		result, _ := jwt.ParseRSAPublicKeyFromPEM([]byte(cert))
 		return result, nil
 	})
-
-	claims, ok := token.Claims.(*CustomClaims)
-
-	hasScope := false
-	if ok && token.Valid {
-		result := strings.Split(claims.Scope, " ")
+	if token.Valid {
+		scope := fmt.Sprintf("%v", claims["scope"])
+		result := strings.Split(scope, " ")
 		for i := range result {
 			if result[i] == scope {
-				hasScope = true
+				return true
 			}
 		}
 	}
-
-	return hasScope
+	return false
 }
 ```
 
