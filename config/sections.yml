@@ -25,12 +25,12 @@
   folder: 'manage-users'
 
 - id: 'customization'
-  title: 'Customize Auth0'
+  title: 'Customize'
   url: '/customization'
   folder: 'customization'
 
 - id: 'secure'
-  title: 'Secure Your Application'
+  title: 'Secure'
   url: '/secure'
   folder: 'secure'
 
