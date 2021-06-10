@@ -430,9 +430,147 @@ customization:
             url: /customization/brand/custom-domains/auth0-managed-certificates
           - title: Self Managed Certificates
             url: /customization/brand/custom-domains/self-managed-certificates
-            children:
-              - title: Cloudflare Reverse Proxy
-                url: /customization/brand/custom-domains/auth0-managed-certificate/cloudflare-reverse-proxy
+      - title: Email
+        url: /customization/brand/email
+        children:
+          - title: Custom Email Handling
+            url: /customization/brand/email/custom-handling
+          - title: Customizing Your Emails
+            url: /customization/brand/email/custom-emails
+          - title: Email Template Descriptions
+            url: /customization/brand/email/template
+          - title: Use Your own SMTP Email Pro...
+            url: /customization/brand/email/smtp
+          - title: Liquid Syntax in Email Templates
+            url: /customization/brand/email/liquid-syntax
+          - title: Set up a Test SMTP Provider
+            url: /customization/brand/email/smtp-provider
+      - title: Consent Prompt
+        url: /customization/brand/consent-prompt
+      - title: Internationalization
+        url: /customization/brand/internationalization
+  - title: Rules
+    url: /customization/rules
+    children:
+      - title: Create a New Rule
+        url: /customization/rules/create
+      - title: Rules Use Cases
+        url: /customization/rules/use-cases
+      - title: Store Configuration for Rules
+        url: /customization/rules/configuration
+      - title: Cache Expensive Resources
+        url: /customization/rules/cache
+      - title: Debug Rules
+        url: /customization/rules/debug
+      - title: Management API in Rules
+        url: /customization/rules/manage-api
+      - title: Metadata in Rules
+        url: /customization/rules/metadata
+      - title: Redirect Users from Rules
+        url: /customization/rules/redirect
+      - title: User Object
+        url: /customization/rules/users
+      - title: Context Object
+        url: /customization/rules/context
+  - title: Hooks
+    url: /customization/hooks
+    children:
+      - title: Create Hooks
+        url: /customization/hooks/create
+      - title: Update Hooks
+        url: /customization/hooks/update
+      - title: Delete Hooks
+        url: /customization/hooks/delete
+      - title: Enable/Disable Hooks
+        url: /customization/hooks/enable
+      - title: View Hooks
+        url: /customization/hooks/view-hooks
+      - title: View Logs
+        url: /customization/hooks/view-logs
+      - title: Extensibility Points
+        url: /customization/hooks/extensibility
+      - title: Hook Secrets
+        url: /customization/hooks/secrets
+  - title: Actions
+    url: /customization/actions
+    children:
+      - title: Write Your First Action
+        url: /customization/actions/create
+      - title: Triggers
+        url: /customization/actions/triggers
+        children:
+          - title: post-login
+            url: /customization/actions/triggers/post-login
+          - title: credentials-exchange
+            url: /customization/actions/triggers/credentials-exchange
+          - title: pre-user-registration
+            url: /customization/actions/triggers/pre-user-registration
+          - title: post-change-password
+            url: /customization/actions/triggers/post-change-password
+          - title: send-phone-message
+            url: /customization/actions/triggers/send-phone-message
+      - title: Limitations
+        url: /customization/actions/limitations
+      - title: Manage Action Versions
+        url: /customization/actions/manage-versions
+      - title: Programming Model Changes
+        url: /customization/actions/programming-model
+  - title: Extensions
+    url: /customization/extensions
+    children:
+      - title: Authorization Extension
+        url: /customization/extensions/auth
+      - title: Delegated Administration
+        url: /customization/extensions/admin
+      - title: Custom Social Connections
+        url: /customization/extensions/social
+      - title: SSO Dashboard Extension
+        url: /customization/extensions/sso
+      - title: Authentication API Webhooks
+        url: /customization/extensions/api-webhooks-auth
+      - title: Management API Webhooks
+        url: /customization/extensions/api-webhooks-mgmt
+      - title: GitHub Deployments
+        url: /customization/extensions/github
+      - title: Bitbucker Deployments
+        url: /customization/extensions/bitbucket
+      - title: GitLab Deployments
+        url: /customization/extensions/gitlab
+      - title: Visual Studio Team Services Depl..
+        url: /customization/extensions/vstudios
+      - title: Authentication API Debugger
+        url: /customization/extensions/api-debbugger
+      - title: AD/LDAP Connector Health Monitor
+        url: /customization/extensions/health-monitor
+      - title: Real-time Webtask Logs
+        url: /customization/extensions/rt-webtask
+      - title: Auth0 Logs to Application Insights
+        url: /customization/extensions/app-insight
+      - title: Auth0 Logs to AWS Cloudwatch
+        url: /customization/extensions/aws-cloudwatch
+      - title: Auth0 Logs to Azure Blob Storage
+        url: /customization/extensions/azure-blob
+      - title: Auth0 Logs to Logentries
+        url: /customization/extensions/logentries
+      - title: Auth0 Logs to Loggly
+        url: /customization/extensions/loggly
+      - title: Auth0 Logs to Logstash
+        url: /customization/extensions/logstash
+  - title: Integrations
+    url: /customization/integrations
+    children:
+      - title: Amazon Web Services (AWS)
+        url: /customization/integrations/aws
+      - title: AWS API Gateway
+        url: /customization/integrations/aws-api
+      - title: Azure API Management
+        url: /customization/integrations/azure-api
+      - title: Google Cloud Endpoints
+        url: /customization/integrations/gc-endpints
+      - title: Single Sign-On
+        url: /customization/integrations/sso
+      - title: Marketing
+        url: /customization/integrations/marketing
 secure:
   - title: Attack Protection
     url: /secure/attack-protection

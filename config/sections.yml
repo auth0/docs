@@ -56,7 +56,7 @@
   folder: 'manage-users'
 
 - id: 'customization'
-  title: 'Customization'
+  title: 'Customize Auth0'
   url: '/customization'
   folder: 'customization'
 
