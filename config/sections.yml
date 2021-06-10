@@ -61,7 +61,7 @@
   folder: 'customization'
 
 - id: 'secure'
-  title: 'Secure'
+  title: 'Secure Your Application'
   url: '/secure'
   folder: 'secure'
 

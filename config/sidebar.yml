@@ -581,16 +581,92 @@ secure:
         url: /secure/attack-protection/breached-passwords
       - title: Brute Force Attack
         url: /secure/attack-protection/brute-force-attack
+      - title: Set Preferences
+        url: /secure/attack-protection/set-preferences
+      - title: Customize Emails
+        url: /secure/attack-protection/customize-emails
+      - title: View Events
+        url: /secure/attack-protection/view-events
   - title: Common Threats
     url: /secure/common-threats
   - title: Security Guidance
     url: /secure/guidance
+    children:
+      - title: Add IP Addresses to AllowList
+        url: /secure/guidance/ip-whitelist
+      - title: Add User Attributes to the DenyList
+        url: /secure/guidance/user-blacklist
+      - title: Cookies
+        url: /secure/guidance/cookies
   - title: Multi-Factor Authentication
-    url: /secure/multi-factor-authentication
+    url: /secure/mfa
+    children:
+      - title: Factors
+        url: /secure/mfa/factors
+      - title: Enable MFA
+        url: /secure/mfa/enable
+      - title: Guardian
+        url: /secure/mfa/guardian
+      - title: Customize MFA
+        url: /secure/mfa/customize
+      - title: Reset MFA
+        url: /secure/mfa/reset
+      - title: Step-up Authentication
+        url: /secure/mfa/step-up
+      - title: MFA Developer Resources
+        url: /secure/mfa/developer-resources
+      - title: Troubleshoot MFA
+        url: /secure/mfa/troubleshoot
   - title: Tokens
     url: /secure/tokens
+    children:
+      - title: ID Tokens
+        url: /secure/tokens/id
+      - title: Access Tokens
+        url: /secure/tokens/access
+      - title: Refresh Tokens
+        url: /secure/tokens/refresh
+      - title: Refresh Token Rotations
+        url: /secure/tokens/rotation
+      - title: Revoke Tokens
+        url: /secure/tokens/revoke
   - title: Logs
     url: /secure/logs
+    children:
+      - title: Log Streams
+        url: /secure/logs/streams
+      - title: Log Data Retention
+        url: /secure/logs/retention
+      - title: View Log Data in the Dashboard
+        url: /secure/logs/dashboard
+      - title: Log Event Filters
+        url: /secure/logs/filters
+      - title: Retrieve Logs Using the Manage API
+        url: /secure/logs/manage-api
+      - title: Log Event Type Codes
+        url: /secure/logs/event-types
+      - title: Log Search Query Syntax
+        url: /secure/logs/query-syntax
+      - title: Migrate from Logs Search v2 to v3
+        url: /secure/logs/migrate-v2-to-v3
+  - title: Monitor
+    url: /secure/monitor
+    children:
+      - title: Check Auth0 Status
+        url: /secure/monitor/auth0-status
+      - title: Check External Services Status
+        url: /secure/monitor/external-status
+      - title: Monitor Applications
+        url: /secure/monitor/apps
+      - title: Monitor Using SCOM
+        url: /secure/monitor/scom
+  - title: Data Privacy
+    url: /secure/data-privacy
+    children:
+      - title: GDPR
+        url: /secure/data-privacy/gdpr
+      - title: Data Processing
+        url: /secure/data-privacy/data-processing
 get-support:
   - title: Support
     url: /get-support/support
