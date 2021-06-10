@@ -4,37 +4,6 @@
 ##
 ## ------------------------------------------------------------
 
-- id: "articles"
-  title: "Articles"
-  url: "/get-started"
-  folder: ""
-  default: true
-
-- id: "quickstarts"
-  title: "Quickstarts"
-  url: "/quickstarts"
-  folder: "quickstart"
-
-- id: "apis"
-  title: "Auth0 APIs"
-  url: "/api"
-  folder: "api"
-
-- id: "libraries"
-  title: "Libraries"
-  url: "/libraries"
-  folder: "libraries"
-
-- id: "videos"
-  title: "Videos"
-  url: "/videos"
-  folder: "videos"
-
-- id: "identity-labs"
-  title: "Identity Labs"
-  url: "/identity-labs"
-  folder: "identity-labs"
-
 - id: 'learn-the-basics'
   title: 'Learn the basics'
   url: '/learn-the-basics'
