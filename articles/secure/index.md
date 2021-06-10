@@ -9,6 +9,6 @@ classes: topic-page
   <div data-name="example" class="topic-page-badge"></div>
   <h1>Secure</h1>
   <p>
-    Secure of Auth0.
+    Security in Auth0.
   </p>
 </div>
