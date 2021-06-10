@@ -160,16 +160,140 @@ get-started:
           - title: Represent Multiple APIs with a...
             url: /get-started/configuration/api-config/multiple-apis
 authenticate:
-  - title: Auth0 Overview
+  - title: Login
     url: /authenticate/login
     children:
-      - title: Auth0 Overview
+      - title: Universal Login
         url: /authenticate/login/universal
         children:
           - title: New Experience
             url: /authenticate/login/universal/new
           - title: Classic Experience
             url: /authenticate/login/universal/old
+          - title: Password Reset
+            url: /authenticate/login/universal/password-reset
+          - title: Passwordless
+            url: /authenticate/login/universal/passwordless
+          - title: Identifier-First Authentication
+            url: /authenticate/login/universal/identifier-first
+          - title: Error Pages
+            url: /authenticate/login/universal/error-pages
+          - title: Text Customization
+            url: /authenticate/login/universal/custom-text
+          - title: Internationalization
+            url: /authenticate/login/universal/international
+          - title: Default Login URL
+            url: /authenticate/login/universal/default-login
+          - title: Version Control
+            url: /authenticate/login/universal/version-control
+      - title: Universal vs Embedded Login
+        url: /authenticate/login/universal-vs-embedded
+      - title: Embedded Login
+        url: /authenticate/login/embedded
+        children:
+          - title: Lock for Web
+            url: /authenticate/login/embedded/web-lock
+          - title: Auth0.js
+            url: /authenticate/login/embedded/auth0js
+          - title: Cross-Origin Authentication
+            url: /authenticate/login/embedded/cross-origin
+      - title: Silent Authentication
+        url: /authenticate/login/silent
+      - title: Redirect After Login
+        url: /authenticate/login/redirect-after
+      - title: Logout
+        url: /authenticate/login/logout
+        children:
+          - title: Apps
+            url: /authenticate/login/logout/apps
+          - title: Auth0
+            url: /authenticate/login/logout/auth0
+          - title: Identity Providers
+            url: /authenticate/login/logout/identity-providers
+          - title: SAML Identity Providers
+            url: /authenticate/login/logout/saml-providers
+          - title: Redirect After Logout
+            url: /authenticate/login/logout/redirect-after
+  - title: Single Sign-On
+    url: /authenticate/sso
+    children:
+      - title: Inbound SSO
+        url: /authenticate/sso/inbound
+      - title: Outbound SSO
+        url: /authenticate/sso/outbound
+      - title: Relevant API Endpoints
+        url: /authenticate/sso/api-endpoints
+  - title: Identity Providers
+    url: /authenticate/identity-providers
+    children:
+      - title: Social Identity Providers
+        url: /authenticate/identity-providers/social
+      - title: Enterprise Identity Providers
+        url: /authenticate/identity-providers/enterprise
+      - title: Legal Identity Providers
+        url: /authenticate/identity-providers/legal
+  - title: Database Connections
+    url: /authenticate/database-connections
+    children:
+      - title: Auth0 User Store
+        url: /authenticate/database-connections/auth0-user-store
+      - title: Your User Store
+        url: /authenticate/database-connections/your-user-store
+      - title: Password Policies
+        url: /authenticate/database-connections/password-policies
+      - title: Password Strength
+        url: /authenticate/database-connections/password-strength
+      - title: Pass Parameters to Identity Policies
+        url: /authenticate/database-connections/parameters
+  - title: Passwordless
+    url: /authenticate/passwordless
+    children:
+      - title: Authentication Factors
+        url: /authenticate/passwordless/auth-factors
+        children:
+          - title: Email
+            url: /authenticate/passwordless/auth-factors/email
+          - title: Magic Link
+            url: /authenticate/passwordless/auth-factors/magic-link
+          - title: SMS
+            url: /authenticate/passwordless/auth-factors/sms
+      - title: Universal Login
+        url: /authenticate/passwordless/universal-login
+      - title: Embedded Login
+        url: /authenticate/passwordless/embedded-login
+        children:
+          - title: Passwordless APIs
+            url: /authenticate/passwordless/embedded-login/passwordless-api
+          - title: Native Apps
+            url: /authenticate/passwordless/embedded-login/native-apps
+          - title: Web Apps
+            url: /authenticate/passwordless/embedded-login/web-apps
+          - title: SMS
+            url: /authenticate/passwordless/embedded-login/sms
+      - title: Best Practices
+        url: /authenticate/passwordless/best-practices
+  - title: Protocols
+    url: /authenticate/protocols
+    children:
+      - title: SAML
+        url: /authenticate/protocols/saml
+        children:
+          - title: SAML IdP
+            url: /authenticate/protocols/saml/idp
+          - title: SAML Configuration
+            url: /authenticate/protocols/saml/config
+          - title: SAML for SSOs
+            url: /authenticate/protocols/saml/sso
+      - title: OIDC
+        url: /authenticate/protocols/oidc
+        children:
+          - title: Configure Apps with OIDC Di
+            url: /authenticate/protocols/oidc/app-config
+      - title: OAuth
+        url: /authenticate/protocols/oauth
+        children:
+          - title: Prevent Attacks and Redirect us
+            url: /authenticate/protocols/oauth/prevention
 manage-users:
   - title: User Accounts
     url: /manage-users/accounts
