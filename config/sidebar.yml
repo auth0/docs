@@ -7,6 +7,87 @@ learn-the-basics:
         children:
           - title: SAML
             url: /learn-the-basics/identity-fundamentals/auth-standards/saml
+          - title: OIDC
+            url: /learn-the-basics/identity-fundamentals/auth-standards/oidc
+          - title: OAuth
+            url: /learn-the-basics/identity-fundamentals/auth-standards/oauth
+      - title: Authentication Methods
+        url: /learn-the-basics/identity-fundamentals/auth-methods
+        children:
+          - title: Passwordless
+            url: /learn-the-basics/identity-fundamentals/auth-methods/passwordless
+          - title: SSO
+            url: /learn-the-basics/identity-fundamentals/auth-methods/sso
+          - title: MFA
+            url: /learn-the-basics/identity-fundamentals/auth-methods/mfa
+      - title: Authentication vs Authorization
+        url: /learn-the-basics/identity-fundamentals/auth-vs-auth
+      - title: Glossary
+        url: /learn-the-basics/identity-fundamentals/glossary
+  - title: Implementation Guides
+    url: /learn-the-basics/implementation-guides
+    children:
+      - title: Business to Consumer
+        url: /learn-the-basics/implementation-guides/b2c
+      - title: Business to Business
+        url: /learn-the-basics/implementation-guides/b2b
+      - title: Business to Employees
+        url: /learn-the-basics/implementation-guides/b2e
+      - title: SSO for Regular Web Apps
+        url: /learn-the-basics/implementation-guides/sso-regular-apps
+      - title: Server Application + API
+        url: /learn-the-basics/implementation-guides/server-api
+      - title: SPA + API
+        url: /learn-the-basics/implementation-guides/spa-api
+      - title: Mobile + API
+        url: /learn-the-basics/implementation-guides/mobile-api
+      - title: Implementation Checklists
+        url: /learn-the-basics/implementation-guides/checklist
+      - title: Implementation Resources
+        url: /learn-the-basics/implementation-guides/resources
+  - title: Authentication and Authorization Flows
+    url: /learn-the-basics/auth-flows
+    children:
+      - title: Authentication Flows
+        url: /learn-the-basics/auth-flows/authentication
+        children:
+          - title: Regular Web App
+            url: /learn-the-basics/auth-flows/authentication/regular-app
+          - title: Single-Page App
+            url: /learn-the-basics/auth-flows/authentication/spa
+          - title: Native App
+            url: /learn-the-basics/auth-flows/authentication/native-app
+      - title: Authorization Flows
+        url: /learn-the-basics/auth-flows/authorization
+        children:
+          - title: Add Login using the Authorization
+            url: /learn-the-basics/auth-flows/authorization/add-login
+          - title: Using Implicit Flow
+            url: /learn-the-basics/auth-flows/authorization/implicit-flow
+          - title: Authz flow with PKCE
+            url: /learn-the-basics/auth-flows/authorization/pkce
+          - title: Call API with Client Credentials
+            url: /learn-the-basics/auth-flows/authorization/client-creds
+          - title: Call API using Device Authz Flow
+            url: /learn-the-basics/auth-flows/authorization/device-authz-flow
+          - title: Call API using implicit flow
+            url: /learn-the-basics/auth-flows/authorization/implicit-flow
+  - title: Deploy
+    url: /learn-the-basics/deploy
+    children:
+      - title: Deployment Options
+        url: /learn-the-basics/deploy/options
+      - title: Deploy Checklist
+        url: /learn-the-basics/deploy/checklist
+      - title: Pre-Deployment
+        url: /learn-the-basics/deploy/pre-deploy
+        children:
+          - title: Run Checks
+            url: /learn-the-basics/deploy/pre-deploy/run-checks
+          - title: Pre-Launch Tips
+            url: /learn-the-basics/deploy/pre-deploy/pre-launch
+      - title: Deploy CLI Tool
+        url: /learn-the-basics/deploy/cli-tools
 get-started:
   - title: Auth0 Overview
     url: /get-started/overview
@@ -18,6 +99,66 @@ get-started:
     children:
       - title: Create a Tenant
         url: /get-started/configuration/tenant-creation
+      - title: Tenant Configuration
+        url: /get-started/configuration/tenant-config
+        children:
+          - title: Signing Keys
+            url: /get-started/configuration/tenant-config/signing-keys
+          - title: Configure Session Lifetime Setting
+            url: /get-started/configuration/tenant-config/session-lifetime
+          - title: Configure Device User Code Setting
+            url: /get-started/configuration/tenant-config/device-user-code
+          - title: Recommended Settings
+            url: /get-started/configuration/tenant-config/recommended
+          - title: Dynamic Client Registration
+            url: /get-started/configuration/tenant-config/dynamic-registration
+      - title: Manage Dashboard Access
+        url: /get-started/configuration/dashboard
+        children:
+          - title: Dashboard Access by Role
+            url: /get-started/configuration/dashboard/access-by-role
+          - title: Add Tenant Members
+            url: /get-started/configuration/dashboard/add-tenant-members
+          - title: Edit Tenant Members
+            url: /get-started/configuration/dashboard/edit-tenant-members
+          - title: Remove Tenant Members
+            url: /get-started/configuration/dashboard/remove-tenant-members
+          - title: Manage Access with MFA
+            url: /get-started/configuration/dashboard/access-with-mfa
+          - title: Update Dashboard User Email
+            url: /get-started/configuration/dashboard/update-email
+      - title: Set Up an App
+        url: /get-started/configuration/app-setup
+      - title: Application Configuration
+        url: /get-started/configuration/app-config
+        children:
+          - title: Enable SSO for Applications
+            url: /get-started/configuration/app-config/enable-sso
+          - title: Update Grant Types
+            url: /get-started/configuration/app-config/update-grant-types
+          - title: Android App Links
+            url: /get-started/configuration/app-config/android-links
+          - title: Apple Universal Links
+            url: /get-started/configuration/app-config/apple-links
+          - title: Remove Applications
+            url: /get-started/configuration/app-config/remove-app
+          - title: Check App Type
+            url: /get-started/configuration/app-config/check-app-type
+          - title: Rotate Client Secret
+            url: /get-started/configuration/app-config/rotate-secret
+          - title: Wildcards for Subdomains
+            url: /get-started/configuration/app-config/subdomain-wildcard
+          - title: Recommended Settings
+            url: /get-started/configuration/app-config/recommendations
+      - title: Set Up an API
+        url: /get-started/configuration/api-setup
+      - title: API Configuration
+        url: /get-started/configuration/api-config
+        children:
+          - title: Signing Algorithms
+            url: /get-started/configuration/api-config/signin-algorithm
+          - title: Represent Multiple APIs with a...
+            url: /get-started/configuration/api-config/multiple-apis
 authenticate:
   - title: Auth0 Overview
     url: /authenticate/login
