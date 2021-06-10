@@ -46,7 +46,7 @@
   folder: 'get-started'
 
 - id: 'authenticate'
-  title: 'Authentication'
+  title: 'Authenticate'
   url: '/authenticate'
   folder: 'authenticate'
 

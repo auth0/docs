@@ -303,16 +303,120 @@ manage-users:
         children:
           - title: Normalized User Profile
             url: /manage-users/accounts/profiles/normalized
+          - title: Update Profile Using Your Data
+            url: /manage-users/accounts/profiles/update-profile
+          - title: Progressive Profiling
+            url: /manage-users/accounts/profiles/progessive-profiling
+          - title: User Profile Structure
+            url: /manage-users/accounts/profiles/profile-structure
+      - title: Metadata
+        url: /manage-users/accounts/metadata
+        children:
+          - title: Manage User Metadata
+            url: /manage-users/accounts/metadata/manage
+          - title: Read Metadata
+            url: /manage-users/accounts/metadata/read
+          - title: Set Metadata Properties on Cr...
+            url: /manage-users/accounts/metadata/set-properties
+          - title: Update Metadata with the Manage API
+            url: /manage-users/accounts/metadata/update
+          - title: Metadata Best Practices
+            url: /manage-users/accounts/metadata/best-practices
+      - title: Email Verified Usage
+        url: /manage-users/accounts/verified-email
+      - title: Link User Accounts
+        url: /manage-users/accounts/link-accounts
+        children:
+          - title: Link User Accounts
+            url: /manage-users/accounts/link-accounts/link
+          - title: Unlink User Accounts
+            url: /manage-users/accounts/link-accounts/unlink
+          - title: Client-Side SPA Scenario
+            url: /manage-users/accounts/link-accounts/spa
+          - title: Server-Side Regular Web App...
+            url: /manage-users/accounts/link-accounts/server
   - title: Sessions
     url: /manage-users/sessions
+    children:
+      - title: Sessions Layers
+        url: /manage-users/sessions/layers
+      - title: Session Lifetime Limits
+        url: /manage-users/sessions/lifetime-limits
+      - title: Non-persistent sessions
+        url: /manage-users/sessions/non-persistent
+      - title: Manage Multi-site sessions with
+        url: /manage-users/sessions/multi-site
+      - title: Authentication API Cookies
+        url: /manage-users/sessions/cookies
   - title: User Migration
     url: /manage-users/migration
+    children:
+      - title: File Schema
+        url: /manage-users/migration/schema
+      - title: Automatic
+        url: /manage-users/migration/automatic
+      - title: Bulk Import
+        url: /manage-users/migration/bulk-import
+      - title: Bulk Export
+        url: /manage-users/migration/bulk-export
+      - title: User Import/Export Extension
+        url: /manage-users/migration/extensions
+      - title: Examples
+        url: /manage-users/migration/example
   - title: User Search
     url: /manage-users/search
+    children:
+      - title: Get Users
+        url: /manage-users/search/users
+      - title: Get Users by Email
+        url: /manage-users/search/users-by-email
+      - title: Get Users by ID
+        url: /manage-users/search/users-by-id
+      - title: Sort Search Results
+        url: /manage-users/search/sort-results
+      - title: View Search Results
+        url: /manage-users/search/view-results
+      - title: Query Syntax
+        url: /manage-users/search/query-syntax
+      - title: Best Practices
+        url: /manage-users/search/best-practices
   - title: Access Control
     url: /manage-users/access-control
+    children:
+      - title: Role-based Access Control RBAC
+        url: /manage-users/access-control/rbac
+      - title: Authorization Policies
+        url: /manage-users/access-control/policies
+      - title: Rules for Authorization Policies
+        url: /manage-users/access-control/policy-rules
+      - title: Sample Use Cases - RBAC
+        url: /manage-users/access-control/rbac-sample-cases
+      - title: Sample Use Cases - Rules
+        url: /manage-users/access-control/rules-sample-cases
+      - title: Authz Core vs Authz Extension
+        url: /manage-users/access-control/authz-core-vs-extension
+      - title: How to Configure Core RBAC
+        url: /manage-users/access-control/rbac-config
+        children:
+          - title: Manage Roles
+            url: /manage-users/access-control/rbac-config/roles
+          - title: Manage RBAC Users
+            url: /manage-users/access-control/rbac-config/users
+          - title: Manage RBAC Permissions
+            url: /manage-users/access-control/rbac-config/permissions
+          - title: Enable RBAC for APIs
+            url: /manage-users/access-control/rbac-config/enable-api
   - title: Organizations
     url: /manage-users/organizations
+    children:
+      - title: Creat Your First Organization
+        url: /manage-users/organizations/create
+      - title: Custom Development
+        url: /manage-users/organizations/custom-development
+      - title: Work with Tokens
+        url: /manage-users/organizations/tokens
+      - title: Configure Organizations
+        url: /manage-users/organizations/configure
 customization:
   - title: Brand
     url: /customization/brand
