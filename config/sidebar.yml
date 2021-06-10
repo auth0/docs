@@ -673,14 +673,60 @@ get-support:
     children:
       - title: Support Option
         url: /get-support/support/options
+      - title: Support Matrix
+        url: /get-support/support/matrix
+      - title: SLA
+        url: /get-support/support/sla
+      - title: Tickets
+        url: /get-support/support/tickets
+      - title: Manage Subscription
+        url: /get-support/support/subscription
+      - title: Operational Policies
+        url: /get-support/support/policies
   - title: Professional Services
     url: /get-support/professional-services
+    children:
+      - title: Discover and Design
+        url: /get-support/professional-services/design
+      - title: Implement
+        url: /get-support/professional-services/implement
+      - title: Maintain and Improve
+        url: /get-support/professional-services/maintain
+      - title: Packages
+        url: /get-support/professional-services/packages
   - title: Troubleshoot
     url: /get-support/troubleshoot
+    children:
+      - title: Basic Issues
+        url: /get-support/troubleshoot/basic
+      - title: Authentication Issues
+        url: /get-support/troubleshoot/auth
+      - title: Integration and Extensibility Issues
+        url: /get-support/troubleshoot/integration
+      - title: Generate and Analyze HAR Files
+        url: /get-support/troubleshoot/har
+      - title: Authentication API Debugger
+        url: /get-support/troubleshoot/api-debugger
   - title: Private Cloud
     url: /get-support/private-cloud
+    children:
+      - title: Operations
+        url: /get-support/private-cloud/operations
+      - title: Migrations
+        url: /get-support/private-cloud/migrations
+      - title: Onboarding
+        url: /get-support/private-cloud/onboarding
+      - title: Deployments
+        url: /get-support/private-cloud/deployments
   - title: Product Lifecycle
     url: /get-support/product-lifecycle
+    children:
+      - title: Product Release Stages
+        url: /get-support/product-lifecycle/release-stages
+      - title: Migration Process
+        url: /get-support/product-lifecycle/migration-process
+      - title: Active Migrations
+        url: /get-support/product-lifecycle/active-migration
 articles:
   - title: Get Started
     url: /get-started
