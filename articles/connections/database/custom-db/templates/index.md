@@ -20,7 +20,7 @@ You create and configure the connection to your legacy data store as a custom da
 
 There are two different types of custom database scripts: 
 
-* **Automatic Migration**: Whenever a user logs into Auth0, if the user is not yet in Auth0, the script will check the legacy database to see if the user exists there. If found and the **Import users to Auth0** flag is turned on, user data migrates the user to Auth0 data store. This is also known as **trickle migration** or **lazy migration**.
+* **Automatic Migration**: Whenever a user logs into Auth0, if the user is not yet in Auth0, the script will check the legacy database to see if the user exists there. If found and the **Import users to Auth0** flag is turned on, user data migrates the user to Auth0 data store. This is also known as trickle migration or lazy migration.
 
 * **Legacy Database**: Auth0 will always query the underlying database when a user tries to log in, is created, changes their password, verifies their email, or is deleted. If found and the **Import users to Auth0** flag is **not** turned on, user data stays in the legacy database and does **not** migrate to Auth0.
 
