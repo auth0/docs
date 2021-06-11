@@ -18,7 +18,7 @@ useCase:
 If you have your own database (known as a legacy data store in Auth0) containing user identity data, you can use it as an identity provider to authenticate users.
 You create and configure the connection to your legacy data store as a custom database in Auth0. You can choose to migrate data to Auth0's data store from your legacy database incrementally over time, or you can continue to use it without migrating data. We provide script templates to perform functions on the custom database that you can use and customize. 
 
-There are two different types of custom database scripts:
+There are two different types of custom database scripts: 
 
 * **Automatic Migration**: Whenever a user logs into Auth0, if the user is not yet in Auth0, the script will check the legacy database to see if the user exists there. If found and the **Import users to Auth0** flag is turned on, user data migrates the user to Auth0 data store. This is also known as **trickle migration** or **lazy migration**.
 
