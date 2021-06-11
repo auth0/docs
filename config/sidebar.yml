@@ -732,7 +732,7 @@ articles:
     url: /get-started
     children:
       - title: Auth0 Overview
-        url: /get-started
+        url: /get-started/overview
       - title: Dashboard Overview
         url: /get-started/dashboard
       - title: Create Tenants

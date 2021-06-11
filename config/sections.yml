@@ -8,6 +8,7 @@
   title: 'Learn the basics'
   url: '/learn-the-basics'
   folder: 'learn-the-basics'
+  default: true
 
 - id: 'get-started'
   title: 'Get Started'
