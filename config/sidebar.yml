@@ -9,7 +9,7 @@ articles:
       - title: Create Tenants
         url: /get-started/learn-the-basics
       - title: Create Applications
-        url: /get-started/create-apps
+        url: /get-started/create-apps 
         children:
           - title: Native Apps
             url: /get-started/create-apps/native-apps
