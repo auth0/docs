@@ -8,8 +8,17 @@ articles:
         url: /get-started/dashboard
       - title: Create Tenants
         url: /get-started/learn-the-basics
-      - title: Register Applications
-        url: /applications/set-up-an-application
+      - title: Create Applications
+        url: /get-started/create-apps 
+        children:
+          - title: Native Apps
+            url: /get-started/create-apps/native-apps
+          - title: Single Page Web Apps
+            url: /get-started/create-apps/single-page-web-apps
+          - title: Regular Web Apps
+            url: /get-started/create-apps/regular-web-apps
+          - title: Machine-to-Machine Apps
+            url: /get-started/create-apps/machine-to-machine-apps
       - title: Register APIs
         url: /get-started/set-up-apis
       - title: Set Up Multiple Environments
@@ -564,8 +573,6 @@ articles:
             url: /applications/wildcards-for-subdomains
           - title: Configure Application Metadata
             url: /applications/configure-application-metadata
-          - title: Best Practices
-            url: /best-practices/app-settings-best-practices
       - title: API Settings
         url: /get-started/dashboard/api-settings
         children:
