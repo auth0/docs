@@ -1150,26 +1150,6 @@ module.exports = [
     to: '/applications/enable-universal-links-support-in-apple-xcode'
   },
   {
-    from: ['/getting-started/set-up-app'],
-    to: '/applications/set-up-an-application'
-  },
-  {
-    from: ['/dashboard/guides/applications/register-app-m2m','/applications/application-settings/non-interactive','/applications/application-settings/machine-to-machine','/applications/machine-to-machine'],
-    to: '/applications/set-up-an-application/register-machine-to-machine-applications'
-  },
-  {
-    from: ['/dashboard/guides/applications/register-app-native','/applications/application-settings/native','/applications/native'],
-    to: '/applications/set-up-an-application/register-native-applications'
-  },
-  {
-    from: ['/dashboard/guides/applications/register-app-regular-web','/applications/application-settings/regular-web-app','/applications/webapps','/applications/register-regular-web-applications'],
-    to: '/applications/set-up-an-application/register-regular-web-applications'
-  },
-  {
-    from: ['/dashboard/guides/applications/register-app-spa','/applications/spa','/applications/application-settings/single-page-app','/applications/register-single-page-app'],
-    to: '/applications/set-up-an-application/register-single-page-app'
-  },
-  {
     from: ['/dashboard/guides/applications/remove-app'],
     to: '/applications/remove-applications'
   },
@@ -1379,10 +1359,6 @@ module.exports = [
   {
       from: ['/best-practices/custom-db-connections/security'],
       to: '/best-practices/custom-database-connection-and-action-script-best-practices/custom-db-connection-security-best-practices'
-  },
-  {
-      from: ['/best-practices/application-settings'],
-      to: '/best-practices/app-settings-best-practices'
   },
   {
       from: ['/best-practices/connection-settings'],
@@ -2047,6 +2023,65 @@ module.exports = [
   /* Get Started */
 
   {
+    from: ['/overview','/get-started/overview','/getting-started','/getting-started/overview'],
+    to: '/get-started'
+  },
+  {
+    from: ['/getting-started/set-up-app', '/applications/set-up-an-application'],
+    to: '/get-started/create-apps'
+  },
+  {
+    from: [
+      '/dashboard/guides/applications/register-app-m2m',
+      '/applications/application-settings/non-interactive',
+      '/applications/application-settings/machine-to-machine',
+      '/applications/machine-to-machine',
+      '/applications/set-up-an-application/register-machine-to-machine-applications'
+    ],
+    to: '/get-started/create-apps/machine-to-machine-apps'
+  },
+  {
+    from: [
+      '/dashboard/guides/applications/register-app-native',
+      '/applications/application-settings/native',
+      '/applications/native',
+      '/applications/set-up-an-application/register-native-applications'
+    ],
+    to: '/get-started/create-apps/native-apps'
+  },
+  {
+    from: [
+      '/dashboard/guides/applications/register-app-regular-web',
+      '/applications/application-settings/regular-web-app',
+      '/applications/webapps',
+      '/applications/register-regular-web-applications',
+      '/applications/set-up-an-application/register-regular-web-applications'
+    ],
+    to: '/get-started/create-apps/regular-web-apps'
+  },
+  {
+    from: [
+      '/dashboard/guides/applications/register-app-spa',
+      '/applications/spa',
+      '/applications/application-settings/single-page-app',
+      '/applications/register-single-page-app',
+      '/applications/set-up-an-application/register-single-page-app'
+    ],
+    to: '/get-started/create-apps/single-page-web-apps'
+  },
+  {
+    from: ['/getting-started/set-up-api','/dashboard/reference/views-api'],
+    to: '/get-started/set-up-apis'
+  },
+  {
+    from: ['/dashboard','/getting-started/dashboard-overview'],
+    to: '/get-started/dashboard'
+  },
+  {
+    from: ['/best-practices/application-settings','/best-practices/app-settings-best-practices'],
+    to: '/get-started/dashboard/application-settings'
+  },
+  {
     from: ['/dashboard/guides/tenants/configure-device-user-code-settings'],
     to: '/get-started/dashboard/configure-device-user-code-settings'
   },
@@ -2061,18 +2096,6 @@ module.exports = [
   {
     from: ['/dashboard/guides/tenants/configure-session-lifetime-settings','/api/management/guides/tenants/configure-session-lifetime-settings','/sso/current/configure-session-lifetime-limits'],
     to: '/get-started/dashboard/configure-session-lifetime-settings'
-  },
-  {
-    from: ['/overview','/get-started/overview','/getting-started','/getting-started/overview'],
-    to: '/get-started'
-  },
-  {
-    from: ['/getting-started/set-up-api','/dashboard/reference/views-api'],
-    to: '/get-started/set-up-apis'
-  },
-  {
-    from: ['/dashboard','/getting-started/dashboard-overview'],
-    to: '/get-started/dashboard'
   },
   {
     from: ['/dashboard/guides/apis/delete-permissions-apis'],
