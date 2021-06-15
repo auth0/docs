@@ -1369,24 +1369,41 @@ module.exports = [
   /* Best Practices */
 
   {
-    from: ['/best-practices/custom-db-connections','/best-practices/custom-db-connections-scripts'],
-    to: '/best-practices/custom-database-connection-and-action-script-best-practices'
+    from: [
+      '/best-practices/custom-db-connections',
+      '/best-practices/custom-db-connections-scripts',
+      '/best-practices/custom-database-connection-and-action-script-best-practices'
+    ],
+    to: '/best-practices/custom-database-connections-scripts'
   },
   {
-      from: ['/best-practices/custom-db-connections/anatomy','/best-practices/custom-db-connections/size'],
-      to: '/best-practices/custom-database-connection-and-action-script-best-practices/custom-db-connection-anatomy-best-practices'
+      from: [
+        '/best-practices/custom-db-connections/anatomy',
+        '/best-practices/custom-db-connections/size',
+        '/best-practices/custom-database-connection-and-action-script-best-practices/custom-db-connection-anatomy-best-practices'
+      ],
+      to: '/best-practices/custom-database-connections-scripts/anatomy'
   },
   {
-      from: ['/best-practices/custom-db-connections/environment'],
-      to: '/best-practices/custom-database-connection-and-action-script-best-practices/custom-db-action-script-environment-best-practices'
+      from: [
+        '/best-practices/custom-db-connections/environment',
+        '/best-practices/custom-database-connection-and-action-script-best-practices/custom-db-action-script-environment-best-practices'
+      ],
+      to: '/best-practices/custom-database-connections-scripts/environment'
   },
   {
-      from: ['/best-practices/custom-db-connections/execution'],
-      to: '/best-practices/custom-database-connection-and-action-script-best-practices/custom-database-action-script-execution-best-practices'
+      from: [
+        '/best-practices/custom-db-connections/execution',
+        '/best-practices/custom-database-connection-and-action-script-best-practices/custom-database-action-script-execution-best-practices'
+      ],
+      to: '/best-practices/custom-database-connections-scripts/execution'
   },
   {
-      from: ['/best-practices/custom-db-connections/security'],
-      to: '/best-practices/custom-database-connection-and-action-script-best-practices/custom-db-connection-security-best-practices'
+      from: [
+        '/best-practices/custom-db-connections/security',
+        '/best-practices/custom-database-connection-and-action-script-best-practices/custom-db-connection-security-best-practices'
+      ],
+      to: '/best-practices/custom-database-connections-scripts/connection-security'
   },
   {
       from: ['/best-practices/connection-settings'],
