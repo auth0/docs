@@ -1135,6 +1135,8 @@ module.exports = [
 
   {
     from: [
+      '/clients/client-settings',
+      '/dashboard/reference/settings-application',
       '/get-started/dashboard/application-settings',
       '/best-practices/application-settings',
       '/best-practices/app-settings-best-practices'
@@ -2149,10 +2151,6 @@ module.exports = [
   {
     from: ['/dashboard/reference/settings-api','/api-auth/references/dashboard/api-settings'],
     to: '/get-started/dashboard/api-settings'
-  },
-  {
-    from: ['/dashboard/reference/settings-application','/clients/client-settings','/applications/application-settings'],
-    to: '/get-started/dashboard/application-settings'
   },
   {
     from: ['/dashboard-access/dashboard-roles','/dashboard-access/manage-dashboard-users','/dashboard/manage-dashboard-admins','/tutorials/manage-dashboard-admins','/get-started/dashboard/manage-dashboard-users'],
