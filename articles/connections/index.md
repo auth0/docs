@@ -18,7 +18,9 @@ useCase:
   <p>Introduction to the various sources of users for applications, including identity providers, databases, and passwordless authentication methods.</p>
 </div>
 
-A connection is the relationship between Auth0 and a source of users, which may include identity providers (such as Google or LinkedIn), databases, or passwordless authentication methods. Auth0 sits between your application and its sources of users, which adds a level of abstraction so your application is isolated from any changes to and idiosyncrasies of each source's implementation.
+A **connection** is the relationship between Auth0 and a source of users, which may include identity providers (such as Google or LinkedIn), databases, or passwordless authentication methods. Connections usually follow an internet protocol to tell a service provider the user requesting access has provided appropriate credientals. Connections do not store user credentials, but are provided credentials by another service. 
+
+Auth0 sits between your application and its sources of users, which adds a level of abstraction so your application is isolated from any changes to and idiosyncrasies of each source's implementation.
 
 You can configure any number of connections for your applications to use in the Auth0 Dashboard. To view all the connections that you have configured or create new ones, see [View Connections](/dashboard/guides/connections/view-connections).
 
@@ -28,7 +30,7 @@ By default, Auth0 automatically syncs user profile data with each user login, th
   <li>
     <i class="icon icon-budicon-715"></i><a href="/connections/identity-providers-social">Identity Providers Supported by Auth0</a>
 
-Identity Providers are servers that can provide identity information to other servers. Auth0 supports many Identity Providers using various protocols (like <dfn data-key="openid">[OpenID Connect (OIDC)](/protocols/oidc)</dfn>, <dfn data-key="security-assertion-markup-language">[SAML](/protocols/saml)</dfn>, [WS-Federation](/protocols/ws-fed), and more).
+An **Identity Provider** is a server or servers that can provide identity information to other servers. In some cases, user credentials are stored with an identity provider. Auth0 supports many Identity Providers using various protocols (like <dfn data-key="openid">[OpenID Connect (OIDC)](/protocols/oidc)</dfn>, <dfn data-key="security-assertion-markup-language">[SAML](/protocols/saml)</dfn>, [WS-Federation](/protocols/ws-fed), and more).
     <ul>
       <li>
         <i class="icon icon-budicon-695"></i><a href="/connections/identity-providers-social">Social Identity Providers</a>
