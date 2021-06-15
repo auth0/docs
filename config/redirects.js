@@ -1168,7 +1168,13 @@ module.exports = [
     to: '/applications/enable-android-app-links-support'
   },
   {
-    from: ['/dashboard/guides/applications/enable-universal-links','/clients/enable-universal-links','/applications/enable-universal-links','/applications/guides/enable-universal-links-dashboard'],
+    from: [
+      '/dashboard/guides/applications/enable-universal-links',
+      '/clients/enable-universal-links',
+      '/applications/enable-universal-links',
+      '/applications/guides/enable-universal-links-dashboard',
+      '/enable-universal-links-support-in-apple-xcode'
+    ],
     to: '/applications/enable-universal-links-support-in-apple-xcode'
   },
   {
