@@ -7,7 +7,14 @@ articles:
       - title: Dashboard Overview
         url: /get-started/dashboard
       - title: Create Tenants
-        url: /get-started/learn-the-basics
+        url: /get-started/create-tenants
+        children:
+          - title: Create Multiple Tenants
+            url: /get-started/create-tenants/create-multiple-tenants
+          - title: Request Child Tenants
+            url: /get-started/create-tenants/child-tenants
+          - title: Set Up Multiple Environments
+            url: /get-started/create-tenants/set-up-multiple-environments
       - title: Create Applications
         url: /get-started/create-apps 
         children:
@@ -522,25 +529,18 @@ articles:
         children:
           - title: Dashboard Access
             url: /dashboard-access
-          - title: Create Multiple Tenants
-            url: /get-started/dashboard/create-multiple-tenants
-          - title: Request Child Tenants
-            url: /dev-lifecycle/child-tenants
-          - title: Work with Auth0 Locally
-            url: /dev-lifecycle/work-with-auth0-locally
-          - title: Set Up Multiple Environments
-            url: /dev-lifecycle/set-up-multiple-environments
           - title: Signing Keys
             url: /config/tenant-settings/signing-keys
-          - title: Rotate Signing Keys
-            url: /config/tenant-settings/signing-keys/rotate-signing-keys
-          - title: Revoke Signing Keys
-            url: /config/tenant-settings/signing-keys/revoke-signing-keys
-          - title: View Signing Certificates
-            url: /config/tenant-settings/signing-keys/view-signing-certificates
-          - title: Enable SSO for Legacy Tenants
-            url: /get-started/dashboard/enable-sso-for-legacy-tenants
-            hidden: true 
+            children:
+              - title: Rotate Signing Keys
+                url: /config/tenant-settings/signing-keys/rotate-signing-keys
+                hidden: true 
+              - title: Revoke Signing Keys
+                url: /config/tenant-settings/signing-keys/revoke-signing-keys
+                hidden: true 
+              - title: View Signing Certificates
+                url: /config/tenant-settings/signing-keys/view-signing-certificates
+                hidden: true 
           - title: Device User Codes
             url: /config/tenant-settings/configure-device-user-code-settings
       - title: Applications
@@ -568,6 +568,8 @@ articles:
             url: /applications/remove-applications
           - title: Dynamic Application Registration
             url: /applications/dynamic-client-registration
+          - title: Work with Auth0 Locally
+            url: /applications/work-with-auth0-locally
       - title: APIs
         url: /get-started/dashboard/api-settings
         children:
@@ -1373,9 +1375,6 @@ articles:
     children:
       - title: General Usage and Operations
         url: /best-practices/general-usage-and-operations-best-practices
-      - title: Application Settings
-        url: /best-practices/app-settings-best-practices
-        hidden: true
       - title: Connection Settings
         url: /best-practices/connection-settings-best-practices
       - title: Custom Databases and Scripts
@@ -1414,16 +1413,11 @@ articles:
         url: /best-practices/rules-best-practices
       - title: Search
         url: /best-practices/user-search-best-practices
-      - title: Tenant Settings
-        url: /best-practices/tenant-settings-best-practices
-        hidden: true
       - title: Tokens
         url: /best-practices/token-best-practices
   - title: Support
     url: /support
     children:
-      - title: Support Options
-        url: /support
       - title: Support Matrix
         url: /support/product-support-matrix
       - title: SLA
