@@ -568,7 +568,7 @@ articles:
             url: /applications/remove-applications
           - title: Dynamic Application Registration
             url: /applications/dynamic-client-registration
-          - title: Work with Auth0 Locally
+          - title: Test Applications Locally
             url: /applications/work-with-auth0-locally
       - title: APIs
         url: /get-started/dashboard/api-settings
