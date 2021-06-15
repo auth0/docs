@@ -556,7 +556,7 @@ articles:
             url: /applications/enable-universal-links-support-in-apple-xcode
           - title: Check Confidential or Public
             url: /applications/view-application-type
-          - title: Rotate Client Secrets
+          - title: Rotate Client Secrets 
             url: /applications/rotate-client-secret
           - title: Change Application Signing Algorithms
             url: /applications/change-application-signing-algorithms
