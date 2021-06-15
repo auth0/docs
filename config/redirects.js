@@ -1150,6 +1150,10 @@ module.exports = [
     to: '/applications'
   },
   {
+    from: ['/dev-lifecycle/work-with-auth0-locally','/dev-lifecycle/local-testing-and-development'],
+    to: '/applications/work-with-auth0-locally'
+  },
+  {
     from: [
       '/dashboard/guides/applications/rotate-client-secret',
       '/api/management/guides/applications/rotate-client-secret',
@@ -1624,17 +1628,6 @@ module.exports = [
       to: '/deploy/pre-deployment/how-to-run-production-checks/production-check-required-fixes'
   },
 
-  /* Dev Lifecycle */
-
-  {
-    from: ['/dev-lifecycle/local-testing-and-development'],
-    to: '/dev-lifecycle/work-with-auth0-locally'
-  },
-  {
-    from: ['/dev-lifecycle/setting-up-env'],
-    to: '/dev-lifecycle/set-up-multiple-environments'
-  },
-
   /* Email */
 
   {
@@ -2090,8 +2083,20 @@ module.exports = [
     to: '/get-started/dashboard'
   },
   {
-    from: ['/dashboard/guides/tenants/create-multiple-tenants'],
-    to: '/get-started/dashboard/create-multiple-tenants'
+    from: ['/get-started/learn-the-basics','/getting-started/the-basics','/getting-started/create-tenant'],
+    to: '/get-started/create-tenants'
+  },
+  {
+    from: ['/dev-lifecycle/child-tenants'],
+    to: '/get-started/create-tenants/child-tenants'
+  },
+  {
+    from: ['/dev-lifecycle/set-up-multiple-environments','/dev-lifecycle/setting-up-env'],
+    to: '/get-started/create-tenants/set-up-multiple-environments'
+  },
+  {
+    from: ['/get-started/dashboard/create-multiple-tenants','/dashboard/guides/tenants/create-multiple-tenants'],
+    to: '/get-started/create-tenants/create-multiple-tenants'
   },
   {
     from: ['/dashboard/guides/tenants/enable-sso-tenant'],
@@ -2160,10 +2165,6 @@ module.exports = [
   {
     from: ['/product-lifecycle/deprecations-and-migrations/migrate-to-manage-dashboard-new-roles'],
     to: '/product-lifecycle/deprecations-and-migrations/migrate-tenant-member-roles'
-  },
-  {
-    from: ['/getting-started/the-basics','/getting-started/create-tenant'],
-    to: '/get-started/learn-the-basics'
   },
 
   /* Hooks */
