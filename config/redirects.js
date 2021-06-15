@@ -1134,6 +1134,14 @@ module.exports = [
   /* Applications */
 
   {
+    from: [
+      '/get-started/dashboard/application-settings',
+      '/best-practices/application-settings',
+      '/best-practices/app-settings-best-practices'
+    ],
+    to: '/applications/application-settings'
+  },
+  {
     from: ['/api-auth/dynamic-client-registration','/api-auth/dynamic-application-registration'],
     to: '/applications/dynamic-client-registration'
   },
@@ -1142,11 +1150,19 @@ module.exports = [
     to: '/applications'
   },
   {
+    from: [
+      '/dashboard/guides/applications/rotate-client-secret',
+      '/api/management/guides/applications/rotate-client-secret',
+      '/get-started/dashboard/rotate-client-secret'
+    ],
+    to: '/applications/rotate-client-secret'
+  },
+  {
     from: ['/dashboard/guides/applications/enable-android-app-links','/clients/enable-android-app-links','/applications/enable-android-app-links','/applications/guides/enable-android-app-links-dashboard'],
     to: '/applications/enable-android-app-links-support'
   },
   {
-    from: ['/dashboard/guides/applications/enable-universal-links','/clients/enable-universal-links','/applications/enable-universal-links','/applications/guides/enable-universal-links-dashboard','/enable-universal-links-support-in-apple-xcode'],
+    from: ['/dashboard/guides/applications/enable-universal-links','/clients/enable-universal-links','/applications/enable-universal-links','/applications/guides/enable-universal-links-dashboard'],
     to: '/applications/enable-universal-links-support-in-apple-xcode'
   },
   {
@@ -1391,10 +1407,6 @@ module.exports = [
   {
     from: ['/best-practices/search-best-practices','/users/search/best-practices'],
     to: '/best-practices/user-search-best-practices'
-  },
-  {
-    from: ['/best-practices/tenant-settings'],
-    to: '/best-practices/tenant-settings-best-practices'
   },
   {
     from: ['/best-practices/testing'],
@@ -2078,24 +2090,12 @@ module.exports = [
     to: '/get-started/dashboard'
   },
   {
-    from: ['/best-practices/application-settings','/best-practices/app-settings-best-practices'],
-    to: '/get-started/dashboard/application-settings'
-  },
-  {
-    from: ['/dashboard/guides/tenants/configure-device-user-code-settings'],
-    to: '/get-started/dashboard/configure-device-user-code-settings'
-  },
-  {
     from: ['/dashboard/guides/tenants/create-multiple-tenants'],
     to: '/get-started/dashboard/create-multiple-tenants'
   },
   {
     from: ['/dashboard/guides/tenants/enable-sso-tenant'],
     to: '/get-started/dashboard/enable-sso-for-legacy-tenants'
-  },
-  {
-    from: ['/dashboard/guides/tenants/configure-session-lifetime-settings','/api/management/guides/tenants/configure-session-lifetime-settings','/sso/current/configure-session-lifetime-limits'],
-    to: '/get-started/dashboard/configure-session-lifetime-settings'
   },
   {
     from: ['/dashboard/guides/apis/delete-permissions-apis'],
@@ -2150,10 +2150,6 @@ module.exports = [
     to: '/get-started/dashboard/application-settings'
   },
   {
-    from: ['/dashboard/reference/settings-tenant','/tutorials/dashboard-tenant-settings','/dashboard-account-settings','/dashboard/dashboard-tenant-settings','/configure'],
-    to: '/get-started/dashboard/tenant-settings'
-  },
-  {
     from: ['/dashboard-access/dashboard-roles','/dashboard-access/manage-dashboard-users','/dashboard/manage-dashboard-admins','/tutorials/manage-dashboard-admins','/get-started/dashboard/manage-dashboard-users'],
     to: '/dashboard-access'
   },
@@ -2164,10 +2160,6 @@ module.exports = [
   {
     from: ['/product-lifecycle/deprecations-and-migrations/migrate-to-manage-dashboard-new-roles'],
     to: '/product-lifecycle/deprecations-and-migrations/migrate-tenant-member-roles'
-  },
-  {
-    from: ['/dashboard/guides/applications/rotate-client-secret','/api/management/guides/applications/rotate-client-secret'],
-    to: '/get-started/dashboard/rotate-client-secret'
   },
   {
     from: ['/getting-started/the-basics','/getting-started/create-tenant'],
@@ -3811,6 +3803,10 @@ module.exports = [
     to: '/sessions/session-layers'
   },
   {
+    from: ['/get-started/dashboard/configure-session-lifetime-settings','/dashboard/guides/tenants/configure-session-lifetime-settings','/api/management/guides/tenants/configure-session-lifetime-settings','/sso/current/configure-session-lifetime-limits'],
+    to: '/sessions/configure-session-lifetime-settings'
+  },
+  {
     from: ['/sessions/concepts/cookie-attributes', '/sessions-and-cookies/samesite-cookie-attribute-changes'],
     to: '/sessions/cookies/samesite-cookie-attribute-changes'
   },
@@ -4655,15 +4651,28 @@ module.exports = [
   /* Configuration */
 
   {
-    from: ['/configuration-overview'],
+    from: ['/configuration-overview','/configure'],
     to: '/config' 
   },
   
   /* Tenant Settings */
 
   {
-    from: ['/dashboard/tenant-settings','/get-started/dashboard/tenant-settings'],
+    from: [
+      '/dashboard/tenant-settings',
+      '/get-started/dashboard/tenant-settings',
+      '/best-practices/tenant-settings-best-practices',
+      '/best-practices/tenant-settings',
+      '/dashboard/reference/settings-tenant',
+      '/tutorials/dashboard-tenant-settings',
+      '/dashboard-account-settings',
+      '/dashboard/dashboard-tenant-settings'
+    ],
     to: '/config/tenant-settings'
+  },
+  {
+    from: ['/get-started/dashboard/configure-device-user-code-settings','/dashboard/guides/tenants/configure-device-user-code-settings'],
+    to: '/config/tenant-settings/configure-device-user-code-settings'
   },
 
   /* Signing Keys */

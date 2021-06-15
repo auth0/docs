@@ -514,66 +514,61 @@ articles:
             url: /authorization/manage-permissions
           - title: Enable RBAC for APIs
             url: /authorization/rbac/enable-role-based-access-control-for-apis
-  - title: Configuration
+  - title: Configure
     url: /config
     children:
-      - title: Tenant Settings
+      - title: Tenants
         url: /config/tenant-settings
         children:
           - title: Dashboard Access
             url: /dashboard-access
+          - title: Create Multiple Tenants
+            url: /get-started/dashboard/create-multiple-tenants
+          - title: Request Child Tenants
+            url: /dev-lifecycle/child-tenants
+          - title: Work with Auth0 Locally
+            url: /dev-lifecycle/work-with-auth0-locally
+          - title: Set Up Multiple Environments
+            url: /dev-lifecycle/set-up-multiple-environments
           - title: Signing Keys
             url: /config/tenant-settings/signing-keys
-            children:
-              - title: Rotate Signing Keys
-                url: /config/tenant-settings/signing-keys/rotate-signing-keys
-                hidden: true 
-              - title: Revoke Signing Keys
-                url: /config/tenant-settings/signing-keys/revoke-signing-keys
-                hidden: true 
-              - title: View Signing Certificates
-                url: /config/tenant-settings/signing-keys/view-signing-certificates
-                hidden: true 
-          - title: Configure Session Lifetime Settings
-            url: /get-started/dashboard/configure-session-lifetime-settings
+          - title: Rotate Signing Keys
+            url: /config/tenant-settings/signing-keys/rotate-signing-keys
+          - title: Revoke Signing Keys
+            url: /config/tenant-settings/signing-keys/revoke-signing-keys
+          - title: View Signing Certificates
+            url: /config/tenant-settings/signing-keys/view-signing-certificates
           - title: Enable SSO for Legacy Tenants
             url: /get-started/dashboard/enable-sso-for-legacy-tenants
             hidden: true 
-          - title: Configure Device User Code Settings
-            url: /get-started/dashboard/configure-device-user-code-settings
-          - title: Dynamic Client Registration
-            url: /applications/dynamic-client-registration
-          - title: Create Multiple Tenants
-            url: /get-started/dashboard/create-multiple-tenants
-            hidden: true
-          - title: Child Tenant Request Process
-            url: /dev-lifecycle/child-tenants
-            hidden: true
-          - title: Best Practices
-            url: /best-practices/tenant-settings-best-practices
-      - title: Application Settings
-        url: /get-started/dashboard/application-settings
+          - title: Device User Codes
+            url: /config/tenant-settings/configure-device-user-code-settings
+      - title: Applications
+        url: /applications 
         children:
-          - title: Enable SSO for Legacy Applications
-            url: /sso/enable-sso-for-applications
-            hidden: true           
+          - title: Application Settings
+            url: /applications/application-settings          
           - title: Update Grant Types
             url: /applications/update-grant-types
           - title: Android App Links
             url: /applications/enable-android-app-links-support
           - title: Apple Universal Links
-            url: /enable-universal-links-support-in-apple-xcode
-          - title: Remove Applications
-            url: /applications/remove-applications
+            url: /applications/enable-universal-links-support-in-apple-xcode
           - title: Check Confidential or Public
             url: /applications/view-application-type
           - title: Rotate Client Secrets
-            url: /get-started/dashboard/rotate-client-secret
+            url: /applications/rotate-client-secret
+          - title: Change Application Signing Algorithms
+            url: /applications/change-application-signing-algorithms
           - title: Subdomain URL Placeholders
             url: /applications/wildcards-for-subdomains
           - title: Configure Application Metadata
             url: /applications/configure-application-metadata
-      - title: API Settings
+          - title: Remove Applications
+            url: /applications/remove-applications
+          - title: Dynamic Application Registration
+            url: /applications/dynamic-client-registration
+      - title: APIs
         url: /get-started/dashboard/api-settings
         children:
           - title: Signing Algorithms
@@ -672,6 +667,8 @@ articles:
             url: /sessions/session-layers
           - title: Session Lifetime Limits
             url: /sessions/session-lifetime-limits
+          - title: Configure Session Lifetime Settings
+            url: /sessions/configure-session-lifetime-settings
           - title: Non-Persistent Sessions
             url: /sessions/non-persistent-sessions
           - title: Manage Multi-Site Sessions with Auth0 SDK
