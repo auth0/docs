@@ -1097,6 +1097,7 @@ articles:
             url: /logs/export-log-events-with-extensions
           - title: Export Log Events with Rules
             url: /logs/export-log-events-with-rules
+            hidden: true 
       - title: Streams
         url: /monitor-auth0/streams
         children:
