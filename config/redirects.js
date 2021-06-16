@@ -1278,8 +1278,8 @@ module.exports = [
     to: '/authorization/rbac/roles/create-roles'
   },
   {
-    from: ['/authorization/reference/rbac-limits'],
-    to: '/authorization/rbac/authorization-core-rbac-limits'
+    from: ['/authorization/reference/rbac-limits','/authorization/rbac/authorization-core-rbac-limits'],
+    to: '/policies/entity-limit-policy'
   },
   {
     from: ['/authorization/authentication-and-authorization', '/authorization/concepts/authz-and-authn','/application-auth/current','/application-auth/legacy','/application-auth'],
