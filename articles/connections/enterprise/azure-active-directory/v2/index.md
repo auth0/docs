@@ -68,7 +68,7 @@ During registration, configure the following settings:
 | Option | Setting |
 | -- | -- |
 | **Supported account types** | To allow users from external organizations (like other Azure AD directories) choose the appropriate multitenant option. Multitenant options include the following: **Accounts in any organizational directory (Any Azure AD directory - Multitenant)**. |
-| **Redirect URI** | Enter your <dfn data-key="callback">callback URL</dfn>: `https://${account.namespace}/login/callback`. |
+| **Redirect URI** | Select a Redirect URI type of **Web**, and enter your <dfn data-key="callback">callback URL</dfn>: `https://${account.namespace}/login/callback`. |
 
 <%= include('../../../_find-auth0-domain-redirects.md') %>
 
