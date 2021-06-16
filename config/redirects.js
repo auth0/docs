@@ -1370,7 +1370,7 @@ module.exports = [
 
   {
     from: [
-      '/best-practices/custom-db-connections',
+      '/best-practices/custom-db-connections', 
       '/best-practices/custom-db-connections-scripts',
       '/best-practices/custom-database-connection-and-action-script-best-practices'
     ],
