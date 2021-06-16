@@ -1362,6 +1362,18 @@ articles:
     children:
       - title: General Usage and Operations
         url: /best-practices/general-usage-and-operations-best-practices
+      - title: Deployment
+        url: /best-practices/deployment-best-practices
+      - title: Performance
+        url: /best-practices/performance-best-practices
+      - title: Debugging
+        url: /best-practices/debugging-best-practices
+      - title: Error Handling
+        url: /best-practices/error-handling-best-practices
+      - title: Multi-Tenant Applications
+        url: /best-practices/multi-tenant-apps-best-practices
+      - title: Mobile Device Login Flow
+        url: /best-practices/mobile-device-login-flow-best-practices
       - title: Connection Settings
         url: /best-practices/connection-settings-best-practices
       - title: Custom Databases and Scripts
@@ -1379,16 +1391,21 @@ articles:
         url: /connections/passwordless/guides/best-practices
       - title: Rules
         url: /best-practices/rules-best-practices
-      - title: Search
-        url: /best-practices/user-search-best-practices
+        children:
+          - title: Rules Anatomy
+            url: /best-practices/rules-anatomy-best-practices
+          - title: Rules Environment
+            url: /best-practices/rules-environment-best-practices
+          - title: Rules Execution
+            url: /best-practices/rules-execution-best-practices
+          - title: Rules Security
+            url: /best-practices/rules-security-best-practices
+          - title: Rules Testing
+            url: /best-practices/rules-testing-best-practices
       - title: Tokens
         url: /best-practices/token-best-practices
-      - title: Mobile Device Login Flow
-        url: /best-practices/mobile-device-login-flow-best-practices
       - title: User Search
         url: /best-practices/user-search-best-practices
-      - title: Error Handling
-        url: /best-practices/error-handling-best-practices
   - title: Support
     url: /support
     children:
