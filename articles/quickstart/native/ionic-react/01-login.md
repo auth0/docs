@@ -52,7 +52,7 @@ Replace `YOUR_PACKAGE_ID` with your application's package name.
 
 <%= include('../../../_includes/_logout_url') %>
 
-You should set the **Allowed Callback URL** to
+You should set the **Allowed Logout URLs** to
 
 ```bash
 # replace YOUR_PACKAGE_ID with your app package ID
@@ -181,5 +181,45 @@ useEffect(() => {
 :::panel Checkpoint
 Add the `LoginButton` component to your application. When you click it, verify that your Ionic application redirects you to the [Auth0 Universal Login](https://auth0.com/universal-login) page and that you can now log in or sign up using a username and password or a social provider.
 
-Once that's complete, verify that Auth0 redirects you to your application using the value of the `redirectUri` that you used to configure the `Auth0Provider`.
+Once that's complete, verify that Auth0 redirects you back to your application.
+:::
+
+## Add Logout to Your Application
+
+Now that you can log in to your React application, you need [a way to log out](https://auth0.com/docs/logout/guides/logout-auth0). You can create a logout button using the `logout()` method from the `useAuth0()` hook. Executing `logout()` redirects your users to your [Auth0 logout endpoint](https://auth0.com/docs/api/authentication?javascript#logout) (`https://YOUR_DOMAIN/v2/logout`) and then immediately redirects them to your application.
+
+Similar to `buildAuthorizeUrl`, there is an equivalent method `buildLogouturl` that you can use to plug into Capacitor's `Browser.open` method, ensuring that the correct system browser is used.
+
+To clear your login session locally, you can pass a parameter to `logout` that will clear the SDK's state but not perform the redirect to the logout endpoint, leaving you to handle that with Capacitor's Browser plugin.
+
+Create a new file `LogoutButton.tsx` and add the following code to the file. Then, add the `LogoutButton` component to your app.
+
+```js
+import { useAuth0 } from "@auth0/auth0-react";
+import { Browser } from "@capacitor/browser";
+import { IonButton } from "@ionic/react";
+
+// This should reflect the URL added earlier to your "Allowed Logout URLs" setting
+// in the Auth0 dashboard.
+const callbackUri = "YOUR_PACKAGE_ID://${account.namespace}/capacitor/YOUR_PACKAGE_ID/callback";
+
+const LogoutButton: React.FC = () => {
+  const { buildLogoutUrl, logout } = useAuth0();
+
+  const doLogout = async () => {
+    // Open the browser to perform a logout
+    await Browser.open({ url: buildLogoutUrl({ returnTo: callbackUri }) });
+
+    // Ask the SDK to log out locally, but not do the redirect
+    logout({ localOnly: true });
+  };
+
+  return <IonButton onClick={doLogout}>Log out</IonButton>;
+};
+
+export default LogoutButton;
+```
+
+:::panel Checkpoint
+Add the `LogoutButton` component to your application. When you click it, verify that your Ionic application redirects you the address you specified as one of the "Allowed Logout URLs" in the "Settings" and that you are no longer logged in to your application.
 :::
