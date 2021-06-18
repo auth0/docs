@@ -98,7 +98,6 @@ ReactDOM.render(
     redirectUri={window.location.origin}
     cacheLocation="localstorage"
     useRefreshTokens={true}
-    skipRedirectCallback={true}
   >
     <App />
   </Auth0Provider>,
@@ -108,12 +107,12 @@ ReactDOM.render(
 
 The `Auth0Provider` component takes the following props:
 
-- `domain` and `clientId`: The values of these properties correspond to the "Domain" and "Client ID" values present under the "Settings" of the single-page application that you registered with Auth0.
+- `domain`: The "domain" value present under the "Settings" of the application you created in your Auth0 dashboard
+- `clientId`: The "client ID" value present under the "Settings" of the application you created in your Auth0 dashboard
 
 <%= include('../../spa/_includes/_auth_note_custom_domains') %>
 
 - `redirectUri`: The URL to where you'd like to redirect your users after they authenticate with Auth0.
-- `skipRedirectCallback`: Prevents the SDK from trying to handle callback URLs on app start, as they need to be handled differently in the context of a Capacitor app, by supplying the URL that comes from the `appUrlOpen` event
 - `useRefreshTokens`: The React SDK will use refresh tokens over relying on session cookies, which can be blocked in many modern browsers. Please read [Refresh Token Rotation](https://auth0.com/docs/tokens/refresh-tokens/refresh-token-rotation) for more information on using refresh tokens with public clients.
 - `cacheLocation`: The location at which to store tokens. We use `localstorage` here so that tokens are persisted across app refreshes.
 
@@ -123,13 +122,21 @@ Local Storage should be considered **transient** in a Capacitor app, as the oper
 [some blurb here about the SPA SDK extensible cache, when it's ready]
 :::
 
-`Auth0Provider` stores the authentication state of your users and the state of the SDK &mdash; whether Auth0 is ready to use or not. It also exposes helper methods to log in and log out your users, which you can access using the `useAuth0()` hook.
+:::panel Checkpoint
+Now that you have configured `Auth0Provider`, run your application to verify that the SDK is initializing correctly, and your application is not throwing any errors related to Auth0.
+:::
 
 ## Add Login to Your Application
 
-The Auth0 React SDK gives you tools to quickly implement user authentication in your React application. If you have used this SDK before, you might be familiar with the `loginWithRedirect` function that redirects your SPA to the Auth0 Universal Login Page so that your users can authenticate, before returning to your app.
+In a Capacitor application, the [Capacitor's Browser plugin](https://capacitorjs.com/docs/apis/browser) should be used to perform a redirect to the Auth0 [Universal Login Page](https://auth0.com/universal-login). Use the `buildAuthorizeUrl` function to get the URL to redirect the user.
 
-This is done internally by setting `window.location.href` to the correct URL. In a Capacitor application, we would instead prefer to use Capacitor's Browser plugin to perform this redirect. Thus we can use the `buildAuthorizeUrl` function to get the URL to redirect the user.
+:::note
+If you have used `auth0-react` before, you might be familiar with the `loginWithRedirect` function that redirects your SPA to the Auth0 Universal Login Page so that your users can authenticate, before returning to your app.
+
+This is done internally by setting `window.location.href` to the correct URL, but that isn't desireable for a Capacitor application, as it would use the default browser application on the user's device, rather than the system browser component appropriate for the platform. This means the user would leave your application and could make for a detrimental user experience.
+:::
+
+Add a new file `LoginButton.tsx` with the following code:
 
 ```js
 import { useAuth0 } from "@auth0/auth0-react";
@@ -165,6 +172,7 @@ Add a handler to your `App` component that looks like the following:
 const { handleRedirectCallback } = useAuth0();
 
 useEffect(() => {
+  // Handle the 'appUrlOpen' event and call `handleRedirectCallback`
   CapApp.addListener("appUrlOpen", async ({ url }) => {
       if (
         url.includes("state") &&
@@ -172,25 +180,23 @@ useEffect(() => {
       ) {
         await handleRedirectCallback(url);
       }
-
+      // Ignored on Android
       await Browser.close();
   });
 }, [handleRedirectCallback]);
 ```
 
 :::panel Checkpoint
-Add the `LoginButton` component to your application. When you click it, verify that your Ionic application redirects you to the [Auth0 Universal Login](https://auth0.com/universal-login) page and that you can now log in or sign up using a username and password or a social provider.
+Add the `LoginButton` component to your application, as well as the handler for the "appUrlOpen" event to your `App` component. When you click the login button, verify that your application redirects you to the Auth0 Universal Login Page and that you can now log in or sign up using a username and password or a social provider.
 
 Once that's complete, verify that Auth0 redirects you back to your application.
 :::
 
 ## Add Logout to Your Application
 
-Now that you can log in to your React application, you need [a way to log out](https://auth0.com/docs/logout/guides/logout-auth0). You can create a logout button using the `logout()` method from the `useAuth0()` hook. Executing `logout()` redirects your users to your [Auth0 logout endpoint](https://auth0.com/docs/api/authentication?javascript#logout) (`https://YOUR_DOMAIN/v2/logout`) and then immediately redirects them to your application.
+Now that you can log in, you need [a way to log out](https://auth0.com/docs/logout/guides/logout-auth0). To do this, create a logout button using the `logout` function from the `useAuth0()` hook. Executing `logout` redirects your users to your [Auth0 logout endpoint](https://auth0.com/docs/api/authentication?javascript#logout) (`https://YOUR_DOMAIN/v2/logout`) and then immediately redirects them to your application.
 
-Similar to `buildAuthorizeUrl`, there is an equivalent method `buildLogouturl` that you can use to plug into Capacitor's `Browser.open` method, ensuring that the correct system browser is used.
-
-To clear your login session locally, you can pass a parameter to `logout` that will clear the SDK's state but not perform the redirect to the logout endpoint, leaving you to handle that with Capacitor's Browser plugin.
+Similar to `buildAuthorizeUrl`, there is an equivalent method `buildLogoutUrl` that can be opened using Capacitor's Browser plugin. However, you will also need to pass a parameter to `logout` that will clear the SDK's state but not perform the redirect to the logout endpoint, as you want to instead do the redirect with the Browser plugin.
 
 Create a new file `LogoutButton.tsx` and add the following code to the file. Then, add the `LogoutButton` component to your app.
 
