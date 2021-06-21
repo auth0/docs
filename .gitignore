@@ -21,3 +21,4 @@ config.json
 *.swo
 Session.vim
 .netrwhist
+.vscode
