@@ -2613,140 +2613,293 @@ module.exports = [
     to: '/integrations/sharepoint-2010-2013'
   },
   {
-    from: ['/integrations/sso-integrations','/sso/current/integrations'],
-    to: '/integrations/sso'
+    from: [
+      '/integrations/sso-integrations',
+      '/sso/current/integrations',
+      '/integrations/sso'
+    ],
+    to: 'https://marketplace.auth0.com/features/sso-integrations'
   },
   {
-    from: ['/integrations/sso-integrations/ad-rms','/integrations/sso-integrations/ad-rms-sso-integration','/sso/current/integrations/ad-rms'],
-    to: '/integrations/sso/ad-rms'
+    from: [
+      '/integrations/sso-integrations/ad-rms',
+      '/integrations/sso-integrations/ad-rms-sso-integration',
+      '/sso/current/integrations/ad-rms',
+      '/integrations/sso/ad-rms'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/ad-rms-sso'
   },
   {
-    from: ['/integrations/sso-integrations/box','/sso/current/integrations/box'],
-    to: '/integrations/sso/box'
+    from: [
+      '/integrations/sso-integrations/box',
+      '/sso/current/integrations/box',
+      '/integrations/sso/box'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/box-sso'
   },
   {
-    from: ['/integrations/sso-integrations/cloudbees','/sso/current/integrations/cloudbees'],
-    to: '/integrations/sso/cloudbees'
+    from: [
+      '/integrations/sso-integrations/cloudbees',
+      '/sso/current/integrations/cloudbees',
+      '/integrations/sso/cloudbees'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/cloudbees-sso'
   },
   {
-    from: ['/integrations/sso-integrations/concur','/sso/current/integrations/concur'],
-    to: '/integrations/sso/concur'
+    from: [
+      '/integrations/sso-integrations/concur',
+      '/sso/current/integrations/concur',
+      '/integrations/sso/concur'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/concur-sso'
   },
   {
-    from: ['/integrations/sso-integrations/dropbox','/sso/current/integrations/dropbox','/integrations/dropbox'],
-    to: '/integrations/sso/dropbox'
+    from: [
+      '/integrations/sso-integrations/disqus',
+      '/sso/current/integrations/disqus',
+      '/integrations/disqus',
+      '/integrations/sso/disqus'
+    ],
+    to: 'https://marketplace.auth0.com/features/sso-integrations'
   },
   {
-    from: ['/integrations/sso-integrations/dynamics-crm','/sso/current/integrations/dynamics-crm','/integrations/dynamics-crm'],
-    to: '/integrations/sso/dynamics-crm'
+    from: [
+      '/integrations/sso-integrations/dropbox',
+      '/sso/current/integrations/dropbox',
+      '/integrations/dropbox',
+      '/integrations/sso/dropbox'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/dropbox-sso'
   },
   {
-    from: ['/integrations/sso-integrations/adobe-sign','/integrations/sso-integrations/echosign','/sso/current/integrations/echosign','/integrations/echosign'],
-    to: '/integrations/sso/adobe-sign'
+    from: [
+      '/integrations/sso-integrations/dynamics-crm',
+      '/sso/current/integrations/dynamics-crm',
+      '/integrations/dynamics-crm',
+      '/integrations/sso/dynamics-crm'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/dynamics-crm-sso'
   },
   {
-    from: ['/integrations/sso-integrations/egnyte','/sso/current/integrations/egnyte','/integrations/egnyte'],
-    to: '/integrations/sso/egnyte'
+    from: [
+      '/integrations/sso-integrations/adobe-sign',
+      '/integrations/sso-integrations/echosign',
+      '/sso/current/integrations/echosign',
+      '/integrations/echosign',
+      '/integrations/sso/adobe-sign'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/adobe-sign-sso'
   },
   {
-    from: ['/integrations/sso-integrations/new-relic','/sso/current/integrations/new-relic','/integrations/new-relic'],
-    to: '/integrations/sso/new-relic'
+    from: [
+      '/integrations/sso-integrations/egnyte',
+      '/sso/current/integrations/egnyte',
+      '/integrations/egnyte',
+      '/integrations/sso/egnyte'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/egnyte-sso'
   },
   {
-    from: ['/integrations/sso-integrations/office-365','/sso/current/integrations/office-365','/integrations/office-365'],
-    to: '/integrations/sso/office-365'
+    from: [
+      '/integrations/sso-integrations/new-relic',
+      '/sso/current/integrations/new-relic',
+      '/integrations/new-relic',
+      '/integrations/sso/new-relic'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/new-relic-sso'
   },
   {
-    from: ['/integrations/sso-integrations/salesforce','/sso/current/integrations/salesforce','/integrations/salesforce'],
-    to: '/integrations/sso/salesforce'
+    from: [
+      '/integrations/sso-integrations/office-365',
+      '/sso/current/integrations/office-365',
+      '/integrations/office-365',
+      '/integrations/sso/office-365'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/office-365-sso'
   },
   {
-    from: ['/integrations/sso-integrations/slack','/sso/current/integrations/slack','/integrations/integrating-with-slack','/tutorials/integrating-with-slack','/scenarios/slack','/integrations/slack'],
-    to: '/integrations/sso/slack'
+    from: [
+      '/integrations/sso-integrations/salesforce',
+      '/sso/current/integrations/salesforce',
+      '/integrations/salesforce',
+      '/integrations/sso/salesforce'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/salesforce-sso'
   },
   {
-    from: ['/integrations/sso-integrations/sentry','/sso/current/integrations/sentry','/integrations/sentry'],
-    to: '/integrations/sso/sentry'
+    from: [
+      '/integrations/sso-integrations/slack',
+      '/sso/current/integrations/slack',
+      '/integrations/integrating-with-slack',
+      '/tutorials/integrating-with-slack',
+      '/scenarios/slack',
+      '/integrations/slack',
+      '/integrations/sso/slack'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/slack-sso'
   },
   {
-    from: ['/integrations/sso-integrations/springcm','/sso/current/integrations/springcm','/integrations/springcm'],
-    to: '/integrations/sso/springcm'
+    from: [
+      '/integrations/sso-integrations/sentry',
+      '/sso/current/integrations/sentry',
+      '/integrations/sentry',
+      '/integrations/sso/sentry'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/sentry-sso'
   },
   {
-    from: ['/integrations/sso-integrations/zendesk','/sso/current/integrations/zendesk','/integrations/zendesk'],
-    to: '/integrations/sso/zendesk'
+    from: [
+      '/integrations/sso-integrations/sharepoint',
+      '/sso/current/integrations/sharepoint',
+      '/integrations/sso/sharepoint'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/sharepoint-sso'
   },
   {
-    from: ['/integrations/sso-integrations/zoom','/sso/current/integrations/zoom','/integrations/zoom'],
-    to: '/integrations/sso/zoom'
+    from: [
+      '/integrations/sso-integrations/springcm',
+      '/sso/current/integrations/springcm',
+      '/integrations/springcm',
+      '/integrations/sso/springcm'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/springcm-sso'
   },
   {
-    from: ['/integrations/sso-integrations/cisco-webex'],
-    to: '/integrations/sso/cisco-webex'
+    from: [
+      '/integrations/sso-integrations/zendesk',
+      '/sso/current/integrations/zendesk',
+      '/integrations/zendesk',
+      '/integrations/sso/zendesk'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/zendesk-sso'
   },
   {
-    from: ['/integrations/sso-integrations/datadog'],
-    to: '/integrations/sso/datadog'
+    from: [
+      '/integrations/sso-integrations/zoom',
+      '/sso/current/integrations/zoom',
+      '/integrations/zoom',
+      '/integrations/sso/zoom'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/zoom-sso'
   },
   {
-    from: ['/integrations/sso-integrations/egencia'],
-    to: '/integrations/sso/egencia'
-  },
-    {
-  from: ['/integrations/sso-integrations/eloqua'],
-    to: '/integrations/sso/eloqua'
-  },
-  {
-    from: ['/integrations/sso-integrations/freshdesk'],
-    to: '/integrations/sso/freshdesk'
+    from: [
+      '/integrations/sso-integrations/cisco-webex',
+      '/integrations/sso/cisco-webex'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/cisco-webex-sso'
   },
   {
-    from: ['/integrations/sso-integrations/g-suite','/integrations/sso/g-suite'],
-    to: '/integrations/sso/google-workspace'
+    from: [
+      '/integrations/sso-integrations/datadog',
+      '/integrations/sso/datadog'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/datadog-sso'
   },
   {
-    from: ['/integrations/sso-integrations/github-enterprise-cloud'],
-    to: '/integrations/sso/github-enterprise-cloud'
+    from: [
+      '/integrations/sso-integrations/egencia',
+      '/integrations/sso/egencia'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/egencia-sso'
   },
   {
-    from: ['/integrations/sso-integrations/github-enterprise-server'],
-    to: '/integrations/sso/github-enterprise-server'
+    from: [
+      '/integrations/sso-integrations/eloqua',
+      '/integrations/sso/eloqua'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/eloqua-sso'
   },
   {
-    from: ['/integrations/sso-integrations/heroku'],
-    to: '/integrations/sso/heroku'
+    from: [
+      '/integrations/sso-integrations/freshdesk',
+      '/integrations/sso/freshdesk'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/freshdesk-sso'
   },
   {
-    from: ['/integrations/sso-integrations/hosted-graphite'],
-    to: '/integrations/sso/hosted-graphite'
+    from: [
+      '/integrations/sso-integrations/g-suite',
+      '/integrations/sso/g-suite'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/g-suite-sso'
   },
   {
-    from: ['/integrations/sso-integrations/litmos'],
-    to: '/integrations/sso/litmos'
+    from: [
+      '/integrations/sso-integrations/github-enterprise-cloud',
+      '/integrations/sso/github-enterprise-cloud'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/github-enterprise-cloud-sso'
   },
   {
-    from: ['/integrations/sso-integrations/pluralsight'],
-    to: '/integrations/sso/pluralsight'
+    from: [
+      '/integrations/sso-integrations/github-enterprise-server',
+      '/integrations/sso/github-enterprise-server'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/github-enterprise-server-sso'
   },
   {
-    from: ['/integrations/sso-integrations/sprout-video'],
-    to: '/integrations/sso/sprout-video'
+    from: [
+      '/integrations/sso-integrations/heroku',
+      '/integrations/sso/heroku'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/heroku-sso'
   },
   {
-    from: ['/integrations/sso-integrations/tableau-online'],
-    to: '/integrations/sso/tableau-online'
+    from: [
+      '/integrations/sso-integrations/hosted-graphite',
+      '/integrations/sso/hosted-graphite'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/hosted-graphite-sso'
   },
   {
-    from: ['/integrations/sso-integrations/tableau-server'],
-    to: '/integrations/sso/tableau-server'
+    from: [
+      '/integrations/sso-integrations/litmos',
+      '/integrations/sso/litmos'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/litmos-sso'
   },
   {
-    from: ['/integrations/sso-integrations/workday'],
-    to: '/integrations/sso/workday'
+    from: [
+      '/integrations/sso-integrations/pluralsight',
+      '/integrations/sso/pluralsight'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/pluralsight-sso'
   },
   {
-    from: ['/integrations/sso-integrations/workpath'],
-    to: '/integrations/sso/workpath'
+    from: [
+      '/integrations/sso-integrations/sprout-video',
+      '/integrations/sso/sprout-video'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/sprout-video-sso'
+  },
+  {
+    from: [
+      '/integrations/sso-integrations/tableau-online',
+      '/integrations/sso/tableau-online'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/tableau-online-sso'
+  },
+  {
+    from: [
+      '/integrations/sso-integrations/tableau-server',
+      '/integrations/sso/tableau-server'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/tableau-server-sso'
+  },
+  {
+    from: [
+      '/integrations/sso-integrations/workday',
+      '/integrations/sso/workday'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/workday-sso'
+  },
+  {
+    from: [
+      '/integrations/sso-integrations/workpath',
+      '/integrations/sso/workpath'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/workpath-sso'
   },
   {
     from: ['/integrations/azure-tutorial','/azure-tutorial','/tutorials/azure-tutorial','/integrations/azure-api-management/configure-auth0','/integrations/azure-api-management/configure-azure'],
