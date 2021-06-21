@@ -557,35 +557,11 @@ module.exports = [
     to: 'https://marketplace.auth0.com/integrations/baidu-social-connection'
   },
   {
-    from: [ '/connections/social/bitbucket' ],
-    to: 'https://marketplace.auth0.com/integrations/bitbucket-social-connection'
-  },
-  {
     from: [
       '/box-clientid',
       '/connections/social/box'
     ],
     to: 'https://marketplace.auth0.com/integrations/box-social-connection'
-  },
-  {
-    from: [ '/connections/social/digitalocean' ],
-    to: 'https://marketplace.auth0.com/integrations/digitalocean-social-connection'
-  },
-  {
-    from: [ '/connections/social/discord' ],
-    to: 'https://marketplace.auth0.com/integrations/discord-social-connection'
-  },
-  {
-    from: [ '/connections/social/docomo' ],
-    to: 'https://marketplace.auth0.com/integrations/daccount-social-connection'
-  },
-  {
-    from: [ '/connections/social/dribbble' ],
-    to: 'https://marketplace.auth0.com/integrations/dribbble-social-connection'
-  },
-  {
-    from: [ '/connections/social/dropbox' ],
-    to: 'https://marketplace.auth0.com/integrations/dropbox-social-connection'
   },
   {
     from: [
@@ -595,7 +571,7 @@ module.exports = [
     to: 'https://marketplace.auth0.com/integrations/evernote-social-connection'
   },
   {
-    from: [ '/connections/social/evernote-sandbox' ],
+    from: '/connections/social/evernote-sandbox',
     to: 'https://marketplace.auth0.com/integrations/evernote-sandbox-social-connection'
   },
   {
@@ -613,12 +589,6 @@ module.exports = [
       '/instagram-clientid'
     ],
     to: 'https://marketplace.auth0.com/integrations/facebook-social-connection'
-  },
-  {
-    from: [
-      '/connections/social/figma'
-    ],
-    to: 'https://marketplace.auth0.com/integrations/figma-social-connection'
   },
   {
     from: [
@@ -646,10 +616,6 @@ module.exports = [
     to: 'https://marketplace.auth0.com/integrations/google-social-connection'
   },
   {
-    from: [ '/connections/social/imgur' ],
-    to: 'https://marketplace.auth0.com/integrations/imgur-social-connection'
-  },
-  {
     from: [
       '/ms-account-clientid',
       '/connections/social/microsoft-account'
@@ -672,10 +638,6 @@ module.exports = [
     to: 'https://marketplace.auth0.com/integrations/paypal-social-connection'
   },
   {
-    from: '/connections/social/paypal-sandbox',
-    to: 'https://marketplace.auth0.com/integrations/paypal-sandbox-social-connection'
-  },
-  {
     from: [
       '/planningcenter-clientid',
       '/connections/social/planning-center'
@@ -683,23 +645,11 @@ module.exports = [
     to: 'https://marketplace.auth0.com/integrations/planningcenter-social-connection'
   },
   {
-    from: '/connections/social/quickbooks-online',
-    to: 'https://marketplace.auth0.com/integrations/quickbooks-social-connection'
-  },
-  {
     from: [
       '/salesforce-clientid',
       '/connections/social/salesforce'
     ],
     to: 'https://marketplace.auth0.com/integrations/salesforce-social-connection'
-  },
-  {
-    from: '/salesforce-community',
-    to: 'https://marketplace.auth0.com/integrations/salesforce-community-social-connection'
-  },
-  {
-    from: '/connections/social/salesforce-sandbox',
-    to: 'https://marketplace.auth0.com/integrations/salesforce-sandbox-social-connection'
   },
   {
     from: [
@@ -720,31 +670,11 @@ module.exports = [
     to: '/connections/social/soundcloud'
   },
   {
-    from: '/connections/social/slack',
-    to: 'https://marketplace.auth0.com/integrations/sign-in-with-slack'
-  },
-  {
-    from: '/connections/social/spotify',
-    to: 'https://marketplace.auth0.com/integrations/spotify-social-connection'
-  },
-  {
-    from: '/connections/social/stripe-connect',
-    to: 'https://marketplace.auth0.com/integrations/stripe-connect-social-connection'
-  },
-  {
-    from: '/connections/social/twitch',
-    to: 'https://marketplace.auth0.com/integrations/twitch-social-connection'
-  },
-  {
     from: [
       '/twitter-clientid',
       '/connections/social/twitter'
     ],
     to: 'https://marketplace.auth0.com/integrations/twitter-social-connection'
-  },
-  {
-    from: '/connections/social/vimeo',
-    to: 'https://marketplace.auth0.com/integrations/vimeo-social-connection'
   },
   {
     from: [
@@ -782,8 +712,8 @@ module.exports = [
     to: 'https://marketplace.auth0.com/integrations/yandex-social-connection'
   },
   {
-    from: '/connections/social/yammer',
-    to: 'https://marketplace.auth0.com/integrations/yammer-social-connection'
+    from: '/instagram-clientid',
+    to: '/connections/social/instagram'
   },
   {
     from: [
@@ -791,6 +721,74 @@ module.exports = [
       '/connections/social/linkedin'
     ],
     to: 'https://marketplace.auth0.com/integrations/linkedin-social-connection'
+  },
+  {
+    from: '/connections/social/bitbucket',
+    to: 'https://marketplace.auth0.com/integrations/bitbucket-social-connection'
+  },
+  {
+    from: '/connections/social/digitalocean',
+    to: 'https://marketplace.auth0.com/integrations/digitalocean-social-connection'
+  },
+  {
+    from: '/connections/social/discord',
+    to: 'https://marketplace.auth0.com/integrations/discord-social-connection'
+  },
+  {
+    from: '/connections/social/docomo',
+    to: 'https://marketplace.auth0.com/integrations/daccount-social-connection'
+  },
+  {
+    from: '/connections/social/dribbble',
+    to: 'https://marketplace.auth0.com/integrations/dribbble-social-connection'
+  },
+  {
+    from: '/connections/social/dropbox',
+    to: 'https://marketplace.auth0.com/integrations/dropbox-social-connection'
+  },
+  {
+    from: '/connections/social/figma',
+    to: 'https://marketplace.auth0.com/integrations/figma-social-connection'
+  },
+  {
+    from: '/connections/social/paypal-sandbox',
+    to: 'https://marketplace.auth0.com/integrations/paypal-sandbox-social-connection'
+  },
+  {
+    from: '/connections/social/quickbooks-online',
+    to: 'https://marketplace.auth0.com/integrations/quickbooks-social-connection'
+  },
+  {
+    from: '/salesforce-community',
+    to: 'https://marketplace.auth0.com/integrations/salesforce-community-social-connection'
+  },
+  {
+    from: '/connections/social/salesforce-sandbox',
+    to: 'https://marketplace.auth0.com/integrations/salesforce-sandbox-social-connection'
+  },
+  {
+    from: '/connections/social/slack',
+    to: 'https://marketplace.auth0.com/integrations/sign-in-with-slack'
+  },
+  {
+    from: '/connections/social/spotify',
+    to: 'https://marketplace.auth0.com/integrations/spotify-social-connection'
+  },
+  {
+    from: '/connections/social/stripe-connect',
+    to: 'https://marketplace.auth0.com/integrations/stripe-connect-social-connection'
+  },
+  {
+    from: '/connections/social/twitch',
+    to: 'https://marketplace.auth0.com/integrations/twitch-social-connection'
+  },
+  {
+    from: '/connections/social/vimeo',
+    to: 'https://marketplace.auth0.com/integrations/vimeo-social-connection'
+  },
+  {
+    from: '/connections/social/yammer',
+    to: 'https://marketplace.auth0.com/integrations/yammer-social-connection'
   },
   {
     from: '/ad',
@@ -847,6 +845,10 @@ module.exports = [
   {
     from: ['/tutorials/how-to-test-partner-connection','/test-partner-connection'],
     to: '/connections/how-to-test-partner-connection',
+  },
+  {
+    from: '/connections/social/imgur',
+    to: 'https://marketplace.auth0.com/integrations/imgur-social-connection'
   },
   {
     from: `/connections/grean/bankid-no`,
