@@ -512,12 +512,19 @@ module.exports = [
   /* CONNECTIONS */
 
   {
-    from: ['/37signals-clientid', '/connections/social/37signals'],
-    to: '/connections/social/basecamp'
+    from: [
+      '/37signals-clientid',
+      '/connections/social/37signals',
+      '/connections/social/basecamp'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/37signals-social-connection'
   },
   {
-    from: '/amazon-clientid',
-    to: '/connections/social/amazon'
+    from: [
+      '/amazon-clientid',
+      '/connections/social/amazon'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/amazon-social-connection'
   },
   {
     from: ['/connections/enterprise/azure-active-directory','/connections/social/active-directory','/waad-clientid','/users/guides/azure-access-control'],
@@ -536,48 +543,118 @@ module.exports = [
     to: '/connections/enterprise/saml'
   },
   {
-    from: '/dwolla-clientid',
-    to: '/connections/social/dwolla'
+    from: [
+      '/dwolla-clientid',
+      '/connections/social/dwolla'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/dwolla-social-connection'
   },
   {
-    from: '/baidu-clientid',
-    to: '/connections/social/baidu'
+    from: [
+      '/baidu-clientid',
+      '/connections/social/baidu'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/baidu-social-connection'
   },
   {
-    from: '/box-clientid',
-    to: '/connections/social/box'
+    from: [ '/connections/social/bitbucket' ],
+    to: 'https://marketplace.auth0.com/integrations/bitbucket-social-connection'
   },
   {
-    from: '/evernote-clientid',
-    to: '/connections/social/evernote'
+    from: [
+      '/box-clientid',
+      '/connections/social/box'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/box-social-connection'
   },
   {
-    from: '/exact-clientid',
-    to: '/connections/social/exact'
+    from: [ '/connections/social/digitalocean' ],
+    to: 'https://marketplace.auth0.com/integrations/digitalocean-social-connection'
   },
   {
-    from: '/facebook-clientid',
-    to: '/connections/social/facebook'
+    from: [ '/connections/social/discord' ],
+    to: 'https://marketplace.auth0.com/integrations/discord-social-connection'
   },
   {
-    from: '/fitbit-clientid',
-    to: '/connections/social/fitbit'
+    from: [ '/connections/social/docomo' ],
+    to: 'https://marketplace.auth0.com/integrations/daccount-social-connection'
   },
   {
-    from: '/github-clientid',
-    to: '/connections/social/github'
+    from: [ '/connections/social/dribbble' ],
+    to: 'https://marketplace.auth0.com/integrations/dribbble-social-connection'
+  },
+  {
+    from: [ '/connections/social/dropbox' ],
+    to: 'https://marketplace.auth0.com/integrations/dropbox-social-connection'
+  },
+  {
+    from: [
+      '/evernote-clientid',
+      '/connections/social/evernote'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/evernote-social-connection'
+  },
+  {
+    from: [ '/connections/social/evernote-sandbox' ],
+    to: 'https://marketplace.auth0.com/integrations/evernote-sandbox-social-connection'
+  },
+  {
+    from: [
+      '/exact-clientid',
+      '/connections/social/exact'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/exact-social-connection'
+  },
+  {
+    from: [
+      '/facebook-clientid',
+      '/connections/social/facebook',
+      '/connections/social/instagram',
+      '/instagram-clientid'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/facebook-social-connection'
+  },
+  {
+    from: [
+      '/connections/social/figma'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/figma-social-connection'
+  },
+  {
+    from: [
+      '/fitbit-clientid',
+      '/connections/social/fitbit'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/fitbit-social-connection'
+  },
+  {
+    from: [
+      '/github-clientid',
+      '/connections/social/github'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/github-social-connection'
   },
   {
     from: '/goodreads-clientid',
     to: '/connections/social/goodreads'
   },
   {
-    from: '/goog-clientid',
-    to: '/connections/social/google'
+    from: [
+      '/goog-clientid',
+      '/connections/social/google'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/google-social-connection'
   },
   {
-    from: '/ms-account-clientid',
-    to: '/connections/social/microsoft-account'
+    from: [ '/connections/social/imgur' ],
+    to: 'https://marketplace.auth0.com/integrations/imgur-social-connection'
+  },
+  {
+    from: [
+      '/ms-account-clientid',
+      '/connections/social/microsoft-account'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/microsoft-account-social-connection'
   },
   {
     from: '/oauth2',
@@ -588,24 +665,51 @@ module.exports = [
     to: '/connections/enterprise/oidc'
   },
   {
-    from: '/paypal-clientid',
-    to: '/connections/social/paypal'
+    from: [
+      '/paypal-clientid',
+      '/connections/social/paypal'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/paypal-social-connection'
   },
   {
-    from: '/planningcenter-clientid',
-    to: '/connections/social/planning-center'
+    from: '/connections/social/paypal-sandbox',
+    to: 'https://marketplace.auth0.com/integrations/paypal-sandbox-social-connection'
   },
   {
-    from: ['/salesforce-clientid', '/salesforce-community'],
-    to: '/connections/social/salesforce'
+    from: [
+      '/planningcenter-clientid',
+      '/connections/social/planning-center'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/planningcenter-social-connection'
   },
   {
-    from: '/renren-clientid',
-    to: '/connections/social/renren'
+    from: [
+      '/salesforce-clientid', 
+      '/connections/social/salesforce'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/salesforce-social-connection'
   },
   {
-    from: '/shopify-clientid',
-    to: '/connections/social/shopify'
+    from: '/salesforce-community',
+    to: 'https://marketplace.auth0.com/integrations/salesforce-community-social-connection'
+  },
+  {
+    from: '/connections/social/salesforce-sandbox',
+    to: 'https://marketplace.auth0.com/integrations/salesforce-sandbox-social-connection'
+  },
+  {
+    from: [
+      '/renren-clientid',
+      '/connections/social/renren'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/renren-social-connection'
+  },
+  {
+    from: [
+      '/shopify-clientid',
+      '/connections/social/shopify'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/shopify-social-connection'
   },
   {
     from: '/soundcloud-clientid',
@@ -636,12 +740,11 @@ module.exports = [
     to: '/connections/social/yandex'
   },
   {
-    from: '/instagram-clientid',
-    to: '/connections/social/instagram'
-  },
-  {
-    from: '/linkedin-clientid',
-    to: '/connections/social/linkedin'
+    from: [
+      '/linkedin-clientid',
+      '/connections/social/linkedin'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/linkedin-social-connection'
   },
   {
     from: '/ad',
@@ -720,8 +823,12 @@ module.exports = [
     to: '/connections/apple-siwa/set-up-apple'
   },
   {
-    from: ['/connections/apple-siwa/add-siwa-web-app','/connections/apple-siwa/add-siwa-to-web-app'],
-    to: '/connections/social/apple'
+    from: [
+      '/connections/apple-siwa/add-siwa-web-app',
+      '/connections/apple-siwa/add-siwa-to-web-app',
+      '/connections/social/apple'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/apple-social-connection'
   },
   {
     from: '/connections/apple-siwa/add-siwa-to-native-app',
@@ -756,8 +863,11 @@ module.exports = [
     to: '/connections/identity-providers-enterprise'
   },
   {
-    from: '/line',
-    to: '/connections/social/line'
+    from: [
+      '/line',
+      '/connections/social/line'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/line-social-connection'
   },
   
 
@@ -1925,8 +2035,11 @@ module.exports = [
     to: '/extensions/export-logs-to-azure-blob-storage'
   },
   {
-    from: ['/extensions/bitbucket-deploy','/extensions/bitbucket-deployments'],
-    to: '/extensions'
+    from: [
+      '/extensions/bitbucket-deploy',
+      '/extensions/bitbucket-deployments'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/bitbucket-pipeline'
   },
   {
     from: ['/extensions/cloudwatch'],
@@ -1937,12 +2050,18 @@ module.exports = [
     to: '/connections/social/oauth2'
   },
   {
-    from: ['/extensions/github-deploy','/extensions/github-deployments'],
-    to: '/extensions'
+    from: [
+      '/extensions/github-deploy',
+      '/extensions/github-deployments'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/github-actions'
   },
   {
-    from: ['/extensions/gitlab-deploy','/extensions/gitlab-deployments'],
-    to: '/extensions'
+    from: [
+      '/extensions/gitlab-deploy',
+      '/extensions/gitlab-deployments'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/gitlab-pipeline'
   },
   {
     from: ['/extensions/logentries'],
