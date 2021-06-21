@@ -676,15 +676,15 @@ module.exports = [
     to: 'https://marketplace.auth0.com/integrations/paypal-sandbox-social-connection'
   },
   {
-    from: '/connections/social/pinterest',
-    to: 'https://marketplace.auth0.com/integrations/paypal-sandbox-social-connection'
-  },
-  {
     from: [
       '/planningcenter-clientid',
       '/connections/social/planning-center'
     ],
     to: 'https://marketplace.auth0.com/integrations/planningcenter-social-connection'
+  },
+  {
+    from: '/connections/social/quickbooks-online',
+    to: 'https://marketplace.auth0.com/integrations/quickbooks-social-connection'
   },
   {
     from: [
@@ -720,28 +720,70 @@ module.exports = [
     to: '/connections/social/soundcloud'
   },
   {
-    from: '/twitter-clientid',
-    to: '/connections/social/twitter'
+    from: '/connections/social/slack',
+    to: 'https://marketplace.auth0.com/integrations/sign-in-with-slack'
   },
   {
-    from: '/vkontakte-clientid',
-    to: '/connections/social/vkontakte'
+    from: '/connections/social/spotify',
+    to: 'https://marketplace.auth0.com/integrations/spotify-social-connection'
   },
   {
-    from: '/weibo-clientid',
-    to: '/connections/social/weibo'
+    from: '/connections/social/stripe-connect',
+    to: 'https://marketplace.auth0.com/integrations/stripe-connect-social-connection'
   },
   {
-    from: '/wordpress-clientid',
-    to: '/connections/social/wordpress'
+    from: '/connections/social/twitch',
+    to: 'https://marketplace.auth0.com/integrations/twitch-social-connection'
   },
   {
-    from: '/yahoo-clientid',
-    to: '/connections/social/yahoo'
+    from: [
+      '/twitter-clientid',
+      '/connections/social/twitter'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/twitter-social-connection'
   },
   {
-    from: '/yandex-clientid',
-    to: '/connections/social/yandex'
+    from: '/connections/social/vimeo',
+    to: 'https://marketplace.auth0.com/integrations/vimeo-social-connection'
+  },
+  {
+    from: [
+      '/vkontakte-clientid',
+      '/connections/social/vkontakte'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/vkontakte-social-connection'
+  },
+  {
+    from: [
+      '/weibo-clientid',
+      '/connections/social/weibo'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/weibo-social-connection'
+  },
+  {
+    from: [
+      '/wordpress-clientid',
+      '/connections/social/wordpress'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/wordpress-social-connection'
+  },
+  {
+    from: [
+      '/yahoo-clientid',
+      '/connections/social/yahoo'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/yahoo-social-connection'
+  },
+  {
+    from: [
+      '/yandex-clientid',
+      '/connections/social/yandex'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/yandex-social-connection'
+  },
+  {
+    from: '/connections/social/yammer',
+    to: 'https://marketplace.auth0.com/integrations/yammer-social-connection'
   },
   {
     from: [
