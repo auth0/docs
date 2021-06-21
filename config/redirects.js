@@ -759,7 +759,10 @@ module.exports = [
     to: 'https://marketplace.auth0.com/integrations/quickbooks-social-connection'
   },
   {
-    from: '/salesforce-community',
+    from: [
+      '/salesforce-community',
+      '/connections/social/salesforce-community'
+    ],
     to: 'https://marketplace.auth0.com/integrations/salesforce-community-social-connection'
   },
   {
