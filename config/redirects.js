@@ -580,8 +580,7 @@ module.exports = [
   {
     from: [
       '/facebook-clientid',
-      '/connections/social/facebook',
-      '/instagram-clientid'
+      '/connections/social/facebook'
     ],
     to: 'https://marketplace.auth0.com/integrations/facebook-social-connection'
   },
