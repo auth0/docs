@@ -5,7 +5,7 @@ image: /media/connections/pinterest.png
 seo_alias: pinterest
 description: Learn how to add login functionality to your app with Pinterest. You will need to obtain a Client ID and Client Secret for Pinterest.
 toc: true
-public: true
+public: false
 index: 6
 topics:
   - connections
