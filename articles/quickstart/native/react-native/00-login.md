@@ -69,7 +69,9 @@ android {
 }
 ```
 
+::: note
 The `applicationId` value will be auto-replaced on runtime with the package name or id of your application (e.g. `com.example.app`). You can change this value from the `build.gradle` file. You can also check it at the top of your `AndroidManifest.xml` file.
+:::
 
 ### Configure iOS
 
