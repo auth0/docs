@@ -63,7 +63,7 @@ Open your app's `build.gradle` file (typically at `android/app/build.gradle`) an
 android {
     defaultConfig {
         // Add the next line
-        manifestPlaceholders = [auth0Domain: "<%= ${account.namespace} %>", auth0Scheme: "<%= ${applicationId} %>"]
+        manifestPlaceholders = [auth0Domain: "<%= "${account.namespace}" %>", auth0Scheme: "<%= "${applicationId}" %>"]
     }
     ...
 }
