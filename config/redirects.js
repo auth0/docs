@@ -2433,10 +2433,6 @@ module.exports = [
     to: '/integrations/sso/concur'
   },
   {
-    from: ['/integrations/sso-integrations/disqus','/sso/current/integrations/disqus','/integrations/disqus'],
-    to: '/integrations/sso/disqus'
-  },
-  {
     from: ['/integrations/sso-integrations/dropbox','/sso/current/integrations/dropbox','/integrations/dropbox'],
     to: '/integrations/sso/dropbox'
   },
@@ -2471,10 +2467,6 @@ module.exports = [
   {
     from: ['/integrations/sso-integrations/sentry','/sso/current/integrations/sentry','/integrations/sentry'],
     to: '/integrations/sso/sentry'
-  },
-  {
-    from: ['/integrations/sso-integrations/sharepoint','/sso/current/integrations/sharepoint'],
-    to: '/integrations/sso/sharepoint'
   },
   {
     from: ['/integrations/sso-integrations/springcm','/sso/current/integrations/springcm','/integrations/springcm'],
