@@ -1449,10 +1449,10 @@ articles:
                 hidden: true 
           - title: Entity Limits
             url: /policies/entity-limit-policy
-          - title: Changelog
-            external: true 
-            forceFullReload: true 
-            url: 'https://auth0.com/changelog'
+      - title: Changelog
+        external: true 
+        forceFullReload: true 
+        url: 'https://auth0.com/changelog'
   - title: Professional Services
     url: /professional-services
     children:
