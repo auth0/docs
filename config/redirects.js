@@ -3476,7 +3476,7 @@ module.exports = [
     to: '/protocols/saml-configuration-options/enable-saml2-web-app-addon'
   },
   {
-    from: ['/protocols/saml/saml-configuration/special-configuration-scenarios'],
+    from: ['/protocols/saml/saml-configuration/special-configuration-scenarios'], 
     to: '/protocols/saml-configuration-options/special-saml-configuration-scenarios'
   },
   {
