@@ -34,7 +34,7 @@ next_steps:
       href: "/libraries/auth0-android/save-and-refresh-tokens"
     - text: Learn to call an API
       icon: 345
-      href: "/quickstart/native/android/06-calling-apis"
+      href: "/quickstart/native/android/01-user-metadata"
     - text: Configure other identity providers
       icon: 345
       href: "/identityproviders"
