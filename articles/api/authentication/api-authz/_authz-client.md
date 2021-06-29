@@ -53,6 +53,9 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 | `redirect_uri` | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
 | `connection` | The name of the connection configured to your application. |
 | `prompt` | To initiate a [silent authentication](/api-auth/tutorials/silent-authentication) request, use `prompt=none` (see Remarks for more info). |
+| `organization` | ID of the [organization](/organizations) to use when authenticating a user. When not provided, if your application is configured to **Display Organization Prompt**, the user will be able to enter the organization name when authenticating. |
+| `invitation` | 	Ticket ID of the organization invitation. When [inviting a member to an Organization](/organizations/invite-members), your application should handle invitation acceptance by forwarding the invitation and organization key-value pairs when the user accepts the invitation. |
+
 
 ### Test with Authentication API Debugger
 
@@ -125,6 +128,8 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 | `code_challenge` <br/><span class="label label-danger">Required</span> | Generated challenge from the `code_verifier`. |
 | `connection` | The name of the connection configured to your application. |
 | `prompt` | To initiate a [silent authentication](/api-auth/tutorials/silent-authentication) request, use `prompt=none` (see Remarks for more info). |
+| `organization` | ID of the [organization](/organizations) to use when authenticating a user. When not provided, if your application is configured to **Display Organization Prompt**, the user will be able to enter the organization name when authenticating. |
+| `invitation` | Ticket ID of the organization invitation. When [inviting a member to an Organization](/organizations/invite-members), your application should handle invitation acceptance by forwarding the invitation and organization key-value pairs when the user accepts the invitation. |
 
 
 ### Test with Authentication API Debugger
@@ -198,6 +203,8 @@ This is the OAuth 2.0 grant that web apps utilize in order to access an API.
 | `nonce` <br/><span class="label label-primary">Recommended</span> | A string value which will be included in the ID Token response from Auth0, [used to prevent token replay attacks](/api-auth/tutorials/nonce). It is required for `response_type=id_token token`. |
 | `connection` | The name of the connection configured to your application. |
 | `prompt` | To initiate a [silent authentication](/api-auth/tutorials/silent-authentication) request, use `prompt=none` (see Remarks for more info). |
+| `organization` | ID of the [organization](/organizations) to use when authenticating a user. When not provided, if your application is configured to **Display Organization Prompt**, the user will be able to enter the organization name when authenticating. |
+| `invitation` | Ticket ID of the organization invitation. When [inviting a member to an Organization](/organizations/invite-members), your application should handle invitation acceptance by forwarding the invitation and organization key-value pairs when the user accepts the invitation. |
 
 
 ### Test with Authentication API Debugger
