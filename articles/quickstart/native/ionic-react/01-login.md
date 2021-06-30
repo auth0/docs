@@ -41,25 +41,25 @@ The **Callback URL** to be used for your application includes your app's package
 
 Go to the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) section in your Auth0 dashboard and set your **Callback URL** in the **Allowed Callback URLs** box.
 
-You should set the **Allowed Callback URL** to
+You should set the **Allowed Callback URL** to:
 
 ```bash
-# replace YOUR_PACKAGE_ID with your app package ID
-YOUR_PACKAGE_ID://${account.namespace}/cordova/YOUR_PACKAGE_ID/callback
+YOUR_PACKAGE_ID://${account.namespace}/capacitor/YOUR_PACKAGE_ID/callback
 ```
 
-Replace `YOUR_PACKAGE_ID` with your application's package name.
+:::note
+In these code samples, `YOUR_PACKAGE_ID` is your application's package ID. This can be found and configured in the `appId` field in your `capacitor.config.ts` file. See [Capacitor's Config schema](https://capacitorjs.com/docs/config#schema) for more info.
+:::
 
 <%= include('../../../_includes/_logout_url') %>
 
 You should set the **Allowed Logout URLs** to
 
 ```bash
-# replace YOUR_PACKAGE_ID with your app package ID
 YOUR_PACKAGE_ID://${account.namespace}/capacitor/YOUR_PACKAGE_ID/callback
 ```
 
-Replace `YOUR_PACKAGE_ID` with your application's package name.
+### Configure Origins
 
 To be able to make requests from your application to Auth0, set the following origins in your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
 
@@ -67,7 +67,9 @@ To be able to make requests from your application to Auth0, set the following or
 http://localhost, ionic://localhost, http://localhost:8100, capacitor://localhost
 ```
 
-the origins `http://localhost` and `ionic://localhost` are needed for Android and iOS respectively, and `http://localhost:8100` is needed you're running your application with `livereaload` option.
+:::note
+The origins `http://localhost` and `ionic://localhost` are needed for Android and iOS respectively, and `http://localhost:8100` is needed you're running your application with `livereload` option.
+:::
 
 Lastly, be sure that the **Application Type** for your application is set to **Native** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
 
@@ -80,6 +82,9 @@ This quickstart and sample make use of some of Capacitor's official plugins. Ins
 ```bash
 npm i @capacitor/browser @capacitor/app
 ```
+
+- [`@capacitor/browser`](https://capacitorjs.com/docs/apis/browser) - allows us to interact with the device's system browser, and is used to open the URL to Auth0's authorizaction endpoint
+- [`@capacitor/app`](https://capacitorjs.com/docs/apis/app) - allows us to subscribe to high-level app events, useful for handling callbacks from Auth0
 
 ### Configure the `Auth0Provider` component
 
@@ -107,19 +112,18 @@ ReactDOM.render(
 
 The `Auth0Provider` component takes the following props:
 
-- `domain`: The "domain" value present under the "Settings" of the application you created in your Auth0 dashboard
+- `domain`: The "domain" value present under the "Settings" of the application you created in your Auth0 dashboard, or your custom domain if using Auth0's [Custom Domains feature](http://localhost:3000/docs/custom-domains)
 - `clientId`: The "client ID" value present under the "Settings" of the application you created in your Auth0 dashboard
-
-<%= include('../../spa/_includes/_auth_note_custom_domains') %>
-
 - `redirectUri`: The URL to where you'd like to redirect your users after they authenticate with Auth0.
-- `useRefreshTokens`: The React SDK will use refresh tokens over relying on session cookies, which can be blocked in many modern browsers. Please read [Refresh Token Rotation](https://auth0.com/docs/tokens/refresh-tokens/refresh-token-rotation) for more information on using refresh tokens with public clients.
+- `useRefreshTokens`: The React SDK will use refresh tokens over relying on third-party cookies, which can be blocked in many modern browsers. Please read [Refresh Token Rotation](https://auth0.com/docs/tokens/refresh-tokens/refresh-token-rotation) for more information on using refresh tokens with public clients.
 - `cacheLocation`: The location at which to store tokens. We use `localstorage` here so that tokens are persisted across app refreshes.
 
 :::note
-Local Storage should be considered **transient** in a Capacitor app, as the operating system may recover disk space from local storage if it is running low.
+Local Storage should be considered **transient** in a Capacitor app, as the operating system may recover disk space from local storage if it is running low. Please read the [guidance on storage in the Capacitor docs](https://capacitorjs.com/docs/guides/storage#why-cant-i-just-use-localstorage-or-indexeddb).
 
-[some blurb here about the SPA SDK extensible cache, when it's ready]
+The Auth0 React SDK has the ability to use a custom cache implementation to store tokens, if you have a requirement to use a more secure and persistent storage mechanism.
+
+**Note** that we recommend against using [Capacitor's Storage plugin](https://capacitorjs.com/docs/apis/storage) to store tokens, as this is backed by [UserDefaults](https://developer.apple.com/documentation/foundation/userdefaults) and [SharedPreferences](https://developer.android.com/reference/android/content/SharedPreferences) on iOS and Android respectively. Data stored using these APIs is not encrypted, not sucure, and could also be synced to the cloud.
 :::
 
 :::panel Checkpoint
@@ -166,24 +170,33 @@ export default LoginButton;
 
 Once a user has logged in using the Universal Login Page, they will be redirected back to your app using a URL with a custom URL scheme. The `appUrlOpen` event must be handled within your app, where `handleRedirectCallback` can be called to initialize the authentication state within the SDK.
 
-Add a handler to your `App` component that looks like the following:
+Add the following `useEffect` hook to your main `App` component:
 
 ```js
-const { handleRedirectCallback } = useAuth0();
+// Import Capacitor's app plugin, giving us access to `addListener` and `appUrlOpen`
+import { App as CapApp } from "@capacitor/app";
 
-useEffect(() => {
-  // Handle the 'appUrlOpen' event and call `handleRedirectCallback`
-  CapApp.addListener("appUrlOpen", async ({ url }) => {
-      if (
-        url.includes("state") &&
-        (url.includes("code") || url.includes("error"))
-      ) {
-        await handleRedirectCallback(url);
-      }
-      // Ignored on Android
-      await Browser.close();
-  });
-}, [handleRedirectCallback]);
+// ...
+
+const App: React.FC = () => {
+  const { handleRedirectCallback } = useAuth0();
+
+  useEffect(() => {
+    // Handle the 'appUrlOpen' event and call `handleRedirectCallback`
+    CapApp.addListener("appUrlOpen", async ({ url }) => {
+        if (
+          url.includes("state") &&
+          (url.includes("code") || url.includes("error"))
+        ) {
+          await handleRedirectCallback(url);
+        }
+        // No-op on Android
+        await Browser.close();
+    });
+  }, [handleRedirectCallback]);
+
+  // .. 
+};
 ```
 
 :::panel Checkpoint
@@ -207,14 +220,14 @@ import { IonButton } from "@ionic/react";
 
 // This should reflect the URL added earlier to your "Allowed Logout URLs" setting
 // in the Auth0 dashboard.
-const callbackUri = "YOUR_PACKAGE_ID://${account.namespace}/capacitor/YOUR_PACKAGE_ID/callback";
+const logoutUri = "YOUR_PACKAGE_ID://${account.namespace}/capacitor/YOUR_PACKAGE_ID/callback";
 
 const LogoutButton: React.FC = () => {
   const { buildLogoutUrl, logout } = useAuth0();
 
   const doLogout = async () => {
     // Open the browser to perform a logout
-    await Browser.open({ url: buildLogoutUrl({ returnTo: callbackUri }) });
+    await Browser.open({ url: buildLogoutUrl({ returnTo: logoutUri }) });
 
     // Ask the SDK to log out locally, but not do the redirect
     logout({ localOnly: true });
@@ -238,10 +251,10 @@ The Auth0 React SDK helps you retrieve the [profile information](https://auth0.c
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Profile: React.FC = () => {
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  const { user, isLoading } = useAuth0();
 
   // If the SDK is not ready, or a user is not authenticated, exit.
-  if (isLoading || !isAuthenticated) return null;
+  if (isLoading || !user) return null;
 
   return (
     <div>
