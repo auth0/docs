@@ -1,20 +1,25 @@
 title: PHP
-image: /media/platforms/php.png
+seo_alias: php
+alias:
+  - php
+languages:
+  - PHP
 author:
   name: Evan Sims
   email: evan.sims@auth0.com
   community: false
-contentType: tutorial
-useCase: quickstart
+thirdParty: false
+image: /media/platforms/php.png
 topics:
   - quickstart
+contentType: tutorial
+useCase: quickstart
 snippets:
   install: server-platforms/php/install
   configure: server-platforms/php/configure
-seo_alias: php
-default_article: 01-login
 articles:
   - 01-login
+default_article: 01-login
 show_steps: true
 github:
   org: auth0-samples
