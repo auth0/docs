@@ -119,7 +119,7 @@ The `Auth0Provider` component takes the following props:
 - `cacheLocation`: The location at which to store tokens. We use `localstorage` here so that tokens are persisted across app refreshes.
 
 :::note
-Local Storage should be considered **transient** in a Capacitor app, as the operating system may recover disk space from local storage if it is running low. Please read the [guidance on storage in the Capacitor docs](https://capacitorjs.com/docs/guides/storage#why-cant-i-just-use-localstorage-or-indexeddb).
+`localStorage` should be considered **transient** in a Capacitor app, as the operating system may recover disk space from `localStorage` if it is running low. Please read the [guidance on storage in the Capacitor docs](https://capacitorjs.com/docs/guides/storage#why-cant-i-just-use-localstorage-or-indexeddb).
 
 The Auth0 React SDK has the ability to use a custom cache implementation to store tokens, if you have a requirement to use a more secure and persistent storage mechanism.
 
