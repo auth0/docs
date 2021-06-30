@@ -525,8 +525,6 @@ articles:
       - title: Tenants
         url: /config/tenant-settings
         children:
-          - title: Dashboard Access
-            url: /dashboard-access
           - title: Signing Keys
             url: /config/tenant-settings/signing-keys
             children:
@@ -732,7 +730,7 @@ articles:
           - title: Migrate from Search v2 to V3
             url: /users/search/v3/migrate-search-v2-v3
             hidden: true
-  - title: Manage Dashboard Access
+  - title: Dashboard Access
     url: /dashboard-access
     children:
       - title: Dashboard Access by Role
