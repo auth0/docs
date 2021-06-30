@@ -25,9 +25,11 @@ If you have not already done so, use the CLI and Capacitor to add a supported mo
 
 ```bash
 # Add iOS
+npm install @capacitor/ios
 npx cap add ios
 
 # Add Android
+npm install @capacitor/android
 npx cap add android
 ```
 
@@ -37,7 +39,9 @@ For more information on adding Capacitor platforms to your app and the developme
 
 <%= include('../../../_includes/_callback_url') %>
 
-The **Callback URL** to be used for your application includes your app's package ID which is found in the `config.xml` file for your app.
+:::note
+Throughout this article, `YOUR_PACKAGE_ID` is your application's package ID. This can be found and configured in the `appId` field in your `capacitor.config.ts` file. See [Capacitor's Config schema](https://capacitorjs.com/docs/config#schema) for more info.
+:::
 
 Go to the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) section in your Auth0 dashboard and set your **Callback URL** in the **Allowed Callback URLs** box.
 
@@ -46,10 +50,6 @@ You should set the **Allowed Callback URL** to:
 ```bash
 YOUR_PACKAGE_ID://${account.namespace}/capacitor/YOUR_PACKAGE_ID/callback
 ```
-
-:::note
-In these code samples, `YOUR_PACKAGE_ID` is your application's package ID. This can be found and configured in the `appId` field in your `capacitor.config.ts` file. See [Capacitor's Config schema](https://capacitorjs.com/docs/config#schema) for more info.
-:::
 
 <%= include('../../../_includes/_logout_url') %>
 
@@ -64,12 +64,8 @@ YOUR_PACKAGE_ID://${account.namespace}/capacitor/YOUR_PACKAGE_ID/callback
 To be able to make requests from your application to Auth0, set the following origins in your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
 
 ```bash
-http://localhost, ionic://localhost, http://localhost:8100, capacitor://localhost
+capacitor://localhost
 ```
-
-:::note
-The origins `http://localhost` and `ionic://localhost` are needed for Android and iOS respectively, and `http://localhost:8100` is needed you're running your application with `livereload` option.
-:::
 
 Lastly, be sure that the **Application Type** for your application is set to **Native** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
 
@@ -80,7 +76,7 @@ Lastly, be sure that the **Application Type** for your application is set to **N
 This quickstart and sample make use of some of Capacitor's official plugins. Install these into your app using the following command:
 
 ```bash
-npm i @capacitor/browser @capacitor/app
+npm install @capacitor/browser @capacitor/app
 ```
 
 - [`@capacitor/browser`](https://capacitorjs.com/docs/apis/browser) - allows us to interact with the device's system browser, and is used to open the URL to Auth0's authorizaction endpoint
@@ -89,6 +85,8 @@ npm i @capacitor/browser @capacitor/app
 ### Configure the `Auth0Provider` component
 
 Under the hood, the Auth0 React SDK uses [React Context](https://reactjs.org/docs/context.html) to manage the authentication state of your users. One way to integrate Auth0 with your React app is to wrap your root component with an `Auth0Provider` that you can import from the SDK.
+
+Open `src/index.tsx` and wrap the `App` component in the `Auth0Provider` component.
 
 ```javascript
 import React from "react";
@@ -100,7 +98,7 @@ ReactDOM.render(
   <Auth0Provider
     domain="${account.namespace}"
     clientId="${account.clientId}"
-    redirectUri={window.location.origin}
+    redirectUri="YOUR_PACKAGE_ID://${account.namespace}/capacitor/YOUR_PACKAGE_ID/callback"
     cacheLocation="localstorage"
     useRefreshTokens={true}
   >
@@ -173,12 +171,17 @@ Once a user has logged in using the Universal Login Page, they will be redirecte
 Add the following `useEffect` hook to your main `App` component:
 
 ```js
-// Import Capacitor's app plugin, giving us access to `addListener` and `appUrlOpen`
+// Import Capacitor's app and browser plugins, giving us access to `addListener` and `appUrlOpen`,
+// as well as the bits needed for Auth0 and React
 import { App as CapApp } from "@capacitor/app";
+import { Browser } from "@capacitor/browser";
+import { useEffect } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 
 // ...
 
 const App: React.FC = () => {
+  // Get the callback handler from the Auth0 React hook
   const { handleRedirectCallback } = useAuth0();
 
   useEffect(() => {
@@ -198,6 +201,10 @@ const App: React.FC = () => {
   // .. 
 };
 ```
+
+:::note
+This article assumes you will be using Custom URL Schemes to handle the callback within your application. To do this, `YOUR_PACKAGE_ID` must be registered as a URL scheme for your chosen platform. See [Defining a Custom URL Scheme](https://developer.apple.com/documentation/xcode/defining-a-custom-url-scheme-for-your-app) for iOS, or [Create Deep Links to App Content](https://developer.android.com/training/app-links/deep-linking) for Android.
+:::
 
 :::panel Checkpoint
 Add the `LoginButton` component to your application, as well as the handler for the "appUrlOpen" event to your `App` component. When you click the login button, verify that your application redirects you to the Auth0 Universal Login Page and that you can now log in or sign up using a username and password or a social provider.
