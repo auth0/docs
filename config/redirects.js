@@ -3234,9 +3234,10 @@ module.exports = [
     from: [
       '/logs/export-log-events-with-log-streaming/stream-logs-to-splunk',
       '/logs/streams/splunk',
-      '/logs/streams/stream-logs-to-splunk'
+      '/logs/streams/stream-logs-to-splunk',
+      '/monitor-auth0/streams/stream-logs-to-splunk'
     ],
-    to: '/monitor-auth0/streams/stream-logs-to-splunk'
+    to: 'https://marketplace.auth0.com/integrations/splunk-log-streaming'
   },
   {
     from: [
@@ -3252,25 +3253,28 @@ module.exports = [
       '/logs/streams/aws-eventbridge',
       '/integrations/aws-eventbridge',
       '/logs/streams/amazon-eventbridge',
-      '/logs/streams/stream-logs-to-amazon-eventbridge'
+      '/logs/streams/stream-logs-to-amazon-eventbridge',
+      '/monitor-auth0/streams/stream-logs-to-amazon-eventbridge'
     ],
-    to: '/monitor-auth0/streams/stream-logs-to-amazon-eventbridge'
+    to: 'https://marketplace.auth0.com/integrations/amazon-log-streaming'
   },
   {
     from: [
       '/logs/export-log-events-with-log-streaming/stream-logs-to-azure-event-grid',
       '/logs/streams/azure-event-grid',
-      '/logs/streams/stream-logs-to-azure-event-grid'
+      '/logs/streams/stream-logs-to-azure-event-grid',
+      '/monitor-auth0/streams/stream-logs-to-azure-event-grid'
     ],
-    to: '/monitor-auth0/streams/stream-logs-to-azure-event-grid'
+    to: 'https://marketplace.auth0.com/integrations/azure-log-streaming'
   },
   {
     from: [
       '/logs/export-log-events-with-log-streaming/stream-logs-to-datadog',
       '/logs/streams/datadog',
-      '/logs/streams/stream-logs-to-datadog'
+      '/logs/streams/stream-logs-to-datadog',
+      '/monitor-auth0/streams/stream-logs-to-datadog'
     ],
-    to: '/monitor-auth0/streams/stream-logs-to-datadog'
+    to: 'https://marketplace.auth0.com/integrations/datadog-log-streaming'
   },
   {
     from: [
