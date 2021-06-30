@@ -868,6 +868,8 @@ articles:
         url: /rules/user-object-in-rules
       - title: Context Object
         url: /rules/context-object
+      - title: Raise Errors from Rules
+        url: /rules/raise-errors-from-rules
   - title: Hooks
     url: /hooks
     children:
