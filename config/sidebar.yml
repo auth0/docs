@@ -743,8 +743,13 @@ articles:
         url: /dashboard-access/edit-dashboard-users
       - title: Remove Tenant Members
         url: /dashboard-access/remove-dashboard-users
-      - title: Manage Access with MFA
+      - title: Multi-Factor Authentication for Dashboard Users
         url: /dashboard-access/add-change-remove-mfa
+        children:
+          - title: Add MFA for Auth0 Dashboard Access
+            url: /dashboard-access/add-change-remove-mfa/add-multi-factor-authentication-for-auth0-dashboard-access
+          - title: Remove or Change Dashboard MFA
+            url: /dashboard-access/add-change-remove-mfa/remove-or-change-dashboard-multi-factor-authentication
       - title: Update Dashboard User Email
         url: /dashboard-access/update-dashboard-user-email
   - title: Brand and Customize
