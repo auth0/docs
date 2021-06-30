@@ -1,5 +1,5 @@
 articles:
-  - title: Get Started
+  - title: Get Started 
     url: /get-started
     children:
       - title: Auth0 Overview
