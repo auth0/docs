@@ -2,7 +2,7 @@
 title: Connect Apps to SoundCloud
 connection: SoundCloud
 toc: true
-public: true
+public: false
 index: 31
 image: /media/connections/soundcloud.png
 seo_alias: soundcloud

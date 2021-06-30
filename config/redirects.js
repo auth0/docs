@@ -1,4 +1,4 @@
-//  This is the list of APIs used in the old two-step quickstarts.  
+//  This is the list of APIs used in the old two-step quickstarts.
 const apiNames = [
   'aspnet-webapi',
   'aws',
@@ -43,7 +43,7 @@ module.exports = [
   {
     from: ['/design','/design/web'],
     to: '/'
-  },     
+  },
   {
     from: ['/design/browser-based-vs-native-experience-on-mobile','/tutorials/browser-based-vs-native-experience-on-mobile'],
     to: '/best-practices/mobile-device-login-flow-best-practices'
@@ -508,12 +508,19 @@ module.exports = [
   /* CONNECTIONS */
 
   {
-    from: ['/37signals-clientid', '/connections/social/37signals'],
-    to: '/connections/social/basecamp'
+    from: [
+      '/37signals-clientid',
+      '/connections/social/37signals',
+      '/connections/social/basecamp'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/37signals-social-connection'
   },
   {
-    from: '/amazon-clientid',
-    to: '/connections/social/amazon'
+    from: [
+      '/amazon-clientid',
+      '/connections/social/amazon'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/amazon-social-connection'
   },
   {
     from: ['/connections/enterprise/azure-active-directory','/connections/social/active-directory','/waad-clientid','/users/guides/azure-access-control'],
@@ -532,48 +539,78 @@ module.exports = [
     to: '/connections/enterprise/saml'
   },
   {
-    from: '/dwolla-clientid',
-    to: '/connections/social/dwolla'
+    from: [
+      '/dwolla-clientid',
+      '/connections/social/dwolla'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/dwolla-social-connection'
   },
   {
-    from: '/baidu-clientid',
-    to: '/connections/social/baidu'
+    from: [
+      '/baidu-clientid',
+      '/connections/social/baidu'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/baidu-social-connection'
   },
   {
-    from: '/box-clientid',
-    to: '/connections/social/box'
+    from: [
+      '/box-clientid',
+      '/connections/social/box'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/box-social-connection'
   },
   {
-    from: '/evernote-clientid',
-    to: '/connections/social/evernote'
+    from: [
+      '/evernote-clientid',
+      '/connections/social/evernote'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/evernote-social-connection'
   },
   {
-    from: '/exact-clientid',
-    to: '/connections/social/exact'
+    from: [
+      '/exact-clientid',
+      '/connections/social/exact'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/exact-social-connection'
   },
   {
-    from: '/facebook-clientid',
-    to: '/connections/social/facebook'
+    from: [
+      '/facebook-clientid',
+      '/connections/social/facebook'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/facebook-social-connection'
   },
   {
-    from: '/fitbit-clientid',
-    to: '/connections/social/fitbit'
+    from: [
+      '/fitbit-clientid',
+      '/connections/social/fitbit'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/fitbit-social-connection'
   },
   {
-    from: '/github-clientid',
-    to: '/connections/social/github'
+    from: [
+      '/github-clientid',
+      '/connections/social/github'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/github-social-connection'
   },
   {
     from: '/goodreads-clientid',
     to: '/connections/social/goodreads'
   },
   {
-    from: '/goog-clientid',
-    to: '/connections/social/google'
+    from: [
+      '/goog-clientid',
+      '/connections/social/google'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/google-social-connection'
   },
   {
-    from: '/ms-account-clientid',
-    to: '/connections/social/microsoft-account'
+    from: [
+      '/ms-account-clientid',
+      '/connections/social/microsoft-account'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/microsoft-account-social-connection'
   },
   {
     from: '/oauth2',
@@ -584,60 +621,171 @@ module.exports = [
     to: '/connections/enterprise/oidc'
   },
   {
-    from: '/paypal-clientid',
-    to: '/connections/social/paypal'
+    from: [
+      '/paypal-clientid',
+      '/connections/social/paypal'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/paypal-social-connection'
   },
   {
-    from: '/planningcenter-clientid',
-    to: '/connections/social/planning-center'
+    from: [
+      '/planningcenter-clientid',
+      '/connections/social/planning-center'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/planningcenter-social-connection'
   },
   {
-    from: ['/salesforce-clientid', '/salesforce-community'],
-    to: '/connections/social/salesforce'
+    from: [
+      '/salesforce-clientid',
+      '/connections/social/salesforce'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/salesforce-social-connection'
   },
   {
-    from: '/renren-clientid',
-    to: '/connections/social/renren'
+    from: [
+      '/renren-clientid',
+      '/connections/social/renren'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/renren-social-connection'
   },
   {
-    from: '/shopify-clientid',
-    to: '/connections/social/shopify'
+    from: [
+      '/shopify-clientid',
+      '/connections/social/shopify'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/shopify-social-connection'
   },
   {
     from: '/soundcloud-clientid',
     to: '/connections/social/soundcloud'
   },
   {
-    from: '/twitter-clientid',
-    to: '/connections/social/twitter'
+    from: [
+      '/twitter-clientid',
+      '/connections/social/twitter'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/twitter-social-connection'
   },
   {
-    from: '/vkontakte-clientid',
-    to: '/connections/social/vkontakte'
+    from: [
+      '/vkontakte-clientid',
+      '/connections/social/vkontakte'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/vkontakte-social-connection'
   },
   {
-    from: '/weibo-clientid',
-    to: '/connections/social/weibo'
+    from: [
+      '/weibo-clientid',
+      '/connections/social/weibo'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/weibo-social-connection'
   },
   {
-    from: '/wordpress-clientid',
-    to: '/connections/social/wordpress'
+    from: [
+      '/wordpress-clientid',
+      '/connections/social/wordpress'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/wordpress-social-connection'
   },
   {
-    from: '/yahoo-clientid',
-    to: '/connections/social/yahoo'
+    from: [
+      '/yahoo-clientid',
+      '/connections/social/yahoo'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/yahoo-social-connection'
   },
   {
-    from: '/yandex-clientid',
-    to: '/connections/social/yandex'
+    from: [
+      '/yandex-clientid',
+      '/connections/social/yandex'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/yandex-social-connection'
   },
   {
     from: '/instagram-clientid',
     to: '/connections/social/instagram'
   },
   {
-    from: '/linkedin-clientid',
-    to: '/connections/social/linkedin'
+    from: [
+      '/linkedin-clientid',
+      '/connections/social/linkedin'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/linkedin-social-connection'
+  },
+  {
+    from: '/connections/social/bitbucket',
+    to: 'https://marketplace.auth0.com/integrations/bitbucket-social-connection'
+  },
+  {
+    from: '/connections/social/digitalocean',
+    to: 'https://marketplace.auth0.com/integrations/digitalocean-social-connection'
+  },
+  {
+    from: '/connections/social/discord',
+    to: 'https://marketplace.auth0.com/integrations/discord-social-connection'
+  },
+  {
+    from: '/connections/social/docomo',
+    to: 'https://marketplace.auth0.com/integrations/daccount-social-connection'
+  },
+  {
+    from: '/connections/social/dribbble',
+    to: 'https://marketplace.auth0.com/integrations/dribbble-social-connection'
+  },
+  {
+    from: '/connections/social/dropbox',
+    to: 'https://marketplace.auth0.com/integrations/dropbox-social-connection'
+  },
+  {
+    from: '/connections/social/evernote-sandbox',
+    to: 'https://marketplace.auth0.com/integrations/evernote-sandbox-social-connection'
+  },
+  {
+    from: '/connections/social/figma',
+    to: 'https://marketplace.auth0.com/integrations/figma-social-connection'
+  },
+  {
+    from: '/connections/social/paypal-sandbox',
+    to: 'https://marketplace.auth0.com/integrations/paypal-sandbox-social-connection'
+  },
+  {
+    from: '/connections/social/quickbooks-online',
+    to: 'https://marketplace.auth0.com/integrations/quickbooks-social-connection'
+  },
+  {
+    from: [
+      '/salesforce-community',
+      '/connections/social/salesforce-community'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/salesforce-community-social-connection'
+  },
+  {
+    from: '/connections/social/salesforce-sandbox',
+    to: 'https://marketplace.auth0.com/integrations/salesforce-sandbox-social-connection'
+  },
+  {
+    from: '/connections/social/slack',
+    to: 'https://marketplace.auth0.com/integrations/sign-in-with-slack'
+  },
+  {
+    from: '/connections/social/spotify',
+    to: 'https://marketplace.auth0.com/integrations/spotify-social-connection'
+  },
+  {
+    from: '/connections/social/stripe-connect',
+    to: 'https://marketplace.auth0.com/integrations/stripe-connect-social-connection'
+  },
+  {
+    from: '/connections/social/twitch',
+    to: 'https://marketplace.auth0.com/integrations/twitch-social-connection'
+  },
+  {
+    from: '/connections/social/vimeo',
+    to: 'https://marketplace.auth0.com/integrations/vimeo-social-connection'
+  },
+  {
+    from: '/connections/social/yammer',
+    to: 'https://marketplace.auth0.com/integrations/yammer-social-connection'
   },
   {
     from: '/ad',
@@ -696,6 +844,10 @@ module.exports = [
     to: '/connections/how-to-test-partner-connection',
   },
   {
+    from: '/connections/social/imgur',
+    to: 'https://marketplace.auth0.com/integrations/imgur-social-connection'
+  },
+  {
     from: `/connections/grean/bankid-no`,
     to: `/connections/criipto/bankid-no`
   },
@@ -716,8 +868,12 @@ module.exports = [
     to: '/connections/apple-siwa/set-up-apple'
   },
   {
-    from: ['/connections/apple-siwa/add-siwa-web-app','/connections/apple-siwa/add-siwa-to-web-app'],
-    to: '/connections/social/apple'
+    from: [
+      '/connections/apple-siwa/add-siwa-web-app',
+      '/connections/apple-siwa/add-siwa-to-web-app',
+      '/connections/social/apple'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/apple-social-connection'
   },
   {
     from: '/connections/apple-siwa/add-siwa-to-native-app',
@@ -752,10 +908,13 @@ module.exports = [
     to: '/connections/identity-providers-enterprise'
   },
   {
-    from: '/line',
-    to: '/connections/social/line'
+    from: [
+      '/line',
+      '/connections/social/line'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/line-social-connection'
   },
-  
+
 
   /* MICROSITES */
 
@@ -798,98 +957,98 @@ module.exports = [
     to: '/architecture-scenarios/b2b/authentication'
   },
   {
-    from: [ 
+    from: [
             '/architecture-scenarios/b2b/b2b-authorization',
             '/architecture-scenarios/implementation/b2b/b2b-authorization'
           ],
     to: '/architecture-scenarios/b2b/authorization'
   },
   {
-    from: [ 
+    from: [
             '/architecture-scenarios/b2b/b2b-branding',
             '/architecture-scenarios/implementation/b2b/b2b-branding'
           ],
     to: '/architecture-scenarios/b2b/branding'
   },
   {
-    from: [ 
+    from: [
             '/architecture-scenarios/b2b/b2b-deployment',
             '/architecture-scenarios/implementation/b2b/b2b-deployment'
           ],
     to: '/architecture-scenarios/b2b/deployment'
   },
   {
-    from: [ 
+    from: [
             '/architecture-scenarios/b2b/b2b-launch',
             '/architecture-scenarios/implementation/b2b/b2b-launch'
           ],
     to: '/architecture-scenarios/b2b/launch'
   },
   {
-    from: [ 
+    from: [
             '/architecture-scenarios/b2b/b2b-launch-compliance',
             '/architecture-scenarios/implementation/b2b/b2b-launch/b2b-launch-compliance'
           ],
     to: '/architecture-scenarios/b2b/launch/compliance-readiness'
   },
   {
-    from: [ 
+    from: [
             '/architecture-scenarios/b2b/b2b-launch-launch',
             '/architecture-scenarios/implementation/b2b/b2b-launch/b2b-launch-launch'
           ],
     to: '/architecture-scenarios/b2b/launch/launch-day'
   },
   {
-    from: [ 
+    from: [
             '/architecture-scenarios/b2b/b2b-launch-operations',
             '/architecture-scenarios/implementation/b2b/b2b-launch/b2b-launch-operations'
           ],
     to: '/architecture-scenarios/b2b/launch/operations-readiness'
   },
   {
-    from: [ 
+    from: [
             '/architecture-scenarios/b2b/b2b-launch-support',
             '/architecture-scenarios/implementation/b2b/b2b-launch/b2b-launch-support'
           ],
     to: '/architecture-scenarios/b2b/launch/support-readiness'
   },
   {
-    from: [ 
+    from: [
             '/architecture-scenarios/b2b/b2b-launch-testing',
             '/architecture-scenarios/implementation/b2b/b2b-launch/b2b-launch-testing'
           ],
     to: '/architecture-scenarios/b2b/launch/testing'
   },
   {
-    from: [ 
+    from: [
             '/architecture-scenarios/b2b/b2b-logout',
             '/architecture-scenarios/implementation/b2b/b2b-logout'
           ],
     to: '/architecture-scenarios/b2b/logout'
   },
   {
-    from: [ 
+    from: [
             '/architecture-scenarios/b2b/b2b-operations',
             '/architecture-scenarios/implementation/b2b/b2b-operations'
           ],
     to: '/architecture-scenarios/b2b/operations'
   },
   {
-    from: [ 
+    from: [
             '/architecture-scenarios/b2b/b2b-profile-mgmt',
             '/architecture-scenarios/implementation/b2b/b2b-profile-mgmt'
           ],
     to: '/architecture-scenarios/b2b/profile-management'
   },
   {
-    from: [ 
+    from: [
             '/architecture-scenarios/b2b/b2b-provisioning',
             '/architecture-scenarios/implementation/b2b/b2b-provisioning'
           ],
     to: '/architecture-scenarios/b2b/provisioning'
   },
   {
-    from: [ 
+    from: [
             '/architecture-scenarios/b2b/b2b-qa',
             '/architecture-scenarios/implementation/b2b/b2b-qa'
           ],
@@ -907,105 +1066,105 @@ module.exports = [
     to: '/architecture-scenarios/b2c/architecture'
   },
   {
-    from: [ 
+    from: [
             '/architecture-scenarios/b2c/b2c-authentication',
             '/architecture-scenarios/implementation/b2c/b2c-authentication'
           ],
     to: '/architecture-scenarios/b2c/authentication'
   },
   {
-    from: [ 
+    from: [
             '/architecture-scenarios/b2c/b2c-authorization',
             '/architecture-scenarios/implementation/b2c/b2c-authorization'
           ],
     to: '/architecture-scenarios/b2c/authorization'
   },
   {
-    from: [ 
+    from: [
             '/architecture-scenarios/b2c/b2c-branding',
             '/architecture-scenarios/implementation/b2c/b2c-branding'
           ],
     to: '/architecture-scenarios/b2c/branding'
   },
   {
-    from: [ 
+    from: [
             '/architecture-scenarios/b2c/b2c-deployment',
             '/architecture-scenarios/implementation/b2c/b2c-deployment'
           ],
     to: '/architecture-scenarios/b2c/deployment'
   },
   {
-    from: [ 
+    from: [
             '/architecture-scenarios/b2c/b2c-launch',
             '/architecture-scenarios/implementation/b2c/b2c-launch'
           ],
     to: '/architecture-scenarios/b2c/launch'
   },
     {
-    from: [ 
+    from: [
             '/architecture-scenarios/b2c/b2c-launch-compliance',
             '/architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-compliance'
           ],
     to: '/architecture-scenarios/b2c/launch/compliance-readiness'
   },
   {
-    from: [ 
+    from: [
             '/architecture-scenarios/b2c/b2c-launch-launch',
             '/architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-launch'
           ],
     to: '/architecture-scenarios/b2c/launch/launch-day'
   },
   {
-    from: [ 
+    from: [
             '/architecture-scenarios/b2c/b2c-launch-operations',
             '/architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-operations'
           ],
     to: '/architecture-scenarios/b2c/launch/operations-readiness'
   },
   {
-    from: [ 
+    from: [
             '/architecture-scenarios/b2c/b2c-launch-support',
             '/architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-support'
           ],
     to: '/architecture-scenarios/b2c/launch/support-readiness'
   },
   {
-    from: [ 
+    from: [
             '/architecture-scenarios/b2c/b2c-launch-testing',
             '/architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-testing'
           ],
     to: '/architecture-scenarios/b2c/launch/testing'
   },
   {
-    from: [ 
+    from: [
             '/architecture-scenarios/b2c/b2c-logout',
             '/architecture-scenarios/implementation/b2c/b2c-logout'
           ],
     to: '/architecture-scenarios/b2c/logout'
   },
   {
-    from: [ 
+    from: [
             '/architecture-scenarios/b2c/b2c-operations',
             '/architecture-scenarios/implementation/b2c/b2c-operations'
           ],
     to: '/architecture-scenarios/b2c/operations'
   },
   {
-    from: [ 
+    from: [
             '/architecture-scenarios/b2c/b2c-profile-mgmt',
             '/architecture-scenarios/implementation/b2c/b2c-profile-mgmt'
           ],
     to: '/architecture-scenarios/b2c/profile-management'
   },
   {
-    from: [ 
+    from: [
             '/architecture-scenarios/b2c/b2c-provisioning',
             '/architecture-scenarios/implementation/b2c/b2c-provisioning'
           ],
     to: '/architecture-scenarios/b2c/provisioning'
   },
   {
-    from: [ 
+    from: [
             '/architecture-scenarios/b2c/b2c-qa',
             '/architecture-scenarios/implementation/b2c/b2c-qa'
           ],
@@ -1234,7 +1393,7 @@ module.exports = [
     to: '/applications/confidential-and-public-applications'
   },
 
-  
+
   /* Authorization */
 
   {
@@ -1364,7 +1523,7 @@ module.exports = [
   {
     from: ['/authorization/guides/manage-users'],
     to: '/authorization/rbac-users'
-  }, 
+  },
 
   /* Best Practices */
 
@@ -1504,7 +1663,7 @@ module.exports = [
     to: '/cms/wordpress-plugin/integrate-with-wordpress'
   },
 
-  
+
 
 /* Compliance */
 
@@ -1579,7 +1738,7 @@ module.exports = [
   },
 
   /* Deploy */
-  
+
   {
     from: ['/get-started/deployment-options', '/getting-started/deployment-models','/overview/deployment-models','/deployment'],
     to: '/deploy'
@@ -1605,7 +1764,7 @@ module.exports = [
     to: '/deploy/private-cloud/private-cloud-onboarding/private-cloud-remote-access-options'
   },
   {
-    from: ['/private-cloud/private-cloud-onboarding/standard-private-cloud-infrastructure-requirements','/private-saas-deployment/private-cloud','/private-cloud/standard-private-cloud','/private-saas-deployment/onboarding/managed-private-cloud/infrastructure','/private-cloud/onboarding/managed-private-cloud/infrastructure','/private-saas-deployment/managed-private-cloud','/private-cloud/onboarding/managed-private-cloud','/private-saas-deployment/onboarding/managed-private-cloud','/private-cloud/onboarding/managed-private-cloud','/appliance/infrastructure','/appliance/infrastructure/security'], 
+    from: ['/private-cloud/private-cloud-onboarding/standard-private-cloud-infrastructure-requirements','/private-saas-deployment/private-cloud','/private-cloud/standard-private-cloud','/private-saas-deployment/onboarding/managed-private-cloud/infrastructure','/private-cloud/onboarding/managed-private-cloud/infrastructure','/private-saas-deployment/managed-private-cloud','/private-cloud/onboarding/managed-private-cloud','/private-saas-deployment/onboarding/managed-private-cloud','/private-cloud/onboarding/managed-private-cloud','/appliance/infrastructure','/appliance/infrastructure/security'],
     to: '/deploy/private-cloud/private-cloud-onboarding/standard-private-cloud-infrastructure-requirements'
   },
   {
@@ -1625,7 +1784,7 @@ module.exports = [
     to: '/deploy/private-cloud/private-cloud-migrations/migrate-from-standard-private-cloud-to-managed-private-cloud'
   },
   {
-    from: ['/private-cloud/private-cloud-migrations/migrate-private-cloud-custom-domains','/appliance/custom-domains','/private-saas-deployment/custom-domain-migration','/private-cloud/custom-domain-migration','/private-cloud/migrate-private-cloud-custom-domains'], 
+    from: ['/private-cloud/private-cloud-migrations/migrate-private-cloud-custom-domains','/appliance/custom-domains','/private-saas-deployment/custom-domain-migration','/private-cloud/custom-domain-migration','/private-cloud/migrate-private-cloud-custom-domains'],
     to: '/deploy/private-cloud/private-cloud-migrations/migrate-private-cloud-custom-domains'
   },
   {
@@ -1699,7 +1858,7 @@ module.exports = [
   },
   {
     from: [
-      '/email/testing', 
+      '/email/testing',
       '/auth0-email-services/configure-external-smtp-email-providers/configure-test-smtp-email-servers'
     ],
     to: '/email/configure-test-smtp-email-servers'
@@ -1713,7 +1872,7 @@ module.exports = [
     ],
     to: '/email/send-email-invitations-for-application-signup'
   },
- 
+
   /* Extensions */
 
   {
@@ -1744,11 +1903,11 @@ module.exports = [
     from: ['/extensions/authorization-extension/v2/import-export-data'],
     to: '/extensions/authorization-extension/import-and-export-authorization-extension-data'
   },
-  { 
+  {
     from: ['/extensions/authorization-extension/v2/migration'],
     to: '/extensions/authorization-extension/migrate-to-authorization-extension-v2'
   },
-  { 
+  {
     from: ['/extensions/authorization-extension/v2/rules'],
     to: '/extensions/authorization-extension/use-rules-with-the-authorization-extension'
   },
@@ -1885,8 +2044,11 @@ module.exports = [
     to: '/extensions/export-logs-to-azure-blob-storage'
   },
   {
-    from: ['/extensions/bitbucket-deploy','/extensions/bitbucket-deployments'],
-    to: '/extensions'
+    from: [
+      '/extensions/bitbucket-deploy',
+      '/extensions/bitbucket-deployments'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/bitbucket-pipeline'
   },
   {
     from: ['/extensions/cloudwatch'],
@@ -1897,12 +2059,18 @@ module.exports = [
     to: '/connections/social/oauth2'
   },
   {
-    from: ['/extensions/github-deploy','/extensions/github-deployments'],
-    to: '/extensions'
+    from: [
+      '/extensions/github-deploy',
+      '/extensions/github-deployments'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/github-actions'
   },
   {
-    from: ['/extensions/gitlab-deploy','/extensions/gitlab-deployments'],
-    to: '/extensions'
+    from: [
+      '/extensions/gitlab-deploy',
+      '/extensions/gitlab-deployments'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/gitlab-pipeline'
   },
   {
     from: ['/extensions/logentries'],
@@ -2048,7 +2216,7 @@ module.exports = [
     to: '/flows/call-api-hybrid-flow'
   },
 
-  
+
 
   /* Get Started */
 
@@ -2180,7 +2348,7 @@ module.exports = [
     to: '/dashboard-access'
   },
   {
-    from: ['/dashboard-access/dashboard-roles/feature-access-by-role'], 
+    from: ['/dashboard-access/dashboard-roles/feature-access-by-role'],
     to: '/dashboard-access/feature-access-by-role'
   },
   {
@@ -2836,7 +3004,7 @@ module.exports = [
     from: ['/cross-origin-authentication', '/flows/login/embedded-login/cross-origin-authentication'],
     to: '/login/embedded-login/cross-origin-authentication'
   },
-  
+
   /* Logout */
 
   {
@@ -2889,7 +3057,7 @@ module.exports = [
     from: [
       '/logs/export-log-events-with-log-streaming/stream-http-event-logs',
       '/logs/streams/http-event',
-      '/logs/streams/stream-http-event-logs' 
+      '/logs/streams/stream-http-event-logs'
     ],
     to: '/monitor-auth0/streams/custom-log-streams'
   },
@@ -2925,7 +3093,7 @@ module.exports = [
       '/logs/streams/datadog-dashboard-templates'
     ],
     to: '/monitor-auth0/streams/datadog-dashboard-templates'
-  }, 
+  },
   {
     from: ['/logs/personally-identifiable-information-pii-in-auth0-logs'],
     to: '/logs/pii-in-logs'
@@ -2979,7 +3147,7 @@ module.exports = [
   },
 
   /* MFA */
-  
+
   {
     from: ['/multi-factor-authentication','/multi-factor-authentication2','/multifactor-authentication/custom-provider','/multifactor-authentication','/mfa-in-auth0','/multifactor-authentication/yubikey','/multifactor-authentication/guardian','/multifactor-authentication/guardian/user-guide','/multi-factor-authentication/yubikey'],
     to: '/mfa'
@@ -3123,7 +3291,7 @@ module.exports = [
   {
     from: ['/mfa/concepts/mfa-developer-resources','/multifactor-authentication/developer','/mfa/concepts/developer-resources'],
     to: '/mfa/mfa-developer-resources'
-  },  
+  },
   {
     from: ['/mfa/guides/enable-mfa'],
     to: '/mfa/enable-mfa'
@@ -3168,7 +3336,7 @@ module.exports = [
     from: ['/monitoring/guides/monitor-using-SCOM'],
     to: '/monitor-auth0/monitor-using-scom'
   },
-  
+
 
   /* Policies */
 
@@ -3276,7 +3444,7 @@ module.exports = [
     to: '/product-lifecycle/deprecations-and-migrations/instagram-connection-deprecation'
   },
   {
-    from: [      
+    from: [
       '/product-lifecycle/deprecations-and-migrations/migrate-to-management-api-v2',
       '/api/management-api-v1-deprecated',
       '/api/management-api-changes-v1-to-v2',
@@ -3318,7 +3486,7 @@ module.exports = [
     from: ['/deprecations-and-migrations/migrate-tenant-member-roles'],
     to: '/product-lifecycle/deprecations-and-migrations/migrate-tenant-member-roles'
   },
-    
+
 
   /* Professional Services */
 
@@ -3542,7 +3710,7 @@ module.exports = [
 
   /* Rules */
 
-  { 
+  {
     from: ['/rules/current', '/rules/current/csharp', '/rules/guides/csharp', '/rules/legacy', '/rules/references/legacy','/rules/references/modules','/rule'],
     to: '/rules'
   },
@@ -3642,7 +3810,7 @@ module.exports = [
     ],
     to: '/rules/use-cases/track-new-sign-ups-in-salesforce'
   },
- 
+
 
   /* Scopes */
 
@@ -3693,7 +3861,7 @@ module.exports = [
   },
   {
     from: [
-      '/users/normalized/auth0/store-user-data', 
+      '/users/normalized/auth0/store-user-data',
       '/users/store-user-data',
       '/users/references/user-data-storage-scenario',
       '/users/user-data-storage-scenario',
@@ -3707,8 +3875,8 @@ module.exports = [
   {
     from: [
       '/tokens/concepts/token-storage',
-      '/videos/session-and-cookies', 
-      '/security/store-tokens', 
+      '/videos/session-and-cookies',
+      '/security/store-tokens',
       '/tokens/guides/store-tokens',
       '/tokens/token-storage'
     ],
@@ -3893,7 +4061,7 @@ module.exports = [
   {
     from: ['/support/matrix'],
     to: '/support/product-support-matrix'
-  },  
+  },
   {
     from: ['/support/reset-account-password','/tutorials/reset-account-password'],
     to: '/support/reset-account-passwords'
@@ -4063,7 +4231,7 @@ module.exports = [
   },
 
   /* Troubleshoot */
- 
+
   {
     from: ['/troubleshoot/basics'],
     to: '/troubleshoot'
@@ -4074,9 +4242,9 @@ module.exports = [
   },
   {
     from: [
-      '/har', 
-      '/tutorials/troubleshooting-with-har-files', 
-      '/troubleshoot/har', 
+      '/har',
+      '/tutorials/troubleshooting-with-har-files',
+      '/troubleshoot/har',
       '/support/troubleshooting-with-har-files',
       '/troubleshoot/guides/generate-har-files',
       '/troubleshoot/generate-and-analyze-har-files'
@@ -4173,13 +4341,13 @@ module.exports = [
 
   {
     from: [
-      '/hosted-pages/hosted-login-auth0js', 
-      '/hosted-pages/login/auth0js', 
-      '/hosted-pages/login/lock', 
-      '/hosted-pages/login/lock-passwordless', 
-      '/hosted-pages/hosted-login-auth0js/v7', 
-      '/hosted-pages/hosted-login-auth0js/v8', 
-      '/hosted-pages/login', 
+      '/hosted-pages/hosted-login-auth0js',
+      '/hosted-pages/login/auth0js',
+      '/hosted-pages/login/lock',
+      '/hosted-pages/login/lock-passwordless',
+      '/hosted-pages/hosted-login-auth0js/v7',
+      '/hosted-pages/hosted-login-auth0js/v8',
+      '/hosted-pages/login',
       '/hosted-pages',
       '/universal-login/customization-new',
       '/login_page'
@@ -4298,8 +4466,8 @@ module.exports = [
     from: ['/universal-login/text-customization'],
     to: '/universal-login/new-experience/text-customization-new-universal-login'
   },
-  
-  
+
+
 
 
   /* Users */
@@ -4337,7 +4505,7 @@ module.exports = [
   },
   {
     from: [
-      '/users/references/metadata-field-name-rules', 
+      '/users/references/metadata-field-name-rules',
       '/best-practices/metadata-best-practices'
     ],
     to: '/users/metadata/metadata-fields-data'
@@ -4345,7 +4513,7 @@ module.exports = [
   {
     from: [
       '/users/guides/update-metadata-properties-with-management-api',
-      '/update-metadata-with-the-management-api', 
+      '/update-metadata-with-the-management-api',
       '/users/update-metadata-with-the-management-api',
       '/metadata/management-api',
       '/metadata/apiv2',
@@ -4361,10 +4529,10 @@ module.exports = [
   },
   {
     from: [
-      '/rules/current/metadata-in-rules', 
-      '/rules/guides/metadata', 
-      '/rules/metadata-in-rules', 
-      '/metadata-in-rules', 
+      '/rules/current/metadata-in-rules',
+      '/rules/guides/metadata',
+      '/rules/metadata-in-rules',
+      '/metadata-in-rules',
       '/metadata/rules',
       '/rules/metadata'
     ],
@@ -4666,9 +4834,9 @@ module.exports = [
 
   {
     from: ['/configuration-overview','/configure'],
-    to: '/config' 
+    to: '/config'
   },
-  
+
   /* Tenant Settings */
 
   {
