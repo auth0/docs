@@ -1,17 +1,16 @@
 title: PHP
 image: /media/platforms/php.png
 author:
-  name: Josh Cunningham
-  email: josh.cunningham@auth0.com
+  name: Evan Sims
+  email: evan.sims@auth0.com
   community: false
 contentType: tutorial
 useCase: quickstart
 topics:
   - quickstart
 snippets:
-  dependencies: server-platforms/php/dependencies
-  setup: server-platforms/php/setup
-  use: server-platforms/php/use
+  install: server-platforms/php/install
+  configure: server-platforms/php/configure
 seo_alias: php
 default_article: 01-login
 articles:
@@ -20,27 +19,27 @@ show_steps: true
 github:
   org: auth0-samples
   repo: auth0-php-web-app
-  branch: master
+  branch: main
 sdk:
   name: auth0-php
   url: https://github.com/auth0/auth0-php
   logo: php
 requirements:
-  - Apache 2.4.4
-  - PHP 7.3 and up
-  - Auth0-PHP 7.0 and up
+  - PHP 8.0+
+  - Composer
+  - Auth0-PHP 8.0+
 next_steps:
   - path: 01-login
     list:
-    - text: Configure other identity providers
-      icon: 345
-      href: "/identityproviders"
-    - text: Enable multifactor authentication
-      icon: 345
-      href: "/multifactor-authentication"
-    - text: Learn about attack protection
-      icon: 345
-      href: "/attack-protection"
-    - text: Learn about rules
-      icon: 345
-      href: "/rules"
+      - text: Configure other identity providers
+        icon: 345
+        href: "/identityproviders"
+      - text: Enable multifactor authentication
+        icon: 345
+        href: "/multifactor-authentication"
+      - text: Learn about attack protection
+        icon: 345
+        href: "/attack-protection"
+      - text: Learn about rules
+        icon: 345
+        href: "/rules"
