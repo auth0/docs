@@ -2,41 +2,37 @@
 
 To run the sample follow these steps:
 
-1) Set the **Allowed Callback URLs** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) to
+1) Add the following URL to **Allowed Callback URLs** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings)
 
 ```text
-com.auth0.ionic://${account.namespace}/cordova/com.auth0.ionic/callback
+com.auth0.samples://${account.namespace}/capacitor/com.auth0.samples/callback
 ```
 
-2) Set the **Allowed Logout URLs** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) to
+2) Add the following URL to **Allowed Logout URLs** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings)
 
 ```text
-com.auth0.ionic://${account.namespace}/cordova/com.auth0.ionic/callback
+com.auth0.samples://${account.namespace}/capacitor/com.auth0.samples/callback
 ```
 
-3) Set **Allowed Origins (CORS)s** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) to
-Android
+3) Add the following to **Allowed Origins (CORS)s** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings)
 
 ```text
-http://localhost, http://localhost:8100
+capacitor://localhost
 ```
 
-iOS
+4) Check that mobile development environments for [Android](https://capacitorjs.com/docs/android) and [iOS](https://capacitorjs.com/docs/ios) are setup correctly. For iOS, [CocoaPods](https://cocoapods.org/) must be installed.
 
-```text
-ionic://localhost, http://localhost:8100
-```
-
-4) Ensure that [Ionic 4](https://ionicframework.com/docs/intro/installation/), [Cordova](https://cordova.apache.org/#getstarted) and make sure [native-run](https://github.com/ionic-team/native-run) are installed.
-
-5) Check that mobile development environments for [Android](https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html) and [iOS](https://cordova.apache.org/docs/en/latest/guide/platforms/ios/index.html) are setup correctly.
-
-6) Make sure [Node.JS LTS](https://nodejs.org/en/download/) is installed and execute the following commands in the sample directory:
+5) Make sure [Node.JS LTS](https://nodejs.org/en/download/) is installed and execute the following commands in the sample directory:
 
 ```bash
 npm install
+npm run build
+
 # to test it in iOS
-ionic cordova run ios --livereload
+npx cap run ios
+
 # to test it in Android
-ionic cordova run android --livereload
+npx cap run android
 ```
+
+Read more about the [Capacitor development workflow](https://capacitorjs.com/docs/basics/workflow) on Capacitor's docs site.
