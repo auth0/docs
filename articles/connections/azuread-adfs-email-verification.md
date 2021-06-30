@@ -37,7 +37,7 @@ You can find the new tenant setting in the [Auth0 Dashboard > Settings > Advance
 You must have the correct Azure configuration for this option to be available.
 :::
 
-![Dashboard: Advanced Tenant Settings - Migrations](/media/connections/dashboard-tenant-edit_view-advanced_migrations_azure-adfs.png)
+![Dashboard - Advanced Tenant Settings - Migrations](/media/connections/dashboard-tenant-edit_view-advanced_migrations_azure-adfs.png)
 
 When this setting is disabled, `email_verified` will always be `true` for Azure AD/ADFS connections. When enabled, it will use the 'Email Verification' setting at the connection level.
 
@@ -47,13 +47,13 @@ If your application requires that the emails from an Azure AD/ADFS connection's 
 
 After the user authenticates for the first time with a non-verified email, Auth0 will ask the user to verify their email by entering a one-time-use code that will be sent to their email account:
 
-![](/media/articles/connections/azuread-adfs-email-verification.png)
+![Auth0 - Email Verification Prompt - One-Time Code](/media/articles/connections/azuread-adfs-email-verification.png)
 
 If the user completes this step, the `email_verified` field will be set to `true`, and users will not be prompted again for email verification, unless Azure AD or ADFS return a different email for the user.
 
 This new screen is rendered using the New Universal Login Experience, even if you have Universal Login configured to use the Classic Experience. To learn how to customize it, read the [Universal Login Customization documentation](/universal-login/customization-new). 
 
-To learn how to customize the email that is sent to users, check the [Verification Email template documentation](/email/templatesverification-email-using-code-)
+To learn how to customize the email that is sent to users, check the [Verification Email template documentation](/users/verify-emails/)
 
 :::warning
 When Azure AD does not return an `email` claim, Auth0 maps the [Azure UserPrincipalName](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/plan-connect-userprincipalname) as the email. There is no guarantee that the UserPrincipalName value is a mailbox, so Auth0 will **NOT** display the email verification prompt and the user will have the field `email_verified` set to `false`.
