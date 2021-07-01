@@ -1401,15 +1401,15 @@ articles:
         url: /best-practices/rules-best-practices
         children:
           - title: Rules Anatomy
-            url: /best-practices/rules-anatomy-best-practices
+            url: /best-practices/rules-best-practices/rules-anatomy-best-practices
           - title: Rules Environment
-            url: /best-practices/rules-environment-best-practices
+            url: /best-practices/rules-best-practices/rules-environment-best-practices
           - title: Rules Execution
-            url: /best-practices/rules-execution-best-practices
+            url: /best-practices/rules-best-practices/rules-execution-best-practices
           - title: Rules Security
-            url: /best-practices/rules-security-best-practices
+            url: /best-practices/rules-best-practices/rules-security-best-practices
           - title: Rules Testing
-            url: /best-practices/rules-testing-best-practices
+            url: /best-practices/rules-best-practices/rules-testing-best-practices
       - title: Tokens
         url: /best-practices/token-best-practices
       - title: User Search
