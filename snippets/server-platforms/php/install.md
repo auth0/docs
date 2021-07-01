@@ -1,6 +1,6 @@
 The Auth0 PHP SDK requires [Composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos), a tool for dependency management in PHP. Composer allows you to declare the dependent libraries your project needs and installs them for you. Please ensure Composer is installed and accessible from your shell before continuing.
 
-Run the following command within your project directory to install the Auth0 PHP SDK:
+Run the following shell command within your project directory to install the Auth0 PHP SDK:
 
 ```sh
 composer require auth0/auth0-php

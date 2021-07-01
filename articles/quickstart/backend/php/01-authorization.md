@@ -13,7 +13,7 @@ topics:
 contentType: tutorial
 useCase: quickstart
 github:
-  path: /
+  path: .
 ---
 
 <%= include('../../../_includes/_api_auth_intro') %>
@@ -22,9 +22,11 @@ github:
 
 <%= include('../_includes/_api_auth_preamble') %>
 
+## Integrating your PHP Backend API
+
 Let's create a sample application that authorizes an Auth0-signed token with a backend API we've written in PHP. We'll take a simple approach here, appropriate for the written format. Still, you should check out the accompanying [Quickstart app on GitHub](https://github.com/auth0-samples/auth0-php-api-samples/) for a more robust example.
 
-## Installing the PHP SDK
+### Installing the PHP SDK
 
 ${snippet(meta.snippets.install)}
 
@@ -40,15 +42,60 @@ composer require guzzlehttp/guzzle guzzlehttp/psr7 http-interop/http-factory-guz
 
 ### Configure the SDK
 
-${snippet(meta.snippets.configure)}
+To begin, let's create a `.env` file within the root of your project directory to store our sample application's configuration and fill in the environment variables:
+
+```sh
+# The URL of our Auth0 Tenant Domain.
+# If we're using a Custom Domain, be sure to set this to that value instead.
+AUTH0_DOMAIN='https://${account.namespace}'
+
+# Our Auth0 application's Client ID.
+AUTH0_CLIENT_ID='${account.clientId}'
+
+# Our Auth0 application's Client Secret.
+AUTH0_CLIENT_SECRET='${account.clientSecret}'
+
+# Our Auth0 API's Identifier.
+AUTH0_AUDIENCE='YOUR_API_IDENTIFIER'
+```
+
+As PHP isn't able to read our `.env` file by itself, we'll want to install a library to help with that. Although we'll be using a particular library for our sample application's purposes, any 'dotenv' loader of preference will work in a real-world application. From our project directory, let's run the following shell command to install the library:
+
+```sh
+composer require vlucas/phpdotenv
+```
+
+Next, let's create the PHP source file we'll be using for these code samples, `index.php`, and let's configure an instance of the Auth0 PHP SDK for our sample application:
+
+```php
+<?php
+
+// Import the Composer Autoloader to make the SDK classes accessible:
+require 'vendor/autoload.php';
+
+// Load our environment variables from the .env file:
+(Dotenv\Dotenv::createImmutable(__DIR__))->load();
+
+// Create a configuration object for the Auth0 PHP SDK:
+$auth0Configuration = new \Auth0\SDK\SdkConfiguration(
+    domain: $env['AUTH0_DOMAIN'],
+    clientId: $env['AUTH0_CLIENT_ID'],
+    clientSecret: $env['AUTH0_CLIENT_SECRET'],
+    audience: $env['AUTH0_AUDIENCE']
+);
+
+// Now instantiate the Auth0 class with the above configuration:
+$auth0 = new \Auth0\SDK\Auth0($auth0Configuration);
+```
+
 
 ### Authenticating the user
 
-For this sample application, we're focusing on [authorization](https://auth0.com/intro-to-iam/authentication-vs-authorization/). There's numerous routes you could go for authenticating your users before they hit your backend API for authorization, such as using [Auth0's SPA.js library](https://github.com/auth0/auth0-spa-js). This approach is demonstrate in [this Quickstart app accompanying Github project](https://github.com/auth0-samples/auth0-php-api-samples/). Regardless of the approach you decide to use, this sample application expects you to pass your access token to it through a 'Authorization' header to work.
+For this sample application, we're focusing on [authorization](https://auth0.com/intro-to-iam/authentication-vs-authorization/). There's numerous routes you could go for authenticating your users before they hit your backend API for authorization, such as using [Auth0's SPA.js library](https://github.com/auth0/auth0-spa-js). This approach is demonstrated in [this Quickstart app accompanying Github project](https://github.com/auth0-samples/auth0-php-api-samples/). Regardless of the approach you take, this sample application expects you to pass your Access Token to it through a request parameter or header to work.
 
 ### Authorizing a token
 
-First, we need to extract the token from the incoming HTTP request.
+First, we need to extract the token from the incoming HTTP request. Let's look for a `?token` parameter in a GET request or an `HTTP_AUTHORIZATION` or `Authorization` header.
 
 ```PHP
 // 👆 We're continuing from the steps above. Append this to your index.php file.
@@ -57,7 +104,7 @@ $authorized = false;
 $token = $_GET['token'] ?? $_SERVER['HTTP_AUTHORIZATION'] ?? $_SERVER['Authorization'] ?? null;
 ```
 
-This will look for a ?token parameter in a GET request, or a HTTP_AUTHORIZATION or Authorization header. Next, if the token is present, let's process it!
+Next, let's decode the token, if one is present:
 
 ```PHP
 // 👆 We're continuing from the steps above. Append this to your index.php file.
@@ -87,18 +134,17 @@ if ($token !== null) {
 define('ENDPOINT_AUTHORIZED', $authorized);
 ```
 
-Depending on how you setup your API routing, how exactly you integrate these checks might look a little different, but the principle is the same: check the token, and in the event your API endpoint requires authorization, deny access if the token isn't valid or acceptable:
+Depending on how you configure your API routing, how exactly you integrate these checks might look a little different, but the principle is the same: check the token, and in the event your API endpoint requires authorization, deny access if the token isn't valid or acceptable:
 
 ```PHP
 // 👆 We're continuing from the steps above. Append this to your index.php file.
 
+// Is the request authorized?
 if (ENDPOINT_AUTHORIZED) {
     // Respond with a JSON response:
     echo json_encode([
         'authorized' => true,
-        'data' => [
-            'message' => 'You are authorized to be here!'
-        ]
+        'data' => $token->toArray()
     ], JSON_PRETTY_PRINT);
 
     exit;
@@ -118,9 +164,9 @@ echo json_encode([
 
 ### Caching
 
-Great! This works for our simple needs, but in a real-world application, we'll want to use caching to ensure we don't hit our Auth0 rate limits or slow down our application with unnecessary network requests. The Auth0 PHP SDK supports a caching interface called [PSR-6](https://www.php-fig.org/psr/psr-6), which you can plug any compatible caching library into for the SDK to fit in nicely with your architecture.
+This works, but in a real-world application, we'll want to use caching to ensure we don't hit our Auth0 rate limits or slow down our application with unnecessary network requests. The Auth0 PHP SDK supports a caching interface called [PSR-6](https://www.php-fig.org/psr/psr-6), which you can plug [any compatible caching library](https://packagist.org/providers/psr/cache-implementation) into for the SDK to fit in nicely with your architecture.
 
-For an example, let's use the Symfony caching library:
+For our sample, let's use the [Symfony caching component](https://symfony.com/doc/current/components/cache.html) library. From our root project directory, issue the following shell command:
 
 ```sh
 composer require symfony/cache

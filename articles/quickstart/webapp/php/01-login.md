@@ -12,26 +12,26 @@ topics:
 contentType: tutorial
 useCase: quickstart
 github:
-  path: /
+  path: .
 ---
 
-<%= include('../\_includes/\_getting_started', { library: 'PHP', callback: 'http://127.0.0.1:3000/' }) %>
+<%= include('../_includes/_getting_started', { library: 'PHP', callback: 'http://127.0.0.1:3000/' }) %>
 
-<%= include('../../../\_includes/\_logout_url', { returnTo: 'http://127.0.0.1:3000' }) %>
+<%= include('../../../_includes/_logout_url', { returnTo: 'http://127.0.0.1:3000' }) %>
+
+## Integrate your PHP application
 
 Let's create a sample application that authenticates a user with a PHP application. We'll take a simple approach here, appropriate for the written format. Still, you should check out the accompanying [Quickstart app on GitHub](https://github.com/auth0-samples/auth0-php-web-app/) for a more robust example.
 
-${snippet(meta.snippets.setup)}
-
-## Installing the PHP SDK
+### Installing the PHP SDK
 
 ${snippet(meta.snippets.install)}
 
 ### Installing HTTP Client and Messaging Factories
 
-The Auth0 PHP SDK supports many PHP-FIG standards to offer maximum interoperability with your project's architecture, but two of particular importance are [PSR-17](https://www.php-fig.org/psr/psr-17/) and [PSR-18](https://www.php-fig.org/psr/psr-18/). These standards allow you to "plugin" networking components of your choice to handle messaging and requests. You will need to install compatible libraries in your project for the SDK to use.
+The Auth0 PHP SDK supports many [PHP-FIG](https://www.php-fig.org) standards offering interoperability options with your architecture. Two of particular importance are [PSR-17](https://www.php-fig.org/psr/psr-17/) and [PSR-18](https://www.php-fig.org/psr/psr-18/). These standards allow you to plug-in networking components of your choice to handle messaging and requests. You will need to install compatible libraries in your project for the SDK to use.
 
-The most prolific networking library for PHP is Guzzle, although many are available to pick from within the PHP community. Let's use Guzzle for this sample application:
+The most prolific networking library for PHP is [Guzzle](https://guzzlephp.org), although many are available to pick from within the PHP community. Let's use Guzzle for this sample application. Once again, from your project directory, run the following shell command:
 
 ```sh
 composer require guzzlehttp/guzzle guzzlehttp/psr7 http-interop/http-factory-guzzle
@@ -39,19 +39,67 @@ composer require guzzlehttp/guzzle guzzlehttp/psr7 http-interop/http-factory-guz
 
 ### Configuring the SDK
 
-${snippet(meta.snippets.configure)}
+To begin, let's create a `.env` file within the root of your project directory to store our sample application's configuration and fill in the environment variables:
+
+```sh
+# The URL of our Auth0 Tenant Domain.
+# If we're using a Custom Domain, be sure to set this to that value instead.
+AUTH0_DOMAIN='https://${account.namespace}'
+
+# Our Auth0 application's Client ID.
+AUTH0_CLIENT_ID='${account.clientId}'
+
+# Our Auth0 application's Client Secret.
+AUTH0_CLIENT_SECRET='${account.clientSecret}'
+
+# A long secret value we'll use to encrypt session cookies. This can be generated using `openssl rand -hex 32` from our shell.
+AUTH0_COOKIE_SECRET='SEE COMMENT ABOVE'
+
+# The base URL of our application.
+AUTH0_BASE_URL='http://127.0.0.1:3000'
+```
+
+As PHP isn't able to read our `.env` file by itself, we'll want to install a library to help with that. Although we'll be using a particular library for our sample application's purposes, in a real world application any 'dotenv' loader of preference will work. From our project directory, let's run the following shell command to install the library:
+
+```sh
+composer require vlucas/phpdotenv
+```
+
+Next, let's create the PHP source file we'll be using for these code samples, `index.php`, and let's configure an instance of the Auth0 PHP SDK for our sample application:
+
+```php
+<?php
+
+// Import the Composer Autoloader to make the SDK classes accessible:
+require 'vendor/autoload.php';
+
+// Load our environment variables from the .env file:
+(Dotenv\Dotenv::createImmutable(__DIR__))->load();
+
+// Create a configuration object for the Auth0 PHP SDK:
+$auth0Configuration = new \Auth0\SDK\SdkConfiguration(
+    domain: $env['AUTH0_DOMAIN'],
+    clientId: $env['AUTH0_CLIENT_ID'],
+    clientSecret: $env['AUTH0_CLIENT_SECRET'],
+    cookieSecret: $env['AUTH0_COOKIE_SECRET']
+);
+
+// Now instantiate the Auth0 class with the above configuration:
+$auth0 = new \Auth0\SDK\Auth0($auth0Configuration);
+```
+
 
 ### Setting up your application routes
 
 Modern PHP applications use a routing pattern to pass incoming HTTP requests to the code that handles them, determining what should happen when our users visit a particular "page" in our app. There is no single, correct way of implementing routing in your application, and there are many libraries to choose from to implement it. We'll be using one particular library for our sample application's purposes, but feel free to select your own in a real-world application.
 
-From our project directory, let's run the following command to install the routing library:
+From our project directory, let's run the following shell command to install the routing library:
 
 ```sh
 composer require steampixel/simple-php-router
 ```
 
-Next, let's open our `index.php` back up and give our application life! Let's start by configuring the route's our sample application will need:
+Next, let's open our `index.php` back up and give our application life. Start by configuring the route's our sample application will need:
 
 ```PHP
 // 👆 We're continuing from the steps above. Append this to your index.php file.
@@ -140,11 +188,11 @@ function onLoginRoute() {
 }
 ```
 
-## Handling authentication callback
+### Handling authentication callback
 
-After our users return from authenticating with the Auth0's Universal Login Page, they'll return to our sample application at our callback route/callback, which we'll handle in this step.
+After our users return from authenticating with the Auth0's Universal Login Page, they'll return to our sample application at our callback route, `/callback` which we'll handle in this step.
 
-When Auth0 passes our users back to us, it includes a few important parameters in the query of the HTTP request. The Auth0 PHP SDK's `exchange()` method handles working with those, so finishing our authentication flow is straightforward:
+When Auth0 passes our users back to us, it includes a few essential parameters in the query of the HTTP request. The Auth0 PHP SDK's `exchange()` method handles working with those, so finishing our authentication flow is straightforward:
 
 ```PHP
 // 👆 We're continuing from the steps above. Append this to your index.php file.
@@ -159,7 +207,7 @@ function onCallbackRoute() {
 }
 ```
 
-## Logging out
+### Logging out
 
 Last but not least, let's properly handle logging our users out. The `logout()` method of the Auth0 PHP SDK handles clearing our sample application's session cookies, redirecting the user to Auth0's [/logout endpoint](https://auth0.com/docs/logout) (which logs out Auth0 session layer and any identify provider session layers), and then return the user to our / index route.
 

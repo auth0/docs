@@ -5,8 +5,8 @@ alias:
 languages:
   - PHP
 author:
-  name: Josh Cunningham
-  email: josh.cunningham@auth0.com
+  name: Evan Sims
+  email: evan.sims@auth0.com
   community: false
 thirdParty: false
 image: /media/platforms/php.png
@@ -16,7 +16,6 @@ contentType: tutorial
 useCase: quickstart
 snippets:
   install: server-platforms/php/install
-  configure: server-platforms/php/configure
 articles:
   - 01-authorization
 default_article: 01-authorization
@@ -36,15 +35,15 @@ requirements:
 next_steps:
   - path: 01-authorization
     list:
-    - text: Configure other identity providers
-      icon: 345
-      href: "/identityproviders"
-    - text: Enable multifactor authentication
-      icon: 345
-      href: "/multifactor-authentication"
-    - text: Learn about attack protection
-      icon: 345
-      href: "/attack-protection"
-    - text: Learn about rules
-      icon: 345
-      href: "/rules"
+      - text: Configure other identity providers
+        icon: 345
+        href: '/identityproviders'
+      - text: Enable multifactor authentication
+        icon: 345
+        href: '/multifactor-authentication'
+      - text: Learn about attack protection
+        icon: 345
+        href: '/attack-protection'
+      - text: Learn about rules
+        icon: 345
+        href: '/rules'

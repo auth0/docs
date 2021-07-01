@@ -16,7 +16,6 @@ contentType: tutorial
 useCase: quickstart
 snippets:
   install: server-platforms/php/install
-  configure: server-platforms/php/configure
 articles:
   - 01-login
 default_article: 01-login
@@ -38,13 +37,13 @@ next_steps:
     list:
       - text: Configure other identity providers
         icon: 345
-        href: "/identityproviders"
+        href: '/identityproviders'
       - text: Enable multifactor authentication
         icon: 345
-        href: "/multifactor-authentication"
+        href: '/multifactor-authentication'
       - text: Learn about attack protection
         icon: 345
-        href: "/attack-protection"
+        href: '/attack-protection'
       - text: Learn about rules
         icon: 345
-        href: "/rules"
+        href: '/rules'
