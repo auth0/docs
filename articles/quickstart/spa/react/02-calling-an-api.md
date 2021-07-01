@@ -129,7 +129,7 @@ useEffect(() => {
   };
 
   getUserMetadata();
-}, []);
+}, [getAccessTokenSilently, user?.sub]);
 ```
 
 You use a React Effect Hook to call an asynchronous `getUserMetadata()` function. The function first calls `getAccessTokenSilently()`, which returns a Promise that resolves to an access token that you can use to make a call to a protected API.
