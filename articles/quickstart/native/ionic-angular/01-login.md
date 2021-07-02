@@ -1,7 +1,7 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how to add user login to an Ionic Angular application using Auth0.
+description: This tutorial demonstrates how to add user login with Auth0 to an Ionic Angular & Capacitor application.
 budicon: 448
 topics:
   - quickstarts
@@ -17,9 +17,9 @@ useCase: quickstart
 
 <!-- markdownlint-disable MD002 MD041 -->
 
-<%= include('../_includes/_getting_started', { library: 'Ionic' }) %>
+<%= include('../_includes/ionic/_article_intro') %>
 
-<%= include('../_includes/ionic/_add_platforms') %>
+<%= include('../_includes/_getting_started', { library: 'Ionic' }) %>
 
 <%= include('../_includes/ionic/_configure_urls') %>
 
