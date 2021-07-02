@@ -121,7 +121,7 @@ if ($token !== null) {
         $token = substr($token, 7);
     }
 
-    // The decode() method will parse our incoming token, validating it's structure. It will also verify its cryptographic signature, and validate the token's "claims", incoming the issuer, audience, expiration, and subject. It takes in a token and ensures it's valid for us to use with our app.
+    // The decode() method will parse our incoming token, validating its structure. It will also verify its cryptographic signature, and validate the token's "claims", including the issuer, audience, expiration, and subject. It takes in a token and ensures it's valid for us to use with our app.
     try {
         $token = $auth0->decode($token);
         $authorized = true;
