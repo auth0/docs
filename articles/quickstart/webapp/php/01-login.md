@@ -179,7 +179,7 @@ function onLoginRoute() {
     // It's a good idea to reset user sessions each time they go to login to avoid "invalid state" errors, should they hit network issues or other problems that interrupt a previous login process:
     $auth0->clear();
 
-    // Setup the user's session and generate a ULP URL:
+    // Setup the user's session and generate a Universal Login Page URL:
     $loginUrl = $auth0->login(ROUTE_URL_CALLBACK);
 
     // Finally, redirect the user to the Auth0 Universal Login Page.
