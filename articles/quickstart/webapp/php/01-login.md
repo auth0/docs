@@ -201,7 +201,7 @@ function onCallbackRoute() {
     // Have the SDK complete the authentication flow:
     $auth0->exchange(ROUTE_URL_CALLBACK);
 
-    // Finally, redirect our end user back to the / index route, to display their user profile:
+    // Finally, redirect our end-user back to the index (/) route, to display their user profile:
     header("Location: " . ROUTE_URL_INDEX);
     exit;
 }
@@ -209,7 +209,7 @@ function onCallbackRoute() {
 
 ### Logging out
 
-Last but not least, let's properly handle logging our users out. The `logout()` method of the Auth0 PHP SDK handles clearing our sample application's session cookies, redirecting the user to Auth0's [/logout endpoint](https://auth0.com/docs/logout) (which logs out Auth0 session layer and any identify provider session layers), and then return the user to our / index route.
+Last but not least, let's properly handle logging our users out. The `logout()` method of the Auth0 PHP SDK handles clearing our sample application's session cookies, redirecting the user to Auth0's [/logout endpoint](https://auth0.com/docs/logout) (which logs out Auth0 session layer and any identify provider session layers), and then return the user to our index (/) route.
 
 ```PHP
 // 👆 We're continuing from the steps above. Append this to your index.php file.

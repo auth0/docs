@@ -93,18 +93,20 @@ $auth0 = new \Auth0\SDK\Auth0($auth0Configuration);
 
 For this sample application, we're focusing on [authorization](https://auth0.com/intro-to-iam/authentication-vs-authorization/). There's numerous routes you could go for authenticating your users before they hit your backend API for authorization, such as using [Auth0's SPA.js library](https://github.com/auth0/auth0-spa-js). This approach is demonstrated in [this Quickstart app accompanying Github project](https://github.com/auth0-samples/auth0-php-api-samples/). Regardless of the approach you take, this sample application expects you to pass your Access Token to it through a request parameter or header to work.
 
-### Authorizing a token
+### Authorizing the request
 
-First, we need to extract the token from the incoming HTTP request. Let's look for a `?token` parameter in a GET request or an `HTTP_AUTHORIZATION` or `Authorization` header.
+Our application will use what's called an "Authorization-bearer" scheme for informing our backend API of the user's access token from the frontend. When our frontend application sends requests to our new backend API, we'll want to include an `Authorization` header that includes the token. [You can read more about how this should look here.](https://auth0.com/docs/flows/call-your-api-using-the-authorization-code-flow#call-api)
+
+To simplify testing our sample application, we'll also accept the token from a `token` parameter during GET requests.
 
 ```PHP
 // 👆 We're continuing from the steps above. Append this to your index.php file.
 
 $authorized = false;
-$token = $_GET['token'] ?? $_SERVER['HTTP_AUTHORIZATION'] ?? $_SERVER['Authorization'] ?? null;
+$token = $_GET['token'] ?? $_SERVER['Authorization'] ?? null;
 ```
 
-Next, let's decode the token, if one is present:
+Next, let's decode the token if one is present:
 
 ```PHP
 // 👆 We're continuing from the steps above. Append this to your index.php file.
@@ -119,7 +121,7 @@ if ($token !== null) {
         $token = substr($token, 7);
     }
 
-    // Attempt to decode the token:
+    // The decode() method will parse our incoming token, validating it's structure. It will also verify its cryptographic signature, and validate the token's "claims", incoming the issuer, audience, expiration, and subject. It takes in a token and ensures it's valid for us to use with our app.
     try {
         $token = $auth0->decode($token);
         $authorized = true;
