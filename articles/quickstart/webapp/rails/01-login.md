@@ -26,7 +26,7 @@ gem 'omniauth-auth0', '~> 3.0'
 gem 'omniauth-rails_csrf_protection', '~> 1.0' # prevents forged authentication requests
 ```
 
-Once your gems are added, install the gems with `$ bundle install`:
+Once your gems are added, install the gems with `bundle install`:
 
 ### Initialize Auth0 Configuration
 

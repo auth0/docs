@@ -34,13 +34,13 @@ After you set the values make sure to click the "Save Changes" button. Next we'l
 You can use the following command to generate the fingerprint via the Java keytool:
 
 ```bash
-$ keytool -list -v -keystore my-release-key.keystore
+keytool -list -v -keystore my-release-key.keystore
 ```
 
 or to obtain the default debug key:
 
 ```bash
-$ keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android
+keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android
 ```
 
 The value required by the dashboard is the one listed as **SHA256**.

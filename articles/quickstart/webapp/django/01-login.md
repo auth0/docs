@@ -49,9 +49,9 @@ This guide assumes you already have a Django application set up. If that is not 
 The sample project was created with the following commands:
 
 ```bash
-$ django-admin startproject webappexample
-$ cd webappexample
-$ python manage.py startapp auth0login
+django-admin startproject webappexample
+cd webappexample
+python manage.py startapp auth0login
 ```
 
 ### Django Settings
@@ -99,7 +99,7 @@ SOCIAL_AUTH_AUTH0_SCOPE = [
 The `social_django` application defined in `INSTALLED_APPS` requires a database. Run the following command to create all the required databases for the applications defined in `INSTALLED_APPS`:
 
 ```bash
-$ python manage.py migrate
+python manage.py migrate
 ```
 
 ### Create the Auth0 Authentication Backend

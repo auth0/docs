@@ -104,7 +104,7 @@ This document covers examples of OAuth 1.0/2.0 Connections that you can create b
 Generate an RSA keypair with the following command (or any equivalent method):
 
 ```bash
-$ openssl genrsa -out EXAMPLE.key 2048 && openssl rsa -pubout -in EXAMPLE.key -out EXAMPLE.pub
+openssl genrsa -out EXAMPLE.key 2048 && openssl rsa -pubout -in EXAMPLE.key -out EXAMPLE.pub
 ```
 
 ### Step 2: Create a JIRA Application Link

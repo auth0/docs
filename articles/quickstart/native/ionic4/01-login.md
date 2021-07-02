@@ -23,7 +23,7 @@ Use the following commands to add your desired platform(s) (e.g., `ios` or `andr
 
 ```bash
 # Add platform (e.g., ios or android)
-$ ionic cordova platform add {platform}
+ionic cordova platform add {platform}
 ```
 
 <%= include('../../../_includes/_callback_url') %>
