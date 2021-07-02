@@ -1,7 +1,7 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how to add user login to an Ionic application using Auth0.
+description: This tutorial demonstrates how to add user login to an Ionic React application using Auth0.
 budicon: 448
 topics:
   - quickstarts
@@ -10,7 +10,7 @@ topics:
   - react
   - capacitor
 github:
-  path: 01-Login
+  path: react
 contentType: tutorial
 useCase: quickstart
 ---
@@ -19,55 +19,9 @@ useCase: quickstart
 
 <%= include('../\_includes/\_getting_started', { library: 'Ionic' }) %>
 
-### Add a Platform
+<%= include('../\_includes/ionic/\_add_platforms') %>
 
-If you have not already done so, use the CLI and Capacitor to add a supported mobile platform to your app. Use the following commands to add your desired platform(s) (e.g., `ios` or `android`):
-
-```bash
-# Add iOS
-npm install @capacitor/ios
-npx cap add ios
-
-# Add Android
-npm install @capacitor/android
-npx cap add android
-```
-
-:::note
-For more information on adding Capacitor platforms to your app and the development workflow, check out the [getting started docs](https://capacitorjs.com/docs/v2/getting-started) as well as the starter docs for [iOS](https://capacitorjs.com/docs/v2/ios) and [Android](https://capacitorjs.com/docs/v2/android).
-:::
-
-<%= include('../../../\_includes/\_callback_url') %>
-
-:::note
-Throughout this article, `YOUR_PACKAGE_ID` is your application's package ID. This can be found and configured in the `appId` field in your `capacitor.config.ts` file. See [Capacitor's Config schema](https://capacitorjs.com/docs/config#schema) for more info.
-:::
-
-Go to the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) section in your Auth0 dashboard and set your **Callback URL** in the **Allowed Callback URLs** box.
-
-You should set the **Allowed Callback URL** to:
-
-```bash
-YOUR_PACKAGE_ID://${account.namespace}/capacitor/YOUR_PACKAGE_ID/callback
-```
-
-<%= include('../../../\_includes/\_logout_url') %>
-
-You should set the **Allowed Logout URLs** to
-
-```bash
-YOUR_PACKAGE_ID://${account.namespace}/capacitor/YOUR_PACKAGE_ID/callback
-```
-
-### Configure Origins
-
-To be able to make requests from your application to Auth0, set the following origins in your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
-
-```bash
-capacitor://localhost
-```
-
-Lastly, be sure that the **Application Type** for your application is set to **Native** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
+<%= include('../\_includes/ionic/\_configure_urls') %>
 
 <%= include('../../\_includes/\_auth0-react-install.md') %>
 
@@ -93,12 +47,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import { Auth0Provider } from '@auth0/auth0-react';
+import config from '../../capacitor.config';
+
+// Build the URL that Auth0 should redirect back to
+const callbackUri = `<%= "${config.appId}" %>://${account.namespace}/capacitor/<%= "${config.appId}" %>/callback`;
 
 ReactDOM.render(
   <Auth0Provider
     domain="${account.namespace}"
     clientId="${account.clientId}"
-    redirectUri="YOUR_PACKAGE_ID://${account.namespace}/capacitor/YOUR_PACKAGE_ID/callback"
+    redirectUri={callbackUri}
     cacheLocation="localstorage"
     useRefreshTokens={true}
   >
@@ -116,13 +74,7 @@ The `Auth0Provider` component takes the following props:
 - `useRefreshTokens`: The React SDK will use refresh tokens over relying on third-party cookies, which can be blocked in many modern browsers. Please read [Refresh Token Rotation](https://auth0.com/docs/tokens/refresh-tokens/refresh-token-rotation) for more information on using refresh tokens with public clients.
 - `cacheLocation`: The location at which to store tokens. We use `localstorage` here so that tokens are persisted across app refreshes.
 
-:::note
-`localStorage` should be considered **transient** in a Capacitor app, as the operating system may recover disk space from `localStorage` if it is running low. Please read the [guidance on storage in the Capacitor docs](https://capacitorjs.com/docs/guides/storage#why-cant-i-just-use-localstorage-or-indexeddb).
-
-The Auth0 React SDK has the ability to use a custom cache implementation to store tokens, if you have a requirement to use a more secure and persistent storage mechanism.
-
-**Note** that we recommend against using [Capacitor's Storage plugin](https://capacitorjs.com/docs/apis/storage) to store tokens, as this is backed by [UserDefaults](https://developer.apple.com/documentation/foundation/userdefaults) and [SharedPreferences](https://developer.android.com/reference/android/content/SharedPreferences) on iOS and Android respectively. Data stored using these APIs is not encrypted, not sucure, and could also be synced to the cloud.
-:::
+<%= include('../\_includes/ionic/\_note_storage') %>
 
 :::panel Checkpoint
 Now that you have configured `Auth0Provider`, run your application to verify that the SDK is initializing correctly, and your application is not throwing any errors related to Auth0.
@@ -130,13 +82,7 @@ Now that you have configured `Auth0Provider`, run your application to verify tha
 
 ## Add Login to Your Application
 
-In a Capacitor application, the [Capacitor's Browser plugin](https://capacitorjs.com/docs/apis/browser) should be used to perform a redirect to the Auth0 [Universal Login Page](https://auth0.com/universal-login). Use the `buildAuthorizeUrl` function to get the URL to redirect the user.
-
-:::note
-If you have used `auth0-react` before, you might be familiar with the `loginWithRedirect` function that redirects your SPA to the Auth0 Universal Login Page so that your users can authenticate, before returning to your app.
-
-This is done internally by setting `window.location.href` to the correct URL, but that isn't desireable for a Capacitor application, as it would use the default browser application on the user's device, rather than the system browser component appropriate for the platform. This means the user would leave your application and could make for a detrimental user experience.
-:::
+<%= include('../\_includes/ionic/\_add_login_intro') %>
 
 Add a new file `LoginButton.tsx` with the following code:
 
@@ -162,11 +108,17 @@ const LoginButton: React.FC = () => {
 export default LoginButton;
 ```
 
+This component:
+
+- defines a template with a simple button that logs the user in when clicked
+- uses `buildAuthorizeUrl` to construct a URL to Auth0's Universal Login page
+- uses Capacitor's Browser plugin to open the URL and show the login page to the user
+
 <%= include('../../\_includes/\_auth0-react-classes-info.md') %>
 
 ### Handling the callback
 
-Once a user has logged in using the Universal Login Page, they will be redirected back to your app using a URL with a custom URL scheme. The `appUrlOpen` event must be handled within your app, where `handleRedirectCallback` can be called to initialize the authentication state within the SDK.
+<%= include('../\_includes/ionic/\_handle_callback_intro') %>
 
 Add the following `useEffect` hook to your main `App` component:
 
@@ -199,9 +151,7 @@ const App: React.FC = () => {
 };
 ```
 
-:::note
-This article assumes you will be using Custom URL Schemes to handle the callback within your application. To do this, `YOUR_PACKAGE_ID` must be registered as a URL scheme for your chosen platform. See [Defining a Custom URL Scheme](https://developer.apple.com/documentation/xcode/defining-a-custom-url-scheme-for-your-app) for iOS, or [Create Deep Links to App Content](https://developer.android.com/training/app-links/deep-linking) for Android.
-:::
+<%= include('../\_includes/ionic/\_note_custom_schemes') %>
 
 :::panel Checkpoint
 Add the `LoginButton` component to your application, as well as the handler for the "appUrlOpen" event to your `App` component. When you click the login button, verify that your application redirects you to the Auth0 Universal Login Page and that you can now log in or sign up using a username and password or a social provider.
@@ -211,9 +161,7 @@ Once that's complete, verify that Auth0 redirects you back to your application.
 
 ## Add Logout to Your Application
 
-Now that you can log in, you need [a way to log out](https://auth0.com/docs/logout/guides/logout-auth0). To do this, create a logout button using the `logout` function from the `useAuth0()` hook. Executing `logout` redirects your users to your [Auth0 logout endpoint](https://auth0.com/docs/api/authentication?javascript#logout) (`https://YOUR_DOMAIN/v2/logout`) and then immediately redirects them to your application.
-
-Similar to `buildAuthorizeUrl`, there is an equivalent method `buildLogoutUrl` that can be opened using Capacitor's Browser plugin. However, you will also need to pass a parameter to `logout` that will clear the SDK's state but not perform the redirect to the logout endpoint, as you want to instead do the redirect with the Browser plugin.
+<%= include('../\_includes/ionic/\_add_logout_intro.md') %>
 
 Create a new file `LogoutButton.tsx` and add the following code to the file. Then, add the `LogoutButton` component to your app.
 

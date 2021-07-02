@@ -17,15 +17,7 @@ useCase: quickstart
 
 <%= include('../_includes/_getting_started', { library: 'Angular', callback: 'http://localhost:4200', returnTo: 'http://localhost:4200', webOriginUrl: 'http://localhost:4200', showLogoutInfo: true, showWebOriginInfo: true, new_js_sdk: true, show_install_info: false }) %>
 
-## Install the Auth0 Angular SDK
-
-Run the following command within your project directory to install the Auth0 Angular SDK:
-
-```bash
-npm install @auth0/auth0-angular
-```
-
-The SDK exposes several types that help you integrate Auth0 with your Angular application idiomatically, including a module and an authentication service.
+<%= include('../../_includes/_auth0-angular-install') %>
 
 ### Register and configure the authentication module
 

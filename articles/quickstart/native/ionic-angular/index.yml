@@ -1,0 +1,51 @@
+title: Ionic & Capacitor (Angular)
+logo_name: ionic
+author:
+  name: Steve Hobbs
+  email: steve.hobbs@auth0.com
+  community: false
+alias:
+  - ionic
+  - ionic5
+  - angular
+  - capacitor
+  - auth0-angular
+language:
+  - Typescript
+framework:
+  - Ionic5
+  - Capacitor
+  - Angular
+hybrid: true
+image: /media/platforms/ionic.jpeg
+topics:
+  - quickstart
+contentType: tutorial
+useCase: quickstart
+seo_alias: ionic-angular
+default_article: 01-login
+articles:
+  - 01-login
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-ionic5-sample
+requirements:
+  - Ionic 5.x
+  - Capacitor 2
+  - Node & Npm (LTS)
+next_steps:
+  - path: 01-login
+    list:
+    - text: Configure other identity providers
+      icon: 345
+      href: "/identityproviders"
+    - text: Enable multifactor authentication
+      icon: 345
+      href: "/multifactor-authentication"
+    - text: Learn about attack protection
+      icon: 345
+      href: "/attack-protection"
+    - text: Learn about rules
+      icon: 345
+      href: "/rules"

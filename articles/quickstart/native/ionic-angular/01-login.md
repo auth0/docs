@@ -1,0 +1,245 @@
+---
+title: Login
+default: true
+description: This tutorial demonstrates how to add user login to an Ionic Angular application using Auth0.
+budicon: 448
+topics:
+  - quickstarts
+  - native
+  - ionic
+  - angular
+  - capacitor
+github:
+  path: angular
+contentType: tutorial
+useCase: quickstart
+---
+
+<!-- markdownlint-disable MD002 MD041 -->
+
+<%= include('../_includes/_getting_started', { library: 'Ionic' }) %>
+
+<%= include('../_includes/ionic/_add_platforms') %>
+
+<%= include('../_includes/ionic/_configure_urls') %>
+
+<%= include('../../_includes/_auth0-angular-install') %>
+
+<%= include('../_includes/ionic/_install_plugins') %>
+
+### Configure your app module
+
+The SDK exports `AuthModule`, a module that contains all the services required for the SDK to function. To register this with your application:
+
+* Open the `app.module.ts` file
+* Import the `AuthModule` type from the `@auth0/auth0-angular` package
+* Add `AuthModule` to the application by calling `AuthModule.forRoot` and adding to your application module's `imports` array
+* Specify the configuration for the Auth0 Angular SDK
+
+```javascript
+// Import the types from the SDK
+import { AuthModule } from '@auth0/auth0-angular';
+import config from '../../capacitor.config';
+
+// ..
+
+// Build the URL that Auth0 should redirect back to
+const redirectUri = `<%= "${config.appId}" %>://${account.namespace}/capacitor/<%= "${config.appId}" %>/callback`;
+
+// Register AuthModule with your AppModule
+@NgModule({
+  declarations: [AppComponent],
+  entryComponents: [],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    AuthModule.forRoot({
+      domain: "${account.namespace}",
+      clientId: "${account.clientId}",
+      redirectUri,
+      cacheLocation: 'localstorage',
+      useRefreshTokens: true,
+    }),
+  ],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  bootstrap: [AppComponent],
+})
+```
+
+The `AuthModule.forRoot` function takes the following configuration:
+
+- `domain`: The "domain" value present under the "Settings" of the application you created in your Auth0 dashboard, or your custom domain if using Auth0's [Custom Domains feature](http://localhost:3000/docs/custom-domains)
+- `clientId`: The "client ID" value present under the "Settings" of the application you created in your Auth0 dashboard
+- `redirectUri`: The URL to where you'd like to redirect your users after they authenticate with Auth0.
+- `useRefreshTokens`: The Angular SDK will use refresh tokens over relying on third-party cookies, which can be blocked in many modern browsers. Please read [Refresh Token Rotation](https://auth0.com/docs/tokens/refresh-tokens/refresh-token-rotation) for more information on using refresh tokens with public clients.
+- `cacheLocation`: The location at which to store tokens. We use `localstorage` here so that tokens are persisted across app refreshes.
+
+<%= include('../_includes/ionic/_note_storage') %>
+
+:::panel Checkpoint
+Now that you have configured your app with the Auth0 Angular SDK, run your application to verify that the SDK is initializing without error and that your application runs as it did before.
+:::
+
+## Add Login to Your Application
+
+<%= include('../_includes/ionic/_add_login_intro') %>
+
+Add a new `LoginButton` component to your application with the following code:
+
+```js
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '@auth0/auth0-angular';
+import { Browser } from '@capacitor/browser';
+import { tap } from 'rxjs/operators';
+
+@Component({
+  selector: 'app-login-button',
+  template: `<ion-button (click)="login()">Login</ion-button>`,
+})
+export class LoginButtonComponent {
+  constructor(public auth: AuthService) {}
+
+  async login() {
+    this.auth
+      .buildAuthorizeUrl()
+      .pipe(tap((url) => Browser.open({ url, windowName: '_self' })))
+      .subscribe();
+  }
+}
+```
+
+This component:
+
+* defines a template with a simple button that logs the user in when clicked
+* uses `buildAuthorizeUrl` to construct a URL to Auth0's Universal Login page
+* uses Capacitor's Browser plugin to open the URL and show the login page to the user
+
+### Handling the callback
+
+<%= include('../_includes/ionic/_handle_callback_intro') %>
+
+Modify your `App` component and use the `ngOnInit` method to handle the callback from Auth0:
+
+```js
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '@auth0/auth0-angular';
+import { tap } from 'rxjs/operators';
+import { Browser } from '@capacitor/browser';
+import { App } from '@capacitor/app';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.scss'],
+})
+export class AppComponent implements OnInit {
+  // Import the AuthService module from the Auth0 Angular SDK
+  constructor(public auth: AuthService) {}
+
+  ngOnInit(): void {
+    // Use Capacitor's App plugin to subscribe to the `appUrlOpen` event
+    App.addListener('appUrlOpen', async ({ url }) => {
+      if (url) {
+        // If the URL is an authentication callback URL..
+        if (
+          url.includes('state=') &&
+          (url.includes('error=') || url.includes('code='))
+        ) {
+          // Call handleRedirectCallback and close the browser
+          this.auth
+            .handleRedirectCallback(url)
+            .pipe(tap(() => Browser.close()))
+            .subscribe();
+        }
+
+        Browser.close();
+      }
+    });
+  }
+}
+
+```
+
+<%= include('../_includes/ionic/_note_custom_schemes') %>
+
+:::panel Checkpoint
+Add the `LoginButton` component to your application, as well as the handler for the "appUrlOpen" event to your `App` component. When you click the login button, verify that your application redirects you to the Auth0 Universal Login Page and that you can now log in or sign up using a username and password or a social provider.
+
+Once that's complete, verify that Auth0 redirects you back to your application.
+:::
+
+## Add Logout to Your Application
+
+<%= include('../_includes/ionic/_add_logout_intro.md') %>
+
+Create a new `LogoutButton` component and add the following code to the file. Then, add the `LogoutButton` component to your app.
+
+```js
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '@auth0/auth0-angular';
+import { Browser } from '@capacitor/browser';
+import { tap } from 'rxjs/operators';
+
+// Build the URL to return back to your app after logout
+const returnTo = `<%= "${config.appId}" %>://${account.namespace}/capacitor/<%= "${config.appId}" %>/callback`;
+
+@Component({
+  selector: 'app-logout-button',
+  template: `<ion-button (click)="logout()">Log out</ion-button>`,
+})
+export class LogoutButtonComponent {
+  // Import the AuthService module from the Auth0 Angular SDK
+  constructor(public auth: AuthService) {}
+
+  async logout() {
+    // Use the SDK to build the logout URL
+    this.auth
+      .buildLogoutUrl({ returnTo })
+      .pipe(
+        tap((url) => {
+          // Call the logout fuction, but only log out locally
+          this.auth.logout({ localOnly: true });
+          // Redirect to Auth0 using the Browser plugin, to clear the user's session
+          Browser.open({ url });
+        })
+      )
+      .subscribe();
+  }
+}
+```
+
+:::panel Checkpoint
+Add the `LogoutButton` component to your application. When you click it, verify that your Ionic application redirects you the address you specified as one of the "Allowed Logout URLs" in the "Settings" and that you are no longer logged in to your application.
+:::
+
+## Show User Profile Information
+
+The Auth0 SDK helps you retrieve the [profile information](https://auth0.com/docs/users/concepts/overview-user-profile) associated with logged-in users quickly in whatever component you need, such as their name or profile picture, to personalize the user interface. The profile information is available through the `user$` property exposed by `AuthService`.
+
+Create a new component `Profile`, and use the following code to display user profile information in your app.
+
+```js
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '@auth0/auth0-angular';
+
+@Component({
+  selector: 'app-profile',
+  template: `
+  <div *ngIf="auth.user$ | async as user">
+    <ion-avatar class="avatar">
+      <img [src]="user.picture" [alt]="user.name" />
+    </ion-avatar>
+    <h2>{{ user.name }}</h2>
+    <p>{{ user.email }}</p>
+  </div>`,
+})
+export class ProfileComponent {
+  constructor(public auth: AuthService) {}
+}
+
+```
+
+:::panel Checkpoint
+Add `ProfileComponent` to your application, and verify that you can display the `user.name` or [any other `user` property](https://auth0.com/docs/users/references/user-profile-structure#user-profile-attributes) within a component correctly after you have logged in.
+:::
