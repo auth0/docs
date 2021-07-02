@@ -185,7 +185,7 @@ module.exports = app;
 With this in place, run the application using `npm run dev`. In another terminal window, use the `curl` tool to make a request to this API endpoint and observe the results:
 
 ```bash
-$ curl -I localhost:3000/api/external
+curl -I localhost:3000/api/external
 ```
 
 You should find that a 401 Unauthorized result is returned, because it requires a valid access token:

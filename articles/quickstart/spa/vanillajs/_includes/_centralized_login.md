@@ -94,7 +94,7 @@ In this section you will create a basic web server using [ExpressJS](https://exp
 Run the following command in the same folder as the `index.html` file you created earlier:
 
 ```bash
-$ npm init -y
+npm init -y
 ```
 
 This will initialize a new NPM project and get us ready to install dependencies.
@@ -104,13 +104,13 @@ This will initialize a new NPM project and get us ready to install dependencies.
 In the terminal, install the dependencies that are necessary to get the server up and running:
 
 ```bash
-$ npm install express
+npm install express
 ```
 
 Also install [`nodemon`](https://npmjs.org/package/nodemon) so that our server can be restarted on any code changes:
 
 ```bash
-$ npm install -D nodemon
+npm install -D nodemon
 ```
 
 Finally, open the `package.json` file and modify the "scripts" entry to look like the following:
