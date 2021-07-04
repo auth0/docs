@@ -27,7 +27,9 @@ YOUR_PACKAGE_ID://${account.namespace}/capacitor/YOUR_PACKAGE_ID/callback
 To be able to make requests from your application to Auth0, set the following origins in your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
 
 ```bash
-capacitor://localhost
+capacitor://localhost, http://localhost
 ```
+
+These origins are required for iOS and Android respectively.
 
 Lastly, be sure that the **Application Type** for your application is set to **Native** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
