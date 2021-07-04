@@ -100,7 +100,7 @@ import { tap } from 'rxjs/operators';
 export class LoginButtonComponent {
   constructor(public auth: AuthService) {}
 
-  async login() {
+  login() {
     this.auth
       .buildAuthorizeUrl()
       .pipe(tap((url) => Browser.open({ url, windowName: '_self' })))
@@ -139,7 +139,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     // Use Capacitor's App plugin to subscribe to the `appUrlOpen` event
-    App.addListener('appUrlOpen', async ({ url }) => {
+    App.addListener('appUrlOpen', ({ url }) => {
       if (url) {
         // If the URL is an authentication callback URL..
         if (
@@ -192,7 +192,7 @@ export class LogoutButtonComponent {
   // Import the AuthService module from the Auth0 Angular SDK
   constructor(public auth: AuthService) {}
 
-  async logout() {
+   logout() {
     // Use the SDK to build the logout URL
     this.auth
       .buildLogoutUrl({ returnTo })
@@ -210,7 +210,7 @@ export class LogoutButtonComponent {
 ```
 
 :::panel Checkpoint
-Add the `LogoutButton` component to your application. When you click it, verify that your Ionic application redirects you the address you specified as one of the "Allowed Logout URLs" in the "Settings" and that you are no longer logged in to your application.
+Add the `LogoutButton` component to your application. When you click it, verify that your Ionic application redirects you to the address you specified as one of the "Allowed Logout URLs" in the "Settings" and that you are no longer logged in to your application.
 :::
 
 ## Show User Profile Information

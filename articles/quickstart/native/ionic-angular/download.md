@@ -14,7 +14,7 @@ com.auth0.samples://${account.namespace}/capacitor/com.auth0.samples/callback
 com.auth0.samples://${account.namespace}/capacitor/com.auth0.samples/callback
 ```
 
-3) Add the following to **Allowed Origins (CORS)s** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings)
+3) Add the following to **Allowed Origins (CORS)** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings)
 
 ```text
 capacitor://localhost

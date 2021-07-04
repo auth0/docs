@@ -24,7 +24,7 @@ YOUR_PACKAGE_ID://${account.namespace}/capacitor/YOUR_PACKAGE_ID/callback
 
 ### Configure Origins
 
-To be able to make requests from your application to Auth0, set the following origins in your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
+To be able to make requests from your application to Auth0, set the following **Allowed Origins** in your [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
 
 ```bash
 capacitor://localhost, http://localhost
