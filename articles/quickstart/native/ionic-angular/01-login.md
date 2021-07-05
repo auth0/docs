@@ -27,7 +27,7 @@ useCase: quickstart
 
 <%= include('../_includes/ionic/_install_plugins') %>
 
-### Configure your app module
+### Configure your App module
 
 The SDK exports `AuthModule`, a module that contains all the services required for the SDK to function. To register this with your application:
 
@@ -91,7 +91,7 @@ Add a new `LoginButton` component to your application with the following code:
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { Browser } from '@capacitor/browser';
-import { tap } from 'rxjs/operators';
+import { mergeMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login-button',
@@ -103,7 +103,7 @@ export class LoginButtonComponent {
   login() {
     this.auth
       .buildAuthorizeUrl()
-      .pipe(tap((url) => Browser.open({ url, windowName: '_self' })))
+      .pipe(mergeMap((url) => Browser.open({ url, windowName: '_self' })))
       .subscribe();
   }
 }
@@ -124,7 +124,7 @@ Modify your `App` component and use the `ngOnInit` method to handle the callback
 ```js
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
-import { tap } from 'rxjs/operators';
+import { mergeMap } from 'rxjs/operators';
 import { Browser } from '@capacitor/browser';
 import { App } from '@capacitor/app';
 
@@ -140,7 +140,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     // Use Capacitor's App plugin to subscribe to the `appUrlOpen` event
     App.addListener('appUrlOpen', ({ url }) => {
-      if (url) {
+      if (url?.startsWith(callbackUri)) {
         // If the URL is an authentication callback URL..
         if (
           url.includes('state=') &&
@@ -149,11 +149,11 @@ export class AppComponent implements OnInit {
           // Call handleRedirectCallback and close the browser
           this.auth
             .handleRedirectCallback(url)
-            .pipe(tap(() => Browser.close()))
+            .pipe(mergeMap(() => Browser.close()))
             .subscribe();
+        } else {
+          Browser.close();
         }
-
-        Browser.close();
       }
     });
   }
