@@ -1,5 +1,5 @@
 articles:
-  - title: Get Started
+  - title: Get Started 
     url: /get-started
     children:
       - title: Auth0 Overview
@@ -525,8 +525,6 @@ articles:
       - title: Tenants
         url: /config/tenant-settings
         children:
-          - title: Dashboard Access
-            url: /dashboard-access
           - title: Signing Keys
             url: /config/tenant-settings/signing-keys
             children:
@@ -732,7 +730,7 @@ articles:
           - title: Migrate from Search v2 to V3
             url: /users/search/v3/migrate-search-v2-v3
             hidden: true
-  - title: Manage Dashboard Access
+  - title: Dashboard Access
     url: /dashboard-access
     children:
       - title: Dashboard Access by Role
@@ -868,6 +866,8 @@ articles:
         url: /rules/user-object-in-rules
       - title: Context Object
         url: /rules/context-object
+      - title: Raise Errors from Rules
+        url: /rules/raise-errors-from-rules
   - title: Hooks
     url: /hooks
     children:
@@ -1401,15 +1401,15 @@ articles:
         url: /best-practices/rules-best-practices
         children:
           - title: Rules Anatomy
-            url: /best-practices/rules-anatomy-best-practices
+            url: /best-practices/rules-best-practices/rules-anatomy-best-practices
           - title: Rules Environment
-            url: /best-practices/rules-environment-best-practices
+            url: /best-practices/rules-best-practices/rules-environment-best-practices
           - title: Rules Execution
-            url: /best-practices/rules-execution-best-practices
+            url: /best-practices/rules-best-practices/rules-execution-best-practices
           - title: Rules Security
-            url: /best-practices/rules-security-best-practices
+            url: /best-practices/rules-best-practices/rules-security-best-practices
           - title: Rules Testing
-            url: /best-practices/rules-testing-best-practices
+            url: /best-practices/rules-best-practices/rules-testing-best-practices
       - title: Tokens
         url: /best-practices/token-best-practices
       - title: User Search
