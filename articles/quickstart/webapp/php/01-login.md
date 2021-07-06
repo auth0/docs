@@ -31,7 +31,7 @@ ${snippet(meta.snippets.install)}
 
 The Auth0 PHP SDK supports many [PHP-FIG](https://www.php-fig.org) standards offering interoperability options with your architecture. Two of particular importance are [PSR-17](https://www.php-fig.org/psr/psr-17/) and [PSR-18](https://www.php-fig.org/psr/psr-18/). These standards allow you to plug-in networking components of your choice to handle messaging and requests. You will need to install compatible libraries in your project for the SDK to use.
 
-The most prolific networking library for PHP is [Guzzle](https://guzzlephp.org), although many are available to pick from within the PHP community. Let's use Guzzle for this sample application. Once again, from your project directory, run the following shell command:
+The most prolific networking library for PHP is [Guzzle](https://docs.guzzlephp.org/en/stable/), although many are available to pick from within the PHP community. Let's use Guzzle for this sample application. Once again, from your project directory, run the following shell command:
 
 ```sh
 composer require guzzlehttp/guzzle guzzlehttp/psr7 http-interop/http-factory-guzzle
