@@ -1,7 +1,6 @@
 ---
 title: Login
 default: true
-beta: true
 description: This guide demonstrates how to integrate Auth0 with a PHP application using the Auth0 PHP SDK.
 budicon: 448
 topics:

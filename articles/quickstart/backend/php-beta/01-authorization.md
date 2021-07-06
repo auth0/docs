@@ -1,7 +1,6 @@
 ---
 title: Authorization
 default: true
-beta: true
 description: This guide demonstrates how to integrate Auth0 with a PHP backend API using the Auth0 PHP SDK.
 budicon: 448
 topics:
