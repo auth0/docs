@@ -1,11 +1,15 @@
-To run the sample, make sure [PHP](http://php.net/downloads.php) and [Composer](https://getcomposer.org/download/) are installed and execute the following commands in the sample's directory:
+To run it from the command line:
 
 ```bash
-composer run app
+composer install
+php -S localhost:3010
 ```
 
-You can also run it from [Docker](https://www.docker.com) with the following commands:
+The example includes a [Docker](https://www.docker.com) image ready to run with the following command:
 
 ```bash
-composer run docker
+# In Linux / macOS
+sh exec.sh
+# In Windows' Powershell
+./exec.ps1
 ```

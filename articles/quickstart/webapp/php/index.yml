@@ -1,25 +1,21 @@
 title: PHP
-seo_alias: php
-beta: true
-alias:
-  - php
-languages:
-  - PHP
-author:
-  name: Evan Sims
-  email: evan.sims@auth0.com
-  community: false
-thirdParty: false
 image: /media/platforms/php.png
-topics:
-  - quickstart
+author:
+  name: Josh Cunningham
+  email: josh.cunningham@auth0.com
+  community: false
 contentType: tutorial
 useCase: quickstart
+topics:
+  - quickstart
 snippets:
-  install: server-platforms/php/install
+  dependencies: server-platforms/php/dependencies
+  setup: server-platforms/php/setup
+  use: server-platforms/php/use
+seo_alias: php
+default_article: 01-login
 articles:
   - 01-login
-default_article: 01-login
 show_steps: true
 github:
   org: auth0-samples
@@ -30,9 +26,9 @@ sdk:
   url: https://github.com/auth0/auth0-php
   logo: php
 requirements:
-  - PHP 8.0+
-  - Composer
-  - Auth0-PHP 8.0+
+  - Apache 2.4.4
+  - PHP 7.3 and up
+  - Auth0-PHP 7.0 and up
 next_steps:
   - path: 01-login
     list:
