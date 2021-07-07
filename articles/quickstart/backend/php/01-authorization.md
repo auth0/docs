@@ -12,7 +12,7 @@ useCase: quickstart
 ---
 
 ::: panel Beta Available
-**A new pre-production beta release of PHP SDK is available.** Betas represent unstable code that is not ready for use in production applications. However, we'd encourage you to explore [the new release](https://github.com/auth0/auth0-php), [review the beta quickstarts](/quickstart/backend/php-beta), and engage with [the Auth0 Community](https://community.auth0.com/) in asking any questions or offering feedback.
+**A new pre-production beta release of PHP SDK is available.** Betas represent unstable code that is not ready for use in production applications. However, we'd encourage you to explore [the new release](https://github.com/auth0/auth0-php), [review the beta quickstarts](/quickstart/webapp/php-beta), [report any bugs](https://github.com/auth0/auth0-PHP/issues), and engage with [the Auth0 Community](https://community.auth0.com/) in asking questions and offering feedback.
 
 This guide covers the stable version of PHP SDK, and is suitable for production use.
 :::
