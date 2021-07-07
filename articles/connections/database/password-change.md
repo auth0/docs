@@ -8,7 +8,7 @@ topics:
     - passwords
 contentType: how-to
 useCase: customize-connections
----
+--- 
 # Change Users' Passwords
 
 This topic describes different ways to reset the password for a user in your database. You can change passwords for users in your [database connections](/connections/database) only. Users signing in with [social](/connections/social) or [enterprise](/connections/enterprise) connections must reset their passwords with the identity provider (such as Google or Facebook).
