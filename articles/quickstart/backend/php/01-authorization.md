@@ -11,6 +11,12 @@ contentType: tutorial
 useCase: quickstart
 ---
 
+::: panel Beta Available
+**A new pre-production beta release of PHP SDK is available.** Betas represent unstable code that is not ready for use in production applications. However, we'd encourage you to explore [the new release](https://github.com/auth0/auth0-php), [review the beta quickstarts](/quickstart/backend/php-beta), and engage with [the Auth0 Community](https://community.auth0.com/) in asking any questions or offering feedback.
+
+This guide covers the stable version of PHP SDK, and is suitable for production use.
+:::
+
 <%= include('../../../_includes/_api_auth_intro') %>
 
 <%= include('../_includes/_api_create_new', { sampleLink: 'https://github.com/auth0-samples/auth0-php-api-samples/tree/master/02-Authenticate-HS256' }) %>

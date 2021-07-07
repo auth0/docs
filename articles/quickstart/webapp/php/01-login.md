@@ -13,6 +13,13 @@ useCase: quickstart
 github:
   path: 00-Starter-Seed
 ---
+
+::: panel Beta Available
+**A new pre-production beta release of PHP SDK is available.** Betas represent unstable code that is not ready for use in production applications. However, we'd encourage you to explore [the new release](https://github.com/auth0/auth0-php), [review the beta quickstarts](/quickstart/webapp/php-beta), and engage with [the Auth0 Community](https://community.auth0.com/) in asking any questions or offering feedback.
+
+This guide covers the stable version of PHP SDK, and is suitable for production use.
+:::
+
 <%= include('../_includes/_getting_started', { library: 'PHP', callback: 'http://localhost:3000/' }) %>
 
 <%= include('../../../_includes/_logout_url', { returnTo: 'http://localhost:3000' }) %>
