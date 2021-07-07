@@ -74,7 +74,7 @@ Notes on password resets:
 
 In the [Classic Universal Login Experience](/universal-login/classic) you can [configure a url](/email/templates#configuring-the-redirect-to-url) to redirect users after completing the password reset. The URL receives a success indicator and a message. 
 
-The [New Experience](/universal-login/new) redirects the user to the [default login route](/universal-login/default-login-url) when it succeeds, and handles the error cases as part of the Universal Login flow. This ecperience ignores the Redirect URL in the email template.  
+The [New Experience](/universal-login/new) redirects the user to the [default login route](/universal-login/default-login-url) when it succeeds, and handles the error cases as part of the Universal Login flow. This experience ignores the Redirect URL in the email template.  
 
 ::: panel Generate Password Reset Tickets
 
