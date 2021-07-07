@@ -6,14 +6,13 @@ author:
   community: false
 alias:
   - ionic
-  - ionic5
   - react
   - capacitor
   - auth0-react
 language:
   - Typescript
 framework:
-  - Ionic5
+  - Ionic
   - Capacitor
   - React
 hybrid: true
@@ -29,22 +28,23 @@ articles:
 show_steps: true
 github:
   org: auth0-samples
-  repo: auth0-ionic5-sample
+  repo: auth0-ionic-samples
 requirements:
-  - Ionic 5.x
-  - Capacitor 2
+  - Node & Npm (LTS)
+  - XCode 12+ (for iOS)
+  - Android Studio 4+ (for Android)
 next_steps:
   - path: 01-login
     list:
-    - text: Configure other identity providers
-      icon: 345
-      href: "/identityproviders"
-    - text: Enable multifactor authentication
-      icon: 345
-      href: "/multifactor-authentication"
-    - text: Learn about attack protection
-      icon: 345
-      href: "/attack-protection"
-    - text: Learn about rules
-      icon: 345
-      href: "/rules"
+      - text: Configure other identity providers
+        icon: 345
+        href: '/identityproviders'
+      - text: Enable multifactor authentication
+        icon: 345
+        href: '/multifactor-authentication'
+      - text: Learn about attack protection
+        icon: 345
+        href: '/attack-protection'
+      - text: Learn about rules
+        icon: 345
+        href: '/rules'

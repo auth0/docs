@@ -17,7 +17,7 @@ useCase: quickstart
 
 <!-- markdownlint-disable MD002 MD041 -->
 
-<%= include('../_includes/_getting_started', { library: 'Ionic' }) %>
+<%= include('../\_includes/\_getting_started', { library: 'Ionic' }) %>
 
 ### Add a Platform
 
@@ -37,7 +37,7 @@ npx cap add android
 For more information on adding Capacitor platforms to your app and the development workflow, check out the [getting started docs](https://capacitorjs.com/docs/v2/getting-started) as well as the starter docs for [iOS](https://capacitorjs.com/docs/v2/ios) and [Android](https://capacitorjs.com/docs/v2/android).
 :::
 
-<%= include('../../../_includes/_callback_url') %>
+<%= include('../../../\_includes/\_callback_url') %>
 
 :::note
 Throughout this article, `YOUR_PACKAGE_ID` is your application's package ID. This can be found and configured in the `appId` field in your `capacitor.config.ts` file. See [Capacitor's Config schema](https://capacitorjs.com/docs/config#schema) for more info.
@@ -51,7 +51,7 @@ You should set the **Allowed Callback URL** to:
 YOUR_PACKAGE_ID://${account.namespace}/capacitor/YOUR_PACKAGE_ID/callback
 ```
 
-<%= include('../../../_includes/_logout_url') %>
+<%= include('../../../\_includes/\_logout_url') %>
 
 You should set the **Allowed Logout URLs** to
 
@@ -69,7 +69,7 @@ capacitor://localhost
 
 Lastly, be sure that the **Application Type** for your application is set to **Native** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings).
 
-<%= include('../../_includes/_auth0-react-install.md') %>
+<%= include('../../\_includes/\_auth0-react-install.md') %>
 
 ### Install Capacitor plugins
 
@@ -89,10 +89,10 @@ Under the hood, the Auth0 React SDK uses [React Context](https://reactjs.org/doc
 Open `src/index.tsx` and wrap the `App` component in the `Auth0Provider` component.
 
 ```javascript
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./App";
-import { Auth0Provider } from "@auth0/auth0-react";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import { Auth0Provider } from '@auth0/auth0-react';
 
 ReactDOM.render(
   <Auth0Provider
@@ -104,7 +104,7 @@ ReactDOM.render(
   >
     <App />
   </Auth0Provider>,
-  document.getElementById("root")
+  document.getElementById('root')
 );
 ```
 
@@ -141,9 +141,9 @@ This is done internally by setting `window.location.href` to the correct URL, bu
 Add a new file `LoginButton.tsx` with the following code:
 
 ```js
-import { useAuth0 } from "@auth0/auth0-react";
-import { Browser } from "@capacitor/browser";
-import { IonButton } from "@ionic/react";
+import { useAuth0 } from '@auth0/auth0-react';
+import { Browser } from '@capacitor/browser';
+import { IonButton } from '@ionic/react';
 
 const LoginButton: React.FC = () => {
   const { buildAuthorizeUrl } = useAuth0();
@@ -162,7 +162,7 @@ const LoginButton: React.FC = () => {
 export default LoginButton;
 ```
 
-<%= include('../../_includes/_auth0-react-classes-info.md') %>
+<%= include('../../\_includes/\_auth0-react-classes-info.md') %>
 
 ### Handling the callback
 
@@ -173,10 +173,10 @@ Add the following `useEffect` hook to your main `App` component:
 ```js
 // Import Capacitor's app and browser plugins, giving us access to `addListener` and `appUrlOpen`,
 // as well as the bits needed for Auth0 and React
-import { App as CapApp } from "@capacitor/app";
-import { Browser } from "@capacitor/browser";
-import { useEffect } from "react";
-import { useAuth0 } from "@auth0/auth0-react";
+import { App as CapApp } from '@capacitor/app';
+import { Browser } from '@capacitor/browser';
+import { useEffect } from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 
 // ...
 
@@ -186,19 +186,16 @@ const App: React.FC = () => {
 
   useEffect(() => {
     // Handle the 'appUrlOpen' event and call `handleRedirectCallback`
-    CapApp.addListener("appUrlOpen", async ({ url }) => {
-        if (
-          url.includes("state") &&
-          (url.includes("code") || url.includes("error"))
-        ) {
-          await handleRedirectCallback(url);
-        }
-        // No-op on Android
-        await Browser.close();
+    CapApp.addListener('appUrlOpen', async ({ url }) => {
+      if (url.includes('state') && (url.includes('code') || url.includes('error'))) {
+        await handleRedirectCallback(url);
+      }
+      // No-op on Android
+      await Browser.close();
     });
   }, [handleRedirectCallback]);
 
-  // .. 
+  // ..
 };
 ```
 
@@ -221,13 +218,13 @@ Similar to `buildAuthorizeUrl`, there is an equivalent method `buildLogoutUrl` t
 Create a new file `LogoutButton.tsx` and add the following code to the file. Then, add the `LogoutButton` component to your app.
 
 ```js
-import { useAuth0 } from "@auth0/auth0-react";
-import { Browser } from "@capacitor/browser";
-import { IonButton } from "@ionic/react";
+import { useAuth0 } from '@auth0/auth0-react';
+import { Browser } from '@capacitor/browser';
+import { IonButton } from '@ionic/react';
 
 // This should reflect the URL added earlier to your "Allowed Logout URLs" setting
 // in the Auth0 dashboard.
-const logoutUri = "YOUR_PACKAGE_ID://${account.namespace}/capacitor/YOUR_PACKAGE_ID/callback";
+const logoutUri = 'YOUR_PACKAGE_ID://${account.namespace}/capacitor/YOUR_PACKAGE_ID/callback';
 
 const LogoutButton: React.FC = () => {
   const { buildLogoutUrl, logout } = useAuth0();
@@ -255,7 +252,7 @@ Add the `LogoutButton` component to your application. When you click it, verify 
 The Auth0 React SDK helps you retrieve the [profile information](https://auth0.com/docs/users/concepts/overview-user-profile) associated with logged-in users quickly in whatever component you need, such as their name or profile picture, to personalize the user interface. The profile information is available through the `user` property exposed by the `useAuth0()` hook. Take this `Profile` component as an example of how to use it:
 
 ```js
-import { useAuth0 } from "@auth0/auth0-react";
+import { useAuth0 } from '@auth0/auth0-react';
 
 const Profile: React.FC = () => {
   const { user, isLoading } = useAuth0();
@@ -279,4 +276,4 @@ The `user` property contains sensitive information and artifacts related to the 
 
 :::panel Checkpoint
 Add the `Profile` component to your application, and verify that you can display the `user.name` or [any other `user` property](https://auth0.com/docs/users/references/user-profile-structure#user-profile-attributes) within a component correctly after you have logged in.
-::: 
+:::
