@@ -47,11 +47,11 @@ For example, consider the following scenario:
 ![Reuse Detection](/media/articles/tokens/reuse-detection1.png)
 
 1. Legitimate Client has **Refresh Token 1**, and it is leaked to or stolen by Malicious Client. 
-2. Legitimate Client uses **Refresh Token 1** to get a new Refresh Token/Access Token pair.
+2. Malicious Client uses **Refresh Token 1** to get a new Refresh Token/Access Token pair.
 3. Auth0 returns **Refresh Token 2/Access Token 2**.
-4. Malicious Client then attempts to use **Refresh Token 1** to get an Access Token. Auth0 recognizes that Refresh Token 1 is being reused, and immediately invalidates the Refresh Token family, including **Refresh Token 2**.
-5. Auth0 returns an **Access Denied** response to Malicious Client.
-6. **Access Token 2** expires and Legitimate Client attempts to use **Refresh Token 2** to request a new token pair. Auth0 returns an **Access Denied** response to Legitimate Client.
+4. Legitimate Client then attempts to use **Refresh Token 1** to get an Access Token. Auth0 recognizes that Refresh Token 1 is being reused, and immediately invalidates the Refresh Token family, including **Refresh Token 2**.
+5. Auth0 returns an **Access Denied** response to Legitimate Client.
+6. **Access Token 2** expires and Malicious Client attempts to use **Refresh Token 2** to request a new token pair. Auth0 returns an **Access Denied** response to Malicious Client.
 7. Re-authentication is required.
 
 This protection mechanism works regardless of whether the legitimate client or the malicious client is able to exchange **Refresh Token 1** for a new token pair before the other. As soon as reuse is detected, all subsequent requests will be denied until the user re-authenticates. When reuse is detected, Auth0 captures detected reuse events (such as `ferrt` indicating a failed exchange) in logs. This can be especially useful in conjunction with Auth0’s log streaming capabilities.
