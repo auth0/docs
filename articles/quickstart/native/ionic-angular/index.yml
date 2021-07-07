@@ -6,14 +6,13 @@ author:
   community: false
 alias:
   - ionic
-  - ionic5
   - angular
   - capacitor
   - auth0-angular
 language:
   - Typescript
 framework:
-  - Ionic5
+  - Ionic
   - Capacitor
   - Angular
 hybrid: true
