@@ -58,7 +58,7 @@ Each request should be sent with a Content-Type of `application/json`.
 
 ## Testing
 
-You can test the endpoints using either the [Authentication API Debugger](/extensions/authentication-api-debugger) or our preconfigured [Postman collection](https://app.getpostman.com/run-collection/2a9bc47495ab00cda178). For some endpoints, both options are available.
+You can test the endpoints using the [Authentication API Debugger](/extensions/authentication-api-debugger).
 
 ### Test with the Authentication API Debugger
 
@@ -70,12 +70,6 @@ Note that its URL varies according to your tenant's region:
 - <a href="https://${account.tenant}.us.webtask.io/auth0-authentication-api-debugger" target="_blank">US West</a>
 - <a href="https://${account.tenant}.eu.webtask.io/auth0-authentication-api-debugger" target="_blank">Europe Central</a>
 - <a href="https://${account.tenant}.au.webtask.io/auth0-authentication-api-debugger" target="_blank">Australia</a>
-
-### Test with Postman
-
-If you are working with APIs, you are probably already familiar with [Postman](https://www.getpostman.com/), a development tool that enables you to configure and run API requests.
-
-We have preconfigured a collection that you can [download](https://app.getpostman.com/run-collection/2a9bc47495ab00cda178). You will have to configure some environment variables to customize the requests. For more information on this, refer to [Using the Auth0 API with our Postman Collections](/api/postman).
 
 ## Errors
 
