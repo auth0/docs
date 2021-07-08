@@ -33,11 +33,6 @@ This endpoint accepts a WS-Federation request to initiate a login.
 | `wreply`         | The <dfn data-key="callback">callback URL</dfn>. |
 
 
-### Test with Postman
-
-<%= include('../../_includes/_test-with-postman') %>
-
-
 ### Test with Authentication API Debugger
 
 <%= include('../../_includes/_test-this-endpoint') %>
@@ -82,11 +77,6 @@ include('../../_includes/_http-method', {
 }) %>
 
 This endpoint returns the WS-Federation metadata.
-
-
-### Test with Postman
-
-<%= include('../../_includes/_test-with-postman') %>
 
 
 ### More Information
