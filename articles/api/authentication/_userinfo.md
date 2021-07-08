@@ -84,9 +84,6 @@ This endpoint will work only if `openid` was granted as a <dfn data-key="scope">
 |:-----------------|:------------|
 | `access_token` <br/><span class="label label-danger">Required</span> | The Auth0 Access Token obtained during login. |
 
-### Test with Postman
-
-<%= include('../../_includes/_test-with-postman') %>
 
 ### Remarks
 
