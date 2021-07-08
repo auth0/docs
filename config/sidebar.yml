@@ -28,8 +28,6 @@ articles:
             url: /get-started/create-apps/machine-to-machine-apps
       - title: Register APIs
         url: /get-started/set-up-apis
-      - title: Set Up Multiple Environments
-        url: /dev-lifecycle/set-up-multiple-environments
       - title: Authentication and Authorization
         url: /get-started/authentication-and-authorization
       - title: Glossary
