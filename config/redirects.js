@@ -2053,8 +2053,12 @@ module.exports = [
   /* Get Started */
 
   {
-    from: ['/overview','/get-started/overview','/getting-started','/getting-started/overview'],
+    from: ['/getting-started'],
     to: '/get-started'
+  },
+  {
+    from: ['/overview','/get-started/overview','/getting-started/overview'],
+    to: '/get-started/auth0-overview'
   },
   {
     from: ['/getting-started/set-up-app', '/applications/set-up-an-application'],
