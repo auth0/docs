@@ -38,11 +38,6 @@ Optionally, it accepts a connection parameter to login with a specific provider.
 | `connection`     | The connection to use. |
 
 
-### Test with Postman
-
-<%= include('../../_includes/_test-with-postman') %>
-
-
 ### Remarks
 
 - All the parameters of the SAML response can be modified with [Rules](/rules).
@@ -78,11 +73,6 @@ This endpoint returns the <dfn data-key="security-assertion-markup-language">SAM
 | Parameter        | Description |
 |:-----------------|:------------|
 | `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your application. |
-
-
-### Test with Postman
-
-<%= include('../../_includes/_test-with-postman') %>
 
 
 ### More Information
