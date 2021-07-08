@@ -1127,8 +1127,8 @@ module.exports = [
     to: '/api/management-api-changes-v1-to-v2'
   },
   {
-    from: ['/api/postman'],
-    to: '/api/use-auth0-apis-with-postman-collections'
+    from: ['/api/use-auth0-apis-with-postman-collections','/api/postman'],
+    to: '/api'
   },
 
   /* Applications */
