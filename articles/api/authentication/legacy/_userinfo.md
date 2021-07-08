@@ -81,9 +81,6 @@ This endpoint validates a <dfn data-key="json-web-token">JSON Web Token (JWT)</d
 |:-----------------|:------------|
 | `id_token` <br/><span class="label label-danger">Required</span> | The ID Token to use. |
 
-### Test with Postman
-
-<%= include('../../../_includes/_test-with-postman') %>
 
 ### Remarks
 
