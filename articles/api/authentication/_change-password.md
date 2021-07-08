@@ -65,11 +65,6 @@ This endpoint only works for database connections.
 | `connection` <br/><span class="label label-danger">Required</span> | The name of the database connection configured to your client. |
 
 
-### Test with Postman
-
-<%= include('../../_includes/_test-with-postman') %>
-
-
 ### Remarks
 
 - When the user clicks on the password change link they will be redirected to a page asking them for a new password.
