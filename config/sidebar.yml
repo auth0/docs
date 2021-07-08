@@ -3,7 +3,7 @@ articles:
     url: /get-started
     children:
       - title: Auth0 Overview
-        url: /get-started
+        url: /get-started/auth0-overview
       - title: Dashboard Overview
         url: /get-started/dashboard
       - title: Create Tenants
@@ -30,7 +30,6 @@ articles:
         url: /get-started/set-up-apis
       - title: Set Up Multiple Environments
         url: /dev-lifecycle/set-up-multiple-environments
-        hidden: true
       - title: Authentication and Authorization
         url: /get-started/authentication-and-authorization
       - title: Glossary
