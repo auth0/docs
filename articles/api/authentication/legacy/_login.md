@@ -77,9 +77,6 @@ Given the social provider's <dfn data-key="access-token">Access Token</dfn> and 
 | `connection` <br/><span class="label label-danger">Required</span> | The name of an identity provider configured to your app. |
 | <dfn data-key="scope">`scope`</dfn> | Use `openid` to get an ID Token, or `openid profile email` to include user information in the ID Token. If null, only an Access Token will be returned. |
 
-### Test with Postman
-
-<%= include('../../../_includes/_test-with-postman') %>
 
 ### Remarks
 
@@ -184,9 +181,6 @@ Use this endpoint for API-based (active) authentication. Given the user credenti
 | `device` | String value. Required when `grant_type` is `urn:ietf:params:oauth:grant-type:jwt-bearer` |
 | `id_token` | Used to authenticate using a token instead of username/password, in [Touch ID](/libraries/lock-ios/touchid-authentication) scenarios. Required when `grant_type` is `urn:ietf:params:oauth:grant-type:jwt-bearer` |
 
-### Test with Postman
-
-<%= include('../../../_includes/_test-with-postman') %>
 
 ### Test with Authentication API Debugger
 
