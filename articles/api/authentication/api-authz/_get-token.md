@@ -85,11 +85,6 @@ This is the flow that regular web apps use to access an API. Use this endpoint t
 | `redirect_uri`| This is required only if it was set at the [GET /authorize](#authorization-code-grant) endpoint. The values must match. |
 
 
-### Test with Postman
-
-<%= include('../../../_includes/_test-with-postman') %>
-
-
 ### Test with Authentication API Debugger
 
 <%= include('../../../_includes/_test-this-endpoint') %>
