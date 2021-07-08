@@ -1486,6 +1486,7 @@ apis:
     url: /api
   - title: Testing with Postman
     url: /api/use-auth0-apis-with-postman-collections
+    hidden: true 
   - title: Authentication API
     url: /api/authentication
     external: true
@@ -1493,6 +1494,7 @@ apis:
   - title: Changes in Management API v2
     url: /api/management-api-changes-v1-to-v2
     forceFullReload: true
+    hidden: true 
   - title: Management API Explorer
     url: /api/management/v2/
     forceFullReload: true
