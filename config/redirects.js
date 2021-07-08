@@ -2057,7 +2057,7 @@ module.exports = [
     to: '/get-started'
   },
   {
-    from: ['/overview','/get-started/overview','/getting-started','/getting-started/overview'],
+    from: ['/overview','/get-started/overview','/getting-started/overview'],
     to: '/get-started/auth0-overview'
   },
   {
