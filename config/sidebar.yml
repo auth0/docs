@@ -160,15 +160,17 @@ articles:
     children:
       - title: Deployment Options
         url: /deploy/deploy-options
-      - title: Deployment Checklist
-        url: /deploy/deploy-checklist
-      - title: Pre-Deployment
+      - title: Pre-Deployment Checks
         url: /deploy/pre-deployment
         children:
           - title: Run Production Checks
             url: /deploy/pre-deployment/how-to-run-production-checks
+          - title: Run Deployment Tests
+            url: /deploy/pre-deployment/predeployment-tests
           - title: Pre-Launch Tips
             url: /deploy/pre-deployment/pre-launch-tips
+      - title: Deployment Checklist
+        url: /deploy/deploy-checklist
       - title: Deploy CLI Tool
         url: /deploy/deploy-cli-tool
         children:
