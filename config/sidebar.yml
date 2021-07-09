@@ -160,6 +160,35 @@ articles:
     children:
       - title: Deployment Options
         url: /deploy/deploy-options
+      - title: Private Cloud Deployment
+        url: /deploy/private-cloud
+        children:
+          - title: Onboarding
+            url: /deploy/private-cloud/private-cloud-onboarding
+            children:
+              - title: Infrastructure Requirements
+                url: /deploy/private-cloud/private-cloud-onboarding/customer-hosted-managed-private-cloud-infrastructure-requirements
+                hidden: true 
+              - title: IP/Domain and Port List
+                url: /deploy/private-cloud/private-cloud-onboarding/private-cloud-ip-domain-and-port-list
+                hidden: true 
+              - title: Remote Access Options
+                url: /deploy/private-cloud/private-cloud-onboarding/private-cloud-remote-access-options
+                hidden: true 
+          - title: Operations
+            url: /deploy/private-cloud/private-cloud-operations
+          - title: Migrations
+            url: /deploy/private-cloud/private-cloud-migrations
+            children:
+              - title: Public to Private
+                url: /deploy/private-cloud/private-cloud-migrations/migrate-from-public-cloud-to-private-cloud
+                hidden: true 
+              - title: Performance to Performance Plus
+                url: /deploy/private-cloud/private-cloud-migrations/migrate-from-standard-private-cloud-to-managed-private-cloud
+                hidden: true 
+              - title: Custom Domains
+                url: /deploy/private-cloud/private-cloud-migrations/migrate-private-cloud-custom-domains
+                hidden: true 
       - title: Pre-Deployment Checks
         url: /deploy/pre-deployment
         children:
@@ -194,35 +223,6 @@ articles:
           - title: Troubleshoot Deploy CLI
             url: /deploy/deploy-cli-tool/troubleshoot-the-deploy-cli-tool
             hidden: true
-      - title: Private Cloud Options
-        url: /deploy/private-cloud
-        children:
-          - title: Onboarding
-            url: /deploy/private-cloud/private-cloud-onboarding
-            children:
-              - title: Infrastructure Requirements
-                url: /deploy/private-cloud/private-cloud-onboarding/customer-hosted-managed-private-cloud-infrastructure-requirements
-                hidden: true 
-              - title: IP/Domain and Port List
-                url: /deploy/private-cloud/private-cloud-onboarding/private-cloud-ip-domain-and-port-list
-                hidden: true 
-              - title: Remote Access Options
-                url: /deploy/private-cloud/private-cloud-onboarding/private-cloud-remote-access-options
-                hidden: true 
-          - title: Operations
-            url: /deploy/private-cloud/private-cloud-operations
-          - title: Migrations
-            url: /deploy/private-cloud/private-cloud-migrations
-            children:
-              - title: Public to Private
-                url: /deploy/private-cloud/private-cloud-migrations/migrate-from-public-cloud-to-private-cloud
-                hidden: true 
-              - title: Performance to Performance Plus
-                url: /deploy/private-cloud/private-cloud-migrations/migrate-from-standard-private-cloud-to-managed-private-cloud
-                hidden: true 
-              - title: Custom Domains
-                url: /deploy/private-cloud/private-cloud-migrations/migrate-private-cloud-custom-domains
-                hidden: true 
   - title: Login
     url: /login
     children:
