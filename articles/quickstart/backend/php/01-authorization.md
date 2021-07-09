@@ -254,4 +254,4 @@ $router->get('/api/private-scoped', function() use ($app){
 });
 ```
 
-The route `/api/private-scoped` will be accessible only if has a valid Access Token with the scope `read:messages`.
+The route `/api/private-scoped` will be accessible only if the request contains a valid Access Token with the scope `read:messages`.
