@@ -353,6 +353,10 @@ module.exports = [
     to: '/quickstart/native/ios-swift'
   },
   {
+    from: '/quickstart/native/ionic4',
+    to: '/quickstart/native/ionic-angular'
+  },
+  {
     from: '/quickstart/native/ionic/00-intro',
     to: '/quickstart/native/ionic'
   },
