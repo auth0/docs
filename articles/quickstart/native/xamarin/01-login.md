@@ -146,7 +146,7 @@ public class AppDelegate : UIApplicationDelegate
 
 With the above code in place, a user can log in to your application using Auth0.
 
-<div class="phone-mockup"><img src="/media/articles/native-platforms/xamarin/lock-widget-screenshot-ios.png" alt="Lock UI"></div>
+<div class="phone-mockup"><img src="/media/articles/native-platforms/xamarin/universal-login.png" alt="Universal Login Page"></div>
 
 ## Accessing the User's Information
 
