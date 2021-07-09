@@ -11,7 +11,7 @@ useCase:
 ---
 # Retrieve Users with the Get Users by Email Endpoint 
 
-The [`GET /api/v2/users-by-email` endpoint](/api/management/v2#!/Users_By_Email/get_users_by_email) allows you to search for users using their email addresses. The search looks for an exact match to the provided email address and is case-sensitive.
+With the [`GET /api/v2/users-by-email` endpoint](/api/management/v2#!/Users_By_Email/get_users_by_email) you can search for users by their email address. The search looks for an exact match of the provided email address and both case-sensitive and case-insensitive searches are supported.
 
 This endpoint is **immediately consistent**, and as such, we recommend that you use this endpoint for:
 
@@ -32,6 +32,23 @@ This endpoint is **immediately consistent**, and as such, we recommend that you 
         "name": "Authorization",
         "value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
     }]
+}
+```
+
+Searches are case-sensitive by default. For case-insensitive searches, include the `case_sensitive` query parameter and set it to `false`.
+
+```har
+{
+    "method": "GET",
+    "url": "https://${account.namespace}/api/v2/users-by-emailemail=USER_EMAIL_ADDRESS",
+    "headers": [{
+        "name": "Authorization",
+        "value": "Bearer YOUR_MGMT_API_ACCESS_TOKEN"
+    }],
+    "queryString" : [
+        { "name": "email", "value": "USER_EMAIL_ADDRESS" },
+        { "name": "case_sensitive", "value": "false"}
+    ]
 }
 ```
 
