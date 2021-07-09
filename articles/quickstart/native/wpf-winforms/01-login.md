@@ -45,7 +45,7 @@ You can then call the `LoginAsync` method to log the user in:
 
 ${snippet(meta.snippets.use)}
 
-![](/media/articles/native-platforms/wpf-winforms/wpf-winforms-step1.png)
+![](/media/articles/native-platforms/wpf-winforms/universal-login.png)
 
 This will load the Auth0 login page into a web view. You can learn how to customize the login page in [this document](/universal-login#simple-customization).
 
