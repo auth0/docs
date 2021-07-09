@@ -750,7 +750,7 @@ articles:
   - title: Brand and Customize
     url: /brand-and-customize
     children:
-      - title: Universal Login Pages
+      - title: Login Pages
         url: /universal-login/new-experience/universal-login-page-templates
       - title: Custom Domains
         url: /custom-domains
@@ -776,7 +776,7 @@ articles:
             url: /custom-domains/configure-features-to-use-custom-domains
           - title: Troubleshoot Custom Domains
             url: /custom-domains/troubleshoot-custom-domains
-      - title: Email
+      - title: Emails
         url: /email
         children:
           - title: Email Handling
@@ -796,7 +796,7 @@ articles:
             url: /email/configure-test-smtp-email-servers
           - title: Send Email Invitations for Application Signup
             url: /email/send-email-invitations-for-application-signup
-      - title: Consent Prompt
+      - title: Consent Prompts
         url: /scopes/customize-consent-prompts
       - title: Internationalization and Localization
         url: /i18n
