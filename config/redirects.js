@@ -1652,6 +1652,10 @@ module.exports = [
       from: ['/pre-deployment/how-to-run-production-checks/production-check-required-fixes','/pre-deployment/tests/required'],
       to: '/deploy/pre-deployment/how-to-run-production-checks/production-check-required-fixes'
   },
+  {
+    from: ['/support/predeployment-tests','/support/testing'],
+    to: '/deploy/pre-deployment/predeployment-tests'
+  },
 
   /* Email */
 
@@ -3881,10 +3885,6 @@ module.exports = [
   {
     from: ['/tutorials/removing-auth0-exporting-data','/support/removing-auth0-exporting-data','/moving-out'],
     to: '/support/export-data'
-  },
-  {
-    from: ['/support/testing'],
-    to: '/support/predeployment-tests'
   },
   {
     from: ['/support/cancel-paid-subscriptions','/tutorials/cancel-paid-subscriptions','/cancel-paid-subscriptions'],
