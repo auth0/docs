@@ -163,7 +163,7 @@ After you call the `WebAuthProvider#start` function, the browser launches and sh
 There are many options to customize the authentication with the `WebAuthProvider` builder. You can read about them in the [Auth0 SDK for Android documentation](/libraries/auth0-android).
 
 <div class="phone-mockup">
-  <img src="/media/articles/native-platforms/android/login-android.png" alt="Mobile example screenshot" />
+  <img src="/media/articles/native-platforms/android/login-android.png" alt="Universal Login" />
 </div>
 :::
 
