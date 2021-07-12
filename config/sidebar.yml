@@ -882,7 +882,7 @@ articles:
         url: /hooks/enable-disable-hooks
       - title: View Hooks
         url: /hooks/view-hooks
-      - title: View Logs
+      - title: View Logs for Hooks
         url: /hooks/view-logs-for-hooks
       - title: Extensibility Points
         url: /hooks/extensibility-points
