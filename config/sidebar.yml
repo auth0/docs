@@ -845,11 +845,11 @@ articles:
   - title: Rules
     url: /rules
     children:
-      - title: Create a New Rule
-        url: /rules/create-rules
-      - title: Rules Use Cases
+      - title: Rule Use Cases
         url: /rules/use-cases
-      - title: Store Configuration for Rules
+      - title: Create Rules
+        url: /rules/create-rules
+      - title: Store Rule Configurations
         url: /rules/configuration
       - title: Cache Expensive Resources
         url: /rules/cache-resources
@@ -861,12 +861,14 @@ articles:
         url: /rules/metadata
       - title: Redirect Users from Rules
         url: /rules/redirect-users
+      - title: Raise Errors from Rules
+        url: /rules/raise-errors-from-rules
       - title: User Object
         url: /rules/user-object-in-rules
       - title: Context Object
         url: /rules/context-object
-      - title: Raise Errors from Rules
-        url: /rules/raise-errors-from-rules
+      - title: Debug Rules
+        url: /rules/debug-rules
   - title: Hooks
     url: /hooks
     children:
