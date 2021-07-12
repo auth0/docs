@@ -853,16 +853,16 @@ articles:
         url: /rules/configuration
       - title: Cache Expensive Resources
         url: /rules/cache-resources
-      - title: Debug Rules
-        url: /rules/debug-rules
       - title: Management API in Rules
         url: /rules/use-management-api
-      - title: Metadata in Rules
-        url: /rules/metadata
+      - title: Manage Metadata with Rules
+        url: /users/metadata/manage-metadata-rules
       - title: Redirect Users from Rules
         url: /rules/redirect-users
       - title: Raise Errors from Rules
         url: /rules/raise-errors-from-rules
+      - title: Export Log Events with Rules
+        url: /logs/export-log-events-with-rules
       - title: User Object
         url: /rules/user-object-in-rules
       - title: Context Object
