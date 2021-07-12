@@ -863,9 +863,9 @@ articles:
         url: /rules/raise-errors-from-rules
       - title: Export Log Events with Rules
         url: /logs/export-log-events-with-rules
-      - title: User Object
+      - title: User Object Properties
         url: /rules/user-object-in-rules
-      - title: Context Object
+      - title: Context Object Properties
         url: /rules/context-object
       - title: Debug Rules
         url: /rules/debug-rules
