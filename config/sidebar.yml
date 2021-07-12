@@ -930,7 +930,7 @@ articles:
         url: /extensions/ad-ldap-connector-health-monitor
       - title: Real-time Webtask Logs
         url: /extensions/real-time-webtask-logs
-      - title: Log Export Extensions
+      - title: Log Export Extensions 
         url: /extensions/log-export-extensions
         children: 
           - title: Auth0 Logs to Application Insights
