@@ -962,6 +962,7 @@ articles:
             hidden: true
           - title: Auth0 Logs to Splunk
             url: /extensions/export-logs-to-splunk
+            hidden: true
   - title: Integrations
     url: /integrations
     children:
