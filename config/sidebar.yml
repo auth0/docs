@@ -930,29 +930,38 @@ articles:
         url: /extensions/ad-ldap-connector-health-monitor
       - title: Real-time Webtask Logs
         url: /extensions/real-time-webtask-logs
-      - title: Auth0 Logs to Application Insights
-        url: /extensions/export-logs-to-application-insights
-      - title: Auth0 Logs to AWS Cloudwatch
-        url: /extensions/export-logs-to-cloudwatch
-      - title: Auth0 Logs to Azure Blob Storage
-        url: /extensions/export-logs-to-azure-blob-storage
-      - title: Auth0 Logs to Logentries
-        url: /extensions/export-logs-to-logentries
-      - title: Auth0 Logs to Loggly
-        url: /extensions/export-logs-to-loggly
-      - title: Auth0 Logs to Logstash
-        url: /extensions/export-logs-to-logstash
-      - title: Auth0 Logs to Mixpanel
-        url: /extensions/export-logs-to-mixpanel
-      - title: Auth0 Logs to Papertrail
-        url: /extensions/export-logs-to-papertrail
-      - title: Auth0 Logs to Sumo Logic
-        url: /extensions/auth0-logs-to-sumo-logic
-      - title: Auth0 Logs to Splunk
-        url: /extensions/export-logs-to-splunk
-      - title: Add-ons
-        url: /addons
-        hidden: true
+      - title: Log Export Extensions
+        url: /extensions/log-export-extensions
+        children: 
+          - title: Auth0 Logs to Application Insights
+            url: /extensions/export-logs-to-application-insights
+            hidden: true
+          - title: Auth0 Logs to AWS Cloudwatch
+            url: /extensions/export-logs-to-cloudwatch
+            hidden: true
+          - title: Auth0 Logs to Azure Blob Storage
+            url: /extensions/export-logs-to-azure-blob-storage
+            hidden: true
+          - title: Auth0 Logs to Logentries
+            url: /extensions/export-logs-to-logentries
+            hidden: true
+          - title: Auth0 Logs to Loggly
+            url: /extensions/export-logs-to-loggly
+            hidden: true
+          - title: Auth0 Logs to Logstash
+            url: /extensions/export-logs-to-logstash
+            hidden: true
+          - title: Auth0 Logs to Mixpanel
+            url: /extensions/export-logs-to-mixpanel
+            hidden: true
+          - title: Auth0 Logs to Papertrail
+            url: /extensions/export-logs-to-papertrail
+            hidden: true
+          - title: Auth0 Logs to Sumo Logic
+            url: /extensions/auth0-logs-to-sumo-logic
+            hidden: true
+          - title: Auth0 Logs to Splunk
+            url: /extensions/export-logs-to-splunk
   - title: Integrations
     url: /integrations
     children:
