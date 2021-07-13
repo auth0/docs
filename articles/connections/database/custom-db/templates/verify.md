@@ -55,7 +55,6 @@ Auth0 provides sample scripts for use with the following languages/technologies:
 * [ASP.NET Membership Provider (MVC4 - Simple Membership)](#asp-net-membership-provider-mvc4-simple-membership-)
 * [MongoDB](#mongodb)
 * [MySQL](#mysql)
-* [Oracle](#oracle)
 * [PostgreSQL](#postgresql)
 * [SQL Server](#sql-server)
 * [Windows Azure SQL Database](#windows-azure-sql-database)
@@ -278,38 +277,6 @@ function verify(email, callback) {
     callback(null, results.length > 0);
   });
 
-}
-```
-
-### Oracle
-
-```
-function verify(email, callback) {
-  const oracledb = require('oracledb');
-  oracledb.outFormat = oracledb.OBJECT;
-
-  oracledb.getConnection({
-      user: configuration.dbUser,
-      password: configuration.dbUserPassword,
-      connectString: 'CONNECTION_STRING' // Refer here https://github.com/oracle/node-oracledb/blob/master/doc/api.md#connectionstrings
-    },
-    function(err, connection) {
-      if (err) return callback(err);
-
-      const query = 'update Users set EMAIL_VERIFIED = \'true\' where EMAIL = :email and EMAIL_VERIFIED = \'false\'';
-      connection.execute(query, [email], { autoCommit: true }, function(err, result) {
-        doRelease(connection);
-        callback(err, result && result.rowsAffected > 0);
-      });
-
-      // Note: connections should always be released when not needed
-      function doRelease(connection) {
-        connection.close(
-          function(err) {
-            if (err) console.error(err.message);
-          });
-      }
-    });
 }
 ```
 
