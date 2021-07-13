@@ -17,15 +17,15 @@ useCase: quickstart
 
 <!-- markdownlint-disable MD002 MD041 -->
 
-<%= include('../\_includes/ionic/\_article_intro') %>
+<%= include('../_includes/ionic/_article_intro') %>
 
-<%= include('../\_includes/\_getting_started', { library: 'Ionic' }) %>
+<%= include('../_includes/_getting_started', { library: 'Ionic' }) %>
 
-<%= include('../\_includes/ionic/\_configure_urls') %>
+<%= include('../_includes/ionic/_configure_urls') %>
 
-<%= include('../../\_includes/\_auth0-react-install.md') %>
+<%= include('../../_includes/_auth0-react-install.md') %>
 
-<%= include('../\_includes/ionic/\_install_plugins') %>
+<%= include('../_includes/ionic/_install_plugins') %>
 
 ### Configure the `Auth0Provider` component
 
@@ -48,8 +48,6 @@ ReactDOM.render(
     domain="${account.namespace}"
     clientId="${account.clientId}"
     redirectUri={callbackUri}
-    cacheLocation="localstorage"
-    useRefreshTokens={true}
   >
     <App />
   </Auth0Provider>,
@@ -62,10 +60,8 @@ The `Auth0Provider` component takes the following props:
 - `domain`: The "domain" value present under the "Settings" of the application you created in your Auth0 dashboard, or your custom domain if using Auth0's [Custom Domains feature](http://localhost:3000/docs/custom-domains)
 - `clientId`: The "client ID" value present under the "Settings" of the application you created in your Auth0 dashboard
 - `redirectUri`: The URL to where you'd like to redirect your users after they authenticate with Auth0.
-- `useRefreshTokens`: The React SDK will use refresh tokens over relying on third-party cookies, which can be blocked in many modern browsers. Please read [Refresh Token Rotation](https://auth0.com/docs/tokens/refresh-tokens/refresh-token-rotation) for more information on using refresh tokens with public clients.
-- `cacheLocation`: The location at which to store tokens. We use `localstorage` here so that tokens are persisted across app refreshes.
 
-<%= include('../\_includes/ionic/\_note_storage') %>
+<%= include('../_includes/ionic/_note_storage') %>
 
 :::panel Checkpoint
 Now that you have configured `Auth0Provider`, run your application to verify that the SDK is initializing correctly, and your application is not throwing any errors related to Auth0.
@@ -73,7 +69,7 @@ Now that you have configured `Auth0Provider`, run your application to verify tha
 
 ## Add Login to Your Application
 
-<%= include('../\_includes/ionic/\_add_login_intro') %>
+<%= include('../_includes/ionic/_add_login_intro') %>
 
 Add a new file `LoginButton.tsx` with the following code:
 
@@ -105,11 +101,11 @@ This component:
 - uses `buildAuthorizeUrl` to construct a URL to Auth0's Universal Login page
 - uses Capacitor's Browser plugin to open the URL and show the login page to the user
 
-<%= include('../../\_includes/\_auth0-react-classes-info.md') %>
+<%= include('../../_includes/_auth0-react-classes-info.md') %>
 
 ### Handling the callback
 
-<%= include('../\_includes/ionic/\_handle_callback_intro') %>
+<%= include('../_includes/ionic/_handle_callback_intro') %>
 
 Add the following `useEffect` hook to your main `App` component:
 
@@ -142,7 +138,7 @@ const App: React.FC = () => {
 };
 ```
 
-<%= include('../\_includes/ionic/\_note_custom_schemes') %>
+<%= include('../_includes/ionic/_note_custom_schemes') %>
 
 :::panel Checkpoint
 Add the `LoginButton` component to your application, as well as the handler for the "appUrlOpen" event to your `App` component. When you click the login button, verify that your application redirects you to the Auth0 Universal Login Page and that you can now log in or sign up using a username and password or a social provider.
@@ -152,7 +148,7 @@ Once that's complete, verify that Auth0 redirects you back to your application.
 
 ## Add Logout to Your Application
 
-<%= include('../\_includes/ionic/\_add_logout_intro.md') %>
+<%= include('../_includes/ionic/_add_logout_intro.md') %>
 
 Create a new file `LogoutButton.tsx` and add the following code to the file. Then, add the `LogoutButton` component to your app.
 

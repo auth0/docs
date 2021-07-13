@@ -17,15 +17,15 @@ useCase: quickstart
 
 <!-- markdownlint-disable MD002 MD041 -->
 
-<%= include('../\_includes/ionic/\_article_intro') %>
+<%= include('../_includes/ionic/_article_intro') %>
 
-<%= include('../\_includes/\_getting_started', { library: 'Ionic' }) %>
+<%= include('../_includes/_getting_started', { library: 'Ionic' }) %>
 
-<%= include('../\_includes/ionic/\_configure_urls') %>
+<%= include('../_includes/ionic/_configure_urls') %>
 
-<%= include('../../\_includes/\_auth0-angular-install') %>
+<%= include('../../_includes/_auth0-angular-install') %>
 
-<%= include('../\_includes/ionic/\_install_plugins') %>
+<%= include('../_includes/ionic/_install_plugins') %>
 
 ### Configure your App module
 
@@ -57,9 +57,7 @@ const redirectUri = `<%= "${config.appId}" %>://${account.namespace}/capacitor/<
     AuthModule.forRoot({
       domain: "${account.namespace}",
       clientId: "${account.clientId}",
-      redirectUri,
-      cacheLocation: 'localstorage',
-      useRefreshTokens: true,
+      redirectUri
     }),
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
@@ -72,10 +70,8 @@ The `AuthModule.forRoot` function takes the following configuration:
 - `domain`: The "domain" value present under the "Settings" of the application you created in your Auth0 dashboard, or your custom domain if using Auth0's [Custom Domains feature](http://localhost:3000/docs/custom-domains)
 - `clientId`: The "client ID" value present under the "Settings" of the application you created in your Auth0 dashboard
 - `redirectUri`: The URL to where you'd like to redirect your users after they authenticate with Auth0.
-- `useRefreshTokens`: The Angular SDK will use refresh tokens over relying on third-party cookies, which can be blocked in many modern browsers. Please read [Refresh Token Rotation](https://auth0.com/docs/tokens/refresh-tokens/refresh-token-rotation) for more information on using refresh tokens with public clients.
-- `cacheLocation`: The location at which to store tokens. We use `localstorage` here so that tokens are persisted across app refreshes.
 
-<%= include('../\_includes/ionic/\_note_storage') %>
+<%= include('../_includes/ionic/_note_storage') %>
 
 :::panel Checkpoint
 Now that you have configured your app with the Auth0 Angular SDK, run your application to verify that the SDK is initializing without error and that your application runs as it did before.
@@ -83,7 +79,7 @@ Now that you have configured your app with the Auth0 Angular SDK, run your appli
 
 ## Add Login to Your Application
 
-<%= include('../\_includes/ionic/\_add_login_intro') %>
+<%= include('../_includes/ionic/_add_login_intro') %>
 
 Add a new `LoginButton` component to your application with the following code:
 
@@ -117,7 +113,7 @@ This component:
 
 ### Handling the callback
 
-<%= include('../\_includes/ionic/\_handle_callback_intro') %>
+<%= include('../_includes/ionic/_handle_callback_intro') %>
 
 Modify your `App` component and use the `ngOnInit` method to handle the callback from Auth0:
 
@@ -161,7 +157,7 @@ export class AppComponent implements OnInit {
 
 ```
 
-<%= include('../\_includes/ionic/\_note_custom_schemes') %>
+<%= include('../_includes/ionic/_note_custom_schemes') %>
 
 :::panel Checkpoint
 Add the `LoginButton` component to your application, as well as the handler for the "appUrlOpen" event to your `App` component. When you click the login button, verify that your application redirects you to the Auth0 Universal Login Page and that you can now log in or sign up using a username and password or a social provider.
@@ -171,7 +167,7 @@ Once that's complete, verify that Auth0 redirects you back to your application.
 
 ## Add Logout to Your Application
 
-<%= include('../\_includes/ionic/\_add_logout_intro.md') %>
+<%= include('../_includes/ionic/_add_logout_intro.md') %>
 
 Create a new `LogoutButton` component and add the following code to the file. Then, add the `LogoutButton` component to your app.
 
