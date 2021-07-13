@@ -1,7 +1,7 @@
 <!--markdownlint-disable MD041 -->
 
 :::note
-To persist authentication after closing and reopening the application, you may want to set `cacheLocation` to `true` but please be aware of [the risks of storing tokens in localstorage](https://auth0.com/docs/libraries/auth0-single-page-app-sdk#change-storage-options). Also, localstorage should be treated as transient in Capacitor app as the data might be recovered unexpectedly in certain circumstances.
+To persist authentication after closing and reopening the application, you may want to set `cacheLocation` to `true` but please be aware of [the risks of storing tokens in localstorage](https://auth0.com/docs/libraries/auth0-single-page-app-sdk#change-storage-options). Also, localstorage should be treated as **transient** in Capacitor app as the data might be recovered unexpectedly in certain circumstances. Please read the [guidance on storage in the Capacitor docs](https://capacitorjs.com/docs/guides/storage#why-cant-i-just-use-localstorage-or-indexeddb).
 
 Additionally, the SDK has the ability to use a custom cache implementation to store tokens, if you have a requirement to use a more secure and persistent storage mechanism.
 
