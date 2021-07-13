@@ -812,7 +812,7 @@ articles:
             url: /i18n/password-options-translation 
             hidden: true 
   - title: Actions
-    url: /actions
+    url: /actions 
     children:
       - title: How Auth0 Actions Work 
         url: /actions/actions-overview
