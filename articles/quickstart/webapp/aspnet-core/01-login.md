@@ -14,7 +14,7 @@ useCase: quickstart
 ---
 <!-- markdownlint-disable MD041 -->
 
-<%= include('../../../_includes/_new_app', { showClientSecret: true }) %>
+<%= include('../../../_includes/_new_app', { showClientSecret: true, isPublicClient: false }) %>
 
 <%= include('./_includes/_setup') %>
 
