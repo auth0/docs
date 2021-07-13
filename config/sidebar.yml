@@ -566,11 +566,15 @@ articles:
           - title: Test Applications Locally
             url: /applications/work-with-auth0-locally
       - title: APIs
-        url: /get-started/dashboard/api-settings
+        url: /config/api-settings
         children:
           - title: Signing Algorithms
             url: /tokens/signing-algorithms
-          - title: Represent Multiple APIs with a Single API
+          - title: Add API Permissions
+            url: /config/api-settings/add-api-permissions
+          - title: Delete API Permissions
+            url: /config/api-settings/delete-api-permissions
+          - title: Set Logical API for Multiple APIs
             url: /authorization/represent-multiple-apis-using-a-single-logical-api
       - title: Single Sign-On
         url: /sso
