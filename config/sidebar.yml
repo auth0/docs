@@ -814,7 +814,7 @@ articles:
   - title: Actions
     url: /actions
     children:
-      = title: How Auth0 Actions Work 
+      - title: How Auth0 Actions Work 
         url: /actions/actions-overview
       - title: Write Your First Action
         url: /actions/write-your-first-action
