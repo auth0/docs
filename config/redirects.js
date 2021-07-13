@@ -2136,10 +2136,6 @@ module.exports = [
     to: '/get-started/dashboard/enable-sso-for-legacy-tenants'
   },
   {
-    from: ['/dashboard/guides/apis/delete-permissions-apis'],
-    to: '/get-started/dashboard/delete-api-permissions'
-  },
-  {
     from: ['/dashboard/guides/connections/set-up-connections-social'],
     to: '/get-started/dashboard/set-up-social-connections'
   },
@@ -2168,20 +2164,12 @@ module.exports = [
     to: '/get-started/dashboard/create-sso-dashboard-application'
   },
   {
-    from: ['/dashboard/guides/apis/add-permissions-apis','/api/management/guides/apis/update-permissions-apis','/scopes/current/guides/define-scopes-using-dashboard','/scopes/current/guides/define-api-scope-dashboard'],
-    to: '/get-started/dashboard/add-api-permissions'
-  },
-  {
     from: ['/api/management/guides/connections/promote-connection-domain-level'],
     to: '/get-started/dashboard/promote-connections-to-domain-level'
   },
   {
     from: ['/api/management/guides/connections/retrieve-connection-options','/api/management/guides/retrieve-connection-options'],
     to: '/get-started/dashboard/retrieve-connection-options'
-  },
-  {
-    from: ['/dashboard/reference/settings-api','/api-auth/references/dashboard/api-settings'],
-    to: '/get-started/dashboard/api-settings'
   },
   {
     from: ['/dashboard-access/dashboard-roles','/dashboard-access/manage-dashboard-users','/dashboard/manage-dashboard-admins','/tutorials/manage-dashboard-admins','/get-started/dashboard/manage-dashboard-users'],
@@ -4691,6 +4679,31 @@ module.exports = [
   {
     from: ['/get-started/dashboard/configure-device-user-code-settings','/dashboard/guides/tenants/configure-device-user-code-settings'],
     to: '/config/tenant-settings/configure-device-user-code-settings'
+  },
+
+  /* API Settings */
+
+  {
+    from: [
+      '/api-auth/references/dashboard/api-settings',
+      '/dashboard/reference/settings-api',
+      '/get-started/dashboard/api-settings'
+    ],
+    to: '/config/api-settings'
+  },
+  {
+    from: [
+      '/dashboard/guides/apis/add-permissions-apis',
+      '/api/management/guides/apis/update-permissions-apis',
+      '/scopes/current/guides/define-scopes-using-dashboard',
+      '/scopes/current/guides/define-api-scope-dashboard',
+      '/get-started/dashboard/add-api-permissions'
+    ],
+    to: '/config/api-settings/add-api-permissions'
+  },
+  {
+    from: ['/dashboard/guides/apis/delete-permissions-apis','/get-started/dashboard/delete-api-permissions'],
+    to: '/config/api-settings/delete-api-permissions'
   },
 
   /* Signing Keys */
