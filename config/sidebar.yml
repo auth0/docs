@@ -432,6 +432,8 @@ articles:
   - title: Organizations
     url: /organizations
     children:
+      - title: How Auth0 Organizations Work
+        url: /organizations/organizations-overview
       - title: Create Your First Organization
         url: /organizations/create-first-organization
       - title: Custom Development
