@@ -566,7 +566,7 @@ articles:
           - title: Test Applications Locally
             url: /applications/work-with-auth0-locally
       - title: APIs
-        url: /config/api-settings
+        url: /config/api-settings 
         children:
           - title: Signing Algorithms
             url: /tokens/signing-algorithms
