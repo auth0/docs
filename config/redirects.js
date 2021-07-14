@@ -3396,20 +3396,20 @@ module.exports = [
     to: '/protocols/saml-configuration-options/configure-adfs-saml-connections'
   },
   {
-    from: ['/saml-apps/cisco-webex','/protocols/saml/saml-apps/cisco-webex'],
-    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-cisco-webex'
+    from: ['/saml-apps/cisco-webex','/protocols/saml/saml-apps/cisco-webex','/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-cisco-webex'],
+    to: '/protocols/saml-protocol/saml-configuration-options/configure-auth0-as-identity-provider-for-cisco-webex'
   },
   {
-    from: ['/saml-apps/datadog','/protocols/saml/saml-apps/datadog'],
-    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-datadog'
+    from: ['/saml-apps/datadog','/protocols/saml/saml-apps/datadog','/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-datadog'],
+    to: '/protocols/saml-protocol/saml-configuration-options/configure-auth0-as-identity-provider-for-datadog'
   },
   {
     from: ['/protocols/saml/saml-apps/egencia'],
     to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-egencia'
   },
   {
-    from: ['/saml-apps/freshdesk','/protocols/saml/saml-apps/freshdesk'],
-    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-freshdesk'
+    from: ['/saml-apps/freshdesk','/protocols/saml/saml-apps/freshdesk','/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-freshdesk'],
+    to:  '/protocols/saml-protocol/saml-configuration-options/configure-auth0-as-identity-provider-for-freshdesk'
   },
   {
     from: ['/protocols/saml/saml-apps/google-apps'],
@@ -3424,20 +3424,20 @@ module.exports = [
     to: '/protocols/saml-protocol/configure-auth0-saml-service-provider'
   },
   {
-    from: ['/protocols/saml/identity-providers/okta','/okta', '/saml/identity-providers/okta'],
-    to: '/protocols/saml-configuration-options/configure-okta-as-saml-identity-provider'
+    from: ['/protocols/saml/identity-providers/okta','/okta', '/saml/identity-providers/okta','/protocols/saml-configuration-options/configure-okta-as-saml-identity-provider'],
+    to: '/protocols/saml-protocol/saml-configuration-options/configure-okta-as-saml-identity-provider'
   },
   {
-    from: ['/onelogin', '/saml/identity-providers/onelogin','/protocols/saml/identity-providers/onelogin'],
-    to: '/protocols/saml-configuration-options/configure-onelogin-as-saml-identity-provider'
+    from: ['/onelogin', '/saml/identity-providers/onelogin','/protocols/saml/identity-providers/onelogin','/protocols/saml-configuration-options/configure-onelogin-as-saml-identity-provider'],
+    to: '/protocols/saml-protocol/saml-configuration-options/configure-onelogin-as-saml-identity-provider'
   },
   {
     from: ['/ping7', '/saml/identity-providers/ping7','/protocols/saml/identity-providers/ping7', '/protocols/saml-configuration-options/configure-pingfederate-as-saml-identity-provider'],
     to: '/protocols/saml-protocol/saml-configuration-options/configure-pingfederate-as-saml-identity-provider'
   },
   {
-    from: ['/saml/identity-providers/salesforce','/protocols/saml/identity-providers/salesforce'],
-    to: '/protocols/saml-configuration-options/configure-salesforce-as-saml-identity-provider'
+    from: ['/saml/identity-providers/salesforce','/protocols/saml/identity-providers/salesforce','/protocols/saml-configuration-options/configure-salesforce-as-saml-identity-provider'],
+    to: '/protocols/saml-protocol/saml-configuration-options/configure-salesforce-as-saml-identity-provider'
   },
   {
     from: ['/protocols/saml/saml-apps/github-cloud'],
@@ -3456,12 +3456,12 @@ module.exports = [
     to: '/protocols/saml-configuration-options/configure-saml2-addon-eloqua'
   },
   {
-    from: ['/siteminder', '/saml/identity-providers/siteminder','/protocols/saml/identity-providers/siteminder'],
-    to: '/protocols/saml-configuration-options/configure-siteminder-as-saml-identity-provider'
+    from: ['/siteminder', '/saml/identity-providers/siteminder','/protocols/saml/identity-providers/siteminder','/protocols/saml-configuration-options/configure-siteminder-as-saml-identity-provider'],
+    to: '/protocols/saml-protocol/saml-configuration-options/configure-siteminder-as-saml-identity-provider'
   },
   {
-    from: ['/ssocircle','/saml/identity-providers/ssocircle','/protocols/saml/identity-providers/ssocircle'],
-    to: '/protocols/saml-configuration-options/configure-ssocircle-as-saml-identity-provider'
+    from: ['/ssocircle','/saml/identity-providers/ssocircle','/protocols/saml/identity-providers/ssocircle', '/protocols/saml-configuration-options/configure-ssocircle-as-saml-identity-provider'],
+    to: '/protocols/saml-protocol/saml-configuration-options/configure-ssocircle-as-saml-identity-provider'
   },
   {
     from: ['/protocols/saml-configuration-options/customize-saml-assertions','/protocols/saml/saml-configuration/saml-assertions'],
@@ -3496,16 +3496,16 @@ module.exports = [
     to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-hosted-graphite'
   },
   {
-    from: ['/protocols/saml/saml-apps/litmos'],
-    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-litmos'
+    from: ['/protocols/saml/saml-apps/litmos','/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-litmos'],
+    to: '/protocols/saml-protocol/saml-configuration-options/configure-auth0-as-identity-provider-for-litmos'
   },
   {
     from: ['/protocols/saml/saml-apps/pluralsight'],
     to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-pluralsight'
   },
   {
-    from: ['/protocols/saml/saml-apps/sprout-video','/saml-apps/sprout-video'],
-    to: '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-sprout-video'
+    from: ['/protocols/saml/saml-apps/sprout-video','/saml-apps/sprout-video','/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-sprout-video'],
+    to: '/protocols/saml-protocol/saml-configuration-options/configure-auth0-as-identity-provider-for-sprout-video'
   },
   {
     from: ['/protocols/saml/saml-apps/tableau-online'],
