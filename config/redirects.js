@@ -2497,8 +2497,8 @@ module.exports = [
     to: '/integrations/sso/freshdesk'
   },
   {
-    from: ['/integrations/sso-integrations/g-suite'],
-    to: '/integrations/sso/g-suite'
+    from: ['/integrations/sso-integrations/g-suite','/integrations/sso/g-suite'],
+    to: '/integrations/sso/google-workspace'
   },
   {
     from: ['/integrations/sso-integrations/github-enterprise-cloud'],
