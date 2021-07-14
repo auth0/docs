@@ -1,0 +1,20 @@
+title: Nginx+
+author:
+  community: true
+image: /media/platforms/nginx-plus.png
+topics:
+  - quickstart
+snippets:
+  dependencies: server-platforms/nginx-plus/dependencies
+  module: server-platforms/nginx-plus/module
+  setup: server-platforms/nginx-plus/setup
+  logout: server-platforms/nginx-plus/logout
+  token: server-platforms/nginx-plus/token
+  copy: server-platforms/nginx-plus/copy
+  use: server-platforms/nginx-plus/use
+seo_alias: nginx+
+default_article: 01-login
+articles:
+  - 01-login
+contentType: tutorial
+useCase: quickstart
