@@ -1346,8 +1346,8 @@ module.exports = [
     to: '/authorization/mitigate-replay-attacks-when-using-the-implicit-flow'
   },
   {
-    from: ['/api-auth/tutorials/represent-multiple-apis'],
-    to: '/authorization/represent-multiple-apis-using-a-single-logical-api'
+    from: ['/authorization/represent-multiple-apis-using-a-single-logical-api','/api-auth/tutorials/represent-multiple-apis'],
+    to: '/authorization/set-logical-api'
   },
   {
     from: ['/api-auth/tutorials/silent-authentication'],
