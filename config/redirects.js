@@ -4047,7 +4047,7 @@ module.exports = [
   },
   {
     from: ['/api/management/v2/create-m2m-app', '/tokens/management-api-access-tokens/create-and-authorize-a-machine-to-machine-application'],
-    to: '/config/api-settings/create-and-authorize-a-machine-to-machine-application'
+    to: '/config/api-settings/create-m2m-app-test'
   },
   {
     from: ['/api/management/v2/faq-management-api-access-tokens', '/tokens/management-api-access-tokens/management-api-access-token-faqs'],
