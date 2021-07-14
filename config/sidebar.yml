@@ -576,7 +576,7 @@ articles:
             url: /config/api-settings/add-api-permissions
           - title: Delete API Permissions
             url: /config/api-settings/delete-api-permissions
-          - title: Set Logical API for Multiple APIs
+          - title: Configure Logical API for Multiple APIs
             url: /authorization/set-logical-api
       - title: Single Sign-On
         url: /sso
