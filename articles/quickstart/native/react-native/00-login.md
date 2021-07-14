@@ -63,11 +63,13 @@ Open your app's `build.gradle` file (typically at `android/app/build.gradle`) an
 android {
     defaultConfig {
         // Add the next line
-        manifestPlaceholders = [auth0Domain: "<%= "${account.namespace}" %>", auth0Scheme: "<%= "${applicationId}" %>"]
+        manifestPlaceholders = [auth0Domain: "<%= "{ACCOUNT_AUTH0_DOMAIN}" %>", auth0Scheme: "<%= "${applicationId}" %>"]
     }
     ...
 }
 ```
+
+Remember to replace `{ACCOUNT_AUTH0_DOMAIN}` with your actual application's auth0 domain (e.g. `YOUR_DOMAIN.auth0.com`).
 
 ::: note
 The `applicationId` value will be auto-replaced on runtime with the package name or id of your application (e.g. `com.example.app`). You can change this value from the `build.gradle` file. You can also check it at the top of your `AndroidManifest.xml` file.
