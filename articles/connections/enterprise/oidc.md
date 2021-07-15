@@ -67,7 +67,7 @@ To be configurable through the Auth0 Dashboard, the OpenID Connect (OIDC) Identi
 | ----- | ----------- |
 | **Connection name** | Logical identifier for your connection; it must be unique for your tenant. Once set, this name can't be changed. |
 | **Issuer URL** | URL where Auth0 can find the **OpenID Provider Configuration Document**, which should be available in the `/.well-known/openid-configuration` endpoint. You can enter the base URL or the full URL. You will see a green checkmark if it can be found at that location, a red mark if it cannot be found, or an error message if the file is found but the required information is not present in the configuration file. |
-| **Client ID** | Unique identifier for your registered Azure AD application. Enter the saved value of the **Client ID** for the app you registered with the OIDC Identity Provider. |
+| **Client ID** | Unique identifier for your registered application. Enter the saved value of the **Client ID** for the app you registered with the OIDC Identity Provider. |
 | **Callback URL** | URL to which Auth0 redirects users after they authenticate. Ensure that this value is configured for the app you registered with the OIDC Identity Provider.
 | **Sync user profile attributes at each login** | When enabled, Auth0 automatically syncs user profile data with each user login, thereby ensuring that changes made in the connection source are automatically updated in Auth0. |
 
