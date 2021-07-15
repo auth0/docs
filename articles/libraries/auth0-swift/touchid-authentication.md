@@ -31,7 +31,7 @@ Before retrieving credentials, you can also engage the biometric authentication 
 Begin by setting up the Credentials Manager. Then enable biometrics. You can also pass in a title to show in the prompt.
 
 ```swift
-let credentialsManager = CredentialsManager(authentication: Auth0.authentication())
+var credentialsManager = CredentialsManager(authentication: Auth0.authentication())
 credentialsManager.enableBiometrics(withTitle: "Touch ID / Face ID Login")
 ```
 
