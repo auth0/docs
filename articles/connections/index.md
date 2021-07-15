@@ -3,7 +3,7 @@ url: /identityproviders
 section: articles
 classes: topic-page
 title: Connections
-description: Learn about connections and types of identity providers supported by Auth0.
+description: Describes the various sources of users supported by Auth0, including identity providers, databases, and passwordless authentication methods.
 topics:
   - connections
 contentType: 
@@ -12,43 +12,21 @@ useCase:
   - customize-connections
   - add-idp
 ---
-<div class="topic-page-header">
-  <div data-name="example" class="topic-page-badge"></div>
-  <h1>Connections</h1>
-  <p>Introduction to the various sources of users for applications, including identity providers, databases, and passwordless authentication methods.</p>
-</div>
+# Connections
 
-A connection is the relationship between Auth0 and a source of users, which may include identity providers (such as Google or LinkedIn), databases, or passwordless authentication methods. Auth0 sits between your application and its sources of users, which adds a level of abstraction so your application is isolated from any changes to and idiosyncrasies of each source's implementation.
+A connection is the relationship between Auth0 and a source of users, which may include external Identity Providers (such as Google or LinkedIn), databases, or passwordless authentication methods. Auth0 sits between your application and its sources of users, which adds a level of abstraction, so your application is isolated from any changes to and idiosyncrasies of each source's implementation.
 
-You can configure any number of connections for your applications to use in the Auth0 Dashboard. To view all the connections that you have configured or create new ones, see [View Connections](/dashboard/guides/connections/view-connections).
+By default, Auth0 automatically syncs user profile data with each user login, thereby ensuring that changes made in the connection source are automatically updated in Auth0. You can disable synchronization to allow for updating profile attributes from your application.
 
-By default, Auth0 automatically syncs user profile data with each user login, thereby ensuring that changes made in the connection source are automatically updated in Auth0. You can [optionally disable this synchronization](/dashboard/guides/connections/configure-connection-sync) to allow for updating profile attributes from your application.
+You can configure any number of connections for your applications. 
 
-<ul class="topic-links">
-  <li>
-    <i class="icon icon-budicon-715"></i><a href="/connections/identity-providers-social">Identity Providers Supported by Auth0</a>
-
-Identity Providers are servers that can provide identity information to other servers. Auth0 supports many Identity Providers using various protocols (like <dfn data-key="openid">[OpenID Connect (OIDC)](/protocols/oidc)</dfn>, <dfn data-key="security-assertion-markup-language">[SAML](/protocols/saml)</dfn>, [WS-Federation](/protocols/ws-fed), and more).
-    <ul>
-      <li>
-        <i class="icon icon-budicon-695"></i><a href="/connections/identity-providers-social">Social Identity Providers</a>
-      </li>
-      <li>
-        <i class="icon icon-budicon-695"></i><a href="/connections/identity-providers-enterprise">Enterprise Identity Providers</a>
-      </li>
-      <li>
-        <i class="icon icon-budicon-695"></i><a href="/connections/identity-providers-legal">Legal Identity Providers</a>
-      </li>
-    </ul>
-  </li>
-  <li>
-      <i class="icon icon-budicon-715"></i><a href="/connections/database">Database and Custom Connections</a>
-
-If you want to create your own user store, instead of using external identity providers like Google or Facebook, you can use a Database Connection. This way you can authenticate users with an email or username and a password. The credentials can be securely stored either in the Auth0 user store or in your own database.
-  </li>
-  <li>
-      <i class="icon icon-budicon-715"></i><a href="/connections/passwordless">Passwordless</a>
-
-<dfn data-key="passwordless">Passwordless</dfn> connections allow users to log in without the need to remember a password. Instead, users enter their mobile phone number or email address and receive a one-time code or link, which they can then use to log in.
-  </li>
-</ul>
+| Read... | To learn... |
+|---------|-------------|
+| [Social Identity Providers](/connections/identity-providers-social) | About the external social Identity Providers supported by Auth0. |
+| [Enterprise Identity Providers](/connections/identity-providers-enterprise) | About the external enterprise Identity Providers supported by Auth0. |
+| [Legal Identity Providers](/connections/identity-providers-legal) | About the external legal Identity Providers supported by Auth0. |
+| [Database Connections](/connections/database) | How to create your own user store, which allows you to authenticate users with an email address or username and a password. The credentials can be stored securely in either the Auth0 user store or your own database. |
+| [Passwordless Connections](/connections/passwordless) | How to allow users to log in without needing to remember a password. Users enter their mobile phone number or email address, and receive a one-time code or link, which they can use to log in. |
+| [View Connections](/dashboard/guides/connections/view-connections) | How to view the configure connections for your application using the Auth0 Dashboard. |
+| [Disable Connection Sync](/dashboard/guides/connections/configure-connection-sync) | How to disable the synchronization between user profile data and the connection source, which allows you to update profile attributes from your application instead. |
+| [Pass Parameters to Identity Providers](/connections/pass-parameters-to-idps) | How to pass provider-specific parameters to an Identity Provider during authentication. |
