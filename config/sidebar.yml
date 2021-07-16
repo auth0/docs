@@ -1442,11 +1442,13 @@ articles:
   - title: Support
     url: /support
     children:
-      - title: Support Matrix
+      - title: How Auth0 Support Works
+        url: /support/support-overview
+      - title: Product Support Matrix
         url: /support/product-support-matrix
-      - title: SLA
+      - title: Service Levels
         url: /support/sla
-      - title: Tickets
+      - title: Support Tickets
         url: /support/open-and-manage-support-tickets
       - title: Support Center Users
         url: /support/support-center-users
