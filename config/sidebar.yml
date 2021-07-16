@@ -1397,8 +1397,10 @@ articles:
         url: /best-practices/deployment-best-practices
       - title: Performance
         url: /best-practices/performance-best-practices
+        hidden: true 
       - title: Debugging
         url: /best-practices/debugging-best-practices
+        hidden: true 
       - title: Error Handling
         url: /best-practices/error-handling-best-practices
       - title: Multi-Tenant Applications
