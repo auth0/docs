@@ -402,8 +402,6 @@ articles:
             url: /connections/database/password-options
           - title: Password Strength
             url: /connections/database/password-strength
-      - title: Pass Parameters to Identity Providers
-        url: /connections/pass-parameters-to-idps
       - title: Passwordless
         url: /connections/passwordless
         children:
@@ -429,6 +427,12 @@ articles:
                 url: /connections/passwordless/guides/embedded-login-webapps
               - title: SPAs
                 url: /connections/passwordless/guides/embedded-login-spa
+      - title: View Connections
+        url: /dashboard/guides/connections/view-connections
+      - title: Disable Connection Sync
+        url: /dashboard/guides/connections/configure-connection-sync
+      - title: Pass Parameters to Identity Providers
+        url: /connections/pass-parameters-to-idps
   - title: Organizations
     url: /organizations
     children:

@@ -1,4 +1,4 @@
-//  This is the list of APIs used in the old two-step quickstarts.  
+//  This is the list of APIs used in the old two-step quickstarts.
 const apiNames = [
   'aspnet-webapi',
   'aws',
@@ -4050,8 +4050,8 @@ module.exports = [
     to: '/tokens/id-tokens/update-id-token-lifetime'
   },
   {
-    from: ['/api/management/v2/create-m2m-app'],
-    to: '/tokens/management-api-access-tokens/create-and-authorize-a-machine-to-machine-application'
+    from: ['/api/management/v2/create-m2m-app', '/tokens/management-api-access-tokens/create-and-authorize-a-machine-to-machine-application'],
+    to: '/config/api-settings/create-m2m-app-test'
   },
   {
     from: ['/api/management/v2/faq-management-api-access-tokens', '/tokens/management-api-access-tokens/management-api-access-token-faqs'],
