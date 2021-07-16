@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD041 -->
+
 ```
 # auth_jwt_claim_set $claim_name https://namespace/key;
 
@@ -25,4 +27,5 @@ server {
 
         access_log /var/log/nginx/access.log main_jwt;
     }
-}```
+}
+```
