@@ -2,7 +2,7 @@ articles:
   - title: Get Started 
     url: /get-started
     children:
-      - title: Auth0 Overview
+      - title: How You Can Use Auth0
         url: /get-started/auth0-overview
       - title: Dashboard Overview
         url: /get-started/dashboard
