@@ -388,7 +388,7 @@ We're going to implement a method called `upsertUser()` to retrieve or add users
 
 namespace App\Repositories;
 
-use App\User;
+use App\Models\User;
 
 use Auth0\Login\Auth0User;
 use Auth0\Login\Auth0JWTUser;
