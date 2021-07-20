@@ -1047,6 +1047,38 @@ module.exports = [
     from: '/architecture-scenarios/application/web-app-sso/implementation-aspnetcore',
     to: '/architecture-scenarios/web-app-sso/implementation-aspnetcore'
   },
+  {
+    from: '/architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations',
+    to: '/architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations'
+  },
+  {
+    from: '/architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/provisioning',
+    to: '/architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/provisioning'
+  },
+  {
+    from: '/architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/authentication',
+    to: '/architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/authentication'
+  },
+  {
+    from: '/architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/branding',
+    to: '/architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/branding'
+  },
+  {
+    from: '/architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/authorization',
+    to: '/architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/authorization'
+  },
+  {
+    from: '/architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/profile-management',
+    to: '/architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/profile-management'
+  },
+  {
+    from: '/architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/logout',
+    to: '/architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/logout'
+  },
+  {
+    from: '/architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/multiple-identity-provider-organizations',
+    to: '/architecture-scenarios/multiple-organization-architecture/multiple-identity-provider-organizations'
+  },
 
   /* CONTENTFUL REDIRECTS */
 
