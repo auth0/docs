@@ -15,7 +15,7 @@ github:
 ---
 
 ::: panel New Beta Release Available!
-<span class="badge badge-warning">Beta</span> &nbsp; **[Our next-generation Auth0-PHP SDK is now available in beta.](https://github.com/auth0/auth0-php)** Updated to support new PHP language features, new PHP interoperability standards, and offer an exciting new API — we think the new SDK elevates the developer experience. We'd love for you to [give the new beta release a try](https://github.com/auth0/auth0-php). Be sure to visit our [new webapp quickstart](/quickstart/webapp/php-beta) and [backend api](/quickstart/webapp/php-beta) quickstarts, and drop by the [the Auth0 Community](https://community.auth0.com/) to let us know your thoughts!
+<span class="badge badge-warning">Beta</span> &nbsp; **[Our next-generation Auth0-PHP SDK is now available in beta.](https://github.com/auth0/auth0-php)** Updated to support new PHP language features, new PHP interoperability standards, and offer an exciting new API — we think the new SDK elevates the developer experience. We'd love for you to [give the new beta release a try](https://github.com/auth0/auth0-php). Be sure to visit our [new webapp quickstart](/quickstart/webapp/php-beta) and [backend api](/quickstart/backend/php-beta) quickstarts, and drop by the [the Auth0 Community](https://community.auth0.com/) to let us know your thoughts!
 :::
 
 <%= include('../_includes/_getting_started', { library: 'PHP', callback: 'http://localhost:3000/' }) %>
