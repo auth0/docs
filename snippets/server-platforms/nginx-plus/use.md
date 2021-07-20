@@ -1,6 +1,7 @@
 <!-- markdownlint-disable MD041 -->
 
 ```
+# frontend.conf
 # auth_jwt_claim_set $claim_name https://namespace/key;
 
 server {
