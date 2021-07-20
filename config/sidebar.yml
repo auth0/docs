@@ -102,22 +102,28 @@ articles:
         url: /architecture-scenarios/multiple-organization-architecture
         children:
           - title: Single Identity Provider Organizations
-            url: /architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations
+            url: /architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations
             children:
               - title: Provisioning
-                url: /architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/provisioning
+                url: /architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/provisioning
+                hidden: true 
               - title: Authentication
-                url: /architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/authentication
+                url: /architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/authentication
+                hidden: true 
               - title: Branding
-                url: /architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/branding
+                url: /architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/branding
+                hidden: true 
               - title: Authorization
-                url: /architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/authorization
+                url: /architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/authorization
+                hidden: true 
               - title: Profile Management
-                url: /architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/profile-management
+                url: /architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/profile-management
+                hidden: true 
               - title: Logout
-                url: /architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/logout
+                url: /architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/logout
+                hidden: true 
           - title: Multiple Identity Provider Organizations
-            url: /architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/multiple-identity-provider-organizations
+            url: /architecture-scenarios/multiple-organization-architecture/multiple-identity-provider-organizations
       - title: Server Application + API
         url: /architecture-scenarios/server-api
         children:
@@ -194,7 +200,7 @@ articles:
         children:
           - title: Run Production Checks
             url: /deploy/pre-deployment/how-to-run-production-checks
-          - title: Run Deployment Tests
+          - title: Run Pre-Deployment Tests
             url: /deploy/pre-deployment/predeployment-tests
           - title: Pre-Launch Tips
             url: /deploy/pre-deployment/pre-launch-tips
@@ -1464,7 +1470,7 @@ articles:
         url: /support/open-and-manage-support-tickets
       - title: Support Center Users
         url: /support/support-center-users
-      - title: Manage Subscription
+      - title: Manage Subscriptions
         url: /support/manage-subscriptions
       - title: Operational Policies
         url: /policies
