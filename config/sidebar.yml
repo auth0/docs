@@ -200,7 +200,7 @@ articles:
         children:
           - title: Run Production Checks
             url: /deploy/pre-deployment/how-to-run-production-checks
-          - title: Run Deployment Tests
+          - title: Run Pre-Deployment Tests
             url: /deploy/pre-deployment/predeployment-tests
           - title: Pre-Launch Tips
             url: /deploy/pre-deployment/pre-launch-tips
