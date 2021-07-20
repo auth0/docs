@@ -50,7 +50,7 @@ Next, add your tenant’s logout URL to `openid_connect_configuration.conf` file
 
 ${snippet(meta.snippets.logout)}
 
-## Set Accept-Encoding Type for Token Endpoint
+## Set Accept-Encoding Type for Token and JWKS Endpoints
 
 Add `Accept-Encoding` header in `openid_connect.server_conf`
 
