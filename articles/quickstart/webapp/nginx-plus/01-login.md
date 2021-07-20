@@ -1,7 +1,7 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how to use the nginx-openid-connect module to add authentication and authorization to your Nginx server.
+description: This tutorial demonstrates how to use the `nginx-openid-connect` module to add authentication and authorization to your Nginx server.
 budicon: 448
 topics:
   - quickstarts
@@ -16,19 +16,21 @@ useCase: quickstart
 
 ::: panel System Requirements
 This tutorial and seed project have been tested with the following:
-* Nginx+ R24
+* NGINX Plus R24
 :::
 
-**Please follow the steps below to configure your application using [Nginx+](https://www.nginx.com/products/nginx/) to work with Auth0 and Open ID Connect.**
+**Please follow the steps below to configure your application using [NGINX Plus](https://www.nginx.com/products/nginx/) to work with Auth0 and Open ID Connect.**
 
 ## Install and Enable `nginx-plus-module-njs` Module
 
-First, you need to install the `nginx-plus-module-njs` module for Nginx+. Follow the [dynamic module installation guide](https://www.nginx.com/products/nginx/dynamic-modules/) to install packages in your host OS. 
+First, you need to install the `nginx-plus-module-njs` module for NGINX Plus. Follow the [dynamic module installation guide](https://www.nginx.com/products/nginx/dynamic-modules/) to install packages in your host OS. 
 For Linux distributions that use `yum` package manager install as follows:
 
-${snippet(meta.snippets.dependencies)}
+```bash
+sudo yum install nginx-plus-module-njs jq
+```
 
-Once you've installed it, you need to enable it for Nginx by adding the following line near the top of your `/etc/nginx/nginx.conf`
+Once you've installed it, you need to enable it for Nginx by adding the following line near the top of your `/etc/nginx/nginx.conf` file:
 
 ${snippet(meta.snippets.module)}
 
@@ -44,7 +46,7 @@ Run the `configure.sh` script inside nginx-openid-connect folder to populate tem
 
 ${snippet(meta.snippets.setup)}
 
-Next, and your tenant’s logout URL to `openid_connect_configuration.conf` file
+Next, add your tenant’s logout URL to `openid_connect_configuration.conf` file
 
 ${snippet(meta.snippets.logout)}
 
@@ -58,11 +60,16 @@ ${snippet(meta.snippets.token)}
 
 You need to copy four files to the config folder of Nginx server machine
 
-${snippet(meta.snippets.copy)}
+```bash
+sudo cp openid_connect.js \ 
+   frontend.conf \
+   openid_connect_configuration.conf \
+   openid_connect.server_conf /etc/nginx/conf.d
+```
         
 ## Configuring Auth0 Settings
 
-In your application settings add a new allowed callback that is equal to `https://server-fqdn/_codexch`.
+In your application settings add a new "Allowed Callback URLs" that is equal to `https://server-fqdn/_codexch`.
 
 Then, change "Token Endpoint Authentication Method" to "None" in Auth0 for your Application. This is required for PKCE authorisation code flow.
 
