@@ -187,6 +187,16 @@ Use the `metadataUrl` option to provide the URL of the document:
 
 When providing the URL, content is downloaded only once; the connection will not automatically reconfigure if the content of the URL changes in the future.
 
+##### Refresh an existing connection with metadata URL
+
+You can create a batch process to do a periodic refresh. The process can run every few weeks and perform a PATCH call against specific connections. This process will only work if the connection was created with `metadataUrl` manually. Using this process, you use the metadata URL to create a new temp connection, then compare the properties of old and new connection and if anything is different, update it; then delete the temp connection. 
+
+1. Create SAML connection with `options.metadataUrl`. The connection object will be populated with information from the metadata.
+
+2. Update metadata content in the URL.
+
+3. Send a PATCH to connections with `{options: {metadataUrl: 'URL'}}`. Now the connection object is updated with the new metadata content. 
+
 ## Specify a custom Entity ID
 
 To specify a custom Entity ID, use the Management API to override the default `urn:auth0:YOUR_TENANT:YOUR_CONNECTION_NAME.` Set the `connection.options.entityID` property when the connection is first created or by updating an existing connection. 
