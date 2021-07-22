@@ -187,15 +187,21 @@ Use the `metadataUrl` option to provide the URL of the document:
 
 When providing the URL, content is downloaded only once; the connection will not automatically reconfigure if the content of the URL changes in the future.
 
-##### Refresh an existing connection with metadata URL
+##### Refresh existing connection information with metadata URL
 
-You can create a batch process to do a periodic refresh. The process can run every few weeks and perform a PATCH call against specific connections. This process will only work if the connection was created with `metadataUrl` manually. Using this process, you use the metadata URL to create a new temp connection, then compare the properties of old and new connection and if anything is different, update it; then delete the temp connection. 
+::: note
+This process will only work if the connection was created with `metadataUrl` manually. 
+:::
+
+If you are have a B2B implementation, and federate to Auth0 with your own SAML identity provider, you may need to refresh the connection information stored in Auth0. For example, signing certificate changes, endpoint URL changes, or new assertion fields. Auth0 does this automatically for ADFS connections but not with SAML connections. 
+
+You can create a batch process (kron job) to do a periodic refresh. The process can run every few weeks and perform a PATCH call to `/api/v2/connections/CONNECTION_ID` endpoint and pass a body containing `{options: {metadataUrl: '$URL'}}` where `$URL` is the same metadata URL with which you created the connection. You use the metadata URL to create a new temp connection and compare the properties of the old and new connection, and if anything is different, update it then delete the temp connection. 
 
 1. Create SAML connection with `options.metadataUrl`. The connection object will be populated with information from the metadata.
 
 2. Update metadata content in the URL.
 
-3. Send a PATCH to connections with `{options: {metadataUrl: 'URL'}}`. Now the connection object is updated with the new metadata content. 
+3. Send a PATCH to connections with `{options: {metadataUrl: '$URL'}}`. Now the connection object is updated with the new metadata content. 
 
 ## Specify a custom Entity ID
 
