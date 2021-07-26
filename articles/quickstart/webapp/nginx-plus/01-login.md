@@ -1,7 +1,7 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how to use the `nginx-openid-connect` module to add authentication and authorization to your Nginx server.
+description: This tutorial demonstrates how to use the `nginx-openid-connect` module to add authentication and authorization to your NGINX server.
 budicon: 448
 topics:
   - quickstarts
@@ -23,14 +23,14 @@ This tutorial and seed project have been tested with the following:
 
 ## Install and Enable `nginx-plus-module-njs` Module
 
-First, you need to install the `nginx-plus-module-njs` module for NGINX Plus. Follow the [dynamic module installation guide](https://www.nginx.com/products/nginx/dynamic-modules/) to install packages in your host OS. 
+First, you need to install the nginx-plus-module-njs module for NGINX Plus. Follow the [dynamic module installation guide](https://www.nginx.com/products/nginx/dynamic-modules/) to install packages in your host OS. 
 For Linux distributions that use `yum` package manager install as follows:
 
 ```bash
 sudo yum install nginx-plus-module-njs jq
 ```
 
-Once you've installed it, you need to enable it for Nginx by adding the following line near the top of your `/etc/nginx/nginx.conf` file:
+Once you've installed it, you need to enable it for NGINX by adding the following line near the top of your `/etc/nginx/nginx.conf` file:
 
 ${snippet(meta.snippets.module)}
 
@@ -56,9 +56,9 @@ Add `Accept-Encoding` header in `openid_connect.server_conf`
 
 ${snippet(meta.snippets.token)}
 
-## Copy OpenID Connect Config Files to Nginx Server
+## Copy OpenID Connect Config Files to NGINX Server
 
-You need to copy four files to the config folder of Nginx server machine
+You need to copy four files to the config folder of NGINX server machine
 
 ```bash
 sudo cp openid_connect.js \ 
