@@ -186,7 +186,7 @@
   },
   "openid": {
     "title": "OpenID",
-    "definition": "An open standard for authentication that allows applications to verify users are who they say they are without needing to collect, store, and therefore become liable for a user’s login information. See <a href='/protocols/oidc'>OpenID Connect (OIDC)</a>.",
+    "definition": "An open standard for authentication that allows applications to verify users are who they say they are without needing to collect, store, and therefore become liable for a user’s login information. See <a href='/docs/protocols/oidc'>OpenID Connect (OIDC)</a>.",
     "short": "An open standard for authentication that allows applications to verify users' identities without collecting and storing login information." 
   },
   "passwordless": {
@@ -206,7 +206,7 @@
   },
   "public-client": {
     "title": "Public Client",
-    "definition": "According to the OAuth 2.0 protocol, clients (applications) can be classified as either confidential or public depending on whether or not they are able to hold credentials (such as a client ID and secret) securely. Public clients cannot hold credentials securely, so should only use grant types that do not require the use of their client secret. ID Tokens issued to them must be signed asymmetrically using a private key (RS256) and verified using the public key corresponding to the private key used to sign the token. See <a href=‘/applications/concepts/app-types-confidential-public'>Application Types - Confidential vs. Public</a>.",
+    "definition": "According to the OAuth 2.0 protocol, clients (applications) can be classified as either confidential or public depending on whether or not they are able to hold credentials (such as a client ID and secret) securely. Public clients cannot hold credentials securely, so should only use grant types that do not require the use of their client secret. ID Tokens issued to them must be signed asymmetrically using a private key (RS256) and verified using the public key corresponding to the private key used to sign the token. See <a href='/docs/applications/concepts/app-types-confidential-public'>Application Types - Confidential vs. Public</a>.",
     "short": "A client (application) that cannot hold credentials securely. Examples include a native desktop or mobile application and a JavaScript-based client-side web application (such as a single-page app (SPA))."
   },
   "raw-credentials": {
