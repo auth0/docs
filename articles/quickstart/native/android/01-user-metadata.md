@@ -20,7 +20,7 @@ useCase: quickstart
 <!-- markdownlint-disable MD002 MD041 -->
 
 ::: note
-Before you continue with this tutorial, make sure that you have completed the [Login chapter](/quickstart/native/android-vnext/00-login)
+Before you continue with this tutorial, make sure that you have completed the [Login chapter](/quickstart/native/android)
 :::
 
 As an example of using the SDK to call APIs that may require custom scopes and audiences, we will demonstrate these settings by reading and updating user profile information.
