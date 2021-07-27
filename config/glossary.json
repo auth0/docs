@@ -176,12 +176,12 @@
   },
   "multifactor-authentication": {
     "title": "Multi-factor authentication (MFA)",
-    "definition": "An authentication process that considers multiple factors. Typically at Auth0, the first factor is the standard username/password exchange, and the second is a code or link via email or SMS, a one-time-password via an app such as Authy or Google Authenticator, or a push notification via a phone app such as Guardian or Duo. Using multiple factors allows your account to remain secure if someone captures one or the other factor--acquires your password or steals your phone, for example. See <a href='/multifactor-authentication'>Multi-factor Authentication</a>.",
+    "definition": "An authentication process that considers multiple factors. Typically at Auth0, the first factor is the standard username/password exchange, and the second is a code or link via email or SMS, a one-time-password via an app such as Authy or Google Authenticator, or a push notification via a phone app such as Guardian or Duo. Using multiple factors allows your account to remain secure if someone captures one or the other factor--acquires your password or steals your phone, for example. See <a href='/docs/multifactor-authentication'>Multi-factor Authentication</a>.",
     "short": "A user authentication process that uses a factor in addition to username and password such as a code via SMS."
   },
   "nonce": {
     "title": "Nonce",
-    "definition": "An arbitrary (often random or pseudo-random) number issued in an authentication protocol that can be used to help detect and mitigate replay attacks using old communications. In other words, the nonce is only issued once, so if an attacker attempts to replay a transaction with a different nonce, its false transaction can be detected more easily. See <a href='/api-auth/tutorials/nonce'>Nonce</a>.",
+    "definition": "An arbitrary (often random or pseudo-random) number issued in an authentication protocol that can be used to help detect and mitigate replay attacks using old communications. In other words, the nonce is only issued once, so if an attacker attempts to replay a transaction with a different nonce, its false transaction can be detected more easily. See <a href='/docs/api-auth/tutorials/nonce'>Nonce</a>.",
     "short": "An arbitrary number issued once in an authentication protocol to detect and prevent replay attacks."
   },
   "openid": {
@@ -191,7 +191,7 @@
   },
   "passwordless": {
     "title": "Passwordless",
-    "definition": "A form of authentication where the first factor is not a password. Instead, it could be a one-time password received by email or SMS, a push notification, or a biometric sensor. Passwordless uses one-time passwords, so users are less susceptible to the typical password-based attacks (e.g., dictionary or credential stuffing) than with traditional username/password logins. See <a href='/connections/passwordless'>Passwordless</a>.",
+    "definition": "A form of authentication where the first factor is not a password. Instead, it could be a one-time password received by email or SMS, a push notification, or a biometric sensor. Passwordless uses one-time passwords, so users are less susceptible to the typical password-based attacks (e.g., dictionary or credential stuffing) than with traditional username/password logins. See <a href='/docs/connections/passwordless'>Passwordless</a>.",
     "short": "A form of authentication that does not rely on a password as the first factor."
   },
   "perimeter": {
