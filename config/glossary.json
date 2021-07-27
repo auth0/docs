@@ -161,12 +161,12 @@
   },
   "json-web-token": {
     "title": "JSON Web Token (JWT)",
-    "definition": "An open, industry standard <a href='https://tools.ietf.org/html/rfc7519'>RFC 7519</a> method for representing claims securely between two parties. At Auth0, ID Tokens are always returned in JWT format, and Access Tokens are often in JWT format. You may decode well-formed JWTs at <a href='https://jwt.io'>JWT.io</a> to view their claims. See <a href='/jwt'>JSON Web Tokens</a>.",
+    "definition": "An open, industry standard <a href='https://tools.ietf.org/html/rfc7519'>RFC 7519</a> method for representing claims securely between two parties. At Auth0, ID Tokens are always returned in JWT format, and Access Tokens are often in JWT format. You may decode well-formed JWTs at <a href='https://jwt.io'>JWT.io</a> to view their claims. See <a href='/docs/jwt'>JSON Web Tokens</a>.",
     "short": "The standard ID Token format and often Access Token format used to represent claims securely between two parties."
   },
   "lock": {
     "title": "Lock",
-    "definition": "Auth0's UI widget for authenticating users. It is ready to go as-is and is the default face of the Classic Universal Login experience. Lock allows you to customize minor behavioral and appearance options, but its primary goal is ease of use. See <a href='/lock'>Lock</a>.",
+    "definition": "Auth0's UI widget for authenticating users. It is ready to go as-is and is the default face of the Classic Universal Login experience. Lock allows you to customize minor behavioral and appearance options, but its primary goal is ease of use. See <a href='/docs/lock'>Lock</a>.",
     "short": "Auth0's UI widget for authenticating users."
   },
   "migration": {
