@@ -4,7 +4,7 @@ connection: Goodreads
 image: /media/connections/goodreads.png
 seo_alias: goodreads
 toc: true
-public: true
+public: false
 index: 17
 description: Learn how to add login functionality to your app with Goodreads.
 topics:
