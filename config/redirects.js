@@ -2615,10 +2615,9 @@ module.exports = [
   {
     from: [
       '/integrations/sso-integrations',
-      '/sso/current/integrations',
-      '/integrations/sso'
+      '/sso/current/integrations'
     ],
-    to: 'https://marketplace.auth0.com/features/sso-integrations'
+    to: '/integrations/sso'
   },
   {
     from: [
