@@ -1004,6 +1004,8 @@ articles:
         url: /integrations/azure-api-management
       - title: Google Cloud Endpoints
         url: /integrations/google-cloud-endpoints
+      - title: Single Sign-On
+        url: /integrations/sso
       - title: Marketing
         url: /integrations/marketing
         children:
