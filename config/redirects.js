@@ -26,7 +26,7 @@ const apiNames = [
   'webapi-owin'
 ];
 
-const apis = `:api(${apiNames.join('|')})`;
+const apis = ':api(${apiNames.join('|')})';
 
 module.exports = [
 
@@ -313,22 +313,22 @@ module.exports = [
     from: [
       '/quickstart/hybrid/:platform',
       '/quickstart/native-mobile/:platform',
-      `/quickstart/hybrid/:platform/${apis}`,
-      `/quickstart/native-mobile/:platform/${apis}`,
-      `/quickstart/native/:platform/${apis}`
+      '/quickstart/hybrid/:platform/${apis}',
+      '/quickstart/native-mobile/:platform/${apis}',
+      '/quickstart/native/:platform/${apis}'
     ],
     to: '/quickstart/native/:platform'
   },
   {
-    from: `/quickstart/spa/:platform/${apis}`,
+    from: '/quickstart/spa/:platform/${apis}',
     to: '/quickstart/spa/:platform'
   },
   {
-    from: `/quickstart/backend/:platform/${apis}`,
+    from: '/quickstart/backend/:platform/${apis}',
     to: '/quickstart/backend/:platform'
   },
   {
-    from: `/quickstart/spa/emberjs`,
+    from: '/quickstart/spa/emberjs',
     to: '/quickstart/spa/ember'
   },
   {
@@ -852,16 +852,15 @@ module.exports = [
     to: 'https://marketplace.auth0.com/integrations/imgur-social-connection'
   },
   {
-    from: `/connections/grean/bankid-no`,
-    to: `/connections/criipto/bankid-no`
-  },
-  {
-    from: `/connections/grean/bankid-se`,
-    to: `/connections/criipto/bankid-se`
-  },
-  {
-    from: `/connections/grean/nemid`,
-    to: `/connections/criipto/nemid`
+    from: [
+      '/connections/grean/bankid-no',
+      '/connections/criipto/bankid-no',
+      '/connections/grean/bankid-se',
+      '/connections/criipto/bankid-se',
+      '/connections/grean/nemid',
+      '/connections/criipto/nemid'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/criipto-verify-e-id'    
   },
   {
     from: '/connections/passwordless/sms-gateway',
