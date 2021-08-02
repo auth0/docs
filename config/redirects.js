@@ -26,7 +26,7 @@ const apiNames = [
   'webapi-owin'
 ];
 
-const apis = ':api(${apiNames.join('|')})';
+const apis = `:api(${apiNames.join('|')})`;
 
 module.exports = [
 
@@ -311,21 +311,21 @@ module.exports = [
   },
   {
     from: [
-      '/quickstart/hybrid/:platform',
-      '/quickstart/native-mobile/:platform',
-      '/quickstart/hybrid/:platform/${apis}',
-      '/quickstart/native-mobile/:platform/${apis}',
-      '/quickstart/native/:platform/${apis}'
+      `/quickstart/hybrid/:platform`,
+      `/quickstart/native-mobile/:platform`,
+      `/quickstart/hybrid/:platform/${apis}`,
+      `/quickstart/native-mobile/:platform/${apis}`,
+      `/quickstart/native/:platform/${apis}`
     ],
-    to: '/quickstart/native/:platform'
+    to: `/quickstart/native/:platform`
   },
   {
-    from: '/quickstart/spa/:platform/${apis}',
-    to: '/quickstart/spa/:platform'
+    from: `/quickstart/spa/:platform/${apis}`,
+    to: `/quickstart/spa/:platform`
   },
   {
-    from: '/quickstart/backend/:platform/${apis}',
-    to: '/quickstart/backend/:platform'
+    from: `/quickstart/backend/:platform/${apis}`,
+    to: `/quickstart/backend/:platform`
   },
   {
     from: '/quickstart/spa/emberjs',
