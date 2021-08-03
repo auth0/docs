@@ -5118,4 +5118,12 @@ module.exports = [
     ],
     to: '/actions/manage-versions'
   }
+
+  /* Signing Keys */
+
+  {
+    from: ['/support/support-overview'],
+    to: '/support'
+  }
 ];
+    
