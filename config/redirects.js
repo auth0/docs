@@ -5117,7 +5117,7 @@ module.exports = [
       '/actions/manage-action-versions'
     ],
     to: '/actions/manage-versions'
-  }
+  },
 
   /* Signing Keys */
 
