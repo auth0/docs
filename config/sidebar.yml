@@ -1393,8 +1393,16 @@ articles:
   - title: Support
     url: /support
     children:
-      - title: How Auth0 Support Works
-        url: /support/support-overview
+      - title: Support Plans
+        url: /support/support-plans
+      - title: Support Channels
+        url: /support/support-channels
+      - title: Support Procedures
+        url: /support/support-procedures
+      - title: Support Hours and Languages
+        url: /support/support-hours-and-languages
+      - title: Whitehat Security Support Tickets
+        url: /support/whitehat-security-support-tickets
       - title: Product Support Matrix
         url: /support/product-support-matrix
       - title: Service Levels
@@ -1405,6 +1413,8 @@ articles:
         url: /support/support-center-users
       - title: Manage Subscriptions
         url: /support/manage-subscriptions
+      - title: Software Updates
+        url: /support/software-updates
       - title: Operational Policies
         url: /policies
         children:

@@ -5117,5 +5117,13 @@ module.exports = [
       '/actions/manage-action-versions'
     ],
     to: '/actions/manage-versions'
+  },
+
+  /* Support */
+
+  {
+    from: ['/support/support-overview'],
+    to: '/support/support-plans'
   }
 ];
+    
