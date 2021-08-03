@@ -5119,11 +5119,11 @@ module.exports = [
     to: '/actions/manage-versions'
   },
 
-  /* Signing Keys */
+  /* Support */
 
   {
     from: ['/support/support-overview'],
-    to: '/support'
+    to: '/support/support-plans'
   }
 ];
     
