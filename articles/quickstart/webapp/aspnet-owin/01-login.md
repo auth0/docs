@@ -15,7 +15,7 @@ sample_download_required_data:
   - client
   - api
 ---
-<%= include('../../../_includes/_new_app', { showClientSecret: true }) %>
+<%= include('../../../_includes/_new_app', { showClientSecret: true, isPublicClient: false }) %>
 
 <%= include('_includes/_setup') %>
 

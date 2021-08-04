@@ -7,7 +7,7 @@ When you signed up for Auth0, a new application was created for you, or you coul
 ![App Dashboard](/media/articles/dashboard/client_settings.png)
 <% } %>
 
-<% if(typeof showClientSecret === 'undefined' || showClientSecret !== true) { %>
+<% if(typeof isPublicClient === 'undefined' || isPublicClient === true) { %>
 ::: note
 When using the Default App with a Native or Single Page Application, ensure to update the **Token Endpoint Authentication Method** to `None` and set the **Application Type** to either `SPA` or `Native`. 
 :::
