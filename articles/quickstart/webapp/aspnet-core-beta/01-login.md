@@ -8,7 +8,7 @@ topics:
   - aspnet-core
   - login
 github:
-  path: Quickstart/01-Login
+  path: Quickstart/Sample
 contentType: tutorial
 useCase: quickstart
 ---
