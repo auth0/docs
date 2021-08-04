@@ -41,6 +41,10 @@ To integrate Auth0 login into your application, simply instantiate an instance o
 
 ${snippet(meta.snippets.setup)}
 
+::: note
+By default, the SDK uses WebView (non-chromium Edge) as a Browser. If you wish to use Chromium Edge, you can implement [WebView2](https://docs.microsoft.com/en-us/microsoft-edge/webview2/) as explained on [this Auth0 Community post](https://community.auth0.com/t/howto-use-the-auth0-oidcclient-winforms-sdk-with-edge-chromium-webview2/57746).
+:::
+
 You can then call the `LoginAsync` method to log the user in:
 
 ${snippet(meta.snippets.use)}
