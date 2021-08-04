@@ -187,6 +187,22 @@ Use the `metadataUrl` option to provide the URL of the document:
 
 When providing the URL, content is downloaded only once; the connection will not automatically reconfigure if the content of the URL changes in the future.
 
+##### Refresh existing connection information with metadata URL
+
+::: note
+This process will only work if the connection was created with `metadataUrl` manually. 
+:::
+
+If you have a B2B implementation and federate to Auth0 with your own SAML identity provider, you may need to refresh connection information stored in Auth0, such as signing certificate changes, endpoint URL changes, or new assertion fields. Auth0 does this automatically for ADFS connections, but not for SAML connections. 
+
+You can create a batch process (cron job) to do a periodic refresh. The process can run every few weeks and perform a PATCH call to `/api/v2/connections/CONNECTION_ID` endpoint, passing a body containing `{options: {metadataUrl: '$URL'}}` where `$URL` is the same metadata URL with which you created the connection. You use the metadata URL to create a new temporary connection, then compare the properties of the old and new connections. If anything is different, update the new connection and then delete the temporary connection.
+
+1. Create SAML connection with `options.metadataUrl`. The connection object will be populated with information from the metadata.
+
+2. Update metadata content in the URL.
+
+3. Send a PATCH to the `/api/v2/connections/CONNECTION_ID` endpoint with `{options: {metadataUrl: '$URL'}}`. Now the connection object is updated with the new metadata content.
+
 ## Specify a custom Entity ID
 
 To specify a custom Entity ID, use the Management API to override the default `urn:auth0:YOUR_TENANT:YOUR_CONNECTION_NAME.` Set the `connection.options.entityID` property when the connection is first created or by updating an existing connection. 

@@ -11,10 +11,8 @@ contentType: tutorial
 useCase: quickstart
 ---
 
-::: panel Beta Available
-**A new pre-production beta release of PHP SDK is available.** Betas represent unstable code that is not ready for use in production applications. However, we'd encourage you to explore [the new release](https://github.com/auth0/auth0-php), [review the beta quickstarts](/quickstart/webapp/php-beta), [report any bugs](https://github.com/auth0/auth0-PHP/issues), and engage with [the Auth0 Community](https://community.auth0.com/) in asking questions and offering feedback.
-
-This guide covers the stable version of PHP SDK, and is suitable for production use.
+::: panel New Beta Release Available!
+<span class="badge badge-warning">Beta</span> &nbsp; **[Our next-generation Auth0-PHP SDK is now available in beta.](https://github.com/auth0/auth0-php)** Updated to support new PHP language features, new PHP interoperability standards, and offer an exciting new API — we think the new SDK elevates the developer experience. We'd love for you to [give the new beta release a try](https://github.com/auth0/auth0-php). Be sure to visit our [new webapp quickstart](/quickstart/webapp/php-beta) and [backend api](/quickstart/backend/php-beta) quickstarts, and drop by the [the Auth0 Community](https://community.auth0.com/) to let us know your thoughts!
 :::
 
 <%= include('../../../_includes/_api_auth_intro') %>

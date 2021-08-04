@@ -22,7 +22,6 @@ Auth0 allows you to create connections and scripts for most of the commonly-used
   * ASP.NET Membership Provider
   * MongoDB
   * MySQL
-  * Oracle
   * PostgreSQL
   * SQLServer
   * Windows Azure SQL Database

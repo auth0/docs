@@ -26,7 +26,7 @@ Auth0 provides SSO Integrations for the following services:
 - [Egnyte](/integrations/sso/egnyte)
 - [Eloqua](/integrations/sso/eloqua)
 - [Freshdesk](/integrations/sso/freshdesk)
-- [G Suite](/integrations/sso/g-suite)
+- [Google Workspace](/integrations/sso/google-workspace)
 - [GitHub Enterprise Cloud](/integrations/sso/github-enterprise-cloud)
 - [GitHub Enterprise Server](/integrations/sso/github-enterprise-server)
 - [Heroku](/integrations/sso/heroku)
