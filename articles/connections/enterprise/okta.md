@@ -1,5 +1,5 @@
 ---
-connection: OpenID Connect
+connection: Okta
 image: /media/connections/oidc.png
 public: true
 seo_alias: okta
