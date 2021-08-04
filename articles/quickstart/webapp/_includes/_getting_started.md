@@ -4,7 +4,7 @@
 **New to Auth?** Learn [How Auth0 works](/overview), how it [integrates with Regular Web Applications](/architecture-scenarios/web-app-sso) and which [protocol](/flows) it uses.
 :::
 
-<%= include('../../../_includes/_new_app', { showClientSecret: true }) %>
+<%= include('../../../_includes/_new_app', { showClientSecret: true, isPublicClient: false }) %>
 
 <%= include('../../../_includes/_callback_url') %>
 
