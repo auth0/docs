@@ -69,8 +69,8 @@ Next, you will need to create and configure a OIDC Enterprise Connection in Auth
 | **Connection name** | Logical identifier for your connection; it must be unique for your tenant. Once set, this name can't be changed. |
 | **Issuer URL** | URL where Auth0 can find the **OpenID Provider Configuration Document**. For Okta this should be either of the following:
 
-* `https://${yourOktaDomain}/.well-known/openid-configuration`
-* `https://${yourOktaDomain}/oauth2/${authServerId}/.well-known/`
+* `https://<YOUR_OKTA_DOMAIN>/.well-known/openid-configuration`
+* `https://<YOUR_OKTA_DOMAIN>/oauth2/<AUTH_SERVER_ID>/.well-known/`
 
 You can enter the base URL or the full URL. You will see a green checkmark if it can be found at that location, a red mark if it cannot be found, or an error message if the file is found but the required information is not present in the configuration file. |
 | **Client ID** | Unique identifier for your registered Okta application. Enter the saved value of the **Client ID** for the app you registered with the OIDC Identity Provider. |
