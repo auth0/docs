@@ -940,14 +940,6 @@ module.exports = [
     to: '/architecture-scenarios/web-app-sso'
   },
   {
-    from: '/architecture-scenarios/application/web-saml',
-    to: '/architecture-scenarios/web-saml'
-  },
-  {
-    from: '/architecture-scenarios/business/b2b-b2e',
-    to: '/architecture-scenarios/b2b-b2e'
-  },
-  {
     from: '/architecture-scenarios/business/b2b',
     to: '/architecture-scenarios/b2b'
   },
@@ -1633,7 +1625,7 @@ module.exports = [
   },
   {
     from: ['/best-practices/testing'],
-    to: '/best-practices/rules-testing-best-practices'
+    to: '/best-practices/rules-best-practices/rules-testing-best-practices'
   },
   {
     from: ['/tokens/concepts/token-best-practices','/design/web-apps-vs-web-apis-cookies-vs-tokens'],
