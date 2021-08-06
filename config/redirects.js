@@ -4270,8 +4270,12 @@ module.exports = [
     to: '/sessions/cookies'
   },
   {
-    from: ['/login/spa/authenticate-with-cookies','/sessions-and-cookies/spa-authenticate-with-cookies'],
-    to: '/sessions/spa-authenticate-with-cookies'
+    from: [
+      '/sessions/spa-authenticate-with-cookies',
+      '/login/spa/authenticate-with-cookies',
+      '/sessions-and-cookies/spa-authenticate-with-cookies'
+    ],
+    to: '/sessions/cookies/spa-authenticate-with-cookies'
   },
 
   /* SSO */
@@ -4582,8 +4586,8 @@ module.exports = [
     to: '/troubleshoot/troubleshoot-integration-and-extensibility'
   },
   {
-    from: ['/troubleshoot/references/self_change_password'],
-    to: '/troubleshoot/self-change-password-errors'
+    from: ['/troubleshoot/self-change-password-errors','/troubleshoot/references/self_change_password'],
+    to: '/troubleshoot/troubleshoot-authentication/self-change-password-errors'
   },
   {
     from: ['/troubleshoot/guides/verify-rules', '/troubleshoot/verify-rules'],
