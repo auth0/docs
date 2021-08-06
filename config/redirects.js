@@ -2528,8 +2528,8 @@ module.exports = [
     to: '/integrations/aws/configure-amazon-web-services-for-sso'
   },
   {
-    from: ['/integrations/aws/tokens'],
-    to: '/integrations/call-aws-apis-and-resources-with-tokens'
+    from: ['/integrations/aws/tokens','/integrations/call-aws-apis-and-resources-with-tokens'],
+    to: '/integrations/aws-api-gateway-delegation'
   },
   {
     from: ['/scenarios/amazon-cognito', '/tutorials/integrating-auth0-amazon-cognito-mobile-apps', '/integrations/integrating-auth0-amazon-cognito-mobile-apps', '/integrations/integrate-with-amazon-cognito'],
@@ -3108,7 +3108,7 @@ module.exports = [
   },
   {
     from: ['/libraries/auth0-android/user-management'],
-    to: '/libraries/lock-android/auth0-android-user-management'
+    to: '/libraries/auth0-android/auth0-android-user-management'
   },
   {
     from: ['/libraries/auth0-spa-js'],
