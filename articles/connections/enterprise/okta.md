@@ -1,6 +1,6 @@
 ---
 connection: Okta
-image: /media/connections/oidc.png
+image: /media/connections/okta.png
 public: true
 seo_alias: okta
 description: Learn how to connect to Okta as an OpenID Connect (OIDC) Identity Provider using an enterprise connection.
