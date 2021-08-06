@@ -44,7 +44,7 @@ To allow users to log in using Okta, you'll need to register your application. S
 
 During registration you'll be prompted for **Sign-in redirect URIs**. Add your <dfn data-key="callback">callback URL</dfn> as a sign-in redirect URI:
 
-```
+```text
 https://${account.namespace}/login/callback
 ```
 
