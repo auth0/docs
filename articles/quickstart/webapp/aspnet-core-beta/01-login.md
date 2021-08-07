@@ -52,7 +52,7 @@ public void ConfigureServices(IServiceCollection services)
     // Cookie configuration for HTTPS
     // services.Configure<CookiePolicyOptions>(options =>
     // {
-    //    options.MinimumSameSitePolicy = SameSiteMode.None
+    //    options.MinimumSameSitePolicy = SameSiteMode.None;
     // });
 
     services
