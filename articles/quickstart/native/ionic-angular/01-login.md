@@ -124,6 +124,8 @@ import { mergeMap } from 'rxjs/operators';
 import { Browser } from '@capacitor/browser';
 import { App } from '@capacitor/app';
 
+const callbackUri = `<%= "${config.appId}" %>://${account.namespace}/capacitor/<%= "${config.appId}" %>/callback`;
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
