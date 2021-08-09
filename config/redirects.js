@@ -3869,7 +3869,10 @@ module.exports = [
     to: '/protocols/saml-protocol/saml-configuration-options/enable-saml2-web-app-addon'
   },
   {
-    from: ['/protocols/saml/saml-configuration/special-configuration-scenarios'], 
+    from: [
+      '/protocols/saml/saml-configuration/special-configuration-scenarios',
+      '/protocols/saml-protocol/saml-configuration-options/special-saml-configuration-scenarios'
+    ], 
     to: '/protocols/saml-protocol/special-saml-configuration-scenarios'
   },
   {
