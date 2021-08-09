@@ -4644,10 +4644,6 @@ module.exports = [
     to: '/universal-login/classic-experience/mfa-classic-experience'
   },
   {
-    from: ['/universal-login/new-experience-limitations'],
-    to: '/universal-login/new-experience/new-experience-limitations'
-  },
-  {
     from: ['/universal-login/new'],
     to: '/universal-login/new-experience'
   },
