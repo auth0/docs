@@ -83,7 +83,7 @@ If you are using Maven, add the Spring dependencies to your `pom.xml` file:
         <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
     <dependency>
-        <groupId>org.springframework.security</groupId>
+        <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
     </dependency>
 </dependencies>
