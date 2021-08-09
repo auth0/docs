@@ -11,8 +11,10 @@ github:
 contentType: tutorial
 useCase: quickstart
 ---
-<%= include('../_includes/_getting_started', { library: 'React Native'}) %>
 
+<!-- markdownlint-disable MD002 MD012 MD041 -->
+
+<%= include('../_includes/_getting_started', { library: 'React Native'}) %>
 
 ## Install Dependencies 
 
@@ -57,19 +59,17 @@ The first step in adding authentication to your application is to provide a way 
 
 ### Configure Android
 
-Open your app's `build.gradle` file (typically at `android/app/build.gradle`) and add the following manifest placeholders:
+Open your app's `build.gradle` file (typically at `android/app/build.gradle`) and add the following manifest placeholders. The value for `auth0Domain` should be populated from your Auth0 application settings [as configured above](#get-your-application-keys).
 
 ```groovy
 android {
     defaultConfig {
         // Add the next line
-        manifestPlaceholders = [auth0Domain: "<%= "{ACCOUNT_AUTH0_DOMAIN}" %>", auth0Scheme: "<%= "${applicationId}" %>"]
+        manifestPlaceholders = [auth0Domain: "${account.namespace}", auth0Scheme: "<%= "${applicationId}" %>"]
     }
     ...
 }
 ```
-
-Remember to replace `{ACCOUNT_AUTH0_DOMAIN}` with your actual application's auth0 domain (e.g. `YOUR_DOMAIN.auth0.com`).
 
 ::: note
 The `applicationId` value will be auto-replaced on runtime with the package name or id of your application (e.g. `com.example.app`). You can change this value from the `build.gradle` file. You can also check it at the top of your `AndroidManifest.xml` file.
