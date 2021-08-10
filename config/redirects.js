@@ -1329,6 +1329,18 @@ module.exports = [
     to: '/configure/attack-protection/bot-detection'
   },
   {
+    from: '/anomaly-detection/bot-detection/configure-recaptcha-enterprise',
+    to: '/configure/anomaly-detection/bot-detection/configure-recaptcha-enterprise'
+  },
+  {
+    from: '/anomaly-detection/bot-detection/bot-detection-custom-login-pages',
+    to: '/configure/anomaly-detection/bot-detection/bot-detection-custom-login-pages'
+  },
+  {
+    from: '/anomaly-detection/bot-detection/bot-detection-native-apps',
+    to: '/configure/anomaly-detection/bot-detection/bot-detection-native-apps'
+  },
+  {
     from: [
       '/anomaly-detection/references/brute-force-protection-triggers-actions',
       '/anomaly-detection/guides/enable-disable-brute-force-protection',
@@ -1338,6 +1350,10 @@ module.exports = [
       '/attack-protection/brute-force-protection'
     ],
     to: '/configure/attack-protection/brute-force-protection'
+  },
+  {
+    from: '/anomaly-detection/suspicious-ip-throttling',
+    to: '/configure/anomaly-detection/suspicious-ip-throttling'
   },
   {
     from: [
