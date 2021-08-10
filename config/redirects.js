@@ -1446,6 +1446,10 @@ module.exports = [
     to: '/configure/tenant-settings/signing-keys/view-signing-certificates'
   },
   {
+    from: '/anomaly-detection/suspicious-ip-throttling',
+    to: '/configure/anomaly-detection/suspicious-ip-throttling'
+  },
+  {
     from: [
       '/get-started/dashboard/configure-device-user-code-settings',
       '/dashboard/guides/tenants/configure-device-user-code-settings',
