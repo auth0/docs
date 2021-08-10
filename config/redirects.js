@@ -1220,6 +1220,282 @@ module.exports = [
 
   /* CONTENTFUL REDIRECTS */
 
+  /* Configure */
+
+  {
+    from: ['/configuration-overview','/config'],
+    to: '/configure'
+  },
+
+  /* Tenants */
+
+  {
+    from: [
+      '/dashboard/tenant-settings',
+      '/get-started/dashboard/tenant-settings',
+      '/best-practices/tenant-settings-best-practices',
+      '/best-practices/tenant-settings',
+      '/dashboard/reference/settings-tenant',
+      '/tutorials/dashboard-tenant-settings',
+      '/dashboard-account-settings',
+      '/dashboard/dashboard-tenant-settings',
+      '/config/tenant-settings'
+    ],
+    to: '/configure/tenant-settings'
+  },
+  {
+    from: '/config/tenant-settings/signing-keys',
+    to: '/configure/tenant-settings/signing-keys'
+  },
+  {
+    from: '/config/tenant-settings/signing-keys/rotate-signing-keys',
+    to: '/configure/tenant-settings/signing-keys/rotate-signing-keys'
+  },
+  {
+    from: '/config/tenant-settings/signing-keys/revoke-signing-keys',
+    to: '/configure/tenant-settings/signing-keys/revoke-signing-keys'
+  },
+  {
+    from: '/config/tenant-settings/signing-keys/view-signing-certificates',
+    to: '/configure/tenant-settings/signing-keys/view-signing-certificates'
+  },
+  {
+    from: [
+      '/get-started/dashboard/configure-device-user-code-settings',
+      '/dashboard/guides/tenants/configure-device-user-code-settings',
+      '/config/tenant-settings/configure-device-user-code-settings'
+    ],
+    to: '/configure/tenant-settings/configure-device-user-code-settings'
+  },
+
+  /* Applications */
+
+  {
+    from: [
+      '/applications',
+      '/application',
+      '/applications/concepts/app-types-auth0',
+      '/clients',
+      '/api-auth/tutorials/adoption/oidc-conformant',
+      '/api-auth/client-types','/clients/client-types',
+      '/applications/application-types',
+      '/applications/concepts/client-secret'
+    ],
+    to: '/configure/applications'
+  },
+  {
+    from: [
+      '/clients/client-settings',
+      '/dashboard/reference/settings-application',
+      '/get-started/dashboard/application-settings',
+      '/best-practices/application-settings',
+      '/best-practices/app-settings-best-practices',
+      '/applications/application-settings'
+    ],
+    to: '/configure/applications/application-settings'
+  },
+  {
+    from: [
+      '/applications/dynamic-client-registration',
+      '/api-auth/dynamic-client-registration',
+      '/api-auth/dynamic-application-registration'
+    ],
+    to: '/configure/applications/dynamic-client-registration'
+  },
+  {
+    from: [
+      '/dashboard/guides/applications/enable-android-app-links',
+      '/clients/enable-android-app-links',
+      '/applications/enable-android-app-links',
+      '/applications/guides/enable-android-app-links-dashboard',
+      '/applications/enable-android-app-links-support'
+    ],
+    to: '/configure/applications/enable-android-app-links-support'
+  },
+  {
+    from: [
+      '/dashboard/guides/applications/enable-universal-links',
+      '/clients/enable-universal-links',
+      '/applications/enable-universal-links',
+      '/applications/guides/enable-universal-links-dashboard',
+      '/enable-universal-links-support-in-apple-xcode',
+      '/applications/enable-universal-links-support-in-apple-xcode'
+    ],
+    to: '/configure/applications/enable-universal-links-support-in-apple-xcode'
+  },
+  {
+    from: [
+      '/dashboard/guides/applications/enable-sso-app',
+      '/sso/enable-sso-for-applications'
+    ],
+    to: '/configure/applications/enable-sso-for-applications'
+  },
+  {
+    from: '/applications/configure-application-metadata',
+    to: '/configure/applications/configure-application-metadata'
+  },
+  {
+    from: [
+      '/applications/reference/grant-types-available',
+      '/applications/reference/grant-types-auth0-mapping',
+      '/clients/client-grant-types',
+      '/applications/concepts/application-grant-types',
+      '/applications/concepts/grant-types-legacy',
+      '/applications/application-grant-types'
+    ],
+    to: '/configure/applications/application-grant-types'
+  },
+  {
+    from: [
+      '/api-auth/config/using-the-auth0-dashboard',
+      '/api-auth/config/using-the-management-api',
+      '/api/management/guides/applications/update-grant-types',
+      '/dashboard/guides/applications/update-grant-types',
+      '/applications/update-grant-types'
+    ],
+    to: '/configure/applications/update-grant-types'
+  },
+  {
+    from: [
+      '/dashboard/guides/applications/rotate-client-secret',
+      '/api/management/guides/applications/rotate-client-secret',
+      '/get-started/dashboard/rotate-client-secret',
+      '/applications/rotate-client-secret'
+    ],
+    to: '/configure/applications/rotate-client-secret'
+  },
+  {
+    from: [
+      '/dashboard/guides/applications/update-signing-algorithm',
+      '/tokens/guides/update-signing-algorithm-application',
+      '/applications/change-application-signing-algorithms'
+    ],
+    to: '/configure/applications/change-application-signing-algorithms'
+  },
+  {
+    from: ['/applications/set-up-cors','/dashboard/guides/applications/set-up-cors'],
+    to: '/configure/applications/set-up-cors'
+  },
+  {
+    from: ['/applications/update-application-connections','/dashboard/guides/applications/update-app-connections'],
+    to: '/configure/applications/update-application-connections'
+  },
+  {
+    from: ['/applications/concepts/app-types-confidential-public','/applications/confidential-and-public-applications'],
+    to: '/configure/applications/confidential-public-apps'
+  },
+  {
+    from: [
+      '/dashboard/guides/applications/view-app-type-confidential-public',
+      '/applications/view-application-type'
+    ],
+    to: '/configure/applications/confidential-public-apps/view-application-type'
+  },
+  {
+    from: [
+      '/applications/first-party-and-third-party-applications',
+      '/applications/concepts/app-types-first-third-party'
+    ],
+    to: '/configure/applications/confidential-public-apps/first-party-and-third-party-applications'
+  },
+  {
+    from: ['/applications/view-application-ownership','/api/management/guides/applications/view-ownership'],
+    to: '/configure/applications/confidential-public-apps/view-application-ownership'
+  },
+  {
+    from: [
+      '/api/management/guides/applications/update-ownership',
+      '/api/management/guides/applications/remove-app',
+      '/applications/update-application-ownership'
+    ],
+    to: '/configure/applications/confidential-public-apps/update-application-ownership'
+  },
+  {
+    from: [
+      '/applications/guides/enable-third-party-applications',
+      '/applications/guides/enable-third-party-apps',
+      '/applications/enable-third-party-applications'
+    ],
+    to: '/configure/applications/confidential-public-apps/enable-third-party-applications'
+  },
+  {
+    from: ['/applications/wildcards-for-subdomains','/applications/reference/wildcard-subdomains'],
+    to: '/configure/applications/wildcards-for-subdomains'
+  },
+  {
+    from: ['/applications/remove-applications','/dashboard/guides/applications/remove-app'],
+    to: '/configure/applications/remove-applications'
+  },
+  {
+    from: [
+      '/dev-lifecycle/work-with-auth0-locally',
+      '/dev-lifecycle/local-testing-and-development',
+      '/applications/work-with-auth0-locally'
+    ],
+    to: '/configure/applications/work-with-auth0-locally'
+  },
+  {
+    from: ['/applications/set-up-database-connections','/dashboard/guides/connections/set-up-connections-database'],
+    to: '/configure/applications/set-up-database-connections'
+  },
+
+  /* API Settings */
+
+  {
+    from: [
+      '/api-auth/references/dashboard/api-settings',
+      '/dashboard/reference/settings-api',
+      '/get-started/dashboard/api-settings'
+    ],
+    to: '/config/api-settings'
+  },
+  {
+    from: [
+      '/dashboard/guides/apis/add-permissions-apis',
+      '/api/management/guides/apis/update-permissions-apis',
+      '/scopes/current/guides/define-scopes-using-dashboard',
+      '/scopes/current/guides/define-api-scope-dashboard',
+      '/get-started/dashboard/add-api-permissions'
+    ],
+    to: '/config/api-settings/add-api-permissions'
+  },
+  {
+    from: ['/dashboard/guides/apis/delete-permissions-apis','/get-started/dashboard/delete-api-permissions'],
+    to: '/config/api-settings/delete-api-permissions'
+  },
+
+  /* Signing Keys */
+
+  {
+    from: [
+      '/tokens/manage-signing-keys',
+      '/tokens/guides/manage-signing-keys'
+    ],
+    to: '/config/tenant-settings/signing-keys'
+  },
+  {
+    from: [
+      '/actions/build-actions-flows',
+      '/actions/edit-actions',
+      '/actions/troubleshoot-actions'
+    ],
+    to: '/actions/write-your-first-action'
+  },
+  {
+    from: [
+      '/actions/actions-context-object',
+      '/actions/actions-event-object',
+      '/actions/blueprints'
+    ],
+    to: '/actions/triggers'
+  },
+  {
+    from: [
+      '/actions/manage-action-versions'
+    ],
+    to: '/actions/manage-versions'
+  },
+
   /* Anomaly Detection */
 
   {
@@ -1327,108 +1603,6 @@ module.exports = [
     to: '/api'
   },
 
-  /* Applications */
-
-  {
-    from: [
-      '/clients/client-settings',
-      '/dashboard/reference/settings-application',
-      '/get-started/dashboard/application-settings',
-      '/best-practices/application-settings',
-      '/best-practices/app-settings-best-practices'
-    ],
-    to: '/applications/application-settings'
-  },
-  {
-    from: ['/api-auth/dynamic-client-registration','/api-auth/dynamic-application-registration'],
-    to: '/applications/dynamic-client-registration'
-  },
-  {
-    from: ['/application','/applications/concepts/app-types-auth0','/clients','/api-auth/tutorials/adoption/oidc-conformant','/api-auth/client-types','/clients/client-types','/applications/application-types','/applications/concepts/client-secret'],
-    to: '/applications'
-  },
-  {
-    from: ['/dev-lifecycle/work-with-auth0-locally','/dev-lifecycle/local-testing-and-development'],
-    to: '/applications/work-with-auth0-locally'
-  },
-  {
-    from: [
-      '/dashboard/guides/applications/rotate-client-secret',
-      '/api/management/guides/applications/rotate-client-secret',
-      '/get-started/dashboard/rotate-client-secret'
-    ],
-    to: '/applications/rotate-client-secret'
-  },
-  {
-    from: ['/dashboard/guides/applications/enable-android-app-links','/clients/enable-android-app-links','/applications/enable-android-app-links','/applications/guides/enable-android-app-links-dashboard'],
-    to: '/applications/enable-android-app-links-support'
-  },
-  {
-    from: [
-      '/dashboard/guides/applications/enable-universal-links',
-      '/clients/enable-universal-links',
-      '/applications/enable-universal-links',
-      '/applications/guides/enable-universal-links-dashboard',
-      '/enable-universal-links-support-in-apple-xcode'
-    ],
-    to: '/applications/enable-universal-links-support-in-apple-xcode'
-  },
-  {
-    from: ['/dashboard/guides/applications/remove-app'],
-    to: '/applications/remove-applications'
-  },
-  {
-    from: ['/api/management/guides/applications/update-ownership','/api/management/guides/applications/remove-app'],
-    to: '/applications/update-application-ownership'
-  },
-  {
-    from: ['/api/management/guides/applications/view-ownership'],
-    to: '/applications/view-application-ownership'
-  },
-  {
-    from: ['/dashboard/guides/applications/view-app-type-confidential-public'],
-    to: '/applications/view-application-type'
-  },
-  {
-    from: ['/dashboard/guides/applications/set-up-cors'],
-    to: '/applications/set-up-cors'
-  },
-  {
-    from: ['/dashboard/guides/applications/update-app-connections'],
-    to: '/applications/update-application-connections'
-  },
-  {
-    from: ['/api-auth/config/using-the-auth0-dashboard','/api-auth/config/using-the-management-api','/api/management/guides/applications/update-grant-types','/dashboard/guides/applications/update-grant-types'],
-    to: '/applications/update-grant-types'
-  },
-  {
-    from: ['/dashboard/guides/applications/update-signing-algorithm','/tokens/guides/update-signing-algorithm-application'],
-    to: '/applications/change-application-signing-algorithms'
-  },
-  {
-    from: ['/dashboard/guides/connections/set-up-connections-database'],
-    to: '/applications/set-up-database-connections'
-  },
-  {
-    from: ['/applications/reference/grant-types-available','/applications/reference/grant-types-auth0-mapping','/clients/client-grant-types','/applications/concepts/application-grant-types','/applications/concepts/grant-types-legacy'],
-    to: '/applications/application-grant-types'
-  },
-  {
-    from: ['/applications/concepts/app-types-first-third-party'],
-    to: '/applications/first-party-and-third-party-applications'
-  },
-  {
-    from: ['/applications/reference/wildcard-subdomains'],
-    to: '/applications/wildcards-for-subdomains'
-  },
-  {
-    from: ['/applications/guides/enable-third-party-applications','/applications/guides/enable-third-party-apps'],
-    to: '/applications/enable-third-party-applications'
-  },
-  {
-    from: ['/applications/concepts/app-types-confidential-public'],
-    to: '/applications/confidential-and-public-applications'
-  },
 
 
   /* Authorization */
@@ -4320,10 +4494,6 @@ module.exports = [
     from: ['/single-sign-on/api-endpoints-for-single-sign-on','/sso/current/relevant-api-endpoints'],
     to: '/sso/api-endpoints-for-single-sign-on'
   },
-  {
-    from: ['/dashboard/guides/applications/enable-sso-app','/sso/enable-sso-for-applications'],
-    to: '/integrations/sso'
-  },
 
   /* Support */
 
@@ -5119,111 +5289,6 @@ module.exports = [
     to: '/videos/get-started-series/learn-logout'
   },
 
-  /* Configuration */
-
-  {
-    from: ['/configuration-overview','/configure'],
-    to: '/config'
-  },
-
-  /* Tenant Settings */
-
-  {
-    from: [
-      '/dashboard/tenant-settings',
-      '/get-started/dashboard/tenant-settings',
-      '/best-practices/tenant-settings-best-practices',
-      '/best-practices/tenant-settings',
-      '/dashboard/reference/settings-tenant',
-      '/tutorials/dashboard-tenant-settings',
-      '/dashboard-account-settings',
-      '/dashboard/dashboard-tenant-settings'
-    ],
-    to: '/config/tenant-settings'
-  },
-  {
-    from: ['/get-started/dashboard/configure-device-user-code-settings','/dashboard/guides/tenants/configure-device-user-code-settings'],
-    to: '/config/tenant-settings/configure-device-user-code-settings'
-  },
-
-  /* API Settings */
-
-  {
-    from: [
-      '/api-auth/references/dashboard/api-settings',
-      '/dashboard/reference/settings-api',
-      '/get-started/dashboard/api-settings'
-    ],
-    to: '/config/api-settings'
-  },
-  {
-    from: [
-      '/dashboard/guides/apis/add-permissions-apis',
-      '/api/management/guides/apis/update-permissions-apis',
-      '/scopes/current/guides/define-scopes-using-dashboard',
-      '/scopes/current/guides/define-api-scope-dashboard',
-      '/get-started/dashboard/add-api-permissions'
-    ],
-    to: '/config/api-settings/add-api-permissions'
-  },
-  {
-    from: ['/dashboard/guides/apis/delete-permissions-apis','/get-started/dashboard/delete-api-permissions'],
-    to: '/config/api-settings/delete-api-permissions'
-  },
-
-  /* Signing Keys */
-
-  {
-    from: [
-      '/tokens/manage-signing-keys',
-      '/tokens/guides/manage-signing-keys'
-    ],
-    to: '/config/tenant-settings/signing-keys'
-  },
-  {
-    from: [
-      '/dashboard/guides/tenants/rotate-signing-keys',
-      '/tokens/rotate-signing-keys'
-    ],
-    to: '/config/tenant-settings/signing-keys/rotate-signing-keys'
-  },
-  {
-    from: [
-      '/dashboard/guides/tenants/revoke-signing-keys',
-      '/tokens/revoke-signing-keys'
-    ],
-    to: '/config/tenant-settings/signing-keys/revoke-signing-keys'
-  },
-  {
-    from: [
-      '/get-started/auth0-dashboard-overview/view-client-secrets-and-signing-keys',
-      '/dashboard/guides/tenants/view-signing-keys',
-      '/tokens/view-client-secrets-and-signing-keys'
-    ],
-    to: '/config/tenant-settings/signing-keys/view-signing-certificates'
-  },
-  {
-    from: [
-      '/actions/build-actions-flows',
-      '/actions/edit-actions',
-      '/actions/troubleshoot-actions'
-    ],
-    to: '/actions/write-your-first-action'
-  },
-  {
-    from: [
-      '/actions/actions-context-object',
-      '/actions/actions-event-object',
-      '/actions/blueprints'
-    ],
-    to: '/actions/triggers'
-  },
-  {
-    from: [
-      '/actions/manage-action-versions'
-    ],
-    to: '/actions/manage-versions'
-  },
 
   /* Support */
 
