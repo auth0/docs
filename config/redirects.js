@@ -1231,34 +1231,38 @@ module.exports = [
       '/anomaly-detection/guides/set-anomaly-detection-preferences',
       '/anomaly-detection/set-anomaly-detection-preferences',
       '/attack-protection/set-attack-protection-preferences',
-      '/anomaly-detection'
+      '/anomaly-detection',
+      '/attack-protection'
     ],
-    to: '/attack-protection'
+    to: '/configure/attack-protection'
   },
   {
     from: [
       '/anomaly-detection/references/breached-password-detection-triggers-actions',
       '/anomaly-detection/concepts/breached-passwords',
       '/anomaly-detection/breached-passwords',
-      '/anomaly-detection/breached-password-security'
+      '/anomaly-detection/breached-password-security',
+      '/attack-protection/breached-password-detection'
     ],
-    to: '/attack-protection/breached-password-detection'
+    to: '/configure/attack-protection/breached-password-detection'
   },
   {
     from: [
       '/anomaly-detection/guides/customize-blocked-account-emails',
-      '/anomaly-detection/customize-blocked-account-emails'
+      '/anomaly-detection/customize-blocked-account-emails',
+      '/attack-protection/customize-blocked-account-emails'
     ],
-    to: '/attack-protection/customize-blocked-account-emails'
+    to: '/configure/attack-protection/customize-blocked-account-emails'
   },
   {
     from: [
       '/anomaly-detection/bot-protection',
       '/anomaly-detection/guides/prevent-credential-stuffing-attacks',
       '/anomaly-detection/bot-and-credential-stuffing-protection',
-      '/anomaly-detection/bot-detection'
+      '/anomaly-detection/bot-detection',
+      '/attack-protection/bot-detection'
     ],
-    to: '/attack-protection/bot-detection'
+    to: '/configure/attack-protection/bot-detection'
   },
   {
     from: [
@@ -1266,16 +1270,18 @@ module.exports = [
       '/anomaly-detection/guides/enable-disable-brute-force-protection',
       '/anomaly-detection/concepts/brute-force-protection',
       '/anomaly-detection/enable-and-disable-brute-force-protection',
-      '/anomaly-detection/brute-force-protection'
+      '/anomaly-detection/brute-force-protection',
+      '/attack-protection/brute-force-protection'
     ],
-    to: '/attack-protection/brute-force-protection'
+    to: '/configure/attack-protection/brute-force-protection'
   },
   {
     from: [
       '/anomaly-detection/guides/use-tenant-data-for-anomaly-detection',
-      '/anomaly-detection/view-anomaly-detection-events'
+      '/anomaly-detection/view-anomaly-detection-events',
+      '/attack-protection/view-attack-protection-events'
     ],
-    to: '/attack-protection/view-attack-protection-events'
+    to: '/configure/attack-protection/view-attack-protection-events'
   },
 
   /* API */
