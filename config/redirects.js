@@ -920,7 +920,11 @@ module.exports = [
     to: '/architecture-scenarios/server-api'
   },
   {
-    from: ['/architecture-scenarios/application/spa-api','/architecture-scenarios/sequence-diagrams','/sequence-diagrams'],
+    from: [
+      '/architecture-scenarios/application/spa-api',
+      '/architecture-scenarios/sequence-diagrams',
+      '/sequence-diagrams'
+    ],
     to: '/architecture-scenarios/spa-api'
   },
   {
@@ -932,67 +936,73 @@ module.exports = [
     to: '/architecture-scenarios/b2b'
   },
   {
-    from: ['/architecture-scenarios/b2b/b2b-architecture','/architecture-scenarios/implementation/b2b/b2b-architecture'],
+    from: [
+      '/architecture-scenarios/b2b/b2b-architecture',
+      '/architecture-scenarios/implementation/b2b/b2b-architecture'
+    ],
     to: '/architecture-scenarios/b2b/architecture'
   },
   {
-    from: ['/architecture-scenarios/b2b/b2b-authentication','/architecture-scenarios/implementation/b2b/b2b-authentication'],
+    from: [
+      '/architecture-scenarios/b2b/b2b-authentication',
+      '/architecture-scenarios/implementation/b2b/b2b-authentication'
+    ],
     to: '/architecture-scenarios/b2b/authentication'
   },
   {
     from: [
-            '/architecture-scenarios/b2b/b2b-authorization',
-            '/architecture-scenarios/implementation/b2b/b2b-authorization'
-          ],
+      '/architecture-scenarios/b2b/b2b-authorization',
+      '/architecture-scenarios/implementation/b2b/b2b-authorization'
+    ],
     to: '/architecture-scenarios/b2b/authorization'
   },
   {
     from: [
-            '/architecture-scenarios/b2b/b2b-branding',
-            '/architecture-scenarios/implementation/b2b/b2b-branding'
-          ],
+      '/architecture-scenarios/b2b/b2b-branding',
+      '/architecture-scenarios/implementation/b2b/b2b-branding'
+    ],
     to: '/architecture-scenarios/b2b/branding'
   },
   {
     from: [
-            '/architecture-scenarios/b2b/b2b-deployment',
-            '/architecture-scenarios/implementation/b2b/b2b-deployment'
-          ],
+      '/architecture-scenarios/b2b/b2b-deployment',
+      '/architecture-scenarios/implementation/b2b/b2b-deployment'
+    ],
     to: '/architecture-scenarios/b2b/deployment'
   },
   {
     from: [
-            '/architecture-scenarios/b2b/b2b-launch',
-            '/architecture-scenarios/implementation/b2b/b2b-launch'
-          ],
+      '/architecture-scenarios/b2b/b2b-launch',
+      '/architecture-scenarios/implementation/b2b/b2b-launch'
+    ],
     to: '/architecture-scenarios/b2b/launch'
   },
   {
     from: [
-            '/architecture-scenarios/b2b/b2b-launch-compliance',
-            '/architecture-scenarios/implementation/b2b/b2b-launch/b2b-launch-compliance'
-          ],
+      '/architecture-scenarios/b2b/b2b-launch-compliance',
+      '/architecture-scenarios/implementation/b2b/b2b-launch/b2b-launch-compliance'
+    ],
     to: '/architecture-scenarios/b2b/launch/compliance-readiness'
   },
   {
     from: [
-            '/architecture-scenarios/b2b/b2b-launch-launch',
-            '/architecture-scenarios/implementation/b2b/b2b-launch/b2b-launch-launch'
-          ],
+      '/architecture-scenarios/b2b/b2b-launch-launch',
+      '/architecture-scenarios/implementation/b2b/b2b-launch/b2b-launch-launch'
+    ],
     to: '/architecture-scenarios/b2b/launch/launch-day'
   },
   {
     from: [
-            '/architecture-scenarios/b2b/b2b-launch-operations',
-            '/architecture-scenarios/implementation/b2b/b2b-launch/b2b-launch-operations'
-          ],
+      '/architecture-scenarios/b2b/b2b-launch-operations',
+      '/architecture-scenarios/implementation/b2b/b2b-launch/b2b-launch-operations'
+    ],
     to: '/architecture-scenarios/b2b/launch/operations-readiness'
   },
   {
     from: [
-            '/architecture-scenarios/b2b/b2b-launch-support',
-            '/architecture-scenarios/implementation/b2b/b2b-launch/b2b-launch-support'
-          ],
+      '/architecture-scenarios/b2b/b2b-launch-support',
+      '/architecture-scenarios/implementation/b2b/b2b-launch/b2b-launch-support'
+    ],
     to: '/architecture-scenarios/b2b/launch/support-readiness'
   },
   {
@@ -1004,23 +1014,23 @@ module.exports = [
   },
   {
     from: [
-            '/architecture-scenarios/b2b/b2b-logout',
-            '/architecture-scenarios/implementation/b2b/b2b-logout'
-          ],
+      '/architecture-scenarios/b2b/b2b-logout',
+      '/architecture-scenarios/implementation/b2b/b2b-logout'
+    ],
     to: '/architecture-scenarios/b2b/logout'
   },
   {
     from: [
-            '/architecture-scenarios/b2b/b2b-operations',
-            '/architecture-scenarios/implementation/b2b/b2b-operations'
-          ],
+      '/architecture-scenarios/b2b/b2b-operations',
+      '/architecture-scenarios/implementation/b2b/b2b-operations'
+    ],
     to: '/architecture-scenarios/b2b/operations'
   },
   {
     from: [
-            '/architecture-scenarios/b2b/b2b-profile-mgmt',
-            '/architecture-scenarios/implementation/b2b/b2b-profile-mgmt'
-          ],
+      '/architecture-scenarios/b2b/b2b-profile-mgmt',
+      '/architecture-scenarios/implementation/b2b/b2b-profile-mgmt'
+    ],
     to: '/architecture-scenarios/b2b/profile-management'
   },
   {
@@ -1032,9 +1042,9 @@ module.exports = [
   },
   {
     from: [
-            '/architecture-scenarios/b2b/b2b-qa',
-            '/architecture-scenarios/implementation/b2b/b2b-qa'
-          ],
+      '/architecture-scenarios/b2b/b2b-qa',
+      '/architecture-scenarios/implementation/b2b/b2b-qa'
+    ],
     to: '/architecture-scenarios/b2b/quality-assurance'
   },
   {
@@ -1043,114 +1053,114 @@ module.exports = [
   },
   {
     from: [
-            '/architecture-scenarios/b2c/b2c-architecture',
-            '/architecture-scenarios/implementation/b2c/b2c-architecture'
-          ],
+      '/architecture-scenarios/b2c/b2c-architecture',
+      '/architecture-scenarios/implementation/b2c/b2c-architecture'
+    ],
     to: '/architecture-scenarios/b2c/architecture'
   },
   {
     from: [
-            '/architecture-scenarios/b2c/b2c-authentication',
-            '/architecture-scenarios/implementation/b2c/b2c-authentication'
-          ],
+      '/architecture-scenarios/b2c/b2c-authentication',
+      '/architecture-scenarios/implementation/b2c/b2c-authentication'
+    ],
     to: '/architecture-scenarios/b2c/authentication'
   },
   {
     from: [
-            '/architecture-scenarios/b2c/b2c-authorization',
-            '/architecture-scenarios/implementation/b2c/b2c-authorization'
-          ],
+      '/architecture-scenarios/b2c/b2c-authorization',
+      '/architecture-scenarios/implementation/b2c/b2c-authorization'
+    ],
     to: '/architecture-scenarios/b2c/authorization'
   },
   {
     from: [
-            '/architecture-scenarios/b2c/b2c-branding',
-            '/architecture-scenarios/implementation/b2c/b2c-branding'
-          ],
+      '/architecture-scenarios/b2c/b2c-branding',
+      '/architecture-scenarios/implementation/b2c/b2c-branding'
+    ],
     to: '/architecture-scenarios/b2c/branding'
   },
   {
     from: [
-            '/architecture-scenarios/b2c/b2c-deployment',
-            '/architecture-scenarios/implementation/b2c/b2c-deployment'
-          ],
+      '/architecture-scenarios/b2c/b2c-deployment',
+      '/architecture-scenarios/implementation/b2c/b2c-deployment'
+    ],
     to: '/architecture-scenarios/b2c/deployment'
   },
   {
     from: [
-            '/architecture-scenarios/b2c/b2c-launch',
-            '/architecture-scenarios/implementation/b2c/b2c-launch'
-          ],
+      '/architecture-scenarios/b2c/b2c-launch',
+      '/architecture-scenarios/implementation/b2c/b2c-launch'
+    ],
     to: '/architecture-scenarios/b2c/launch'
   },
     {
     from: [
-            '/architecture-scenarios/b2c/b2c-launch-compliance',
-            '/architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-compliance'
-          ],
+      '/architecture-scenarios/b2c/b2c-launch-compliance',
+      '/architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-compliance'
+    ],
     to: '/architecture-scenarios/b2c/launch/compliance-readiness'
   },
   {
     from: [
-            '/architecture-scenarios/b2c/b2c-launch-launch',
-            '/architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-launch'
-          ],
+      '/architecture-scenarios/b2c/b2c-launch-launch',
+      '/architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-launch'
+    ],
     to: '/architecture-scenarios/b2c/launch/launch-day'
   },
   {
     from: [
-            '/architecture-scenarios/b2c/b2c-launch-operations',
-            '/architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-operations'
-          ],
+      '/architecture-scenarios/b2c/b2c-launch-operations',
+      '/architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-operations'
+    ],
     to: '/architecture-scenarios/b2c/launch/operations-readiness'
   },
   {
     from: [
-            '/architecture-scenarios/b2c/b2c-launch-support',
-            '/architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-support'
-          ],
+      '/architecture-scenarios/b2c/b2c-launch-support',
+      '/architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-support'
+    ],
     to: '/architecture-scenarios/b2c/launch/support-readiness'
   },
   {
     from: [
-            '/architecture-scenarios/b2c/b2c-launch-testing',
-            '/architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-testing'
-          ],
+      '/architecture-scenarios/b2c/b2c-launch-testing',
+      '/architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-testing'
+    ],
     to: '/architecture-scenarios/b2c/launch/testing'
   },
   {
     from: [
-            '/architecture-scenarios/b2c/b2c-logout',
-            '/architecture-scenarios/implementation/b2c/b2c-logout'
-          ],
+      '/architecture-scenarios/b2c/b2c-logout',
+      '/architecture-scenarios/implementation/b2c/b2c-logout'
+    ],
     to: '/architecture-scenarios/b2c/logout'
   },
   {
     from: [
-            '/architecture-scenarios/b2c/b2c-operations',
-            '/architecture-scenarios/implementation/b2c/b2c-operations'
-          ],
+      '/architecture-scenarios/b2c/b2c-operations',
+      '/architecture-scenarios/implementation/b2c/b2c-operations'
+    ],
     to: '/architecture-scenarios/b2c/operations'
   },
   {
     from: [
-            '/architecture-scenarios/b2c/b2c-profile-mgmt',
-            '/architecture-scenarios/implementation/b2c/b2c-profile-mgmt'
-          ],
+      '/architecture-scenarios/b2c/b2c-profile-mgmt',
+      '/architecture-scenarios/implementation/b2c/b2c-profile-mgmt'
+    ],
     to: '/architecture-scenarios/b2c/profile-management'
   },
   {
     from: [
-            '/architecture-scenarios/b2c/b2c-provisioning',
-            '/architecture-scenarios/implementation/b2c/b2c-provisioning'
-          ],
+      '/architecture-scenarios/b2c/b2c-provisioning',
+      '/architecture-scenarios/implementation/b2c/b2c-provisioning'
+    ],
     to: '/architecture-scenarios/b2c/provisioning'
   },
   {
     from: [
-            '/architecture-scenarios/b2c/b2c-qa',
-            '/architecture-scenarios/implementation/b2c/b2c-qa'
-          ],
+      '/architecture-scenarios/b2c/b2c-qa',
+      '/architecture-scenarios/implementation/b2c/b2c-qa'
+    ],
     to: '/architecture-scenarios/b2c/quality-assurance'
   },
   {
@@ -1186,35 +1196,59 @@ module.exports = [
     to: '/architecture-scenarios/web-app-sso/implementation-aspnetcore'
   },
   {
-    from: '/architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations','/architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations',
+    from: [
+      '/architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations',
+      '/architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations'
+    ],
     to: '/architecture-scenarios/multiple-orgs/single-idp-orgs'
   },
   {
-    from: '/architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/provisioning','/architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/provisioning',
+    from: [
+      '/architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/provisioning',
+      '/architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/provisioning'
+    ],
     to: '/architecture-scenarios/multiple-orgs/single-idp-orgs/provisioning'
   },
   {
-    from: '/architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/authentication','/architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/authentication',
+    from: [
+      '/architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/authentication',
+      '/architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/authentication'
+    ],
     to: '/architecture-scenarios/multiple-orgs/single-idp-orgs/authentication'
   },
   {
-    from: '/architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/branding','/architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/branding',
+    from: [
+      '/architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/branding',
+      '/architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/branding'
+    ],
     to: '/architecture-scenarios/multiple-orgs/single-idp-orgs/branding'
   },
   {
-    from: '/architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/authorization','/architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/authorization',
+    from: [
+      '/architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/authorization',
+      '/architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/authorization'
+    ],
     to: '/architecture-scenarios/multiple-orgs/single-idp-orgs/authorization'
   },
   {
-    from: '/architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/profile-management','/architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/profile-management',
+    from: [
+      '/architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/profile-management',
+      '/architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/profile-management'
+    ],
     to: '/architecture-scenarios/multiple-orgs/single-idp-orgs/profile-management'
   },
   {
-    from: '/architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/logout','/architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/logout',
+    from: [
+      '/architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/logout',
+      '/architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/logout'
+    ],
     to: '/architecture-scenarios/multiple-orgs/single-idp-orgs/logout'
   },
   {
-    from: '/architecture-scenarios/multiple-organization-architecture/multiple-identity-provider-organizations','/architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/multiple-identity-provider-organizations',
+    from: [
+      '/architecture-scenarios/multiple-organization-architecture/multiple-identity-provider-organizations',
+      '/architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/multiple-identity-provider-organizations'
+    ],
     to: '/architecture-scenarios/multiple-orgs/multiple-idp-orgs'
   },
 
