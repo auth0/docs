@@ -4126,28 +4126,37 @@ module.exports = [
     to: '/policies/load-testing-policy'
   },
   {
-    from: ['/rate-limits', '/policies/rate-limit', '/policies/rate-limits'],
+    from: [
+      '/rate-limits', 
+      '/policies/rate-limit', 
+      '/policies/rate-limits',
+      '/policies/legacy-rate-limits'
+    ],
     to: '/policies/rate-limit-policy'
   },
   {
-    from: ['/policies/rate-limits-auth-api','/policies/rate-limits-api'],
-    to: '/policies/rate-limit-policy/authentication-api-endpoint-rate-limits'
+    from: [
+      '/policies/rate-limit-policy/authentication-api-endpoint-rate-limits',
+      '/policies/rate-limits-auth-api',
+      '/policies/rate-limits-api'
+    ],
+    to: '/policies/authentication-api-endpoint-rate-limits'
   },
   {
-    from: ['/policies/rate-limits-mgmt-api'],
-    to: '/policies/rate-limit-policy/management-api-endpoint-rate-limits'
-  },
-  {
-    from: ['/policies/legacy-rate-limits','/policies/rate-limit-policy/mgmt-api-endpoint-rate-limits-before-19-may-2020'],
-    to: '/policies/rate-limit-policy'
+    from: [
+      '/policies/rate-limit-policy/mgmt-api-endpoint-rate-limits-before-19-may-2020',
+      '/policies/rate-limit-policy/management-api-endpoint-rate-limits',
+      '/policies/rate-limits-mgmt-api'
+    ],
+    to: '/policies/management-api-endpoint-rate-limits'
   },
   {
     from: ['/policies/penetration-testing'],
     to: '/policies/penetration-testing-policy'
   },
   {
-    from: ['/connections/database/rate-limits'],
-    to: '/policies/rate-limit-policy/database-connections-rate-limits'
+    from: ['/policies/rate-limit-policy/database-connections-rate-limits','/connections/database/rate-limits'],
+    to: '/policies/database-connections-rate-limits'
   },
 
 
