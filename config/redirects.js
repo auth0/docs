@@ -2033,40 +2033,78 @@ module.exports = [
     to: '/authorization/apis'
   },
   {
-    from: ['/authorization/revoke-access-to-apis-using-blacklists-or-application-grants','/api-auth/blacklists-vs-grants','/blacklists-vs-application-grants'],
+    from: [
+      '/authorization/revoke-access-to-apis-using-blacklists-or-application-grants',
+      '/api-auth/blacklists-vs-grants','/blacklists-vs-application-grants'
+    ],
     to: '/authorization/revoke-api-access'
   },
   {
-    from: ['/api/management/guides/roles/view-role-users','/dashboard/guides/roles/view-role-users'],
-    to: '/authorization/rbac/roles/view-users-assigned-to-roles'
+    from: [
+      '/authorization/rbac/roles/view-users-assigned-to-roles',
+      '/api/management/guides/roles/view-role-users',
+      '/dashboard/guides/roles/view-role-users'
+    ],
+    to: '/authorization/auth-core-features/roles/view-users-assigned-to-roles'
   },
   {
-    from: ['/dashboard/guides/roles/delete-roles','/api/management/guides/roles/delete-roles'],
-    to: '/authorization/rbac/roles/delete-roles'
+    from: [
+      '/authorization/rbac/roles/delete-roles',
+      '/dashboard/guides/roles/delete-roles',
+      '/api/management/guides/roles/delete-roles'
+    ],
+    to: '/authorization/auth-core-features/roles/delete-roles'
   },
   {
-    from: ['/dashboard/guides/roles/edit-role-definitions','/api/management/guides/roles/edit-role-definitions','/authorization/guides/api/edit-role-definitions'],
-    to: '/authorization/rbac/roles/edit-role-definitions'
+    from: [
+      '/authorization/rbac/roles/edit-role-definitions',
+      '/authorization/rbac/roles/edit-role-definitions',
+      '/dashboard/guides/roles/edit-role-definitions',
+      '/api/management/guides/roles/edit-role-definitions',
+      '/authorization/guides/api/edit-role-definitions'
+    ],
+    to: '/authorization/auth-core-features/roles/edit-role-definitions'
   },
   {
-    from: ['/dashboard/guides/roles/remove-role-permissions','/api/management/guides/roles/remove-role-permissions'],
-    to: '/authorization/rbac/roles/remove-permissions-from-roles'
+    from: [
+      '/authorization/rbac/roles/remove-permissions-from-roles',
+      '/dashboard/guides/roles/remove-role-permissions',
+      '/api/management/guides/roles/remove-role-permissions'
+    ],
+    to: '/authorization/auth-core-features/roles/remove-permissions-from-roles'
   },
   {
-    from: ['/dashboard/guides/roles/view-role-permissions','/api/management/guides/roles/view-role-permissions'],
-    to: '/authorization/rbac/roles/view-role-permissions'
+    from: [
+      '/authorization/rbac/roles/view-role-permissions',
+      '/dashboard/guides/roles/view-role-permissions',
+      '/api/management/guides/roles/view-role-permissions'
+    ],
+    to: '/authorization/auth-core-features/roles/view-role-permissions'
   },
   {
-    from: ['/api/management/guides/apis/enable-rbac','/dashboard/guides/apis/enable-rbac','/authorization/guides/dashboard/enable-rbac'],
-    to: '/authorization/rbac/enable-role-based-access-control-for-apis'
+    from: [
+      '/api/management/guides/apis/enable-rbac',
+      '/dashboard/guides/apis/enable-rbac',
+      '/authorization/guides/dashboard/enable-rbac',
+      '/authorization/rbac/enable-role-based-access-control-for-apis'
+    ],
+    to: '/authorization/auth-core-features/enable-role-based-access-control-for-apis'
   },
   {
-    from: ['/dashboard/guides/roles/add-permissions-roles','/api/management/guides/roles/add-permissions-roles'],
-    to: '/authorization/rbac/roles/add-permissions-to-roles'
+    from: [
+      '/authorization/rbac/roles/add-permissions-to-roles',
+      '/dashboard/guides/roles/add-permissions-roles',
+      '/api/management/guides/roles/add-permissions-roles'
+    ],
+    to: '/authorization/auth-core-features/roles/add-permissions-to-roles'
   },
   {
-    from: ['/dashboard/guides/roles/create-roles','/api/management/guides/roles/create-roles'],
-    to: '/authorization/rbac/roles/create-roles'
+    from: [
+      '/authorization/rbac/roles/create-roles',
+      '/dashboard/guides/roles/create-roles',
+      '/api/management/guides/roles/create-roles'
+    ],
+    to: '/authorization/auth-core-features/roles/create-roles'
   },
   {
     from: ['/authorization/reference/rbac-limits','/authorization/rbac/authorization-core-rbac-limits'],
@@ -2097,16 +2135,16 @@ module.exports = [
     to: '/authorization/sample-use-cases-role-based-access-control'
   },
   {
-    from: ['/authorization/guides/how-to'],
-    to: '/authorization/how-to-use-auth0s-core-authorization-feature-set'
+    from: ['/authorization/how-to-use-auth0s-core-authorization-feature-set','/authorization/guides/how-to'],
+    to: '/authorization/auth-core-features'
   },
   {
     from: ['/authorization/guides/manage-permissions'],
     to: '/authorization/manage-permissions'
   },
   {
-    from: ['/authorization/guides/manage-roles'],
-    to: '/authorization/rbac/roles'
+    from: ['/authorization/rbac/roles','/authorization/guides/manage-roles'],
+    to: '/authorization/auth-core-features/roles'
   },
   {
     from: ['/api-auth/apis','/overview/apis'],
@@ -2149,8 +2187,8 @@ module.exports = [
     to: '/authorization/customize-tokens-using-hooks-with-client-credentials-flow'
   },
   {
-    from: ['/authorization/guides/manage-users'],
-    to: '/authorization/rbac-users'
+    from: ['/authorization/rbac-users','/authorization/guides/manage-users'],
+    to: '/authorization/auth-core-features/rbac-users'
   },
 
   /* Best Practices */
