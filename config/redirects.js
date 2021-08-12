@@ -599,10 +599,6 @@ module.exports = [
     to: 'https://marketplace.auth0.com/integrations/github-social-connection'
   },
   {
-    from: '/goodreads-clientid',
-    to: '/connections/social/goodreads'
-  },
-  {
     from: [
       '/goog-clientid',
       '/connections/social/google'
@@ -660,10 +656,6 @@ module.exports = [
     to: 'https://marketplace.auth0.com/integrations/shopify-social-connection'
   },
   {
-    from: '/soundcloud-clientid',
-    to: '/connections/social/soundcloud'
-  },
-  {
     from: [
       '/twitter-clientid',
       '/connections/social/twitter'
@@ -704,10 +696,6 @@ module.exports = [
       '/connections/social/yandex'
     ],
     to: 'https://marketplace.auth0.com/integrations/yandex-social-connection'
-  },
-  {
-    from: '/instagram-clientid',
-    to: '/connections/social/instagram'
   },
   {
     from: [
@@ -5016,10 +5004,6 @@ module.exports = [
   {
     from: ['/universal-login/multifactor-authentication','/hosted-pages/guardian','/universal-login/guardian'],
     to: '/universal-login/classic-experience/mfa-classic-experience'
-  },
-  {
-    from: ['/universal-login/new-experience-limitations'],
-    to: '/universal-login/new-experience/new-experience-limitations'
   },
   {
     from: ['/universal-login/new'],
