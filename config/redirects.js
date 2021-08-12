@@ -2163,10 +2163,6 @@ module.exports = [
     to: '/authorization/mitigate-replay-attacks-when-using-the-implicit-flow'
   },
   {
-    from: ['/api-auth/tutorials/silent-authentication'],
-    to: '/authorization/configure-silent-authentication'
-  },
-  {
     from: ['/api-auth/tutorials/using-resource-owner-password-from-server-side','/authorization/avoid-common-issues-with-resource-owner-password-flow-and-anomaly-detection'],
     to: '/authorization/avoid-common-issues-with-resource-owner-password-flow-and-attack-protection'
   },
@@ -2269,6 +2265,159 @@ module.exports = [
     from: ['/branding-customization'],
     to: '/brand-and-customize'
   },
+  {
+    from: ['/universal-login/new-experience/universal-login-page-templates','/universal-login/page-templates'],
+    to: '/brand-and-customize/universal-login-page-templates'
+  },
+
+  /* Custom Domains */
+
+  {
+    from: '/custom-domains',
+    to: '/brand-and-customize/custom-domains'
+  },
+  {
+    from: ['/custom-domains/configure-custom-domains-with-auth0-managed-certificates','/custom-domains/auth0-managed-certificates'],
+    to: '/brand-and-customize/custom-domains/auth0-managed-certificates'
+  },
+  {
+    from: ['/custom-domains/self-managed-certificates','/custom-domains/configure-custom-domains-with-self-managed-certificates'],
+    to: '/brand-and-customize/custom-domains/self-managed-certificates'
+  },
+  {
+    from: '/custom-domains/tls-ssl',
+    to: '/brand-and-customize/custom-domains/self-managed-certificates/tls-ssl'
+  },
+  {
+    from: '/custom-domains/configure-custom-domains-with-self-managed-certificates/configure-gcp-as-reverse-proxy',
+    to: '/brand-and-customize/custom-domains/self-managed-certificates/configure-gcp-as-reverse-proxy'
+  },
+  {
+    from: [
+      '/custom-domains/set-up-cloudfront',
+      '/custom-domains/configure-custom-domains-with-self-managed-certificates/configure-aws-cloudfront-for-use-as-reverse-proxy'
+    ],
+    to: '/brand-and-customize/custom-domains/self-managed-certificates/configure-aws-cloudfront-for-use-as-reverse-proxy'
+  },
+  {
+    from: [
+      '/custom-domains/set-up-cloudflare',
+      '/custom-domains/configure-custom-domains-with-self-managed-certificates/configure-cloudflare-for-use-as-reverse-proxy'
+    ],
+    to: '/brand-and-customize/custom-domains/self-managed-certificates/configure-cloudflare-for-use-as-reverse-proxy'
+  },
+  {
+    from: [
+      '/custom-domains/configure-custom-domains-with-self-managed-certificates/configure-azure-cdn-for-use-as-reverse-proxy',
+      '/custom-domains/set-up-azure-cdn'
+    ],
+    to: '/brand-and-customize/custom-domains/self-managed-certificates/configure-azure-cdn-for-use-as-reverse-proxy'
+  },
+  {
+    from: '/custom-domains/configure-custom-domains-with-self-managed-certificates/configure-akamai-for-use-as-reverse-proxy',
+    to: '/brand-and-customize/custom-domains/self-managed-certificates/configure-akamai-for-use-as-reverse-proxy'
+  },
+  {
+    from: ['/custom-domains/configure-features-to-use-custom-domains','/custom-domains/additional-configuration'],
+    to: '/brand-and-customize/custom-domains/configure-features-to-use-custom-domains'
+  },
+
+  /* Email */
+
+  {
+    from: ['/email','/auth0-email-services'],
+    to: '/brand-and-customize/email'
+  },
+  {
+    from: [
+      '/email/custom',
+      '/auth0-email-services/manage-email-flow',
+      '/email/manage-email-flow'
+    ],
+    to: '/brand-and-customize/email/manage-email-flow'
+  },
+  {
+    from: [
+      '/email/templates',
+      '/auth0-email-services/customize-email-templates',
+      '/email/spa-redirect',
+      '/auth0-email-services/spa-redirect',
+      '/email/customize-email-templates'
+    ],
+    to: '/brand-and-customize/email/customize-email-templates'
+  },
+  {
+    from: [
+      '/email/customize-email-templates/email-template-descriptions',
+      '/auth0-email-services/email-template-descriptions'
+    ],
+    to: '/brand-and-customize/email/email-template-descriptions'
+  },
+  {
+    from: [
+      '/email/liquid-syntax',
+      '/auth0-email-services/customize-email-templates/use-liquid-syntax-in-email-templates',
+      '/email/customize-email-templates/use-liquid-syntax-in-email-templates'
+    ],
+    to: '/brand-and-customize/email/use-liquid-syntax-in-email-templates'
+  },
+  {
+    from: [
+      '/design/creating-invite-only-applications',
+      '/invite-only',
+      '/tutorials/creating-invite-only-applications',
+      '/auth0-email-services/send-email-invitations-for-application-signup',
+      '/email/send-email-invitations-for-application-signup'
+    ],
+    to: '/brand-and-customize/email/send-email-invitations-for-application-signup'
+  },
+  {
+    from: '/email/send-email-invitations-for-application-signup',
+    to: '/brand-and-customize/email/send-email-invitations-for-application-signup'
+  },
+  {
+    from: [
+      '/auth0-email-services/configure-external-smtp-email-providers',
+      '/email/providers',
+      '/email/configure-external-smtp-email-providers'
+    ],
+    to: '/brand-and-customize/email/smtp-email-providers'
+  },
+  {
+    from: '/email/configure-external-smtp-email-providers/configure-amazon-ses-as-external-smtp-email-provider',
+    to: '/brand-and-customize/email/smtp-email-providers/configure-amazon-ses-as-external-smtp-email-provider'
+  },
+  {
+    from: '/email/configure-external-smtp-email-providers/configure-mandrill-as-external-smtp-email-provider',
+    to: '/brand-and-customize/email/smtp-email-providers/configure-mandrill-as-external-smtp-email-provider'
+  },
+  {
+    from: '/email/configure-external-smtp-email-providers/configure-sendgrid-as-external-smtp-email-provider',
+    to: '/brand-and-customize/email/smtp-email-providers/configure-sendgrid-as-external-smtp-email-provider'
+  },
+  {
+    from: '/email/configure-external-smtp-email-providers/configure-sparkpost-as-external-smtp-email-provider',
+    to: '/brand-and-customize/email/smtp-email-providers/configure-sparkpost-as-external-smtp-email-provider'
+  },
+  {
+    from: '/email/configure-external-smtp-email-providers/configure-mailgun-as-external-smtp-email-provider',
+    to: '/brand-and-customize/email/smtp-email-providers/configure-mailgun-as-external-smtp-email-provider'
+  },
+  {
+    from: [
+      '/auth0-email-services/configure-external-smtp-email-providers/configure-custom-external-smtp-email-provider',
+      '/email/configure-custom-external-smtp-email-provider'
+    ],
+    to: '/brand-and-customize/email/smtp-email-providers/configure-custom-external-smtp-email-provider'
+  },
+  {
+    from: [
+      '/email/testing',
+      '/auth0-email-services/configure-external-smtp-email-providers/configure-test-smtp-email-servers',
+      '/email/configure-test-smtp-email-servers'
+    ],
+    to: '/brand-and-customize/email/configure-test-smtp-email-servers'
+  },
 
   /* CMS */
 
@@ -2361,35 +2510,6 @@ module.exports = [
   from: ['/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-lock'],
   to: '/compliance/gdpr/gdpr-track-consent-with-lock'
 },
-  /* Custom Domains */
-  {
-    from: ['/custom-domains/troubleshoot'],
-    to: '/custom-domains/troubleshoot-custom-domains'
-  },
-  {
-    from: ['/custom-domains/self-managed-certificates'],
-    to: '/custom-domains/configure-custom-domains-with-self-managed-certificates'
-  },
-  {
-    from: ['/custom-domains/auth0-managed-certificates'],
-    to: '/custom-domains/configure-custom-domains-with-auth0-managed-certificates'
-  },
-  {
-    from: ['/custom-domains/additional-configuration'],
-    to: '/custom-domains/configure-features-to-use-custom-domains'
-  },
-    {
-    from: ['/custom-domains/set-up-azure-cdn'],
-    to: '/custom-domains/configure-custom-domains-with-self-managed-certificates/configure-azure-cdn-for-use-as-reverse-proxy'
-  },
-    {
-    from: ['/custom-domains/set-up-cloudflare'],
-    to: '/custom-domains/configure-custom-domains-with-self-managed-certificates/configure-cloudflare-for-use-as-reverse-proxy'
-  },
-    {
-    from: ['/custom-domains/set-up-cloudfront'],
-    to: '/custom-domains/configure-custom-domains-with-self-managed-certificates/configure-aws-cloudfront-for-use-as-reverse-proxy'
-  },
 
   /* Deploy */
 
@@ -2468,67 +2588,6 @@ module.exports = [
   {
     from: ['/support/predeployment-tests','/support/testing'],
     to: '/deploy/pre-deployment/predeployment-tests'
-  },
-
-  /* Email */
-
-  {
-    from: ['/auth0-email-services'],
-    to: '/email'
-  },
-  {
-    from: [
-      '/email/custom',
-      '/auth0-email-services/manage-email-flow'
-    ],
-    to: '/email/manage-email-flow'
-  },
-  {
-    from: [
-      '/email/templates',
-      '/auth0-email-services/customize-email-templates',
-      '/email/spa-redirect',
-      '/auth0-email-services/spa-redirect'
-    ],
-    to: '/email/customize-email-templates'
-  },
-  {
-    from: [
-      '/email/liquid-syntax',
-      '/auth0-email-services/customize-email-templates/use-liquid-syntax-in-email-templates'
-    ],
-    to: '/email/customize-email-templates/use-liquid-syntax-in-email-templates'
-  },
-  {
-    from: ['/auth0-email-services/email-template-descriptions'],
-    to: '/email/customize-email-templates/email-template-descriptions'
-  },
-  {
-    from: [
-      '/auth0-email-services/configure-external-smtp-email-providers',
-      '/email/providers'
-    ],
-    to: '/email/configure-external-smtp-email-providers'
-  },
-  {
-    from: ['/auth0-email-services/configure-external-smtp-email-providers/configure-custom-external-smtp-email-provider'],
-    to: '/email/configure-custom-external-smtp-email-provider'
-  },
-  {
-    from: [
-      '/email/testing',
-      '/auth0-email-services/configure-external-smtp-email-providers/configure-test-smtp-email-servers'
-    ],
-    to: '/email/configure-test-smtp-email-servers'
-  },
-  {
-    from: [
-      '/design/creating-invite-only-applications',
-      '/invite-only',
-      '/tutorials/creating-invite-only-applications',
-      '/auth0-email-services/send-email-invitations-for-application-signup'
-    ],
-    to: '/email/send-email-invitations-for-application-signup'
   },
 
   /* Extensions */
@@ -3813,6 +3872,10 @@ module.exports = [
     from: ['/cross-origin-authentication', '/flows/login/embedded-login/cross-origin-authentication'],
     to: '/login/embedded-login/cross-origin-authentication'
   },
+  {
+    from: ['/authorization/configure-silent-authentication','/api-auth/tutorials/silent-authentication'],
+    to: '/login/configure-silent-authentication'
+  },
 
   /* Logout */
 
@@ -4958,6 +5021,10 @@ module.exports = [
     to: '/troubleshoot/troubleshoot-integration-and-extensibility'
   },
   {
+    from: ['/custom-domains/troubleshoot-custom-domains','/custom-domains/troubleshoot'],
+    to: '/troubleshoot/troubleshoot-integrations-and-extensibility/troubleshoot-custom-domains'
+  },
+  {
     from: ['/troubleshoot/self-change-password-errors','/troubleshoot/references/self_change_password'],
     to: '/troubleshoot/troubleshoot-authentication/self-change-password-errors'
   },
@@ -5086,10 +5153,6 @@ module.exports = [
   {
     from: ['/guides/login/universal-vs-embedded','/guides/login/centralized-vs-embedded'],
     to: '/universal-login/universal-vs-embedded-login'
-  },
-  {
-    from: ['/universal-login/page-templates'],
-    to: '/universal-login/new-experience/universal-login-page-templates'
   },
   {
     from: ['/libraries/when-to-use-lock'],
