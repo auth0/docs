@@ -2671,24 +2671,36 @@ module.exports = [
     to: '/deploy/pre-deployment/how-to-run-production-checks'
   },
   {
-      from: ['/pre-deployment/pre-launch-tips','/pre-deployment/prelaunch-tips'],
-      to: '/deploy/pre-deployment/pre-launch-tips'
+    from: [
+      '/deploy/pre-deployment/how-to-run-production-checks/production-check-required-fixes',
+      '/pre-deployment/how-to-run-production-checks/production-check-required-fixes',
+      '/pre-deployment/tests/required'
+    ],
+    to: '/deploy/pre-deployment/production-check-required-fixes'
   },
   {
-      from: ['/pre-deployment/how-to-run-production-checks/production-checks-best-practices','/pre-deployment/tests/best-practice'],
-      to: '/deploy/pre-deployment/how-to-run-production-checks/production-checks-best-practices'
+    from: [
+      '/pre-deployment/how-to-run-production-checks/production-check-recommended-fixes',
+      '/pre-deployment/tests/recommended',
+      '/deploy/pre-deployment/how-to-run-production-checks/production-check-recommended-fixes'
+    ],
+    to: '/deploy/pre-deployment/production-check-recommended-fixes'
   },
   {
-      from: ['/pre-deployment/how-to-run-production-checks/production-check-recommended-fixes','/pre-deployment/tests/recommended'],
-      to: '/deploy/pre-deployment/how-to-run-production-checks/production-check-recommended-fixes'
-  },
-  {
-      from: ['/pre-deployment/how-to-run-production-checks/production-check-required-fixes','/pre-deployment/tests/required'],
-      to: '/deploy/pre-deployment/how-to-run-production-checks/production-check-required-fixes'
+    from: [
+      '/pre-deployment/how-to-run-production-checks/production-checks-best-practices',
+      '/pre-deployment/tests/best-practice',
+      '/deploy/pre-deployment/how-to-run-production-checks/production-checks-best-practices'
+    ],
+    to: '/deploy/pre-deployment/production-checks-best-practices'
   },
   {
     from: ['/support/predeployment-tests','/support/testing'],
     to: '/deploy/pre-deployment/predeployment-tests'
+  },
+  {
+    from: ['/pre-deployment/pre-launch-tips','/pre-deployment/prelaunch-tips'],
+    to: '/deploy/pre-deployment/pre-launch-tips'
   },
 
   /* Extensions */
