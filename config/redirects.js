@@ -3781,7 +3781,7 @@ module.exports = [
       '/protocols/saml/identity-providers/okta',
       '/okta', 
       '/saml/identity-providers/okta',
-      '/protocols/saml-configuration-options/configure-okta-as-saml-identity-provider'
+      '/protocols/saml-configuration-options/configure-okta-as-saml-identity-provider',
       '/protocols/saml-protocol/saml-configuration-options/configure-okta-as-saml-identity-provider'
     ],
     to: '/protocols/saml-protocol/saml-sso-integrations/configure-okta-as-saml-identity-provider'
