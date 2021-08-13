@@ -2319,8 +2319,11 @@ module.exports = [
     to: '/get-started/dashboard/enable-sso-for-legacy-tenants'
   },
   {
-    from: ['/dashboard/guides/connections/set-up-connections-social'],
-    to: '/get-started/dashboard/set-up-social-connections'
+    from: [
+      '/dashboard/guides/connections/set-up-connections-social',
+      '/get-started/dashboard/set-up-social-connections'
+    ],
+    to: 'https://marketplace.auth0.com/features/social-connections'
   },
   {
     from: ['/dashboard/guides/connections/test-connections-database'],
@@ -4008,8 +4011,11 @@ module.exports = [
     to: '/rules/examples'
   },
   {
-    from: '/rules/guides/integrate-user-id-verification',
-    to: '/rules/integrate-user-id-verification'
+    from: [
+      '/rules/guides/integrate-user-id-verification',
+      '/rules/integrate-user-id-verification'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/onfido-identity-verification'
   },
   {
     from: '/rules/guides/integrate-efm-solutions',
