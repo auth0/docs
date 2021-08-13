@@ -3119,6 +3119,22 @@ module.exports = [
     from: ['/universal-login/new-experience/universal-login-page-templates','/universal-login/page-templates'],
     to: '/brand-and-customize/universal-login-page-templates'
   },
+  {
+    from: [
+      '/universal-login/classic-experience/customization-classic',
+      '/universal-login/customization-classic',
+      '/universal-login/advanced-customization'
+    ],
+    to: '/brand-and-customize/customization-classic'
+  },
+  {
+    from: [
+      '/universal-login/version-control-universal-login-pages',
+      '/universal-login/version-control',
+      '/hosted-pages/version-control'
+    ],
+    to: '/brand-and-customize/version-control-universal-login-pages'
+  },
 
   /* Custom Domains */
 
@@ -3205,6 +3221,14 @@ module.exports = [
   },
   {
     from: [
+      '/anomaly-detection/guides/customize-blocked-account-emails',
+      '/anomaly-detection/customize-blocked-account-emails',
+      '/attack-protection/customize-blocked-account-emails'
+    ],
+    to: '/brand-and-customize/email/customize-blocked-account-emails'
+  },
+  {
+    from: [
       '/email/liquid-syntax',
       '/auth0-email-services/customize-email-templates/use-liquid-syntax-in-email-templates',
       '/email/customize-email-templates/use-liquid-syntax-in-email-templates'
@@ -3267,6 +3291,93 @@ module.exports = [
       '/email/configure-test-smtp-email-servers'
     ],
     to: '/brand-and-customize/email/configure-test-smtp-email-servers'
+  },
+
+  {
+    from: [
+      '/universal-login/new-experience/text-customization-new-universal-login',
+      '/universal-login/text-customization'
+    ],
+    to: '/brand-and-customize/text-customization-new-universal-login'
+  },
+  {
+    from: ['/scopes/customize-consent-prompts','/scopes/current/guides/customize-consent-prompt'],
+    to: '/brand-and-customize/customize-consent-prompts'
+  },
+  {
+    from: ['/universal-login/custom-error-pages','/error-pages/custom', '/hosted-pages/custom-error-pages'],
+    to: '/brand-and-customize/custom-error-pages'
+  },
+  {
+    from: [
+      '/libraries/lock/customize-lock-error-messages',
+      '/libraries/lock/v11/customizing-error-messages',
+      '/libraries/lock/customizing-error-messages'
+    ],
+    to: '/brand-and-customize/customize-lock-error-messages'
+  },
+  {
+    from: [
+      '/universal-login/customize-password-reset-page',
+      '/universal-login/password-reset',
+      '/hosted-pages/password-reset'
+    ],
+    to: '/brand-and-customize/customize-password-reset-page'
+  },
+  {
+    from: [
+      '/multifactor-authentication/administrator/sms-templates',
+      '/mfa/guides/guardian/customize-sms-messages',
+      '/multifactor-authentication/sms-templates',
+      '/mfa/guides/customize-phone-messages',
+      '/mfa/customize-sms-or-voice-messages'
+    ],
+    to: '/brand-and-customize/customize-sms-or-voice-messages'
+  },
+
+    /* Internationalization and Localization */
+
+  {
+    from: ['/i18n','/i18n/i18n-custom-login-page'],
+    to: '/brand-and-customize/i18n'
+  },
+  {
+    from: [
+      '/i18n/universal-login-internationalization',
+      '/universal-login/i18n',
+      '/universal-login/universal-login-internationalization'
+    ],
+    to: '/brand-and-customize/i18n/universal-login-internationalization'
+  },
+  {
+    from: ['/libraries/lock/v11/i18n', '/libraries/lock/v10/i18n', '/libraries/lock/lock-internationalization'],
+    to: '/brand-and-customize/i18n/lock-internationalization'
+  },
+  {
+    from: [
+      '/libraries/lock-swift/lock-swift-internationalization',
+      '/i18n/i18n-guide-ios',
+      '/libraries/lock-ios/v2/internationalization',
+      '/libraries/lock-swift/lock-swift-internationalization'
+    ],
+    to: '/brand-and-customize/i18n/lock-swift-internationalization'
+  },
+  {
+    from: [
+      '/i18n/i18n-guide-android',
+      '/libraries/lock-android/v2/internationalization',
+      '/libraries/lock-android/v1/internationalization',
+      '/libraries/lock-android/lock-android-internationalization'
+    ],
+    to: '/brand-and-customize/i18n/lock-android-internationalization'
+  },
+  {
+    from: [
+      '/i18n/password-options-translation',
+      '/i18n/password-options', 
+      '/i18n/password-strength'
+    ],
+    to: '/brand-and-customize/i18n/password-options-translation'
   },
 
   /* CMS */
