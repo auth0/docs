@@ -1997,14 +1997,6 @@ module.exports = [
   },
   {
     from: [
-      '/anomaly-detection/guides/customize-blocked-account-emails',
-      '/anomaly-detection/customize-blocked-account-emails',
-      '/attack-protection/customize-blocked-account-emails'
-    ],
-    to: '/configure/attack-protection/customize-blocked-account-emails'
-  },
-  {
-    from: [
       '/anomaly-detection/bot-protection',
       '/anomaly-detection/guides/prevent-credential-stuffing-attacks',
       '/anomaly-detection/bot-and-credential-stuffing-protection',
@@ -2333,6 +2325,22 @@ module.exports = [
     from: ['/universal-login/new-experience/universal-login-page-templates','/universal-login/page-templates'],
     to: '/brand-and-customize/universal-login-page-templates'
   },
+  {
+    from: [
+      '/universal-login/classic-experience/customization-classic',
+      '/universal-login/customization-classic',
+      '/universal-login/advanced-customization'
+    ],
+    to: '/brand-and-customize/customization-classic'
+  },
+  {
+    from: [
+      '/universal-login/version-control-universal-login-pages',
+      '/universal-login/version-control',
+      '/hosted-pages/version-control'
+    ],
+    to: '/brand-and-customize/version-control-universal-login-pages'
+  },
 
   /* Custom Domains */
 
@@ -2419,6 +2427,14 @@ module.exports = [
   },
   {
     from: [
+      '/anomaly-detection/guides/customize-blocked-account-emails',
+      '/anomaly-detection/customize-blocked-account-emails',
+      '/attack-protection/customize-blocked-account-emails'
+    ],
+    to: '/brand-and-customize/email/customize-blocked-account-emails'
+  },
+  {
+    from: [
       '/email/liquid-syntax',
       '/auth0-email-services/customize-email-templates/use-liquid-syntax-in-email-templates',
       '/email/customize-email-templates/use-liquid-syntax-in-email-templates'
@@ -2483,6 +2499,93 @@ module.exports = [
     to: '/brand-and-customize/email/configure-test-smtp-email-servers'
   },
 
+  {
+    from: [
+      '/universal-login/new-experience/text-customization-new-universal-login',
+      '/universal-login/text-customization'
+    ],
+    to: '/brand-and-customize/text-customization-new-universal-login'
+  },
+  {
+    from: ['/scopes/customize-consent-prompts','/scopes/current/guides/customize-consent-prompt'],
+    to: '/brand-and-customize/customize-consent-prompts'
+  },
+  {
+    from: ['/universal-login/custom-error-pages','/error-pages/custom', '/hosted-pages/custom-error-pages'],
+    to: '/brand-and-customize/custom-error-pages'
+  },
+  {
+    from: [
+      '/libraries/lock/customize-lock-error-messages',
+      '/libraries/lock/v11/customizing-error-messages',
+      '/libraries/lock/customizing-error-messages'
+    ],
+    to: '/brand-and-customize/customize-lock-error-messages'
+  },
+  {
+    from: [
+      '/universal-login/customize-password-reset-page',
+      '/universal-login/password-reset',
+      '/hosted-pages/password-reset'
+    ],
+    to: '/brand-and-customize/customize-password-reset-page'
+  },
+  {
+    from: [
+      '/multifactor-authentication/administrator/sms-templates',
+      '/mfa/guides/guardian/customize-sms-messages',
+      '/multifactor-authentication/sms-templates',
+      '/mfa/guides/customize-phone-messages',
+      '/mfa/customize-sms-or-voice-messages'
+    ],
+    to: '/brand-and-customize/customize-sms-or-voice-messages'
+  },
+
+    /* Internationalization and Localization */
+
+  {
+    from: ['/i18n','/i18n/i18n-custom-login-page'],
+    to: '/brand-and-customize/i18n'
+  },
+  {
+    from: [
+      '/i18n/universal-login-internationalization',
+      '/universal-login/i18n',
+      '/universal-login/universal-login-internationalization'
+    ],
+    to: '/brand-and-customize/i18n/universal-login-internationalization'
+  },
+  {
+    from: ['/libraries/lock/v11/i18n', '/libraries/lock/v10/i18n', '/libraries/lock/lock-internationalization'],
+    to: '/brand-and-customize/i18n/lock-internationalization'
+  },
+  {
+    from: [
+      '/libraries/lock-swift/lock-swift-internationalization',
+      '/i18n/i18n-guide-ios',
+      '/libraries/lock-ios/v2/internationalization',
+      '/libraries/lock-swift/lock-swift-internationalization'
+    ],
+    to: '/brand-and-customize/i18n/lock-swift-internationalization'
+  },
+  {
+    from: [
+      '/i18n/i18n-guide-android',
+      '/libraries/lock-android/v2/internationalization',
+      '/libraries/lock-android/v1/internationalization',
+      '/libraries/lock-android/lock-android-internationalization'
+    ],
+    to: '/brand-and-customize/i18n/lock-android-internationalization'
+  },
+  {
+    from: [
+      '/i18n/password-options-translation',
+      '/i18n/password-options', 
+      '/i18n/password-strength'
+    ],
+    to: '/brand-and-customize/i18n/password-options-translation'
+  },
+
   /* CMS */
 
   {
@@ -2529,8 +2632,6 @@ module.exports = [
     from: ['/cms/wordpress/how-does-it-work'],
     to: '/cms/wordpress-plugin/integrate-with-wordpress'
   },
-
-
 
 /* Compliance */
 
@@ -3649,23 +3750,6 @@ module.exports = [
     to: '/integrations/azure-api-management'
   },
 
-  /* Internationalization */
-
-  {
-    from: ['/i18n/i18n-custom-login-page'],
-    to: '/i18n'
-  },
-  {
-    from: ['/i18n/password-options', '/i18n/password-strength'],
-    to: '/i18n/password-options-translation'
-  },
-  {
-    from: ['/universal-login/i18n','/universal-login/universal-login-internationalization'],
-    to: '/i18n/universal-login-internationalization'
-  },
-
-
-
   /* LDAP Connector */
 
   {
@@ -3756,14 +3840,6 @@ module.exports = [
     to: '/libraries/lock/lock-api-reference'
   },
   {
-    from: ['/libraries/lock/v11/customizing-error-messages','/libraries/lock/customizing-error-messages'],
-    to: '/libraries/lock/customize-lock-error-messages'
-  },
-  {
-    from: ['/libraries/lock/v11/i18n', '/libraries/lock/v10/i18n'],
-    to: '/libraries/lock/lock-internationalization'
-  },
-  {
     from: ['/libraries/lock/v11/sending-authentication-parameters','/libraries/lock/sending-authentication-parameters'],
     to: '/libraries/lock/lock-authentication-parameters'
   },
@@ -3786,10 +3862,6 @@ module.exports = [
   {
     from: ['/libraries/lock-ios/v2/customization','/libraries/lock-ios/use-your-own-ui','/libraries/lock-ios/v1/use-your-own-uis','/libraries/lock-ios/v1/use-your-own-ui','/libraries/lock-ios/v1/customization'],
     to: '/libraries/lock-swift/lock-swift-customization'
-  },
-  {
-    from: ['/i18n/i18n-guide-ios','/libraries/lock-ios/v2/internationalization'],
-    to: '/libraries/lock-swift/lock-swift-internationalization'
   },
   {
     from: ['/libraries/lock-ios/v2/custom-fields'],
@@ -3834,10 +3906,6 @@ module.exports = [
   {
     from: ['/libraries/auth0-android/passwordless','/libraries/lock-android/passwordless','/connections/passwordless/android-email','/libraries/lock-android/v2/passwordless','/libraries/lock-android/v1/passwordless'],
     to: '/libraries/lock-android/lock-android-passwordless'
-  },
-  {
-    from: ['/i18n/i18n-guide-android','/libraries/lock-android/v2/internationalization','/libraries/lock-android/v1/internationalization'],
-    to: '/libraries/lock-android/lock-android-internationalization'
   },
   {
     from: ['/libraries/lock-android/v2/configuration','/libraries/lock-android/v1/configuration'],
@@ -4175,10 +4243,6 @@ module.exports = [
   {
     from: ['/multifactor-authentication/administrator/twilio-configuration','/multifactor-authentication/administrator/sms-notifications','/multifactor-authentication/twilio-configuration','/multifactor-authentication/factors/sms','/mfa/guides/configure-sms','/mfa/guides/configure-phone'],
     to: '/mfa/configure-sms-voice-notifications-mfa'
-  },
-  {
-    from: ['/multifactor-authentication/administrator/sms-templates','/mfa/guides/guardian/customize-sms-messages','/multifactor-authentication/sms-templates','/mfa/guides/customize-phone-messages'],
-    to: '/mfa/customize-sms-or-voice-messages'
   },
   {
     from: ['/multifactor-authentication/google-auth/admin-guide','/multifactor-authentication/google-auth/user-guide','/multifactor-authentication/troubleshooting','/mfa/references/troubleshoot-mfa','/mfa/references/troubleshooting'],
@@ -4865,10 +4929,6 @@ module.exports = [
     to: '/scopes/api-scopes'
   },
   {
-    from: ['/scopes/current/guides/customize-consent-prompt'],
-    to: '/scopes/customize-consent-prompts'
-  },
-  {
     from: ['/scopes/current/oidc-scopes','/api-auth/tutorials/adoption/scope-custom-claims','/scopes/oidc-scopes'],
     to: '/scopes/openid-connect-scopes'
   },
@@ -5382,14 +5442,6 @@ module.exports = [
     to: '/universal-login/error-pages'
   },
   {
-    from: ['/error-pages/custom', '/hosted-pages/custom-error-pages'],
-    to: '/universal-login/custom-error-pages'
-  },
-  {
-    from: ['/universal-login/customization-classic','/universal-login/advanced-customization'],
-    to: '/universal-login/classic-experience/customization-classic'
-  },
-  {
     from: ['/universal-login/classic'],
     to: '/universal-login/classic-experience'
   },
@@ -5400,14 +5452,6 @@ module.exports = [
   {
     from: ['/universal-login/new'],
     to: '/universal-login/new-experience'
-  },
-  {
-    from: ['/universal-login/password-reset','/hosted-pages/password-reset'],
-    to: '/universal-login/customize-password-reset-page'
-  },
-  {
-    from: ['/universal-login/version-control','/hosted-pages/version-control'],
-    to: '/universal-login/version-control-universal-login-pages'
   },
   {
     from: ['/dashboard/guides/universal-login/configure-login-page-passwordless','/dashboard/guides/connections/configure-passwordless-sms'],
@@ -5476,10 +5520,6 @@ module.exports = [
   {
     from: ['/universal-login/default-login-url','/hosted-pages/default-login-url'],
     to: '/universal-login/configure-default-login-routes'
-  },
-  {
-    from: ['/universal-login/text-customization'],
-    to: '/universal-login/new-experience/text-customization-new-universal-login'
   },
 
 
