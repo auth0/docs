@@ -2770,11 +2770,22 @@ module.exports = [
   /* Extensions */
 
   {
-    from: ['/topics/extensibility','/extend-integrate'],
+    from: [
+      '/extensions/using-provided-extensions',
+      '/topics/extensibility',
+      '/extend-integrate',
+      '/extensions/visual-studio-team-services-deploy',
+      '/extensions/visual-studio-team-services-deployments'
+    ],
     to: '/extensions'
   },
   {
-    from: ['/extensions/authorization-extension/v2','/extensions/authorization-extension/v1','/api/authorization-dashboard-extension','/extensions/authorization-dashboard-extension'],
+    from: [
+      '/extensions/authorization-extension/v2',
+      '/extensions/authorization-extension/v1',
+      '/api/authorization-dashboard-extension',
+      '/extensions/authorization-dashboard-extension'
+    ],
     to: '/extensions/authorization-extension'
   },
   {
@@ -2806,40 +2817,88 @@ module.exports = [
     to: '/extensions/authorization-extension/use-rules-with-the-authorization-extension'
   },
   {
-    from: ['/extensions/authorization-extension/v2/troubleshooting','/extensions/authorization-dashboard-extension/troubleshoot-authorization-extension'],
-    to: '/extensions/authorization-extension/troubleshoot-authorization-extension'
-  },
-  {
     from: ['/extensions/delegated-admin/v3','/extensions/delegated-admin/v2','/extensions/delegated-admin'],
     to: '/extensions/delegated-administration-extension'
   },
   {
-    from: ['/extensions/delegated-admin/v3/hooks','/extensions/delegated-admin/v2/hooks','/extensions/delegated-admin/hooks'],
+    from: [
+      '/extensions/delegated-admin/v3/hooks',
+      '/extensions/delegated-admin/v2/hooks',
+      '/extensions/delegated-admin/hooks'
+    ],
     to: '/extensions/delegated-administration-extension/delegated-administration-hooks'
   },
   {
-    from: ['/extensions/delegated-admin/v3/hooks/access','/extensions/delegated-admin/v2/hooks/access','/extensions/delegated-admin/hooks/access'],
-    to: '/extensions/delegated-administration-extension/delegated-administration-hooks/delegated-administration-access-hook'
+    from: [
+      '/extensions/delegated-admin/v3/hooks/access',
+      '/extensions/delegated-admin/v2/hooks/access',
+      '/extensions/delegated-admin/hooks/access',
+      '/extensions/delegated-administration-extension/delegated-administration-hooks/delegated-administration-access-hook'
+    ],
+    to: '/extensions/delegated-administration-extension/delegated-administration-access-hook'
   },
   {
-    from: ['/extensions/delegated-admin/v3/hooks/filter','/extensions/delegated-admin/v2/hooks/filter','/extensions/delegated-admin/hooks/filter'],
-    to: '/extensions/delegated-administration-extension/delegated-administration-hooks/delegated-administration-filter-hook'
+    from: [
+      '/extensions/delegated-admin/v3/hooks/filter',
+      '/extensions/delegated-admin/v2/hooks/filter',
+      '/extensions/delegated-admin/hooks/filter',
+      '/extensions/delegated-administration-extension/delegated-administration-hooks/delegated-administration-filter-hook'
+    ],
+    to: '/extensions/delegated-administration-extension/delegated-administration-filter-hook'
   },
   {
-    from: ['/extensions/delegated-admin/v3/hooks/membership','/extensions/delegated-admin/v2/hooks/membership','/extensions/delegated-admin/hooks/membership'],
-    to: '/extensions/delegated-administration-extension/delegated-administration-hooks/delegated-administration-memberships-query-hook'
+    from: [
+      '/extensions/delegated-admin/v3/hooks/membership',
+      '/extensions/delegated-admin/v2/hooks/membership',
+      '/extensions/delegated-admin/hooks/membership',
+      '/extensions/delegated-administration-extension/delegated-administration-hooks/delegated-administration-memberships-query-hook'
+    ],
+    to: '/extensions/delegated-administration-extension/delegated-administration-memberships-query-hook'
   },
   {
-    from: ['/extensions/delegated-admin/v3/hooks/settings','/extensions/delegated-admin/v2/hooks/settings','/extensions/delegated-admin/hooks/settings'],
-    to: '/extensions/delegated-administration-extension/delegated-administration-hooks/delegated-administration-settings-query-hook'
+    from: [
+      '/extensions/delegated-admin/v3/hooks/settings',
+      '/extensions/delegated-admin/v2/hooks/settings',
+      '/extensions/delegated-admin/hooks/settings',
+      '/extensions/delegated-administration-extension/delegated-administration-hooks/delegated-administration-settings-query-hook'
+    ],
+    to: '/extensions/delegated-administration-extension/delegated-administration-settings-query-hook'
   },
   {
-    from: ['/extensions/delegated-admin/v3/hooks/write','/extensions/delegated-admin/v2/hooks/write','/extensions/delegated-admin/hooks/write'],
-    to: '/extensions/delegated-administration-extension/delegated-administration-hooks/delegated-administration-write-hook'
+    from: [
+      '/extensions/delegated-admin/v3/hooks/write',
+      '/extensions/delegated-admin/v2/hooks/write',
+      '/extensions/delegated-admin/hooks/write',
+      '/extensions/delegated-administration-extension/delegated-administration-hooks/delegated-administration-write-hook'
+    ],
+    to: '/extensions/delegated-administration-extension/delegated-administration-write-hook'
   },
   {
     from: ['/extensions/delegated-admin/v3/manage-users','/extensions/delegated-admin/v2/manage-users','/extensions/delegated-admin/manage-users'],
     to: '/extensions/delegated-administration-extension/delegated-administration-manage-users'
+  },
+  {
+    from: ['/extensions/sso-dashboard'],
+    to: '/extensions/single-sign-on-dashboard-extension'
+  },
+  {
+    from: [
+      '/get-started/dashboard/create-sso-dashboard-application',
+      '/dashboard/guides/extensions/sso-dashboard-create-app'
+    ],
+    to: '/extensions/single-sign-on-dashboard-extensions/create-sso-dashboard-application'
+  },
+  {
+    from: ['/dashboard/guides/extensions/sso-dashboard-install-extension'],
+    to: '/extensions/single-sign-on-dashboard-extension/install-sso-dashboard-extension'
+  },
+  {
+    from: ['/dashboard/guides/extensions/sso-dashboard-add-apps'],
+    to: '/extensions/single-sign-on-dashboard-extension/add-applications-to-the-sso-dashboard'
+  },
+  {
+    from: ['/dashboard/guides/extensions/sso-dashboard-update-apps'],
+    to: '/extensions/single-sign-on-dashboard-extension/update-applications-on-the-sso-dashboard'
   },
   {
     from: ['/extensions/deploy-cli-tool','/extensions/deploy-cli'],
@@ -2922,8 +2981,52 @@ module.exports = [
     to: '/extensions/account-link-extension'
   },
   {
-    from: ['/extensions/application-insight'],
-    to: '/extensions/export-logs-to-application-insights'
+    from: ['/logs/export-log-events-with-extensions', '/logs/log-export-extensions'],
+    to: '/extensions/log-export-extensions'
+  },
+  {
+    from: ['/extensions/export-logs-to-application-insights','/extensions/application-insight'],
+    to: '/extensions/log-export-extensions/export-logs-to-application-insights'
+  },
+  {
+    from: ['/extensions/export-logs-to-cloudwatch','/extensions/cloudwatch'],
+    to: '/extensions/log-export-extensions/export-logs-to-cloudwatch'
+  },
+  {
+    from: ['/extensions/export-logs-to-azure-blob-storage','/extensions/azure-blob-storage'],
+    to: '/extensions/log-export-extensions/export-logs-to-azure-blob-storage'
+  },
+  {
+    from: ['/extensions/export-logs-to-logentries','/extensions/logentries'],
+    to: '/extensions/log-export-extensions/export-logs-to-logentries'
+  },
+  {
+    from: ['/extensions/export-logs-to-loggly','/extensions/loggly'],
+    to: '/extensions/log-export-extensions/export-logs-to-loggly'
+  },
+  {
+    from: ['/extensions/export-logs-to-logstash','/extensions/logstash'],
+    to: '/extensions/log-export-extensions/export-logs-to-logstash'
+  },
+  {
+    from: ['/extensions/export-logs-to-mixpanel','/extensions/mixpanel'],
+    to: '/extensions/log-export-extensions/export-logs-to-mixpanel'
+  },
+  {
+    from: ['/extensions/export-logs-to-papertrail','/extensions/papertrail'],
+    to: '/extensions/log-export-extensions/export-logs-to-papertrail'
+  },
+  {
+    from: ['/extensions/export-logs-to-segment','/extensions/segment'],
+    to: '/extensions/log-export-extensions/export-logs-to-segment'
+  },
+  {
+    from: ['/extensions/export-logs-to-splunk','/extensions/splunk'],
+    to: '/extensions/log-export-extensions/export-logs-to-splunk'
+  },
+  {
+    from: ['/extensions/auth0-logs-to-sumo-logic','/extensions/sumologic'],
+    to: '/extensions/log-export-extensions/auth0-logs-to-sumo-logic'
   },
   {
     from: ['/extensions/authentication-api-debugger'],
@@ -2934,8 +3037,8 @@ module.exports = [
     to: '/extensions/auth0-authentication-api-webhooks'
   },
   {
-    from: ['/extensions/azure-blob-storage'],
-    to: '/extensions/export-logs-to-azure-blob-storage'
+    from: ['/extensions/user-import-export'],
+    to: '/extensions/user-import-export-extension'
   },
   {
     from: [
@@ -2943,10 +3046,6 @@ module.exports = [
       '/extensions/bitbucket-deployments'
     ],
     to: 'https://marketplace.auth0.com/integrations/bitbucket-pipeline'
-  },
-  {
-    from: ['/extensions/cloudwatch'],
-    to: '/extensions/export-logs-to-cloudwatch'
   },
   {
     from: ['/extensions/custom-social-connections','/extensions/custom-social-extensions'],
@@ -2967,64 +3066,12 @@ module.exports = [
     to: 'https://marketplace.auth0.com/integrations/gitlab-pipeline'
   },
   {
-    from: ['/extensions/logentries'],
-    to: '/extensions/export-logs-to-logentries'
-  },
-  {
-    from: ['/extensions/loggly'],
-    to: '/extensions/export-logs-to-loggly'
-  },
-  {
-    from: ['/extensions/logstash'],
-    to: '/extensions/export-logs-to-logstash'
-  },
-  {
     from: ['/extensions/management-api-webhooks'],
     to: '/extensions/auth0-management-api-webhooks'
   },
   {
-    from: ['/extensions/mixpanel'],
-    to: '/extensions/export-logs-to-mixpanel'
-  },
-  {
-    from: ['/extensions/papertrail'],
-    to: '/extensions/export-logs-to-papertrail'
-  },
-  {
     from: ['/extensions/realtime-webtask-logs'],
     to: '/extensions/real-time-webtask-logs'
-  },
-  {
-    from: ['/extensions/segment'],
-    to: '/extensions/export-logs-to-segment'
-  },
-  {
-    from: ['/extensions/splunk'],
-    to: '/extensions/export-logs-to-splunk'
-  },
-  {
-    from: ['/extensions/sso-dashboard'],
-    to: '/extensions/single-sign-on-dashboard-extension'
-  },
-  {
-    from: ['/extensions/sumologic'],
-    to: '/extensions/auth0-logs-to-sumo-logic'
-  },
-  {
-    from: ['/extensions/troubleshoot'],
-    to: '/extensions/troubleshoot-extensions'
-  },
-  {
-    from: ['/extensions/user-import-export'],
-    to: '/extensions/user-import-export-extension'
-  },
-  {
-    from: ['/extensions/using-provided-extensions'],
-    to: '/extensions'
-  },
-  {
-    from: ['/extensions/visual-studio-team-services-deploy','/extensions/visual-studio-team-services-deployments'],
-    to: '/extensions'
   },
   {
     from: ['/dashboard/guides/extensions/delegated-admin-create-app'],
@@ -3033,18 +3080,6 @@ module.exports = [
   {
     from: ['/dashboard/guides/extensions/delegated-admin-install-extension','/dashboard/guides/extensions/delegated-admin-use-extension'],
     to: '/extensions/delegated-administration-extension/install-delegated-admin-extension'
-  },
-  {
-    from: ['/dashboard/guides/extensions/sso-dashboard-add-apps'],
-    to: '/extensions/single-sign-on-dashboard-extension/add-applications-to-the-sso-dashboard'
-  },
-  {
-    from: ['/dashboard/guides/extensions/sso-dashboard-install-extension'],
-    to: '/extensions/single-sign-on-dashboard-extension/install-sso-dashboard-extension'
-  },
-  {
-    from: ['/dashboard/guides/extensions/sso-dashboard-update-apps'],
-    to: '/extensions/single-sign-on-dashboard-extension/update-applications-on-the-sso-dashboard'
   },
 
   /* Flows */
@@ -3219,10 +3254,6 @@ module.exports = [
   {
     from: ['/dashboard/guides/connections/enable-connections-enterprise'],
     to: '/get-started/dashboard/enable-enterprise-connections'
-  },
-  {
-    from: ['/dashboard/guides/extensions/sso-dashboard-create-app'],
-    to: '/get-started/dashboard/create-sso-dashboard-application'
   },
   {
     from: ['/api/management/guides/connections/promote-connection-domain-level'],
@@ -5412,8 +5443,20 @@ module.exports = [
     to: '/troubleshoot/troubleshoot-integrations-and-extensibility/troubleshoot-custom-domains'
   },
   {
+    from: ['/extensions/troubleshoot-extensions','/extensions/troubleshoot'],
+    to: '/troubleshoot/troubleshoot-integrations-and-extensibility/troubleshoot-extensions'
+  },
+  {
     from: ['/troubleshoot/self-change-password-errors','/troubleshoot/references/self_change_password'],
     to: '/troubleshoot/troubleshoot-authentication/self-change-password-errors'
+  },
+  {
+    from: [
+      '/extensions/authorization-extension/v2/troubleshooting',
+      '/extensions/authorization-dashboard-extension/troubleshoot-authorization-extension',
+      '/extensions/authorization-extension/troubleshoot-authorization-extension'
+    ],
+    to: '/troubleshoot/troubleshoot-authentication/troubleshoot-authorization-extension'
   },
   {
     from: ['/troubleshoot/guides/verify-rules', '/troubleshoot/verify-rules'],
