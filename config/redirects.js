@@ -4571,60 +4571,6 @@ module.exports = [
     to: '/integrations/azure-api-management'
   },
 
-  /* LDAP Connector */
-
-  {
-    from: ['/connector','/connector/overview','/connector/considerations-non-ad','/ad-ldap-connector'],
-    to: '/extensions/ad-ldap-connector'
-  },
-  {
-    from: [,'/extensions/adldap-connector','/extensions/ad-ldap-connector-health-monitor'],
-    to: '/extensions/ad-ldap-connector/ad-ldap-connector-health-monitor'
-  },
-  {
-    from: ['/connector/prerequisites','/ad-ldap-connector/ad-ldap-connector-requirements'],
-    to: '/extensions/ad-ldap-connector/ad-ldap-connector-requirements'
-  },
-  {
-    from: ['/connector/client-certificates','/ad-ldap-connector/configure-ad-ldap-connector-authentication-with-client-certificates'],
-    to: '/extensions/ad-ldap-connector/configure-ad-ldap-connector-client-certificates'
-  },
-  {
-    from: ['/connector/kerberos','/ad-ldap-connector/configure-ad-ldap-connector-authentication-with-kerberos'],
-    to: '/extensions/ad-ldap-connector/configure-ad-ldap-connector-with-kerberos'
-  },
-  {
-    from: ['/connector/high-availability','/ad-ldap-connector/ad-ldap-high-availability'],
-    to: '/extensions/ad-ldap-connector/ad-ldap-high-availability'
-  },
-  {
-    from: ['/dashboard/guides/connections/disable-cache-ad-ldap'],
-    to: '/extensions/ad-ldap-connector/disable-credential-caching'
-  },
-  {
-    from: ['/adldap-x','/connector/install-other-platforms','/connector/install','/adldap-auth'],
-    to: '/extensions/ad-ldap-connector/install-configure-ad-ldap-connector'
-  },
-  {
-    from: ['/connector/scom-monitoring','/ad-ldap-connector/ad-ldap-connector-scorm'],
-    to: '/extensions/ad-ldap-connector/ad-ldap-connector-scom'
-  },
-  {
-    from: ['/connector/modify','/ad-ldap-connector/ad-ldap-connectors-to-auth0'],
-    to: '/extensions/ad-ldap-connector/ad-ldap-connector-to-auth0'
-  },
-  {
-    from: ['/connector/test-dc','/ad-ldap-connector/ad-ldap-connector-test-environment'],
-    to: '/extensions/ad-ldap-connector/ad-ldap-connector-test-environment'
-  },
-  {
-    from: ['/connector/troubleshooting','/ad-ldap-connector/troubleshoot-ad-ldap-connector'],
-    to: '/extensions/ad-ldap-connector/troubleshoot-ad-ldap-connector'
-  },
-  {
-    from: ['/connector/update','/ad-ldap-connector/update-ad-ldap-connectors'],
-    to: '/extensions/ad-ldap-connector/update-ad-ldap-connectors'
-  },
 
   /* Libraries */
 
