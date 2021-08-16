@@ -2014,6 +2014,73 @@ module.exports = [
   },
   {
     from: [
+      '/flows/concepts/auth-code',
+      '/flows/concepts/regular-web-app-login-flow',
+      '/api-auth/grant/authorization-code',
+      '/api-auth/tutorials/adoption/authorization-code',
+      '/api-auth/adoption/authorization-code',
+      '/flows/authorization-code-flow'
+    ],
+    to: '/authorization/authorization-flows/authorization-code-flow'
+  },
+  {
+    from: [
+      '/flows/concepts/auth-code-pkce',
+      '/api-auth/grant/authorization-code-pkce',
+      '/flows/concepts/mobile-login-flow',
+      '/flows/concepts/single-page-login-flow',
+      '/flows/authorization-code-flow-with-proof-key-for-code-exchange-pkce'
+    ],
+    to: '/authorization/authorization-flows/authorization-code-flow-with-proof-key-for-code-exchange-pkce'
+  },
+  {
+    from: [
+      '/flows/guides/implicit/call-api-implicit',
+      '/flows/guides/implicit/includes/sample-use-cases-call-api',
+      '/flows/guides/implicit/includes/call-api',
+      '/flows/guides/implicit/includes/authorize-user-call-api',
+      '/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow',
+      '/api-auth/grant/implicit',
+      '/api-auth/tutorials/adoption/implicit',
+      '/api-auth/tutorials/implicit-grant',
+      '/protocols/oauth2/oauth-implicit-protocol',
+      '/flows/concepts/implicit',
+      '/flows/implicit-flow-with-form-post'
+    ],
+    to: '/authorization/authorization-flows/implicit-flow-with-form-post'
+  },
+  {
+    from: ['/flows/hybrid-flow','/api-auth/grant/hybrid'],
+    to: '/authorization/authorization-flows/hybrid-flow'
+  },
+  {
+    from: [
+      '/flows/concepts/client-credentials',
+      '/flows/concepts/m2m-flow',
+      '/api-auth/grant/client-credentials',
+      '/api-auth/tutorials/adoption/client-credentials',
+      '/flows/client-credentials-flow'
+    ],
+    to: '/authorization/authorization-flows/client-credentials-flow'
+  },
+  {
+    from: [
+      '/flows/concepts/device-auth',
+      '/flows/guides/device-auth/call-api-device-auth',
+      '/flows/device-authorization-flow'
+    ],
+    to: '/authorization/authorization-flows/device-authorization-flow'
+  },
+  {
+    from: [
+      '/api-auth/grant/password',
+      '/api-auth/tutorials/adoption/password',
+      '/flows/resource-owner-password-flow'
+    ],
+    to: '/authorization/authorization-flows/resource-owner-password-flow'
+  },
+  {
+    from: [
       '/authorization/revoke-access-to-apis-using-blacklists-or-application-grants',
       '/api-auth/blacklists-vs-grants','/blacklists-vs-application-grants'
     ],
@@ -2836,81 +2903,56 @@ module.exports = [
     from: ['/dashboard/guides/extensions/sso-dashboard-update-apps'],
     to: '/extensions/single-sign-on-dashboard-extension/update-applications-on-the-sso-dashboard'
   },
+
+  /* LDAP Connector */
+
   {
-    from: ['/extensions/deploy-cli-tool','/extensions/deploy-cli'],
-    to: '/deploy/deploy-cli-tool'
+    from: ['/connector','/connector/overview','/connector/considerations-non-ad','/ad-ldap-connector'],
+    to: '/extensions/ad-ldap-connector'
   },
   {
-    from: [
-      '/extensions/deploy-cli-tool/call-deploy-cli-tool-programmatically',
-      '/extensions/deploy-cli/guides/call-deploy-cli-programmatically'
-    ],
-    to: '/deploy/deploy-cli-tool/call-deploy-cli-tool-programmatically'
+    from: ['/connector/prerequisites','/ad-ldap-connector/ad-ldap-connector-requirements'],
+    to: '/extensions/ad-ldap-connector/ad-ldap-connector-requirements'
   },
   {
-    from: [
-      '/extensions/deploy-cli/guides/create-deploy-cli-application-manually',
-      '/extensions/deploy-cli-tool/create-and-configure-the-deploy-cli-application-manually',
-      '/extensions/deploy-cli-tool/create-and-configure-the-deploy-cli-application'
-    ],
-    to: '/deploy/deploy-cli-tool/create-and-configure-the-deploy-cli-application'
+    from: ['/adldap-x','/connector/install-other-platforms','/connector/install','/adldap-auth'],
+    to: '/extensions/ad-ldap-connector/install-configure-ad-ldap-connector'
   },
   {
-    from: [
-      '/extensions/deploy-cli/guides/import-export-directory-structure',
-      '/extensions/deploy-cli-tool/import-export-tenant-configuration-to-directory-structure'
-    ],
-    to: '/deploy/deploy-cli-tool/import-export-tenant-configuration-to-directory-structure'
+    from: ['/connector/client-certificates','/ad-ldap-connector/configure-ad-ldap-connector-authentication-with-client-certificates'],
+    to: '/extensions/ad-ldap-connector/configure-ad-ldap-connector-client-certificates'
   },
   {
-    from: [
-      '/extensions/deploy-cli/guides/import-export-yaml-file',
-      '/extensions/deploy-cli-tool/import-export-tenant-configuration-to-yaml-file'
-    ],
-    to: '/deploy/deploy-cli-tool/import-export-tenant-configuration-to-yaml-file'
+    from: ['/connector/kerberos','/ad-ldap-connector/configure-ad-ldap-connector-authentication-with-kerberos'],
+    to: '/extensions/ad-ldap-connector/configure-ad-ldap-connector-with-kerberos'
   },
   {
-    from: [
-      '/extensions/deploy-cli/guides/incorporate-deploy-cli-into-build-environment',
-      '/extensions/deploy-cli-tool/incorporate-deploy-cli-into-build-environment'
-    ],
-    to: '/deploy/deploy-cli-tool/incorporate-deploy-cli-into-build-environment'
+    from: ['/connector/high-availability','/ad-ldap-connector/ad-ldap-high-availability'],
+    to: '/extensions/ad-ldap-connector/ad-ldap-high-availability'
   },
   {
-    from: [
-      '/extensions/deploy-cli/guides/install-deploy-cli',
-      '/extensions/deploy-cli-tool/install-and-configure-the-deploy-cli-tool'
-    ],
-    to: '/deploy/deploy-cli-tool/install-and-configure-the-deploy-cli-tool'
+    from: ['extensions/adldap-connector','/extensions/ad-ldap-connector-health-monitor'],
+    to: '/extensions/ad-ldap-connector/ad-ldap-connector-health-monitor'
   },
   {
-    from: [
-      '/extensions/deploy-cli/references/deploy-cli-options',
-      '/extensions/deploy-cli-tool/deploy-cli-tool-options'
-    ],
-    to: '/deploy/deploy-cli-tool/deploy-cli-tool-options'
+    from: ['/dashboard/guides/connections/disable-cache-ad-ldap'],
+    to: '/extensions/ad-ldap-connector/disable-credential-caching'
   },
   {
-    from: [
-      '/extensions/deploy-cli/references/environment-variables-keyword-mappings',
-      '/extensions/deploy-cli-tool/environment-variables-and-keyword-mappings'
-    ],
-    to: '/deploy/deploy-cli-tool/environment-variables-and-keyword-mappings'
+    from: ['/connector/scom-monitoring','/ad-ldap-connector/ad-ldap-connector-scorm'],
+    to: '/extensions/ad-ldap-connector/ad-ldap-connector-scom'
   },
   {
-    from: [
-      '/extensions/deploy-cli/references/troubleshooting',
-      '/extensions/deploy-cli-tool/troubleshoot-the-deploy-cli-tool'
-    ],
-    to: '/deploy/deploy-cli-tool/troubleshoot-the-deploy-cli-tool'
+    from: ['/connector/modify','/ad-ldap-connector/ad-ldap-connectors-to-auth0'],
+    to: '/extensions/ad-ldap-connector/ad-ldap-connector-to-auth0'
   },
   {
-    from: [
-      '/extensions/deploy-cli/references/whats-new',
-      '/extensions/deploy-cli/references/whats-new-v2',
-      '/extensions/deploy-cli-tool/whats-new-in-deploy-cli-tool'
-    ],
-    to: '/deploy/deploy-cli-tool/whats-new-in-deploy-cli-tool'
+    from: ['/connector/test-dc','/ad-ldap-connector/ad-ldap-connector-test-environment'],
+    to: '/extensions/ad-ldap-connector/ad-ldap-connector-test-environment'
+  },
+  {
+    from: ['/connector/update','/ad-ldap-connector/update-ad-ldap-connectors'],
+    to: '/extensions/ad-ldap-connector/update-ad-ldap-connectors'
   },
   {
     from: ['/extensions/account-link'],
@@ -3018,67 +3060,76 @@ module.exports = [
     to: '/extensions/delegated-administration-extension/install-delegated-admin-extension'
   },
 
-  /* Flows */
+  /* Deploy CLI Tool */
 
   {
-    from: ['/flows/concepts/auth-code','/flows/concepts/regular-web-app-login-flow','/api-auth/grant/authorization-code','/api-auth/tutorials/adoption/authorization-code','/api-auth/adoption/authorization-code'],
-    to: '/flows/authorization-code-flow'
+    from: ['/extensions/deploy-cli-tool','/extensions/deploy-cli'],
+    to: '/deploy/deploy-cli-tool'
   },
   {
-    from: ['/flows/concepts/auth-code-pkce','/api-auth/grant/authorization-code-pkce','/flows/concepts/mobile-login-flow','/flows/concepts/single-page-login-flow'],
-    to: '/flows/authorization-code-flow-with-proof-key-for-code-exchange-pkce'
+    from: [
+      '/extensions/deploy-cli-tool/call-deploy-cli-tool-programmatically',
+      '/extensions/deploy-cli/guides/call-deploy-cli-programmatically'
+    ],
+    to: '/deploy/deploy-cli-tool/call-deploy-cli-tool-programmatically'
   },
   {
-    from: ['/flows/concepts/client-credentials','/flows/concepts/m2m-flow','/api-auth/grant/client-credentials','/api-auth/tutorials/adoption/client-credentials','/authorization/flows/client-credential-flow'],
-    to: '/flows/client-credentials-flow'
+    from: [
+      '/extensions/deploy-cli/guides/create-deploy-cli-application-manually',
+      '/extensions/deploy-cli-tool/create-and-configure-the-deploy-cli-application-manually',
+      '/extensions/deploy-cli-tool/create-and-configure-the-deploy-cli-application'
+    ],
+    to: '/deploy/deploy-cli-tool/create-and-configure-the-deploy-cli-application'
   },
   {
-    from: ['/flows/guides/auth-code/add-login-auth-code','/flows/guides/auth-code/includes/authorize-user-add-login','/flows/guides/auth-code/includes/sample-use-cases-add-login','/flows/guides/auth-code/includes/refresh-tokens','/flows/guides/auth-code/includes/request-tokens','/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow','/oauth-web-protocol', '/protocols/oauth-web-protocol', '/protocols/oauth2/oauth-web-protocol','/application-auth/current/server-side-web','/client-auth/server-side-web','/application-auth/legacy/server-side-web'],
-    to: '/flows/add-login-auth-code-flow'
+    from: [
+      '/extensions/deploy-cli/guides/import-export-directory-structure',
+      '/extensions/deploy-cli-tool/import-export-tenant-configuration-to-directory-structure'
+    ],
+    to: '/deploy/deploy-cli-tool/import-export-tenant-configuration-to-directory-structure'
   },
   {
-    from: ['/authorization/flows/call-your-api-using-the-authorization-code-flow','/flows/guides/auth-code/call-api-auth-code','/flows/guides/auth-code/includes/authorize-user-call-api','/flows/guides/auth-code/includes/sample-use-cases-call-api','/flows/guides/auth-code/includes/call-api','/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow','/api-auth/tutorials/authorization-code-grant'],
-    to: '/flows/call-your-api-using-the-authorization-code-flow'
+    from: [
+      '/extensions/deploy-cli/guides/import-export-yaml-file',
+      '/extensions/deploy-cli-tool/import-export-tenant-configuration-to-yaml-file'
+    ],
+    to: '/deploy/deploy-cli-tool/import-export-tenant-configuration-to-yaml-file'
   },
   {
-    from: ['/flows/guides/auth-code-pkce/add-login-auth-code-pkce','/flows/guides/auth-code-pkce/includes/sample-use-cases-add-login','/flows/guides/auth-code-pkce/includes/request-tokens','/flows/guides/auth-code-pkce/includes/refresh-tokens','/flows/guides/auth-code-pkce/includes/create-code-verifier','/flows/guides/auth-code-pkce/includes/create-code-challenge','/flows/guides/auth-code-pkce/includes/authorize-user-add-login','/application-auth/current/mobile-desktop','/application-auth/legacy/mobile-desktop','/application-auth/legacy/mobile-desktop','/flows/guides/mobile-login-flow/add-login-using-mobile-login-flow'],
-    to: '/flows/add-login-using-the-authorization-code-flow-with-pkce'
+    from: [
+      '/extensions/deploy-cli/guides/incorporate-deploy-cli-into-build-environment',
+      '/extensions/deploy-cli-tool/incorporate-deploy-cli-into-build-environment'
+    ],
+    to: '/deploy/deploy-cli-tool/incorporate-deploy-cli-into-build-environment'
   },
   {
-    from: ['/flows/guides/auth-code-pkce/call-api-auth-code-pkce','/flows/guides/auth-code-pkce/includes/sample-use-cases-call-api','/flows/guides/auth-code-pkce/includes/call-api','/flows/guides/auth-code-pkce/includes/authorize-user-call-api','/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow','/api-auth/tutorials/authorization-code-grant-pkce'],
-    to: '/flows/call-your-api-using-the-authorization-code-flow-with-pkce'
+    from: [
+      '/extensions/deploy-cli/guides/install-deploy-cli',
+      '/extensions/deploy-cli-tool/install-and-configure-the-deploy-cli-tool'
+    ],
+    to: '/deploy/deploy-cli-tool/install-and-configure-the-deploy-cli-tool'
   },
   {
-    from: ['/flows/guides/client-credentials/call-api-client-credentials','/flows/guides/client-credentials/includes/sample-use-cases','/flows/guides/client-credentials/includes/call-api','/flows/guides/client-credentials/includes/request-token','/flows/guides/m2m-flow/call-api-using-m2m-flow','/api-auth/tutorials/client-credentials','/api-auth/config/asking-for-access-tokens'],
-    to: '/flows/call-your-api-using-the-client-credentials-flow'
+    from: [
+      '/extensions/deploy-cli/references/deploy-cli-options',
+      '/extensions/deploy-cli-tool/deploy-cli-tool-options'
+    ],
+    to: '/deploy/deploy-cli-tool/deploy-cli-tool-options'
   },
   {
-    from: ['/flows/concepts/device-auth','/flows/guides/device-auth/call-api-device-auth'],
-    to: '/flows/device-authorization-flow'
+    from: [
+      '/extensions/deploy-cli/references/environment-variables-keyword-mappings',
+      '/extensions/deploy-cli-tool/environment-variables-and-keyword-mappings'
+    ],
+    to: '/deploy/deploy-cli-tool/environment-variables-and-keyword-mappings'
   },
   {
-    from: ['/flows/guides/implicit/add-login-implicit','/flows/guides/implicit/includes/sample-use-cases-add-login','/flows/guides/implicit/includes/refresh-tokens','/flows/guides/implicit/includes/request-tokens','/flows/guides/implicit/includes/authorize-user-add-login','/application-auth/current/client-side-web','/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow','/client-auth/client-side-web','/application-auth/legacy/client-side-web'],
-    to: '/flows/add-login-using-the-implicit-flow-with-form-post'
-  },
-  {
-    from: ['/flows/guides/implicit/call-api-implicit','/flows/guides/implicit/includes/sample-use-cases-call-api','/flows/guides/implicit/includes/call-api','/flows/guides/implicit/includes/authorize-user-call-api','/flows/guides/single-page-login-flow/call-api-using-single-page-login-flow','/api-auth/grant/implicit','/api-auth/tutorials/adoption/implicit','/api-auth/tutorials/implicit-grant','/protocols/oauth2/oauth-implicit-protocol','/flows/concepts/implicit'],
-    to: '/flows/implicit-flow-with-form-post'
-  },
-  {
-    from: ['/api-auth/grant/password','/api-auth/tutorials/adoption/password'],
-    to: '/flows/resource-owner-password-flow'
-  },
-  {
-    from: ['/api-auth/tutorials/password-grant'],
-    to: '/flows/call-your-api-using-resource-owner-password-flow'
-  },
-  {
-    from: ['/api-auth/grant/hybrid'],
-    to: '/flows/hybrid-flow'
-  },
-  {
-    from: ['/api-auth/tutorials/hybrid-flow'],
-    to: '/flows/call-api-hybrid-flow'
+    from: [
+      '/extensions/deploy-cli/references/whats-new',
+      '/extensions/deploy-cli/references/whats-new-v2',
+      '/extensions/deploy-cli-tool/whats-new-in-deploy-cli-tool'
+    ],
+    to: '/deploy/deploy-cli-tool/whats-new-in-deploy-cli-tool'
   },
 
 
@@ -3729,60 +3780,6 @@ module.exports = [
     to: '/integrations/azure-api-management'
   },
 
-  /* LDAP Connector */
-
-  {
-    from: ['/connector','/connector/overview','/connector/considerations-non-ad','/ad-ldap-connector'],
-    to: '/extensions/ad-ldap-connector'
-  },
-  {
-    from: [,'/extensions/adldap-connector','/extensions/ad-ldap-connector-health-monitor'],
-    to: '/extensions/ad-ldap-connector/ad-ldap-connector-health-monitor'
-  },
-  {
-    from: ['/connector/prerequisites','/ad-ldap-connector/ad-ldap-connector-requirements'],
-    to: '/extensions/ad-ldap-connector/ad-ldap-connector-requirements'
-  },
-  {
-    from: ['/connector/client-certificates','/ad-ldap-connector/configure-ad-ldap-connector-authentication-with-client-certificates'],
-    to: '/extensions/ad-ldap-connector/configure-ad-ldap-connector-client-certificates'
-  },
-  {
-    from: ['/connector/kerberos','/ad-ldap-connector/configure-ad-ldap-connector-authentication-with-kerberos'],
-    to: '/extensions/ad-ldap-connector/configure-ad-ldap-connector-with-kerberos'
-  },
-  {
-    from: ['/connector/high-availability','/ad-ldap-connector/ad-ldap-high-availability'],
-    to: '/extensions/ad-ldap-connector/ad-ldap-high-availability'
-  },
-  {
-    from: ['/dashboard/guides/connections/disable-cache-ad-ldap'],
-    to: '/extensions/ad-ldap-connector/disable-credential-caching'
-  },
-  {
-    from: ['/adldap-x','/connector/install-other-platforms','/connector/install','/adldap-auth'],
-    to: '/extensions/ad-ldap-connector/install-configure-ad-ldap-connector'
-  },
-  {
-    from: ['/connector/scom-monitoring','/ad-ldap-connector/ad-ldap-connector-scorm'],
-    to: '/extensions/ad-ldap-connector/ad-ldap-connector-scom'
-  },
-  {
-    from: ['/connector/modify','/ad-ldap-connector/ad-ldap-connectors-to-auth0'],
-    to: '/extensions/ad-ldap-connector/ad-ldap-connector-to-auth0'
-  },
-  {
-    from: ['/connector/test-dc','/ad-ldap-connector/ad-ldap-connector-test-environment'],
-    to: '/extensions/ad-ldap-connector/ad-ldap-connector-test-environment'
-  },
-  {
-    from: ['/connector/troubleshooting','/ad-ldap-connector/troubleshoot-ad-ldap-connector'],
-    to: '/extensions/ad-ldap-connector/troubleshoot-ad-ldap-connector'
-  },
-  {
-    from: ['/connector/update','/ad-ldap-connector/update-ad-ldap-connectors'],
-    to: '/extensions/ad-ldap-connector/update-ad-ldap-connectors'
-  },
 
   /* Libraries */
 
@@ -3987,6 +3984,110 @@ module.exports = [
     from: ['/authorization/configure-silent-authentication','/api-auth/tutorials/silent-authentication'],
     to: '/login/configure-silent-authentication'
   },
+  {
+    from: '/flows',
+    to: '/login/flows'
+  },
+  {
+    from: [
+      '/flows/guides/auth-code/add-login-auth-code',
+      '/flows/guides/auth-code/includes/authorize-user-add-login',
+      '/flows/guides/auth-code/includes/sample-use-cases-add-login',
+      '/flows/guides/auth-code/includes/refresh-tokens',
+      '/flows/guides/auth-code/includes/request-tokens',
+      '/flows/guides/regular-web-app-login-flow/add-login-using-regular-web-app-login-flow',
+      '/oauth-web-protocol', 
+      '/protocols/oauth-web-protocol', 
+      '/protocols/oauth2/oauth-web-protocol',
+      '/application-auth/current/server-side-web',
+      '/client-auth/server-side-web',
+      '/application-auth/legacy/server-side-web',
+      '/flows/add-login-auth-code-flow'
+    ],
+    to: '/login/flows/add-login-auth-code-flow'
+  },
+  {
+    from: [
+      '/authorization/flows/call-your-api-using-the-authorization-code-flow',
+      '/flows/guides/auth-code/call-api-auth-code',
+      '/flows/guides/auth-code/includes/authorize-user-call-api',
+      '/flows/guides/auth-code/includes/sample-use-cases-call-api',
+      '/flows/guides/auth-code/includes/call-api',
+      '/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow',
+      '/api-auth/tutorials/authorization-code-grant',
+      '/flows/call-your-api-using-the-authorization-code-flow'
+    ],
+    to: '/login/flows/call-your-api-using-the-authorization-code-flow'
+  },
+  {
+    from: [
+      '/flows/guides/auth-code-pkce/add-login-auth-code-pkce',
+      '/flows/guides/auth-code-pkce/includes/sample-use-cases-add-login',
+      '/flows/guides/auth-code-pkce/includes/request-tokens',
+      '/flows/guides/auth-code-pkce/includes/refresh-tokens',
+      '/flows/guides/auth-code-pkce/includes/create-code-verifier',
+      '/flows/guides/auth-code-pkce/includes/create-code-challenge',
+      '/flows/guides/auth-code-pkce/includes/authorize-user-add-login',
+      '/application-auth/current/mobile-desktop',
+      '/application-auth/legacy/mobile-desktop',
+      '/application-auth/legacy/mobile-desktop',
+      '/flows/guides/mobile-login-flow/add-login-using-mobile-login-flow',
+      '/flows/add-login-using-the-authorization-code-flow-with-pkce'
+    ],
+    to: '/login/flows/add-login-using-the-authorization-code-flow-with-pkce'
+  },
+  {
+    from: [
+      '/flows/guides/auth-code-pkce/call-api-auth-code-pkce',
+      '/flows/guides/auth-code-pkce/includes/sample-use-cases-call-api',
+      '/flows/guides/auth-code-pkce/includes/call-api',
+      '/flows/guides/auth-code-pkce/includes/authorize-user-call-api',
+      '/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow',
+      '/api-auth/tutorials/authorization-code-grant-pkce',
+      '/flows/call-your-api-using-the-authorization-code-flow-with-pkce'
+    ],
+    to: '/login/flows/call-your-api-using-the-authorization-code-flow-with-pkce'
+  },
+  {
+    from: [
+      '/flows/guides/implicit/add-login-implicit',
+      '/flows/guides/implicit/includes/sample-use-cases-add-login',
+      '/flows/guides/implicit/includes/refresh-tokens',
+      '/flows/guides/implicit/includes/request-tokens',
+      '/flows/guides/implicit/includes/authorize-user-add-login',
+      '/application-auth/current/client-side-web',
+      '/flows/guides/single-page-login-flow/add-login-using-single-page-login-flow',
+      '/client-auth/client-side-web','/application-auth/legacy/client-side-web',
+      '/flows/add-login-using-the-implicit-flow-with-form-post'
+    ],
+    to: '/login/flows/add-login-using-the-implicit-flow-with-form-post'
+  },
+  {
+    from: ['/api-auth/tutorials/hybrid-flow','/flows/call-api-hybrid-flow'],
+    to: '/login/flows/call-api-hybrid-flow'
+  },
+  {
+    from: [
+      '/flows/guides/client-credentials/call-api-client-credentials',
+      '/flows/guides/client-credentials/includes/sample-use-cases',
+      '/flows/guides/client-credentials/includes/call-api',
+      '/flows/guides/client-credentials/includes/request-token',
+      '/flows/guides/m2m-flow/call-api-using-m2m-flow',
+      '/api-auth/tutorials/client-credentials',
+      '/api-auth/config/asking-for-access-tokens',
+      '/flows/call-your-api-using-the-client-credentials-flow'
+    ],
+    to: '/login/flows/call-your-api-using-the-client-credentials-flow'
+  },
+  {
+    from: ['/flows/guides/device-auth/call-api-device-auth'],
+    to: '/login/flows/call-your-api-using-the-device-authorization-flow'
+  },
+  {
+    from: ['/flows/call-your-api-using-resource-owner-password-flow','/api-auth/tutorials/password-grant'],
+    to: '/login/flows/call-your-api-using-resource-owner-password-flow'
+  },
+
 
   /* Logout */
 
@@ -5128,8 +5229,24 @@ module.exports = [
     to: '/troubleshoot/troubleshoot-integrations-and-extensibility/troubleshoot-custom-domains'
   },
   {
+    from: [
+      '/connector/troubleshooting',
+      '/ad-ldap-connector/troubleshoot-ad-ldap-connector',
+      '/extensions/ad-ldap-connector/troubleshoot-ad-ldap-connector'
+    ],
+    to: '/troubleshoot/troubleshoot-integrations-and-extensibility/troubleshoot-ad-ldap-connector'
+  },
+  {
     from: ['/extensions/troubleshoot-extensions','/extensions/troubleshoot'],
     to: '/troubleshoot/troubleshoot-integrations-and-extensibility/troubleshoot-extensions'
+  },
+  {
+    from: [
+      '/extensions/deploy-cli/references/troubleshooting',
+      '/extensions/deploy-cli-tool/troubleshoot-the-deploy-cli-tool',
+      '/deploy/deploy-cli-tool/troubleshoot-the-deploy-cli-tool'
+    ],
+    to: '/troubleshoot/troubleshoot-integrations-and-extensibility/troubleshoot-the-deploy-cli-tool'
   },
   {
     from: ['/troubleshoot/self-change-password-errors','/troubleshoot/references/self_change_password'],
