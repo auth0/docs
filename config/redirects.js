@@ -407,7 +407,6 @@ module.exports = [
   {
     from: '/quickstart/backend/java',
     to: '/quickstart/backend/java-spring-security5',
-    status: 302
   },
   {
     from: '/quickstart/native/ios',
