@@ -2907,8 +2907,12 @@ module.exports = [
   /* LDAP Connector */
 
   {
-    from: ['/connector','/extensions/adldap-connector','/connector/overview','/connector/considerations-non-ad','/ad-ldap-connector'],
+    from: ['/connector','/connector/overview','/connector/considerations-non-ad','/ad-ldap-connector'],
     to: '/extensions/ad-ldap-connector'
+  },
+  {
+    from: [,'/extensions/adldap-connector','/extensions/ad-ldap-connector-health-monitor'],
+    to: '/extensions/ad-ldap-connector/ad-ldap-connector-health-monitor'
   },
   {
     from: ['/connector/prerequisites','/ad-ldap-connector/ad-ldap-connector-requirements'],
