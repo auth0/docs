@@ -1070,7 +1070,8 @@ articles:
         url: /monitor-auth0/streams
         children:
           - title: AWS EventBridge
-            url: /monitor-auth0/streams/stream-logs-to-amazon-eventbridge
+            url: 'https://marketplace.auth0.com/integrations/amazon-log-streaming'
+            forceFullReload: true
           - title: Azure Event Grid
             url: /monitor-auth0/streams/stream-logs-to-azure-event-grid
           - title: Datadog
@@ -1424,7 +1425,7 @@ articles:
             url: /policies/data-export-and-transfer-policy
           - title: Endpoints
             url: /security/public-cloud-service-endpoints
-          - title: Load Testing
+          - title: Load Testingtplace
             url: /policies/load-testing-policy
           - title: Penetration Testing
             url: /policies/penetration-testing-policy
