@@ -2995,7 +2995,7 @@ module.exports = [
     to: '/extensions/ad-ldap-connector/ad-ldap-high-availability'
   },
   {
-    from: ['extensions/adldap-connector','/extensions/ad-ldap-connector-health-monitor'],
+    from: ['/extensions/adldap-connector','/extensions/ad-ldap-connector-health-monitor'],
     to: '/extensions/ad-ldap-connector/ad-ldap-connector-health-monitor'
   },
   {
