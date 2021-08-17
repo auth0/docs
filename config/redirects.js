@@ -3880,7 +3880,20 @@ module.exports = [
     to: '/libraries/common-auth0-library-authentication-errors'
   },
   {
-    from: ['/widget','/login-widget2','/lock','/migrations/guides/legacy-lock-api-deprecation','/libraries/lock/v9','/libraries/lock/v9/display-modes','/libraries/lock/v9/types-of-applications','/libraries/lock/v10','/libraries/lock/v10/installation','/libraries/lock/v11','/libraries/lock/using-refresh-tokens','/libraries/lock/using-a-refresh-token'],
+    from: [
+      '/widget',
+      '/login-widget2',
+      '/lock',
+      '/migrations/guides/legacy-lock-api-deprecation',
+      '/libraries/lock/v9',
+      '/libraries/lock/v9/display-modes',
+      '/libraries/lock/v9/types-of-applications',
+      '/libraries/lock/v10',
+      '/libraries/lock/v10/installation',
+      '/libraries/lock/v11',
+      '/libraries/lock/using-refresh-tokens',
+      '/libraries/lock/using-a-refresh-token'
+    ],
     to: '/libraries/lock'
   },
   {
@@ -4245,6 +4258,14 @@ module.exports = [
   },
   {
     from: [
+      '/logs/export-log-events-with-log-streaming/stream-http-event-logs',
+      '/logs/streams/http-event',
+      '/logs/streams/stream-http-event-logs'
+    ],
+    to: '/monitor-auth0/streams/custom-log-streams'
+  },
+  {
+    from: [
       '/logs/export-log-events-with-log-streaming/stream-log-events-to-slack',
       '/logs/streams/http-event-to-slack'
     ],
@@ -4258,14 +4279,6 @@ module.exports = [
       '/monitor-auth0/streams/stream-logs-to-splunk'
     ],
     to: 'https://marketplace.auth0.com/integrations/splunk-log-streaming'
-  },
-  {
-    from: [
-      '/logs/export-log-events-with-log-streaming/stream-http-event-logs',
-      '/logs/streams/http-event',
-      '/logs/streams/stream-http-event-logs'
-    ],
-    to: '/monitor-auth0/streams/custom-log-streams'
   },
   {
     from: [
