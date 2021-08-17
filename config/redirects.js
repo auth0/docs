@@ -406,7 +406,7 @@ module.exports = [
   },
   {
     from: '/quickstart/backend/java',
-    to: '/quickstart/backend/java-spring-security5',
+    to: '/quickstart/backend/java-spring-security5'
   },
   {
     from: '/quickstart/native/ios',
