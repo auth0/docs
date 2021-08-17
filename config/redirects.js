@@ -4112,11 +4112,48 @@ module.exports = [
     to: '/login/logout/redirect-users-after-logout'
   },
 
-  /* Logs */
+  /* Monitor - Logs */
 
   {
-    from: ['/logs/concepts/logs-admins-devs'],
-    to: '/logs'
+    from: ['/logs','/logs/concepts/logs-admins-devs'],
+    to: '/monitor-auth0/logs'
+  },
+  {
+    from: ['/logs/pii-in-logs','/logs/personally-identifiable-information-pii-in-auth0-logs'],
+    to: '/monitor-auth0/logs/pii-in-logs'
+  },
+  {
+    from: ['/logs/log-data-retention','/logs/references/log-data-retention'],
+    to: '/monitor-auth0/logs/log-data-retention'
+  },
+  {
+    from: ['/logs/view-log-events','/logs/guides/view-log-data-dashboard','/logs/view-log-events-in-the-dashboard'],
+    to: '/monitor-auth0/logs/view-log-events'
+  },
+  {
+    from: ['/logs/log-event-filters','/logs/references/log-event-filters'],
+    to: '/monitor-auth0/logs/log-event-filters'
+  },
+  {
+    from: ['/logs/retrieve-log-events-using-mgmt-api','/logs/guides/retrieve-logs-mgmt-api'],
+    to: '/monitor-auth0/logs/retrieve-log-events-using-mgmt-api'
+  },
+  {
+    from: ['/logs/log-event-type-codes','/logs/references/log-event-data','/logs/references/log-events-data','/logs/references/log-event-type-codes'],
+    to: '/monitor-auth0/logs/log-event-type-codes'
+  },
+  {
+    from: ['/logs/log-search-query-syntax','/logs/references/query-syntax','/logs/query-syntax'],
+    to: '/monitor-auth0/logs/log-search-query-syntax'
+  },
+  {
+    from: [
+      '/monitoring/guides/send-events-to-splunk',
+      '/monitoring/guides/send-events-to-keenio',
+      '/monitoring/guides/send-events-to-segmentio',
+      '/logs/export-log-events-with-rules'
+    ],
+    to: '/monitor-auth0/logs/export-log-events-with-rules'
   },
   {
     from: ['/logs/export-log-events-with-log-streaming','/logs/streams'],
@@ -4183,40 +4220,8 @@ module.exports = [
     to: '/monitor-auth0/streams/datadog-dashboard-templates'
   },
   {
-    from: ['/logs/personally-identifiable-information-pii-in-auth0-logs'],
-    to: '/logs/pii-in-logs'
-  },
-  {
-    from: ['/monitoring/guides/send-events-to-splunk','/monitoring/guides/send-events-to-keenio','/monitoring/guides/send-events-to-segmentio'],
-    to: '/logs/export-log-events-with-rules'
-  },
-  {
-    from: ['/logs/references/log-data-retention'],
-    to: '/logs/log-data-retention'
-  },
-  {
-    from: ['/logs/references/log-event-filters'],
-    to: '/logs/log-event-filters'
-  },
-  {
     from: ['/logs/streams/event-filters'],
     to: '/monitor-auth0/streams/event-filters'
-  },
-  {
-    from: ['/logs/references/log-event-data','/logs/references/log-events-data','/logs/references/log-event-type-codes'],
-    to: '/logs/log-event-type-codes'
-  },
-  {
-    from: ['/logs/references/query-syntax','/logs/query-syntax'],
-    to: '/logs/log-search-query-syntax'
-  },
-  {
-    from: ['/logs/guides/retrieve-logs-mgmt-api'],
-    to: '/logs/retrieve-log-events-using-mgmt-api'
-  },
-  {
-    from: ['/logs/guides/view-log-data-dashboard','/logs/view-log-events-in-the-dashboard'],
-    to: '/logs/view-log-events'
   },
   {
     from: [
