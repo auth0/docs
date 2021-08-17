@@ -6559,5 +6559,3 @@ module.exports = [
     to: '/support/support-plans'
   }
 ];
-    
- 
