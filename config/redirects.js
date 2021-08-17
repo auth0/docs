@@ -131,10 +131,6 @@ module.exports = [
     to: '/quickstart/webapp/java'
   },
   {
-    from: '/javaapi-tutorial',
-    to: '/quickstart/backend/java'
-  },
-  {
     from: '/server-platforms/golang',
     to: '/quickstart/webapp/golang'
   },
@@ -405,10 +401,6 @@ module.exports = [
     to: '/'
   },
   {
-    from: '/quickstart/backend/java',
-    to: '/quickstart/backend/java-spring-security5'
-  },
-  {
     from: '/quickstart/native/ios',
     to: '/quickstart/native/ios-swift'
   },
@@ -476,6 +468,8 @@ module.exports = [
   },
   {
     from: [
+      '/javaapi-tutorial',
+      '/quickstart/backend/java',
       '/quickstart/backend/java-spring-security',
       '/quickstart/backend/java-spring-security/00-getting-started'
     ],
