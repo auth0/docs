@@ -123,7 +123,7 @@ module.exports = [
     to: '/quickstart/native/ionic-angular'
   },
   {
-    from: ['/ios-tutorial', '/native-platforms/ios-objc', '/quickstart/native/ios-objc'],
+    from: ['/ios-tutorial', '/native-platforms/ios-objc', '/quickstart/native/ios-objc', '/quickstart/native/ios'],
     to: '/quickstart/native/ios-swift'
   },
   {
@@ -399,10 +399,6 @@ module.exports = [
   {
     from: '/quickstart',
     to: '/'
-  },
-  {
-    from: '/quickstart/native/ios',
-    to: '/quickstart/native/ios-swift'
   },
   {
     from: '/quickstart/native/ionic4',
