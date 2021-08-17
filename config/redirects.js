@@ -4092,24 +4092,24 @@ module.exports = [
   /* Logout */
 
   {
-    from: ['/logout/guides/logout-applications'],
-    to: '/logout/log-users-out-of-applications'
+    from: ['/logout/log-users-out-of-applications','/logout/guides/logout-applications'],
+    to: '/login/logout/log-users-out-of-applications'
   },
   {
-    from: ['/logout/guides/logout-auth0'],
-    to: '/logout/log-users-out-of-auth0'
+    from: ['/logout/log-users-out-of-auth0','/logout/guides/logout-auth0'],
+    to: '/login/logout/log-users-out-of-auth0'
   },
   {
-    from: ['/logout/guides/logout-idps'],
-    to: '/logout/log-users-out-of-idps'
+    from: ['/logout/log-users-out-of-idps','/logout/guides/logout-idps'],
+    to: '/login/logout/log-users-out-of-idps'
   },
   {
-    from: ['/protocols/saml/saml-configuration/logout','/logout/guides/logout-saml-idps'],
-    to: '/logout/log-users-out-of-saml-idps'
+    from: ['/logout/log-users-out-of-saml-idps','/protocols/saml/saml-configuration/logout','/logout/guides/logout-saml-idps'],
+    to: '/login/logout/log-users-out-of-saml-idps'
   },
   {
-    from: ['/logout/guides/redirect-users-after-logout'],
-    to: '/logout/redirect-users-after-logout'
+    from: ['/logout/redirect-users-after-logout','/logout/guides/redirect-users-after-logout'],
+    to: '/login/logout/redirect-users-after-logout'
   },
 
   /* Logs */
