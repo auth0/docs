@@ -1071,22 +1071,27 @@ articles:
         children:
           - title: AWS EventBridge
             url: /monitor-auth0/streams/stream-logs-to-amazon-eventbridge
+            hidden: true
           - title: Azure Event Grid
             url: /monitor-auth0/streams/stream-logs-to-azure-event-grid
+            hidden: true
           - title: Datadog
             url: /monitor-auth0/streams/stream-logs-to-datadog
+            hidden: true
             children:
               - title: Datadog Dashboard Templates
                 url: /monitor-auth0/streams/datadog-dashboard-templates
                 hidden: true
           - title: Splunk
             url: /monitor-auth0/streams/stream-logs-to-splunk
+            hidden: true
             children:
               - title: Auth0 App for Splunk
                 url: /monitor-auth0/streams/splunk-dashboard
                 hidden: true
           - title: Sumo Logic
             url: /monitor-auth0/streams/stream-logs-to-sumo-logic
+            hidden: true
             children:
               - title: Auth0 App for Sumo Logic
                 url: /monitor-auth0/streams/sumo-logic-dashboard
