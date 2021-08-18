@@ -231,10 +231,10 @@ module.exports = [
   {
     from: [
 /*      '/quickstart/native/ios-reactnative',*/
+/*      '/quickstart/native/react-native-ios',*/
+/*      '/quickstart/native/react-native-android',*/
       '/quickstart/:platform/reactnative-ios/:backend?',
-      '/quickstart/:platform/reactnative-android/:backend?',
-      '/quickstart/native/react-native-ios',
-      '/quickstart/native/react-native-android'
+      '/quickstart/:platform/reactnative-android/:backend?'
     ],
     to: '/quickstart/native/react-native'
   },
