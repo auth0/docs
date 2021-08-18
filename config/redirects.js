@@ -2383,7 +2383,6 @@ module.exports = [
   {
     from: [
       '/flows/concepts/device-auth',
-      '/flows/guides/device-auth/call-api-device-auth',
       '/flows/device-authorization-flow'
     ],
     to: '/authorization/authorization-flows/device-authorization-flow'
