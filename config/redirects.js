@@ -148,6 +148,7 @@ module.exports = [
   {
     from: [
       '/ionic-tutorial',
+/*      '/quickstart/native/ionic',*/
       '/quickstart/native/ionic/00-intro',
       '/quickstart/native/ionic/02-custom-login',
       '/quickstart/native/ionic/03-user-profile',
@@ -156,7 +157,6 @@ module.exports = [
       '/quickstart/native/ionic/06-authorization',
       '/quickstart/native/ionic/08-mfa',
       '/quickstart/native/ionic/09-customizing-lock',
-      '/quickstart/native/ionic',
       '/quickstart/native/ionic4'
     ],
     to: '/quickstart/native/ionic-angular'
