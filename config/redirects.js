@@ -185,7 +185,7 @@ module.exports = [
   {
     from: [
       '/laravelapi-tutorial',
-      '/quickstart/backend/php-laravel',
+/*      '/quickstart/backend/php-laravel',*/
       '/quickstart/backend/laravel/00-getting-started'
     ],
     to: '/quickstart/backend/laravel'
@@ -198,7 +198,10 @@ module.exports = [
     to: '/quickstart/backend/nodejs'
   },
   {
-    from: ['/nodejs-tutorial', '/server-platforms/nodejs'],
+    from: [
+      '/nodejs-tutorial',
+      '/server-platforms/nodejs'
+    ],
     to: '/quickstart/webapp/nodejs'
   },
   {
