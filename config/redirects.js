@@ -259,7 +259,7 @@ module.exports = [
     from: [
       '/server-apis/ruby',
       '/quickstart/backend/ruby/00-getting-started',
-      '/quickstart/backend/ruby',
+/*      '/quickstart/backend/ruby',*/
       '/rubyapi-tutorial',
       '/quickstart/backend/rails/00-getting-started',
     ],
