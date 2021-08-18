@@ -4258,164 +4258,353 @@ module.exports = [
   /* MFA */
 
   {
-    from: ['/multi-factor-authentication','/multi-factor-authentication2','/multifactor-authentication/custom-provider','/multifactor-authentication','/mfa-in-auth0','/multifactor-authentication/yubikey','/multifactor-authentication/guardian','/multifactor-authentication/guardian/user-guide','/multi-factor-authentication/yubikey'],
-    to: '/mfa'
+    from: [
+      '/multi-factor-authentication',
+      '/multi-factor-authentication2',
+      '/multifactor-authentication/custom-provider',
+      '/multifactor-authentication',
+      '/mfa-in-auth0',
+      '/multifactor-authentication/yubikey',
+      '/multifactor-authentication/guardian',
+      '/multifactor-authentication/guardian/user-guide',
+      '/multi-factor-authentication/yubikey',
+      '/mfa'
+    ],
+    to: '/login/mfa'
   },
   {
-    from: ['/mfa/configure-webauthn-with-security-keys-for-mfa'],
-    to: '/mfa/configure-webauthn-security-keys-for-mfa'
+    from: ['/mfa/enable-mfa','/mfa/guides/enable-mfa'],
+    to: '/logi/mfa/enable-mfa'
   },
   {
-    from: ['/multifactor-authentication/api', '/multifactor-authentication/api/faq','/mfa/concepts/mfa-api'],
-    to: '/mfa/mfa-api'
+    from: [
+      '/mfa/mfa-factors',
+      '/multifactor-authentication/factors',
+      '/mfa/concepts/mfa-factors'
+    ],
+    to: '/login/mfa/mfa-factors'
   },
   {
-    from: ['/api-auth/tutorials/multifactor-resource-owner-password','/mfa/guides/mfa-api/authenticate','/mfa/guides/mfa-api/multifactor-resource-owner-password'],
-    to: '/mfa/authenticate-with-ropg-and-mfa'
+    from: [
+      '/multifactor-authentication/developer/sns-configuration',
+      '/multifactor-authentication/factors/push',
+      '/mfa/guides/configure-push',
+      '/multifactor-authentication/administrator/push-notifications',
+      '/mfa/configure-push-notifications-for-mfa'
+    ],
+    to: '/login/mfa/mfa-factors/configure-push-notifications-for-mfa'
   },
   {
-    from: ['/mfa/guides/mfa-api/manage','/multifactor-authentication/api/manage'],
-    to: '/mfa/authenticate-with-ropg-and-mfa/manage-authenticator-factors-mfa-api'
+    from: [
+      '/multifactor-authentication/administrator/twilio-configuration',
+      '/multifactor-authentication/administrator/sms-notifications',
+      '/multifactor-authentication/twilio-configuration',
+      '/multifactor-authentication/factors/sms',
+      '/mfa/guides/configure-sms',
+      '/mfa/guides/configure-phone',
+      '/mfa/configure-sms-voice-notifications-mfa'
+    ],
+    to: '/login/mfa/mfa-factors/configure-sms-voice-notifications-mfa'
   },
   {
-    from: ['/mfa/guides/mfa-api/phone','/multifactor-authentication/api/oob','/mfa/guides/mfa-api/oob'],
-    to: '/mfa/authenticate-with-ropg-and-mfa/enroll-challenge-sms-voice-authenticators'
+    from: [
+      '/multifactor-authentication/factors/otp',
+      '/mfa/guides/configure-otp',
+      '/mfa/configure-otp-notifications-for-mfa'
+    ],
+    to: '/login/mfa/mfa-factors/configure-otp-notifications-for-mfa'
   },
   {
-    from: ['/mfa/guides/mfa-api/push'],
-    to: '/mfa/authenticate-with-ropg-and-mfa/enroll-and-challenge-push-authenticators'
+    from: [
+      '/mfa/guides/configure-email-universal-login',
+      '/multifactor-authentication/factors/email',
+      '/mfa/guides/configure-email',
+      '/mfa/configure-email-notifications-for-mfa'
+    ],
+    to: '/login/mfa/mfa-factors/configure-email-notifications-for-mfa'
   },
   {
-    from: ['/multifactor-authentication/api/otp','/mfa/guides/mfa-api/otp','/multifactor-authentication/google-authenticator'],
-    to: '/mfa/authenticate-with-ropg-and-mfa/enroll-and-challenge-otp-authenticators'
+    from: [
+      '/multifactor-authentication/send-phone-message-hook-amazon-sns',
+      '/mfa/send-phone-message-hook-amazon-sns',
+      '/mfa/configure-amazon-sns-as-mfa-sms-provider'
+    ],
+    to: '/login/mfa/mfa-factors/configure-amazon-sns-as-mfa-sms-provider'
   },
   {
-    from: ['/multifactor-authentication/api/email','/mfa/guides/mfa-api/email','/multifactor-authentication/administrator/guardian-enrollment-email'],
-    to: '/mfa/authenticate-with-ropg-and-mfa/enroll-and-challenge-email-authenticators'
+    from: [
+      '/multifactor-authentication/send-phone-message-hook-esendex',
+      '/mfa/send-phone-message-hook-esendex',
+      '/mfa/configure-esendex-as-mfa-sms-provider'
+    ],
+    to: '/login/mfa/mfa-factors/configure-esendex-as-mfa-sms-provider'
   },
   {
-    from: ['/multifactor-authentication/send-phone-message-hook-amazon-sns','/mfa/send-phone-message-hook-amazon-sns'],
-    to: '/mfa/configure-amazon-sns-as-mfa-sms-provider'
+    from: [
+      '/multifactor-authentication/send-phone-message-hook-infobip',
+      '/mfa/send-phone-message-hook-infobip',
+      '/mfa/configure-infobip-as-mfa-sms-provider'
+    ],
+    to: '/login/mfa/mfa-factors/configure-infobip-as-mfa-sms-provider'
   },
   {
-    from: ['/multifactor-authentication/send-phone-message-hook-esendex','/mfa/send-phone-message-hook-esendex'],
-    to: '/mfa/configure-esendex-as-mfa-sms-provider'
+    from: [
+      '/multifactor-authentication/send-phone-message-hook-mitto',
+      '/mfa/send-phone-message-hook-mitto',
+      '/mfa/configure-mitto-as-mfa-sms-provider'
+    ],
+    to: '/login/mfa/mfa-factors/configure-mitto-as-mfa-sms-provider'
   },
   {
-    from: ['/multifactor-authentication/send-phone-message-hook-infobip','/mfa/send-phone-message-hook-infobip'],
-    to: '/mfa/configure-infobip-as-mfa-sms-provider'
+    from: [
+      '/multifactor-authentication/send-phone-message-hook-telesign',
+      '/mfa/send-phone-message-hook-telesign',
+      '/mfa/configure-telesign-as-mfa-sms-provider'
+    ],
+    to: '/login/mfa/mfa-factors/configure-telesign-as-mfa-sms-provider'
   },
   {
-    from: ['/multifactor-authentication/send-phone-message-hook-mitto','/mfa/send-phone-message-hook-mitto'],
-    to: '/mfa/configure-mitto-as-mfa-sms-provider'
+    from: [
+      '/multifactor-authentication/send-phone-message-hook-twilio',
+      '/mfa/send-phone-message-hook-twilio',
+      '/mfa/configure-twilio-as-mfa-sms-provider'
+    ],
+    to: '/login/mfa/mfa-factors/configure-twilio-as-mfa-sms-provider'
   },
   {
-    from: ['/multifactor-authentication/send-phone-message-hook-telesign','/mfa/send-phone-message-hook-telesign'],
-    to: '/mfa/configure-telesign-as-mfa-sms-provider'
+    from: [
+      '/multifactor-authentication/send-phone-message-hook-vonage',
+      '/mfa/send-phone-message-hook-vonage',
+      '/mfa/configure-vonage-as-mfa-sms-provider'
+    ],
+    to: '/login/mfa/mfa-factors/configure-vonage-as-mfa-sms-provider'
   },
   {
-    from: ['/multifactor-authentication/send-phone-message-hook-twilio','/mfa/send-phone-message-hook-twilio'],
-    to: '/mfa/configure-twilio-as-mfa-sms-provider'
+    from: [
+      '/multifactor-authentication/factors/duo',
+      '/multifactor-authentication/duo',
+      '/multifactor-authentication/duo/admin-guide',
+      '/mfa/guides/configure-cisco-duo',
+      '/multifactor-authentication/duo/dev-guide',
+      '/multifactor-authentication/duo/user-guide',
+      '/mfa/configure-cisco-duo-for-mfa'
+    ],
+    to: '/login/mfa/configure-cisco-duo-for-mfa'
   },
   {
-    from: ['/multifactor-authentication/send-phone-message-hook-vonage','/mfa/send-phone-message-hook-vonage'],
-    to: '/mfa/configure-vonage-as-mfa-sms-provider'
+    from: '/mfa/fido-authentication-with-webauthn',
+    to: '/login//mfa/fido-authentication-with-webauthn'
   },
   {
-    from: ['/multifactor-authentication/factors','/mfa/concepts/mfa-factors'],
-    to: '/mfa/mfa-factors'
+    from: [
+      '/mfa/configure-webauthn-security-keys-for-mfa',
+      '/mfa/configure-webauthn-with-security-keys-for-mfa'
+    ],
+    to: '/login/mfa/fido-authentication-with-webauthn/configure-webauthn-security-keys-for-mfa'
   },
   {
-    from: ['/multifactor-authentication/factors/duo','/multifactor-authentication/duo','/multifactor-authentication/duo/admin-guide','/mfa/guides/configure-cisco-duo','/multifactor-authentication/duo/dev-guide','/multifactor-authentication/duo/user-guide'],
-    to: '/mfa/configure-cisco-duo-for-mfa'
+    from: '/mfa/configure-webauthn-device-biometrics-for-mfa',
+    to: '/login/mfa/fido-authentication-with-webauthn/configure-webauthn-device-biometrics-for-mfa'
   },
   {
-    from: ['/multifactor-authentication/factors/otp','/mfa/guides/configure-otp'],
-    to: '/mfa/configure-otp-notifications-for-mfa'
+    from: '/mfa/adaptive-mfa',
+    to: '/login/mfa/adaptive-mfa'
   },
   {
-    from: ['/mfa/guides/configure-email-universal-login','/multifactor-authentication/factors/email','/mfa/guides/configure-email'],
-    to: '/mfa/configure-email-notifications-for-mfa'
+    from: '/mfa/adaptive-mfa/enable-adaptive-mfa',
+    to: '/login/mfa/adaptive-mfa/enable-adaptive-mfa'
   },
   {
-    from: ['/multifactor-authentication/developer/sns-configuration','/multifactor-authentication/factors/push','/mfa/guides/configure-push','/multifactor-authentication/administrator/push-notifications'],
-    to: '/mfa/configure-push-notifications-for-mfa'
+    from: '/mfa/adpative-mfa/adaptive-mfa-rule-actions',
+    to: '/login/mfa/adaptive-mfa/adaptive-mfa-rule-actions'
   },
   {
-    from: ['/multifactor-authentication/administrator/twilio-configuration','/multifactor-authentication/administrator/sms-notifications','/multifactor-authentication/twilio-configuration','/multifactor-authentication/factors/sms','/mfa/guides/configure-sms','/mfa/guides/configure-phone'],
-    to: '/mfa/configure-sms-voice-notifications-mfa'
+    from: '/mfa/adaptive-mfa/adaptive-mfa-log-events',
+    to: '/login/mfa/adaptive-mfa/adaptive-mfa-log-events'
   },
   {
-    from: ['/multifactor-authentication/google-auth/admin-guide','/multifactor-authentication/google-auth/user-guide','/multifactor-authentication/troubleshooting','/mfa/references/troubleshoot-mfa','/mfa/references/troubleshooting'],
-    to: '/mfa/troubleshoot-mfa-issues'
+    from: [
+      '/mfa/concepts/guardian',
+      '/multifactor-authentication/guardian/dev-guide',
+      '/multifactor-authentication/guardian/admin-guide',
+      '/mfa/auth0-guardian'
+    ],
+    to: '/login/mfa/auth0-guardian'
   },
   {
-    from: ['/multifactor-authentication/developer/step-up-authentication','/step-up-authentication','/tutorials/step-up-authentication','/tutorials/setup-up-authentication','/multifactor-authentication/step-up-authentication','/mfa/concepts/step-up-authentication','/multifactor-authentication/developer/step-up-with-acr'],
-    to: '/mfa/step-up-authentication'
+    from: ['/mfa/auth0-guardian/install-guardian-sdk','/mfa/guides/guardian/install-guardian-sdk'],
+    to: '/login/mfa/auth0-guardian/install-guardian-sdk'
   },
   {
-    from: ['/multifactor-authentication/api/challenges','/multifactor-authentication/developer/step-up-authentication/step-up-for-apis','/multifactor-authentication/step-up-authentication/step-up-for-apis','/mfa/guides/configure-step-up-apis'],
-    to: '/mfa/step-up-authentication/configure-step-up-authentication-for-apis'
+    from: [
+      '/multifactor-authentication/developer/libraries/ios',
+      '/mfa/guides/guardian/guardian-ios-sdk',
+      '/mfa/guides/guardian/configure-guardian-ios',
+      '/mfa/auth0-guardian/guardian-for-ios-sdk'
+    ],
+    to: '/login/mfa/auth0-guardian/guardian-for-ios-sdk'
   },
   {
-    from: ['/multifactor-authentication/developer/step-up-authentication/step-up-for-web-apps','/multifactor-authentication/step-up-authentication/step-up-for-web-apps','/mfa/guides/configure-step-up-web-apps'],
-    to: '/mfa/step-up-authentication/configure-step-up-authentication-for-web-apps'
+    from: [
+      '/multifactor-authentication/developer/libraries/android',
+      '/mfa/guides/guardian/guardian-android-sdk',
+      '/mfa/auth0-guardian/guardian-for-android-sdk'
+    ],
+    to: '/login/mfa/auth0-guardian/guardian-for-android-sdk'
   },
   {
-    from: ['/multifactor-authentication/reset-user','/multifactor-authentication/administrator/reset-user','/mfa/guides/reset-user-mfa','/multifactor-authentication/administrator/disabling-mfa'],
-    to: '/mfa/reset-user-mfa'
+    from: [
+      '/multifactor-authentication/developer/custom-enrollment-ticket',
+      '/mfa/guides/guardian/create-enrollment-ticket',
+      '/mfa/auth0-guardian/create-custom-enrollment-tickets'
+    ],
+    to: '/login/mfa/auth0-guardian/create-custom-enrollment-tickets'
   },
   {
-    from: ['/mfa/concepts/guardian','/multifactor-authentication/guardian/dev-guide','/multifactor-authentication/guardian/admin-guide'],
-    to: '/mfa/auth0-guardian'
+    from: ['/mfa/auth0-guardian/guardian-error-code-reference','/mfa/references/guardian-error-code-reference'],
+    to: '/login/mfa/auth0-guardian/guardian-error-code-reference'
   },
   {
-    from: ['/multifactor-authentication/developer/custom-enrollment-ticket','/mfa/guides/guardian/create-enrollment-ticket'],
-    to: '/mfa/auth0-guardian/create-custom-enrollment-tickets'
+    from: [
+      '/multifactor-authentication/custom',
+      '/mfa/guides/customize-mfa-universal-login',
+      '/multifactor-authentication/google-auth/dev-guide',
+      '/mfa/customize-mfa-user-pages'
+    ],
+    to: '/login/mfa/customize-mfa-user-pages'
   },
   {
-    from: ['/multifactor-authentication/developer/libraries/ios','/mfa/guides/guardian/guardian-ios-sdk','/mfa/guides/guardian/configure-guardian-ios'],
-    to: '/mfa/auth0-guardian/guardian-for-ios-sdk'
+    from: [
+      '/api-auth/tutorials/multifactor-resource-owner-password',
+      '/mfa/guides/mfa-api/authenticate',
+      '/mfa/guides/mfa-api/multifactor-resource-owner-password',
+      '/mfa/authenticate-with-ropg-and-mfa'
+    ],
+    to: '/login/mfa/ropg-mfa'
   },
   {
-    from: ['/multifactor-authentication/developer/libraries/android','/mfa/guides/guardian/guardian-android-sdk'],
-    to: '/mfa/auth0-guardian/guardian-for-android-sdk'
+    from: [
+      '/mfa/guides/mfa-api/phone',
+      '/multifactor-authentication/api/oob',
+      '/mfa/guides/mfa-api/oob',
+      '/mfa/authenticate-with-ropg-and-mfa/enroll-challenge-sms-voice-authenticators'
+    ],
+    to: '/login/mfa/ropg-mfa/enroll-challenge-sms-voice-authenticators'
   },
   {
-    from: ['/mfa/guides/guardian/install-guardian-sdk'],
-    to: '/mfa/auth0-guardian/install-guardian-sdk'
+    from: [
+      '/mfa/guides/mfa-api/push',
+      '/mfa/authenticate-with-ropg-and-mfa/enroll-and-challenge-push-authenticators'
+    ],
+    to: '/login/mfa/ropg-mfa/enroll-and-challenge-push-authenticators'
   },
   {
-    from: ['/mfa/references/guardian-error-code-reference'],
-    to: '/mfa/auth0-guardian/guardian-error-code-reference'
+    from: [
+      '/multifactor-authentication/api/otp',
+      '/mfa/guides/mfa-api/otp',
+      '/multifactor-authentication/google-authenticator',
+      '/mfa/authenticate-with-ropg-and-mfa/enroll-and-challenge-otp-authenticators'
+    ],
+    to: '/login/mfa/ropg-mfa/enroll-and-challenge-otp-authenticators'
   },
   {
-    from: ['/mfa/guides/import-user-mfa'],
-    to: '/mfa/import-user-mfa-authenticator-enrollments'
+    from: [
+      '/multifactor-authentication/api/email',
+      '/mfa/guides/mfa-api/email',
+      '/multifactor-authentication/administrator/guardian-enrollment-email',
+      '/mfa/authenticate-with-ropg-and-mfa/enroll-and-challenge-email-authenticators'
+    ],
+    to: '/login/mfa/ropg-mfa/enroll-and-challenge-email-authenticators'
   },
   {
-    from: ['/mfa/concepts/mfa-developer-resources','/multifactor-authentication/developer','/mfa/concepts/developer-resources'],
-    to: '/mfa/mfa-developer-resources'
+    from: ['/mfa/import-user-mfa-authenticator-enrollments','/mfa/guides/import-user-mfa'],
+    to: '/login/mfa/ropg-mfa/import-user-mfa-authenticator-enrollments'
   },
   {
-    from: ['/mfa/guides/enable-mfa'],
-    to: '/mfa/enable-mfa'
+    from: [
+      '/mfa/guides/mfa-api/recovery-code',
+      '/mfa/authenticate-with-ropg-and-mfa/manage-authenticator-factors-mfa-api/challenge-with-recovery-codes'
+    ],
+    to: '/login/mfa/ropg-mfa/challenge-with-recovery-codes'
   },
   {
-    from: ['/multifactor-authentication/custom','/mfa/guides/customize-mfa-universal-login','/multifactor-authentication/google-auth/dev-guide'],
-    to: '/mfa/customize-mfa-user-pages'
+    from: [
+      '/mfa/guides/mfa-api/manage',
+      '/multifactor-authentication/api/manage',
+      '/mfa/authenticate-with-ropg-and-mfa/manage-authenticator-factors-mfa-api'
+    ],
+    to: '/login/mfa/ropg-mfa/manage-authenticator-factors-mfa-api'
   },
   {
-    from: ['/mfa/guides/mfa-api/recovery-code'],
-    to: '/mfa/authenticate-with-ropg-and-mfa/manage-authenticator-factors-mfa-api/challenge-with-recovery-codes'
+    from: '/mfa/customize-mfa-user-pages',
+    to: '/login/mfa/customize-mfa-user-pages'
   },
   {
-    from: ['/mfa/references/language-dictionary'],
-    to: '/mfa/customize-mfa-user-pages/mfa-theme-language-dictionary'
+    from: ['/mfa/customize-mfa-user-pages/mfa-theme-language-dictionary','/mfa/references/language-dictionary'],
+    to: '/login/mfa/customize-mfa-user-pages/mfa-theme-language-dictionary'
   },
   {
-    from: ['/mfa/references/mfa-widget-reference'],
-    to: '/mfa/customize-mfa-user-pages/mfa-widget-theme-options'
+    from: ['/mfa/customize-mfa-user-pages/mfa-widget-theme-options','/mfa/references/mfa-widget-reference'],
+    to: '/login/mfa/customize-mfa-user-pages/mfa-widget-theme-options'
+  },
+  {
+    from: [
+      '/multifactor-authentication/developer/step-up-authentication',
+      '/step-up-authentication','/tutorials/step-up-authentication',
+      '/tutorials/setup-up-authentication',
+      '/multifactor-authentication/step-up-authentication',
+      '/mfa/concepts/step-up-authentication',
+      '/multifactor-authentication/developer/step-up-with-acr',
+      '/mfa/step-up-authentication'
+    ],
+    to: '/login/mfa/step-up-authentication'
+  },
+  {
+    from: [
+      '/multifactor-authentication/api/challenges',
+      '/multifactor-authentication/developer/step-up-authentication/step-up-for-apis',
+      '/multifactor-authentication/step-up-authentication/step-up-for-apis',
+      '/mfa/guides/configure-step-up-apis',
+      '/mfa/step-up-authentication/configure-step-up-authentication-for-apis'
+    ],
+    to: '/login/mfa/step-up-authentication/configure-step-up-authentication-for-apis'
+  },
+  {
+    from: [
+      '/multifactor-authentication/developer/step-up-authentication/step-up-for-web-apps',
+      '/multifactor-authentication/step-up-authentication/step-up-for-web-apps',
+      '/mfa/guides/configure-step-up-web-apps',
+      '/mfa/step-up-authentication/configure-step-up-authentication-for-web-apps'
+    ],
+    to: '/login/mfa/step-up-authentication/configure-step-up-authentication-for-web-apps'
+  },
+  {
+    from: [
+      '/multifactor-authentication/reset-user',
+      '/multifactor-authentication/administrator/reset-user',
+      '/mfa/guides/reset-user-mfa',
+      '/multifactor-authentication/administrator/disabling-mfa',
+      '/mfa/reset-user-mfa'
+    ],
+    to: '/login/mfa/reset-user-mfa'
+  },
+  {
+    from: [
+      '/mfa/concepts/mfa-developer-resources',
+      '/multifactor-authentication/developer',
+      '/mfa/concepts/developer-resources',
+      '/mfa/mfa-developer-resources'
+    ],
+    to: '/login/mfa/mfa-developer-resources'
+  },
+  {
+    from: [
+      '/multifactor-authentication/api', 
+      '/multifactor-authentication/api/faq',
+      '/mfa/concepts/mfa-api',
+      '/mfa/mfa-api'
+    ],
+    to: '/login/mfa/mfa-developer-resources/mfa-api'
   },
 
 
@@ -5224,6 +5413,17 @@ module.exports = [
   {
     from: ['/troubleshoot/references/saml-errors', '/troubleshoot/troubleshoot-authentication-issues/saml-errors'],
     to: '/troubleshoot/troubleshoot-authentication/saml-errors'
+  },
+  {
+    from: [
+      '/multifactor-authentication/google-auth/admin-guide',
+      '/multifactor-authentication/google-auth/user-guide',
+      '/multifactor-authentication/troubleshooting',
+      '/mfa/references/troubleshoot-mfa',
+      '/mfa/references/troubleshooting',
+      '/mfa/troubleshoot-mfa-issues'
+    ],
+    to: '/troubleshoot/troubleshoot-authentication/troubleshoot-mfa-issues'
   },
   {
     from: ['/troubleshoot/basic-troubleshooting','/troubleshoot/concepts/basics'],
