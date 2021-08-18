@@ -359,8 +359,8 @@ module.exports = [
   {
     from: [
       '/javaapi-tutorial',
-      '/quickstart/backend/java',
-      '/quickstart/backend/java-spring-security',
+/*      '/quickstart/backend/java',*/
+/*      '/quickstart/backend/java-spring-security',*/
       '/quickstart/backend/java-spring-security/00-getting-started'
     ],
     to: '/quickstart/backend/java-spring-security5'
