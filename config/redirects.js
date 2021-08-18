@@ -66,16 +66,17 @@ module.exports = [
   {
     from: [
       '/angular-tutorial',
-      '/client-platforms/angularjs'
+      '/client-platforms/angularjs',
+      '/client-platforms/angular2',
+      '/quickstart/spa/angularjs',
+      '/quickstart/spa/angular-next',
+      '/quickstart/spa/angular2',
+      '/quickstart/spa/angular2/00-login',
+      '/quickstart/spa/angular2/03-user-profile',
+      '/quickstart/spa/angular2/04-calling-an-api',
+      '/quickstart/spa/angular2/05-authorization',
+      '/quickstart/spa/angular2/06-token-renewal'
     ],
-    to: '/quickstart/spa/angularjs'
-  },
-  {
-    from: '/client-platforms/angular2',
-    to: '/quickstart/spa/angular'
-  },
-  {
-    from: ['/quickstart/spa/angularjs', '/quickstart/spa/angular2', '/quickstart/spa/angular-next'],
     to: '/quickstart/spa/angular'
   },
   {
@@ -86,7 +87,13 @@ module.exports = [
     from: [
       '/quickstart/webapp/aspnet',
       '/aspnet-tutorial', 
-      '/mvc3-tutorial'
+      '/mvc3-tutorial',
+      '/servicestack-tutorial',
+      '/quickstart/webapp/servicestack',
+      '/quickstart/webapp/play-2-scala',
+      '/quickstart/webapp/scala',
+      '/symfony-tutorial',
+      '/quickstart/webapp/symfony'
     ],
     to: '/quickstart/webapp'
   },
@@ -96,39 +103,72 @@ module.exports = [
   },
   {
     from: [
+      `/quickstart/backend/:platform/${apis}`,
+      '/quickstart/backend/:platform',
       '/aspnetwebapi-tutorial',
       '/tutorials/aspnet-mvc4-enterprise-providers',
       '/webapi',
       '/mvc-tutorial-enterprise',
-      '/quickstart/backend/aspnet-webapi'
+      '/quickstart/backend/aspnet-webapi',
+      '/wcf-tutorial',
+      '/quickstart/backend/wcf-service',
+      '/quickstart/backend/falcor/00-getting-started',
+      '/quickstart/backend/falcor',
+      '/quickstart/backend/hapi/00-getting-started',
+      '/quickstart/backend/hapi',
+      '/quickstart/backend/symfony/00-getting-started',
+      '/quickstart/backend/symfony'
     ],
     to: '/quickstart/backend'
   },
   {
     from: [
+      `/quickstart/native/:platform/${apis}`,
+      '/quickstart/native/:platform',
+      `/quickstart/native-mobile/:platform/${apis}`,
+      '/quickstart/native-mobile/:platform',
+      `/quickstart/hybrid/:platform/${apis}`,
+      '/quickstart/hybrid/:platform',
+      '/quickstart/native-mobile',
+      '/quickstart/hybrid',
       '/quickstart/native/chrome-extension',
-      '/quickstart/native/chrome'
+      '/quickstart/native/chrome',
+      '/phonegap-tutorial',
+      '/quickstart/native/phonegap',
+      '/win8-tutorial',
+      '/windowsstore-js-auth0-tutorial',
+      '/native-platforms/windows-store-javascript',
+      '/quickstart/native-mobile/windows8/:client',
+      '/quickstart/native/windows-uwp-javascript',
+      '/windowsphone-tutorial',
+      '/quickstart/native/windowsphone'
     ],
     to: '/quickstart/native'
   },
   {
-    from: ['/ember-tutorial', '/client-platforms/emberjs'],
-    to: '/quickstart/spa/emberjs'
-  },
-  {
     from: [
       '/ionic-tutorial',
-      '/quickstart/native/ionic'
+      '/quickstart/native/ionic/00-intro',
+      '/quickstart/native/ionic/02-custom-login',
+      '/quickstart/native/ionic/03-user-profile',
+      '/quickstart/native/ionic/04-linking-accounts',
+      '/quickstart/native/ionic/05-rules',
+      '/quickstart/native/ionic/06-authorization',
+      '/quickstart/native/ionic/08-mfa',
+      '/quickstart/native/ionic/09-customizing-lock',
+      '/quickstart/native/ionic',
+      '/quickstart/native/ionic4'
     ],
     to: '/quickstart/native/ionic-angular'
   },
   {
-    from: ['/ios-tutorial', '/native-platforms/ios-objc', '/quickstart/native/ios-objc', '/quickstart/native/ios'],
+    from: [
+      '/ios-tutorial',
+      '/native-platforms/ios-objc',
+      '/quickstart/native/ios-objc',
+      '/quickstart/native/ios'
+    ],
     to: '/quickstart/native/ios-swift'
-  },
-  {
-    from: '/java-tutorial',
-    to: '/quickstart/webapp/java'
   },
   {
     from: '/server-platforms/golang',
@@ -141,12 +181,16 @@ module.exports = [
   {
     from: [
       '/laravelapi-tutorial',
-      '/quickstart/backend/php-laravel'
+      '/quickstart/backend/php-laravel',
+      '/quickstart/backend/laravel/00-getting-started'
     ],
     to: '/quickstart/backend/laravel'
   },
   {
-    from: '/nodeapi-tutorial',
+    from: [
+      '/nodeapi-tutorial',
+      '/quickstart/backend/nodejs/00-getting-started'
+    ],
     to: '/quickstart/backend/nodejs'
   },
   {
@@ -154,33 +198,63 @@ module.exports = [
     to: '/quickstart/webapp/nodejs'
   },
   {
-    from: '/phpapi-tutorial',
+    from: [
+      '/phpapi-tutorial',
+      '/quickstart/backend/php/00-getting-started'
+    ],
     to: '/quickstart/backend/php'
   },
   {
-    from: '/pythonapi-tutorial',
+    from: [
+      '/pythonapi-tutorial',
+      '/quickstart/backend/python/00-getting-started'
+    ],
     to: '/quickstart/backend/python'
   },
   {
-    from: '/client-platforms/react',
+    from: [
+      '/client-platforms/react',
+      '/quickstart/spa/auth0-react',
+      '/quickstart/spa/auth0-react/01',
+      '/quickstart/spa/react/03-user-profile',
+      '/quickstart/spa/react/04-user-profile'
+    ],
     to: '/quickstart/spa/react'
   },
   {
-    from: '/quickstart/native/ios-reactnative',
+    from: [
+      '/quickstart/native/ios-reactnative',
+      '/quickstart/:platform/reactnative-ios/:backend?',
+      '/quickstart/:platform/reactnative-android/:backend?',
+      '/quickstart/native/react-native-ios',
+      '/quickstart/native/react-native-android'
+    ],
     to: '/quickstart/native/react-native'
   },
   {
-    from: '/rubyapi-tutorial',
-    to: '/quickstart/backend/rails'
-  },
-  {
-    from: '/rails-tutorial',
+    from: [
+      '/rails-tutorial',
+      '/quickstart/webapp/rails/00-introduction',
+      '/quickstart/webapp/rails/02-custom-login',
+      '/quickstart/webapp/rails/03-session-handling',
+      '/quickstart/webapp/rails/02-session-handling',
+      '/quickstart/webapp/rails/04-user-profile',
+      '/quickstart/webapp/rails/03-user-profile',
+      '/quickstart/webapp/rails/05-linking-accounts',
+      '/quickstart/webapp/rails/06-rules',
+      '/quickstart/webapp/rails/07-authorization',
+      '/quickstart/webapp/rails/08-mfa',
+      '/quickstart/webapp/rails/09-customizing-lock'
+    ],
     to: '/quickstart/webapp/rails'
   },
   {
     from: [
       '/server-apis/ruby',
-      '/quickstart/backend/ruby'
+      '/quickstart/backend/ruby/00-getting-started',
+      '/quickstart/backend/ruby',
+      '/rubyapi-tutorial',
+      '/quickstart/backend/rails/00-getting-started',
     ],
     to: '/quickstart/backend/rails'
   },
@@ -194,46 +268,11 @@ module.exports = [
   },
   {
     from: [
-      '/phonegap-tutorial',
-      '/quickstart/native/phonegap'
-    ],
-    to: '/quickstart/native'
-  },
-  {
-    from: [
-      '/servicestack-tutorial',
-      '/quickstart/webapp/servicestack'
-    ],
-    to: '/quickstart/webapp'
-  },
-  {
-    from: [
       '/singlepageapp-tutorial',
       '/client-platforms/vanillajs',
       '/quickstart/spa/javascript/:client?'
     ],
     to: '/quickstart/spa/vanillajs'
-  },
-  {
-    from: [
-      '/quickstart/webapp/play-2-scala',
-      '/quickstart/webapp/scala'
-    ],
-    to: '/quickstart/webapp'
-  },
-  {
-    from: [
-      '/symfony-tutorial',
-      '/quickstart/webapp/symfony'
-    ],
-    to: '/quickstart/webapp'
-  },
-  {
-    from: [
-      '/wcf-tutorial',
-      '/quickstart/backend/wcf-service'
-    ],
-    to: '/quickstart/backend'
   },
   {
     from: [
@@ -246,23 +285,6 @@ module.exports = [
     to: '/quickstart/native/windows-uwp-csharp'
   },
   {
-    from: [
-      '/win8-tutorial',
-      '/windowsstore-js-auth0-tutorial',
-      '/native-platforms/windows-store-javascript',
-      '/quickstart/native-mobile/windows8/:client',
-      '/quickstart/native/windows-uwp-javascript'
-    ],
-    to: '/quickstart/native'
-  },
-  {
-    from: [
-      '/windowsphone-tutorial',
-      '/quickstart/native/windowsphone'
-    ],
-    to: '/quickstart/native'
-  },
-  {
     from: '/wpf-winforms-tutorial',
     to: '/quickstart/native/wpf-winforms'
   },
@@ -271,72 +293,30 @@ module.exports = [
     to: '/quickstart/native/xamarin'
   },
   {
-    from: '/quickstart/:platform/reactnative-ios/:backend?',
-    to: '/quickstart/native/react-native'
-  },
-  {
-    from: '/quickstart/:platform/reactnative-android/:backend?',
-    to: '/quickstart/native/react-native'
-  },
-  {
-    from: '/quickstart/native/react-native-ios',
-    to: '/quickstart/native/react-native'
-  },
-  {
-    from: '/quickstart/native/react-native-android',
-    to: '/quickstart/native/react-native'
-  },
-  {
-    from: '/quickstart/spa/auth0-react',
-    to: '/quickstart/spa/react'
-  },
-  {
-    from: '/quickstart/spa/auth0-react/01',
-    to: '/quickstart/spa/react'
-  },
-  {
     from: '/quickstart/spa/auth0-react/02',
     to: '/quickstart/spa/react/02-calling-an-api'
   },
   {
     from: [
       '/quickstart/backend/webapi-owin/04-authentication-rs256-deprecated',
-      '/quickstart/backend/webapi-owin/04-authentication-rs256-legacy'
-    ],
-    to: '/quickstart/backend/webapi-owin'
-  },
-  {
-    from: [
+      '/quickstart/backend/webapi-owin/04-authentication-rs256-legacy',
       '/quickstart/backend/webapi-owin/05-authentication-hs256-deprecated',
-      '/quickstart/backend/webapi-owin/05-authentication-hs256-legacy'
-    ],
-    to: '/quickstart/backend/webapi-owin'
-  },
-  {
-    from: [
+      '/quickstart/backend/webapi-owin/05-authentication-hs256-legacy',
       '/quickstart/backend/webapi-owin/06-authorization-deprecated',
-      '/quickstart/backend/webapi-owin/06-authorization-legacy'
+      '/quickstart/backend/webapi-owin/06-authorization-legacy',
+      '/quickstart/backend/webapi-owin/00-getting-started',
     ],
     to: '/quickstart/backend/webapi-owin'
   },
   {
     from: [
       '/quickstart/backend/aspnet-core-webapi/04-authentication-rs256-deprecated',
-      '/quickstart/backend/aspnet-core-webapi/04-authentication-rs256-legacy'
-    ],
-    to: '/quickstart/backend/aspnet-core-webapi'
-  },
-  {
-    from: [
+      '/quickstart/backend/aspnet-core-webapi/04-authentication-rs256-legacy',
       '/quickstart/backend/aspnet-core-webapi/05-authentication-hs256-deprecated',
-      '/quickstart/backend/aspnet-core-webapi/05-authentication-hs256-legacy'
-    ],
-    to: '/quickstart/backend/aspnet-core-webapi'
-  },
-  {
-    from: [
+      '/quickstart/backend/aspnet-core-webapi/05-authentication-hs256-legacy',
       '/quickstart/backend/aspnet-core-webapi/06-authorization-deprecated',
-      '/quickstart/backend/aspnet-core-webapi/06-authorization-legacy'
+      '/quickstart/backend/aspnet-core-webapi/06-authorization-legacy',
+      '/quickstart/backend/aspnet-core-webapi/00-getting-started'
     ],
     to: '/quickstart/backend/aspnet-core-webapi'
   },
@@ -345,52 +325,17 @@ module.exports = [
     to: '/quickstart/webapp/aspnet-core'
   },
   {
-    from: [
-      '/quickstart/spa/react/03-user-profile',
-      '/quickstart/spa/react/04-user-profile'
-    ],
-    to: '/quickstart/spa/react'
-  },
-  {
     from: '/quickstart/webapp/nodejs/02-user-profile',
     to: '/quickstart/webapp/nodejs/01-login'
   },
   {
     from: [
-      '/quickstart/hybrid',
-      '/quickstart/native-mobile'
-    ],
-    to: '/quickstart/native'
-  },
-  {
-    from: [
-      '/quickstart/hybrid/:platform',
-      '/quickstart/native-mobile/:platform',
-      `/quickstart/hybrid/:platform/${apis}`,
-      `/quickstart/native-mobile/:platform/${apis}`,
-      `/quickstart/native/:platform/${apis}`,
-      '/quickstart/native/:platform'
-    ],
-    to: '/quickstart/native'
-  },
-  {
-    from: [
       `/quickstart/spa/:platform/${apis}`,
-      '/quickstart/spa/:platform'
-    ],
-    to: '/quickstart/spa'
-  },
-  {
-    from: ['/quickstart/backend/:platform',`/quickstart/backend/:platform/${apis}`],
-    to: '/quickstart/backend'
-  },
-  {
-    from: '/quickstart/spa/emberjs',
-    to: '/quickstart/spa/ember'
-  },
-  {
-    from: [
+      '/quickstart/spa/:platform',
       '/quickstart/spa/aurelia',
+      '/ember-tutorial', 
+      '/client-platforms/emberjs',
+      '/quickstart/spa/emberjs',
       '/quickstart/spa/ember',
       '/quickstart/spa/jquery'
     ],
@@ -401,66 +346,8 @@ module.exports = [
     to: '/'
   },
   {
-    from: '/quickstart/native/ionic4',
-    to: '/quickstart/native/ionic-angular'
-  },
-  {
-    from: '/quickstart/native/ionic/00-intro',
-    to: '/quickstart/native/ionic'
-  },
-  {
-    from: '/quickstart/native/ionic/02-custom-login',
-    to: '/quickstart/native/ionic'
-  },
-  {
-    from: '/quickstart/native/ionic/03-user-profile',
-    to: '/quickstart/native/ionic'
-  },
-  {
-    from: '/quickstart/native/ionic/04-linking-accounts',
-    to: '/quickstart/native/ionic'
-  },
-  {
-    from: '/quickstart/native/ionic/05-rules',
-    to: '/quickstart/native/ionic'
-  },
-  {
-    from: '/quickstart/native/ionic/06-authorization',
-    to: '/quickstart/native/ionic'
-  },
-  {
-    from: '/quickstart/native/ionic/08-mfa',
-    to: '/quickstart/native/ionic'
-  },
-  {
-    from: '/quickstart/native/ionic/09-customizing-lock',
-    to: '/quickstart/native/ionic'
-  },
-  {
-    from: '/quickstart/backend/nodejs/00-getting-started',
-    to: '/quickstart/backend/nodejs'
-  },
-  {
-    from: '/quickstart/backend/aspnet-core-webapi/00-getting-started',
-    to: '/quickstart/backend/aspnet-core-webapi'
-  },
-  {
-    from: [
-      '/quickstart/backend/falcor/00-getting-started',
-      '/quickstart/backend/falcor'
-    ],
-    to: '/quickstart/backend'
-  },
-  {
     from: '/quickstart/backend/golang/00-getting-started',
     to: '/quickstart/backend/golang'
-  },
-  {
-    from: [
-      '/quickstart/backend/hapi/00-getting-started',
-      '/quickstart/backend/hapi'
-    ],
-    to: '/quickstart/backend'
   },
   {
     from: [
@@ -472,116 +359,22 @@ module.exports = [
     to: '/quickstart/backend/java-spring-security5'
   },
   {
-    from: '/quickstart/backend/laravel/00-getting-started',
-    to: '/quickstart/backend/laravel'
-  },
-  {
-    from: '/quickstart/backend/php/00-getting-started',
-    to: '/quickstart/backend/php'
-  },
-  {
-    from: '/quickstart/backend/python/00-getting-started',
-    to: '/quickstart/backend/python'
-  },
-  {
-    from: '/quickstart/backend/rails/00-getting-started',
-    to: '/quickstart/backend/rails'
-  },
-  {
-    from: '/quickstart/backend/ruby/00-getting-started',
-    to: '/quickstart/backend/ruby'
-  },
-  {
     from: [
-      '/quickstart/backend/symfony/00-getting-started',
-      '/quickstart/backend/symfony'
+      '/quickstart/webapp/java/getting-started',
+      '/java-tutorial'
     ],
-    to: '/quickstart/backend'
-  },
-  {
-    from: '/quickstart/backend/webapi-owin/00-getting-started',
-    to: '/quickstart/backend/webapi-owin'
-  },
-  {
-    from: '/quickstart/webapp/rails/00-introduction',
-    to: '/quickstart/webapp/rails'
-  },
-  {
-    from: '/quickstart/webapp/rails/02-custom-login',
-    to: '/quickstart/webapp/rails'
-  },
-  {
-    from: [
-      '/quickstart/webapp/rails/03-session-handling',
-      '/quickstart/webapp/rails/02-session-handling'
-    ],
-    to: '/quickstart/webapp/rails'
-  },
-  {
-    from: [
-      '/quickstart/webapp/rails/04-user-profile',
-      '/quickstart/webapp/rails/03-user-profile'
-    ],
-    to: '/quickstart/webapp/rails'
-  },
-  {
-    from: '/quickstart/webapp/rails/05-linking-accounts',
-    to: '/quickstart/webapp/rails'
-  },
-  {
-    from: '/quickstart/webapp/rails/06-rules',
-    to: '/quickstart/webapp/rails'
-  },
-  {
-    from: '/quickstart/webapp/rails/07-authorization',
-    to: '/quickstart/webapp/rails'
-  },
-  {
-    from: '/quickstart/webapp/rails/08-mfa',
-    to: '/quickstart/webapp/rails'
-  },
-  {
-    from: '/quickstart/webapp/rails/09-customizing-lock',
-    to: '/quickstart/webapp/rails'
-  },
-  {
-    from: '/quickstart/webapp/java/getting-started',
     to: '/quickstart/webapp/java'
   },
   {
     from: [
       '/quickstart/webapp/java-spring-mvc/getting-started',
-      '/quickstart/webapp/java-spring-mvc'
-    ],
-    to: '/quickstart/webapp/java-spring-boot'
-  },
-  {
-    from: [
+      '/quickstart/webapp/java-spring-mvc',
       '/quickstart/webapp/java-spring-security-mvc/00-intro',
       '/quickstart/webapp/java-spring-security-mvc'
     ],
     to: '/quickstart/webapp/java-spring-boot'
   },
-  {
-    from: '/quickstart/spa/angular2/00-login',
-    to: '/quickstart/spa/angular'
-  },
-  {
-    from: '/quickstart/spa/angular2/03-user-profile',
-    to: '/quickstart/spa/angular'
-  },
-  {
-    from: '/quickstart/spa/angular2/04-calling-an-api',
-    to: '/quickstart/spa/angular'
-  },
-  {
-    from: '/quickstart/spa/angular2/05-authorization',
-    to: '/quickstart/spa/angular'
-  },
-  {
-    from: '/quickstart/spa/angular2/06-token-renewal',
-    to: '/quickstart/spa/angular'
-  },
+
 
   /* CONNECTIONS */
 
