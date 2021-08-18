@@ -60,7 +60,11 @@ module.exports = [
   /* QUICKSTARTS */
 
   {
-    from: ['/android-tutorial', '/native-platforms/android', '/quickstart/native/android-vnext'],
+    from: [
+      '/android-tutorial',
+      '/native-platforms/android',
+      '/quickstart/native/android-vnext'
+    ],
     to: '/quickstart/native/android'
   },
   {
@@ -149,6 +153,7 @@ module.exports = [
     from: [
       '/ionic-tutorial',
 /*      '/quickstart/native/ionic',*/
+/*      '/quickstart/native/ionic4',*/
       '/quickstart/native/ionic/00-intro',
       '/quickstart/native/ionic/02-custom-login',
       '/quickstart/native/ionic/03-user-profile',
@@ -156,17 +161,16 @@ module.exports = [
       '/quickstart/native/ionic/05-rules',
       '/quickstart/native/ionic/06-authorization',
       '/quickstart/native/ionic/08-mfa',
-      '/quickstart/native/ionic/09-customizing-lock',
-      '/quickstart/native/ionic4'
+      '/quickstart/native/ionic/09-customizing-lock'
     ],
     to: '/quickstart/native/ionic-angular'
   },
   {
     from: [
       '/ios-tutorial',
+/*      '/quickstart/native/ios',*/
       '/native-platforms/ios-objc',
-      '/quickstart/native/ios-objc',
-      '/quickstart/native/ios'
+      '/quickstart/native/ios-objc'
     ],
     to: '/quickstart/native/ios-swift'
   },
