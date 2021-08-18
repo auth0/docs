@@ -2597,10 +2597,6 @@ module.exports = [
     to: '/authorization/auth-core-features/roles/create-roles'
   },
   {
-    from: ['/authorization/reference/rbac-limits','/authorization/rbac/authorization-core-rbac-limits'],
-    to: '/policies/entity-limit-policy'
-  },
-  {
     from: ['/authorization/authentication-and-authorization', '/authorization/concepts/authz-and-authn','/application-auth/current','/application-auth/legacy','/application-auth'],
     to: '/get-started/authentication-and-authorization'
   },
@@ -5802,40 +5798,66 @@ module.exports = [
     to: '/support'
   },
   {
-    from: ['/sla', '/support/sla','/support/sld'],
-    to: '/support/services-level-descriptions'
-  },
-  {
-    from: ['/support/subscription'],
-    to: '/support/manage-subscriptions'
-  },
-  {
-    from: ['/tutorials/removing-auth0-exporting-data','/support/removing-auth0-exporting-data','/moving-out'],
-    to: '/support/export-data'
-  },
-  {
-    from: ['/support/cancel-paid-subscriptions','/tutorials/cancel-paid-subscriptions','/cancel-paid-subscriptions'],
-    to: '/support/downgrade-or-cancel-subscriptions'
-  },
-  {
-    from: ['/support/how-auth0-versions-software','/tutorials/how-auth0-versions-software','/versioning'],
-    to: '/support/versioning-strategy'
+    from: ['/support/support-overview'],
+    to: '/support/support-plans'
   },
   {
     from: ['/support/matrix'],
     to: '/support/product-support-matrix'
   },
   {
-    from: ['/support/reset-account-password','/tutorials/reset-account-password'],
-    to: '/support/reset-account-passwords'
+    from: ['/sla', '/support/sla','/support/sld'],
+    to: '/support/services-level-descriptions'
   },
   {
     from: ['/support/tickets'],
     to: '/support/open-and-manage-support-tickets'
   },
   {
-    from: ['/support/delete-reset-tenant','/tutorials/delete-reset-tenant'],
-    to: '/support/delete-or-reset-tenant'
+    from: ['/dashboard/manage-dashboard-admins'],
+    to: '/support/support-center-users'
+  },
+  {
+    from: ['/support/subscription'],
+    to: '/support/manage-subscriptions'
+  },
+  {
+    from: [
+      '/support/cancel-paid-subscriptions',
+      '/tutorials/cancel-paid-subscriptions',
+      '/cancel-paid-subscriptions',
+      '/support/downgrade-or-cancel-subscriptions'
+    ],
+    to: '/support/manage-subscriptions/downgrade-or-cancel-subscriptions'
+  },
+  {
+    from: [
+      '/support/delete-or-reset-tenant',
+      '/support/delete-reset-tenant',
+      '/tutorials/delete-reset-tenant'
+    ],
+    to: '/support/manage-subscriptions/delete-or-reset-tenant'
+  },
+  {
+    from: [
+      '/tutorials/removing-auth0-exporting-data',
+      '/support/removing-auth0-exporting-data',
+      '/moving-out',
+      '/support/export-data'
+    ],
+    to: '/support/manage-subscriptions/export-data'
+  },
+  {
+    from: [
+      '/support/how-auth0-versions-software',
+      '/tutorials/how-auth0-versions-software',
+      '/versioning'
+    ],
+    to: '/support/versioning-strategy'
+  },
+  {
+    from: ['/support/reset-account-password','/tutorials/reset-account-password'],
+    to: '/support/reset-account-passwords'
   },
 
   /* Policies */
@@ -5862,12 +5884,12 @@ module.exports = [
     to: '/support/policies/data-export-and-transfer-policy'
   },
   {
-    from: ['/policies/entity-limit-policy','/policies/entity-limits','/policies/global-limit'],
-    to: '/support/policies/entity-limit-policy'
-  },
-  {
     from: ['/policies/load-testing-policy','/policies/load-testing'],
     to: '/support/policies/load-testing-policy'
+  },
+  {
+    from: ['/policies/penetration-testing-policy','/policies/penetration-testing'],
+    to: '/support/policies/penetration-testing-policy'
   },
   {
     from: [
@@ -5886,7 +5908,7 @@ module.exports = [
       '/policies/rate-limits-api',
       '/policies/authentication-api-endpoint-rate-limits'
     ],
-    to: '/support/policies/authentication-api-endpoint-rate-limits'
+    to: '/support/policies/rate-limit-policy/authentication-api-endpoint-rate-limits'
   },
   {
     from: [
@@ -5895,15 +5917,26 @@ module.exports = [
       '/policies/rate-limits-mgmt-api',
       '/policies/management-api-endpoint-rate-limits'
     ],
-    to: '/support/policies/management-api-endpoint-rate-limits'
+    to: '/support/policies/rate-limit-policy/management-api-endpoint-rate-limits'
   },
   {
-    from: ['/policies/penetration-testing-policy','/policies/penetration-testing'],
-    to: '/support/policies/penetration-testing-policy'
+    from: [
+      '/policies/database-connections-rate-limits',
+      '/policies/rate-limit-policy/database-connections-rate-limits',
+      '/connections/database/rate-limits',
+      '/support/policies/database-connections-rate-limits'
+    ],
+    to: '/support/policies/rate-limit-policy/database-connections-rate-limits'
   },
   {
-    from: ['/policies/database-connections-rate-limits','/policies/rate-limit-policy/database-connections-rate-limits','/connections/database/rate-limits'],
-    to: '/support/policies/database-connections-rate-limits'
+    from: [
+      '/authorization/reference/rbac-limits',
+      '/authorization/rbac/authorization-core-rbac-limits',
+      '/policies/entity-limit-policy',
+      '/policies/entity-limits',
+      '/policies/global-limit'
+    ],
+    to: '/support/policies/entity-limit-policy'
   },
 
   /* Tokens */
@@ -6677,10 +6710,4 @@ module.exports = [
   },
 
 
-  /* Support */
-
-  {
-    from: ['/support/support-overview'],
-    to: '/support/support-plans'
-  }
 ];
