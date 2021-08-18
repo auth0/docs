@@ -3257,10 +3257,6 @@ module.exports = [
     from: ['/dashboard-access/dashboard-roles/feature-access-by-role'],
     to: '/dashboard-access/feature-access-by-role'
   },
-  {
-    from: ['/product-lifecycle/deprecations-and-migrations/migrate-to-manage-dashboard-new-roles'],
-    to: '/product-lifecycle/deprecations-and-migrations/migrate-tenant-member-roles'
-  },
 
   /* Hooks */
 
@@ -4627,10 +4623,8 @@ module.exports = [
     to: '/monitor-auth0/monitor-using-scom'
   },
 
-
-
-
   /* Product-Lifecycle */
+
   {
     from: '/lifecycle',
     to: '/product-lifecycle'
@@ -4644,16 +4638,57 @@ module.exports = [
     to: '/product-lifecycle/deprecations-and-migrations'
   },
   {
+    from: [
+      '/deprecations-and-migrations/migrate-tenant-member-roles',
+      '/product-lifecycle/deprecations-and-migrations/migrate-to-manage-dashboard-new-roles'
+    ],
+    to: '/product-lifecycle/deprecations-and-migrations/migrate-tenant-member-roles'
+  },
+  {
+    from: ['/migrations/guides/google_cloud_messaging'],
+    to: '/product-lifecycle/deprecations-and-migrations/google-firebase-migration'
+  },
+  {
+    from: ['/product-lifecycle/deprecations-and-migrations/logout-return-to'],
+    to: 'product-lifecycle/deprecations-and-migrations/logout-redirects-migration'
+  },
+  {
+    from: ['/migrations/guides/migration-oauthro-oauthtoken'],
+    to: '/product-lifecycle/deprecations-and-migrations/migration-oauthro-oauthtoken'
+  },
+  {
+    from: ['/migrations/guides/migration-oauthro-oauthtoken-pwdless'],
+    to: '/product-lifecycle/deprecations-and-migrations/resource-owner-passwordless-credentials-exchange'
+  },
+  {
+    from: [
+      '/guides/login/migration-embedded-universal',
+      '/guides/login/migration-embedded-centralized',
+      '/guides/login/migrating-lock-v10-webapp',
+      '/guides/login/migrating-lock-v9-spa',
+      '/guides/login/migrating-lock-v9-spa-popup',
+      '/guides/login/migrating-lock-v9-webapp',
+      '/guides/login/migrating-lock-v10-spa',
+      '/guides/login/migrating-lock-v8',
+      '/guides/login/migration-sso'
+    ],
+    to: '/product-lifecycle/deprecations-and-migrations/migrate-from-embedded-login-to-universal-login'
+  },
+  {
+    from: [
+      '/users/user-search/migrate-v2-v3',
+      '/users/search/v3/migrate-search-v2-v3',
+      '/users/user-search/migrate-search-v2-v3'
+    ],
+    to: '/product-lifecycle/deprecations-and-migrations/migrate-v2-v3'
+  },
+  {
     from: ['/migrations/guides/account-linking','/users/guides/link-user-accounts-auth-api'],
     to: '/product-lifecycle/deprecations-and-migrations/link-user-accounts-with-access-tokens-migration'
   },
   {
     from: ['/migrations/guides/calling-api-with-idtokens'],
     to: '/product-lifecycle/deprecations-and-migrations/migrate-to-calling-api-with-access-tokens'
-  },
-  {
-    from: ['/guides/login/migration-embedded-universal','/guides/login/migration-embedded-centralized','/guides/login/migrating-lock-v10-webapp','/guides/login/migrating-lock-v9-spa','/guides/login/migrating-lock-v9-spa-popup','/guides/login/migrating-lock-v9-webapp','/guides/login/migrating-lock-v10-spa','/guides/login/migrating-lock-v8','/guides/login/migration-sso'],
-    to: '/product-lifecycle/deprecations-and-migrations/migrate-from-embedded-login-to-universal-login'
   },
   {
     from: ['/guides/migration-legacy-flows'],
@@ -4676,31 +4711,8 @@ module.exports = [
     to: '/product-lifecycle/deprecations-and-migrations/facebook-social-context-field-deprecation'
   },
   {
-    from: ['/migrations/guides/google_cloud_messaging'],
-    to: '/product-lifecycle/deprecations-and-migrations/google-firebase-migration'
-  },
-  {
     from: ['/migrations/guides/instagram-deprecation'],
     to: '/product-lifecycle/deprecations-and-migrations/instagram-connection-deprecation'
-  },
-  {
-    from: [
-      '/product-lifecycle/deprecations-and-migrations/migrate-to-management-api-v2',
-      '/api/management-api-v1-deprecated',
-      '/api/management-api-changes-v1-to-v2',
-      '/migrations/guides/management-api-v1-v2',
-      '/api/management/v1/use-cases',
-      '/api/v1'
-    ],
-    to: '/product-lifecycle/deprecations-and-migrations/past-migrations'
-  },
-  {
-    from: ['/migrations/guides/migration-oauthro-oauthtoken'],
-    to: '/product-lifecycle/deprecations-and-migrations/migration-oauthro-oauthtoken'
-  },
-  {
-    from: ['/migrations/guides/migration-oauthro-oauthtoken-pwdless'],
-    to: '/product-lifecycle/deprecations-and-migrations/resource-owner-passwordless-credentials-exchange'
   },
   {
     from: ['/migrations/guides/passwordless-start'],
@@ -4715,16 +4727,21 @@ module.exports = [
     to: '/product-lifecycle/deprecations-and-migrations/yahoo-api-changes'
   },
   {
-    from: ['/migrations/past-migrations'],
-    to: '/product-lifecycle/deprecations-and-migrations/past-migrations'
+    from: [
+      '/product-lifecycle/deprecations-and-migrations/migrate-to-management-api-v2',
+      '/api/management-api-v1-deprecated',
+      '/api/management-api-changes-v1-to-v2',
+      '/migrations/guides/management-api-v1-v2',
+      '/api/management/v1/use-cases',
+      '/api/v1',
+      '/migrations/past-migrations',
+      '/product-lifecycle/deprecations-and-migrations/past-migrations'
+    ],
+    to: '/product-lifecycle/past-migrations'
   },
   {
     from: ['/logs/guides/migrate-logs-v2-v3'],
     to: '/product-lifecycle/deprecations-and-migrations/migrate-to-tenant-log-search-v3'
-  },
-  {
-    from: ['/deprecations-and-migrations/migrate-tenant-member-roles'],
-    to: '/product-lifecycle/deprecations-and-migrations/migrate-tenant-member-roles'
   },
 
 
@@ -5856,10 +5873,6 @@ module.exports = [
   {
     from: ['/api/management/v2/query-string-syntax', '/users/search/v2/query-syntax'],
     to: '/users/user-search/v2/query-syntax'
-  },
-  {
-    from: ['/users/search/v3/migrate-search-v2-v3','/users/user-search/migrate-search-v2-v3'],
-    to: '/users/user-search/migrate-v2-v3'
   },
   {
     from: ['/users/search/v3/get-users-by-email-endpoint'],
