@@ -169,8 +169,8 @@ module.exports = [
     from: [
       '/ios-tutorial',
 /*      '/quickstart/native/ios',*/
-      '/native-platforms/ios-objc',
-      '/quickstart/native/ios-objc'
+/*      '/quickstart/native/ios-objc',*/
+      '/native-platforms/ios-objc'
     ],
     to: '/quickstart/native/ios-swift'
   },
