@@ -61,7 +61,7 @@ module.exports = [
 
   {
     from: [
-      '/android-tutorial', 
+      '/android-tutorial',
       '/native-platforms/android',
       '/quickstart/native/android-vnext'
     ],
