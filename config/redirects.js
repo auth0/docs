@@ -5097,7 +5097,7 @@ module.exports = [
   },
   {
     from: '/mfa/fido-authentication-with-webauthn',
-    to: '/login//mfa/fido-authentication-with-webauthn'
+    to: '/login/mfa/fido-authentication-with-webauthn'
   },
   {
     from: [
@@ -5336,65 +5336,6 @@ module.exports = [
   },
 
 
-  /* Policies */
-
-  {
-    from: ['/policies/billing'],
-    to: '/policies/billing-policy'
-  },
-  {
-    from: ['/policies/endpoints','/security/public-cloud-service-endpoints'],
-    to: '/policies/public-cloud-service-endpoints'
-  },
-  {
-    from: ['/policies/dashboard-authentication','/policies/restore-deleted-tenant','/policies/unsupported-requests'],
-    to: '/policies'
-  },
-  {
-    from: ['/policies/data-export','/policies/data-transfer'],
-    to: '/policies/data-export-and-transfer-policy'
-  },
-  {
-    from: ['/policies/entity-limits','/policies/global-limit'],
-    to: '/policies/entity-limit-policy'
-  },
-  {
-    from: ['/policies/load-testing'],
-    to: '/policies/load-testing-policy'
-  },
-  {
-    from: [
-      '/rate-limits', 
-      '/policies/rate-limit', 
-      '/policies/rate-limits',
-      '/policies/legacy-rate-limits'
-    ],
-    to: '/policies/rate-limit-policy'
-  },
-  {
-    from: [
-      '/policies/rate-limit-policy/authentication-api-endpoint-rate-limits',
-      '/policies/rate-limits-auth-api',
-      '/policies/rate-limits-api'
-    ],
-    to: '/policies/authentication-api-endpoint-rate-limits'
-  },
-  {
-    from: [
-      '/policies/rate-limit-policy/mgmt-api-endpoint-rate-limits-before-19-may-2020',
-      '/policies/rate-limit-policy/management-api-endpoint-rate-limits',
-      '/policies/rate-limits-mgmt-api'
-    ],
-    to: '/policies/management-api-endpoint-rate-limits'
-  },
-  {
-    from: ['/policies/penetration-testing'],
-    to: '/policies/penetration-testing-policy'
-  },
-  {
-    from: ['/policies/rate-limit-policy/database-connections-rate-limits','/connections/database/rate-limits'],
-    to: '/policies/database-connections-rate-limits'
-  },
 
 
   /* Product-Lifecycle */
@@ -5895,6 +5836,74 @@ module.exports = [
   {
     from: ['/support/delete-reset-tenant','/tutorials/delete-reset-tenant'],
     to: '/support/delete-or-reset-tenant'
+  },
+
+  /* Policies */
+
+  {
+    from: [
+      '/policies',
+      '/policies/dashboard-authentication',
+      '/policies/restore-deleted-tenant',
+      '/policies/unsupported-requests'
+    ],
+    to: '/support/policies'
+  },
+  {
+    from: ['/policies/billing-policy','/policies/billing'],
+    to: '/support/policies/billing-policy'
+  },
+  {
+    from: ['/policies/public-cloud-service-endpoints','/policies/endpoints','/security/public-cloud-service-endpoints'],
+    to: '/support/policies/public-cloud-service-endpoints'
+  },
+  {
+    from: ['/policies/data-export-and-transfer-policy','/policies/data-export','/policies/data-transfer'],
+    to: '/support/policies/data-export-and-transfer-policy'
+  },
+  {
+    from: ['/policies/entity-limit-policy','/policies/entity-limits','/policies/global-limit'],
+    to: '/support/policies/entity-limit-policy'
+  },
+  {
+    from: ['/policies/load-testing-policy','/policies/load-testing'],
+    to: '/support/policies/load-testing-policy'
+  },
+  {
+    from: [
+      '/rate-limits', 
+      '/policies/rate-limit', 
+      '/policies/rate-limits',
+      '/policies/legacy-rate-limits',
+      '/policies/rate-limit-policy'
+    ],
+    to: '/support/policies/rate-limit-policy'
+  },
+  {
+    from: [
+      '/policies/rate-limit-policy/authentication-api-endpoint-rate-limits',
+      '/policies/rate-limits-auth-api',
+      '/policies/rate-limits-api',
+      '/policies/authentication-api-endpoint-rate-limits'
+    ],
+    to: '/support/policies/authentication-api-endpoint-rate-limits'
+  },
+  {
+    from: [
+      '/policies/rate-limit-policy/mgmt-api-endpoint-rate-limits-before-19-may-2020',
+      '/policies/rate-limit-policy/management-api-endpoint-rate-limits',
+      '/policies/rate-limits-mgmt-api',
+      '/policies/management-api-endpoint-rate-limits'
+    ],
+    to: '/support/policies/management-api-endpoint-rate-limits'
+  },
+  {
+    from: ['/policies/penetration-testing-policy','/policies/penetration-testing'],
+    to: '/support/policies/penetration-testing-policy'
+  },
+  {
+    from: ['/policies/database-connections-rate-limits','/policies/rate-limit-policy/database-connections-rate-limits','/connections/database/rate-limits'],
+    to: '/support/policies/database-connections-rate-limits'
   },
 
   /* Tokens */
