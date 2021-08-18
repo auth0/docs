@@ -286,8 +286,8 @@ module.exports = [
       '/win8-cs-tutorial',
       '/windowsstore-auth0-tutorial',
       '/native-platforms/windows-store-csharp',
-      '/quickstart/native-mobile/windows8-cp/:client?',
-      '/quickstart/native/windows8-cp'
+/*      '/quickstart/native/windows8-cp',*/
+      '/quickstart/native-mobile/windows8-cp/:client?'
     ],
     to: '/quickstart/native/windows-uwp-csharp'
   },
