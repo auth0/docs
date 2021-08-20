@@ -68,7 +68,7 @@ This creates the following routes:
 
 ### Add the `UserProvider` component
 
-On the frontend side, the SDK uses React Context to manage the authentication state of your users. To make that state available to all your Pages, you need to override the [App component](https://nextjs.org/docs/advanced-features/custom-app) and wrap its inner component with a `UserProvider`. Create the file `pages/_app.js` as follows:
+On the frontend side, the SDK uses React Context to manage the authentication state of your users. To make that state available to all your pages, you need to override the [App component](https://nextjs.org/docs/advanced-features/custom-app) and wrap its inner component with a `UserProvider`. Create the file `pages/_app.js` as follows:
 
 ```jsx
 import React from 'react';
@@ -92,6 +92,10 @@ Now that you have added the dynamic route and `UserProvider`, run your applicati
 ## Add Login to Your Application
 
 A user can now log in to your application by visiting the `/api/auth/login` route provided by the SDK. Add a link to your login route using an anchor tag.
+
+::note
+Next linting rules might suggest using the `Link` component instead of an anchor tag. The `Link` component is meant to perform [client-side transitions between pages](https://nextjs.org/docs/api-reference/next/link). As the link points to an API route and not to a page, you should keep it as an anchor tag.
+::
 
 ```html
 <a href="/api/auth/login">Login</a>
