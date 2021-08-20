@@ -641,7 +641,7 @@ articles:
         url: /protocols/saml-protocol
         children:
           - title: SAML SSO Integrations
-            url: /protocols/saml-protocol/saml-configuration-options
+            url: /protocols/saml-protocol/saml-sso-integrations
           - title: Auth0 as SP
             url: /protocols/saml-protocol/configure-auth0-saml-service-provider
           - title: Auth0 as IdP
