@@ -1477,6 +1477,10 @@ module.exports = [
     from: ['/applications/set-up-database-connections','/dashboard/guides/connections/set-up-connections-database'],
     to: '/configure/applications/set-up-database-connections'
   },
+  {
+    from: ['/get-started/dashboard/test-database-connections','/dashboard/guides/connections/test-connections-database'],
+    to: '/configure/applications/test-database-connections'
+  },
 
   /* APIs */
 
@@ -3222,10 +3226,6 @@ module.exports = [
     to: 'https://marketplace.auth0.com/features/social-connections'
   },
   {
-    from: ['/dashboard/guides/connections/test-connections-database'],
-    to: '/get-started/dashboard/test-database-connections'
-  },
-  {
     from: ['/dashboard/guides/connections/test-connections-enterprise'],
     to: '/get-started/dashboard/test-enterprise-connections'
   },
@@ -3250,7 +3250,13 @@ module.exports = [
     to: '/get-started/dashboard/retrieve-connection-options'
   },
   {
-    from: ['/dashboard-access/dashboard-roles','/dashboard-access/manage-dashboard-users','/dashboard/manage-dashboard-admins','/tutorials/manage-dashboard-admins','/get-started/dashboard/manage-dashboard-users'],
+    from: [
+      '/dashboard-access/dashboard-roles',
+      '/dashboard-access/manage-dashboard-users',
+      '/dashboard/manage-dashboard-admins',
+      '/tutorials/manage-dashboard-admins',
+      '/get-started/dashboard/manage-dashboard-users'
+    ],
     to: '/dashboard-access'
   },
   {
@@ -4649,10 +4655,6 @@ module.exports = [
     to: '/product-lifecycle/deprecations-and-migrations/google-firebase-migration'
   },
   {
-    from: ['/product-lifecycle/deprecations-and-migrations/logout-return-to'],
-    to: '/product-lifecycle/deprecations-and-migrations/logout-redirects-migration'
-  },
-  {
     from: ['/migrations/guides/migration-oauthro-oauthtoken'],
     to: '/product-lifecycle/deprecations-and-migrations/migration-oauthro-oauthtoken'
   },
@@ -5125,10 +5127,6 @@ module.exports = [
   {
     from: ['/support/tickets'],
     to: '/support/open-and-manage-support-tickets'
-  },
-  {
-    from: ['/dashboard/manage-dashboard-admins'],
-    to: '/support/support-center-users'
   },
   {
     from: ['/support/subscription'],
