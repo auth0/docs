@@ -5354,7 +5354,7 @@ module.exports = [
   },
   {
     from: ['/product-lifecycle/deprecations-and-migrations/logout-return-to'],
-    to: 'product-lifecycle/deprecations-and-migrations/logout-redirects-migration'
+    to: '/product-lifecycle/deprecations-and-migrations/logout-redirects-migration'
   },
   {
     from: ['/migrations/guides/migration-oauthro-oauthtoken'],
