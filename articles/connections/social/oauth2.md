@@ -23,7 +23,10 @@ To create a new Custom Social Connection, navigate to [**Auth0 Dashboard > Authe
 The form that appears contains several fields that you must use to configure the custom connection:
 
 - **Connection Name**: Logical identifier for the Connection you are creating. This name cannot be changed, must start and end with an alphanumeric character, and can only contain alphanumeric characters and dashes.
-- **Authorization URL**: URL to which users are redirected tp log in.
+- **Authorization URL**: URL to which users are redirected to log in.
+  :::note
+  Do not attempt to set the OAuth2 `response_mode` parameter in the authorization URL. This connection only supports the default `response_mode` (`query`).
+  :::
 - **Token URL**: URL used to exchange the received authorization code for access tokens and, if requested, ID tokens.
 - **Scope** - `scope` parameters to send with the authorization request. Separate multiple scopes with spaces.
 - **Client ID**: Client ID for Auth0 as an application used to request authorization and exchange the authorization code. To get a Client ID, you will need to register with the identity provider.
