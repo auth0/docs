@@ -944,7 +944,7 @@ module.exports = [
       '/connections/passwordless/concepts/sample-use-cases-rules'
     ],
     to: '/connections/passwordless/sample-use-cases-rules'
-  }
+  },
 
 
   /* MICROSITES */
