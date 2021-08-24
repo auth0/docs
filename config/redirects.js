@@ -1951,16 +1951,25 @@ module.exports = [
     to: '/configure/attack-protection/bot-detection'
   },
   {
-    from: '/anomaly-detection/bot-detection/configure-recaptcha-enterprise',
-    to: '/configure/anomaly-detection/bot-detection/configure-recaptcha-enterprise'
+    from: [
+      '/configure/anomaly-detection/bot-detection/configure-recaptcha-enterprise',
+      '/anomaly-detection/bot-detection/configure-recaptcha-enterprise'
+    ],
+    to: '/configure/attack-protection/bot-detection/configure-recaptcha-enterprise'
   },
   {
-    from: '/anomaly-detection/bot-detection/bot-detection-custom-login-pages',
-    to: '/configure/anomaly-detection/bot-detection/bot-detection-custom-login-pages'
+    from: [
+      '/anomaly-detection/bot-detection/bot-detection-custom-login-pages',
+      '/configure/anomaly-detection/bot-detection/bot-detection-custom-login-pages'
+    ],
+    to: '/configure/attack-protection/bot-detection/bot-detection-custom-login-pages'
   },
   {
-    from: '/anomaly-detection/bot-detection/bot-detection-native-apps',
-    to: '/configure/anomaly-detection/bot-detection/bot-detection-native-apps'
+    from: [
+      '/configure/anomaly-detection/bot-detection/bot-detection-native-apps',
+      '/anomaly-detection/bot-detection/bot-detection-native-apps'
+    ],
+    to: '/configure/attack-protection/bot-detection/bot-detection-native-apps'
   },
   {
     from: [
@@ -1974,8 +1983,11 @@ module.exports = [
     to: '/configure/attack-protection/brute-force-protection'
   },
   {
-    from: '/anomaly-detection/suspicious-ip-throttling',
-    to: '/configure/anomaly-detection/suspicious-ip-throttling'
+    from: [
+      '/configure/anomaly-detection/suspicious-ip-throttling',
+      '/anomaly-detection/suspicious-ip-throttling'
+    ],
+    to: '/configure/attack-protection/suspicious-ip-throttling'
   },
   {
     from: [
