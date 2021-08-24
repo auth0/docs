@@ -28,11 +28,7 @@ To see how this will affect the login screen, select the **Try Connection** view
 
 ![Login form with username](/media/articles/connections/database/dashboard-connections-database-edit_view-try-connection-requires-username.png)
 
-Users can then login with either their username or their email address. Users who registered while **Requires Username** was disabled will not have a Username field stored and will have to log in with their email address. 
-
-::: warning
-Existing users without a stored username cannot have a username added to their profile. You will not be able to update the user using the Auth0 Dashboard or the Management API **Update User** endpoint.
-:::
+Users can then login with either their username or their email address. Users who registered while **Requires Username** was disabled will not have a Username field stored and will have to log in with their email address.
 
 ### Username length
 
