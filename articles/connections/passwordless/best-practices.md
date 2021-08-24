@@ -12,7 +12,7 @@ topics:
 
 ## Implementing login 
 
-You can implement passwordless authentication by redirecting to Auth0's [Universal Login](/connections/passwordless/guides/universal-login) or by [Embedding Login](/connections/passwordless/guides/embedded-login) in your application.
+You can implement passwordless authentication by redirecting to Auth0's [Universal Login](/connections/passwordless/universal-login) or by [Embedding Login](/connections/passwordless/embedded-login) in your application.
 
 We always recommend that [you implement Universal Login](guides/login/universal-vs-embedded).
 
@@ -59,4 +59,4 @@ The one-time-use code expiration time can be altered at [Auth0 Dashboard > Authe
 
 Users might want to authenticate using different passwordless factors during their lifetime. For example, they could initially sign up with an SMS, and later start authenticating with an email. You can achieve that by enabling them to link their different profiles using [account linking](/users/concepts/overview-user-account-linking).
 
-<%= include('../_includes/_rate_limit_server_side') %>
+<%= include('./_includes/_rate_limit_server_side') %>

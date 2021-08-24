@@ -97,4 +97,4 @@ We found that some customers are calling the `/passwordless/start` endpoint from
 
 A consequence of adding client authentication to `/passwordless/start` is that Auth0 can trust the headers sent with the request. Auth0 takes into account the `auth0-forwarded-for` header when enforcing rate limits. If you set that header with the end user's IP address when making the call from the server, Auth0 will rate limit the endpoint based on the end user's IP, instead of the server IP.
 
-You can read more about this in the [passwordless endpoints](/connections/passwordless/reference/relevant-api-endpoints#rate-limiting-in-passwordless-endpoints) documentation.
+You can read more about this in the [passwordless endpoints](/connections/passwordless/relevant-api-endpoints#rate-limiting-in-passwordless-endpoints) documentation.
