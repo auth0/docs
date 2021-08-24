@@ -415,24 +415,24 @@ articles:
             url: /connections/passwordless
             children:
               - title: Email
-                url: /connections/passwordless/guides/email-otp
+                url: /connections/passwordless/email-otp
               - title: Magic Link
-                url: /connections/passwordless/guides/email-magic-link
+                url: /connections/passwordless/email-magic-link
               - title: SMS
-                url: /connections/passwordless/guides/sms-otp
+                url: /connections/passwordless/sms-otp
           - title: Universal Login
-            url: /connections/passwordless/guides/universal-login
+            url: /connections/passwordless/universal-login
           - title: Embedded Login
-            url: /connections/passwordless/guides/embedded-login
+            url: /connections/passwordless/embedded-login
             children:
               - title: Passwordless APIs
-                url: /connections/passwordless/reference/relevant-api-endpoints
+                url: /connections/passwordless/relevant-api-endpoints
               - title: Native Apps
-                url: /connections/passwordless/guides/embedded-login-native
+                url: /connections/passwordless/embedded-login-native
               - title: Web Apps
-                url: /connections/passwordless/guides/embedded-login-webapps
+                url: /connections/passwordless/embedded-login-webapps
               - title: SPAs
-                url: /connections/passwordless/guides/embedded-login-spa
+                url: /connections/passwordless/embedded-login-spa
       - title: View Connections
         url: /dashboard/guides/connections/view-connections
       - title: Disable Connection Sync
@@ -1377,7 +1377,7 @@ articles:
           - title: Database Security
             url: /best-practices/custom-database-connections-scripts/connection-security
       - title: Passwordless Login Connections
-        url: /connections/passwordless/guides/best-practices
+        url: /connections/passwordless/best-practices
       - title: Rules
         url: /best-practices/rules-best-practices
         children:

@@ -25,7 +25,7 @@ To learn about using Twilio Messaging Services, see Twilio docs: [Sending Messag
 
 ### Configure a custom SMS gateway
 
-If you would like to use your own SMS gateway, you will need to create the passwordless connection and then modify it using our Management API. To learn how to modify the connection to use your own SMS gateway, see [Configure SMS Gateway for Passwordless Connections](/connections/passwordless/guides/use-sms-gateway-passwordless).
+If you would like to use your own SMS gateway, you will need to create the passwordless connection and then modify it using our Management API. To learn how to modify the connection to use your own SMS gateway, see [Configure SMS Gateway for Passwordless Connections](/connections/passwordless/use-sms-gateway-passwordless).
 
 ### Configure passwordless SMS settings
 

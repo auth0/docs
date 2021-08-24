@@ -111,7 +111,7 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 ### More Information
 
 - [Passwordless Authentication](/connections/passwordless)
-- [Passwordless Best Practices](/connections/passwordless/guides/best-practices)
+- [Passwordless Best Practices](/connections/passwordless/best-practices)
 
 ## Authenticate User
 
@@ -268,5 +268,5 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 
 ### More Information
 
-- [Passwordless Best Practices](/connections/passwordless/guides/best-practices)
+- [Passwordless Best Practices](/connections/passwordless/best-practices)
 

@@ -796,7 +796,21 @@ module.exports = [
     to: '/connections/enterprise/adfs'
   },
   {
-    from: ['/passwordless','/dashboard/guides/connections/set-up-connections-passwordless','/api-auth/passwordless','/connections/passwordless/ios','/connections/passwordless/native-passwordless-universal','/connections/passwordless/reference/troubleshoot','/connections/passwordless/faq','/connections/passwordless/spa-email-code','/connections/passwordless/spa-email-link','/connections/passwordless/spa-sms','/connections/passwordless/guides/','/connections/passwordless/ios-sms-objc','/connections/passwordless/ios-sms'],
+    from: [
+      '/passwordless',
+      '/dashboard/guides/connections/set-up-connections-passwordless',
+      '/api-auth/passwordless',
+      '/connections/passwordless/ios',
+      '/connections/passwordless/native-passwordless-universal',
+      '/connections/passwordless/reference/troubleshoot',
+      '/connections/passwordless/faq',
+      '/connections/passwordless/spa-email-code',
+      '/connections/passwordless/spa-email-link',
+      '/connections/passwordless/spa-sms',
+      '/connections/passwordless/guides/',
+      '/connections/passwordless/ios-sms-objc',
+      '/connections/passwordless/ios-sms'
+    ],
     to: '/connections/passwordless'
   },
   {
@@ -804,7 +818,12 @@ module.exports = [
     to: '/connections/database/password-strength'
   },
   {
-    from: ['/connections','/applications/concepts/connections','/applications/connections','/clients/connections'],
+    from: [
+      '/connections',
+      '/applications/concepts/connections',
+      '/applications/connections',
+      '/clients/connections'
+    ],
     to: '/identityproviders'
   },
   {
@@ -851,8 +870,11 @@ module.exports = [
     to: 'https://marketplace.auth0.com/integrations/criipto-verify-e-id'    
   },
   {
-    from: '/connections/passwordless/sms-gateway',
-    to: '/connections/passwordless/guides/use-sms-gateway-passwordless'
+    from: [
+      '/connections/passwordless/sms-gateway',
+      '/connections/passwordless/guides/use-sms-gateway-passwordless'
+    ],
+    to: '/connections/passwordless/use-sms-gateway-passwordless'
   },
   {
     from: '/connections/apple-setup',
@@ -875,20 +897,32 @@ module.exports = [
     to: '/connections/nativesocial/apple'
   },
   {
-    from: '/connections/passwordless/email',
-    to: '/connections/passwordless/guides/email-otp'
+    from: [
+      '/connections/passwordless/email',
+      '/connections/passwordless/guides/email-otp'
+    ],
+    to: '/connections/passwordless/email-otp'
   },
   {
-    from: '/connections/passwordless/sms',
-    to: '/connections/passwordless/guides/sms-otp'
+    from: [
+      '/connections/passwordless/sms',
+      '/connections/passwordless/guides/sms-otp'
+    ],
+    to: '/connections/passwordless/sms-otp'
   },
   {
-    from: '/connections/passwordless/spa',
-    to: '/connections/passwordless/guides/universal-login'
+    from: [
+      '/connections/passwordless/spa',
+      '/connections/passwordless/guides/universal-login'
+    ],
+    to: '/connections/passwordless/universal-login'
   },
   {
-    from: '/connections/passwordless/regular-web-app',
-    to: '/connections/passwordless/guides/universal-login'
+    from: [
+      '/connections/passwordless/regular-web-app',
+      '/connections/passwordless/guides/universal-login'
+    ],
+    to: '/connections/passwordless/universal-login'
   },
   {
     from: ['/connections/social/aol','/aol-clientid','/connections/social/thecity','/thecity-clientid','/connections/social/miicard','/miicard-clientid','/connections/social','/connections/nativesocial/'],
