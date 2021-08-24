@@ -3402,15 +3402,50 @@ module.exports = [
   /* Deploy */
 
   {
-    from: ['/get-started/deployment-options', '/getting-started/deployment-models','/overview/deployment-models','/deployment'],
+    from: [
+      '/get-started/deployment-options', 
+      '/getting-started/deployment-models',
+      '/overview/deployment-models',
+      '/deployment'
+    ],
     to: '/deploy'
   },
   {
-    from: ['/private-cloud/private-cloud-deployments/private-cloud-addon-options','/private-saas-deployment/add-ons','/private-cloud/add-ons','/appliance/infrastructure/internet-restricted-deployment','/private-saas-deployment','/private-cloud/managed-private-cloud','/private-cloud','/appliance','/appliance/checksum','/appliance/proxy-updater','/appliance/update','/updating-appliance','/enterprise/private-cloud/overview','/appliance/dashboard/instrumentation','/appliance/instrumentation','/appliance/appliance-overview'],
+    from: [
+      '/private-cloud/private-cloud-deployments/private-cloud-addon-options',
+      '/private-saas-deployment/add-ons',
+      '/private-cloud/add-ons',
+      '/appliance/infrastructure/internet-restricted-deployment',
+      '/private-saas-deployment',
+      '/private-cloud/managed-private-cloud',
+      '/private-cloud',
+      '/appliance',
+      '/appliance/checksum',
+      '/appliance/proxy-updater',
+      '/appliance/update',
+      '/updating-appliance',
+      '/enterprise/private-cloud/overview',
+      '/appliance/dashboard/instrumentation',
+      '/appliance/instrumentation',
+      '/appliance/appliance-overview'
+    ],
     to: '/deploy/private-cloud'
   },
   {
-    from: ['/services/private-cloud-configuration','/services/private-saas-configuration','/private-saas-deployment/onboarding','/private-saas-deployment/onboarding/private-cloud','/private-cloud/onboarding','/private-cloud/onboarding/private-cloud','/enterprise-support','/onboarding/appliance-outage','/onboarding/enterprise-support','/private-cloud/managed-private-cloud/zones','/private-cloud/managed-private-cloud/raci', '/private-cloud/private-cloud-onboarding'],
+    from: [
+      '/services/private-cloud-configuration',
+      '/services/private-saas-configuration',
+      '/private-saas-deployment/onboarding',
+      '/private-saas-deployment/onboarding/private-cloud',
+      '/private-cloud/onboarding',
+      '/private-cloud/onboarding/private-cloud',
+      '/enterprise-support',
+      '/onboarding/appliance-outage',
+      '/onboarding/enterprise-support',
+      '/private-cloud/managed-private-cloud/zones',
+      '/private-cloud/managed-private-cloud/raci', 
+      '/private-cloud/private-cloud-onboarding'
+    ],
     to: '/deploy/private-cloud/private-cloud-onboarding'
   },
   {
@@ -3609,7 +3644,7 @@ module.exports = [
       '/get-started/dashboard/create-sso-dashboard-application',
       '/dashboard/guides/extensions/sso-dashboard-create-app'
     ],
-    to: '/extensions/single-sign-on-dashboard-extensions/create-sso-dashboard-application'
+    to: '/extensions/single-sign-on-dashboard-extension/create-sso-dashboard-application'
   },
   {
     from: ['/dashboard/guides/extensions/sso-dashboard-install-extension'],
