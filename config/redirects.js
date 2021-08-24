@@ -1473,6 +1473,14 @@ module.exports = [
   },
   {
     from: [
+      '/tokens/signing-algorithms',
+      '/applications/concepts/signing-algorithms',
+      '/tokens/concepts/signing-algorithms'
+    ],
+    to: '/configure/applications/signing-algorithms'
+  },
+  {
+    from: [
       '/dashboard/guides/applications/update-signing-algorithm',
       '/tokens/guides/update-signing-algorithm-application',
       '/applications/change-application-signing-algorithms'
@@ -1604,6 +1612,14 @@ module.exports = [
       '/api-auth/tutorials/represent-multiple-apis'
     ],
     to: '/configure/api-settings/set-logical-api'
+  },
+  {
+    from: [
+      '/config/api-settings/create-m2m-app-test',
+      '/api/management/v2/create-m2m-app', 
+      '/tokens/management-api-access-tokens/create-and-authorize-a-machine-to-machine-application'
+    ],
+    to: '/configure/api-settings/create-m2m-app-test'
   },
 
   /* Single Sign-On */
@@ -5870,6 +5886,290 @@ module.exports = [
     to: '/security/security-bulletins/cve-2017-17068'
   },
 
+  /* Tokens */
+
+  {
+    from: ['/tokens','/security/token-exp','/token','/tokens/concepts','/tokens/guides'],
+    to: '/security/tokens'
+  },
+  {
+    from: [
+      '/tokens/overview-id-tokens',
+      '/tokens/id-token', 
+      '/tokens/concepts/id-tokens',
+      '/tokens/id_token',
+      '/tokens/id-tokens'
+    ],
+    to: '/security/tokens/id-tokens'
+  },
+  {
+    from: [
+      '/tokens/id-tokens/validate-id-tokens',
+      '/tokens/guides/validate-id-token',
+      '/tokens/guides/validate-id-tokens',
+      '/tokens/guides/id-token/validate-id-token',
+      '/tokens/id-tokens/validate-id-tokens'
+    ],
+    to: '/security/tokens/id-tokens/validate-id-tokens'
+  },
+  {
+    from: [
+      '/tokens/id-tokens/get-id-tokens',
+      '/tokens/guides/id-token/get-id-tokens', 
+      '/tokens/guides/get-id-tokens'
+    ],
+    to: '/security/tokens/id-tokens/get-id-tokens'
+  },
+  {
+    from: ['/tokens/id-tokens/id-token-structure','/tokens/references/id-token-structure'],
+    to: '/security/tokens/id-tokens/id-token-structure'
+  },
+  {
+    from: [
+      '/tokens/id-tokens/update-id-token-lifetime',
+      '/dashboard/guides/applications/update-token-lifetime'
+    ],
+    to: '/security/tokens/id-tokens/update-id-token-lifetime'
+  },
+  {
+    from: [
+      '/api-auth/tutorials/adoption/api-tokens',
+      '/tokens/concepts/access-tokens',
+      '/tokens/concepts/access-token',
+      '/tokens/overview-access-tokens',
+      '/tokens/access-token',
+      '/tokens/access_token',
+      '/api-auth/why-use-access-tokens-to-secure-apis',
+      '/api-auth/asking-for-access-tokens',
+      '/tokens/access-tokens'
+    ],
+    to: '/security/tokens/access-tokens'
+  },
+  {
+    from: [
+      '/tokens/guides/validate-access-tokens', 
+      '/api-auth/tutorials/verify-access-token', 
+      '/tokens/guides/access-token/validate-access-token',
+      '/tokens/access-tokens/validate-access-tokens'
+    ],
+    to: '/security/tokens/access-tokens/validate-access-tokens'
+  },
+  {
+    from: [
+      '/tokens/guides/get-access-tokens',
+      '/tokens/get-access-tokens', 
+      '/tokens/guides/access-token/get-access-tokens',
+      '/tokens/access-tokens/get-access-tokens'
+    ],
+    to: '/security/tokens/access-tokens/get-access-tokens'
+  },
+  {
+    from: [
+      '/tokens/guides/use-access-tokens',
+      '/tokens/use-access-tokens', 
+      '/tokens/guides/access-token/use-access-tokens',
+      '/tokens/access-tokens/use-access-tokens'
+    ],
+    to: '/security/tokens/access-tokens/use-access-tokens'
+  },
+  {
+    from: [
+      '/tokens/concepts/idp-access-tokens', 
+      '/tokens/overview-idp-access-tokens',
+      '/tokens/idp',
+      '/tokens/identity-provider-access-tokens'
+    ],
+    to: '/security/tokens/access-tokens/identity-provider-access-tokens'
+  },
+  {
+    from: [
+      '/api/management/v2/tokens',
+      '/tokens/apiv2', 
+      '/api/v2/tokens', 
+      '/api/management/v2/concepts/tokens',
+      '/tokens/management-api-access-tokens',
+      '/api/management/v2/faq-management-api-access-tokens', 
+      '/tokens/management-api-access-tokens/management-api-access-token-faqs'
+    ],
+    to: '/security/tokens/access-tokens/management-api-access-tokens'
+  },
+  {
+    from: [
+      '/tokens/management-api-access-tokens/get-management-api-access-tokens-for-production',
+      '/api/management/v2/get-access-tokens-for-production'
+    ],
+    to: '/security/tokens/access-tokens/get-management-api-access-tokens-for-production'
+  },
+  {
+    from: [
+      '/tokens/management-api-access-tokens/get-management-api-access-tokens-for-testing',
+      '/api/management/v2/get-access-tokens-for-test'
+    ],
+    to: '/security/tokens/access/tokens/get-management-api-access-tokens-for-testing'
+  },
+  {
+    from: [
+      '/tokens/management-api-access-tokens/get-management-api-tokens-for-single-page-applications',
+      '/api/management/v2/get-access-tokens-for-spas'
+    ],
+    to: '/security/tokens/access-tokens/get-management-api-tokens-for-single-page-applications'
+  },
+  {
+    from: [
+      '/api/management/v2/tokens-flows',
+      '/tokens/management-api-access-tokens/changes-in-auth0-management-apiv2-tokens'
+    ],
+    to: '/security/tokens/access-tokens/changes-in-auth0-management-apiv2-tokens'
+  },
+  {
+    from: [
+      '/tokens/access-tokens/update-access-token-lifetime',
+      '/dashboard/guides/apis/update-token-lifetime'
+    ],
+    to: '/security/tokens/access-tokens/update-access-token-lifetime'
+  },
+  {
+    from: [
+      '/tokens/json-web-tokens',
+      '/tokens/concepts/jwts', 
+      '/tokens/concepts/why-use-jwt',
+      '/tokens/jwt',
+      '/jwt'
+    ],
+    to: '/security/tokens/json-web-tokens'
+  },
+  {
+    from: [
+      '/tokens/json-web-tokens/validate-json-web-tokens',
+      '/tokens/guides/validate-jwts', 
+      '/tokens/guides/jwt/parse-validate-jwt-programmatically', 
+      '/tokens/guides/jwt/validate-jwt'
+    ],
+    to: '/tokens/json-web-tokens/validate-json-web-tokens'
+  },
+  {
+    from: [
+      '/tokens/json-web-tokens/json-web-token-structure',
+      '/tokens/references/jwt-structure',
+      '/tokens/reference/jwt/jwt-structure'
+    ],
+    to: '/security/tokens/json-web-tokens/json-web-token-structure'
+  },
+  {
+    from: [
+      '/tokens/json-web-tokens/json-web-token-claims',
+      '/tokens/jwt-claims',
+      '/tokens/concepts/jwt-claims',
+      '/tokens/add-custom-claims',
+      '/scopes/current/custom-claims'
+    ],
+    to: '/security/tokens/json-web-tokens/json-web-token-claims'
+  },
+  {
+    from: [
+      '/tokens/create-namespaced-custom-claims',
+      '/tokens/guides/create-namespaced-custom-claims',
+      '/tokens/concepts/claims-namespacing'
+    ],
+    to: '/security/tokens/json-web-tokens/create-namespaced-custom-claims'
+  },
+  {
+    from: [
+      '/tokens/json-web-tokens/json-web-key-sets',
+      '/tokens/jwks', 
+      '/jwks',
+      '/tokens/concepts/jwks'
+    ],
+    to: '/security/tokens/json-web-tokens/json-web-key-sets'
+  },
+  {
+    from: [
+      '/tokens/json-web-tokens/json-web-key-sets/locate-json-web-key-sets',
+      '/tokens/guides/locate-jwks', 
+      '/tokens/guides/jwt/verify-jwt-signature-using-jwks', 
+      '/tokens/guides/jwt/use-jwks'
+    ],
+    to: '/security/tokens/json-web-tokens/locate-json-web-key-sets'
+  },
+  {
+    from: [
+      '/tokens/json-web-tokens/json-web-key-set-properties',
+      '/tokens/references/jwks-properties', 
+      '/tokens/reference/jwt/jwks-properties'
+    ],
+    to: '/security/tokens/json-web-tokens/json-web-key-set-properties'
+  },
+  {
+    from: [
+      '/api-auth/tutorials/adoption/refresh-tokens',
+      '/refresh-token',
+      '/tokens/refresh_token',
+      '/tokens/refresh-token',
+      '/tokens/refresh-token/legacy',
+      '/tokens/refresh-token/current',
+      '/tokens/concepts/refresh-tokens',
+      '/tokens/access-tokens/refresh-tokens',
+      '/tokens/preview/refresh-token',
+      '/tokens/refresh-tokens'
+    ],
+    to: '/security/tokens/refresh-tokens'
+  },
+  {
+    from: ['/tokens/refresh-tokens/get-refresh-tokens','/tokens/guides/get-refresh-tokens'],
+    to: '/security/tokens/refresh-tokens/get-refresh-tokens'
+  },
+  {
+    from: ['/tokens/refresh-tokens/use-refresh-tokens','/tokens/guides/use-refresh-tokens'],
+    to: '/security/tokens/refresh-tokens/use-refresh-tokens'
+  },
+  {
+    from: '/tokens/refresh-tokens/configure-refresh-token-expiration',
+    to: '/security/tokens/refresh-tokens/configure-refresh-token-expiration'
+  },
+  {
+    from: [
+      '/tokens/concepts/refresh-token-rotation',
+      '/tokens/access-tokens/refresh-tokens/refresh-token-rotation',
+      '/tokens/refresh-tokens/refresh-token-rotation'
+    ],
+    to: '/security/tokens/refresh-tokens/refresh-token-rotation'
+  },
+  {
+    from: [
+      '/tokens/refresh-tokens/configure-refresh-token-rotation',
+      '/tokens/guides/configure-refresh-token-rotation'
+    ],
+    to: '/security/tokens/refresh-tokens/configure-refresh-token-rotation'
+  },
+  {
+    from: [
+      '/tokens/guides/use-refresh-token-rotation',
+      '/tokens/refresh-token-rotation/use-refresh-token-rotation',
+      '/tokens/refresh-tokens/refresh-token-rotation/use-refresh-token-rotation'
+    ],
+    to: '/security/tokens/refresh-tokens/use-refresh-token-rotation'
+  },
+  {
+    from: [
+      '/tokens/guides/disable-refresh-token-rotation',
+      '/tokens/access-tokens/refresh-tokens/disable-refresh-token-rotation',
+      '/tokens/refresh-tokens/disable-refresh-token-rotation'
+    ],
+    to: '/security/tokens/refresh-tokens/disable-refresh-token-rotation'
+  },
+  {
+    from: ['/tokens/refresh-tokens/revoke-refresh-tokens','/tokens/guides/revoke-refresh-tokens'],
+    to: '/security/tokens/refresh-tokens/revoke-refresh-tokens'
+  },
+  {
+    from: ['/tokens/revoke-tokens','/tokens/guides/revoke-tokens'],
+    to: '/security/tokens/revoke-tokens'
+  },
+  {
+    from: ['/api-auth/tutorials/adoption/delegation','/tokens/delegation','/tokens/concepts/delegation-tokens'],
+    to: '/tokens/delegation-tokens'
+  },
+
   /* Support */
 
   {
@@ -6014,160 +6314,6 @@ module.exports = [
     to: '/support/policies/entity-limit-policy'
   },
 
-  /* Tokens */
-
-  {
-    from: ['/security/token-exp','/token','/tokens/concepts','/tokens/guides'],
-    to: '/tokens'
-  },
-  {
-    from: ['/api-auth/tutorials/adoption/api-tokens','/tokens/concepts/access-tokens','/tokens/concepts/access-token','/tokens/overview-access-tokens','/tokens/access-token','/tokens/access_token','/api-auth/why-use-access-tokens-to-secure-apis','/api-auth/asking-for-access-tokens'],
-    to: '/tokens/access-tokens'
-  },
-  {
-    from: ['/tokens/guides/get-access-tokens','/tokens/get-access-tokens', '/tokens/guides/access-token/get-access-tokens'],
-    to: '/tokens/access-tokens/get-access-tokens'
-  },
-  {
-    from: ['/tokens/guides/use-access-tokens','/tokens/use-access-tokens', '/tokens/guides/access-token/use-access-tokens'],
-    to: '/tokens/access-tokens/use-access-tokens'
-  },
-  {
-    from: ['/tokens/guides/validate-access-tokens', '/api-auth/tutorials/verify-access-token', '/tokens/guides/access-token/validate-access-token'],
-    to: '/tokens/access-tokens/validate-access-tokens'
-  },
-  {
-    from: ['/tokens/guides/create-namespaced-custom-claims','/tokens/concepts/claims-namespacing'],
-    to: '/tokens/create-namespaced-custom-claims'
-  },
-  {
-    from: ['/tokens/concepts/idp-access-tokens', '/tokens/overview-idp-access-tokens','/tokens/idp'],
-    to: '/tokens/identity-provider-access-tokens'
-  },
-  {
-    from: ['/tokens/overview-id-tokens','/tokens/id-token', '/tokens/concepts/id-tokens','/tokens/id_token'],
-    to: '/tokens/id-tokens'
-  },
-  {
-    from: ['/tokens/guides/id-token/get-id-tokens', '/tokens/guides/get-id-tokens'],
-    to: '/tokens/id-tokens/get-id-tokens'
-  },
-  {
-    from: ['/tokens/references/id-token-structure'],
-    to: '/tokens/id-tokens/id-token-structure'
-  },
-  {
-    from: ['/tokens/guides/validate-id-token','/tokens/guides/validate-id-tokens','/tokens/guides/id-token/validate-id-token'],
-    to: '/tokens/id-tokens/validate-id-tokens'
-  },
-  {
-    from: ['/tokens/concepts/jwts', '/tokens/concepts/why-use-jwt','/tokens/jwt','/jwt'],
-    to: '/tokens/json-web-tokens'
-  },
-  {
-    from: ['/tokens/jwks', '/jwks','/tokens/concepts/jwks'],
-    to: '/tokens/json-web-tokens/json-web-key-sets'
-  },
-  {
-    from: ['/tokens/references/jwks-properties', '/tokens/reference/jwt/jwks-properties'],
-    to: '/tokens/json-web-tokens/json-web-key-set-properties'
-  },
-  {
-    from: ['/tokens/guides/locate-jwks', '/tokens/guides/jwt/verify-jwt-signature-using-jwks', '/tokens/guides/jwt/use-jwks'],
-    to: '/tokens/json-web-tokens/json-web-key-sets/locate-json-web-key-sets'
-  },
-  {
-    from: ['/tokens/jwt-claims', '/tokens/concepts/jwt-claims','/tokens/add-custom-claims','/scopes/current/custom-claims'],
-    to: '/tokens/json-web-tokens/json-web-token-claims'
-  },
-  {
-    from: ['/tokens/references/jwt-structure','/tokens/reference/jwt/jwt-structure'],
-    to: '/tokens/json-web-tokens/json-web-token-structure'
-  },
-  {
-    from: ['/tokens/guides/validate-jwts', '/tokens/guides/jwt/parse-validate-jwt-programmatically', '/tokens/guides/jwt/validate-jwt'],
-    to: '/tokens/json-web-tokens/validate-json-web-tokens'
-  },
-  {
-    from: ['/api-auth/tutorials/adoption/refresh-tokens','/refresh-token','/tokens/refresh_token','/tokens/refresh-token','/tokens/refresh-token/legacy','/tokens/refresh-token/current','/tokens/concepts/refresh-tokens','/tokens/access-tokens/refresh-tokens','/tokens/preview/refresh-token'],
-    to: '/tokens/refresh-tokens'
-  },
-  {
-    from: ['/tokens/guides/configure-refresh-token-rotation'],
-    to: '/tokens/refresh-tokens/configure-refresh-token-rotation'
-  },
-  {
-    from: ['/tokens/guides/disable-refresh-token-rotation','/tokens/access-tokens/refresh-tokens/disable-refresh-token-rotation'],
-    to: '/tokens/refresh-tokens/disable-refresh-token-rotation'
-  },
-  {
-    from: ['/tokens/guides/get-refresh-tokens'],
-    to: '/tokens/refresh-tokens/get-refresh-tokens'
-  },
-  {
-    from: ['/tokens/concepts/refresh-token-rotation','/tokens/access-tokens/refresh-tokens/refresh-token-rotation'],
-    to: '/tokens/refresh-tokens/refresh-token-rotation'
-  },
-  {
-    from: ['/tokens/guides/use-refresh-token-rotation', '/tokens/refresh-token-rotation/use-refresh-token-rotation'],
-    to: '/tokens/refresh-tokens/refresh-token-rotation/use-refresh-token-rotation'
-  },
-  {
-    from: ['/tokens/guides/revoke-refresh-tokens'],
-    to: '/tokens/refresh-tokens/revoke-refresh-tokens'
-  },
-  {
-    from: ['/tokens/guides/use-refresh-tokens'],
-    to: '/tokens/refresh-tokens/use-refresh-tokens'
-  },
-  {
-    from: ['/tokens/guides/revoke-tokens'],
-    to: '/tokens/revoke-tokens'
-  },
-  {
-    from: ['/applications/concepts/signing-algorithms','/tokens/concepts/signing-algorithms'],
-    to: '/tokens/signing-algorithms'
-  },
-  {
-    from: ['/api-auth/tutorials/adoption/delegation','/tokens/delegation','/tokens/concepts/delegation-tokens'],
-    to: '/tokens/delegation-tokens'
-  },
-  {
-    from: ['/api/management/v2/get-access-tokens-for-production'],
-    to: '/tokens/management-api-access-tokens/get-management-api-access-tokens-for-production'
-  },
-  {
-    from: ['/api/management/v2/get-access-tokens-for-spas'],
-    to: '/tokens/management-api-access-tokens/get-management-api-tokens-for-single-page-applications'
-  },
-  {
-    from: ['/api/management/v2/get-access-tokens-for-test'],
-    to: '/tokens/management-api-access-tokens/get-management-api-access-tokens-for-testing'
-  },
-  {
-    from: ['/api/management/v2/tokens','/tokens/apiv2', '/api/v2/tokens', '/api/management/v2/concepts/tokens'],
-    to: '/tokens/management-api-access-tokens'
-  },
-  {
-    from: ['/api/management/v2/tokens-flows'],
-    to: '/tokens/management-api-access-tokens/changes-in-auth0-management-apiv2-tokens'
-  },
-  {
-    from: ['/dashboard/guides/apis/update-token-lifetime'],
-    to: '/tokens/access-tokens/update-access-token-lifetime'
-  },
-  {
-    from: ['/dashboard/guides/applications/update-token-lifetime'],
-    to: '/tokens/id-tokens/update-id-token-lifetime'
-  },
-  {
-    from: ['/api/management/v2/create-m2m-app', '/tokens/management-api-access-tokens/create-and-authorize-a-machine-to-machine-application'],
-    to: '/config/api-settings/create-m2m-app-test'
-  },
-  {
-    from: ['/api/management/v2/faq-management-api-access-tokens', '/tokens/management-api-access-tokens/management-api-access-token-faqs'],
-    to: '/tokens/management-api-access-tokens'
-  },
 
   /* Troubleshoot */
 
