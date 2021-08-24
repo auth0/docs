@@ -7,6 +7,7 @@ topics:
     - authentication
 useCase: customize-connections
 ---
+# Passwordless Authentication Factors
 
 With Passwordless connections, users can log in without a password. Instead, they can use a variety of other authentication factors. Auth0 Passwordless connections support the following authentication factors:
 
