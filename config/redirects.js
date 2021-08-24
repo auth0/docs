@@ -4824,6 +4824,111 @@ module.exports = [
     to: '/login'
   },
   {
+    from: [
+      '/hosted-pages/hosted-login-auth0js',
+      '/hosted-pages/login/auth0js',
+      '/hosted-pages/login/lock',
+      '/hosted-pages/login/lock-passwordless',
+      '/hosted-pages/hosted-login-auth0js/v7',
+      '/hosted-pages/hosted-login-auth0js/v8',
+      '/hosted-pages/login',
+      '/hosted-pages',
+      '/universal-login/customization-new',
+      '/login_page',
+      '/universal-login'
+    ],
+    to: '/login/universal-login'
+  },
+  {
+    from: ['/universal-login/new-universal-login-vs-classic-universal-login'],
+    to: '/login/universal-login/new-universal-login-vs-classic-universal-login'
+  },
+  {
+    from: ['/universal-login/new-experience','/universal-login/new'],
+    to: '/login/universal-login/new-experience'
+  },
+  {
+    from: ['/universal-login/classic-experience','/universal-login/classic'],
+    to: '/login/universal-login/classic-experience'
+  },
+  {
+    from: [
+      '/dashboard/guides/universal-login/configure-login-page-passwordless',
+      '/dashboard/guides/connections/configure-passwordless-sms',
+      '/universal-login/configure-universal-login-with-passwordless'
+    ],
+    to: '/login/universal-login/configure-universal-login-with-passwordless'
+  },
+  {
+    from: ['/universal-login/prompt-common','/universal-login/text-customization-prompts/common'],
+    to: '/login/universal-login/prompt-common'
+  },
+  {
+    from: ['/universal-login/prompt-consent','/universal-login/text-customization-prompts/consent'],
+    to: '/login/universal-login/prompt-consent'
+  },
+  {
+    from: ['/universal-login/prompt-device-flow','/universal-login/text-customization-prompts/device-flow'],
+    to: '/login/universal-login/prompt-device-flow'
+  },
+  {
+    from: ['/universal-login/prompt-email-verification','/universal-login/text-customization-prompts/email-verification'],
+    to: '/login/universal-login/prompt-email-verification'
+  },
+  {
+    from: ['/universal-login/prompt-login','/universal-login/text-customization-prompts/login'],
+    to: '/login/universal-login/prompt-login'
+  },
+  {
+    from: ['/universal-login/prompt-mfa','/universal-login/text-customization-prompts/mfa'],
+    to: '/login/universal-login/prompt-mfa'
+  },
+  {
+    from: ['/universal-login/prompt-mfa-email','/universal-login/text-customization-prompts/mfa-email'],
+    to: '/login/universal-login/prompt-mfa-email'
+  },
+  {
+    from: ['/universal-login/prompt-mfa-otp','/universal-login/text-customization-prompts/mfa-otp'],
+    to: '/login/universal-login/prompt-mfa-otp'
+  },
+  {
+    from: ['/universal-login/prompt-mfa-push','/universal-login/text-customization-prompts/mfa-push'],
+    to: '/login/universal-login/prompt-mfa-push'
+  },
+  {
+    from: ['/universal-login/prompt-mfa-recovery-code','/universal-login/text-customization-prompts/mfa-recovery-code'],
+    to: '/login/universal-login/prompt-mfa-recovery-code'
+  },
+  {
+    from: ['/universal-login/prompt-mfa-sms','/universal-login/text-customization-prompts/mfa-sms'],
+    to: '/login/universal-login/prompt-mfa-sms'
+  },
+  {
+    from: ['/universal-login/prompt-reset-password','/universal-login/text-customization-prompts/reset-password'],
+    to: '/login/universal-login/prompt-reset-password'
+  },
+  {
+    from: ['/universal-login/prompt-signup','/universal-login/text-customization-prompts/signup'],
+    to: '/login/universal-login/prompt-signup'
+  },
+  {
+    from: ['/universal-login/universal-vs-embedded-login','/guides/login/universal-vs-embedded','/guides/login/centralized-vs-embedded'],
+    to: '/login/universal-vs-embedded-login'
+  },
+  {
+    from: ['/universal-login/configure-default-login-routes','/universal-login/default-login-url','/hosted-pages/default-login-url'],
+    to: '/login/universal-login/configure-default-login-routes'
+  },
+  {
+    from: [
+      '/universal-login/error-pages',
+      '/error-pages',
+      '/error-pages/generic',
+      '/hosted-pages/error-pages'
+    ],
+    to: '/login/universal-login/error-pages'
+  },
+  {
     from: ['/login/embedded', '/flows/login/embedded', '/flows/login/embedded-login'],
     to: '/login/embedded-login'
   },
@@ -5323,6 +5428,29 @@ module.exports = [
   },
   {
     from: [
+      '/universal-login/multifactor-authentication',
+      '/hosted-pages/guardian',
+      '/universal-login/guardian',
+      '/universal-login/classic-experience/mfa-classic-experience'
+    ],
+    to: '/login/mfa/customize-mfa-user-pages/mfa-classic-experience'
+  },
+  {
+    from: [
+      '/mfa/customize-mfa-user-pages/mfa-theme-language-dictionary',
+      '/mfa/references/language-dictionary'
+    ],
+    to: '/login/mfa/customize-mfa-user-pages/mfa-theme-language-dictionary'
+  },
+  {
+    from: [
+      '/mfa/customize-mfa-user-pages/mfa-widget-theme-options',
+      '/mfa/references/mfa-widget-reference'
+    ],
+    to: '/login/mfa/customize-mfa-user-pages/mfa-widget-theme-options'
+  },
+  {
+    from: [
       '/api-auth/tutorials/multifactor-resource-owner-password',
       '/mfa/guides/mfa-api/authenticate',
       '/mfa/guides/mfa-api/multifactor-resource-owner-password',
@@ -5382,18 +5510,6 @@ module.exports = [
       '/mfa/authenticate-with-ropg-and-mfa/manage-authenticator-factors-mfa-api'
     ],
     to: '/login/mfa/ropg-mfa/manage-authenticator-factors-mfa-api'
-  },
-  {
-    from: '/mfa/customize-mfa-user-pages',
-    to: '/login/mfa/customize-mfa-user-pages'
-  },
-  {
-    from: ['/mfa/customize-mfa-user-pages/mfa-theme-language-dictionary','/mfa/references/language-dictionary'],
-    to: '/login/mfa/customize-mfa-user-pages/mfa-theme-language-dictionary'
-  },
-  {
-    from: ['/mfa/customize-mfa-user-pages/mfa-widget-theme-options','/mfa/references/mfa-widget-reference'],
-    to: '/login/mfa/customize-mfa-user-pages/mfa-widget-theme-options'
   },
   {
     from: [
@@ -6322,19 +6438,42 @@ module.exports = [
     to: '/troubleshoot'
   },
   {
+    from: ['/troubleshoot/basic-troubleshooting','/troubleshoot/concepts/basics'],
+    to: '/troubleshoot/troubleshoot-basic'
+  },
+  {
+    from: ['/troubleshoot/basic-troubleshooting/verify-platform','/troubleshoot/guides/verify-platform'],
+    to: '/troubleshoot/troubleshoot-basic/verify-platform'
+  },
+  {
+    from: ['/troubleshoot/basic-troubleshooting/verify-connections','/troubleshoot/guides/verify-connections'],
+    to: '/troubleshoot/troubleshoot-basic/verify-connections'
+  },
+  {
+    from: ['/troubleshoot/basic-troubleshooting/verify-domain','/troubleshoot/guides/verify-domain'],
+    to: '/troubleshoot/troubleshoot-basic/verify-domain'
+  },
+  {
+    from: ['/troubleshoot/guides/verify-rules', '/troubleshoot/verify-rules'],
+    to: '/troubleshoot/troubleshoot-basic/verify-rules'
+  },
+  {
     from: ['/troubleshoot/guides/check-error-messages', '/troubleshoot/check-error-messages'],
     to: '/troubleshoot/troubleshoot-basic/check-error-messages'
   },
   {
     from: [
-      '/har',
-      '/tutorials/troubleshooting-with-har-files',
-      '/troubleshoot/har',
-      '/support/troubleshooting-with-har-files',
-      '/troubleshoot/guides/generate-har-files',
-      '/troubleshoot/generate-and-analyze-har-files'
-      ],
-    to: '/troubleshoot/tools/generate-and-analyze-har-files'
+      '/product-lifecycle/deprecations-and-migrations/search-logs-for-deprecation-errors',
+      '/errors/deprecations-errors/'
+    ],
+    to: '/troubleshoot/troubleshoot-basic/search-logs-for-deprecation-errors'
+  },
+  {
+    from: [
+      '/troubleshoot/guides/check-deprecation-errors',
+      '/troubleshoot/troubleshoot-authentication-issues/check-deprecation-errors'
+    ],
+    to: '/troubleshoot/troubleshoot-basic/check-deprecation-errors'
   },
   {
     from: ['/troubleshoot/references/invalid-token','/troubleshoot/invalid-token-errors'],
@@ -6348,6 +6487,26 @@ module.exports = [
     to: '/troubleshoot/troubleshoot-authentication'
   },
   {
+    from: ['/troubleshoot/guides/check-api-calls', '/troubleshoot/troubleshoot-authentication-issues/check-api-calls'],
+    to: '/troubleshoot/troubleshoot-authentication/check-api-calls'
+  },
+  {
+    from: ['/troubleshoot/guides/check-login-logout-issues', '/troubleshoot/troubleshoot-authentication-issues/check-login-and-logout-issues'],
+    to: '/troubleshoot/troubleshoot-authentication/check-login-and-logout-issues'
+  },
+  {
+    from: ['/troubleshoot/guides/check-user-profiles', '/troubleshoot/troubleshoot-authentication-issues/check-user-profiles'],
+    to: '/troubleshoot/troubleshoot-authentication/check-user-profiles'
+  },
+  {
+    from: ['/authorization/concepts/troubleshooting', '/authorization/troubleshoot-role-based-access-control-and-authorization'],
+    to: '/troubleshoot/troubleshoot-authentication/troubleshoot-rbac-authorization'
+  },
+  {
+    from: ['/troubleshoot/references/saml-errors', '/troubleshoot/troubleshoot-authentication-issues/saml-errors'],
+    to: '/troubleshoot/troubleshoot-authentication/saml-errors'
+  },
+  {
     from: [
       '/protocols/saml/saml-configuration/troubleshoot/auth0-as-idp',
       '/protocols/saml/saml-configuration/troubleshoot',
@@ -6359,27 +6518,11 @@ module.exports = [
     to: '/troubleshoot/troubleshoot-authentication/troubleshoot-saml-configurations'
   },
   {
-    from: ['/troubleshoot/guides/check-api-calls', '/troubleshoot/troubleshoot-authentication-issues/check-api-calls'],
-    to: '/troubleshoot/troubleshoot-authentication/check-api-calls'
-  },
-  {
     from: [
-      '/errors/deprecation-errors',
-      '/troubleshoot/guides/check-deprecation-errors',
-      '/troubleshoot/troubleshoot-authentication-issues/check-deprecation-errors'],
-    to: '/troubleshoot/troubleshoot-basic/check-deprecation-errors'
-  },
-  {
-    from: ['/troubleshoot/guides/check-login-logout-issues', '/troubleshoot/troubleshoot-authentication-issues/check-login-and-logout-issues'],
-    to: '/troubleshoot/troubleshoot-authentication/check-login-and-logout-issues'
-  },
-  {
-    from: ['/troubleshoot/guides/check-user-profiles', '/troubleshoot/troubleshoot-authentication-issues/check-user-profiles'],
-    to: '/troubleshoot/troubleshoot-authentication/check-user-profiles'
-  },
-  {
-    from: ['/troubleshoot/references/saml-errors', '/troubleshoot/troubleshoot-authentication-issues/saml-errors'],
-    to: '/troubleshoot/troubleshoot-authentication/saml-errors'
+      '/troubleshoot/self-change-password-errors',
+      '/troubleshoot/references/self_change_password'
+    ],
+    to: '/troubleshoot/troubleshoot-authentication/self-change-password-errors'
   },
   {
     from: [
@@ -6393,54 +6536,6 @@ module.exports = [
     to: '/troubleshoot/troubleshoot-authentication/troubleshoot-mfa-issues'
   },
   {
-    from: ['/troubleshoot/basic-troubleshooting','/troubleshoot/concepts/basics'],
-    to: '/troubleshoot/troubleshoot-basic'
-  },
-  {
-    from: ['/troubleshoot/basic-troubleshooting/verify-connections','/troubleshoot/guides/verify-connections'],
-    to: '/troubleshoot/troubleshoot-basic/verify-connections'
-  },
-  {
-    from: ['/troubleshoot/basic-troubleshooting/verify-domain','/troubleshoot/guides/verify-domain'],
-    to: '/troubleshoot/troubleshoot-basic/verify-domain'
-  },
-  {
-    from: ['/troubleshoot/basic-troubleshooting/verify-platform','/troubleshoot/guides/verify-platform'],
-    to: '/troubleshoot/troubleshoot-basic/verify-platform'
-  },
-  {
-    from: ['/troubleshoot/concepts/integration-extensibility-issues'],
-    to: '/troubleshoot/troubleshoot-integration-and-extensibility'
-  },
-  {
-    from: ['/custom-domains/troubleshoot-custom-domains','/custom-domains/troubleshoot'],
-    to: '/troubleshoot/troubleshoot-integrations-and-extensibility/troubleshoot-custom-domains'
-  },
-  {
-    from: [
-      '/connector/troubleshooting',
-      '/ad-ldap-connector/troubleshoot-ad-ldap-connector',
-      '/extensions/ad-ldap-connector/troubleshoot-ad-ldap-connector'
-    ],
-    to: '/troubleshoot/troubleshoot-integrations-and-extensibility/troubleshoot-ad-ldap-connector'
-  },
-  {
-    from: ['/extensions/troubleshoot-extensions','/extensions/troubleshoot'],
-    to: '/troubleshoot/troubleshoot-integrations-and-extensibility/troubleshoot-extensions'
-  },
-  {
-    from: [
-      '/extensions/deploy-cli/references/troubleshooting',
-      '/extensions/deploy-cli-tool/troubleshoot-the-deploy-cli-tool',
-      '/deploy/deploy-cli-tool/troubleshoot-the-deploy-cli-tool'
-    ],
-    to: '/troubleshoot/troubleshoot-integrations-and-extensibility/troubleshoot-the-deploy-cli-tool'
-  },
-  {
-    from: ['/troubleshoot/self-change-password-errors','/troubleshoot/references/self_change_password'],
-    to: '/troubleshoot/troubleshoot-authentication/self-change-password-errors'
-  },
-  {
     from: [
       '/extensions/authorization-extension/v2/troubleshooting',
       '/extensions/authorization-dashboard-extension/troubleshoot-authorization-extension',
@@ -6449,12 +6544,43 @@ module.exports = [
     to: '/troubleshoot/troubleshoot-authentication/troubleshoot-authorization-extension'
   },
   {
-    from: ['/troubleshoot/guides/verify-rules', '/troubleshoot/verify-rules'],
-    to: '/troubleshoot/troubleshoot-basic/verify-rules'
+    from: ['/troubleshoot/concepts/integration-extensibility-issues'],
+    to: '/troubleshoot/troubleshoot-integration-and-extensibility'
   },
   {
-    from: ['/authorization/concepts/troubleshooting', '/authorization/troubleshoot-role-based-access-control-and-authorization'],
-    to: '/troubleshoot/troubleshoot-authentication/troubleshoot-rbac-authorization'
+    from: ['/custom-domains/troubleshoot-custom-domains','/custom-domains/troubleshoot'],
+    to: '/troubleshoot/troubleshoot-integration-and-extensibility/troubleshoot-custom-domains'
+  },
+  {
+    from: [
+      '/connector/troubleshooting',
+      '/ad-ldap-connector/troubleshoot-ad-ldap-connector',
+      '/extensions/ad-ldap-connector/troubleshoot-ad-ldap-connector'
+    ],
+    to: '/troubleshoot/troubleshoot-integration-and-extensibility/troubleshoot-ad-ldap-connector'
+  },
+  {
+    from: ['/extensions/troubleshoot-extensions','/extensions/troubleshoot'],
+    to: '/troubleshoot/troubleshoot-integration-and-extensibility/troubleshoot-extensions'
+  },
+  {
+    from: [
+      '/extensions/deploy-cli/references/troubleshooting',
+      '/extensions/deploy-cli-tool/troubleshoot-the-deploy-cli-tool',
+      '/deploy/deploy-cli-tool/troubleshoot-the-deploy-cli-tool'
+    ],
+    to: '/troubleshoot/troubleshoot-integration-and-extensibility/troubleshoot-the-deploy-cli-tool'
+  },
+  {
+    from: [
+      '/har',
+      '/tutorials/troubleshooting-with-har-files',
+      '/troubleshoot/har',
+      '/support/troubleshooting-with-har-files',
+      '/troubleshoot/guides/generate-har-files',
+      '/troubleshoot/generate-and-analyze-har-files'
+      ],
+    to: '/troubleshoot/tools/generate-and-analyze-har-files'
   },
 
 
@@ -6464,111 +6590,6 @@ module.exports = [
     from: ['/scenarios', '/tutorials'],
     to: '/'
   },
-
-  /* Universal Login */
-
-  {
-    from: [
-      '/hosted-pages/hosted-login-auth0js',
-      '/hosted-pages/login/auth0js',
-      '/hosted-pages/login/lock',
-      '/hosted-pages/login/lock-passwordless',
-      '/hosted-pages/hosted-login-auth0js/v7',
-      '/hosted-pages/hosted-login-auth0js/v8',
-      '/hosted-pages/login',
-      '/hosted-pages',
-      '/universal-login/customization-new',
-      '/login_page'
-    ],
-    to: '/universal-login'
-  },
-  {
-    from: ['/error-pages', '/error-pages/generic', '/hosted-pages/error-pages'],
-    to: '/universal-login/error-pages'
-  },
-  {
-    from: ['/universal-login/classic'],
-    to: '/universal-login/classic-experience'
-  },
-  {
-    from: ['/universal-login/multifactor-authentication','/hosted-pages/guardian','/universal-login/guardian'],
-    to: '/universal-login/classic-experience/mfa-classic-experience'
-  },
-  {
-    from: ['/universal-login/new'],
-    to: '/universal-login/new-experience'
-  },
-  {
-    from: ['/dashboard/guides/universal-login/configure-login-page-passwordless','/dashboard/guides/connections/configure-passwordless-sms'],
-    to: '/universal-login/configure-universal-login-with-passwordless'
-  },
-  {
-    from: ['/universal-login/text-customization-prompts/common'],
-    to: '/universal-login/prompt-common'
-  },
-  {
-    from: ['/universal-login/text-customization-prompts/consent'],
-    to: '/universal-login/prompt-consent'
-  },
-  {
-    from: ['/universal-login/text-customization-prompts/device-flow'],
-    to: '/universal-login/prompt-device-flow'
-  },
-  {
-    from: ['/universal-login/text-customization-prompts/email-verification'],
-    to: '/universal-login/prompt-email-verification'
-  },
-  {
-    from: ['/universal-login/text-customization-prompts/login'],
-    to: '/universal-login/prompt-login'
-  },
-  {
-    from: ['/universal-login/text-customization-prompts/mfa'],
-    to: '/universal-login/prompt-mfa'
-  },
-  {
-    from: ['/universal-login/text-customization-prompts/mfa-email'],
-    to: '/universal-login/prompt-mfa-email'
-  },
-  {
-    from: ['/universal-login/text-customization-prompts/mfa-otp'],
-    to: '/universal-login/prompt-mfa-otp'
-  },
-  {
-    from: ['/universal-login/text-customization-prompts/mfa-push'],
-    to: '/universal-login/prompt-mfa-push'
-  },
-  {
-    from: ['/universal-login/text-customization-prompts/mfa-recovery-code'],
-    to: '/universal-login/prompt-mfa-recovery-code'
-  },
-  {
-    from: ['/universal-login/text-customization-prompts/mfa-sms'],
-    to: '/universal-login/prompt-mfa-sms'
-  },
-  {
-    from: ['/universal-login/text-customization-prompts/reset-password'],
-    to: '/universal-login/prompt-reset-password'
-  },
-  {
-    from: ['/universal-login/text-customization-prompts/signup'],
-    to: '/universal-login/prompt-signup'
-  },
-  {
-    from: ['/guides/login/universal-vs-embedded','/guides/login/centralized-vs-embedded'],
-    to: '/universal-login/universal-vs-embedded-login'
-  },
-  {
-    from: ['/libraries/when-to-use-lock'],
-    to: '/universal-login/universal-login-page-customization'
-  },
-  {
-    from: ['/universal-login/default-login-url','/hosted-pages/default-login-url'],
-    to: '/universal-login/configure-default-login-routes'
-  },
-
-
-
 
   /* Manage Users */
 
