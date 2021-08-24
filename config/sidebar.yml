@@ -391,7 +391,7 @@ articles:
         url: /connections/database
         children:
           - title: Auth0 User Store
-            url: '/connections/database#using-the-auth0-user-store'
+            url: /connections/database/auth0-user-store
           - title: Your User Store
             url: /connections/database/custom-db
             children:
@@ -412,7 +412,7 @@ articles:
         url: /connections/passwordless
         children:
           - title: Authentication Factors
-            url: /connections/passwordless
+            url: /connections/passwordless/authentication-factors
             children:
               - title: Email
                 url: /connections/passwordless/email-otp
