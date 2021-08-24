@@ -1,8 +1,6 @@
 ---
 title: Passwordless Authentication Factors
 description: Describes the various authentication factors supported by Auth0 passwordless connections, including email, magic link, and SMS.
-toc: true
-url: /connections/passwordless
 topics:
     - connections
     - passwordless
