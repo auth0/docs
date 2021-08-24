@@ -939,6 +939,12 @@ module.exports = [
     ],
     to: 'https://marketplace.auth0.com/integrations/line-social-connection'
   },
+  {
+    from: [
+      '/connections/passwordless/concepts/sample-use-cases-rules'
+    ],
+    to: '/connections/passwordless/sample-use-cases-rules'
+  }
 
 
   /* MICROSITES */
