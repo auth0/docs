@@ -1484,6 +1484,23 @@ module.exports = [
     to: '/configure/applications/set-up-cors'
   },
   {
+    from: [
+      '/tutorials/openid-connect-discovery',
+      '/protocols/oidc/openid-connect-discovery',
+      '/oidc-rs256-owin',
+      '/protocols/configure-applications-with-oidc-discovery'
+    ],
+    to: '/configure/applications/configure-applications-with-oidc-discovery'
+  },
+  {
+    from: [
+      '/protocols/configure-ws-fed-applications',
+      '/integrations/configure-wsfed-application',
+      '/tutorials/configure-wsfed-application'
+    ],
+    to: '/configure/applications/configure-ws-fed-applications'
+  },
+  {
     from: ['/applications/update-application-connections','/dashboard/guides/applications/update-app-connections'],
     to: '/configure/applications/update-application-connections'
   },
@@ -2354,7 +2371,7 @@ module.exports = [
     to: '/actions/manage-versions'
   },
 
-  /* Anomaly Detection */
+  /* Attack Protection */
 
   {
     from: [
@@ -2437,6 +2454,16 @@ module.exports = [
     ],
     to: '/configure/attack-protection/view-attack-protection-events'
   },
+  {
+    from: [
+      '/protocols/oauth2/oauth-state',
+      '/protocols/oauth-state',
+      '/protocols/oauth2/mitigate-csrf-attacks',
+      '/protocols/state-parameters',
+      '/authorization/protocols/state-parameters'
+    ],
+    to: '/configure/attack-protection/state-parameters'
+  },
 
   /* API */
 
@@ -2470,7 +2497,11 @@ module.exports = [
   /* Authorization */
 
   {
-    from: ['/apis'],
+    from: ['/api-auth','/api-auth/tutorials','/api/tutorials'],
+    to: '/authorization'
+  },
+  {
+    from: ['/api-auth/apis','/overview/apis','/apis'],
     to: '/authorization/apis'
   },
   {
@@ -2650,14 +2681,6 @@ module.exports = [
     to: '/authorization/auth-core-features/roles'
   },
   {
-    from: ['/api-auth/apis','/overview/apis'],
-    to: '/authorization/apis'
-  },
-  {
-    from: ['/api-auth','/api-auth/tutorials','/api/tutorials'],
-    to: '/authorization'
-  },
-  {
     from: ['/api-auth/restrict-access-api','/api-auth/restrict-requests-for-scopes','/authorization/concepts/sample-use-cases-rules','/authorization/restrict-access-api'],
     to: '/authorization/sample-use-cases-rules-with-authorization'
   },
@@ -2670,7 +2693,11 @@ module.exports = [
     to: '/authorization/user-consent-and-third-party-applications'
   },
   {
-    from: ['/api-auth/which-oauth-flow-to-use', '/api-auth/faq', '/authorization/authentication-and-authorization-api-faq'],
+    from: [
+      '/api-auth/which-oauth-flow-to-use', 
+      '/api-auth/faq', 
+      '/authorization/authentication-and-authorization-api-faq'
+    ],
     to: '/authorization/which-oauth-2-0-flow-should-i-use'
   },
   {
@@ -2678,16 +2705,51 @@ module.exports = [
     to: '/authorization/mitigate-replay-attacks-when-using-the-implicit-flow'
   },
   {
-    from: ['/api-auth/tutorials/using-resource-owner-password-from-server-side','/authorization/avoid-common-issues-with-resource-owner-password-flow-and-anomaly-detection'],
+    from: [
+      '/api-auth/tutorials/using-resource-owner-password-from-server-side',
+      '/authorization/avoid-common-issues-with-resource-owner-password-flow-and-anomaly-detection'
+    ],
     to: '/authorization/avoid-common-issues-with-resource-owner-password-flow-and-attack-protection'
   },
   {
-    from: ['/api-auth/tutorials/client-credentials/customize-with-hooks','/api-auth/grant/using-rules'],
+    from: [
+      '/api-auth/tutorials/client-credentials/customize-with-hooks',
+      '/api-auth/grant/using-rules'
+    ],
     to: '/authorization/customize-tokens-using-hooks-with-client-credentials-flow'
   },
   {
     from: ['/authorization/rbac-users','/authorization/guides/manage-users'],
     to: '/authorization/auth-core-features/rbac-users'
+  },
+
+  /* Protocols */
+
+  {
+    from: '/protocols',
+    to: '/authorization/protocols'
+  },
+  {
+    from: ['/protocols/protocol-oauth2','/protocols/oauth2'],
+    to: '/authorization/protocols/protocol-oauth2'
+  },
+  {
+    from: [
+      '/protocols/openid-connect-protocol',
+      '/protocols/oidc',
+      '/api-auth/intro',
+      '/api-auth/tutorials/adoption'
+    ],
+    to: '/authorization/protocols/openid-connect-protocol'
+  },
+  {
+    from: [
+      '/protocols/ws-fed',
+      '/tutorials/wsfed-web-app',
+      '/wsfedwebapp-tutorial',
+      '/protocols/ws-fed-protocol'
+    ],
+    to: '/authorization/protocols/ws-fed-protocol'
   },
 
   /* Best Practices */
@@ -3662,7 +3724,14 @@ module.exports = [
   /* LDAP Connector */
 
   {
-    from: ['/connector','/connector/overview','/connector/considerations-non-ad','/ad-ldap-connector'],
+    from: [
+      '/connector',
+      '/connector/overview',
+      '/connector/considerations-non-ad',
+      '/ad-ldap-connector',
+      '/protocols/ldap-protocol',
+      '/protocols/ldap'
+    ],
     to: '/extensions/ad-ldap-connector'
   },
   {
@@ -4747,7 +4816,19 @@ module.exports = [
     to: '/login/embedded-login/cross-origin-authentication'
   },
   {
-    from: ['/authorization/configure-silent-authentication','/api-auth/tutorials/silent-authentication'],
+    from: [
+      '/protocols/oidc/identity-providers/okta',
+      '/protocols/configure-okta-as-oidc-identity-provider',
+      '/protocols/configure-okta-as-oauth2-identity-provider',
+      '/authorization/protocols/configure-okta-as-oauth2-identity-provider'
+    ],
+    to: '/login/adopt-oidc-conformant-authentication/configure-okta-as-oauth2-identity-provider'
+  },
+  {
+    from: [
+      '/authorization/configure-silent-authentication',
+      '/api-auth/tutorials/silent-authentication'
+    ],
     to: '/login/configure-silent-authentication'
   },
   {
@@ -4992,13 +5073,14 @@ module.exports = [
   {
     from: [
       '/logs/export-log-events-with-log-streaming/splunk-dashboard',
-      '/logs/streams/splunk-dashboard'
+      '/logs/streams/splunk-dashboard',
+      '/monitor-auth0/streams/splunk-dashboard'
     ],
-    to: '/monitor-auth0/streams/splunk-dashboard'
+    to: 'https://marketplace.auth0.com/integrations/splunk-log-streaming'
   },
   {
-    from: ['/logs/streams/stream-logs-to-sumo-logic'],
-    to: '/monitor-auth0/streams/stream-logs-to-sumo-logic'
+    from: ['/monitor-auth0/streams/stream-logs-to-sumo-logic','/logs/streams/stream-logs-to-sumo-logic'],
+    to: 'https://marketplace.auth0.com/integrations/sumo-logic-log-streaming'
   },
   {
     from: ['/logs/streams/sumo-logic-dashboard'],
@@ -5523,41 +5605,6 @@ module.exports = [
   },
 
 
-  /* Protocols */
-
-  {
-    from: ['/tutorials/openid-connect-discovery','/protocols/oidc/openid-connect-discovery','/oidc-rs256-owin'],
-    to: '/protocols/configure-applications-with-oidc-discovery'
-  },
-  {
-    from: ['/protocols/oidc/identity-providers/okta','/protocols/configure-okta-as-oidc-identity-provider'],
-    to: '/protocols/configure-okta-as-oauth2-identity-provider'
-  },
-  {
-    from: ['/integrations/configure-wsfed-application','/tutorials/configure-wsfed-application'],
-    to: '/protocols/configure-ws-fed-applications'
-  },
-  {
-    from: ['/protocols/oauth2/oauth-state','/protocols/oauth-state','/protocols/oauth2/mitigate-csrf-attacks'],
-    to: '/protocols/state-parameters'
-  },
-  {
-    from: ['/protocols/oauth2'],
-    to: '/protocols/protocol-oauth2'
-  },
-  {
-    from: ['/protocols/oidc','/api-auth/intro','/api-auth/tutorials/adoption'],
-    to: '/protocols/openid-connect-protocol'
-  },
-  {
-    from: ['/protocols/ws-fed','/tutorials/wsfed-web-app','/wsfedwebapp-tutorial'],
-    to: '/protocols/ws-fed-protocol'
-  },
-  {
-    from: ['/protocols/ldap'],
-    to: '/protocols/ldap-protocol'
-  },
-
   /* Rules */
 
   {
@@ -5821,41 +5868,6 @@ module.exports = [
   {
     from: ['/security/bulletins/cve-2017-17068','/security/cve-2017-17068'],
     to: '/security/security-bulletins/cve-2017-17068'
-  },
-
-  /* Sessions */
-
-  {
-    from: ['/sessions-and-cookies', '/sessions/concepts/session', '/sessions/concepts/session-lifetime','/sessions/references/sample-use-cases-sessions', '/sessions-and-cookies/session-use-cases'],
-    to: '/sessions'
-  },
-  {
-    from: ['/sessions/concepts/session-layers'],
-    to: '/sessions/session-layers'
-  },
-  {
-    from: ['/get-started/dashboard/configure-session-lifetime-settings','/dashboard/guides/tenants/configure-session-lifetime-settings','/api/management/guides/tenants/configure-session-lifetime-settings','/sso/current/configure-session-lifetime-limits'],
-    to: '/sessions/configure-session-lifetime-settings'
-  },
-  {
-    from: ['/sessions/concepts/cookie-attributes', '/sessions-and-cookies/samesite-cookie-attribute-changes'],
-    to: '/sessions/cookies/samesite-cookie-attribute-changes'
-  },
-  {
-    from: ['/sessions/references/example-short-lived-session-mgmt', '/sessions-and-cookies/manage-multi-site-short-long-lived-sessions'],
-    to: '/sessions/manage-multi-site-sessions'
-  },
-  {
-    from: ['/sessions/concepts/cookies', '/sessions-and-cookies/cookies'],
-    to: '/sessions/cookies'
-  },
-  {
-    from: [
-      '/sessions/spa-authenticate-with-cookies',
-      '/login/spa/authenticate-with-cookies',
-      '/sessions-and-cookies/spa-authenticate-with-cookies'
-    ],
-    to: '/sessions/cookies/spa-authenticate-with-cookies'
   },
 
   /* Support */
@@ -6412,7 +6424,7 @@ module.exports = [
 
 
 
-  /* Users */
+  /* Manage Users */
 
   {
     from: ['/users/concepts/overview-users'],
@@ -6479,6 +6491,71 @@ module.exports = [
       '/rules/metadata'
     ],
     to: '/users/metadata/manage-metadata-rules'
+  },
+  {
+    from: [
+      '/sessions-and-cookies', 
+      '/sessions/concepts/session', 
+      '/sessions/concepts/session-lifetime',
+      '/sessions/references/sample-use-cases-sessions', 
+      '/sessions-and-cookies/session-use-cases',
+      '/sessions'
+    ],
+    to: '/users/sessions'
+  },
+  {
+    from: ['/sessions/session-layers','/sessions/concepts/session-layers'],
+    to: '/users/sessions/session-layers'
+  },
+  {
+    from: '/sessions/session-lifetime-limits',
+    to: '/users/sessions/session-lifetime-limits'
+  },
+  {
+    from: [
+      '/get-started/dashboard/configure-session-lifetime-settings',
+      '/dashboard/guides/tenants/configure-session-lifetime-settings',
+      '/api/management/guides/tenants/configure-session-lifetime-settings',
+      '/sso/current/configure-session-lifetime-limits',
+      '/sessions/configure-session-lifetime-settings'
+    ],
+    to: '/users/sessions/configure-session-lifetime-settings'
+  },
+  {
+    from: '/sessions/non-persistent-sessions',
+    to: '/users/sessions/non-persistent-sessions'
+  },
+  {
+    from: [
+      '/sessions/references/example-short-lived-session-mgmt', 
+      '/sessions-and-cookies/manage-multi-site-short-long-lived-sessions'
+    ],
+    to: '/users/sessions/manage-multi-site-sessions'
+  },
+  {
+    from: ['/sessions/cookies','/sessions/concepts/cookies', '/sessions-and-cookies/cookies'],
+    to: '/users/cookies'
+  },
+  {
+    from: '/sessions/cookies/authentication-api-cookies',
+    to: '/users/cookies/authentication-api-cookies'
+  },
+  {
+    from: [
+      '/sessions/spa-authenticate-with-cookies',
+      '/login/spa/authenticate-with-cookies',
+      '/sessions-and-cookies/spa-authenticate-with-cookies',
+      '/sessions/cookies/spa-authenticate-with-cookies'
+    ],
+    to: '/users/cookies/spa-authenticate-with-cookies'
+  },
+  {
+    from: [
+      '/sessions/concepts/cookie-attributes', 
+      '/sessions-and-cookies/samesite-cookie-attribute-changes',
+      '/sessions/cookies/samesite-cookie-attribute-changes'
+    ],
+    to: '/users/cookies/samesite-cookie-attribute-changes'
   },
   {
     from: ['/users/concepts/overview-user-migration'],
