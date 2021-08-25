@@ -5329,7 +5329,7 @@ module.exports = [
   },
   {
     from: ['/mfa/enable-mfa','/mfa/guides/enable-mfa'],
-    to: '/logi/mfa/enable-mfa'
+    to: '/login/mfa/enable-mfa'
   },
   {
     from: [
