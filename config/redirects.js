@@ -1374,6 +1374,10 @@ module.exports = [
     ],
     to: '/configure/tenant-settings/configure-device-user-code-settings'
   },
+  {
+    from: ['/get-started/dashboard/enable-sso-for-legacy-tenants','/dashboard/guides/tenants/enable-sso-tenant'],
+    to: '/configure/tenant-settings/enable-sso-for-legacy-tenants'
+  },
 
   /* Applications */
 
@@ -1464,6 +1468,15 @@ module.exports = [
   },
   {
     from: [
+      '/authorization/revoke-access-to-apis-using-blacklists-or-application-grants',
+      '/api-auth/blacklists-vs-grants',
+      '/blacklists-vs-application-grants',
+      '/authorization/revoke-api-access'
+    ],
+    to: '/configure/applications/revoke-api-access'
+  },
+  {
+    from: [
       '/dashboard/guides/applications/rotate-client-secret',
       '/api/management/guides/applications/rotate-client-secret',
       '/get-started/dashboard/rotate-client-secret',
@@ -1551,6 +1564,10 @@ module.exports = [
     to: '/configure/applications/confidential-public-apps/enable-third-party-applications'
   },
   {
+    from: ['/api-auth/user-consent','/authorization/user-consent-and-third-party-applications'],
+    to: '/configure/applications/confidential-public-apps/user-consent-and-third-party-applications'
+  },
+  {
     from: ['/applications/wildcards-for-subdomains','/applications/reference/wildcard-subdomains'],
     to: '/configure/applications/wildcards-for-subdomains'
   },
@@ -1578,13 +1595,17 @@ module.exports = [
   /* APIs */
 
   {
+    from: ['/authorization/apis','/api-auth/apis','/overview/apis','/apis'],
+    to: '/configure/apis'
+  },
+  {
     from: [
       '/api-auth/references/dashboard/api-settings',
       '/dashboard/reference/settings-api',
       '/get-started/dashboard/api-settings',
       '/config/api-settings'
     ],
-    to: '/configure/api-settings'
+    to: '/configure/apis/api-settings'
   },
   {
     from: [
@@ -1595,7 +1616,7 @@ module.exports = [
       '/get-started/dashboard/add-api-permissions',
       '/config/api-settings/add-api-permissions'
     ],
-    to: '/configure/api-settings/add-api-permissions'
+    to: '/configure/apis/add-api-permissions'
   },
   {
     from: [
@@ -1603,7 +1624,28 @@ module.exports = [
       '/get-started/dashboard/delete-api-permissions',
       '/config/api-settings/delete-api-permissions'
     ],
-    to: '/configure/api-settings/delete-api-permissions'
+    to: '/configure/apis/delete-api-permissions'
+  },
+  {
+    from: ['/scopes','/scopes/current','/scopes/legacy','/scopes/preview'],
+    to: '/configure/apis/scopes'
+  },
+  {
+    from: ['/scopes/api-scopes','/scopes/current/api-scopes'],
+    to: '/configure/apis/scopes/api-scopes'
+  },
+  {
+    from: [
+      '/scopes/current/oidc-scopes',
+      '/api-auth/tutorials/adoption/scope-custom-claims',
+      '/scopes/oidc-scopes',
+      '/scopes/openid-connect-scopes'
+    ],
+    to: '/configure/apis/scopes/openid-connect-scopes'
+  },
+  {
+    from: ['/scopes/sample-use-cases-scopes-and-claims','/scopes/current/sample-use-cases'],
+    to: '/configure/apis/scopes/sample-use-cases-scopes-and-claims'
   },
   {
     from: [
@@ -1611,7 +1653,17 @@ module.exports = [
       '/authorization/represent-multiple-apis-using-a-single-logical-api',
       '/api-auth/tutorials/represent-multiple-apis'
     ],
-    to: '/configure/api-settings/set-logical-api'
+    to: '/configure/apis/set-logical-api'
+  },
+  {
+    from: [
+      '/api/management/guides/apis/enable-rbac',
+      '/dashboard/guides/apis/enable-rbac',
+      '/authorization/guides/dashboard/enable-rbac',
+      '/authorization/rbac/enable-role-based-access-control-for-apis',
+      '/authorization/auth-core-features/enable-role-based-access-control-for-apis'
+    ],
+    to: '/configure/apis/enable-role-based-access-control-for-apis'
   },
   {
     from: [
@@ -1619,7 +1671,7 @@ module.exports = [
       '/api/management/v2/create-m2m-app', 
       '/tokens/management-api-access-tokens/create-and-authorize-a-machine-to-machine-application'
     ],
-    to: '/configure/api-settings/create-m2m-app-test'
+    to: '/configure/apis/create-m2m-app-test'
   },
 
   /* Single Sign-On */
@@ -2517,8 +2569,31 @@ module.exports = [
     to: '/authorization'
   },
   {
-    from: ['/api-auth/apis','/overview/apis','/apis'],
-    to: '/authorization/apis'
+    from: ['/authorization/concepts/policies'],
+    to: '/authorization/authorization-policies'
+  },
+  {
+    from: ['/authorization/rules-for-authorization-policies','/authorization/concepts/authz-rules'],
+    to: '/authorization/authorization-policies/rules-for-authorization-policies'
+  },
+  {
+    from: [
+      '/api-auth/restrict-access-api',
+      '/api-auth/restrict-requests-for-scopes',
+      '/authorization/concepts/sample-use-cases-rules',
+      '/authorization/restrict-access-api',
+      '/authorization/sample-use-cases-rules-with-authorization'
+    ],
+    to: '/authorization/authorization-policies/sample-use-cases-rules-with-authorization'
+  },
+  {
+    from: [
+      '/api-auth/which-oauth-flow-to-use', 
+      '/api-auth/faq', 
+      '/authorization/authentication-and-authorization-api-faq',
+      '/authorization/which-oauth-2-0-flow-should-i-use'
+    ],
+    to: '/authorization/authorization-flows/which-oauth-2-0-flow-should-i-use'
   },
   {
     from: [
@@ -2588,155 +2663,163 @@ module.exports = [
   },
   {
     from: [
-      '/authorization/revoke-access-to-apis-using-blacklists-or-application-grants',
-      '/api-auth/blacklists-vs-grants','/blacklists-vs-application-grants'
+      '/api-auth/tutorials/nonce',
+      '/authorization/mitigate-replay-attacks-when-using-the-implicit-flow'
     ],
-    to: '/authorization/revoke-api-access'
+    to: '/authorization/authorization-flows/mitigate-replay-attacks-when-using-the-implicit-flow'
   },
   {
     from: [
-      '/authorization/rbac/roles/view-users-assigned-to-roles',
-      '/api/management/guides/roles/view-role-users',
-      '/dashboard/guides/roles/view-role-users'
+      '/api-auth/tutorials/using-resource-owner-password-from-server-side',
+      '/authorization/avoid-common-issues-with-resource-owner-password-flow-and-anomaly-detection',
+      '/authorization/avoid-common-issues-with-resource-owner-password-flow-and-attack-protection'
     ],
-    to: '/authorization/auth-core-features/roles/view-users-assigned-to-roles'
+    to: '/authorization/authorization-flows/avoid-common-issues-with-resource-owner-password-flow-and-attack-protection'
   },
   {
     from: [
-      '/authorization/rbac/roles/delete-roles',
-      '/dashboard/guides/roles/delete-roles',
-      '/api/management/guides/roles/delete-roles'
+      '/api-auth/tutorials/client-credentials/customize-with-hooks',
+      '/api-auth/grant/using-rules',
+      '/authorization/customize-tokens-using-hooks-with-client-credentials-flow'
     ],
-    to: '/authorization/auth-core-features/roles/delete-roles'
-  },
-  {
-    from: [
-      '/authorization/rbac/roles/edit-role-definitions',
-      '/authorization/rbac/roles/edit-role-definitions',
-      '/dashboard/guides/roles/edit-role-definitions',
-      '/api/management/guides/roles/edit-role-definitions',
-      '/authorization/guides/api/edit-role-definitions'
-    ],
-    to: '/authorization/auth-core-features/roles/edit-role-definitions'
-  },
-  {
-    from: [
-      '/authorization/rbac/roles/remove-permissions-from-roles',
-      '/dashboard/guides/roles/remove-role-permissions',
-      '/api/management/guides/roles/remove-role-permissions'
-    ],
-    to: '/authorization/auth-core-features/roles/remove-permissions-from-roles'
-  },
-  {
-    from: [
-      '/authorization/rbac/roles/view-role-permissions',
-      '/dashboard/guides/roles/view-role-permissions',
-      '/api/management/guides/roles/view-role-permissions'
-    ],
-    to: '/authorization/auth-core-features/roles/view-role-permissions'
-  },
-  {
-    from: [
-      '/api/management/guides/apis/enable-rbac',
-      '/dashboard/guides/apis/enable-rbac',
-      '/authorization/guides/dashboard/enable-rbac',
-      '/authorization/rbac/enable-role-based-access-control-for-apis'
-    ],
-    to: '/authorization/auth-core-features/enable-role-based-access-control-for-apis'
-  },
-  {
-    from: [
-      '/authorization/rbac/roles/add-permissions-to-roles',
-      '/dashboard/guides/roles/add-permissions-roles',
-      '/api/management/guides/roles/add-permissions-roles'
-    ],
-    to: '/authorization/auth-core-features/roles/add-permissions-to-roles'
-  },
-  {
-    from: [
-      '/authorization/rbac/roles/create-roles',
-      '/dashboard/guides/roles/create-roles',
-      '/api/management/guides/roles/create-roles'
-    ],
-    to: '/authorization/auth-core-features/roles/create-roles'
-  },
-  {
-    from: ['/authorization/authentication-and-authorization', '/authorization/concepts/authz-and-authn','/application-auth/current','/application-auth/legacy','/application-auth'],
-    to: '/get-started/authentication-and-authorization'
-  },
-  {
-    from: ['/authorization/concepts/authz-rules'],
-    to: '/authorization/rules-for-authorization-policies'
-  },
-  {
-    from: ['/authorization/concepts/core-vs-extension'],
-    to: '/authorization/authorization-core-vs-authorization-extension'
-  },
-  {
-    from: ['/authorization/concepts/policies'],
-    to: '/authorization/authorization-policies'
+    to: '/authorization/authorization-flows/customize-tokens-using-hooks-with-client-credentials-flow'
   },
   {
     from: ['/authorization/concepts/rbac'],
     to: '/authorization/rbac'
   },
   {
-    from: ['/authorization/concepts/sample-use-cases-rbac'],
-    to: '/authorization/sample-use-cases-role-based-access-control'
-  },
-  {
-    from: ['/authorization/how-to-use-auth0s-core-authorization-feature-set','/authorization/guides/how-to'],
-    to: '/authorization/auth-core-features'
-  },
-  {
-    from: ['/authorization/guides/manage-permissions'],
-    to: '/authorization/manage-permissions'
-  },
-  {
-    from: ['/authorization/rbac/roles','/authorization/guides/manage-roles'],
-    to: '/authorization/auth-core-features/roles'
-  },
-  {
-    from: ['/api-auth/restrict-access-api','/api-auth/restrict-requests-for-scopes','/authorization/concepts/sample-use-cases-rules','/authorization/restrict-access-api'],
-    to: '/authorization/sample-use-cases-rules-with-authorization'
-  },
-  {
-    from: ['/api-auth/token-renewal-in-safari'],
-    to: '/authorization/renew-tokens-when-using-safari'
-  },
-  {
-    from: ['/api-auth/user-consent'],
-    to: '/authorization/user-consent-and-third-party-applications'
+    from: ['/authorization/authorization-core-vs-authorization-extension','/authorization/concepts/core-vs-extension'],
+    to: '/authorization/rbac/authorization-core-vs-authorization-extension'
   },
   {
     from: [
-      '/api-auth/which-oauth-flow-to-use', 
-      '/api-auth/faq', 
-      '/authorization/authentication-and-authorization-api-faq'
+      '/authorization/sample-use-cases-role-based-access-control',
+      '/authorization/concepts/sample-use-cases-rbac'
     ],
-    to: '/authorization/which-oauth-2-0-flow-should-i-use'
-  },
-  {
-    from: ['/api-auth/tutorials/nonce'],
-    to: '/authorization/mitigate-replay-attacks-when-using-the-implicit-flow'
+    to: '/authorization/rbac/sample-use-cases-role-based-access-control'
   },
   {
     from: [
-      '/api-auth/tutorials/using-resource-owner-password-from-server-side',
-      '/authorization/avoid-common-issues-with-resource-owner-password-flow-and-anomaly-detection'
+      '/authorization/how-to-use-auth0s-core-authorization-feature-set',
+      '/authorization/guides/how-to',
+      '/authorization/auth-core-features'
     ],
-    to: '/authorization/avoid-common-issues-with-resource-owner-password-flow-and-attack-protection'
+    to: '/authorization/rbac/auth-core-features'
+  },
+  {
+    from: '/authorization/guides/manage-roles',
+    to: '/authorization/rbac/roles'
   },
   {
     from: [
-      '/api-auth/tutorials/client-credentials/customize-with-hooks',
-      '/api-auth/grant/using-rules'
+      '/dashboard/guides/roles/create-roles',
+      '/api/management/guides/roles/create-roles'
     ],
-    to: '/authorization/customize-tokens-using-hooks-with-client-credentials-flow'
+    to: '/authorization/rbac/roles/create-roles'
   },
   {
-    from: ['/authorization/rbac-users','/authorization/guides/manage-users'],
-    to: '/authorization/auth-core-features/rbac-users'
+    from: [
+      '/dashboard/guides/roles/edit-role-definitions',
+      '/api/management/guides/roles/edit-role-definitions',
+      '/authorization/guides/api/edit-role-definitions'
+    ],
+    to: '/authorization/rbac/roles/edit-role-definitions'
+  },
+  {
+    from: [
+      '/dashboard/guides/roles/add-permissions-roles',
+      '/api/management/guides/roles/add-permissions-roles'
+    ],
+    to: '/authorization/rbac/roles/add-permissions-to-roles'
+  },
+  {
+    from: [
+      '/dashboard/guides/roles/view-role-permissions',
+      '/api/management/guides/roles/view-role-permissions'
+    ],
+    to: '/authorization/rbac/roles/view-role-permissions'
+  },
+  {
+    from: [
+      '/dashboard/guides/roles/remove-role-permissions',
+      '/api/management/guides/roles/remove-role-permissions'
+    ],
+    to: '/authorization/rbac/roles/remove-permissions-from-roles'
+  },
+  {
+    from: [
+      '/api/management/guides/roles/view-role-users',
+      '/dashboard/guides/roles/view-role-users'
+    ],
+    to: '/authorization/rbac/roles/view-users-assigned-to-roles'
+  },
+  {
+    from: [
+      '/dashboard/guides/roles/delete-roles',
+      '/api/management/guides/roles/delete-roles'
+    ],
+    to: '/authorization/rbac/roles/delete-roles'
+  },
+  {
+    from: [
+      '/authorization/auth-core-features/rbac-users',
+      '/authorization/guides/manage-users'
+    ],
+    to: '/authorization/rbac/rbac-users',
+  },
+  {
+    from: [
+      '/users/assign-roles-to-users',
+      '/dashboard/guides/users/assign-roles-users',
+      '/api/management/guides/users/assign-roles-users'
+    ],
+    to: '/authorization/rbac/rbac-users/assign-roles-to-users'
+  },
+  {
+    from: [
+      '/dashboard/guides/users/view-user-roles',
+      '/api/management/guides/users/view-user-roles',
+      '/users/view-user-roles'
+    ],
+    to: '/authorization/rbac/rbac-users/view-user-roles'
+  },
+  {
+    from: [
+      '/dashboard/guides/users/remove-user-roles',
+      '/dashboard/guides/roles/remove-role-users',
+      '/api/management/guides/users/remove-user-roles',
+      '/users/remove-roles-from-users'
+    ],
+    to: '/authorization/rbac/rbac-users/remove-roles-from-users'
+  },
+  {
+    from: [
+      '/dashboard/guides/users/assign-permissions-users',
+      '/api/management/guides/users/assign-permissions-users',
+      '/users/assign-permissions-to-users'
+    ],
+    to: '/authorization/rbac/rbac-users/assign-permissions-to-users'
+  },
+  {
+    from: [
+      '/dashboard/guides/users/view-user-permissions',
+      '/api/management/guides/users/view-user-permissions',
+      '/users/view-user-permissions'
+    ],
+    to: '/authorization/rbac/rbac-users/view-user-permissions'
+  },
+  {
+    from: [
+      '/dashboard/guides/users/remove-user-permissions',
+      '/api/management/guides/users/remove-user-permissions',
+      '/users/remove-permissions-from-users'
+    ],
+    to: '/authorization/rbac/rbac-users/remove-permissions-from-users'
+  },
+   {
+    from: ['/authorization/manage-permissions','/authorization/guides/manage-permissions'],
+    to: '/authorization/rbac/manage-permissions'
   },
 
   /* Protocols */
@@ -3985,6 +4068,16 @@ module.exports = [
     to: '/get-started/auth0-overview'
   },
   {
+    from: [
+      '/authorization/authentication-and-authorization', 
+      '/authorization/concepts/authz-and-authn',
+      '/application-auth/current',
+      '/application-auth/legacy',
+      '/application-auth'
+    ],
+    to: '/get-started/authentication-and-authorization'
+  },
+  {
     from: ['/getting-started/set-up-app', '/applications/set-up-an-application'],
     to: '/get-started/create-apps'
   },
@@ -4050,10 +4143,6 @@ module.exports = [
   {
     from: ['/get-started/dashboard/create-multiple-tenants','/dashboard/guides/tenants/create-multiple-tenants'],
     to: '/get-started/create-tenants/create-multiple-tenants'
-  },
-  {
-    from: ['/dashboard/guides/tenants/enable-sso-tenant'],
-    to: '/get-started/dashboard/enable-sso-for-legacy-tenants'
   },
   {
     from: [
@@ -5055,6 +5144,17 @@ module.exports = [
     from: ['/flows/call-your-api-using-resource-owner-password-flow','/api-auth/tutorials/password-grant'],
     to: '/login/flows/call-your-api-using-resource-owner-password-flow'
   },
+  {
+    from: [
+      '/tutorials/redirecting-users',
+      '/users/redirecting-users',
+      '/users/guides/redirect-users-after-login',
+      '/protocols/oauth2/redirect-users',
+      '/users/concepts/redirect-users-after-login',
+      '/users/redirect-users-after-login'
+    ],
+    to: '/login/redirect-users-after-login'
+  },
 
 
   /* Logout */
@@ -5182,30 +5282,32 @@ module.exports = [
   },
   {
     from: [
+      '/monitor-auth0/streams/stream-logs-to-sumo-logic',
+      '/logs/streams/stream-logs-to-sumo-logic'
+    ],
+    to: 'https://marketplace.auth0.com/integrations/sumo-logic-log-streaming'
+  },
+  {
+    from: [
       '/logs/export-log-events-with-log-streaming/datadog-dashboard-templates',
       '/logs/streams/datadog-dashboard-templates'
     ],
     to: '/monitor-auth0/streams/datadog-dashboard-templates'
   },
   {
-    from: ['/logs/streams/event-filters'],
-    to: '/monitor-auth0/streams/event-filters'
-  },
-  {
     from: [
       '/logs/export-log-events-with-log-streaming/splunk-dashboard',
       '/logs/streams/splunk-dashboard',
-      '/monitor-auth0/streams/splunk-dashboard'
     ],
-    to: 'https://marketplace.auth0.com/integrations/splunk-log-streaming'
-  },
-  {
-    from: ['/monitor-auth0/streams/stream-logs-to-sumo-logic','/logs/streams/stream-logs-to-sumo-logic'],
-    to: 'https://marketplace.auth0.com/integrations/sumo-logic-log-streaming'
+    to: '/monitor-auth0/streams/splunk-dashboard'
   },
   {
     from: ['/logs/streams/sumo-logic-dashboard'],
     to: '/monitor-auth0/streams/sumo-logic-dashboard'
+  },
+  {
+    from: ['/logs/streams/event-filters'],
+    to: '/monitor-auth0/streams/event-filters'
   },
 
   /* MFA */
@@ -5843,25 +5945,6 @@ module.exports = [
     to: '/rules/use-cases/track-new-sign-ups-in-salesforce'
   },
 
-
-  /* Scopes */
-
-  {
-    from: ['/scopes/current','/scopes/legacy','/scopes/preview'],
-    to: '/scopes'
-  },
-  {
-    from: ['/scopes/current/api-scopes'],
-    to: '/scopes/api-scopes'
-  },
-  {
-    from: ['/scopes/current/oidc-scopes','/api-auth/tutorials/adoption/scope-custom-claims','/scopes/oidc-scopes'],
-    to: '/scopes/openid-connect-scopes'
-  },
-  {
-    from: ['/scopes/current/sample-use-cases'],
-    to: '/scopes/sample-use-cases-scopes-and-claims'
-  },
 
   /* Security */
 
@@ -6544,6 +6627,10 @@ module.exports = [
     to: '/troubleshoot/troubleshoot-authentication/troubleshoot-authorization-extension'
   },
   {
+    from: ['/authorization/renew-tokens-when-using-safari','/api-auth/token-renewal-in-safari'],
+    to: '/troubleshoot/troubleshoot-authentication/renew-tokens-when-using-safari'
+  },
+  {
     from: ['/troubleshoot/concepts/integration-extensibility-issues'],
     to: '/troubleshoot/troubleshoot-integration-and-extensibility'
   },
@@ -6631,23 +6718,48 @@ module.exports = [
     to: '/users/user-profiles/normalized-user-profiles'
   },
   {
-    from: ['/users/normalized-user-profile-schema','/users/normalized/auth0/normalized-user-profile-schema'],
+    from: [
+      '/users/normalized-user-profile-schema',
+      '/users/normalized/auth0/normalized-user-profile-schema'
+    ],
     to: '/users/user-profiles/normalized-user-profile-schema'
   },
   {
-    from: ['/users/updating-user-profile-root-attributes','/users/normalized/auth0/update-root-attributes'],
+    from: [
+      '/user-profile/progressive-profiling',
+      '/users/concepts/overview-progressive-profiling',
+      '/users/guides/implement-progressive-profiling',
+      '/users/progressive-profiling',
+      '/users/concepts/overview-progressive-profiling'
+    ],
+    to: '/users/user-profiles/progressive-profiling'
+  },
+  {
+    from: [
+      '/users/updating-user-profile-root-attributes',
+      '/users/normalized/auth0/update-root-attributes'
+    ],
     to: '/users/user-profiles/root-attributes'
   },
   {
-    from: ['/users/set-root-attributes-during-user-import','/api/management/guides/users/set-root-attributes-user-import'],
+    from: [
+      '/users/set-root-attributes-during-user-import',
+      '/api/management/guides/users/set-root-attributes-user-import'
+    ],
     to: '/users/user-profiles/root-attributes/set-root-attributes-during-user-import'
   },
   {
-    from: ['/users/set-root-attributes-during-user-sign-up','/api/management/guides/users/set-root-attributes-user-signup'],
+    from: [
+      '/users/set-root-attributes-during-user-sign-up',
+      '/api/management/guides/users/set-root-attributes-user-signup'
+    ],
     to: '/users/user-profiles/root-attributes/set-root-attributes-during-user-sign-up'
   },
   {
-    from: ['/users/update-root-attributes-for-users','/api/management/guides/users/update-root-attributes-users'],
+    from: [
+      '/users/update-root-attributes-for-users',
+      '/api/management/guides/users/update-root-attributes-users'
+    ],
     to: '/users/user-profiles/root-attributes/update-root-attributes-for-users'
   },
   {
@@ -6655,32 +6767,20 @@ module.exports = [
     to: '/users/user-profiles/verified-email-usage'
   },
   {
-    from: ['/users/configure-connection-sync-with-auth0','/dashboard/guides/connections/configure-connection-sync','/api/management/guides/connections/configure-connection-sync'],
+    from: [
+      '/users/configure-connection-sync-with-auth0',
+      '/dashboard/guides/connections/configure-connection-sync',
+      '/api/management/guides/connections/configure-connection-sync'
+    ],
     to: '/users/user-profiles/configure-connection-sync-with-auth0'
   },
   {
-    from: ['/users/update-user-profiles-using-your-database','/user-profile/customdb','/users/guides/update-user-profiles-using-your-database'],
+    from: [
+      '/users/update-user-profiles-using-your-database',
+      '/user-profile/customdb',
+      '/users/guides/update-user-profiles-using-your-database'
+    ],
     to: '/users/user-profiles/update-user-profiles-using-your-database'
-  },
-  {
-    from: ['/users/progressive-profiling','/users/concepts/overview-progressive-profiling'],
-    to: '/users/user-profiles/progressive-profiling'
-  },
-  {
-    from: ['/users/guides/block-and-unblock-users'],
-    to: '/users/block-and-unblock-users'
-  },
-  {
-    from: ['/users/guides/delete-users'],
-    to: '/users/delete-users'
-  },
-  {
-    from: ['/dashboard/guides/users/unlink-user-devices'],
-    to: '/users/unlink-devices-from-users'
-  },
-  {
-    from: ['/user-profile/progressive-profiling','/users/concepts/overview-progressive-profiling','/users/guides/implement-progressive-profiling'],
-    to: '/users/progressive-profiling'
   },
   {
     from: [
@@ -6794,42 +6894,6 @@ module.exports = [
     to: '/users/cookies/samesite-cookie-attribute-changes'
   },
   {
-    from: ['/users/concepts/overview-user-migration'],
-    to: '/users/import-and-export-users'
-  },
-  {
-    from: ['/users/guides/bulk-user-exports'],
-    to: '/users/bulk-user-exports'
-  },
-  {
-    from: ['/tutorials/bulk-importing-users-into-auth0','/users/guides/bulk-user-imports', '/users/guides/bulk-user-import','/users/bulk-importing-users-into-auth0', '/users/migrations/bulk-import','/bulk-import'],
-    to: '/users/bulk-user-imports'
-  },
-  {
-    from: ['/user-profile/user-picture','/users/guides/change-user-pictures'],
-    to: '/users/change-user-picture'
-  },
-  {
-    from: ['/connections/database/migrating','/migrating','/users/migrations/automatic','/users/guides/configure-automatic-migration'],
-    to: '/users/configure-automatic-migration-from-your-database'
-  },
-  {
-    from: ['/tutorials/creating-users-in-the-management-portal','/users/guides/create-users','/creating-users','/dashboard/guides/users/create-users'],
-    to: '/users/create-users'
-  },
-  {
-    from: ['/tutorials/get-user-information-with-unbounce-landing-pages','/users/guides/get-user-information-with-unbounce-landing-pages','/scenarios-unbounce'],
-    to: '/users/get-user-information-on-unbounce-landing-pages'
-  },
-  {
-    from: ['/users/guides/link-user-accounts','/link-accounts/suggested-linking'],
-    to: '/users/link-user-accounts'
-  },
-  {
-    from: ['/users/guides/manage-user-access-to-applications'],
-    to: '/users/manage-user-access-to-applications'
-  },
-  {
     from: ['/users/guides/manage-users-using-the-dashboard'],
     to: '/users/manage-users-using-the-dashboard'
   },
@@ -6838,12 +6902,114 @@ module.exports = [
     to: '/users/manage-users-using-the-management-api'
   },
   {
-    from: ['/tutorials/redirecting-users','/users/redirecting-users','/users/guides/redirect-users-after-login','/protocols/oauth2/redirect-users','/users/concepts/redirect-users-after-login'],
-    to: '/users/redirect-users-after-login'
+    from: [
+      '/users/guides/link-user-accounts',
+      '/link-accounts/suggested-linking',
+      '/users/link-user-accounts'
+    ],
+    to: '/users/user-account-linking/link-user-accounts'
   },
   {
-    from: ['/users/guides/unlink-user-accounts'],
-    to: '/users/unlink-user-accounts'
+    from: ['/users/unlink-user-accounts','/users/guides/unlink-user-accounts'],
+    to: '/users/user-account-linking/unlink-user-accounts'
+  },
+  {
+    from: [
+      '/link-accounts/user-initiated', 
+      '/link-accounts/user-initiated-linking',
+      '/users/references/link-accounts-user-initiated-scenario',
+      '/users/references/link-accounts-client-side-scenario',
+      '/user/references/link-accounts-client-side-scenario',
+      '/users/user-initiated-account-linking-client-side-implementation'
+    ],
+    to: '/users/user-account-linking/user-initiated-account-linking-client-side-implementation'
+  },
+  {
+    from: [
+      '/users/suggested-account-linking-server-side-implementation',
+      '/users/references/link-accounts-server-side-scenario'
+    ],
+    to: '/users/user-account-linking/suggested-account-linking-server-side-implementation'
+  },
+  {
+    from: ['/users/concepts/overview-user-migration'],
+    to: '/users/import-and-export-users'
+  },
+  {
+    from: [
+      '/connections/database/migrating-okta', 
+      '/users/migrations/okta',
+      '/users/references/user-migration-scenarios',
+      '/users/migrations',
+      '/users/user-migration-scenarios'
+    ],
+    to: '/users/import-and-export-users/user-migration-scenarios'
+  },
+  {
+    from: [
+      '/connections/database/migrating',
+      '/migrating',
+      '/users/migrations/automatic',
+      '/users/guides/configure-automatic-migration',
+      '/users/configure-automatic-migration-from-your-database'
+    ],
+    to: '/users/import-and-export-users/configure-automatic-migration-from-your-database'
+  },
+  {
+    from: [
+      '/tutorials/bulk-importing-users-into-auth0',
+      '/users/guides/bulk-user-imports', 
+      '/users/guides/bulk-user-import',
+      '/users/bulk-importing-users-into-auth0', 
+      '/users/migrations/bulk-import',
+      '/bulk-import',
+      '/users/bulk-user-imports'
+    ],
+    to: '/users/import-and-export-users/bulk-user-imports'
+  },
+  {
+    from: [
+      '/users/bulk-user-import-database-schema-and-examples',
+      '/users/references/bulk-import-database-schema-examples'
+    ],
+    to: '/users/import-and-export-users/bulk-user-import-database-schema-and-examples'
+  },
+  {
+    from: ['/users/bulk-user-exports','/users/guides/bulk-user-exports'],
+    to: '/users/import-and-export-users/bulk-user-exports'
+  },
+  {
+    from: ['/users/guides/block-and-unblock-users'],
+    to: '/users/block-and-unblock-users'
+  },
+  {
+    from: ['/users/guides/manage-user-access-to-applications'],
+    to: '/users/manage-user-access-to-applications'
+  },
+  {
+    from: ['/users/guides/delete-users'],
+    to: '/users/delete-users'
+  },
+  {
+    from: ['/dashboard/guides/users/unlink-user-devices'],
+    to: '/users/unlink-devices-from-users'
+  },
+  {
+    from: ['/user-profile/user-picture','/users/guides/change-user-pictures'],
+    to: '/users/change-user-picture'
+  },
+  {
+    from: [
+      '/tutorials/creating-users-in-the-management-portal',
+      '/users/guides/create-users',
+      '/creating-users',
+      '/dashboard/guides/users/create-users'
+    ],
+    to: '/users/create-users'
+  },
+  {
+    from: ['/tutorials/get-user-information-with-unbounce-landing-pages','/users/guides/get-user-information-with-unbounce-landing-pages','/scenarios-unbounce'],
+    to: '/users/get-user-information-on-unbounce-landing-pages'
   },
   {
     from: ['/users/guides/view-users'],
@@ -6852,22 +7018,6 @@ module.exports = [
   {
     from: ['/users/normalized/auth0/identify-users'],
     to: '/users/identify-users'
-  },
-  {
-    from: ['/users/references/bulk-import-database-schema-examples'],
-    to: '/users/bulk-user-import-database-schema-and-examples'
-  },
-  {
-    from: ['/link-accounts/user-initiated', '/link-accounts/user-initiated-linking','/users/references/link-accounts-user-initiated-scenario','/users/references/link-accounts-client-side-scenario','/user/references/link-accounts-client-side-scenario'],
-    to: '/users/user-initiated-account-linking-client-side-implementation'
-  },
-  {
-    from: ['/users/references/link-accounts-server-side-scenario'],
-    to: '/users/suggested-account-linking-server-side-implementation'
-  },
-  {
-    from: ['/connections/database/migrating-okta', '/users/migrations/okta','/users/references/user-migration-scenarios','/users/migrations'],
-    to: '/users/user-migration-scenarios'
   },
   {
     from: ['/users/search/v3','/users/normalized/auth0/retrieve-user-profiles','/users/search','/users-search'],
@@ -6905,31 +7055,7 @@ module.exports = [
     from: ['/users/search/v3/view-search-results-by-page'],
     to: '/users/user-search/view-search-results-by-page'
   },
-  {
-    from: ['/dashboard/guides/users/assign-permissions-users','/api/management/guides/users/assign-permissions-users'],
-    to: '/users/assign-permissions-to-users'
-  },
-  {
-    from: ['/dashboard/guides/users/assign-roles-users','/api/management/guides/users/assign-roles-users'],
-    to: '/users/assign-roles-to-users'
-  },
-  {
-    from: ['/dashboard/guides/users/remove-user-permissions','/api/management/guides/users/remove-user-permissions'],
-    to: '/users/remove-permissions-from-users'
-  },
-  {
-    from: ['/dashboard/guides/users/remove-user-roles','/dashboard/guides/roles/remove-role-users','/api/management/guides/users/remove-user-roles'],
-    to: '/users/remove-roles-from-users'
-  },
-  {
-    from: ['/dashboard/guides/users/view-user-permissions','/api/management/guides/users/view-user-permissions'],
-    to: '/users/view-user-permissions'
-  },
-  {
-    from: ['/dashboard/guides/users/view-user-roles','/api/management/guides/users/view-user-roles'],
-    to: '/users/view-user-roles'
-  },
-  {
+ {
     from: ['/link-accounts/auth-api','/link-accounts','/users/concepts/overview-user-account-linking','/users/guide/concepts/overview-user-account-linking'],
     to: '/users/user-account-linking'
   },
