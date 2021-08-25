@@ -391,7 +391,7 @@ articles:
         url: /connections/database
         children:
           - title: Auth0 User Store
-            url: '/connections/database#using-the-auth0-user-store'
+            url: /connections/database/auth0-user-store
           - title: Your User Store
             url: /connections/database/custom-db
             children:
@@ -412,27 +412,27 @@ articles:
         url: /connections/passwordless
         children:
           - title: Authentication Factors
-            url: /connections/passwordless
+            url: /connections/passwordless/authentication-factors
             children:
               - title: Email
-                url: /connections/passwordless/guides/email-otp
+                url: /connections/passwordless/email-otp
               - title: Magic Link
-                url: /connections/passwordless/guides/email-magic-link
+                url: /connections/passwordless/email-magic-link
               - title: SMS
-                url: /connections/passwordless/guides/sms-otp
+                url: /connections/passwordless/sms-otp
           - title: Universal Login
-            url: /connections/passwordless/guides/universal-login
+            url: /connections/passwordless/universal-login
           - title: Embedded Login
-            url: /connections/passwordless/guides/embedded-login
+            url: /connections/passwordless/embedded-login
             children:
               - title: Passwordless APIs
-                url: /connections/passwordless/reference/relevant-api-endpoints
+                url: /connections/passwordless/relevant-api-endpoints
               - title: Native Apps
-                url: /connections/passwordless/guides/embedded-login-native
+                url: /connections/passwordless/embedded-login-native
               - title: Web Apps
-                url: /connections/passwordless/guides/embedded-login-webapps
+                url: /connections/passwordless/embedded-login-webapps
               - title: SPAs
-                url: /connections/passwordless/guides/embedded-login-spa
+                url: /connections/passwordless/embedded-login-spa
       - title: View Connections
         url: /dashboard/guides/connections/view-connections
       - title: Disable Connection Sync
@@ -641,7 +641,7 @@ articles:
         url: /protocols/saml-protocol
         children:
           - title: SAML SSO Integrations
-            url: /protocols/saml-protocol/saml-configuration-options
+            url: /protocols/saml-protocol/saml-sso-integrations
           - title: Auth0 as SP
             url: /protocols/saml-protocol/configure-auth0-saml-service-provider
           - title: Auth0 as IdP
@@ -1071,22 +1071,27 @@ articles:
         children:
           - title: AWS EventBridge
             url: /monitor-auth0/streams/stream-logs-to-amazon-eventbridge
+            hidden: true
           - title: Azure Event Grid
             url: /monitor-auth0/streams/stream-logs-to-azure-event-grid
+            hidden: true
           - title: Datadog
             url: /monitor-auth0/streams/stream-logs-to-datadog
+            hidden: true
             children:
               - title: Datadog Dashboard Templates
                 url: /monitor-auth0/streams/datadog-dashboard-templates
                 hidden: true
           - title: Splunk
             url: /monitor-auth0/streams/stream-logs-to-splunk
+            hidden: true
             children:
               - title: Auth0 App for Splunk
                 url: /monitor-auth0/streams/splunk-dashboard
                 hidden: true
           - title: Sumo Logic
             url: /monitor-auth0/streams/stream-logs-to-sumo-logic
+            hidden: true
             children:
               - title: Auth0 App for Sumo Logic
                 url: /monitor-auth0/streams/sumo-logic-dashboard
@@ -1372,7 +1377,7 @@ articles:
           - title: Database Security
             url: /best-practices/custom-database-connections-scripts/connection-security
       - title: Passwordless Login Connections
-        url: /connections/passwordless/guides/best-practices
+        url: /connections/passwordless/best-practices
       - title: Rules
         url: /best-practices/rules-best-practices
         children:

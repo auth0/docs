@@ -34,7 +34,10 @@ In previous versions, Auth0 always set the `email_verified` field to true in Azu
 You can find the new tenant setting in the [Auth0 Dashboard > Settings > Advanced](${manage_url}/#/tenant/advanced). Locate the **Migrations** section, then find **Default to 'Email Verification' setting for Azure AD/ADFS connections**.
 
 ::: note
-You must have the correct Azure configuration for this option to be available.
+This setting is only available if:
+
+* the tenant is older than the date the migration was introduced
+* the tenant has one or more active ADFS or Azure AD connection
 :::
 
 ![Dashboard - Advanced Tenant Settings - Migrations](/media/connections/dashboard-tenant-edit_view-advanced_migrations_azure-adfs.png)

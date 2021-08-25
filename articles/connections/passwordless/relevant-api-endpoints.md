@@ -18,8 +18,8 @@ If you decide to embed login, please make sure you understand the [security impl
 
 You can learn more about how to implement Passwordless for Universal Login and Embedded login for different scenarios in these documents:
 
-- [Passwordless Authentication with Universal Login](/connections/passwordless/guides/universal-login)
-- [Passwordless Authentication with Embedded Login](/connections/passwordless/guides/embedded-login)
+- [Passwordless Authentication with Universal Login](/connections/passwordless/universal-login)
+- [Passwordless Authentication with Embedded Login](/connections/passwordless/embedded-login)
 
 
 ## Passwordless endpoints
