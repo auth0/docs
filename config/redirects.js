@@ -6598,6 +6598,75 @@ module.exports = [
     to: '/users'
   },
   {
+    from: [
+      '/user-profile/normalized',
+      '/user-profile/normalized/oidc',
+      '/user-profile',
+      '/users/concepts/overview-user-profile',
+      '/user-profile/user-profile-details',
+      '/users/normalized/oidc',
+      '/users/user-profiles-returned-from-oidc-compliant-pipelines'
+    ],
+    to: '/users/user-profiles'
+  },
+  {
+    from: [
+      '/user-profile/user-profile-structure',
+      '/users/references/user-profile-structure',
+      '/users/user-profile-structure'
+    ],
+    to: '/users/user-profiles/user-profile-structure'
+  },
+  {
+    from: ['/users/sample-user-profiles','/users/normalized/auth0/sample-user-profiles'],
+    to: '/users/user-profiles/sample-user-profiles'
+  },
+  {
+    from: [
+      '/users/normalized-user-profiles',
+      '/users/normalized',
+      '/user-profile/normalized/auth0',
+      '/users/normalized/auth0'
+    ],
+    to: '/users/user-profiles/normalized-user-profiles'
+  },
+  {
+    from: ['/users/normalized-user-profile-schema','/users/normalized/auth0/normalized-user-profile-schema'],
+    to: '/users/user-profiles/normalized-user-profile-schema'
+  },
+  {
+    from: ['/users/updating-user-profile-root-attributes','/users/normalized/auth0/update-root-attributes'],
+    to: '/users/user-profiles/root-attributes'
+  },
+  {
+    from: ['/users/set-root-attributes-during-user-import','/api/management/guides/users/set-root-attributes-user-import'],
+    to: '/users/user-profiles/root-attributes/set-root-attributes-during-user-import'
+  },
+  {
+    from: ['/users/set-root-attributes-during-user-sign-up','/api/management/guides/users/set-root-attributes-user-signup'],
+    to: '/users/user-profiles/root-attributes/set-root-attributes-during-user-sign-up'
+  },
+  {
+    from: ['/users/update-root-attributes-for-users','/api/management/guides/users/update-root-attributes-users'],
+    to: '/users/user-profiles/root-attributes/update-root-attributes-for-users'
+  },
+  {
+    from: ['/users/verified-email-usage','/users/guides/email-verified'],
+    to: '/users/user-profiles/verified-email-usage'
+  },
+  {
+    from: ['/users/configure-connection-sync-with-auth0','/dashboard/guides/connections/configure-connection-sync','/api/management/guides/connections/configure-connection-sync'],
+    to: '/users/user-profiles/configure-connection-sync-with-auth0'
+  },
+  {
+    from: ['/users/update-user-profiles-using-your-database','/user-profile/customdb','/users/guides/update-user-profiles-using-your-database'],
+    to: '/users/user-profiles/update-user-profiles-using-your-database'
+  },
+  {
+    from: ['/users/progressive-profiling','/users/concepts/overview-progressive-profiling'],
+    to: '/users/user-profiles/progressive-profiling'
+  },
+  {
     from: ['/users/guides/block-and-unblock-users'],
     to: '/users/block-and-unblock-users'
   },
@@ -6729,10 +6798,6 @@ module.exports = [
     to: '/users/import-and-export-users'
   },
   {
-    from: ['/user-profile/normalized','/user-profile/normalized/oidc','/user-profile','/users/concepts/overview-user-profile','/user-profile/user-profile-details','/users/normalized/oidc','/users/user-profiles-returned-from-oidc-compliant-pipelines'],
-    to: '/users/user-profiles'
-  },
-  {
     from: ['/users/guides/bulk-user-exports'],
     to: '/users/bulk-user-exports'
   },
@@ -6751,10 +6816,6 @@ module.exports = [
   {
     from: ['/tutorials/creating-users-in-the-management-portal','/users/guides/create-users','/creating-users','/dashboard/guides/users/create-users'],
     to: '/users/create-users'
-  },
-  {
-    from: ['/users/guides/email-verified'],
-    to: '/users/verified-email-usage'
   },
   {
     from: ['/tutorials/get-user-information-with-unbounce-landing-pages','/users/guides/get-user-information-with-unbounce-landing-pages','/scenarios-unbounce'],
@@ -6785,36 +6846,12 @@ module.exports = [
     to: '/users/unlink-user-accounts'
   },
   {
-    from: ['/user-profile/customdb','/users/guides/update-user-profiles-using-your-database'],
-    to: '/users/update-user-profiles-using-your-database'
-  },
-  {
     from: ['/users/guides/view-users'],
     to: '/users/view-user-details'
   },
   {
-    from: ['/users/normalized'],
-    to: '/users/normalized-user-profiles'
-  },
-  {
     from: ['/users/normalized/auth0/identify-users'],
     to: '/users/identify-users'
-  },
-  {
-    from: ['/user-profile/normalized/auth0','/users/normalized/auth0'],
-    to: '/users/normalized-user-profiles'
-  },
-  {
-    from: ['/users/normalized/auth0/normalized-user-profile-schema'],
-    to: '/users/normalized-user-profile-schema'
-  },
-  {
-    from: ['/users/normalized/auth0/sample-user-profiles'],
-    to: '/users/sample-user-profiles'
-  },
-  {
-    from: ['/users/normalized/auth0/update-root-attributes'],
-    to: '/users/updating-user-profile-root-attributes'
   },
   {
     from: ['/users/references/bulk-import-database-schema-examples'],
@@ -6831,26 +6868,6 @@ module.exports = [
   {
     from: ['/connections/database/migrating-okta', '/users/migrations/okta','/users/references/user-migration-scenarios','/users/migrations'],
     to: '/users/user-migration-scenarios'
-  },
-  {
-    from: ['/user-profile/user-profile-structure','/users/references/user-profile-structure'],
-    to: '/users/user-profile-structure'
-  },
-  {
-    from: ['/dashboard/guides/connections/configure-connection-sync','/api/management/guides/connections/configure-connection-sync'],
-    to: '/users/configure-connection-sync-with-auth0'
-  },
-  {
-    from: ['/api/management/guides/users/set-root-attributes-user-import'],
-    to: '/users/set-root-attributes-during-user-import'
-  },
-  {
-    from: ['/api/management/guides/users/set-root-attributes-user-signup'],
-    to: '/users/set-root-attributes-during-user-sign-up'
-  },
-  {
-    from: ['/api/management/guides/users/update-root-attributes-users'],
-    to: '/users/update-root-attributes-for-users'
   },
   {
     from: ['/users/search/v3','/users/normalized/auth0/retrieve-user-profiles','/users/search','/users-search'],
@@ -6911,10 +6928,6 @@ module.exports = [
   {
     from: ['/dashboard/guides/users/view-user-roles','/api/management/guides/users/view-user-roles'],
     to: '/users/view-user-roles'
-  },
-  {
-    from: ['/users/concepts/overview-progressive-profiling'],
-    to: '/users/progressive-profiling'
   },
   {
     from: ['/link-accounts/auth-api','/link-accounts','/users/concepts/overview-user-account-linking','/users/guide/concepts/overview-user-account-linking'],
