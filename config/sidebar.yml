@@ -382,11 +382,11 @@ articles:
     url: /connections
     children:
       - title: Social Identity Providers
-        url: /connections/identity-providers-social
+        url: /connections/social/identity-providers
       - title: Enterprise Identity Providers
-        url: /connections/identity-providers-enterprise
+        url: /connections/enterprise/identity-providers
       - title: Legal Identity Providers
-        url: /connections/identity-providers-legal
+        url: /connections/legal/identity-providers
       - title: Database
         url: /connections/database
         children:
