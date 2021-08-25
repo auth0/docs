@@ -819,12 +819,12 @@ module.exports = [
   },
   {
     from: [
-      '/connections',
+      '/identityproviders',
       '/applications/concepts/connections',
       '/applications/connections',
       '/clients/connections'
     ],
-    to: '/identityproviders'
+    to: '/connections'
   },
   {
     from: ['/connections/database/mysql','/mysql-connection-tutorial','/connections/database/custom-db/custom-db-connection-overview'],
@@ -925,12 +925,31 @@ module.exports = [
     to: '/connections/passwordless/universal-login'
   },
   {
-    from: ['/connections/social/aol','/aol-clientid','/connections/social/thecity','/thecity-clientid','/connections/social/miicard','/miicard-clientid','/connections/social','/connections/nativesocial/'],
-    to: '/connections/identity-providers-social'
+    from: [
+      '/connections/identity-providers-social',
+      '/connections/social/aol',
+      '/aol-clientid',
+      '/connections/social/thecity',
+      '/thecity-clientid',
+      '/connections/social/miicard',
+      '/miicard-clientid',
+      '/connections/social',
+      '/connections/nativesocial/'],
+    to: '/connections/social/identity-providers'
   },
   {
-    from: ['/connections/enterprise/sharepoint-apps','/sharepoint-clientid'],
-    to: '/connections/identity-providers-enterprise'
+    from: [
+      '/connections/identity-providers-enterprise',
+      '/connections/enterprise/sharepoint-apps',
+      '/sharepoint-clientid'
+    ],
+    to: '/connections/enterprise/identity-providers'
+  },
+  {
+    from: [
+      '/connections/identity-providers-legal'
+    ],
+    to: '/connections/legal/identity-providers'
   },
   {
     from: [
