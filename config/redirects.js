@@ -877,24 +877,29 @@ module.exports = [
     to: '/connections/passwordless/use-sms-gateway-passwordless'
   },
   {
-    from: '/connections/apple-setup',
-    to: '/connections/apple-siwa/set-up-apple'
-  },
-  {
     from: [
+      '/connections/apple-setup',
+      '/connections/apple-siwa/set-up-apple',
       '/connections/apple-siwa/add-siwa-web-app',
       '/connections/apple-siwa/add-siwa-to-web-app',
-      '/connections/social/apple'
+      '/connections/social/apple',
+      '/connections/apple-siwa/test-siwa-connection'
     ],
     to: 'https://marketplace.auth0.com/integrations/apple-social-connection'
   },
   {
-    from: '/connections/apple-siwa/add-siwa-to-native-app',
-    to: '/connections/nativesocial/apple'
+    from: [
+      '/connections/apple-siwa/add-siwa-to-native-app',
+      '/connections/nativesocial/add-siwa-to-native-app',
+      '/connections/nativesocial/apple'
+    ],
+    to: '/connections/social/apple-native'
   },
   {
-    from: '/connections/nativesocial/add-siwa-to-native-app',
-    to: '/connections/nativesocial/apple'
+    from: [
+      '/connections/nativesocial/facebook-native'
+    ],
+    to: '/connections/social/facebook-native'
   },
   {
     from: [
