@@ -15,4 +15,4 @@ useCase:
 Auth0 supports the following enterprise providers out of the box.
 
 <% var enterpriseConnections = cache.find('articles/connections/enterprise', {sort: 'index'}); %>
-<%= include('./_connections', { connections: enterpriseConnections }) %>
+<%= include('../_connections', { connections: enterpriseConnections }) %>
