@@ -16,8 +16,3 @@ Auth0 supports the following social providers for web applications out of the bo
 
 <% var socialConnections = cache.find('articles/connections/social', {sort: 'index'}); %>
 <%= include('../_connections', { connections: socialConnections }) %>
-
-Additionally, Auth0 supports the following social providers for native applications.
-
-<% var nativeSocialConnections = cache.find('articles/connections/nativesocial'); %>
-<%= include('../_connections', { connections: nativeSocialConnections }) %>
