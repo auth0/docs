@@ -956,6 +956,7 @@ module.exports = [
     from: [
       '/connections/identity-providers-enterprise',
       '/connections/enterprise/sharepoint-apps',
+      '/connections/enterprise',
       '/sharepoint-clientid'
     ],
     to: '/connections/enterprise/identity-providers'
@@ -979,11 +980,53 @@ module.exports = [
     ],
     to: '/connections/passwordless/sample-use-cases-rules'
   },
-    {
+  {
     from: [
       '/connections/azure-active-directory-native'
     ],
     to: '/connections/enterprise/azure-active-directory-native'
+  },
+  {
+    from: [
+      '/connections/passwordless/email-otp'
+    ],
+    to: '/connections/authentication-factors/email-otp'
+  },
+  {
+    from: [
+      '/connections/passwordless/email-magic-link'
+    ],
+    to: '/connections/authentication-factors/email-magic-link'
+  },
+  {
+    from: [
+      '/connections/passwordless/sms-otp'
+    ],
+    to: '/connections/authentication-factors/sms-otp'
+  },
+  {
+    from: [
+      '/connections/passwordless/embedded-login-spa'
+    ],
+    to: '/connections/passwordless/embedded-login/spa'
+  },
+  {
+    from: [
+      '/connections/passwordless/embedded-login-webapps'
+    ],
+    to: '/connections/passwordless/embedded-login/webapps'
+  },
+  {
+    from: [
+      '/connections/passwordless/embedded-login-native'
+    ],
+    to: '/connections/passwordless/embedded-login/native'
+  },
+  {
+    from: [
+      '/connections/passwordless/relevant-api-endpoints'
+    ],
+    to: '/connections/passwordless/embedded-login/relative-api-endpoints'
   },
 
 
@@ -4492,9 +4535,10 @@ module.exports = [
     from: [
       '/dashboard/guides/universal-login/configure-login-page-passwordless',
       '/dashboard/guides/connections/configure-passwordless-sms',
-      '/universal-login/configure-universal-login-with-passwordless'
+      '/universal-login/configure-universal-login-with-passwordless',
+      '/login/universal-login/passwordless-login/configure-universal-login-with-passwordless'
     ],
-    to: '/login/universal-login/passwordless-login/configure-universal-login-with-passwordless'
+    to: '/login/universal-login/passwordless-login'
   },
   {
     from: ['/universal-login/prompt-common','/universal-login/text-customization-prompts/common'],
