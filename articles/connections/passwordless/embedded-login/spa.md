@@ -18,4 +18,4 @@ You can implement Passwordless Login using Auth0's Lock widget or if you need co
 - [Implementing passwordless with Lock.js](/libraries/lock/v11#passwordless)
 - [Implementing passwordless with Auth0.js](/libraries/auth0js#passwordless-login)
 
-<%= include('./_includes/_setup-cors') %>
+<%= include('../../_includes/_setup-cors') %>
