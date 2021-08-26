@@ -950,7 +950,7 @@ module.exports = [
       '/miicard-clientid',
       '/connections/social',
       '/connections/nativesocial/'],
-    to: '/connections/social/identity-providers'
+    to: '/connections/social'
   },
   {
     from: [
