@@ -964,7 +964,7 @@ module.exports = [
     from: [
       '/connections/identity-providers-legal'
     ],
-    to: '/connections/legal/identity-providers'
+    to: '/connections/legal'
   },
   {
     from: [
@@ -978,6 +978,12 @@ module.exports = [
       '/connections/passwordless/concepts/sample-use-cases-rules'
     ],
     to: '/connections/passwordless/sample-use-cases-rules'
+  },
+    {
+    from: [
+      '/connections/azure-active-directory-native'
+    ],
+    to: '/connections/enterprise/azure-active-directory-native'
   },
 
 
