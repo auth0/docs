@@ -948,7 +948,6 @@ module.exports = [
       '/thecity-clientid',
       '/connections/social/miicard',
       '/miicard-clientid',
-      '/connections/social',
       '/connections/nativesocial/'],
     to: '/connections/social'
   },
@@ -956,10 +955,9 @@ module.exports = [
     from: [
       '/connections/identity-providers-enterprise',
       '/connections/enterprise/sharepoint-apps',
-      '/connections/enterprise',
       '/sharepoint-clientid'
     ],
-    to: '/connections/enterprise/identity-providers'
+    to: '/connections/enterprise'
   },
   {
     from: [
