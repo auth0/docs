@@ -9,7 +9,7 @@ topics:
 ---
 # Embedded Passwordless Authentication for SPAs
 
-<%= include('./../../_includes/_embedded_login_warning') %>
+<%= include('../../../_includes/_embedded_login_warning') %>
 
 ## Using Auth0's SDKs to implement Embedded Login
 
