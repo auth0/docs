@@ -112,5 +112,5 @@ You need to specify `send` = `link`.
 
 When you send a magic link, you don't need to call an API to authenticate the user. Users will click the link and get redirected to the callback URL.
 
-<%= include('../_includes/_rate_limit_server_side') %>
+<%= include('../../_includes/_rate_limit_server_side') %>
 
