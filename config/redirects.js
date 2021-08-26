@@ -2237,6 +2237,19 @@ module.exports = [
   },
   {
     from: [
+      '/authorization/flows/call-your-api-using-the-authorization-code-flow',
+      '/flows/guides/auth-code/call-api-auth-code',
+      '/flows/guides/auth-code/includes/authorize-user-call-api',
+      '/flows/guides/auth-code/includes/sample-use-cases-call-api',
+      '/flows/guides/auth-code/includes/call-api',
+      '/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow',
+      '/api-auth/tutorials/authorization-code-grant',
+      '/flows/call-your-api-using-the-authorization-code-flow'
+    ],
+    to: '/authorization/authorization-flows/call-your-api-using-the-authorization-code-flow'
+  },
+  {
+    from: [
       '/flows/concepts/auth-code-pkce',
       '/api-auth/grant/authorization-code-pkce',
       '/flows/concepts/mobile-login-flow',
@@ -2244,6 +2257,18 @@ module.exports = [
       '/flows/authorization-code-flow-with-proof-key-for-code-exchange-pkce'
     ],
     to: '/authorization/authorization-flows/authorization-code-flow-with-proof-key-for-code-exchange-pkce'
+  },
+  {
+    from: [
+      '/flows/guides/auth-code-pkce/call-api-auth-code-pkce',
+      '/flows/guides/auth-code-pkce/includes/sample-use-cases-call-api',
+      '/flows/guides/auth-code-pkce/includes/call-api',
+      '/flows/guides/auth-code-pkce/includes/authorize-user-call-api',
+      '/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow',
+      '/api-auth/tutorials/authorization-code-grant-pkce',
+      '/flows/call-your-api-using-the-authorization-code-flow-with-pkce'
+    ],
+    to: '/authorization/authorization-flows/call-your-api-using-the-authorization-code-flow-with-pkce'
   },
   {
     from: [
@@ -2262,8 +2287,19 @@ module.exports = [
     to: '/authorization/authorization-flows/implicit-flow-with-form-post'
   },
   {
+    from: [
+      '/api-auth/tutorials/nonce',
+      '/authorization/mitigate-replay-attacks-when-using-the-implicit-flow'
+    ],
+    to: '/authorization/authorization-flows/mitigate-replay-attacks-when-using-the-implicit-flow'
+  },
+  {
     from: ['/flows/hybrid-flow','/api-auth/grant/hybrid'],
     to: '/authorization/authorization-flows/hybrid-flow'
+  },
+  {
+    from: ['/api-auth/tutorials/hybrid-flow','/flows/call-api-hybrid-flow'],
+    to: '/authorization/authorization-flows/call-api-hybrid-flow'
   },
   {
     from: [
@@ -2277,10 +2313,35 @@ module.exports = [
   },
   {
     from: [
+      '/flows/guides/client-credentials/call-api-client-credentials',
+      '/flows/guides/client-credentials/includes/sample-use-cases',
+      '/flows/guides/client-credentials/includes/call-api',
+      '/flows/guides/client-credentials/includes/request-token',
+      '/flows/guides/m2m-flow/call-api-using-m2m-flow',
+      '/api-auth/tutorials/client-credentials',
+      '/api-auth/config/asking-for-access-tokens',
+      '/flows/call-your-api-using-the-client-credentials-flow'
+    ],
+    to: '/authorization/authorization-flows/call-your-api-using-the-client-credentials-flow'
+  },
+  {
+    from: [
+      '/api-auth/tutorials/client-credentials/customize-with-hooks',
+      '/api-auth/grant/using-rules',
+      '/authorization/customize-tokens-using-hooks-with-client-credentials-flow'
+    ],
+    to: '/authorization/authorization-flows/customize-tokens-using-hooks-with-client-credentials-flow'
+  },
+  {
+    from: [
       '/flows/concepts/device-auth',
       '/flows/device-authorization-flow'
     ],
     to: '/authorization/authorization-flows/device-authorization-flow'
+  },
+  {
+    from: ['/flows/guides/device-auth/call-api-device-auth'],
+    to: '/authorization/authorization-flows/call-your-api-using-the-device-authorization-flow'
   },
   {
     from: [
@@ -2291,11 +2352,8 @@ module.exports = [
     to: '/authorization/authorization-flows/resource-owner-password-flow'
   },
   {
-    from: [
-      '/api-auth/tutorials/nonce',
-      '/authorization/mitigate-replay-attacks-when-using-the-implicit-flow'
-    ],
-    to: '/authorization/authorization-flows/mitigate-replay-attacks-when-using-the-implicit-flow'
+    from: ['/flows/call-your-api-using-resource-owner-password-flow','/api-auth/tutorials/password-grant'],
+    to: '/authorization/authorization-flows/call-your-api-using-resource-owner-password-flow'
   },
   {
     from: [
@@ -2304,14 +2362,6 @@ module.exports = [
       '/authorization/avoid-common-issues-with-resource-owner-password-flow-and-attack-protection'
     ],
     to: '/authorization/authorization-flows/avoid-common-issues-with-resource-owner-password-flow-and-attack-protection'
-  },
-  {
-    from: [
-      '/api-auth/tutorials/client-credentials/customize-with-hooks',
-      '/api-auth/grant/using-rules',
-      '/authorization/customize-tokens-using-hooks-with-client-credentials-flow'
-    ],
-    to: '/authorization/authorization-flows/customize-tokens-using-hooks-with-client-credentials-flow'
   },
   {
     from: ['/authorization/concepts/rbac'],
@@ -4561,19 +4611,6 @@ module.exports = [
   },
   {
     from: [
-      '/authorization/flows/call-your-api-using-the-authorization-code-flow',
-      '/flows/guides/auth-code/call-api-auth-code',
-      '/flows/guides/auth-code/includes/authorize-user-call-api',
-      '/flows/guides/auth-code/includes/sample-use-cases-call-api',
-      '/flows/guides/auth-code/includes/call-api',
-      '/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow',
-      '/api-auth/tutorials/authorization-code-grant',
-      '/flows/call-your-api-using-the-authorization-code-flow'
-    ],
-    to: '/login/flows/call-your-api-using-the-authorization-code-flow'
-  },
-  {
-    from: [
       '/flows/guides/auth-code-pkce/add-login-auth-code-pkce',
       '/flows/guides/auth-code-pkce/includes/sample-use-cases-add-login',
       '/flows/guides/auth-code-pkce/includes/request-tokens',
@@ -4591,18 +4628,6 @@ module.exports = [
   },
   {
     from: [
-      '/flows/guides/auth-code-pkce/call-api-auth-code-pkce',
-      '/flows/guides/auth-code-pkce/includes/sample-use-cases-call-api',
-      '/flows/guides/auth-code-pkce/includes/call-api',
-      '/flows/guides/auth-code-pkce/includes/authorize-user-call-api',
-      '/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow',
-      '/api-auth/tutorials/authorization-code-grant-pkce',
-      '/flows/call-your-api-using-the-authorization-code-flow-with-pkce'
-    ],
-    to: '/login/flows/call-your-api-using-the-authorization-code-flow-with-pkce'
-  },
-  {
-    from: [
       '/flows/guides/implicit/add-login-implicit',
       '/flows/guides/implicit/includes/sample-use-cases-add-login',
       '/flows/guides/implicit/includes/refresh-tokens',
@@ -4614,31 +4639,6 @@ module.exports = [
       '/flows/add-login-using-the-implicit-flow-with-form-post'
     ],
     to: '/login/flows/add-login-using-the-implicit-flow-with-form-post'
-  },
-  {
-    from: ['/api-auth/tutorials/hybrid-flow','/flows/call-api-hybrid-flow'],
-    to: '/login/flows/call-api-hybrid-flow'
-  },
-  {
-    from: [
-      '/flows/guides/client-credentials/call-api-client-credentials',
-      '/flows/guides/client-credentials/includes/sample-use-cases',
-      '/flows/guides/client-credentials/includes/call-api',
-      '/flows/guides/client-credentials/includes/request-token',
-      '/flows/guides/m2m-flow/call-api-using-m2m-flow',
-      '/api-auth/tutorials/client-credentials',
-      '/api-auth/config/asking-for-access-tokens',
-      '/flows/call-your-api-using-the-client-credentials-flow'
-    ],
-    to: '/login/flows/call-your-api-using-the-client-credentials-flow'
-  },
-  {
-    from: ['/flows/guides/device-auth/call-api-device-auth'],
-    to: '/login/flows/call-your-api-using-the-device-authorization-flow'
-  },
-  {
-    from: ['/flows/call-your-api-using-resource-owner-password-flow','/api-auth/tutorials/password-grant'],
-    to: '/login/flows/call-your-api-using-resource-owner-password-flow'
   },
   {
     from: [
