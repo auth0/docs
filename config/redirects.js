@@ -6176,6 +6176,10 @@ module.exports = [
     to: '/troubleshoot/troubleshoot-integration-and-extensibility/troubleshoot-the-deploy-cli-tool'
   },
   {
+    from: '/troubleshoot/troubleshooting-tools',
+    to: '/troubleshoot/tools'
+  },
+  {
     from: [
       '/har',
       '/tutorials/troubleshooting-with-har-files',
