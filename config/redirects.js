@@ -950,7 +950,7 @@ module.exports = [
       '/miicard-clientid',
       '/connections/social',
       '/connections/nativesocial/'],
-    to: '/connections/social/identity-providers'
+    to: '/connections/social'
   },
   {
     from: [
@@ -988,21 +988,23 @@ module.exports = [
   },
   {
     from: [
-      '/connections/passwordless/email-otp'
+      '/connections/passwordless/email-otp',
+      '/connections/passwordless/email'
     ],
-    to: '/connections/authentication-factors/email-otp'
+    to: '/connections/passwordless/authentication-factors/email-otp'
   },
   {
     from: [
       '/connections/passwordless/email-magic-link'
     ],
-    to: '/connections/authentication-factors/email-magic-link'
+    to: '/connections/passwordless/authentication-factors/email-magic-link'
   },
   {
     from: [
-      '/connections/passwordless/sms-otp'
+      '/connections/passwordless/sms-otp',
+      '/connections/passwordless/sms'
     ],
-    to: '/connections/authentication-factors/sms-otp'
+    to: '/connections/passwordless/authentication-factors/sms-otp'
   },
   {
     from: [
@@ -1027,6 +1029,12 @@ module.exports = [
       '/connections/passwordless/relevant-api-endpoints'
     ],
     to: '/connections/passwordless/embedded-login/relative-api-endpoints'
+  },
+  {
+    from: [
+      '/connections/azuread-adfs-email-verification'
+    ],
+    to: '/connections/enterprise/azuread-adfs-email-verification'
   },
 
 
