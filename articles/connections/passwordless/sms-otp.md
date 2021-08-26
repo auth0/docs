@@ -13,6 +13,6 @@ useCase: customize-connections
 ---
 # Passwordless Authentication with SMS
 
-<%= include('../_includes/_introduction-sms') %>
+<%= include('./_includes/_introduction-sms') %>
 
-<%= include('../_includes/_setup-sms-twilio') %>
+<%= include('./_includes/_setup-sms-twilio') %>

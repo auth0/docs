@@ -94,9 +94,9 @@ The main driver for picking the authentication factor is user experience, and th
 
 If you decide to use Email, then you need to decide between an one-time-use code or a magic link. We recommend using one-time-use code as the login flow is more predictable for end users. To learn more refer to the following documents:
 
-  - [Passwordless using Email and one-time-use code](/connections/passwordless/guides/email-otp)
-  - [Passwordless using Email and Magic Links](/connections/passwordless/guides/email-magic-link)
-  - [Passwordless using SMS](/connections/passwordless/guides/sms-otp)
+  - [Passwordless using Email and one-time-use code](/connections/passwordless/email-otp)
+  - [Passwordless using Email and Magic Links](/connections/passwordless/email-magic-link)
+  - [Passwordless using SMS](/connections/passwordless/sms-otp)
 
 ### Implementing Login 
 
@@ -104,11 +104,11 @@ Auth0 supports two way of implementing authentication: *Embedded Login* and *Uni
 
 The industry is aligned in that Universal Login is the proper way to implement authentication in all apps, but in the case of Native Applications, sometimes customers prefer to implement Embedded Login for UX reasons. 
 
-  - [Passwordless Authentication with Universal Login](/connections/passwordless/guides/universal-login)
-  - [Passwordless Authentication with Embedded Login](/connections/passwordless/guides/embedded-login)
+  - [Passwordless Authentication with Universal Login](/connections/passwordless/universal-login)
+  - [Passwordless Authentication with Embedded Login](/connections/passwordless/embedded-login)
 
 ## Keep reading
 
- * [Best practices for Passwordless Authentication](/connections/passwordless/guides/best-practices)
- * [API Documentation](/connections/passwordless/reference/relevant-api-endpoints)
+ * [Best practices for Passwordless Authentication](/connections/passwordless/best-practices)
+ * [API Documentation](/connections/passwordless/relevant-api-endpoints)
  * [Migrating from deprecated Passwordless endpoints](/migrations/guides/migration-oauthro-oauthtoken-pwdless)

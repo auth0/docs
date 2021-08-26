@@ -81,5 +81,5 @@ Here are things to check to help you narrow down when issues occur during login 
 ## Keep reading
 
 * [Common Auth0 Library Authentication Errors](/libraries/error-messages)
-* [Troubleshoot Passwordless Authentication](/connections/passwordless/reference/troubleshoot)
+* [Troubleshoot Passwordless Authentication](/connections/passwordless/troubleshoot)
 * [Troubleshoot WordPress Plugin](/cms/wordpress/troubleshoot)

@@ -618,6 +618,15 @@ module.exports = [
     to: '/connections/social/oauth2'
   },
   {
+    from: [
+      '/protocols/oidc/identity-providers/okta',
+      '/protocols/configure-okta-as-oidc-identity-provider',
+      '/protocols/configure-okta-as-oauth2-identity-provider',
+      '/authorization/protocols/configure-okta-as-oauth2-identity-provider'
+    ],
+    to: '/connections/social/configure-okta-as-oauth2-identity-provider'
+  },
+  {
     from: '/connections/social/auth0-oidc',
     to: '/connections/enterprise/oidc'
   },
@@ -797,7 +806,21 @@ module.exports = [
     to: '/connections/enterprise/adfs'
   },
   {
-    from: ['/passwordless','/dashboard/guides/connections/set-up-connections-passwordless','/api-auth/passwordless','/connections/passwordless/ios','/connections/passwordless/native-passwordless-universal','/connections/passwordless/reference/troubleshoot','/connections/passwordless/faq','/connections/passwordless/spa-email-code','/connections/passwordless/spa-email-link','/connections/passwordless/spa-sms','/connections/passwordless/guides/','/connections/passwordless/ios-sms-objc','/connections/passwordless/ios-sms'],
+    from: [
+      '/passwordless',
+      '/dashboard/guides/connections/set-up-connections-passwordless',
+      '/api-auth/passwordless',
+      '/connections/passwordless/ios',
+      '/connections/passwordless/native-passwordless-universal',
+      '/connections/passwordless/reference/troubleshoot',
+      '/connections/passwordless/faq',
+      '/connections/passwordless/spa-email-code',
+      '/connections/passwordless/spa-email-link',
+      '/connections/passwordless/spa-sms',
+      '/connections/passwordless/guides/',
+      '/connections/passwordless/ios-sms-objc',
+      '/connections/passwordless/ios-sms'
+    ],
     to: '/connections/passwordless'
   },
   {
@@ -805,8 +828,13 @@ module.exports = [
     to: '/connections/database/password-strength'
   },
   {
-    from: ['/connections','/applications/concepts/connections','/applications/connections','/clients/connections'],
-    to: '/identityproviders'
+    from: [
+      '/identityproviders',
+      '/applications/concepts/connections',
+      '/applications/connections',
+      '/clients/connections'
+    ],
+    to: '/connections'
   },
   {
     from: ['/connections/database/mysql','/mysql-connection-tutorial','/connections/database/custom-db/custom-db-connection-overview'],
@@ -852,52 +880,91 @@ module.exports = [
     to: 'https://marketplace.auth0.com/integrations/criipto-verify-e-id'    
   },
   {
-    from: '/connections/passwordless/sms-gateway',
-    to: '/connections/passwordless/guides/use-sms-gateway-passwordless'
-  },
-  {
-    from: '/connections/apple-setup',
-    to: '/connections/apple-siwa/set-up-apple'
+    from: [
+      '/connections/passwordless/sms-gateway',
+      '/connections/passwordless/guides/use-sms-gateway-passwordless'
+    ],
+    to: '/connections/passwordless/use-sms-gateway-passwordless'
   },
   {
     from: [
+      '/connections/apple-setup',
+      '/connections/apple-siwa/set-up-apple',
       '/connections/apple-siwa/add-siwa-web-app',
       '/connections/apple-siwa/add-siwa-to-web-app',
-      '/connections/social/apple'
+      '/connections/social/apple',
+      '/connections/apple-siwa/test-siwa-connection'
     ],
     to: 'https://marketplace.auth0.com/integrations/apple-social-connection'
   },
   {
-    from: '/connections/apple-siwa/add-siwa-to-native-app',
-    to: '/connections/nativesocial/apple'
+    from: [
+      '/connections/apple-siwa/add-siwa-to-native-app',
+      '/connections/nativesocial/add-siwa-to-native-app',
+      '/connections/nativesocial/apple'
+    ],
+    to: '/connections/social/apple-native'
   },
   {
-    from: '/connections/nativesocial/add-siwa-to-native-app',
-    to: '/connections/nativesocial/apple'
+    from: [
+      '/connections/nativesocial/facebook-native'
+    ],
+    to: '/connections/social/facebook-native'
   },
   {
-    from: '/connections/passwordless/email',
-    to: '/connections/passwordless/guides/email-otp'
+    from: [
+      '/connections/passwordless/email',
+      '/connections/passwordless/guides/email-otp'
+    ],
+    to: '/connections/passwordless/email-otp'
   },
   {
-    from: '/connections/passwordless/sms',
-    to: '/connections/passwordless/guides/sms-otp'
+    from: [
+      '/connections/passwordless/sms',
+      '/connections/passwordless/guides/sms-otp'
+    ],
+    to: '/connections/passwordless/sms-otp'
   },
   {
-    from: '/connections/passwordless/spa',
-    to: '/connections/passwordless/guides/universal-login'
+    from: [
+      '/connections/passwordless/spa',
+      '/connections/passwordless/guides/universal-login'
+    ],
+    to: '/connections/passwordless/universal-login'
   },
   {
-    from: '/connections/passwordless/regular-web-app',
-    to: '/connections/passwordless/guides/universal-login'
+    from: [
+      '/connections/passwordless/regular-web-app',
+      '/connections/passwordless/guides/universal-login'
+    ],
+    to: '/connections/passwordless/universal-login'
   },
   {
-    from: ['/connections/social/aol','/aol-clientid','/connections/social/thecity','/thecity-clientid','/connections/social/miicard','/miicard-clientid','/connections/social','/connections/nativesocial/'],
-    to: '/connections/identity-providers-social'
+    from: [
+      '/connections/identity-providers-social',
+      '/connections/social/aol',
+      '/aol-clientid',
+      '/connections/social/thecity',
+      '/thecity-clientid',
+      '/connections/social/miicard',
+      '/miicard-clientid',
+      '/connections/social',
+      '/connections/nativesocial/'],
+    to: '/connections/social/identity-providers'
   },
   {
-    from: ['/connections/enterprise/sharepoint-apps','/sharepoint-clientid'],
-    to: '/connections/identity-providers-enterprise'
+    from: [
+      '/connections/identity-providers-enterprise',
+      '/connections/enterprise/sharepoint-apps',
+      '/sharepoint-clientid'
+    ],
+    to: '/connections/enterprise/identity-providers'
+  },
+  {
+    from: [
+      '/connections/identity-providers-legal'
+    ],
+    to: '/connections/legal/identity-providers'
   },
   {
     from: [
@@ -905,6 +972,12 @@ module.exports = [
       '/connections/social/line'
     ],
     to: 'https://marketplace.auth0.com/integrations/line-social-connection'
+  },
+  {
+    from: [
+      '/connections/passwordless/concepts/sample-use-cases-rules'
+    ],
+    to: '/connections/passwordless/sample-use-cases-rules'
   },
 
 
@@ -1733,8 +1806,7 @@ module.exports = [
       '/onelogin', 
       '/saml/identity-providers/onelogin',
       '/protocols/saml/identity-providers/onelogin',
-      '/protocols/saml-configuration-options/configure-onelogin-as-saml-identity-provider',
-
+      '/protocols/saml-configuration-options/configure-onelogin-as-saml-identity-provider'
     ],
     to: '/configure/saml-configuration/configure-auth0-saml-service-provider/configure-onelogin-as-saml-identity-provider'
   },
@@ -2628,6 +2700,9 @@ module.exports = [
     ],
     to: '/brand-and-customize/email/send-email-invitations-for-application-signup'
   },
+
+  /* SAML */
+
   {
     from: '/email/send-email-invitations-for-application-signup',
     to: '/brand-and-customize/email/send-email-invitations-for-application-signup'
@@ -2659,6 +2734,18 @@ module.exports = [
   {
     from: '/email/configure-external-smtp-email-providers/configure-mailgun-as-external-smtp-email-provider',
     to: '/brand-and-customize/email/smtp-email-providers/configure-mailgun-as-external-smtp-email-provider'
+  },
+  {
+    from: ['/email','/auth0-email-services'],
+    to: '/brand-and-customize/email'
+  },
+  {
+    from: [
+      '/email/custom',
+      '/auth0-email-services/manage-email-flow',
+      '/email/manage-email-flow'
+    ],
+    to: '/brand-and-customize/email/manage-email-flow'
   },
   {
     from: [
@@ -2736,6 +2823,7 @@ module.exports = [
     from: ['/libraries/lock/v11/i18n', '/libraries/lock/v10/i18n', '/libraries/lock/lock-internationalization'],
     to: '/brand-and-customize/i18n/lock-internationalization'
   },
+
   {
     from: [
       '/libraries/lock-swift/lock-swift-internationalization',
@@ -2978,9 +3066,6 @@ module.exports = [
     from: ['/pre-deployment/pre-launch-tips','/pre-deployment/prelaunch-tips'],
     to: '/deploy/pre-deployment/pre-launch-tips'
   },
-
-  /* Extensions */
-
   {
     from: [
       '/extensions/using-provided-extensions',
@@ -3001,32 +3086,45 @@ module.exports = [
     to: '/extensions/authorization-extension'
   },
   {
-    from: ['/extensions/authorization-extension/v2/implementation/configuration'],
-    to: '/extensions/authorization-extension/configure-authorization-extension'
+    from: [
+      '/get-started/dashboard/create-sso-dashboard-application',
+      '/dashboard/guides/extensions/sso-dashboard-create-app'
+    ],
+    to: '/extensions/single-sign-on-dashboard-extension/create-sso-dashboard-application'
   },
   {
-    from: ['/extensions/authorization-extension/v2/implementation/installation'],
-    to: '/extensions/authorization-extension/install-authorization-extension'
+    from: ['/dashboard/guides/extensions/sso-dashboard-install-extension'],
+    to: '/extensions/single-sign-on-dashboard-extension/install-sso-dashboard-extension'
   },
   {
-    from: ['/extensions/authorization-extension/v2/implementation/setup'],
-    to: '/extensions/authorization-extension/set-up-authorization-extension-users'
+    from: ['/dashboard/guides/extensions/sso-dashboard-add-apps'],
+    to: '/extensions/single-sign-on-dashboard-extension/add-applications-to-the-sso-dashboard'
   },
   {
-    from: ['/extensions/authorization-extension/v2/api-access'],
-    to: '/extensions/authorization-extension/enable-api-access-to-authorization-extension'
+    from: ['/dashboard/guides/extensions/sso-dashboard-update-apps'],
+    to: '/extensions/single-sign-on-dashboard-extension/update-applications-on-the-sso-dashboard'
+  },
+
+  /* LDAP Connector */
+
+  {
+    from: [
+      '/connector',
+      '/connector/overview',
+      '/connector/considerations-non-ad',
+      '/ad-ldap-connector',
+      '/protocols/ldap-protocol',
+      '/protocols/ldap'
+    ],
+    to: '/extensions/ad-ldap-connector'
   },
   {
-    from: ['/extensions/authorization-extension/v2/import-export-data'],
-    to: '/extensions/authorization-extension/import-and-export-authorization-extension-data'
+    from: ['/connector/prerequisites','/ad-ldap-connector/ad-ldap-connector-requirements'],
+    to: '/extensions/ad-ldap-connector/ad-ldap-connector-requirements'
   },
   {
-    from: ['/extensions/authorization-extension/v2/migration'],
-    to: '/extensions/authorization-extension/migrate-to-authorization-extension-v2'
-  },
-  {
-    from: ['/extensions/authorization-extension/v2/rules'],
-    to: '/extensions/authorization-extension/use-rules-with-the-authorization-extension'
+    from: ['/adldap-x','/connector/install-other-platforms','/connector/install','/adldap-auth'],
+    to: '/extensions/ad-ldap-connector/install-configure-ad-ldap-connector'
   },
   {
     from: ['/extensions/delegated-admin/v3','/extensions/delegated-admin/v2','/extensions/delegated-admin'],
@@ -3086,8 +3184,8 @@ module.exports = [
     to: '/extensions/delegated-administration-extension/delegated-administration-write-hook'
   },
   {
-    from: ['/extensions/delegated-admin/v3/manage-users','/extensions/delegated-admin/v2/manage-users','/extensions/delegated-admin/manage-users'],
-    to: '/extensions/delegated-administration-extension/delegated-administration-manage-users'
+    from: ['/connector/update','/ad-ldap-connector/update-ad-ldap-connectors'],
+    to: '/extensions/ad-ldap-connector/update-ad-ldap-connectors'
   },
   {
     from: ['/extensions/sso-dashboard'],
@@ -3418,7 +3516,11 @@ module.exports = [
     to: '/get-started/set-up-apis'
   },
   {
-    from: ['/dashboard','/getting-started/dashboard-overview'],
+    from: [
+      '/dashboard',
+      '/getting-started/dashboard-overview',
+      '/get-started/dashboard/upcoming-dashboard-changes'
+    ],
     to: '/get-started/dashboard'
   },
   {
@@ -3445,28 +3547,47 @@ module.exports = [
     to: 'https://marketplace.auth0.com/features/social-connections'
   },
   {
-    from: ['/dashboard/guides/connections/test-connections-enterprise'],
-    to: '/get-started/dashboard/test-enterprise-connections'
+    from: [
+      '/dashboard/guides/connections/test-connections-enterprise',
+      '/get-started/dashboard/test-enterprise-connections'
+    ],
+    to: '/connections/enterprise/test-enterprise-connections'
   },
   {
-    from: ['/dashboard/guides/connections/test-connections-social'],
-    to: '/get-started/dashboard/test-social-connections'
+    from: [
+      '/dashboard/guides/connections/test-connections-social',
+      '/get-started/dashboard/test-social-connections'
+    ],
+    to: '/connections/social/test-social-connections'
   },
   {
-    from: ['/dashboard/guides/connections/view-connections'],
-    to: '/get-started/dashboard/view-connections'
+    from: [
+      '/dashboard/guides/connections/view-connections',
+      '/get-started/dashboard/view-connections'
+    ],
+    to: '/connections/view-connections'
   },
   {
-    from: ['/dashboard/guides/connections/enable-connections-enterprise'],
-    to: '/get-started/dashboard/enable-enterprise-connections'
+    from: [
+      '/dashboard/guides/connections/enable-connections-enterprise',
+      '/get-started/dashboard/enable-enterprise-connections'
+    ],
+    to: '/connections/enterprise/enable-enterprise-connections'
   },
   {
-    from: ['/api/management/guides/connections/promote-connection-domain-level'],
-    to: '/get-started/dashboard/promote-connections-to-domain-level'
+    from: [
+      '/api/management/guides/connections/promote-connection-domain-level',
+      '/get-started/dashboard/promote-connections-to-domain-level'
+    ],
+    to: '/connections/promote-connections-to-domain-level'
   },
   {
-    from: ['/api/management/guides/connections/retrieve-connection-options','/api/management/guides/retrieve-connection-options'],
-    to: '/get-started/dashboard/retrieve-connection-options'
+    from: [
+      '/api/management/guides/connections/retrieve-connection-options',
+      '/api/management/guides/retrieve-connection-options',
+      '/get-started/dashboard/retrieve-connection-options'
+    ],
+    to: '/connections/retrieve-connection-options'
   },
   {
     from: [
@@ -4198,6 +4319,81 @@ module.exports = [
   },
 
 
+  /* Organizations */
+
+  {
+    from: ['/organizations/configure-organizations'],
+    to: '/organizations/configure/'
+  },
+  {
+    from: ['/organizations/create-organizations'],
+    to: '/organizations/configure/create-organizations'
+  },
+  {
+    from: ['/organizations/delete-organizations'],
+    to: '/organizations/configure/delete-organizations'
+  },
+  {
+    from: ['/organizations/define-organization-behavior'],
+    to: '/organizations/configure/define-organization-behavior'
+  },
+  {
+    from: ['/organizations/enable-connections'],
+    to: '/organizations/configure/enable-connections'
+  },
+  {
+    from: ['/organizations/disable-connections'],
+    to: '/organizations/configure/disable-connections'
+  },
+  {
+    from: ['/organizations/invite-members'],
+    to: '/organizations/configure/invite-members'
+  },
+  {
+    from: ['/organizations/send-membership-invitations'],
+    to: '/organizations/configure/send-membership-invitations'
+  },
+  {
+    from: ['/organizations/grant-just-in-time-membership'],
+    to: '/organizations/configure/grant-just-in-time-membership'
+  },
+  {
+    from: ['/organizations/assign-members'],
+    to: '/organizations/configure/assign-members'
+  },
+  {
+    from: ['/organizations/remove-members'],
+    to: '/organizations/configure/remove-members'
+  },
+  {
+    from: ['/organizations/add-member-roles'],
+    to: '/organizations/configure/add-member-roles'
+  },
+  {
+    from: ['/organizations/remove-member-roles'],
+    to: '/organizations/configure/remove-member-roles'
+  },
+  {
+    from: ['/organizations/retrieve-organizations'],
+    to: '/organizations/configure/retrieve-organizations'
+  },
+  {
+    from: ['/organizations/retrieve-connections'],
+    to: '/organizations/configure/retrieve-connections'
+  },
+  {
+    from: ['/organizations/retrieve-members'],
+    to: '/organizations/configure/retrieve-members'
+  },
+  {
+    from: ['/organizations/retrieve-user-membership'],
+    to: '/organizations/configure/retrieve-user-membership'
+  },
+  {
+    from: ['/organizations/retrieve-member-roles'],
+    to: '/organizations/configure/retrieve-member-roles'
+  },
+
 
   /* Login */
 
@@ -4226,7 +4422,10 @@ module.exports = [
     to: '/login/universal-login/new-universal-login-vs-classic-universal-login'
   },
   {
-    from: ['/universal-login/new-experience','/universal-login/new'],
+    from: [
+      '/universal-login/new-experience',
+      '/universal-login/new'
+    ],
     to: '/login/universal-login/new-experience'
   },
   {
@@ -4239,7 +4438,7 @@ module.exports = [
       '/dashboard/guides/connections/configure-passwordless-sms',
       '/universal-login/configure-universal-login-with-passwordless'
     ],
-    to: '/login/universal-login/configure-universal-login-with-passwordless'
+    to: '/login/universal-login/passwordless-login/configure-universal-login-with-passwordless'
   },
   {
     from: ['/universal-login/prompt-common','/universal-login/text-customization-prompts/common'],
@@ -4298,7 +4497,11 @@ module.exports = [
     to: '/login/universal-vs-embedded-login'
   },
   {
-    from: ['/universal-login/configure-default-login-routes','/universal-login/default-login-url','/hosted-pages/default-login-url'],
+    from: [
+      '/universal-login/configure-default-login-routes',
+      '/universal-login/default-login-url',
+      '/hosted-pages/default-login-url'
+    ],
     to: '/login/universal-login/configure-default-login-routes'
   },
   {
@@ -4311,6 +4514,12 @@ module.exports = [
     to: '/login/universal-login/error-pages'
   },
   {
+    from: [
+      '/universal-login/identifier-first'
+    ],
+    to: '/login/universal-login/identifier-first'
+  },
+  {
     from: ['/login/embedded', '/flows/login/embedded', '/flows/login/embedded-login'],
     to: '/login/embedded-login'
   },
@@ -4320,22 +4529,16 @@ module.exports = [
   },
   {
     from: [
-      '/protocols/oidc/identity-providers/okta',
-      '/protocols/configure-okta-as-oidc-identity-provider',
-      '/protocols/configure-okta-as-oauth2-identity-provider',
-      '/authorization/protocols/configure-okta-as-oauth2-identity-provider'
-    ],
-    to: '/login/adopt-oidc-conformant-authentication/configure-okta-as-oauth2-identity-provider'
-  },
-  {
-    from: [
       '/authorization/configure-silent-authentication',
       '/api-auth/tutorials/silent-authentication'
     ],
     to: '/login/configure-silent-authentication'
   },
   {
-    from: '/flows',
+    from: [
+      '/flows',
+      '/flows/concepts/token-exchange'
+    ],
     to: '/login/flows'
   },
   {
@@ -4447,6 +4650,15 @@ module.exports = [
       '/users/redirect-users-after-login'
     ],
     to: '/login/redirect-users-after-login'
+  },
+
+
+  /* Logout */
+  {
+    from: [
+      '/logout'
+    ],
+    to: '/login/logout'
   },
 
 
@@ -4622,7 +4834,7 @@ module.exports = [
   },
   {
     from: ['/mfa/enable-mfa','/mfa/guides/enable-mfa'],
-    to: '/logi/mfa/enable-mfa'
+    to: '/login/mfa/enable-mfa'
   },
   {
     from: [
@@ -4996,6 +5208,9 @@ module.exports = [
     from: '/lifecycle',
     to: '/product-lifecycle'
   },
+
+  /* Product-Lifecycle */
+
   {
     from: ['/product-lifecycle/deprecation-eol'],
     to: '/product-lifecycle/migration-process'
@@ -5074,7 +5289,10 @@ module.exports = [
     to: '/product-lifecycle/deprecations-and-migrations/facebook-social-context-field-deprecation'
   },
   {
-    from: ['/migrations/guides/instagram-deprecation'],
+    from: [
+      '/migrations/guides/instagram-deprecation',
+      '/instagram-clientid'
+    ],
     to: '/product-lifecycle/deprecations-and-migrations/instagram-connection-deprecation'
   },
   {
@@ -5497,7 +5715,7 @@ module.exports = [
       '/tokens/management-api-access-tokens/get-management-api-access-tokens-for-testing',
       '/api/management/v2/get-access-tokens-for-test'
     ],
-    to: '/security/tokens/access/tokens/get-management-api-access-tokens-for-testing'
+    to: '/security/tokens/access-tokens/get-management-api-access-tokens-for-testing'
   },
   {
     from: [
@@ -5537,7 +5755,7 @@ module.exports = [
       '/tokens/guides/jwt/parse-validate-jwt-programmatically', 
       '/tokens/guides/jwt/validate-jwt'
     ],
-    to: '/tokens/json-web-tokens/validate-json-web-tokens'
+    to: '/security/tokens/json-web-tokens/validate-json-web-tokens'
   },
   {
     from: [
@@ -5622,7 +5840,8 @@ module.exports = [
     from: [
       '/tokens/concepts/refresh-token-rotation',
       '/tokens/access-tokens/refresh-tokens/refresh-token-rotation',
-      '/tokens/refresh-tokens/refresh-token-rotation'
+      '/tokens/refresh-tokens/refresh-token-rotation',
+      '/tokens/refresh-tokens/configure-refresh-token-expiration'
     ],
     to: '/security/tokens/refresh-tokens/refresh-token-rotation'
   },
@@ -5659,7 +5878,7 @@ module.exports = [
   },
   {
     from: ['/api-auth/tutorials/adoption/delegation','/tokens/delegation','/tokens/concepts/delegation-tokens'],
-    to: '/tokens/delegation-tokens'
+    to: '/security/tokens/delegation-tokens'
   },
 
   /* Support */

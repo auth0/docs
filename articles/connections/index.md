@@ -1,5 +1,4 @@
 ---
-url: /identityproviders
 section: articles
 classes: topic-page
 title: Connections

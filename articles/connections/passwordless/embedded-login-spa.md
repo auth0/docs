@@ -9,7 +9,7 @@ topics:
 ---
 # Embedded Passwordless Authentication for SPAs
 
-<%= include('../../../_includes/_embedded_login_warning') %>
+<%= include('./../../_includes/_embedded_login_warning') %>
 
 ## Using Auth0's SDKs to implement Embedded Login
 
@@ -18,4 +18,4 @@ You can implement Passwordless Login using Auth0's Lock widget or if you need co
 - [Implementing passwordless with Lock.js](/libraries/lock/v11#passwordless)
 - [Implementing passwordless with Auth0.js](/libraries/auth0js#passwordless-login)
 
-<%= include('../_includes/_setup-cors') %>
+<%= include('./_includes/_setup-cors') %>

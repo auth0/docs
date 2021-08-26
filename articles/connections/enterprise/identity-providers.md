@@ -12,7 +12,7 @@ useCase:
 ---
 # Enterprise Identity Providers
 
-Auth0 supports the following enterprise providers out of the box.
+Auth0 supports the following enterprise providers out of the box. You can also explore partner-supported enterprise connections through the [Auth0 Marketplace](https://marketplace.auth0.com/features/enterprise-connections).
 
 <% var enterpriseConnections = cache.find('articles/connections/enterprise', {sort: 'index'}); %>
-<%= include('./_connections', { connections: enterpriseConnections }) %>
+<%= include('../_connections', { connections: enterpriseConnections }) %>
