@@ -540,7 +540,7 @@ module.exports = [
     to: '/connections/enterprise/saml'
   },
   {
-    from: ['/connections/enterprise','/connections/enterprise/sharepoint-online','/connections/enterprise/ws-fed'],
+    from: ['/connections/enterprise/sharepoint-online','/connections/enterprise/ws-fed'],
     to: '/connections/enterprise/saml'
   },
   {
@@ -4525,7 +4525,7 @@ module.exports = [
   },
   {
     from: ['/cross-origin-authentication', '/flows/login/embedded-login/cross-origin-authentication'],
-    to: '/login/embedded-login/cross-origin-authentication'
+    to: '/login/cross-origin-authentication'
   },
   {
     from: [
@@ -5841,7 +5841,6 @@ module.exports = [
       '/tokens/concepts/refresh-token-rotation',
       '/tokens/access-tokens/refresh-tokens/refresh-token-rotation',
       '/tokens/refresh-tokens/refresh-token-rotation',
-      '/tokens/refresh-tokens/configure-refresh-token-expiration'
     ],
     to: '/security/tokens/refresh-tokens/refresh-token-rotation'
   },
