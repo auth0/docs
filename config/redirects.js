@@ -3508,28 +3508,47 @@ module.exports = [
     to: 'https://marketplace.auth0.com/features/social-connections'
   },
   {
-    from: ['/dashboard/guides/connections/test-connections-enterprise'],
-    to: '/get-started/dashboard/test-enterprise-connections'
+    from: [
+      '/dashboard/guides/connections/test-connections-enterprise',
+      '/get-started/dashboard/test-enterprise-connections'
+    ],
+    to: '/connections/enterprise/test-enterprise-connections'
   },
   {
-    from: ['/dashboard/guides/connections/test-connections-social'],
-    to: '/get-started/dashboard/test-social-connections'
+    from: [
+      '/dashboard/guides/connections/test-connections-social',
+      '/get-started/dashboard/test-social-connections'
+    ],
+    to: '/connections/social/test-social-connections'
   },
   {
-    from: ['/dashboard/guides/connections/view-connections'],
-    to: '/get-started/dashboard/view-connections'
+    from: [
+      '/dashboard/guides/connections/view-connections',
+      '/get-started/dashboard/view-connections'
+    ],
+    to: '/connections/view-connections'
   },
   {
-    from: ['/dashboard/guides/connections/enable-connections-enterprise'],
-    to: '/get-started/dashboard/enable-enterprise-connections'
+    from: [
+      '/dashboard/guides/connections/enable-connections-enterprise',
+      '/get-started/dashboard/enable-enterprise-connections'
+    ],
+    to: '/connections/enterprise/enable-enterprise-connections'
   },
   {
-    from: ['/api/management/guides/connections/promote-connection-domain-level'],
-    to: '/get-started/dashboard/promote-connections-to-domain-level'
+    from: [
+      '/api/management/guides/connections/promote-connection-domain-level',
+      '/get-started/dashboard/promote-connections-to-domain-level'
+    ],
+    to: '/connections/promote-connections-to-domain-level'
   },
   {
-    from: ['/api/management/guides/connections/retrieve-connection-options','/api/management/guides/retrieve-connection-options'],
-    to: '/get-started/dashboard/retrieve-connection-options'
+    from: [
+      '/api/management/guides/connections/retrieve-connection-options',
+      '/api/management/guides/retrieve-connection-options',
+      '/get-started/dashboard/retrieve-connection-options'
+    ],
+    to: '/connections/retrieve-connection-options'
   },
   {
     from: [
