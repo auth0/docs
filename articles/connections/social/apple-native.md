@@ -1,5 +1,4 @@
 ---
-url: connections/nativesocial/apple
 title: Add Sign In with Apple to Native iOS Apps
 connection: Apple Native
 image: /media/connections/apple.png
