@@ -988,7 +988,8 @@ module.exports = [
   },
   {
     from: [
-      '/connections/passwordless/email-otp'
+      '/connections/passwordless/email-otp',
+      '/connections/passwordless/email'
     ],
     to: '/connections/authentication-factors/email-otp'
   },
@@ -1000,7 +1001,8 @@ module.exports = [
   },
   {
     from: [
-      '/connections/passwordless/sms-otp'
+      '/connections/passwordless/sms-otp',
+      '/connections/passwordless/sms'
     ],
     to: '/connections/authentication-factors/sms-otp'
   },
@@ -1027,6 +1029,12 @@ module.exports = [
       '/connections/passwordless/relevant-api-endpoints'
     ],
     to: '/connections/passwordless/embedded-login/relative-api-endpoints'
+  },
+  {
+    from: [
+      '/connections/azuread-adfs-email-verification'
+    ],
+    to: '/connections/enterprise/azuread-adfs-email-verification'
   },
 
 
