@@ -2164,7 +2164,8 @@ module.exports = [
   {
     from: [
       '/configure/anomaly-detection/bot-detection/configure-recaptcha-enterprise',
-      '/anomaly-detection/bot-detection/configure-recaptcha-enterprise'
+      '/anomaly-detection/bot-detection/configure-recaptcha-enterprise',
+      '/attach-protection/bot-detection/configure-recaptcha-enterprise'
     ],
     to: '/configure/attack-protection/bot-detection/configure-recaptcha-enterprise'
   },
