@@ -618,6 +618,15 @@ module.exports = [
     to: '/connections/social/oauth2'
   },
   {
+    from: [
+      '/protocols/oidc/identity-providers/okta',
+      '/protocols/configure-okta-as-oidc-identity-provider',
+      '/protocols/configure-okta-as-oauth2-identity-provider',
+      '/authorization/protocols/configure-okta-as-oauth2-identity-provider'
+    ],
+    to: '/connections/social/configure-okta-as-oauth2-identity-provider'
+  },
+  {
     from: '/connections/social/auth0-oidc',
     to: '/connections/enterprise/oidc'
   },
@@ -3481,7 +3490,11 @@ module.exports = [
     to: '/get-started/set-up-apis'
   },
   {
-    from: ['/dashboard','/getting-started/dashboard-overview'],
+    from: [
+      '/dashboard',
+      '/getting-started/dashboard-overview',
+      '/get-started/dashboard/upcoming-dashboard-changes'
+    ],
     to: '/get-started/dashboard'
   },
   {
@@ -4280,6 +4293,81 @@ module.exports = [
   },
 
 
+  /* Organizations */
+
+  {
+    from: ['/organizations/configure-organizations'],
+    to: '/organizations/configure/'
+  },
+  {
+    from: ['/organizations/create-organizations'],
+    to: '/organizations/configure/create-organizations'
+  },
+  {
+    from: ['/organizations/delete-organizations'],
+    to: '/organizations/configure/delete-organizations'
+  },
+  {
+    from: ['/organizations/define-organization-behavior'],
+    to: '/organizations/configure/define-organization-behavior'
+  },
+  {
+    from: ['/organizations/enable-connections'],
+    to: '/organizations/configure/enable-connections'
+  },
+  {
+    from: ['/organizations/disable-connections'],
+    to: '/organizations/configure/disable-connections'
+  },
+  {
+    from: ['/organizations/invite-members'],
+    to: '/organizations/configure/invite-members'
+  },
+  {
+    from: ['/organizations/send-membership-invitations'],
+    to: '/organizations/configure/send-membership-invitations'
+  },
+  {
+    from: ['/organizations/grant-just-in-time-membership'],
+    to: '/organizations/configure/grant-just-in-time-membership'
+  },
+  {
+    from: ['/organizations/assign-members'],
+    to: '/organizations/configure/assign-members'
+  },
+  {
+    from: ['/organizations/remove-members'],
+    to: '/organizations/configure/remove-members'
+  },
+  {
+    from: ['/organizations/add-member-roles'],
+    to: '/organizations/configure/add-member-roles'
+  },
+  {
+    from: ['/organizations/remove-member-roles'],
+    to: '/organizations/configure/remove-member-roles'
+  },
+  {
+    from: ['/organizations/retrieve-organizations'],
+    to: '/organizations/configure/retrieve-organizations'
+  },
+  {
+    from: ['/organizations/retrieve-connections'],
+    to: '/organizations/configure/retrieve-connections'
+  },
+  {
+    from: ['/organizations/retrieve-members'],
+    to: '/organizations/configure/retrieve-members'
+  },
+  {
+    from: ['/organizations/retrieve-user-membership'],
+    to: '/organizations/configure/retrieve-user-membership'
+  },
+  {
+    from: ['/organizations/retrieve-member-roles'],
+    to: '/organizations/configure/retrieve-member-roles'
+  },
+
 
   /* Login */
 
@@ -4308,7 +4396,10 @@ module.exports = [
     to: '/login/universal-login/new-universal-login-vs-classic-universal-login'
   },
   {
-    from: ['/universal-login/new-experience','/universal-login/new'],
+    from: [
+      '/universal-login/new-experience',
+      '/universal-login/new'
+    ],
     to: '/login/universal-login/new-experience'
   },
   {
@@ -4321,7 +4412,7 @@ module.exports = [
       '/dashboard/guides/connections/configure-passwordless-sms',
       '/universal-login/configure-universal-login-with-passwordless'
     ],
-    to: '/login/universal-login/configure-universal-login-with-passwordless'
+    to: '/login/universal-login/passwordless-login/configure-universal-login-with-passwordless'
   },
   {
     from: ['/universal-login/prompt-common','/universal-login/text-customization-prompts/common'],
@@ -4380,7 +4471,11 @@ module.exports = [
     to: '/login/universal-vs-embedded-login'
   },
   {
-    from: ['/universal-login/configure-default-login-routes','/universal-login/default-login-url','/hosted-pages/default-login-url'],
+    from: [
+      '/universal-login/configure-default-login-routes',
+      '/universal-login/default-login-url',
+      '/hosted-pages/default-login-url'
+    ],
     to: '/login/universal-login/configure-default-login-routes'
   },
   {
@@ -4393,6 +4488,12 @@ module.exports = [
     to: '/login/universal-login/error-pages'
   },
   {
+    from: [
+      '/universal-login/identifier-first'
+    ],
+    to: '/login/universal-login/identifier-first'
+  },
+  {
     from: ['/login/embedded', '/flows/login/embedded', '/flows/login/embedded-login'],
     to: '/login/embedded-login'
   },
@@ -4402,22 +4503,16 @@ module.exports = [
   },
   {
     from: [
-      '/protocols/oidc/identity-providers/okta',
-      '/protocols/configure-okta-as-oidc-identity-provider',
-      '/protocols/configure-okta-as-oauth2-identity-provider',
-      '/authorization/protocols/configure-okta-as-oauth2-identity-provider'
-    ],
-    to: '/login/adopt-oidc-conformant-authentication/configure-okta-as-oauth2-identity-provider'
-  },
-  {
-    from: [
       '/authorization/configure-silent-authentication',
       '/api-auth/tutorials/silent-authentication'
     ],
     to: '/login/configure-silent-authentication'
   },
   {
-    from: '/flows',
+    from: [
+      '/flows',
+      '/flows/concepts/token-exchange'
+    ],
     to: '/login/flows'
   },
   {
@@ -4533,7 +4628,12 @@ module.exports = [
 
 
   /* Logout */
-
+  {
+    from: [
+      '/logout'
+    ],
+    to: '/login/logout'
+  },
   {
     from: ['/logout/log-users-out-of-applications','/logout/guides/logout-applications'],
     to: '/login/logout/log-users-out-of-applications'
@@ -5156,7 +5256,10 @@ module.exports = [
     to: '/product-lifecycle/deprecations-and-migrations/facebook-social-context-field-deprecation'
   },
   {
-    from: ['/migrations/guides/instagram-deprecation'],
+    from: [
+      '/migrations/guides/instagram-deprecation',
+      '/instagram-clientid'
+    ],
     to: '/product-lifecycle/deprecations-and-migrations/instagram-connection-deprecation'
   },
   {
@@ -5579,7 +5682,7 @@ module.exports = [
       '/tokens/management-api-access-tokens/get-management-api-access-tokens-for-testing',
       '/api/management/v2/get-access-tokens-for-test'
     ],
-    to: '/security/tokens/access/tokens/get-management-api-access-tokens-for-testing'
+    to: '/security/tokens/access-tokens/get-management-api-access-tokens-for-testing'
   },
   {
     from: [
@@ -5619,7 +5722,7 @@ module.exports = [
       '/tokens/guides/jwt/parse-validate-jwt-programmatically', 
       '/tokens/guides/jwt/validate-jwt'
     ],
-    to: '/tokens/json-web-tokens/validate-json-web-tokens'
+    to: '/security/tokens/json-web-tokens/validate-json-web-tokens'
   },
   {
     from: [
@@ -5704,7 +5807,8 @@ module.exports = [
     from: [
       '/tokens/concepts/refresh-token-rotation',
       '/tokens/access-tokens/refresh-tokens/refresh-token-rotation',
-      '/tokens/refresh-tokens/refresh-token-rotation'
+      '/tokens/refresh-tokens/refresh-token-rotation',
+      '/tokens/refresh-tokens/configure-refresh-token-expiration'
     ],
     to: '/security/tokens/refresh-tokens/refresh-token-rotation'
   },
@@ -5741,7 +5845,7 @@ module.exports = [
   },
   {
     from: ['/api-auth/tutorials/adoption/delegation','/tokens/delegation','/tokens/concepts/delegation-tokens'],
-    to: '/tokens/delegation-tokens'
+    to: '/security/tokens/delegation-tokens'
   },
 
   /* Support */
