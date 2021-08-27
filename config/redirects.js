@@ -2897,6 +2897,121 @@ module.exports = [
     to: '/brand-and-customize/text-customization-new-universal-login'
   },
   {
+    from: [
+      '/login/universal-login/prompt-common',
+      '/universal-login/prompt-common',
+      '/universal-login/text-customization-prompts/common'
+    ],
+    to: '/brand-and-customize/text-customization-new-universal-login/prompt-common'
+  },
+  {
+    from: [
+      '/universal-login/prompt-consent',
+      '/universal-login/text-customization-prompts/consent',
+      '/login/universal-login/prompt-consent'
+    ],
+    to: '/brand-and-customize/text-customization-new-universal-login/prompt-consent'
+  },
+  {
+    from: [
+      '/universal-login/prompt-device-flow',
+      '/universal-login/text-customization-prompts/device-flow',
+      '/login/universal-login/prompt-device-flow'
+    ],
+    to: '/brand-and-customize/text-customization-new-universal-login/prompt-device-flow'
+  },
+  {
+    from: '/universal-login/prompt-email-otp-challenge',
+    to: '/brand-and-customize/text-customization-new-universal-login/prompt-email-otp-challenge'
+  },
+  {
+    from: [
+      '/universal-login/prompt-email-verification',
+      '/universal-login/text-customization-prompts/email-verification',
+      '/login/universal-login/prompt-email-verification'
+    ],
+    to: '/brand-and-customize/text-customization-new-universal-login/prompt-email-verification'
+  },
+  {
+    from: '/univeral-login/prompt-accept-invitation',
+    to: '/brand-and-customize/text-customization-new-universal-login/prompt-accept-invitation'
+  },
+  {
+    from: [
+      '/login/universal-login/prompt-login',
+      '/universal-login/prompt-login',
+      '/universal-login/text-customization-prompts/login'
+    ],
+    to: '/brand-and-customize/text-customization-new-universal-login/prompt-login'
+  },
+  {
+    from: '/universal-login/prompt-login-email-verification',
+    to: '/brand-and-customize/text-customization-new-universal-login/prompt-login-email-verification'
+  },
+  {
+    from: '/universal-login/prompt-login-id',
+    to: '/brand-and-customize/text-customization-new-universal-login/prompt-login-id'
+  },
+  {
+    from: '/universal-login/prompt-login-password',
+    to: '/brand-and-customize/text-customization-new-universal-login/prompt-login-password'
+  },
+  {
+    from: [
+      '/universal-login/prompt-mfa',
+      '/universal-login/text-customization-prompts/mfa'
+    ],
+    to: '/brand-and-customize/text-customization-new-universal-login/prompt-mfa'
+  },
+  {
+    from: ['/universal-login/prompt-mfa-email','/universal-login/text-customization-prompts/mfa-email'],
+    to: '/brand-and-customize/text-customization-new-universal-login/prompt-mfa-email'
+  },
+  {
+    from: ['/universal-login/prompt-mfa-otp','/universal-login/text-customization-prompts/mfa-otp'],
+    to: '/brand-and-customize/text-customization-new-universal-login/prompt-mfa-otp'
+  },
+  {
+    from: '/universal-login/prompt-mfa-phone',
+    to: '/brand-and-customize/text-customization-new-universal-login/prompt-mfa-phone'
+  },
+  {
+    from: ['/universal-login/prompt-mfa-push','/universal-login/text-customization-prompts/mfa-push'],
+    to: '/brand-and-customize/text-customization-new-universal-login/prompt-mfa-push'
+  },
+  {
+    from: ['/universal-login/prompt-mfa-recovery-code','/universal-login/text-customization-prompts/mfa-recovery-code'],
+    to: '/brand-and-customize/text-customization-new-universal-login/prompt-mfa-recovery-code'
+  },
+  {
+    from: ['/universal-login/prompt-mfa-sms','/universal-login/text-customization-prompts/mfa-sms'],
+    to: '/brand-and-customize/text-customization-new-universal-login/prompt-mfa-sms'
+  },
+  {
+    from: '/universal-login/prompt-mfa-voice',
+    to: '/brand-and-customize/text-customization-new-universal-login/prompt-mfa-voice'
+  },
+  {
+    from: '/universal-login/prompt-mfa-webauthn',
+    to: '/brand-and-customize/text-customization-new-universal-login/prompt-mfa-webauthn'
+  },
+  {
+    from: '/universal-login/prompt-organization-selection',
+    to: '/brand-and-customize/text-customization-new-universal-login/prompt-organization-selection'
+  },
+  {
+    from: ['/universal-login/prompt-reset-password','/universal-login/text-customization-prompts/reset-password'],
+    to: '/brand-and-customize/text-customization-new-universal-login/prompt-reset-password'
+  },
+  {
+    from: ['/universal-login/prompt-signup','/universal-login/text-customization-prompts/signup'],
+    to: '/brand-and-customize/text-customization-new-universal-login/prompt-signup'
+  },
+  {
+    from: '/universal-login/prompt-signup-id',
+    to: '/brand-and-customize/text-customization-new-universal-login/prompt-signup-id'
+  }
+  {
     from: ['/scopes/customize-consent-prompts','/scopes/current/guides/customize-consent-prompt'],
     to: '/brand-and-customize/customize-consent-prompts'
   },
@@ -4566,58 +4681,6 @@ module.exports = [
       '/login/universal-login/passwordless-login/configure-universal-login-with-passwordless'
     ],
     to: '/login/universal-login/passwordless-login'
-  },
-  {
-    from: ['/universal-login/prompt-common','/universal-login/text-customization-prompts/common'],
-    to: '/login/universal-login/prompt-common'
-  },
-  {
-    from: ['/universal-login/prompt-consent','/universal-login/text-customization-prompts/consent'],
-    to: '/login/universal-login/prompt-consent'
-  },
-  {
-    from: ['/universal-login/prompt-device-flow','/universal-login/text-customization-prompts/device-flow'],
-    to: '/login/universal-login/prompt-device-flow'
-  },
-  {
-    from: ['/universal-login/prompt-email-verification','/universal-login/text-customization-prompts/email-verification'],
-    to: '/login/universal-login/prompt-email-verification'
-  },
-  {
-    from: ['/universal-login/prompt-login','/universal-login/text-customization-prompts/login'],
-    to: '/login/universal-login/prompt-login'
-  },
-  {
-    from: ['/universal-login/prompt-mfa','/universal-login/text-customization-prompts/mfa'],
-    to: '/login/universal-login/prompt-mfa'
-  },
-  {
-    from: ['/universal-login/prompt-mfa-email','/universal-login/text-customization-prompts/mfa-email'],
-    to: '/login/universal-login/prompt-mfa-email'
-  },
-  {
-    from: ['/universal-login/prompt-mfa-otp','/universal-login/text-customization-prompts/mfa-otp'],
-    to: '/login/universal-login/prompt-mfa-otp'
-  },
-  {
-    from: ['/universal-login/prompt-mfa-push','/universal-login/text-customization-prompts/mfa-push'],
-    to: '/login/universal-login/prompt-mfa-push'
-  },
-  {
-    from: ['/universal-login/prompt-mfa-recovery-code','/universal-login/text-customization-prompts/mfa-recovery-code'],
-    to: '/login/universal-login/prompt-mfa-recovery-code'
-  },
-  {
-    from: ['/universal-login/prompt-mfa-sms','/universal-login/text-customization-prompts/mfa-sms'],
-    to: '/login/universal-login/prompt-mfa-sms'
-  },
-  {
-    from: ['/universal-login/prompt-reset-password','/universal-login/text-customization-prompts/reset-password'],
-    to: '/login/universal-login/prompt-reset-password'
-  },
-  {
-    from: ['/universal-login/prompt-signup','/universal-login/text-customization-prompts/signup'],
-    to: '/login/universal-login/prompt-signup'
   },
   {
     from: ['/universal-login/universal-vs-embedded-login','/guides/login/universal-vs-embedded','/guides/login/centralized-vs-embedded'],
