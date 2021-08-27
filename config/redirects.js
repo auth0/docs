@@ -2281,12 +2281,20 @@ module.exports = [
   },
   {
     from: [
+      '/flows',
+      '/login/flows',
+      '/flows/concepts/token-exchange'
+    ],
+    to: '/authorization/flows'
+  },
+  {
+    from: [
       '/api-auth/which-oauth-flow-to-use', 
       '/api-auth/faq', 
       '/authorization/authentication-and-authorization-api-faq',
       '/authorization/which-oauth-2-0-flow-should-i-use'
     ],
-    to: '/authorization/authorization-flows/which-oauth-2-0-flow-should-i-use'
+    to: '/authorization/flows/which-oauth-2-0-flow-should-i-use'
   },
   {
     from: [
@@ -2297,7 +2305,7 @@ module.exports = [
       '/api-auth/adoption/authorization-code',
       '/flows/authorization-code-flow'
     ],
-    to: '/authorization/authorization-flows/authorization-code-flow'
+    to: '/authorization/flows/authorization-code-flow'
   },
   {
     from: [
@@ -2310,7 +2318,7 @@ module.exports = [
       '/api-auth/tutorials/authorization-code-grant',
       '/flows/call-your-api-using-the-authorization-code-flow'
     ],
-    to: '/authorization/authorization-flows/call-your-api-using-the-authorization-code-flow'
+    to: '/authorization/flows/call-your-api-using-the-authorization-code-flow'
   },
   {
     from: [
@@ -2320,7 +2328,7 @@ module.exports = [
       '/flows/concepts/single-page-login-flow',
       '/flows/authorization-code-flow-with-proof-key-for-code-exchange-pkce'
     ],
-    to: '/authorization/authorization-flows/authorization-code-flow-with-proof-key-for-code-exchange-pkce'
+    to: '/authorization/flows/authorization-code-flow-with-proof-key-for-code-exchange-pkce'
   },
   {
     from: [
@@ -2332,7 +2340,7 @@ module.exports = [
       '/api-auth/tutorials/authorization-code-grant-pkce',
       '/flows/call-your-api-using-the-authorization-code-flow-with-pkce'
     ],
-    to: '/authorization/authorization-flows/call-your-api-using-the-authorization-code-flow-with-pkce'
+    to: '/authorization/flows/call-your-api-using-the-authorization-code-flow-with-pkce'
   },
   {
     from: [
@@ -2348,22 +2356,22 @@ module.exports = [
       '/flows/concepts/implicit',
       '/flows/implicit-flow-with-form-post'
     ],
-    to: '/authorization/authorization-flows/implicit-flow-with-form-post'
+    to: '/authorization/flows/implicit-flow-with-form-post'
   },
   {
     from: [
       '/api-auth/tutorials/nonce',
       '/authorization/mitigate-replay-attacks-when-using-the-implicit-flow'
     ],
-    to: '/authorization/authorization-flows/mitigate-replay-attacks-when-using-the-implicit-flow'
+    to: '/authorization/flows/mitigate-replay-attacks-when-using-the-implicit-flow'
   },
   {
     from: ['/flows/hybrid-flow','/api-auth/grant/hybrid'],
-    to: '/authorization/authorization-flows/hybrid-flow'
+    to: '/authorization/flows/hybrid-flow'
   },
   {
     from: ['/api-auth/tutorials/hybrid-flow','/flows/call-api-hybrid-flow'],
-    to: '/authorization/authorization-flows/call-api-hybrid-flow'
+    to: '/authorization/flows/call-api-hybrid-flow'
   },
   {
     from: [
@@ -2373,7 +2381,7 @@ module.exports = [
       '/api-auth/tutorials/adoption/client-credentials',
       '/flows/client-credentials-flow'
     ],
-    to: '/authorization/authorization-flows/client-credentials-flow'
+    to: '/authorization/flows/client-credentials-flow'
   },
   {
     from: [
@@ -2386,7 +2394,7 @@ module.exports = [
       '/api-auth/config/asking-for-access-tokens',
       '/flows/call-your-api-using-the-client-credentials-flow'
     ],
-    to: '/authorization/authorization-flows/call-your-api-using-the-client-credentials-flow'
+    to: '/authorization/flows/call-your-api-using-the-client-credentials-flow'
   },
   {
     from: [
@@ -2394,18 +2402,18 @@ module.exports = [
       '/api-auth/grant/using-rules',
       '/authorization/customize-tokens-using-hooks-with-client-credentials-flow'
     ],
-    to: '/authorization/authorization-flows/customize-tokens-using-hooks-with-client-credentials-flow'
+    to: '/authorization/flows/customize-tokens-using-hooks-with-client-credentials-flow'
   },
   {
     from: [
       '/flows/concepts/device-auth',
       '/flows/device-authorization-flow'
     ],
-    to: '/authorization/authorization-flows/device-authorization-flow'
+    to: '/authorization/flows/device-authorization-flow'
   },
   {
     from: ['/flows/guides/device-auth/call-api-device-auth'],
-    to: '/authorization/authorization-flows/call-your-api-using-the-device-authorization-flow'
+    to: '/authorization/flows/call-your-api-using-the-device-authorization-flow'
   },
   {
     from: [
@@ -2413,11 +2421,11 @@ module.exports = [
       '/api-auth/tutorials/adoption/password',
       '/flows/resource-owner-password-flow'
     ],
-    to: '/authorization/authorization-flows/resource-owner-password-flow'
+    to: '/authorization/flows/resource-owner-password-flow'
   },
   {
     from: ['/flows/call-your-api-using-resource-owner-password-flow','/api-auth/tutorials/password-grant'],
-    to: '/authorization/authorization-flows/call-your-api-using-resource-owner-password-flow'
+    to: '/authorization/flows/call-your-api-using-resource-owner-password-flow'
   },
   {
     from: [
@@ -2425,7 +2433,7 @@ module.exports = [
       '/authorization/avoid-common-issues-with-resource-owner-password-flow-and-anomaly-detection',
       '/authorization/avoid-common-issues-with-resource-owner-password-flow-and-attack-protection'
     ],
-    to: '/authorization/authorization-flows/avoid-common-issues-with-resource-owner-password-flow-and-attack-protection'
+    to: '/authorization/flows/avoid-common-issues-with-resource-owner-password-flow-and-attack-protection'
   },
   {
     from: ['/authorization/concepts/rbac'],
@@ -4654,11 +4662,8 @@ module.exports = [
     to: '/login/configure-silent-authentication'
   },
   {
-    from: [
-      '/flows',
-      '/flows/concepts/token-exchange'
-    ],
-    to: '/login/flows'
+    from: '/authentication',
+    to: '/login/authentication'
   },
   {
     from: [
@@ -4676,7 +4681,7 @@ module.exports = [
       '/application-auth/legacy/server-side-web',
       '/flows/add-login-auth-code-flow'
     ],
-    to: '/login/flows/add-login-auth-code-flow'
+    to: '/login/authentication/add-login-auth-code-flow'
   },
   {
     from: [
@@ -4693,7 +4698,7 @@ module.exports = [
       '/flows/guides/mobile-login-flow/add-login-using-mobile-login-flow',
       '/flows/add-login-using-the-authorization-code-flow-with-pkce'
     ],
-    to: '/login/flows/add-login-using-the-authorization-code-flow-with-pkce'
+    to: '/login/authentication/add-login-using-the-authorization-code-flow-with-pkce'
   },
   {
     from: [
@@ -4707,7 +4712,7 @@ module.exports = [
       '/client-auth/client-side-web','/application-auth/legacy/client-side-web',
       '/flows/add-login-using-the-implicit-flow-with-form-post'
     ],
-    to: '/login/flows/add-login-using-the-implicit-flow-with-form-post'
+    to: '/login/authentication/add-login-using-the-implicit-flow-with-form-post'
   },
   {
     from: [
@@ -4721,18 +4726,14 @@ module.exports = [
     to: '/login/redirect-users-after-login'
   },
 
-
   /* Logout */
+  
   {
     from: [
       '/logout'
     ],
     to: '/login/logout'
   },
-
-
-  /* Logout */
-
   {
     from: ['/logout/log-users-out-of-applications','/logout/guides/logout-applications'],
     to: '/login/logout/log-users-out-of-applications'
