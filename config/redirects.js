@@ -1787,17 +1787,21 @@ module.exports = [
       '/protocols/saml',
       '/protocols/saml-protocol',
       '/configure/saml-protocol',
+      '/config/saml-protocol',
       '/protocols/saml-configuration-options',
       '/protocols/saml/saml-apps',
       '/protocols/saml/saml-configuration/supported-options-and-bindings',
       '/protocols/saml/saml-configuration/design-considerations',
       '/protocols/saml/saml-configuration-options',
-      '/saml-configuration'
+      '/saml-configuration',
+      '/config/saml-configuration'
    ],
     to: '/configure/saml-configuration'
   },
   {
     from: [
+      '/config/saml-configuration/saml-sso-integrations',
+      '/config/saml-configuration/special-saml-configuration-scenarios',
       '/protocols/saml/saml-configuration',
       '/protocols/saml/saml-configuration/special-configuration-scenarios',
       '/protocols/saml-protocol/saml-configuration-options/special-saml-configuration-scenarios'
@@ -2681,7 +2685,11 @@ module.exports = [
     to: '/brand-and-customize'
   },
   {
-    from: ['/universal-login/new-experience/universal-login-page-templates','/universal-login/page-templates'],
+    from: [
+      '/universal-login/new-experience/universal-login-page-templates',
+      '/universal-login/page-templates',
+      '/universal-login/universal-login-page-customization'
+    ],
     to: '/brand-and-customize/universal-login-page-templates'
   },
   {
