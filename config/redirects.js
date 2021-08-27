@@ -5296,18 +5296,6 @@ module.exports = [
     to: '/product-lifecycle/deprecations-and-migrations/migrate-tenant-member-roles'
   },
   {
-    from: ['/migrations/guides/google_cloud_messaging'],
-    to: '/product-lifecycle/deprecations-and-migrations/google-firebase-migration'
-  },
-  {
-    from: ['/migrations/guides/migration-oauthro-oauthtoken'],
-    to: '/product-lifecycle/deprecations-and-migrations/migration-oauthro-oauthtoken'
-  },
-  {
-    from: ['/migrations/guides/migration-oauthro-oauthtoken-pwdless'],
-    to: '/product-lifecycle/deprecations-and-migrations/resource-owner-passwordless-credentials-exchange'
-  },
-  {
     from: [
       '/guides/login/migration-embedded-universal',
       '/guides/login/migration-embedded-centralized',
@@ -5330,51 +5318,12 @@ module.exports = [
     to: '/product-lifecycle/deprecations-and-migrations/migrate-v2-v3'
   },
   {
-    from: ['/migrations/guides/account-linking','/users/guides/link-user-accounts-auth-api'],
-    to: '/product-lifecycle/deprecations-and-migrations/link-user-accounts-with-access-tokens-migration'
-  },
-  {
-    from: ['/migrations/guides/calling-api-with-idtokens'],
-    to: '/product-lifecycle/deprecations-and-migrations/migrate-to-calling-api-with-access-tokens'
-  },
-  {
-    from: ['/guides/migration-legacy-flows'],
-    to: '/product-lifecycle/deprecations-and-migrations/migrate-from-legacy-auth-flows'
-  },
-  {
-    from: ['/migrations/guides/clickjacking-protection'],
-    to: '/product-lifecycle/deprecations-and-migrations/clickjacking-protection-for-universal-login'
-  },
-  {
-    from: ['/migrations/guides/extensibility-node12'],
-    to: '/product-lifecycle/deprecations-and-migrations/migrate-to-nodejs-12'
-  },
-  {
-    from: ['/migrations/guides/facebook-graph-api-deprecation'],
-    to: '/product-lifecycle/deprecations-and-migrations/facebook-graph-api-changes'
-  },
-  {
-    from: ['/migrations/guides/facebook-social-context'],
-    to: '/product-lifecycle/deprecations-and-migrations/facebook-social-context-field-deprecation'
-  },
-  {
-    from: [
-      '/migrations/guides/instagram-deprecation',
-      '/instagram-clientid'
-    ],
-    to: '/product-lifecycle/deprecations-and-migrations/instagram-connection-deprecation'
-  },
-  {
-    from: ['/migrations/guides/passwordless-start'],
-    to: '/product-lifecycle/deprecations-and-migrations/migrate-to-passwordless'
-  },
-  {
     from: ['/migrations/guides/unpaginated-requests'],
     to: '/product-lifecycle/deprecations-and-migrations/migrate-to-paginated-queries'
   },
   {
-    from: ['/migrations/guides/yahoo-userinfo-updates'],
-    to: '/product-lifecycle/deprecations-and-migrations/yahoo-api-changes'
+    from: ['/migrations/guides/extensibility-node12'],
+    to: '/product-lifecycle/deprecations-and-migrations/migrate-to-nodejs-12'
   },
   {
     from: [
@@ -5390,8 +5339,95 @@ module.exports = [
     to: '/product-lifecycle/past-migrations'
   },
   {
-    from: ['/logs/guides/migrate-logs-v2-v3'],
-    to: '/product-lifecycle/deprecations-and-migrations/migrate-to-tenant-log-search-v3'
+    from: [
+      '/migrations/guides/passwordless-start',
+      '/product-lifecycle/deprecations-and-migrations/migrate-to-passwordless'],
+    to: '/product-lifecycle/past-migrations/migrate-to-passwordless'
+  },
+  {
+    from: [
+      '/migrations/guides/clickjacking-protection',
+      '/product-lifecycle/deprecations-and-migrations/clickjacking-protection-for-universal-login'
+    ],
+    to: '/product-lifecycle/past-migrations/clickjacking-protection-for-universal-login'
+  },
+  {
+    from: [
+      '/migrations/guides/calling-api-with-idtokens',
+      '/product-lifecycle/deprecations-and-migrations/migrate-to-calling-api-with-access-tokens'
+    ],
+    to: '/product-lifecycle/past-migrations/migrate-to-calling-api-with-access-tokens'
+  },
+  {
+    from: [
+      '/migrations/guides/account-linking','/users/guides/link-user-accounts-auth-api',
+      '/product-lifecycle/deprecations-and-migrations/link-user-accounts-with-access-tokens-migration'
+    ],
+    to: '/product-lifecycle/past-migrations/link-user-accounts-with-access-tokens-migration'
+  },
+  {
+    from: [
+      '/migrations/guides/migration-oauthro-oauthtoken',
+      '/product-lifecycle/deprecations-and-migrations/migration-oauthro-oauthtoken'
+    ],
+    to: '/product-lifecycle/past-migrations/migration-oauthro-oauthtoken'
+  },
+  {
+    from: [
+      '/migrations/guides/instagram-deprecation',
+      '/instagram-clientid',
+      '/product-lifecycle/deprecations-and-migrations/instagram-connection-deprecation'
+    ],
+    to: '/product-lifecycle/past-migrations/instagram-connection-deprecation'
+  },
+  {
+    from: [
+      '/migrations/guides/yahoo-userinfo-updates',
+      '/product-lifecycle/deprecations-and-migrations/yahoo-api-changes'
+    ],
+    to: '/product-lifecycle/past-migrations/yahoo-api-changes'
+  },
+  {
+    from: [
+      '/migrations/guides/google_cloud_messaging',
+      '/product-lifecycle/deprecations-and-migrations/google-firebase-migration'
+    ],
+    to: '/product-lifecycle/past-migrations/google-firebase-migration'
+  },
+  {
+    from: [
+      '/migrations/guides/facebook-social-context',
+      '/product-lifecycle/deprecations-and-migrations/facebook-social-context-field-deprecation'
+    ],
+    to: '/product-lifecycle/past-migrations/facebook-social-context-field-deprecation'
+  },
+  {
+    from: [
+      '/migrations/guides/facebook-graph-api-deprecation',
+      '/product-lifecycle/deprecations-and-migrations/facebook-graph-api-changes'
+    ],
+    to: '/product-lifecycle/past-migrations/facebook-graph-api-changes'
+  },
+  {
+    from: [
+      '/logs/guides/migrate-logs-v2-v3',
+      '/product-lifecycle/deprecations-and-migrations/migrate-to-tenant-log-search-v3'
+    ],
+    to: '/product-lifecycle/past-migrations/migrate-to-tenant-log-search-v3'
+  },
+  {
+    from: [
+      '/migrations/guides/migration-oauthro-oauthtoken-pwdless',
+      '/product-lifecycle/deprecations-and-migrations/resource-owner-passwordless-credentials-exchange'
+    ],
+    to: '/product-lifecycle/past-migrations/resource-owner-passwordless-credentials-exchange'
+  },
+  {
+    from: [
+      '/product-lifecycle/deprecations-and-migrations/migrate-from-legacy-auth-flows',
+      '/guides/migration-legacy-flows'
+    ],
+    to: '/product-lifecycle/past-migrations/migrate-from-legacy-auth-flows'
   },
 
 
