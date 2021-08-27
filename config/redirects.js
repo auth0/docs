@@ -824,6 +824,10 @@ module.exports = [
     to: '/connections/passwordless'
   },
   {
+    from: '/connections/passwordless/guides/embedded-login',
+    to: '/connections/passwordless/embedded-login'
+  },
+  {
     from: '/password-strength',
     to: '/connections/database/password-strength'
   },
@@ -1026,7 +1030,7 @@ module.exports = [
     from: [
       '/connections/passwordless/relevant-api-endpoints'
     ],
-    to: '/connections/passwordless/embedded-login/relative-api-endpoints'
+    to: '/connections/passwordless/embedded-login/relevant-api-endpoints'
   },
   {
     from: [
