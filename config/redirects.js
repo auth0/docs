@@ -4859,13 +4859,6 @@ module.exports = [
     from: ['/logout/redirect-users-after-logout','/logout/guides/redirect-users-after-logout'],
     to: '/login/logout/redirect-users-after-logout'
   },
-  {
-    from: [
-      '/login/adopt-oidc-conformant-authentication'
-    ],
-    to: '/login/oidc-auth/adopt-oidc-conformant-authentication'
-  },
-
 
   /* Monitor - Logs */
 
