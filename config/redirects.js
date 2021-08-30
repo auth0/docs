@@ -1040,6 +1040,10 @@ module.exports = [
     ],
     to: '/connections/enterprise/azuread-adfs-email-verification'
   },
+  {
+    from: ['/database/custom-db/templates/get-user'],
+    to: '/connections/database/custom-db/templates/get-user'
+  },
 
 
   /* MICROSITES */
