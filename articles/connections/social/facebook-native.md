@@ -1,5 +1,4 @@
 ---
-url: connections/nativesocial/facebook
 title: Add Facebook Login to Native Apps
 connection: Facebook Native
 image: /media/connections/facebook.png
