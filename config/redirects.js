@@ -911,7 +911,8 @@ module.exports = [
   },
   {
     from: [
-      '/connections/nativesocial/facebook-native'
+      '/connections/nativesocial/facebook-native',
+      '/connections/nativesocial/facebook'
     ],
     to: '/connections/social/facebook-native'
   },
@@ -1022,7 +1023,8 @@ module.exports = [
   },
   {
     from: [
-      '/connections/passwordless/embedded-login-native'
+      '/connections/passwordless/embedded-login-native',
+      '/connections/passwordless/guides/embedded-login-native'
     ],
     to: '/connections/passwordless/embedded-login/native'
   },
@@ -1384,6 +1386,13 @@ module.exports = [
     ],
     to: '/architecture-scenarios/multiple-orgs/multiple-idp-orgs'
   },
+  {
+    from: [
+      '/architecture-scenarios/multiple-organization-architecture'
+    ],
+    to: '/architecture-scenarios/multiple-orgs'
+  },
+
 
   /* CONTENTFUL REDIRECTS */
 
@@ -3010,7 +3019,7 @@ module.exports = [
   {
     from: '/universal-login/prompt-signup-id',
     to: '/brand-and-customize/text-customization-new-universal-login/prompt-signup-id'
-  }
+  },
   {
     from: ['/scopes/customize-consent-prompts','/scopes/current/guides/customize-consent-prompt'],
     to: '/brand-and-customize/customize-consent-prompts'
@@ -4361,6 +4370,28 @@ module.exports = [
     from: ['/integrations/azure-tutorial','/azure-tutorial','/tutorials/azure-tutorial','/integrations/azure-api-management/configure-auth0','/integrations/azure-api-management/configure-azure'],
     to: '/integrations/azure-api-management'
   },
+  {
+    from: ['/marketplace-partner-documentation'],
+    to: '/integrations/marketplace-partners'
+  },
+  {
+    from: [
+      'redirect-rules-for-partners'
+    ],
+    to: '/integrations/marketplace-partners/redirect-rules-for-partners'
+  },
+  {
+    from: [
+      'social-connections-for-partners'
+    ],
+    to: '/integrations/marketplace-partners/social-connections-for-partners'
+  },
+    {
+    from: [
+      'sso-integrations-for-partners'
+    ],
+    to: '/integrations/marketplace-partners/sso-integrations-for-partners'
+  },
 
 
   /* Libraries */
@@ -4560,7 +4591,7 @@ module.exports = [
   },
 
 
-  /* Organizations */
+  /* ORGANIZATIONS */
 
   {
     from: ['/organizations/configure-organizations'],
@@ -4636,7 +4667,7 @@ module.exports = [
   },
 
 
-  /* Login */
+  /* LOGIN */
 
   {
     from: ['/flows/login'],
@@ -4788,8 +4819,15 @@ module.exports = [
     ],
     to: '/login/redirect-users-after-login'
   },
+  {
+    from: [
+      '/universal-login/configure-universal-login-with-passwordless/webauthn-device-biometrics'
+    ],
+    to: '/login/universal-login/passwordless-login/webauthn-device-biometrics'
+  },
 
-  /* Logout */
+
+  /* LOGOUT */
   
   {
     from: [
@@ -4817,6 +4855,17 @@ module.exports = [
     from: ['/logout/redirect-users-after-logout','/logout/guides/redirect-users-after-logout'],
     to: '/login/logout/redirect-users-after-logout'
   },
+  {
+    from: ['/logout/redirect-users-after-logout','/logout/guides/redirect-users-after-logout'],
+    to: '/login/logout/redirect-users-after-logout'
+  },
+  {
+    from: [
+      '/login/adopt-oidc-conformant-authentication'
+    ],
+    to: '/login/oidc-auth/adopt-oidc-conformant-authentication'
+  },
+
 
   /* Monitor - Logs */
 
@@ -6192,6 +6241,13 @@ module.exports = [
     ],
     to: '/support/policies/entity-limit-policy'
   },
+  {
+    from: [
+      '/support/support-center-users'
+    ],
+    to: '/dashboard-access/support-center-users'
+  },
+  
 
 
   /* Troubleshoot */
