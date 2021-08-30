@@ -4671,10 +4671,6 @@ module.exports = [
     to: '/login'
   },
   {
-    from: ['/login/oidc-auth'],
-    to: '/login/oidc-auth/adopt-oidc-conformant-authentication'
-  },
-  {
     from: [
       '/hosted-pages/hosted-login-auth0js',
       '/hosted-pages/login/auth0js',
