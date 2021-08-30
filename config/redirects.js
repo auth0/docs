@@ -4373,19 +4373,22 @@ module.exports = [
   },
   {
     from: [
-      'redirect-rules-for-partners'
+      'redirect-rules-for-partners',
+      '/marketplace-partner-documentation/redirect-rules-for-partners'
     ],
     to: '/integrations/marketplace-partners/redirect-rules-for-partners'
   },
   {
     from: [
-      'social-connections-for-partners'
+      'social-connections-for-partners',
+      '/marketplace-partner-documentation/social-connections-for-partners'
     ],
     to: '/integrations/marketplace-partners/social-connections-for-partners'
   },
     {
     from: [
-      'sso-integrations-for-partners'
+      'sso-integrations-for-partners',
+      '/marketplace-partner-documentation/sso-integrations-for-partners'
     ],
     to: '/integrations/marketplace-partners/sso-integrations-for-partners'
   },
