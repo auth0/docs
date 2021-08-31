@@ -1799,6 +1799,7 @@ module.exports = [
       '/protocols/saml/saml-configuration/supported-options-and-bindings',
       '/protocols/saml/saml-configuration/design-considerations',
       '/protocols/saml/saml-configuration-options',
+      '/protocols/saml/saml-configuration',
       '/saml-configuration',
       '/config/saml-configuration'
    ],
@@ -1808,9 +1809,10 @@ module.exports = [
     from: [
       '/config/saml-configuration/saml-sso-integrations',
       '/config/saml-configuration/special-saml-configuration-scenarios',
-      '/protocols/saml/saml-configuration',
       '/protocols/saml/saml-configuration/special-configuration-scenarios',
-      '/protocols/saml-protocol/saml-configuration-options/special-saml-configuration-scenarios'
+      '/protocols/saml-protocol/saml-configuration-options/special-saml-configuration-scenarios',
+      '/protocols/saml-protocol/special-saml-configuration-scenarios',
+      '/protocols/saml-protocol/saml-sso-integrations'
     ],
     to: '/configure/saml-configuration/saml-sso-integrations'
   },
@@ -1827,12 +1829,16 @@ module.exports = [
     from: [
       '/protocols/saml-configuration-options/sign-and-encrypt-saml-requests',
       '/protocols/saml/saml-configuration/special-configuration-scenarios/signing-and-encrypting-saml-requests',
-      '/protocols/saml-protocol/saml-configuration-options/sign-and-encrypt-saml-requests'
+      '/protocols/saml-protocol/saml-configuration-options/sign-and-encrypt-saml-requests',
+      '/protocols/saml-protocol/saml-sso-integrations/sign-and-encrypt-saml-requests'
     ],
     to: '/configure/saml-configuration/saml-sso-integrations/sign-and-encrypt-saml-requests'
   },
   {
-    from: '/protocols/saml-protocol/saml-configuration-options/work-with-certificates-and-keys-as-strings',
+    from: [
+      '/protocols/saml-protocol/saml-configuration-options/work-with-certificates-and-keys-as-strings',
+      '/protocols/saml/saml-configuration/special-configuration-scenarios/work-with-certificates-and-keys-as-strings'
+    ],
     to: '/configure/saml-configuration/saml-sso-integrations/work-with-certificates-and-keys-as-strings'
   },
   {
