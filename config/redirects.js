@@ -1794,11 +1794,9 @@ module.exports = [
       '/protocols/saml-protocol',
       '/configure/saml-protocol',
       '/config/saml-protocol',
-      '/protocols/saml-configuration-options',
       '/protocols/saml/saml-apps',
       '/protocols/saml/saml-configuration/supported-options-and-bindings',
       '/protocols/saml/saml-configuration/design-considerations',
-      '/protocols/saml/saml-configuration-options',
       '/protocols/saml/saml-configuration',
       '/saml-configuration',
       '/config/saml-configuration'
@@ -1807,6 +1805,8 @@ module.exports = [
   },
   {
     from: [
+      '/protocols/saml-configuration-options',
+      '/protocols/saml/saml-configuration-options',
       '/config/saml-configuration/saml-sso-integrations',
       '/config/saml-configuration/special-saml-configuration-scenarios',
       '/protocols/saml/saml-configuration/special-configuration-scenarios',
