@@ -1896,7 +1896,8 @@ module.exports = [
       '/saml/identity-providers/ping7',
       '/protocols/saml/identity-providers/ping7', 
       '/protocols/saml-configuration-options/configure-pingfederate-as-saml-identity-provider',
-      '/protocols/saml-protocol/saml-configuration/configure-pingfederate-as-saml-identity-provider'
+      '/protocols/saml-protocol/saml-configuration/configure-pingfederate-as-saml-identity-provider',
+      '/protocols/saml-protocol/saml-sso-integrations/configure-pingfederate-as-saml-identity-provider'
     ],
     to: '/configure/saml-configuration/configure-auth0-saml-service-provider/configure-pingfederate-as-saml-identity-provider'
   },
@@ -1916,7 +1917,8 @@ module.exports = [
       '/saml/identity-providers/siteminder',
       '/protocols/saml/identity-providers/siteminder',
       '/protocols/saml-configuration-options/configure-siteminder-as-saml-identity-provider',
-      '/protocols/saml-protocol/saml-configuration-options/configure-siteminder-as-saml-identity-provider'
+      '/protocols/saml-protocol/saml-configuration-options/configure-siteminder-as-saml-identity-provider',
+      '/protocols/saml-protocol/saml-sso-integrations/configure-siteminder-as-saml-identity-provider'
     ],
     to: '/configure/saml-configuration/configure-auth0-saml-service-provider/configure-siteminder-as-saml-identity-provider'
   },
@@ -1953,9 +1955,11 @@ module.exports = [
   {
     from: [
       '/protocols/saml/saml-apps/atlassian',
-      '/protocols/saml-protocol/saml-configuration-options/configure-auth0-as-identity-provider-for-atlassian'
+      '/protocols/saml-protocol/saml-configuration-options/configure-auth0-as-identity-provider-for-atlassian',
+      '/protocols/saml-protocol/saml-sso-integrations/configure-auth0-as-identity-provider-for-atlassian'
     ],
     to: '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-atlassian'
+    
   },
   {
     from: [
@@ -1989,7 +1993,8 @@ module.exports = [
     from: [
       '/protocols/saml/saml-idp-eloqua',
       '/protocols/saml/saml-apps/eloqua',
-      '/protocols/saml-protocol/saml-configuration-options/configure-saml2-addon-eloqua'
+      '/protocols/saml-protocol/saml-configuration-options/configure-saml2-addon-eloqua',
+      '/protocols/saml-protocol/saml-sso-integrations/configure-saml2-addon-eloqua'
     ],
     to: '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-saml2-addon-eloqua'
   },
