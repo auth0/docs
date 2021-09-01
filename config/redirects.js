@@ -170,7 +170,7 @@ module.exports = [
     from: [
       '/ionic-tutorial',
       '/quickstart/native/ionic',
-/*      '/quickstart/native/ionic4',*/
+      '/quickstart/native/ionic4',
       '/quickstart/native/ionic/00-intro',
       '/quickstart/native/ionic/02-custom-login',
       '/quickstart/native/ionic/03-user-profile',
@@ -185,8 +185,8 @@ module.exports = [
   {
     from: [
       '/ios-tutorial',
-/*      '/quickstart/native/ios',*/
-/*      '/quickstart/native/ios-objc',*/
+      '/quickstart/native/ios',
+      '/quickstart/native/ios-objc',
       '/native-platforms/ios-objc'
     ],
     to: '/quickstart/native/ios-swift'
@@ -202,7 +202,7 @@ module.exports = [
   {
     from: [
       '/laravelapi-tutorial',
-/*      '/quickstart/backend/php-laravel',*/
+      '/quickstart/backend/php-laravel',
       '/quickstart/backend/laravel/00-getting-started'
     ],
     to: '/quickstart/backend/laravel'
@@ -247,9 +247,9 @@ module.exports = [
   },
   {
     from: [
-/*      '/quickstart/native/ios-reactnative',*/
-/*      '/quickstart/native/react-native-ios',*/
-/*      '/quickstart/native/react-native-android'*/
+      '/quickstart/native/ios-reactnative',
+      '/quickstart/native/react-native-ios',
+      '/quickstart/native/react-native-android'
     ],
     to: '/quickstart/native/react-native'
   },
@@ -274,7 +274,7 @@ module.exports = [
     from: [
       '/server-apis/ruby',
       '/quickstart/backend/ruby/00-getting-started',
-/*      '/quickstart/backend/ruby',*/
+      '/quickstart/backend/ruby',
       '/rubyapi-tutorial',
       '/quickstart/backend/rails/00-getting-started',
     ],
@@ -301,7 +301,7 @@ module.exports = [
       '/win8-cs-tutorial',
       '/windowsstore-auth0-tutorial',
       '/native-platforms/windows-store-csharp',
-/*      '/quickstart/native/windows8-cp',*/
+      '/quickstart/native/windows8-cp',
       '/quickstart/native-mobile/windows8-cp/:client?'
     ],
     to: '/quickstart/native/windows-uwp-csharp'
@@ -372,8 +372,8 @@ module.exports = [
   {
     from: [
       '/javaapi-tutorial',
-/*      '/quickstart/backend/java',*/
-/*      '/quickstart/backend/java-spring-security',*/
+      '/quickstart/backend/java',
+      '/quickstart/backend/java-spring-security',
       '/quickstart/backend/java-spring-security/00-getting-started'
     ],
     to: '/quickstart/backend/java-spring-security5'
