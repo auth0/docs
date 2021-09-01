@@ -61,6 +61,31 @@ module.exports = [
 
   {
     from: [
+      '/quickstart/hybrid/:platform',
+      '/quickstart/native-mobile/:platform',
+      `/quickstart/hybrid/:platform/${apis}`,
+      `/quickstart/native-mobile/:platform/${apis}`,
+      `/quickstart/native/:platform/${apis}`
+    ],
+    to: '/quickstart/native/:platform'
+  },
+  {
+    from: `/quickstart/spa/:platform/${apis}`,
+    to: '/quickstart/spa/:platform'
+  },
+  {
+    from: `/quickstart/backend/:platform/${apis}`,
+    to: '/quickstart/backend/:platform'
+  },
+  {
+    from: [
+      '/quickstart/:platform/reactnative-ios/:backend?',
+      '/quickstart/:platform/reactnative-android/:backend?'
+    ],
+    to: '/quickstart/native/react-native'
+  },
+  {
+    from: [
       '/android-tutorial', 
       '/native-platforms/android',
       '/quickstart/native/android-vnext'
@@ -107,8 +132,6 @@ module.exports = [
   },
   {
     from: [
-      `/quickstart/backend/:platform/${apis}`,
-      '/quickstart/backend/:platform',
       '/aspnetwebapi-tutorial',
       '/tutorials/aspnet-mvc4-enterprise-providers',
       '/webapi',
@@ -127,12 +150,6 @@ module.exports = [
   },
   {
     from: [
-      `/quickstart/native/:platform/${apis}`,
-      '/quickstart/native/:platform',
-      `/quickstart/native-mobile/:platform/${apis}`,
-      '/quickstart/native-mobile/:platform',
-      `/quickstart/hybrid/:platform/${apis}`,
-      '/quickstart/hybrid/:platform',
       '/quickstart/native-mobile',
       '/quickstart/hybrid',
       '/quickstart/native/chrome-extension',
@@ -232,9 +249,7 @@ module.exports = [
     from: [
 /*      '/quickstart/native/ios-reactnative',*/
 /*      '/quickstart/native/react-native-ios',*/
-/*      '/quickstart/native/react-native-android',*/
-      '/quickstart/:platform/reactnative-ios/:backend?',
-      '/quickstart/:platform/reactnative-android/:backend?'
+/*      '/quickstart/native/react-native-android'*/
     ],
     to: '/quickstart/native/react-native'
   },
@@ -337,8 +352,6 @@ module.exports = [
   },
   {
     from: [
-      `/quickstart/spa/:platform/${apis}`,
-      '/quickstart/spa/:platform',
       '/quickstart/spa/aurelia',
       '/ember-tutorial', 
       '/client-platforms/emberjs',
