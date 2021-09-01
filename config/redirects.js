@@ -4352,7 +4352,8 @@ module.exports = [
       '/libraries/lock/v10/installation',
       '/libraries/lock/v11',
       '/libraries/lock/using-refresh-tokens',
-      '/libraries/lock/using-a-refresh-token'
+      '/libraries/lock/using-a-refresh-token',
+      '/login/embedded-login/lock'
     ],
     to: '/libraries/lock'
   },
@@ -4405,7 +4406,16 @@ module.exports = [
     to: '/libraries/lock-swift/lock-swift-configuration-options'
   },
   {
-    from: ['/auth0js','/libraries/auth0js/v7','/libraries/auth0js/v8','/libraries/auth0js/v9','/libraries/lock/v10/auth0js','/libraries/lock/v11/auth0js','/libraries/auth0js-v9-reference'],
+    from: [
+      '/auth0js',
+      '/libraries/auth0js/v7',
+      '/libraries/auth0js/v8',
+      '/libraries/auth0js/v9',
+      '/libraries/lock/v10/auth0js',
+      '/libraries/lock/v11/auth0js',
+      '/libraries/auth0js-v9-reference',
+      '/login/embedded-login/auth0js'
+    ],
     to: '/libraries/auth0js'
   },
   {
@@ -5975,7 +5985,10 @@ module.exports = [
     to: '/security/tokens/refresh-tokens/use-refresh-tokens'
   },
   {
-    from: '/tokens/refresh-tokens/configure-refresh-token-expiration',
+    from: [
+      '/tokens/refresh-tokens/configure-refresh-token-expiration',
+      '/security/tokens/configure-refresh-token-expiration'
+    ],
     to: '/security/tokens/refresh-tokens/configure-refresh-token-expiration'
   },
   {
@@ -5983,6 +5996,7 @@ module.exports = [
       '/tokens/concepts/refresh-token-rotation',
       '/tokens/access-tokens/refresh-tokens/refresh-token-rotation',
       '/tokens/refresh-tokens/refresh-token-rotation',
+      '/security/tokens/refresh-token-rotation'
     ],
     to: '/security/tokens/refresh-tokens/refresh-token-rotation'
   },
@@ -6522,12 +6536,16 @@ module.exports = [
       '/dashboard/guides/tenants/configure-session-lifetime-settings',
       '/api/management/guides/tenants/configure-session-lifetime-settings',
       '/sso/current/configure-session-lifetime-limits',
-      '/sessions/configure-session-lifetime-settings'
+      '/sessions/configure-session-lifetime-settings',
+      '/users/sessions/session-lifetimes/configure-session-lifetime-settings'
     ],
     to: '/users/sessions/configure-session-lifetime-settings'
   },
   {
-    from: '/sessions/non-persistent-sessions',
+    from: [
+      '/sessions/non-persistent-sessions',
+      '/users/sessions/session-lifetimes/non-persistent-sessions'
+    ],
     to: '/users/sessions/non-persistent-sessions'
   },
   {
