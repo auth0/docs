@@ -169,7 +169,7 @@ module.exports = [
   {
     from: [
       '/ionic-tutorial',
-/*      '/quickstart/native/ionic',*/
+      '/quickstart/native/ionic',
 /*      '/quickstart/native/ionic4',*/
       '/quickstart/native/ionic/00-intro',
       '/quickstart/native/ionic/02-custom-login',
