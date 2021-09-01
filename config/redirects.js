@@ -132,6 +132,8 @@ module.exports = [
   },
   {
     from: [
+      `/quickstart/backend/:platform/${apis}`,
+      '/quickstart/backend/:platform',
       '/aspnetwebapi-tutorial',
       '/tutorials/aspnet-mvc4-enterprise-providers',
       '/webapi',
@@ -352,6 +354,8 @@ module.exports = [
   },
   {
     from: [
+      `/quickstart/spa/:platform/${apis}`,
+      '/quickstart/spa/:platform',
       '/quickstart/spa/aurelia',
       '/ember-tutorial', 
       '/client-platforms/emberjs',
