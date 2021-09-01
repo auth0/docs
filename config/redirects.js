@@ -2351,7 +2351,6 @@ module.exports = [
   },
   {
     from: [
-      '/authorization/flows/call-your-api-using-the-authorization-code-flow',
       '/flows/guides/auth-code/call-api-auth-code',
       '/flows/guides/auth-code/includes/authorize-user-call-api',
       '/flows/guides/auth-code/includes/sample-use-cases-call-api',
