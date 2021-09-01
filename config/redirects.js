@@ -6710,7 +6710,10 @@ module.exports = [
     to: '/users/user-account-linking/suggested-account-linking-server-side-implementation'
   },
   {
-    from: ['/users/concepts/overview-user-migration'],
+    from: [
+      '/users/concepts/overview-user-migration',
+      '/users/import-export-users'
+      ],
     to: '/users/import-and-export-users'
   },
   {
