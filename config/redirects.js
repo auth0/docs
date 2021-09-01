@@ -3374,6 +3374,12 @@ module.exports = [
   },
   {
     from: [
+      '/extensions/authorization-extension/v2/implementation/setup'
+    ],
+    to: '/extensions/authorization-extension/set-up-authorization-extension-users'
+  },
+  {
+    from: [
       '/get-started/dashboard/create-sso-dashboard-application',
       '/dashboard/guides/extensions/sso-dashboard-create-app'
     ],
