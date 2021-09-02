@@ -5657,11 +5657,6 @@ module.exports = [
     from: ['/security/common-threats','/security/prevent-common-cybersecurity-threats'],
     to: '/security/prevent-threats'
   },
-  {
-    from: ['/support/whitehat-security-support-tickets'],
-    to: '/security/resposible-disclosure-program-security-support-tickets'
-  },
-
 
   /* Security Bulletins */
 
