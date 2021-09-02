@@ -3555,7 +3555,13 @@ module.exports = [
   /* Deploy CLI Tool */
 
   {
-    from: ['/extensions/deploy-cli-tool','/extensions/deploy-cli'],
+    from: [
+      '/extensions/deploy-cli-tool',
+      '/extensions/deploy-cli', 
+      '/extensions/deploy-cli/references/whats-new',
+      '/extensions/deploy-cli/references/whats-new-v2',
+      '/deploy/deploy-cli-tool/whats-new-in-deploy-cli-tool'
+    ],
     to: '/deploy/deploy-cli-tool'
   },
   {
@@ -3615,15 +3621,6 @@ module.exports = [
     ],
     to: '/deploy/deploy-cli-tool/environment-variables-and-keyword-mappings'
   },
-  {
-    from: [
-      '/extensions/deploy-cli/references/whats-new',
-      '/extensions/deploy-cli/references/whats-new-v2',
-      '/extensions/deploy-cli-tool/whats-new-in-deploy-cli-tool'
-    ],
-    to: '/deploy/deploy-cli-tool/whats-new-in-deploy-cli-tool'
-  },
-
 
 
   /* Get Started */
