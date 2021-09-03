@@ -2131,7 +2131,8 @@ module.exports = [
   {
     from: [
       '/configure/anomaly-detection/suspicious-ip-throttling',
-      '/anomaly-detection/suspicious-ip-throttling'
+      '/anomaly-detection/suspicious-ip-throttling',
+      '/attack-protection/suspicious-ip-throttling'
     ],
     to: '/configure/attack-protection/suspicious-ip-throttling'
   },
