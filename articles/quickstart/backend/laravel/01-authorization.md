@@ -125,7 +125,7 @@ class CheckJWT
     {
         $auth0 = \App::make('auth0');
 
-        $accessToken = $request->bearerToken() ? "";
+        $accessToken = $request->bearerToken() ?? "";
         try {
             $tokenInfo = $auth0->decodeJWT($accessToken);
             $user = $this->userRepository->getUserByDecodedJWT($tokenInfo);
