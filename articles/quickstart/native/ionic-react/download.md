@@ -17,7 +17,7 @@ com.auth0.samples://${account.namespace}/capacitor/com.auth0.samples/callback
 3) Add the following to **Allowed Origins (CORS)s** in the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings)
 
 ```text
-capacitor://localhost
+capacitor://localhost, http://localhost
 ```
 
 4) Check that mobile development environments for [Android](https://capacitorjs.com/docs/android) and [iOS](https://capacitorjs.com/docs/ios) are setup correctly. For iOS, [CocoaPods](https://cocoapods.org/) must be installed.
