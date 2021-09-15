@@ -12,18 +12,20 @@ github:
 contentType: tutorial
 useCase: quickstart
 ---
+
 <!-- markdownlint-disable MD041 -->
 
-<%= include('../../../_includes/_new_app', { showClientSecret: false, isPublicClient: false }) %>
+<%= include('../../../\_includes/\_new_app', { showClientSecret: false, isPublicClient: false }) %>
 
 <!-- markdownlint-disable MD002 MD041 -->
+
 ### Configure Callback URLs
 
 The Callback URL of your application is the URL where Auth0 will redirect to after the user has authenticated in order for the SDK to complete the authentication process.
 
 You will need to add this URL to the list of Allowed URLs for your application in your [Application Settings](${manage_url}/#/applications), this URL will mostly take the format `https://YOUR_APPLICATION_URL/callback`.
 
-<%= include('../../../_includes/_logout_url', { returnTo: 'http://localhost:3000' }) %>
+<%= include('../../../\_includes/\_logout_url', { returnTo: 'http://localhost:3000' }) %>
 
 ## Integrate Auth0
 
@@ -31,10 +33,10 @@ You will need to add this URL to the list of Allowed URLs for your application i
 
 ### Install dependencies
 
-To integrate Auth0 with ASP.NET Core you can use our beta SDK by installing the `Auth0.AspNetCore.Mvc` Nuget package to your application.
+To integrate Auth0 with ASP.NET Core you can use our beta SDK by installing the `Auth0.AspNetCore.Authentication` Nuget package to your application.
 
 ```bash
-Install-Package Auth0.AspNetCore.Mvc -IncludePrerelease
+Install-Package Auth0.AspNetCore.Authentication -IncludePrerelease
 ```
 
 ### Install and configure the SDK
@@ -78,6 +80,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     app.UseAuthorization();
 }
 ```
+
 ## Login
 
 To add the `Login`, call `ChallengeAsync` and pass "Auth0" (`Auth0Constants.AuthenticationScheme`) as the authentication scheme. This will invoke the OIDC authentication handler that our SDK registers internally.
@@ -87,7 +90,7 @@ After the OIDC middleware signs the user in, the user is also automatically sign
 ```cs
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Auth0.AspNetCore.Mvc;
+using Auth0.AspNetCore.Authentication;
 
 public class AccountController : Controller
 {
@@ -131,11 +134,10 @@ public class AccountController : Controller
 
 To add `Logout`, you need to sign the user out of both the Auth0 middleware as well as the cookie middleware.
 
-
 ```cs
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Auth0.AspNetCore.Mvc;
+using Auth0.AspNetCore.Authentication;
 
 public class AccountController : Controller
 {
@@ -159,7 +161,6 @@ public class AccountController : Controller
 
 We put together a few examples of how to use the SDK in more advanced use cases:
 
-- [Configuring Scopes](https://github.com/auth0/auth0-aspnetcore-mvc#scopes)
-- [Obtain an Access Token for Calling an API](https://github.com/auth0/auth0-aspnetcore-mvc#calling-an-api)
-- [Adding Role-based authorization](https://github.com/auth0/auth0-aspnetcore-mvc#roles)
-
+- [Configuring Scopes](https://github.com/auth0/auth0-aspnetcore-authentication#scopes)
+- [Obtain an Access Token for Calling an API](https://github.com/auth0/auth0-aspnetcore-authentication#calling-an-api)
+- [Adding Role-based authorization](https://github.com/auth0/auth0-aspnetcore-authentication#roles)
