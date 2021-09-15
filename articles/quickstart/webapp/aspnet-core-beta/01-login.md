@@ -15,7 +15,7 @@ useCase: quickstart
 
 <!-- markdownlint-disable MD041 -->
 
-<%= include('../../../\_includes/\_new_app', { showClientSecret: false, isPublicClient: false }) %>
+<%= include('../../../_includes/_new_app', { showClientSecret: false, isPublicClient: false }) %>
 
 <!-- markdownlint-disable MD002 MD041 -->
 
@@ -25,7 +25,7 @@ The Callback URL of your application is the URL where Auth0 will redirect to aft
 
 You will need to add this URL to the list of Allowed URLs for your application in your [Application Settings](${manage_url}/#/applications), this URL will mostly take the format `https://YOUR_APPLICATION_URL/callback`.
 
-<%= include('../../../\_includes/\_logout_url', { returnTo: 'http://localhost:3000' }) %>
+<%= include('../../../_includes/_logout_url', { returnTo: 'http://localhost:3000' }) %>
 
 ## Integrate Auth0
 
