@@ -10,8 +10,8 @@ contentType: tutorial
 useCase: quickstart
 beta: true
 sdk:
-  name: auth0-aspnetcore-mvc
-  url: https://github.com/auth0/auth0-aspnetcore-mvc
+  name: auth0-aspnetcore-authentication
+  url: https://github.com/auth0/auth0-aspnetcore-authentication
   logo: dotnet
 snippets:
   dependencies: server-platforms/aspnet-core/dependencies
