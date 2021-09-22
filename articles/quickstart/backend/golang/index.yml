@@ -27,7 +27,7 @@ github:
   org: auth0-samples
   repo: auth0-golang-api-samples
 requirements:
-  - Go 1.8.2
+  - Go 1.15+
 next_steps:
   - path: 01-authorization
     list:

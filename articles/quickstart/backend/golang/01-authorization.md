@@ -23,15 +23,14 @@ useCase: quickstart
 
 ## Validate Access Tokens
 
-### Install dependencies
+### Add dependencies
+
+This example uses Go Modules and will download automatically all the needed dependencies during the build process.
 
 The [**form3tech-oss/jwt-go**](https://github.com/form3tech-oss/jwt-go) package can be used to verify incoming JWTs. The [**auth0/go-jwt-middleware**](https://github.com/auth0/go-jwt-middleware) library can be used alongside it to fetch your Auth0 public key and complete the verification process. Finally, we'll use the [**gorilla/mux**](https://github.com/gorilla/mux) package to handle our routes and [**codegangsta/negroni**](https://github.com/urfave/negroni) for HTTP middleware.
 
 ```bash
-go get -d github.com/auth0/go-jwt-middleware
-go get -d github.com/form3tech-oss/jwt-go
-go get -d github.com/codegangsta/negroni
-go get -d github.com/gorilla/mux
+go mod vendor
 ```
 
 ### Create a middleware to validate Access Tokens
