@@ -13,6 +13,7 @@ useCase: quickstart
 github:
   path: .
 ---
+<!-- markdownlint-disable MD002 MD034 MD041 -->
 
 <%= include('../_includes/_getting_started', { library: 'PHP', callback: 'http://127.0.0.1:3000/' }) %>
 
@@ -75,18 +76,14 @@ require 'vendor/autoload.php';
 // Load our environment variables from the .env file:
 (Dotenv\Dotenv::createImmutable(__DIR__))->load();
 
-// Create a configuration object for the Auth0 PHP SDK:
-$auth0Configuration = new \Auth0\SDK\SdkConfiguration(
-    domain: $env['AUTH0_DOMAIN'],
-    clientId: $env['AUTH0_CLIENT_ID'],
-    clientSecret: $env['AUTH0_CLIENT_SECRET'],
-    cookieSecret: $env['AUTH0_COOKIE_SECRET']
-);
-
-// Now instantiate the Auth0 class with the above configuration:
-$auth0 = new \Auth0\SDK\Auth0($auth0Configuration);
+// Now instantiate the Auth0 class with our configuration:
+$auth0 = new \Auth0\SDK\Auth0([
+    'domain' => $env['AUTH0_DOMAIN'],
+    'clientId' => $env['AUTH0_CLIENT_ID'],
+    'clientSecret' => $env['AUTH0_CLIENT_SECRET'],
+    'cookieSecret' => $env['AUTH0_COOKIE_SECRET']
+]);
 ```
-
 
 ### Setting up your application routes
 

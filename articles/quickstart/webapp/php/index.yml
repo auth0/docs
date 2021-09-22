@@ -29,8 +29,8 @@ sdk:
   url: https://github.com/auth0/auth0-php
   logo: php
 requirements:
-  - PHP 8.0, or up
-  - Auth0-PHP 8.0, or up
+  - PHP 7.4+ (8.0 recommended)
+  - Auth0-PHP 8.0
   - Composer
 next_steps:
   - path: 01-login
