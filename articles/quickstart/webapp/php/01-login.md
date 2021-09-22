@@ -132,7 +132,7 @@ define('ROUTE_URL_LOGOUT', ROUTE_URL_INDEX . '/logout');
 
 Now we can move on to adding our application's route handling logic, and the SDK integrations:
 
-### Checking for a session
+## Checking for a session
 
 The Auth0 PHP SDK has a convenient method for checking if our user has authenticated and returned their profile, `getCredentials()`. Let's install this on our index route to print the user profile if they're logged in or report that they need to login.
 
@@ -164,7 +164,7 @@ It's important to note that the content of the user profile will vary depending 
 $name = $session->user['name'] ?? $session->user['nickname'] ?? $session->user['email'] ?? 'Unknown';
 ```
 
-### Logging in
+## Logging in
 
 Now let's create our /login route, which will use the Auth0 PHP SDK's `login()` method to setup the user session and return a customized URL to Auth0's Universal Login Page for this user to login.
 
@@ -184,7 +184,7 @@ function onLoginRoute() {
 }
 ```
 
-### Handling authentication callback
+## Handling authentication callback
 
 After our users return from authenticating with the Auth0's Universal Login Page, they'll return to our sample application at our callback route, `/callback` which we'll handle in this step.
 
@@ -203,7 +203,7 @@ function onCallbackRoute() {
 }
 ```
 
-### Logging out
+## Logging out
 
 Last but not least, let's properly handle logging our users out. The `logout()` method of the Auth0 PHP SDK handles clearing our sample application's session cookies, redirecting the user to Auth0's [/logout endpoint](https://auth0.com/docs/logout) (which logs out Auth0 session layer and any identify provider session layers), and then return the user to our / index route.
 
