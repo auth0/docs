@@ -89,15 +89,14 @@ $auth0 = new \Auth0\SDK\Auth0([
 
 For this sample application, we're focusing on [authorization](https://auth0.com/intro-to-iam/authentication-vs-authorization/). There's numerous routes you could go for authenticating your users before they hit your backend API for authorization, such as using [Auth0's SPA.js library](https://github.com/auth0/auth0-spa-js). This approach is demonstrated in [this Quickstart app accompanying Github project](https://github.com/auth0-samples/auth0-php-api-samples/). Regardless of the approach you take, this sample application expects you to pass your Access Token to it through a request parameter or header to work.
 
-### Authorizing a token
+### Authorizing an Access Token
 
-First, we need to extract the token from the incoming HTTP request. Let's look for a `?token` parameter in a GET request or an `HTTP_AUTHORIZATION` or `Authorization` header.
+First, we need to extract the JSON Web Token (JWT) from the incoming HTTP request. Let's look for a `?token` parameter in a GET request or an `HTTP_AUTHORIZATION` or `Authorization` header.
 
 ```PHP
 // 👆 We're continuing from the steps above. Append this to your index.php file.
 
-$authorized = false;
-$token = $_GET['token'] ?? $_SERVER['HTTP_AUTHORIZATION'] ?? $_SERVER['Authorization'] ?? null;
+$jwt = $_GET['token'] ?? $_SERVER['HTTP_AUTHORIZATION'] ?? $_SERVER['Authorization'] ?? null;
 ```
 
 Next, let's decode the token, if one is present:
@@ -106,28 +105,29 @@ Next, let's decode the token, if one is present:
 // 👆 We're continuing from the steps above. Append this to your index.php file.
 
 // If a token is present, process it.
-if ($token !== null) {
+if ($jwt !== null) {
     // Trim whitespace from token string.
-    $token = trim($token);
+    $jwt = trim($jwt);
 
     // Remove the 'Bearer ' prefix, if present, in the event we're getting an Authorization header that's using it.
-    if (substr($token, 0, 7) === 'Bearer ') {
-        $token = substr($token, 7);
+    if (substr($jwt, 0, 7) === 'Bearer ') {
+        $jwt = substr($jwt, 7);
     }
 
     // Attempt to decode the token:
     try {
-        $token = $auth0->decode($token);
-        $authorized = true;
+        $token = $this->getSdk()->decode(
+            token: $jwt,
+            tokenType: \Auth0\SDK\Token::TYPE_TOKEN
+        );
+
+        define('ENDPOINT_AUTHORIZED', true);
     } catch (\Auth0\SDK\Exception\InvalidTokenException $exception) {
         // The token wasn't valid. Let's display the error message from the Auth0 SDK.
         // We'd probably want to show a custom error here for a real world application.
         die($exception->getMessage());
     }
 }
-
-// For our simple purposes, let's define a named constant, ENDPOINT_AUTHORIZED, which we can check from our secure endpoints to determine authorization.
-define('ENDPOINT_AUTHORIZED', $authorized);
 ```
 
 Depending on how you configure your API routing, how exactly you integrate these checks might look a little different, but the principle is the same: check the token, and in the event your API endpoint requires authorization, deny access if the token isn't valid or acceptable:
@@ -136,7 +136,7 @@ Depending on how you configure your API routing, how exactly you integrate these
 // 👆 We're continuing from the steps above. Append this to your index.php file.
 
 // Is the request authorized?
-if (ENDPOINT_AUTHORIZED) {
+if (defined('ENDPOINT_AUTHORIZED')) {
     // Respond with a JSON response:
     echo json_encode([
         'authorized' => true,
