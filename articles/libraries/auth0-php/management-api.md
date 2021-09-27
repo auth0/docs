@@ -1,22 +1,24 @@
 ---
 section: libraries
 toc: true
-description: Using the Management API with Auth0-PHP
+description: Using Auth0's Management API with your PHP applications.
 topics:
   - libraries
   - php
-contentType: how-to
+contentType:
+  - how-to
+  - reference
 ---
-# Using the Management API with Auth0-PHP
+# PHP: Using the Management API
 
-Auth0-PHP provides a wrapper for the Management API, which is used to perform operations on your Auth0 tenant. Using this API, you can:
+The Auth0 PHP SDK provides a `Auth0\SDK\API\Management` class, which houses the methods you can use to access the [Management API](/api/management/v2) and perform operations on your Auth0 tenant. Using this interface, you can easily:
 
 - Search for and create users
 - Create and update Applications
 - Retrieve log entries
 - Manage rules
 
-... and much more. See our [documentation](/api/management/v2) for information on what's possible and the examples below for how to authenticate and access this API.
+... and much more. See our [APi reference](/api/management/v2) for information on what's possible!
 
 ## Authentication
 
@@ -36,56 +38,75 @@ To grant the scopes needed:
 Now you can authenticate one of the two ways above and use that token to perform operations:
 
 ```php
-use Auth0\SDK\API\Management;
+// 👆 We're continuing from the "getting started" guide linked in "Prerequisites" above. Append this to the index.php file you created there.
 
-if ( 'test' === getenv('APPLICATION_ENVIRONMENT') ) {
-    // Use a temporary testing token.
-    $access_token = getenv('AUTH0_MANAGEMENT_API_TOKEN');
-} else {
-    // See Authentication API page to implement this function.
-    $access_token = getManagementAccessToken();
+if (isset($env['AUTH0_MANAGEMENT_API_TOKEN'])) {
+    $auth0->configuration()->setManagementToken($env['AUTH0_MANAGEMENT_API_TOKEN']);
 }
-$mgmt_api = new Management( $access_token, getenv('AUTH0_DOMAIN') );
+
+// Create a configured instance of the `Auth0\SDK\API\Management` class, based on the configuration we setup the SDK ($auth0) using.
+// If no AUTH0_MANAGEMENT_API_TOKEN is configured, this will automatically perform a client credentials exchange to generate one for you, so long as a client secret is configured.
+$management = $auth0->management();
 ```
 
-The `Management` class stores access to endpoints as properties of its instances. The best way to see what endpoints are covered is to read through the `\Auth0\SDK\API\Management` constructor method.
+The `Management` class stores access to endpoints as factory methods of its instances, for example `$management->users()` returns an instance of `Auth0\SDK\API\Management\Users` that you can use to interact with the /users Management API endpoints.
 
-### Example - Search Users by Email
+### Example: Search Users
 
 This endpoint is documented [here](/api/management/v2#!/Users/get_users).
 
 ```php
-$results = $mgmt_api->users()->getAll([
-    'q' => 'josh'
-]);
+// 👆 We're continuing from the code above. Append this to your source code file.
 
-if (! empty($results)) {
-    echo '<h2>User Search</h2>';
-    foreach ($results as $datum) {
+$response = $management->users()->getAll(['q' => 'josh']);
+
+// Does the status code of the response indicate failure?
+if ($response->getStatusCode() !== 200) {
+    die("API request failed.");
+}
+
+// Decode the JSON response into a PHP array:
+$response = json_decode(response->getBody()->__toString(), true, 512, JSON_THROW_ON_ERROR);
+
+if (! empty($response)) {
+    echo '<h2>User Results</h2>';
+
+    foreach ($response as $result) {
         printf(
             '<p><strong>%s</strong> &lt;%s&gt; - %s</p>',
-            !empty($datum['nickname']) ? $datum['nickname'] : 'No nickname',
-            !empty($datum['email']) ? $datum['email'] : 'No email',
-            $datum['user_id']
+            !empty($result['nickname']) ? $result['nickname'] : 'No nickname',
+            !empty($result['email']) ? $result['email'] : 'No email',
+            $result['user_id']
         );
     }
 }
 ```
 
-### Example - Get All Clients
+### Example: Get All Clients
 
 This endpoint is documented [here](/api/management/v2#!/Clients/get_clients).
 
 ```php
-$results = $mgmt_api->clients()->getAll();
+// 👆 We're continuing from the code above. Append this to your source code file.
 
-if (! empty($results)) {
+$response = $management->clients()->getAll(['q' => 'josh']);
+
+// Does the status code of the response indicate failure?
+if ($response->getStatusCode() !== 200) {
+    die("API request failed.");
+}
+
+// Decode the JSON response into a PHP array:
+$response = json_decode(response->getBody()->__toString(), true, 512, JSON_THROW_ON_ERROR);
+
+if (! empty($response)) {
     echo '<h2>Get All Clients</h2>';
-    foreach ($results as $datum) {
+
+    foreach ($response as $result) {
         printf(
             '<p><strong>%s</strong> - %s</p>',
-            $datum['name'],
-            $datum['client_id']
+            $result['name'],
+            $result['client_id']
         );
     }
 }
@@ -94,9 +115,9 @@ if (! empty($results)) {
 ### Read more
 
 ::: next-steps
-* [Auth0-PHP Introduction](/libraries/auth0-php)
-* [Auth0-PHP Basic Use](/libraries/auth0-php/basic-use)
-* [Auth0-PHP Authentication API](/libraries/auth0-php/authentication-api)
-* [Auth0-PHP JWT Validation](/libraries/auth0-php/jwt-validation)
-* [Auth0-PHP Troubleshooting](/libraries/auth0-php/troubleshooting)
+* [PHP Introduction](/libraries/auth0-php)
+* [PHP Basic Use](/libraries/auth0-php/basic-use)
+* [PHP Authentication API](/libraries/auth0-php/authentication-api)
+* [PHP JWT Validation](/libraries/auth0-php/jwt-validation)
+* [PHP Troubleshooting](/libraries/auth0-php/troubleshooting)
 :::

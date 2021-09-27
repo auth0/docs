@@ -23,15 +23,15 @@ show_steps: true
 github:
   org: auth0-samples
   repo: auth0-php-api-samples
-  branch: 8.x
+  branch: main
 sdk:
   name: auth0-php
   url: https://github.com/auth0/auth0-php
   logo: php
 requirements:
-  - PHP 8.0, or up
+  - PHP 7.4+ (8.0 recommended)
+  - Auth0-PHP 8.0
   - Composer
-  - Auth0-PHP 8.0, or up
 next_steps:
   - path: 01-authorization
     list:
