@@ -772,9 +772,10 @@ module.exports = [
   {
     from: [
       '/connections/passwordless/sms-gateway',
-      '/connections/passwordless/guides/use-sms-gateway-passwordless'
+      '/connections/passwordless/guides/use-sms-gateway-passwordless',
+      '/connections/passwordless/use-sms-gateway-passwordless'
     ],
-    to: '/connections/passwordless/use-sms-gateway-passwordless'
+    to: '/connections/authentication-methods/use-sms-gateway-passwordless'
   },
   {
     from: [
@@ -819,9 +820,10 @@ module.exports = [
   {
     from: [
       '/connections/passwordless/spa',
-      '/connections/passwordless/guides/universal-login'
+      '/connections/passwordless/guides/universal-login',
+      '/connections/passwordless/universal-login'
     ],
-    to: '/connections/passwordless/universal-login'
+    to: '/connections/passwordless/implement-login/universal-login'
   },
   {
     from: [
@@ -877,48 +879,67 @@ module.exports = [
   },
   {
     from: [
-      '/connections/passwordless/email-otp',
-      '/connections/passwordless/email'
+      '/docs/connections/passwordless/authentication-factors'
     ],
-    to: '/connections/passwordless/authentication-factors/email-otp'
+    to:/docs/connections/passwordless/authentication-methods
   },
   {
     from: [
-      '/connections/passwordless/email-magic-link'
+      '/connections/passwordless/email-otp',
+      '/connections/passwordless/email',
+      '/connections/passwordless/authentication-factors/email-otp'
     ],
-    to: '/connections/passwordless/authentication-factors/email-magic-link'
+    to: '/connections/passwordless/authentication-methods/email-otp'
+  },
+  {
+    from: [
+      '/connections/passwordless/email-magic-link',
+      '/connections/passwordless/authentication-factors/email-magic-link'
+    ],
+    to: '/connections/passwordless/authentication-methods/email-magic-link'
   },
   {
     from: [
       '/connections/passwordless/sms-otp',
-      '/connections/passwordless/sms'
+      '/connections/passwordless/sms',
+      '/connections/passwordless/authentication-factors/sms-otp'
     ],
-    to: '/connections/passwordless/authentication-factors/sms-otp'
+    to: '/connections/passwordless/authentication-methods/sms-otp'
   },
   {
     from: [
-      '/connections/passwordless/embedded-login-spa'
+      'docs/connections/passwordless/embedded-login'
     ],
-    to: '/connections/passwordless/embedded-login/spa'
+    to: 'docs/connections/passwordless/implement-login/embedded-login'
   },
   {
     from: [
-      '/connections/passwordless/embedded-login-webapps'
+      '/connections/passwordless/embedded-login-spa',
+      '/connections/passwordless/embedded-login/spa'
     ],
-    to: '/connections/passwordless/embedded-login/webapps'
+    to: '/connections/passwordless/implement-login/embedded-login/spa'
+  },
+  {
+    from: [
+      '/connections/passwordless/embedded-login-webapps',
+      '/connections/passwordless/embedded-login/webapps'
+    ],
+    to: '/connections/passwordless/implement-login/embedded-login/webapps'
   },
   {
     from: [
       '/connections/passwordless/embedded-login-native',
-      '/connections/passwordless/guides/embedded-login-native'
+      '/connections/passwordless/guides/embedded-login-native',
+      '/connections/passwordless/embedded-login/native'
     ],
-    to: '/connections/passwordless/embedded-login/native'
+    to: '/connections/passwordless/implement-login/embedded-login/native'
   },
   {
     from: [
-      '/connections/passwordless/relevant-api-endpoints'
+      '/connections/passwordless/relevant-api-endpoints',
+      '/connections/passwordless/embedded-login/relevant-api-endpoints'
     ],
-    to: '/connections/passwordless/embedded-login/relevant-api-endpoints'
+    to: '/connections/passwordless/implement-login/embedded-login/relevant-api-endpoints'
   },
   {
     from: [
