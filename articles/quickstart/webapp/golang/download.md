@@ -10,7 +10,7 @@ http://localhost:3000
 ```
 3) Make sure [Go](https://golang.org/dl/) is installed and execute the following commands in the sample's directory:
 ```bash
-go get -d
+go mod vendor
 go run main.go server.go
 ```
 You can also run it from a [Docker](https://www.docker.com) image with the following commands:
