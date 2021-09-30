@@ -12,8 +12,8 @@ http://localhost:3000/api/auth/callback
 http://localhost:3000
 ```
 
-3) Create a `.env.local` file under your root project directory that defines the necessary Auth0 configuration values:
-```sh
+3) Create a `.env.local` file under your root project directory with the following Auth0 configuration values:
+```bash
 AUTH0_SECRET='use [openssl rand -hex 32] to generate a 32 bytes value'
 AUTH0_BASE_URL='http://localhost:3000'
 AUTH0_ISSUER_BASE_URL='https://${account.namespace}'
