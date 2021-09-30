@@ -11,7 +11,17 @@ http://localhost:3000/api/auth/callback
 ```text
 http://localhost:3000
 ```
-3) Make sure [Node.JS LTS](https://nodejs.org/en/download/) is installed and execute the following commands in the root directory:
+
+3) Create a `.env.local` file under your root project directory that defines the necessary Auth0 configuration values:
+```sh
+AUTH0_SECRET='use [openssl rand -hex 32] to generate a 32 bytes value'
+AUTH0_BASE_URL='http://localhost:3000'
+AUTH0_ISSUER_BASE_URL='https://${account.namespace}'
+AUTH0_CLIENT_ID='${account.clientId}'
+AUTH0_CLIENT_SECRET='${account.clientSecret}'
+```
+
+4) Make sure [Node.JS LTS](https://nodejs.org/en/download/) is installed and execute the following commands in the root directory:
 ```bash
 npm install && npm run dev
 ```
