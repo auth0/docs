@@ -100,7 +100,7 @@ If you decide to use Email, then you need to decide between an one-time-use code
 
 ### Implementing Login 
 
-Auth0 supports two way of implementing authentication: *Embedded Login* and *Universal Login*.
+Auth0 supports two ways of implementing authentication: *Embedded Login* and *Universal Login*.
 
 The industry is aligned in that Universal Login is the proper way to implement authentication in all apps, but in the case of Native Applications, sometimes customers prefer to implement Embedded Login for UX reasons. 
 
