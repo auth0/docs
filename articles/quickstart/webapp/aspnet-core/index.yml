@@ -1,13 +1,17 @@
-title: ASP.NET Core
+title: ASP.NET Core MVC (Beta)
 image: /media/platforms/asp.png
 author:
-  name: Damien Guard
-  email: damien.guard@auth0.com
+  name: Frederik Prijck
+  email: frederik.prijck@auth0.com
   community: false
 topics:
   - quickstart
 contentType: tutorial
 useCase: quickstart
+sdk:
+  name: auth0-aspnetcore-authentication
+  url: https://github.com/auth0/auth0-aspnetcore-authentication
+  logo: dotnet
 snippets:
   dependencies: server-platforms/aspnet-core/dependencies
 alias:
@@ -17,8 +21,6 @@ seo_alias: aspnet-core
 default_article: 01-login
 articles:
   - 01-login
-  - 02-user-profile
-  - 03-authorization
 show_steps: true
 github:
   org: auth0-samples
@@ -29,18 +31,3 @@ requirements:
   - .NET 5.0
 sample_download_required_data:
   - client
-next_steps:
-  - path: 03-authorization
-    list:
-    - text: Configure other identity providers
-      icon: 345
-      href: "/identityproviders"
-    - text: Enable multifactor authentication
-      icon: 345
-      href: "/multifactor-authentication"
-    - text: Learn about attack protection
-      icon: 345
-      href: "/attack-protection"
-    - text: Learn about rules
-      icon: 345
-      href: "/rules"
