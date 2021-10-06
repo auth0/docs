@@ -1,5 +1,7 @@
 title: Angular
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
 image: /media/platforms/angular.png
+logo: angular
 author:
   name: Steve Hobbs 
   email: steve.hobbs@auth0.com

@@ -1,4 +1,7 @@
 title: PHP
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/php.png
+logo: php
 seo_alias: php
 alias:
   - php
@@ -9,7 +12,6 @@ author:
   email: evan.sims@auth0.com
   community: false
 thirdParty: false
-image: /media/platforms/php.png
 topics:
   - quickstart
 contentType: tutorial

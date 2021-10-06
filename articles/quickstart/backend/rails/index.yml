@@ -1,4 +1,7 @@
 title: Ruby On Rails API
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/rails.png
+logo: rails
 alias:
   - rails
   - ror
@@ -11,7 +14,6 @@ author:
   email: josh.cunningham@auth0.com
   community: false
 thirdParty: false
-image: /media/platforms/rails.png
 topics:
   - quickstart
 contentType: tutorial

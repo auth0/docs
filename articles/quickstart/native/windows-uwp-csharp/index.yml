@@ -1,4 +1,7 @@
 title: Windows Universal App C#
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/windows-8.png
+logo: windows
 author:
   name: Damien Guard
   email: damien.guard@auth0.com
@@ -9,7 +12,6 @@ alias:
   - windows
 language:
   - C#
-image: /media/platforms/windows-8.png
 topics:
   - quickstart
 contentType: tutorial
