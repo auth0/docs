@@ -1,5 +1,7 @@
 title: Node.js
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
 image: /media/platforms/node.png
+logo: nodejs
 author:
   name: Josh Cunningham
   email: josh.cunningham@auth0.com

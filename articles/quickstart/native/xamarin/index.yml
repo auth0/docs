@@ -1,4 +1,7 @@
 title: Xamarin
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/xamarin.png
+logo: xamarin
 author:
   name: Damien Guard
   email: damien.guard@auth0.com
@@ -8,7 +11,6 @@ language:
 framework:
   - Xamarin
 hybrid: false
-image: /media/platforms/xamarin.png
 topics:
   - quickstart
 contentType: tutorial

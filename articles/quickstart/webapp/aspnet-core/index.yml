@@ -1,5 +1,7 @@
 title: ASP.NET Core
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
 image: /media/platforms/asp.png
+logo: dotnet
 author:
   name: Damien Guard
   email: damien.guard@auth0.com

@@ -1,4 +1,7 @@
 title: Django API
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/django.png
+logo: django
 alias:
   - Django
 languages:
@@ -8,7 +11,6 @@ author:
   email: luciano.balmaceda@auth0.com
   community: false
 thirdParty: false
-image: /media/platforms/django.png
 topics:
   - quickstart
 contentType: tutorial

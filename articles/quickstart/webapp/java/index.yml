@@ -1,5 +1,7 @@
 title: Java
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
 image: /media/platforms/java.png
+logo: java
 topics:
   - quickstart
 contentType: tutorial
