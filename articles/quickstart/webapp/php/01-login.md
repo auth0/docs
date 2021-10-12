@@ -78,10 +78,10 @@ require 'vendor/autoload.php';
 
 // Now instantiate the Auth0 class with our configuration:
 $auth0 = new \Auth0\SDK\Auth0([
-    'domain' => $env['AUTH0_DOMAIN'],
-    'clientId' => $env['AUTH0_CLIENT_ID'],
-    'clientSecret' => $env['AUTH0_CLIENT_SECRET'],
-    'cookieSecret' => $env['AUTH0_COOKIE_SECRET']
+    'domain' => $_ENV['AUTH0_DOMAIN'],
+    'clientId' => $_ENV['AUTH0_CLIENT_ID'],
+    'clientSecret' => $_ENV['AUTH0_CLIENT_SECRET'],
+    'cookieSecret' => $_ENV['AUTH0_COOKIE_SECRET']
 ]);
 ```
 
