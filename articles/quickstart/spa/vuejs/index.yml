@@ -1,4 +1,7 @@
 title: Vue
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/vue.png
+logo: vuejs
 language:
   - Javascript
 author:
@@ -7,7 +10,6 @@ author:
   community: false
 framework:
   - Vue.js
-image: /media/platforms/vue.png
 topics:
   - quickstart
 contentType: tutorial

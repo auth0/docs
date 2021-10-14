@@ -1,5 +1,7 @@
 title: Ruby On Rails
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
 image: /media/platforms/rails.png
+logo: rails
 author:
   name: David Patrick
   email: david.patrick@auth0.com

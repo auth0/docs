@@ -1,4 +1,7 @@
 title: WPF / Winforms
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/asp.png
+logo: windows
 author:
   name: Damien Guard
   email: damien.guard@auth0.com
@@ -10,7 +13,6 @@ language:
 framework:
   - WPF
   - WinForms
-image: /media/platforms/asp.png
 topics:
   - quickstart
 contentType: tutorial

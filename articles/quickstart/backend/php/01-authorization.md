@@ -77,10 +77,10 @@ require 'vendor/autoload.php';
 
 // Now instantiate the Auth0 class with our configuration:
 $auth0 = new \Auth0\SDK\Auth0([
-    'domain' => $env['AUTH0_DOMAIN'],
-    'clientId' => $env['AUTH0_CLIENT_ID'],
-    'clientSecret' => $env['AUTH0_CLIENT_SECRET'],
-    'audience' => $env['AUTH0_AUDIENCE']
+    'domain' => $_ENV['AUTH0_DOMAIN'],
+    'clientId' => $_ENV['AUTH0_CLIENT_ID'],
+    'clientSecret' => $_ENV['AUTH0_CLIENT_SECRET'],
+    'audience' => $_ENV['AUTH0_AUDIENCE']
 ]);
 ```
 
@@ -116,11 +116,7 @@ if ($jwt !== null) {
 
     // Attempt to decode the token:
     try {
-        $token = $this->getSdk()->decode(
-            token: $jwt,
-            tokenType: \Auth0\SDK\Token::TYPE_TOKEN
-        );
-
+        $token = $this->getSdk()->decode($jwt, null, null, null, null, null, null, \Auth0\SDK\Token::TYPE_TOKEN);
         define('ENDPOINT_AUTHORIZED', true);
     } catch (\Auth0\SDK\Exception\InvalidTokenException $exception) {
         // The token wasn't valid. Let's display the error message from the Auth0 SDK.

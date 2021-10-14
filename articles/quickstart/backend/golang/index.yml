@@ -1,4 +1,7 @@
 title: Go
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/golang.png
+logo: golang
 thirdParty: false
 alias:
   - go
@@ -9,7 +12,6 @@ author:
   name: Jim Anderson
   email: jim.anderson@auth0.com
   community: false
-image: /media/platforms/golang.png
 topics:
   - quickstart
 contentType: tutorial

@@ -1,6 +1,8 @@
 title: Java Spring Boot
+# TODO remove 'image' and 'logo_name' once new QS page is live. Then only use 'logo'.
 image: /media/platforms/spring.png
 logo_name: spring
+logo: spring
 author:
   name: Jim Anderson
   email: jim.anderson@auth0.com

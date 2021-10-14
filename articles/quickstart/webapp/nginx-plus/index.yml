@@ -1,9 +1,11 @@
 title: NGINX Plus
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/nginx-plus.png
+logo: nginx
 author:
   name: Amin Abbaspour
   email: amin.abbaspour@auth0.com
   community: false
-image: /media/platforms/nginx-plus.png
 topics:
   - quickstart
 snippets:

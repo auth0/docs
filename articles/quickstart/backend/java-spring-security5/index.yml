@@ -1,4 +1,7 @@
 title: Spring Boot API
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/java.png
+logo: spring
 thirdParty: false
 author:
   name: Jim Anderson
@@ -11,7 +14,6 @@ languages:
   - Java
 framework:
   - Spring
-image: /media/platforms/java.png
 topics:
   - quickstart
 contentType: tutorial

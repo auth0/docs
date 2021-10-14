@@ -1,5 +1,8 @@
 title: Ionic & Capacitor (Angular)
+# TODO remove 'image' and 'logo_name' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/ionic.jpeg
 logo_name: ionic
+logo: ionic
 author:
   name: Steve Hobbs
   email: steve.hobbs@auth0.com
@@ -16,7 +19,6 @@ framework:
   - Capacitor
   - Angular
 hybrid: true
-image: /media/platforms/ionic.jpeg
 topics:
   - quickstart
 contentType: tutorial
