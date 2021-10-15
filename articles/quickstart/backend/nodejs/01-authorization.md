@@ -30,7 +30,7 @@ npm install --save express-oauth2-jwt-bearer
 ```
 ### Configure the middleware
 
-Configure `express-oauth2-jwt-bearer` with you Tenant Domain and API Identifier.
+Configure `express-oauth2-jwt-bearer` with your Domain and API Identifier.
 
 ```js
 // server.js
