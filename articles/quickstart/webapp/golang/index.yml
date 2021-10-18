@@ -7,8 +7,8 @@ topics:
 contentType: tutorial
 useCase: quickstart
 author:
-  name: Jim Anderson
-  email: jim.anderson@auth0.com
+  name: Sergiu Ghitea
+  email: sergiu.ghitea@auth0.com
   community: false
 snippets:
   dependencies: server-platforms/golang/dependencies
