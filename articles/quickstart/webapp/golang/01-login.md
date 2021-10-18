@@ -16,11 +16,11 @@ github:
 
 <%= include('../../../_includes/_logout_url', { returnTo: 'http://localhost:3000' }) %>
 
-## Configure Go to use Auth0
+## Configure Go to Use Auth0
 
-### Download Dependencies
+### Download dependencies
 
-Let's start by adding a `go.mod` file listing all the dependencies we will be using.
+Start by adding a `go.mod` file to list all the dependencies to be used.
 
 ```text
 // go.mod
@@ -51,8 +51,8 @@ This example uses `gin` for routing, but you can use whichever router you want.
 
 ### Configure your application
 
-To begin, let's create a `.env` file within the root of your project directory to store our sample application's
-configuration and fill in the environment variables:
+Create a `.env` file within the root of your project directory to store the app configuration, and fill in the 
+environment variables:
 
 ```sh
 # The URL of our Auth0 Tenant Domain.
@@ -70,7 +70,7 @@ AUTH0_CALLBACK_URL='http://localhost:3000/callback'
 ```
 
 ::: note
-To load the environment variables from the `.env` file we'll be using 
+To load the environment variables from the `.env` file, you can use
 [github.com/joho/godotenv](https://github.com/joho/godotenv).
 :::
 
@@ -145,7 +145,7 @@ func (a *Authenticator) VerifyIDToken(ctx context.Context, token *oauth2.Token) 
 
 Create a file called `router.go` in the `platform/router` folder. In this package you'll create a method to
 configure and return our routes using [github.com/gin-gonic/gin](https://github.com/gin-gonic/gin). You will be passing
-an instance of our `Authenticator` to the method, so it can be used within the `login` and `callback` handlers. 
+an instance of `Authenticator` to the method, so it can be used within the `login` and `callback` handlers. 
 
 ```go
 // platform/router/router.go
@@ -237,7 +237,7 @@ func main() {
 ```
 
 
-## Logging in
+## Logging In
 
 Create a file called `login.go` in the `web/app/login` folder, and add a `Handler` function to handle the `/login` route.
 
@@ -304,10 +304,10 @@ Add a link to `/login` route in the `home.html` template.
 ```
 
 
-## Handling authentication callback
+## Handling Authentication Callback
 
-After our users return from authenticating with the Auth0's Universal Login Page, they'll return to our sample 
-application at our callback route, `/callback` that will be handled in the following `Handler` function:
+Once users have authenticated using Auth0's Universal Login Page, they'll return to the app at the `/callback` 
+route that will be handled in the following `Handler` function:
 
 ```go
 // web/app/callback/callback.go
@@ -402,9 +402,9 @@ func Handler(ctx *gin.Context) {
 For information about the userinfo hash, see [User Profile](/users/concepts/overview-user-profile).
 
 
-## Logging out
+## Logging Out
 
-To log the user out, you have to clear the data from the session and redirect the user to the Auth0 logout endpoint. 
+To log the user out, clear the data from the session and redirect the user to the Auth0 logout endpoint. 
 You can find more information about this in the [logout documentation](/logout).
 
 Create a file called `logout.go` in the folder `web/app/logout/logout.go`, and add the function `Handler` to redirect 
@@ -473,10 +473,9 @@ This sample is using [js.cookie](https://github.com/js-cookie/js-cookie/tree/lat
 
 ## Optional Steps
 
-### Checking if the User is Authenticated
+### Checking if the user is authenticated
 
-Let's create a middleware that will check if the user is authenticated
-or not based on if the `profile` is in the session:
+Create a middleware that will check if the user is authenticated or not based on the `profile` session key:
 
 ```go
 // platform/middleware/isAuthenticated.go
@@ -501,7 +500,7 @@ func IsAuthenticated(ctx *gin.Context) {
 }
 ```
 
-Finally, we can set up this middleware for any route that needs authentication:
+Finally, set up this middleware for any route that needs authentication by adding it to the router.
 
 ```go
 // platform/router/router.go
