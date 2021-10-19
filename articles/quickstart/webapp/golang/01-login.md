@@ -69,12 +69,6 @@ AUTH0_CLIENT_SECRET='${account.clientSecret}'
 AUTH0_CALLBACK_URL='http://localhost:3000/callback'
 ```
 
-::: note
-To load the environment variables from the `.env` file, you can use
-[github.com/joho/godotenv](https://github.com/joho/godotenv).
-:::
-
-
 ### Configure OAuth2 and OpenID Connect packages
 
 Create a file called `auth.go` in the `platform/authenticator` folder. In this package you'll create a method to 
@@ -332,7 +326,7 @@ func Handler(auth *authenticator.Authenticator) gin.HandlerFunc {
 		// Exchange an authorization code for a token.
 		token, err := auth.Exchange(ctx.Request.Context(), ctx.Query("code"))
 		if err != nil {
-			ctx.String(http.StatusUnauthorized, "Failed to convert an authorization code into a token.")
+			ctx.String(http.StatusUnauthorized, "Failed to exchange an authorization code for a token.")
 			return
 		}
 
