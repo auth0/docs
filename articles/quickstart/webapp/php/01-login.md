@@ -42,21 +42,38 @@ composer require guzzlehttp/guzzle guzzlehttp/psr7 http-interop/http-factory-guz
 To begin, let's create a `.env` file within the root of your project directory to store our sample application's configuration and fill in the environment variables:
 
 ```sh
-# The URL of our Auth0 Tenant Domain.
-# If we're using a Custom Domain, be sure to set this to that value instead.
-AUTH0_DOMAIN='https://${account.namespace}'
+# ---------
+# Required:
+# ---------
 
-# Our Auth0 application's Client ID.
-AUTH0_CLIENT_ID='${account.clientId}'
+# Your Auth0 application's Client ID
+AUTH0_CLIENT_ID=${account.clientId}
 
-# Our Auth0 application's Client Secret.
-AUTH0_CLIENT_SECRET='${account.clientSecret}'
+# The URL of your Auth0 tenant domain
+AUTH0_DOMAIN=${account.namespace}
 
-# A long secret value we'll use to encrypt session cookies. This can be generated using `openssl rand -hex 32` from our shell.
-AUTH0_COOKIE_SECRET='SEE COMMENT ABOVE'
+# Your Auth0 application's Client Secret
+AUTH0_CLIENT_SECRET=${account.clientSecret}
 
-# The base URL of our application.
-AUTH0_BASE_URL='http://127.0.0.1:3000'
+# A long, secret value used to encrypt the session cookie.
+# This can be generated using `openssl rand -hex 32` from your shell.
+AUTH0_COOKIE_SECRET=
+
+# -------------------------------------------------------------------------
+# Optional: Remove the leading # from the following options to enable them:
+# -------------------------------------------------------------------------
+
+# If you're using a Custom Domain, enter it here:
+# AUTH0_CUSTOM_DOMAIN=
+
+# How long the cookie session should last on the end-user device. (0 will clear when the browser window closes.)
+# AUTH0_COOKIE_EXPIRES=0
+
+# An API Identifier for testing custom APIs.
+# AUTH0_AUDIENCE=
+
+# An Organization Id for testing Organizations.
+# AUTH0_ORGANIZATION=
 ```
 
 As PHP isn't able to read our `.env` file by itself, we'll want to install a library to help with that. Although we'll be using a particular library for our sample application's purposes, in a real world application any 'dotenv' loader of preference will work. From our project directory, let's run the following shell command to install the library:
