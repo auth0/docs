@@ -30,7 +30,7 @@ AUTH0_CLIENT_SECRET=${account.clientSecret}
 
 # A long, secret value used to encrypt the session cookie.
 # This can be generated using `openssl rand -hex 32` from your shell.
-AUTH0_COOKIE_SECRET={LONG_RANDOM_VALUE}
+AUTH0_COOKIE_SECRET=
 
 # -------------------------------------------------------------------------
 # Optional: Remove the leading # from the following options to enable them:
