@@ -11,10 +11,6 @@ contentType: tutorial
 useCase: quickstart
 ---
 
-::: warning
-**Important security note:** This solution uses a 3rd party library with an unresolved [security issue](https://cve.mitre.org/cgi-bin/cvename.cgi?name=2020-26160). Please review the details of the vulnerability, including any of the documented mitigations, before implementing the solution.
-:::
-
 <%= include('../../../_includes/_api_auth_intro') %>
 
 <%= include('../_includes/_api_create_new') %>
@@ -23,119 +19,193 @@ useCase: quickstart
 
 ## Validate Access Tokens
 
-### Add dependencies
+### Download dependencies
 
-This example uses Go Modules and will download automatically all the needed dependencies during the build process.
+Add a `go.mod` file to list all the dependencies to be used.
 
-The [**form3tech-oss/jwt-go**](https://github.com/form3tech-oss/jwt-go) package can be used to verify incoming JWTs. The [**auth0/go-jwt-middleware**](https://github.com/auth0/go-jwt-middleware) library can be used alongside it to fetch your Auth0 public key and complete the verification process. Finally, we'll use the [**gorilla/mux**](https://github.com/gorilla/mux) package to handle our routes and [**codegangsta/negroni**](https://github.com/urfave/negroni) for HTTP middleware.
+```text
+// go.mod
 
-```bash
-go mod vendor
+module 01-Authorization-RS256
+
+go 1.16
+
+require (
+	github.com/auth0/go-jwt-middleware v1.0.1-0.20210719135851-6401fcf7191b
+	github.com/gin-contrib/cors v1.3.1
+	github.com/gin-gonic/gin v1.7.4
+	github.com/golang-jwt/jwt v3.2.1+incompatible
+	github.com/joho/godotenv v1.4.0
+)
+```
+
+Download dependencies by running the following shell command:
+
+```shell
+go mod download
+```
+
+::: note
+This example uses `gin` for routing, but you can use whichever router you want.
+:::
+
+### Configure your application
+
+Create a `.env` file within the root of your project directory to store the app configuration, and fill in the
+environment variables:
+
+```sh
+# The URL of our Auth0 Tenant Domain.
+# If you're using a Custom Domain, be sure to set this to that value instead.
+AUTH0_DOMAIN='${account.namespace}'
+
+# Our Auth0 API's Identifier.
+AUTH0_AUDIENCE='YOUR_API_IDENTIFIER'
 ```
 
 ### Create a middleware to validate Access Tokens
 
-The Access Token validation will be done in the  `checkJwt` middleware function which can be applied to any endpoints you wish to protect. If the token is valid, the resources which are served by the endpoint can be released, otherwise a `401 Authorization` error will be returned.
+Access Token validation will be done in the `EnsureValidToken` middleware function which can be applied to any 
+endpoints you wish to protect. If the token is valid, the resources which are served by the endpoint can be released,
+otherwise a `401 Authorization` error will be returned.
 
-Setup **go-jwt-middleware** middleware to verify Access Token from incoming requests.
+Setup **go-jwt-middleware** middleware to verify Access Tokens from incoming requests.
 
 ```go
-// main.go
-package main
+// middleware/jwt.go
+
+package middleware
 
 import (
-	"encoding/json"
+	"context"
 	"fmt"
-	"net/http"
-	"strings"
-	"errors"
 	"log"
+	"net/http"
 	"os"
 
-	"github.com/codegangsta/negroni"
 	"github.com/auth0/go-jwt-middleware"
-	"github.com/form3tech-oss/jwt-go"
-	"github.com/gorilla/mux"
+	"github.com/auth0/go-jwt-middleware/validate/jwt-go"
+	"github.com/gin-gonic/gin"
+	"github.com/golang-jwt/jwt"
 )
 
-type Response struct {
-	Message string `json:"message"`
+const signatureAlgorithm = "RS256"
+
+// Ensure our CustomClaims implement the jwtgo.CustomClaims interface.
+var _ jwtgo.CustomClaims = &CustomClaims{}
+
+// CustomClaims holds our custom claims for the *jwt.Token.
+type CustomClaims struct {
+	Scope string `json:"scope"`
+	jwt.StandardClaims
 }
 
-type Jwks struct {
-	Keys []JSONWebKeys `json:"keys"`
+// Validate our *CustomClaims.
+func (c CustomClaims) Validate(_ context.Context) error {
+	expectedAudience := os.Getenv("AUTH0_AUDIENCE")
+	if c.Audience != expectedAudience {
+		return fmt.Errorf("token claims validation failed: unexpected audience %q", c.Audience)
+	}
+
+	expectedIssuer := "https://" + os.Getenv("AUTH0_DOMAIN") + "/"
+	if c.Issuer != expectedIssuer {
+		return fmt.Errorf("token claims validation failed: unexpected issuer %q", c.Issuer)
+	}
+
+	return nil
 }
 
-type JSONWebKeys struct {
-	Kty string `json:"kty"`
-	Kid string `json:"kid"`
-	Use string `json:"use"`
-	N string `json:"n"`
-	E string `json:"e"`
-	X5c []string `json:"x5c"`
-}
+// EnsureValidToken is a gin.HandlerFunc middleware that will check the validity of our JWT.
+func EnsureValidToken() gin.HandlerFunc {
+	keyFunc := func(token *jwt.Token) (interface{}, error) {
+		certificate, err := getPEMCertificate(token)
+		if err != nil {
+			return token, err
+		}
 
-func main() {
-	jwtMiddleware := jwtmiddleware.New(jwtmiddleware.Options {
-        ValidationKeyGetter: func(token *jwt.Token) (interface{}, error) {
-            // Verify 'aud' claim
-            aud := "${apiIdentifier}"
-            checkAud := token.Claims.(jwt.MapClaims).VerifyAudience(aud, false)
-            if !checkAud {
-                return token, errors.New("Invalid audience.")
-            }
-            // Verify 'iss' claim
-            iss := "https://${account.namespace}/"
-            checkIss := token.Claims.(jwt.MapClaims).VerifyIssuer(iss, false)
-            if !checkIss {
-                return token, errors.New("Invalid issuer.")
-            }
+		return jwt.ParseRSAPublicKeyFromPEM([]byte(certificate))
+	}
 
-            cert, err := getPemCert(token)
-            if err != nil {
-                panic(err.Error())
-            }
+	customClaims := func() jwtgo.CustomClaims {
+		return &CustomClaims{}
+	}
 
-            result, _ := jwt.ParseRSAPublicKeyFromPEM([]byte(cert))
-            return result, nil
-        },
-        SigningMethod: jwt.SigningMethodRS256,
-    })
+	validator, err := jwtgo.New(
+		keyFunc,
+		signatureAlgorithm,
+		jwtgo.WithCustomClaims(customClaims),
+	)
+	if err != nil {
+		log.Fatalf("Failed to set up the jwt validator")
+	}
+
+	m := jwtmiddleware.New(validator.ValidateToken)
+
+	return func(ctx *gin.Context) {
+		var encounteredError = true
+		var handler http.HandlerFunc = func(w http.ResponseWriter, r *http.Request) {
+			encounteredError = false
+			ctx.Request = r
+			ctx.Next()
+		}
+
+		m.CheckJWT(handler).ServeHTTP(ctx.Writer, ctx.Request)
+
+		if encounteredError {
+			ctx.AbortWithStatusJSON(
+				http.StatusUnauthorized,
+				map[string]string{"message": "Failed to validate JWT."},
+			)
+		}
+	}
 }
 ```
 
 <%= include('../_includes/_api_jwks_description') %>
 
-Create the function to get the remote JWKS for your Auth0 account and return the certificate with the public key in PEM format.
+Create the function to get the remote JWKS for your Auth0 account and return the certificate with the public key in PEM
+format.
 
 ```go
-// main.go
+// 👆 We're continuing from the steps above. Append this to your middleware/jwt.go file.
 
-func getPemCert(token *jwt.Token) (string, error) {
-	cert := ""
-	resp, err := http.Get("https://${account.namespace}/.well-known/jwks.json")
-
-	if err != nil {
-		return cert, err
-	}
-	defer resp.Body.Close()
-
-	var jwks = Jwks{}
-	err = json.NewDecoder(resp.Body).Decode(&jwks)
-
-	if err != nil {
-		return cert, err
+type (
+	jwks struct {
+		Keys []jsonWebKeys `json:"keys"`
 	}
 
-	for k, _ := range jwks.Keys {
-		if token.Header["kid"] == jwks.Keys[k].Kid {
-			cert = "-----BEGIN CERTIFICATE-----\n" + jwks.Keys[k].X5c[0] + "\n-----END CERTIFICATE-----"
+	jsonWebKeys struct {
+		Kty string   `json:"kty"`
+		Kid string   `json:"kid"`
+		Use string   `json:"use"`
+		N   string   `json:"n"`
+		E   string   `json:"e"`
+		X5c []string `json:"x5c"`
+	}
+)
+
+func getPEMCertificate(token *jwt.Token) (string, error) {
+	response, err := http.Get("https://" + os.Getenv("AUTH0_DOMAIN") + "/.well-known/jwks.json")
+	if err != nil {
+		return "", err
+	}
+	defer response.Body.Close()
+
+	var jwks jwks
+	if err = json.NewDecoder(response.Body).Decode(&jwks); err != nil {
+		return "", err
+	}
+
+	var cert string
+	for _, key := range jwks.Keys {
+		if token.Header["kid"] == key.Kid {
+			cert = "-----BEGIN CERTIFICATE-----\n" + key.X5c[0] + "\n-----END CERTIFICATE-----"
+			break
 		}
 	}
 
 	if cert == "" {
-		err := errors.New("Unable to find appropriate key.")
-		return cert, err
+		return cert, errors.New("unable to find appropriate key")
 	}
 
 	return cert, nil
@@ -144,117 +214,121 @@ func getPemCert(token *jwt.Token) (string, error) {
 
 ## Protect API Endpoints
 
-To protect individual routes pass the instance of `go-jwt-middleware` defined above to the `negroni` handler.
+To protect individual routes, pass `middleware` (defined above) to the `gin` route.
 
 ```go
 // main.go
 
+package main
+
+import (
+	"log"
+	"net/http"
+
+	"github.com/gin-contrib/cors"
+	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
+
+	"01-Authorization-RS256/middleware"
+)
+
 func main() {
-    // ...
-
-    r := mux.NewRouter()
-
-    // This route is always accessible
-    r.Handle("/api/public", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-        message := "Hello from a public endpoint! You don't need to be authenticated to see this."
-        responseJSON(message, w, http.StatusOK)
-    }))
-
-    // This route is only accessible if the user has a valid Access Token
-    // We are chaining the jwtmiddleware middleware into the negroni handler function which will check
-    // for a valid token.
-    r.Handle("/api/private", negroni.New(
-        negroni.HandlerFunc(jwtMiddleware.HandlerWithNext),
-        negroni.Wrap(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-            message := "Hello from a private endpoint! You need to be authenticated to see this."
-            responseJSON(message, w, http.StatusOK)
-    }))))
-}
-
-func responseJSON(message string, w http.ResponseWriter, statusCode int) {
-	response := Response{message}
-
-	jsonResponse, err := json.Marshal(response)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
+	if err := godotenv.Load(); err != nil {
+		log.Fatalf("Error loading the .env file: %v", err)
 	}
 
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(statusCode)
-	w.Write(jsonResponse)
+	router := gin.Default()
+
+	router.Use(cors.New(
+		cors.Config{
+			AllowOrigins:     []string{"http://localhost:3000"},
+			AllowCredentials: true,
+			AllowHeaders:     []string{"Authorization"},
+		},
+	))
+
+	// This route is always accessible.
+	router.Any("/api/public", func(ctx *gin.Context) {
+		response := map[string]string{
+			"message": "Hello from a public endpoint! You don't need to be authenticated to see this.",
+		}
+		ctx.JSON(http.StatusOK, response)
+	})
+
+	// This route is only accessible if the user has a valid access_token.
+	router.GET(
+		"/api/private",
+		middleware.EnsureValidToken(),
+		func(ctx *gin.Context) {
+			response := map[string]string{
+				"message": "Hello from a private endpoint! You need to be authenticated to see this.",
+			}
+			ctx.JSON(http.StatusOK, response)
+		},
+	)
+
+	log.Print("Server listening on http://localhost:3010")
+	if err := http.ListenAndServe("0.0.0.0:3010", router); err != nil {
+		log.Fatalf("There was an error with the http server: %v", err)
+	}
 }
 ```
 
 ### Validate scopes
 
-The `go-jwt-middleware` middleware above verifies that the Access Token included in the request is valid; however, it doesn't yet include any mechanism for checking that the token has the sufficient **scope** to access the requested resources.
+The `middleware` above verifies that the Access Token included in the request is valid; however, it doesn't yet include
+any mechanism for checking that the token has the sufficient **scope** to access the requested resources.
 
-Let's create a function to check and ensure the Access Token has the correct scope before returning a successful response.
+Create a function to check and ensure the Access Token has the correct scope before returning a successful response.
 
 ```go
-// main.go
+// 👆 We're continuing from the steps above. Append this to your middleware/jwt.go file.
 
-type CustomClaims struct {
-	Scope string `json:"scope"`
-	jwt.StandardClaims
-}
+// HasScope checks whether our claims have a specific scope.
+func (c CustomClaims) HasScope(expectedScope string) bool {
+    result := strings.Split(c.Scope, " ")
+    for i := range result {
+        if result[i] == expectedScope {
+            return true
+        }
+    }
 
-func checkScope(scope string, tokenString string) bool {
-	token, _ := jwt.ParseWithClaims(tokenString, &CustomClaims{}, func (token *jwt.Token) (interface{}, error) {
-		cert, err := getPemCert(token)
-		if err != nil {
-			return nil, err
-		}
-		result, _ := jwt.ParseRSAPublicKeyFromPEM([]byte(cert))
-		return result, nil
-	})
-
-	claims, ok := token.Claims.(*CustomClaims)
-
-	hasScope := false
-	if ok && token.Valid {
-		result := strings.Split(claims.Scope, " ")
-		for i := range result {
-			if result[i] == scope {
-				hasScope = true
-			}
-		}
-	}
-
-	return hasScope
+    return false
 }
 ```
 
-We will use this function in the endpoint that requires the scope `read:messages`.
+Use this function in the endpoint that requires the scope `read:messages`.
 
 ```go
-// main.go
+// 👆 We're continuing from the steps above. Append this to your main.go file.
 
 func main() {
-
     // ...
-
-    // This route is only accessible if the user has a valid Access Token with the read:messages scope
-    // We are chaining the jwtmiddleware middleware into the negroni handler function which will check
-    // for a valid token and scope.
-    r.Handle("/api/private-scoped", negroni.New(
-        negroni.HandlerFunc(jwtMiddleware.HandlerWithNext),
-        negroni.Wrap(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-            authHeaderParts := strings.Split(r.Header.Get("Authorization"), " ")
-            token := authHeaderParts[1]
-
-            hasScope := checkScope("read:messages", token)
-
-            if !hasScope {
-                message := "Insufficient scope."
-                responseJSON(message, w, http.StatusForbidden)
+    
+    // This route is only accessible if the user has a
+    // valid access_token with the read:messages scope.
+    router.GET(
+        "/api/private-scoped",
+        middleware.EnsureValidToken(),
+        func(ctx *gin.Context) {
+            claims := ctx.Request.Context().Value(jwtmiddleware.ContextKey{}).(*middleware.CustomClaims)
+            
+            if !claims.HasScope("read:messages") {
+                response := map[string]string{"message": "Insufficient scope."}
+                ctx.JSON(http.StatusForbidden, response)
                 return
             }
-            message := "Hello from a private endpoint! You need to be authenticated to see this."
-            responseJSON(message, w, http.StatusOK)
-    }))))
+            
+            response := map[string]string{
+                "message": "Hello from a private endpoint! You need to be authenticated to see this.",
+            }
+            ctx.JSON(http.StatusOK, response)
+        },
+    )
+    
+    // ...
 }
 ```
 
-In our example, we only checked for the `read:messages` scope. You may want to extend the `checkScope` function or make it a standalone middleware that accepts multiple roles to fit your use case.
+In this example, only the `read:messages` scope is checked. You may want to extend the `HasScope` function or make it
+a standalone middleware that accepts multiple scopes to fit your use case.

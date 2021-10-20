@@ -1,4 +1,4 @@
-title: Go
+title: Go API
 # TODO remove 'image' once new QS page is live. Then only use 'logo'.
 image: /media/platforms/golang.png
 logo: golang
@@ -9,8 +9,8 @@ alias:
 languages:
   - Go
 author:
-  name: Jim Anderson
-  email: jim.anderson@auth0.com
+  name: Sergiu Ghitea
+  email: sergiu.ghitea@auth0.com
   community: false
 topics:
   - quickstart
