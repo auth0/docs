@@ -21,7 +21,7 @@ useCase: quickstart
 
 ### Download dependencies
 
-Start by adding a `go.mod` file to list all the dependencies to be used.
+Add a `go.mod` file to list all the dependencies to be used.
 
 ```text
 // go.mod
@@ -39,7 +39,7 @@ require (
 )
 ```
 
-We can now make the dependencies available for us by running the following shell command:
+Download dependencies by running the following shell command:
 
 ```shell
 go mod download
@@ -65,7 +65,7 @@ AUTH0_AUDIENCE='YOUR_API_IDENTIFIER'
 
 ### Create a middleware to validate Access Tokens
 
-The Access Token validation will be done in the `EnsureValidToken` middleware function which can be applied to any 
+Access Token validation will be done in the `EnsureValidToken` middleware function which can be applied to any 
 endpoints you wish to protect. If the token is valid, the resources which are served by the endpoint can be released,
 otherwise a `401 Authorization` error will be returned.
 
@@ -214,7 +214,7 @@ func getPEMCertificate(token *jwt.Token) (string, error) {
 
 ## Protect API Endpoints
 
-To protect individual routes pass the `middleware` defined above to the `gin` route.
+To protect individual routes, pass `middleware` (defined above) to the `gin` route.
 
 ```go
 // main.go
@@ -330,5 +330,5 @@ func main() {
 }
 ```
 
-In our example, we only checked for the `read:messages` scope. You may want to extend the `HasScope` function or make it
+In this example, only the `read:messages` scope is checked. You may want to extend the `HasScope` function or make it
 a standalone middleware that accepts multiple scopes to fit your use case.
