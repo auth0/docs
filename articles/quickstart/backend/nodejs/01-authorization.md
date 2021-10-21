@@ -90,4 +90,4 @@ app.get('/api/private-scoped', checkJwt, checkScopes, function(req, res) {
 });
 ```
 
-In this configuration, only an Access Tokens with the `read:messages` scope can access the endpoint.
+In this configuration, only Access Tokens with the `read:messages` scope can access the endpoint.
