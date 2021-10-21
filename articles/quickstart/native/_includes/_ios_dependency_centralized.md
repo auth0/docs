@@ -34,16 +34,16 @@ For more information about Carthage usage, check [their official documentation](
 
 If you are using the Swift Package Manager, open the following menu item in Xcode:
 
-**File > Swift Packages > Add Package Dependency...**
+**File > Add Packages...**
 
-In the **Choose Package Repository** prompt add this url: 
+In the **Search or Enter Package URL** search box enter this url: 
 
 ```text
 https://github.com/auth0/Auth0.swift.git
 ```
 
-Then press **Next** and complete the remaining steps.
+Then select the dependency rule and press **Add Package**.
 
 ::: note
-For further reference on SPM, check [its official documentation](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app).
+For further reference on SPM, check [its official documentation](https://developer.apple.com/documentation/swift_packages/adding_package_dependencies_to_your_app).
 :::
