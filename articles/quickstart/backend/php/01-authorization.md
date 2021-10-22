@@ -12,7 +12,7 @@ topics:
 contentType: tutorial
 useCase: quickstart
 github:
-  path:
+  path: app
 ---
 
 <%= include('../../../_includes/_api_auth_intro') %>

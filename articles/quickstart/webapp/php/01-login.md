@@ -11,7 +11,7 @@ topics:
 contentType: tutorial
 useCase: quickstart
 github:
-  path:
+  path: app
 ---
 <!-- markdownlint-disable MD002 MD034 MD041 -->
 
