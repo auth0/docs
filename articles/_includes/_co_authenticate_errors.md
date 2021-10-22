@@ -7,7 +7,7 @@ The error description is human readable. It **should not be parsed by any code**
 :::
 
 | Status | Code | Description |
-| --- | --- | --- | --- | 
+| --- | --- | --- |
 | 400 | invalid_request | Invalid request body. All and only of client_id, credential_type, username, otp, realm are required. |
 | 401 | unauthorized_client | Cross origin login not allowed. |
 | 400 | unsupported_credential_type | Unknown credential type parameter. |
