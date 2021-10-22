@@ -12,7 +12,7 @@ topics:
 contentType: tutorial
 useCase: quickstart
 github:
-  path: 
+  path:
 ---
 
 <%= include('../../../_includes/_api_auth_intro') %>
@@ -25,10 +25,6 @@ github:
 
 Let's create a sample application that authorizes an Auth0-signed token with a backend API we've written in PHP. We'll take a simple approach here, appropriate for the written format. Still, you should check out the accompanying [Quickstart app on GitHub](https://github.com/auth0-samples/auth0-php-api-samples/) for a more robust example.
 
-### Installing the PHP SDK
-
-${snippet(meta.snippets.install)}
-
 ### Installing HTTP Client and Messaging Factories
 
 The Auth0 PHP SDK supports many PHP-FIG standards to offer maximum interoperability with your project's architecture, but two of particular importance are [PSR-17](https://www.php-fig.org/psr/psr-17/) and [PSR-18](https://www.php-fig.org/psr/psr-18/). These standards allow you to "plugin" networking components of your choice to handle messaging and requests. You will need to install compatible libraries in your project for the SDK to use.
@@ -38,6 +34,10 @@ The most prolific networking library for PHP is Guzzle, although many are availa
 ```sh
 composer require guzzlehttp/guzzle guzzlehttp/psr7 http-interop/http-factory-guzzle
 ```
+
+### Installing the PHP SDK
+
+${snippet(meta.snippets.install)}
 
 ### Configure the SDK
 

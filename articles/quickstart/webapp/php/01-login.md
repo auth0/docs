@@ -23,10 +23,6 @@ github:
 
 Let's create a sample application that authenticates a user with a PHP application. We'll take a simple approach here, appropriate for the written format. Still, you should check out the accompanying [Quickstart app on GitHub](https://github.com/auth0-samples/auth0-php-web-app/) for a more robust example.
 
-### Installing the PHP SDK
-
-${snippet(meta.snippets.install)}
-
 ### Installing HTTP Client and Messaging Factories
 
 The Auth0 PHP SDK supports many [PHP-FIG](https://www.php-fig.org) standards offering interoperability options with your architecture. Two of particular importance are [PSR-17](https://www.php-fig.org/psr/psr-17/) and [PSR-18](https://www.php-fig.org/psr/psr-18/). These standards allow you to plug-in networking components of your choice to handle messaging and requests. You will need to install compatible libraries in your project for the SDK to use.
@@ -36,6 +32,10 @@ The most prolific networking library for PHP is [Guzzle](https://guzzlephp.org),
 ```sh
 composer require guzzlehttp/guzzle guzzlehttp/psr7 http-interop/http-factory-guzzle
 ```
+
+### Installing the PHP SDK
+
+${snippet(meta.snippets.install)}
 
 ### Configuring the SDK
 
@@ -156,7 +156,7 @@ The Auth0 PHP SDK has a convenient method for checking if our user has authentic
 ```PHP
 // 👆 We're continuing from the steps above. Append this to your index.php file.
 
-function onIndexRoute() {
+function onIndexRoute() use ($auth0) {
   $session = $auth0->getCredentials();
 
   if ($session === null) {
@@ -188,15 +188,12 @@ Now let's create our /login route, which will use the Auth0 PHP SDK's `login()` 
 ```PHP
 // 👆 We're continuing from the steps above. Append this to your index.php file.
 
-function onLoginRoute() {
+function onLoginRoute() use ($auth0) {
     // It's a good idea to reset user sessions each time they go to login to avoid "invalid state" errors, should they hit network issues or other problems that interrupt a previous login process:
     $auth0->clear();
 
-    // Setup the user's session and generate a ULP URL:
-    $loginUrl = $auth0->login(ROUTE_URL_CALLBACK);
-
-    // Finally, redirect the user to the Auth0 Universal Login Page.
-    header("Location: " . $loginUrl);
+    // Finally, setup the local application session, and redirect the user to the Auth0 Universal Login Page to authenticate.
+    header("Location: " . $auth0->login(ROUTE_URL_CALLBACK));
     exit;
 }
 ```
@@ -210,7 +207,7 @@ When Auth0 passes our users back to us, it includes a few essential parameters i
 ```PHP
 // 👆 We're continuing from the steps above. Append this to your index.php file.
 
-function onCallbackRoute() {
+function onCallbackRoute() use ($auth0) {
     // Have the SDK complete the authentication flow:
     $auth0->exchange(ROUTE_URL_CALLBACK);
 
@@ -227,12 +224,9 @@ Last but not least, let's properly handle logging our users out. The `logout()` 
 ```PHP
 // 👆 We're continuing from the steps above. Append this to your index.php file.
 
-function onLogoutRoute() {
-    // Setup the user's session and generate a ULP URL:
-    $logoutUrl = $auth0->logout(ROUTE_URL_INDEX);
-
-    // Finally, redirect the user to the Auth0 Universal Login Page.
-    header("Location: " . $logoutUrl);
+function onLogoutRoute() use ($auth0) {
+    // Clear the user's local session with our app, then redirect them to the Auth0 logout endpoint to clear their Auth0 session.
+    header("Location: " . $auth0->logout(ROUTE_URL_INDEX));
     exit;
 }
 ```
