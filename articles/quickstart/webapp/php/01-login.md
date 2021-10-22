@@ -57,7 +57,6 @@ AUTH0_COOKIE_SECRET=
 
 # A url your application is accessible from. Update his as appropriate.
 AUTH0_BASE_URL=http://127.0.0.1:3000
-
 ```
 
 As PHP isn't able to read our `.env` file by itself, we'll want to install a library to help with that. Although we'll be using a particular library for our sample application's purposes, in a real world application any 'dotenv' loader of preference will work. From our project directory, let's run the following shell command to install the library:
