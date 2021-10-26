@@ -11,7 +11,7 @@ topics:
 contentType: tutorial
 useCase: quickstart
 github:
-  path:
+  path: app
 ---
 <!-- markdownlint-disable MD002 MD034 MD041 -->
 
@@ -23,10 +23,6 @@ github:
 
 Let's create a sample application that authenticates a user with a PHP application. We'll take a simple approach here, appropriate for the written format. Still, you should check out the accompanying [Quickstart app on GitHub](https://github.com/auth0-samples/auth0-php-web-app/) for a more robust example.
 
-### Installing the PHP SDK
-
-${snippet(meta.snippets.install)}
-
 ### Installing HTTP Client and Messaging Factories
 
 The Auth0 PHP SDK supports many [PHP-FIG](https://www.php-fig.org) standards offering interoperability options with your architecture. Two of particular importance are [PSR-17](https://www.php-fig.org/psr/psr-17/) and [PSR-18](https://www.php-fig.org/psr/psr-18/). These standards allow you to plug-in networking components of your choice to handle messaging and requests. You will need to install compatible libraries in your project for the SDK to use.
@@ -37,15 +33,15 @@ The most prolific networking library for PHP is [Guzzle](https://guzzlephp.org),
 composer require guzzlehttp/guzzle guzzlehttp/psr7 http-interop/http-factory-guzzle
 ```
 
+### Installing the PHP SDK
+
+${snippet(meta.snippets.install)}
+
 ### Configuring the SDK
 
 To begin, let's create a `.env` file within the root of your project directory to store our sample application's configuration and fill in the environment variables:
 
 ```sh
-# ---------
-# Required:
-# ---------
-
 # Your Auth0 application's Client ID
 AUTH0_CLIENT_ID=${account.clientId}
 
@@ -59,21 +55,8 @@ AUTH0_CLIENT_SECRET=${account.clientSecret}
 # This can be generated using `openssl rand -hex 32` from your shell.
 AUTH0_COOKIE_SECRET=
 
-# -------------------------------------------------------------------------
-# Optional: Remove the leading # from the following options to enable them:
-# -------------------------------------------------------------------------
-
-# If you're using a Custom Domain, enter it here:
-# AUTH0_CUSTOM_DOMAIN=
-
-# How long the cookie session should last on the end-user device. (0 will clear when the browser window closes.)
-# AUTH0_COOKIE_EXPIRES=0
-
-# An API Identifier for testing custom APIs.
-# AUTH0_AUDIENCE=
-
-# An Organization Id for testing Organizations.
-# AUTH0_ORGANIZATION=
+# A url your application is accessible from. Update his as appropriate.
+AUTH0_BASE_URL=http://127.0.0.1:3000
 ```
 
 As PHP isn't able to read our `.env` file by itself, we'll want to install a library to help with that. Although we'll be using a particular library for our sample application's purposes, in a real world application any 'dotenv' loader of preference will work. From our project directory, let's run the following shell command to install the library:
@@ -112,7 +95,7 @@ From our project directory, let's run the following shell command to install the
 composer require steampixel/simple-php-router
 ```
 
-Next, let's open our `index.php` back up and give our application life. Start by configuring the route's our sample application will need:
+Next, let's open our `index.php` back up and give our application life. Start by importing the routing library and defining our sample application's route's full URLs as named constants for convenience sake, as we'll need to reference them in a few places through our sample application:
 
 ```PHP
 // 👆 We're continuing from the steps above. Append this to your index.php file.
@@ -120,27 +103,7 @@ Next, let's open our `index.php` back up and give our application life. Start by
 // Import our router library:
 use Steampixel\Route;
 
-// This will respond to visits to '/', or so-called index route, where we'll display information about the user if they're logged in:
-Route::add('/', 'onIndexRoute');
-
-// This will respond to visits to '/login', where we'll prepare our users' sessions and redirect them to Auth0's Universal Login Page:
-Route::add('/login', 'onLoginRoute');
-
-// This will respond to visits to '/callback', where Auth0 will return our users after they've logged in. It's where our application can handle any session setup logic and decide where to redirect them to.
-Route::add('/callback', 'onCallbackRoute');
-
-// This will respond to visits to '/logout', where we'll clear our users' sessions and redirect them to Auth0's logout endpoint:
-Route::add('/logout', 'onLogoutRoute');
-
-// This tells our router that we've finished configuring our routes, and we're ready to begin routing incoming HTTP requests:
-Route::run('/');
-```
-
-Let's also define our sample application's route's full URLs as named constants for convenience sake, as we'll need to reference them in a few places through our sample application:
-
-```PHP
-// 👆 We're continuing from the steps above. Append this to your index.php file.
-
+// Define route constants:
 define('ROUTE_URL_INDEX', rtrim($_ENV['AUTH0_BASE_URL'], '/'));
 define('ROUTE_URL_LOGIN', ROUTE_URL_INDEX . '/login');
 define('ROUTE_URL_CALLBACK', ROUTE_URL_INDEX . '/callback');
@@ -156,20 +119,22 @@ The Auth0 PHP SDK has a convenient method for checking if our user has authentic
 ```PHP
 // 👆 We're continuing from the steps above. Append this to your index.php file.
 
-function onIndexRoute() {
+Route::add('/', function() use ($auth0) {
   $session = $auth0->getCredentials();
 
   if ($session === null) {
     // The user isn't logged in.
-    echo 'Please <a href="/login">log in</a>.</p>';
+    echo '<p>Please <a href="/login">log in</a>.</p>';
     return;
   }
 
   // The user is logged in.
+  echo '<pre>';
   print_r($session->user);
+  echo '</pre>';
 
-  echo 'You can now <a href="/logout">log out</a>.</p>';
-}
+  echo '<p>You can now <a href="/logout">log out</a>.</p>';
+});
 ```
 
 We can access all the properties of our user's profile from the `user` property response, which is an array. So, for example, we can pull the user's nickname using `$session->user['nickname']`, or their email address from `$session->user['email']`. The structure is a [normalized user profile](https://auth0.com/docs/users/user-profile-structure), which you can learn more about [here](https://auth0.com/docs/users/normalized-user-profiles).
@@ -188,17 +153,14 @@ Now let's create our /login route, which will use the Auth0 PHP SDK's `login()` 
 ```PHP
 // 👆 We're continuing from the steps above. Append this to your index.php file.
 
-function onLoginRoute() {
+Route::add('/login', function() use ($auth0) {
     // It's a good idea to reset user sessions each time they go to login to avoid "invalid state" errors, should they hit network issues or other problems that interrupt a previous login process:
     $auth0->clear();
 
-    // Setup the user's session and generate a ULP URL:
-    $loginUrl = $auth0->login(ROUTE_URL_CALLBACK);
-
-    // Finally, redirect the user to the Auth0 Universal Login Page.
-    header("Location: " . $loginUrl);
+    // Finally, setup the local application session, and redirect the user to the Auth0 Universal Login Page to authenticate.
+    header("Location: " . $auth0->login(ROUTE_URL_CALLBACK));
     exit;
-}
+});
 ```
 
 ## Handling authentication callback
@@ -210,14 +172,14 @@ When Auth0 passes our users back to us, it includes a few essential parameters i
 ```PHP
 // 👆 We're continuing from the steps above. Append this to your index.php file.
 
-function onCallbackRoute() {
+Route::add('/callback', function() use ($auth0) {
     // Have the SDK complete the authentication flow:
     $auth0->exchange(ROUTE_URL_CALLBACK);
 
     // Finally, redirect our end user back to the / index route, to display their user profile:
     header("Location: " . ROUTE_URL_INDEX);
     exit;
-}
+});
 ```
 
 ## Logging out
@@ -227,12 +189,28 @@ Last but not least, let's properly handle logging our users out. The `logout()` 
 ```PHP
 // 👆 We're continuing from the steps above. Append this to your index.php file.
 
-function onLogoutRoute() {
-    // Setup the user's session and generate a ULP URL:
-    $logoutUrl = $auth0->logout(ROUTE_URL_INDEX);
-
-    // Finally, redirect the user to the Auth0 Universal Login Page.
-    header("Location: " . $logoutUrl);
+Route::add('/logout', function() use ($auth0) {
+    // Clear the user's local session with our app, then redirect them to the Auth0 logout endpoint to clear their Auth0 session.
+    header("Location: " . $auth0->logout(ROUTE_URL_INDEX));
     exit;
-}
+});
 ```
+
+## Run your app!
+
+Last but not least, we need to tell our routing middleware to actually route requests:
+
+```PHP
+// 👆 We're continuing from the steps above. Append this to your index.php file.
+
+// This tells our router that we've finished configuring our routes, and we're ready to begin routing incoming HTTP requests:
+Route::run('/');
+```
+
+That's it! You're ready to run your new application; once again, from your project directory, run the following shell command:
+
+```sh
+php -S 127.0.0.1:3000 index.php
+```
+
+Open your browser to <a href="https://127.0.0.1:3000" target="_blank">http://127.0.0.1:3000</a> and try it out.
