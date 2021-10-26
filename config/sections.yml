@@ -21,7 +21,7 @@
   folder: "api"
 
 - id: "libraries"
-  title: "Libraries"
+  title: "SDKs"
   url: "/libraries"
   folder: "libraries"
 
