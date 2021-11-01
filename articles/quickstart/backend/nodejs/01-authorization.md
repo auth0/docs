@@ -43,7 +43,7 @@ const { auth } = require('express-oauth2-jwt-bearer');
 // exist and be verified against the Auth0 JSON Web Key Set.
 const checkJwt = auth({
   audience: '${apiIdentifier}',
-  issuerBaseUrl: `https://${account.namespace}/`,
+  issuerBaseURL: `https://${account.namespace}/`,
 });
 ```
 

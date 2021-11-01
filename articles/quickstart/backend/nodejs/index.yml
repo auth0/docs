@@ -32,13 +32,11 @@ github:
   org: auth0-samples
   repo: auth0-express-api-samples
 sdk:
-  name: jwks-rsa
-  url: https://github.com/auth0/node-jwks-rsa
+  name: express-oauth2-jwt-bearer
+  url: https://github.com/auth0/node-oauth2-jwt-bearer/tree/main/packages/express-oauth2-jwt-bearer
   logo: nodejs
 requirements:
-  - express.js 4.4.0
-  - express-jwt 5.1.0
-  - express-jwt-authz 1.0.0
+  - express-oauth2-jwt-bearer 1.0.0
 next_steps:
   - path: 01-authorization
     list:
