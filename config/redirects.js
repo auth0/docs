@@ -4138,8 +4138,12 @@ const redirects = [
     to: '/integrations/marketplace-partners',
   },
   {
-    from: ['/redirect-rules-for-partners', '/marketplace-partner-documentation/redirect-rules-for-partners'],
-    to: '/integrations/marketplace-partners/redirect-rules-for-partners',
+    from: [
+      '/redirect-rules-for-partners',
+      '/marketplace-partner-documentation/redirect-rules-for-partners',
+      '/integrations/marketplace-partners/redirect-rules-for-partners'
+    ],
+    to: '/integrations/marketplace-partners/redirect-actions-for-partners'
   },
   {
     from: ['/social-connections-for-partners', '/marketplace-partner-documentation/social-connections-for-partners'],
