@@ -21,7 +21,7 @@ The AD/LDAP Connector is designed for scenarios where your company controls the 
 
 For B2B scenarios where you want to allow your customer's users to access your applications using their enterprise credentials, connect to your customer's federation service (e.g., their own Auth0 service, ADFS, or any <dfn data-key="security-assertion-markup-language">SAML</dfn> identity provider) using one of the available enterprise connections.
 
-If you install an AD/LDAP connector on your customer's servers and it is connected directly to your Auth0 domain, you will have to handle the passwords of your customer's users directly. Auth0 strongly recommends against these types of deployments and does not support them.
+If you install an AD/LDAP connector on your customer's servers and it is connected directly to your Auth0 domain, you will have to handle the passwords of your customer's users directly. If you experience technical issues, we will attempt to assist you through our standard support services, but as these types of deployments are **not** best practices, Auth0 strongly recommends against them.
 :::
 
 ![](/media/articles/connector/ad-data-flow.png)
