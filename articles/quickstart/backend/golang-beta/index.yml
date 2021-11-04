@@ -1,0 +1,48 @@
+title: Go API
+beta: true
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/golang.png
+logo: golang
+thirdParty: false
+alias:
+  - go
+  - golang
+languages:
+  - Go
+author:
+  name: Sergiu Ghitea
+  email: sergiu.ghitea@auth0.com
+  community: false
+topics:
+  - quickstart
+contentType: tutorial
+useCase: quickstart
+snippets:
+  dependencies: server-apis/golang/dependencies
+  setup: server-apis/golang/setup
+  use: server-apis/golang/use
+articles:
+  - 01-authorization
+  - 02-using
+  - 03-troubleshooting
+show_steps: true
+github:
+  org: auth0-samples
+  repo: auth0-golang-api-samples
+requirements:
+  - Go 1.15+
+next_steps:
+  - path: 01-authorization
+    list:
+    - text: Configure other identity providers
+      icon: 345
+      href: "/identityproviders"
+    - text: Enable multifactor authentication
+      icon: 345
+      href: "/multifactor-authentication"
+    - text: Learn about attack protection
+      icon: 345
+      href: "/attack-protection"
+    - text: Learn about rules
+      icon: 345
+      href: "/rules"
