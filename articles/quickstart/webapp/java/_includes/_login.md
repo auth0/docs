@@ -169,7 +169,7 @@ To run the sample from a terminal, change the directory to the root folder of th
 
 After a few seconds, the application will be accessible on `http://localhost:3000/`. Try to access the protected resource [http://localhost:3000/portal/home](http://localhost:3000/portal/home) and note how you're redirected by the `Auth0Filter` to the Auth0 Login Page. The widget displays all the social and database connections that you have defined for this application in the [dashboard](${manage_url}/#/).
 
-![Auth0 Universal Login](https://cdn.auth0.com/blog/universal-login/lightweight-login.png)
+![Auth0 Universal Login]( /media/articles/angularjs/universal-login.png)
 
 After a successful authentication, you'll be able to see the home page contents.
 
