@@ -79,7 +79,7 @@ Add the `LoginButton` component to your application. When you click it, verify t
 Once that's complete, verify that Auth0 redirects you to your application using the value of the `redirectUri` that you used to configure the `Auth0Provider`.
 :::
 
-![Auth0 Universal Login](https://cdn.auth0.com/blog/universal-login/lightweight-login.png)
+![Auth0 Universal Login](/media/articles/angularjs/universal-login.png)
 
 <%= include('../_includes/_auth_note_dev_keys') %>
 
