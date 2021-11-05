@@ -314,4 +314,4 @@ python manage.py runserver 3000
 
 The application will be accessible on [http://localhost:3000](http://localhost:3000). Follow the Log In link to log in or sign up to your Auth0 tenant. Upon successful login or signup, you should be redirected to the user's profile page.
 
-![Auth0 Universal Login](https://cdn.auth0.com/blog/universal-login/lightweight-login.png)
+![Auth0 Universal Login](/media/quickstarts/universal-login.png)
