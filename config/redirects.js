@@ -28,7 +28,7 @@ const apiNames = [
 
 const apis = `:api(${apiNames.join('|')})`;
 
-module.exports = [
+const redirects = [
 
   /* MISCELLANEOUS AND OUTDATED  */
 
@@ -5608,7 +5608,6 @@ module.exports = [
 
 
   /* Security */
-
   {
     from: ['/security/general-security-tips'],
     to: '/security/tips'
@@ -5660,7 +5659,6 @@ module.exports = [
   },
 
   /* Security Bulletins */
-
   {
     from: ['/security/bulletins'],
     to: '/security/security-bulletins'
@@ -6838,6 +6836,6 @@ module.exports = [
     from: ['/videos/get-started/10-logout'],
     to: '/videos/get-started-series/learn-logout'
   },
-
-
 ];
+
+module.exports = redirects;
