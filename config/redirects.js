@@ -713,14 +713,6 @@ const redirects = [
     to: '/connections/social/facebook-native',
   },
   {
-    from: ['/connections/passwordless/email', '/connections/passwordless/guides/email-otp'],
-    to: '/connections/passwordless/email-otp',
-  },
-  {
-    from: ['/connections/passwordless/sms', '/connections/passwordless/guides/sms-otp'],
-    to: '/connections/passwordless/sms-otp',
-  },
-  {
     from: ['/connections/passwordless/spa', '/connections/passwordless/guides/universal-login'],
     to: '/connections/passwordless/universal-login',
   },
@@ -766,7 +758,11 @@ const redirects = [
     to: '/connections/enterprise/azure-active-directory-native',
   },
   {
-    from: ['/connections/passwordless/email-otp', '/connections/passwordless/email'],
+    from: [
+      '/connections/passwordless/email-otp',
+      '/connections/passwordless/email',
+      '/connections/passwordless/guides/email-otp',
+    ],
     to: '/connections/passwordless/authentication-factors/email-otp',
   },
   {
@@ -774,7 +770,11 @@ const redirects = [
     to: '/connections/passwordless/authentication-factors/email-magic-link',
   },
   {
-    from: ['/connections/passwordless/sms-otp', '/connections/passwordless/sms'],
+    from: [
+      '/connections/passwordless/sms-otp',
+      '/connections/passwordless/sms',
+      '/connections/passwordless/guides/sms-otp',
+    ],
     to: '/connections/passwordless/authentication-factors/sms-otp',
   },
   {
@@ -1991,14 +1991,6 @@ const redirects = [
     to: '/api',
   },
   {
-    from: ['/api/management/v1', '/api-reference', '/api/v1/reference', '/api/management/v1/reference'],
-    to: '/api/management-api-v1-deprecated',
-  },
-  {
-    from: ['/api/management/v2/changes', '/apiv2Changes', '/api/v2/changes'],
-    to: '/api/management-api-changes-v1-to-v2',
-  },
-  {
     from: ['/api/use-auth0-apis-with-postman-collections', '/api/postman'],
     to: '/api',
   },
@@ -2593,7 +2585,6 @@ const redirects = [
     ],
     to: '/brand-and-customize/email/configure-test-smtp-email-servers',
   },
-
   {
     from: [
       '/universal-login/new-experience/text-customization-new-universal-login',
@@ -2773,7 +2764,6 @@ const redirects = [
     from: ['/libraries/lock/v11/i18n', '/libraries/lock/v10/i18n', '/libraries/lock/lock-internationalization'],
     to: '/brand-and-customize/i18n/lock-internationalization',
   },
-
   {
     from: [
       '/libraries/lock-swift/lock-swift-internationalization',
@@ -4332,12 +4322,11 @@ const redirects = [
       '/libraries/lock-android/v1/refresh-jwt-tokens',
       '/libraries/lock-android/refresh-jwt-tokens',
       '/libraries/auth0-android/save-and-refresh-tokens',
+      '/libraries/lock-android/lock-android-delegation',
+      '/libraries/lock-android/v2/delegation-api',
+      '/libraries/lock-android/v1/delegation-api',
     ],
     to: '/libraries/lock-android/lock-android-refresh-jwt',
-  },
-  {
-    from: ['/libraries/lock-android/lock-android-delegation'],
-    to: '/libraries/lock-android/v2/refresh-jwt-tokens',
   },
   {
     from: ['/libraries/lock-android/custom-fields', '/libraries/lock-android/v2/custom-fields'],
@@ -4356,10 +4345,6 @@ const redirects = [
   {
     from: ['/libraries/lock-android/v2/configuration', '/libraries/lock-android/v1/configuration'],
     to: '/libraries/lock-android/lock-android-configuration',
-  },
-  {
-    from: ['/libraries/lock-android/v2/delegation-api', '/libraries/lock-android/v1/delegation-api'],
-    to: '/libraries/lock-android/lock-android-delegation',
   },
   {
     from: ['/libraries/lock-android/v2/custom-theming'],
@@ -5264,6 +5249,13 @@ const redirects = [
       '/api/v1',
       '/migrations/past-migrations',
       '/product-lifecycle/deprecations-and-migrations/past-migrations',
+      '/api/management/v1',
+      '/api-reference',
+      '/api/v1/reference',
+      '/api/management/v1/reference',
+      '/api/management/v2/changes',
+      '/apiv2Changes',
+      '/api/v2/changes',
     ],
     to: '/product-lifecycle/past-migrations',
   },
