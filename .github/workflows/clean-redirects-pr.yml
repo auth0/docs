@@ -16,7 +16,6 @@ jobs:
         with:
           node-version: '14.17'
           cache: 'yarn'
-      - run: yarn
       - run: yarn run clean-redirects
       - name: Create Pull Request
         id: cpr
