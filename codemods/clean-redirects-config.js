@@ -1,6 +1,6 @@
 const prettyPrint = require("./common/pretty-print");
 
-const OBJECT_COMMENT_REGEX = /\, \/\//g;
+const OBJECT_COMMENT_REGEX = /\} (\/\*[^\/\*]+\*\/)\,/g;
 
 /**
  * clean up redirects that point to some other redirect and merge the 'from' field value
@@ -43,8 +43,7 @@ module.exports = function(fileInfo, api) {
       j(toConfigNodePath).remove();
     }
   });
-  let transformedSource = prettyPrint(root);
-  // keep spaces for comments within an object
-  transformedSource = transformedSource.replace(OBJECT_COMMENT_REGEX, ',\n\n\t//');
-  return transformedSource;
+  const transformedSource = prettyPrint(root);
+  // keep position and spaces for block comments within the redirect object
+  return transformedSource.replace(OBJECT_COMMENT_REGEX, (match, group) => `},\n\n\t${group}`);
 }
