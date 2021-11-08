@@ -18,6 +18,7 @@
     "yarn": "^1.4.0"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.1.6",
     "commander": "^2.8.1",
     "husky": "^0.13.3",
     "imagemin": "^4.0.0",

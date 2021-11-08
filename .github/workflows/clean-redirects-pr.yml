@@ -16,8 +16,7 @@ jobs:
         with:
           node-version: '14.17'
           cache: 'yarn'
-      - run: yarn add -D jscodeshift
-      - run: yarn add -D prettier
+      - run: yarn
       - run: yarn run clean-redirects
       - name: Create Pull Request
         id: cpr
