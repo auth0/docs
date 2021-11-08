@@ -29,7 +29,7 @@ const apiNames = [
 const apis = `:api(${apiNames.join("|")})`;
 
 const redirects = [
-  //  MISCELLANEOUS AND OUTDATED  
+  /* MISCELLANEOUS AND OUTDATED  */
 
   {
     from: [
@@ -70,7 +70,7 @@ const redirects = [
     to: "/deploy/deploy-checklist",
   },
 
-  //  QUICKSTARTS 
+  /* QUICKSTARTS */
 
   {
     from: [
@@ -399,7 +399,7 @@ const redirects = [
     to: "/quickstart/webapp/java-spring-boot",
   },
 
-  //  CONNECTIONS 
+  /* CONNECTIONS */
 
   {
     from: [
@@ -865,9 +865,9 @@ const redirects = [
     to: "/connections/database/custom-db/templates/get-user",
   },
 
-  //  MICROSITES 
+  /* MICROSITES */
 
-  //  ARCHITECTURE SCENARIOS 
+  /* ARCHITECTURE SCENARIOS */
 
   {
     from: "/architecture-scenarios/application/mobile-api",
@@ -1210,16 +1210,16 @@ const redirects = [
     to: "/architecture-scenarios/multiple-organization-architecture/multiple-idp-orgs",
   },
 
-  //  CONTENTFUL REDIRECTS 
+  /* CONTENTFUL REDIRECTS */
 
-  //  Configure 
+  /* Configure */
 
   {
     from: ["/configuration-overview", "/config"],
     to: "/configure",
   },
 
-  //  Tenants 
+  /* Tenants */
 
   {
     from: [
@@ -1271,7 +1271,7 @@ const redirects = [
     to: "/configure/tenant-settings/enable-sso-for-legacy-tenants",
   },
 
-  //  Applications 
+  /* Applications */
 
   {
     from: [
@@ -1512,7 +1512,7 @@ const redirects = [
     to: "/configure/applications/test-database-connections",
   },
 
-  //  APIs 
+  /* APIs */
 
   {
     from: ["/authorization/apis", "/api-auth/apis", "/overview/apis", "/apis"],
@@ -1597,7 +1597,7 @@ const redirects = [
     to: "/configure/apis/create-m2m-app-test",
   },
 
-  //  Single Sign-On 
+  /* Single Sign-On */
 
   {
     from: [
@@ -1635,7 +1635,7 @@ const redirects = [
     to: "/configure/sso/api-endpoints-for-single-sign-on",
   },
 
-  //  SAML 
+  /* SAML */
 
   {
     from: [
@@ -2000,7 +2000,7 @@ const redirects = [
     to: "/configure/saml-configuration/deprovision-users-in-saml-integrations",
   },
 
-  //  Signing Keys 
+  /* Signing Keys */
 
   {
     from: [
@@ -2023,7 +2023,7 @@ const redirects = [
     to: "/actions/manage-versions",
   },
 
-  //  Attack Protection 
+  /* Attack Protection */
 
   {
     from: [
@@ -2120,7 +2120,7 @@ const redirects = [
     to: "/configure/attack-protection/state-parameters",
   },
 
-  //  API 
+  /* API */
 
   {
     from: ["/auth-api", "/api/authentication/reference"],
@@ -2152,7 +2152,7 @@ const redirects = [
     to: "/api",
   },
 
-  //  Authorization 
+  /* Authorization */
 
   {
     from: ["/api-auth", "/api-auth/tutorials", "/api/tutorials"],
@@ -2474,7 +2474,7 @@ const redirects = [
     to: "/authorization/rbac/manage-permissions",
   },
 
-  //  Protocols 
+  /* Protocols */
 
   {
     from: "/protocols",
@@ -2503,7 +2503,7 @@ const redirects = [
     to: "/authorization/protocols/ws-fed-protocol",
   },
 
-  //  Best Practices 
+  /* Best Practices */
 
   {
     from: [
@@ -2598,7 +2598,7 @@ const redirects = [
     to: "/best-practices/multi-tenant-apps-best-practices",
   },
 
-  //  Brand and Customize 
+  /* Brand and Customize */
 
   {
     from: ["/branding-customization"],
@@ -2629,7 +2629,7 @@ const redirects = [
     to: "/brand-and-customize/version-control-universal-login-pages",
   },
 
-  //  Custom Domains 
+  /* Custom Domains */
 
   {
     from: "/custom-domains",
@@ -2690,7 +2690,7 @@ const redirects = [
     to: "/brand-and-customize/custom-domains/configure-features-to-use-custom-domains",
   },
 
-  //  Email 
+  /* Email */
 
   {
     from: ["/email", "/auth0-email-services"],
@@ -2748,7 +2748,7 @@ const redirects = [
     to: "/brand-and-customize/email/send-email-invitations-for-application-signup",
   },
 
-  //  SAML 
+  /* SAML */
 
   {
     from: "/email/send-email-invitations-for-application-signup",
@@ -2999,7 +2999,7 @@ const redirects = [
     to: "/brand-and-customize/customize-sms-or-voice-messages",
   },
 
-  //  Internationalization and Localization 
+  /* Internationalization and Localization */
 
   {
     from: ["/i18n", "/i18n/i18n-custom-login-page"],
@@ -3049,7 +3049,7 @@ const redirects = [
     to: "/brand-and-customize/i18n/password-options-translation",
   },
 
-  //  CMS 
+  /* CMS */
 
   {
     from: ["/cms/joomla/configuration"],
@@ -3096,7 +3096,7 @@ const redirects = [
     to: "/cms/wordpress-plugin/integrate-with-wordpress",
   },
 
-  //  Compliance 
+  /* Compliance */
 
   {
     from: ["/compliance-and-certifications"],
@@ -3150,7 +3150,7 @@ const redirects = [
     to: "/compliance/gdpr/gdpr-track-consent-with-lock",
   },
 
-  //  Deploy 
+  /* Deploy */
 
   {
     from: [
@@ -3358,7 +3358,7 @@ const redirects = [
     to: "/extensions/single-sign-on-dashboard-extension/update-applications-on-the-sso-dashboard",
   },
 
-  //  LDAP Connector 
+  /* LDAP Connector */
 
   {
     from: [
@@ -3476,7 +3476,7 @@ const redirects = [
     to: "/extensions/single-sign-on-dashboard-extension/update-applications-on-the-sso-dashboard",
   },
 
-  //  LDAP Connector 
+  /* LDAP Connector */
 
   {
     from: [
@@ -3674,7 +3674,7 @@ const redirects = [
     to: "/extensions/delegated-administration-extension/install-delegated-admin-extension",
   },
 
-  //  Deploy CLI Tool 
+  /* Deploy CLI Tool */
 
   {
     from: [
@@ -3744,7 +3744,7 @@ const redirects = [
     to: "/deploy/deploy-cli-tool/environment-variables-and-keyword-mappings",
   },
 
-  //  Get Started 
+  /* Get Started */
 
   {
     from: ["/getting-started"],
@@ -3913,7 +3913,7 @@ const redirects = [
     to: "/dashboard-access/feature-access-by-role",
   },
 
-  //  Hooks 
+  /* Hooks */
 
   {
     from: [
@@ -4038,7 +4038,7 @@ const redirects = [
     to: "/hooks/view-hooks",
   },
 
-  //  Identity Labs 
+  /* Identity Labs */
 
   {
     from: ["/labs"],
@@ -4101,7 +4101,7 @@ const redirects = [
     to: "/identity-labs/lab-4-single-page-app/identity-lab-4-exercise-2",
   },
 
-  //  Integrations 
+  /* Integrations */
 
   {
     from: ["/integration"],
@@ -4563,7 +4563,7 @@ const redirects = [
     to: "/integrations/marketplace-partners/sso-integrations-for-partners",
   },
 
-  //  Libraries 
+  /* Libraries */
 
   {
     from: "/sdks",
@@ -4880,7 +4880,7 @@ const redirects = [
     to: "/libraries/auth0-php/troubleshoot-auth0-php-library",
   },
 
-  //  ORGANIZATIONS 
+  /* ORGANIZATIONS */
 
   {
     from: ["/organizations/configure-organizations"],
@@ -4955,7 +4955,7 @@ const redirects = [
     to: "/organizations/configure/retrieve-member-roles",
   },
 
-  //  LOGIN 
+  /* LOGIN */
 
   {
     from: ["/flows/login"],
@@ -5121,7 +5121,7 @@ const redirects = [
     to: "/login/universal-login/passwordless-login/webauthn-device-biometrics",
   },
 
-  //  LOGOUT 
+  /* LOGOUT */
 
   {
     from: ["/logout"],
@@ -5165,7 +5165,7 @@ const redirects = [
     to: "/login/logout/redirect-users-after-logout",
   },
 
-  //  Monitor - Logs 
+  /* Monitor - Logs */
 
   {
     from: ["/logs", "/logs/concepts/logs-admins-devs"],
@@ -5314,7 +5314,7 @@ const redirects = [
     to: "/monitor-auth0/streams/event-filters",
   },
 
-  //  MFA 
+  /* MFA */
 
   {
     from: [
@@ -5687,7 +5687,7 @@ const redirects = [
     to: "/login/mfa/mfa-developer-resources/mfa-api",
   },
 
-  //  Monitoring 
+  /* Monitoring */
 
   {
     from: [
@@ -5714,14 +5714,14 @@ const redirects = [
     to: "/monitor-auth0/monitor-using-scom",
   },
 
-  //  Product-Lifecycle 
+  /* Product-Lifecycle */
 
   {
     from: "/lifecycle",
     to: "/product-lifecycle",
   },
 
-  //  Product-Lifecycle 
+  /* Product-Lifecycle */
 
   {
     from: ["/product-lifecycle/deprecation-eol"],
@@ -5875,7 +5875,7 @@ const redirects = [
     to: "/product-lifecycle/past-migrations/migrate-from-legacy-auth-flows",
   },
 
-  //  Professional Services 
+  /* Professional Services */
 
   {
     from: [
@@ -5921,7 +5921,7 @@ const redirects = [
     to: "/professional-services/packages",
   },
 
-  //  Rules 
+  /* Rules */
 
   {
     from: [
@@ -6054,7 +6054,7 @@ const redirects = [
     to: "/rules/use-cases/track-new-sign-ups-in-salesforce",
   },
 
-  //  Security 
+  /* Security */
   {
     from: ["/security/general-security-tips"],
     to: "/security/tips",
@@ -6108,7 +6108,7 @@ const redirects = [
     to: "/security/prevent-threats",
   },
 
-  //  Security Bulletins 
+  /* Security Bulletins */
   {
     from: ["/security/bulletins"],
     to: "/security/security-bulletins",
@@ -6203,7 +6203,7 @@ const redirects = [
     to: "/security/security-bulletins/cve-2017-17068",
   },
 
-  //  Tokens 
+  /* Tokens */
 
   {
     from: [
@@ -6514,7 +6514,7 @@ const redirects = [
     to: "/security/tokens/delegation-tokens",
   },
 
-  //  Support 
+  /* Support */
 
   {
     from: ["/policies/requests", "/premium-support"],
@@ -6582,7 +6582,7 @@ const redirects = [
     to: "/support/reset-account-passwords",
   },
 
-  //  Policies 
+  /* Policies */
 
   {
     from: [
@@ -6676,7 +6676,7 @@ const redirects = [
     to: "/dashboard-access/support-center-users",
   },
 
-  //  Troubleshoot 
+  /* Troubleshoot */
 
   {
     from: ["/troubleshoot/basics"],
@@ -6875,14 +6875,14 @@ const redirects = [
     to: "/troubleshoot/tools/generate-and-analyze-har-files",
   },
 
-  //  Tutorials 
+  /* Tutorials */
 
   {
     from: ["/scenarios", "/tutorials"],
     to: "/",
   },
 
-  //  Manage Users 
+  /* Manage Users */
 
   {
     from: ["/users/concepts/overview-users"],
@@ -7306,7 +7306,7 @@ const redirects = [
     to: "/users/get-user-information-on-unbounce-landing-pages",
   },
 
-  //  Videos 
+  /* Videos */
 
   {
     from: ["/video-series/main/videos"],
