@@ -45,5 +45,5 @@ module.exports = function(fileInfo, api) {
   });
   const transformedSource = prettyPrint(root);
   // keep position and spaces for block comments within the redirect object
-  return transformedSource.replace(OBJECT_COMMENT_REGEX, (match, group) => `},\n\n\t${group}`);
+  return transformedSource.replace(OBJECT_COMMENT_REGEX, (match, group) => `},\n\n  ${group}`);
 }

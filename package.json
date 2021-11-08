@@ -7,8 +7,7 @@
     "heroku-prebuild": "bash prebuild.sh",
     "heroku-postbuild": "bash postbuild.sh",
     "precommit": "lint-staged",
-    "transform": "node ./node_modules/jscodeshift/bin/jscodeshift.js",
-    "clean-redirects": "yarn run transform -t codemods/clean-redirects-config.js config/redirects.js"
+    "clean-redirects": "npx jscodeshift -t codemods/clean-redirects-config.js config/redirects.js"
   },
   "lint-staged": {
     "*.md": "markdownlint"
