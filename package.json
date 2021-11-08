@@ -6,7 +6,9 @@
   "scripts": {
     "heroku-prebuild": "bash prebuild.sh",
     "heroku-postbuild": "bash postbuild.sh",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "transform": "node ./node_modules/jscodeshift/bin/jscodeshift.js",
+    "clean-redirects": "yarn run transform -t codemods/clean-redirects-config.js config/redirects.js"
   },
   "lint-staged": {
     "*.md": "markdownlint"
@@ -20,9 +22,11 @@
     "husky": "^0.13.3",
     "imagemin": "^4.0.0",
     "imagemin-optipng": "^4.3.0",
+    "jscodeshift": "^0.13.0",
     "lint-staged": "^3.4.2",
     "markdownlint": "^0.13.0",
-    "markdownlint-cli": "^0.15.0"
+    "markdownlint-cli": "^0.15.0",
+    "prettier": "^2.4.1"
   },
   "dependencies": {}
 }
