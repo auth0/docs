@@ -3531,10 +3531,6 @@ const redirects = [
     to: '/connections/enterprise/test-enterprise-connections',
   },
   {
-    from: ['/dashboard/guides/connections/test-connections-social', '/get-started/dashboard/test-social-connections'],
-    to: '/connections/social/test-social-connections',
-  },
-  {
     from: ['/dashboard/guides/connections/view-connections', '/get-started/dashboard/view-connections'],
     to: '/connections/view-connections',
   },
