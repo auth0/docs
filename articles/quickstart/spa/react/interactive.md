@@ -67,9 +67,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 :::
 
-::::
-
-## Third Step {{{ data-action=code data-code="src/login.js#4:7" }}}
+## Third Step {{{ data-action=code data-code="login.js#4:7" }}}
 
 In your terminal, run the command within your application directory to install the Auth0 React SDK.
 
