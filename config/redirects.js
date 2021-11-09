@@ -4962,8 +4962,9 @@ const redirects = [
       '/multifactor-authentication/duo/dev-guide',
       '/multifactor-authentication/duo/user-guide',
       '/mfa/configure-cisco-duo-for-mfa',
+      '/login/mfa/configure-cisco-duo-for-mfa',
     ],
-    to: '/login/mfa/configure-cisco-duo-for-mfa',
+    to: '/login/mfa/mfa-factors/configure-cisco-duo-for-mfa',
   },
   {
     from: '/mfa/fido-authentication-with-webauthn',
