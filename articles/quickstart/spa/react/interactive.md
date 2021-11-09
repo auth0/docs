@@ -43,11 +43,30 @@ The Auth0Provider component takes the following props:
 If you are using a custom domain with Auth0, the value of the domain property is the value of your custom domain instead of the value reflected in the "Settings" tab.
 :::
 
-:::checkpoint
-Now that you have configured Auth0Provider, run your application to verify that:
-the SDK is initializing correctly
-your application is not throwing any errors related to Auth0
+::::checkpoint
+
+:::checkpoint-default
+
+Now that you have configured `Auth0Provider`, run your application to verify that:
+* the SDK is initializing correctly
+* your application is not throwing any errors related to Auth0
+
 :::
+
+:::checkpoint-success
+Yay!
+:::
+
+:::checkpoint-failure
+Sorry about that. Here's a couple things to double check:
+* make sure the correct application is selected
+* did you save after entering your URLs?
+* make sure the domain and client ID imported correctly
+
+Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+
+:::
+::::
 
 ## Third Step {{{ data-action=code data-code="login.js#4:7" }}}
 
@@ -64,11 +83,31 @@ The Auth0Provider component takes the following props:
 If you are using a custom domain with Auth0, the value of the domain property is the value of your custom domain instead of the value reflected in the "Settings" tab.
 :::
 
-:::checkpoint
-Now that you have configured Auth0Provider, run your application to verify that:
-the SDK is initializing correctly
-your application is not throwing any errors related to Auth0
+::::checkpoint
+
+:::checkpoint-default
+
+Now that you have configured `Auth0Provider`, run your application to verify that:
+* the SDK is initializing correctly
+* your application is not throwing any errors related to Auth0
+
 :::
+
+:::checkpoint-success
+Yay!
+:::
+
+:::checkpoint-failure
+Sorry about that. Here's a couple things to double check:
+* make sure the correct application is selected
+* did you save after entering your URLs?
+* make sure the domain and client ID imported correctly
+
+Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+
+:::
+
+::::
 
 ## Fourth Step
 
@@ -85,8 +124,28 @@ The Auth0Provider component takes the following props:
 If you are using a custom domain with Auth0, the value of the domain property is the value of your custom domain instead of the value reflected in the "Settings" tab.
 :::
 
-:::checkpoint
-Now that you have configured Auth0Provider, run your application to verify that:
-the SDK is initializing correctly
-your application is not throwing any errors related to Auth0
+::::checkpoint
+
+:::checkpoint-default
+
+Now that you have configured `Auth0Provider`, run your application to verify that:
+* the SDK is initializing correctly
+* your application is not throwing any errors related to Auth0
+
 :::
+
+:::checkpoint-success
+Yay!
+:::
+
+:::checkpoint-failure
+Sorry about that. Here's a couple things to double check:
+* make sure the correct application is selected
+* did you save after entering your URLs?
+* make sure the domain and client ID imported correctly
+
+Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
+
+:::
+
+::::
