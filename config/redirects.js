@@ -3898,8 +3898,8 @@ const redirects = [
     to: '/integrations/sharepoint-2010-2013',
   },
   {
-    from: ['/integrations/sso-integrations', '/sso/current/integrations'],
-    to: '/integrations/sso',
+    from: ['/integrations/sso', '/sso/current/integrations'],
+    to: '/integrations/sso-integrations',
   },
   {
     from: [
