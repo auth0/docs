@@ -2944,8 +2944,11 @@ const redirects = [
     to: '/deploy/private-cloud/private-cloud-onboarding',
   },
   {
-    from: ['/private-cloud/private-cloud-onboarding/customer-hosted-managed-private-cloud-infrastructure-requirements'],
-    to: '/deploy/private-cloud/private-cloud-onboarding/customer-hosted-managed-private-cloud-infrastructure-requirements',
+    from: [
+      '/private-cloud/private-cloud-onboarding/customer-hosted-managed-private-cloud-infrastructure-requirements',
+      '/deploy/private-cloud/private-cloud-onboarding/customer-hosted-managed-private-cloud-infrastructure-requirements',
+    ],
+    to: '/deploy',
   },
   {
     from: [
@@ -2961,8 +2964,9 @@ const redirects = [
       '/private-cloud/private-cloud-onboarding/private-cloud-remote-access-options',
       '/private-cloud/onboarding/managed-private-cloud/remote-access-options',
       '/private-cloud/private-cloud-onboarding/private-cloud-remote-access-options',
+      '/deploy/private-cloud/private-cloud-onboarding/private-cloud-remote-access-options',
     ],
-    to: '/deploy/private-cloud/private-cloud-onboarding/private-cloud-remote-access-options',
+    to: '/deploy',
   },
   {
     from: [
