@@ -60,6 +60,20 @@ next_steps:
       - text: Learn about rules
         icon: 345
         href: "/rules"
+  - path: interactive
+    list:
+      - text: Configure other identity providers
+        icon: 345
+        href: "/identityproviders"
+      - text: Enable multifactor authentication
+        icon: 345
+        href: "/multifactor-authentication"
+      - text: Learn about attack protection
+        icon: 345
+        href: "/attack-protection"
+      - text: Learn about rules
+        icon: 345
+        href: "/rules"
 troubleshooting_steps:
 
     
