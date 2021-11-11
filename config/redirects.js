@@ -385,16 +385,14 @@ const redirects = [
   },
   {
     from: [
+      '/connections/enterprise/azure-active-directory-classic',
+      '/connections/enterprise/azure-active-directory/v1',
       '/connections/enterprise/azure-active-directory',
       '/connections/social/active-directory',
       '/waad-clientid',
       '/users/guides/azure-access-control',
     ],
     to: '/connections/enterprise/azure-active-directory/v2',
-  },
-  {
-    from: '/connections/enterprise/azure-active-directory-classic',
-    to: '/connections/enterprise/azure-active-directory/v1',
   },
   {
     from: '/connections/enterprise/samlp',
@@ -445,7 +443,10 @@ const redirects = [
     to: 'https://marketplace.auth0.com/integrations/microsoft-account-social-connection',
   },
   {
-    from: '/oauth2',
+    from: [
+      '/connections/adding-generic-oauth1-connection',
+      '/oauth2',
+    ],
     to: '/connections/social/oauth2',
   },
   {
@@ -648,19 +649,11 @@ const redirects = [
     to: '/connections/database/password-options',
   },
   {
-    from: ['/tutorials/adding-generic-oauth1-connection', '/oauth1'],
-    to: '/connections/adding-generic-oauth1-connection',
-  },
-  {
     from: [
       '/tutorials/adding-scopes-for-an-external-idp',
       '/what-to-do-once-the-user-is-logged-in/adding-scopes-for-an-external-idp',
     ],
     to: '/connections/adding-scopes-for-an-external-idp',
-  },
-  {
-    from: ['/tutorials/generic-oauth2-connection-examples', '/oauth2-examples'],
-    to: '/connections/generic-oauth2-connection-examples',
   },
   {
     from: [
@@ -689,8 +682,12 @@ const redirects = [
     to: 'https://marketplace.auth0.com/integrations/criipto-verify-e-id',
   },
   {
-    from: ['/connections/passwordless/sms-gateway', '/connections/passwordless/guides/use-sms-gateway-passwordless'],
-    to: '/connections/passwordless/use-sms-gateway-passwordless',
+    from: [
+      '/connections/passwordless/sms-gateway', 
+      '/connections/passwordless/guides/use-sms-gateway-passwordless',
+      '/connections/passwordless/use-sms-gateway-passwordless',
+      ],
+    to: '/connections/passwordless/authentication-methods/use-sms-gateway-passwordless',
   },
   {
     from: [
