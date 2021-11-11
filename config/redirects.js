@@ -732,6 +732,8 @@ const redirects = [
   {
     from: [
       '/connections/identity-providers-social',
+      '/connections/social/identityproviders',
+      '/connections/social/identity-providers',
       '/connections/social/aol',
       '/aol-clientid',
       '/connections/social/thecity',
@@ -745,6 +747,8 @@ const redirects = [
   {
     from: [
       '/connections/identity-providers-enterprise',
+      '/connections/enterprise/identityproviders',
+      '/connections/enterprise/identity-providers',
       '/connections/enterprise/sharepoint-apps',
       '/sharepoint-clientid',
     ],
