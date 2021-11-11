@@ -55,7 +55,7 @@ AUTH0_CLIENT_SECRET=${account.clientSecret}
 # This can be generated using `openssl rand -hex 32` from your shell.
 AUTH0_COOKIE_SECRET=
 
-# A url your application is accessible from. Update his as appropriate.
+# A url your application is accessible from. Update this as appropriate.
 AUTH0_BASE_URL=http://127.0.0.1:3000
 ```
 
