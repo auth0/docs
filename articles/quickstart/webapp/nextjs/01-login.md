@@ -109,7 +109,7 @@ Add the login link to your application. When you click it, verify that your Next
 Once that's complete, verify that Auth0 redirects back to your application.
 :::
 
-![Auth0 Universal Login](https://cdn.auth0.com/blog/universal-login/lightweight-login.png)
+![Auth0 Universal Login](/media/quickstarts/universal-login.png)
 
 <%= include('../_includes/_auth_note_dev_keys') %>
 

@@ -55,7 +55,7 @@ AUTH0_CLIENT_SECRET=${account.clientSecret}
 # This can be generated using `openssl rand -hex 32` from your shell.
 AUTH0_COOKIE_SECRET=
 
-# A url your application is accessible from. Update his as appropriate.
+# A url your application is accessible from. Update this as appropriate.
 AUTH0_BASE_URL=http://127.0.0.1:3000
 ```
 
@@ -148,7 +148,7 @@ $name = $session->user['name'] ?? $session->user['nickname'] ?? $session->user['
 
 ## Logging in
 
-Now let's create our /login route, which will use the Auth0 PHP SDK's `login()` method to setup the user session and return a customized URL to Auth0's Universal Login Page for this user to login.
+Now let's create our /login route, which will use the Auth0 PHP SDK's `login()` method to set up the user session and return a customized URL to Auth0's Universal Login Page for this user to login.
 
 ```PHP
 // 👆 We're continuing from the steps above. Append this to your index.php file.
@@ -157,7 +157,7 @@ Route::add('/login', function() use ($auth0) {
     // It's a good idea to reset user sessions each time they go to login to avoid "invalid state" errors, should they hit network issues or other problems that interrupt a previous login process:
     $auth0->clear();
 
-    // Finally, setup the local application session, and redirect the user to the Auth0 Universal Login Page to authenticate.
+    // Finally, set up the local application session, and redirect the user to the Auth0 Universal Login Page to authenticate.
     header("Location: " . $auth0->login(ROUTE_URL_CALLBACK));
     exit;
 });
