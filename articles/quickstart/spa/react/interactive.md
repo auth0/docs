@@ -151,7 +151,7 @@ The `user` property contains sensitive information and artifacts related to the 
 :::checkpoint-default
 
 Verify that:
-* you can display the user.name or any other user property within a component correctly after you have logged in
+* you can display the `user.name` or any other user property within a component correctly after you have logged in
 
 :::
 
