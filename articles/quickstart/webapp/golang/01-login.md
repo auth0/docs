@@ -456,8 +456,8 @@ $(document).ready(function () {
 ```
 
 ::: note
-This sample is using [js.cookie](https://github.com/js-cookie/js-cookie/tree/latest#readme) to cookie handling. 
-You need to add `js.cookie.js` file in the `web/static/js` folder to use it.
+This sample is using [js.cookie](https://github.com/js-cookie/js-cookie/tree/latest#readme) for cookie handling. 
+You need to add the `js.cookie.js` file to the `web/static/js` folder to use it.
 :::
 
 ## Optional Steps
