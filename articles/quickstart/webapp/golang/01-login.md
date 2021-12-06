@@ -147,6 +147,7 @@ package router
 
 import (
 	"encoding/gob"
+	"net/http"
 
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-contrib/sessions/cookie"
@@ -155,7 +156,6 @@ import (
 	"01-Login/platform/authenticator"
 	"01-Login/platform/middleware"
 	"01-Login/web/app/callback"
-	"01-Login/web/app/home"
 	"01-Login/web/app/login"
 	"01-Login/web/app/logout"
 	"01-Login/web/app/user"
@@ -175,7 +175,9 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 	router.Static("/public", "web/static")
 	router.LoadHTMLGlob("web/template/*")
 
-	router.GET("/", home.Handler)
+	router.GET("/", func(ctx *gin.Context) {
+		ctx.HTML(http.StatusOK, "home.html", nil)
+	})
 	router.GET("/login", login.Handler(auth))
 	router.GET("/callback", callback.Handler(auth))
 	router.GET("/user", user.Handler)
