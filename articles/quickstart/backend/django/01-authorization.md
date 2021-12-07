@@ -40,9 +40,9 @@ This guide assumes you already have a Django application set up. If that is not 
 The sample project was created with the following commands:
 
 ```bash
-$ django-admin startproject apiexample
-$ cd apiexample
-$ python manage.py startapp auth0authorization
+django-admin startproject apiexample
+cd apiexample
+python manage.py startapp auth0authorization
 ```
 
 ### Add a Django remote user

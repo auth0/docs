@@ -1,4 +1,7 @@
 title: Node (Express) API
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/node.png
+logo: nodejs
 thirdParty: false
 alias:
   - node
@@ -11,7 +14,6 @@ author:
   name: David Patrick
   email: david.patrick@auth0.com
   community: false
-image: /media/platforms/node.png
 topics:
   - quickstart
 contentType: tutorial
@@ -24,14 +26,17 @@ articles:
   - 01-authorization
   - 02-using
   - 03-troubleshooting
+default_article: 01-authorization
 show_steps: true
 github:
   org: auth0-samples
   repo: auth0-express-api-samples
+sdk:
+  name: express-oauth2-jwt-bearer
+  url: https://github.com/auth0/node-oauth2-jwt-bearer/tree/main/packages/express-oauth2-jwt-bearer
+  logo: nodejs
 requirements:
-  - express.js 4.4.0
-  - express-jwt 5.1.0
-  - express-jwt-authz 1.0.0
+  - express-oauth2-jwt-bearer 1.0.0
 next_steps:
   - path: 01-authorization
     list:

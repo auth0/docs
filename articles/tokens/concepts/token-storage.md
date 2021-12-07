@@ -105,5 +105,4 @@ Reduce the amount of third party JavaScript code included from a source outside 
 * [Auth0 SPA SDK](https://github.com/auth0/auth0-spa-js)
 * [Token Best Practices](/best-practices/token-best-practices)
 * [JWT Handbook](https://auth0.com/resources/ebooks/jwt-handbook)
-* [The Ultimate Guide to Next.js Authentication with Auth0](https://auth0.com/blog/ultimate-guide-nextjs-authentication-auth0/?utm_source=twitter&utm_medium=sc&utm_campaign=nextjs_authn_guide)
 * [Using Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers)

@@ -22,11 +22,11 @@ useCase: quickstart
 This tutorial uses `omniauth-auth0`, a custom [OmniAuth strategy](https://github.com/intridea/omniauth#omniauth-standardized-multi-provider-authentication), to handle the authentication flow.  Add the following dependencies to your `Gemfile`:
 
 ```ruby
-gem 'omniauth-auth0', '~> 2.5'
-gem 'omniauth-rails_csrf_protection', '~> 0.1' # prevents forged authentication requests
+gem 'omniauth-auth0', '~> 3.0'
+gem 'omniauth-rails_csrf_protection', '~> 1.0' # prevents forged authentication requests
 ```
 
-Once your gems are added, install the gems with `$ bundle install`:
+Once your gems are added, install the gems with `bundle install`:
 
 ### Initialize Auth0 Configuration
 
@@ -111,7 +111,7 @@ To [prevent forged authentication requests](https://github.com/cookpad/omniauth-
 
 ```erb
   <!-- Place a login button anywhere on your application -->
-  ${"<%= button_to 'Login', 'auth/auth0', method: :post %>"}
+  ${"<%= button_to 'Login', '/auth/auth0', method: :post %>"}
 ```
 
 ## Add Logout to Your Application
@@ -173,7 +173,7 @@ module Secured
   end
 
   def logged_in_using_omniauth?
-    redirect_to '/', unless session[:userinfo].present?
+    redirect_to '/' unless session[:userinfo].present?
   end
 end
 ```

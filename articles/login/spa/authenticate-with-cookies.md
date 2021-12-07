@@ -55,15 +55,15 @@ Once Node is installed, [download or clone the source code](https://github.com/a
 
 ```bash
 // Clone the tutorial respository using SSH
-$ git clone git@github.com:auth0-blog/spa-cookie-demo
+git clone git@github.com:auth0-blog/spa-cookie-demo
 // ... or if you use HTTPS:
-$ git clone https://github.com/auth0-blog/spa-cookie-demo.git
+git clone https://github.com/auth0-blog/spa-cookie-demo.git
 // Move into the project directory
-$ cd spa-cookie-demo
+cd spa-cookie-demo
 ```
 The `master` branch represents the state of the application before any authentication is added. If you would like to refer to the final version of the application, `checkout` the `with-oidc` branch:
 ```bash
-$ git checkout with-oidc
+git checkout with-oidc
 ```
 ### Initialize the Node.js application
 Install the application dependencies by running `npm install` from your terminal window. To run the application, use `npm run dev`. This starts the Express server. Go to [http://localhost:3000](http://localhost:3000) in your browser to view the application.
@@ -77,7 +77,7 @@ Note that you were able to make the API call without being logged in. Let's fix 
 ### Adding authentication middleware
 Inside the terminal, run the following command to install the additional libraries:
 ```bash
-$ npm install express-session express-openid-connect
+npm install express-session express-openid-connect
 ```
 - [`express-openid-connect`](https://www.npmjs.com/package/express-openid-connect) — OpenID Connect middleware for Express. Creates authentication sessions and protects application routes
 - [`express-session`](https://www.npmjs.com/package/express-session) — session middleware for Express; required by `express-openid-connect`
@@ -211,7 +211,7 @@ BASE_URL=http://localhost:3000
 ### Running the application
 With the server and environment configuration done, find your browser window that has the application open. If you've closed the browser and stopped the server, run the following from the terminal to restart the application
 ```bash
-$ npm run dev
+npm run dev
 ```
 Then open [http://localhost:3000](http://localhost:3000) in the browser. From a user interface perspective, the application should look the same. However, this time when the **Call API** button is clicked, you should receive a warning that the user is not logged in. Also note that you do not see the "Hello, World" message as before, since the call to the API has been rejected.
 ![User Is Not Logged In](/media/articles/login/spa/image6.png)

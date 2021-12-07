@@ -80,36 +80,28 @@ If you plan to connect to Google Workspace enterprise domains, you need to enabl
 
 Next, you will need to create and configure a Google Workspace Enterprise Connection in Auth0. Make sure you have the **Client ID** and **Client Secret** generated when you set up your app in the Google developer console.
 
-1. Navigate to the [Connections > Enterprise](${manage_url}/#/connections/enterprise) page in the [Auth0 Dashboard](${manage_url}/), and click the `+` next to **Google Workspace**.
+1. Navigate to [Auth0 Dashboard > Authentication > Enterprise](${manage_url}/#/connections/enterprise), locate **Google Workspace**, and click its `+`.
 
-![Create Connection Type](/media/articles/dashboard/connections/enterprise/conn-enterprise-list-2.png)
+![Create Connection Type](/media/articles/connections/dashboard-connections-enterprise-list.png)
 
-2. Enter general information for your connection:
+2. Enter details for your connection, and select **Create**:
 
 | Field | Description |
 | ----- | ----------- |
 | **Connection name** | Logical identifier for your connection; it must be unique for your tenant. Once set, this name can't be changed. |
-| **Display name** (optional) | Text used to customize the login button for Universal Login. When set, the Universal Login login button reads: "Continue with {Display name}". |
-| **Logo URL** (optional) | URL of image used to customize the login button for Universal Login. When set, the Universal Login login button displays the image as a 20px by 20px square. |
 | **Google Workspace Domain** | Google Workspace domain name for your organization. |
-| **Domain Aliases** (optional) | Comma-separated list of domains registered as aliases for the primary domain. |
-
-![Configure General Google G Suite Settings](/media/articles/dashboard/connections/enterprise/conn-enterprise-gsuite-settings-1-new.png)
-
-3. Enter credentials, select attributes, and configure advanced settings for your connection, then click **Create**:
-
-| Field | Description |
-| ----- | ----------- |
 | **Client ID** | Unique identifier for your registered Google application. Enter the saved value of the **Client ID** for the app you just registered in the Google developer console. |
 | **Client Secret** | String used to gain access to your registered Google application. Enter the saved value of the **Client Secret** for the app you just registered in the Google developer console. |
 | **Attributes** | Basic attributes for the signed-in user that your app can access. Indicates how much information you want stored in the Auth0 User Profile. Options include: **Basic Profile** (`email`, `email verified` flag) and **Extended Profile** (name, public profile URL, photo, gender, birthdate, country, language, and timezone). |
 | **Extended Attributes** | Extended attributes for the signed-in user that your app can access. Options include: **Groups** (distribution list(s) to which the user belongs), **Is Domain Administrator** (indicates whether the user is a domain administrator), **Is Account Suspended** (indicates whether the user's account is suspended), and **Agreed to Terms** (indicates whether the user has agreed to the terms of service). |
 | **Auth0 APIs** | When **Enable Users API** is selected, indicates that you require the ability to make calls to the Google Directory API. |
+| **Sync user profile attributes at each login** | When enabled, Auth0 automatically syncs user profile data with each user login, thereby ensuring that changes made in the connection source are automatically updated in Auth0. |
 
+![Create Connection Type](/media/articles/connections/dashboard-connections-enterprise-create_google-workspace_default-empty.png)
 
-4. If you have appropriate administrative permissions to configure your Google Workspace settings so you can use Google's Admin APIs, then click **Continue**. Otherwise, provide the given URL to your administrator so that they can adjust the required settings.
+3. If you have appropriate administrative permissions to configure your Google Workspace settings so you can use Google's Admin APIs, then click **Continue**. Otherwise, provide the given URL to your administrator so that they can adjust the required settings.
 
-5. On the **Login Experience** tab you can configure how users log in with this connection.
+4. On the **Login Experience** tab you can configure how users log in with this connection.
 
 <%= include('./_login-experience-tab.md') %>
 
@@ -120,5 +112,9 @@ To use your new AD connection, you must first [enable the connection](/dashboard
 ## Test the connection
 
 Now you're ready to [test your connection](/dashboard/guides/connections/test-connections-enterprise).
+
+## Requesting Refresh Tokens from Google
+
+Google always returns an Access Token, which is stored in the user profile. If you add `access_type=offline&approval_prompt=force` to the authorization request, Auth0 will forward these parameters to Google. Google will then return a Refresh Token, which will also be stored in the user profile. 
 
 <%= include('../_quickstart-links.md') %>

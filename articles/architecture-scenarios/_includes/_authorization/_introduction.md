@@ -39,7 +39,7 @@ When deciding what data to include in your ID token and/or access token, conside
 For [API level integration](#api-integration), Auth0 supports both [custom claims](#access-token-claims) as well as [scope](#access-token-scopes) re-configuration, both within the context of an Access Token. Again, you will need to decide what information will be required in order for your API to make access decisions, and your API will need to enforce that by validating the contents of the Access Token.
 
 ::: panel Best Practice
-When deciding whether you should use permissions through custom claims or scopes, you should make sure you understand the nature and purpose of scopes.  There is a nice [blog post](https://auth0.com/blog/on-the-nature-of-oauth2-scopes/) on that which is easy to read and helps clear up the topic.
+When deciding whether you should use permissions through custom claims or scopes, you should make sure you understand the nature and purpose of scopes.
 :::
 
 <% if (platform === "b2b") { %>

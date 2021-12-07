@@ -53,9 +53,6 @@ Given an existing token, this endpoint will generate a new token signed with the
 | <dfn data-key="scope">`scope`</dfn>         | Use `openid` or `openid profile email` |
 | `api_type`       | The API to be called. |
 
-### Test with Postman
-
-<%= include('../../../_includes/_test-with-postman') %>
 
 ### Test with Authentication API Debugger
 

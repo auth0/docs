@@ -35,7 +35,7 @@ Protecting your Laravel API requires a middleware which will check for and verif
 :::
 
 ```bash
-$ composer require auth0/login
+composer require auth0/login
 ```
 
 ### Configure the plugin
@@ -43,7 +43,7 @@ $ composer require auth0/login
 The **laravel-auth0** plugin comes with a configuration file that can be generated using [Artisan](https://laravel.com/docs/5.7/artisan). First, generate the configuration file from the command line:
 
 ```bash
-$ php artisan vendor:publish --provider "Auth0\Login\LoginServiceProvider"
+php artisan vendor:publish --provider "Auth0\Login\LoginServiceProvider"
 ```
 
 After the file is generated, it will be located at `config/laravel-auth0.php`. Edit this file to add the configuration values needed to verify incoming tokens:
@@ -125,7 +125,7 @@ class CheckJWT
     {
         $auth0 = \App::make('auth0');
 
-        $accessToken = $request->bearerToken();
+        $accessToken = $request->bearerToken() ?? "";
         try {
             $tokenInfo = $auth0->decodeJWT($accessToken);
             $user = $this->userRepository->getUserByDecodedJWT($tokenInfo);
@@ -194,7 +194,7 @@ If you see a button to **Create & Authorize Test Application**, you'll need to c
 Now, let's turn on the Laravel test server:
 
 ```bash
-$ php artisan serve --port=3010
+php artisan serve --port=3010
 ```
 
 Send a `GET` request to the public route  - `http://localhost:3010/api/public` - and you should receive back:
@@ -263,7 +263,7 @@ class CheckScope
     {
         $auth0 = \App::make('auth0');
 
-        $accessToken = $request->bearerToken();
+        $accessToken = $request->bearerToken() ?? "";
         try {
             $tokenInfo = $auth0->decodeJWT($accessToken);
             $user = $this->userRepository->getUserByDecodedJWT($tokenInfo);

@@ -2251,8 +2251,11 @@ module.exports = [
       to: '/connections/passwordless/guides/universal-login'
     },
     {
-      from: '/connections/passwordless/faq',
-      to: '/connections/passwordless/reference/troubleshoot'
+      from: [
+        '/connections/passwordless/faq',
+        '/connections/passwordless/reference/troubleshoot'
+      ],
+      to: '/connections/passwordless/troubleshoot'
     },
     {
       from: '/best-practices/custom-db-connections-scripts',

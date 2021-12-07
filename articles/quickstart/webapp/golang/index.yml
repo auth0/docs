@@ -1,12 +1,14 @@
 title: Go
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
 image: /media/platforms/golang.png
+logo: golang
 topics:
   - quickstart
 contentType: tutorial
 useCase: quickstart
 author:
-  name: Jim Anderson
-  email: jim.anderson@auth0.com
+  name: Sergiu Ghitea
+  email: sergiu.ghitea@auth0.com
   community: false
 snippets:
   dependencies: server-platforms/golang/dependencies
@@ -22,7 +24,7 @@ github:
   repo: auth0-golang-web-app
   branch: master
 requirements:
-	- Go 1.12+
+	- Go 1.15+
 next_steps:
   - path: 01-login
     list:

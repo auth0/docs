@@ -44,7 +44,6 @@ Auth0 provides sample scripts for use with the following languages/technologies:
 * [ASP.NET Membership Provider (MVC4 - Simple Membership)](/connections/database/custom-db/templates/delete#asp-net-membership-provider-mvc4-simple-membership-)
 * [MongoDB](/connections/database/custom-db/templates/delete#mongodb)
 * [MySQL](/connections/database/custom-db/templates/delete#mysql)
-* [Oracle](/connections/database/custom-db/templates/delete#oracle)
 * [PostgreSQL](/connections/database/custom-db/templates/delete#postgresql)
 * [SQL Server](/connections/database/custom-db/templates/delete#sql-server)
 * [Windows Azure SQL Database](/connections/database/custom-db/templates/delete#windows-azure-sql-database)
@@ -56,7 +55,7 @@ Auth0 provides sample scripts for use with the following languages/technologies:
 ```
 function remove (id, callback) {
   // This script remove a user from your existing database.
-  // It is executed whenever a user is deleted from the API or Auth0 dashboard.
+  // It is executed whenever a user is deleted from the Management API or Auth0 dashboard.
   //
   // There are two ways that this script can finish:
   // 1. The user was removed successfully:
@@ -222,38 +221,6 @@ function remove(id, callback) {
     if (err) return callback(err);
     callback(null);
   });
-}
-```
-
-### Oracle
-
-```
-function remove(id, callback) {
-  const oracledb = require('oracledb');
-  oracledb.outFormat = oracledb.OBJECT;
-
-  oracledb.getConnection({
-      user: configuration.dbUser,
-      password: configuration.dbUserPassword,
-      connectString: 'CONNECTION_STRING' // Refer here https://github.com/oracle/node-oracledb/blob/master/doc/api.md#connectionstrings
-    },
-    function(err, connection) {
-      if (err) return callback(err);
-
-      const query = 'delete Users where ID = :id';
-      connection.execute(query, [id], { autoCommit: true }, function(err) {
-        doRelease(connection);
-        callback(err);
-      });
-
-      // Note: connections should always be released when not needed
-      function doRelease(connection) {
-        connection.close(
-          function(err) {
-            if (err) console.error(err.message);
-          });
-      }
-    });
 }
 ```
 

@@ -52,8 +52,6 @@ The most secure practice, and our recommendation, is to use **RS256**. Some of t
 - Under HS256, if the private key is compromised you would have to re-deploy the API with the new secret. With RS256, you can request a token that is valid for multiple audiences.
 - With RS256, you can implement key rotation without having to re-deploy the API with the new secret.
 
-For a more detailed overview of the JWT signing algorithms, see [JSON Web Token (JWT) Signing Algorithms Overview](https://auth0.com/blog/json-web-token-signing-algorithms-overview/).
-
 ## Configure the Scopes
 
 Once the application has been created, you will need to configure the Scopes that applications can request during authorization.

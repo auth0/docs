@@ -232,7 +232,7 @@ You can import users with the following properties:
 | `user_id` | string | The user's unique identifier. This will be prepended by the connection strategy. | No |
 | `user_metadata` | object | Data that does not impact what users can or cannot access, such as work address, home address, or user preferences. | Yes |
 | `username` | string | The user's username. | No |
-| `password_hash` | string | Hashed password for the user's connection. When users are created, Auth0 uses [bcrypt](https://auth0.com/blog/hashing-in-action-understanding-bcrypt/) to secure the password. Importing hashed passwords lets users keep their passwords for a smoother experience. Compatible passwords should be hashed using bcrypt $2a$ or $2b$ and have 10 saltRounds. This property can only be provided when the user is first imported and cannot be updated later. | No |
+| `password_hash` | string | Hashed password for the user's connection. When users are created, Auth0 uses `bcrypt` to secure the password. Importing hashed passwords lets users keep their passwords for a smoother experience. Compatible passwords should be hashed using bcrypt $2a$ or $2b$ and have 10 saltRounds. This property can only be provided when the user is first imported and cannot be updated later. | No |
 | `custom_password_hash` | object | A more generic way to provide the user's password hash. This can be used instead of the `password_hash` field when the user's password hash was created with an alternate algorithm. This property can only be provided when the user is first imported and cannot be updated later. | Yes |
 | `password_set_date` | datetime | Timestamp indicating when the password for the user's connection was set. At user creation, this field exists, and `last_password_reset` does not. If the user has reset their password, this field and `last_password_reset` are identical. | No |
 | `mfa_factors` | array | The MFA factors that can be used to authenticate this user | Yes |
@@ -289,7 +289,7 @@ The `user.custom_password_hash` object has the following properties:
 Auth0 currently supports imports of user passwords hashed by:
 
 * [Argon2](https://github.com/p-h-c/phc-winner-argon2)
-* [bcrypt](https://auth0.com/blog/hashing-in-action-understanding-bcrypt/)
+* [bcrypt](https://www.npmjs.com/package/bcrypt)
 * [LDAP](https://tools.ietf.org/html/rfc2307#section-5.3) (`RFC-2307 "userPassword"`)
 * [HMAC](https://tools.ietf.org/html/rfc2104)
 * [MD4](https://tools.ietf.org/html/rfc1320)
@@ -609,4 +609,4 @@ The file size limit for a bulk import is 500KB. You will need to start multiple 
 * [Bulk User Imports](/users/guides/bulk-user-imports)
 * [User Import/Export Extension](/extensions/user-import-export)
 * [User Migration Scenarios](/users/references/user-migration-scenarios)
-* [Migrating Stormpath Users to Auth0 Demo](https://github.com/auth0-blog/migrate-stormpath-users-to-auth0)
+

@@ -1,5 +1,8 @@
 title: Java EE
+# TODO remove 'image' and 'logo_name' once new QS page is live. Then only use 'logo'.
 logo_name: java
+image: /media/platforms/java.png
+logo: java
 author:
   name: Jim Anderson
   email: jim.anderson@auth0.com
@@ -11,7 +14,6 @@ languages:
   - Java
 framework:
   - Java EE
-image: /media/platforms/java.png
 topics:
   - quickstart
 contentType: tutorial
@@ -25,6 +27,10 @@ github:
   org: auth0-samples
   repo: auth0-java-ee-sample
   branch: master
+sdk:
+  name: auth0-java-mvc-common
+  url: https://github.com/auth0/auth0-java-mvc-common
+  logo: java
 requirements:
   - Java 8
 next_steps:

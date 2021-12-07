@@ -16,14 +16,17 @@ useCase:
 ---
 # Connect Apps to Generic OAuth2 Authorization Servers
 
-The most common [identity providers](/identityproviders) are available on Auth0's Dashboard and in the [Auth0 Marketplace](https://marketplace.auth0.com/features/social-connections). However, you can add any other <dfn data-key="oauth2">OAuth2</dfn> provider using a **Custom Social Connection**.
+The most common [identity providers](/identityproviders) are available in [Auth0's Dashboard](${manage_url}) and in the [Auth0 Marketplace](https://marketplace.auth0.com/features/social-connections). However, you can add any other <dfn data-key="oauth2">OAuth2</dfn> provider using a **Custom Social Connection**.
 
-To create a new Custom Social Connection, navigate to [**Auth0 Dashboard > Connections > Social**](${manage_url}/#/connections/social), scroll to the bottom, and click **Create Custom**.
+To create a new Custom Social Connection, navigate to [**Auth0 Dashboard > Authentication > Social**](${manage_url}/#/connections/social), click **Create Connection**, scroll to the bottom of the list, and click **Create Custom**.
 
 The form that appears contains several fields that you must use to configure the custom connection:
 
 - **Connection Name**: Logical identifier for the Connection you are creating. This name cannot be changed, must start and end with an alphanumeric character, and can only contain alphanumeric characters and dashes.
-- **Authorization URL**: URL to which users are redirected tp log in.
+- **Authorization URL**: URL to which users are redirected to log in.
+  :::note
+  Do not attempt to set the OAuth2 `response_mode` parameter in the authorization URL. This connection only supports the default `response_mode` (`query`).
+  :::
 - **Token URL**: URL used to exchange the received authorization code for access tokens and, if requested, ID tokens.
 - **Scope** - `scope` parameters to send with the authorization request. Separate multiple scopes with spaces.
 - **Client ID**: Client ID for Auth0 as an application used to request authorization and exchange the authorization code. To get a Client ID, you will need to register with the identity provider.

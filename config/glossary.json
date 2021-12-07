@@ -4,6 +4,11 @@
     "definition": "A credential that can be used by an application to access an API. It informs the API that the bearer of the token has been authorized to access the API and perform specific actions specified by the scope that has been granted. An Access Token can be in any format, but two popular options include opaque strings and JSON Web Tokens (JWT). They should be transmitted to the API as a Bearer credential in an HTTP Authorization header.",
     "short": "An authorization credential, in the form of an opaque string or JWT, used to access an API."
   },
+  "actions": {
+    "title": "Actions",
+    "definition": "Secure, tenant-specific, versioned functions written in Node.js that execute at certain points during the Auth0 runtime. Actions are used to customize and extend Auth0's capabilities with custom logic.",
+    "short": "Secure, tenant-specific, versioned functions written in Node.js that execute at certain points during the Auth0 runtime."
+  },
   "adaptive-multifactor-authentication": {
     "title": "Adaptive Multi-factor Authentication",
     "definition": "Multi-factor authentication (MFA) that is only triggered for users when an attempted login is determined to be a low confidence login. With Adaptive MFA, Auth0 triggers MFA only when needed to add friction for bad actors while keeping the login experience unchanged for good actors.",
@@ -129,6 +134,11 @@
     "definition": "The date that access to a feature or behavior is removed from the platform. End Of Life Dates can vary between different plan types.",
     "short": "The date that access to a feature or behavior is removed from the platform. End Of Life Dates can vary between different plan types."
   },
+  "flow": {
+    "title": "Flow",
+    "definition": "Processes that can be extended using Actions. Each Flow is made up of one or more Triggers and represents the logical pipeline through which information moves during a single point in the Auth0 journey.",
+    "short": "Processes that can be extended using Actions. Each Flow is made up of one or more Triggers and represents the logical pipeline through which information moves during a single point in the Auth0 journey."  
+  },
   "general-availability": {
     "title": "General Availability",
     "definition": "A product release stage during which the referenced feature or behavior is fully functional and available to all subscribers (limited by pricing tier) for production use. If a new release replaces an existing feature, Auth0 provides a period of backward compatibility in accordance with our deprecation policy and informs customers so they have time to adopt the new release.",
@@ -196,7 +206,7 @@
   },
   "public-client": {
     "title": "Public Client",
-    "definition": "According to the OAuth 2.0 protocol, clients (applications) can be classified as either confidential or public depending on whether or not they are able to hold credentials (such as a client ID and secret) securely. Public clients cannot hold credentials securely, so should only use grant types that do not require the use of their client secret. ID Tokens issued to them must be signed asymmetrically using a private key (RS256) and verified using the public key corresponding to the private key used to sign the token. See <a href=‘/applications/concepts/app-types-confidential-public'>Application Types - Confidential vs. Public</a>.",
+    "definition": "According to the OAuth 2.0 protocol, clients (applications) can be classified as either confidential or public depending on whether or not they are able to hold credentials (such as a client ID and secret) securely. Public clients cannot hold credentials securely, so should only use grant types that do not require the use of their client secret. ID Tokens issued to them must be signed asymmetrically using a private key (RS256) and verified using the public key corresponding to the private key used to sign the token. See <a href='/docs/applications/concepts/app-types-confidential-public'>Application Types - Confidential vs. Public</a>.",
     "short": "A client (application) that cannot hold credentials securely. Examples include a native desktop or mobile application and a JavaScript-based client-side web application (such as a single-page app (SPA))."
   },
   "raw-credentials": {
@@ -206,7 +216,7 @@
   },
   "refresh-token": {
     "title": "Refresh Token",
-    "definition": "A special kind of token that can be used to obtain a renewed Access Token. It is useful for renewing expiring Access Tokens without forcing the user to log in again. Using the Refresh Token, you can request a new Access Token at any time until the Refresh Token is blacklisted. See <a href='/tokens/concepts/refresh-tokens'>Refresh Tokens</a>.",
+    "definition": "A special kind of token that can be used to obtain a renewed Access Token. It is useful for renewing expiring Access Tokens without forcing the user to log in again. Using the Refresh Token, you can request a new Access Token at any time until the Refresh Token is blacklisted. See <a href='/docs/tokens/concepts/refresh-tokens'>Refresh Tokens</a>.",
     "short": "A token used to obtain a renewed Access Token without forcing users to log in again."
   },
   "refresh-token-rotation": {
@@ -283,6 +293,11 @@
     "title": "Token Endpoint",
     "definition": "The endpoint on the Authorization Server that is used to programmatically request tokens.",
     "short": "The endpoint on the Authorization Server that is used to programmatically request tokens."
+  },
+  "trigger": {
+    "title": "Trigger",
+    "definition": "An event that automatically invokes an Action when a specific operation, such as a user logging in, occurs at runtime. Some Triggers are executed synchronously, blocking the Flow in which they are involved, and some are executed asynchronously.",
+    "short": "An event that automatically invokes an Action when a specific operation, such as a user logging in, occurs at runtime."  
   },
   "trust": {
     "title": "Trust",

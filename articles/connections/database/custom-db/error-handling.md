@@ -17,11 +17,13 @@ You can use return errors resulting from your custom database connection for tro
 
 There are three different errors you can return from a database connection:
 
-| Error | Description |
-| - | - |
-| `new WrongUsernameOrPasswordError(<email or user_id>, <message>)` | an error that occurs when you know who the user is and want to keep track of a wrong password being used |
-| `new ValidationError(<error code>, <message>)` | a generic error with an error code |
-| `new Error(<message>)` | a simple error (no error code included) |
+| Error | Login Script | Description |
+| - | - | - |
+| `new WrongUsernameOrPasswordError(<email or user_id>, <message>)` | Login | Occurs when the user's credentials are invalid |
+| `new ValidationError(<user_exists>, <message>)` | Create | Occurs when a user already exists in your database |
+| `callback(<null>,<false>)` | Change Password | Occurs when the user's password was not updated|
+| `callback(<null>)` | Get User | Occurs when the user is not found|
+| `new Error(<message>)` | All Login Scripts | Occurs when something went wrong while trying to reach the database |
 
 ## Return errors
 

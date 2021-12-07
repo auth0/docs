@@ -11,8 +11,10 @@ github:
 contentType: tutorial
 useCase: quickstart
 ---
-<%= include('../_includes/_getting_started', { library: 'React Native'}) %>
 
+<!-- markdownlint-disable MD002 MD012 MD041 -->
+
+<%= include('../_includes/_getting_started', { library: 'React Native'}) %>
 
 ## Install Dependencies 
 
@@ -51,53 +53,26 @@ pod install
 
 The first step in adding authentication to your application is to provide a way for your users to log in. The fastest, most secure, and most feature-rich way to do this with Auth0 is to use the hosted [login page](/hosted-pages/login).
 
-<div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/lock_centralized_login.png" alt="Login Page"></div>
+<div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/login-ios.png" alt="Universal Login"></div>
 
 ## Integrate Auth0 in Your Application
 
 ### Configure Android
 
-In the file `android/app/src/main/AndroidManifest.xml` you must make sure the activity you are going to receive the authentication on has a **launchMode** value of `singleTask` and that it declares the following intent filter (see the [React Native docs](https://facebook.github.io/react-native/docs/linking#basic-usage) for more information):
+Open your app's `build.gradle` file (typically at `android/app/build.gradle`) and add the following manifest placeholders. The value for `auth0Domain` should be populated from your Auth0 application settings [as configured above](#get-your-application-keys).
 
-```xml
-<intent-filter>
-    <action android:name="android.intent.action.VIEW" />
-    <category android:name="android.intent.category.DEFAULT" />
-    <category android:name="android.intent.category.BROWSABLE" />
-    <data
-        android:host="${account.namespace}"
-        android:pathPrefix="/android/<%= "${applicationId}" %>/callback"
-        android:scheme="<%= "${applicationId}" %>" />
-</intent-filter>
-```
-
-The sample app declares this inside the **MainActivity** like this:
-
-```xml
-<activity
-android:name=".MainActivity"
-android:label="@string/app_name"
-android:launchMode="singleTask"
-android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-android:windowSoftInputMode="adjustResize">
-<intent-filter>
-    <action android:name="android.intent.action.MAIN" />
-    <category android:name="android.intent.category.LAUNCHER" />
-</intent-filter>
-<intent-filter>
-    <action android:name="android.intent.action.VIEW" />
-    <category android:name="android.intent.category.DEFAULT" />
-    <category android:name="android.intent.category.BROWSABLE" />
-    <data
-        android:host="${account.namespace}"
-        android:pathPrefix="/android/<%= "${applicationId}" %>/callback"
-        android:scheme="<%= "${applicationId}" %>" />
-</intent-filter>
-</activity>
+```groovy
+android {
+    defaultConfig {
+        // Add the next line
+        manifestPlaceholders = [auth0Domain: "${account.namespace}", auth0Scheme: "<%= "${applicationId}" %>"]
+    }
+    ...
+}
 ```
 
 ::: note
-The value of `<%= "${applicationId}" %>` dynamically matches the one defined in the `app/build.gradle` file. For the sample app, this value matches `com.auth0samples`.
+The `applicationId` value will be auto-replaced at runtime with the package name or ID of your application (e.g. `com.example.app`). You can change this value from the `build.gradle` file. You can also check it at the top of your `AndroidManifest.xml` file.
 :::
 
 ### Configure iOS

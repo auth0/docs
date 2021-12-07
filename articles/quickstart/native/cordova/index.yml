@@ -1,4 +1,7 @@
 title: Cordova
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/phonegap.png
+logo: cordova
 author:
   name: David Patrick
   email: david.patrick@auth0.com
@@ -8,7 +11,6 @@ language:
 framework:
   - Cordova
 hybrid: true
-image: /media/platforms/phonegap.png
 topics:
   - quickstart
 contentType: tutorial
@@ -28,6 +30,10 @@ show_steps: true
 github:
   org: auth0-samples
   repo: auth0-cordova-samples
+sdk:
+  name: auth0-cordova
+  url: https://github.com/auth0/auth0-cordova
+  logo: cordova
 requirements:
   - NodeJS 10
   - Cordova 9

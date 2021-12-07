@@ -94,8 +94,6 @@ If you want to use the Public Key to verify a JWT signature on [JWT.io](https://
 If you want to verify the signature of a token from one of your applications, we recommend that you get the Public Key from your tenant's [JSON Web Key Set (JWKS)](/tokens/concepts/jwks). Your tenant's JWKS is `https://${account.namespace}/.well-known/jwks.json`.
 :::
 
-For a more detailed overview of the JWT signing algorithms, see [JSON Web Token (JWT) Signing Algorithms Overview](https://auth0.com/blog/json-web-token-signing-algorithms-overview/).
-
 # Keep reading
 
 - [API Authorization Overview](/api-auth)

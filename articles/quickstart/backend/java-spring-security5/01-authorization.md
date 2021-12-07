@@ -55,16 +55,13 @@ If you are using Gradle, you can add the required dependencies using the [Spring
 // build.gradle
 
 plugins {
-    id 'org.springframework.boot' version '2.2.6.RELEASE'
+    id 'org.springframework.boot' version '2.5.5'
     id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.security:spring-security-oauth2-resource-server'
-    implementation 'org.springframework.security:spring-security-oauth2-jose'
-    implementation 'org.springframework.security:spring-security-config'
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
 }
 ```
 
@@ -76,30 +73,18 @@ If you are using Maven, add the Spring dependencies to your `pom.xml` file:
 <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.2.6.RELEASE</version>
+    <version>2.5.5</version>
     <relativePath/>
 </parent>
 
 <dependencies>
     <dependency>
         <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-security</artifactId>
-    </dependency>
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
     <dependency>
         <groupId>org.springframework.security</groupId>
-        <artifactId>spring-security-oauth2-resource-server</artifactId>
-    </dependency>
-    <dependency>
-        <groupId>org.springframework.security</groupId>
-        <artifactId>spring-security-oauth2-jose</artifactId>
-    </dependency>
-    <dependency>
-        <groupId>org.springframework.security</groupId>
-        <artifactId>spring-security-config</artifactId>
+        <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
     </dependency>
 </dependencies>
 ```

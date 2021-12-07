@@ -85,11 +85,6 @@ This is the flow that regular web apps use to access an API. Use this endpoint t
 | `redirect_uri`| This is required only if it was set at the [GET /authorize](#authorization-code-grant) endpoint. The values must match. |
 
 
-### Test with Postman
-
-<%= include('../../../_includes/_test-with-postman') %>
-
-
 ### Test with Authentication API Debugger
 
 <%= include('../../../_includes/_test-this-endpoint') %>
@@ -298,8 +293,7 @@ grant_type=password&username=USERNAME&password=PASSWORD&audience=API_IDENTIFIER&
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --data 'grant_type=password&username=USERNAME&password=PASSWORD&audience=API_IDENTIFIER&scope=SCOPE&client_id=${account.clientId}&client_secret=YOUR_CLIENT_SECRET"
- }'
+  --data 'grant_type=password&username=USERNAME&password=PASSWORD&audience=API_IDENTIFIER&scope=SCOPE&client_id=${account.clientId}&client_secret=YOUR_CLIENT_SECRET'
 ```
 
 ```javascript

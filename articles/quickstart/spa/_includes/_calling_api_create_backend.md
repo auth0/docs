@@ -7,44 +7,26 @@ For this example, you'll create an [Express](https://expressjs.com/) server that
 Start by installing the following packages:
 
 ```bash
-npm install express express-jwt jwks-rsa npm-run-all
+npm install express express-oauth2-jwt-bearer npm-run-all
 ```
 
 * [`express`](https://github.com/expressjs/express) - a lightweight web server for Node
-* [`express-jwt`](https://www.npmjs.com/package/express-jwt) - middleware to validate JsonWebTokens
-* [`jwks-rsa`](https://www.npmjs.com/package/jwks-rsa) - retrieves RSA signing keys from a JWKS endpoint
+* [`express-oauth2-jwt-bearer`](https://github.com/auth0/node-oauth2-jwt-bearer/tree/main/packages/express-oauth2-jwt-bearer) - middleware to validate JWT-formatted access tokens
 * [`npm-run-all`](https://www.npmjs.com/package/npm-run-all) - a helper to run the SPA and backend API concurrently
 
 Next, create a new file `server.js` with the following code:
 
 ```js
 const express = require("express");
-const jwt = require("express-jwt");
-const jwksRsa = require("jwks-rsa");
+const { auth } = require("express-oauth2-jwt-bearer");
 
 // Create a new Express app
 const app = express();
 
-// Set up Auth0 configuration. These values should be
-// the domain and audience for the API that you want to call.
-const authConfig = {
-  domain: "${account.namespace}",
+// Define middleware that validates incoming bearer access token JWTs
+const checkJwt = auth({
+  issuerBaseURL: "https://${account.namespace}",
   audience: "${apiIdentifier}"
-};
-
-// Define middleware that validates incoming bearer tokens
-// using JWKS from ${account.namespace}
-const checkJwt = jwt({
-  secret: jwksRsa.expressJwtSecret({
-    cache: true,
-    rateLimit: true,
-    jwksRequestsPerMinute: 5,
-    jwksUri: `https://<%= "${authConfig.domain}" %>/.well-known/jwks.json`
-  }),
-
-  audience: authConfig.audience,
-  issuer: `https://<%= "${authConfig.domain}" %>/`,
-  algorithms: ["RS256"]
 });
 
 // Define an endpoint that must be called with an access token
@@ -58,8 +40,8 @@ app.get("/api/external", checkJwt, (req, res) => {
 app.listen(3001, () => console.log('API listening on 3001'));
 ```
 
-The above API has one available endpoint, `/api/external`, that returns a JSON response to the caller. This endpoint uses the `checkJwt` middleware to validate the supplied bearer token using your tenant's [JSON Web Key Set](https://auth0.com/docs/jwks). If the token is valid, the request is allowed to continue. Otherwise, the server returns a 401 Unauthorized response.
+The above API has one available endpoint, `/api/external`, that returns a JSON response to the caller. This endpoint uses the `checkJwt` middleware to validate the supplied bearer token. If the token is valid, the request is allowed to continue. Otherwise, the server returns a 401 Unauthorized response.
 
 :::note
-Ensure that the values for `domain` and `audience` in the code snippet above are correct for the API that you want to call.
+Ensure that the values for `issuerBaseURL` and `audience` in the code snippet above are correct for the API that you want to call.
 :::

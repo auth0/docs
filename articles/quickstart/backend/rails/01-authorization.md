@@ -1,5 +1,5 @@
 ---
-title: Authentication
+title: Authorization
 description: This tutorial demonstrates how to add authorization to a Ruby on Rails API.
 topics:
     - quickstart

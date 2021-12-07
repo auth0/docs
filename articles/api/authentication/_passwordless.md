@@ -97,9 +97,6 @@ You have three options for [passwordless authentication](/connections/passwordle
 | `send` | Use `link` to send a link or `code` to send a verification code. If null, a link will be sent. |
 | `authParams` | Use this to append or override the link parameters (like `scope`, `redirect_uri`, `protocol`, `response_type`), when you send a link using email. |
 
-### Test with Postman
-
-<%= include('../../_includes/_test-with-postman') %>
 
 ### Remarks
 
@@ -114,7 +111,7 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 ### More Information
 
 - [Passwordless Authentication](/connections/passwordless)
-- [Passwordless Best Practices](/connections/passwordless/guides/best-practices)
+- [Passwordless Best Practices](/connections/passwordless/best-practices)
 
 ## Authenticate User
 
@@ -205,9 +202,6 @@ Once you have a verification code, use this endpoint to login the user with thei
 | <dfn data-key="audience">`audience`</dfn> | API Identifier of the API for which you want to get an Access Token. |
 | <dfn data-key="scope">`scope`</dfn> | Use `openid` to get an ID Token, or `openid profile email` to also include user profile information in the ID Token. |
 
-### Test with Postman
-
-<%= include('../../_includes/_test-with-postman') %>
 
 ### Test with Authentication API Debugger
 
@@ -251,9 +245,6 @@ Once you have a verification code, use this endpoint to login the user with thei
 | `password` <br/><span class="label label-danger">Required</span> | The user's verification code.  |
 | <dfn data-key="scope">`scope`</dfn> | Use `openid` to get an ID Token, or `openid profile email` to include also user profile information in the ID Token. |
 
-### Test with Postman
-
-<%= include('../../_includes/_test-with-postman') %>
 
 ### Test with Authentication API Debugger
 
@@ -277,5 +268,5 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 
 ### More Information
 
-- [Passwordless Best Practices](/connections/passwordless/guides/best-practices)
+- [Passwordless Best Practices](/connections/passwordless/best-practices)
 

@@ -386,6 +386,6 @@ mvnw.cmd clean wildfly:run
 
 Point your browser to [http://localhost:3000](http://localhost:3000). Follow the **Log In** link to log in or sign up to your Auth0 tenant. 
 
-![login page](/media/articles/web/hosted-login.png)
+![Auth0 Universal Login](/media/quickstarts/universal-login.png)
 
 Upon successful login, you will see the user's profile picture and a drop-down menu where the Log In link was. You can then view the user's profile page by clicking the **Profile** link. You can log out by clicking the **Logout** link in the drop-down menu.

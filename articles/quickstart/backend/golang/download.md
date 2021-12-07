@@ -1,7 +1,7 @@
 To run it from the command line:
 
 ```bash
-go get -d
+go mod vendor
 go run main.go
 ```
 

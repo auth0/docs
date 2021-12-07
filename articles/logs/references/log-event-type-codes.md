@@ -78,6 +78,7 @@ The following table lists the codes associated with the each log event.
 | `limit_delegation` | Too Many Calls to /delegation | Rate limit exceeded to `/delegation` endpoint | [API Rate Limit Policy](/policies/rate-limits) |
 | `limit_mu` | Blocked IP Address | An IP address is blocked with 100 failed login attempts using different usernames, all with incorrect passwords in 24 hours, or 50 sign-up attempts per minute from the same IP address. | [Anomaly Detection](/anomaly-detection) |
 | `limit_wc` | Blocked Account | An IP address is blocked with 10 failed login attempts into a single account from the same IP address. | [Anomaly Detection](/anomaly-detection) |
+| `mfar` | MFA Required | A user has been prompted for multi-factor authentication. In the case of Adaptive MFA, details regarding the risk assessment are included. | Available in only [Resource Owner Password Flow](/flows/resource-owner-password-flow). |
 | `pwd_leak` | Breached password | Someone behind the IP address: `ip` attempted to login with a leaked password. | [Anomaly Detection](/anomaly-detection) |
 | `s` | Success Login | Successful login event. | |
 | `sapi` | Success API Operation | | |

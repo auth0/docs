@@ -20,9 +20,9 @@ When using passwords for authentication, you should enforce the creation of uniq
 
 Important facets of strong passwords are their uniqueness and difficulty to guess. Auth0's password options for database connections allow you to force your users to make better decisions when choosing their passwords.
 
-![Password Options](/media/articles/connections/database/pw-options.png)
+![Password Options](/media/articles/connections/database/dashboard-connections-database-edit_view-password-policy_password-options.png)
 
-The Password Options area is located in your [Auth0 Dashboard](${manage_url}). Go to Connections -> Database, choose a database connection, and then open its settings, and click _Password Policy_. The Password Policy settings page contains the ability to configure the [Password Strength Policy](/connections/database/password-strength) as well as the Password Options below.
+The Password Options area is located at [Auth0 Dashboard > Authentication > Database](${manage_url}/#/connections/database). Choose a database connection, then select the **Password Policy** view. The Password Policy settings page contains the ability to configure the [Password Strength Policy](/connections/database/password-strength) as well as the following Password Options.
 
 ## Password History
 

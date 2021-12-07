@@ -50,7 +50,7 @@ Each property in the key is defined by the JWK specification [RFC 7517 Section 4
 Auth0 only supports HMAC and RSA; it does not currently support Elliptic Curve encryption (ECDSA).
 :::
 
-For an example that uses JWKS to verify a JWT's signature, see [Navigating RS256 and JWKS](https://auth0.com/blog/navigating-rs256-and-jwks/) (uses Node.js), or check out our [Backend/API Quickstarts](/quickstart/backend).
+For an example that uses JWKS to verify a JWT's signature, check out our [Backend/API Quickstarts](/quickstart/backend).
 
 ## Keep reading
 

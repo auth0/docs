@@ -1,7 +1,9 @@
 title: Apache
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/apache.jpg
+logo: apache
 author:
   community: true
-image: /media/platforms/apache.jpg
 topics:
   - quickstart
 snippets:

@@ -46,3 +46,17 @@ shopt -u dotglob
 
 commitHash=$(git rev-parse --short HEAD)
 echo "Docs site successfully setup. auth0-docs commit: $commitHash"
+
+# Setup Artifactory npm registry and permissions
+if [ ! -z "$NPM_REGISTRY_TOKEN" ] &&  [ ! -z "$NPM_REGISTRY_USER" ] && [ ! -z "$NPM_REGISTRY_URL" ] && [ ! -z "$NPM_REGISTRY_AUTH" ]; then
+  echo "Detected NPM Registry. Adding Artifactory config..." >&1
+  echo "registry=$NPM_REGISTRY_URL" > ~/.npmrc
+  curl -s -u $NPM_REGISTRY_USER:$NPM_REGISTRY_TOKEN $NPM_REGISTRY_AUTH >> ~/.npmrc
+  success=$?
+  if [ $success -ne 0 ]; then
+    echo "... failed!"
+  else
+    echo "... done."
+  fi
+  echo "" >&1
+fi

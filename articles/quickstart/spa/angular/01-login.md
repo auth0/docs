@@ -17,15 +17,7 @@ useCase: quickstart
 
 <%= include('../_includes/_getting_started', { library: 'Angular', callback: 'http://localhost:4200', returnTo: 'http://localhost:4200', webOriginUrl: 'http://localhost:4200', showLogoutInfo: true, showWebOriginInfo: true, new_js_sdk: true, show_install_info: false }) %>
 
-## Install the Auth0 Angular SDK
-
-Run the following command within your project directory to install the Auth0 Angular SDK:
-
-```bash
-npm install @auth0/auth0-angular
-```
-
-The SDK exposes several types that help you integrate Auth0 with your Angular application idiomatically, including a module and an authentication service.
+<%= include('../../_includes/_auth0-angular-install') %>
 
 ### Register and configure the authentication module
 
@@ -94,7 +86,7 @@ Add the `AuthButtonComponent` component to your application. When you click it, 
 Once that's complete, verify that Auth0 redirects back to your application's homepage.
 :::
 
-![Auth0 Universal Login](https://cdn.auth0.com/blog/universal-login/lightweight-login.png)
+![Auth0 Universal Login](/media/quickstarts/universal-login.png)
 
 <%= include('../_includes/_auth_note_dev_keys') %>
 
@@ -164,4 +156,8 @@ The `user$` observable contains sensitive information and artifacts related to t
 
 :::panel Checkpoint
 Verify that you can display the `user.name` or [any other `user` property](/users/references/user-profile-structure#user-profile-attributes) within a component correctly after you have logged in.
+:::
+
+:::note
+For a deep dive into implementing user authentication in Angular, visit the [Complete Guide to Angular User Authentication with Auth0](https://auth0.com/blog/complete-guide-to-angular-user-authentication/). This guide provides you with additional details, such as creating a signup button.
 :::

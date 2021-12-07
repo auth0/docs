@@ -28,10 +28,10 @@ In this section, you will modify the [ExpressJS](https://expressjs.com) that you
 
 ### Add middleware to the backend
 
-To begin, let's install some NPM packages that will be used to validate incoming tokens to the server. From the terminal:
+To begin, let's install an NPM package that will be used to validate incoming tokens to the server. From the terminal:
 
 ```bash
-npm install express-jwt jwks-rsa
+npm install express-oauth2-jwt-bearer
 ```
 
 Next, open `server.js` and bring in these libraries as imports at the top of the file. Also bring in the `auth_config.json` file so that the script can get access to the authentication credentials that have been configured:
@@ -39,33 +39,23 @@ Next, open `server.js` and bring in these libraries as imports at the top of the
 ```js
 // .. other imports
 
-const jwt = require("express-jwt");
-const jwksRsa = require("jwks-rsa");
+const { auth } = require("express-oauth2-jwt-bearer");
 const authConfig = require("./auth_config.json");
 ```
 
-- [`express-jwt`](https://npmjs.com/package/express-jwt) - validates JWTs from the `authorization` header and sets the `req.user` object
-- [`jwks-rsa`](https://npmjs.com/package/jwks-rsa) - downloads RSA signing keys from a JSON Web Key Set (JWKS) endpoint
+- [`express-oauth2-jwt-bearer`](https://npmjs.com/package/express-oauth2-jwt-bearer) - validates JWTs from the `authorization` header and sets the `req.auth` object
 
-Then add a call to `jwt()`, which creates the middleware needed in order to validate and parse incoming access tokens. This should go after the `require` statements but before any routes are defined in your app:
+Then add a call to `auth()`, which creates the middleware needed in order to validate and parse incoming access tokens. This should go after the `require` statements but before any routes are defined in your app:
 
 ```js
 // create the JWT middleware
-const checkJwt = jwt({
-  secret: jwksRsa.expressJwtSecret({
-    cache: true,
-    rateLimit: true,
-    jwksRequestsPerMinute: 5,
-    jwksUri: `https://<%= "${authConfig.domain}" %>/.well-known/jwks.json`
-  }),
-
+const checkJwt = auth({
   audience: authConfig.audience,
-  issuer: `https://<%= "${authConfig.domain}" %>/`,
-  algorithms: ["RS256"]
+  issuerBaseURL: `https://<%= "${authConfig.domain}" %>`
 });
 ```
 
-This code configures the `express-jwt` middleware with the settings that relate to your Auth0 application. It uses a [JWKS](/tokens/concepts/jwks) endpoint to download the RSA public key, which it uses to verify the signatures of incoming access tokens.
+This code configures the `express-oauth2-jwt-bearer` middleware with the settings that relate to your Auth0 application.
 
 Next, open the `auth_config.json` file and modify the data so that the `audience` appears as a key within the JSON, using the value that you just used when creating the API:
 
@@ -126,8 +116,7 @@ At the end, your `server.js` file will look something like the following:
 
 ```js
 const express = require("express");
-const jwt = require("express-jwt");
-const jwksRsa = require("jwks-rsa");
+const { auth } = require("express-oauth2-jwt-bearer");
 const { join } = require("path");
 const authConfig = require("./auth_config.json");
 
@@ -137,17 +126,9 @@ const app = express();
 app.use(express.static(join(__dirname, "public")));
 
 // Create the JWT validation middleware
-const checkJwt = jwt({
-  secret: jwksRsa.expressJwtSecret({
-    cache: true,
-    rateLimit: true,
-    jwksRequestsPerMinute: 5,
-    jwksUri: `https://<%= "${authConfig.domain}" %>/.well-known/jwks.json`
-  }),
-
+const checkJwt = auth({
   audience: authConfig.audience,
-  issuer: `https://<%= "${authConfig.domain}" %>/`,
-  algorithms: ["RS256"]
+  issuerBaseURL: `https://<%= "${authConfig.domain}" %>`
 });
 
 // Create an endpoint that uses the above middleware to
@@ -185,7 +166,7 @@ module.exports = app;
 With this in place, run the application using `npm run dev`. In another terminal window, use the `curl` tool to make a request to this API endpoint and observe the results:
 
 ```bash
-$ curl -I localhost:3000/api/external
+curl -I localhost:3000/api/external
 ```
 
 You should find that a 401 Unauthorized result is returned, because it requires a valid access token:

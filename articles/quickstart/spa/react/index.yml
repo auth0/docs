@@ -1,4 +1,7 @@
 title: React
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/react.png
+logo: react
 alias:
   - react
   - reactjs
@@ -10,7 +13,6 @@ author:
   community: false
 framework:
   - React
-image: /media/platforms/react.png
 topics:
   - quickstart
 contentType: tutorial
@@ -19,6 +21,7 @@ show_releases: true
 sdk:
   name: auth0-react
   url: https://www.github.com/auth0/auth0-react/
+  logo: react
 snippets:
   dependencies: application-platforms/react/dependencies
   setup: application-platforms/react/setup

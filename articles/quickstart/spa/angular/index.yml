@@ -1,5 +1,7 @@
 title: Angular
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
 image: /media/platforms/angular.png
+logo: angular
 author:
   name: Steve Hobbs 
   email: steve.hobbs@auth0.com
@@ -19,6 +21,7 @@ show_releases: true
 sdk:
   name: auth0-angular
   url: https://github.com/auth0/auth0-angular
+  logo: angular
 snippets:
   dependencies: application-platforms/angular2/dependencies
   setup: application-platforms/angular2/setup

@@ -43,11 +43,11 @@ To connect your application using IP Address Authentication, you must:
 
 ## Create an enterprise connection in Auth0
 
-1. Navigate to the [Connections > Enterprise](${manage_url}/#/connections/enterprise) page in the [Auth0 Dashboard](${manage_url}/), and click the `+` next to **IP Address Authentication**.
+1. Navigate to [Auth0 Dashboard > Authentication > Enterprise](${manage_url}/#/connections/enterprise), locate **IP Address Authentication**, and click its `+`.
 
-![Create Connection Type](/media/articles/dashboard/connections/enterprise/conn-enterprise-list.png)
+![Create Connection Type](/media/articles/connections/dashboard-connections-enterprise-list.png)
 
-2. Enter settings for your connection, and click **Create**:
+2. Enter details for your connection, and click **Create**:
 
 | Field | Description |
 | ----- | ----------- |

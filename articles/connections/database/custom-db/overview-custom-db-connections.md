@@ -1,5 +1,5 @@
 ---
-title: Custom Database Connections Overview
+title: Authenticate with Your Own User Store
 description: Learn about authenticating users using your database as an identity provider.
 toc: true
 topics:
@@ -11,7 +11,7 @@ useCase:
     - custom-db-connections
     - legacy-authentication
 ---
-# Custom Database Connections Overview
+# Authenticate with Your Own User Store
 
 <%= include('./_includes/_panel-feature-availability') %>
 
@@ -27,9 +27,9 @@ You can create and configure a custom database connection by doing one of the fo
 
 1. Use the [Create connections](/api/management/v2#!/Connections/post_connections) Management API endpoint with the `auth0` strategy.
 
-2. Navigate to the [Connections > Database](${manage_url}/#/connections/database) page in the [Auth0 Dashboard](${manage_url}/), create the connection, and then enable the **Use my own database** option to allow database action script editing. 
+2. Navigate to [Auth0 Dashboard > Authentication > Database](${manage_url}/#/connections/database), create the connection, and enable the **Use my own database** option to allow database action script editing. 
 
-![Enable Custom Database Use My Own Database Option](/media/articles/dashboard/connections/database/connections-db-settings-custom-1.png)
+![Enable Custom Database Use My Own Database Option](/media/articles/connections/database/dashboard-connections-database-edit_view-custom-database_use-my-own-database.png)
 
 ## How it works
 
@@ -125,12 +125,12 @@ The alternative is to create a simple (custom) API, protected via use of an acce
 By default, Auth0 will give you a token for any API if you authenticate successfully and include the appropriate audience. Restricting access to the legacy identity store API by restricting access token allocation via use of a Rule, will prevent unauthorized usage and mitigate a number of attack vector scenarios, such as where redirect to `/authorize` is intercepted and the audience to the API is added.
 :::
 
-### Whitelist access to legacy identity storage
+### Allowlist access to legacy identity storage
 
-Whether managing access to a legacy identity store via custom API, or using the native interface provided, restricting access to the list of IP addresses associated with your Auth0 tenant. Whitelisting constrains access to the legacy identity store ensuring that only custom database action scripts defined in Auth0 are permitted. 
+Whether managing access to a legacy identity store via custom API, or using the native interface provided, restricting access to the list of IP addresses associated with your Auth0 tenant. Allowlisting constrains access to the legacy identity store ensuring that only custom database action scripts defined in Auth0 are permitted. 
 
 ::: warning
-The Auth0 IP address whitelist is shared amongst all Auth0 tenants defined to a region. Never use the whitelist as the sole method of securing access to your legacy identity store; doing so could open up potential security vulnerabilities allowing unauthorized access to your users. 
+The Auth0 IP address allowlist is shared amongst all Auth0 tenants defined to a region. Never use the allowlist as the sole method of securing access to your legacy identity store; doing so could open up potential security vulnerabilities allowing unauthorized access to your users. 
 :::
 
 ## Keep reading

@@ -1,4 +1,7 @@
 title: Python API
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/python.png
+logo: python
 alias:
   - python
 languages:
@@ -8,7 +11,6 @@ author:
   email: luciano.balmaceda@auth0.com
   community: false
 thirdParty: false
-image: /media/platforms/python.png
 topics:
   - quickstart
 contentType: tutorial
@@ -21,10 +23,15 @@ articles:
   - 01-authorization
   - 02-using
   - 03-troubleshooting
+default_article: 01-authorization
 show_steps: true
 github:
   org: auth0-samples
   repo: auth0-python-api-samples
+sdk:
+  name: auth0-python
+  url: https://github.com/auth0/auth0-python
+  logo: python
 requirements:
   - python 2.7, 3.3 and up
   - flask 0.11.1

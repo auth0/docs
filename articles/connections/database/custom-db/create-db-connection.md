@@ -22,7 +22,6 @@ Auth0 allows you to create connections and scripts for most of the commonly-used
   * ASP.NET Membership Provider
   * MongoDB
   * MySQL
-  * Oracle
   * PostgreSQL
   * SQLServer
   * Windows Azure SQL Database
@@ -32,34 +31,31 @@ You can connect to any kind of database or web service with a properly-configure
 
 <%= include('../../../_includes/_ip_whitelist') %>
 
-## Create the connection in the Dashboard
+## Create the connection in the Auth0 Dashboard
 
-1. Log in to the Dashboard and navigate to [Connections > Database](${manage_url}/#/connections/database).
-2. Click **+ Create DB Connection**.
+1. Navigate to [Auth0 Dashboard > Authentication > Database](${manage_url}/#/connections/database), and select **+ Create DB Connection**.
 
-    ![Database connections](/media/articles/connections/database/database-connections.png)
+    ![Database connections](/media/articles/connections/database/dashboard-connections-database-list.png)
 
-3. Configure the connection's **settings** as requested.
+2. Configure the connection's settings, and click **Create**:
 
     | **Parameter** | **Definition** |
     | - | - |
     | **Name** | The name of the connection. The name must start and end with an alphanumeric character, contain only alphanumeric characters and dashes, and not exceed 35 characters. |
     | **Requires Username** | Forces users to provide a username *and* email address during registration. |
     | **Username length** | Sets the minimum and maximum length for a username. |
-    | **Disable Sign Ups** | Prevents sign-ups to your application. You will still be able to create users with your API credentials or via the Dashboard, however. |
+    | **Disable Sign Ups** | Prevents sign-ups to your application. You will still be able to create users with your API credentials or via the Auth0 Dashboard. |
 
-4. Click **Create**.
-
-    Once Auth0 creates your connection, you'll have the following tabs (in addition to the **Settings** tab):
+    Once Auth0 creates your connection, you'll have the following views (in addition to the **Settings** view):
 
     * Password Policy
     * Custom Database
     * Applications
     * Try Connection
 
-4. Click the **Custom Database** tab, and enable the **Use my own database** option.
+3. Select the **Custom Database** view, and enable the **Use my own database** switch.
 
-    ![Enable Use Own Database Option](/media/articles/dashboard/connections/database/connections-db-settings-custom-1.png)
+    ![Enable Use Own Database Option](/media/articles/connections/database/dashboard-connections-database-edit_view-custom-database_use-my-own-database.png)
 
 ## Create database action scripts
 
@@ -76,7 +72,7 @@ The available database action scripts are:
 **Verify** | Executes after a user follows the verification link. | `email`
 **Change Password** | Executes when a user clicks on the confirmation link after a reset password request. | `email`, `newPassword`
 **Get User** | Retrieves a user profile from your database without authenticating the user. | `email`
-**Delete** | Executes when a user is deleted from the API or Auth0 dashboard. | `id`
+**Delete** | Executes when a user is deleted using the API or Auth0 Dashboard. | `id`
 **Change Email** | Executes when a change in the email address, or the email address status, for a user occurs. | `email`, `newEmail`, `verified`, `callback`
 
 See [Custom Database Action Script Templates](/connections/database/custom-db/templates) and [Custom Database Action Script Execution Best Practices](/best-practices/custom-db-connections/execution) for details on all the scripts.
@@ -151,7 +147,7 @@ This script assumes that you have a **users** table containing these columns. Th
 
 You can store parameters, like the credentials required to connect to your database, in the **Settings** section below the script editor. These will be available for all of your scripts, and you can access the parameter values using the `configuration` object in your database action scripts (i.e., `configuration.MYSQL_PASSWORD`).
 
-![Custom database settings](/media/articles/connections/database/mysql/db-connection-parameters.png)
+![Custom database settings](/media/articles/connections/database/dashboard-connections-database-edit_view-custom-database_settings.png)
 
 Use the added parameters in your scripts to configure the connection. For example, you might add the following to the MySQL Login script:
 

@@ -1,10 +1,12 @@
 title: Device Authorization Flow
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/device.svg
+logo: auth0
 author:
   name: Rachel Khoriander
   email: rachel.khoriander@auth0.com
   community: false
 hybrid: false
-image: /media/platforms/device.svg
 topics:
   - quickstart
 contentType: tutorial

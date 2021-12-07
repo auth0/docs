@@ -16,15 +16,7 @@ useCase: quickstart
 
 <%= include('../_includes/_getting_started', { library: 'React', callback: 'http://localhost:3000', returnTo: 'http://localhost:3000', webOriginUrl: 'http://localhost:3000', showLogoutInfo: true, showWebOriginInfo: true, new_js_sdk: true, show_install_info: false }) %>
 
-## Install the Auth0 React SDK
-
-Run the following command within your project directory to install the Auth0 React SDK:
-
-```bash
-npm install @auth0/auth0-react
-```
-
-The SDK exposes methods and variables that help you integrate Auth0 with your React application idiomatically using [React Hooks](https://reactjs.org/docs/hooks-overview.html) or [Higher-Order Components](https://reactjs.org/docs/higher-order-components.html).
+<%= include('../../_includes/_auth0-react-install.md') %>
 
 ### Configure the `Auth0Provider` component
 
@@ -54,7 +46,7 @@ The `Auth0Provider` component takes the following props:
 
 <%= include('../_includes/_auth_note_custom_domains') %>
 
-- `redirectUri`: The URL to where you'd like to redirect your users after they authenticate with Auth0. 
+- `redirectUri`: The URL to where you'd like to redirect your users after they authenticate with Auth0.
 
 `Auth0Provider` stores the authentication state of your users and the state of the SDK &mdash; whether Auth0 is ready to use or not. It also exposes helper methods to log in and log out your users, which you can access using the `useAuth0()` hook.
 
@@ -79,9 +71,7 @@ const LoginButton = () => {
 export default LoginButton;
 ```
 
-:::note
-This guide focuses on using the `useAuth0()` custom React Hook. If you are using class components, check out [these samples using the `withAuth0()` higher-order component](https://github.com/auth0/auth0-react#use-with-a-class-component).
-:::
+<%= include('../../_includes/_auth0-react-classes-info.md') %>
 
 :::panel Checkpoint
 Add the `LoginButton` component to your application. When you click it, verify that your React application redirects you to the [Auth0 Universal Login](https://auth0.com/universal-login) page and that you can now log in or sign up using a username and password or a social provider.
@@ -89,7 +79,7 @@ Add the `LoginButton` component to your application. When you click it, verify t
 Once that's complete, verify that Auth0 redirects you to your application using the value of the `redirectUri` that you used to configure the `Auth0Provider`.
 :::
 
-![Auth0 Universal Login](https://cdn.auth0.com/blog/universal-login/lightweight-login.png)
+![Auth0 Universal Login](/media/quickstarts/universal-login.png)
 
 <%= include('../_includes/_auth_note_dev_keys') %>
 
@@ -152,3 +142,7 @@ The `user` property contains sensitive information and artifacts related to the 
 :::panel Checkpoint
 Verify that you can display the `user.name` or [any other `user` property](https://auth0.com/docs/users/references/user-profile-structure#user-profile-attributes) within a component correctly after you have logged in.
 :::                                              
+
+:::note
+For a deep dive into implementing user authentication in React, visit the [Complete Guide to React User Authentication with Auth0](https://auth0.com/blog/complete-guide-to-react-user-authentication/). This guide provides you with additional details, such as creating a signup button, protecting routes using different strategies, and using class components. 
+:::

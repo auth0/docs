@@ -49,9 +49,9 @@ This guide assumes you already have a Django application set up. If that is not 
 The sample project was created with the following commands:
 
 ```bash
-$ django-admin startproject webappexample
-$ cd webappexample
-$ python manage.py startapp auth0login
+django-admin startproject webappexample
+cd webappexample
+python manage.py startapp auth0login
 ```
 
 ### Django Settings
@@ -99,7 +99,7 @@ SOCIAL_AUTH_AUTH0_SCOPE = [
 The `social_django` application defined in `INSTALLED_APPS` requires a database. Run the following command to create all the required databases for the applications defined in `INSTALLED_APPS`:
 
 ```bash
-$ python manage.py migrate
+python manage.py migrate
 ```
 
 ### Create the Auth0 Authentication Backend
@@ -314,4 +314,4 @@ python manage.py runserver 3000
 
 The application will be accessible on [http://localhost:3000](http://localhost:3000). Follow the Log In link to log in or sign up to your Auth0 tenant. Upon successful login or signup, you should be redirected to the user's profile page.
 
-![login page](/media/articles/web/hosted-login.png)
+![Auth0 Universal Login](/media/quickstarts/universal-login.png)

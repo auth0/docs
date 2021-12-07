@@ -1,20 +1,35 @@
 articles:
-  - title: Get Started
+  - title: Get Started 
     url: /get-started
     children:
-      - title: Auth0 Overview
-        url: /get-started
+      - title: How You Can Use Auth0
+        url: /get-started/auth0-overview
       - title: Dashboard Overview
         url: /get-started/dashboard
       - title: Create Tenants
-        url: /get-started/learn-the-basics
-      - title: Register Applications
-        url: /applications/set-up-an-application
+        url: /get-started/create-tenants
+        children:
+          - title: Create Multiple Tenants
+            url: /get-started/create-tenants/create-multiple-tenants
+          - title: Request Child Tenants
+            url: /get-started/create-tenants/child-tenants
+          - title: Set Up Multiple Environments
+            url: /get-started/create-tenants/set-up-multiple-environments
+      - title: Create Applications
+        url: /get-started/create-apps
+        children:
+          - title: Native Apps
+            url: /get-started/create-apps/native-apps
+          - title: Single Page Web Apps
+            url: /get-started/create-apps/single-page-web-apps
+          - title: Regular Web Apps
+            url: /get-started/create-apps/regular-web-apps
+          - title: Machine-to-Machine Apps
+            url: /get-started/create-apps/machine-to-machine-apps
       - title: Register APIs
         url: /get-started/set-up-apis
-      - title: Set Up Multiple Environments
-        url: /dev-lifecycle/set-up-multiple-environments
-        hidden: true
+      - title: Authentication and Authorization
+        url: /get-started/authentication-and-authorization
       - title: Glossary
         url: /glossary
   - title: Architecture Scenarios
@@ -24,52 +39,52 @@ articles:
         url: /architecture-scenarios/b2c
         children:
           - title: Architecture
-            url: /architecture-scenarios/implementation/b2c/b2c-architecture
+            url: /architecture-scenarios/b2c/architecture
           - title: Provisioning
-            url: /architecture-scenarios/implementation/b2c/b2c-provisioning
+            url: /architecture-scenarios/b2c/provisioning
           - title: Authentication
-            url: /architecture-scenarios/implementation/b2c/b2c-authentication
+            url: /architecture-scenarios/b2c/authentication
           - title: Branding
-            url: /architecture-scenarios/implementation/b2c/b2c-branding
+            url: /architecture-scenarios/b2c/branding
           - title: Deployment Automation
-            url: /architecture-scenarios/implementation/b2c/b2c-deployment
+            url: /architecture-scenarios/b2c/deployment
           - title: Quality Assurance
-            url: /architecture-scenarios/implementation/b2c/b2c-qa
+            url: /architecture-scenarios/b2c/quality-assurance
           - title: Profile Management
-            url: /architecture-scenarios/implementation/b2c/b2c-profile-mgmt
+            url: /architecture-scenarios/b2c/profile-management
           - title: Authorization
-            url: /architecture-scenarios/implementation/b2c/b2c-authorization
+            url: /architecture-scenarios/b2c/authorization
           - title: Logout
-            url: /architecture-scenarios/implementation/b2c/b2c-logout
+            url: /architecture-scenarios/b2c/logout
           - title: Operations
-            url: /architecture-scenarios/implementation/b2c/b2c-operations
+            url: /architecture-scenarios/b2c/operations
           - title: Launch Preparation
-            url: /architecture-scenarios/implementation/b2c/b2c-launch
+            url: /architecture-scenarios/b2c/launch
       - title: Business to Business
         url: /architecture-scenarios/b2b
         children:
           - title: Architecture
-            url: /architecture-scenarios/implementation/b2b/b2b-architecture
+            url: /architecture-scenarios/b2b/architecture
           - title: Provisioning
-            url: /architecture-scenarios/implementation/b2b/b2b-provisioning
+            url: /architecture-scenarios/b2b/provisioning
           - title: Authentication
-            url: /architecture-scenarios/implementation/b2b/b2b-authentication
+            url: /architecture-scenarios/b2b/authentication
           - title: Branding
-            url: /architecture-scenarios/implementation/b2b/b2b-branding
+            url: /architecture-scenarios/b2b/branding
           - title: Deployment Automation
-            url: /architecture-scenarios/implementation/b2b/b2b-deployment
+            url: /architecture-scenarios/b2b/deployment
           - title: Quality Assurance
-            url: /architecture-scenarios/implementation/b2b/b2b-qa
+            url: /architecture-scenarios/b2b/quality-assurance
           - title: Profile Management
-            url: /architecture-scenarios/implementation/b2b/b2b-profile-mgmt
+            url: /architecture-scenarios/b2b/profile-management
           - title: Authorization
-            url: /architecture-scenarios/implementation/b2b/b2b-authorization
+            url: /architecture-scenarios/b2b/authorization
           - title: Logout
-            url: /architecture-scenarios/implementation/b2b/b2b-logout
+            url: /architecture-scenarios/b2b/logout
           - title: Operations
-            url: /architecture-scenarios/implementation/b2b/b2b-operations
+            url: /architecture-scenarios/b2b/operations
           - title: Launch Preparation
-            url: /architecture-scenarios/implementation/b2b/b2b-launch
+            url: /architecture-scenarios/b2b/launch
       - title: Business to Employees
         url: /architecture-scenarios/b2e
       - title: SSO for Regular Web Apps
@@ -83,6 +98,32 @@ articles:
             url: /architecture-scenarios/web-app-sso/part-3
           - title: Conclusion
             url: /architecture-scenarios/web-app-sso/part-4
+      - title: Multiple Organization Architecture
+        url: /architecture-scenarios/multiple-organization-architecture
+        children:
+          - title: Single Identity Provider Organizations
+            url: /architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations
+            children:
+              - title: Provisioning
+                url: /architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/provisioning
+                hidden: true 
+              - title: Authentication
+                url: /architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/authentication
+                hidden: true 
+              - title: Branding
+                url: /architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/branding
+                hidden: true 
+              - title: Authorization
+                url: /architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/authorization
+                hidden: true 
+              - title: Profile Management
+                url: /architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/profile-management
+                hidden: true 
+              - title: Logout
+                url: /architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/logout
+                hidden: true 
+          - title: Multiple Identity Provider Organizations
+            url: /architecture-scenarios/multiple-organization-architecture/multiple-identity-provider-organizations
       - title: Server Application + API
         url: /architecture-scenarios/server-api
         children:
@@ -123,39 +164,9 @@ articles:
   - title: Deploy
     url: /deploy
     children:
-      - title: Deployment Checklist
-        url: /deploy/deploy-checklist
-      - title: Pre-Deployment
-        url: /deploy/pre-deployment
-        children:
-          - title: Run Production Checks
-            url: /deploy/pre-deployment/how-to-run-production-checks
-          - title: Pre-Launch Tips
-            url: /deploy/pre-deployment/pre-launch-tips
-      - title: Deploy CLI Tool
-        url: /extensions/deploy-cli-tool
-        children:
-          - title: Install Deploy CLI
-            url: /extensions/deploy-cli-tool/install-and-configure-the-deploy-cli-tool
-          - title: Call Deploy CLI
-            url: /extensions/deploy-cli-tool/call-deploy-cli-tool-programmatically
-          - title: Incorporate into CI/CD Environment
-            url: /extensions/deploy-cli-tool/incorporate-deploy-cli-into-build-environment
-          - title: Import/Export Directory Structure
-            url: /extensions/deploy-cli-tool/import-export-tenant-configuration-to-directory-structure
-          - title: Import/Export YAML File
-            url: /extensions/deploy-cli-tool/import-export-tenant-configuration-to-yaml-file
-          - title: Environment Variables
-            url: /extensions/deploy-cli-tool/environment-variables-and-keyword-mappings
-          - title: Deploy CLI Options
-            url: /extensions/deploy-cli-tool/deploy-cli-tool-options
-          - title: What's New
-            url: /extensions/deploy-cli/references/whats-new
-            hidden: true
-          - title: Troubleshoot Deploy CLI
-            url: /extensions/deploy-cli-tool/troubleshoot-the-deploy-cli-tool
-            hidden: true
-      - title: Private Cloud Options
+      - title: Deployment Options
+        url: /deploy/deploy-options
+      - title: Private Cloud Deployment
         url: /deploy/private-cloud
         children:
           - title: Onboarding
@@ -184,8 +195,42 @@ articles:
               - title: Custom Domains
                 url: /deploy/private-cloud/private-cloud-migrations/migrate-private-cloud-custom-domains
                 hidden: true 
+      - title: Pre-Deployment Checks
+        url: /deploy/pre-deployment
+        children:
+          - title: Run Production Checks
+            url: /deploy/pre-deployment/how-to-run-production-checks
+          - title: Run Pre-Deployment Tests
+            url: /deploy/pre-deployment/predeployment-tests
+          - title: Pre-Launch Tips
+            url: /deploy/pre-deployment/pre-launch-tips
+      - title: Deployment Checklist
+        url: /deploy/deploy-checklist
+      - title: Deploy CLI Tool
+        url: /deploy/deploy-cli-tool
+        children:
+          - title: Install Deploy CLI
+            url: /deploy/deploy-cli-tool/install-and-configure-the-deploy-cli-tool
+          - title: Call Deploy CLI
+            url: /deploy/deploy-cli-tool/call-deploy-cli-tool-programmatically
+          - title: Incorporate into Build Environment
+            url: /deploy/deploy-cli-tool/incorporate-deploy-cli-into-build-environment
+          - title: Import/Export Directory Structure
+            url: /deploy/deploy-cli-tool/import-export-tenant-configuration-to-directory-structure
+          - title: Import/Export YAML File
+            url: /deploy/deploy-cli-tool/import-export-tenant-configuration-to-yaml-file
+          - title: Environment Variables
+            url: /deploy/deploy-cli-tool/environment-variables-and-keyword-mappings
+          - title: Deploy CLI Options
+            url: /deploy/deploy-cli-tool/deploy-cli-tool-options
+          - title: What's New
+            url: /deploy/deploy-cli/references/whats-new
+            hidden: true
+          - title: Troubleshoot Deploy CLI
+            url: /deploy/deploy-cli-tool/troubleshoot-the-deploy-cli-tool
+            hidden: true
   - title: Login
-    url: /flows/login
+    url: /login
     children:
       - title: Universal Login
         url: /universal-login
@@ -200,14 +245,17 @@ articles:
             url: /universal-login/classic-experience/mfa-classic-experience
           - title: Passwordless
             url: /universal-login/configure-universal-login-with-passwordless
+            children:
+              - title: WebAuthn with Device Biometrics
+                url: /universal-login/configure-universal-login-with-passwordless/webauthn-device-biometrics
+              - title: Email or SMS
+                url: /universal-login/configure-universal-login-with-passwordless/email-or-sms
           - title: Identifier-First Authentication
             url: /universal-login/identifier-first
           - title: Error Pages
             url: /universal-login/error-pages
           - title: Text Customization
             url: /universal-login/new-experience/text-customization-new-universal-login
-          - title: Internationalization
-            url: /universal-login/universal-login-internationalization
           - title: Default Login URL
             url: /universal-login/configure-default-login-routes
           - title: Version Control
@@ -215,14 +263,14 @@ articles:
       - title: Universal vs. Embedded Login
         url: /universal-login/universal-vs-embedded-login
       - title: Embedded Login
-        url: /flows/login/embedded-login
+        url: /login/embedded-login
         children:
           - title: Lock for Web
             url: /libraries/lock
           - title: Auth0.js
             url: /libraries/auth0js
           - title: Cross-Origin Authentication
-            url: /flows/login/embedded-login/cross-origin-authentication
+            url: /login/embedded-login/cross-origin-authentication
       - title: Authentication Flows
         url: /flows
         children:
@@ -233,7 +281,7 @@ articles:
           - title: Native App
             url: /flows/add-login-using-the-authorization-code-flow-with-pkce
       - title: Authenticate Single-Page Apps with Cookies
-        url: /sessions-and-cookies/spa-authenticate-with-cookies
+        url: /sessions/cookies/spa-authenticate-with-cookies
       - title: Multi-factor Authentication
         url: /mfa
         children:
@@ -241,15 +289,18 @@ articles:
             url: /mfa/mfa-factors
           - title: Enable MFA
             url: /mfa/enable-mfa
-          - title: Enable Adaptive MFA
+          - title: Adaptive MFA
             url: /mfa/adaptive-mfa
             children:
+              - title: Enable Adaptive MFA
+                url: /mfa/adaptive-mfa/enable-adaptive-mfa
+                hidden: true
               - title: Customize Adaptive MFA
                 url: /mfa/adaptive-mfa/adaptive-mfa-rule-actions
-                hidden: true 
+                hidden: true
               - title: Adaptive MFA Log Events
                 url: /mfa/adaptive-mfa/adaptive-mfa-log-events
-                hidden: true 
+                hidden: true
           - title: Guardian
             url: /mfa/auth0-guardian
             children:
@@ -307,40 +358,40 @@ articles:
           - title: Redirect After Logout
             url: /logout/redirect-users-after-logout
       - title: Adopt OIDC Conformant Auth
-        url: /flows/login/adopt-oidc-conformant-authentication
+        url: /login/adopt-oidc-conformant-authentication
         children:
           - title: APIs
-            url: /flows/login/adopt-oidc-conformant-authentication/oidc-adoption-apis
+            url: /login/adopt-oidc-conformant-authentication/oidc-adoption-apis
           - title: Access Tokens
-            url: /flows/login/adopt-oidc-conformant-authentication/oidc-adoption-access-tokens
+            url: /login/adopt-oidc-conformant-authentication/oidc-adoption-access-tokens
           - title: Authorization Code Flow
-            url: /flows/login/adopt-oidc-conformant-authentication/oidc-adoption-auth-code-flow
+            url: /login/adopt-oidc-conformant-authentication/oidc-adoption-auth-code-flow
           - title: Client Credentials Flow
-            url: /flows/login/adopt-oidc-conformant-authentication/oidc-adoption-client-credentials-flow
+            url: /login/adopt-oidc-conformant-authentication/oidc-adoption-client-credentials-flow
           - title: Delegation
-            url: /flows/login/adopt-oidc-conformant-authentication/oidc-adoption-delegation
+            url: /login/adopt-oidc-conformant-authentication/oidc-adoption-delegation
           - title: Implicit Flow
-            url: /flows/login/adopt-oidc-conformant-authentication/oidc-adoption-implicit-flow
+            url: /login/adopt-oidc-conformant-authentication/oidc-adoption-implicit-flow
           - title: Refresh Tokens
-            url: /flows/login/adopt-oidc-conformant-authentication/oidc-adoption-refresh-tokens
+            url: /login/adopt-oidc-conformant-authentication/oidc-adoption-refresh-tokens
           - title: Resource Owner Password Flow
-            url: /flows/login/adopt-oidc-conformant-authentication/oidc-adoption-rop-flow
+            url: /login/adopt-oidc-conformant-authentication/oidc-adoption-rop-flow
           - title: Single Sign-On
-            url: /flows/login/adopt-oidc-conformant-authentication/oidc-adoption-sso
+            url: /login/adopt-oidc-conformant-authentication/oidc-adoption-sso
   - title: Connections
     url: /connections
     children:
       - title: Social Identity Providers
-        url: /connections/identity-providers-social
+        url: /connections/social/identity-providers
       - title: Enterprise Identity Providers
-        url: /connections/identity-providers-enterprise
+        url: /connections/enterprise/identity-providers
       - title: Legal Identity Providers
-        url: /connections/identity-providers-legal
+        url: /connections/legal/identity-providers
       - title: Database
         url: /connections/database
         children:
           - title: Auth0 User Store
-            url: '/connections/database#using-the-auth0-user-store'
+            url: /connections/database/auth0-user-store
           - title: Your User Store
             url: /connections/database/custom-db
             children:
@@ -357,35 +408,88 @@ articles:
             url: /connections/database/password-options
           - title: Password Strength
             url: /connections/database/password-strength
-      - title: Pass Parameters to Identity Providers
-        url: /connections/pass-parameters-to-idps
       - title: Passwordless
         url: /connections/passwordless
         children:
           - title: Authentication Factors
-            url: /connections/passwordless
+            url: /connections/passwordless/authentication-factors
             children:
               - title: Email
-                url: /connections/passwordless/guides/email-otp
+                url: /connections/passwordless/email-otp
               - title: Magic Link
-                url: /connections/passwordless/guides/email-magic-link
+                url: /connections/passwordless/email-magic-link
               - title: SMS
-                url: /connections/passwordless/guides/sms-otp
+                url: /connections/passwordless/sms-otp
           - title: Universal Login
-            url: /connections/passwordless/guides/universal-login
+            url: /connections/passwordless/universal-login
           - title: Embedded Login
-            url: /connections/passwordless/guides/embedded-login
+            url: /connections/passwordless/embedded-login
             children:
               - title: Passwordless APIs
-                url: /connections/passwordless/reference/relevant-api-endpoints
+                url: /connections/passwordless/relevant-api-endpoints
               - title: Native Apps
-                url: /connections/passwordless/guides/embedded-login-native
+                url: /connections/passwordless/embedded-login-native
               - title: Web Apps
-                url: /connections/passwordless/guides/embedded-login-webapps
+                url: /connections/passwordless/embedded-login-webapps
               - title: SPAs
-                url: /connections/passwordless/guides/embedded-login-spa
-          - title: Best Practices
-            url: /connections/passwordless/guides/best-practices
+                url: /connections/passwordless/embedded-login-spa
+      - title: View Connections
+        url: /dashboard/guides/connections/view-connections
+      - title: Disable Connection Sync
+        url: /dashboard/guides/connections/configure-connection-sync
+      - title: Pass Parameters to Identity Providers
+        url: /connections/pass-parameters-to-idps
+  - title: Organizations
+    url: /organizations
+    children:
+      - title: How Auth0 Organizations Work
+        url: /organizations/organizations-overview
+      - title: Create Your First Organization
+        url: /organizations/create-first-organization
+      - title: Custom Development
+        url: /organizations/custom-development
+      - title: Work with Multiple Tenants
+        url: /organizations/using-multiple-tenants
+        hidden: true
+      - title: Work with Tokens
+        url: /organizations/using-tokens
+      - title: Configure Organizations
+        url: /organizations/configure-organizations
+        children:
+          - title: Create Organizations
+            url: /organizations/create-organizations
+          - title: Delete Organizations
+            url: /organizations/delete-organizations
+          - title: Define Organization Behavior
+            url: /organizations/define-organization-behavior
+          - title: Enable Connections
+            url: /organizations/enable-connections
+          - title: Disable Connections
+            url: /organizations/disable-connections
+          - title: Invite Members
+            url: /organizations/invite-members
+          - title: Send Membership Invitations
+            url: /organizations/send-membership-invitations
+          - title: Grant Just-In-Time Membership
+            url: /organizations/grant-just-in-time-membership
+          - title: Assign Members Directly
+            url: /organizations/assign-members
+          - title: Remove Members Directly
+            url: /organizations/remove-members
+          - title: Add Roles to Members
+            url: /organizations/add-member-roles
+          - title: Remove Roles from Members
+            url: /organizations/remove-member-roles
+          - title: Retrieve Organizations
+            url: /organizations/retrieve-organizations
+          - title: Retrieve Connections
+            url: /organizations/retrieve-connections
+          - title: Retrieve Members
+            url: /organizations/retrieve-members
+          - title: Retrieve User's Membership
+            url: /organizations/retrieve-user-membership
+          - title: Retrieve Member Roles
+            url: /organizations/retrieve-member-roles
   - title: Authorization
     url: /authorization
     children:
@@ -426,60 +530,76 @@ articles:
             url: /authorization/manage-permissions
           - title: Enable RBAC for APIs
             url: /authorization/rbac/enable-role-based-access-control-for-apis
-  - title: Configuration
-    url: /dashboard/dashboard-tenant-settings
+      - title: Protocols
+        url: /protocols
+        children: 
+          - title: OAuth0 2.0 Authorization Framework
+            url: /protocols/protocol-oauth2
+            hidden: true 
+          - title: OpenID Connect Protocol
+            url: /protocols/openid-connect-protocol
+            hidden: true 
+          - title: WS-Federation 
+            url: /protocols/configure-ws-fed-applications
+            hidden: true 
+  - title: Configure
+    url: /config
     children:
-      - title: Tenant Configuration
-        url: /dashboard/dashboard-tenant-settings
+      - title: Tenants
+        url: /config/tenant-settings
         children:
-          - title: Manage Dashboard Access
-            url: /dashboard-access
-          - title: Manage Signing Keys
-            url: /tokens/manage-signing-keys
-          - title: Configure Session Lifetime Settings
-            url: /get-started/dashboard/configure-session-lifetime-settings
-          - title: Enable SSO for Tenants
-            url: /get-started/dashboard/enable-sso-for-legacy-tenants
-          - title: Configure Device User Code Settings
-            url: /get-started/dashboard/configure-device-user-code-settings
-          - title: Recommended Settings
-            url: /best-practices/tenant-settings-best-practices
-          - title: Dynamic Client Registration
-            url: /applications/dynamic-client-registration
-          - title: Create Multiple Tenants
-            url: /get-started/dashboard/create-multiple-tenants
-            hidden: true
-          - title: Child Tenant Request Process
-            url: /dev-lifecycle/child-tenants
-            hidden: true
-      - title: Application Configuration
-        url: /get-started/dashboard/application-settings
+          - title: Signing Keys
+            url: /config/tenant-settings/signing-keys
+            children:
+              - title: Rotate Signing Keys
+                url: /config/tenant-settings/signing-keys/rotate-signing-keys
+                hidden: true
+              - title: Revoke Signing Keys
+                url: /config/tenant-settings/signing-keys/revoke-signing-keys
+                hidden: true
+              - title: View Signing Certificates
+                url: /config/tenant-settings/signing-keys/view-signing-certificates
+                hidden: true
+          - title: Device User Codes
+            url: /config/tenant-settings/configure-device-user-code-settings
+      - title: Applications
+        url: /applications
         children:
-          - title: Enable SSO for Applications
-            url: /sso/enable-sso-for-applications
+          - title: Application Settings
+            url: /applications/application-settings
           - title: Update Grant Types
             url: /applications/update-grant-types
           - title: Android App Links
             url: /applications/enable-android-app-links-support
           - title: Apple Universal Links
-            url: /enable-universal-links-support-in-apple-xcode
+            url: /applications/enable-universal-links-support-in-apple-xcode
+          - title: Check Confidential or Public
+            url: /applications/view-application-type
+          - title: Rotate Client Secrets
+            url: /applications/rotate-client-secret
+          - title: Change Application Signing Algorithms
+            url: /applications/change-application-signing-algorithms
+          - title: Subdomain URL Placeholders
+            url: /applications/wildcards-for-subdomains
+          - title: Configure Application Metadata
+            url: /applications/configure-application-metadata
           - title: Remove Applications
             url: /applications/remove-applications
-          - title: View Application Type
-            url: /applications/view-application-type
-          - title: Rotate Client Secret
-            url: /get-started/dashboard/rotate-client-secret
-          - title: Wildcards for Subdomains
-            url: /applications/wildcards-for-subdomains
-          - title: Recommended Settings
-            url: /best-practices/app-settings-best-practices
-      - title: API Configuration
-        url: /get-started/dashboard/api-settings
+          - title: Dynamic Application Registration
+            url: /applications/dynamic-client-registration
+          - title: Test Applications Locally
+            url: /applications/work-with-auth0-locally
+      - title: APIs
+        url: /config/api-settings 
         children:
           - title: Signing Algorithms
             url: /tokens/signing-algorithms
-          - title: Represent Multiple APIs with a Single API
-            url: /authorization/represent-multiple-apis-using-a-single-logical-api
+          - title: Add API Permissions
+            url: /config/api-settings/add-api-permissions
+          - title: Delete API Permissions
+            url: /config/api-settings/delete-api-permissions
+          - title: Configure Logical API for Multiple APIs
+            url: /authorization/set-logical-api
       - title: Single Sign-On
         url: /sso
         children:
@@ -497,12 +617,15 @@ articles:
         children:
           - title: Bot Detection
             url: /attack-protection/bot-detection
-            children: 
+            children:
               - title: Custom Login Pages
                 url: /attack-protection/bot-detection/bot-detection-custom-login-pages
-                hidden: true 
+                hidden: true
               - title: Native Applications
                 url: /attack-protection/bot-detection/bot-detection-native-apps
+                hidden: true 
+              - title: Google reCAPTCHA Enterprise
+                url: /attack-protection/bot-detection/configure-recaptcha-enterprise
                 hidden: true 
           - title: Breached Passwords
             url: /attack-protection/breached-password-detection
@@ -510,9 +633,7 @@ articles:
             url: /attack-protection/brute-force-protection
           - title: Suspicious IP Throttling
             url: /attack-protection/suspicious-ip-throttling
-          - title: Set Preferences
-            url: /attack-protection/set-attack-protection-preferences
-          - title: Customize Emails
+          - title: Customize Blocked Account Emails
             url: /attack-protection/customize-blocked-account-emails
           - title: View Events
             url: /attack-protection/view-attack-protection-events
@@ -520,7 +641,7 @@ articles:
         url: /protocols/saml-protocol
         children:
           - title: SAML SSO Integrations
-            url: /protocols/saml-protocol/saml-configuration-options
+            url: /protocols/saml-protocol/saml-sso-integrations
           - title: Auth0 as SP
             url: /protocols/saml-protocol/configure-auth0-saml-service-provider
           - title: Auth0 as IdP
@@ -534,16 +655,14 @@ articles:
             children:
               - title: Identity Provider-Initiated SSO
                 url: /protocols/saml-protocols/saml-configuration-options/identity-provider-initiated-single-sign-on
-                hidden: true 
+                hidden: true
               - title: Sign and Encrypt SAML Requests
                 url: /protocols/saml-protocols/saml-configuration-options/sign-and-encrypt-saml-requests
-                hidden: true 
+                hidden: true
           - title: Customize SAML Assertions
             url: /protocols/saml-protocol/customize-saml-assertions
           - title: Deprovision Users
             url: /protocols/saml-protocol/deprovision-users-in-saml-integrations
-      - title: Add IP Addresses to AllowList
-        url: /security/allowlist-ip-addresses
   - title: Manage Users
     url: /users
     children:
@@ -561,21 +680,29 @@ articles:
       - title: Metadata
         url: /users/metadata
         children:
-          - title: Manage User Metadata
-            url: /users/manage-user-metadata
-          - title: Read Metadata
-            url: /users/read-metadata
-          - title: Set Metadata Properties on Creation
-            url: /users/set-metadata-properties-on-creation
-          - title: Update Metadata with the Management API
-            url: /users/update-metadata-with-the-management-api
-          - title: Metadata Best Practices
-            url: /best-practices/metadata-best-practices
-      - title: Sessions & Cookies
-        url: /sessions-and-cookies
+          - title: Manage with Rules
+            url: /users/metadata/manage-metadata-rules
+          - title: Manage with Management API
+            url: /users/metadata/manage-metadata-api
+          - title: Manage with Lock
+            url: /users/metadata/manage-metadata-lock
+          - title: Field Names and Data Types
+            url: /users/metadata/metadata-fields-data
+      - title: Sessions
+        url: /sessions
         children:
+          - title: Session Layers
+            url: /sessions/session-layers
+          - title: Session Lifetime Limits
+            url: /sessions/session-lifetime-limits
+          - title: Configure Session Lifetime Settings
+            url: /sessions/configure-session-lifetime-settings
+          - title: Non-Persistent Sessions
+            url: /sessions/non-persistent-sessions
+          - title: Manage Multi-Site Sessions with Auth0 SDK
+            url: /sessions/manage-multi-site-sessions
           - title: Authentication API Cookies
-            url: /sessions-and-cookies/authentication-api-cookies
+            url: /sessions/cookies/authentication-api-cookies
       - title: Deny Access to an API Using Rules
         url: /users/deny-api-access
       - title: Using the Dashboard
@@ -627,22 +754,10 @@ articles:
             url: /users/user-search/view-search-results-by-page
           - title: Query Syntax
             url: /users/user-search/user-search-query-syntax
-          - title: Best Practices
-            url: /best-practices/user-search-best-practices
           - title: Migrate from Search v2 to V3
             url: /users/search/v3/migrate-search-v2-v3
             hidden: true
-      - title: User Search
-        url: /users/user-search
-        hidden: true
-        children:
-          - title: Query Syntax
-            url: /users/user-search/user-search-query-syntax
-            hidden: true
-          - title: Best Practices
-            url: /best-practices/user-search-best-practices
-            hidden: true
-  - title: Manage Dashboard Access
+  - title: Dashboard Access
     url: /dashboard-access
     children:
       - title: Dashboard Access by Role
@@ -653,14 +768,19 @@ articles:
         url: /dashboard-access/edit-dashboard-users
       - title: Remove Tenant Members
         url: /dashboard-access/remove-dashboard-users
-      - title: Manage Access with MFA
+      - title: MFA for Dashboard Users
         url: /dashboard-access/add-change-remove-mfa
+        children:
+          - title: Add MFA for Dashboard Access
+            url: /dashboard-access/add-change-remove-mfa/add-multi-factor-authentication-for-auth0-dashboard-access
+          - title: Remove/Change Dashboard MFA
+            url: /dashboard-access/add-change-remove-mfa/remove-or-change-dashboard-multi-factor-authentication
       - title: Update Dashboard User Email
         url: /dashboard-access/update-dashboard-user-email
-  - title: Brand & Customize
+  - title: Brand and Customize
     url: /brand-and-customize
     children:
-      - title: Universal Login Pages
+      - title: Login Pages
         url: /universal-login/new-experience/universal-login-page-templates
       - title: Custom Domains
         url: /custom-domains
@@ -670,78 +790,115 @@ articles:
           - title: Self-Managed Certificates
             url: /custom-domains/configure-custom-domains-with-self-managed-certificates
             children:
+              - title: Google Cloud Platform Reverse Proxy
+                url: /custom-domains/configure-custom-domains-with-self-managed-certificates/configure-gcp-as-reverse-proxy
               - title: Cloudflare Reverse Proxy
                 url: /custom-domains/configure-custom-domains-with-self-managed-certificates/configure-cloudflare-for-use-as-reverse-proxy
               - title: Cloudfront Reverse Proxy
                 url: /custom-domains/configure-custom-domains-with-self-managed-certificates/configure-aws-cloudfront-for-use-as-reverse-proxy
               - title: Azure CDN Reverse Proxy
                 url: /custom-domains/configure-custom-domains-with-self-managed-certificates/configure-azure-cdn-for-use-as-reverse-proxy
+              - title: Akamai Reverse Proxy
+                url: /custom-domains/configure-custom-domains-with-self-managed-certificates/configure-akamai-for-use-as-reverse-proxy
               - title: TLS (SSL) Versions and Ciphers
                 url: /custom-domains/tls-ssl
           - title: Configure Auth0 Features
             url: /custom-domains/configure-features-to-use-custom-domains
           - title: Troubleshoot Custom Domains
             url: /custom-domains/troubleshoot-custom-domains
-      - title: Email
-        url: /auth0-email-services
+      - title: Emails
+        url: /email
         children:
-          - title: Custom Email Handling
-            url: /auth0-email-services/manage-email-flow
-          - title: Customizing Your Emails
-            url: /auth0-email-services/customize-email-templates
-          - title: Email Template Descriptions
-            url: /auth0-email-services/email-template-descriptions
-          - title: Use your own SMTP Email Provider
-            url: /auth0-email-services/configure-external-smtp-email-providers
-          - title: Liquid Syntax in Email Templates
-            url: /auth0-email-services/customize-email-templates/use-liquid-syntax-in-email-templates
-          - title: Set up a Test SMTP Provider
-            url: /auth0-email-services/configure-external-smtp-email-providers/configure-test-smtp-email-servers
-      - title: Consent Prompt
+          - title: Email Handling
+            url: /email/manage-email-flow
+          - title: Email Templates
+            url: /email/customize-email-templates
+            children:
+              - title: Liquid Syntax
+                url: /email/customize-email-templates/use-liquid-syntax-in-email-templates
+              - title: Template Descriptions
+                url: /email/customize-email-templates/email-template-descriptions
+          - title: External SMTP Email Providers
+            url: /email/configure-external-smtp-email-providers
+          - title: Custom SMTP Email Provider
+            url: /email/configure-custom-external-smtp-email-provider
+          - title: Test SMTP Email Server
+            url: /email/configure-test-smtp-email-servers
+          - title: Send Email Invitations for Application Signup
+            url: /email/send-email-invitations-for-application-signup
+      - title: Consent Prompts
         url: /scopes/customize-consent-prompts
-      - title: Internationalization
+      - title: Internationalization and Localization
         url: /i18n
-  - title: Actions
-    url: /actions
-    children:
-      - title: Build Action Flows
-        url: /actions/build-actions-flows
         children:
-          - title: Actions Context Object
-            url: /actions/actions-context-object
-          - title: Actions Event Object
-            url: /actions/actions-event-object
-      - title: Edit Actions
-        url: /actions/edit-actions
+          - title: Universal Login Internationalization
+            url: /i18n/universal-login-internationalization
+            hidden: true
+          - title: Customize Translation of Lock Password Options
+            url: /i18n/password-options-translation
+            hidden: true
+  - title: Actions
+    url: /actions 
+    children:
+      - title: How Auth0 Actions Work 
+        url: /actions/actions-overview
+      - title: Write Your First Action
+        url: /actions/write-your-first-action
+      - title: Triggers
+        url: /actions/triggers
+        children:
+          - title: post-login
+            url: /actions/triggers/post-login
+            children:
+              - title: Manage user metadata in post-login
+                url: /actions/triggers/post-login/manage-user-metadata
+                hidden: true
+              - title: Redirect with Actions
+                url: /actions/triggers/post-login/redirect-with-actions
+                hidden: true
+          - title: credentials-exchange
+            url: /actions/triggers/credentials-exchange
+          - title: pre-user-registration
+            url: /actions/triggers/pre-user-registration
+          - title: post-user-registration
+            url: /actions/triggers/post-user-registration
+          - title: post-change-password
+            url: /actions/triggers/post-change-password
+          - title: send-phone-message
+            url: /actions/triggers/send-phone-message
+      - title: Limitations
+        url: /actions/limitations
       - title: Manage Action Versions
         url: /actions/manage-action-versions
-      - title: Troubleshoot Actions
-        url: /actions/troubleshoot-actions
-      - title: Actions Blueprints
-        url: /actions/blueprints
+      - title: Programming Model Changes
+        url: /actions/programming-model-changes
   - title: Rules
     url: /rules
     children:
-      - title: Create a New Rule
-        url: /rules/create-rules
-      - title: Rules Use Cases
+      - title: Rule Use Cases
         url: /rules/use-cases
-      - title: Store Configuration for Rules
+      - title: Create Rules
+        url: /rules/create-rules
+      - title: Store Rule Configurations
         url: /rules/configuration
       - title: Cache Expensive Resources
         url: /rules/cache-resources
-      - title: Debug Rules
-        url: /rules/debug-rules
       - title: Management API in Rules
         url: /rules/use-management-api
-      - title: Metadata in Rules
-        url: /rules/metadata
+      - title: Manage Metadata with Rules
+        url: /users/metadata/manage-metadata-rules
       - title: Redirect Users from Rules
         url: /rules/redirect-users
-      - title: User Object
+      - title: Raise Errors from Rules
+        url: /rules/raise-errors-from-rules
+      - title: Export Log Events with Rules
+        url: /logs/export-log-events-with-rules
+      - title: User Object Properties
         url: /rules/user-object-in-rules
-      - title: Context Object
+      - title: Context Object Properties
         url: /rules/context-object
+      - title: Debug Rules
+        url: /rules/debug-rules
   - title: Hooks
     url: /hooks
     children:
@@ -755,7 +912,7 @@ articles:
         url: /hooks/enable-disable-hooks
       - title: View Hooks
         url: /hooks/view-hooks
-      - title: View Logs
+      - title: View Logs for Hooks
         url: /hooks/view-logs-for-hooks
       - title: Extensibility Points
         url: /hooks/extensibility-points
@@ -803,29 +960,39 @@ articles:
         url: /extensions/ad-ldap-connector-health-monitor
       - title: Real-time Webtask Logs
         url: /extensions/real-time-webtask-logs
-      - title: Auth0 Logs to Application Insights
-        url: /extensions/export-logs-to-application-insights
-      - title: Auth0 Logs to AWS Cloudwatch
-        url: /extensions/export-logs-to-cloudwatch
-      - title: Auth0 Logs to Azure Blob Storage
-        url: /extensions/export-logs-to-azure-blob-storage
-      - title: Auth0 Logs to Logentries
-        url: /extensions/export-logs-to-logentries
-      - title: Auth0 Logs to Loggly
-        url: /extensions/export-logs-to-loggly
-      - title: Auth0 Logs to Logstash
-        url: /extensions/export-logs-to-logstash
-      - title: Auth0 Logs to Mixpanel
-        url: /extensions/export-logs-to-mixpanel
-      - title: Auth0 Logs to Papertrail
-        url: /extensions/export-logs-to-papertrail
-      - title: Auth0 Logs to Sumo Logic
-        url: /extensions/auth0-logs-to-sumo-logic
-      - title: Auth0 Logs to Splunk
-        url: /extensions/export-logs-to-splunk
-      - title: Add-ons
-        url: /addons
-        hidden: true
+      - title: Log Export Extensions 
+        url: /extensions/log-export-extensions
+        children: 
+          - title: Auth0 Logs to Application Insights
+            url: /extensions/export-logs-to-application-insights
+            hidden: true
+          - title: Auth0 Logs to AWS Cloudwatch
+            url: /extensions/export-logs-to-cloudwatch
+            hidden: true
+          - title: Auth0 Logs to Azure Blob Storage
+            url: /extensions/export-logs-to-azure-blob-storage
+            hidden: true
+          - title: Auth0 Logs to Logentries
+            url: /extensions/export-logs-to-logentries
+            hidden: true
+          - title: Auth0 Logs to Loggly
+            url: /extensions/export-logs-to-loggly
+            hidden: true
+          - title: Auth0 Logs to Logstash
+            url: /extensions/export-logs-to-logstash
+            hidden: true
+          - title: Auth0 Logs to Mixpanel
+            url: /extensions/export-logs-to-mixpanel
+            hidden: true
+          - title: Auth0 Logs to Papertrail
+            url: /extensions/export-logs-to-papertrail
+            hidden: true
+          - title: Auth0 Logs to Sumo Logic
+            url: /extensions/auth0-logs-to-sumo-logic
+            hidden: true
+          - title: Auth0 Logs to Splunk
+            url: /extensions/export-logs-to-splunk
+            hidden: true
   - title: Integrations
     url: /integrations
     children:
@@ -838,74 +1005,7 @@ articles:
       - title: Google Cloud Endpoints
         url: /integrations/google-cloud-endpoints
       - title: Single Sign-On
-        url: /integrations/sso-integrations
-        children:
-          - title: Active Directory RMS
-            url: /integrations/sso/ad-rms
-          - title: Adobe Sign
-            url: /integrations/sso/adobe-sign
-          - title: Box
-            url: /integrations/sso/box
-          - title: Cisco WebEx
-            url: /integrations/sso/cisco-webex
-          - title: CloudBees
-            url: /integrations/sso/cloudbees
-          - title: Concur
-            url: /integrations/sso/concur
-          - title: Datadog
-            url: /integrations/sso/datadog
-          - title: Dropbox
-            url: /integrations/sso/dropbox
-          - title: Dynamics CRM
-            url: /integrations/sso/dynamics-crm
-          - title: Egencia
-            url: /integrations/sso/egencia
-          - title: Egnyte
-            url: /integrations/sso/egnyte
-          - title: Eloqua
-            url: /integrations/sso/eloqua
-          - title: Freshdesk
-            url: /integrations/sso/freshdesk
-          - title: G Suite
-            url: /integrations/sso/g-suite
-          - title: GitHub Enterprise Cloud
-            url: /integrations/sso/github-enterprise-cloud
-          - title: GitHub Enterprise Server
-            url: /integrations/sso/github-enterprise-server
-          - title: Heroku
-            url: /integrations/sso/heroku
-          - title: Hosted Graphite
-            url: /integrations/sso/hosted-graphite
-          - title: Litmos
-            url: /integrations/sso/litmos
-          - title: New Relic
-            url: /integrations/sso/new-relic
-          - title: Office 365
-            url: /integrations/sso/office-365
-          - title: Pluralsight
-            url: /integrations/sso/pluralsight
-          - title: Salesforce
-            url: /integrations/sso/salesforce
-          - title: Sentry
-            url: /integrations/sso/sentry
-          - title: Slack
-            url: /integrations/sso/slack
-          - title: SpringCM
-            url: /integrations/sso/springcm
-          - title: Sprout Video
-            url: /integrations/sso/sprout-video
-          - title: Tableau Online
-            url: /integrations/sso/tableau-online
-          - title: Tableau Server
-            url: /integrations/sso/tableau-server
-          - title: Workday
-            url: /integrations/sso/workday
-          - title: Workpath
-            url: /integrations/sso/workpath
-          - title: Zendesk
-            url: /integrations/sso/zendesk
-          - title: Zoom
-            url: /integrations/sso/zoom
+        url: /integrations/sso
       - title: Marketing
         url: /integrations/marketing
         children:
@@ -929,54 +1029,6 @@ articles:
             url: /integrations/marketing/salesforce-marketing-cloud
           - title: Watson Campaign Automation
             url: /integrations/marketing/watson-campaign-automation
-  - title: Logs
-    url: /logs
-    children:
-      - title: Log Streams
-        url: /logs/streams
-        children:
-          - title: HTTP Event Streams
-            url: /logs/streams/stream-http-event-logs
-            children: 
-            - title: HTTP Stream to Slack Example
-              url: /logs/streams/stream-log-events-to-slack
-              hidden: true 
-          - title: AWS EventBridge
-            url: /logs/streams/aws-eventbridge
-          - title: Azure Event Grid
-            url: /logs/streams/stream-logs-to-azure-event-grid
-          - title: Datadog
-            url: /logs/streams/stream-logs-to-datadog
-            children:
-              - title: Datadog Dashboard Templates
-                url: /logs/streams/datadog-dashboard-templates
-                hidden: true 
-          - title: Splunk
-            url: /logs/streams/stream-logs-to-splunk
-            children:
-              - title: Auth0 App for Splunk
-                url: /logs/streams/splunk-dashboard
-                hidden: true 
-          - title: Sumo Logic
-            url: /logs/streams/stream-logs-to-sumo-logic
-            children:
-              - title: Auth0 App for Sumo Logic
-                url: /logs/streams/sumo-logic-dashboard
-                hidden: true 
-      - title: Log Data Retention
-        url: /logs/log-data-retention
-      - title: View Log Data in the Dashboard
-        url: /logs/view-log-events-in-the-dashboard
-      - title: Log Event Filters
-        url: /logs/log-event-filters
-      - title: Retrieve Logs Using the Management API
-        url: /logs/retrieve-log-events-using-mgmt-api
-      - title: Log Event Type Codes
-        url: /logs/log-event-type-codes
-      - title: Log Search Query Syntax
-        url: /logs/log-search-query-syntax
-      - title: Migrate from Logs Search v2 to v3
-        url: /product-lifecycle/deprecations-and-migrations/migrate-to-tenant-log-search-v3
   - title: Monitor
     url: /monitor-auth0
     children:
@@ -988,6 +1040,72 @@ articles:
         url: /monitor-auth0/monitor-applications
       - title: Monitor Using SCOM
         url: /monitor-auth0/monitor-using-scom
+      - title: Logs
+        url: /logs
+        children:
+          - title: PII in Logs
+            url: /logs/pii-in-logs
+          - title: Log Data Retention
+            url: /logs/log-data-retention
+          - title: View Log Events
+            url: /logs/view-log-events
+          - title: Retrieve Log Events
+            url: /logs/retrieve-log-events-using-mgmt-api
+          - title: Log Event Filters
+            url: /logs/log-event-filters
+          - title: Log Event Type Codes
+            url: /logs/log-event-type-codes
+          - title: Log Search Query Syntax
+            url: /logs/log-search-query-syntax
+            children:
+              - title: Migrate to Tenant Log Search v3
+                url: /product-lifecycle/deprecations-and-migrations/migrate-to-tenant-log-search-v3
+                hidden: true
+          - title: Export Log Events with Extensions
+            url: /logs/export-log-events-with-extensions
+          - title: Export Log Events with Rules
+            url: /logs/export-log-events-with-rules
+            hidden: true
+      - title: Streams
+        url: /monitor-auth0/streams
+        children:
+          - title: AWS EventBridge
+            url: /monitor-auth0/streams/stream-logs-to-amazon-eventbridge
+            hidden: true
+          - title: Azure Event Grid
+            url: /monitor-auth0/streams/stream-logs-to-azure-event-grid
+            hidden: true
+          - title: Datadog
+            url: /monitor-auth0/streams/stream-logs-to-datadog
+            hidden: true
+            children:
+              - title: Datadog Dashboard Templates
+                url: /monitor-auth0/streams/datadog-dashboard-templates
+                hidden: true
+          - title: Splunk
+            url: /monitor-auth0/streams/stream-logs-to-splunk
+            hidden: true
+            children:
+              - title: Auth0 App for Splunk
+                url: /monitor-auth0/streams/splunk-dashboard
+                hidden: true
+          - title: Sumo Logic
+            url: /monitor-auth0/streams/stream-logs-to-sumo-logic
+            hidden: true
+            children:
+              - title: Auth0 App for Sumo Logic
+                url: /monitor-auth0/streams/sumo-logic-dashboard
+                hidden: true
+          - title: Create Custom Log Streams
+            url: /monitor-auth0/streams/custom-log-streams
+            children:
+            - title: Stream Logs to Slack Using Webhooks
+              url: /monitor-auth0/streams/stream-log-events-to-slack
+              hidden: true
+          - title: Check Log Stream Health
+            url: /monitor-auth0/streams/check-log-stream-health
+          - title: Log Stream Filters
+            url: /monitor-auth0/streams/event-filters
   - title: Troubleshoot
     url: /troubleshoot
     children:
@@ -1001,29 +1119,33 @@ articles:
           - title: Verify Domain
             url: /troubleshoot/troubleshoot-basic/verify-domain
           - title: Verify Rules
-            url: /troubleshoot/verify-rules
+            url: /troubleshoot/troubleshoot-basic/verify-rules
           - title: Check Error Messages
-            url: /troubleshoot/check-error-messages
-            children:
-              - title: Deprecation Errors
-                url: /troubleshoot/troubleshoot-authentication-issues/check-deprecation-errors
-                hidden: true
+            url: /troubleshoot/troubleshoot-basic/check-error-messages
+          - title: Invalid Token Errors
+            url: /troubleshoot/troubleshoot-basic/invalid-token-errors
+          - title: Deprecation Errors
+            url: /troubleshoot/troubleshoot-basic/check-deprecation-errors
       - title: Authentication Issues
-        url: /troubleshoot/troubleshoot-authentication-issues
+        url: /troubleshoot/troubleshoot-authentication
         children:
           - title: API Calls
-            url: /troubleshoot/troubleshoot-authentication-issues/check-api-calls
+            url: /troubleshoot/troubleshoot-authentication/check-api-calls
           - title: Login and Logout Issues
-            url: /troubleshoot/troubleshoot-authentication-issues/check-login-and-logout-issues
+            url: /troubleshoot/troubleshoot-authentication/check-login-and-logout-issues
           - title: User Profiles
-            url: /troubleshoot/troubleshoot-authentication-issues/check-user-profiles
-          - title: RBAC
-            url: /authorization/troubleshoot-role-based-access-control-and-authorization
-          - title: MFA
-            url: /mfa/references/troubleshooting
-          - title: SAML
-            url: /troubleshoot/troubleshoot-saml-configurations
-          - title: Authorization Extension
+            url: /troubleshoot/troubleshoot-authentication/check-user-profiles
+          - title: RBAC and Authorization
+            url: /troubleshoot/troubleshoot-authentication/troubleshoot-rbac-authorization
+          - title: MFA Issues
+            url: /mfa/troubleshoot-mfa-issues
+          - title: SAML Configurations
+            url: /troubleshoot/troubleshoot-authentication/troubleshoot-saml-configurations
+          - title: SAML Errors
+            url: /troubleshoot/troubleshoot-authentication/saml-errors
+          - title: Self Change Password Errors
+            url: /troubleshoot/troubleshoot-authentication/self-change-password-errors
+          - title: Authorization Extension Issues
             url: /extensions/authorization-extension/troubleshoot-authorization-extension
       - title: Integration and Extensibility Issues
         url: /troubleshoot/troubleshoot-integration-and-extensibility
@@ -1040,10 +1162,13 @@ articles:
             url: /extensions/troubleshoot-extensions
           - title: Auth0 PHP SDK
             url: /libraries/auth0-php/troubleshoot-auth0-php-library
-      - title: Generate and Analyze HAR Files
-        url: /troubleshoot/generate-and-analyze-har-files
-      - title: Authentication API Debugger
-        url: /extensions/authentication-api-debugger-extension
+      - title: Tools
+        url: /troubleshoot/tools
+        children:
+          - title: Generate and Analyze HAR Files
+            url: /troubleshoot/tools/generate-and-analyze-har-files
+          - title: Authentication API Debugger
+            url: /extensions/authentication-api-debugger-extension
   - title: Product Lifecycle
     url: /product-lifecycle
     children:
@@ -1058,21 +1183,39 @@ articles:
   - title: Security
     url: /security
     children:
-      - title: CVE 2018-6874
-        url: /security/cve-2018-6874
-        hidden: true
-      - title: CVE 2018-6873
-        url: /security/cve-2018-6873
-        hidden: true
-      - title: CVE 2018-7307
-        url: /security/cve-2018-7307
-        hidden: true
-      - title: CVE 2017-16897
-        url: /security/cve-2017-16897
-        hidden: true
-      - title: CVE 2017-17068
-        url: /security/cve-2017-17068
-        hidden: true
+      - title: General Security Tips
+        url: /security/tips
+      - title: Security Bulletins
+        url: /security/security-bulletins
+        children:
+          - title: CVE 2018-6874
+            url: /security/security-bulletins/cve-2018-6874
+            hidden: true
+          - title: CVE 2018-6873
+            url: /security/security-bulletins/cve-2018-6873
+            hidden: true
+          - title: CVE 2018-7307
+            url: /security/security-bulletins/cve-2018-7307
+            hidden: true
+          - title: CVE 2017-16897
+            url: /security/security-bulletins/cve-2017-16897
+            hidden: true
+          - title: CVE 2017-17068
+            url: /security/security-bulletins/cve-2017-17068
+            hidden: true
+      - title: Data Security
+        url: /security/data-security
+        children:
+          - title: Add User Attributes to Deny List
+            url: /security/data-security/denylist
+          - title: Auth0 IP Addresses for Allow Lists
+            url: /security/data-security/allowlist
+          - title: User Data Storage
+            url: /security/data-security/user-data-storage
+          - title: Token Storage
+            url: /security/data-security/token-storage
+      - title: Prevent Common Threats
+        url: /security/prevent-threats
       - title: Tokens
         url: /tokens
         children:
@@ -1164,12 +1307,12 @@ articles:
           - title: Revoke Tokens
             url: /tokens/revoke-tokens
       - title: Cookies
-        url: /sessions-and-cookies/cookies
-      - title: Common Threats
-        url: /security/prevent-common-cybersecurity-threats
-      - title: Add User Attributes to DenyList
-        url: /security/denylist-user-attributes
-  - title: Data Privacy
+        url: /sessions/cookies
+        children:
+          - title: Authenticate SPAs with Cookies
+            url: /sessions/cookies/spa-authenticate-with-cookies
+            hidden: true
+  - title: Data Privacy and Compliance
     url: /compliance
     children:
       - title: GDPR
@@ -1177,28 +1320,28 @@ articles:
         children:
           - title: Conditions for Consent
             url: /compliance/gdpr/gdpr-conditions-for-consent
-            hidden: true 
+            hidden: true
           - title: Right to Access, Correct, and Erase Data
             url: /compliance/gdpr/gdpr-right-to-access-correct-and-erase-data
-            hidden: true 
+            hidden: true
           - title: Data Minimization
             url: /compliance/gdpr/gdpr-data-minimization
-            hidden: true 
+            hidden: true
           - title: Data Portability
             url: /compliance/gdpr/gdpr-data-portability
-            hidden: true 
+            hidden: true
           - title: Protect and Secure User Data
             url: /compliance/gdpr/gdpr-protect-and-secure-user-data
-            hidden: true 
+            hidden: true
           - title: Redirect Users to Consent Form
             url: /compliance/gdpr/gdpr-redirect-users-consent-form-hosted-webtask
-            hidden: true 
+            hidden: true
           - title: Track Consent with Custom UI
             url: /compliance/gdpr/gdpr-track-consent-with-custom-ui
-            hidden: true 
+            hidden: true
           - title: Track Consent with Lock
             url: /compliance/gdpr/gdpr-track-consent-with-lock
-            hidden: true 
+            hidden: true
       - title: Data Processing
         url: /compliance/data-processing
   - title: Best Practices
@@ -1206,69 +1349,77 @@ articles:
     children:
       - title: General Usage and Operations
         url: /best-practices/general-usage-and-operations-best-practices
-      - title: Application Settings
-        url: /best-practices/app-settings-best-practices
-        hidden: true
+      - title: Deployment
+        url: /best-practices/deployment-best-practices
+      - title: Performance
+        url: /best-practices/performance-best-practices
+        hidden: true 
+      - title: Debugging
+        url: /best-practices/debugging-best-practices
+        hidden: true 
+      - title: Error Handling
+        url: /best-practices/error-handling-best-practices
+      - title: Multi-Tenant Applications
+        url: /best-practices/multi-tenant-apps-best-practices
+      - title: Mobile Device Login Flow
+        url: /best-practices/mobile-device-login-flow-best-practices
       - title: Connection Settings
         url: /best-practices/connection-settings-best-practices
       - title: Custom Databases and Scripts
-        url: /best-practices/custom-database-connection-and-action-script-best-practices
+        url: /best-practices/custom-database-connections-scripts
         children:
-          - title: Custom Database Connection Anatomy
-            url: /best-practices/custom-database-connection-and-action-script-best-practices/custom-db-connection-anatomy-best-practices
-            hidden: true
-          - title: Custom Database Action Script Size
-            url: /best-practices/custom-db-connections/size
-            hidden: true
-          - title: Custom Database Action Script Environment
-            url: /best-practices/custom-database-connection-and-action-script-best-practices/custom-db-action-script-environment-best-practices
-            hidden: true
-          - title: Error Handling
-            url: /best-practices/error-handling-best-practices
-            hidden: true
-          - title: Debugging
-            url: /best-practices/debugging-best-practices
-            hidden: true
-          - title: Testing
-            url: /best-practices/rules-testing-best-practices
-            hidden: true
-          - title: Deployment
-            url: /best-practices/deployment-best-practices
-            hidden: true
-          - title: Performance
-            url: /best-practices/performance-best-practices
-            hidden: true
-          - title: Security
-            url: /best-practices/custom-database-connection-and-action-script-best-practices/custom-db-connection-security-best-practices
-            hidden: true
-      - title: Metadata
-        url: /best-practices/metadata-best-practices
+          - title: Connection Anatomy
+            url: /best-practices/custom-database-connections-scripts/anatomy
+          - title: Script Environment
+            url: /best-practices/custom-database-connections-scripts/environment
+          - title: Script Execution
+            url: /best-practices/custom-database-connections-scripts/execution
+          - title: Database Security
+            url: /best-practices/custom-database-connections-scripts/connection-security
+      - title: Passwordless Login Connections
+        url: /connections/passwordless/best-practices
       - title: Rules
         url: /best-practices/rules-best-practices
-      - title: Search
-        url: /best-practices/user-search-best-practices
-      - title: Tenant Settings
-        url: /best-practices/tenant-settings-best-practices
-        hidden: true
+        children:
+          - title: Rules Anatomy
+            url: /best-practices/rules-best-practices/rules-anatomy-best-practices
+          - title: Rules Environment
+            url: /best-practices/rules-best-practices/rules-environment-best-practices
+          - title: Rules Execution
+            url: /best-practices/rules-best-practices/rules-execution-best-practices
+          - title: Rules Security
+            url: /best-practices/rules-best-practices/rules-security-best-practices
+          - title: Rules Testing
+            url: /best-practices/rules-best-practices/rules-testing-best-practices
       - title: Tokens
         url: /best-practices/token-best-practices
-      - title: User Data Storage
-        url: /best-practices/user-data-storage-best-practices
+      - title: User Search
+        url: /best-practices/user-search-best-practices
   - title: Support
     url: /support
     children:
-      - title: Support Options
-        url: /support
-      - title: Support Matrix
+      - title: Support Plans
+        url: /support/support-plans
+      - title: Support Channels
+        url: /support/support-channels
+      - title: Support Procedures
+        url: /support/support-procedures
+      - title: Support Hours and Languages
+        url: /support/support-hours-and-languages
+      - title: Whitehat Security Support Tickets
+        url: /support/whitehat-security-support-tickets
+      - title: Product Support Matrix
         url: /support/product-support-matrix
-      - title: SLA
+      - title: Service Levels
         url: /support/sla
-      - title: Tickets
+      - title: Support Tickets
         url: /support/open-and-manage-support-tickets
       - title: Support Center Users
         url: /support/support-center-users
-      - title: Manage Subscription
+      - title: Manage Subscriptions
         url: /support/manage-subscriptions
+      - title: Software Updates
+        url: /support/software-updates
       - title: Operational Policies
         url: /policies
         children:
@@ -1293,9 +1444,13 @@ articles:
                 hidden: true
               - title: User/Password Authentication Rate Limits
                 url: /policies/rate-limit-policy/database-connections-rate-limits
-                hidden: true 
+                hidden: true
           - title: Entity Limits
-            url: /policies/entity-limit-policy
+            url: /policies/entity-limit-policy 
+      - title: Changelog
+        external: true 
+        forceFullReload: true 
+        url: 'https://auth0.com/changelog'
   - title: Professional Services
     url: /professional-services
     children:
@@ -1324,6 +1479,7 @@ apis:
     url: /api
   - title: Testing with Postman
     url: /api/use-auth0-apis-with-postman-collections
+    hidden: true 
   - title: Authentication API
     url: /api/authentication
     external: true
@@ -1331,6 +1487,7 @@ apis:
   - title: Changes in Management API v2
     url: /api/management-api-changes-v1-to-v2
     forceFullReload: true
+    hidden: true 
   - title: Management API Explorer
     url: /api/management/v2/
     forceFullReload: true
@@ -1395,6 +1552,10 @@ libraries:
         url: /libraries/lock-android/lock-android-custom-theming
       - title: Internationalization
         url: /libraries/lock-android/lock-android-internationalization
+      - title: Passwordless
+        url: /libraries/lock-android/lock-android-passwordless
+      - title: Passwordless with Magic Link
+        url: /libraries/lock-android/lock-android-passwordless-with-magic-link
   - title: Lock vs. Custom UI
     url: /universal-login/universal-login-page-customization
   - title: Auth0 SDK for Web

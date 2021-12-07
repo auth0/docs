@@ -119,7 +119,7 @@ Open the app's `AndroidManifest.xml` and add the `LoginActivity`:
 
                 <data
                     android:host="@string/auth0_domain"
-                    android:pathPrefix="/android/com.auth0.samples/callback"
+                    android:pathPrefix="/android/com.auth0.androidsample/callback"
                     android:scheme="demo" />
             </intent-filter>
 </activity>

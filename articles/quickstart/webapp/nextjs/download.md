@@ -11,6 +11,7 @@ http://localhost:3000/api/auth/callback
 ```text
 http://localhost:3000
 ```
+
 3) Make sure [Node.JS LTS](https://nodejs.org/en/download/) is installed and execute the following commands in the root directory:
 ```bash
 npm install && npm run dev

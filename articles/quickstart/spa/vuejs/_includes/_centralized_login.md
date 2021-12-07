@@ -39,7 +39,7 @@ npm install @auth0/auth0-spa-js
 Now start the application from the command line:
 
 ```bash
-PORT=3000 npm run serve
+npm run serve -- --port 3000
 ```
 
 At this point, you can leave the application running in the background, as it will reload whenever you make changes. Note the port number — if you intend your app to run on a different port, remember to adjust this number throughout the quickstart.

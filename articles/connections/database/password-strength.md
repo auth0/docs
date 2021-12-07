@@ -43,7 +43,10 @@ The password policy for Auth0 Dashboard Admins will mirror the criteria set for 
 
 You can set a minimum length requirement for passwords that is independent of the policy strength requirements described in the [section immediately above](#password-policies). 
 
-The minimum password length you can set is **1**, while the maximum is **128**.
+The minimum password length you can set is **1 byte**, while the maximum is **72 bytes**.
+::: note
+The maximum limit may vary depending on the password hashing algorithm you use.
+:::
 
 If you opt for a higher-level password policy, but you do not specify a minimum length value, the minimum password length for the policy level will automatically be used:
 
@@ -59,7 +62,7 @@ If you provide a minimum password length, this value supercedes that indicated b
 
 ### Minimum password length when using Universal Login Pages
 
-If you are using either the [Universal Login Page](/universal-login) or the [Universal Login Password Reset Page](/universal-login/password-reset), and you want to set the minimum password length value, you will need to complete a few additional configuration steps using the [Dashboard](${manage_url}).
+If you are using either the [Universal Login Page](/universal-login) or the [Universal Login Password Reset Page](/universal-login/password-reset), and you want to set the minimum password length value, you will need to complete a few additional configuration steps using the [Auth0 Dashboard](${manage_url}).
 
 #### Set minimum password length when using Hosted Password Reset Pages
 
@@ -113,9 +116,8 @@ Scroll to the bottom and click **Save**.
 
 ## Change Your Policy
 
-To change the password strength policy, go to [Database connections](${manage_url}/#/connections/database). Select the database connection you want to change and click on the **Password Strength** tab:
-
-![Password Strength Panel in Auth0](/media/articles/connections/database/password-strength/pw-manage.png)
+To change the password strength policy, navigate to [Auth0 Dashboard > Authentication > Database](${manage_url}/#/connections/database). Select the database connection you want to change, select the **Password Policy** view, and locate the **Password Strength** section:
+![Auth0 Database Authentication - Password Policy - Password Strength](/media/articles/connections/database/password-strength/dashboard-connections-database-edit_view-password-policy_password-strength.png)
 
 The new policy will be enforced on all subsequent user sign-ups and password changes. If the user enters a password that does not match the required criteria, the password will be rejected by Auth0 and the user will be asked to create one that complies with these requirements.
 

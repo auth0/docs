@@ -1,6 +1,6 @@
 # SAML
 
-The <dfn data-key="security-assertion-markup-language">SAML</dfn> protocol is used for 3rd party SaaS applications mostly, like Salesforce and Box. Auth0 supports SP and IDP Initiated Sign On. For more information, see [SAML](/protocols/saml).
+The <dfn data-key="security-assertion-markup-language">SAML</dfn> protocol is used mostly for third-party SaaS applications, like Salesforce and Box. Auth0 supports Service Provider (SP) and Identity Provider (IDP) initiated Sign On. To learn more, see [SAML](/protocols/saml).
 
 ## Accept Request
 
@@ -27,26 +27,24 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to accept a <dfn data-key="security-assertion-markup-language">SAML</dfn> request to initiate a login.
 
-Optionally, it accepts a connection parameter to login with a specific provider. If no connection is specified, the [Auth0 Login Page](/login_page) will be shown.
+Optionally, you can include a `connection` parameter to log in with a specific provider. If no connection is specified, the [Auth0 Login Page](/login_page) will be shown.
+
+Optionally, SP-initiated login requests can include an `organization` parameter to authenticate users in the context of an organization. To learn more, see [Organizations](/organizations).
 
 
 ### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your application. |
-| `connection`     | The connection to use. |
-
-
-### Test with Postman
-
-<%= include('../../_includes/_test-with-postman') %>
+| `client_id` <br/><span class="label label-danger">Required</span> | Client ID of your application. |
+| `connection`     | Connection to use during login. |
+| `organization`   | Organization ID, if authenticating in the context of an organization. |
 
 
 ### Remarks
 
 - All the parameters of the SAML response can be modified with [Rules](/rules).
-- The SAML request `AssertionConsumerServiceURL` will be used to `POST` back the assertion. It must match the application's <dfn data-key="callback">`callback_URL`</dfn>.
+- The SAML request `AssertionConsumerServiceURL` will be used to `POST` back the assertion. It must match one of the application's <dfn data-key="callback">`callback_URLs`</dfn>.
 
 ### More Information
 - [SAML](/protocols/saml)
@@ -78,11 +76,6 @@ This endpoint returns the <dfn data-key="security-assertion-markup-language">SAM
 | Parameter        | Description |
 |:-----------------|:------------|
 | `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your application. |
-
-
-### Test with Postman
-
-<%= include('../../_includes/_test-with-postman') %>
 
 
 ### More Information

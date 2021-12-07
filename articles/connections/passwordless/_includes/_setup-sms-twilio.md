@@ -1,5 +1,5 @@
 
-Navigate to the [Connections > Passwordless](${manage_url}/#/connections/passwordless) page in the [Auth0 Dashboard](${manage_url}/), and enable the SMS toggle.
+Navigate to [Auth0 Dashboard > Authentication > Passwordless](${manage_url}/#/connections/passwordless), and enable the **SMS** switch.
 
 ![Enable SMS Passwordless](/media/articles/connections/passwordless/connections-passwordless-list.png)
 
@@ -25,7 +25,7 @@ To learn about using Twilio Messaging Services, see Twilio docs: [Sending Messag
 
 ### Configure a custom SMS gateway
 
-If you would like to use your own SMS gateway, you will need to create the passwordless connection and then modify it using our Management API. To learn how to modify the connection to use your own SMS gateway, see [Configure SMS Gateway for Passwordless Connections](/connections/passwordless/guides/use-sms-gateway-passwordless).
+If you would like to use your own SMS gateway, you will need to create the passwordless connection and then modify it using our Management API. To learn how to modify the connection to use your own SMS gateway, see [Configure SMS Gateway for Passwordless Connections](/connections/passwordless/use-sms-gateway-passwordless).
 
 ### Configure passwordless SMS settings
 
@@ -41,7 +41,7 @@ The `@@password@@` placeholder will automatically be replaced with the one-time 
 
 3. Decide if you want to **Disable Signups**. You can enable passwordless access just for existing users by enabling this setting.
 
-4. Click **SAVE**.
+4. Click **Save**.
 
 #### Multi-language support
 
@@ -74,4 +74,4 @@ The following parameters are available when defining the message template:
 
 ### Enable your apps
 
-Click the **Apps** tab, and enable the apps for which you would like to use <dfn data-key="passwordless">Passwordless</dfn> SMS.
+Select the **Applications** view, and enable the applications for which you would like to use <dfn data-key="passwordless">Passwordless</dfn> SMS.

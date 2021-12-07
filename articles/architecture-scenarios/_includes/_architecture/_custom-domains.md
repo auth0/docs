@@ -1,7 +1,7 @@
 When you setup your Auth0 tenant, the URL for accessing that tenant will be of the form  `https://${account.tenant}.auth0.com`. Providing a [Custom Domain](/custom-domains) (also known as a vanity URL), for your Auth0 tenant is not only an important factor for supporting your Branding requirements, but more importantly will also provide you with security benefits too:
 
 * Some browsers will, by default, make it [difficult to communicate in an iFrame if you don't have a shared domain](/api-auth/token-renewal-in-safari).
-* It's [harder to phish your domain if you have a vanity URL](https://auth0.com/blog/introducing-custom-domains-preview-with-auth0/), as the phisher must also create a vanity URL to mimic yours. For example, with a custom domain you can use your own certificate to get an "Extended Validation", making phishing even harder.
+* A vanity URL makes phishing more difficult as the phisher must also create a vanity URL to mimic yours. For example, with a custom domain you can use your own certificate to get an "Extended Validation", making phishing even harder.
 
 ::: note
 You are allowed only one custom domain per Auth0 Tenant. This is because a tenant in Auth0 is intended to represent a “domain” of users. If you need more than one vanity URL, then you likely have more than one domain of users and should be using multiple tenants.

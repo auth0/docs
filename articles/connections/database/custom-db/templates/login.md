@@ -74,7 +74,7 @@ Additionally, you can also provide metadata for a user as part of the user profi
 While a user does not need to use an email address to login, it’s recommended best practice that they have an email address defined against their user profile. This ensures that Auth0 out-of-box functionality works as designed.  
 :::
 
-For a legacy authentication scenario, you can also enable the `Sync user profile at each login` option in the settings for a custom database connection. This allows attribute updatess in the Auth0 user profile each time a login for the user occurs for attributes that would otherwise not be available for update via the Auth0 Management API. For legacy authentication scenarios there are a number of root profile attributes which cannot be updated directly via the Management API.
+For a legacy authentication scenario, you can also enable the `Sync user profile at each login` option in the settings for a custom database connection. This allows attribute updates in the Auth0 user profile each time a login for the user occurs for attributes that would otherwise not be available for update via the Auth0 Management API. For legacy authentication scenarios there are a number of root profile attributes which cannot be updated directly via the Management API.
 
 ::: note
 In order to update `name`, `nickname`, `given_name`, `family_name`, and/or `picture` attributes associated with the root of the normalized user profile, you must configure user profile sync so that user attributes will be updated from the identity provider. Auth0 does not support update of these attributes for a custom database connection used for legacy authentication.   
@@ -90,7 +90,6 @@ Auth0 provides sample scripts for use with the following languages/technologies:
 * [ASP.NET Membership Provider (MVC4 - Simple Membership)](/connections/database/custom-db/templates/login#asp-net-membership-provider-mvc4-simple-membership-)
 * [MongoDB](/connections/database/custom-db/templates/login#mongodb)
 * [MySQL](/connections/database/custom-db/templates/login#mysql)
-* [Oracle](/connections/database/custom-db/templates/login#oracle)
 * [PostgreSQL](/connections/database/custom-db/templates/login#postgresql)
 * [SQL Server](/connections/database/custom-db/templates/login#sql-server)
 * [Windows Azure SQL Database](/connections/database/custom-db/templates/login#windows-azure-sql-database)
@@ -452,51 +451,6 @@ function login(email, password, callback) {
       });
     });
   });
-}
-```
-
-### Oracle
-
-```
-function login(email, password, callback) {
-  const bcrypt = require('bcrypt');
-  const oracledb = require('oracledb');
-  oracledb.outFormat = oracledb.OBJECT;
-
-  oracledb.getConnection({
-      user: configuration.dbUser,
-      password: configuration.dbUserPassword,
-      connectString: 'CONNECTION_STRING' // Refer here https://github.com/oracle/node-oracledb/blob/master/doc/api.md#connectionstrings
-    },
-    function(err, connection) {
-      if (err) return callback(err);
-
-      const query = 'select ID, EMAIL, PASSWORD, NICKNAME from Users where EMAIL = :email';
-      connection.execute(query, [email], function(err, result) {
-        doRelease(connection);
-
-        if (err || result.rows.length === 0) return callback(err || new WrongUsernameOrPasswordError(email));
-
-        bcrypt.compare(password, result.rows[0].PASSWORD, function(err, isValid) {
-          if (err || !isValid) return callback(err || new WrongUsernameOrPasswordError(email));
-
-          const userProfile = {
-            user_id: result.rows[0].ID,
-            nickname: result.rows[0].NICKNAME,
-            email: result.rows[0].EMAIL
-          };
-          callback(null, userProfile);
-        });
-      });
-
-      // Note: connections should always be released when not needed
-      function doRelease(connection) {
-        connection.close(
-          function(err) {
-            if (err) console.error(err.message);
-          });
-      }
-    });
 }
 ```
 

@@ -1,4 +1,7 @@
 title: Android
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/android.png
+logo: android
 alias:
   - Android
 language:
@@ -8,7 +11,6 @@ author:
   name: Luciano Balmaceda
   email: luciano.balmaceda@auth0.com
   community: false
-image: /media/platforms/android.png
 topics:
   - quickstart
 contentType: tutorial
@@ -43,6 +45,10 @@ github:
   org: auth0-samples
   repo: auth0-android-sample
   branch: master
+sdk:
+  name: Auth0.Android
+  url: https://github.com/auth0/Auth0.Android
+  logo: android
 requirements:
   - Android Studio 4.1.0
   - Android SDK 30

@@ -19,8 +19,10 @@ This guide will show you how to test database [connections](/connections) for ap
 To properly test, you should have already [set up your database connection](/dashboard/guides/connections/set-up-connections-database) and [created a user](/dashboard/guides/users/create-users) for your database connection.
 :::
 
-1. Navigate to the [Connections > Database](${manage_url}/#/connections/database) page in the [Auth0 Dashboard](${manage_url}/), and click the **Try** icon next to the name of the connection you want to test.
+1. Navigate to [Auth0 Dashboard > Authentication > Database](${manage_url}/#/connections/database), and select the Try arrow next to the connection you want to test.
 
-2. Enter your test user's username and password.
+    ![Try Connection](/media/articles/connections/database/dashboard-connections-database-try.png)
 
-If you have configured everything correctly, you will see the **It Works!** page:
+2. Enter your test user's username and password. If you have configured everything correctly, you will see the **It Works!** page:
+
+    ![Success](/media/articles/connections/social/connection-social-try-success.png)

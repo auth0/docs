@@ -1,5 +1,7 @@
 title: Django
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
 image: /media/platforms/python.png
+logo: python
 topics:
   - quickstart
 contentType: tutorial

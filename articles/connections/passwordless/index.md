@@ -21,7 +21,7 @@ When a user authenticates via Passwordless, the user is attached to the connecti
 A passwordless connection is another type of connection separate from any existing database, social, or Enterprise connections. Even though a user from an Auth0 user database or social provider might share the same email address, the identity associated with their passwordless connection is distinct. As with linking multiple email addresses or mobile phone numbers used for the passwordless connection, [account linking](/extensions/account-link) can also be used to associate a passwordless identity with identities from other types of connections.
 
 ::: note
-You cannot create passwordless users from the Dashboard. Create them directly from the [Management API](/api/management/v2#!/Users/post_users) if signup is disabled. In the **Connection** field, use **email** for passwordless users using an email address and **sms** for passwordless users using a mobile phone number.
+You cannot create passwordless users from the Auth0 Dashboard. Create them directly from the [Management API](/api/management/v2#!/Users/post_users) if signup is disabled. In the **Connection** field, use **email** for passwordless users using an email address and **sms** for passwordless users using a mobile phone number.
 :::
 
 Passwordless differs from Multi-factor Authentication (MFA) in that only one factor is used to authenticate a user&mdash;the one-time code or link received by the user. If you want to require that users log in with a one-time code or link **in addition** to another factor (e.g., username/password or a social Identity Provider, such as Google), see [Multi-factor Authentication (MFA)](/mfa).
@@ -94,21 +94,21 @@ The main driver for picking the authentication factor is user experience, and th
 
 If you decide to use Email, then you need to decide between an one-time-use code or a magic link. We recommend using one-time-use code as the login flow is more predictable for end users. To learn more refer to the following documents:
 
-  - [Passwordless using Email and one-time-use code](/connections/passwordless/guides/email-otp)
-  - [Passwordless using Email and Magic Links](/connections/passwordless/guides/email-magic-link)
-  - [Passwordless using SMS](/connections/passwordless/guides/sms-otp)
+  - [Passwordless using Email and one-time-use code](/connections/passwordless/email-otp)
+  - [Passwordless using Email and Magic Links](/connections/passwordless/email-magic-link)
+  - [Passwordless using SMS](/connections/passwordless/sms-otp)
 
 ### Implementing Login 
 
-Auth0 supports two way of implementing authentication: *Embedded Login* and *Universal Login*.
+Auth0 supports two ways of implementing authentication: *Embedded Login* and *Universal Login*.
 
 The industry is aligned in that Universal Login is the proper way to implement authentication in all apps, but in the case of Native Applications, sometimes customers prefer to implement Embedded Login for UX reasons. 
 
-  - [Passwordless Authentication with Universal Login](/connections/passwordless/guides/universal-login)
-  - [Passwordless Authentication with Embedded Login](/connections/passwordless/guides/embedded-login)
+  - [Passwordless Authentication with Universal Login](/connections/passwordless/universal-login)
+  - [Passwordless Authentication with Embedded Login](/connections/passwordless/embedded-login)
 
 ## Keep reading
 
- * [Best practices for Passwordless Authentication](/connections/passwordless/guides/best-practices)
- * [API Documentation](/connections/passwordless/reference/relevant-api-endpoints)
+ * [Best practices for Passwordless Authentication](/connections/passwordless/best-practices)
+ * [API Documentation](/connections/passwordless/relevant-api-endpoints)
  * [Migrating from deprecated Passwordless endpoints](/migrations/guides/migration-oauthro-oauthtoken-pwdless)

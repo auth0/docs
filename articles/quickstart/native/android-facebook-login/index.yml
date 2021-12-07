@@ -1,4 +1,8 @@
 title: Android - Facebook Login
+# TODO remove 'image' and 'logo_name' once new QS page is live. Then only use 'logo'.s
+image: /media/platforms/android.png
+logo_name: android
+logo: android
 alias:
   - Android
 language:
@@ -8,8 +12,6 @@ author:
   name: Luciano Balmaceda
   email: luciano.balmaceda@auth0.com
   community: false
-logo_name: android
-image: /media/platforms/android.png
 topics:
   - quickstart
 contentType: tutorial
@@ -34,7 +36,7 @@ next_steps:
       href: "/libraries/auth0-android/save-and-refresh-tokens"
     - text: Learn to call an API
       icon: 345
-      href: "/quickstart/native/android/06-calling-apis"
+      href: "/quickstart/native/android/01-user-metadata"
     - text: Configure other identity providers
       icon: 345
       href: "/identityproviders"

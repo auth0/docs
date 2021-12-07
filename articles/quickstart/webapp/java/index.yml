@@ -1,5 +1,7 @@
 title: Java
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
 image: /media/platforms/java.png
+logo: java
 topics:
   - quickstart
 contentType: tutorial
@@ -19,6 +21,10 @@ github:
   org: auth0-samples
   repo: auth0-servlet-sample
   branch: master
+sdk:
+  name: auth0-java-mvc-common
+  url: https://github.com/auth0/auth0-java-mvc-common
+  logo: java
 requirements:
   - Java 8
   - Gradle 3.3 and up

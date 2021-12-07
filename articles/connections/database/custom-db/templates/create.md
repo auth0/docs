@@ -13,7 +13,7 @@ useCase:
 
 The **Create** script implements the function executed to create a user in your database. We recommend naming this function `create`. Use this script if you want new users to sign up via Auth0 so that Auth0 creates the users in your legacy data store. Not using the script doesn't prevent the creation of users by a mechanism external to Auth0.
 
-This script executes when a user signs up or when an administrator creates the user via the Dashboard or API. When creating users, Auth0 calls the **Get User** script before the **Create** script. Be sure to implement both database action scripts if you are creating new users. When the script finishes execution, the **Login** script runs to verify that the user was created successfully.
+This script executes when a user signs up or when an administrator creates the user via the Auth0 Dashboard or Management API. When creating users, Auth0 calls the **Get User** script before the **Create** script. Be sure to implement both database action scripts if you are creating new users. When the script finishes execution, the **Login** script runs to verify that the user was created successfully.
 
 The `create` function implemented in the script should be defined as follows:
 
@@ -55,7 +55,7 @@ The `user` object can contain the following properties:
 
 | **Property** | **Description** |
 | - | - |
-| `client_id` | the client ID of the application for which the user signed up, or the API key if the user was created through the Dashboard or API |
+| `client_id` | the client ID of the application for which the user signed up, or the API key if the user was created through the Auth0 Dashboard or Management API |
 | `tenant` | the name of the Auth0 account |
 | `email` | the user's email |
 | `password` | the password entered by the user (in plain text) |
@@ -96,7 +96,6 @@ Auth0 provides sample scripts for use with the following languages/technologies:
 * [ASP.NET Membership Provider (MVC4 - Simple Membership)](/connections/database/custom-db/templates/create#asp-net-membership-provider-mvc4-simple-membership-)
 * [MongoDB](/connections/database/custom-db/templates/create#mongodb)
 * [MySQL](/connections/database/custom-db/templates/create#mysql)
-* [Oracle](/connections/database/custom-db/templates/create#oracle)
 * [PostgreSQL](/connections/database/custom-db/templates/create#postgresql)
 * [SQL Server](/connections/database/custom-db/templates/create#sql-server)
 * [Windows Azure SQL Database](/connections/database/custom-db/templates/create#windows-azure-sql-database)
@@ -109,7 +108,7 @@ Auth0 provides sample scripts for use with the following languages/technologies:
 function create(user, callback) {
   // This script should create a user entry in your existing database. It will
   // be executed when a user attempts to sign up, or when a user is created
-  // through the Auth0 dashboard or API.
+  // through the Auth0 Dashboard or Management API.
   // When this script has finished executing, the Login script will be
   // executed immediately afterwards, to verify that the user was created
   // successfully.
@@ -119,7 +118,7 @@ function create(user, callback) {
   // * password: the password entered by the user, in plain text
   // * tenant: the name of this Auth0 account
   // * client_id: the client ID of the application where the user signed up, or
-  //              API key if created through the API or Auth0 dashboard
+  //              API key if created through the Management API or Auth0 Dashboard
   // * connection: the name of this database connection
   //
   // There are three ways this script can finish:
@@ -428,53 +427,6 @@ function create(user, callback) {
       callback(null);
     });
   });
-}
-```
-
-### Oracle
-
-```
-function create(user, callback) {
-  const bcrypt = require('bcrypt');
-  const oracledb = require('oracledb');
-  oracledb.outFormat = oracledb.OBJECT;
-
-  oracledb.getConnection({
-      user: configuration.dbUser,
-      password: configuration.dbUserPassword,
-      connectString: 'CONNECTION_STRING' // Refer here https://github.com/oracle/node-oracledb/blob/master/doc/api.md#connectionstrings
-    },
-    function(err, connection) {
-      if (err) return callback(err);
-
-      const selectQuery = 'select ID, EMAIL, PASSWORD, EMAIL_VERIFIED, NICKNAME from Users where EMAIL = :email';
-      connection.execute(selectQuery, [user.email], function(err, result) {
-        if (err || result.rows.length > 0) {
-          doRelease(connection);
-          return callback(err || new Error('User already exists'));
-        }
-        bcrypt.hash(user.password, 10, function(err, hash) {
-          if (err) return callback(err);
-
-          user.password = hash;
-          const insertQuery = 'insert into Users (EMAIL, PASSWORD, EMAIL_VERIFIED, NICKNAME) values (:email, :password, :email_verified, :nickname)';
-          const params = [user.email, user.password, 'false', user.email.substring(0, user.email.indexOf('@'))];
-          connection.execute(insertQuery, params, { autoCommit: true }, function(err) {
-            doRelease(connection);
-            callback(err);
-          });
-        });
-
-      });
-
-      // Note: connections should always be released when not needed
-      function doRelease(connection) {
-        connection.close(
-          function(err) {
-            if (err) console.error(err.message);
-          });
-      }
-    });
 }
 ```
 

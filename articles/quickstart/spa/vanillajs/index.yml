@@ -1,7 +1,9 @@
 title: JavaScript
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/html5.png
+logo: javascript
 language:
   - JavaScript
-image: /media/platforms/html5.png
 author:
   name: Steve Hobbs
   email: steve.hobbs@auth0.com
@@ -14,6 +16,7 @@ show_releases: true
 sdk:
   name: auth0-spa-js
   url: https://github.com/auth0/auth0-spa-js
+  logo: javascript
 snippets:
   dependencies: application-platforms/vanillajs/dependencies
   setup: application-platforms/vanillajs/setup

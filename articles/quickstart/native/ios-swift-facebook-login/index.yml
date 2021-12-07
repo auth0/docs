@@ -1,4 +1,8 @@
 title: iOS Swift - Facebook Login
+# TODO remove 'image' and 'logo_name' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/ios.png
+logo_name: ios
+logo: apple
 alias:
   - iOS
   - Swift
@@ -10,8 +14,6 @@ author:
   name: Rita Zerrizuela
   email: rita.zerrizuela@auth0.com
   community: false
-logo_name: ios
-image: /media/platforms/ios.png
 topics:
   - quickstart
 contentType: tutorial

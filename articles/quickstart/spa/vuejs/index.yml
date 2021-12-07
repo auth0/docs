@@ -1,4 +1,7 @@
 title: Vue
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/vue.png
+logo: vuejs
 language:
   - Javascript
 author:
@@ -7,7 +10,6 @@ author:
   community: false
 framework:
   - Vue.js
-image: /media/platforms/vue.png
 topics:
   - quickstart
 contentType: tutorial
@@ -16,6 +18,7 @@ show_releases: true
 sdk:
   name: auth0-spa-js
   url: https://www.github.com/auth0/auth0-spa-js/
+  logo: vuejs
 snippets:
   dependencies: application-platforms/vuejs/dependencies
   setup: application-platforms/vuejs/setup

@@ -1,75 +1,75 @@
 ---
 section: libraries
 toc: true
-description: Validating JWTs with Auth0-PHP
+description: Validating JSON Web Tokens (JWTs) with your PHP applications.
 topics:
   - libraries
   - php
-contentType: how-to
+contentType:
+  - how-to
+  - reference
 ---
+# PHP: Validating JWTs
 
-# Validating JWTs with Auth0-PHP
+The Auth0 PHP SDK provides a `Auth0\SDK\Token` class used for processing <dfn data-key="json-web-token">JSON Web Tokens (JWT)</dfn>. It enables you to decode, validate and verify tokens for use by your application. More information on JWTs and how to build and decode them can be found [jwt.io](https://jwt.io/).
 
-Auth0-PHP includes an interface to the [lcobucci/jwt library](https://github.com/lcobucci/jwt), used to validate and decode <dfn data-key="json-web-token">JSON Web Tokens (JWT)</dfn>. More information on JWTs and how to build and decode them can be found [jwt.io](https://jwt.io/).
+The class can process both HS256 and RS256 tokens. Both types require the algorithm and valid <dfn data-key="audience">audiences</dfn> to be configured with the SDK before processing. HS256 tokens require the client secret to be configured. RS256 tokens require an authorized issuer, which is used to fetch a JWKs file during the decoding process.
 
-The decoder can work with both HS256 and RS256 tokens. Both types require the algorithm and valid <dfn data-key="audience">audiences</dfn> to be indicated before processing. Additionally, HS256 tokens require the client secret while RS256 tokens require an authorized issuer. The issuer is used to fetch a JWKs file during the decoding process as well. ([More about signing algorithms here](https://auth0.com/blog/navigating-rs256-and-jwks/).)
+## Prerequisites
 
-Here is an example of a small, URL-based JWT decoder:
+The documentation below assumes that you followed the steps in the [PHP getting started guide](/libraries/auth0-php), and continue off from the code provided there.
+
+## Example Usage
+
+The following is an example of a small, URL-based JSON Web Token processor based on the SDK's `Token` class.
 
 ```php
-// decode-jwt.php
-use Auth0\SDK\Helpers\JWKFetcher;
-use Auth0\SDK\Helpers\Tokens\AsymmetricVerifier;
-use Auth0\SDK\Helpers\Tokens\SymmetricVerifier;
-use Auth0\SDK\Helpers\Tokens\IdTokenVerifier;
+<?php
 
-if (empty($_GET['id_token'])) {
-    die( 'No `id_token` URL parameter' );
+// Import the Composer Autoloader to make the SDK classes accessible:
+require 'vendor/autoload.php';
+
+// Load our environment variables from the .env file:
+(Dotenv\Dotenv::createImmutable(__DIR__))->load();
+
+$token = filter_var($_GET['token'] ?? null, FILTER_UNSAFE_RAW, FILTER_NULL_ON_FAILURE);
+$algorithm = filter_var($_GET['algorithm'] ?? 'HS256', FILTER_UNSAFE_RAW, FILTER_NULL_ON_FAILURE);
+
+if ($token === null) {
+    die('No `token` request parameter.');
 }
 
-if (empty($_GET['token_alg']) || ! in_array($_GET['token_alg'], [ 'HS256', 'RS256' ])) {
-    die( 'Missing or invalid `token_alg` URL parameter' );
+if (! in_array($algorithm, ['HS256', 'RS256'])) {
+    die('Invalid `algorithm` supplied.');
 }
 
-$id_token  = rawurldecode($_GET['id_token']);
+// The Auth0 SDK includes a helpful token processing utility we'll leverage for this:
+$token = new \Auth0\SDK\Token([
+    'domain' => $env['AUTH0_DOMAIN'],
+    'clientId' => $env['AUTH0_CLIENT_ID'],
+    'clientSecret' => $env['AUTH0_CLIENT_SECRET'],
+    'tokenAlgorithm' => $algorithm
+], $token, \Auth0\SDK\Token::TYPE_ID_TOKEN);
 
-$token_issuer  = 'https://'.getenv('AUTH0_DOMAIN').'/';
-$signature_verifier = null;
+// Verify the token: (This will throw an \Auth0\SDK\Exception\InvalidTokenException if verification fails.)
+$token->verify();
 
-if ('RS256' === $_GET['token_alg']) {
-    $jwks_fetcher = new JWKFetcher();
-    $jwks        = $jwks_fetcher->getKeys($token_issuer.'.well-known/jwks.json');
-    $signature_verifier = new AsymmetricVerifier($jwks);
-} else if ('HS256' === $_GET['token_alg']) {
-    $signature_verifier = new SymmetricVerifier(getenv('AUTH0_CLIENT_SECRET'));
-}
+// Validate the token claims: (This will throw an \Auth0\SDK\Exception\InvalidTokenException if validation fails.)
+$token->validate();
 
-$token_verifier = new IdTokenVerifier(
-    $token_issuer,
-    getenv('AUTH0_CLIENT_ID'),
-    $signature_verifier
-);
-
-try {
-    $decoded_token = $token_verifier->verify($id_token);
-    echo '<pre>'.print_r($decoded_token, true).'</pre>';
-} catch (\Exception $e) {
-    echo 'Caught: Exception - '.$e->getMessage();
-}
+echo '<pre>';
+print_r($token->toArray(), true);
+echo '</pre>';
 ```
 
-The second parameter of `IdTokenVerifier->verify()` is an optional array of options:
+Both `verify()` and `validate()` offer a number of options arguments that can be used to customize their behavior, including validating nonce claims, restricting maximum time since a token's `auth_time`, `leeway` clock tolerance for time checks, and more. These methods are fully commented for review of these options either via the source code or your IDE of choice.
 
-* `nonce` to check the nonce contained in the token (recommended for OIDC-compliant tokens).
-* `max_age` to check the auth_time of the token.
-* `leeway` clock tolerance in seconds for the current check only (60 seconds default).
-
-## Read More
+### Read more
 
 ::: next-steps
-* [Auth0-PHP Introduction](/libraries/auth0-php)
-* [Auth0-PHP Basic Use](/libraries/auth0-php/basic-use)
-* [Auth0-PHP Authentication API](/libraries/auth0-php/authentication-api)
-* [Auth0-PHP Management API](/libraries/auth0-php/management-api)
-* [Auth0-PHP Troubleshooting](/libraries/auth0-php/troubleshooting)
+* [PHP Getting Started](/libraries/auth0-php)
+* [PHP Basic Use](/libraries/auth0-php/basic-use)
+* [PHP Authentication API](/libraries/auth0-php/authentication-api)
+* [PHP Management API](/libraries/auth0-php/management-api)
+* [PHP Troubleshooting](/libraries/auth0-php/troubleshooting)
 :::

@@ -1,4 +1,7 @@
 title: Windows Universal App C#
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/windows-8.png
+logo: windows
 author:
   name: Damien Guard
   email: damien.guard@auth0.com
@@ -9,7 +12,6 @@ alias:
   - windows
 language:
   - C#
-image: /media/platforms/windows-8.png
 topics:
   - quickstart
 contentType: tutorial
@@ -26,6 +28,10 @@ show_steps: true
 github:
   org: auth0-samples
   repo: auth0-uwp-oidc-samples
+sdk:
+  name: auth0-oidc-client-net
+  url: https://github.com/auth0/auth0-oidc-client-net
+  logo: windows
 requirements:
   - Microsoft Visual Studio 2017
   - Windows 10 SDK (10.0.10586.0)

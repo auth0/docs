@@ -70,11 +70,15 @@ You can also embed the login dialog directly in your application using the [Lock
 To learn how to embed the Lock widget in your application, follow the [Embedded Login sample](https://github.com/auth0-samples/auth0-ios-swift-sample/tree/embedded-login/01-Embedded-Login). Make sure you read the [Browser-Based vs. Native Login Flows on Mobile Devices](/tutorials/browser-based-vs-native-experience-on-mobile) article to learn how to choose between the two types of login flows.
 :::
 
-<div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/lock_centralized_login.png" alt="login page"></div>
+<div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/login-ios.png" alt="Universal Login"></div>
 
 <%= include('../../_includes/_ios_dependency_centralized') %>
 
-## Add the Callback
+## Add the Callback (iOS < 11 only)
+
+::: note
+Skip this step if your app targets iOS 11+ (e.g. if it uses the SwiftUI app lifecycle).
+:::
 
 For Auth0 to handle the authentication callback, update your `AppDelegate` file.
 

@@ -20,7 +20,7 @@ These are migrations that have already been enabled for all customers.
 
 We are continually improving the security of our service. As part of this effort, we have deprecated the Legacy Lock API, which consists of the /usernamepassword/login and /ssodata endpoints. These endpoints are used by Lock.js v8, v9, and v10 and Auth0.js, v6, v7, and v8, and can also be called directly from applications.
 
-As of August 6, 2018, Auth0 has permanently disabled the Legacy Lock API. This removal of service fully mitigates the CSRF vulnerability [disclosed in April 2018](https://auth0.com/blog/managing-and-mitigating-security-vulnerabilities-at-auth0/). This also ends the soft removal grace period that was [first announced on July 16, 2018](https://community.auth0.com/t/auth0-legacy-lock-api-disabled-grace-period-available/12949), meaning the Legacy Lock API can no longer be re-enabled.
+As of August 6, 2018, Auth0 has permanently disabled the Legacy Lock API. This removal of service fully mitigates the CSRF vulnerability disclosed in April 2018. This also ends the soft removal grace period that was [first announced on July 16, 2018](https://community.auth0.com/t/auth0-legacy-lock-api-disabled-grace-period-available/12949), meaning the Legacy Lock API can no longer be re-enabled.
 
 If your Legacy Lock API migration has not yet been completed, your users may experience an outage, failed logins, or other adverse effects. You will need to complete your migration in order to restore normal functionality. See [Check Deprecation Errors](/troubleshoot/guides/check-deprecation-errors) to identify the source(s) of any errors in your tenant logs related to deprecations. 
 
