@@ -66,8 +66,11 @@ const redirects = [
     to: '/glossary',
   },
   {
-    from: ['/deploy/checklist'],
-    to: '/deploy/deploy-checklist',
+    from: [
+      '/deploy/checklist',
+      '/deploy/deploy-checklist',
+      ],
+    to: '/deploy-monitor/deploy-checklist',
   },
 
   /* QUICKSTARTS */
@@ -449,19 +452,13 @@ const redirects = [
   },
   {
     from: [
-      '/connections/adding-generic-oauth1-connection',
-      '/oauth2',
-    ],
-    to: '/connections/social/oauth2',
-  },
-  {
-    from: [
       '/protocols/oidc/identity-providers/okta',
       '/protocols/configure-okta-as-oidc-identity-provider',
       '/protocols/configure-okta-as-oauth2-identity-provider',
       '/authorization/protocols/configure-okta-as-oauth2-identity-provider',
+      '/connections/social/configure-okta-as-oauth2-identity-provider',
     ],
-    to: '/connections/social/configure-okta-as-oauth2-identity-provider',
+    to: '/authenticate/identity-providers/social-identity-providers/configure-okta-as-oauth2-identity-provider',
   },
   {
     from: '/connections/social/auth0-oidc',
@@ -618,8 +615,9 @@ const redirects = [
       '/connections/passwordless/guides/',
       '/connections/passwordless/ios-sms-objc',
       '/connections/passwordless/ios-sms',
+      '/connections/passwordless',
     ],
-    to: '/connections/passwordless',
+    to: '/authenticate/passwordless',
   },
   {
     from: [
@@ -629,8 +627,11 @@ const redirects = [
     to: '/connections/passwordless/implement-login/embedded-login',
   },
   {
-    from: '/password-strength',
-    to: '/connections/database/password-strength',
+    from: [
+      '/password-strength',
+      '/connections/database/password-strength',
+    ],
+    to: '/authenticate/database-connections/password-strength',
   },
   {
     from: [
@@ -638,34 +639,41 @@ const redirects = [
       '/applications/concepts/connections',
       '/applications/connections',
       '/clients/connections',
+      '/connections',
     ],
-    to: '/connections',
+    to: '/authenticate/identity-providers',
   },
   {
     from: [
       '/connections/database/mysql',
       '/mysql-connection-tutorial',
       '/connections/database/custom-db/custom-db-connection-overview',
+      '/connections/database/custom-db',
     ],
-    to: '/connections/database/custom-db',
+    to: '/authenticate/database-connections/custom-db',
   },
   {
-    from: ['/connections/database/password'],
-    to: '/connections/database/password-options',
+    from: [
+      '/connections/database/password',
+      '/connections/database/password-options',
+    ],
+    to: '/authenticate/database-connections/password-options',
   },
   {
     from: [
       '/tutorials/adding-scopes-for-an-external-idp',
       '/what-to-do-once-the-user-is-logged-in/adding-scopes-for-an-external-idp',
+      '/connections/adding-scopes-for-an-external-idp',
     ],
-    to: '/connections/adding-scopes-for-an-external-idp',
+    to: '/authenticate/identity-providers/adding-scopes-for-an-external-idp',
   },
   {
     from: [
       '/tutorials/calling-an-external-idp-api',
       '/what-to-do-once-the-user-is-logged-in/calling-an-external-idp-api',
+      '/connections/calling-an-external-idp-api',
     ],
-    to: '/connections/calling-an-external-idp-api',
+    to: '/authenticate/identity-providers/calling-an-external-idp-api',
   },
   {
     from: ['/tutorials/how-to-test-partner-connection', '/test-partner-connection'],
@@ -691,8 +699,9 @@ const redirects = [
       '/connections/passwordless/sms-gateway', 
       '/connections/passwordless/guides/use-sms-gateway-passwordless',
       '/connections/passwordless/use-sms-gateway-passwordless',
+      '/connections/passwordless/authentication-methods/use-sms-gateway-passwordless',
       ],
-    to: '/connections/passwordless/authentication-methods/use-sms-gateway-passwordless',
+    to: '/authenticate/passwordless/use-sms-gateway-passwordless',
   },
   {
     from: [
@@ -710,12 +719,17 @@ const redirects = [
       '/connections/apple-siwa/add-siwa-to-native-app',
       '/connections/nativesocial/add-siwa-to-native-app',
       '/connections/nativesocial/apple',
+      '/connections/social/apple-native',
     ],
-    to: '/connections/social/apple-native',
+    to: '/authenticate/identity-providers/social-identity-providers/apple-native',
   },
   {
-    from: ['/connections/nativesocial/facebook-native', '/connections/nativesocial/facebook'],
-    to: '/connections/social/facebook-native',
+    from: [
+      '/connections/nativesocial/facebook-native',
+      '/connections/nativesocial/facebook',
+      '/connections/social/facebook-native',
+    ],
+    to: '/authenticate/identity-providers/social-identity-providers/facebook-native',
   },
   {
     from: ['/connections/passwordless/email', '/connections/passwordless/guides/email-otp'],
@@ -730,9 +744,10 @@ const redirects = [
       '/connections/passwordless/spa', 
       '/connections/passwordless/guides/universal-login',
       '/connections/passwordless/regular-web-app',
-      '/connections/passwordless/universal-login'
+      '/connections/passwordless/universal-login',
+      '/connections/passwordless/implement-login/universal-login',
     ],
-    to: '/connections/passwordless/implement-login/universal-login',
+    to: '/authenticate/passwordless/universal-login',
   },
   {
     from: [
@@ -746,8 +761,9 @@ const redirects = [
       '/connections/social/miicard',
       '/miicard-clientid',
       '/connections/nativesocial/',
+      '/connections/social',
     ],
-    to: '/connections/social',
+    to: '/authenticate/identity-providers/social-identity-providers',
   },
   {
     from: [
@@ -756,20 +772,27 @@ const redirects = [
       '/connections/enterprise/identity-providers',
       '/connections/enterprise/sharepoint-apps',
       '/sharepoint-clientid',
+      '/connections/enterprise',
     ],
-    to: '/connections/enterprise',
+    to: '/authenticate/identity-providers/enterprise-identity-providers',
   },
   {
-    from: ['/connections/identity-providers-legal'],
-    to: '/connections/legal',
+    from: [
+      '/connections/identity-providers-legal',
+      '/connections/legal',
+    ],
+    to: '/authenticate/identity-providers/legal',
   },
   {
     from: ['/line', '/connections/social/line'],
     to: 'https://marketplace.auth0.com/integrations/line-social-connection',
   },
   {
-    from: ['/connections/passwordless/concepts/sample-use-cases-rules'],
-    to: '/connections/passwordless/sample-use-cases-rules',
+    from: [
+      '/connections/passwordless/concepts/sample-use-cases-rules',
+      '/connections/passwordless/sample-use-cases-rules',
+    ],
+    to: '/authenticate/passwordless/sample-use-cases-rules',
   },
   {
     from: ['/connections/azure-active-directory-native'],
@@ -778,64 +801,75 @@ const redirects = [
   {
     from: [
       '/connections/passwordless/authentication-factors',
+      '/connections/passwordless/authentication-methods',
       ],
-    to: '/connections/passwordless/authentication-methods',
+    to: '/authenticate/passwordless/authentication-factors',
   },
   {
     from: [
       '/connections/passwordless/email-otp', 
       '/connections/passwordless/email',
       '/connections/passwordless/authentication-factors/email-otp',
+      '/connections/passwordless/authentication-methods/email-otp',
       ],
-    to: '/connections/passwordless/authentication-methods/email-otp',
+    to: '/authenticate/passwordless/authentication-factors/email-otp',
   },
   {
     from: [
       '/connections/passwordless/email-magic-link',
       '/connections/passwordless/authentication-factors/email-magic-link',
+      '/connections/passwordless/authentication-methods/email-magic-link',
       ],
-    to: '/connections/passwordless/authentication-methods/email-magic-link',
+    to: '/authenticate/passwordless/authentication-factors/email-magic-link',
   },
   {
     from: [
       '/connections/passwordless/sms-otp', 
       '/connections/passwordless/sms',
-      '/connections/passwordless/authentication-factors/sms-otp'
+      '/connections/passwordless/authentication-factors/sms-otp',
+      '/connections/passwordless/authentication-methods/sms-otp',
       ],
-    to: '/connections/passwordless/authentication-methods/sms-otp',
+    to: '/authenticate/passwordless/authentication-factors/sms-otp',
   },
   {
     from: [
       '/connections/passwordless/embedded-login-spa',
       '/connections/passwordless/embedded-login/spa',
+      '/connections/passwordless/implement-login/embedded-login/spa',
       ],
-    to: '/connections/passwordless/implement-login/embedded-login/spa',
+    to: '/authenticate/passwordless/embedded-login/spa',
   },
   {
     from: [
       '/connections/passwordless/embedded-login-webapps',
       '/connections/passwordless/embedded-login/webapps',
+      '/connections/passwordless/implement-login/embedded-login/webapps',
       ],
-    to: '/connections/passwordless/implement-login/embedded-login/webapps',
+    to: '/authenticate/passwordless/embedded-login/webapps',
   },
   {
     from: [
       '/connections/passwordless/embedded-login-native', 
       '/connections/passwordless/guides/embedded-login-native',
       '/connections/passwordless/embedded-login/native',
+      '/connections/passwordless/implement-login/embedded-login/native',
       ],
-    to: '/connections/passwordless/implement-login/embedded-login/native',
+    to: '/authenticate/passwordless/embedded-login/native',
   },
   {
     from: [
       '/connections/passwordless/relevant-api-endpoints',
       '/connections/passwordless/embedded-login/relevant-api-endpoints',
+      '/connections/passwordless/implement-login/embedded-login/relevant-api-endpoints',
       ],
-    to: '/connections/passwordless/implement-login/embedded-login/relevant-api-endpoints',
+    to: '/authenticate/passwordless/embedded-login/relevant-api-endpoints',
   },
   {
-    from: ['/connections/azuread-adfs-email-verification'],
-    to: '/connections/enterprise/azuread-adfs-email-verification',
+    from: [
+      '/connections/azuread-adfs-email-verification',
+      '/connections/enterprise/azuread-adfs-email-verification',
+    ],
+    to: '/authenticate/identity-providers/enterprise-identity-providers/azuread-adfs-email-verification',
   },
   {
     from: ['/database/custom-db/templates/get-user'],
@@ -847,61 +881,89 @@ const redirects = [
   /* ARCHITECTURE SCENARIOS */
 
   {
-    from: '/architecture-scenarios/application/mobile-api',
-    to: '/architecture-scenarios/mobile-api',
+    from: [
+      '/architecture-scenarios/application/mobile-api',
+      '/architecture-scenarios/mobile-api',
+    ],
+    to: '/get-started/architecture-scenarios/mobile-api',
   },
   {
-    from: '/architecture-scenarios/application/server-api',
-    to: '/architecture-scenarios/server-api',
+    from: [
+      '/architecture-scenarios/application/server-api',
+      '/architecture-scenarios/server-api',
+    ],
+    to: '/get-started/architecture-scenarios/server-application-api',
   },
   {
     from: [
       '/architecture-scenarios/application/spa-api',
       '/architecture-scenarios/sequence-diagrams',
       '/sequence-diagrams',
+      '/architecture-scenarios/spa-api',
     ],
-    to: '/architecture-scenarios/spa-api',
+    to: '/get-started/architecture-scenarios/spa-api',
   },
   {
-    from: '/architecture-scenarios/application/web-app-sso',
-    to: '/architecture-scenarios/web-app-sso',
+    from: [
+      '/architecture-scenarios/application/web-app-sso',
+      '/architecture-scenarios/web-app-sso',
+    ],
+    to: '/get-started/architecture-scenarios/sso-for-regular-web-apps',
   },
   {
-    from: '/architecture-scenarios/business/b2b',
-    to: '/architecture-scenarios/b2b',
+    from: [
+      '/architecture-scenarios/business/b2b',
+      '/architecture-scenarios/b2b',
+    ],
+    to: '/get-started/architecture-scenarios/business-to-business',
   },
   {
     from: [
       '/architecture-scenarios/b2b/b2b-architecture',
       '/architecture-scenarios/implementation/b2b/b2b-architecture',
+      '/architecture-scenarios/b2b/architecture',
     ],
-    to: '/architecture-scenarios/b2b/architecture',
+    to: '/get-started/architecture-scenarios/business-to-business/architecture',
   },
   {
     from: [
       '/architecture-scenarios/b2b/b2b-authentication',
       '/architecture-scenarios/implementation/b2b/b2b-authentication',
+      '/architecture-scenarios/b2b/authentication',
     ],
-    to: '/architecture-scenarios/b2b/authentication',
+    to: '/get-started/architecture-scenarios/business-to-business/authentication',
   },
   {
     from: [
       '/architecture-scenarios/b2b/b2b-authorization',
       '/architecture-scenarios/implementation/b2b/b2b-authorization',
+      '/architecture-scenarios/b2b/authorization',
     ],
-    to: '/architecture-scenarios/b2b/authorization',
+    to: '/get-started/architecture-scenarios/business-to-business/authorization',
   },
   {
-    from: ['/architecture-scenarios/b2b/b2b-branding', '/architecture-scenarios/implementation/b2b/b2b-branding'],
-    to: '/architecture-scenarios/b2b/branding',
+    from: [
+      '/architecture-scenarios/b2b/b2b-branding',
+      '/architecture-scenarios/implementation/b2b/b2b-branding',
+      '/architecture-scenarios/b2b/branding',
+    ],
+    to: '/get-started/architecture-scenarios/business-to-business/branding',
   },
   {
-    from: ['/architecture-scenarios/b2b/b2b-deployment', '/architecture-scenarios/implementation/b2b/b2b-deployment'],
-    to: '/architecture-scenarios/b2b/deployment',
+    from: [
+      '/architecture-scenarios/b2b/b2b-deployment',
+      '/architecture-scenarios/implementation/b2b/b2b-deployment',
+      '/architecture-scenarios/b2b/deployment',
+    ],
+    to: '/get-started/architecture-scenarios/business-to-business/deployment',
   },
   {
-    from: ['/architecture-scenarios/b2b/b2b-launch', '/architecture-scenarios/implementation/b2b/b2b-launch'],
-    to: '/architecture-scenarios/b2b/launch',
+    from: [
+      '/architecture-scenarios/b2b/b2b-launch',
+      '/architecture-scenarios/implementation/b2b/b2b-launch',
+      '/architecture-scenarios/b2b/launch',
+    ],
+    to: '/get-started/architecture-scenarios/business-to-business/launch',
   },
   {
     from: [
@@ -939,67 +1001,99 @@ const redirects = [
     to: '/architecture-scenarios/b2b/launch/testing',
   },
   {
-    from: ['/architecture-scenarios/b2b/b2b-logout', '/architecture-scenarios/implementation/b2b/b2b-logout'],
-    to: '/architecture-scenarios/b2b/logout',
+    from: [
+      '/architecture-scenarios/b2b/b2b-logout',
+      '/architecture-scenarios/implementation/b2b/b2b-logout',
+      '/architecture-scenarios/b2b/logout',
+    ],
+    to: '/get-started/architecture-scenarios/business-to-business/logout',
   },
   {
-    from: ['/architecture-scenarios/b2b/b2b-operations', '/architecture-scenarios/implementation/b2b/b2b-operations'],
-    to: '/architecture-scenarios/b2b/operations',
+    from: [
+      '/architecture-scenarios/b2b/b2b-operations',
+      '/architecture-scenarios/implementation/b2b/b2b-operations',
+      '/architecture-scenarios/b2b/operations',
+    ],
+    to: '/get-started/architecture-scenarios/business-to-business/operations',
   },
   {
     from: [
       '/architecture-scenarios/b2b/b2b-profile-mgmt',
       '/architecture-scenarios/implementation/b2b/b2b-profile-mgmt',
+      '/architecture-scenarios/b2b/profile-management',
     ],
-    to: '/architecture-scenarios/b2b/profile-management',
+    to: '/get-started/architecture-scenarios/business-to-business/profile-management',
   },
   {
     from: [
       '/architecture-scenarios/b2b/b2b-provisioning',
       '/architecture-scenarios/implementation/b2b/b2b-provisioning',
+      '/architecture-scenarios/b2b/provisioning',
     ],
-    to: '/architecture-scenarios/b2b/provisioning',
+    to: '/get-started/architecture-scenarios/business-to-business/provisioning',
   },
   {
-    from: ['/architecture-scenarios/b2b/b2b-qa', '/architecture-scenarios/implementation/b2b/b2b-qa'],
-    to: '/architecture-scenarios/b2b/quality-assurance',
+    from: [
+      '/architecture-scenarios/b2b/b2b-qa',
+      '/architecture-scenarios/implementation/b2b/b2b-qa',
+      '/architecture-scenarios/b2b/quality-assurance',
+    ],
+    to: '/get-started/architecture-scenarios/business-to-business/quality-assurance',
   },
   {
-    from: '/architecture-scenarios/business/b2c',
-    to: '/architecture-scenarios/b2c',
+    from: [
+      '/architecture-scenarios/business/b2c',
+      '/architecture-scenarios/b2c',
+    ],
+    to: '/get-started/architecture-scenarios/business-to-consumer',
   },
   {
     from: [
       '/architecture-scenarios/b2c/b2c-architecture',
       '/architecture-scenarios/implementation/b2c/b2c-architecture',
+      '/architecture-scenarios/b2c/architecture',
     ],
-    to: '/architecture-scenarios/b2c/architecture',
+    to: '/get-started/architecture-scenarios/business-to-consumer/architecture',
   },
   {
     from: [
       '/architecture-scenarios/b2c/b2c-authentication',
       '/architecture-scenarios/implementation/b2c/b2c-authentication',
+      '/architecture-scenarios/b2c/authentication',
     ],
-    to: '/architecture-scenarios/b2c/authentication',
+    to: '/get-started/architecture-scenarios/business-to-consumer/authentication',
   },
   {
     from: [
       '/architecture-scenarios/b2c/b2c-authorization',
       '/architecture-scenarios/implementation/b2c/b2c-authorization',
+      '/architecture-scenarios/b2c/authorization',
     ],
-    to: '/architecture-scenarios/b2c/authorization',
+    to: '/get-started/architecture-scenarios/business-to-consumer/authorization',
   },
   {
-    from: ['/architecture-scenarios/b2c/b2c-branding', '/architecture-scenarios/implementation/b2c/b2c-branding'],
-    to: '/architecture-scenarios/b2c/branding',
+    from: [
+      '/architecture-scenarios/b2c/b2c-branding',
+      '/architecture-scenarios/implementation/b2c/b2c-branding',
+      '/architecture-scenarios/b2c/branding',
+    ],
+    to: '/get-started/architecture-scenarios/business-to-consumer/branding',
   },
   {
-    from: ['/architecture-scenarios/b2c/b2c-deployment', '/architecture-scenarios/implementation/b2c/b2c-deployment'],
-    to: '/architecture-scenarios/b2c/deployment',
+    from: [
+      '/architecture-scenarios/b2c/b2c-deployment',
+      '/architecture-scenarios/implementation/b2c/b2c-deployment',
+      '/architecture-scenarios/b2c/deployment',
+    ],
+    to: '/get-started/architecture-scenarios/business-to-consumer/deployment',
   },
   {
-    from: ['/architecture-scenarios/b2c/b2c-launch', '/architecture-scenarios/implementation/b2c/b2c-launch'],
-    to: '/architecture-scenarios/b2c/launch',
+    from: [
+      '/architecture-scenarios/b2c/b2c-launch',
+      '/architecture-scenarios/implementation/b2c/b2c-launch',
+      '/architecture-scenarios/b2c/launch',
+    ],
+    to: '/get-started/architecture-scenarios/business-to-consumer/launch',
   },
   {
     from: [
@@ -1037,118 +1131,162 @@ const redirects = [
     to: '/architecture-scenarios/b2c/launch/testing',
   },
   {
-    from: ['/architecture-scenarios/b2c/b2c-logout', '/architecture-scenarios/implementation/b2c/b2c-logout'],
-    to: '/architecture-scenarios/b2c/logout',
+    from: [
+      '/architecture-scenarios/b2c/b2c-logout',
+      '/architecture-scenarios/implementation/b2c/b2c-logout',
+      '/architecture-scenarios/b2c/logout',
+    ],
+    to: '/get-started/architecture-scenarios/business-to-consumer/logout',
   },
   {
-    from: ['/architecture-scenarios/b2c/b2c-operations', '/architecture-scenarios/implementation/b2c/b2c-operations'],
-    to: '/architecture-scenarios/b2c/operations',
+    from: [
+      '/architecture-scenarios/b2c/b2c-operations',
+      '/architecture-scenarios/implementation/b2c/b2c-operations',
+      '/architecture-scenarios/b2c/operations',
+    ],
+    to: '/get-started/architecture-scenarios/business-to-consumer/operations',
   },
   {
     from: [
       '/architecture-scenarios/b2c/b2c-profile-mgmt',
       '/architecture-scenarios/implementation/b2c/b2c-profile-mgmt',
+      '/architecture-scenarios/b2c/profile-management',
     ],
-    to: '/architecture-scenarios/b2c/profile-management',
+    to: '/get-started/architecture-scenarios/business-to-consumer/profile-management',
   },
   {
     from: [
       '/architecture-scenarios/b2c/b2c-provisioning',
       '/architecture-scenarios/implementation/b2c/b2c-provisioning',
+      '/architecture-scenarios/b2c/provisioning',
     ],
-    to: '/architecture-scenarios/b2c/provisioning',
+    to: '/get-started/architecture-scenarios/business-to-consumer/provisioning',
   },
   {
-    from: ['/architecture-scenarios/b2c/b2c-qa', '/architecture-scenarios/implementation/b2c/b2c-qa'],
-    to: '/architecture-scenarios/b2c/quality-assurance',
+    from: [
+      '/architecture-scenarios/b2c/b2c-qa',
+      '/architecture-scenarios/implementation/b2c/b2c-qa',
+      '/architecture-scenarios/b2c/quality-assurance',
+    ],
+    to: '/get-started/architecture-scenarios/business-to-consumer/quality-assurance',
   },
   {
-    from: '/architecture-scenarios/business/b2e',
-    to: '/architecture-scenarios/b2e',
+    from: [
+      '/architecture-scenarios/business/b2e',
+      '/architecture-scenarios/b2e',
+    ],
+    to: '/get-started/architecture-scenarios/b2e',
   },
   {
-    from: '/architecture-scenarios/application/mobile-api/api-implementation-nodejs',
-    to: '/architecture-scenarios/mobile-api/api-implementation-nodejs',
+    from: [
+      '/architecture-scenarios/application/mobile-api/api-implementation-nodejs',
+      '/architecture-scenarios/mobile-api/api-implementation-nodejs',
+    ],
+    to: '/get-started/architecture-scenarios/mobile-api/api-implementation-nodejs',
   },
   {
-    from: '/architecture-scenarios/application/mobile-api/mobile-implementation-android',
-    to: '/architecture-scenarios/mobile-api/mobile-implementation-android',
+    from: [
+      '/architecture-scenarios/application/mobile-api/mobile-implementation-android',
+      '/architecture-scenarios/mobile-api/mobile-implementation-android',
+    ],
+    to: '/get-started/architecture-scenarios/mobile-api/mobile-implementation-android',
   },
   {
-    from: '/architecture-scenarios/application/server-api/api-implementation-nodejs',
+    from: [
+      '/architecture-scenarios/application/server-api/api-implementation-nodejs',
+    ],
     to: '/architecture-scenarios/server-api/api-implementation-nodejs',
   },
   {
-    from: '/architecture-scenarios/application/server-api/cron-implementation-python',
+    from: [
+      '/architecture-scenarios/application/server-api/cron-implementation-python',
+    ],
     to: '/architecture-scenarios/server-api/cron-implementation-python',
   },
   {
-    from: '/architecture-scenarios/application/spa-api/spa-implementation-angular2',
-    to: '/architecture-scenarios/spa-api/spa-implementation-angular2',
+    from: [
+      '/architecture-scenarios/application/spa-api/spa-implementation-angular2',
+      '/architecture-scenarios/spa-api/spa-implementation-angular2',
+    ],
+    to: '/get-started/architecture-scenarios/spa-api/spa-implementation-angular2',
   },
   {
-    from: '/architecture-scenarios/application/spa-api/api-implementation-nodejs',
-    to: '/architecture-scenarios/spa-api/api-implementation-nodejs',
+    from: [
+      '/architecture-scenarios/application/spa-api/api-implementation-nodejs',
+      '/architecture-scenarios/spa-api/api-implementation-nodejs',
+    ],
+    to: '/get-started/architecture-scenarios/spa-api/api-implementation-nodejs',
   },
   {
-    from: '/architecture-scenarios/application/web-app-sso/implementation-aspnetcore',
-    to: '/architecture-scenarios/web-app-sso/implementation-aspnetcore',
+    from: [
+      '/architecture-scenarios/application/web-app-sso/implementation-aspnetcore',
+      '/architecture-scenarios/web-app-sso/implementation-aspnetcore',
+    ],
+    to: '/get-started/architecture-scenarios/sso-for-regular-web-apps/implementation-aspnetcore',
   },
   {
     from: [
       '/architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations',
       '/architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations',
+      '/architecture-scenarios/multiple-organization-architecture/single-idp-orgs',
     ],
-    to: '/architecture-scenarios/multiple-organization-architecture/single-idp-orgs',
+    to: '/get-started/architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations',
   },
   {
     from: [
       '/architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/provisioning',
       '/architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/provisioning',
+      '/architecture-scenarios/multiple-organization-architecture/single-idp-orgs/provisioning',
     ],
-    to: '/architecture-scenarios/multiple-organization-architecture/single-idp-orgs/provisioning',
+    to: '/get-started/architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/provisioning',
   },
   {
     from: [
       '/architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/authentication',
       '/architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/authentication',
+      '/architecture-scenarios/multiple-organization-architecture/single-idp-orgs/authentication',
     ],
-    to: '/architecture-scenarios/multiple-organization-architecture/single-idp-orgs/authentication',
+    to: '/get-started/architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/authentication',
   },
   {
     from: [
       '/architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/branding',
       '/architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/branding',
+      '/architecture-scenarios/multiple-organization-architecture/single-idp-orgs/branding',
     ],
-    to: '/architecture-scenarios/multiple-organization-architecture/single-idp-orgs/branding',
+    to: '/get-started/architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/branding',
   },
   {
     from: [
       '/architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/authorization',
       '/architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/authorization',
+      '/architecture-scenarios/multiple-organization-architecture/single-idp-orgs/authorization',
     ],
-    to: '/architecture-scenarios/multiple-organization-architecture/single-idp-orgs/authorization',
+    to: '/get-started/architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/authorization',
   },
   {
     from: [
       '/architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/profile-management',
       '/architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/profile-management',
+      '/architecture-scenarios/multiple-organization-architecture/single-idp-orgs/profile-management',
     ],
-    to: '/architecture-scenarios/multiple-organization-architecture/single-idp-orgs/profile-management',
+    to: '/get-started/architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/profile-management',
   },
   {
     from: [
       '/architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/logout',
       '/architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/single-identity-provider-organizations/logout',
+      '/architecture-scenarios/multiple-organization-architecture/single-idp-orgs/logout',
     ],
-    to: '/architecture-scenarios/multiple-organization-architecture/single-idp-orgs/logout',
+    to: '/get-started/architecture-scenarios/multiple-organization-architecture/single-identity-provider-organizations/logout',
   },
   {
     from: [
       '/architecture-scenarios/multiple-organization-architecture/multiple-identity-provider-organizations',
       '/architecture-scenarios/multiple-organization-architecture/users-isolated-by-organization/multiple-identity-provider-organizations',
+      '/architecture-scenarios/multiple-organization-architecture/multiple-idp-orgs',
     ],
-    to: '/architecture-scenarios/multiple-organization-architecture/multiple-idp-orgs',
+    to: '/get-started/architecture-scenarios/multiple-organization-architecture/multiple-idp-orgs',
   },
 
   /* CONTENTFUL REDIRECTS */
@@ -1173,36 +1311,56 @@ const redirects = [
       '/dashboard-account-settings',
       '/dashboard/dashboard-tenant-settings',
       '/config/tenant-settings',
+      '/configure/tenant-settings',
     ],
-    to: '/configure/tenant-settings',
+    to: '/get-started/tenant-settings',
   },
   {
-    from: ['/tokens/manage-signing-keys', '/tokens/guides/manage-signing-keys', '/config/tenant-settings/signing-keys'],
-    to: '/configure/tenant-settings/signing-keys',
+    from: [
+      '/tokens/manage-signing-keys',
+      '/tokens/guides/manage-signing-keys',
+      '/config/tenant-settings/signing-keys',
+      '/configure/tenant-settings/signing-keys',
+    ],
+    to: '/get-started/tenant-settings/signing-keys',
   },
   {
-    from: '/config/tenant-settings/signing-keys/rotate-signing-keys',
-    to: '/configure/tenant-settings/signing-keys/rotate-signing-keys',
+    from: [
+      '/config/tenant-settings/signing-keys/rotate-signing-keys',
+      '/configure/tenant-settings/signing-keys/rotate-signing-keys',
+    ],
+    to: '/get-started/tenant-settings/signing-keys/rotate-signing-keys',
   },
   {
-    from: '/config/tenant-settings/signing-keys/revoke-signing-keys',
-    to: '/configure/tenant-settings/signing-keys/revoke-signing-keys',
+    from: [
+      '/config/tenant-settings/signing-keys/revoke-signing-keys',
+      '/configure/tenant-settings/signing-keys/revoke-signing-keys',
+    ],
+    to: '/get-started/tenant-settings/signing-keys/revoke-signing-keys',
   },
   {
-    from: '/config/tenant-settings/signing-keys/view-signing-certificates',
-    to: '/configure/tenant-settings/signing-keys/view-signing-certificates',
+    from: [
+      '/config/tenant-settings/signing-keys/view-signing-certificates',
+      '/configure/tenant-settings/signing-keys/view-signing-certificates',
+    ],
+    to: '/get-started/tenant-settings/signing-keys/view-signing-certificates',
   },
   {
     from: [
       '/get-started/dashboard/configure-device-user-code-settings',
       '/dashboard/guides/tenants/configure-device-user-code-settings',
       '/config/tenant-settings/configure-device-user-code-settings',
+      '/configure/tenant-settings/configure-device-user-code-settings',
     ],
-    to: '/configure/tenant-settings/configure-device-user-code-settings',
+    to: '/get-started/tenant-settings/configure-device-user-code-settings',
   },
   {
-    from: ['/get-started/dashboard/enable-sso-for-legacy-tenants', '/dashboard/guides/tenants/enable-sso-tenant'],
-    to: '/configure/tenant-settings/enable-sso-for-legacy-tenants',
+    from: [
+      '/get-started/dashboard/enable-sso-for-legacy-tenants',
+      '/dashboard/guides/tenants/enable-sso-tenant',
+      '/configure/tenant-settings/enable-sso-for-legacy-tenants',
+    ],
+    to: '/get-started/tenant-settings/enable-sso-for-legacy-tenants',
   },
 
   /* Applications */
@@ -1218,8 +1376,9 @@ const redirects = [
       '/clients/client-types',
       '/applications/application-types',
       '/applications/concepts/client-secret',
+      '/configure/applications',
     ],
-    to: '/configure/applications',
+    to: '/get-started/applications-in-auth0',
   },
   {
     from: [
@@ -1229,16 +1388,18 @@ const redirects = [
       '/best-practices/application-settings',
       '/best-practices/app-settings-best-practices',
       '/applications/application-settings',
+      '/configure/applications/application-settings',
     ],
-    to: '/configure/applications/application-settings',
+    to: '/get-started/applications-in-auth0/application-settings',
   },
   {
     from: [
       '/applications/dynamic-client-registration',
       '/api-auth/dynamic-client-registration',
       '/api-auth/dynamic-application-registration',
+      '/configure/applications/dynamic-client-registration',
     ],
-    to: '/configure/applications/dynamic-client-registration',
+    to: '/get-started/applications-in-auth0/dynamic-client-registration',
   },
   {
     from: [
@@ -1247,8 +1408,9 @@ const redirects = [
       '/applications/enable-android-app-links',
       '/applications/guides/enable-android-app-links-dashboard',
       '/applications/enable-android-app-links-support',
+      '/configure/applications/enable-android-app-links-support',
     ],
-    to: '/configure/applications/enable-android-app-links-support',
+    to: '/get-started/applications-in-auth0/enable-android-app-links-support',
   },
   {
     from: [
@@ -1258,15 +1420,22 @@ const redirects = [
       '/applications/guides/enable-universal-links-dashboard',
       '/enable-universal-links-support-in-apple-xcode',
       '/applications/enable-universal-links-support-in-apple-xcode',
+      '/configure/applications/enable-universal-links-support-in-apple-xcode',
     ],
-    to: '/configure/applications/enable-universal-links-support-in-apple-xcode',
+    to: '/get-started/applications-in-auth0/enable-universal-links-support-in-apple-xcode',
   },
   {
-    from: ['/dashboard/guides/applications/enable-sso-app', '/sso/enable-sso-for-applications'],
-    to: '/configure/applications/enable-sso-for-applications',
+    from: [
+      '/dashboard/guides/applications/enable-sso-app',
+      '/sso/enable-sso-for-applications',
+      '/configure/applications/enable-sso-for-applications',
+    ],
+    to: '/get-started/applications-in-auth0/enable-sso-for-applications',
   },
   {
-    from: '/applications/configure-application-metadata',
+    from: [
+      '/applications/configure-application-metadata',
+    ],
     to: '/configure/applications/configure-application-metadata',
   },
   {
@@ -1277,8 +1446,9 @@ const redirects = [
       '/applications/concepts/application-grant-types',
       '/applications/concepts/grant-types-legacy',
       '/applications/application-grant-types',
+      '/configure/applications/application-grant-types',
     ],
-    to: '/configure/applications/application-grant-types',
+    to: '/get-started/applications-in-auth0/application-grant-types',
   },
   {
     from: [
@@ -1287,8 +1457,9 @@ const redirects = [
       '/api/management/guides/applications/update-grant-types',
       '/dashboard/guides/applications/update-grant-types',
       '/applications/update-grant-types',
+      '/configure/applications/update-grant-types',
     ],
-    to: '/configure/applications/update-grant-types',
+    to: '/get-started/applications-in-auth0/update-grant-types',
   },
   {
     from: [
@@ -1296,8 +1467,9 @@ const redirects = [
       '/api-auth/blacklists-vs-grants',
       '/blacklists-vs-application-grants',
       '/authorization/revoke-api-access',
+      '/configure/applications/revoke-api-access',
     ],
-    to: '/configure/applications/revoke-api-access',
+    to: '/get-started/applications-in-auth0/revoke-api-access',
   },
   {
     from: [
@@ -1305,28 +1477,35 @@ const redirects = [
       '/api/management/guides/applications/rotate-client-secret',
       '/get-started/dashboard/rotate-client-secret',
       '/applications/rotate-client-secret',
+      '/configure/applications/rotate-client-secret',
     ],
-    to: '/configure/applications/rotate-client-secret',
+    to: '/get-started/applications-in-auth0/rotate-client-secret',
   },
   {
     from: [
       '/tokens/signing-algorithms',
       '/applications/concepts/signing-algorithms',
       '/tokens/concepts/signing-algorithms',
+      '/configure/applications/signing-algorithms',
     ],
-    to: '/configure/applications/signing-algorithms',
+    to: '/get-started/applications-in-auth0/signing-algorithms',
   },
   {
     from: [
       '/dashboard/guides/applications/update-signing-algorithm',
       '/tokens/guides/update-signing-algorithm-application',
       '/applications/change-application-signing-algorithms',
+      '/configure/applications/change-application-signing-algorithms',
     ],
-    to: '/configure/applications/change-application-signing-algorithms',
+    to: '/get-started/applications-in-auth0/change-application-signing-algorithms',
   },
   {
-    from: ['/applications/set-up-cors', '/dashboard/guides/applications/set-up-cors'],
-    to: '/configure/applications/set-up-cors',
+    from: [
+      '/applications/set-up-cors',
+      '/dashboard/guides/applications/set-up-cors',
+      '/configure/applications/set-up-cors',
+    ],
+    to: '/get-started/applications-in-auth0/set-up-cors',
   },
   {
     from: [
@@ -1342,87 +1521,126 @@ const redirects = [
       '/protocols/configure-ws-fed-applications',
       '/integrations/configure-wsfed-application',
       '/tutorials/configure-wsfed-application',
+      '/configure/applications/configure-ws-fed-applications',
     ],
-    to: '/configure/applications/configure-ws-fed-applications',
+    to: '/get-started/applications-in-auth0/update-application-connections',
   },
   {
-    from: ['/applications/update-application-connections', '/dashboard/guides/applications/update-app-connections'],
+    from: [
+      '/applications/update-application-connections',
+      '/dashboard/guides/applications/update-app-connections',
+    ],
     to: '/configure/applications/update-application-connections',
   },
   {
     from: [
       '/applications/concepts/app-types-confidential-public',
       '/applications/confidential-and-public-applications',
+      '/configure/applications/confidential-public-apps',
     ],
-    to: '/configure/applications/confidential-public-apps',
+    to: '/get-started/applications-in-auth0/confidential-and-public-applications',
   },
   {
-    from: ['/dashboard/guides/applications/view-app-type-confidential-public', '/applications/view-application-type'],
-    to: '/configure/applications/confidential-public-apps/view-application-type',
+    from: [
+      '/dashboard/guides/applications/view-app-type-confidential-public',
+      '/applications/view-application-type',
+      '/configure/applications/confidential-public-apps/view-application-type',
+    ],
+    to: '/get-started/applications-in-auth0/confidential-and-public-applications/view-application-type',
   },
   {
     from: [
       '/applications/first-party-and-third-party-applications',
       '/applications/concepts/app-types-first-third-party',
+      '/configure/applications/confidential-public-apps/first-party-and-third-party-applications',
     ],
-    to: '/configure/applications/confidential-public-apps/first-party-and-third-party-applications',
+    to: '/get-started/applications-in-auth0/confidential-and-public-applications/first-party-and-third-party-applications',
   },
   {
-    from: ['/applications/view-application-ownership', '/api/management/guides/applications/view-ownership'],
-    to: '/configure/applications/confidential-public-apps/view-application-ownership',
+    from: [
+      '/applications/view-application-ownership',
+      '/api/management/guides/applications/view-ownership',
+      '/configure/applications/confidential-public-apps/view-application-ownership',
+    ],
+    to: '/get-started/applications-in-auth0/confidential-and-public-applications/view-application-ownership',
   },
   {
     from: [
       '/api/management/guides/applications/update-ownership',
       '/api/management/guides/applications/remove-app',
       '/applications/update-application-ownership',
+      '/configure/applications/confidential-public-apps/update-application-ownership',
     ],
-    to: '/configure/applications/confidential-public-apps/update-application-ownership',
+    to: '/get-started/applications-in-auth0/confidential-and-public-applications/update-application-ownership',
   },
   {
     from: [
       '/applications/guides/enable-third-party-applications',
       '/applications/guides/enable-third-party-apps',
       '/applications/enable-third-party-applications',
+      '/configure/applications/confidential-public-apps/enable-third-party-applications',
     ],
-    to: '/configure/applications/confidential-public-apps/enable-third-party-applications',
+    to: '/get-started/applications-in-auth0/confidential-and-public-applications/enable-third-party-applications',
   },
   {
-    from: ['/api-auth/user-consent', '/authorization/user-consent-and-third-party-applications'],
-    to: '/configure/applications/confidential-public-apps/user-consent-and-third-party-applications',
+    from: [
+      '/api-auth/user-consent',
+      '/authorization/user-consent-and-third-party-applications',
+      '/configure/applications/confidential-public-apps/user-consent-and-third-party-applications',
+    ],
+    to: '/get-started/applications-in-auth0/confidential-and-public-applications/user-consent-and-third-party-applications',
   },
   {
-    from: ['/applications/wildcards-for-subdomains', '/applications/reference/wildcard-subdomains'],
-    to: '/configure/applications/wildcards-for-subdomains',
+    from: [
+      '/applications/wildcards-for-subdomains',
+      '/applications/reference/wildcard-subdomains',
+      '/configure/applications/wildcards-for-subdomains',
+    ],
+    to: '/get-started/applications-in-auth0/wildcards-for-subdomains',
   },
   {
-    from: ['/applications/remove-applications', '/dashboard/guides/applications/remove-app'],
-    to: '/configure/applications/remove-applications',
+    from: [
+      '/applications/remove-applications',
+      '/dashboard/guides/applications/remove-app',
+      '/configure/applications/remove-applications',
+    ],
+    to: '/get-started/applications-in-auth0/remove-applications',
   },
   {
     from: [
       '/dev-lifecycle/work-with-auth0-locally',
       '/dev-lifecycle/local-testing-and-development',
       '/applications/work-with-auth0-locally',
+      '/configure/applications/work-with-auth0-locally',
     ],
-    to: '/configure/applications/work-with-auth0-locally',
+    to: '/get-started/applications-in-auth0/work-with-auth0-locally',
   },
   {
-    from: ['/applications/set-up-database-connections', '/dashboard/guides/connections/set-up-connections-database'],
-    to: '/configure/applications/set-up-database-connections',
+    from: [
+      '/applications/set-up-database-connections',
+      '/dashboard/guides/connections/set-up-connections-database',
+      '/configure/applications/set-up-database-connections',
+    ],
+    to: '/get-started/applications-in-auth0/set-up-database-connections',
   },
   {
     from: [
       '/get-started/dashboard/test-database-connections',
       '/dashboard/guides/connections/test-connections-database',
+      '/configure/applications/test-database-connections',
     ],
-    to: '/configure/applications/test-database-connections',
+    to: '/get-started/applications-in-auth0/test-database-connections',
   },
 
   /* APIs */
 
   {
-    from: ['/authorization/apis', '/api-auth/apis', '/overview/apis', '/apis'],
+    from: [
+      '/authorization/apis',
+      '/api-auth/apis',
+      '/overview/apis',
+      '/apis',
+    ],
     to: '/configure/apis',
   },
   {
@@ -1431,8 +1649,9 @@ const redirects = [
       '/dashboard/reference/settings-api',
       '/get-started/dashboard/api-settings',
       '/config/api-settings',
+      '/configure/apis/api-settings',
     ],
-    to: '/configure/apis/api-settings',
+    to: '/get-started/apis/api-settings',
   },
   {
     from: [
@@ -1442,23 +1661,34 @@ const redirects = [
       '/scopes/current/guides/define-api-scope-dashboard',
       '/get-started/dashboard/add-api-permissions',
       '/config/api-settings/add-api-permissions',
+      '/configure/apis/add-api-permissions',
     ],
-    to: '/configure/apis/add-api-permissions',
+    to: '/get-started/apis/add-api-permissions',
   },
   {
     from: [
       '/dashboard/guides/apis/delete-permissions-apis',
       '/get-started/dashboard/delete-api-permissions',
       '/config/api-settings/delete-api-permissions',
+      '/configure/apis/delete-api-permissions',
     ],
-    to: '/configure/apis/delete-api-permissions',
+    to: '/get-started/apis/delete-api-permissions',
   },
   {
-    from: ['/scopes', '/scopes/current', '/scopes/legacy', '/scopes/preview'],
-    to: '/configure/apis/scopes',
+    from: [
+      '/scopes',
+      '/scopes/current',
+      '/scopes/legacy',
+      '/scopes/preview',
+      '/configure/apis/scopes',
+    ],
+    to: '/get-started/apis/scopes',
   },
   {
-    from: ['/scopes/api-scopes', '/scopes/current/api-scopes'],
+    from: [
+      '/scopes/api-scopes',
+      '/scopes/current/api-scopes',
+    ],
     to: '/configure/apis/scopes/api-scopes',
   },
   {
@@ -1479,8 +1709,9 @@ const redirects = [
       '/authorization/set-logical-api',
       '/authorization/represent-multiple-apis-using-a-single-logical-api',
       '/api-auth/tutorials/represent-multiple-apis',
+      '/configure/apis/set-logical-api',
     ],
-    to: '/configure/apis/set-logical-api',
+    to: '/get-started/apis/set-logical-api',
   },
   {
     from: [
@@ -1497,8 +1728,9 @@ const redirects = [
       '/config/api-settings/create-m2m-app-test',
       '/api/management/v2/create-m2m-app',
       '/tokens/management-api-access-tokens/create-and-authorize-a-machine-to-machine-application',
+      '/configure/apis/create-m2m-app-test',
     ],
-    to: '/configure/apis/create-m2m-app-test',
+    to: '/get-started/apis/create-m2m-app-test',
   },
 
   /* Single Sign-On */
@@ -1523,20 +1755,29 @@ const redirects = [
     to: '/configure/sso',
   },
   {
-    from: ['/sso/inbound-single-sign-on', '/sso/current/inbound'],
-    to: '/configure/sso/inbound-single-sign-on',
+    from: [
+      '/sso/inbound-single-sign-on',
+      '/sso/current/inbound',
+      '/configure/sso/inbound-single-sign-on',
+    ],
+    to: '/authenticate/single-sign-on/inbound-single-sign-on',
   },
   {
-    from: ['/sso/outbound-single-sign-on', '/sso/current/outbound'],
-    to: '/configure/sso/outbound-single-sign-on',
+    from: [
+      '/sso/outbound-single-sign-on',
+      '/sso/current/outbound',
+      '/configure/sso/outbound-single-sign-on',
+    ],
+    to: '/authenticate/single-sign-on/outbound-single-sign-on',
   },
   {
     from: [
       '/single-sign-on/api-endpoints-for-single-sign-on',
       '/sso/current/relevant-api-endpoints',
       '/sso/api-endpoints-for-single-sign-on',
+      '/configure/sso/api-endpoints-for-single-sign-on',
     ],
-    to: '/configure/sso/api-endpoints-for-single-sign-on',
+    to: '/authenticate/single-sign-on/outbound-single-sign-on',
   },
 
   /* SAML */
@@ -1570,8 +1811,9 @@ const redirects = [
       '/protocols/saml-protocol/saml-configuration-options/special-saml-configuration-scenarios',
       '/protocols/saml-protocol/special-saml-configuration-scenarios',
       '/protocols/saml-protocol/saml-sso-integrations',
+      '/configure/saml-configuration/saml-sso-integrations',
     ],
-    to: '/configure/saml-configuration/saml-sso-integrations',
+    to: '/authenticate/protocols/saml/saml-sso-integrations',
   },
   {
     from: [
@@ -1873,8 +2115,9 @@ const redirects = [
       '/samlp',
       '/protocols/saml/samlp',
       '/protocols/saml-protocol/saml-identity-provider-configuration-settings',
+      '/configure/saml-configuration/saml-identity-provider-configuration-settings',
     ],
-    to: '/configure/saml-configuration/saml-identity-provider-configuration-settings',
+    to: '/authenticate/protocols/saml/saml-identity-provider-configuration-settings',
   },
   {
     from: [
@@ -1904,19 +2147,32 @@ const redirects = [
     to: '/configure/saml-configuration/deprovision-users-in-saml-integrations',
   },
 
-  /* Signing Keys */
+  /* Actions */
 
   {
-    from: ['/actions/build-actions-flows', '/actions/edit-actions', '/actions/troubleshoot-actions'],
-    to: '/actions/write-your-first-action',
+    from: [
+      '/actions/build-actions-flows',
+      '/actions/edit-actions',
+      '/actions/troubleshoot-actions',
+      '/actions/write-your-first-action',
+    ],
+    to: '/customize/actions/write-your-first-action',
   },
   {
-    from: ['/actions/actions-context-object', '/actions/actions-event-object', '/actions/blueprints'],
-    to: '/actions/triggers',
+    from: [
+      '/actions/actions-context-object',
+      '/actions/actions-event-object',
+      '/actions/blueprints',
+      '/actions/triggers',
+    ],
+    to: '/customize/actions/triggers',
   },
   {
-    from: ['/actions/manage-action-versions'],
-    to: '/actions/manage-versions',
+    from: [
+      '/actions/manage-action-versions',
+      '/actions/manage-versions',
+    ],
+    to: '/customize/actions/manage-versions',
   },
 
   /* Attack Protection */
@@ -1932,8 +2188,9 @@ const redirects = [
       '/attack-protection/set-attack-protection-preferences',
       '/anomaly-detection',
       '/attack-protection',
+      '/configure/attack-protection',
     ],
-    to: '/configure/attack-protection',
+    to: '/secure/attack-protection',
   },
   {
     from: [
@@ -1942,8 +2199,9 @@ const redirects = [
       '/anomaly-detection/breached-passwords',
       '/anomaly-detection/breached-password-security',
       '/attack-protection/breached-password-detection',
+      '/configure/attack-protection/breached-password-detection',
     ],
-    to: '/configure/attack-protection/breached-password-detection',
+    to: '/secure/attack-protection/breached-password-detection',
   },
   {
     from: [
@@ -1952,8 +2210,9 @@ const redirects = [
       '/anomaly-detection/bot-and-credential-stuffing-protection',
       '/anomaly-detection/bot-detection',
       '/attack-protection/bot-detection',
+      '/configure/attack-protection/bot-detection',
     ],
-    to: '/configure/attack-protection/bot-detection',
+    to: '/secure/attack-protection/bot-detection',
   },
   {
     from: [
@@ -1986,24 +2245,27 @@ const redirects = [
       '/anomaly-detection/enable-and-disable-brute-force-protection',
       '/anomaly-detection/brute-force-protection',
       '/attack-protection/brute-force-protection',
+      '/configure/attack-protection/brute-force-protection',
     ],
-    to: '/configure/attack-protection/brute-force-protection',
+    to: '/secure/attack-protection/brute-force-protection',
   },
   {
     from: [
       '/configure/anomaly-detection/suspicious-ip-throttling',
       '/anomaly-detection/suspicious-ip-throttling',
       '/attack-protection/suspicious-ip-throttling',
+      '/configure/attack-protection/suspicious-ip-throttling',
     ],
-    to: '/configure/attack-protection/suspicious-ip-throttling',
+    to: '/secure/attack-protection/suspicious-ip-throttling',
   },
   {
     from: [
       '/anomaly-detection/guides/use-tenant-data-for-anomaly-detection',
       '/anomaly-detection/view-anomaly-detection-events',
       '/attack-protection/view-attack-protection-events',
+      '/configure/attack-protection/view-attack-protection-events',
     ],
-    to: '/configure/attack-protection/view-attack-protection-events',
+    to: '/secure/attack-protection/view-attack-protection-events',
   },
   {
     from: [
@@ -2050,11 +2312,18 @@ const redirects = [
     to: '/authorization',
   },
   {
-    from: ['/authorization/concepts/policies'],
-    to: '/authorization/authorization-policies',
+    from: [
+      '/authorization/concepts/policies',
+      '/authorization/authorization-policies',
+    ],
+    to: '/manage-users/rules-for-authorization-policies',
   },
   {
-    from: ['/authorization/rules-for-authorization-policies', '/authorization/concepts/authz-rules'],
+    from: [
+      '/authorization/rules-for-authorization-policies',
+      '/authorization/concepts/authz-rules',
+      '/authorization/authorization-policies/rules-for-authorization-policies',
+    ],
     to: '/authorization/authorization-policies/rules-for-authorization-policies',
   },
   {
@@ -2064,12 +2333,18 @@ const redirects = [
       '/authorization/concepts/sample-use-cases-rules',
       '/authorization/restrict-access-api',
       '/authorization/sample-use-cases-rules-with-authorization',
+      '/authorization/authorization-policies/sample-use-cases-rules-with-authorization',
     ],
-    to: '/authorization/authorization-policies/sample-use-cases-rules-with-authorization',
+    to: '/manage-users/sample-use-cases-rules-with-authorization',
   },
   {
-    from: ['/flows', '/login/flows', '/flows/concepts/token-exchange'],
-    to: '/authorization/flows',
+    from: [
+      '/flows',
+      '/login/flows',
+      '/flows/concepts/token-exchange',
+      '/authorization/flows',
+    ],
+    to: '/get-started/authentication-and-authorization-flow',
   },
   {
     from: [
@@ -2077,8 +2352,9 @@ const redirects = [
       '/api-auth/faq',
       '/authorization/authentication-and-authorization-api-faq',
       '/authorization/which-oauth-2-0-flow-should-i-use',
+      '/authorization/flows/which-oauth-2-0-flow-should-i-use',
     ],
-    to: '/authorization/flows/which-oauth-2-0-flow-should-i-use',
+    to: '/get-started/authentication-and-authorization-flow/which-oauth-2-0-flow-should-i-use',
   },
   {
     from: [
@@ -2088,8 +2364,9 @@ const redirects = [
       '/api-auth/tutorials/adoption/authorization-code',
       '/api-auth/adoption/authorization-code',
       '/flows/authorization-code-flow',
+      '/authorization/flows/authorization-code-flow',
     ],
-    to: '/authorization/flows/authorization-code-flow',
+    to: '/get-started/authentication-and-authorization-flow/authorization-code-flow',
   },
   {
     from: [
@@ -2100,8 +2377,9 @@ const redirects = [
       '/flows/guides/regular-web-app-login-flow/call-api-using-regular-web-app-login-flow',
       '/api-auth/tutorials/authorization-code-grant',
       '/flows/call-your-api-using-the-authorization-code-flow',
+      '/authorization/flows/call-your-api-using-the-authorization-code-flow',
     ],
-    to: '/authorization/flows/call-your-api-using-the-authorization-code-flow',
+    to: '/get-started/authentication-and-authorization-flow/call-your-api-using-the-authorization-code-flow',
   },
   {
     from: [
@@ -2110,8 +2388,9 @@ const redirects = [
       '/flows/concepts/mobile-login-flow',
       '/flows/concepts/single-page-login-flow',
       '/flows/authorization-code-flow-with-proof-key-for-code-exchange-pkce',
+      '/authorization/flows/authorization-code-flow-with-proof-key-for-code-exchange-pkce',
     ],
-    to: '/authorization/flows/authorization-code-flow-with-proof-key-for-code-exchange-pkce',
+    to: '/get-started/authentication-and-authorization-flow/authorization-code-flow-with-proof-key-for-code-exchange-pkce',
   },
   {
     from: [
@@ -2122,8 +2401,9 @@ const redirects = [
       '/flows/guides/mobile-login-flow/call-api-using-mobile-login-flow',
       '/api-auth/tutorials/authorization-code-grant-pkce',
       '/flows/call-your-api-using-the-authorization-code-flow-with-pkce',
+      '/authorization/flows/call-your-api-using-the-authorization-code-flow-with-pkce',
     ],
-    to: '/authorization/flows/call-your-api-using-the-authorization-code-flow-with-pkce',
+    to: '/get-started/authentication-and-authorization-flow/call-your-api-using-the-authorization-code-flow-with-pkce',
   },
   {
     from: [
@@ -2138,20 +2418,33 @@ const redirects = [
       '/protocols/oauth2/oauth-implicit-protocol',
       '/flows/concepts/implicit',
       '/flows/implicit-flow-with-form-post',
+      '/authorization/flows/implicit-flow-with-form-post',
     ],
-    to: '/authorization/flows/implicit-flow-with-form-post',
+    to: '/get-started/authentication-and-authorization-flow/implicit-flow-with-form-post',
   },
   {
-    from: ['/api-auth/tutorials/nonce', '/authorization/mitigate-replay-attacks-when-using-the-implicit-flow'],
-    to: '/authorization/flows/mitigate-replay-attacks-when-using-the-implicit-flow',
+    from: [
+      '/api-auth/tutorials/nonce',
+      '/authorization/mitigate-replay-attacks-when-using-the-implicit-flow',
+      '/authorization/flows/mitigate-replay-attacks-when-using-the-implicit-flow',
+    ],
+    to: '/get-started/authentication-and-authorization-flow/mitigate-replay-attacks-when-using-the-implicit-flow',
   },
   {
-    from: ['/flows/hybrid-flow', '/api-auth/grant/hybrid'],
-    to: '/authorization/flows/hybrid-flow',
+    from: [
+      '/flows/hybrid-flow',
+      '/api-auth/grant/hybrid',
+      '/authorization/flows/hybrid-flow',
+    ],
+    to: '/get-started/authentication-and-authorization-flow/hybrid-flow',
   },
   {
-    from: ['/api-auth/tutorials/hybrid-flow', '/flows/call-api-hybrid-flow'],
-    to: '/authorization/flows/call-api-hybrid-flow',
+    from: [
+      '/api-auth/tutorials/hybrid-flow',
+      '/flows/call-api-hybrid-flow',
+      '/authorization/flows/call-api-hybrid-flow',
+    ],
+    to: '/get-started/authentication-and-authorization-flow/call-api-hybrid-flow',
   },
   {
     from: [
@@ -2160,8 +2453,9 @@ const redirects = [
       '/api-auth/grant/client-credentials',
       '/api-auth/tutorials/adoption/client-credentials',
       '/flows/client-credentials-flow',
+      '/authorization/flows/client-credentials-flow',
     ],
-    to: '/authorization/flows/client-credentials-flow',
+    to: '/get-started/authentication-and-authorization-flow/client-credentials-flow',
   },
   {
     from: [
@@ -2173,70 +2467,104 @@ const redirects = [
       '/api-auth/tutorials/client-credentials',
       '/api-auth/config/asking-for-access-tokens',
       '/flows/call-your-api-using-the-client-credentials-flow',
+      '/authorization/flows/call-your-api-using-the-client-credentials-flow',
     ],
-    to: '/authorization/flows/call-your-api-using-the-client-credentials-flow',
+    to: '/get-started/authentication-and-authorization-flow/call-your-api-using-the-client-credentials-flow',
   },
   {
     from: [
       '/api-auth/tutorials/client-credentials/customize-with-hooks',
       '/api-auth/grant/using-rules',
       '/authorization/customize-tokens-using-hooks-with-client-credentials-flow',
+      '/authorization/flows/customize-tokens-using-hooks-with-client-credentials-flow',
     ],
-    to: '/authorization/flows/customize-tokens-using-hooks-with-client-credentials-flow',
+    to: '/get-started/authentication-and-authorization-flow/customize-tokens-using-hooks-with-client-credentials-flow',
   },
   {
-    from: ['/flows/concepts/device-auth', '/flows/device-authorization-flow'],
-    to: '/authorization/flows/device-authorization-flow',
+    from: [
+      '/flows/concepts/device-auth',
+      '/flows/device-authorization-flow',
+      '/authorization/flows/device-authorization-flow',
+    ],
+    to: '/get-started/authentication-and-authorization-flow/device-authorization-flow',
   },
   {
-    from: ['/flows/guides/device-auth/call-api-device-auth'],
-    to: '/authorization/flows/call-your-api-using-the-device-authorization-flow',
+    from: [
+      '/flows/guides/device-auth/call-api-device-auth',
+      '/authorization/flows/call-your-api-using-the-device-authorization-flow',
+    ],
+    to: '/get-started/authentication-and-authorization-flow/call-your-api-using-the-device-authorization-flow',
   },
   {
-    from: ['/api-auth/grant/password', '/api-auth/tutorials/adoption/password', '/flows/resource-owner-password-flow'],
-    to: '/authorization/flows/resource-owner-password-flow',
+    from: [
+      '/api-auth/grant/password',
+      '/api-auth/tutorials/adoption/password',
+      '/flows/resource-owner-password-flow',
+      '/authorization/flows/resource-owner-password-flow',
+    ],
+    to: '/get-started/authentication-and-authorization-flow/resource-owner-password-flow',
   },
   {
-    from: ['/flows/call-your-api-using-resource-owner-password-flow', '/api-auth/tutorials/password-grant'],
-    to: '/authorization/flows/call-your-api-using-resource-owner-password-flow',
+    from: [
+      '/flows/call-your-api-using-resource-owner-password-flow',
+      '/api-auth/tutorials/password-grant',
+      '/authorization/flows/call-your-api-using-resource-owner-password-flow',
+    ],
+    to: '/get-started/authentication-and-authorization-flow/call-your-api-using-resource-owner-password-flow',
   },
   {
     from: [
       '/api-auth/tutorials/using-resource-owner-password-from-server-side',
       '/authorization/avoid-common-issues-with-resource-owner-password-flow-and-anomaly-detection',
       '/authorization/avoid-common-issues-with-resource-owner-password-flow-and-attack-protection',
+      '/authorization/flows/avoid-common-issues-with-resource-owner-password-flow-and-attack-protection',
     ],
-    to: '/authorization/flows/avoid-common-issues-with-resource-owner-password-flow-and-attack-protection',
+    to: '/get-started/authentication-and-authorization-flow/avoid-common-issues-with-resource-owner-password-flow-and-attack-protection',
   },
   {
-    from: ['/authorization/concepts/rbac'],
-    to: '/authorization/rbac',
+    from: [
+      '/authorization/concepts/rbac',
+      '/authorization/rbac',
+    ],
+    to: '/manage-users/rbac',
   },
   {
-    from: ['/authorization/authorization-core-vs-authorization-extension', '/authorization/concepts/core-vs-extension'],
-    to: '/authorization/rbac/authorization-core-vs-authorization-extension',
+    from: [
+      '/authorization/authorization-core-vs-authorization-extension',
+      '/authorization/concepts/core-vs-extension',
+      '/authorization/rbac/authorization-core-vs-authorization-extension',
+    ],
+    to: '/manage-users/authorization-core-vs-authorization-extension',
   },
   {
     from: [
       '/authorization/sample-use-cases-role-based-access-control',
       '/authorization/concepts/sample-use-cases-rbac',
+      '/authorization/rbac/sample-use-cases-role-based-access-control',
     ],
-    to: '/authorization/rbac/sample-use-cases-role-based-access-control',
+    to: '/manage-users/sample-use-cases-role-based-access-control',
   },
   {
     from: [
       '/authorization/how-to-use-auth0s-core-authorization-feature-set',
       '/authorization/guides/how-to',
       '/authorization/auth-core-features',
+      '/authorization/rbac/auth-core-features',
     ],
-    to: '/authorization/rbac/auth-core-features',
+    to: '/manage-users/configure-core-rbac',
   },
   {
-    from: '/authorization/guides/manage-roles',
-    to: '/authorization/rbac/roles',
+    from: [
+      '/authorization/guides/manage-roles',
+      '/authorization/rbac/roles',
+    ],
+    to: '/manage-users/configure-core-rbac/roles',
   },
   {
-    from: ['/dashboard/guides/roles/create-roles', '/api/management/guides/roles/create-roles'],
+    from: [
+      '/dashboard/guides/roles/create-roles',
+      '/api/management/guides/roles/create-roles',
+    ],
     to: '/authorization/rbac/roles/create-roles',
   },
   {
@@ -2268,8 +2596,12 @@ const redirects = [
     to: '/authorization/rbac/roles/delete-roles',
   },
   {
-    from: ['/authorization/auth-core-features/rbac-users', '/authorization/guides/manage-users'],
-    to: '/authorization/rbac/rbac-users',
+    from: [
+      '/authorization/auth-core-features/rbac-users',
+      '/authorization/guides/manage-users',
+      '/authorization/rbac/rbac-users',
+    ],
+    to: '/manage-users/configure-core-rbac/rbac-users',
   },
   {
     from: [
@@ -2321,8 +2653,12 @@ const redirects = [
     to: '/authorization/rbac/rbac-users/remove-permissions-from-users',
   },
   {
-    from: ['/authorization/manage-permissions', '/authorization/guides/manage-permissions'],
-    to: '/authorization/rbac/manage-permissions',
+    from: [
+      '/authorization/manage-permissions',
+      '/authorization/guides/manage-permissions',
+      '/authorization/rbac/manage-permissions',
+    ],
+    to: '/manage-users/configure-core-rbac/manage-permissions',
   },
 
   /* Protocols */
@@ -2340,8 +2676,14 @@ const redirects = [
     to: '/authorization/protocols/openid-connect-protocol',
   },
   {
-    from: ['/protocols/ws-fed', '/tutorials/wsfed-web-app', '/wsfedwebapp-tutorial', '/protocols/ws-fed-protocol'],
-    to: '/authorization/protocols/ws-fed-protocol',
+    from: [
+      '/protocols/ws-fed',
+      '/tutorials/wsfed-web-app',
+      '/wsfedwebapp-tutorial',
+      '/protocols/ws-fed-protocol',
+      '/authorization/protocols/ws-fed-protocol',
+    ],
+    to: '/authenticate/protocols/ws-fed-protocol',
   },
 
   /* Best Practices */
@@ -2436,101 +2778,137 @@ const redirects = [
   /* Brand and Customize */
 
   {
-    from: ['/branding-customization'],
-    to: '/brand-and-customize',
+    from: [
+      '/branding-customization',
+      '/brand-and-customize',
+    ],
+    to: '/customize',
   },
   {
     from: [
       '/universal-login/new-experience/universal-login-page-templates',
       '/universal-login/page-templates',
       '/universal-login/universal-login-page-customization',
+      '/brand-and-customize/universal-login-page-templates',
     ],
-    to: '/brand-and-customize/universal-login-page-templates',
+    to: '/customize/universal-login-page-templates',
   },
   {
     from: [
       '/universal-login/classic-experience/customization-classic',
       '/universal-login/customization-classic',
       '/universal-login/advanced-customization',
+      '/brand-and-customize/customization-classic',
     ],
-    to: '/brand-and-customize/customization-classic',
+    to: '/customize/customization-classic',
   },
   {
     from: [
       '/universal-login/version-control-universal-login-pages',
       '/universal-login/version-control',
       '/hosted-pages/version-control',
+      '/brand-and-customize/version-control-universal-login-pages',
     ],
-    to: '/brand-and-customize/version-control-universal-login-pages',
+    to: '/customize/version-control-universal-login-pages',
   },
 
   /* Custom Domains */
 
   {
-    from: '/custom-domains',
-    to: '/brand-and-customize/custom-domains',
+    from: [
+      '/custom-domains',
+      '/brand-and-customize/custom-domains',
+    ],
+    to: '/customize/custom-domains',
   },
   {
     from: [
       '/custom-domains/configure-custom-domains-with-auth0-managed-certificates',
       '/custom-domains/auth0-managed-certificates',
+      '/brand-and-customize/custom-domains/auth0-managed-certificates',
     ],
-    to: '/brand-and-customize/custom-domains/auth0-managed-certificates',
+    to: '/customize/custom-domains/auth0-managed-certificates',
   },
   {
     from: [
       '/custom-domains/self-managed-certificates',
       '/custom-domains/configure-custom-domains-with-self-managed-certificates',
+      '/brand-and-customize/custom-domains/self-managed-certificates',
     ],
-    to: '/brand-and-customize/custom-domains/self-managed-certificates',
+    to: '/customize/custom-domains/self-managed-certificates',
   },
   {
-    from: '/custom-domains/tls-ssl',
-    to: '/brand-and-customize/custom-domains/self-managed-certificates/tls-ssl',
+    from: [
+      '/custom-domains/tls-ssl',
+      '/brand-and-customize/custom-domains/self-managed-certificates/tls-ssl',
+    ],
+    to: '/customize/custom-domains/self-managed-certificates/tls-ssl',
   },
   {
-    from: '/custom-domains/configure-custom-domains-with-self-managed-certificates/configure-gcp-as-reverse-proxy',
-    to: '/brand-and-customize/custom-domains/self-managed-certificates/configure-gcp-as-reverse-proxy',
+    from: [
+      '/custom-domains/configure-custom-domains-with-self-managed-certificates/configure-gcp-as-reverse-proxy',
+      '/brand-and-customize/custom-domains/self-managed-certificates/configure-gcp-as-reverse-proxy',
+    ],
+    to: '/customize/custom-domains/self-managed-certificates/configure-gcp-as-reverse-proxy',
   },
   {
     from: [
       '/custom-domains/set-up-cloudfront',
       '/custom-domains/configure-custom-domains-with-self-managed-certificates/configure-aws-cloudfront-for-use-as-reverse-proxy',
+      '/brand-and-customize/custom-domains/self-managed-certificates/configure-aws-cloudfront-for-use-as-reverse-proxy',
     ],
-    to: '/brand-and-customize/custom-domains/self-managed-certificates/configure-aws-cloudfront-for-use-as-reverse-proxy',
+    to: '/customize/custom-domains/self-managed-certificates/configure-aws-cloudfront-for-use-as-reverse-proxy',
   },
   {
     from: [
       '/custom-domains/set-up-cloudflare',
       '/custom-domains/configure-custom-domains-with-self-managed-certificates/configure-cloudflare-for-use-as-reverse-proxy',
+      '/brand-and-customize/custom-domains/self-managed-certificates/configure-cloudflare-for-use-as-reverse-proxy',
     ],
-    to: '/brand-and-customize/custom-domains/self-managed-certificates/configure-cloudflare-for-use-as-reverse-proxy',
+    to: '/customize/custom-domains/self-managed-certificates/configure-cloudflare-for-use-as-reverse-proxy',
   },
   {
     from: [
       '/custom-domains/configure-custom-domains-with-self-managed-certificates/configure-azure-cdn-for-use-as-reverse-proxy',
       '/custom-domains/set-up-azure-cdn',
+      '/brand-and-customize/custom-domains/self-managed-certificates/configure-azure-cdn-for-use-as-reverse-proxy',
     ],
-    to: '/brand-and-customize/custom-domains/self-managed-certificates/configure-azure-cdn-for-use-as-reverse-proxy',
+    to: '/customize/custom-domains/self-managed-certificates/configure-azure-cdn-for-use-as-reverse-proxy',
   },
   {
-    from: '/custom-domains/configure-custom-domains-with-self-managed-certificates/configure-akamai-for-use-as-reverse-proxy',
-    to: '/brand-and-customize/custom-domains/self-managed-certificates/configure-akamai-for-use-as-reverse-proxy',
+    from: [
+      '/custom-domains/configure-custom-domains-with-self-managed-certificates/configure-akamai-for-use-as-reverse-proxy',
+      '/brand-and-customize/custom-domains/self-managed-certificates/configure-akamai-for-use-as-reverse-proxy',
+    ],
+    to: '/customize/custom-domains/self-managed-certificates/configure-akamai-for-use-as-reverse-proxy',
   },
   {
-    from: ['/custom-domains/configure-features-to-use-custom-domains', '/custom-domains/additional-configuration'],
-    to: '/brand-and-customize/custom-domains/configure-features-to-use-custom-domains',
+    from: [
+      '/custom-domains/configure-features-to-use-custom-domains',
+      '/custom-domains/additional-configuration',
+      '/brand-and-customize/custom-domains/configure-features-to-use-custom-domains',
+    ],
+    to: '/customize/custom-domains/configure-features-to-use-custom-domains',
   },
 
   /* Email */
 
   {
-    from: ['/email', '/auth0-email-services'],
-    to: '/brand-and-customize/email',
+    from: [
+      '/email',
+      '/auth0-email-services',
+      '/brand-and-customize/email',
+    ],
+    to: '/customize/email',
   },
   {
-    from: ['/email/custom', '/auth0-email-services/manage-email-flow', '/email/manage-email-flow'],
-    to: '/brand-and-customize/email/manage-email-flow',
+    from: [
+      '/email/custom',
+      '/auth0-email-services/manage-email-flow',
+      '/email/manage-email-flow',
+      '/brand-and-customize/email/manage-email-flow',
+    ],
+    to: '/customize/email/manage-email-flow',
   },
   {
     from: [
@@ -2539,15 +2917,17 @@ const redirects = [
       '/email/spa-redirect',
       '/auth0-email-services/spa-redirect',
       '/email/customize-email-templates',
+      '/brand-and-customize/email/customize-email-templates',
     ],
-    to: '/brand-and-customize/email/customize-email-templates',
+    to: '/customize/email/email-templates',
   },
   {
     from: [
       '/email/customize-email-templates/email-template-descriptions',
       '/auth0-email-services/email-template-descriptions',
+      '/brand-and-customize/email/email-template-descriptions',
     ],
-    to: '/brand-and-customize/email/email-template-descriptions',
+    to: '/customize/email/email-templates/email-template-descriptions',
   },
   {
     from: [
@@ -2562,8 +2942,9 @@ const redirects = [
       '/email/liquid-syntax',
       '/auth0-email-services/customize-email-templates/use-liquid-syntax-in-email-templates',
       '/email/customize-email-templates/use-liquid-syntax-in-email-templates',
+      '/brand-and-customize/email/use-liquid-syntax-in-email-templates',
     ],
-    to: '/brand-and-customize/email/use-liquid-syntax-in-email-templates',
+    to: '/customize/email/email-templates/use-liquid-syntax-in-email-templates',
   },
   {
     from: [
@@ -2572,16 +2953,13 @@ const redirects = [
       '/tutorials/creating-invite-only-applications',
       '/auth0-email-services/send-email-invitations-for-application-signup',
       '/email/send-email-invitations-for-application-signup',
+      '/brand-and-customize/email/send-email-invitations-for-application-signup',
     ],
-    to: '/brand-and-customize/email/send-email-invitations-for-application-signup',
+    to: '/customize/email/send-email-invitations-for-application-signup',
   },
 
   /* SAML */
 
-  {
-    from: '/email/send-email-invitations-for-application-signup',
-    to: '/brand-and-customize/email/send-email-invitations-for-application-signup',
-  },
   {
     from: [
       '/auth0-email-services/configure-external-smtp-email-providers',
@@ -2611,14 +2989,6 @@ const redirects = [
     to: '/brand-and-customize/email/smtp-email-providers/configure-mailgun-as-external-smtp-email-provider',
   },
   {
-    from: ['/email', '/auth0-email-services'],
-    to: '/brand-and-customize/email',
-  },
-  {
-    from: ['/email/custom', '/auth0-email-services/manage-email-flow', '/email/manage-email-flow'],
-    to: '/brand-and-customize/email/manage-email-flow',
-  },
-  {
     from: [
       '/auth0-email-services/configure-external-smtp-email-providers/configure-custom-external-smtp-email-provider',
       '/email/configure-custom-external-smtp-email-provider',
@@ -2630,8 +3000,9 @@ const redirects = [
       '/email/testing',
       '/auth0-email-services/configure-external-smtp-email-providers/configure-test-smtp-email-servers',
       '/email/configure-test-smtp-email-servers',
+      '/brand-and-customize/email/configure-test-smtp-email-servers',
     ],
-    to: '/brand-and-customize/email/configure-test-smtp-email-servers',
+    to: '/customize/email/configure-test-smtp-email-servers',
   },
 
   {
@@ -2761,28 +3132,39 @@ const redirects = [
     to: '/brand-and-customize/text-customization-new-universal-login/prompt-signup-password',
   },
   {
-    from: ['/scopes/customize-consent-prompts', '/scopes/current/guides/customize-consent-prompt'],
-    to: '/brand-and-customize/customize-consent-prompts',
+    from: [
+      '/scopes/customize-consent-prompts',
+      '/scopes/current/guides/customize-consent-prompt',
+      '/brand-and-customize/customize-consent-prompts',
+    ],
+    to: '/customize/customize-consent-prompts',
   },
   {
-    from: ['/universal-login/custom-error-pages', '/error-pages/custom', '/hosted-pages/custom-error-pages'],
-    to: '/brand-and-customize/custom-error-pages',
+    from: [
+      '/universal-login/custom-error-pages',
+      '/error-pages/custom',
+      '/hosted-pages/custom-error-pages',
+      '/brand-and-customize/custom-error-pages',
+    ],
+    to: '/customize/custom-error-pages',
   },
   {
     from: [
       '/libraries/lock/customize-lock-error-messages',
       '/libraries/lock/v11/customizing-error-messages',
       '/libraries/lock/customizing-error-messages',
+      '/brand-and-customize/customize-lock-error-messages',
     ],
-    to: '/brand-and-customize/customize-lock-error-messages',
+    to: '/customize/customize-lock-error-messages',
   },
   {
     from: [
       '/universal-login/customize-password-reset-page',
       '/universal-login/password-reset',
       '/hosted-pages/password-reset',
+      '/brand-and-customize/customize-password-reset-page',
     ],
-    to: '/brand-and-customize/customize-password-reset-page',
+    to: '/customize/customize-password-reset-page',
   },
   {
     from: [
@@ -2791,27 +3173,38 @@ const redirects = [
       '/multifactor-authentication/sms-templates',
       '/mfa/guides/customize-phone-messages',
       '/mfa/customize-sms-or-voice-messages',
+      '/brand-and-customize/customize-sms-or-voice-messages',
     ],
-    to: '/brand-and-customize/customize-sms-or-voice-messages',
+    to: '/customize/customize-sms-or-voice-messages',
   },
 
   /* Internationalization and Localization */
 
   {
-    from: ['/i18n', '/i18n/i18n-custom-login-page'],
-    to: '/brand-and-customize/i18n',
+    from: [
+      '/i18n',
+      '/i18n/i18n-custom-login-page',
+      '/brand-and-customize/i18n',
+    ],
+    to: '/customize/internationalization-and-localization',
   },
   {
     from: [
       '/i18n/universal-login-internationalization',
       '/universal-login/i18n',
       '/universal-login/universal-login-internationalization',
+      '/brand-and-customize/i18n/universal-login-internationalization',
     ],
-    to: '/brand-and-customize/i18n/universal-login-internationalization',
+    to: '/customize/internationalization-and-localization/universal-login-internationalization',
   },
   {
-    from: ['/libraries/lock/v11/i18n', '/libraries/lock/v10/i18n', '/libraries/lock/lock-internationalization'],
-    to: '/brand-and-customize/i18n/lock-internationalization',
+    from: [
+      '/libraries/lock/v11/i18n',
+      '/libraries/lock/v10/i18n',
+      '/libraries/lock/lock-internationalization',
+      '/brand-and-customize/i18n/lock-internationalization',
+    ],
+    to: '/customize/internationalization-and-localization/lock-internationalization',
   },
 
   {
@@ -2820,8 +3213,9 @@ const redirects = [
       '/i18n/i18n-guide-ios',
       '/libraries/lock-ios/v2/internationalization',
       '/libraries/lock-swift/lock-swift-internationalization',
+      '/brand-and-customize/i18n/lock-swift-internationalization',
     ],
-    to: '/brand-and-customize/i18n/lock-swift-internationalization',
+    to: '/customize/internationalization-and-localization/lock-swift-internationalization',
   },
   {
     from: [
@@ -2829,12 +3223,18 @@ const redirects = [
       '/libraries/lock-android/v2/internationalization',
       '/libraries/lock-android/v1/internationalization',
       '/libraries/lock-android/lock-android-internationalization',
+      '/brand-and-customize/i18n/lock-android-internationalization',
     ],
-    to: '/brand-and-customize/i18n/lock-android-internationalization',
+    to: '/customize/internationalization-and-localization/lock-android-internationalization',
   },
   {
-    from: ['/i18n/password-options-translation', '/i18n/password-options', '/i18n/password-strength'],
-    to: '/brand-and-customize/i18n/password-options-translation',
+    from: [
+      '/i18n/password-options-translation',
+      '/i18n/password-options',
+      '/i18n/password-strength',
+      '/brand-and-customize/i18n/password-options-translation',
+    ],
+    to: '/customize/internationalization-and-localization/password-options-translation',
   },
 
   /* CMS */
@@ -2887,12 +3287,18 @@ const redirects = [
   /* Compliance */
 
   {
-    from: ['/compliance-and-certifications'],
-    to: '/compliance',
+    from: [
+      '/compliance-and-certifications',
+      '/compliance',
+    ],
+    to: '/secure/data-privacy-and-compliance',
   },
   {
-    from: ['/compliance/gdpr/data-processing'],
-    to: '/compliance/data-processing',
+    from: [
+      '/compliance/gdpr/data-processing',
+      '/compliance/data-processing',
+    ],
+    to: '/secure/data-privacy-and-compliance/data-processing',
   },
   {
     from: [
@@ -2902,36 +3308,58 @@ const redirects = [
       '/compliance/gdpr/gdpr-summary',
       '/compliance/gdpr/definitions',
       '/compliance/auth0-gdpr-compliance',
+      '/compliance/gdpr',
     ],
-    to: '/compliance/gdpr',
+    to: '/secure/data-privacy-and-compliance/gdpr',
   },
   {
-    from: ['/compliance/gdpr/features-aiding-compliance/user-consent'],
-    to: '/compliance/gdpr/gdpr-conditions-for-consent',
+    from: [
+      '/compliance/gdpr/features-aiding-compliance/user-consent',
+      '/compliance/gdpr/gdpr-conditions-for-consent',
+    ],
+    to: '/secure/data-privacy-and-compliance/gdpr/gdpr-conditions-for-consent',
   },
   {
-    from: ['/compliance/gdpr/features-aiding-compliance/data-minimization'],
-    to: '/compliance/gdpr/gdpr-data-minimization',
+    from: [
+      '/compliance/gdpr/features-aiding-compliance/data-minimization',
+      '/compliance/gdpr/gdpr-data-minimization',
+    ],
+    to: '/secure/data-privacy-and-compliance/gdpr/gdpr-data-minimization',
   },
   {
-    from: ['/compliance/gdpr/features-aiding-compliance/data-portability'],
-    to: '/compliance/gdpr/gdpr-data-portability',
+    from: [
+      '/compliance/gdpr/features-aiding-compliance/data-portability',
+      '/compliance/gdpr/gdpr-data-portability',
+    ],
+    to: '/secure/data-privacy-and-compliance/gdpr/gdpr-data-portability',
   },
   {
-    from: ['/compliance/gdpr/features-aiding-compliance/protect-user-data'],
-    to: '/compliance/gdpr/gdpr-protect-and-secure-user-data',
+    from: [
+      '/compliance/gdpr/features-aiding-compliance/protect-user-data',
+      '/compliance/gdpr/gdpr-protect-and-secure-user-data',
+    ],
+    to: '/secure/data-privacy-and-compliance/gdpr/gdpr-protect-and-secure-user-data',
   },
   {
-    from: ['/compliance/gdpr/features-aiding-compliance/right-to-access-data'],
-    to: '/compliance/gdpr/gdpr-right-to-access-correct-and-erase-data',
+    from: [
+      '/compliance/gdpr/features-aiding-compliance/right-to-access-data',
+      '/compliance/gdpr/gdpr-right-to-access-correct-and-erase-data',
+    ],
+    to: '/secure/data-privacy-and-compliance/gdpr/gdpr-right-to-access-correct-and-erase-data',
   },
   {
-    from: ['/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-custom-ui'],
-    to: '/compliance/gdpr/gdpr-track-consent-with-custom-ui',
+    from: [
+      '/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-custom-ui',
+      '/compliance/gdpr/gdpr-track-consent-with-custom-ui',
+    ],
+    to: '/secure/data-privacy-and-compliance/gdpr/gdpr-track-consent-with-custom-ui',
   },
   {
-    from: ['/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-lock'],
-    to: '/compliance/gdpr/gdpr-track-consent-with-lock',
+    from: [
+      '/compliance/gdpr/features-aiding-compliance/user-consent/track-consent-with-lock',
+      '/compliance/gdpr/gdpr-track-consent-with-lock',
+    ],
+    to: '/secure/data-privacy-and-compliance/gdpr/gdpr-track-consent-with-lock',
   },
 
   /* Deploy */
@@ -2963,8 +3391,9 @@ const redirects = [
       '/appliance/dashboard/instrumentation',
       '/appliance/instrumentation',
       '/appliance/appliance-overview',
+      '/deploy/private-cloud',
     ],
-    to: '/deploy/private-cloud',
+    to: '/deploy-monitor/private-cloud-on-aws',
   },
   {
     from: [
@@ -2980,8 +3409,9 @@ const redirects = [
       '/private-cloud/managed-private-cloud/zones',
       '/private-cloud/managed-private-cloud/raci',
       '/private-cloud/private-cloud-onboarding',
+      '/deploy/private-cloud/private-cloud-onboarding',
     ],
-    to: '/deploy/private-cloud/private-cloud-onboarding',
+    to: '/deploy-monitor/private-cloud-on-aws/private-cloud-onboarding',
   },
   {
     from: [
@@ -3029,12 +3459,16 @@ const redirects = [
       '/private-cloud/private-cloud-operations',
       '/services/private-saas-management',
       '/services/private-cloud-management',
+      '/deploy/private-cloud/private-cloud-operations',
     ],
-    to: '/deploy/private-cloud/private-cloud-operations',
+    to: '/deploy-monitor/private-cloud-on-aws/private-cloud-operations',
   },
   {
-    from: ['/private-cloud/private-cloud-migrations'],
-    to: '/deploy/private-cloud/private-cloud-migrations',
+    from: [
+      '/private-cloud/private-cloud-migrations',
+      '/deploy/private-cloud/private-cloud-migrations',
+    ],
+    to: '/deploy-monitor/private-cloud-on-aws/private-cloud-migrations',
   },
   {
     from: ['/private-cloud/private-cloud-migrations/migrate-from-public-cloud-to-private-cloud'],
@@ -3055,44 +3489,62 @@ const redirects = [
     to: '/deploy/private-cloud/private-cloud-migrations/migrate-private-cloud-custom-domains',
   },
   {
-    from: ['/pre-deployment'],
-    to: '/deploy/pre-deployment',
+    from: [
+      '/pre-deployment',
+      '/deploy/pre-deployment',
+    ],
+    to: '/deploy-monitor/pre-deployment-checks',
   },
   {
-    from: ['/pre-deployment/how-to-run-production-checks', '/pre-deployment/how-to-run-test'],
-    to: '/deploy/pre-deployment/how-to-run-production-checks',
+    from: [
+      '/pre-deployment/how-to-run-production-checks',
+      '/pre-deployment/how-to-run-test',
+      '/deploy/pre-deployment/how-to-run-production-checks',
+    ],
+    to: '/deploy-monitor/pre-deployment-checks/how-to-run-production-checks',
   },
   {
     from: [
       '/deploy/pre-deployment/how-to-run-production-checks/production-check-required-fixes',
       '/pre-deployment/how-to-run-production-checks/production-check-required-fixes',
       '/pre-deployment/tests/required',
+      '/deploy/pre-deployment/production-check-required-fixes',
     ],
-    to: '/deploy/pre-deployment/production-check-required-fixes',
+    to: '/deploy-monitor/pre-deployment-checks/production-check-required-fixes',
   },
   {
     from: [
       '/pre-deployment/how-to-run-production-checks/production-check-recommended-fixes',
       '/pre-deployment/tests/recommended',
       '/deploy/pre-deployment/how-to-run-production-checks/production-check-recommended-fixes',
+      '/deploy/pre-deployment/production-check-recommended-fixes',
     ],
-    to: '/deploy/pre-deployment/production-check-recommended-fixes',
+    to: '/deploy-monitor/pre-deployment-checks/production-check-recommended-fixes',
   },
   {
     from: [
       '/pre-deployment/how-to-run-production-checks/production-checks-best-practices',
       '/pre-deployment/tests/best-practice',
       '/deploy/pre-deployment/how-to-run-production-checks/production-checks-best-practices',
+      '/deploy/pre-deployment/production-checks-best-practices',
     ],
-    to: '/deploy/pre-deployment/production-checks-best-practices',
+    to: '/deploy-monitor/pre-deployment-checks/production-checks-best-practices',
   },
   {
-    from: ['/support/predeployment-tests', '/support/testing'],
-    to: '/deploy/pre-deployment/predeployment-tests',
+    from: [
+      '/support/predeployment-tests',
+      '/support/testing',
+      '/deploy/pre-deployment/predeployment-tests',
+    ],
+    to: '/deploy-monitor/pre-deployment-checks/predeployment-tests',
   },
   {
-    from: ['/pre-deployment/pre-launch-tips', '/pre-deployment/prelaunch-tips'],
-    to: '/deploy/pre-deployment/pre-launch-tips',
+    from: [
+      '/pre-deployment/pre-launch-tips',
+      '/pre-deployment/prelaunch-tips',
+      '/deploy/pre-deployment/pre-launch-tips',
+    ],
+    to: '/deploy-monitor/pre-deployment-checks/pre-launch-tips',
   },
   {
     from: [
@@ -3101,8 +3553,9 @@ const redirects = [
       '/extend-integrate',
       '/extensions/visual-studio-team-services-deploy',
       '/extensions/visual-studio-team-services-deployments',
+      '/extensions',
     ],
-    to: '/extensions',
+    to: '/customize/extensions',
   },
   {
     from: [
@@ -3110,8 +3563,9 @@ const redirects = [
       '/extensions/authorization-extension/v1',
       '/api/authorization-dashboard-extension',
       '/extensions/authorization-dashboard-extension',
+      '/extensions/authorization-extension',
     ],
-    to: '/extensions/authorization-extension',
+    to: '/customize/extensions/authorization-extension',
   },
   {
     from: ['/extensions/authorization-extension/v2/implementation/setup'],
@@ -3159,8 +3613,13 @@ const redirects = [
     to: '/extensions/ad-ldap-connector/install-configure-ad-ldap-connector',
   },
   {
-    from: ['/extensions/delegated-admin/v3', '/extensions/delegated-admin/v2', '/extensions/delegated-admin'],
-    to: '/extensions/delegated-administration-extension',
+    from: [
+      '/extensions/delegated-admin/v3',
+      '/extensions/delegated-admin/v2',
+      '/extensions/delegated-admin',
+      '/extensions/delegated-administration-extension',
+    ],
+    to: '/customize/extensions/delegated-administration-extension',
   },
   {
     from: [
@@ -3220,8 +3679,11 @@ const redirects = [
     to: '/extensions/ad-ldap-connector/update-ad-ldap-connectors',
   },
   {
-    from: ['/extensions/sso-dashboard'],
-    to: '/extensions/single-sign-on-dashboard-extension',
+    from: [
+      '/extensions/sso-dashboard',
+      '/extensions/single-sign-on-dashboard-extension',
+    ],
+    to: '/customize/extensions/single-sign-on-dashboard-extension',
   },
   {
     from: [
@@ -3280,8 +3742,12 @@ const redirects = [
     to: '/extensions/ad-ldap-connector/ad-ldap-high-availability',
   },
   {
-    from: ['/extensions/adldap-connector', '/extensions/ad-ldap-connector-health-monitor'],
-    to: '/extensions/ad-ldap-connector/ad-ldap-connector-health-monitor',
+    from: [
+      '/extensions/adldap-connector',
+      '/extensions/ad-ldap-connector-health-monitor',
+      '/extensions/ad-ldap-connector/ad-ldap-connector-health-monitor',
+    ],
+    to: '/customize/extensions/ad-ldap-connector-health-monitor',
   },
   {
     from: ['/dashboard/guides/connections/disable-cache-ad-ldap'],
@@ -3304,64 +3770,117 @@ const redirects = [
     to: '/extensions/ad-ldap-connector/update-ad-ldap-connectors',
   },
   {
-    from: ['/extensions/account-link'],
-    to: '/extensions/account-link-extension',
+    from: [
+      '/extensions/account-link',
+      '/extensions/account-link-extension',
+    ],
+    to: '/customize/extensions/account-link-extension',
   },
   {
     from: ['/logs/export-log-events-with-extensions', '/logs/log-export-extensions'],
     to: '/extensions/log-export-extensions',
   },
   {
-    from: ['/extensions/export-logs-to-application-insights', '/extensions/application-insight'],
-    to: '/extensions/log-export-extensions/export-logs-to-application-insights',
+    from: [
+      '/extensions/export-logs-to-application-insights',
+      '/extensions/application-insight',
+      '/extensions/log-export-extensions/export-logs-to-application-insights',
+    ],
+    to: '/customize/extensions/export-log-events-with-extensions/export-logs-to-application-insights',
   },
   {
-    from: ['/extensions/export-logs-to-cloudwatch', '/extensions/cloudwatch'],
-    to: '/extensions/log-export-extensions/export-logs-to-cloudwatch',
+    from: [
+      '/extensions/export-logs-to-cloudwatch',
+      '/extensions/cloudwatch',
+      '/extensions/log-export-extensions/export-logs-to-cloudwatch',
+    ],
+    to: '/customize/extensions/export-log-events-with-extensions/export-logs-to-cloudwatch',
   },
   {
-    from: ['/extensions/export-logs-to-azure-blob-storage', '/extensions/azure-blob-storage'],
-    to: '/extensions/log-export-extensions/export-logs-to-azure-blob-storage',
+    from: [
+      '/extensions/export-logs-to-azure-blob-storage',
+      '/extensions/azure-blob-storage',
+      '/extensions/log-export-extensions/export-logs-to-azure-blob-storage',
+    ],
+    to: '/customize/extensions/export-log-events-with-extensions/export-logs-to-azure-blob-storage',
   },
   {
-    from: ['/extensions/export-logs-to-logentries', '/extensions/logentries'],
-    to: '/extensions/log-export-extensions/export-logs-to-logentries',
+    from: [
+      '/extensions/export-logs-to-logentries',
+      '/extensions/logentries',
+      '/extensions/log-export-extensions/export-logs-to-logentries',
+    ],
+    to: '/customize/extensions/export-log-events-with-extensions/export-logs-to-logentries',
   },
   {
-    from: ['/extensions/export-logs-to-loggly', '/extensions/loggly'],
-    to: '/extensions/log-export-extensions/export-logs-to-loggly',
+    from: [
+      '/extensions/export-logs-to-loggly',
+      '/extensions/loggly',
+      '/extensions/log-export-extensions/export-logs-to-loggly',
+    ],
+    to: '/customize/extensions/export-log-events-with-extensions/export-logs-to-loggly',
   },
   {
-    from: ['/extensions/export-logs-to-logstash', '/extensions/logstash'],
-    to: '/extensions/log-export-extensions/export-logs-to-logstash',
+    from: [
+      '/extensions/export-logs-to-logstash',
+      '/extensions/logstash',
+      '/extensions/log-export-extensions/export-logs-to-logstash',
+    ],
+    to: '/customize/extensions/export-log-events-with-extensions/export-logs-to-logstash',
   },
   {
-    from: ['/extensions/export-logs-to-mixpanel', '/extensions/mixpanel'],
-    to: '/extensions/log-export-extensions/export-logs-to-mixpanel',
+    from: [
+      '/extensions/export-logs-to-mixpanel',
+      '/extensions/mixpanel',
+      '/extensions/log-export-extensions/export-logs-to-mixpanel',
+    ],
+    to: '/customize/extensions/export-log-events-with-extensions/export-logs-to-mixpanel',
   },
   {
-    from: ['/extensions/export-logs-to-papertrail', '/extensions/papertrail'],
-    to: '/extensions/log-export-extensions/export-logs-to-papertrail',
+    from: [
+      '/extensions/export-logs-to-papertrail',
+      '/extensions/papertrail',
+      '/extensions/log-export-extensions/export-logs-to-papertrail',
+    ],
+    to: '/customize/extensions/export-log-events-with-extensions/export-logs-to-papertrail',
   },
   {
-    from: ['/extensions/export-logs-to-segment', '/extensions/segment'],
-    to: '/extensions/log-export-extensions/export-logs-to-segment',
+    from: [
+      '/extensions/export-logs-to-segment',
+      '/extensions/segment',
+      '/extensions/log-export-extensions/export-logs-to-segment',
+    ],
+    to: '/customize/extensions/export-log-events-with-extensions/export-logs-to-segment',
   },
   {
-    from: ['/extensions/export-logs-to-splunk', '/extensions/splunk'],
-    to: '/extensions/log-export-extensions/export-logs-to-splunk',
+    from: [
+      '/extensions/export-logs-to-splunk',
+      '/extensions/splunk',
+      '/extensions/log-export-extensions/export-logs-to-splunk',
+    ],
+    to: '/customize/extensions/export-log-events-with-extensions/export-logs-to-splunk',
   },
   {
-    from: ['/extensions/auth0-logs-to-sumo-logic', '/extensions/sumologic'],
-    to: '/extensions/log-export-extensions/auth0-logs-to-sumo-logic',
+    from: [
+      '/extensions/auth0-logs-to-sumo-logic',
+      '/extensions/sumologic',
+      '/extensions/log-export-extensions/auth0-logs-to-sumo-logic',
+    ],
+    to: '/customize/extensions/export-log-events-with-extensions/auth0-logs-to-sumo-logic',
   },
   {
-    from: ['/extensions/authentication-api-debugger'],
-    to: '/extensions/authentication-api-debugger-extension',
+    from: [
+      '/extensions/authentication-api-debugger',
+      '/extensions/authentication-api-debugger-extension',
+    ],
+    to: '/customize/extensions/authentication-api-debugger-extension',
   },
   {
-    from: ['/extensions/authentication-api-webhooks'],
-    to: '/extensions/auth0-authentication-api-webhooks',
+    from: [
+      '/extensions/authentication-api-webhooks',
+      '/extensions/auth0-authentication-api-webhooks',
+    ],
+    to: '/customize/extensions/auth0-authentication-api-webhooks',
   },
   {
     from: ['/extensions/user-import-export'],
@@ -3372,8 +3891,14 @@ const redirects = [
     to: 'https://marketplace.auth0.com/integrations/bitbucket-pipeline',
   },
   {
-    from: ['/extensions/custom-social-connections', '/extensions/custom-social-extensions'],
-    to: '/connections/social/oauth2',
+    from: [
+      '/extensions/custom-social-connections',
+      '/extensions/custom-social-extensions',
+      '/connections/adding-generic-oauth1-connection',
+      '/oauth2',
+      '/connections/social/oauth2',
+      ],
+    to: '/authenticate/identity-providers/social-identity-providers/oauth2',
   },
   {
     from: ['/extensions/github-deploy', '/extensions/github-deployments'],
@@ -3384,12 +3909,18 @@ const redirects = [
     to: 'https://marketplace.auth0.com/integrations/gitlab-pipeline',
   },
   {
-    from: ['/extensions/management-api-webhooks'],
-    to: '/extensions/auth0-management-api-webhooks',
+    from: [
+      '/extensions/management-api-webhooks',
+      '/extensions/auth0-management-api-webhooks',
+    ],
+    to: '/customize/extensions/auth0-management-api-webhooks',
   },
   {
-    from: ['/extensions/realtime-webtask-logs'],
-    to: '/extensions/real-time-webtask-logs',
+    from: [
+      '/extensions/realtime-webtask-logs',
+      '/extensions/real-time-webtask-logs',
+    ],
+    to: '/customize/extensions/real-time-webtask-logs',
   },
   {
     from: ['/dashboard/guides/extensions/delegated-admin-create-app'],
@@ -3412,65 +3943,74 @@ const redirects = [
       '/extensions/deploy-cli/references/whats-new',
       '/extensions/deploy-cli/references/whats-new-v2',
       '/deploy/deploy-cli-tool/whats-new-in-deploy-cli-tool',
+      '/deploy/deploy-cli-tool',
     ],
-    to: '/deploy/deploy-cli-tool',
+    to: '/deploy-monitor/deploy-cli-tool',
   },
   {
     from: [
       '/extensions/deploy-cli-tool/call-deploy-cli-tool-programmatically',
       '/extensions/deploy-cli/guides/call-deploy-cli-programmatically',
+      '/deploy/deploy-cli-tool/call-deploy-cli-tool-programmatically',
     ],
-    to: '/deploy/deploy-cli-tool/call-deploy-cli-tool-programmatically',
+    to: '/deploy-monitor/deploy-cli-tool/call-deploy-cli-tool-programmatically',
   },
   {
     from: [
       '/extensions/deploy-cli/guides/create-deploy-cli-application-manually',
       '/extensions/deploy-cli-tool/create-and-configure-the-deploy-cli-application-manually',
       '/extensions/deploy-cli-tool/create-and-configure-the-deploy-cli-application',
+      '/deploy/deploy-cli-tool/create-and-configure-the-deploy-cli-application',
     ],
-    to: '/deploy/deploy-cli-tool/create-and-configure-the-deploy-cli-application',
+    to: '/deploy-monitor/deploy-cli-tool/create-and-configure-the-deploy-cli-application',
   },
   {
     from: [
       '/extensions/deploy-cli/guides/import-export-directory-structure',
       '/extensions/deploy-cli-tool/import-export-tenant-configuration-to-directory-structure',
+      '/deploy/deploy-cli-tool/import-export-tenant-configuration-to-directory-structure',
     ],
-    to: '/deploy/deploy-cli-tool/import-export-tenant-configuration-to-directory-structure',
+    to: '/deploy-monitor/deploy-cli-tool/import-export-tenant-configuration-to-directory-structure',
   },
   {
     from: [
       '/extensions/deploy-cli/guides/import-export-yaml-file',
       '/extensions/deploy-cli-tool/import-export-tenant-configuration-to-yaml-file',
+      '/deploy/deploy-cli-tool/import-export-tenant-configuration-to-yaml-file',
     ],
-    to: '/deploy/deploy-cli-tool/import-export-tenant-configuration-to-yaml-file',
+    to: '/deploy-monitor/deploy-cli-tool/import-export-tenant-configuration-to-yaml-file',
   },
   {
     from: [
       '/extensions/deploy-cli/guides/incorporate-deploy-cli-into-build-environment',
       '/extensions/deploy-cli-tool/incorporate-deploy-cli-into-build-environment',
+      '/deploy/deploy-cli-tool/incorporate-deploy-cli-into-build-environment',
     ],
-    to: '/deploy/deploy-cli-tool/incorporate-deploy-cli-into-build-environment',
+    to: '/deploy-monitor/deploy-cli-tool/incorporate-deploy-cli-into-build-environment',
   },
   {
     from: [
       '/extensions/deploy-cli/guides/install-deploy-cli',
       '/extensions/deploy-cli-tool/install-and-configure-the-deploy-cli-tool',
+      '/deploy/deploy-cli-tool/install-and-configure-the-deploy-cli-tool',
     ],
-    to: '/deploy/deploy-cli-tool/install-and-configure-the-deploy-cli-tool',
+    to: '/deploy-monitor/deploy-cli-tool/install-and-configure-the-deploy-cli-tool',
   },
   {
     from: [
       '/extensions/deploy-cli/references/deploy-cli-options',
       '/extensions/deploy-cli-tool/deploy-cli-tool-options',
+      '/deploy/deploy-cli-tool/deploy-cli-tool-options',
     ],
-    to: '/deploy/deploy-cli-tool/deploy-cli-tool-options',
+    to: '/deploy-monitor/deploy-cli-tool/deploy-cli-tool-options',
   },
   {
     from: [
       '/extensions/deploy-cli/references/environment-variables-keyword-mappings',
       '/extensions/deploy-cli-tool/environment-variables-and-keyword-mappings',
+      '/deploy/deploy-cli-tool/environment-variables-and-keyword-mappings',
     ],
-    to: '/deploy/deploy-cli-tool/environment-variables-and-keyword-mappings',
+    to: '/deploy-monitor/deploy-cli-tool/environment-variables-and-keyword-mappings',
   },
 
   /* Get Started */
@@ -3494,8 +4034,12 @@ const redirects = [
     to: '/get-started/authentication-and-authorization',
   },
   {
-    from: ['/getting-started/set-up-app', '/applications/set-up-an-application'],
-    to: '/get-started/create-apps',
+    from: [
+      '/getting-started/set-up-app',
+      '/applications/set-up-an-application',
+      '/get-started/create-apps',
+    ],
+    to: '/get-started/auth0-overview/create-applications',
   },
   {
     from: [
@@ -3504,8 +4048,9 @@ const redirects = [
       '/applications/application-settings/machine-to-machine',
       '/applications/machine-to-machine',
       '/applications/set-up-an-application/register-machine-to-machine-applications',
+      '/get-started/create-apps/machine-to-machine-apps',
     ],
-    to: '/get-started/create-apps/machine-to-machine-apps',
+    to: '/get-started/auth0-overview/create-applications/machine-to-machine-apps',
   },
   {
     from: [
@@ -3513,8 +4058,9 @@ const redirects = [
       '/applications/application-settings/native',
       '/applications/native',
       '/applications/set-up-an-application/register-native-applications',
+      '/get-started/create-apps/native-apps',
     ],
-    to: '/get-started/create-apps/native-apps',
+    to: '/get-started/auth0-overview/create-applications/native-apps',
   },
   {
     from: [
@@ -3523,8 +4069,9 @@ const redirects = [
       '/applications/webapps',
       '/applications/register-regular-web-applications',
       '/applications/set-up-an-application/register-regular-web-applications',
+      '/get-started/create-apps/regular-web-apps',
     ],
-    to: '/get-started/create-apps/regular-web-apps',
+    to: '/get-started/auth0-overview/create-applications/regular-web-apps',
   },
   {
     from: [
@@ -3533,32 +4080,58 @@ const redirects = [
       '/applications/application-settings/single-page-app',
       '/applications/register-single-page-app',
       '/applications/set-up-an-application/register-single-page-app',
+      '/get-started/create-apps/single-page-web-apps',
     ],
-    to: '/get-started/create-apps/single-page-web-apps',
+    to: '/get-started/auth0-overview/create-applications/single-page-web-apps',
   },
   {
-    from: ['/getting-started/set-up-api', '/dashboard/reference/views-api'],
-    to: '/get-started/set-up-apis',
+    from: [
+      '/getting-started/set-up-api',
+      '/dashboard/reference/views-api',
+      '/get-started/set-up-apis',
+    ],
+    to: '/get-started/auth0-overview/set-up-apis',
   },
   {
-    from: ['/dashboard', '/getting-started/dashboard-overview', '/get-started/dashboard/upcoming-dashboard-changes'],
-    to: '/get-started/dashboard',
+    from: [
+      '/dashboard',
+      '/getting-started/dashboard-overview',
+      '/get-started/dashboard/upcoming-dashboard-changes',
+      '/get-started/dashboard',
+    ],
+    to: '/get-started/auth0-overview/dashboard',
   },
   {
-    from: ['/get-started/learn-the-basics', '/getting-started/the-basics', '/getting-started/create-tenant'],
-    to: '/get-started/create-tenants',
+    from: [
+      '/get-started/learn-the-basics',
+      '/getting-started/the-basics',
+      '/getting-started/create-tenant',
+      '/get-started/create-tenants',
+    ],
+    to: '/get-started/auth0-overview/create-tenants',
   },
   {
-    from: ['/dev-lifecycle/child-tenants'],
-    to: '/get-started/create-tenants/child-tenants',
+    from: [
+      '/dev-lifecycle/child-tenants',
+      '/get-started/create-tenants/child-tenants',
+    ],
+    to: '/get-started/auth0-overview/create-tenants/child-tenants',
   },
   {
-    from: ['/dev-lifecycle/set-up-multiple-environments', '/dev-lifecycle/setting-up-env'],
-    to: '/get-started/create-tenants/set-up-multiple-environments',
+    from: [
+      '/dev-lifecycle/set-up-multiple-environments',
+      '/dev-lifecycle/setting-up-env',
+      '/get-started/create-tenants/set-up-multiple-environments',
+    ],
+    to: '/get-started/auth0-overview/create-tenants/set-up-multiple-environments',
   },
   {
-    from: ['/get-started/dashboard/create-multiple-tenants', '/dashboard/guides/tenants/create-multiple-tenants'],
-    to: '/get-started/create-tenants/create-multiple-tenants',
+    from: [
+      '/get-started/dashboard/create-multiple-tenants',
+      '/dashboard/guides/tenants/create-multiple-tenants',
+      '/get-started/create-tenants/create-multiple-tenants',
+    ],
+    to: '/get-started/auth0-overview/create-tenants/create-multiple-tenants',
   },
   {
     from: [
@@ -3571,19 +4144,24 @@ const redirects = [
     from: [
       '/dashboard/guides/connections/test-connections-enterprise',
       '/get-started/dashboard/test-enterprise-connections',
+      '/connections/enterprise/test-enterprise-connections',
     ],
-    to: '/connections/enterprise/test-enterprise-connections',
+    to: '/authenticate/identity-provIders/enterprise-identity-providers/test-enterprise-connections',
   },
   {
-    from: ['/dashboard/guides/connections/view-connections', '/get-started/dashboard/view-connections'],
+    from: [
+      '/dashboard/guides/connections/view-connections',
+      '/get-started/dashboard/view-connections',
+    ],
     to: '/connections/view-connections',
   },
   {
     from: [
       '/dashboard/guides/connections/enable-connections-enterprise',
       '/get-started/dashboard/enable-enterprise-connections',
+      '/connections/enterprise/enable-enterprise-connections',
     ],
-    to: '/connections/enterprise/enable-enterprise-connections',
+    to: '/authenticate/identity-providers/enterprise-identity-providers/enable-enterprise-connections',
   },
   {
     from: [
@@ -3607,12 +4185,16 @@ const redirects = [
       '/dashboard/manage-dashboard-admins',
       '/tutorials/manage-dashboard-admins',
       '/get-started/dashboard/manage-dashboard-users',
+      '/dashboard-access',
     ],
-    to: '/dashboard-access',
+    to: '/get-started/manage-dashboard-access',
   },
   {
-    from: ['/dashboard-access/dashboard-roles/feature-access-by-role'],
-    to: '/dashboard-access/feature-access-by-role',
+    from: [
+      '/dashboard-access/dashboard-roles/feature-access-by-role',
+      '/dashboard-access/feature-access-by-role',
+    ],
+    to: '/get-started/manage-dashboard-access/feature-access-by-role',
   },
 
   /* Hooks */
@@ -3625,12 +4207,17 @@ const redirects = [
       '/hooks/overview',
       '/auth0-hooks',
       '/auth0-hooks/dashboard',
+      '/hooks',
     ],
-    to: '/hooks',
+    to: '/customize/hooks',
   },
   {
-    from: ['/hooks/concepts/extensibility-points', '/hooks/concepts/overview-extensibility-points'],
-    to: '/hooks/extensibility-points',
+    from: [
+      '/hooks/concepts/extensibility-points',
+      '/hooks/concepts/overview-extensibility-points',
+      '/hooks/extensibility-points',
+    ],
+    to: '/customize/hooks/extensibility-points',
   },
   {
     from: [
@@ -3638,8 +4225,9 @@ const redirects = [
       '/hooks/guides/use-the-credentials-exchange-extensibility-point',
       '/hooks/client-credentials-exchange',
       '/hooks/extensibility-points/credentials-exchange',
+      '/hooks/extensibility-points/client-credentials-exchange',
     ],
-    to: '/hooks/extensibility-points/client-credentials-exchange',
+    to: '/customize/hooks/extensibility-points/client-credentials-exchange',
   },
   {
     from: [
@@ -3649,12 +4237,18 @@ const redirects = [
       '/hooks/guides/create-hooks-using-cli',
       '/hooks/guides/create-hooks-using-dashboard',
       '/auth0-hooks/cli/create-delete',
+      '/hooks/create-hooks',
     ],
-    to: '/hooks/create-hooks',
+    to: '/customize/hooks/create-hooks',
   },
   {
-    from: ['/hooks/delete', '/hooks/guides/delete-hooks-using-cli', '/hooks/guides/delete-hooks-using-dashboard'],
-    to: '/hooks/delete-hooks',
+    from: [
+      '/hooks/delete',
+      '/hooks/guides/delete-hooks-using-cli',
+      '/hooks/guides/delete-hooks-using-dashboard',
+      '/hooks/delete-hooks',
+    ],
+    to: '/customize/hooks/delete-hooks',
   },
   {
     from: [
@@ -3664,20 +4258,26 @@ const redirects = [
       '/hooks/guides/enable-disable-hooks-using-cli',
       '/hooks/guides/enable-disable-hooks-using-dashboard',
       '/auth0-hooks/cli/enable-disable',
+      '/hooks/enable-disable-hooks',
     ],
-    to: '/hooks/enable-disable-hooks',
+    to: '/customize/hooks/enable-disable-hooks',
   },
   {
-    from: ['/hooks/guides/post-change-password', '/hooks/post-change-password'],
-    to: '/hooks/extensibility-points/post-change-password',
+    from: [
+      '/hooks/guides/post-change-password',
+      '/hooks/post-change-password',
+      '/hooks/extensibility-points/post-change-password',
+    ],
+    to: '/customize/hooks/extensibility-points/post-change-password',
   },
   {
     from: [
       '/hooks/concepts/post-user-registration-extensibility-point',
       '/hooks/guides/use-the-post-user-registration-extensibility-point',
       '/hooks/post-user-registration',
+      '/hooks/extensibility-points/post-user-registration',
     ],
-    to: '/hooks/extensibility-points/post-user-registration',
+    to: '/customize/hooks/extensibility-points/post-user-registration',
   },
   {
     from: [
@@ -3685,28 +4285,44 @@ const redirects = [
       '/hooks/guides/use-the-pre-user-registration-extensibility-point',
       '/auth0-hooks/extensibility-points/pre-user-registration',
       '/hooks/pre-user-registration',
+      '/hooks/extensibility-points/pre-user-registration',
     ],
-    to: '/hooks/extensibility-points/pre-user-registration',
+    to: '/customize/hooks/extensibility-points/pre-user-registration',
   },
   {
-    from: ['/hooks/secrets/create'],
-    to: '/hooks/hook-secrets/create-hook-secrets',
+    from: [
+      '/hooks/secrets/create',
+      '/hooks/hook-secrets/create-hook-secrets',
+    ],
+    to: '/customize/hooks/hook-secrets/create-hook-secrets',
   },
   {
-    from: ['/hooks/secrets/delete'],
-    to: '/hooks/hook-secrets/delete-hook-secrets',
+    from: [
+      '/hooks/secrets/delete',
+      '/hooks/hook-secrets/delete-hook-secrets',
+    ],
+    to: '/customize/hooks/hook-secrets/delete-hook-secrets',
   },
   {
-    from: ['/hooks/secrets'],
-    to: '/hooks/hook-secrets',
+    from: [
+      '/hooks/secrets',
+      '/hooks/hook-secrets',
+    ],
+    to: '/customize/hooks/hook-secrets',
   },
   {
-    from: ['/hooks/secrets/update'],
-    to: '/hooks/hook-secrets/update-hook-secrets',
+    from: [
+      '/hooks/secrets/update',
+      '/hooks/hook-secrets/update-hook-secrets',
+    ],
+    to: '/customize/hooks/hook-secrets/update-hook-secrets',
   },
   {
-    from: ['/hooks/secrets/view'],
-    to: '/hooks/hook-secrets/view-hook-secrets',
+    from: [
+      '/hooks/secrets/view',
+      '/hooks/hook-secrets/view-hook-secrets',
+    ],
+    to: '/customize/hooks/hook-secrets/view-hook-secrets',
   },
   {
     from: [
@@ -3715,8 +4331,9 @@ const redirects = [
       '/hooks/dashboard/edit',
       '/hooks/guides/edit-hooks-using-cli',
       '/hooks/guides/edit-hooks-using-dashboard',
+      '/hooks/update-hooks',
     ],
-    to: '/hooks/update-hooks',
+    to: '/customize/hooks/update-hooks',
   },
   {
     from: [
@@ -3725,12 +4342,16 @@ const redirects = [
       '/hooks/logs',
       '/hooks/guides/logging-hooks-using-cli',
       '/auth0-hooks/cli/logs',
+      '/hooks/view-logs-for-hooks',
     ],
-    to: '/hooks/view-logs-for-hooks',
+    to: '/customize/hooks/view-logs-for-hooks',
   },
   {
-    from: ['/hooks/view'],
-    to: '/hooks/view-hooks',
+    from: [
+      '/hooks/view',
+      '/hooks/view-hooks',
+    ],
+    to: '/customize/hooks/view-hooks',
   },
 
   /* Identity Labs */
@@ -3799,8 +4420,11 @@ const redirects = [
   /* Integrations */
 
   {
-    from: ['/integration'],
-    to: '/integrations',
+    from: [
+      '/integration',
+      '/integrations',
+    ],
+    to: '/customize/integrations',
   },
   {
     from: ['/aws-api-setup'],
@@ -3840,8 +4464,12 @@ const redirects = [
     to: '/integrations/authenticating-and-authorizing-a-tessel-device-with-auth0',
   },
   {
-    from: ['/aws', '/awsapi-tutorial'],
-    to: '/integrations/aws',
+    from: [
+      '/aws',
+      '/awsapi-tutorial',
+      '/integrations/aws',
+    ],
+    to: '/customize/integrations/aws',
   },
   {
     from: ['/integrations/aws-api-gateway/delegation', '/integrations/aws-api-gateway'],
@@ -3901,20 +4529,28 @@ const redirects = [
       '/integrations/aws-api-gateway/custom-authorizers/part-2',
       '/integrations/aws-api-gateway/custom-authorizers/part-3',
       '/integrations/aws-api-gateway/custom-authorizers/part-4',
+      '/integrations/aws-api-gateway-custom-authorizers',
     ],
-    to: '/integrations/aws-api-gateway-custom-authorizers',
+    to: '/customize/integrations/aws-api-gateway-custom-authorizers',
   },
   {
     from: ['/sharepoint-apps', '/integrations/sharepoint-apps'],
     to: '/integrations/connecting-provider-hosted-apps-to-sharepoint-online',
   },
   {
-    from: ['/integrations/google-cloud-platform', '/tutorials/google-cloud-platform'],
-    to: '/integrations/google-cloud-endpoints',
+    from: [
+      '/integrations/google-cloud-platform',
+      '/tutorials/google-cloud-platform',
+      '/integrations/google-cloud-endpoints',
+    ],
+    to: '/customize/integrations/google-cloud-endpoints',
   },
   {
-    from: ['/integrations/marketing/salesforce'],
-    to: '/integrations/marketing/export-user-data-salesforce',
+    from: [
+      '/integrations/marketing/salesforce',
+      '/integrations/marketing/export-user-data-salesforce',
+    ],
+    to: '/customize/integrations/marketing-tool-integrations/export-user-data-salesforce',
   },
   {
     from: [
@@ -3938,8 +4574,12 @@ const redirects = [
     to: '/integrations/sharepoint-2010-2013',
   },
   {
-    from: ['/integrations/sso', '/sso/current/integrations'],
-    to: '/integrations/sso-integrations',
+    from: [
+      '/integrations/sso',
+      '/sso/current/integrations',
+      '/integrations/sso-integrations',
+    ],
+    to: '/customize/integrations/sso-integrations',
   },
   {
     from: [
@@ -4170,28 +4810,41 @@ const redirects = [
       '/tutorials/azure-tutorial',
       '/integrations/azure-api-management/configure-auth0',
       '/integrations/azure-api-management/configure-azure',
+      '/integrations/azure-api-management',
     ],
-    to: '/integrations/azure-api-management',
+    to: '/customize/integrations/azure-api-management',
   },
   {
-    from: ['/marketplace-partner-documentation'],
-    to: '/integrations/marketplace-partners',
+    from: [
+      '/marketplace-partner-documentation',
+      '/integrations/marketplace-partners',
+    ],
+    to: '/customize/integrations/marketplace-partners',
   },
   {
     from: [
       '/redirect-rules-for-partners',
       '/marketplace-partner-documentation/redirect-rules-for-partners',
-      '/integrations/marketplace-partners/redirect-rules-for-partners'
+      '/integrations/marketplace-partners/redirect-rules-for-partners',
+      '/integrations/marketplace-partners/redirect-actions-for-partners'
     ],
-    to: '/integrations/marketplace-partners/redirect-actions-for-partners'
+    to: '/customize/integrations/marketplace-partners/redirect-actions-for-partners'
   },
   {
-    from: ['/social-connections-for-partners', '/marketplace-partner-documentation/social-connections-for-partners'],
-    to: '/integrations/marketplace-partners/social-connections-for-partners',
+    from: [
+      '/social-connections-for-partners',
+      '/marketplace-partner-documentation/social-connections-for-partners',
+      '/integrations/marketplace-partners/social-connections-for-partners',
+    ],
+    to: '/customize/integrations/marketplace-partners/social-connections-for-partners',
   },
   {
-    from: ['/sso-integrations-for-partners', '/marketplace-partner-documentation/sso-integrations-for-partners'],
-    to: '/integrations/marketplace-partners/sso-integrations-for-partners',
+    from: [
+      '/sso-integrations-for-partners',
+      '/marketplace-partner-documentation/sso-integrations-for-partners',
+      '/integrations/marketplace-partners/sso-integrations-for-partners',
+    ],
+    to: '/customize/integrations/marketplace-partners/sso-integrations-for-partners',
   },
 
   /* Libraries */
@@ -4492,72 +5145,123 @@ const redirects = [
     to: '/organizations/configure/',
   },
   {
-    from: ['/organizations/create-organizations'],
-    to: '/organizations/configure/create-organizations',
+    from: [
+      '/organizations/create-organizations',
+      '/organizations/configure/create-organizations',
+    ],
+    to: '/manage-users/organizations/configure-organizations/create-organizations',
   },
   {
-    from: ['/organizations/delete-organizations'],
-    to: '/organizations/configure/delete-organizations',
+    from: [
+      '/organizations/delete-organizations',
+      '/organizations/configure/delete-organizations',
+    ],
+    to: '/manage-users/organizations/configure-organizations/delete-organizations',
   },
   {
-    from: ['/organizations/define-organization-behavior'],
-    to: '/organizations/configure/define-organization-behavior',
+    from: [
+      '/organizations/define-organization-behavior',
+      '/organizations/configure/define-organization-behavior',
+    ],
+    to: '/manage-users/organizations/configure-organizations/define-organization-behavior',
   },
   {
-    from: ['/organizations/enable-connections'],
-    to: '/organizations/configure/enable-connections',
+    from: [
+      '/organizations/enable-connections',
+      '/organizations/configure/enable-connections',
+    ],
+    to: '/manage-users/organizations/configure-organizations/enable-connections',
   },
   {
-    from: ['/organizations/disable-connections'],
-    to: '/organizations/configure/disable-connections',
+    from: [
+      '/organizations/disable-connections',
+      '/organizations/configure/disable-connections',
+    ],
+    to: '/manage-users/organizations/configure-organizations/disable-connections',
   },
   {
-    from: ['/organizations/invite-members'],
-    to: '/organizations/configure/invite-members',
+    from: [
+      '/organizations/invite-members',
+      '/organizations/configure/invite-members',
+    ],
+    to: '/manage-users/organizations/configure-organizations/invite-members',
   },
   {
-    from: ['/organizations/send-membership-invitations'],
-    to: '/organizations/configure/send-membership-invitations',
+    from: [
+      '/organizations/send-membership-invitations',
+      '/organizations/configure/send-membership-invitations',
+    ],
+    to: '/manage-users/organizations/configure-organizations/send-membership-invitations',
   },
   {
-    from: ['/organizations/grant-just-in-time-membership'],
-    to: '/organizations/configure/grant-just-in-time-membership',
+    from: [
+      '/organizations/grant-just-in-time-membership',
+      '/organizations/configure/grant-just-in-time-membership',
+    ],
+    to: '/manage-users/organizations/configure-organizations/grant-just-in-time-membership',
   },
   {
-    from: ['/organizations/assign-members'],
-    to: '/organizations/configure/assign-members',
+    from: [
+      '/organizations/assign-members',
+      '/organizations/configure/assign-members',
+    ],
+    to: '/manage-users/organizations/configure-organizations/assign-members',
   },
   {
-    from: ['/organizations/remove-members'],
-    to: '/organizations/configure/remove-members',
+    from: [
+      '/organizations/remove-members',
+      '/organizations/configure/remove-members',
+    ],
+    to: '/manage-users/organizations/configure-organizations/remove-members',
   },
   {
-    from: ['/organizations/add-member-roles'],
-    to: '/organizations/configure/add-member-roles',
+    from: [
+      '/organizations/add-member-roles',
+      '/organizations/configure/add-member-roles',
+    ],
+    to: '/manage-users/organizations/configure-organizations/add-member-roles',
   },
   {
-    from: ['/organizations/remove-member-roles'],
-    to: '/organizations/configure/remove-member-roles',
+    from: [
+      '/organizations/remove-member-roles',
+      '/organizations/configure/remove-member-roles',
+    ],
+    to: '/manage-users/organizations/configure-organizations/remove-member-roles',
   },
   {
-    from: ['/organizations/retrieve-organizations'],
-    to: '/organizations/configure/retrieve-organizations',
+    from: [
+      '/organizations/retrieve-organizations',
+      '/organizations/configure/retrieve-organizations',
+    ],
+    to: '/manage-users/organizations/configure-organizations/retrieve-organizations',
   },
   {
-    from: ['/organizations/retrieve-connections'],
-    to: '/organizations/configure/retrieve-connections',
+    from: [
+      '/organizations/retrieve-connections',
+      '/organizations/configure/retrieve-connections',
+    ],
+    to: '/manage-users/organizations/configure-organizations/retrieve-connections',
   },
   {
-    from: ['/organizations/retrieve-members'],
-    to: '/organizations/configure/retrieve-members',
+    from: [
+      '/organizations/retrieve-members',
+      '/organizations/configure/retrieve-members',
+    ],
+    to: '/manage-users/organizations/configure-organizations/retrieve-members',
   },
   {
-    from: ['/organizations/retrieve-user-membership'],
-    to: '/organizations/configure/retrieve-user-membership',
+    from: [
+      '/organizations/retrieve-user-membership',
+      '/organizations/configure/retrieve-user-membership',
+    ],
+    to: '/manage-users/organizations/configure-organizations/retrieve-user-membership',
   },
   {
-    from: ['/organizations/retrieve-member-roles'],
-    to: '/organizations/configure/retrieve-member-roles',
+    from: [
+      '/organizations/retrieve-member-roles',
+      '/organizations/configure/retrieve-member-roles',
+    ],
+    to: '/manage-users/organizations/configure-organizations/retrieve-member-roles',
   },
 
   /* LOGIN */
@@ -4579,20 +5283,32 @@ const redirects = [
       '/universal-login/customization-new',
       '/login_page',
       '/universal-login',
+      '/login/universal-login',
     ],
-    to: '/login/universal-login',
+    to: '/authenticate/login/auth0-universal-login',
   },
   {
-    from: ['/universal-login/new-universal-login-vs-classic-universal-login'],
-    to: '/login/universal-login/new-universal-login-vs-classic-universal-login',
+    from: [
+      '/universal-login/new-universal-login-vs-classic-universal-login',
+      '/login/universal-login/new-universal-login-vs-classic-universal-login',
+    ],
+    to: '/authenticate/login/auth0-universal-login/new-universal-login-vs-classic-universal-login',
   },
   {
-    from: ['/universal-login/new-experience', '/universal-login/new'],
-    to: '/login/universal-login/new-experience',
+    from: [
+      '/universal-login/new-experience',
+      '/universal-login/new',
+      '/login/universal-login/new-experience',
+    ],
+    to: '/authenticate/login/auth0-universal-login/new-experience',
   },
   {
-    from: ['/universal-login/classic-experience', '/universal-login/classic'],
-    to: '/login/universal-login/classic-experience',
+    from: [
+      '/universal-login/classic-experience',
+      '/universal-login/classic',
+      '/login/universal-login/classic-experience',
+    ],
+    to: '/authenticate/login/auth0-universal-login/classic-experience',
   },
   {
     from: [
@@ -4600,48 +5316,65 @@ const redirects = [
       '/dashboard/guides/connections/configure-passwordless-sms',
       '/universal-login/configure-universal-login-with-passwordless',
       '/login/universal-login/passwordless-login/configure-universal-login-with-passwordless',
+      '/login/universal-login/passwordless-login',
     ],
-    to: '/login/universal-login/passwordless-login',
+    to: '/authenticate/login/auth0-universal-login/passwordless-login',
   },
   {
     from: [
       '/universal-login/universal-vs-embedded-login',
       '/guides/login/universal-vs-embedded',
       '/guides/login/centralized-vs-embedded',
+      '/login/universal-vs-embedded-login',
     ],
-    to: '/login/universal-vs-embedded-login',
+    to: '/authenticate/login/universal-vs-embedded-login',
   },
   {
     from: [
       '/universal-login/configure-default-login-routes',
       '/universal-login/default-login-url',
       '/hosted-pages/default-login-url',
+      '/login/universal-login/configure-default-login-routes',
     ],
-    to: '/login/universal-login/configure-default-login-routes',
+    to: '/authenticate/login/auth0-universal-login/configure-default-login-routes',
   },
   {
     from: ['/universal-login/error-pages', '/error-pages', '/error-pages/generic', '/hosted-pages/error-pages'],
     to: '/login/universal-login/error-pages',
   },
   {
-    from: ['/universal-login/identifier-first'],
-    to: '/login/universal-login/identifier-first',
+    from: [
+      '/universal-login/identifier-first',
+      '/login/universal-login/identifier-first',
+    ],
+    to: '/authenticate/login/auth0-universal-login/Identifier-first',
   },
   {
     from: ['/login/embedded', '/flows/login/embedded', '/flows/login/embedded-login'],
     to: '/login/embedded-login',
   },
   {
-    from: ['/cross-origin-authentication', '/flows/login/embedded-login/cross-origin-authentication'],
-    to: '/login/cross-origin-authentication',
+    from: [
+      '/cross-origin-authentication',
+      '/flows/login/embedded-login/cross-origin-authentication',
+      '/login/cross-origin-authentication',
+    ],
+    to: '/authenticate/login/cross-origin-authentication',
   },
   {
-    from: ['/authorization/configure-silent-authentication', '/api-auth/tutorials/silent-authentication'],
-    to: '/login/configure-silent-authentication',
+    from: [
+      '/authorization/configure-silent-authentication',
+      '/api-auth/tutorials/silent-authentication',
+      '/login/configure-silent-authentication',
+    ],
+    to: '/authenticate/login/configure-silent-authentication',
   },
   {
-    from: '/authentication',
-    to: '/login/authentication',
+    from: [
+      '/authentication',
+      '/login/authentication',
+    ],
+    to: '/authenticate',
   },
   {
     from: [
@@ -4658,8 +5391,9 @@ const redirects = [
       '/client-auth/server-side-web',
       '/application-auth/legacy/server-side-web',
       '/flows/add-login-auth-code-flow',
+      '/login/authentication/add-login-auth-code-flow',
     ],
-    to: '/login/authentication/add-login-auth-code-flow',
+    to: '/get-started/authentication-and-authorization-flow/add-login-auth-code-flow',
   },
   {
     from: [
@@ -4675,8 +5409,9 @@ const redirects = [
       '/application-auth/legacy/mobile-desktop',
       '/flows/guides/mobile-login-flow/add-login-using-mobile-login-flow',
       '/flows/add-login-using-the-authorization-code-flow-with-pkce',
+      '/login/authentication/add-login-using-the-authorization-code-flow-with-pkce',
     ],
-    to: '/login/authentication/add-login-using-the-authorization-code-flow-with-pkce',
+    to: '/get-started/authentication-and-authorization-flow/add-login-using-the-authorization-code-flow-with-pkce',
   },
   {
     from: [
@@ -4690,8 +5425,9 @@ const redirects = [
       '/client-auth/client-side-web',
       '/application-auth/legacy/client-side-web',
       '/flows/add-login-using-the-implicit-flow-with-form-post',
+      '/login/authentication/add-login-using-the-implicit-flow-with-form-post',
     ],
-    to: '/login/authentication/add-login-using-the-implicit-flow-with-form-post',
+    to: '/get-started/authentication-and-authorization-flow/add-login-using-the-implicit-flow-with-form-post',
   },
   {
     from: [
@@ -4701,12 +5437,16 @@ const redirects = [
       '/protocols/oauth2/redirect-users',
       '/users/concepts/redirect-users-after-login',
       '/users/redirect-users-after-login',
+      '/login/redirect-users-after-login',
     ],
-    to: '/login/redirect-users-after-login',
+    to: '/authenticate/login/redirect-users-after-login',
   },
   {
-    from: ['/universal-login/configure-universal-login-with-passwordless/webauthn-device-biometrics'],
-    to: '/login/universal-login/passwordless-login/webauthn-device-biometrics',
+    from: [
+      '/universal-login/configure-universal-login-with-passwordless/webauthn-device-biometrics',
+      '/login/universal-login/passwordless-login/webauthn-device-biometrics',
+    ],
+    to: '/authenticate/login/auth0-universal-login/passwordless-login/webauthn-device-biometrics',
   },
 
   /* LOGOUT */
@@ -4716,59 +5456,97 @@ const redirects = [
     to: '/login/logout',
   },
   {
-    from: ['/logout/log-users-out-of-applications', '/logout/guides/logout-applications'],
-    to: '/login/logout/log-users-out-of-applications',
+    from: [
+      '/logout/log-users-out-of-applications',
+      '/logout/guides/logout-applications',
+      '/login/logout/log-users-out-of-applications',
+    ],
+    to: '/authenticate/login/logout/log-users-out-of-applications',
   },
   {
-    from: ['/logout/log-users-out-of-auth0', '/logout/guides/logout-auth0'],
-    to: '/login/logout/log-users-out-of-auth0',
+    from: [
+      '/logout/log-users-out-of-auth0',
+      '/logout/guides/logout-auth0',
+      '/login/logout/log-users-out-of-auth0',
+    ],
+    to: '/authenticate/login/logout/log-users-out-of-auth0',
   },
   {
-    from: ['/logout/log-users-out-of-idps', '/logout/guides/logout-idps'],
-    to: '/login/logout/log-users-out-of-idps',
+    from: [
+      '/logout/log-users-out-of-idps',
+      '/logout/guides/logout-idps',
+      '/login/logout/log-users-out-of-idps',
+    ],
+    to: '/authenticate/login/logout/log-users-out-of-idps',
   },
   {
     from: [
       '/logout/log-users-out-of-saml-idps',
       '/protocols/saml/saml-configuration/logout',
       '/logout/guides/logout-saml-idps',
+      '/login/logout/log-users-out-of-saml-idps',
     ],
-    to: '/login/logout/log-users-out-of-saml-idps',
+    to: '/authenticate/login/logout/log-users-out-of-saml-idps',
   },
   {
-    from: ['/logout/redirect-users-after-logout', '/logout/guides/redirect-users-after-logout'],
-    to: '/login/logout/redirect-users-after-logout',
-  },
-  {
-    from: ['/logout/redirect-users-after-logout', '/logout/guides/redirect-users-after-logout'],
-    to: '/login/logout/redirect-users-after-logout',
+    from: [
+      '/logout/redirect-users-after-logout',
+      '/logout/guides/redirect-users-after-logout',
+      '/login/logout/redirect-users-after-logout',
+    ],
+    to: '/authenticate/login/logout/redirect-users-after-logout',
   },
 
   /* Monitor - Logs */
 
   {
-    from: ['/logs', '/logs/concepts/logs-admins-devs'],
-    to: '/monitor-auth0/logs',
+    from: [
+      '/logs',
+      '/logs/concepts/logs-admins-devs',
+      '/monitor-auth0/logs',
+    ],
+    to: '/deploy-monitor/logs',
   },
   {
-    from: ['/logs/pii-in-logs', '/logs/personally-identifiable-information-pii-in-auth0-logs'],
-    to: '/monitor-auth0/logs/pii-in-logs',
+    from: [
+      '/logs/pii-in-logs',
+      '/logs/personally-identifiable-information-pii-in-auth0-logs',
+      '/monitor-auth0/logs/pii-in-logs',
+    ],
+    to: '/deploy-monitor/logs/pii-in-logs',
   },
   {
-    from: ['/logs/log-data-retention', '/logs/references/log-data-retention'],
-    to: '/monitor-auth0/logs/log-data-retention',
+    from: [
+      '/logs/log-data-retention',
+      '/logs/references/log-data-retention',
+      '/monitor-auth0/logs/log-data-retention',
+    ],
+    to: '/deploy-monitor/logs/log-data-retention',
   },
   {
-    from: ['/logs/view-log-events', '/logs/guides/view-log-data-dashboard', '/logs/view-log-events-in-the-dashboard'],
-    to: '/monitor-auth0/logs/view-log-events',
+    from: [
+      '/logs/view-log-events',
+      '/logs/guides/view-log-data-dashboard',
+      '/logs/view-log-events-in-the-dashboard',
+      '/monitor-auth0/logs/view-log-events',
+    ],
+    to: '/deploy-monitor/logs/view-log-events',
   },
   {
-    from: ['/logs/log-event-filters', '/logs/references/log-event-filters'],
-    to: '/monitor-auth0/logs/log-event-filters',
+    from: [
+      '/logs/log-event-filters',
+      '/logs/references/log-event-filters',
+      '/monitor-auth0/logs/log-event-filters',
+    ],
+    to: '/deploy-monitor/logs/log-event-filters',
   },
   {
-    from: ['/logs/retrieve-log-events-using-mgmt-api', '/logs/guides/retrieve-logs-mgmt-api'],
-    to: '/monitor-auth0/logs/retrieve-log-events-using-mgmt-api',
+    from: [
+      '/logs/retrieve-log-events-using-mgmt-api',
+      '/logs/guides/retrieve-logs-mgmt-api',
+      '/monitor-auth0/logs/retrieve-log-events-using-mgmt-api',
+    ],
+    to: '/deploy-monitor/logs/retrieve-log-events-using-mgmt-api',
   },
   {
     from: [
@@ -4776,12 +5554,18 @@ const redirects = [
       '/logs/references/log-event-data',
       '/logs/references/log-events-data',
       '/logs/references/log-event-type-codes',
+      '/monitor-auth0/logs/log-event-type-codes',
     ],
-    to: '/monitor-auth0/logs/log-event-type-codes',
+    to: '/deploy-monitor/logs/log-event-type-codes',
   },
   {
-    from: ['/logs/log-search-query-syntax', '/logs/references/query-syntax', '/logs/query-syntax'],
-    to: '/monitor-auth0/logs/log-search-query-syntax',
+    from: [
+      '/logs/log-search-query-syntax',
+      '/logs/references/query-syntax',
+      '/logs/query-syntax',
+      '/monitor-auth0/logs/log-search-query-syntax',
+    ],
+    to: '/deploy-monitor/logs/log-search-query-syntax',
   },
   {
     from: [
@@ -4789,25 +5573,32 @@ const redirects = [
       '/monitoring/guides/send-events-to-keenio',
       '/monitoring/guides/send-events-to-segmentio',
       '/logs/export-log-events-with-rules',
+      '/monitor-auth0/logs/export-log-events-with-rules',
     ],
-    to: '/monitor-auth0/logs/export-log-events-with-rules',
+    to: '/deploy-monitor/logs/export-log-events-with-rules',
   },
   {
-    from: ['/logs/export-log-events-with-log-streaming', '/logs/streams'],
-    to: '/monitor-auth0/streams',
+    from: [
+      '/logs/export-log-events-with-log-streaming',
+      '/logs/streams',
+      '/monitor-auth0/streams',
+    ],
+    to: '/customize/log-streams',
   },
   {
     from: [
       '/logs/export-log-events-with-log-streaming/stream-http-event-logs',
       '/logs/streams/http-event',
       '/logs/streams/stream-http-event-logs',
+      '/monitor-auth0/streams/custom-log-streams',
     ],
-    to: '/monitor-auth0/streams/custom-log-streams',
+    to: '/customize/log-streams/custom-log-streams',
   },
   {
     from: [
       '/logs/export-log-events-with-log-streaming/stream-log-events-to-slack',
       '/logs/streams/http-event-to-slack',
+      '/monitor-auth0/streams/stream-log-events-to-slack',
     ],
     to: '/monitor-auth0/streams/stream-log-events-to-slack',
   },
@@ -4869,8 +5660,11 @@ const redirects = [
     to: '/monitor-auth0/streams/sumo-logic-dashboard',
   },
   {
-    from: ['/logs/streams/event-filters'],
-    to: '/monitor-auth0/streams/event-filters',
+    from: [
+      '/logs/streams/event-filters',
+      '/monitor-auth0/streams/event-filters',
+    ],
+    to: '/customize/log-streams/event-filters',
   },
 
   /* MFA */
@@ -4891,12 +5685,21 @@ const redirects = [
     to: '/login/mfa',
   },
   {
-    from: ['/mfa/enable-mfa', '/mfa/guides/enable-mfa'],
-    to: '/login/mfa/enable-mfa',
+    from: [
+      '/mfa/enable-mfa',
+      '/mfa/guides/enable-mfa',
+      '/login/mfa/enable-mfa',
+    ],
+    to: '/secure/multi-factor-authentication/enable-mfa',
   },
   {
-    from: ['/mfa/mfa-factors', '/multifactor-authentication/factors', '/mfa/concepts/mfa-factors'],
-    to: '/login/mfa/mfa-factors',
+    from: [
+      '/mfa/mfa-factors',
+      '/multifactor-authentication/factors',
+      '/mfa/concepts/mfa-factors',
+      '/login/mfa/mfa-factors',
+    ],
+    to: '/secure/multi-factor-authentication/multi-factor-authentication-factors',
   },
   {
     from: [
@@ -4905,8 +5708,9 @@ const redirects = [
       '/mfa/guides/configure-push',
       '/multifactor-authentication/administrator/push-notifications',
       '/mfa/configure-push-notifications-for-mfa',
+      '/login/mfa/mfa-factors/configure-push-notifications-for-mfa',
     ],
-    to: '/login/mfa/mfa-factors/configure-push-notifications-for-mfa',
+    to: '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-push-notifications-for-mfa',
   },
   {
     from: [
@@ -4917,16 +5721,18 @@ const redirects = [
       '/mfa/guides/configure-sms',
       '/mfa/guides/configure-phone',
       '/mfa/configure-sms-voice-notifications-mfa',
+      '/login/mfa/mfa-factors/configure-sms-voice-notifications-mfa',
     ],
-    to: '/login/mfa/mfa-factors/configure-sms-voice-notifications-mfa',
+    to: '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-sms-voice-notifications-mfa',
   },
   {
     from: [
       '/multifactor-authentication/factors/otp',
       '/mfa/guides/configure-otp',
       '/mfa/configure-otp-notifications-for-mfa',
+      '/login/mfa/mfa-factors/configure-otp-notifications-for-mfa',
     ],
-    to: '/login/mfa/mfa-factors/configure-otp-notifications-for-mfa',
+    to: '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-otp-notifications-for-mfa',
   },
   {
     from: [
@@ -4934,64 +5740,72 @@ const redirects = [
       '/multifactor-authentication/factors/email',
       '/mfa/guides/configure-email',
       '/mfa/configure-email-notifications-for-mfa',
+      '/login/mfa/mfa-factors/configure-email-notifications-for-mfa',
     ],
-    to: '/login/mfa/mfa-factors/configure-email-notifications-for-mfa',
+    to: '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-email-notifications-for-mfa',
   },
   {
     from: [
       '/multifactor-authentication/send-phone-message-hook-amazon-sns',
       '/mfa/send-phone-message-hook-amazon-sns',
       '/mfa/configure-amazon-sns-as-mfa-sms-provider',
+      '/login/mfa/mfa-factors/configure-amazon-sns-as-mfa-sms-provider',
     ],
-    to: '/login/mfa/mfa-factors/configure-amazon-sns-as-mfa-sms-provider',
+    to: '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-amazon-sns-as-mfa-sms-provider',
   },
   {
     from: [
       '/multifactor-authentication/send-phone-message-hook-esendex',
       '/mfa/send-phone-message-hook-esendex',
       '/mfa/configure-esendex-as-mfa-sms-provider',
+      '/login/mfa/mfa-factors/configure-esendex-as-mfa-sms-provider',
     ],
-    to: '/login/mfa/mfa-factors/configure-esendex-as-mfa-sms-provider',
+    to: '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-esendex-as-mfa-sms-provider',
   },
   {
     from: [
       '/multifactor-authentication/send-phone-message-hook-infobip',
       '/mfa/send-phone-message-hook-infobip',
       '/mfa/configure-infobip-as-mfa-sms-provider',
+      '/login/mfa/mfa-factors/configure-infobip-as-mfa-sms-provider',
     ],
-    to: '/login/mfa/mfa-factors/configure-infobip-as-mfa-sms-provider',
+    to: '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-infobip-as-mfa-sms-provider',
   },
   {
     from: [
       '/multifactor-authentication/send-phone-message-hook-mitto',
       '/mfa/send-phone-message-hook-mitto',
       '/mfa/configure-mitto-as-mfa-sms-provider',
+      '/login/mfa/mfa-factors/configure-mitto-as-mfa-sms-provider',
     ],
-    to: '/login/mfa/mfa-factors/configure-mitto-as-mfa-sms-provider',
+    to: '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-mitto-as-mfa-sms-provider',
   },
   {
     from: [
       '/multifactor-authentication/send-phone-message-hook-telesign',
       '/mfa/send-phone-message-hook-telesign',
       '/mfa/configure-telesign-as-mfa-sms-provider',
+      '/login/mfa/mfa-factors/configure-telesign-as-mfa-sms-provider',
     ],
-    to: '/login/mfa/mfa-factors/configure-telesign-as-mfa-sms-provider',
+    to: '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-telesign-as-mfa-sms-provider',
   },
   {
     from: [
       '/multifactor-authentication/send-phone-message-hook-twilio',
       '/mfa/send-phone-message-hook-twilio',
       '/mfa/configure-twilio-as-mfa-sms-provider',
+      '/login/mfa/mfa-factors/configure-twilio-as-mfa-sms-provider',
     ],
-    to: '/login/mfa/mfa-factors/configure-twilio-as-mfa-sms-provider',
+    to: '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-twilio-as-mfa-sms-provider',
   },
   {
     from: [
       '/multifactor-authentication/send-phone-message-hook-vonage',
       '/mfa/send-phone-message-hook-vonage',
       '/mfa/configure-vonage-as-mfa-sms-provider',
+      '/login/mfa/mfa-factors/configure-vonage-as-mfa-sms-provider',
     ],
-    to: '/login/mfa/mfa-factors/configure-vonage-as-mfa-sms-provider',
+    to: '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-vonage-as-mfa-sms-provider',
   },
   {
     from: [
@@ -5003,36 +5817,59 @@ const redirects = [
       '/multifactor-authentication/duo/user-guide',
       '/mfa/configure-cisco-duo-for-mfa',
       '/login/mfa/configure-cisco-duo-for-mfa',
+      '/login/mfa/mfa-factors/configure-cisco-duo-for-mfa',
     ],
-    to: '/login/mfa/mfa-factors/configure-cisco-duo-for-mfa',
+    to: '/secure/multi-factor-authentication/configure-cisco-duo-for-mfa',
   },
   {
-    from: '/mfa/fido-authentication-with-webauthn',
-    to: '/login/mfa/fido-authentication-with-webauthn',
+    from: [
+      '/mfa/fido-authentication-with-webauthn',
+      '/login/mfa/fido-authentication-with-webauthn',
+    ],
+    to: '/secure/multi-factor-authentication/fido-authentication-with-webauthn',
   },
   {
-    from: ['/mfa/configure-webauthn-security-keys-for-mfa', '/mfa/configure-webauthn-with-security-keys-for-mfa'],
-    to: '/login/mfa/fido-authentication-with-webauthn/configure-webauthn-security-keys-for-mfa',
+    from: [
+      '/mfa/configure-webauthn-security-keys-for-mfa',
+      '/mfa/configure-webauthn-with-security-keys-for-mfa',
+      '/login/mfa/fido-authentication-with-webauthn/configure-webauthn-security-keys-for-mfa',
+    ],
+    to: '/secure/multi-factor-authentication/fido-authentication-with-webauthn/configure-webauthn-security-keys-for-mfa',
   },
   {
-    from: '/mfa/configure-webauthn-device-biometrics-for-mfa',
-    to: '/login/mfa/fido-authentication-with-webauthn/configure-webauthn-device-biometrics-for-mfa',
+    from: [
+      '/mfa/configure-webauthn-device-biometrics-for-mfa',
+      '/login/mfa/fido-authentication-with-webauthn/configure-webauthn-device-biometrics-for-mfa',
+    ],
+    to: '/secure/multi-factor-authentication/fido-authentication-with-webauthn/configure-webauthn-device-biometrics-for-mfa',
   },
   {
-    from: '/mfa/adaptive-mfa',
-    to: '/login/mfa/adaptive-mfa',
+    from: [
+      '/mfa/adaptive-mfa',
+      '/login/mfa/adaptive-mfa',
+    ],
+    to: '/secure/multi-factor-authentication/adaptive-mfa',
   },
   {
-    from: '/mfa/adaptive-mfa/enable-adaptive-mfa',
-    to: '/login/mfa/adaptive-mfa/enable-adaptive-mfa',
+    from: [
+      '/mfa/adaptive-mfa/enable-adaptive-mfa',
+      '/login/mfa/adaptive-mfa/enable-adaptive-mfa',
+    ],
+    to: '/secure/multi-factor-authentication/adaptive-mfa/enable-adaptive-mfa',
   },
   {
-    from: '/mfa/adpative-mfa/adaptive-mfa-rule-actions',
-    to: '/login/mfa/adaptive-mfa/adaptive-mfa-rule-actions',
+    from: [
+      '/mfa/adpative-mfa/adaptive-mfa-rule-actions',
+      '/login/mfa/adaptive-mfa/adaptive-mfa-rule-actions',
+    ],
+    to: '/secure/multi-factor-authentication/adaptive-mfa/adaptive-mfa-rule-actions',
   },
   {
-    from: '/mfa/adaptive-mfa/adaptive-mfa-log-events',
-    to: '/login/mfa/adaptive-mfa/adaptive-mfa-log-events',
+    from: [
+      '/mfa/adaptive-mfa/adaptive-mfa-log-events',
+      '/login/mfa/adaptive-mfa/adaptive-mfa-log-events',
+    ],
+    to: '/secure/multi-factor-authentication/adaptive-mfa/adaptive-mfa-log-events',
   },
   {
     from: [
@@ -5040,12 +5877,17 @@ const redirects = [
       '/multifactor-authentication/guardian/dev-guide',
       '/multifactor-authentication/guardian/admin-guide',
       '/mfa/auth0-guardian',
+      '/login/mfa/auth0-guardian',
     ],
-    to: '/login/mfa/auth0-guardian',
+    to: '/secure/multi-factor-authentication/auth0-guardian',
   },
   {
-    from: ['/mfa/auth0-guardian/install-guardian-sdk', '/mfa/guides/guardian/install-guardian-sdk'],
-    to: '/login/mfa/auth0-guardian/install-guardian-sdk',
+    from: [
+      '/mfa/auth0-guardian/install-guardian-sdk',
+      '/mfa/guides/guardian/install-guardian-sdk',
+      '/login/mfa/auth0-guardian/install-guardian-sdk',
+    ],
+    to: '/secure/multi-factor-authentication/auth0-guardian/install-guardian-sdk',
   },
   {
     from: [
@@ -5053,28 +5895,35 @@ const redirects = [
       '/mfa/guides/guardian/guardian-ios-sdk',
       '/mfa/guides/guardian/configure-guardian-ios',
       '/mfa/auth0-guardian/guardian-for-ios-sdk',
+      '/login/mfa/auth0-guardian/guardian-for-ios-sdk',
     ],
-    to: '/login/mfa/auth0-guardian/guardian-for-ios-sdk',
+    to: '/secure/multi-factor-authentication/auth0-guardian/guardian-for-ios-sdk',
   },
   {
     from: [
       '/multifactor-authentication/developer/libraries/android',
       '/mfa/guides/guardian/guardian-android-sdk',
       '/mfa/auth0-guardian/guardian-for-android-sdk',
+      '/login/mfa/auth0-guardian/guardian-for-android-sdk',
     ],
-    to: '/login/mfa/auth0-guardian/guardian-for-android-sdk',
+    to: '/secure/multi-factor-authentication/auth0-guardian/guardian-for-android-sdk',
   },
   {
     from: [
       '/multifactor-authentication/developer/custom-enrollment-ticket',
       '/mfa/guides/guardian/create-enrollment-ticket',
       '/mfa/auth0-guardian/create-custom-enrollment-tickets',
+      '/login/mfa/auth0-guardian/create-custom-enrollment-tickets',
     ],
-    to: '/login/mfa/auth0-guardian/create-custom-enrollment-tickets',
+    to: '/secure/multi-factor-authentication/auth0-guardian/create-custom-enrollment-tickets',
   },
   {
-    from: ['/mfa/auth0-guardian/guardian-error-code-reference', '/mfa/references/guardian-error-code-reference'],
-    to: '/login/mfa/auth0-guardian/guardian-error-code-reference',
+    from: [
+      '/mfa/auth0-guardian/guardian-error-code-reference',
+      '/mfa/references/guardian-error-code-reference',
+      '/login/mfa/auth0-guardian/guardian-error-code-reference',
+    ],
+    to: '/secure/multi-factor-authentication/auth0-guardian/guardian-error-code-reference',
   },
   {
     from: [
@@ -5082,8 +5931,9 @@ const redirects = [
       '/mfa/guides/customize-mfa-universal-login',
       '/multifactor-authentication/google-auth/dev-guide',
       '/mfa/customize-mfa-user-pages',
+      '/login/mfa/customize-mfa-user-pages',
     ],
-    to: '/login/mfa/customize-mfa-user-pages',
+    to: '/secure/multi-factor-authentication/customize-mfa',
   },
   {
     from: [
@@ -5091,16 +5941,25 @@ const redirects = [
       '/hosted-pages/guardian',
       '/universal-login/guardian',
       '/universal-login/classic-experience/mfa-classic-experience',
+      '/login/mfa/customize-mfa-user-pages/mfa-classic-experience',
     ],
-    to: '/login/mfa/customize-mfa-user-pages/mfa-classic-experience',
+    to: '/secure/multi-factor-authentication/customize-mfa/mfa-classic-experience',
   },
   {
-    from: ['/mfa/customize-mfa-user-pages/mfa-theme-language-dictionary', '/mfa/references/language-dictionary'],
-    to: '/login/mfa/customize-mfa-user-pages/mfa-theme-language-dictionary',
+    from: [
+      '/mfa/customize-mfa-user-pages/mfa-theme-language-dictionary',
+      '/mfa/references/language-dictionary',
+      '/login/mfa/customize-mfa-user-pages/mfa-theme-language-dictionary',
+    ],
+    to: '/secure/multi-factor-authentication/customize-mfa/mfa-theme-language-dictionary',
   },
   {
-    from: ['/mfa/customize-mfa-user-pages/mfa-widget-theme-options', '/mfa/references/mfa-widget-reference'],
-    to: '/login/mfa/customize-mfa-user-pages/mfa-widget-theme-options',
+    from: [
+      '/mfa/customize-mfa-user-pages/mfa-widget-theme-options',
+      '/mfa/references/mfa-widget-reference',
+      '/login/mfa/customize-mfa-user-pages/mfa-widget-theme-options',
+      ],
+    to: '/secure/multi-factor-authentication/customize-mfa/mfa-widget-theme-options',
   },
   {
     from: [
@@ -5108,8 +5967,9 @@ const redirects = [
       '/mfa/guides/mfa-api/authenticate',
       '/mfa/guides/mfa-api/multifactor-resource-owner-password',
       '/mfa/authenticate-with-ropg-and-mfa',
+      '/login/mfa/ropg-mfa',
     ],
-    to: '/login/mfa/ropg-mfa',
+    to: '/secure/multi-factor-authentication/authenticate-using-ropg-flow-with-mfa',
   },
   {
     from: [
@@ -5117,12 +5977,17 @@ const redirects = [
       '/multifactor-authentication/api/oob',
       '/mfa/guides/mfa-api/oob',
       '/mfa/authenticate-with-ropg-and-mfa/enroll-challenge-sms-voice-authenticators',
+      '/login/mfa/ropg-mfa/enroll-challenge-sms-voice-authenticators',
     ],
-    to: '/login/mfa/ropg-mfa/enroll-challenge-sms-voice-authenticators',
+    to: '/secure/multi-factor-authentication/authenticate-using-ropg-flow-with-mfa/enroll-challenge-sms-voice-authenticators',
   },
   {
-    from: ['/mfa/guides/mfa-api/push', '/mfa/authenticate-with-ropg-and-mfa/enroll-and-challenge-push-authenticators'],
-    to: '/login/mfa/ropg-mfa/enroll-and-challenge-push-authenticators',
+    from: [
+      '/mfa/guides/mfa-api/push',
+      '/mfa/authenticate-with-ropg-and-mfa/enroll-and-challenge-push-authenticators',
+      '/login/mfa/ropg-mfa/enroll-and-challenge-push-authenticators',
+    ],
+    to: '/secure/multi-factor-authentication/authenticate-using-ropg-flow-with-mfa/enroll-and-challenge-push-authenticators',
   },
   {
     from: [
@@ -5130,8 +5995,9 @@ const redirects = [
       '/mfa/guides/mfa-api/otp',
       '/multifactor-authentication/google-authenticator',
       '/mfa/authenticate-with-ropg-and-mfa/enroll-and-challenge-otp-authenticators',
+      '/login/mfa/ropg-mfa/enroll-and-challenge-otp-authenticators',
     ],
-    to: '/login/mfa/ropg-mfa/enroll-and-challenge-otp-authenticators',
+    to: '/secure/multi-factor-authentication/authenticate-using-ropg-flow-with-mfa/enroll-and-challenge-otp-authenticators',
   },
   {
     from: [
@@ -5139,27 +6005,34 @@ const redirects = [
       '/mfa/guides/mfa-api/email',
       '/multifactor-authentication/administrator/guardian-enrollment-email',
       '/mfa/authenticate-with-ropg-and-mfa/enroll-and-challenge-email-authenticators',
+      '/login/mfa/ropg-mfa/enroll-and-challenge-email-authenticators',
     ],
-    to: '/login/mfa/ropg-mfa/enroll-and-challenge-email-authenticators',
+    to: '/secure/multi-factor-authentication/authenticate-using-ropg-flow-with-mfa/enroll-and-challenge-email-authenticators',
   },
   {
-    from: ['/mfa/import-user-mfa-authenticator-enrollments', '/mfa/guides/import-user-mfa'],
-    to: '/login/mfa/ropg-mfa/import-user-mfa-authenticator-enrollments',
+    from: [
+      '/mfa/import-user-mfa-authenticator-enrollments',
+      '/mfa/guides/import-user-mfa',
+      '/login/mfa/ropg-mfa/import-user-mfa-authenticator-enrollments',
+    ],
+    to: '/secure/multi-factor-authentication/authenticate-using-ropg-flow-with-mfa/import-user-mfa-authenticator-enrollments',
   },
   {
     from: [
       '/mfa/guides/mfa-api/recovery-code',
       '/mfa/authenticate-with-ropg-and-mfa/manage-authenticator-factors-mfa-api/challenge-with-recovery-codes',
+      '/login/mfa/ropg-mfa/challenge-with-recovery-codes',
     ],
-    to: '/login/mfa/ropg-mfa/challenge-with-recovery-codes',
+    to: '/secure/multi-factor-authentication/authenticate-using-ropg-flow-with-mfa/challenge-with-recovery-codes',
   },
   {
     from: [
       '/mfa/guides/mfa-api/manage',
       '/multifactor-authentication/api/manage',
       '/mfa/authenticate-with-ropg-and-mfa/manage-authenticator-factors-mfa-api',
+      '/login/mfa/ropg-mfa/manage-authenticator-factors-mfa-api',
     ],
-    to: '/login/mfa/ropg-mfa/manage-authenticator-factors-mfa-api',
+    to: '/secure/multi-factor-authentication/authenticate-using-ropg-flow-with-mfa/manage-authenticator-factors-mfa-api',
   },
   {
     from: [
@@ -5171,8 +6044,9 @@ const redirects = [
       '/mfa/concepts/step-up-authentication',
       '/multifactor-authentication/developer/step-up-with-acr',
       '/mfa/step-up-authentication',
+      '/login/mfa/step-up-authentication',
     ],
-    to: '/login/mfa/step-up-authentication',
+    to: '/secure/multi-factor-authentication/step-up-authentication',
   },
   {
     from: [
@@ -5181,8 +6055,9 @@ const redirects = [
       '/multifactor-authentication/step-up-authentication/step-up-for-apis',
       '/mfa/guides/configure-step-up-apis',
       '/mfa/step-up-authentication/configure-step-up-authentication-for-apis',
+      '/login/mfa/step-up-authentication/configure-step-up-authentication-for-apis',
     ],
-    to: '/login/mfa/step-up-authentication/configure-step-up-authentication-for-apis',
+    to: '/secure/multi-factor-authentication/step-up-authentication/configure-step-up-authentication-for-apis',
   },
   {
     from: [
@@ -5190,8 +6065,9 @@ const redirects = [
       '/multifactor-authentication/step-up-authentication/step-up-for-web-apps',
       '/mfa/guides/configure-step-up-web-apps',
       '/mfa/step-up-authentication/configure-step-up-authentication-for-web-apps',
+      '/login/mfa/step-up-authentication/configure-step-up-authentication-for-web-apps',
     ],
-    to: '/login/mfa/step-up-authentication/configure-step-up-authentication-for-web-apps',
+    to: '/secure/multi-factor-authentication/step-up-authentication/configure-step-up-authentication-for-web-apps',
   },
   {
     from: [
@@ -5200,8 +6076,9 @@ const redirects = [
       '/mfa/guides/reset-user-mfa',
       '/multifactor-authentication/administrator/disabling-mfa',
       '/mfa/reset-user-mfa',
+      '/login/mfa/reset-user-mfa',
     ],
-    to: '/login/mfa/reset-user-mfa',
+    to: '/secure/multi-factor-authentication/reset-user-mfa',
   },
   {
     from: [
@@ -5209,8 +6086,9 @@ const redirects = [
       '/multifactor-authentication/developer',
       '/mfa/concepts/developer-resources',
       '/mfa/mfa-developer-resources',
+      '/login/mfa/mfa-developer-resources',
     ],
-    to: '/login/mfa/mfa-developer-resources',
+    to: '/secure/multi-factor-authentication/multi-factor-authentication-developer-resources',
   },
   {
     from: [
@@ -5218,45 +6096,69 @@ const redirects = [
       '/multifactor-authentication/api/faq',
       '/mfa/concepts/mfa-api',
       '/mfa/mfa-api',
+      '/login/mfa/mfa-developer-resources/mfa-api',
     ],
-    to: '/login/mfa/mfa-developer-resources/mfa-api',
+    to: '/secure/multi-factor-authentication/multi-factor-authentication-developer-resources/mfa-api',
   },
 
   /* Monitoring */
 
   {
-    from: ['/monitoring', '/tutorials/how-to-monitor-auth0', '/monitoring/how-to-monitor-auth0'],
-    to: '/monitor-auth0',
+    from: [
+      '/monitoring',
+      '/tutorials/how-to-monitor-auth0',
+      '/monitoring/how-to-monitor-auth0',
+      '/monitor-auth0',
+    ],
+    to: '/deploy-monitor/monitor',
   },
   {
-    from: ['/monitoring/guides/check-external-services'],
-    to: '/monitor-auth0/check-external-services-status',
+    from: [
+      '/monitoring/guides/check-external-services',
+      '/monitor-auth0/check-external-services-status',
+    ],
+    to: '/deploy-monitor/monitor/check-external-services-status',
   },
   {
-    from: ['/monitoring/guides/check-status'],
-    to: '/monitor-auth0/check-auth0-status',
+    from: [
+      '/monitoring/guides/check-status',
+      '/monitor-auth0/check-auth0-status',
+    ],
+    to: '/deploy-monitor/monitor/check-auth0-status',
   },
   {
-    from: ['/monitoring/guides/monitor-applications'],
-    to: '/monitor-auth0/monitor-applications',
+    from: [
+      '/monitoring/guides/monitor-applications',
+      '/monitor-auth0/monitor-applications',
+    ],
+    to: '/deploy-monitor/monitor/monitor-applications',
   },
   {
-    from: ['/monitoring/guides/monitor-using-SCOM'],
-    to: '/monitor-auth0/monitor-using-scom',
+    from: [
+      '/monitoring/guides/monitor-using-SCOM',
+      '/monitor-auth0/monitor-using-scom',
+    ],
+    to: '/deploy-monitor/monitor/monitor-using-scom',
   },
 
   /* Product-Lifecycle */
 
   {
-    from: '/lifecycle',
-    to: '/product-lifecycle',
+    from: [
+      '/lifecycle',
+      '/product-lifecycle',
+    ],
+    to: '/troubleshoot/product-lifecycle',
   },
 
   /* Product-Lifecycle */
 
   {
-    from: ['/product-lifecycle/deprecation-eol'],
-    to: '/product-lifecycle/migration-process',
+    from: [
+      '/product-lifecycle/deprecation-eol',
+      '/product-lifecycle/migration-process',
+    ],
+    to: '/troubleshoot/product-lifecycle/migration-process',
   },
   {
     from: ['/product-lifecycle/migrations', '/migrations'],
@@ -5309,8 +6211,9 @@ const redirects = [
       '/api/v1',
       '/migrations/past-migrations',
       '/product-lifecycle/deprecations-and-migrations/past-migrations',
+      '/product-lifecycle/past-migrations',
     ],
-    to: '/product-lifecycle/past-migrations',
+    to: '/troubleshoot/product-lifecycle/past-migrations',
   },
   {
     from: [
@@ -5416,8 +6319,9 @@ const redirects = [
       '/services/auth0-introduction',
       '/services/discover-and-design',
       '/services/maintain-and-improve',
+      '/professional-services',
     ],
-    to: '/professional-services',
+    to: '/troubleshoot/professional-services',
   },
   {
     from: [
@@ -5425,16 +6329,18 @@ const redirects = [
       '/professional-services/architectural-design-services',
       '/professional-services/solution-design-services',
       '/services/solution-design',
+      '/professional-services/discover-design',
     ],
-    to: '/professional-services/discover-design',
+    to: '/troubleshoot/professional-services/discover-design',
   },
   {
     from: [
       '/professional-services/custom-implementation-services',
       '/services/custom-implementation',
       '/services/implement',
+      '/professional-services/implement',
     ],
-    to: '/professional-services/implement',
+    to: '/troubleshoot/professional-services/implement',
   },
   {
     from: [
@@ -5444,12 +6350,16 @@ const redirects = [
       '/services/scenario-guidance',
       '/services/code-review',
       '/services/pair-programming',
+      '/professional-services/maintain-improve',
     ],
-    to: '/professional-services/maintain-improve',
+    to: '/troubleshoot/professional-services/maintain-improve',
   },
   {
-    from: ['/services/packages'],
-    to: '/professional-services/packages',
+    from: [
+      '/services/packages',
+      '/professional-services/packages',
+    ],
+    to: '/troubleshoot/professional-services/packages',
   },
 
   /* Rules */
@@ -5474,15 +6384,24 @@ const redirects = [
     to: '/rules/automatically-generate-leads-in-shopify',
   },
   {
-    from: ['/rules/guides/cache-resources', '/rules/cache-expensive-resources-in-rules'],
-    to: '/rules/cache-resources',
+    from: [
+      '/rules/guides/cache-resources',
+      '/rules/cache-expensive-resources-in-rules',
+      '/rules/cache-resources',
+    ],
+    to: '/customize/rules/cache-resources',
   },
   {
-    from: ['/rules/guides/configuration'],
-    to: '/rules/configuration',
+    from: [
+      '/rules/guides/configuration',
+      '/rules/configuration',
+    ],
+    to: '/customize/rules/configuration',
   },
   {
-    from: ['/dashboard/guides/rules/configure-variables'],
+    from: [
+      '/dashboard/guides/rules/configure-variables',
+    ],
     to: '/rules/configure-global-variables-for-rules',
   },
   {
@@ -5491,16 +6410,25 @@ const redirects = [
       '/rules/context',
       '/rules/references/context-object',
       '/rules/context-prop-authentication',
+      '/rules/context-object',
     ],
-    to: '/rules/context-object',
+    to: '/customize/rules/context-object',
   },
   {
-    from: ['/api/management/guides/rules/create-rules', '/dashboard/guides/rules/create-rules', '/rules/guides/create'],
-    to: '/rules/create-rules',
+    from: [
+      '/api/management/guides/rules/create-rules',
+      '/dashboard/guides/rules/create-rules',
+      '/rules/guides/create',
+      '/rules/create-rules',
+    ],
+    to: '/customize/rules/create-rules',
   },
   {
-    from: ['/rules/guides/debug'],
-    to: '/rules/debug-rules',
+    from: [
+      '/rules/guides/debug',
+      '/rules/debug-rules',
+    ],
+    to: '/customize/rules/debug-rules',
   },
   {
     from: ['/rules/references/samples'],
@@ -5535,20 +6463,35 @@ const redirects = [
     to: '/rules/integrate-salesforce',
   },
   {
-    from: ['/rules/current/redirect', '/rules/redirect', '/rules/guides/redirect'],
-    to: '/rules/redirect-users',
+    from: [
+      '/rules/current/redirect',
+      '/rules/redirect',
+      '/rules/guides/redirect',
+      '/rules/redirect-users',
+    ],
+    to: '/customize/rules/redirect-users',
   },
   {
-    from: ['/rules/references/use-cases'],
-    to: '/rules/use-cases',
+    from: [
+      '/rules/references/use-cases',
+      '/rules/use-cases',
+    ],
+    to: '/customize/rules/use-cases',
   },
   {
-    from: ['/rules/current/management-api', '/rules/guides/management-api'],
-    to: '/rules/use-management-api',
+    from: [
+      '/rules/current/management-api',
+      '/rules/guides/management-api',
+      '/rules/use-management-api',
+    ],
+    to: '/customize/rules/use-management-api',
   },
   {
-    from: ['/rules/references/user-object'],
-    to: '/rules/user-object-in-rules',
+    from: [
+      '/rules/references/user-object',
+      '/rules/user-object-in-rules',
+    ],
+    to: '/customize/rules/user-object-in-rules',
   },
   {
     from: [
@@ -5573,8 +6516,11 @@ const redirects = [
 
   /* Security */
   {
-    from: ['/security/general-security-tips'],
-    to: '/security/tips',
+    from: [
+      '/security/general-security-tips',
+      '/security/tips',
+    ],
+    to: '/secure/tips',
   },
   {
     from: [
@@ -5583,12 +6529,18 @@ const redirects = [
       '/tutorials/blacklisting-attributes',
       '/blacklist-attributes',
       '/security/denylist-user-attributes',
+      '/security/data-security/denylist',
     ],
-    to: '/security/data-security/denylist',
+    to: '/secure/data-security/denylist',
   },
   {
-    from: ['/security/whitelist-ip-addresses', '/guides/ip-whitelist', '/security/allowlist-ip-addresses'],
-    to: '/security/data-security/allowlist',
+    from: [
+      '/security/whitelist-ip-addresses',
+      '/guides/ip-whitelist',
+      '/security/allowlist-ip-addresses',
+      '/security/data-security/allowlist',
+    ],
+    to: '/secure/data-security/allowlist',
   },
   {
     from: [
@@ -5600,8 +6552,9 @@ const redirects = [
       '/users/references/user-data-storage-best-practices',
       '/users/user-data-storage',
       '/user-profile/user-data-storage',
+      '/security/data-security/user-data-storage',
     ],
-    to: '/security/data-security/user-data-storage',
+    to: '/secure/data-security/user-data-storage',
   },
   {
     from: [
@@ -5610,18 +6563,26 @@ const redirects = [
       '/security/store-tokens',
       '/tokens/guides/store-tokens',
       '/tokens/token-storage',
+      '/security/data-security/token-storage',
     ],
-    to: '/security/data-security/token-storage',
+    to: '/secure/data-security/token-storage',
   },
   {
-    from: ['/security/common-threats', '/security/prevent-common-cybersecurity-threats'],
-    to: '/security/prevent-threats',
+    from: [
+      '/security/common-threats',
+      '/security/prevent-common-cybersecurity-threats',
+      '/security/prevent-threats',
+    ],
+    to: '/secure/prevent-threats',
   },
 
   /* Security Bulletins */
   {
-    from: ['/security/bulletins'],
-    to: '/security/security-bulletins',
+    from: [
+      '/security/bulletins',
+      '/security/security-bulletins',
+    ],
+    to: '/secure/security-bulletins',
   },
   {
     from: ['/security/bulletins/cve-2020-15259', '/security/cve-2020-15259'],
@@ -5707,8 +6668,15 @@ const redirects = [
   /* Tokens */
 
   {
-    from: ['/tokens', '/security/token-exp', '/token', '/tokens/concepts', '/tokens/guides'],
-    to: '/security/tokens',
+    from: [
+      '/tokens',
+      '/security/token-exp',
+      '/token',
+      '/tokens/concepts',
+      '/tokens/guides',
+      '/security/tokens',
+    ],
+    to: '/secure/tokens',
   },
   {
     from: [
@@ -5717,8 +6685,9 @@ const redirects = [
       '/tokens/concepts/id-tokens',
       '/tokens/id_token',
       '/tokens/id-tokens',
+      '/security/tokens/id-tokens',
     ],
-    to: '/security/tokens/id-tokens',
+    to: '/secure/tokens/id-tokens',
   },
   {
     from: [
@@ -5727,20 +6696,34 @@ const redirects = [
       '/tokens/guides/validate-id-tokens',
       '/tokens/guides/id-token/validate-id-token',
       '/tokens/id-tokens/validate-id-tokens',
+      '/security/tokens/id-tokens/validate-id-tokens',
     ],
-    to: '/security/tokens/id-tokens/validate-id-tokens',
+    to: '/secure/tokens/id-tokens/validate-id-tokens',
   },
   {
-    from: ['/tokens/id-tokens/get-id-tokens', '/tokens/guides/id-token/get-id-tokens', '/tokens/guides/get-id-tokens'],
-    to: '/security/tokens/id-tokens/get-id-tokens',
+    from: [
+      '/tokens/id-tokens/get-id-tokens',
+      '/tokens/guides/id-token/get-id-tokens',
+      '/tokens/guides/get-id-tokens',
+      '/security/tokens/id-tokens/get-id-tokens',
+    ],
+    to: '/secure/tokens/id-tokens/get-id-tokens',
   },
   {
-    from: ['/tokens/id-tokens/id-token-structure', '/tokens/references/id-token-structure'],
-    to: '/security/tokens/id-tokens/id-token-structure',
+    from: [
+      '/tokens/id-tokens/id-token-structure',
+      '/tokens/references/id-token-structure',
+      '/security/tokens/id-tokens/id-token-structure',
+    ],
+    to: '/secure/tokens/id-tokens/id-token-structure',
   },
   {
-    from: ['/tokens/id-tokens/update-id-token-lifetime', '/dashboard/guides/applications/update-token-lifetime'],
-    to: '/security/tokens/id-tokens/update-id-token-lifetime',
+    from: [
+      '/tokens/id-tokens/update-id-token-lifetime',
+      '/dashboard/guides/applications/update-token-lifetime',
+      '/security/tokens/id-tokens/update-id-token-lifetime',
+    ],
+    to: '/secure/tokens/id-tokens/update-id-token-lifetime',
   },
   {
     from: [
@@ -5753,8 +6736,9 @@ const redirects = [
       '/api-auth/why-use-access-tokens-to-secure-apis',
       '/api-auth/asking-for-access-tokens',
       '/tokens/access-tokens',
+      '/security/tokens/access-tokens',
     ],
-    to: '/security/tokens/access-tokens',
+    to: '/secure/tokens/access-tokens',
   },
   {
     from: [
@@ -5762,8 +6746,9 @@ const redirects = [
       '/api-auth/tutorials/verify-access-token',
       '/tokens/guides/access-token/validate-access-token',
       '/tokens/access-tokens/validate-access-tokens',
+      '/security/tokens/access-tokens/validate-access-tokens',
     ],
-    to: '/security/tokens/access-tokens/validate-access-tokens',
+    to: '/secure/tokens/access-tokens/validate-access-tokens',
   },
   {
     from: [
@@ -5771,8 +6756,9 @@ const redirects = [
       '/tokens/get-access-tokens',
       '/tokens/guides/access-token/get-access-tokens',
       '/tokens/access-tokens/get-access-tokens',
+      '/security/tokens/access-tokens/get-access-tokens',
     ],
-    to: '/security/tokens/access-tokens/get-access-tokens',
+    to: '/secure/tokens/access-tokens/get-access-tokens',
   },
   {
     from: [
@@ -5780,8 +6766,9 @@ const redirects = [
       '/tokens/use-access-tokens',
       '/tokens/guides/access-token/use-access-tokens',
       '/tokens/access-tokens/use-access-tokens',
+      '/security/tokens/access-tokens/use-access-tokens',
     ],
-    to: '/security/tokens/access-tokens/use-access-tokens',
+    to: '/secure/tokens/access-tokens/use-access-tokens',
   },
   {
     from: [
@@ -5789,8 +6776,9 @@ const redirects = [
       '/tokens/overview-idp-access-tokens',
       '/tokens/idp',
       '/tokens/identity-provider-access-tokens',
+      '/security/tokens/access-tokens/identity-provider-access-tokens',
     ],
-    to: '/security/tokens/access-tokens/identity-provider-access-tokens',
+    to: '/secure/tokens/access-tokens/identity-provider-access-tokens',
   },
   {
     from: [
@@ -5801,29 +6789,33 @@ const redirects = [
       '/tokens/management-api-access-tokens',
       '/api/management/v2/faq-management-api-access-tokens',
       '/tokens/management-api-access-tokens/management-api-access-token-faqs',
+      '/security/tokens/access-tokens/management-api-access-tokens',
     ],
-    to: '/security/tokens/access-tokens/management-api-access-tokens',
+    to: '/secure/tokens/access-tokens/management-api-access-tokens',
   },
   {
     from: [
       '/tokens/management-api-access-tokens/get-management-api-access-tokens-for-production',
       '/api/management/v2/get-access-tokens-for-production',
+      '/security/tokens/access-tokens/get-management-api-access-tokens-for-production',
     ],
-    to: '/security/tokens/access-tokens/get-management-api-access-tokens-for-production',
+    to: '/secure/tokens/access-tokens/get-management-api-access-tokens-for-production',
   },
   {
     from: [
       '/tokens/management-api-access-tokens/get-management-api-access-tokens-for-testing',
       '/api/management/v2/get-access-tokens-for-test',
+      '/security/tokens/access-tokens/get-management-api-access-tokens-for-testing',
     ],
-    to: '/security/tokens/access-tokens/get-management-api-access-tokens-for-testing',
+    to: '/secure/tokens/access-tokens/get-management-api-access-tokens-for-testing',
   },
   {
     from: [
       '/tokens/management-api-access-tokens/get-management-api-tokens-for-single-page-applications',
       '/api/management/v2/get-access-tokens-for-spas',
+      '/security/tokens/access-tokens/get-management-api-tokens-for-single-page-applications',
     ],
-    to: '/security/tokens/access-tokens/get-management-api-tokens-for-single-page-applications',
+    to: '/secure/tokens/access-tokens/get-management-api-tokens-for-single-page-applications',
   },
   {
     from: [
@@ -5833,12 +6825,23 @@ const redirects = [
     to: '/security/tokens/access-tokens/changes-in-auth0-management-apiv2-tokens',
   },
   {
-    from: ['/tokens/access-tokens/update-access-token-lifetime', '/dashboard/guides/apis/update-token-lifetime'],
-    to: '/security/tokens/access-tokens/update-access-token-lifetime',
+    from: [
+      '/tokens/access-tokens/update-access-token-lifetime',
+      '/dashboard/guides/apis/update-token-lifetime',
+      '/security/tokens/access-tokens/update-access-token-lifetime',
+    ],
+    to: '/secure/tokens/access-tokens/update-access-token-lifetime',
   },
   {
-    from: ['/tokens/json-web-tokens', '/tokens/concepts/jwts', '/tokens/concepts/why-use-jwt', '/tokens/jwt', '/jwt'],
-    to: '/security/tokens/json-web-tokens',
+    from: [
+      '/tokens/json-web-tokens',
+      '/tokens/concepts/jwts',
+      '/tokens/concepts/why-use-jwt',
+      '/tokens/jwt',
+      '/jwt',
+      '/security/tokens/json-web-tokens',
+    ],
+    to: '/secure/tokens/json-web-tokens',
   },
   {
     from: [
@@ -5908,23 +6911,33 @@ const redirects = [
       '/tokens/access-tokens/refresh-tokens',
       '/tokens/preview/refresh-token',
       '/tokens/refresh-tokens',
+      '/security/tokens/refresh-tokens',
     ],
-    to: '/security/tokens/refresh-tokens',
+    to: '/secure/tokens/refresh-tokens',
   },
   {
-    from: ['/tokens/refresh-tokens/get-refresh-tokens', '/tokens/guides/get-refresh-tokens'],
-    to: '/security/tokens/refresh-tokens/get-refresh-tokens',
+    from: [
+      '/tokens/refresh-tokens/get-refresh-tokens',
+      '/tokens/guides/get-refresh-tokens',
+      '/security/tokens/refresh-tokens/get-refresh-tokens',
+    ],
+    to: '/secure/tokens/refresh-tokens/get-refresh-tokens',
   },
   {
-    from: ['/tokens/refresh-tokens/use-refresh-tokens', '/tokens/guides/use-refresh-tokens'],
-    to: '/security/tokens/refresh-tokens/use-refresh-tokens',
+    from: [
+      '/tokens/refresh-tokens/use-refresh-tokens',
+      '/tokens/guides/use-refresh-tokens',
+      '/security/tokens/refresh-tokens/use-refresh-tokens',
+    ],
+    to: '/secure/tokens/refresh-tokens/use-refresh-tokens',
   },
   {
     from: [
       '/tokens/refresh-tokens/configure-refresh-token-expiration',
       '/security/tokens/configure-refresh-token-expiration',
+      '/security/tokens/refresh-tokens/configure-refresh-token-expiration',
     ],
-    to: '/security/tokens/refresh-tokens/configure-refresh-token-expiration',
+    to: '/secure/tokens/refresh-tokens/configure-refresh-token-expiration',
   },
   {
     from: [
@@ -5932,39 +6945,51 @@ const redirects = [
       '/tokens/access-tokens/refresh-tokens/refresh-token-rotation',
       '/tokens/refresh-tokens/refresh-token-rotation',
       '/security/tokens/refresh-token-rotation',
+      '/security/tokens/refresh-tokens/refresh-token-rotation',
     ],
-    to: '/security/tokens/refresh-tokens/refresh-token-rotation',
+    to: '/secure/tokens/refresh-tokens/refresh-token-rotation',
   },
   {
     from: [
       '/tokens/refresh-tokens/configure-refresh-token-rotation',
       '/tokens/guides/configure-refresh-token-rotation',
+      '/security/tokens/refresh-tokens/configure-refresh-token-rotation',
     ],
-    to: '/security/tokens/refresh-tokens/configure-refresh-token-rotation',
+    to: '/secure/tokens/refresh-tokens/configure-refresh-token-rotation',
   },
   {
     from: [
       '/tokens/guides/use-refresh-token-rotation',
       '/tokens/refresh-token-rotation/use-refresh-token-rotation',
       '/tokens/refresh-tokens/refresh-token-rotation/use-refresh-token-rotation',
+      '/security/tokens/refresh-tokens/use-refresh-token-rotation',
     ],
-    to: '/security/tokens/refresh-tokens/use-refresh-token-rotation',
+    to: '/secure/tokens/refresh-tokens/use-refresh-token-rotation',
   },
   {
     from: [
       '/tokens/guides/disable-refresh-token-rotation',
       '/tokens/access-tokens/refresh-tokens/disable-refresh-token-rotation',
       '/tokens/refresh-tokens/disable-refresh-token-rotation',
+      '/security/tokens/refresh-tokens/disable-refresh-token-rotation',
     ],
-    to: '/security/tokens/refresh-tokens/disable-refresh-token-rotation',
+    to: '/secure/tokens/refresh-tokens/disable-refresh-token-rotation',
   },
   {
-    from: ['/tokens/refresh-tokens/revoke-refresh-tokens', '/tokens/guides/revoke-refresh-tokens'],
-    to: '/security/tokens/refresh-tokens/revoke-refresh-tokens',
+    from: [
+      '/tokens/refresh-tokens/revoke-refresh-tokens',
+      '/tokens/guides/revoke-refresh-tokens',
+      '/security/tokens/refresh-tokens/revoke-refresh-tokens',
+    ],
+    to: '/secure/tokens/refresh-tokens/revoke-refresh-tokens',
   },
   {
-    from: ['/tokens/revoke-tokens', '/tokens/guides/revoke-tokens'],
-    to: '/security/tokens/revoke-tokens',
+    from: [
+      '/tokens/revoke-tokens',
+      '/tokens/guides/revoke-tokens',
+      '/security/tokens/revoke-tokens',
+    ],
+    to: '/secure/tokens/revoke-tokens',
   },
   {
     from: [
@@ -5972,35 +6997,57 @@ const redirects = [
       '/tokens/delegation',
       '/tokens/concepts/delegation-tokens',
       '/tokens/delegation-tokens',
+      '/security/tokens/delegation-tokens',
     ],
-    to: '/security/tokens/delegation-tokens',
+    to: '/secure/tokens/delegation-tokens',
   },
 
   /* Support */
 
   {
-    from: ['/policies/requests', '/premium-support'],
-    to: '/support',
+    from: [
+      '/policies/requests',
+      '/premium-support',
+      '/support',
+    ],
+    to: '/troubleshoot/customer-support',
   },
   {
-    from: ['/support/support-overview'],
-    to: '/support/support-plans',
+    from: [
+      '/support/support-overview',
+      '/support/support-plans',
+    ],
+    to: '/troubleshoot/customer-support/support-plans',
   },
   {
-    from: ['/support/matrix'],
-    to: '/support/product-support-matrix',
+    from: [
+      '/support/matrix',
+      '/support/product-support-matrix',
+    ],
+    to: '/troubleshoot/customer-support/product-support-matrix',
   },
   {
-    from: ['/sla', '/support/sla', '/support/sld'],
-    to: '/support/services-level-descriptions',
+    from: [
+      '/sla',
+      '/support/sla',
+      '/support/sld',
+      '/support/services-level-descriptions',
+    ],
+    to: '/troubleshoot/customer-support/services-level-descriptions',
   },
   {
-    from: ['/support/tickets'],
-    to: '/support/open-and-manage-support-tickets',
+    from: [
+      '/support/tickets',
+      '/support/open-and-manage-support-tickets',
+    ],
+    to: '/troubleshoot/customer-support/open-and-manage-support-tickets',
   },
   {
-    from: ['/support/subscription'],
-    to: '/support/manage-subscriptions',
+    from: [
+      '/support/subscription',
+      '/support/manage-subscriptions',
+    ],
+    to: '/troubleshoot/customer-support/manage-subscriptions',
   },
   {
     from: [
@@ -6008,12 +7055,18 @@ const redirects = [
       '/tutorials/cancel-paid-subscriptions',
       '/cancel-paid-subscriptions',
       '/support/downgrade-or-cancel-subscriptions',
+      '/support/manage-subscriptions/downgrade-or-cancel-subscriptions',
     ],
-    to: '/support/manage-subscriptions/downgrade-or-cancel-subscriptions',
+    to: '/troubleshoot/customer-support/manage-subscriptions/downgrade-or-cancel-subscriptions',
   },
   {
-    from: ['/support/delete-or-reset-tenant', '/support/delete-reset-tenant', '/tutorials/delete-reset-tenant'],
-    to: '/support/manage-subscriptions/delete-or-reset-tenant',
+    from: [
+      '/support/delete-or-reset-tenant',
+      '/support/delete-reset-tenant',
+      '/tutorials/delete-reset-tenant',
+      '/support/manage-subscriptions/delete-or-reset-tenant',
+    ],
+    to: '/troubleshoot/customer-support/manage-subscriptions/delete-or-reset-tenant',
   },
   {
     from: [
@@ -6021,16 +7074,26 @@ const redirects = [
       '/support/removing-auth0-exporting-data',
       '/moving-out',
       '/support/export-data',
+      '/support/manage-subscriptions/export-data',
     ],
-    to: '/support/manage-subscriptions/export-data',
+    to: '/troubleshoot/customer-support/manage-subscriptions/export-data',
   },
   {
-    from: ['/support/how-auth0-versions-software', '/tutorials/how-auth0-versions-software', '/versioning'],
-    to: '/support/versioning-strategy',
+    from: [
+      '/support/how-auth0-versions-software',
+      '/tutorials/how-auth0-versions-software',
+      '/versioning',
+      '/support/versioning-strategy',
+    ],
+    to: '/troubleshoot/customer-support/versioning-strategy',
   },
   {
-    from: ['/support/reset-account-password', '/tutorials/reset-account-password'],
-    to: '/support/reset-account-passwords',
+    from: [
+      '/support/reset-account-password',
+      '/tutorials/reset-account-password',
+      '/support/reset-account-passwords',
+    ],
+    to: '/troubleshoot/customer-support/reset-account-passwords',
   },
 
   /* Policies */
@@ -6041,32 +7104,52 @@ const redirects = [
       '/policies/dashboard-authentication',
       '/policies/restore-deleted-tenant',
       '/policies/unsupported-requests',
+      '/support/policies',
     ],
-    to: '/support/policies',
+    to: '/troubleshoot/customer-support/operational-policies',
   },
   {
-    from: ['/policies/billing-policy', '/policies/billing'],
-    to: '/support/policies/billing-policy',
+    from: [
+      '/policies/billing-policy',
+      '/policies/billing',
+      '/support/policies/billing-policy',
+      
+    ],
+    to: '/troubleshoot/customer-support/operational-policies/billing-policy',
   },
   {
     from: [
       '/policies/public-cloud-service-endpoints',
       '/policies/endpoints',
       '/security/public-cloud-service-endpoints',
+      '/support/policies/public-cloud-service-endpoints',
     ],
-    to: '/support/policies/public-cloud-service-endpoints',
+    to: '/troubleshoot/customer-support/operational-policies/public-cloud-service-endpoints',
   },
   {
-    from: ['/policies/data-export-and-transfer-policy', '/policies/data-export', '/policies/data-transfer'],
-    to: '/support/policies/data-export-and-transfer-policy',
+    from: [
+      '/policies/data-export-and-transfer-policy',
+      '/policies/data-export',
+      '/policies/data-transfer',
+      '/support/policies/data-export-and-transfer-policy',
+    ],
+    to: '/troubleshoot/customer-support/operational-policies/data-export-and-transfer-policy',
   },
   {
-    from: ['/policies/load-testing-policy', '/policies/load-testing'],
-    to: '/support/policies/load-testing-policy',
+    from: [
+      '/policies/load-testing-policy',
+      '/policies/load-testing',
+      '/support/policies/load-testing-policy',
+    ],
+    to: '/troubleshoot/customer-support/operational-policies/load-testing-policy',
   },
   {
-    from: ['/policies/penetration-testing-policy', '/policies/penetration-testing'],
-    to: '/support/policies/penetration-testing-policy',
+    from: [
+      '/policies/penetration-testing-policy',
+      '/policies/penetration-testing',
+      '/support/policies/penetration-testing-policy',
+    ],
+    to: '/troubleshoot/customer-support/operational-policies/penetration-testing-policy',
   },
   {
     from: [
@@ -6075,8 +7158,9 @@ const redirects = [
       '/policies/rate-limits',
       '/policies/legacy-rate-limits',
       '/policies/rate-limit-policy',
+      '/support/policies/rate-limit-policy',
     ],
-    to: '/support/policies/rate-limit-policy',
+    to: '/troubleshoot/customer-support/operational-policies/rate-limit-policy',
   },
   {
     from: [
@@ -6116,8 +7200,11 @@ const redirects = [
     to: '/support/policies/entity-limit-policy',
   },
   {
-    from: ['/support/support-center-users'],
-    to: '/dashboard-access/support-center-users',
+    from: [
+      '/support/support-center-users',
+      '/dashboard-access/support-center-users',
+    ],
+    to: '/get-started/manage-dashboard-access/support-center-users',
   },
 
   /* Troubleshoot */
@@ -6127,79 +7214,124 @@ const redirects = [
     to: '/troubleshoot',
   },
   {
-    from: ['/troubleshoot/basic-troubleshooting', '/troubleshoot/concepts/basics'],
-    to: '/troubleshoot/troubleshoot-basic',
+    from: [
+      '/troubleshoot/basic-troubleshooting',
+      '/troubleshoot/concepts/basics',
+      '/troubleshoot/troubleshoot-basic',
+    ],
+    to: '/troubleshoot/basic-issues',
   },
   {
-    from: ['/troubleshoot/basic-troubleshooting/verify-platform', '/troubleshoot/guides/verify-platform'],
-    to: '/troubleshoot/troubleshoot-basic/verify-platform',
+    from: [
+      '/troubleshoot/basic-troubleshooting/verify-platform',
+      '/troubleshoot/guides/verify-platform',
+      '/troubleshoot/troubleshoot-basic/verify-platform',
+    ],
+    to: '/troubleshoot/basic-issues/verify-platform',
   },
   {
-    from: ['/troubleshoot/basic-troubleshooting/verify-connections', '/troubleshoot/guides/verify-connections'],
-    to: '/troubleshoot/troubleshoot-basic/verify-connections',
+    from: [
+      '/troubleshoot/basic-troubleshooting/verify-connections',
+      '/troubleshoot/guides/verify-connections',
+      '/troubleshoot/troubleshoot-basic/verify-connections',
+    ],
+    to: '/troubleshoot/basic-issues/verify-connections',
   },
   {
-    from: ['/troubleshoot/basic-troubleshooting/verify-domain', '/troubleshoot/guides/verify-domain'],
-    to: '/troubleshoot/troubleshoot-basic/verify-domain',
+    from: [
+      '/troubleshoot/basic-troubleshooting/verify-domain',
+      '/troubleshoot/guides/verify-domain',
+      '/troubleshoot/troubleshoot-basic/verify-domain',
+    ],
+    to: '/troubleshoot/basic-issues/verify-domain',
   },
   {
-    from: ['/troubleshoot/guides/verify-rules', '/troubleshoot/verify-rules'],
-    to: '/troubleshoot/troubleshoot-basic/verify-rules',
+    from: [
+      '/troubleshoot/guides/verify-rules',
+      '/troubleshoot/verify-rules',
+      '/troubleshoot/troubleshoot-basic/verify-rules',
+    ],
+    to: '/troubleshoot/basic-issues/verify-rules',
   },
   {
-    from: ['/troubleshoot/guides/check-error-messages', '/troubleshoot/check-error-messages'],
-    to: '/troubleshoot/troubleshoot-basic/check-error-messages',
+    from: [
+      '/troubleshoot/guides/check-error-messages',
+      '/troubleshoot/check-error-messages',
+      '/troubleshoot/troubleshoot-basic/check-error-messages',
+    ],
+    to: '/troubleshoot/basic-issues/check-error-messages',
   },
   {
     from: [
       '/product-lifecycle/deprecations-and-migrations/search-logs-for-deprecation-errors',
       '/errors/deprecations-errors/',
+      '/troubleshoot/troubleshoot-basic/search-logs-for-deprecation-errors',
     ],
-    to: '/troubleshoot/troubleshoot-basic/search-logs-for-deprecation-errors',
+    to: '/troubleshoot/basic-issues/search-logs-for-deprecation-errors',
   },
   {
     from: [
       '/troubleshoot/guides/check-deprecation-errors',
       '/troubleshoot/troubleshoot-authentication-issues/check-deprecation-errors',
+      '/troubleshoot/troubleshoot-basic/check-deprecation-errors',
     ],
-    to: '/troubleshoot/troubleshoot-basic/check-deprecation-errors',
+    to: '/troubleshoot/basic-issues/check-deprecation-errors',
   },
   {
-    from: ['/troubleshoot/references/invalid-token', '/troubleshoot/invalid-token-errors'],
-    to: '/troubleshoot/troubleshoot-basic/invalid-token-errors',
+    from: [
+      '/troubleshoot/references/invalid-token',
+      '/troubleshoot/invalid-token-errors',
+      '/troubleshoot/troubleshoot-basic/invalid-token-errors',
+    ],
+    to: '/troubleshoot/basic-issues/invalid-token-errors',
   },
   {
-    from: ['/troubleshoot/concepts/auth-issues', '/troubleshoot/troubleshoot-authentication-issues'],
-    to: '/troubleshoot/troubleshoot-authentication',
+    from: [
+      '/troubleshoot/concepts/auth-issues',
+      '/troubleshoot/troubleshoot-authentication-issues',
+      '/troubleshoot/troubleshoot-authentication',
+    ],
+    to: '/troubleshoot/authentication-issues',
   },
   {
-    from: ['/troubleshoot/guides/check-api-calls', '/troubleshoot/troubleshoot-authentication-issues/check-api-calls'],
-    to: '/troubleshoot/troubleshoot-authentication/check-api-calls',
+    from: [
+      '/troubleshoot/guides/check-api-calls',
+      '/troubleshoot/troubleshoot-authentication-issues/check-api-calls',
+      '/troubleshoot/troubleshoot-authentication/check-api-calls',
+    ],
+    to: '/troubleshoot/authentication-issues/check-api-calls',
   },
   {
     from: [
       '/troubleshoot/guides/check-login-logout-issues',
       '/troubleshoot/troubleshoot-authentication-issues/check-login-and-logout-issues',
+      '/troubleshoot/troubleshoot-authentication/check-login-and-logout-issues',
     ],
-    to: '/troubleshoot/troubleshoot-authentication/check-login-and-logout-issues',
+    to: '/troubleshoot/authentication-issues/check-login-and-logout-issues',
   },
   {
     from: [
       '/troubleshoot/guides/check-user-profiles',
       '/troubleshoot/troubleshoot-authentication-issues/check-user-profiles',
+      '/troubleshoot/troubleshoot-authentication/check-user-profiles',
     ],
-    to: '/troubleshoot/troubleshoot-authentication/check-user-profiles',
+    to: '/troubleshoot/authentication-issues/check-user-profiles',
   },
   {
     from: [
       '/authorization/concepts/troubleshooting',
       '/authorization/troubleshoot-role-based-access-control-and-authorization',
+      '/troubleshoot/troubleshoot-authentication/troubleshoot-rbac-authorization',
     ],
-    to: '/troubleshoot/troubleshoot-authentication/troubleshoot-rbac-authorization',
+    to: '/troubleshoot/authentication-issues/troubleshoot-rbac-authorization',
   },
   {
-    from: ['/troubleshoot/references/saml-errors', '/troubleshoot/troubleshoot-authentication-issues/saml-errors'],
-    to: '/troubleshoot/troubleshoot-authentication/saml-errors',
+    from: [
+      '/troubleshoot/references/saml-errors',
+      '/troubleshoot/troubleshoot-authentication-issues/saml-errors',
+      '/troubleshoot/troubleshoot-authentication/saml-errors',
+    ],
+    to: '/troubleshoot/authentication-issues/saml-errors',
   },
   {
     from: [
@@ -6209,12 +7341,17 @@ const redirects = [
       '/protocols/saml/saml-configuration/troubleshoot/auth0-as-sp',
       '/troubleshoot/troubleshoot-saml-configurations',
       '/protocols/saml-protocol/troubleshoot-saml-configurations',
+      '/troubleshoot/troubleshoot-authentication/troubleshoot-saml-configurations',
     ],
-    to: '/troubleshoot/troubleshoot-authentication/troubleshoot-saml-configurations',
+    to: '/troubleshoot/authentication-issues/troubleshoot-saml-configurations',
   },
   {
-    from: ['/troubleshoot/self-change-password-errors', '/troubleshoot/references/self_change_password'],
-    to: '/troubleshoot/troubleshoot-authentication/self-change-password-errors',
+    from: [
+      '/troubleshoot/self-change-password-errors',
+      '/troubleshoot/references/self_change_password',
+      '/troubleshoot/troubleshoot-authentication/self-change-password-errors',
+    ],
+    to: '/troubleshoot/authentication-issues/self-change-password-errors',
   },
   {
     from: [
@@ -6224,52 +7361,74 @@ const redirects = [
       '/mfa/references/troubleshoot-mfa',
       '/mfa/references/troubleshooting',
       '/mfa/troubleshoot-mfa-issues',
+      '/troubleshoot/troubleshoot-authentication/troubleshoot-mfa-issues',
     ],
-    to: '/troubleshoot/troubleshoot-authentication/troubleshoot-mfa-issues',
+    to: '/troubleshoot/authentication-issues/troubleshoot-mfa-issues',
   },
   {
     from: [
       '/extensions/authorization-extension/v2/troubleshooting',
       '/extensions/authorization-dashboard-extension/troubleshoot-authorization-extension',
       '/extensions/authorization-extension/troubleshoot-authorization-extension',
+      '/troubleshoot/troubleshoot-authentication/troubleshoot-authorization-extension',
     ],
-    to: '/troubleshoot/troubleshoot-authentication/troubleshoot-authorization-extension',
+    to: '/troubleshoot/authentication-issues/troubleshoot-authorization-extension',
   },
   {
-    from: ['/authorization/renew-tokens-when-using-safari', '/api-auth/token-renewal-in-safari'],
-    to: '/troubleshoot/troubleshoot-authentication/renew-tokens-when-using-safari',
+    from: [
+      '/authorization/renew-tokens-when-using-safari',
+      '/api-auth/token-renewal-in-safari',
+      '/troubleshoot/troubleshoot-authentication/renew-tokens-when-using-safari',
+    ],
+    to: '/troubleshoot/authentication-issues/renew-tokens-when-using-safari',
   },
   {
-    from: ['/troubleshoot/concepts/integration-extensibility-issues'],
-    to: '/troubleshoot/troubleshoot-integration-and-extensibility',
+    from: [
+      '/troubleshoot/concepts/integration-extensibility-issues',
+      '/troubleshoot/troubleshoot-integration-and-extensibility',
+    ],
+    to: '/troubleshoot/integration-extensibility-issues',
   },
   {
-    from: ['/custom-domains/troubleshoot-custom-domains', '/custom-domains/troubleshoot'],
-    to: '/troubleshoot/troubleshoot-integration-and-extensibility/troubleshoot-custom-domains',
+    from: [
+      '/custom-domains/troubleshoot-custom-domains',
+      '/custom-domains/troubleshoot',
+      '/troubleshoot/troubleshoot-integration-and-extensibility/troubleshoot-custom-domains',
+    ],
+    to: '/troubleshoot/integration-extensibility-issues/troubleshoot-custom-domains',
   },
   {
     from: [
       '/connector/troubleshooting',
       '/ad-ldap-connector/troubleshoot-ad-ldap-connector',
       '/extensions/ad-ldap-connector/troubleshoot-ad-ldap-connector',
+      '/troubleshoot/troubleshoot-integration-and-extensibility/troubleshoot-ad-ldap-connector',
     ],
-    to: '/troubleshoot/troubleshoot-integration-and-extensibility/troubleshoot-ad-ldap-connector',
+    to: '/troubleshoot/integration-extensibility-issues/troubleshoot-ad-ldap-connector',
   },
   {
-    from: ['/extensions/troubleshoot-extensions', '/extensions/troubleshoot'],
-    to: '/troubleshoot/troubleshoot-integration-and-extensibility/troubleshoot-extensions',
+    from: [
+      '/extensions/troubleshoot-extensions',
+      '/extensions/troubleshoot',
+      '/troubleshoot/troubleshoot-integration-and-extensibility/troubleshoot-extensions',
+    ],
+    to: '/troubleshoot/integration-extensibility-issues/troubleshoot-extensions',
   },
   {
     from: [
       '/extensions/deploy-cli/references/troubleshooting',
       '/extensions/deploy-cli-tool/troubleshoot-the-deploy-cli-tool',
       '/deploy/deploy-cli-tool/troubleshoot-the-deploy-cli-tool',
+      '/troubleshoot/troubleshoot-integration-and-extensibility/troubleshoot-the-deploy-cli-tool',
     ],
-    to: '/troubleshoot/troubleshoot-integration-and-extensibility/troubleshoot-the-deploy-cli-tool',
+    to: '/troubleshoot/integration-extensibility-issues/troubleshoot-the-deploy-cli-tool',
   },
   {
-    from: '/troubleshoot/troubleshooting-tools',
-    to: '/troubleshoot/tools',
+    from: [
+      '/troubleshoot/troubleshooting-tools',
+      '/troubleshoot/tools',
+    ],
+    to: '/troubleshoot/troubleshooting-tools',
   },
   {
     from: [
@@ -6279,8 +7438,9 @@ const redirects = [
       '/support/troubleshooting-with-har-files',
       '/troubleshoot/guides/generate-har-files',
       '/troubleshoot/generate-and-analyze-har-files',
+      '/troubleshoot/tools/generate-and-analyze-har-files',
     ],
-    to: '/troubleshoot/tools/generate-and-analyze-har-files',
+    to: '/troubleshoot/troubleshooting-tools/generate-and-analyze-har-files',
   },
 
   /* Tutorials */
@@ -6305,20 +7465,26 @@ const redirects = [
       '/user-profile/user-profile-details',
       '/users/normalized/oidc',
       '/users/user-profiles-returned-from-oidc-compliant-pipelines',
+      '/users/user-profiles',
     ],
-    to: '/users/user-profiles',
+    to: '/manage-users/user-accounts/user-profiles',
   },
   {
     from: [
       '/user-profile/user-profile-structure',
       '/users/references/user-profile-structure',
       '/users/user-profile-structure',
+      '/users/user-profiles/user-profile-structure',
     ],
-    to: '/users/user-profiles/user-profile-structure',
+    to: '/manage-users/user-accounts/user-profiles/user-profile-structure',
   },
   {
-    from: ['/users/sample-user-profiles', '/users/normalized/auth0/sample-user-profiles'],
-    to: '/users/user-profiles/sample-user-profiles',
+    from: [
+      '/users/sample-user-profiles',
+      '/users/normalized/auth0/sample-user-profiles',
+      '/users/user-profiles/sample-user-profiles',
+    ],
+    to: '/manage-users/user-accounts/user-profiles/sample-user-profiles',
   },
   {
     from: [
@@ -6326,12 +7492,17 @@ const redirects = [
       '/users/normalized',
       '/user-profile/normalized/auth0',
       '/users/normalized/auth0',
+      '/users/user-profiles/normalized-user-profiles',
     ],
-    to: '/users/user-profiles/normalized-user-profiles',
+    to: '/manage-users/user-accounts/user-profiles/normalized-user-profiles',
   },
   {
-    from: ['/users/normalized-user-profile-schema', '/users/normalized/auth0/normalized-user-profile-schema'],
-    to: '/users/user-profiles/normalized-user-profile-schema',
+    from: [
+      '/users/normalized-user-profile-schema',
+      '/users/normalized/auth0/normalized-user-profile-schema',
+      '/users/user-profiles/normalized-user-profile-schema',
+    ],
+    to: '/manage-users/user-accounts/user-profiles/normalized-user-profile-schema',
   },
   {
     from: [
@@ -6340,50 +7511,67 @@ const redirects = [
       '/users/guides/implement-progressive-profiling',
       '/users/progressive-profiling',
       '/users/concepts/overview-progressive-profiling',
+      '/users/user-profiles/progressive-profiling',
     ],
-    to: '/users/user-profiles/progressive-profiling',
+    to: '/manage-users/user-accounts/user-profiles/progressive-profiling',
   },
   {
-    from: ['/users/updating-user-profile-root-attributes', '/users/normalized/auth0/update-root-attributes'],
-    to: '/users/user-profiles/root-attributes',
+    from: [
+      '/users/updating-user-profile-root-attributes',
+      '/users/normalized/auth0/update-root-attributes',
+      '/users/user-profiles/root-attributes',
+    ],
+    to: '/manage-users/user-accounts/user-profiles/root-attributes',
   },
   {
     from: [
       '/users/set-root-attributes-during-user-import',
       '/api/management/guides/users/set-root-attributes-user-import',
+      '/users/user-profiles/root-attributes/set-root-attributes-during-user-import',
     ],
-    to: '/users/user-profiles/root-attributes/set-root-attributes-during-user-import',
+    to: '/manage-users/user-accounts/user-profiles/root-attributes/set-root-attributes-during-user-import',
   },
   {
     from: [
       '/users/set-root-attributes-during-user-sign-up',
       '/api/management/guides/users/set-root-attributes-user-signup',
+      '/users/user-profiles/root-attributes/set-root-attributes-during-user-sign-up',
     ],
-    to: '/users/user-profiles/root-attributes/set-root-attributes-during-user-sign-up',
+    to: '/manage-users/user-accounts/user-profiles/root-attributes/set-root-attributes-during-user-sign-up',
   },
   {
-    from: ['/users/update-root-attributes-for-users', '/api/management/guides/users/update-root-attributes-users'],
-    to: '/users/user-profiles/root-attributes/update-root-attributes-for-users',
+    from: [
+      '/users/update-root-attributes-for-users',
+      '/api/management/guides/users/update-root-attributes-users',
+      '/users/user-profiles/root-attributes/update-root-attributes-for-users',
+    ],
+    to: '/manage-users/user-accounts/user-profiles/root-attributes/update-root-attributes-for-users',
   },
   {
-    from: ['/users/verified-email-usage', '/users/guides/email-verified'],
-    to: '/users/user-profiles/verified-email-usage',
+    from: [
+      '/users/verified-email-usage',
+      '/users/guides/email-verified',
+      '/users/user-profiles/verified-email-usage',
+    ],
+    to: '/manage-users/user-accounts/user-profiles/verified-email-usage',
   },
   {
     from: [
       '/users/configure-connection-sync-with-auth0',
       '/dashboard/guides/connections/configure-connection-sync',
       '/api/management/guides/connections/configure-connection-sync',
+      '/users/user-profiles/configure-connection-sync-with-auth0',
     ],
-    to: '/users/user-profiles/configure-connection-sync-with-auth0',
+    to: '/manage-users/user-accounts/user-profiles/configure-connection-sync-with-auth0',
   },
   {
     from: [
       '/users/update-user-profiles-using-your-database',
       '/user-profile/customdb',
       '/users/guides/update-user-profiles-using-your-database',
+      '/users/user-profiles/update-user-profiles-using-your-database',
     ],
-    to: '/users/user-profiles/update-user-profiles-using-your-database',
+    to: '/manage-users/user-accounts/user-profiles/update-user-profiles-using-your-database',
   },
   {
     from: [
@@ -6393,12 +7581,17 @@ const redirects = [
       '/users/guides/read-metadata',
       '/users/guides/manage-user-metadata',
       '/users/manage-user-metadata',
+      '/users/metadata',
     ],
-    to: '/users/metadata',
+    to: '/manage-users/user-accounts/metadata',
   },
   {
-    from: ['/users/references/metadata-field-name-rules', '/best-practices/metadata-best-practices'],
-    to: '/users/metadata/metadata-fields-data',
+    from: [
+      '/users/references/metadata-field-name-rules',
+      '/best-practices/metadata-best-practices',
+      '/users/metadata/metadata-fields-data',
+    ],
+    to: '/manage-users/user-accounts/metadata/metadata-fields-data',
   },
   {
     from: [
@@ -6410,12 +7603,16 @@ const redirects = [
       '/metadata/apis',
       '/users/guides/set-metadata-properties-on-creation',
       '/users/set-metadata-properties-on-creation',
+      '/users/metadata/manage-metadata-api',
     ],
-    to: '/users/metadata/manage-metadata-api',
+    to: '/manage-users/user-accounts/metadata/manage-metadata-api',
   },
   {
-    from: ['/metadata/lock'],
-    to: '/users/metadata/manage-metadata-lock',
+    from: [
+      '/metadata/lock',
+      '/users/metadata/manage-metadata-lock',
+    ],
+    to: '/manage-users/user-accounts/metadata/manage-metadata-lock',
   },
   {
     from: [
@@ -6436,16 +7633,24 @@ const redirects = [
       '/sessions/references/sample-use-cases-sessions',
       '/sessions-and-cookies/session-use-cases',
       '/sessions',
+      '/users/sessions',
     ],
-    to: '/users/sessions',
+    to: '/manage-users/sessions',
   },
   {
-    from: ['/sessions/session-layers', '/sessions/concepts/session-layers'],
-    to: '/users/sessions/session-layers',
+    from: [
+      '/sessions/session-layers',
+      '/sessions/concepts/session-layers',
+      '/users/sessions/session-layers',
+    ],
+    to: '/manage-users/sessions/session-layers',
   },
   {
-    from: '/sessions/session-lifetime-limits',
-    to: '/users/sessions/session-lifetime-limits',
+    from: [
+      '/sessions/session-lifetime-limits',
+      '/users/sessions/session-lifetime-limits',
+    ],
+    to: '/manage-users/sessions/session-lifetime-limits',
   },
   {
     from: [
@@ -6455,27 +7660,41 @@ const redirects = [
       '/sso/current/configure-session-lifetime-limits',
       '/sessions/configure-session-lifetime-settings',
       '/users/sessions/session-lifetimes/configure-session-lifetime-settings',
+      '/users/sessions/configure-session-lifetime-settings',
     ],
-    to: '/users/sessions/configure-session-lifetime-settings',
+    to: '/manage-users/sessions/configure-session-lifetime-settings',
   },
   {
-    from: ['/sessions/non-persistent-sessions', '/users/sessions/session-lifetimes/non-persistent-sessions'],
-    to: '/users/sessions/non-persistent-sessions',
+    from: [
+      '/sessions/non-persistent-sessions',
+      '/users/sessions/session-lifetimes/non-persistent-sessions',
+      '/users/sessions/non-persistent-sessions',
+    ],
+    to: '/manage-users/sessions/non-persistent-sessions',
   },
   {
     from: [
       '/sessions/references/example-short-lived-session-mgmt',
       '/sessions-and-cookies/manage-multi-site-short-long-lived-sessions',
+      '/users/sessions/manage-multi-site-sessions',
     ],
-    to: '/users/sessions/manage-multi-site-sessions',
+    to: '/manage-users/sessions/manage-multi-site-sessions',
   },
   {
-    from: ['/sessions/cookies', '/sessions/concepts/cookies', '/sessions-and-cookies/cookies'],
-    to: '/users/cookies',
+    from: [
+      '/sessions/cookies',
+      '/sessions/concepts/cookies',
+      '/sessions-and-cookies/cookies',
+      '/users/cookies',
+      ],
+    to: '/manage-users/cookies',
   },
   {
-    from: '/sessions/cookies/authentication-api-cookies',
-    to: '/users/cookies/authentication-api-cookies',
+    from: [
+      '/sessions/cookies/authentication-api-cookies',
+      '/users/cookies/authentication-api-cookies',
+    ],
+    to: '/manage-users/sessions/authentication-api-cookies',
   },
   {
     from: [
@@ -6495,20 +7714,35 @@ const redirects = [
     to: '/users/cookies/samesite-cookie-attribute-changes',
   },
   {
-    from: ['/users/guides/manage-users-using-the-dashboard'],
-    to: '/users/manage-users-using-the-dashboard',
+    from: [
+      '/users/guides/manage-users-using-the-dashboard',
+      '/users/manage-users-using-the-dashboard',
+    ],
+    to: '/manage-users/user-accounts/manage-users-using-the-dashboard',
   },
   {
-    from: ['/users/guides/manage-users-using-the-management-api'],
-    to: '/users/manage-users-using-the-management-api',
+    from: [
+      '/users/guides/manage-users-using-the-management-api',
+      '/users/manage-users-using-the-management-api',
+    ],
+    to: '/manage-users/user-accounts/manage-users-using-the-management-api',
   },
   {
-    from: ['/users/guides/link-user-accounts', '/link-accounts/suggested-linking', '/users/link-user-accounts'],
-    to: '/users/user-account-linking/link-user-accounts',
+    from: [
+      '/users/guides/link-user-accounts',
+      '/link-accounts/suggested-linking',
+      '/users/link-user-accounts',
+      '/users/user-account-linking/link-user-accounts',
+    ],
+    to: '/manage-users/user-accounts/user-account-linking/link-user-accounts',
   },
   {
-    from: ['/users/unlink-user-accounts', '/users/guides/unlink-user-accounts'],
-    to: '/users/user-account-linking/unlink-user-accounts',
+    from: [
+      '/users/unlink-user-accounts',
+      '/users/guides/unlink-user-accounts',
+      '/users/user-account-linking/unlink-user-accounts',
+    ],
+    to: '/manage-users/user-accounts/user-account-linking/unlink-user-accounts',
   },
   {
     from: [
@@ -6518,19 +7752,25 @@ const redirects = [
       '/users/references/link-accounts-client-side-scenario',
       '/user/references/link-accounts-client-side-scenario',
       '/users/user-initiated-account-linking-client-side-implementation',
+      '/users/user-account-linking/user-initiated-account-linking-client-side-implementation',
     ],
-    to: '/users/user-account-linking/user-initiated-account-linking-client-side-implementation',
+    to: '/manage-users/user-accounts/user-account-linking/user-initiated-account-linking-client-side-implementation',
   },
   {
     from: [
       '/users/suggested-account-linking-server-side-implementation',
       '/users/references/link-accounts-server-side-scenario',
+      '/users/user-account-linking/suggested-account-linking-server-side-implementation',
     ],
-    to: '/users/user-account-linking/suggested-account-linking-server-side-implementation',
+    to: '/manage-users/user-accounts/user-account-linking/suggested-account-linking-server-side-implementation',
   },
   {
-    from: ['/users/concepts/overview-user-migration', '/users/import-export-users'],
-    to: '/users/import-and-export-users',
+    from: [
+      '/users/concepts/overview-user-migration',
+      '/users/import-export-users',
+      '/users/import-and-export-users',
+    ],
+    to: '/manage-users/user-migration',
   },
   {
     from: [
@@ -6539,8 +7779,9 @@ const redirects = [
       '/users/references/user-migration-scenarios',
       '/users/migrations',
       '/users/user-migration-scenarios',
+      '/users/import-and-export-users/user-migration-scenarios',
     ],
-    to: '/users/import-and-export-users/user-migration-scenarios',
+    to: '/manage-users/user-migration/user-migration-scenarios',
   },
   {
     from: [
@@ -6549,8 +7790,9 @@ const redirects = [
       '/users/migrations/automatic',
       '/users/guides/configure-automatic-migration',
       '/users/configure-automatic-migration-from-your-database',
+      '/users/import-and-export-users/configure-automatic-migration-from-your-database',
     ],
-    to: '/users/import-and-export-users/configure-automatic-migration-from-your-database',
+    to: '/manage-users/user-migration/configure-automatic-migration-from-your-database',
   },
   {
     from: [
@@ -6561,39 +7803,61 @@ const redirects = [
       '/users/migrations/bulk-import',
       '/bulk-import',
       '/users/bulk-user-imports',
+      '/users/import-and-export-users/bulk-user-imports',
     ],
-    to: '/users/import-and-export-users/bulk-user-imports',
+    to: '/manage-users/user-migration/bulk-user-imports',
   },
   {
     from: [
       '/users/bulk-user-import-database-schema-and-examples',
       '/users/references/bulk-import-database-schema-examples',
+      '/users/import-and-export-users/bulk-user-import-database-schema-and-examples',
     ],
-    to: '/users/import-and-export-users/bulk-user-import-database-schema-and-examples',
+    to: '/manage-users/user-migration/bulk-user-import-database-schema-and-examples',
   },
   {
-    from: ['/users/bulk-user-exports', '/users/guides/bulk-user-exports'],
-    to: '/users/import-and-export-users/bulk-user-exports',
+    from: [
+      '/users/bulk-user-exports',
+      '/users/guides/bulk-user-exports',
+      '/users/import-and-export-users/bulk-user-exports',
+    ],
+    to: '/manage-users/user-migration/bulk-user-exports',
   },
   {
-    from: ['/users/guides/block-and-unblock-users'],
-    to: '/users/block-and-unblock-users',
+    from: [
+      '/users/guides/block-and-unblock-users',
+      '/users/block-and-unblock-users',
+    ],
+    to: '/manage-users/user-accounts/block-and-unblock-users',
   },
   {
-    from: ['/users/guides/manage-user-access-to-applications'],
-    to: '/users/manage-user-access-to-applications',
+    from: [
+      '/users/guides/manage-user-access-to-applications',
+      '/users/manage-user-access-to-applications',
+    ],
+    to: '/manage-users/user-accounts/manage-user-access-to-applications',
   },
   {
-    from: ['/users/guides/delete-users'],
-    to: '/users/delete-users',
+    from: [
+      '/users/guides/delete-users',
+      '/users/delete-users',
+    ],
+    to: '/manage-users/user-accounts/delete-users',
   },
   {
-    from: ['/dashboard/guides/users/unlink-user-devices'],
-    to: '/users/unlink-devices-from-users',
+    from: [
+      '/dashboard/guides/users/unlink-user-devices',
+      '/users/unlink-devices-from-users',
+    ],
+    to: '/manage-users/user-accounts/unlink-devices-from-users',
   },
   {
-    from: ['/user-profile/user-picture', '/users/guides/change-user-pictures'],
-    to: '/users/change-user-picture',
+    from: [
+      '/user-profile/user-picture',
+      '/users/guides/change-user-pictures',
+      '/users/change-user-picture',
+    ],
+    to: '/manage-users/user-accounts/change-user-picture',
   },
   {
     from: [
@@ -6601,32 +7865,49 @@ const redirects = [
       '/users/guides/create-users',
       '/creating-users',
       '/dashboard/guides/users/create-users',
+      '/users/create-users',
     ],
-    to: '/users/create-users',
+    to: '/manage-users/user-accounts/create-users',
   },
   {
     from: [
       '/tutorials/get-user-information-with-unbounce-landing-pages',
       '/users/guides/get-user-information-with-unbounce-landing-pages',
       '/scenarios-unbounce',
+      '/users/get-user-information-on-unbounce-landing-pages',
     ],
-    to: '/users/get-user-information-on-unbounce-landing-pages',
+    to: '/manage-users/user-accounts/get-user-information-on-unbounce-landing-pages',
   },
   {
-    from: ['/users/guides/view-users'],
-    to: '/users/view-user-details',
+    from: [
+      '/users/guides/view-users',
+      '/users/view-user-details',
+    ],
+    to: '/manage-users/user-accounts/view-user-details',
   },
   {
-    from: ['/users/normalized/auth0/identify-users'],
-    to: '/users/identify-users',
+    from: [
+      '/users/normalized/auth0/identify-users',
+      '/users/identify-users',
+    ],
+    to: '/manage-users/user-accounts/identify-users',
   },
   {
-    from: ['/users/search/v3', '/users/normalized/auth0/retrieve-user-profiles', '/users/search', '/users-search'],
-    to: '/users/user-search',
+    from: [
+      '/users/search/v3',
+      '/users/normalized/auth0/retrieve-user-profiles',
+      '/users/search',
+      '/users-search',
+      '/users/user-search',
+    ],
+    to: '/manage-users/user-search',
   },
   {
-    from: ['/users/search/v3/query-syntax'],
-    to: '/users/user-search/user-search-query-syntax',
+    from: [
+      '/users/search/v3/query-syntax',
+      '/users/user-search/user-search-query-syntax',
+    ],
+    to: '/manage-users/user-search/user-search-query-syntax',
   },
   {
     from: ['/api/management/v2/user-search', '/users/search/v2', '/api/v2/user-search'],
@@ -6637,24 +7918,40 @@ const redirects = [
     to: '/users/user-search/v2/query-syntax',
   },
   {
-    from: ['/users/search/v3/get-users-by-email-endpoint'],
-    to: '/users/user-search/retrieve-users-with-get-users-by-email-endpoint',
+    from: [
+      '/users/search/v3/get-users-by-email-endpoint',
+      '/users/user-search/retrieve-users-with-get-users-by-email-endpoint',
+    ],
+    to: '/manage-users/user-search/retrieve-users-with-get-users-by-email-endpoint',
   },
   {
-    from: ['/users/search/v3/get-users-by-id-endpoint'],
-    to: '/users/user-search/retrieve-users-with-get-users-by-id-endpoint',
+    from: [
+      '/users/search/v3/get-users-by-id-endpoint',
+      '/users/user-search/retrieve-users-with-get-users-by-id-endpoint',
+    ],
+    to: '/manage-users/user-search/retrieve-users-with-get-users-by-id-endpoint',
   },
   {
-    from: ['/users/search/v3/get-users-endpoint', '/users/user-search/retrieve-users-with-the-get-users-endpoint'],
-    to: '/users/user-search/retrieve-users-with-get-users-endpoint',
+    from: [
+      '/users/search/v3/get-users-endpoint',
+      '/users/user-search/retrieve-users-with-the-get-users-endpoint',
+      '/users/user-search/retrieve-users-with-get-users-endpoint',
+    ],
+    to: '/manage-users/user-search/retrieve-users-with-get-users-endpoint',
   },
   {
-    from: ['/users/search/v3/sort-search-results'],
-    to: '/users/user-search/sort-search-results',
+    from: [
+      '/users/search/v3/sort-search-results',
+      '/users/user-search/sort-search-results',
+    ],
+    to: '/manage-users/user-search/sort-search-results',
   },
   {
-    from: ['/users/search/v3/view-search-results-by-page'],
-    to: '/users/user-search/view-search-results-by-page',
+    from: [
+      '/users/search/v3/view-search-results-by-page',
+      '/users/user-search/view-search-results-by-page',
+    ],
+    to: '/manage-users/user-search/view-search-results-by-page',
   },
   {
     from: [
@@ -6662,12 +7959,16 @@ const redirects = [
       '/link-accounts',
       '/users/concepts/overview-user-account-linking',
       '/users/guide/concepts/overview-user-account-linking',
+      '/users/user-account-linking',
     ],
-    to: '/users/user-account-linking',
+    to: '/manage-users/user-accounts/user-account-linking',
   },
   {
-    from: ['/users/guides/get-user-information-with-unbounce-landing-pages'],
-    to: '/users/get-user-information-on-unbounce-landing-pages',
+    from: [
+      '/users/guides/get-user-information-with-unbounce-landing-pages',
+      '/users/get-user-information-on-unbounce-landing-pages',
+    ],
+    to: '/manage-users/user-accounts/get-user-information-on-unbounce-landing-pages',
   },
 
   /* Videos */
