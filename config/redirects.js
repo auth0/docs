@@ -7420,7 +7420,6 @@ const redirects = [
   },
   {
     from: [
-      '/troubleshoot/troubleshooting-tools',
       '/troubleshoot/tools',
     ],
     to: '/troubleshoot/troubleshooting-tools',
