@@ -711,7 +711,7 @@ const redirects = [
       '/connections/passwordless/use-sms-gateway-passwordless',
       '/connections/passwordless/authentication-methods/use-sms-gateway-passwordless',
       ],
-    to: '/authenticate/passwordless/use-sms-gateway-passwordless',
+    to: '/authenticate/passwordless/authentication-methods/use-sms-gateway-passwordless',
   },
   {
     from: [
@@ -765,7 +765,7 @@ const redirects = [
       '/connections/passwordless/universal-login',
       '/connections/passwordless/implement-login/universal-login',
     ],
-    to: '/authenticate/passwordless/universal-login',
+    to: '/authenticate/passwordless/implement-login/universal-login',
   },
   {
     from: [
@@ -824,7 +824,7 @@ const redirects = [
       '/connections/passwordless/authentication-factors',
       '/connections/passwordless/authentication-methods',
       ],
-    to: '/authenticate/passwordless/authentication-factors',
+    to: '/authenticate/passwordless/authentication-methods',
   },
   {
     from: [
@@ -833,7 +833,7 @@ const redirects = [
       '/connections/passwordless/authentication-factors/email-otp',
       '/connections/passwordless/authentication-methods/email-otp',
       ],
-    to: '/authenticate/passwordless/authentication-factors/email-otp',
+    to: '/authenticate/passwordless/authentication-methods/email-otp',
   },
   {
     from: [
@@ -841,16 +841,16 @@ const redirects = [
       '/connections/passwordless/authentication-factors/email-magic-link',
       '/connections/passwordless/authentication-methods/email-magic-link',
       ],
-    to: '/authenticate/passwordless/authentication-factors/email-magic-link',
+    to: '/authenticate/passwordless/authentication-methods/email-magic-link',
   },
   {
     from: [
-      '/connections/passwordless/sms-otp', 
+      '/connections/passwordless/sms-otp',
       '/connections/passwordless/sms',
       '/connections/passwordless/authentication-factors/sms-otp',
       '/connections/passwordless/authentication-methods/sms-otp',
       ],
-    to: '/authenticate/passwordless/authentication-factors/sms-otp',
+    to: '/authenticate/passwordless/authentication-methods/sms-otp',
   },
   {
     from: [
@@ -858,7 +858,7 @@ const redirects = [
       '/connections/passwordless/embedded-login/spa',
       '/connections/passwordless/implement-login/embedded-login/spa',
       ],
-    to: '/authenticate/passwordless/embedded-login/spa',
+    to: '/authenticate/passwordless/implement-login/embedded-login/spa',
   },
   {
     from: [
@@ -866,7 +866,7 @@ const redirects = [
       '/connections/passwordless/embedded-login/webapps',
       '/connections/passwordless/implement-login/embedded-login/webapps',
       ],
-    to: '/authenticate/passwordless/embedded-login/webapps',
+    to: '/authenticate/passwordless/implement-login/embedded-login/webapps',
   },
   {
     from: [
@@ -875,7 +875,7 @@ const redirects = [
       '/connections/passwordless/embedded-login/native',
       '/connections/passwordless/implement-login/embedded-login/native',
       ],
-    to: '/authenticate/passwordless/embedded-login/native',
+    to: '/authenticate/passwordless/implement-login/embedded-login/native',
   },
   {
     from: [
@@ -883,7 +883,7 @@ const redirects = [
       '/connections/passwordless/embedded-login/relevant-api-endpoints',
       '/connections/passwordless/implement-login/embedded-login/relevant-api-endpoints',
       ],
-    to: '/authenticate/passwordless/embedded-login/relevant-api-endpoints',
+    to: '/authenticate/passwordless/implement-login/embedded-login/relevant-api-endpoints',
   },
   {
     from: [
@@ -1538,8 +1538,9 @@ const redirects = [
       '/protocols/oidc/openid-connect-discovery',
       '/oidc-rs256-owin',
       '/protocols/configure-applications-with-oidc-discovery',
+      '/configure/applications/configure-applications-with-oidc-discovery',
     ],
-    to: '/configure/applications/configure-applications-with-oidc-discovery',
+    to: '/get-started/applications/configure-applications-with-oidc-discovery',
   },
   {
     from: [
@@ -1554,8 +1555,9 @@ const redirects = [
     from: [
       '/applications/update-application-connections',
       '/dashboard/guides/applications/update-app-connections',
+      '/configure/applications/update-application-connections',
     ],
-    to: '/configure/applications/update-application-connections',
+    to: '/get-started/applications/update-application-connections',
   },
   {
     from: [
@@ -2351,7 +2353,7 @@ const redirects = [
       '/authorization/concepts/policies',
       '/authorization/authorization-policies',
     ],
-    to: '/manage-users/rules-for-authorization-policies',
+    to: '/manage-users/access-control/authorization-policies',
   },
   {
     from: [
@@ -2359,7 +2361,7 @@ const redirects = [
       '/authorization/concepts/authz-rules',
       '/authorization/authorization-policies/rules-for-authorization-policies',
     ],
-    to: '/authorization/authorization-policies/rules-for-authorization-policies',
+    to: '/manage-users/access-control/rules-for-authorization-policies',
   },
   {
     from: [
@@ -2370,7 +2372,7 @@ const redirects = [
       '/authorization/sample-use-cases-rules-with-authorization',
       '/authorization/authorization-policies/sample-use-cases-rules-with-authorization',
     ],
-    to: '/manage-users/sample-use-cases-rules-with-authorization',
+    to: '/manage-users/access-control/sample-use-cases-rules-with-authorization',
   },
   {
     from: [
@@ -2561,7 +2563,7 @@ const redirects = [
       '/authorization/concepts/rbac',
       '/authorization/rbac',
     ],
-    to: '/manage-users/rbac',
+    to: '/manage-users/access-control/rbac',
   },
   {
     from: [
@@ -2569,7 +2571,7 @@ const redirects = [
       '/authorization/concepts/core-vs-extension',
       '/authorization/rbac/authorization-core-vs-authorization-extension',
     ],
-    to: '/manage-users/authorization-core-vs-authorization-extension',
+    to: '/manage-users/access-control/authorization-core-vs-authorization-extension',
   },
   {
     from: [
@@ -2577,7 +2579,7 @@ const redirects = [
       '/authorization/concepts/sample-use-cases-rbac',
       '/authorization/rbac/sample-use-cases-role-based-access-control',
     ],
-    to: '/manage-users/sample-use-cases-role-based-access-control',
+    to: '/manage-users/access-control/sample-use-cases-role-based-access-control',
   },
   {
     from: [
@@ -2586,14 +2588,14 @@ const redirects = [
       '/authorization/auth-core-features',
       '/authorization/rbac/auth-core-features',
     ],
-    to: '/manage-users/configure-core-rbac',
+    to: '/manage-users/access-control/configure-core-rbac',
   },
   {
     from: [
       '/authorization/guides/manage-roles',
       '/authorization/rbac/roles',
     ],
-    to: '/manage-users/configure-core-rbac/roles',
+    to: '/manage-users/access-control/configure-core-rbac/roles',
   },
   {
     from: [
@@ -2636,7 +2638,7 @@ const redirects = [
       '/authorization/guides/manage-users',
       '/authorization/rbac/rbac-users',
     ],
-    to: '/manage-users/configure-core-rbac/rbac-users',
+    to: '/manage-users/access-control/configure-core-rbac/rbac-users',
   },
   {
     from: [
@@ -2693,7 +2695,7 @@ const redirects = [
       '/authorization/guides/manage-permissions',
       '/authorization/rbac/manage-permissions',
     ],
-    to: '/manage-users/configure-core-rbac/manage-permissions',
+    to: '/manage-users/access-control/configure-core-rbac/manage-permissions',
   },
 
   /* Protocols */
@@ -2839,7 +2841,7 @@ const redirects = [
       '/universal-login/universal-login-page-customization',
       '/brand-and-customize/universal-login-page-templates',
     ],
-    to: '/customize/universal-login-page-templates',
+    to: '/customize/universal-login-pages',
   },
   {
     from: [
@@ -2848,7 +2850,7 @@ const redirects = [
       '/universal-login/advanced-customization',
       '/brand-and-customize/customization-classic',
     ],
-    to: '/customize/customization-classic',
+    to: '/customize/universal-login-pages/customization-classic',
   },
   {
     from: [
@@ -2857,7 +2859,7 @@ const redirects = [
       '/hosted-pages/version-control',
       '/brand-and-customize/version-control-universal-login-pages',
     ],
-    to: '/customize/version-control-universal-login-pages',
+    to: '/customize/universal-login-pages/version-control',
   },
 
   /* Custom Domains */
@@ -3014,28 +3016,44 @@ const redirects = [
       '/auth0-email-services/configure-external-smtp-email-providers',
       '/email/providers',
       '/email/configure-external-smtp-email-providers',
+      '/brand-and-customize/email/smtp-email-providers',
     ],
-    to: '/brand-and-customize/email/smtp-email-providers',
+    to: '/customize/email/smtp-email-providers',
   },
   {
-    from: '/email/configure-external-smtp-email-providers/configure-amazon-ses-as-external-smtp-email-provider',
-    to: '/brand-and-customize/email/smtp-email-providers/configure-amazon-ses-as-external-smtp-email-provider',
+    from: [
+      '/email/configure-external-smtp-email-providers/configure-amazon-ses-as-external-smtp-email-provider',
+      '/brand-and-customize/email/smtp-email-providers/configure-amazon-ses-as-external-smtp-email-provider',
+    ],
+    to: '/customize/email/smtp-email-providers/configure-amazon-ses-as-external-smtp-email-provider',
   },
   {
-    from: '/email/configure-external-smtp-email-providers/configure-mandrill-as-external-smtp-email-provider',
-    to: '/brand-and-customize/email/smtp-email-providers/configure-mandrill-as-external-smtp-email-provider',
+    from: [
+      '/email/configure-external-smtp-email-providers/configure-mandrill-as-external-smtp-email-provider',
+      '/brand-and-customize/email/smtp-email-providers/configure-mandrill-as-external-smtp-email-provider',
+    ],
+    to: '/customize/email/smtp-email-providers/configure-mandrill-as-external-smtp-email-provider',
   },
   {
-    from: '/email/configure-external-smtp-email-providers/configure-sendgrid-as-external-smtp-email-provider',
-    to: '/brand-and-customize/email/smtp-email-providers/configure-sendgrid-as-external-smtp-email-provider',
+    from: [
+      '/email/configure-external-smtp-email-providers/configure-sendgrid-as-external-smtp-email-provider',
+      '/brand-and-customize/email/smtp-email-providers/configure-sendgrid-as-external-smtp-email-provider',
+    ],
+    to: '/customize/email/smtp-email-providers/configure-sendgrid-as-external-smtp-email-provider',
   },
   {
-    from: '/email/configure-external-smtp-email-providers/configure-sparkpost-as-external-smtp-email-provider',
-    to: '/brand-and-customize/email/smtp-email-providers/configure-sparkpost-as-external-smtp-email-provider',
+    from: [
+      '/email/configure-external-smtp-email-providers/configure-sparkpost-as-external-smtp-email-provider',
+      '/brand-and-customize/email/smtp-email-providers/configure-sparkpost-as-external-smtp-email-provider',
+    ],
+    to: '/customize/email/smtp-email-providers/configure-sparkpost-as-external-smtp-email-provider',
   },
   {
-    from: '/email/configure-external-smtp-email-providers/configure-mailgun-as-external-smtp-email-provider',
-    to: '/brand-and-customize/email/smtp-email-providers/configure-mailgun-as-external-smtp-email-provider',
+    from: [
+      '/email/configure-external-smtp-email-providers/configure-mailgun-as-external-smtp-email-provider',
+      '/brand-and-customize/email/smtp-email-providers/configure-mailgun-as-external-smtp-email-provider',
+    ],
+    to: '/customize/email/smtp-email-providers/configure-mailgun-as-external-smtp-email-provider',
   },
   {
     from: [
@@ -3059,123 +3077,188 @@ const redirects = [
     from: [
       '/universal-login/new-experience/text-customization-new-universal-login',
       '/universal-login/text-customization',
+      '/brand-and-customize/text-customization-new-universal-login',
     ],
-    to: '/brand-and-customize/text-customization-new-universal-login',
+    to: '/customize/universal-login-pages/customize-login-text-prompts',
   },
   {
     from: [
       '/login/universal-login/prompt-common',
       '/universal-login/prompt-common',
       '/universal-login/text-customization-prompts/common',
+      '/brand-and-customize/text-customization-new-universal-login/prompt-common',
     ],
-    to: '/brand-and-customize/text-customization-new-universal-login/prompt-common',
+    to: '/customize/universal-login-pages/customize-login-text-prompts/prompt-common',
   },
   {
     from: [
       '/universal-login/prompt-consent',
       '/universal-login/text-customization-prompts/consent',
       '/login/universal-login/prompt-consent',
+      '/brand-and-customize/text-customization-new-universal-login/prompt-consent',
     ],
-    to: '/brand-and-customize/text-customization-new-universal-login/prompt-consent',
+    to: '/customize/universal-login-pages/customize-login-text-prompts/prompt-consent',
   },
   {
     from: [
       '/universal-login/prompt-device-flow',
       '/universal-login/text-customization-prompts/device-flow',
       '/login/universal-login/prompt-device-flow',
+      '/brand-and-customize/text-customization-new-universal-login/prompt-device-flow',
     ],
-    to: '/brand-and-customize/text-customization-new-universal-login/prompt-device-flow',
+    to: '/customize/universal-login-pages/customize-login-text-prompts/prompt-device-flow',
   },
   {
-    from: '/universal-login/prompt-email-otp-challenge',
-    to: '/brand-and-customize/text-customization-new-universal-login/prompt-email-otp-challenge',
+    from: [
+      '/universal-login/prompt-email-otp-challenge',
+      '/brand-and-customize/text-customization-new-universal-login/prompt-email-otp-challenge',
+    ],
+    to: '/customize/universal-login-pages/customize-login-text-prompts/prompt-email-otp-challenge',
   },
   {
     from: [
       '/universal-login/prompt-email-verification',
       '/universal-login/text-customization-prompts/email-verification',
       '/login/universal-login/prompt-email-verification',
+      '/brand-and-customize/text-customization-new-universal-login/prompt-email-verification',
     ],
-    to: '/brand-and-customize/text-customization-new-universal-login/prompt-email-verification',
+    to: '/customize/universal-login-pages/customize-login-text-prompts/prompt-email-verification',
   },
   {
-    from: '/univeral-login/prompt-accept-invitation',
-    to: '/brand-and-customize/text-customization-new-universal-login/prompt-accept-invitation',
+    from: [
+      '/univeral-login/prompt-accept-invitation',
+      '/brand-and-customize/text-customization-new-universal-login/prompt-accept-invitation',
+    ],
+    to: '/customize/universal-login-pages/customize-login-text-prompts/prompt-accept-invitation',
   },
   {
     from: [
       '/login/universal-login/prompt-login',
       '/universal-login/prompt-login',
       '/universal-login/text-customization-prompts/login',
+      '/brand-and-customize/text-customization-new-universal-login/prompt-login',
     ],
-    to: '/brand-and-customize/text-customization-new-universal-login/prompt-login',
+    to: '/customize/universal-login-pages/customize-login-text-prompts/prompt-login',
   },
   {
-    from: '/universal-login/prompt-login-email-verification',
-    to: '/brand-and-customize/text-customization-new-universal-login/prompt-login-email-verification',
+    from: [
+      '/universal-login/prompt-login-email-verification',
+      '/brand-and-customize/text-customization-new-universal-login/prompt-login-email-verification',
+    ],
+    to: '/customize/universal-login-pages/customize-login-text-prompts/prompt-login-email-verification',
   },
   {
-    from: '/universal-login/prompt-login-id',
-    to: '/brand-and-customize/text-customization-new-universal-login/prompt-login-id',
+    from: [
+      '/universal-login/prompt-login-id',
+      '/brand-and-customize/text-customization-new-universal-login/prompt-login-id',
+    ],
+    to: '/customize/universal-login-pages/customize-login-text-prompts/prompt-login-id',
   },
   {
-    from: '/universal-login/prompt-login-password',
-    to: '/brand-and-customize/text-customization-new-universal-login/prompt-login-password',
+    from: [
+      '/universal-login/prompt-login-password',
+      '/brand-and-customize/text-customization-new-universal-login/prompt-login-password',
+    ],
+    to: '/customize/universal-login-pages/customize-login-text-prompts/prompt-login-password',
   },
   {
-    from: ['/universal-login/prompt-mfa', '/universal-login/text-customization-prompts/mfa'],
-    to: '/brand-and-customize/text-customization-new-universal-login/prompt-mfa',
+    from: [
+      '/universal-login/prompt-mfa',
+      '/universal-login/text-customization-prompts/mfa',
+      '/brand-and-customize/text-customization-new-universal-login/prompt-mfa',
+    ],
+    to: '/customize/universal-login-pages/customize-login-text-prompts/prompt-mfa',
   },
   {
-    from: ['/universal-login/prompt-mfa-email', '/universal-login/text-customization-prompts/mfa-email'],
-    to: '/brand-and-customize/text-customization-new-universal-login/prompt-mfa-email',
+    from: [
+      '/universal-login/prompt-mfa-email',
+      '/universal-login/text-customization-prompts/mfa-email',
+      '/brand-and-customize/text-customization-new-universal-login/prompt-mfa-email',
+    ],
+    to: '/customize/universal-login-pages/customize-login-text-prompts/prompt-mfa-email',
   },
   {
-    from: ['/universal-login/prompt-mfa-otp', '/universal-login/text-customization-prompts/mfa-otp'],
-    to: '/brand-and-customize/text-customization-new-universal-login/prompt-mfa-otp',
+    from: [
+      '/universal-login/prompt-mfa-otp',
+      '/universal-login/text-customization-prompts/mfa-otp',
+      '/brand-and-customize/text-customization-new-universal-login/prompt-mfa-otp',
+    ],
+    to: '/customize/universal-login-pages/customize-login-text-prompts/prompt-mfa-otp',
   },
   {
-    from: '/universal-login/prompt-mfa-phone',
-    to: '/brand-and-customize/text-customization-new-universal-login/prompt-mfa-phone',
+    from: [
+      '/universal-login/prompt-mfa-phone',
+      '/brand-and-customize/text-customization-new-universal-login/prompt-mfa-phone',
+    ],
+    to: '/customize/universal-login-pages/customize-login-text-prompts/prompt-mfa-phone',
   },
   {
-    from: ['/universal-login/prompt-mfa-push', '/universal-login/text-customization-prompts/mfa-push'],
-    to: '/brand-and-customize/text-customization-new-universal-login/prompt-mfa-push',
+    from: [
+      '/universal-login/prompt-mfa-push',
+      '/universal-login/text-customization-prompts/mfa-push',
+      '/brand-and-customize/text-customization-new-universal-login/prompt-mfa-push',
+    ],
+    to: '/customize/universal-login-pages/customize-login-text-prompts/prompt-mfa-push',
   },
   {
     from: [
       '/universal-login/prompt-mfa-recovery-code',
       '/universal-login/text-customization-prompts/mfa-recovery-code',
+      '/brand-and-customize/text-customization-new-universal-login/prompt-mfa-recovery-code',
     ],
-    to: '/brand-and-customize/text-customization-new-universal-login/prompt-mfa-recovery-code',
+    to: '/customize/universal-login-pages/customize-login-text-prompts/prompt-mfa-recovery-code',
   },
   {
-    from: ['/universal-login/prompt-mfa-sms', '/universal-login/text-customization-prompts/mfa-sms'],
-    to: '/brand-and-customize/text-customization-new-universal-login/prompt-mfa-sms',
+    from: [
+      '/universal-login/prompt-mfa-sms',
+      '/universal-login/text-customization-prompts/mfa-sms',
+      '/brand-and-customize/text-customization-new-universal-login/prompt-mfa-sms',
+    ],
+    to: '/customize/universal-login-pages/customize-login-text-prompts/prompt-mfa-sms',
   },
   {
-    from: '/universal-login/prompt-mfa-voice',
-    to: '/brand-and-customize/text-customization-new-universal-login/prompt-mfa-voice',
+    from: [
+      '/universal-login/prompt-mfa-voice',
+      '/brand-and-customize/text-customization-new-universal-login/prompt-mfa-voice',
+    ],
+    to: '/customize/universal-login-pages/customize-login-text-prompts/prompt-mfa-voice',
   },
   {
-    from: '/universal-login/prompt-mfa-webauthn',
-    to: '/brand-and-customize/text-customization-new-universal-login/prompt-mfa-webauthn',
+    from: [
+      '/universal-login/prompt-mfa-webauthn',
+      '/brand-and-customize/text-customization-new-universal-login/prompt-mfa-webauthn',
+    ],
+    to: '/customize/universal-login-pages/customize-login-text-prompts/prompt-mfa-webauthn',
   },
   {
-    from: '/universal-login/prompt-organization-selection',
-    to: '/brand-and-customize/text-customization-new-universal-login/prompt-organization-selection',
+    from: [
+      '/universal-login/prompt-organization-selection',
+      '/brand-and-customize/text-customization-new-universal-login/prompt-organization-selection',
+    ],
+    to: '/customize/universal-login-pages/customize-login-text-prompts/prompt-organization-selection',
   },
   {
-    from: ['/universal-login/prompt-reset-password', '/universal-login/text-customization-prompts/reset-password'],
-    to: '/brand-and-customize/text-customization-new-universal-login/prompt-reset-password',
+    from: [
+      '/universal-login/prompt-reset-password',
+      '/universal-login/text-customization-prompts/reset-password',
+      '/brand-and-customize/text-customization-new-universal-login/prompt-reset-password',
+    ],
+    to: '/customize/universal-login-pages/customize-login-text-prompts/prompt-reset-password',
   },
   {
-    from: ['/universal-login/prompt-signup', '/universal-login/text-customization-prompts/signup'],
-    to: '/brand-and-customize/text-customization-new-universal-login/prompt-signup',
+    from: [
+      '/universal-login/prompt-signup',
+      '/universal-login/text-customization-prompts/signup',
+      '/brand-and-customize/text-customization-new-universal-login/prompt-signup',
+    ],
+    to: '/customize/universal-login-pages/customize-login-text-prompts/prompt-signup',
   },
   {
-    from: '/universal-login/prompt-signup-id',
-    to: '/brand-and-customize/text-customization-new-universal-login/prompt-signup-id',
+    from: [
+      '/universal-login/prompt-signup-id',
+      '/brand-and-customize/text-customization-new-universal-login/prompt-signup-id',
+    ],
+    to: '/customize/universal-login-pages/customize-login-text-prompts/prompt-signup-id',
   },
   {
     from: [
@@ -3190,7 +3273,7 @@ const redirects = [
       '/scopes/current/guides/customize-consent-prompt',
       '/brand-and-customize/customize-consent-prompts',
     ],
-    to: '/customize/customize-consent-prompts',
+    to: '/customize/universal-login-pages/customize-consent-prompts',
   },
   {
     from: [
@@ -3199,7 +3282,7 @@ const redirects = [
       '/hosted-pages/custom-error-pages',
       '/brand-and-customize/custom-error-pages',
     ],
-    to: '/customize/custom-error-pages',
+    to: '/customize/universal-login-pages/custom-error-pages',
   },
   {
     from: [
@@ -3217,7 +3300,7 @@ const redirects = [
       '/hosted-pages/password-reset',
       '/brand-and-customize/customize-password-reset-page',
     ],
-    to: '/customize/customize-password-reset-page',
+    to: '/customize/universal-login-pages/customize-password-reset-page',
   },
   {
     from: [
@@ -4092,8 +4175,9 @@ const redirects = [
       '/application-auth/current',
       '/application-auth/legacy',
       '/application-auth',
+      '/get-started/authentication-and-authorization',
     ],
-    to: '/get-started/authentication-and-authorization',
+    to: '/get-started/identity-fundamentals/authentication-and-authorization',
   },
   {
     from: [
@@ -5335,8 +5419,11 @@ const redirects = [
   /* LOGIN */
 
   {
-    from: ['/flows/login'],
-    to: '/login',
+    from: [
+      '/flows/login',
+      '/login',
+      ],
+    to: '/authenticate/login',
   },
   {
     from: [
@@ -6627,7 +6714,7 @@ const redirects = [
       '/security/general-security-tips',
       '/security/tips',
     ],
-    to: '/secure/tips',
+    to: '/secure/security-guidance/tips',
   },
   {
     from: [
@@ -6638,7 +6725,7 @@ const redirects = [
       '/security/denylist-user-attributes',
       '/security/data-security/denylist',
     ],
-    to: '/secure/data-security/denylist',
+    to: '/secure/security-guidance/data-security/denylist',
   },
   {
     from: [
@@ -6647,7 +6734,7 @@ const redirects = [
       '/security/allowlist-ip-addresses',
       '/security/data-security/allowlist',
     ],
-    to: '/secure/data-security/allowlist',
+    to: '/secure/security-guidance/data-security/allowlist',
   },
   {
     from: [
@@ -6661,7 +6748,7 @@ const redirects = [
       '/user-profile/user-data-storage',
       '/security/data-security/user-data-storage',
     ],
-    to: '/secure/data-security/user-data-storage',
+    to: '/secure/security-guidance/data-security/user-data-storage',
   },
   {
     from: [
@@ -6672,7 +6759,7 @@ const redirects = [
       '/tokens/token-storage',
       '/security/data-security/token-storage',
     ],
-    to: '/secure/data-security/token-storage',
+    to: '/secure/security-guidance/data-security/token-storage',
   },
   {
     from: [
@@ -6680,7 +6767,7 @@ const redirects = [
       '/security/prevent-common-cybersecurity-threats',
       '/security/prevent-threats',
     ],
-    to: '/secure/prevent-threats',
+    to: '/secure/security-guidance/prevent-threats',
   },
 
   /* Security Bulletins */
@@ -6689,7 +6776,7 @@ const redirects = [
       '/security/bulletins',
       '/security/security-bulletins',
     ],
-    to: '/secure/security-bulletins',
+    to: '/secure/security-guidance/security-bulletins',
   },
   {
     from: ['/security/bulletins/cve-2020-15259', '/security/cve-2020-15259'],
