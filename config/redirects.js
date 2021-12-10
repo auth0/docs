@@ -899,6 +899,12 @@ const redirects = [
     ],
     to: '/authenticate/database-connections/custom-db/templates/get-user',
   },
+  {
+    from: [
+      '/connections/database',
+    ],
+    to: '/authenticate/database-connections',
+  },
 
   /* MICROSITES */
 
@@ -3559,7 +3565,7 @@ const redirects = [
       '/private-cloud/private-cloud-onboarding/private-cloud-remote-access-options',
       '/deploy/private-cloud/private-cloud-onboarding/private-cloud-remote-access-options',
     ],
-    to: '/deploy-monitor/deploy-private-cloud/deploy-private-cloud',
+    to: '/deploy-monitor/deploy-private-cloud',
   },
   {
     from: [
@@ -3569,7 +3575,7 @@ const redirects = [
       '/appliance/infrastructure/ip-domain-port-list',
       '/deploy/private-cloud/private-cloud-onboarding/private-cloud-ip-domain-and-port-list',
     ],
-    to: '/deploy-monitor/deploy-private-cloud/deploy-private-cloud/private-cloud-on-aws/private-cloud-onboarding/private-cloud-ip-domain-and-port-list',
+    to: '/deploy-monitor/deploy-private-cloud/private-cloud-on-aws/private-cloud-onboarding/private-cloud-ip-domain-and-port-list',
   },
 
   {
