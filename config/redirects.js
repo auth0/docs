@@ -3525,7 +3525,7 @@ const redirects = [
       '/appliance/appliance-overview',
       '/deploy/private-cloud',
     ],
-    to: '/deploy-monitor/private-cloud-on-aws',
+    to: '/deploy-monitor/deploy-private-cloud/private-cloud-on-aws',
   },
   {
     from: [
@@ -3543,7 +3543,7 @@ const redirects = [
       '/private-cloud/private-cloud-onboarding',
       '/deploy/private-cloud/private-cloud-onboarding',
     ],
-    to: '/deploy-monitor/private-cloud-on-aws/private-cloud-onboarding',
+    to: '/deploy-monitor/deploy-private-cloud/private-cloud-on-aws/private-cloud-onboarding',
   },
   {
     from: [
@@ -3554,7 +3554,7 @@ const redirects = [
       '/private-cloud/private-cloud-onboarding/private-cloud-remote-access-options',
       '/deploy/private-cloud/private-cloud-onboarding/private-cloud-remote-access-options',
     ],
-    to: '/deploy-monitor/deploy-private-cloud',
+    to: '/deploy-monitor/deploy-private-cloud/deploy-private-cloud',
   },
   {
     from: [
@@ -3564,7 +3564,7 @@ const redirects = [
       '/appliance/infrastructure/ip-domain-port-list',
       '/deploy/private-cloud/private-cloud-onboarding/private-cloud-ip-domain-and-port-list',
     ],
-    to: '/deploy-monitor/deploy-private-cloud/private-cloud-on-aws/private-cloud-onboarding/private-cloud-ip-domain-and-port-list',
+    to: '/deploy-monitor/deploy-private-cloud/deploy-private-cloud/private-cloud-on-aws/private-cloud-onboarding/private-cloud-ip-domain-and-port-list',
   },
 
   {
@@ -3598,21 +3598,21 @@ const redirects = [
       '/private-cloud/private-cloud-migrations',
       '/deploy/private-cloud/private-cloud-migrations',
     ],
-    to: '/deploy-monitor/private-cloud-on-aws/private-cloud-migrations',
+    to: '/deploy-monitor/deploy-private-cloud/private-cloud-on-aws/private-cloud-migrations',
   },
   {
     from: [
       '/private-cloud/private-cloud-migrations/migrate-from-public-cloud-to-private-cloud',
       '/deploy/private-cloud/private-cloud-migrations/migrate-from-public-cloud-to-private-cloud',
     ],
-    to: '/deploy-monitor/private-cloud-on-aws/private-cloud-migrations/migrate-from-public-cloud-to-private-cloud',
+    to: '/deploy-monitor/deploy-private-cloud/private-cloud-on-aws/private-cloud-migrations/migrate-from-public-cloud-to-private-cloud',
   },
   {
     from: [
       '/private-cloud/private-cloud-migrations/migrate-from-standard-private-cloud-to-managed-private-cloud',
       '/deploy/private-cloud/private-cloud-migrations/migrate-from-standard-private-cloud-to-managed-private-cloud',
     ],
-    to: '/deploy-monitor/private-cloud-on-aws/private-cloud-migrations/migrate-from-standard-private-cloud-to-managed-private-cloud',
+    to: '/deploy-monitor/deploy-private-cloud/private-cloud-on-aws/private-cloud-migrations/migrate-from-standard-private-cloud-to-managed-private-cloud',
   },
   {
     from: [
@@ -3623,7 +3623,7 @@ const redirects = [
       '/private-cloud/migrate-private-cloud-custom-domains',
       '/deploy/private-cloud/private-cloud-migrations/migrate-private-cloud-custom-domains',
     ],
-    to: '/deploy-monitor/private-cloud-on-aws/private-cloud-migrations/migrate-private-cloud-custom-domains',
+    to: '/deploy-monitor/deploy-private-cloud/private-cloud-on-aws/private-cloud-migrations/migrate-private-cloud-custom-domains',
   },
   {
     from: [
