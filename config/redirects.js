@@ -405,6 +405,12 @@ const redirects = [
   },
   {
     from: [
+      '/connections/enterprise/google-apps',
+    ],
+    to: '/authenticate/identity-providers/enterprise-identity-providers/google-apps',
+  },
+  {
+    from: [
       '/connections/enterprise/samlp',
       '/connections/enterprise/saml',
       '/connections/enterprise/sharepoint-online',
@@ -904,6 +910,12 @@ const redirects = [
       '/connections/database',
     ],
     to: '/authenticate/database-connections',
+  },
+    {
+    from: [
+      '/connections/social/devkeys',
+    ],
+    to: '/authenticate/identity-providers/social-identity-providers/devkeys',
   },
 
   /* MICROSITES */
@@ -2845,6 +2857,7 @@ const redirects = [
       '/universal-login/new-experience/universal-login-page-templates',
       '/universal-login/page-templates',
       '/universal-login/universal-login-page-customization',
+      '/customize/universal-login-page-templates',
       '/brand-and-customize/universal-login-page-templates',
     ],
     to: '/customize/universal-login-pages',
@@ -5001,6 +5014,12 @@ const redirects = [
     ],
     to: '/customize/integrations/marketplace-partners/sso-integrations-for-partners',
   },
+  {
+    from: [
+      '/actions/triggers/send-phone-message',
+    ],
+    to: '/customize/actions/triggers/send-phone-message',
+  },
 
   /* Libraries */
 
@@ -5295,6 +5314,12 @@ const redirects = [
 
   /* ORGANIZATIONS */
 
+  {
+    from: [
+      '/organizations',
+    ],
+    to: '/manage-users/organizations',
+  },
   {
     from: [
       '/organizations/configure-organizations',
