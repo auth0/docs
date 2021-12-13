@@ -11,14 +11,14 @@
   url: "/get-started"
   articles:
 
-    - title: "Identity Fundamentals"
-      url: "/get-started/identity-fundamentals"
-    
     - title: "Auth0 Overview"
       url: "/get-started/auth0-overview"
-
-    - title: "Set up your Tenant"
+      
+    - title: "Tenant Settngs"
       url: "/get-started/tenant-settings"
+   
+    - title: "Authentication and Authorization Flows"
+      url: "/get-started/authentication-and-authorization-flow"
 
 - id: "authenticate"
   title: "Authenticate"
@@ -26,15 +26,15 @@
   description: "Integrate Auth0 login"
   url: "/authenticate"
   articles:
-
-    - title: "What is Authentication"
-      url: "/authenticate"
-      
-    - title: "Provisioning Users"
-      url: "/authenticate/identity-providers"
-
+  
     - title: "Universal Login"
       url: "/authenticate/login/auth0-universal-login"
+
+    - title: "Identity Providers"
+      url: "/authenticate/identity-providers"
+      
+    - title: "User Store"
+      url: "/authenticate/database-connections"
 
 - id: "manage-users"
   title: "Manage Users"
@@ -59,13 +59,13 @@
   url: "/customize"
   articles:
 
-    - title: "Branding"
-      url: "/customize"
+    - title: "Universal Login Pages"
+      url: "/customize/universal-login-pages"
 
     - title: "Actions"
       url: "/customize/actions"
 
-    - title: "Extensibility"
+    - title: "Extensions"
       url: "/customize/extensions"
 
 - id: "secure"
@@ -92,10 +92,10 @@
   articles:
 
     - title: "Deployment Options"
-      url: "/deploy-monitor"
+      url: "/deploy-monitor/deployment-options"
       
-    - title: "Monitor"
-      url: "/deploy-monitor/monitor"
+    - title: "Check Auth0 Status"
+      url: "/deploy-monitor/monitor/check-auth0-status"
 
     - title: "Logs"
       url: "/deploy-monitor/logs" 
@@ -109,9 +109,9 @@
 
     - title: "Customer Support"
       url: "/troubleshoot/customer-support"
-      
-    - title: "Professional Services"
-      url: "/troubleshoot/professional-services"
 
     - title: "Troubleshoot Basic Issues"
       url: "/troubleshoot/basic-issues" 
+      
+    - title: "Deprecations and Migrations"
+      url: "/troubleshoot/product-lifecycle/deprecations-and-migrations"
