@@ -7,6 +7,8 @@ files:
   - _files/login
   - _files/logout
   - _files/profile
+github:
+  path: Sample-01
 ---
 
 # Add Login to your React App
