@@ -911,11 +911,17 @@ const redirects = [
     ],
     to: '/authenticate/database-connections',
   },
-    {
+  {
     from: [
       '/connections/social/devkeys',
     ],
     to: '/authenticate/identity-providers/social-identity-providers/devkeys',
+  },
+  {
+    from: [
+      '/connections/database/custom-db/overview-custom-db-connections',
+    ],
+    to: '/authenticate/database-connections/custom-db/overview-custom-db-connections',
   },
 
   /* MICROSITES */
