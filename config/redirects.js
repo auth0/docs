@@ -443,10 +443,7 @@ const redirects = [
     to: 'https://marketplace.auth0.com/integrations/microsoft-account-social-connection',
   },
   {
-    from: [
-      '/connections/adding-generic-oauth1-connection',
-      '/oauth2',
-    ],
+    from: ['/connections/adding-generic-oauth1-connection', '/oauth2'],
     to: '/connections/social/oauth2',
   },
   {
@@ -617,10 +614,7 @@ const redirects = [
     to: '/connections/passwordless',
   },
   {
-    from: [
-      '/connections/passwordless/guides/embedded-login',
-      '/connections/passwordless/embedded-login',
-    ],
+    from: ['/connections/passwordless/guides/embedded-login', '/connections/passwordless/embedded-login'],
     to: '/connections/passwordless/implement-login/embedded-login',
   },
   {
@@ -683,10 +677,10 @@ const redirects = [
   },
   {
     from: [
-      '/connections/passwordless/sms-gateway', 
+      '/connections/passwordless/sms-gateway',
       '/connections/passwordless/guides/use-sms-gateway-passwordless',
       '/connections/passwordless/use-sms-gateway-passwordless',
-      ],
+    ],
     to: '/connections/passwordless/authentication-methods/use-sms-gateway-passwordless',
   },
   {
@@ -713,19 +707,11 @@ const redirects = [
     to: '/connections/social/facebook-native',
   },
   {
-    from: ['/connections/passwordless/email', '/connections/passwordless/guides/email-otp'],
-    to: '/connections/passwordless/email-otp',
-  },
-  {
-    from: ['/connections/passwordless/sms', '/connections/passwordless/guides/sms-otp'],
-    to: '/connections/passwordless/sms-otp',
-  },
-  {
     from: [
-      '/connections/passwordless/spa', 
+      '/connections/passwordless/spa',
       '/connections/passwordless/guides/universal-login',
       '/connections/passwordless/regular-web-app',
-      '/connections/passwordless/universal-login'
+      '/connections/passwordless/universal-login',
     ],
     to: '/connections/passwordless/implement-login/universal-login',
   },
@@ -771,61 +757,55 @@ const redirects = [
     to: '/connections/enterprise/azure-active-directory-native',
   },
   {
-    from: [
-      '/connections/passwordless/authentication-factors',
-      ],
+    from: ['/connections/passwordless/authentication-factors'],
     to: '/connections/passwordless/authentication-methods',
   },
   {
     from: [
-      '/connections/passwordless/email-otp', 
+      '/connections/passwordless/email-otp',
       '/connections/passwordless/email',
       '/connections/passwordless/authentication-factors/email-otp',
-      ],
+      '/connections/passwordless/guides/email-otp',
+    ],
     to: '/connections/passwordless/authentication-methods/email-otp',
   },
   {
     from: [
       '/connections/passwordless/email-magic-link',
       '/connections/passwordless/authentication-factors/email-magic-link',
-      ],
+    ],
     to: '/connections/passwordless/authentication-methods/email-magic-link',
   },
   {
     from: [
-      '/connections/passwordless/sms-otp', 
+      '/connections/passwordless/sms-otp',
       '/connections/passwordless/sms',
-      '/connections/passwordless/authentication-factors/sms-otp'
-      ],
+      '/connections/passwordless/authentication-factors/sms-otp',
+      '/connections/passwordless/guides/sms-otp',
+    ],
     to: '/connections/passwordless/authentication-methods/sms-otp',
   },
   {
-    from: [
-      '/connections/passwordless/embedded-login-spa',
-      '/connections/passwordless/embedded-login/spa',
-      ],
+    from: ['/connections/passwordless/embedded-login-spa', '/connections/passwordless/embedded-login/spa'],
     to: '/connections/passwordless/implement-login/embedded-login/spa',
   },
   {
-    from: [
-      '/connections/passwordless/embedded-login-webapps',
-      '/connections/passwordless/embedded-login/webapps',
-      ],
+    from: ['/connections/passwordless/embedded-login-webapps', '/connections/passwordless/embedded-login/webapps'],
     to: '/connections/passwordless/implement-login/embedded-login/webapps',
   },
   {
     from: [
-      '/connections/passwordless/embedded-login-native', 
+      '/connections/passwordless/embedded-login-native',
       '/connections/passwordless/guides/embedded-login-native',
       '/connections/passwordless/embedded-login/native',
-      ],
+    ],
     to: '/connections/passwordless/implement-login/embedded-login/native',
   },
   {
     from: [
       '/connections/passwordless/relevant-api-endpoints',
       '/connections/passwordless/embedded-login/relevant-api-endpoints',
-      ],
+    ],
     to: '/connections/passwordless/implement-login/embedded-login/relevant-api-endpoints',
   },
   {
@@ -2026,14 +2006,6 @@ const redirects = [
     to: '/api',
   },
   {
-    from: ['/api/management/v1', '/api-reference', '/api/v1/reference', '/api/management/v1/reference'],
-    to: '/api/management-api-v1-deprecated',
-  },
-  {
-    from: ['/api/management/v2/changes', '/apiv2Changes', '/api/v2/changes'],
-    to: '/api/management-api-changes-v1-to-v2',
-  },
-  {
     from: ['/api/use-auth0-apis-with-postman-collections', '/api/postman'],
     to: '/api',
   },
@@ -2628,7 +2600,6 @@ const redirects = [
     ],
     to: '/brand-and-customize/email/configure-test-smtp-email-servers',
   },
-
   {
     from: [
       '/universal-login/new-experience/text-customization-new-universal-login',
@@ -2808,7 +2779,6 @@ const redirects = [
     from: ['/libraries/lock/v11/i18n', '/libraries/lock/v10/i18n', '/libraries/lock/lock-internationalization'],
     to: '/brand-and-customize/i18n/lock-internationalization',
   },
-
   {
     from: [
       '/libraries/lock-swift/lock-swift-internationalization',
@@ -4176,9 +4146,9 @@ const redirects = [
     from: [
       '/redirect-rules-for-partners',
       '/marketplace-partner-documentation/redirect-rules-for-partners',
-      '/integrations/marketplace-partners/redirect-rules-for-partners'
+      '/integrations/marketplace-partners/redirect-rules-for-partners',
     ],
-    to: '/integrations/marketplace-partners/redirect-actions-for-partners'
+    to: '/integrations/marketplace-partners/redirect-actions-for-partners',
   },
   {
     from: ['/social-connections-for-partners', '/marketplace-partner-documentation/social-connections-for-partners'],
@@ -4371,12 +4341,11 @@ const redirects = [
       '/libraries/lock-android/v1/refresh-jwt-tokens',
       '/libraries/lock-android/refresh-jwt-tokens',
       '/libraries/auth0-android/save-and-refresh-tokens',
+      '/libraries/lock-android/lock-android-delegation',
+      '/libraries/lock-android/v2/delegation-api',
+      '/libraries/lock-android/v1/delegation-api',
     ],
     to: '/libraries/lock-android/lock-android-refresh-jwt',
-  },
-  {
-    from: ['/libraries/lock-android/lock-android-delegation'],
-    to: '/libraries/lock-android/v2/refresh-jwt-tokens',
   },
   {
     from: ['/libraries/lock-android/custom-fields', '/libraries/lock-android/v2/custom-fields'],
@@ -4395,10 +4364,6 @@ const redirects = [
   {
     from: ['/libraries/lock-android/v2/configuration', '/libraries/lock-android/v1/configuration'],
     to: '/libraries/lock-android/lock-android-configuration',
-  },
-  {
-    from: ['/libraries/lock-android/v2/delegation-api', '/libraries/lock-android/v1/delegation-api'],
-    to: '/libraries/lock-android/lock-android-delegation',
   },
   {
     from: ['/libraries/lock-android/v2/custom-theming'],
@@ -5304,6 +5269,13 @@ const redirects = [
       '/api/v1',
       '/migrations/past-migrations',
       '/product-lifecycle/deprecations-and-migrations/past-migrations',
+      '/api/management/v1',
+      '/api-reference',
+      '/api/v1/reference',
+      '/api/management/v1/reference',
+      '/api/management/v2/changes',
+      '/apiv2Changes',
+      '/api/v2/changes',
     ],
     to: '/product-lifecycle/past-migrations',
   },
