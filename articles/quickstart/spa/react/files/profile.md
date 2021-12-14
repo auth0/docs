@@ -1,5 +1,5 @@
 ---
-filename: profile.js
+name: profile.js
 language: javascript
 ---
 

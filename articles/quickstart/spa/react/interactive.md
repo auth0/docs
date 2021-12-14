@@ -3,10 +3,10 @@ title: Add Login to your React App
 description: "Auth0 allows you to add authentication to your React application quickly and to gain access to user profile information. This guide demonstrates how to integrate Auth0 with any new or existing React application using the Auth0 React SDK."
 interactive: true
 files:
-  - _files/index
-  - _files/login
-  - _files/logout
-  - _files/profile
+  - files/index
+  - files/login
+  - files/logout
+  - files/profile
 github:
   path: Sample-01
 ---
