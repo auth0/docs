@@ -1,5 +1,5 @@
 ---
-filename: logout.js
+name: logout.js
 language: javascript
 ---
 

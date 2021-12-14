@@ -1,5 +1,5 @@
 ---
-filename: index.js
+name: index.js
 language: javascript
 ---
 
@@ -12,8 +12,8 @@ import App from "./App";
 
 ReactDOM.render(
   <Auth0Provider
-    domain="abcdaaaaaa.us.auth0.com"
-    clientId="WbNBGU0fZVUInuejEmB9jnA99yz7h7x7"
+    domain="${account.namespace}"
+    clientId="${account.clientId}"
     redirectUri={window.location.origin}
   >
     <App />
