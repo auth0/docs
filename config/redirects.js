@@ -2047,8 +2047,9 @@ const redirects = [
       '/saml2webapp-tutorial',
       '/protocols/saml/saml2webapp-tutorial',
       '/protocols/saml-protocol/saml-configuration-options/enable-saml2-web-app-addon',
+      '/configure/saml-configuration/saml-sso-integrations/enable-saml2-web-app-addon',
     ],
-    to: '/configure/saml-configuration/saml-sso-integrations/enable-saml2-web-app-addon',
+    to: '/authenticate/protocols/saml/saml-sso-integrations/enable-saml2-web-app-addon',
   },
   {
     from: [
@@ -2343,8 +2344,9 @@ const redirects = [
       '/protocols/saml-configuration-options/deprovision-users-in-saml-integrations',
       '/protocols/saml/saml-configuration/deprovision-users',
       '/protocols/saml-protocol/deprovision-users-in-saml-integrations',
+      '/configure/saml-configuration/deprovision-users-in-saml-integrations',
     ],
-    to: '/configure/saml-configuration/deprovision-users-in-saml-integrations',
+    to: '/authenticate/protocols/saml/saml-configuration/deprovision-users-in-saml-integrations',
   },
 
   /* Actions */
@@ -5295,7 +5297,7 @@ const redirects = [
     from: [
       '/integrations/marketing',
     ],
-    to: '	/customize/integrations/marketing-tool-integrations',
+    to: '/customize/integrations/marketing-tool-integrations',
   },
 
   /* Libraries */
