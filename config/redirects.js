@@ -7060,6 +7060,12 @@ const redirects = [
   /* Security */
   {
     from: [
+      '/security',
+    ],
+    to: '/secure',
+  },
+  {
+    from: [
       '/security/general-security-tips',
       '/security/tips',
     ],
