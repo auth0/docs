@@ -209,7 +209,12 @@ const redirects = [
     to: '/quickstart/backend/nodejs',
   },
   {
-    from: ['/nodejs-tutorial', '/server-platforms/nodejs'],
+    from: [
+      '/nodejs-tutorial',
+      '/server-platforms/nodejs',
+      '/quickstart/webapp/nodejs/02-user-profile',
+      '/quickstart/webapp/nodejs/01-login',
+    ],
     to: '/quickstart/webapp/nodejs',
   },
   {
@@ -326,10 +331,6 @@ const redirects = [
   {
     from: '/quickstart/webapp/aspnet-core-3',
     to: '/quickstart/webapp/aspnet-core',
-  },
-  {
-    from: '/quickstart/webapp/nodejs/02-user-profile',
-    to: '/quickstart/webapp/nodejs/01-login',
   },
   {
     from: [
