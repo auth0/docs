@@ -972,6 +972,12 @@ const redirects = [
     ],
     to: '/authenticate/identity-providers/pass-parameters-to-idps',
   },
+  {
+    from: [
+      '/connections/database/custom-db/error-handling',
+    ],
+    to: '/authenticate/database-connections/custom-db/error-handling',
+  },
 
   /* MICROSITES */
 
@@ -2378,6 +2384,7 @@ const redirects = [
     from: [
       '/actions/manage-action-versions',
       '/actions/manage-versions',
+      '/customize/actions/manage-action-versions',
     ],
     to: '/customize/actions/manage-versions',
   },
@@ -2861,7 +2868,7 @@ const redirects = [
       '/authorization/auth-core-features',
       '/authorization/rbac/auth-core-features',
     ],
-    to: '/manage-users/access-control/configure-core-rbac',
+    to: '/manage-users/access-control/configure-core-rbac/auth-core-features',
   },
   {
     from: [
@@ -3132,6 +3139,7 @@ const redirects = [
       '/universal-login/version-control',
       '/hosted-pages/version-control',
       '/brand-and-customize/version-control-universal-login-pages',
+      '/customize/universal-login-pages/version-control-universal-login-pages',
     ],
     to: '/customize/universal-login-pages/version-control',
   },
