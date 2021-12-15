@@ -32,8 +32,6 @@ go 1.16
 
 require (
 	github.com/auth0/go-jwt-middleware/v2 v2.0.0-beta
-	github.com/gin-contrib/cors v1.3.1
-	github.com/gin-gonic/gin v1.7.4
 	github.com/joho/godotenv v1.4.0
 )
 ```
@@ -43,10 +41,6 @@ Download dependencies by running the following shell command:
 ```shell
 go mod download
 ```
-
-::: note
-This example uses `gin` for routing, but you can use whichever router you want.
-:::
 
 ### Configure your application
 
@@ -86,7 +80,6 @@ import (
 	"github.com/auth0/go-jwt-middleware/v2"
 	"github.com/auth0/go-jwt-middleware/v2/jwks"
 	"github.com/auth0/go-jwt-middleware/v2/validator"
-	"github.com/gin-gonic/gin"
 )
 
 // CustomClaims contains custom data we want from the token.
@@ -100,8 +93,8 @@ func (c CustomClaims) Validate(ctx context.Context) error {
 	return nil
 }
 
-// EnsureValidToken is a gin.HandlerFunc middleware that will check the validity of our JWT.
-func EnsureValidToken() gin.HandlerFunc {
+// EnsureValidToken is a middleware that will check the validity of our JWT.
+func EnsureValidToken() func(next http.Handler) http.Handler {
 	issuerURL, err := url.Parse("https://" + os.Getenv("AUTH0_DOMAIN") + "/")
 	if err != nil {
 		log.Fatalf("Failed to parse the issuer url: %v", err)
@@ -123,6 +116,10 @@ func EnsureValidToken() gin.HandlerFunc {
 
 	errorHandler := func(w http.ResponseWriter, r *http.Request, err error) {
 		log.Printf("Encountered error while validating JWT: %v", err)
+
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusUnauthorized)
+		w.Write([]byte(`{"message":"Failed to validate JWT."}`))
 	}
 
 	middleware := jwtmiddleware.New(
@@ -130,22 +127,8 @@ func EnsureValidToken() gin.HandlerFunc {
 		jwtmiddleware.WithErrorHandler(errorHandler),
 	)
 
-	return func(ctx *gin.Context) {
-		var encounteredError = true
-		var handler http.HandlerFunc = func(w http.ResponseWriter, r *http.Request) {
-			encounteredError = false
-			ctx.Request = r
-			ctx.Next()
-		}
-
-		middleware.CheckJWT(handler).ServeHTTP(ctx.Writer, ctx.Request)
-
-		if encounteredError {
-			ctx.AbortWithStatusJSON(
-				http.StatusUnauthorized,
-				map[string]string{"message": "Failed to validate JWT."},
-			)
-		}
+	return func(next http.Handler) http.Handler {
+		return middleware.CheckJWT(next)
 	}
 }
 ```
@@ -155,7 +138,7 @@ func EnsureValidToken() gin.HandlerFunc {
 
 ## Protect API Endpoints
 
-To protect individual routes, pass `middleware` (defined above) to the `gin` route.
+To protect individual routes, pass `middleware` (defined above) to the http route.
 
 ```go
 // main.go
@@ -166,8 +149,6 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/gin-contrib/cors"
-	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 
 	"01-Authorization-RS256-BETA/middleware"
@@ -178,35 +159,28 @@ func main() {
 		log.Fatalf("Error loading the .env file: %v", err)
 	}
 
-	router := gin.Default()
-
-	router.Use(cors.New(
-		cors.Config{
-			AllowOrigins:     []string{"http://localhost:3000"},
-			AllowCredentials: true,
-			AllowHeaders:     []string{"Authorization"},
-		},
-	))
+	router := http.NewServeMux()
 
 	// This route is always accessible.
-	router.Any("/api/public", func(ctx *gin.Context) {
-		response := map[string]string{
-			"message": "Hello from a public endpoint! You don't need to be authenticated to see this.",
-		}
-		ctx.JSON(http.StatusOK, response)
-	})
+	router.Handle("/api/public", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusOK)
+		w.Write([]byte(`{"message":"Hello from a public endpoint! You don't need to be authenticated to see this."}`))
+	}))
 
 	// This route is only accessible if the user has a valid access_token.
-	router.GET(
-		"/api/private",
-		middleware.EnsureValidToken(),
-		func(ctx *gin.Context) {
-			response := map[string]string{
-				"message": "Hello from a private endpoint! You need to be authenticated to see this.",
-			}
-			ctx.JSON(http.StatusOK, response)
-		},
-	)
+	router.Handle("/api/private", middleware.EnsureValidToken()(
+		http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			// CORS Headers.
+			w.Header().Set("Access-Control-Allow-Credentials", "true")
+			w.Header().Set("Access-Control-Allow-Origin", "http://localhost:3000")
+			w.Header().Set("Access-Control-Allow-Headers", "Authorization")
+
+			w.Header().Set("Content-Type", "application/json")
+			w.WriteHeader(http.StatusOK)
+			w.Write([]byte(`{"message":"Hello from a private endpoint! You need to be authenticated to see this."}`))
+		}),
+	))
 
 	log.Print("Server listening on http://localhost:3010")
 	if err := http.ListenAndServe("0.0.0.0:3010", router); err != nil {
@@ -248,25 +222,28 @@ func main() {
     
     // This route is only accessible if the user has a
     // valid access_token with the read:messages scope.
-    router.GET(
-        "/api/private-scoped",
-        middleware.EnsureValidToken(),
-        func(ctx *gin.Context) {
-            token := ctx.Request.Context().Value(jwtmiddleware.ContextKey{}).(*validator.ValidatedClaims)
-            
-            claims := token.CustomClaims.(*middleware.CustomClaims)
-            if !claims.HasScope("read:messages") {
-                response := map[string]string{"message": "Insufficient scope."}
-                ctx.JSON(http.StatusForbidden, response)
-                return
-            }
-            
-            response := map[string]string{
-                "message": "Hello from a private endpoint! You need to be authenticated to see this.",
-            }
-            ctx.JSON(http.StatusOK, response)
-        },
-    )
+	router.Handle("/api/private-scoped", middleware.EnsureValidToken()(
+		http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			// CORS Headers.
+			w.Header().Set("Access-Control-Allow-Credentials", "true")
+			w.Header().Set("Access-Control-Allow-Origin", "http://localhost:3000")
+			w.Header().Set("Access-Control-Allow-Headers", "Authorization")
+
+			w.Header().Set("Content-Type", "application/json")
+
+			token := r.Context().Value(jwtmiddleware.ContextKey{}).(*validator.ValidatedClaims)
+
+			claims := token.CustomClaims.(*middleware.CustomClaims)
+			if !claims.HasScope("read:messages") {
+				w.WriteHeader(http.StatusForbidden)
+				w.Write([]byte(`{"message":"Insufficient scope."}`))
+				return
+			}
+
+			w.WriteHeader(http.StatusOK)
+			w.Write([]byte(`{"message":"Hello from a private endpoint! You need to be authenticated to see this."}`))
+		}),
+	))
     
     // ...
 }
