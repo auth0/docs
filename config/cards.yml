@@ -6,112 +6,156 @@
 
 - id: "getting-started"
   title: "Get Started"
-  icon: "IdenticonGettingStarted"
+  icon: "icon-budicon-499"
+  color: "orange"
   description: "Learn the basics"
   url: "/get-started"
   articles:
 
-    - title: "Identity Fundamentals"
-      url: "/get-started/identity-fundamentals"
+    - title: "Create a Tenant"
+      url: "/get-started/learn-the-basics"
     
-    - title: "Auth0 Overview"
-      url: "/get-started/auth0-overview"
+    - title: "Set Up Applications"
+      url: "/applications/set-up-an-application"
 
-    - title: "Set up your Tenant"
-      url: "/get-started/tenant-settings"
+    - title: "Register APIs"
+      url: "/get-started/set-up-apis"
 
-- id: "authenticate"
-  title: "Authenticate"
-  icon: "IdenticonAuthenticationA"
+- id: "appliance"
+  title: "Plan and Deploy"
+  icon: "icon-budicon-399"
+  color: "green"
+  description: "Planning and deployment guidance"
+  url: "/architecture-scenarios"
+  articles:
+
+    - title: "Business to Consumer"
+      url: "/architecture-scenarios/b2c"
+      
+    - title: "Business to Business"
+      url: "/architecture-scenarios/b2b"
+
+    - title: "Business to Enterprise"
+      url: "/architecture-scenarios/b2e"
+
+- id: "guides"
+  title: "Security"
+  icon: "icon-budicon-678"
+  color: "green"
+  description: "Compliance, privacy, and common threats"
+  url: "/security"
+  articles:
+
+    - title: "Data Privacy and Compliance"
+      url: "/compliance"
+      
+    - title: "Tokens"
+      url: "/tokens"
+
+    - title: "Common Threats"
+      url: "/security/prevent-common-cybersecurity-threats"
+      
+- id: "ui-components"
+  title: "Configure Login"
+  icon: "icon-budicon-342"
+  color: "oil"
   description: "Integrate Auth0 login"
-  url: "/authenticate"
+  url: "/login"
   articles:
 
     - title: "What is Authentication"
-      url: "/authenticate"
-      
-    - title: "Provisioning Users"
-      url: "/authenticate/identity-providers"
+      url: "/authorization/authentication-and-authorization"
 
     - title: "Universal Login"
-      url: "/authenticate/login/auth0-universal-login"
+      url: "/universal-login"
 
-- id: "manage-users"
-  title: "Manage Users"
-  icon: "IdenticonUserManagement"
-  description: "Users, profiles, and sessions"
-  url: "/manage-users"
+    - title: "Anomaly Detection"
+      url: "/anomaly-detection"
+
+- id: "identity-providers"
+  title: "Identity Providers"
+  icon: "icon-budicon-297"
+  color: "yellow"
+  description: "Integrate with identity providers"
+  url: "/identityproviders"
   articles:
 
-    - title: "User Accounts"
-      url: "/manage-users/user-accounts"
+    - title: "Social"
+      url: "/connections/identity-providers-social"
 
-    - title: "Access Control"
-      url: "/manage-users/access-control"
+    - title: "Enterprise"
+      url: "/connections/identity-providers-enterprise"
 
-    - title: "Organizations"
-      url: "/manage-users/organizations"
+    - title: "Database"
+      url: "/connections/database"
 
-- id: "customize"
-  title: "Customize"
-  icon: "IdenticonCustomize"
-  description: "Branding and extensibility"
-  url: "/customize"
+- id: "authentication-flows"
+  title: "Workflows"
+  icon: "icon-budicon-295"
+  color: "oil"
+  description: "Authentication and authorization workflows"
+  url: "/flows"
   articles:
 
-    - title: "Branding"
-      url: "/customize"
+    - title: "Authorization Code Flow"
+      url: "/flows/authorization-code-flow"
 
+    - title: "Authorization Code Flow with PKCE"
+      url: "/flows/authorization-code-flow-with-proof-key-for-code-exchange-pkce"
+
+    - title: "Hybrid Flow"
+      url: "/flows/hybrid-flow"
+
+- id: "enterprise-identity"
+  title: "Users"
+  icon: "icon-budicon-292"
+  color: "oil"
+  description: "Manage users, profiles, and sessions"
+  url: "/users"
+  articles:
+
+    - title: "Manage Users"
+      url: "/users"
+
+    - title: "User Profiles"
+      url: "/users/user-profiles"
+
+    - title: "Sessions and Cookies"
+      url: "/sessions-and-cookies"
+
+- id: "apis"
+  title: "APIs"
+  icon: "icon-budicon-546"
+  color: "blue"
+  description: "Work with APIs"
+  url: "/api"
+  articles:
+
+    - title: "API Overview"
+      url: "/api"
+
+    - title: "Authentication API"
+      url: "/api/authentication"
+      forceFullReload: true
+
+    - title: "Management API"
+      url: "/api/management/v2"
+      forceFullReload: true
+
+- id: "extensibility"
+  title: "Extensibility"
+  icon: "icon-budicon-173"
+  color: "red"
+  description: "Customize Auth0 features"
+  url: "/extend-integrate"
+  articles:
+  
     - title: "Actions"
-      url: "/customize/actions"
+      url: "/actions"
 
-    - title: "Extensibility"
-      url: "/customize/extensions"
+    - title: "Extensions"
+      url: "/extensions"
 
-- id: "secure"
-  title: "Secure"
-  icon: "IdenticonSecurity"
-  description: "Compliance, privacy, and threats"
-  url: "/secure"
-  articles:
-
-    - title: "Attack Protection"
-      url: "/secure/attack-protection"
-      
-    - title: "Multi-factor Authentication"
-      url: "/secure/multi-factor-authentication"
-
-    - title: "Data Privacy"
-      url: "/secure/data-privacy-and-compliance"
-
-- id: "deploy-and-monitor"
-  title: "Deploy and Monitor"
-  icon: "IdenticonMonitoring"
-  description: "Deployment models and logs"
-  url: "/deploy-monitor"
-  articles:
-
-    - title: "Deployment Options"
-      url: "/deploy-monitor"
-      
-    - title: "Monitor"
-      url: "/deploy-monitor/monitor"
-
-    - title: "Logs"
-      url: "/deploy-monitor/logs" 
-      
-- id: "troubleshoot"
-  title: "Troubleshoot"
-  icon: "IdenticonTroubleshoot"
-  description: "Get help and troubleshoot"
-  url: "/troubleshoot"
-  articles:
-
-    - title: "Customer Support"
-      url: "/troubleshoot/customer-support"
-      
-    - title: "Professional Services"
-      url: "/troubleshoot/professional-services"
-
-    - title: "Troubleshoot Basic Issues"
-      url: "/troubleshoot/basic-issues" 
+    - title: "Internationalization"
+      url: "/i18n"
+     
