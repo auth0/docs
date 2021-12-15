@@ -727,6 +727,7 @@ const redirects = [
       '/connections/apple-siwa/add-siwa-to-web-app',
       '/connections/social/apple',
       '/connections/apple-siwa/test-siwa-connection',
+      '/connections/apple-siwa/troubleshooting',
     ],
     to: 'https://marketplace.auth0.com/integrations/apple-social-connection',
   },
@@ -907,6 +908,12 @@ const redirects = [
   },
   {
     from: [
+      '/connections/database/custom-db/templates/login',
+    ],
+    to: '/authenticate/database-connections/custom-db/templates/login',
+  },
+  {
+    from: [
       '/connections/database',
     ],
     to: '/authenticate/database-connections',
@@ -922,6 +929,48 @@ const redirects = [
       '/connections/database/custom-db/overview-custom-db-connections',
     ],
     to: '/authenticate/database-connections/custom-db/overview-custom-db-connections',
+  },
+  {
+    from: [
+      '/connections/passwordless/best-practices',
+    ],
+    to: '/authenticate/passwordless/best-practices',
+  },
+  {
+    from: [
+      '/connections/database/custom-db/templates',
+    ],
+    to: '/authenticate/database-connections/custom-db/templates',
+  },
+  {
+    from: [
+      '/connections/database/require-username',
+    ],
+    to: '/authenticate/database-connections/require-username',
+  },
+  {
+    from: [
+      '/connections/database/custom-db/create-db-connection',
+    ],
+    to: '/authenticate/database-connections/custom-db/create-db-connection',
+  },
+  {
+    from: [
+      '/connections/pass-parameters-to-idps',
+    ],
+    to: '/authenticate/identity-providers/pass-parameters-to-idps',
+  },
+  {
+    from: [
+      '/connections/database/password-change',
+    ],
+    to: '/authenticate/database-connections/password-change',
+  },
+  {
+    from: [
+      '/connections/pass-parameters-to-idps',
+    ],
+    to: '/authenticate/identity-providers/pass-parameters-to-idps',
   },
 
   /* MICROSITES */
@@ -950,6 +999,24 @@ const redirects = [
       '/architecture-scenarios/spa-api',
     ],
     to: '/get-started/architecture-scenarios/spa-api',
+  },
+  {
+    from: [
+      '/architecture-scenarios/spa-api/part-1',
+    ],
+    to: '/get-started/architecture-scenarios/spa-api/part-1',
+  },
+  {
+    from: [
+      '/architecture-scenarios/spa-api/part-2',
+    ],
+    to: '/get-started/architecture-scenarios/spa-api/part-2',
+  },
+  {
+    from: [
+      '/architecture-scenarios/spa-api/part-3',
+    ],
+    to: '/get-started/architecture-scenarios/spa-api/part-3',
   },
   {
     from: [
@@ -1241,6 +1308,24 @@ const redirects = [
   },
   {
     from: [
+      '/architecture-scenarios/mobile-api/part-1',
+    ],
+    to: '/get-started/architecture-scenarios/mobile-api/part-1',
+  },
+  {
+    from: [
+      '/architecture-scenarios/mobile-api/part-2',
+    ],
+    to: '/get-started/architecture-scenarios/mobile-api/part-2',
+  },
+  {
+    from: [
+      '/architecture-scenarios/mobile-api/part-3',
+    ],
+    to: '/get-started/architecture-scenarios/mobile-api/part-3',
+  },
+  {
+    from: [
       '/architecture-scenarios/application/server-api/api-implementation-nodejs',
     ],
     to: '/architecture-scenarios/server-api/api-implementation-nodejs',
@@ -1250,6 +1335,24 @@ const redirects = [
       '/architecture-scenarios/application/server-api/cron-implementation-python',
     ],
     to: '/architecture-scenarios/server-api/cron-implementation-python',
+  },
+  {
+    from: [
+      '/architecture-scenarios/server-api/part-1',
+    ],
+    to: '/get-started/architecture-scenarios/server-application-api/part-1',
+  },
+  {
+    from: [
+      '/architecture-scenarios/server-api/part-2',
+    ],
+    to: '/get-started/architecture-scenarios/server-application-api/part-2',
+  },
+  {
+    from: [
+      '/architecture-scenarios/server-api/part-3',
+    ],
+    to: '/get-started/architecture-scenarios/server-application-api/part-3',
   },
   {
     from: [
@@ -1271,6 +1374,24 @@ const redirects = [
       '/architecture-scenarios/web-app-sso/implementation-aspnetcore',
     ],
     to: '/get-started/architecture-scenarios/sso-for-regular-web-apps/implementation-aspnetcore',
+  },
+  {
+    from: [
+      '/architecture-scenarios/web-app-sso/part-1',
+    ],
+    to: '/get-started/architecture-scenarios/sso-for-regular-web-apps/part-1',
+  },
+  {
+    from: [
+      '/architecture-scenarios/web-app-sso/part-2',
+    ],
+    to: '/get-started/architecture-scenarios/sso-for-regular-web-apps/part-2',
+  },
+  {
+    from: [
+       '/architecture-scenarios/web-app-sso/part-3',
+    ],
+    to: '/get-started/architecture-scenarios/sso-for-regular-web-apps/part-3',
   },
   {
     from: [
@@ -1335,6 +1456,24 @@ const redirects = [
       '/architecture-scenarios/multiple-organization-architecture/multiple-idp-orgs',
     ],
     to: '/get-started/architecture-scenarios/multiple-organization-architecture/multiple-idp-orgs',
+  },
+  {
+    from: [
+      '/architecture-scenarios/multiple-organization-architecture',
+    ],
+    to: '/get-started/architecture-scenarios/multiple-organization-architecture',
+  },
+  {
+    from: [
+      '/architecture-scenarios/checklists',
+    ],
+    to: '/get-started/architecture-scenarios/checklists',
+  },
+  {
+    from: [
+      '/architecture-scenarios/implementation-resources',
+    ],
+    to: '/get-started/architecture-scenarios/implementation-resources',
   },
 
   /* CONTENTFUL REDIRECTS */
@@ -1758,6 +1897,7 @@ const redirects = [
     from: [
       '/scopes/sample-use-cases-scopes-and-claims',
       '/scopes/current/sample-use-cases',
+      '/configure/apis/scopes/sample-use-cases-scopes-and-claims',
     ],
     to: '/get-started/apis/scopes/sample-use-cases-scopes-and-claims',
   },
@@ -2208,7 +2348,12 @@ const redirects = [
   },
 
   /* Actions */
-
+  {
+    from: [
+      '/actions/actions-overview',
+    ],
+    to: '/customize/actions/actions-overview',
+  },
   {
     from: [
       '/actions/build-actions-flows',
@@ -2239,6 +2384,102 @@ const redirects = [
       '/actions/triggers/send-phone-message',
     ],
     to: '/customize/actions/triggers/send-phone-message',
+  },
+  {
+    from: [
+      '/actions/triggers/send-phone-message/event-object',
+    ],
+    to: '/customize/actions/triggers/send-phone-message/event-object',
+  },
+  {
+    from: [
+      '/actions/programming-model-changes',
+    ],
+    to: '/customize/actions/programming-model-changes',
+  },
+  {
+    from: [
+      '/actions/limitations',
+    ],
+    to: '/customize/actions/limitations',
+  },
+  {
+    from: [
+      '/actions/triggers/post-change-password',
+    ],
+    to: '/customize/actions/triggers/post-change-password',
+  },
+  {
+    from: [
+      '/actions/triggers/post-change-password/event-object',
+    ],
+    to: '/customize/actions/triggers/post-change-password/event-object',
+  },
+  {
+    from: [
+      '/actions/triggers/post-user-registration',
+    ],
+    to: '/customize/actions/triggers/post-user-registration',
+  },
+  {
+    from: [
+      '/actions/triggers/post-user-registration/event-object',
+    ],
+    to: '/customize/actions/triggers/post-user-registration/event-object',
+  },
+  {
+    from: [
+      '/actions/triggers/pre-user-registration',
+    ],
+    to: '/customize/actions/triggers/pre-user-registration',
+  },
+  {
+    from: [
+      '/actions/triggers/pre-user-registration/event-object',
+    ],
+    to: '/customize/actions/triggers/pre-user-registration/event-object',
+  },
+  {
+    from: [
+      '/actions/triggers/pre-user-registration/api-object',
+    ],
+    to: '/customize/actions/triggers/pre-user-registration/api-object',
+  },
+  {
+    from: [
+      '/actions/triggers/credentials-exchange',
+    ],
+    to: '/customize/actions/triggers/credentials-exchange',
+  },
+  {
+    from: [
+      '/actions/triggers/credentials-exchange/event-object',
+    ],
+    to: '/customize/actions/triggers/credentials-exchange/event-object',
+  },
+  {
+    from: [
+      '/actions/triggers/credentials-exchange/api-object',
+    ],
+    to: '/customize/actions/triggers/credentials-exchange/api-object',
+  },
+  {
+    from: [
+      '/actions/triggers/post-login',
+    ],
+    to: '/customize/actions/triggers/post-login',
+  },
+  {
+    from: [
+      '/actions/triggers/post-login/event-object',
+    ],
+    to: '/customize/actions/triggers/post-login/event-object',
+  },
+  {
+    from: [
+      '/actions/triggers/post-login/api-object',
+    ],
+    to: '/customize/actions/triggers/post-login/api-object',
   },
 
   /* Attack Protection */
@@ -3344,6 +3585,12 @@ const redirects = [
     ],
     to: '/customize/customize-sms-or-voice-messages',
   },
+  {
+    from: [
+      '/login/adopt-oidc-conformant-authentication',
+    ],
+    to: '/authenticate/login/oidc-conformant-authentication',
+  },
 
   /* Internationalization and Localization */
 
@@ -3762,6 +4009,12 @@ const redirects = [
   {
     from: ['/dashboard/guides/extensions/sso-dashboard-update-apps'],
     to: '/extensions/single-sign-on-dashboard-extension/update-applications-on-the-sso-dashboard',
+  },
+  {
+    from: [
+      '/deploy/private-cloud-on-azure',
+      ],
+    to: '/deploy-monitor/deploy-private-cloud/private-cloud-on-azure',
   },
 
   /* LDAP Connector */
@@ -4376,6 +4629,12 @@ const redirects = [
     ],
     to: '/get-started/manage-dashboard-access/feature-access-by-role',
   },
+  {
+    from: [
+      '/dashboard-access/add-change-remove-mfa/add-multi-factor-authentication-for-auth0-dashboard-access',
+    ],
+    to: '/get-started/manage-dashboard-access/add-change-remove-mfa/add-mfa',
+  },
 
   /* Hooks */
 
@@ -4532,6 +4791,12 @@ const redirects = [
       '/hooks/view-hooks',
     ],
     to: '/customize/hooks/view-hooks',
+  },
+  {
+    from: [
+      '/hooks/extensibility-points/send-phone-message',
+    ],
+    to: '/customize/hooks/extensibility-points/send-phone-message',
   },
 
   /* Identity Labs */
@@ -5026,6 +5291,12 @@ const redirects = [
     ],
     to: '/customize/integrations/marketplace-partners/sso-integrations-for-partners',
   },
+  {
+    from: [
+      '/integrations/marketing',
+    ],
+    to: '	/customize/integrations/marketing-tool-integrations',
+  },
 
   /* Libraries */
 
@@ -5451,6 +5722,30 @@ const redirects = [
       '/organizations/configure/retrieve-member-roles',
     ],
     to: '/manage-users/organizations/configure-organizations/retrieve-member-roles',
+  },
+  {
+    from: [
+      '/organizations/using-tokens',
+    ],
+    to: '/manage-users/organizations/using-tokens',
+  },
+  {
+    from: [
+      '/organizations/custom-development',
+    ],
+    to: '/manage-users/organizations/custom-development',
+  },
+  {
+    from: [
+      '/organizations/create-first-organization',
+    ],
+    to: '/manage-users/organizations/create-first-organization',
+  },
+  {
+    from: [
+      '/organizations/organizations-overview',
+    ],
+    to: '/manage-users/organizations/organizations-overview',
   },
 
   /* LOGIN */
@@ -6745,6 +7040,12 @@ const redirects = [
     ],
     to: '/rules/use-cases/track-new-sign-ups-in-salesforce',
   },
+  {
+    from: [
+      '/rules/raise-errors-from-rules',
+    ],
+    to: '/customize/rules/raise-errors-from-rules',
+  },
 
   /* Security */
   {
@@ -7326,6 +7627,30 @@ const redirects = [
       '/support/reset-account-passwords',
     ],
     to: '/troubleshoot/customer-support/reset-account-passwords',
+  },
+  {
+    from: [
+      '/support/support-channels',
+    ],
+    to: '/troubleshoot/customer-support/support-channels',
+  },
+  {
+    from: [
+      '/support/support-procedures',
+    ],
+    to: '/troubleshoot/customer-support/support-procedures',
+  },
+  {
+    from: [
+      '/support/support-hours-and-languages',
+    ],
+    to: '/troubleshoot/customer-support/support-hours-and-languages',
+  },
+  {
+    from: [
+      '/support/software-updates',
+    ],
+    to: '/troubleshoot/customer-support/software-updates',
   },
 
   /* Policies */
@@ -8210,6 +8535,12 @@ const redirects = [
       '/users/get-user-information-on-unbounce-landing-pages',
     ],
     to: '/manage-users/user-accounts/get-user-information-on-unbounce-landing-pages',
+  },
+  {
+    from: [
+      '/users/verify-emails',
+    ],
+    to: '/manage-users/user-accounts/verify-emails',
   },
 
   /* Videos */
