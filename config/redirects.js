@@ -375,6 +375,10 @@ const redirects = [
     ],
     to: '/quickstart/webapp/java-spring-boot',
   },
+  {
+    from: '/quickstart/webapp/nodejs',
+    to: '/quickstart/webapp/express'
+  },
 
   /* CONNECTIONS */
 
