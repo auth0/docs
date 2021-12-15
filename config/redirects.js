@@ -2868,7 +2868,7 @@ const redirects = [
       '/authorization/auth-core-features',
       '/authorization/rbac/auth-core-features',
     ],
-    to: '/manage-users/access-control/configure-core-rbac/auth-core-features',
+    to: '/manage-users/access-control/configure-core-rbac',
   },
   {
     from: [
