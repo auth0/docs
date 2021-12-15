@@ -2233,12 +2233,6 @@ const redirects = [
     ],
     to: '/customize/actions/manage-versions',
   },
-  {
-    from: [
-      '/actions/triggers/send-phone-message',
-    ],
-    to: '/customize/actions/triggers/send-phone-message',
-  },
 
   /* Attack Protection */
 
@@ -5025,6 +5019,12 @@ const redirects = [
     ],
     to: '/customize/integrations/marketplace-partners/sso-integrations-for-partners',
   },
+  {
+    from: [
+      '/actions/triggers/send-phone-message',
+    ],
+    to: '/customize/actions/triggers/send-phone-message',
+  },
 
   /* Libraries */
 
@@ -6603,9 +6603,8 @@ const redirects = [
       '/rules/references/legacy',
       '/rules/references/modules',
       '/rule',
-      '/rules',
     ],
-    to: '/customize/rules',
+    to: '/rules',
   },
   {
     from: [
