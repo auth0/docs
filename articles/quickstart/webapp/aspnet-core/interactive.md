@@ -15,9 +15,6 @@ interactive: true
 files:
   - files/startup
   - files/appsettings
-  - files/login
-  - files/user-profile
-  - files/logout
   - files/account.controller
 ---
 
@@ -76,10 +73,6 @@ Now that you have configured Login, run your application to verify that:
 
 :::
 
-:::checkpoint-success
-Yay!
-:::
-
 :::checkpoint-failure
 Sorry about that. Here's a couple things to double check:
 * make sure the correct application is selected
@@ -105,10 +98,6 @@ You can create a custom user profile page for displaying a user's name, email ad
 Now that you have set up your action to render the user's profile, run your application to verify that:
 * Navigating to your `Profile` action after being succesfully logged in, shows the user's profile.
 
-:::
-
-:::checkpoint-success
-Yay!
 :::
 
 :::checkpoint-failure
@@ -141,10 +130,6 @@ Now that you have configured Logout, run your application to verify that:
 * Navigating to your `Logout` action will ensure the user is logged out.
 * When also logging out from Auth0, you should be redirected to Auth0 and instantly redirected back to your own application.
 
-:::
-
-:::checkpoint-success
-Yay!
 :::
 
 :::checkpoint-failure
