@@ -25,7 +25,7 @@ The callback and logout URLs are the URLs that Auth0 invokes to redirect back to
 
 If the callback and logout URLs are not set, users will be unable to log in and out of the application and will get an error.
 
-Go to the settings page of your [Auth0 application](${manage_url}/#/applications/${account.clientId}/settings) and add the following value to the **Allowed Callback URLs** and **Allowed Logout URLs** fields, according to the platform of your application.
+Go to the settings page of your [Auth0 application](${manage_url}/#/applications/${account.clientId}/settings) and add the following value to **Allowed Callback URLs** and **Allowed Logout URLs**, according to the platform of your application.
 
 #### iOS
 
@@ -51,7 +51,7 @@ Make sure that the [application type](https://auth0.com/docs/configure/applicati
 
 ### Configure Custom URL Scheme
 
-In your application's `Info.plist` file, register your bundle identifier as a custom URL scheme.
+In your application's `Info.plist` file, register the bundle identifier as a custom URL scheme.
 
 ```xml
 <key>CFBundleURLTypes</key>
@@ -223,7 +223,7 @@ The Auth0.swift SDK includes a [utility](https://github.com/auth0/JWTDecode.swif
 import JWTDecode
 ```
 
-Then, use the `decode(jwt:)` method to decode the ID Token and access the claims it contains.
+Then, use the `decode(jwt:)` method to decode the ID Token and access its claims.
 
 ```swift
 guard let jwt = try? decode(jwt: credentials.idToken),
