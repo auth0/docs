@@ -1092,7 +1092,7 @@ const redirects = [
       '/architecture-scenarios/implementation/b2b/b2b-launch/b2b-launch-compliance',
       '/architecture-scenarios/b2b/launch/compliance-readiness',
     ],
-    to: '/get-started/architecture-scenarios/b2b/launch/compliance-readiness',
+    to: '/get-started/architecture-scenarios/business-to-business/launch/compliance-readiness',
   },
   {
     from: [
@@ -1100,7 +1100,7 @@ const redirects = [
       '/architecture-scenarios/implementation/b2b/b2b-launch/b2b-launch-launch',
       '/architecture-scenarios/b2b/launch/launch-day',
     ],
-    to: '/get-started/architecture-scenarios/b2b/launch/launch-day',
+    to: '/get-started/architecture-scenarios/business-to-business/launch/launch-day',
   },
   {
     from: [
@@ -1108,7 +1108,7 @@ const redirects = [
       '/architecture-scenarios/implementation/b2b/b2b-launch/b2b-launch-operations',
       '/architecture-scenarios/b2b/launch/operations-readiness',
     ],
-    to: '/get-started/architecture-scenarios/b2b/launch/operations-readiness',
+    to: '/get-started/architecture-scenarios/business-to-business/launch/operations-readiness',
   },
   {
     from: [
@@ -1116,7 +1116,7 @@ const redirects = [
       '/architecture-scenarios/implementation/b2b/b2b-launch/b2b-launch-support',
       '/architecture-scenarios/b2b/launch/support-readiness',
     ],
-    to: '/get-started/architecture-scenarios/b2b/launch/support-readiness',
+    to: '/get-started/architecture-scenarios/business-to-business/launch/support-readiness',
   },
   {
     from: [
@@ -1124,7 +1124,7 @@ const redirects = [
       '/architecture-scenarios/implementation/b2b/b2b-launch/b2b-launch-testing',
       '/architecture-scenarios/b2b/launch/testing',
     ],
-    to: '/get-started/architecture-scenarios/b2b/launch/testing',
+    to: '/get-started/architecture-scenarios/business-to-business/launch/testing',
   },
   {
     from: [
@@ -1227,7 +1227,7 @@ const redirects = [
       '/architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-compliance',
       '/architecture-scenarios/b2c/launch/compliance-readiness',
     ],
-    to: '/get-started/architecture-scenarios/b2c/launch/compliance-readiness',
+    to: '/get-started/architecture-scenarios/business-to-consumer/launch/compliance-readiness',
   },
   {
     from: [
@@ -1235,7 +1235,7 @@ const redirects = [
       '/architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-launch',
       '/architecture-scenarios/b2c/launch/launch-day',
     ],
-    to: '/get-started/architecture-scenarios/b2c/launch/launch-day',
+    to: '/get-started/architecture-scenarios/business-to-consumer/launch/launch-day',
   },
   {
     from: [
@@ -1243,7 +1243,7 @@ const redirects = [
       '/architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-operations',
       '/architecture-scenarios/b2c/launch/operations-readiness',
     ],
-    to: '/get-started/architecture-scenarios/b2c/launch/operations-readiness',
+    to: '/get-started/architecture-scenarios/business-to-consumer/launch/operations-readiness',
   },
   {
     from: [
@@ -1251,7 +1251,7 @@ const redirects = [
       '/architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-support',
       '/architecture-scenarios/b2c/launch/support-readiness',
     ],
-    to: '/get-started/architecture-scenarios/b2c/launch/support-readiness',
+    to: '/get-started/architecture-scenarios/business-to-consumer/launch/support-readiness',
   },
   {
     from: [
@@ -1259,7 +1259,7 @@ const redirects = [
       '/architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-testing',
       '/architecture-scenarios/b2c/launch/testing',
     ],
-    to: '/get-started/architecture-scenarios/b2c/launch/testing',
+    to: '/get-started/architecture-scenarios/business-to-consumer/launch/testing',
   },
   {
     from: [
@@ -2664,6 +2664,7 @@ const redirects = [
       '/login/flows',
       '/flows/concepts/token-exchange',
       '/authorization/flows',
+      '/authorization/authorization-flows',
     ],
     to: '/get-started/authentication-and-authorization-flow',
   },
@@ -3668,48 +3669,82 @@ const redirects = [
   /* CMS */
 
   {
-    from: ['/cms/joomla/configuration'],
-    to: '/cms/integrate-with-joomla',
+    from: [
+      '/cms/joomla/configuration',
+      '/cms/integrate-with-joomla',
+    ],
+    to: '/customize/integrations/cms/integrate-with-joomla',
   },
   {
-    from: ['/cms/joomla/installation'],
-    to: '/cms/joomla-installation',
+    from: [
+      '/cms/joomla/installation',
+      '/cms/joomla-installation',
+    ],
+    to: '/customize/integrations/cms/joomla-installation',
   },
   {
-    from: ['/cms/wordpress', '/cms/wordpress/jwt-authentication'],
-    to: '/cms/wordpress-plugin',
+    from: [
+      '/cms/wordpress',
+      '/cms/wordpress/jwt-authentication',
+      '/cms/wordpress-plugin',
+    ],
+    to: '/customize/integrations/cms/wordpress-plugin',
   },
   {
-    from: ['/cms/wordpress/installation'],
-    to: '/cms/wordpress-plugin/install-login-by-auth0',
+    from: [
+      '/cms/wordpress/installation',
+      '/cms/wordpress-plugin/install-login-by-auth0',
+    ],
+    to: '/customize/integrations/cms/wordpress-plugin/install-login-by-auth0',
   },
   {
-    from: ['/cms/wordpress/configuration'],
-    to: '/cms/wordpress-plugin/configure-login-by-auth0',
+    from: [
+      '/cms/wordpress/configuration',
+      '/cms/wordpress-plugin/configure-login-by-auth0',
+      ],
+    to: '/customize/integrations/cms/wordpress-plugin/configure-login-by-auth0',
   },
   {
-    from: ['/cms/wordpress/extending'],
-    to: '/cms/wordpress-plugin/extend-login-by-auth0',
+    from: [
+      '/cms/wordpress/extending',
+      '/cms/wordpress-plugin/extend-login-by-auth0',
+    ],
+    to: '/customize/integrations/cms/wordpress-plugin/extend-login-by-auth0',
   },
   {
-    from: ['/cms/wordpress/troubleshoot'],
-    to: '/cms/wordpress-plugin/troubleshoot-login-by-auth0',
+    from: [
+      '/cms/wordpress/troubleshoot',
+      '/cms/wordpress-plugin/troubleshoot-login-by-auth0',
+    ],
+    to: '/customize/integrations/cms/wordpress-plugin/troubleshoot-login-by-auth0',
   },
   {
-    from: ['/cms/wordpress/invalid-state'],
-    to: '/cms/wordpress-plugin/troubleshoot-wordpress-plugin-invalid-state-errors',
+    from: [
+      '/cms/wordpress/invalid-state',
+      '/cms/wordpress-plugin/troubleshoot-wordpress-plugin-invalid-state-errors',
+    ],
+    to: '/customize/integrations/cms/wordpress-plugin/troubleshoot-wordpress-plugin-invalid-state-errors',
   },
   {
-    from: ['/cms/wordpress/user-migration'],
-    to: '/cms/wordpress-plugin/user-migration-in-login-by-auth0',
+    from: [
+      '/cms/wordpress/user-migration',
+      '/cms/wordpress-plugin/user-migration-in-login-by-auth0',
+    ],
+    to: '/customize/integrations/cms/wordpress-plugin/user-migration-in-login-by-auth0',
   },
   {
-    from: ['/cms/wordpress/user-migration'],
-    to: '/cms/wordpress-plugin/user-migration-in-login-by-auth0',
+    from: [
+      '/cms/wordpress/user-migration',
+      '/cms/wordpress-plugin/user-migration-in-login-by-auth0',
+    ],
+    to: '/customize/integrations/cms/wordpress-plugin/user-migration-in-login-by-auth0',
   },
   {
-    from: ['/cms/wordpress/how-does-it-work'],
-    to: '/cms/wordpress-plugin/integrate-with-wordpress',
+    from: [
+      '/cms/wordpress/how-does-it-work',
+      '/cms/wordpress-plugin/integrate-with-wordpress',
+    ],
+    to: '/customize/integrations/cms/wordpress-plugin/integrate-with-wordpress',
   },
 
   /* Compliance */
@@ -4963,7 +4998,7 @@ const redirects = [
       '/integrations/aws-api-gateway/aws-api-gateway-step-1',
       '/integrations/aws-api-gateway-delegation-1',
     ],
-    to: '/customize/integrations/aws/aws-api-gateway-delegation-1',
+    to: '/customize/integrations/aws/aws-api-gateway-delegation/aws-api-gateway-delegation-1',
   },
   {
     from: [
@@ -4972,7 +5007,7 @@ const redirects = [
       '/integrations/aws-api-gateway/aws-api-gateway-step-2',
       '/integrations/aws-api-gateway-delegation-2',
     ],
-    to: '/customize/integrations/aws/aws-api-gateway-delegation-2',
+    to: '/customize/integrations/aws/aws-api-gateway-delegation/aws-api-gateway-delegation-2',
   },
   {
     from: [
@@ -4981,7 +5016,7 @@ const redirects = [
       '/integrations/aws-api-gateway/aws-api-gateway-step-3',
       '/integrations/aws-api-gateway-delegation-3',
     ],
-    to: '/customize/integrations/aws/aws-api-gateway-delegation-3',
+    to: '/customize/integrations/aws/aws-api-gateway-delegation/aws-api-gateway-delegation-3',
   },
   {
     from: [
@@ -4990,7 +5025,7 @@ const redirects = [
       '/integrations/aws-api-gateway/aws-api-gateway-step-4',
       '/integrations/aws-api-gateway-delegation-4',
     ],
-    to: '/customize/integrations/aws/aws-api-gateway-delegation-4',
+    to: '/customize/integrations/aws/aws-api-gateway-delegation/aws-api-gateway-delegation-4',
   },
   {
     from: [
@@ -4999,7 +5034,7 @@ const redirects = [
       '/integrations/aws-api-gateway/aws-api-gateway-step-5',
       '/integrations/aws-api-gateway-delegation-5',
     ],
-    to: '/customize/integrations/aws/aws-api-gateway-delegation-5',
+    to: '/customize/integrations/aws/aws-api-gateway-delegation/aws-api-gateway-delegation-5',
   },
   {
     from: [
