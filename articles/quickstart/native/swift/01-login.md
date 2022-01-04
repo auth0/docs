@@ -86,7 +86,7 @@ If you are using SPM, open the following menu item in Xcode:
 In the **Search or Enter Package URL** search box enter this URL:
 
 ```text
-https://github.com/auth0/Auth0.swift.git
+https://github.com/auth0/Auth0.swift
 ```
 
 Then, select the **Exact Version** dependency rule and input `2.0.0-beta.0` as the version number. Press **Add Package**.
