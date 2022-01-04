@@ -1090,36 +1090,41 @@ const redirects = [
     from: [
       '/architecture-scenarios/b2b/b2b-launch-compliance',
       '/architecture-scenarios/implementation/b2b/b2b-launch/b2b-launch-compliance',
+      '/architecture-scenarios/b2b/launch/compliance-readiness',
     ],
-    to: '/architecture-scenarios/b2b/launch/compliance-readiness',
+    to: '/get-started/architecture-scenarios/b2b/launch/compliance-readiness',
   },
   {
     from: [
       '/architecture-scenarios/b2b/b2b-launch-launch',
       '/architecture-scenarios/implementation/b2b/b2b-launch/b2b-launch-launch',
+      '/architecture-scenarios/b2b/launch/launch-day',
     ],
-    to: '/architecture-scenarios/b2b/launch/launch-day',
+    to: '/get-started/architecture-scenarios/b2b/launch/launch-day',
   },
   {
     from: [
       '/architecture-scenarios/b2b/b2b-launch-operations',
       '/architecture-scenarios/implementation/b2b/b2b-launch/b2b-launch-operations',
+      '/architecture-scenarios/b2b/launch/operations-readiness',
     ],
-    to: '/architecture-scenarios/b2b/launch/operations-readiness',
+    to: '/get-started/architecture-scenarios/b2b/launch/operations-readiness',
   },
   {
     from: [
       '/architecture-scenarios/b2b/b2b-launch-support',
       '/architecture-scenarios/implementation/b2b/b2b-launch/b2b-launch-support',
+      '/architecture-scenarios/b2b/launch/support-readiness',
     ],
-    to: '/architecture-scenarios/b2b/launch/support-readiness',
+    to: '/get-started/architecture-scenarios/b2b/launch/support-readiness',
   },
   {
     from: [
       '/architecture-scenarios/b2b/b2b-launch-testing',
       '/architecture-scenarios/implementation/b2b/b2b-launch/b2b-launch-testing',
+      '/architecture-scenarios/b2b/launch/testing',
     ],
-    to: '/architecture-scenarios/b2b/launch/testing',
+    to: '/get-started/architecture-scenarios/b2b/launch/testing',
   },
   {
     from: [
@@ -1220,36 +1225,41 @@ const redirects = [
     from: [
       '/architecture-scenarios/b2c/b2c-launch-compliance',
       '/architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-compliance',
+      '/architecture-scenarios/b2c/launch/compliance-readiness',
     ],
-    to: '/architecture-scenarios/b2c/launch/compliance-readiness',
+    to: '/get-started/architecture-scenarios/b2c/launch/compliance-readiness',
   },
   {
     from: [
       '/architecture-scenarios/b2c/b2c-launch-launch',
       '/architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-launch',
+      '/architecture-scenarios/b2c/launch/launch-day',
     ],
-    to: '/architecture-scenarios/b2c/launch/launch-day',
+    to: '/get-started/architecture-scenarios/b2c/launch/launch-day',
   },
   {
     from: [
       '/architecture-scenarios/b2c/b2c-launch-operations',
       '/architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-operations',
+      '/architecture-scenarios/b2c/launch/operations-readiness',
     ],
-    to: '/architecture-scenarios/b2c/launch/operations-readiness',
+    to: '/get-started/architecture-scenarios/b2c/launch/operations-readiness',
   },
   {
     from: [
       '/architecture-scenarios/b2c/b2c-launch-support',
       '/architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-support',
+      '/architecture-scenarios/b2c/launch/support-readiness',
     ],
-    to: '/architecture-scenarios/b2c/launch/support-readiness',
+    to: '/get-started/architecture-scenarios/b2c/launch/support-readiness',
   },
   {
     from: [
       '/architecture-scenarios/b2c/b2c-launch-testing',
       '/architecture-scenarios/implementation/b2c/b2c-launch/b2c-launch-testing',
+      '/architecture-scenarios/b2c/launch/testing',
     ],
-    to: '/architecture-scenarios/b2c/launch/testing',
+    to: '/get-started/architecture-scenarios/b2c/launch/testing',
   },
   {
     from: [
@@ -1333,14 +1343,16 @@ const redirects = [
   {
     from: [
       '/architecture-scenarios/application/server-api/api-implementation-nodejs',
+      '/architecture-scenarios/server-api/api-implementation-nodejs',
     ],
-    to: '/architecture-scenarios/server-api/api-implementation-nodejs',
+    to: '/get-started/architecture-scenarios/server-api/api-implementation-nodejs',
   },
   {
     from: [
       '/architecture-scenarios/application/server-api/cron-implementation-python',
+      '/architecture-scenarios/server-api/cron-implementation-python',
     ],
-    to: '/architecture-scenarios/server-api/cron-implementation-python',
+    to: '/get-started/architecture-scenarios/server-api/cron-implementation-python',
   },
   {
     from: [
@@ -2608,14 +2620,6 @@ const redirects = [
   {
     from: ['/auth0-apis', '/api/info'],
     to: '/api',
-  },
-  {
-    from: ['/api/management/v1', '/api-reference', '/api/v1/reference', '/api/management/v1/reference'],
-    to: '/api/management-api-v1-deprecated',
-  },
-  {
-    from: ['/api/management/v2/changes', '/apiv2Changes', '/api/v2/changes'],
-    to: '/api/management-api-changes-v1-to-v2',
   },
   {
     from: ['/api/use-auth0-apis-with-postman-collections', '/api/postman'],
@@ -4362,15 +4366,19 @@ const redirects = [
     to: '/customize/extensions/real-time-webtask-logs',
   },
   {
-    from: ['/dashboard/guides/extensions/delegated-admin-create-app'],
-    to: '/extensions/delegated-administration-extension/create-delegated-admin-applications',
+    from: [
+      '/dashboard/guides/extensions/delegated-admin-create-app',
+      '/extensions/delegated-administration-extension/create-delegated-admin-applications',
+    ],
+    to: '/customize/extensions/delegated-administration-extension/create-delegated-admin-applications',
   },
   {
     from: [
       '/dashboard/guides/extensions/delegated-admin-install-extension',
       '/dashboard/guides/extensions/delegated-admin-use-extension',
+      '/extensions/delegated-administration-extension/install-delegated-admin-extension',
     ],
-    to: '/extensions/delegated-administration-extension/install-delegated-admin-extension',
+    to: '/customize/extensions/delegated-administration-extension/install-delegated-admin-extension',
   },
 
   /* Deploy CLI Tool */
@@ -4882,16 +4890,27 @@ const redirects = [
     to: '/customize/integrations',
   },
   {
-    from: ['/aws-api-setup'],
-    to: '/integrations/how-to-set-up-aws-for-delegated-authentication',
+    from: [
+      '/aws-api-setup',
+      '/integrations/how-to-set-up-aws-for-delegated-authentication',
+    ],
+    to: '/customize/integrations/aws/how-to-set-up-aws-for-delegated-authentication',
   },
   {
-    from: ['/integrations/aws/sso', '/configure-amazon-web-services-for-sso'],
-    to: '/integrations/aws/configure-amazon-web-services-for-sso',
+    from: [
+      '/integrations/aws/sso',
+      '/configure-amazon-web-services-for-sso',
+      '/integrations/aws/configure-amazon-web-services-for-sso',
+    ],
+    to: '/customize/integrations/aws/configure-amazon-web-services-for-sso',
   },
   {
-    from: ['/integrations/aws/tokens', '/integrations/call-aws-apis-and-resources-with-tokens'],
-    to: '/integrations/aws-api-gateway-delegation',
+    from: [
+      '/integrations/aws/tokens',
+      '/integrations/call-aws-apis-and-resources-with-tokens',
+      '/integrations/aws-api-gateway-delegation',
+    ],
+    to: '/customize/integrations/aws/aws-api-gateway-delegation',
   },
   {
     from: [
@@ -4899,24 +4918,27 @@ const redirects = [
       '/tutorials/integrating-auth0-amazon-cognito-mobile-apps',
       '/integrations/integrating-auth0-amazon-cognito-mobile-apps',
       '/integrations/integrate-with-amazon-cognito',
+      '/integrations/amazon-cognito',
     ],
-    to: '/integrations/amazon-cognito',
+    to: '/customize/integrations/aws/amazon-cognito',
   },
   {
     from: [
       '/scenarios-mqtt',
       '/tutorials/authenticating-devices-using-mqtt',
       '/integrations/authenticating-devices-using-mqtt',
+      '/integrations/authenticate-devices-using-mqtt',
     ],
-    to: '/integrations/authenticate-devices-using-mqtt',
+    to: '/customize/integrations/authenticate-devices-using-mqtt',
   },
   {
     from: [
       '/scenarios-tessel',
       '/tutorials/authenticating-a-tessel-device',
       '/integrations/authenticating-a-tessel-device',
+      '/integrations/authenticating-and-authorizing-a-tessel-device-with-auth0',
     ],
-    to: '/integrations/authenticating-and-authorizing-a-tessel-device-with-auth0',
+    to: '/customize/integrations/authenticating-and-authorizing-a-tessel-device-with-auth0',
   },
   {
     from: [
@@ -4927,55 +4949,65 @@ const redirects = [
     to: '/customize/integrations/aws',
   },
   {
-    from: ['/integrations/aws-api-gateway/delegation', '/integrations/aws-api-gateway'],
-    to: '/integrations/aws-api-gateway-delegation',
+    from: [
+      '/integrations/aws-api-gateway/delegation',
+      '/integrations/aws-api-gateway',
+      '/integrations/aws-api-gateway-delegation',
+    ],
+    to: '/customize/integrations/aws/aws-api-gateway-delegation',
   },
   {
     from: [
       '/integrations/aws-api-gateway/delegation/part-1',
       '/integrations/aws-api-gateway/part-1',
       '/integrations/aws-api-gateway/aws-api-gateway-step-1',
+      '/integrations/aws-api-gateway-delegation-1',
     ],
-    to: '/integrations/aws-api-gateway-delegation-1',
+    to: '/customize/integrations/aws/aws-api-gateway-delegation-1',
   },
   {
     from: [
       '/integrations/aws-api-gateway/delegation/part-2',
       '/integrations/aws-api-gateway/part-2',
       '/integrations/aws-api-gateway/aws-api-gateway-step-2',
+      '/integrations/aws-api-gateway-delegation-2',
     ],
-    to: '/integrations/aws-api-gateway-delegation-2',
+    to: '/customize/integrations/aws/aws-api-gateway-delegation-2',
   },
   {
     from: [
       '/integrations/aws-api-gateway/delegation/part-3',
       '/integrations/aws-api-gateway/part-3',
       '/integrations/aws-api-gateway/aws-api-gateway-step-3',
+      '/integrations/aws-api-gateway-delegation-3',
     ],
-    to: '/integrations/aws-api-gateway-delegation-3',
+    to: '/customize/integrations/aws/aws-api-gateway-delegation-3',
   },
   {
     from: [
       '/integrations/aws-api-gateway/delegation/part-4',
       '/integrations/aws-api-gateway/part-4',
       '/integrations/aws-api-gateway/aws-api-gateway-step-4',
+      '/integrations/aws-api-gateway-delegation-4',
     ],
-    to: '/integrations/aws-api-gateway-delegation-4',
+    to: '/customize/integrations/aws/aws-api-gateway-delegation-4',
   },
   {
     from: [
       '/integrations/aws-api-gateway/delegation/part-5',
       '/integrations/aws-api-gateway/part-5',
       '/integrations/aws-api-gateway/aws-api-gateway-step-5',
+      '/integrations/aws-api-gateway-delegation-5',
     ],
-    to: '/integrations/aws-api-gateway-delegation-5',
+    to: '/customize/integrations/aws/aws-api-gateway-delegation-5',
   },
   {
     from: [
       '/integrations/aws-api-gateway/delegation/secure-api-with-cognito',
       '/integrations/aws-api-gateway/secure-api-with-cognito',
+      '/integrations/aws-api-gateway-cognito',
     ],
-    to: '/integrations/aws-api-gateway-cognito',
+    to: '/customize/integrations/aws/aws-api-gateway-cognito',
   },
   {
     from: [
@@ -4986,11 +5018,15 @@ const redirects = [
       '/integrations/aws-api-gateway/custom-authorizers/part-4',
       '/integrations/aws-api-gateway-custom-authorizers',
     ],
-    to: '/customize/integrations/aws-api-gateway-custom-authorizers',
+    to: '/customize/integrations/aws/aws-api-gateway-custom-authorizers',
   },
   {
-    from: ['/sharepoint-apps', '/integrations/sharepoint-apps'],
-    to: '/integrations/connecting-provider-hosted-apps-to-sharepoint-online',
+    from: [
+      '/sharepoint-apps',
+      '/integrations/sharepoint-apps',
+      '/integrations/connecting-provider-hosted-apps-to-sharepoint-online',
+      ],
+    to: '/customize/integrations/connecting-provider-hosted-apps-to-sharepoint-online',
   },
   {
     from: [
@@ -5012,8 +5048,9 @@ const redirects = [
       '/tutorials/office365-connection-deprecation-guide',
       '/integrations/office365-connection-deprecation-guide',
       '/office365-deprecated',
+      '/integrations/migrate-office365-connections-to-windows-azure-ad',
     ],
-    to: '/integrations/migrate-office365-connections-to-windows-azure-ad',
+    to: '/customize/integrations/migrate-office365-connections-to-windows-azure-ad',
   },
   {
     from: [
@@ -5021,12 +5058,16 @@ const redirects = [
       '/integrations/using-auth0-to-secure-a-cli',
       '/tutorials/using-auth0-to-secure-an-api',
       '/cli',
+      '/integrations/secure-a-cli-with-auth0',
     ],
-    to: '/integrations/secure-a-cli-with-auth0',
+    to: '/customize/integrations/secure-a-cli-with-auth0',
   },
   {
-    from: ['/integrations/sharepoint'],
-    to: '/integrations/sharepoint-2010-2013',
+    from: [
+      '/integrations/sharepoint',
+      '/integrations/sharepoint-2010-2013',
+    ],
+    to: '/customize/integrations/sharepoint-2010-2013',
   },
   {
     from: [
@@ -5486,16 +5527,15 @@ const redirects = [
   },
   {
     from: [
+      '/libraries/lock-android/v2/delegation-api',
+      '/libraries/lock-android/v1/delegation-api',
+      '/libraries/lock-android/lock-android-delegation',
       '/libraries/lock-android/v2/refresh-jwt-tokens',
       '/libraries/lock-android/v1/refresh-jwt-tokens',
       '/libraries/lock-android/refresh-jwt-tokens',
       '/libraries/auth0-android/save-and-refresh-tokens',
     ],
     to: '/libraries/lock-android/lock-android-refresh-jwt',
-  },
-  {
-    from: ['/libraries/lock-android/lock-android-delegation'],
-    to: '/libraries/lock-android/v2/refresh-jwt-tokens',
   },
   {
     from: ['/libraries/lock-android/custom-fields', '/libraries/lock-android/v2/custom-fields'],
@@ -5514,10 +5554,6 @@ const redirects = [
   {
     from: ['/libraries/lock-android/v2/configuration', '/libraries/lock-android/v1/configuration'],
     to: '/libraries/lock-android/lock-android-configuration',
-  },
-  {
-    from: ['/libraries/lock-android/v2/delegation-api', '/libraries/lock-android/v1/delegation-api'],
-    to: '/libraries/lock-android/lock-android-delegation',
   },
   {
     from: ['/libraries/lock-android/v2/custom-theming'],
@@ -6726,6 +6762,13 @@ const redirects = [
   },
   {
     from: [
+      '/api/management/v1',
+      '/api-reference',
+      '/api/v1/reference',
+      '/api/management/v1/reference',
+      '/api/management/v2/changes',
+      '/apiv2Changes',
+      '/api/v2/changes',
       '/product-lifecycle/deprecations-and-migrations/migrate-to-management-api-v2',
       '/api/management-api-v1-deprecated',
       '/api/management-api-changes-v1-to-v2',
@@ -6917,8 +6960,9 @@ const redirects = [
     from: [
       '/rules/guides/automatically-generate-leads-in-shopify',
       '/rules/guides/automatically-generate-leads-shopify',
+      '/rules/automatically-generate-leads-in-shopify',
     ],
-    to: '/rules/automatically-generate-leads-in-shopify',
+    to: '/customize/rules/use-cases/automatically-generate-leads-in-shopify',
   },
   {
     from: [
@@ -6938,8 +6982,9 @@ const redirects = [
   {
     from: [
       '/dashboard/guides/rules/configure-variables',
+      '/rules/configure-global-variables-for-rules',
     ],
-    to: '/rules/configure-global-variables-for-rules',
+    to: '/customize/rules/configure-global-variables-for-rules',
   },
   {
     from: [
@@ -6968,36 +7013,57 @@ const redirects = [
     to: '/customize/rules/debug-rules',
   },
   {
-    from: ['/rules/references/samples'],
-    to: '/rules/examples',
+    from: [
+      '/rules/references/samples',
+      '/rules/examples',
+    ],
+    to: '/customize/rules/examples',
   },
   {
     from: ['/rules/guides/integrate-user-id-verification', '/rules/integrate-user-id-verification'],
     to: 'https://marketplace.auth0.com/integrations/onfido-identity-verification',
   },
   {
-    from: '/rules/guides/integrate-efm-solutions',
-    to: '/rules/integrate-efm-solutions',
+    from: [
+      '/rules/guides/integrate-efm-solutions',
+      '/rules/integrate-efm-solutions',
+    ],
+    to: '/customize/rules/use-cases/integrate-efm-solutions',
   },
   {
-    from: '/rules/guides/integrate-erfm-solutions',
-    to: '/rules/integrate-erfm-solutions',
+    from: [
+      '/rules/guides/integrate-erfm-solutions',
+      '/rules/integrate-erfm-solutions',
+    ],
+    to: '/customize/rules/use-cases/integrate-erfm-solutions',
   },
   {
-    from: '/rules/guides/integrate-hubspot',
-    to: '/rules/integrate-hubspot',
+    from: [
+      '/rules/guides/integrate-hubspot',
+      '/rules/integrate-hubspot',
+    ],
+    to: '/customize/rules/use-cases/integrate-hubspot',
   },
   {
-    from: '/rules/guides/integrate-maxmind',
-    to: '/rules/integrate-maxmind',
+    from: [
+      '/rules/guides/integrate-maxmind',
+      '/rules/integrate-maxmind',
+    ],
+    to: '/customize/rules/use-cases/integrate-maxmind',
   },
   {
-    from: '/rules/guides/integrate-mixpanel',
-    to: '/rules/integrate-mixpanel',
+    from: [
+      '/rules/guides/integrate-mixpanel',
+      '/rules/integrate-mixpanel',
+    ],
+    to: '/customize/rules/use-cases/integrate-mixpanel',
   },
   {
-    from: '/rules/guides/integrate-salesforce',
-    to: '/rules/integrate-salesforce',
+    from: [
+      '/rules/guides/integrate-salesforce',
+      '/rules/integrate-salesforce',
+    ],
+    to: '/customize/rules/use-cases/integrate-salesforce',
   },
   {
     from: [
@@ -7037,8 +7103,9 @@ const redirects = [
       '/scenarios-rapleaf-salesforce',
       '/scenarios/rapleaf-salesforce',
       '/monitor-auth0/track-new-leads-in-salesforce',
+      '/rules/use-cases/track-new-leads-in-salesforce',
     ],
-    to: '/rules/use-cases/track-new-leads-in-salesforce',
+    to: '/customize/rules/use-cases/track-new-leads-in-salesforce',
   },
   {
     from: [
@@ -7047,8 +7114,9 @@ const redirects = [
       '/scenarios-mixpanel-fullcontact-salesforce',
       '/scenarios/mixpanel-fullcontact-salesforce',
       '/monitor-auth0/track-new-sign-ups-in-salesforce',
+      '/rules/use-cases/track-new-sign-ups-in-salesforce',
     ],
-    to: '/rules/use-cases/track-new-sign-ups-in-salesforce',
+    to: '/customize/rules/use-cases/track-new-sign-ups-in-salesforce',
   },
   {
     from: [
@@ -7134,84 +7202,164 @@ const redirects = [
     to: '/secure/security-guidance/security-bulletins',
   },
   {
-    from: ['/security/bulletins/cve-2020-15259', '/security/cve-2020-15259'],
-    to: '/security/security-bulletins/cve-2020-15259',
+    from: [
+      '/security/bulletins/cve-2020-15259',
+      '/security/cve-2020-15259',
+      '/security/security-bulletins/cve-2020-15259',
+    ],
+    to: '/secure/security-guidance/security-bulletins/cve-2020-15259',
   },
   {
-    from: ['/security/bulletin/cve-2020-15240', '/security/cve-2020-15240'],
-    to: '/security/security-bulletins/cve-2020-15240',
+    from: [
+      '/security/bulletin/cve-2020-15240',
+      '/security/cve-2020-15240',
+      '/security/security-bulletins/cve-2020-15240',
+    ],
+    to: '/secure/security-guidance/security-bulletins/cve-2020-15240',
   },
   {
-    from: ['/security/bulletins/cve-2020-15125', '/security/cve-2020-15125'],
-    to: '/security/security-bulletins/cve-2020-15125',
+    from: [
+      '/security/bulletins/cve-2020-15125',
+      '/security/cve-2020-15125',
+      '/security/security-bulletins/cve-2020-15125',
+    ],
+    to: '/secure/security-guidance/security-bulletins/cve-2020-15125',
   },
   {
-    from: ['/security/bulletins/cve-2020-15084', '/security/cve-2020-15084'],
-    to: '/security/security-bulletins/cve-2020-15084',
+    from: [
+      '/security/bulletins/cve-2020-15084',
+      '/security/cve-2020-15084',
+      '/security/security-bulletins/cve-2020-15084',
+    ],
+    to: '/secure/security-guidance/security-bulletins/cve-2020-15084',
   },
   {
-    from: ['/security/bulletins/2020-03-31_wpauth0', '/security/2020-03-31-wpauth0'],
-    to: '/security/security-bulletins/2020-03-31-wpauth0',
+    from: [
+      '/security/bulletins/2020-03-31_wpauth0',
+      '/security/2020-03-31-wpauth0',
+      '/security/security-bulletins/2020-03-31-wpauth0',
+    ],
+    to: '/secure/security-guidance/security-bulletins/2020-03-31-wpauth0',
   },
   {
-    from: ['/security/bulletins/cve-2020-5263', '/security/cve-2020-5263'],
-    to: '/security/security-bulletins/cve-2020-5263',
+    from: [
+      '/security/bulletins/cve-2020-5263',
+      '/security/cve-2020-5263',
+      '/security/security-bulletins/cve-2020-5263',
+    ],
+    to: '/secure/security-guidance/security-bulletins/cve-2020-5263',
   },
   {
-    from: ['/security/bulletins/2019-01-10_rules', '/security/2019-01-10-rules'],
-    to: '/security/security-bulletins/2019-01-10-rules',
+    from: [
+      '/security/bulletins/2019-01-10_rules',
+      '/security/2019-01-10-rules',
+      '/security/security-bulletins/2019-01-10-rules',
+    ],
+    to: '/secure/security-guidance/security-bulletins/2019-01-10-rules',
   },
   {
-    from: ['/security/bulletins/2019-09-05_scopes', '/security/2019-09-05-scopes'],
-    to: '/security/security-bulletins/2019-09-05-scopes',
+    from: [
+      '/security/bulletins/2019-09-05_scopes',
+      '/security/2019-09-05-scopes',
+      '/security/security-bulletins/2019-09-05-scopes',
+    ],
+    to: '/secure/security-guidance/security-bulletins/2019-09-05-scopes',
   },
   {
-    from: ['/security/bulletins/cve-2019-20174', '/security/cve-2019-20174'],
-    to: '/security/security-bulletins/cve-2019-20174',
+    from: [
+      '/security/bulletins/cve-2019-20174',
+      '/security/cve-2019-20174',
+      '/security/security-bulletins/cve-2019-20174',
+    ],
+    to: '/secure/security-guidance/security-bulletins/cve-2019-20174',
   },
   {
-    from: ['/security/bulletins/cve-2019-20173', '/security/cve-2019-20173'],
-    to: '/security/security-bulletins/cve-2019-20173',
+    from: [
+      '/security/bulletins/cve-2019-20173',
+      '/security/cve-2019-20173',
+      '/security/security-bulletins/cve-2019-20173',
+    ],
+    to: '/secure/security-guidance/security-bulletins/cve-2019-20173',
   },
   {
-    from: ['/security/bulletins/cve-2019-16929', '/security/cve-2019-16929'],
-    to: '/security/security-bulletins/cve-2019-16929',
+    from: [
+      '/security/bulletins/cve-2019-16929',
+      '/security/cve-2019-16929',
+      '/security/security-bulletins/cve-2019-16929',
+    ],
+    to: '/secure/security-guidance/security-bulletins/cve-2019-16929',
   },
   {
-    from: ['/security/bulletins/cve-2019-13483', '/security/cve-2019-13483'],
-    to: '/security/security-bulletins/cve-2019-13483',
+    from: [
+      '/security/bulletins/cve-2019-13483',
+      '/security/cve-2019-13483',
+      '/security/security-bulletins/cve-2019-13483',
+    ],
+    to: '/secure/security-guidance/security-bulletins/cve-2019-13483',
   },
   {
-    from: ['/security/bulletins/cve-2019-7644', '/security/cve-2019-7644'],
-    to: '/security/security-bulletins/cve-2019-7644',
+    from: [
+      '/security/bulletins/cve-2019-7644',
+      '/security/cve-2019-7644',
+      '/security/security-bulletins/cve-2019-7644',
+    ],
+    to: '/secure/security-guidance/security-bulletins/cve-2019-7644',
   },
   {
-    from: ['/security/bulletins/cve-2018-15121', '/security/cve-2018-15121'],
-    to: '/security/security-bulletins/cve-2018-15121',
+    from: [
+      '/security/bulletins/cve-2018-15121',
+      '/security/cve-2018-15121',
+      '/security/security-bulletins/cve-2018-15121',
+    ],
+    to: '/secure/security-guidance/security-bulletins/cve-2018-15121',
   },
   {
-    from: ['/security/bulletins/cve-2018-11537', '/security/cve-2018-11537'],
-    to: '/security/security-bulletins/cve-2018-11537',
+    from: [
+      '/security/bulletins/cve-2018-11537',
+      '/security/cve-2018-11537',
+      '/security/security-bulletins/cve-2018-11537',
+    ],
+    to: '/secure/security-guidance/security-bulletins/cve-2018-11537',
   },
   {
-    from: ['/security/bulletins/cve-2018-7307', '/security/cve-2018-7307'],
-    to: '/security/security-bulletins/cve-2018-7307',
+    from: [
+      '/security/bulletins/cve-2018-7307',
+      '/security/cve-2018-7307',
+      '/security/security-bulletins/cve-2018-7307',
+    ],
+    to: '/secure/security-guidance/security-bulletins/cve-2018-7307',
   },
   {
-    from: ['/security/bulletins/cve-2018-6874', '/security/cve-2018-6874'],
-    to: '/security/security-bulletins/cve-2018-6874',
+    from: [
+      '/security/bulletins/cve-2018-6874',
+      '/security/cve-2018-6874',
+      '/security/security-bulletins/cve-2018-6874',
+    ],
+    to: '/secure/security-guidance/security-bulletins/cve-2018-6874',
   },
   {
-    from: ['/security/bulletins/cve-2018-6873', '/security/cve-2018-6873'],
-    to: '/security/security-bulletins/cve-2018-6873',
+    from: [
+      '/security/bulletins/cve-2018-6873',
+      '/security/cve-2018-6873',
+      '/security/security-bulletins/cve-2018-6873',
+    ],
+    to: '/secure/security-guidance/security-bulletins/cve-2018-6873',
   },
   {
-    from: ['/security/bulletins/cve-2017-16897', '/security/cve-2017-16897'],
-    to: '/security/security-bulletins/cve-2017-16897',
+    from: [
+      '/security/bulletins/cve-2017-16897',
+      '/security/cve-2017-16897',
+      '/security/security-bulletins/cve-2017-16897',
+    ],
+    to: '/secure/security-guidance/security-bulletins/cve-2017-16897',
   },
   {
-    from: ['/security/bulletins/cve-2017-17068', '/security/cve-2017-17068'],
-    to: '/security/security-bulletins/cve-2017-17068',
+    from: [
+      '/security/bulletins/cve-2017-17068',
+      '/security/cve-2017-17068',
+      '/security/security-bulletins/cve-2017-17068',
+    ],
+    to: '/secure/security-guidance/security-bulletins/cve-2017-17068',
   },
 
   /* Tokens */
@@ -8492,12 +8640,21 @@ const redirects = [
     to: '/manage-users/user-search/user-search-query-syntax',
   },
   {
-    from: ['/api/management/v2/user-search', '/users/search/v2', '/api/v2/user-search'],
-    to: '/users/user-search/v2',
+    from: [
+      '/api/management/v2/user-search',
+      '/users/search/v2',
+      '/api/v2/user-search',
+      '/users/user-search/v2',
+    ],
+    to: '/manage-users/user-search/v2',
   },
   {
-    from: ['/api/management/v2/query-string-syntax', '/users/search/v2/query-syntax'],
-    to: '/users/user-search/v2/query-syntax',
+    from: [
+      '/api/management/v2/query-string-syntax',
+      '/users/search/v2/query-syntax',
+      '/users/user-search/v2/query-syntax',
+    ],
+    to: '/manage-users/user-search/v2/query-syntax',
   },
   {
     from: [
