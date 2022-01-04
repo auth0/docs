@@ -19,33 +19,13 @@ useCase: quickstart
 
 ## Configure Auth0
 
-### Configure Callback URL
+### Configure Callback and Logout URLs
 
-The callback URL is the URL that Auth0 invokes after the authentication process to redirect back to your application. If the callback URL is not set, users will be unable to log in to the application and will get an error.
+The callback and logout URLs are the URLs that Auth0 invokes to redirect back to your application. Auth0 invokes the callback URL after authenticating the user, and the logout URL after removing the session cookie.
 
-In your application's `Info.plist` file, register your iOS / macOS bundle identifier as a custom URL scheme.
+If the callback and logout URLs are not set, users will be unable to log in and out of the application and will get an error.
 
-```xml
-<key>CFBundleURLTypes</key>
-<array>
-    <dict>
-        <key>CFBundleTypeRole</key>
-        <string>None</string>
-        <key>CFBundleURLName</key>
-        <string>auth0</string>
-        <key>CFBundleURLSchemes</key>
-        <array>
-            <string>YOUR_BUNDLE_IDENTIFIER</string>
-        </array>
-    </dict>
-</array>
-```
-
-::: note
-If your `Info.plist` is not shown in this format, you can **right-click** on `Info.plist` in Xcode and then select **Open As > Source Code**.
-:::
-
-Finally, go to the settings page of your [Auth0 application](${manage_url}/#/applications/${account.clientId}/settings) and add the corresponding URL for your application to the **Allowed Callback URLs** field.
+Go to the settings page of your [Auth0 application](${manage_url}/#/applications/${account.clientId}/settings) and add the following value to the **Allowed Callback URLs** and **Allowed Logout URLs** fields, according to the platform of your application.
 
 #### iOS
 
@@ -69,11 +49,29 @@ com.company.myapp://company.us.auth0.com/ios/com.company.myapp/callback
 Make sure that the [application type](https://auth0.com/docs/configure/applications) of the Auth0 application is **Native**. If you don’t have a Native Auth0 application, [create one](https://auth0.com/docs/get-started/create-apps/native-apps) before continuing.
 :::
 
-### Configure Logout URL
+### Configure Custom URL Scheme
 
-The logout URL is the URL that Auth0 invokes after removing the session cookie to redirect back to your application. If the logout URL is not set, users will be unable to log out of the application and will get an error.
+In your application's `Info.plist` file, register your bundle identifier as a custom URL scheme.
 
-Go to the settings page of your [Auth0 application](${manage_url}/#/applications/${account.clientId}/settings) and copy the **Allowed Callback URLs** value you just added for authentication into the **Allowed Logout URLs** field.
+```xml
+<key>CFBundleURLTypes</key>
+<array>
+    <dict>
+        <key>CFBundleTypeRole</key>
+        <string>None</string>
+        <key>CFBundleURLName</key>
+        <string>auth0</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+            <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+        </array>
+    </dict>
+</array>
+```
+
+::: note
+If your `Info.plist` is not shown in this format, you can **right-click** on `Info.plist` in Xcode and then select **Open As > Source Code**.
+:::
 
 ## Install the SDK
 
