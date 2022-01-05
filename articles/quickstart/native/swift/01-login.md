@@ -238,7 +238,7 @@ You can get the latest user information with the `userInfo(withAccessToken:)` me
 :::
 
 ::: panel Checkpoint
-Verify that you can access the `name`, `picture`, or any other [user attribute](https://auth0.com/docs/users/user-profile-structure#user-profile-attributes) after you have logged in.
+Verify that you can access the `name`, `picture`, or any other [claim](https://auth0.com/docs/security/tokens/id-tokens/id-token-structure) after you have logged in.
 :::
 
 ## What's Next?
