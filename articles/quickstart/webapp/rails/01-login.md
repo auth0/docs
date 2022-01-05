@@ -196,7 +196,6 @@ Now that you have loaded the user from the session, you can use it to display in
 ```erb
 <!-- ./app/views/dashboard/show.html.erb -->
 <div>
-  <p>Normalized User Profile:${"<%= JSON.pretty_generate(@user[:info])%>"}</p>
-  <p>Full User Profile:${"<%= JSON.pretty_generate(@user[:extra][:raw_info])%>"}</p>
+  <p>Normalized User Profile:${"<%= JSON.pretty_generate(@user)%>"}</p>
 </div>
 ```
