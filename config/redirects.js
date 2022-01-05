@@ -1345,14 +1345,14 @@ const redirects = [
       '/architecture-scenarios/application/server-api/api-implementation-nodejs',
       '/architecture-scenarios/server-api/api-implementation-nodejs',
     ],
-    to: '/get-started/architecture-scenarios/server-api/api-implementation-nodejs',
+    to: '/get-started/architecture-scenarios/server-application-api/api-implementation-nodejs',
   },
   {
     from: [
       '/architecture-scenarios/application/server-api/cron-implementation-python',
       '/architecture-scenarios/server-api/cron-implementation-python',
     ],
-    to: '/get-started/architecture-scenarios/server-api/cron-implementation-python',
+    to: '/get-started/architecture-scenarios/server-application-api/cron-implementation-python',
   },
   {
     from: [
