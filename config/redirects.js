@@ -6400,6 +6400,12 @@ const redirects = [
   },
   {
     from: [
+      '/mfa/webauthn-as-mfa',
+    ],
+    to: '/secure/multi-factor-authentication/webauthn-as-mfa',
+  },
+  {
+    from: [
       '/mfa/fido-authentication-with-webauthn',
       '/login/mfa/fido-authentication-with-webauthn',
     ],
