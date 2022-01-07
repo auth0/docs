@@ -97,7 +97,7 @@ For further reference on SPM, check its [official documentation](https://develop
 
 ### Cocoapods
 
-If you are using [Cocoapods](https://cocoapods.org/) add this line to your `Podfile`:
+If you are using [Cocoapods](https://cocoapods.org/), add this line to your `Podfile`:
 
 ```ruby
 pod 'Auth0', '2.0.0-beta.0'
