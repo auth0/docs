@@ -1500,13 +1500,6 @@ const redirects = [
 
   /* CONTENTFUL REDIRECTS */
 
-  /* Configure */
-
-  {
-    from: ['/configuration-overview', '/config'],
-    to: '/configure',
-  },
-
   /* Tenants */
 
   {
@@ -2688,10 +2681,6 @@ const redirects = [
   /* Authorization */
 
   {
-    from: ['/api-auth', '/api-auth/tutorials', '/api/tutorials'],
-    to: '/authorization',
-  },
-  {
     from: [
       '/authorization/concepts/policies',
       '/authorization/authorization-policies',
@@ -2719,6 +2708,10 @@ const redirects = [
   },
   {
     from: [
+      '/api-auth',
+      '/api-auth/tutorials',
+      '/api/tutorials',
+      '/authorization',
       '/flows',
       '/login/flows',
       '/flows/concepts/token-exchange',
@@ -2906,6 +2899,7 @@ const redirects = [
     from: [
       '/authorization/concepts/rbac',
       '/authorization/rbac',
+      '/rbac',
     ],
     to: '/manage-users/access-control/rbac',
   },
@@ -2938,6 +2932,7 @@ const redirects = [
     from: [
       '/authorization/guides/manage-roles',
       '/authorization/rbac/roles',
+      '/rbac/roles',
     ],
     to: '/manage-users/access-control/configure-core-rbac/roles',
   },
@@ -3003,6 +2998,7 @@ const redirects = [
       '/authorization/auth-core-features/rbac-users',
       '/authorization/guides/manage-users',
       '/authorization/rbac/rbac-users',
+      '/rbac/rbac-users',
     ],
     to: '/manage-users/access-control/configure-core-rbac/rbac-users',
   },
@@ -4220,26 +4216,36 @@ const redirects = [
       '/extensions/authorization-extension/v2/implementation/setup',
       '/extensions/authorization-extension/set-up-authorization-extension-users',
     ],
-    to: '/extensions/authorization-extension/set-up-authorization-extension-users',
+    to: '/customize/extensions/authorization-extension/set-up-authorization-extension-users',
   },
   {
     from: [
       '/get-started/dashboard/create-sso-dashboard-application',
       '/dashboard/guides/extensions/sso-dashboard-create-app',
+      '/extensions/single-sign-on-dashboard-extension/create-sso-dashboard-application',
     ],
-    to: '/extensions/single-sign-on-dashboard-extension/create-sso-dashboard-application',
+    to: '/customize/extensions/single-sign-on-dashboard-extension/create-sso-dashboard-application',
   },
   {
-    from: ['/dashboard/guides/extensions/sso-dashboard-install-extension'],
-    to: '/extensions/single-sign-on-dashboard-extension/install-sso-dashboard-extension',
+    from: [
+      '/dashboard/guides/extensions/sso-dashboard-install-extension',
+      '/extensions/single-sign-on-dashboard-extension/install-sso-dashboard-extension',
+    ],
+    to: '/customize/extensions/single-sign-on-dashboard-extension/install-sso-dashboard-extension',
   },
   {
-    from: ['/dashboard/guides/extensions/sso-dashboard-add-apps'],
-    to: '/extensions/single-sign-on-dashboard-extension/add-applications-to-the-sso-dashboard',
+    from: [
+      '/dashboard/guides/extensions/sso-dashboard-add-apps',
+      '/extensions/single-sign-on-dashboard-extension/add-applications-to-the-sso-dashboard',
+    ],
+    to: '/customize/extensions/single-sign-on-dashboard-extension/add-applications-to-the-sso-dashboard',
   },
   {
-    from: ['/dashboard/guides/extensions/sso-dashboard-update-apps'],
-    to: '/extensions/single-sign-on-dashboard-extension/update-applications-on-the-sso-dashboard',
+    from: [
+      '/dashboard/guides/extensions/sso-dashboard-update-apps',
+      '/extensions/single-sign-on-dashboard-extension/update-applications-on-the-sso-dashboard',
+    ],
+    to: '/customize/extensions/single-sign-on-dashboard-extension/update-applications-on-the-sso-dashboard',
   },
   {
     from: [
@@ -4750,11 +4756,20 @@ const redirects = [
   /* Get Started */
 
   {
-    from: ['/getting-started'],
+    from: [
+      '/configuration-overview',
+      '/config',
+      '/configure',
+      '/getting-started',
+    ],
     to: '/get-started',
   },
   {
-    from: ['/overview', '/get-started/overview', '/getting-started/overview'],
+    from: [
+      '/overview',
+      '/get-started/overview',
+      '/getting-started/overview',
+    ],
     to: '/get-started/auth0-overview',
   },
   {
@@ -6448,7 +6463,7 @@ const redirects = [
       '/logs/streams/http-event-to-slack',
       '/monitor-auth0/streams/stream-log-events-to-slack',
     ],
-    to: '/monitor-auth0/streams/stream-log-events-to-slack',
+    to: 'https://marketplace.auth0.com/integrations/slack-log-streaming',
   },
   {
     from: [
