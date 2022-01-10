@@ -58,8 +58,9 @@ const redirects = [
     from: [
       '/design/browser-based-vs-native-experience-on-mobile',
       '/tutorials/browser-based-vs-native-experience-on-mobile',
+      '/best-practices/mobile-device-login-flow-best-practices',
     ],
-    to: '/best-practices/mobile-device-login-flow-best-practices',
+    to: '/get-started/authentication-and-authorization-flow/mobile-device-login-flow-best-practices',
   },
   {
     from: '/topics/identity-glossary',
@@ -692,8 +693,10 @@ const redirects = [
       '/tutorials/how-to-test-partner-connection',
       '/test-partner-connection',
       '/connections/how-to-test-partner-connection',
+      '/authenticate/identity-providers/how-to-test-partner-connection',
+      '/dashboard/guides/connections/test-connections-social',
     ],
-    to: '/authenticate/identity-providers/how-to-test-partner-connection',
+    to: '/authenticate/identity-providers/test-connections',
   },
   {
     from: '/connections/social/imgur',
@@ -847,6 +850,7 @@ const redirects = [
       '/connections/passwordless/email-magic-link',
       '/connections/passwordless/authentication-factors/email-magic-link',
       '/connections/passwordless/authentication-methods/email-magic-link',
+      '/connections/passwordless/guides/email-magic-link',
       ],
     to: '/authenticate/passwordless/authentication-methods/email-magic-link',
   },
@@ -2040,8 +2044,9 @@ const redirects = [
       '/protocols/saml/saml-configuration/special-configuration-scenarios/idp-initiated-sso',
       '/protocols/saml-protocol/saml-configuration-options/identity-provider-initiated-single-sign-on',
       '/protocols/saml-protocol/saml-sso-integrations/identity-provider-initiated-single-sign-on',
+      '/configure/saml-configuration/saml-sso-integrations/identity-provider-initiated-single-sign-on',
     ],
-    to: '/configure/saml-configuration/saml-sso-integrations/identity-provider-initiated-single-sign-on',
+    to: '/authenticate/protocols/saml/saml-sso-integrations/identity-provider-initiated-single-sign-on',
   },
   {
     from: [
@@ -2049,16 +2054,18 @@ const redirects = [
       '/protocols/saml/saml-configuration/special-configuration-scenarios/signing-and-encrypting-saml-requests',
       '/protocols/saml-protocol/saml-configuration-options/sign-and-encrypt-saml-requests',
       '/protocols/saml-protocol/saml-sso-integrations/sign-and-encrypt-saml-requests',
+      '/configure/saml-configuration/saml-sso-integrations/sign-and-encrypt-saml-requests',
     ],
-    to: '/configure/saml-configuration/saml-sso-integrations/sign-and-encrypt-saml-requests',
+    to: '/authenticate/protocols/saml/saml-sso-integrations/sign-and-encrypt-saml-requests',
   },
   {
     from: [
       '/protocols/saml-protocol/saml-configuration-options/work-with-certificates-and-keys-as-strings',
       '/protocols/saml/saml-configuration/special-configuration-scenarios/work-with-certificates-and-keys-as-strings',
       '/protocols/saml-protocol/saml-sso-integrations/work-with-certificates-and-keys-as-strings',
+      '/configure/saml-configuration/saml-sso-integrations/work-with-certificates-and-keys-as-strings',
     ],
-    to: '/configure/saml-configuration/saml-sso-integrations/work-with-certificates-and-keys-as-strings',
+    to: '/authenticate/protocols/saml/saml-sso-integrations/work-with-certificates-and-keys-as-strings',
   },
   {
     from: [
@@ -2076,16 +2083,19 @@ const redirects = [
       '/saml-sp-generic',
       '/protocols/saml/saml-configuration/auth0-as-service-provider',
       '/protocols/saml-protocol/configure-auth0-saml-service-provider',
+      '/configure/saml-configuration/configure-auth0-saml-service-provider',
     ],
-    to: '/configure/saml-configuration/configure-auth0-saml-service-provider',
+    to: '/authenticate/protocols/saml/saml-sso-integrations/configure-auth0-saml-service-provider',
+    
   },
   {
     from: [
       '/protocols/saml/adfs',
       '/protocols/saml-protocol/saml-configuration-options/configure-adfs-saml-connections',
       '/protocols/saml-protocol/saml-sso-integrations/configure-adfs-saml-connections',
+      '/configure/saml-configuration/configure-auth0-saml-service-provider/configure-adfs-saml-connections',
     ],
-    to: '/configure/saml-configuration/configure-auth0-saml-service-provider/configure-adfs-saml-connections',
+    to: '/authenticate/protocols/saml/saml-sso-integrations/configure-auth0-saml-service-provider/configure-adfs-saml-connections',
   },
   {
     from: [
@@ -2095,8 +2105,9 @@ const redirects = [
       '/protocols/saml-configuration-options/configure-okta-as-saml-identity-provider',
       '/protocols/saml-protocol/saml-configuration-options/configure-okta-as-saml-identity-provider',
       '/protocols/saml-protocol/saml-sso-integrations/configure-okta-as-saml-identity-provider',
+      '/configure/saml-configuration/configure-auth0-saml-service-provider/configure-okta-as-saml-identity-provider',
     ],
-    to: '/configure/saml-configuration/configure-auth0-saml-service-provider/configure-okta-as-saml-identity-provider',
+    to: '/authenticate/protocols/saml/saml-sso-integrations/configure-auth0-saml-service-provider/configure-okta-as-saml-identity-provider',
   },
   {
     from: [
@@ -2105,8 +2116,9 @@ const redirects = [
       '/protocols/saml/identity-providers/onelogin',
       '/protocols/saml-configuration-options/configure-onelogin-as-saml-identity-provider',
       '/protocols/saml-protocol/saml-sso-integrations/configure-onelogin-as-saml-identity-provider',
+      '/configure/saml-configuration/configure-auth0-saml-service-provider/configure-onelogin-as-saml-identity-provider',
     ],
-    to: '/configure/saml-configuration/configure-auth0-saml-service-provider/configure-onelogin-as-saml-identity-provider',
+    to: '/authenticate/protocols/saml/saml-sso-integrations/configure-auth0-saml-service-provider/configure-onelogin-as-saml-identity-provider',
   },
   {
     from: [
@@ -2116,8 +2128,9 @@ const redirects = [
       '/protocols/saml-configuration-options/configure-pingfederate-as-saml-identity-provider',
       '/protocols/saml-protocol/saml-configuration/configure-pingfederate-as-saml-identity-provider',
       '/protocols/saml-protocol/saml-sso-integrations/configure-pingfederate-as-saml-identity-provider',
+      '/configure/saml-configuration/configure-auth0-saml-service-provider/configure-pingfederate-as-saml-identity-provider',
     ],
-    to: '/configure/saml-configuration/configure-auth0-saml-service-provider/configure-pingfederate-as-saml-identity-provider',
+    to: '/authenticate/protocols/saml/saml-sso-integrations/configure-auth0-saml-service-provider/configure-pingfederate-as-saml-identity-provider',
   },
   {
     from: [
@@ -2126,8 +2139,9 @@ const redirects = [
       '/protocols/saml-configuration-options/configure-salesforce-as-saml-identity-provider',
       '/protocols/saml-protocol/saml-configuration-options/configure-salesforce-as-saml-identity-provider',
       '/protocols/saml-protocol/saml-sso-integrations/configure-salesforce-as-saml-identity-provider',
+      '/configure/saml-configuration/configure-auth0-saml-service-provider/configure-salesforce-as-saml-identity-provider',
     ],
-    to: '/configure/saml-configuration/configure-auth0-saml-service-provider/configure-salesforce-as-saml-identity-provider',
+    to: '/authenticate/protocols/saml/saml-sso-integrations/configure-auth0-saml-service-provider/configure-salesforce-as-saml-identity-provider',
   },
   {
     from: [
@@ -2137,8 +2151,9 @@ const redirects = [
       '/protocols/saml-configuration-options/configure-siteminder-as-saml-identity-provider',
       '/protocols/saml-protocol/saml-configuration-options/configure-siteminder-as-saml-identity-provider',
       '/protocols/saml-protocol/saml-sso-integrations/configure-siteminder-as-saml-identity-provider',
+      '/configure/saml-configuration/configure-auth0-saml-service-provider/configure-siteminder-as-saml-identity-provider',
     ],
-    to: '/configure/saml-configuration/configure-auth0-saml-service-provider/configure-siteminder-as-saml-identity-provider',
+    to: '/authenticate/protocols/saml/saml-sso-integrations/configure-auth0-saml-service-provider/configure-siteminder-as-saml-identity-provider',
   },
   {
     from: [
@@ -2148,8 +2163,9 @@ const redirects = [
       '/protocols/saml-configuration-options/configure-ssocircle-as-saml-identity-provider',
       '/protocols/saml-protocol/saml-configuration-options/configure-ssocircle-as-saml-identity-provider',
       '/protocols/saml-protocol/saml-sso-integrations/configure-ssocircle-as-saml-identity-provider',
+      '/configure/saml-configuration/configure-auth0-saml-service-provider/configure-ssocircle-as-saml-identity-provider',
     ],
-    to: '/configure/saml-configuration/configure-auth0-saml-service-provider/configure-ssocircle-as-saml-identity-provider',
+    to: '/authenticate/protocols/saml/saml-sso-integrations/configure-auth0-saml-service-provider/configure-ssocircle-as-saml-identity-provider',
   },
   {
     from: [
@@ -2158,8 +2174,9 @@ const redirects = [
       '/protocols/saml/saml-idp-generic',
       '/protocols/saml/saml-configuration/auth0-as-identity-provider',
       '/protocols/saml-protocol/configure-auth0-as-saml-identity-provider',
+      '/configure/saml-configuration/configure-auth0-saml-identity-provider',
     ],
-    to: '/configure/saml-configuration/configure-auth0-saml-identity-provider',
+    to: '/authenticate/protocols/saml/saml-sso-integrations/configure-auth0-saml-identity-provider',
   },
   {
     from: [
@@ -2167,16 +2184,18 @@ const redirects = [
       '/dashboard/guides/applications/set-up-addon-saml2-aws',
       '/protocols/saml-protocol/saml-configuration-options/configure-saml2-web-app-addon-for-aws',
       '/protocols/saml-protocol/saml-sso-integrations/configure-saml2-web-app-addon-for-aws',
+      '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-saml2-web-app-addon-for-aws',
     ],
-    to: '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-saml2-web-app-addon-for-aws',
+    to: '/authenticate/protocols/saml/saml-sso-integrations/configure-auth0-saml-identity-provider/configure-saml2-web-app-addon-for-aws',
   },
   {
     from: [
       '/protocols/saml/saml-apps/atlassian',
       '/protocols/saml-protocol/saml-configuration-options/configure-auth0-as-identity-provider-for-atlassian',
       '/protocols/saml-protocol/saml-sso-integrations/configure-auth0-as-identity-provider-for-atlassian',
+      '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-atlassian',
     ],
-    to: '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-atlassian',
+    to: '/authenticate/protocols/saml/saml-sso-integrations/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-atlassian',
   },
   {
     from: [
@@ -2185,8 +2204,9 @@ const redirects = [
       '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-cisco-webex',
       '/protocols/saml-protocol/saml-configuration-options/configure-auth0-as-identity-provider-for-cisco-webex',
       '/protocols/saml-protocol/saml-sso-integrations/configure-auth0-as-identity-provider-for-cisco-webex',
+      '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-cisco-webex',
     ],
-    to: '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-cisco-webex',
+    to: '/authenticate/protocols/saml/saml-sso-integrations/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-cisco-webex',
   },
   {
     from: [
@@ -2195,16 +2215,18 @@ const redirects = [
       '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-datadog',
       '/protocols/saml-protocol/saml-configuration-options/configure-auth0-as-identity-provider-for-datadog',
       '/protocols/saml-protocol/saml-sso-integrations/configure-auth0-as-identity-provider-for-datadog',
+      '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-datadog',
     ],
-    to: '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-datadog',
+    to: '/authenticate/protocols/saml/saml-sso-integrations/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-datadog',
   },
   {
     from: [
       '/protocols/saml/saml-apps/egencia',
       '/protocols/saml-protocol/saml-configuration-options/configure-auth0-as-identity-provider-for-egencia',
       '/protocols/saml-protocol/saml-sso-integrations/configure-auth0-as-identity-provider-for-egencia',
+      '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-egencia',
     ],
-    to: '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-egencia',
+    to: '/authenticate/protocols/saml/saml-sso-integrations/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-egencia',
   },
   {
     from: [
@@ -2212,8 +2234,9 @@ const redirects = [
       '/protocols/saml/saml-apps/eloqua',
       '/protocols/saml-protocol/saml-configuration-options/configure-saml2-addon-eloqua',
       '/protocols/saml-protocol/saml-sso-integrations/configure-saml2-addon-eloqua',
+      '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-saml2-addon-eloqua',
     ],
-    to: '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-saml2-addon-eloqua',
+    to: '/authenticate/protocols/saml/saml-sso-integrations/configure-auth0-saml-identity-provider/configure-saml2-addon-eloqua',
   },
   {
     from: [
@@ -2222,16 +2245,18 @@ const redirects = [
       '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-freshdesk',
       '/protocols/saml-protocol/saml-configuration-options/configure-auth0-as-identity-provider-for-freshdesk',
       '/protocols/saml-protocol/saml-sso-integrations/configure-auth0-as-identity-provider-for-freshdesk',
+      '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-freshdesk',
     ],
-    to: '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-freshdesk',
+    to: '/authenticate/protocols/saml/saml-sso-integrations/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-freshdesk',
   },
   {
     from: [
       '/protocols/saml/saml-apps/github-cloud',
       '/protocols/saml-protocol/saml-configuration-options/configure-saml2-web-app-addon-for-github-enterprise-cloud',
       '/protocols/saml-protocol/saml-sso-integrations/configure-saml2-web-app-addon-for-github-enterprise-cloud',
+      '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-saml2-web-app-addon-for-github-enterprise-cloud',
     ],
-    to: '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-saml2-web-app-addon-for-github-enterprise-cloud',
+    to: '/authenticate/protocols/saml/saml-sso-integrations/configure-auth0-saml-identity-provider/configure-saml2-web-app-addon-for-github-enterprise-cloud',
   },
   {
     from: [
@@ -2241,16 +2266,18 @@ const redirects = [
       '/scenarios/github',
       '/protocols/saml-protocol/saml-configuration-options/configure-saml2-web-app-addon-for-github-enterprise-server',
       '/protocols/saml-protocol/saml-sso-integrations/configure-saml2-web-app-addon-for-github-enterprise-server',
+      '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-saml2-web-app-addon-for-github-enterprise-server',
     ],
-    to: '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-saml2-web-app-addon-for-github-enterprise-server',
+    to: '/authenticate/protocols/saml/saml-sso-integrations/configure-auth0-saml-identity-provider/configure-saml2-web-app-addon-for-github-enterprise-server',
   },
   {
     from: [
       '/protocols/saml/saml-apps/google-apps',
       '/protocols/saml-protocol/saml-configuration-options/configure-auth0-as-idp-for-google-g-suite',
       '/protocols/saml-protocol/saml-sso-integrations/configure-auth0-as-idp-for-google-g-suite',
+      '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-auth0-as-idp-for-google-g-suite',
     ],
-    to: '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-auth0-as-idp-for-google-g-suite',
+    to: '/authenticate/protocols/saml/saml-sso-integrations/configure-auth0-saml-identity-provider/configure-auth0-as-idp-for-google-g-suite',
   },
   {
     from: [
@@ -2258,16 +2285,18 @@ const redirects = [
       '/saml-apps/heroku-sso',
       '/protocols/saml-protocol/saml-configuration-options/configure-saml2-web-app-addon-for-heroku',
       '/protocols/saml-protocol/saml-sso-integrations/configure-saml2-web-app-addon-for-heroku',
+      '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-saml2-web-app-addon-for-heroku',
     ],
-    to: '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-saml2-web-app-addon-for-heroku',
+    to: '/authenticate/protocols/saml/saml-sso-integrations/configure-auth0-saml-identity-provider/configure-saml2-web-app-addon-for-heroku',
   },
   {
     from: [
       '/protocols/saml/saml-apps/hosted-graphite',
       '/protocols/saml-protocol/saml-configuration-options/configure-auth0-as-identity-provider-for-hosted-graphite',
       '/protocols/saml-protocol/saml-sso-integrations/configure-auth0-as-identity-provider-for-hosted-graphite',
+      '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-hosted-graphite',
     ],
-    to: '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-hosted-graphite',
+    to: '/authenticate/protocols/saml/saml-sso-integrations/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-hosted-graphite',
   },
   {
     from: [
@@ -2275,16 +2304,18 @@ const redirects = [
       '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-litmos',
       '/protocols/saml-protocol/saml-configuration-options/configure-auth0-as-identity-provider-for-litmos',
       '/protocols/saml-protocol/saml-sso-integrations/configure-auth0-as-identity-provider-for-litmos',
+      '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-litmos',
     ],
-    to: '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-litmos',
+    to: '/authenticate/protocols/saml/saml-sso-integrations/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-litmos',
   },
   {
     from: [
       '/protocols/saml/saml-apps/pluralsight',
       '/protocols/saml-protocol/saml-configuration-options/configure-auth0-as-identity-provider-for-pluralsight',
       '/protocols/saml-protocol/saml-sso-integrations/configure-auth0-as-identity-provider-for-pluralsight',
+      '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-pluralsight',
     ],
-    to: '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-pluralsight',
+    to: '/authenticate/protocols/saml/saml-sso-integrations/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-pluralsight',
   },
   {
     from: [
@@ -2293,40 +2324,45 @@ const redirects = [
       '/protocols/saml-configuration-options/configure-auth0-as-identity-provider-for-sprout-video',
       '/protocols/saml-protocol/saml-configuration-options/configure-auth0-as-identity-provider-for-sprout-video',
       '/protocols/saml-protocol/saml-sso-integrations/configure-auth0-as-identity-provider-for-sprout-video',
+      '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-sprout-video',
     ],
-    to: '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-sprout-video',
+    to: '/authenticate/protocols/saml/saml-sso-integrations/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-sprout-video',
   },
   {
     from: [
       '/protocols/saml/saml-apps/tableau-online',
       '/protocols/saml-protocol/saml-configuration-options/configure-auth0-as-identity-provider-for-tableau-online',
       '/protocols/saml-protocol/saml-sso-integrations/configure-auth0-as-identity-provider-for-tableau-online',
+      '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-tableau-online',
     ],
-    to: '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-tableau-online',
+    to: '/authenticate/protocols/saml/saml-sso-integrations/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-tableau-online',
   },
   {
     from: [
       '/protocols/saml/saml-apps/tableau-server',
       '/protocols/saml-protocol/saml-configuration-options/configure-auth0-as-identity-provider-for-tableau-server',
       '/protocols/saml-protocol/saml-sso-integrations/configure-auth0-as-identity-provider-for-tableau-server',
+      '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-tableau-server',
     ],
-    to: '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-tableau-server',
+    to: '/authenticate/protocols/saml/saml-sso-integrations/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-tableau-server',
   },
   {
     from: [
       '/protocols/saml/saml-apps/workday',
       '/protocols/saml-protocol/saml-configuration-options/configure-auth0-as-identity-provider-for-workday',
       '/protocols/saml-protocol/saml-sso-integrations/configure-auth0-as-identity-provider-for-workday',
+      '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-workday',
     ],
-    to: '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-workday',
+    to: '/authenticate/protocols/saml/saml-sso-integrations/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-workday',
   },
   {
     from: [
       '/protocols/saml/saml-apps/workpath',
       '/protocols/saml-protocol/saml-configuration-options/configure-auth0-as-identity-provider-for-workpath',
       '/protocols/saml-protocol/saml-sso-integrations/configure-auth0-as-identity-provider-for-workpath',
+      '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-workpath',
     ],
-    to: '/configure/saml-configuration/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-workpath',
+    to: '/authenticate/protocols/saml/saml-sso-integrations/configure-auth0-saml-identity-provider/configure-auth0-as-identity-provider-for-workpath',
   },
   {
     from: [
@@ -2343,8 +2379,9 @@ const redirects = [
       '/protocols/saml-configuration-options/customize-saml-assertions',
       '/protocols/saml/saml-configuration/saml-assertions',
       '/protocols/saml-protocol/customize-saml-assertions',
+      '/configure/saml-configuration/customize-saml-assertions',
     ],
-    to: '/configure/saml-configuration/customize-saml-assertions',
+    to: '/authenticate/protocols/saml/saml-configuration/customize-saml-assertions',
   },
   {
     from: [
@@ -2354,8 +2391,9 @@ const redirects = [
       '/protocols/saml-configuration-options/configure-auth0-as-service-and-identity-provider',
       '/protocols/saml/saml-configuration/auth0-as-identity-and-service-provider',
       '/protocols/saml-protocol/configure-auth0-as-service-and-identity-provider',
+      '/configure/saml-configuration/configure-auth0-as-service-and-identity-provider',
     ],
-    to: '/configure/saml-configuration/configure-auth0-as-service-and-identity-provider',
+    to: '/authenticate/protocols/saml/saml-configuration/configure-auth0-as-service-and-identity-provider',
   },
   {
     from: [
@@ -2366,8 +2404,20 @@ const redirects = [
     ],
     to: '/authenticate/protocols/saml/saml-configuration/deprovision-users-in-saml-integrations',
   },
+  {
+    from: [
+      '/authorization/protocols/scim',
+    ],
+    to: '/authenticate/protocols/scim',
+  },
 
   /* Actions */
+  {
+    from: [
+      '/actions',
+    ],
+    to: '/customize/actions',
+  },
   {
     from: [
       '/actions/actions-overview',
@@ -2502,6 +2552,12 @@ const redirects = [
     ],
     to: '/customize/actions/triggers/post-login/api-object',
   },
+  {
+    from: [
+      '/actions/triggers/post-login/redirect-with-actions',
+    ],
+    to: '/customize/actions/triggers/post-login/redirect-with-actions',
+  },
 
   /* Attack Protection */
 
@@ -2547,23 +2603,26 @@ const redirects = [
       '/configure/anomaly-detection/bot-detection/configure-recaptcha-enterprise',
       '/anomaly-detection/bot-detection/configure-recaptcha-enterprise',
       '/attack-protection/bot-detection/configure-recaptcha-enterprise',
+      '/configure/attack-protection/bot-detection/configure-recaptcha-enterprise',
     ],
-    to: '/configure/attack-protection/bot-detection/configure-recaptcha-enterprise',
+    to: '/secure/attack-protection/bot-detection/configure-recaptcha-enterprise',
   },
   {
     from: [
       '/anomaly-detection/bot-detection/bot-detection-custom-login-pages',
       '/configure/anomaly-detection/bot-detection/bot-detection-custom-login-pages',
       '/attack-protection/bot-detection/bot-detection-custom-login-pages',
+      '/configure/attack-protection/bot-detection/bot-detection-custom-login-pages',
     ],
-    to: '/configure/attack-protection/bot-detection/bot-detection-custom-login-pages',
+    to: '/secure/attack-protection/bot-detection/bot-detection-custom-login-pages',
   },
   {
     from: [
       '/configure/anomaly-detection/bot-detection/bot-detection-native-apps',
       '/anomaly-detection/bot-detection/bot-detection-native-apps',
+      '/configure/attack-protection/bot-detection/bot-detection-native-apps',
     ],
-    to: '/configure/attack-protection/bot-detection/bot-detection-native-apps',
+    to: '/secure/attack-protection/bot-detection/bot-detection-native-apps',
   },
   {
     from: [
@@ -2886,36 +2945,58 @@ const redirects = [
     from: [
       '/dashboard/guides/roles/create-roles',
       '/api/management/guides/roles/create-roles',
+      '/authorization/rbac/roles/create-roles',
     ],
-    to: '/authorization/rbac/roles/create-roles',
+    to: '/manage-users/access-control/configure-core-rbac/roles/create-roles',
   },
   {
     from: [
       '/dashboard/guides/roles/edit-role-definitions',
       '/api/management/guides/roles/edit-role-definitions',
       '/authorization/guides/api/edit-role-definitions',
+      '/authorization/rbac/roles/edit-role-definitions',
     ],
-    to: '/authorization/rbac/roles/edit-role-definitions',
+    to: '/manage-users/access-control/configure-core-rbac/roles/edit-role-definitions',
   },
   {
-    from: ['/dashboard/guides/roles/add-permissions-roles', '/api/management/guides/roles/add-permissions-roles'],
-    to: '/authorization/rbac/roles/add-permissions-to-roles',
+    from: [
+      '/dashboard/guides/roles/add-permissions-roles',
+      '/api/management/guides/roles/add-permissions-roles',
+      '/authorization/rbac/roles/add-permissions-to-roles',
+    ],
+    to: '/manage-users/access-control/configure-core-rbac/roles/add-permissions-to-roles',
   },
   {
-    from: ['/dashboard/guides/roles/view-role-permissions', '/api/management/guides/roles/view-role-permissions'],
-    to: '/authorization/rbac/roles/view-role-permissions',
+    from: [
+      '/dashboard/guides/roles/view-role-permissions',
+      '/api/management/guides/roles/view-role-permissions',
+      '/authorization/rbac/roles/view-role-permissions',
+    ],
+    to: '/manage-users/access-control/configure-core-rbac/roles/view-role-permissions',
   },
   {
-    from: ['/dashboard/guides/roles/remove-role-permissions', '/api/management/guides/roles/remove-role-permissions'],
-    to: '/authorization/rbac/roles/remove-permissions-from-roles',
+    from: [
+      '/dashboard/guides/roles/remove-role-permissions',
+      '/api/management/guides/roles/remove-role-permissions',
+      '/authorization/rbac/roles/remove-permissions-from-roles',
+    ],
+    to: '/manage-users/access-control/configure-core-rbac/roles/remove-permissions-from-roles',
   },
   {
-    from: ['/api/management/guides/roles/view-role-users', '/dashboard/guides/roles/view-role-users'],
-    to: '/authorization/rbac/roles/view-users-assigned-to-roles',
+    from: [
+      '/api/management/guides/roles/view-role-users',
+      '/dashboard/guides/roles/view-role-users',
+      '/authorization/rbac/roles/view-users-assigned-to-roles',
+      ],
+    to: '/manage-users/access-control/configure-core-rbac/roles/view-users-assigned-to-roles',
   },
   {
-    from: ['/dashboard/guides/roles/delete-roles', '/api/management/guides/roles/delete-roles'],
-    to: '/authorization/rbac/roles/delete-roles',
+    from: [
+      '/dashboard/guides/roles/delete-roles',
+      '/api/management/guides/roles/delete-roles',
+      '/authorization/rbac/roles/delete-roles',
+    ],
+    to: '/manage-users/access-control/configure-core-rbac/roles/delete-roles',
   },
   {
     from: [
@@ -2930,16 +3011,18 @@ const redirects = [
       '/users/assign-roles-to-users',
       '/dashboard/guides/users/assign-roles-users',
       '/api/management/guides/users/assign-roles-users',
+      '/authorization/rbac/rbac-users/assign-roles-to-users',
     ],
-    to: '/authorization/rbac/rbac-users/assign-roles-to-users',
+    to: '/manage-users/access-control/configure-core-rbac/rbac-users/assign-roles-to-users',
   },
   {
     from: [
       '/dashboard/guides/users/view-user-roles',
       '/api/management/guides/users/view-user-roles',
       '/users/view-user-roles',
+      '/authorization/rbac/rbac-users/view-user-roles',
     ],
-    to: '/authorization/rbac/rbac-users/view-user-roles',
+    to: '/manage-users/access-control/configure-core-rbac/rbac-users/view-user-roles',
   },
   {
     from: [
@@ -2947,32 +3030,36 @@ const redirects = [
       '/dashboard/guides/roles/remove-role-users',
       '/api/management/guides/users/remove-user-roles',
       '/users/remove-roles-from-users',
+      '/authorization/rbac/rbac-users/remove-roles-from-users',
     ],
-    to: '/authorization/rbac/rbac-users/remove-roles-from-users',
+    to: '/manage-users/access-control/configure-core-rbac/rbac-users/remove-roles-from-users',
   },
   {
     from: [
       '/dashboard/guides/users/assign-permissions-users',
       '/api/management/guides/users/assign-permissions-users',
       '/users/assign-permissions-to-users',
+      '/authorization/rbac/rbac-users/assign-permissions-to-users',
     ],
-    to: '/authorization/rbac/rbac-users/assign-permissions-to-users',
+    to: '/manage-users/access-control/configure-core-rbac/rbac-users/assign-permissions-to-users',
   },
   {
     from: [
       '/dashboard/guides/users/view-user-permissions',
       '/api/management/guides/users/view-user-permissions',
       '/users/view-user-permissions',
+      '/authorization/rbac/rbac-users/view-user-permissions',
     ],
-    to: '/authorization/rbac/rbac-users/view-user-permissions',
+    to: '/manage-users/access-control/configure-core-rbac/rbac-users/view-user-permissions',
   },
   {
     from: [
       '/dashboard/guides/users/remove-user-permissions',
       '/api/management/guides/users/remove-user-permissions',
       '/users/remove-permissions-from-users',
+      '/authorization/rbac/rbac-users/remove-permissions-from-users',
     ],
-    to: '/authorization/rbac/rbac-users/remove-permissions-from-users',
+    to: '/manage-users/access-control/configure-core-rbac/rbac-users/remove-permissions-from-users',
   },
   {
     from: [
@@ -3028,77 +3115,138 @@ const redirects = [
       '/best-practices/custom-db-connections',
       '/best-practices/custom-db-connections-scripts',
       '/best-practices/custom-database-connection-and-action-script-best-practices',
+      '/best-practices/custom-database-connections-scripts',
     ],
-    to: '/best-practices/custom-database-connections-scripts',
+    to: '/authenticate/database-connections/custom-db/custom-database-connections-scripts',
   },
   {
     from: [
       '/best-practices/custom-db-connections/anatomy',
       '/best-practices/custom-db-connections/size',
       '/best-practices/custom-database-connection-and-action-script-best-practices/custom-db-connection-anatomy-best-practices',
+      '/best-practices/custom-database-connections-scripts/anatomy',
     ],
-    to: '/best-practices/custom-database-connections-scripts/anatomy',
+    to: '/authenticate/database-connections/custom-db/custom-database-connections-scripts/anatomy',
   },
   {
     from: [
       '/best-practices/custom-db-connections/environment',
       '/best-practices/custom-database-connection-and-action-script-best-practices/custom-db-action-script-environment-best-practices',
+      '/best-practices/custom-database-connections-scripts/environment',
     ],
-    to: '/best-practices/custom-database-connections-scripts/environment',
+    to: '/authenticate/database-connections/custom-db/custom-database-connections-scripts/environment',
   },
   {
     from: [
       '/best-practices/custom-db-connections/execution',
       '/best-practices/custom-database-connection-and-action-script-best-practices/custom-database-action-script-execution-best-practices',
+      '/best-practices/custom-database-connections-scripts/execution',
     ],
-    to: '/best-practices/custom-database-connections-scripts/execution',
+    to: '/authenticate/database-connections/custom-db/custom-database-connections-scripts/execution',
   },
   {
     from: [
       '/best-practices/custom-db-connections/security',
       '/best-practices/custom-database-connection-and-action-script-best-practices/custom-db-connection-security-best-practices',
+      '/best-practices/custom-database-connections-scripts/connection-security',
     ],
-    to: '/best-practices/custom-database-connections-scripts/connection-security',
+    to: '/authenticate/database-connections/custom-db/custom-database-connections-scripts/connection-security',
   },
   {
-    from: ['/best-practices/connection-settings'],
-    to: '/best-practices/connection-settings-best-practices',
+    from: [
+      '/best-practices/connection-settings',
+      '/best-practices/connection-settings-best-practices',
+    ],
+    to: '/authenticate/connection-settings-best-practices',
   },
   {
-    from: ['/best-practices/debugging'],
-    to: '/best-practices/debugging-best-practices',
+    from: [
+      '/best-practices/debugging',
+      '/best-practices/debugging-best-practices',
+    ],
+    to: '/troubleshoot/debugging-best-practices',
   },
   {
-    from: ['/best-practices/deployment'],
-    to: '/best-practices/deployment-best-practices',
+    from: [
+      '/best-practices/deployment',
+      '/best-practices/deployment-best-practices',
+    ],
+    to: '/deploy-monitor/deployment-best-practices',
   },
   {
-    from: ['/best-practices/error-handling'],
-    to: '/best-practices/error-handling-best-practices',
+    from: [
+      '/best-practices/error-handling',
+      '/best-practices/error-handling-best-practices',
+    ],
+    to: '/troubleshoot/error-handling-best-practices',
   },
   {
-    from: ['/best-practices/operations'],
-    to: '/best-practices/general-usage-and-operations-best-practices',
+    from: [
+      '/best-practices/operations',
+      '/best-practices/general-usage-and-operations-best-practices',
+    ],
+    to: '/troubleshoot/general-usage-and-operations-best-practices',
   },
   {
-    from: ['/best-practices/performance'],
-    to: '/best-practices/performance-best-practices',
+    from: [
+      '/best-practices/performance',
+      '/best-practices/performance-best-practices',
+    ],
+    to: '/troubleshoot/performance-best-practices',
   },
   {
-    from: ['/best-practices/rules'],
-    to: '/best-practices/rules-best-practices',
+    from: [
+      '/best-practices/rules',
+      '/best-practices/rules-best-practices',
+    ],
+    to: '/customize/rules/rules-best-practices',
   },
   {
-    from: ['/best-practices/search-best-practices', '/users/search/best-practices'],
-    to: '/best-practices/user-search-best-practices',
+    from: [
+      '/best-practices/search-best-practices',
+      '/users/search/best-practices',
+      '/best-practices/user-search-best-practices',
+    ],
+    to: '/manage-users/user-search/user-search-best-practices',
   },
   {
-    from: ['/best-practices/testing'],
-    to: '/best-practices/rules-best-practices/rules-testing-best-practices',
+    from: [
+      '/best-practices/rules-best-practices/rules-anatomy-best-practices',
+    ],
+    to: '/customize/rules/rules-best-practices/rules-anatomy-best-practices',
   },
   {
-    from: ['/tokens/concepts/token-best-practices', '/design/web-apps-vs-web-apis-cookies-vs-tokens'],
-    to: '/best-practices/token-best-practices',
+    from: [
+      '/best-practices/rules-best-practices/rules-environment-best-practices',
+    ],
+    to: '/customize/rules/rules-best-practices/rules-environment-best-practices',
+  },
+  {
+    from: [
+      '/best-practices/rules-best-practices/rules-execution-best-practices',
+    ],
+    to: '/customize/rules/rules-best-practices/rules-execution-best-practices',
+  },
+  {
+    from: [
+      '/best-practices/rules-best-practices/rules-security-best-practices',
+    ],
+    to: '/customize/rules/rules-best-practices/rules-security-best-practices',
+  },
+  {
+    from: [
+      '/best-practices/testing',
+      '/best-practices/rules-best-practices/rules-testing-best-practices',
+    ],
+    to: '/customize/rules/rules-best-practices/rules-testing-best-practices',
+  },
+  {
+    from: [
+      '/tokens/concepts/token-best-practices',
+      '/design/web-apps-vs-web-apis-cookies-vs-tokens',
+      '/best-practices/token-best-practices',
+    ],
+    to: '/secure/tokens/token-best-practices',
   },
   {
     from: [
@@ -3106,8 +3254,9 @@ const redirects = [
       '/applications/concepts/multiple-tenants',
       '/tutorials/using-auth0-with-multi-tenant-apps',
       '/saas-apps',
+      '/best-practices/multi-tenant-apps-best-practices',
     ],
-    to: '/best-practices/multi-tenant-apps-best-practices',
+    to: '/get-started/auth0-overview/create-tenants/multi-tenant-apps-best-practices',
   },
 
   /* Brand and Customize */
@@ -4037,7 +4186,40 @@ const redirects = [
     to: '/customize/extensions/authorization-extension',
   },
   {
-    from: ['/extensions/authorization-extension/v2/implementation/setup'],
+    from: [
+      '/extensions/authorization-extension/install-authorization-extension',
+    ],
+    to: '/customize/extensions/authorization-extension/install-authorization-extension',
+  },
+  {
+    from: [
+      '/extensions/authorization-extension/configure-authorization-extension',
+    ],
+    to: '/customize/extensions/authorization-extension/configure-authorization-extension',
+  },
+  {
+    from: [
+      '/extensions/authorization-extension/enable-api-access-to-authorization-extension',
+    ],
+    to: '/customize/extensions/authorization-extension/enable-api-access-to-authorization-extension',
+  },
+  {
+    from: [
+      '/extensions/authorization-extension/import-and-export-authorization-extension-data',
+    ],
+    to: '/customize/extensions/authorization-extension/import-and-export-authorization-extension-data',
+  },
+  {
+    from: [
+      '/extensions/authorization-extension/use-rules-with-the-authorization-extension',
+    ],
+    to: '/customize/extensions/authorization-extension/use-rules-with-the-authorization-extension',
+  },
+  {
+    from: [
+      '/extensions/authorization-extension/v2/implementation/setup',
+      '/extensions/authorization-extension/set-up-authorization-extension-users',
+    ],
     to: '/extensions/authorization-extension/set-up-authorization-extension-users',
   },
   {
@@ -4066,7 +4248,7 @@ const redirects = [
     to: '/deploy-monitor/deploy-private-cloud/private-cloud-on-azure',
   },
 
-  /* LDAP Connector */
+  /* Extensions */
 
   {
     from: [
@@ -4076,16 +4258,16 @@ const redirects = [
       '/ad-ldap-connector',
       '/protocols/ldap-protocol',
       '/protocols/ldap',
+      '/extensions/ad-ldap-connector',
     ],
-    to: '/extensions/ad-ldap-connector',
+    to: '/customize/extensions/ad-ldap-connector',
   },
   {
-    from: ['/connector/prerequisites', '/ad-ldap-connector/ad-ldap-connector-requirements'],
-    to: '/extensions/ad-ldap-connector/ad-ldap-connector-requirements',
-  },
-  {
-    from: ['/adldap-x', '/connector/install-other-platforms', '/connector/install', '/adldap-auth'],
-    to: '/extensions/ad-ldap-connector/install-configure-ad-ldap-connector',
+    from: [
+      '/extensions/ad-ldap-connector-health-monitor',
+      '/extensions/ad-ldap-connector/ad-ldap-connector-health-monitor',
+    ],
+    to: '/customize/extensions/ad-ldap-connector/ad-ldap-connector-health-monitor',
   },
   {
     from: [
@@ -4098,11 +4280,18 @@ const redirects = [
   },
   {
     from: [
+      '/extensions/delegated-administration-extension/delegated-administration-manage-users',
+    ],
+    to: '/customize/extensions/delegated-administration-extension/delegated-administration-manage-users',
+  },
+  {
+    from: [
       '/extensions/delegated-admin/v3/hooks',
       '/extensions/delegated-admin/v2/hooks',
       '/extensions/delegated-admin/hooks',
+      '/extensions/delegated-administration-extension/delegated-administration-hooks',
     ],
-    to: '/extensions/delegated-administration-extension/delegated-administration-hooks',
+    to: '/customize/extensions/delegated-administration-extension/delegated-administration-hooks',
   },
   {
     from: [
@@ -4110,8 +4299,9 @@ const redirects = [
       '/extensions/delegated-admin/v2/hooks/access',
       '/extensions/delegated-admin/hooks/access',
       '/extensions/delegated-administration-extension/delegated-administration-hooks/delegated-administration-access-hook',
+      '/extensions/delegated-administration-extension/delegated-administration-access-hook',
     ],
-    to: '/extensions/delegated-administration-extension/delegated-administration-access-hook',
+    to: '/customize/extensions/delegated-administration-extension/delegated-administration-hooks/delegated-administration-access-hook',
   },
   {
     from: [
@@ -4119,8 +4309,9 @@ const redirects = [
       '/extensions/delegated-admin/v2/hooks/filter',
       '/extensions/delegated-admin/hooks/filter',
       '/extensions/delegated-administration-extension/delegated-administration-hooks/delegated-administration-filter-hook',
+      '/extensions/delegated-administration-extension/delegated-administration-filter-hook',
     ],
-    to: '/extensions/delegated-administration-extension/delegated-administration-filter-hook',
+    to: '/customize/extensions/delegated-administration-extension/delegated-administration-hooks/delegated-administration-filter-hook',
   },
   {
     from: [
@@ -4128,8 +4319,9 @@ const redirects = [
       '/extensions/delegated-admin/v2/hooks/membership',
       '/extensions/delegated-admin/hooks/membership',
       '/extensions/delegated-administration-extension/delegated-administration-hooks/delegated-administration-memberships-query-hook',
+      '/extensions/delegated-administration-extension/delegated-administration-memberships-query-hook',
     ],
-    to: '/extensions/delegated-administration-extension/delegated-administration-memberships-query-hook',
+    to: '/customize/extensions/delegated-administration-extension/delegated-administration-hooks/delegated-administration-memberships-query-hook',
   },
   {
     from: [
@@ -4137,8 +4329,9 @@ const redirects = [
       '/extensions/delegated-admin/v2/hooks/settings',
       '/extensions/delegated-admin/hooks/settings',
       '/extensions/delegated-administration-extension/delegated-administration-hooks/delegated-administration-settings-query-hook',
+      '/extensions/delegated-administration-extension/delegated-administration-settings-query-hook',
     ],
-    to: '/extensions/delegated-administration-extension/delegated-administration-settings-query-hook',
+    to: '/customize/extensions/delegated-administration-extension/delegated-administration-hooks/delegated-administration-settings-query-hook',
   },
   {
     from: [
@@ -4146,12 +4339,9 @@ const redirects = [
       '/extensions/delegated-admin/v2/hooks/write',
       '/extensions/delegated-admin/hooks/write',
       '/extensions/delegated-administration-extension/delegated-administration-hooks/delegated-administration-write-hook',
+      '/extensions/delegated-administration-extension/delegated-administration-write-hook',
     ],
-    to: '/extensions/delegated-administration-extension/delegated-administration-write-hook',
-  },
-  {
-    from: ['/connector/update', '/ad-ldap-connector/update-ad-ldap-connectors'],
-    to: '/extensions/ad-ldap-connector/update-ad-ldap-connectors',
+    to: '/customize/extensions/delegated-administration-extension/delegated-administration-hooks/delegated-administration-write-hook',
   },
   {
     from: [
@@ -4164,20 +4354,30 @@ const redirects = [
     from: [
       '/get-started/dashboard/create-sso-dashboard-application',
       '/dashboard/guides/extensions/sso-dashboard-create-app',
+      '/extensions/single-sign-on-dashboard-extension/create-sso-dashboard-application',
     ],
-    to: '/extensions/single-sign-on-dashboard-extension/create-sso-dashboard-application',
+    to: '/customize/extensions/single-sign-on-dashboard-extension/create-sso-dashboard-application',
   },
   {
-    from: ['/dashboard/guides/extensions/sso-dashboard-install-extension'],
-    to: '/extensions/single-sign-on-dashboard-extension/install-sso-dashboard-extension',
+    from: [
+      '/dashboard/guides/extensions/sso-dashboard-install-extension',
+      '/extensions/single-sign-on-dashboard-extension/install-sso-dashboard-extension',
+    ],
+    to: '/customize/extensions/single-sign-on-dashboard-extension/install-sso-dashboard-extension',
   },
   {
-    from: ['/dashboard/guides/extensions/sso-dashboard-add-apps'],
-    to: '/extensions/single-sign-on-dashboard-extension/add-applications-to-the-sso-dashboard',
+    from: [
+      '/dashboard/guides/extensions/sso-dashboard-add-apps',
+      '/extensions/single-sign-on-dashboard-extension/add-applications-to-the-sso-dashboard',
+    ],
+    to: '/customize/extensions/single-sign-on-dashboard-extension/add-applications-to-the-sso-dashboard',
   },
   {
-    from: ['/dashboard/guides/extensions/sso-dashboard-update-apps'],
-    to: '/extensions/single-sign-on-dashboard-extension/update-applications-on-the-sso-dashboard',
+    from: [
+      '/dashboard/guides/extensions/sso-dashboard-update-apps',
+      '/extensions/single-sign-on-dashboard-extension/update-applications-on-the-sso-dashboard',
+    ],
+    to: '/customize/extensions/single-sign-on-dashboard-extension/update-applications-on-the-sso-dashboard',
   },
 
   /* LDAP Connector */
@@ -4191,58 +4391,106 @@ const redirects = [
       '/protocols/ldap-protocol',
       '/protocols/ldap',
     ],
-    to: '/extensions/ad-ldap-connector',
+    to: '/authenticate/protocols/ldap-protocol',
   },
   {
-    from: ['/connector/prerequisites', '/ad-ldap-connector/ad-ldap-connector-requirements'],
-    to: '/extensions/ad-ldap-connector/ad-ldap-connector-requirements',
+    from: [
+      '/connector/prerequisites',
+      '/ad-ldap-connector/ad-ldap-connector-requirements',
+      '/extensions/ad-ldap-connector/ad-ldap-connector-requirements',
+    ],
+    to: '/customize/extensions/ad-ldap-connector/ad-ldap-connector-requirements',
   },
   {
-    from: ['/adldap-x', '/connector/install-other-platforms', '/connector/install', '/adldap-auth'],
-    to: '/extensions/ad-ldap-connector/install-configure-ad-ldap-connector',
+    from: [
+      '/adldap-x',
+      '/connector/install-other-platforms',
+      '/connector/install',
+      '/adldap-auth',
+      '/extensions/ad-ldap-connector/install-configure-ad-ldap-connector',
+    ],
+    to: '/customize/extensions/ad-ldap-connector/install-configure-ad-ldap-connector',
   },
   {
     from: [
       '/connector/client-certificates',
       '/ad-ldap-connector/configure-ad-ldap-connector-authentication-with-client-certificates',
+      '/extensions/ad-ldap-connector/configure-ad-ldap-connector-client-certificates',
     ],
-    to: '/extensions/ad-ldap-connector/configure-ad-ldap-connector-client-certificates',
-  },
-  {
-    from: ['/connector/kerberos', '/ad-ldap-connector/configure-ad-ldap-connector-authentication-with-kerberos'],
-    to: '/extensions/ad-ldap-connector/configure-ad-ldap-connector-with-kerberos',
-  },
-  {
-    from: ['/connector/high-availability', '/ad-ldap-connector/ad-ldap-high-availability'],
-    to: '/extensions/ad-ldap-connector/ad-ldap-high-availability',
+    to: '/customize/extensions/ad-ldap-connector/configure-ad-ldap-connector-client-certificates',
   },
   {
     from: [
-      '/extensions/adldap-connector',
-      '/extensions/ad-ldap-connector-health-monitor',
-      '/extensions/ad-ldap-connector/ad-ldap-connector-health-monitor',
+      '/connector/kerberos',
+      '/ad-ldap-connector/configure-ad-ldap-connector-authentication-with-kerberos',
+      '/extensions/ad-ldap-connector/configure-ad-ldap-connector-with-kerberos',
     ],
-    to: '/customize/extensions/ad-ldap-connector-health-monitor',
+    to: '/customize/extensions/ad-ldap-connector/configure-ad-ldap-connector-with-kerberos',
   },
   {
-    from: ['/dashboard/guides/connections/disable-cache-ad-ldap'],
-    to: '/extensions/ad-ldap-connector/disable-credential-caching',
+    from: [
+      '/extensions/ad-ldap-connector/ad-ldap-connector-config-file-schema',
+    ],
+    to: '/customize/extensions/ad-ldap-connector/ad-ldap-connector-config-file-schema',
   },
   {
-    from: ['/connector/scom-monitoring', '/ad-ldap-connector/ad-ldap-connector-scorm'],
-    to: '/extensions/ad-ldap-connector/ad-ldap-connector-scom',
+    from: [
+      '/extensions/ad-ldap-connector/import-export-ad-ldap-connector-configs',
+    ],
+    to: '/customize/extensions/ad-ldap-connector/import-export-ad-ldap-connector-configs',
   },
   {
-    from: ['/connector/modify', '/ad-ldap-connector/ad-ldap-connectors-to-auth0'],
-    to: '/extensions/ad-ldap-connector/ad-ldap-connector-to-auth0',
+    from: [
+      '/extensions/ad-ldap-connector/map-ad-ldap-profile-attributes-to-auth0',
+    ],
+    to: '/customize/extensions/ad-ldap-connector/map-ad-ldap-profile-attributes-to-auth0',
   },
   {
-    from: ['/connector/test-dc', '/ad-ldap-connector/ad-ldap-connector-test-environment'],
-    to: '/extensions/ad-ldap-connector/ad-ldap-connector-test-environment',
+    from: [
+      '/connector/high-availability',
+      '/ad-ldap-connector/ad-ldap-high-availability',
+      '/extensions/ad-ldap-connector/ad-ldap-high-availability',
+    ],
+    to: '/customize/extensions/ad-ldap-connector/ad-ldap-high-availability',
   },
   {
-    from: ['/connector/update', '/ad-ldap-connector/update-ad-ldap-connectors'],
-    to: '/extensions/ad-ldap-connector/update-ad-ldap-connectors',
+    from: [
+      '/dashboard/guides/connections/disable-cache-ad-ldap',
+      '/extensions/ad-ldap-connector/disable-credential-caching',
+    ],
+    to: '/customize/extensions/ad-ldap-connector/disable-credential-caching',
+  },
+  {
+    from: [
+      '/connector/scom-monitoring',
+      '/ad-ldap-connector/ad-ldap-connector-scorm',
+      '/extensions/ad-ldap-connector/ad-ldap-connector-scom',
+    ],
+    to: '/customize/extensions/ad-ldap-connector/ad-ldap-connector-scom',
+  },
+  {
+    from: [
+      '/connector/modify',
+      '/ad-ldap-connector/ad-ldap-connectors-to-auth0',
+      '/extensions/ad-ldap-connector/ad-ldap-connector-to-auth0',
+    ],
+    to: '/customize/extensions/ad-ldap-connector/ad-ldap-connector-to-auth0',
+  },
+  {
+    from: [
+      '/connector/test-dc',
+      '/ad-ldap-connector/ad-ldap-connector-test-environment',
+      '/extensions/ad-ldap-connector/ad-ldap-connector-test-environment',
+    ],
+    to: '/customize/extensions/ad-ldap-connector/ad-ldap-connector-test-environment',
+  },
+  {
+    from: [
+      '/connector/update',
+      '/ad-ldap-connector/update-ad-ldap-connectors',
+      '/extensions/ad-ldap-connector/update-ad-ldap-connectors',
+    ],
+    to: '/customize/extensions/ad-ldap-connector/update-ad-ldap-connectors',
   },
   {
     from: [
@@ -4252,8 +4500,12 @@ const redirects = [
     to: '/customize/extensions/account-link-extension',
   },
   {
-    from: ['/logs/export-log-events-with-extensions', '/logs/log-export-extensions'],
-    to: '/extensions/log-export-extensions',
+    from: [
+      '/logs/export-log-events-with-extensions',
+      '/logs/log-export-extensions',
+      '/extensions/log-export-extensions',
+    ],
+    to: '/customize/extensions/export-log-events-with-extensions',
   },
   {
     from: [
@@ -4504,6 +4756,18 @@ const redirects = [
   {
     from: ['/overview', '/get-started/overview', '/getting-started/overview'],
     to: '/get-started/auth0-overview',
+  },
+  {
+    from: [
+      '/get-started/dashboard',
+    ],
+    to: '/get-started/auth0-overview/dashboard',
+  },
+  {
+    from: [
+      '/get-started/dashboard/activity',
+    ],
+    to: '/get-started/auth0-overview/dashboard/activity',
   },
   {
     from: [
@@ -5867,6 +6131,7 @@ const redirects = [
       '/universal-login/new-experience',
       '/universal-login/new',
       '/login/universal-login/new-experience',
+      '/universal-login/new-experience-limitations',
     ],
     to: '/authenticate/login/auth0-universal-login/new-experience',
   },
@@ -5894,6 +6159,7 @@ const redirects = [
       '/guides/login/universal-vs-embedded',
       '/guides/login/centralized-vs-embedded',
       '/login/universal-vs-embedded-login',
+      '/libraries/when-to-use-lock',
     ],
     to: '/authenticate/login/universal-vs-embedded-login',
   },
@@ -5907,8 +6173,14 @@ const redirects = [
     to: '/authenticate/login/auth0-universal-login/configure-default-login-routes',
   },
   {
-    from: ['/universal-login/error-pages', '/error-pages', '/error-pages/generic', '/hosted-pages/error-pages'],
-    to: '/login/universal-login/error-pages',
+    from: [
+      '/universal-login/error-pages',
+      '/error-pages',
+      '/error-pages/generic',
+      '/hosted-pages/error-pages',
+      '/login/universal-login/error-pages',
+    ],
+    to: '/authenticate/login/auth0-universal-login/error-pages',
   },
   {
     from: [
@@ -6224,16 +6496,24 @@ const redirects = [
     from: [
       '/logs/export-log-events-with-log-streaming/datadog-dashboard-templates',
       '/logs/streams/datadog-dashboard-templates',
+      '/monitor-auth0/streams/datadog-dashboard-templates',
     ],
-    to: '/monitor-auth0/streams/datadog-dashboard-templates',
+    to: '/customize/log-streams/datadog-dashboard-templates',
   },
   {
-    from: ['/logs/export-log-events-with-log-streaming/splunk-dashboard', '/logs/streams/splunk-dashboard'],
-    to: '/monitor-auth0/streams/splunk-dashboard',
+    from: [
+      '/logs/export-log-events-with-log-streaming/splunk-dashboard',
+      '/logs/streams/splunk-dashboard',
+      '/monitor-auth0/streams/splunk-dashboard',
+    ],
+    to: '/customize/log-streams/splunk-dashboard',
   },
   {
-    from: ['/logs/streams/sumo-logic-dashboard'],
-    to: '/monitor-auth0/streams/sumo-logic-dashboard',
+    from: [
+      '/logs/streams/sumo-logic-dashboard',
+      '/monitor-auth0/streams/sumo-logic-dashboard',
+    ],
+    to: '/customize/log-streams/sumo-logic-dashboard',
   },
   {
     from: [
@@ -6869,6 +7149,7 @@ const redirects = [
       '/instagram-clientid',
       '/product-lifecycle/deprecations-and-migrations/instagram-connection-deprecation',
       '/product-lifecycle/past-migrations/instagram-connection-deprecation',
+      '/connections/social/instagram',
     ],
     to: '/troubleshoot/product-lifecycle/past-migrations/instagram-connection-deprecation',
   },
@@ -7402,7 +7683,13 @@ const redirects = [
     ],
     to: '/secure/security-guidance/security-bulletins/cve-2017-17068',
   },
-
+  {
+    from: [
+      '/security/incident-response-using-logs',
+    ],
+    to: '/secure/security-guidance/incident-response-using-logs',
+  },
+  
   /* Tokens */
 
   {
@@ -7559,8 +7846,9 @@ const redirects = [
     from: [
       '/api/management/v2/tokens-flows',
       '/tokens/management-api-access-tokens/changes-in-auth0-management-apiv2-tokens',
+      '/security/tokens/access-tokens/changes-in-auth0-management-apiv2-tokens',
     ],
-    to: '/security/tokens/access-tokens/changes-in-auth0-management-apiv2-tokens',
+    to: '/secure/tokens/access-tokens/changes-in-auth0-management-apiv2-tokens',
   },
   {
     from: [
@@ -7587,16 +7875,18 @@ const redirects = [
       '/tokens/guides/validate-jwts',
       '/tokens/guides/jwt/parse-validate-jwt-programmatically',
       '/tokens/guides/jwt/validate-jwt',
+      '/security/tokens/json-web-tokens/validate-json-web-tokens',
     ],
-    to: '/security/tokens/json-web-tokens/validate-json-web-tokens',
+    to: '/secure/tokens/json-web-tokens/validate-json-web-tokens',
   },
   {
     from: [
       '/tokens/json-web-tokens/json-web-token-structure',
       '/tokens/references/jwt-structure',
       '/tokens/reference/jwt/jwt-structure',
+      '/security/tokens/json-web-tokens/json-web-token-structure',
     ],
-    to: '/security/tokens/json-web-tokens/json-web-token-structure',
+    to: '/secure/tokens/json-web-tokens/json-web-token-structure',
   },
   {
     from: [
@@ -7605,20 +7895,28 @@ const redirects = [
       '/tokens/concepts/jwt-claims',
       '/tokens/add-custom-claims',
       '/scopes/current/custom-claims',
+      '/security/tokens/json-web-tokens/json-web-token-claims',
     ],
-    to: '/security/tokens/json-web-tokens/json-web-token-claims',
+    to: '/secure/tokens/json-web-tokens/json-web-token-claims',
   },
   {
     from: [
       '/tokens/create-namespaced-custom-claims',
       '/tokens/guides/create-namespaced-custom-claims',
       '/tokens/concepts/claims-namespacing',
+      '/security/tokens/json-web-tokens/create-namespaced-custom-claims',
     ],
-    to: '/security/tokens/json-web-tokens/create-namespaced-custom-claims',
+    to: '/secure/tokens/json-web-tokens/create-namespaced-custom-claims',
   },
   {
-    from: ['/tokens/json-web-tokens/json-web-key-sets', '/tokens/jwks', '/jwks', '/tokens/concepts/jwks'],
-    to: '/security/tokens/json-web-tokens/json-web-key-sets',
+    from: [
+      '/tokens/json-web-tokens/json-web-key-sets',
+      '/tokens/jwks',
+      '/jwks',
+      '/tokens/concepts/jwks',
+      '/security/tokens/json-web-tokens/json-web-key-sets',
+    ],
+    to: '/secure/tokens/json-web-tokens/json-web-key-sets',
   },
   {
     from: [
@@ -7626,16 +7924,18 @@ const redirects = [
       '/tokens/guides/locate-jwks',
       '/tokens/guides/jwt/verify-jwt-signature-using-jwks',
       '/tokens/guides/jwt/use-jwks',
+      '/security/tokens/json-web-tokens/locate-json-web-key-sets',
     ],
-    to: '/security/tokens/json-web-tokens/locate-json-web-key-sets',
+    to: '/secure/tokens/json-web-tokens/locate-json-web-key-sets',
   },
   {
     from: [
       '/tokens/json-web-tokens/json-web-key-set-properties',
       '/tokens/references/jwks-properties',
       '/tokens/reference/jwt/jwks-properties',
+      '/security/tokens/json-web-tokens/json-web-key-set-properties',
     ],
-    to: '/security/tokens/json-web-tokens/json-web-key-set-properties',
+    to: '/secure/tokens/json-web-tokens/json-web-key-set-properties',
   },
   {
     from: [
@@ -7856,6 +8156,12 @@ const redirects = [
       '/support/software-updates',
     ],
     to: '/troubleshoot/customer-support/software-updates',
+  },
+  {
+    from: [
+      '/support/whitehat-security-support-tickets',
+    ],
+    to: '/troubleshoot/customer-support/responsible-disclosure-program-security-support-tickets',
   },
 
   /* Policies */
