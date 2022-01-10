@@ -4258,12 +4258,11 @@ const redirects = [
 
   {
     from: [
+      
       '/connector',
       '/connector/overview',
       '/connector/considerations-non-ad',
       '/ad-ldap-connector',
-      '/protocols/ldap-protocol',
-      '/protocols/ldap',
       '/extensions/ad-ldap-connector',
     ],
     to: '/customize/extensions/ad-ldap-connector',
@@ -4390,10 +4389,6 @@ const redirects = [
 
   {
     from: [
-      '/connector',
-      '/connector/overview',
-      '/connector/considerations-non-ad',
-      '/ad-ldap-connector',
       '/protocols/ldap-protocol',
       '/protocols/ldap',
     ],
@@ -4966,6 +4961,12 @@ const redirects = [
       '/dashboard-access/add-change-remove-mfa/add-multi-factor-authentication-for-auth0-dashboard-access',
     ],
     to: '/get-started/manage-dashboard-access/add-change-remove-mfa/add-mfa',
+  },
+  {
+    from: [
+      '/dashboard-access/add-dashboard-users',
+    ],
+    to: '/get-started/manage-dashboard-access/add-dashboard-users',
   },
 
   /* Hooks */
