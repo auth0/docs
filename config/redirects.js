@@ -7059,6 +7059,12 @@ const redirects = [
     ],
     to: '/troubleshoot/product-lifecycle/deprecations-and-migrations/migrate-tenant-member-roles',
   },
+    {
+    from: [
+      '/product-lifecycle/deprecations-and-migrations/tenant-hostname-migration',
+    ],
+    to: '/troubleshoot/product-lifecycle/deprecations-and-migrations/tenant-hostname-migration',
+  },
   {
     from: [
       '/guides/login/migration-embedded-universal',
