@@ -14,7 +14,7 @@
     - title: "Auth0 Overview"
       url: "/get-started/auth0-overview"
       
-    - title: "Tenant Settngs"
+    - title: "Tenant Settings"
       url: "/get-started/tenant-settings"
    
     - title: "Authentication and Authorization Flows"
