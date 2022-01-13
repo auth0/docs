@@ -6,16 +6,10 @@ topics:
     - backend
     - golang
 github:
-  path: 01-Authorization-RS256
+  path: 01-Authorization-RS256-BETA
 contentType: tutorial
 useCase: quickstart
 ---
-
-::: panel New Beta Release Available!
-<span class="badge badge-warning">Beta</span> &nbsp; **[Our next-generation Auth0-Go-JWT-Middleware SDK is now available in beta.](https://github.com/auth0/go-jwt-middleware)** 
-Updated to offer an exciting new API — we think the new SDK elevates the developer experience. We'd love for you to [give the new beta release a try](https://github.com/auth0/go-jwt-middleware).
-Be sure to visit our [new backend api quickstart](/quickstart/backend/golang-beta), and drop by the [the Auth0 Community](https://community.auth0.com/) to let us know your thoughts!
-:::
 
 <%= include('../../../_includes/_api_auth_intro') %>
 
@@ -32,12 +26,12 @@ Add a `go.mod` file to list all the dependencies to be used.
 ```text
 // go.mod
 
-module 01-Authorization-RS256
+module 01-Authorization-RS256-BETA
 
 go 1.16
 
 require (
-	github.com/auth0/go-jwt-middleware/v2 v2.0.0
+	github.com/auth0/go-jwt-middleware/v2 v2.0.0-beta
 	github.com/joho/godotenv v1.4.0
 )
 ```
@@ -113,11 +107,7 @@ func EnsureValidToken() func(next http.Handler) http.Handler {
 		validator.RS256,
 		issuerURL.String(),
 		[]string{os.Getenv("AUTH0_AUDIENCE")},
-		validator.WithCustomClaims(
-			func() validator.CustomClaims {
-				return &CustomClaims{}
-			},
-		),
+		validator.WithCustomClaims(&CustomClaims{}),
 		validator.WithAllowedClockSkew(time.Minute),
 	)
 	if err != nil {
@@ -161,7 +151,7 @@ import (
 
 	"github.com/joho/godotenv"
 
-	"01-Authorization-RS256/middleware"
+	"01-Authorization-RS256-BETA/middleware"
 )
 
 func main() {
