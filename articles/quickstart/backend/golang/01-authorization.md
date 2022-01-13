@@ -11,6 +11,12 @@ contentType: tutorial
 useCase: quickstart
 ---
 
+::: panel New Beta Release Available!
+<span class="badge badge-warning">Beta</span> &nbsp; **[Our next-generation Auth0-Go-JWT-Middleware SDK is now available in beta.](https://github.com/auth0/go-jwt-middleware)** 
+Updated to offer an exciting new API — we think the new SDK elevates the developer experience. We'd love for you to [give the new beta release a try](https://github.com/auth0/go-jwt-middleware).
+Be sure to visit our [new backend api quickstart](/quickstart/backend/golang-beta), and drop by the [the Auth0 Community](https://community.auth0.com/) to let us know your thoughts!
+:::
+
 <%= include('../../../_includes/_api_auth_intro') %>
 
 <%= include('../_includes/_api_create_new') %>
