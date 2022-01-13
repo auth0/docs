@@ -6,7 +6,7 @@
 
 - id: "articles"
   title: "Articles"
-  url: "/get-started"
+  url: "/articles"
   folder: ""
   default: true
 
