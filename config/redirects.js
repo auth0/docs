@@ -2122,6 +2122,7 @@ const redirects = [
       '/protocols/saml-protocol/saml-configuration/configure-pingfederate-as-saml-identity-provider',
       '/protocols/saml-protocol/saml-sso-integrations/configure-pingfederate-as-saml-identity-provider',
       '/configure/saml-configuration/configure-auth0-saml-service-provider/configure-pingfederate-as-saml-identity-provider',
+      '/connections/enterprise/ping-federate',
     ],
     to: '/authenticate/protocols/saml/saml-sso-integrations/configure-auth0-saml-service-provider/configure-pingfederate-as-saml-identity-provider',
   },
@@ -7050,8 +7051,9 @@ const redirects = [
       '/deprecations-and-migrations/migrate-tenant-member-roles',
       '/product-lifecycle/deprecations-and-migrations/migrate-to-manage-dashboard-new-roles',
       '/product-lifecycle/deprecations-and-migrations/migrate-tenant-member-roles',
+      '/troubleshoot/product-lifecycle/deprecations-and-migrations/migrate-tenant-member-roles',
     ],
-    to: '/troubleshoot/product-lifecycle/deprecations-and-migrations/migrate-tenant-member-roles',
+    to: '/troubleshoot/product-lifecycle/past-migrations/migrate-tenant-member-roles',
   },
   {
     from: [
@@ -7071,8 +7073,9 @@ const redirects = [
       '/guides/login/migrating-lock-v8',
       '/guides/login/migration-sso',
       '/product-lifecycle/deprecations-and-migrations/migrate-from-embedded-login-to-universal-login',
+      '/troubleshoot/product-lifecycle/deprecations-and-migrations/migrate-from-embedded-login-to-universal-login',
     ],
-    to: '/troubleshoot/product-lifecycle/deprecations-and-migrations/migrate-from-embedded-login-to-universal-login',
+    to: '/troubleshoot/product-lifecycle/past-migrations/migrate-from-embedded-login-to-universal-login',
   },
   {
     from: [
@@ -7080,8 +7083,9 @@ const redirects = [
       '/users/search/v3/migrate-search-v2-v3',
       '/users/user-search/migrate-search-v2-v3',
       '/product-lifecycle/deprecations-and-migrations/migrate-v2-v3',
+      '/troubleshoot/product-lifecycle/deprecations-and-migrations/migrate-v2-v3',
     ],
-    to: '/troubleshoot/product-lifecycle/deprecations-and-migrations/migrate-v2-v3',
+    to: '/troubleshoot/product-lifecycle/past-migrations/migrate-v2-v3',
   },
   {
     from: [
