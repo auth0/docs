@@ -51,7 +51,7 @@ Make sure that the [application type](https://auth0.com/docs/configure/applicati
 
 ### Configure Custom URL Scheme
 
-Back in Xcode, go the **Info** tab of your application target settings. In the **URL Types** section, click the **＋** button to add a new entry. There, enter `auth0` into the **Identifier** field and `$(PRODUCT_BUNDLE_IDENTIFIER)` into the **URL Schemes** field.
+Back in Xcode, go to the **Info** tab of your application target settings. In the **URL Types** section, click the **＋** button to add a new entry. There, enter `auth0` into the **Identifier** field and `$(PRODUCT_BUNDLE_IDENTIFIER)` into the **URL Schemes** field.
 
 ## Install the SDK
 
