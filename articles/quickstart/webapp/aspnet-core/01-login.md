@@ -103,7 +103,7 @@ public class AccountController : Controller
             .WithRedirectUri(returnUrl)
             .Build();
 
-        await HttpContext.ChallengeAsync(Constants.AuthenticationScheme, authenticationProperties);
+        await HttpContext.ChallengeAsync(Auth0Constants.AuthenticationScheme, authenticationProperties);
     }
 }
 ```
