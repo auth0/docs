@@ -51,27 +51,7 @@ Make sure that the [application type](https://auth0.com/docs/configure/applicati
 
 ### Configure Custom URL Scheme
 
-In your application's `Info.plist` file, register the bundle identifier as a custom URL scheme.
-
-```xml
-<key>CFBundleURLTypes</key>
-<array>
-    <dict>
-        <key>CFBundleTypeRole</key>
-        <string>None</string>
-        <key>CFBundleURLName</key>
-        <string>auth0</string>
-        <key>CFBundleURLSchemes</key>
-        <array>
-            <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-        </array>
-    </dict>
-</array>
-```
-
-::: note
-If your `Info.plist` is not shown in this format, you can **right-click** on `Info.plist` in Xcode and then select **Open As > Source Code**.
-:::
+Back in Xcode, go the **Info** tab of your application target settings. In the **URL Types** section, click the **＋** button to add a new entry. There, enter `auth0` into the **Identifier** field and `$(PRODUCT_BUNDLE_IDENTIFIER)` into the **URL Schemes** field.
 
 ## Install the SDK
 
@@ -246,5 +226,5 @@ Verify that you can access the `name`, `picture`, or any other [claim](https://a
 Check the SDK documentation to learn how to perform some common tasks, explore more advanced use cases, and discover all the available features:
 
 - [Common tasks](https://github.com/auth0/Auth0.swift/tree/beta#common-tasks)
-- [API Documentation](https://auth0.github.io/Auth0.swift/)
+- [API documentation](https://auth0.github.io/Auth0.swift/)
 - [FAQ](https://github.com/auth0/Auth0.swift/blob/beta/FAQ.md)
