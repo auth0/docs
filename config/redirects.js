@@ -3816,20 +3816,6 @@ const redirects = [
 
   {
     from: [
-      '/cms/joomla/configuration',
-      '/cms/integrate-with-joomla',
-    ],
-    to: '/customize/integrations/cms/integrate-with-joomla',
-  },
-  {
-    from: [
-      '/cms/joomla/installation',
-      '/cms/joomla-installation',
-    ],
-    to: '/customize/integrations/cms/joomla-installation',
-  },
-  {
-    from: [
       '/cms/wordpress',
       '/cms/wordpress/jwt-authentication',
       '/cms/wordpress-plugin',
