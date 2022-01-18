@@ -6,7 +6,7 @@ topics:
     - backend
     - golang
 github:
-  path: 01-Authorization-RS256-BETA
+  path: 01-Authorization-RS256
 contentType: tutorial
 useCase: quickstart
 ---
@@ -26,12 +26,12 @@ Add a `go.mod` file to list all the dependencies to be used.
 ```text
 // go.mod
 
-module 01-Authorization-RS256-BETA
+module 01-Authorization-RS256
 
 go 1.16
 
 require (
-	github.com/auth0/go-jwt-middleware/v2 v2.0.0-beta
+	github.com/auth0/go-jwt-middleware/v2 v2.0.0
 	github.com/joho/godotenv v1.4.0
 )
 ```
@@ -107,7 +107,11 @@ func EnsureValidToken() func(next http.Handler) http.Handler {
 		validator.RS256,
 		issuerURL.String(),
 		[]string{os.Getenv("AUTH0_AUDIENCE")},
-		validator.WithCustomClaims(&CustomClaims{}),
+		validator.WithCustomClaims(
+			func() validator.CustomClaims {
+				return &CustomClaims{}
+			},
+		),
 		validator.WithAllowedClockSkew(time.Minute),
 	)
 	if err != nil {
@@ -151,7 +155,7 @@ import (
 
 	"github.com/joho/godotenv"
 
-	"01-Authorization-RS256-BETA/middleware"
+	"01-Authorization-RS256/middleware"
 )
 
 func main() {
