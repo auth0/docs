@@ -9,5 +9,5 @@
 <%= include('../../../_includes/_callback_url') %>
 
 ::: note
-If you are following along with the sample project you downloaded from the top of this page, the callback URL you need to add to the **Allowed Callback URLs** field is `${callback}`.
+If you are following along with the sample project you downloaded from the top of this page, the callback URL you need to add to the **Allowed Callback URLs** field is `${callback}`/callback.
 :::
