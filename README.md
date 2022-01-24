@@ -11,7 +11,7 @@ This repository contains the Auth0 Quickstarts, but most other documentation con
 Both of the above repositories require team access.
 
 ## Editing Docs Content
-Auth0 Docs are no longer maintained in this Github repository. Employees can request access to our content management system to update Docs directly. Outside contributors can submit requests under [Issues](https://github.com/auth0/docs/issues) section in this repository.
+Auth0 Docs are no longer maintained in this Github repository. Employees can request access to our content management system to update Docs directly. Outside contributors can submit requests under the [Issues](https://github.com/auth0/docs/issues) section in this repository.
 
 ## Editing Quickstart Content
 
