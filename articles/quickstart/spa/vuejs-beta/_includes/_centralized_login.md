@@ -89,7 +89,7 @@ Once the user authenticates, the SDK extracts the user's profile information and
   <div>
     <h2>User Profile</h2>
     <button @click="login">Log in</button>
-    <pre>
+    <pre v-if="isAuthenticated">
         <code>{{ user }}</code>
       </pre>
   </div>
@@ -99,13 +99,14 @@ Once the user authenticates, the SDK extracts the user's profile information and
 
   export default {
     setup() {
-      const { loginWithRedirect, user } = useAuth0();
+      const { loginWithRedirect, user, isAuthenticated } = useAuth0();
 
       return {
         login: () => {
           loginWithRedirect();
         },
-        user
+        user,
+        isAuthenticated
       };
     }
   };
