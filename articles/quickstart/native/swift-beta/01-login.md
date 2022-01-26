@@ -59,7 +59,7 @@ Add the [Auth0.swift](https://github.com/auth0/Auth0.swift/tree/beta) SDK into y
 
 ### Swift Package Manager
 
-If you are using SPM, open the following menu item in Xcode:
+Open the following menu item in Xcode:
 
 **File > Add Packages...**
 
@@ -77,7 +77,7 @@ For further reference on SPM, check its [official documentation](https://develop
 
 ### Cocoapods
 
-If you are using [Cocoapods](https://cocoapods.org/), add this line to your `Podfile`:
+Add the following line to your `Podfile`:
 
 ```ruby
 pod 'Auth0', '2.0.0-beta.0'
@@ -91,7 +91,7 @@ For further reference on Cocoapods, check their [official documentation](https:/
 
 ### Carthage
 
-If you are using [Carthage](https://github.com/Carthage/Carthage), add the following line to your `Cartfile`:
+Add the following line to your `Cartfile`:
 
 ```text
 github "auth0/Auth0.swift" "2.0.0-beta.0"
