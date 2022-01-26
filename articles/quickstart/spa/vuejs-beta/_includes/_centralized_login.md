@@ -5,7 +5,7 @@
 You can install the [Auth0 Vue SDK](https://github.com/auth0/auth0-vue) using npm:
 
 ```bash
-npm install @auth0/auth0-vue
+npm install @auth0/auth0-vue@beta
 ```
 
 ## Registering the plugin
