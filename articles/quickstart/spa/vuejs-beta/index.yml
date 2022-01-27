@@ -48,9 +48,9 @@ next_steps:
     - text: Accessing ID Token Claims
       icon: 345
       href: "https://github.com/auth0/auth0-vue#accessing-id-token-claims"
-    - text: Using a router
+    - text: Protect a Route
       icon: 345
-      href: "https://github.com/auth0/auth0-vue#retrieve-an-access-token"
+      href: "https://github.com/auth0/auth0-vue#aprotect-a-route"
     - text: Handling errors
       icon: 345
       href: "https://github.com/auth0/auth0-vue#error-handling"
