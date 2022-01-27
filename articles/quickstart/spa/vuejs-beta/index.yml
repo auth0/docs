@@ -42,9 +42,9 @@ requirements:
 next_steps:
   - path: 01-login
     list:
-    - text: Retrieve an Access Token
+    - text: Calling an API
       icon: 345
-      href: "https://github.com/auth0/auth0-vue#retrieve-an-access-token"
+      href: "https://github.com/auth0/auth0-vue#calling-an-api"
     - text: Accessing ID Token Claims
       icon: 345
       href: "https://github.com/auth0/auth0-vue#accessing-id-token-claims"
