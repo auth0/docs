@@ -353,7 +353,7 @@ This is the OAuth 2.0 grant that highly-trusted apps use to access an API. In th
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
 | `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Application Settings](${manage_url}/#/applications) is `Post` or `Basic`. |
 | `audience` | The unique identifier of the target API you want to access. |
-| `username` <br/><span class="label label-danger">Required</span> | Resource Owner's identifier. |
+| `username` <br/><span class="label label-danger">Required</span> | Resource Owner's identifier, such as a username or email address. |
 | `password` <br/><span class="label label-danger">Required</span> | Resource Owner's secret. |
 | `scope` | String value of the different <dfn data-key="scope">scopes</dfn> the application is asking for. Multiple scopes are separated with whitespace. |
 | `realm` | String value of the realm the user belongs. Set this if you want to add realm support at this grant. For more information on what realms are refer to [Realm Support](/api-auth/grant/password#realm-support). |
