@@ -2292,20 +2292,31 @@ const redirects = [
       '/actions/actions-event-object',
       '/actions/blueprints',
       '/actions/triggers',
+      '/customize/actions/triggers',
     ],
-    to: '/customize/actions/triggers',
+    to: '/customize/actions/flows-and-triggers',
   },
   {
-    from: ['/actions/manage-action-versions', '/actions/manage-versions', '/customize/actions/manage-action-versions'],
+    from: [
+      '/actions/manage-action-versions',
+      '/actions/manage-versions',
+      '/customize/actions/manage-action-versions'
+    ],
     to: '/customize/actions/manage-versions',
   },
   {
-    from: ['/actions/triggers/send-phone-message'],
-    to: '/customize/actions/triggers/send-phone-message',
+    from: [
+      '/actions/triggers/send-phone-message',
+      '/customize/actions/triggers/send-phone-message'
+      ],
+    to: '/customize/actions/flows-and-triggers/send-phone-message-flow',
   },
   {
-    from: ['/actions/triggers/send-phone-message/event-object'],
-    to: '/customize/actions/triggers/send-phone-message/event-object',
+    from: [
+      '/actions/triggers/send-phone-message/event-object',
+      '/customize/actions/triggers/send-phone-message/event-object'
+      ],
+    to: '/customize/actions/flows-and-triggers/send-phone-message-flow/event-object',
   },
   {
     from: ['/actions/programming-model-changes'],
@@ -2316,60 +2327,102 @@ const redirects = [
     to: '/customize/actions/limitations',
   },
   {
-    from: ['/actions/triggers/post-change-password'],
-    to: '/customize/actions/triggers/post-change-password',
+    from: [
+      '/actions/triggers/post-change-password',
+      '/customize/actions/triggers/post-change-password'
+    ],
+    to: '/customize/actions/flows-and-triggers/post-change-password-flow',
   },
   {
-    from: ['/actions/triggers/post-change-password/event-object'],
-    to: '/customize/actions/triggers/post-change-password/event-object',
+    from: [
+      '/actions/triggers/post-change-password/event-object',
+      '/customize/actions/triggers/post-change-password/event-object',
+    ],
+    to: '/customize/actions/flows-and-triggers/post-change-password-flow/event-object',
   },
   {
-    from: ['/actions/triggers/post-user-registration'],
-    to: '/customize/actions/triggers/post-user-registration',
+    from: [
+      '/actions/triggers/post-user-registration',
+      '/customize/actions/triggers/post-user-registration'
+    ],
+    to: '/customize/actions/flows-and-triggers/post-user-registration-flow',
   },
   {
-    from: ['/actions/triggers/post-user-registration/event-object'],
-    to: '/customize/actions/triggers/post-user-registration/event-object',
+    from: [
+      '/actions/triggers/post-user-registration/event-object',
+      '/customize/actions/triggers/post-user-registration/event-object'
+    ],
+    to: '/customize/actions/flows-and-triggers/post-user-registration-flow/event-object',
   },
   {
-    from: ['/actions/triggers/pre-user-registration'],
-    to: '/customize/actions/triggers/pre-user-registration',
+    from: [
+      '/actions/triggers/pre-user-registration',
+      '/customize/actions/triggers/pre-user-registration'
+    ],
+    to: '/customize/actions/flows-and-triggers/pre-user-registration-flow',
   },
   {
-    from: ['/actions/triggers/pre-user-registration/event-object'],
-    to: '/customize/actions/triggers/pre-user-registration/event-object',
+    from: [
+      '/actions/triggers/pre-user-registration/event-object',
+      '/customize/actions/triggers/pre-user-registration/event-object'
+    ],
+    to: '/customize/actions/flows-and-triggers/pre-user-registration-flow/event-object',
   },
   {
-    from: ['/actions/triggers/pre-user-registration/api-object'],
-    to: '/customize/actions/triggers/pre-user-registration/api-object',
+    from: [
+      '/actions/triggers/pre-user-registration/api-object',
+      '/customize/actions/triggers/pre-user-registration/api-object'
+    ],
+    to: '/customize/actions/flows-and-triggers/pre-user-registration-flow/api-object',
   },
   {
-    from: ['/actions/triggers/credentials-exchange'],
-    to: '/customize/actions/triggers/credentials-exchange',
+    from: [
+      '/actions/triggers/credentials-exchange',
+      '/customize/actions/triggers/credentials-exchange'
+    ],
+    to: '/customize/actions/flows-and-triggers/machine-to-machine-flow',
   },
   {
-    from: ['/actions/triggers/credentials-exchange/event-object'],
-    to: '/customize/actions/triggers/credentials-exchange/event-object',
+    from: [
+      '/actions/triggers/credentials-exchange/event-object',
+      '/customize/actions/triggers/credentials-exchange/event-object'
+    ],
+    to: '/customize/actions/flows-and-triggers/machine-to-machine-flow/event-object',
   },
   {
-    from: ['/actions/triggers/credentials-exchange/api-object'],
-    to: '/customize/actions/triggers/credentials-exchange/api-object',
+    from: [
+      '/actions/triggers/credentials-exchange/api-object',
+      '/customize/actions/triggers/credentials-exchange/api-object'
+    ],
+    to: '/customize/actions/flows-and-triggers/machine-to-machine-flow/api-object',
   },
   {
-    from: ['/actions/triggers/post-login'],
-    to: '/customize/actions/triggers/post-login',
+    from: [
+      '/actions/triggers/post-login',
+      '/customize/actions/triggers/post-login'
+    ],
+    to: '/customize/actions/flows-and-triggers/login-flow',
   },
   {
-    from: ['/actions/triggers/post-login/event-object'],
-    to: '/customize/actions/triggers/post-login/event-object',
+    from: [
+      '/actions/triggers/post-login/event-object',
+      '/customize/actions/triggers/post-login/event-object'
+    ],
+    to: '/customize/actions/flows-and-triggers/login-flow/event-object',
   },
   {
-    from: ['/actions/triggers/post-login/api-object'],
-    to: '/customize/actions/triggers/post-login/api-object',
+    from: [
+      '/actions/triggers/post-login/api-object',
+      '/customize/actions/triggers/post-login/api-object'
+    ],
+    to: '/customize/actions/flows-and-triggers/login-flow/api-object',
   },
   {
-    from: ['/actions/triggers/post-login/redirect-with-actions'],
-    to: '/customize/actions/triggers/post-login/redirect-with-actions',
+    from: [
+      '/actions/triggers/post-login/redirect-with-actions',
+      '/customize/actions/triggers/post-login/redirect-with-actions'
+    ],
+    to: '/customize/actions/flows-and-triggers/login-flow/redirect-with-actions',
   },
 
   /* Attack Protection */
