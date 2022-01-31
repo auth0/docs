@@ -13,63 +13,74 @@ github:
 
 # Add Login to your React App
 
-<!-- TODO should we pull from the `description` like current design for opening paragraph?" -->
-Auth0 allows you to quickly add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with any new or existing React application using the Auth0 React SDK. 
+Auth0 allows you to add authentication to almost any application type quickly. This guide demonstrates how to integrate Auth0, add authentication, and display user profile information in any React application using the Auth0 React SDK.
+
+To use this quickstart, you’ll need to:
+- Sign up for a free Auth0 account or log in to Auth0.
+- Have a working React project that you want to integrate with. Alternatively, you can view or download a sample application after logging in.
 
 ## Configure Auth0 {{{ data-action=configure }}}
 
-### Create a new application
+To use Auth0 services, you’ll need to have an application set up in the Auth0 Dashboard. The Auth0 application is where you will configure how you want authentication to work for the project you are developing.
 
-<!-- TODO need to handle logged in/logged out behavior like in _new_app.html include? -->
-Create a new <a href="${manage_url}/applications">application</a> or select an existing application to integrate with. You can also create and manage your applications in the <a href="${manage_url}/#/">Dashboard</a> at Dashboard > Applications > Applications. 
+### Configure an application
 
-If you are logged in configuring your settings in the quickstart will automatically update your settings in the dashboard.
+Use the interactive selector to create a new Auth0 application or select an existing application that represents the project you want to integrate with. Every application in Auth0 is assigned an alphanumeric, unique client ID that your application code will use to call Auth0 APIs through the SDK.
+
+Any settings you configure using this quickstart will automatically update for your Application in the <a href="${manage_url}/#/">Dashboard</a>, which is where you can manage your Applications in the future.
+
+If you would rather explore a complete configuration, you can view a sample application instead.
 
 ### Configure Callback URLs
 
-A callback URL is a URL in your application where Auth0 redirects the user after they have authenticated. If not set, users won't have a place to be redirected to after logging in.
+A callback URL is a URL in your application that you would like Auth0 to redirect users to after they have authenticated. If not set, users will not be returned to your application after they log in.
+
+::: note
+If you are following along with our sample project, set this to http://localhost:3000.
+:::
 
 ### Configure Logout URLs
 
-A logout URL is a URL in your application that Auth0 can return to after the user has been logged out of the authorization server. This is specified in the returnTo query parameter. If this field is not set, users will be unable to log out from the application and will get an error.
+A logout URL is a URL in your application that you would like Auth0 to redirect users to after they have logged out. If not set, users will not be able to log out from your application and will receive an error.
+
+::: note
+If you are following along with our sample project, set this to http://localhost:3000.
+:::
 
 ### Configure Allowed Web Origins
 
-You need to add the URL for your app to the Allowed Web Origins field in your Application Settings. If you don't register your application URL here, the application will be unable to silently refresh the authentication tokens and your users will be logged out the next time they visit the application, or refresh the page. 
+An Allowed Web Origin is a URL that you want to be allowed to access to your authentication flow. This must contain the URL of your project. If not properly set, your project will be unable to silently refresh authentication tokens, so your users will be logged out the next time they visit your application or refresh a page.
 
-<!-- TODO this normally comes in from the _getting_started include (along with other things). Should this be part of app configuration? Any logged in/logged out different behaviors needed? -->
 ::: note
-If you are following along with the sample project you downloaded from the top of this page, you should set the **Allowed Web Origins** to `http://localhost:3000`.
+If you are following along with our sample project, set this to http://localhost:3000.
 :::
 
 ## Install the Auth0 React SDK {{{ data-action=code data-code="index.js#13:22" }}}
 
-In your terminal, run the command within your application directory to install the Auth0 React SDK.
+Auth0 provides a [React SDK](https://github.com/auth0/auth0-react) (auth0-react.js) to simplify the process of implementing Auth0 authentication and authorization in React apps.
 
-<!-- TODO the code block component includes a feedback block. Do we want that? If so, need to differentiate the feedback for this new QS design -->
+Install the Auth0 React SDK by running the following commands in your terminal:
 
 ```bash
+cd <your-project-directory>
 npm install @auth0/auth0-react
 ```
 
 ### Configure the Auth0Provider component
 
-The Auth0Provider component takes the following properties:
+For the SDK to function properly, you must set the following properties in the Auth0Provider component:
 
-- `domain` and `clientId`: The values of these properties correspond to the "Domain" and "Client ID" values present under the "Settings" of the single-page application that you registered with Auth0.
-- `redirectUri`: The URL to where you'd like to redirect your users after they authenticate with Auth0.
-
-:::note
-If you are using a [custom domain with Auth0](https://auth0.com/docs/custom-domains), the value of the domain property is the value of your custom domain instead of the value reflected in the "Settings" tab.
-:::
+- `domain`: The domain of your Auth0 tenant. Generally, you can find this in the Auth0 Dashboard under your Application's Settings in the Domain field. If you are using a [custom domain](https://auth0.com/docs/custom-domains), you should set this to the value of your custom domain instead.
+- `clientId`: The ID of the Auth0 Application you set up earlier in this quickstart. You can find this in the Auth0 Dashboard under your Application's Settings in the Client ID field.
+- `redirectUri`: The URL in your application that you would like Auth0 to redirect users to after they have authenticated. This corresponds to the callback URL you set up earlier in this quickstart. You can also find this value in the Auth0 Dashboard under your Application's Settings in the Callback URLs field. Make sure what you enter in your code matches what you set up earlier or your users will see an error.
 
 ::::checkpoint
 
 :::checkpoint-default
 
-Now that you have configured `Auth0Provider`, run your application to verify that:
-* the SDK is initializing correctly
-* your application is not throwing any errors related to Auth0
+Your Auth0Provider component should now be properly configured. Run your application to verify that:
+- the SDK is initializing correctly
+- your application is not throwing any errors related to Auth0
 
 :::
 
@@ -85,17 +96,17 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 ## Add Login to Your Application {{{ data-action=code data-code="login.js#4:7" }}}
 
-The Auth0 React SDK gives you tools to quickly implement user authentication in your React application. Create a [login](https://auth0.com/docs/login) button using `loginWithRedirect()` to redirect users to the Auth0 Universal Login page. After the user successfully logs in, they are redirected back to your React application's Callback URL.
-
-Create a new file in your application called `login.js`, then copy in the following code sample containing the logic needed for login. Next, update your `index.js` file to include the new login button.
+Now that you have configured your Auth0 Application and the Auth0 React SDK, you need to set up login for your project. To do this, you will use the SDK’s loginWithRedirect() method to create a login button that redirects users to the Auth0 Universal Login page. After a user successfully authenticates, they will be redirected to the callback URL you set up earlier in this quickstart.
 
 <%= include('../../_includes/_auth0-react-classes-info.md') %>
+
+Create a new file in your application called `login.js` for the login button component, and copy in the code from the interactive panel to the right, which contains the logic needed for login. Then, update your `index.js` file to include the new login button.
 
 ::::checkpoint
 
 :::checkpoint-default
 
-You should now be able to log in or sign up using a username and password or social provider.
+You should now be able to log in or sign up using a username and password.
 
 Click the login button and verify that:
 * your React Application redirects you to the Auth0 Universal Login page
@@ -116,9 +127,9 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 ## Add Logout to your Application {{{ data-action=code data-code="logout.js#10:18" }}}
 
-Create a logout button using the `logout()` method from the `useAuth0` hook. Executing `logout()` redirects your users to your [Auth0 logout](https://auth0.com/docs/api/authentication?javascript#logout) endpoint (`https://YOUR_DOMAIN/v2/logout`) and then immediately redirects them to your application.
+Users who log in to your project will also need a way to log out. Create a logout button using the SDK’s logout() method. When users log out, they will be redirected to your [Auth0 logout](https://auth0.com/docs/api/authentication?javascript#logout) endpoint, which will then immediately redirect them to the logout URL you set up earlier in this quickstart.
 
-Create a new `logout.js` file for the logout button component and add the following code to the file. Finally, add the logout button to the main screen of your app.
+Create a new file in your application called `logout.js` for the logout button component, and copy in the code from the interactive panel, which contains the logic needed for logout. Then, update your `index.js` file to include the logout button.
 
 ::::checkpoint
 
@@ -143,9 +154,13 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 ## Show User Profile Information {{{ data-action=code data-code="profile.js#11:26" }}}
 
-The Auth0 React SDK helps you retrieve the [profile information](https://auth0.com/docs/users/concepts/overview-user-profile) associated with logged-in users quickly in whatever component you need, such as their name or profile picture. The profile information is available through the `user` property exposed by the `useAuth0()` hook. This `Profile` component is an example of how to use it.
+Now that your users can log in and log out, you will likely want to be able to retrieve the [profile information](https://auth0.com/docs/users/concepts/overview-user-profile) associated with authenticated users. For example, you may want to be able to display a logged-in user’s name or profile picture in your project.
 
-The `user` property contains sensitive information and artifacts related to the user's identity. As such, its availability depends on the user's authentication status. To prevent any render errors, use the `isAuthenticated` property from `useAuth0()` to check if Auth0 has authenticated the user before React renders any component that consumes the user property. Ensure that the SDK has completed loading before accessing the `isAuthenticated` property, by checking that `isLoading` is `false`.
+The Auth0 React SDK provides user information through the `user` property. Review the `profile.js` code in the interactive panel to see an example of how to use it.
+
+Because the `user` property contains sensitive information related to the user's identity, its availability depends on the user's authentication status. To prevent render errors, you should always:
+- use the `isAuthenticated` property to determine whether Auth0 has authenticated the user before React renders any component that consumes the `user` property.
+- ensure that the SDK has finished loading by checking that `isLoading` is false before accessing the `isAuthenticated` property.
 
 ::::checkpoint
 
