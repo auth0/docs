@@ -116,16 +116,13 @@ Finally, locate the `providers` section, and add Auth0 there as well:
 
 ## Add Middleware
 
-Finally, we need to apply the Auth0 Laravel SDK middleware to protect our routes. Let's define three routes to demonstrate them. Open up your `routes/web.php` file and replace the contents with the following:
+Finally, we need to apply the Auth0 Laravel SDK middleware to protect our routes. Let's define three routes to demonstrate them. Open up your `routes/web.php` file and add the following to that file:
 
 ```php
 // 📂 routes/web.php
+// 👆 Keep anything already present in the file, just add the following ...
 
-declare(strict_types=1);
-
-use Illuminate\Support\Facades\Route;
-
-Route::get('/', function () {
+Route::get('/public', function () {
     if (Auth::check()) {
         return response()->json([
             'authorized' => true,
@@ -147,7 +144,7 @@ Let's add another to that file:
 ```php
 // 👆 Continued from above, in routes/web.php
 
-Route::get('/required', function () {
+Route::get('/private', function () {
     return response()->json([
         'authorized' => true,
         'user' => json_decode(json_encode((array) Auth::user(), JSON_THROW_ON_ERROR), true),
@@ -162,7 +159,7 @@ Finally, let's demonstrate that same middleware with scopes:
 ```php
 // 👆 Continued from above, in routes/web.php
 
-Route::get('/scoped', function () {
+Route::get('/private-scoped', function () {
     return response()->json([
         'authorized' => true,
         'user' => json_decode(json_encode((array) Auth::user(), JSON_THROW_ON_ERROR), true),
@@ -177,7 +174,7 @@ In passing the `read:messages` argument to the same `auth0.authorize` middleware
 You've installed Laravel, the SDK, configured your application, and set up some routes — all that's left is to run your new application!
 
 ```sh
-php artisan serve --port=3000
+php artisan serve --port=3010
 ```
 
 You can now access your application from your web browser by visiting https://127.0.0.1:3000.
