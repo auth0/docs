@@ -11,6 +11,10 @@ contentType: tutorial
 useCase: quickstart
 ---
 
+::: panel New Beta Release Available!
+<span class="badge badge-warning">Beta</span> &nbsp; **[The new Auth0 Laravel SDK is now available in beta.](https://github.com/auth0/laravel-auth0)** Updated to support new PHP language features, new Laravel features, and offer an exciting new API — we think the new SDK elevates the developer experience. We'd love for you to [give the new beta release a try](https://github.com/auth0/laravel-auth0). Be sure to visit our [new webapp quickstart](/quickstart/webapp/laravel-beta) and [backend api](/quickstart/backend/laravel-beta) quickstarts, and drop by the [the Auth0 Community](https://community.auth0.com/) to let us know your thoughts!
+:::
+
 This quickstart covers building an API protected by an Auth0-issued access token. This type of API is typically consumed by:
 
 - Mobile, desktop, and other native applications using the [Native login flow](https://auth0.com/docs/flows/concepts/auth-code-pkce)
@@ -279,7 +283,7 @@ class CheckScope
                         if ($s === $scope)
                             $hasScope = true;
                     }
-                } 
+                }
                 if(!$hasScope) {
                     return response()->json(["message" => "Insufficient scope"], 403);
                 }
