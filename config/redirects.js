@@ -2319,8 +2319,17 @@ const redirects = [
     to: '/customize/actions/flows-and-triggers/send-phone-message-flow/event-object',
   },
   {
-    from: ['/actions/programming-model-changes'],
-    to: '/customize/actions/programming-model-changes',
+    from: [
+      '/actions/programming-model-changes',
+      '/customize/actions/programming-model-changes'
+      ],
+    to: '/customize/actions/migrate/migrate-from-actions-beta-to-final',
+  },
+  {
+    from: [
+      '/customize/actions/migrate-from-rules-to-actions'
+      ],
+    to: '/customize/actions/migrate/migrate-from-rules-to-actions',
   },
   {
     from: ['/actions/limitations'],
