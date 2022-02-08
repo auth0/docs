@@ -8,9 +8,9 @@ You can install the [Auth0 Vue SDK](https://github.com/auth0/auth0-vue) using np
 npm install @auth0/auth0-vue@beta
 ```
 
-## Registering the plugin
+### Register the plugin
 
-In order to use the SDK in your Vue application, you will need to register its plugin with your Vue application by passing the return value of `createAuth0` to `app.use()`.
+To use the SDK in your Vue application, register the plugin with your Vue application by passing the return value of `createAuth0` to `app.use()`.
 
 ```js
 import { createAuth0 } from '@auth0/auth0-vue';
@@ -28,11 +28,11 @@ app.use(
 app.mount('#app');
 ```
 
-Adding the plugin will register our SDK using both `provide` and `app.config.globalProperties`, allowing the SDK to be used with both the Composition API and Options API.
+Adding the plugin will register our SDK using both `provide` and `app.config.globalProperties`, allowing the SDK to be used with both the [Composition API](https://v3.vuejs.org/guide/composition-api-introduction.html) and Options API.
 
-## Log in to the App
+## Add Login to Your Application
 
-In order to add login to your application you can use the `loginWithRedirect` function that is exposed on the return value of `useAuth0`, which you can access in your component's `setup` function.
+To add login to your application, use the `loginWithRedirect` function that is exposed on the return value of `useAuth0`, which you can access in your component's `setup` function.
 
 ```html
 <template>
@@ -60,7 +60,7 @@ In order to add login to your application you can use the `loginWithRedirect` fu
 Calling `loginWithRedirect` will redirect the user to Auth0, and redirect them back to the `redirect_uri` (provided when calling `createAuth0()`) after entering their credentials.
 
 ### Using the Options API
-In case of the Options API, you can use the same `loginWithRedirect` method from the global `$auth0` property through your component's `this`.
+In you are using the Options API, you can use the same `loginWithRedirect` method from the global `$auth0` property through your component's `this`.
 
 ```html
 <template>
@@ -80,7 +80,60 @@ In case of the Options API, you can use the same `loginWithRedirect` method from
 </script>
 ```
 
-## Display the User's Profile
+## Add Logout to Your Application
+Use the `logout` function that is exposed on the return value of `useAuth0`, which you can access in your component's `setup` function, to log the user out of your application.
+
+```html
+<template>
+  <div>
+    <button @click="logout">Log out</button>
+  </div>
+</template>
+<script>
+  import { useAuth0 } from '@auth0/auth0-vue';
+
+  export default {
+    setup() {
+      const { logout } = useAuth0();
+
+      return {
+        logout: () => {
+          logout({ returnTo: window.location.origin });
+        }
+      };
+    }
+  };
+</script>
+```
+
+Calling `logout()` will redirect the user to Auth0 to ensure their session is ended with Auth0 as well. Once the user is logged out successfully, they will be redirected back to the specified `returnTo` parameter.
+
+:::note
+If you only want to log the user out of your application but not from Auth0, you can specifcy `localOnly: true` when calling `logout()`.
+:::
+
+### Using the Options API
+If you're using the Options API, you can use the same `logout` method from the global `$auth0` property through your component's `this`.
+
+```html
+<template>
+  <div>
+    <button @click="logout">Log out</button>
+  </div>
+</template>
+
+<script>
+  export default {
+    methods: {
+      logout() {
+        this.$auth0.logout({ returnTo: window.location.origin });
+      }
+    }
+  };
+</script>
+```
+
+## Show User Profile Information
 
 Once the user authenticates, the SDK extracts the user's profile information and stores it in memory. It can be accessed by using the reactive `user` property exposed by the return value of `useAuth0`, which you can access in your component's `setup` function.
 
@@ -118,7 +171,7 @@ Ensure the user is authenticated by implementing login in your application befor
 :::
 
 ### Using the Options API
-In case of the Options API, you can use the same reactive `user` property from the global `$auth0` property through your component's `this`.
+If you're using the Options API, you can use the same reactive `user` property from the global `$auth0` property through your component's `this`.
 
 ```html
 <template>
@@ -141,59 +194,6 @@ In case of the Options API, you can use the same reactive `user` property from t
     methods: {
       login() {
         this.$auth0.loginWithRedirect();
-      }
-    }
-  };
-</script>
-```
-
-## Logout
-Adding logout to your application can be done by using the `logout` function that is exposed on the return value of `useAuth0`, which you can access in your component's `setup` function.
-
-```html
-<template>
-  <div>
-    <button @click="logout">Log out</button>
-  </div>
-</template>
-<script>
-  import { useAuth0 } from '@auth0/auth0-vue';
-
-  export default {
-    setup() {
-      const { logout } = useAuth0();
-
-      return {
-        logout: () => {
-          logout({ returnTo: window.location.origin });
-        }
-      };
-    }
-  };
-</script>
-```
-
-Calling `logout()` will redirect the user to Auth0 to ensure their session is ended with Auth0 as well. Once the user is logged out succesfuly, they will be redirected back to the specified `returnTo` parameter.
-
-:::note
-If you only want to log the user out of your application but not from Auth0, you can specifcy `localOnly: true` when calling `logout()`.
-:::
-
-### Using the Options API
-In case of the Options API, you can use the same `logout` method from the global `$auth0` property through your component's `this`.
-
-```html
-<template>
-  <div>
-    <button @click="logout">Log out</button>
-  </div>
-</template>
-
-<script>
-  export default {
-    methods: {
-      logout() {
-        this.$auth0.logout({ returnTo: window.location.origin });
       }
     }
   };
