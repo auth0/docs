@@ -9,6 +9,8 @@ topics:
   - login
 github:
   path: 01-Login
+sample_download_required_data:
+  - client
 contentType: tutorial
 useCase: quickstart
 ---
