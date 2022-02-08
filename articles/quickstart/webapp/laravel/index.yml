@@ -20,7 +20,7 @@ show_steps: true
 github:
   org: auth0-samples
   repo: auth0-laravel-php-web-app
-  branch: master
+  branch: main
 sdk:
   name: laravel-auth0
   url: https://github.com/auth0/laravel-auth0
