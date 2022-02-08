@@ -60,6 +60,8 @@ You will need to retrieve the Access Token by using the `getAccessTokenSilently`
 </script>
 ```
 
+### Using the Options API
+
 In you are using the Options API, you can use the same `getAccessTokenSilently` method from the global `$auth0` property through your component's `this`.
 
 ```html
@@ -74,6 +76,7 @@ In you are using the Options API, you can use the same `getAccessTokenSilently` 
 </script>
 ```
 
+## Calling an API
 Once you have an access token, you need to ensure that the token gets added to the `Authorization` header of your request.
 Depending on how you are implementing HTTP calls in your Vue application, the implementation will be slightly different. However, here is an example that uses `fetch` with Vue's Composition API:
 
