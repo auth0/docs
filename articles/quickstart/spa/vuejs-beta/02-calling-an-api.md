@@ -18,6 +18,8 @@ useCase: quickstart
 
 <!-- markdownlint-disable MD002 MD041 -->
 
+<%= include('../_includes/_calling_api_create_api') %>
+
 ## Configuring the plugin
 To call an API, configure the plugin by setting the `audience` to the **API Identifier** of the API you want to call:
 
@@ -40,7 +42,7 @@ app.mount('#app');
 
 ## Retrieving an Access Token
 With the plugin configured using an `audience`, Auth0 will return an Access Token that can be sent to your API.
-You will need to retrieve the Access Token by using the `getAccessTokenSilently` function and set it on the `Authorization` header of your request.
+You can retrieve an Access Token by using the `getAccessTokenSilently` function thats exposed by our SDK.
 
 ```html
 <script>
