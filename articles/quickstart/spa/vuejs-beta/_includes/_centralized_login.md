@@ -28,7 +28,7 @@ app.use(
 app.mount('#app');
 ```
 
-Adding the plugin will register our SDK using both `provide` and `app.config.globalProperties`, allowing the SDK to be used with both the [Composition API](https://v3.vuejs.org/guide/composition-api-introduction.html) and Options API.
+The plugin will register the SDK using both `provide` and `app.config.globalProperties`, allowing the SDK to be used with both the [Composition API](https://v3.vuejs.org/guide/composition-api-introduction.html) and [Options API](https://vuejs.org/guide/introduction.html#options-api).
 
 ## Add Login to Your Application
 
