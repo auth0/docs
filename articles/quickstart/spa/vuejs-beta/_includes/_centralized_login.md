@@ -2,7 +2,7 @@
 
 ## Install the SDK
 
-You can install the [Auth0 Vue SDK](https://github.com/auth0/auth0-vue) using npm:
+Install the [Auth0 Vue SDK](https://github.com/auth0/auth0-vue) using npm:
 
 ```bash
 npm install @auth0/auth0-vue@beta
@@ -57,10 +57,10 @@ To add login to your application, use the `loginWithRedirect` function that is e
 </script>
 ```
 
-Calling `loginWithRedirect` will redirect the user to Auth0, and redirect them back to the `redirect_uri` (provided when calling `createAuth0()`) after entering their credentials.
+The `loginWithRedirect` function will redirect the user to Auth0, and redirect them back to the `redirect_uri` (provided when calling `createAuth0()`) after entering their credentials.
 
 ### Using the Options API
-In you are using the Options API, you can use the same `loginWithRedirect` method from the global `$auth0` property through your component's `this`.
+If you are using the Options API, you can use the same `loginWithRedirect` method from the global `$auth0` property through the `this` accessor.
 
 ```html
 <template>
@@ -106,14 +106,14 @@ Use the `logout` function that is exposed on the return value of `useAuth0`, whi
 </script>
 ```
 
-Calling `logout()` will redirect the user to Auth0 to ensure their session is ended with Auth0 as well. Once the user is logged out successfully, they will be redirected back to the specified `returnTo` parameter.
+The `logout()` function will redirect the user to Auth0 to ensure their session is ended with Auth0 as well. Once the user is logged out successfully, they will be redirected back to the specified `returnTo` parameter.
 
 :::note
-If you only want to log the user out of your application but not from Auth0, you can specifcy `localOnly: true` when calling `logout()`.
+To log the user out of your application but not from Auth0, use `logout({ localOnly: true })`.
 :::
 
 ### Using the Options API
-If you're using the Options API, you can use the same `logout` method from the global `$auth0` property through your component's `this`.
+If you're using the Options API, you can use the same `logout` method from the global `$auth0` property through the `this` accessor.
 
 ```html
 <template>
@@ -171,7 +171,7 @@ Ensure the user is authenticated by implementing login in your application befor
 :::
 
 ### Using the Options API
-If you're using the Options API, you can use the same reactive `user` property from the global `$auth0` property through your component's `this`.
+If you're using the Options API, you can use the same reactive `user` property from the global `$auth0` property through the `this` accessor.
 
 ```html
 <template>

@@ -64,7 +64,7 @@ You can retrieve an Access Token by using the `getAccessTokenSilently` function 
 
 ### Using the Options API
 
-In you are using the Options API, you can use the same `getAccessTokenSilently` method from the global `$auth0` property through your component's `this`.
+If you are using the Options API, you can use the same `getAccessTokenSilently` method from the global `$auth0` property through the `this` accessor.
 
 ```html
 <script>
@@ -79,8 +79,8 @@ In you are using the Options API, you can use the same `getAccessTokenSilently` 
 ```
 
 ## Calling an API
-Once you have an access token, you need to ensure that the token gets added to the `Authorization` header of your request.
-Depending on how you are implementing HTTP calls in your Vue application, the implementation will be slightly different. However, here is an example that uses `fetch` with Vue's Composition API:
+To call an API, include the token in the `Authorization` header of your request.
+There are many ways to make HTTP calls with Vue. Here is an example using the `fetch` API with Vue's Composition API:
 
 ```html
 <script>
