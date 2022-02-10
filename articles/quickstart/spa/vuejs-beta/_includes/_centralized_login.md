@@ -59,7 +59,7 @@ To add login to your application, use the `loginWithRedirect` function that is e
 
 The `loginWithRedirect` function will redirect the user to Auth0, and redirect them back to the `redirect_uri` (provided when calling `createAuth0()`) after entering their credentials.
 
-### Using the Options API
+#### Using the Options API
 If you are using the Options API, you can use the same `loginWithRedirect` method from the global `$auth0` property through the `this` accessor.
 
 ```html
@@ -112,7 +112,7 @@ The `logout()` function will redirect the user to Auth0 to ensure their session 
 To log the user out of your application but not from Auth0, use `logout({ localOnly: true })`.
 :::
 
-### Using the Options API
+#### Using the Options API
 If you're using the Options API, you can use the same `logout` method from the global `$auth0` property through the `this` accessor.
 
 ```html
@@ -170,7 +170,7 @@ Once the user authenticates, the SDK extracts the user's profile information and
 Ensure the user is authenticated by implementing login in your application before accessing the user's profile.
 :::
 
-### Using the Options API
+#### Using the Options API
 If you're using the Options API, you can use the same reactive `user` property from the global `$auth0` property through the `this` accessor.
 
 ```html
