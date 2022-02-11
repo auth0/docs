@@ -53,7 +53,7 @@ next_steps:
       href: "https://github.com/auth0/auth0-vue#accessing-id-token-claims"
     - text: Protect a Route
       icon: 345
-      href: "https://github.com/auth0/auth0-vue#aprotect-a-route"
+      href: "https://github.com/auth0/auth0-vue#protect-a-route"
     - text: Handling errors
       icon: 345
       href: "https://github.com/auth0/auth0-vue#error-handling"
