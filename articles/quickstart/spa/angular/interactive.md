@@ -78,8 +78,6 @@ The SDK exports `AuthModule`, a module that contains all the services required f
 
 We use the [`forRoot()` pattern](https://angular.io/guide/singleton-services#the-forroot-pattern) to configure the module, which takes the properties `domain` and `clientId`; the values of these properties correspond to the "Domain" and "Client ID" values present under the "Settings" of the single-page application that you registered with Auth0.
 
-
-
 <%= include('../_includes/_auth_note_custom_domains') %>
 
 ## Add Login to Your Application {{{ data-action=code data-code="login-button.ts#11:13" }}}
@@ -138,7 +136,6 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 The Auth0 Angular SDK helps you retrieve the [profile information](/users/concepts/overview-user-profile) associated with logged-in users quickly in whatever component you need, such as their name or profile picture, to personalize the user interface. The profile information is available through the `user$` observable exposed by the `AuthService` service.
 
 The `user$` observable contains sensitive information and artifacts related to the user's identity. As such, its availability depends on the user's authentication status. Fortunately, the `user$` observable is configured so that it only starts to emit values once the `isAuthenticated$` observable is true, so there is no need to manually check the authentication state before accessing the user profile data.
-
 
 ::::checkpoint
 
