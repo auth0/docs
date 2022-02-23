@@ -3769,32 +3769,13 @@ const redirects = [
       '/private-cloud/managed-private-cloud/raci',
       '/private-cloud/private-cloud-onboarding',
       '/deploy/private-cloud/private-cloud-onboarding',
-    ],
-    to: '/deploy-monitor/deploy-private-cloud/private-cloud-on-aws/private-cloud-onboarding',
-  },
-  {
-    from: [
-      '/private-cloud/private-cloud-onboarding/customer-hosted-managed-private-cloud-infrastructure-requirements',
-      '/deploy/private-cloud/private-cloud-onboarding/customer-hosted-managed-private-cloud-infrastructure-requirements',
-      '/private-cloud/private-cloud-onboarding/private-cloud-remote-access-options',
-      '/private-cloud/onboarding/managed-private-cloud/remote-access-options',
-      '/private-cloud/private-cloud-onboarding/private-cloud-remote-access-options',
-      '/deploy/private-cloud/private-cloud-onboarding/private-cloud-remote-access-options',
-    ],
-    to: '/deploy-monitor/deploy-private-cloud',
-  },
-  {
-    from: [
+      '/deploy-monitor/deploy-private-cloud/private-cloud-on-aws/private-cloud-onboarding',
       '/private-cloud/private-cloud-onboarding/private-cloud-ip-domain-and-port-list',
       '/private-saas-deployment/onboarding/managed-private-cloud/ip-domain-port-list',
       '/private-cloud/onboarding/managed-private-cloud/ip-domain-port-list',
       '/appliance/infrastructure/ip-domain-port-list',
       '/deploy/private-cloud/private-cloud-onboarding/private-cloud-ip-domain-and-port-list',
-    ],
-    to: '/deploy-monitor/deploy-private-cloud/private-cloud-on-aws/private-cloud-onboarding/private-cloud-ip-domain-and-port-list',
-  },
-  {
-    from: [
+      '/deploy-monitor/deploy-private-cloud/private-cloud-on-aws/private-cloud-onboarding/private-cloud-ip-domain-and-port-list',
       '/private-cloud/private-cloud-onboarding/standard-private-cloud-infrastructure-requirements',
       '/private-saas-deployment/private-cloud',
       '/private-cloud/standard-private-cloud',
@@ -3807,46 +3788,41 @@ const redirects = [
       '/appliance/infrastructure',
       '/appliance/infrastructure/security',
       '/deploy/private-cloud/private-cloud-onboarding/standard-private-cloud-infrastructure-requirements',
-    ],
-    to: '/deploy-monitor/deploy-private-cloud/private-cloud-on-aws/private-cloud-onboarding/standard-private-cloud-infrastructure-requirements',
-  },
-  {
-    from: [
+      '/deploy-monitor/deploy-private-cloud/private-cloud-on-aws/private-cloud-onboarding/standard-private-cloud-infrastructure-requirements',
       '/private-cloud/private-cloud-operations',
       '/services/private-saas-management',
       '/services/private-cloud-management',
       '/deploy/private-cloud/private-cloud-operations',
-    ],
-    to: '/deploy-monitor/deploy-private-cloud/private-cloud-on-aws/private-cloud-operations',
-  },
-  {
-    from: ['/private-cloud/private-cloud-migrations', '/deploy/private-cloud/private-cloud-migrations'],
-    to: '/deploy-monitor/deploy-private-cloud/private-cloud-on-aws/private-cloud-migrations',
-  },
-  {
-    from: [
+      '/deploy-monitor/deploy-private-cloud/private-cloud-on-aws/private-cloud-operations',
+      '/private-cloud/private-cloud-migrations',
+      '/deploy/private-cloud/private-cloud-migrations',
+      '/deploy-monitor/deploy-private-cloud/private-cloud-on-aws/private-cloud-migrations',
       '/private-cloud/private-cloud-migrations/migrate-from-public-cloud-to-private-cloud',
       '/deploy/private-cloud/private-cloud-migrations/migrate-from-public-cloud-to-private-cloud',
-    ],
-    to: '/deploy-monitor/deploy-private-cloud/private-cloud-on-aws/private-cloud-migrations/migrate-from-public-cloud-to-private-cloud',
-  },
-  {
-    from: [
+      '/deploy-monitor/deploy-private-cloud/private-cloud-on-aws/private-cloud-migrations/migrate-from-public-cloud-to-private-cloud',
       '/private-cloud/private-cloud-migrations/migrate-from-standard-private-cloud-to-managed-private-cloud',
       '/deploy/private-cloud/private-cloud-migrations/migrate-from-standard-private-cloud-to-managed-private-cloud',
-    ],
-    to: '/deploy-monitor/deploy-private-cloud/private-cloud-on-aws/private-cloud-migrations/migrate-from-standard-private-cloud-to-managed-private-cloud',
-  },
-  {
-    from: [
+      '/deploy-monitor/deploy-private-cloud/private-cloud-on-aws/private-cloud-migrations/migrate-from-standard-private-cloud-to-managed-private-cloud',
       '/private-cloud/private-cloud-migrations/migrate-private-cloud-custom-domains',
       '/appliance/custom-domains',
       '/private-saas-deployment/custom-domain-migration',
       '/private-cloud/custom-domain-migration',
       '/private-cloud/migrate-private-cloud-custom-domains',
       '/deploy/private-cloud/private-cloud-migrations/migrate-private-cloud-custom-domains',
+      '/deploy-monitor/deploy-private-cloud/private-cloud-on-aws/private-cloud-migrations/migrate-private-cloud-custom-domains',
     ],
-    to: '/deploy-monitor/deploy-private-cloud/private-cloud-on-aws/private-cloud-migrations/migrate-private-cloud-custom-domains',
+    to: '/deploy-monitor/deploy-private-cloud/private-cloud-on-aws',
+  },
+  {
+    from: [
+      '/private-cloud/private-cloud-onboarding/customer-hosted-managed-private-cloud-infrastructure-requirements',
+      '/deploy/private-cloud/private-cloud-onboarding/customer-hosted-managed-private-cloud-infrastructure-requirements',
+      '/private-cloud/private-cloud-onboarding/private-cloud-remote-access-options',
+      '/private-cloud/onboarding/managed-private-cloud/remote-access-options',
+      '/private-cloud/private-cloud-onboarding/private-cloud-remote-access-options',
+      '/deploy/private-cloud/private-cloud-onboarding/private-cloud-remote-access-options',
+    ],
+    to: '/deploy-monitor/deploy-private-cloud',
   },
   {
     from: ['/pre-deployment', '/deploy/pre-deployment'],
