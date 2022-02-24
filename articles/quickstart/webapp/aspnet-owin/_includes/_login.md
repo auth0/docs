@@ -207,6 +207,7 @@ Update the OpenID Connect middleware registration in your `Startup` class as fol
 
 1. Set the `ResponseType` to `OpenIdConnectResponseType.Code`. This will inform the OpenID Connect middleware to extract the Access Token and store it in the `ProtocolMessage`.
 1. Set `RedeemCode` to `true`.
+1. Set the `ClientSecret` to the application's Client Secret, which you can find in your Auth0 dashboard.
 1. Handle the `RedirectToIdentityProvider` to check to an authentication request and add the `audience` parameter.
 1. Handle the `SecurityTokenValidated` to extract the ID Token and Access Token from the `ProtocolMessage` and store them as claims.
 
@@ -217,6 +218,7 @@ public void Configuration(IAppBuilder app)
 {
     // Some code omitted for brevity...
 
+    string auth0ClientSecret = ConfigurationManager.AppSettings["auth0:ClientSecret"];
     string auth0Audience = ConfigurationManager.AppSettings["auth0:Audience"];
 
     // Configure Auth0 authentication
@@ -224,6 +226,7 @@ public void Configuration(IAppBuilder app)
     {
         //...
 
+        ClientSecret = auth0ClientSecret,
         ResponseType = OpenIdConnectResponseType.Code,
         RedeemCode = true,
         //...
@@ -260,11 +263,12 @@ public void Configuration(IAppBuilder app)
 }
 ```
 
-As the above snippet is reading the `Auth0:Audience` from the appSettings, ensure it exists in your web.config and has its value set to the corresponding API Identifier for which you want to be retrieving an Access Token.
+As the above snippet is reading the `Auth0:ClientSecret` and `Auth0:Audience` from the appSettings, ensure they exist in your web.config and has their values set to the corresponding API Identifier for which you want to be retrieving an Access Token as well as the Client Secret for the application whose Client ID has been registered.
 
 ``` xml
 <configuration>
   <appSettings>
+    <add key="auth0:ClientSecret" value="{CLIENT_SECRET}" />
     <add key="auth0:Audience" value="{API_IDENTIFIER}" />
   </appSettings>
 </configuration>
