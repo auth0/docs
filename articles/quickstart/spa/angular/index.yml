@@ -31,6 +31,8 @@ default_article: 01-login
 articles:
   - 01-login
   - 02-calling-an-api
+hidden_articles:
+  - "interactive"
 show_steps: true
 github:
   org: auth0-samples
