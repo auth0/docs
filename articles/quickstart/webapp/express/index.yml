@@ -18,6 +18,8 @@ logo_name: nodejs
 default_article: 01-login
 articles:
   - 01-login
+hidden_articles:
+  - interactive
 github:
   org: auth0-samples
   repo: auth0-express-webapp-sample
