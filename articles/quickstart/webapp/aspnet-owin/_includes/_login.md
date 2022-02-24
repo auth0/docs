@@ -49,7 +49,6 @@ public void Configuration(IAppBuilder app)
     // Configure Auth0 parameters
     string auth0Domain = ConfigurationManager.AppSettings["auth0:Domain"];
     string auth0ClientId = ConfigurationManager.AppSettings["auth0:ClientId"];
-    string auth0ClientSecret = ConfigurationManager.AppSettings["auth0:ClientSecret"];
     string auth0RedirectUri = ConfigurationManager.AppSettings["auth0:RedirectUri"];
     string auth0PostLogoutRedirectUri = ConfigurationManager.AppSettings["auth0:PostLogoutRedirectUri"];
 
@@ -77,13 +76,9 @@ public void Configuration(IAppBuilder app)
         Authority = $"https://{auth0Domain}",
 
         ClientId = auth0ClientId,
-        ClientSecret = auth0ClientSecret,
 
         RedirectUri = auth0RedirectUri,
         PostLogoutRedirectUri = auth0PostLogoutRedirectUri,
-
-        ResponseType = OpenIdConnectResponseType.CodeIdToken,
-        Scope = "openid profile",
 
         TokenValidationParameters = new TokenValidationParameters
         {
@@ -210,7 +205,8 @@ You will also need to configure the OpenID Connect middleware to add the ID Toke
 
 Update the OpenID Connect middleware registration in your `Startup` class as follows:
 
-1. Set the `ResponseType` to `OpenIdConnectResponseType.CodeIdTokenToken`. This will inform the OpenID Connect middleware to extract the Access Token and store it in the `ProtocolMessage`.
+1. Set the `ResponseType` to `OpenIdConnectResponseType.Code`. This will inform the OpenID Connect middleware to extract the Access Token and store it in the `ProtocolMessage`.
+1. Set `RedeemCode` to `true`.
 1. Handle the `RedirectToIdentityProvider` to check to an authentication request and add the `audience` parameter.
 1. Handle the `SecurityTokenValidated` to extract the ID Token and Access Token from the `ProtocolMessage` and store them as claims.
 
@@ -228,8 +224,8 @@ public void Configuration(IAppBuilder app)
     {
         //...
 
-        ResponseType = OpenIdConnectResponseType.CodeIdTokenToken,
-        
+        ResponseType = OpenIdConnectResponseType.Code,
+        RedeemCode = true,
         //...
 
         Notifications = new OpenIdConnectAuthenticationNotifications
