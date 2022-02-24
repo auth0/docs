@@ -53,6 +53,7 @@ The SDK will read these values from the Node.js process environment and automati
 Inside the `pages/api` directory, create the file `auth/[...auth0].js`. Import in that file the `handleAuth` method from the SDK, and export the result of calling it.
 
 ```javascript
+// pages/api/auth/[...auth0].js
 import { handleAuth } from '@auth0/nextjs-auth0';
 
 export default handleAuth();
@@ -68,9 +69,10 @@ This creates the following routes:
 
 ### Add the `UserProvider` component
 
-On the frontend side, the SDK uses React Context to manage the authentication state of your users. To make that state available to all your Pages, you need to override the [App component](https://nextjs.org/docs/advanced-features/custom-app) and wrap its inner component with a `UserProvider`. Create the file `pages/_app.js` as follows:
+On the frontend side, the SDK uses React Context to manage the authentication state of your users. To make that state available to all your pages, you need to override the [App component](https://nextjs.org/docs/advanced-features/custom-app) and wrap its inner component with a `UserProvider`. Create the file `pages/_app.js` as follows:
 
 ```jsx
+// pages/_app.js
 import React from 'react';
 import { UserProvider } from '@auth0/nextjs-auth0';
 
@@ -93,6 +95,10 @@ Now that you have added the dynamic route and `UserProvider`, run your applicati
 
 A user can now log in to your application by visiting the `/api/auth/login` route provided by the SDK. Add a link to your login route using an anchor tag.
 
+:::note
+Next linting rules might suggest using the `Link` component instead of an anchor tag. The `Link` component is meant to perform [client-side transitions between pages](https://nextjs.org/docs/api-reference/next/link). As the link points to an API route and not to a page, you should keep it as an anchor tag.
+:::
+
 ```html
 <a href="/api/auth/login">Login</a>
 ```
@@ -103,7 +109,7 @@ Add the login link to your application. When you click it, verify that your Next
 Once that's complete, verify that Auth0 redirects back to your application.
 :::
 
-![Auth0 Universal Login](https://cdn.auth0.com/blog/universal-login/lightweight-login.png)
+![Auth0 Universal Login](/media/quickstarts/universal-login.png)
 
 <%= include('../_includes/_auth_note_dev_keys') %>
 
@@ -132,7 +138,7 @@ export default function Profile() {
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>{error.message}</div>;
-  
+
   return (
     user && (
       <div>

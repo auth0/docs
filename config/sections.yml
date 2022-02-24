@@ -6,7 +6,7 @@
 
 - id: "articles"
   title: "Articles"
-  url: "/get-started"
+  url: "/articles"
   folder: ""
   default: true
 
@@ -21,7 +21,7 @@
   folder: "api"
 
 - id: "libraries"
-  title: "Libraries"
+  title: "SDKs"
   url: "/libraries"
   folder: "libraries"
 

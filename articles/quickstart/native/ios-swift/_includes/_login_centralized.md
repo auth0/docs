@@ -1,5 +1,9 @@
 <!-- markdownlint-disable MD002 MD041 -->
 
+::: note
+**Auth0.swift 2.0.0 beta is now available**. Check out the updated [Quickstart guide](https://auth0.com/docs/quickstart/native/swift-beta) and its [sample app](https://github.com/auth0-samples/auth0-ios-swift-sample/tree/beta/Sample-01). Learn more about the beta release [here](https://github.com/auth0/Auth0.swift/issues/637).
+:::
+
 ## Before You Start
 
 This tutorial demonstrates how to add user login to a Swift application using Web Authentication with Auth0. Alternatively, check out the [iOS Swift - Sign In With Apple tutorial](/quickstart/native/ios-swift-siwa).
@@ -74,10 +78,10 @@ To learn how to embed the Lock widget in your application, follow the [Embedded 
 
 <%= include('../../_includes/_ios_dependency_centralized') %>
 
-## Add the Callback (iOS < 12 only)
+## Add the Callback (iOS < 11 only)
 
 ::: note
-Skip this step if your app targets iOS 12+ (e.g. if it uses the SwiftUI app lifecycle).
+Skip this step if your app targets iOS 11+ (e.g. if it uses the SwiftUI app lifecycle).
 :::
 
 For Auth0 to handle the authentication callback, update your `AppDelegate` file.

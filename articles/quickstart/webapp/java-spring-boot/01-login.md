@@ -188,7 +188,7 @@ Add the login link to your application. When you click it, verify that your appl
 Once that's complete, verify that Auth0 redirects you to your application and that you are logged in.
 :::
 
-![Auth0 Universal Login](https://cdn.auth0.com/blog/universal-login/lightweight-login.png)
+![Auth0 Universal Login](/media/quickstarts/universal-login.png)
 
 :::note
 Auth0 enables the Google social provider by default on new tenants and offers you developer keys to test logging in with [social identity providers](https://auth0.com/docs/connections/identity-providers-social). However, these developer keys have some limitations that may cause your application to behave differently. For more details on what this behavior may look like and how to fix it, consult the [Test Social Connections with Auth0 Developer Keys](https://auth0.com/docs/connections/social/devkeys#limitations-of-developer-keys) document.
@@ -347,7 +347,7 @@ You can then use this profile information in your view, as shown below.
 
 ```html
 <div sec:authorize="isAuthenticated()">
-    <img th:src="<%= "${profile.get('picture')}" %>" th:attr="<%= "alt=%{profile.get('name')}" %>"/>
+    <img th:src="<%= "${profile.get('picture')}" %>" th:attr="<%= "alt=${profile.get('name')}" %>"/>
     <h2 th:text="<%= "${profile.get('name')}" %>"></h2>
     <p th:text="<%= "${profile.get('email')}" %>"></p>
     <a th:href="@{/logout}">Log Out</a>

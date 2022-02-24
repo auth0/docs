@@ -12,6 +12,7 @@ github:
 contentType: tutorial
 useCase: quickstart
 ---
+
 <!-- markdownlint-disable MD002 MD041 -->
 
 <%= include('../_includes/_getting_started', { library: 'Android' }) %>
@@ -19,7 +20,7 @@ useCase: quickstart
 <%= include('../../../_includes/_callback_url') %>
 
 ::: note
-If you are following along with the sample project you downloaded from the top of this page, you should set the **Allowed Callback URL** to  `demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback`.
+If you are following along with the sample project you downloaded from the top of this page, you should set the **Allowed Callback URL** to `demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback`.
 :::
 
 Replace `YOUR_APP_PACKAGE_NAME` with your application's package name, available as the `applicationId` attribute in the `app/build.gradle` file.
@@ -61,7 +62,11 @@ android {
 Remember to synchronize using the Android Studio prompt or run `./gradlew clean build` from the command line. For more information about Gradle usage, check [their official documentation](http://tools.android.com/tech-docs/new-build-system/user-guide).
 :::
 
-Add manifest placeholders required by the SDK. The placeholders are used internally to define an `intent-filter` that captures the authentication callback URL.
+Add manifest placeholders required by the SDK. The placeholders are used internally to define an `intent-filter` that captures the authentication callback URL. For this, the Auth0 tenant domain and the scheme that take part in the callback URL must be set.
+
+::: note
+We've used a value of `demo` for `auth0Scheme` here, so that a custom URL scheme can be used for the URL that Auth0 redirects to after login. The alternative is `https` if you want to use [Android App Links](https://auth0.com/docs/applications/enable-android-app-links). You can read more about setting this value in the [Auth0.Android SDK readme](https://github.com/auth0/Auth0.Android#a-note-about-app-deep-linking).
+:::
 
 To add the manifest placeholders, add the next line:
 
@@ -88,7 +93,7 @@ android {
 You do not need to declare a specific `intent-filter` for your activity, because you have defined the manifest placeholders with your Auth0 **Domain** and **Scheme** values and the library will handle the redirection for you.
 :::
 
-Finally, ensure that the `android.permissions.INTERNET` permission is specified in the  `AndroidManifest.xml` file:
+Finally, ensure that the `android.permissions.INTERNET` permission is specified in the `AndroidManifest.xml` file:
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET" />
@@ -128,10 +133,10 @@ class MainActivity : AppCompatActivity() {
 ```
 
 :::note
-We suggest you do not hardcode the values for `clientId` and `domain` as you may need to change them in the future. Instead, use [String Resources](https://developer.android.com/guide/topics/resources/string-resource.html), such as `@string/com_auth0_domain`, to define the values. 
+We suggest you do not hardcode the values for `clientId` and `domain` as you may need to change them in the future. Instead, use [String Resources](https://developer.android.com/guide/topics/resources/string-resource.html), such as `@string/com_auth0_domain`, to define the values.
 :::
 
-Finally, create a `loginWithBrowser` method and use the `WebAuthProvider` class to authenticate with any connection you enabled on your application in the [Auth0 dashboard](${manage_url}/#/).
+Finally, create a `loginWithBrowser` method and use the `WebAuthProvider` class to authenticate with any connection you enabled on your application in the [Auth0 dashboard](${manage_url}/#/). Here, you can pass the scheme value that was used in the `auth0Scheme` manifest placeholder as part of the initial configuration:
 
 ```kotlin
 private fun loginWithBrowser() {
@@ -175,9 +180,9 @@ Once that's complete, verify that Auth0 redirects back to your app.
 
 ## Add Logout to your App
 
-Use WebAuthProvider to remove the cookie set by the Browser at authentication time, so that the users are forced to re-enter their credentials the next time they try to authenticate.
+Use `WebAuthProvider` to remove the cookie set by the Browser at authentication time, so that the users are forced to re-enter their credentials the next time they try to authenticate.
 
-Add a `logout` method to your app to remove the user's session and log them out of the app:
+Add a `logout` method to your app to remove the user's session and log them out of the app. Here, you can pass the scheme value that was used in the `auth0Scheme` manifest placeholder as part of the initial configuration:
 
 ```kotlin
 private fun logout() {
@@ -195,7 +200,7 @@ private fun logout() {
 }
 ```
 
-The logout is achieved by using the WebAuthProvider class. This call will open the Browser and navigate the user to the logout endpoint. If the log out is cancelled, you might want to take the user back to where they were before attempting to log out.
+The logout is achieved by using the `WebAuthProvider` class. This call will open the Browser and navigate the user to the logout endpoint. If the log out is cancelled, you might want to take the user back to where they were before attempting to log out.
 
 :::panel Checkpoint
 Add a button to your app that calls `logout` and logs the user out of your application. When you click it, verify that your Android app redirects you logout page and back again, and that you are no longer logged in to your application.
@@ -205,8 +210,8 @@ Add a button to your app that calls `logout` and logs the user out of your appli
 
 Use the `AuthenticationAPIClient` class to [retrieve the user's profile from Auth0](https://auth0.com/docs/users/user-profiles#user-profile-management-api-access). This requires:
 
-* The access token as received during the login phase
-* The `profile` scope to be included when `WebAuthProvider.login` is called
+- The access token as received during the login phase
+- The `profile` scope to be included when `WebAuthProvider.login` is called
 
 The `email` scope must also be specified if the user's email address is to be retrieved.
 

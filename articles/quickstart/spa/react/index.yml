@@ -1,4 +1,7 @@
 title: React
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/react.png
+logo: react
 alias:
   - react
   - reactjs
@@ -10,7 +13,6 @@ author:
   community: false
 framework:
   - React
-image: /media/platforms/react.png
 topics:
   - quickstart
 contentType: tutorial

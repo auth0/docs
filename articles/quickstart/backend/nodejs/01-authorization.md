@@ -21,46 +21,29 @@ useCase: quickstart
 
 ### Install dependencies
 
-This guide shows you how to validate the token using the [express-jwt](https://github.com/auth0/express-jwt) middleware and how to check for appropriate scopes with the [express-jwt-authz](https://github.com/auth0/express-jwt-authz) middleware. 
+This guide shows you how to protect an Express API using the [express-oauth2-jwt-bearer](https://github.com/auth0/node-oauth2-jwt-bearer/tree/main/packages/express-oauth2-jwt-bearer) middleware. 
 
-To get your Auth0 public key and complete the verification process, you can use the [jwks-rsa](https://github.com/auth0/node-jwks-rsa) library with the package. 
-
-Install these libraries with npm.
+First install the SDK using npm.
 
 ```bash
-npm install --save express-jwt jwks-rsa express-jwt-authz
+npm install --save express-oauth2-jwt-bearer
 ```
 ### Configure the middleware
 
-Configure the express-jwt middleware so it uses the remote JWKS for your Auth0 account.
+Configure `express-oauth2-jwt-bearer` with your Domain and API Identifier.
 
 ```js
 // server.js
 
 const express = require('express');
 const app = express();
-const jwt = require('express-jwt');
-const jwtAuthz = require('express-jwt-authz');
-const jwksRsa = require('jwks-rsa');
+const { auth } = require('express-oauth2-jwt-bearer');
 
-// Authorization middleware. When used, the
-// Access Token must exist and be verified against
-// the Auth0 JSON Web Key Set
-const checkJwt = jwt({
-  // Dynamically provide a signing key
-  // based on the kid in the header and 
-  // the signing keys provided by the JWKS endpoint.
-  secret: jwksRsa.expressJwtSecret({
-    cache: true,
-    rateLimit: true,
-    jwksRequestsPerMinute: 5,
-    jwksUri: `https://${account.namespace}/.well-known/jwks.json`
-  }),
-
-  // Validate the audience and the issuer.
+// Authorization middleware. When used, the Access Token must
+// exist and be verified against the Auth0 JSON Web Key Set.
+const checkJwt = auth({
   audience: '${apiIdentifier}',
-  issuer: [`https://${account.namespace}/`],
-  algorithms: ['RS256']
+  issuerBaseURL: `https://${account.namespace}/`,
 });
 ```
 
@@ -70,7 +53,7 @@ The `checkJwt` middleware shown above checks if the user's Access Token included
 
 <%= include('../_includes/_api_endpoints') %>
 
-To protect an individual route that requires a valid JWT, configure the route with the `checkJwt` express-jwt middleware.
+To protect an individual route that requires a valid JWT, configure the route with the `checkJwt` `express-oauth2-jwt-bearer` middleware.
 
 ```js
 // server.js
@@ -90,14 +73,15 @@ app.get('/api/private', checkJwt, function(req, res) {
 });
 ```
 
-You can configure individual routes to look for a particular scope. To achieve that, set up another middleware with the express-jwt-authz package. Provide an array of the required scopes and apply the middleware to any routes you want to add authorization to. 
+You can configure individual routes to look for a particular scope. To achieve that, set up another middleware with the `requiresScope` method. Provide the required scopes and apply the middleware to any routes you want to add authorization to. 
 
-Pass the `checkJwt` and `checkScopes` middlewares to the route you want to protect.
+Pass the `checkJwt` and `requiredScopes` middlewares to the route you want to protect.
 
 ```js
 // server.js
+const { requiredScopes } = require('express-oauth2-jwt-bearer');
 
-const checkScopes = jwtAuthz([ 'read:messages' ]);
+const checkScopes = requiredScopes('read:messages');
 
 app.get('/api/private-scoped', checkJwt, checkScopes, function(req, res) {
   res.json({
@@ -106,4 +90,4 @@ app.get('/api/private-scoped', checkJwt, checkScopes, function(req, res) {
 });
 ```
 
-In this configuration, only the Access Tokens with the `read:messages` scope can access the endpoint.
+In this configuration, only Access Tokens with the `read:messages` scope can access the endpoint.

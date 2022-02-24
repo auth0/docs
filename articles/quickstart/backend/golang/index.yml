@@ -1,4 +1,7 @@
-title: Go
+title: Go API
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/golang.png
+logo: golang
 thirdParty: false
 alias:
   - go
@@ -6,10 +9,9 @@ alias:
 languages:
   - Go
 author:
-  name: Jim Anderson
-  email: jim.anderson@auth0.com
+  name: Sergiu Ghitea
+  email: sergiu.ghitea@auth0.com
   community: false
-image: /media/platforms/golang.png
 topics:
   - quickstart
 contentType: tutorial
@@ -22,12 +24,17 @@ articles:
   - 01-authorization
   - 02-using
   - 03-troubleshooting
+default_article: 01-authorization
 show_steps: true
 github:
   org: auth0-samples
   repo: auth0-golang-api-samples
+sdk:
+  name: go-jwt-middleware
+  url: https://github.com/auth0/go-jwt-middleware
+  logo: golang
 requirements:
-  - Go 1.8.2
+  - Go 1.15+
 next_steps:
   - path: 01-authorization
     list:

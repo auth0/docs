@@ -1,4 +1,7 @@
 title: React Native
+# TODO remove 'image' once new QS page is live. Then only use 'logo'.
+image: /media/platforms/react.png
+logo: react
 alias:
   - reactnative
   - react native
@@ -13,7 +16,6 @@ language:
 framework:
   - React Native
 hybrid: true
-image: /media/platforms/react.png
 topics:
   - quickstart
 contentType: tutorial

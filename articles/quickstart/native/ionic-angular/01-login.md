@@ -115,14 +115,16 @@ This component:
 
 <%= include('../_includes/ionic/_handle_callback_intro') %>
 
-Modify your `App` component and use the `ngOnInit` method to handle the callback from Auth0:
+Modify your `App` component and use the `ngOnInit` method to handle the callback from Auth0.
 
 ```js
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { mergeMap } from 'rxjs/operators';
 import { Browser } from '@capacitor/browser';
 import { App } from '@capacitor/app';
+
+const callbackUri = `<%= "${config.appId}" %>://${account.namespace}/capacitor/<%= "${config.appId}" %>/callback`;
 
 @Component({
   selector: 'app-root',
@@ -131,31 +133,36 @@ import { App } from '@capacitor/app';
 })
 export class AppComponent implements OnInit {
   // Import the AuthService module from the Auth0 Angular SDK
-  constructor(public auth: AuthService) {}
+  constructor(public auth: AuthService, private ngZone: NgZone) {}
 
   ngOnInit(): void {
     // Use Capacitor's App plugin to subscribe to the `appUrlOpen` event
     App.addListener('appUrlOpen', ({ url }) => {
-      if (url?.startsWith(callbackUri)) {
-        // If the URL is an authentication callback URL..
-        if (
-          url.includes('state=') &&
-          (url.includes('error=') || url.includes('code='))
-        ) {
-          // Call handleRedirectCallback and close the browser
-          this.auth
-            .handleRedirectCallback(url)
-            .pipe(mergeMap(() => Browser.close()))
-            .subscribe();
-        } else {
-          Browser.close();
+      // Must run inside an NgZone for Angular to pick up the changes
+      // https://capacitorjs.com/docs/guides/angular
+      ngZone.run(() => {
+        if (url?.startsWith(callbackUri)) {
+          // If the URL is an authentication callback URL..
+          if (
+            url.includes('state=') &&
+            (url.includes('error=') || url.includes('code='))
+          ) {
+            // Call handleRedirectCallback and close the browser
+            this.auth
+              .handleRedirectCallback(url)
+              .pipe(mergeMap(() => Browser.close()))
+              .subscribe();
+          } else {
+            Browser.close();
+          }
         }
-      }
+      });
     });
   }
 }
-
 ```
+
+Note that the `appUrlOpen` event callback is wrapped in `ngZone.run`, which means that the changes to observables that occur when `handleRedirectCallback` runs are picked up by the Angular app. Please read [Using Angular with Capacitor](https://capacitorjs.com/docs/guides/angular) for more details. Otherwise, the screen will not update to show the authenticated state after you log in.
 
 <%= include('../_includes/ionic/_note_custom_schemes') %>
 
