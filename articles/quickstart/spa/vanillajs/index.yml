@@ -31,6 +31,8 @@ alias:
   - javascript-app
 seo_alias: vanillajs
 default_article: 01-login
+hidden_articles:
+  - interactive
 articles:
   - 01-login
   - 02-calling-an-api
@@ -42,20 +44,20 @@ github:
 next_steps:
   - path: 01-login
     list:
-    - text: "Part 2: Calling an API using an access token"
-      icon: 345
-      href: "/quickstart/spa/vanillajs/02-calling-an-api"
+      - text: 'Part 2: Calling an API using an access token'
+        icon: 345
+        href: '/quickstart/spa/vanillajs/02-calling-an-api'
   - path: 02-calling-an-api
     list:
-    - text: Configure other identity providers
-      icon: 345
-      href: "/identityproviders"
-    - text: Enable multifactor authentication
-      icon: 345
-      href: "/multifactor-authentication"
-    - text: Learn about attack protection
-      icon: 345
-      href: "/attack-protection"
-    - text: Learn about rules
-      icon: 345
-      href: "/rules"
+      - text: Configure other identity providers
+        icon: 345
+        href: '/identityproviders'
+      - text: Enable multifactor authentication
+        icon: 345
+        href: '/multifactor-authentication'
+      - text: Learn about attack protection
+        icon: 345
+        href: '/attack-protection'
+      - text: Learn about rules
+        icon: 345
+        href: '/rules'
