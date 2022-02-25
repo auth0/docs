@@ -85,6 +85,8 @@ Sorry about that. Here's a couple things to double check:
 
 - check that the `redirect_uri` option has been configured to your application's URL
 - if you have an `error` query parameter, inspect it to learn the cause of the error
+
+Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
 :::
 ::::
 
@@ -102,6 +104,8 @@ Sorry about that. Here's a couple things to double check:
 
 - verify that the correct logout URL has been added to the "Allowed Logout URLs" configuration box for your Auth0 app
 - inspect the [application logs](https://manage.auth0.com/#/logs) for further errors
+
+Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
 :::
 ::::
 
@@ -124,5 +128,7 @@ Sorry about that. Here's a couple things to double check:
 - ensure that all the previous steps work without issue
 - double-check your code that manages the UI in response to the authentication state
 - inspect the [application logs](https://manage.auth0.com/#/logs) for further errors relating to silent authentication
+
+Still having issues? Check out our [documentation](https://auth0.com/docs) or visit our [community page](https://community.auth0.com) to get more help.
 :::
 ::::
