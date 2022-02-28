@@ -69,7 +69,7 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 
 ## Handle the Callback from Auth0 {{{ data-action=code data-code="app.js#14:19" }}}
 
-To process the result from Auth0 when the browser is redirect back to your application, call the `handleRedirectCallback()` function on the Auth0 client.
+To process the result from Auth0 when the browser is redirected back to your application, call the `handleRedirectCallback()` function on the Auth0 client.
 
 This should be called somewhere on page load when a callback from Auth0 is detected. One way to do this is to only call `handleRedirectCallback()` when there are `code` and `state` query parameters detected.
 
