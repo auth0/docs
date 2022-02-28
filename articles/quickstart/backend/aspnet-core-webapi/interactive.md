@@ -21,6 +21,13 @@ files:
 ---
 
 # Add Authorization to an ASP.NET Core Web API application.
+Auth0 allows you to quickly add authentication and gain access to user profile information in your application. This guide demonstrates how to integrate Auth0 with any new or existing ASP.NET Web API application using the `Microsoft.AspNetCore.Authentication.JwtBearer` package.
+
+If you haven't created an API in your Auth0 dashboard yet, you can use the interactive selector to create a new Auth0 API or select an existing API that represents the project you want to integrate with. 
+
+Alternatively, you can read [our getting started guide](get-started/auth0-overview/set-up-apis) that helps you set up your first API through the Auth0 dashboard.
+
+Every API in Auth0 is configured using an API Identifier that your application code will use as the Audience to validate the access token.
 
 <!-- markdownlint-disable MD041 MD002 -->
 
@@ -75,7 +82,7 @@ If you are calling the API from a Single-Page Application or a Mobile/Native app
 * [Single-Page Applications](/quickstart/spa)
 * [Mobile / Native Application](/quickstart/native)
 
-If you are calling the API from a command-line tool or another service, where there isn't a user entering their credentials, you need to use the [OAuth Client Credentials flow](/api/authentication#client-credentials). To do that, register a [Machine to Machine Application](${manage_url}/#/applications), and then subsequently use the **Client ID** and **Client Secret** of this application when making the request below and pass those along in the `client_id` and `client_secret` parameters respectively. Also include the Audience for the API you want to call, ensure this has the same value as the audience configure the middleware in your ASP.NET Core Web API.
+If you are calling the API from a command-line tool or another service, where there isn't a user entering their credentials, you need to use the [OAuth Client Credentials flow](/api/authentication#client-credentials). To do that, register a [Machine to Machine Application](${manage_url}/#/applications), and then subsequently use the **Client ID** and **Client Secret** of this application when making the request below and pass those along in the `client_id` and `client_secret` parameters respectively. Also include the Audience for the API you want to call, ensure this has the same value as the audience used to configure the middleware in your ASP.NET Core Web API.
 
 :::note
 Read [Application Settings](https://auth0.com/docs/get-started/dashboard/application-settings) for more information on getting the Client ID and Client Secret for your machine-to-machine app.
