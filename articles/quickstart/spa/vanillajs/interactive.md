@@ -15,7 +15,7 @@ Auth0 allows you to add authentication to almost any application type quickly. T
 To use this quickstart, you’ll need to:
 
 - Sign up for a free Auth0 account or log in to Auth0.
-- Have a working React project that you want to integrate with. Alternatively, you can view or download a sample application after logging in.
+- Have a working project that you want to integrate with. Alternatively, you can view or download a sample application after logging in.
 
 :::note
 This quickstart assumes you are adding Auth0 to a plain JavaScript application, as opposed to using a framework such as React or Angular.
@@ -52,7 +52,7 @@ Create a button in your application that calls `loginWithRedirect()` when clicke
 
 ::::checkpoint
 ::: checkpoint-default
-Once a login button and the callback handler have been added, verify that you can click the button and are redirected to Auth0 for authentication, and that you do not receive any errors in the console relating to Auth0.
+Once you have added a login button that calls `loginWithRedirect()`, verify that you can click the button and are redirected to Auth0 for authentication, and that you do not receive any errors in the console relating to Auth0.
 :::
 
 :::checkpoint-failure
