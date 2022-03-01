@@ -1,5 +1,5 @@
 ---
-name: config/routes.rb
+name: routes.rb
 language: ruby
 ---
 

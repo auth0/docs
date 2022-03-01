@@ -1,5 +1,5 @@
 ---
-name: config/initializers/auth0.rb
+name: auth0.rb
 language: ruby
 ---
 

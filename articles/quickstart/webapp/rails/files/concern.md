@@ -1,5 +1,5 @@
 ---
-name: app/controllers/concerns/secured.rb
+name: secured.rb
 language: ruby
 ---
 

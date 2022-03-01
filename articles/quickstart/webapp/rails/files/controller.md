@@ -1,5 +1,5 @@
 ---
-name: app/controllers/auth0_controller.rb
+name: auth0_controller.rb
 language: ruby
 ---
 

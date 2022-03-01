@@ -32,27 +32,29 @@ gem 'omniauth-rails_csrf_protection', '~> 1.0' # prevents forged authentication 
 
 Once your gems are added, install the gems with `bundle install`.
 
-## Configure the SDK {{{ data-action=code data-code="config/auth0.yml" }}}
+## Configure the SDK {{{ data-action=code data-code="auth0.yml" }}}
 
 Create a configuration file `./config/auth0.yml` to specify your Auth0 domain, client ID, and client secret. These values are presented to you when the Auth0 application in the first step of this quickstart was created.
 
-## Configure OmniAuth Middleware {{{ data-action=code data-code="config/initializers/auth0.rb" }}}
+## Configure OmniAuth Middleware {{{ data-action=code data-code="auth0.rb" }}}
 
 Create the following initializer file `./config/initializers/auth0.rb` and [configure](https://github.com/auth0/omniauth-auth0#additional-authentication-parameters) the **OmniAuth** middleware using the configuration file created in the previous step.
 
 Ensure that `callback_path` matches value given in the "Allowed Callback URLs" setting in your Auth0 client application.
 
-## Add an Auth0 Controller {{{ data-action=code data-code="app/controllers/auth0_controller.rb#1:23" }}}
+## Add an Auth0 Controller {{{ data-action=code data-code="auth0_controller.rb" }}}
 
-Create an Auth0 controller for handling the authentication callback.
+Create an Auth0 controller for handling the authentication callback, as well as a `logout` action, and methods for constructing the logout URL.
 
 Run the command: `rails generate controller auth0 callback failure logout --skip-assets --skip-helper --skip-routes --skip-template-engine`. 
 
 Inside the callback method, assign the hash of user information - returned as `request.env['omniauth.auth']` - to the active session.
 
-## Configure Routes {{{ data-action=code data-code="config/routes.rb" }}}
+Logout is achieved by clearing out all the objects stored within the session, by calling the `reset_session` method within the `logout` action, and then redirecting to the Auth0 logout endpoint. [Learn more about reset_session here](http://api.rubyonrails.org/classes/ActionController/Base.html#M000668).
 
-Add the following routes to your `./config/routes.rb` file.
+## Configure Routes {{{ data-action=code data-code="routes.rb" }}}
+
+Add these routes to your `./config/routes.rb` file.
 
 These must be in place so that Rails knows how to route the various Auth0 callback URLs to the Auth0 controller that you created in the previous step.
 
@@ -98,25 +100,17 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 :::
 ::::
 
-## Add Logout to Your Application {{{ data-action=code data-code="app/controllers/auth0_controller.rb#21:40" }}}
+## Add Logout to Your Application
 
-Now that you can log in to your Rails application, you need [a way to log out](https://auth0.com/docs/logout/guides/logout-auth0). Revisit the Auth0 controller you created earlier, and finish up the logout method added there.
+Now that you can log in to your Rails application, you need [a way to log out](https://auth0.com/docs/logout/guides/logout-auth0). A user can be logged out by redirecting them to the `auth/logout` action, which in turn redirects them to the Auth0 logout endpoint.
 
 :::note
-To test this after the previous login step, you will need to clear out your session and then redirect the user to the Auth0 logout endpoint.
+To test this after the previous login step, you may need to clear out your session and then redirect the user to the Auth0 logout endpoint.
 :::
-
-To clear out all the objects stored within the session, call the `reset_session` method within the `auth0_controller/logout` method. [Learn more about reset_session here](http://api.rubyonrails.org/classes/ActionController/Base.html#M000668).
-
-::: note
-The final destination URL (the `returnTo` value) needs to be in the list of `Allowed Logout URLs` . See the [logout documentation](/logout/guides/redirect-users-after-logout) for more.
-:::
-
-Similar to logging in, the user will now be able to logout of your application by visiting the `/auth/logout` endpoint.
 
 ```erb
-  <!-- Place a logout button anywhere on your application -->
-  ${"<%= button_to 'Logout', 'auth/logout', method: :get %>"}
+<!-- Place a logout button anywhere on your application -->
+${"<%= button_to 'Logout', 'auth/logout', method: :get %>"}
 ```
 
 ::::checkpoint
@@ -135,18 +129,17 @@ Still having issues? Check out our [documentation](https://auth0.com/docs) or vi
 :::
 ::::
 
-## Show User Profile Information {{{ data-action=code data-code="app/controllers/concerns/secured.rb" }}}
+## Show User Profile Information {{{ data-action=code data-code="secured.rb" }}}
 
-To display the user's profile, your application should provide a protected route. You can use a controller `concern` to control access to routes. Create the following file `./app/controllers/concerns/secured.rb`
+To display the user's profile, your application should provide a protected route. You can use a [Concern](https://guides.rubyonrails.org/getting_started.html#using-concerns) to control access to routes in a way that can be shared across multiple controllers. The concern should automatically redirect to Auth0 when the user is unauthenticated. Otherwise, the concern should return the current user profile.
 
-After you have created the secured controller concern, include it in any controller that requires a logged in user. You can then access the user from the session `session[:userinfo]`, as in the following example:
+Once you have a Concern, include it in any controller that requires a logged in user. You can then access the user from the session `session[:userinfo]`, as in the following example:
 
 ```ruby
 class DashboardController < ApplicationController
   include Secured
 
   def show
-    # session[:userinfo] was saved earlier on Auth0Controller#callback
     @user = session[:userinfo]
   end
 end
@@ -155,7 +148,6 @@ end
 Now that you have loaded the user from the session, you can use it to display information in your frontend:
 
 ```erb
-<!-- ./app/views/dashboard/show.html.erb -->
 <div>
   <p>Normalized User Profile:${"<%= JSON.pretty_generate(@user[:info])%>"}</p>
   <p>Full User Profile:${"<%= JSON.pretty_generate(@user[:extra][:raw_info])%>"}</p>
