@@ -49,7 +49,6 @@ public void Configuration(IAppBuilder app)
     // Configure Auth0 parameters
     string auth0Domain = ConfigurationManager.AppSettings["auth0:Domain"];
     string auth0ClientId = ConfigurationManager.AppSettings["auth0:ClientId"];
-    string auth0ClientSecret = ConfigurationManager.AppSettings["auth0:ClientSecret"];
     string auth0RedirectUri = ConfigurationManager.AppSettings["auth0:RedirectUri"];
     string auth0PostLogoutRedirectUri = ConfigurationManager.AppSettings["auth0:PostLogoutRedirectUri"];
 
@@ -77,13 +76,9 @@ public void Configuration(IAppBuilder app)
         Authority = $"https://{auth0Domain}",
 
         ClientId = auth0ClientId,
-        ClientSecret = auth0ClientSecret,
 
         RedirectUri = auth0RedirectUri,
         PostLogoutRedirectUri = auth0PostLogoutRedirectUri,
-
-        ResponseType = OpenIdConnectResponseType.CodeIdToken,
-        Scope = "openid profile",
 
         TokenValidationParameters = new TokenValidationParameters
         {
@@ -210,7 +205,9 @@ You will also need to configure the OpenID Connect middleware to add the ID Toke
 
 Update the OpenID Connect middleware registration in your `Startup` class as follows:
 
-1. Set the `ResponseType` to `OpenIdConnectResponseType.CodeIdTokenToken`. This will inform the OpenID Connect middleware to extract the Access Token and store it in the `ProtocolMessage`.
+1. Set the `ResponseType` to `OpenIdConnectResponseType.Code`. This will inform the OpenID Connect middleware to extract the Access Token and store it in the `ProtocolMessage`.
+1. Set `RedeemCode` to `true`.
+1. Set the `ClientSecret` to the application's Client Secret, which you can find in your Auth0 dashboard.
 1. Handle the `RedirectToIdentityProvider` to check to an authentication request and add the `audience` parameter.
 1. Handle the `SecurityTokenValidated` to extract the ID Token and Access Token from the `ProtocolMessage` and store them as claims.
 
@@ -221,6 +218,7 @@ public void Configuration(IAppBuilder app)
 {
     // Some code omitted for brevity...
 
+    string auth0ClientSecret = ConfigurationManager.AppSettings["auth0:ClientSecret"];
     string auth0Audience = ConfigurationManager.AppSettings["auth0:Audience"];
 
     // Configure Auth0 authentication
@@ -228,8 +226,9 @@ public void Configuration(IAppBuilder app)
     {
         //...
 
-        ResponseType = OpenIdConnectResponseType.CodeIdTokenToken,
-        
+        ClientSecret = auth0ClientSecret,
+        ResponseType = OpenIdConnectResponseType.Code,
+        RedeemCode = true,
         //...
 
         Notifications = new OpenIdConnectAuthenticationNotifications
@@ -264,11 +263,12 @@ public void Configuration(IAppBuilder app)
 }
 ```
 
-As the above snippet is reading the `Auth0:Audience` from the appSettings, ensure it exists in your web.config and has its value set to the corresponding API Identifier for which you want to be retrieving an Access Token.
+As the above snippet is reading the `Auth0:ClientSecret` and `Auth0:Audience` from the appSettings, ensure they exist in your web.config and has their values set to the corresponding API Identifier for which you want to be retrieving an Access Token as well as the Client Secret for the application whose Client ID has been registered.
 
 ``` xml
 <configuration>
   <appSettings>
+    <add key="auth0:ClientSecret" value="{CLIENT_SECRET}" />
     <add key="auth0:Audience" value="{API_IDENTIFIER}" />
   </appSettings>
 </configuration>
