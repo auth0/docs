@@ -6672,8 +6672,9 @@ const redirects = [
       '/services/discover-and-design',
       '/services/maintain-and-improve',
       '/professional-services',
+      '/troubleshoot/professional-services',
     ],
-    to: '/troubleshoot/professional-services',
+    to: '/get-started/professional-services',
   },
   {
     from: [
@@ -6682,8 +6683,9 @@ const redirects = [
       '/professional-services/solution-design-services',
       '/services/solution-design',
       '/professional-services/discover-design',
+      '/troubleshoot/professional-services/discover-design',
     ],
-    to: '/troubleshoot/professional-services/discover-design',
+    to: '/get-started/professional-services/discover-design',
   },
   {
     from: [
@@ -6691,8 +6693,9 @@ const redirects = [
       '/services/custom-implementation',
       '/services/implement',
       '/professional-services/implement',
+      '/troubleshoot/professional-services/implement',
     ],
-    to: '/troubleshoot/professional-services/implement',
+    to: '/get-started/professional-services/implement',
   },
   {
     from: [
@@ -6703,12 +6706,17 @@ const redirects = [
       '/services/code-review',
       '/services/pair-programming',
       '/professional-services/maintain-improve',
+      '/troubleshoot/professional-services/maintain-improve',
     ],
-    to: '/troubleshoot/professional-services/maintain-improve',
+    to: '/get-started/professional-services/maintain-improve',
   },
   {
-    from: ['/services/packages', '/professional-services/packages'],
-    to: '/troubleshoot/professional-services/packages',
+    from: [
+      '/services/packages',
+      '/professional-services/packages',
+      '/troubleshoot/professional-services/packages',
+    ],
+    to: '/get-started/professional-services/packages',
   },
 
   /* Rules */
