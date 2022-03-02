@@ -6102,8 +6102,9 @@ const redirects = [
       '/mfa/send-phone-message-hook-amazon-sns',
       '/mfa/configure-amazon-sns-as-mfa-sms-provider',
       '/login/mfa/mfa-factors/configure-amazon-sns-as-mfa-sms-provider',
+      '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-amazon-sns-as-mfa-sms-provider',
     ],
-    to: '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-amazon-sns-as-mfa-sms-provider',
+    to: '/customize/hooks/extensibility-points/send-phone-message/configure-amazon-sns-as-mfa-sms-provider',
   },
   {
     from: [
@@ -6111,8 +6112,9 @@ const redirects = [
       '/mfa/send-phone-message-hook-esendex',
       '/mfa/configure-esendex-as-mfa-sms-provider',
       '/login/mfa/mfa-factors/configure-esendex-as-mfa-sms-provider',
+      '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-esendex-as-mfa-sms-provider',
     ],
-    to: '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-esendex-as-mfa-sms-provider',
+    to: '/customize/hooks/extensibility-points/send-phone-message/configure-esendex-as-mfa-sms-provider',
   },
   {
     from: [
@@ -6120,8 +6122,9 @@ const redirects = [
       '/mfa/send-phone-message-hook-infobip',
       '/mfa/configure-infobip-as-mfa-sms-provider',
       '/login/mfa/mfa-factors/configure-infobip-as-mfa-sms-provider',
+      '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-infobip-as-mfa-sms-provider',
     ],
-    to: '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-infobip-as-mfa-sms-provider',
+    to: '/customize/hooks/extensibility-points/send-phone-message/configure-infobip-as-mfa-sms-provider',
   },
   {
     from: [
@@ -6129,8 +6132,9 @@ const redirects = [
       '/mfa/send-phone-message-hook-mitto',
       '/mfa/configure-mitto-as-mfa-sms-provider',
       '/login/mfa/mfa-factors/configure-mitto-as-mfa-sms-provider',
+      '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-mitto-as-mfa-sms-provider',
     ],
-    to: '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-mitto-as-mfa-sms-provider',
+    to: '/customize/hooks/extensibility-points/send-phone-message/configure-mitto-as-mfa-sms-provider',
   },
   {
     from: [
@@ -6138,8 +6142,9 @@ const redirects = [
       '/mfa/send-phone-message-hook-telesign',
       '/mfa/configure-telesign-as-mfa-sms-provider',
       '/login/mfa/mfa-factors/configure-telesign-as-mfa-sms-provider',
+      '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-telesign-as-mfa-sms-provider',
     ],
-    to: '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-telesign-as-mfa-sms-provider',
+    to: '/customize/hooks/extensibility-points/send-phone-message/configure-telesign-as-mfa-sms-provider',
   },
   {
     from: [
@@ -6147,8 +6152,9 @@ const redirects = [
       '/mfa/send-phone-message-hook-twilio',
       '/mfa/configure-twilio-as-mfa-sms-provider',
       '/login/mfa/mfa-factors/configure-twilio-as-mfa-sms-provider',
+      '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-twilio-as-mfa-sms-provider',
     ],
-    to: '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-twilio-as-mfa-sms-provider',
+    to: '/customize/hooks/extensibility-points/send-phone-message/configure-twilio-as-mfa-sms-provider',
   },
   {
     from: [
@@ -6156,8 +6162,9 @@ const redirects = [
       '/mfa/send-phone-message-hook-vonage',
       '/mfa/configure-vonage-as-mfa-sms-provider',
       '/login/mfa/mfa-factors/configure-vonage-as-mfa-sms-provider',
+      '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-vonage-as-mfa-sms-provider',
     ],
-    to: '/secure/multi-factor-authentication/multi-factor-authentication-factors/configure-vonage-as-mfa-sms-provider',
+    to: '/customize/hooks/extensibility-points/send-phone-message/configure-vonage-as-mfa-sms-provider',
   },
   {
     from: [
