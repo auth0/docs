@@ -110,7 +110,7 @@ public class AccountController : Controller
 
 ## Display User Profile
 
-The SDK extracts the user's information from the ID Token and adds it as claims to the `ClaimsIdentity`.
+The SDK extracts the user's information from the ID Token and makes them available as the `User.Claims` property on the controller.
 
 You can create a custom user profile page for displaying a user's name, email address, and profile image, by passing the corresponding information to the view from inside your controller.
 
