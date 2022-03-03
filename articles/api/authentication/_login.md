@@ -133,7 +133,7 @@ GET https://${account.namespace}/authorize?
   "link": "#database-ad-ldap-passive-"
 }) %>
 
-Use this endpoint for browser based (passive) authentication. It returns a `302` redirect to the [Auth0 Login Page](https://${account.namespace}/login) that will show the Login Widget where the user can login with email and password.
+Use this endpoint for browser based (passive) authentication. It returns a `302` redirect to the [Auth0 Login Page](https://${account.namespace}/login) that will show the Login Widget where the user can log in with email and password.
 
 ### Request Parameters
 
